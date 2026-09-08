@@ -251,7 +251,7 @@ $k_1 \\vec{u} + k_2 \\vec{v} + k_3 \\vec{w} = \\vec{0} \\implies k_1 = k_2 = k_3
                     questionEn: 'Find the measure of the angle $\\theta$ between the straight line $\\vec{r} = (2, -1, 3) + t(1, 0, 1)$ and the plane $y + z - 5 = 0$.',
                     questionAr: 'أوجد قياس الزاوية $\\theta$ بين الخط المستقيم $\\vec{r} = (2, -1, 3) + t(1, 0, 1)$ والمستوى $y + z - 5 = 0$.',
                     optionsEn: ['30^\\circ', '45^\\circ', '60^\\circ', '90^\\circ'],
-                    optionsAr: ['٣٠^\\circ', '٤٥^\\circ', '٦٠^\\circ', '٩٠^\\circ'],
+                    optionsAr: ['30^\\circ', '45^\\circ', '60^\\circ', '90^\\circ'],
                     correctAnswer: '30^\\circ',
                     correctIndex: 0,
                     hintEn: 'Remember that the angle between a line and a plane uses sin(theta) = |d . n| / (||d|| * ||n||).',

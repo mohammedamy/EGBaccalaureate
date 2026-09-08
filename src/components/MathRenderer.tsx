@@ -69,12 +69,21 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     return true;
   }
 
-  // 3. If it contains any Arabic letters, it's Arabic prose/text with possible embedded math
-  if (/[\u0600-\u06FF]/.test(s)) {
+  // 3. If it contains any LaTeX commands (e.g. \circ, \frac, \sqrt, \vec, \binom, \pm, \theta, etc.)
+  if (/\\[a-zA-Z]+/.test(s)) {
+    // Check if it is a full prose sentence with an accidental backslash
+    const arabicWords = s.replace(/\\text\{[^}]*\}/g, '').match(/[\u0621-\u064A\u0671-\u06D3]{3,}/g);
+    if (!arabicWords || arabicWords.length <= 1) {
+      return true;
+    }
+  }
+
+  // 4. If it contains Arabic letters (excluding numerals ٠-٩), it's Arabic prose/text with possible embedded math
+  if (/[\u0621-\u064A\u0671-\u06D3]/.test(s)) {
     return false;
   }
 
-  // 4. Count regular English prose words (words of 3+ letters not in LaTeX commands or standard math functions)
+  // 5. Count regular English prose words (words of 3+ letters not in LaTeX commands or standard math functions)
   const cleaned = s
     .replace(/\\text\{[^}]*\}/g, '')
     .replace(/\\[a-zA-Z]+/g, '')
@@ -85,13 +94,8 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     return false;
   }
 
-  // 5. If it contains LaTeX commands (e.g. \frac, \vec, \sqrt, \binom, \sum, etc.)
-  if (/\\[a-zA-Z]+/.test(s)) {
-    return true;
-  }
-
-  // 6. Mathematical equations and notation (e.g. Ax + By + Cz + D = 0, (1, 0, 0), x = 5, 14)
-  if (/[=+\-*/^_{}()|]/.test(s) || /^\d+$/.test(s)) {
+  // 6. Mathematical equations, operations, coordinates, or numbers (including Arabic-Indic numerals)
+  if (/[=+\-*/^_{}()|]/.test(s) || /^[\d٠-٩]+$/.test(s)) {
     return true;
   }
 
