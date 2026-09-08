@@ -1,6 +1,8 @@
 import type { Branch } from '../types/curriculum';
 import { dynCh1SolvedExamples, dynCh1Exercises } from './textbook/thanaweya/dynCh1Textbook';
 import { dynCh1Databank } from './databanks/thanaweya/dynCh1Databank';
+import { dynCh2SolvedExamples, dynCh2Exercises } from './textbook/thanaweya/dynCh2Textbook';
+import { dynCh2Databank } from './databanks/thanaweya/dynCh2Databank';
 
 export const thanaweyaDynamicsBranch: Branch = {
   id: 'dynamics',
@@ -1237,7 +1239,10 @@ When a person of mass $m$ stands on a scale inside an elevator:
             descriptionAr: 'محاكي تفاعلي لعرض الوزن الظاهري في المصاعد وحساب قوى الشد وحركة الأجسام بعد قطع الخيط.'
           }
         }
-      ]
+      ],
+      solvedExamples: dynCh2SolvedExamples,
+      exerciseProblems: dynCh2Exercises,
+      databank: dynCh2Databank
     }
   ]
 };
