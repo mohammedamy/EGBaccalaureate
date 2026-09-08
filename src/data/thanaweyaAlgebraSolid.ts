@@ -3,6 +3,8 @@ import { algCh1SolvedExamples, algCh1Exercises } from './textbook/thanaweya/algC
 import { algCh1Databank } from './databanks/thanaweya/algCh1Databank';
 import { algCh2SolvedExamples, algCh2Exercises } from './textbook/thanaweya/algCh2Textbook';
 import { algCh2Databank } from './databanks/thanaweya/algCh2Databank';
+import { solidCh1SolvedExamples, solidCh1Exercises } from './textbook/thanaweya/solidCh1Textbook';
+import { solidCh1Databank } from './databanks/thanaweya/solidCh1Databank';
 
 export const thanaweyaAlgebraSolidBranch: Branch = {
   id: 'algebra_solid',
@@ -1501,7 +1503,10 @@ Points in space are located by coordinates $(x, y, z)$.
                 descriptionAr: 'شاشة ثلاثية الأبعاد تفاعلية لتحريك المتجهات والكرة وحساب الضرب القياسي والاتجاهي لحظياً.'
               }
             }
-          ]
+          ],
+          solvedExamples: solidCh1SolvedExamples,
+          exerciseProblems: solidCh1Exercises,
+          databank: solidCh1Databank
         },
         {
           id: 'solid_ch2',
