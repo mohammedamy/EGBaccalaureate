@@ -1,6 +1,8 @@
 import type { Branch } from '../types/curriculum';
 import { calcCh1SolvedExamples, calcCh1Exercises } from './textbook/thanaweya/calcCh1Textbook';
 import { calcCh1Databank } from './databanks/thanaweya/calcCh1Databank';
+import { calcCh2SolvedExamples, calcCh2Exercises } from './textbook/thanaweya/calcCh2Textbook';
+import { calcCh2Databank } from './databanks/thanaweya/calcCh2Databank';
 
 export const thanaweyaCalculusBranch: Branch = {
   id: 'calculus',
@@ -861,7 +863,10 @@ $$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C = \\log_e |f(x)| + C$$
             descriptionAr: 'أداة تفاعلية توضح المساحة تحت منحنى ١/س وإنتاج دالة اللوغاريتم الطبيعي.'
           }
         }
-      ]
+      ],
+      solvedExamples: calcCh2SolvedExamples,
+      exerciseProblems: calcCh2Exercises,
+      databank: calcCh2Databank
     }
   ]
 };
