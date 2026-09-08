@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Language } from '../i18n/translations';
 import type { DiagramType } from '../types/curriculum';
+import { MathRenderer } from './MathRenderer';
 
 interface Props {
   type?: DiagramType;
@@ -11,267 +12,264 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
   if (!type) return null;
   const isAr = lang === 'ar';
 
+  // Common SVG styling tokens
+  const nonScaling = { vectorEffect: 'non-scaling-stroke' } as React.SVGAttributes<SVGElement>;
+
   return (
-    <div className="my-4 p-3 bg-slate-50 dark:bg-slate-900/80 border-2 border-slate-200 dark:border-slate-800 rounded-xl max-w-md mx-auto shadow-inner textbook-diagram-card print-avoid-break">
-      <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2 text-center flex items-center justify-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block no-print" />
-        <span>{isAr ? 'الشكل المقابل' : 'Figure Shown'}</span>
+    <div className="my-5 p-4 sm:p-5 bg-slate-900/70 dark:bg-slate-900/80 border-2 border-slate-700/60 dark:border-slate-800 rounded-2xl w-full max-w-xl mx-auto shadow-md textbook-diagram-card print-avoid-break">
+      {/* Figure Title Header */}
+      <div className="text-xs font-bold text-slate-400 dark:text-slate-400 mb-3 text-center flex items-center justify-center gap-2 border-b border-slate-800 pb-2">
+        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block shadow-sm no-print" />
+        <span className="tracking-wide uppercase text-[11px] font-extrabold text-slate-300 dark:text-slate-300">
+          {isAr ? 'الشكل التوضيحي المعتمد من كتاب الوزارة' : 'Official Ministry Textbook Figure'}
+        </span>
       </div>
 
-      <div className="flex justify-center items-center">
+      {/* SVG Canvas Area */}
+      <div className="flex justify-center items-center overflow-x-auto py-1">
         {/* 1. Statics Horizontal Friction (P inclined) */}
         {type === 'statics_horizontal_friction' && (
-          <svg viewBox="0 0 360 200" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 220" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <pattern id="groundHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
+              <pattern id="gHatch1" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" className="text-slate-600 dark:text-slate-600" strokeWidth="1.5" />
               </pattern>
-              <marker id="arrowP" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="arrInd1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-500 dark:fill-indigo-400" />
               </marker>
-              <marker id="arrowR" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-emerald-600 dark:fill-emerald-400" />
+              <marker id="arrEmd1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-500 dark:fill-emerald-400" />
               </marker>
-              <marker id="arrowW" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-amber-600 dark:fill-amber-400" />
+              <marker id="arrAmb1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-amber-500 dark:fill-amber-400" />
               </marker>
-              <marker id="arrowFs" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-orange-600 dark:fill-orange-400" />
+              <marker id="arrOrg1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-rose-500 dark:fill-rose-400" />
               </marker>
             </defs>
 
-            <line x1="30" y1="130" x2="330" y2="130" stroke="currentColor" className="text-slate-800 dark:text-slate-200" strokeWidth="2.5" />
-            <rect x="30" y="130" width="300" height="15" fill="url(#groundHatch)" />
+            {/* Rough Horizontal Surface */}
+            <line x1="20" y1="150" x2="420" y2="150" stroke="currentColor" className="text-slate-400 dark:text-slate-400" strokeWidth="2.5" {...nonScaling} />
+            <rect x="20" y="150" width="400" height="16" fill="url(#gHatch1)" />
 
-            <rect x="130" y="80" width="70" height="50" rx="4" className="fill-white dark:fill-slate-800 stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
-            <circle cx="165" cy="105" r="3.5" className="fill-slate-900 dark:fill-slate-100" />
+            {/* Block */}
+            <rect x="165" y="90" width="90" height="60" rx="6" className="fill-slate-800 dark:fill-slate-800 stroke-slate-400 dark:stroke-slate-300" strokeWidth="2" {...nonScaling} />
+            <circle cx="210" cy="120" r="4" className="fill-white" />
 
-            <line x1="165" y1="105" x2="165" y2="175" stroke="currentColor" className="text-amber-600 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#arrowW)" />
-            <text x="175" y="172" className="text-xs font-black fill-amber-700 dark:fill-amber-300">
-              {isAr ? 'و = ٣٠ ن' : 'W = 30 N'}
-            </text>
+            {/* Weight W */}
+            <line x1="210" y1="120" x2="210" y2="205" stroke="currentColor" className="text-amber-500 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#arrAmb1)" {...nonScaling} />
+            <text x="220" y="200" className="text-xs font-bold fill-amber-400 dark:fill-amber-300">W</text>
 
-            <line x1="165" y1="105" x2="165" y2="35" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#arrowR)" />
-            <text x="175" y="40" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">
-              {isAr ? 'ر' : 'R'}
-            </text>
+            {/* Normal Reaction R */}
+            <line x1="210" y1="120" x2="210" y2="35" stroke="currentColor" className="text-emerald-500 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#arrEmd1)" {...nonScaling} />
+            <text x="220" y="42" className="text-xs font-bold fill-emerald-400 dark:fill-emerald-300">R</text>
 
-            <line x1="165" y1="105" x2="275" y2="42" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#arrowP)" />
-            <text x="280" y="42" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">
-              {isAr ? 'ق = ١٥ ن' : 'P = 15 N'}
-            </text>
+            {/* Inclined Pull Force P (30 deg) */}
+            <line x1="210" y1="120" x2="340" y2="45" stroke="currentColor" className="text-indigo-400 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#arrInd1)" {...nonScaling} />
+            <text x="345" y="45" className="text-xs font-bold fill-indigo-300 dark:fill-indigo-300">P</text>
 
-            <line x1="165" y1="105" x2="245" y2="105" stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth="1.5" strokeDasharray="3,3" />
-            <path d="M 205 105 A 40 40 0 0 0 200 85" fill="none" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="1.5" />
-            <text x="212" y="98" className="text-[11px] font-black fill-indigo-800 dark:fill-indigo-300">
-              {isAr ? '٣٠°' : '30°'}
-            </text>
+            {/* Angle 30 Arc */}
+            <line x1="210" y1="120" x2="310" y2="120" stroke="currentColor" className="text-slate-500" strokeWidth="1.5" strokeDasharray="4,4" {...nonScaling} />
+            <path d="M 260 120 A 50 50 0 0 0 255 94" fill="none" stroke="currentColor" className="text-indigo-400" strokeWidth="1.75" {...nonScaling} />
+            <text x="270" y="112" className="text-[11px] font-bold fill-indigo-300">30°</text>
 
-            <line x1="130" y1="130" x2="60" y2="130" stroke="currentColor" className="text-orange-600 dark:text-orange-400" strokeWidth="2.5" markerEnd="url(#arrowFs)" />
-            <text x="50" y="122" className="text-xs font-black fill-orange-700 dark:fill-orange-300">
-              {isAr ? 'ح_س' : 'Fs'}
-            </text>
+            {/* Friction Force Fs */}
+            <line x1="165" y1="150" x2="70" y2="150" stroke="currentColor" className="text-rose-400 dark:text-rose-400" strokeWidth="2.5" markerEnd="url(#arrOrg1)" {...nonScaling} />
+            <text x="50" y="145" className="text-xs font-bold fill-rose-300 dark:fill-rose-300">Fs</text>
           </svg>
         )}
 
-        {/* 2. Statics Horizontal Simple Friction (Horizontal Force P) */}
+        {/* 2. Statics Horizontal Simple Friction */}
         {type === 'statics_horizontal_simple_friction' && (
-          <svg viewBox="0 0 360 200" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 220" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <pattern id="ghatch2" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
+              <pattern id="gHatch2" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" className="text-slate-600 dark:text-slate-600" strokeWidth="1.5" />
               </pattern>
-              <marker id="arP2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="arrInd2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-500 dark:fill-indigo-400" />
               </marker>
-              <marker id="arR2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-emerald-600 dark:fill-emerald-400" />
+              <marker id="arrEmd2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-500 dark:fill-emerald-400" />
               </marker>
-              <marker id="arW2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-amber-600 dark:fill-amber-400" />
+              <marker id="arrAmb2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-amber-500 dark:fill-amber-400" />
               </marker>
-              <marker id="arF2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-orange-600 dark:fill-orange-400" />
+              <marker id="arrOrg2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-rose-500 dark:fill-rose-400" />
               </marker>
             </defs>
 
-            <line x1="30" y1="130" x2="330" y2="130" stroke="currentColor" className="text-slate-800 dark:text-slate-200" strokeWidth="2.5" />
-            <rect x="30" y="130" width="300" height="15" fill="url(#ghatch2)" />
+            <line x1="20" y1="150" x2="420" y2="150" stroke="currentColor" className="text-slate-400 dark:text-slate-400" strokeWidth="2.5" {...nonScaling} />
+            <rect x="20" y="150" width="400" height="16" fill="url(#gHatch2)" />
 
-            <rect x="135" y="80" width="70" height="50" rx="4" className="fill-white dark:fill-slate-800 stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
-            <circle cx="170" cy="105" r="3.5" className="fill-slate-900 dark:fill-slate-100" />
+            <rect x="175" y="90" width="90" height="60" rx="6" className="fill-slate-800 dark:fill-slate-800 stroke-slate-400 dark:stroke-slate-300" strokeWidth="2" {...nonScaling} />
+            <circle cx="220" cy="120" r="4" className="fill-white" />
 
-            <line x1="170" y1="105" x2="170" y2="175" stroke="currentColor" className="text-amber-600 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#arW2)" />
-            <text x="178" y="172" className="text-xs font-black fill-amber-700 dark:fill-amber-300">
-              {isAr ? 'و = ٤٠ ن' : 'W = 40 N'}
-            </text>
+            {/* Weight W */}
+            <line x1="220" y1="120" x2="220" y2="205" stroke="currentColor" className="text-amber-500 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#arrAmb2)" {...nonScaling} />
+            <text x="230" y="200" className="text-xs font-bold fill-amber-400 dark:fill-amber-300">W</text>
 
-            <line x1="170" y1="105" x2="170" y2="35" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#arR2)" />
-            <text x="178" y="40" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">
-              {isAr ? 'ر' : 'R'}
-            </text>
+            {/* Normal Reaction R */}
+            <line x1="220" y1="120" x2="220" y2="35" stroke="currentColor" className="text-emerald-500 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#arrEmd2)" {...nonScaling} />
+            <text x="230" y="42" className="text-xs font-bold fill-emerald-400 dark:fill-emerald-300">R</text>
 
             {/* Horizontal Force P */}
-            <line x1="205" y1="105" x2="285" y2="105" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#arP2)" />
-            <text x="290" y="110" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">
-              {isAr ? 'ق' : 'P'}
-            </text>
+            <line x1="265" y1="120" x2="360" y2="120" stroke="currentColor" className="text-indigo-400 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#arrInd2)" {...nonScaling} />
+            <text x="368" y="124" className="text-xs font-bold fill-indigo-300 dark:fill-indigo-300">P</text>
 
             {/* Friction Force Fs */}
-            <line x1="135" y1="130" x2="65" y2="130" stroke="currentColor" className="text-orange-600 dark:text-orange-400" strokeWidth="2.5" markerEnd="url(#arF2)" />
-            <text x="50" y="122" className="text-xs font-black fill-orange-700 dark:fill-orange-300">
-              {isAr ? 'ح_س' : 'Fs'}
-            </text>
+            <line x1="175" y1="150" x2="80" y2="150" stroke="currentColor" className="text-rose-400 dark:text-rose-400" strokeWidth="2.5" markerEnd="url(#arrOrg2)" {...nonScaling} />
+            <text x="60" y="145" className="text-xs font-bold fill-rose-300 dark:fill-rose-300">Fs</text>
           </svg>
         )}
 
         {/* 3. Statics Inclined Friction */}
         {type === 'statics_inclined_friction' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <pattern id="baseHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
+              <pattern id="incHatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" className="text-slate-600 dark:text-slate-600" strokeWidth="1.5" />
               </pattern>
-              <marker id="arrowInc" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="arrInc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-500 dark:fill-indigo-400" />
               </marker>
-              <marker id="arrowGr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-emerald-600 dark:fill-emerald-400" />
+              <marker id="arrRInc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-500 dark:fill-emerald-400" />
               </marker>
-              <marker id="arrowOr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-orange-600 dark:fill-orange-400" />
+              <marker id="arrWInc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-amber-500 dark:fill-amber-400" />
               </marker>
-              <marker id="arrowAm" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-amber-600 dark:fill-amber-400" />
+              <marker id="arrFsInc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-rose-500 dark:fill-rose-400" />
               </marker>
             </defs>
 
-            <polygon points="40,165 310,165 310,40" className="fill-slate-100 dark:fill-slate-800/50 stroke-slate-800 dark:stroke-slate-200" strokeWidth="2.5" />
-            <rect x="40" y="165" width="270" height="12" fill="url(#baseHatch)" />
+            {/* Wedge */}
+            <polygon points="40,180 380,180 380,45" className="fill-slate-800/40 dark:fill-slate-800/60 stroke-slate-400 dark:stroke-slate-300" strokeWidth="2.5" {...nonScaling} />
+            <rect x="40" y="180" width="340" height="14" fill="url(#incHatch)" />
 
-            <path d="M 85 165 A 45 45 0 0 0 78 144" fill="none" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="1.5" />
-            <text x="92" y="158" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">
-              {isAr ? '٣٠°' : '30°'}
-            </text>
+            {/* Angle Arc 30 deg */}
+            <path d="M 95 180 A 55 55 0 0 0 88 158" fill="none" stroke="currentColor" className="text-indigo-400" strokeWidth="2" {...nonScaling} />
+            <text x="105" y="172" className="text-xs font-bold fill-indigo-300">30°</text>
 
-            <g transform="translate(180, 100) rotate(-24.8)">
-              <rect x="-30" y="-35" width="60" height="35" rx="3" className="fill-white dark:fill-slate-900 stroke-slate-800 dark:stroke-slate-200" strokeWidth="2" />
+            {/* Body on Incline */}
+            <g transform="translate(230, 105) rotate(-21.6)">
+              <rect x="-35" y="-40" width="70" height="40" rx="4" className="fill-slate-800 stroke-slate-300" strokeWidth="2" {...nonScaling} />
               
-              <line x1="30" y1="-18" x2="85" y2="-18" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#arrowInc)" />
-              <text x="92" y="-14" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">
-                {isAr ? 'ق = ٢٥ ن' : 'P = 25 N'}
-              </text>
+              {/* Force P up plane */}
+              <line x1="35" y1="-20" x2="95" y2="-20" stroke="currentColor" className="text-indigo-400" strokeWidth="2.5" markerEnd="url(#arrInc)" {...nonScaling} />
+              <text x="102" y="-16" className="text-xs font-bold fill-indigo-300">P</text>
 
-              <line x1="0" y1="-35" x2="0" y2="-80" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#arrowGr)" />
-              <text x="8" y="-75" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">
-                {isAr ? 'ر' : 'R'}
-              </text>
+              {/* Normal Reaction R perpendicular to plane */}
+              <line x1="0" y1="-40" x2="0" y2="-90" stroke="currentColor" className="text-emerald-400" strokeWidth="2.5" markerEnd="url(#arrRInc)" {...nonScaling} />
+              <text x="8" y="-85" className="text-xs font-bold fill-emerald-300">R</text>
 
-              <line x1="-30" y1="0" x2="-75" y2="0" stroke="currentColor" className="text-orange-600 dark:text-orange-400" strokeWidth="2" markerEnd="url(#arrowOr)" />
-              <text x="-95" y="5" className="text-xs font-black fill-orange-700 dark:fill-orange-300">
-                {isAr ? 'ح_س' : 'Fs'}
-              </text>
+              {/* Friction Fs down plane */}
+              <line x1="-35" y1="0" x2="-85" y2="0" stroke="currentColor" className="text-rose-400" strokeWidth="2.5" markerEnd="url(#arrFsInc)" {...nonScaling} />
+              <text x="-105" y="5" className="text-xs font-bold fill-rose-300">Fs</text>
             </g>
 
-            <line x1="180" y1="100" x2="180" y2="185" stroke="currentColor" className="text-amber-600 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#arrowAm)" />
-            <text x="188" y="180" className="text-xs font-black fill-amber-700 dark:fill-amber-300">
-              {isAr ? 'و = ٢٠ ن' : 'W = 20 N'}
-            </text>
+            {/* Vertical Weight W */}
+            <line x1="230" y1="105" x2="230" y2="205" stroke="currentColor" className="text-amber-500" strokeWidth="2.5" markerEnd="url(#arrWInc)" {...nonScaling} />
+            <text x="240" y="200" className="text-xs font-bold fill-amber-300">W</text>
           </svg>
         )}
 
         {/* 4. Solid Geometry Sphere */}
         {type === 'solid_geometry_sphere' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <marker id="axisArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-slate-700 dark:fill-slate-300" />
+              <marker id="axisArrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-400 dark:fill-slate-300" />
               </marker>
             </defs>
 
-            <line x1="120" y1="180" x2="120" y2="20" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#axisArrow)" />
-            <text x="126" y="25" className="text-xs font-black fill-slate-800 dark:fill-slate-200">Z</text>
+            {/* 3D Coordinate Axes */}
+            <line x1="140" y1="200" x2="140" y2="20" stroke="currentColor" className="text-slate-400 dark:text-slate-400" strokeWidth="2" markerEnd="url(#axisArrow)" {...nonScaling} />
+            <text x="148" y="25" className="text-xs font-black fill-slate-300">Z</text>
 
-            <line x1="50" y1="140" x2="320" y2="140" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#axisArrow)" />
-            <text x="325" y="145" className="text-xs font-black fill-slate-800 dark:fill-slate-200">Y</text>
+            <line x1="60" y1="150" x2="380" y2="150" stroke="currentColor" className="text-slate-400 dark:text-slate-400" strokeWidth="2" markerEnd="url(#axisArrow)" {...nonScaling} />
+            <text x="388" y="154" className="text-xs font-black fill-slate-300">Y</text>
 
-            <line x1="180" y1="90" x2="60" y2="185" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#axisArrow)" />
-            <text x="45" y="190" className="text-xs font-black fill-slate-800 dark:fill-slate-200">X</text>
+            <line x1="210" y1="95" x2="70" y2="205" stroke="currentColor" className="text-slate-400 dark:text-slate-400" strokeWidth="2" markerEnd="url(#axisArrow)" {...nonScaling} />
+            <text x="55" y="210" className="text-xs font-black fill-slate-300">X</text>
 
-            <circle cx="210" cy="75" r="45" className="fill-cyan-500/15 dark:fill-cyan-500/20 stroke-cyan-600 dark:stroke-cyan-400" strokeWidth="2.5" />
-            <ellipse cx="210" cy="75" rx="45" ry="14" fill="none" className="stroke-cyan-600/50 dark:stroke-cyan-400/50" strokeWidth="1.5" strokeDasharray="4,3" />
+            {/* Sphere Body */}
+            <circle cx="250" cy="80" r="55" className="fill-cyan-500/15 stroke-cyan-400" strokeWidth="2.5" {...nonScaling} />
+            <ellipse cx="250" cy="80" rx="55" ry="18" fill="none" className="stroke-cyan-400/60" strokeWidth="1.5" strokeDasharray="4,4" {...nonScaling} />
 
-            <circle cx="210" cy="75" r="4.5" className="fill-amber-500" />
-            <text x="218" y="70" className="text-xs font-black fill-amber-700 dark:fill-amber-300">
-              C(4, 4, 4)
-            </text>
+            {/* Center Point C */}
+            <circle cx="250" cy="80" r="4.5" className="fill-amber-400" />
+            <text x="258" y="75" className="text-xs font-bold fill-amber-300">C</text>
 
-            <line x1="210" y1="75" x2="255" y2="75" stroke="currentColor" className="text-amber-500" strokeWidth="2" />
-            <text x="228" y="90" className="text-xs font-black fill-amber-700 dark:fill-amber-300">R = 4</text>
+            {/* Radius R */}
+            <line x1="250" y1="80" x2="305" y2="80" stroke="currentColor" className="text-amber-400" strokeWidth="2" {...nonScaling} />
+            <text x="272" y="96" className="text-xs font-bold fill-amber-300">R</text>
+
+            {/* Tangent projection to XY Plane */}
+            <line x1="250" y1="80" x2="250" y2="150" stroke="currentColor" className="text-slate-400" strokeWidth="1.5" strokeDasharray="4,4" {...nonScaling} />
+            <circle cx="250" cy="150" r="3.5" className="fill-slate-400" />
           </svg>
         )}
 
         {/* 5. 3D Distance Box */}
         {type === 'distance_3d_box' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
-            <line x1="100" y1="180" x2="100" y2="25" stroke="currentColor" className="text-slate-400" strokeWidth="1.5" />
-            <line x1="30" y1="150" x2="320" y2="150" stroke="currentColor" className="text-slate-400" strokeWidth="1.5" />
-            <line x1="160" y1="100" x2="50" y2="190" stroke="currentColor" className="text-slate-400" strokeWidth="1.5" />
-
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             {/* Box Front Face */}
-            <rect x="100" y="80" width="130" height="70" fill="none" className="stroke-slate-500" strokeWidth="1.5" strokeDasharray="3,3" />
+            <rect x="120" y="90" width="160" height="85" fill="none" className="stroke-slate-500" strokeWidth="1.75" strokeDasharray="4,4" {...nonScaling} />
             {/* Box Back Face */}
-            <rect x="150" y="45" width="130" height="70" fill="none" className="stroke-slate-500" strokeWidth="1.5" />
+            <rect x="180" y="45" width="160" height="85" fill="none" className="stroke-slate-400" strokeWidth="1.75" {...nonScaling} />
 
             {/* Connecting Edges */}
-            <line x1="100" y1="80" x2="150" y2="45" stroke="currentColor" className="text-slate-500" strokeWidth="1.5" />
-            <line x1="230" y1="80" x2="280" y2="45" stroke="currentColor" className="text-slate-500" strokeWidth="1.5" />
-            <line x1="100" y1="150" x2="150" y2="115" stroke="currentColor" className="text-slate-500" strokeWidth="1.5" strokeDasharray="3,3" />
-            <line x1="230" y1="150" x2="280" y2="115" stroke="currentColor" className="text-slate-500" strokeWidth="1.5" />
+            <line x1="120" y1="90" x2="180" y2="45" stroke="currentColor" className="text-slate-400" strokeWidth="1.75" {...nonScaling} />
+            <line x1="280" y1="90" x2="340" y2="45" stroke="currentColor" className="text-slate-400" strokeWidth="1.75" {...nonScaling} />
+            <line x1="120" y1="175" x2="180" y2="130" stroke="currentColor" className="text-slate-500" strokeWidth="1.75" strokeDasharray="4,4" {...nonScaling} />
+            <line x1="280" y1="175" x2="340" y2="130" stroke="currentColor" className="text-slate-400" strokeWidth="1.75" {...nonScaling} />
 
             {/* Point A */}
-            <circle cx="100" cy="150" r="5" className="fill-indigo-600" />
-            <text x="85" y="170" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">A(1, -2, 4)</text>
+            <circle cx="120" cy="175" r="5" className="fill-indigo-400" />
+            <text x="105" y="195" className="text-xs font-bold fill-indigo-300">A</text>
 
             {/* Point B */}
-            <circle cx="280" cy="45" r="5" className="fill-emerald-600" />
-            <text x="270" y="35" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">B(4, 2, 4)</text>
+            <circle cx="340" cy="45" r="5" className="fill-emerald-400" />
+            <text x="348" y="40" className="text-xs font-bold fill-emerald-300">B</text>
 
-            {/* Distance Vector AB */}
-            <line x1="100" y1="150" x2="280" y2="45" stroke="currentColor" className="text-amber-500" strokeWidth="2.5" />
-            <text x="195" y="105" className="text-sm font-black fill-amber-700 dark:fill-amber-300">d = 5</text>
+            {/* Distance Diagonal AB */}
+            <line x1="120" y1="175" x2="340" y2="45" stroke="currentColor" className="text-amber-400" strokeWidth="2.5" {...nonScaling} />
+            <text x="235" y="115" className="text-sm font-black fill-amber-300">d</text>
           </svg>
         )}
 
         {/* 6. Sphere General Center & Radius */}
         {type === 'sphere_general_center_radius' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
-            <circle cx="180" cy="105" r="70" className="fill-indigo-500/10 dark:fill-indigo-500/20 stroke-indigo-600 dark:stroke-indigo-400" strokeWidth="2.5" />
-            <ellipse cx="180" cy="105" rx="70" ry="22" fill="none" className="stroke-indigo-600/50 dark:stroke-indigo-400/50" strokeWidth="1.5" strokeDasharray="4,3" />
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <circle cx="220" cy="115" r="80" className="fill-indigo-500/15 stroke-indigo-400" strokeWidth="2.5" {...nonScaling} />
+            <ellipse cx="220" cy="115" rx="80" ry="26" fill="none" className="stroke-indigo-400/60" strokeWidth="1.75" strokeDasharray="5,4" {...nonScaling} />
 
-            <circle cx="180" cy="105" r="5" className="fill-amber-500" />
-            <text x="188" y="100" className="text-xs font-black fill-amber-700 dark:fill-amber-300">
-              C(2, -3, 1)
-            </text>
+            {/* Center C */}
+            <circle cx="220" cy="115" r="5" className="fill-amber-400" />
+            <text x="228" y="110" className="text-xs font-bold fill-amber-300">C</text>
 
-            <line x1="180" y1="105" x2="250" y2="105" stroke="currentColor" className="text-amber-500" strokeWidth="2.5" />
-            <text x="210" y="95" className="text-xs font-black fill-amber-700 dark:fill-amber-300">R = 6</text>
+            {/* Radius R */}
+            <line x1="220" y1="115" x2="300" y2="115" stroke="currentColor" className="text-amber-400" strokeWidth="2.5" {...nonScaling} />
+            <text x="255" y="105" className="text-xs font-bold fill-amber-300">R</text>
           </svg>
         )}
 
         {/* 7. Polygon Diagonals */}
         {type === 'polygon_diagonals' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
-            {/* A regular 11-gon */}
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            {/* Regular 11-gon */}
             {Array.from({ length: 11 }).map((_, i) => {
               const angle1 = (i * 2 * Math.PI) / 11 - Math.PI / 2;
-              const x1 = 180 + 75 * Math.cos(angle1);
-              const y1 = 105 + 75 * Math.sin(angle1);
+              const x1 = 220 + 85 * Math.cos(angle1);
+              const y1 = 115 + 85 * Math.sin(angle1);
               return Array.from({ length: 11 }).map((__, j) => {
                 if (j <= i) return null;
                 const angle2 = (j * 2 * Math.PI) / 11 - Math.PI / 2;
-                const x2 = 180 + 75 * Math.cos(angle2);
-                const y2 = 105 + 75 * Math.sin(angle2);
+                const x2 = 220 + 85 * Math.cos(angle2);
+                const y2 = 115 + 85 * Math.sin(angle2);
                 const isSide = j === i + 1 || (i === 0 && j === 10);
                 return (
                   <line
@@ -281,8 +279,9 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
                     x2={x2}
                     y2={y2}
                     stroke="currentColor"
-                    className={isSide ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-300 dark:text-slate-700'}
-                    strokeWidth={isSide ? 2.5 : 0.8}
+                    className={isSide ? 'text-indigo-400 dark:text-indigo-400' : 'text-slate-600 dark:text-slate-700'}
+                    strokeWidth={isSide ? 2.5 : 1.2}
+                    {...nonScaling}
                   />
                 );
               });
@@ -291,161 +290,370 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             {/* Vertices */}
             {Array.from({ length: 11 }).map((_, i) => {
               const angle = (i * 2 * Math.PI) / 11 - Math.PI / 2;
-              const x = 180 + 75 * Math.cos(angle);
-              const y = 105 + 75 * Math.sin(angle);
+              const x = 220 + 85 * Math.cos(angle);
+              const y = 115 + 85 * Math.sin(angle);
               return (
-                <circle key={i} cx={x} cy={y} r="4" className="fill-indigo-700 dark:fill-indigo-300 stroke-white dark:stroke-slate-900" strokeWidth="1.5" />
+                <circle key={i} cx={x} cy={y} r="4" className="fill-indigo-300 stroke-slate-900" strokeWidth="1.5" />
               );
             })}
-
-            <text x="180" y="198" textAnchor="middle" className="text-xs font-black fill-slate-700 dark:fill-slate-300">
-              {isAr ? 'مضلع محدب: عدد الرؤوس ن = ١١' : 'Convex Polygon: Vertices n = 11'}
-            </text>
           </svg>
         )}
 
         {/* 8. Trig Derivative Tangent */}
         {type === 'trig_derivative_tangent' && (
-          <svg viewBox="0 0 360 200" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <marker id="trigArr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="trigArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-400 dark:fill-slate-300" />
               </marker>
             </defs>
-            <line x1="40" y1="110" x2="320" y2="110" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" markerEnd="url(#trigArr)" />
-            <line x1="160" y1="180" x2="160" y2="20" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" markerEnd="url(#trigArr)" />
-            <text x="325" y="115" className="text-xs font-bold fill-slate-600">x</text>
-            <text x="165" y="25" className="text-xs font-bold fill-slate-600">y</text>
+            <line x1="30" y1="130" x2="400" y2="130" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#trigArr)" {...nonScaling} />
+            <line x1="180" y1="210" x2="180" y2="20" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#trigArr)" {...nonScaling} />
+            <text x="405" y="135" className="text-xs font-bold fill-slate-300">x</text>
+            <text x="185" y="25" className="text-xs font-bold fill-slate-300">y</text>
+            <text x="165" y="145" className="text-xs font-bold fill-slate-400">O</text>
 
-            <path d="M 60 170 Q 120 140 160 110 T 260 50" fill="none" stroke="currentColor" className="text-cyan-600 dark:text-cyan-400" strokeWidth="2.5" />
-            <text x="240" y="45" className="text-xs font-bold fill-cyan-700 dark:fill-cyan-300">y = f(x)</text>
+            {/* Curve */}
+            <path d="M 70 190 Q 140 160 190 125 T 310 50" fill="none" stroke="currentColor" className="text-cyan-400" strokeWidth="2.5" {...nonScaling} />
 
-            <line x1="110" y1="160" x2="210" y2="60" stroke="currentColor" className="text-amber-500" strokeWidth="2" strokeDasharray="4,3" />
-            <circle cx="160" cy="110" r="4" className="fill-amber-600" />
-            <text x="170" y="125" className="text-xs font-bold fill-amber-700 dark:fill-amber-300">P(x₀, y₀)</text>
+            {/* Tangent Line at P */}
+            <line x1="130" y1="185" x2="250" y2="65" stroke="currentColor" className="text-amber-400" strokeWidth="2" strokeDasharray="5,4" {...nonScaling} />
+            <circle cx="190" cy="125" r="4.5" className="fill-amber-400" />
+            <text x="200" y="140" className="text-xs font-bold fill-amber-300">P</text>
           </svg>
         )}
 
         {/* 9. Secant Derivative Graph */}
         {type === 'secant_derivative_graph' && (
-          <svg viewBox="0 0 360 200" className="w-full max-w-[340px] h-auto overflow-visible select-none">
-            <line x1="40" y1="140" x2="320" y2="140" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
-            <line x1="180" y1="180" x2="180" y2="20" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="secAxis" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-400 dark:fill-slate-300" />
+              </marker>
+            </defs>
 
-            <path d="M 80 40 Q 180 120 280 40" fill="none" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" />
-            <text x="220" y="50" className="text-xs font-bold fill-indigo-700 dark:fill-indigo-300">f(x) = sec(3x)</text>
+            {/* Axes */}
+            <line x1="40" y1="160" x2="400" y2="160" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#secAxis)" {...nonScaling} />
+            <line x1="220" y1="210" x2="220" y2="20" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#secAxis)" {...nonScaling} />
+            <text x="405" y="165" className="text-xs font-bold fill-slate-300">x</text>
+            <text x="225" y="25" className="text-xs font-bold fill-slate-300">y</text>
+            <text x="205" y="175" className="text-xs font-bold fill-slate-400">O</text>
 
-            <circle cx="230" cy="70" r="4" className="fill-amber-500" />
-            <line x1="190" y1="110" x2="270" y2="30" stroke="currentColor" className="text-amber-500" strokeWidth="2" />
+            {/* Secant Curve (U-shape) with vertex at (220, 110) */}
+            <path d="M 110 35 Q 220 185 330 35" fill="none" stroke="currentColor" className="text-indigo-400" strokeWidth="2.5" {...nonScaling} />
+
+            {/* Tangent Line at Contact Point P */}
+            <line x1="220" y1="160" x2="330" y2="50" stroke="currentColor" className="text-amber-400" strokeWidth="2.5" {...nonScaling} />
+            <circle cx="275" cy="105" r="5" className="fill-amber-400" />
+            <text x="285" y="115" className="text-xs font-bold fill-amber-300">P</text>
           </svg>
         )}
 
         {/* 10. Cotangent Curvature Graph */}
         {type === 'cotangent_curvature_graph' && (
-          <svg viewBox="0 0 360 200" className="w-full max-w-[340px] h-auto overflow-visible select-none">
-            <line x1="40" y1="100" x2="320" y2="100" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
-            <line x1="180" y1="180" x2="180" y2="20" stroke="currentColor" className="text-slate-400 dark:text-slate-600" strokeWidth="1.5" />
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="cotAxis" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-400 dark:fill-slate-300" />
+              </marker>
+            </defs>
+            <line x1="40" y1="115" x2="400" y2="115" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#cotAxis)" {...nonScaling} />
+            <line x1="220" y1="210" x2="220" y2="20" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#cotAxis)" {...nonScaling} />
+            <text x="405" y="120" className="text-xs font-bold fill-slate-300">x</text>
+            <text x="225" y="25" className="text-xs font-bold fill-slate-300">y</text>
+            <text x="205" y="130" className="text-xs font-bold fill-slate-400">O</text>
 
-            <path d="M 80 30 Q 140 80 180 100 T 280 170" fill="none" stroke="currentColor" className="text-cyan-600 dark:text-cyan-400" strokeWidth="2.5" />
-            <text x="210" y="45" className="text-xs font-bold fill-cyan-700 dark:fill-cyan-300">y = cot(πx)</text>
+            {/* Cotangent Curve */}
+            <path d="M 100 35 Q 170 95 220 115 T 340 195" fill="none" stroke="currentColor" className="text-cyan-400" strokeWidth="2.5" {...nonScaling} />
 
-            <circle cx="140" cy="75" r="4.5" className="fill-amber-500" />
-            <text x="80" y="80" className="text-xs font-bold fill-amber-700 dark:fill-amber-300">
-              P(x₀, y₀)
-            </text>
+            {/* Contact Point P at x = 1/4 */}
+            <circle cx="170" cy="85" r="5" className="fill-amber-400" />
+            <text x="155" y="80" className="text-xs font-bold fill-amber-300">P</text>
           </svg>
         )}
 
         {/* 11. Plane Intercepts 3D */}
         {type === 'plane_intercepts_3d' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <marker id="planeAxis" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-slate-700 dark:fill-slate-300" />
+              <marker id="plAxis" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-400 dark:fill-slate-300" />
               </marker>
-              <marker id="normVec" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="normVec" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-400" />
               </marker>
             </defs>
 
-            <line x1="140" y1="190" x2="140" y2="20" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#planeAxis)" />
-            <text x="146" y="25" className="text-xs font-black fill-slate-800 dark:fill-slate-200">Z</text>
+            {/* 3D Axes */}
+            <line x1="160" y1="210" x2="160" y2="20" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#plAxis)" {...nonScaling} />
+            <text x="168" y="25" className="text-xs font-black fill-slate-300">Z</text>
 
-            <line x1="50" y1="150" x2="330" y2="150" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#planeAxis)" />
-            <text x="335" y="155" className="text-xs font-black fill-slate-800 dark:fill-slate-200">Y</text>
+            <line x1="60" y1="165" x2="400" y2="165" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#plAxis)" {...nonScaling} />
+            <text x="405" y="170" className="text-xs font-black fill-slate-300">Y</text>
 
-            <line x1="200" y1="100" x2="60" y2="195" stroke="currentColor" className="text-slate-700 dark:text-slate-300" strokeWidth="2" markerEnd="url(#planeAxis)" />
-            <text x="45" y="200" className="text-xs font-black fill-slate-800 dark:fill-slate-200">X</text>
+            <line x1="230" y1="110" x2="70" y2="215" stroke="currentColor" className="text-slate-400" strokeWidth="2" markerEnd="url(#plAxis)" {...nonScaling} />
+            <text x="55" y="220" className="text-xs font-black fill-slate-300">X</text>
 
-            <polygon points="90,175 260,150 140,50" className="fill-indigo-500/20 dark:fill-indigo-500/30 stroke-indigo-600 dark:stroke-indigo-400" strokeWidth="2.5" />
+            {/* Plane Triangle formed by intercepts */}
+            <polygon points="105,190 320,165 160,55" className="fill-indigo-500/25 stroke-indigo-400" strokeWidth="2.5" {...nonScaling} />
 
-            <circle cx="90" cy="175" r="4.5" className="fill-amber-500" />
-            <text x="96" y="190" className="text-xs font-black fill-amber-700 dark:fill-amber-300">A(1, 0, 0)</text>
+            {/* Intercept Points */}
+            <circle cx="105" cy="190" r="4.5" className="fill-amber-400" />
+            <text x="90" y="205" className="text-xs font-bold fill-amber-300">A</text>
 
-            <circle cx="260" cy="150" r="4.5" className="fill-amber-500" />
-            <text x="265" y="145" className="text-xs font-black fill-amber-700 dark:fill-amber-300">B(0, 2, 0)</text>
+            <circle cx="320" cy="165" r="4.5" className="fill-amber-400" />
+            <text x="328" y="160" className="text-xs font-bold fill-amber-300">B</text>
 
-            <circle cx="140" cy="50" r="4.5" className="fill-amber-500" />
-            <text x="148" y="55" className="text-xs font-black fill-amber-700 dark:fill-amber-300">C(0, 0, 3)</text>
+            <circle cx="160" cy="55" r="4.5" className="fill-amber-400" />
+            <text x="170" y="60" className="text-xs font-bold fill-amber-300">C</text>
 
-            <line x1="160" y1="125" x2="215" y2="65" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#normVec)" />
-            <text x="220" y="65" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">
-              n = (6, 3, 2)
-            </text>
+            {/* Normal Vector n */}
+            <line x1="195" y1="135" x2="260" y2="65" stroke="currentColor" className="text-emerald-400" strokeWidth="2.5" markerEnd="url(#normVec)" {...nonScaling} />
+            <text x="268" y="65" className="text-xs font-bold fill-emerald-300">n</text>
           </svg>
         )}
 
         {/* 12. Coplanar Vectors 3D */}
         {type === 'coplanar_vectors_3d' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <marker id="vVec" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="vVec" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-slate-300" />
               </marker>
             </defs>
-            <polygon points="70,160 270,160 300,70 100,70" className="fill-cyan-500/15 dark:fill-cyan-500/25 stroke-cyan-600 dark:stroke-cyan-400" strokeWidth="2" />
-            <text x="250" y="90" className="text-xs font-bold fill-cyan-700 dark:fill-cyan-300">{isAr ? 'المستوى المشترك' : 'Coplanar Plane'}</text>
+            {/* Plane Sheet */}
+            <polygon points="60,180 320,180 380,60 120,60" className="fill-cyan-500/15 stroke-cyan-400" strokeWidth="2" {...nonScaling} />
 
-            <circle cx="170" cy="120" r="4.5" className="fill-slate-900 dark:fill-slate-100" />
+            {/* Origin Point */}
+            <circle cx="210" cy="130" r="4.5" className="fill-white" />
 
-            <line x1="170" y1="120" x2="250" y2="135" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#vVec)" />
-            <text x="255" y="145" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">u = (1, 2, 3)</text>
+            {/* Vector u */}
+            <line x1="210" y1="130" x2="310" y2="150" stroke="currentColor" className="text-indigo-400" strokeWidth="2.5" markerEnd="url(#vVec)" {...nonScaling} />
+            <text x="318" y="155" className="text-xs font-bold fill-indigo-300">u</text>
 
-            <line x1="170" y1="120" x2="120" y2="90" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#vVec)" />
-            <text x="65" y="85" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">v = (0, 1, 2)</text>
+            {/* Vector v */}
+            <line x1="210" y1="130" x2="140" y2="90" stroke="currentColor" className="text-emerald-400" strokeWidth="2.5" markerEnd="url(#vVec)" {...nonScaling} />
+            <text x="125" y="85" className="text-xs font-bold fill-emerald-300">v</text>
 
-            <line x1="170" y1="120" x2="220" y2="85" stroke="currentColor" className="text-amber-600 dark:text-amber-400" strokeWidth="2.5" markerEnd="url(#vVec)" />
-            <text x="225" y="80" className="text-xs font-black fill-amber-700 dark:fill-amber-300">w = (1, 0, k)</text>
+            {/* Vector w */}
+            <line x1="210" y1="130" x2="270" y2="85" stroke="currentColor" className="text-amber-400" strokeWidth="2.5" markerEnd="url(#vVec)" {...nonScaling} />
+            <text x="278" y="80" className="text-xs font-bold fill-amber-300">w</text>
           </svg>
         )}
 
         {/* 13. Line Plane Angle 3D */}
         {type === 'line_plane_angle_3d' && (
-          <svg viewBox="0 0 360 210" className="w-full max-w-[340px] h-auto overflow-visible select-none">
+          <svg viewBox="0 0 440 230" className="w-full max-w-[420px] h-auto overflow-visible select-none">
             <defs>
-              <marker id="lnArr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-indigo-600 dark:fill-indigo-400" />
+              <marker id="lnArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-400" />
               </marker>
-              <marker id="nmArr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" className="fill-emerald-600 dark:fill-emerald-400" />
+              <marker id="nmArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-400" />
               </marker>
             </defs>
 
-            <polygon points="50,150 250,150 310,70 110,70" className="fill-indigo-500/15 dark:fill-indigo-500/25 stroke-indigo-600 dark:stroke-indigo-400" strokeWidth="2" />
-            <text x="80" y="90" className="text-xs font-bold fill-indigo-700 dark:fill-indigo-300">Plane: y + z - 5 = 0</text>
+            {/* Plane Sheet */}
+            <polygon points="50,170 310,170 390,70 130,70" className="fill-indigo-500/20 stroke-indigo-400" strokeWidth="2" {...nonScaling} />
 
-            <circle cx="180" cy="110" r="4.5" className="fill-amber-500" />
+            {/* Intersection Point */}
+            <circle cx="220" cy="120" r="4.5" className="fill-amber-400" />
 
-            <line x1="180" y1="110" x2="180" y2="30" stroke="currentColor" className="text-emerald-600 dark:text-emerald-400" strokeWidth="2.5" markerEnd="url(#nmArr)" />
-            <text x="188" y="35" className="text-xs font-black fill-emerald-700 dark:fill-emerald-300">n = (0, 1, 1)</text>
+            {/* Normal Vector n */}
+            <line x1="220" y1="120" x2="220" y2="30" stroke="currentColor" className="text-emerald-400" strokeWidth="2.5" markerEnd="url(#nmArr)" {...nonScaling} />
+            <text x="228" y="35" className="text-xs font-bold fill-emerald-300">n</text>
 
-            <line x1="90" y1="155" x2="260" y2="70" stroke="currentColor" className="text-indigo-600 dark:text-indigo-400" strokeWidth="2.5" markerEnd="url(#lnArr)" />
-            <text x="265" y="70" className="text-xs font-black fill-indigo-700 dark:fill-indigo-300">Line r</text>
+            {/* Piercing Line r */}
+            <line x1="110" y1="175" x2="330" y2="65" stroke="currentColor" className="text-indigo-400" strokeWidth="2.5" markerEnd="url(#lnArr)" {...nonScaling} />
+            <text x="338" y="65" className="text-xs font-bold fill-indigo-300">r</text>
 
-            <line x1="180" y1="110" x2="250" y2="110" stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth="1.5" strokeDasharray="3,3" />
-            <path d="M 215 110 A 35 35 0 0 0 210 95" fill="none" stroke="currentColor" className="text-amber-600 dark:text-amber-400" strokeWidth="2" />
-            <text x="225" y="103" className="text-xs font-black fill-amber-700 dark:fill-amber-300">θ = 30°</text>
+            {/* Projection onto Plane */}
+            <line x1="220" y1="120" x2="310" y2="120" stroke="currentColor" className="text-slate-400" strokeWidth="1.5" strokeDasharray="4,4" {...nonScaling} />
+            <path d="M 265 120 A 45 45 0 0 0 258 102" fill="none" stroke="currentColor" className="text-amber-400" strokeWidth="2" {...nonScaling} />
+            <text x="275" y="112" className="text-xs font-bold fill-amber-300">θ</text>
           </svg>
+        )}
+      </div>
+
+      {/* DEDICATED LATEX MATH LEGEND & FORMULA CALLOUTS (Rendered with 100% genuine KaTeX) */}
+      <div className="mt-3 pt-3 border-t border-slate-800 flex flex-wrap items-center justify-center gap-2 text-xs">
+        {type === 'statics_horizontal_friction' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="W = 30\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="P = 15\text{ N} \quad (30^\circ)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "R \text{ (رد الفعل)}" : "R \text{ (Normal Reaction)}"} lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "F_s \text{ (الاحتكاك النهائي)}" : "F_s \text{ (Limiting Friction)}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'statics_horizontal_simple_friction' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="W = 40\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="R = 40\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="P = 10\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="F_s = 10\text{ N}" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'statics_inclined_friction' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "\text{زاوية الميل } = 30^\circ" : "\text{Incline } = 30^\circ"} lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="W = 20\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="P = 25\text{ N}" lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="F_s \text{ (لأسفل)}" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'solid_geometry_sphere' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="C(4, 4, 4)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="R = |z| = 4" lang={lang} />
+            </span>
+            <span className="bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "\text{تمس المستوى } XY \ (z=0)" : "\text{Tangent to } XY \ (z=0)"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'distance_3d_box' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="A(1, -2, 4)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="B(4, 2, 4)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\|\vec{AB}\| = \sqrt{3^2 + 4^2} = 5" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'sphere_general_center_radius' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="C(2, -3, 1)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="R = \sqrt{2^2 + (-3)^2 + 1^2 - (-22)} = 6" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'polygon_diagonals' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "\text{عدد الأضلاع: } n = 11" : "\text{Sides: } n = 11"} lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\text{الأقطار: } \binom{n}{2} - n = 44" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'trig_derivative_tangent' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="y = \csc(2x) - \cot(2x)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\text{ميل المماس: } \frac{dy}{dx} = 2y\csc(2x)" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'secant_derivative_graph' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="f(x) = \sec(3x)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{المماس: } f'(x) = 3\sec(3x)\tan(3x)" lang={lang} />
+            </span>
+            <span className="bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="P(x_0, y_0)" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'cotangent_curvature_graph' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="y = \cot(\pi x)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="y''\left(\frac{1}{4}\right) = 4\pi^2" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'plane_intercepts_3d' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\frac{x}{1} + \frac{y}{2} + \frac{z}{3} = 1" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\vec{n} = (6, 3, 2)" lang={lang} />
+            </span>
+            <span className="bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="6x + 3y + 2z - 6 = 0" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'coplanar_vectors_3d' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\vec{u} = (1, 2, 3)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\vec{v} = (0, 1, 2)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\vec{w} = (1, 0, -1)" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'line_plane_angle_3d' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="y + z - 5 = 0" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\vec{n} = (0, 1, 1)" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\sin\theta = \frac{1}{2} \implies \theta = 30^\circ" lang={lang} />
+            </span>
+          </>
         )}
       </div>
     </div>

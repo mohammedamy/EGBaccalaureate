@@ -487,6 +487,49 @@ html.light select:focus {
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
 }
 
+/* LIGHT MODE STYLING FOR TEXTBOOK DIAGRAMS */
+html.light .textbook-diagram-card {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .textbook-diagram-card svg text {
+  fill: #0f172a !important;
+}
+
+html.light .textbook-diagram-card .bg-amber-950\/60 {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #92400e !important;
+}
+html.light .textbook-diagram-card .bg-indigo-950\/60 {
+  background-color: #eef2ff !important;
+  border-color: #c7d2fe !important;
+  color: #3730a3 !important;
+}
+html.light .textbook-diagram-card .bg-emerald-950\/60 {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
+}
+html.light .textbook-diagram-card .bg-rose-950\/60 {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+  color: #9f1239 !important;
+}
+html.light .textbook-diagram-card .bg-cyan-950\/60 {
+  background-color: #ecfeff !important;
+  border-color: #a5f3fc !important;
+  color: #155e75 !important;
+}
+html.light .textbook-diagram-card .bg-slate-800\/80 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+
 /* ==========================================================================
    PRINT STYLES: ClipSAT for Egypt Official Worksheets, Exams & Lesson Plans
    ========================================================================== */
@@ -675,20 +718,68 @@ html.light select:focus {
 
   .textbook-diagram-card {
     background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+    border: 1.5pt solid #94a3b8 !important;
     box-shadow: none !important;
-    margin: 8pt auto !important;
-    padding: 6pt !important;
-    max-width: 280px !important;
+    margin: 10pt auto !important;
+    padding: 8pt 12pt !important;
+    max-width: 440pt !important;
+    width: 95% !important;
+    border-radius: 8pt !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
   .textbook-diagram-card svg {
-    max-width: 260px !important;
+    max-width: 380pt !important;
+    width: 100% !important;
     height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+  }
+
+  /* Force crisp non-scaling lines in print */
+  .textbook-diagram-card svg * {
+    vector-effect: non-scaling-stroke !important;
+  }
+
+  /* Ensure lines in print are solid, visible dark ink */
+  .textbook-diagram-card svg line,
+  .textbook-diagram-card svg path,
+  .textbook-diagram-card svg polyline,
+  .textbook-diagram-card svg polygon {
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .textbook-diagram-card svg text {
+    fill: #0f172a !important;
+    font-size: 9.5pt !important;
+    font-weight: 800 !important;
+  }
+
+  /* Print styling for KaTeX badges under the diagram */
+  .textbook-diagram-card .bg-amber-950\/60,
+  .textbook-diagram-card .bg-indigo-950\/60,
+  .textbook-diagram-card .bg-emerald-950\/60,
+  .textbook-diagram-card .bg-rose-950\/60,
+  .textbook-diagram-card .bg-cyan-950\/60,
+  .textbook-diagram-card .bg-slate-800\/80 {
+    background-color: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    padding: 3pt 6pt !important;
+    font-size: 9pt !important;
+  }
+
+  .textbook-diagram-card .bg-amber-950\/60 *,
+  .textbook-diagram-card .bg-indigo-950\/60 *,
+  .textbook-diagram-card .bg-emerald-950\/60 *,
+  .textbook-diagram-card .bg-rose-950\/60 *,
+  .textbook-diagram-card .bg-cyan-950\/60 *,
+  .textbook-diagram-card .bg-slate-800\/80 * {
+    color: #0f172a !important;
   }
 
   /* -------------------------------------------------------------------------
