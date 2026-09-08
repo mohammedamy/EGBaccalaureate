@@ -5,6 +5,8 @@ import { algCh2SolvedExamples, algCh2Exercises } from './textbook/thanaweya/algC
 import { algCh2Databank } from './databanks/thanaweya/algCh2Databank';
 import { solidCh1SolvedExamples, solidCh1Exercises } from './textbook/thanaweya/solidCh1Textbook';
 import { solidCh1Databank } from './databanks/thanaweya/solidCh1Databank';
+import { solidCh2SolvedExamples, solidCh2Exercises } from './textbook/thanaweya/solidCh2Textbook';
+import { solidCh2Databank } from './databanks/thanaweya/solidCh2Databank';
 
 export const thanaweyaAlgebraSolidBranch: Branch = {
   id: 'algebra_solid',
@@ -2096,7 +2098,10 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                 descriptionAr: 'محاكي تفاعلي ثلاثي الأبعاد لتوضيح اتجاه المستوى والمتجه العمودي وإسقاط النقطة.'
               }
             }
-          ]
+          ],
+          solvedExamples: solidCh2SolvedExamples,
+          exerciseProblems: solidCh2Exercises,
+          databank: solidCh2Databank
         }
   ]
 };
