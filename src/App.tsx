@@ -88,7 +88,9 @@ export const App: React.FC = () => {
       <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8">
         {/* Quick Search Bar */}
         <div className="relative no-print">
-          <div className="absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 pl-3.5 rtl:pl-0 rtl:pr-3.5 flex items-center pointer-events-none text-slate-400">
+          <div className={`absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 pl-3.5 rtl:pl-0 rtl:pr-3.5 flex items-center pointer-events-none ${
+            theme === 'light' ? 'text-slate-400' : 'text-slate-500'
+          }`}>
             <Search className="w-4 h-4" />
           </div>
           <input
@@ -96,7 +98,11 @@ export const App: React.FC = () => {
             placeholder={t.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-900/80 border border-slate-800 rounded-2xl py-3 pl-10 rtl:pl-4 rtl:pr-10 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 shadow-xl transition-all"
+            className={`w-full rounded-2xl py-3 pl-10 rtl:pl-4 rtl:pr-10 text-xs shadow-md transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/40 ${
+              theme === 'light'
+                ? 'bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-indigo-600'
+                : 'bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:border-indigo-500'
+            }`}
           />
         </div>
 
@@ -127,20 +133,28 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 bg-slate-950 py-10 text-xs text-slate-400 no-print">
+      <footer className={`border-t py-10 text-xs no-print transition-colors ${
+        theme === 'light'
+          ? 'border-slate-200 bg-white text-slate-600'
+          : 'border-slate-800 bg-slate-950 text-slate-400'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left rtl:md:text-right">
           <div className="flex items-center gap-4">
-            <img src={clipsatLogo} alt="ClipSAT Logo" className="h-11 w-auto object-contain drop-shadow-md" />
+            <img src={clipsatLogo} alt="ClipSAT Logo" className="h-11 w-auto object-contain drop-shadow-sm" />
             <div className="space-y-1">
-              <p className="font-bold text-slate-200 text-sm flex items-center justify-center md:justify-start gap-1.5">
-                <ShieldCheck className="w-4.5 h-4.5 text-emerald-400" />
+              <p className={`font-bold text-sm flex items-center justify-center md:justify-start gap-1.5 ${
+                theme === 'light' ? 'text-slate-900' : 'text-slate-200'
+              }`}>
+                <ShieldCheck className={`w-4.5 h-4.5 ${theme === 'light' ? 'text-emerald-600' : 'text-emerald-400'}`} />
                 <span>{t.copyright}</span>
               </p>
-              <p className="text-xs text-slate-400 max-w-2xl">{t.moeReferenceNote}</p>
+              <p className={`text-xs max-w-2xl ${theme === 'light' ? 'text-slate-500' : 'text-slate-400'}`}>{t.moeReferenceNote}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-bold text-cyan-400">
+          <div className={`flex items-center gap-4 text-xs font-bold ${
+            theme === 'light' ? 'text-indigo-600' : 'text-cyan-400'
+          }`}>
             <span>ClipSAT for Egypt</span>
             <span>•</span>
             <span>moe.gov.eg</span>
