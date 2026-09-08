@@ -1,4 +1,6 @@
 import type { Branch } from '../types/curriculum';
+import { statCh1SolvedExamples, statCh1Exercises } from './textbook/thanaweya/statCh1Textbook';
+import { statCh1Databank } from './databanks/thanaweya/statCh1Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -255,7 +257,10 @@ $$\\tan(\\lambda) = \\frac{F_s}{R} = \\mu_s$$
             descriptionAr: 'محاكي تفاعلي لاختبار القوى ومخروط الاحتكاك وزاوية الميل.'
           }
         }
-      ]
+      ],
+      solvedExamples: statCh1SolvedExamples,
+      exerciseProblems: statCh1Exercises,
+      databank: statCh1Databank
     },
     {
       id: 'stat_ch2',
