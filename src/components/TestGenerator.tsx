@@ -164,15 +164,11 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'جميع الفروع المتاحة' : 'All Branches'}</option>
-              {currentCurriculum === 'thanaweya' ? (
-                <>
-                  <option value="algebra_solid">{lang === 'ar' ? 'الجبر والهندسة الفراغية' : 'Algebra & Solid Geometry'}</option>
-                  <option value="calculus">{lang === 'ar' ? 'التفاضل والتكامل' : 'Calculus'}</option>
-                  <option value="statics">{lang === 'ar' ? 'الاستاتيكا' : 'Statics'}</option>
-                </>
-              ) : (
-                <option value="egbac_vectors_geometry">{lang === 'ar' ? 'الفضاءات المتجهة والهندسة' : 'Vector Spaces & 3D Geometry'}</option>
-              )}
+              {(currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum).branches.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {lang === 'ar' ? b.titleAr : b.titleEn}
+                </option>
+              ))}
             </select>
           </div>
 

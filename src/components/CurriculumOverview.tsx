@@ -4,7 +4,7 @@ import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import { BookOpen, CheckCircle2, ChevronRight, Sparkles, Layers, Box, Activity, Compass, Grid } from 'lucide-react';
+import { BookOpen, CheckCircle2, ChevronRight, Sparkles, Layers, Box, Activity, Compass, Grid, Zap, TrendingUp, Cpu } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -32,6 +32,12 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <Compass className="w-5 h-5" />;
       case 'Grid':
         return <Grid className="w-5 h-5" />;
+      case 'Zap':
+        return <Zap className="w-5 h-5" />;
+      case 'TrendingUp':
+        return <TrendingUp className="w-5 h-5" />;
+      case 'Cpu':
+        return <Cpu className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }
@@ -47,7 +53,7 @@ export const CurriculumOverview: React.FC<Props> = ({
           <div className="space-y-3 sm:space-y-4 max-w-2xl text-center sm:text-left rtl:sm:text-right">
             <div className="hero-badge inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] sm:text-xs font-extrabold text-center mx-auto sm:mx-0">
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-              <span>{lang === 'ar' ? 'منصة ClipSAT: الفصل الأول مجهز بالكامل بالمعادلات والرسوم ثلاثية الأبعاد' : 'ClipSAT Platform: Chapter 1 Fully Equipped with LaTeX & 3D Interactive Lab'}</span>
+              <span>{lang === 'ar' ? 'منصة ClipSAT: الفصول ١ و ٢ مجهزة بالكامل لجميع الكتب بالمعادلات والرسوم ثلاثية الأبعاد وخطط المعلمين' : 'ClipSAT Platform: Chapters 1 & 2 Fully Equipped Across All Books with LaTeX, 3D Lab & Teacher Plans'}</span>
             </div>
 
             <h2 className="hero-title text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight" style={{ color: '#ffffff' }}>
