@@ -9,6 +9,8 @@ import { statCh4SolvedExamples, statCh4Exercises } from './textbook/thanaweya/st
 import { statCh4Databank } from './databanks/thanaweya/statCh4Databank';
 import { statCh5SolvedExamples, statCh5Exercises } from './textbook/thanaweya/statCh5Textbook';
 import { statCh5Databank } from './databanks/thanaweya/statCh5Databank';
+import { statCh6SolvedExamples, statCh6Exercises } from './textbook/thanaweya/statCh6Textbook';
+import { statCh6Databank } from './databanks/thanaweya/statCh6Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -2247,6 +2249,505 @@ $$M_1 = M_2$$
       solvedExamples: statCh5SolvedExamples,
       exerciseProblems: statCh5Exercises,
       databank: statCh5Databank
+    }    ,
+    {
+      id: 'stat_ch6',
+      chapterNumber: 6,
+      titleEn: 'Center of Gravity',
+      titleAr: 'مركز الثقل',
+      descriptionEn: 'Determination of the center of gravity for discrete coplanar point masses, uniform wire frames, solid plane laminae, negative mass method for cut-out holes, and equilibrium under free suspension.',
+      descriptionAr: 'تعيين مركز الثقل للكتل النقطية المستوية، والأطر السلكية المنتظمة، والصفائح الرقيقة المنتظمة، وطريقة الكتلة السالبة للأجزاء المقتطعة، والاتزان في حالة التعليق الحر.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'stat_l10',
+          titleEn: 'Center of Gravity of Discrete Point Masses & Wire Frames',
+          titleAr: 'مركز ثقل الكتل النقطية والأطر السلكية',
+          summaryEn: 'Principles of center of gravity (CG): center of mass of discrete coplanar point masses via weighted coordinates X_G = sum(m_i*x_i)/sum(m_i), Y_G = sum(m_i*y_i)/sum(m_i). Center of gravity of uniform wire frames where mass is proportional to length.',
+          summaryAr: 'مبادئ مركز الثقل: إيجاد مركز ثقل مجموعة من الكتل النقطية المستوية باستخدام الإحداثيات الموزونة، وتعيين مركز ثقل الأطر والأسلاك المنتظمة حيث تتناسب الكتل مع أطوال القطع المستقيمة.',
+          theoryContentEn: `### 1. Definition of the Center of Gravity (تعريف مركز الثقل):
+The **center of gravity** ($G$) of a body or system of particles is the unique point through which the resultant gravitational force (total weight $\\vec{W} = \\sum \\vec{w}_i$) acts, regardless of the body's orientation in space.
+
+### 2. Center of Gravity of Discrete Point Masses (الكتل النقطية):
+For a system of $n$ particles of masses $m_1, m_2, \\dots, m_n$ located at coordinates $(x_1, y_1), (x_2, y_2), \\dots, (x_n, y_n)$ in a Cartesian coordinate system:
+- **Total Mass:**
+  $$M = \\sum_{i=1}^n m_i = m_1 + m_2 + \\dots + m_n$$
+- **Coordinates of Center of Gravity $G(X_G, Y_G)$:**
+  $$X_G = \\frac{\\sum_{i=1}^n m_i x_i}{\\sum_{i=1}^n m_i} = \\frac{m_1 x_1 + m_2 x_2 + \\dots + m_n x_n}{M}$$
+  $$Y_G = \\frac{\\sum_{i=1}^n m_i y_i}{\\sum_{i=1}^n m_i} = \\frac{m_1 y_1 + m_2 y_2 + \\dots + m_n y_n}{M}$$
+
+### 3. Center of Gravity of Uniform Wires and Wire Frames (الأطر السلكية):
+For a thin wire of uniform material and cross-section:
+1. **Mass-to-Length Proportionality:**
+   The mass of any straight segment is strictly proportional to its length:
+   $$m_i = \\rho \\times L_i \\implies m_1 : m_2 : m_3 = L_1 : L_2 : L_3$$
+2. **Point of Action:**
+   The center of gravity of each uniform straight segment acts at its **geometric midpoint**:
+   $$(\\bar{x}_i, \\bar{y}_i) = \\left( \\frac{x_{start} + x_{end}}{2}, \\frac{y_{start} + y_{end}}{2} \\right)$$
+3. **Compound Wire Frame:**
+   Apply the weighted average using segment lengths as masses:
+   $$X_G = \\frac{\\sum L_i \\bar{x}_i}{\\sum L_i}, \\quad Y_G = \\frac{\\sum L_i \\bar{y}_i}{\\sum L_i}$$`,
+          theoryContentAr: `### ١. تعريف مركز الثقل:
+**مركز الثقل** ($G$) لجسم أو لمجموعة من الجسيمات هو النقطة الثابتة في الجسم التي يمر بها دائماً خط عمل محصلة قوى التثاقل (الوزن الكلي $\\vec{W} = \\sum \\vec{w}_i$) أياً كان وضع الجسم في الفراغ.
+
+### ٢. مركز ثقل مجموعة من الكتل النقطية:
+إذا كانت لدينا $n$ كتلة نقطية $m_1, m_2, \\dots, m_n$ تقع عند النقط $(x_1, y_1), (x_2, y_2), \\dots, (x_n, y_n)$:
+- **مجموع الكتل:**
+  $$M = \\sum_{i=1}^n m_i$$
+- **إحداثيا مركز الثقل $G(X_G, Y_G)$:**
+  $$X_G = \\frac{\\sum m_i x_i}{\\sum m_i} = \\frac{m_1 x_1 + m_2 x_2 + \\dots + m_n x_n}{M}$$
+  $$Y_G = \\frac{\\sum m_i y_i}{\\sum m_i} = \\frac{m_1 y_1 + m_2 y_2 + \\dots + m_n y_n}{M}$$
+
+### ٣. مركز ثقل الأطر والأسلاك الرفيعة المنتظمة:
+لأي سلك رفيع منتظم المقطع والكثافة:
+١. **تناسب الكتلة مع الطول:**
+   كتلة أي جزء مستقيم تتناسب طردياً مع طوله:
+   $$m_1 : m_2 : m_3 = L_1 : L_2 : L_3$$
+٢. **نقطة تأثير كتلة الجزء:**
+   تؤثر كتلة كل قطعة مستقيمة منتظمة عند **نقطة منتصفها الهندسي**:
+   $$(\\bar{x}_i, \\bar{y}_i) = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2} \\right)$$
+٣. **الإطار السلكي المركب:**
+   يطبق قانون المتوسط الموزون باعتبار الأطوال هي الكتل:
+   $$X_G = \\frac{\\sum L_i \\bar{x}_i}{\\sum L_i}, \\quad Y_G = \\frac{\\sum L_i \\bar{y}_i}{\\sum L_i}$$`,
+          formulas: [
+            { labelEn: 'Center of Mass X-coordinate', labelAr: 'الإحداثي السيني لمركز الثقل', latex: 'X_G = \frac{\sum m_i x_i}{\sum m_i}' },
+            { labelEn: 'Center of Mass Y-coordinate', labelAr: 'الإحداثي الصادي لمركز الثقل', latex: 'Y_G = \frac{\sum m_i y_i}{\sum m_i}' },
+            { labelEn: 'Wire Mass-Length Ratio', labelAr: 'تناسب كتلة السلك مع طوله', latex: 'm_i \propto L_i \implies X_G = \frac{\sum L_i \bar{x}_i}{\sum L_i}' },
+            { labelEn: 'Midpoint of Segment', labelAr: 'إحداثيات منتصف القطعة المستقيمة', latex: '(\bar{x}, \bar{y}) = \left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH6-L1',
+            pageRange: 'pp. 163 - 182'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Point Masses and Wire Frames Center of Gravity',
+            titleAr: 'خطة درس: مركز ثقل الكتل النقطية والأطر السلكية',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH6-L1',
+            bloomsObjectivesEn: [
+              'Explain the physical definition of the center of gravity.',
+              'Calculate the center of gravity for systems of coplanar discrete point masses.',
+              'Determine the center of gravity of compound uniform wires bent into various geometric shapes.'
+            ],
+            bloomsObjectivesAr: [
+              'توضيح المفهوم الفيزيائي والرياضي لمركز الثقل.',
+              'حساب إحداثيات مركز الثقل لمجموعة كتل نقطية في المستوى.',
+              'تعيين مركز ثقل الأسلاك المنتظمة المثنية على شكل زوايا أو أشكال هندسية.'
+            ],
+            prerequisitesEn: ['Cartesian coordinates in 2D', 'Midpoint formula of a line segment', 'Weighted averages'],
+            prerequisitesAr: ['الإحداثيات الكارتيزية في المستوى', 'إحداثيات منتصف قطعة مستقيمة', 'المتوسطات الموزونة'],
+            keyVocabularyEn: [
+              { term: 'Center of Gravity', definition: 'The point of application of the resultant weight of a body.' },
+              { term: 'Point Mass', definition: 'An idealized mass concentrated at a single geometric point.' },
+              { term: 'Wire Frame', definition: 'A structure composed of thin uniform linear segments.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'مركز الثقل', definition: 'نقطة تأثير محصلة قوى الجاذبية الأرضية المؤثرة على جزيئات الجسم.' },
+              { term: 'كتلة نقطية', definition: 'كتلة مفترضة مركزة تماماً في نقطة هندسية واحدة.' },
+              { term: 'إطار سلكي', definition: 'هيكل مادي مكون من قطع سلكية رفيعة منتظمة.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Motivation: Balancing Objects on a Finger (15 mins)',
+                phaseAr: 'التهيئة والتمهيد: نقطة ارتكاز المسطرة والأجسام (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate balancing a uniform ruler at its midpoint vs an asymmetrical object with added weight.',
+                activitiesAr: 'عرض تجربة اتزان مسطرة منتظمة عند منتصفها ومقارنتها بمسطرة مثبت عند طرفها ثقل.'
+              },
+              {
+                phaseEn: 'Point Mass Formula Derivation (25 mins)',
+                phaseAr: 'استنتاج قانون الكتل النقطية (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Derive X_G and Y_G by taking moments of gravitational forces about coordinate axes.',
+                activitiesAr: 'استنتاج إحداثيي مركز الثقل بأخذ عزوم أوزان الكتل حول محوري الإحداثيات.'
+              },
+              {
+                phaseEn: 'Bent Wires & Midpoints Analysis (30 mins)',
+                phaseAr: 'تطبيقات الأسلاك المثنية ونقاط المنتصف (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve problems with wires bent into right angles and U-shapes.',
+                activitiesAr: 'حل مسائل نموذجية على أسلاك مثنية بزاوية قائمة أو على شكل حرف U.'
+              },
+              {
+                phaseEn: 'Formative Check & Exit Ticket (20 mins)',
+                phaseAr: 'التقويم التكويني وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Students solve exit ticket problem independently.',
+                activitiesAr: 'حل فردي لمسألة بطاقة الخروج على سلك مثني.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Assuming the center of gravity of a bent wire must lie on the wire itself; it often lies in empty space!',
+              'Forgetting that for wires, mass is proportional to length, not area.'
+            ],
+            commonMisconceptionsAr: [
+              'الاعتقاد بأن مركز ثقل السلك المثني يجب أن يقع على مادة السلك نفسه؛ غالباً يقع في الهواء!',
+              'نسيان أن كتل الأسلاك تتناسب مع الأطوال وليس المساحات.'
+            ],
+            differentiationEn: {
+              struggling: 'Create a 3-column table: Segment | Length (Mass) | Midpoint (x, y) | Product (L*x, L*y).',
+              advanced: 'Analyze the center of gravity of a continuous semicircular wire of radius R using integration (y_G = 2R/pi).'
+            },
+            differentiationAr: {
+              struggling: 'إنشاء جدول من ٤ أعمدة: القطعة | الطول (الكتلة) | نقطة المنتصف | حاصل الضرب.',
+              advanced: 'استنتاج مركز ثقل سلك على شكل نصف دائرة نصف قطرها نق بالتكامل (ص = ٢ نق / ط).'
+            },
+            formativeAssessmentEn: 'Two masses of 3 kg and 6 kg are at x = 0 and x = 9 cm. Find X_G.',
+            formativeAssessmentAr: 'كتلتان ٣ كجم و ٦ كجم عند س = ٠ و س = ٩ سم. احسب س_م.',
+            exitTicketQuestion: {
+              questionEn: 'Wire of length 20 cm along x-axis and 10 cm along y-axis meeting at origin (0,0). Find G.',
+              questionAr: 'سلك طوله ٢٠ سم على محور السينات و ١٠ سم على محور الصادات يلتقيان عند (٠، ٠). احسب مركز الثقل.',
+              solutionEn: 'X_G = [20(10) + 10(0)] / 30 = 200/30 = 20/3 cm. Y_G = [20(0) + 10(5)] / 30 = 50/30 = 5/3 cm. G(20/3, 5/3).',
+              solutionAr: 'س_م = ٢٠٠ / ٣٠ = ٢٠ / ٣ سم. ص_م = ٥٠ / ٣٠ = ٥ / ٣ سم. إذن G(20/3, 5/3).'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l10',
+            titleEn: 'Worksheet: Point Masses and Wire Frames',
+            titleAr: 'ورقة عمل: الكتل النقطية والأطر السلكية',
+            descriptionEn: 'Core problems on discrete point mass systems and bent wire frames.',
+            descriptionAr: 'مسائل تدريبية وامتحانات على أنظمة الكتل النقطية والأطر السلكية المنتظمة.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l10_p1',
+                titleEn: 'Collinear Two-Mass System',
+                titleAr: 'نظام كتلتين على خط مستقيم',
+                difficulty: 'easy',
+                questionEn: 'Two masses $m_1 = 4\\text{ kg}$ and $m_2 = 6\\text{ kg}$ are located at $x_1 = 2\\text{ cm}$ and $x_2 = 12\\text{ cm}$. Find $X_G$.',
+                questionAr: 'كتلتان $m_1 = 4\\text{ كجم}$ و $m_2 = 6\\text{ كجم}$ عند $x_1 = 2\\text{ سم}$ و $x_2 = 12\\text{ سم}$. احسب $X_G$.',
+                optionsEn: ['$8\\text{ cm}$', '$7\\text{ cm}$', '$6\\text{ cm}$', '$9\\text{ cm}$'],
+                optionsAr: ['$8\\text{ سم}$', '$7\\text{ سم}$', '$6\\text{ سم}$', '$9\\text{ سم}$'],
+                correctAnswer: '$8\\text{ cm}$',
+                correctIndex: 0,
+                hintEn: 'X_G = (4*2 + 6*12) / (4 + 6) = (8 + 72) / 10 = 8 cm.',
+                hintAr: 'س_م = (٤×٢ + ٦×١٢) / ١٠ = ٨٠ / ١٠ = ٨ سم.',
+                stepByStepSolutionEn: [
+                  '1. Total mass = 4 + 6 = 10 kg.',
+                  '2. Sum of moments = 4(2) + 6(12) = 8 + 72 = 80.',
+                  '3. X_G = 80 / 10 = 8 cm.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. مجموع الكتل = ١٠ كجم.',
+                  '٢. مجموع العزوم = ٤(٢) + ٦(١٢) = ٨٠.',
+                  '٣. س_م = ٨٠ / ١٠ = ٨ سم.'
+                ]
+              },
+              {
+                id: 'stat_l10_p2',
+                titleEn: 'Bent Wire Right Angle',
+                titleAr: 'سلك منتظم مثني بزاوية قائمة',
+                difficulty: 'medium',
+                questionEn: 'A wire is bent at right angles with arms $AB = 16\\text{ cm}$ along x-axis and $BC = 12\\text{ cm}$ along y-axis (with $B$ at origin). Find the coordinates of $G$.',
+                questionAr: 'سلك منتظم ثني بزاوية قائمة بحيث $AB = 16\\text{ سم}$ على محور السينات و $BC = 12\\text{ سم}$ على محور الصادات ($B$ نقطة الأصل). احسب إحداثيي $G$.',
+                optionsEn: ['$(32/7, 18/7)$', '$(8, 6)$', '$(4, 3)$', '$(6, 4)$'],
+                optionsAr: ['$(32/7, 18/7)$', '$(8, 6)$', '$(4, 3)$', '$(6, 4)$'],
+                correctAnswer: '$(32/7, 18/7)$',
+                correctIndex: 0,
+                hintEn: 'Length ratio is 16:12 = 4:3, sum = 7. Midpoints: (8, 0) and (0, 6). X_G = 4(8)/7 = 32/7, Y_G = 3(6)/7 = 18/7.',
+                hintAr: 'نسبة الأطوال ٤ : ٣ ومجموعها ٧. نقاط المنتصف: (٨، ٠) و (٠، ٦). س_م = ٣٢ / ٧، ص_م = ١٨ / ٧.',
+                stepByStepSolutionEn: [
+                  '1. Length ratio: 16 : 12 = 4 : 3, total = 7.',
+                  '2. Midpoint of AB: (8, 0) with weight 4.',
+                  '3. Midpoint of BC: (0, 6) with weight 3.',
+                  '4. X_G = 4(8)/7 = 32/7, Y_G = 3(6)/7 = 18/7.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. نسبة الأطوال ٤ : ٣ ومجموع النسب ٧.',
+                  '٢. منتصف القطعة الأولى: (٨، ٠) بنسبة ٤.',
+                  '٣. منتصف القطعة الثانية: (٠، ٦) بنسبة ٣.',
+                  '٤. س_م = ٣٢ / ٧، ص_م = ١٨ / ٧.'
+                ]
+              },
+              {
+                id: 'stat_l10_p3',
+                titleEn: 'Mass Added to Shift CG',
+                titleAr: 'كتلة مضافة لتغيير مركز الثقل',
+                difficulty: 'hots',
+                questionEn: 'Two masses of $2\\text{ kg}$ at $x = 0$ and $3\\text{ kg}$ at $x = 10\\text{ cm}$ have $X_G = 6\\text{ cm}$. What mass $m$ must be placed at $x = 10\\text{ cm}$ to make $X_G = 7\\text{ cm}$?',
+                questionAr: 'كتلتان ٢ كجم عند س = ٠ و ٣ كجم عند س = ١٠ سم مركز ثقلهما س_م = ٦ سم. ما الكتلة m التي يجب إضافتها عند س = ١٠ سم ليصبح س_م = ٧ سم؟',
+                optionsEn: ['$\frac{5}{3}\\text{ kg}$', '$2\\text{ kg}$', '$1\\text{ kg}$', '$\frac{7}{3}\\text{ kg}$'],
+                optionsAr: ['$\frac{5}{3}\\text{ كجم}$', '$2\\text{ كجم}$', '$1\\text{ كجم}$', '$\frac{7}{3}\\text{ كجم}$'],
+                correctAnswer: '$\frac{5}{3}\\text{ kg}$',
+                correctIndex: 0,
+                hintEn: '(30 + 10m) / (5 + m) = 7 => 30 + 10m = 35 + 7m => 3m = 5 => m = 5/3 kg.',
+                hintAr: '(٣٠ + ١٠ ك) / (٥ + ك) = ٧ => ٣٠ + ١٠ ك = ٣٥ + ٧ ك => ٣ ك = ٥ => ك = ٥ / ٣ كجم.',
+                stepByStepSolutionEn: [
+                  '1. New CG equation: (30 + 10m) / (5 + m) = 7.',
+                  '2. 30 + 10m = 35 + 7m.',
+                  '3. 3m = 5 => m = 5/3 kg.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. معادلة مركز الثقل الجديد: (٣٠ + ١٠ ك) / (٥ + ك) = ٧.',
+                  '٢. ٣٠ + ١٠ ك = ٣٥ + ٧ ك.',
+                  '٣. ٣ ك = ٥ => ك = ٥ / ٣ كجم.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Interactive Center of Gravity & Balance Point Simulator',
+            titleAr: 'محاكي مركز الثقل ونقطة الاتزان التفاعلي',
+            descriptionEn: 'Interactive tool visualizing point masses, wire frame segments, and the resultant balance point G.',
+            descriptionAr: 'أداة تفاعلية لتوضيح الكتل النقطية وقطع الأسلاك وموقع نقطة الاتزان ومركز الثقل الناتج.'
+          }
+        },
+        {
+          id: 'stat_l11',
+          titleEn: 'Uniform Laminae, Negative Mass & Free Suspension',
+          titleAr: 'الصفائح المنتظمة وطريقة الكتلة السالبة والتعليق الحر',
+          summaryEn: 'Center of gravity of standard solid laminae (triangles, rectangles, circles). Negative mass method for cut-out sections. Equilibrium under free suspension: the vertical line of suspension passes through the pivot and the center of gravity G.',
+          summaryAr: 'تعيين مركز ثقل الصفائح المنتظمة (المثلثات، المستطيلات، الدوائر). طريقة الكتلة السالبة للأجزاء المقتطعة والتجاويف. الاتزان في وضع التعليق الحر: الخط الرأسي يمر بنقطة التعليق وبمركز الثقل.',
+          theoryContentEn: `### 1. Center of Gravity of Standard Uniform Laminae (الصفائح المنتظمة):
+For thin uniform plates:
+- **Mass-to-Area Proportionality:**
+  $$m_i = \\sigma \\times \\text{Area}_i \\implies m_1 : m_2 = A_1 : A_2$$
+- **Standard Geometries:**
+  - **Rectangle / Square / Parallelogram:** Center of gravity is at the intersection of diagonals (geometric center).
+  - **Triangular Lamina:** Center of gravity is at the **centroid** (intersection of medians):
+    $$G = \\left( \\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3} \\right)$$
+  - **Circular Disk:** Center of gravity is at the center of the circle.
+
+### 2. The Negative Mass Method (طريقة الكتلة السالبة):
+When a geometric portion is **cut out or removed** from a uniform body:
+1. Treat the complete original body as having a **positive mass** ($+m_1$) acting at its center $G_1$.
+2. Treat the removed portion as having an equivalent **negative mass** ($-m_2$) acting at its own center $G_2$.
+3. Compute the center of gravity of the remaining part using:
+   $$X_G = \\frac{m_1 x_1 - m_2 x_2}{m_1 - m_2}, \\quad Y_G = \\frac{m_1 y_1 - m_2 y_2}{m_1 - m_2}$$
+
+### 3. Free Suspension Equilibrium (الاتزان في التعليق الحر):
+When a body is suspended freely from a fixed point $P$:
+1. The only external forces acting on the body are:
+   - Its total weight $\\vec{W}$ acting vertically downward through the center of gravity $G$.
+   - The support reaction $\\vec{R}$ at the suspension point $P$.
+2. For equilibrium:
+   - $\\vec{R} = -\\vec{W}$ (equal and opposite).
+   - The line of action of $\\vec{W}$ must pass through $P$.
+3. **Fundamental Rule of Free Suspension:**
+   **The straight line passing through the suspension point $P$ and the center of gravity $G$ is strictly VERTICAL.**
+4. To find the inclination $\\theta$ of a side $AB$ (chosen along an axis) to the vertical:
+   $$\\tan\\theta = \\left| \\frac{\\Delta x}{\\Delta y} \\right| \\quad \\text{or} \\quad \\left| \\frac{\\Delta y}{\\Delta x} \\right|$$`,
+          theoryContentAr: `### ١. مركز ثقل الصفائح المستوية المنتظمة:
+للصفائح الرقيقة منتظمة المقطع والكثافة:
+- **تناسب الكتلة مع المساحة:**
+  $$m_1 : m_2 = A_1 : A_2$$
+- **الأشكال الهندسية القياسية:**
+  - **المستطيل / المربع / متوازي الأضلاع:** مركز الثقل هو نقطة تلاقي القطرين (المركز الهندسي).
+  - **الصفيحة المثلثة:** مركز الثقل هو **نقطة تلاقي المتوسطات**:
+    $$G = \\left( \\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3} \\right)$$
+  - **القرص الدائري:** مركز الثقل هو مركز الدائرة الهندسي.
+
+### ٢. طريقة الكتلة السالبة:
+عند **اقتطاع جزء** من صفيحة منتظمة:
+١. نعتبر الصفيحة الأصلية كاملة ذات **كتلة موجبة** ($+m_1$) تؤثر عند مركز ثقلها $G_1$.
+٢. نعتبر الجزء المقتطع ذا **كتلة سالبة** ($-m_2$) تؤثر عند مركز ثقله $G_2$.
+٣. يحسب مركز ثقل الجزء المتبقي بالقانون:
+   $$X_G = \\frac{m_1 x_1 - m_2 x_2}{m_1 - m_2}, \\quad Y_G = \\frac{m_1 y_1 - m_2 y_2}{m_1 - m_2}$$
+
+### ٣. الاتزان في حالة التعليق الحر:
+عند تعليق جسم تعليقاً حراً من نقطة ثابتة $P$:
+١. القوى المؤثرة على الجسم هي وزنه الكلي $\\vec{W}$ رأسياً لأسفل عند $G$، ورد فعل نقطة التعليق $\\vec{R}$.
+٢. لكي يتزن الجسم يجب أن يقع خطا عمل القوتين على استقامة واحدة.
+٣. **القاعدة الذهبية للتعليق الحر:**
+   **الخط المستقيم المار بنقطة التعليق $P$ وبمركز الثقل $G$ هو الخط الرأسي في وضع الاتزان.**
+٤. لحساب زاوية ميل أي ضلع على الرأسي نوجد زاوية ميل المتجه $\\vec{PG}$.`,
+          formulas: [
+            { labelEn: 'Negative Mass Formula (X)', labelAr: 'قانون الكتلة السالبة (س)', latex: 'X_G = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}' },
+            { labelEn: 'Negative Mass Formula (Y)', labelAr: 'قانون الكتلة السالبة (ص)', latex: 'Y_G = \frac{A_1 y_1 - A_2 y_2}{A_1 - A_2}' },
+            { labelEn: 'Free Suspension Vertical Line', labelAr: 'معادلة الخط الرأسي في التعليق الحر', latex: '\text{Line } PG \text{ is strictly vertical}' },
+            { labelEn: 'Inclination to Vertical', labelAr: 'ظل زاوية الميل على الرأسي', latex: '\tan\theta = \left|\frac{X_G - x_P}{Y_G - y_P}\right|' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH6-L2',
+            pageRange: 'pp. 183 - 210'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Laminae, Negative Mass and Free Suspension',
+            titleAr: 'خطة درس: الصفائح المنتظمة وطريقة الكتلة السالبة والتعليق الحر',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH6-L2',
+            bloomsObjectivesEn: [
+              'Apply mass-to-area proportionality to compute centroids of standard laminae.',
+              'Solve cut-out problems using the negative mass technique.',
+              'Determine the equilibrium inclination angle of any side when a lamina is suspended freely.'
+            ],
+            bloomsObjectivesAr: [
+              'تطبيق تناسب الكتلة مع المساحة لحساب مراكز ثقل الصفائح.',
+              'حل مسائل الأجزاء المقتطعة والتجاويف باستخدام طريقة الكتلة السالبة.',
+              'حساب زاوية ميل أي ضلع على الرأسي عند تعليق صفيحة تعليقاً حراً.'
+            ],
+            prerequisitesEn: ['Area formulas of plane figures', 'Centroid of triangle', 'Vectors in 2D'],
+            prerequisitesAr: ['قوانين مساحات الأشكال المستوية', 'نقطة تقاطع متوسطات المثلث', 'المتجهات ثنائية الأبعاد'],
+            keyVocabularyEn: [
+              { term: 'Negative Mass Method', definition: 'Representing removed holes as negative mass quantities to find the new centroid.' },
+              { term: 'Free Suspension', definition: 'Hanging an object from a single pivot where gravity aligns the CG below the pivot.' },
+              { term: 'Line of Suspension', definition: 'The vertical straight line connecting the suspension point and the center of gravity.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'طريقة الكتلة السالبة', definition: 'تمثيل الأجزاء المقتطعة بكتل سالبة لتحديد مركز ثقل الجسم المتبقي.' },
+              { term: 'تعليق حر', definition: 'تعليق جسم من نقطة واحدة بحيث يستقر بتأثير وزنه على خط رأسي يمر بمركز ثقله.' },
+              { term: 'خط التعليق الرأسي', definition: 'الخط المستقيم الرأسي الواصل بين نقطة التعليق ومركز ثقل الجسم.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Motivation: Hanging Plumb Bobs & Cut-outs (15 mins)',
+                phaseAr: 'التهيئة والتمهيد: خيط الشاقول والتعليق الحر (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Suspend a cardboard shape from various pins and show all suspension lines intersect at G.',
+                activitiesAr: 'تعليق صفيحة كرتونية من عدة ثقوب مختلفة وتوضيح تقاطع جميع الخطوط الرأسية عند نقطة واحدة هي مركز الثقل.'
+              },
+              {
+                phaseEn: 'Negative Mass Technique (25 mins)',
+                phaseAr: 'شرح طريقة الكتلة السالبة (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Derive X_G for a disk with a hole using negative mass.',
+                activitiesAr: 'استنتاج إحداثيات مركز ثقل قرص دائري مقتطع منه دائرة باستخدام الكتلة السالبة.'
+              },
+              {
+                phaseEn: 'Inclination to the Vertical (30 mins)',
+                phaseAr: 'حساب زاوية الميل على الرأسي (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Work through textbook problems finding tan(theta) for suspended plates.',
+                activitiesAr: 'حل مسائل امتحانات على حساب ظل زاوية ميل أضلاع الصفيحة على الخط الرأسي.'
+              },
+              {
+                phaseEn: 'Synthesis & Exit Ticket (20 mins)',
+                phaseAr: 'التقييم الفردي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Individual problem on free suspension of a rectangular plate.',
+                activitiesAr: 'حل مسألة فردية على زاوية ميل مستطيل معلق من أحد رؤوسه.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Using diameter instead of radius when calculating circular hole areas; area depends on r^2!',
+              'Forgetting that the vertical line connects the suspension point and G, not the center of the bounding box.'
+            ],
+            commonMisconceptionsAr: [
+              'استخدام القطر بدلاً من نصف القطر في حساب مساحة الدائرة؛ المساحة تعتمد على مربع نصف القطر!',
+              'نسيان أن الخط الرأسي يصل نقطة التعليق بمركز الثقل G تحديداً.'
+            ],
+            differentiationEn: {
+              struggling: 'Always sketch the shape, label suspension point P and CG, then draw the dashed vertical line between them.',
+              advanced: 'Find the equilibrium position when a lamina is suspended by two parallel strings of unequal tension.'
+            },
+            differentiationAr: {
+              struggling: 'رسم الشكل دائماً وتحديد نقطة التعليق ومركز الثقل ورسم الخط المنقط الرأسي بينهما.',
+              advanced: 'إيجاد وضع الاتزان لصفيحة معلقة بخيطين رأسيين متوازيين غير متساويين في الشد.'
+            },
+            formativeAssessmentEn: 'A square lamina of side 20 cm has G at (10, 10). Find tan(theta) when suspended from (0, 0).',
+            formativeAssessmentAr: 'صفيحة مربعة ضلعها ٢٠ سم مركزها (١٠، ١٠). احسب ظا(هـ) مع الضلع الأفقي عند تعليقها من (٠، ٠).',
+            exitTicketQuestion: {
+              questionEn: 'Disk radius 30 cm has hole radius 15 cm tangent to rim. Find CG shift from disk center.',
+              questionAr: 'قرص نصف قطره ٣٠ سم به ثقب نصف قطره ١٥ سم مماس للحافة. احسب إزاحة مركز الثقل.',
+              solutionEn: 'Area ratio 4 : -1. Hole center at 15 cm. Shift = (1 * 15) / 3 = 5 cm.',
+              solutionAr: 'نسبة المساحات ٤ : -١. مركز الثقب يبعد ١٥ سم. الإزاحة = ١٥ / ٣ = ٥ سم.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l11',
+            titleEn: 'Worksheet: Laminae, Negative Mass & Suspension',
+            titleAr: 'ورقة عمل: الصفائح والكتلة السالبة والتعليق الحر',
+            descriptionEn: 'Rigorous exam questions on circular cut-outs, square holes, and equilibrium inclination angles.',
+            descriptionAr: 'مسائل امتحانات متميزة على التجاويف الدائرية والمربعة وزوايا الميل في وضع التعليق الحر.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l11_p1',
+                titleEn: 'Disk with Circular Hole Shift',
+                titleAr: 'إزاحة مركز ثقل قرص به ثقب دائري',
+                difficulty: 'easy',
+                questionEn: 'A circular disk of radius $R = 24\\text{ cm}$ has a hole of radius $r = 12\\text{ cm}$ tangent to its circumference. Find the distance by which the CG shifts from the center.',
+                questionAr: 'قرص دائري نصف قطره $R = 24\\text{ سم}$ به ثقب دائري نصف قطره $r = 12\\text{ سم}$ يمس محيطه. احسب مسافة إزاحة مركز الثقل عن المركز الأصلي.',
+                optionsEn: ['$4\\text{ cm}$', '$3\\text{ cm}$', '$6\\text{ cm}$', '$2\\text{ cm}$'],
+                optionsAr: ['$4\\text{ سم}$', '$3\\text{ سم}$', '$6\\text{ سم}$', '$2\\text{ سم}$'],
+                correctAnswer: '$4\\text{ cm}$',
+                correctIndex: 0,
+                hintEn: 'Shift = R / 6 = 24 / 6 = 4 cm.',
+                hintAr: 'مقدار الإزاحة = نق / ٦ = ٢٤ / ٦ = ٤ سم.',
+                stepByStepSolutionEn: [
+                  '1. Area ratio = 4 : -1, net = 3.',
+                  '2. Hole center is at distance r = 12 cm.',
+                  '3. Shift = 12 / 3 = 4 cm.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. نسبة المساحات ٤ : -١ والمجموع ٣.',
+                  '٢. مركز الثقب يبعد ١٢ سم.',
+                  '٣. الإزاحة = ١٢ / ٣ = ٤ سم.'
+                ]
+              },
+              {
+                id: 'stat_l11_p2',
+                titleEn: 'Suspension of Rectangular Plate',
+                titleAr: 'تعليق صفيحة مستطيلة',
+                difficulty: 'medium',
+                questionEn: 'A rectangular lamina $ABCD$ ($AB = 10\\text{ cm}, BC = 20\\text{ cm}$) is suspended freely from $A$. Find $\\tan\\theta$ where $\\theta$ is the angle between $AB$ and the vertical.',
+                questionAr: 'صفيحة مستطيلة $ABCD$ ($AB = 10\\text{ سم}, BC = 20\\text{ سم}$) علقت تعليقاً حراً من $A$. احسب $\\tan\\theta$ حيث $\\theta$ زاوية ميل $AB$ على الرأسي.',
+                optionsEn: ['$2$', '$0.5$', '$1$', '$1.5$'],
+                optionsAr: ['$2$', '$0.5$', '$1$', '$1.5$'],
+                correctAnswer: '$2$',
+                correctIndex: 0,
+                hintEn: 'tan(theta) = Y_G / X_G = (20/2) / (10/2) = 2.',
+                hintAr: 'ظا(هـ) = ص_م / س_م = ١٠ / ٥ = ٢.',
+                stepByStepSolutionEn: [
+                  '1. Center of mass G = (5, 10).',
+                  '2. Line AG is vertical.',
+                  '3. tan(theta) = 10 / 5 = 2.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. مركز الثقل G = (٥، ١٠).',
+                  '٢. الخط AG هو الرأسي.',
+                  '٣. ظا(هـ) = ١٠ / ٥ = ٢.'
+                ]
+              },
+              {
+                id: 'stat_l11_p3',
+                titleEn: 'L-Shaped Lamina Free Suspension',
+                titleAr: 'تعليق حر لصفيحة L',
+                difficulty: 'hots',
+                questionEn: 'A square plate of side $L$ has a corner square of side $L/2$ cut out. When suspended freely from the opposite corner, find $\\tan\\theta$ of the horizontal edge to the vertical.',
+                questionAr: 'صفيحة مربعة ضلعها ل اقتطع من ركنها مربع ضلعه ل/٢. عند تعليقها من الرأس المقابل، احسب ظا(هـ) لميل الضلع الأفقي على الرأسي.',
+                optionsEn: ['$1$', '$\frac{7}{5}$', '$\frac{5}{7}$', '$\frac{1}{2}$'],
+                optionsAr: ['$1$', '$\frac{7}{5}$', '$\frac{5}{7}$', '$\frac{1}{2}$'],
+                correctAnswer: '$1$',
+                correctIndex: 0,
+                hintEn: 'By symmetry along line y = x, X_G = Y_G = 5L/12, so tan(theta) = Y_G / X_G = 1.',
+                hintAr: 'للتماثل حول س = ص، س_م = ص_م = ٥ل/١٢، إذن ظا(هـ) = ص_م / س_م = ١.',
+                stepByStepSolutionEn: [
+                  '1. G = (5L/12, 5L/12).',
+                  '2. Suspension is from origin (0,0).',
+                  '3. tan(theta) = (5L/12) / (5L/12) = 1.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. G = (٥ل/١٢، ٥ل/١٢).',
+                  '٢. التعليق من نقطة الأصل (٠، ٠).',
+                  '٣. ظا(هـ) = ١.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Interactive Cut-out Lamina & Free Suspension Simulator',
+            titleAr: 'محاكي الأجزاء المقتطعة والتعليق الحر التفاعلي',
+            descriptionEn: 'Interactive simulator visualizing negative mass cut-outs, center of gravity shift, and the equilibrium plumb line under free suspension.',
+            descriptionAr: 'محاكاة تفاعلية لتوضيح اقتطاع الأجزاء بالكتلة السالبة وإزاحة مركز الثقل والاتزان على خط الشاقول الرأسي.'
+          }
+        }
+      ],
+      solvedExamples: statCh6SolvedExamples,
+      exerciseProblems: statCh6Exercises,
+      databank: statCh6Databank
     }
   ]
 };
