@@ -10,6 +10,7 @@ import { InteractiveCalculusTangent } from './InteractiveCalculusTangent';
 import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award } from 'lucide-react';
+import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
@@ -65,12 +66,9 @@ export const LessonView: React.FC<Props> = ({
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               <img
-                src="./clipsat-logo.png"
+                src={clipsatLogo}
                 alt="ClipSAT Logo"
                 className="h-8 sm:h-9 w-auto object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
               />
               <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800 shadow-sm">
                 {lang === 'ar' ? branch.titleAr : branch.titleEn}

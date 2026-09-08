@@ -3,6 +3,7 @@ import type { CurriculumType } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { Globe, UserCheck, Award, BookOpen, Sun, Moon } from 'lucide-react';
+import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
@@ -83,12 +84,9 @@ export const Navbar: React.FC<Props> = ({
           {/* Logo & Brand Title */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <img
-              src="./clipsat-logo.png"
+              src={clipsatLogo}
               alt="ClipSAT"
               className="h-8 sm:h-9 w-auto object-contain shrink-0"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
             />
             <div className="flex items-center gap-2 shrink-0">
               <span className="text-base sm:text-lg font-black tracking-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent drop-shadow-sm whitespace-nowrap">
