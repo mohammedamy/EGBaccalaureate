@@ -3,6 +3,8 @@ import { algCh1SolvedExamples, algCh1Exercises } from './textbook/thanaweya/algC
 import { algCh1Databank } from './databanks/thanaweya/algCh1Databank';
 import { algCh2SolvedExamples, algCh2Exercises } from './textbook/thanaweya/algCh2Textbook';
 import { algCh2Databank } from './databanks/thanaweya/algCh2Databank';
+import { algCh3SolvedExamples, algCh3Exercises } from './textbook/thanaweya/algCh3Textbook';
+import { algCh3Databank } from './databanks/thanaweya/algCh3Databank';
 import { solidCh1SolvedExamples, solidCh1Exercises } from './textbook/thanaweya/solidCh1Textbook';
 import { solidCh1Databank } from './databanks/thanaweya/solidCh1Databank';
 import { solidCh2SolvedExamples, solidCh2Exercises } from './textbook/thanaweya/solidCh2Textbook';
@@ -1198,6 +1200,395 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
           solvedExamples: algCh2SolvedExamples,
           exerciseProblems: algCh2Exercises,
           databank: algCh2Databank
+        },
+        {
+          id: 'alg_ch3',
+          chapterNumber: 3,
+          titleEn: 'Determinants & Matrices',
+          titleAr: 'المحددات والمصفوفات',
+          descriptionEn: 'Properties of determinants, upper and lower triangular determinants, factoring, matrix multiplicative inverse, matrix rank, solving linear systems via matrix equations and Cramer\'s rule, and Rouché-Capelli theorem.',
+          descriptionAr: 'خواص المحددات والصورة المثلثية، التحليل، المعكوس الضربي للمصفوفة، رتبة المصفوفة والمصفوفة الموسعة، حل أنظمة المعادلات الخطية بالمعكوس الضربي وقاعدة كرامر، ونظرية روجيه-كابيلي.',
+          isFullyEquipped: true,
+          lessons: [
+            {
+              id: 'alg_l5',
+              titleEn: 'Determinants & Their Fundamental Properties',
+              titleAr: 'المحددات وخواصها الأساسية',
+              summaryEn: '2x2 and 3x3 determinants, expansion along rows/columns, invariant properties under elementary row/column operations, splitting determinants, and upper/lower triangular forms.',
+              summaryAr: 'المحددات الثنائية والثلاثية، مفكوك المحدد بدلالة عناصر أي صف أو عمود، خواص المحددات عند إجراء العمليات الأولية، تجزئة المحدد، ومحدد المصفوفة المثلثية.',
+              theoryContentEn: `### 1. Definition and Value of Determinants:
+For a $2 \\times 2$ matrix:
+$$\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$$
+For a $3 \\times 3$ matrix:
+$$\\Delta = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$$
+where $C_{ij} = (-1)^{i+j} M_{ij}$ is the cofactor of element $a_{ij}$.
+
+### 2. Fundamental Properties of Determinants:
+1. **Transpose Invariance:** $|A^T| = |A|$.
+2. **Row/Column Interchange:** Interchanging two parallel rows (or columns) reverses the sign of the determinant: $\\Delta' = -\\Delta$.
+3. **Zero Value Conditions:** The determinant equals zero ($|A| = 0$) if:
+   - Any entire row or column contains all zeros.
+   - Two parallel rows (or columns) are identical.
+   - Two parallel rows (or columns) are proportional.
+4. **Scalar Multiplication:** Multiplying all elements of a single row or column by scalar $k$ multiplies the determinant by $k$. Consequently, for an $n \\times n$ matrix, $|k A| = k^n |A|$.
+5. **Splitting Property:** If every entry in a row is the sum of two terms, the determinant can be split into the sum of two determinants.
+6. **Triangular Form:** The determinant of an upper or lower triangular matrix equals the product of its main diagonal elements.
+7. **Invariance under Row Additions:** Adding a scalar multiple of one row to another row does not change the value of the determinant: $R_i \\to R_i + k R_j$.`,
+              theoryContentAr: `### ١. تعريف وحساب قيمة المحدد:
+لمحدد الرتبة الثانية:
+$$\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$$
+لمحدد الرتبة الثالثة:
+$$\\Delta = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$$
+حيث $C_{ij} = (-1)^{i+j} M_{ij}$ هو العامل المرافق للعنصر $a_{ij}$.
+
+### ٢. خواص المحددات الأساسية:
+١. **عدم تغير القيمة بالتدوير:** $|A^T| = |A|$.
+٢. **تبديل صفين أو عمودين:** يغير إشارة المحدد فقط.
+٣. **انعدام المحدد ($|A| = 0$):**
+   - إذا كانت جميع عناصر أي صف أو عمود أصفاراً.
+   - إذا تطابق صفان متوازيان (أو عمودان متوازيان).
+   - إذا تناسبت عناصر صفين أو عمودين.
+٤. **الضرب في عدد ثابت:** ضرب صف أو عمود في $k$ يضرب قيمة المحدد في $k$. ولمصفوفة $n \\times n$ يكون $|k A| = k^n |A|$.
+٥. **تجزئة المحدد:** إذا كتبت عناصر صف كمجموع حدين، يتجزأ المحدد لمجموع محددين.
+٦. **الصورة المثلثية:** قيمة محدد المصفوفة المثلثية العلوية أو السفلية تساوي حاصل ضرب عناصر القطر الرئيسي.
+٧. **إضافة مضاعف صف لآخر:** لا يغير من قيمة المحدد أبداً.`,
+              formulas: [
+                { labelEn: '2x2 Determinant', labelAr: 'محدد الرتبة الثانية', latex: '\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc' },
+                { labelEn: 'Scalar Multiple of Matrix Determinant', labelAr: 'محدد مضروب مصفوفة في ثابت', latex: '|k A| = k^n |A|' },
+                { labelEn: 'Upper Triangular Determinant', labelAr: 'محدد المصفوفة المثلثية', latex: '\\Delta = a_{11} \\times a_{22} \\times a_{33}' },
+                { labelEn: 'Transpose Determinant', labelAr: 'محدد مدور المصفوفة', latex: '|A^T| = |A|' }
+              ],
+              moeRef: {
+                bookTitleEn: 'Ministry Algebra & Solid Geometry Grade 12',
+                bookTitleAr: 'كتاب الجبر والهندسة الفراغية للصف الثالث الثانوي - وزارة التربية والتعليم',
+                grade: 'Grade 12',
+                term: 'Full Year',
+                officialCode: 'MOE-SEC3-ALG-CH3-L1',
+                pageRange: 'pp. 75 - 98'
+              },
+              lessonPlan: {
+                titleEn: 'Lesson Plan: Determinants and Elementary Properties',
+                titleAr: 'خطة درس: المحددات والخواص الأساسية',
+                gradeLevel: 'Grade 12 Secondary',
+                durationMinutes: 90,
+                moeCode: 'MOE-SEC3-ALG-CH3-L1',
+                bloomsObjectivesEn: [
+                  'Evaluate determinants without direct expansion using row/column operations.',
+                  'Transform a 3x3 determinant into upper or lower triangular form.',
+                  'Prove determinant identities and factor polynomials represented as determinants.'
+                ],
+                bloomsObjectivesAr: [
+                  'حساب قيمة المحدد بدون فكه مباشرة باستخدام العمليات الأولية على الصفوف والأعمدة.',
+                  'تحويل المحدد إلى الصورة المثلثية العلوية أو السفلية.',
+                  'إثبات متطابقات المحددات وتحليل المقادير الجبرية المعبر عنها بمحددات.'
+                ],
+                prerequisitesEn: ['2x2 determinants', 'Solving systems of linear equations', 'Factoring algebraic expressions'],
+                prerequisitesAr: ['محددات الرتبة الثانية', 'حل أنظمة المعادلات الخطية', 'تحليل المقادير الجبرية'],
+                keyVocabularyEn: [
+                  { term: 'Determinant', definition: 'A scalar value computed from the elements of a square matrix.' },
+                  { term: 'Cofactor', definition: 'The signed minor of an entry in a square matrix.' },
+                  { term: 'Triangular Form', definition: 'A form where all entries below or above the main diagonal are zeros.' }
+                ],
+                keyVocabularyAr: [
+                  { term: 'المحدد', definition: 'قيمة عددية وحيدة تحسب لعناصر المصفوفة المربعة.' },
+                  { term: 'العامل المرافق', definition: 'المحدد الأصغر مضروباً في إشارة الموضع (-١)^(رقم الصف + رقم العمود).' },
+                  { term: 'الصورة المثلثية', definition: 'صورة تكون فيها جميع العناصر الواقعة أسفل أو أعلى القطر الرئيسي أصفاراً.' }
+                ],
+                teachingPacing: [
+                  {
+                    phaseEn: 'Introduction & Warm-up (15 mins)',
+                    phaseAr: 'التهيئة والتمهيد (١٥ دقيقة)',
+                    duration: '15 mins',
+                    activitiesEn: 'Review 2x2 expansion and introduce 3x3 determinant expansion via cofactors.',
+                    activitiesAr: 'مراجعة فك محدد الرتبة الثانية وتقديم فك محدد الرتبة الثالثة بالعوامل المرافقة.'
+                  },
+                  {
+                    phaseEn: 'Properties Deep Dive (35 mins)',
+                    phaseAr: 'شرح وتطبيق الخواص (٣٥ دقيقة)',
+                    duration: '35 mins',
+                    activitiesEn: 'Demonstrate each of the 7 properties with concrete numerical examples.',
+                    activitiesAr: 'تطبيق خواص المحددات السبعة باستخدام أمثلة عددية وجبرية.'
+                  },
+                  {
+                    phaseEn: 'Triangular Conversion Practice (25 mins)',
+                    phaseAr: 'التدريب على الصورة المثلثية (٢٥ دقيقة)',
+                    duration: '25 mins',
+                    activitiesEn: 'Guide students on making zeros in rows/columns to achieve triangular form.',
+                    activitiesAr: 'تدريب الطلاب على تكوين الأصفار أسفل القطر الرئيسي للوصول للصورة المثلثية.'
+                  },
+                  {
+                    phaseEn: 'Closure & Exit Ticket (15 mins)',
+                    phaseAr: 'التقويم الختامي (١٥ دقيقة)',
+                    duration: '15 mins',
+                    activitiesEn: 'Exit ticket evaluating a 3x3 determinant without expansion.',
+                    activitiesAr: 'حل سؤال بطاقة الخروج لحساب قيمة محدد بدون فك.'
+                  }
+                ],
+                commonMisconceptionsEn: [
+                  'Confusing |k A| = k^n |A| with k|A|.',
+                  'Changing the sign when adding a multiple of a row to another (only swapping rows changes the sign).'
+                ],
+                commonMisconceptionsAr: [
+                  'الخلط بين محدد حاصل ضرب ثابت في مصفوفة |k A| = k^n |A| وضرب صف واحد في ثابت.',
+                  'تغيير إشارة المحدد عند إضافة مضاعف صف لآخر (التبديل فقط هو ما يغير الإشارة).'
+                ],
+                differentiationEn: {
+                  struggling: 'Step-by-step checklist for converting 3x3 determinants to triangular form.',
+                  advanced: 'Evaluate Vandermonde determinants of order 3 and 4.'
+                },
+                differentiationAr: {
+                  struggling: 'قائمة خطوات إرشادية مرتبة لتوليد الأصفار أسفل القطر الرئيسي.',
+                  advanced: 'استنتاج وتطبيق صيغة محدد فاندرموند للرتبتين الثالثة والرابعة.'
+                },
+                formativeAssessmentEn: 'Find the value of det(3A) if A is a 3x3 matrix with det(A) = 4.',
+                formativeAssessmentAr: 'إذا كانت A مصفوفة مربعة من الرتبة 3x3 وكان |A| = 4، أوجد قيمة |3A|.',
+                exitTicketQuestion: {
+                  questionEn: 'Evaluate Delta = |1 2 3; 2 4 6; 5 7 9| without expansion.',
+                  questionAr: 'احسب قيمة المحدد |1 2 3; 2 4 6; 5 7 9| بدون فك.',
+                  solutionEn: 'Row 2 is 2 times Row 1: R2 = 2 R1. Two proportional rows make the determinant 0.',
+                  solutionAr: 'الصف الثاني يساوي ضعف الصف الأول: ص٢ = ٢ ص١. بما أن الصفين متناسبان، فإن قيمة المحدد تساوي صفراً فوراً.'
+                }
+              },
+              worksheet: {
+                id: 'ws_alg_l5',
+                titleEn: 'Solved Worksheet: Determinants Properties',
+                titleAr: 'ورقة عمل محلولة: خواص المحددات والصورة المثلثية',
+                descriptionEn: 'Essential exam-level exercises on applying properties and computing determinants without expansion.',
+                descriptionAr: 'تمارين امتحانية هامة على استخدام خواص المحددات وحساب القيم دون فك مباشر.',
+                estimatedTimeMinutes: 45,
+                problems: [
+                  {
+                    id: 'p_alg_det_ws1',
+                    titleEn: 'Exam Standard: Scalar Multiple of 3x3 Matrix Determinant',
+                    titleAr: 'مسألة امتحانية: محدد مضاعف مصفوفة ثلاثية',
+                    difficulty: 'exam_standard',
+                    questionEn: 'If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 5$, find the value of $|2A|$.',
+                    questionAr: 'إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 5$، أوجد قيمة $|2A|$.',
+                    optionsEn: ['40', '10', '20', '80'],
+                    optionsAr: ['٤٠', '١٠', '٢٠', '٨٠'],
+                    correctAnswer: '40',
+                    correctIndex: 0,
+                    hintEn: 'Recall the formula $|k A| = k^n |A|$ for an n x n matrix.',
+                    hintAr: 'تذكر القانون $|k A| = k^n |A|$ لمصفوفة من الرتبة n.',
+                    stepByStepSolutionEn: [
+                      '1. For an $n \\times n$ matrix, $|k A| = k^n |A|$.',
+                      '2. Here $n = 3$ and $k = 2$, so $|2A| = 2^3 |A| = 8 \\times 5 = 40$.'
+                    ],
+                    stepByStepSolutionAr: [
+                      '١. لمصفوفة على النظم $n \\times n$، يكون القانون $|k A| = k^n |A|$.',
+                      '٢. هنا $n = 3$ و $k = 2$، إذن $|2A| = 2^3 \\times |A| = 8 \\times 5 = 40$.'
+                    ],
+                    teacherTipEn: 'Do not just multiply 2 by 5! You must raise the scalar 2 to the power 3.',
+                    teacherTipAr: 'لا تضرب الثابت في المحدد مباشرة! يجب رفع الثابت لأس رتبة المصفوفة (ن = ٣).'
+                  }
+                ]
+              },
+              interactiveWidget: {
+                type: 'pascal_binomial',
+                titleEn: 'Determinant Elementary Operations Visualizer',
+                titleAr: 'محاكي العمليات الأولية وخواص المحددات',
+                descriptionEn: 'Explore how row swaps, scalar multiples, and triangular operations affect determinant values.',
+                descriptionAr: 'استكشاف أثر تبديل الصفوف والضرب القياسي والتحويل للصورة المثلثية على قيمة المحدد.'
+              }
+            },
+            {
+              id: 'alg_l6',
+              titleEn: 'Matrix Multiplicative Inverses & Linear Systems',
+              titleAr: 'المعكوس الضربي للمصفوفة وحل أنظمة المعادلات الخطية',
+              summaryEn: 'Adjugate matrix, formula for A^-1, properties of inverses, matrix rank rank(A), Cramer\'s rule, and Rouché-Capelli theorem on consistency of linear systems.',
+              summaryAr: 'المصفوفة الملحقة، قانون المعكوس الضربي $A^{-1}$، خواص المعكوسات، رتبة المصفوفة والمصفوفة الموسعة، قاعدة كرامر، ونظرية روجيه-كابيلي لبحث حلول الأنظمة الخطية.',
+              theoryContentEn: `### 1. Matrix Inverses & Adjugate:
+For an invertible $n \\times n$ matrix $A$ ($|A| \\neq 0$):
+$$A^{-1} = \\frac{1}{|A|} \\text{adj}(A)$$
+where $\\text{adj}(A) = (C_{ij})^T$ is the transpose of the cofactor matrix.
+- Key Properties:
+  - $A A^{-1} = A^{-1} A = I$
+  - $(A B)^{-1} = B^{-1} A^{-1}$
+  - $|A^{-1}| = \\frac{1}{|A|}$
+  - $|\\text{adj}(A)| = |A|^{n-1}$ (for $3 \\times 3$, $|\\text{adj}(A)| = |A|^2$)
+
+### 2. Rank of a Matrix (رتبة المصفوفة):
+- The rank $\\text{rank}(A)$ or $r(A)$ is the greatest order of a non-zero minor (determinant) in $A$.
+- For an $m \\times n$ matrix: $0 \\le r(A) \\le \\min(m, n)$.
+- $r(A) = r(A^T) = r(A A^T)$.
+
+### 3. Investigation of Linear Systems (Rouché-Capelli Theorem):
+For a non-homogeneous system $AX = B$ with augmented matrix $(A|B)$:
+1. **Unique Single Solution:** $r(A) = r(A|B) = n$ (where $n$ is number of unknowns, $|A| \\neq 0$).
+2. **Infinitely Many Solutions:** $r(A) = r(A|B) = r < n$ (dependent consistent).
+3. **No Solution (Inconsistent):** $r(A) < r(A|B)$.
+
+For a homogeneous system $AX = O$:
+- Always consistent because $X = O$ (trivial solution) is always a solution.
+1. **Trivial Zero Solution Only:** $r(A) = n \\iff |A| \\neq 0$.
+2. **Infinitely Many Non-Trivial Solutions:** $r(A) < n \\iff |A| = 0$.`,
+              theoryContentAr: `### ١. المعكوس الضربي والمصفوفة الملحقة:
+لمصفوفة مربعة غير منفردة $A$ ($|A| \\neq 0$):
+$$A^{-1} = \\frac{1}{|A|} \\text{adj}(A)$$
+حيث $\\text{adj}(A) = (C_{ij})^T$ هي مدور مصفوفة العوامل المرافقة.
+- أهم الخواص:
+  - $A A^{-1} = A^{-1} A = I$
+  - $(A B)^{-1} = B^{-1} A^{-1}$
+  - $|A^{-1}| = \\frac{1}{|A|}$
+  - $|\\text{adj}(A)| = |A|^{n-1}$ (لمصفوفة $3 \\times 3$ يكون $|\\text{adj}(A)| = |A|^2$).
+
+### ٢. رتبة المصفوفة:
+- رتبة المصفوفة $r(A)$ هي أعلى رتبة لمحدد غير صفري يمكن استخراجه من المصفوفة.
+- لمصفوفة $m \\times n$: يكون $0 \\le r(A) \\le \\min(m, n)$.
+
+### ٣. بحث وجود حلول للأنظمة الخطية (نظرية روجيه-كابيلي):
+للنظام غير المتجانس $AX = B$ والمصفوفة الموسعة $(A|B)$:
+١. **حل وحيد:** $r(A) = r(A|B) = n$ (حيث $n$ عدد المجاهيل، $|A| \\neq 0$).
+٢. **عدد لا نهائي من الحلول:** $r(A) = r(A|B) < n$.
+٣. **مستحيل الحل (ليس له حل):** $r(A) < r(A|B)$.
+
+للنظام المتجانس $AX = O$:
+- متسق دائماً لأن الحل الصفري حل دائم للنظام.
+١. **الحل الصفري فقط:** $r(A) = n \\iff |A| \\neq 0$.
+٢. **عدد لا نهائي من الحلول غير الصفرية:** $r(A) < n \\iff |A| = 0$.`,
+              formulas: [
+                { labelEn: 'Multiplicative Inverse Formula', labelAr: 'قانون المعكوس الضربي للمصفوفة', latex: 'A^{-1} = \\frac{1}{|A|} \\text{adj}(A)' },
+                { labelEn: 'Adjoint Determinant for 3x3', labelAr: 'محدد المصفوفة الملحقة لمصفوفة ثلاثية', latex: '|\\text{adj}(A)| = |A|^2' },
+                { labelEn: 'Inverse Determinant', labelAr: 'محدد المعكوس الضربي', latex: '|A^{-1}| = \\frac{1}{|A|}' },
+                { labelEn: 'Cramer Formula for Unknown x', labelAr: 'قاعدة كرامر لإيجاد المجهول س', latex: 'x = \\frac{\\Delta_x}{\\Delta}' }
+              ],
+              moeRef: {
+                bookTitleEn: 'Ministry Algebra & Solid Geometry Grade 12',
+                bookTitleAr: 'كتاب الجبر والهندسة الفراغية للصف الثالث الثانوي - وزارة التربية والتعليم',
+                grade: 'Grade 12',
+                term: 'Full Year',
+                officialCode: 'MOE-SEC3-ALG-CH3-L2',
+                pageRange: 'pp. 99 - 130'
+              },
+              lessonPlan: {
+                titleEn: 'Lesson Plan: Matrix Inverses, Rank & System Consistency',
+                titleAr: 'خطة درس: المعكوس الضربي ورتب المصفوفات وبحث حلول الأنظمة الخطية',
+                gradeLevel: 'Grade 12 Secondary',
+                durationMinutes: 90,
+                moeCode: 'MOE-SEC3-ALG-CH3-L2',
+                bloomsObjectivesEn: [
+                  'Compute the multiplicative inverse A^-1 using the adjugate method.',
+                  'Determine the rank of any m x n matrix using non-zero sub-determinants.',
+                  'Apply the Rouché-Capelli theorem to investigate consistency and number of solutions.'
+                ],
+                bloomsObjectivesAr: [
+                  'حساب المعكوس الضربي للمصفوفة باستخدام المصفوفة الملحقة ومحدد المصفوفة.',
+                  'تحديد رتبة أي مصفوفة باستخدام رتب المحددات الجزئية غير الصفرية.',
+                  'تطبيق نظرية روجيه-كابيلي لبحث وجود حلول للأنظمة الخطية وتحديد عددها.'
+                ],
+                prerequisitesEn: ['Evaluating 3x3 determinants', 'Cofactor matrices', 'Solving systems with substitution/elimination'],
+                prerequisitesAr: ['فك محددات الرتبة الثالثة', 'مصفوفة العوامل المرافقة', 'حل أنظمة المعادلات بالحذف والتعويض'],
+                keyVocabularyEn: [
+                  { term: 'Multiplicative Inverse', definition: 'Matrix A^-1 satisfying A * A^-1 = I.' },
+                  { term: 'Adjugate Matrix', definition: 'Transpose of the cofactor matrix of A.' },
+                  { term: 'Matrix Rank', definition: 'Highest order of a non-zero minor in the matrix.' }
+                ],
+                keyVocabularyAr: [
+                  { term: 'المعكوس الضربي', definition: 'المصفوفة A^-1 التي تحقق A * A^-1 = I.' },
+                  { term: 'المصفوفة الملحقة', definition: 'مدور مصفوفة العوامل المرافقة للمصفوفة A.' },
+                  { term: 'رتبة المصفوفة', definition: 'أعلى رتبة لمحدد غير صفري داخل المصفوفة.' }
+                ],
+                teachingPacing: [
+                  {
+                    phaseEn: 'Inverse Matrix Calculation (25 mins)',
+                    phaseAr: 'حساب المعكوس الضربي (٢٥ دقيقة)',
+                    duration: '25 mins',
+                    activitiesEn: 'Construct cofactor matrix, transpose to find adj(A), and compute A^-1 = (1/|A|) adj(A).',
+                    activitiesAr: 'تكوين مصفوفة المرافقات وتدويرها للحصول على المصفوفة الملحقة، ثم حساب المعكوس.'
+                  },
+                  {
+                    phaseEn: 'Matrix Rank Definition & Rules (20 mins)',
+                    phaseAr: 'مفهوم رتبة المصفوفة وقواعدها (٢٠ دقيقة)',
+                    duration: '20 mins',
+                    activitiesEn: 'Teach testing minors systematically from order 3 downwards.',
+                    activitiesAr: 'تدريب الطلاب على فحص المحددات الجزئية بدءاً من أعلى رتبة تنازلياً.'
+                  },
+                  {
+                    phaseEn: 'Rouché-Capelli Theorem & Consistency (30 mins)',
+                    phaseAr: 'نظرية روجيه-كابيلي وبحث الحلول (٣٠ دقيقة)',
+                    duration: '30 mins',
+                    activitiesEn: 'Compare rank(A) with rank(A|B) to classify systems: unique, infinite, or no solution.',
+                    activitiesAr: 'مقارنة رتبة مصفوفة المعاملات برتبة الموسعة لتصنيف الأنظمة: حل وحيد، لا نهائي، أو مستحيلة.'
+                  },
+                  {
+                    phaseEn: 'Exit Ticket (15 mins)',
+                    phaseAr: 'تقويم ختامي (١٥ دقيقة)',
+                    duration: '15 mins',
+                    activitiesEn: 'Find values of k for which a homogeneous system has non-trivial solutions.',
+                    activitiesAr: 'إيجاد قيمة الثابت k التي تجعل للنظام المتجانس حلولاً غير صفرية.'
+                  }
+                ],
+                commonMisconceptionsEn: [
+                  'Forgetting to transpose the cofactor matrix to get adj(A).',
+                  'Thinking a homogeneous system can have no solution (homogeneous systems always have at least the trivial zero solution).'
+                ],
+                commonMisconceptionsAr: [
+                  'نسيان تدوير مصفوفة العوامل المرافقة للحصول على المصفوفة الملحقة.',
+                  'الاعتقاد بأن النظام المتجانس قد يكون مستحيل الحل (النظام المتجانس متسق دائماً وله الحل الصفري على الأقل).'
+                ],
+                differentiationEn: {
+                  struggling: 'Visual matrix flow chart for classifying linear systems based on rank.',
+                  advanced: 'Investigate systems with two parameters (a, b) and graph solution regimes.'
+                },
+                differentiationAr: {
+                  struggling: 'مخطط انسيابي بصري لتصنيف حلول الأنظمة الخطية بناءً على الرتبة.',
+                  advanced: 'بحث حلول أنظمة تحتوي على بارامترين مجهولين (أ، ب) ورسم مناطق الحل.'
+                },
+                formativeAssessmentEn: 'If A is 3x3 and det(A) = 3, what is det(adj(A))?',
+                formativeAssessmentAr: 'إذا كانت A مصفوفة مربعة 3x3 وكان |A| = 3، فما قيمة |adj(A)|؟',
+                exitTicketQuestion: {
+                  questionEn: 'Determine the rank of matrix A = [1 2; 3 6].',
+                  questionAr: 'حدد رتبة المصفوفة A = [1 2; 3 6].',
+                  solutionEn: 'det(A) = 1(6) - 2(3) = 0. Since det is 0 and A is not the zero matrix, rank(A) = 1.',
+                  solutionAr: 'محدد المصفوفة |A| = 1(6) - 2(3) = 0. بما أن المحدد منعدم والمصفوفة غير صفرية، فإن رتبة المصفوفة تساوي 1.'
+                }
+              },
+              worksheet: {
+                id: 'ws_alg_l6',
+                titleEn: 'Solved Worksheet: Inverses, Rank & Systems',
+                titleAr: 'ورقة عمل محلولة: المعكوسات والرتبة والأنظمة الخطية',
+                descriptionEn: 'Exam-focused practice on matrix rank, inverse computation, and Rouché-Capelli solution analysis.',
+                descriptionAr: 'تدريبات امتحانية مركزة على رتبة المصفوفة وحساب المعكوس وبحث حلول الأنظمة بنظرية روجيه-كابيلي.',
+                estimatedTimeMinutes: 45,
+                problems: [
+                  {
+                    id: 'p_alg_mat_ws1',
+                    titleEn: 'Exam Standard: Parameter for Non-Trivial Solutions',
+                    titleAr: 'مسألة امتحانية: قيمة الثابت لوجود حلول غير تافهة',
+                    difficulty: 'exam_standard',
+                    questionEn: 'Find the value of $k$ that gives the homogeneous system non-trivial solutions: $x + 2y = 0$, $3x + ky = 0$.',
+                    questionAr: 'أوجد قيمة $k$ التي تجعل للنظام المتجانس $x + 2y = 0$، $3x + ky = 0$ حلولاً غير صفرية.',
+                    optionsEn: ['6', '3', '2', '0'],
+                    optionsAr: ['٦', '٣', '٢', '٠'],
+                    correctAnswer: '6',
+                    correctIndex: 0,
+                    hintEn: 'A homogeneous system has non-trivial solutions if and only if |A| = 0.',
+                    hintAr: 'للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد المعاملات يساوي صفراً.',
+                    stepByStepSolutionEn: [
+                      '1. For non-trivial solutions, the determinant of coefficients must be zero: $|A| = 0$.',
+                      '2. Compute determinant: $1(k) - 2(3) = 0 \\implies k - 6 = 0 \\implies k = 6$.'
+                    ],
+                    stepByStepSolutionAr: [
+                      '١. لوجود حلول غير صفرية يجب أن ينعدم محدد المعاملات: $|A| = 0$.',
+                      '٢. فك المحدد: $1(k) - 2(3) = 0 \\implies k - 6 = 0 \\implies k = 6$.'
+                    ],
+                    teacherTipEn: 'det(A) = 0 is the golden key for non-trivial solutions in any homogeneous system.',
+                    teacherTipAr: 'انعدام المحدد هو المفتاح الذهبي لوجود حلول غير صفرية في أي نظام متجانس.'
+                  }
+                ]
+              },
+              interactiveWidget: {
+                type: 'pascal_binomial',
+                titleEn: 'Linear Systems & Matrix Rank Analyzer',
+                titleAr: 'محلل رتب المصفوفات والأنظمة الخطية',
+                descriptionEn: 'Interactive tool to compute matrix rank, determinant, and investigate system solutions.',
+                descriptionAr: 'أداة تفاعلية لحساب رتبة المصفوفة ومحددها وتحديد طبيعة حلول النظام الخطي.'
+              }
+            }
+          ],
+          solvedExamples: algCh3SolvedExamples,
+          exerciseProblems: algCh3Exercises,
+          databank: algCh3Databank
         },
         {
           id: 'solid_ch1',
