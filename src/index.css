@@ -58,29 +58,29 @@
   border-color: rgba(99, 102, 241, 0.5);
 }
 
-/* ENHANCED KATEX MATH STYLING - Large, generous scale for effortless reading */
+/* BALANCED, HIGH-FIDELITY KATEX MATH STYLING - Clean, natural textbook scale */
 .katex-display {
-  margin: 1.25em 0;
+  margin: 0.6em 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.75rem 0;
-  font-size: 1.55em;
+  padding: 0.35rem 0;
+  font-size: 1.14em;
 }
 
-/* Apply font size scaling to top-level KaTeX containers only */
+/* Prevent compounding font-size multiplication */
 .katex-display > .katex,
 :not(.katex) > .katex {
-  font-size: 1.35em;
+  font-size: 1em;
   font-weight: 500;
 }
 
 .math-block-display {
-  font-size: 1.28em;
-  padding: 0.85rem 1.25rem;
+  font-size: 1.05em;
+  padding: 0.5rem 0.85rem;
 }
 
 .math-inline-display {
-  font-size: 1.18em;
+  font-size: 1.02em;
 }
 
 .katex,

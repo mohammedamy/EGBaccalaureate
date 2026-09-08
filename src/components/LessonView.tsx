@@ -159,18 +159,31 @@ export const LessonView: React.FC<Props> = ({
 
           {/* Essential Formulas Sheet */}
           <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-2xl space-y-4">
-            <h3 className="text-base font-bold text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-3">
-              <Layers className="w-5 h-5" />
-              <span>{lang === 'ar' ? 'دستور القوانين والملاحظات الهامة' : 'Essential Formula Sheet'}</span>
-            </h3>
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 className="text-base font-bold text-emerald-400 flex items-center gap-2">
+                <Layers className="w-5 h-5" />
+                <span>{lang === 'ar' ? 'دستور القوانين والملاحظات الهامة' : 'Essential Formula Sheet'}</span>
+              </h3>
+              <span className="text-xs text-slate-400 font-semibold">
+                {lang === 'ar' ? `${toHindiDigits(lesson.formulas.length)} قوانين أساسية` : `${lesson.formulas.length} Core Formulas`}
+              </span>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {lesson.formulas.map((f, fIdx) => (
-                <div key={fIdx} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-                  <span className="text-xs font-semibold text-slate-400 block">
-                    {lang === 'ar' ? f.labelAr : f.labelEn}
-                  </span>
-                  <MathRenderer math={f.latex} block lang={lang} />
+                <div
+                  key={fIdx}
+                  className="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 space-y-2 shadow-xs transition-all hover:border-indigo-500/50 flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-900 pb-1.5">
+                    <span className="truncate">{lang === 'ar' ? f.labelAr : f.labelEn}</span>
+                    <span className="text-[10px] font-mono text-indigo-500 bg-indigo-50 dark:bg-indigo-950/60 px-1.5 py-0.5 rounded">
+                      #{lang === 'ar' ? toHindiDigits(fIdx + 1) : fIdx + 1}
+                    </span>
+                  </div>
+                  <div className="py-2 overflow-x-auto flex items-center justify-center min-h-[56px]">
+                    <MathRenderer math={f.latex} block lang={lang} className="!my-0 !py-1 !border-0 !bg-transparent !shadow-none" />
+                  </div>
                 </div>
               ))}
             </div>
