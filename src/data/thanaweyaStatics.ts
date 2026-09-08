@@ -3,6 +3,8 @@ import { statCh1SolvedExamples, statCh1Exercises } from './textbook/thanaweya/st
 import { statCh1Databank } from './databanks/thanaweya/statCh1Databank';
 import { statCh2SolvedExamples, statCh2Exercises } from './textbook/thanaweya/statCh2Textbook';
 import { statCh2Databank } from './databanks/thanaweya/statCh2Databank';
+import { statCh3SolvedExamples, statCh3Exercises } from './textbook/thanaweya/statCh3Textbook';
+import { statCh3Databank } from './databanks/thanaweya/statCh3Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -873,6 +875,386 @@ $$M_L = \\vec{M}_O \\cdot \\hat{u}$$`,
       solvedExamples: statCh2SolvedExamples,
       exerciseProblems: statCh2Exercises,
       databank: statCh2Databank
+    }    ,
+    {
+      id: 'stat_ch3',
+      chapterNumber: 3,
+      titleEn: 'Parallel Coplanar Forces',
+      titleAr: 'محصلة واتزان القوى المتوازية المستوية',
+      descriptionEn: 'Resultant of two and multiple parallel coplanar forces (like and unlike directions), Varignon\'s theorem, conditions of equilibrium, support reactions for uniform and non-uniform beams, and tilting criteria.',
+      descriptionAr: 'محصلة قوتين وعدة قوى متوازية مستوية (في نفس الاتجاه ومتضادة)، نظرية فارينون للعزوم، شروط اتزان مجموعة قوى متوازية، ردود أفعال الحوامل، واتزان القضبان وشروط وشك الانقلاب.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'stat_l4',
+          titleEn: 'Resultant of Parallel Coplanar Forces',
+          titleAr: 'محصلة القوى المتوازية المستوية',
+          summaryEn: 'Resultant magnitude and line of action for like parallel forces (internal division) and unlike parallel forces (external division), and resultant of multiple forces using Varignon\'s theorem.',
+          summaryAr: 'مقدار وخط عمل محصلة قوتين متوازيتين في اتجاه واحد (تقسيم من الداخل) وفي اتجاهين متضادين (تقسيم من الخارج)، ومحصلة عدة قوى متوازية بنظرية فارينون.',
+          theoryContentEn: `### 1. Resultant of Two Parallel Forces:
+Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$:
+- **Case 1: Same Direction (Like Forces):**
+  - Magnitude: $R = F_1 + F_2$
+  - Direction: In the same direction as $\\vec{F}_1$ and $\\vec{F}_2$.
+  - Line of action: Passes through point $C$ lying **between** $A$ and $B$ (internal division):
+    $F_1 \\times AC = F_2 \\times BC$
+- **Case 2: Opposite Directions (Unlike Forces, assume $F_1 > F_2$):**
+  - Magnitude: $R = F_1 - F_2$
+  - Direction: In the direction of the larger force $\\vec{F}_1$.
+  - Line of action: Passes through point $C$ on the line $AB$ **outside** segment $AB$, on the side of the larger force $\\vec{F}_1$ (external division):
+    $F_1 \\times AC = F_2 \\times BC$
+
+### 2. Resultant of Multiple Parallel Coplanar Forces:
+1. Define a unit vector $\\hat{e}$ parallel to the lines of action of the forces.
+2. Resultant vector: $\\vec{R} = \\sum \\vec{F}_i = \\left(\\sum F_i\\right) \\hat{e}$.
+3. **Line of Action (Varignon\'s Theorem of Moments):**
+   $R \\times x_R = \\sum (F_i \\times x_i)$
+   where $x_i$ is the coordinate of the point of action of force $F_i$, and $x_R$ is the coordinate of the resultant line of action.`,
+          theoryContentAr: `### ١. محصلة قوتين متوازيتين:
+إذا أثرت قوتان متوازيتان $\\vec{F}_1$ و $\\vec{F}_2$ عند النقطتين $A$ و $B$:
+- **الحالة الأولى: في نفس الاتجاه:**
+  - المقدار: $R = F_1 + F_2$.
+  - الاتجاه: في نفس اتجاه القوتين.
+  - نقطة التأثير: تقسم القطعة $AB$ **من الداخل** عند نقطة $C$ حيث:
+    $F_1 \\times AC = F_2 \\times BC$
+- **الحالة الثانية: في اتجاهين متضادين (بفرض $F_1 > F_2$):**
+  - المقدار: $R = F_1 - F_2$.
+  - الاتجاه: في اتجاه القوة الكبرى $F_1$.
+  - نقطة التأثير: تقسم القطعة $AB$ **من الخارج** من جهة القوة الكبرى حيث:
+    $F_1 \\times AC = F_2 \\times BC$
+
+### ٢. محصلة عدة قوى متوازية مستوية:
+١. نفرض متجه وحدة $\\hat{e}$ في اتجاه القوى.
+٢. المحصلة المتجهة: $\\vec{R} = \\sum \\vec{F}_i$.
+٣. **تعيين خط العمل (نظرية فارينون للعزوم):**
+   عزم المحصلة حول أي نقطة = المجموع الجبري لعزوم القوى حول نفس النقطة:
+   $R \\times x_R = \\sum (F_i \\times x_i)$`,
+          formulas: [
+            { labelEn: 'Like Forces Resultant', labelAr: 'محصلة قوتين في نفس الاتجاه', latex: 'R = F_1 + F_2, \quad F_1 \cdot AC = F_2 \cdot BC' },
+            { labelEn: 'Unlike Forces Resultant', labelAr: 'محصلة قوتين متضادتين', latex: 'R = |F_1 - F_2|, \quad F_1 \cdot AC = F_2 \cdot BC' },
+            { labelEn: "Varignon's Theorem", labelAr: 'نظرية فارينون للمحصلة', latex: 'R \cdot x_R = \sum (F_i \cdot x_i)' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH3-L1',
+            pageRange: 'pp. 65 - 88'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Resultant of Parallel Coplanar Forces',
+            titleAr: 'خطة درس: محصلة القوى المتوازية المستوية',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH3-L1',
+            bloomsObjectivesEn: [
+              'Distinguish clearly between internal and external division for like vs unlike parallel forces.',
+              'Calculate the position of the resultant for multiple parallel coplanar forces using Varignon\'s Theorem.',
+              'Determine missing forces or dimensions given resultant magnitude and line of action.'
+            ],
+            bloomsObjectivesAr: [
+              'التمييز التام بين التقسيم من الداخل والخارج للقوى متحدة الاتجاه ومتضادة الاتجاه.',
+              'حساب موضع خط عمل محصلة عدة قوى متوازية باستخدام نظرية فارينون للعزوم.',
+              'إيجاد القوى المجهولة أو الأبعاد بمعلومية مقدار المحصلة وموضع خط عملها.'
+            ],
+            prerequisitesEn: ['Vectors in 2D', 'Calculating scalar moments in a plane', 'Solving linear algebraic equations'],
+            prerequisitesAr: ['المتجهات في المستوى', 'حساب العزوم الجبرية حول نقطة', 'حل المعادلات الخطية البسيطة'],
+            keyVocabularyEn: [
+              { term: 'Like Parallel Forces', definition: 'Forces having parallel lines of action in the same direction.' },
+              { term: 'Unlike Parallel Forces', definition: 'Forces having parallel lines of action in opposite directions.' },
+              { term: "Varignon's Theorem", definition: 'The moment of the resultant about any point equals the sum of the moments of the component forces.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'قوى متوازية متحدة الاتجاه', definition: 'قوى خطوط عملها متوازية ولها نفس الاتجاه.' },
+              { term: 'قوى متوازية متضادة الاتجاه', definition: 'قوى خطوط عملها متوازية وفي اتجاهين متعاكسين.' },
+              { term: 'نظرية فارينون', definition: 'عزم المحصلة حول أي نقطة يساوي المجموع الجبري لعزوم القوى حول تلك النقطة.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Demonstration (15 mins)',
+                phaseAr: 'التهيئة والعرض البصري (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate balance on a seesaw: heavier student must sit closer to pivot point.',
+                activitiesAr: 'تطبيق عملي على لعبة الأرجوحة: الطالب الأثقل يجب أن يجلس أقرب لنقطة الارتكاز لحفظ التوازن.'
+              },
+              {
+                phaseEn: 'Two Parallel Forces Rules (35 mins)',
+                phaseAr: 'قواعد محصلة قوتين متوازيتين (٣٥ دقيقة)',
+                duration: '35 mins',
+                activitiesEn: 'Derive magnitude and position formulas for like and unlike parallel forces on whiteboard.',
+                activitiesAr: 'استنتاج قوانين المقدار والتقسيم من الداخل والخارج للقوى المتوازية.'
+              },
+              {
+                phaseEn: 'System of Multiple Forces (25 mins)',
+                phaseAr: 'محصلة عدة قوى بنظرية فارينون (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Apply Varignon\'s theorem to calculate the resultant line of action for 3 or 4 forces.',
+                activitiesAr: 'تطبيق نظرية فارينون لحساب موضع محصلة نظام يحتوي على ٣ أو ٤ قوى رأسية.'
+              },
+              {
+                phaseEn: 'Closure & Exit Ticket (15 mins)',
+                phaseAr: 'التقويم الختامي (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Administer individual problem on finding resultant position of two unlike forces.',
+                activitiesAr: 'حل سؤال بطاقة الخروج لحساب موضع محصلة قوتين متضادتين في الاتجاه.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Placing the resultant of unlike forces between the two forces instead of outside the segment.',
+              'Forgetting that for unlike forces, the resultant lies closer to the larger force.'
+            ],
+            commonMisconceptionsAr: [
+              'وضع محصلة القوتين المتضادتين بين القوتين بدلاً من وضعها خارج القطعة المستقيمة.',
+              'نسيان أن محصلة القوتين المتضادتين تقع دائماً بالقرب من القوة الأكبر وخارجها.'
+            ],
+            differentiationEn: {
+              struggling: 'Provide a lever balance chart showing inverse proportionality of force and distance.',
+              advanced: 'Determine resultant when forces are functions of a parameter or distributed loads.'
+            },
+            differentiationAr: {
+              struggling: 'استخدام رسم توضيحي للعلاقة العكسية بين مقدار القوة وبعدها عن نقطة الارتكاز.',
+              advanced: 'مسائل محصلة قوى متغيرة أو أحمال موزعة بانتظام على كمرة.'
+            },
+            formativeAssessmentEn: 'Forces 20 N and 30 N act in same direction at A and B (AB = 50 cm). Where is R?',
+            formativeAssessmentAr: 'قوتان ٢٠ ن و ٣٠ ن في نفس الاتجاه عند أ و ب (أ ب = ٥٠ سم). أين تؤثر المحصلة؟',
+            exitTicketQuestion: {
+              questionEn: 'Two parallel forces 40 N and 10 N act in opposite directions at A and B (AB = 30 cm). Find resultant and location.',
+              questionAr: 'قوتان متوازيتان ٤٠ ن و ١٠ ن في اتجاهين متضادين عند أ و ب (أ ب = ٣٠ سم). أوجد المحصلة وموضعها.',
+              solutionEn: 'R = 40 - 10 = 30 N in direction of 40 N. 40 * AC = 10 * (30 + AC) => 30 AC = 300 => AC = 10 cm outside AB beyond A.',
+              solutionAr: 'المحصلة = ٣٠ ن في اتجاه القوة ٤٠ ن. العزوم: ٤٠ × أ جـ = ١٠ × (٣٠ + أ جـ) => ٣٠ أ جـ = ٣٠٠ => أ جـ = ١٠ سم خارج القطعة من جهة أ.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l4',
+            titleEn: 'Solved Worksheet: Parallel Forces Resultant',
+            titleAr: 'ورقة عمل محلولة: محصلة القوى المتوازية المستوية',
+            descriptionEn: 'Exam standard exercises on finding the magnitude and line of action of like and unlike parallel forces.',
+            descriptionAr: 'تمارين امتحانية هامة على تعيين مقدار وخط عمل محصلة القوى المتوازية متحدة ومتضادة الاتجاه.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'p_stat_par_ws1',
+                titleEn: 'Exam Standard: Resultant Position of Unlike Parallel Forces',
+                titleAr: 'مسألة امتحانية: موضع محصلة قوتين متضادتين',
+                difficulty: 'exam_standard',
+                questionEn: 'Two parallel forces $F_1 = 30\text{ N}$ and $F_2 = 10\text{ N}$ act in opposite directions at $A$ and $B$, where $AB = 40\text{ cm}$. Find the distance from $A$ (where $F_1$ acts) to the resultant line of action.',
+                questionAr: 'قوتان متوازيتان $F_1 = 30\text{ ن}$ و $F_2 = 10\text{ ن}$ تعملان في اتجاهين متضادين عند $A$ و $B$ حيث $AB = 40\text{ سم}$. أوجد بعد خط عمل المحصلة عن $A$.',
+                optionsEn: ['20 cm beyond A', '60 cm beyond A', '10 cm between A and B', '30 cm beyond B'],
+                optionsAr: ['٢٠ سم خارج القطعة من جهة A', '٦٠ سم خارج القطعة من جهة A', '١٠ سم بين A و B', '٣٠ سم خارج القطعة من جهة B'],
+                correctAnswer: '20 cm beyond A',
+                correctIndex: 0,
+                hintEn: '30 * AC = 10 * (40 + AC).',
+                hintAr: '٣٠ × أ جـ = ١٠ × (٤٠ + أ جـ).',
+                stepByStepSolutionEn: [
+                  '1. The resultant acts outside $AB$ on the side of the larger force $F_1$ at $A$.',
+                  '2. $30 \times AC = 10 \times (40 + AC) \implies 30 AC = 400 + 10 AC$.',
+                  '3. $20 AC = 400 \implies AC = 20\text{ cm}$ beyond $A$.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. المحصلة تؤثر خارج القطعة $AB$ من جهة القوة الأكبر ($A$).',
+                  '٢. $30 AC = 10(40 + AC) \implies 20 AC = 400 \implies AC = 20\text{ سم}$.'
+                ],
+                teacherTipEn: 'Always measure distance from the larger force when dealing with external division.',
+                teacherTipAr: 'قس المسافة دائماً من موضع القوة الكبرى لتفادي الخلط في حل مسائل التقسيم من الخارج.'
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Parallel Forces Seesaw Balance Visualizer',
+            titleAr: 'محاكي توازن القوى المتوازية وخط العمل',
+            descriptionEn: 'Interactive tool visualizing line of action shift as force magnitudes change.',
+            descriptionAr: 'أداة تفاعلية توضح حركة خط عمل المحصلة بتغير مقادير ومواضع القوى المتوازية.'
+          }
+        },
+        {
+          id: 'stat_l5',
+          titleEn: 'Equilibrium of Parallel Coplanar Forces',
+          titleAr: 'اتزان القوى المتوازية المستوية',
+          summaryEn: 'Equilibrium conditions sum(F) = 0 and sum(M) = 0, reaction of supports on horizontal beams, uniform and non-uniform rods, and tilting / overturning conditions.',
+          summaryAr: 'شروط الاتزان العام لمجموعة قوى متوازية، ردود أفعال الحوامل للقضبان المنتظمة وغير المنتظمة، وحساب أقصى أحمال قبل وشك الانقلاب.',
+          theoryContentEn: `### 1. General Conditions for Equilibrium of Coplanar Parallel Forces:
+A system of parallel coplanar forces is in complete static equilibrium if and only if:
+1. **Force Equilibrium (No Translation):**
+   $\\sum \\vec{F} = \\vec{0} \\iff \\text{Sum of upward forces} = \\text{Sum of downward forces}$
+2. **Moment Equilibrium (No Rotation):**
+   $\\sum M_O = 0 \\quad \\text{about ANY chosen point in the plane}$
+
+### 2. Supported Beams and Reactions:
+- For a beam resting horizontally on smooth supports at $A$ and $B$, upward normal reactions $R_A$ and $R_B$ arise perpendicular to the beam.
+- The weight of a **uniform** beam acts at its geometrical midpoint $G$.
+- The weight of a **non-uniform** beam acts at its center of gravity, whose position must be determined using moments.
+
+### 3. Tipping & Overturning Conditions (على وشك الانقلاب / الدوران):
+When loads are applied or shifted such that a supported beam is on the verge of rotating about a pivot support:
+- The beam begins to lift off the other support.
+- **Critical Rule:** The reaction at the lifted support vanishes completely:
+  $R_{\\text{lifted}} = 0$
+- Taking moments about the pivot support yields the maximum or minimum permissible load.`,
+          theoryContentAr: `### ١. الشروط العامة لاتزان مجموعة قوى متوازية مستوية:
+تكون مجموعة القوى المتوازية المستوية في حالة اتزان استاتيكي تام إذا وفقط إذا تحقق الشرطان:
+١. **انعدام محصلة القوى (انعدام الحركة الانتقالية):**
+   $\\sum \\vec{F} = \\vec{0} \\iff \\text{مجموع القوى لأعلى} = \\text{مجموع القوى لأسفل}$
+٢. **انعدام مجموع العزوم (انعدام الحركة الدورانية):**
+   $\\sum M = 0 \\quad \\text{حول أي نقطة في المستوى}$
+
+### ٢. القضبان المرتكزة على حوامل وردود الأفعال:
+- للقضيب المرتكز على حاملين أملسين تتولد ردود أفعال رأسية لأعلى $R_A$ و $R_B$.
+- وزن القضيب **المنتظم** يؤثر دائماً في منتصفه الهندسي.
+- وزن القضيب **غير المنتظم** يؤثر في مركز ثقله ويحدد موضعه بمعادلة العزوم.
+
+### ٣. شروط وشك الانقلاب (الدوران حول الحامل):
+عند زيادة أو تحريك ثقل على القضيب بحيث يصبح على وشك الانقلاب حول أحد الحاملين:
+- يرتفع القضيب عن الحامل الآخر.
+- **القاعدة الذهبية:** ينعدم رد الفعل عند الحامل البعيد تماماً:
+  $R = 0$
+- وأخذ العزوم حول الحامل المرتكز عليه يعطي أقصى أو أقل ثقل يحفظ الاتزان.`,
+          formulas: [
+            { labelEn: 'Force Equilibrium Condition', labelAr: 'شرط اتزان القوى', latex: '\sum F_y = 0 \iff \sum F_{\text{up}} = \sum F_{\text{down}}' },
+            { labelEn: 'Moment Equilibrium Condition', labelAr: 'شرط اتزان العزوم', latex: '\sum M_P = 0' },
+            { labelEn: 'Tilting Support Condition', labelAr: 'شرط وشك الانقلاب', latex: 'R_{\text{other}} = 0' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH3-L2',
+            pageRange: 'pp. 89 - 118'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Equilibrium of Parallel Coplanar Forces & Beams',
+            titleAr: 'خطة درس: اتزان القوى المتوازية والقضبان الأفقية',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH3-L2',
+            bloomsObjectivesEn: [
+              'Apply equilibrium conditions sum(F) = 0 and sum(M) = 0 to solve for support reactions.',
+              'Locate the center of gravity of non-uniform rods using given force configurations.',
+              'Solve tipping and overturning problems by setting the reaction of the unloaded support to zero.'
+            ],
+            bloomsObjectivesAr: [
+              'تطبيق شرطي الاتزان لإيجاد ردود أفعال الحوامل بدقة.',
+              'تعيين مركز ثقل قضيب غير منتظم من قراءات الموازين أو الحوامل.',
+              'حل مسائل وشك الانقلاب بوضع رد فعل الحامل البعيد مساوياً للصفر.'
+            ],
+            prerequisitesEn: ['Resultant of parallel forces', 'Varignon theorem of moments', 'Solving simultaneous linear equations'],
+            prerequisitesAr: ['محصلة القوى المتوازية', 'نظرية فارينون للعزوم', 'حل نظام معادلتين خطيتين'],
+            keyVocabularyEn: [
+              { term: 'Static Equilibrium', definition: 'State where net force and net moment acting on a rigid body are zero.' },
+              { term: 'Support Reaction', definition: 'Normal force exerted by a knife-edge or peg support on a resting beam.' },
+              { term: 'Verge of Tilting', definition: 'State where contact pressure at a distant support drops to zero as beam begins rotation.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'الاتزان الاستاتيكي', definition: 'حالة انعدام القوة المحصلة وانعدام العزم المحصل المؤثر على الجسم الجاسئ.' },
+              { term: 'رد فعل الحامل', definition: 'القوة العمودية التي يؤثر بها الحامل على القضيب المرتكز عليه.' },
+              { term: 'وشك الانقلاب', definition: 'حالة انعدام الضغط على أحد الحاملين وبدء دوران القضيب حول الحامل الآخر.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Equilibrium Formulation (20 mins)',
+                phaseAr: 'صياغة شروط الاتزان (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Establish that translational equilibrium alone is insufficient; rotational equilibrium is mandatory.',
+                activitiesAr: 'بيان أن اتزان القوى بمفرده غير كافٍ، وأن اتزان العزوم ركن أساسي لاكتمال الاتزان.'
+              },
+              {
+                phaseEn: 'Uniform Beam on Supports (25 mins)',
+                phaseAr: 'القضيب المنتظم المرتكز على حاملين (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Solve standard textbook problem finding reactions with additional suspended weights.',
+                activitiesAr: 'حل مسألة كتاب الوزارة لإيجاد ردود الأفعال عند الحوامل تحت تأثير أوزان معلقة.'
+              },
+              {
+                phaseEn: 'Tipping & Non-Uniform Rods (30 mins)',
+                phaseAr: 'مسائل وشك الانقلاب والقضيب غير المنتظم (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Demonstrate setting R = 0 at the lifting support and solving for maximum load.',
+                activitiesAr: 'شرح وتطبيق مهارة وضع رد فعل الحامل المنفصل بصفر لحساب أقصى ثقل ممكن.'
+              },
+              {
+                phaseEn: 'Closure & Exit Ticket (15 mins)',
+                phaseAr: 'التقويم الختامي (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Administer individual problem on finding the maximum load before tilting.',
+                activitiesAr: 'حل سؤال بطاقة الخروج لحساب أقصى ثقل قبل وشك الانقلاب.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Assuming reaction forces at both supports are equal even when loads are asymmetric.',
+              'Forgetting that when on the verge of tipping, the reaction at the lifted support is zero.'
+            ],
+            commonMisconceptionsAr: [
+              'افتراض تساوي ردود الأفعال عند الحاملين حتى في حالة عدم تماثل موضع الأحمال.',
+              'نسيان إلغاء رد فعل الحامل البعيد (وضعه بصفر) في مسائل وشك الانقلاب.'
+            ],
+            differentiationEn: {
+              struggling: 'Provide a structured 2-step template: Step 1: sum(F) = 0, Step 2: sum(M_pivot) = 0.',
+              advanced: 'Problems involving continuous distributed loads or hanging cables with non-parallel geometry.'
+            },
+            differentiationAr: {
+              struggling: 'قالب خطوات منظم: الخطوة الأولى: مجموع القوى = صفر، الخطوة الثانية: العزوم حول الحامل = صفر.',
+              advanced: 'مسائل قضبان معلقة بحبال أو أحمال موزعة غير متجانسة.'
+            },
+            formativeAssessmentEn: 'Uniform rod of weight 20 N rests on two end supports. What is reaction at each end?',
+            formativeAssessmentAr: 'قضيب منتظم وزنه ٢٠ ن يرتكز على حاملين عند طرفيه. ما هو رد الفعل عند كل طرف؟',
+            exitTicketQuestion: {
+              questionEn: 'Rod of length 100 cm, weight 30 N at midpoint rests on supports at 20 cm and 80 cm. Find max weight at B (100 cm) before tipping.',
+              questionAr: 'قضيب طوله ١٠٠ سم، وزنه ٣٠ ن في منتصفه يرتكز على حاملين عند ٢٠ سم و ٨٠ سم. أوجد أقصى ثقل عند ب (١٠٠ سم) قبل الانقلاب.',
+              solutionEn: 'Pivot is at 80 cm. GD = 30 cm, DB = 20 cm. R_C = 0. 30 * 30 = w * 20 => w = 45 N.',
+              solutionAr: 'نقطة الارتكاز عند ٨٠ سم. المسافة من مركز الثقل ٥٠ إلى ٨٠ هي ٣٠ سم. البعد عن ب هو ٢٠ سم. ٣٠ × ٣٠ = ث × ٢٠ => ث = ٤٥ ن.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l5',
+            titleEn: 'Solved Worksheet: Equilibrium and Tipping',
+            titleAr: 'ورقة عمل محلولة: اتزان القضبان ومسائل الانقلاب',
+            descriptionEn: 'Essential exam-level exercises on computing beam reactions and finding maximum tipping weights.',
+            descriptionAr: 'تمارين امتحانية هامة على حساب ردود أفعال الحوامل وأقصى أوزان لحفظ الاتزان دون انقلاب.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'p_stat_eq_ws1',
+                titleEn: 'Exam Standard: Overturning Load on Overhanging Beam',
+                titleAr: 'مسألة امتحانية: أقصى حمل على طرف بارز دون انقلاب',
+                difficulty: 'exam_standard',
+                questionEn: 'A uniform rod $AB$ of length $100\text{ cm}$ and weight $20\text{ N}$ rests on two supports at $C$ ($20\text{ cm}$ from $A$) and $D$ ($80\text{ cm}$ from $A$). Find the maximum weight that can be suspended from end $A$ without overturning the rod.',
+                questionAr: 'قضيب منتظم $AB$ طوله $100\text{ سم}$ ووزنه $20\text{ ن}$ يرتكز على حاملين عند $C$ (على بعد $20\text{ سم}$ من $A$) و $D$ (على بعد $80\text{ سم}$ من $A$). أوجد أكبر ثقل يمكن تعليقه من الطرف $A$ دون أن ينقلب القضيب.',
+                optionsEn: ['30 N', '20 N', '40 N', '15 N'],
+                optionsAr: ['٣٠ ن', '٢٠ ن', '٤٠ ن', '١٥ ن'],
+                correctAnswer: '30 N',
+                correctIndex: 0,
+                hintEn: 'Tipping occurs about support C, so R_D = 0. Weight acts at midpoint 50 cm. w * 20 = 20 * (50 - 20).',
+                hintAr: 'الانقلاب يحدث حول الحامل $C$، فينعدم $R_D = 0$. الوزن عند ٥٠ سم. $w \times 20 = 20 \times (50 - 20)$.',
+                stepByStepSolutionEn: [
+                  '1. When the rod is on the verge of tilting about $C$, the reaction at $D$ drops to zero ($R_D = 0$).',
+                  '2. Center of gravity is at $50\text{ cm}$, so distance $CG = 50 - 20 = 30\text{ cm}$.',
+                  '3. Distance from $A$ to $C$ is $20\text{ cm}$.',
+                  '4. Take moments about $C$: $w \times 20 = 20 \times 30 \implies 20 w = 600 \implies w = 30\text{ N}$.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. عند وشك الانقلاب حول $C$ ينعدم رد الفعل عند $D$ تماماً ($R_D = 0$).',
+                  '٢. مركز الثقل عند ٥٠ سم، فالمسافة $CG = 30\text{ سم}$.',
+                  '٣. أخذ العزوم حول $C$: $w \times 20 = 20 \times 30 \implies w = 30\text{ ن}$.'
+                ],
+                teacherTipEn: 'Moments about the fulcrum support with R_other = 0 gives the exact tipping weight.',
+                teacherTipAr: 'معادلة العزوم حول الحامل نقطة الارتكاز مع إلغاء رد فعل الحامل الآخر تعطي الثقل بدقة.'
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Beam Support Reactions & Tipping Analyzer',
+            titleAr: 'محلل ردود أفعال الحوامل والانقلاب',
+            descriptionEn: 'Interactive tool demonstrating beam load redistribution and support lift-off.',
+            descriptionAr: 'أداة تفاعلية توضح توزيع ردود الأفعال عند تحريك الأوزان ولحظة انفصال القضيب عن الحامل.'
+          }
+        }
+      ],
+      solvedExamples: statCh3SolvedExamples,
+      exerciseProblems: statCh3Exercises,
+      databank: statCh3Databank
     }
   ]
 };
