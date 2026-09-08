@@ -132,6 +132,13 @@ export interface Lesson {
   lessonPlan: TeacherLessonPlan;
   worksheet: Worksheet;
   interactiveWidget: InteractiveWidgetConfig;
+  interactiveWidgets?: InteractiveWidgetConfig[];
+}
+
+export interface ChapterDatabank {
+  easy: SolvedProblem[];
+  medium: SolvedProblem[];
+  hots: SolvedProblem[];
 }
 
 export interface Chapter {
@@ -143,6 +150,10 @@ export interface Chapter {
   descriptionAr: string;
   isFullyEquipped: boolean;
   lessons: Lesson[];
+  solvedExamples?: SolvedProblem[];
+  exerciseProblems?: SolvedProblem[];
+  databank?: ChapterDatabank;
+  interactiveWidgets?: InteractiveWidgetConfig[];
 }
 
 export interface Branch {

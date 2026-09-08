@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import type { CurriculumType, DifficultyLevel, DiagramType } from '../types/curriculum';
+import type { CurriculumType, DifficultyLevel, DiagramType, SolvedProblem } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { thanaweyaCurriculum } from '../data/thanaweyaData';
@@ -35,8 +35,9 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
 
   // Filters
   const [selectedBranch, setSelectedBranch] = useState<string>('all');
+  const [selectedChapter, setSelectedChapter] = useState<string>('all');
   const [difficulty, setDifficulty] = useState<DifficultyLevel | 'all'>('all');
-  const [questionCount, setQuestionCount] = useState<number>(5);
+  const [questionCount, setQuestionCount] = useState<number>(10);
   const [examMode, setExamMode] = useState<'online' | 'printable'>('online');
 
   // Exam state
@@ -45,50 +46,95 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
 
-  // Generate question set based on active curriculum database
+  // Generate question set based on active curriculum database & chapter databanks
   const generateQuestions = (): GeneratedQuestion[] => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
-    const questions: GeneratedQuestion[] = [];
+    const pool: GeneratedQuestion[] = [];
 
     activeData.branches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
 
       branch.chapters.forEach((ch) => {
-        ch.lessons.forEach((l) => {
-          l.worksheet.problems.forEach((prob, pIdx) => {
-            if (difficulty !== 'all' && prob.difficulty !== difficulty) return;
+        if (selectedChapter !== 'all' && ch.id !== selectedChapter) return;
 
-            // Require genuine verified MCQ options from curriculum problem data
-            if (
-              !prob.optionsEn ||
-              prob.optionsEn.length !== 4 ||
-              !prob.optionsAr ||
-              prob.optionsAr.length !== 4 ||
-              prob.correctIndex === undefined
-            ) {
-              console.warn(`[TestGenerator] Skipping problem ${prob.id} because it lacks 4 valid MCQ options.`);
-              return;
+        const candidateProblems: Array<{ prob: SolvedProblem; source: string }> = [];
+
+        // 1. Chapter Databank (50 Easy, 50 Medium, 50 HOTS)
+        if (ch.databank) {
+          if (difficulty === 'all' || difficulty === 'easy') {
+            ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy' }));
+          }
+          if (difficulty === 'all' || difficulty === 'medium' || difficulty === 'exam_standard') {
+            ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium' }));
+          }
+          if (difficulty === 'all' || difficulty === 'hots') {
+            ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots' }));
+          }
+        }
+
+        // 2. Official Textbook Solved Examples
+        if (ch.solvedExamples) {
+          ch.solvedExamples.forEach((p) => {
+            if (difficulty === 'all' || p.difficulty === difficulty) {
+              candidateProblems.push({ prob: p, source: 'textbook_solved' });
             }
+          });
+        }
 
-            questions.push({
-              id: `${branch.id}_${ch.id}_${l.id}_${pIdx}`,
-              questionEn: prob.questionEn,
-              questionAr: prob.questionAr,
-              optionsEn: prob.optionsEn,
-              optionsAr: prob.optionsAr,
-              correctIndex: prob.correctIndex,
-              explanationEn: prob.stepByStepSolutionEn,
-              explanationAr: prob.stepByStepSolutionAr,
-              chapterTitleEn: ch.titleEn,
-              chapterTitleAr: ch.titleAr,
-              diagramType: prob.diagramType,
-            });
+        // 3. Official Textbook Unit Exercises
+        if (ch.exerciseProblems) {
+          ch.exerciseProblems.forEach((p) => {
+            if (difficulty === 'all' || p.difficulty === difficulty) {
+              candidateProblems.push({ prob: p, source: 'textbook_exercise' });
+            }
+          });
+        }
+
+        // 4. Lesson Worksheets
+        ch.lessons.forEach((l) => {
+          l.worksheet.problems.forEach((prob) => {
+            if (difficulty === 'all' || prob.difficulty === difficulty) {
+              candidateProblems.push({ prob, source: 'worksheet' });
+            }
+          });
+        });
+
+        candidateProblems.forEach(({ prob, source }) => {
+          if (
+            !prob.optionsEn ||
+            prob.optionsEn.length !== 4 ||
+            !prob.optionsAr ||
+            prob.optionsAr.length !== 4 ||
+            prob.correctIndex === undefined
+          ) {
+            return;
+          }
+
+          pool.push({
+            id: `${prob.id}_${source}`,
+            questionEn: prob.questionEn,
+            questionAr: prob.questionAr,
+            optionsEn: prob.optionsEn,
+            optionsAr: prob.optionsAr,
+            correctIndex: prob.correctIndex,
+            explanationEn: prob.stepByStepSolutionEn,
+            explanationAr: prob.stepByStepSolutionAr,
+            chapterTitleEn: ch.titleEn,
+            chapterTitleAr: ch.titleAr,
+            diagramType: prob.diagramType,
           });
         });
       });
     });
 
-    return questions.slice(0, questionCount);
+    // Authentic Fisher-Yates shuffle for genuine random sampling from databank
+    const shuffled = [...pool];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled.slice(0, Math.min(questionCount, shuffled.length));
   };
 
   const [activeQuestions, setActiveQuestions] = useState<GeneratedQuestion[]>(generateQuestions());
@@ -155,12 +201,15 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
         </div>
 
         {/* Filters */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectBranch}</label>
             <select
               value={selectedBranch}
-              onChange={(e) => setSelectedBranch(e.target.value)}
+              onChange={(e) => {
+                setSelectedBranch(e.target.value);
+                setSelectedChapter('all');
+              }}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'جميع الفروع المتاحة' : 'All Branches'}</option>
@@ -173,6 +222,25 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
           </div>
 
           <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectChapter}</label>
+            <select
+              value={selectedChapter}
+              onChange={(e) => setSelectedChapter(e.target.value)}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+            >
+              <option value="all">{lang === 'ar' ? 'جميع فصول الفرع' : 'All Chapters'}</option>
+              {((currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum).branches)
+                .filter((b) => selectedBranch === 'all' || b.id === selectedBranch)
+                .flatMap((b) => b.chapters)
+                .map((ch) => (
+                  <option key={ch.id} value={ch.id}>
+                    {lang === 'ar' ? ch.titleAr : ch.titleEn}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectDifficulty}</label>
             <select
               value={difficulty}
@@ -180,7 +248,8 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'جميع المستويات' : 'All Levels'}</option>
-              <option value="medium">{lang === 'ar' ? 'متوسط' : 'Medium'}</option>
+              <option value="easy">{lang === 'ar' ? 'سهل (تأسيسي وتطبيق مباشر)' : 'Easy (Foundational & Direct)'}</option>
+              <option value="medium">{lang === 'ar' ? 'متوسط (معياري)' : 'Medium (Standard MoE)'}</option>
               <option value="exam_standard">{lang === 'ar' ? 'مستوى امتحان الوزارة' : 'MoE Standard Exam'}</option>
               <option value="hots">{lang === 'ar' ? 'مهارات تفكير عليا (HOTS)' : 'High Order Thinking (HOTS)'}</option>
             </select>
@@ -191,9 +260,9 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
             <input
               type="number"
               min="1"
-              max="20"
+              max="50"
               value={questionCount}
-              onChange={(e) => setQuestionCount(Number(e.target.value))}
+              onChange={(e) => setQuestionCount(Math.min(50, Math.max(1, Number(e.target.value))))}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             />
           </div>

@@ -319,9 +319,11 @@ export const Navbar: React.FC<Props> = ({
           {[
             { id: 'overview', label: t.overviewTab, icon: '🗺️' },
             { id: 'theory', label: t.theoryTab, icon: '📖' },
-            { id: 'lessonPlan', label: t.lessonPlanTab, icon: '📋' },
+            { id: 'solvedExamples', label: t.solvedExamplesTab, icon: '💡' },
+            { id: 'exerciseProblems', label: t.exerciseProblemsTab, icon: '📚' },
             { id: 'worksheet', label: t.worksheetTab, icon: '✏️' },
             { id: 'interactive', label: t.interactiveTab, icon: '🎮' },
+            { id: 'lessonPlan', label: t.lessonPlanTab, icon: '📋' },
             { id: 'testGenerator', label: t.testGeneratorTab, icon: '📝' },
           ].map((tab) => {
             const isActive = activeTab === tab.id;

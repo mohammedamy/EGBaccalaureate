@@ -1,4 +1,6 @@
 import type { Branch } from '../types/curriculum';
+import { algCh1SolvedExamples, algCh1Exercises } from './textbook/thanaweya/algCh1Textbook';
+import { algCh1Databank } from './databanks/thanaweya/algCh1Databank';
 
 export const thanaweyaAlgebraSolidBranch: Branch = {
   id: 'algebra_solid',
@@ -573,7 +575,10 @@ $(a + b)^n = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\binom{n}{2} a^{n-2}
                 descriptionAr: 'أداة تفاعلية لتوليد حدود (أ س + ب ص)^ن ومعاينة المعاملات بيانيا.'
               }
             }
-          ]
+          ],
+          solvedExamples: algCh1SolvedExamples,
+          exerciseProblems: algCh1Exercises,
+          databank: algCh1Databank
         },
         {
           id: 'alg_ch2',

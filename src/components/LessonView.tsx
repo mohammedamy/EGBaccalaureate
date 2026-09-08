@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Lesson, Branch } from '../types/curriculum';
+import type { Lesson, Branch, SolvedProblem } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
@@ -34,6 +34,13 @@ export const LessonView: React.FC<Props> = ({
   const isLight = theme === 'light';
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
   const [openSolutions, setOpenSolutions] = useState<Record<string, boolean>>({});
+  const [databankDifficulty, setDatabankDifficulty] = useState<'easy' | 'medium' | 'hots'>('easy');
+
+  // Chapter-level data bindings
+  const currentChapter = branch.chapters.find((c) => c.lessons.some((l) => l.id === lesson.id)) || branch.chapters[0];
+  const chapterSolvedExamples: SolvedProblem[] = currentChapter?.solvedExamples || [];
+  const chapterExerciseProblems: SolvedProblem[] = currentChapter?.exerciseProblems || [];
+  const chapterDatabank = currentChapter?.databank;
 
   const toggleHint = (problemId: string) => {
     setOpenHints((prev) => ({ ...prev, [problemId]: !prev[problemId] }));
@@ -58,6 +65,135 @@ export const LessonView: React.FC<Props> = ({
       default:
         return <Interactive3DGeometry lang={lang} theme={theme} />;
     }
+  };
+
+  const renderProblemCard = (prob: SolvedProblem, idx: number, badgeText?: string) => {
+    const isHintOpen = !!openHints[prob.id];
+    const isSolOpen = !!openSolutions[prob.id];
+    const options = (lang === 'ar' ? prob.optionsAr : prob.optionsEn) || [];
+
+    return (
+      <div
+        key={prob.id}
+        className={`rounded-xl p-4 sm:p-5 space-y-4 shadow-sm border printable-problem print-avoid-break ${
+          isLight ? 'bg-slate-50/70 border-slate-200' : 'bg-slate-950 border-slate-800'
+        }`}
+      >
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <span className="bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800 shadow-sm">
+            {badgeText || (lang === 'ar' ? `مسألة رقم (${toHindiDigits(idx + 1)})` : `Problem (${idx + 1})`)}
+          </span>
+          <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-lg bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700/60 shadow-sm">
+            {prob.difficulty === 'exam_standard'
+              ? lang === 'ar' ? 'نموذج وزاري معتمد' : 'EXAM STANDARD'
+              : prob.difficulty === 'hots'
+              ? lang === 'ar' ? 'مهارات تفكير عليا' : 'HOTS'
+              : prob.difficulty === 'easy'
+              ? lang === 'ar' ? 'سهل تأسيسي' : 'EASY'
+              : lang === 'ar' ? 'متوسط' : 'MEDIUM'}
+          </span>
+        </div>
+
+        <div className={`text-sm font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+          <MathRenderer math={lang === 'ar' ? prob.questionAr : prob.questionEn} lang={lang} />
+        </div>
+
+        {prob.diagramType && (
+          <TextbookDiagram type={prob.diagramType} lang={lang} />
+        )}
+
+        {options.length > 0 && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 print-options-grid print-avoid-break">
+            {options.map((opt, optIdx) => {
+              const isCorrect = isSolOpen && optIdx === prob.correctIndex;
+              return (
+                <div
+                  key={optIdx}
+                  className={`border p-3 rounded-xl flex items-center justify-between gap-2 text-xs transition-all ${
+                    isCorrect
+                      ? isLight
+                        ? 'bg-emerald-50 border-emerald-500 text-emerald-950 ring-2 ring-emerald-500/30 font-bold'
+                        : 'bg-emerald-950/70 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40 font-bold'
+                      : isLight
+                      ? 'border-slate-200 bg-white text-slate-800 shadow-xs hover:border-slate-300'
+                      : 'border-slate-800 bg-slate-900/60 text-slate-200'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`font-black px-2 py-0.5 rounded-md text-[11px] ${
+                        isCorrect
+                          ? 'bg-emerald-600 text-white'
+                          : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
+                      }`}
+                    >
+                      {lang === 'ar' ? `(${['أ', 'ب', 'ج', 'د'][optIdx]})` : `(${String.fromCharCode(65 + optIdx)})`}
+                    </span>
+                    <span className={`font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                      <MathRenderer math={opt} lang={lang} />
+                    </span>
+                  </div>
+                  {isCorrect && (
+                    <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0">
+                      {lang === 'ar' ? '✓ إجابة صحيحة' : '✓ Correct'}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="flex flex-wrap items-center gap-3 pt-2 no-print">
+          <button
+            onClick={() => toggleHint(prob.id)}
+            className="text-xs font-bold text-amber-800 dark:text-amber-400 hover:text-amber-950 dark:hover:text-amber-300 flex items-center justify-center gap-1.5 bg-amber-50 dark:bg-slate-900 px-3.5 py-2 rounded-xl border border-amber-300 dark:border-slate-800 transition-all shadow-sm flex-1 sm:flex-initial"
+          >
+            <Lightbulb className="w-3.5 h-3.5" />
+            <span>{isHintOpen ? t.hideHint : t.showHint}</span>
+          </button>
+
+          <button
+            onClick={() => toggleSolution(prob.id)}
+            className="text-xs font-bold text-indigo-800 dark:text-indigo-400 hover:text-indigo-950 dark:hover:text-indigo-300 flex items-center justify-center gap-1.5 bg-indigo-50 dark:bg-slate-900 px-3.5 py-2 rounded-xl border border-indigo-300 dark:border-slate-800 transition-all shadow-sm flex-1 sm:flex-initial"
+          >
+            {isSolOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            <span>{isSolOpen ? t.hideSolution : t.showSolution}</span>
+          </button>
+        </div>
+
+        {isHintOpen && (
+          <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/30 p-3 rounded-lg text-xs text-amber-950 dark:text-amber-200 print-avoid-break">
+            💡 <strong>{t.showHint}:</strong> {lang === 'ar' ? toHindiDigits(prob.hintAr) : prob.hintEn}
+          </div>
+        )}
+
+        {isSolOpen && (
+          <div className={`p-4 rounded-xl space-y-3 text-xs border step-by-step-box print-avoid-break ${
+            isLight
+              ? 'bg-white border-slate-200 text-slate-800 shadow-xs'
+              : 'bg-slate-900/90 border-slate-800 text-slate-200'
+          }`}>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">{t.stepByStepSolution}</span>
+            <ol className={`space-y-2 list-decimal list-inside ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+              {(lang === 'ar' ? prob.stepByStepSolutionAr : prob.stepByStepSolutionEn).map((step, sIdx) => (
+                <li key={sIdx} className="leading-relaxed">
+                  <MathRenderer math={step} lang={lang} />
+                </li>
+              ))}
+            </ol>
+
+            {prob.teacherTipEn && (
+              <div className={`mt-3 pt-3 border-t text-[11px] ${
+                isLight ? 'border-slate-200 text-amber-900' : 'border-slate-800 text-amber-300'
+              }`}>
+                🎓 <strong>{t.teacherTips}:</strong> {lang === 'ar' ? toHindiDigits(prob.teacherTipAr) : prob.teacherTipEn}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -129,18 +265,61 @@ export const LessonView: React.FC<Props> = ({
           >
             📖 {t.theoryTab}
           </button>
+
           <button
-            onClick={() => onSubTabChange('lessonPlan')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-              activeSubTab === 'lessonPlan'
+            onClick={() => onSubTabChange('solvedExamples')}
+            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+              activeSubTab === 'solvedExamples'
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
                 : isLight
                   ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
                   : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
             }`}
           >
-            📋 {t.lessonPlanTab} {role === 'teacher' && <span className="bg-amber-400 text-slate-950 text-[10px] px-1.5 py-0.5 rounded font-extrabold ml-1">Teacher</span>}
+            💡 {t.solvedExamplesTab}
+            {chapterSolvedExamples.length > 0 && (
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
+                {chapterSolvedExamples.length}
+              </span>
+            )}
           </button>
+
+          <button
+            onClick={() => onSubTabChange('exerciseProblems')}
+            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+              activeSubTab === 'exerciseProblems'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                : isLight
+                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+            }`}
+          >
+            📚 {t.exerciseProblemsTab}
+            {chapterExerciseProblems.length > 0 && (
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
+                {chapterExerciseProblems.length}
+              </span>
+            )}
+          </button>
+
+          {chapterDatabank && (
+            <button
+              onClick={() => onSubTabChange('databank')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+                activeSubTab === 'databank'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              🗄️ {t.databankTab}
+              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-extrabold">
+                {chapterDatabank.easy.length + chapterDatabank.medium.length + chapterDatabank.hots.length}
+              </span>
+            </button>
+          )}
+
           <button
             onClick={() => onSubTabChange('worksheet')}
             className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
@@ -153,6 +332,7 @@ export const LessonView: React.FC<Props> = ({
           >
             ✏️ {t.worksheetTab}
           </button>
+
           <button
             onClick={() => onSubTabChange('interactive')}
             className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
@@ -164,6 +344,19 @@ export const LessonView: React.FC<Props> = ({
             }`}
           >
             🎮 {t.interactiveTab}
+          </button>
+
+          <button
+            onClick={() => onSubTabChange('lessonPlan')}
+            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
+              activeSubTab === 'lessonPlan'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                : isLight
+                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+            }`}
+          >
+            📋 {t.lessonPlanTab} {role === 'teacher' && <span className="bg-amber-400 text-slate-950 text-[10px] px-1.5 py-0.5 rounded font-extrabold ml-1">Teacher</span>}
           </button>
         </div>
       </div>
@@ -244,6 +437,184 @@ export const LessonView: React.FC<Props> = ({
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* 💡 TAB: OFFICIAL SOLVED EXAMPLES */}
+      {activeSubTab === 'solvedExamples' && (
+        <div className={`rounded-2xl p-4 sm:p-6 shadow-2xl space-y-6 border print-worksheet-sheet ${
+          isLight
+            ? 'bg-white border-slate-200 text-slate-900'
+            : 'bg-slate-900/90 border-slate-800 text-slate-100'
+        }`}>
+          <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-4 ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">💡</span>
+                <h3 className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                  {lang === 'ar' ? 'أمثلة كتاب الوزارة المحلولة خطوة بخطوة' : 'Official Ministry Solved Examples'}
+                </h3>
+              </div>
+              <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {lang === 'ar'
+                  ? `أمثلة نموذجية معتمدة من كتاب الوزارة لـ (${currentChapter.titleAr}) مع خطوات الحل والتفسير الرياضي الكامل.`
+                  : `Official model solved examples from the Ministry textbook for (${currentChapter.titleEn}) with complete step-by-step reasoning.`}
+              </p>
+            </div>
+            <button
+              onClick={() => window.print()}
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start"
+            >
+              <Printer className="w-4 h-4" />
+              <span>{t.printWorksheet}</span>
+            </button>
+          </div>
+
+          <div className="space-y-6">
+            {chapterSolvedExamples.length > 0 ? (
+              chapterSolvedExamples.map((prob, idx) =>
+                renderProblemCard(
+                  prob,
+                  idx,
+                  lang === 'ar' ? `مثال كتاب الوزارة المحلول (${toHindiDigits(idx + 1)})` : `MoE Solved Example (${idx + 1})`
+                )
+              )
+            ) : (
+              <div className="p-8 text-center text-slate-400">
+                {lang === 'ar' ? 'جاري تجهيز أمثلة هذا الفصل...' : 'Solved examples for this chapter are being compiled...'}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* 📚 TAB: OFFICIAL TEXTBOOK EXERCISES */}
+      {activeSubTab === 'exerciseProblems' && (
+        <div className={`rounded-2xl p-4 sm:p-6 shadow-2xl space-y-6 border print-worksheet-sheet ${
+          isLight
+            ? 'bg-white border-slate-200 text-slate-900'
+            : 'bg-slate-900/90 border-slate-800 text-slate-100'
+        }`}>
+          <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-4 ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">📚</span>
+                <h3 className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                  {lang === 'ar' ? 'تمارين ومسائل كتاب الوزارة الرسمية' : 'Official Ministry Textbook Unit Exercises'}
+                </h3>
+              </div>
+              <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {lang === 'ar'
+                  ? `تمارين نهاية الوحدة الرسمية المعتمدة من كتاب الوزارة لـ (${currentChapter.titleAr}) مع نماذج الإجابة والحلول الخطية.`
+                  : `Official unit exercise problems from the Ministry textbook for (${currentChapter.titleEn}) with model answer keys and step-by-step solutions.`}
+              </p>
+            </div>
+            <button
+              onClick={() => window.print()}
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start"
+            >
+              <Printer className="w-4 h-4" />
+              <span>{t.printWorksheet}</span>
+            </button>
+          </div>
+
+          <div className="space-y-6">
+            {chapterExerciseProblems.length > 0 ? (
+              chapterExerciseProblems.map((prob, idx) =>
+                renderProblemCard(
+                  prob,
+                  idx,
+                  lang === 'ar' ? `تمرين كتاب الوزارة (${toHindiDigits(idx + 1)})` : `Textbook Exercise (${idx + 1})`
+                )
+              )
+            ) : (
+              <div className="p-8 text-center text-slate-400">
+                {lang === 'ar' ? 'جاري تجهيز تمارين هذا الفصل...' : 'Textbook exercises for this chapter are being compiled...'}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* 🗄️ TAB: CHAPTER QUESTION DATABANK (50 Easy, 50 Medium, 50 HOTS) */}
+      {activeSubTab === 'databank' && chapterDatabank && (
+        <div className={`rounded-2xl p-4 sm:p-6 shadow-2xl space-y-6 border print-worksheet-sheet ${
+          isLight
+            ? 'bg-white border-slate-200 text-slate-900'
+            : 'bg-slate-900/90 border-slate-800 text-slate-100'
+        }`}>
+          <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b pb-4 ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🗄️</span>
+                <h3 className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                  {lang === 'ar' ? 'بنك أسئلة الفصل المعتمد (150 سؤالاً مصنفاً)' : 'Official Chapter Question Databank (150 Classified Questions)'}
+                </h3>
+              </div>
+              <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {lang === 'ar'
+                  ? 'بنك أسئلة متكامل يضم 50 سؤالاً سهلاً، 50 سؤالاً متوسطاً، و 50 سؤالاً لمهارات التفكير العليا، مع خيارات مدروسة وحلول نموذجية كاملة.'
+                  : 'Comprehensive chapter question bank featuring exactly 50 Easy, 50 Medium, and 50 HOTS questions with authentic distractors and model answers.'}
+              </p>
+            </div>
+
+            {/* Difficulty sub-filter buttons */}
+            <div className="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 no-print">
+              <button
+                onClick={() => setDatabankDifficulty('easy')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  databankDifficulty === 'easy'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {lang === 'ar' ? 'سهل تأسيسي (٥٠)' : 'Easy (50)'}
+              </button>
+              <button
+                onClick={() => setDatabankDifficulty('medium')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  databankDifficulty === 'medium'
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {lang === 'ar' ? 'متوسط وزاري (٥٠)' : 'Medium (50)'}
+              </button>
+              <button
+                onClick={() => setDatabankDifficulty('hots')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  databankDifficulty === 'hots'
+                    ? 'bg-amber-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {lang === 'ar' ? 'تفكير عليا (٥٠)' : 'HOTS (50)'}
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {(databankDifficulty === 'easy'
+              ? chapterDatabank.easy
+              : databankDifficulty === 'medium'
+              ? chapterDatabank.medium
+              : chapterDatabank.hots
+            ).map((prob, idx) =>
+              renderProblemCard(
+                prob,
+                idx,
+                lang === 'ar'
+                  ? `${databankDifficulty === 'easy' ? 'سؤال سهل' : databankDifficulty === 'medium' ? 'سؤال متوسط' : 'سؤال مهارات عليا'} (${toHindiDigits(idx + 1)})`
+                  : `${databankDifficulty === 'easy' ? 'Easy' : databankDifficulty === 'medium' ? 'Medium' : 'HOTS'} Q(${idx + 1})`
+              )
+            )}
           </div>
         </div>
       )}
@@ -412,131 +783,7 @@ export const LessonView: React.FC<Props> = ({
           </div>
 
           <div className="space-y-6">
-            {lesson.worksheet.problems.map((prob, idx) => (
-              <div
-                key={prob.id}
-                className={`rounded-xl p-4 sm:p-5 space-y-4 shadow-sm border printable-problem print-avoid-break ${
-                  isLight
-                    ? 'bg-slate-50/70 border-slate-200'
-                    : 'bg-slate-950 border-slate-800'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800 shadow-sm">
-                    {lang === 'ar' ? `مسألة رقم (${toHindiDigits(idx + 1)})` : `Problem (${idx + 1})`}
-                  </span>
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-lg bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700/60 shadow-sm">
-                    {prob.difficulty === 'exam_standard' ? (lang === 'ar' ? 'نموذج وزاري معتمد' : 'EXAM STANDARD') : prob.difficulty.toUpperCase()}
-                  </span>
-                </div>
-
-                <div className={`text-sm font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
-                  <MathRenderer math={lang === 'ar' ? prob.questionAr : prob.questionEn} lang={lang} />
-                </div>
-
-                {/* Official Textbook Drawing / Figure */}
-                {prob.diagramType && (
-                  <TextbookDiagram type={prob.diagramType} lang={lang} />
-                )}
-
-                {/* Official MCQ Options Grid */}
-                {((lang === 'ar' ? prob.optionsAr : prob.optionsEn) || []).length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 print-options-grid print-avoid-break">
-                    {(lang === 'ar' ? prob.optionsAr! : prob.optionsEn!).map((opt, optIdx) => {
-                      const isCorrect = openSolutions[prob.id] && optIdx === prob.correctIndex;
-                      return (
-                        <div
-                          key={optIdx}
-                          className={`border p-3 rounded-xl flex items-center justify-between gap-2 text-xs transition-all ${
-                            isCorrect
-                              ? isLight
-                                ? 'bg-emerald-50 border-emerald-500 text-emerald-950 ring-2 ring-emerald-500/30 font-bold'
-                                : 'bg-emerald-950/70 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40 font-bold'
-                              : isLight
-                                ? 'border-slate-200 bg-white text-slate-800 shadow-xs hover:border-slate-300'
-                                : 'border-slate-800 bg-slate-900/60 text-slate-200'
-                          }`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <span
-                              className={`font-black px-2 py-0.5 rounded-md text-[11px] ${
-                                isCorrect
-                                  ? 'bg-emerald-600 text-white'
-                                  : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
-                              }`}
-                            >
-                              {lang === 'ar' ? `(${['أ', 'ب', 'ج', 'د'][optIdx]})` : `(${String.fromCharCode(65 + optIdx)})`}
-                            </span>
-                            <span className={`font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
-                              <MathRenderer math={opt} lang={lang} />
-                            </span>
-                          </div>
-                          {isCorrect && (
-                            <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0">
-                              {lang === 'ar' ? '✓ إجابة صحيحة' : '✓ Correct'}
-                            </span>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-
-                {/* Buttons for Hint & Solution */}
-                <div className="flex flex-wrap items-center gap-3 pt-2 no-print">
-                  <button
-                    onClick={() => toggleHint(prob.id)}
-                    className="text-xs font-bold text-amber-800 dark:text-amber-400 hover:text-amber-950 dark:hover:text-amber-300 flex items-center justify-center gap-1.5 bg-amber-50 dark:bg-slate-900 px-3.5 py-2 rounded-xl border border-amber-300 dark:border-slate-800 transition-all shadow-sm flex-1 sm:flex-initial"
-                  >
-                    <Lightbulb className="w-3.5 h-3.5" />
-                    <span>{openHints[prob.id] ? t.hideHint : t.showHint}</span>
-                  </button>
-
-                  <button
-                    onClick={() => toggleSolution(prob.id)}
-                    className="text-xs font-bold text-indigo-800 dark:text-indigo-400 hover:text-indigo-950 dark:hover:text-indigo-300 flex items-center justify-center gap-1.5 bg-indigo-50 dark:bg-slate-900 px-3.5 py-2 rounded-xl border border-indigo-300 dark:border-slate-800 transition-all shadow-sm flex-1 sm:flex-initial"
-                  >
-                    {openSolutions[prob.id] ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                    <span>{openSolutions[prob.id] ? t.hideSolution : t.showSolution}</span>
-                  </button>
-                </div>
-
-                {/* Hint collapse */}
-                {openHints[prob.id] && (
-                  <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/30 p-3 rounded-lg text-xs text-amber-950 dark:text-amber-200 print-avoid-break">
-                    💡 <strong>{t.showHint}:</strong> {lang === 'ar' ? toHindiDigits(prob.hintAr) : prob.hintEn}
-                  </div>
-                )}
-
-                {/* Solution breakdown collapse */}
-                {openSolutions[prob.id] && (
-                  <div className={`p-4 rounded-xl space-y-3 text-xs border step-by-step-box print-avoid-break ${
-                    isLight
-                      ? 'bg-white border-slate-200 text-slate-800 shadow-xs'
-                      : 'bg-slate-900/90 border-slate-800 text-slate-200'
-                  }`}>
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">{t.stepByStepSolution}</span>
-                    <ol className={`space-y-2 list-decimal list-inside ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                      {(lang === 'ar' ? prob.stepByStepSolutionAr : prob.stepByStepSolutionEn).map((step, sIdx) => (
-                        <li key={sIdx} className="leading-relaxed">
-                          <MathRenderer math={step} lang={lang} />
-                        </li>
-                      ))}
-                    </ol>
-
-                    {prob.teacherTipEn && role === 'teacher' && (
-                      <div className={`mt-3 pt-3 border-t text-[11px] ${
-                        isLight
-                          ? 'border-slate-200 text-amber-900'
-                          : 'border-slate-800 text-amber-300'
-                      }`}>
-                        🎓 <strong>{t.teacherTips}:</strong> {lang === 'ar' ? toHindiDigits(prob.teacherTipAr) : prob.teacherTipEn}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
+            {lesson.worksheet.problems.map((prob, idx) => renderProblemCard(prob, idx))}
           </div>
         </div>
       )}

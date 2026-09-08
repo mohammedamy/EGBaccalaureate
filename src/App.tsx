@@ -146,7 +146,13 @@ export const App: React.FC = () => {
           />
         )}
 
-        {(activeTab === 'theory' || activeTab === 'lessonPlan' || activeTab === 'worksheet' || activeTab === 'interactive') && (
+        {(activeTab === 'theory' ||
+          activeTab === 'solvedExamples' ||
+          activeTab === 'exerciseProblems' ||
+          activeTab === 'databank' ||
+          activeTab === 'lessonPlan' ||
+          activeTab === 'worksheet' ||
+          activeTab === 'interactive') && (
           <LessonView
             lang={lang}
             theme={theme}

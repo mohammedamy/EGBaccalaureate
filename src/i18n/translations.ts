@@ -24,10 +24,13 @@ export interface Translations {
   // Tabs & Views
   overviewTab: string;
   theoryTab: string;
+  solvedExamplesTab: string;
+  exerciseProblemsTab: string;
   lessonPlanTab: string;
   worksheetTab: string;
   interactiveTab: string;
   testGeneratorTab: string;
+  databankTab: string;
 
   // Actions
   printWorksheet: string;
@@ -122,10 +125,13 @@ export const translations: Record<Language, Translations> = {
 
     overviewTab: 'Curriculum Roadmap',
     theoryTab: 'Lesson & Theory',
+    solvedExamplesTab: 'Official Solved Examples',
+    exerciseProblemsTab: 'Textbook Exercises',
     lessonPlanTab: 'Teacher Lesson Plan',
     worksheetTab: 'Solved Worksheets',
     interactiveTab: '3D & Interactive Lab',
     testGeneratorTab: 'Exam & Practice Generator',
+    databankTab: 'Chapter Databank',
 
     printWorksheet: 'Print Worksheet / Save PDF',
     downloadPdf: 'Download Teacher Guide',
@@ -213,10 +219,13 @@ export const translations: Record<Language, Translations> = {
 
     overviewTab: 'خريطة المنهج',
     theoryTab: 'الشرح والنظريات',
+    solvedExamplesTab: 'أمثلة الكتاب المحلولة',
+    exerciseProblemsTab: 'تمارين كتاب الوزارة',
     lessonPlanTab: 'خطة الدرس للمعلم',
     worksheetTab: 'أوراق العمل المحلولة',
     interactiveTab: 'المختبر التفاعلي والشكل ثلاثي الأبعاد',
     testGeneratorTab: 'منشئ الاختبارات والتمارين',
+    databankTab: 'بنك أسئلة الفصل',
 
     printWorksheet: 'طباعة ورقة العمل / حفظ PDF',
     downloadPdf: 'تحميل دليل المعلم',
