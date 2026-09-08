@@ -5,6 +5,8 @@ import { dynCh2SolvedExamples, dynCh2Exercises } from './textbook/thanaweya/dynC
 import { dynCh2Databank } from './databanks/thanaweya/dynCh2Databank';
 import { dynCh3SolvedExamples, dynCh3Exercises } from './textbook/thanaweya/dynCh3Textbook';
 import { dynCh3Databank } from './databanks/thanaweya/dynCh3Databank';
+import { dynCh4SolvedExamples, dynCh4Exercises } from './textbook/thanaweya/dynCh4Textbook';
+import { dynCh4Databank } from './databanks/thanaweya/dynCh4Databank';
 
 export const thanaweyaDynamicsBranch: Branch = {
   id: 'dynamics',
@@ -1746,6 +1748,548 @@ $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) -
       solvedExamples: dynCh3SolvedExamples,
       exerciseProblems: dynCh3Exercises,
       databank: dynCh3Databank
+    }    ,
+    {
+      id: 'dyn_ch4',
+      chapterNumber: 4,
+      titleEn: 'Work, Energy & Power',
+      titleAr: 'الشغل والطاقة والقدرة',
+      descriptionEn: 'Work done by constant and variable forces, kinetic energy, the Work-Energy Theorem, gravitational and elastic potential energy, conservation of mechanical energy, and engine power.',
+      descriptionAr: 'الشغل المبذول من القوى الثابتة والمتغيرة، وطاقة الحركة ومبدأ الشغل والطاقة، وطاقة الوضع التثاقلية والمرونية، وقانون بقاء الطاقة الميكانيكية، وقدرة الآلات والسيارات بالحصان والواط.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'dyn_l7',
+          titleEn: 'Work, Kinetic Energy & Work-Energy Principle',
+          titleAr: 'الشغل، طاقة الحركة ومبدأ الشغل والطاقة',
+          summaryEn: 'Definition of work as W = F . s = F s cos(theta), work by variable force W = ∫ F ds, work from F-s graphs, kinetic energy T = (1/2)mv^2, and the Work-Energy Theorem ΔT = T - T0 = ΣW.',
+          summaryAr: 'تعريف الشغل كحاصل ضرب قياسي ش = ق . ف = ق ف جتا(هـ)، وشغل القوة المتغيرة ش = تكامل ق د ف، والشغل من منحنيات (ق - ف)، وطاقة الحركة ط = نصف ك ع²، ومبدأ الشغل والطاقة دلتا ط = مجموع الشغل المبذول.',
+          theoryContentEn: `### 1. Definition of Work (الشغل)
+When a constant force $\\vec{F}$ acts on a body and causes a displacement $\\vec{s}$, the work $W$ done by the force is defined as the scalar (dot) product:
+$$W = \\vec{F} \\cdot \\vec{s} = F \\, s \\cos\\theta$$
+where $\\theta$ is the angle between the direction of the force $\\vec{F}$ and the displacement $\\vec{s}$.
+- **Special Cases:**
+  - If $\\theta = 0^\\circ$ (force in direction of motion): $W = F s$ (positive maximum work).
+  - If $\\theta = 180^\\circ$ (force opposes motion, e.g. friction/resistance): $W = -F s$ (negative work / work done against force).
+  - If $\\theta = 90^\\circ$ (force perpendicular to motion, e.g. normal reaction): $W = 0$ (zero work).
+
+### 2. Work in Rectangular Coordinates:
+If $\\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}$ and displacement is from $A(x_1, y_1, z_1)$ to $B(x_2, y_2, z_2)$:
+$$\\vec{s} = (x_2 - x_1)\\hat{i} + (y_2 - y_1)\\hat{j} + (z_2 - z_1)\\hat{k}$$
+$$W = \\vec{F} \\cdot \\vec{s} = F_x s_x + F_y s_y + F_z s_z$$
+
+### 3. Work Done by a Variable Force (الشغل لقوة متغيرة):
+When the force $F(s)$ varies with displacement:
+$$W = \\int_{s_1}^{s_2} F(s) \\, ds$$
+- **Geometric Interpretation:** On an $(F - s)$ curve, the work done is represented by the **area between the curve and the displacement axis**.
+
+### 4. Kinetic Energy (طاقة الحركة):
+The kinetic energy $T$ of a particle of mass $m$ moving with speed $v$ is:
+$$T = \\frac{1}{2} m v^2$$
+- In SI units: mass in $\\text{kg}$, velocity in $\\text{m/s}$ gives $T$ in **Joules** ($\\text{J}$).
+- In CGS units: mass in $\\text{g}$, velocity in $\\text{cm/s}$ gives $T$ in **ergs** ($1\\text{ J} = 10^7\\text{ ergs}$).
+
+### 5. The Work-Energy Principle (مبدأ الشغل والطاقة):
+The change in kinetic energy of a body moving between two positions equals the net work done by all acting forces:
+$$\\Delta T = T - T_0 = \\sum W$$
+$$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
+- **Key Applications:**
+  1. **Bullet Penetration:** If a bullet of mass $m$ and speed $v_0$ penetrates a barrier of thickness $s$ under resistance $R$:
+     $$0 - \\frac{1}{2} m v_0^2 = -R \\cdot s \\implies \\frac{1}{2} m v_0^2 = R \\cdot s$$
+  2. **Braking Distance of a Car:** Under braking resistance $R$:
+     $$\\frac{1}{2} m v_0^2 = R \\cdot s$$`,
+          theoryContentAr: `### ١. تعريف الشغل
+عندما تؤثر قوة ثابتة $\\vec{F}$ على جسم وتحدث له إزاحة $\\vec{s}$، فإن الشغل $W$ المبذول بواسطة القوة يُعرف بحاصل الضرب القياسي:
+$$W = \\vec{F} \\cdot \\vec{s} = F \\, s \\cos\\theta$$
+حيث $\\theta$ هي الزاوية المحصورة بين اتجاه القوة واتجاه الإزاحة.
+- **حالات خاصة:**
+  - عندما $\\theta = 0^\\circ$ (القوة في نفس اتجاه الحركة): $W = F s$ (شغل موجب أقصى).
+  - عندما $\\theta = 180^\\circ$ (القوة في عكس اتجاه الحركة كالمقاومة والاحتكاك): $W = -F s$ (شغل سالب).
+  - عندما $\\theta = 90^\\circ$ (القوة عمودية على اتجاه الإزاحة كرد الفعل والوزن على مستوى أفقي): $W = 0$ (لا يُبذل شغل).
+
+### ٢. الشغل في نظام الإحداثيات المتعامدة:
+إذا كانت القوة $\\vec{F} = (F_x, F_y, F_z)$ والإزاحة $\\vec{s} = (s_x, s_y, s_z)$:
+$$W = \\vec{F} \\cdot \\vec{s} = F_x s_x + F_y s_y + F_z s_z$$
+
+### ٣. الشغل المبذول بواسطة قوة متغيرة:
+إذا كانت القوة دالة في الإزاحة $F(s)$:
+$$W = \\int_{s_1}^{s_2} F(s) \\, ds$$
+- بيانيّاً: في منحنى (القوة - الإزاحة)، الشغل يساوي **المساحة الهندسية أسفل المنحنى**.
+
+### ٤. طاقة الحركة (ط):
+طاقة حركة جسم كتلته $m$ وسرعته $v$ هي:
+$$T = \\frac{1}{2} m v^2$$
+- وحدات القياس: الجول (كجم.م²/ث²)، والإرج ($1\\text{ جول} = 10^7\\text{ إرج}$).
+
+### ٥. مبدأ الشغل والطاقة:
+التغير في طاقة حركة جسم خلال فترة معينة يساوي مجموع الشغل المبذول من جميع القوى المؤثرة عليه:
+$$\\Delta T = T - T_0 = \\sum W$$
+$$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
+- **تطبيقات هامة:**
+  ١. **غوص الرصاصة في حاجز:** $\\frac{1}{2} m v_0^2 = R \\cdot s$.
+  ٢. **مسافة التوقف للسيارات:** الفقد في طاقة الحركة يساوي الشغل المبذول ضد المقاومة والفرامل.`,
+          formulas: [
+            { labelEn: 'Work Definition (Dot Product)', labelAr: 'تعريف الشغل (ضرب قياسي)', latex: 'W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta' },
+            { labelEn: 'Work of Variable Force', labelAr: 'شغل القوة المتغيرة', latex: 'W = \\int_{s_1}^{s_2} F(s)\\,ds' },
+            { labelEn: 'Kinetic Energy', labelAr: 'طاقة الحركة', latex: 'T = \\frac{1}{2} m v^2' },
+            { labelEn: 'Work-Energy Principle', labelAr: 'مبدأ الشغل والطاقة', latex: '\\Delta T = T - T_0 = \\sum W' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Dynamics Textbook Grade 12',
+            bookTitleAr: 'كتاب الديناميكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-DYN-CH4-L1',
+            pageRange: 'pp. 88 - 110'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Work Done, Kinetic Energy & Work-Energy Principle',
+            titleAr: 'خطة درس: الشغل المبذول وطاقة الحركة ومبدأ الشغل والطاقة',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-DYN-CH4-L1',
+            bloomsObjectivesEn: [
+              'Calculate work done by constant forces in scalar and vector form.',
+              'Evaluate work done by variable forces using definite integration and area under F-s curves.',
+              'Apply the Work-Energy Theorem to solve stopping distance and bullet penetration problems.'
+            ],
+            bloomsObjectivesAr: [
+              'حساب الشغل المبذول من القوى الثابتة بالصيغة القياسية والمتجهة.',
+              'إيجاد الشغل المبذول من القوى المتغيرة بالتكامل المحدد والمساحات أسفل منحنيات (ق - ف).',
+              'تطبيق مبدأ الشغل والطاقة لحل مسائل مسافات التوقف وغوص المقذوفات.'
+            ],
+            prerequisitesEn: ['Vectors and dot product', 'Definite integration', 'Newton Second Law'],
+            prerequisitesAr: ['المتجهات والضرب القياسي', 'التكامل المحدد', 'قانون نيوتن الثاني'],
+            keyVocabularyEn: [
+              { term: 'Work (W)', definition: 'The scalar product of force and displacement vectors.' },
+              { term: 'Kinetic Energy (T)', definition: 'Energy possessed by a body due to its motion, T = (1/2)mv^2.' },
+              { term: 'Work-Energy Theorem', definition: 'The change in kinetic energy equals the net work done by all forces.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'الشغل (ش)', definition: 'حاصل الضرب القياسي لمتجهي القوة والإزاحة.' },
+              { term: 'طاقة الحركة (ط)', definition: 'الطاقة التي يمتلكها الجسم بسبب حركته وتساوي نصف ك ع².' },
+              { term: 'مبدأ الشغل والطاقة', definition: 'التغير في طاقة حركة الجسم يساوي مجموع الشغل المبذول من جميع القوى.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Hook & Scalar Product Meaning (15 mins)',
+                phaseAr: 'التهيئة والمفهوم الفيزيائي للشغل (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate why perpendicular forces do zero work and why moving at an angle theta requires F cos(theta).',
+                activitiesAr: 'توضيح أسباب انعدام شغل القوة العمودية على الحركة، وكيفية تأثير زاوية ميل القوة على الشغل الفعلي المبذول.'
+              },
+              {
+                phaseEn: 'Integration for Variable Force & Area (25 mins)',
+                phaseAr: 'تكامل القوة المتغيرة ومساحة المنحنى (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Solve definite integrals for variable forces F(s) and interpret geometric areas on F-s diagrams.',
+                activitiesAr: 'حل تكاملات محددة لدوال القوة المتغيرة وحساب المساحات الهندسية تحت منحنى (ق - ف).'
+              },
+              {
+                phaseEn: 'Work-Energy Theorem Mastery (30 mins)',
+                phaseAr: 'إتقان مبدأ الشغل والطاقة (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Derive Delta T = W from Newton Second Law and solve stopping vehicle and bullet problems without needing acceleration.',
+                activitiesAr: 'استنتاج دلتا ط = مجموع الشغل وتطبيقها على إيقاف السيارات وغوص الرصاص دون حساب العجلة.'
+              },
+              {
+                phaseEn: 'Synthesis & Exit Assessment (20 mins)',
+                phaseAr: 'التقييم الختامي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Administer individual exit ticket problem.',
+                activitiesAr: 'حل بطاقة الخروج الفردية لتقييم استيعاب الطلاب.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Thinking work is a vector quantity because force and displacement are vectors; work is strictly a scalar!',
+              'Forgetting that work done by resistance or friction is negative (-R s).'
+            ],
+            commonMisconceptionsAr: [
+              'الاعتقاد بأن الشغل كمية متجهة لكون القوة والإزاحة متجهين؛ الشغل كمية قياسية عددية بحتة!',
+              'نسيان الإشارة السالبة لشغل قوى المقاومة والاحتكاك (-م ف).'
+            ],
+            differentiationEn: {
+              struggling: 'Use tabular organization for initial KE, final KE, and work of each force separately.',
+              advanced: 'Solve systems where force depends on both position and velocity, establishing non-linear differential work relations.'
+            },
+            differentiationAr: {
+              struggling: 'استخدام جداول منظمة لحساب طاقة الحركة الابتدائية والنهائية وشغل كل قوة على حدة.',
+              advanced: 'دراسة أنظمة تعتمد فيها القوة على الموضع والسرعة معاً وصياغة معادلات تفاضلية للشغل.'
+            },
+            formativeAssessmentEn: 'A force F = (6s + 1) N acts on a body from s = 1 m to s = 4 m. Find the work done.',
+            formativeAssessmentAr: 'تؤثر قوة ق = (٦ ف + ١) نيوتن على جسم من ف = ١ م إلى ف = ٤ م. احسب الشغل المبذول.',
+            exitTicketQuestion: {
+              questionEn: 'A bullet of mass 10 g with speed 200 m/s penetrates a target and stops in 5 cm. Find the average resistance of the target.',
+              questionAr: 'أطلقت رصاصة كتلتها ١٠ جم بسرعة ٢٠٠ م/ث فغاصت في هدف واستقرت بعد ٥ سم. احسب متوسط مقاومة الهدف.',
+              solutionEn: 'T0 = 0.5 * 0.01 * 200^2 = 200 J. Work against resistance: R * 0.05 = 200 => R = 4000 N.',
+              solutionAr: 'ط٠ = ٠٫٥ × ٠٫٠١ × ٤٠٠٠٠ = ٢٠٠ جول. شغل المقاومة: م × ٠٫٠٥ = ٢٠٠ => م = ٤٠٠٠ نيوتن.'
+            }
+          },
+          worksheet: {
+            id: 'ws_dyn_l7',
+            titleEn: 'Worksheet: Work and Kinetic Energy Principles',
+            titleAr: 'ورقة عمل: مبادئ الشغل وطاقة الحركة',
+            descriptionEn: 'Rigorous problems on scalar work, variable force integrals, and the Work-Energy Theorem.',
+            descriptionAr: 'مسائل تدريبية متقدمة على الشغل القياسي، وتكاملات القوى المتغيرة، ومبدأ الشغل والطاقة.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'dyn_l7_p1',
+                titleEn: 'Vector Work along a Path',
+                titleAr: 'الشغل المتجه على مسار مستقيم',
+                difficulty: 'easy',
+                questionEn: 'A force $\\vec{F} = 3\\hat{i} - 5\\hat{j}\\text{ (N)}$ moves a particle from point $A(1, 2)$ to point $B(5, -1)$ in meters. Find the work done by $\\vec{F}$.',
+                questionAr: 'أثرت قوة $\\vec{F} = 3\\hat{i} - 5\\hat{j}\\text{ (نيوتن)}$ على جسيم فحركته من النقطة $A(1, 2)$ إلى النقطة $B(5, -1)$ بالأمتار. احسب الشغل المبذول من القوة.',
+                optionsEn: ['$27\\text{ J}$', '$12\\text{ J}$', '$15\\text{ J}$', '$3\\text{ J}$'],
+                optionsAr: ['$27\\text{ جول}$', '$12\\text{ جول}$', '$15\\text{ جول}$', '$3\\text{ جول}$'],
+                correctAnswer: '$27\\text{ J}$',
+                correctIndex: 0,
+                hintEn: 'Displacement s = B - A = (4, -3). Work W = F . s.',
+                hintAr: 'الإزاحة ف = ب - أ = (٤، -٣). الشغل ش = ق . ف.',
+                stepByStepSolutionEn: [
+                  '1. Displacement vector: s = (5-1)i + (-1-2)j = 4i - 3j.',
+                  '2. Dot product: W = (3)(4) + (-5)(-3) = 12 + 15 = 27 Joules.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. متجه الإزاحة: ف = (٥-١) س + (-١-٢) ص = ٤ س - ٣ ص.',
+                  '٢. الضرب القياسي: ش = (٣)(٤) + (-٥)(-٣) = ١٢ + ١٥ = ٢٧ جول.'
+                ]
+              },
+              {
+                id: 'dyn_l7_p2',
+                titleEn: 'Work by Variable Force Integral',
+                titleAr: 'الشغل بتكامل قوة متغيرة',
+                difficulty: 'medium',
+                questionEn: 'A force $F(s) = 6s^2 - 2s\\text{ (N)}$ acts on a body along the s-axis. Find the work done as it moves from $s = 1\\text{ m}$ to $s = 3\\text{ m}$.',
+                questionAr: 'تؤثر قوة $F(s) = 6s^2 - 2s\\text{ (نيوتن)}$ على جسم في اتجاه المحرك ف. احسب الشغل المبذول عند تحرك الجسم من $s = 1\\text{ م}$ إلى $s = 3\\text{ م}$.',
+                optionsEn: ['$44\\text{ J}$', '$52\\text{ J}$', '$36\\text{ J}$', '$40\\text{ J}$'],
+                optionsAr: ['$44\\text{ جول}$', '$52\\text{ جول}$', '$36\\text{ جول}$', '$40\\text{ جول}$'],
+                correctAnswer: '$44\\text{ J}$',
+                correctIndex: 0,
+                hintEn: 'Integrate: int_1^3 (6s^2 - 2s) ds = [2s^3 - s^2]_1^3.',
+                hintAr: 'التكامل: [٢ ف³ - ف²] من ١ إلى ٣.',
+                stepByStepSolutionEn: [
+                  '1. Antiderivative: 2s^3 - s^2.',
+                  '2. At s = 3: 2(27) - 9 = 54 - 9 = 45.',
+                  '3. At s = 1: 2(1) - 1 = 1.',
+                  '4. Work: W = 45 - 1 = 44 Joules.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. دالة التكامل: ٢ ف³ - ف².',
+                  '٢. عند ف = ٣: ٢(٢٧) - ٩ = ٤٥.',
+                  '٣. عند ف = ١: ٢(١) - ١ = ١.',
+                  '٤. الشغل: ٤٥ - ١ = ٤٤ جول.'
+                ]
+              },
+              {
+                id: 'dyn_l7_p3',
+                titleEn: 'Stopping Distance with Work-Energy',
+                titleAr: 'مسافة التوقف بمبدأ الشغل والطاقة',
+                difficulty: 'hots',
+                questionEn: 'A vehicle of mass $800\\text{ kg}$ traveling at $20\\text{ m/s}$ stops under a braking resistance of $1600\\text{ N}$. Find the stopping distance.',
+                questionAr: 'سيارة كتلتها $800\\text{ كجم}$ تسير بسرعة $20\\text{ م/ث}$ توقفت تحت تأثير فرامل مقاومتها $1600\\text{ نيوتن}$. احسب مسافة التوقف.',
+                optionsEn: ['$100\\text{ m}$', '$50\\text{ m}$', '$200\\text{ m}$', '$150\\text{ m}$'],
+                optionsAr: ['$100\\text{ م}$', '$50\\text{ م}$', '$200\\text{ م}$', '$150\\text{ م}$'],
+                correctAnswer: '$100\\text{ m}$',
+                correctIndex: 0,
+                hintEn: '0.5 * m * v0^2 = R * s.',
+                hintAr: 'نصف ك ع٠² = م × ف.',
+                stepByStepSolutionEn: [
+                  '1. Initial KE: T0 = 0.5 * 800 * 400 = 160,000 Joules.',
+                  '2. Work of resistance: R * s = 1600 s.',
+                  '3. Equating: 1600 s = 160,000 => s = 100 meters.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. طاقة الحركة الابتدائية: ٠٫٥ × ٨٠٠ × ٤٠٠ = ١٦٠٠٠٠ جول.',
+                  '٢. شغل المقاومة: ١٦٠٠ × ف.',
+                  '٣. بمساواة الطرفين: ف = ١٠٠ متر.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Work as Area Under Variable Force-Displacement Curve',
+            titleAr: 'الشغل كمساحة تحت منحنى القوة والإزاحة',
+            descriptionEn: 'Interactive graphic tool demonstrating definite integration of force functions to determine mechanical work and kinetic energy change.',
+            descriptionAr: 'أداة تفاعلية بيانية توضح التكامل المحدد لدوال القوة لحساب الشغل الميكانيكي والتغير في طاقة الحركة.'
+          }
+        },
+        {
+          id: 'dyn_l8',
+          titleEn: 'Potential Energy, Conservation of Mechanical Energy & Power',
+          titleAr: 'طاقة الوضع، قانون بقاء الطاقة الميكانيكية والقدرة',
+          summaryEn: 'Gravitational and elastic potential energy, principle of conservation of mechanical energy T + V = T0 + V0, energy loss in non-conservative systems, and power P = F . v in Watts and Horsepower.',
+          summaryAr: 'طاقة الوضع التثاقلية والمرونية، وقانون بقاء الطاقة الميكانيكية ط + ض = ط٠ + ض٠، وفقد الطاقة في الأوساط المقاومة، والقدرة ق = ق . ع بالواط والحصان.',
+          theoryContentEn: `### 1. Potential Energy (طاقة الوضع)
+Potential energy $V$ is the energy stored in a body due to its position in a conservative force field:
+1. **Gravitational Potential Energy:**
+   $$V = m g h$$
+   where $h$ is the vertical height above an arbitrary horizontal zero-reference level.
+   - Change in potential energy: $\\Delta V = V_2 - V_1 = -W_g$ (negative of work done by gravity).
+2. **Elastic Potential Energy (in a Spring):**
+   $$V = \\frac{1}{2} k x^2$$
+   where $k$ is the spring stiffness constant and $x$ is the extension or compression.
+
+### 2. Principle of Conservation of Mechanical Energy (قانون بقاء الطاقة الميكانيكية):
+In a **conservative system** (motion under gravity or on smooth surfaces where only conservative forces do work):
+The total mechanical energy $E$ remains constant:
+$$E = T + V = \\text{constant}$$
+$$T + V = T_0 + V_0$$
+- **Example:** A body sliding from rest down a smooth surface from height $h$:
+  $$0 + m g h = \\frac{1}{2} m v^2 + 0 \\implies v = \\sqrt{2 g h}$$
+
+### 3. Non-Conservative Systems (Loss in Mechanical Energy):
+When non-conservative forces (like friction $f_k$ or resistance $R$) act on the body:
+$$(T + V) - (T_0 + V_0) = W_{\\text{other}} = -R \\cdot s$$
+$$\\text{Loss in Mechanical Energy} = (T_0 + V_0) - (T + V) = R \\cdot s$$
+Mechanical energy lost is transformed into thermal energy.
+
+### 4. Power (القدرة):
+Power is defined as the time rate of doing work:
+$$P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$$
+- **Average Power:**
+  $$P_{\\text{avg}} = \\frac{\\Delta W}{\\Delta t}$$
+- **Units of Power:**
+  - In SI units: **Watt** ($\\text{W} = \\text{J/s} = 10^7\\text{ erg/s}$).
+  - **Kilowatt** ($\\text{kW} = 1000\\text{ W}$).
+  - **Horsepower** ($\\text{hp}$):
+    $$1\\text{ hp} = 735\\text{ Watts} = 75\\text{ kg-wt}\\cdot\\text{m/s}$$
+
+### 5. Maximum Speed of Vehicles (أقصى سرعة للسيارات والقاطرات):
+When a vehicle moves at its maximum speed $v_{\\max}$, its acceleration is zero ($a = 0$):
+1. **On a Level Horizontal Road:**
+   $$F = R \\implies P = F \\cdot v_{\\max} = R \\cdot v_{\\max}$$
+2. **Climbing an Incline of Angle $\\theta$:**
+   $$F = R + m g \\sin\\theta \\implies P = (R + m g \\sin\\theta) \\cdot v_{\\max}$$
+3. **Descending an Incline with Engine Working:**
+   $$F + m g \\sin\\theta = R \\implies F = R - m g \\sin\\theta \\implies P = (R - m g \\sin\\theta) \\cdot v_{\\max}$$`,
+          theoryContentAr: `### ١. طاقة الوضع (ض)
+طاقة الوضع هي الطاقة المختزنة في الجسم نتيجة موضعه في مجال قوى محافظة:
+١. **طاقة الوضع التثاقلية:**
+   $$V = m g h$$
+   حيث $h$ هو الارتفاع الرأسي عن المستوى المرجعي الأفقي.
+   - التغير في طاقة الوضع: $\\Delta V = -W_g$ (سالب الشغل المبذول من الوزن).
+٢. **طاقة الوضع المرونية (في زنبرك):**
+   $$V = \\frac{1}{2} k x^2$$
+   حيث $k$ ثابت صلابة الزنبرك، و $x$ مقدار الاستطالة أو الانضغاط.
+
+### ٢. قانون بقاء الطاقة الميكانيكية:
+في المجال المحافظ (الحركة تحت تأثير الجاذبية فقط أو على أسطح ملساء):
+تظل الطاقة الميكانيكية الكلية ثابتة:
+$$T + V = T_0 + V_0$$
+- **مثال:** جسم ينزلق من السكون على مستوى أملس من ارتفاع $h$:
+  $$v = \\sqrt{2 g h}$$
+
+### ٣. الأنظمة غير المحافظة (الفقد في الطاقة الميكانيكية):
+عند وجود قوى مقاومة أو احتكاك:
+$$(T + V) - (T_0 + V_0) = -R \\cdot s$$
+$$\\text{الفقد في الطاقة الميكانيكية} = R \\cdot s$$
+
+### ٤. القدرة
+القدرة هي معدل بذل الشغل بالنسبة للزمن:
+$$P = \\frac{dW}{dt} = \\vec{F} \\cdot \\vec{v}$$
+- **وحدات القدرة:**
+  - **الواط** (جول/ثانية).
+  - **الكيلوواط** ($1000$ واط).
+  - **الحصان:**
+    $$1\\text{ حصان} = 735\\text{ واط} = 75\\text{ ث.كجم.م/ث}$$
+
+### ٥. أقصى سرعة للمركبات:
+عند أقصى سرعة تنعدم العجلة (جـ = ٠):
+١. **على طريق أفقي:** $F = R \\implies P = R \\cdot v_{\\max}$.
+٢. **صعوداً على منحدر:** $F = R + m g \\sin\\theta$.
+٣. **هبوطاً على منحدر:** $F = R - m g \\sin\\theta$.`,
+          formulas: [
+            { labelEn: 'Gravitational Potential Energy', labelAr: 'طاقة الوضع التثاقلية', latex: 'V = m g h' },
+            { labelEn: 'Mechanical Energy Conservation', labelAr: 'بقاء الطاقة الميكانيكية', latex: 'T + V = T_0 + V_0' },
+            { labelEn: 'Energy Loss by Friction', labelAr: 'الفقد في الطاقة بالاحتكاك', latex: '(T_0 + V_0) - (T + V) = R \\cdot s' },
+            { labelEn: 'Instantaneous Power', labelAr: 'القدرة اللحظية', latex: 'P = \\vec{F} \\cdot \\vec{v}' },
+            { labelEn: 'Horsepower Conversion', labelAr: 'تحويل الحصان', latex: '1\\text{ hp} = 735\\text{ W} = 75\\text{ kg-wt}\\cdot\\text{m/s}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Dynamics Textbook Grade 12',
+            bookTitleAr: 'كتاب الديناميكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-DYN-CH4-L2',
+            pageRange: 'pp. 111 - 135'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Potential Energy, Energy Conservation & Engine Power',
+            titleAr: 'خطة درس: طاقة الوضع وبقاء الطاقة وقدرة الآلات',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-DYN-CH4-L2',
+            bloomsObjectivesEn: [
+              'Analyze gravitational and elastic potential energy changes.',
+              'Solve conservative and non-conservative motion problems using energy conservation.',
+              'Determine engine horsepower and maximum speed on level and inclined surfaces.'
+            ],
+            bloomsObjectivesAr: [
+              'تحليل تغيرات طاقة الوضع التثاقلية والمرونية.',
+              'حل مسائل الحركة المحافظة وغير المحافظة بقانون بقاء الطاقة.',
+              'حساب قدرة المحركات بالحصان وأقصى سرعة على الطرق الأفقية والمائلة.'
+            ],
+            prerequisitesEn: ['Kinetic energy and work concepts', 'Trigonometric resolution on inclined planes'],
+            prerequisitesAr: ['مفاهيم طاقة الحركة والشغل', 'تحليل القوى على المستويات المائلة'],
+            keyVocabularyEn: [
+              { term: 'Potential Energy (V)', definition: 'Stored energy based on position relative to reference level.' },
+              { term: 'Conservation of Mechanical Energy', definition: 'Sum of kinetic and potential energy remains constant in conservative field.' },
+              { term: 'Horsepower', definition: 'Power unit equal to 735 Watts or 75 kg-wt.m/s.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'طاقة الوضع (ض)', definition: 'الطاقة المختزنة في الجسم بناءً على موضعه بالنسبة للمستوى المرجعي.' },
+              { term: 'بقاء الطاقة الميكانيكية', definition: 'ثبوت مجموع طاقتي الحركة والوضع في غياب قوى الاحتكاك.' },
+              { term: 'الحصان', definition: 'وحدة قدرة تساوي ٧٣٥ واط أو ٧٥ ثقل كجم.م/ث.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Potential Energy & Reference Level (15 mins)',
+                phaseAr: 'طاقة الوضع والمستوى المرجعي (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Establish that potential energy depends on the chosen zero reference plane, whereas change in PE is absolute.',
+                activitiesAr: 'تأكيد أن قيمة طاقة الوضع نسبية للمستوى المرجعي بينما التغير في طاقة الوضع قيمة مطلقة.'
+              },
+              {
+                phaseEn: 'Conservation of Energy & Incline Descent (25 mins)',
+                phaseAr: 'قانون بقاء الطاقة وهبوط المنحدرات (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Compare smooth descent (v = sqrt(2gh)) with rough descent where mechanical energy loss equals friction work.',
+                activitiesAr: 'المقارنة بين الهبوط الأملس والهبوط الخشن حيث يتحول الفقد في الطاقة إلى شغل احتكاك.'
+              },
+              {
+                phaseEn: 'Engine Power & Max Speed (30 mins)',
+                phaseAr: 'قدرة المحرك وأقصى سرعة (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Derive maximum steady speed conditions on horizontal and inclined roads using P = F v / 75.',
+                activitiesAr: 'استنتاج شروط أقصى سرعة منتظمة على الطرق الأفقية والمائلة باستخدام قانون القدرة بالحصان.'
+              },
+              {
+                phaseEn: 'Assessment & Synthesis (20 mins)',
+                phaseAr: 'التقييم الختامي والتركيب (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Conduct individual formative check on horsepower calculations.',
+                activitiesAr: 'إجراء تقييم بنائي فردي على مسائل القدرة بالحصان.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Thinking engine power increases indefinitely with speed; at maximum speed power is capped and acceleration is zero.',
+              'Confusing Watt (J/s) with Horsepower (735 W).'
+            ],
+            commonMisconceptionsAr: [
+              'ظن أن قدرة المحرك تتزايد بلا حدود؛ عند أقصى سرعة تصل القدرة لأقصاها وتنعدم العجلة تماماً.',
+              'الخلط بين الواط (جول/ث) والحصان (٧٣٥ واط).'
+            ],
+            differentiationEn: {
+              struggling: 'Use direct formula P = (R_kgwt * v) / 75 for level roads.',
+              advanced: 'Calculate dynamic power variation during non-uniform acceleration uphill.'
+            },
+            differentiationAr: {
+              struggling: 'استخدام القانون المباشر: القدرة = (المقاومة بالثقل كجم × السرعة) / ٧٥ للطرق الأفقية.',
+              advanced: 'حساب تغيرات القدرة اللحظية أثناء التسارع غير المنتظم على الطرق المائلة.'
+            },
+            formativeAssessmentEn: 'A car moves at uniform speed 72 km/h against resistance 150 kg-wt. Find engine horsepower.',
+            formativeAssessmentAr: 'سيارة تسير بسرعة منتظمة ٧٢ كم/س ضد مقاومة ١٥٠ ث.كجم. احسب قدرة محركها بالحصان.',
+            exitTicketQuestion: {
+              questionEn: 'Find the horsepower required to lift a 300 kg mass vertically at a steady speed of 5 m/s.',
+              questionAr: 'احسب القدرة بالحصان اللازمة لرفع كتلة مقدارها ٣٠٠ كجم رأسياً لأعلى بسرعة منتظمة ٥ م/ث.',
+              solutionEn: 'Force = 300 kg-wt. Power = (300 * 5) / 75 = 1500 / 75 = 20 hp.',
+              solutionAr: 'القوة = ٣٠٠ ث.كجم. القدرة = (٣٠٠ × ٥) / ٧٥ = ٢٠ حصان.'
+            }
+          },
+          worksheet: {
+            id: 'ws_dyn_l8',
+            titleEn: 'Worksheet: Energy Conservation and Power',
+            titleAr: 'ورقة عمل: بقاء الطاقة والقدرة',
+            descriptionEn: 'Problems covering potential energy, mechanical energy conservation, and vehicle engine horsepower.',
+            descriptionAr: 'مسائل شاملة على طاقة الوضع، وحفظ الطاقة الميكانيكية، وقدرة محركات السيارات.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'dyn_l8_p1',
+                titleEn: 'Smooth Incline Speed by Conservation of Energy',
+                titleAr: 'سرعة الهبوط على مستوى أملس ببقاء الطاقة',
+                difficulty: 'easy',
+                questionEn: 'A body slides from rest down a smooth inclined plane from a vertical height of $h = 10\\text{ m}$. Find its speed at the base ($g = 9.8\\text{ m/s}^2$).',
+                questionAr: 'انزلق جسم من السكون من قمة مستوى مائل أملس ارتفاعه الرأسي $h = 10\\text{ م}$. احسب سرعته عند قاعدة المستوى ($g = 9.8\\text{ م/ث²}$).',
+                optionsEn: ['$14\\text{ m/s}$', '$9.8\\text{ m/s}$', '$19.6\\text{ m/s}$', '$10\\text{ m/s}$'],
+                optionsAr: ['$14\\text{ م/ث}$', '$9.8\\text{ م/ث}$', '$19.6\\text{ م/ث}$', '$10\\text{ م/ث}$'],
+                correctAnswer: '$14\\text{ m/s}$',
+                correctIndex: 0,
+                hintEn: 'v = sqrt(2gh).',
+                hintAr: 'ع = جذر(٢ د ف).',
+                stepByStepSolutionEn: [
+                  '1. Conservation of energy: mgh = 0.5 * m * v^2.',
+                  '2. v = sqrt(2 * 9.8 * 10) = sqrt(196) = 14 m/s.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. بقاء الطاقة: ك د ف = ٠٫٥ ك ع².',
+                  '٢. ع = جذر(٢ × ٩٫٨ × ١٠) = جذر(١٩٦) = ١٤ م/ث.'
+                ]
+              },
+              {
+                id: 'dyn_l8_p2',
+                titleEn: 'Engine Power on Horizontal Road',
+                titleAr: 'قدرة المحرك على طريق أفقي',
+                difficulty: 'medium',
+                questionEn: 'A car moves at a steady speed of $90\\text{ km/h}$ against a resistance of $120\\text{ kg-wt}$. Find the engine power in Horsepower.',
+                questionAr: 'تتحرك سيارة بسرعة منتظمة قدرها $90\\text{ كم/س}$ ضد مقاومة مقدارها $120\\text{ ث.كجم}$. احسب قدرة محركها بالحصان.',
+                optionsEn: ['$40\\text{ hp}$', '$30\\text{ hp}$', '$60\\text{ hp}$', '$20\\text{ hp}$'],
+                optionsAr: ['$40\\text{ حصان}$', '$30\\text{ حصان}$', '$60\\text{ حصان}$', '$20\\text{ حصان}$'],
+                correctAnswer: '$40\\text{ hp}$',
+                correctIndex: 0,
+                hintEn: 'v = 90 * 5/18 = 25 m/s. P = (F * v) / 75.',
+                hintAr: 'ع = ٩٠ × ٥/١٨ = ٢٥ م/ث. القدرة = (ق × ع) / ٧٥.',
+                stepByStepSolutionEn: [
+                  '1. Velocity: 90 * (5/18) = 25 m/s.',
+                  '2. Since speed is uniform: F = R = 120 kg-wt.',
+                  '3. Power: P = (120 * 25) / 75 = 3000 / 75 = 40 hp.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. السرعة = ٩٠ × (٥/١٨) = ٢٥ م/ث.',
+                  '٢. بما أن السرعة منتظمة: ق = م = ١٢٠ ث.كجم.',
+                  '٣. القدرة = (١٢٠ × ٢٥) / ٧٥ = ٤٠ حصان.'
+                ]
+              },
+              {
+                id: 'dyn_l8_p3',
+                titleEn: 'Loss in Mechanical Energy on Rough Plane',
+                titleAr: 'الفقد في الطاقة الميكانيكية على مستوى خشن',
+                difficulty: 'hots',
+                questionEn: 'A body of mass $2\\text{ kg}$ is projected down a rough incline of length $5\\text{ m}$ with initial speed $4\\text{ m/s}$. It reaches the bottom with speed $8\\text{ m/s}$. If the vertical drop is $h = 3\\text{ m}$, find the work done against friction ($g = 9.8\\text{ m/s}^2$).',
+                questionAr: 'قذف جسم كتلته $2\\text{ كجم}$ إلى أسفل مستوى مائل خشن طوله $5\\text{ م}$ بسرعة ابتدائية $4\\text{ م/ث}$، فوصل إلى أسفل المستوى بسرعة $8\\text{ م/ث}$. فإذا كان الارتفاع الرأسي للمستوى $h = 3\\text{ م}$، احسب الشغل المبذول ضد الاحتكاك ($g = 9.8\\text{ م/ث²}$).',
+                optionsEn: ['$10.8\\text{ J}$', '$20.4\\text{ J}$', '$15.6\\text{ J}$', '$32.0\\text{ J}$'],
+                optionsAr: ['$10.8\\text{ جول}$', '$20.4\\text{ جول}$', '$15.6\\text{ جول}$', '$32.0\\text{ جول}$'],
+                correctAnswer: '$10.8\\text{ J}$',
+                correctIndex: 0,
+                hintEn: 'Initial energy E0 = T0 + V0 = 0.5*m*v0^2 + mgh. Final energy E = 0.5*m*v^2. Work against friction Wf = E0 - E.',
+                hintAr: 'الطاقة الابتدائية = ط٠ + ض٠. الطاقة النهائية = ط. شغل الاحتكاك = الطاقة الابتدائية - الطاقة النهائية.',
+                stepByStepSolutionEn: [
+                  '1. Initial energy: E0 = 0.5(2)(16) + (2)(9.8)(3) = 16 + 58.8 = 74.8 J.',
+                  '2. Final energy: E = 0.5(2)(64) + 0 = 64 J.',
+                  '3. Work against friction: Wf = 74.8 - 64 = 10.8 Joules.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. الطاقة الابتدائية: ٠٫٥(٢)(١٦) + ٢(٩٫٨)(٣) = ١٦ + ٥٨٫٨ = ٧٤٫٨ جول.',
+                  '٢. الطاقة النهائية: ٠٫٥(٢)(٦٤) = ٦٤ جول.',
+                  '٣. شغل الاحتكاك = ٧٤٫٨ - ٦٤ = ١٠٫٨ جول.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Mechanical Energy Conservation & Friction Loss Simulator',
+            titleAr: 'محاكي بقاء الطاقة الميكانيكية والفقد بالاحتكاك',
+            descriptionEn: 'Interactive physics laboratory demonstrating energy transformations between potential, kinetic, and frictional dissipation.',
+            descriptionAr: 'مختبر فيزيائي تفاعلي يوضح تحولات الطاقة بين الوضع والحركة والتشتت الحراري بفعل الاحتكاك.'
+          }
+        }
+      ],
+      solvedExamples: dynCh4SolvedExamples,
+      exerciseProblems: dynCh4Exercises,
+      databank: dynCh4Databank
     }
   ]
 };
