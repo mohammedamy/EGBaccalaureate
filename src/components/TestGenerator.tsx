@@ -9,6 +9,7 @@ import { thanaweyaCurriculum } from '../data/thanaweyaData';
 import { egBacCurriculum } from '../data/egBacData';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, CheckCircle2, AlertCircle, RefreshCw, Clock, Award, FileSpreadsheet } from 'lucide-react';
+import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
@@ -230,7 +231,7 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
           <div className="border-4 border-double border-slate-700 p-4 sm:p-6 rounded-xl space-y-4 bg-slate-950/40 text-center print-exam-header print-avoid-break">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold border-b border-slate-700 pb-4 text-center md:text-left">
               <div className="flex items-center gap-3 text-left">
-                <img src="/clipsat-logo.png" alt="ClipSAT Logo" className="h-10 sm:h-12 w-auto object-contain" />
+                <img src={clipsatLogo} alt="ClipSAT Logo" className="h-10 sm:h-12 w-auto object-contain" />
                 <div>
                   <p className="text-base font-black text-indigo-400">ClipSAT for Egypt</p>
                   <p className="text-xs text-slate-300">Ministry of Education Secondary Framework</p>

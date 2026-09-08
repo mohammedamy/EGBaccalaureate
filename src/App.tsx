@@ -9,6 +9,7 @@ import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
 import { TestGenerator } from './components/TestGenerator';
 import { Search, ShieldCheck } from 'lucide-react';
+import clipsatLogo from './assets/clipsat-logo.png';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -129,7 +130,7 @@ export const App: React.FC = () => {
       <footer className="border-t border-slate-800 bg-slate-950 py-10 text-xs text-slate-400 no-print">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left rtl:md:text-right">
           <div className="flex items-center gap-4">
-            <img src="/clipsat-logo.png" alt="ClipSAT Logo" className="h-11 w-auto object-contain drop-shadow-md" />
+            <img src={clipsatLogo} alt="ClipSAT Logo" className="h-11 w-auto object-contain drop-shadow-md" />
             <div className="space-y-1">
               <p className="font-bold text-slate-200 text-sm flex items-center justify-center md:justify-start gap-1.5">
                 <ShieldCheck className="w-4.5 h-4.5 text-emerald-400" />

@@ -5,6 +5,7 @@ import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import { BookOpen, CheckCircle2, ChevronRight, Sparkles, Layers, Box, Activity, Compass, Grid } from 'lucide-react';
+import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
@@ -75,7 +76,7 @@ export const CurriculumOverview: React.FC<Props> = ({
 
           <div className="shrink-0 flex justify-center items-center">
             <img
-              src="/clipsat-logo.png"
+              src={clipsatLogo}
               alt="ClipSAT Logo"
               className="h-20 sm:h-28 md:h-32 w-auto object-contain drop-shadow-[0_10px_25px_rgba(34,211,238,0.35)] hover:scale-105 transition-transform"
             />
