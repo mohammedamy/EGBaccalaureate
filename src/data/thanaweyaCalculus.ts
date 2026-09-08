@@ -3,6 +3,8 @@ import { calcCh1SolvedExamples, calcCh1Exercises } from './textbook/thanaweya/ca
 import { calcCh1Databank } from './databanks/thanaweya/calcCh1Databank';
 import { calcCh2SolvedExamples, calcCh2Exercises } from './textbook/thanaweya/calcCh2Textbook';
 import { calcCh2Databank } from './databanks/thanaweya/calcCh2Databank';
+import { calcCh3SolvedExamples, calcCh3Exercises } from './textbook/thanaweya/calcCh3Textbook';
+import { calcCh3Databank } from './databanks/thanaweya/calcCh3Databank';
 
 export const thanaweyaCalculusBranch: Branch = {
   id: 'calculus',
@@ -867,6 +869,404 @@ $$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C = \\log_e |f(x)| + C$$
       solvedExamples: calcCh2SolvedExamples,
       exerciseProblems: calcCh2Exercises,
       databank: calcCh2Databank
+    }    ,
+    {
+      id: 'calc_ch3',
+      chapterNumber: 3,
+      titleEn: 'Behavior of Functions & Curve Sketching',
+      titleAr: 'سلوك الدالة ورسم المنحنيات وتطبيقات القيم العظمى والصغرى',
+      descriptionEn: 'Critical points, intervals of increase and decrease, local extrema via first and second derivative tests, concavity and inflection points, curve sketching, absolute extrema, and real-world optimization applications.',
+      descriptionAr: 'النقط الحرجة، فترات التزايد والتناقص، القيم العظمى والصغرى المحلية باختباري المشتقة الأولى والثانية، التحدب ونقط الانقلاب، رسم المنحنيات، القيم القصوى المطلقة، وتطبيقات القيم العظمى والصغرى.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'calc_l4',
+          titleEn: 'Monotonicity, Extrema & Concavity',
+          titleAr: 'تزايد وتناقص الدوال والقيم القصوى والتحدب',
+          summaryEn: 'Critical points, first derivative test for increasing/decreasing intervals and local extrema, second derivative test, concavity upward/downward, and inflection points.',
+          summaryAr: 'النقط الحرجة، اختبار المشتقة الأولى لفترات التزايد والتناقص والقيم العظمى والصغرى المحلية، اختبار المشتقة الثانية، فترات التحدب لأعلى ولأسفل، ونقط الانقلاب.',
+          theoryContentEn: `### 1. Critical Numbers and Points (النقط الحرجة):
+A number $c$ in the domain of $f$ is a critical number if:
+$f'(c) = 0 \quad \text{or} \quad f'(c) \text{ is undefined}$
+The point $(c, f(c))$ is called a critical point of the curve.
+
+### 2. Monotonicity & The First Derivative Test:
+- If $f'(x) > 0$ on $(a, b)$, then $f$ is strictly **increasing** (تزايدية) on $(a, b)$.
+- If $f'(x) < 0$ on $(a, b)$, then $f$ is strictly **decreasing** (تناقصية) on $(a, b)$.
+- **Local Maximum:** $f'(x)$ changes from positive $(+)$ to negative $(-)$ across $c$.
+- **Local Minimum:** $f'(x)$ changes from negative $(-)$ to positive $(+)$ across $c$.
+
+### 3. The Second Derivative Test for Local Extrema:
+Let $f'(c) = 0$:
+- If $f''(c) < 0 \implies$ Local Maximum at $(c, f(c))$.
+- If $f''(c) > 0 \implies$ Local Minimum at $(c, f(c))$.
+- If $f''(c) = 0 \implies$ Test is inconclusive (revert to First Derivative Test).
+
+### 4. Concavity & Inflection Points (التحدب ونقط الانقلاب):
+- **Concave Upwards (محدب لأسفل / مقعر لأعلى):** $f''(x) > 0$. Tangent lines lie below the curve.
+- **Concave Downwards (محدب لأعلى / مقعر لأسفل):** $f''(x) < 0$. Tangent lines lie above the curve.
+- **Point of Inflection (نقطة الانقلاب):** Point $(c, f(c))$ where $f''(c) = 0$ or undefined AND the curve changes its direction of concavity across $c$.`,
+          theoryContentAr: `### ١. النقط الحرجة:
+العدد $c$ في مجال الدالة $f$ يسمى عدداً حرجاً إذا كان:
+$f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة}$
+وتسمى النقطة $(c, f(c))$ نقطة حرجة للمنحنى.
+
+### ٢. فترات التزايد والتناقص واختبار المشتقة الأولى:
+- إذا كانت $f'(x) > 0$ فإن الدالة تزايدية.
+- إذا كانت $f'(x) < 0$ فإن الدالة تناقصية.
+- **عظمى محلية:** تتغير إشارة $f'(x)$ من موجب إلى سالب حول النقطة.
+- **صغرى محلية:** تتغير إشارة $f'(x)$ من سالب إلى موجب حول النقطة.
+
+### ٣. اختبار المشتقة الثانية للقيم القصوى المحلية:
+إذا كانت $f'(c) = 0$:
+- إذا كانت $f''(c) < 0$ توجد قيمة عظمى محلية.
+- إذا كانت $f''(c) > 0$ توجد قيمة صغرى محلية.
+- إذا كانت $f''(c) = 0$ يفشل الاختبار ويجب استخدام اختبار المشتقة الأولى.
+
+### ٤. فترات التحدب ونقط الانقلاب:
+- **تحدب لأسفل (مقعر لأعلى):** $f''(x) > 0$ (المماسات تقع أسفل المنحنى).
+- **تحدب لأعلى (مقعر لأسفل):** $f''(x) < 0$ (المماسات تقع أعلى المنحنى).
+- **نقطة الانقلاب:** نقطة تنعدم عندها المشتقة الثانية ويتغير عندها اتجاه التحدب للمنحنى.`,
+          formulas: [
+            { labelEn: 'Critical Condition', labelAr: 'شرط النقطة الحرجة', latex: "f'(c) = 0 \quad \text{or undefined}" },
+            { labelEn: 'Concave Up Condition', labelAr: 'شرط التحدب لأسفل', latex: "f''(x) > 0" },
+            { labelEn: 'Concave Down Condition', labelAr: 'شرط التحدب لأعلى', latex: "f''(x) < 0" },
+            { labelEn: 'Inflection Condition', labelAr: 'شرط نقطة الانقلاب', latex: "f''(c) = 0 \quad \text{with sign change}" }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Calculus Textbook Grade 12',
+            bookTitleAr: 'كتاب التفاضل والتكامل للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-CALC-CH3-L1',
+            pageRange: 'pp. 115 - 148'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Monotonicity, Extrema and Concavity',
+            titleAr: 'خطة درس: تزايد وتناقص الدوال ونقط الانقلاب',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-CALC-CH3-L1',
+            bloomsObjectivesEn: [
+              'Identify critical numbers where the derivative vanishes or fails to exist.',
+              'Classify local extrema using first and second derivative tests.',
+              'Determine inflection points and justify concavity transitions on real intervals.'
+            ],
+            bloomsObjectivesAr: [
+              'تحديد الأعداد الحرجة حيث تنعدم المشتقة أو تكون غير معرفة.',
+              'تصنيف القيم القصوى المحلية باختبار المشتقة الأولى واختبار المشتقة الثانية.',
+              'تعيين نقط الانقلاب وتبرير فترات التحدب على خط الأعداد الحقيقية.'
+            ],
+            prerequisitesEn: ['Power, product, and chain rules of differentiation', 'Solving polynomial inequalities', 'Domain of rational and radical functions'],
+            prerequisitesAr: ['قواعد اشتقاق الدوال الجبرية والمثلثية', 'حل متباينات الدرجة الثانية', 'مجال الدوال الكسرية والجذرية'],
+            keyVocabularyEn: [
+              { term: 'Critical Point', definition: 'Point on curve where f prime is zero or undefined.' },
+              { term: 'Local Extremum', definition: 'A peak (local maximum) or trough (local minimum) value of a function.' },
+              { term: 'Point of Inflection', definition: 'Point where the curve changes its direction of concavity.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'النقطة الحرجة', definition: 'نقطة تنتمي للمنحنى تكون المشتقة عندها صفراً أو غير معرفة.' },
+              { term: 'النهاية المحلية', definition: 'قيمة عظمى أو صغرى محلية للدالة في جوار النقطة.' },
+              { term: 'نقطة الانقلاب', definition: 'نقطة يفصل عندها المنحنى بين منطقتي تحدب متعاكستين.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Hook (15 mins)',
+                phaseAr: 'التمهيد والتهيئة (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Display curve of roller coaster and connect slopes to sign of derivative and feeling of acceleration to second derivative.',
+                activitiesAr: 'عرض منحنى قطار الملاهي وربط ميل المماس بإشارة السرعة والتحدب بتغير التسارع.'
+              },
+              {
+                phaseEn: 'Monotonicity & Extrema (30 mins)',
+                phaseAr: 'التزايد والتناقص والنهايات (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve cubic polynomial and rational functions step-by-step using sign chart.',
+                activitiesAr: 'حل مسائل على دوال تكعيبية وكسرية باستخدام خط إشارة المشتقة الأولى.'
+              },
+              {
+                phaseEn: 'Concavity & Inflection Points (30 mins)',
+                phaseAr: 'التحدب ونقط الانقلاب (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Derive second derivative and establish relation between tangent location and concavity.',
+                activitiesAr: 'استنتاج المشتقة الثانية وتوضيح موقع المماسات بالنسبة للمنحنى المحدب.'
+              },
+              {
+                phaseEn: 'Exit Ticket (15 mins)',
+                phaseAr: 'التقويم الختامي (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Administer individual problem finding inflection point of cubic curve.',
+                activitiesAr: 'حل سؤال بطاقة الخروج لتعيين نقطة انقلاب دالة تكعيبية.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Assuming f prime = 0 always implies a local extremum without testing for sign change.',
+              'Confusing Egyptian curriculum terminology: concave up is called "محدب لأسفل".'
+            ],
+            commonMisconceptionsAr: [
+              'افتراض أن انعدام المشتقة يعني دائماً وجود نهاية عظمى أو صغرى دون اختبار الإشارة.',
+              'الخلط في المصطلحات: التحدب لأسفل يوافق المشتقة الثانية الموجبة (مقعر لأعلى).'
+            ],
+            differentiationEn: {
+              struggling: 'Provide a 3-column table template for x, f prime(x), and f(x) behavior.',
+              advanced: 'Analyze non-differentiable inflection points on curves like y = x^(1/3).'
+            },
+            differentiationAr: {
+              struggling: 'استخدام جدول منظم من ٣ أعمدة لتحديد إشارة المشتقة وسلوك الدالة.',
+              advanced: 'بحث نقط الانقلاب غير القابلة للاشتقاق للدوال الجذرية التكعيبية.'
+            },
+            formativeAssessmentEn: 'Find the critical points of f(x) = x^3 - 3x.',
+            formativeAssessmentAr: 'عين النقط الحرجة للدالة $f(x) = x^3 - 3x$.',
+            exitTicketQuestion: {
+              questionEn: 'Determine the inflection point of y = x^3 - 3x^2 + 4.',
+              questionAr: 'عين نقطة الانقلاب لمنحنى الدالة $y = x^3 - 3x^2 + 4$.',
+              solutionEn: "y' = 3x^2 - 6x, y'' = 6x - 6 = 0 => x = 1. y(1) = 1 - 3 + 4 = 2. Inflection point is (1, 2).",
+              solutionAr: "المشتقة الثانية $y'' = 6x - 6 = 0 \implies x = 1$. الصاد $y(1) = 2$. نقطة الانقلاب هي $(1, 2)$."
+            }
+          },
+          worksheet: {
+            id: 'ws_calc_l4',
+            titleEn: 'Solved Worksheet: Extrema and Concavity',
+            titleAr: 'ورقة عمل محلولة: القيم القصوى وفترات التحدب',
+            descriptionEn: 'Exam standard problems on finding critical points, monotonicity intervals, and inflection points.',
+            descriptionAr: 'تمارين امتحانية هامة على تعيين النقط الحرجة وفترات التزايد والتناقص ونقط الانقلاب.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'p_calc_mono_ws1',
+                titleEn: 'Exam Standard: Critical Points of Quartic Function',
+                titleAr: 'مسألة امتحانية: النقط الحرجة لدالة من الدرجة الرابعة',
+                difficulty: 'exam_standard',
+                questionEn: 'Find the critical numbers of $f(x) = 3x^4 - 4x^3$.',
+                questionAr: 'أوجد الأعداد الحرجة للدالة $f(x) = 3x^4 - 4x^3$.',
+                optionsEn: ['x = 0 and x = 1', 'x = 1 only', 'x = 0 and x = -1', 'x = 4/3 only'],
+                optionsAr: ['س = ٠ و س = ١', 'س = ١ فقط', 'س = ٠ و س = -١', 'س = ٤/٣ فقط'],
+                correctAnswer: 'x = 0 and x = 1',
+                correctIndex: 0,
+                hintEn: "Set f'(x) = 12x^3 - 12x^2 = 12x^2(x - 1) = 0.",
+                hintAr: "ضع المشتقة الأولى $12x^2(x - 1) = 0$.",
+                stepByStepSolutionEn: [
+                  '1. $f\prime(x) = 12x^3 - 12x^2 = 12x^2(x - 1)$.',
+                  '2. Setting $f\prime(x) = 0$ gives $x = 0$ and $x = 1$.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. المشتقة: $f\prime(x) = 12x^2(x - 1) = 0$.',
+                  '٢. إذن الأعداد الحرجة هي $x = 0$ و $x = 1$.'
+                ],
+                teacherTipEn: 'Notice that x = 0 is a critical number even though it is not a local extremum!',
+                teacherTipAr: 'لاحظ أن س = ٠ عدد حرج بالرغم من أنه لا يمثل نهاية عظمى أو صغرى!'
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Extrema & Concavity Dynamic Tangent Visualizer',
+            titleAr: 'محاكي المماس الديناميكي والتحدب والنهايات القصوى',
+            descriptionEn: 'Interactive tool visualizing tangent slope transitions and inflection point crossing in real time.',
+            descriptionAr: 'أداة تفاعلية توضح تغير ميل المماس واختراق المنحنى عند نقطة الانقلاب لحظياً.'
+          }
+        },
+        {
+          id: 'calc_l5',
+          titleEn: 'Curve Sketching & Optimization Applications',
+          titleAr: 'رسم المنحنيات وتطبيقات القيم العظمى والصغرى',
+          summaryEn: 'Complete curve sketching protocol (symmetry, asymptotes, intercepts, extrema, inflection), absolute extrema on closed intervals, and physical/geometric optimization problems.',
+          summaryAr: 'خطوات رسم المنحنيات العامة (التماثل، التقارب، التقاطع، النهايات، الانقلاب)، القيم العظمى والصغرى المطلقة، ومسائل تطبيقات القيم القصوى الهندسية والفيزيائية.',
+          theoryContentEn: `### 1. Protocol for General Curve Sketching (خطوات رسم المنحنى):
+1. **Domain:** Determine the natural domain of $f(x)$.
+2. **Symmetry:** Test whether $f(-x) = f(x)$ (even, y-axis symmetry) or $f(-x) = -f(x)$ (odd, origin symmetry).
+3. **Intercepts:** Find y-intercept $(0, f(0))$ and x-intercepts by solving $f(x) = 0$.
+4. **Asymptotes:**
+   - Vertical: lines $x = a$ where $\\lim_{x \\to a} f(x) = \\pm\\infty$.
+   - Horizontal: lines $y = L$ where $\\lim_{x \\to \\pm\\infty} f(x) = L$.
+5. **Monotonicity & Extrema:** Compute $f'(x)$ to locate local extrema.
+6. **Concavity & Inflection:** Compute $f''(x)$ to determine concavity and inflection points.
+
+### 2. Absolute (Global) Extrema on Closed Intervals $[a, b]$:
+By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves an absolute maximum and minimum.
+- Method:
+  1. Find all critical numbers $c_i \\in (a, b)$.
+  2. Compute $f(c_i)$ at all internal critical points.
+  3. Compute endpoint values $f(a)$ and $f(b)$.
+  4. Compare all values: largest is Absolute Max, smallest is Absolute Min.
+
+### 3. Real-World Optimization Problems (تطبيقات القيم العظمى والصغرى):
+1. Define variables and draw a diagram where applicable.
+2. Formulate the primary equation for the quantity $Q$ to be maximized or minimized.
+3. Use auxiliary conditions (constraints) to express $Q$ in terms of a single variable: $Q = f(x)$.
+4. Differentiate, set $f'(x) = 0$, and verify the nature of the extremum using $f''(x)$.`,
+          theoryContentAr: `### ١. خطوات رسم المنحنيات العامة:
+١. **تحديد المجال:** تعيين مجال تعريف الدالة.
+٢. **التماثل:** فحص هل الدالة زوجية متماثلة حول الصادات أم فردية متماثلة حول نقطة الأصل.
+٣. **نقط التقاطع:** التقاطع مع الصادات $(0, f(0))$ والتقاطع مع السينات بوضع $f(x) = 0$.
+٤. **خطوط التقارب:**
+   - الرأسية عند أصفار المقام غير القابلة للاختصار.
+   - الأفقية عند أخذ النهاية للما لانهاية.
+٥. **النهايات المحلية:** دراسة إشارة المشتقة الأولى.
+٦. **التحدب والانقلاب:** دراسة إشارة المشتقة الثانية.
+
+### ٢. القيم العظمى والصغرى المطلقة على فترة مغلقة $[a, b]$:
+نظرية القيمة القصوى: الدالة المتصلة على فترة مغلقة تبلغ قيمتها العظمى المطلقة والصغرى المطلقة حتماً.
+- الخطوات:
+  ١. إيجاد النقط الحرجة الداخلية داخل الفترة المفتوحة $(a, b)$.
+  ٢. حساب قيم الدالة عند النقط الحرجة.
+  ٣. حساب قيم الدالة عند طرفي الفترة $f(a)$ و $f(b)$.
+  ٤. أكبر قيمة هي العظمى المطلقة وأصغر قيمة هي الصغرى المطلقة.
+
+### ٣. تطبيقات القيم العظمى والصغرى:
+١. رسم شكل تخطيطي للمسألة وتحديد المتغيرات.
+٢. تكوين العلاقة الأساسية للكمية المطلوب تعظيمها أو تصغيرها.
+٣. استخدام العلاقات المساعدة للتعبير عن الدالة في متغير واحد فقط.
+٤. الاشتقاق ووضع المشتقة بصفر والتحقق باختبار المشتقة الثانية.`,
+          formulas: [
+            { labelEn: 'Absolute Extrema Evaluation', labelAr: 'تقييم القيم المطلقة', latex: "\\max / \\min \\{ f(a), f(b), f(c_i) \\}" },
+            { labelEn: 'Horizontal Asymptote', labelAr: 'خط التقارب الأفقي', latex: "y = \\lim_{x \\to \\pm\\infty} f(x)" },
+            { labelEn: 'Optimization Condition', labelAr: 'شرط القيمة القصوى', latex: "\\frac{dQ}{dx} = 0 \quad \text{and test sign}" }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Calculus Textbook Grade 12',
+            bookTitleAr: 'كتاب التفاضل والتكامل للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-CALC-CH3-L2',
+            pageRange: 'pp. 149 - 188'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Curve Sketching & Applied Optimization',
+            titleAr: 'خطة درس: رسم المنحنيات وتطبيقات القيم العظمى والصغرى',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-CALC-CH3-L2',
+            bloomsObjectivesEn: [
+              'Execute the full 6-step protocol to accurately sketch rational and polynomial curves.',
+              'Evaluate absolute maximum and minimum on closed intervals.',
+              'Model geometric and commercial word problems as single-variable optimization equations.'
+            ],
+            bloomsObjectivesAr: [
+              'تطبيق الخطوات الست لرسم منحنيات الدوال الكسرية وكثيرات الحدود بدقة.',
+              'حساب القيمتين العظمى والصغرى المطلقتين على فترة مغلقة.',
+              'نمذجة المسائل اللفظية الهندسية والتجارية كدوال تفاضلية في متغير واحد وحلها.'
+            ],
+            prerequisitesEn: ['Evaluating limits at infinity', 'First and second derivative tests', 'Mensuration formulas (cylinder, cone, sphere, rectangle)'],
+            prerequisitesAr: ['حساب النهايات عند اللانهاية', 'اختبارات المشتقة الأولى والثانية', 'قوانين مساحات وحجوم المجسمات والأشكال المستوية'],
+            keyVocabularyEn: [
+              { term: 'Absolute Extremum', definition: 'The highest or lowest value of a function over an entire interval.' },
+              { term: 'Asymptote', definition: 'A line that a curve approaches arbitrarily closely as coordinates head to infinity.' },
+              { term: 'Optimization', definition: 'The process of finding the best (maximum or minimum) value of a real-world quantity.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'القيمة القصوى المطلقة', definition: 'أعلى أو أقل قيمة تبلغها الدالة على الفترة بالكامل.' },
+              { term: 'خط التقارب', definition: 'مستقيم يقترب منه المنحنى اقتراباً لا نهائياً عند تباعد الإحداثيات.' },
+              { term: 'التطبيقات المثلى', definition: 'عملية إيجاد القيمة العظمى أو الصغرى لكمية واقعية.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Curve Sketching Protocol (25 mins)',
+                phaseAr: 'خطوات رسم المنحنيات (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Walk through rational function y = (x^2-1)/(x^2+1) showing symmetry, asymptotes, and extrema.',
+                activitiesAr: 'تطبيق عملي كامل لرسم دالة كسرية مع توضيح خط التقارب الأفقي والتماثل.'
+              },
+              {
+                phaseEn: 'Absolute Extrema on Closed Intervals (20 mins)',
+                phaseAr: 'القيم المطلقة على فترة مغلقة (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Highlight the role of endpoints and compare candidates.',
+                activitiesAr: 'بيان أهمية فحص طرفي الفترة ومقارنة قيم النقط الحرجة الداخلية مع الأطراف.'
+              },
+              {
+                phaseEn: 'Optimization Modeling (30 mins)',
+                phaseAr: 'مسائل التطبيقات الهندسية (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve classic can-design and inscribed rectangle optimization problems.',
+                activitiesAr: 'حل مسائل تصميم العلب الأسطوانية والمستطيل داخل نصف الدائرة.'
+              },
+              {
+                phaseEn: 'Closure & Exit Ticket (15 mins)',
+                phaseAr: 'التقويم الختامي (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Administer individual problem on finding maximum area of a fenced field.',
+                activitiesAr: 'حل سؤال بطاقة الخروج لإيجاد أكبر مساحة لحديقة مسيجة.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Ignoring boundary constraints on geometric variables (e.g. radius and height must be strictly positive).',
+              'Forgetting to verify whether the critical point yields a maximum or a minimum via the second derivative.'
+            ],
+            commonMisconceptionsAr: [
+              'تجاهل القيود الهندسية والفيزيائية على المتغيرات (مثل وجوب كون الأبعاد موجبة).',
+              'نسيان التحقق من نوع النهاية (عظمى أو صغرى) باختبار المشتقة الثانية.'
+            ],
+            differentiationEn: {
+              struggling: 'Step-by-step graphic organizer for optimization problems: Target -> Constraint -> Single Variable -> Derivative.',
+              advanced: 'Optimization problems with trigonometric angle parameters or cost minimization functions.'
+            },
+            differentiationAr: {
+              struggling: 'مخطط تدفق لحل مسائل التطبيقات: الدالة الهدف -> العلاقة المساعدة -> متغير واحد -> الاشتقاق.',
+              advanced: 'مسائل تطبيقات تعتمد على زاوية متغيرة أو تقليل التكلفة الإجمالية للإنتاج.'
+            },
+            formativeAssessmentEn: 'Find two positive numbers with sum 16 and maximum product.',
+            formativeAssessmentAr: 'أوجد عددين موجبين مجموعهما ١٦ وحاصل ضربهما أكبر ما يمكن.',
+            exitTicketQuestion: {
+              questionEn: 'A rectangle has perimeter 20 cm. Find its dimensions for maximum area.',
+              questionAr: 'مستطيل محيطه ٢٠ سم. أوجد أبعاده بحيث تكون مساحته أكبر ما يمكن.',
+              solutionEn: 'Perimeter 2(x + y) = 20 => x + y = 10 => Area A = x(10 - x). A prime = 10 - 2x = 0 => x = 5 cm, y = 5 cm (a square).',
+              solutionAr: 'المحيط ٢(س + ص) = ٢٠ => س + ص = ١٠ => المساحة = س(١٠ - س). المشتقة: ١٠ - ٢س = ٠ => س = ٥ سم، ص = ٥ سم (مربع).'
+            }
+          },
+          worksheet: {
+            id: 'ws_calc_l5',
+            titleEn: 'Solved Worksheet: Optimization Applications',
+            titleAr: 'ورقة عمل محلولة: تطبيقات القيم العظمى والصغرى',
+            descriptionEn: 'Essential exam-level word problems on maximizing area and minimizing cost.',
+            descriptionAr: 'مسائل امتحانية هامة على تعظيم المساحة وتصغير التكلفة والأبعاد المثلى.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'p_calc_opt_ws1',
+                titleEn: 'Exam Standard: Maximum Rectangular Area with 3-Sided Fence',
+                titleAr: 'مسألة امتحانية: أكبر مساحة لحديقة مسيجة من ٣ جهات',
+                difficulty: 'exam_standard',
+                questionEn: 'A farmer wants to fence a rectangular garden along a straight river (no fence needed along the river). If he has 40 meters of fencing, what is the maximum area he can enclose?',
+                questionAr: 'يريد مزارع تسييج حديقة مستطيلة تقع بمحاذاة نهر مستقيم (لا يلزم سياج جهة النهر). إذا كان معه ٤٠ متراً من السياج، فما هي أكبر مساحة يمكنه تسييجها؟',
+                optionsEn: ['200 m^2', '100 m^2', '400 m^2', '160 m^2'],
+                optionsAr: ['٢٠٠ م²', '١٠٠ م²', '٤٠٠ م²', '١٦٠ م²'],
+                correctAnswer: '200 m^2',
+                correctIndex: 0,
+                hintEn: 'Fence length = 2x + y = 40 => y = 40 - 2x. Area A = x(40 - 2x).',
+                hintAr: 'طول السياج: $2x + y = 40 \implies y = 40 - 2x$. دالة المساحة: $A = x(40 - 2x)$.',
+                stepByStepSolutionEn: [
+                  '1. Let width perpendicular to river be $x$, length parallel to river be $y$.',
+                  '2. Fencing constraint: $2x + y = 40 \implies y = 40 - 2x$.',
+                  '3. Area: $A(x) = x(40 - 2x) = 40x - 2x^2$.',
+                  '4. $A\prime(x) = 40 - 4x = 0 \implies x = 10\text{ meters}$.',
+                  '5. $y = 40 - 2(10) = 20\text{ meters}$.',
+                  '6. Maximum area $= 10 \times 20 = 200\text{ m}^2$.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. بفرض البعدين $x$ و $y$ حيث الضلع المحاذي للنهر هو $y$ ولا يحتاج سياجاً.',
+                  '٢. طول السياج: $2x + y = 40 \implies y = 40 - 2x$.',
+                  '٣. دالة المساحة: $A(x) = x(40 - 2x) = 40x - 2x^2$.',
+                  '٤. المشتقة: $A\prime(x) = 40 - 4x = 0 \implies x = 10$ أمتار.',
+                  '٥. الطول: $y = 20$ متراً، وأكبر مساحة هي $10 \times 20 = 200$ متر مربع.'
+                ],
+                teacherTipEn: 'Notice that with one side against a natural boundary, the side parallel to the river is twice the width (y = 2x)!',
+                teacherTipAr: 'في مسائل التسييج من ٣ جهات، يكون الضلع المحاذي للحد الطبيعي دائماً ضعف العرض (ص = ٢ س)!'
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Optimization & Box Volume Maximizer',
+            titleAr: 'محاكي تطبيقات القيم القصوى وحجم الصندوق',
+            descriptionEn: 'Interactive tool demonstrating how cut corner size x dictates open box volume.',
+            descriptionAr: 'أداة تفاعلية توضح كيف يتحكم طول مربع الركن س في سعة الصندوق الناتج للوصول لأقصى حجم.'
+          }
+        }
+      ],
+      solvedExamples: calcCh3SolvedExamples,
+      exerciseProblems: calcCh3Exercises,
+      databank: calcCh3Databank
     }
   ]
 };
