@@ -14,6 +14,7 @@ import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
+  theme?: 'dark' | 'light';
   role: UserRole;
   lesson: Lesson;
   branch: Branch;
@@ -23,6 +24,7 @@ interface Props {
 
 export const LessonView: React.FC<Props> = ({
   lang,
+  theme = 'dark',
   role,
   lesson,
   branch,
@@ -46,15 +48,15 @@ export const LessonView: React.FC<Props> = ({
   const renderInteractiveWidget = () => {
     switch (lesson.interactiveWidget.type) {
       case '3d_vectors':
-        return <Interactive3DGeometry lang={lang} />;
+        return <Interactive3DGeometry lang={lang} theme={theme} />;
       case 'pascal_binomial':
-        return <InteractivePascalTriangle lang={lang} />;
+        return <InteractivePascalTriangle lang={lang} theme={theme} />;
       case 'calculus_tangent':
-        return <InteractiveCalculusTangent lang={lang} />;
+        return <InteractiveCalculusTangent lang={lang} theme={theme} />;
       case 'statics_friction':
-        return <InteractiveStaticsFriction lang={lang} />;
+        return <InteractiveStaticsFriction lang={lang} theme={theme} />;
       default:
-        return <Interactive3DGeometry lang={lang} />;
+        return <Interactive3DGeometry lang={lang} theme={theme} />;
     }
   };
 

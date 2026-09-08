@@ -4,9 +4,11 @@ import type { Language } from '../i18n/translations';
 
 interface Props {
   lang: Language;
+  theme?: 'dark' | 'light';
 }
 
-export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
+export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+  const isLight = theme === 'light';
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [weightW, setWeightW] = useState<number>(40);
   const [inclineTheta, setInclineTheta] = useState<number>(30); // degrees
@@ -39,7 +41,10 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
 
     const width = canvas.width;
     const height = canvas.height;
-    ctx.clearRect(0, 0, width, height);
+    
+    // Background fill
+    ctx.fillStyle = isLight ? '#f8fafc' : '#020617';
+    ctx.fillRect(0, 0, width, height);
 
     // Pivot at bottom left
     const pivotX = 60;
@@ -49,8 +54,8 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     const topX = pivotX + planeLen * Math.cos(thetaRad);
     const topY = pivotY - planeLen * Math.sin(thetaRad);
 
-    // 1. Draw Inclined Plane Surface (Wood/Grey pattern)
-    ctx.strokeStyle = '#475569';
+    // 1. Draw Inclined Plane Surface
+    ctx.strokeStyle = isLight ? '#334155' : '#475569';
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(pivotX, pivotY);
@@ -58,7 +63,7 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     ctx.stroke();
 
     // Horizontal Base Line
-    ctx.strokeStyle = '#334155';
+    ctx.strokeStyle = isLight ? '#94a3b8' : '#334155';
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -68,7 +73,8 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     ctx.setLineDash([]);
 
     // Theta Angle Arc
-    ctx.strokeStyle = '#facc15';
+    ctx.strokeStyle = isLight ? '#b45309' : '#facc15';
+    ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(pivotX, pivotY, 40, 0, -thetaRad, true);
     ctx.stroke();
@@ -83,9 +89,9 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     ctx.rotate(-thetaRad);
 
     // Box Body
-    ctx.fillStyle = isSliding ? '#f97316' : isVergeOfMotion ? '#f59e0b' : '#10b981';
+    ctx.fillStyle = isSliding ? '#dc2626' : isVergeOfMotion ? '#d97706' : '#059669';
     ctx.fillRect(-30, -50, 60, 50);
-    ctx.strokeStyle = '#ffffff';
+    ctx.strokeStyle = isLight ? '#0f172a' : '#ffffff';
     ctx.lineWidth = 2;
     ctx.strokeRect(-30, -50, 60, 50);
 
@@ -95,16 +101,16 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     ctx.fillText(`W=${weightW}N`, -20, -25);
 
     // Normal Reaction Arrow R (Upwards perp to plane)
-    ctx.strokeStyle = '#38bdf8';
+    ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(0, -25);
     ctx.lineTo(0, -85);
     ctx.stroke();
 
-    // Friction Force Arrow (Opposite to movement tendency - Gold)
+    // Friction Force Arrow (Opposite to movement tendency)
     const fDir = isUpwardTendency ? 1 : -1;
-    ctx.strokeStyle = '#facc15';
+    ctx.strokeStyle = isLight ? '#b45309' : '#facc15';
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(0, -25);
@@ -113,7 +119,7 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
 
     // Pulling force P arrow
     if (pullP > 0) {
-      ctx.strokeStyle = '#a855f7';
+      ctx.strokeStyle = isLight ? '#7c3aed' : '#a855f7';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(0, -25);
@@ -122,17 +128,23 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
     }
 
     ctx.restore();
-  }, [inclineTheta, weightW, pullP, muS, thetaRad, isSliding, isVergeOfMotion, isUpwardTendency]);
+  }, [inclineTheta, weightW, pullP, muS, thetaRad, isSliding, isVergeOfMotion, isUpwardTendency, isLight]);
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-2xl space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div className={`border rounded-2xl p-4 sm:p-6 shadow-xl space-y-6 transition-colors ${
+      isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
+    }`}>
+      <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div>
-          <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+          <h3 className={`text-lg font-bold flex items-center gap-2 ${
+            isLight ? 'text-slate-900' : 'text-slate-100'
+          }`}>
             <span>⚖️</span>
             <span>{lang === 'ar' ? 'محاكي اتزان الجسم والاحتكاك على مستوى مائل' : 'Statics Rough Inclined Plane Simulator'}</span>
           </h3>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {lang === 'ar'
               ? 'اختبر الاتزان، زاوية الاحتكاك ل، وحالة وشك الحركة أو الانزلاق لحظياً'
               : 'Test static equilibrium, friction angle lambda, and verge of motion vs sliding states'}
@@ -144,10 +156,10 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
           <span
             className={`px-3 py-1.5 rounded-full text-xs font-bold ${
               isSliding
-                ? 'bg-orange-500/20 text-orange-300 border border-orange-500/50 animate-bounce'
+                ? 'bg-red-500/20 text-red-700 dark:text-orange-300 border border-red-500/50 animate-bounce'
                 : isVergeOfMotion
-                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                ? 'bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40'
+                : 'bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40'
             }`}
           >
             {isSliding
@@ -167,60 +179,83 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Canvas */}
-        <div className="lg:col-span-7 bg-slate-950 p-3.5 sm:p-4 rounded-xl border border-slate-800 flex flex-col items-center">
-          <canvas ref={canvasRef} width={480} height={320} className="w-full max-w-[480px] aspect-[480/320] h-auto rounded-lg border border-slate-800/80" />
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-3 text-xs">
-            <span className="text-cyan-400 font-bold">Normal Reaction R</span>
-            <span className="text-amber-300 font-bold">Friction f_s</span>
-            <span className="text-purple-400 font-bold">Pull Force P</span>
-            <span className="text-yellow-400 font-bold">Incline Angle θ={inclineTheta}°</span>
+        <div className={`lg:col-span-7 p-3.5 sm:p-4 rounded-xl border flex flex-col items-center ${
+          isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+        }`}>
+          <canvas
+            ref={canvasRef}
+            width={480}
+            height={320}
+            className={`w-full max-w-[480px] aspect-[480/320] h-auto rounded-lg border ${
+              isLight ? 'border-slate-300' : 'border-slate-800/80'
+            }`}
+          />
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-3 text-xs">
+            <span className={`font-bold ${isLight ? 'text-sky-800' : 'text-cyan-400'}`}>Normal Reaction R</span>
+            <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>Friction f_s</span>
+            <span className={`font-bold ${isLight ? 'text-purple-800' : 'text-purple-400'}`}>Pull Force P</span>
+            <span className={`font-bold ${isLight ? 'text-amber-900' : 'text-yellow-400'}`}>Incline Angle θ={inclineTheta}°</span>
           </div>
         </div>
 
         {/* Sliders & Math Calculations */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+          <div className={`p-4 rounded-xl border space-y-3 ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 p-4 rounded-xl border border-slate-800'
+          }`}>
             <div>
-              <label className="text-xs text-yellow-300 font-semibold flex justify-between">
+              <label className={`text-xs font-semibold flex justify-between ${
+                isLight ? 'text-amber-900 font-bold' : 'text-yellow-300'
+              }`}>
                 <span>{lang === 'ar' ? 'زاوية ميل المستوى θ:' : 'Inclination Angle θ:'}</span>
                 <span>{inclineTheta}°</span>
               </label>
-              <input type="range" min="0" max="60" value={inclineTheta} onChange={(e) => setInclineTheta(Number(e.target.value))} className="w-full accent-yellow-400" />
+              <input type="range" min="0" max="60" value={inclineTheta} onChange={(e) => setInclineTheta(Number(e.target.value))} className="w-full accent-amber-500" />
             </div>
 
             <div>
-              <label className="text-xs text-indigo-300 font-semibold flex justify-between">
+              <label className={`text-xs font-semibold flex justify-between ${
+                isLight ? 'text-indigo-800 font-bold' : 'text-indigo-300'
+              }`}>
                 <span>{lang === 'ar' ? 'معامل الاحتكاك السكوني μ_s (زاوية λ):' : 'Static Friction Coeff μ_s (λ):'}</span>
                 <span>
                   {muS.toFixed(3)} (λ={lambdaDeg}°)
                 </span>
               </label>
-              <input type="range" min="0.1" max="1.2" step="0.05" value={muS} onChange={(e) => setMuS(Number(e.target.value))} className="w-full accent-indigo-500" />
+              <input type="range" min="0.1" max="1.2" step="0.05" value={muS} onChange={(e) => setMuS(Number(e.target.value))} className="w-full accent-indigo-600" />
             </div>
 
             <div>
-              <label className="text-xs text-purple-300 font-semibold flex justify-between">
+              <label className={`text-xs font-semibold flex justify-between ${
+                isLight ? 'text-purple-800 font-bold' : 'text-purple-300'
+              }`}>
                 <span>{lang === 'ar' ? 'قوة الشد لأعلى المستوى P:' : 'Upward Pulling Force P:'}</span>
                 <span>{pullP} N</span>
               </label>
-              <input type="range" min="0" max="60" value={pullP} onChange={(e) => setPullP(Number(e.target.value))} className="w-full accent-purple-400" />
+              <input type="range" min="0" max="60" value={pullP} onChange={(e) => setPullP(Number(e.target.value))} className="w-full accent-purple-500" />
             </div>
 
             <div>
-              <label className="text-xs text-slate-300 font-semibold flex justify-between">
+              <label className={`text-xs font-semibold flex justify-between ${
+                isLight ? 'text-slate-800 font-bold' : 'text-slate-300'
+              }`}>
                 <span>{lang === 'ar' ? 'وزن الجسم W:' : 'Body Weight W:'}</span>
                 <span>{weightW} N</span>
               </label>
-              <input type="range" min="10" max="100" value={weightW} onChange={(e) => setWeightW(Number(e.target.value))} className="w-full accent-slate-400" />
+              <input type="range" min="10" max="100" value={weightW} onChange={(e) => setWeightW(Number(e.target.value))} className="w-full accent-slate-500" />
             </div>
           </div>
 
           {/* Real-time Equations Card */}
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
-            <h4 className="font-bold text-amber-400 uppercase tracking-wider">
+          <div className={`p-4 rounded-xl border space-y-2 text-xs ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 p-4 rounded-xl border border-slate-800'
+          }`}>
+            <h4 className={`font-bold uppercase tracking-wider ${
+              isLight ? 'text-amber-800 font-bold' : 'text-amber-400'
+            }`}>
               {lang === 'ar' ? 'معادلات الاتزان والاستاتيكا الحالية' : 'Equilibrium Equations Breakdown'}
             </h4>
-            <div className="space-y-1.5 text-slate-300">
+            <div className={`space-y-1.5 ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
               <MathRenderer math={`R = W \\cos(\\theta) = ${weightW} \\cos(${inclineTheta}^\\circ) = ${normalR.toFixed(1)}\\text{ N}`} />
               <MathRenderer math={`f_s = \\mu_s R = (${muS.toFixed(2)})(${normalR.toFixed(1)}) = ${maxFrictionFs.toFixed(1)}\\text{ N}`} />
               <MathRenderer math={`W \\sin(\\theta) = ${weightW} \\sin(${inclineTheta}^\\circ) = ${wParallel.toFixed(1)}\\text{ N}`} />

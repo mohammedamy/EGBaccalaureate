@@ -119,6 +119,7 @@ export const App: React.FC = () => {
         {(activeTab === 'theory' || activeTab === 'lessonPlan' || activeTab === 'worksheet' || activeTab === 'interactive') && (
           <LessonView
             lang={lang}
+            theme={theme}
             role={role}
             lesson={selectedLesson}
             branch={selectedBranch}

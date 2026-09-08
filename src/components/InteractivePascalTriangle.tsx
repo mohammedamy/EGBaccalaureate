@@ -4,9 +4,11 @@ import type { Language } from '../i18n/translations';
 
 interface Props {
   lang: Language;
+  theme?: 'dark' | 'light';
 }
 
-export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
+export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+  const isLight = theme === 'light';
   const [exponentN, setExponentN] = useState<number>(5);
   const [coeffA, setCoeffA] = useState<number>(2);
   const [coeffB, setCoeffB] = useState<number>(1);
@@ -30,14 +32,24 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
   });
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-2xl space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div className={`border rounded-2xl p-4 sm:p-6 space-y-6 ${
+      isLight
+        ? 'bg-white border-slate-200 shadow-lg text-slate-900'
+        : 'bg-slate-900/90 border-slate-800 shadow-2xl text-slate-100'
+    }`}>
+      <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div>
-          <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+          <h3 className={`text-lg font-bold flex items-center gap-2 ${
+            isLight ? 'text-slate-900' : 'text-slate-100'
+          }`}>
             <span>✨</span>
             <span>{lang === 'ar' ? 'مستكشف مثلث باسكال ونظرية ذات الحدين' : "Pascal's Triangle & Binomial Expansion Lab"}</span>
           </h3>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className={`text-xs mt-1 ${
+            isLight ? 'text-slate-600' : 'text-slate-400'
+          }`}>
             {lang === 'ar'
               ? 'انقر على أي رقم في المثلث لمعاينة قانون الجمع وقيمة التوفيقة ق(ن،ر)'
               : 'Click any coefficient in the triangle to view the identity identity C(n,r) + C(n,r-1) = C(n+1,r)'}
@@ -45,9 +57,13 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
         </div>
 
         {/* Controls */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 bg-slate-950 p-2.5 sm:p-3 rounded-xl border border-slate-800 w-full sm:w-auto">
+        <div className={`flex flex-wrap items-center justify-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-xl border w-full sm:w-auto ${
+          isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+        }`}>
           <div className="flex items-center gap-2">
-            <label className="text-xs font-semibold text-indigo-300">
+            <label className={`text-xs font-semibold ${
+              isLight ? 'text-indigo-900 font-bold' : 'text-indigo-300'
+            }`}>
               {lang === 'ar' ? 'الأس ن (n):' : 'Exponent n:'}
             </label>
             <input
@@ -56,38 +72,52 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
               max="9"
               value={exponentN}
               onChange={(e) => setExponentN(Math.min(9, Math.max(1, Number(e.target.value))))}
-              className="w-14 bg-slate-900 border border-slate-700 rounded p-1 text-xs text-center text-indigo-400 font-bold"
+              className={`w-14 border rounded p-1 text-xs text-center font-bold ${
+                isLight ? 'bg-white border-slate-300 text-indigo-700' : 'bg-slate-900 border-slate-700 text-indigo-400'
+              }`}
             />
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-xs text-slate-300">a:</label>
+            <label className={`text-xs ${
+              isLight ? 'text-slate-700 font-semibold' : 'text-slate-300'
+            }`}>a:</label>
             <input
               type="number"
               value={coeffA}
               onChange={(e) => setCoeffA(Number(e.target.value))}
-              className="w-12 bg-slate-900 border border-slate-700 rounded p-1 text-xs text-center text-emerald-400 font-bold"
+              className={`w-12 border rounded p-1 text-xs text-center font-bold ${
+                isLight ? 'bg-white border-slate-300 text-emerald-700' : 'bg-slate-900 border-slate-700 text-emerald-400'
+              }`}
             />
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-xs text-slate-300">b:</label>
+            <label className={`text-xs ${
+              isLight ? 'text-slate-700 font-semibold' : 'text-slate-300'
+            }`}>b:</label>
             <input
               type="number"
               value={coeffB}
               onChange={(e) => setCoeffB(Number(e.target.value))}
-              className="w-12 bg-slate-900 border border-slate-700 rounded p-1 text-xs text-center text-amber-400 font-bold"
+              className={`w-12 border rounded p-1 text-xs text-center font-bold ${
+                isLight ? 'bg-white border-slate-300 text-amber-800' : 'bg-slate-900 border-slate-700 text-amber-400'
+              }`}
             />
           </div>
         </div>
       </div>
 
       {/* Pascal Triangle Pyramid Visualization */}
-      <div className="overflow-x-auto py-4 bg-slate-950/60 rounded-xl border border-slate-800/80">
+      <div className={`overflow-x-auto py-4 rounded-xl border ${
+        isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800/80'
+      }`}>
         <div className="min-w-[500px] flex flex-col items-center gap-2">
           {triangleRows.map((row, rIdx) => {
             const isHighlightRow = rIdx === exponentN;
             return (
               <div key={rIdx} className="flex items-center justify-center gap-2">
-                <span className="text-[10px] text-slate-400 font-mono w-10 text-right">
+                <span className={`text-[10px] font-mono w-10 text-right ${
+                  isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'
+                }`}>
                   n={rIdx}
                 </span>
                 <div className="flex items-center gap-1.5">
@@ -96,10 +126,21 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
                     const isPascalParent1 = selectedCell && rIdx === selectedCell.n - 1 && cIdx === selectedCell.r - 1;
                     const isPascalParent2 = selectedCell && rIdx === selectedCell.n - 1 && cIdx === selectedCell.r;
 
-                    let bgClass = 'bg-slate-900 border-slate-800 text-slate-300 hover:border-indigo-500';
-                    if (isHighlightRow) bgClass = 'bg-indigo-950/90 border-indigo-500 text-indigo-200 font-bold';
-                    if (isSelected) bgClass = 'bg-amber-500 border-amber-400 text-slate-950 font-extrabold ring-4 ring-amber-500/30 scale-110';
-                    if (isPascalParent1 || isPascalParent2) bgClass = 'bg-emerald-600 border-emerald-400 text-white font-bold animate-pulse';
+                    let bgClass = isLight
+                      ? 'bg-white border-slate-300 text-slate-800 hover:border-indigo-500 hover:bg-indigo-50/50'
+                      : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-indigo-500';
+
+                    if (isHighlightRow) {
+                      bgClass = isLight
+                        ? 'bg-indigo-50 border-indigo-300 text-indigo-900 font-bold'
+                        : 'bg-indigo-950/90 border-indigo-500 text-indigo-200 font-bold';
+                    }
+                    if (isSelected) {
+                      bgClass = 'bg-amber-500 border-amber-600 text-slate-950 font-extrabold ring-4 ring-amber-500/30 scale-110';
+                    }
+                    if (isPascalParent1 || isPascalParent2) {
+                      bgClass = 'bg-emerald-600 border-emerald-500 text-white font-bold animate-pulse';
+                    }
 
                     return (
                       <button
@@ -123,26 +164,36 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Combinatorics Identity Inspector */}
         {selectedCell && selectedCell.n > 0 && (
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-            <span className="text-xs font-bold text-amber-400 block uppercase tracking-wider">
+          <div className={`p-4 rounded-xl border space-y-2 ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+          }`}>
+            <span className={`text-xs font-bold block uppercase tracking-wider ${
+              isLight ? 'text-amber-900 font-bold' : 'text-amber-400'
+            }`}>
               {lang === 'ar' ? 'تحليل خاصية باسكال الناتجة' : 'Pascal Identity Analysis'}
             </span>
             <div className="text-xs space-y-2">
-              <p className="text-slate-300">
+              <p className={isLight ? 'text-slate-700' : 'text-slate-300'}>
                 {lang === 'ar'
                   ? `النقطة المحددة: ن = ${selectedCell.n}، ر = ${selectedCell.r}`
                   : `Selected Cell: n = ${selectedCell.n}, r = ${selectedCell.r}`}
               </p>
-              <MathRenderer math={`\\binom{${selectedCell.n}}{${selectedCell.r}} = ${nCr(selectedCell.n, selectedCell.r)}`} />
+              <div className={`p-2 rounded border ${isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'}`}>
+                <MathRenderer math={`\\binom{${selectedCell.n}}{${selectedCell.r}} = ${nCr(selectedCell.n, selectedCell.r)}`} />
+              </div>
               {selectedCell.r > 0 && selectedCell.r < selectedCell.n && (
-                <div className="mt-2 pt-2 border-t border-slate-800">
-                  <span className="text-[11px] text-emerald-400 font-semibold block mb-1">
+                <div className={`mt-2 pt-2 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+                  <span className={`text-[11px] font-semibold block mb-1 ${
+                    isLight ? 'text-emerald-800 font-bold' : 'text-emerald-400'
+                  }`}>
                     {lang === 'ar' ? 'قانون الجمع المباشر:' : 'Pascal Addition Law:'}
                   </span>
-                  <MathRenderer
-                    math={`\\binom{${selectedCell.n - 1}}{${selectedCell.r - 1}} + \\binom{${selectedCell.n - 1}}{${selectedCell.r}} = \\binom{${selectedCell.n}}{${selectedCell.r}}`}
-                  />
-                  <p className="text-[11px] text-slate-400 mt-1">
+                  <div className={`p-2 rounded border my-1.5 ${isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'}`}>
+                    <MathRenderer
+                      math={`\\binom{${selectedCell.n - 1}}{${selectedCell.r - 1}} + \\binom{${selectedCell.n - 1}}{${selectedCell.r}} = \\binom{${selectedCell.n}}{${selectedCell.r}}`}
+                    />
+                  </div>
+                  <p className={`text-[11px] mt-1 font-mono ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                     {nCr(selectedCell.n - 1, selectedCell.r - 1)} + {nCr(selectedCell.n - 1, selectedCell.r)} = {nCr(selectedCell.n, selectedCell.r)}
                   </p>
                 </div>
@@ -152,11 +203,17 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
         )}
 
         {/* Binomial Expansion Generator */}
-        <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-          <span className="text-xs font-bold text-indigo-400 block uppercase tracking-wider">
+        <div className={`p-4 rounded-xl border space-y-2 ${
+          isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+        }`}>
+          <span className={`text-xs font-bold block uppercase tracking-wider ${
+            isLight ? 'text-indigo-900 font-bold' : 'text-indigo-400'
+          }`}>
             {lang === 'ar' ? `مفكوك (${coeffA > 1 ? coeffA : ''}س + ${coeffB > 1 ? coeffB : ''}ص)^${exponentN}` : `Binomial Term Expansion (${coeffA}x + ${coeffB}y)^${exponentN}`}
           </span>
-          <div className="text-xs overflow-x-auto p-2 bg-slate-900 rounded border border-slate-800">
+          <div className={`text-xs overflow-x-auto p-2 rounded border ${
+            isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'
+          }`}>
             <MathRenderer
               block
               math={`(${coeffA === 1 ? '' : coeffA}x + ${coeffB === 1 ? '' : coeffB}y)^${exponentN} = ${Array.from({ length: exponentN + 1 }, (_, r) => {
@@ -171,7 +228,9 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang }) => {
               }).join(' ')}`}
             />
           </div>
-          <p className="text-[11px] text-slate-400">
+          <p className={`text-[11px] ${
+            isLight ? 'text-slate-600 font-medium' : 'text-slate-400'
+          }`}>
             {lang === 'ar'
               ? `عدد حدود المفكوك = ن + ١ = ${exponentN + 1} حد، مجموع المعاملات = (${coeffA} + ${coeffB})^${exponentN} = ${Math.pow(coeffA + coeffB, exponentN)}`
               : `Total terms = n + 1 = ${exponentN + 1}, Sum of coefficients = (${coeffA} + ${coeffB})^${exponentN} = ${Math.pow(coeffA + coeffB, exponentN)}`}
