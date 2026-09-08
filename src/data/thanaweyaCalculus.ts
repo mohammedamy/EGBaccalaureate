@@ -5,6 +5,8 @@ import { calcCh2SolvedExamples, calcCh2Exercises } from './textbook/thanaweya/ca
 import { calcCh2Databank } from './databanks/thanaweya/calcCh2Databank';
 import { calcCh3SolvedExamples, calcCh3Exercises } from './textbook/thanaweya/calcCh3Textbook';
 import { calcCh3Databank } from './databanks/thanaweya/calcCh3Databank';
+import { calcCh4SolvedExamples, calcCh4Exercises } from './textbook/thanaweya/calcCh4Textbook';
+import { calcCh4Databank } from './databanks/thanaweya/calcCh4Databank';
 
 export const thanaweyaCalculusBranch: Branch = {
   id: 'calculus',
@@ -1267,6 +1269,487 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
       solvedExamples: calcCh3SolvedExamples,
       exerciseProblems: calcCh3Exercises,
       databank: calcCh3Databank
+    }    ,
+    {
+      id: 'calc_ch4',
+      chapterNumber: 4,
+      titleEn: 'Integration & Its Geometric Applications',
+      titleAr: 'التكامل وتطبيقاته الهندسية',
+      descriptionEn: 'Techniques of indefinite integration (substitution, integration by parts), trigonometric and exponential integrals, definite integrals and their fundamental properties, plane areas between curves, and volumes of solids of revolution.',
+      descriptionAr: 'طرق التكامل غير المحدد (التعويض والتجزيء)، تكامل الدوال المثلثية والأسية، خواص ونظريات التكامل المحدد، وحساب مساحات المناطق المستوية بين المنحنيات وحجوم الأجسام الدورانية.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'calc_l6',
+          titleEn: 'Methods of Integration (Substitution & By Parts)',
+          titleAr: 'طرق التكامل (التعويض والتجزيء)',
+          summaryEn: 'Techniques of integration: integration by substitution for composite functions, logarithmic form f\'(x)/f(x), trigonometric half-angle and power reduction identities, and integration by parts u dv = uv - v du.',
+          summaryAr: 'طرق وتكنيكات التكامل: التكامل بالتعويض للدوال المركبة، الصورة اللوغاريتمية (البسط مشتقة المقام)، متطابقات الدوال المثلثية وقوانين ضعف الزاوية، والتكامل بالتجزيء.',
+          theoryContentEn: `### 1. Integration by Substitution (التكامل بالتعويض)
+When the integrand contains a composite function multiplied by the derivative of its inner function:
+$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \quad (n \\neq -1)$$
+- For a linear bracket:
+  $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+
+### 2. Logarithmic Integration Form (الصورة اللوغاريتمية)
+When the numerator is the derivative of the denominator:
+$$\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$$
+- Examples:
+  - $\\int \\tan(x) dx = \\int \\frac{\\sin x}{\\cos x} dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$
+  - $\\int \\cot(x) dx = \\int \\frac{\\cos x}{\\sin x} dx = \\ln|\\sin x| + C$
+
+### 3. Trigonometric Integrals & Power Reduction
+- $\\int \\sin^2(x) dx = \\int \\frac{1 - \\cos(2x)}{2} dx = \\frac{1}{2} x - \\frac{1}{4} \\sin(2x) + C$
+- $\\int \\cos^2(x) dx = \\int \\frac{1 + \\cos(2x)}{2} dx = \\frac{1}{2} x + \\frac{1}{4} \\sin(2x) + C$
+- $\\int \\tan^2(x) dx = \\int (\\sec^2 x - 1) dx = \\tan(x) - x + C$
+
+### 4. Integration by Parts (التكامل بالتجزيء)
+For products of algebraic, exponential, trigonometric, and logarithmic functions:
+$$\\int u dv = u v - \\int v du$$
+- Follow the LIATE rule for choosing $u$ (differentiation):
+  1. **L**: Logarithmic functions ($\\ln x$)
+  2. **I**: Inverse trigonometric functions
+  3. **A**: Algebraic functions ($x, x^2$)
+  4. **T**: Trigonometric functions ($\\sin x, \\cos x$)
+  5. **E**: Exponential functions ($e^x, a^x$)`,
+          theoryContentAr: `### ١. التكامل بالتعويض
+إذا احتوى التكامل على دالة ومشتقتها:
+$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \quad (n \\neq -1)$$
+- وتكامل القوس الخطي:
+  $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+
+### ٢. الصورة اللوغاريتمية (البسط مشتقة المقام)
+إذا كان البسط هو المشتقة التامة للمقام:
+$$\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$$
+- أمثلة شهيرة:
+  - $\\int \\tan(x) dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$
+  - $\\int \\cot(x) dx = \\ln|\\sin x| + C$
+
+### ٣. تكامل مربعات الدوال المثلثية
+- $\\int \\sin^2(x) dx = \\frac{1}{2} x - \\frac{1}{4} \\sin(2x) + C$
+- $\\int \\cos^2(x) dx = \\frac{1}{2} x + \\frac{1}{4} \\sin(2x) + C$
+- $\\int \\tan^2(x) dx = \\tan(x) - x + C$
+
+### ٤. التكامل بالتجزيء
+لحاصل ضرب دالتين من نوعين مختلفين:
+$$\\int u dv = u v - \\int v du$$
+- أولوية اختيار دالة التفاضل $u$:
+  ١. الدوال اللوغاريتمية
+  ٢. الدوال الجبرية
+  ٣. الدوال المثلثية
+  ٤. الدوال الأسية`,
+          formulas: [
+            { labelEn: 'Power of Function Rule', labelAr: 'قاعدة دالة في مشتقتها', latex: '\\int [f(x)]^n f\'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C' },
+            { labelEn: 'Logarithmic Form', labelAr: 'الصورة اللوغاريتمية', latex: '\\int \\frac{f\'(x)}{f(x)} dx = \\ln|f(x)| + C' },
+            { labelEn: 'Integration by Parts', labelAr: 'قانون التكامل بالتجزيء', latex: '\\int u dv = uv - \\int v du' },
+            { labelEn: 'Sine Squared Identity', labelAr: 'متطابقة جا تربيع', latex: '\\sin^2(x) = \\frac{1 - \\cos(2x)}{2}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Calculus Textbook Grade 12',
+            bookTitleAr: 'كتاب التفاضل والتكامل للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-CALC-CH4-L1',
+            pageRange: 'pp. 140 - 165'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Advanced Integration Methods & Parts',
+            titleAr: 'خطة درس: طرق التكامل المتقدمة والتجزيء',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-CALC-CH4-L1',
+            bloomsObjectivesEn: [
+              'Identify the appropriate integration method (substitution vs parts) for given functions.',
+              'Execute integration by parts for polynomial-exponential and polynomial-logarithmic products.',
+              'Utilize double-angle trigonometric identities to integrate even powers of sine and cosine.'
+            ],
+            bloomsObjectivesAr: [
+              'تحديد طريقة التكامل المناسبة (بالتعويض أم بالتجزيء) للدوال المعطاة.',
+              'إجراء التكامل بالتجزيء لحاصل ضرب كثيرات الحدود في دوال أسية ولوغاريتمية.',
+              'استخدام متطابقات ضعف الزاوية لتكامل القوى الزوجية لجا وجتا.'
+            ],
+            prerequisitesEn: ['Chain Rule for Differentiation', 'Product Rule', 'Basic Trigonometric Identities'],
+            prerequisitesAr: ['قاعدة السلسلة في الاشتقاق', 'مشتقة حاصل ضرب دالتين', 'المتطابقات المثلثية الأساسية'],
+            keyVocabularyEn: [
+              { term: 'Substitution', definition: 'Transforming an integral into an elementary form via variable change u = g(x).' },
+              { term: 'Integration by Parts', definition: 'The integration counterpart of the product rule for differentiation.' },
+              { term: 'Logarithmic Form', definition: 'An integral where the numerator is the derivative of the denominator.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'التكامل بالتعويض', definition: 'تحويل التكامل إلى صورة قياسية بسيطة بفرض متغير جديد ع = د(س).' },
+              { term: 'التكامل بالتجزيء', definition: 'المقابل التكاملي لقاعدة تفاضل حاصل ضرب دالتين.' },
+              { term: 'الصورة اللوغاريتمية', definition: 'تكامل كسر بسطه المشتقة التامة لمقامه.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Diagnostic Warm-Up & Recognition Drill',
+                phaseAr: 'التهيئة وتدريب التمييز السريع',
+                duration: '15 mins',
+                activitiesEn: 'Identify which rule applies to 5 different sample integrands.',
+                activitiesAr: 'تحديد القاعدة المناسبة لخمس دوال تكامل مختلفة.'
+              },
+              {
+                phaseEn: 'Formal Derivation & LIATE Rule',
+                phaseAr: 'الاستنتاج وقاعدة أولوية التجزيء',
+                duration: '40 mins',
+                activitiesEn: 'Derive parts formula from product rule and practice choosing u and dv.',
+                activitiesAr: 'استنتاج قانون التجزيء من مشتقة الضرب والتدريب على اختيار د ود ق.'
+              },
+              {
+                phaseEn: 'Guided Group Practice',
+                phaseAr: 'تدريب جماعي موجه',
+                duration: '25 mins',
+                activitiesEn: 'Solve x ln(x), x e^(2x), and sin^2(x) problems in pairs.',
+                activitiesAr: 'حل مسائل س لو س، س هـ^(٢س)، وجا²س في مجموعات ثنائية.'
+              },
+              {
+                phaseEn: 'Exit Ticket & Synthesis',
+                phaseAr: 'تذكرة الخروج والخلاصة',
+                duration: '10 mins',
+                activitiesEn: 'Formative check on integration by parts with definite limits.',
+                activitiesAr: 'تقييم تكويني لحساب تكامل بالتجزيء بحدود تكامل.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Integrating both functions separately when multiplying (e.g. integral of f*g is NOT integral of f times integral of g).',
+              'Choosing u = e^x instead of u = x in polynomial-exponential products.'
+            ],
+            commonMisconceptionsAr: [
+              'تكامل كل دالة على حدة عند الضرب (تكامل د × ر لا يساوي تكامل د × تكامل ر).',
+              'اختيار الدالة الأسية للتفاضل بدلاً من كثيرة الحدود عند التجزيء.'
+            ],
+            differentiationEn: {
+              struggling: 'Use tabular integration (DI method) for repeated integration by parts.',
+              advanced: 'Solve cyclic integration by parts such as e^x sin(x).'
+            },
+            differentiationAr: {
+              struggling: 'استخدام طريقة الجدول (التفاضل والتكامل المتتالي) للتجزيء المتكرر.',
+              advanced: 'حل مسائل التكامل بالتجزيء الدائري مثل هـ^س جا س.'
+            },
+            formativeAssessmentEn: 'Evaluate: integral of x / (x^2 + 1) dx.',
+            formativeAssessmentAr: 'احسب: تكامل س / (س² + ١) د س. (نصف لو(س² + ١) + ث).',
+            exitTicketQuestion: {
+              questionEn: 'Evaluate: integral of ln(x) dx.',
+              questionAr: 'احسب: تكامل لو_هـ(س) د س.',
+              solutionEn: 'u = ln x, dv = dx => x ln(x) - x + C.',
+              solutionAr: 'بالتجزيء: د = لو س، د ق = د س => س لو س - س + ث.'
+            }
+          },
+          worksheet: {
+            id: 'calc_ws_l6',
+            titleEn: 'Worksheet: Substitution & Parts Mastery',
+            titleAr: 'ورقة عمل: إتقان التعويض والتجزيء',
+            descriptionEn: 'Practice problems on algebraic substitution, logarithmic quotients, and integration by parts.',
+            descriptionAr: 'تمارين تدريبية على التعويض الجبري، والكسور اللوغاريتمية، والتكامل بالتجزيء.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'calc_l6_p1',
+                titleEn: 'Linear Exponential Substitution',
+                titleAr: 'تكامل دالة أسية خطية',
+                difficulty: 'easy',
+                questionEn: 'Evaluate: $\\int e^{5x + 1} dx$.',
+                questionAr: 'احسب: $\\int e^{5x + 1} dx$.',
+                optionsEn: ['$\\frac{1}{5} e^{5x + 1} + C$', '$5 e^{5x + 1} + C$', '$e^{5x + 1} + C$', '$\\frac{1}{5} e^{5x} + C$'],
+                optionsAr: ['$\\frac{1}{5} e^{5x + 1} + C$', '$5 e^{5x + 1} + C$', '$e^{5x + 1} + C$', '$\\frac{1}{5} e^{5x} + C$'],
+                correctAnswer: '$\\frac{1}{5} e^{5x + 1} + C$',
+                correctIndex: 0,
+                hintEn: 'Integral of e^(ax+b) is (1/a) e^(ax+b) + C.',
+                hintAr: 'تكامل هـ^(أ س + ب) هو (١/أ) هـ^(أ س + ب) + ث.',
+                stepByStepSolutionEn: ['\\int e^{5x + 1} dx = \\frac{1}{5} e^{5x + 1} + C.'],
+                stepByStepSolutionAr: ['تكامل هـ^(٥س+١) هو (١/٥) هـ^(٥س+١) + ث.']
+              },
+              {
+                id: 'calc_l6_p2',
+                titleEn: 'Integration by Parts: x e^(3x)',
+                titleAr: 'تكامل بالتجزيء: س هـ^(٣س)',
+                difficulty: 'medium',
+                questionEn: 'Evaluate: $\\int x e^{3x} dx$.',
+                questionAr: 'احسب: $\\int x e^{3x} dx$.',
+                optionsEn: ['$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$', '$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$', '$x e^{3x} - \\frac{1}{3} e^{3x} + C$', '$\\frac{1}{9} x^2 e^{3x} + C$'],
+                optionsAr: ['$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$', '$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$', '$x e^{3x} - \\frac{1}{3} e^{3x} + C$', '$\\frac{1}{9} x^2 e^{3x} + C$'],
+                correctAnswer: '$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$',
+                correctIndex: 0,
+                hintEn: 'u = x, dv = e^(3x) dx => v = 1/3 e^(3x).',
+                hintAr: 'د = س، د ق = هـ^(٣س) د س => ق = ١/٣ هـ^(٣س).',
+                stepByStepSolutionEn: [
+                  '1. u = x => du = dx.',
+                  '2. dv = e^(3x) dx => v = 1/3 e^(3x).',
+                  '3. uv - integral v du = 1/3 x e^(3x) - 1/3 integral e^(3x) dx = 1/3 x e^(3x) - 1/9 e^(3x) + C.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. بالتجزيء: د = س، د ق = هـ^(٣س) د س.',
+                  '٢. ق = ١/٣ هـ^(٣س).',
+                  '٣. الناتج: ١/٣ س هـ^(٣س) - ١/٩ هـ^(٣س) + ث.'
+                ]
+              },
+              {
+                id: 'calc_l6_p3',
+                titleEn: 'Definite Integral of Tangent Squared',
+                titleAr: 'تكامل محدد لـ ظا²',
+                difficulty: 'hots',
+                questionEn: 'Evaluate: $\\int_0^{\\pi/4} \\tan^2(x) dx$.',
+                questionAr: 'احسب: $\\int_0^{\\pi/4} \\tan^2(x) dx$.',
+                optionsEn: ['$1 - \\frac{\\pi}{4}$', '$\\frac{\\pi}{4}$', '$1 + \\frac{\\pi}{4}$', '$1$'],
+                optionsAr: ['$1 - \\frac{\\pi}{4}$', '$\\frac{\\pi}{4}$', '$1 + \\frac{\\pi}{4}$', '$1$'],
+                correctAnswer: '$1 - \\frac{\\pi}{4}$',
+                correctIndex: 0,
+                hintEn: 'Use tan^2(x) = sec^2(x) - 1. Antiderivative is tan(x) - x.',
+                hintAr: 'استخدم ظا² س = قا² س - ١. الدالة المقابلة هي ظا س - س.',
+                stepByStepSolutionEn: [
+                  '1. Substitute identity: tan^2(x) = sec^2(x) - 1.',
+                  '2. Antiderivative: [tan(x) - x]_0^(pi/4).',
+                  '3. Evaluate: (tan(pi/4) - pi/4) - (tan(0) - 0) = 1 - pi/4.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. بالمتطابقة: ظا² س = قا² س - ١.',
+                  '٢. الدالة الأصلية: [ظا س - س].',
+                  '٣. التعويض بالحدود: (١ - ط/٤) - (٠ - ٠) = ١ - ط/٤.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Interactive Integration by Parts Lab',
+            titleAr: 'مختبر التكامل بالتجزيء التفاعلي',
+            descriptionEn: 'Interactive visualization showing the geometric representation of u dv and v du integration by parts areas.',
+            descriptionAr: 'محاكي تفاعلي يعرض التمثيل الهندسي لمساحات التكامل بالتجزيء.'
+          }
+        },
+        {
+          id: 'calc_l7',
+          titleEn: 'Definite Integrals, Plane Areas & Volumes of Revolution',
+          titleAr: 'التكامل المحدد والمساحات المستوية وحجوم الأجسام الدورانية',
+          summaryEn: 'Fundamental Theorem of Calculus, interval additivity, odd/even function integral symmetries. Calculating bounded plane areas between curves, and volumes of solids generated by revolution around the x-axis and y-axis.',
+          summaryAr: 'النظرية الأساسية للتفاضل والتكامل، وتجزئة الفترات، وتماثل الدوال الفردية والزوجية. حساب مساحات المناطق المستوية المحصورة بين المنحنيات، وحجوم الأجسام الدورانية الناشئة عن الدوران حول محوري السينات والصادات.',
+          theoryContentEn: `### 1. Fundamental Theorem of Calculus & Definite Integrals
+If $f(x)$ is continuous on $[a, b]$ and $F'(x) = f(x)$:
+$$\\int_a^b f(x) dx = [F(x)]_a^b = F(b) - F(a)$$
+
+### 2. Properties of Definite Integrals:
+1. **Reversal of Bounds:** $\\int_b^a f(x) dx = -\\int_a^b f(x) dx$
+2. **Identical Bounds:** $\\int_a^a f(x) dx = 0$
+3. **Interval Additivity:** $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$
+4. **Odd Function on Symmetric Interval:** If $f(-x) = -f(x)$, then $\\int_{-a}^a f(x) dx = 0$.
+5. **Even Function on Symmetric Interval:** If $f(-x) = f(x)$, then $\\int_{-a}^a f(x) dx = 2 \\int_0^a f(x) dx$.
+
+### 3. Areas of Plane Regions (حساب المساحات في المستوى):
+1. **Area bounded by curve $y = f(x)$ and x-axis between $x = a$ and $x = b$:**
+   $$A = \\int_a^b |f(x)| dx$$
+2. **Area bounded between two curves $y_1 = f(x)$ and $y_2 = g(x)$:**
+   $$A = \\int_a^b |f(x) - g(x)| dx = \\int_a^b (y_{\\text{upper}} - y_{\\text{lower}}) dx$$
+
+### 4. Volumes of Solids of Revolution (حجوم الأجسام الدورانية):
+1. **Revolution of region bounded by $y = f(x)$ around the X-Axis:**
+   $$V = \\pi \\int_a^b y^2 dx = \\pi \\int_a^b [f(x)]^2 dx$$
+2. **Revolution of region bounded by $x = g(y)$ around the Y-Axis:**
+   $$V = \\pi \\int_c^d x^2 dy = \\pi \\int_c^d [g(y)]^2 dy$$
+3. **Washer Method (between two curves revolved around X-Axis):**
+   $$V = \\pi \\int_a^b (y_{\\text{outer}}^2 - y_{\\text{inner}}^2) dx$$`,
+          theoryContentAr: `### ١. النظرية الأساسية للتفاضل والتكامل
+إذا كانت $f(x)$ متصلة على الفترة $[a, b]$ وكانت $F'(x) = f(x)$ دالة مقابلة لها:
+$$\\int_a^b f(x) dx = F(b) - F(a)$$
+
+### ٢. خواص التكامل المحدد
+١. **عكس حدود التكامل:** $\\int_b^a f(x) dx = -\\int_a^b f(x) dx$.
+٢. **تطابق الحدين:** $\\int_a^a f(x) dx = 0$.
+٣. **تجزئة فترات التكامل:** $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.
+٤. **الدالة الفردية على فترة متماثلة:** إذا كانت الدالة فردية فإن $\\int_{-a}^a f(x) dx = 0$.
+٥. **الدالة الزوجية على فترة متماثلة:** إذا كانت الدالة زوجية فإن $\\int_{-a}^a f(x) dx = 2 \\int_0^a f(x) dx$.
+
+### ٣. حساب المساحات في المستوى
+١. **المساحة بين منحنى دالة ومحور السينات:**
+   $$A = \\int_a^b |f(x)| dx$$
+٢. **المساحة بين منحنيين $y_1$ و $y_2$:**
+   $$A = \\int_a^b (y_{\\text{العلوي}} - y_{\\text{السفلي}}) dx$$
+
+### ٤. حجوم الأجسام الدورانية
+١. **الدوران حول محور السينات دورة كاملة:**
+   $$V = \\pi \\int_a^b y^2 dx$$
+٢. **الدوران حول محور الصادات دورة كاملة:**
+   $$V = \\pi \\int_c^d x^2 dy$$
+٣. **الدوران بين منحنيين حول محور السينات (طريقة الحلقات):**
+   $$V = \\pi \\int_a^b (y_1^2 - y_2^2) dx$$`,
+          formulas: [
+            { labelEn: 'Definite Integral Evaluation', labelAr: 'قيمة التكامل المحدد', latex: '\\int_a^b f(x) dx = F(b) - F(a)' },
+            { labelEn: 'Plane Area Formula', labelAr: 'قانون مساحة المنطقة المستوية', latex: 'A = \\int_a^b (y_1 - y_2) dx' },
+            { labelEn: 'Revolution Volume (X-Axis)', labelAr: 'حجم الدوران حول محور السينات', latex: 'V = \\pi \\int_a^b y^2 dx' },
+            { labelEn: 'Revolution Volume (Y-Axis)', labelAr: 'حجم الدوران حول محور الصادات', latex: 'V = \\pi \\int_c^d x^2 dy' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Calculus Textbook Grade 12',
+            bookTitleAr: 'كتاب التفاضل والتكامل للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-CALC-CH4-L2',
+            pageRange: 'pp. 166 - 198'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Definite Integrals, Areas & Revolution Volumes',
+            titleAr: 'خطة درس: التكامل المحدد والمساحات وحجوم الأجسام الدورانية',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-CALC-CH4-L2',
+            bloomsObjectivesEn: [
+              'Evaluate definite integrals using fundamental properties and symmetry.',
+              'Set up and calculate areas bounded between straight lines and parabolic curves.',
+              'Compute volumes of revolution generated around the x-axis and y-axis.'
+            ],
+            bloomsObjectivesAr: [
+              'حساب التكاملات المحددة بالاستفادة من خواص التجزئة والتماثل.',
+              'تحديد حدود التكامل وحساب المساحات المحصورة بين المنحنيات.',
+              'حساب حجوم الأجسام الدورانية المتولدة حول محوري السينات والصادات.'
+            ],
+            prerequisitesEn: ['Definite Integration Fundamentals', 'Equation Solving for Intersections', 'Geometric Graphing'],
+            prerequisitesAr: ['أساسيات التكامل المحدد', 'حل المعادلات لتعيين نقاط التقاطع', 'رسم المنحنيات الأساسية'],
+            keyVocabularyEn: [
+              { term: 'Definite Integral', definition: 'The signed accumulation of a function over an interval [a, b].' },
+              { term: 'Plane Area', definition: 'The strictly positive geometric area bounded between curves.' },
+              { term: 'Solid of Revolution', definition: 'A three-dimensional solid formed by revolving a plane area around a line.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'التكامل المحدد', definition: 'التراكم الجبري لقيم دالة على فترة محددة [أ، ب].' },
+              { term: 'المساحة المستوية', definition: 'المقدار الهندسي الموجب تماماً للمنطقة المحصورة بين المنحنيات.' },
+              { term: 'الجسم الدوراني', definition: 'مجسم ثلاثي الأبعاد ناتج عن تدوير منطقة مستوية حول مستقيم ثابت.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Hook & 3D Visualization',
+                phaseAr: 'التهيئة والتصور المجسم ثلاثي الأبعاد',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate revolving a 2D triangle into a cone and parabola into a paraboloid.',
+                activitiesAr: 'عرض مجسم ثلاثي الأبعاد لدوران مثلث لإنشاء مخروط وقطع مكافئ لإنشاء مجسم مكافئ.'
+              },
+              {
+                phaseEn: 'Area and Volume Formulations',
+                phaseAr: 'صياغة قوانين المساحات والحجوم',
+                duration: '40 mins',
+                activitiesEn: 'Establish boundaries, solve for intersection points, and apply disk/washer formulas.',
+                activitiesAr: 'استنتاج نقاط التقاطع وصياغة تكاملات الأقراص والحلقات.'
+              },
+              {
+                phaseEn: 'Guided Problem Solving',
+                phaseAr: 'حل مسائل موجهة',
+                duration: '25 mins',
+                activitiesEn: 'Solve area between y = x^2 and y = 2x, and volume revolving about x-axis.',
+                activitiesAr: 'حل مسألة مساحة بين ص = س² و ص = ٢س، وحجم الدوران حول محور السينات.'
+              },
+              {
+                phaseEn: 'Exit Ticket & Synthesis',
+                phaseAr: 'تذكرة الخروج والتقويم',
+                duration: '10 mins',
+                activitiesEn: 'Check understanding of pi factor and square of function in volume calculations.',
+                activitiesAr: 'التأكد من استيعاب ضرب التكامل في ط (π) وتربيع الدالة في الحجوم.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Forgetting the factor of pi in volume formulas.',
+              'Subtracting functions before squaring in volume of revolution (it must be R^2 - r^2, not (R - r)^2).'
+            ],
+            commonMisconceptionsAr: [
+              'نسيان ضرب التكامل في ط (π) عند حساب حجوم الأجسام الدورانية.',
+              'طرح الدالتين قبل التربيع في الحجوم (الصحيح هو نق١² - نق٢² وليس (نق١ - نق٢)²).'
+            ],
+            differentiationEn: {
+              struggling: 'Use colorful diagrams highlighting upper curve in blue and lower curve in red.',
+              advanced: 'Calculate revolution volume about non-axis lines such as y = k.'
+            },
+            differentiationAr: {
+              struggling: 'استخدام رسم ملون يوضح المنحنى العلوي بالأزرق والسفلي بالأحمر.',
+              advanced: 'حساب حجوم الأجسام الدورانية حول خطوط مستقيمة لا تمر بنقطة الأصل.'
+            },
+            formativeAssessmentEn: 'Find volume of revolving y = 2 from x = 0 to 3 about x-axis.',
+            formativeAssessmentAr: 'احسب حجم دوران ص = ٢ من س = ٠ إلى ٣ حول محور السينات. (١٢ ط).',
+            exitTicketQuestion: {
+              questionEn: 'Find area between y = x and y = x^2 on [0, 1].',
+              questionAr: 'أوجد مساحة المنطقة بين ص = س و ص = س² في الفترة [٠، ١].',
+              solutionEn: 'int_0^1 (x - x^2) dx = [x^2/2 - x^3/3]_0^1 = 1/2 - 1/3 = 1/6 sq unit.',
+              solutionAr: 'تكامل (س - س²) = ١/٢ - ١/٣ = ١/٦ وحدة مربعة.'
+            }
+          },
+          worksheet: {
+            id: 'calc_ws_l7',
+            titleEn: 'Worksheet: Definite Integrals, Areas & Volumes',
+            titleAr: 'ورقة عمل: التكامل المحدد والمساحات والحجوم',
+            descriptionEn: 'Practice problems on definite integration properties, area between curves, and volumes of revolution.',
+            descriptionAr: 'مسائل تدريبية على خواص التكامل المحدد، وحساب المساحات، وحجوم الأجسام الدورانية.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'calc_l7_p1',
+                titleEn: 'Symmetry Property of Odd Functions',
+                titleAr: 'خاصية تماثل الدوال الفردية',
+                difficulty: 'easy',
+                questionEn: 'Evaluate: $\\int_{-3}^3 x^5 dx$.',
+                questionAr: 'احسب: $\\int_{-3}^3 x^5 dx$.',
+                optionsEn: ['$0$', '$486$', '$243$', '$-243$'],
+                optionsAr: ['$0$', '$486$', '$243$', '$-243$'],
+                correctAnswer: '$0$',
+                correctIndex: 0,
+                hintEn: 'x^5 is an odd function integrated over a symmetric interval [-3, 3].',
+                hintAr: 'س^٥ دالة فردية وتكاملها على فترة متماثلة [-٣، ٣] يساوي صفراً.',
+                stepByStepSolutionEn: ['Since f(-x) = -f(x), integral from -a to a is 0.'],
+                stepByStepSolutionAr: ['بما أن الدالة فردية، فإن تكاملها على فترة متماثلة يساوي صفراً.']
+              },
+              {
+                id: 'calc_l7_p2',
+                titleEn: 'Area Enclosed Between Line and Parabola',
+                titleAr: 'المساحة بين مستقيم وقطع مكافئ',
+                difficulty: 'medium',
+                questionEn: 'Find the area between $y = 3x$ and $y = x^2$.',
+                questionAr: 'أوجد المساحة المحصورة بين المستقيم $y = 3x$ والمنحنى $y = x^2$.',
+                optionsEn: ['$\\frac{9}{2}\\text{ sq units}$', '$9\\text{ sq units}$', '$\\frac{27}{2}\\text{ sq units}$', '$\\frac{9}{4}\\text{ sq units}$'],
+                optionsAr: ['$\\frac{9}{2}\\text{ وحدة مربعة}$', '$9\\text{ وحدة مربعة}$', '$\\frac{27}{2}\\text{ وحدة مربعة}$', '$\\frac{9}{4}\\text{ وحدة مربعة}$'],
+                correctAnswer: '$\\frac{9}{2}\\text{ sq units}$',
+                correctIndex: 0,
+                hintEn: 'Intersections x = 0, 3. Area = [3x^2/2 - x^3/3]_0^3 = 27/2 - 9 = 9/2.',
+                hintAr: 'نقاط التقاطع س = ٠، ٣. المساحة = ٢٧/٢ - ٩ = ٩/٢ وحدة مربعة.',
+                stepByStepSolutionEn: [
+                  '1. x^2 = 3x => x(x - 3) = 0 => x = 0, 3.',
+                  '2. Area = integral_0^3 (3x - x^2) dx = [3x^2/2 - x^3/3]_0^3 = 27/2 - 9 = 9/2 sq units.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. نقاط التقاطع: س(س - ٣) = ٠ ومنها س = ٠، ٣.',
+                  '٢. المساحة = تكامل (٣س - س²) = [٣س²/٢ - س³/٣] من ٠ إلى ٣ = ٢٧/٢ - ٩ = ٩/٢ وحدة مربعة.'
+                ]
+              },
+              {
+                id: 'calc_l7_p3',
+                titleEn: 'Volume of Revolution About X-Axis',
+                titleAr: 'حجم الجسم الدوراني حول محور السينات',
+                difficulty: 'hots',
+                questionEn: 'Find the volume of the solid formed by revolving $y = 2\\sqrt{x}$ from $x = 0$ to $x = 3$ about the x-axis.',
+                questionAr: 'أوجد حجم الجسم الدوراني الناتج من دوران $y = 2\\sqrt{x}$ من $x = 0$ إلى $x = 3$ دورة كاملة حول محور السينات.',
+                optionsEn: ['$18\\pi\\text{ cubic units}$', '$36\\pi\\text{ cubic units}$', '$12\\pi\\text{ cubic units}$', '$9\\pi\\text{ cubic units}$'],
+                optionsAr: ['$18\\pi\\text{ وحدة مكعبة}$', '$36\\pi\\text{ وحدة مكعبة}$', '$12\\pi\\text{ وحدة مكعبة}$', '$9\\pi\\text{ وحدة مكعبة}$'],
+                correctAnswer: '$18\\pi\\text{ cubic units}$',
+                correctIndex: 0,
+                hintEn: 'V = pi * integral_0^3 y^2 dx = pi * integral_0^3 4x dx = pi * [2x^2]_0^3 = 18 pi.',
+                hintAr: 'الحجم = ط × تكامل ٤س د س = ط [٢س²] من ٠ إلى ٣ = ١٨ ط.',
+                stepByStepSolutionEn: [
+                  '1. y^2 = (2 sqrt(x))^2 = 4x.',
+                  '2. V = pi integral_0^3 4x dx = pi [2x^2]_0^3 = pi (2 * 9) = 18 pi cubic units.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. ص² = (٢ جذر س)² = ٤س.',
+                  '٢. الحجم = ط تكامل ٤س د س من ٠ إلى ٣ = ط [٢س²] = ١٨ ط وحدة مكعبة.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Solid of Revolution 3D Visualizer',
+            titleAr: 'محاكي الأجسام الدورانية ثلاثي الأبعاد',
+            descriptionEn: 'Interactive simulator visualizing plane area rotation and disk integration volume accumulation.',
+            descriptionAr: 'محاكي تفاعلي لعرض دوران المساحات المستوية وتراكم حجوم الأقراص الدائرية.'
+          }
+        }
+      ],
+      solvedExamples: calcCh4SolvedExamples,
+      exerciseProblems: calcCh4Exercises,
+      databank: calcCh4Databank
     }
   ]
 };
