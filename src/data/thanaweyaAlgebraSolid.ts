@@ -1,6 +1,8 @@
 import type { Branch } from '../types/curriculum';
 import { algCh1SolvedExamples, algCh1Exercises } from './textbook/thanaweya/algCh1Textbook';
 import { algCh1Databank } from './databanks/thanaweya/algCh1Databank';
+import { algCh2SolvedExamples, algCh2Exercises } from './textbook/thanaweya/algCh2Textbook';
+import { algCh2Databank } from './databanks/thanaweya/algCh2Databank';
 
 export const thanaweyaAlgebraSolidBranch: Branch = {
   id: 'algebra_solid',
@@ -889,7 +891,7 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                 ]
               },
               interactiveWidget: {
-                type: 'pascal_binomial',
+                type: 'complex_argand',
                 titleEn: 'Complex Number Argand Plane & Vector Modulus Explorer',
                 titleAr: 'مستكشف شكل أرجاند والمقياس والسعة للأعداد المركبة',
                 descriptionEn: 'Interactive tool displaying complex numbers in Argand plane with modulus circle and argument vector rotation.',
@@ -1181,14 +1183,17 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                 ]
               },
               interactiveWidget: {
-                type: 'pascal_binomial',
+                type: 'complex_argand',
                 titleEn: 'N-th Roots of Unity Regular Polygon Visualizer',
                 titleAr: 'محاكي المضلع المنتظم لجذور الوحدة في شكل أرجاند',
                 descriptionEn: 'Interactive geometric visualizer showing roots of unity inscribed on unit circle forming regular n-gons.',
                 descriptionAr: 'محاكي تفاعلي يبين جذور الوحدة على دائرة الوحدة وتكوينها لمضلعات منتظمة كالمثلث والمربع والمسدس.'
               }
             }
-          ]
+          ],
+          solvedExamples: algCh2SolvedExamples,
+          exerciseProblems: algCh2Exercises,
+          databank: algCh2Databank
         },
         {
           id: 'solid_ch1',

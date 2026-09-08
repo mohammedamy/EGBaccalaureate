@@ -8,6 +8,7 @@ import { Interactive3DGeometry } from './Interactive3DGeometry';
 import { InteractivePascalTriangle } from './InteractivePascalTriangle';
 import { InteractiveCalculusTangent } from './InteractiveCalculusTangent';
 import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
+import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -62,6 +63,8 @@ export const LessonView: React.FC<Props> = ({
         return <InteractiveCalculusTangent lang={lang} theme={theme} />;
       case 'statics_friction':
         return <InteractiveStaticsFriction lang={lang} theme={theme} />;
+      case 'complex_argand':
+        return <InteractiveComplexArgand lang={lang} theme={theme} />;
       default:
         return <Interactive3DGeometry lang={lang} theme={theme} />;
     }
