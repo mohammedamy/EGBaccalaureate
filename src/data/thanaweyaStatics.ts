@@ -5,6 +5,8 @@ import { statCh2SolvedExamples, statCh2Exercises } from './textbook/thanaweya/st
 import { statCh2Databank } from './databanks/thanaweya/statCh2Databank';
 import { statCh3SolvedExamples, statCh3Exercises } from './textbook/thanaweya/statCh3Textbook';
 import { statCh3Databank } from './databanks/thanaweya/statCh3Databank';
+import { statCh4SolvedExamples, statCh4Exercises } from './textbook/thanaweya/statCh4Textbook';
+import { statCh4Databank } from './databanks/thanaweya/statCh4Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -1255,6 +1257,501 @@ When loads are applied or shifted such that a supported beam is on the verge of 
       solvedExamples: statCh3SolvedExamples,
       exerciseProblems: statCh3Exercises,
       databank: statCh3Databank
+    }    ,
+    {
+      id: 'stat_ch4',
+      chapterNumber: 4,
+      titleEn: 'General Equilibrium of Rigid Bodies',
+      titleAr: 'الاتزان العام للأجسام الجاسئة',
+      descriptionEn: 'Equilibrium of rigid bodies under coplanar forces: ΣX = 0, ΣY = 0, and ΣM = 0. Support reactions for hinges, smooth and rough planes, uniform and non-uniform ladders, and climbers.',
+      descriptionAr: 'اتزان الأجسام الجاسئة تحت تأثير قوى مستوية: س = ٠، ص = ٠، جـ = ٠. ردود أفعال المفصلات، والسطوح الملساء والخشنة، والسلالم المنتظمة وغير المنتظمة ومسائل المتسلقين.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'stat_l6',
+          titleEn: 'Conditions of General Equilibrium & Hinged Rods',
+          titleAr: 'شروط الاتزان العام والقضبان المتصلة بمفصلات',
+          summaryEn: 'Equilibrium criteria ΣX = 0, ΣY = 0, ΣM = 0. Resolving hinge reactions into perpendicular components X and Y, and calculating resultant reaction R = sqrt(X^2 + Y^2) and direction tan(theta) = Y/X.',
+          summaryAr: 'شروط الاتزان العام: س = ٠، ص = ٠، جـ = ٠. تحليل ردود أفعال المفصلات إلى مركبتين متعامدتين س و ص وإيجاد رد الفعل المحصل واتجاهه.',
+          theoryContentEn: `### 1. The Necessary and Sufficient Conditions for General Equilibrium
+A rigid body acted upon by a system of coplanar forces is in general static equilibrium if and only if:
+1. **The resultant force vanishes:**
+   $$\\vec{R} = \\vec{0} \\implies \\sum X = 0 \\quad \\text{and} \\quad \\sum Y = 0$$
+   - $\\sum X = 0$: algebraic sum of horizontal components is zero.
+   - $\\sum Y = 0$: algebraic sum of vertical components is zero.
+2. **The resultant moment about ANY point in the plane vanishes:**
+   $$\\sum M_A = 0$$
+   where $A$ is any chosen reference point.
+
+### 2. Reactions of Hinges (ردود أفعال المفصلات):
+- When a rod or beam is pivoted at a fixed hinge:
+  - The direction and magnitude of the hinge reaction $\\vec{R}$ are unknown a priori.
+  - We resolve the hinge reaction into two perpendicular unknown components:
+    - $X$: horizontal component (assumed along positive $x$-axis).
+    - $Y$: vertical component (assumed along positive $y$-axis).
+  - The resultant reaction magnitude:
+    $$R = \\sqrt{X^2 + Y^2}$$
+  - The inclination angle $\\theta$ of the reaction with the horizontal:
+    $$\\tan\\theta = \\left| \\frac{Y}{X} \\right|$$
+
+### 3. Theorem of Three Non-Parallel Coplanar Forces:
+If a rigid body is in equilibrium under the action of three non-parallel coplanar forces:
+- Their lines of action must be **concurrent** (they all meet at a single point $O$).
+- Their vector sum must be zero: $\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$.
+- This provides an elegant geometric method for finding hinge reactions without setting up coordinate equations.`,
+          theoryContentAr: `### ١. الشروط اللازمة والكافية للاتزان العام
+يتزن جسم متماسك خاضع لمجموعة من القوى المستوية إذا وفقط إذا تحقق الشرطان:
+١. **انعدام محصلة القوى:**
+   $$\\vec{R} = \\vec{0} \\implies \\sum X = 0 \\quad \\text{و} \\quad \\sum Y = 0$$
+   - $\\sum X = 0$: المجموع الجبري للمركبات الأفقية يساوي صفراً.
+   - $\\sum Y = 0$: المجموع الجبري للمركبات الرأسية يساوي صفراً.
+٢. **انعدام مجموع عزوم القوى حول أي نقطة في المستوى:**
+   $$\\sum M_A = 0$$
+
+### ٢. ردود أفعال المفصلات:
+- عند تثبيت قضيب في حائط أو أرض بمفصلة:
+  - اتجاه ومقدار رد فعل المفصل $\\vec{R}$ غير معلوم مسبقاً.
+  - نقوم بتحليله إلى مركبتين متعامدتين:
+    - $X$: مركبة أفقية.
+    - $Y$: مركبة رأسية.
+  - مقدار رد الفعل المحصل:
+    $$R = \\sqrt{X^2 + Y^2}$$
+  - زاوية ميل رد فعل المفصل على الأفقي:
+    $$\\tan\\theta = \\frac{Y}{X}$$
+
+### ٣. قاعدة اتزان ثلاث قوى مستوية غير متوازية:
+إذا اتزن جسم جاسئ تحت تأثير ثلاث قوى مستوية غير متوازية:
+- فإن خطوط عمل هذه القوى الثلاث يجب أن **تتلاقى في نقطة واحدة مشتركة**.`,
+          formulas: [
+            { labelEn: 'Horizontal Force Equilibrium', labelAr: 'اتزان المركبات الأفقية', latex: '\\sum X = 0' },
+            { labelEn: 'Vertical Force Equilibrium', labelAr: 'اتزان المركبات الرأسية', latex: '\\sum Y = 0' },
+            { labelEn: 'Moment Equilibrium', labelAr: 'انعدام مجموع العزوم', latex: '\\sum M_A = 0' },
+            { labelEn: 'Hinge Reaction Magnitude', labelAr: 'معيار رد فعل المفصل', latex: 'R = \\sqrt{X^2 + Y^2}' },
+            { labelEn: 'Hinge Reaction Direction', labelAr: 'اتجاه رد فعل المفصل', latex: '\\tan\\theta = \\frac{Y}{X}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH4-L1',
+            pageRange: 'pp. 72 - 94'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: General Equilibrium Criteria & Hinge Reaction Analysis',
+            titleAr: 'خطة درس: معايير الاتزان العام وتحليل ردود أفعال المفصلات',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH4-L1',
+            bloomsObjectivesEn: [
+              'Apply the three equilibrium equations (ΣX = 0, ΣY = 0, ΣM = 0) to rigid structures.',
+              'Deconstruct hinge reactions into horizontal and vertical components.',
+              'Apply the concurrency theorem for three non-parallel equilibrium forces.'
+            ],
+            bloomsObjectivesAr: [
+              'تطبيق معادلات الاتزان الثلاث (س = ٠، ص = ٠، جـ = ٠) على المنشآت المتماسكة.',
+              'تحليل ردود أفعال المفصلات إلى مركبات أفقية ورأسية وحساب المحصلة.',
+              'تطبيق نظرية تلاقي خطوط عمل ثلاث قوى متزنة في نقطة واحدة.'
+            ],
+            prerequisitesEn: ['2D Moment calculation', 'Vector resolution', 'Parallel forces equilibrium'],
+            prerequisitesAr: ['حساب العزوم ثنائية الأبعاد', 'تحليل المتجهات', 'اتزان القوى المتوازية'],
+            keyVocabularyEn: [
+              { term: 'General Equilibrium', definition: 'Simultaneous vanishing of net force and net moment.' },
+              { term: 'Hinge Reaction', definition: 'Constraining force of unknown magnitude and direction resolved as (X, Y).' },
+              { term: 'Concurrent Forces', definition: 'Forces whose lines of action pass through a single common point.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'الاتزان العام', definition: 'انعدام محصلة القوى وانعدام العزوم في آن واحد.' },
+              { term: 'رد فعل المفصل', definition: 'قوة قيد مجهولة المقدار والاتجاه تحلل إلى مركبتين متعامدتين (س، ص).' },
+              { term: 'قوى متلاقية', definition: 'قوى تتقاطع خطوط عملها جميعاً في نقطة واحدة مشتركة.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Hook: Why parallel equilibrium is insufficient (15 mins)',
+                phaseAr: 'التهيئة: لماذا لا تكفي شروط القوى المتوازية للأجسام المائلة (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Contrast parallel beam equilibrium with an inclined beam where horizontal forces and unknown hinge angles appear.',
+                activitiesAr: 'مقارنة اتزان العوارض الأفقية بالقضبان المائلة حيث تظهر قوى أفقية وزوايا رد فعل مجهولة.'
+              },
+              {
+                phaseEn: 'Hinge Component Resolution (25 mins)',
+                phaseAr: 'تحليل مركبات رد فعل المفصل (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Demonstrate setting up X, Y, and taking moments about the hinge to eliminate two unknowns at once.',
+                activitiesAr: 'توضيح كيفية فرض المركبتين س و ص وأخذ العزوم حول المفصل لإلغاء مجهولين دفعة واحدة.'
+              },
+              {
+                phaseEn: 'Cable-Supported Rods & Tension (30 mins)',
+                phaseAr: 'القضبان المدعومة بحبال وحساب الشد (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve classic exam problems of horizontal and inclined rods supported by cables at various angles.',
+                activitiesAr: 'حل مسائل امتحانية كلاسيكية لقضبان أفقية ومائلة مشدودة بحبال مائلة بزوايا مختلفة.'
+              },
+              {
+                phaseEn: 'Exit Ticket & Synthesis (20 mins)',
+                phaseAr: 'التقييم الفردي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Administer individual exit ticket on hinge reaction components.',
+                activitiesAr: 'حل بطاقة الخروج الفردية لتقييم إتقان إيجاد ردود أفعال المفصلات.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Assuming the hinge reaction is always perpendicular to the wall; its direction is unknown and determined by equilibrium!',
+              'Forgetting that tension in a light string always acts along the line of the string away from the body.'
+            ],
+            commonMisconceptionsAr: [
+              'افتراض أن رد فعل المفصل عمودي دائماً على الحائط؛ اتجاهه مجهول ويتحدد من معادلات الاتزان!',
+              'نسيان أن قوة الشد في الخيط تتجه دائماً على امتداد الخيط مبتعدة عن الجسم.'
+            ],
+            differentiationEn: {
+              struggling: 'Always pick the hinge as the moment center first to eliminate both X and Y simultaneously.',
+              advanced: 'Solve systems with multiple interconnected hinged members and friction pins.'
+            },
+            differentiationAr: {
+              struggling: 'اختيار مركز العزوم عند المفصل دائماً كخطوة أولى لإلغاء المجهولين س و ص فوراً.',
+              advanced: 'دراسة أنظمة من عدة قضبان مترابطة بمفصلات متعددة واحتكاك المفصلات.'
+            },
+            formativeAssessmentEn: 'A rod is hinged at A and held horizontal by a vertical wire at B. If weight is 80 N, find hinge reaction.',
+            formativeAssessmentAr: 'قضيب متصل بمفصل عند A ومحفوظ أفقياً بسلك رأسي عند B. إذا كان وزنه ٨٠ ن، احسب رد فعل المفصل.',
+            exitTicketQuestion: {
+              questionEn: 'Hinge reaction has X = 12 N and Y = 16 N. Find magnitude of resultant reaction.',
+              questionAr: 'مركبتا رد فعل مفصل هما س = ١٢ ن و ص = ١٦ ن. احسب معيار رد الفعل المحصل.',
+              solutionEn: 'R = sqrt(12^2 + 16^2) = sqrt(144 + 256) = sqrt(400) = 20 N.',
+              solutionAr: 'ر = جذر(١٢² + ١٦²) = جذر(٤٠٠) = ٢٠ نيوتن.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l6',
+            titleEn: 'Worksheet: General Equilibrium & Hinge Reactions',
+            titleAr: 'ورقة عمل: الاتزان العام وردود أفعال المفصلات',
+            descriptionEn: 'Structured problems on coplanar force equilibrium and hinge reaction calculations.',
+            descriptionAr: 'مسائل تدريبية على الاتزان العام وحساب قوى الشد وردود أفعال المفصلات.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l6_p1',
+                titleEn: 'Hinged Horizontal Rod with 30° Cable',
+                titleAr: 'قضيب أفقي متصل بمفصل ومدعوم بخيط يميل بـ ٣٠°',
+                difficulty: 'easy',
+                questionEn: 'A uniform rod $AB$ of weight $W = 60\\text{ N}$ is hinged at $A$ and held horizontally by a cable at $B$ making $30^\\circ$ with the rod. Find the cable tension $T$.',
+                questionAr: 'قضيب منتظم $AB$ وزنه $W = 60\\text{ نيوتن}$ مثبت بمفصل عند $A$ ومحفوظ أفقياً بحبل عند $B$ يميل بـ $30^\\circ$ على القضيب. احسب الشد $T$ في الحبل.',
+                optionsEn: ['$60\\text{ N}$', '$30\\text{ N}$', '$120\\text{ N}$', '$30\\sqrt{3}\\text{ N}$'],
+                optionsAr: ['$60\\text{ نيوتن}$', '$30\\text{ نيوتن}$', '$120\\text{ نيوتن}$', '$30\\sqrt{3}\\text{ نيوتن}$'],
+                correctAnswer: '$60\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'Take moments about A: T * L * sin(30) = W * (L/2). Since sin(30) = 0.5, T = W.',
+                hintAr: 'العزوم حول A: الشد × ل × جا(٣٠) = الوزن × (ل / ٢). وبما أن جا(٣٠) = ٠٫٥ فإن الشد = الوزن.',
+                stepByStepSolutionEn: [
+                  '1. Moments about hinge A: T * L * sin(30°) - 60 * (L/2) = 0.',
+                  '2. 0.5 T * L = 30 * L => T = 60 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. العزوم حول A: ش × ل × جا(٣٠°) - ٦٠ × (ل/٢) = ٠.',
+                  '٢. ٠٫٥ ش = ٣٠ => ش = ٦٠ نيوتن.'
+                ]
+              },
+              {
+                id: 'stat_l6_p2',
+                titleEn: 'Hinge Horizontal and Vertical Components',
+                titleAr: 'مركبتا رد فعل المفصل',
+                difficulty: 'medium',
+                questionEn: 'In the previous problem ($W = 60\\text{ N}, T = 60\\text{ N}$ at $30^\\circ$ above horizontal), find the horizontal component $X$ of the hinge reaction.',
+                questionAr: 'في المسألة السابقة ($W = 60\\text{ ن}, T = 60\\text{ ن}$ بزاوية $30^\\circ$ أعلى الأفقي)، احسب المركبة الأفقية $X$ لرد فعل المفصل.',
+                optionsEn: ['$30\\sqrt{3}\\text{ N}$', '$30\\text{ N}$', '$60\\text{ N}$', '$15\\sqrt{3}\\text{ N}$'],
+                optionsAr: ['$30\\sqrt{3}\\text{ نيوتن}$', '$30\\text{ نيوتن}$', '$60\\text{ نيوتن}$', '$15\\sqrt{3}\\text{ نيوتن}$'],
+                correctAnswer: '$30\\sqrt{3}\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'Horizontal equilibrium: X = T cos(30°).',
+                hintAr: 'الاتزان الأفقي: س = الشد × جتا(٣٠°).',
+                stepByStepSolutionEn: [
+                  '1. Sum X = 0: X - T cos(30°) = 0.',
+                  '2. X = 60 * (sqrt(3)/2) = 30 sqrt(3) N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. س - ش جتا(٣٠°) = ٠.',
+                  '٢. س = ٦٠ × (جذر(٣)/٢) = ٣٠ جذر(٣) نيوتن.'
+                ]
+              },
+              {
+                id: 'stat_l6_p3',
+                titleEn: 'Hinge Vertical Component and Angle',
+                titleAr: 'المركبة الرأسية وزاوية ميل رد فعل المفصل',
+                difficulty: 'hots',
+                questionEn: 'In the same problem, find the vertical component $Y$ of the hinge reaction and the magnitude of resultant reaction $R$.',
+                questionAr: 'في نفس المسألة، احسب المركبة الرأسية $Y$ لرد فعل المفصل ومعيار رد الفعل المحصل $R$.',
+                optionsEn: ['$Y = 30\\text{ N}, R = 60\\text{ N}$', '$Y = 60\\text{ N}, R = 60\\sqrt{2}\\text{ N}$', '$Y = 30\\text{ N}, R = 30\\sqrt{3}\\text{ N}$', '$Y = 15\\text{ N}, R = 45\\text{ N}$'],
+                optionsAr: ['$Y = 30\\text{ نيوتن}, R = 60\\text{ نيوتن}$', '$Y = 60\\text{ نيوتن}, R = 60\\sqrt{2}\\text{ نيوتن}$', '$Y = 30\\text{ نيوتن}, R = 30\\sqrt{3}\\text{ نيوتن}$', '$Y = 15\\text{ نيوتن}, R = 45\\text{ نيوتن}$'],
+                correctAnswer: '$Y = 30\\text{ N}, R = 60\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'Y = 60 - T sin(30°) = 60 - 30 = 30 N. Then R = sqrt(X^2 + Y^2) = sqrt(2700 + 900) = sqrt(3600) = 60 N.',
+                hintAr: 'ص = ٦٠ - ٦٠ جا(٣٠°) = ٣٠ نيوتن. رد الفعل المحصل = جذر((٣٠ جذر ٣)² + ٣٠²) = ٦٠ نيوتن.',
+                stepByStepSolutionEn: [
+                  '1. Vertical equilibrium: Y + T sin(30°) - 60 = 0 => Y = 60 - 30 = 30 N.',
+                  '2. Resultant: R = sqrt((30 sqrt(3))^2 + 30^2) = sqrt(2700 + 900) = sqrt(3600) = 60 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. الاتزان الرأسي: ص + ش جا(٣٠°) - ٦٠ = ٠ => ص = ٣٠ نيوتن.',
+                  '٢. المحصلة: ر = جذر(٢٧٠٠ + ٩٠٠) = جذر(٣٦٠٠) = ٦٠ نيوتن.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Hinged Beam & Cable Support Laboratory',
+            titleAr: 'مختبر العوارض المفصلية ودعامات الكابلات',
+            descriptionEn: 'Interactive mechanics tool for exploring hinge reaction vector components and cable tension variations under shifting loads.',
+            descriptionAr: 'أداة ميكانيكا تفاعلية لاستكشاف مركبات رد فعل المفصل وتغيرات شد الحبل بتغير موضع الأحمال.'
+          }
+        },
+        {
+          id: 'stat_l7',
+          titleEn: 'Ladders & Beams on Rough & Smooth Planes',
+          titleAr: 'اتزان السلالم والقضبان على السطوح الخشنة والملساء',
+          summaryEn: 'Equilibrium of ladders on smooth vertical walls and rough floors, limiting friction mu_s = (1/2)cot(theta), climber ascent limits, and equilibrium on two rough surfaces.',
+          summaryAr: 'اتزان السلالم على الحوائط الملساء والأرضيات الخشنة، وشرط وشك الانزلاق م_س = نصف ظتا(هـ)، وأقصى مسافة صعود لمتسلق، والاتزان على سطحين خشنين.',
+          theoryContentEn: `### 1. The Classic Ladder Problem
+Consider a uniform ladder $AB$ of length $L$ and weight $W$ resting with:
+- Top end $A$ against a **smooth vertical wall**: reaction $R_A$ is horizontal (perpendicular to wall).
+- Base $B$ on a **rough horizontal floor**: reaction has normal component $R_B$ and friction force $F_f$ directed towards the wall.
+- Inclination angle with the horizontal: $\\theta$.
+
+### 2. Equations of Equilibrium:
+1. **Vertical forces:**
+   $$\\sum Y = 0 \\implies R_B = W$$
+2. **Horizontal forces:**
+   $$\\sum X = 0 \\implies F_f = R_A$$
+3. **Moments about the base $B$:**
+   $$\\sum M_B = 0 \\implies W \\left(\\frac{L}{2} \\cos\\theta\\right) - R_A (L \\sin\\theta) = 0$$
+   $$R_A = \\frac{W}{2} \\cot\\theta$$
+   $$F_f = \\frac{W}{2} \\cot\\theta$$
+
+### 3. Condition for Verge of Slipping:
+When the ladder is on the verge of sliding away from the wall:
+$$F_f = F_s = \\mu_s R_B = \\mu_s W$$
+Equating:
+$$\\mu_s W = \\frac{W}{2} \\cot\\theta \\implies \\mu_s = \\frac{1}{2} \\cot\\theta$$
+$$\\tan\\theta = \\frac{1}{2 \\mu_s}$$
+
+### 4. Ladder with a Climber:
+If a person of weight $w$ climbs to a distance $x$ from the base:
+1. $R_B = W + w$
+2. Moments about $B$:
+   $$W \\left(\\frac{L}{2} \\cos\\theta\\right) + w(x \\cos\\theta) = R_A (L \\sin\\theta)$$
+3. At limiting equilibrium ($R_A = \\mu_s (W + w)$):
+   $$\\frac{W L}{2} + w x = \\mu_s (W + w) L \\tan\\theta$$`,
+          theoryContentAr: `### ١. مسألة السلم الكلاسيكية
+سلم منتظم $AB$ طوله $L$ ووزنه $W$:
+- طرفه العلوي $A$ على **حائط رأسي أملس**: رد الفعل $R_A$ أفقي عمودي على الحائط.
+- طرفه السفلي $B$ على **أرض أفقية خشنة**: رد فعل عمودي $R_B$ وقوة احتكاك $F_f$ نحو الحائط.
+- زاوية ميله على الأفقي: $\\theta$.
+
+### ٢. معادلات الاتزان:
+١. **رأسياً:** $R_B = W$.
+٢. **أفقياً:** $F_f = R_A$.
+٣. **العزوم حول القاعدة $B$:**
+   $$R_A = \\frac{W}{2} \\cot\\theta$$
+   $$F_f = \\frac{W}{2} \\cot\\theta$$
+
+### ٣. شرط وشك الانزلاق:
+عندما يكون السلم على وشك الانزلاق:
+$$F_f = \\mu_s R_B = \\mu_s W$$
+$$\\mu_s = \\frac{1}{2} \\cot\\theta$$
+$$\\tan\\theta = \\frac{1}{2 \\mu_s}$$
+
+### ٤. صعود شخص على السلم:
+إذا صعد شخص وزنه $w$ مسافة $x$ من قاعدة السلم:
+١. $R_B = W + w$.
+٢. بأخذ العزوم حول القاعدة $B$ عند وشك الانزلاق يتحدد أقصى بعد $x$ قبل الانزلاق.`,
+          formulas: [
+            { labelEn: 'Smooth Wall Reaction', labelAr: 'رد فعل الحائط الأملس', latex: 'R_A = \\frac{W}{2} \\cot\\theta' },
+            { labelEn: 'Limiting Friction at Base', labelAr: 'الاحتكاك النهائي لقاعدة السلم', latex: '\\mu_s = \\frac{1}{2} \\cot\\theta' },
+            { labelEn: 'Minimum Angle for Stability', labelAr: 'أقل زاوية ميل للاستقرار', latex: '\\tan\\theta = \\frac{1}{2 \\mu_s}' },
+            { labelEn: 'Two Rough Surfaces Formula', labelAr: 'قانون السطحين الخشنين', latex: '\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2 \\mu_1}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH4-L2',
+            pageRange: 'pp. 95 - 118'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Ladder Stability & Overturning Limits',
+            titleAr: 'خطة درس: اتزان السلالم وحدود الانزلاق والانقلاب',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH4-L2',
+            bloomsObjectivesEn: [
+              'Derive the relationship mu_s = (1/2)cot(theta) for uniform ladders.',
+              'Calculate maximum climb distance of an ascending worker before slippage occurs.',
+              'Analyze ladder equilibrium on two rough surfaces.'
+            ],
+            bloomsObjectivesAr: [
+              'استنتاج العلاقة م_س = نصف ظتا(هـ) للسلالم المنتظمة.',
+              'حساب أقصى مسافة صعود لعامل قبل حدوث الانزلاق.',
+              'تحليل اتزان السلم عند ارتكازه على سطحين خشنين.'
+            ],
+            prerequisitesEn: ['Friction force and normal reaction', 'Moments of inclined forces', 'Trigonometric identities'],
+            prerequisitesAr: ['قوة الاحتكاك ورد الفعل العمودي', 'عزوم القوى المائلة', 'المتطابقات المثلثية'],
+            keyVocabularyEn: [
+              { term: 'Smooth Wall Reaction', definition: 'Normal horizontal push perpendicular to the vertical wall.' },
+              { term: 'Critical Angle of Slipping', definition: 'The minimum angle with the ground for which equilibrium is maintained.' },
+              { term: 'Climber Moment', definition: 'Additional overturning moment introduced as a person ascends the ladder.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'رد فعل الحائط الأملس', definition: 'قوة دفع عمودية أفقية خارجة من الحائط الرأسي.' },
+              { term: 'زاوية الانزلاق الحرجة', definition: 'أقل زاوية ميل مع الأرض يمكن عندها الحفاظ على الاتزان.' },
+              { term: 'عزم المتسلق', definition: 'عزم إضافي يزداد تدريجياً مع صعود الشخص على السلم.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Visualizing Ladder Slip Mechanism (15 mins)',
+                phaseAr: 'آلية انزلاق السلم ومخطط القوى (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Draw complete free-body diagram showing smooth wall reaction RA, weight W at center, ground reaction RB, and friction Fs.',
+                activitiesAr: 'رسم مخطط الجسم الحر الكامل مبيناً رد فعل الحائط، والوزن في المنتصف، ورد فعل الأرض واحتكاكها.'
+              },
+              {
+                phaseEn: 'Derivation of mu = (1/2)cot(theta) (25 mins)',
+                phaseAr: 'استنتاج قانون م_س = نصف ظتا(هـ) (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Guide students step-by-step through moment equilibrium about base B.',
+                activitiesAr: 'توجيه الطلاب خطوة بخطوة لاستنتاج العلاقة من معادلة العزوم حول القاعدة ب.'
+              },
+              {
+                phaseEn: 'Climber Ascent Calculations (30 mins)',
+                phaseAr: 'مسائل صعود المتسلق (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve problems finding maximum climb distance and explain why slipping occurs at higher rungs.',
+                activitiesAr: 'حل مسائل إيجاد أقصى مسافة صعود وتفسير سبب حدوث الانزلاق عند درجات السلم العليا.'
+              },
+              {
+                phaseEn: 'Synthesis & Exit Check (20 mins)',
+                phaseAr: 'التقييم الفردي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Individual problem on critical angle calculation.',
+                activitiesAr: 'حل مسألة فردية على حساب الزاوية الحرجة.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Believing the ladder is safer at higher climb heights; actually, higher ascent increases the overturning moment!',
+              'Forgetting that wall reaction equals friction force at the ground for equilibrium on a smooth wall.'
+            ],
+            commonMisconceptionsAr: [
+              'اعتقاد أن السلم أكثر أماناً كلما صعد الشخص لأعلى؛ في الواقع صعود الشخص يزيد من عزم الانزلاق!',
+              'نسيان أن رد فعل الحائط الأملس يتساوى تماماً مع قوة احتكاك الأرض أفقياً.'
+            ],
+            differentiationEn: {
+              struggling: 'Keep ladder length normalized to 2L so half-length is simply L.',
+              advanced: 'Derive the two-rough-surfaces formula tan(theta) = (1 - mu1*mu2)/(2*mu1) from first principles.'
+            },
+            differentiationAr: {
+              struggling: 'فرض طول السلم دائماً ٢ل ليكون نصف الطول ل بدون كسور.',
+              advanced: 'استنتاج قانون السطحين الخشنين ظا(هـ) = (١ - م١ م٢) / (٢ م١) من المبادئ الأولى.'
+            },
+            formativeAssessmentEn: 'A ladder on verge of sliding has mu_s = 0.5. Find inclination angle theta.',
+            formativeAssessmentAr: 'سلم على وشك الانزلاق معامل احتكاكه ٠٫٥. احسب زاوية ميله على الأفقي.',
+            exitTicketQuestion: {
+              questionEn: 'If ladder weight is 30 N and inclination is 45°, find smooth wall reaction.',
+              questionAr: 'إذا كان وزن السلم ٣٠ ن وزاوية ميله ٤٥°، احسب رد فعل الحائط الأملس.',
+              solutionEn: 'R_A = (30/2) * cot(45°) = 15 * 1 = 15 N.',
+              solutionAr: 'رد فعل الحائط = (٣٠ / ٢) × ظتا(٤٥°) = ١٥ نيوتن.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l7',
+            titleEn: 'Worksheet: Ladder Stability & Limiting Friction',
+            titleAr: 'ورقة عمل: اتزان السلالم والاحتكاك النهائي',
+            descriptionEn: 'Past exam problems on ladder equilibrium and climber ascent limits.',
+            descriptionAr: 'مسائل امتحانات سابقة على اتزان السلالم وحدود صعود المتسلقين.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l7_p1',
+                titleEn: 'Ladder Critical Angle Calculation',
+                titleAr: 'حساب زاوية الميل الحرجة لسلم',
+                difficulty: 'easy',
+                questionEn: 'A uniform ladder on the verge of sliding has $\\mu_s = \\frac{\\sqrt{3}}{6}$. Find its angle of inclination $\\theta$ to the horizontal.',
+                questionAr: 'سلم منتظم على وشك الانزلاق معامل احتكاك أرضه $\\mu_s = \\frac{\\sqrt{3}}{6}$. احسب زاوية ميله $\\theta$ على الأفقي.',
+                optionsEn: ['$60^\\circ$', '$30^\\circ$', '$45^\\circ$', '$75^\\circ$'],
+                optionsAr: ['$60^\\circ$', '$30^\\circ$', '$45^\\circ$', '$75^\\circ$'],
+                correctAnswer: '$60^\\circ$',
+                correctIndex: 0,
+                hintEn: 'tan(theta) = 1 / (2 * mu_s) = 1 / (sqrt(3)/3) = 3/sqrt(3) = sqrt(3) => theta = 60°.',
+                hintAr: 'ظا(هـ) = ١ / (٢ م_س) = جذر(٣) => هـ = ٦٠°.',
+                stepByStepSolutionEn: [
+                  '1. tan(theta) = 1 / (2 * mu_s).',
+                  '2. tan(theta) = 1 / (2 * (sqrt(3)/6)) = 1 / (sqrt(3)/3) = sqrt(3).',
+                  '3. theta = arctan(sqrt(3)) = 60°.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. ظا(هـ) = ١ / (٢ م_س).',
+                  '٢. ظا(هـ) = ١ / (جذر(٣)/٣) = جذر(٣).',
+                  '٣. هـ = ٦٠°.'
+                ]
+              },
+              {
+                id: 'stat_l7_p2',
+                titleEn: 'Wall Reaction with Midpoint Climber',
+                titleAr: 'رد فعل الحائط عند وقوف شخص في المنتصف',
+                difficulty: 'medium',
+                questionEn: 'A ladder of weight $W = 40\\text{ N}$ leans at $45^\\circ$ against a smooth wall. A person of weight $w = 60\\text{ N}$ stands at the midpoint. Find the wall reaction.',
+                questionAr: 'سلم وزنه $W = 40\\text{ نيوتن}$ يميل بزاوية $45^\\circ$ على حائط أملس. يقف شخص وزنه $w = 60\\text{ نيوتن}$ في منتصف السلم. احسب رد فعل الحائط.',
+                optionsEn: ['$50\\text{ N}$', '$100\\text{ N}$', '$25\\text{ N}$', '$75\\text{ N}$'],
+                optionsAr: ['$50\\text{ نيوتن}$', '$100\\text{ نيوتن}$', '$25\\text{ نيوتن}$', '$75\\text{ نيوتن}$'],
+                correctAnswer: '$50\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'Total weight at midpoint is 40 + 60 = 100 N. RA = (100/2) * cot(45°) = 50 N.',
+                hintAr: 'الوزن الكلي في المنتصف = ١٠٠ ن. رد فعل الحائط = (١٠٠ / ٢) × ظتا(٤٥°) = ٥٠ نيوتن.',
+                stepByStepSolutionEn: [
+                  '1. Total combined weight at midpoint = 40 + 60 = 100 N.',
+                  '2. RA = (100 / 2) * cot(45°) = 50 * 1 = 50 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. الوزن الكلي في المنتصف = ٤٠ + ٦٠ = ١٠٠ نيوتن.',
+                  '٢. رد فعل الحائط = ٥٠ × ١ = ٥٠ نيوتن.'
+                ]
+              },
+              {
+                id: 'stat_l7_p3',
+                titleEn: 'Max Climb Distance before Slipping',
+                titleAr: 'أقصى مسافة صعود قبل الانزلاق',
+                difficulty: 'hots',
+                questionEn: 'A ladder of length $5\\text{ m}$ and weight $20\\text{ N}$ leans at $45^\\circ$ against a smooth wall (floor $\\mu_s = 0.5$). A climber of weight $60\\text{ N}$ ascends. Find maximum distance climbed.',
+                questionAr: 'سلم طوله $5\\text{ م}$ ووزنه $20\\text{ نيوتن}$ يميل بزاوية $45^\\circ$ على حائط أملس (معامل احتكاك الأرض $\\mu_s = 0.5$). صعد شخص وزنه $60\\text{ نيوتن}$. احسب أقصى مسافة صعود له.',
+                optionsEn: ['$2.5\\text{ m}$', '$3.0\\text{ m}$', '$2.0\\text{ m}$', '$1.5\\text{ m}$'],
+                optionsAr: ['$2.5\\text{ م}$', '$3.0\\text{ م}$', '$2.0\\text{ م}$', '$1.5\\text{ م}$'],
+                correctAnswer: '$2.5\\text{ m}$',
+                correctIndex: 0,
+                hintEn: 'RB = 80 N => RA = 0.5 * 80 = 40 N. Moments about base: 20(2.5) + 60x = 40(5) = 200. 50 + 60x = 200 => 60x = 150 => x = 2.5 m.',
+                hintAr: 'رد فعل الأرض = ٨٠ ن => رد فعل الحائط = ٤٠ ن. العزوم حول القاعدة: ٢٠ × ٢٫٥ + ٦٠ س = ٤٠ × ٥ = ٢٠٠ => ٦٠ س = ١٥٠ => س = ٢٫٥ م.',
+                stepByStepSolutionEn: [
+                  '1. Total vertical force: RB = 20 + 60 = 80 N.',
+                  '2. Limiting friction: RA = 0.5 * 80 = 40 N.',
+                  '3. Moments about base: 20(2.5) + 60x = 40(5) => 50 + 60x = 200 => 60x = 150 => x = 2.5 m.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. القوة الرأسية: ر_الأرض = ٨٠ نيوتن.',
+                  '٢. رد فعل الحائط = ٠٫٥ × ٨٠ = ٤٠ نيوتن.',
+                  '٣. العزوم حول القاعدة: ٥٠ + ٦٠ س = ٢٠٠ => ٦٠ س = ١٥٠ => س = ٢٫٥ متر.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Interactive Ladder Equilibrium & Slip Analyzer',
+            titleAr: 'محلل اتزان وانزلاق السلالم التفاعلي',
+            descriptionEn: 'Interactive simulator visualizing support reactions, climber position, and threshold slipping conditions on vertical walls.',
+            descriptionAr: 'محاكي تفاعلي لعرض ردود أفعال الحوائط وموضع المتسلق وشروط الانزلاق الحرج للسلالم.'
+          }
+        }
+      ],
+      solvedExamples: statCh4SolvedExamples,
+      exerciseProblems: statCh4Exercises,
+      databank: statCh4Databank
     }
   ]
 };
