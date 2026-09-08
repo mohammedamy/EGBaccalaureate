@@ -1,6 +1,8 @@
 import type { Branch } from '../types/curriculum';
 import { statCh1SolvedExamples, statCh1Exercises } from './textbook/thanaweya/statCh1Textbook';
 import { statCh1Databank } from './databanks/thanaweya/statCh1Databank';
+import { statCh2SolvedExamples, statCh2Exercises } from './textbook/thanaweya/statCh2Textbook';
+import { statCh2Databank } from './databanks/thanaweya/statCh2Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -867,7 +869,10 @@ $$M_L = \\vec{M}_O \\cdot \\hat{u}$$`,
             descriptionAr: 'أداة تفاعلية ثلاثية الأبعاد لعرض متجه العزم وخط عمل القوة وطول العمود الساقط.'
           }
         }
-      ]
+      ],
+      solvedExamples: statCh2SolvedExamples,
+      exerciseProblems: statCh2Exercises,
+      databank: statCh2Databank
     }
   ]
 };
