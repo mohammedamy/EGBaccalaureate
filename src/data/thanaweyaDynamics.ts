@@ -3,6 +3,8 @@ import { dynCh1SolvedExamples, dynCh1Exercises } from './textbook/thanaweya/dynC
 import { dynCh1Databank } from './databanks/thanaweya/dynCh1Databank';
 import { dynCh2SolvedExamples, dynCh2Exercises } from './textbook/thanaweya/dynCh2Textbook';
 import { dynCh2Databank } from './databanks/thanaweya/dynCh2Databank';
+import { dynCh3SolvedExamples, dynCh3Exercises } from './textbook/thanaweya/dynCh3Textbook';
+import { dynCh3Databank } from './databanks/thanaweya/dynCh3Databank';
 
 export const thanaweyaDynamicsBranch: Branch = {
   id: 'dynamics',
@@ -1243,6 +1245,507 @@ When a person of mass $m$ stands on a scale inside an elevator:
       solvedExamples: dynCh2SolvedExamples,
       exerciseProblems: dynCh2Exercises,
       databank: dynCh2Databank
+    }    ,
+    {
+      id: 'dyn_ch3',
+      chapterNumber: 3,
+      titleEn: 'Impulse & Collision',
+      titleAr: 'الدفع والتصادم',
+      descriptionEn: 'Impulse of constant and variable forces, impulse-momentum theorem, impulsive pressure on floors, walls, and ceilings. Direct collision of smooth spheres, conservation of linear momentum, and loss in kinetic energy.',
+      descriptionAr: 'دفع القوة الثابتة والمتغيرة، ونظرية الدفع وكمية الحركة، والضغط الدفعي على الأرضيات والحوائط والأسقف. التصادم المباشر للكرات الملساء ومبدأ ثبوت كمية الحركة وفقد طاقة الحركة.',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'dyn_l5',
+          titleEn: 'Impulse & Change in Linear Momentum',
+          titleAr: 'الدفع والتغير في كمية الحركة',
+          summaryEn: 'Concept of impulse as force multiplied by time interval I = F Δt, impulse of variable force I = ∫ F(t) dt, impulse-momentum theorem I = Δp = m(v - v0), and impulsive reactions on floors, walls, and ceilings.',
+          summaryAr: 'مفهوم الدفع كحاصل ضرب القوة في زمن التأثير د = ق × ن، ودفع القوة المتغيرة د = تكامل ق(ن) د ن، ونظرية الدفع وكمية الحركة د = دلتا كـ = ك(ع - ع٠)، والضغط الدفعي على الأرضيات والحوائط والأسقف.',
+          theoryContentEn: `### 1. Definition of Impulse (الدفع)
+When a constant force $\\vec{F}$ acts on a body for a short time interval $\\Delta t = t_2 - t_1$, the **Impulse** $\\vec{I}$ is defined as:
+$$\\vec{I} = \\vec{F} \\Delta t$$
+- **Units of Impulse:**
+  - In SI units: $\\text{Newton} \\cdot \\text{second} (\\text{N}\\cdot\\text{s})$.
+  - In CGS units: $\\text{dyne} \\cdot \\text{second} (\\text{dyne}\\cdot\\text{s})$.
+  - Gravitational units: $\\text{kg-wt} \\cdot \\text{second} = 9.8\\text{ N}\\cdot\\text{s}$.
+  - Note that $1\\text{ N}\\cdot\\text{s} = 10^5\\text{ dyne}\\cdot\\text{s} = 1\\text{ kg}\\cdot\\text{m/s}$.
+
+### 2. Impulse of a Variable Force (دفع القوة المتغيرة)
+If the force $\\vec{F}(t)$ is a function of time, the impulse during the time interval from $t_1$ to $t_2$ is the definite integral:
+$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$
+- **Geometric Interpretation:** On an $(F - t)$ graph, the impulse equals the **area under the curve** bounded by $t = t_1$, $t = t_2$, and the time axis.
+
+### 3. The Impulse-Momentum Theorem (علاقة الدفع بكمية الحركة)
+From Newton's Second Law: $\\vec{F} = \\frac{d\\vec{p}}{dt} = m \\frac{d\\vec{v}}{dt}$.
+Integrating both sides with respect to time:
+$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F} dt = m(\\vec{v}_2 - \\vec{v}_1) = \\Delta \\vec{p}$$
+- For motion in a straight line:
+  $$I = m(v_2 - v_1)$$
+- If the body rebounds in the opposite direction:
+  $$I = m(v_2 - (-v_1)) = m(v_2 + v_1)$$
+
+### 4. Impulsive Reactions on Surfaces (الضغط الدفعي على السطوح)
+Let $F = \\frac{I}{\\Delta t}$ be the average impulsive force, and $W = mg$ be the weight of the body:
+1. **Impact on a Horizontal Floor (الأرضية الأفقية):**
+   $$N = F + mg$$
+2. **Impact on a Vertical Wall (الحائط الرأسي):**
+   $$N = F$$
+3. **Impact on a Ceiling (سقف الحجرة):**
+   $$N = F - mg$$`,
+          theoryContentAr: `### ١. تعريف الدفع
+إذا أثرت قوة ثابتة $\\vec{F}$ على جسم خلال فترة زمنية $\\Delta t = t_2 - t_1$ فإن **الدفع** $\\vec{I}$ يعرّف بأنه:
+$$\\vec{I} = \\vec{F} \\Delta t$$
+- **وحدات قياس الدفع:**
+  - بالنظام الدولي: نيوتن.ثانية ($\\text{N}\\cdot\\text{s}$).
+  - بنظام جاوس: داين.ثانية ($\\text{dyne}\\cdot\\text{s}$).
+  - بالوحدات التثاقلية: ث.كجم.ثانية $= 9.8\\text{ نيوتن.ث}$.
+  - لاحظ أن $1\\text{ نيوتن.ث} = 10^5\\text{ داين.ث} = 1\\text{ كجم.م/ث}$.
+
+### ٢. دفع القوة المتغيرة
+إذا كانت القوة $\\vec{F}(t)$ دالة في الزمن، فإن دفعها خلال الفترة الزمنية من $t_1$ إلى $t_2$ يساوي التكامل المحدد:
+$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$
+- **المعنى الهندسي:** الدفع يمثل **المساحة تحت منحنى (القوة - الزمن)** المحصورة بين $t_1$ و $t_2$ ومحور الزمن.
+
+### ٣. نظرية الدفع وكمية الحركة
+من قانون نيوتن الثاني: $\\vec{F} = \\frac{d\\vec{p}}{dt} = m \\frac{d\\vec{v}}{dt}$.
+بتكامل الطرفين بالنسبة للزمن:
+$$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$
+- في الحركة المستقيمة:
+  $$I = m(v_2 - v_1)$$
+- وفي حالة الارتداد في عكس الاتجاه:
+  $$I = m(v_2 + v_1)$$
+
+### ٤. ردود الأفعال والضغوط الدفعية على السطوح
+بفرض $F = \\frac{I}{\\Delta t}$ هي القوة الدفعية المتوسطة، و $W = mg$ هو وزن الجسم:
+١. **عند الاصطدام بأرضية أفقية:**
+   $$N = F + mg$$
+٢. **عند الاصطدام بحائط رأسي:**
+   $$N = F$$
+٣. **عند الاصطدام بسقف حجرة:**
+   $$N = F - mg$$`,
+          formulas: [
+            { labelEn: 'Constant Force Impulse', labelAr: 'دفع القوة الثابتة', latex: 'I = F \\Delta t = \\Delta p' },
+            { labelEn: 'Variable Force Integral', labelAr: 'تكامل القوة المتغيرة', latex: 'I = \\int_{t_1}^{t_2} F(t) dt' },
+            { labelEn: 'Rebound Momentum Change', labelAr: 'تغير كمية الحركة عند الارتداد', latex: 'I = m(v_2 + v_1)' },
+            { labelEn: 'Horizontal Floor Reaction', labelAr: 'الضغط على الأرض الأفقية', latex: 'N = F + mg' },
+            { labelEn: 'Ceiling Reaction', labelAr: 'الضغط على السقف', latex: 'N = F - mg' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Dynamics Textbook Grade 12',
+            bookTitleAr: 'كتاب الديناميكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-DYN-CH3-L1',
+            pageRange: 'pp. 115 - 132'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Impulse, Momentum Theorem & Boundary Reactions',
+            titleAr: 'خطة درس: الدفع ونظرية كمية الحركة وضغوط التصادم',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-DYN-CH3-L1',
+            bloomsObjectivesEn: [
+              'Define impulse and state its standard SI and gravitational units.',
+              'Evaluate the impulse of variable forces using definite integration and graphical areas.',
+              'Calculate the average impulsive force and surface reaction on floors, walls, and ceilings.'
+            ],
+            bloomsObjectivesAr: [
+              'تعريف مفهوم الدفع وتحديد وحدات قياسه الدولية والتثاقلية.',
+              'حساب دفع القوى المتغيرة بالتكامل المحدد والمساحات البيانية.',
+              'حساب القوة الدفعية ورد فعل الأسطح المختلفة (أرضية، حائط، سقف).'
+            ],
+            prerequisitesEn: ['Newton’s Second Law', 'Linear Momentum Definition', 'Definite Integration'],
+            prerequisitesAr: ['قانون نيوتن الثاني', 'تعريف كمية الحركة', 'التكامل المحدد'],
+            keyVocabularyEn: [
+              { term: 'Impulse', definition: 'The product of a force and the time interval during which it acts.' },
+              { term: 'Impulsive Force', definition: 'A very large force acting for a very short duration.' },
+              { term: 'Floor Thrust', definition: 'The sum of the impulsive force and the downward weight of the object.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'الدفع', definition: 'حاصل ضرب القوة المؤثرة في زمن تأثيرها.' },
+              { term: 'القوة الدفعية', definition: 'قوة كبيرة جداً تؤثر خلال فترة زمنية متناهية في الصغر.' },
+              { term: 'الضغط على الأرض', definition: 'مجموع القوة الدفعية ووزن الجسم لأسفل.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Hook & Real World Impacts',
+                phaseAr: 'التهيئة ومفهوم التصادم في الواقع',
+                duration: '15 mins',
+                activitiesEn: 'Analyze bat hitting a baseball and ball bouncing from a floor.',
+                activitiesAr: 'تحليل تصادم مضرب بكرة وتصادم كرة ساقطة بالأرض.'
+              },
+              {
+                phaseEn: 'Derivation & Boundary Formulas',
+                phaseAr: 'الاستنتاج وقوانين الضغط على السطوح',
+                duration: '40 mins',
+                activitiesEn: 'Derive I = Δp and establish floor, wall, and ceiling reaction formulas.',
+                activitiesAr: 'استنتاج د = دلتا كـ وصياغة معادلات الضغط على الأرض والحائط والسقف.'
+              },
+              {
+                phaseEn: 'Problem Solving & Guided Practice',
+                phaseAr: 'حل المسائل والتدريب الموجه',
+                duration: '25 mins',
+                activitiesEn: 'Solve falling and rebounding balls with variable contact times.',
+                activitiesAr: 'حل مسائل كرات ساقطة ومرتدة مع أزمنة تلامس مختلفة.'
+              },
+              {
+                phaseEn: 'Exit Ticket & Wrap-Up',
+                phaseAr: 'تذكرة الخروج والختام',
+                duration: '10 mins',
+                activitiesEn: 'Formative assessment on ceiling vs floor reactions.',
+                activitiesAr: 'تقييم تكويني حول الفرق بين الضغط على السقف والأرض.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Forgetting to reverse the sign of velocity upon rebounding.',
+              'Adding weight on the ceiling instead of subtracting it.'
+            ],
+            commonMisconceptionsAr: [
+              'نسيان عكس إشارة السرعة عند الارتداد من السطح.',
+              'جمع الوزن عند الاصطدام بالسقف بدلاً من طرحه.'
+            ],
+            differentiationEn: {
+              struggling: 'Use visual vector arrows to emphasize opposite velocity signs during rebound.',
+              advanced: 'Calculate variable forces given by piecewise functions and parabolic impulse profiles.'
+            },
+            differentiationAr: {
+              struggling: 'استخدام أسهم متجهة لتوضيح إشارة السرعة المعاكسة عند الارتداد.',
+              advanced: 'حساب دفع قوى معرفة بقواعد متعددة ومنحنيات قطع مكافئ.'
+            },
+            formativeAssessmentEn: 'Solve a quick problem: Ball of 0.2 kg rebounds from ceiling; find net ceiling thrust.',
+            formativeAssessmentAr: 'حل سريع: كرة كتلتها ٠٫٢ كجم ترتد من سقف؛ احسب الضغط الكلي على السقف.',
+            exitTicketQuestion: {
+              questionEn: 'A force F = (4t + 1) N acts for t in [0, 3] s on a 2 kg mass at rest. Find final speed.',
+              questionAr: 'أثرت قوة ق = ٤ن + ١ نيوتن في الفترة [٠، ٣] ث على جسم كتلته ٢ كجم ساكن. احسب سرعته النهائية.',
+              solutionEn: 'I = [2t^2 + t]_0^3 = 18 + 3 = 21 N.s. v = I / m = 21 / 2 = 10.5 m/s.',
+              solutionAr: 'د = [٢ن² + ن] = ١٨ + ٣ = ٢١ نيوتن.ث. ع = د / ك = ٢١ / ٢ = ١٠٫٥ م/ث.'
+            }
+          },
+          worksheet: {
+            id: 'dyn_ws_l5',
+            titleEn: 'Worksheet: Impulse & Momentum Theorem',
+            titleAr: 'ورقة عمل: الدفع ونظرية كمية الحركة',
+            descriptionEn: 'Practice problems on constant and variable impulse, rebound momentum change, and ceiling/floor pressures.',
+            descriptionAr: 'تمارين تدريبية على دفع القوة الثابتة والمتغيرة، وتغير كمية الحركة، وضغوط التصادم.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'dyn_l5_p1',
+                titleEn: 'Direct Impulse Calculation',
+                titleAr: 'حساب الدفع المباشر',
+                difficulty: 'easy',
+                questionEn: 'A constant force $F = 60\\text{ N}$ acts on a body for $\\Delta t = 0.4\\text{ s}$. Find the magnitude of the impulse.',
+                questionAr: 'أثرت قوة ثابتة مقدارها $F = 60\\text{ نيوتن}$ على جسم لمدة $\\Delta t = 0.4\\text{ ث}$. احسب مقدار الدفع.',
+                optionsEn: ['$24\\text{ N}\\cdot\\text{s}$', '$150\\text{ N}\\cdot\\text{s}$', '$240\\text{ N}\\cdot\\text{s}$', '$12\\text{ N}\\cdot\\text{s}$'],
+                optionsAr: ['$24\\text{ نيوتن.ث}$', '$150\\text{ نيوتن.ث}$', '$240\\text{ نيوتن.ث}$', '$12\\text{ نيوتن.ث}$'],
+                correctAnswer: '$24\\text{ N}\\cdot\\text{s}$',
+                correctIndex: 0,
+                hintEn: 'I = F * Δt = 60 * 0.4.',
+                hintAr: 'الدفع = القوة × الزمن = ٦٠ × ٠٫٤.',
+                stepByStepSolutionEn: ['I = F Δt = 60 * 0.4 = 24 N.s.'],
+                stepByStepSolutionAr: ['د = ق × ن = ٦٠ × ٠٫٤ = ٢٤ نيوتن.ث.']
+              },
+              {
+                id: 'dyn_l5_p2',
+                titleEn: 'Rebound from Floor and Total Reaction',
+                titleAr: 'الارتداد من الأرض وحساب رد الفعل الكلي',
+                difficulty: 'medium',
+                questionEn: 'A ball of mass $0.5\\text{ kg}$ hits a floor at $8\\text{ m/s}$ and rebounds at $6\\text{ m/s}$. If $\\Delta t = 0.05\\text{ s}$, find the total normal reaction on the floor ($g = 9.8\\text{ m/s}^2$).',
+                questionAr: 'اصطدمت كرة كتلتها $0.5\\text{ كجم}$ بأرضية بسرعة $8\\text{ م/ث}$ وارتدت بسرعة $6\\text{ م/ث}$. فإذا كان زمن التلامس $\\Delta t = 0.05\\text{ ث}$، احسب رد الفعل الكلي على الأرض ($g = 9.8\\text{ م/ث²}$).',
+                optionsEn: ['$144.9\\text{ N}$', '$140\\text{ N}$', '$135.1\\text{ N}$', '$74.9\\text{ N}$'],
+                optionsAr: ['$144.9\\text{ نيوتن}$', '$140\\text{ نيوتن}$', '$135.1\\text{ نيوتن}$', '$74.9\\text{ نيوتن}$'],
+                correctAnswer: '$144.9\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'I = 0.5(6 + 8) = 7 N.s. F = 7 / 0.05 = 140 N. N = F + mg = 140 + 4.9 = 144.9 N.',
+                hintAr: 'د = ٠٫٥(٦ + ٨) = ٧ نيوتن.ث. ق = ٧ / ٠٫٠٥ = ١٤٠ نيوتن. رد الفعل = ١٤٠ + ٤٫٩ = ١٤٤٫٩ نيوتن.',
+                stepByStepSolutionEn: [
+                  '1. Impulse: I = 0.5(6 - (-8)) = 7 N.s.',
+                  '2. Average impulsive force: F = 7 / 0.05 = 140 N.',
+                  '3. Floor reaction: N = F + mg = 140 + 0.5(9.8) = 144.9 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. الدفع: د = ٠٫٥(٦ + ٨) = ٧ نيوتن.ث.',
+                  '٢. القوة الدفعية: ق = ٧ / ٠٫٠٥ = ١٤٠ نيوتن.',
+                  '٣. رد فعل الأرض: ض = ق + ك د = ١٤٠ + ٤٫٩ = ١٤٤٫٩ نيوتن.'
+                ]
+              },
+              {
+                id: 'dyn_l5_p3',
+                titleEn: 'Parabolic Impulse Integration',
+                titleAr: 'تكامل دفع قوة تربيعية',
+                difficulty: 'hots',
+                questionEn: 'A force $F(t) = (6t - t^2)\\text{ N}$ acts on a $2\\text{ kg}$ body from $t = 0$ until it ceases ($F = 0$). Find the speed acquired from rest.',
+                questionAr: 'أثرت قوة $F(t) = (6t - t^2)\\text{ نيوتن}$ على جسم كتلته $2\\text{ كجم}$ من $t = 0$ حتى انعدمت القوة ($F = 0$). احسب السرعة التي اكتسبها الجسم من السكون.',
+                optionsEn: ['$18\\text{ m/s}$', '$36\\text{ m/s}$', '$9\\text{ m/s}$', '$27\\text{ m/s}$'],
+                optionsAr: ['$18\\text{ م/ث}$', '$36\\text{ م/ث}$', '$9\\text{ م/ث}$', '$27\\text{ م/ث}$'],
+                correctAnswer: '$18\\text{ m/s}$',
+                correctIndex: 0,
+                hintEn: 'Force ceases when 6t - t^2 = 0 => t = 6 s. Integrate F from 0 to 6, then v = I / 2.',
+                hintAr: 'تنعدم القوة عند ٦ن - ن² = ٠ أي ن = ٦ ث. كامل القوة من ٠ إلى ٦ ثم السرعة = د / ٢.',
+                stepByStepSolutionEn: [
+                  '1. Find interval: F(t) = 0 => t(6 - t) = 0 => t = 6 s.',
+                  '2. Integrate: I = [3t^2 - t^3/3]_0^6 = 3(36) - 216/3 = 108 - 72 = 36 N.s.',
+                  '3. Speed: v = I / m = 36 / 2 = 18 m/s.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. نهاية تأثير القوة: ٦ن - ن² = ٠ ومنها ن = ٦ ث.',
+                  '٢. حساب الدفع: د = [٣ن² - ن³/٣] من ٠ إلى ٦ = ١٠٨ - ٧٢ = ٣٦ نيوتن.ث.',
+                  '٣. السرعة المكتسبة: ع = ٣٦ / ٢ = ١٨ م/ث.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'calculus_tangent',
+            titleEn: 'Impulse & (F-t) Curve Area Visualizer',
+            titleAr: 'محاكي الدفع وحساب المساحة تحت منحنى (القوة - الزمن)',
+            descriptionEn: 'Visual simulator displaying the integral of variable forces and corresponding changes in body momentum.',
+            descriptionAr: 'محاكي تفاعلي لعرض تكامل القوة المتغيرة والتغير اللحظي في كمية حركة الجسم.'
+          }
+        },
+        {
+          id: 'dyn_l6',
+          titleEn: 'Direct Collision & Law of Conservation of Momentum',
+          titleAr: 'التصادم المباشر وقانون بقاء كمية الحركة',
+          summaryEn: 'Principles of direct collision between two spheres, action-reaction impulses during impact, conservation of total linear momentum m1 u1 + m2 u2 = m1 v1\' + m2 v2\', coalescing into a single body, and loss of kinetic energy.',
+          summaryAr: 'مبادئ التصادم المباشر بين كرتين، ودفع الفعل ورد الفعل أثناء التصادم، وقانون بقاء كمية الحركة الكلية ك١ ع١ + ك٢ ع٢ = ك١ ع١\' + ك٢ ع٢\'، والتحام الأجسام في جسم واحد، وحساب الفقد في طاقة الحركة.',
+          theoryContentEn: `### 1. Direct Collision of Two Smooth Spheres (التصادم المباشر)
+When two spheres move along the line connecting their centers and impact each other:
+- By **Newton's Third Law**, the impulsive force exerted by the first sphere on the second ($\\vec{F}_{12}$) is equal in magnitude and opposite in direction to that exerted by the second sphere on the first ($\\vec{F}_{21}$):
+  $$\\vec{F}_{12} = -\\vec{F}_{21}$$
+- Multiplying by the duration of impact $\\Delta t$:
+  $$\\vec{I}_{1 \\to 2} = -\\vec{I}_{2 \\to 1}$$
+
+### 2. Law of Conservation of Linear Momentum (قانون بقاء كمية الحركة)
+Since internal impulsive forces sum to zero, the total linear momentum of the system before collision equals the total linear momentum after collision:
+$$m_1 \\vec{u}_1 + m_2 \\vec{u}_2 = m_1 \\vec{v}_1' + m_2 \\vec{v}_2'$$
+- In one-dimensional motion with a chosen positive direction:
+  $$m_1 u_1 + m_2 u_2 = m_1 v_1' + m_2 v_2'$$
+
+### 3. Inelastic Collision and Coalescence (الالتحام في جسم واحد)
+When the two bodies stick together and move as a single combined body after collision:
+$$m_1 u_1 + m_2 u_2 = (m_1 + m_2) v'$$
+- The common velocity is:
+  $$v' = \\frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}$$
+
+### 4. Loss in Kinetic Energy (طاقة الحركة المفقودة)
+In any inelastic collision, mechanical energy is converted into heat, sound, and internal deformation:
+$$\\Delta T = T_{\\text{before}} - T_{\\text{after}}$$
+$$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\left( \\frac{1}{2} m_1 (v_1')^2 + \\frac{1}{2} m_2 (v_2')^2 \\right)$$
+- When the bodies coalesce:
+  $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\frac{1}{2} (m_1 + m_2) (v')^2$$
+- When the second body was initially at rest ($u_2 = 0$):
+  $$\\Delta T = \\frac{1}{2} \\left( \\frac{m_1 m_2}{m_1 + m_2} \\right) u_1^2$$`,
+          theoryContentAr: `### ١. التصادم المباشر لكرتين ملساوين
+عند تصادم كرتين تتحركان على خط المركزين:
+- وفق **قانون نيوتن الثالث**، فإن القوة الدفعية التي تؤثر بها الكرة الأولى على الثانية تضاد القوة الدفعية التي تؤثر بها الثانية على الأولى:
+  $$\\vec{F}_{12} = -\\vec{F}_{21}$$
+- وبضرب الطرفين في زمن التصادم $\\Delta t$:
+  $$\\vec{I}_{1 \\to 2} = -\\vec{I}_{2 \\to 1}$$
+
+### ٢. قانون بقاء كمية الحركة
+بما أن القوى الدفعية قوى داخلية يلغي بعضها بعضاً، فإن كمية الحركة الكلية للمجموعة قبل التصادم تساوي كمية الحركة الكلية بعد التصادم:
+$$m_1 \\vec{u}_1 + m_2 \\vec{u}_2 = m_1 \\vec{v}_1' + m_2 \\vec{v}_2'$$
+- وفي الحركة في خط مستقيم باختيار اتجاه موجب:
+  $$m_1 u_1 + m_2 u_2 = m_1 v_1' + m_2 v_2'$$
+
+### ٣. التصادم غير المرن والالتحام
+عندما يلتحم الجسمان بعد التصادم ويتحركان ككتلة واحدة:
+$$m_1 u_1 + m_2 u_2 = (m_1 + m_2) v'$$
+- فتكون السرعة المشتركة:
+  $$v' = \\frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}$$
+
+### ٤. طاقة الحركة المفقودة نتيجة التصادم
+في التصادم غير المرن تتحول جزء من طاقة الحركة إلى حرارة وصوت وتشوه في الجسمين:
+$$\\Delta T = T_{\\text{قبل}} - T_{\\text{بعد}}$$
+$$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\left( \\frac{1}{2} m_1 (v_1')^2 + \\frac{1}{2} m_2 (v_2')^2 \\right)$$
+- وإذا التحم الجسمان في كتلة واحدة:
+  $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\frac{1}{2} (m_1 + m_2) (v')^2$$
+- وإذا كان الجسم الثاني ساكناً في البداية ($u_2 = 0$):
+  $$\\Delta T = \\frac{1}{2} \\left( \\frac{m_1 m_2}{m_1 + m_2} \\right) u_1^2$$`,
+          formulas: [
+            { labelEn: 'Mutual Impulse Law', labelAr: 'قانون الدفع المتبادل', latex: 'I_{1 \\to 2} = -I_{2 \\to 1}' },
+            { labelEn: 'Conservation of Linear Momentum', labelAr: 'قانون بقاء كمية الحركة', latex: 'm_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'' },
+            { labelEn: 'Coalescence Common Speed', labelAr: 'السرعة المشتركة عند الالتحام', latex: 'v\' = \\frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}' },
+            { labelEn: 'Loss in Kinetic Energy', labelAr: 'طاقة الحركة المفقودة', latex: '\\Delta T = T_{\\text{before}} - T_{\\text{after}}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Dynamics Textbook Grade 12',
+            bookTitleAr: 'كتاب الديناميكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-DYN-CH3-L2',
+            pageRange: 'pp. 133 - 150'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Direct Collisions & Momentum Conservation',
+            titleAr: 'خطة درس: التصادم المباشر وبقاء كمية الحركة',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-DYN-CH3-L2',
+            bloomsObjectivesEn: [
+              'Apply the law of conservation of momentum to 1D collisions.',
+              'Calculate the common velocity of coalescing bodies.',
+              'Determine the kinetic energy dissipated during inelastic impacts.'
+            ],
+            bloomsObjectivesAr: [
+              'تطبيق مبدأ بقاء كمية الحركة في التصادم أحادي البعد.',
+              'حساب السرعة المشتركة للأجسام الملتصقة بعد التصادم.',
+              'تعيين طاقة الحركة المفقودة أثناء التصادمات غير المرنة.'
+            ],
+            prerequisitesEn: ['Newton’s Third Law', 'Kinetic Energy Definition T = 1/2 m v^2', 'Vector Signs'],
+            prerequisitesAr: ['قانون نيوتن الثالث', 'تعريف طاقة الحركة', 'إشارات المتجهات'],
+            keyVocabularyEn: [
+              { term: 'Conservation of Momentum', definition: 'The total momentum of an isolated system remains constant.' },
+              { term: 'Inelastic Collision', definition: 'A collision where kinetic energy is not conserved.' },
+              { term: 'Coalescence', definition: 'When colliding bodies stick together and move with a single common speed.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'بقاء كمية الحركة', definition: 'ثبوت كمية الحركة الكلية لمنظومة معزولة عن القوى الخارجية.' },
+              { term: 'تصادم غير مرن', definition: 'تصادم لا تُحفظ فيه طاقة الحركة الميكانيكية.' },
+              { term: 'الالتحام', definition: 'التصاق الأجسام المتصادمة لتتحرك بسرعة مشتركة واحدة.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Motivation & Newton Cradle Demo',
+                phaseAr: 'التهيئة وبندول نيوتن',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate momentum transfer between billiard balls.',
+                activitiesAr: 'عرض عملي لانتقال كمية الحركة بين كرات البلياردو.'
+              },
+              {
+                phaseEn: 'Formal Derivation & Sign Convention',
+                phaseAr: 'الاستنتاج وقواعد الإشارات',
+                duration: '40 mins',
+                activitiesEn: 'Derive m1 u1 + m2 u2 = m1 v1\' + m2 v2\' and the kinetic energy loss formula.',
+                activitiesAr: 'استنتاج قانون بقاء كمية الحركة وصياغة قانون فقد طاقة الحركة.'
+              },
+              {
+                phaseEn: 'Guided Multi-Case Practice',
+                phaseAr: 'تدريب موجه على الحالات المختلفة',
+                duration: '25 mins',
+                activitiesEn: 'Solve problems with same-direction, opposite-direction, and coalescing impacts.',
+                activitiesAr: 'حل مسائل التصادم في نفس الاتجاه والاتجاه المعاكس والالتحام.'
+              },
+              {
+                phaseEn: 'Exit Ticket & Synthesis',
+                phaseAr: 'تذكرة الخروج والتقييم',
+                duration: '10 mins',
+                activitiesEn: 'Check understanding of mutual impulse symmetry I12 = -I21.',
+                activitiesAr: 'التأكد من استيعاب تماثل الدفع المتبادل د١٢ = - د٢١.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Assuming kinetic energy is conserved in all collisions (it is ONLY conserved in perfectly elastic collisions).',
+              'Forgetting to assign negative signs to velocities pointing in the reverse direction.'
+            ],
+            commonMisconceptionsAr: [
+              'الاعتقاد الخاطئ بأن طاقة الحركة محفوظة دائماً في كل التصادمات.',
+              'نسيان الإشارة السالبة للسرعات في الاتجاه المعاكس.'
+            ],
+            differentiationEn: {
+              struggling: 'Provide a structured tabular organizer with columns: Body, Mass, Initial Velocity, Final Velocity.',
+              advanced: 'Explore successive 3-body collisions and ballistic pendulum angular deflections.'
+            },
+            differentiationAr: {
+              struggling: 'توفير جدول منظم: الجسم، كتلته، سرعته الابتدائية، سرعته النهائية.',
+              advanced: 'دراسة التصادمات المتتالية لثلاث كرات والانحراف الزاوي للبندول القذفي.'
+            },
+            formativeAssessmentEn: 'Two identical spheres collide at equal and opposite speeds and coalesce. What is their common speed?',
+            formativeAssessmentAr: 'كرتان متماثلتان تصادمتا بسرعتين متساويتين ومتضادتين والتحمتا. ما هي السرعة المشتركة؟ (صفر، تسكنان تماماً).',
+            exitTicketQuestion: {
+              questionEn: 'Mass 3 kg at 4 m/s hits mass 1 kg at rest and coalesces. Find common velocity.',
+              questionAr: 'كتلة ٣ كجم بسرعة ٤ م/ث اصطدمت بكتلة ١ كجم ساكنة والتحمتا. احسب السرعة المشتركة.',
+              solutionEn: 'v\' = (3 * 4 + 1 * 0) / (3 + 1) = 12 / 4 = 3 m/s.',
+              solutionAr: 'ع\' = (٣ × ٤ + ٠) / (٣ + ١) = ١٢ / ٤ = ٣ م/ث.'
+            }
+          },
+          worksheet: {
+            id: 'dyn_ws_l6',
+            titleEn: 'Worksheet: Direct Collision & Energy Dissipation',
+            titleAr: 'ورقة عمل: التصادم المباشر وتشتت الطاقة',
+            descriptionEn: 'Problems on momentum conservation, rebound kinematics, and energy lost in inelastic collisions.',
+            descriptionAr: 'تمارين على بقاء كمية الحركة، وحساب سرعات الارتداد، والطاقة المفقودة.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'dyn_l6_p1',
+                titleEn: 'Coalescence of Two Masses',
+                titleAr: 'التحام كتلتين متحركتين',
+                difficulty: 'easy',
+                questionEn: 'A sphere of mass $2\\text{ kg}$ moving at $6\\text{ m/s}$ hits a stationary sphere of mass $4\\text{ kg}$ and coalesces with it. Find the common speed.',
+                questionAr: 'كرة كتلتها $2\\text{ كجم}$ تتحرك بسرعة $6\\text{ م/ث}$ اصطدمت بكرة ساكنة كتلتها $4\\text{ كجم}$ والتحمتا معاً. احسب السرعة المشتركة.',
+                optionsEn: ['$2\\text{ m/s}$', '$3\\text{ m/s}$', '$1.5\\text{ m/s}$', '$4\\text{ m/s}$'],
+                optionsAr: ['$2\\text{ م/ث}$', '$3\\text{ م/ث}$', '$1.5\\text{ م/ث}$', '$4\\text{ م/ث}$'],
+                correctAnswer: '$2\\text{ m/s}$',
+                correctIndex: 0,
+                hintEn: 'v\' = (2 * 6) / (2 + 4) = 12 / 6 = 2 m/s.',
+                hintAr: 'السرعة المشتركة = (٢ × ٦) / (٢ + ٤) = ١٢ / ٦ = ٢ م/ث.',
+                stepByStepSolutionEn: ['v\' = (m1 u1) / (m1 + m2) = (2 * 6) / 6 = 2 m/s.'],
+                stepByStepSolutionAr: ['ع\' = (ك١ ع١) / (ك١ + ك٢) = ١٢ / ٦ = ٢ م/ث.']
+              },
+              {
+                id: 'dyn_l6_p2',
+                titleEn: 'Kinetic Energy Dissipation',
+                titleAr: 'فقد طاقة الحركة في تصادم غير مرن',
+                difficulty: 'medium',
+                questionEn: 'For the two spheres in the previous problem ($2\\text{ kg}$ at $6\\text{ m/s}$ hitting stationary $4\\text{ kg}$ and coalescing), find the loss in kinetic energy.',
+                questionAr: 'في المسألة السابقة (كرة $2\\text{ كجم}$ بسرعة $6\\text{ م/ث}$ اصطدمت بكرة $4\\text{ كجم}$ ساكنة والتحمتا)، احسب طاقة الحركة المفقودة.',
+                optionsEn: ['$24\\text{ Joules}$', '$36\\text{ Joules}$', '$12\\text{ Joules}$', '$18\\text{ Joules}$'],
+                optionsAr: ['$24\\text{ جول}$', '$36\\text{ جول}$', '$12\\text{ جول}$', '$18\\text{ جول}$'],
+                correctAnswer: '$24\\text{ Joules}$',
+                correctIndex: 0,
+                hintEn: 'T_before = 1/2(2)(36) = 36 J. T_after = 1/2(6)(4) = 12 J. Loss = 36 - 12 = 24 J.',
+                hintAr: 'ط قبل = ٠٫٥(٢)(٣٦) = ٣٦ جول. ط بعد = ٠٫٥(٦)(٤) = ١٢ جول. الفقد = ٣٦ - ١٢ = ٢٤ جول.',
+                stepByStepSolutionEn: [
+                  '1. Initial kinetic energy: T1 = 0.5 * 2 * 36 = 36 J.',
+                  '2. Final kinetic energy: T2 = 0.5 * 6 * (2^2) = 12 J.',
+                  '3. Loss in kinetic energy: Loss = 36 - 12 = 24 Joules.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. طاقة الحركة قبل التصادم: ٣٦ جول.',
+                  '٢. طاقة الحركة بعد التصادم: ١٢ جول.',
+                  '٣. الفقد في طاقة الحركة = ٣٦ - ١٢ = ٢٤ جول.'
+                ]
+              },
+              {
+                id: 'dyn_l6_p3',
+                titleEn: 'Impulse and Rebound Velocity',
+                titleAr: 'الدفع وسرعة ارتداد كرتين',
+                difficulty: 'hots',
+                questionEn: 'Two spheres of masses $300\\text{ g}$ and $200\\text{ g}$ move in opposite directions at $4\\text{ m/s}$ and $6\\text{ m/s}$ respectively. If the first sphere rebounds at $2\\text{ m/s}$, find the impulse exerted by the first on the second.',
+                questionAr: 'كرتان كتلتاهما $300\\text{ جم}$ و $200\\text{ جم}$ تتحركان في اتجاهين متضادين بسرعتين $4\\text{ م/ث}$ و $6\\text{ م/ث}$. فإذا ارتدت الأولى بسرعة $2\\text{ م/ث}$، أوجد مقدار دفع الأولى على الثانية.',
+                optionsEn: ['$1.8\\text{ N}\\cdot\\text{s}$', '$0.6\\text{ N}\\cdot\\text{s}$', '$1.2\\text{ N}\\cdot\\text{s}$', '$2.4\\text{ N}\\cdot\\text{s}$'],
+                optionsAr: ['$1.8\\text{ نيوتن.ث}$', '$0.6\\text{ نيوتن.ث}$', '$1.2\\text{ نيوتن.ث}$', '$2.4\\text{ نيوتن.ث}$'],
+                correctAnswer: '$1.8\\text{ N}\\cdot\\text{s}$',
+                correctIndex: 0,
+                hintEn: 'Impulse on first sphere I = m1(v1\' - u1) = 0.3(-2 - 4) = -1.8 N.s. By Newton\'s 3rd Law, impulse on 2nd is +1.8 N.s.',
+                hintAr: 'الدفع على الأولى = ٠٫٣(-٢ - ٤) = -١٫٨ نيوتن.ث. إذن دفع الأولى على الثانية = +١٫٨ نيوتن.ث.',
+                stepByStepSolutionEn: [
+                  '1. Set direction of 1st sphere positive: u1 = +4, v1\' = -2.',
+                  '2. Impulse on 1st sphere: I1 = 0.3(-2 - 4) = -1.8 N.s.',
+                  '3. By Newton\'s Third Law: I_{1->2} = -I1 = +1.8 N.s (magnitude 1.8 N.s).'
+                ],
+                stepByStepSolutionAr: [
+                  '١. فرض اتجاه الأولى موجباً: ع١ = +٤، ع١\' = -٢.',
+                  '٢. الدفع على الأولى: د = ٠٫٣(-٢ - ٤) = -١٫٨ نيوتن.ث.',
+                  '٣. دفع الأولى على الثانية = +١٫٨ نيوتن.ث ومقداره ١٫٨ نيوتن.ث.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: '1D Elastic & Inelastic Collision Laboratory',
+            titleAr: 'مختبر التصادم أحادي البعد المرن وغير المرن',
+            descriptionEn: 'Interactive simulator visualizing conservation of momentum, coefficient of restitution, and post-collision trajectories.',
+            descriptionAr: 'محاكي تفاعلي لعرض بقاء كمية الحركة ومعامل الارتداد ومسارات الحركة بعد التصادم.'
+          }
+        }
+      ],
+      solvedExamples: dynCh3SolvedExamples,
+      exerciseProblems: dynCh3Exercises,
+      databank: dynCh3Databank
     }
   ]
 };
