@@ -1,4 +1,6 @@
 import type { Branch } from '../types/curriculum';
+import { dynCh1SolvedExamples, dynCh1Exercises } from './textbook/thanaweya/dynCh1Textbook';
+import { dynCh1Databank } from './databanks/thanaweya/dynCh1Databank';
 
 export const thanaweyaDynamicsBranch: Branch = {
   id: 'dynamics',
@@ -588,7 +590,10 @@ $$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 
             descriptionAr: 'محاكي تفاعلي لعرض المساحة تحت منحنى السرعة وحساب المسافة الكلية والإزاحة هندسياً.'
           }
         }
-      ]
+      ],
+      solvedExamples: dynCh1SolvedExamples,
+      exerciseProblems: dynCh1Exercises,
+      databank: dynCh1Databank
     },
     {
       id: 'dyn_ch2',
