@@ -321,6 +321,7 @@ export const Navbar: React.FC<Props> = ({
             { id: 'theory', label: t.theoryTab, icon: '📖' },
             { id: 'solvedExamples', label: t.solvedExamplesTab, icon: '💡' },
             { id: 'exerciseProblems', label: t.exerciseProblemsTab, icon: '📚' },
+            { id: 'databank', label: t.databankTab, icon: '🗄️' },
             { id: 'worksheet', label: t.worksheetTab, icon: '✏️' },
             { id: 'interactive', label: t.interactiveTab, icon: '🎮' },
             { id: 'lessonPlan', label: t.lessonPlanTab, icon: '📋' },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Lesson, Branch, SolvedProblem } from '../types/curriculum';
+import type { Lesson, Branch, SolvedProblem, Curriculum } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
@@ -19,8 +19,10 @@ interface Props {
   role: UserRole;
   lesson: Lesson;
   branch: Branch;
+  curriculum?: Curriculum;
   activeSubTab: string;
   onSubTabChange: (tab: string) => void;
+  onSelectLesson?: (branch: Branch, lesson: Lesson, tab?: string) => void;
 }
 
 export const LessonView: React.FC<Props> = ({
@@ -29,8 +31,10 @@ export const LessonView: React.FC<Props> = ({
   role,
   lesson,
   branch,
+  curriculum,
   activeSubTab,
   onSubTabChange,
+  onSelectLesson,
 }) => {
   const isLight = theme === 'light';
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
@@ -201,6 +205,118 @@ export const LessonView: React.FC<Props> = ({
 
   return (
     <div className="space-y-6">
+      {/* 🧭 CHAPTER & BRANCH QUICK-SWITCHER */}
+      {curriculum && onSelectLesson && (
+        <div className={`p-3 sm:p-4 rounded-2xl border space-y-3 no-print shadow-sm transition-all ${
+          isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
+        }`}>
+          {/* Branch Selector Row */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2 shrink-0">
+              <Layers className="w-4 h-4 text-indigo-500" />
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                {lang === 'ar' ? 'فروع المنهج الدراسي:' : 'Curriculum Branches:'}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
+              {curriculum.branches.map((b) => {
+                const isSelectedBranch = b.id === branch.id;
+                return (
+                  <button
+                    key={b.id}
+                    onClick={() => {
+                      if (!isSelectedBranch) {
+                        onSelectLesson(b, b.chapters[0].lessons[0], activeSubTab);
+                      }
+                    }}
+                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all ${
+                      isSelectedBranch
+                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                        : isLight
+                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                    }`}
+                  >
+                    {lang === 'ar' ? b.titleAr : b.titleEn}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Chapter Pills Carousel */}
+          <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              {branch.chapters.map((ch) => {
+                const isCurrentChapter = ch.lessons.some((l) => l.id === lesson.id);
+                return (
+                  <button
+                    key={ch.id}
+                    onClick={() => onSelectLesson(branch, ch.lessons[0], activeSubTab)}
+                    className={`px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 ${
+                      isCurrentChapter
+                        ? isLight
+                          ? 'bg-indigo-100 border-2 border-indigo-600 text-indigo-950 shadow-sm'
+                          : 'bg-indigo-950/80 border-2 border-indigo-500 text-indigo-200 shadow-md'
+                        : isLight
+                        ? 'bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100'
+                        : 'bg-slate-950/80 border border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'
+                    }`}
+                  >
+                    <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${
+                      isCurrentChapter
+                        ? 'bg-indigo-600 text-white'
+                        : isLight
+                        ? 'bg-slate-200 text-slate-700'
+                        : 'bg-slate-800 text-slate-400'
+                    }`}>
+                      {lang === 'ar' ? `فصل ${toHindiDigits(ch.chapterNumber)}` : `Ch ${ch.chapterNumber}`}
+                    </span>
+                    <span className="truncate max-w-[200px] sm:max-w-[280px]">
+                      <MathRenderer math={lang === 'ar' ? ch.titleAr : ch.titleEn} lang={lang} />
+                    </span>
+                    {ch.databank && (
+                      <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 font-extrabold border border-emerald-500/30">
+                        175 Q
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Lessons Pill Carousel if Chapter has > 1 Lesson */}
+          {currentChapter.lessons.length > 1 && (
+            <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              <span className="text-[11px] font-bold text-slate-400 shrink-0">
+                {lang === 'ar' ? 'الدروس:' : 'Lessons:'}
+              </span>
+              {currentChapter.lessons.map((l, lIdx) => {
+                const isSelectedLesson = l.id === lesson.id;
+                return (
+                  <button
+                    key={l.id}
+                    onClick={() => onSelectLesson(branch, l, activeSubTab)}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                      isSelectedLesson
+                        ? 'bg-emerald-600 text-white shadow-xs'
+                        : isLight
+                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900'
+                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                    }`}
+                  >
+                    {lang === 'ar' ? `درس ${toHindiDigits(lIdx + 1)}: ` : `Lesson ${lIdx + 1}: `}
+                    <MathRenderer math={lang === 'ar' ? l.titleAr : l.titleEn} lang={lang} />
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Lesson Header Banner */}
       <div className={`rounded-2xl p-4 sm:p-6 space-y-4 border print-lesson-header print-avoid-break ${
         isLight

@@ -80,10 +80,12 @@ export const App: React.FC = () => {
     setRole((prev) => (prev === 'student' ? 'teacher' : 'student'));
   };
 
-  const handleSelectLesson = (b: Branch, l: Lesson) => {
+  const handleSelectLesson = (b: Branch, l: Lesson, tab?: string) => {
     setSelectedBranch(b);
     setSelectedLesson(l);
-    setActiveTab('theory');
+    if (tab) {
+      setActiveTab(tab);
+    }
   };
 
   const t = translations[lang];
@@ -159,8 +161,10 @@ export const App: React.FC = () => {
             role={role}
             lesson={selectedLesson}
             branch={selectedBranch}
+            curriculum={activeCurriculumData}
             activeSubTab={activeTab}
             onSubTabChange={setActiveTab}
+            onSelectLesson={handleSelectLesson}
           />
         )}
 

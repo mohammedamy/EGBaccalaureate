@@ -53,7 +53,7 @@ export const CurriculumOverview: React.FC<Props> = ({
           <div className="space-y-3 sm:space-y-4 max-w-2xl text-center sm:text-left rtl:sm:text-right">
             <div className="hero-badge inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] sm:text-xs font-extrabold text-center mx-auto sm:mx-0">
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-              <span>{lang === 'ar' ? 'منصة ClipSAT: الفصول ١ و ٢ مجهزة بالكامل لجميع الكتب بالمعادلات والرسوم ثلاثية الأبعاد وخطط المعلمين' : 'ClipSAT Platform: Chapters 1 & 2 Fully Equipped Across All Books with LaTeX, 3D Lab & Teacher Plans'}</span>
+              <span>{lang === 'ar' ? 'منصة ClipSAT: جميع الفصول الـ 25 مجهزة بالكامل (4375 مسألة وسؤال) بالمعادلات والرسوم ثلاثية الأبعاد وخطط المعلمين' : 'ClipSAT Platform: All 25 Chapters Fully Equipped (4,375 Problems) with LaTeX, 3D Lab & Teacher Plans'}</span>
             </div>
 
             <h2 className="hero-title text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight" style={{ color: '#ffffff' }}>
@@ -69,7 +69,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                 className="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 transition-all"
               >
                 <BookOpen className="w-4 h-4" />
-                <span>{lang === 'ar' ? 'استكشف الفصل الأول بالكامل' : 'Explore First Chapter'}</span>
+                <span>{lang === 'ar' ? 'استكشف المنهج التفاعلي' : 'Explore Interactive Curriculum'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('testGenerator')}
