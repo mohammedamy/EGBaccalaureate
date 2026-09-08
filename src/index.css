@@ -9,37 +9,12 @@
   }
 
   html {
-    font-size: 20px;
-    line-height: 1.6;
-  }
-
-  @media (min-width: 768px) {
-    html {
-      font-size: 21px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    html {
-      font-size: 22px;
-    }
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   [dir="rtl"] {
     font-family: var(--font-ar);
-    font-size: 21px;
-  }
-
-  @media (min-width: 768px) {
-    [dir="rtl"] {
-      font-size: 22px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    [dir="rtl"] {
-      font-size: 23px;
-    }
   }
 
   [dir="ltr"] {
@@ -47,114 +22,6 @@
   }
 }
 
-/* SYSTEM-WIDE SCALED TYPOGRAPHY (Responsive across Mobile, Tablet, and PC) */
-.text-xs {
-  font-size: 0.95rem !important;
-  line-height: 1.5 !important;
-}
-
-.text-sm {
-  font-size: 1.15rem !important;
-  line-height: 1.55 !important;
-}
-
-.text-base {
-  font-size: 1.3rem !important;
-  line-height: 1.6 !important;
-}
-
-.text-lg {
-  font-size: 1.5rem !important;
-  line-height: 1.5 !important;
-}
-
-.text-xl {
-  font-size: 1.75rem !important;
-  line-height: 1.4 !important;
-}
-
-.text-2xl {
-  font-size: 2.15rem !important;
-  line-height: 1.3 !important;
-}
-
-.text-3xl {
-  font-size: 2.7rem !important;
-  line-height: 1.25 !important;
-}
-
-.text-4xl {
-  font-size: 3.3rem !important;
-  line-height: 1.2 !important;
-}
-
-.text-\[9px\],
-.text-\[10px\],
-.text-\[11px\] {
-  font-size: 0.88rem !important;
-  line-height: 1.4 !important;
-}
-
-/* Mobile & Tablet Fine-Tuning for Headings to Prevent Overflow */
-@media (max-width: 639px) {
-  html {
-    font-size: 17px !important;
-  }
-  [dir="rtl"] {
-    font-size: 18px !important;
-  }
-  .text-4xl {
-    font-size: 2.0rem !important;
-    line-height: 1.25 !important;
-  }
-  .text-3xl {
-    font-size: 1.7rem !important;
-    line-height: 1.3 !important;
-  }
-  .text-2xl {
-    font-size: 1.45rem !important;
-    line-height: 1.35 !important;
-  }
-  .text-xl {
-    font-size: 1.25rem !important;
-    line-height: 1.4 !important;
-  }
-  .text-lg {
-    font-size: 1.15rem !important;
-  }
-  .text-base {
-    font-size: 1.05rem !important;
-  }
-  .text-sm {
-    font-size: 0.95rem !important;
-  }
-  .text-xs {
-    font-size: 0.85rem !important;
-  }
-  .text-\[9px\],
-  .text-\[10px\],
-  .text-\[11px\] {
-    font-size: 0.78rem !important;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  html {
-    font-size: 19px !important;
-  }
-  [dir="rtl"] {
-    font-size: 20px !important;
-  }
-  .text-4xl {
-    font-size: 2.6rem !important;
-  }
-  .text-3xl {
-    font-size: 2.2rem !important;
-  }
-  .text-2xl {
-    font-size: 1.8rem !important;
-  }
-}
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {

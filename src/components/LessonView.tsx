@@ -64,7 +64,14 @@ export const LessonView: React.FC<Props> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-              <img src="/clipsat-logo.png" alt="ClipSAT Logo" className="h-8 sm:h-9 w-auto object-contain" />
+              <img
+                src="./clipsat-logo.png"
+                alt="ClipSAT Logo"
+                className="h-8 sm:h-9 w-auto object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
               <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800 shadow-sm">
                 {lang === 'ar' ? branch.titleAr : branch.titleEn}
               </span>
