@@ -156,11 +156,20 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
     const html = renderKaTeX(rawContent, isDisplayMode);
 
     if (isDisplayMode) {
+      const isPlain =
+        className.includes('no-box') ||
+        className.includes('bg-transparent') ||
+        className.includes('border-0');
+
+      const defaultBoxClasses = isPlain
+        ? 'my-0.5 py-0.5 px-1'
+        : 'my-2 py-2 px-3 rounded-xl bg-slate-900/80 border border-slate-700/60 shadow-inner';
+
       return (
         <div
           dir="ltr"
           style={{ unicodeBidi: 'isolate' }}
-          className={`math-block-display my-2 py-2 px-3 text-center overflow-x-auto rounded-xl bg-slate-900/80 border border-slate-700/60 shadow-inner ${className}`}
+          className={`math-block-display text-center overflow-x-auto ${defaultBoxClasses} ${className}`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       );
