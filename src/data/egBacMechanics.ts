@@ -1,4 +1,8 @@
 import type { Branch } from '../types/curriculum';
+import { egBacMechCh1SolvedExamples, egBacMechCh1Exercises } from './textbook/egbac/egBacMechCh1Textbook';
+import { egBacMechCh1Databank } from './databanks/egbac/egBacMechCh1Databank';
+import { egBacMechCh2SolvedExamples, egBacMechCh2Exercises } from './textbook/egbac/egBacMechCh2Textbook';
+import { egBacMechCh2Databank } from './databanks/egbac/egBacMechCh2Databank';
 
 export const egBacMechanicsBranch: Branch = {
   id: 'egbac_mechanics',
@@ -257,7 +261,10 @@ $$\\rho = \\frac{\\left[1 + (y')^2\\right]^{3/2}}{|y''|}$$
             descriptionAr: 'محاكاة تفاعلية ثلاثية الأبعاد لحركة جسيم على مسار منحنٍ مع إظهار دائرة الانحناء ومتجهات العجلة المماسية والعمودية.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacMechCh1SolvedExamples,
+      exerciseProblems: egBacMechCh1Exercises,
+      databank: egBacMechCh1Databank
     },
     {
       id: 'egbac_mech_ch2',
@@ -532,7 +539,10 @@ $$\\frac{dV}{dx} = 0$$
             descriptionAr: 'محاكاة تفاعلية لحركة جسيم داخل آبار طاقة الوضع مع بيان نقاط الاتزان المستقر والاهتزازات التوافقية حولها.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacMechCh2SolvedExamples,
+      exerciseProblems: egBacMechCh2Exercises,
+      databank: egBacMechCh2Databank
     }
   ]
 };

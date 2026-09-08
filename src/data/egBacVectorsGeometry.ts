@@ -1,4 +1,8 @@
 import type { Branch } from '../types/curriculum';
+import { egBacCh1SolvedExamples, egBacCh1Exercises } from './textbook/egbac/egBacCh1Textbook';
+import { egBacCh1Databank } from './databanks/egbac/egBacCh1Databank';
+import { egBacCh2SolvedExamples, egBacCh2Exercises } from './textbook/egbac/egBacCh2Textbook';
+import { egBacCh2Databank } from './databanks/egbac/egBacCh2Databank';
 
 export const egBacVectorsGeometryBranch: Branch = {
   id: 'egbac_vectors_geometry',
@@ -276,7 +280,10 @@ $$k_1 \\vec{u} + k_2 \\vec{v} + k_3 \\vec{w} = \\vec{0} \\implies k_1 = k_2 = k_
             descriptionAr: 'أداة تفاعلية ثلاثية الأبعاد لعرض المستويات وإسقاط النقطة على المستوى.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacCh1SolvedExamples,
+      exerciseProblems: egBacCh1Exercises,
+      databank: egBacCh1Databank
     },
     {
       id: 'egbac_ch2',
@@ -804,7 +811,10 @@ Line 1: $\\vec{r}_1 = \\vec{a}_1 + t \\vec{d}_1$, \\quad Line 2: $\\vec{r}_2 = \
             descriptionAr: 'تطبيق تفاعلي يوضح تحليل المتجهات العمودي، وحساب القطعة العمودية المشتركة الواصلة بين مستقيمين متخالفين.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacCh2SolvedExamples,
+      exerciseProblems: egBacCh2Exercises,
+      databank: egBacCh2Databank
     }
   ]
 };

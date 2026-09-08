@@ -1,4 +1,8 @@
 import type { Branch } from '../types/curriculum';
+import { egBacAnaCh1SolvedExamples, egBacAnaCh1Exercises } from './textbook/egbac/egBacAnaCh1Textbook';
+import { egBacAnaCh1Databank } from './databanks/egbac/egBacAnaCh1Databank';
+import { egBacAnaCh2SolvedExamples, egBacAnaCh2Exercises } from './textbook/egbac/egBacAnaCh2Textbook';
+import { egBacAnaCh2Databank } from './databanks/egbac/egBacAnaCh2Databank';
 
 export const egBacAnalysisBranch: Branch = {
   id: 'egbac_analysis',
@@ -237,7 +241,10 @@ $$m = \\lim_{x \\to \\infty} \\frac{f(x)}{x} \\quad \\text{و} \\quad c = \\lim_
             descriptionAr: 'تطبيق تفاعلي يوضح أشرطة خطأ إبسيلون وفترات دلتا وحصر الدوال المتذبذبة.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacAnaCh1SolvedExamples,
+      exerciseProblems: egBacAnaCh1Exercises,
+      databank: egBacAnaCh1Databank
     },
     {
       id: 'egbac_ana_ch2',
@@ -494,7 +501,10 @@ $$f(x) = \\sum_{k=0}^n \\frac{f^{(k)}(a)}{k!} (x - a)^k + R_n(x)$$
             descriptionAr: 'رسم بياني تفاعلي يقارن بين الدوال المتسامية وتقريبات تايلور المتعاقبة من الرتبة الأولى حتى العاشرة.'
           }
         }
-      ]
+      ],
+      solvedExamples: egBacAnaCh2SolvedExamples,
+      exerciseProblems: egBacAnaCh2Exercises,
+      databank: egBacAnaCh2Databank
     }
   ]
 };
