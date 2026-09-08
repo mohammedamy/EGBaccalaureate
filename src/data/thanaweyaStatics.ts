@@ -7,6 +7,8 @@ import { statCh3SolvedExamples, statCh3Exercises } from './textbook/thanaweya/st
 import { statCh3Databank } from './databanks/thanaweya/statCh3Databank';
 import { statCh4SolvedExamples, statCh4Exercises } from './textbook/thanaweya/statCh4Textbook';
 import { statCh4Databank } from './databanks/thanaweya/statCh4Databank';
+import { statCh5SolvedExamples, statCh5Exercises } from './textbook/thanaweya/statCh5Textbook';
+import { statCh5Databank } from './databanks/thanaweya/statCh5Databank';
 
 export const thanaweyaStaticsBranch: Branch = {
   id: 'statics',
@@ -1752,6 +1754,499 @@ $$\\tan\\theta = \\frac{1}{2 \\mu_s}$$
       solvedExamples: statCh4SolvedExamples,
       exerciseProblems: statCh4Exercises,
       databank: statCh4Databank
+    }     ,
+    {
+      id: 'stat_ch5',
+      chapterNumber: 5,
+      titleEn: 'Couples',
+      titleAr: 'الازدواجات',
+      descriptionEn: 'Rigid body equilibrium and rotation under couples: definition, moment of a couple (M = F * d), equivalence of couples, equilibrium under multiple couples, vector representation of couples, and the Polygon Theorem (M = 2 * m * Area).',
+      descriptionAr: 'اتزان ودوران الأجسام الجاسئة تحت تأثير الازدواجات: تعريف الازدواج، عزم الازدواج (جـ = ق × ل)، تكافؤ واتزان الازدواجات، الصورة الاتجاهية للازدواج، ونظرية تمثيل القوى بأضلاع مضلع مغلق (جـ = ٢ × م × المساحة).',
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: 'stat_l8',
+          titleEn: 'Definition, Properties & Moment of Couples',
+          titleAr: 'تعريف الازدواج وخواصه وحساب عزمه',
+          summaryEn: 'Fundamental concept of a couple: two parallel, equal in magnitude, opposite in direction forces not along the same line. Moment invariance about any point M = F * d, vector form M = r_AB x F, and sense of rotation.',
+          summaryAr: 'المفهوم الأساسي للازدواج: قوتان متوازيتان متساويتان في المقدار ومتضادتان في الاتجاه ولا يجمعهما خط عمل واحد. ثبات عزم الازدواج حول أي نقطة، والصورة الاتجاهية، واتجاه الدوران.',
+          theoryContentEn: `### 1. Definition of a Couple (تعريف الازدواج):
+A **couple** is a system consisting of two forces that are:
+1. **Equal in magnitude** ($|\\vec{F}_1| = |\\vec{F}_2| = F$).
+2. **Opposite in direction** ($\\vec{F}_1 = -\\vec{F}_2$).
+3. **Parallel lines of action** that do NOT coincide (separated by a non-zero perpendicular distance $d$).
+
+### 2. Resultant of a Couple:
+- The resultant force of any couple is **identically zero**:
+  $$\\vec{R} = \\vec{F}_1 + \\vec{F}_2 = \\vec{F} + (-\\vec{F}) = \\vec{0}$$
+- Therefore, a couple produces **pure rotation** and **NO translation** ($a = 0$).
+
+### 3. Moment of a Couple (عزم الازدواج):
+- **Theorem (Invariance of Moment):**
+  The sum of the moments of the two forces of a couple about **any point in the plane** is constant and independent of the choice of the point.
+- **Scalar Magnitude:**
+  $$M = F \\times d$$
+  where:
+  - $F$: magnitude of one of the forces.
+  - $d$: the perpendicular distance between the lines of action of the two forces (called the **arm of the couple** / ذراع الازدواج).
+- **Sign Convention:**
+  - **Counterclockwise rotation:** Positive ($+M$).
+  - **Clockwise rotation:** Negative ($-M$).
+
+### 4. Vector Form of Couple Moment:
+If $\\vec{F}$ acts at point $B$ and $-\\vec{F}$ acts at point $A$:
+$$\\vec{M} = \\vec{r}_{AB} \\times \\vec{F} = (\\vec{r}_B - \\vec{r}_A) \\times \\vec{F}$$
+Notice that $\\vec{M}$ is perpendicular to the plane containing the forces.`,
+          theoryContentAr: `### ١. تعريف الازدواج:
+**الازدواج** هو نظام مكون من قوتين:
+١. **متساويتين في المقدار** ($|\\vec{F}_1| = |\\vec{F}_2| = F$).
+٢. **متضادتين في الاتجاه** ($\\vec{F}_1 = -\\vec{F}_2$).
+٣. **خطا عملهما متوازيان** ولا يجمعهما خط عمل واحد (بينهما بعد عمودي $d > 0$).
+
+### ٢. محصلة الازدواج:
+- محصلة قوتي أي ازدواج تساوي **متجهاً صفرياً**:
+  $$\\vec{R} = \\vec{F} + (-\\vec{F}) = \\vec{0}$$
+- بالتالي فإن الازدواج يحدث **حركة دورانية محضة** دون أي حركة انتقالية.
+
+### ٣. عزم الازدواج:
+- **نظرية ثبات العزم:**
+  المجموع الجبري لعزمي قوتي الازدواج حول **أي نقطة في المستوى** هو مقدار ثابت لا يتوقف على موضع تلك النقطة.
+- **القياس الجبري للعزم:**
+  $$M = \\pm F \\times d$$
+  حيث:
+  - $F$: معيار إحدى القوتين.
+  - $d$: البعد العمودي بين خطي عمل القوتين (ذراع الازدواج).
+- **إشارة العزم:**
+  - **ضد عقارب الساعة:** موجبة ($+M$).
+  - **مع عقارب الساعة:** سالبة ($-M$).
+
+### ٤. الصورة الاتجاهية لعزم الازدواج:
+إذا أثرت $\\vec{F}$ عند نقطة $B$ وأثرت $-\\vec{F}$ عند نقطة $A$:
+$$\\vec{M} = \\vec{r}_{AB} \\times \\vec{F} = (\\vec{r}_B - \\vec{r}_A) \\times \\vec{F}$$`,
+          formulas: [
+            { labelEn: 'Scalar Couple Moment', labelAr: 'القياس الجبري لعزم الازدواج', latex: 'M = \pm F \times d' },
+            { labelEn: 'Vector Couple Moment', labelAr: 'الصورة الاتجاهية لعزم الازدواج', latex: '\vec{M} = \vec{r}_{AB} \times \vec{F}' },
+            { labelEn: 'Arm of Couple', labelAr: 'طول ذراع الازدواج', latex: 'd = \frac{|M|}{F}' },
+            { labelEn: 'Resultant of Couple', labelAr: 'محصلة قوتي الازدواج', latex: '\vec{R} = \vec{F}_1 + \vec{F}_2 = \vec{0}' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH5-L1',
+            pageRange: 'pp. 119 - 138'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Concept and Moment of Couples',
+            titleAr: 'خطة درس: مفهوم وعزم الازدواج',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH5-L1',
+            bloomsObjectivesEn: [
+              'Define a couple and explain why its resultant force is zero.',
+              'Prove that the moment of a couple is invariant with respect to any reference point.',
+              'Compute couple moments in scalar (M = F*d) and vector (M = r_AB x F) forms.'
+            ],
+            bloomsObjectivesAr: [
+              'تعريف الازدواج وتفسير انعدام محصلته الانتقالية.',
+              'إثبات أن عزم الازدواج ثابت ومستقل عن نقطة أخذ العزوم.',
+              'حساب عزم الازدواج بالصيغتين الجبرية والاتجاهية.'
+            ],
+            prerequisitesEn: ['Vector cross product', 'Perpendicular distance between parallel lines', 'Scalar moments of forces'],
+            prerequisitesAr: ['الضرب الاتجاهي للمتجهات', 'البعد العمودي بين خطين متوازيين', 'عزوم القوى حول نقطة'],
+            keyVocabularyEn: [
+              { term: 'Couple', definition: 'Two equal, opposite, non-collinear parallel forces producing pure rotation.' },
+              { term: 'Arm of Couple', definition: 'The perpendicular distance between the lines of action of the couple forces.' },
+              { term: 'Moment Invariance', definition: 'The property that a couple has the same moment about all points in space.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'ازدواج', definition: 'نظام من قوتين متساويتين في المقدار ومتضادتين في الاتجاه ولا يجمعهما خط عمل واحد.' },
+              { term: 'ذراع الازدواج', definition: 'البعد العمودي بين خطي عمل قوتي الازدواج.' },
+              { term: 'ثبات العزم', definition: 'خاصية ثبوت عزم الازدواج حول أي نقطة في المستوى دون تغيير.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Concept Motivation: Steering Wheels & Taps (15 mins)',
+                phaseAr: 'التهيئة والتمهيد: عجلة القيادة وصنبور المياه (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Demonstrate real-world couples (steering a car, opening a bottle cap) where net force is zero but rotation occurs.',
+                activitiesAr: 'عرض أمثلة واقعية (عجلة قيادة السيارة، فتح صنبور) تنعدم فيها المحصلة وتحدث حركة دورانية محضة.'
+              },
+              {
+                phaseEn: 'Proof of Moment Invariance (25 mins)',
+                phaseAr: 'إثبات ثبات عزم الازدواج (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Prove algebraically that sum of moments about point O is identical to that about point O prime.',
+                activitiesAr: 'إثبات جبري وتفاضلي بأن مجموع العزوم حول النقطة و يساوي تماماً مجموع العزوم حول أي نقطة أخرى.'
+              },
+              {
+                phaseEn: 'Vector and Scalar Calculations (30 mins)',
+                phaseAr: 'تطبيقات حسابية جبرية واتجاهية (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Work through textbook examples calculating M = F*d and M = r_AB x F.',
+                activitiesAr: 'حل مسائل نموذجية لحساب العزم بالصورة الجبرية والضرب الاتجاهي.'
+              },
+              {
+                phaseEn: 'Assessment & Synthesis (20 mins)',
+                phaseAr: 'التقييم الفردي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Solve exit ticket problem on vector couple moment.',
+                activitiesAr: 'حل مسألة بطاقة الخروج على الصورة الاتجاهية للازدواج.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Thinking a couple can move the center of mass; it only causes pure rotation!',
+              'Forgetting that couple moment is independent of any point, unlike single forces.'
+            ],
+            commonMisconceptionsAr: [
+              'الاعتقاد بأن الازدواج ينقل مركز الكتلة؛ الازدواج يحدث حركة دورانية محضة فقط!',
+              'نسيان أن عزم الازدواج كمية عامة لا ترتبط بنقطة محددة على عكس عزم القوة المفردة.'
+            ],
+            differentiationEn: {
+              struggling: 'Draw the perpendicular line between the two parallel force arrows to clearly identify the arm d.',
+              advanced: 'Show that the couple moment vector is independent of origin choice using vector algebra: (rB - rO) x F + (rA - rO) x (-F) = (rB - rA) x F.'
+            },
+            differentiationAr: {
+              struggling: 'رسم العمود الساقط بين خطي عمل القوتين لتحديد ذراع الازدواج ل بدقة وبساطة.',
+              advanced: 'إثبات أن متجه عزم الازدواج مستقل عن نقطة الأصل باستخدام الجبر المتجهي.'
+            },
+            formativeAssessmentEn: 'Two parallel forces of 20 N are 35 cm apart. Find their couple moment.',
+            formativeAssessmentAr: 'قوتان متوازيتان مقدار كل منهما ٢٠ نيوتن والبعد بينهما ٣٥ سم. احسب عزم الازدواج.',
+            exitTicketQuestion: {
+              questionEn: 'F = 4i - 3j acts at B(2, 5) and -F acts at A(0, 1). Find vector moment M.',
+              questionAr: 'تؤثر ق = ٤س - ٣ص عند ب(٢، ٥) وتؤثر -ق عند أ(٠، ١). احسب متجه عزم الازدواج جـ.',
+              solutionEn: 'r_AB = (2 - 0)i + (5 - 1)j = 2i + 4j. M = (2i + 4j) x (4i - 3j) = (-6 - 16)k = -22k N*m.',
+              solutionAr: 'ر_أب = ٢س + ٤ص. جـ = (٢س + ٤ص) × (٤س - ٣ص) = (-٦ - ١٦)ع = -٢٢ع نيوتن.متر.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l8',
+            titleEn: 'Worksheet: Couple Properties & Moment Invariance',
+            titleAr: 'ورقة عمل: خواص الازدواج وثبات العزم',
+            descriptionEn: 'Textbook and past exam problems on scalar and vector couple moments.',
+            descriptionAr: 'مسائل الكتاب وامتحانات الثانوية العامة على عزم الازدواج بالصيغتين الجبرية والاتجاهية.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l8_p1',
+                titleEn: 'Basic Moment of Couple',
+                titleAr: 'حساب عزم ازدواج بسيط',
+                difficulty: 'easy',
+                questionEn: 'Two parallel forces of magnitude $F = 25\\text{ N}$ act in opposite directions. The perpendicular distance between them is $d = 40\\text{ cm}$. If the couple tends to rotate counterclockwise, find its moment.',
+                questionAr: 'قوتان متوازيتان مقدار كل منهما $F = 25\\text{ نيوتن}$ وتعملان في اتجاهين متضادين. البعد العمودي بينهما $d = 40\\text{ سم}$. إذا كان اتجاه الدوران ضد عقارب الساعة، فاحسب عزم الازدواج.',
+                optionsEn: ['$+1000\\text{ N}\\cdot\\text{cm}$', '$-1000\\text{ N}\\cdot\\text{cm}$', '$+500\\text{ N}\\cdot\\text{cm}$', '$+2000\\text{ N}\\cdot\\text{cm}$'],
+                optionsAr: ['$+1000\\text{ نيوتن.سم}$', '$-1000\\text{ نيوتن.سم}$', '$+500\\text{ نيوتن.سم}$', '$+2000\\text{ نيوتن.سم}$'],
+                correctAnswer: '$+1000\\text{ N}\\cdot\\text{cm}$',
+                correctIndex: 0,
+                hintEn: 'M = + F * d for counterclockwise rotation.',
+                hintAr: 'العزم = + ق × ل للدوران ضد عقارب الساعة.',
+                stepByStepSolutionEn: [
+                  '1. M = + F * d.',
+                  '2. M = 25 * 40 = +1000 N*cm.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. جـ = + ق × ل.',
+                  '٢. جـ = ٢٥ × ٤٠ = +١٠٠٠ نيوتن.سم.'
+                ]
+              },
+              {
+                id: 'stat_l8_p2',
+                titleEn: 'Vector Moment from Two Points',
+                titleAr: 'عزم الازدواج بالصورة المتجهة من نقطتين',
+                difficulty: 'medium',
+                questionEn: 'A force $\\vec{F} = 3\\vec{i} + 4\\vec{j}\\text{ N}$ acts at $B(5, 2)$, and $-\\vec{F}$ acts at $A(1, -1)$. Find the vector moment of the couple $\\vec{M}$.',
+                questionAr: 'تؤثر قوة $\\vec{F} = 3\\vec{i} + 4\\vec{j}\\text{ نيوتن}$ عند النقطة $B(5, 2)$، وتؤثر $-\\vec{F}$ عند $A(1, -1)$. أوجد متجه عزم الازدواج $\\vec{M}$.',
+                optionsEn: ['$7\\vec{k}\\text{ N}\\cdot\\text{m}$', '$25\\vec{k}\\text{ N}\\cdot\\text{m}$', '$-7\\vec{k}\\text{ N}\\cdot\\text{m}$', '$14\\vec{k}\\text{ N}\\cdot\\text{m}$'],
+                optionsAr: ['$7\\vec{k}\\text{ نيوتن.متر}$', '$25\\vec{k}\\text{ نيوتن.متر}$', '$-7\\vec{k}\\text{ نيوتن.متر}$', '$14\\vec{k}\\text{ نيوتن.متر}$'],
+                correctAnswer: '$7\\vec{k}\\text{ N}\\cdot\\text{m}$',
+                correctIndex: 0,
+                hintEn: 'M = r_AB x F = (r_B - r_A) x F.',
+                hintAr: 'جـ = ر_أب × ق = (ب - أ) × ق.',
+                stepByStepSolutionEn: [
+                  '1. r_AB = B - A = (5 - 1)i + (2 - (-1))j = 4i + 3j.',
+                  '2. M = (4i + 3j) x (3i + 4j) = (4*4 - 3*3)k = (16 - 9)k = 7k N*m.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. ر_أب = ب - أ = (٥ - ١)س + (٢ - (-١))ص = ٤س + ٣ص.',
+                  '٢. جـ = (٤س + ٣ص) × (٣س + ٤ص) = (٤×٤ - ٣×٣)ع = (١٦ - ٩)ع = ٧ع نيوتن.متر.'
+                ]
+              },
+              {
+                id: 'stat_l8_p3',
+                titleEn: 'Arm of Couple with Inclined Forces',
+                titleAr: 'ذراع الازدواج لقوتين مائلتين',
+                difficulty: 'hots',
+                questionEn: 'Two forces of magnitude $F = 50\\text{ N}$ act at the ends of a rod $AB = 80\\text{ cm}$ making an angle of $30^\\circ$ with $AB$ in opposite directions. Find the magnitude of the couple moment.',
+                questionAr: 'تؤثر قوتان مقدار كل منهما $F = 50\\text{ نيوتن}$ عند طرفي قضيب $AB = 80\\text{ سم}$ وتصنعان مع القضيب زاوية قياسها $30^\\circ$ في اتجاهين متضادين. احسب معيار عزم الازدواج.',
+                optionsEn: ['$2000\\text{ N}\\cdot\\text{cm}$', '$4000\\text{ N}\\cdot\\text{cm}$', '$2000\\sqrt{3}\\text{ N}\\cdot\\text{cm}$', '$1000\\text{ N}\\cdot\\text{cm}$'],
+                optionsAr: ['$2000\\text{ نيوتن.سم}$', '$4000\\text{ نيوتن.سم}$', '$2000\\sqrt{3}\\text{ نيوتن.سم}$', '$1000\\text{ نيوتن.سم}$'],
+                correctAnswer: '$2000\\text{ N}\\cdot\\text{cm}$',
+                correctIndex: 0,
+                hintEn: 'Arm d = AB * sin(30°). Then M = F * d.',
+                hintAr: 'ذراع الازدواج ل = أب جا(٣٠°). ثم العزم = ق × ل.',
+                stepByStepSolutionEn: [
+                  '1. The perpendicular distance d = AB * sin(30°) = 80 * 0.5 = 40 cm.',
+                  '2. M = F * d = 50 * 40 = 2000 N*cm.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. البعد العمودي ل = أب جا(٣٠°) = ٨٠ × ٠٫٥ = ٤٠ سم.',
+                  '٢. جـ = ق × ل = ٥٠ × ٤٠ = ٢٠٠٠ نيوتن.سم.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Interactive Couple & Torque Simulator',
+            titleAr: 'محاكي الازدواج وعزم الدوران التفاعلي',
+            descriptionEn: 'Interactive simulator visualizing couple forces, moment arm length, sense of rotation, and net torque on a rigid body.',
+            descriptionAr: 'محاكاة تفاعلية لتوضيح قوتي الازدواج وطول ذراع العزم واتجاه الدوران وعزم الازدواج الكلي على جسم جاسئ.'
+          }
+        },
+        {
+          id: 'stat_l9',
+          titleEn: 'Equivalence, Equilibrium & The Polygon Theorem',
+          titleAr: 'تكافؤ واتزان الازدواجات ونظرية المضلع المغلق',
+          summaryEn: 'Equivalence of couples having identical moments, equilibrium of two or more couples (sum of moments = 0), and the Polygon Theorem for coplanar forces represented by sides of a closed polygon: M = 2 * m * Area.',
+          summaryAr: 'تكافؤ الازدواجات المتساوية في العزم، واتزان عدة ازدواجات (مجموع العزوم = صفراً)، ونظرية المضلع المغلق لتمثيل القوى في اتجاه دوري واحد: جـ = ٢ × م × المساحة.',
+          theoryContentEn: `### 1. Equivalence of Couples (تكافؤ الازدواجات):
+Two couples in the same plane (or in parallel planes) are said to be **equivalent** ($C_1 \\equiv C_2$) if and only if they have the **same algebraic moment**:
+$$M_1 = M_2$$
+A couple can be replaced by another couple of the same moment without altering the rotational effect on the rigid body.
+
+### 2. Equilibrium of Couples (اتزان الازدواجات):
+- **Criterion for Equilibrium:**
+  A rigid body acted upon by several coplanar couples is in equilibrium if and only if the algebraic sum of their moments is zero:
+  $$\\sum M_i = 0$$
+- **Two Couples:**
+  Two couples are in equilibrium if:
+  $$M_1 + M_2 = 0 \\implies M_1 = -M_2$$
+  (They have equal magnitudes and opposite senses of rotation).
+
+### 3. The Polygon Theorem for Couples (نظرية المضلع المغلق):
+**Theorem:**
+If a system of coplanar forces acting on a rigid body can be represented completely in **magnitude, direction, and sense** by the sides of a **closed polygon taken in order**:
+1. The resultant force is zero: $\\vec{R} = \\vec{0}$.
+2. The system **reduces to a couple**.
+3. The magnitude of the couple moment is:
+   $$M = 2 \\times m \\times \\text{Area}$$
+   where:
+   - $m = \\frac{F_i}{L_i}$ is the constant scale factor (force per unit length, e.g. $\\text{N/cm}$).
+   - $\\text{Area}$ is the area of the closed polygon (triangle, rectangle, rhombus, regular hexagon, etc.).
+   - The sense of $M$ is counterclockwise if the vertices are traversed counterclockwise, and clockwise otherwise.`,
+          theoryContentAr: `### ١. تكافؤ الازدواجات:
+يتكافأ ازدواجان في نفس المستوى (أو في مستويين متوازيين) إذا وفقط إذا كان لهما **نفس القياس الجبري للعزم**:
+$$M_1 = M_2$$
+ويمكن استبدال أي ازدواج بآخر له نفس العزم دون أن يتغير التأثير الدوراني على الجسم الجاسئ.
+
+### ٢. اتزان الازدواجات:
+- **شرط الاتزان:**
+  يتزن جسم جاسئ واقع تحت تأثير عدة ازدواجات مستوية إذا وفقط إذا كان المجموع الجبري لعزومها يساوي صفراً:
+  $$\\sum M_i = 0$$
+- **اتزان ازدواجين:**
+  يتزن ازدواجان إذا كان:
+  $$M_1 + M_2 = 0 \\implies M_1 = -M_2$$
+  أي متساويين في المقدار ومتضادين في الاتجاه.
+
+### ٣. نظرية تمثيل القوى بأضلاع مضلع مغلق:
+**نص النظرية:**
+إذا مُثلت عدة قوى مستوية تمثيلاً تاماً في **المقدار والاتجاه** بأضلاع **مضلع مغلق مأخوذة في ترتيب دوري واحد**:
+١. تنعدم المحصلة: $\\vec{R} = \\vec{0}$.
+٢. تكافئ المجموعة **ازدواجاً**.
+٣. معيار عزم هذا الازدواج يساوي:
+   $$M = 2 \\times m \\times \\text{مساحة المضلع}$$
+   حيث:
+   - $m = \\frac{F_i}{L_i}$ مقياس الرسم الثابت (القوة لكل وحدة طول، مثلاً $\\text{نيوتن/سم}$).
+   - $\\text{مساحة المضلع}$ مساحة الشكل الهندسي المغلق (مثلث، مستطيل، معين، سداسي منتظم، إلخ).
+   - اتجاه العزم يتبع الترتيب الدوري لرؤوس المضلع.`,
+          formulas: [
+            { labelEn: 'Equilibrium of Couples', labelAr: 'شرط اتزان الازدواجات', latex: '\sum M_i = 0 \implies M_1 + M_2 = 0' },
+            { labelEn: 'Polygon Theorem Moment', labelAr: 'عزم نظرية المضلع المغلق', latex: 'M = 2 \times m \times \text{Area}' },
+            { labelEn: 'Scale Factor Formula', labelAr: 'مقياس رسم القوى للأضلاع', latex: 'm = \frac{F_1}{L_1} = \frac{F_2}{L_2} = \dots = \frac{F_n}{L_n}' },
+            { labelEn: 'Regular Hexagon Area', labelAr: 'مساحة السداسي المنتظم', latex: '\text{Area} = \frac{3\sqrt{3}}{2} L^2' }
+          ],
+          moeRef: {
+            bookTitleEn: 'Ministry Statics Textbook Grade 12',
+            bookTitleAr: 'كتاب الاستاتيكا للصف الثالث الثانوي - وزارة التربية والتعليم',
+            grade: 'Grade 12',
+            term: 'Full Year',
+            officialCode: 'MOE-SEC3-STAT-CH5-L2',
+            pageRange: 'pp. 139 - 162'
+          },
+          lessonPlan: {
+            titleEn: 'Lesson Plan: Equivalence, Equilibrium & Polygon Theorem',
+            titleAr: 'خطة درس: تكافؤ واتزان الازدواجات ونظرية المضلع المغلق',
+            gradeLevel: 'Grade 12 Secondary',
+            durationMinutes: 90,
+            moeCode: 'MOE-SEC3-STAT-CH5-L2',
+            bloomsObjectivesEn: [
+              'Establish criteria for equivalence and equilibrium of multiple coplanar couples.',
+              'Derive and state the Polygon Theorem for coplanar forces.',
+              'Calculate couple moments for triangles, rectangles, rhombuses, and regular hexagons using M = 2*m*Area.'
+            ],
+            bloomsObjectivesAr: [
+              'تحديد شروط تكافؤ واتزان عدة ازدواجات مستوية.',
+              'استنتاج وتطبيق نظرية تمثيل القوى بأضلاع مضلع مغلق.',
+              'حساب عزم الازدواج للأشكال الهندسية (مثلث، مستطيل، معين، سداسي) بالقانون جـ = ٢ × م × المساحة.'
+            ],
+            prerequisitesEn: ['Geometric area formulas', 'Cyclic orientation of vectors', 'Sum of coplanar moments'],
+            prerequisitesAr: ['قوانين مساحات المضلعات الهندسية', 'الترتيب الدوري للمتجهات', 'مجموع عزوم القوى المستوية'],
+            keyVocabularyEn: [
+              { term: 'Equivalent Couples', definition: 'Couples producing identical rotational effect and having identical moments.' },
+              { term: 'Equilibrating Couple', definition: 'A couple equal in magnitude and opposite in sense that restores equilibrium.' },
+              { term: 'Polygon Theorem', definition: 'Coplanar forces fully represented by the sides of a closed polygon in cyclic order reduce to a couple with M = 2*m*Area.' }
+            ],
+            keyVocabularyAr: [
+              { term: 'ازدواجات متكافئة', definition: 'ازدواجات لها نفس القياس الجبري للعزم وتحدث نفس التأثير الدوراني.' },
+              { term: 'ازدواج موازن', definition: 'ازدواج مساوٍ في المقدار ومضاد في الاتجاه يعيد الجسم لحالة الاتزان.' },
+              { term: 'نظرية المضلع المغلق', definition: 'قوى مستوية تمثلها أضلاع مضلع مغلق في اتجاه دوري واحد تكافئ ازدواجاً عزمه ٢ × م × المساحة.' }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: 'Review of Moment Equilibrium (15 mins)',
+                phaseAr: 'مراجعة اتزان العزوم وتكافؤ الازدواج (١٥ دقيقة)',
+                duration: '15 mins',
+                activitiesEn: 'Introduce concept of replacing a couple with another pair of forces having equal moment M.',
+                activitiesAr: 'توضيح إمكانية استبدال ازدواج بآخر له نفس العزم وبقوى مختلفة وأبعاد مختلفة.'
+              },
+              {
+                phaseEn: 'Derivation of Polygon Theorem (25 mins)',
+                phaseAr: 'استنتاج نظرية المضلع المغلق (٢٥ دقيقة)',
+                duration: '25 mins',
+                activitiesEn: 'Sum moments of cyclic forces about an internal vertex to derive M = 2 * m * Area.',
+                activitiesAr: 'أخذ العزوم حول رأس داخلي لإثبات أن مجموع العزوم يؤول إلى ضعفي المساحة مضروبة في مقياس الرسم.'
+              },
+              {
+                phaseEn: 'Worked Examples on Regular Polygons (30 mins)',
+                phaseAr: 'أمثلة محلولة على المضلعات المنتظمة (٣٠ دقيقة)',
+                duration: '30 mins',
+                activitiesEn: 'Solve problems on triangles, rectangles, rhombuses, and regular hexagons.',
+                activitiesAr: 'حل مسائل تطبيقية على المثلثات والمستطيلات والمعينات والسداسي المنتظم.'
+              },
+              {
+                phaseEn: 'Synthesis & Exit Ticket (20 mins)',
+                phaseAr: 'التقويم الختامي وبطاقة الخروج (٢٠ دقيقة)',
+                duration: '20 mins',
+                activitiesEn: 'Individual problem on balancing a cyclic couple with two forces.',
+                activitiesAr: 'حل تمرين فردي لموازنة ازدواج ناتج عن مضلع بقوتين عند رأسين متقابلين.'
+              }
+            ],
+            commonMisconceptionsEn: [
+              'Applying M = 2*m*Area when forces are NOT in cyclic order; all forces must circulate in the same direction!',
+              'Confusing perimeter with area in the polygon theorem formula.'
+            ],
+            commonMisconceptionsAr: [
+              'تطبيق القانون جـ = ٢ × م × المساحة عندما لا تكون القوى في ترتيب دوري واحد؛ يجب أن تدور كل القوى في نفس الاتجاه!',
+              'الخلط بين المحيط والمساحة في صيغة نظرية المضلع.'
+            ],
+            differentiationEn: {
+              struggling: 'Verify cyclic order first: check each arrow head touches the tail of the next force vector.',
+              advanced: 'Prove that M = 2*m*Area applies to any irregular n-gon by triangulating from an interior point.'
+            },
+            differentiationAr: {
+              struggling: 'التحقق أولاً من الترتيب الدوري: التأكد من أن رأس كل سهم يلامس ذيل السهم التالي.',
+              advanced: 'إثبات انطباق القانون على أي مضلع غير منتظم ذي n ضلعاً عن طريق تقسيمه إلى مثلثات متجاورة.'
+            },
+            formativeAssessmentEn: 'Forces proportional to sides of a triangle (m = 3 N/cm) act in cyclic order. Area is 40 cm^2. Find couple moment.',
+            formativeAssessmentAr: 'قوى متناسبة مع أضلاع مثلث (م = ٣ نيوتن/سم) في اتجاه دوري واحد. مساحته ٤٠ سم^٢. احسب عزم الازدواج.',
+            exitTicketQuestion: {
+              questionEn: 'Rectangle ABCD has AB = 10 cm, BC = 6 cm. Cyclic forces have m = 2 N/cm. Find couple moment.',
+              questionAr: 'مستطيل أب جـ د فيه أب = ١٠ سم، ب جـ = ٦ سم. قوى في اتجاه دوري مقياسها ٢ نيوتن/سم. احسب عزم الازدواج.',
+              solutionEn: 'Area = 10 * 6 = 60 cm^2. M = 2 * m * Area = 2 * 2 * 60 = 240 N*cm.',
+              solutionAr: 'المساحة = ١٠ × ٦ = ٦٠ سم^٢. جـ = ٢ × ٢ × ٦٠ = ٢٤٠ نيوتن.سم.'
+            }
+          },
+          worksheet: {
+            id: 'ws_stat_l9',
+            titleEn: 'Worksheet: Equivalence, Equilibrium & Polygon Theorem',
+            titleAr: 'ورقة عمل: تكافؤ واتزان الازدواجات ونظرية المضلع',
+            descriptionEn: 'Challenging questions on equilibrium of couples, rhombus and hexagon polygon theorems.',
+            descriptionAr: 'مسائل متميزة على اتزان الازدواجات ونظرية المضلع على المعينات والسداسيات المنتظمة.',
+            estimatedTimeMinutes: 45,
+            problems: [
+              {
+                id: 'stat_l9_p1',
+                titleEn: 'Equilibrium of Two Couples',
+                titleAr: 'اتزان ازدواجين',
+                difficulty: 'easy',
+                questionEn: 'A body is acted upon by a couple of moment $M_1 = +360\\text{ N}\\cdot\\text{cm}$. A second couple formed by two forces of magnitude $F$ separated by $d = 12\\text{ cm}$ balances the body. Find $F$.',
+                questionAr: 'يؤثر ازدواج عزمه $M_1 = +360\\text{ نيوتن.سم}$ على جسم. اتزن الجسم بازدواج ثانٍ قوتاه مقدار كل منهما $F$ والبعد العمودي بينهما $d = 12\\text{ سم}$. أوجد مقدار $F$.',
+                optionsEn: ['$30\\text{ N}$', '$36\\text{ N}$', '$24\\text{ N}$', '$40\\text{ N}$'],
+                optionsAr: ['$30\\text{ نيوتن}$', '$36\\text{ نيوتن}$', '$24\\text{ نيوتن}$', '$40\\text{ نيوتن}$'],
+                correctAnswer: '$30\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'For equilibrium, M2 = -M1 = -360 N*cm, so F * d = 360.',
+                hintAr: 'للاتزان: جـ٢ = -جـ١ = -٣٦٠ نيوتن.سم، إذن ق × ل = ٣٦٠.',
+                stepByStepSolutionEn: [
+                  '1. Equilibrium condition: M1 + M2 = 0 => F * d = 360.',
+                  '2. F = 360 / 12 = 30 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. شرط الاتزان: جـ١ + جـ٢ = ٠ => ق × ل = ٣٦٠.',
+                  '٢. ق = ٣٦٠ / ١٢ = ٣٠ نيوتن.'
+                ]
+              },
+              {
+                id: 'stat_l9_p2',
+                titleEn: 'Triangle Polygon Theorem',
+                titleAr: 'نظرية المضلع لمثلث',
+                difficulty: 'medium',
+                questionEn: 'Forces act along the sides of a right triangle of legs $6\\text{ cm}$ and $8\\text{ cm}$ in cyclic order with scale factor $m = 4\\text{ N/cm}$. Find the couple moment magnitude.',
+                questionAr: 'تؤثر قوى في أضلاع مثلث قائم طولا ساقيه $6\\text{ سم}$ و $8\\text{ سم}$ في ترتيب دوري واحد بمقياس رسم $m = 4\\text{ نيوتن/سم}$. احسب معيار عزم الازدواج.',
+                optionsEn: ['$192\\text{ N}\\cdot\\text{cm}$', '$96\\text{ N}\\cdot\\text{cm}$', '$384\\text{ N}\\cdot\\text{cm}$', '$48\\text{ N}\\cdot\\text{cm}$'],
+                optionsAr: ['$192\\text{ نيوتن.سم}$', '$96\\text{ نيوتن.سم}$', '$384\\text{ نيوتن.سم}$', '$48\\text{ نيوتن.سم}$'],
+                correctAnswer: '$192\\text{ N}\\cdot\\text{cm}$',
+                correctIndex: 0,
+                hintEn: 'Area = 0.5 * 6 * 8 = 24 cm^2. M = 2 * m * Area.',
+                hintAr: 'المساحة = ٠٫٥ × ٦ × ٨ = ٢٤ سم^٢. العزم = ٢ × م × المساحة.',
+                stepByStepSolutionEn: [
+                  '1. Area = 0.5 * 6 * 8 = 24 cm^2.',
+                  '2. M = 2 * m * Area = 2 * 4 * 24 = 192 N*cm.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. المساحة = ٠٫٥ × ٦ × ٨ = ٢٤ سم^٢.',
+                  '٢. جـ = ٢ × ٤ × ٢٤ = ١٩٢ نيوتن.سم.'
+                ]
+              },
+              {
+                id: 'stat_l9_p3',
+                titleEn: 'Hexagon Polygon Theorem with Balancing Force',
+                titleAr: 'نظرية المضلع لسداسي مع قوة موازنة',
+                difficulty: 'hots',
+                questionEn: 'Forces proportional to sides with $m = 2\\text{ N/cm}$ act around a regular hexagon of side $10\\text{ cm}$ in cyclic order. Two forces $F$ at opposite vertices separated by $d = 10\\sqrt{3}\\text{ cm}$ equilibrate the system. Find $F$.',
+                questionAr: 'تؤثر قوى متناسبة مع الأضلاع بمقياس $m = 2\\text{ نيوتن/سم}$ في محيط سداسي منتظم طول ضلعه $10\\text{ سم}$ في اتجاه دوري واحد. أُثرت قوتان $F$ عند رأسين متقابلين بينهما $d = 10\\sqrt{3}\\text{ سم}$ لإعادة الاتزان. أوجد $F$.',
+                optionsEn: ['$60\\text{ N}$', '$30\\text{ N}$', '$60\\sqrt{3}\\text{ N}$', '$120\\text{ N}$'],
+                optionsAr: ['$60\\text{ نيوتن}$', '$30\\text{ نيوتن}$', '$60\\sqrt{3}\\text{ نيوتن}$', '$120\\text{ نيوتن}$'],
+                correctAnswer: '$60\\text{ N}$',
+                correctIndex: 0,
+                hintEn: 'Hexagon Area = (3*sqrt(3)/2)*100 = 150*sqrt(3). M = 2 * 2 * 150*sqrt(3) = 600*sqrt(3). F = M / d = 600*sqrt(3) / (10*sqrt(3)) = 60 N.',
+                hintAr: 'مساحة السداسي = ١٥٠ جذر(٣). العزم = ٦٠٠ جذر(٣). ق = جـ / ل = ٦٠ نيوتن.',
+                stepByStepSolutionEn: [
+                  '1. Area = (3*sqrt(3)/2) * 100 = 150*sqrt(3) cm^2.',
+                  '2. M = 2 * m * Area = 2 * 2 * 150*sqrt(3) = 600*sqrt(3) N*cm.',
+                  '3. F = M / d = 600*sqrt(3) / (10*sqrt(3)) = 60 N.'
+                ],
+                stepByStepSolutionAr: [
+                  '١. المساحة = ١٥٠ جذر(٣) سم^٢.',
+                  '٢. جـ = ٢ × ٢ × ١٥٠ جذر(٣) = ٦٠٠ جذر(٣) نيوتن.سم.',
+                  '٣. ق = ٦٠٠ جذر(٣) / (١٠ جذر(٣)) = ٦٠ نيوتن.'
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: 'statics_friction',
+            titleEn: 'Closed Polygon Forces & Couple Analyzer',
+            titleAr: 'محلل القوى الممثلة بأضلاع مضلع والازدواج المكافئ',
+            descriptionEn: 'Explore the 2*m*Area theorem for couples formed by cyclic polygon forces, and test balancing couples.',
+            descriptionAr: 'استكشف نظرية ٢ × م × المساحة للازدواجات الناتجة عن قوى دورية في مضلع، واختبر الازدواجات الموازنة.'
+          }
+        }
+      ],
+      solvedExamples: statCh5SolvedExamples,
+      exerciseProblems: statCh5Exercises,
+      databank: statCh5Databank
     }
   ]
 };
