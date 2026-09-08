@@ -1,4 +1,6 @@
 import type { Branch } from '../types/curriculum';
+import { calcCh1SolvedExamples, calcCh1Exercises } from './textbook/thanaweya/calcCh1Textbook';
+import { calcCh1Databank } from './databanks/thanaweya/calcCh1Databank';
 
 export const thanaweyaCalculusBranch: Branch = {
   id: 'calculus',
@@ -254,7 +256,10 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
             descriptionAr: 'عرض تفاعلي يبين اقتراب ميل القاطع من ميل المماس عند تناهي h للصفر.'
           }
         }
-      ]
+      ],
+      solvedExamples: calcCh1SolvedExamples,
+      exerciseProblems: calcCh1Exercises,
+      databank: calcCh1Databank
     },
     {
       id: 'calc_ch2',
