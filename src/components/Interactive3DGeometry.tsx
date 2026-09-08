@@ -6,7 +6,7 @@ import type { Language } from '../i18n/translations';
 
 interface Props {
   lang: Language;
-  theme?: 'dark' | 'light';
+  theme?: 'dark' | 'light' | 'high-contrast';
 }
 
 export const Interactive3DGeometry: React.FC<Props> = ({ lang, theme = 'dark' }) => {

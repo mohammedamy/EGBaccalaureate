@@ -1,4 +1,6 @@
 export type CurriculumType = 'thanaweya' | 'egbac';
+export type ThemeMode = 'dark' | 'light' | 'high-contrast';
+export type FontSizeMode = 'normal' | 'large' | 'xlarge';
 
 export type BranchId = 
   | 'algebra_solid' 

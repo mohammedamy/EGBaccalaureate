@@ -12,6 +12,11 @@ export interface Translations {
   roleTeacher: string;
   themeDay: string;
   themeNight: string;
+  themeHighContrast: string;
+  fontSize: string;
+  fontSizeNormal: string;
+  fontSizeLarge: string;
+  fontSizeXLarge: string;
   officialMoeRef: string;
   moeBadge: string;
   searchPlaceholder: string;
@@ -106,6 +111,11 @@ export const translations: Record<Language, Translations> = {
     roleTeacher: 'Teacher Mode',
     themeDay: 'Day View ☀️',
     themeNight: 'Night View 🌙',
+    themeHighContrast: 'High Contrast ⚡',
+    fontSize: 'Font Size',
+    fontSizeNormal: 'Standard (100%)',
+    fontSizeLarge: 'Large (115%)',
+    fontSizeXLarge: 'Extra Large (130%)',
     officialMoeRef: 'Official MoE Egyptian Curriculum Reference 2025/2026',
     moeBadge: 'ClipSAT MoE Accredited',
     searchPlaceholder: 'Search formulas, lessons, concepts...',
@@ -192,6 +202,11 @@ export const translations: Record<Language, Translations> = {
     roleTeacher: 'وضع المعلم',
     themeDay: 'الوضع النهاري ☀️',
     themeNight: 'الوضع الليلي 🌙',
+    themeHighContrast: 'تباين عالي ⚡',
+    fontSize: 'حجم الخط',
+    fontSizeNormal: 'قياسي (100%)',
+    fontSizeLarge: 'كبير (115%)',
+    fontSizeXLarge: 'كبير جداً (130%)',
     officialMoeRef: 'المرجع الرسمي لكتب وزارة التربية والتعليم والتعليم الفني 2025/2026',
     moeBadge: 'منصة ClipSAT معتمدة بالوزارة',
     searchPlaceholder: 'ابحث عن القوانين، الدروس، المفاهيم...',

@@ -14,7 +14,7 @@ import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
-  theme?: 'dark' | 'light';
+  theme?: 'dark' | 'light' | 'high-contrast';
   role: UserRole;
   lesson: Lesson;
   branch: Branch;
