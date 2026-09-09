@@ -10,7 +10,7 @@ import { InteractiveCalculusTangent } from './InteractiveCalculusTangent';
 import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
 import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -40,6 +40,57 @@ export const LessonView: React.FC<Props> = ({
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
   const [openSolutions, setOpenSolutions] = useState<Record<string, boolean>>({});
   const [databankDifficulty, setDatabankDifficulty] = useState<'easy' | 'medium' | 'hots'>('easy');
+  const [filterBookmarkedOnly, setFilterBookmarkedOnly] = useState<boolean>(false);
+
+  // Student Interactive Practice & Bookmarking State (saved in localStorage)
+  const [userAnswers, setUserAnswers] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('egbac_user_answers');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const [bookmarkedProblems, setBookmarkedProblems] = useState<Record<string, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('egbac_bookmarks');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const handleSelectOption = (probId: string, optIdx: number) => {
+    setUserAnswers((prev) => {
+      const updated = { ...prev, [probId]: optIdx };
+      try {
+        localStorage.setItem('egbac_user_answers', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
+
+  const handleClearAnswer = (probId: string) => {
+    setUserAnswers((prev) => {
+      const updated = { ...prev };
+      delete updated[probId];
+      try {
+        localStorage.setItem('egbac_user_answers', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
+
+  const handleToggleBookmark = (probId: string) => {
+    setBookmarkedProblems((prev) => {
+      const updated = { ...prev, [probId]: !prev[probId] };
+      try {
+        localStorage.setItem('egbac_bookmarks', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+  };
 
   // Chapter-level data bindings
   const currentChapter = branch.chapters.find((c) => c.lessons.some((l) => l.id === lesson.id)) || branch.chapters[0];
@@ -78,18 +129,38 @@ export const LessonView: React.FC<Props> = ({
     const isHintOpen = !!openHints[prob.id];
     const isSolOpen = !!openSolutions[prob.id];
     const options = (lang === 'ar' ? prob.optionsAr : prob.optionsEn) || [];
+    const userChosen = userAnswers[prob.id];
+    const isAnswered = userChosen !== undefined;
+    const isBookmarked = !!bookmarkedProblems[prob.id];
 
     return (
       <div
         key={prob.id}
-        className={`rounded-xl p-4 sm:p-5 space-y-4 shadow-sm border printable-problem print-avoid-break ${
+        className={`rounded-xl p-4 sm:p-5 space-y-4 shadow-sm border printable-problem print-avoid-break transition-all ${
           isLight ? 'bg-slate-50/70 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}
       >
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <span className="bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800 shadow-sm">
-            {badgeText || (lang === 'ar' ? `مسألة رقم (${toHindiDigits(idx + 1)})` : `Problem (${idx + 1})`)}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800 shadow-sm">
+              {badgeText || (lang === 'ar' ? `مسألة رقم (${toHindiDigits(idx + 1)})` : `Problem (${idx + 1})`)}
+            </span>
+            <button
+              type="button"
+              onClick={() => handleToggleBookmark(prob.id)}
+              className={`p-1.5 rounded-lg border transition-all no-print cursor-pointer ${
+                isBookmarked
+                  ? 'bg-amber-500/20 border-amber-500 text-amber-400'
+                  : isLight
+                  ? 'border-slate-200 text-slate-400 hover:text-amber-500 hover:border-amber-400'
+                  : 'border-slate-800 text-slate-500 hover:text-amber-400 hover:border-amber-500'
+              }`}
+              title={lang === 'ar' ? 'حفظ المسألة للمراجعة' : 'Bookmark for review'}
+            >
+              <Star className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-amber-400' : ''}`} />
+            </button>
+          </div>
+
           <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-lg bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700/60 shadow-sm">
             {prob.difficulty === 'exam_standard'
               ? lang === 'ar' ? 'نموذج وزاري معتمد' : 'EXAM STANDARD'
@@ -112,25 +183,44 @@ export const LessonView: React.FC<Props> = ({
         {options.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 print-options-grid print-avoid-break">
             {options.map((opt, optIdx) => {
-              const isCorrect = isSolOpen && optIdx === prob.correctIndex;
+              const isSelected = userChosen === optIdx;
+              const isCorrect = optIdx === prob.correctIndex;
+              const isSelectedCorrect = isSelected && isCorrect;
+              const isSelectedWrong = isSelected && !isCorrect;
+              const shouldReveal = isSolOpen && isCorrect;
+
+              let cardStyle = isLight
+                ? 'border-slate-200 bg-white text-slate-800 shadow-xs hover:border-indigo-400 hover:bg-slate-50'
+                : 'border-slate-800 bg-slate-900/60 text-slate-200 hover:border-indigo-500/50 hover:bg-slate-900';
+
+              if (isSelectedCorrect) {
+                cardStyle = isLight
+                  ? 'bg-emerald-50 border-emerald-500 text-emerald-950 ring-2 ring-emerald-500/30 font-bold'
+                  : 'bg-emerald-950/80 border-emerald-500 text-emerald-100 ring-2 ring-emerald-500/40 font-bold';
+              } else if (isSelectedWrong) {
+                cardStyle = isLight
+                  ? 'bg-rose-50 border-rose-400 text-rose-950 ring-2 ring-rose-500/20 font-bold'
+                  : 'bg-rose-950/70 border-rose-500 text-rose-100 ring-2 ring-rose-500/30 font-bold';
+              } else if (shouldReveal) {
+                cardStyle = isLight
+                  ? 'bg-emerald-50/70 border-emerald-400 text-emerald-950 ring-1 ring-emerald-400 font-bold'
+                  : 'bg-emerald-950/60 border-emerald-500 text-emerald-200 ring-1 ring-emerald-500 font-bold';
+              }
+
               return (
-                <div
+                <button
                   key={optIdx}
-                  className={`border p-3 rounded-xl flex items-center justify-between gap-2 text-xs transition-all ${
-                    isCorrect
-                      ? isLight
-                        ? 'bg-emerald-50 border-emerald-500 text-emerald-950 ring-2 ring-emerald-500/30 font-bold'
-                        : 'bg-emerald-950/70 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/40 font-bold'
-                      : isLight
-                      ? 'border-slate-200 bg-white text-slate-800 shadow-xs hover:border-slate-300'
-                      : 'border-slate-800 bg-slate-900/60 text-slate-200'
-                  }`}
+                  type="button"
+                  onClick={() => handleSelectOption(prob.id, optIdx)}
+                  className={`border p-3 rounded-xl flex items-center justify-between gap-2 text-xs transition-all text-left rtl:text-right cursor-pointer group hover:scale-[1.01] active:scale-[0.99] ${cardStyle}`}
                 >
                   <div className="flex items-center gap-2">
                     <span
-                      className={`font-black px-2 py-0.5 rounded-md text-[11px] ${
-                        isCorrect
+                      className={`font-black px-2 py-0.5 rounded-md text-[11px] shrink-0 ${
+                        isSelectedCorrect || shouldReveal
                           ? 'bg-emerald-600 text-white'
+                          : isSelectedWrong
+                          ? 'bg-rose-600 text-white'
                           : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
                       }`}
                     >
@@ -140,12 +230,24 @@ export const LessonView: React.FC<Props> = ({
                       <MathRenderer math={opt} lang={lang} />
                     </span>
                   </div>
-                  {isCorrect && (
+                  {isSelectedCorrect && (
+                    <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0 flex items-center gap-0.5">
+                      <Check className="w-3 h-3" />
+                      <span>{lang === 'ar' ? 'صحيح' : 'Correct'}</span>
+                    </span>
+                  )}
+                  {isSelectedWrong && (
+                    <span className="text-[10px] font-extrabold text-rose-600 dark:text-rose-400 shrink-0 flex items-center gap-0.5">
+                      <XCircle className="w-3 h-3" />
+                      <span>{lang === 'ar' ? 'غير صحيح' : 'Incorrect'}</span>
+                    </span>
+                  )}
+                  {!isSelected && shouldReveal && (
                     <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0">
                       {lang === 'ar' ? '✓ إجابة صحيحة' : '✓ Correct'}
                     </span>
                   )}
-                </div>
+                </button>
               );
             })}
           </div>
@@ -167,6 +269,16 @@ export const LessonView: React.FC<Props> = ({
             {isSolOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
             <span>{isSolOpen ? t.hideSolution : t.showSolution}</span>
           </button>
+
+          {isAnswered && (
+            <button
+              onClick={() => handleClearAnswer(prob.id)}
+              className="text-xs font-bold text-slate-400 hover:text-slate-200 flex items-center justify-center gap-1.5 bg-slate-100 dark:bg-slate-900 px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-800 transition-all shadow-sm flex-1 sm:flex-initial no-print"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>{lang === 'ar' ? 'إلغاء الإجابة' : 'Reset'}</span>
+            </button>
+          )}
         </div>
 
         {isHintOpen && (
@@ -685,10 +797,10 @@ export const LessonView: React.FC<Props> = ({
             </div>
 
             {/* Difficulty sub-filter buttons */}
-            <div className="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 no-print">
+            <div className="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 no-print flex-wrap">
               <button
                 onClick={() => setDatabankDifficulty('easy')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   databankDifficulty === 'easy'
                     ? 'bg-emerald-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -698,7 +810,7 @@ export const LessonView: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => setDatabankDifficulty('medium')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   databankDifficulty === 'medium'
                     ? 'bg-indigo-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -708,7 +820,7 @@ export const LessonView: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => setDatabankDifficulty('hots')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   databankDifficulty === 'hots'
                     ? 'bg-amber-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white'
@@ -716,24 +828,113 @@ export const LessonView: React.FC<Props> = ({
               >
                 {lang === 'ar' ? 'تفكير عليا (٥٠)' : 'HOTS (50)'}
               </button>
+
+              <div className="h-4 w-px bg-slate-800 mx-1 hidden sm:block" />
+
+              <button
+                onClick={() => setFilterBookmarkedOnly((prev) => !prev)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  filterBookmarkedOnly
+                    ? 'bg-amber-500 text-black shadow-md ring-2 ring-amber-400/50'
+                    : 'text-slate-400 hover:text-amber-400'
+                }`}
+              >
+                <Star className={`w-3.5 h-3.5 ${filterBookmarkedOnly ? 'fill-black' : ''}`} />
+                <span>{lang === 'ar' ? 'المميزة بنجمة' : 'Starred'}</span>
+              </button>
             </div>
           </div>
 
+          {/* Interactive Chapter Mastery Stats Bar */}
+          {(() => {
+            const currentQuestions =
+              databankDifficulty === 'easy'
+                ? chapterDatabank.easy
+                : databankDifficulty === 'medium'
+                ? chapterDatabank.medium
+                : chapterDatabank.hots;
+            const attempted = currentQuestions.filter((q) => userAnswers[q.id] !== undefined).length;
+            const correct = currentQuestions.filter((q) => userAnswers[q.id] === q.correctIndex).length;
+            const bookmarked = currentQuestions.filter((q) => bookmarkedProblems[q.id]).length;
+            const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+            return (
+              <div className={`p-3.5 rounded-xl border flex flex-wrap items-center justify-between gap-3 text-xs no-print ${
+                isLight ? 'bg-slate-100/70 border-slate-200' : 'bg-slate-950/70 border-slate-800'
+              }`}>
+                <div className="flex items-center gap-4 flex-wrap font-bold">
+                  <span className="flex items-center gap-1.5 text-slate-400">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                    <span>{lang === 'ar' ? `المحاولات: ${toHindiDigits(attempted)} / ${toHindiDigits(currentQuestions.length)}` : `Attempted: ${attempted} / ${currentQuestions.length}`}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                    <Award className="w-4 h-4" />
+                    <span>{lang === 'ar' ? `الصحيح: ${toHindiDigits(correct)} (${toHindiDigits(accuracy)}٪)` : `Correct: ${correct} (${accuracy}%)`}</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                    <Star className="w-4 h-4" />
+                    <span>{lang === 'ar' ? `المحفوظة للمراجعة: ${toHindiDigits(bookmarked)}` : `Bookmarked: ${bookmarked}`}</span>
+                  </span>
+                </div>
+
+                {attempted > 0 && (
+                  <div className="flex items-center gap-2">
+                    <div className="w-28 sm:w-36 h-2 bg-slate-800 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                        style={{ width: `${(attempted / currentQuestions.length) * 100}%` }}
+                      />
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {Math.round((attempted / currentQuestions.length) * 100)}%
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
           <div className="space-y-6">
-            {(databankDifficulty === 'easy'
-              ? chapterDatabank.easy
-              : databankDifficulty === 'medium'
-              ? chapterDatabank.medium
-              : chapterDatabank.hots
-            ).map((prob, idx) =>
-              renderProblemCard(
-                prob,
-                idx,
-                lang === 'ar'
-                  ? `${databankDifficulty === 'easy' ? 'سؤال سهل' : databankDifficulty === 'medium' ? 'سؤال متوسط' : 'سؤال مهارات عليا'} (${toHindiDigits(idx + 1)})`
-                  : `${databankDifficulty === 'easy' ? 'Easy' : databankDifficulty === 'medium' ? 'Medium' : 'HOTS'} Q(${idx + 1})`
-              )
-            )}
+            {(() => {
+              const currentQuestions =
+                databankDifficulty === 'easy'
+                  ? chapterDatabank.easy
+                  : databankDifficulty === 'medium'
+                  ? chapterDatabank.medium
+                  : chapterDatabank.hots;
+
+              const filtered = filterBookmarkedOnly
+                ? currentQuestions.filter((q) => bookmarkedProblems[q.id])
+                : currentQuestions;
+
+              if (filtered.length === 0) {
+                return (
+                  <div className="p-12 text-center text-slate-400 space-y-2 border border-dashed rounded-xl">
+                    <Star className="w-8 h-8 mx-auto text-amber-500/50" />
+                    <p className="text-sm font-semibold">
+                      {lang === 'ar'
+                        ? 'لا توجد أسئلة مميزة بنجمة في هذا القسم حالياً.'
+                        : 'No bookmarked questions in this difficulty section.'}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {lang === 'ar'
+                        ? 'اضغط على أيقونة النجمة بجانب أي سؤال لحفظه ومراجعته لاحقاً.'
+                        : 'Click the star icon on any problem card to save it for revision.'}
+                    </p>
+                  </div>
+                );
+              }
+
+              return filtered.map((prob, idx) =>
+                renderProblemCard(
+                  prob,
+                  idx,
+                  lang === 'ar'
+                    ? `${databankDifficulty === 'easy' ? 'سؤال سهل' : databankDifficulty === 'medium' ? 'سؤال متوسط' : 'سؤال مهارات عليا'} (${toHindiDigits(idx + 1)})`
+                    : `${databankDifficulty === 'easy' ? 'Easy' : databankDifficulty === 'medium' ? 'Medium' : 'HOTS'} Q(${idx + 1})`
+                )
+              );
+            })()}
           </div>
         </div>
       )}

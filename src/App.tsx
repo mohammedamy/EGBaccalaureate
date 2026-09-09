@@ -8,7 +8,8 @@ import { Navbar } from './components/Navbar';
 import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
 import { TestGenerator } from './components/TestGenerator';
-import { Search, ShieldCheck } from 'lucide-react';
+import { SearchModal } from './components/SearchModal';
+import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
 
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
   });
   const [curriculum, setCurriculum] = useState<CurriculumType>('thanaweya');
   const [activeTab, setActiveTab] = useState<string>('overview');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
@@ -72,6 +73,18 @@ export const App: React.FC = () => {
     setSelectedLesson(data.branches[0].chapters[0].lessons[0]);
   }, [curriculum]);
 
+  // Global keyboard shortcut: Cmd+K / Ctrl+K to toggle SearchModal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleLanguageToggle = () => {
     setLang((prev) => (prev === 'en' ? 'ar' : 'en'));
   };
@@ -86,6 +99,20 @@ export const App: React.FC = () => {
     if (tab) {
       setActiveTab(tab);
     }
+  };
+
+  const handleSearchNavigate = (
+    curType: CurriculumType,
+    b: Branch,
+    l: Lesson,
+    tab: string
+  ) => {
+    if (curriculum !== curType) {
+      setCurriculum(curType);
+    }
+    setSelectedBranch(b);
+    setSelectedLesson(l);
+    setActiveTab(tab);
   };
 
   const t = translations[lang];
@@ -116,27 +143,52 @@ export const App: React.FC = () => {
 
       {/* Main Workspace Body */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8">
-        {/* Quick Search Bar */}
+        {/* Quick Search Bar (Opens Universal Search Modal) */}
         <div className="relative no-print">
-          <div className={`absolute inset-y-0 left-0 rtl:left-auto rtl:right-0 pl-3.5 rtl:pl-0 rtl:pr-3.5 flex items-center pointer-events-none ${
-            theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-slate-400' : 'text-slate-500'
-          }`}>
-            <Search className="w-4 h-4" />
-          </div>
-          <input
-            type="text"
-            placeholder={t.searchPlaceholder}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={`w-full rounded-2xl py-3 pl-10 rtl:pl-4 rtl:pr-10 text-xs shadow-md transition-all focus:outline-none focus:ring-2 ${
+          <button
+            type="button"
+            onClick={() => setIsSearchOpen(true)}
+            className={`w-full rounded-2xl py-3 px-4 flex items-center justify-between text-xs shadow-md transition-all text-left rtl:text-right cursor-pointer group border ${
               theme === 'high-contrast'
-                ? 'bg-black border-2 border-cyan-400 text-white placeholder-slate-400 focus:border-yellow-400 focus:ring-yellow-400/30'
+                ? 'bg-black border-2 border-cyan-400 text-white hover:border-yellow-400'
                 : theme === 'light'
-                ? 'bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:border-indigo-600 focus:ring-indigo-500/40'
-                : 'bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500/40'
+                ? 'bg-white border-slate-300 text-slate-500 hover:border-indigo-400 hover:shadow-lg'
+                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-900'
             }`}
-          />
+          >
+            <div className="flex items-center gap-3">
+              <Search className={`w-4 h-4 transition-colors ${
+                theme === 'high-contrast' ? 'text-yellow-400' : 'text-indigo-500'
+              }`} />
+              <span className="font-medium text-xs sm:text-sm">
+                {lang === 'ar'
+                  ? 'البحث الشامل في ٤,٧٢٥ مسألة وقانون وفصل... (اضغط للبحث)'
+                  : 'Universal Search across 4,725 problems, theorems & lessons... (Click to search)'}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              <kbd className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-mono rounded-md border font-semibold ${
+                theme === 'high-contrast'
+                  ? 'bg-yellow-400 text-black border-yellow-300'
+                  : theme === 'light'
+                  ? 'bg-slate-100 text-slate-600 border-slate-300'
+                  : 'bg-slate-800 text-slate-300 border-slate-700'
+              }`}>
+                <Command className="w-3 h-3" />
+                <span>K</span>
+              </kbd>
+            </div>
+          </button>
         </div>
+
+        {/* Global Instant Search Modal */}
+        <SearchModal
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+          lang={lang}
+          theme={theme}
+          onNavigate={handleSearchNavigate}
+        />
 
         {/* Tab View Router */}
         {activeTab === 'overview' && (
