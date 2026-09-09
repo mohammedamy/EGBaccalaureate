@@ -12,7 +12,7 @@ import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2 } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -976,6 +976,33 @@ export const LessonView: React.FC<Props> = ({
             </button>
           </div>
 
+          {/* Prerequisites & Prior Knowledge */}
+          {lesson.lessonPlan.prerequisitesEn && lesson.lessonPlan.prerequisitesEn.length > 0 && (
+            <div className="space-y-3 print-avoid-break">
+              <h4 className={`text-sm font-bold uppercase tracking-wider flex items-center gap-2 ${
+                isLight ? 'text-teal-900 font-bold' : 'text-teal-300'
+              }`}>
+                <Compass className="w-4 h-4" />
+                <span>{t.prerequisites}</span>
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {(lang === 'ar' ? lesson.lessonPlan.prerequisitesAr : lesson.lessonPlan.prerequisitesEn).map((prereq, pIdx) => (
+                  <span
+                    key={pIdx}
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-semibold flex items-center gap-1.5 ${
+                      isLight
+                        ? 'bg-teal-50 border-teal-200 text-teal-900'
+                        : 'bg-teal-950/40 border-teal-800 text-teal-200'
+                    }`}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                    <span>{lang === 'ar' ? toHindiDigits(prereq) : prereq}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Bloom's Taxonomy Objectives */}
           <div className="space-y-3 print-avoid-break">
             <h4 className={`text-sm font-bold uppercase tracking-wider ${
@@ -997,6 +1024,41 @@ export const LessonView: React.FC<Props> = ({
               ))}
             </ul>
           </div>
+
+          {/* Key Mathematical Vocabulary */}
+          {lesson.lessonPlan.keyVocabularyEn && lesson.lessonPlan.keyVocabularyEn.length > 0 && (
+            <div className="space-y-3 print-avoid-break">
+              <h4 className={`text-sm font-bold uppercase tracking-wider flex items-center gap-2 ${
+                isLight ? 'text-indigo-900 font-bold' : 'text-indigo-300'
+              }`}>
+                <BookOpen className="w-4 h-4" />
+                <span>{t.vocabulary}</span>
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {(lang === 'ar' ? lesson.lessonPlan.keyVocabularyAr : lesson.lessonPlan.keyVocabularyEn).map((vocab, vIdx) => (
+                  <div
+                    key={vIdx}
+                    className={`p-3.5 rounded-xl border space-y-1.5 text-xs ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-200 text-slate-800'
+                        : 'bg-slate-950 border-slate-800 text-slate-200'
+                    }`}
+                  >
+                    <div className={`font-black text-sm flex items-center gap-1.5 ${
+                      isLight ? 'text-indigo-700' : 'text-indigo-400'
+                    }`}>
+                      <span>{vocab.term}</span>
+                    </div>
+                    <div className={`leading-relaxed text-[11px] ${
+                      isLight ? 'text-slate-600' : 'text-slate-400'
+                    }`}>
+                      <MathRenderer math={vocab.definition} lang={lang} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Teaching Pacing Flow */}
           <div className="space-y-3 print-avoid-break">
@@ -1064,6 +1126,27 @@ export const LessonView: React.FC<Props> = ({
               </div>
             </div>
           </div>
+
+          {/* Formative Assessment */}
+          {(lesson.lessonPlan.formativeAssessmentEn || lesson.lessonPlan.formativeAssessmentAr) && (
+            <div className={`p-4 rounded-xl border space-y-2 text-xs print-avoid-break ${
+              isLight
+                ? 'bg-blue-50/70 border-blue-200 text-blue-950'
+                : 'bg-slate-950 border-blue-900/50 text-slate-300'
+            }`}>
+              <h4 className={`font-bold uppercase tracking-wider flex items-center gap-2 ${
+                isLight ? 'text-blue-900' : 'text-blue-400'
+              }`}>
+                <HelpCircle className="w-4 h-4" />
+                <span>{t.formativeAssessment}</span>
+              </h4>
+              <p className={`leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
+                {lang === 'ar'
+                  ? toHindiDigits(lesson.lessonPlan.formativeAssessmentAr)
+                  : lesson.lessonPlan.formativeAssessmentEn}
+              </p>
+            </div>
+          )}
 
           {/* Exit Ticket */}
           <div className={`p-4 sm:p-5 rounded-xl border space-y-3 text-xs exit-ticket-card print-avoid-break ${
