@@ -9,6 +9,7 @@ import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
 import { TestGenerator } from './components/TestGenerator';
 import { SearchModal } from './components/SearchModal';
+import { CurriculumEquivalency } from './components/CurriculumEquivalency';
 import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -197,6 +198,27 @@ export const App: React.FC = () => {
             curriculum={activeCurriculumData}
             onSelectLesson={handleSelectLesson}
             onNavigateTab={setActiveTab}
+          />
+        )}
+
+        {activeTab === 'equivalency' && (
+          <CurriculumEquivalency
+            lang={lang}
+            theme={theme}
+            onNavigateTrack={(track, branchId) => {
+              if (curriculum !== track) {
+                setCurriculum(track);
+              }
+              const data = track === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+              let targetBranch = data.branches[0];
+              if (branchId) {
+                const found = data.branches.find((b) => b.id === branchId);
+                if (found) targetBranch = found;
+              }
+              setSelectedBranch(targetBranch);
+              setSelectedLesson(targetBranch.chapters[0].lessons[0]);
+              setActiveTab('overview');
+            }}
           />
         )}
 

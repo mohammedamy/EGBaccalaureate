@@ -31,6 +31,7 @@ export interface Translations {
   interactiveTab: string;
   testGeneratorTab: string;
   databankTab: string;
+  equivalencyTab: string;
 
   // Actions
   printWorksheet: string;
@@ -132,6 +133,7 @@ export const translations: Record<Language, Translations> = {
     interactiveTab: '3D & Interactive Lab',
     testGeneratorTab: 'Exam & Practice Generator',
     databankTab: 'Chapter Databank',
+    equivalencyTab: 'Track Comparison & Bridge',
 
     printWorksheet: 'Print Worksheet / Save PDF',
     downloadPdf: 'Download Teacher Guide',
@@ -226,6 +228,7 @@ export const translations: Record<Language, Translations> = {
     interactiveTab: 'المختبر التفاعلي والشكل ثلاثي الأبعاد',
     testGeneratorTab: 'منشئ الاختبارات والتمارين',
     databankTab: 'بنك أسئلة الفصل',
+    equivalencyTab: 'مقارنة المسارات والجسور',
 
     printWorksheet: 'طباعة ورقة العمل / حفظ PDF',
     downloadPdf: 'تحميل دليل المعلم',

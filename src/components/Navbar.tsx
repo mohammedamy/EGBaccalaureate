@@ -318,6 +318,7 @@ export const Navbar: React.FC<Props> = ({
         }`}>
           {[
             { id: 'overview', label: t.overviewTab, icon: '🗺️' },
+            { id: 'equivalency', label: t.equivalencyTab, icon: '⚖️' },
             { id: 'theory', label: t.theoryTab, icon: '📖' },
             { id: 'solvedExamples', label: t.solvedExamplesTab, icon: '💡' },
             { id: 'exerciseProblems', label: t.exerciseProblemsTab, icon: '📚' },
