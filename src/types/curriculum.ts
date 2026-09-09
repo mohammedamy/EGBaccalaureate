@@ -111,7 +111,7 @@ export interface Worksheet {
 }
 
 export interface InteractiveWidgetConfig {
-  type: '3d_vectors' | 'pascal_binomial' | 'calculus_tangent' | 'statics_friction' | 'complex_argand';
+  type: '3d_vectors' | 'pascal_binomial' | 'calculus_tangent' | 'statics_friction' | 'complex_argand' | 'normal_distribution';
   titleEn: string;
   titleAr: string;
   descriptionEn: string;

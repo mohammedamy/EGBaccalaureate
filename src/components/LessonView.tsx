@@ -9,6 +9,7 @@ import { InteractivePascalTriangle } from './InteractivePascalTriangle';
 import { InteractiveCalculusTangent } from './InteractiveCalculusTangent';
 import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
 import { InteractiveComplexArgand } from './InteractiveComplexArgand';
+import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -120,6 +121,8 @@ export const LessonView: React.FC<Props> = ({
         return <InteractiveStaticsFriction lang={lang} theme={theme} />;
       case 'complex_argand':
         return <InteractiveComplexArgand lang={lang} theme={theme} />;
+      case 'normal_distribution':
+        return <InteractiveNormalDistribution lang={lang} theme={theme} />;
       default:
         return <Interactive3DGeometry lang={lang} theme={theme} />;
     }

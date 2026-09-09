@@ -161,7 +161,7 @@ Given a partition $B_1, B_2, \\dots, B_k$ of $\\Omega$:
             ]
           },
           interactiveWidget: {
-            type: 'pascal_binomial',
+            type: 'normal_distribution',
             titleEn: 'Bayesian Updating Visualizer',
             titleAr: 'المحاكي التفاعلي لتحديث الاحتمالات البايزي',
             descriptionEn: 'Interactive slider tool dynamically updating prior and posterior probabilities based on test sensitivity and base rate.',
@@ -451,7 +451,7 @@ If $X \\sim N(\\mu, \\sigma^2)$, then $Z = \\frac{X - \\mu}{\\sigma} \\sim N(0, 
             ]
           },
           interactiveWidget: {
-            type: 'pascal_binomial',
+            type: 'normal_distribution',
             titleEn: 'Normal Distribution Area & Percentile Explorer',
             titleAr: 'مستكشف مساحات ومئينات التوزيع الطبيعي التفاعلي',
             descriptionEn: 'Dynamic interactive visualizer shading Gaussian tail probabilities and displaying exact z-scores.',
