@@ -4,7 +4,7 @@ import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import { BookOpen, CheckCircle2, ChevronRight, Sparkles, Layers, Box, Activity, Compass, Grid, Zap, TrendingUp, Cpu } from 'lucide-react';
+import { BookOpen, CheckCircle2, ChevronRight, Sparkles, Layers, Box, Activity, Compass, Grid, Zap, TrendingUp, Cpu, BarChart3 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -38,6 +38,8 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <TrendingUp className="w-5 h-5" />;
       case 'Cpu':
         return <Cpu className="w-5 h-5" />;
+      case 'BarChart3':
+        return <BarChart3 className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }
