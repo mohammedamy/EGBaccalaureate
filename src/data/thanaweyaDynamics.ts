@@ -1236,7 +1236,7 @@ When a person of mass $m$ stands on a scale inside an elevator:
             ]
           },
           interactiveWidget: {
-            type: 'statics_friction',
+            type: 'dynamics_motion',
             titleEn: 'Elevator & Smooth Pulley Dynamics Simulator',
             titleAr: 'محاكي حركة المصاعد ومجموعات البكرات',
             descriptionEn: 'Interactive simulator visualizing elevator apparent weight, tension forces, and cut-string kinematic trajectories.',
@@ -2279,7 +2279,7 @@ $$P = \\frac{dW}{dt} = \\vec{F} \\cdot \\vec{v}$$
             ]
           },
           interactiveWidget: {
-            type: 'statics_friction',
+            type: 'dynamics_motion',
             titleEn: 'Mechanical Energy Conservation & Friction Loss Simulator',
             titleAr: 'محاكي بقاء الطاقة الميكانيكية والفقد بالاحتكاك',
             descriptionEn: 'Interactive physics laboratory demonstrating energy transformations between potential, kinetic, and frictional dissipation.',

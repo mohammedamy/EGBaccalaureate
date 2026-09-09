@@ -10,6 +10,7 @@ import { InteractiveCalculusTangent } from './InteractiveCalculusTangent';
 import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
 import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
+import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -123,6 +124,8 @@ export const LessonView: React.FC<Props> = ({
         return <InteractiveComplexArgand lang={lang} theme={theme} />;
       case 'normal_distribution':
         return <InteractiveNormalDistribution lang={lang} theme={theme} />;
+      case 'dynamics_motion':
+        return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
       default:
         return <Interactive3DGeometry lang={lang} theme={theme} />;
     }

@@ -532,7 +532,7 @@ $$\\frac{dV}{dx} = 0$$
             ]
           },
           interactiveWidget: {
-            type: 'statics_friction',
+            type: 'dynamics_motion',
             titleEn: 'Potential Energy Wells & Equilibrium Simulator',
             titleAr: 'محاكي آبار طاقة الوضع ومستويات الاستقرار التفاعلي',
             descriptionEn: 'Interactive potential well simulation demonstrating particle oscillation in stable minima, barrier escape in unstable maxima, and phase portraits.',
