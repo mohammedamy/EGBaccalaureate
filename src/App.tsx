@@ -10,6 +10,7 @@ import { LessonView } from './components/LessonView';
 import { TestGenerator } from './components/TestGenerator';
 import { SearchModal } from './components/SearchModal';
 import { CurriculumEquivalency } from './components/CurriculumEquivalency';
+import { FormulaHandbook } from './components/FormulaHandbook';
 import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -34,6 +35,7 @@ export const App: React.FC = () => {
   const [curriculum, setCurriculum] = useState<CurriculumType>('thanaweya');
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
@@ -74,12 +76,16 @@ export const App: React.FC = () => {
     setSelectedLesson(data.branches[0].chapters[0].lessons[0]);
   }, [curriculum]);
 
-  // Global keyboard shortcut: Cmd+K / Ctrl+K to toggle SearchModal
+  // Global keyboard shortcuts: Cmd+K (Search) & Cmd+J (Formula Handbook)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsSearchOpen((prev) => !prev);
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        setIsFormulaHandbookOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -140,6 +146,7 @@ export const App: React.FC = () => {
         onCurriculumChange={setCurriculum}
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
       />
 
       {/* Main Workspace Body */}
@@ -189,6 +196,23 @@ export const App: React.FC = () => {
           lang={lang}
           theme={theme}
           onNavigate={handleSearchNavigate}
+        />
+
+        {/* Global Formula Sheet Handbook Modal */}
+        <FormulaHandbook
+          isOpen={isFormulaHandbookOpen}
+          onClose={() => setIsFormulaHandbookOpen(false)}
+          lang={lang}
+          theme={theme}
+          currentCurriculum={curriculum}
+          onNavigateToLesson={(curType, b, l) => {
+            if (curriculum !== curType) {
+              setCurriculum(curType);
+            }
+            setSelectedBranch(b);
+            setSelectedLesson(l);
+            setActiveTab('theory');
+          }}
         />
 
         {/* Tab View Router */}
@@ -243,7 +267,11 @@ export const App: React.FC = () => {
         )}
 
         {activeTab === 'testGenerator' && (
-          <TestGenerator lang={lang} currentCurriculum={curriculum} />
+          <TestGenerator
+            lang={lang}
+            currentCurriculum={curriculum}
+            onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
+          />
         )}
       </main>
 

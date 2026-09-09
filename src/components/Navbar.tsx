@@ -19,6 +19,7 @@ interface Props {
   onCurriculumChange: (curr: CurriculumType) => void;
   activeTab: string;
   onTabChange: (tab: string) => void;
+  onOpenFormulaHandbook?: () => void;
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -34,6 +35,7 @@ export const Navbar: React.FC<Props> = ({
   onCurriculumChange,
   activeTab,
   onTabChange,
+  onOpenFormulaHandbook,
 }) => {
   const t = translations[lang];
   const isLight = theme === 'light';
@@ -197,6 +199,25 @@ export const Navbar: React.FC<Props> = ({
                 <span className="hidden sm:inline">{lang === 'ar' ? 'تباين' : 'Contrast'}</span>
               </button>
             </div>
+
+            {/* Formula Handbook Trigger */}
+            {onOpenFormulaHandbook && (
+              <button
+                onClick={onOpenFormulaHandbook}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                  isHighContrast
+                    ? 'bg-black text-yellow-300 border-yellow-400 hover:bg-yellow-950/40'
+                    : isLight
+                    ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
+                    : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border-emerald-700/60'
+                }`}
+                title={lang === 'ar' ? 'دستور القوانين والمعادلات الرسمية (Ctrl+J / ⌘J)' : 'Formula Sheet Handbook (Ctrl+J / ⌘J)'}
+              >
+                <BookOpen className="w-3 h-3 text-emerald-400" />
+                <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
+                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘J</kbd>
+              </button>
+            )}
 
             {/* Role Toggle: Teacher / Student */}
             <button

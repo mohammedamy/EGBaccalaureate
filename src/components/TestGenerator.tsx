@@ -24,12 +24,14 @@ import {
   BarChart3,
   Check,
   Sparkles,
+  BookOpen,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
   lang: Language;
   currentCurriculum: CurriculumType;
+  onOpenFormulaHandbook?: () => void;
 }
 
 interface GeneratedQuestion {
@@ -50,7 +52,7 @@ interface GeneratedQuestion {
   branchTitleAr: string;
 }
 
-export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
+export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpenFormulaHandbook }) => {
   const t = translations[lang];
 
   // Filter selections
@@ -657,14 +659,24 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
                 </span>
               </div>
 
-              <div className="pt-3">
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <button
                   onClick={handleStartExam}
-                  className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-extrabold py-3.5 px-10 rounded-2xl text-sm shadow-xl shadow-indigo-600/30 transition-all hover:scale-105 cursor-pointer flex items-center justify-center gap-2 mx-auto"
+                  className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-extrabold py-3.5 px-10 rounded-2xl text-sm shadow-xl shadow-indigo-600/30 transition-all hover:scale-105 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Play className="w-4 h-4 fill-white" />
                   <span>{t.startQuiz}</span>
                 </button>
+                {onOpenFormulaHandbook && (
+                  <button
+                    type="button"
+                    onClick={onOpenFormulaHandbook}
+                    className="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-indigo-500/50 text-slate-200 hover:text-white font-bold py-3.5 px-6 rounded-2xl text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <BookOpen className="w-4 h-4 text-indigo-400" />
+                    <span>{lang === 'ar' ? 'دستور القوانين والمعادلات' : 'Formula Handbook'}</span>
+                  </button>
+                )}
               </div>
             </div>
           ) : (
@@ -716,6 +728,17 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum }) => {
 
                   {/* Right: Quick actions */}
                   <div className="flex items-center gap-2">
+                    {onOpenFormulaHandbook && (
+                      <button
+                        type="button"
+                        onClick={onOpenFormulaHandbook}
+                        className="bg-indigo-950/60 hover:bg-indigo-900/80 border border-indigo-500/40 text-indigo-300 hover:text-indigo-200 font-bold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer flex items-center gap-1.5"
+                        title={lang === 'ar' ? 'دستور القوانين والمعادلات' : 'Formula Handbook'}
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
+                        <span className="hidden sm:inline">{lang === 'ar' ? 'ورقة المفاهيم' : 'Formulas'}</span>
+                      </button>
+                    )}
                     {!isSubmitted ? (
                       <button
                         onClick={handleSubmitExam}
