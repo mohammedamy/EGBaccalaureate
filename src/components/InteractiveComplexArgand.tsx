@@ -453,10 +453,10 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
               }`}>
                 <div className="flex items-center justify-between border-b pb-2">
                   <span className="text-xs font-extrabold text-amber-400">
-                    {lang === 'ar' ? 'الجذور التكعيبية للواحد الصحيح (أوميجا \\omega)' : 'Cube Roots of Unity (\\omega)'}
+                    {lang === 'ar' ? 'الجذور التكعيبية للواحد الصحيح (أوميجا)' : 'Cube Roots of Unity (\\omega)'}
                   </span>
                   <span className="text-xs font-mono font-bold bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded">
-                    1, \omega, \omega^2
+                    <MathRenderer math="1, \\omega, \\omega^2" />
                   </span>
                 </div>
 
@@ -468,9 +468,11 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
 
                 {/* Interactive Omega Power Tester */}
                 <div className="pt-2 border-t space-y-1.5">
-                  <div className="flex justify-between text-[11px] font-bold">
+                  <div className="flex justify-between text-[11px] font-bold items-center">
                     <span>{lang === 'ar' ? 'حساب قوى أوميجا السريعة:' : 'Fast Omega Power Reduction:'}</span>
-                    <span className="font-mono text-amber-400">\omega^{'{'}{omegaPower}{'}'}</span>
+                    <span className="text-amber-400">
+                      <MathRenderer math={`\\omega^{${omegaPower}}`} />
+                    </span>
                   </div>
                   <input
                     type="range"

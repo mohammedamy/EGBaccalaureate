@@ -602,78 +602,78 @@ $(a + b)^n = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\binom{n}{2} a^{n-2}
               titleEn: 'Trigonometric & Exponential Forms of Complex Numbers',
               titleAr: 'الصورة المثلثية والأسية للعدد المركب',
               summaryEn: 'Modulus r = |z| = sqrt(x^2 + y^2), principal argument theta in (-pi, pi], trigonometric form z = r(cos theta + i sin theta), Euler exponential form z = r e^(i theta), multiplication, and division.',
-              summaryAr: 'المقياس $r = |z| = \sqrt{x^2 + y^2}$، والسعة الأساسية $\theta \in (-\pi, \pi]$، الصورة المثلثية $z = r(\cos\theta + i\sin\theta)$، والصورة الأسية لأويلر $z = r e^{i\theta}$، وقواعد الضرب والقسمة.',
+              summaryAr: 'المقياس $r = |z| = \\sqrt{x^2 + y^2}$، والسعة الأساسية $\\theta \\in (-\\pi, \\pi]$، الصورة المثلثية $z = r(\\cos\\theta + i\\sin\\theta)$، والصورة الأسية لأويلر $z = r e^{i\\theta}$، وقواعد الضرب والقسمة.',
               theoryContentEn: `### 1. Modulus and Principal Argument of a Complex Number:
 Let $z = x + i y$ be a complex number represented in the Argand plane by point $(x, y)$:
 - **Modulus (المقياس):**
-  $$r = |z| = \sqrt{x^2 + y^2} \quad (r \ge 0)$$
-- **Principal Argument (السعة الأساسية $\theta = \text{Arg}(z)$):**
-  $$\theta \in (-\pi, \, \pi] \quad \text{or} \quad -180^\circ < \theta \le 180^\circ$$
+  $$r = |z| = \\sqrt{x^2 + y^2} \\quad (r \\ge 0)$$
+- **Principal Argument (السعة الأساسية $\\theta = \\text{Arg}(z)$):**
+  $$\\theta \\in (-\\pi, \\, \\pi] \\quad \\text{or} \\quad -180^\\circ < \\theta \\le 180^\\circ$$
   - **Quadrant Determination:**
-    1. **1st Quadrant ($x > 0, y > 0$):** $\theta = \alpha = \tan^{-1}\left(\frac{y}{x}\right)$
-    2. **2nd Quadrant ($x < 0, y > 0$):** $\theta = \pi - \alpha = 180^\circ - \alpha$
-    3. **3rd Quadrant ($x < 0, y < 0$):** $\theta = -(\pi - \alpha) = -180^\circ + \alpha$
-    4. **4th Quadrant ($x > 0, y < 0$):** $\theta = -\alpha$
+    1. **1st Quadrant ($x > 0, y > 0$):** $\\theta = \\alpha = \\tan^{-1}\\left(\\frac{y}{x}\\right)$
+    2. **2nd Quadrant ($x < 0, y > 0$):** $\\theta = \\pi - \\alpha = 180^\\circ - \\alpha$
+    3. **3rd Quadrant ($x < 0, y < 0$):** $\\theta = -(\\pi - \\alpha) = -180^\\circ + \\alpha$
+    4. **4th Quadrant ($x > 0, y < 0$):** $\\theta = -\\alpha$
 
 ### 2. Standard Forms of a Complex Number:
 1. **Cartesian Form (الصورة الجبرية):** $z = x + i y$
 2. **Trigonometric (Polar) Form (الصورة المثلثية القياسية):**
-   $$z = r (\cos\theta + i \sin\theta)$$
+   $$z = r (\\cos\\theta + i \\sin\\theta)$$
    *(Must have positive $r$, plus sign between terms, and cosine followed by sine!)*
 3. **Exponential / Euler Form (الصورة الأسية لأويلر):**
-   $$z = r e^{i \theta} \quad (\text{where } \theta \text{ is in radians})$$
+   $$z = r e^{i \\theta} \\quad (\\text{where } \\theta \\text{ is in radians})$$
 
 ### 3. Multiplication and Division Theorems:
-Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
+Let $z_1 = r_1 e^{i \\theta_1}$ and $z_2 = r_2 e^{i \\theta_2}$:
 - **Multiplication:** Moduli multiply, arguments add:
-  $$z_1 z_2 = r_1 r_2 [\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)] = r_1 r_2 e^{i(\theta_1 + \theta_2)}$$
+  $$z_1 z_2 = r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i \\sin(\\theta_1 + \\theta_2)] = r_1 r_2 e^{i(\\theta_1 + \\theta_2)}$$
 - **Division:** Moduli divide, arguments subtract:
-  $$\frac{z_1}{z_2} = \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)] = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}$$
+  $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i \\sin(\\theta_1 - \\theta_2)] = \\frac{r_1}{r_2} e^{i(\\theta_1 - \\theta_2)}$$
 
 ### 4. Conjugate and Pure Real / Imaginary Numbers:
-- Conjugate $\bar{z} = x - i y = r [\cos(-\theta) + i \sin(-\theta)] = r e^{-i \theta}$.
-- Modulus relation: $|z| = |\bar{z}| = |-z|$, and $z \bar{z} = |z|^2 = r^2$.
-- Purely Real: $\theta = 0$ (if positive) or $\theta = \pi$ (if negative).
-- Purely Imaginary: $\theta = \frac{\pi}{2}$ (for $+i$) or $\theta = -\frac{\pi}{2}$ (for $-i$).`,
+- Conjugate $\\bar{z} = x - i y = r [\\cos(-\\theta) + i \\sin(-\\theta)] = r e^{-i \\theta}$.
+- Modulus relation: $|z| = |\\bar{z}| = |-z|$, and $z \\bar{z} = |z|^2 = r^2$.
+- Purely Real: $\\theta = 0$ (if positive) or $\\theta = \\pi$ (if negative).
+- Purely Imaginary: $\\theta = \\frac{\\pi}{2}$ (for $+i$) or $\\theta = -\\frac{\\pi}{2}$ (for $-i$).`,
               theoryContentAr: `### ١. مقياس وسعة العدد المركب:
 إذا كان $z = x + i y$ عدداً مركباً يمثله في شكل أرجاند النقطة $(x, y)$:
 - **المقياس (م):**
-  $$r = |z| = \sqrt{x^2 + y^2} \quad (r \ge 0)$$
-- **السعة الأساسية ($\theta$):**
-  $$\theta \in (-\pi, \, \pi] \quad \text{أي أن: } -180^\circ < \theta \le 180^\circ$$
+  $$r = |z| = \\sqrt{x^2 + y^2} \\quad (r \\ge 0)$$
+- **السعة الأساسية ($\\theta$):**
+  $$\\theta \\in (-\\pi, \\, \\pi] \\quad \\text{أي أن: } -180^\\circ < \\theta \\le 180^\\circ$$
   - **تحديد الزاوية حسب الربع:**
-    ١. **الربع الأول ($x > 0, y > 0$):** $\theta = \alpha = \tan^{-1}\left(\frac{y}{x}\right)$
-    ٢. **الربع الثاني ($x < 0, y > 0$):** $\theta = 180^\circ - \alpha$
-    ٣. **الربع الثالث ($x < 0, y < 0$):** $\theta = -180^\circ + \alpha$
-    ٤. **الربع الرابع ($x > 0, y < 0$):** $\theta = -\alpha$
+    ١. **الربع الأول ($x > 0, y > 0$):** $\\theta = \\alpha = \\tan^{-1}\\left(\\frac{y}{x}\\right)$
+    ٢. **الربع الثاني ($x < 0, y > 0$):** $\\theta = 180^\\circ - \\alpha$
+    ٣. **الربع الثالث ($x < 0, y < 0$):** $\\theta = -180^\\circ + \\alpha$
+    ٤. **الربع الرابع ($x > 0, y < 0$):** $\\theta = -\\alpha$
 
 ### ٢. صور التعبير عن العدد المركب:
 ١. **الصورة الجبرية:** $z = x + i y$
 ٢. **الصورة المثلثية القياسية:**
-   $$z = r (\cos\theta + i \sin\theta)$$
+   $$z = r (\\cos\\theta + i \\sin\\theta)$$
    *(شروط الصورة القياسية: $r > 0$، الزاويتان متساويتان، جتا هي الحقيقي وجا هي التخيلي، والإشارة بينهما موجبة)*
 ٣. **الصورة الأسية (صيغة أويلر):**
-   $$z = r e^{i \theta} \quad (\text{حيث } \theta \text{ بالتقدير الدائري})$$
+   $$z = r e^{i \\theta} \\quad (\\text{حيث } \\theta \\text{ بالتقدير الدائري})$$
 
 ### ٣. خواص الضرب والقسمة:
 - **في حالة الضرب:** نضرب المقاييس ونجمع السعات:
-  $$z_1 z_2 = r_1 r_2 [\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)] = r_1 r_2 e^{i(\theta_1 + \theta_2)}$$
+  $$z_1 z_2 = r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i \\sin(\\theta_1 + \\theta_2)] = r_1 r_2 e^{i(\\theta_1 + \\theta_2)}$$
 - **في حالة القسمة:** نقسم المقاييس ونطرح السعات:
-  $$\frac{z_1}{z_2} = \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)] = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}$$
+  $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i \\sin(\\theta_1 - \\theta_2)] = \\frac{r_1}{r_2} e^{i(\\theta_1 - \\theta_2)}$$
 
 ### ٤. مرافق العدد المركب والأعداد الخاصة:
-- مرافق العدد: $\bar{z} = r e^{-i\theta} = r[\cos(-\theta) + i\sin(-\theta)]$
-- سعة المرافق $= -\text{سعة}(z)$
+- مرافق العدد: $\\bar{z} = r e^{-i\\theta} = r[\\cos(-\\theta) + i\\sin(-\\theta)]$
+- سعة المرافق $= -\\text{سعة}(z)$
 - الأعداد الحقيقية والتخيلية البحتة:
-  - $1 = \cos 0 + i \sin 0 = e^{i \cdot 0}$
-  - $-1 = \cos \pi + i \sin \pi = e^{i \pi}$
-  - $i = \cos\frac{\pi}{2} + i \sin\frac{\pi}{2} = e^{i \pi / 2}$
-  - $-i = \cos\left(-\frac{\pi}{2}\right) + i \sin\left(-\frac{\pi}{2}\right) = e^{-i \pi / 2}$`,
+  - $1 = \\cos 0 + i \\sin 0 = e^{i \\cdot 0}$
+  - $-1 = \\cos \\pi + i \\sin \\pi = e^{i \\pi}$
+  - $i = \\cos\\frac{\\pi}{2} + i \\sin\\frac{\\pi}{2} = e^{i \\pi / 2}$
+  - $-i = \\cos\\left(-\\frac{\\pi}{2}\\right) + i \\sin\\left(-\\frac{\\pi}{2}\\right) = e^{-i \\pi / 2}$`,
               formulas: [
-                { labelEn: 'Complex Modulus Formula', labelAr: 'مقياس العدد المركب', latex: 'r = |z| = \sqrt{x^2 + y^2}' },
-                { labelEn: 'Trigonometric Form', labelAr: 'الصورة المثلثية القياسية', latex: 'z = r(\cos\theta + i\sin\theta)' },
-                { labelEn: 'Euler Exponential Form', labelAr: 'الصورة الأسية لأويلر', latex: 'z = r e^{i\theta}' },
-                { labelEn: 'Product of Arguments', labelAr: 'سعة حاصل الضرب', latex: '\text{Arg}(z_1 z_2) = \text{Arg}(z_1) + \text{Arg}(z_2)' }
+                { labelEn: 'Complex Modulus Formula', labelAr: 'مقياس العدد المركب', latex: 'r = |z| = \\sqrt{x^2 + y^2}' },
+                { labelEn: 'Trigonometric Form', labelAr: 'الصورة المثلثية القياسية', latex: 'z = r(\\cos\\theta + i\\sin\\theta)' },
+                { labelEn: 'Euler Exponential Form', labelAr: 'الصورة الأسية لأويلر', latex: 'z = r e^{i\\theta}' },
+                { labelEn: 'Product of Arguments', labelAr: 'سعة حاصل الضرب', latex: '\\text{Arg}(z_1 z_2) = \\text{Arg}(z_1) + \\text{Arg}(z_2)' }
               ],
               moeRef: {
                 bookTitleEn: 'Ministry Algebra Textbook Grade 12',
@@ -758,12 +758,12 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                   advanced: 'إثبات متطابقة أويلر هـ^(ت باي) + ١ = ٠ باستخدام متسلسلات ماكلورين.'
                 },
                 formativeAssessmentEn: 'Find modulus and principal argument of z = -1 - i sqrt(3).',
-                formativeAssessmentAr: 'أوجد المقياس والسعة الأساسية للعدد $z = -1 - i\sqrt{3}$.',
+                formativeAssessmentAr: 'أوجد المقياس والسعة الأساسية للعدد $z = -1 - i\\sqrt{3}$.',
                 exitTicketQuestion: {
                   questionEn: 'Express z = -2(sin 30 + i cos 30) in standard trigonometric form.',
-                  questionAr: 'ضع العدد $z = -2(\sin 30^\circ + i \cos 30^\circ)$ في الصورة المثلثية القياسية.',
+                  questionAr: 'ضع العدد $z = -2(\\sin 30^\\circ + i \\cos 30^\\circ)$ في الصورة المثلثية القياسية.',
                   solutionEn: 'First, inside bracket: sin 30 = cos 60, cos 30 = sin 60 => z = -2(cos 60 + i sin 60). Incorporate the negative sign (-1 = e^(i pi)): theta = 60 - 180 = -120 degrees (-2pi/3). Thus z = 2[cos(-120) + i sin(-120)].',
-                  solutionAr: 'داخل القوس: جا ٣٠ = جتا ٦٠، جتا ٣٠ = جا ٦٠ => ع = -٢ (جتا ٦٠ + ت جا ٦٠). إدخال إشارة السالب: هـ = ٦٠ - ١٨٠ = -١٢٠° (-٢باي/٣). إذن الصورة القياسية هي $z = 2[\cos(-120^\circ) + i \sin(-120^\circ)]$.'
+                  solutionAr: 'داخل القوس: جا ٣٠ = جتا ٦٠، جتا ٣٠ = جا ٦٠ => ع = -٢ (جتا ٦٠ + ت جا ٦٠). إدخال إشارة السالب: هـ = ٦٠ - ١٨٠ = -١٢٠° (-٢باي/٣). إذن الصورة القياسية هي $z = 2[\\cos(-120^\\circ) + i \\sin(-120^\\circ)]$.'
                 }
               },
               worksheet: {
@@ -779,36 +779,36 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                     titleEn: 'Exam Standard: Principal Argument of a Non-Standard Trig Form',
                     titleAr: 'مسألة امتحانية: تعيين السعة الأساسية لصورة غير قياسية',
                     difficulty: 'exam_standard',
-                    questionEn: 'Find the principal argument $\theta$ of the complex number $z = \sin\left(\frac{\pi}{3}\right) - i \cos\left(\frac{\pi}{3}\right)$.',
-                    questionAr: 'أوجد السعة الأساسية $\theta$ للعدد المركب $z = \sin\left(\frac{\pi}{3}\right) - i \cos\left(\frac{\pi}{3}\right)$.',
-                    optionsEn: ['-\frac{\pi}{6}', '-\frac{\pi}{3}', '\frac{2\pi}{3}', '-\frac{5\pi}{6}'],
-                    optionsAr: ['-\frac{\pi}{6}', '-\frac{\pi}{3}', '\frac{2\pi}{3}', '-\frac{5\pi}{6}'],
-                    correctAnswer: '-\frac{\pi}{6}',
+                    questionEn: 'Find the principal argument $\\theta$ of the complex number $z = \\sin\\left(\\frac{\\pi}{3}\\right) - i \\cos\\left(\\frac{\\pi}{3}\\right)$.',
+                    questionAr: 'أوجد السعة الأساسية $\\theta$ للعدد المركب $z = \\sin\\left(\\frac{\\pi}{3}\\right) - i \\cos\\left(\\frac{\\pi}{3}\\right)$.',
+                    optionsEn: ['-\\frac{\\pi}{6}', '-\\frac{\\pi}{3}', '\\frac{2\\pi}{3}', '-\\frac{5\\pi}{6}'],
+                    optionsAr: ['-\\frac{\\pi}{6}', '-\\frac{\\pi}{3}', '\\frac{2\\pi}{3}', '-\\frac{5\\pi}{6}'],
+                    correctAnswer: '-\\frac{\\pi}{6}',
                     correctIndex: 0,
                     hintEn: 'Convert to Cartesian values first: sin(pi/3) = sqrt(3)/2 and cos(pi/3) = 1/2. Point is in the 4th quadrant.',
                     hintAr: 'حول إلى الصورة الجبرية أولاً: جا(٦٠) = جذر٣ / ٢، وجتا(٦٠) = ١/٢. النقطة تقع في الربع الرابع.',
                     stepByStepSolutionEn: [
                       '1. Evaluate the trigonometric values:',
-                      '$$\sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}, \quad \cos\left(\frac{\pi}{3}\right) = \frac{1}{2}$$',
-                      '$$z = \frac{\sqrt{3}}{2} - \frac{1}{2}i$$',
+                      '$$\\sin\\left(\\frac{\\pi}{3}\\right) = \\frac{\\sqrt{3}}{2}, \\quad \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$$',
+                      '$$z = \\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$$',
                       '2. Locate the quadrant of $z$:',
-                      '$x = \frac{\sqrt{3}}{2} > 0$ and $y = -\frac{1}{2} < 0$, so $z$ lies in the **4th Quadrant**.',
-                      '3. Compute the acute reference angle $\alpha$:',
-                      '$$\tan\alpha = \frac{|y|}{|x|} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}} \implies \alpha = 30^\circ = \frac{\pi}{6}$$',
+                      '$x = \\frac{\\sqrt{3}}{2} > 0$ and $y = -\\frac{1}{2} < 0$, so $z$ lies in the **4th Quadrant**.',
+                      '3. Compute the acute reference angle $\\alpha$:',
+                      '$$\\tan\\alpha = \\frac{|y|}{|x|} = \\frac{1/2}{\\sqrt{3}/2} = \\frac{1}{\\sqrt{3}} \\implies \\alpha = 30^\\circ = \\frac{\\pi}{6}$$',
                       '4. In the 4th quadrant, the principal argument is:',
-                      '$$\theta = -\alpha = -\frac{\pi}{6}\text{ radians (or } -30^\circ)$$',
-                      'Thus $z = 1 \left[\cos\left(-\frac{\pi}{6}\right) + i \sin\left(-\frac{\pi}{6}\right)\right]$.'
+                      '$$\\theta = -\\alpha = -\\frac{\\pi}{6}\\text{ radians (or } -30^\\circ)$$',
+                      'Thus $z = 1 \\left[\\cos\\left(-\\frac{\\pi}{6}\\right) + i \\sin\\left(-\\frac{\\pi}{6}\\right)\\right]$.'
                     ],
                     stepByStepSolutionAr: [
                       '١. التعويض بقيم النسب المثلثية:',
-                      '$$\sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}, \quad \cos\left(\frac{\pi}{3}\right) = \frac{1}{2}$$',
-                      '$$z = \frac{\sqrt{3}}{2} - \frac{1}{2}i$$',
+                      '$$\\sin\\left(\\frac{\\pi}{3}\\right) = \\frac{\\sqrt{3}}{2}, \\quad \\cos\\left(\\frac{\\pi}{3}\\right) = \\frac{1}{2}$$',
+                      '$$z = \\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$$',
                       '٢. تحديد ربع النقطة في مستوى أرجاند:',
                       'بما أن $x > 0$ و $y < 0$، إذن العدد يقع في **الربع الرابع**.',
-                      '٣. زاوية الإسناد الحادة $\alpha$:',
-                      '$$\tan\alpha = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}} \implies \alpha = 30^\circ = \frac{\pi}{6}$$',
+                      '٣. زاوية الإسناد الحادة $\\alpha$:',
+                      '$$\\tan\\alpha = \\frac{1/2}{\\sqrt{3}/2} = \\frac{1}{\\sqrt{3}} \\implies \\alpha = 30^\\circ = \\frac{\\pi}{6}$$',
                       '٤. السعة الأساسية في الربع الرابع:',
-                      '$$\theta = -\alpha = -\frac{\pi}{6}$$'
+                      '$$\\theta = -\\alpha = -\\frac{\\pi}{6}$$'
                     ],
                     teacherTipEn: 'Converting to Cartesian numbers first is the safest and fastest way to avoid quadrant-conversion angle errors!',
                     teacherTipAr: 'التحويل إلى الصورة الجبرية أولاً هو الطريقة الأكثر أماناً وضماناً لتفادي أخطاء زوايا الأرباع.'
@@ -818,13 +818,13 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                     titleEn: 'Foundation Problem: Modulus and Argument Calculation',
                     titleAr: 'مسألة تأسيسية: حساب المقياس والسعة الأساسية',
                     difficulty: 'easy',
-                    questionEn: 'Find the modulus $r$ and principal argument $\theta$ of the complex number $z = -3 + 3i$.',
-                    questionAr: 'أوجد المقياس $r$ والسعة الأساسية $\theta$ للعدد المركب $z = -3 + 3i$.',
+                    questionEn: 'Find the modulus $r$ and principal argument $\\theta$ of the complex number $z = -3 + 3i$.',
+                    questionAr: 'أوجد المقياس $r$ والسعة الأساسية $\\theta$ للعدد المركب $z = -3 + 3i$.',
                     optionsEn: [
-                      'r = 3\sqrt{2}, \quad \theta = \frac{3\pi}{4}',
-                      'r = 3\sqrt{2}, \quad \theta = \frac{\pi}{4}',
-                      'r = 6, \quad \theta = \frac{3\pi}{4}',
-                      'r = 3\sqrt{2}, \quad \theta = -\frac{3\pi}{4}'
+                      'r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}',
+                      'r = 3\\sqrt{2}, \\quad \\theta = \\frac{\\pi}{4}',
+                      'r = 6, \\quad \\theta = \\frac{3\\pi}{4}',
+                      'r = 3\\sqrt{2}, \\quad \\theta = -\\frac{3\\pi}{4}'
                     ],
                     optionsAr: [
                       'ر = ٣ جذر٢، هـ = ٣باي / ٤',
@@ -832,30 +832,30 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                       'ر = ٦، هـ = ٣باي / ٤',
                       'ر = ٣ جذر٢، هـ = -٣باي / ٤'
                     ],
-                    correctAnswer: 'r = 3\sqrt{2}, \quad \theta = \frac{3\pi}{4}',
+                    correctAnswer: 'r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}',
                     correctIndex: 0,
                     hintEn: 'r = sqrt((-3)^2 + 3^2). Since x < 0 and y > 0, point is in 2nd quadrant: theta = pi - pi/4 = 3pi/4.',
                     hintAr: 'المقياس ر = جذر(٩ + ٩) = ٣ جذر٢. وبما أن س سالب وص موجب فالعدد في الربع الثاني: هـ = ١٨٠ - ٤٥ = ١٣٥° = ٣باي/٤.',
                     stepByStepSolutionEn: [
                       '1. Compute modulus $r$:',
-                      '$$r = \sqrt{(-3)^2 + (3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$$',
+                      '$$r = \\sqrt{(-3)^2 + (3)^2} = \\sqrt{9 + 9} = \\sqrt{18} = 3\\sqrt{2}$$',
                       '2. Determine quadrant:',
                       '$x = -3 < 0$ and $y = 3 > 0$, so $z$ lies in the **2nd Quadrant**.',
-                      '3. Compute reference angle $\alpha$:',
-                      '$$\tan\alpha = \frac{|y|}{|x|} = \frac{3}{3} = 1 \implies \alpha = 45^\circ = \frac{\pi}{4}$$',
+                      '3. Compute reference angle $\\alpha$:',
+                      '$$\\tan\\alpha = \\frac{|y|}{|x|} = \\frac{3}{3} = 1 \\implies \\alpha = 45^\\circ = \\frac{\\pi}{4}$$',
                       '4. Compute principal argument in 2nd quadrant:',
-                      '$$\theta = \pi - \alpha = \pi - \frac{\pi}{4} = \frac{3\pi}{4}\text{ radians (or } 135^\circ)$$',
-                      'Therefore, $z = 3\sqrt{2} e^{i 3\pi/4}$.'
+                      '$$\\theta = \\pi - \\alpha = \\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}\\text{ radians (or } 135^\\circ)$$',
+                      'Therefore, $z = 3\\sqrt{2} e^{i 3\\pi/4}$.'
                     ],
                     stepByStepSolutionAr: [
                       '١. حساب المقياس $r$:',
-                      '$$r = \sqrt{(-3)^2 + 3^2} = \sqrt{18} = 3\sqrt{2}$$',
+                      '$$r = \\sqrt{(-3)^2 + 3^2} = \\sqrt{18} = 3\\sqrt{2}$$',
                       '٢. تحديد الربع:',
                       'بما أن $x < 0$ و $y > 0$، إذن العدد في **الربع الثاني**.',
                       '٣. زاوية الإسناد:',
-                      '$$\tan\alpha = \frac{3}{3} = 1 \implies \alpha = 45^\circ = \frac{\pi}{4}$$',
+                      '$$\\tan\\alpha = \\frac{3}{3} = 1 \\implies \\alpha = 45^\\circ = \\frac{\\pi}{4}$$',
                       '٤. السعة الأساسية في الربع الثاني:',
-                      '$$\theta = 180^\circ - 45^\circ = 135^\circ = \frac{3\pi}{4}$$'
+                      '$$\\theta = 180^\\circ - 45^\\circ = 135^\\circ = \\frac{3\\pi}{4}$$'
                     ],
                     teacherTipEn: 'A textbook foundation problem that confirms mastery of quadrant angles.',
                     teacherTipAr: 'سؤال تأسيسي يثبت طريقة حساب المقياس والسعة في الربع الثاني.'
@@ -865,31 +865,31 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
                     titleEn: 'HOTS Problem: Quotient of Exponential Forms with Conjugate',
                     titleAr: 'مسألة مهارات عليا: قسمة الأعداد المركبة بالصورة الأسية والمرافق',
                     difficulty: 'hots',
-                    questionEn: 'If $z_1 = 2 e^{i \pi / 6}$ and $z_2 = \sqrt{3} - i$, find the exponential Euler form of the quotient $w = \frac{z_1}{\bar{z}_2}$.',
-                    questionAr: 'إذا كان $z_1 = 2 e^{i \pi / 6}$ و $z_2 = \sqrt{3} - i$، فأوجد الصورة الأسية لأويلر لناتج القسمة $w = \frac{z_1}{\bar{z}_2}$.',
-                    optionsEn: ['1', 'e^{i \pi / 3}', 'e^{i \cdot 0} = 1', '2 e^{i \pi / 3}'],
+                    questionEn: 'If $z_1 = 2 e^{i \\pi / 6}$ and $z_2 = \\sqrt{3} - i$, find the exponential Euler form of the quotient $w = \\frac{z_1}{\\bar{z}_2}$.',
+                    questionAr: 'إذا كان $z_1 = 2 e^{i \\pi / 6}$ و $z_2 = \\sqrt{3} - i$، فأوجد الصورة الأسية لأويلر لناتج القسمة $w = \\frac{z_1}{\\bar{z}_2}$.',
+                    optionsEn: ['1', 'e^{i \\pi / 3}', 'e^{i \\cdot 0} = 1', '2 e^{i \\pi / 3}'],
                     optionsAr: ['١', 'هـ^(ت باي/٣)', 'هـ^٠ = ١', '٢ هـ^(ت باي/٣)'],
                     correctAnswer: '1',
                     correctIndex: 0,
                     hintEn: 'Convert z2 to exponential form: r = 2, theta = -pi/6 => z2 = 2 e^(-i pi/6). Then conjugate z2_bar = 2 e^(i pi/6).',
                     hintAr: 'حول ع٢ للصورة الأسية: ر = ٢، هـ = -باي/٦ => ع٢ = ٢ هـ^(-ت باي/٦). إذن المرافق = ٢ هـ^(ت باي/٦).',
                     stepByStepSolutionEn: [
-                      '1. Find the modulus and argument of $z_2 = \sqrt{3} - i$:',
-                      '$$r_2 = \sqrt{(\sqrt{3})^2 + (-1)^2} = \sqrt{3 + 1} = 2$$',
-                      '$x > 0$ and $y < 0$ (4th Quadrant), $\tan\alpha = \frac{1}{\sqrt{3}} \implies \alpha = \frac{\pi}{6}$.',
-                      '$$\theta_2 = -\frac{\pi}{6} \implies z_2 = 2 e^{-i \pi/6}$$',
-                      '2. Find the conjugate $\bar{z}_2$:',
-                      '$$\bar{z}_2 = \sqrt{3} + i = 2 e^{i \pi/6}$$',
-                      '3. Compute the quotient $w = \frac{z_1}{\bar{z}_2}$:',
-                      '$$w = \frac{2 e^{i \pi / 6}}{2 e^{i \pi / 6}} = 1 = e^{i \cdot 0}$$'
+                      '1. Find the modulus and argument of $z_2 = \\sqrt{3} - i$:',
+                      '$$r_2 = \\sqrt{(\\sqrt{3})^2 + (-1)^2} = \\sqrt{3 + 1} = 2$$',
+                      '$x > 0$ and $y < 0$ (4th Quadrant), $\\tan\\alpha = \\frac{1}{\\sqrt{3}} \\implies \\alpha = \\frac{\\pi}{6}$.',
+                      '$$\\theta_2 = -\\frac{\\pi}{6} \\implies z_2 = 2 e^{-i \\pi/6}$$',
+                      '2. Find the conjugate $\\bar{z}_2$:',
+                      '$$\\bar{z}_2 = \\sqrt{3} + i = 2 e^{i \\pi/6}$$',
+                      '3. Compute the quotient $w = \\frac{z_1}{\\bar{z}_2}$:',
+                      '$$w = \\frac{2 e^{i \\pi / 6}}{2 e^{i \\pi / 6}} = 1 = e^{i \\cdot 0}$$'
                     ],
                     stepByStepSolutionAr: [
-                      '١. حساب الصورة الأسية للعدد $z_2 = \sqrt{3} - i$:',
-                      '$$r_2 = \sqrt{3 + 1} = 2, \quad \theta_2 = -\frac{\pi}{6} \implies z_2 = 2 e^{-i \pi / 6}$$',
-                      '٢. مرافق العدد $\bar{z}_2$:',
-                      '$$\bar{z}_2 = 2 e^{i \pi / 6}$$',
+                      '١. حساب الصورة الأسية للعدد $z_2 = \\sqrt{3} - i$:',
+                      '$$r_2 = \\sqrt{3 + 1} = 2, \\quad \\theta_2 = -\\frac{\\pi}{6} \\implies z_2 = 2 e^{-i \\pi / 6}$$',
+                      '٢. مرافق العدد $\\bar{z}_2$:',
+                      '$$\\bar{z}_2 = 2 e^{i \\pi / 6}$$',
                       '٣. حساب خارج القسمة:',
-                      '$$w = \frac{2 e^{i \pi / 6}}{2 e^{i \pi / 6}} = 1$$'
+                      '$$w = \\frac{2 e^{i \\pi / 6}}{2 e^{i \\pi / 6}} = 1$$'
                     ],
                     teacherTipEn: 'Notice that z1 and the conjugate of z2 are completely identical, yielding exactly 1!',
                     teacherTipAr: 'لاحظ بذكاء أن العدد ع١ ومرافق العدد ع٢ متطابقان تماماً، وبالتالي خارج القسمة يساوي ١!'
@@ -906,70 +906,70 @@ Let $z_1 = r_1 e^{i \theta_1}$ and $z_2 = r_2 e^{i \theta_2}$:
             },
             {
               id: 'alg_l4',
-              titleEn: 'De Moivre\'s Theorem & Cube Roots of Unity (\omega)',
+              titleEn: "De Moivre's Theorem & Cube Roots of Unity ($\\omega$)",
               titleAr: 'نظرية ديموافر والجذور التكعيبية للواحد الصحيح (أوميجا)',
               summaryEn: 'De Moivre\'s theorem for integral and rational exponents, finding the n-th roots of complex numbers, and properties of the cube roots of unity 1, omega, omega^2 with algebraic simplifications.',
-              summaryAr: 'نظرية ديموافر للأسس الصحيحة والنسبية، إيجاد الجذور النونية للعدد المركب، وخواص الجذور التكعيبية للواحد الصحيح $1, \omega, \omega^2$ وتبسيط المقادير الجبرية.',
+              summaryAr: 'نظرية ديموافر للأسس الصحيحة والنسبية، إيجاد الجذور النونية للعدد المركب، وخواص الجذور التكعيبية للواحد الصحيح $1, \\omega, \\omega^2$ وتبسيط المقادير الجبرية.',
               theoryContentEn: `### 1. De Moivre's Theorem for Integral Exponents:
 For any integer $n$:
-$$[r(\cos\theta + i \sin\theta)]^n = r^n (\cos n\theta + i \sin n\theta)$$
+$$[r(\\cos\\theta + i \\sin\\theta)]^n = r^n (\\cos n\\theta + i \\sin n\\theta)$$
 In Euler exponential form:
-$$(r e^{i \theta})^n = r^n e^{i n \theta}$$
+$$(r e^{i \\theta})^n = r^n e^{i n \\theta}$$
 
 ### 2. The $n$-th Roots of a Complex Number:
-For a positive integer $n$, the $n$ distinct roots of $z = r(\cos\theta + i\sin\theta)$ are given by:
-$$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\left(\frac{\theta + 2k\pi}{n}\right) \right]$$
-where $k = 0, 1, 2, \dots, n - 1$.
+For a positive integer $n$, the $n$ distinct roots of $z = r(\\cos\\theta + i\\sin\\theta)$ are given by:
+$$z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i \\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right) \\right]$$
+where $k = 0, 1, 2, \\dots, n - 1$.
 - In Argand diagram, the $n$-th roots form vertices of a **regular polygon of $n$ sides** inscribed in a circle of radius $R = r^{1/n}$ centered at origin.
 
-### 3. The Cube Roots of Unity ($1, \omega, \omega^2$):
+### 3. The Cube Roots of Unity ($1, \\omega, \\omega^2$):
 Solving $z^3 = 1$:
-$$1^{1/3} = \cos\left(\frac{2k\pi}{3}\right) + i \sin\left(\frac{2k\pi}{3}\right) \quad (k = 0, 1, 2)$$
-- $k = 0 \implies z_1 = 1$
-- $k = 1 \implies z_2 = \cos\frac{2\pi}{3} + i \sin\frac{2\pi}{3} = -\frac{1}{2} + \frac{\sqrt{3}}{2}i = \omega$
-- $k = 2 \implies z_3 = \cos\frac{4\pi}{3} + i \sin\frac{4\pi}{3} = -\frac{1}{2} - \frac{\sqrt{3}}{2}i = \omega^2$
+$$1^{1/3} = \\cos\\left(\\frac{2k\\pi}{3}\\right) + i \\sin\\left(\\frac{2k\\pi}{3}\\right) \\quad (k = 0, 1, 2)$$
+- $k = 0 \\implies z_1 = 1$
+- $k = 1 \\implies z_2 = \\cos\\frac{2\\pi}{3} + i \\sin\\frac{2\\pi}{3} = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i = \\omega$
+- $k = 2 \\implies z_3 = \\cos\\frac{4\\pi}{3} + i \\sin\\frac{4\\pi}{3} = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i = \\omega^2$
 
-### 4. Fundamental Properties of $\omega$:
-1. $\omega^3 = 1 \implies \omega^{3n + r} = \omega^r$
-2. $1 + \omega + \omega^2 = 0$
-   - $1 + \omega = -\omega^2$
-   - $1 + \omega^2 = -\omega$
-   - $\omega + \omega^2 = -1$
-3. $\omega - \omega^2 = \pm i \sqrt{3}$
-4. $\frac{1}{\omega} = \omega^2 \quad \text{and} \quad \frac{1}{\omega^2} = \omega$
-5. $\bar{\omega} = \omega^2 \quad \text{and} \quad \bar{\omega^2} = \omega$`,
+### 4. Fundamental Properties of $\\omega$:
+1. $\\omega^3 = 1 \\implies \\omega^{3n + r} = \\omega^r$
+2. $1 + \\omega + \\omega^2 = 0$
+   - $1 + \\omega = -\\omega^2$
+   - $1 + \\omega^2 = -\\omega$
+   - $\\omega + \\omega^2 = -1$
+3. $\\omega - \\omega^2 = \\pm i \\sqrt{3}$
+4. $\\frac{1}{\\omega} = \\omega^2 \\quad \\text{and} \\quad \\frac{1}{\\omega^2} = \\omega$
+5. $\\bar{\\omega} = \\omega^2 \\quad \\text{and} \\quad \\bar{\\omega^2} = \\omega$`,
               theoryContentAr: `### ١. نظرية ديموافر للأسس الصحيحة:
 لأي عدد صحيح $n$:
-$$[r(\cos\theta + i \sin\theta)]^n = r^n (\cos n\theta + i \sin n\theta)$$
+$$[r(\\cos\\theta + i \\sin\\theta)]^n = r^n (\\cos n\\theta + i \\sin n\\theta)$$
 وبالصورة الأسية لأويلر:
-$$(r e^{i \theta})^n = r^n e^{i n \theta}$$
+$$(r e^{i \\theta})^n = r^n e^{i n \\theta}$$
 
 ### ٢. الجذور النونية للعدد المركب:
-لأي عدد صحيح موجب $n$، فإن الجذور النونية المختلفة للعدد $z = r(\cos\theta + i\sin\theta)$ تعطى بالقانون:
-$$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\left(\frac{\theta + 2k\pi}{n}\right) \right]$$
-حيث $k = 0, 1, 2, \dots, n - 1$.
+لأي عدد صحيح موجب $n$، فإن الجذور النونية المختلفة للعدد $z = r(\\cos\\theta + i\\sin\\theta)$ تعطى بالقانون:
+$$z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i \\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right) \\right]$$
+حيث $k = 0, 1, 2, \\dots, n - 1$.
 - في شكل أرجاند، تمثل الجذور النونية رؤوس **مضلع منتظم عدد أضلاعه $n$** مرسوم داخل دائرة نصف قطرها $r^{1/n}$ ومركزها نقطة الأصل.
 
-### ٣. الجذور التكعيبية للواحد الصحيح ($1, \omega, \omega^2$):
+### ٣. الجذور التكعيبية للواحد الصحيح ($1, \\omega, \\omega^2$):
 بحل المعادلة $z^3 = 1$:
 - الجذر الأول: $1$
-- الجذر الثاني: $\omega = -\frac{1}{2} + \frac{\sqrt{3}}{2}i = e^{i 2\pi / 3}$
-- الجذر الثالث: $\omega^2 = -\frac{1}{2} - \frac{\sqrt{3}}{2}i = e^{-i 2\pi / 3}$
+- الجذر الثاني: $\\omega = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i = e^{i 2\\pi / 3}$
+- الجذر الثالث: $\\omega^2 = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i = e^{-i 2\\pi / 3}$
 
-### ٤. الخواص الجبرية الجوهرية لـ $\omega$:
-١. $\omega^3 = 1 \implies \omega^{3n + r} = \omega^r$
-٢. $1 + \omega + \omega^2 = 0$ (مجموع الجذور التكعيبية للواحد الصحيح يساوي صفراً):
-   - $1 + \omega = -\omega^2$
-   - $1 + \omega^2 = -\omega$
-   - $\omega + \omega^2 = -1$
-٣. $\omega - \omega^2 = \pm i \sqrt{3}$
-٤. $\frac{1}{\omega} = \omega^2$ و $\frac{1}{\omega^2} = \omega$
-٥. مرافق $\omega$ هو $\omega^2$، ومرافق $\omega^2$ هو $\omega$`,
+### ٤. الخواص الجبرية الجوهرية لـ $\\omega$:
+١. $\\omega^3 = 1 \\implies \\omega^{3n + r} = \\omega^r$
+٢. $1 + \\omega + \\omega^2 = 0$ (مجموع الجذور التكعيبية للواحد الصحيح يساوي صفراً):
+   - $1 + \\omega = -\\omega^2$
+   - $1 + \\omega^2 = -\\omega$
+   - $\\omega + \\omega^2 = -1$
+٣. $\\omega - \\omega^2 = \\pm i \\sqrt{3}$
+٤. $\\frac{1}{\\omega} = \\omega^2$ و $\\frac{1}{\\omega^2} = \\omega$
+٥. مرافق $\\omega$ هو $\\omega^2$، ومرافق $\\omega^2$ هو $\\omega$`,
               formulas: [
-                { labelEn: 'De Moivre\'s Theorem', labelAr: 'نص نظرية ديموافر', latex: '(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta' },
-                { labelEn: 'N-th Roots of Complex Number', labelAr: 'قانون الجذور النونية', latex: 'z^{1/n} = r^{1/n} \left[\cos\left(\frac{\theta + 2k\pi}{n}\right) + i\sin\left(\frac{\theta + 2k\pi}{n}\right)\right]' },
-                { labelEn: 'Cube Roots Sum Identity', labelAr: 'مجموع الجذور التكعيبية للواحد', latex: '1 + \omega + \omega^2 = 0' },
-                { labelEn: 'Omega Subtraction Identity', labelAr: 'الفرق بين أوميجا وأوميجا تربيع', latex: '\omega - \omega^2 = \pm i \sqrt{3}' }
+                { labelEn: 'De Moivre\'s Theorem', labelAr: 'نص نظرية ديموافر', latex: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta' },
+                { labelEn: 'N-th Roots of Complex Number', labelAr: 'قانون الجذور النونية', latex: 'z^{1/n} = r^{1/n} \\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right]' },
+                { labelEn: 'Cube Roots Sum Identity', labelAr: 'مجموع الجذور التكعيبية للواحد', latex: '1 + \\omega + \\omega^2 = 0' },
+                { labelEn: 'Omega Subtraction Identity', labelAr: 'الفرق بين أوميجا وأوميجا تربيع', latex: '\\omega - \\omega^2 = \\pm i \\sqrt{3}' }
               ],
               moeRef: {
                 bookTitleEn: 'Ministry Algebra Textbook Grade 12',
@@ -1054,10 +1054,10 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                   advanced: 'حساب مساحة المضلع المنتظم المتكون من جذور المعادلة ع^ن = أ بدلالة ن ومعيار أ.'
                 },
                 formativeAssessmentEn: 'Evaluate (1 + omega - omega^2)^3.',
-                formativeAssessmentAr: 'احسب قيمة المقدار $(1 + \omega - \omega^2)^3$.',
+                formativeAssessmentAr: 'احسب قيمة المقدار $(1 + \\omega - \\omega^2)^3$.',
                 exitTicketQuestion: {
                   questionEn: 'Evaluate: (omega - omega^2)^4.',
-                  questionAr: 'احسب قيمة المقدار: $(\omega - \omega^2)^4$.',
+                  questionAr: 'احسب قيمة المقدار: $(\\omega - \\omega^2)^4$.',
                   solutionEn: 'Since omega - omega^2 = +/- i sqrt(3), raising to the 4th power gives: (+/- i sqrt(3))^4 = i^4 * (sqrt(3))^4 = (1) * (9) = 9.',
                   solutionAr: 'بما أن أوميجا - أوميجا² = ± ت جذر٣، بالرفع للأس ٤: (± ت جذر٣)⁴ = ت⁴ × (جذر٣)⁴ = ١ × ٩ = ٩.'
                 }
@@ -1075,29 +1075,29 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                     titleEn: 'Exam Standard: Omega Fraction Simplification via omega^3 Trick',
                     titleAr: 'مسألة امتحانية: تبسيط كسر أوميجا بضرب المعامل في أوميجا تكعيب',
                     difficulty: 'exam_standard',
-                    questionEn: 'Simplify the algebraic expression: $$\left( \frac{5 + 3\omega}{5\omega^2 + 3} \right)^6$$',
-                    questionAr: 'احسب قيمة المقدار الجبري في أبسط صورة: $$\left( \frac{5 + 3\omega}{5\omega^2 + 3} \right)^6$$',
-                    optionsEn: ['1', '\omega', '\omega^2', '-1'],
-                    optionsAr: ['١', '\omega', '\omega^2', '-١'],
+                    questionEn: 'Simplify the algebraic expression: $$\\left( \\frac{5 + 3\\omega}{5\\omega^2 + 3} \\right)^6$$',
+                    questionAr: 'احسب قيمة المقدار الجبري في أبسط صورة: $$\\left( \\frac{5 + 3\\omega}{5\\omega^2 + 3} \\right)^6$$',
+                    optionsEn: ['1', '\\omega', '\\omega^2', '-1'],
+                    optionsAr: ['١', '\\omega', '\\omega^2', '-١'],
                     correctAnswer: '1',
                     correctIndex: 0,
                     hintEn: 'Multiply the 5 in the numerator by omega^3 (= 1): 5 omega^3 + 3 omega = omega(5 omega^2 + 3).',
                     hintAr: 'اضرب الحد ٥ في البسط في أوميجا³ (التي تساوي ١): ٥ أوميجا³ + ٣ أوميجا = أوميجا (٥ أوميجا² + ٣).',
                     stepByStepSolutionEn: [
-                      '1. Apply the fundamental identity $1 = \omega^3$ to the constant term in numerator:',
-                      '$$\frac{5 + 3\omega}{5\omega^2 + 3} = \frac{5\omega^3 + 3\omega}{5\omega^2 + 3}$$',
-                      '2. Factor out $\omega$ in the numerator:',
-                      '$$= \frac{\omega (5\omega^2 + 3)}{5\omega^2 + 3} = \omega$$',
+                      '1. Apply the fundamental identity $1 = \\omega^3$ to the constant term in numerator:',
+                      '$$\\frac{5 + 3\\omega}{5\\omega^2 + 3} = \\frac{5\\omega^3 + 3\\omega}{5\\omega^2 + 3}$$',
+                      '2. Factor out $\\omega$ in the numerator:',
+                      '$$= \\frac{\\omega (5\\omega^2 + 3)}{5\\omega^2 + 3} = \\omega$$',
                       '3. Raise to the 6th power:',
-                      '$$(\omega)^6 = (\omega^3)^2 = (1)^2 = 1$$'
+                      '$$(\\omega)^6 = (\\omega^3)^2 = (1)^2 = 1$$'
                     ],
                     stepByStepSolutionAr: [
-                      '١. استخدام مهارة ضرب الحد المطلق ٥ في البسط في $\omega^3$:',
-                      '$$\frac{5 + 3\omega}{5\omega^2 + 3} = \frac{5\omega^3 + 3\omega}{5\omega^2 + 3}$$',
-                      '٢. أخذ $\omega$ عاملاً مشتركاً من البسط:',
-                      '$$= \frac{\omega (5\omega^2 + 3)}{5\omega^2 + 3} = \omega$$',
+                      '١. استخدام مهارة ضرب الحد المطلق ٥ في البسط في $\\omega^3$:',
+                      '$$\\frac{5 + 3\\omega}{5\\omega^2 + 3} = \\frac{5\\omega^3 + 3\\omega}{5\\omega^2 + 3}$$',
+                      '٢. أخذ $\\omega$ عاملاً مشتركاً من البسط:',
+                      '$$= \\frac{\\omega (5\\omega^2 + 3)}{5\\omega^2 + 3} = \\omega$$',
                       '٣. الرفع للأس ٦:',
-                      '$$(\omega)^6 = (\omega^3)^2 = 1$$'
+                      '$$(\\omega)^6 = (\\omega^3)^2 = 1$$'
                     ],
                     teacherTipEn: 'A favorite Thanaweya exam shortcut! Always look for matching coefficients shifted by powers of omega.',
                     teacherTipAr: 'حيلة امتحانية عبقرية تتكرر في معظم اختبارات الثانوية العامة عند تشابه معاملات البسط والمقام.'
@@ -1117,23 +1117,23 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                     hintAr: 'حول ١ + ت للصورة القطبية: ر = جذر٢، هـ = باي/٤. ثم ارفع للأس ١٠.',
                     stepByStepSolutionEn: [
                       '1. Express $1 + i$ in trigonometric form:',
-                      '$$r = \sqrt{1^2 + 1^2} = \sqrt{2}, \quad \theta = \frac{\pi}{4}$$',
-                      '$$1 + i = \sqrt{2} \left( \cos\frac{\pi}{4} + i \sin\frac{\pi}{4} \right)$$',
+                      '$$r = \\sqrt{1^2 + 1^2} = \\sqrt{2}, \\quad \\theta = \\frac{\\pi}{4}$$',
+                      '$$1 + i = \\sqrt{2} \\left( \\cos\\frac{\\pi}{4} + i \\sin\\frac{\\pi}{4} \\right)$$',
                       "2. Apply De Moivre's Theorem for $n = 10$:",
-                      '$$(1 + i)^{10} = (\sqrt{2})^{10} \left( \cos\left(10 \times \frac{\pi}{4}\right) + i \sin\left(10 \times \frac{\pi}{4}\right) \right)$$',
-                      '$$(\sqrt{2})^{10} = 2^5 = 32$$',
+                      '$$(1 + i)^{10} = (\\sqrt{2})^{10} \\left( \\cos\\left(10 \\times \\frac{\\pi}{4}\\right) + i \\sin\\left(10 \\times \\frac{\\pi}{4}\\right) \\right)$$',
+                      '$$(\\sqrt{2})^{10} = 2^5 = 32$$',
                       '$$\\text{Angle} = \\frac{10\\pi}{4} = \\frac{5\\pi}{2} = 2\\pi + \\frac{\\pi}{2} \\equiv \\frac{\\pi}{2}$$',
-                      '3. Evaluate trigonometric values at $\frac{\pi}{2}$:',
-                      '$$\cos\frac{\pi}{2} = 0, \quad \sin\frac{\pi}{2} = 1$$',
+                      '3. Evaluate trigonometric values at $\\frac{\\pi}{2}$:',
+                      '$$\\cos\\frac{\\pi}{2} = 0, \\quad \\sin\\frac{\\pi}{2} = 1$$',
                       '$$(1 + i)^{10} = 32 (0 + i) = 32i$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. تحويل العدد $1 + i$ للصورة القطبية:',
-                      '$$r = \sqrt{2}, \quad \theta = \frac{\pi}{4}$$',
-                      '$$1 + i = \sqrt{2} \left(\cos\frac{\pi}{4} + i \sin\frac{\pi}{4}\right)$$',
+                      '$$r = \\sqrt{2}, \\quad \\theta = \\frac{\\pi}{4}$$',
+                      '$$1 + i = \\sqrt{2} \\left(\\cos\\frac{\\pi}{4} + i \\sin\\frac{\\pi}{4}\\right)$$',
                       '٢. تطبيق نظرية ديموافر للأس ١٠:',
-                      '$$(1 + i)^{10} = (\sqrt{2})^{10} \left(\cos\frac{10\pi}{4} + i \sin\frac{10\pi}{4}\right)$$',
-                      '$$(\sqrt{2})^{10} = 32, \quad \frac{10\pi}{4} = \frac{5\pi}{2} = 2\pi + \frac{\pi}{2} \equiv \frac{\pi}{2}$$',
+                      '$$(1 + i)^{10} = (\\sqrt{2})^{10} \\left(\\cos\\frac{10\\pi}{4} + i \\sin\\frac{10\\pi}{4}\\right)$$',
+                      '$$(\\sqrt{2})^{10} = 32, \\quad \\frac{10\\pi}{4} = \\frac{5\\pi}{2} = 2\\pi + \\frac{\\pi}{2} \\equiv \\frac{\\pi}{2}$$',
                       '٣. حساب الناتج النهائي:',
                       '$$= 32 (0 + i(1)) = 32i$$'
                     ],
@@ -1145,43 +1145,43 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                     titleEn: 'HOTS Problem: Solving Cubic Equation Involving Omega Cube Roots',
                     titleAr: 'مسألة مهارات عليا: حل معادلة تكعيبية باستخدام جذور الوحدة',
                     difficulty: 'hots',
-                    questionEn: 'Find the solution set of the equation $(x - 2)^3 = 8$ in the set of complex numbers $\mathbb{C}$.',
-                    questionAr: 'أوجد مجموعة حل المعادلة $(x - 2)^3 = 8$ في مجموعة الأعداد المركبة $\mathbb{C}$.',
+                    questionEn: 'Find the solution set of the equation $(x - 2)^3 = 8$ in the set of complex numbers $\\mathbb{C}$.',
+                    questionAr: 'أوجد مجموعة حل المعادلة $(x - 2)^3 = 8$ في مجموعة الأعداد المركبة $\\mathbb{C}$.',
                     optionsEn: [
-                      '\{4, \, 2 + 2\omega, \, 2 + 2\omega^2\}',
-                      '\{2, \, 2\omega, \, 2\omega^2\}',
-                      '\{4, \, -2\omega, \, -2\omega^2\}',
-                      '\{2, \, 4\omega, \, 4\omega^2\}'
+                      '\\{4, \\, 2 + 2\\omega, \\, 2 + 2\\omega^2\\}',
+                      '\\{2, \\, 2\\omega, \\, 2\\omega^2\\}',
+                      '\\{4, \\, -2\\omega, \\, -2\\omega^2\\}',
+                      '\\{2, \\, 4\\omega, \\, 4\\omega^2\\}'
                     ],
                     optionsAr: [
-                      '\{4, \, 2 + 2\omega, \, 2 + 2\omega^2\}',
-                      '\{2, \, 2\omega, \, 2\omega^2\}',
-                      '\{4, \, -2\omega, \, -2\omega^2\}',
-                      '\{2, \, 4\omega, \, 4\omega^2\}'
+                      '\\{4, \\, 2 + 2\\omega, \\, 2 + 2\\omega^2\\}',
+                      '\\{2, \\, 2\\omega, \\, 2\\omega^2\\}',
+                      '\\{4, \\, -2\\omega, \\, -2\\omega^2\\}',
+                      '\\{2, \\, 4\\omega, \\, 4\\omega^2\\}'
                     ],
-                    correctAnswer: '\{4, \, 2 + 2\omega, \, 2 + 2\omega^2\}',
+                    correctAnswer: '\\{4, \\, 2 + 2\\omega, \\, 2 + 2\\omega^2\\}',
                     correctIndex: 0,
                     hintEn: 'Rewrite as ((x - 2) / 2)^3 = 1. The three roots are (x - 2)/2 = 1, omega, omega^2.',
                     hintAr: 'اقسم الطرفين على ٨ لتصبح: ((س - ٢) / ٢)³ = ١. إذن حلول القوس هي ١، أوميجا، أوميجا².',
                     stepByStepSolutionEn: [
                       '1. Divide both sides by $8 = 2^3$:',
-                      '$$\left( \frac{x - 2}{2} \right)^3 = 1$$',
-                      '2. The cube roots of $1$ are $1, \omega, \omega^2$:',
-                      '- Case 1: $\frac{x - 2}{2} = 1 \implies x - 2 = 2 \implies x_1 = 4$',
-                      '- Case 2: $\frac{x - 2}{2} = \omega \implies x - 2 = 2\omega \implies x_2 = 2 + 2\omega$',
-                      '- Case 3: $\frac{x - 2}{2} = \omega^2 \implies x - 2 = 2\omega^2 \implies x_3 = 2 + 2\omega^2$',
-                      '3. Therefore, the complete solution set in $\mathbb{C}$ is:',
-                      '$$\text{S.S.} = \{4, \, 2 + 2\omega, \, 2 + 2\omega^2\}$$'
+                      '$$\\left( \\frac{x - 2}{2} \\right)^3 = 1$$',
+                      '2. The cube roots of $1$ are $1, \\omega, \\omega^2$:',
+                      '- Case 1: $\\frac{x - 2}{2} = 1 \\implies x - 2 = 2 \\implies x_1 = 4$',
+                      '- Case 2: $\\frac{x - 2}{2} = \\omega \\implies x - 2 = 2\\omega \\implies x_2 = 2 + 2\\omega$',
+                      '- Case 3: $\\frac{x - 2}{2} = \\omega^2 \\implies x - 2 = 2\\omega^2 \\implies x_3 = 2 + 2\\omega^2$',
+                      '3. Therefore, the complete solution set in $\\mathbb{C}$ is:',
+                      '$$\\text{S.S.} = \\{4, \\, 2 + 2\\omega, \\, 2 + 2\\omega^2\\}$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. بقسمة طرفي المعادلة على ٨:',
-                      '$$\left(\frac{x - 2}{2}\right)^3 = 1$$',
-                      '٢. الجذور التكعيبية للواحد هي $1, \omega, \omega^2$:',
-                      '- الحل الأول: $\frac{x - 2}{2} = 1 \implies x = 4$',
-                      '- الحل الثاني: $\frac{x - 2}{2} = \omega \implies x = 2 + 2\omega$',
-                      '- الحل الثالث: $\frac{x - 2}{2} = \omega^2 \implies x = 2 + 2\omega^2$',
+                      '$$\\left(\\frac{x - 2}{2}\\right)^3 = 1$$',
+                      '٢. الجذور التكعيبية للواحد هي $1, \\omega, \\omega^2$:',
+                      '- الحل الأول: $\\frac{x - 2}{2} = 1 \\implies x = 4$',
+                      '- الحل الثاني: $\\frac{x - 2}{2} = \\omega \\implies x = 2 + 2\\omega$',
+                      '- الحل الثالث: $\\frac{x - 2}{2} = \\omega^2 \\implies x = 2 + 2\\omega^2$',
                       '٣. مجموعة الحل في الأعداد المركبة هي:',
-                      '$$\{4, \, 2 + 2\omega, \, 2 + 2\omega^2\}$$'
+                      '$$\\{4, \\, 2 + 2\\omega, \\, 2 + 2\\omega^2\\}$$'
                     ],
                     teacherTipEn: 'Do not just take the real root x = 4! In C, a cubic equation ALWAYS has 3 roots.',
                     teacherTipAr: 'لا تكتفِ بالجذر الحقيقي س = ٤ فقط! في مجموعة الأعداد المركبة المعادلة التكعيبية لها دائماً ٣ حلول.'
@@ -1917,30 +1917,30 @@ Points in space are located by coordinates $(x, y, z)$.
               summaryEn: 'Vector, parametric, and symmetric Cartesian equations of lines, direction cosines cos^2 alpha + cos^2 beta + cos^2 gamma = 1, angle between two lines, parallel and perpendicular conditions, and skew lines.',
               summaryAr: 'الصور المتجهية والبارامترية والكارتيزية لمعادلة المستقيم، جيوب تمام الاتجاه، قياس الزاوية بين مستقيمين، شرطا التوازي والتعامد، والمستقيمان المتخالفان.',
               theoryContentEn: `### 1. Direction Vector and Direction Cosines of a Line:
-Let a line pass through point $A(x_0, y_0, z_0)$ with direction vector $\vec{d} = (a, b, c)$:
+Let a line pass through point $A(x_0, y_0, z_0)$ with direction vector $\\vec{d} = (a, b, c)$:
 - **Direction Ratios (نسب الاتجاه):** The components $(a, b, c)$ or any non-zero scalar multiple $k(a, b, c)$.
-- **Direction Angles (زوايا الاتجاه):** Angles $\alpha, \beta, \gamma$ between line direction and positive $x, y, z$ axes.
+- **Direction Angles (زوايا الاتجاه):** Angles $\\alpha, \\beta, \\gamma$ between line direction and positive $x, y, z$ axes.
 - **Direction Cosines (جيوب تمام الاتجاه):**
-  $$\cos\alpha = \frac{a}{\|\vec{d}\|}, \quad \cos\beta = \frac{b}{\|\vec{d}\|}, \quad \cos\gamma = \frac{c}{\|\vec{d}\|}$$
+  $$\\cos\\alpha = \\frac{a}{\\|\\vec{d}\\|}, \\quad \\cos\\beta = \\frac{b}{\\|\\vec{d}\\|}, \\quad \\cos\\gamma = \\frac{c}{\\|\\vec{d}\\|}$$
 - **Fundamental Identity:**
-  $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$$
-  $$\sin^2\alpha + \sin^2\beta + \sin^2\gamma = 2$$
+  $$\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$$
+  $$\\sin^2\\alpha + \\sin^2\\beta + \\sin^2\\gamma = 2$$
 
 ### 2. The Three Forms of the Line Equation in Space:
 1. **Vector Form (الصورة المتجهية):**
-   $$\vec{r} = \vec{r}_0 + t \vec{d} \quad (t \in \mathbb{R})$$
+   $$\\vec{r} = \\vec{r}_0 + t \\vec{d} \\quad (t \\in \\mathbb{R})$$
 2. **Parametric Form (المعادلات البارامترية):**
-   $$x = x_0 + a t, \quad y = y_0 + b t, \quad z = z_0 + c t$$
+   $$x = x_0 + a t, \\quad y = y_0 + b t, \\quad z = z_0 + c t$$
 3. **Cartesian / Symmetric Form (الصورة الإحداثية المتماثلة):**
-   $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+   $$\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$$
 
-### 3. Angle $\theta$ Between Two Straight Lines:
-Given direction vectors $\vec{d}_1 = (a_1, b_1, c_1)$ and $\vec{d}_2 = (a_2, b_2, c_2)$:
-$$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|} = \frac{|a_1 a_2 + b_1 b_2 + c_1 c_2|}{\sqrt{a_1^2 + b_1^2 + c_1^2} \sqrt{a_2^2 + b_2^2 + c_2^2}}$$
-- **Perpendicular Condition ($L_1 \perp L_2$):**
-  $$\vec{d}_1 \cdot \vec{d}_2 = 0 \iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
-- **Parallel Condition ($L_1 \parallel L_2$):**
-  $$\vec{d}_1 \times \vec{d}_2 = \vec{0} \iff \frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$$
+### 3. Angle $\\theta$ Between Two Straight Lines:
+Given direction vectors $\\vec{d}_1 = (a_1, b_1, c_1)$ and $\\vec{d}_2 = (a_2, b_2, c_2)$:
+$$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|} = \\frac{|a_1 a_2 + b_1 b_2 + c_1 c_2|}{\\sqrt{a_1^2 + b_1^2 + c_1^2} \\sqrt{a_2^2 + b_2^2 + c_2^2}}$$
+- **Perpendicular Condition ($L_1 \\perp L_2$):**
+  $$\\vec{d}_1 \\cdot \\vec{d}_2 = 0 \\iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
+- **Parallel Condition ($L_1 \\parallel L_2$):**
+  $$\\vec{d}_1 \\times \\vec{d}_2 = \\vec{0} \\iff \\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2}$$
 
 ### 4. Skew Lines (المستقيمان المتخالفان):
 Two lines in 3D space that:
@@ -1948,38 +1948,38 @@ Two lines in 3D space that:
 2. Are not parallel.
 3. Do not lie in a common plane.`,
               theoryContentAr: `### ١. متجه الاتجاه وجيوب تمام الاتجاه للمستقيم:
-إذا كان المستقيم يمر بالنقطة $A(x_0, y_0, z_0)$ ومتجه اتجاهه $\vec{d} = (a, b, c)$:
+إذا كان المستقيم يمر بالنقطة $A(x_0, y_0, z_0)$ ومتجه اتجاهه $\\vec{d} = (a, b, c)$:
 - **نسب الاتجاه:** هي الأعداد $(a, b, c)$ أو أي مضاعف غير صفري لها.
-- **زوايا الاتجاه:** هي الزوايا $\alpha, \beta, \gamma$ التي يصنعها المستقيم مع الاتجاهات الموجبة لمحاور الإحداثيات.
+- **زوايا الاتجاه:** هي الزوايا $\\alpha, \\beta, \\gamma$ التي يصنعها المستقيم مع الاتجاهات الموجبة لمحاور الإحداثيات.
 - **جيوب تمام الاتجاه:**
-  $$\cos\alpha = \frac{a}{\|\vec{d}\|}, \quad \cos\beta = \frac{b}{\|\vec{d}\|}, \quad \cos\gamma = \frac{c}{\|\vec{d}\|}$$
+  $$\\cos\\alpha = \\frac{a}{\\|\\vec{d}\\|}, \\quad \\cos\\beta = \\frac{b}{\\|\\vec{d}\\|}, \\quad \\cos\\gamma = \\frac{c}{\\|\\vec{d}\\|}$$
 - **العلاقات الأساسية:**
-  $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$$
-  $$\sin^2\alpha + \sin^2\beta + \sin^2\gamma = 2$$
+  $$\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$$
+  $$\\sin^2\\alpha + \\sin^2\\beta + \\sin^2\\gamma = 2$$
 
 ### ٢. الصور الثلاث لمعادلة المستقيم في الفراغ:
 ١. **الصورة المتجهية:**
-   $$\vec{r} = \vec{r}_0 + t \vec{d} \quad (t \in \mathbb{R})$$
+   $$\\vec{r} = \\vec{r}_0 + t \\vec{d} \\quad (t \\in \\mathbb{R})$$
 ٢. **المعادلات البارامترية:**
-   $$x = x_0 + a t, \quad y = y_0 + b t, \quad z = z_0 + c t$$
+   $$x = x_0 + a t, \\quad y = y_0 + b t, \\quad z = z_0 + c t$$
 ٣. **الصورة الإحداثية المتماثلة (الكارتيزية):**
-   $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+   $$\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$$
 
-### ٣. قياس الزاوية $\theta$ بين مستقيمين في الفراغ:
-إذا كان متجها اتجاه المستقيمين هما $\vec{d}_1$ و $\vec{d}_2$:
-$$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
+### ٣. قياس الزاوية $\\theta$ بين مستقيمين في الفراغ:
+إذا كان متجها اتجاه المستقيمين هما $\\vec{d}_1$ و $\\vec{d}_2$:
+$$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|}$$
 - **شرط التعامد:**
-  $$\vec{d}_1 \cdot \vec{d}_2 = 0 \iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
+  $$\\vec{d}_1 \\cdot \\vec{d}_2 = 0 \\iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
 - **شرط التوازي:**
-  $$\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$$
+  $$\\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2}$$
 
 ### ٤. المستقيمان المتخالفان:
 هما مستقيمان في الفراغ لا يجمعهما مستوى واحد، أي أنهما غير متوازيين ولا يتقاطعان.`,
               formulas: [
-                { labelEn: 'Direction Cosines Identity', labelAr: 'متطابقة جيوب تمام الاتجاه', latex: '\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1' },
-                { labelEn: '3D Line Vector Form', labelAr: 'معادلة المستقيم المتجهية', latex: '\vec{r} = \vec{r}_0 + t \vec{d}' },
-                { labelEn: '3D Line Cartesian Form', labelAr: 'معادلة المستقيم الإحداثية', latex: '\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}' },
-                { labelEn: 'Angle Between Two Lines', labelAr: 'الزاوية بين مستقيمين', latex: '\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}' }
+                { labelEn: 'Direction Cosines Identity', labelAr: 'متطابقة جيوب تمام الاتجاه', latex: '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1' },
+                { labelEn: '3D Line Vector Form', labelAr: 'معادلة المستقيم المتجهية', latex: '\\vec{r} = \\vec{r}_0 + t \\vec{d}' },
+                { labelEn: '3D Line Cartesian Form', labelAr: 'معادلة المستقيم الإحداثية', latex: '\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}' },
+                { labelEn: 'Angle Between Two Lines', labelAr: 'الزاوية بين مستقيمين', latex: '\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|}' }
               ],
               moeRef: {
                 bookTitleEn: 'Ministry Solid Geometry Textbook Grade 12',
@@ -2064,10 +2064,10 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
                   advanced: 'حساب أقصر بعد بين مستقيمين متخالفين بالضرب الثلاثي القياسي.'
                 },
                 formativeAssessmentEn: 'Find the direction vector of the line (3 - x)/2 = (2y + 1)/4 = (z - 5)/-3.',
-                formativeAssessmentAr: 'أوجد متجه اتجاه المستقيم $\frac{3 - x}{2} = \frac{2y + 1}{4} = \frac{z - 5}{-3}$.',
+                formativeAssessmentAr: 'أوجد متجه اتجاه المستقيم $\\frac{3 - x}{2} = \\frac{2y + 1}{4} = \\frac{z - 5}{-3}$.',
                 exitTicketQuestion: {
                   questionEn: 'If direction angles of a line are 45 deg, 60 deg, and gamma (where gamma is acute), find gamma.',
-                  questionAr: 'إذا كانت زوايا اتجاه مستقيم هي $45^\circ$ و $60^\circ$ و $\gamma$ (حيث $\gamma$ حادة)، فما قياس $\gamma$؟',
+                  questionAr: 'إذا كانت زوايا اتجاه مستقيم هي $45^\\circ$ و $60^\\circ$ و $\\gamma$ (حيث $\\gamma$ حادة)، فما قياس $\\gamma$؟',
                   solutionEn: 'cos^2(45) + cos^2(60) + cos^2(gamma) = 1 => (1/sqrt(2))^2 + (1/2)^2 + cos^2(gamma) = 1 => 1/2 + 1/4 + cos^2(gamma) = 1 => 3/4 + cos^2(gamma) = 1 => cos^2(gamma) = 1/4 => cos(gamma) = 1/2 (since gamma is acute) => gamma = 60 degrees.',
                   solutionAr: 'جتا²(٤٥) + جتا²(٦٠) + جتا²(جـ) = ١ => ١/٢ + ١/٤ + جتا²(جـ) = ١ => ٣/٤ + جتا²(جـ) = ١ => جتا²(جـ) = ١/٤ => جتا(جـ) = ١/٢ => جـ = ٦٠°.'
                 }
@@ -2085,45 +2085,45 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
                     titleEn: 'Exam Standard: Direction Vector Extraction from Non-Standard Form',
                     titleAr: 'مسألة امتحانية: استخراج متجه الاتجاه وضبط المعاملات',
                     difficulty: 'exam_standard',
-                    questionEn: 'Find the unit direction vector of the straight line: $$\frac{2x - 4}{6} = \frac{1 - y}{3} = \frac{z + 5}{2}$$',
-                    questionAr: 'أوجد متجه اتجاه الوحدة للخط المستقيم: $$\frac{2x - 4}{6} = \frac{1 - y}{3} = \frac{z + 5}{2}$$',
+                    questionEn: 'Find the unit direction vector of the straight line: $$\\frac{2x - 4}{6} = \\frac{1 - y}{3} = \\frac{z + 5}{2}$$',
+                    questionAr: 'أوجد متجه اتجاه الوحدة للخط المستقيم: $$\\frac{2x - 4}{6} = \\frac{1 - y}{3} = \\frac{z + 5}{2}$$',
                     optionsEn: [
-                      '\left(\frac{3}{\sqrt{22}}, \, -\frac{3}{\sqrt{22}}, \, \frac{2}{\sqrt{22}}\right)',
-                      '\left(\frac{6}{7}, \, \frac{3}{7}, \, \frac{2}{7}\right)',
-                      '\left(\frac{3}{\sqrt{14}}, \, \frac{3}{\sqrt{14}}, \, \frac{2}{\sqrt{14}}\right)',
+                      '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
+                      '\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)',
+                      '\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)',
                       '(3, -3, 2)'
                     ],
                     optionsAr: [
-                      '\left(\frac{3}{\sqrt{22}}, \, -\frac{3}{\sqrt{22}}, \, \frac{2}{\sqrt{22}}\right)',
-                      '\left(\frac{6}{7}, \, \frac{3}{7}, \, \frac{2}{7}\right)',
-                      '\left(\frac{3}{\sqrt{14}}, \, \frac{3}{\sqrt{14}}, \, \frac{2}{\sqrt{14}}\right)',
+                      '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
+                      '\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)',
+                      '\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)',
                       '(3, -3, 2)'
                     ],
-                    correctAnswer: '\left(\frac{3}{\sqrt{22}}, \, -\frac{3}{\sqrt{22}}, \, \frac{2}{\sqrt{22}}\right)',
+                    correctAnswer: '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
                     correctIndex: 0,
                     hintEn: 'Make coefficients of x, y, z equal to +1: divide first fraction by 2, multiply second by -1/-1.',
                     hintAr: 'اجعل معاملات س، ص، ع تساوي +١: اقسم الكسر الأول على ٢، واضرب الكسر الثاني في -١/-١.',
                     stepByStepSolutionEn: [
                       '1. Standardize each fraction so coefficients of $x, y, z$ are $+1$:',
-                      'First fraction: $\frac{2(x - 2)}{6} = \frac{x - 2}{3}$ (denominator is $a = 3$).',
-                      'Second fraction: $\frac{-(y - 1)}{3} = \frac{y - 1}{-3}$ (denominator is $b = -3$).',
-                      'Third fraction: $\frac{z + 5}{2}$ (denominator is $c = 2$).',
-                      '2. The direction vector is $\vec{d} = (3, -3, 2)$.',
-                      '3. Compute the magnitude of $\vec{d}$:',
-                      '$$\|\vec{d}\| = \sqrt{3^2 + (-3)^2 + 2^2} = \sqrt{9 + 9 + 4} = \sqrt{22}$$',
+                      'First fraction: $\\frac{2(x - 2)}{6} = \\frac{x - 2}{3}$ (denominator is $a = 3$).',
+                      'Second fraction: $\\frac{-(y - 1)}{3} = \\frac{y - 1}{-3}$ (denominator is $b = -3$).',
+                      'Third fraction: $\\frac{z + 5}{2}$ (denominator is $c = 2$).',
+                      '2. The direction vector is $\\vec{d} = (3, -3, 2)$.',
+                      '3. Compute the magnitude of $\\vec{d}$:',
+                      '$$\\|\\vec{d}\\| = \\sqrt{3^2 + (-3)^2 + 2^2} = \\sqrt{9 + 9 + 4} = \\sqrt{22}$$',
                       '4. The unit direction vector is:',
-                      '$$\hat{u} = \frac{\vec{d}}{\|\vec{d}\|} = \left( \frac{3}{\sqrt{22}}, \, -\frac{3}{\sqrt{22}}, \, \frac{2}{\sqrt{22}} \right)$$'
+                      '$$\\hat{u} = \\frac{\\vec{d}}{\\|\\vec{d}\\|} = \\left( \\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}} \\right)$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. جعل معاملات س وص وع تساوي +١:',
-                      'الكسر الأول: $\frac{2(x - 2)}{6} = \frac{x - 2}{3} \implies a = 3$',
-                      'الكسر الثاني: $\frac{-(y - 1)}{3} = \frac{y - 1}{-3} \implies b = -3$',
-                      'الكسر الثالث: $\frac{z + 5}{2} \implies c = 2$',
-                      '٢. متجه الاتجاه هو $\vec{d} = (3, -3, 2)$.',
+                      'الكسر الأول: $\\frac{2(x - 2)}{6} = \\frac{x - 2}{3} \\implies a = 3$',
+                      'الكسر الثاني: $\\frac{-(y - 1)}{3} = \\frac{y - 1}{-3} \\implies b = -3$',
+                      'الكسر الثالث: $\\frac{z + 5}{2} \\implies c = 2$',
+                      '٢. متجه الاتجاه هو $\\vec{d} = (3, -3, 2)$.',
                       '٣. معيار متجه الاتجاه:',
-                      '$$\|\vec{d}\| = \sqrt{9 + 9 + 4} = \sqrt{22}$$',
+                      '$$\\|\\vec{d}\\| = \\sqrt{9 + 9 + 4} = \\sqrt{22}$$',
                       '٤. متجه اتجاه الوحدة:',
-                      '$$\hat{u} = \left( \frac{3}{\sqrt{22}}, \, -\frac{3}{\sqrt{22}}, \, \frac{2}{\sqrt{22}} \right)$$'
+                      '$$\\hat{u} = \\left( \\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}} \\right)$$'
                     ],
                     teacherTipEn: 'A high-yield question! Ministry exams frequently introduce coefficient modifications in the numerator.',
                     teacherTipAr: 'سؤال امتحاني متكرر جداً! انتبه لتعديل معاملات البسط قبل استخراج نسب الاتجاه.'
@@ -2133,8 +2133,8 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
                     titleEn: 'Foundation Problem: Perpendicular Lines Parameter Calculation',
                     titleAr: 'مسألة تأسيسية: شرط تعامد مستقيمين في الفراغ',
                     difficulty: 'easy',
-                    questionEn: 'The two straight lines $L_1: \frac{x - 1}{2} = \frac{y + 2}{k} = \frac{z - 3}{-4}$ and $L_2: \frac{x}{3} = \frac{y - 4}{2} = \frac{z + 1}{1}$ are perpendicular. Find the value of $k$.',
-                    questionAr: 'إذا كان المستقيمان $L_1: \frac{x - 1}{2} = \frac{y + 2}{k} = \frac{z - 3}{-4}$ و $L_2: \frac{x}{3} = \frac{y - 4}{2} = \frac{z + 1}{1}$ متعامدين، فاحسب قيمة $k$.',
+                    questionEn: 'The two straight lines $L_1: \\frac{x - 1}{2} = \\frac{y + 2}{k} = \\frac{z - 3}{-4}$ and $L_2: \\frac{x}{3} = \\frac{y - 4}{2} = \\frac{z + 1}{1}$ are perpendicular. Find the value of $k$.',
+                    questionAr: 'إذا كان المستقيمان $L_1: \\frac{x - 1}{2} = \\frac{y + 2}{k} = \\frac{z - 3}{-4}$ و $L_2: \\frac{x}{3} = \\frac{y - 4}{2} = \\frac{z + 1}{1}$ متعامدين، فاحسب قيمة $k$.',
                     optionsEn: ['-1', '1', '-2', '2'],
                     optionsAr: ['-١', '١', '-٢', '٢'],
                     correctAnswer: '-1',
@@ -2143,18 +2143,18 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
                     hintAr: 'يتعامد المستقيمان إذا كان هـ١ . هـ٢ = ٠: أ١ أ٢ + ب١ ب٢ + جـ١ جـ٢ = ٠.',
                     stepByStepSolutionEn: [
                       '1. Extract direction vectors:',
-                      '$$\vec{d}_1 = (2, k, -4), \quad \vec{d}_2 = (3, 2, 1)$$',
-                      '2. Apply the perpendicularity condition $\vec{d}_1 \cdot \vec{d}_2 = 0$:',
+                      '$$\\vec{d}_1 = (2, k, -4), \\quad \\vec{d}_2 = (3, 2, 1)$$',
+                      '2. Apply the perpendicularity condition $\\vec{d}_1 \\cdot \\vec{d}_2 = 0$:',
                       '$$(2)(3) + (k)(2) + (-4)(1) = 0$$',
                       '$$6 + 2k - 4 = 0$$',
-                      '$$2k + 2 = 0 \implies 2k = -2 \implies k = -1$$'
+                      '$$2k + 2 = 0 \\implies 2k = -2 \\implies k = -1$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. استخراج متجهات الاتجاه:',
-                      '$$\vec{d}_1 = (2, k, -4), \quad \vec{d}_2 = (3, 2, 1)$$',
+                      '$$\\vec{d}_1 = (2, k, -4), \\quad \\vec{d}_2 = (3, 2, 1)$$',
                       '٢. تطبيق شرط التعامد بالضرب القياسي:',
                       '$$2(3) + 2k - 4(1) = 0$$',
-                      '$$6 + 2k - 4 = 0 \implies 2k = -2 \implies k = -1$$'
+                      '$$6 + 2k - 4 = 0 \\implies 2k = -2 \\implies k = -1$$'
                     ],
                     teacherTipEn: 'Direct and reliable application of the dot product orthogonality condition.',
                     teacherTipAr: 'تطبيق مباشر ومضمون لشرط تعامد متجهي الاتجاه.'
@@ -2164,35 +2164,35 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
                     titleEn: 'HOTS Problem: Angle Between Two Space Diagonals of a Cube',
                     titleAr: 'مسألة مهارات عليا: قياس الزاوية بين قطري مكعب في الفراغ',
                     difficulty: 'hots',
-                    questionEn: 'In a cube of edge length $a$ with one vertex at origin $O(0, 0, 0)$, find the cosine of the angle $\theta$ between the main space diagonal connecting $O(0,0,0)$ to $(a,a,a)$ and the space diagonal connecting $(a,0,0)$ to $(0,a,a)$.',
-                    questionAr: 'في مكعب طول حرفه $a$ مع أحد رؤوسه في نقطة الأصل $O(0,0,0)$، احسب جيب تمام الزاوية $\theta$ بين القطر الفراغي الواصل بين $O(0,0,0)$ و $(a,a,a)$ والقطر الفراغي الواصل بين $(a,0,0)$ و $(0,a,a)$.',
-                    optionsEn: ['\frac{1}{3}', '\frac{2}{3}', '\frac{1}{\sqrt{3}}', '\frac{1}{2}'],
-                    optionsAr: ['\frac{1}{3}', '\frac{2}{3}', '\frac{1}{\sqrt{3}}', '\frac{1}{2}'],
-                    correctAnswer: '\frac{1}{3}',
+                    questionEn: 'In a cube of edge length $a$ with one vertex at origin $O(0, 0, 0)$, find the cosine of the angle $\\theta$ between the main space diagonal connecting $O(0,0,0)$ to $(a,a,a)$ and the space diagonal connecting $(a,0,0)$ to $(0,a,a)$.',
+                    questionAr: 'في مكعب طول حرفه $a$ مع أحد رؤوسه في نقطة الأصل $O(0,0,0)$، احسب جيب تمام الزاوية $\\theta$ بين القطر الفراغي الواصل بين $O(0,0,0)$ و $(a,a,a)$ والقطر الفراغي الواصل بين $(a,0,0)$ و $(0,a,a)$.',
+                    optionsEn: ['\\frac{1}{3}', '\\frac{2}{3}', '\\frac{1}{\\sqrt{3}}', '\\frac{1}{2}'],
+                    optionsAr: ['\\frac{1}{3}', '\\frac{2}{3}', '\\frac{1}{\\sqrt{3}}', '\\frac{1}{2}'],
+                    correctAnswer: '\\frac{1}{3}',
                     correctIndex: 0,
                     hintEn: 'd1 = (1, 1, 1) and d2 = (-1, 1, 1). Compute cos(theta) = |d1 . d2| / (||d1|| ||d2||).',
                     hintAr: 'متجه القطر الأول هـ١ = (١، ١، ١) ومتجه القطر الثاني هـ٢ = (-١، ١، ١). طبق قانون جتا(هـ).',
                     stepByStepSolutionEn: [
                       '1. Direction vector of first space diagonal:',
-                      '$$\vec{d}_1 = (a, a, a) - (0, 0, 0) = (a, a, a) \parallel (1, 1, 1)$$',
+                      '$$\\vec{d}_1 = (a, a, a) - (0, 0, 0) = (a, a, a) \\parallel (1, 1, 1)$$',
                       '2. Direction vector of second space diagonal:',
-                      '$$\vec{d}_2 = (0, a, a) - (a, 0, 0) = (-a, a, a) \parallel (-1, 1, 1)$$',
+                      '$$\\vec{d}_2 = (0, a, a) - (a, 0, 0) = (-a, a, a) \\parallel (-1, 1, 1)$$',
                       '3. Compute dot product and magnitudes:',
-                      '$$\vec{d}_1 \cdot \vec{d}_2 = (1)(-1) + (1)(1) + (1)(1) = -1 + 1 + 1 = 1$$',
-                      '$$\|\vec{d}_1\| = \sqrt{1^2 + 1^2 + 1^2} = \sqrt{3}, \quad \|\vec{d}_2\| = \sqrt{(-1)^2 + 1^2 + 1^2} = \sqrt{3}$$',
-                      '4. Compute $\cos\theta$:',
-                      '$$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|} = \frac{|1|}{\sqrt{3} \cdot \sqrt{3}} = \frac{1}{3}$$'
+                      '$$\\vec{d}_1 \\cdot \\vec{d}_2 = (1)(-1) + (1)(1) + (1)(1) = -1 + 1 + 1 = 1$$',
+                      '$$\\|\\vec{d}_1\\| = \\sqrt{1^2 + 1^2 + 1^2} = \\sqrt{3}, \\quad \\|\\vec{d}_2\\| = \\sqrt{(-1)^2 + 1^2 + 1^2} = \\sqrt{3}$$',
+                      '4. Compute $\\cos\\theta$:',
+                      '$$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|} = \\frac{|1|}{\\sqrt{3} \\cdot \\sqrt{3}} = \\frac{1}{3}$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. متجه اتجاه القطر الفراغي الأول:',
-                      '$$\vec{d}_1 = (1, 1, 1)$$',
+                      '$$\\vec{d}_1 = (1, 1, 1)$$',
                       '٢. متجه اتجاه القطر الفراغي الثاني:',
-                      '$$\vec{d}_2 = (-1, 1, 1)$$',
+                      '$$\\vec{d}_2 = (-1, 1, 1)$$',
                       '٣. حساب الضرب القياسي والمعايير:',
-                      '$$\vec{d}_1 \cdot \vec{d}_2 = -1 + 1 + 1 = 1$$',
-                      '$$\|\vec{d}_1\| = \sqrt{3}, \quad \|\vec{d}_2\| = \sqrt{3}$$',
+                      '$$\\vec{d}_1 \\cdot \\vec{d}_2 = -1 + 1 + 1 = 1$$',
+                      '$$\\|\\vec{d}_1\\| = \\sqrt{3}, \\quad \\|\\vec{d}_2\\| = \\sqrt{3}$$',
                       '٤. حساب جيب تمام الزاوية:',
-                      '$$\cos\theta = \frac{|1|}{\sqrt{3} \times \sqrt{3}} = \frac{1}{3}$$'
+                      '$$\\cos\\theta = \\frac{|1|}{\\sqrt{3} \\times \\sqrt{3}} = \\frac{1}{3}$$'
                     ],
                     teacherTipEn: 'A renowned geometry problem connecting 3D vector coordinates directly with solid figures.',
                     teacherTipAr: 'مسألة شهيرة تربط المتجهات ثلاثية الأبعاد بهندسة المجسمات والمكعب.'
@@ -2212,63 +2212,63 @@ $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
               titleEn: 'Equations of a Plane in 3D Space & Distance Metrics',
               titleAr: 'معادلة المستوى في الفراغ وحساب الأبعاد',
               summaryEn: 'General, vector, and intercept forms of a plane equation Ax + By + Cz + D = 0, normal vector n, perpendicular distance from point to plane L = |Ax1 + By1 + Cz1 + D| / sqrt(A^2 + B^2 + C^2), and angle between planes.',
-              summaryAr: 'الصور العامة والمتجهية وصورة الأجزاء المقطوعة لمعادلة المستوى، المتجه العمودي $\vec{n}$، وطول العمود الساقط من نقطة على مستوى $L$، وقياس الزاوية بين مستويين.',
+              summaryAr: 'الصور العامة والمتجهية وصورة الأجزاء المقطوعة لمعادلة المستوى، المتجه العمودي $\\vec{n}$، وطول العمود الساقط من نقطة على مستوى $L$، وقياس الزاوية بين مستويين.',
               theoryContentEn: `### 1. The Normal Vector and Plane Equation Forms:
-Let a plane pass through $A(x_0, y_0, z_0)$ with non-zero perpendicular normal vector $\vec{n} = (A, B, C)$:
+Let a plane pass through $A(x_0, y_0, z_0)$ with non-zero perpendicular normal vector $\\vec{n} = (A, B, C)$:
 1. **Vector Form (الصورة المتجهية):**
-   $$\vec{n} \cdot \vec{r} = \vec{n} \cdot \vec{r}_0$$
+   $$\\vec{n} \\cdot \\vec{r} = \\vec{n} \\cdot \\vec{r}_0$$
 2. **Standard Cartesian Form (الصورة القياسية):**
    $$A (x - x_0) + B (y - y_0) + C (z - z_0) = 0$$
 3. **General Cartesian Equation (الصورة العامة):**
-   $$A x + B y + C z + D = 0 \quad (\text{where } D = -\vec{n} \cdot \vec{r}_0)$$
+   $$A x + B y + C z + D = 0 \\quad (\\text{where } D = -\\vec{n} \\cdot \\vec{r}_0)$$
 4. **Intercept Form (صورة الأجزاء المقطوعة من المحاور):**
    If the plane intersects the coordinate axes at $(a, 0, 0)$, $(0, b, 0)$, and $(0, 0, c)$:
-   $$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$$
+   $$\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$$
 
 ### 2. Perpendicular Distance from Point $P(x_1, y_1, z_1)$ to Plane:
-$$L = \frac{|A x_1 + B y_1 + C z_1 + D|}{\sqrt{A^2 + B^2 + C^2}}$$
+$$L = \\frac{|A x_1 + B y_1 + C z_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 - **Distance from Origin $(0, 0, 0)$:**
-  $$L_O = \frac{|D|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$L_O = \\frac{|D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 
-### 3. Angle $\theta$ Between Two Planes:
-Given normal vectors $\vec{n}_1 = (A_1, B_1, C_1)$ and $\vec{n}_2 = (A_2, B_2, C_2)$:
-$$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{\|\vec{n}_1\| \|\vec{n}_2\|}$$
-- **Perpendicular Planes:** $\vec{n}_1 \cdot \vec{n}_2 = 0 \iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$.
-- **Parallel Planes:** $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}$.
+### 3. Angle $\\theta$ Between Two Planes:
+Given normal vectors $\\vec{n}_1 = (A_1, B_1, C_1)$ and $\\vec{n}_2 = (A_2, B_2, C_2)$:
+$$\\cos\\theta = \\frac{|\\vec{n}_1 \\cdot \\vec{n}_2|}{\\|\\vec{n}_1\\| \\|\\vec{n}_2\\|}$$
+- **Perpendicular Planes:** $\\vec{n}_1 \\cdot \\vec{n}_2 = 0 \\iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$.
+- **Parallel Planes:** $\\frac{A_1}{A_2} = \\frac{B_1}{B_2} = \\frac{C_1}{C_2}$.
 
-### 4. Angle $\theta$ Between a Straight Line $\vec{d}$ and a Plane $\vec{n}$:
-Because $\vec{n}$ is perpendicular to the plane, the angle between the line and the plane uses the sine function:
-$$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
+### 4. Angle $\\theta$ Between a Straight Line $\\vec{d}$ and a Plane $\\vec{n}$:
+Because $\\vec{n}$ is perpendicular to the plane, the angle between the line and the plane uses the sine function:
+$$\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$$`,
               theoryContentAr: `### ١. المتجه العمودي وصور معادلة المستوى في الفراغ:
-إذا كان المستوى يمر بالنقطة $A(x_0, y_0, z_0)$ والمتجه العمودي عليه $\vec{n} = (A, B, C)$:
+إذا كان المستوى يمر بالنقطة $A(x_0, y_0, z_0)$ والمتجه العمودي عليه $\\vec{n} = (A, B, C)$:
 ١. **الصورة المتجهية:**
-   $$\vec{n} \cdot \vec{r} = \vec{n} \cdot \vec{r}_0$$
+   $$\\vec{n} \\cdot \\vec{r} = \\vec{n} \\cdot \\vec{r}_0$$
 ٢. **الصورة القياسية:**
    $$A (x - x_0) + B (y - y_0) + C (z - z_0) = 0$$
 ٣. **الصورة العامة لمعادلة المستوى:**
    $$A x + B y + C z + D = 0$$
 ٤. **صورة الأجزاء المقطوعة من محاور الإحداثيات:**
    إذا قطع المستوى المحاور في $(a, 0, 0)$ و $(0, b, 0)$ و $(0, 0, c)$:
-   $$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$$
+   $$\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$$
 
 ### ٢. طول العمود الساقط من نقطة $P(x_1, y_1, z_1)$ على المستوى:
-$$L = \frac{|A x_1 + B y_1 + C z_1 + D|}{\sqrt{A^2 + B^2 + C^2}}$$
+$$L = \\frac{|A x_1 + B y_1 + C z_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 - **طول العمود الساقط من نقطة الأصل:**
-  $$L_O = \frac{|D|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$L_O = \\frac{|D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 
-### ٣. قياس الزاوية $\theta$ بين مستويين:
-$$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{\|\vec{n}_1\| \|\vec{n}_2\|}$$
-- **شرط تعامد مستويين:** $\vec{n}_1 \cdot \vec{n}_2 = 0$.
-- **شرط توازي مستويين:** $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}$.
+### ٣. قياس الزاوية $\\theta$ بين مستويين:
+$$\\cos\\theta = \\frac{|\\vec{n}_1 \\cdot \\vec{n}_2|}{\\|\\vec{n}_1\\| \\|\\vec{n}_2\\|}$$
+- **شرط تعامد مستويين:** $\\vec{n}_1 \\cdot \\vec{n}_2 = 0$.
+- **شرط توازي مستويين:** $\\frac{A_1}{A_2} = \\frac{B_1}{B_2} = \\frac{C_1}{C_2}$.
 
 ### ٤. قياس الزاوية بين خط مستقيم ومستوى:
 تستخدم قانون الجيب لأن المتجه ن عمودي على المستوى:
-$$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
+$$\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$$`,
               formulas: [
                 { labelEn: '3D Plane General Form', labelAr: 'معادلة المستوى العامة', latex: 'Ax + By + Cz + D = 0' },
-                { labelEn: 'Intercept Form of Plane', labelAr: 'صورة الأجزاء المقطوعة', latex: '\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1' },
-                { labelEn: 'Point to Plane Perpendicular Distance', labelAr: 'طول العمود الساقط على مستوى', latex: 'L = \frac{|Ax_1 + By_1 + Cz_1 + D|}{\sqrt{A^2 + B^2 + C^2}}' },
-                { labelEn: 'Angle Between Line and Plane', labelAr: 'الزاوية بين مستقيم ومستوى', latex: '\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}' }
+                { labelEn: 'Intercept Form of Plane', labelAr: 'صورة الأجزاء المقطوعة', latex: '\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1' },
+                { labelEn: 'Point to Plane Perpendicular Distance', labelAr: 'طول العمود الساقط على مستوى', latex: 'L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}' },
+                { labelEn: 'Angle Between Line and Plane', labelAr: 'الزاوية بين مستقيم ومستوى', latex: '\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}' }
               ],
               moeRef: {
                 bookTitleEn: 'Ministry Solid Geometry Textbook Grade 12',
@@ -2375,9 +2375,9 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                     diagramType: 'plane_intercepts_3d',
                     questionEn: 'Find the length of the perpendicular $L$ drawn from point $P(2, -1, 3)$ to the plane $2x - 2y + z + 5 = 0$.',
                     questionAr: 'أوجد طول العمود $L$ المرسوم من النقطة $P(2, -1, 3)$ على المستوى $2x - 2y + z + 5 = 0$.',
-                    optionsEn: ['4.67\text{ units}', '4\text{ units}', '3\text{ units}', '5\text{ units}'],
+                    optionsEn: ['4.67\\text{ units}', '4\\text{ units}', '3\\text{ units}', '5\\text{ units}'],
                     optionsAr: ['٤٫٦٧ وحدة طول', '٤ وحدات طول', '٣ وحدات طول', '٥ وحدات طول'],
-                    correctAnswer: '4.67\text{ units}',
+                    correctAnswer: '4.67\\text{ units}',
                     correctIndex: 0,
                     hintEn: 'L = |A x1 + B y1 + C z1 + D| / sqrt(A^2 + B^2 + C^2). Substitute (2, -1, 3) into 2x - 2y + z + 5.',
                     hintAr: 'ل = |أ س١ + ب ص١ + جـ ع١ + د| / جذر(أ² + ب² + جـ²). عوض بالنقطة (٢، -١، ٣) في معادلة المستوى.',
@@ -2388,9 +2388,9 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                       '2. Evaluate the numerator:',
                       '$$|A x_1 + B y_1 + C z_1 + D| = |2(2) - 2(-1) + 1(3) + 5| = |4 + 2 + 3 + 5| = |14| = 14$$',
                       '3. Evaluate the denominator:',
-                      '$$\sqrt{A^2 + B^2 + C^2} = \sqrt{2^2 + (-2)^2 + 1^2} = \sqrt{4 + 4 + 1} = \sqrt{9} = 3$$',
+                      '$$\\sqrt{A^2 + B^2 + C^2} = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$$',
                       '4. Calculate perpendicular distance:',
-                      '$$L = \frac{14}{3} \approx 4.67\text{ length units}$$'
+                      '$$L = \\frac{14}{3} \\approx 4.67\\text{ length units}$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. معاملات المستوى وإحداثيات النقطة:',
@@ -2398,9 +2398,9 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                       '٢. حساب قيمة البسط المطلقة:',
                       '$$|2(2) - 2(-1) + 3 + 5| = |4 + 2 + 3 + 5| = 14$$',
                       '٣. حساب قيمة المقام (معيار المتجه العمودي):',
-                      '$$\sqrt{2^2 + (-2)^2 + 1^2} = \sqrt{9} = 3$$',
+                      '$$\\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{9} = 3$$',
                       '٤. طول العمود الساقط:',
-                      '$$L = \frac{14}{3} \approx 4.67\text{ وحدة طول}$$'
+                      '$$L = \\frac{14}{3} \\approx 4.67\\text{ وحدة طول}$$'
                     ],
                     teacherTipEn: 'Direct exam application of the perpendicular distance theorem.',
                     teacherTipAr: 'تطبيق مباشر لقانون طول العمود الساقط من نقطة على مستوى.'
@@ -2431,17 +2431,17 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                     hintAr: 'استخدم صورة الأجزاء المقطوعة: س/أ + ص/ب + ع/جـ = ١ حيث أ = ٢، ب = -٣، جـ = ٤، ثم اضرب في ١٢.',
                     stepByStepSolutionEn: [
                       '1. Substitute into intercept equation formula:',
-                      '$$\frac{x}{2} + \frac{y}{-3} + \frac{z}{4} = 1$$',
-                      '$$\frac{x}{2} - \frac{y}{3} + \frac{z}{4} = 1$$',
+                      '$$\\frac{x}{2} + \\frac{y}{-3} + \\frac{z}{4} = 1$$',
+                      '$$\\frac{x}{2} - \\frac{y}{3} + \\frac{z}{4} = 1$$',
                       '2. Multiply through by the LCM of denominators (12):',
-                      '$$12 \cdot \frac{x}{2} - 12 \cdot \frac{y}{3} + 12 \cdot \frac{z}{4} = 12 \cdot 1$$',
-                      '$$6x - 4y + 3z = 12 \implies 6x - 4y + 3z - 12 = 0$$'
+                      '$$12 \\cdot \\frac{x}{2} - 12 \\cdot \\frac{y}{3} + 12 \\cdot \\frac{z}{4} = 12 \\cdot 1$$',
+                      '$$6x - 4y + 3z = 12 \\implies 6x - 4y + 3z - 12 = 0$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. التعويض في صورة الأجزاء المقطوعة:',
-                      '$$\frac{x}{2} - \frac{y}{3} + \frac{z}{4} = 1$$',
+                      '$$\\frac{x}{2} - \\frac{y}{3} + \\frac{z}{4} = 1$$',
                       '٢. بالضرب في المضاعف المشترك للأعداد (١٢):',
-                      '$$6x - 4y + 3z = 12 \implies 6x - 4y + 3z - 12 = 0$$'
+                      '$$6x - 4y + 3z = 12 \\implies 6x - 4y + 3z - 12 = 0$$'
                     ],
                     teacherTipEn: 'A textbook classic for finding plane equations without performing cross products!',
                     teacherTipAr: 'صورة الأجزاء المقطوعة توفر وقتاً كبيراً وتغني عن حساب محدد الضرب الاتجاهي لإيجاد معادلة المستوى.'
@@ -2452,29 +2452,29 @@ $$\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$`,
                     titleAr: 'مسألة مهارات عليا: البعد العمودي بين مستويين متوازيين',
                     difficulty: 'hots',
                     diagramType: 'plane_intercepts_3d',
-                    questionEn: 'Find the distance $D$ between the two parallel planes $\pi_1: 2x - y + 2z - 4 = 0$ and $\pi_2: 4x - 2y + 4z + 10 = 0$.',
-                    questionAr: 'احسب البعد العمودي $D$ بين المستويين المتوازيين $\pi_1: 2x - y + 2z - 4 = 0$ و $\pi_2: 4x - 2y + 4z + 10 = 0$.',
-                    optionsEn: ['3\text{ units}', '2\text{ units}', '1.5\text{ units}', '4.5\text{ units}'],
+                    questionEn: 'Find the distance $D$ between the two parallel planes $\\pi_1: 2x - y + 2z - 4 = 0$ and $\\pi_2: 4x - 2y + 4z + 10 = 0$.',
+                    questionAr: 'احسب البعد العمودي $D$ بين المستويين المتوازيين $\\pi_1: 2x - y + 2z - 4 = 0$ و $\\pi_2: 4x - 2y + 4z + 10 = 0$.',
+                    optionsEn: ['3\\text{ units}', '2\\text{ units}', '1.5\\text{ units}', '4.5\\text{ units}'],
                     optionsAr: ['٣ وحدات طول', '٢ وحدة طول', '١٫٥ وحدة طول', '٤٫٥ وحدة طول'],
-                    correctAnswer: '3\text{ units}',
+                    correctAnswer: '3\\text{ units}',
                     correctIndex: 0,
                     hintEn: 'First divide the second plane by 2 so both have identical coefficients (2, -1, 2). Then D = |D1 - D2| / sqrt(A^2 + B^2 + C^2).',
                     hintAr: 'اقسم معادلة المستوى الثاني على ٢ لتتطابق المعاملات (٢، -١، ٢) ثم احسب د = |د١ - د٢| / معيار ن.',
                     stepByStepSolutionEn: [
                       '1. Standardize plane coefficients so normals are identical:',
-                      'Plane 1: $2x - y + 2z - 4 = 0 \implies D_1 = -4$.',
+                      'Plane 1: $2x - y + 2z - 4 = 0 \\implies D_1 = -4$.',
                       'Plane 2: Divide by 2:',
-                      '$$\frac{4x - 2y + 4z + 10}{2} = 0 \implies 2x - y + 2z + 5 = 0 \implies D_2 = 5$$',
+                      '$$\\frac{4x - 2y + 4z + 10}{2} = 0 \\implies 2x - y + 2z + 5 = 0 \\implies D_2 = 5$$',
                       '2. The distance between two parallel planes with identical $(A, B, C)$ is:',
-                      '$$D = \frac{|D_2 - D_1|}{\sqrt{A^2 + B^2 + C^2}}$$',
-                      '$$D = \frac{|5 - (-4)|}{\sqrt{2^2 + (-1)^2 + 2^2}} = \frac{|9|}{\sqrt{4 + 1 + 4}} = \frac{9}{\sqrt{9}} = \frac{9}{3} = 3\text{ length units}$$'
+                      '$$D = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}}$$',
+                      '$$D = \\frac{|5 - (-4)|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{|9|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{\\sqrt{9}} = \\frac{9}{3} = 3\\text{ length units}$$'
                     ],
                     stepByStepSolutionAr: [
                       '١. توحيد معاملات المستويين المتوازيين:',
-                      'المستوى الأول: $2x - y + 2z - 4 = 0 \implies D_1 = -4$',
-                      'المستوى الثاني بالقسمة على ٢: $2x - y + 2z + 5 = 0 \implies D_2 = 5$',
+                      'المستوى الأول: $2x - y + 2z - 4 = 0 \\implies D_1 = -4$',
+                      'المستوى الثاني بالقسمة على ٢: $2x - y + 2z + 5 = 0 \\implies D_2 = 5$',
                       '٢. قانون البعد بين مستويين متوازيين بعد توحيد المعاملات:',
-                      '$$D = \frac{|D_2 - D_1|}{\sqrt{A^2 + B^2 + C^2}} = \frac{|5 - (-4)|}{\sqrt{4 + 1 + 4}} = \frac{9}{3} = 3\text{ وحدة طول}$$'
+                      '$$D = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}} = \\frac{|5 - (-4)|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3\\text{ وحدة طول}$$'
                     ],
                     teacherTipEn: 'A crucial exam caveat: You MUST ensure normal coefficients (A, B, C) are exactly matched before applying |D2 - D1| / ||n||!',
                     teacherTipAr: 'تحذير امتحاني هام جداً: يجب توحيد معاملات س وص وع في المستويين قبل تطبيق قانون فرق الثوابت على المعيار!'

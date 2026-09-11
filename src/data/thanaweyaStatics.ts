@@ -936,9 +936,9 @@ Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$:
    عزم المحصلة حول أي نقطة = المجموع الجبري لعزوم القوى حول نفس النقطة:
    $R \\times x_R = \\sum (F_i \\times x_i)$`,
           formulas: [
-            { labelEn: 'Like Forces Resultant', labelAr: 'محصلة قوتين في نفس الاتجاه', latex: 'R = F_1 + F_2, \quad F_1 \cdot AC = F_2 \cdot BC' },
-            { labelEn: 'Unlike Forces Resultant', labelAr: 'محصلة قوتين متضادتين', latex: 'R = |F_1 - F_2|, \quad F_1 \cdot AC = F_2 \cdot BC' },
-            { labelEn: "Varignon's Theorem", labelAr: 'نظرية فارينون للمحصلة', latex: 'R \cdot x_R = \sum (F_i \cdot x_i)' }
+            { labelEn: 'Like Forces Resultant', labelAr: 'محصلة قوتين في نفس الاتجاه', latex: 'R = F_1 + F_2, \\quad F_1 \\cdot AC = F_2 \\cdot BC' },
+            { labelEn: 'Unlike Forces Resultant', labelAr: 'محصلة قوتين متضادتين', latex: 'R = |F_1 - F_2|, \\quad F_1 \\cdot AC = F_2 \\cdot BC' },
+            { labelEn: "Varignon's Theorem", labelAr: 'نظرية فارينون للمحصلة', latex: 'R \\cdot x_R = \\sum (F_i \\cdot x_i)' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -1044,8 +1044,8 @@ Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$:
                 titleEn: 'Exam Standard: Resultant Position of Unlike Parallel Forces',
                 titleAr: 'مسألة امتحانية: موضع محصلة قوتين متضادتين',
                 difficulty: 'exam_standard',
-                questionEn: 'Two parallel forces $F_1 = 30\text{ N}$ and $F_2 = 10\text{ N}$ act in opposite directions at $A$ and $B$, where $AB = 40\text{ cm}$. Find the distance from $A$ (where $F_1$ acts) to the resultant line of action.',
-                questionAr: 'قوتان متوازيتان $F_1 = 30\text{ ن}$ و $F_2 = 10\text{ ن}$ تعملان في اتجاهين متضادين عند $A$ و $B$ حيث $AB = 40\text{ سم}$. أوجد بعد خط عمل المحصلة عن $A$.',
+                questionEn: 'Two parallel forces $F_1 = 30\\text{ N}$ and $F_2 = 10\\text{ N}$ act in opposite directions at $A$ and $B$, where $AB = 40\\text{ cm}$. Find the distance from $A$ (where $F_1$ acts) to the resultant line of action.',
+                questionAr: 'قوتان متوازيتان $F_1 = 30\\text{ ن}$ و $F_2 = 10\\text{ ن}$ تعملان في اتجاهين متضادين عند $A$ و $B$ حيث $AB = 40\\text{ سم}$. أوجد بعد خط عمل المحصلة عن $A$.',
                 optionsEn: ['20 cm beyond A', '60 cm beyond A', '10 cm between A and B', '30 cm beyond B'],
                 optionsAr: ['٢٠ سم خارج القطعة من جهة A', '٦٠ سم خارج القطعة من جهة A', '١٠ سم بين A و B', '٣٠ سم خارج القطعة من جهة B'],
                 correctAnswer: '20 cm beyond A',
@@ -1054,12 +1054,12 @@ Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$:
                 hintAr: '٣٠ × أ جـ = ١٠ × (٤٠ + أ جـ).',
                 stepByStepSolutionEn: [
                   '1. The resultant acts outside $AB$ on the side of the larger force $F_1$ at $A$.',
-                  '2. $30 \times AC = 10 \times (40 + AC) \implies 30 AC = 400 + 10 AC$.',
-                  '3. $20 AC = 400 \implies AC = 20\text{ cm}$ beyond $A$.'
+                  '2. $30 \\times AC = 10 \\times (40 + AC) \\implies 30 AC = 400 + 10 AC$.',
+                  '3. $20 AC = 400 \\implies AC = 20\\text{ cm}$ beyond $A$.'
                 ],
                 stepByStepSolutionAr: [
                   '١. المحصلة تؤثر خارج القطعة $AB$ من جهة القوة الأكبر ($A$).',
-                  '٢. $30 AC = 10(40 + AC) \implies 20 AC = 400 \implies AC = 20\text{ سم}$.'
+                  '٢. $30 AC = 10(40 + AC) \\implies 20 AC = 400 \\implies AC = 20\\text{ سم}$.'
                 ],
                 teacherTipEn: 'Always measure distance from the larger force when dealing with external division.',
                 teacherTipAr: 'قس المسافة دائماً من موضع القوة الكبرى لتفادي الخلط في حل مسائل التقسيم من الخارج.'
@@ -1117,9 +1117,9 @@ When loads are applied or shifted such that a supported beam is on the verge of 
   $R = 0$
 - وأخذ العزوم حول الحامل المرتكز عليه يعطي أقصى أو أقل ثقل يحفظ الاتزان.`,
           formulas: [
-            { labelEn: 'Force Equilibrium Condition', labelAr: 'شرط اتزان القوى', latex: '\sum F_y = 0 \iff \sum F_{\text{up}} = \sum F_{\text{down}}' },
-            { labelEn: 'Moment Equilibrium Condition', labelAr: 'شرط اتزان العزوم', latex: '\sum M_P = 0' },
-            { labelEn: 'Tilting Support Condition', labelAr: 'شرط وشك الانقلاب', latex: 'R_{\text{other}} = 0' }
+            { labelEn: 'Force Equilibrium Condition', labelAr: 'شرط اتزان القوى', latex: '\\sum F_y = 0 \\iff \\sum F_{\\text{up}} = \\sum F_{\\text{down}}' },
+            { labelEn: 'Moment Equilibrium Condition', labelAr: 'شرط اتزان العزوم', latex: '\\sum M_P = 0' },
+            { labelEn: 'Tilting Support Condition', labelAr: 'شرط وشك الانقلاب', latex: 'R_{\\text{other}} = 0' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -1225,24 +1225,24 @@ When loads are applied or shifted such that a supported beam is on the verge of 
                 titleEn: 'Exam Standard: Overturning Load on Overhanging Beam',
                 titleAr: 'مسألة امتحانية: أقصى حمل على طرف بارز دون انقلاب',
                 difficulty: 'exam_standard',
-                questionEn: 'A uniform rod $AB$ of length $100\text{ cm}$ and weight $20\text{ N}$ rests on two supports at $C$ ($20\text{ cm}$ from $A$) and $D$ ($80\text{ cm}$ from $A$). Find the maximum weight that can be suspended from end $A$ without overturning the rod.',
-                questionAr: 'قضيب منتظم $AB$ طوله $100\text{ سم}$ ووزنه $20\text{ ن}$ يرتكز على حاملين عند $C$ (على بعد $20\text{ سم}$ من $A$) و $D$ (على بعد $80\text{ سم}$ من $A$). أوجد أكبر ثقل يمكن تعليقه من الطرف $A$ دون أن ينقلب القضيب.',
+                questionEn: 'A uniform rod $AB$ of length $100\\text{ cm}$ and weight $20\\text{ N}$ rests on two supports at $C$ ($20\\text{ cm}$ from $A$) and $D$ ($80\\text{ cm}$ from $A$). Find the maximum weight that can be suspended from end $A$ without overturning the rod.',
+                questionAr: 'قضيب منتظم $AB$ طوله $100\\text{ سم}$ ووزنه $20\\text{ ن}$ يرتكز على حاملين عند $C$ (على بعد $20\\text{ سم}$ من $A$) و $D$ (على بعد $80\\text{ سم}$ من $A$). أوجد أكبر ثقل يمكن تعليقه من الطرف $A$ دون أن ينقلب القضيب.',
                 optionsEn: ['30 N', '20 N', '40 N', '15 N'],
                 optionsAr: ['٣٠ ن', '٢٠ ن', '٤٠ ن', '١٥ ن'],
                 correctAnswer: '30 N',
                 correctIndex: 0,
                 hintEn: 'Tipping occurs about support C, so R_D = 0. Weight acts at midpoint 50 cm. w * 20 = 20 * (50 - 20).',
-                hintAr: 'الانقلاب يحدث حول الحامل $C$، فينعدم $R_D = 0$. الوزن عند ٥٠ سم. $w \times 20 = 20 \times (50 - 20)$.',
+                hintAr: 'الانقلاب يحدث حول الحامل $C$، فينعدم $R_D = 0$. الوزن عند ٥٠ سم. $w \\times 20 = 20 \\times (50 - 20)$.',
                 stepByStepSolutionEn: [
                   '1. When the rod is on the verge of tilting about $C$, the reaction at $D$ drops to zero ($R_D = 0$).',
-                  '2. Center of gravity is at $50\text{ cm}$, so distance $CG = 50 - 20 = 30\text{ cm}$.',
-                  '3. Distance from $A$ to $C$ is $20\text{ cm}$.',
-                  '4. Take moments about $C$: $w \times 20 = 20 \times 30 \implies 20 w = 600 \implies w = 30\text{ N}$.'
+                  '2. Center of gravity is at $50\\text{ cm}$, so distance $CG = 50 - 20 = 30\\text{ cm}$.',
+                  '3. Distance from $A$ to $C$ is $20\\text{ cm}$.',
+                  '4. Take moments about $C$: $w \\times 20 = 20 \\times 30 \\implies 20 w = 600 \\implies w = 30\\text{ N}$.'
                 ],
                 stepByStepSolutionAr: [
                   '١. عند وشك الانقلاب حول $C$ ينعدم رد الفعل عند $D$ تماماً ($R_D = 0$).',
-                  '٢. مركز الثقل عند ٥٠ سم، فالمسافة $CG = 30\text{ سم}$.',
-                  '٣. أخذ العزوم حول $C$: $w \times 20 = 20 \times 30 \implies w = 30\text{ ن}$.'
+                  '٢. مركز الثقل عند ٥٠ سم، فالمسافة $CG = 30\\text{ سم}$.',
+                  '٣. أخذ العزوم حول $C$: $w \\times 20 = 20 \\times 30 \\implies w = 30\\text{ ن}$.'
                 ],
                 teacherTipEn: 'Moments about the fulcrum support with R_other = 0 gives the exact tipping weight.',
                 teacherTipAr: 'معادلة العزوم حول الحامل نقطة الارتكاز مع إلغاء رد فعل الحامل الآخر تعطي الثقل بدقة.'
@@ -1826,10 +1826,10 @@ Notice that $\\vec{M}$ is perpendicular to the plane containing the forces.`,
 إذا أثرت $\\vec{F}$ عند نقطة $B$ وأثرت $-\\vec{F}$ عند نقطة $A$:
 $$\\vec{M} = \\vec{r}_{AB} \\times \\vec{F} = (\\vec{r}_B - \\vec{r}_A) \\times \\vec{F}$$`,
           formulas: [
-            { labelEn: 'Scalar Couple Moment', labelAr: 'القياس الجبري لعزم الازدواج', latex: 'M = \pm F \times d' },
-            { labelEn: 'Vector Couple Moment', labelAr: 'الصورة الاتجاهية لعزم الازدواج', latex: '\vec{M} = \vec{r}_{AB} \times \vec{F}' },
-            { labelEn: 'Arm of Couple', labelAr: 'طول ذراع الازدواج', latex: 'd = \frac{|M|}{F}' },
-            { labelEn: 'Resultant of Couple', labelAr: 'محصلة قوتي الازدواج', latex: '\vec{R} = \vec{F}_1 + \vec{F}_2 = \vec{0}' }
+            { labelEn: 'Scalar Couple Moment', labelAr: 'القياس الجبري لعزم الازدواج', latex: 'M = \\pm F \\times d' },
+            { labelEn: 'Vector Couple Moment', labelAr: 'الصورة الاتجاهية لعزم الازدواج', latex: '\\vec{M} = \\vec{r}_{AB} \\times \\vec{F}' },
+            { labelEn: 'Arm of Couple', labelAr: 'طول ذراع الازدواج', latex: 'd = \\frac{|M|}{F}' },
+            { labelEn: 'Resultant of Couple', labelAr: 'محصلة قوتي الازدواج', latex: '\\vec{R} = \\vec{F}_1 + \\vec{F}_2 = \\vec{0}' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -2063,10 +2063,10 @@ $$M_1 = M_2$$
    - $\\text{مساحة المضلع}$ مساحة الشكل الهندسي المغلق (مثلث، مستطيل، معين، سداسي منتظم، إلخ).
    - اتجاه العزم يتبع الترتيب الدوري لرؤوس المضلع.`,
           formulas: [
-            { labelEn: 'Equilibrium of Couples', labelAr: 'شرط اتزان الازدواجات', latex: '\sum M_i = 0 \implies M_1 + M_2 = 0' },
-            { labelEn: 'Polygon Theorem Moment', labelAr: 'عزم نظرية المضلع المغلق', latex: 'M = 2 \times m \times \text{Area}' },
-            { labelEn: 'Scale Factor Formula', labelAr: 'مقياس رسم القوى للأضلاع', latex: 'm = \frac{F_1}{L_1} = \frac{F_2}{L_2} = \dots = \frac{F_n}{L_n}' },
-            { labelEn: 'Regular Hexagon Area', labelAr: 'مساحة السداسي المنتظم', latex: '\text{Area} = \frac{3\sqrt{3}}{2} L^2' }
+            { labelEn: 'Equilibrium of Couples', labelAr: 'شرط اتزان الازدواجات', latex: '\\sum M_i = 0 \\implies M_1 + M_2 = 0' },
+            { labelEn: 'Polygon Theorem Moment', labelAr: 'عزم نظرية المضلع المغلق', latex: 'M = 2 \\times m \\times \\text{Area}' },
+            { labelEn: 'Scale Factor Formula', labelAr: 'مقياس رسم القوى للأضلاع', latex: 'm = \\frac{F_1}{L_1} = \\frac{F_2}{L_2} = \\dots = \\frac{F_n}{L_n}' },
+            { labelEn: 'Regular Hexagon Area', labelAr: 'مساحة السداسي المنتظم', latex: '\\text{Area} = \\frac{3\\sqrt{3}}{2} L^2' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -2310,10 +2310,10 @@ For a thin wire of uniform material and cross-section:
    يطبق قانون المتوسط الموزون باعتبار الأطوال هي الكتل:
    $$X_G = \\frac{\\sum L_i \\bar{x}_i}{\\sum L_i}, \\quad Y_G = \\frac{\\sum L_i \\bar{y}_i}{\\sum L_i}$$`,
           formulas: [
-            { labelEn: 'Center of Mass X-coordinate', labelAr: 'الإحداثي السيني لمركز الثقل', latex: 'X_G = \frac{\sum m_i x_i}{\sum m_i}' },
-            { labelEn: 'Center of Mass Y-coordinate', labelAr: 'الإحداثي الصادي لمركز الثقل', latex: 'Y_G = \frac{\sum m_i y_i}{\sum m_i}' },
-            { labelEn: 'Wire Mass-Length Ratio', labelAr: 'تناسب كتلة السلك مع طوله', latex: 'm_i \propto L_i \implies X_G = \frac{\sum L_i \bar{x}_i}{\sum L_i}' },
-            { labelEn: 'Midpoint of Segment', labelAr: 'إحداثيات منتصف القطعة المستقيمة', latex: '(\bar{x}, \bar{y}) = \left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)' }
+            { labelEn: 'Center of Mass X-coordinate', labelAr: 'الإحداثي السيني لمركز الثقل', latex: 'X_G = \\frac{\\sum m_i x_i}{\\sum m_i}' },
+            { labelEn: 'Center of Mass Y-coordinate', labelAr: 'الإحداثي الصادي لمركز الثقل', latex: 'Y_G = \\frac{\\sum m_i y_i}{\\sum m_i}' },
+            { labelEn: 'Wire Mass-Length Ratio', labelAr: 'تناسب كتلة السلك مع طوله', latex: 'm_i \\propto L_i \\implies X_G = \\frac{\\sum L_i \\bar{x}_i}{\\sum L_i}' },
+            { labelEn: 'Midpoint of Segment', labelAr: 'إحداثيات منتصف القطعة المستقيمة', latex: '(\\bar{x}, \\bar{y}) = \\left(\\frac{x_1+x_2}{2}, \\frac{y_1+y_2}{2}\\right)' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -2471,9 +2471,9 @@ For a thin wire of uniform material and cross-section:
                 difficulty: 'hots',
                 questionEn: 'Two masses of $2\\text{ kg}$ at $x = 0$ and $3\\text{ kg}$ at $x = 10\\text{ cm}$ have $X_G = 6\\text{ cm}$. What mass $m$ must be placed at $x = 10\\text{ cm}$ to make $X_G = 7\\text{ cm}$?',
                 questionAr: 'كتلتان ٢ كجم عند س = ٠ و ٣ كجم عند س = ١٠ سم مركز ثقلهما س_م = ٦ سم. ما الكتلة m التي يجب إضافتها عند س = ١٠ سم ليصبح س_م = ٧ سم؟',
-                optionsEn: ['$\frac{5}{3}\\text{ kg}$', '$2\\text{ kg}$', '$1\\text{ kg}$', '$\frac{7}{3}\\text{ kg}$'],
-                optionsAr: ['$\frac{5}{3}\\text{ كجم}$', '$2\\text{ كجم}$', '$1\\text{ كجم}$', '$\frac{7}{3}\\text{ كجم}$'],
-                correctAnswer: '$\frac{5}{3}\\text{ kg}$',
+                optionsEn: ['$\\frac{5}{3}\\text{ kg}$', '$2\\text{ kg}$', '$1\\text{ kg}$', '$\\frac{7}{3}\\text{ kg}$'],
+                optionsAr: ['$\\frac{5}{3}\\text{ كجم}$', '$2\\text{ كجم}$', '$1\\text{ كجم}$', '$\\frac{7}{3}\\text{ كجم}$'],
+                correctAnswer: '$\\frac{5}{3}\\text{ kg}$',
                 correctIndex: 0,
                 hintEn: '(30 + 10m) / (5 + m) = 7 => 30 + 10m = 35 + 7m => 3m = 5 => m = 5/3 kg.',
                 hintAr: '(٣٠ + ١٠ ك) / (٥ + ك) = ٧ => ٣٠ + ١٠ ك = ٣٥ + ٧ ك => ٣ ك = ٥ => ك = ٥ / ٣ كجم.',
@@ -2558,10 +2558,10 @@ When a body is suspended freely from a fixed point $P$:
    **الخط المستقيم المار بنقطة التعليق $P$ وبمركز الثقل $G$ هو الخط الرأسي في وضع الاتزان.**
 ٤. لحساب زاوية ميل أي ضلع على الرأسي نوجد زاوية ميل المتجه $\\vec{PG}$.`,
           formulas: [
-            { labelEn: 'Negative Mass Formula (X)', labelAr: 'قانون الكتلة السالبة (س)', latex: 'X_G = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}' },
-            { labelEn: 'Negative Mass Formula (Y)', labelAr: 'قانون الكتلة السالبة (ص)', latex: 'Y_G = \frac{A_1 y_1 - A_2 y_2}{A_1 - A_2}' },
-            { labelEn: 'Free Suspension Vertical Line', labelAr: 'معادلة الخط الرأسي في التعليق الحر', latex: '\text{Line } PG \text{ is strictly vertical}' },
-            { labelEn: 'Inclination to Vertical', labelAr: 'ظل زاوية الميل على الرأسي', latex: '\tan\theta = \left|\frac{X_G - x_P}{Y_G - y_P}\right|' }
+            { labelEn: 'Negative Mass Formula (X)', labelAr: 'قانون الكتلة السالبة (س)', latex: 'X_G = \\frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}' },
+            { labelEn: 'Negative Mass Formula (Y)', labelAr: 'قانون الكتلة السالبة (ص)', latex: 'Y_G = \\frac{A_1 y_1 - A_2 y_2}{A_1 - A_2}' },
+            { labelEn: 'Free Suspension Vertical Line', labelAr: 'معادلة الخط الرأسي في التعليق الحر', latex: '\\text{Line } PG \\text{ is strictly vertical}' },
+            { labelEn: 'Inclination to Vertical', labelAr: 'ظل زاوية الميل على الرأسي', latex: '\\tan\\theta = \\left|\\frac{X_G - x_P}{Y_G - y_P}\\right|' }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Statics Textbook Grade 12',
@@ -2717,8 +2717,8 @@ When a body is suspended freely from a fixed point $P$:
                 difficulty: 'hots',
                 questionEn: 'A square plate of side $L$ has a corner square of side $L/2$ cut out. When suspended freely from the opposite corner, find $\\tan\\theta$ of the horizontal edge to the vertical.',
                 questionAr: 'صفيحة مربعة ضلعها ل اقتطع من ركنها مربع ضلعه ل/٢. عند تعليقها من الرأس المقابل، احسب ظا(هـ) لميل الضلع الأفقي على الرأسي.',
-                optionsEn: ['$1$', '$\frac{7}{5}$', '$\frac{5}{7}$', '$\frac{1}{2}$'],
-                optionsAr: ['$1$', '$\frac{7}{5}$', '$\frac{5}{7}$', '$\frac{1}{2}$'],
+                optionsEn: ['$1$', '$\\frac{7}{5}$', '$\\frac{5}{7}$', '$\\frac{1}{2}$'],
+                optionsAr: ['$1$', '$\\frac{7}{5}$', '$\\frac{5}{7}$', '$\\frac{1}{2}$'],
                 correctAnswer: '$1$',
                 correctIndex: 0,
                 hintEn: 'By symmetry along line y = x, X_G = Y_G = 5L/12, so tan(theta) = Y_G / X_G = 1.',

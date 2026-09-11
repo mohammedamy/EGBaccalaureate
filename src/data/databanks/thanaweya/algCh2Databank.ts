@@ -4539,7 +4539,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_26",
     "titleEn": "Derivation of cos(3theta) via De Moivre",
-    "titleAr": "استنتاج قانون cos(٣\theta) بنظرية ديموافر",
+    "titleAr": "استنتاج قانون cos(٣\\theta) بنظرية ديموافر",
     "difficulty": "hots",
     "questionEn": "Using De Moivre's theorem, $\\cos(3\\theta)$ can be expressed as:",
     "questionAr": "باستخدام نظرية ديموافر، يمكن التعبير عن $\\cos(٣\\theta)$ بالصيغة:",
@@ -4581,7 +4581,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_27",
     "titleEn": "Derivation of sin(3theta) via De Moivre",
-    "titleAr": "استنتاج قانون sin(٣\theta) بنظرية ديموافر",
+    "titleAr": "استنتاج قانون sin(٣\\theta) بنظرية ديموافر",
     "difficulty": "hots",
     "questionEn": "Using De Moivre's theorem, $\\sin(3\\theta)$ equals:",
     "questionAr": "باستخدام نظرية ديموافر، فإن $\\sin(٣\\theta)$ تساوي:",
@@ -4619,7 +4619,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_28",
     "titleEn": "Linear Combination of Roots (z + 1/z = 2cos(theta))",
-    "titleAr": "التركيبة الخطية z + ١/z = ٢cos(\theta)",
+    "titleAr": "التركيبة الخطية z + ١/z = ٢cos(\\theta)",
     "difficulty": "hots",
     "questionEn": "If $z = \\cos\\theta + i\\sin\\theta$, find $z^n + \\frac{1}{z^n}$.",
     "questionAr": "إذا كان $z = \\cos\\theta + ت\\sin\\theta$، فأوجد قيمة المقدار $z^n + \\frac{١}{z^n}$.",

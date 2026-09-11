@@ -225,7 +225,7 @@ $$\\rho = \\frac{\\left[1 + (y')^2\\right]^{3/2}}{|y''|}$$
                 questionEn: 'A particle moves on a curve with speed $v = 12\\text{ m/s}$. The angle between its total acceleration vector $\\vec{a}$ and its velocity vector $\\vec{v}$ is $45^\\circ$. If its normal acceleration is $a_n = 8\\text{ m/s}^2$, find the rate of change of speed $\\frac{dv}{dt}$.',
                 questionAr: 'يتحرك جسيم على مسار منحنٍ بسرعة $v = 12\\text{ م/ث}$. كانت الزاوية بين متجه العجلة الكلية $\\vec{a}$ ومتجه السرعة $\\vec{v}$ تساوي $45^\\circ$. إذا كانت العجلة العمودية $a_n = 8\\text{ م/ث}^2$، فما هو معدل تغير سرعته $\\frac{dv}{dt}$؟',
                 optionsEn: ['8 m/s^2', '12 m/s^2', '4 m/s^2', '8\\sqrt{2} m/s^2'],
-                optionsAr: ['٨ م/ث^٢', '١٢ م/ث^٢', '٤ م/ث^٢', '٨\sqrt{2} م/ث^٢'],
+                optionsAr: ['٨ م/ث^٢', '١٢ م/ث^٢', '٤ م/ث^٢', '٨\\sqrt{2} م/ث^٢'],
                 correctAnswer: '8 m/s^2',
                 correctIndex: 0,
                 hintEn: 'The velocity vector points along the tangent vector T. Therefore, tan(theta) = a_n / a_t. With theta = 45 degrees, tan(45) = 1.',

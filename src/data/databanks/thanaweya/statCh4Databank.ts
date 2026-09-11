@@ -4176,7 +4176,7 @@ export const statCh4Databank: ChapterDatabank = {
       "titleAr": "أدنى معامل احتكاك لتحمل شخص عند ثلاثة أرباع طول السلم",
       "difficulty": "hots",
       "questionEn": "A uniform ladder of weight $W$ and length $L$ leans at $45^\\circ$ against a smooth wall. A person of weight $W$ climbs to three-quarters of the ladder length ($\\frac{3}{4} L$). What is the minimum coefficient of static friction $\\mu_s$ at the floor needed to prevent slipping?",
-      "questionAr": "سلم منتظم وزنه $W$ وطوله $L$ يميل بزاوية $45^\\circ$ على حائط أملس. صعد شخص وزنه $W$ إلى ثلاثة أرباع طول السلم ($\frac{3}{4} L$). ما أدنى معامل احتكاك سكوني $\\mu_s$ عند الأرض لمنع الانزلاق؟",
+      "questionAr": "سلم منتظم وزنه $W$ وطوله $L$ يميل بزاوية $45^\\circ$ على حائط أملس. صعد شخص وزنه $W$ إلى ثلاثة أرباع طول السلم ($\\frac{3}{4} L$). ما أدنى معامل احتكاك سكوني $\\mu_s$ عند الأرض لمنع الانزلاق؟",
       "optionsEn": [
         "$0.625$ (or $\\frac{5}{8}$)",
         "$0.5$",

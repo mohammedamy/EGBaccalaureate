@@ -37,9 +37,29 @@ const normalizeTex = (tex: string): string => {
     .replace(/\x09ext/g, '\\text')
     .replace(/\x09imes/g, '\\times')
     .replace(/\x09heta/g, '\\theta')
+    .replace(/\x09an/g, '\\tan')
+    .replace(/\x09au/g, '\\tau')
     .replace(/\x0bec/g, '\\vec')
     .replace(/\x0dight/g, '\\right')
     .replace(/\\n/g, ' ');
+
+  // Degraded single-backslash heuristics when commands merged into words:
+  s = s
+    .replace(/\bcosalpha\b/g, '\\cos\\alpha')
+    .replace(/\bcosbeta\b/g, '\\cos\\beta')
+    .replace(/\bcosgamma\b/g, '\\cos\\gamma')
+    .replace(/\bsinalpha\b/g, '\\sin\\alpha')
+    .replace(/\bsinbeta\b/g, '\\sin\\beta')
+    .replace(/\bsingamma\b/g, '\\sin\\gamma')
+    .replace(/\btanalpha\b/g, '\\tan\\alpha')
+    .replace(/\btanbeta\b/g, '\\tan\\beta')
+    .replace(/\btangamma\b/g, '\\tan\\gamma')
+    .replace(/\btinmathbbR\b/g, 't \\in \\mathbb{R}')
+    .replace(/\bmathbbR\b/g, '\\mathbb{R}')
+    .replace(/\bmathbbC\b/g, '\\mathbb{C}')
+    .replace(/\bmathbbZ\b/g, '\\mathbb{Z}')
+    .replace(/\bmathbbN\b/g, '\\mathbb{N}')
+    .replace(/\bmathbbQ\b/g, '\\mathbb{Q}');
 
   return s;
 };
@@ -375,7 +395,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
           key={`block_math_${idx}`}
           dir="ltr"
           style={{ unicodeBidi: 'isolate' }}
-          className="my-3 py-2 text-center overflow-x-auto bg-slate-900/80 rounded-xl border border-slate-700/60 shadow-inner"
+          className="math-block-display my-3 py-2 text-center overflow-x-auto rounded-xl border border-slate-700/60 shadow-inner bg-slate-900/80 dark:bg-slate-900/80"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       );
@@ -390,7 +410,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
           key={`pure_line_${idx}`}
           dir="ltr"
           style={{ unicodeBidi: 'isolate' }}
-          className="my-3 py-2 text-center overflow-x-auto bg-slate-900/80 rounded-xl border border-slate-700/60 shadow-inner"
+          className="math-block-display my-3 py-2 text-center overflow-x-auto rounded-xl border border-slate-700/60 shadow-inner bg-slate-900/80 dark:bg-slate-900/80"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       );

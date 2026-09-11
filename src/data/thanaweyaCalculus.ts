@@ -889,7 +889,7 @@ $$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C = \\log_e |f(x)| + C$$
           summaryAr: 'النقط الحرجة، اختبار المشتقة الأولى لفترات التزايد والتناقص والقيم العظمى والصغرى المحلية، اختبار المشتقة الثانية، فترات التحدب لأعلى ولأسفل، ونقط الانقلاب.',
           theoryContentEn: `### 1. Critical Numbers and Points (النقط الحرجة):
 A number $c$ in the domain of $f$ is a critical number if:
-$f'(c) = 0 \quad \text{or} \quad f'(c) \text{ is undefined}$
+$f'(c) = 0 \\quad \\text{or} \\quad f'(c) \\text{ is undefined}$
 The point $(c, f(c))$ is called a critical point of the curve.
 
 ### 2. Monotonicity & The First Derivative Test:
@@ -900,9 +900,9 @@ The point $(c, f(c))$ is called a critical point of the curve.
 
 ### 3. The Second Derivative Test for Local Extrema:
 Let $f'(c) = 0$:
-- If $f''(c) < 0 \implies$ Local Maximum at $(c, f(c))$.
-- If $f''(c) > 0 \implies$ Local Minimum at $(c, f(c))$.
-- If $f''(c) = 0 \implies$ Test is inconclusive (revert to First Derivative Test).
+- If $f''(c) < 0 \\implies$ Local Maximum at $(c, f(c))$.
+- If $f''(c) > 0 \\implies$ Local Minimum at $(c, f(c))$.
+- If $f''(c) = 0 \\implies$ Test is inconclusive (revert to First Derivative Test).
 
 ### 4. Concavity & Inflection Points (التحدب ونقط الانقلاب):
 - **Concave Upwards (محدب لأسفل / مقعر لأعلى):** $f''(x) > 0$. Tangent lines lie below the curve.
@@ -910,7 +910,7 @@ Let $f'(c) = 0$:
 - **Point of Inflection (نقطة الانقلاب):** Point $(c, f(c))$ where $f''(c) = 0$ or undefined AND the curve changes its direction of concavity across $c$.`,
           theoryContentAr: `### ١. النقط الحرجة:
 العدد $c$ في مجال الدالة $f$ يسمى عدداً حرجاً إذا كان:
-$f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة}$
+$f'(c) = 0 \\quad \\text{أو} \\quad f'(c) \\text{ غير معرفة}$
 وتسمى النقطة $(c, f(c))$ نقطة حرجة للمنحنى.
 
 ### ٢. فترات التزايد والتناقص واختبار المشتقة الأولى:
@@ -930,10 +930,10 @@ $f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة}$
 - **تحدب لأعلى (مقعر لأسفل):** $f''(x) < 0$ (المماسات تقع أعلى المنحنى).
 - **نقطة الانقلاب:** نقطة تنعدم عندها المشتقة الثانية ويتغير عندها اتجاه التحدب للمنحنى.`,
           formulas: [
-            { labelEn: 'Critical Condition', labelAr: 'شرط النقطة الحرجة', latex: "f'(c) = 0 \quad \text{or undefined}" },
+            { labelEn: 'Critical Condition', labelAr: 'شرط النقطة الحرجة', latex: "f'(c) = 0 \\quad \\text{or undefined}" },
             { labelEn: 'Concave Up Condition', labelAr: 'شرط التحدب لأسفل', latex: "f''(x) > 0" },
             { labelEn: 'Concave Down Condition', labelAr: 'شرط التحدب لأعلى', latex: "f''(x) < 0" },
-            { labelEn: 'Inflection Condition', labelAr: 'شرط نقطة الانقلاب', latex: "f''(c) = 0 \quad \text{with sign change}" }
+            { labelEn: 'Inflection Condition', labelAr: 'شرط نقطة الانقلاب', latex: "f''(c) = 0 \\quad \\text{with sign change}" }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Calculus Textbook Grade 12',
@@ -1023,7 +1023,7 @@ $f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة}$
               questionEn: 'Determine the inflection point of y = x^3 - 3x^2 + 4.',
               questionAr: 'عين نقطة الانقلاب لمنحنى الدالة $y = x^3 - 3x^2 + 4$.',
               solutionEn: "y' = 3x^2 - 6x, y'' = 6x - 6 = 0 => x = 1. y(1) = 1 - 3 + 4 = 2. Inflection point is (1, 2).",
-              solutionAr: "المشتقة الثانية $y'' = 6x - 6 = 0 \implies x = 1$. الصاد $y(1) = 2$. نقطة الانقلاب هي $(1, 2)$."
+              solutionAr: "المشتقة الثانية $y'' = 6x - 6 = 0 \\implies x = 1$. الصاد $y(1) = 2$. نقطة الانقلاب هي $(1, 2)$."
             }
           },
           worksheet: {
@@ -1048,11 +1048,11 @@ $f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة}$
                 hintEn: "Set f'(x) = 12x^3 - 12x^2 = 12x^2(x - 1) = 0.",
                 hintAr: "ضع المشتقة الأولى $12x^2(x - 1) = 0$.",
                 stepByStepSolutionEn: [
-                  '1. $f\prime(x) = 12x^3 - 12x^2 = 12x^2(x - 1)$.',
-                  '2. Setting $f\prime(x) = 0$ gives $x = 0$ and $x = 1$.'
+                  '1. $f\\prime(x) = 12x^3 - 12x^2 = 12x^2(x - 1)$.',
+                  '2. Setting $f\\prime(x) = 0$ gives $x = 0$ and $x = 1$.'
                 ],
                 stepByStepSolutionAr: [
-                  '١. المشتقة: $f\prime(x) = 12x^2(x - 1) = 0$.',
+                  '١. المشتقة: $f\\prime(x) = 12x^2(x - 1) = 0$.',
                   '٢. إذن الأعداد الحرجة هي $x = 0$ و $x = 1$.'
                 ],
                 teacherTipEn: 'Notice that x = 0 is a critical number even though it is not a local extremum!',
@@ -1123,7 +1123,7 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
           formulas: [
             { labelEn: 'Absolute Extrema Evaluation', labelAr: 'تقييم القيم المطلقة', latex: "\\max / \\min \\{ f(a), f(b), f(c_i) \\}" },
             { labelEn: 'Horizontal Asymptote', labelAr: 'خط التقارب الأفقي', latex: "y = \\lim_{x \\to \\pm\\infty} f(x)" },
-            { labelEn: 'Optimization Condition', labelAr: 'شرط القيمة القصوى', latex: "\\frac{dQ}{dx} = 0 \quad \text{and test sign}" }
+            { labelEn: 'Optimization Condition', labelAr: 'شرط القيمة القصوى', latex: "\\frac{dQ}{dx} = 0 \\quad \\text{and test sign}" }
           ],
           moeRef: {
             bookTitleEn: 'Ministry Calculus Textbook Grade 12',
@@ -1236,21 +1236,21 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
                 correctAnswer: '200 m^2',
                 correctIndex: 0,
                 hintEn: 'Fence length = 2x + y = 40 => y = 40 - 2x. Area A = x(40 - 2x).',
-                hintAr: 'طول السياج: $2x + y = 40 \implies y = 40 - 2x$. دالة المساحة: $A = x(40 - 2x)$.',
+                hintAr: 'طول السياج: $2x + y = 40 \\implies y = 40 - 2x$. دالة المساحة: $A = x(40 - 2x)$.',
                 stepByStepSolutionEn: [
                   '1. Let width perpendicular to river be $x$, length parallel to river be $y$.',
-                  '2. Fencing constraint: $2x + y = 40 \implies y = 40 - 2x$.',
+                  '2. Fencing constraint: $2x + y = 40 \\implies y = 40 - 2x$.',
                   '3. Area: $A(x) = x(40 - 2x) = 40x - 2x^2$.',
-                  '4. $A\prime(x) = 40 - 4x = 0 \implies x = 10\text{ meters}$.',
-                  '5. $y = 40 - 2(10) = 20\text{ meters}$.',
-                  '6. Maximum area $= 10 \times 20 = 200\text{ m}^2$.'
+                  '4. $A\\prime(x) = 40 - 4x = 0 \\implies x = 10\\text{ meters}$.',
+                  '5. $y = 40 - 2(10) = 20\\text{ meters}$.',
+                  '6. Maximum area $= 10 \\times 20 = 200\\text{ m}^2$.'
                 ],
                 stepByStepSolutionAr: [
                   '١. بفرض البعدين $x$ و $y$ حيث الضلع المحاذي للنهر هو $y$ ولا يحتاج سياجاً.',
-                  '٢. طول السياج: $2x + y = 40 \implies y = 40 - 2x$.',
+                  '٢. طول السياج: $2x + y = 40 \\implies y = 40 - 2x$.',
                   '٣. دالة المساحة: $A(x) = x(40 - 2x) = 40x - 2x^2$.',
-                  '٤. المشتقة: $A\prime(x) = 40 - 4x = 0 \implies x = 10$ أمتار.',
-                  '٥. الطول: $y = 20$ متراً، وأكبر مساحة هي $10 \times 20 = 200$ متر مربع.'
+                  '٤. المشتقة: $A\\prime(x) = 40 - 4x = 0 \\implies x = 10$ أمتار.',
+                  '٥. الطول: $y = 20$ متراً، وأكبر مساحة هي $10 \\times 20 = 200$ متر مربع.'
                 ],
                 teacherTipEn: 'Notice that with one side against a natural boundary, the side parallel to the river is twice the width (y = 2x)!',
                 teacherTipAr: 'في مسائل التسييج من ٣ جهات، يكون الضلع المحاذي للحد الطبيعي دائماً ضعف العرض (ص = ٢ س)!'
@@ -1287,7 +1287,7 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
           summaryAr: 'طرق وتكنيكات التكامل: التكامل بالتعويض للدوال المركبة، الصورة اللوغاريتمية (البسط مشتقة المقام)، متطابقات الدوال المثلثية وقوانين ضعف الزاوية، والتكامل بالتجزيء.',
           theoryContentEn: `### 1. Integration by Substitution (التكامل بالتعويض)
 When the integrand contains a composite function multiplied by the derivative of its inner function:
-$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \quad (n \\neq -1)$$
+$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \\quad (n \\neq -1)$$
 - For a linear bracket:
   $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
 
@@ -1314,7 +1314,7 @@ $$\\int u dv = u v - \\int v du$$
   5. **E**: Exponential functions ($e^x, a^x$)`,
           theoryContentAr: `### ١. التكامل بالتعويض
 إذا احتوى التكامل على دالة ومشتقتها:
-$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \quad (n \\neq -1)$$
+$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \\quad (n \\neq -1)$$
 - وتكامل القوس الخطي:
   $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
 

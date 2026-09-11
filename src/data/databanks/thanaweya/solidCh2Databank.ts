@@ -4694,7 +4694,7 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Inradius of Intercept Triangle",
     "titleAr": "نصف قطر الدائرة المماسة داخلياً لمثلث الأجزاء المقطوعة",
     "difficulty": "hots",
-    "questionEn": "The plane $x + y + z = 1$ intersects the coordinate axes at $A, B, C$. Find the inradius of $\triangle ABC$.",
+    "questionEn": "The plane $x + y + z = 1$ intersects the coordinate axes at $A, B, C$. Find the inradius of $\\triangle ABC$.",
     "questionAr": "المستوى $x + y + z = 1$ يقطع محاور الإحداثيات في أ، ب، جـ. أوجد نصف قطر الدائرة المماسة داخلياً للمثلث أ ب جـ.",
     "optionsEn": [
       "$\\frac{\\sqrt{6}}{6}$",
