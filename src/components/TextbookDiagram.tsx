@@ -473,6 +473,67 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             <text x="275" y="112" className="text-xs font-bold fill-amber-300">θ</text>
           </svg>
         )}
+
+        {/* 14. Cartesian Plane */}
+        {type === 'cartesian_plane' && (
+          <svg viewBox="0 0 440 220" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="cpArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-400" />
+              </marker>
+            </defs>
+            {/* Grid */}
+            <line x1="40" y1="50" x2="400" y2="50" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            <line x1="40" y1="110" x2="400" y2="110" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            <line x1="40" y1="170" x2="400" y2="170" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            <line x1="100" y1="20" x2="100" y2="200" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            <line x1="220" y1="20" x2="220" y2="200" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            <line x1="340" y1="20" x2="340" y2="200" stroke="#334155" strokeWidth="0.8" strokeDasharray="3,3" />
+            {/* Axes */}
+            <line x1="30" y1="110" x2="410" y2="110" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#cpArr)" {...nonScaling} />
+            <line x1="220" y1="200" x2="220" y2="20" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#cpArr)" {...nonScaling} />
+            <text x="415" y="114" className="text-xs font-bold fill-indigo-300">x</text>
+            <text x="216" y="15" className="text-xs font-bold fill-indigo-300">y</text>
+            <circle cx="220" cy="110" r="3.5" className="fill-white" />
+            <text x="208" y="125" className="text-[10px] fill-slate-400">O</text>
+            {/* Function Curve */}
+            <path d="M 80 180 Q 220 20 360 180" fill="none" stroke="#10b981" strokeWidth="2.5" {...nonScaling} />
+            <circle cx="220" cy="100" r="4.5" className="fill-emerald-400" />
+          </svg>
+        )}
+
+        {/* 15. Triangle */}
+        {type === 'triangle' && (
+          <svg viewBox="0 0 440 220" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <polygon points="220,30 80,180 360,180" className="fill-slate-800/60 stroke-indigo-400" strokeWidth="2.5" {...nonScaling} />
+            <circle cx="220" cy="30" r="4" className="fill-amber-400" />
+            <circle cx="80" cy="180" r="4" className="fill-amber-400" />
+            <circle cx="360" cy="180" r="4" className="fill-amber-400" />
+            <text x="215" y="22" className="text-xs font-bold fill-amber-300">A</text>
+            <text x="65" y="195" className="text-xs font-bold fill-amber-300">B</text>
+            <text x="368" y="195" className="text-xs font-bold fill-amber-300">C</text>
+            {/* Centroid G */}
+            <circle cx="220" cy="130" r="4" className="fill-emerald-400" />
+            <text x="228" y="134" className="text-xs font-bold fill-emerald-300">G</text>
+            <line x1="220" y1="30" x2="220" y2="180" stroke="#64748b" strokeWidth="1.2" strokeDasharray="3,3" />
+          </svg>
+        )}
+
+        {/* 16. Circle */}
+        {type === 'circle' && (
+          <svg viewBox="0 0 440 220" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+            <circle cx="220" cy="110" r="75" className="fill-slate-800/40 stroke-cyan-400" strokeWidth="2.5" {...nonScaling} />
+            <circle cx="220" cy="110" r="4.5" className="fill-amber-400" />
+            <text x="200" y="114" className="text-xs font-bold fill-amber-300">C(h,k)</text>
+            {/* Radius R */}
+            <line x1="220" y1="110" x2="295" y2="110" stroke="#f59e0b" strokeWidth="2" {...nonScaling} />
+            <circle cx="295" cy="110" r="3.5" className="fill-emerald-400" />
+            <text x="250" y="104" className="text-xs font-bold fill-amber-300">R</text>
+            {/* Tangent line */}
+            <line x1="295" y1="35" x2="295" y2="185" stroke="#10b981" strokeWidth="2" strokeDasharray="4,4" {...nonScaling} />
+            <text x="302" y="50" className="text-[11px] font-bold fill-emerald-300">Tangent</text>
+          </svg>
+        )}
       </div>
 
       {/* DEDICATED LATEX MATH LEGEND & FORMULA CALLOUTS (Rendered with 100% genuine KaTeX) */}
@@ -652,6 +713,39 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
               <MathRenderer math="\\sin\\theta = \\frac{1}{2} \\implies \\theta = 30^\\circ" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'cartesian_plane' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="y = f(x)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math={isAr ? "\\text{مستوى الإحداثيات الكارتيزي } \\mathbb{R}^2" : "\\text{Cartesian Plane } \\mathbb{R}^2"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'triangle' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\\triangle ABC" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="G = \\frac{A + B + C}{3}" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'circle' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="(x - h)^2 + (y - k)^2 = R^2" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="C(h, k), \\quad R" lang={lang} />
             </span>
           </>
         )}

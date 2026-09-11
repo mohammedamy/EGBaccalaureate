@@ -1701,6 +1701,288 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "v_theta is orthogonal to the radius vector r, pointing in the direction of increasing theta.",
     "teacherTipAr": "السرعة المستعرضة تعامد متجه الموضع القطبي وتشير في اتجاه تزايد الزاوية سيتا."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_51",
+    "titleEn": "Magnitude of Velocity in Planar Motion",
+    "titleAr": "معيار متجه السرعة في حركة مستوية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in the $xy$-plane with position vector $\\vec{r}(t) = (3t, 4t, 0)\\text{ m}$. Find the magnitude of its velocity (speed) at any time $t$.",
+    "questionAr": "يتحرك جسيم في المستوى $xy$ بمتجه موضع $\\vec{r}(t) = (3t, 4t, 0)\\text{ م}$. أوجد معيار سرعته (السرعة القياسية) عند أي لحظة $t$.",
+    "optionsEn": [
+      "$5\\text{ m/s}$",
+      "$7\\text{ m/s}$",
+      "$25\\text{ m/s}$",
+      "$3.5\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$5\\text{ م/ث}$",
+      "$7\\text{ م/ث}$",
+      "$25\\text{ م/ث}$",
+      "$3.5\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$5\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate $\\vec{r}(t)$ to find $\\vec{v}(t) = (\\dot{x}, \\dot{y})$, then compute its norm $\\sqrt{\\dot{x}^2 + \\dot{y}^2}$.",
+    "hintAr": "اشتق $\\vec{r}(t)$ لإيجاد $\\vec{v}(t) = (\\dot{x}, \\dot{y})$ ثم احسب المعيار $\\sqrt{\\dot{x}^2 + \\dot{y}^2}$.",
+    "stepByStepSolutionEn": [
+      "Velocity components: $v_x = \\frac{dx}{dt} = 3\\text{ m/s}$, $v_y = \\frac{dy}{dt} = 4\\text{ m/s}$.",
+      "Speed: $v = \\|\\vec{v}\\| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبتا السرعة: $v_x = 3\\text{ م/ث}$ و $v_y = 4\\text{ م/ث}$.",
+      "السرعة القياسية: $v = \\sqrt{3^2 + 4^2} = 5\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Linear functions of time correspond to uniform straight-line motion at constant speed.",
+    "teacherTipAr": "الدوال الخطية في الزمن تمثل حركة مستقيمة منتظمة بسرعة ثابتة."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_52",
+    "titleEn": "Tangential Acceleration in Uniform Circular Motion",
+    "titleAr": "العجلة المماسية في الحركة الدائرية المنتظمة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body moves along a circular path of radius $R = 10\\text{ m}$ at a constant speed of $v = 4\\text{ m/s}$. What is its tangential acceleration $a_t$?",
+    "questionAr": "يتحرك جسم على مسار دائري نصف قطره $R = 10\\text{ م}$ بسرعة قياسية ثابتة $v = 4\\text{ م/ث}$. ما مقدار عجلته المماسية $a_t$؟",
+    "optionsEn": [
+      "$0\\text{ m/s}^2$",
+      "$1.6\\text{ m/s}^2$",
+      "$4\\text{ m/s}^2$",
+      "$0.4\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$0\\text{ م/ث}^2$",
+      "$1.6\\text{ م/ث}^2$",
+      "$4\\text{ م/ث}^2$",
+      "$0.4\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$0\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Tangential acceleration measures rate of change of speed: $a_t = \\frac{dv}{dt}$.",
+    "hintAr": "العجلة المماسية تقيس معدل تغير مقدار السرعة: $a_t = \\frac{dv}{dt}$.",
+    "stepByStepSolutionEn": [
+      "Tangential acceleration is $a_t = \\frac{dv}{dt}$.",
+      "Since the speed $v$ is constant, $\\frac{dv}{dt} = 0$.",
+      "Thus, $a_t = 0\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "العجلة المماسية هي $a_t = \\frac{dv}{dt}$.",
+      "بما أن السرعة القياسية ثابتة، فإن مشتقتها تساوي صفراً.",
+      "إذن $a_t = 0\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "In uniform circular motion, only the normal (centripetal) acceleration is non-zero ($a_n = v^2/R = 1.6\\text{ m/s}^2$).",
+    "teacherTipAr": "في الحركة الدائرية المنتظمة، تنعدم العجلة المماسية بينما العجلة العمودية المركزية لا تنعدم ($a_n = 1.6\\text{ م/ث}^2$)."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_53",
+    "titleEn": "Centripetal (Normal) Acceleration",
+    "titleAr": "العجلة العمودية (المركزية)",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A vehicle rounds a curve of radius $R = 25\\text{ m}$ at a speed of $v = 10\\text{ m/s}$. Find its normal (centripetal) acceleration $a_n$.",
+    "questionAr": "تنعطف سيارة على منحنى نصف قطره $R = 25\\text{ م}$ بسرعة $v = 10\\text{ م/ث}$. أوجد عجلتها العمودية (المركزية) $a_n$.",
+    "optionsEn": [
+      "$4\\text{ m/s}^2$",
+      "$2.5\\text{ m/s}^2$",
+      "$0.4\\text{ m/s}^2$",
+      "$10\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$4\\text{ م/ث}^2$",
+      "$2.5\\text{ م/ث}^2$",
+      "$0.4\\text{ م/ث}^2$",
+      "$10\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$4\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "The formula for normal acceleration is $a_n = \\frac{v^2}{R}$.",
+    "hintAr": "قانون العجلة العمودية المركزية هو $a_n = \\frac{v^2}{R}$.",
+    "stepByStepSolutionEn": [
+      "Given $v = 10\\text{ m/s}$ and $R = 25\\text{ m}$.",
+      "Compute: $a_n = \\frac{v^2}{R} = \\frac{10^2}{25} = \\frac{100}{25} = 4\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعطيات: $v = 10\\text{ م/ث}$ و $R = 25\\text{ م}$.",
+      "العجلة المركزية: $a_n = \\frac{10^2}{25} = 4\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "The normal acceleration always points toward the center of curvature.",
+    "teacherTipAr": "تتجه العجلة المركزية دائماً نحو مركز انحناء المسار."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_54",
+    "titleEn": "Linear Speed from Angular Velocity",
+    "titleAr": "السرعة الخطية بمعلومية السرعة الزاوية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A disk rotates at a constant angular velocity $\\omega = 5\\text{ rad/s}$. What is the linear speed of a point on the rim at distance $r = 0.4\\text{ m}$ from the axis?",
+    "questionAr": "يدور قرص بسرعة زاوية منتظمة $\\omega = 5\\text{ راد/ث}$. ما هي السرعة الخطية لنقطة على حافته تبعد مسافة $r = 0.4\\text{ م}$ عن محور الدوران؟",
+    "optionsEn": [
+      "$2\\text{ m/s}$",
+      "$12.5\\text{ m/s}$",
+      "$0.08\\text{ m/s}$",
+      "$1\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$2\\text{ م/ث}$",
+      "$12.5\\text{ م/ث}$",
+      "$0.08\\text{ م/ث}$",
+      "$1\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$2\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "The relation between linear speed and angular velocity is $v = \\omega r$.",
+    "hintAr": "العلاقة بين السرعة الخطية والسرعة الزاوية هي $v = \\omega r$.",
+    "stepByStepSolutionEn": [
+      "Use the formula: $v = \\omega \\cdot r$.",
+      "Substitute values: $v = 5 \\times 0.4 = 2\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $v = \\omega r$.",
+      "بالتعويض: $v = 5 \\times 0.4 = 2\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Ensure $\\omega$ is in radians per second when applying $v = \\omega r$.",
+    "teacherTipAr": "تأكد من أن السرعة الزاوية بوحدة الراديان في الثانية عند تطبيق القانون."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_55",
+    "titleEn": "Total Acceleration from Tangential and Normal Components",
+    "titleAr": "العجلة الكلية من المركبتين المماسية والعمودية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle in curvilinear motion has tangential acceleration $a_t = 6\\text{ m/s}^2$ and normal acceleration $a_n = 8\\text{ m/s}^2$. Find the magnitude of its total acceleration $a$.",
+    "questionAr": "جسيم يتحرك في مسار منحنٍ، عجلته المماسية $a_t = 6\\text{ م/ث}^2$ وعجلته العمودية $a_n = 8\\text{ م/ث}^2$. أوجد مقدار عجلته الكلية $a$.",
+    "optionsEn": [
+      "$10\\text{ m/s}^2$",
+      "$14\\text{ m/s}^2$",
+      "$2\\text{ m/s}^2$",
+      "$48\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$10\\text{ م/ث}^2$",
+      "$14\\text{ م/ث}^2$",
+      "$2\\text{ م/ث}^2$",
+      "$48\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$10\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Because the tangential and normal directions are mutually orthogonal, $a = \\sqrt{a_t^2 + a_n^2}$.",
+    "hintAr": "بما أن الاتجاهين المماسي والعمودي متعامدان، فإن $a = \\sqrt{a_t^2 + a_n^2}$.",
+    "stepByStepSolutionEn": [
+      "Total acceleration magnitude: $a = \\sqrt{a_t^2 + a_n^2}$.",
+      "Compute: $a = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "مقدار العجلة الكلية: $a = \\sqrt{a_t^2 + a_n^2}$.",
+      "$a = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = 10\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "This is a classic 3-4-5 Pythagorean triple scaled by 2.",
+    "teacherTipAr": "هذه ثلاثية فيثاغورس الكلاسيكية 6-8-10."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_56",
+    "titleEn": "Maximum Height of a Projectile",
+    "titleAr": "أقصى ارتفاع لقذيفة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile is launched from ground level with speed $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 30^\\circ$ above the horizontal. Taking $g = 10\\text{ m/s}^2$, find its maximum height $H$.",
+    "questionAr": "أُطلقت قذيفة من مستوى الأرض بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 30^\\circ$ مع الأفقي. باعتبار $g = 10\\text{ م/ث}^2$، أوجد أقصى ارتفاع $H$ تبلغه القذيفة.",
+    "optionsEn": [
+      "$5\\text{ m}$",
+      "$10\\text{ m}$",
+      "$15\\text{ m}$",
+      "$20\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$5\\text{ م}$",
+      "$10\\text{ م}$",
+      "$15\\text{ م}$",
+      "$20\\text{ م}$"
+    ],
+    "correctAnswer": "$5\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "The formula for maximum height is $H = \\frac{v_{0y}^2}{2g} = \\frac{(v_0 \\sin\\theta)^2}{2g}$.",
+    "hintAr": "قانون أقصى ارتفاع هو $H = \\frac{v_{0y}^2}{2g} = \\frac{(v_0 \\sin\\theta)^2}{2g}$.",
+    "stepByStepSolutionEn": [
+      "Vertical initial velocity: $v_{0y} = v_0 \\sin(30^\\circ) = 20 \\times 0.5 = 10\\text{ m/s}$.",
+      "Maximum height: $H = \\frac{v_{0y}^2}{2g} = \\frac{10^2}{2 \\times 10} = \\frac{100}{20} = 5\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة الرأسية الابتدائية: $v_{0y} = 20 \\sin(30^\\circ) = 10\\text{ م/ث}$.",
+      "أقصى ارتفاع: $H = \\frac{10^2}{2 \\times 10} = \\frac{100}{20} = 5\\text{ م}$."
+    ],
+    "teacherTipEn": "At maximum height, the vertical velocity is momentarily zero ($v_y = 0$).",
+    "teacherTipAr": "عند أقصى ارتفاع، تنعدم مركبة السرعة الرأسية لحظياً ($v_y = 0$)."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_57",
+    "titleEn": "Radial Velocity in Polar Coordinates",
+    "titleAr": "السرعة القطرية في الإحداثيات القطبية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in polar coordinates with radial distance $r(t) = 3t^2 + 1\\text{ m}$. Find its radial velocity component $v_r = \\dot{r}$ at time $t = 2\\text{ s}$.",
+    "questionAr": "يتحرك جسيم بالإحداثيات القطبية بنصف قطر موضعي $r(t) = 3t^2 + 1\\text{ م}$. أوجد مركبة السرعة القطرية $v_r = \\dot{r}$ عند اللحظة $t = 2\\text{ ثانية}$.",
+    "optionsEn": [
+      "$12\\text{ m/s}$",
+      "$13\\text{ m/s}$",
+      "$6\\text{ m/s}$",
+      "$24\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$12\\text{ م/ث}$",
+      "$13\\text{ م/ث}$",
+      "$6\\text{ م/ث}$",
+      "$24\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$12\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Radial velocity is the time derivative of $r(t)$: $v_r = \\frac{dr}{dt}$.",
+    "hintAr": "السرعة القطرية هي مشتقة $r(t)$ بالنسبة للزمن: $v_r = \\frac{dr}{dt}$.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $v_r = \\dot{r} = \\frac{d}{dt}(3t^2 + 1) = 6t$.",
+      "Evaluate at $t = 2\\text{ s}$: $v_r = 6(2) = 12\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة بالنسبة للزمن: $\\dot{r} = 6t$.",
+      "عند $t = 2$: $v_r = 6(2) = 12\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Total velocity in polar coordinates is $\\vec{v} = \\dot{r} \\vec{u}_r + r\\dot{\\theta} \\vec{u}_\\theta$.",
+    "teacherTipAr": "متجه السرعة في الإحداثيات القطبية يتكون من مركبتين: قطرية $\\dot{r}$ ومستعرضة $r\\dot{\\theta}$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_easy_58",
+    "titleEn": "Time of Flight of a Horizontal Projectile",
+    "titleAr": "زمن هبوط قذيفة أُطلقت أفقياً",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball is thrown horizontally from a cliff of height $h = 45\\text{ m}$ with initial speed $v_0 = 15\\text{ m/s}$. Taking $g = 10\\text{ m/s}^2$, how long does it take to hit the ground?",
+    "questionAr": "أُلقيت كرة أفقياً من قمة جرف ارتفاعه $h = 45\\text{ م}$ بسرعة ابتدائية $v_0 = 15\\text{ م/ث}$. باعتبار $g = 10\\text{ م/ث}^2$، ما هو الزمن اللازم لتصل إلى الأرض؟",
+    "optionsEn": [
+      "$3\\text{ s}$",
+      "$4.5\\text{ s}$",
+      "$9\\text{ s}$",
+      "$1.5\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ ث}$",
+      "$4.5\\text{ ث}$",
+      "$9\\text{ ث}$",
+      "$1.5\\text{ ث}$"
+    ],
+    "correctAnswer": "$3\\text{ s}$",
+    "correctIndex": 0,
+    "hintEn": "The time of flight depends only on vertical motion: $h = \\frac{1}{2}gt^2 \\implies t = \\sqrt{\\frac{2h}{g}}$.",
+    "hintAr": "زمن الهبوط يعتمد فقط على الحركة الرأسية: $h = \\frac{1}{2}gt^2 \\implies t = \\sqrt{\\frac{2h}{g}}$.",
+    "stepByStepSolutionEn": [
+      "Since initial vertical velocity $v_{0y} = 0$, $h = \\frac{1}{2} g t^2$.",
+      "Solve for $t$: $t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\times 45}{10}} = \\sqrt{9} = 3\\text{ s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحركة الرأسية سقوط حر بسرعة ابتدائية صفرية: $h = \\frac{1}{2} g t^2$.",
+      "$t = \\sqrt{\\frac{2 \\times 45}{10}} = \\sqrt{9} = 3\\text{ ثوانٍ}$."
+    ],
+    "teacherTipEn": "Horizontal velocity does not affect the time of flight in the absence of air resistance.",
+    "teacherTipAr": "السرعة الأفقية لا تؤثر إطلاقاً على زمن الهبوط عند إهمال مقاومة الهواء."
   }
 ],
   medium: [
@@ -3533,6 +3815,339 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "phi = 0 means purely linear motion, phi = 90 means uniform circular motion.",
     "teacherTipAr": "إذا كانت phi = 0 فالحركة مستقيمة، وإذا كانت 90 فالحركة دائرية منتظمة."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_51",
+    "titleEn": "Radius of Curvature at the Vertex of a Parabola",
+    "titleAr": "نصف قطر انحناء قطع مكافئ عند رأسه",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves along the parabolic path $y = x^2$. Find the radius of curvature $\\rho$ at the vertex $(0, 0)$.",
+    "questionAr": "يتحرك جسيم على مسار قطع مكافئ $y = x^2$. أوجد نصف قطر الانحناء $\\rho$ عند رأس القطع $(0, 0)$.",
+    "optionsEn": [
+      "$0.5\\text{ m}$",
+      "$1.0\\text{ m}$",
+      "$2.0\\text{ m}$",
+      "$0.25\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$0.5\\text{ م}$",
+      "$1.0\\text{ م}$",
+      "$2.0\\text{ م}$",
+      "$0.25\\text{ م}$"
+    ],
+    "correctAnswer": "$0.5\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "The radius of curvature formula is $\\rho = \\frac{(1 + (y')^2)^{3/2}}{|y''|}$.",
+    "hintAr": "قانون نصف قطر الانحناء هو $\\rho = \\frac{(1 + (y')^2)^{3/2}}{|y''|}$.",
+    "stepByStepSolutionEn": [
+      "First derivative: $y' = 2x$. At $x = 0$, $y'(0) = 0$.",
+      "Second derivative: $y'' = 2$.",
+      "Radius of curvature: $\\rho = \\frac{(1 + 0^2)^{3/2}}{|2|} = \\frac{1}{2} = 0.5\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $y' = 2x \\implies y'(0) = 0$.",
+      "المشتقة الثانية: $y'' = 2$.",
+      "نصف قطر الانحناء: $\\rho = \\frac{(1 + 0)^{3/2}}{2} = 0.5\\text{ م}$."
+    ],
+    "teacherTipEn": "At the vertex of $y = a x^2$, the radius of curvature is always $\\rho = \\frac{1}{2|a|}$.",
+    "teacherTipAr": "عند رأس أي قطع مكافئ $y = ax^2$ يكون نصف قطر الانحناء دائماً $\\rho = \\frac{1}{2|a|}$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_52",
+    "titleEn": "Transverse Acceleration (Coriolis Term)",
+    "titleAr": "العجلة المستعرضة ومصطلح كوريوليس",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In polar coordinates, a particle has $r = 4\\text{ m}$, $\\dot{r} = 3\\text{ m/s}$, $\\dot{\\theta} = 2\\text{ rad/s}$, and $\\ddot{\\theta} = 0$. Compute the transverse acceleration $a_\\theta$.",
+    "questionAr": "في الإحداثيات القطبية، لجسيم $r = 4\\text{ م}$، $\\dot{r} = 3\\text{ م/ث}$، $\\dot{\\theta} = 2\\text{ راد/ث}$، و $\\ddot{\\theta} = 0$. احسب العجلة المستعرضة $a_\\theta$.",
+    "optionsEn": [
+      "$12\\text{ m/s}^2$",
+      "$6\\text{ m/s}^2$",
+      "$8\\text{ m/s}^2$",
+      "$24\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$12\\text{ م/ث}^2$",
+      "$6\\text{ م/ث}^2$",
+      "$8\\text{ م/ث}^2$",
+      "$24\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$12\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "The formula for transverse acceleration is $a_\\theta = r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}$.",
+    "hintAr": "قانون العجلة المستعرضة هو $a_\\theta = r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $a_\\theta = r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}$.",
+      "Substitute given values: $a_\\theta = 4(0) + 2(3)(2) = 0 + 12 = 12\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $a_\\theta = r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}$.",
+      "بالتعويض: $a_\\theta = 4(0) + 2(3)(2) = 12\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "The term $2\\dot{r}\\dot{\\theta}$ is the Coriolis acceleration component.",
+    "teacherTipAr": "المقدار $2\\dot{r}\\dot{\\theta}$ يمثل عجلة كوريوليس الناتجة عن الحركة القطرية مع الدوران."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_53",
+    "titleEn": "Horizontal Range of a Projectile",
+    "titleAr": "المدى الأفقي لقذيفة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile is launched with speed $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 45^\\circ$ over horizontal ground. Taking $g = 10\\text{ m/s}^2$, find its horizontal range $R$.",
+    "questionAr": "أُطلقت قذيفة بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 45^\\circ$ على أرض أفقية. باعتبار $g = 10\\text{ م/ث}^2$، أوجد المدى الأفقي $R$.",
+    "optionsEn": [
+      "$40\\text{ m}$",
+      "$20\\text{ m}$",
+      "$80\\text{ m}$",
+      "$28.3\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$40\\text{ م}$",
+      "$20\\text{ م}$",
+      "$80\\text{ م}$",
+      "$28.3\\text{ م}$"
+    ],
+    "correctAnswer": "$40\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "The horizontal range formula is $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$.",
+    "hintAr": "قانون المدى الأفقي هو $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$.",
+    "stepByStepSolutionEn": [
+      "Range formula: $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$.",
+      "For $\\theta = 45^\\circ$, $\\sin(2\\theta) = \\sin(90^\\circ) = 1$.",
+      "Substitute values: $R = \\frac{20^2 \\times 1}{10} = \\frac{400}{10} = 40\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون المدى: $R = \\frac{v_0^2 \\sin(2\\theta)}{g}$.",
+      "عند $\\theta = 45^\\circ$: $\\sin(90^\\circ) = 1$.",
+      "$R = \\frac{400}{10} = 40\\text{ م}$."
+    ],
+    "teacherTipEn": "The launch angle $\\theta = 45^\\circ$ maximizes horizontal range over level ground.",
+    "teacherTipAr": "زاوية الإطلاق $45^\\circ$ تعطي أقصى مدى أفقي ممكن على أرض مستوية."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_54",
+    "titleEn": "Tangential Acceleration from Velocity as a Function of Distance",
+    "titleAr": "العجلة المماسية بدلالة المسافة المقطوعة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle travels along a curved path such that its speed is given by $v(s) = \\sqrt{20s}\\text{ m/s}$, where $s$ is the arc length distance. Find its tangential acceleration $a_t$.",
+    "questionAr": "يتحرك جسيم على مسار منحنٍ بحيث سرعته تعطى بالعلاقة $v(s) = \\sqrt{20s}\\text{ م/ث}$ حيث $s$ طول القوس المقطوع. أوجد عجلته المماسية $a_t$.",
+    "optionsEn": [
+      "$10\\text{ m/s}^2$",
+      "$20\\text{ m/s}^2$",
+      "$5\\text{ m/s}^2$",
+      "$4.47\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$10\\text{ م/ث}^2$",
+      "$20\\text{ م/ث}^2$",
+      "$5\\text{ م/ث}^2$",
+      "$4.47\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$10\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "When $v$ is a function of position $s$, the tangential acceleration is $a_t = v \\frac{dv}{ds}$.",
+    "hintAr": "عندما تكون السرعة دالة في المسافة $s$، فإن العجلة المماسية تعطى بـ $a_t = v \\frac{dv}{ds}$.",
+    "stepByStepSolutionEn": [
+      "Squaring the speed: $v^2 = 20s$.",
+      "Differentiate both sides with respect to $s$: $2v \\frac{dv}{ds} = 20$.",
+      "Since $a_t = v \\frac{dv}{ds}$, we have $a_t = \\frac{20}{2} = 10\\text{ m/s}^2$ (constant)."
+    ],
+    "stepByStepSolutionAr": [
+      "بتربيع السرعة: $v^2 = 20s$.",
+      "بالاشتقاق بالنسبة لـ $s$: $2v \\frac{dv}{ds} = 20$.",
+      "وحيث إن $a_t = v \\frac{dv}{ds}$، فإن $a_t = \\frac{20}{2} = 10\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Notice this matches the third kinematic formula: $v^2 = v_0^2 + 2 a_t s$ with $v_0 = 0$ and $a_t = 10\\text{ m/s}^2$.",
+    "teacherTipAr": "يطابق هذا معادلة الحركة الثالثة: $v^2 = 2 a_t s$ بعجلة مماسية ثابتة."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_55",
+    "titleEn": "Normal Acceleration at Projectile Peak",
+    "titleAr": "العجلة العمودية ونصف قطر الانحناء عند ذروة القذيفة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile is fired at $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 60^\\circ$. At the highest point of its trajectory, what is its normal acceleration $a_n$?",
+    "questionAr": "أُطلقت قذيفة بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 60^\\circ$. عند أعلى نقطة في مسارها، ما مقدار عجلتها العمودية $a_n$؟",
+    "optionsEn": [
+      "$g$ (or $9.8\\text{ m/s}^2$)",
+      "$g \\cos(60^\\circ) = 4.9\\text{ m/s}^2$",
+      "$0\\text{ m/s}^2$",
+      "$g \\sin(60^\\circ) \\approx 8.49\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$g$ (أو $9.8\\text{ م/ث}^2$)",
+      "$g \\cos(60^\\circ) = 4.9\\text{ م/ث}^2$",
+      "$0\\text{ م/ث}^2$",
+      "$g \\sin(60^\\circ) \\approx 8.49\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$g$ (or $9.8\\text{ m/s}^2$)",
+    "correctIndex": 0,
+    "hintEn": "At the peak, velocity is purely horizontal and gravity acts purely vertically (perpendicular to velocity).",
+    "hintAr": "عند الذروة، تكون السرعة أفقية تماماً وقوة الجاذبية رأسية تماماً (متعامدة على السرعة).",
+    "stepByStepSolutionEn": [
+      "At the highest point, velocity $\\vec{v} = (v_0 \\cos\\theta, 0)$ is horizontal.",
+      "Acceleration $\\vec{a} = (0, -g)$ is entirely perpendicular to the velocity vector.",
+      "Therefore, the tangential acceleration is $a_t = 0$ and the normal acceleration is the full magnitude of gravity: $a_n = g = 9.8\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند الذروة، متجه السرعة أفقي تماماً: $\\vec{v} = (v_0\\cos\\theta, 0)$.",
+      "متجه العجلة رأسي تماماً لأسفل: $\\vec{g}$.",
+      "بما أن الجاذبية عمودية تماماً على السرعة، فإن $a_t = 0$ والعجلة العمودية هي الجاذبية بالكامل: $a_n = g$."
+    ],
+    "teacherTipEn": "At the peak, the radius of curvature is $\\rho = \\frac{v^2}{a_n} = \\frac{(v_0 \\cos\\theta)^2}{g}$.",
+    "teacherTipAr": "نصف قطر الانحناء عند الذروة يساوي $\\rho = \\frac{(v_0 \\cos\\theta)^2}{g}$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_56",
+    "titleEn": "Angle Between Acceleration and Velocity Vectors",
+    "titleAr": "الزاوية بين متجهي السرعة والعجلة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "At a certain instant, a car speeding up along a circular track has tangential acceleration equal to its normal acceleration ($a_t = a_n$). What is the angle $\\phi$ between its total acceleration vector and velocity vector?",
+    "questionAr": "في لحظة معينة، تتسارع سيارة على مسار دائري بحيث تساوت عجلتها المماسية مع عجلتها العمودية ($a_t = a_n$). ما هي الزاوية $\\phi$ بين متجه العجلة الكلية ومتجه السرعة؟",
+    "optionsEn": [
+      "$45^\\circ$",
+      "$90^\\circ$",
+      "$0^\\circ$",
+      "$60^\\circ$"
+    ],
+    "optionsAr": [
+      "$45^\\circ$",
+      "$90^\\circ$",
+      "$0^\\circ$",
+      "$60^\\circ$"
+    ],
+    "correctAnswer": "$45^\\circ$",
+    "correctIndex": 0,
+    "hintEn": "The velocity vector is in the tangential direction. The angle with total acceleration satisfies $\\tan\\phi = \\frac{a_n}{a_t}$.",
+    "hintAr": "متجه السرعة في الاتجاه المماسي دائماً. الزاوية مع العجلة الكلية تحقق $\\tan\\phi = \\frac{a_n}{a_t}$.",
+    "stepByStepSolutionEn": [
+      "Velocity $\\vec{v}$ points along the unit tangent vector $\\vec{T}$.",
+      "Acceleration is $\\vec{a} = a_t \\vec{T} + a_n \\vec{N}$.",
+      "The tangent of the angle $\\phi$ with $\\vec{T}$ is $\\tan\\phi = \\frac{a_n}{a_t}$.",
+      "Since $a_n = a_t$, $\\tan\\phi = 1 \\implies \\phi = 45^\\circ$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة تتجه دائماً في اتجاه المماس $\\vec{T}$.",
+      "العجلة الكلية: $\\vec{a} = a_t \\vec{T} + a_n \\vec{N}$.",
+      "ظل الزاوية: $\\tan\\phi = \\frac{a_n}{a_t} = 1$.",
+      "إذن الزاوية هي $\\phi = 45^\\circ$."
+    ],
+    "teacherTipEn": "If $a_t = 0$, $\\phi = 90^\\circ$ (uniform circular motion). If $a_n = 0$, $\\phi = 0^\\circ$ (straight line motion).",
+    "teacherTipAr": "إذا كانت $a_t = 0$ تكون الزاوية $90^\\circ$، وإذا كانت $a_n = 0$ تكون الزاوية $0^\\circ$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_57",
+    "titleEn": "Rate of Change of Direction Angle along a Curve",
+    "titleAr": "معدل تغير زاوية اتجاه المماس على المسار",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle travels with constant speed $v = 15\\text{ m/s}$ along a curve whose radius of curvature is $\\rho = 75\\text{ m}$. What is the time rate of change of the inclination angle of the velocity vector, $\\dot{\\phi} = \\frac{d\\phi}{dt}$?",
+    "questionAr": "يتحرك جسيم بسرعة ثابتة $v = 15\\text{ م/ث}$ على مسار نصف قطر انحنائه $\\rho = 75\\text{ م}$. ما معدل تغير زاوية ميل متجه السرعة مع الزمن $\\dot{\\phi} = \\frac{d\\phi}{dt}$؟",
+    "optionsEn": [
+      "$0.2\\text{ rad/s}$",
+      "$5\\text{ rad/s}$",
+      "$3\\text{ rad/s}$",
+      "$0.04\\text{ rad/s}$"
+    ],
+    "optionsAr": [
+      "$0.2\\text{ راد/ث}$",
+      "$5\\text{ راد/ث}$",
+      "$3\\text{ راد/ث}$",
+      "$0.04\\text{ راد/ث}$"
+    ],
+    "correctAnswer": "$0.2\\text{ rad/s}$",
+    "correctIndex": 0,
+    "hintEn": "By curvature definition $\\kappa = \\frac{d\\phi}{ds} = \\frac{1}{\\rho}$. By chain rule $\\frac{d\\phi}{dt} = \\frac{d\\phi}{ds} \\frac{ds}{dt} = \\frac{v}{\\rho}$.",
+    "hintAr": "من تعريف الانحناء $\\frac{d\\phi}{ds} = \\frac{1}{\\rho}$، وبقاعدة السلسلة $\\frac{d\\phi}{dt} = \\frac{v}{\\rho}$.",
+    "stepByStepSolutionEn": [
+      "By the chain rule: $\\frac{d\\phi}{dt} = \\frac{d\\phi}{ds} \\cdot \\frac{ds}{dt}$.",
+      "Since $\\frac{ds}{dt} = v$ and $\\frac{d\\phi}{ds} = \\frac{1}{\\rho}$, we have $\\dot{\\phi} = \\frac{v}{\\rho}$.",
+      "Substitute: $\\dot{\\phi} = \\frac{15}{75} = \\frac{1}{5} = 0.2\\text{ rad/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بقاعدة السلسلة: $\\frac{d\\phi}{dt} = \\frac{d\\phi}{ds} \\cdot \\frac{ds}{dt}$.",
+      "$\\frac{d\\phi}{dt} = \\frac{v}{\\rho}$.",
+      "بالتعويض: $\\dot{\\phi} = \\frac{15}{75} = 0.2\\text{ راد/ث}$."
+    ],
+    "teacherTipEn": "Notice that $a_n = v^2 / \\rho = v \\dot{\\phi}$, expressing normal acceleration in terms of angular turning rate.",
+    "teacherTipAr": "لاحظ أن $a_n = v \\dot{\\phi}$، مما يعبر عن العجلة المركزية بدلالة معدل دوران المماس."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_58",
+    "titleEn": "Radial Acceleration in Uniform Circular Motion",
+    "titleAr": "العجلة القطرية في الحركة الدائرية المنتظمة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves along a circle of fixed radius $r = R$ at constant angular speed $\\dot{\\theta} = \\omega$. What is its radial acceleration component $a_r = \\ddot{r} - r\\dot{\\theta}^2$?",
+    "questionAr": "يتحرك جسيم على دائرة نصف قطرها ثابت $r = R$ بسرعة زاوية منتظمة $\\dot{\\theta} = \\omega$. ما هي مركبة عجلته القطرية $a_r = \\ddot{r} - r\\dot{\\theta}^2$؟",
+    "optionsEn": [
+      "$-R\\omega^2$",
+      "$R\\omega^2$",
+      "$0$",
+      "$-2R\\omega$"
+    ],
+    "optionsAr": [
+      "$-R\\omega^2$",
+      "$R\\omega^2$",
+      "$0$",
+      "$-2R\\omega$"
+    ],
+    "correctAnswer": "$-R\\omega^2$",
+    "correctIndex": 0,
+    "hintEn": "Since radius is constant, $\\dot{r} = 0$ and $\\ddot{r} = 0$.",
+    "hintAr": "بما أن نصف القطر ثابت، فإن $\\dot{r} = 0$ و $\\ddot{r} = 0$.",
+    "stepByStepSolutionEn": [
+      "For a circle with origin at the center, $r(t) = R = \\text{constant}$.",
+      "Then $\\dot{r} = 0$ and $\\ddot{r} = 0$.",
+      "The formula for radial acceleration is $a_r = \\ddot{r} - r\\dot{\\theta}^2 = 0 - R\\omega^2 = -R\\omega^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "نصف القطر ثابت: $r(t) = R \\implies \\ddot{r} = 0$.",
+      "قانون العجلة القطرية: $a_r = \\ddot{r} - r\\dot{\\theta}^2$.",
+      "$a_r = 0 - R\\omega^2 = -R\\omega^2$."
+    ],
+    "teacherTipEn": "The negative sign indicates the acceleration is directed inward toward the center (centripetal).",
+    "teacherTipAr": "الإشارة السالبة تعني أن اتجاه العجلة موجه نحو الداخل باتجاه المركز."
+  },
+  {
+    "id": "egbac_mech_ch1_db_med_59",
+    "titleEn": "Cartesian Trajectory Equation from Parametric Projectile Motion",
+    "titleAr": "معادلة المسار الكارتيزية لحركة المقذوف",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile has parametric equations $x(t) = 10t$ and $y(t) = 20t - 5t^2$ (in meters). What is the Cartesian equation of its trajectory $y(x)$?",
+    "questionAr": "قذيفة معادلاتها البارامترية $x(t) = 10t$ و $y(t) = 20t - 5t^2$ (بالأمتار). ما هي المعادلة الكارتيزية لمسارها $y(x)$؟",
+    "optionsEn": [
+      "$y = 2x - 0.05x^2$",
+      "$y = 2x - 5x^2$",
+      "$y = 20x - 5x^2$",
+      "$y = 0.5x - 0.05x^2$"
+    ],
+    "optionsAr": [
+      "$y = 2x - 0.05x^2$",
+      "$y = 2x - 5x^2$",
+      "$y = 20x - 5x^2$",
+      "$y = 0.5x - 0.05x^2$"
+    ],
+    "correctAnswer": "$y = 2x - 0.05x^2$",
+    "correctIndex": 0,
+    "hintEn": "Eliminate time $t$ by substituting $t = \\frac{x}{10}$ into $y(t)$.",
+    "hintAr": "احذف الزمن $t$ بالتعويض بـ $t = \\frac{x}{10}$ في معادلة $y(t)$.",
+    "stepByStepSolutionEn": [
+      "From $x = 10t$, isolate time: $t = \\frac{x}{10}$.",
+      "Substitute into $y(t)$: $y = 20\\left(\\frac{x}{10}\\right) - 5\\left(\\frac{x}{10}\\right)^2$.",
+      "Simplify: $y = 2x - 5\\left(\\frac{x^2}{100}\\right) = 2x - 0.05x^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "من معادلة $x$: $t = \\frac{x}{10}$.",
+      "بالتعويض في $y$: $y = 20(\\frac{x}{10}) - 5(\\frac{x}{10})^2$.",
+      "التبسيط: $y = 2x - 0.05x^2$."
+    ],
+    "teacherTipEn": "This is a downward-opening parabola with vertex at $x = \\frac{2}{2(0.05)} = 20\\text{ m}$, where $y_{\\max} = 20\\text{ m}$.",
+    "teacherTipAr": "هذا قطع مكافئ مفتوح لأسفل رأسه عند $x = 20\\text{ م}$ وأقصى ارتفاع له $20\\text{ م}$."
   }
 ],
   hots: [
@@ -5435,6 +6050,318 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "The osculating circle fits the parabola up to 2nd order at the contact point.",
     "teacherTipAr": "دائرة الانحناء اللامسة تطابق منحنى القطع المكافئ حتى الرتبة الثانية عند نقطة التماس."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_51",
+    "titleEn": "Radius of Curvature of a 3D Circular Helix",
+    "titleAr": "نصف قطر انحناء لولب دائري ثلاثي الأبعاد",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves along a circular helix $\\vec{r}(t) = (R\\cos\\omega t, R\\sin\\omega t, c t)$ where $R, \\omega, c$ are positive constants. Find its radius of curvature $\\rho$.",
+    "questionAr": "يتحرك جسيم على مسار لولب دائري $\\vec{r}(t) = (R\\cos\\omega t, R\\sin\\omega t, c t)$ حيث $R, \\omega, c$ ثوابت موجبة. أوجد نصف قطر انحنائه $\\rho$.",
+    "optionsEn": [
+      "$R + \\frac{c^2}{R\\omega^2}$",
+      "$R$",
+      "$\\sqrt{R^2 + c^2}$",
+      "$\\frac{R\\omega^2}{c^2}$"
+    ],
+    "optionsAr": [
+      "$R + \\frac{c^2}{R\\omega^2}$",
+      "$R$",
+      "$\\sqrt{R^2 + c^2}$",
+      "$\\frac{R\\omega^2}{c^2}$"
+    ],
+    "correctAnswer": "$R + \\frac{c^2}{R\\omega^2}$",
+    "correctIndex": 0,
+    "hintEn": "Use $\\rho = \\frac{\\|\\vec{v}\\|^3}{\\|\\vec{v} \\times \\vec{a}\\|}$. Compute $\\vec{v}$ and $\\vec{a}$ by differentiation.",
+    "hintAr": "استخدم الصيغة $\\rho = \\frac{\\|\\vec{v}\\|^3}{\\|\\vec{v} \\times \\vec{a}\\|}$. احسب السرعة والعجلة بالاشتقاق.",
+    "stepByStepSolutionEn": [
+      "Velocity: $\\vec{v}(t) = (-R\\omega\\sin\\omega t, R\\omega\\cos\\omega t, c)$.",
+      "Speed: $v = \\|\\vec{v}\\| = \\sqrt{R^2\\omega^2 + c^2}$.",
+      "Acceleration: $\\vec{a}(t) = (-R\\omega^2\\cos\\omega t, -R\\omega^2\\sin\\omega t, 0)$.",
+      "Cross product: $\\vec{v} \\times \\vec{a} = (c R \\omega^2 \\sin\\omega t, -c R \\omega^2 \\cos\\omega t, R^2 \\omega^3)$.",
+      "Magnitude: $\\|\\vec{v} \\times \\vec{a}\\| = \\sqrt{c^2 R^2 \\omega^4 + R^4 \\omega^6} = R \\omega^2 \\sqrt{c^2 + R^2 \\omega^2}$.",
+      "Radius of curvature: $\\rho = \\frac{(R^2\\omega^2 + c^2)^{3/2}}{R\\omega^2 \\sqrt{R^2\\omega^2 + c^2}} = \\frac{R^2\\omega^2 + c^2}{R\\omega^2} = R + \\frac{c^2}{R\\omega^2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة: $\\vec{v}(t) = (-R\\omega\\sin\\omega t, R\\omega\\cos\\omega t, c)$.",
+      "معيار السرعة: $v = \\sqrt{R^2\\omega^2 + c^2}$.",
+      "العجلة: $\\vec{a}(t) = (-R\\omega^2\\cos\\omega t, -R\\omega^2\\sin\\omega t, 0)$.",
+      "معيار الضرب الاتجاهي: $\\|\\vec{v} \\times \\vec{a}\\| = R\\omega^2 \\sqrt{R^2\\omega^2 + c^2}$.",
+      "نصف قطر الانحناء: $\\rho = \\frac{v^3}{\\|\\vec{v} \\times \\vec{a}\\|} = \\frac{R^2\\omega^2 + c^2}{R\\omega^2} = R + \\frac{c^2}{R\\omega^2}$."
+    ],
+    "teacherTipEn": "Notice that when the vertical pitch $c = 0$, the helix collapses to a circle and $\\rho = R$.",
+    "teacherTipAr": "لاحظ أنه عندما $c = 0$ يتحول اللولب إلى دائرة في المستوى ويصبح $\\rho = R$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_52",
+    "titleEn": "Speed of Point on Rim of a Rolling Wheel (Cycloid)",
+    "titleAr": "سرعة نقطة على محيط عجلة متدحرجة (حركة دحروجية)",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A wheel of radius $R$ rolls without slipping on a horizontal floor at constant center speed $v_c$. What is the linear speed $v_{\\text{top}}$ of the point at the very top of the wheel?",
+    "questionAr": "عجلة نصف قطرها $R$ تتدحرج دون انزلاق على أرض أفقية بسرعة مركز ثابتة $v_c$. ما هي السرعة الخطية $v_{\\text{top}}$ للنقطة الواقعة في أعلى نقطة على محيط العجلة؟",
+    "optionsEn": [
+      "$2 v_c$",
+      "$v_c$",
+      "$\\sqrt{2} v_c$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$2 v_c$",
+      "$v_c$",
+      "$\\sqrt{2} v_c$",
+      "$0$"
+    ],
+    "correctAnswer": "$2 v_c$",
+    "correctIndex": 0,
+    "hintEn": "The contact point with the ground is the instantaneous center of zero velocity (ICZV). The top point is distance $2R$ from it.",
+    "hintAr": "نقطة التماس مع الأرض هي مركز الدوران اللحظي وسرعتها صفر. نقطة القمة تبعد مسافة $2R$ عنها.",
+    "stepByStepSolutionEn": [
+      "In rolling without slipping, angular velocity is $\\omega = \\frac{v_c}{R}$.",
+      "The contact point with the ground has instantaneous speed $v = v_c - \\omega R = 0$ (instantaneous center of rotation).",
+      "At the top of the wheel, the translational velocity and rotational tangential velocity add constructively:",
+      "$v_{\\text{top}} = v_c + \\omega R = v_c + v_c = 2 v_c$."
+    ],
+    "stepByStepSolutionAr": [
+      "في التدحرج دون انزلاق: السرعة الزاوية $\\omega = \\frac{v_c}{R}$.",
+      "نقطة التماس مع الأرض سرعتها لحظياً تساوي صفراً.",
+      "عند أعلى نقطة، تُجمع السرعة الانتقالية مع السرعة الدورانية:",
+      "$v_{\\text{top}} = v_c + \\omega R = 2 v_c$."
+    ],
+    "teacherTipEn": "Every point on the rim of the rolling wheel traces a cycloid curve.",
+    "teacherTipAr": "ترسم كل نقطة على محيط العجلة المتدحرجة منحنى دحروجياً (سيكلويد)."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_53",
+    "titleEn": "Conservation of Areal Velocity in a Central Force Field",
+    "titleAr": "حفظ السرعة المساحية في مجال قوة مركزية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For a particle under the influence of any central force field $\\vec{F} = F(r) \\hat{r}$, why is the areal velocity $\\frac{dA}{dt} = \\frac{1}{2} r^2 \\dot{\\theta}$ strictly constant in time?",
+    "questionAr": "لجسيم يتحرك تحت تأثير أي مجال قوة مركزية $\\vec{F} = F(r) \\hat{r}$، لماذا تكون السرعة المساحية $\\frac{dA}{dt} = \\frac{1}{2} r^2 \\dot{\\theta}$ ثابتة تماماً مع الزمن؟",
+    "optionsEn": [
+      "Because the torque about the center is zero, conserving angular momentum $L = m r^2 \\dot{\\theta}$",
+      "Because the energy is always negative",
+      "Because the particle moves in a straight line",
+      "Because speed is constant"
+    ],
+    "optionsAr": [
+      "لأن عزم القوة حول المركز منعدم، مما يحفظ كمية الحركة الزاوية $L = m r^2 \\dot{\\theta}$",
+      "لأن الطاقة دائماً سالبة",
+      "لأن الجسيم يتحرك في خط مستقيم",
+      "لأن السرعة القياسية ثابتة"
+    ],
+    "correctAnswer": "Because the torque about the center is zero, conserving angular momentum $L = m r^2 \\dot{\\theta}$",
+    "correctIndex": 0,
+    "hintEn": "Torque $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\vec{r} \\times (F(r)\\hat{r}) = \\vec{0}$, so $\\frac{d\\vec{L}}{dt} = 0$.",
+    "hintAr": "عزم القوة $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\vec{0}$ لأن القوة موازية لمتجه الموضع، إذن $\\frac{d\\vec{L}}{dt} = 0$.",
+    "stepByStepSolutionEn": [
+      "A central force acts along the position vector: $\\vec{F} \\parallel \\vec{r}$.",
+      "The torque about the force center is $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\vec{0}$.",
+      "Since $\\vec{\\tau} = \\frac{d\\vec{L}}{dt}$, angular momentum $\\vec{L} = m r^2 \\dot{\\theta} \\hat{k}$ is conserved.",
+      "The areal velocity is $\\frac{dA}{dt} = \\frac{L}{2m} = \\frac{1}{2} r^2 \\dot{\\theta} = \\text{constant}$ (Kepler's Second Law)."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة المركزية تقع دائماً على امتداد متجه الموضع: $\\vec{F} \\parallel \\vec{r}$.",
+      "عزم القوة: $\\vec{\\tau} = \\vec{r} \\times \\vec{F} = \\vec{0}$.",
+      "بما أن العزم مشتقة كمية الحركة الزاوية، فإن $L = m r^2 \\dot{\\theta}$ مقدار ثابت.",
+      "السرعة المساحية $\\frac{dA}{dt} = \\frac{L}{2m} = \\text{ثابت}$ (قانون كبلر الثاني)."
+    ],
+    "teacherTipEn": "Kepler's Second Law holds for ANY central force, whether inverse-square gravity or a linear harmonic spring.",
+    "teacherTipAr": "ينطبق قانون كبلر الثاني على أي قوة مركزية مهما كان قانونها، وليس فقط الجاذبية."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_54",
+    "titleEn": "Particle Sliding on a Vertical Smooth Circular Track",
+    "titleAr": "انزلاق جسيم على مسار دائري رأسي أملس",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A small bead of mass $m$ slides from rest at the very top (angle $\\theta = 0$) of a smooth vertical circular hoop of radius $R$. At what angle $\\theta$ from the vertical does the bead lose contact with the hoop (normal force $N = 0$)?",
+    "questionAr": "خرزة كتلتها $m$ تنزلق من السكون من قمة طوق دائري رأسي أملس نصف قطره $R$ (عند $\\theta = 0$). عند أي زاوية $\\theta$ مع الرأسي ينعدم رد الفعل العمودي $N = 0$ وتفارق الخرزة السطح؟",
+    "optionsEn": [
+      "$\\cos\\theta = \\frac{2}{3}$",
+      "$\\cos\\theta = \\frac{1}{2}$",
+      "$\\cos\\theta = \\frac{3}{4}$",
+      "$\\theta = 90^\\circ$"
+    ],
+    "optionsAr": [
+      "$\\cos\\theta = \\frac{2}{3}$",
+      "$\\cos\\theta = \\frac{1}{2}$",
+      "$\\cos\\theta = \\frac{3}{4}$",
+      "$\\theta = 90^\\circ$"
+    ],
+    "correctAnswer": "$\\cos\\theta = \\frac{2}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Use conservation of energy $v^2 = 2gR(1 - \\cos\\theta)$ and Newton's second law along the inward radial direction $m g \\cos\\theta - N = \\frac{m v^2}{R}$.",
+    "hintAr": "استخدم حفظ الطاقة $v^2 = 2gR(1 - \\cos\\theta)$ ومعادلة الحركة القطرية $mg\\cos\\theta - N = \\frac{mv^2}{R}$.",
+    "stepByStepSolutionEn": [
+      "By conservation of mechanical energy: $\\frac{1}{2}mv^2 = mgR(1 - \\cos\\theta) \\implies v^2 = 2gR(1 - \\cos\\theta)$.",
+      "Radial equation of motion toward center: $mg\\cos\\theta - N = \\frac{mv^2}{R}$.",
+      "Substitute $v^2$: $N = mg\\cos\\theta - \\frac{m}{R}(2gR(1 - \\cos\\theta)) = mg(3\\cos\\theta - 2)$.",
+      "Setting contact force $N = 0$: $3\\cos\\theta - 2 = 0 \\implies \\cos\\theta = \\frac{2}{3}$ (approx $48.2^\\circ$)."
+    ],
+    "stepByStepSolutionAr": [
+      "من مبدأ حفظ الطاقة: $\\frac{1}{2} m v^2 = m g R (1 - \\cos\\theta) \\implies v^2 = 2gR(1 - \\cos\\theta)$.",
+      "معادلة الحركة في الاتجاه القطري: $mg\\cos\\theta - N = \\frac{mv^2}{R}$.",
+      "رد الفعل: $N = mg(3\\cos\\theta - 2)$.",
+      "بانعدام رد الفعل $N = 0$: $3\\cos\\theta = 2 \\implies \\cos\\theta = \\frac{2}{3}$."
+    ],
+    "teacherTipEn": "This classic result $\\cos\\theta = 2/3$ is completely independent of mass $m$, radius $R$, and gravity $g$.",
+    "teacherTipAr": "هذه النتيجة الكلاسيكية $\\cos\\theta = 2/3$ مستقلة تماماً عن الكتلة $m$ ونصف القطر $R$ وعجلة الجاذبية $g$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_55",
+    "titleEn": "Terminal Velocity under Linear Air Drag",
+    "titleAr": "السرعة الحدية تحت تأثير مقاومة هواء خطية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body of mass $m$ falls from rest under gravity subject to a linear air resistance force $\\vec{F}_d = -k\\vec{v}$. What is its asymptotic terminal velocity $v_{\\text{term}}$?",
+    "questionAr": "يسقط جسم كتلته $m$ من السكون تحت تأثير الجاذبية ومقاومة هواء خطية $\\vec{F}_d = -k\\vec{v}$. ما هي سرعته الحدية النهائية $v_{\\text{term}}$؟",
+    "optionsEn": [
+      "$\\frac{mg}{k}$",
+      "$\\sqrt{\\frac{mg}{k}}$",
+      "$\\frac{k}{mg}$",
+      "$\\frac{mg}{2k}$"
+    ],
+    "optionsAr": [
+      "$\\frac{mg}{k}$",
+      "$\\sqrt{\\frac{mg}{k}}$",
+      "$\\frac{k}{mg}$",
+      "$\\frac{mg}{2k}$"
+    ],
+    "correctAnswer": "$\\frac{mg}{k}$",
+    "correctIndex": 0,
+    "hintEn": "At terminal velocity, the net force is zero: $mg - k v_{\\text{term}} = 0$.",
+    "hintAr": "عند بلوغ السرعة الحدية، تنعدم العجلة ومحصلة القوى: $mg - kv_{\\text{term}} = 0$.",
+    "stepByStepSolutionEn": [
+      "Equation of vertical motion: $m \\frac{dv}{dt} = mg - kv$.",
+      "Terminal velocity is reached when acceleration $\\frac{dv}{dt} = 0$.",
+      "Equate gravitational force to drag force: $mg - kv_{\\text{term}} = 0 \\implies v_{\\text{term}} = \\frac{mg}{k}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الحركة: $m \\frac{dv}{dt} = mg - kv$.",
+      "تتحقق السرعة الحدية عندما تنعدم العجلة: $\\frac{dv}{dt} = 0$.",
+      "$mg = kv_{\\text{term}} \\implies v_{\\text{term}} = \\frac{mg}{k}$."
+    ],
+    "teacherTipEn": "For quadratic drag $F_d = -c v^2$, the terminal velocity is $\\sqrt{mg/c}$.",
+    "teacherTipAr": "إذا كانت مقاومة الهواء تتناسب مع مربع السرعة، تكون السرعة الحدية $\\sqrt{mg/c}$."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_56",
+    "titleEn": "Brachistochrone Curve Property",
+    "titleAr": "خاصية منحنى أسرع هبوط (البراكستوكرون)",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Under the action of uniform gravity without friction, what curve connects two points at different heights such that a particle slides between them in the minimum possible time?",
+    "questionAr": "تحت تأثير الجاذبية المنتظمة وبدون احتكاك، ما هو المنحنى الواصل بين نقطتين على ارتفاعين مختلفين بحيث ينزلق الجسيم بينهما في أقل زمن ممكن؟",
+    "optionsEn": [
+      "A Cycloid",
+      "A Straight line",
+      "A Parabola",
+      "A Circular arc"
+    ],
+    "optionsAr": [
+      "منحنى دحروجي (سيكلويد)",
+      "خط مستقيم",
+      "قطع مكافئ",
+      "قوس دائري"
+    ],
+    "correctAnswer": "A Cycloid",
+    "correctIndex": 0,
+    "hintEn": "This famous problem solved by Johann Bernoulli in 1696 gave birth to the calculus of variations.",
+    "hintAr": "هذه المسألة الشهيرة التي حلها يوهان برنولي عام 1696 كانت نقطة الانطلاق لحساب التغيرات.",
+    "stepByStepSolutionEn": [
+      "The Brachistochrone problem seeks to minimize $T = \\int \\frac{ds}{v} = \\int \\frac{\\sqrt{1 + (y')^2}}{\\sqrt{2gy}} dx$.",
+      "Using the Euler-Lagrange equation (Beltrami identity), the minimizing path satisfies $y(1 + (y')^2) = 2R$.",
+      "The parametric solution to this differential equation is a cycloid: $x = R(\\theta - \\sin\\theta), y = R(1 - \\cos\\theta)$."
+    ],
+    "stepByStepSolutionAr": [
+      "مسألة البراكستوكرون تهدف لتصغير زمن الانزلاق $T = \\int \\frac{ds}{v}$.",
+      "باستخدام معادلة أويلر-لاجرانج لحساب التغيرات، تحقق المعادلة التفاضلية $y(1 + (y')^2) = 2R$.",
+      "الحل البارامتري لهذه المعادلة يمثل منحنى السيكلويد."
+    ],
+    "teacherTipEn": "Although the straight line is the shortest distance, the cycloid allows the particle to accelerate faster initially, minimizing total time.",
+    "teacherTipAr": "رغم أن المستقيم هو أقصر مسافة، إلا أن السيكلويد يكسب الجسيم تسارعاً أولياً كبيراً يجعل الزمن الكلي أقل ما يمكن."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_57",
+    "titleEn": "Binet's Equation for Central Force Orbits",
+    "titleAr": "معادلة بينيه للمدارات في مجال القوى المركزية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In Binet's equation $\\frac{d^2 u}{d\\theta^2} + u = -\\frac{F(1/u)}{m h^2 u^2}$ with $u = \\frac{1}{r}$, an inverse-square attractive central force $F(r) = -\\frac{k}{r^2}$ leads to which type of trajectories?",
+    "questionAr": "في معادلة بينيه $\\frac{d^2 u}{d\\theta^2} + u = -\\frac{F(1/u)}{m h^2 u^2}$ حيث $u = \\frac{1}{r}$، فإن قوة جذب مركزية تتناسب عكسياً مع مربع المسافة $F(r) = -\\frac{k}{r^2}$ تنتج أي نوع من المسارات؟",
+    "optionsEn": [
+      "Conic sections (ellipses, parabolas, hyperbolas)",
+      "Logarithmic spirals",
+      "Cardioid curves",
+      "Cubic curves"
+    ],
+    "optionsAr": [
+      "القطوع المخروطية (قطوع ناقصة ومكافئة وزائدة)",
+      "حلزون لوغاريتمي",
+      "منحنيات قلبية",
+      "منحنيات تكعيبية"
+    ],
+    "correctAnswer": "Conic sections (ellipses, parabolas, hyperbolas)",
+    "correctIndex": 0,
+    "hintEn": "The differential equation becomes $\\frac{d^2 u}{d\\theta^2} + u = \\frac{k}{m h^2}$, which has solution $u(\\theta) = C \\cos(\\theta - \\theta_0) + \\frac{k}{m h^2}$.",
+    "hintAr": "تتحول المعادلة إلى $\\frac{d^2 u}{d\\theta^2} + u = \\frac{k}{mh^2}$ وحلها هو المعادلة القطبية الكلاسيكية لقطع مخروطي.",
+    "stepByStepSolutionEn": [
+      "With $F(1/u) = -k u^2$, the right-hand side is $\\frac{k u^2}{m h^2 u^2} = \\frac{k}{m h^2} = \\text{constant}$.",
+      "The equation is $\\frac{d^2 u}{d\\theta^2} + u = \\frac{k}{m h^2}$.",
+      "General solution is $u(\\theta) = \\frac{k}{m h^2} [1 + e \\cos(\\theta - \\theta_0)]$.",
+      "In terms of $r = 1/u$: $r(\\theta) = \\frac{p}{1 + e \\cos(\\theta - \\theta_0)}$, which is the polar equation of a conic section with eccentricity $e$."
+    ],
+    "stepByStepSolutionAr": [
+      "بالتعويض عن القوة: $\\frac{d^2 u}{d\\theta^2} + u = \\frac{k}{mh^2}$.",
+      "الحل العام: $u(\\theta) = \\frac{k}{mh^2} [1 + e\\cos(\\theta - \\theta_0)]$.",
+      "بدلالة $r = 1/u$: $r(\\theta) = \\frac{p}{1 + e\\cos(\\theta - \\theta_0)}$، وهي المعادلة القطبية العامة لقطع مخروطي باختلاف مركزي $e$."
+    ],
+    "teacherTipEn": "If $e < 1$ the orbit is an ellipse (bound planet), $e = 1$ is a parabola, and $e > 1$ is a hyperbola.",
+    "teacherTipAr": "إذا كان $e < 1$ فالمدار قطع ناقص (مدار كوكبي مقيد)، $e = 1$ مكافئ، و $e > 1$ زائد."
+  },
+  {
+    "id": "egbac_mech_ch1_db_hots_58",
+    "titleEn": "Parabola of Safety (Projectile Enveloping Surface)",
+    "titleAr": "غلاف الأمان (قطع الأمان المكافئ) للمقذوفات",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A cannon at the origin can fire shells with a fixed muzzle speed $v_0$ in any direction in the vertical plane. What is the boundary equation (parabola of safety) enclosing all reachable points?",
+    "questionAr": "مدفع عند نقطة الأصل يمكنه إطلاق قذائف بسرعة فوهة ثابتة $v_0$ في أي اتجاه في المستوى الرأسي. ما هي معادلة الغلاف الخارجي (قطع الأمان المكافئ) الذي يحيط بجميع النقاط التي يمكن إصابتها؟",
+    "optionsEn": [
+      "$y = \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$",
+      "$y = \\frac{v_0^2}{g} - \\frac{g x^2}{v_0^2}$",
+      "$x^2 + y^2 = \\frac{v_0^4}{g^2}$",
+      "$y = \\frac{v_0^2}{2g} - \\frac{x^2}{2g}$"
+    ],
+    "optionsAr": [
+      "$y = \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$",
+      "$y = \\frac{v_0^2}{g} - \\frac{g x^2}{v_0^2}$",
+      "$x^2 + y^2 = \\frac{v_0^4}{g^2}$",
+      "$y = \\frac{v_0^2}{2g} - \\frac{x^2}{2g}$"
+    ],
+    "correctAnswer": "$y = \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$",
+    "correctIndex": 0,
+    "hintEn": "The trajectory equation is $y = x\\tan\\theta - \\frac{g x^2}{2v_0^2}(1 + \\tan^2\\theta)$. Set discriminant $\\Delta \\ge 0$ with respect to $\\tan\\theta$.",
+    "hintAr": "معادلة المسار هي معادلة تربيعية في $\\tan\\theta$: اجعل المميز $\\Delta \\ge 0$ بالنسبة لـ $\\tan\\theta$.",
+    "stepByStepSolutionEn": [
+      "The trajectory is $y = x t - \\frac{g x^2}{2v_0^2}(1 + t^2)$ where $t = \\tan\\theta$.",
+      "Rearrange as a quadratic in $t$: $\\frac{g x^2}{2v_0^2} t^2 - x t + \\left(y + \\frac{g x^2}{2v_0^2}\\right) = 0$.",
+      "For a target $(x, y)$ to be reachable, this quadratic must have real roots, so its discriminant $\\Delta \\ge 0$:",
+      "$\\Delta = x^2 - 4 \\left(\\frac{g x^2}{2v_0^2}\\right)\\left(y + \\frac{g x^2}{2v_0^2}\\right) \\ge 0$.",
+      "Divide by $x^2 > 0$: $1 - \\frac{2g}{v_0^2} y - \\frac{g^2 x^2}{v_0^4} \\ge 0 \\implies y \\le \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة المسار كدالة تربيعية في $t = \\tan\\theta$:",
+      "$\\frac{g x^2}{2v_0^2} t^2 - x t + (y + \\frac{g x^2}{2v_0^2}) = 0$.",
+      "لكي تكون النقطة قابلة للإصابة، يجب أن يكون المميز حقيقياً $\\Delta \\ge 0$.",
+      "بالتبسيط نجد: $y \\le \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$.",
+      "حد الأمان هو القطع المكافئ: $y = \\frac{v_0^2}{2g} - \\frac{g x^2}{2v_0^2}$."
+    ],
+    "teacherTipEn": "Any target lying outside this envelope parabola is completely safe from the cannon fire.",
+    "teacherTipAr": "أي هدف يقع خارج هذا القطع المكافئ يكون في أمان تام من نيران المدفع."
   }
 ]
 };

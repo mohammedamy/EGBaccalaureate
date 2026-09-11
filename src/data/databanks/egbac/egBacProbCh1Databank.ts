@@ -1701,6 +1701,282 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Equidispersion (mean = variance) is the defining fingerprint of empirical Poisson data.",
     "teacherTipAr": "تساوي التشتت (المتوسط = التباين) هو العلامة المميزة للبيانات التي تتبع توزيع بواسون."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_51",
+    "titleEn": "Complementary Event Probability",
+    "titleAr": "احتمال الحدث المتمم",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If the probability of event $A$ occurring is $P(A) = 0.35$, what is the probability of its complement $P(A')$?",
+    "questionAr": "إذا كان احتمال وقوع الحدث $A$ هو $P(A) = 0.35$، فما احتمال وقوع متممته $P(A')$؟",
+    "optionsEn": [
+      "$0.65$",
+      "$0.35$",
+      "$0.70$",
+      "$-0.35$"
+    ],
+    "optionsAr": [
+      "$0.65$",
+      "$0.35$",
+      "$0.70$",
+      "$-0.35$"
+    ],
+    "correctAnswer": "$0.65$",
+    "correctIndex": 0,
+    "hintEn": "The sum of the probabilities of an event and its complement is 1: $P(A') = 1 - P(A)$.",
+    "hintAr": "مجموع احتمالي الحدث ومتممته يساوي 1: $P(A') = 1 - P(A)$.",
+    "stepByStepSolutionEn": [
+      "Use complement rule: $P(A') = 1 - P(A)$.",
+      "Calculate: $P(A') = 1 - 0.35 = 0.65$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون الحدث المتمم: $P(A') = 1 - P(A)$.",
+      "الحساب: $P(A') = 1 - 0.35 = 0.65$."
+    ],
+    "teacherTipEn": "Always check that probabilities remain within the closed interval $[0, 1]$.",
+    "teacherTipAr": "تأكد دائماً أن قيمة الاحتمال تنتمي للفترة المغلقة $[0, 1]$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_52",
+    "titleEn": "Multiplication Rule for Independent Events",
+    "titleAr": "قاعدة الضرب للأحداث المستقلة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $A$ and $B$ be two independent events with $P(A) = 0.40$ and $P(B) = 0.50$. Find $P(A \\cap B)$.",
+    "questionAr": "ليكن $A$ و $B$ حدثين مستقلين حيث $P(A) = 0.40$ و $P(B) = 0.50$. أوجد $P(A \\cap B)$.",
+    "optionsEn": [
+      "$0.20$",
+      "$0.90$",
+      "$0.10$",
+      "$0.08$"
+    ],
+    "optionsAr": [
+      "$0.20$",
+      "$0.90$",
+      "$0.10$",
+      "$0.08$"
+    ],
+    "correctAnswer": "$0.20$",
+    "correctIndex": 0,
+    "hintEn": "For independent events, the intersection probability is the product: $P(A \\cap B) = P(A) \\cdot P(B)$.",
+    "hintAr": "للأحداث المستقلة، احتمال التقاطع هو حاصل الضرب: $P(A \\cap B) = P(A) \\cdot P(B)$.",
+    "stepByStepSolutionEn": [
+      "Apply independence formula: $P(A \\cap B) = P(A) \\times P(B)$.",
+      "Substitute values: $P(A \\cap B) = 0.40 \\times 0.50 = 0.20$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون استقلال الأحداث: $P(A \\cap B) = P(A) \\times P(B)$.",
+      "الحساب: $0.40 \\times 0.50 = 0.20$."
+    ],
+    "teacherTipEn": "Independence is an algebraic property: $P(A|B) = P(A)$.",
+    "teacherTipAr": "الاستقلال خاصية احتمالية تعني أن وقوع أحدهما لا يغير احتمال وقوع الآخر: $P(A|B) = P(A)$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_53",
+    "titleEn": "Union of Mutually Exclusive Events",
+    "titleAr": "اتحاد الأحداث المتنافية (المتباعدة)",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $A$ and $B$ are mutually exclusive (disjoint) events with $P(A) = 0.25$ and $P(B) = 0.40$, find $P(A \\cup B)$.",
+    "questionAr": "إذا كان $A$ و $B$ حدثين متنافيين (متباعدين) حيث $P(A) = 0.25$ و $P(B) = 0.40$، فأوجد $P(A \\cup B)$.",
+    "optionsEn": [
+      "$0.65$",
+      "$0.10$",
+      "$0.15$",
+      "$0.50$"
+    ],
+    "optionsAr": [
+      "$0.65$",
+      "$0.10$",
+      "$0.15$",
+      "$0.50$"
+    ],
+    "correctAnswer": "$0.65$",
+    "correctIndex": 0,
+    "hintEn": "For mutually exclusive events, $A \\cap B = \\emptyset$, so $P(A \\cup B) = P(A) + P(B)$.",
+    "hintAr": "للأحداث المتنافية، $A \\cap B = \\emptyset$، فيكون $P(A \\cup B) = P(A) + P(B)$.",
+    "stepByStepSolutionEn": [
+      "Since $A$ and $B$ are mutually exclusive, $P(A \\cap B) = 0$.",
+      "Addition rule: $P(A \\cup B) = P(A) + P(B) = 0.25 + 0.40 = 0.65$."
+    ],
+    "stepByStepSolutionAr": [
+      "بما أن الحدثين متنافيان، فإن $P(A \\cap B) = 0$.",
+      "قانون الجمع: $P(A \\cup B) = 0.25 + 0.40 = 0.65$."
+    ],
+    "teacherTipEn": "Mutually exclusive means the two events cannot happen simultaneously.",
+    "teacherTipAr": "الأحداث المتنافية يستحيل وقوعها معاً في نفس الوقت."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_54",
+    "titleEn": "Conditional Probability Calculation",
+    "titleAr": "حساب الاحتمال الشرطي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Given $P(A \\cap B) = 0.12$ and $P(B) = 0.30$, find the conditional probability $P(A \\mid B)$.",
+    "questionAr": "إذا كان $P(A \\cap B) = 0.12$ و $P(B) = 0.30$، فأوجد الاحتمال الشرطي $P(A \\mid B)$.",
+    "optionsEn": [
+      "$0.40$",
+      "$0.18$",
+      "$0.036$",
+      "$0.25$"
+    ],
+    "optionsAr": [
+      "$0.40$",
+      "$0.18$",
+      "$0.036$",
+      "$0.25$"
+    ],
+    "correctAnswer": "$0.40$",
+    "correctIndex": 0,
+    "hintEn": "The definition of conditional probability is $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$.",
+    "hintAr": "تعريف الاحتمال الشرطي هو $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$.",
+    "stepByStepSolutionEn": [
+      "Use definition: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$.",
+      "Calculate: $P(A \\mid B) = \\frac{0.12}{0.30} = \\frac{12}{30} = \\frac{2}{5} = 0.40$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون الاحتمال الشرطي: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$.",
+      "الحساب: $\\frac{0.12}{0.30} = 0.40$."
+    ],
+    "teacherTipEn": "The conditioning event $B$ becomes the new reduced sample space.",
+    "teacherTipAr": "الحدث المشروط $B$ يمثل فضاء العينة الجديد المصغر."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_55",
+    "titleEn": "Expected Value of a Binomial Distribution",
+    "titleAr": "القيمة المتوقعة لتوزيع ذي الحدين",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A random variable $X$ follows a binomial distribution $B(n, p)$ with $n = 50$ trials and success probability $p = 0.20$. Find the expected value $E[X]$.",
+    "questionAr": "متغير عشوائي $X$ يتبع توزيع ذي الحدين $B(n, p)$ بعدد محاولات $n = 50$ واحتمال نجاح $p = 0.20$. أوجد القيمة المتوقعة (المتوسط) $E[X]$.",
+    "optionsEn": [
+      "$10$",
+      "$8$",
+      "$40$",
+      "$25$"
+    ],
+    "optionsAr": [
+      "$10$",
+      "$8$",
+      "$40$",
+      "$25$"
+    ],
+    "correctAnswer": "$10$",
+    "correctIndex": 0,
+    "hintEn": "The expected value of a binomial distribution is $E[X] = n p$.",
+    "hintAr": "المتوسط الحسابي لتوزيع ذي الحدين هو $E[X] = n p$.",
+    "stepByStepSolutionEn": [
+      "Formula: $E[X] = n \\cdot p$.",
+      "Calculate: $E[X] = 50 \\times 0.20 = 10$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $E[X] = n p$.",
+      "الحساب: $50 \\times 0.20 = 10$."
+    ],
+    "teacherTipEn": "The expected value represents the long-run average number of successes.",
+    "teacherTipAr": "القيمة المتوقعة تمثل المتوسط النظري لعدد مرات النجاح على المدى الطويل."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_56",
+    "titleEn": "Variance of a Binomial Distribution",
+    "titleAr": "تباين توزيع ذي الحدين",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the variance $\\text{Var}(X)$ for a binomial variable $X \\sim B(40, 0.25)$.",
+    "questionAr": "أوجد التباين $\\text{Var}(X)$ لمتغير عشوائي يتبع توزيع ذي الحدين $X \\sim B(40, 0.25)$.",
+    "optionsEn": [
+      "$7.5$",
+      "$10.0$",
+      "$2.5$",
+      "$30.0$"
+    ],
+    "optionsAr": [
+      "$7.5$",
+      "$10.0$",
+      "$2.5$",
+      "$30.0$"
+    ],
+    "correctAnswer": "$7.5$",
+    "correctIndex": 0,
+    "hintEn": "The variance formula is $\\text{Var}(X) = n p (1 - p)$.",
+    "hintAr": "قانون التباين هو $\\text{Var}(X) = n p (1 - p)$.",
+    "stepByStepSolutionEn": [
+      "Given $n = 40$, $p = 0.25$, and $q = 1 - p = 0.75$.",
+      "Compute: $\\text{Var}(X) = 40 \\times 0.25 \\times 0.75 = 10 \\times 0.75 = 7.5$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعطيات: $n = 40$، $p = 0.25$، $q = 0.75$.",
+      "التباين: $40 \\times 0.25 \\times 0.75 = 7.5$."
+    ],
+    "teacherTipEn": "The standard deviation is the square root of variance: $\\sigma = \\sqrt{7.5} \\approx 2.74$.",
+    "teacherTipAr": "الانحراف المعياري هو الجذر التربيعي للتباين: $\\sigma = \\sqrt{7.5} \\approx 2.74$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_57",
+    "titleEn": "Permutations of Distinct Items",
+    "titleAr": "تباديل عناصر متمايزة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In how many distinct orders can 5 different books be arranged side-by-side on a shelf?",
+    "questionAr": "بكم طريقة مختلفة يمكن ترتيب 5 كتب متمايزة جنباً إلى جنب على رف؟",
+    "optionsEn": [
+      "$120$",
+      "$24$",
+      "$25$",
+      "$60$"
+    ],
+    "optionsAr": [
+      "$120$",
+      "$24$",
+      "$25$",
+      "$60$"
+    ],
+    "correctAnswer": "$120$",
+    "correctIndex": 0,
+    "hintEn": "The number of permutations of $n$ distinct objects is $n!$.",
+    "hintAr": "عدد طرق ترتيب $n$ من العناصر المتمايزة هو مضروب $n!$.",
+    "stepByStepSolutionEn": [
+      "Calculate: $5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$."
+    ],
+    "teacherTipEn": "Order matters in permutations.",
+    "teacherTipAr": "الترتيب مهم وأساسي في التباديل."
+  },
+  {
+    "id": "egbac_prob_ch1_db_easy_58",
+    "titleEn": "Combinations Selection Formula",
+    "titleAr": "حساب التوافيق لاختيار لجنة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "How many different committees of 3 members can be selected from a group of 7 candidates?",
+    "questionAr": "كم لجنة مختلفة مكونة من 3 أعضاء يمكن اختيارها من بين 7 مرشحين؟",
+    "optionsEn": [
+      "$35$",
+      "$210$",
+      "$21$",
+      "$42$"
+    ],
+    "optionsAr": [
+      "$35$",
+      "$210$",
+      "$21$",
+      "$42$"
+    ],
+    "correctAnswer": "$35$",
+    "correctIndex": 0,
+    "hintEn": "Order does not matter in a committee, so use combinations $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$.",
+    "hintAr": "الترتيب غير مهم في اختيار اللجنة، لذا نستخدم التوافيق $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$.",
+    "stepByStepSolutionEn": [
+      "Compute: $\\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = \\frac{210}{6} = 35$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $\\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$."
+    ],
+    "teacherTipEn": "Remember that $\\binom{n}{r} = \\binom{n}{n-r}$, so $\\binom{7}{3} = \\binom{7}{4} = 35$.",
+    "teacherTipAr": "تذكر خاصية التماثل للتوافيق: $\\binom{n}{r} = \\binom{n}{n-r}$."
   }
 ],
   medium: [
@@ -3503,6 +3779,339 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_51",
+    "titleEn": "General Addition Rule for Probability",
+    "titleAr": "قاعدة الجمع العامة للاحتمالات",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $P(A) = 0.60$, $P(B) = 0.50$, and $P(A \\cup B) = 0.80$, find $P(A \\cap B)$.",
+    "questionAr": "إذا كان $P(A) = 0.60$ و $P(B) = 0.50$ و $P(A \\cup B) = 0.80$، فأوجد $P(A \\cap B)$.",
+    "optionsEn": [
+      "$0.30$",
+      "$0.10$",
+      "$0.20$",
+      "$0.40$"
+    ],
+    "optionsAr": [
+      "$0.30$",
+      "$0.10$",
+      "$0.20$",
+      "$0.40$"
+    ],
+    "correctAnswer": "$0.30$",
+    "correctIndex": 0,
+    "hintEn": "Rearrange the general addition rule: $P(A \\cap B) = P(A) + P(B) - P(A \\cup B)$.",
+    "hintAr": "أعد ترتيب قانون الجمع العام: $P(A \\cap B) = P(A) + P(B) - P(A \\cup B)$.",
+    "stepByStepSolutionEn": [
+      "General addition formula: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$.",
+      "Substitute values: $0.80 = 0.60 + 0.50 - P(A \\cap B)$.",
+      "$0.80 = 1.10 - P(A \\cap B) \\implies P(A \\cap B) = 1.10 - 0.80 = 0.30$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون الجمع العام: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$.",
+      "$0.80 = 0.60 + 0.50 - P(A \\cap B)$.",
+      "$P(A \\cap B) = 1.10 - 0.80 = 0.30$."
+    ],
+    "teacherTipEn": "Notice that $P(A \\cap B) = 0.30 = P(A) \\times P(B)$, which proves that events $A$ and $B$ are independent in this case.",
+    "teacherTipAr": "لاحظ أن $P(A \\cap B) = 0.30 = P(A) \\times P(B)$، مما يثبت أن الحدثين مستقلان في هذه المسألة."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_52",
+    "titleEn": "Probability of B Without A",
+    "titleAr": "احتمال وقوع الحدث B دون وقوع A",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $P(A \\mid B) = 0.60$ and $P(B) = 0.40$, find the probability $P(A' \\cap B)$ that $B$ occurs but $A$ does not occur.",
+    "questionAr": "إذا كان $P(A \\mid B) = 0.60$ و $P(B) = 0.40$، فأوجد احتمال $P(A' \\cap B)$ لوقوع الحدث $B$ دون وقوع $A$.",
+    "optionsEn": [
+      "$0.16$",
+      "$0.24$",
+      "$0.40$",
+      "$0.10$"
+    ],
+    "optionsAr": [
+      "$0.16$",
+      "$0.24$",
+      "$0.40$",
+      "$0.10$"
+    ],
+    "correctAnswer": "$0.16$",
+    "correctIndex": 0,
+    "hintEn": "Notice $P(A' \\cap B) = P(B) - P(A \\cap B)$, where $P(A \\cap B) = P(A \\mid B) P(B)$.",
+    "hintAr": "لاحظ أن $P(A' \\cap B) = P(B) - P(A \\cap B)$ حيث $P(A \\cap B) = P(A \\mid B) P(B)$.",
+    "stepByStepSolutionEn": [
+      "Compute intersection: $P(A \\cap B) = P(A \\mid B) \\times P(B) = 0.60 \\times 0.40 = 0.24$.",
+      "Compute difference: $P(A' \\cap B) = P(B) - P(A \\cap B) = 0.40 - 0.24 = 0.16$."
+    ],
+    "stepByStepSolutionAr": [
+      "احتمال التقاطع: $P(A \\cap B) = 0.60 \\times 0.40 = 0.24$.",
+      "احتمال وقوع $B$ فقط: $P(B) - P(A \\cap B) = 0.40 - 0.24 = 0.16$."
+    ],
+    "teacherTipEn": "Alternatively, $P(A' \\mid B) = 1 - 0.60 = 0.40$, so $P(A' \\cap B) = 0.40 \\times 0.40 = 0.16$.",
+    "teacherTipAr": "حل بديل: $P(A' \\mid B) = 1 - 0.60 = 0.40$، إذن $P(A' \\cap B) = 0.40 \\times 0.40 = 0.16$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_53",
+    "titleEn": "Law of Total Probability",
+    "titleAr": "قانون الاحتمال الكلي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Factory Machine 1 produces 60% of daily output with a 2% defect rate. Machine 2 produces 40% with a 5% defect rate. What is the overall probability $P(D)$ that a randomly chosen item is defective?",
+    "questionAr": "تنتج الآلة الأولى بمصنع 60% من الإنتاج اليومي بنسبة معيب 2%. وتنتج الآلة الثانية 40% بنسبة معيب 5%. ما هو الاحتمال الكلي $P(D)$ لأن تكون قطعة مختارة عشوائياً معيبة؟",
+    "optionsEn": [
+      "$0.032$ (or $3.2\\%$)",
+      "$0.035$ (or $3.5\\%$)",
+      "$0.070$ (or $7.0\\%$)",
+      "$0.025$ (or $2.5\\%$)"
+    ],
+    "optionsAr": [
+      "$0.032$ (أو $3.2\\%$)",
+      "$0.035$ (أو $3.5\\%$)",
+      "$0.070$ (أو $7.0\\%$)",
+      "$0.025$ (أو $2.5\\%$)"
+    ],
+    "correctAnswer": "$0.032$ (or $3.2\\%$)",
+    "correctIndex": 0,
+    "hintEn": "By the Law of Total Probability: $P(D) = P(M_1) P(D \\mid M_1) + P(M_2) P(D \\mid M_2)$.",
+    "hintAr": "وفق قانون الاحتمال الكلي: $P(D) = P(M_1) P(D \\mid M_1) + P(M_2) P(D \\mid M_2)$.",
+    "stepByStepSolutionEn": [
+      "Given: $P(M_1) = 0.60, P(D \\mid M_1) = 0.02$.",
+      "Given: $P(M_2) = 0.40, P(D \\mid M_2) = 0.05$.",
+      "Law of Total Probability: $P(D) = (0.60)(0.02) + (0.40)(0.05) = 0.012 + 0.020 = 0.032$ ($3.2\\%$)."
+    ],
+    "stepByStepSolutionAr": [
+      "المعطيات: $P(M_1) = 0.60, P(D \\mid M_1) = 0.02$.",
+      "$P(M_2) = 0.40, P(D \\mid M_2) = 0.05$.",
+      "الاحتمال الكلي: $P(D) = 0.60(0.02) + 0.40(0.05) = 0.012 + 0.020 = 0.032$ ($3.2\\%$)."
+    ],
+    "teacherTipEn": "Notice the overall rate is a weighted average of the two machine defect rates.",
+    "teacherTipAr": "لاحظ أن نسبة المعيب الكلية هي متوسط مرجح لنسبتي المعيب في الآلتين."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_54",
+    "titleEn": "Bayes' Theorem Posterior Probability",
+    "titleAr": "حساب الاحتمال البعدي باستخدام مبرهنة بايز",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the factory above, an item selected at random is found to be defective ($D$). What is the probability $P(M_2 \\mid D)$ that it was produced by Machine 2?",
+    "questionAr": "في المصنع السابق، اختيرت قطعة عشوائياً ووُجدت معيبة ($D$). ما احتمال $P(M_2 \\mid D)$ أن تكون هذه القطعة من إنتاج الآلة الثانية؟",
+    "optionsEn": [
+      "$0.625$ (or $62.5\\%$)",
+      "$0.375$ (or $37.5\\%$)",
+      "$0.500$ (or $50.0\\%$)",
+      "$0.400$ (or $40.0\\%$)"
+    ],
+    "optionsAr": [
+      "$0.625$ (أو $62.5\\%$)",
+      "$0.375$ (أو $37.5\\%$)",
+      "$0.500$ (أو $50.0\\%$)",
+      "$0.400$ (أو $40.0\\%$)"
+    ],
+    "correctAnswer": "$0.625$ (or $62.5\\%$)",
+    "correctIndex": 0,
+    "hintEn": "By Bayes' Theorem: $P(M_2 \\mid D) = \\frac{P(M_2) P(D \\mid M_2)}{P(D)}$.",
+    "hintAr": "وفق مبرهنة بايز: $P(M_2 \\mid D) = \\frac{P(M_2) P(D \\mid M_2)}{P(D)}$.",
+    "stepByStepSolutionEn": [
+      "Numerator: $P(M_2 \\cap D) = P(M_2) P(D \\mid M_2) = 0.40 \\times 0.05 = 0.020$.",
+      "Denominator: Total probability $P(D) = 0.032$.",
+      "Bayes' Formula: $P(M_2 \\mid D) = \\frac{0.020}{0.032} = \\frac{20}{32} = \\frac{5}{8} = 0.625$ ($62.5\\%$)."
+    ],
+    "stepByStepSolutionAr": [
+      "البسط: $P(M_2 \\cap D) = 0.40 \\times 0.05 = 0.020$.",
+      "المقام: الاحتمال الكلي $P(D) = 0.032$.",
+      "صيغة بايز: $P(M_2 \\mid D) = \\frac{0.020}{0.032} = \\frac{5}{8} = 0.625$ ($62.5\\%$)."
+    ],
+    "teacherTipEn": "Although Machine 2 produces only 40% of all items, it accounts for 62.5% of all defective items due to its higher error rate.",
+    "teacherTipAr": "رغم أن الآلة الثانية تنتج 40% فقط من الإنتاج، إلا أنها مسؤولة عن 62.5% من المعيب لارتفاع نسبة خطئها."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_55",
+    "titleEn": "Geometric Distribution First Success Probability",
+    "titleAr": "احتمال أول نجاح في التوزيع الهندسي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A biased coin lands heads with probability $p = 0.20$. What is the probability that the first head occurs on the 3rd toss?",
+    "questionAr": "قطعة نقود غير متزنة يظهر وجهها (صورة) باحتمال $p = 0.20$. ما احتمال أن يظهر أول وجه في الرمية الثالثة؟",
+    "optionsEn": [
+      "$0.128$",
+      "$0.008$",
+      "$0.040$",
+      "$0.256$"
+    ],
+    "optionsAr": [
+      "$0.128$",
+      "$0.008$",
+      "$0.040$",
+      "$0.256$"
+    ],
+    "correctAnswer": "$0.128$",
+    "correctIndex": 0,
+    "hintEn": "The probability of first success on trial $k$ is $P(X = k) = (1 - p)^{k-1} p$.",
+    "hintAr": "احتمال ظهور أول نجاح في المحاولة $k$ هو $P(X = k) = (1 - p)^{k-1} p$.",
+    "stepByStepSolutionEn": [
+      "Here $p = 0.20$ and failure probability $q = 1 - 0.20 = 0.80$.",
+      "For $k = 3$: two failures followed by one success.",
+      "$P(X = 3) = q^2 \\cdot p = (0.80)^2 \\times 0.20 = 0.64 \\times 0.20 = 0.128$."
+    ],
+    "stepByStepSolutionAr": [
+      "احتمال الفشل: $q = 1 - 0.20 = 0.80$.",
+      "للمحاولة الثالثة: فشلان متبوعان بنجاح واحد.",
+      "$P(X = 3) = (0.80)^2 \\times 0.20 = 0.128$."
+    ],
+    "teacherTipEn": "The expected number of tosses until the first success is $E[X] = \\frac{1}{p} = \\frac{1}{0.20} = 5$ tosses.",
+    "teacherTipAr": "متوسط عدد الرميات حتى أول نجاح هو $E[X] = \\frac{1}{p} = 5$ رميات."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_56",
+    "titleEn": "Binomial Probability of Exactly Three Heads",
+    "titleAr": "احتمال الحصول على 3 صور بالضبط في توزيع ذي الحدين",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A fair coin is tossed 4 times. What is the probability of obtaining exactly 3 heads?",
+    "questionAr": "أُلقيت قطعة نقود متزنة 4 مرات. ما احتمال الحصول على 3 صور بالضبط؟",
+    "optionsEn": [
+      "$0.25$ (or $\\frac{1}{4}$)",
+      "$0.125$ (or $\\frac{1}{8}$)",
+      "$0.375$ (or $\\frac{3}{8}$)",
+      "$0.0625$ (or $\\frac{1}{16}$)"
+    ],
+    "optionsAr": [
+      "$0.25$ (أو $\\frac{1}{4}$)",
+      "$0.125$ (أو $\\frac{1}{8}$)",
+      "$0.375$ (أو $\\frac{3}{8}$)",
+      "$0.0625$ (أو $\\frac{1}{16}$)"
+    ],
+    "correctAnswer": "$0.25$ (or $\\frac{1}{4}$)",
+    "correctIndex": 0,
+    "hintEn": "Formula: $P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$.",
+    "hintAr": "القانون: $P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$.",
+    "stepByStepSolutionEn": [
+      "Here $n = 4$, $k = 3$, and $p = 0.5$.",
+      "Compute: $P(X = 3) = \\binom{4}{3} (0.5)^3 (0.5)^1 = 4 \\times (0.5)^4 = 4 \\times \\frac{1}{16} = \\frac{4}{16} = \\frac{1}{4} = 0.25$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعطيات: $n = 4$، $k = 3$، $p = 0.5$.",
+      "الحساب: $\\binom{4}{3} (0.5)^4 = 4 \\times \\frac{1}{16} = 0.25$."
+    ],
+    "teacherTipEn": "Out of 16 possible outcomes, exactly 4 contain 3 heads: HHHT, HHTH, HTHH, THHH.",
+    "teacherTipAr": "من بين 16 ناتجاً ممكناً، 4 نواتج تحتوي على 3 صور."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_57",
+    "titleEn": "Hypergeometric Sampling Without Replacement",
+    "titleAr": "السحب بدون إحلال (التوزيع فوق الهندسي)",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A bag contains 4 red balls and 6 blue balls. If 2 balls are drawn at random without replacement, what is the probability that both balls are red?",
+    "questionAr": "كيس يحتوي على 4 كرات حمراء و 6 كرات زرقاء. إذا سُحبت كرتان عشوائياً دون إحلال، فما احتمال أن تكون الكرتان حمراوين؟",
+    "optionsEn": [
+      "$\\frac{2}{15}$",
+      "$\\frac{4}{25}$",
+      "$\\frac{1}{5}$",
+      "$\\frac{1}{15}$"
+    ],
+    "optionsAr": [
+      "$\\frac{2}{15}$",
+      "$\\frac{4}{25}$",
+      "$\\frac{1}{5}$",
+      "$\\frac{1}{15}$"
+    ],
+    "correctAnswer": "$\\frac{2}{15}$",
+    "correctIndex": 0,
+    "hintEn": "The number of ways to pick 2 red from 4 is $\\binom{4}{2}$, out of $\\binom{10}{2}$ total ways.",
+    "hintAr": "عدد طرق اختيار كرتين حمراوين هو $\\binom{4}{2}$ من إجمالي طرق $\\binom{10}{2}$.",
+    "stepByStepSolutionEn": [
+      "Ways to choose 2 red: $\\binom{4}{2} = \\frac{4 \\times 3}{2} = 6$.",
+      "Total ways to choose 2 from 10: $\\binom{10}{2} = \\frac{10 \\times 9}{2} = 45$.",
+      "Probability: $\\frac{6}{45} = \\frac{2}{15}$."
+    ],
+    "stepByStepSolutionAr": [
+      "طرق اختيار كرتين حمراوين: $\\binom{4}{2} = 6$.",
+      "إجمالي طرق اختيار كرتين: $\\binom{10}{2} = 45$.",
+      "الاحتمال: $\\frac{6}{45} = \\frac{2}{15}$."
+    ],
+    "teacherTipEn": "Alternatively, use sequential conditional probability: $\\frac{4}{10} \\times \\frac{3}{9} = \\frac{2}{5} \\times \\frac{1}{3} = \\frac{2}{15}$.",
+    "teacherTipAr": "حل بديل بالضرب المتتابع: $\\frac{4}{10} \\times \\frac{3}{9} = \\frac{2}{15}$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_58",
+    "titleEn": "Shared Birth-Month Problem (Complement Counting)",
+    "titleAr": "مسألة شهور الميلاد المشتركة بالعد المتمم",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Three people are chosen at random. Assuming all 12 birth months are equally likely, what is the probability that at least two of them share the same birth month?",
+    "questionAr": "اختير 3 أشخاص عشوائياً. بافتراض أن شهور الميلاد الـ 12 متساوية الاحتمال، ما احتمال أن يشترك اثنان منهم على الأقل في نفس شهر الميلاد؟",
+    "optionsEn": [
+      "$\\frac{17}{72} \\approx 0.236$",
+      "$\\frac{55}{72} \\approx 0.764$",
+      "$\\frac{1}{12} \\approx 0.083$",
+      "$\\frac{1}{4} = 0.25$"
+    ],
+    "optionsAr": [
+      "$\\frac{17}{72} \\approx 0.236$",
+      "$\\frac{55}{72} \\approx 0.764$",
+      "$\\frac{1}{12} \\approx 0.083$",
+      "$\\frac{1}{4} = 0.25$"
+    ],
+    "correctAnswer": "$\\frac{17}{72} \\approx 0.236$",
+    "correctIndex": 0,
+    "hintEn": "Calculate the probability that all 3 have distinct birth months, then subtract from 1.",
+    "hintAr": "احسب احتمال أن تكون شهور ميلاد الثلاثة مختلفة تماماً ثم اطرح من 1.",
+    "stepByStepSolutionEn": [
+      "Total assignments of months to 3 people: $12^3 = 1728$.",
+      "Assignments with all 3 having distinct months: $12 \\times 11 \\times 10 = 1320$.",
+      "Probability of all distinct months: $\\frac{1320}{1728} = \\frac{110}{144} = \\frac{55}{72}$.",
+      "Probability of at least two sharing a month: $1 - \\frac{55}{72} = \\frac{17}{72} \\approx 0.2361$."
+    ],
+    "stepByStepSolutionAr": [
+      "العدد الكلي للنواتج: $12^3 = 1728$.",
+      "عدد نواتج الشهور المختلفة: $12 \\times 11 \\times 10 = 1320$.",
+      "احتمال اختلاف الشهور: $\\frac{1320}{1728} = \\frac{55}{72}$.",
+      "احتمال اشتراك اثنين على الأقل: $1 - \\frac{55}{72} = \\frac{17}{72} \\approx 0.236$."
+    ],
+    "teacherTipEn": "Complementary counting is the standard method whenever a problem asks for 'at least one' or 'at least two'.",
+    "teacherTipAr": "العد المتمم هو الأسلوب الأمثل دائماً في مسائل 'على الأقل'."
+  },
+  {
+    "id": "egbac_prob_ch1_db_med_59",
+    "titleEn": "Independence vs Mutual Exclusivity",
+    "titleAr": "المقارنة بين الاستقلال والتنافي في الاحتمالات",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $A$ and $B$ be two events with $P(A) > 0$ and $P(B) > 0$. If $A$ and $B$ are mutually exclusive, can they ever be independent?",
+    "questionAr": "ليكن $A$ و $B$ حدثين حيث $P(A) > 0$ و $P(B) > 0$. إذا كان $A$ و $B$ متنافيين، فهل يمكن أن يكونا مستقلين؟",
+    "optionsEn": [
+      "No, never: because $P(A \\cap B) = 0 \\neq P(A)P(B)$",
+      "Yes, always",
+      "Only if $P(A) + P(B) = 1$",
+      "Only if $P(A) = P(B)$"
+    ],
+    "optionsAr": [
+      "لا، يستحيل ذلك: لأن $P(A \\cap B) = 0 \\neq P(A)P(B)$",
+      "نعم، دائماً",
+      "فقط إذا كان $P(A) + P(B) = 1$",
+      "فقط إذا كان $P(A) = P(B)$"
+    ],
+    "correctAnswer": "No, never: because $P(A \\cap B) = 0 \\neq P(A)P(B)$",
+    "correctIndex": 0,
+    "hintEn": "Mutually exclusive means $P(A \\cap B) = 0$. Independence requires $P(A \\cap B) = P(A)P(B) > 0$.",
+    "hintAr": "التنافي يعني $P(A \\cap B) = 0$ بينما الاستقلال يتطلب $P(A \\cap B) = P(A)P(B) > 0$.",
+    "stepByStepSolutionEn": [
+      "If $A$ and $B$ are mutually exclusive, $A \\cap B = \\emptyset \\implies P(A \\cap B) = 0$.",
+      "If $A$ and $B$ are independent, $P(A \\cap B) = P(A) \\cdot P(B)$.",
+      "Since $P(A) > 0$ and $P(B) > 0$, their product is strictly positive: $P(A)P(B) > 0$.",
+      "Since $0 \\neq P(A)P(B)$, two events with non-zero probabilities can NEVER be both mutually exclusive and independent."
+    ],
+    "stepByStepSolutionAr": [
+      "التنافي يعني أن التقاطع مستحيل: $P(A \\cap B) = 0$.",
+      "الاستقلال يقتضي: $P(A \\cap B) = P(A) \\cdot P(B)$.",
+      "بما أن احتماليهما موجبان، فإن حاصل ضربهما موجب تماماً.",
+      "يستحيل أن يتساوى الصفر مع عدد موجب، لذا لا يمكن لحدثين غير مستحيلي الوقوع أن يكونا متنافيين ومستقلين معاً."
+    ],
+    "teacherTipEn": "In fact, mutually exclusive events are maximally dependent: knowing $A$ occurred guarantees $B$ did not!",
+    "teacherTipAr": "في الواقع، الأحداث المتنافية تكون في قمة الاعتمادية: فمعرفة وقوع $A$ تجزم بعدم وقوع $B$ قطيعةً!"
   }
 ],
   hots: [
@@ -5305,6 +5914,308 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_51",
+    "titleEn": "False Positive Paradox in Medical Screening",
+    "titleAr": "مفارقة الإيجابية الكاذبة في الفحص الطبي (مبرهنة بايز)",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rare disease has a prevalence of $0.1\\%$ ($P(D) = 0.001$). A diagnostic test has $99\\%$ sensitivity ($P(+ \\mid D) = 0.99$) and $95\\%$ specificity ($P(- \\mid D') = 0.95$, so false positive rate is $5\\%$). If a randomly selected person tests positive, what is the probability $P(D \\mid +)$ that they actually have the disease?",
+    "questionAr": "مرض نادر تبلغ نسبة انتشاره $0.1\\%$ ($P(D) = 0.001$). اختبار طبي حساسيته $99\\%$ ونوعيته $95\\%$ (أي نسبة الإيجابية الكاذبة $5\\%$). إذا أظهر فحص شخص مختار عشوائياً نتيجة إيجابية، فما احتمال $P(D \\mid +)$ أن يكون مصاباً بالمرض فعلاً؟",
+    "optionsEn": [
+      "$\\approx 1.94\\%$",
+      "$\\approx 95.0\\%$",
+      "$\\approx 99.0\\%$",
+      "$\\approx 50.0\\%$"
+    ],
+    "optionsAr": [
+      "$\\approx 1.94\\%$",
+      "$\\approx 95.0\\%$",
+      "$\\approx 99.0\\%$",
+      "$\\approx 50.0\\%$"
+    ],
+    "correctAnswer": "$\\approx 1.94\\%$",
+    "correctIndex": 0,
+    "hintEn": "Apply Bayes' Rule: $P(D \\mid +) = \\frac{P(D)P(+ \\mid D)}{P(D)P(+ \\mid D) + P(D')P(+ \\mid D')}$.",
+    "hintAr": "طبق قاعدة بايز: $P(D \\mid +) = \\frac{P(D)P(+ \\mid D)}{P(D)P(+ \\mid D) + P(D')P(+ \\mid D')}$.",
+    "stepByStepSolutionEn": [
+      "True positive contribution: $P(D) \\times P(+ \\mid D) = 0.001 \\times 0.99 = 0.00099$.",
+      "False positive contribution: $P(D') \\times P(+ \\mid D') = 0.999 \\times 0.05 = 0.04995$.",
+      "Total positive probability: $P(+) = 0.00099 + 0.04995 = 0.05094$.",
+      "Posterior probability: $P(D \\mid +) = \\frac{0.00099}{0.05094} \\approx 0.01943 = 1.94\\%$."
+    ],
+    "stepByStepSolutionAr": [
+      "احتمال الإيجابي الحقيقي: $0.001 \\times 0.99 = 0.00099$.",
+      "احتمال الإيجابي الكاذب: $0.999 \\times 0.05 = 0.04995$.",
+      "إجمالي الاحتمال الإيجابي: $0.00099 + 0.04995 = 0.05094$.",
+      "الاحتمال البعدي للإصابة: $\\frac{0.00099}{0.05094} \\approx 1.94\\%$."
+    ],
+    "teacherTipEn": "Because the disease is so rare, false positives from the large healthy population massively outnumber the true positives.",
+    "teacherTipAr": "لندرة المرض، يفوق عدد الإيجابيات الكاذبة من الأصحاء عدد الإيجابيات الحقيقية بكثير، مما يجعل الاحتمال أقل من 2%."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_52",
+    "titleEn": "Generalized Monty Hall Problem with 4 Doors",
+    "titleAr": "مسألة مونتي هول المعممة بأربعة أبواب",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In a game show with 4 doors (1 car, 3 goats), you pick Door 1. The host, who knows what is behind each door, opens TWO other doors that reveal goats. Should you switch to the remaining closed door, and what is your probability of winning by switching?",
+    "questionAr": "في برنامج مسابقات به 4 أبواب (سيارة واحدة، و 3 ماعز)، اخترت الباب 1. قام المقدم الذي يعرف ما وراء الأبواب بفتح بابين آخرين كلاهما به ماعز. هل يجب أن تبدل إلى الباب المغلق المتبقي، وما احتمال فوزك بالسيارة عند التبديل؟",
+    "optionsEn": [
+      "Switch, with winning probability $\\frac{3}{4} = 75\\%$",
+      "Stay, with winning probability $\\frac{3}{4} = 75\\%$",
+      "Doesn't matter, winning probability is $\\frac{1}{2} = 50\\%$",
+      "Switch, with winning probability $\\frac{2}{3} \\approx 66.7\\%$"
+    ],
+    "optionsAr": [
+      "التبديل، باحتمال فوز $\\frac{3}{4} = 75\\%$",
+      "البقاء، باحتمال فوز $\\frac{3}{4} = 75\\%$",
+      "لا فارق، احتمال الفوز هو $\\frac{1}{2} = 50\\%$",
+      "التبديل، باحتمال فوز $\\frac{2}{3} \\approx 66.7\\%$"
+    ],
+    "correctAnswer": "Switch, with winning probability $\\frac{3}{4} = 75\\%$",
+    "correctIndex": 0,
+    "hintEn": "Your initial choice had a $\\frac{1}{4}$ chance of being correct. The remaining $1 - \\frac{1}{4} = \\frac{3}{4}$ probability concentrates entirely on the single remaining closed door.",
+    "hintAr": "اختيارك المبدئي احتماله $\\frac{1}{4}$. يتركز الاحتمال المتبقي $1 - \\frac{1}{4} = \\frac{3}{4}$ بالكامل في الباب المتبقي.",
+    "stepByStepSolutionEn": [
+      "Probability the car is behind your chosen door is $P(\\text{Door 1}) = \\frac{1}{4}$.",
+      "Probability the car is behind one of the other 3 doors is $1 - \\frac{1}{4} = \\frac{3}{4}$.",
+      "The host intentionally eliminates two goat doors among the unchosen three.",
+      "The entire $\\frac{3}{4}$ probability mass of the unchosen doors collapses onto the single remaining closed door.",
+      "Switching wins with probability $\\frac{3}{4} = 75\\%$."
+    ],
+    "stepByStepSolutionAr": [
+      "احتمال وجود السيارة خلف الباب المختار: $\\frac{1}{4}$.",
+      "احتمال وجودها خلف الأبواب الثلاثة الأخرى: $\\frac{3}{4}$.",
+      "حذف المقدم لبابين بهما ماعز يركز احتمال الـ $\\frac{3}{4}$ بالكامل في الباب الأخير المتبقي.",
+      "إذن التبديل يعطي احتمال فوز $\\frac{3}{4} = 75\\%$."
+    ],
+    "teacherTipEn": "With $N$ doors where host opens $N-2$ goats, switching wins with probability $\\frac{N-1}{N}$.",
+    "teacherTipAr": "في مسألة $N$ باباً عندما يفتح المقدم $N-2$ باباً، يكون احتمال الفوز بالتبديل دائماً $\\frac{N-1}{N}$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_53",
+    "titleEn": "Gambler's Ruin Probability in a Fair Game",
+    "titleAr": "احتمال إفلاس المقامر في لعبة عادلة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A gambler starts with an initial fortune of 20 units and plays a fair game ($p = 0.5$ of winning 1 unit, $0.5$ of losing 1 unit) until either reaching 100 units or going broke (ruin at $0$). What is the probability of eventual ruin?",
+    "questionAr": "مقامر يبدأ برصيد 20 وحدة ويلعب لعبة عادلة (احتمال ربح وحدة واحدة هو $0.5$ وخسارة وحدة هو $0.5$) حتى يصل إلى 100 وحدة أو يفلس (رصيد $0$). ما احتمال إفلاسه في نهاية المطاف؟",
+    "optionsEn": [
+      "$0.80$ (or $80\\%$)",
+      "$0.20$ (or $20\\%$)",
+      "$0.50$ (or $50\\%$)",
+      "$0.90$ (or $90\\%$)"
+    ],
+    "optionsAr": [
+      "$0.80$ (أو $80\\%$)",
+      "$0.20$ (أو $20\\%$)",
+      "$0.50$ (أو $50\\%$)",
+      "$0.90$ (أو $90\\%$)"
+    ],
+    "correctAnswer": "$0.80$ (or $80\\%$)",
+    "correctIndex": 0,
+    "hintEn": "In a fair game, the probability of reaching target $N$ from initial fortune $i$ is $\\frac{i}{N}$. Ruin is $1 - \\frac{i}{N}$.",
+    "hintAr": "في اللعبة العادلة، احتمال بلوغ الهدف $N$ من رصيد $i$ هو $\\frac{i}{N}$، واحتمال الإفلاس هو $1 - \\frac{i}{N}$.",
+    "stepByStepSolutionEn": [
+      "Here initial wealth $i = 20$ and absorbing barrier $N = 100$.",
+      "For a fair random walk, the fortune is a martingale, so $E[X_T] = i = 20$.",
+      "Let $P(\\text{reach } 100) = p_{\\text{win}}$. Then $100 \\cdot p_{\\text{win}} + 0 \\cdot (1 - p_{\\text{win}}) = 20 \\implies p_{\\text{win}} = \\frac{20}{100} = 0.20$.",
+      "The probability of ruin is $P(\\text{ruin}) = 1 - p_{\\text{win}} = 1 - 0.20 = 0.80$ ($80\\%$)."
+    ],
+    "stepByStepSolutionAr": [
+      "الرصيد الابتدائي $i = 20$ والهدف $N = 100$.",
+      "في اللعبة العادلة، احتمال الوصول للهدف هو $\\frac{i}{N} = \\frac{20}{100} = 0.20$.",
+      "احتمال الإفلاس: $1 - 0.20 = 0.80$ ($80\\%$)."
+    ],
+    "teacherTipEn": "If the target $N \\to \\infty$, the probability of ruin in a fair game becomes 1.",
+    "teacherTipAr": "إذا كان الخصم يمتلك رصيداً لا نهائياً ($N \\to \\infty$)، فإن احتمال الإفلاس يصبح 1 حتماً."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_54",
+    "titleEn": "Coupon Collector's Problem Expected Time",
+    "titleAr": "القيمة المتوقعة لمسألة جامع القسائم",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A cereal box contains one of $n = 5$ distinct collectible toy coupons uniformly at random. What is the expected total number of boxes $E[T]$ you need to buy to collect all 5 distinct coupons?",
+    "questionAr": "تحتوي علبة حبوب على واحدة من $n = 5$ قسائم مختلفة باحتمال متساوٍ. ما هو العدد المتوقع من العلب $E[T]$ التي يجب شراؤها لجمع كل القسائم الـ 5 المختلفة؟",
+    "optionsEn": [
+      "$\\approx 11.42$ boxes (or $\\frac{137}{12}$)",
+      "$5.00$ boxes",
+      "$25.00$ boxes",
+      "$15.00$ boxes"
+    ],
+    "optionsAr": [
+      "$\\approx 11.42$ علبة (أو $\\frac{137}{12}$)",
+      "$5.00$ علب",
+      "$25.00$ علبة",
+      "$15.00$ علبة"
+    ],
+    "correctAnswer": "$\\approx 11.42$ boxes (or $\\frac{137}{12}$)",
+    "correctIndex": 0,
+    "hintEn": "Use harmonic numbers: $E[T] = n \\sum_{i=1}^n \\frac{1}{i} = 5 \\left(1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5}\\right)$.",
+    "hintAr": "استخدم المتسلسلة التوافقية: $E[T] = n \\sum_{i=1}^n \\frac{1}{i} = 5 \\left(1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5}\\right)$.",
+    "stepByStepSolutionEn": [
+      "Let $T_i$ be the time to get the $i$-th new coupon after having $i-1$.",
+      "$T_i$ follows a geometric distribution with success probability $p_i = \\frac{n - (i-1)}{n}$.",
+      "Expected value: $E[T_i] = \\frac{n}{n - i + 1}$.",
+      "Sum for $n = 5$:",
+      "$E[T] = 5 \\left(\\frac{1}{5} + \\frac{1}{4} + \\frac{1}{3} + \\frac{1}{2} + 1\\right) = 5 \\left( \\frac{12 + 15 + 20 + 30 + 60}{60} \\right) = 5 \\times \\frac{137}{60} = \\frac{137}{12} \\approx 11.417$."
+    ],
+    "stepByStepSolutionAr": [
+      "الزمن المتوقع للحصول على القسيمة رقم $i$ يتبع توزيعاً هندسياً بمتوسط $\\frac{n}{n-i+1}$.",
+      "$E[T] = 5 \\left(1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5}\\right)$.",
+      "$E[T] = 5 \\times \\frac{137}{60} = \\frac{137}{12} \\approx 11.42$ علبة."
+    ],
+    "teacherTipEn": "For large $n$, the asymptotic expectation is $n \\ln(n) + \\gamma n$.",
+    "teacherTipAr": "لقيم $n$ الكبيرة، يقترب المتوسط المقارب من $n \\ln(n) + \\gamma n$ حيث $\\gamma$ ثابت أويلر."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_55",
+    "titleEn": "Poisson Approximation to Rare Binomial Events",
+    "titleAr": "تقريب بواسون للأحداث النادرة في ذات الحدين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A textbook of $n = 1000$ pages has a typing error probability $p = 0.002$ per page. Using the Poisson approximation with $\\lambda = n p = 2$, what is the probability that a randomly chosen book has ZERO errors?",
+    "questionAr": "كتاب مدرسي به $n = 1000$ صفحة، احتمال وجود خطأ مطبعي في الصفحة هو $p = 0.002$. باستخدام تقريب بواسون بمتوسط $\\lambda = np = 2$، ما احتمال خلو الكتاب تماماً من الأخطاء المطبعية؟",
+    "optionsEn": [
+      "$e^{-2} \\approx 0.1353$",
+      "$2 e^{-2} \\approx 0.2707$",
+      "$e^{-1} \\approx 0.3679$",
+      "$0.002$"
+    ],
+    "optionsAr": [
+      "$e^{-2} \\approx 0.1353$",
+      "$2 e^{-2} \\approx 0.2707$",
+      "$e^{-1} \\approx 0.3679$",
+      "$0.002$"
+    ],
+    "correctAnswer": "$e^{-2} \\approx 0.1353$",
+    "correctIndex": 0,
+    "hintEn": "The Poisson probability mass function is $P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$. For $k = 0$, $P(X = 0) = e^{-\\lambda}$.",
+    "hintAr": "دالة احتمال بواسون: $P(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}$. عند $k = 0$ تكون $P(X = 0) = e^{-\\lambda}$.",
+    "stepByStepSolutionEn": [
+      "Compute parameter: $\\lambda = n p = 1000 \\times 0.002 = 2$.",
+      "Apply Poisson PMF for $k = 0$:",
+      "$P(X = 0) = \\frac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0.135335$."
+    ],
+    "stepByStepSolutionAr": [
+      "متوسط بواسون: $\\lambda = np = 1000 \\times 0.002 = 2$.",
+      "احتمال الصفر: $P(X = 0) = \\frac{2^0 e^{-2}}{0!} = e^{-2} \\approx 0.1353$."
+    ],
+    "teacherTipEn": "Poisson approximation applies accurately when $n \\ge 100$ and $p \\le 0.01$ with $np$ moderate.",
+    "teacherTipAr": "ينطبق تقريب بواسون بدقة عالية عندما يكون $n \\ge 100$ و $p \\le 0.01$."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_56",
+    "titleEn": "Memoryless Property of the Geometric Distribution",
+    "titleAr": "خاصية فقدان الذاكرة للتوزيع الهندسي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $X$ follow a geometric distribution measuring the trial number of the first success. Which mathematical property defines the memoryless property of $X$?",
+    "questionAr": "ليكن $X$ متغيراً يتبع توزيعاً هندسياً يمثل رقم محاولة أول نجاح. أي علاقة رياضية تعبر عن خاصية 'فقدان الذاكرة' للمتغير $X$؟",
+    "optionsEn": [
+      "$P(X > s + t \\mid X > s) = P(X > t)$ for all integers $s, t \\ge 1$",
+      "$P(X = s + t) = P(X = s) P(X = t)$",
+      "$E[X - s \\mid X > s] = E[X] - s$",
+      "$P(X \\le s + t) = P(X \\le s) + P(X \\le t)$"
+    ],
+    "optionsAr": [
+      "$P(X > s + t \\mid X > s) = P(X > t)$ لجميع الأعداد الصحيحة $s, t \\ge 1$",
+      "$P(X = s + t) = P(X = s) P(X = t)$",
+      "$E[X - s \\mid X > s] = E[X] - s$",
+      "$P(X \\le s + t) = P(X \\le s) + P(X \\le t)$"
+    ],
+    "correctAnswer": "$P(X > s + t \\mid X > s) = P(X > t)$ for all integers $s, t \\ge 1$",
+    "correctIndex": 0,
+    "hintEn": "The geometric distribution is the ONLY discrete distribution with the memoryless property.",
+    "hintAr": "التوزيع الهندسي هو التوزيع المتقطع الوحيد الذي يمتلك خاصية فقدان الذاكرة.",
+    "stepByStepSolutionEn": [
+      "We know $P(X > k) = q^k$ where $q = 1 - p$.",
+      "Conditional probability: $P(X > s + t \\mid X > s) = \\frac{P(X > s + t)}{P(X > s)} = \\frac{q^{s+t}}{q^s} = q^t$.",
+      "Since $P(X > t) = q^t$, we have $P(X > s + t \\mid X > s) = P(X > t)$."
+    ],
+    "stepByStepSolutionAr": [
+      "نعلم أن $P(X > k) = q^k$ حيث $q = 1 - p$.",
+      "الاحتمال الشرطي: $\\frac{P(X > s+t)}{P(X > s)} = \\frac{q^{s+t}}{q^s} = q^t = P(X > t)$.",
+      "هذه هي خاصية فقدان الذاكرة."
+    ],
+    "teacherTipEn": "Its continuous analog is the exponential distribution.",
+    "teacherTipAr": "النظير المتصل للتوزيع الهندسي في خاصية فقدان الذاكرة هو التوزيع الأسي."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_57",
+    "titleEn": "Number of Derangements of Four Items (Subfactorial)",
+    "titleAr": "عدد التباديل اللانقطية (شبه المضروب) لأربعة عناصر",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Four guests leave their hats at a cloakroom. In how many ways can the hats be returned so that NO guest receives their own hat (a complete derangement $!4$)?",
+    "questionAr": "ترك 4 ضيوف قبعاتهم في الأمانات. بكم طريقة يمكن إعادة القبعات بحيث لا يستلم أي ضيف قبعته الأصلية إطلاقاً (تبديل لانقطي كامل $!4$)؟",
+    "optionsEn": [
+      "$9$",
+      "$8$",
+      "$6$",
+      "$12$"
+    ],
+    "optionsAr": [
+      "$9$",
+      "$8$",
+      "$6$",
+      "$12$"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "Use the subfactorial formula $!n = n! \\sum_{k=0}^n \\frac{(-1)^k}{k!}$.",
+    "hintAr": "استخدم صيغة شبه المضروب $!n = n! \\sum_{k=0}^n \\frac{(-1)^k}{k!}$.",
+    "stepByStepSolutionEn": [
+      "Formula for subfactorial $!n$:",
+      "$!4 = 4! \\left( \\frac{1}{0!} - \\frac{1}{1!} + \\frac{1}{2!} - \\frac{1}{3!} + \\frac{1}{4!} \\right)$.",
+      "$!4 = 24 \\left( 1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24} \\right) = 24 \\left( \\frac{12 - 4 + 1}{24} \\right) = 9$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون التباديل اللانقطية (شبه المضروب):",
+      "$!4 = 24 (1 - 1 + \\frac{1}{2} - \\frac{1}{6} + \\frac{1}{24}) = 24 (\\frac{9}{24}) = 9$."
+    ],
+    "teacherTipEn": "The probability of a derangement approaches $\\frac{1}{e} \\approx 0.368$ as $n \\to \\infty$. Here $9/24 = 0.375$.",
+    "teacherTipAr": "احتمال التبديل اللانقطي يؤول إلى $\\frac{1}{e} \\approx 0.368$ عندما تؤول $n$ للانهاية."
+  },
+  {
+    "id": "egbac_prob_ch1_db_hots_58",
+    "titleEn": "Simpson's Paradox in Statistical Association",
+    "titleAr": "مفارقة سيمبسون في الترابط الإحصائي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Which statistical phenomenon occurs when a trend or association that appears in several distinct groups reverses or disappears when the groups are combined?",
+    "questionAr": "أي ظاهرة إحصائية تصف الحالة التي يظهر فيها اتجاه أو ترابط داخل عدة مجموعات منفصلة، ثم ينعكس أو يختفي تماماً عند دمج هذه المجموعات معاً؟",
+    "optionsEn": [
+      "Simpson's Paradox",
+      "Berkson's Fallacy",
+      "Regression to the Mean",
+      "Law of Large Numbers"
+    ],
+    "optionsAr": [
+      "مفارقة سيمبسون",
+      "مغالطة بيركسون",
+      "الانحدار نحو المتوسط",
+      "قانون الأعداد الكبيرة"
+    ],
+    "correctAnswer": "Simpson's Paradox",
+    "correctIndex": 0,
+    "hintEn": "This paradox is caused by a confounding variable and unbalanced allocation between groups.",
+    "hintAr": "تحدث هذه المفارقة بسبب وجود متغير دخيل مضلل (confounding variable) وعدم توازن توزيع العينات.",
+    "stepByStepSolutionEn": [
+      "Simpson's Paradox is a famous phenomenon in probability and statistics where a marginal association differs in direction from conditional associations.",
+      "It arises when a lurking confounding variable affects both the group membership and the outcome variable.",
+      "The classic example is the 1973 UC Berkeley gender admissions study."
+    ],
+    "stepByStepSolutionAr": [
+      "مفارقة سيمبسون ظاهرة شهيرة يختلف فيها الاتجاه الإحصائي الكلي عن الاتجاهات الجزئية داخل كل فئة.",
+      "تنشأ نتيجة وجود متغير مضلل (confounding variable) يوزع العينات بنسب غير متكافئة بين المجموعات.",
+      "المثال التاريخي الأبرز هو دراسة قبول الطلاب بجامعة بيركلي عام 1973."
+    ],
+    "teacherTipEn": "Always check for confounding variables before drawing causal conclusions from aggregated data.",
+    "teacherTipAr": "تحقق دائماً من غياب المتغيرات المضللة قبل استخلاص استنتاجات سببية من بيانات مجمعة."
   }
 ]
 };

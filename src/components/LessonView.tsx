@@ -11,8 +11,10 @@ import { InteractiveStaticsFriction } from './InteractiveStaticsFriction';
 import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
+import { InteractiveMatrixLab } from './InteractiveMatrixLab';
+import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -45,6 +47,8 @@ export const LessonView: React.FC<Props> = ({
   const [openSolutions, setOpenSolutions] = useState<Record<string, boolean>>({});
   const [databankDifficulty, setDatabankDifficulty] = useState<'easy' | 'medium' | 'hots'>('easy');
   const [filterBookmarkedOnly, setFilterBookmarkedOnly] = useState<boolean>(false);
+  const [labActivity, setLabActivity] = useState<'simulator' | 'desmos' | 'discovery'>('simulator');
+  const [discoveryChecks, setDiscoveryChecks] = useState<Record<string, boolean>>({});
 
   // Student Interactive Practice & Bookmarking State (saved in localStorage)
   const [userAnswers, setUserAnswers] = useState<Record<string, number>>(() => {
@@ -131,6 +135,10 @@ export const LessonView: React.FC<Props> = ({
           return <InteractiveNormalDistribution lang={lang} theme={theme} />;
         case 'dynamics_motion':
           return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
+        case 'matrix_solver':
+          return <InteractiveMatrixLab lang={lang} theme={theme} />;
+        case 'work_energy':
+          return <InteractiveWorkEnergyLab lang={lang} theme={theme} />;
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -1267,22 +1275,313 @@ export const LessonView: React.FC<Props> = ({
         </div>
       )}
 
-      {/* 🎮 TAB 4: 3D & INTERACTIVE LAB */}
+      {/* 🎮 TAB 4: 3D & INTERACTIVE LAB SUITE */}
       {activeSubTab === 'interactive' && (
         <div className="space-y-6">
-          <div className={`rounded-2xl p-4 sm:p-6 shadow-2xl border ${
+          {/* Lab Suite Header & Activity Selector */}
+          <div className={`rounded-2xl p-5 sm:p-6 shadow-2xl border transition-all ${
             isLight
               ? 'bg-white border-slate-200 text-slate-900'
               : 'bg-slate-900/90 border-slate-800 text-slate-100'
           }`}>
-            <h3 className={`text-lg font-bold mb-2 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
-              {lang === 'ar' ? lesson.interactiveWidget.titleAr : lesson.interactiveWidget.titleEn}
-            </h3>
-            <p className={`text-xs mb-6 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-              {lang === 'ar' ? lesson.interactiveWidget.descriptionAr : lesson.interactiveWidget.descriptionEn}
-            </p>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-200 dark:border-slate-800">
+              <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+                    {lang === 'ar' ? 'مختبر الأنشطة التطبيقية' : 'Experimental Laboratory Suite'}
+                  </span>
+                  <span className="text-xs text-slate-400">• 3 {lang === 'ar' ? 'أنشطة استكشافية متكاملة' : 'Interactive Lab Modes'}</span>
+                </div>
+                <h3 className={`text-xl font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                  {lang === 'ar' ? lesson.interactiveWidget.titleAr : lesson.interactiveWidget.titleEn}
+                </h3>
+                <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                  {lang === 'ar' ? lesson.interactiveWidget.descriptionAr : lesson.interactiveWidget.descriptionEn}
+                </p>
+              </div>
 
-            {renderInteractiveWidget()}
+              {/* Activity Selector Tabs */}
+              <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setLabActivity('simulator')}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    labActivity === 'simulator'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                  }`}
+                >
+                  <FlaskConical className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'المحاكي التفاعلي' : 'Virtual Simulator'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLabActivity('desmos')}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    labActivity === 'desmos'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                  }`}
+                >
+                  <Calculator className="w-4 h-4" />
+                  <span>{lang === 'ar' ? (is3D ? 'ديسموس 3D' : 'ديسموس 2D') : (is3D ? 'Desmos 3D Studio' : 'Desmos 2D Studio')}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLabActivity('discovery')}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    labActivity === 'discovery'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                  }`}
+                >
+                  <Microscope className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'بروتوكول الاكتشاف' : 'Discovery Protocol'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* ACTIVITY 1: VIRTUAL SIMULATOR */}
+            {labActivity === 'simulator' && (
+              <div className="pt-5 space-y-4">
+                {renderInteractiveWidget()}
+              </div>
+            )}
+
+            {/* ACTIVITY 2: DESMOS DYNAMIC CANVAS */}
+            {labActivity === 'desmos' && (
+              <div className="pt-5 space-y-4">
+                <div className={`p-4 rounded-xl border ${
+                  isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800'
+                }`}>
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400">
+                        <Calculator className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold">
+                          {lang === 'ar'
+                            ? (is3D ? 'مختبر ديسموس ثلاثي الأبعاد المدمج' : 'مختبر ديسموس الرسومي المدمج')
+                            : (is3D ? 'Embedded Desmos 3D Laboratory' : 'Embedded Desmos 2D Graphing Canvas')}
+                        </h4>
+                        <p className="text-xs text-slate-400">
+                          {lang === 'ar'
+                            ? 'جرّب كتابة المعادلات واستكشاف المنحنيات والمستويات، أو انقر لنسخ أي صيغة مقترحة أدناه.'
+                            : 'Explore functions, planes, and parameter sweeps. Click any preset formula below to copy into the canvas.'}
+                        </p>
+                      </div>
+                    </div>
+                    {onOpenDesmos && (
+                      <button
+                        type="button"
+                        onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white transition-all cursor-pointer"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>{lang === 'ar' ? 'فتح في نافذة كاملة' : 'Open Fullscreen'}</span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Preset formula chips */}
+                  <div className="flex flex-wrap gap-2 pt-1 pb-2">
+                    {(is3D
+                      ? [
+                          { label: lang === 'ar' ? 'مستوى فراغي' : '3D Plane', eq: '2x + 3y - z = 6' },
+                          { label: lang === 'ar' ? 'كرة نصف قطرها ٥' : 'Sphere R=5', eq: 'x^2 + y^2 + z^2 = 25' },
+                          { label: lang === 'ar' ? 'سطح سرجي' : 'Saddle Surface', eq: 'z = x^2 - y^2' },
+                          { label: lang === 'ar' ? 'مستوى أفقي' : 'Plane z=4', eq: 'z = 4' }
+                        ]
+                      : branch.id.includes('calc') || branch.id.includes('ana')
+                      ? [
+                          { label: lang === 'ar' ? 'دالة تكعيبية' : 'Cubic Curve', eq: 'f(x) = x^3 - 3x' },
+                          { label: lang === 'ar' ? 'مماس الدالة' : 'Tangent Line', eq: 'y = f\'(1)(x-1) + f(1)' },
+                          { label: lang === 'ar' ? 'المشتقة الأولى' : 'Derivative', eq: 'g(x) = 3x^2 - 3' },
+                          { label: lang === 'ar' ? 'تكامل محدد' : 'Integral', eq: '\\int_{0}^{x} (t^2) dt' }
+                        ]
+                      : branch.id.includes('stat')
+                      ? [
+                          { label: lang === 'ar' ? 'اتزان الاحتكاك' : 'Friction Equilibrium', eq: 'F = \\frac{100 \\cdot 0.25}{\\cos(x) + 0.25\\sin(x)}' },
+                          { label: lang === 'ar' ? 'محصلة قوتين' : 'Resultant R', eq: 'R = \\sqrt{25 + 36 + 60\\cos(x)}' },
+                          { label: lang === 'ar' ? 'منحنى العزم' : 'Moment M(x)', eq: 'M = 50(4-x)' }
+                        ]
+                      : branch.id.includes('dyn') || branch.id.includes('mech')
+                      ? [
+                          { label: lang === 'ar' ? 'مسار المقذوف' : 'Projectile Path', eq: 'y = x\\tan(45) - \\frac{9.8 x^2}{2 \\cdot 400 \\cdot \\cos^2(45)}' },
+                          { label: lang === 'ar' ? 'حركة توافقية' : 'Harmonic Motion', eq: 'x = 4\\cos(2t)' },
+                          { label: lang === 'ar' ? 'طاقة الحركة' : 'Kinetic Energy', eq: 'T = 0.5 \\cdot 2 \\cdot v^2' }
+                        ]
+                      : [
+                          { label: lang === 'ar' ? 'توزيع طبيعي معياري' : 'Normal PDF', eq: 'f(x) = \\frac{1}{\\sqrt{2\\pi}} e^{-x^2/2}' },
+                          { label: lang === 'ar' ? 'دالة تراكمية' : 'Sigmoid CDF', eq: 'P = \\frac{1}{1 + e^{-1.7 x}}' }
+                        ]
+                    ).map((preset, pIdx) => (
+                      <button
+                        key={pIdx}
+                        type="button"
+                        onClick={() => {
+                          navigator.clipboard?.writeText(preset.eq);
+                        }}
+                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs border transition-all cursor-pointer ${
+                          isLight
+                            ? 'bg-white hover:bg-cyan-50 border-slate-300 text-slate-700'
+                            : 'bg-slate-900 hover:bg-cyan-950/40 border-slate-700 text-slate-300'
+                        }`}
+                        title={lang === 'ar' ? 'انقر لنسخ الصيغة' : 'Click to copy formula'}
+                      >
+                        <Copy className="w-3 h-3 text-cyan-400" />
+                        <span className="font-semibold">{preset.label}:</span>
+                        <code className="text-[11px] text-cyan-300">{preset.eq}</code>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Embedded Iframe */}
+                  <div className="relative w-full h-[520px] rounded-xl overflow-hidden border border-slate-700/80 bg-slate-950">
+                    <iframe
+                      src={is3D ? 'https://www.desmos.com/3d?embed' : 'https://www.desmos.com/calculator?embed'}
+                      title="Desmos Interactive Canvas"
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ACTIVITY 3: GUIDED SCIENTIFIC DISCOVERY PROTOCOL */}
+            {labActivity === 'discovery' && (
+              <div className="pt-5 space-y-5">
+                <div className={`p-5 rounded-xl border ${
+                  isLight ? 'bg-indigo-50/50 border-indigo-200' : 'bg-indigo-950/20 border-indigo-800/60'
+                }`}>
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400">
+                        <Microscope className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold text-indigo-300">
+                          {lang === 'ar' ? 'بروتوكول التجربة العلمية والتحقق الرياضي' : 'Guided Scientific Discovery & Theorem Verification'}
+                        </h4>
+                        <p className="text-xs text-slate-400">
+                          {lang === 'ar'
+                            ? 'اتبع خطوات المنهج العلمي لتحقيق أقصى استيعاب مفاهيمي للدرس والربط بأسئلة التفوق في الامتحان الوطني.'
+                            : 'Follow systematic scientific inquiry to verify core mathematical invariants and ace high-order exam questions.'}
+                        </p>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setDiscoveryChecks({})}
+                      className="flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>{lang === 'ar' ? 'إعادة ضبط الملاحظات' : 'Reset Checklist'}</span>
+                    </button>
+                  </div>
+
+                  {/* Progress tracker */}
+                  {(() => {
+                    const totalChecks = 4;
+                    const completed = [1, 2, 3, 4].filter((k) => discoveryChecks[`${lesson.id}_${k}`]).length;
+                    const pct = Math.round((completed / totalChecks) * 100);
+                    return (
+                      <div className="mb-5 p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+                        <div className="flex items-center justify-between text-xs mb-1.5">
+                          <span className="font-bold text-slate-300">
+                            {lang === 'ar' ? 'نسبة إنجاز بروتوكول التجربة:' : 'Discovery Protocol Progress:'}
+                          </span>
+                          <span className="font-mono font-bold text-indigo-400">{completed} / {totalChecks} ({pct}%)</span>
+                        </div>
+                        <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300"
+                            style={{ width: `${pct}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })()}
+
+                  {/* 4 Inquiry Protocol Steps */}
+                  <div className="space-y-3.5">
+                    {[
+                      {
+                        num: 1,
+                        titleEn: 'Phase 1: Baseline Parameter Observation',
+                        titleAr: 'المرحلة الأولى: رصد الحالة المعيارية الابتدائية',
+                        descEn: 'Set all simulation sliders to initial default values. Record the baseline equilibrium, initial derivative/slope, or vector coordinates.',
+                        descAr: 'اضبط كافة المتغيرات في المحاكي على القيم الافتراضية. سجّل نقطة الاتزان الابتدائية، أو ميل المماس الأولي، أو إحداثيات المتجه القياسية.'
+                      },
+                      {
+                        num: 2,
+                        titleEn: 'Phase 2: Boundary & Extreme Values Sweep',
+                        titleAr: 'المرحلة الثانية: مسح الحدود والقيم الحرجة والقصوى',
+                        descEn: 'Push variables to extreme boundaries (e.g. angle theta -> 0 or 90 deg, zero determinant, mass -> max). Observe structural breaks or vanishing coefficients.',
+                        descAr: 'حرّك المتغيرات نحو القيم الطرفية (مثل زاوية تؤول إلى صفر أو ٩٠ درجة، محدد مصفوفة مساوٍ للصفر، أو كتلة عظمى). راقب التحولات الجذرية أو انعدام المعاملات.'
+                      },
+                      {
+                        num: 3,
+                        titleEn: 'Phase 3: Rate of Change & Critical Inflexion',
+                        titleAr: 'المرحلة الثالثة: تحليل معدل التغير ونقاط الانقلاب',
+                        descEn: 'Track how small changes in inputs produce non-linear responses in the outcome. Identify the exact threshold where motion begins or concavity flips.',
+                        descAr: 'تتبع كيف تؤدي التغيرات الطفيفة في المدخلات إلى استجابة غير خطية في النتائج. حدد بدقة النقطة الحرجة التي تبدأ عندها الحركة أو ينقلب عندها التحدب.'
+                      },
+                      {
+                        num: 4,
+                        titleEn: 'Phase 4: Mathematical Synthesis & Exam Theorem Proof',
+                        titleAr: 'المرحلة الرابعة: الاستنتاج الرياضي الصارم والربط بقوانين الامتحان',
+                        descEn: 'Confirm that experimental results match the algebraic theorems taught in the theoretical summary. Formulate the golden exam shortcut rule.',
+                        descAr: 'تأكد من تطابق الملاحظات التجريبية بدقة مع النظريات الجبرية والقوانين الرياضية الواردة في ملخص الدرس، وصغ القاعدة الذهبية لحل المسائل المركبة.'
+                      }
+                    ].map((step) => {
+                      const checkKey = `${lesson.id}_${step.num}`;
+                      const isChecked = !!discoveryChecks[checkKey];
+                      return (
+                        <div
+                          key={step.num}
+                          onClick={() => {
+                            setDiscoveryChecks((prev) => ({ ...prev, [checkKey]: !prev[checkKey] }));
+                          }}
+                          className={`flex items-start gap-3 p-3.5 rounded-xl border transition-all cursor-pointer ${
+                            isChecked
+                              ? 'bg-indigo-500/10 border-indigo-500/40 text-slate-100'
+                              : isLight
+                              ? 'bg-white hover:bg-indigo-50/50 border-slate-200 text-slate-700'
+                              : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 text-slate-300'
+                          }`}
+                        >
+                          <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center shrink-0 border transition-all ${
+                            isChecked
+                              ? 'bg-indigo-600 border-indigo-500 text-white'
+                              : 'border-slate-500 bg-transparent'
+                          }`}>
+                            {isChecked && <Check className="w-3.5 h-3.5" />}
+                          </div>
+                          <div className="flex-1">
+                            <h5 className={`text-xs font-bold ${isChecked ? 'text-indigo-400' : ''}`}>
+                              {lang === 'ar' ? step.titleAr : step.titleEn}
+                            </h5>
+                            <p className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                              {lang === 'ar' ? step.descAr : step.descEn}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

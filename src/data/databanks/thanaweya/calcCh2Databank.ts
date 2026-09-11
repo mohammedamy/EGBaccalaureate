@@ -1,7 +1,7 @@
 import type { ChapterDatabank } from '../../../types/curriculum';
 
 export const calcCh2Databank: ChapterDatabank = {
-  "easy": [
+  easy: [
   {
     "id": "calc_ch2_db_easy_01",
     "titleEn": "Fundamental Limit for Euler's Constant e",
@@ -1299,8 +1299,8 @@ export const calcCh2Databank: ChapterDatabank = {
     "titleEn": "Product Rule with Exponential Function",
     "titleAr": "قاعدة ضرب دالة في دالة أسية",
     "difficulty": "easy",
-    "questionEn": "Compute the derivative $\\frac{dy}{dx}$ for Product Rule with Exponential Function$ if $y = x e^x$.",
-    "questionAr": "احسب المشتقة الأولى صَ (قاعدة ضرب دالة في دالة أسية)$ إذا كانت $y = x e^x$.",
+    "questionEn": "Compute the derivative $\\frac{dy}{dx}$ of $y = x e^x$.",
+    "questionAr": "احسب المشتقة الأولى $\\frac{dy}{dx}$ إذا كانت $y = x e^x$.",
     "optionsEn": [
       "$(x + 1)e^x$",
       "$x e^x$",
@@ -1701,9 +1701,287 @@ export const calcCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Direct curriculum application.",
     "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_51",
+    "titleEn": "Euler Limit with Reciprocal Argument",
+    "titleAr": "نهاية العدد النيبيري بأس مقلوب",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (1 + 3x)^{2/x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (1 + 3x)^{2/x}$.",
+    "optionsEn": [
+      "$e^6$",
+      "$e^5$",
+      "$e^3$",
+      "$e^2$"
+    ],
+    "optionsAr": [
+      "$e^6$",
+      "$e^5$",
+      "$e^3$",
+      "$e^2$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$e^6$",
+    "hintEn": "Use the formula $\\lim_{x \\to 0} (1 + ax)^{b/x} = e^{ab}$.",
+    "hintAr": "استخدم القانون $\\lim_{x \\to 0} (1 + ax)^{b/x} = e^{ab}$.",
+    "teacherTipEn": "Notice that the product of the coefficient of $x$ inside and the numerator of the power gives the exponent directly.",
+    "teacherTipAr": "حاصل ضرب معامل $x$ بالداخل في بسط الأس يعطي أس العدد $e$ مباشرة.",
+    "stepByStepSolutionEn": [
+      "Rewrite expression: $[(1 + 3x)^{1/(3x)}]^6$.",
+      "Since $\\lim_{x \\to 0} (1 + 3x)^{1/(3x)} = e$, the limit is $e^6$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة المقدار: $[(1 + 3x)^{1/(3x)}]^6$.",
+      "بما أن $\\lim_{x \\to 0} (1 + 3x)^{1/(3x)} = e$، فإن النهاية تساوي $e^6$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_52",
+    "titleEn": "Derivative of Natural Logarithm Quotient",
+    "titleAr": "مشتقة لوغاريتم طبيعي لحاصل قسمة",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative of $y = \\ln\\left(\\frac{x+2}{x-2}\\right)$ with respect to $x$.",
+    "questionAr": "أوجد مشتقة $y = \\ln\\left(\\frac{x+2}{x-2}\\right)$ بالنسبة إلى $x$.",
+    "optionsEn": [
+      "$-\\frac{4}{x^2 - 4}$",
+      "$\\frac{4}{x^2 - 4}$",
+      "$-\\frac{2}{x^2 - 4}$",
+      "$\\frac{2x}{x^2 - 4}$"
+    ],
+    "optionsAr": [
+      "$-\\frac{4}{x^2 - 4}$",
+      "$\\frac{4}{x^2 - 4}$",
+      "$-\\frac{2}{x^2 - 4}$",
+      "$\\frac{2x}{x^2 - 4}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$-\\frac{4}{x^2 - 4}$",
+    "hintEn": "Expand $\\ln(a/b) = \\ln(a) - \\ln(b)$ before taking the derivative.",
+    "hintAr": "فك $\\ln(a/b) = \\ln(a) - \\ln(b)$ قبل إجراء الاشتقاق.",
+    "teacherTipEn": "Logarithmic properties simplify differentiation drastically; never differentiate a complex fraction inside a log directly.",
+    "teacherTipAr": "استخدام خواص اللوغاريتمات يبسط الاشتقاق كثيراً؛ لا تشتق كسراً معقداً بداخل اللوغاريتم مباشرة أبداً.",
+    "stepByStepSolutionEn": [
+      "Expand: $y = \\ln(x+2) - \\ln(x-2)$.",
+      "Differentiate: $y' = \\frac{1}{x+2} - \\frac{1}{x-2}$.",
+      "Common denominator: $y' = \\frac{(x-2) - (x+2)}{(x+2)(x-2)} = -\\frac{4}{x^2 - 4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "تفكيك اللوغاريتم: $y = \\ln(x+2) - \\ln(x-2)$.",
+      "الاشتقاق: $y' = \\frac{1}{x+2} - \\frac{1}{x-2}$.",
+      "توحيد المقامات: $y' = -\\frac{4}{x^2 - 4}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_53",
+    "titleEn": "Derivative of Exponential with Quadratic Power",
+    "titleAr": "مشتقة دالة أسية ذات أس تربيعي",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative of $f(x) = e^{3x^2 - 5x}$ at $x = 1$.",
+    "questionAr": "أوجد مشتقة الدالة $f(x) = e^{3x^2 - 5x}$ عند $x = 1$.",
+    "optionsEn": [
+      "$e^{-2}$",
+      "$-e^{-2}$",
+      "$6e^{-2}$",
+      "$-5e^{-2}$"
+    ],
+    "optionsAr": [
+      "$e^{-2}$",
+      "$-e^{-2}$",
+      "$6e^{-2}$",
+      "$-5e^{-2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$e^{-2}$",
+    "hintEn": "Recall $\\frac{d}{dx}[e^{u}] = e^u \\cdot u'$.",
+    "hintAr": "تذكر أن $\\frac{d}{dx}[e^{u}] = e^u \\cdot u'$.",
+    "teacherTipEn": "Keep the exponential term untouched and multiply by the derivative of the exponent.",
+    "teacherTipAr": "اترك الدالة الأسية كما هي واضرب في مشتقة الأس.",
+    "stepByStepSolutionEn": [
+      "Apply chain rule: $f'(x) = (6x - 5)e^{3x^2 - 5x}$.",
+      "Evaluate at $x = 1$: $f'(1) = (6 - 5)e^{3 - 5} = e^{-2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "تطبيق قاعدة السلسلة: $f'(x) = (6x - 5)e^{3x^2 - 5x}$.",
+      "التعويض عند $x = 1$: $f'(1) = (1)e^{-2} = e^{-2}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_54",
+    "titleEn": "Standard Limit of General Exponential Base",
+    "titleAr": "النهاية القياسية لأساس أسي عام",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{5^x - 1}{x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{5^x - 1}{x}$.",
+    "optionsEn": [
+      "$\\ln(5)$",
+      "$\\log_{10}(5)$",
+      "$5$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$\\ln(5)$",
+      "$\\log_{10}(5)$",
+      "$5$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\ln(5)$",
+    "hintEn": "Recall $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintAr": "تذكر أن $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "teacherTipEn": "Natural logarithm $\\ln(a)$ is the base-$e$ log, not the common base-10 log.",
+    "teacherTipAr": "اللوغاريتم الناتج هو اللوغاريتم الطبيعي للأساس $e$ وليس العشري.",
+    "stepByStepSolutionEn": [
+      "Identify standard limit form: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln(a)$.",
+      "For $a = 5$: result is $\\ln(5)$."
+    ],
+    "stepByStepSolutionAr": [
+      "التعرف على الصورة القياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln(a)$.",
+      "بالتعويض عن $a = 5$: الناتج هو $\\ln(5)$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_55",
+    "titleEn": "Integration Producing Natural Logarithm",
+    "titleAr": "تكامل يؤدي إلى اللوغاريتم الطبيعي",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x + 3}{x^2 + 3x - 5} \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x + 3}{x^2 + 3x - 5} \\, dx$.",
+    "optionsEn": [
+      "$\\ln|x^2 + 3x - 5| + C$",
+      "$\\frac{1}{2}\\ln|x^2 + 3x - 5| + C$",
+      "$2\\ln|x^2 + 3x - 5| + C$",
+      "$\\ln|2x + 3| + C$"
+    ],
+    "optionsAr": [
+      "$\\ln|x^2 + 3x - 5| + C$",
+      "$\\frac{1}{2}\\ln|x^2 + 3x - 5| + C$",
+      "$2\\ln|x^2 + 3x - 5| + C$",
+      "$\\ln|2x + 3| + C$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\ln|x^2 + 3x - 5| + C$",
+    "hintEn": "Check if the numerator is the derivative of the denominator.",
+    "hintAr": "تحقق مما إذا كان البسط هو مشتقة المقام.",
+    "teacherTipEn": "Always test if the numerator is a scalar multiple of the derivative of the denominator first.",
+    "teacherTipAr": "اختبر دائماً ما إذا كان البسط هو مشتقة المقام أو مضاعفاً لها قبل التفكير في طرق تكامل أخرى.",
+    "stepByStepSolutionEn": [
+      "Let $u = x^2 + 3x - 5$, then $du = (2x + 3)dx$.",
+      "The integral becomes $\\int \\frac{du}{u} = \\ln|u| + C$.",
+      "Substitute back: $\\ln|x^2 + 3x - 5| + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "بوضع $u = x^2 + 3x - 5$، نجد $du = (2x + 3)dx$.",
+      "يصبح التكامل $\\int \\frac{du}{u} = \\ln|u| + C$.",
+      "التعويض عن $u$: $\\ln|x^2 + 3x - 5| + C$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_56",
+    "titleEn": "Tangent Line to Exponential Curve at Intercept",
+    "titleAr": "المماس لمنحنى الدالة الأسية عند نقطة التقاطع الصادية",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the tangent to the curve $y = 3e^{2x}$ at its point of intersection with the y-axis.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = 3e^{2x}$ عند نقطة تقاطعه مع محور الصادات.",
+    "optionsEn": [
+      "$6$",
+      "$3$",
+      "$2$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$6$",
+      "$3$",
+      "$2$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$6$",
+    "hintEn": "Intersection with the y-axis occurs when $x = 0$.",
+    "hintAr": "التقاطع مع محور الصادات يحدث عندما $x = 0$.",
+    "teacherTipEn": "Remember $e^0 = 1$, not 0!",
+    "teacherTipAr": "تذكر أن $e^0 = 1$ وليس صفراً!",
+    "stepByStepSolutionEn": [
+      "Intersection with y-axis: $x = 0$.",
+      "Differentiate: $y' = 6e^{2x}$.",
+      "Evaluate at $x = 0$: $y' = 6e^0 = 6$."
+    ],
+    "stepByStepSolutionAr": [
+      "التقاطع مع محور الصادات: $x = 0$.",
+      "الاشتقاق: $y' = 6e^{2x}$.",
+      "التعويض بـ $x = 0$: $y' = 6(1) = 6$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_57",
+    "titleEn": "Indefinite Integral of Exponential with Linear Argument",
+    "titleAr": "تكامل دالة أسية ذات أس خطي",
+    "difficulty": "easy",
+    "questionEn": "Evaluate: $\\int 4 e^{5x - 1} \\, dx$.",
+    "questionAr": "احسب: $\\int 4 e^{5x - 1} \\, dx$.",
+    "optionsEn": [
+      "$\\frac{4}{5} e^{5x - 1} + C$",
+      "$20 e^{5x - 1} + C$",
+      "$\\frac{5}{4} e^{5x - 1} + C$",
+      "$4 e^{5x - 1} + C$"
+    ],
+    "optionsAr": [
+      "$\\frac{4}{5} e^{5x - 1} + C$",
+      "$20 e^{5x - 1} + C$",
+      "$\\frac{5}{4} e^{5x - 1} + C$",
+      "$4 e^{5x - 1} + C$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{4}{5} e^{5x - 1} + C$",
+    "hintEn": "Divide by the coefficient of $x$ in the linear exponent.",
+    "hintAr": "اقسم على معامل $x$ الموجود في الأس الخطي.",
+    "teacherTipEn": "In integration of $e^{ax+b}$, you divide by $a$, whereas in differentiation you multiply by $a$.",
+    "teacherTipAr": "في تكامل $e^{ax+b}$ نقسم على المعامل $a$، بينما في التفاضل نضرب فيه.",
+    "stepByStepSolutionEn": [
+      "Use formula $\\int e^{kx+c} dx = \\frac{1}{k}e^{kx+c} + C$.",
+      "Apply with constant multiple 4 and $k = 5$: $\\frac{4}{5}e^{5x-1} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "طبق القاعدة: $\\int e^{kx+c} dx = \\frac{1}{k}e^{kx+c} + C$.",
+      "الناتج بضرب الثابت 4 والقسمة على 5: $\\frac{4}{5}e^{5x-1} + C$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_easy_58",
+    "titleEn": "Limit of Natural Logarithm Ratio",
+    "titleAr": "نهاية نسبة اللوغاريتم الطبيعي",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\ln(1 + 4x)}{x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\ln(1 + 4x)}{x}$.",
+    "optionsEn": [
+      "$4$",
+      "$1$",
+      "$e^4$",
+      "$\\frac{1}{4}$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$1$",
+      "$e^4$",
+      "$\\frac{1}{4}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$4$",
+    "hintEn": "Multiply and divide the denominator by 4 to match the argument.",
+    "hintAr": "اضرب واقسم في المقام على 4 لتطابق زاوية اللوغاريتم.",
+    "teacherTipEn": "Equivalently, this is the derivative of $\\ln(1+4x)$ at $x=0$, which is $\\frac{4}{1+0} = 4$.",
+    "teacherTipAr": "بالمثل، هذه النهاية تمثل مشتقة $\\ln(1+4x)$ عند $x = 0$ وقيمتها 4.",
+    "stepByStepSolutionEn": [
+      "Rewrite: $\\lim_{x \\to 0} 4 \\cdot \\frac{\\ln(1 + 4x)}{4x}$.",
+      "As $x \\to 0$, $4x \\to 0$, so the limit is $4(1) = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة النهاية: $\\lim_{x \\to 0} 4 \\cdot \\frac{\\ln(1 + 4x)}{4x}$.",
+      "عندما $x \\to 0$ فإن $4x \\to 0$، والناتج $4(1) = 4$."
+    ]
   }
 ],
-  "medium": [
+  medium: [
   {
     "id": "calc_ch2_db_med_51",
     "titleEn": "Limit of Rational Form Raised to Power x",
@@ -3403,9 +3681,341 @@ export const calcCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Standard Thanaweya Amma exam level question.",
     "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_101",
+    "titleEn": "Logarithmic Differentiation of Variable Base and Exponent",
+    "titleAr": "الاشتقاق اللوغاريتمي لمتغير مرفوع لمتغير",
+    "difficulty": "medium",
+    "questionEn": "If $y = x^x$ for $x > 0$, find the slope of the tangent at $x = e$.",
+    "questionAr": "إذا كان $y = x^x$ حيث $x > 0$، فأوجد ميل المماس عند $x = e$.",
+    "optionsEn": [
+      "$2 e^e$",
+      "$e^e$",
+      "$e \\cdot e^e$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$2 e^e$",
+      "$e^e$",
+      "$e \\cdot e^e$",
+      "$0$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2 e^e$",
+    "hintEn": "Apply logarithmic differentiation by taking $\\ln$ of both sides first.",
+    "hintAr": "طبق الاشتقاق اللوغاريتمي بأخذ $\\ln$ للطرفين أولاً.",
+    "teacherTipEn": "Whenever you see $[f(x)]^{g(x)}$, standard power or exponential rules do NOT apply; you must use logarithmic differentiation.",
+    "teacherTipAr": "كلما كان المتغير في الأساس والأس $[f(x)]^{g(x)}$، لا تطبق قواعد القوى أو الأس العادي، بل الاشتقاق اللوغاريتمي حصراً.",
+    "stepByStepSolutionEn": [
+      "Take log: $\\ln y = x \\ln x$.",
+      "Differentiate: $\\frac{y'}{y} = \\ln x + 1$.",
+      "Solve for $y'$: $y' = x^x(1 + \\ln x)$.",
+      "Evaluate at $x = e$: $y' = e^e(1 + 1) = 2e^e$."
+    ],
+    "stepByStepSolutionAr": [
+      "أخذ اللوغاريتم: $\\ln y = x \\ln x$.",
+      "الاشتقاق: $\\frac{y'}{y} = 1 + \\ln x$.",
+      "حساب $y'$: $y' = x^x(1 + \\ln x)$.",
+      "التعويض عند $x = e$: $y' = 2e^e$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_102",
+    "titleEn": "Definite Integral of Tangent via Logarithm",
+    "titleAr": "تكامل محدد لدالة الظل باستخدام اللوغاريتم",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral: $\\int_{0}^{\\pi/4} \\tan(x) \\, dx$.",
+    "questionAr": "احسب التكامل المحدد: $\\int_{0}^{\\pi/4} \\tan(x) \\, dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}\\ln(2)$",
+      "$\\ln(2)$",
+      "$\\frac{1}{2}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{2}\\ln(2)$",
+      "$\\ln(2)$",
+      "$\\frac{1}{2}$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{1}{2}\\ln(2)$",
+    "hintEn": "Write $\\tan x = \\frac{\\sin x}{\\cos x}$ and integrate to $\\ln|\\sec x|$.",
+    "hintAr": "اكتب $\\tan x = \\frac{\\sin x}{\\cos x}$ وتكاملها هو $\\ln|\\sec x|$.",
+    "teacherTipEn": "Remember that $\\ln(\\sqrt{2}) = \\frac{1}{2}\\ln(2)$ using power properties of logarithms.",
+    "teacherTipAr": "تذكر أن $\\ln(\\sqrt{2}) = \\frac{1}{2}\\ln(2)$ باستخدام خواص قوى اللوغاريتم.",
+    "stepByStepSolutionEn": [
+      "Antiderivative of $\\tan x$ is $\\ln|\\sec x|$.",
+      "Upper limit: $\\ln|\\sec(\\pi/4)| = \\ln(\\sqrt{2})$.",
+      "Lower limit: $\\ln|\\sec(0)| = \\ln(1) = 0$.",
+      "Subtract: $\\ln(\\sqrt{2}) = \\frac{1}{2}\\ln(2)$."
+    ],
+    "stepByStepSolutionAr": [
+      "الدالة المقابلة لـ $\\tan x$ هي $\\ln|\\sec x|$.",
+      "الحد العلوي: $\\ln(\\sqrt{2})$.",
+      "الحد السفلي: $\\ln(1) = 0$.",
+      "الناتج: $\\ln(\\sqrt{2}) = \\frac{1}{2}\\ln(2)$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_103",
+    "titleEn": "Limit with Difference of Exponentials",
+    "titleAr": "نهاية فرق دالتين أسيتين",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{e^{5x} - e^{2x}}{x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{e^{5x} - e^{2x}}{x}$.",
+    "optionsEn": [
+      "$3$",
+      "$5$",
+      "$2$",
+      "$7$"
+    ],
+    "optionsAr": [
+      "$3$",
+      "$5$",
+      "$2$",
+      "$7$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$3$",
+    "hintEn": "Split into two standard limits: $\\frac{e^{5x}-1}{x} - \\frac{e^{2x}-1}{x}$.",
+    "hintAr": "قسم المقدار إلى نهايتين قياسيتين بطرح وإضافة 1.",
+    "teacherTipEn": "Alternatively, factor out $e^{2x}$: $e^{2x} \\cdot \\frac{e^{3x} - 1}{x} \\to 1 \\times 3 = 3$.",
+    "teacherTipAr": "بالمثل، إخراج $e^{2x}$ عاملاً مشتركاً يعطي $e^{2x}\\frac{e^{3x}-1}{x} \\to 1 \\times 3 = 3$.",
+    "stepByStepSolutionEn": [
+      "Rewrite: $\\lim_{x \\to 0} \\left[ \\frac{e^{5x} - 1}{x} - \\frac{e^{2x} - 1}{x} \\right]$.",
+      "Apply standard limits: $5 - 2 = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة المقدار: $\\lim_{x \\to 0} [\\frac{e^{5x}-1}{x} - \\frac{e^{2x}-1}{x}]$.",
+      "تطبيق النهايات القياسية: $5 - 2 = 3$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_104",
+    "titleEn": "Tangent Line Perpendicular to Coordinate Line",
+    "titleAr": "مماس عمودي على مستقيم معطى لمنحنى لوغاريتمي",
+    "difficulty": "medium",
+    "questionEn": "Find the x-coordinate of the point on the curve $y = \\ln(2x - 1)$ where the tangent line is perpendicular to the line $x + 6y - 5 = 0$.",
+    "questionAr": "أوجد الإحداثي السيني للنقطة على المنحنى $y = \\ln(2x - 1)$ التي يكون عندها المماس عمودياً على المستقيم $x + 6y - 5 = 0$.",
+    "optionsEn": [
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{1}{3}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{1}{3}$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{2}{3}$",
+    "hintEn": "Find the slope of the given line, then take its negative reciprocal.",
+    "hintAr": "احسب ميل المستقيم المعطى، ثم خذ المعكوس الجمعي لمقلوبه.",
+    "teacherTipEn": "Always check that the resulting $x$ is in the domain of $\\ln(2x-1)$ ($2x - 1 > 0 \\implies x > 0.5$). Since $\\frac{2}{3} > 0.5$, it is valid.",
+    "teacherTipAr": "تحقق دائماً أن $x$ تقع في مجال الدالة اللوغاريتمية ($x > 0.5$). بما أن $\\frac{2}{3} > 0.5$، فالحل مقبول.",
+    "stepByStepSolutionEn": [
+      "Slope of given line: $m = -1/6 \\implies m_T = 6$.",
+      "Differentiate curve: $y' = \\frac{2}{2x - 1}$.",
+      "Solve $\\frac{2}{2x - 1} = 6 \\implies 2x - 1 = 1/3 \\implies x = 2/3$."
+    ],
+    "stepByStepSolutionAr": [
+      "ميل المستقيم: $-1/6 \\implies m_T = 6$.",
+      "مشتقة المنحنى: $y' = \\frac{2}{2x - 1}$.",
+      "حل المعادلة: $\\frac{2}{2x - 1} = 6 \\implies x = 2/3$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_105",
+    "titleEn": "Integration by Substitution with Logarithm in Denominator",
+    "titleAr": "تكامل بالتعويض بوجود لوغاريتم في المقام",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x \\ln(x) \\ln(\\ln x)} \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x \\ln(x) \\ln(\\ln x)} \\, dx$.",
+    "optionsEn": [
+      "$\\ln|\\ln(\\ln x)| + C$",
+      "$\\frac{1}{2}[\\ln(\\ln x)]^2 + C$",
+      "$\\ln|\\ln x| + C$",
+      "$\\frac{1}{\\ln(\\ln x)} + C$"
+    ],
+    "optionsAr": [
+      "$\\ln|\\ln(\\ln x)| + C$",
+      "$\\frac{1}{2}[\\ln(\\ln x)]^2 + C$",
+      "$\\ln|\\ln x| + C$",
+      "$\\frac{1}{\\ln(\\ln x)} + C$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\ln|\\ln(\\ln x)| + C$",
+    "hintEn": "Notice that $\\frac{d}{dx}[\\ln(\\ln x)] = \\frac{1}{x \\ln x}$.",
+    "hintAr": "لاحظ أن مشتقة $\\ln(\\ln x)$ هي $\\frac{1}{x \\ln x}$.",
+    "teacherTipEn": "A beautiful iterated logarithm integral: each $\\ln$ in the denominator serves as the derivative factor for the next.",
+    "teacherTipAr": "تكامل لوغاريتمي تكراري رائع: كل لوغاريتم يمثل معامل اشتقاق للوغاريتم الأعمق.",
+    "stepByStepSolutionEn": [
+      "Substitute $u = \\ln(\\ln x)$.",
+      "Differential: $du = \\frac{1}{x \\ln x} dx$.",
+      "Integrate: $\\int \\frac{1}{u} du = \\ln|u| + C$.",
+      "Substitute back: $\\ln|\\ln(\\ln x)| + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "نفرض $u = \\ln(\\ln x)$.",
+      "التفاضلي: $du = \\frac{1}{x \\ln x} dx$.",
+      "إجراء التكامل: $\\int \\frac{du}{u} = \\ln|u| + C$.",
+      "التعويض عن $u$: $\\ln|\\ln(\\ln x)| + C$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_106",
+    "titleEn": "Related Rates with Exponential Growth",
+    "titleAr": "معدلات زمنية مع نمو أسي",
+    "difficulty": "medium",
+    "questionEn": "A bacteria culture grows according to the law $N(t) = 500 e^{0.2 t}$, where $t$ is measured in hours. At what rate is the population increasing at $t = 5\\text{ hours}$?",
+    "questionAr": "تنمو مستعمرة بكتيريا وفق القانون $N(t) = 500 e^{0.2 t}$ حيث $t$ بالساعات. ما معدل تزايد عدد البكتيريا عند $t = 5\\text{ ساعات}$؟",
+    "optionsEn": [
+      "$100 e\\text{ bacteria/hr}$",
+      "$500 e\\text{ bacteria/hr}$",
+      "$50 e\\text{ bacteria/hr}$",
+      "$100\\text{ bacteria/hr}$"
+    ],
+    "optionsAr": [
+      "$100 e\\text{ بكتيريا/ساعة}$",
+      "$500 e\\text{ بكتيريا/ساعة}$",
+      "$50 e\\text{ بكتيريا/ساعة}$",
+      "$100\\text{ بكتيريا/ساعة}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$100 e\\text{ bacteria/hr}$",
+    "hintEn": "Differentiate $N(t)$ with respect to $t$.",
+    "hintAr": "اشتق $N(t)$ بالنسبة للزمن $t$.",
+    "teacherTipEn": "In exponential models $N(t) = N_0 e^{kt}$, the rate of change is always directly proportional to the current population: $N'(t) = k N(t)$.",
+    "teacherTipAr": "في نماذج النمو الأسي، يتناسب معدل التغير طردياً مع الحجم الحالي للعشيرة: $N'(t) = k N(t)$.",
+    "stepByStepSolutionEn": [
+      "Differentiate: $N'(t) = 500(0.2)e^{0.2t} = 100e^{0.2t}$.",
+      "Substitute $t = 5$: $N'(5) = 100e^{1} = 100e$."
+    ],
+    "stepByStepSolutionAr": [
+      "الاشتقاق: $N'(t) = 100e^{0.2t}$.",
+      "التعويض عن $t = 5$: $N'(5) = 100e$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_107",
+    "titleEn": "Critical Point of Logarithmic Product",
+    "titleAr": "النقطة الحرجة لحاصل ضرب لوغاريتمي",
+    "difficulty": "medium",
+    "questionEn": "Find the x-coordinate of the stationary point of the function $f(x) = x^2 \\ln(x)$ for $x > 0$.",
+    "questionAr": "أوجد الإحداثي السيني للنقطة الحرجة للدالة $f(x) = x^2 \\ln(x)$ حيث $x > 0$.",
+    "optionsEn": [
+      "$\\frac{1}{\\sqrt{e}}$",
+      "$\\frac{1}{e}$",
+      "$\\sqrt{e}$",
+      "$e$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{\\sqrt{e}}$",
+      "$\\frac{1}{e}$",
+      "$\\sqrt{e}$",
+      "$e$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{1}{\\sqrt{e}}$",
+    "hintEn": "Use product rule to find $f'(x)$ and solve $f'(x) = 0$.",
+    "hintAr": "استخدم قاعدة مشتقة الضرب لحساب $f'(x)$ ثم حل $f'(x) = 0$.",
+    "teacherTipEn": "Remember that $e^{-1/2} = \\frac{1}{e^{1/2}} = \\frac{1}{\\sqrt{e}}$.",
+    "teacherTipAr": "تذكر أن $e^{-1/2} = \\frac{1}{\\sqrt{e}}$.",
+    "stepByStepSolutionEn": [
+      "Differentiate: $f'(x) = 2x \\ln x + x$.",
+      "Factor: $f'(x) = x(2\\ln x + 1)$.",
+      "Set $f'(x) = 0$: $2\\ln x = -1 \\implies \\ln x = -1/2$.",
+      "Exponentiate: $x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الاشتقاق: $f'(x) = 2x\\ln x + x$.",
+      "التحليل: $f'(x) = x(2\\ln x + 1)$.",
+      "وضع $f'(x) = 0$: $\\ln x = -1/2$.",
+      "التحويل للصورة الأسية: $x = \\frac{1}{\\sqrt{e}}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_108",
+    "titleEn": "Indefinite Integral of Rational Transcendental Expression",
+    "titleAr": "تكامل كسر يحتوي على دالة أسية في المقام",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{1 + e^x} \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{1 + e^x} \\, dx$.",
+    "optionsEn": [
+      "$x - \\ln(1 + e^x) + C$",
+      "$\\ln(1 + e^x) + C$",
+      "$-e^{-x} + C$",
+      "$\\frac{1}{1 + e^x} + C$"
+    ],
+    "optionsAr": [
+      "$x - \\ln(1 + e^x) + C$",
+      "$\\ln(1 + e^x) + C$",
+      "$-e^{-x} + C$",
+      "$\\frac{1}{1 + e^x} + C$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$x - \\ln(1 + e^x) + C$",
+    "hintEn": "Write the numerator as $(1 + e^x) - e^x$ to split the fraction.",
+    "hintAr": "اكتب البسط على الصورة $(1 + e^x) - e^x$ لتجزئة الكسر.",
+    "teacherTipEn": "Adding and subtracting $e^x$ in the numerator is the cleanest algebraic trick for integrating $\\frac{1}{1+e^x}$.",
+    "teacherTipAr": "إضافة وطرح $e^x$ في البسط هي أذكى حيلة جبرية لتكامل $\\frac{1}{1+e^x}$.",
+    "stepByStepSolutionEn": [
+      "Rewrite integrand: $\\frac{1}{1+e^x} = \\frac{(1+e^x) - e^x}{1+e^x} = 1 - \\frac{e^x}{1+e^x}$.",
+      "Integrate first term: $\\int 1 \\, dx = x$.",
+      "Integrate second term: $\\int \\frac{e^x}{1+e^x} \\, dx = \\ln(1+e^x)$.",
+      "Combine: $x - \\ln(1+e^x) + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "تجزئة الكسر: $\\frac{1}{1+e^x} = 1 - \\frac{e^x}{1+e^x}$.",
+      "تكامل الحد الأول: $\\int 1 dx = x$.",
+      "تكامل الحد الثاني: $\\int \\frac{e^x}{1+e^x} dx = \\ln(1+e^x)$.",
+      "الناتج النهائي: $x - \\ln(1+e^x) + C$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_med_109",
+    "titleEn": "Tangent Line to Logarithmic Curve Passing Through Origin",
+    "titleAr": "مماس للمنحنى اللوغاريتمي يمر بنقطة الأصل",
+    "difficulty": "medium",
+    "questionEn": "Find the equation of the tangent line to the curve $y = \\ln(x)$ that passes through the origin $(0, 0)$.",
+    "questionAr": "أوجد معادلة المماس لمنحنى الدالة $y = \\ln(x)$ المار بنقطة الأصل $(0, 0)$.",
+    "optionsEn": [
+      "$y = \\frac{1}{e} x$",
+      "$y = e x$",
+      "$y = x$",
+      "$y = \\frac{1}{2e} x$"
+    ],
+    "optionsAr": [
+      "$y = \\frac{1}{e} x$",
+      "$y = e x$",
+      "$y = x$",
+      "$y = \\frac{1}{2e} x$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$y = \\frac{1}{e} x$",
+    "hintEn": "Equate the derivative $1/x_0$ to the slope from the origin $\\frac{\\ln x_0}{x_0}$.",
+    "hintAr": "ساوِ المشتقة $1/x_0$ بالميل من نقطة الأصل $\\frac{\\ln x_0}{x_0}$.",
+    "teacherTipEn": "This classic tangent establishes the fundamental inequality $\\ln(x) \\leq \\frac{x}{e}$ for all $x > 0$.",
+    "teacherTipAr": "هذا المماس الشهير يثبت المتراجحة الأساسية $\\ln(x) \\leq \\frac{x}{e}$ لجميع $x > 0$.",
+    "stepByStepSolutionEn": [
+      "Slope from derivative: $m = 1/x_0$.",
+      "Slope from origin: $m = \\frac{\\ln x_0}{x_0}$.",
+      "Equate: $1/x_0 = \\frac{\\ln x_0}{x_0} \\implies \\ln x_0 = 1 \\implies x_0 = e$.",
+      "Equation: $y = \\frac{1}{e} x$."
+    ],
+    "stepByStepSolutionAr": [
+      "الميل من المشتقة: $m = 1/x_0$.",
+      "الميل من نقطة الأصل: $m = \\frac{\\ln x_0}{x_0}$.",
+      "المساواة: $\\ln x_0 = 1 \\implies x_0 = e$.",
+      "معادلة المستقيم: $y = \\frac{1}{e}x$."
+    ]
   }
 ],
-  "hots": [
+  hots: [
   {
     "id": "calc_ch2_db_hots_101",
     "titleEn": "Geometric Mean Power Limit as x Approaches Zero",
@@ -5198,6 +5808,310 @@ export const calcCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Revolving an improper exponential region yields a finite, beautifully compact volume.",
     "teacherTipAr": "دوران منطقة أسية غير محدودة يعطي حجماً منتهياً مدمجاً يساوي ط/4."
+  },
+  {
+    "id": "calc_ch2_db_hots_151",
+    "titleEn": "Generalized Euler Limit with Trigonometric Argument",
+    "titleAr": "نهاية نيبيرية معممة مع دالة مثلثية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+    "optionsEn": [
+      "$e^{-1/2}$",
+      "$e^{-1}$",
+      "$e^{1/2}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$e^{-1/2}$",
+      "$e^{-1}$",
+      "$e^{1/2}$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$e^{-1/2}$",
+    "hintEn": "Take $\\ln$ of the limit and evaluate $\\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
+    "hintAr": "خذ $\\ln$ للنهاية واحسب $\\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
+    "teacherTipEn": "Using $\\cos x = 1 - (1 - \\cos x) \\approx 1 - x^2/2$ gives $(1 - x^2/2)^{1/x^2} \\to e^{-1/2}$ in one line!",
+    "teacherTipAr": "استخدام المتطابقة $\\cos x \\approx 1 - x^2/2$ يوصلك لـ $(1 - x^2/2)^{1/x^2} \\to e^{-1/2}$ في سطر واحد!",
+    "stepByStepSolutionEn": [
+      "Take $\\ln$: $\\ln L = \\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
+      "Apply L'Hopital's rule: $\\lim_{x \\to 0} \\frac{-\\tan x}{2x} = -\\frac{1}{2}$.",
+      "Exponentiate: $L = e^{-1/2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "أخذ اللوغاريتم: $\\ln L = \\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
+      "تطبيق لوبيتال: $\\lim_{x \\to 0} \\frac{-\\tan x}{2x} = -\\frac{1}{2}$.",
+      "الناتج النهائي: $L = e^{-1/2}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_152",
+    "titleEn": "Definite Integral of Symmetric Exponential Function",
+    "titleAr": "تكامل محدد لدالة كسرية أسية متماثلة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{-2}^{2} \\frac{x^4}{1 + e^x} \\, dx$.",
+    "questionAr": "احسب التكامل المحدد: $\\int_{-2}^{2} \\frac{x^4}{1 + e^x} \\, dx$.",
+    "optionsEn": [
+      "$\\frac{32}{5}$",
+      "$\\frac{64}{5}$",
+      "$\\frac{16}{5}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$\\frac{32}{5}$",
+      "$\\frac{64}{5}$",
+      "$\\frac{16}{5}$",
+      "$0$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{32}{5}$",
+    "hintEn": "Use King's property: $\\int_{-a}^a f(x) dx = \\int_{-a}^a f(-x) dx$, then add the two integrals.",
+    "hintAr": "استخدم خاصية انعكاس حدود التكامل: $\\int_{-a}^a f(x)dx = \\int_{-a}^a f(-x)dx$ ثم اجمع التكاملين.",
+    "teacherTipEn": "The identity $\\frac{1}{1+e^x} + \\frac{1}{1+e^{-x}} = 1$ is an indispensable tool in competitive calculus integrals.",
+    "teacherTipAr": "المتطابقة $\\frac{1}{1+e^x} + \\frac{1}{1+e^{-x}} = 1$ هي سر التخلص من المقامات الأسية في التكاملات المتماثلة.",
+    "stepByStepSolutionEn": [
+      "Let $I = \\int_{-2}^{2} \\frac{x^4}{1+e^x} dx$.",
+      "Replace $x$ with $-x$: $I = \\int_{-2}^{2} \\frac{x^4 e^x}{1+e^x} dx$.",
+      "Add: $2I = \\int_{-2}^{2} x^4 \\left(\\frac{1+e^x}{1+e^x}\\right) dx = \\int_{-2}^{2} x^4 dx$.",
+      "Evaluate: $I = \\int_0^2 x^4 dx = \\frac{32}{5}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بفرض التكامل $I$.",
+      "بالتعويض عن $x$ بـ $-x$: نحصل على صورة مكافئة $I = \\int_{-2}^2 \\frac{x^4 e^x}{1+e^x} dx$.",
+      "جمع المعادلتين: $2I = \\int_{-2}^2 x^4 dx$.",
+      "حساب الناتج: $I = [\\frac{x^5}{5}]_0^2 = \\frac{32}{5}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_153",
+    "titleEn": "Infinite Power Tower Derivative",
+    "titleAr": "مشتقة برج القوى اللانهائي",
+    "difficulty": "hots",
+    "questionEn": "If $y = x^{x^{x^{\\dots}}}$ (an infinite tower of powers) for valid $x$, find the value of $\\frac{dy}{dx}$ at the point where $y = 2$.",
+    "questionAr": "إذا كان $y = x^{x^{x^{\\dots}}}$ (برج قوى لانهائي) لقيم $x$ المناسبة، فأوجد قيمة $\\frac{dy}{dx}$ عند النقطة التي يكون عندها $y = 2$.",
+    "optionsEn": [
+      "$\\frac{4}{\\sqrt{2}(1 - 2\\ln\\sqrt{2})}$",
+      "$\\frac{2}{\\sqrt{2}(1 - \\ln 2)}$",
+      "$\\frac{4}{1 - \\ln 2}$",
+      "$2\\sqrt{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{4}{\\sqrt{2}(1 - 2\\ln\\sqrt{2})}$",
+      "$\\frac{2}{\\sqrt{2}(1 - \\ln 2)}$",
+      "$\\frac{4}{1 - \\ln 2}$",
+      "$2\\sqrt{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{4}{\\sqrt{2}(1 - 2\\ln\\sqrt{2})}$",
+    "hintEn": "Recognize self-similarity: $y = x^y$. Take $\\ln$ of both sides and differentiate implicitly.",
+    "hintAr": "استفد من التشابه الذاتي: $y = x^y$. خذ اللوغاريتم للطرفين واشتق ضمنياً.",
+    "teacherTipEn": "Infinite towers converge if and only if $e^{-e} \\leq x \\leq e^{1/e}$. Here $x = \\sqrt{2} \\approx 1.414 < e^{1/e} \\approx 1.444$, so it is well within the convergence range!",
+    "teacherTipAr": "برج القوى اللانهائي يتقارب فقط إذا كان $e^{-e} \\leq x \\leq e^{1/e}$، وهنا $x = \\sqrt{2} \\approx 1.414$ وهو يقع تماماً داخل نطاق التقارب!",
+    "stepByStepSolutionEn": [
+      "Self-similar identity: $y = x^y$.",
+      "Take log: $\\ln y = y \\ln x$.",
+      "When $y = 2$: $2 = x^2 \\implies x = \\sqrt{2}$.",
+      "Differentiate: $\\frac{y'}{y} = y' \\ln x + \\frac{y}{x} \\implies y' = \\frac{y^2}{x(1 - y\\ln x)}$.",
+      "Substitute values: $y' = \\frac{4}{\\sqrt{2}(1 - 2\\ln\\sqrt{2})}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلة الذاتية: $y = x^y$.",
+      "أخذ اللوغاريتم: $\\ln y = y\\ln x$.",
+      "عند $y = 2$ نجد $x = \\sqrt{2}$.",
+      "الاشتقاق الضمني: $y' = \\frac{y^2}{x(1 - y\\ln x)}$.",
+      "التعويض: $y' = \\frac{4}{\\sqrt{2}(1 - 2\\ln\\sqrt{2})}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_154",
+    "titleEn": "Integration by Parts: Logarithmic Product",
+    "titleAr": "تكامل بالتجزيء لحاصل ضرب لوغاريتمي",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{1}^{e} x [\\ln(x)]^2 \\, dx$.",
+    "questionAr": "احسب التكامل المحدد: $\\int_{1}^{e} x [\\ln(x)]^2 \\, dx$.",
+    "optionsEn": [
+      "$\\frac{e^2 - 1}{4}$",
+      "$\\frac{e^2 + 1}{4}$",
+      "$\\frac{e^2}{4}$",
+      "$\\frac{e^2 - 1}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{e^2 - 1}{4}$",
+      "$\\frac{e^2 + 1}{4}$",
+      "$\\frac{e^2}{4}$",
+      "$\\frac{e^2 - 1}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{e^2 - 1}{4}$",
+    "hintEn": "Apply integration by parts twice with $u = (\\ln x)^2$ then $u = \\ln x$.",
+    "hintAr": "طبق التكامل بالتجزيء مرتين بوضع $u = (\\ln x)^2$ أولاً ثم $u = \\ln x$.",
+    "teacherTipEn": "Setting $x = e^t$ transforms the integral to $\\int_0^1 t^2 e^{2t} dt$, which is often easier to compute via tabular integration.",
+    "teacherTipAr": "التعويض $x = e^t$ يحول التكامل إلى $\\int_0^1 t^2 e^{2t} dt$، والذي يمكن حله بالجدول بكل سهولة.",
+    "stepByStepSolutionEn": [
+      "First parts: $u = (\\ln x)^2, dv = x dx \\implies \\frac{x^2}{2}(\\ln x)^2 - \\int x \\ln x dx$.",
+      "Second parts: $\\int x \\ln x dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4}$.",
+      "Antiderivative: $F(x) = \\frac{x^2}{2}(\\ln x)^2 - \\frac{x^2}{2}\\ln x + \\frac{x^2}{4}$.",
+      "Evaluate from 1 to $e$: $\\frac{e^2}{4} - \\frac{1}{4} = \\frac{e^2 - 1}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "التجزيء الأول: $u = (\\ln x)^2, dv = x dx \\implies \\frac{x^2}{2}(\\ln x)^2 - \\int x\\ln x dx$.",
+      "التجزيء الثاني: $\\int x\\ln x dx = \\frac{x^2}{2}\\ln x - \\frac{x^2}{4}$.",
+      "الدالة المقابلة: $F(x) = \\frac{x^2}{2}(\\ln x)^2 - \\frac{x^2}{2}\\ln x + \\frac{x^2}{4}$.",
+      "التعويض بحدود التكامل: $\\frac{e^2 - 1}{4}$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_155",
+    "titleEn": "Common Tangency between Line and Exponential Curve",
+    "titleAr": "شرط تماس مستقيم لمنحنى أسي",
+    "difficulty": "hots",
+    "questionEn": "Find the positive value of $k$ such that the line $y = kx$ is tangent to the exponential curve $y = e^{2x}$.",
+    "questionAr": "أوجد القيمة الموجبة للثابت $k$ التي تجعل المستقيم $y = kx$ مماساً للمنحنى الأسي $y = e^{2x}$.",
+    "optionsEn": [
+      "$2e$",
+      "$e$",
+      "$e^2$",
+      "$\\frac{e}{2}$"
+    ],
+    "optionsAr": [
+      "$2e$",
+      "$e$",
+      "$e^2$",
+      "$\\frac{e}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2e$",
+    "hintEn": "Set curve value equal to line value: $e^{2x} = kx$, and derivatives equal: $2e^{2x} = k$.",
+    "hintAr": "ساوِ قيمة الدالة بمعادلة المستقيم $e^{2x} = kx$، والمشتقات $2e^{2x} = k$.",
+    "teacherTipEn": "Equating $f(x) = g(x)$ and $f'(x) = g'(x)$ is the standard algebraic procedure for common tangency.",
+    "teacherTipAr": "مساواة $f(x) = g(x)$ مع مساواة المشتقات $f'(x) = g'(x)$ هي الطريقة الجبرية النموذجية لإيجاد شروط التماس.",
+    "stepByStepSolutionEn": [
+      "Equate values: $kx_0 = e^{2x_0}$.",
+      "Equate slopes: $k = 2e^{2x_0}$.",
+      "Substitute $k$: $2x_0 e^{2x_0} = e^{2x_0} \\implies x_0 = 1/2$.",
+      "Find $k$: $k = 2e^{2(1/2)} = 2e$."
+    ],
+    "stepByStepSolutionAr": [
+      "تساوي القيم: $kx_0 = e^{2x_0}$.",
+      "تساوي الميول: $k = 2e^{2x_0}$.",
+      "التعويض: $2x_0 e^{2x_0} = e^{2x_0} \\implies x_0 = 1/2$.",
+      "حساب $k$: $k = 2e$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_156",
+    "titleEn": "Limit of Power with Exponential Difference",
+    "titleAr": "نهاية أسية لفرق دوال أسية عند اللانهاية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{n \\to \\infty} \\left(\\frac{n+3}{n-1}\\right)^n$.",
+    "questionAr": "احسب النهاية: $\\lim_{n \\to \\infty} \\left(\\frac{n+3}{n-1}\\right)^n$.",
+    "optionsEn": [
+      "$e^4$",
+      "$e^3$",
+      "$e^2$",
+      "$e$"
+    ],
+    "optionsAr": [
+      "$e^4$",
+      "$e^3$",
+      "$e^2$",
+      "$e$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$e^4$",
+    "hintEn": "Divide numerator and denominator by $n$: $\\lim_{n \\to \\infty} \\frac{(1 + 3/n)^n}{(1 - 1/n)^n}$.",
+    "hintAr": "اقسم كلاً من البسط والمقام على $n$: $\\lim_{n \\to \\infty} \\frac{(1 + 3/n)^n}{(1 - 1/n)^n}$.",
+    "teacherTipEn": "Notice that the difference between the constant terms $3 - (-1) = 4$ directly gives the exponent of $e$.",
+    "teacherTipAr": "لاحظ أن الفرق بين حدي الثوابت $3 - (-1) = 4$ يعطي أس العدد النيبيري $e$ مباشرة.",
+    "stepByStepSolutionEn": [
+      "Rewrite: $\\lim_{n \\to \\infty} \\frac{(1 + 3/n)^n}{(1 - 1/n)^n}$.",
+      "Numerator limit: $e^3$.",
+      "Denominator limit: $e^{-1}$.",
+      "Quotient: $e^3 / e^{-1} = e^4$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة الكسر: $\\lim_{n \\to \\infty} \\frac{(1 + 3/n)^n}{(1 - 1/n)^n}$.",
+      "نهاية البسط: $e^3$.",
+      "نهاية المقام: $e^{-1}$.",
+      "قسمة النهايتين: $e^3 / e^{-1} = e^4$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_157",
+    "titleEn": "Definite Integral with Exponential and Derivative Sum",
+    "titleAr": "تكامل محدد لدالة أسية مضروبة في مجموع دالة ومشتقتها",
+    "difficulty": "hots",
+    "questionEn": "Evaluate: $\\int_{0}^{1} \\frac{x e^x}{(1+x)^2} \\, dx$.",
+    "questionAr": "احسب: $\\int_{0}^{1} \\frac{x e^x}{(1+x)^2} \\, dx$.",
+    "optionsEn": [
+      "$\\frac{e}{2} - 1$",
+      "$\\frac{e}{2}$",
+      "$e - 1$",
+      "$\\frac{e - 1}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{e}{2} - 1$",
+      "$\\frac{e}{2}$",
+      "$e - 1$",
+      "$\\frac{e - 1}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{e}{2} - 1$",
+    "hintEn": "Decompose $\\frac{x}{(1+x)^2} = \\frac{1}{1+x} - \\frac{1}{(1+x)^2}$ and use $\\int e^x [f(x) + f'(x)] dx = e^x f(x)$.",
+    "hintAr": "فكك $\\frac{x}{(1+x)^2} = \\frac{1}{1+x} - \\frac{1}{(1+x)^2}$ واستخدم قاعدة $\\int e^x [f(x) + f'(x)] dx = e^x f(x)$.",
+    "teacherTipEn": "The form $\\int e^x [f(x) + f'(x)] dx = e^x f(x) + C$ is one of the most elegant and frequently tested patterns in advanced calculus!",
+    "teacherTipAr": "الصورة $\\int e^x [f(x) + f'(x)] dx = e^x f(x) + C$ من أجمل الأنماط وأكثرها تكراراً في امتحانات التفاضل المتقدمة!",
+    "stepByStepSolutionEn": [
+      "Decompose: $\\frac{x}{(1+x)^2} = \\frac{1}{1+x} - \\frac{1}{(1+x)^2}$.",
+      "Identify $f(x) = \\frac{1}{1+x}$, so $f'(x) = -\\frac{1}{(1+x)^2}$.",
+      "Antiderivative: $\\int e^x [f(x) + f'(x)] dx = \\frac{e^x}{1+x}$.",
+      "Evaluate from 0 to 1: $\\frac{e}{2} - 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "تفكيك الكسر: $\\frac{x}{(1+x)^2} = \\frac{1}{1+x} - \\frac{1}{(1+x)^2}$.",
+      "تحديد الدالة: $f(x) = \\frac{1}{1+x}$ ومشتقتها $f'(x) = -\\frac{1}{(1+x)^2}$.",
+      "الدالة المقابلة: $\\frac{e^x}{1+x}$.",
+      "التعويض: $\\frac{e}{2} - 1$."
+    ]
+  },
+  {
+    "id": "calc_ch2_db_hots_158",
+    "titleEn": "Inflection Point of Gaussian Bell Curve",
+    "titleAr": "نقطة انقلاب لمنحنى غاوسي",
+    "difficulty": "hots",
+    "questionEn": "Find the positive x-coordinate of the inflection point of the Gaussian curve $y = e^{-x^2/2}$.",
+    "questionAr": "أوجد الإحداثي السيني الموجب لنقطة الانقلاب لمنحنى الجرس الغاوسي $y = e^{-x^2/2}$.",
+    "optionsEn": [
+      "$1$",
+      "$\\sqrt{2}$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "$1$",
+      "$\\sqrt{2}$",
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$2$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$1$",
+    "hintEn": "Compute the second derivative $y'' = (x^2 - 1)e^{-x^2/2}$ and solve $y'' = 0$.",
+    "hintAr": "احسب المشتقة الثانية $y'' = (x^2 - 1)e^{-x^2/2}$ ثم حل $y'' = 0$.",
+    "teacherTipEn": "In statistics, the inflection points of the standard normal distribution curve occur exactly at $\\mu \\pm \\sigma = 0 \\pm 1$.",
+    "teacherTipAr": "في الإحصاء، تقع نقطتا الانقلاب للتوزيع الطبيعي المعياري تماماً عند $\\mu \\pm \\sigma = 0 \\pm 1$.",
+    "stepByStepSolutionEn": [
+      "First derivative: $y' = -x e^{-x^2/2}$.",
+      "Second derivative: $y'' = -e^{-x^2/2} + x^2 e^{-x^2/2} = (x^2 - 1)e^{-x^2/2}$.",
+      "Set $y'' = 0 \\implies x^2 - 1 = 0 \\implies x = \\pm 1$.",
+      "Positive x-coordinate is $1$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $y' = -x e^{-x^2/2}$.",
+      "المشتقة الثانية: $y'' = (x^2 - 1)e^{-x^2/2}$.",
+      "وضع $y'' = 0 \\implies x^2 = 1 \\implies x = \\pm 1$.",
+      "الإحداثي السيني الموجب هو $1$."
+    ]
   }
 ]
 };

@@ -1891,6 +1891,302 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
     "teacherTipAr": "لأي دالة خطية ax + b، تكون العلاقة دائماً delta = epsilon / |a|."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_51",
+    "titleEn": "Rational Function Limit at Infinity",
+    "titleAr": "نهاية دالة كسرية عند اللانهاية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to \\infty} \\frac{5x^3 - 2x + 7}{2x^3 + 4x^2 - 1}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to \\infty} \\frac{5x^3 - 2x + 7}{2x^3 + 4x^2 - 1}$.",
+    "optionsEn": [
+      "$\\frac{5}{2}$",
+      "$\\infty$",
+      "$0$",
+      "$-7$"
+    ],
+    "optionsAr": [
+      "$\\frac{5}{2}$",
+      "$\\infty$",
+      "$0$",
+      "$-7$"
+    ],
+    "correctAnswer": "$\\frac{5}{2}$",
+    "correctIndex": 0,
+    "hintEn": "When degrees of numerator and denominator are equal, the limit is the ratio of the leading coefficients.",
+    "hintAr": "عندما تتساوى درجة البسط مع درجة المقام، فإن النهاية تساوي النسبة بين المعاملين الرئيسيين.",
+    "stepByStepSolutionEn": [
+      "Both numerator and denominator have degree 3.",
+      "Divide numerator and denominator by $x^3$:",
+      "$\\lim_{x \\to \\infty} \\frac{5 - \\frac{2}{x^2} + \\frac{7}{x^3}}{2 + \\frac{4}{x} - \\frac{1}{x^3}} = \\frac{5 - 0 + 0}{2 + 0 - 0} = \\frac{5}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "درجة كل من البسط والمقام هي 3.",
+      "بقسمة حدي الكسر على $x^3$:",
+      "$\\lim_{x \\to \\infty} \\frac{5 - \\frac{2}{x^2} + \\frac{7}{x^3}}{2 + \\frac{4}{x} - \\frac{1}{x^3}} = \\frac{5}{2}$."
+    ],
+    "teacherTipEn": "Remember: ratio of leading coefficients when degrees match.",
+    "teacherTipAr": "تذكر: نسبة المعاملات الرئيسية مباشرة عند تساوي درجتي البسط والمقام."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_52",
+    "titleEn": "Trigonometric Limit Ratio",
+    "titleAr": "نهاية مثلثية قياسية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\sin(3x)}{\\tan(5x)}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\sin(3x)}{\\tan(5x)}$.",
+    "optionsEn": [
+      "$\\frac{3}{5}$",
+      "$\\frac{5}{3}$",
+      "$1$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$\\frac{3}{5}$",
+      "$\\frac{5}{3}$",
+      "$1$",
+      "$0$"
+    ],
+    "correctAnswer": "$\\frac{3}{5}$",
+    "correctIndex": 0,
+    "hintEn": "Divide both numerator and denominator by $x$ and use $\\lim_{x \\to 0}\\frac{\\sin(ax)}{x} = a$.",
+    "hintAr": "اقسم البسط والمقام على $x$ واستخدم $\\lim_{x \\to 0}\\frac{\\sin(ax)}{x} = a$.",
+    "stepByStepSolutionEn": [
+      "Rewrite as: $\\lim_{x \\to 0} \\frac{\\frac{\\sin(3x)}{x}}{\\frac{\\tan(5x)}{x}}$.",
+      "Using standard limits: $\\lim_{x \\to 0} \\frac{\\sin(3x)}{x} = 3$ and $\\lim_{x \\to 0} \\frac{\\tan(5x)}{x} = 5$.",
+      "Result is $\\frac{3}{5}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بقسمة البسط والمقام على $x$:",
+      "$\\lim_{x \\to 0} \\frac{\\frac{\\sin(3x)}{x}}{\\frac{\\tan(5x)}{x}} = \\frac{3}{5}$."
+    ],
+    "teacherTipEn": "For small angles near zero, $\\sin(kx) \\approx kx$ and $\\tan(mx) \\approx mx$.",
+    "teacherTipAr": "للزوايا الصغيرة جداً بالقرب من الصفر، $\\sin(kx) \\approx kx$ و $\\tan(mx) \\approx mx$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_53",
+    "titleEn": "Continuity of a Piecewise Function",
+    "titleAr": "اتصال دالة مجزأة المجال",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the value of $k$ that makes $f(x) = \\begin{cases} x^2 - 1 & x \\le 3 \\\\ 2x + k & x > 3 \\end{cases}$ continuous at $x = 3$.",
+    "questionAr": "أوجد قيمة $k$ التي تجعل الدالة $f(x) = \\begin{cases} x^2 - 1 & x \\le 3 \\\\ 2x + k & x > 3 \\end{cases}$ متصلة عند $x = 3$.",
+    "optionsEn": [
+      "$2$",
+      "$8$",
+      "$6$",
+      "$-2$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$8$",
+      "$6$",
+      "$-2$"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "For continuity at $x = 3$, the left-hand limit must equal the right-hand limit: $\\lim_{x \\to 3^-} f(x) = \\lim_{x \\to 3^+} f(x)$.",
+    "hintAr": "لكي تكون الدالة متصلة عند $x = 3$، يجب أن تتساوى النهاية اليسرى مع النهاية اليمنى.",
+    "stepByStepSolutionEn": [
+      "Left-hand limit: $\\lim_{x \\to 3^-} (x^2 - 1) = 3^2 - 1 = 8$.",
+      "Right-hand limit: $\\lim_{x \\to 3^+} (2x + k) = 2(3) + k = 6 + k$.",
+      "Equate them: $6 + k = 8 \\implies k = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "النهاية من اليسار: $3^2 - 1 = 8$.",
+      "النهاية من اليمين: $2(3) + k = 6 + k$.",
+      "بالمساواة: $6 + k = 8 \\implies k = 2$."
+    ],
+    "teacherTipEn": "Continuity requires: $f(c)$ is defined, limit exists, and $\\lim_{x \\to c} f(x) = f(c)$.",
+    "teacherTipAr": "شروط الاتصال الثلاثة: الدالة معرفة، النهاية موجودة، والنهاية تساوي قيمة الدالة."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_54",
+    "titleEn": "Vertical Asymptotes of a Rational Function",
+    "titleAr": "خطوط التقارب الرأسية لدالة كسرية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the vertical asymptotes of the function $f(x) = \\frac{x + 1}{x^2 - 9}$.",
+    "questionAr": "أوجد خطوط التقارب الرأسية للدالة $f(x) = \\frac{x + 1}{x^2 - 9}$.",
+    "optionsEn": [
+      "$x = 3$ and $x = -3$",
+      "$x = -1$",
+      "$x = 9$",
+      "$y = 0$"
+    ],
+    "optionsAr": [
+      "$x = 3$ و $x = -3$",
+      "$x = -1$",
+      "$x = 9$",
+      "$y = 0$"
+    ],
+    "correctAnswer": "$x = 3$ and $x = -3$",
+    "correctIndex": 0,
+    "hintEn": "Vertical asymptotes occur where the denominator is zero while the numerator is non-zero.",
+    "hintAr": "تحدث خطوط التقارب الرأسية عند أصفار المقام التي لا تصفر البسط.",
+    "stepByStepSolutionEn": [
+      "Set denominator to zero: $x^2 - 9 = 0 \\implies (x - 3)(x + 3) = 0 \\implies x = 3$ or $x = -3$.",
+      "Check numerator: at $x = 3$, $3 + 1 = 4 \\neq 0$. At $x = -3$, $-3 + 1 = -2 \\neq 0$.",
+      "Both $x = 3$ and $x = -3$ are vertical asymptotes."
+    ],
+    "stepByStepSolutionAr": [
+      "أصفار المقام: $x^2 - 9 = 0 \\implies x = 3$ أو $x = -3$.",
+      "التحقق من البسط: عند $x = 3$ البسط $4 \\neq 0$، وعند $x = -3$ البسط $-2 \\neq 0$.",
+      "إذن خطوط التقارب الرأسية هي $x = 3$ و $x = -3$."
+    ],
+    "teacherTipEn": "If a value zeros both numerator and denominator with the same multiplicity, it produces a removable hole, not a vertical asymptote.",
+    "teacherTipAr": "إذا صفرت القيمة البسط والمقام معاً بنفس التكرار، فإنها تمثل نقطة انفصال قابلة للإزالة (فجوة) وليس خط تقارب رأسي."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_55",
+    "titleEn": "Horizontal Asymptote of an Exponential Function",
+    "titleAr": "خط التقارب الأفقي لدالة أسية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the horizontal asymptote of $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ as $x \\to -\\infty$.",
+    "questionAr": "أوجد خط التقارب الأفقي للدالة $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ عندما $x \\to -\\infty$.",
+    "optionsEn": [
+      "$y = 2$",
+      "$y = 4$",
+      "$y = 0$",
+      "Does not exist"
+    ],
+    "optionsAr": [
+      "$y = 2$",
+      "$y = 4$",
+      "$y = 0$",
+      "غير موجود"
+    ],
+    "correctAnswer": "$y = 2$",
+    "correctIndex": 0,
+    "hintEn": "As $x \\to -\\infty$, $e^x \\to 0$.",
+    "hintAr": "عندما $x \\to -\\infty$ فإن $e^x \\to 0$.",
+    "stepByStepSolutionEn": [
+      "Recall that $\\lim_{x \\to -\\infty} e^x = 0$.",
+      "Substitute into $f(x)$: $\\lim_{x \\to -\\infty} \\frac{4(0) + 6}{2(0) + 3} = \\frac{6}{3} = 2$.",
+      "Thus, the horizontal asymptote as $x \\to -\\infty$ is the line $y = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "نعلم أن $\\lim_{x \\to -\\infty} e^x = 0$.",
+      "بالتعويض: $\\frac{4(0) + 6}{2(0) + 3} = \\frac{6}{3} = 2$.",
+      "إذن خط التقارب الأفقي عندما $x \\to -\\infty$ هو المستقيم $y = 2$."
+    ],
+    "teacherTipEn": "Notice that as $x \\to +\\infty$, $f(x) \\to \\frac{4}{2} = 2$ as well, so $y = 2$ is an asymptote in both directions.",
+    "teacherTipAr": "لاحظ أنه عندما $x \\to +\\infty$ تقترب الدالة أيضاً من 2، فالخط $y = 2$ خط تقارب في كلا الاتجاهين."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_56",
+    "titleEn": "Squeeze Theorem Limit",
+    "titleAr": "مبرهنة الإحاطة (الحصر)",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} x^4 \\cos\\left(\\frac{2}{x}\\right)$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} x^4 \\cos\\left(\\frac{2}{x}\\right)$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\infty$",
+      "Does not exist"
+    ],
+    "optionsAr": [
+      "$0$",
+      "$1$",
+      "$\\infty$",
+      "غير موجودة"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Since $-1 \\le \\cos(\\theta) \\le 1$, squeeze the function: $-x^4 \\le x^4 \\cos\\left(\\frac{2}{x}\\right) \\le x^4$.",
+    "hintAr": "بما أن $-1 \\le \\cos(\\theta) \\le 1$، احصر الدالة: $-x^4 \\le x^4 \\cos\\left(\\frac{2}{x}\\right) \\le x^4$.",
+    "stepByStepSolutionEn": [
+      "We have the inequality: $-1 \\le \\cos\\left(\\frac{2}{x}\\right) \\le 1$ for all $x \\neq 0$.",
+      "Multiply by $x^4 > 0$: $-x^4 \\le x^4 \\cos\\left(\\frac{2}{x}\\right) \\le x^4$.",
+      "Take limits as $x \\to 0$: $\\lim_{x \\to 0} (-x^4) = 0$ and $\\lim_{x \\to 0} x^4 = 0$.",
+      "By the Squeeze Theorem, $\\lim_{x \\to 0} x^4 \\cos\\left(\\frac{2}{x}\\right) = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "لأي $x \\neq 0$ فإن $-1 \\le \\cos\\left(\\frac{2}{x}\\right) \\le 1$.",
+      "بالضرب في $x^4 > 0$: $-x^4 \\le x^4 \\cos\\left(\\frac{2}{x}\\right) \\le x^4$.",
+      "بما أن نهايتي الطرفين عند $x \\to 0$ هما 0، فإن النهاية المطلوبة تساوي 0 بحسب مبرهنة الإحاطة."
+    ],
+    "teacherTipEn": "Whenever an oscillating term like $\\sin(1/x)$ or $\\cos(1/x)$ is multiplied by a factor approaching zero, the limit is zero.",
+    "teacherTipAr": "دائماً عندما تضرب دالة مقيدة متذبذبة مثل $\\cos(1/x)$ في كمية تؤول للصفر، تكون النهاية صفراً."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_57",
+    "titleEn": "Standard Natural Logarithm Limit",
+    "titleAr": "النهاية القياسية للوغاريتم الطبيعي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\ln(1 + 7x)}{x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\ln(1 + 7x)}{x}$.",
+    "optionsEn": [
+      "$7$",
+      "$1$",
+      "$\\frac{1}{7}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$7$",
+      "$1$",
+      "$\\frac{1}{7}$",
+      "$0$"
+    ],
+    "correctAnswer": "$7$",
+    "correctIndex": 0,
+    "hintEn": "Use the fundamental logarithmic limit: $\\lim_{u \\to 0} \\frac{\\ln(1 + u)}{u} = 1$, with $u = 7x$.",
+    "hintAr": "استخدم النهاية القياسية: $\\lim_{u \\to 0} \\frac{\\ln(1 + u)}{u} = 1$ بوضع $u = 7x$.",
+    "stepByStepSolutionEn": [
+      "Multiply and divide by $7$: $\\lim_{x \\to 0} 7 \\cdot \\frac{\\ln(1 + 7x)}{7x}$.",
+      "Let $u = 7x$. As $x \\to 0$, $u \\to 0$.",
+      "$7 \\cdot \\lim_{u \\to 0} \\frac{\\ln(1 + u)}{u} = 7 \\cdot 1 = 7$."
+    ],
+    "stepByStepSolutionAr": [
+      "بالضرب والقسمة على 7: $7 \\cdot \\lim_{x \\to 0} \\frac{\\ln(1 + 7x)}{7x}$.",
+      "بوضع $u = 7x$ فإن النهاية القياسية تساوي 1.",
+      "الناتج النهائي $= 7 \\times 1 = 7$."
+    ],
+    "teacherTipEn": "This limit is directly equivalent to the derivative of $f(t) = \\ln(t)$ at $t = 1$.",
+    "teacherTipAr": "هذه النهاية تكافئ تماماً تعريف المشتقة الأولى للدالة $\\ln(t)$ عند $t = 1$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_easy_58",
+    "titleEn": "Intermediate Value Theorem Application",
+    "titleAr": "تطبيق مبرهنة القيم المتوسطة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Given $f(x) = x^3 - 4x + 1$, which theorem guarantees that $f(x) = 0$ has at least one real root in the interval $(0, 1)$?",
+    "questionAr": "معطى $f(x) = x^3 - 4x + 1$، أي مبرهنة تضمن أن المعادلة $f(x) = 0$ تمتلك جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$؟",
+    "optionsEn": [
+      "Intermediate Value Theorem (Bolzano's Theorem)",
+      "Mean Value Theorem",
+      "Rolle's Theorem",
+      "Extreme Value Theorem"
+    ],
+    "optionsAr": [
+      "مبرهنة القيم المتوسطة (مبرهنة بولزانو)",
+      "مبرهنة القيمة المتوسطة للتفاضل",
+      "مبرهنة رول",
+      "مبرهنة القيم القصوى"
+    ],
+    "correctAnswer": "Intermediate Value Theorem (Bolzano's Theorem)",
+    "correctIndex": 0,
+    "hintEn": "Check that $f$ is continuous on $[0, 1]$ and that $f(0)$ and $f(1)$ have opposite signs.",
+    "hintAr": "تحقق أن $f$ متصلة على $[0, 1]$ وأن $f(0)$ و $f(1)$ لهما إشارتان مختلفتان.",
+    "stepByStepSolutionEn": [
+      "The polynomial $f(x) = x^3 - 4x + 1$ is continuous on $[0, 1]$.",
+      "Evaluate at endpoints: $f(0) = 1 > 0$ and $f(1) = 1 - 4 + 1 = -2 < 0$.",
+      "Since $f(0) \\cdot f(1) < 0$, the Intermediate Value Theorem guarantees at least one $c \\in (0, 1)$ such that $f(c) = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "الدالة كثيرة حدود متصلة على الفترة المغلقة $[0, 1]$.",
+      "قيمتا طرفي الفترة: $f(0) = 1 > 0$ و $f(1) = -2 < 0$.",
+      "بما أن $f(0) \\cdot f(1) < 0$، فإن مبرهنة القيم المتوسطة (بولزانو) تضمن وجود $c \\in (0, 1)$ بحيث $f(c) = 0$."
+    ],
+    "teacherTipEn": "Bolzano's Theorem is the special case of the Intermediate Value Theorem where the intermediate value is zero.",
+    "teacherTipAr": "مبرهنة بولزانو هي حالة خاصة من مبرهنة القيم المتوسطة عندما تكون القيمة المتوسطة صفراً."
   }
 ],
   medium: [
@@ -3788,6 +4084,352 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "A bounded quantity divided by infinity always vanishes to zero.",
     "teacherTipAr": "أي مقدار محدود مقسوم على ما لا نهاية يؤول دائماً إلى الصفر."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_51",
+    "titleEn": "Indeterminate Form 1 to the Infinity",
+    "titleAr": "نهاية الصيغة غير المعينة 1 أس لانهاية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^{3x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^{3x}$.",
+    "optionsEn": [
+      "$e^{12}$",
+      "$e^7$",
+      "$e^{4/3}$",
+      "$12$"
+    ],
+    "optionsAr": [
+      "$e^{12}$",
+      "$e^7$",
+      "$e^{4/3}$",
+      "$12$"
+    ],
+    "correctAnswer": "$e^{12}$",
+    "correctIndex": 0,
+    "hintEn": "Use the formula $\\lim_{x \\to \\infty} \\left(1 + \\frac{a}{x}\\right)^{bx} = e^{ab}$.",
+    "hintAr": "استخدم الصيغة $\\lim_{x \\to \\infty} \\left(1 + \\frac{a}{x}\\right)^{bx} = e^{ab}$.",
+    "stepByStepSolutionEn": [
+      "Rewrite the expression: $\\left(1 + \\frac{4}{x}\\right)^{3x} = \\left[ \\left(1 + \\frac{4}{x}\\right)^{\\frac{x}{4}} \\right]^{12}$.",
+      "Since $\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^{\\frac{x}{4}} = e$, the limit is $e^{12}$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة المقدار: $\\left[ \\left(1 + \\frac{4}{x}\\right)^{\\frac{x}{4}} \\right]^{12}$.",
+      "بما أن الأساس يؤول إلى العدد النيبيري $e$، فإن الناتج هو $e^{12}$."
+    ],
+    "teacherTipEn": "Always multiply the coefficient in the fraction ($4$) by the power multiplier ($3$) to get the exponent of $e$.",
+    "teacherTipAr": "اضرب معامل البسط في الكسر (4) في معامل الأس (3) لتحصل مباشرة على أس $e$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_52",
+    "titleEn": "Slant (Oblique) Asymptote of a Rational Function",
+    "titleAr": "خط التقارب المائل لدالة كسرية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the oblique asymptote of $f(x) = \\frac{3x^2 + 5x - 2}{x + 2}$.",
+    "questionAr": "أوجد معادلة خط التقارب المائل للدالة $f(x) = \\frac{3x^2 + 5x - 2}{x + 2}$.",
+    "optionsEn": [
+      "$y = 3x - 1$",
+      "$y = 3x + 1$",
+      "$y = 3x + 5$",
+      "$y = 3x - 2$"
+    ],
+    "optionsAr": [
+      "$y = 3x - 1$",
+      "$y = 3x + 1$",
+      "$y = 3x + 5$",
+      "$y = 3x - 2$"
+    ],
+    "correctAnswer": "$y = 3x - 1$",
+    "correctIndex": 0,
+    "hintEn": "Perform polynomial long division or synthetic division to express $f(x) = mx + b + \\frac{R}{x+2}$.",
+    "hintAr": "أجرِ القسمة المطولة لكثيرات الحدود لتكتب الدالة على الصورة $f(x) = mx + b + \\frac{R}{x+2}$.",
+    "stepByStepSolutionEn": [
+      "Divide $3x^2 + 5x - 2$ by $x + 2$:",
+      "Quotient: $3x^2 / x = 3x$. Multiply: $3x(x + 2) = 3x^2 + 6x$.",
+      "Subtract: $(3x^2 + 5x) - (3x^2 + 6x) = -x - 2$.",
+      "Next term: $-x / x = -1$. Multiply: $-1(x + 2) = -x - 2$.",
+      "Subtract: $(-x - 2) - (-x - 2) = 0$.",
+      "So $f(x) = 3x - 1$ for $x \\neq -2$. The oblique asymptote is $y = 3x - 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "بقسمة $3x^2 + 5x - 2$ على $x + 2$:",
+      "خارج القسمة هو $3x - 1$ والباقي صفر.",
+      "إذن معادلة خط التقارب المائل هي $y = 3x - 1$."
+    ],
+    "teacherTipEn": "An oblique asymptote exists whenever the degree of the numerator is exactly 1 greater than the degree of the denominator.",
+    "teacherTipAr": "يوجد خط تقارب مائل دائماً عندما تكون درجة البسط أكبر من درجة المقام بواحد تماماً."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_53",
+    "titleEn": "Infinity Minus Infinity Conjugate Limit",
+    "titleAr": "نهاية الفرق بين جذرين بالضرب في المرافق",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + 8x} - x\\right)$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + 8x} - x\\right)$.",
+    "optionsEn": [
+      "$4$",
+      "$8$",
+      "$0$",
+      "$\\infty$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$8$",
+      "$0$",
+      "$\\infty$"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Multiply and divide by the conjugate expression $\\sqrt{x^2 + 8x} + x$.",
+    "hintAr": "اضرب واقسم على المرافق $\\sqrt{x^2 + 8x} + x$.",
+    "stepByStepSolutionEn": [
+      "Multiply by conjugate:",
+      "$\\frac{(\\sqrt{x^2 + 8x} - x)(\\sqrt{x^2 + 8x} + x)}{\\sqrt{x^2 + 8x} + x} = \\frac{(x^2 + 8x) - x^2}{\\sqrt{x^2 + 8x} + x} = \\frac{8x}{\\sqrt{x^2 + 8x} + x}$.",
+      "Divide numerator and denominator by $x > 0$:",
+      "$\\frac{8}{\\sqrt{1 + \\frac{8}{x}} + 1} \\to \\frac{8}{1 + 1} = 4$ as $x \\to \\infty$."
+    ],
+    "stepByStepSolutionAr": [
+      "بالضرب في المرافق بسطاً ومقاماً:",
+      "$\\frac{(x^2 + 8x) - x^2}{\\sqrt{x^2 + 8x} + x} = \\frac{8x}{\\sqrt{x^2 + 8x} + x}$.",
+      "بقسمة البسط والمقام على $x$:",
+      "$\\frac{8}{\\sqrt{1 + \\frac{8}{x}} + 1} = \\frac{8}{1 + 1} = 4$."
+    ],
+    "teacherTipEn": "For $\\sqrt{x^2 + bx} - x$, the limit at $+\\infty$ is always $\\frac{b}{2}$.",
+    "teacherTipAr": "قاعدة سريعة: نهاية $\\sqrt{x^2 + bx} - x$ عند $+\\infty$ تساوي دائماً $\\frac{b}{2}$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_54",
+    "titleEn": "L'Hopital's Rule for Mixed Exponential and Linear",
+    "titleAr": "قاعدة لوبيتال لدالة أسية وخطية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{e^{2x} - 1 - 2x}{x^2}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{e^{2x} - 1 - 2x}{x^2}$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$4$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$1$",
+      "$4$",
+      "$0$"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "The limit is of form $\\frac{0}{0}$. Apply L'Hôpital's Rule twice.",
+    "hintAr": "النهاية على صورة $\\frac{0}{0}$. طبق قاعدة لوبيتال مرتين متتاليتين.",
+    "stepByStepSolutionEn": [
+      "First application of L'Hôpital (form $\\frac{0}{0}$):",
+      "$\\lim_{x \\to 0} \\frac{2e^{2x} - 2}{2x} = \\lim_{x \\to 0} \\frac{e^{2x} - 1}{x}$.",
+      "Second application (still form $\\frac{0}{0}$):",
+      "$\\lim_{x \\to 0} \\frac{2e^{2x}}{1} = 2e^0 = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "التطبيق الأول لقاعدة لوبيتال (صيغة $\\frac{0}{0}$):",
+      "$\\lim_{x \\to 0} \\frac{2e^{2x} - 2}{2x} = \\lim_{x \\to 0} \\frac{e^{2x} - 1}{x}$.",
+      "التطبيق الثاني:",
+      "$\\lim_{x \\to 0} \\frac{2e^{2x}}{1} = 2$."
+    ],
+    "teacherTipEn": "Alternatively, use Taylor series: $e^{2x} = 1 + 2x + \\frac{(2x)^2}{2} + O(x^3) = 1 + 2x + 2x^2$.",
+    "teacherTipAr": "يمكن استخدام متسلسلة تايلور: $e^{2x} = 1 + 2x + 2x^2 + \\dots$ فتكون النهاية مباشرة 2."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_55",
+    "titleEn": "Differentiability and Continuity Parameter Matching",
+    "titleAr": "قابلية الاشتقاق والاتصال وتعيين المجاهيل",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find values of $a$ and $b$ so that $f(x) = \\begin{cases} ax^2 + 1 & x \\le 1 \\\\ 2x + b & x > 1 \\end{cases}$ is differentiable at $x = 1$.",
+    "questionAr": "أوجد قيمتي $a$ و $b$ اللتين تجعلان الدالة $f(x) = \\begin{cases} ax^2 + 1 & x \\le 1 \\\\ 2x + b & x > 1 \\end{cases}$ قابلة للاشتقاق عند $x = 1$.",
+    "optionsEn": [
+      "$a = 1,\\; b = 0$",
+      "$a = 2,\\; b = 1$",
+      "$a = 1,\\; b = 2$",
+      "$a = 0,\\; b = 1$"
+    ],
+    "optionsAr": [
+      "$a = 1,\\; b = 0$",
+      "$a = 2,\\; b = 1$",
+      "$a = 1,\\; b = 2$",
+      "$a = 0,\\; b = 1$"
+    ],
+    "correctAnswer": "$a = 1,\\; b = 0$",
+    "correctIndex": 0,
+    "hintEn": "Differentiability requires both continuity (values match) and derivative matching (tangents match) at $x = 1$.",
+    "hintAr": "قابلية الاشتقاق تتطلب تحقق شرطين: الاتصال (تساوي القيمتين) وتساوي المشتقتين عند $x = 1$.",
+    "stepByStepSolutionEn": [
+      "Derivative matching: $\\frac{d}{dx}[ax^2 + 1] = 2ax$. At $x = 1$, left derivative is $2a(1) = 2a$.",
+      "Right derivative: $\\frac{d}{dx}[2x + b] = 2$.",
+      "Equate derivatives: $2a = 2 \\implies a = 1$.",
+      "Continuity at $x = 1$: $a(1)^2 + 1 = 2(1) + b \\implies 1(1) + 1 = 2 + b \\implies 2 = 2 + b \\implies b = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "تساوي المشتقات: المشتقة اليسرى $2a(1) = 2a$ والمشتقة اليمنى 2.",
+      "$2a = 2 \\implies a = 1$.",
+      "شرط الاتصال: $a(1)^2 + 1 = 2(1) + b \\implies 1 + 1 = 2 + b \\implies b = 0$."
+    ],
+    "teacherTipEn": "Always equate derivatives first if one variable is isolated, then use continuity to find the second.",
+    "teacherTipAr": "يُفضل دائماً مساواة المشتقات أولاً إذا كان أحد المتغيرين ينعزل مباشرة."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_56",
+    "titleEn": "Inverse Trigonometric Limit",
+    "titleAr": "نهاية الدالة العكسية للمماس",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\arctan(4x)}{x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\arctan(4x)}{x}$.",
+    "optionsEn": [
+      "$4$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $u = \\arctan(4x) \\implies x = \\frac{1}{4}\\tan(u)$. As $x \\to 0$, $u \\to 0$.",
+    "hintAr": "بوضع $u = \\arctan(4x) \\implies x = \\frac{1}{4}\\tan(u)$ وعندما $x \\to 0$ فإن $u \\to 0$.",
+    "stepByStepSolutionEn": [
+      "Let $u = \\arctan(4x)$. Then $\\tan(u) = 4x \\implies x = \\frac{\\tan(u)}{4}$.",
+      "As $x \\to 0$, $u \\to 0$.",
+      "The limit becomes $\\lim_{u \\to 0} \\frac{u}{\\frac{\\tan(u)}{4}} = 4 \\lim_{u \\to 0} \\frac{u}{\\tan(u)} = 4(1) = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "بوضع $u = \\arctan(4x)$، إذن $x = \\frac{1}{4}\\tan(u)$.",
+      "النهاية تصبح: $4 \\lim_{u \\to 0} \\frac{u}{\\tan(u)} = 4(1) = 4$."
+    ],
+    "teacherTipEn": "By L'Hôpital's rule: $\\frac{d}{dx}[\\arctan(4x)] = \\frac{4}{1 + 16x^2}$, which equals $4$ at $x=0$.",
+    "teacherTipAr": "بلوبيتال: مشتقة $\\arctan(4x)$ هي $\\frac{4}{1 + 16x^2}$ وتساوي 4 عند $x = 0$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_57",
+    "titleEn": "Absolute Extrema on a Closed Interval",
+    "titleAr": "القيم القصوى المطلقة على فترة مغلقة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the absolute maximum value of $f(x) = -x^2 + 4x + 5$ on the closed interval $[0, 5]$.",
+    "questionAr": "أوجد القيمة العظمى المطلقة للدالة $f(x) = -x^2 + 4x + 5$ على الفترة المغلقة $[0, 5]$.",
+    "optionsEn": [
+      "$9$",
+      "$5$",
+      "$0$",
+      "$-2$"
+    ],
+    "optionsAr": [
+      "$9$",
+      "$5$",
+      "$0$",
+      "$-2$"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "Find critical points where $f'(x) = 0$, then compare $f(x)$ at critical points and endpoints.",
+    "hintAr": "أوجد النقاط الحرجة حيث $f'(x) = 0$ ثم قارن قيم الدالة عند النقاط الحرجة وطرفي الفترة.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $f'(x) = -2x + 4$.",
+      "Set to zero: $-2x + 4 = 0 \\implies x = 2$. Note that $2 \\in [0, 5]$.",
+      "Evaluate at critical point and endpoints:",
+      "$f(2) = -(2)^2 + 4(2) + 5 = -4 + 8 + 5 = 9$.",
+      "$f(0) = 5$.",
+      "$f(5) = -(5)^2 + 4(5) + 5 = -25 + 20 + 5 = 0$.",
+      "The absolute maximum value is $9$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $f'(x) = -2x + 4 = 0 \\implies x = 2 \\in [0, 5]$.",
+      "حساب قيم الدالة:",
+      "$f(2) = -4 + 8 + 5 = 9$.",
+      "$f(0) = 5$.",
+      "$f(5) = -25 + 20 + 5 = 0$.",
+      "القيمة العظمى المطلقة هي 9."
+    ],
+    "teacherTipEn": "By the Extreme Value Theorem, a continuous function on a closed bounded interval is guaranteed to attain absolute extrema.",
+    "teacherTipAr": "تضمن مبرهنة القيم القصوى وجود قيمة عظمى وصغرى مطلقة لأي دالة متصلة على فترة مغلقة."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_58",
+    "titleEn": "Zero Times Infinity Logarithmic Indeterminate Form",
+    "titleAr": "نهاية الصيغة غير المعينة صفر في لانهاية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
+    "optionsEn": [
+      "$0$",
+      "$-\\infty$",
+      "$-1$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "$0$",
+      "$-\\infty$",
+      "$-1$",
+      "$\\frac{1}{2}$"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Rewrite as $\\frac{\\ln(x)}{x^{-2}}$ to convert to $\\frac{-\\infty}{\\infty}$ and apply L'Hôpital's Rule.",
+    "hintAr": "أعد كتابتها بالصورة $\\frac{\\ln(x)}{x^{-2}}$ لتحويلها إلى $\\frac{-\\infty}{\\infty}$ ثم طبق قاعدة لوبيتال.",
+    "stepByStepSolutionEn": [
+      "Rewrite: $\\lim_{x \\to 0^+} \\frac{\\ln(x)}{x^{-2}}$.",
+      "Apply L'Hôpital's rule: $\\lim_{x \\to 0^+} \\frac{1/x}{-2 x^{-3}} = \\lim_{x \\to 0^+} \\left(-\\frac{x^2}{2}\\right)$.",
+      "As $x \\to 0^+$, $-\\frac{x^2}{2} \\to 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة الكتابة: $\\lim_{x \\to 0^+} \\frac{\\ln(x)}{x^{-2}}$.",
+      "بتطبيق لوبيتال: $\\lim_{x \\to 0^+} \\frac{1/x}{-2/x^3} = \\lim_{x \\to 0^+} \\left(-\\frac{x^2}{2}\\right) = 0$."
+    ],
+    "teacherTipEn": "Polynomial decay always dominates logarithmic growth near zero: $\\lim_{x \\to 0^+} x^p \\ln(x) = 0$ for any $p > 0$.",
+    "teacherTipAr": "قوة كثير الحدود تتغلب دائماً على نمو اللوغاريتم بالقرب من الصفر: $\\lim_{x \\to 0^+} x^p \\ln x = 0$ لأي $p > 0$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_med_59",
+    "titleEn": "Factorial Sequence Limit via Squeeze Theorem",
+    "titleAr": "نهاية متتالية المضروب بمبرهنة الإحاطة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the sequence limit: $\\lim_{n \\to \\infty} \\frac{n!}{n^n}$.",
+    "questionAr": "احسب نهاية المتتالية: $\\lim_{n \\to \\infty} \\frac{n!}{n^n}$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\frac{1}{e}$",
+      "$\\infty$"
+    ],
+    "optionsAr": [
+      "$0$",
+      "$1$",
+      "$\\frac{1}{e}$",
+      "$\\infty$"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Notice that $\\frac{n!}{n^n} = \\frac{1}{n} \\cdot \\frac{2}{n} \\cdots \\frac{n}{n} \\le \\frac{1}{n}$.",
+    "hintAr": "لاحظ أن $\\frac{n!}{n^n} = \\frac{1}{n} \\cdot \\frac{2}{n} \\cdots \\frac{n}{n} \\le \\frac{1}{n}$.",
+    "stepByStepSolutionEn": [
+      "Expand: $\\frac{n!}{n^n} = \\frac{1}{n} \\times \\frac{2}{n} \\times \\dots \\times \\frac{n}{n}$.",
+      "For all $k \\in \\{2, \\dots, n\\}$, $\\frac{k}{n} \\le 1$.",
+      "Therefore: $0 < \\frac{n!}{n^n} \\le \\frac{1}{n}$.",
+      "Since $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$, by the Squeeze Theorem, $\\lim_{n \\to \\infty} \\frac{n!}{n^n} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "فك الكسر: $\\frac{1}{n} \\times \\frac{2}{n} \\times \\dots \\times \\frac{n}{n}$.",
+      "كل العوامل التالية لـ $\\frac{1}{n}$ أقل من أو تساوي 1.",
+      "إذن $0 < \\frac{n!}{n^n} \\le \\frac{1}{n}$.",
+      "وحيث إن $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$، فإن النهاية تساوي 0."
+    ],
+    "teacherTipEn": "This shows $n^n$ grows strictly faster than $n!$ as $n \\to \\infty$.",
+    "teacherTipAr": "هذا يثبت أن الدالة $n^n$ تنمو بمعدل أسرع بكثير من المضروب $n!$."
   }
 ],
   hots: [
@@ -5735,6 +6377,318 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_51",
+    "titleEn": "Higher-Order Asymptotic Limit via Taylor Series",
+    "titleAr": "نهاية عالية الرتبة باستخدام متسلسلة تايلور",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\sin x - x + \\frac{x^3}{6}}{x^5}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\sin x - x + \\frac{x^3}{6}}{x^5}$.",
+    "optionsEn": [
+      "$\\frac{1}{120}$",
+      "$-\\frac{1}{120}$",
+      "$\\frac{1}{24}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{120}$",
+      "$-\\frac{1}{120}$",
+      "$\\frac{1}{24}$",
+      "$0$"
+    ],
+    "correctAnswer": "$\\frac{1}{120}$",
+    "correctIndex": 0,
+    "hintEn": "Use the Taylor expansion of $\\sin x$: $\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$.",
+    "hintAr": "استخدم مفكوك تايلور لـ $\\sin x$: $\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$.",
+    "stepByStepSolutionEn": [
+      "Recall Maclaurin series for $\\sin x$:",
+      "$\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\dots = x - \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$.",
+      "Substitute into numerator: $\\left(x - \\frac{x^3}{6} + \\frac{x^5}{120}\\right) - x + \\frac{x^3}{6} = \\frac{x^5}{120} + O(x^7)$.",
+      "Divide by $x^5$: $\\frac{x^5 / 120 + O(x^7)}{x^5} = \\frac{1}{120} + O(x^2) \\to \\frac{1}{120}$ as $x \\to 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "مفكوك ماكلورين لـ $\\sin x$:",
+      "$\\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} + O(x^7)$.",
+      "بالتعويض في البسط يتبقى: $\\frac{x^5}{120} + O(x^7)$.",
+      "بالقسمة على $x^5$ وأخذ النهاية ينتج: $\\frac{1}{120}$."
+    ],
+    "teacherTipEn": "Applying L'Hôpital five consecutive times would be tedious and error-prone; Taylor series solves it in two lines.",
+    "teacherTipAr": "تطبيق لوبيتال 5 مرات متتالية عرضة للخطأ؛ بينما مفكوك تايلور يحلها في سطرين."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_52",
+    "titleEn": "Trigonometric Form 1 to Infinity Limit",
+    "titleAr": "نهاية مثلثية على صورة 1 أس لانهاية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (\\cos 2x)^{1/x^2}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (\\cos 2x)^{1/x^2}$.",
+    "optionsEn": [
+      "$e^{-2}$",
+      "$e^{-4}$",
+      "$e^{-1}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$e^{-2}$",
+      "$e^{-4}$",
+      "$e^{-1}$",
+      "$1$"
+    ],
+    "correctAnswer": "$e^{-2}$",
+    "correctIndex": 0,
+    "hintEn": "Take the natural logarithm: $L = \\exp\\left( \\lim_{x \\to 0} \\frac{\\ln(\\cos 2x)}{x^2} \\right)$.",
+    "hintAr": "خذ اللوغاريتم الطبيعي: $L = \\exp\\left( \\lim_{x \\to 0} \\frac{\\ln(\\cos 2x)}{x^2} \\right)$.",
+    "stepByStepSolutionEn": [
+      "Let $y = (\\cos 2x)^{1/x^2}$, then $\\ln y = \\frac{\\ln(\\cos 2x)}{x^2}$.",
+      "As $x \\to 0$, $\\cos 2x \\approx 1 - \\frac{(2x)^2}{2} = 1 - 2x^2$.",
+      "Using $\\ln(1 + u) \\approx u$: $\\ln(\\cos 2x) \\approx \\ln(1 - 2x^2) \\approx -2x^2$.",
+      "So $\\lim_{x \\to 0} \\frac{\\ln(\\cos 2x)}{x^2} = \\lim_{x \\to 0} \\frac{-2x^2}{x^2} = -2$.",
+      "Thus, the limit is $e^{-2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بأخذ اللوغاريتم: $\\ln y = \\frac{\\ln(\\cos 2x)}{x^2}$.",
+      "بالتقريب عند الصفر: $\\cos 2x \\approx 1 - 2x^2$.",
+      "وحيث إن $\\ln(1 - 2x^2) \\approx -2x^2$:",
+      "تكون النهاية $\\lim_{x \\to 0} \\frac{-2x^2}{x^2} = -2$.",
+      "إذن الناتج هو $e^{-2}$."
+    ],
+    "teacherTipEn": "In general, $\\lim_{x \\to 0} (\\cos ax)^{1/x^2} = e^{-a^2 / 2}$. Here $a = 2 \\implies e^{-4/2} = e^{-2}$.",
+    "teacherTipAr": "قاعدة عامة: $\\lim_{x \\to 0} (\\cos ax)^{1/x^2} = e^{-a^2 / 2}$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_53",
+    "titleEn": "Limit of a Recursive Sequence with Radicals",
+    "titleAr": "نهاية متتالية تراجعية تحتوي على جذور",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A sequence is defined by $u_0 = 1$ and $u_{n+1} = \\sqrt{6 + u_n}$ for all $n \\ge 0$. Assuming the sequence converges, find its limit $L$.",
+    "questionAr": "متتالية معرفة بالحد $u_0 = 1$ وعلاقة تراجعية $u_{n+1} = \\sqrt{6 + u_n}$ لجميع $n \\ge 0$. بافتراض أن المتتالية متقاربة، أوجد نهايتها $L$.",
+    "optionsEn": [
+      "$3$",
+      "$-2$",
+      "$\\sqrt{7}$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "$3$",
+      "$-2$",
+      "$\\sqrt{7}$",
+      "$6$"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "Pass to the limit on both sides: $L = \\sqrt{6 + L}$, then square both sides and discard negative root.",
+    "hintAr": "أخذ النهاية للطرفين: $L = \\sqrt{6 + L}$ ثم ربع الطرفين واستبعد الحل السالب.",
+    "stepByStepSolutionEn": [
+      "Since $u_n \\to L$, by continuity of the square root function, $L = \\sqrt{6 + L}$.",
+      "Square both sides: $L^2 = 6 + L \\implies L^2 - L - 6 = 0$.",
+      "Factor: $(L - 3)(L + 2) = 0 \\implies L = 3$ or $L = -2$.",
+      "Since all terms $u_n > 0$, the limit must be non-negative. Hence $L = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "بأخذ النهاية للطرفين: $L = \\sqrt{6 + L}$.",
+      "بتربيع الطرفين: $L^2 - L - 6 = 0 \\implies (L - 3)(L + 2) = 0$.",
+      "بما أن جميع حدود المتتالية موجبة، فإن $L = 3$."
+    ],
+    "teacherTipEn": "Always justify discarding negative roots based on the signs of sequence terms.",
+    "teacherTipAr": "احرص دائماً على تبرير استبعاد الحل السالب بناءً على إشارات حدود المتتالية."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_54",
+    "titleEn": "Riemann Sum Limit Conversion to Definite Integral",
+    "titleAr": "تحويل نهاية مجموع ريمان إلى تكامل محدد",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the limit: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
+    "questionAr": "احسب النهاية: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$\\ln(2)$"
+    ],
+    "optionsAr": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$\\ln(2)$"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Factor out $\\frac{1}{n}$ to express as a Riemann sum: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2} \\to \\int_0^1 \\frac{1}{1 + x^2} dx$.",
+    "hintAr": "أخرج $\\frac{1}{n}$ عاملاً مشتركاً للتعبير عنها كمجموع ريمان: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2} \\to \\int_0^1 \\frac{1}{1 + x^2} dx$.",
+    "stepByStepSolutionEn": [
+      "Rewrite: $\\sum_{k=1}^n \\frac{n}{n^2(1 + (k/n)^2)} = \\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2}$.",
+      "Recognize the Riemann sum for $f(x) = \\frac{1}{1 + x^2}$ on $[0, 1]$ with $\\Delta x = \\frac{1}{n}$ and $x_k = \\frac{k}{n}$.",
+      "Evaluate the definite integral: $\\int_0^1 \\frac{1}{1 + x^2} dx = [\\arctan(x)]_0^1 = \\arctan(1) - \\arctan(0) = \\frac{\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "إعادة كتابة المجموع: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2}$.",
+      "هذا مجموع ريمان للدالة $f(x) = \\frac{1}{1 + x^2}$ على الفترة $[0, 1]$.",
+      "التكامل المحدد: $\\int_0^1 \\frac{1}{1 + x^2} dx = [\\arctan(x)]_0^1 = \\frac{\\pi}{4}$."
+    ],
+    "teacherTipEn": "Converting Riemann sums to definite integrals is a standard technique for evaluating series limits.",
+    "teacherTipAr": "تحويل مجموع ريمان إلى تكامل محدد أداة أساسية لحساب نهايات المتسلسلات اللانهائية."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_55",
+    "titleEn": "Parameter Condition for Finite Limit Existence",
+    "titleAr": "شرط المعامل لوجود نهاية منتهية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For what relation between $a$ and $b$ does the limit $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ exist and equal a finite real number?",
+    "questionAr": "ما العلاقة بين $a$ و $b$ التي تجعل النهاية $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ موجودة وتساوي عدداً حقيقياً منتهياً؟",
+    "optionsEn": [
+      "$a = b$",
+      "$a = -b$",
+      "$a = 2b$",
+      "$a = 0$"
+    ],
+    "optionsAr": [
+      "$a = b$",
+      "$a = -b$",
+      "$a = 2b$",
+      "$a = 0$"
+    ],
+    "correctAnswer": "$a = b$",
+    "correctIndex": 0,
+    "hintEn": "Expand the numerator up to first order: $(ax - bx) + O(x^2)$. For the limit to exist over $x^2$, the linear term must vanish.",
+    "hintAr": "فك البسط حتى الدرجة الأولى: $(ax - bx) + O(x^2)$. لكي توجد النهاية مقسومة على $x^2$، يجب أن ينعدم معامل $x$.",
+    "stepByStepSolutionEn": [
+      "Taylor expansions near $0$:",
+      "$\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + O(x^3)$.",
+      "$\\sin(bx) = bx - \\frac{b^3 x^3}{6} + O(x^5)$.",
+      "Numerator is: $(a - b)x - \\frac{a^2}{2}x^2 + O(x^3)$.",
+      "For $\\lim_{x \\to 0} \\frac{(a - b)x - \\frac{a^2}{2}x^2}{x^2}$ to be finite, the coefficient of $x$ must be zero: $a - b = 0 \\implies a = b$."
+    ],
+    "stepByStepSolutionAr": [
+      "مفكوك تايلور بالقرب من الصفر:",
+      "$\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + \\dots$",
+      "$\\sin(bx) = bx + \\dots$",
+      "البسط: $(a - b)x - \\frac{a^2}{2}x^2 + \\dots$",
+      "لكي تكون النهاية منتهية عند القسمة على $x^2$، يجب أن ينعدم معامل $x$: $a - b = 0 \\implies a = b$."
+    ],
+    "teacherTipEn": "When $a = b$, the value of the finite limit is $-\\frac{a^2}{2}$.",
+    "teacherTipAr": "عندما $a = b$ تصبح قيمة النهاية المنتهية $-\\frac{a^2}{2}$."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_56",
+    "titleEn": "Cauchy Functional Equation Characterization",
+    "titleAr": "معادلة كوشي الدالية للدالة الأسية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $f: \\mathbb{R} \\to (0, \\infty)$ be a continuous function satisfying $f(x + y) = f(x) f(y)$ for all $x, y \\in \\mathbb{R}$. If $f(1) = 3$, what is $f(x)$?",
+    "questionAr": "لتكن $f: \\mathbb{R} \\to (0, \\infty)$ دالة متصلة تحقق $f(x + y) = f(x) f(y)$ لجميع $x, y \\in \\mathbb{R}$. إذا كان $f(1) = 3$، فما هي قاعدة الدالة $f(x)$؟",
+    "optionsEn": [
+      "$f(x) = 3^x$",
+      "$f(x) = 3x$",
+      "$f(x) = x^3$",
+      "$f(x) = e^{3x}$"
+    ],
+    "optionsAr": [
+      "$f(x) = 3^x$",
+      "$f(x) = 3x$",
+      "$f(x) = x^3$",
+      "$f(x) = e^{3x}$"
+    ],
+    "correctAnswer": "$f(x) = 3^x$",
+    "correctIndex": 0,
+    "hintEn": "By setting $g(x) = \\ln f(x)$, $g$ satisfies Cauchy's additive equation $g(x + y) = g(x) + g(y)$, whose continuous solution is $g(x) = cx$.",
+    "hintAr": "بوضع $g(x) = \\ln f(x)$ تحقق $g$ معادلة كوشي الجمعية $g(x + y) = g(x) + g(y)$ وحلها المتصل هو $g(x) = cx$.",
+    "stepByStepSolutionEn": [
+      "Let $g(x) = \\ln f(x)$. Since $f(x) > 0$ and continuous, $g$ is continuous.",
+      "Then $g(x + y) = \\ln(f(x)f(y)) = \\ln f(x) + \\ln f(y) = g(x) + g(y)$.",
+      "The only continuous solutions to Cauchy's additive equation are linear: $g(x) = c x$.",
+      "Then $f(x) = e^{c x} = (e^c)^x$.",
+      "Given $f(1) = 3 \\implies e^c = 3$. Hence $f(x) = 3^x$."
+    ],
+    "stepByStepSolutionAr": [
+      "بوضع $g(x) = \\ln f(x)$، نجد أن $g(x + y) = g(x) + g(y)$.",
+      "الحلول المتصلة لمعادلة كوشي الجمعية هي الدوال الخطية فقط: $g(x) = cx$.",
+      "إذن $f(x) = e^{cx} = (e^c)^x$.",
+      "بما أن $f(1) = 3$، فإن $e^c = 3$ وتكون الدالة $f(x) = 3^x$."
+    ],
+    "teacherTipEn": "Continuity is essential; without continuity, pathological non-measurable solutions exist using the Axiom of Choice.",
+    "teacherTipAr": "شرط الاتصال جوهري جداً؛ فبدونه توجد حلول شاذة غير قابلة للقياس باستخدام بديهية الاختيار."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_57",
+    "titleEn": "Uniform Continuity Criterion on R",
+    "titleAr": "معيار الاتصال المنتظم على خط الأعداد",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Which of the following functions is uniformly continuous on the entire real line $\\mathbb{R}$?",
+    "questionAr": "أي من الدوال الآتية متصلة بانتظام (uniformly continuous) على كامل خط الأعداد الحقيقية $\\mathbb{R}$؟",
+    "optionsEn": [
+      "$f(x) = \\sin(x)$",
+      "$f(x) = x^2$",
+      "$f(x) = e^x$",
+      "$f(x) = \\tan(x)$"
+    ],
+    "optionsAr": [
+      "$f(x) = \\sin(x)$",
+      "$f(x) = x^2$",
+      "$f(x) = e^x$",
+      "$f(x) = \\tan(x)$"
+    ],
+    "correctAnswer": "$f(x) = \\sin(x)$",
+    "correctIndex": 0,
+    "hintEn": "A differentiable function with a bounded derivative ($|f'(x)| \\le M$) is Lipschitz continuous, hence uniformly continuous on $\\mathbb{R}$.",
+    "hintAr": "الدالة القابلة للاشتقاق ذات المشتقة المحدودة ($|f'(x)| \\le M$) تكون دالة ليبشيتزية، وبالتالي متصلة بانتظام على $\\mathbb{R}$.",
+    "stepByStepSolutionEn": [
+      "A function with a bounded derivative on $\\mathbb{R}$ is Lipschitz continuous and hence uniformly continuous.",
+      "For $f(x) = \\sin(x)$, $|f'(x)| = |\\cos(x)| \\le 1$, so it is uniformly continuous on $\\mathbb{R}$.",
+      "For $x^2$ and $e^x$, their derivatives are unbounded on $\\mathbb{R}$, so they are not uniformly continuous on $\\mathbb{R}$."
+    ],
+    "stepByStepSolutionAr": [
+      "أي دالة لها مشتقة أولى محدودة على $\\mathbb{R}$ تكون دالة ليبشيتزية ومتصلة بانتظام.",
+      "بالنسبة لـ $f(x) = \\sin(x)$، فإن $|f'(x)| = |\\cos(x)| \\le 1$ محدودة دائماً، إذن هي متصلة بانتظام على $\\mathbb{R}$.",
+      "أما $x^2$ و $e^x$ فمشتقتها غير محدودة وليست متصلة بانتظام."
+    ],
+    "teacherTipEn": "Bounded derivative on an interval $\\implies$ Uniformly continuous on that interval.",
+    "teacherTipAr": "المشتقة المحدودة على فترة تضمن دائماً الاتصال المنتظم على تلك الفترة."
+  },
+  {
+    "id": "egbac_ana_ch1_db_hots_58",
+    "titleEn": "Fixed Point Theorem for Contraction Mapping",
+    "titleAr": "مبرهنة النقطة الصامدة للتطبيق الانكماشي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $f(x) = \\frac{1}{3}\\cos(x) + 1$. Why does $f(x)$ have a unique fixed point $x^* \\in \\mathbb{R}$ such that $f(x^*) = x^*$?",
+    "questionAr": "لتكن $f(x) = \\frac{1}{3}\\cos(x) + 1$. لماذا تمتلك الدالة $f(x)$ نقطة صامدة وحيدة $x^* \\in \\mathbb{R}$ بحيث $f(x^*) = x^*$؟",
+    "optionsEn": [
+      "Because $|f'(x)| = |-\\frac{1}{3}\\sin(x)| \\le \\frac{1}{3} < 1$, making $f$ a contraction mapping on a complete metric space",
+      "Because $f(0) = 0$",
+      "Because $f(x)$ is an odd function",
+      "Because the derivative is everywhere positive"
+    ],
+    "optionsAr": [
+      "لأن $|f'(x)| = |-\\frac{1}{3}\\sin(x)| \\le \\frac{1}{3} < 1$، مما يجعل $f$ تطبيقاً انكماشياً على فضاء متري تام",
+      "لأن $f(0) = 0$",
+      "لأن $f(x)$ دالة فردية",
+      "لأن المشتقة موجبة في كل مكان"
+    ],
+    "correctAnswer": "Because $|f'(x)| = |-\\frac{1}{3}\\sin(x)| \\le \\frac{1}{3} < 1$, making $f$ a contraction mapping on a complete metric space",
+    "correctIndex": 0,
+    "hintEn": "By the Banach Fixed Point Theorem, any contraction mapping ($k < 1$) on a complete metric space has a unique fixed point.",
+    "hintAr": "وفق مبرهنة باناخ للنقطة الصامدة، أي تطبيق انكماشي ($k < 1$) على فضاء متري تام يمتلك نقطة صامدة وحيدة.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $f'(x) = -\\frac{1}{3}\\sin(x)$.",
+      "Bound the derivative: $|f'(x)| = \\frac{1}{3}|\\sin(x)| \\le \\frac{1}{3}$ for all $x \\in \\mathbb{R}$.",
+      "By the Mean Value Theorem, $|f(x) - f(y)| \\le \\frac{1}{3}|x - y|$, so $f$ is a contraction with Lipschitz constant $k = \\frac{1}{3} < 1$.",
+      "By the Banach Fixed Point Theorem, since $\\mathbb{R}$ is complete, there exists a unique fixed point $x^*$ such that $f(x^*) = x^*$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $f'(x) = -\\frac{1}{3}\\sin(x)$.",
+      "معيار المشتقة: $|f'(x)| \\le \\frac{1}{3} < 1$ لجميع $x \\in \\mathbb{R}$.",
+      "الدالة تطبيق انكماشي بثابت $k = \\frac{1}{3} < 1$.",
+      "بحسب مبرهنة باناخ للنقطة الصامدة على $\\mathbb{R}$، توجد نقطة صامدة وحيدة تحقق $f(x^*) = x^*$."
+    ],
+    "teacherTipEn": "Banach's Fixed Point Theorem guarantees both existence and uniqueness, and provides a method to compute the root iteratively via $x_{n+1} = f(x_n)$.",
+    "teacherTipAr": "مبرهنة باناخ تضمن الوجود والوحدانية، وتوفر خوارزمية تكرارية للتقريب العددي للنقطة الصامدة."
   }
 ]
 };

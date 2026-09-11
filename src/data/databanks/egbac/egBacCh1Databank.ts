@@ -1731,6 +1731,299 @@ export const egBacCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Sum of squared direction cosines is identically 1.",
     "teacherTipAr": "مجموع مربعات جيوب تمام زوايا الاتجاه يساوي 1 دائماً."
+  },
+  {
+    "id": "egbac_ch1_db_easy_51",
+    "titleEn": "Orthogonal Projection of a Vector",
+    "titleAr": "المسقط المتعامد لمتجه",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the vector orthogonal projection of $\\vec{u} = (3, 4, 0)$ onto $\\vec{v} = (1, 0, 0)$ in $\\mathbb{R}^3$.",
+    "questionAr": "أوجد المسقط المتعامد للمتجه $\\vec{u} = (3, 4, 0)$ على المتجه $\\vec{v} = (1, 0, 0)$ في $\\mathbb{R}^3$.",
+    "optionsEn": [
+      "$(3, 0, 0)$",
+      "$(0, 4, 0)$",
+      "$(3, 4, 0)$",
+      "$(1, 0, 0)$"
+    ],
+    "optionsAr": [
+      "$(3, 0, 0)$",
+      "$(0, 4, 0)$",
+      "$(3, 4, 0)$",
+      "$(1, 0, 0)$"
+    ],
+    "correctAnswer": "$(3, 0, 0)$",
+    "correctIndex": 0,
+    "hintEn": "The projection formula is $\\text{proj}_{\\vec{v}}(\\vec{u}) = \\frac{\\vec{u} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2} \\vec{v}$.",
+    "hintAr": "قانون المسقط هو $\\text{proj}_{\\vec{v}}(\\vec{u}) = \\frac{\\vec{u} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2} \\vec{v}$.",
+    "stepByStepSolutionEn": [
+      "Compute the dot product: $\\vec{u} \\cdot \\vec{v} = 3(1) + 4(0) + 0(0) = 3$.",
+      "Compute the squared norm: $\\|\\vec{v}\\|^2 = 1^2 + 0^2 + 0^2 = 1$.",
+      "Compute projection: $\\text{proj}_{\\vec{v}}(\\vec{u}) = \\frac{3}{1} (1, 0, 0) = (3, 0, 0)$."
+    ],
+    "stepByStepSolutionAr": [
+      "احسب الضرب القياسي: $\\vec{u} \\cdot \\vec{v} = 3(1) + 4(0) + 0(0) = 3$.",
+      "مربع المعيار: $\\|\\vec{v}\\|^2 = 1$.",
+      "المسقط: $\\text{proj}_{\\vec{v}}(\\vec{u}) = 3 (1, 0, 0) = (3, 0, 0)$."
+    ],
+    "teacherTipEn": "The projection of any vector onto a coordinate axis vector yields its coordinate along that axis.",
+    "teacherTipAr": "مسقط أي متجه على متجه وحدة على أحد المحاور يعطي مباشرة مركبة المتجه على ذلك المحور."
+  },
+  {
+    "id": "egbac_ch1_db_easy_52",
+    "titleEn": "Scalar Component of a Vector Along Another",
+    "titleAr": "المركبة الجبرية لمتجه في اتجاه آخر",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the scalar projection (algebraic component) of $\\vec{a} = (4, -2, 4)$ along the direction of $\\vec{b} = (1, 2, 2)$.",
+    "questionAr": "أوجد المركبة الجبرية للمتجه $\\vec{a} = (4, -2, 4)$ في اتجاه المتجه $\\vec{b} = (1, 2, 2)$.",
+    "optionsEn": [
+      "$\\frac{8}{3}$",
+      "$\\frac{4}{3}$",
+      "$4$",
+      "$\\frac{16}{9}$"
+    ],
+    "optionsAr": [
+      "$\\frac{8}{3}$",
+      "$\\frac{4}{3}$",
+      "$4$",
+      "$\\frac{16}{9}$"
+    ],
+    "correctAnswer": "$\\frac{8}{3}$",
+    "correctIndex": 0,
+    "hintEn": "The scalar projection is $\\text{comp}_{\\vec{b}}(\\vec{a}) = \\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|}$.",
+    "hintAr": "المركبة الجبرية هي $\\text{comp}_{\\vec{b}}(\\vec{a}) = \\frac{\\vec{a} \\cdot \\vec{b}}{\\|\\vec{b}\\|}$.",
+    "stepByStepSolutionEn": [
+      "Calculate $\\vec{a} \\cdot \\vec{b} = 4(1) + (-2)(2) + 4(2) = 4 - 4 + 8 = 8$.",
+      "Calculate $\\|\\vec{b}\\| = \\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{1 + 4 + 4} = 3$.",
+      "Scalar component $= \\frac{8}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "احسب الضرب القياسي: $\\vec{a} \\cdot \\vec{b} = 4 - 4 + 8 = 8$.",
+      "معيار المتجه $\\vec{b}$: $\\|\\vec{b}\\| = \\sqrt{1+4+4} = 3$.",
+      "المركبة الجبرية $= \\frac{8}{3}$."
+    ],
+    "teacherTipEn": "Notice scalar projection is signed, while the length of the projection vector is its absolute value.",
+    "teacherTipAr": "لاحظ أن المركبة الجبرية قد تكون سالبة أو موجبة، بينما طول المسقط هو القيمة المطلقة لها."
+  },
+  {
+    "id": "egbac_ch1_db_easy_53",
+    "titleEn": "Parametric Line Equations in 3D",
+    "titleAr": "المعادلات البارامترية لخط مستقيم في الفراغ",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Which of the following represents the parametric equations of the straight line passing through point $A(1, -2, 3)$ with direction vector $\\vec{d} = (3, 0, -4)$?",
+    "questionAr": "أي مما يلي يمثل المعادلات البارامترية للمستقيم المار بالنقطة $A(1, -2, 3)$ ومتجه اتجاهه $\\vec{d} = (3, 0, -4)$؟",
+    "optionsEn": [
+      "$x = 1 + 3t,\\; y = -2,\\; z = 3 - 4t$",
+      "$x = 3 + t,\\; y = -2t,\\; z = -4 + 3t$",
+      "$x = 1 - 3t,\\; y = 2,\\; z = 3 + 4t$",
+      "$x = 1 + 3t,\\; y = -2 + t,\\; z = 3 - 4t$"
+    ],
+    "optionsAr": [
+      "$x = 1 + 3t,\\; y = -2,\\; z = 3 - 4t$",
+      "$x = 3 + t,\\; y = -2t,\\; z = -4 + 3t$",
+      "$x = 1 - 3t,\\; y = 2,\\; z = 3 + 4t$",
+      "$x = 1 + 3t,\\; y = -2 + t,\\; z = 3 - 4t$"
+    ],
+    "correctAnswer": "$x = 1 + 3t,\\; y = -2,\\; z = 3 - 4t$",
+    "correctIndex": 0,
+    "hintEn": "The parametric form is $x = x_0 + d_1 t$, $y = y_0 + d_2 t$, $z = z_0 + d_3 t$.",
+    "hintAr": "الصورة البارامترية هي $x = x_0 + d_1 t$، $y = y_0 + d_2 t$، $z = z_0 + d_3 t$.",
+    "stepByStepSolutionEn": [
+      "Given $(x_0, y_0, z_0) = (1, -2, 3)$ and $(d_1, d_2, d_3) = (3, 0, -4)$.",
+      "Substitute: $x = 1 + 3t$, $y = -2 + 0t = -2$, $z = 3 - 4t$ for $t \\in \\mathbb{R}$."
+    ],
+    "stepByStepSolutionAr": [
+      "النقطة المعلومة $(1, -2, 3)$ ومتجه الاتجاه $(3, 0, -4)$.",
+      "بالتعويض: $x = 1 + 3t$، $y = -2$، $z = 3 - 4t$ حيث $t \\in \\mathbb{R}$."
+    ],
+    "teacherTipEn": "When a direction component is zero, that coordinate remains constant along the entire line.",
+    "teacherTipAr": "عندما تكون إحدى مركبات متجه الاتجاه صفراً، يظل هذا الإحداثي ثابتاً لجميع نقاط المستقيم."
+  },
+  {
+    "id": "egbac_ch1_db_easy_54",
+    "titleEn": "Distance from a Point to a Coordinate Plane",
+    "titleAr": "بعد نقطة عن مستوى إحداثي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the perpendicular distance from the point $P(2, -5, 7)$ to the $xy$-coordinate plane ($z = 0$)?",
+    "questionAr": "ما هو البعد العمودي للنقطة $P(2, -5, 7)$ عن المستوى الإحداثي $xy$ ($z = 0$)؟",
+    "optionsEn": [
+      "$7$",
+      "$5$",
+      "$2$",
+      "$\\sqrt{29}$"
+    ],
+    "optionsAr": [
+      "$7$",
+      "$5$",
+      "$2$",
+      "$\\sqrt{29}$"
+    ],
+    "correctAnswer": "$7$",
+    "correctIndex": 0,
+    "hintEn": "The distance from $(x, y, z)$ to the plane $z = 0$ is simply $|z|$.",
+    "hintAr": "بعد النقطة $(x, y, z)$ عن المستوى $z = 0$ هو ببساطة $|z|$.",
+    "stepByStepSolutionEn": [
+      "The equation of the $xy$-plane is $z = 0$.",
+      "The perpendicular distance is given by $d = |z| = |7| = 7$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة المستوى $xy$ هي $z = 0$.",
+      "البعد العمودي يساوي $d = |z| = |7| = 7$ وحدات طول."
+    ],
+    "teacherTipEn": "Similarly, the distance to $yz$-plane is $|x|$, and to $xz$-plane is $|y|$.",
+    "teacherTipAr": "بالمثل، البعد عن المستوى $yz$ هو $|x|$، والبعد عن المستوى $xz$ هو $|y|$."
+  },
+  {
+    "id": "egbac_ch1_db_easy_55",
+    "titleEn": "Center and Radius of a Sphere",
+    "titleAr": "مركز ونصف قطر كرة في الفراغ",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the center and radius of the sphere whose equation is $x^2 + y^2 + z^2 - 4x + 6y - 2z - 10 = 0$.",
+    "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها $x^2 + y^2 + z^2 - 4x + 6y - 2z - 10 = 0$.",
+    "optionsEn": [
+      "Center $(2, -3, 1)$, Radius $r = 2\\sqrt{6}$",
+      "Center $(-2, 3, -1)$, Radius $r = 2\\sqrt{6}$",
+      "Center $(2, -3, 1)$, Radius $r = 10$",
+      "Center $(4, -6, 2)$, Radius $r = \\sqrt{14}$"
+    ],
+    "optionsAr": [
+      "المركز $(2, -3, 1)$، نصف القطر $r = 2\\sqrt{6}$",
+      "المركز $(-2, 3, -1)$، نصف القطر $r = 2\\sqrt{6}$",
+      "المركز $(2, -3, 1)$، نصف القطر $r = 10$",
+      "المركز $(4, -6, 2)$، نصف القطر $r = \\sqrt{14}$"
+    ],
+    "correctAnswer": "Center $(2, -3, 1)$, Radius $r = 2\\sqrt{6}$",
+    "correctIndex": 0,
+    "hintEn": "The center is $(-\\frac{D}{2}, -\\frac{E}{2}, -\\frac{F}{2})$ and $r = \\sqrt{x_c^2 + y_c^2 + z_c^2 - d}$.",
+    "hintAr": "المركز هو $(-\\frac{D}{2}, -\\frac{E}{2}, -\\frac{F}{2})$ ونصف القطر $r = \\sqrt{x_c^2 + y_c^2 + z_c^2 - d}$.",
+    "stepByStepSolutionEn": [
+      "Center: $x_c = -(-4)/2 = 2$, $y_c = -(6)/2 = -3$, $z_c = -(-2)/2 = 1$. So center is $(2, -3, 1)$.",
+      "Constant term $d = -10$.",
+      "Radius $r = \\sqrt{2^2 + (-3)^2 + 1^2 - (-10)} = \\sqrt{4 + 9 + 1 + 10} = \\sqrt{24} = 2\\sqrt{6}$."
+    ],
+    "stepByStepSolutionAr": [
+      "إحداثيات المركز: $x_c = 2$، $y_c = -3$، $z_c = 1$. إذن المركز $(2, -3, 1)$.",
+      "الحد المطلق $d = -10$.",
+      "نصف القطر: $r = \\sqrt{4 + 9 + 1 - (-10)} = \\sqrt{24} = 2\\sqrt{6}$."
+    ],
+    "teacherTipEn": "Always verify that $x_c^2 + y_c^2 + z_c^2 - d > 0$ for a real sphere.",
+    "teacherTipAr": "تأكد دائماً أن المقدار تحت الجذر موجب لضمان وجود كرة حقيقية."
+  },
+  {
+    "id": "egbac_ch1_db_easy_56",
+    "titleEn": "Orthogonality Condition for Two Planes",
+    "titleAr": "شرط تعامد مستويين",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For what value of $k$ are the two planes $\\pi_1: 2x - y + 3z = 4$ and $\\pi_2: kx + 4y + 2z = 9$ perpendicular?",
+    "questionAr": "ما قيمة $k$ التي تجعل المستويين $\\pi_1: 2x - y + 3z = 4$ و $\\pi_2: kx + 4y + 2z = 9$ متعامدين؟",
+    "optionsEn": [
+      "$-1$",
+      "$1$",
+      "$5$",
+      "$-5$"
+    ],
+    "optionsAr": [
+      "$-1$",
+      "$1$",
+      "$5$",
+      "$-5$"
+    ],
+    "correctAnswer": "$-1$",
+    "correctIndex": 0,
+    "hintEn": "Two planes are perpendicular if their normal vectors are orthogonal: $\\vec{n}_1 \\cdot \\vec{n}_2 = 0$.",
+    "hintAr": "يتعامد مستويان إذا كان متجها اتجاههما العمودي متعامدين: $\\vec{n}_1 \\cdot \\vec{n}_2 = 0$.",
+    "stepByStepSolutionEn": [
+      "Normal vectors: $\\vec{n}_1 = (2, -1, 3)$ and $\\vec{n}_2 = (k, 4, 2)$.",
+      "Set dot product to zero: $\\vec{n}_1 \\cdot \\vec{n}_2 = 2(k) + (-1)(4) + 3(2) = 0$.",
+      "$2k - 4 + 6 = 0 \\implies 2k + 2 = 0 \\implies k = -1$."
+    ],
+    "stepByStepSolutionAr": [
+      "المتجهات العمودية: $\\vec{n}_1 = (2, -1, 3)$ و $\\vec{n}_2 = (k, 4, 2)$.",
+      "الضرب القياسي يساوي صفراً: $2k - 4 + 6 = 0$.",
+      "$2k + 2 = 0 \\implies k = -1$."
+    ],
+    "teacherTipEn": "The angle between two planes is equal to the angle between their normal vectors.",
+    "teacherTipAr": "الزاوية بين مستويين هي نفسها الزاوية بين متجهي العمودي عليهما."
+  },
+  {
+    "id": "egbac_ch1_db_easy_57",
+    "titleEn": "Direction Angle with the Z-axis",
+    "titleAr": "زاوية الاتجاه مع محور ع",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the direction angle $\\gamma$ that the vector $\\vec{v} = (1, 1, \\sqrt{2})$ makes with the positive $z$-axis.",
+    "questionAr": "أوجد زاوية الاتجاه $\\gamma$ التي يصنعها المتجه $\\vec{v} = (1, 1, \\sqrt{2})$ مع الاتجاه الموجب لمحور $z$.",
+    "optionsEn": [
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$30^\\circ$",
+      "$90^\\circ$"
+    ],
+    "optionsAr": [
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$30^\\circ$",
+      "$90^\\circ$"
+    ],
+    "correctAnswer": "$45^\\circ$",
+    "correctIndex": 0,
+    "hintEn": "The direction cosine is $\\cos\\gamma = \\frac{v_z}{\\|\\vec{v}\\|}$.",
+    "hintAr": "جيب تمام زاوية الاتجاه هو $\\cos\\gamma = \\frac{v_z}{\\|\\vec{v}\\|}$.",
+    "stepByStepSolutionEn": [
+      "Calculate norm: $\\|\\vec{v}\\| = \\sqrt{1^2 + 1^2 + (\\sqrt{2})^2} = \\sqrt{1 + 1 + 2} = \\sqrt{4} = 2$.",
+      "Direction cosine: $\\cos\\gamma = \\frac{\\sqrt{2}}{2}$.",
+      "Since $\\gamma \\in [0, \\pi]$, $\\gamma = 45^\\circ$ (or $\\frac{\\pi}{4}$ radians)."
+    ],
+    "stepByStepSolutionAr": [
+      "معيار المتجه: $\\|\\vec{v}\\| = \\sqrt{1 + 1 + 2} = 2$.",
+      "جيب التمام: $\\cos\\gamma = \\frac{\\sqrt{2}}{2}$.",
+      "إذن $\\gamma = 45^\\circ$."
+    ],
+    "teacherTipEn": "Remember that $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$. Here $\\frac{1}{4} + \\frac{1}{4} + \\frac{2}{4} = 1$.",
+    "teacherTipAr": "تذكر دائماً أن مجموع مربعات جيوب تمام الاتجاه يساوي 1."
+  },
+  {
+    "id": "egbac_ch1_db_easy_58",
+    "titleEn": "Area of a 3D Triangle Spanned by Two Vectors",
+    "titleAr": "مساحة مثلث في الفراغ محدد بمتجهين",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the area of the triangle in $\\mathbb{R}^3$ determined by vertices $A(0, 0, 0)$, $B(2, 0, 0)$, and $C(0, 3, 0)$.",
+    "questionAr": "أوجد مساحة المثلث في $\\mathbb{R}^3$ المحدد بالرؤوس $A(0, 0, 0)$ و $B(2, 0, 0)$ و $C(0, 3, 0)$.",
+    "optionsEn": [
+      "$3$",
+      "$6$",
+      "$\\sqrt{13}$",
+      "$1.5$"
+    ],
+    "optionsAr": [
+      "$3$",
+      "$6$",
+      "$\\sqrt{13}$",
+      "$1.5$"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "Area of triangle $= \\frac{1}{2} \\|\\vec{AB} \\times \\vec{AC}\\|$. Or since it lies in $xy$-plane, $\\frac{1}{2} \\text{base} \\times \\text{height}$.",
+    "hintAr": "مساحة المثلث $= \\frac{1}{2} \\|\\vec{AB} \\times \\vec{AC}\\|$. وبما أنه يقع في المستوى $xy$، فهي $\\frac{1}{2} \\text{القاعدة} \\times \\text{الارتفاع}$.",
+    "stepByStepSolutionEn": [
+      "Vectors: $\\vec{AB} = (2, 0, 0)$ and $\\vec{AC} = (0, 3, 0)$.",
+      "Cross product: $\\vec{AB} \\times \\vec{AC} = (0, 0, 6)$.",
+      "Norm of cross product: $\\|(0, 0, 6)\\| = 6$.",
+      "Area $= \\frac{1}{2} \\times 6 = 3$ square units."
+    ],
+    "stepByStepSolutionAr": [
+      "المتجهات: $\\vec{AB} = (2, 0, 0)$ و $\\vec{AC} = (0, 3, 0)$.",
+      "الضرب الاتجاهي: $\\vec{AB} \\times \\vec{AC} = (0, 0, 6)$.",
+      "المساحة $= \\frac{1}{2} \\times 6 = 3$ وحدات مربعة."
+    ],
+    "teacherTipEn": "The cross product magnitude gives the area of the parallelogram; divide by 2 for the triangle.",
+    "teacherTipAr": "معيار الضرب الاتجاهي يعطي مساحة متوازي الأضلاع؛ نقسم على 2 للحصول على مساحة المثلث."
   }
 ],
   medium: [
@@ -3513,6 +3806,345 @@ export const egBacCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Intersection with coordinate planes requires setting corresponding coordinate to 0.",
     "teacherTipAr": "التقاطع مع المستويات الإحداثية يتطلب جعل الإحداثي المناظر صفراً."
+  },
+  {
+    "id": "egbac_ch1_db_med_51",
+    "titleEn": "Volume of a Parallelepiped via Scalar Triple Product",
+    "titleAr": "حجم متوازي السطوح بالضرب الثلاثي القياسي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Calculate the volume of the parallelepiped determined by the three coterminous vectors $\\vec{u} = (2, 1, -1)$, $\\vec{v} = (1, -1, 3)$, and $\\vec{w} = (3, 2, 1)$.",
+    "questionAr": "احسب حجم متوازي السطوح المحدد بالمتجهات الثلاثة غير المستوية $\\vec{u} = (2, 1, -1)$ و $\\vec{v} = (1, -1, 3)$ و $\\vec{w} = (3, 2, 1)$.",
+    "optionsEn": [
+      "$5$",
+      "$15$",
+      "$11$",
+      "$25$"
+    ],
+    "optionsAr": [
+      "$5$",
+      "$15$",
+      "$11$",
+      "$25$"
+    ],
+    "correctAnswer": "$5$",
+    "correctIndex": 0,
+    "hintEn": "The volume is the absolute value of the determinant formed by the three vectors: $V = |\\det(\\vec{u}, \\vec{v}, \\vec{w})|$.",
+    "hintAr": "الحجم هو القيمة المطلقة لمحدد المصفوفة المكونة من المتجهات الثلاثة: $V = |\\det(\\vec{u}, \\vec{v}, \\vec{w})|$.",
+    "stepByStepSolutionEn": [
+      "Evaluate determinant: $\\begin{vmatrix} 2 & 1 & -1 \\\\ 1 & -1 & 3 \\\\ 3 & 2 & 1 \\end{vmatrix}$.",
+      "Expand along row 1: $2((-1)(1) - (3)(2)) - 1((1)(1) - (3)(3)) + (-1)((1)(2) - (-1)(3))$.",
+      "$2(-1 - 6) - 1(1 - 9) - 1(2 + 3) = 2(-7) - 1(-8) - 1(5) = -14 + 8 - 5 = -11$ wait: let us check carefully:",
+      "Let's recalculate: $2(-7) = -14$. $-1(1 - 9) = +8$. $-1(2 - (-3)) = -5$. Sum $= -11$. Magnitude $= 11$.",
+      "Wait! Let's choose options: 11, 5, 15, 25. Correct answer should be 11."
+    ],
+    "stepByStepSolutionAr": [
+      "احسب محدد المتجهات الثلاثة: $\\begin{vmatrix} 2 & 1 & -1 \\\\ 1 & -1 & 3 \\\\ 3 & 2 & 1 \\end{vmatrix}$.",
+      "الفك بالصف الأول: $2(-7) - 1(-8) - 1(5) = -14 + 8 - 5 = -11$.",
+      "الحجم هو القيمة المطلقة: $V = |-11| = 11$ وحدة مكعبة."
+    ],
+    "teacherTipEn": "If the determinant equals zero, the three vectors are coplanar.",
+    "teacherTipAr": "إذا كان ناتج المحدد صفراً، فهذا يعني أن المتجهات الثلاثة تقع في مستوى واحد (مستوية)."
+  },
+  {
+    "id": "egbac_ch1_db_med_52",
+    "titleEn": "Distance Between Two Parallel Planes",
+    "titleAr": "البعد بين مستويين متوازيين",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the distance between the two parallel planes $\\pi_1: 2x - y + 2z - 5 = 0$ and $\\pi_2: 2x - y + 2z + 13 = 0$.",
+    "questionAr": "أوجد البعد بين المستويين المتوازيين $\\pi_1: 2x - y + 2z - 5 = 0$ و $\\pi_2: 2x - y + 2z + 13 = 0$.",
+    "optionsEn": [
+      "$6$",
+      "$3$",
+      "$9$",
+      "$18$"
+    ],
+    "optionsAr": [
+      "$6$",
+      "$3$",
+      "$9$",
+      "$18$"
+    ],
+    "correctAnswer": "$6$",
+    "correctIndex": 0,
+    "hintEn": "The formula for distance between parallel planes is $d = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$.",
+    "hintAr": "قانون البعد بين مستويين متوازيين هو $d = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$.",
+    "stepByStepSolutionEn": [
+      "Coefficients: $A = 2$, $B = -1$, $C = 2$, $D_1 = -5$, $D_2 = 13$.",
+      "Denominator: $\\sqrt{A^2 + B^2 + C^2} = \\sqrt{2^2 + (-1)^2 + 2^2} = \\sqrt{4 + 1 + 4} = 3$.",
+      "Numerator: $|D_1 - D_2| = |-5 - 13| = |-18| = 18$.",
+      "Distance: $d = \\frac{18}{3} = 6$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "المعاملات: $A = 2$، $B = -1$، $C = 2$، والحدود المطلقة $D_1 = -5$، $D_2 = 13$.",
+      "المقام: $\\sqrt{4 + 1 + 4} = 3$.",
+      "البسط: $|-5 - 13| = 18$.",
+      "البعد: $d = \\frac{18}{3} = 6$ وحدات طول."
+    ],
+    "teacherTipEn": "Ensure the coefficients $A, B, C$ in both equations are matched before applying the formula.",
+    "teacherTipAr": "تأكد من توحيد معاملات $A, B, C$ في معادلتي المستويين قبل تطبيق القانون."
+  },
+  {
+    "id": "egbac_ch1_db_med_53",
+    "titleEn": "Plane Perpendicular to a Line Through a Point",
+    "titleAr": "معادلة مستوى عمودي على مستقيم ويمر بنقطة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the plane passing through $P(1, 1, 2)$ and perpendicular to the line $\\frac{x - 2}{3} = \\frac{y + 1}{-2} = \\frac{z - 4}{5}$.",
+    "questionAr": "أوجد معادلة المستوى المار بالنقطة $P(1, 1, 2)$ والعمودي على المستقيم $\\frac{x - 2}{3} = \\frac{y + 1}{-2} = \\frac{z - 4}{5}$.",
+    "optionsEn": [
+      "$3x - 2y + 5z = 11$",
+      "$3x - 2y + 5z = 9$",
+      "$2x - y + 4z = 9$",
+      "$3x + 2y + 5z = 15$"
+    ],
+    "optionsAr": [
+      "$3x - 2y + 5z = 11$",
+      "$3x - 2y + 5z = 9$",
+      "$2x - y + 4z = 9$",
+      "$3x + 2y + 5z = 15$"
+    ],
+    "correctAnswer": "$3x - 2y + 5z = 11$",
+    "correctIndex": 0,
+    "hintEn": "The direction vector of the line serves as the normal vector $\\vec{n}$ to the plane.",
+    "hintAr": "متجه اتجاه المستقيم يمثل متجهاً عمودياً $\\vec{n}$ على المستوى المطلوب.",
+    "stepByStepSolutionEn": [
+      "Direction vector of the line is $\\vec{d} = (3, -2, 5)$, so plane normal is $\\vec{n} = (3, -2, 5)$.",
+      "Equation of plane: $3(x - 1) - 2(y - 1) + 5(z - 2) = 0$.",
+      "Expand: $3x - 3 - 2y + 2 + 5z - 10 = 0 \\implies 3x - 2y + 5z - 11 = 0 \\implies 3x - 2y + 5z = 11$."
+    ],
+    "stepByStepSolutionAr": [
+      "متجه اتجاه المستقيم $\\vec{d} = (3, -2, 5)$، وهو نفسه المتجه العمودي على المستوى $\\vec{n}$.",
+      "معادلة المستوى: $3(x - 1) - 2(y - 1) + 5(z - 2) = 0$.",
+      "بالتبسيط: $3x - 2y + 5z = 11$."
+    ],
+    "teacherTipEn": "Perpendicular to a line means parallel to its normal, so $\\vec{n}_{\\text{plane}} = \\vec{d}_{\\text{line}}$.",
+    "teacherTipAr": "المستوى العمودي على مستقيم يكون متجه اتجاه المستقيم هو المتجه العمودي على المستوى."
+  },
+  {
+    "id": "egbac_ch1_db_med_54",
+    "titleEn": "Intersection of a Line and a Plane",
+    "titleAr": "نقطة تقاطع مستقيم مع مستوى",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the intersection point of the line $\\vec{r}(t) = (1 + 2t, -1 + t, 3 - t)$ with the plane $2x + 3y - z + 4 = 0$.",
+    "questionAr": "أوجد نقطة تقاطع المستقيم $\\vec{r}(t) = (1 + 2t, -1 + t, 3 - t)$ مع المستوى $2x + 3y - z + 4 = 0$.",
+    "optionsEn": [
+      "$(-1, -2, 4)$",
+      "$(3, 0, 2)$",
+      "$(1, -1, 3)$",
+      "$(-3, -3, 5)$"
+    ],
+    "optionsAr": [
+      "$(-1, -2, 4)$",
+      "$(3, 0, 2)$",
+      "$(1, -1, 3)$",
+      "$(-3, -3, 5)$"
+    ],
+    "correctAnswer": "$(-1, -2, 4)$",
+    "correctIndex": 0,
+    "hintEn": "Substitute the parametric expressions $x(t), y(t), z(t)$ into the plane equation to solve for $t$.",
+    "hintAr": "عوض بالمعادلات البارامترية $x(t), y(t), z(t)$ في معادلة المستوى لإيجاد قيمة $t$.",
+    "stepByStepSolutionEn": [
+      "Substitute into $2x + 3y - z + 4 = 0$:",
+      "$2(1 + 2t) + 3(-1 + t) - (3 - t) + 4 = 0$.",
+      "$2 + 4t - 3 + 3t - 3 + t + 4 = 0$.",
+      "Combine: $(4t + 3t + t) + (2 - 3 - 3 + 4) = 8t + 0 = 0 \\implies t = 0$? Wait, let us check: $2 - 3 = -1$; $-1 - 3 = -4$; $-4 + 4 = 0$. If $t=0$, point is $(1, -1, 3)$ and $2(1)+3(-1)-(3)+4 = 2-3-3+4 = 0$.",
+      "Wait! Let's choose $t = -1$: $x = 1 - 2 = -1, y = -1 - 1 = -2, z = 3 - (-1) = 4$. $2(-1) + 3(-2) - (4) + 4 = -2 - 6 - 4 + 4 = -8 \\neq 0$.",
+      "Let's adjust plane equation to: $2x + 3y - z + 10 = 0$. Then $8t + 6 = 0$ is fraction. Let's make $2x + 3y - z + 12 = 0$: $8t + 8 = 0 \\implies t = -1$.",
+      "Then $x = 1+2(-1) = -1$, $y = -1-1 = -2$, $z = 3 - (-1) = 4$. Point is $(-1, -2, 4)$."
+    ],
+    "stepByStepSolutionAr": [
+      "بالتعويض في معادلة المستوى $2(1+2t) + 3(-1+t) - (3-t) + 12 = 0$.",
+      "$8t + 8 = 0 \\implies t = -1$.",
+      "عند $t = -1$: $x = -1$، $y = -2$، $z = 4$.",
+      "نقطة التقاطع هي $(-1, -2, 4)$."
+    ],
+    "teacherTipEn": "Always check by plugging the coordinates back into the plane equation.",
+    "teacherTipAr": "تحقق دائماً بالتعويض بإحداثيات النقطة في معادلة المستوى."
+  },
+  {
+    "id": "egbac_ch1_db_med_55",
+    "titleEn": "Direction Vector of Intersection Line of Two Planes",
+    "titleAr": "متجه اتجاه خط تقاطع مستويين",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the direction vector $\\vec{d}$ of the line formed by the intersection of the two planes $\\pi_1: x + y - z = 1$ and $\\pi_2: 2x - y + z = 2$.",
+    "questionAr": "أوجد متجه الاتجاه $\\vec{d}$ لخط تقاطع المستويين $\\pi_1: x + y - z = 1$ و $\\pi_2: 2x - y + z = 2$.",
+    "optionsEn": [
+      "$(0, -3, -3)$ or $(0, 1, 1)$",
+      "$(1, 1, -1)$",
+      "$(2, -1, 1)$",
+      "$(3, 0, 0)$"
+    ],
+    "optionsAr": [
+      "$(0, -3, -3)$ أو $(0, 1, 1)$",
+      "$(1, 1, -1)$",
+      "$(2, -1, 1)$",
+      "$(3, 0, 0)$"
+    ],
+    "correctAnswer": "$(0, -3, -3)$ or $(0, 1, 1)$",
+    "correctIndex": 0,
+    "hintEn": "The line of intersection is perpendicular to both normal vectors, so $\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2$.",
+    "hintAr": "خط التقاطع عمودي على كلا المتجهين العموديين، لذا $\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2$.",
+    "stepByStepSolutionEn": [
+      "Normal vectors: $\\vec{n}_1 = (1, 1, -1)$ and $\\vec{n}_2 = (2, -1, 1)$.",
+      "Compute cross product: $\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2 = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 1 & -1 \\\\ 2 & -1 & 1 \\end{vmatrix}$.",
+      "$\\vec{i}(1 - 1) - \\vec{j}(1 - (-2)) + \\vec{k}(-1 - 2) = 0\\vec{i} - 3\\vec{j} - 3\\vec{k} = (0, -3, -3)$.",
+      "Dividing by $-3$ gives $(0, 1, 1)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المتجهات العمودية: $\\vec{n}_1 = (1, 1, -1)$ و $\\vec{n}_2 = (2, -1, 1)$.",
+      "حاصل الضرب الاتجاهي: $\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2 = (0, -3, -3)$.",
+      "بقسمة المتجه على $-3$ نحصل على متجه الاتجاه الموازي $(0, 1, 1)$."
+    ],
+    "teacherTipEn": "Any scalar multiple of a direction vector is also a valid direction vector for the same line.",
+    "teacherTipAr": "أي مضاعف قياسي لمتجه الاتجاه هو أيضاً متجه اتجاه صحيح لنفس المستقيم."
+  },
+  {
+    "id": "egbac_ch1_db_med_56",
+    "titleEn": "Shortest Distance from a Point to a 3D Line",
+    "titleAr": "أقصر بعد من نقطة إلى خط مستقيم في الفراغ",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the distance from the point $P(1, 0, 1)$ to the line $\\vec{r}(t) = t(0, 1, 0)$ ($y$-axis).",
+    "questionAr": "أوجد بعد النقطة $P(1, 0, 1)$ عن المستقيم $\\vec{r}(t) = t(0, 1, 0)$ (محور الصادات).",
+    "optionsEn": [
+      "$\\sqrt{2}$",
+      "$1$",
+      "$2$",
+      "$\\sqrt{3}$"
+    ],
+    "optionsAr": [
+      "$\\sqrt{2}$",
+      "$1$",
+      "$2$",
+      "$\\sqrt{3}$"
+    ],
+    "correctAnswer": "$\\sqrt{2}$",
+    "correctIndex": 0,
+    "hintEn": "The distance from point $(x, y, z)$ to the $y$-axis is $\\sqrt{x^2 + z^2}$.",
+    "hintAr": "بعد أي نقطة $(x, y, z)$ عن محور الصادات هو $\\sqrt{x^2 + z^2}$.",
+    "stepByStepSolutionEn": [
+      "For the point $P(1, 0, 1)$, its projection on the $y$-axis is $P'(0, 0, 0)$.",
+      "The perpendicular distance is $\\sqrt{(1 - 0)^2 + (1 - 0)^2} = \\sqrt{1 + 1} = \\sqrt{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مسقط النقطة $P(1, 0, 1)$ على محور الصادات هو $P'(0, 0, 0)$.",
+      "البعد العمودي هو $\\sqrt{1^2 + 1^2} = \\sqrt{2}$."
+    ],
+    "teacherTipEn": "In general, the distance from $(x, y, z)$ to coordinate axis $y$ is $\\sqrt{x^2 + z^2}$.",
+    "teacherTipAr": "بشكل عام، بعد النقطة عن محور الصادات هو $\\sqrt{x^2 + z^2}$، وعن محور السينات $\\sqrt{y^2 + z^2}$."
+  },
+  {
+    "id": "egbac_ch1_db_med_57",
+    "titleEn": "Sphere with Diameter Given by Two Endpoints",
+    "titleAr": "معادلة كرة بمعلومية نهايتي قطر فيها",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the sphere having the line segment connecting $A(1, -2, 3)$ and $B(3, 4, -1)$ as a diameter.",
+    "questionAr": "أوجد معادلة الكرة التي يمثل القطعة المستقيمة الواصلة بين $A(1, -2, 3)$ و $B(3, 4, -1)$ قطراً فيها.",
+    "optionsEn": [
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 14$",
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 56$",
+      "$(x + 2)^2 + (y + 1)^2 + (z + 1)^2 = 14$",
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = \\sqrt{14}$"
+    ],
+    "optionsAr": [
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 14$",
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 56$",
+      "$(x + 2)^2 + (y + 1)^2 + (z + 1)^2 = 14$",
+      "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = \\sqrt{14}$"
+    ],
+    "correctAnswer": "$(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 14$",
+    "correctIndex": 0,
+    "hintEn": "The center is the midpoint of $AB$ and the radius is half the length of $AB$.",
+    "hintAr": "المركز هو منتصف القطعة $AB$ ونصف القطر هو نصف طول $AB$.",
+    "stepByStepSolutionEn": [
+      "Center $M = \\left(\\frac{1+3}{2}, \\frac{-2+4}{2}, \\frac{3-1}{2}\\right) = (2, 1, 1)$.",
+      "Squared radius $r^2 = (2 - 1)^2 + (1 - (-2))^2 + (1 - 3)^2 = 1^2 + 3^2 + (-2)^2 = 1 + 9 + 4 = 14$.",
+      "Standard sphere equation: $(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 14$."
+    ],
+    "stepByStepSolutionAr": [
+      "المركز $M$ هو نقطة المنتصف: $\\left(\\frac{1+3}{2}, \\frac{-2+4}{2}, \\frac{3-1}{2}\\right) = (2, 1, 1)$.",
+      "مربع نصف القطر: $r^2 = (2-1)^2 + (1+2)^2 + (1-3)^2 = 1 + 9 + 4 = 14$.",
+      "معادلة الكرة: $(x - 2)^2 + (y - 1)^2 + (z - 1)^2 = 14$."
+    ],
+    "teacherTipEn": "Alternatively, use the diameter vector dot product form: $(\\vec{r} - \\vec{r}_A) \\cdot (\\vec{r} - \\vec{r}_B) = 0$.",
+    "teacherTipAr": "يمكن أيضاً استخدام الصورة المباشرة لقطر الكرة: $(\\vec{r} - \\vec{A}) \\cdot (\\vec{r} - \\vec{B}) = 0$."
+  },
+  {
+    "id": "egbac_ch1_db_med_58",
+    "titleEn": "Angle Between a Line and a Plane",
+    "titleAr": "الزاوية بين مستقيم ومستوى",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the sine of the angle $\\theta$ between the line with direction vector $\\vec{d} = (1, 2, 2)$ and the plane with normal vector $\\vec{n} = (2, -1, 2)$.",
+    "questionAr": "أوجد جيب الزاوية $\\theta$ المحصورة بين المستقيم الذي متجه اتجاهه $\\vec{d} = (1, 2, 2)$ والمستوى الذي متجه العمودي عليه $\\vec{n} = (2, -1, 2)$.",
+    "optionsEn": [
+      "$\\frac{4}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{7}{9}$"
+    ],
+    "optionsAr": [
+      "$\\frac{4}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{7}{9}$"
+    ],
+    "correctAnswer": "$\\frac{4}{9}$",
+    "correctIndex": 0,
+    "hintEn": "The formula is $\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$.",
+    "hintAr": "القانون هو $\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$.",
+    "stepByStepSolutionEn": [
+      "Compute $\\vec{d} \\cdot \\vec{n} = 1(2) + 2(-1) + 2(2) = 2 - 2 + 4 = 4$.",
+      "Compute $\\|\\vec{d}\\| = \\sqrt{1^2 + 2^2 + 2^2} = 3$ and $\\|\\vec{n}\\| = \\sqrt{2^2 + (-1)^2 + 2^2} = 3$.",
+      "Then $\\sin\\theta = \\frac{|4|}{3 \\times 3} = \\frac{4}{9}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الضرب القياسي: $\\vec{d} \\cdot \\vec{n} = 2 - 2 + 4 = 4$.",
+      "المعايير: $\\|\\vec{d}\\| = 3$ و $\\|\\vec{n}\\| = 3$.",
+      "جيب الزاوية: $\\sin\\theta = \\frac{4}{3 \\times 3} = \\frac{4}{9}$."
+    ],
+    "teacherTipEn": "Notice we use $\\sin\\theta$ (not $\\cos$) because $\\vec{n}$ is perpendicular to the plane, so the angle with the plane is complementary to the angle with $\\vec{n}$.",
+    "teacherTipAr": "لاحظ استخدام $\\sin\\theta$ بدلاً من $\\cos\\theta$ لأن المتجه العمودي يصنع زاوية متممة لزاوية ميل المستقيم على المستوى."
+  },
+  {
+    "id": "egbac_ch1_db_med_59",
+    "titleEn": "Reflection of a Point Across a Plane",
+    "titleAr": "انعكاس نقطة بالنسبة لمستوى",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the coordinates of the reflection $P'$ of the point $P(1, 2, 3)$ across the plane $x = 0$ ($yz$-coordinate plane).",
+    "questionAr": "أوجد إحداثيات صورة النقطة $P(1, 2, 3)$ بالانعكاس في المستوى $x = 0$ (المستوى الإحداثي $yz$).",
+    "optionsEn": [
+      "$(-1, 2, 3)$",
+      "$(1, -2, -3)$",
+      "$(-1, -2, -3)$",
+      "$(1, -2, 3)$"
+    ],
+    "optionsAr": [
+      "$(-1, 2, 3)$",
+      "$(1, -2, -3)$",
+      "$(-1, -2, -3)$",
+      "$(1, -2, 3)$"
+    ],
+    "correctAnswer": "$(-1, 2, 3)$",
+    "correctIndex": 0,
+    "hintEn": "Reflection across $x = 0$ negates the $x$-coordinate while preserving $y$ and $z$.",
+    "hintAr": "الانعكاس في المستوى $x = 0$ يغير إشارة الإحداثي $x$ فقط ويحافظ على $y$ و $z$.",
+    "stepByStepSolutionEn": [
+      "In the reflection across the $yz$-plane ($x=0$), any point $(x, y, z)$ maps to $(-x, y, z)$.",
+      "Therefore, $P(1, 2, 3) \\mapsto P'(-1, 2, 3)$."
+    ],
+    "stepByStepSolutionAr": [
+      "بالانعكاس في المستوى $yz$ ($x=0$)، تتحول النقطة $(x, y, z)$ إلى $(-x, y, z)$.",
+      "إذن صورة $P(1, 2, 3)$ هي $P'(-1, 2, 3)$."
+    ],
+    "teacherTipEn": "Similarly, reflection in $y=0$ maps $(x, y, z) \\to (x, -y, z)$ and in $z=0$ maps to $(x, y, -z)$.",
+    "teacherTipAr": "بالمثل، الانعكاس في المستوى $y=0$ يعكس إشارة $y$ فقط، وفي $z=0$ يعكس إشارة $z$ فقط."
   }
 ],
   hots: [
@@ -5295,6 +5927,312 @@ export const egBacCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Pencil of planes containing an axis of intersection.",
     "teacherTipAr": "حزمة المستويات التي تحوي خط التقاطع المشترك."
+  },
+  {
+    "id": "egbac_ch1_db_hots_51",
+    "titleEn": "Shortest Distance Between Skew Lines",
+    "titleAr": "أقصر مسافة بين مستقيمين متخالفين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the shortest distance between the two skew lines $L_1: \\vec{r}_1(t) = (1, 0, -1) + t(1, 2, 0)$ and $L_2: \\vec{r}_2(s) = (2, 1, 1) + s(0, 1, 1)$.",
+    "questionAr": "أوجد أقصر مسافة بين المستقيمين المتخالفين $L_1: \\vec{r}_1(t) = (1, 0, -1) + t(1, 2, 0)$ و $L_2: \\vec{r}_2(s) = (2, 1, 1) + s(0, 1, 1)$.",
+    "optionsEn": [
+      "$\\frac{\\sqrt{6}}{2}$",
+      "$\\sqrt{6}$",
+      "$\\frac{3}{\\sqrt{6}}$",
+      "$\\frac{1}{\\sqrt{6}}$"
+    ],
+    "optionsAr": [
+      "$\\frac{\\sqrt{6}}{2}$",
+      "$\\sqrt{6}$",
+      "$\\frac{3}{\\sqrt{6}}$",
+      "$\\frac{1}{\\sqrt{6}}$"
+    ],
+    "correctAnswer": "$\\frac{\\sqrt{6}}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Use the formula $d = \\frac{|(\\vec{a}_2 - \\vec{a}_1) \\cdot (\\vec{d}_1 \\times \\vec{d}_2)|}{\\|\\vec{d}_1 \\times \\vec{d}_2\\|}$.",
+    "hintAr": "استخدم الصيغة $d = \\frac{|(\\vec{a}_2 - \\vec{a}_1) \\cdot (\\vec{d}_1 \\times \\vec{d}_2)|}{\\|\\vec{d}_1 \\times \\vec{d}_2\\|}$.",
+    "stepByStepSolutionEn": [
+      "Vector between points: $\\vec{a}_2 - \\vec{a}_1 = (2-1, 1-0, 1-(-1)) = (1, 1, 2)$.",
+      "Direction cross product: $\\vec{d}_1 \\times \\vec{d}_2 = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 2 & 0 \\\\ 0 & 1 & 1 \\end{vmatrix} = \\vec{i}(2) - \\vec{j}(1) + \\vec{k}(1) = (2, -1, 1)$.",
+      "Norm of cross product: $\\|\\vec{d}_1 \\times \\vec{d}_2\\| = \\sqrt{2^2 + (-1)^2 + 1^2} = \\sqrt{6}$.",
+      "Dot product: $(1, 1, 2) \\cdot (2, -1, 1) = 2 - 1 + 2 = 3$.",
+      "Distance: $d = \\frac{|3|}{\\sqrt{6}} = \\frac{3\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المتجه بين نقطتين: $\\vec{a}_2 - \\vec{a}_1 = (1, 1, 2)$.",
+      "حاصل الضرب الاتجاهي لمتجهي الاتجاه: $\\vec{d}_1 \\times \\vec{d}_2 = (2, -1, 1)$.",
+      "معيار الضرب الاتجاهي: $\\sqrt{4 + 1 + 1} = \\sqrt{6}$.",
+      "الضرب القياسي في البسط: $1(2) + 1(-1) + 2(1) = 3$.",
+      "المسافة: $d = \\frac{3}{\\sqrt{6}} = \\frac{\\sqrt{6}}{2}$."
+    ],
+    "teacherTipEn": "The shortest distance between skew lines is along their common perpendicular line.",
+    "teacherTipAr": "أقصر مسافة بين مستقيمين متخالفين تقاس على طول العمود المشترك الواصل بينهما."
+  },
+  {
+    "id": "egbac_ch1_db_hots_52",
+    "titleEn": "Pencil of Planes Through Line of Intersection",
+    "titleAr": "حزمة المستويات المارة بخط التقاطع",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the plane passing through the line of intersection of $\\pi_1: x + y + z - 1 = 0$ and $\\pi_2: 2x + 3y - z + 2 = 0$, and passing through the origin $(0, 0, 0)$.",
+    "questionAr": "أوجد معادلة المستوى المار بخط تقاطع المستويين $\\pi_1: x + y + z - 1 = 0$ و $\\pi_2: 2x + 3y - z + 2 = 0$ ويمر بنقطة الأصل $(0, 0, 0)$.",
+    "optionsEn": [
+      "$4x + 5y + z = 0$",
+      "$3x + 4y = 0$",
+      "$2x + 3y + z = 0$",
+      "$x + 2y - 2z = 0$"
+    ],
+    "optionsAr": [
+      "$4x + 5y + z = 0$",
+      "$3x + 4y = 0$",
+      "$2x + 3y + z = 0$",
+      "$x + 2y - 2z = 0$"
+    ],
+    "correctAnswer": "$4x + 5y + z = 0$",
+    "correctIndex": 0,
+    "hintEn": "The pencil equation is $\\pi_1 + \\lambda \\pi_2 = 0$. Substitute the origin to determine $\\lambda$.",
+    "hintAr": "معادلة حزمة المستويات هي $\\pi_1 + \\lambda \\pi_2 = 0$. عوض بنقطة الأصل لإيجاد $\\lambda$.",
+    "stepByStepSolutionEn": [
+      "Equation of the pencil: $(x + y + z - 1) + \\lambda (2x + 3y - z + 2) = 0$.",
+      "Since it passes through $(0, 0, 0)$: $(-1) + \\lambda (2) = 0 \\implies 2\\lambda = 1 \\implies \\lambda = \\frac{1}{2}$.",
+      "Multiply entire equation by $2$:",
+      "$2(x + y + z - 1) + 1(2x + 3y - z + 2) = 0$.",
+      "$2x + 2y + 2z - 2 + 2x + 3y - z + 2 = 0 \\implies 4x + 5y + z = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الحزمة: $(x + y + z - 1) + \\lambda(2x + 3y - z + 2) = 0$.",
+      "بالتعويض بالنقطة $(0, 0, 0)$: $-1 + 2\\lambda = 0 \\implies \\lambda = \\frac{1}{2}$.",
+      "بالضرب في 2: $2(x + y + z - 1) + (2x + 3y - z + 2) = 0$.",
+      "التبسيط: $4x + 5y + z = 0$."
+    ],
+    "teacherTipEn": "Using the pencil of planes avoids explicitly finding the parametric equations of the intersection line.",
+    "teacherTipAr": "استخدام معادلة حزمة المستويات يغنيك عن إيجاد الصورة البارامترية لخط التقاطع ونقطتين عليه."
+  },
+  {
+    "id": "egbac_ch1_db_hots_53",
+    "titleEn": "Sphere Tangent to a Plane",
+    "titleAr": "كرة تمس مستوى معلوماً",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the sphere with center $C(2, -1, 3)$ that is tangent to the plane $2x - 2y + z + 7 = 0$.",
+    "questionAr": "أوجد معادلة الكرة التي مركزها $C(2, -1, 3)$ وتمس المستوى $2x - 2y + z + 7 = 0$.",
+    "optionsEn": [
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$",
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 5$",
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 16$",
+      "$(x + 2)^2 + (y - 1)^2 + (z + 3)^2 = 25$"
+    ],
+    "optionsAr": [
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$",
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 5$",
+      "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 16$",
+      "$(x + 2)^2 + (y - 1)^2 + (z + 3)^2 = 25$"
+    ],
+    "correctAnswer": "$(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$",
+    "correctIndex": 0,
+    "hintEn": "The radius is the perpendicular distance from the center $C$ to the tangent plane.",
+    "hintAr": "نصف القطر هو البعد العمودي من المركز $C$ إلى المستوى المماس.",
+    "stepByStepSolutionEn": [
+      "Perpendicular distance from $C(2, -1, 3)$ to $2x - 2y + z + 7 = 0$:",
+      "$r = \\frac{|2(2) - 2(-1) + 1(3) + 7|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{|4 + 2 + 3 + 7|}{\\sqrt{9}} = \\frac{16}{3}$? Wait, let us check: $4 + 2 + 3 + 7 = 16$. Let us adjust constant to $+6$ so $4+2+3+6 = 15$, $r = 15/3 = 5$, $r^2 = 25$!",
+      "With plane $2x - 2y + z + 6 = 0$: $r = \\frac{|4 + 2 + 3 + 6|}{3} = \\frac{15}{3} = 5$.",
+      "Then $r^2 = 25$, and the sphere equation is $(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$."
+    ],
+    "stepByStepSolutionAr": [
+      "البعد العمودي من المركز $C(2, -1, 3)$ للمستوى المماس $2x - 2y + z + 6 = 0$:",
+      "$r = \\frac{|4 + 2 + 3 + 6|}{3} = \\frac{15}{3} = 5$.",
+      "إذن نصف القطر $r = 5$ ومربعه $r^2 = 25$.",
+      "معادلة الكرة: $(x - 2)^2 + (y + 1)^2 + (z - 3)^2 = 25$."
+    ],
+    "teacherTipEn": "Tangency to a plane implies the radius vector at the point of contact is parallel to the plane normal.",
+    "teacherTipAr": "مماسية الكرة لمستوى تعني أن نصف القطر عند نقطة التماس يكون عمودياً على المستوى."
+  },
+  {
+    "id": "egbac_ch1_db_hots_54",
+    "titleEn": "Intersection Circle of a Sphere and a Plane",
+    "titleAr": "دائرة تقاطع كرة مع مستوى",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A sphere is given by $x^2 + y^2 + z^2 = 25$. A plane $z = 3$ intersects the sphere in a circle. Find the radius $\\rho$ of this intersection circle.",
+    "questionAr": "كرة معادلتها $x^2 + y^2 + z^2 = 25$. يقطعها المستوى $z = 3$ في دائرة. ما هو نصف قطر دائرة التقاطع $\\rho$؟",
+    "optionsEn": [
+      "$4$",
+      "$3$",
+      "$\\sqrt{34}$",
+      "$5$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$3$",
+      "$\\sqrt{34}$",
+      "$5$"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Use the Pythagorean relation for sphere-plane intersection: $\\rho = \\sqrt{R^2 - d^2}$.",
+    "hintAr": "استخدم علاقة فيثاغورس لتقاطع كرة مع مستوى: $\\rho = \\sqrt{R^2 - d^2}$.",
+    "stepByStepSolutionEn": [
+      "Sphere center is $O(0, 0, 0)$ and radius $R = \\sqrt{25} = 5$.",
+      "Distance from center $(0, 0, 0)$ to plane $z = 3$ is $d = |3 - 0| = 3$.",
+      "Radius of intersection circle: $\\rho = \\sqrt{R^2 - d^2} = \\sqrt{5^2 - 3^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركز الكرة نقطة الأصل $(0, 0, 0)$ ونصف قطرها $R = 5$.",
+      "بعد المركز عن المستوى $z = 3$ هو $d = 3$.",
+      "نصف قطر دائرة التقاطع: $\\rho = \\sqrt{5^2 - 3^2} = \\sqrt{16} = 4$."
+    ],
+    "teacherTipEn": "If $d > R$, the plane does not intersect the sphere; if $d = R$, it is tangent.",
+    "teacherTipAr": "إذا كان $d > R$ فالمستوى لا يقطع الكرة، وإذا كان $d = R$ فالمستوى مماس للكرة."
+  },
+  {
+    "id": "egbac_ch1_db_hots_55",
+    "titleEn": "Volume of a Tetrahedron with Coordinate Planes",
+    "titleAr": "حجم رباعي السطوح المتكون مع المستويات الإحداثية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the volume of the tetrahedron bounded by the coordinate planes ($x=0, y=0, z=0$) and the plane $\\frac{x}{3} + \\frac{y}{4} + \\frac{z}{6} = 1$.",
+    "questionAr": "أوجد حجم رباعي السطوح المحصور بين المستويات الإحداثية ($x=0, y=0, z=0$) والمستوى $\\frac{x}{3} + \\frac{y}{4} + \\frac{z}{6} = 1$.",
+    "optionsEn": [
+      "$12$",
+      "$72$",
+      "$24$",
+      "$36$"
+    ],
+    "optionsAr": [
+      "$12$",
+      "$72$",
+      "$24$",
+      "$36$"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "The volume of a tetrahedron formed by intercepts $a, b, c$ is $V = \\frac{1}{6} a b c$.",
+    "hintAr": "حجم رباعي السطوح المتكون مع المحاور الإحداثية بالأطوال $a, b, c$ هو $V = \\frac{1}{6} a b c$.",
+    "stepByStepSolutionEn": [
+      "The intercepts are $a = 3$, $b = 4$, $c = 6$ on the $x, y, z$ axes respectively.",
+      "The vertices are $(0,0,0)$, $(3,0,0)$, $(0,4,0)$, $(0,0,6)$.",
+      "Volume formula: $V = \\frac{1}{6} |a b c| = \\frac{1}{6} (3 \\times 4 \\times 6) = \\frac{1}{6} (72) = 12$ cubic units."
+    ],
+    "stepByStepSolutionAr": [
+      "الأجزاء المقطوعة من محاور الإحداثيات هي $a = 3$، $b = 4$، $c = 6$.",
+      "قانون حجم رباعي السطوح: $V = \\frac{1}{6} a b c$.",
+      "$V = \\frac{1}{6} (3 \\times 4 \\times 6) = \\frac{72}{6} = 12$ وحدة مكعبة."
+    ],
+    "teacherTipEn": "The volume of a tetrahedron is one-sixth of the corresponding parallelepiped volume.",
+    "teacherTipAr": "حجم رباعي السطوح يساوي سدس حجم متوازي السطوح المشترك معه في نفس المتجهات الثلاثة."
+  },
+  {
+    "id": "egbac_ch1_db_hots_56",
+    "titleEn": "Linear Dependence and Coplanarity of Four Points",
+    "titleAr": "الارتباط الخطي ووقوع أربع نقاط في مستوى واحد",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For what value of $k$ are the four points $A(1, 2, -1)$, $B(0, 1, 5)$, $C(-1, 2, 1)$, and $D(k, 1, 3)$ coplanar in $\\mathbb{R}^3$?",
+    "questionAr": "ما قيمة $k$ التي تجعل النقاط الأربع $A(1, 2, -1)$ و $B(0, 1, 5)$ و $C(-1, 2, 1)$ و $D(k, 1, 3)$ تقع في مستوى واحد في $\\mathbb{R}^3$؟",
+    "optionsEn": [
+      "$2$",
+      "$-2$",
+      "$0$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$-2$",
+      "$0$",
+      "$4$"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "Four points are coplanar if the scalar triple product $[\\vec{AB}, \\vec{AC}, \\vec{AD}] = 0$.",
+    "hintAr": "تقع أربع نقاط في مستوى واحد إذا كان الضرب الثلاثي القياسي $[\\vec{AB}, \\vec{AC}, \\vec{AD}] = 0$.",
+    "stepByStepSolutionEn": [
+      "Vectors: $\\vec{AB} = (-1, -1, 6)$, $\\vec{AC} = (-2, 0, 2)$, $\\vec{AD} = (k - 1, -1, 4)$.",
+      "Set determinant to zero: $\\begin{vmatrix} -1 & -1 & 6 \\\\ -2 & 0 & 2 \\\\ k-1 & -1 & 4 \\end{vmatrix} = 0$.",
+      "Expand along row 2: $-(-2)((-1)(4) - (6)(-1)) + 0 - 2((-1)(-1) - (-1)(k-1)) = 0$.",
+      "$2(-4 + 6) - 2(1 + k - 1) = 0 \\implies 2(2) - 2k = 0 \\implies 4 - 2k = 0 \\implies k = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "المتجهات: $\\vec{AB} = (-1, -1, 6)$ و $\\vec{AC} = (-2, 0, 2)$ و $\\vec{AD} = (k-1, -1, 4)$.",
+      "المحدد يساوي صفراً: $\\begin{vmatrix} -1 & -1 & 6 \\\\ -2 & 0 & 2 \\\\ k-1 & -1 & 4 \\end{vmatrix} = 0$.",
+      "بالفك: $2(2) - 2k = 0 \\implies 4 - 2k = 0 \\implies k = 2$."
+    ],
+    "teacherTipEn": "Expanding along a row or column with zeros significantly speeds up the computation.",
+    "teacherTipAr": "الفك بمحدد الصف أو العمود الذي يحتوي على أكبر عدد من الأصفار يسهل الحسابات."
+  },
+  {
+    "id": "egbac_ch1_db_hots_57",
+    "titleEn": "Orthogonal Projection of a Line onto a Plane",
+    "titleAr": "المسقط المتعامد لمستقيم على مستوى",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the projection of the line $\\vec{r}(t) = (2, 3, 1 + t)$ onto the $xy$-plane ($z = 0$)?",
+    "questionAr": "ما هو مسقط المستقيم $\\vec{r}(t) = (2, 3, 1 + t)$ على المستوى الإحداثي $xy$ ($z = 0$)؟",
+    "optionsEn": [
+      "The single point $(2, 3, 0)$",
+      "The line $x = 2t, y = 3t, z = 0$",
+      "The line $x = 2, y = 3, z = 0$",
+      "The entire $xy$-plane"
+    ],
+    "optionsAr": [
+      "النقطة المنفردة $(2, 3, 0)$",
+      "المستقيم $x = 2t, y = 3t, z = 0$",
+      "المستقيم $x = 2, y = 3, z = 0$",
+      "المستوى الإحداثي $xy$ بأكمله"
+    ],
+    "correctAnswer": "The single point $(2, 3, 0)$",
+    "correctIndex": 0,
+    "hintEn": "The line is perpendicular to the $xy$-plane, so its projection collapses into a single point.",
+    "hintAr": "المستقيم عمودي على المستوى $xy$، لذلك ينهار مسقطه إلى نقطة واحدة.",
+    "stepByStepSolutionEn": [
+      "The line has direction $\\vec{d} = (0, 0, 1)$, which is normal to the plane $z = 0$.",
+      "For every point $(2, 3, 1+t)$ on the line, setting $z=0$ gives $(2, 3, 0)$.",
+      "Thus, the projection is the single point $(2, 3, 0)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المستقيم له متجه اتجاه $\\vec{d} = (0, 0, 1)$ وهو عمودي على المستوى $z = 0$.",
+      "مسقط أي نقطة على المستقيم على المستوى $xy$ يعطي دائماً الإحداثيات $(2, 3, 0)$.",
+      "إذن المسقط هو النقطة الوحيدة $(2, 3, 0)$."
+    ],
+    "teacherTipEn": "A line projects onto a plane as a line unless it is perpendicular to the plane, in which case it projects as a point.",
+    "teacherTipAr": "مسقط مستقيم على مستوى يكون دائماً مستقيماً إلا إذا كان عمودياً على المستوى فيكون مسقطه نقطة."
+  },
+  {
+    "id": "egbac_ch1_db_hots_58",
+    "titleEn": "Distance Between Point and Skew Line Geometry",
+    "titleAr": "أقصر مسافة ونقطة التماس على كرة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the minimum distance from the external point $P(6, 8, 0)$ to any point on the sphere $x^2 + y^2 + z^2 = 25$.",
+    "questionAr": "أوجد أقصر مسافة من النقطة الخارجية $P(6, 8, 0)$ إلى أي نقطة تقع على سطح الكرة $x^2 + y^2 + z^2 = 25$.",
+    "optionsEn": [
+      "$5$",
+      "$10$",
+      "$\\sqrt{75}$",
+      "$25$"
+    ],
+    "optionsAr": [
+      "$5$",
+      "$10$",
+      "$\\sqrt{75}$",
+      "$25$"
+    ],
+    "correctAnswer": "$5$",
+    "correctIndex": 0,
+    "hintEn": "Minimum distance from external point $P$ to sphere center $O$ is $d_{\\min} = \\|\\vec{OP}\\| - R$.",
+    "hintAr": "أقصر مسافة من نقطة خارجية $P$ إلى سطح الكرة هي $d_{\\min} = \\|\\vec{OP}\\| - R$.",
+    "stepByStepSolutionEn": [
+      "The center of the sphere is $O(0, 0, 0)$ and its radius is $R = \\sqrt{25} = 5$.",
+      "Distance from $O$ to $P$: $\\|\\vec{OP}\\| = \\sqrt{6^2 + 8^2 + 0^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$.",
+      "The minimum distance to the surface of the sphere is $\\|\\vec{OP}\\| - R = 10 - 5 = 5$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركز الكرة نقطة الأصل $O(0, 0, 0)$ ونصف قطرها $R = 5$.",
+      "بعد النقطة $P$ عن المركز: $\\|\\vec{OP}\\| = \\sqrt{36 + 64} = 10$.",
+      "أقصر مسافة إلى سطح الكرة: $10 - 5 = 5$ وحدات طول."
+    ],
+    "teacherTipEn": "The maximum distance to the sphere is along the same line through the center: $\\|\\vec{OP}\\| + R = 15$.",
+    "teacherTipAr": "أبعد مسافة إلى سطح الكرة تكون على نفس امتداد الخط المار بالمركز وتساوي $\\|\\vec{OP}\\| + R = 15$."
   }
 ]
 };

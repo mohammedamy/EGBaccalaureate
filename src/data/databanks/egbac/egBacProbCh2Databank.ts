@@ -1721,6 +1721,292 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Rows of a transition matrix represent complete conditional probability distributions from each starting state.",
     "teacherTipAr": "تمثل صفوف مصفوفة الانتقال توزيعات احتمالية شرطية كاملة انطلاقاً من كل حالة ابتدائية."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_51",
+    "titleEn": "Normalization Condition for a Continuous PDF",
+    "titleAr": "شرط معايرة دالة الكثافة الاحتمالية المتصلة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A continuous random variable $X$ has probability density function $f(x) = c x$ for $0 \\le x \\le 2$, and $f(x) = 0$ elsewhere. Find the constant $c$.",
+    "questionAr": "متغير عشوائي متصل $X$ دالة كثافته الاحتمالية $f(x) = c x$ على الفترة $[0, 2]$ وتساوي صفراً في غير ذلك. أوجد قيمة الثابت $c$.",
+    "optionsEn": [
+      "$0.5$",
+      "$1.0$",
+      "$0.25$",
+      "$2.0$"
+    ],
+    "optionsAr": [
+      "$0.5$",
+      "$1.0$",
+      "$0.25$",
+      "$2.0$"
+    ],
+    "correctAnswer": "$0.5$",
+    "correctIndex": 0,
+    "hintEn": "The total area under any valid PDF must equal 1: $\\int_{-\\infty}^\\infty f(x) dx = 1$.",
+    "hintAr": "المساحة الكلية تحت منحنى دالة الكثافة الاحتمالية يجب أن تساوي 1: $\\int_{-\\infty}^\\infty f(x) dx = 1$.",
+    "stepByStepSolutionEn": [
+      "Set integral to 1: $\\int_0^2 c x\\,dx = 1$.",
+      "Evaluate: $c \\left[ \\frac{x^2}{2} \\right]_0^2 = c \\left( \\frac{4}{2} - 0 \\right) = 2c$.",
+      "Solve for $c$: $2c = 1 \\implies c = \\frac{1}{2} = 0.5$."
+    ],
+    "stepByStepSolutionAr": [
+      "التكامل يساوي 1: $\\int_0^2 cx dx = 1$.",
+      "$c [\\frac{x^2}{2}]_0^2 = 2c$.",
+      "$2c = 1 \\implies c = 0.5$."
+    ],
+    "teacherTipEn": "Always check that the constant makes $f(x) \\ge 0$ across the entire domain.",
+    "teacherTipAr": "تحقق دائماً أن الثابت يجعل $f(x) \\ge 0$ على كامل المجال."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_52",
+    "titleEn": "Mean of a Continuous Uniform Distribution",
+    "titleAr": "متوسط التوزيع المنتظم المتصل",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A continuous random variable $X$ is uniformly distributed on the interval $[4, 10]$, denoted $X \\sim U(4, 10)$. Find its mean $\\mu = E[X]$.",
+    "questionAr": "متغير عشوائي متصل $X$ موزع بانتظام على الفترة $[4, 10]$، أي $X \\sim U(4, 10)$. أوجد وسطه الحسابي $\\mu = E[X]$.",
+    "optionsEn": [
+      "$7$",
+      "$6$",
+      "$8$",
+      "$14$"
+    ],
+    "optionsAr": [
+      "$7$",
+      "$6$",
+      "$8$",
+      "$14$"
+    ],
+    "correctAnswer": "$7$",
+    "correctIndex": 0,
+    "hintEn": "The mean of a uniform distribution $U(a, b)$ is the midpoint: $\\mu = \\frac{a + b}{2}$.",
+    "hintAr": "متوسط التوزيع المنتظم $U(a, b)$ هو نقطة المنتصف: $\\mu = \\frac{a + b}{2}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $E[X] = \\frac{a + b}{2}$.",
+      "Substitute values: $E[X] = \\frac{4 + 10}{2} = \\frac{14}{2} = 7$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $E[X] = \\frac{a + b}{2}$.",
+      "الحساب: $\\frac{4 + 10}{2} = 7$."
+    ],
+    "teacherTipEn": "By symmetry, the mean, median, and midpoint of a continuous uniform distribution are all identical.",
+    "teacherTipAr": "نظراً للتماثل، يتطابق المتوسط الحسابي والوسيط ومنتصف الفترة في التوزيع المنتظم."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_53",
+    "titleEn": "Mean of an Exponential Distribution",
+    "titleAr": "متوسط التوزيع الأسي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A continuous random variable $X$ follows an exponential distribution with rate parameter $\\lambda = 0.5$. Find its expected value $E[X]$.",
+    "questionAr": "متغير عشوائي متصل $X$ يتبع توزيعاً أسياً بمعامل معدل $\\lambda = 0.5$. أوجد قيمته المتوقعة $E[X]$.",
+    "optionsEn": [
+      "$2$",
+      "$0.5$",
+      "$4$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$0.5$",
+      "$4$",
+      "$1$"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "The mean of an exponential distribution is the reciprocal of the rate parameter: $E[X] = \\frac{1}{\\lambda}$.",
+    "hintAr": "متوسط التوزيع الأسي هو مقلوب معامل المعدل: $E[X] = \\frac{1}{\\lambda}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $E[X] = \\frac{1}{\\lambda}$.",
+      "Calculate: $E[X] = \\frac{1}{0.5} = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $E[X] = \\frac{1}{\\lambda}$.",
+      "الحساب: $\\frac{1}{0.5} = 2$."
+    ],
+    "teacherTipEn": "The standard deviation of an exponential distribution also equals $\\frac{1}{\\lambda}$, so $\\mu = \\sigma$.",
+    "teacherTipAr": "الانحراف المعياري للتوزيع الأسي يساوي أيضاً $\\frac{1}{\\lambda}$، أي أن $\\mu = \\sigma$ دائماً."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_54",
+    "titleEn": "Standard Normal Z-Score Calculation",
+    "titleAr": "حساب الدرجة المعيارية Z للتوزيع الطبيعي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A normal variable $X$ has mean $\\mu = 50$ and variance $\\sigma^2 = 16$. Convert the raw score $x = 58$ to a standard normal $Z$-score.",
+    "questionAr": "متغير طبيعي $X$ متوسطه $\\mu = 50$ وتباينه $\\sigma^2 = 16$. حول القيمة الأصلية $x = 58$ إلى درجة معيارية $Z$.",
+    "optionsEn": [
+      "$Z = 2.0$",
+      "$Z = 0.5$",
+      "$Z = 8.0$",
+      "$Z = -2.0$"
+    ],
+    "optionsAr": [
+      "$Z = 2.0$",
+      "$Z = 0.5$",
+      "$Z = 8.0$",
+      "$Z = -2.0$"
+    ],
+    "correctAnswer": "$Z = 2.0$",
+    "correctIndex": 0,
+    "hintEn": "The standard deviation is $\\sigma = \\sqrt{16} = 4$. The standard score is $Z = \\frac{X - \\mu}{\\sigma}$.",
+    "hintAr": "الانحراف المعياري $\\sigma = \\sqrt{16} = 4$. الدرجة المعيارية هي $Z = \\frac{X - \\mu}{\\sigma}$.",
+    "stepByStepSolutionEn": [
+      "Find standard deviation: $\\sigma = \\sqrt{16} = 4$.",
+      "Compute $Z$: $Z = \\frac{x - \\mu}{\\sigma} = \\frac{58 - 50}{4} = \\frac{8}{4} = 2.0$."
+    ],
+    "stepByStepSolutionAr": [
+      "الانحراف المعياري: $\\sigma = \\sqrt{16} = 4$.",
+      "حساب الدرجة المعيارية: $Z = \\frac{58 - 50}{4} = 2.0$."
+    ],
+    "teacherTipEn": "A $Z$-score of $+2.0$ means the observation is exactly 2 standard deviations above the mean.",
+    "teacherTipAr": "الدرجة المعيارية $+2.0$ تعني أن القيمة تقع على بعد انحرافين معياريين أعلى من المتوسط."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_55",
+    "titleEn": "Relationship Between CDF and PDF",
+    "titleAr": "العلاقة بين دالة التوزيع التراكمي ودالة الكثافة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $F(x)$ is the cumulative distribution function (CDF) of a continuous random variable $X$, how is the probability density function $f(x)$ related to $F(x)$?",
+    "questionAr": "إذا كانت $F(x)$ هي دالة التوزيع التراكمي (CDF) لمتغير عشوائي متصل $X$، فما هي علاقة دالة الكثافة $f(x)$ بها؟",
+    "optionsEn": [
+      "$f(x) = F'(x) = \\frac{d}{dx} F(x)$",
+      "$f(x) = \\int_{-\\infty}^x F(t) dt$",
+      "$f(x) = 1 - F(x)$",
+      "$f(x) = F(x)^2$"
+    ],
+    "optionsAr": [
+      "$f(x) = F'(x) = \\frac{d}{dx} F(x)$",
+      "$f(x) = \\int_{-\\infty}^x F(t) dt$",
+      "$f(x) = 1 - F(x)$",
+      "$f(x) = F(x)^2$"
+    ],
+    "correctAnswer": "$f(x) = F'(x) = \\frac{d}{dx} F(x)$",
+    "correctIndex": 0,
+    "hintEn": "By the Fundamental Theorem of Calculus: $F(x) = \\int_{-\\infty}^x f(t) dt \\implies f(x) = F'(x)$.",
+    "hintAr": "وفق المبرهنة الأساسية للتفاضل والتكامل: $F(x) = \\int_{-\\infty}^x f(t) dt \\implies f(x) = F'(x)$.",
+    "stepByStepSolutionEn": [
+      "The CDF is defined as $F(x) = P(X \\le x) = \\int_{-\\infty}^x f(t)\\,dt$.",
+      "Differentiating both sides with respect to $x$ gives $F'(x) = f(x)$ at all continuity points of $f$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة التوزيع التراكمي هي $F(x) = \\int_{-\\infty}^x f(t) dt$.",
+      "باشتقاق الطرفين بالنسبة لـ $x$ نجد أن $f(x) = F'(x)$."
+    ],
+    "teacherTipEn": "CDF is the integral of PDF; PDF is the derivative of CDF.",
+    "teacherTipAr": "دالة التوزيع التراكمي هي تكامل دالة الكثافة؛ ودالة الكثافة هي مشتقة دالة التوزيع التراكمي."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_56",
+    "titleEn": "Variance of a Continuous Uniform Distribution",
+    "titleAr": "تباين التوزيع المنتظم المتصل",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the variance $\\text{Var}(X)$ for a continuous random variable uniformly distributed on $[0, 12]$.",
+    "questionAr": "أوجد التباين $\\text{Var}(X)$ لمتغير عشوائي متصل موزع بانتظام على الفترة $[0, 12]$.",
+    "optionsEn": [
+      "$12$",
+      "$36$",
+      "$6$",
+      "$144$"
+    ],
+    "optionsAr": [
+      "$12$",
+      "$36$",
+      "$6$",
+      "$144$"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "The variance formula for $U(a, b)$ is $\\text{Var}(X) = \\frac{(b - a)^2}{12}$.",
+    "hintAr": "قانون التباين للتوزيع المنتظم $U(a, b)$ هو $\\text{Var}(X) = \\frac{(b - a)^2}{12}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $\\text{Var}(X) = \\frac{(b - a)^2}{12}$.",
+      "Substitute $a = 0, b = 12$:",
+      "$\\text{Var}(X) = \\frac{(12 - 0)^2}{12} = \\frac{144}{12} = 12$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $\\text{Var}(X) = \\frac{(b - a)^2}{12}$.",
+      "الحساب: $\\frac{(12 - 0)^2}{12} = \\frac{144}{12} = 12$."
+    ],
+    "teacherTipEn": "The denominator 12 in the uniform variance formula arises from $\\int_0^1 x^2 dx - (\\int_0^1 x dx)^2 = \\frac{1}{3} - \\frac{1}{4} = \\frac{1}{12}$.",
+    "teacherTipAr": "العدد 12 في مقام تباين التوزيع المنتظم ناتج عن $\\frac{1}{3} - \\frac{1}{4} = \\frac{1}{12}$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_57",
+    "titleEn": "Symmetry Property of the Standard Normal Distribution",
+    "titleAr": "خاصية التماثل للتوزيع الطبيعي المعياري",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $Z \\sim N(0, 1)$ be standard normal. If $\\Phi(z) = P(Z \\le z)$, which of the following identities correctly expresses $P(Z > 1.5)$?",
+    "questionAr": "ليكن $Z \\sim N(0, 1)$ متغيراً طبيعياً معيارياً. إذا كانت $\\Phi(z) = P(Z \\le z)$، فأي العلاقات الآتية تعبر بصورة صحيحة عن $P(Z > 1.5)$؟",
+    "optionsEn": [
+      "$1 - \\Phi(1.5) = \\Phi(-1.5)$",
+      "$\\Phi(1.5)$",
+      "$\\Phi(-1.5) - 1$",
+      "$2\\Phi(1.5)$"
+    ],
+    "optionsAr": [
+      "$1 - \\Phi(1.5) = \\Phi(-1.5)$",
+      "$\\Phi(1.5)$",
+      "$\\Phi(-1.5) - 1$",
+      "$2\\Phi(1.5)$"
+    ],
+    "correctAnswer": "$1 - \\Phi(1.5) = \\Phi(-1.5)$",
+    "correctIndex": 0,
+    "hintEn": "The standard normal bell curve is symmetric about $0$, so the right tail $P(Z > z)$ equals the left tail $P(Z < -z) = \\Phi(-z)$.",
+    "hintAr": "المنحنى الجرسي متماثل تماماً حول الصفر، لذا فإن مساحة الطرف الأيمن تساوي مساحة الطرف الأيسر $\\Phi(-z)$ وتساوي $1 - \\Phi(z)$.",
+    "stepByStepSolutionEn": [
+      "By complement rule: $P(Z > 1.5) = 1 - P(Z \\le 1.5) = 1 - \\Phi(1.5)$.",
+      "By symmetry of the bell curve about $0$: $1 - \\Phi(z) = \\Phi(-z)$.",
+      "Therefore: $P(Z > 1.5) = 1 - \\Phi(1.5) = \\Phi(-1.5)$."
+    ],
+    "stepByStepSolutionAr": [
+      "من قانون الحدث المتمم: $P(Z > 1.5) = 1 - \\Phi(1.5)$.",
+      "من تماثل المنحنى الجرسي حول الصفر: $1 - \\Phi(1.5) = \\Phi(-1.5)$."
+    ],
+    "teacherTipEn": "This symmetry allows looking up negative $Z$-values in standard tables that only list positive entries.",
+    "teacherTipAr": "تسمح هذه الخاصية بإيجاد احتمالات القيم السالبة من جداول التوزيع التي تقتصر على القيم الموجبة."
+  },
+  {
+    "id": "egbac_prob_ch2_db_easy_58",
+    "titleEn": "Empirical Rule (68-95-99.7 Rule) for Normal Distribution",
+    "titleAr": "القاعدة التجريبية (68-95-99.7) للتوزيع الطبيعي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For any normal distribution $X \\sim N(\\mu, \\sigma^2)$, approximately what percentage of observations lie within one standard deviation of the mean, $[\\mu - \\sigma, \\mu + \\sigma]$?",
+    "questionAr": "لأي توزيع طبيعي $X \\sim N(\\mu, \\sigma^2)$، ما هي النسبة المئوية التقريبية للبيانات التي تقع ضمن انحراف معياري واحد عن المتوسط $[\\mu - \\sigma, \\mu + \\sigma]$؟",
+    "optionsEn": [
+      "$68.3\\%$",
+      "$95.4\\%$",
+      "$99.7\\%$",
+      "$50.0\\%$"
+    ],
+    "optionsAr": [
+      "$68.3\\%$",
+      "$95.4\\%$",
+      "$99.7\\%$",
+      "$50.0\\%$"
+    ],
+    "correctAnswer": "$68.3\\%$",
+    "correctIndex": 0,
+    "hintEn": "The empirical rule states: $1\\sigma \\approx 68.3\\%$, $2\\sigma \\approx 95.4\\%$, $3\\sigma \\approx 99.7\\%$.",
+    "hintAr": "تنص القاعدة التجريبية على: $1\\sigma \\approx 68.3\\%$، $2\\sigma \\approx 95.4\\%$، $3\\sigma \\approx 99.7\\%$.",
+    "stepByStepSolutionEn": [
+      "Standardize the interval: $Z = \\frac{X - \\mu}{\\sigma}$.",
+      "The interval $[\\mu - \\sigma, \\mu + \\sigma]$ corresponds to $-1 \\le Z \\le 1$.",
+      "From standard normal tables: $P(-1 \\le Z \\le 1) = \\Phi(1) - \\Phi(-1) = 0.8413 - 0.1587 = 0.6826 \\approx 68.3\\%$."
+    ],
+    "stepByStepSolutionAr": [
+      "التحويل للمعياري: $Z = \\frac{X - \\mu}{\\sigma}$.",
+      "الفترة $[\\mu - \\sigma, \\mu + \\sigma]$ تقابل $-1 \\le Z \\le 1$.",
+      "من جدول التوزيع الطبيعي المعياري: $P(-1 \\le Z \\le 1) = \\Phi(1) - \\Phi(-1) = 0.8413 - 0.1587 = 0.6826 \\approx 68.3\\%$."
+    ],
+    "teacherTipEn": "Remember the 3 empirical benchmarks: $68.3\\%$ within $1\\sigma$, $95.4\\%$ within $2\\sigma$, and $99.7\\%$ within $3\\sigma$.",
+    "teacherTipAr": "تذكر دائماً نسب القاعدة التجريبية الثلاث: $68.3\\%$ ضمن $1\\sigma$، و $95.4\\%$ ضمن $2\\sigma$، و $99.7\\%$ ضمن $3\\sigma$."
   }
 ],
   medium: [
@@ -3543,6 +3829,335 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Stationary distributions represent long-term equilibrium probabilities, independent of the starting state.",
     "teacherTipAr": "يمثل التوزيع المستقر احتمالات التوازن طويل الأجل للسلسلة، وهو مستقل تماماً عن الحالة الابتدائية."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_51",
+    "titleEn": "Expected Value Calculation for a Continuous PDF",
+    "titleAr": "حساب القيمة المتوقعة لدالة كثافة متصلة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A continuous random variable has PDF $f(x) = 3x^2$ for $0 \\le x \\le 1$, and $0$ elsewhere. Calculate the expected value $E[X]$.",
+    "questionAr": "متغير عشوائي متصل دالة كثافته $f(x) = 3x^2$ على الفترة $[0, 1]$ وصفر في غير ذلك. احسب القيمة المتوقعة $E[X]$.",
+    "optionsEn": [
+      "$0.75$ (or $\\frac{3}{4}$)",
+      "$0.50$ (or $\\frac{1}{2}$)",
+      "$0.60$ (or $\\frac{3}{5}$)",
+      "$1.00$"
+    ],
+    "optionsAr": [
+      "$0.75$ (أو $\\frac{3}{4}$)",
+      "$0.50$ (أو $\\frac{1}{2}$)",
+      "$0.60$ (أو $\\frac{3}{5}$)",
+      "$1.00$"
+    ],
+    "correctAnswer": "$0.75$ (or $\\frac{3}{4}$)",
+    "correctIndex": 0,
+    "hintEn": "The formula is $E[X] = \\int_{-\\infty}^\\infty x f(x) dx$.",
+    "hintAr": "القانون هو $E[X] = \\int_{-\\infty}^\\infty x f(x) dx$.",
+    "stepByStepSolutionEn": [
+      "Set up integral: $E[X] = \\int_0^1 x (3x^2)\\,dx = \\int_0^1 3x^3\\,dx$.",
+      "Evaluate: $\\left[ \\frac{3x^4}{4} \\right]_0^1 = \\frac{3}{4} - 0 = 0.75$."
+    ],
+    "stepByStepSolutionAr": [
+      "التكامل: $E[X] = \\int_0^1 x (3x^2) dx = \\int_0^1 3x^3 dx$.",
+      "الناتج: $[\\frac{3x^4}{4}]_0^1 = \\frac{3}{4} = 0.75$."
+    ],
+    "teacherTipEn": "Because the density is skewed toward 1, the mean $0.75$ is greater than the midpoint $0.5$.",
+    "teacherTipAr": "نظراً لأن الكثافة تتركز بالقرب من 1، فإن المتوسط 0.75 أكبر من منتصف الفترة 0.5."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_52",
+    "titleEn": "Cumulative Probability of an Exponential Variable",
+    "titleAr": "الاحتمال التراكمي لمتغير أسي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A component's lifetime follows an exponential distribution with rate $\\lambda = 2\\text{ years}^{-1}$ ($f(x) = 2e^{-2x}$ for $x \\ge 0$). What is the probability that the component fails within the first year ($P(X \\le 1)$)?",
+    "questionAr": "عمر افتراضي لقطعة إلكترونية يتبع توزيعاً أسياً بمعدل $\\lambda = 2$ سنة$^{-1}$ ($f(x) = 2e^{-2x}$ حيث $x \\ge 0$). ما احتمال تعطل القطعة خلال السنة الأولى ($P(X \\le 1)$)؟",
+    "optionsEn": [
+      "$1 - e^{-2} \\approx 0.8647$",
+      "$e^{-2} \\approx 0.1353$",
+      "$1 - e^{-1} \\approx 0.6321$",
+      "$0.5000$"
+    ],
+    "optionsAr": [
+      "$1 - e^{-2} \\approx 0.8647$",
+      "$e^{-2} \\approx 0.1353$",
+      "$1 - e^{-1} \\approx 0.6321$",
+      "$0.5000$"
+    ],
+    "correctAnswer": "$1 - e^{-2} \\approx 0.8647$",
+    "correctIndex": 0,
+    "hintEn": "The CDF of an exponential distribution is $F(x) = 1 - e^{-\\lambda x}$.",
+    "hintAr": "دالة التوزيع التراكمي للتوزيع الأسي هي $F(x) = 1 - e^{-\\lambda x}$.",
+    "stepByStepSolutionEn": [
+      "Use CDF formula: $P(X \\le 1) = F(1) = 1 - e^{-\\lambda (1)}$.",
+      "Substitute $\\lambda = 2$: $1 - e^{-2} = 1 - 0.135335 = 0.864665 \\approx 0.8647$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة التوزيع التراكمي: $F(1) = 1 - e^{-2(1)}$.",
+      "الحساب: $1 - e^{-2} \\approx 0.8647$."
+    ],
+    "teacherTipEn": "The survival probability beyond time $t$ is simply $P(X > t) = e^{-\\lambda t}$.",
+    "teacherTipAr": "احتمال البقاء لما بعد الزمن $t$ هو ببساطة $P(X > t) = e^{-\\lambda t}$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_53",
+    "titleEn": "Standard Error of the Mean (Central Limit Theorem)",
+    "titleAr": "الخطأ المعياري للمتوسط (مبرهنة النهاية المركزية)",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A population has mean $\\mu = 80$ and standard deviation $\\sigma = 20$. A random sample of size $n = 100$ is drawn. What is the standard error of the sample mean $\\sigma_{\\bar{X}}$?",
+    "questionAr": "مجتمع إحصائي متوسطه $\\mu = 80$ وانحرافه المعياري $\\sigma = 20$. سُحبت عينة عشوائية حجمها $n = 100$. ما هو الخطأ المعياري لمتوسط العينة $\\sigma_{\\bar{X}}$؟",
+    "optionsEn": [
+      "$2.0$",
+      "$20.0$",
+      "$0.2$",
+      "$4.0$"
+    ],
+    "optionsAr": [
+      "$2.0$",
+      "$20.0$",
+      "$0.2$",
+      "$4.0$"
+    ],
+    "correctAnswer": "$2.0$",
+    "correctIndex": 0,
+    "hintEn": "The standard error formula is $\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}$.",
+    "hintAr": "قانون الخطأ المعياري لمتوسط العينة هو $\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}$.",
+      "Substitute values: $\\sigma_{\\bar{X}} = \\frac{20}{\\sqrt{100}} = \\frac{20}{10} = 2.0$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}$.",
+      "الحساب: $\\frac{20}{\\sqrt{100}} = \\frac{20}{10} = 2.0$."
+    ],
+    "teacherTipEn": "By the Central Limit Theorem, the distribution of $\\bar{X}$ is approximately normal for $n \\ge 30$, regardless of the underlying population shape.",
+    "teacherTipAr": "وفق مبرهنة النهاية المركزية، يقترب توزيع متوسط العينة من التوزيع الطبيعي كلما كبر حجم العينة $n \\ge 30$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_54",
+    "titleEn": "Probability Within Two Standard Deviations in Normal",
+    "titleAr": "احتمال الوقوع ضمن انحرافين معياريين في التوزيع الطبيعي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $X \\sim N(100, 25)$ (so $\\mu = 100, \\sigma = 5$). What is the probability $P(90 \\le X \\le 110)$?",
+    "questionAr": "ليكن $X \\sim N(100, 25)$ (أي $\\mu = 100, \\sigma = 5$). ما هو الاحتمال $P(90 \\le X \\le 110)$؟",
+    "optionsEn": [
+      "$\\approx 0.9545$",
+      "$\\approx 0.6827$",
+      "$\\approx 0.9973$",
+      "$0.5000$"
+    ],
+    "optionsAr": [
+      "$\\approx 0.9545$",
+      "$\\approx 0.6827$",
+      "$\\approx 0.9973$",
+      "$0.5000$"
+    ],
+    "correctAnswer": "$\\approx 0.9545$",
+    "correctIndex": 0,
+    "hintEn": "Standardize both endpoints: $Z_1 = \\frac{90 - 100}{5} = -2$ and $Z_2 = \\frac{110 - 100}{5} = +2$.",
+    "hintAr": "حول طرفي الفترة إلى درجات معيارية: $Z_1 = \\frac{90 - 100}{5} = -2$ و $Z_2 = +2$.",
+    "stepByStepSolutionEn": [
+      "Convert endpoints to $Z$-scores: $Z_1 = \\frac{90 - 100}{5} = -2.0$ and $Z_2 = \\frac{110 - 100}{5} = +2.0$.",
+      "We seek $P(-2 \\le Z \\le 2) = \\Phi(2) - \\Phi(-2)$.",
+      "From standard normal tables: $\\Phi(2) \\approx 0.97725$ and $\\Phi(-2) = 1 - \\Phi(2) \\approx 0.02275$.",
+      "Difference: $0.97725 - 0.02275 = 0.9545$ (or $95.45\\%$)."
+    ],
+    "stepByStepSolutionAr": [
+      "التحويل إلى درجات معيارية: $Z_1 = -2$ و $Z_2 = 2$.",
+      "$P(-2 \\le Z \\le 2) = \\Phi(2) - \\Phi(-2)$.",
+      "من جداول التوزيع الطبيعي: $0.97725 - 0.02275 \\approx 0.9545$."
+    ],
+    "teacherTipEn": "This confirms the empirical rule: approximately 95.45% of the area lies within 2 standard deviations.",
+    "teacherTipAr": "هذا يثبت القاعدة التجريبية بأن حوالي 95.45% من المساحة تقع ضمن انحرافين معياريين."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_55",
+    "titleEn": "Median of an Exponential Distribution",
+    "titleAr": "وسيط التوزيع الأسي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the median $m$ of an exponential distribution with rate parameter $\\lambda$.",
+    "questionAr": "أوجد وسيط التوزيع الأسي $m$ بدلالة معامل المعدل $\\lambda$.",
+    "optionsEn": [
+      "$m = \\frac{\\ln 2}{\\lambda}$",
+      "$m = \\frac{1}{\\lambda}$",
+      "$m = \\frac{1}{2\\lambda}$",
+      "$m = \\frac{\\ln 0.5}{\\lambda}$"
+    ],
+    "optionsAr": [
+      "$m = \\frac{\\ln 2}{\\lambda}$",
+      "$m = \\frac{1}{\\lambda}$",
+      "$m = \\frac{1}{2\\lambda}$",
+      "$m = \\frac{\\ln 0.5}{\\lambda}$"
+    ],
+    "correctAnswer": "$m = \\frac{\\ln 2}{\\lambda}$",
+    "correctIndex": 0,
+    "hintEn": "The median satisfies $F(m) = 0.5$, so $1 - e^{-\\lambda m} = 0.5$.",
+    "hintAr": "يحقق الوسيط $F(m) = 0.5$، إذن $1 - e^{-\\lambda m} = 0.5$.",
+    "stepByStepSolutionEn": [
+      "By definition of median: $P(X \\le m) = F(m) = 0.5$.",
+      "For exponential: $1 - e^{-\\lambda m} = 0.5 \\implies e^{-\\lambda m} = 0.5 = \\frac{1}{2}$.",
+      "Take natural logarithm: $-\\lambda m = \\ln(1/2) = -\\ln(2)$.",
+      "Divide by $-\\lambda$: $m = \\frac{\\ln 2}{\\lambda} \\approx \\frac{0.693}{\\lambda}$."
+    ],
+    "stepByStepSolutionAr": [
+      "تعريف الوسيط: $F(m) = 0.5$.",
+      "$1 - e^{-\\lambda m} = 0.5 \\implies e^{-\\lambda m} = 0.5$.",
+      "$-\\lambda m = -\\ln(2) \\implies m = \\frac{\\ln 2}{\\lambda}$."
+    ],
+    "teacherTipEn": "Notice the median $\\frac{0.693}{\\lambda}$ is strictly less than the mean $\\frac{1}{\\lambda}$, as expected for a right-skewed distribution.",
+    "teacherTipAr": "لاحظ أن الوسيط $\\frac{0.693}{\\lambda}$ أقل من المتوسط الحسابي $\\frac{1}{\\lambda}$ لأن التوزيع الأسي ملتف نحو اليمين."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_56",
+    "titleEn": "Linear Transformation of a Normal Random Variable",
+    "titleAr": "التحويل الخطي لمتغير عشوائي طبيعي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $X \\sim N(10, 4)$ (mean 10, variance 4). If $Y = 3X + 5$, what is the distribution of $Y$?",
+    "questionAr": "ليكن $X \\sim N(10, 4)$ (المتوسط 10 والتباين 4). إذا كان $Y = 3X + 5$، فما هو توزيع $Y$؟",
+    "optionsEn": [
+      "$Y \\sim N(35, 36)$",
+      "$Y \\sim N(35, 12)$",
+      "$Y \\sim N(30, 36)$",
+      "$Y \\sim N(35, 17)$"
+    ],
+    "optionsAr": [
+      "$Y \\sim N(35, 36)$",
+      "$Y \\sim N(35, 12)$",
+      "$Y \\sim N(30, 36)$",
+      "$Y \\sim N(35, 17)$"
+    ],
+    "correctAnswer": "$Y \\sim N(35, 36)$",
+    "correctIndex": 0,
+    "hintEn": "For $Y = aX + b$, $E[Y] = a E[X] + b$ and $\\text{Var}(Y) = a^2 \\text{Var}(X)$.",
+    "hintAr": "لأي تحويل خطي $Y = aX + b$: $E[Y] = a E[X] + b$ والتباين $\\text{Var}(Y) = a^2 \\text{Var}(X)$.",
+    "stepByStepSolutionEn": [
+      "Any linear combination of a normal variable remains normal.",
+      "Mean: $E[Y] = 3 E[X] + 5 = 3(10) + 5 = 35$.",
+      "Variance: $\\text{Var}(Y) = 3^2 \\text{Var}(X) = 9 \\times 4 = 36$.",
+      "Thus, $Y \\sim N(35, 36)$."
+    ],
+    "stepByStepSolutionAr": [
+      "التحويل الخطي لأي متغير طبيعي ينتج متغيراً طبيعياً أيضاً.",
+      "المتوسط: $E[Y] = 3(10) + 5 = 35$.",
+      "التباين: $\\text{Var}(Y) = 3^2 \\times 4 = 36$.",
+      "إذن $Y \\sim N(35, 36)$."
+    ],
+    "teacherTipEn": "Notice the standard deviation triples ($\\\\sigma_Y = 3 \\times 2 = 6$), so variance scales by $3^2 = 9$.",
+    "teacherTipAr": "لاحظ أن الانحراف المعياري يُضرب في 3، وبالتالي يتضاعف التباين 9 مرات."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_57",
+    "titleEn": "95% Confidence Interval for Population Mean",
+    "titleAr": "فترة الثقة 95% لمتوسط المجتمع",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A sample of size $n = 64$ has sample mean $\\bar{x} = 50$. The population standard deviation is known to be $\\sigma = 8$. Construct the $95\\%$ confidence interval for the population mean $\\mu$ (using $z^* = 1.96$).",
+    "questionAr": "عينة حجمها $n = 64$ متوسطها الحسابي $\\bar{x} = 50$. الانحراف المعياري للمجتمع معلوم ويساوي $\\sigma = 8$. أنشئ فترة الثقة $95\\%$ لمتوسط المجتمع $\\mu$ (باستخدام $z^* = 1.96$).",
+    "optionsEn": [
+      "$[48.04, 51.96]$",
+      "$[42.00, 58.00]$",
+      "$[49.02, 50.98]$",
+      "$[46.08, 53.92]$"
+    ],
+    "optionsAr": [
+      "$[48.04, 51.96]$",
+      "$[42.00, 58.00]$",
+      "$[49.02, 50.98]$",
+      "$[46.08, 53.92]$"
+    ],
+    "correctAnswer": "$[48.04, 51.96]$",
+    "correctIndex": 0,
+    "hintEn": "The formula is $\\bar{x} \\pm z^* \\frac{\\sigma}{\\sqrt{n}}$.",
+    "hintAr": "القانون هو $\\bar{x} \\pm z^* \\frac{\\sigma}{\\sqrt{n}}$.",
+    "stepByStepSolutionEn": [
+      "Standard error: $\\frac{\\sigma}{\\sqrt{n}} = \\frac{8}{\\sqrt{64}} = \\frac{8}{8} = 1.0$.",
+      "Margin of error: $E = z^* \\times 1.0 = 1.96 \\times 1.0 = 1.96$.",
+      "Confidence interval: $50 \\pm 1.96 = [48.04, 51.96]$."
+    ],
+    "stepByStepSolutionAr": [
+      "الخطأ المعياري: $\\frac{\\sigma}{\\sqrt{n}} = \\frac{8}{8} = 1.0$.",
+      "هامش الخطأ: $E = 1.96 \\times 1.0 = 1.96$.",
+      "فترة الثقة: $50 \\pm 1.96 = [48.04, 51.96]$."
+    ],
+    "teacherTipEn": "The 95% confidence level means that 95% of intervals generated this way across repeated samples contain the true population mean $\\mu$.",
+    "teacherTipAr": "مستوى الثقة 95% يعني أن 95% من الفترات المحسوبة من عينات عشوائية متكررة ستحتوي على المتوسط الحقيقي للمجتمع."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_58",
+    "titleEn": "Pearson Correlation Coefficient from Covariance",
+    "titleAr": "معامل ارتباط بيرسون بدلالة التغاير",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two random variables $X$ and $Y$ have covariance $\\text{Cov}(X, Y) = 12$, with standard deviations $\\sigma_X = 4$ and $\\sigma_Y = 5$. Compute their Pearson correlation coefficient $\\rho_{X,Y}$.",
+    "questionAr": "متغيران عشوائيان $X$ و $Y$ تغايرهما $\\text{Cov}(X, Y) = 12$ وانحرافاهما المعياريان $\\sigma_X = 4$ و $\\sigma_Y = 5$. احسب معامل ارتباط بيرسون $\\rho_{X,Y}$.",
+    "optionsEn": [
+      "$0.60$",
+      "$0.80$",
+      "$0.48$",
+      "$1.20$"
+    ],
+    "optionsAr": [
+      "$0.60$",
+      "$0.80$",
+      "$0.48$",
+      "$1.20$"
+    ],
+    "correctAnswer": "$0.60$",
+    "correctIndex": 0,
+    "hintEn": "The correlation coefficient formula is $\\rho = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$.",
+    "hintAr": "قانون معامل الارتباط هو $\\rho = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$.",
+    "stepByStepSolutionEn": [
+      "Formula: $\\rho = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$.",
+      "Substitute: $\\rho = \\frac{12}{4 \\times 5} = \\frac{12}{20} = 0.60$."
+    ],
+    "stepByStepSolutionAr": [
+      "القانون: $\\rho = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y}$.",
+      "الحساب: $\\frac{12}{4 \\times 5} = \\frac{12}{20} = 0.60$."
+    ],
+    "teacherTipEn": "The correlation coefficient always satisfies $-1 \\le \\rho \\le 1$. A value of $0.60$ indicates a moderate-to-strong positive linear relationship.",
+    "teacherTipAr": "معامل الارتباط محصور دائماً بين $-1$ و $+1$. والقيمة $0.60$ تدل على ارتباط خطي طردي متوسط القوة."
+  },
+  {
+    "id": "egbac_prob_ch2_db_medium_59",
+    "titleEn": "Definition of Type I Error in Hypothesis Testing",
+    "titleAr": "تعريف الخطأ من النوع الأول في اختبار الفروض",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In statistical hypothesis testing, what constitutes a Type I error ($\\alpha$)?",
+    "questionAr": "في اختبار الفروض الإحصائية، ماذا يمثل الخطأ من النوع الأول ($\\alpha$)؟",
+    "optionsEn": [
+      "Rejecting the null hypothesis $H_0$ when it is actually true (False Positive)",
+      "Failing to reject $H_0$ when it is actually false (False Negative)",
+      "Accepting both null and alternative hypotheses",
+      "Calculating a sample mean with calculation error"
+    ],
+    "optionsAr": [
+      "رفض الفرض الصفري $H_0$ على الرغم من صحته (إيجابي كاذب)",
+      "عدم رفض الفرض الصفري $H_0$ على الرغم من خطئه (سلبي كاذب)",
+      "قبول الفرضين معاً",
+      "حساب متوسط العينة بخطأ حسابي"
+    ],
+    "correctAnswer": "Rejecting the null hypothesis $H_0$ when it is actually true (False Positive)",
+    "correctIndex": 0,
+    "hintEn": "Type I error is convicting an innocent person: rejecting true $H_0$.",
+    "hintAr": "الخطأ من النوع الأول يشبه إدانة بريء: رفض الفرض الصفري وهو صحيح في الواقع.",
+    "stepByStepSolutionEn": [
+      "Type I Error ($\\alpha$, significance level): Rejecting the null hypothesis $H_0$ when $H_0$ is true.",
+      "Type II Error ($\\beta$): Failing to reject the null hypothesis $H_0$ when $H_0$ is false.",
+      "Power of test is $1 - \\beta$."
+    ],
+    "stepByStepSolutionAr": [
+      "الخطأ من النوع الأول (مستوى المعنوية $\\alpha$): هو رفض فرض العدم $H_0$ بينما هو صحيح في الواقع.",
+      "الخطأ من النوع الثاني ($\\beta$): عدم رفض فرض العدم وهو خاطئ في الواقع.",
+      "قوة الاختبار هي $1 - \\beta$."
+    ],
+    "teacherTipEn": "Typically, tests are designed with $\\alpha = 0.05$ or $0.01$ to strictly limit Type I error.",
+    "teacherTipAr": "يتم تحديد مستوى الدلالة عادة عند $\\alpha = 0.05$ للحد من الوقوع في الخطأ من النوع الأول."
   }
 ],
   hots: [
@@ -4310,18 +4925,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.0$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.0$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.0, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.0, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.0, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.0, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.0, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.0, \\quad \\text{Reject } H_0$",
+      "$z = -1.0, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.0, \\quad \\text{Fail to reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.0, \\quad \\text{قبول (عدم رفض) الفرض الصفري $H_0$}$",
-      "$z = 1.0, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.0, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.0, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.0, \\quad \\text{قبول (عدم رفض) الفرض الصفري } H_0$",
+      "$z = 1.0, \\quad \\text{Reject } H_0$",
+      "$z = -1.0, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.0, \\quad \\text{Fail to reject } H_0$"
     ],
-    "correctAnswer": "$z = 1.0, \\quad \\text{Fail to reject $H_0$}$",
+    "correctAnswer": "$z = 1.0, \\quad \\text{Fail to reject } H_0$",
     "correctIndex": 0,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4346,18 +4961,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.2$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.2$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 1.2, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -1.2, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.2, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.2, \\quad \\text{Reject } H_0$",
+      "$z = 1.2, \\quad \\text{Fail to reject } H_0$",
+      "$z = -1.2, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.2, \\quad \\text{Fail to reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 1.2, \\quad \\text{قبول (عدم رفض) الفرض الصفري $H_0$}$",
-      "$z = -1.2, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.2, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.2, \\quad \\text{Reject } H_0$",
+      "$z = 1.2, \\quad \\text{قبول (عدم رفض) الفرض الصفري } H_0$",
+      "$z = -1.2, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.2, \\quad \\text{Fail to reject } H_0$"
     ],
-    "correctAnswer": "$z = 1.2, \\quad \\text{Fail to reject $H_0$}$",
+    "correctAnswer": "$z = 1.2, \\quad \\text{Fail to reject } H_0$",
     "correctIndex": 1,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4382,18 +4997,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.4$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.4$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.4, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.4, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.4, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.4, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.4, \\quad \\text{Reject } H_0$",
+      "$z = -1.4, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.4, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.4, \\quad \\text{Fail to reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.4, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.4, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.4, \\quad \\text{قبول (عدم رفض) الفرض الصفري $H_0$}$",
-      "$z = 2.4, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.4, \\quad \\text{Reject } H_0$",
+      "$z = -1.4, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.4, \\quad \\text{قبول (عدم رفض) الفرض الصفري } H_0$",
+      "$z = 2.4, \\quad \\text{Fail to reject } H_0$"
     ],
-    "correctAnswer": "$z = 1.4, \\quad \\text{Fail to reject $H_0$}$",
+    "correctAnswer": "$z = 1.4, \\quad \\text{Fail to reject } H_0$",
     "correctIndex": 2,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4418,18 +5033,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.5$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.5$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.5, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.5, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.5, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.5, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.5, \\quad \\text{Reject } H_0$",
+      "$z = -1.5, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.5, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.5, \\quad \\text{Fail to reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.5, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.5, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.5, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.5, \\quad \\text{قبول (عدم رفض) الفرض الصفري $H_0$}$"
+      "$z = 1.5, \\quad \\text{Reject } H_0$",
+      "$z = -1.5, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.5, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.5, \\quad \\text{قبول (عدم رفض) الفرض الصفري } H_0$"
     ],
-    "correctAnswer": "$z = 1.5, \\quad \\text{Fail to reject $H_0$}$",
+    "correctAnswer": "$z = 1.5, \\quad \\text{Fail to reject } H_0$",
     "correctIndex": 3,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4454,18 +5069,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.6$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.6$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.6, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.6, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.6, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.6, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.6, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.6, \\quad \\text{Reject } H_0$",
+      "$z = -1.6, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.6, \\quad \\text{Fail to reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.6, \\quad \\text{قبول (عدم رفض) الفرض الصفري $H_0$}$",
-      "$z = 1.6, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.6, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.6, \\quad \\text{Fail to reject $H_0$}$"
+      "$z = 1.6, \\quad \\text{قبول (عدم رفض) الفرض الصفري } H_0$",
+      "$z = 1.6, \\quad \\text{Reject } H_0$",
+      "$z = -1.6, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.6, \\quad \\text{Fail to reject } H_0$"
     ],
-    "correctAnswer": "$z = 1.6, \\quad \\text{Fail to reject $H_0$}$",
+    "correctAnswer": "$z = 1.6, \\quad \\text{Fail to reject } H_0$",
     "correctIndex": 0,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4490,18 +5105,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 101.8$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 101.8$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 1.8, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.8, \\quad \\text{Reject $H_0$}$",
-      "$z = -1.8, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.8, \\quad \\text{Reject $H_0$}$"
+      "$z = 1.8, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.8, \\quad \\text{Reject } H_0$",
+      "$z = -1.8, \\quad \\text{Reject } H_0$",
+      "$z = 2.8, \\quad \\text{Reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 1.8, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 1.8, \\quad \\text{رفض الفرض الصفري $H_0$}$",
-      "$z = -1.8, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.8, \\quad \\text{Reject $H_0$}$"
+      "$z = 1.8, \\quad \\text{Fail to reject } H_0$",
+      "$z = 1.8, \\quad \\text{رفض الفرض الصفري } H_0$",
+      "$z = -1.8, \\quad \\text{Reject } H_0$",
+      "$z = 2.8, \\quad \\text{Reject } H_0$"
     ],
-    "correctAnswer": "$z = 1.8, \\quad \\text{Reject $H_0$}$",
+    "correctAnswer": "$z = 1.8, \\quad \\text{Reject } H_0$",
     "correctIndex": 1,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4526,18 +5141,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 102.0$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 102.0$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 2.0, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.0, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.0, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.0, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.0, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.0, \\quad \\text{Reject } H_0$",
+      "$z = 2.0, \\quad \\text{Reject } H_0$",
+      "$z = 3.0, \\quad \\text{Reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 2.0, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.0, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.0, \\quad \\text{رفض الفرض الصفري $H_0$}$",
-      "$z = 3.0, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.0, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.0, \\quad \\text{Reject } H_0$",
+      "$z = 2.0, \\quad \\text{رفض الفرض الصفري } H_0$",
+      "$z = 3.0, \\quad \\text{Reject } H_0$"
     ],
-    "correctAnswer": "$z = 2.0, \\quad \\text{Reject $H_0$}$",
+    "correctAnswer": "$z = 2.0, \\quad \\text{Reject } H_0$",
     "correctIndex": 2,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4562,18 +5177,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 102.2$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 102.2$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 2.2, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.2, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.2, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.2, \\quad \\text{Reject } H_0$",
+      "$z = 3.2, \\quad \\text{Reject } H_0$",
+      "$z = 2.2, \\quad \\text{Reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 2.2, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.2, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.2, \\quad \\text{رفض الفرض الصفري $H_0$}$"
+      "$z = 2.2, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.2, \\quad \\text{Reject } H_0$",
+      "$z = 3.2, \\quad \\text{Reject } H_0$",
+      "$z = 2.2, \\quad \\text{رفض الفرض الصفري } H_0$"
     ],
-    "correctAnswer": "$z = 2.2, \\quad \\text{Reject $H_0$}$",
+    "correctAnswer": "$z = 2.2, \\quad \\text{Reject } H_0$",
     "correctIndex": 3,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4598,18 +5213,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 102.4$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 102.4$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 2.4, \\quad \\text{Reject $H_0$}$",
-      "$z = 2.4, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.4, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.4, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.4, \\quad \\text{Reject } H_0$",
+      "$z = 2.4, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.4, \\quad \\text{Reject } H_0$",
+      "$z = 3.4, \\quad \\text{Reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 2.4, \\quad \\text{رفض الفرض الصفري $H_0$}$",
-      "$z = 2.4, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = -2.4, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.4, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.4, \\quad \\text{رفض الفرض الصفري } H_0$",
+      "$z = 2.4, \\quad \\text{Fail to reject } H_0$",
+      "$z = -2.4, \\quad \\text{Reject } H_0$",
+      "$z = 3.4, \\quad \\text{Reject } H_0$"
     ],
-    "correctAnswer": "$z = 2.4, \\quad \\text{Reject $H_0$}$",
+    "correctAnswer": "$z = 2.4, \\quad \\text{Reject } H_0$",
     "correctIndex": 0,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -4634,18 +5249,18 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "questionEn": "Test $H_0: \\mu = 100$ against $H_1: \\mu > 100$ at significance level $\\alpha = 0.05$ (critical value $z_{0.05} = 1.645$). A sample of size $n = 100$ with known population $\\sigma = 10$ yields $\\bar{x} = 102.6$. Determine the test statistic $z$ and state the statistical conclusion.",
     "questionAr": "اختبر الفرض $H_0: \\mu = 100$ مقابل $H_1: \\mu > 100$ عند مستوى معنوية $\\alpha = 0.05$ (القيمة الحرجة $z_{0.05} = 1.645$). سُحبت عينة حجمها $n = 100$ بانحراف معياري $\\sigma = 10$ فأعطت $\\bar{x} = 102.6$. احسب إحصائية الاختبار $z$ وحدد القرار الإحصائي.",
     "optionsEn": [
-      "$z = 2.6, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.6, \\quad \\text{Reject $H_0$}$",
-      "$z = -2.6, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.6, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.6, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.6, \\quad \\text{Reject } H_0$",
+      "$z = -2.6, \\quad \\text{Reject } H_0$",
+      "$z = 3.6, \\quad \\text{Reject } H_0$"
     ],
     "optionsAr": [
-      "$z = 2.6, \\quad \\text{Fail to reject $H_0$}$",
-      "$z = 2.6, \\quad \\text{رفض الفرض الصفري $H_0$}$",
-      "$z = -2.6, \\quad \\text{Reject $H_0$}$",
-      "$z = 3.6, \\quad \\text{Reject $H_0$}$"
+      "$z = 2.6, \\quad \\text{Fail to reject } H_0$",
+      "$z = 2.6, \\quad \\text{رفض الفرض الصفري } H_0$",
+      "$z = -2.6, \\quad \\text{Reject } H_0$",
+      "$z = 3.6, \\quad \\text{Reject } H_0$"
     ],
-    "correctAnswer": "$z = 2.6, \\quad \\text{Reject $H_0$}$",
+    "correctAnswer": "$z = 2.6, \\quad \\text{Reject } H_0$",
     "correctIndex": 1,
     "hintEn": "Compute z = (xbar - mu0) / (sigma / sqrt(n)). Reject H_0 if z > 1.645.",
     "hintAr": "احسب z = (xbar - mu0) / (sigma / sqrt(n)). نرفض الفرض الصفري إذا كان z > 1.645.",
@@ -5401,6 +6016,310 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Zero arrivals in a Poisson process is identical to the first inter-arrival time exceeding t (T_1 > t).",
     "teacherTipAr": "عدم وصول أي حدث في عملية بواسون يكافئ تماماً أن يتجاوز زمن الوصول الأول الفترة t (أي T_1 > t)."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_51",
+    "titleEn": "Maximum Likelihood Estimator for Exponential Distribution",
+    "titleAr": "مقدر الإمكان الأكبر (MLE) للتوزيع الأسي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Given an i.i.d. sample $x_1, x_2, \\dots, x_n$ from an exponential distribution with density $f(x; \\lambda) = \\lambda e^{-\\lambda x}$, what is the Maximum Likelihood Estimator (MLE) $\\hat{\\lambda}$?",
+    "questionAr": "معطى عينة مستقلة ومتطابقة التوزيع $x_1, x_2, \\dots, x_n$ من توزيع أسي بدالة كثافة $f(x; \\lambda) = \\lambda e^{-\\lambda x}$. ما هو مقدر الإمكان الأكبر $\\hat{\\lambda}$؟",
+    "optionsEn": [
+      "$\\hat{\\lambda} = \\frac{1}{\\bar{x}} = \\frac{n}{\\sum_{i=1}^n x_i}$",
+      "$\\hat{\\lambda} = \\bar{x} = \\frac{1}{n} \\sum_{i=1}^n x_i$",
+      "$\\hat{\\lambda} = \\frac{1}{n \\sum_{i=1}^n x_i}$",
+      "$\\hat{\\lambda} = \\sqrt{\\bar{x}}$"
+    ],
+    "optionsAr": [
+      "$\\hat{\\lambda} = \\frac{1}{\\bar{x}} = \\frac{n}{\\sum_{i=1}^n x_i}$",
+      "$\\hat{\\lambda} = \\bar{x} = \\frac{1}{n} \\sum_{i=1}^n x_i$",
+      "$\\hat{\\lambda} = \\frac{1}{n \\sum_{i=1}^n x_i}$",
+      "$\\hat{\\lambda} = \\sqrt{\\bar{x}}$"
+    ],
+    "correctAnswer": "$\\hat{\\lambda} = \\frac{1}{\\bar{x}} = \\frac{n}{\\sum_{i=1}^n x_i}$",
+    "correctIndex": 0,
+    "hintEn": "Write the log-likelihood function $\\ln L(\\lambda) = n \\ln\\lambda - \\lambda \\sum x_i$, differentiate with respect to $\\lambda$ and set to zero.",
+    "hintAr": "اكتب دالة لوغاريتم الإمكان $\\ln L(\\lambda) = n \\ln\\lambda - \\lambda \\sum x_i$، ثم اشتق بالنسبة لـ $\\lambda$ وساوِ بالصفر.",
+    "stepByStepSolutionEn": [
+      "Likelihood function: $L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n e^{-\\lambda \\sum_{i=1}^n x_i}$.",
+      "Log-likelihood: $\\ell(\\lambda) = \\ln L(\\lambda) = n \\ln\\lambda - \\lambda \\sum_{i=1}^n x_i$.",
+      "Differentiate: $\\frac{d\\ell}{d\\lambda} = \\frac{n}{\\lambda} - \\sum_{i=1}^n x_i = 0$.",
+      "Solve for $\\lambda$: $\\hat{\\lambda} = \\frac{n}{\\sum_{i=1}^n x_i} = \\frac{1}{\\bar{x}}$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة الإمكان: $L(\\lambda) = \\lambda^n e^{-\\lambda \\sum x_i}$.",
+      "لوغاريتم الإمكان: $\\ell(\\lambda) = n\\ln\\lambda - \\lambda \\sum x_i$.",
+      "المشتقة: $\\frac{n}{\\lambda} - \\sum x_i = 0$.",
+      "الحل: $\\hat{\\lambda} = \\frac{n}{\\sum x_i} = \\frac{1}{\\bar{x}}$."
+    ],
+    "teacherTipEn": "This agrees with the method of moments, since theoretical mean is $\\mu = 1/\\lambda \\implies \\lambda = 1/\\mu$.",
+    "teacherTipAr": "يتفق هذا مع طريقة العزوم تماماً، لأن المتوسط النظري هو $1/\\lambda$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_52",
+    "titleEn": "Chebyshev's Inequality Upper Bound",
+    "titleAr": "الحد الأعلى لمتباينة تشيبيشيف",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For ANY probability distribution with finite mean $\\mu$ and standard deviation $\\sigma$, what is the MAXIMUM possible probability that a random observation deviates from the mean by at least $3\\sigma$ ($P(|X - \\mu| \\ge 3\\sigma)$)?",
+    "questionAr": "لأي توزيع احتمالي له متوسط منتهٍ $\\mu$ وانحراف معياري $\\sigma$، ما هو الحد الأقصى لاحتمال أن تنحرف مشاهدة عن المتوسط بمقدار 3 انحرافات معيارية على الأقل ($P(|X - \\mu| \\ge 3\\sigma)$)؟",
+    "optionsEn": [
+      "$\\frac{1}{9} \\approx 11.1\\%$",
+      "$\\frac{1}{3} \\approx 33.3\\%$",
+      "$\\frac{1}{4} = 25.0\\%$",
+      "$0.3\\%$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{9} \\approx 11.1\\%$",
+      "$\\frac{1}{3} \\approx 33.3\\%$",
+      "$\\frac{1}{4} = 25.0\\%$",
+      "$0.3\\%$"
+    ],
+    "correctAnswer": "$\\frac{1}{9} \\approx 11.1\\%$",
+    "correctIndex": 0,
+    "hintEn": "Chebyshev's Inequality states: $P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$.",
+    "hintAr": "تنص متباينة تشيبيشيف على أن: $P(|X - \\mu| \\ge k\\sigma) \\le \\frac{1}{k^2}$.",
+    "stepByStepSolutionEn": [
+      "Apply Chebyshev's Inequality with $k = 3$:",
+      "$P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 0.1111$ ($11.11\\%$).",
+      "This bound holds universally regardless of the distribution's shape."
+    ],
+    "stepByStepSolutionAr": [
+      "بتطبيق متباينة تشيبيشيف بوضع $k = 3$:",
+      "$P(|X - \\mu| \\ge 3\\sigma) \\le \\frac{1}{3^2} = \\frac{1}{9} \\approx 11.1\\%$.",
+      "هذا الحد صالح لأي توزيع احتمالي أياً كان شكله."
+    ],
+    "teacherTipEn": "While normal distributions give $0.27\\%$, Chebyshev guarantees at most $11.1\\%$ for ANY arbitrary distribution.",
+    "teacherTipAr": "بينما يعطي التوزيع الطبيعي 0.27%، تضمن متباينة تشيبيشيف ألا يتجاوز الاحتمال 11.1% لأي توزيع عشوائي."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_53",
+    "titleEn": "Moment Generating Function of a Normal Distribution",
+    "titleAr": "الدالة المولدة للعزوم للتوزيع الطبيعي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the Moment Generating Function (MGF) $M_X(t) = E[e^{tX}]$ for a normal random variable $X \\sim N(\\mu, \\sigma^2)$?",
+    "questionAr": "ما هي الدالة المولدة للعزوم (MGF) $M_X(t) = E[e^{tX}]$ لمتغير عشوائي طبيعي $X \\sim N(\\mu, \\sigma^2)$؟",
+    "optionsEn": [
+      "$\\exp\\left(\\mu t + \\frac{1}{2}\\sigma^2 t^2\\right)$",
+      "$\\exp\\left(\\mu t - \\frac{1}{2}\\sigma^2 t^2\\right)$",
+      "$\\frac{1}{1 - \\mu t}$",
+      "$\\exp(\\mu t + \\sigma t)$"
+    ],
+    "optionsAr": [
+      "$\\exp\\left(\\mu t + \\frac{1}{2}\\sigma^2 t^2\\right)$",
+      "$\\exp\\left(\\mu t - \\frac{1}{2}\\sigma^2 t^2\\right)$",
+      "$\\frac{1}{1 - \\mu t}$",
+      "$\\exp(\\mu t + \\sigma t)$"
+    ],
+    "correctAnswer": "$\\exp\\left(\\mu t + \\frac{1}{2}\\sigma^2 t^2\\right)$",
+    "correctIndex": 0,
+    "hintEn": "Complete the square in the exponent of $\\int_{-\\infty}^\\infty e^{tx} \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}} dx$.",
+    "hintAr": "أكمل المربع في أس الدالة الأسية داخل تكامل الدالة المولدة للعزوم.",
+    "stepByStepSolutionEn": [
+      "Integral: $M_X(t) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\int_{-\\infty}^\\infty \\exp\\left( tx - \\frac{(x-\\mu)^2}{2\\sigma^2} \\right) dx$.",
+      "Complete the square in the exponent: $tx - \\frac{(x-\\mu)^2}{2\\sigma^2} = \\mu t + \\frac{1}{2}\\sigma^2 t^2 - \\frac{(x - (\\mu + \\sigma^2 t))^2}{2\\sigma^2}$.",
+      "Factoring out the constant exponential factor leaves a Gaussian integral equal to 1.",
+      "Result: $M_X(t) = \\exp\\left(\\mu t + \\frac{1}{2}\\sigma^2 t^2\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "حساب التكامل: $M_X(t) = E[e^{tX}]$.",
+      "بإكمال المربع في أس الدالة الأسية وإجراء التكامل الطبيعي:",
+      "$M_X(t) = \\exp\\left(\\mu t + \\frac{1}{2}\\sigma^2 t^2\\right)$."
+    ],
+    "teacherTipEn": "Notice $M_X'(0) = \\mu$ (first moment) and $M_X''(0) = \\mu^2 + \\sigma^2 = E[X^2]$ (second moment).",
+    "teacherTipAr": "المشتقة الأولى عند $t=0$ تعطي المتوسط $\\mu$، والمشتقة الثانية تعطي العزم الثاني $E[X^2]$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_54",
+    "titleEn": "Difference of Two Independent Normal Variables",
+    "titleAr": "الفرق بين متغيرين طبيعيين مستقلين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $X_1 \\sim N(\\mu_1, \\sigma_1^2)$ and $X_2 \\sim N(\\mu_2, \\sigma_2^2)$ be independent normal random variables. What is the distribution of their difference $D = X_1 - X_2$?",
+    "questionAr": "ليكن $X_1 \\sim N(\\mu_1, \\sigma_1^2)$ و $X_2 \\sim N(\\mu_2, \\sigma_2^2)$ متغيرين طبيعيين مستقلين. ما هو توزيع الفرق بينهما $D = X_1 - X_2$؟",
+    "optionsEn": [
+      "$D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 + \\sigma_2^2)$",
+      "$D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 - \\sigma_2^2)$",
+      "$D \\sim N(\\mu_1 - \\mu_2, (\\sigma_1 - \\sigma_2)^2)$",
+      "$D \\sim N(\\mu_1 + \\mu_2, \\sigma_1^2 + \\sigma_2^2)$"
+    ],
+    "optionsAr": [
+      "$D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 + \\sigma_2^2)$",
+      "$D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 - \\sigma_2^2)$",
+      "$D \\sim N(\\mu_1 - \\mu_2, (\\sigma_1 - \\sigma_2)^2)$",
+      "$D \\sim N(\\mu_1 + \\mu_2, \\sigma_1^2 + \\sigma_2^2)$"
+    ],
+    "correctAnswer": "$D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 + \\sigma_2^2)$",
+    "correctIndex": 0,
+    "hintEn": "Variances always add for independent variables: $\\text{Var}(X_1 - X_2) = \\text{Var}(X_1) + (-1)^2 \\text{Var}(X_2)$.",
+    "hintAr": "التباينات تُجمع دائماً للمتغيرات المستقلة: $\\text{Var}(X_1 - X_2) = \\text{Var}(X_1) + (-1)^2 \\text{Var}(X_2)$.",
+    "stepByStepSolutionEn": [
+      "The difference of independent normal variables is normal.",
+      "Mean: $E[X_1 - X_2] = E[X_1] - E[X_2] = \\mu_1 - \\mu_2$.",
+      "Variance: $\\text{Var}(X_1 - X_2) = \\text{Var}(X_1) + (-1)^2 \\text{Var}(X_2) = \\sigma_1^2 + \\sigma_2^2$.",
+      "Therefore, $D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 + \\sigma_2^2)$."
+    ],
+    "stepByStepSolutionAr": [
+      "طرح متغيرين طبيعيين مستقلين يعطي متغيراً طبيعياً.",
+      "المتوسط: $\\mu_1 - \\mu_2$.",
+      "التباين: $\\text{Var}(X_1 - X_2) = \\sigma_1^2 + (-1)^2 \\sigma_2^2 = \\sigma_1^2 + \\sigma_2^2$.",
+      "إذن $D \\sim N(\\mu_1 - \\mu_2, \\sigma_1^2 + \\sigma_2^2)$."
+    ],
+    "teacherTipEn": "Variances NEVER subtract! Subtracting variables increases total uncertainty.",
+    "teacherTipAr": "التباينات لا تُطرح أبداً! طرح المتغيرات يزيد من مقدار عدم اليقين والتشتت الكلي."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_55",
+    "titleEn": "Chi-Square Distribution as Sum of Squared Standard Normals",
+    "titleAr": "توزيع كاي-تربيع كمجموع مربعات متغيرات طبيعية معيارية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Let $Z_1, Z_2, \\dots, Z_k$ be independent standard normal random variables ($Z_i \\sim N(0, 1)$). The sum of their squares $Q = \\sum_{i=1}^k Z_i^2$ follows a chi-square distribution with $k$ degrees of freedom. What is the variance $\\text{Var}(Q)$?",
+    "questionAr": "لتكن $Z_1, Z_2, \\dots, Z_k$ متغيرات طبيعية معيارية مستقلة. مجموع مربعاتها $Q = \\sum_{i=1}^k Z_i^2$ يتبع توزيع كاي-تربيع بـ $k$ درجات حرية. ما هو تباين هذا المجموع $\\text{Var}(Q)$؟",
+    "optionsEn": [
+      "$2k$",
+      "$k$",
+      "$k^2$",
+      "$4k$"
+    ],
+    "optionsAr": [
+      "$2k$",
+      "$k$",
+      "$k^2$",
+      "$4k$"
+    ],
+    "correctAnswer": "$2k$",
+    "correctIndex": 0,
+    "hintEn": "For $Z \\sim N(0, 1)$, $E[Z^2] = 1$ and $E[Z^4] = 3$, so $\\text{Var}(Z^2) = 3 - 1^2 = 2$.",
+    "hintAr": "للمتغير الطبيعي المعياري: $E[Z^2] = 1$ و $E[Z^4] = 3$، إذن $\\text{Var}(Z^2) = 2$.",
+    "stepByStepSolutionEn": [
+      "For standard normal $Z$: $E[Z^2] = 1$ and $E[Z^4] = 3$.",
+      "Variance of $Z^2$: $\\text{Var}(Z^2) = E[Z^4] - (E[Z^2])^2 = 3 - 1 = 2$.",
+      "Since the $Z_i$ are independent, the variance of the sum is the sum of the variances:",
+      "$\\text{Var}(Q) = \\sum_{i=1}^k \\text{Var}(Z_i^2) = k \\times 2 = 2k$."
+    ],
+    "stepByStepSolutionAr": [
+      "للمتغير الطبيعي المعياري: $E[Z^2] = 1$ و $E[Z^4] = 3$.",
+      "تباين المربع: $\\text{Var}(Z^2) = 3 - 1^2 = 2$.",
+      "بما أن المتغيرات مستقلة، تجمع التباينات:",
+      "$\\text{Var}(Q) = k \\times 2 = 2k$."
+    ],
+    "teacherTipEn": "For a $\\chi^2(k)$ distribution, the mean is $E[Q] = k$ and variance is $\\text{Var}(Q) = 2k$.",
+    "teacherTipAr": "لتوزيع كاي-تربيع بـ $k$ درجات حرية: المتوسط $k$ والتباين $2k$."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_56",
+    "titleEn": "Inverse Transform Sampling for Exponential Distribution",
+    "titleAr": "طريقة التحويل العكسي لتوليد التوزيع الأسي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $U \\sim \\text{Uniform}(0, 1)$, what transformation $X = g(U)$ produces a continuous random variable following an exponential distribution with parameter $\\lambda$?",
+    "questionAr": "إذا كان $U \\sim \\text{Uniform}(0, 1)$ متغيراً منتظماً على $[0, 1]$، فما هو التحويل $X = g(U)$ الذي يولد متغيراً يتبع توزيعاً أسياً بمعامل $\\lambda$؟",
+    "optionsEn": [
+      "$X = -\\frac{1}{\\lambda} \\ln(1 - U)$ or $-\\frac{1}{\\lambda}\\ln(U)$",
+      "$X = \\frac{U}{\\lambda}$",
+      "$X = \\lambda e^{-U}$",
+      "$X = \\sqrt{\\frac{U}{\\lambda}}$"
+    ],
+    "optionsAr": [
+      "$X = -\\frac{1}{\\lambda} \\ln(1 - U)$ أو $-\\frac{1}{\\lambda}\\ln(U)$",
+      "$X = \\frac{U}{\\lambda}$",
+      "$X = \\lambda e^{-U}$",
+      "$X = \\sqrt{\\frac{U}{\\lambda}}$"
+    ],
+    "correctAnswer": "$X = -\\frac{1}{\\lambda} \\ln(1 - U)$ or $-\\frac{1}{\\lambda}\\ln(U)$",
+    "correctIndex": 0,
+    "hintEn": "By the Probability Integral Transform, $X = F^{-1}(U)$. For the exponential distribution, $F(x) = 1 - e^{-\\lambda x}$.",
+    "hintAr": "باستخدام تحويل التكامل الاحتمالي العكسي $X = F^{-1}(U)$ حيث $F(x) = 1 - e^{-\\lambda x}$.",
+    "stepByStepSolutionEn": [
+      "Set CDF equal to $U$: $F(X) = 1 - e^{-\\lambda X} = U$.",
+      "Rearrange: $e^{-\\lambda X} = 1 - U$.",
+      "Take natural log: $-\\lambda X = \\ln(1 - U) \\implies X = -\\frac{1}{\\lambda} \\ln(1 - U)$.",
+      "Since $1 - U$ also has uniform distribution $U(0, 1)$, $-\\frac{1}{\\lambda}\\ln(U)$ is equally valid."
+    ],
+    "stepByStepSolutionAr": [
+      "بمساواة دالة التوزيع التراكمي بـ $U$: $1 - e^{-\\lambda X} = U$.",
+      "$e^{-\\lambda X} = 1 - U$.",
+      "$-\\lambda X = \\ln(1 - U) \\implies X = -\\frac{1}{\\lambda} \\ln(1 - U)$."
+    ],
+    "teacherTipEn": "This is the fundamental method computer pseudo-random number generators use to simulate non-uniform random variables.",
+    "teacherTipAr": "هذه الطريقة الأساسية التي تستخدمها خوارزميات الحاسوب لتوليد متغيرات عشوائية غير منتظمة من أرقام عشوائية منتظمة."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_57",
+    "titleEn": "Rigorous Interpretation of the p-value",
+    "titleAr": "التفسير الإحصائي الدقيق للقيمة الاحتمالية p-value",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the precise definition of the p-value in a statistical hypothesis test?",
+    "questionAr": "ما هو التعريف الدقيق للقيمة الاحتمالية (p-value) في اختبار الفروض الإحصائية؟",
+    "optionsEn": [
+      "The probability, assuming the null hypothesis $H_0$ is true, of obtaining a test statistic at least as extreme as the one observed",
+      "The probability that the null hypothesis $H_0$ is true",
+      "The probability that the alternative hypothesis $H_1$ is false",
+      "The probability of making a Type II error"
+    ],
+    "optionsAr": [
+      "احتمال الحصول على إحصاء اختبار على الأقل بنفس تطرف القيمة المشاهدة، بافتراض صحة فرض العدم $H_0$",
+      "احتمال أن يكون فرض العدم $H_0$ صحيحاً",
+      "احتمال أن يكون الفرض البديل $H_1$ خاطئاً",
+      "احتمال ارتكاب خطأ من النوع الثاني"
+    ],
+    "correctAnswer": "The probability, assuming the null hypothesis $H_0$ is true, of obtaining a test statistic at least as extreme as the one observed",
+    "correctIndex": 0,
+    "hintEn": "The p-value is NOT the probability that $H_0$ is true (a very common misconception). It is a conditional probability $P(\\text{data as or more extreme} \\mid H_0)$.",
+    "hintAr": "القيمة الاحتمالية ليست احتمال صحة فرض العدم (خطأ شائع جداً)، بل هي احتمال شرطي للحصول على بيانات متطرفة بافتراض صحة $H_0$.",
+    "stepByStepSolutionEn": [
+      "Definition: The p-value is $P(T \\ge t_{\\text{obs}} \\mid H_0)$.",
+      "It quantifies how consistent the observed sample data is with the null hypothesis.",
+      "A smaller p-value ($p < \\alpha$) provides stronger evidence against $H_0$, leading to its rejection."
+    ],
+    "stepByStepSolutionAr": [
+      "التعريف الدقيق: القيمة الاحتمالية هي $P(T \\ge t_{\\text{obs}} \\mid H_0)$.",
+      "تقيس مدى توافق البيانات المشاهدة مع فرض العدم.",
+      "كلما صغرت القيمة الاحتمالية ($p < \\alpha$)، شكلت دليلاً أقوى لرفض فرض العدم $H_0$ لصالح البديل."
+    ],
+    "teacherTipEn": "Never interpret p-value as $P(H_0 \\mid \\text{data})$; that would require Bayesian inference with prior probabilities.",
+    "teacherTipAr": "إياك وتفسير القيمة الاحتمالية كاحتمال لصحة الفرض؛ فتلك تتطلب إحصاء بايزياً وتوزيعات قبلية."
+  },
+  {
+    "id": "egbac_prob_ch2_db_hots_58",
+    "titleEn": "Weak vs Strong Law of Large Numbers",
+    "titleAr": "قانون الأعداد الكبيرة الضعيف والقوي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the theoretical distinction between the Weak Law of Large Numbers (WLLN) and the Strong Law of Large Numbers (SLLN)?",
+    "questionAr": "ما هو الفارق النظري الأساسي بين قانون الأعداد الكبيرة الضعيف (WLLN) وقانون الأعداد الكبيرة القوي (SLLN)؟",
+    "optionsEn": [
+      "WLLN establishes convergence in probability ($\\bar{X}_n \\xrightarrow{P} \\mu$), while SLLN establishes almost sure convergence ($\\bar{X}_n \\xrightarrow{a.s.} \\mu$)",
+      "WLLN applies only to continuous variables, while SLLN applies to discrete variables",
+      "WLLN requires finite variance, while SLLN does not require finite mean",
+      "SLLN applies only to normal distributions"
+    ],
+    "optionsAr": [
+      "القانون الضعيف يثبت التقارب بالاحتمال ($\\bar{X}_n \\xrightarrow{P} \\mu$)، بينما القانون القوي يثبت التقارب شبه المؤكد ($\\bar{X}_n \\xrightarrow{a.s.} \\mu$)",
+      "القانون الضعيف للمتغيرات المتصلة والقوي للمتغيرات المتقطعة",
+      "القانون الضعيف يتطلب تبايناً منتهياً بينما القوي لا يتطلب متوسطاً منتهياً",
+      "القانون القوي ينطبق فقط على التوزيعات الطبيعية"
+    ],
+    "correctAnswer": "WLLN establishes convergence in probability ($\\bar{X}_n \\xrightarrow{P} \\mu$), while SLLN establishes almost sure convergence ($\\bar{X}_n \\xrightarrow{a.s.} \\mu$)",
+    "correctIndex": 0,
+    "hintEn": "Weak convergence: $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| > \\epsilon) = 0$. Strong convergence: $P(\\lim_{n \\to \\infty} \\bar{X}_n = \\mu) = 1$.",
+    "hintAr": "التقارب بالاحتمال يعني أن احتمال الانحراف يؤول للصفر. أما التقارب شبه المؤكد فيعني أن المتتالية تتقارب حتماً باحتمال 1.",
+    "stepByStepSolutionEn": [
+      "The Weak Law of Large Numbers (Khinchin's Law) states that the sample mean converges in probability to the population mean: $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| > \\epsilon) = 0$ for any $\\epsilon > 0$.",
+      "The Strong Law of Large Numbers (Kolmogorov's Law) states that the sample mean converges almost surely to the population mean: $P\\left( \\lim_{n \\to \\infty} \\bar{X}_n = \\mu \\right) = 1$.",
+      "Almost sure convergence is a strictly stronger mode of convergence than convergence in probability."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون الأعداد الكبيرة الضعيف (خينشين): يثبت التقارب بالاحتمال: $\\lim_{n \\to \\infty} P(|\\bar{X}_n - \\mu| > \\epsilon) = 0$.",
+      "قانون الأعداد الكبيرة القوي (كولموجوروف): يثبت التقارب شبه المؤكد (باستثناء مجموعة قياسها صفر): $P(\\lim_{n \\to \\infty} \\bar{X}_n = \\mu) = 1$.",
+      "التقارب شبه المؤكد أقوى رياضياً ويتضمن التقارب بالاحتمال."
+    ],
+    "teacherTipEn": "Both theorems form the mathematical bedrock of all empirical science and Monte Carlo simulations.",
+    "teacherTipAr": "كلا القانونين يشكلان الأساس الرياضي الصارم للعلم التجريبي ومحاكاة مونت كارلو."
   }
 ]
 };

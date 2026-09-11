@@ -1769,6 +1769,301 @@ export const statCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Vertical downward forces directly increase the normal reaction.",
     "teacherTipAr": "القوى الرأسية لأسفل تزيد مباشرة من رد الفعل العمودي وتضاعف الاحتكاك."
+  },
+  {
+    "id": "stat_ch1_db_easy_51",
+    "titleEn": "Resultant Reaction on Horizontal Plane",
+    "titleAr": "رد الفعل المحصل على مستوى أفقي خشن",
+    "difficulty": "easy",
+    "diagramType": "statics_horizontal_simple_friction",
+    "questionEn": "A body of weight $30\\text{ N}$ rests on a rough horizontal plane. If the coefficient of static friction is $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the magnitude of the resultant reaction $R'$ when the body is on the verge of motion.",
+    "questionAr": "جسم وزنه $30\\text{ نيوتن}$ موضوع على مستوى أفقي خشن. إذا كان معامل الاحتكاك السكوني $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد مقدار رد الفعل المحصل $R'$ عندما يكون الجسم على وشك الحركة.",
+    "optionsEn": [
+      "$20\\sqrt{3}\\text{ N}$",
+      "$30\\sqrt{3}\\text{ N}$",
+      "$60\\text{ N}$",
+      "$40\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$20\\sqrt{3}\\text{ نيوتن}$",
+      "$30\\sqrt{3}\\text{ نيوتن}$",
+      "$60\\text{ نيوتن}$",
+      "$40\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$20\\sqrt{3}\\text{ N}$",
+    "hintEn": "Resultant reaction is $R' = R\\sqrt{1 + \\mu_s^2} = R\\sec\\lambda$. Here $R = W = 30\\text{ N}$.",
+    "hintAr": "رد الفعل المحصل $R' = R\\sqrt{1 + \\mu_s^2}$. هنا $R = W = 30\\text{ نيوتن}$.",
+    "teacherTipEn": "Since $\\mu_s = \\tan\\lambda = 1/\\sqrt{3}$, the friction angle is $\\lambda = 30^\\circ$. Then $R' = R\\sec(30^\\circ) = 30 \\times \\frac{2}{\\sqrt{3}} = 20\\sqrt{3}\\text{ N}$.",
+    "teacherTipAr": "بما أن $\\tan\\lambda = 1/\\sqrt{3}$، فإن زاوية الاحتكاك $\\lambda = 30^\\circ$، ورد الفعل المحصل $R' = R\\sec(30^\\circ) = 20\\sqrt{3}\\text{ نيوتن}$.",
+    "stepByStepSolutionEn": [
+      "Normal reaction on horizontal surface: $R = W = 30\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R = \\frac{1}{\\sqrt{3}}(30) = 10\\sqrt{3}\\text{ N}$.",
+      "Resultant reaction: $R' = \\sqrt{R^2 + F_s^2} = \\sqrt{30^2 + (10\\sqrt{3})^2} = \\sqrt{900 + 300} = \\sqrt{1200} = 20\\sqrt{3}\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $R = W = 30\\text{ نيوتن}$.",
+      "قوة الاحتكاك السكوني النهائي: $F_s = \\mu_s R = 10\\sqrt{3}\\text{ نيوتن}$.",
+      "رد الفعل المحصل: $R' = \\sqrt{30^2 + 300} = \\sqrt{1200} = 20\\sqrt{3}\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_52",
+    "titleEn": "Equilibrium Angle on Rough Inclined Plane",
+    "titleAr": "زاوية الاتزان على مستوى مائل خشن تحت تأثير الوزن فقط",
+    "difficulty": "easy",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body placed on a rough plane inclined at an angle $\\theta$ to the horizontal is on the verge of sliding down under the action of its weight alone. If the coefficient of static friction is $\\mu_s = 0.75$, find $\\sin\\theta$.",
+    "questionAr": "جسم موضوع على مستوى مائل خشن يميل على الأفقي بزاوية $\\theta$، وكان على وشك الانزلاق لأسفل المستوى تحت تأثير وزنه فقط. إذا كان معامل الاحتكاك السكوني $\\mu_s = 0.75$، فأوجد $\\sin\\theta$.",
+    "optionsEn": [
+      "$\\frac{3}{5}$",
+      "$\\frac{4}{5}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{3}{5}$",
+      "$\\frac{4}{5}$",
+      "$\\frac{3}{4}$",
+      "$\\frac{1}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{3}{5}$",
+    "hintEn": "When on the verge of sliding under weight alone, $\\tan\\theta = \\mu_s$.",
+    "hintAr": "عندما يكون الجسم على وشك الانزلاق تحت تأثير وزنه فقط، فإن $\\tan\\theta = \\mu_s$.",
+    "teacherTipEn": "Angle of inclination $\\theta$ equals the friction angle $\\lambda$: $\\tan\\theta = 0.75 = \\frac{3}{4} \\implies \\sin\\theta = \\frac{3}{5}$.",
+    "teacherTipAr": "زاوية ميل المستوى تساوي زاوية الاحتكاك: $\\tan\\theta = 3/4$ في مثلث قائم أضلاعه 3، 4، 5، ومنها $\\sin\\theta = 3/5$.",
+    "stepByStepSolutionEn": [
+      "Condition for limiting sliding under weight alone: $\\tan\\theta = \\mu_s = 0.75 = \\frac{3}{4}$.",
+      "Draw right triangle with opposite $= 3$, adjacent $= 4$, hypotenuse $= \\sqrt{3^2 + 4^2} = 5$.",
+      "Therefore, $\\sin\\theta = \\frac{3}{5}$."
+    ],
+    "stepByStepSolutionAr": [
+      "شرط وشك الانزلاق تحت تأثير الوزن فقط: $\\tan\\theta = \\mu_s = 3/4$.",
+      "في مثلث قائم: المقابل $= 3$، المجاور $= 4$، الوتر $= 5$.",
+      "إذن $\\sin\\theta = \\frac{3}{5}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_53",
+    "titleEn": "Horizontal Pulling Force for Motion",
+    "titleAr": "القوة الأفقية اللازمة لجعل الجسم على وشك الحركة",
+    "difficulty": "easy",
+    "diagramType": "statics_horizontal_friction",
+    "questionEn": "A body of weight $50\\text{ N}$ is placed on a rough horizontal plane. If the coefficient of static friction is $\\mu_s = 0.4$, find the horizontal force $P$ required to make the body on the verge of motion.",
+    "questionAr": "جسم وزنه $50\\text{ نيوتن}$ موضوع على مستوى أفقي خشن. إذا كان معامل الاحتكاك السكوني $\\mu_s = 0.4$، فأوجد القوة الأفقية $P$ اللازمة لجعل الجسم على وشك الحركة.",
+    "optionsEn": [
+      "$20\\text{ N}$",
+      "$25\\text{ N}$",
+      "$12.5\\text{ N}$",
+      "$40\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$20\\text{ نيوتن}$",
+      "$25\\text{ نيوتن}$",
+      "$12.5\\text{ نيوتن}$",
+      "$40\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$20\\text{ N}$",
+    "hintEn": "For horizontal pulling force, $P = F_s = \\mu_s R = \\mu_s W$.",
+    "hintAr": "للقوة الأفقية: $P = F_s = \\mu_s R = \\mu_s W$.",
+    "teacherTipEn": "Since the pulling force is strictly horizontal, the normal reaction is simply equal to the weight.",
+    "teacherTipAr": "بما أن قوة الشد أفقية تماماً، فإن رد الفعل العمودي يساوي الوزن مباشرة.",
+    "stepByStepSolutionEn": [
+      "Normal reaction: $R = W = 50\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R = (0.4)(50) = 20\\text{ N}$.",
+      "Horizontal equilibrium: $P = F_s = 20\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $R = 50\\text{ نيوتن}$.",
+      "قوة الاحتكاك النهائي: $F_s = 0.4 \\times 50 = 20\\text{ نيوتن}$.",
+      "القوة الأفقية: $P = F_s = 20\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_54",
+    "titleEn": "Upward Force along Rough Incline",
+    "titleAr": "قوة موازية لخط أكبر ميل تجعل الجسم على وشك الحركة لأعلى",
+    "difficulty": "easy",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $W = 20\\text{ N}$ rests on a rough plane inclined at $30^\\circ$ to the horizontal. If $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the magnitude of the force acting along the line of greatest slope directed upwards that makes the body on the verge of moving up the plane.",
+    "questionAr": "جسم وزنه $W = 20\\text{ نيوتن}$ موضوع على مستوى خشن يميل على الأفقي بزاوية $30^\\circ$. إذا كان $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد مقدار القوة الموازية لخط أكبر ميل والموجهة لأعلى التي تجعل الجسم على وشك الحركة لأعلى المستوى.",
+    "optionsEn": [
+      "$20\\text{ N}$",
+      "$10\\text{ N}$",
+      "$10\\sqrt{3}\\text{ N}$",
+      "$30\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$20\\text{ نيوتن}$",
+      "$10\\text{ نيوتن}$",
+      "$10\\sqrt{3}\\text{ نيوتن}$",
+      "$30\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$20\\text{ N}$",
+    "hintEn": "When moving up, friction opposes motion downwards: $P = W\\sin\\theta + \\mu_s R$.",
+    "hintAr": "عند وشك الحركة لأعلى، تؤثر قوة الاحتكاك لأسفل: $P = W\\sin\\theta + \\mu_s R$.",
+    "teacherTipEn": "$R = W\\cos(30^\\circ) = 20 \\times \\frac{\\sqrt{3}}{2} = 10\\sqrt{3}\\text{ N}$. Then $\\mu_s R = \\frac{1}{\\sqrt{3}}(10\\sqrt{3}) = 10\\text{ N}$. Total $P = 10 + 10 = 20\\text{ N}$.",
+    "teacherTipAr": "$R = W\\cos(30^\\circ) = 10\\sqrt{3}\\text{ نيوتن}$. الاحتكاك $\\mu_s R = 10\\text{ نيوتن}$. ومركبة الوزن $W\\sin(30^\\circ) = 10\\text{ نيوتن}$. القوة الكلية $= 20\\text{ نيوتن}$.",
+    "stepByStepSolutionEn": [
+      "Perpendicular equilibrium: $R = W\\cos(30^\\circ) = 20 \\times \\frac{\\sqrt{3}}{2} = 10\\sqrt{3}\\text{ N}$.",
+      "Limiting friction force directed down the plane: $F_s = \\mu_s R = \\frac{1}{\\sqrt{3}}(10\\sqrt{3}) = 10\\text{ N}$.",
+      "Component of weight down the plane: $W\\sin(30^\\circ) = 20(0.5) = 10\\text{ N}$.",
+      "Parallel equilibrium: $P = W\\sin(30^\\circ) + F_s = 10 + 10 = 20\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الاتزان العمودي: $R = 20\\cos(30^\\circ) = 10\\sqrt{3}\\text{ نيوتن}$.",
+      "الاحتكاك النهائي لأسفل المستوى: $F_s = \\frac{1}{\\sqrt{3}}(10\\sqrt{3}) = 10\\text{ نيوتن}$.",
+      "مركبة الوزن لأسفل: $20\\sin(30^\\circ) = 10\\text{ نيوتن}$.",
+      "القوة الموجهة لأعلى: $P = 10 + 10 = 20\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_55",
+    "titleEn": "Inclined Pulling Force on Horizontal Plane",
+    "titleAr": "قوة شد تميل بزاوية على الأفقي",
+    "difficulty": "easy",
+    "diagramType": "statics_horizontal_friction",
+    "questionEn": "A body of weight $40\\text{ N}$ rests on a rough horizontal plane ($\\mu_s = 0.5$). A pulling force $P$ acts on the body at an angle of $30^\\circ$ above the horizontal. If the body is on the verge of motion, find the normal reaction $R$ in terms of $P$.",
+    "questionAr": "جسم وزنه $40\\text{ نيوتن}$ موضوع على مستوى أفقي خشن ($\\mu_s = 0.5$). أثرت عليه قوة شد $P$ تميل بزاوية $30^\\circ$ لأعلى الأفقي. إذا كان الجسم على وشك الحركة، فاكتب معادلة رد الفعل العمودي $R$ بدلالة $P$.",
+    "optionsEn": [
+      "$R = 40 - 0.5P$",
+      "$R = 40 + 0.5P$",
+      "$R = 40 - P$",
+      "$R = 40$"
+    ],
+    "optionsAr": [
+      "$R = 40 - 0.5P$",
+      "$R = 40 + 0.5P$",
+      "$R = 40 - P$",
+      "$R = 40$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$R = 40 - 0.5P$",
+    "hintEn": "Resolve $P$ vertically: $R + P\\sin(30^\\circ) = W$.",
+    "hintAr": "حلل القوة $P$ رأسياً: $R + P\\sin(30^\\circ) = W$.",
+    "teacherTipEn": "Pulling upwards relieves the normal reaction ($R = W - P\\sin\\alpha$), which in turn reduces the maximum friction force!",
+    "teacherTipAr": "الشد لأعلى يخفف من رد الفعل العمودي ($R = W - P\\sin\\alpha$)، مما يقلل بدوره من قوة الاحتكاك النهائي!",
+    "stepByStepSolutionEn": [
+      "Vertical forces: normal reaction $R$ upwards, component $P\\sin(30^\\circ) = 0.5P$ upwards, weight $40\\text{ N}$ downwards.",
+      "Vertical equilibrium: $R + 0.5P = 40 \\implies R = 40 - 0.5P$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الاتزان الرأسي: $R + P\\sin(30^\\circ) = 40$.",
+      "بما أن $\\sin(30^\\circ) = 0.5$: إذن $R = 40 - 0.5P$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_56",
+    "titleEn": "Ratio of Minimum to Maximum Holding Force",
+    "titleAr": "أقل قوة تمنع الجسم من الانزلاق لأسفل مستوى مائل",
+    "difficulty": "easy",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $W = 12\\text{ N}$ rests on a rough inclined plane of inclination $30^\\circ$. If the coefficient of static friction is $\\mu_s = \\frac{\\sqrt{3}}{6}$, find the minimum force $P$ acting along the line of greatest slope upwards required to prevent the body from sliding down.",
+    "questionAr": "جسم وزنه $W = 12\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ على الأفقي. إذا كان معامل الاحتكاك السكوني $\\mu_s = \\frac{\\sqrt{3}}{6}$، فأوجد أقل قوة $P$ موازية لخط أكبر ميل وموجهة لأعلى تكفي لمنع الجسم من الانزلاق لأسفل.",
+    "optionsEn": [
+      "$3\\text{ N}$",
+      "$6\\text{ N}$",
+      "$9\\text{ N}$",
+      "$4.5\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ نيوتن}$",
+      "$6\\text{ نيوتن}$",
+      "$9\\text{ نيوتن}$",
+      "$4.5\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$3\\text{ N}$",
+    "hintEn": "To prevent sliding down, the body is on the verge of sliding downwards, so friction acts upwards: $P + F_s = W\\sin(30^\\circ)$.",
+    "hintAr": "لمنع الانزلاق لأسفل، يكون الجسم على وشك الهبوط والاحتكاك يعمل لأعلى: $P + F_s = W\\sin(30^\\circ)$.",
+    "teacherTipEn": "The minimum holding force is $P = W\\sin\\theta - \\mu_s R$.",
+    "teacherTipAr": "أقل قوة لحفظ التوازن تمنع الانزلاق تحسب من $P = W\\sin\\theta - \\mu_s R$.",
+    "stepByStepSolutionEn": [
+      "Normal reaction: $R = W\\cos(30^\\circ) = 12 \\times \\frac{\\sqrt{3}}{2} = 6\\sqrt{3}\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R = \\frac{\\sqrt{3}}{6}(6\\sqrt{3}) = 3\\text{ N}$.",
+      "Downhill component of weight: $W\\sin(30^\\circ) = 12(0.5) = 6\\text{ N}$.",
+      "Equilibrium to prevent sliding down: $P + F_s = W\\sin(30^\\circ) \\implies P = 6 - 3 = 3\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $R = 12\\cos(30^\\circ) = 6\\sqrt{3}\\text{ نيوتن}$.",
+      "الاحتكاك السكوني: $F_s = \\frac{\\sqrt{3}}{6}(6\\sqrt{3}) = 3\\text{ نيوتن}$.",
+      "مركبة الوزن لأسفل: $12\\sin(30^\\circ) = 6\\text{ نيوتن}$.",
+      "أقل قوة لأعلى: $P = 6 - 3 = 3\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_57",
+    "titleEn": "Relation Between Friction Angle and Limiting Friction",
+    "titleAr": "العلاقة بين زاوية الاحتكاك وزاوية ميل رد الفعل المحصل",
+    "difficulty": "easy",
+    "diagramType": "statics_horizontal_simple_friction",
+    "questionEn": "If the angle of friction between a body and a rough plane is $\\lambda$, what is the angle between the normal reaction $R$ and the resultant reaction $R'$ when the friction is limiting?",
+    "questionAr": "إذا كانت زاوية الاحتكاك بين جسم ومستوى خشن هي $\\lambda$، فما هو قياس الزاوية بين رد الفعل العمودي $R$ ورد الفعل المحصل $R'$ عندما يكون الاحتكاك نهائياً؟",
+    "optionsEn": [
+      "$\\lambda$",
+      "$90^\\circ - \\lambda$",
+      "$2\\lambda$",
+      "$\\frac{\\lambda}{2}$"
+    ],
+    "optionsAr": [
+      "$\\lambda$",
+      "$90^\\circ - \\lambda$",
+      "$2\\lambda$",
+      "$\\frac{\\lambda}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\lambda$",
+    "hintEn": "Recall the definition of the angle of friction: the angle between the normal reaction and the resultant reaction in limiting equilibrium.",
+    "hintAr": "تذكر تعريف زاوية الاحتكاك: هي الزاوية المحصورة بين رد الفعل العمودي ورد الفعل المحصل عندما يكون الاحتكاك نهائياً.",
+    "teacherTipEn": "By definition, $\\tan\\lambda = \\frac{F_s}{R} = \\mu_s$.",
+    "teacherTipAr": "بحسب التعريف، $\\tan\\lambda = F_s/R = \\mu_s$.",
+    "stepByStepSolutionEn": [
+      "By definition, the angle of friction $\\lambda$ is the angle between the normal reaction vector $\\vec{R}$ and the resultant reaction vector $\\vec{R'}$ at the instant of limiting friction.",
+      "Thus the angle is $\\lambda$."
+    ],
+    "stepByStepSolutionAr": [
+      "تعريف زاوية الاحتكاك $\\lambda$: هي الزاوية بين متجه رد الفعل العمودي ومتجه رد الفعل المحصل عند الاتزان النهائي.",
+      "إذن الزاوية المطلوبة هي $\\lambda$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_easy_58",
+    "titleEn": "Horizontal Force Against Rough Vertical Wall",
+    "titleAr": "قوة أفقية تضغط جسماً ضد حائط رأسي خشن",
+    "difficulty": "easy",
+    "questionEn": "A body of weight $15\\text{ N}$ is held in limiting equilibrium against a rough vertical wall by a horizontal pushing force $P$. If $\\mu_s = 0.3$, find the required magnitude of $P$.",
+    "questionAr": "جسم وزنه $15\\text{ نيوتن}$ متزن اتزاناً نهائياً ضد حائط رأسي خشن بواسطة قوة ضغط أفقية $P$. إذا كان $\\mu_s = 0.3$، فأوجد مقدار القوة $P$.",
+    "optionsEn": [
+      "$50\\text{ N}$",
+      "$4.5\\text{ N}$",
+      "$30\\text{ N}$",
+      "$45\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$50\\text{ نيوتن}$",
+      "$4.5\\text{ نيوتن}$",
+      "$30\\text{ نيوتن}$",
+      "$45\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$50\\text{ N}$",
+    "hintEn": "Here normal reaction is horizontal: $R = P$. Friction acts vertically upwards to balance weight: $\\mu_s R = W$.",
+    "hintAr": "هنا رد الفعل العمودي أفقي: $R = P$. وقوة الاحتكاك رأسية لأعلى لموازنة الوزن: $\\mu_s R = W$.",
+    "teacherTipEn": "Do not confuse horizontal and vertical planes: on a vertical wall, $R = P$ and $F_s = W$, so $P = W/\\mu_s$.",
+    "teacherTipAr": "لا تخلط بين المستوى الأفقي والرأسي: على الحائط الرأسي $R = P$ و $F_s = W$ ومنها $P = W/\\mu_s$.",
+    "stepByStepSolutionEn": [
+      "Normal reaction from the wall: $R = P$.",
+      "Vertical equilibrium to prevent falling: $F_s = W = 15\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R \\implies 15 = 0.3 P \\implies P = \\frac{15}{0.3} = 50\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي من الحائط: $R = P$.",
+      "الاتزان الرأسي: قوة الاحتكاك لأعلى توازن الوزن $F_s = 15\\text{ نيوتن}$.",
+      "معادلة الاحتكاك: $0.3 P = 15 \\implies P = 50\\text{ نيوتن}$."
+    ]
   }
 ],
   medium: [
@@ -3599,6 +3894,356 @@ export const statCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Recognizing $\\theta = \\lambda$ immediately saves calculation time.",
     "teacherTipAr": "ملاحظة تساوي زاوية الميل مع زاوية الاحتكاك توفر وقت الحسابات الطويلة."
+  },
+  {
+    "id": "stat_ch1_db_med_101",
+    "titleEn": "Minimum Force to Drag Body on Horizontal Plane",
+    "titleAr": "أقل قوة كافية لتحريك جسم على مستوى أفقي خشن",
+    "difficulty": "medium",
+    "diagramType": "statics_horizontal_friction",
+    "questionEn": "A body of weight $W = 60\\text{ N}$ rests on a rough horizontal plane with coefficient of static friction $\\mu_s = \\frac{3}{4}$. Find the minimum pulling force $P_{\\min}$ capable of making the body on the verge of motion.",
+    "questionAr": "جسم وزنه $W = 60\\text{ نيوتن}$ موضوع على مستوى أفقي خشن معامل احتكاكه السكوني $\\mu_s = \\frac{3}{4}$. أوجد أقل قوة شد $P_{\\min}$ كافية لجعل الجسم على وشك الحركة.",
+    "optionsEn": [
+      "$36\\text{ N}$",
+      "$45\\text{ N}$",
+      "$48\\text{ N}$",
+      "$30\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$36\\text{ نيوتن}$",
+      "$45\\text{ نيوتن}$",
+      "$48\\text{ نيوتن}$",
+      "$30\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$36\\text{ N}$",
+    "hintEn": "The minimum force acts at an angle equal to the friction angle $\\lambda$: $P_{\\min} = W\\sin\\lambda$.",
+    "hintAr": "أقل قوة شد تميل بزاوية تساوي زاوية الاحتكاك $\\lambda$: $P_{\\min} = W\\sin\\lambda$.",
+    "teacherTipEn": "Since $\\tan\\lambda = 3/4$, $\\sin\\lambda = 3/5$. Thus $P_{\\min} = 60 \\times \\frac{3}{5} = 36\\text{ N}$.",
+    "teacherTipAr": "بما أن $\\tan\\lambda = 3/4$، فإن $\\sin\\lambda = 3/5$. وأقل قوة هي $P_{\\min} = 60(3/5) = 36\\text{ نيوتن}$.",
+    "stepByStepSolutionEn": [
+      "If force $P$ is inclined at angle $\\alpha$ to horizontal: $P\\cos\\alpha = \\mu_s R$ and $R = W - P\\sin\\alpha$.",
+      "Solve for $P$: $P = \\frac{\\mu_s W}{\\cos\\alpha + \\mu_s \\sin\\alpha} = \\frac{W\\sin\\lambda}{\\cos(\\alpha - \\lambda)}$.",
+      "Minimum occurs when $\\cos(\\alpha - \\lambda) = 1 \\implies \\alpha = \\lambda$, so $P_{\\min} = W\\sin\\lambda$.",
+      "Since $\\tan\\lambda = 3/4$, $\\sin\\lambda = 3/5$.",
+      "Calculate: $P_{\\min} = 60 \\times \\frac{3}{5} = 36\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة تميل بزاوية $\\alpha$: $P = \\frac{W\\sin\\lambda}{\\cos(\\alpha - \\lambda)}$.",
+      "تكون القوة أقل ما يمكن عندما $\\alpha = \\lambda$ وقيمتها $P_{\\min} = W\\sin\\lambda$.",
+      "بما أن $\\tan\\lambda = 3/4$ فإن $\\sin\\lambda = 3/5$.",
+      "الناتج: $P_{\\min} = 60 \\times (3/5) = 36\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_102",
+    "titleEn": "Horizontal Push on Inclined Plane",
+    "titleAr": "قوة أفقية تجعل الجسم على وشك الحركة لأعلى مستوى مائل",
+    "difficulty": "medium",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $30\\text{ N}$ rests on a rough plane inclined at $45^\\circ$ to the horizontal. A horizontal force $P$ pushes the body towards the incline so that it is on the verge of moving up. If $\\mu_s = \\frac{1}{3}$, find $P$.",
+    "questionAr": "جسم وزنه $30\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $45^\\circ$ على الأفقي. أثرت عليه قوة أفقية $P$ تدفعه نحو المستوى لتجعله على وشك الحركة لأعلى. إذا كان $\\mu_s = \\frac{1}{3}$، فأوجد $P$.",
+    "optionsEn": [
+      "$60\\text{ N}$",
+      "$45\\text{ N}$",
+      "$30\\text{ N}$",
+      "$40\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$60\\text{ نيوتن}$",
+      "$45\\text{ نيوتن}$",
+      "$30\\text{ نيوتن}$",
+      "$40\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$60\\text{ N}$",
+    "hintEn": "Resolve $P$ and $W$ along and perpendicular to the incline. Incline angle is $45^\\circ$.",
+    "hintAr": "حلل القوة $P$ والوزن في اتجاهي المستوى والعمودي عليه بزاوية $45^\\circ$.",
+    "teacherTipEn": "Remember that horizontal force $P$ pushes into the plane ($R = W\\cos(45^\\circ) + P\\sin(45^\\circ)$) and up the plane ($P\\cos(45^\\circ)$).",
+    "teacherTipAr": "القوة الأفقية تزيد من رد الفعل العمودي بمقدار $P\\sin(45^\\circ)$ وتدفع لأعلى بـ $P\\cos(45^\\circ)$.",
+    "stepByStepSolutionEn": [
+      "Normal equilibrium: $R = W\\cos(45^\\circ) + P\\sin(45^\\circ) = \\frac{\\sqrt{2}}{2}(30 + P)$.",
+      "Motion is up the plane, so friction acts down the plane: $F_s = \\mu_s R = \\frac{1}{3} \\frac{\\sqrt{2}}{2}(30 + P)$.",
+      "Parallel equilibrium: $P\\cos(45^\\circ) = W\\sin(45^\\circ) + F_s$.",
+      "Divide by $\\frac{\\sqrt{2}}{2}$: $P = 30 + \\frac{1}{3}(30 + P) = 30 + 10 + \\frac{1}{3}P = 40 + \\frac{1}{3}P$.",
+      "Solve: $\\frac{2}{3}P = 40 \\implies P = 60\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الاتزان العمودي: $R = \\frac{\\sqrt{2}}{2}(30 + P)$.",
+      "قوة الاحتكاك لأسفل: $F_s = \\frac{1}{3} R = \\frac{\\sqrt{2}}{6}(30 + P)$.",
+      "الاتزان في اتجاه المستوى: $P\\cos(45^\\circ) = 30\\sin(45^\\circ) + F_s$.",
+      "بالقسمة على $\\frac{\\sqrt{2}}{2}$: نجد $P = 40 + \\frac{1}{3}P \\implies \\frac{2}{3}P = 40 \\implies P = 60\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_103",
+    "titleEn": "Two Connected Blocks on Rough Horizontal Plane",
+    "titleAr": "كتلتان متصلتان بخيط على مستوى أفقي خشن",
+    "difficulty": "medium",
+    "questionEn": "Two blocks of weights $20\\text{ N}$ and $40\\text{ N}$ rest on a rough horizontal table connected by a light taut horizontal string. The coefficient of static friction for the $20\\text{ N}$ block is $0.2$, and for the $40\\text{ N}$ block is $0.5$. A horizontal force $P$ pulls the $40\\text{ N}$ block away from the $20\\text{ N}$ block. Find the magnitude of $P$ that makes the whole system on the verge of motion.",
+    "questionAr": "جسمان وزناهما $20\\text{ نيوتن}$ و $40\\text{ نيوتن}$ موضوعان على نضد أفقي خشن ومربوطان بخيط خفيف مشدود. معامل الاحتكاك السكوني للجسم الأول $0.2$ وللثاني $0.5$. أثرت قوة أفقية $P$ على الجسم الثاني (الأثقل) مبتعدة عن الأول. أوجد مقدار $P$ التي تجعل النظام بأكمله على وشك الحركة.",
+    "optionsEn": [
+      "$24\\text{ N}$",
+      "$20\\text{ N}$",
+      "$28\\text{ N}$",
+      "$18\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$24\\text{ نيوتن}$",
+      "$20\\text{ نيوتن}$",
+      "$28\\text{ نيوتن}$",
+      "$18\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$24\\text{ N}$",
+    "hintEn": "When the system is on the verge of moving, both friction forces reach their limiting values simultaneously: $P = F_{s1} + F_{s2}$.",
+    "hintAr": "عندما يكون النظام على وشك الحركة، تبلغ قوتا الاحتكاك قيمتيهما النهائيتين معاً: $P = F_{s1} + F_{s2}$.",
+    "teacherTipEn": "Treat the two blocks as a single combined system: $P = \\mu_1 W_1 + \\mu_2 W_2 = (0.2)(20) + (0.5)(40) = 4 + 20 = 24\\text{ N}$.",
+    "teacherTipAr": "اعتبر الكتلتين نظاماً واحداً: $P = \\mu_1 W_1 + \\mu_2 W_2 = 4 + 20 = 24\\text{ نيوتن}$.",
+    "stepByStepSolutionEn": [
+      "Limiting friction on block 1: $F_{s1} = \\mu_1 W_1 = (0.2)(20) = 4\\text{ N}$.",
+      "Limiting friction on block 2: $F_{s2} = \\mu_2 W_2 = (0.5)(40) = 20\\text{ N}$.",
+      "For the entire system on the verge of motion: $P = F_{s1} + F_{s2} = 4 + 20 = 24\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "احتكاك الكتلة الأولى: $F_{s1} = 0.2 \\times 20 = 4\\text{ نيوتن}$.",
+      "احتكاك الكتلة الثانية: $F_{s2} = 0.5 \\times 40 = 20\\text{ نيوتن}$.",
+      "القوة الكلية: $P = F_{s1} + F_{s2} = 4 + 20 = 24\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_104",
+    "titleEn": "Range of Equilibrium Forces on an Incline",
+    "titleAr": "مدى القوة التي تحفظ اتزان جسم على مستوى مائل خشن",
+    "difficulty": "medium",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $W = 100\\text{ N}$ rests on a rough plane inclined at $30^\\circ$ to the horizontal ($\\mu_s = \\frac{\\sqrt{3}}{5}$). A force $P$ acts parallel to the plane upwards. Find the range of values of $P$ that keep the body in equilibrium.",
+    "questionAr": "جسم وزنه $W = 100\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ على الأفقي (معامل احتكاكه $\\mu_s = \\frac{\\sqrt{3}}{5}$). تؤثر عليه قوة $P$ موازية لخط أكبر ميل لأعلى. أوجد الفترة التي تنتمي إليها $P$ لحفظ اتزان الجسم.",
+    "optionsEn": [
+      "$[20, 80]\\text{ N}$",
+      "$[30, 70]\\text{ N}$",
+      "$[10, 90]\\text{ N}$",
+      "$[40, 60]\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$[20, 80]\\text{ نيوتن}$",
+      "$[30, 70]\\text{ نيوتن}$",
+      "$[10, 90]\\text{ نيوتن}$",
+      "$[40, 60]\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$[20, 80]\\text{ N}$",
+    "hintEn": "Minimum force prevents slipping down ($P_{\\min} = W\\sin\\theta - F_s$), maximum force causes verge of moving up ($P_{\\max} = W\\sin\\theta + F_s$).",
+    "hintAr": "أقل قوة تمنع الانزلاق ($P_{\\min} = W\\sin\\theta - F_s$)، وأكبر قوة توشك على الحركة لأعلى ($P_{\\max} = W\\sin\\theta + F_s$).",
+    "teacherTipEn": "Equilibrium interval is always $[W\\sin\\theta - \\mu_s W\\cos\\theta, W\\sin\\theta + \\mu_s W\\cos\\theta]$.",
+    "teacherTipAr": "فترة الاتزان دائماً تتمركز حول $W\\sin\\theta$ بهامش $\\pm \\mu_s R$.",
+    "stepByStepSolutionEn": [
+      "Downhill component: $W\\sin(30^\\circ) = 100(0.5) = 50\\text{ N}$.",
+      "Normal reaction: $R = W\\cos(30^\\circ) = 100 \\times \\frac{\\sqrt{3}}{2} = 50\\sqrt{3}\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R = \\frac{\\sqrt{3}}{5}(50\\sqrt{3}) = \\frac{150}{5} = 30\\text{ N}$.",
+      "Lower limit (prevent sliding): $P_{\\min} = 50 - 30 = 20\\text{ N}$.",
+      "Upper limit (prevent moving up): $P_{\\max} = 50 + 30 = 80\\text{ N}$.",
+      "Range: $[20, 80]\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبة الوزن: $100\\sin(30^\\circ) = 50\\text{ نيوتن}$.",
+      "رد الفعل العمودي: $R = 50\\sqrt{3}\\text{ نيوتن}$.",
+      "قوة الاحتكاك: $F_s = \\frac{\\sqrt{3}}{5}(50\\sqrt{3}) = 30\\text{ نيوتن}$.",
+      "أقل قوة: $50 - 30 = 20\\text{ نيوتن}$، أكبر قوة: $50 + 30 = 80\\text{ نيوتن}$.",
+      "الفترة: $[20, 80]\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_105",
+    "titleEn": "Friction Angle and Normal Reaction Ratio",
+    "titleAr": "النسبة بين رد الفعل العمودي وقوة الاحتكاك",
+    "difficulty": "medium",
+    "diagramType": "statics_horizontal_simple_friction",
+    "questionEn": "In limiting equilibrium on a rough horizontal plane, the resultant reaction $R'$ makes an angle of $25^\\circ$ with the horizontal plane. What is the coefficient of static friction $\\mu_s$?",
+    "questionAr": "في حالة اتزان نهائي على مستوى أفقي خشن، يصنع رد الفعل المحصل $R'$ زاوية قياسها $25^\\circ$ مع المستوى الأفقي. ما هي قيمة معامل الاحتكاك السكوني $\\mu_s$؟",
+    "optionsEn": [
+      "$\\tan(65^\\circ)$",
+      "$\\tan(25^\\circ)$",
+      "$\\sin(25^\\circ)$",
+      "$\\cos(65^\\circ)$"
+    ],
+    "optionsAr": [
+      "$\\tan(65^\\circ)$",
+      "$\\tan(25^\\circ)$",
+      "$\\sin(25^\\circ)$",
+      "$\\cos(65^\\circ)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\tan(65^\\circ)$",
+    "hintEn": "The friction angle $\\lambda$ is measured between $R'$ and the normal reaction $R$ (which is vertical).",
+    "hintAr": "زاوية الاحتكاك $\\lambda$ تُقاس بين $R'$ ورد الفعل العمودي $R$ (وهو رأسي).",
+    "teacherTipEn": "If $R'$ makes $25^\\circ$ with the horizontal plane, it makes $90^\\circ - 25^\\circ = 65^\\circ$ with the normal. Thus $\\lambda = 65^\\circ$, and $\\mu_s = \\tan(65^\\circ)$.",
+    "teacherTipAr": "إذا صنع $R'$ زاوية $25^\\circ$ مع الأفقي، فإنه يصنع $65^\\circ$ مع الرأسي، وزاوية الاحتكاك $\\lambda = 65^\\circ$ ومنها $\\mu_s = \\tan(65^\\circ)$.",
+    "stepByStepSolutionEn": [
+      "Angle with horizontal is $25^\\circ$.",
+      "The normal reaction is perpendicular to the horizontal plane ($90^\\circ$).",
+      "Angle of friction $\\lambda = 90^\\circ - 25^\\circ = 65^\\circ$.",
+      "Coefficient of static friction: $\\mu_s = \\tan\\lambda = \\tan(65^\\circ)$."
+    ],
+    "stepByStepSolutionAr": [
+      "الزاوية مع المستوى الأفقي هي $25^\\circ$.",
+      "رد الفعل العمودي يصنع $90^\\circ$ مع المستوى.",
+      "زاوية الاحتكاك $\\lambda = 90^\\circ - 25^\\circ = 65^\\circ$.",
+      "معامل الاحتكاك السكوني: $\\mu_s = \\tan(65^\\circ)$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_106",
+    "titleEn": "Pulling Force Inclined at Angle of Friction",
+    "titleAr": "قوة شد تميل بزاوية الاحتكاك لأعلى الأفقي",
+    "difficulty": "medium",
+    "diagramType": "statics_horizontal_friction",
+    "questionEn": "A body of weight $W$ rests on a rough horizontal plane. A force $P$ pulls the body at an angle $\\lambda$ (the angle of friction) above the horizontal so that the body is on the verge of motion. Find the ratio $\\frac{P}{W}$.",
+    "questionAr": "جسم وزنه $W$ موضوع على مستوى أفقي خشن. شدت قوة $P$ الجسم بزاوية ميل $\\lambda$ (زاوية الاحتكاك) لأعلى الأفقي فجعلته على وشك الحركة. أوجد النسبة $\\frac{P}{W}$.",
+    "optionsEn": [
+      "$\\sin\\lambda$",
+      "$\\cos\\lambda$",
+      "$\\tan\\lambda$",
+      "$\\sec\\lambda$"
+    ],
+    "optionsAr": [
+      "$\\sin\\lambda$",
+      "$\\cos\\lambda$",
+      "$\\tan\\lambda$",
+      "$\\sec\\lambda$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\sin\\lambda$",
+    "hintEn": "Use the Lami's theorem or the optimum angle formula: $P = W\\sin\\lambda$.",
+    "hintAr": "استخدم قاعدة لامي أو صيغة القوة المثلى: $P = W\\sin\\lambda$.",
+    "teacherTipEn": "When the pulling angle equals the friction angle, $P$ is minimized, and $\\frac{P}{W} = \\sin\\lambda$.",
+    "teacherTipAr": "عندما تساوي زاوية الشد زاوية الاحتكاك، تبلغ القوة قيمتها الصغرى وتكون النسبة مساوية $\\sin\\lambda$.",
+    "stepByStepSolutionEn": [
+      "Equilibrium equations: $P\\cos\\lambda = \\mu_s R$ and $R = W - P\\sin\\lambda$.",
+      "Substitute $\\mu_s = \\tan\\lambda = \\frac{\\sin\\lambda}{\\cos\\lambda}$: $P\\cos\\lambda = \\frac{\\sin\\lambda}{\\cos\\lambda}(W - P\\sin\\lambda)$.",
+      "Cross multiply: $P\\cos^2\\lambda = W\\sin\\lambda - P\\sin^2\\lambda$.",
+      "Factor: $P(\\cos^2\\lambda + \\sin^2\\lambda) = W\\sin\\lambda \\implies P(1) = W\\sin\\lambda$.",
+      "Ratio: $\\frac{P}{W} = \\sin\\lambda$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلتا الاتزان: $P\\cos\\lambda = \\mu_s R$ و $R = W - P\\sin\\lambda$.",
+      "بالتعويض عن $\\mu_s = \\frac{\\sin\\lambda}{\\cos\\lambda}$: نجد $P\\cos^2\\lambda = W\\sin\\lambda - P\\sin^2\\lambda$.",
+      "نقل الحد: $P(\\cos^2\\lambda + \\sin^2\\lambda) = W\\sin\\lambda \\implies P = W\\sin\\lambda$.",
+      "النسبة: $\\frac{P}{W} = \\sin\\lambda$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_107",
+    "titleEn": "Double Incline Friction Comparison",
+    "titleAr": "مقارنة قوى الاحتكاك على مستويين مختلفي الميل",
+    "difficulty": "medium",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body placed on a rough plane inclined at $30^\\circ$ requires a minimum force $F_1$ along the line of greatest slope upwards to move it up. When the inclination is increased to $60^\\circ$, the required force is $F_2$. If $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the ratio $\\frac{F_2}{F_1}$.",
+    "questionAr": "جسم موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ يحتاج لقوة $F_1$ في اتجاه خط أكبر ميل لأعلى ليوشك على الحركة لأعلى. وعند زيادة ميل المستوى إلى $60^\\circ$ أصبحت القوة $F_2$. إذا كان $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد النسبة $\\frac{F_2}{F_1}$.",
+    "optionsEn": [
+      "$\\frac{2}{\\sqrt{3}}$",
+      "$\\sqrt{3}$",
+      "$2$",
+      "$\\frac{\\sqrt{3}}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{2}{\\sqrt{3}}$",
+      "$\\sqrt{3}$",
+      "$2$",
+      "$\\frac{\\sqrt{3}}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{2}{\\sqrt{3}}$",
+    "hintEn": "Use $F = W(\\sin\\theta + \\mu_s\\cos\\theta)$ for both angles.",
+    "hintAr": "احسب $F = W(\\sin\\theta + \\mu_s\\cos\\theta)$ لكلتا الزاويتين.",
+    "teacherTipEn": "For $\\theta = 30^\\circ$: $F_1 = W$. For $60^\\circ$: $F_2 = \\frac{2}{\\sqrt{3}}W$. Thus the ratio is $\\frac{2}{\\sqrt{3}}$.",
+    "teacherTipAr": "عند $\\theta = 30^\\circ$ تكون $F_1 = W$. وعند $60^\\circ$ تكون $F_2 = \\frac{2}{\\sqrt{3}}W$. إذن النسبة $\\frac{2}{\\sqrt{3}}$.",
+    "stepByStepSolutionEn": [
+      "Formula for upward limiting force: $F = W(\\sin\\theta + \\mu_s\\cos\\theta)$.",
+      "For $\\theta = 30^\\circ$: $F_1 = W\\left(\\frac{1}{2} + \\frac{1}{\\sqrt{3}}\\frac{\\sqrt{3}}{2}\\right) = W(1/2 + 1/2) = W$.",
+      "For $\\theta = 60^\\circ$: $F_2 = W\\left(\\frac{\\sqrt{3}}{2} + \\frac{1}{\\sqrt{3}}\\frac{1}{2}\\right) = W\\left(\\frac{3+1}{2\\sqrt{3}}\\right) = \\frac{2}{\\sqrt{3}}W$.",
+      "Ratio: $\\frac{F_2}{F_1} = \\frac{2}{\\sqrt{3}}$."
+    ],
+    "stepByStepSolutionAr": [
+      "قانون القوة لأعلى: $F = W(\\sin\\theta + \\mu_s\\cos\\theta)$.",
+      "عند $\\theta = 30^\\circ$: $F_1 = W(1/2 + 1/2) = W$.",
+      "عند $\\theta = 60^\\circ$: $F_2 = W(\\frac{\\sqrt{3}}{2} + \\frac{1}{2\\sqrt{3}}) = \\frac{2}{\\sqrt{3}}W$.",
+      "النسبة: $\\frac{F_2}{F_1} = \\frac{2}{\\sqrt{3}}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_108",
+    "titleEn": "Two Blocks Stacked on Horizontal Plane",
+    "titleAr": "كتلتان إحداهما فوق الأخرى على مستوى أفقي",
+    "difficulty": "medium",
+    "questionEn": "Block $A$ of weight $10\\text{ N}$ rests on top of block $B$ of weight $30\\text{ N}$, which in turn rests on a smooth horizontal floor. The coefficient of static friction between block $A$ and block $B$ is $\\mu_s = 0.4$. A horizontal force $P$ is applied to block $A$. Find the maximum value of $P$ such that block $A$ does not slip on block $B$.",
+    "questionAr": "الكتلة $A$ ووزنها $10\\text{ نيوتن}$ موضوعة فوق الكتلة $B$ ووزنها $30\\text{ نيوتن}$، والأخيرة موضوعة على أرضية أفقية ملساء. معامل الاحتكاك السكوني بين الكتلتين $A$ و $B$ هو $\\mu_s = 0.4$. أثرت قوة أفقية $P$ على الكتلة $A$. أوجد أقصى قيمة للقوة $P$ بحيث لا تنزلق الكتلة $A$ على الكتلة $B$.",
+    "optionsEn": [
+      "$4\\text{ N}$",
+      "$16\\text{ N}$",
+      "$12\\text{ N}$",
+      "$8\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$4\\text{ نيوتن}$",
+      "$16\\text{ نيوتن}$",
+      "$12\\text{ نيوتن}$",
+      "$8\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$4\\text{ N}$",
+    "hintEn": "The limiting friction between $A$ and $B$ is $F_s = \\mu_s W_A$. Since the floor is smooth, this friction force accelerates $B$, but for statics threshold of slip: $F_s = \\mu_s W_A = 0.4(10) = 4\\text{ N}$.",
+    "hintAr": "قوة الاحتكاك القصوى بين الكتلتين هي $F_s = \\mu_s W_A = 0.4 \\times 10 = 4\\text{ نيوتن}$.",
+    "teacherTipEn": "The normal force between $A$ and $B$ is solely the weight of $A$, not the combined weight.",
+    "teacherTipAr": "رد الفعل العمودي بين $A$ و $B$ هو وزن الكتلة العليا $A$ فقط.",
+    "stepByStepSolutionEn": [
+      "Normal reaction between blocks $A$ and $B$: $R_{AB} = W_A = 10\\text{ N}$.",
+      "Maximum static friction force: $F_{s,\\max} = \\mu_s R_{AB} = 0.4 \\times 10 = 4\\text{ N}$.",
+      "If $P > 4\\text{ N}$, slipping occurs between $A$ and $B$. Therefore $P_{\\max} = 4\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الضغط العمودي بين الكتلتين: $R = W_A = 10\\text{ نيوتن}$.",
+      "أقصى قوة احتكاك سكوني: $F_s = 0.4 \\times 10 = 4\\text{ نيوتن}$.",
+      "أقصى قوة قبل حدوث الانزلاق: $P = 4\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_med_109",
+    "titleEn": "Inclined Plane with Motion Downhill Under Force",
+    "titleAr": "قوة تدفع جسماً لأسفل مستوى مائل خشن ليوشك على الحركة",
+    "difficulty": "medium",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $W = 50\\text{ N}$ is on a rough plane inclined at $30^\\circ$ to horizontal ($\\mu_s = 0.8$). A force $P$ acts down along the line of greatest slope. Find the magnitude of $P$ required to make the body on the verge of moving down the plane.",
+    "questionAr": "جسم وزنه $W = 50\\text{ نيوتن}$ على مستوى خشن يميل بزاوية $30^\\circ$ على الأفقي (معامل احتكاكه $\\mu_s = 0.8$). أثرت قوة $P$ موازية لخط أكبر ميل وموجهة لأسفل. أوجد مقدار $P$ اللازم لجعل الجسم على وشك الحركة لأسفل المستوى.",
+    "optionsEn": [
+      "$(20\\sqrt{3} - 25)\\text{ N}$",
+      "$(40\\sqrt{3} - 25)\\text{ N}$",
+      "$20\\sqrt{3}\\text{ N}$",
+      "$25\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$(20\\sqrt{3} - 25)\\text{ نيوتن}$",
+      "$(40\\sqrt{3} - 25)\\text{ نيوتن}$",
+      "$20\\sqrt{3}\\text{ نيوتن}$",
+      "$25\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$(20\\sqrt{3} - 25)\\text{ N}$",
+    "hintEn": "When moving down, friction acts up the plane: $P + W\\sin(30^\\circ) = \\mu_s R$.",
+    "hintAr": "عند الحركة لأسفل، تعمل قوة الاحتكاك لأعلى: $P + W\\sin(30^\\circ) = \\mu_s R$.",
+    "teacherTipEn": "Since $\\mu_s = 0.8 > \\tan(30^\\circ) \\approx 0.577$, the body would remain at rest without an external downhill pushing force.",
+    "teacherTipAr": "بما أن $\\mu_s > \\tan(30^\\circ)$، فإن الجسم مستقر تماماً ولا ينزلق إلا بوجود قوة تدفعه لأسفل.",
+    "stepByStepSolutionEn": [
+      "Normal reaction: $R = W\\cos(30^\\circ) = 50 \\times \\frac{\\sqrt{3}}{2} = 25\\sqrt{3}\\text{ N}$.",
+      "Limiting friction up the plane: $F_s = \\mu_s R = 0.8(25\\sqrt{3}) = 20\\sqrt{3}$? Wait: $0.8 \\times 25 = 20$, so $20\\sqrt{3}$! Wait, why did the option say $40\\sqrt{3} - 25$? Let us check: $0.8 \\times 25 = 20$, so $F_s = 20\\sqrt{3}$. Downhill weight component is $50\\sin(30^\\circ) = 25$. Then $P + 25 = 20\\sqrt{3} \\implies P = 20\\sqrt{3} - 25$! Let us correct option 0 to $(20\\sqrt{3} - 25)$!",
+      "Updated calculation: $P = 20\\sqrt{3} - 25\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $R = 25\\sqrt{3}\\text{ نيوتن}$.",
+      "الاحتكاك لأعلى: $F_s = 0.8(25\\sqrt{3}) = 20\\sqrt{3}\\text{ نيوتن}$.",
+      "مركبة الوزن لأسفل: $50\\sin(30^\\circ) = 25\\text{ نيوتن}$.",
+      "القوة المطلوبة: $P = 20\\sqrt{3} - 25\\text{ نيوتن}$."
+    ]
   }
 ],
   hots: [
@@ -5422,6 +6067,307 @@ export const statCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Virtual work remains valid with friction as long as limiting friction forces are treated as active external forces.",
     "teacherTipAr": "يظل مبدأ الشغل الافتراضي صالحاً مع الاحتكاك بشرط معاملة قوى الاحتكاك كقوى خارجية فعالة."
+  },
+  {
+    "id": "stat_ch1_db_hots_151",
+    "titleEn": "Equilateral Wedge Equilibrium with Symmetrical Friction",
+    "titleAr": "اتزان إسفين متساوي الأضلاع مع الاحتكاك المتماثل",
+    "difficulty": "hots",
+    "questionEn": "A wedge of weight $W$ has a cross-section of an isosceles triangle with vertical angle $2\\alpha$. It is driven vertically between two rough vertical guide walls. If the coefficient of static friction at both contacts is $\\mu_s$, what is the condition on $\\alpha$ for the wedge not to be expelled upwards by the reactions?",
+    "questionAr": "إسفين وزنه $W$ مقطعه مثلث متساوي الساقين زاوية رأسه $2\\alpha$. دُفع رأسياً بين حائطين رأسيين خشنين معامل احتكاك كل منهما $\\mu_s$. ما هو الشرط اللازم على $\\alpha$ حتى لا يرتد الإسفين لأعلى ذاتياً؟",
+    "optionsEn": [
+      "$\\alpha \\leq \\lambda$",
+      "$\\alpha \\geq \\lambda$",
+      "$\\alpha \\leq 2\\lambda$",
+      "$\\alpha \\geq 2\\lambda$"
+    ],
+    "optionsAr": [
+      "$\\alpha \\leq \\lambda$",
+      "$\\alpha \\geq \\lambda$",
+      "$\\alpha \\leq 2\\lambda$",
+      "$\\alpha \\geq 2\\lambda$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\alpha \\leq \\lambda$",
+    "hintEn": "Self-locking condition: the half-angle $\\alpha$ must be less than or equal to the friction angle $\\lambda$.",
+    "hintAr": "شرط الانحشار الذاتي: نصف زاوية الرأس $\\alpha$ يجب أن تكون أقل من أو تساوي زاوية الاحتكاك $\\lambda$.",
+    "teacherTipEn": "This is the classical mechanical principle of self-locking wedges and screw threads.",
+    "teacherTipAr": "هذا هو المبدأ الهندسي الكلاسيكي للانحشار الذاتي للأسافين ورؤوس البراغي.",
+    "stepByStepSolutionEn": [
+      "Each inclined face makes an angle $\\alpha$ with the vertical.",
+      "The resultant reaction vector $\\vec{R'}$ makes an angle $\\lambda$ with the normal to the inclined face.",
+      "For self-locking (preventing spontaneous expulsion upwards), the vertical component of the resultant reaction must point downwards into the gap, requiring $\\alpha \\leq \\lambda$."
+    ],
+    "stepByStepSolutionAr": [
+      "كل وجه يصنع زاوية $\\alpha$ مع الرأسي.",
+      "رد الفعل المحصل يميل بزاوية الاحتكاك $\\lambda$ مع العمودي على الوجه.",
+      "لمنع طرد الإسفين لأعلى (الانحشار الذاتي)، يجب أن تكون $\\alpha \\le \\lambda$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_152",
+    "titleEn": "Two Blocks on Double Incline with Connecting String",
+    "titleAr": "كتلتان على مستويين مائلين متقابلين متصلتان بخيط يمر على بكرة ملساء",
+    "difficulty": "hots",
+    "questionEn": "Two bodies of weights $W_1 = 30\\text{ N}$ and $W_2 = 50\\text{ N}$ rest on two rough inclined planes of inclinations $30^\\circ$ and $60^\\circ$ respectively, back-to-back. They are connected by a light inextensible string passing over a smooth pulley at the common apex. If the coefficient of friction is $\\mu$ on both planes and the system is on the verge of motion with $W_2$ moving down, find $\\mu$.",
+    "questionAr": "جسمان وزناهما $W_1 = 30\\text{ نيوتن}$ و $W_2 = 50\\text{ نيوتن}$ موضوعان على مستويين مائلين خشنين يميلان بزاويتي $30^\\circ$ و $60^\\circ$ على الترتيب ظهراً لظهر. يتصل الجسمان بخيط خفيف يمر على بكرة ملساء عند القمة. إذا كان معامل الاحتكاك $\\mu$ متساوياً على المستويين وكان النظام على وشك الحركة بحيث يهبط $W_2$، فأوجد قيمة $\\mu$.",
+    "optionsEn": [
+      "$\\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25}$",
+      "$\\frac{1}{\\sqrt{3}}$",
+      "$\\frac{\\sqrt{3}}{2}$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25}$",
+      "$\\frac{1}{\\sqrt{3}}$",
+      "$\\frac{\\sqrt{3}}{2}$",
+      "$\\frac{1}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25}$",
+    "hintEn": "Equate string tension $T$: for $W_2$, $T = W_2\\sin(60^\\circ) - \\mu W_2\\cos(60^\\circ)$. For $W_1$, $T = W_1\\sin(30^\\circ) + \\mu W_1\\cos(30^\\circ)$.",
+    "hintAr": "ساوِ الشد $T$ في الخيط من معادلتَي حركة الكتلتين.",
+    "teacherTipEn": "Notice that $\\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25} = \\frac{5\\sqrt{3} - 3}{3\\sqrt{3} + 5} = \\frac{(5\\sqrt{3}-3)(5-3\\sqrt{3})}{25 - 27} = \\frac{25\\sqrt{3} - 45 - 15 + 9\\sqrt{3}}{-2} = \\frac{34\\sqrt{3} - 60}{-2} = 30 - 17\\sqrt{3} \\approx 0.555$.",
+    "teacherTipAr": "المقدار يختصر جبرياً بضرب المرافق إلى $30 - 17\\sqrt{3}$.",
+    "stepByStepSolutionEn": [
+      "For $W_2$ moving down: $T = 50\\sin(60^\\circ) - \\mu (50\\cos(60^\\circ)) = 25\\sqrt{3} - 25\\mu$.",
+      "For $W_1$ moving up: $T = 30\\sin(30^\\circ) + \\mu (30\\cos(30^\\circ)) = 15 + 15\\sqrt{3}\\mu$.",
+      "Equate: $25\\sqrt{3} - 25\\mu = 15 + 15\\sqrt{3}\\mu$.",
+      "Collect $\\mu$: $\\mu(15\\sqrt{3} + 25) = 25\\sqrt{3} - 15 \\implies \\mu = \\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الكتلة الهابطة: $T = 25\\sqrt{3} - 25\\mu$.",
+      "معادلة الكتلة الصاعدة: $T = 15 + 15\\sqrt{3}\\mu$.",
+      "بالمساواة: $25\\sqrt{3} - 15 = \\mu(15\\sqrt{3} + 25)$.",
+      "إذن $\\mu = \\frac{25\\sqrt{3} - 15}{15\\sqrt{3} + 25}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_153",
+    "titleEn": "Minimum Force at Optimal Angle on an Incline",
+    "titleAr": "أقل قوة لحفظ اتزان جسم على وشك الحركة لأعلى مستوى مائل",
+    "difficulty": "hots",
+    "diagramType": "statics_inclined_friction",
+    "questionEn": "A body of weight $W$ rests on a rough plane inclined at angle $\\theta$ to the horizontal (friction angle $\\lambda$). What is the least pulling force $P$ capable of dragging the body up the plane?",
+    "questionAr": "جسم وزنه $W$ موضوع على مستوى مائل خشن يميل بزاوية $\\theta$ على الأفقي (زاوية احتكاكه $\\lambda$). ما هي أقل قوة شد $P$ كافية لجعل الجسم على وشك الحركة لأعلى المستوى؟",
+    "optionsEn": [
+      "$W \\sin(\\theta + \\lambda)$",
+      "$W \\cos(\\theta + \\lambda)$",
+      "$W \\sin(\\theta - \\lambda)$",
+      "$W \\tan(\\theta + \\lambda)$"
+    ],
+    "optionsAr": [
+      "$W \\sin(\\theta + \\lambda)$",
+      "$W \\cos(\\theta + \\lambda)$",
+      "$W \\sin(\\theta - \\lambda)$",
+      "$W \\tan(\\theta + \\lambda)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$W \\sin(\\theta + \\lambda)$",
+    "hintEn": "Apply Lami's theorem to the three forces: $W$, $P$, and resultant reaction $R'$.",
+    "hintAr": "طبق قاعدة لامي على القوى الثلاث: $W$ و $P$ ورد الفعل المحصل $R'$.",
+    "teacherTipEn": "By Lami's theorem, $P$ is minimal when it is perpendicular to $R'$, which gives $P_{\\min} = W\\sin(\\theta + \\lambda)$.",
+    "teacherTipAr": "من قاعدة لامي، تكون القوة $P$ أقل ما يمكن عندما تكون عمودية على رد الفعل المحصل $R'$، وتساوي $W\\sin(\\theta + \\lambda)$.",
+    "stepByStepSolutionEn": [
+      "Forces acting on the body: Weight $W$, resultant reaction $R'$ (inclined at $\\lambda$ to the normal), and pulling force $P$ at angle $\\beta$ to the incline.",
+      "By Lami's theorem: $\\frac{P}{\\sin(\\theta + \\lambda)} = \\frac{W}{\\sin(90^\\circ - \\beta + \\lambda)} = \\frac{W}{\\cos(\\beta - \\lambda)}$.",
+      "For $P$ to be minimized, the denominator $\\cos(\\beta - \\lambda)$ must be maximum ($= 1$), which occurs when $\\beta = \\lambda$.",
+      "Hence $P_{\\min} = W\\sin(\\theta + \\lambda)$."
+    ],
+    "stepByStepSolutionAr": [
+      "القوى المؤثرة: الوزن $W$، رد الفعل المحصل $R'$، وقوة الشد $P$.",
+      "بتطبيق قاعدة لامي: $P = \\frac{W\\sin(\\theta + \\lambda)}{\\cos(\\beta - \\lambda)}$.",
+      "أقل قيمة للمقدار تحدث عندما $\\beta = \\lambda$ وتساوي $W\\sin(\\theta + \\lambda)$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_154",
+    "titleEn": "Tipping vs Slipping of a Uniform Block",
+    "titleAr": "شرط الانزلاق قبل الانقلاب لكتلة منتظمة",
+    "difficulty": "hots",
+    "questionEn": "A uniform rectangular block of height $h$ and base width $b$ rests on a rough horizontal floor with coefficient of static friction $\\mu_s$. A horizontal force is applied at its top edge. What is the condition on $\\mu_s$ so that the block slides before it tips over?",
+    "questionAr": "كتلة مستطيلة منتظمة ارتفاعها $h$ وعرض قاعدتها $b$ موضوعة على أرضية أفقية خشنة معامل احتكاكها $\\mu_s$. أثرت قوة أفقية عند حافتها العليا. ما هو الشرط اللازم على $\\mu_s$ حتى تنزلق الكتلة قبل أن تنقلب؟",
+    "optionsEn": [
+      "$\\mu_s < \\frac{b}{2h}$",
+      "$\\mu_s > \\frac{b}{2h}$",
+      "$\\mu_s < \\frac{b}{h}$",
+      "$\\mu_s > \\frac{2b}{h}$"
+    ],
+    "optionsAr": [
+      "$\\mu_s < \\frac{b}{2h}$",
+      "$\\mu_s > \\frac{b}{2h}$",
+      "$\\mu_s < \\frac{b}{h}$",
+      "$\\mu_s > \\frac{2b}{h}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\mu_s < \\frac{b}{2h}$",
+    "hintEn": "Force to slide is $P_{\\text{slide}} = \\mu_s W$. Force to tip about the front corner is $P_{\\text{tip}} \\cdot h = W \\cdot \\frac{b}{2}$.",
+    "hintAr": "احسب قوة الانزلاق وقوة الانقلاب حول الحافة الأمامية.",
+    "teacherTipEn": "Center of gravity is at distance $b/2$ from the edge. For sliding before tipping, $P_{\\text{slide}} < P_{\\text{tip}} \\implies \\mu_s < \\frac{b}{2h}$.",
+    "teacherTipAr": "مركز الثقل يبعد $b/2$ عن الحافة. لكي يحدث الانزلاق قبل الانقلاب يجب أن تكون القوة المسببة للانزلاق أصغر: $\\mu_s < \\frac{b}{2h}$.",
+    "stepByStepSolutionEn": [
+      "Force required to cause slipping: $P_{\\text{slip}} = \\mu_s W$.",
+      "Taking moments about the tipping front corner: $P_{\\text{tip}} \\cdot h = W \\cdot \\frac{b}{2} \\implies P_{\\text{tip}} = \\frac{b}{2h}W$.",
+      "The block slips before tipping if $P_{\\text{slip}} < P_{\\text{tip}} \\implies \\mu_s W < \\frac{b}{2h}W \\implies \\mu_s < \\frac{b}{2h}$."
+    ],
+    "stepByStepSolutionAr": [
+      "قوة الانزلاق: $P = \\mu_s W$.",
+      "قوة الانقلاب حول الحافة الأمامية: $P \\cdot h = W \\cdot (b/2) \\implies P = \\frac{b}{2h}W$.",
+      "يحدث الانزلاق أولاً إذا كانت قوة الانزلاق أقل: $\\mu_s < \\frac{b}{2h}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_155",
+    "titleEn": "Friction on a Cylinder Clamped in a V-Groove",
+    "titleAr": "احتكاك أسطوانة محشورة في مجرى على شكل حرف V",
+    "difficulty": "hots",
+    "questionEn": "A heavy cylinder of weight $W$ rests in a symmetrical horizontal V-groove whose faces are inclined at angle $\\alpha$ to the horizontal. If the coefficient of static friction with both faces is $\\mu$, find the minimum torque $M$ required to rotate the cylinder about its axis (radius $r$).",
+    "questionAr": "أسطوانة ثقيلة وزنها $W$ ونصف قطرها $r$ موضوعة في مجرى أفقي متماثل على شكل حرف V تميل كل من حافتيه بزاوية $\\alpha$ على الأفقي. إذا كان معامل الاحتكاك $\\mu$، فأوجد أقل عزم ازدواج $M$ كافٍ لتدوير الأسطوانة حول محورها.",
+    "optionsEn": [
+      "$\\frac{\\mu W r}{\\cos\\alpha}$",
+      "$\\frac{\\mu W r}{\\sin\\alpha}$",
+      "$\\mu W r \\cos\\alpha$",
+      "$2\\mu W r$"
+    ],
+    "optionsAr": [
+      "$\\frac{\\mu W r}{\\cos\\alpha}$",
+      "$\\frac{\\mu W r}{\\sin\\alpha}$",
+      "$\\mu W r \\cos\\alpha$",
+      "$2\\mu W r$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{\\mu W r}{\\cos\\alpha}$",
+    "hintEn": "Resolve vertical reactions: $2R\\cos\\alpha = W \\implies R = \\frac{W}{2\\cos\\alpha}$. Total friction torque is $2(F_s)r = 2(\\mu R)r$.",
+    "hintAr": "حلل ردود الفعل رأسياً: $2R\\cos\\alpha = W$. عزم الاحتكاك الكلي هو $2(\\mu R)r$.",
+    "teacherTipEn": "V-belts and V-grooves wedge the cylinder, multiplying the normal force by $\\frac{1}{2\\cos\\alpha}$. The friction torque is therefore $\\frac{\\mu W r}{\\cos\\alpha}$.",
+    "teacherTipAr": "المجرى الإسفيني يضاعف رد الفعل العمودي، فيكون عزم الاحتكاك مساوياً $\\frac{\\mu W r}{\\cos\\alpha}$.",
+    "stepByStepSolutionEn": [
+      "Each reaction $R$ is normal to a groove face inclined at $\\alpha$ to horizontal, so $R$ is inclined at $\\alpha$ to the vertical.",
+      "Vertical equilibrium: $2R\\cos\\alpha = W \\implies R = \\frac{W}{2\\cos\\alpha}$.",
+      "Limiting friction on each contact: $F_s = \\mu R = \\frac{\\mu W}{2\\cos\\alpha}$.",
+      "Total torque from both contacts: $M = 2 \\times (F_s \\cdot r) = 2 \\left(\\frac{\\mu W}{2\\cos\\alpha}\\right) r = \\frac{\\mu W r}{\\cos\\alpha}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الاتزان الرأسي: $2R\\cos\\alpha = W \\implies R = \\frac{W}{2\\cos\\alpha}$.",
+      "قوة الاحتكاك عند كل نقطة تماس: $F_s = \\frac{\\mu W}{2\\cos\\alpha}$.",
+      "عزم الازدواج الكلي: $M = 2(F_s \\cdot r) = \\frac{\\mu W r}{\\cos\\alpha}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_156",
+    "titleEn": "Equilibrium on Incline under Transverse Pull",
+    "titleAr": "اتزان على مستوى مائل تحت تأثير قوة أفقية موازية لخط الأفق",
+    "difficulty": "hots",
+    "questionEn": "A body of weight $W = 10\\text{ N}$ rests on a rough plane inclined at $30^\\circ$ to the horizontal. A force $P$ is applied to the body horizontally along the plane (parallel to the horizontal line on the incline). If the body is on the verge of moving and $\\mu_s = \\frac{2\\sqrt{3}}{3}$, find $P$.",
+    "questionAr": "جسم وزنه $W = 10\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ على الأفقي. أثرت عليه قوة $P$ في اتجاه أفقي واقع في المستوى (موازية للخط الأفقي في المستوى). إذا كان الجسم على وشك الحركة و $\\mu_s = \\frac{2\\sqrt{3}}{3}$، فأوجد قيمة $P$.",
+    "optionsEn": [
+      "$5\\sqrt{3}\\text{ N}$",
+      "$5\\text{ N}$",
+      "$10\\text{ N}$",
+      "$15\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$5\\sqrt{3}\\text{ نيوتن}$",
+      "$5\\text{ نيوتن}$",
+      "$10\\text{ نيوتن}$",
+      "$15\\text{ نيوتن}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$5\\sqrt{3}\\text{ N}$",
+    "hintEn": "The downhill weight component $W\\sin(30^\\circ)$ and horizontal force $P$ are mutually perpendicular within the plane. Their resultant equals limiting friction: $\\sqrt{P^2 + (W\\sin\\theta)^2} = \\mu_s R$.",
+    "hintAr": "مركبة الوزن لأسفل والقوة الأفقية متعامدتان في المستوى، ومحصلتهما تساوي الاحتكاك النهائي $\\sqrt{P^2 + (W\\sin\\theta)^2} = \\mu_s R$.",
+    "teacherTipEn": "A classic 2D vector friction problem on an inclined plane: friction opposes the resultant of all other coplanar active forces.",
+    "teacherTipAr": "مسألة متجهات كلاسيكية: قوة الاحتكاك النهائي تضاد محصلة القوى الفعالة الواقعة في المستوى.",
+    "stepByStepSolutionEn": [
+      "Normal reaction: $R = W\\cos(30^\\circ) = 10 \\times \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}\\text{ N}$.",
+      "Limiting friction: $F_s = \\mu_s R = \\frac{\\sqrt{3}}{3}(5\\sqrt{3}) = 5\\text{ N}$? Wait! $\\frac{\\sqrt{3}}{3} \\times 5\\sqrt{3} = 5\\text{ N}$! But wait: the downhill component is $W\\sin(30^\\circ) = 10(0.5) = 5\\text{ N}$. If $F_s = 5\\text{ N}$ and downhill component is $5\\text{ N}$, then $\\sqrt{P^2 + 5^2} = 5 \\implies P = 0$? That means the body was already on the verge of sliding under weight alone!",
+      "Let us change $W = 10\\text{ N}$ and $\\mu_s = \\frac{\\sqrt{3}}{2}$! Let us compute: $R = 5\\sqrt{3}$. $F_s = \\frac{\\sqrt{3}}{2}(5\\sqrt{3}) = 7.5\\text{ N}$. Then $\\sqrt{P^2 + 5^2} = 7.5 \\implies P^2 + 25 = 56.25 \\implies P^2 = 31.25$. Messy square root!",
+      "What if $\\theta = 30^\\circ$, $W = 20\\text{ N}$, $\\mu_s = \\frac{\\sqrt{3}}{2}$? $R = 20 \\times \\frac{\\sqrt{3}}{2} = 10\\sqrt{3}$. $F_s = \\frac{\\sqrt{3}}{2}(10\\sqrt{3}) = 15\\text{ N}$. Downhill weight component $= 20\\sin(30^\\circ) = 10\\text{ N}$. Then $\\sqrt{P^2 + 10^2} = 15 \\implies P^2 + 100 = 225 \\implies P^2 = 125 \\implies P = 5\\sqrt{5}\\text{ N}$.",
+      "What if $\\mu_s = \\frac{2\\sqrt{3}}{3}$ and $W = 10\\text{ N}$? $R = 5\\sqrt{3}$. $F_s = \\frac{2\\sqrt{3}}{3}(5\\sqrt{3}) = 10\\text{ N}$. Downhill component $= 10\\sin(30^\\circ) = 5\\text{ N}$. Then $\\sqrt{P^2 + 5^2} = 10 \\implies P^2 + 25 = 100 \\implies P^2 = 75 \\implies P = 5\\sqrt{3}\\text{ N}$! Clean, elegant numbers!",
+      "Let us set $W = 10\\text{ N}$, $\\theta = 30^\\circ$, $\\mu_s = \\frac{2\\sqrt{3}}{3}$, and correct answer $5\\sqrt{3}\\text{ N}$!"
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $R = 10\\cos(30^\\circ) = 5\\sqrt{3}\\text{ نيوتن}$.",
+      "قوة الاحتكاك النهائي: $F_s = \\mu_s R = \\frac{2\\sqrt{3}}{3}(5\\sqrt{3}) = 10\\text{ نيوتن}$.",
+      "مركبة الوزن لأسفل: $10\\sin(30^\\circ) = 5\\text{ نيوتن}$.",
+      "محصلة القوى في المستوى: $\\sqrt{P^2 + 5^2} = 10 \\implies P^2 + 25 = 100 \\implies P = 5\\sqrt{3}\\text{ نيوتن}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_157",
+    "titleEn": "Capstan Friction Equation on Rough Cylinder",
+    "titleAr": "احتكاك حبل ملتف حول أسطوانة خشنة (معادلة كابستان)",
+    "difficulty": "hots",
+    "questionEn": "A rope passes over a rough fixed horizontal cylinder of coefficient of friction $\\mu$. If the contact angle is $\\pi$ radians (half a turn), what is the ratio of the holding tension $T_2$ to the falling load $T_1$ when the rope is on the verge of slipping?",
+    "questionAr": "حبل يمر فوق أسطوانة أفقية خشنة ثابتة معامل احتكاكها $\\mu$. إذا كانت زاوية التماس $\\pi$ راديان (نصف لفة)، فما هي النسبة بين قوة الشد الممسكة بالحبل $T_2$ والحمل المعلق $T_1$ عندما يوشك الحبل على الانزلاق؟",
+    "optionsEn": [
+      "$e^{\\mu \\pi}$",
+      "$e^{-\\mu \\pi}$",
+      "$\\mu \\pi$",
+      "$1 + \\mu \\pi$"
+    ],
+    "optionsAr": [
+      "$e^{\\mu \\pi}$",
+      "$e^{-\\mu \\pi}$",
+      "$\\mu \\pi$",
+      "$1 + \\mu \\pi$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$e^{\\mu \\pi}$",
+    "hintEn": "The capstan equation (Eytelwein's formula) relates tensions by $T_2 = T_1 e^{\\mu \\theta}$.",
+    "hintAr": "معادلة كابستان الشهيرة لاحتكاك الأحزمة: $T_2 = T_1 e^{\\mu \\theta}$.",
+    "teacherTipEn": "The exponential growth of friction with contact angle $\\theta$ explains why a few turns around a mooring post can hold an enormous ship with human hand force alone.",
+    "teacherTipAr": "النمو الأسي لقوة الاحتكاك مع زاوية الالتفاف يفسر كيف تكفي لفات قليلة من الحبل لتثبيت سفينة ضخمة بقوة يد واحدة.",
+    "stepByStepSolutionEn": [
+      "Consider a differential element of the rope of angle $d\\theta$: $dT = \\mu T d\\theta$.",
+      "Integrating $\\int_{T_1}^{T_2} \\frac{dT}{T} = \\int_0^{\\pi} \\mu d\\theta$.",
+      "Result: $\\ln(T_2 / T_1) = \\mu \\pi \\implies \\frac{T_2}{T_1} = e^{\\mu \\pi}$."
+    ],
+    "stepByStepSolutionAr": [
+      "التفاضل لعنصر من الحبل: $dT = \\mu T d\\theta$.",
+      "التكامل: $\\ln(T_2 / T_1) = \\mu \\pi$.",
+      "النسبة بين الشدين: $\\frac{T_2}{T_1} = e^{\\mu \\pi}$."
+    ]
+  },
+  {
+    "id": "stat_ch1_db_hots_158",
+    "titleEn": "Equilibrium of Ladder on Verge of Slipping at Both Ends",
+    "titleAr": "اتزان سلم على وشك الانزلاق عند كلا طرفيه",
+    "difficulty": "hots",
+    "questionEn": "A uniform ladder rests with its upper end against a rough vertical wall ($\\mu_1 = 0.5$) and its lower end on a rough horizontal ground ($\\mu_2 = 0.5$). If the ladder is in limiting equilibrium on the verge of slipping, find the inclination angle $\\theta$ of the ladder with the horizontal floor.",
+    "questionAr": "سلم منتظم يستند بطرفه العلوي على حائط رأسي خشن (معامل احتكاكه $\\mu_1 = 0.5$) وبطرفه السفلي على أرض أفقية خشنة (معامل احتكاكها $\\mu_2 = 0.5$). إذا كان السلم في اتزان نهائي على وشك الانزلاق، فأوجد قياس زاوية ميل السلم $\\theta$ مع الأرض الأفقية.",
+    "optionsEn": [
+      "$\\tan^{-1}(0.75)$",
+      "$\\tan^{-1}(1.33)$",
+      "$\\tan^{-1}(0.5)$",
+      "$\\tan^{-1}(1.0)$"
+    ],
+    "optionsAr": [
+      "$\\tan^{-1}(0.75)$",
+      "$\\tan^{-1}(1.33)$",
+      "$\\tan^{-1}(0.5)$",
+      "$\\tan^{-1}(1.0)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\tan^{-1}(0.75)$",
+    "hintEn": "Use the standard formula for limiting ladder equilibrium: $\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2 \\mu_2}$.",
+    "hintAr": "استخدم الصيغة العامة للاتزان النهائي للسلم: $\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2 \\mu_2}$.",
+    "teacherTipEn": "Substituting $\\mu_1 = 0.5, \\mu_2 = 0.5$: $\\tan\\theta = \\frac{1 - 0.25}{2(0.5)} = \\frac{0.75}{1.0} = 0.75$. Thus $\\theta = \\tan^{-1}(0.75) \\approx 36.87^\\circ$.",
+    "teacherTipAr": "بالتعويض: $\\tan\\theta = \\frac{1 - 0.25}{1.0} = 0.75$. إذن $\\theta = \\tan^{-1}(0.75)$.",
+    "stepByStepSolutionEn": [
+      "Horizontal equilibrium: $R_w = \\mu_2 R_g$, where $R_w$ is normal from wall and $R_g$ is normal from ground.",
+      "Vertical equilibrium: $R_g + \\mu_1 R_w = W \\implies R_g + \\mu_1 \\mu_2 R_g = W \\implies R_g = \\frac{W}{1 + \\mu_1 \\mu_2}$.",
+      "Take moments about base: $W \\cdot \\frac{L}{2}\\cos\\theta = R_w L \\sin\\theta + \\mu_1 R_w L \\cos\\theta$.",
+      "Divide by $L\\cos\\theta$: $\\frac{W}{2} = R_w \\tan\\theta + \\mu_1 R_w = R_w(\\tan\\theta + \\mu_1)$.",
+      "Substitute $R_w = \\mu_2 R_g = \\frac{\\mu_2 W}{1 + \\mu_1 \\mu_2}$: $\\frac{1}{2} = \\frac{\\mu_2}{1 + \\mu_1 \\mu_2}(\\tan\\theta + \\mu_1)$.",
+      "Solve: $\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2\\mu_2} = \\frac{1 - 0.25}{1.0} = 0.75 \\implies \\theta = \\tan^{-1}(0.75)$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الاتزان الأفقي: $R_w = \\mu_2 R_g$.",
+      "معادلة الاتزان الرأسي: $R_g + \\mu_1 R_w = W$.",
+      "أخذ العزوم حول قاعدة السلم: $\\frac{W}{2}\\cos\\theta = R_w\\sin\\theta + \\mu_1 R_w\\cos\\theta$.",
+      "الوصول إلى القانون العام: $\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2\\mu_2} = \\frac{0.75}{1} = 0.75$."
+    ]
   }
 ]
 };

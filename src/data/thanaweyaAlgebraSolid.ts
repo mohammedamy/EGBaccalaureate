@@ -1384,11 +1384,11 @@ $$\\Delta = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$$
                 ]
               },
               interactiveWidget: {
-                type: 'pascal_binomial',
-                titleEn: 'Determinant Elementary Operations Visualizer',
-                titleAr: 'محاكي العمليات الأولية وخواص المحددات',
-                descriptionEn: 'Explore how row swaps, scalar multiples, and triangular operations affect determinant values.',
-                descriptionAr: 'استكشاف أثر تبديل الصفوف والضرب القياسي والتحويل للصورة المثلثية على قيمة المحدد.'
+                type: 'matrix_solver',
+                titleEn: 'Determinant Elementary Operations & 3x3 Matrix Inversion Lab',
+                titleAr: 'مختبر المحددات والعمليات الأولية والمعكوس الضربي للمصفوفات',
+                descriptionEn: 'Interactive 3x3 matrix laboratory computing determinants, adjugates, inverses, and solving linear systems via Cramer\'s rule with 3D geometric interpretation.',
+                descriptionAr: 'مختبر تفاعلي للمصفوفات ٣×٣ يحسب المحدد والمصفوفة الملحقة والمعكوس الضربي وحل المعادلات الخطية بقاعدة كرامر وتفسيرها الهندسي فراغياً.'
               }
             },
             {
@@ -1578,7 +1578,7 @@ $$A^{-1} = \\frac{1}{|A|} \\text{adj}(A)$$
                 ]
               },
               interactiveWidget: {
-                type: 'pascal_binomial',
+                type: 'matrix_solver',
                 titleEn: 'Linear Systems & Matrix Rank Analyzer',
                 titleAr: 'محلل رتب المصفوفات والأنظمة الخطية',
                 descriptionEn: 'Interactive tool to compute matrix rank, determinant, and investigate system solutions.',

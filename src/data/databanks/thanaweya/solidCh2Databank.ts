@@ -1603,6 +1603,305 @@ export const solidCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Parallelepiped volume.",
     "teacherTipAr": "حجم متوازي السطوح."
+  },
+  {
+    "id": "solid_ch2_db_easy_51",
+    "titleEn": "Vector Equation of Straight Line in 3D Space",
+    "titleAr": "معادلة المتجه لخط مستقيم في الفراغ",
+    "difficulty": "easy",
+    "questionEn": "Find the vector equation of the line passing through point $A(1, 2, 3)$ with direction vector $\\vec{d} = (2, -1, 4)$.",
+    "questionAr": "أوجد معادلة المتجه للمستقيم المار بالنقطة $A(1, 2, 3)$ ومتجه اتجاهه $\\vec{d} = (2, -1, 4)$.",
+    "optionsEn": [
+      "$\\vec{r} = (1, 2, 3) + t(2, -1, 4)$",
+      "$\\vec{r} = (2, -1, 4) + t(1, 2, 3)$",
+      "$\\vec{r} = (1, 2, 3) + t(1, 2, 3)$",
+      "$\\vec{r} = (3, 1, 7) + t(2, -1, 4)$"
+    ],
+    "optionsAr": [
+      "$\\vec{r} = (1, 2, 3) + t(2, -1, 4)$",
+      "$\\vec{r} = (2, -1, 4) + t(1, 2, 3)$",
+      "$\\vec{r} = (1, 2, 3) + t(1, 2, 3)$",
+      "$\\vec{r} = (3, 1, 7) + t(2, -1, 4)$"
+    ],
+    "correctAnswer": "$\\vec{r} = (1, 2, 3) + t(2, -1, 4)$",
+    "correctIndex": 0,
+    "hintEn": "r = r0 + t * d where r0 is point and d is direction vector.",
+    "hintAr": "ر = ر٠ + ك هـ، حيث ر٠ نقطة معلومة على المستقيم و هـ متجه الاتجاه.",
+    "stepByStepSolutionEn": [
+      "1. Vector equation of line: $\\vec{r} = \\vec{A} + t \\vec{d}$ where $t \\in \\mathbb{R}$.",
+      "2. Substitute $\\vec{A} = (1, 2, 3)$ and $\\vec{d} = (2, -1, 4)$:",
+      "   $$\\vec{r} = (1, 2, 3) + t(2, -1, 4)$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. الصورة المتجهة لمعادلة الخط المستقيم: ر = أ + ك هـ.",
+      "٢. بالتعويض عن أ = (١، ٢، ٣) و هـ = (٢، -١، ٤):",
+      "   $$\\vec{r} = (1, 2, 3) + t(2, -1, 4)$$"
+    ],
+    "teacherTipEn": "The scalar parameter t can take any real number value.",
+    "teacherTipAr": "الوسيط (ك أو t) هو عدد حقيقي يولد جميع نقاط المستقيم عند تغير قيمته."
+  },
+  {
+    "id": "solid_ch2_db_easy_52",
+    "titleEn": "Normal Vector of a Plane from Cartesian Equation",
+    "titleAr": "متجه الاتجاه العمودي للمستوى من المعادلة الكارتيزية",
+    "difficulty": "easy",
+    "diagramType": "plane_intercepts_3d",
+    "questionEn": "Find the normal vector $\\vec{n}$ to the plane with equation $3x - 2y + 5z = 12$.",
+    "questionAr": "أوجد متجه الاتجاه العمودي $\\vec{n}$ للمستوى الذي معادلته $3x - 2y + 5z = 12$.",
+    "optionsEn": [
+      "$(3, -2, 5)$",
+      "$(3, 2, 5)$",
+      "$(-3, 2, 5)$",
+      "$(12, 12, 12)$"
+    ],
+    "optionsAr": [
+      "$(3, -2, 5)$",
+      "$(3, 2, 5)$",
+      "$(-3, 2, 5)$",
+      "$(12, 12, 12)$"
+    ],
+    "correctAnswer": "$(3, -2, 5)$",
+    "correctIndex": 0,
+    "hintEn": "For Ax + By + Cz = D, normal vector is (A, B, C).",
+    "hintAr": "في المعادلة أ س + ب ص + جـ ع = د، يكون متجه الاتجاه العمودي هو (أ، ب، جـ).",
+    "stepByStepSolutionEn": [
+      "1. The standard Cartesian equation of a plane is $A x + B y + C z + D = 0$.",
+      "2. The coefficients of $x, y, z$ represent the components of the normal vector $\\vec{n} = (A, B, C)$.",
+      "3. From $3x - 2y + 5z = 12$, $\\vec{n} = (3, -2, 5)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الصورة الكارتيزية العامة للمستوى: أ س + ب ص + جـ ع = د.",
+      "٢. معاملات س، ص، ع تمثل مركبات متجه الاتجاه العمودي ن = (أ، ب، جـ).",
+      "٣. إذن المتجه العمودي هو $\\vec{n} = (3, -2, 5)$."
+    ],
+    "teacherTipEn": "Any scalar multiple k*n is also a valid normal vector.",
+    "teacherTipAr": "أي مضاعف قياسي غير صفري للمتجه ن يمثل أيضاً متجهاً عمودياً للمستوى."
+  },
+  {
+    "id": "solid_ch2_db_easy_53",
+    "titleEn": "Intercepts Form of Plane on Coordinate Axes",
+    "titleAr": "معادلة المستوى بدلالة الأجزاء المقطوعة من المحاور",
+    "difficulty": "easy",
+    "diagramType": "plane_intercepts_3d",
+    "questionEn": "Find the lengths of the intercepts made by the plane $\\frac{x}{2} + \\frac{y}{3} + \\frac{z}{4} = 1$ on the $x$, $y$, and $z$ axes respectively.",
+    "questionAr": "أوجد أطوال الأجزاء المقطوعة من محاور الإحداثيات $x, y, z$ بواسطة المستوى $\\frac{x}{2} + \\frac{y}{3} + \\frac{z}{4} = 1$.",
+    "optionsEn": [
+      "$2, 3, 4$",
+      "$4, 3, 2$",
+      "$1, 1, 1$",
+      "$6, 4, 3$"
+    ],
+    "optionsAr": [
+      "$2, 3, 4$",
+      "$4, 3, 2$",
+      "$1, 1, 1$",
+      "$6, 4, 3$"
+    ],
+    "correctAnswer": "$2, 3, 4$",
+    "correctIndex": 0,
+    "hintEn": "The intercepts form is x/a + y/b + z/c = 1.",
+    "hintAr": "صورة الأجزاء المقطوعة: س/أ + ص/ب + ع/جـ = ١.",
+    "stepByStepSolutionEn": [
+      "1. In the intercept form of a plane $\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$, the intercepts are $a, b, c$.",
+      "2. Here $a = 2, b = 3, c = 4$.",
+      "3. The plane cuts the axes at $(2, 0, 0)$, $(0, 3, 0)$, and $(0, 0, 4)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. معادلة المستوى بدلالة الأجزاء المقطوعة: س/أ + ص/ب + ع/جـ = ١.",
+      "٢. بمقارنة الحدود: أ = ٢، ب = ٣، جـ = ٤.",
+      "٣. يقطع المستوى المحاور في النقاط (٢، ٠، ٠)، (٠، ٣، ٠)، (٠، ٠، ٤)."
+    ],
+    "teacherTipEn": "To convert any Ax + By + Cz = D to intercept form, divide the entire equation by D.",
+    "teacherTipAr": "للتحويل إلى صورة الأجزاء المقطوعة، اقسم طرفي المعادلة على الحد المطلق د."
+  },
+  {
+    "id": "solid_ch2_db_easy_54",
+    "titleEn": "Angle Between Two Planes",
+    "titleAr": "قياس الزاوية بين مستويين",
+    "difficulty": "easy",
+    "questionEn": "Find the acute angle $\\theta$ between the planes with normal vectors $\\vec{n}_1 = (1, 1, 0)$ and $\\vec{n}_2 = (0, 1, 1)$.",
+    "questionAr": "أوجد قياس الزاوية الحادة $\\theta$ بين المستويين اللذين متجها اتجاههما العمودي $\\vec{n}_1 = (1, 1, 0)$ و $\\vec{n}_2 = (0, 1, 1)$.",
+    "optionsEn": [
+      "$60^\\circ$",
+      "$45^\\circ$",
+      "$30^\\circ$",
+      "$90^\\circ$"
+    ],
+    "optionsAr": [
+      "$60^\\circ$",
+      "$45^\\circ$",
+      "$30^\\circ$",
+      "$90^\\circ$"
+    ],
+    "correctAnswer": "$60^\\circ$",
+    "correctIndex": 0,
+    "hintEn": "cos(theta) = |n1 . n2| / (|n1| * |n2|).",
+    "hintAr": "جتا(هـ) = |ن١ · ن٢| / (|ن١| × |ن٢|).",
+    "stepByStepSolutionEn": [
+      "1. Dot product: $\\vec{n}_1 \\cdot \\vec{n}_2 = (1)(0) + (1)(1) + (0)(1) = 1$.",
+      "2. Magnitudes: $|\\vec{n}_1| = \\sqrt{1+1+0} = \\sqrt{2}$ and $|\\vec{n}_2| = \\sqrt{0+1+1} = \\sqrt{2}$.",
+      "3. $\\cos\\theta = \\frac{|1|}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{1}{2}$.",
+      "4. $\\theta = \\cos^{-1}(1/2) = 60^\\circ$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الضرب القياسي: ن١ · ن٢ = (١)(٠) + (١)(١) + (٠)(١) = ١.",
+      "٢. المعياران: |ن١| = جذر(٢)، |ن٢| = جذر(٢).",
+      "٣. جتا(هـ) = ١ / (جذر(٢) × جذر(٢)) = ١ / ٢.",
+      "٤. هـ = ٦٠ درجة."
+    ],
+    "teacherTipEn": "Angle between two planes is defined as the angle between their normal vectors.",
+    "teacherTipAr": "الزاوية بين مستويين هي تماماً الزاوية المحصورة بين متجهي اتجاههما العمودي."
+  },
+  {
+    "id": "solid_ch2_db_easy_55",
+    "titleEn": "Distance from Origin to a Plane",
+    "titleAr": "طول العمود النازل من نقطة الأصل على مستوى",
+    "difficulty": "easy",
+    "questionEn": "Find the perpendicular distance from the origin $(0, 0, 0)$ to the plane $2x - 2y + z - 9 = 0$.",
+    "questionAr": "أوجد طول العمود الساقط من نقطة الأصل $(0, 0, 0)$ على المستوى $2x - 2y + z - 9 = 0$.",
+    "optionsEn": [
+      "3 units",
+      "9 units",
+      "1 unit",
+      "$\\frac{9}{5}$ units"
+    ],
+    "optionsAr": [
+      "3 وحدات طول",
+      "9 وحدات طول",
+      "1 وحدة طول",
+      "$\\frac{9}{5}$ وحدة طول"
+    ],
+    "correctAnswer": "3 units",
+    "correctIndex": 0,
+    "hintEn": "d = |D| / sqrt(A^2 + B^2 + C^2).",
+    "hintAr": "طول العمود من الأصل = |د| / جذر(أ^٢ + ب^٢ + جـ^٢).",
+    "stepByStepSolutionEn": [
+      "1. Perpendicular distance formula from origin to $Ax + By + Cz + D = 0$:",
+      "   $$d = \\frac{|D|}{\\sqrt{A^2 + B^2 + C^2}}$$",
+      "2. Here $A = 2, B = -2, C = 1, D = -9$.",
+      "3. $d = \\frac{|-9|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{9}{\\sqrt{4 + 4 + 1}} = \\frac{9}{\\sqrt{9}} = \\frac{9}{3} = 3$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون طول العمود الساقط من نقطة الأصل على المستوى أ س + ب ص + جـ ع + د = ٠:",
+      "   $$d = \\frac{|D|}{\\sqrt{A^2 + B^2 + C^2}}$$",
+      "٢. بالتعويض: د = |-٩| / جذر(٤ + ٤ + ١) = ٩ / ٣ = ٣ وحدات طول."
+    ],
+    "teacherTipEn": "Remember denominator is sqrt(2^2 + (-2)^2 + 1^2) = 3.",
+    "teacherTipAr": "تأكد من حساب معيار المتجه العمودي في المقام بدقة (جذر ٩ = ٣)."
+  },
+  {
+    "id": "solid_ch2_db_easy_56",
+    "titleEn": "Condition for Straight Line Parallel to Plane",
+    "titleAr": "شرط موازاة خط مستقيم لمستوى في الفراغ",
+    "difficulty": "easy",
+    "diagramType": "line_plane_angle_3d",
+    "questionEn": "A line with direction vector $\\vec{d}$ is parallel to a plane with normal vector $\\vec{n}$ if and only if which condition holds?",
+    "questionAr": "يكون الخط المستقيم ذو متجه الاتجاه $\\vec{d}$ موازياً للمستوى ذي المتجه العمودي $\\vec{n}$ إذا وفقط إذا كان:",
+    "optionsEn": [
+      "$\\vec{d} \\cdot \\vec{n} = 0$",
+      "$\\vec{d} \\times \\vec{n} = \\vec{0}$",
+      "$\\vec{d} = \\vec{n}$",
+      "$\\vec{d} \\cdot \\vec{n} = 1$"
+    ],
+    "optionsAr": [
+      "$\\vec{d} \\cdot \\vec{n} = 0$",
+      "$\\vec{d} \\times \\vec{n} = \\vec{0}$",
+      "$\\vec{d} = \\vec{n}$",
+      "$\\vec{d} \\cdot \\vec{n} = 1$"
+    ],
+    "correctAnswer": "$\\vec{d} \\cdot \\vec{n} = 0$",
+    "correctIndex": 0,
+    "hintEn": "If the line is parallel to the plane, its direction vector is PERPENDICULAR to the plane's normal.",
+    "hintAr": "إذا كان المستقيم يوازي المستوى، فإن متجه اتجاهه يكون عمودياً على العمودي على المستوى.",
+    "stepByStepSolutionEn": [
+      "1. A straight line is parallel to a plane if its direction vector $\\vec{d}$ is parallel to the plane surface.",
+      "2. Since the normal vector $\\vec{n}$ is perpendicular to every direction in the plane, $\\vec{d}$ must be perpendicular to $\\vec{n}$.",
+      "3. Therefore, the orthogonality condition is $\\vec{d} \\cdot \\vec{n} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المستقيم يوازي المستوى عندما يقع متجه اتجاهه موازياً لسطح المستوى.",
+      "٢. بما أن المتجه ن عمودي على المستوى، فيجب أن يكون عمودياً على متجه اتجاه المستقيم هـ.",
+      "٣. شرط التعامد هو انعدام الضرب القياسي: $\\vec{d} \\cdot \\vec{n} = 0$."
+    ],
+    "teacherTipEn": "Be careful: Line parallel to plane means d is perpendicular to n (dot product = 0), NOT parallel!",
+    "teacherTipAr": "انتبه: موازاة المستقيم للمستوى تعني تعامد متجه اتجاهه مع العمودي على المستوى (الضرب القياسي = ٠)."
+  },
+  {
+    "id": "solid_ch2_db_easy_57",
+    "titleEn": "Intersection of Line with Coordinate Plane",
+    "titleAr": "نقطة تقاطع مستقيم مع مستوى إحداثي",
+    "difficulty": "easy",
+    "questionEn": "Find the point where the line $\\frac{x - 1}{2} = \\frac{y + 1}{3} = \\frac{z - 2}{-1}$ intersects the $xy$-plane ($z = 0$).",
+    "questionAr": "أوجد نقطة تقاطع المستقيم $\\frac{x - 1}{2} = \\frac{y + 1}{3} = \\frac{z - 2}{-1}$ مع المستوى الإحداثي $xy$ ($z = 0$).",
+    "optionsEn": [
+      "$(5, 5, 0)$",
+      "$(3, 2, 0)$",
+      "$(1, -1, 0)$",
+      "$(5, 2, 0)$"
+    ],
+    "optionsAr": [
+      "$(5, 5, 0)$",
+      "$(3, 2, 0)$",
+      "$(1, -1, 0)$",
+      "$(5, 2, 0)$"
+    ],
+    "correctAnswer": "$(5, 5, 0)$",
+    "correctIndex": 0,
+    "hintEn": "Set z = 0 to solve for the parameter t: (0 - 2)/(-1) = 2.",
+    "hintAr": "ضع ع = ٠ لإيجاد قيمة الوسيط ك = (٠ - ٢) / (-١) = ٢.",
+    "stepByStepSolutionEn": [
+      "1. Let each fraction equal $t$: $x = 1 + 2t$, $y = -1 + 3t$, $z = 2 - t$.",
+      "2. For the $xy$-plane, $z = 0 \\implies 2 - t = 0 \\implies t = 2$.",
+      "3. Substitute $t = 2$:",
+      "   $$x = 1 + 2(2) = 5, \\quad y = -1 + 3(2) = 5, \\quad z = 0$$",
+      "4. The intersection point is $(5, 5, 0)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نسوي النسب بـ ك: س = ١ + ٢ك، ص = -١ + ٣ك، ع = ٢ - ك.",
+      "٢. في المستوى س ص يكون ع = ٠، إذن ٢ - ك = ٠ ومنها ك = ٢.",
+      "٣. بالتعويض عن ك = ٢:",
+      "   س = ١ + ٤ = ٥، ص = -١ + ٦ = ٥، ع = ٠.",
+      "٤. نقطة التقاطع هي (٥، ٥، ٠)."
+    ],
+    "teacherTipEn": "Parameterizing the symmetric equations makes coordinate plane intersections straightforward.",
+    "teacherTipAr": "تحويل المعادلات المتماثلة إلى الصورة البارامترية يجعل إيجاد التقاطع مع المستويات الإحداثية في غاية السهولة."
+  },
+  {
+    "id": "solid_ch2_db_easy_58",
+    "titleEn": "Equation of Plane Parallel to xy-Plane",
+    "titleAr": "معادلة مستوى يوازي المستوى الإحداثي س ص",
+    "difficulty": "easy",
+    "questionEn": "Find the equation of the plane passing through $(3, -4, 7)$ and parallel to the $xy$-plane.",
+    "questionAr": "أوجد معادلة المستوى المار بالنقطة $(3, -4, 7)$ ويوازي المستوى الإحداثي $xy$.",
+    "optionsEn": [
+      "$z = 7$",
+      "$x = 3$",
+      "$y = -4$",
+      "$3x - 4y = 7$"
+    ],
+    "optionsAr": [
+      "$z = 7$",
+      "$x = 3$",
+      "$y = -4$",
+      "$3x - 4y = 7$"
+    ],
+    "correctAnswer": "$z = 7$",
+    "correctIndex": 0,
+    "hintEn": "A plane parallel to the xy-plane has equation z = constant.",
+    "hintAr": "المستوى الموازي لـ س ص معادلته هي ع = ثابت.",
+    "stepByStepSolutionEn": [
+      "1. A plane parallel to the $xy$-plane has normal vector along the $z$-axis: $\\vec{n} = (0, 0, 1)$.",
+      "2. The equation is $0(x) + 0(y) + 1(z) = d \\implies z = d$.",
+      "3. Since it passes through $(3, -4, 7)$, $d = 7$.",
+      "4. The equation is $z = 7$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المستوى الموازي للمستوى س ص يكون عمودياً على محور ع، ومتجه اتجاهه العمودي هو (٠، ٠، ١).",
+      "٢. المعادلة هي ع = ثابت.",
+      "٣. بما أنه يمر بالنقطة (٣، -٤، ٧) فإن ع = ٧."
+    ],
+    "teacherTipEn": "Parallel to yz-plane => x = constant; parallel to xz-plane => y = constant.",
+    "teacherTipAr": "الموازي لـ ص ع معادلته س = ثابت، والموازي لـ س ع معادلته ص = ثابت."
   }
 ],
   medium: [
@@ -3469,6 +3768,348 @@ export const solidCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Points on coordinate axes equidistant from origin always form an equilateral triangle.",
     "teacherTipAr": "النقاط الواقعة على محاور الإحداثيات والمتساوية البعد عن الأصل تشكل دائماً مثلثاً متساوي الأضلاع."
+  },
+  {
+    "id": "solid_ch2_db_med_51",
+    "titleEn": "Angle Between Line and Plane Formula",
+    "titleAr": "قياس الزاوية بين مستقيم ومستوى",
+    "difficulty": "medium",
+    "diagramType": "line_plane_angle_3d",
+    "questionEn": "Find $\\sin\\theta$ where $\\theta$ is the angle between the line with direction $\\vec{d} = (1, 2, 2)$ and the plane with normal $\\vec{n} = (2, -1, 2)$.",
+    "questionAr": "أوجد قيمة $\\sin\\theta$ حيث $\\theta$ هي الزاوية المحصورة بين المستقيم ذي الاتجاه $\\vec{d} = (1, 2, 2)$ والمستوى ذي العمودي $\\vec{n} = (2, -1, 2)$.",
+    "optionsEn": [
+      "$\\frac{4}{9}$",
+      "$\\frac{8}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{3}$"
+    ],
+    "optionsAr": [
+      "$\\frac{4}{9}$",
+      "$\\frac{8}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{3}$"
+    ],
+    "correctAnswer": "$\\frac{4}{9}$",
+    "correctIndex": 0,
+    "hintEn": "sin(theta) = |d . n| / (|d| * |n|).",
+    "hintAr": "جا(هـ) = |هـ · ن| / (|هـ| × |ن|).",
+    "stepByStepSolutionEn": [
+      "1. Formula for angle between line and plane: $\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{|\\vec{d}||\\vec{n}|}$.",
+      "2. $\\vec{d} \\cdot \\vec{n} = (1)(2) + (2)(-1) + (2)(2) = 2 - 2 + 4 = 4$.",
+      "3. $|\\vec{d}| = \\sqrt{1 + 4 + 4} = 3$ and $|\\vec{n}| = \\sqrt{4 + 1 + 4} = 3$.",
+      "4. $\\sin\\theta = \\frac{|4|}{3 \\times 3} = \\frac{4}{9}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الزاوية بين مستقيم ومستوى: $\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{|\\vec{d}||\\vec{n}|}$.",
+      "٢. الضرب القياسي: هـ · ن = ٢ - ٢ + ٤ = ٤.",
+      "٣. المعياران: |هـ| = ٣، |ن| = ٣.",
+      "٤. جا(هـ) = ٤ / (٣ × ٣) = ٤ / ٩."
+    ],
+    "teacherTipEn": "Notice it is SINE of the angle, not cosine, because the normal n is perpendicular to the plane.",
+    "teacherTipAr": "انتبه: نستخدم الجيب جا وليس جيب التمام جتا لأن المتجه ن عمودي على المستوى وليس موازياً له."
+  },
+  {
+    "id": "solid_ch2_db_med_52",
+    "titleEn": "Distance Between Two Parallel Planes",
+    "titleAr": "البعد العمودي بين مستويين متوازيين",
+    "difficulty": "medium",
+    "questionEn": "Find the distance between the two parallel planes $2x - y + 2z = 4$ and $2x - y + 2z = 13$.",
+    "questionAr": "أوجد البعد العمودي بين المستويين المتوازيين $2x - y + 2z = 4$ و $2x - y + 2z = 13$.",
+    "optionsEn": [
+      "3 units",
+      "9 units",
+      "1 unit",
+      "$\\frac{9}{5}$ units"
+    ],
+    "optionsAr": [
+      "3 وحدات طول",
+      "9 وحدات طول",
+      "1 وحدة طول",
+      "$\\frac{9}{5}$ وحدة طول"
+    ],
+    "correctAnswer": "3 units",
+    "correctIndex": 0,
+    "hintEn": "d = |D1 - D2| / sqrt(A^2 + B^2 + C^2).",
+    "hintAr": "البعد بين مستويين متوازيين = |د١ - د٢| / معيار المتجه العمودي.",
+    "stepByStepSolutionEn": [
+      "1. The two planes have identical coefficients $A = 2, B = -1, C = 2$.",
+      "2. The formula for distance between parallel planes is $d = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}}$.",
+      "3. $d = \\frac{|13 - 4|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{9}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المستويان لهما نفس معاملات س، ص، ع: أ = ٢، ب = -١، جـ = ٢.",
+      "٢. قانون البعد بين مستويين متوازيين: $d = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}}$.",
+      "٣. البعد = |١٣ - ٤| / جذر(٤ + ١ + ٤) = ٩ / ٣ = ٣ وحدات طول."
+    ],
+    "teacherTipEn": "Make sure the coefficients A, B, C are matched before using the formula.",
+    "teacherTipAr": "تأكد من توحيد معاملات س، ص، ع في كلا المستويين قبل تطبيق قانون الفرق بين الثوابت."
+  },
+  {
+    "id": "solid_ch2_db_med_53",
+    "titleEn": "Plane Equation Passing Through Three Non-Collinear Points",
+    "titleAr": "معادلة المستوى المار بثلاث نقاط ليست على استقامة واحدة",
+    "difficulty": "medium",
+    "diagramType": "plane_intercepts_3d",
+    "questionEn": "Find the Cartesian equation of the plane passing through $A(1, 0, 0)$, $B(0, 1, 0)$, and $C(0, 0, 1)$.",
+    "questionAr": "أوجد المعادلة الكارتيزية للمستوى المار بالنقاط $A(1, 0, 0)$ و $B(0, 1, 0)$ و $C(0, 0, 1)$.",
+    "optionsEn": [
+      "$x + y + z = 1$",
+      "$x + y + z = 3$",
+      "$x - y + z = 1$",
+      "$x + 2y + 3z = 1$"
+    ],
+    "optionsAr": [
+      "$x + y + z = 1$",
+      "$x + y + z = 3$",
+      "$x - y + z = 1$",
+      "$x + 2y + 3z = 1$"
+    ],
+    "correctAnswer": "$x + y + z = 1$",
+    "correctIndex": 0,
+    "hintEn": "The intercepts are a = 1, b = 1, c = 1: x/1 + y/1 + z/1 = 1.",
+    "hintAr": "الأجزاء المقطوعة هي ١، ١، ١: س/١ + ص/١ + ع/١ = ١.",
+    "stepByStepSolutionEn": [
+      "1. Using intercept form: $\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$.",
+      "2. Here the intercepts on the three axes are all 1: $\\frac{x}{1} + \\frac{y}{1} + \\frac{z}{1} = 1$.",
+      "3. Multiplying out: $x + y + z = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. باستخدام معادلة الأجزاء المقطوعة: س/أ + ص/ب + ع/جـ = ١.",
+      "٢. الأجزاء المقطوعة متساوية وتساوي ١: س/١ + ص/١ + ع/١ = ١.",
+      "٣. بالتبسيط: س + ص + ع = ١."
+    ],
+    "teacherTipEn": "Normal vector is (1, 1, 1), perpendicular to the equilateral triangle ABC.",
+    "teacherTipAr": "المتجه العمودي هو (١، ١، ١) وهو عمودي على سطح المثلث المتساوي الأضلاع أ ب جـ."
+  },
+  {
+    "id": "solid_ch2_db_med_54",
+    "titleEn": "Direction Vector of Line of Intersection of Two Planes",
+    "titleAr": "متجه اتجاه خط تقاطع مستويين",
+    "difficulty": "medium",
+    "questionEn": "Find the direction vector $\\vec{d}$ of the line of intersection of the planes $x + y + z = 1$ and $x - y + 2z = 2$.",
+    "questionAr": "أوجد متجه اتجاه $\\vec{d}$ لخط تقاطع المستويين $x + y + z = 1$ و $x - y + 2z = 2$.",
+    "optionsEn": [
+      "$(3, -1, -2)$",
+      "$(1, 0, 3)$",
+      "$(0, 2, -1)$",
+      "$(2, 0, 3)$"
+    ],
+    "optionsAr": [
+      "$(3, -1, -2)$",
+      "$(1, 0, 3)$",
+      "$(0, 2, -1)$",
+      "$(2, 0, 3)$"
+    ],
+    "correctAnswer": "$(3, -1, -2)$",
+    "correctIndex": 0,
+    "hintEn": "d = n1 x n2.",
+    "hintAr": "متجه اتجاه خط التقاطع = ن١ × ن٢.",
+    "stepByStepSolutionEn": [
+      "1. The normal vectors are $\\vec{n}_1 = (1, 1, 1)$ and $\\vec{n}_2 = (1, -1, 2)$.",
+      "2. The line of intersection is perpendicular to both normal vectors, so $\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2$:",
+      "   $$\\vec{d} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 1 & -1 & 2 \\end{vmatrix}$$",
+      "3. Compute components:",
+      "   $$\\hat{i}(2 - (-1)) - \\hat{j}(2 - 1) + \\hat{k}(-1 - 1) = 3\\hat{i} - \\hat{j} - 2\\hat{k} = (3, -1, -2)$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتجهان العموديان: ن١ = (١، ١، ١) و ن٢ = (١، -١، ٢).",
+      "٢. خط التقاطع عمودي على كلا العموديين، إذن هـ = ن١ × ن٢.",
+      "٣. بحساب الضرب الاتجاهي: ٣ س^ - ص^ - ٢ ع^ = (٣، -١، -٢)."
+    ],
+    "teacherTipEn": "Cross product of plane normals always gives the direction of their intersection line.",
+    "teacherTipAr": "الضرب الاتجاهي لعموديَي مستويين يعطي دائماً متجه اتجاه خط تقاطعهما."
+  },
+  {
+    "id": "solid_ch2_db_med_55",
+    "titleEn": "Distance from Point to Plane",
+    "titleAr": "طول العمود الساقط من نقطة معلومة على مستوى",
+    "difficulty": "medium",
+    "questionEn": "Find the perpendicular distance from the point $P(1, 2, 3)$ to the plane $x + 2y + 2z = 5$.",
+    "questionAr": "أوجد طول العمود الساقط من النقطة $P(1, 2, 3)$ على المستوى $x + 2y + 2z = 5$.",
+    "optionsEn": [
+      "2 units",
+      "3 units",
+      "$\\frac{4}{3}$ units",
+      "1 unit"
+    ],
+    "optionsAr": [
+      "2 وحدة طول",
+      "3 وحدات طول",
+      "$\\frac{4}{3}$ وحدة طول",
+      "1 وحدة طول"
+    ],
+    "correctAnswer": "2 units",
+    "correctIndex": 0,
+    "hintEn": "d = |Ax0 + By0 + Cz0 - D| / sqrt(A^2 + B^2 + C^2).",
+    "hintAr": "طول العمود = مقياس التعويض بالنقطة في معادلة المستوى مقسوماً على معيار المتجه العمودي.",
+    "stepByStepSolutionEn": [
+      "1. Perpendicular distance formula:",
+      "   $$d = \\frac{|A x_0 + B y_0 + C z_0 - D|}{\\sqrt{A^2 + B^2 + C^2}}$$",
+      "2. Substitute $P(1, 2, 3)$ into $x + 2y + 2z - 5 = 0$:",
+      "   $$|1(1) + 2(2) + 2(3) - 5| = |1 + 4 + 6 - 5| = |6| = 6$$",
+      "3. Denominator: $\\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{1 + 4 + 4} = 3$.",
+      "4. Distance $d = \\frac{6}{3} = 2$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون طول العمود الساقط من نقطة على مستوى:",
+      "   $$d = \\frac{|A x_0 + B y_0 + C z_0 - D|}{\\sqrt{A^2 + B^2 + C^2}}$$",
+      "٢. بالتعويض بالنقطة (١، ٢، ٣): |١ + ٤ + ٦ - ٥| = ٦.",
+      "٣. المقام = جذر(١ + ٤ + ٤) = ٣.",
+      "٤. طول العمود = ٦ / ٣ = ٢ وحدة طول."
+    ],
+    "teacherTipEn": "Always ensure the constant D is on the left side (equated to 0) before substituting.",
+    "teacherTipAr": "تأكد دائماً من تصفير معادلة المستوى قبل التعويض بالنقطة في البسط."
+  },
+  {
+    "id": "solid_ch2_db_med_56",
+    "titleEn": "Distance from Point to Straight Line in Space",
+    "titleAr": "طول العمود الساقط من نقطة على خط مستقيم في الفراغ",
+    "difficulty": "medium",
+    "questionEn": "Find the distance from point $P(1, 0, 0)$ to the line passing through origin with direction $\\vec{d} = (0, 1, 0)$ (the $y$-axis).",
+    "questionAr": "أوجد البعد العمودي للنقطة $P(1, 0, 0)$ عن المستقيم المار بنقطة الأصل ومتجه اتجاهه $\\vec{d} = (0, 1, 0)$ (محور الصادات).",
+    "optionsEn": [
+      "1 unit",
+      "0 units",
+      "2 units",
+      "$\\sqrt{2}$ units"
+    ],
+    "optionsAr": [
+      "1 وحدة طول",
+      "0 وحدة طول",
+      "2 وحدة طول",
+      "$\\sqrt{2}$ وحدة طول"
+    ],
+    "correctAnswer": "1 unit",
+    "correctIndex": 0,
+    "hintEn": "d = |AP x d| / |d|.",
+    "hintAr": "طول العمود = معيار الضرب الاتجاهي لـ (أ ب × هـ) مقسوماً على معيار هـ.",
+    "stepByStepSolutionEn": [
+      "1. Let $A(0, 0, 0)$ be a point on the line. Then $\\vec{AP} = P - A = (1, 0, 0)$.",
+      "2. Compute cross product with $\\vec{d} = (0, 1, 0)$:",
+      "   $$\\vec{AP} \\times \\vec{d} = (1, 0, 0) \\times (0, 1, 0) = (0, 0, 1) = \\hat{k}$$",
+      "3. Distance formula: $d = \\frac{|\\vec{AP} \\times \\vec{d}|}{|\\vec{d}|} = \\frac{1}{1} = 1$ unit."
+    ],
+    "stepByStepSolutionAr": [
+      "١. النقطة أ(٠، ٠، ٠) تقع على المستقيم، المتجه أ ب = (١، ٠، ٠).",
+      "٢. الضرب الاتجاهي: أ ب × هـ = (١، ٠، ٠) × (٠، ١، ٠) = (٠، ٠، ١).",
+      "٣. طول العمود = |أ ب × هـ| / |هـ| = ١ / ١ = ١ وحدة طول."
+    ],
+    "teacherTipEn": "Notice that P(1, 0, 0) lies on the x-axis, and its distance to the y-axis is obviously 1.",
+    "teacherTipAr": "النقطة تقع على محور السينات عند س = ١، وبعدها عن محور الصادات يساوي ١ بداهة."
+  },
+  {
+    "id": "solid_ch2_db_med_57",
+    "titleEn": "Intersection Point of Straight Line and Plane",
+    "titleAr": "نقطة تقاطع خط مستقيم مع مستوى",
+    "difficulty": "medium",
+    "questionEn": "Find the point of intersection between the line $\\vec{r} = (1, 0, 2) + t(1, 1, -1)$ and the plane $2x + y + z = 8$.",
+    "questionAr": "أوجد نقطة تقاطع المستقيم $\\vec{r} = (1, 0, 2) + t(1, 1, -1)$ مع المستوى $2x + y + z = 8$.",
+    "optionsEn": [
+      "$(3, 2, 0)$",
+      "$(2, 1, 1)$",
+      "$(4, 3, -1)$",
+      "$(1, 0, 2)$"
+    ],
+    "optionsAr": [
+      "$(3, 2, 0)$",
+      "$(2, 1, 1)$",
+      "$(4, 3, -1)$",
+      "$(1, 0, 2)$"
+    ],
+    "correctAnswer": "$(3, 2, 0)$",
+    "correctIndex": 0,
+    "hintEn": "Substitute x = 1 + t, y = t, z = 2 - t into plane equation.",
+    "hintAr": "عوض بإحداثيات المستقيم البارامترية في معادلة المستوى لإيجاد قيمة الوسيط ك.",
+    "stepByStepSolutionEn": [
+      "1. Parametric equations of line: $x = 1 + t$, $y = t$, $z = 2 - t$.",
+      "2. Substitute into plane equation $2x + y + z = 8$:",
+      "   $$2(1 + t) + t + (2 - t) = 8 \\implies 2 + 2t + t + 2 - t = 8$$",
+      "   $$2t + 4 = 8 \\implies 2t = 4 \\implies t = 2$$",
+      "3. Substitute $t = 2$ into line equations: $x = 1 + 2 = 3$, $y = 2$, $z = 2 - 2 = 0$.",
+      "4. The intersection point is $(3, 2, 0)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المعادلات البارامترية للمستقيم: س = ١ + ك، ص = ك، ع = ٢ - ك.",
+      "٢. بالتعويض في معادلة المستوى ٢س + ص + ع = ٨:",
+      "   ٢(١ + ك) + ك + (٢ - ك) = ٨ ومنها ٢ك + ٤ = ٨ أي ك = ٢.",
+      "٣. بالتعويض عن ك = ٢: س = ٣، ص = ٢، ع = ٠.",
+      "٤. نقطة التقاطع هي (٣، ٢، ٠)."
+    ],
+    "teacherTipEn": "Check by plugging (3, 2, 0) back into plane: 2(3) + 2 + 0 = 8 (valid).",
+    "teacherTipAr": "تحقق بالتعويض بالنقطة الناتجة في معادلة المستوى: ٢(٣) + ٢ + ٠ = ٨ (صحيحة)."
+  },
+  {
+    "id": "solid_ch2_db_med_58",
+    "titleEn": "Equation of Plane Parallel to Two Skew Vectors",
+    "titleAr": "معادلة مستوى يوازي متجهين معلومين ويمر بنقطة",
+    "difficulty": "medium",
+    "questionEn": "Find the Cartesian equation of the plane passing through $A(1, 1, 1)$ and parallel to both vectors $\\vec{u} = (1, 0, 1)$ and $\\vec{v} = (0, 1, 1)$.",
+    "questionAr": "أوجد المعادلة الكارتيزية للمستوى المار بالنقطة $A(1, 1, 1)$ ويوازي كلا المتجهين $\\vec{u} = (1, 0, 1)$ و $\\vec{v} = (0, 1, 1)$.",
+    "optionsEn": [
+      "$x + y - z = 1$",
+      "$x - y + z = 1$",
+      "$x + y + z = 3$",
+      "$2x - y - z = 0$"
+    ],
+    "optionsAr": [
+      "$x + y - z = 1$",
+      "$x - y + z = 1$",
+      "$x + y + z = 3$",
+      "$2x - y - z = 0$"
+    ],
+    "correctAnswer": "$x + y - z = 1$",
+    "correctIndex": 0,
+    "hintEn": "n = u x v.",
+    "hintAr": "المتجه العمودي على المستوى ن = u × v.",
+    "stepByStepSolutionEn": [
+      "1. The normal vector $\\vec{n}$ is perpendicular to both parallel vectors:",
+      "   $$\\vec{n} = \\vec{u} \\times \\vec{v} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{vmatrix} = -\\hat{i} - \\hat{j} + \\hat{k} \\implies (-1, -1, 1)$$",
+      "2. Multiplying by $-1$ gives standard normal $\\vec{n} = (1, 1, -1)$.",
+      "3. Plane equation: $1(x - 1) + 1(y - 1) - 1(z - 1) = 0 \\implies x + y - z - 1 = 0 \\implies x + y - z = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتجه العمودي على المستوى: ن = u × v = (-١، -١، ١) أو (١، ١، -١).",
+      "٢. معادلة المستوى: ١(س - ١) + ١(ص - ١) - ١(ع - ١) = ٠.",
+      "٣. بالتبسيط: س + ص - ع = ١."
+    ],
+    "teacherTipEn": "Cross product of two direction vectors in a plane always gives its normal vector.",
+    "teacherTipAr": "الضرب الاتجاهي لأي متجهين يوازيان المستوى يعطي متجهه العمودي مباشرة."
+  },
+  {
+    "id": "solid_ch2_db_med_59",
+    "titleEn": "Coplanar Lines Condition in Determinant Form",
+    "titleAr": "شرط وقوع مستقيمين في مستوى واحد",
+    "difficulty": "medium",
+    "questionEn": "Two lines with direction vectors $\\vec{d}_1 = (1, 2, 3)$ and $\\vec{d}_2 = (2, 3, 4)$ passing through $A(1, 1, 1)$ and $B(2, 3, 4)$ are coplanar if which scalar triple product vanishes?",
+    "questionAr": "يقع المستقيمان اللذان متجها اتجاههما $\\vec{d}_1 = (1, 2, 3)$ و $\\vec{d}_2 = (2, 3, 4)$ والماران بالنقطتين $A(1, 1, 1)$ و $B(2, 3, 4)$ في مستوى واحد إذا وفقط إذا كان:",
+    "optionsEn": [
+      "$(\\vec{B} - \\vec{A}) \\cdot (\\vec{d}_1 \\times \\vec{d}_2) = 0$",
+      "$\\vec{d}_1 \\cdot \\vec{d}_2 = 0$",
+      "$\\vec{d}_1 \\times \\vec{d}_2 = \\vec{0}$",
+      "$(\\vec{B} - \\vec{A}) \\times \\vec{d}_1 = \\vec{0}$"
+    ],
+    "optionsAr": [
+      "$(\\vec{B} - \\vec{A}) \\cdot (\\vec{d}_1 \\times \\vec{d}_2) = 0$",
+      "$\\vec{d}_1 \\cdot \\vec{d}_2 = 0$",
+      "$\\vec{d}_1 \\times \\vec{d}_2 = \\vec{0}$",
+      "$(\\vec{B} - \\vec{A}) \\times \\vec{d}_1 = \\vec{0}$"
+    ],
+    "correctAnswer": "$(\\vec{B} - \\vec{A}) \\cdot (\\vec{d}_1 \\times \\vec{d}_2) = 0$",
+    "correctIndex": 0,
+    "hintEn": "The connecting vector AB must lie in the plane spanned by d1 and d2.",
+    "hintAr": "المتجه أ ب الواصل بين النقطتين يجب أن يقع في نفس المستوى مع متجهي الاتجاه.",
+    "stepByStepSolutionEn": [
+      "1. Two lines are coplanar if and only if the vector joining a point on each line, $\\vec{AB} = \\vec{B} - \\vec{A}$, is coplanar with both direction vectors $\\vec{d}_1$ and $\\vec{d}_2$.",
+      "2. The coplanarity condition for three vectors is that their scalar triple product equals zero:",
+      "   $$(\\vec{B} - \\vec{A}) \\cdot (\\vec{d}_1 \\times \\vec{d}_2) = 0$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. يقع مستقيمان في مستوى واحد إذا وفقط إذا كان المتجه الواصل بين نقطتين عليهما أ ب يقع في نفس المستوى مع متجهي الاتجاه هـ١ و هـ٢.",
+      "٢. شرط وقوع المتجهات الثلاثة في مستوى واحد هو انعدام ضربها الثلاثي القياسي:",
+      "   $$(\\vec{B} - \\vec{A}) \\cdot (\\vec{d}_1 \\times \\vec{d}_2) = 0$$"
+    ],
+    "teacherTipEn": "If this scalar triple product is non-zero, the two lines are SKEW (non-coplanar).",
+    "teacherTipAr": "إذا كان هذا المقدار لا يساوي صفراً، فإن المستقيمين يكونان متخالفين."
   }
 ],
   hots: [
@@ -5351,6 +5992,324 @@ export const solidCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "The tetrahedron volume formula $V = abc/6$ applies to any plane cutting the coordinate axes.",
     "teacherTipAr": "قانون حجم الهرم أ ب جـ / 6 ينطبق على أي مستوى يقطع محاور الإحداثيات."
+  },
+  {
+    "id": "solid_ch2_db_hots_51",
+    "titleEn": "Shortest Distance Between Two Skew Lines",
+    "titleAr": "أقصر بعد بين مستقيمين متخالفين في الفراغ",
+    "difficulty": "hots",
+    "questionEn": "Find the shortest distance between the line $L_1: \\vec{r} = (1, 0, 0) + t(0, 1, 0)$ and the line $L_2: \\vec{r} = (0, 0, 3) + s(1, 0, 0)$.",
+    "questionAr": "أوجد أقصر بعد بين المستقيمين المتخالفين $L_1: \\vec{r} = (1, 0, 0) + t(0, 1, 0)$ و $L_2: \\vec{r} = (0, 0, 3) + s(1, 0, 0)$.",
+    "optionsEn": [
+      "3 units",
+      "1 unit",
+      "$\\sqrt{10}$ units",
+      "4 units"
+    ],
+    "optionsAr": [
+      "3 وحدات طول",
+      "1 وحدة طول",
+      "$\\sqrt{10}$ وحدة طول",
+      "4 وحدات طول"
+    ],
+    "correctAnswer": "3 units",
+    "correctIndex": 0,
+    "hintEn": "d = |(A2 - A1) . (d1 x d2)| / |d1 x d2|.",
+    "hintAr": "أقصر بعد = القيمة المطلقة لحاصل الضرب القياسي للمتجه الواصل في العمودي المشترك مقسوماً على معياره.",
+    "stepByStepSolutionEn": [
+      "1. Points: $A_1 = (1, 0, 0)$ and $A_2 = (0, 0, 3)$. Connecting vector: $\\vec{A_2 - A_1} = (-1, 0, 3)$.",
+      "2. Directions: $\\vec{d}_1 = (0, 1, 0)$ and $\\vec{d}_2 = (1, 0, 0)$.",
+      "3. Common perpendicular vector: $\\vec{n} = \\vec{d}_1 \\times \\vec{d}_2 = (0, 1, 0) \\times (1, 0, 0) = (0, 0, -1)$.",
+      "4. Magnitude: $|\\vec{n}| = 1$.",
+      "5. Shortest distance $d = \\frac{|(-1, 0, 3) \\cdot (0, 0, -1)|}{1} = \\frac{|-3|}{1} = 3$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. النقطتان: أ١ = (١، ٠، ٠) و أ٢ = (٠، ٠، ٣)، المتجه الواصل = (-١، ٠، ٣).",
+      "٢. متجها الاتجاه: هـ١ = (٠، ١، ٠) و هـ٢ = (١، ٠، ٠).",
+      "٣. العمودي المشترك = هـ١ × هـ٢ = (٠، ٠، -١)، ومعياره = ١.",
+      "٤. أقصر بعد = |(-١، ٠، ٣) · (٠، ٠، -١)| / ١ = |-٣| = ٣ وحدات طول."
+    ],
+    "teacherTipEn": "Notice L1 is in the plane z = 0 and L2 is in the plane z = 3, so their vertical gap is simply 3.",
+    "teacherTipAr": "المستقيم الأول يقع في المستوى ع = ٠ والثاني في المستوى ع = ٣، فالفرق الرأسي بينهما ٣ بداهة."
+  },
+  {
+    "id": "solid_ch2_db_hots_52",
+    "titleEn": "Reflection of a Point Across a Plane",
+    "titleAr": "صورة نقطة بالانعكاس في مستوى",
+    "difficulty": "hots",
+    "questionEn": "Find the image of the point $P(1, 2, 3)$ reflected across the plane $x = 0$ (the $yz$-plane).",
+    "questionAr": "أوجد صورة النقطة $P(1, 2, 3)$ بالانعكاس في المستوى الإحداثي $x = 0$ (المستوى $yz$).",
+    "optionsEn": [
+      "$(-1, 2, 3)$",
+      "$(1, -2, 3)$",
+      "$(1, 2, -3)$",
+      "$(-1, -2, -3)$"
+    ],
+    "optionsAr": [
+      "$(-1, 2, 3)$",
+      "$(1, -2, 3)$",
+      "$(1, 2, -3)$",
+      "$(-1, -2, -3)$"
+    ],
+    "correctAnswer": "$(-1, 2, 3)$",
+    "correctIndex": 0,
+    "hintEn": "Reflection across x = 0 negates the x-coordinate while preserving y and z.",
+    "hintAr": "الانعكاس في المستوى س = ٠ يغير إشارة الإحداثي السيني فقط مع بقاء ص وع دون تغيير.",
+    "stepByStepSolutionEn": [
+      "1. Reflection across the coordinate plane $x = 0$ maps each point $(x, y, z)$ to $(-x, y, z)$.",
+      "2. For $P(1, 2, 3)$, the reflected image point is $P'(-1, 2, 3)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الانعكاس في المستوى ص ع (س = ٠) يحول النقطة (س، ص، ع) إلى (-س، ص، ع).",
+      "٢. للنقطة ب(١، ٢، ٣)، تكون الصورة المنعكسة هي ب'(-١، ٢، ٣)."
+    ],
+    "teacherTipEn": "The midpoint between P and P' is (0, 2, 3), which lies precisely on the plane x = 0.",
+    "teacherTipAr": "نقطة منتصف القطعة بين النقطة وصورتها هي (٠، ٢، ٣) وتقع تماماً على المستوى س = ٠."
+  },
+  {
+    "id": "solid_ch2_db_hots_53",
+    "titleEn": "Angle Bisector Plane Between Intersecting Planes",
+    "titleAr": "معادلة المستوى المنصف للزاوية الزوجية بين مستويين",
+    "difficulty": "hots",
+    "questionEn": "Find the equation of the plane bisecting the dihedral angle between the planes $x - 2y + 2z = 3$ and $2x + y - 2z = 3$.",
+    "questionAr": "أوجد معادلة أحد المستويين المنصفين للزاوية الزوجية بين المستويين $x - 2y + 2z = 3$ و $2x + y - 2z = 3$.",
+    "optionsEn": [
+      "$3x - y = 6$",
+      "$x + 3y - 4z = 0$",
+      "$3x + y = 6$",
+      "$x - 3y = 0$"
+    ],
+    "optionsAr": [
+      "$3x - y = 6$",
+      "$x + 3y - 4z = 0$",
+      "$3x + y = 6$",
+      "$x - 3y = 0$"
+    ],
+    "correctAnswer": "$3x - y = 6$",
+    "correctIndex": 0,
+    "hintEn": "Set (A1 x + B1 y + C1 z - D1) / |n1| = +- (A2 x + B2 y + C2 z - D2) / |n2|.",
+    "hintAr": "ساوِ معادلتي المستويين مقسومتين على معياريهما بإشارتي موجب أو سالب.",
+    "stepByStepSolutionEn": [
+      "1. The normal magnitudes are $|\\vec{n}_1| = \\sqrt{1 + 4 + 4} = 3$ and $|\\vec{n}_2| = \\sqrt{4 + 1 + 4} = 3$.",
+      "2. The bisector planes satisfy:",
+      "   $$\\frac{x - 2y + 2z - 3}{3} = \\pm \\frac{2x + y - 2z - 3}{3}$$",
+      "3. Taking the positive sign (+):",
+      "   $$x - 2y + 2z - 3 = 2x + y - 2z - 3 \\implies -x - 3y + 4z = 0 \\implies x + 3y - 4z = 0$$",
+      "4. Taking the negative sign (-):",
+      "   $$x - 2y + 2z - 3 = -(2x + y - 2z - 3) = -2x - y + 2z + 3$$",
+      "   $$3x - y = 6$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. معيارا العموديين: |ن١| = ٣، |ن٢| = ٣.",
+      "٢. معادلتا المنصفين تنتجان من مساواة البعدين:",
+      "   $$\\frac{x - 2y + 2z - 3}{3} = \\pm \\frac{2x + y - 2z - 3}{3}$$",
+      "٣. بأخذ الإشارة السالبة:",
+      "   س - ٢ص + ٢ع - ٣ = -٢س - ص + ٢ع + ٣ ومنها ٣س - ص = ٦."
+    ],
+    "teacherTipEn": "Notice the 2z terms cancel out in the second bisector, leaving 3x - y = 6.",
+    "teacherTipAr": "لاحظ اختصار مركبة ع في المنصف الثاني مما يبسط المعادلة إلى ٣س - ص = ٦."
+  },
+  {
+    "id": "solid_ch2_db_hots_54",
+    "titleEn": "Projection of Straight Line on Coordinate Plane",
+    "titleAr": "مسقط خط مستقيم على مستوى إحداثي",
+    "difficulty": "hots",
+    "questionEn": "Find the Cartesian equation in the $xy$-plane of the orthogonal projection of the line $\\frac{x - 1}{2} = \\frac{y - 2}{3} = \\frac{z - 3}{4}$.",
+    "questionAr": "أوجد معادلة مسقط المستقيم $\\frac{x - 1}{2} = \\frac{y - 2}{3} = \\frac{z - 3}{4}$ على المستوى الإحداثي $xy$.",
+    "optionsEn": [
+      "$3x - 2y + 1 = 0$ and $z = 0$",
+      "$2x - 3y + 4 = 0$ and $z = 0$",
+      "$3x + 2y - 7 = 0$ and $z = 0$",
+      "$4x - 2z + 2 = 0$ and $y = 0$"
+    ],
+    "optionsAr": [
+      "$3x - 2y + 1 = 0$ و $z = 0$",
+      "$2x - 3y + 4 = 0$ و $z = 0$",
+      "$3x + 2y - 7 = 0$ و $z = 0$",
+      "$4x - 2z + 2 = 0$ و $y = 0$"
+    ],
+    "correctAnswer": "$3x - 2y + 1 = 0$ and $z = 0$",
+    "correctIndex": 0,
+    "hintEn": "Eliminate the z parameter and set z = 0.",
+    "hintAr": "احذف المتغير ع من نسب المستقيم وضع ع = ٠.",
+    "stepByStepSolutionEn": [
+      "1. The projection of any curve onto the $xy$-plane lies entirely in the plane $z = 0$.",
+      "2. Equate the $x$ and $y$ symmetric ratios: $\\frac{x - 1}{2} = \\frac{y - 2}{3}$.",
+      "3. Cross-multiply: $3(x - 1) = 2(y - 2) \\implies 3x - 3 = 2y - 4 \\implies 3x - 2y + 1 = 0$.",
+      "4. The line of projection is given by $3x - 2y + 1 = 0$ with $z = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مسقط أي خط على المستوى س ص يقع بالكامل في المستوى ع = ٠.",
+      "٢. بمساواة نسبي س و ص: (س - ١)/٢ = (ص - ٢)/٣.",
+      "٣. طرفين في وسطين: ٣س - ٣ = ٢ص - ٤ ومنها ٣س - ٢ص + ١ = ٠.",
+      "٤. معادلة المسقط هي ٣س - ٢ص + ١ = ٠ مع ع = ٠."
+    ],
+    "teacherTipEn": "Orthogonal projection simply drops the perpendicular coordinate to zero.",
+    "teacherTipAr": "المسقط العمودي يصفر الإحداثي العمودي مع الحفاظ على العلاقة بين الإحداثيين الآخرين."
+  },
+  {
+    "id": "solid_ch2_db_hots_55",
+    "titleEn": "Family of Planes Through Intersection Line",
+    "titleAr": "حزمة المستويات المارة بخط تقاطع مستويين",
+    "difficulty": "hots",
+    "questionEn": "Find the equation of the plane passing through the line of intersection of $x + y + z = 1$ and $2x + y - z = 2$, and also passing through the origin $(0, 0, 0)$.",
+    "questionAr": "أوجد معادلة المستوى المار بخط تقاطع المستويين $x + y + z = 1$ و $2x + y - z = 2$ وبنقطة الأصل $(0, 0, 0)$.",
+    "optionsEn": [
+      "$y + 3z = 0$",
+      "$x + y = 0$",
+      "$3x + 2y = 3$",
+      "$x - 3z = 0$"
+    ],
+    "optionsAr": [
+      "$y + 3z = 0$",
+      "$x + y = 0$",
+      "$3x + 2y = 3$",
+      "$x - 3z = 0$"
+    ],
+    "correctAnswer": "$y + 3z = 0$",
+    "correctIndex": 0,
+    "hintEn": "Family of planes: P1 + k P2 = 0.",
+    "hintAr": "معادلة حزمة المستويات: المستوى الأول + ك (المستوى الثاني) = ٠.",
+    "stepByStepSolutionEn": [
+      "1. Family of planes: $(x + y + z - 1) + k(2x + y - z - 2) = 0$.",
+      "2. Substitute $(0, 0, 0)$ to determine $k$:",
+      "   $$-1 + k(-2) = 0 \\implies -2k = 1 \\implies k = -\\frac{1}{2}$$",
+      "3. Substitute $k = -\\frac{1}{2}$ and multiply by 2:",
+      "   $$2(x + y + z - 1) - (2x + y - z - 2) = 0$$",
+      "   $$(2x - 2x) + (2y - y) + (2z + z) + (-2 + 2) = 0 \\implies y + 3z = 0$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. معادلة حزمة المستويات: (س + ص + ع - ١) + ك(٢س + ص - ع - ٢) = ٠.",
+      "٢. بالتعويض بنقطة الأصل (٠، ٠، ٠): -١ - ٢ك = ٠ ومنها ك = -١ / ٢.",
+      "٣. بضرب المعادلة في ٢ والتبسيط:",
+      "   ٢(س + ص + ع - ١) - (٢س + ص - ع - ٢) = ٠.",
+      "٤. الناتج النهائي: ص + ٣ع = ٠."
+    ],
+    "teacherTipEn": "Notice the constant term vanished, verifying that the plane passes through the origin.",
+    "teacherTipAr": "لاحظ اختفاء الحد المطلق تماماً مما يؤكد مرور المستوى بنقطة الأصل."
+  },
+  {
+    "id": "solid_ch2_db_hots_56",
+    "titleEn": "Tangency Condition Between Sphere and Plane",
+    "titleAr": "شرط مماسّة كرة لمستوى في الفراغ",
+    "difficulty": "hots",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "For what positive value of $k$ is the plane $2x - 2y + z + k = 0$ tangent to the sphere $x^2 + y^2 + z^2 = 9$?",
+    "questionAr": "لأي قيمة موجبة لـ $k$ يكون المستوى $2x - 2y + z + k = 0$ مماساً للكرة $x^2 + y^2 + z^2 = 9$؟",
+    "optionsEn": [
+      "9",
+      "3",
+      "27",
+      "6"
+    ],
+    "optionsAr": [
+      "9",
+      "3",
+      "27",
+      "6"
+    ],
+    "correctAnswer": "9",
+    "correctIndex": 0,
+    "hintEn": "Distance from sphere center (0, 0, 0) to the plane must equal the radius r = 3.",
+    "hintAr": "طول العمود من مركز الكرة (٠، ٠، ٠) إلى المستوى يجب أن يساوي نصف القطر نق = ٣.",
+    "stepByStepSolutionEn": [
+      "1. Center of sphere is $O(0, 0, 0)$ and radius is $r = \\sqrt{9} = 3$.",
+      "2. For tangency, the perpendicular distance from the center to the plane must equal $r$:",
+      "   $$d = \\frac{|2(0) - 2(0) + 0 + k|}{\\sqrt{2^2 + (-2)^2 + 1^2}} = \\frac{|k|}{3}$$",
+      "3. Set $\\frac{|k|}{3} = 3 \\implies |k| = 9$.",
+      "4. Since $k > 0$, $k = 9$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مركز الكرة هو نقطة الأصل (٠، ٠، ٠) ونصف القطر نق = ٣.",
+      "٢. شرط المماسة: طول العمود من المركز إلى المستوى = نق:",
+      "   $$d = \\frac{|k|}{\\sqrt{4 + 4 + 1}} = \\frac{|k|}{3} = 3$$",
+      "٣. |ك| = ٩، وبما أن ك موجبة فإن ك = ٩."
+    ],
+    "teacherTipEn": "There are two tangent planes parallel to each other corresponding to k = +9 and k = -9.",
+    "teacherTipAr": "يوجد مستويان متوازيان مماسان للكرة يقابلان ك = +٩ و ك = -٩."
+  },
+  {
+    "id": "solid_ch2_db_hots_57",
+    "titleEn": "Area Projection Identity for Triangles in Space",
+    "titleAr": "متطابقة مساقط مساحة سطح مستوٍ على مستويات الإحداثيات",
+    "difficulty": "hots",
+    "questionEn": "If a planar region of area $A$ has orthogonal projections $A_{xy}, A_{yz}, A_{zx}$ on the three coordinate planes, what fundamental relationship connects them?",
+    "questionAr": "إذا كانت منطقة مستوية مساحتها $A$ ولها مساقط عمودية $A_{xy}, A_{yz}, A_{zx}$ على مستويات الإحداثيات الثلاثة، فما العلاقة التي تربط بينها؟",
+    "optionsEn": [
+      "$A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2$",
+      "$A = A_{xy} + A_{yz} + A_{zx}$",
+      "$A^3 = A_{xy} A_{yz} A_{zx}$",
+      "$A^2 = A_{xy} A_{yz} + A_{yz} A_{zx} + A_{zx} A_{xy}$"
+    ],
+    "optionsAr": [
+      "$A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2$",
+      "$A = A_{xy} + A_{yz} + A_{zx}$",
+      "$A^3 = A_{xy} A_{yz} A_{zx}$",
+      "$A^2 = A_{xy} A_{yz} + A_{yz} A_{zx} + A_{zx} A_{xy}$"
+    ],
+    "correctAnswer": "$A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2$",
+    "correctIndex": 0,
+    "hintEn": "De Gua's 3D generalization of the Pythagorean Theorem.",
+    "hintAr": "مبرهنة دي غوا (التعميم ثلاثي الأبعاد لنظرية فيثاغورس للمساحات).",
+    "stepByStepSolutionEn": [
+      "1. The projection of area $A$ onto a plane with normal $\\hat{n} = (\\cos\\alpha, \\cos\\beta, \\cos\\gamma)$ satisfies:",
+      "   $$A_{xy} = A |\\cos\\gamma|, \\quad A_{yz} = A |\\cos\\alpha|, \\quad A_{zx} = A |\\cos\\beta|$$",
+      "2. Squaring and summing:",
+      "   $$A_{xy}^2 + A_{yz}^2 + A_{zx}^2 = A^2(\\cos^2\\gamma + \\cos^2\\alpha + \\cos^2\\beta)$$",
+      "3. Since $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$, we obtain:",
+      "   $$A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. مسقط المساحة أ على المستويات الإحداثية يرتبط بجيوب تمام الاتجاه للمتجه العمودي:",
+      "   $$A_{xy} = A \\cos\\gamma, \\quad A_{yz} = A \\cos\\alpha, \\quad A_{zx} = A \\cos\\beta$$",
+      "٢. بالتربيع والجمع:",
+      "   $$A_{xy}^2 + A_{yz}^2 + A_{zx}^2 = A^2(\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma)$$",
+      "٣. بما أن مجموع مربعات جيوب تمام الاتجاه يساوي ١، ينتج مبرهنة دي غوا الشهيرة:",
+      "   $$A^2 = A_{xy}^2 + A_{yz}^2 + A_{zx}^2$$"
+    ],
+    "teacherTipEn": "This is known as de Gua's theorem, the exact 3D geometric analog of a^2 + b^2 = c^2.",
+    "teacherTipAr": "تعرف هذه النتيجة بنظرية دي غوا، وهي المكافئ ثلاثي الأبعاد لنظرية فيثاغورس."
+  },
+  {
+    "id": "solid_ch2_db_hots_58",
+    "titleEn": "Distance Between Point and Line Along Fixed Direction",
+    "titleAr": "المسافة بين نقطة ومستقيم مقاسة في اتجاه معلوم",
+    "difficulty": "hots",
+    "questionEn": "Find the distance from point $P(1, -2, 3)$ to the plane $x - y + z = 5$ measured along the line with direction vector $\\vec{d} = (2, 2, 1)$.",
+    "questionAr": "أوجد المسافة من النقطة $P(1, -2, 3)$ إلى المستوى $x - y + z = 5$ مقاسة في اتجاه المستقيم الذي متجه اتجاهه $\\vec{d} = (2, 2, 1)$.",
+    "optionsEn": [
+      "3 units",
+      "1 unit",
+      "$\\sqrt{3}$ units",
+      "6 units"
+    ],
+    "optionsAr": [
+      "3 وحدات طول",
+      "1 وحدة طول",
+      "$\\sqrt{3}$ وحدة طول",
+      "6 وحدات طول"
+    ],
+    "correctAnswer": "3 units",
+    "correctIndex": 0,
+    "hintEn": "Write parametric line from P along d: r = P + t * d and find intersection with plane.",
+    "hintAr": "اكتب معادلة المستقيم المار بالنقطة ب في اتجاه هـ، وأوجد نقطة التقاطع مع المستوى وطول القطعة.",
+    "stepByStepSolutionEn": [
+      "1. A line passing through $P(1, -2, 3)$ with direction $\\vec{d} = (2, 2, 1)$ has equation:",
+      "   $$x = 1 + 2t, \\quad y = -2 + 2t, \\quad z = 3 + t$$",
+      "2. Substitute into the plane $x - y + z = 5$:",
+      "   $$(1 + 2t) - (-2 + 2t) + (3 + t) = 5 \\implies 1 + 2 + 3 + t = 5 \\implies 6 + t = 5 \\implies t = -1$$",
+      "3. The distance along the line is $|t| \\times |\\vec{d}|$.",
+      "4. $|\\vec{d}| = \\sqrt{2^2 + 2^2 + 1^2} = \\sqrt{9} = 3$, so distance = $|-1| \\times 3 = 3$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المستقيم المار بالنقطة ب(١، -٢، ٣) في اتجاه المتجه هـ = (٢، ٢، ١):",
+      "   س = ١ + ٢ك، ص = -٢ + ٢ك، ع = ٣ + ك.",
+      "٢. بالتعويض في معادلة المستوى س - ص + ع = ٥:",
+      "   (١ + ٢ك) - (-٢ + ٢ك) + (٣ + ك) = ٥ ومنها ٦ + ك = ٥ أي ك = -١.",
+      "٣. المسافة المقاسة في هذا الاتجاه = |ك| × |هـ| = |-١| × ٣ = ٣ وحدات طول."
+    ],
+    "teacherTipEn": "Distance along a direction differs from perpendicular distance; it is the hypotenuse.",
+    "teacherTipAr": "المسافة المقاسة في اتجاه مائل تختلف عن العمود الساقط وتمثل طول الوتر في المثلث القائم."
   }
 ]
 };

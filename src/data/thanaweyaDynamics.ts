@@ -2008,11 +2008,11 @@ $$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
             ]
           },
           interactiveWidget: {
-            type: 'calculus_tangent',
-            titleEn: 'Work as Area Under Variable Force-Displacement Curve',
-            titleAr: 'الشغل كمساحة تحت منحنى القوة والإزاحة',
-            descriptionEn: 'Interactive graphic tool demonstrating definite integration of force functions to determine mechanical work and kinetic energy change.',
-            descriptionAr: 'أداة تفاعلية بيانية توضح التكامل المحدد لدوال القوة لحساب الشغل الميكانيكي والتغير في طاقة الحركة.'
+            type: 'work_energy',
+            titleEn: 'Work-Energy Theorem & Inclined Plane Dynamics Simulator',
+            titleAr: 'محاكي نظرية الشغل وطاقة الحركة وحركة الأجسام على المستوى المائل',
+            descriptionEn: 'Interactive mechanics laboratory exploring work done by gravity, friction, and pulling forces, kinetic energy changes, and work-energy theorem W_net = Delta T.',
+            descriptionAr: 'مختبر ميكانيكا تفاعلي لاستكشاف شغل قوى الجاذبية والاحتكاك وقوة السحب، والتغير في طاقة الحركة، ونظرية الشغل والطاقة ش_الكلية = دلتا ط.'
           }
         },
         {

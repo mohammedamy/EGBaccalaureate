@@ -1601,6 +1601,279 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Gravitational potential energy is relative to the chosen reference ground level.",
     "teacherTipAr": "طاقة وضع الجاذبية تقاس دائماً بالنسبة لمستوى الإسناد المختار."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_51",
+    "titleEn": "Work Done by a Constant Vector Force",
+    "titleAr": "شغل قوة متجهة ثابتة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A constant force $\\vec{F} = (4, 3)\\text{ N}$ displaces an object by $\\Delta\\vec{r} = (5, 2)\\text{ m}$. Find the work done by the force.",
+    "questionAr": "قوة ثابتة $\\vec{F} = (4, 3)\\text{ ن}$ أزاحت جسيماً إزاحة $\\Delta\\vec{r} = (5, 2)\\text{ م}$. أوجد الشغل المبذول بواسطة القوة.",
+    "optionsEn": [
+      "$26\\text{ J}$",
+      "$20\\text{ J}$",
+      "$14\\text{ J}$",
+      "$35\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$26\\text{ جول}$",
+      "$20\\text{ جول}$",
+      "$14\\text{ جول}$",
+      "$35\\text{ جول}$"
+    ],
+    "correctAnswer": "$26\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Work done by a constant force is the dot product: $W = \\vec{F} \\cdot \\Delta\\vec{r} = F_x \\Delta x + F_y \\Delta y$.",
+    "hintAr": "شغل القوة الثابتة هو حاصل الضرب القياسي: $W = \\vec{F} \\cdot \\Delta\\vec{r} = F_x \\Delta x + F_y \\Delta y$.",
+    "stepByStepSolutionEn": [
+      "Compute the dot product: $W = 4(5) + 3(2) = 20 + 6 = 26\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الضرب القياسي: $W = 4(5) + 3(2) = 20 + 6 = 26\\text{ جول}$."
+    ],
+    "teacherTipEn": "Work is a scalar quantity, measured in Joules ($\\text{N}\\cdot\\text{m}$).",
+    "teacherTipAr": "الشغل كمية قياسية (عددية) تقاس بوحدة الجول (نيوتن.متر)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_52",
+    "titleEn": "Kinetic Energy of a Moving Body",
+    "titleAr": "طاقة الحركة لجسم متحرك",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body of mass $m = 2\\text{ kg}$ moves with speed $v = 6\\text{ m/s}$. Find its kinetic energy $T$.",
+    "questionAr": "جسم كتلته $m = 2\\text{ كجم}$ يتحرك بسرعة $v = 6\\text{ م/ث}$. أوجد طاقة حركته $T$.",
+    "optionsEn": [
+      "$36\\text{ J}$",
+      "$12\\text{ J}$",
+      "$72\\text{ J}$",
+      "$18\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$36\\text{ جول}$",
+      "$12\\text{ جول}$",
+      "$72\\text{ جول}$",
+      "$18\\text{ جول}$"
+    ],
+    "correctAnswer": "$36\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "The formula for kinetic energy is $T = \\frac{1}{2} m v^2$.",
+    "hintAr": "قانون طاقة الحركة هو $T = \\frac{1}{2} m v^2$.",
+    "stepByStepSolutionEn": [
+      "Calculate: $T = \\frac{1}{2} (2) (6^2) = 1 \\times 36 = 36\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $T = \\frac{1}{2} \\times 2 \\times 6^2 = 36\\text{ جول}$."
+    ],
+    "teacherTipEn": "Kinetic energy is always non-negative ($T \\ge 0$) and depends quadratically on speed.",
+    "teacherTipAr": "طاقة الحركة دائماً غير سالبة وتتناسب طردياً مع مربع السرعة."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_53",
+    "titleEn": "Work-Energy Theorem Application",
+    "titleAr": "تطبيق مبرهنة الشغل وطاقة الحركة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle has initial kinetic energy $T_1 = 20\\text{ J}$. If the total net work done on the particle is $W_{\\text{net}} = 30\\text{ J}$, what is its final kinetic energy $T_2$?",
+    "questionAr": "جسيم طاقة حركته الابتدائية $T_1 = 20\\text{ جول}$. إذا كان الشغل الكلي المبذول عليه $W_{\\text{net}} = 30\\text{ جول}$، فما هي طاقة حركته النهائية $T_2$؟",
+    "optionsEn": [
+      "$50\\text{ J}$",
+      "$10\\text{ J}$",
+      "$600\\text{ J}$",
+      "$25\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$50\\text{ جول}$",
+      "$10\\text{ جول}$",
+      "$600\\text{ جول}$",
+      "$25\\text{ جول}$"
+    ],
+    "correctAnswer": "$50\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "The work-energy theorem states: $W_{\\text{net}} = \\Delta T = T_2 - T_1$.",
+    "hintAr": "تنص مبرهنة الشغل والطاقة على أن: $W_{\\text{net}} = \\Delta T = T_2 - T_1$.",
+    "stepByStepSolutionEn": [
+      "By the Work-Energy Theorem: $W_{\\text{net}} = T_2 - T_1$.",
+      "Substitute values: $30 = T_2 - 20 \\implies T_2 = 20 + 30 = 50\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "من مبرهنة الشغل والطاقة: $W_{\\text{net}} = T_2 - T_1$.",
+      "$30 = T_2 - 20 \\implies T_2 = 50\\text{ جول}$."
+    ],
+    "teacherTipEn": "Positive net work increases kinetic energy, while negative net work decreases it.",
+    "teacherTipAr": "الشغل الكلي الموجب يزيد من طاقة الحركة، بينما الشغل السالب ينقصها."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_54",
+    "titleEn": "Elastic Potential Energy of a Spring",
+    "titleAr": "طاقة الوضع المرونية لزنبرك",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A spring with stiffness $k = 200\\text{ N/m}$ is stretched by $x = 0.1\\text{ m}$ from its natural length. Find the elastic potential energy $U_s$ stored in the spring.",
+    "questionAr": "زنبرك ثابت مرونته $k = 200\\text{ ن/م}$ استطال بمقدار $x = 0.1\\text{ م}$ عن طوله الطبيعي. أوجد طاقة الوضع المرونية $U_s$ المختزنة في الزنبرك.",
+    "optionsEn": [
+      "$1.0\\text{ J}$",
+      "$20\\text{ J}$",
+      "$2.0\\text{ J}$",
+      "$0.5\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$1.0\\text{ جول}$",
+      "$20\\text{ جول}$",
+      "$2.0\\text{ جول}$",
+      "$0.5\\text{ جول}$"
+    ],
+    "correctAnswer": "$1.0\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "The formula is $U_s = \\frac{1}{2} k x^2$.",
+    "hintAr": "القانون هو $U_s = \\frac{1}{2} k x^2$.",
+    "stepByStepSolutionEn": [
+      "Compute: $U_s = \\frac{1}{2} (200) (0.1)^2 = 100 \\times 0.01 = 1.0\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $U_s = \\frac{1}{2} \\times 200 \\times (0.1)^2 = 100 \\times 0.01 = 1.0\\text{ جول}$."
+    ],
+    "teacherTipEn": "The potential energy depends on $x^2$, so compression by $0.1\\text{ m}$ stores the same energy as extension by $0.1\\text{ m}$.",
+    "teacherTipAr": "تعتمد طاقة الوضع على $x^2$، لذا فإن الانضغاط بمقدار $0.1\\text{ م}$ يختزن نفس الطاقة تماماً كالتمدد بمقدار $0.1\\text{ م}$."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_55",
+    "titleEn": "Gravitational Potential Energy Near Earth's Surface",
+    "titleAr": "طاقة الوضع التثاقلية بالقرب من سطح الأرض",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A mass $m = 5\\text{ kg}$ is lifted to a height $h = 4\\text{ m}$ above the floor. Taking $g = 9.8\\text{ m/s}^2$, find its gravitational potential energy relative to the floor.",
+    "questionAr": "رُفعت كتلة $m = 5\\text{ كجم}$ إلى ارتفاع $h = 4\\text{ م}$ فوق سطح الأرض. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد طاقة وضعها التثاقلية بالنسبة لسطح الأرض.",
+    "optionsEn": [
+      "$196\\text{ J}$",
+      "$20\\text{ J}$",
+      "$49\\text{ J}$",
+      "$98\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$196\\text{ جول}$",
+      "$20\\text{ جول}$",
+      "$49\\text{ جول}$",
+      "$98\\text{ جول}$"
+    ],
+    "correctAnswer": "$196\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "The formula is $U = mgh$.",
+    "hintAr": "القانون هو $U = mgh$.",
+    "stepByStepSolutionEn": [
+      "Compute: $U = mgh = 5 \\times 9.8 \\times 4 = 20 \\times 9.8 = 196\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $U = 5 \\times 9.8 \\times 4 = 196\\text{ جول}$."
+    ],
+    "teacherTipEn": "Potential energy is always defined relative to a chosen reference level where $U = 0$.",
+    "teacherTipAr": "تُعرف طاقة الوضع دائماً بالنسبة لمستوى إسناد مرجعي نختاره بحيث $U = 0$."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_56",
+    "titleEn": "Stable Equilibrium Condition in 1D Potential",
+    "titleAr": "شرط الاتزان المستقر في مجال طاقة وضع أحادي البعد",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "For a particle moving in a potential energy field $U(x)$, what conditions on $U(x)$ characterize a point of STABLE equilibrium at $x_0$?",
+    "questionAr": "لجسيم يتحرك في مجال طاقة وضع $U(x)$، ما هي الشروط على $U(x)$ التي تميز نقطة اتزان مستقر عند $x_0$؟",
+    "optionsEn": [
+      "$U'(x_0) = 0$ and $U''(x_0) > 0$ (Local minimum of $U$)",
+      "$U'(x_0) = 0$ and $U''(x_0) < 0$ (Local maximum of $U$)",
+      "$U(x_0) = 0$",
+      "$U'(x_0) > 0$"
+    ],
+    "optionsAr": [
+      "$U'(x_0) = 0$ و $U''(x_0) > 0$ (قيمة صغرى محلية لـ $U$)",
+      "$U'(x_0) = 0$ و $U''(x_0) < 0$ (قيمة عظمى محلية لـ $U$)",
+      "$U(x_0) = 0$",
+      "$U'(x_0) > 0$"
+    ],
+    "correctAnswer": "$U'(x_0) = 0$ and $U''(x_0) > 0$ (Local minimum of $U$)",
+    "correctIndex": 0,
+    "hintEn": "At equilibrium $F = -U'(x_0) = 0$. For stability, displacing the particle must produce a restoring force toward $x_0$, meaning $U''(x_0) > 0$.",
+    "hintAr": "عند الاتزان $F = -U'(x_0) = 0$. ولكي يكون مستقراً يجب أن تنشأ قوة معيدة نحو موضع الاتزان، أي $U''(x_0) > 0$.",
+    "stepByStepSolutionEn": [
+      "Force is $F(x) = -\\frac{dU}{dx}$. At equilibrium $F(x_0) = 0 \\implies U'(x_0) = 0$.",
+      "For small displacement $\\delta x$: $F(x_0 + \\delta x) \\approx -U''(x_0) \\delta x$.",
+      "If $U''(x_0) > 0$, the force opposes the displacement (restoring force, like a spring), creating stable oscillations.",
+      "Therefore, a local minimum of $U(x)$ represents stable equilibrium."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة $F(x) = -U'(x)$. عند الاتزان $F(x_0) = 0 \\implies U'(x_0) = 0$.",
+      "لكي يكون الاتزان مستقراً، يجب أن تكون القوة معيدة نحو موضع الاتزان عند إزاحته، وهذا يقتضي $U''(x_0) > 0$.",
+      "إذن القيمة الصغرى المحلية لطاقة الوضع تمثل اتزاناً مستقراً."
+    ],
+    "teacherTipEn": "Think of a marble at the bottom of a bowl (stable) versus balanced on top of a dome (unstable).",
+    "teacherTipAr": "تخيل كرة في قاع وعاء مقعر (مستقر) مقارنة بكرة متوازنة على قمة قبة (غير مستقر)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_57",
+    "titleEn": "Power Delivered by a Force Vector",
+    "titleAr": "القدرة اللحظية لقوة متجهة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $\\vec{F} = (10, -5)\\text{ N}$ acts on a body moving with instantaneous velocity $\\vec{v} = (3, 2)\\text{ m/s}$. What is the instantaneous power $P$ delivered to the body?",
+    "questionAr": "تؤثر قوة $\\vec{F} = (10, -5)\\text{ ن}$ على جسم يتحرك بسرعة لحظية $\\vec{v} = (3, 2)\\text{ م/ث}$. ما هي القدرة اللحظية $P$ المبذولة على الجسم؟",
+    "optionsEn": [
+      "$20\\text{ W}$",
+      "$40\\text{ W}$",
+      "$30\\text{ W}$",
+      "$10\\text{ W}$"
+    ],
+    "optionsAr": [
+      "$20\\text{ واط}$",
+      "$40\\text{ واط}$",
+      "$30\\text{ واط}$",
+      "$10\\text{ واط}$"
+    ],
+    "correctAnswer": "$20\\text{ W}$",
+    "correctIndex": 0,
+    "hintEn": "Power is the dot product of force and velocity: $P = \\vec{F} \\cdot \\vec{v}$.",
+    "hintAr": "القدرة هي حاصل الضرب القياسي لمتجه القوة في متجه السرعة: $P = \\vec{F} \\cdot \\vec{v}$.",
+    "stepByStepSolutionEn": [
+      "Compute: $P = \\vec{F} \\cdot \\vec{v} = 10(3) + (-5)(2) = 30 - 10 = 20\\text{ W}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الحساب: $P = \\vec{F} \\cdot \\vec{v} = 10(3) + (-5)(2) = 30 - 10 = 20\\text{ واط}$."
+    ],
+    "teacherTipEn": "Power is the rate of doing work: $P = \\frac{dW}{dt}$. Measured in Watts ($\\text{J/s}$).",
+    "teacherTipAr": "القدرة هي المعدل الزمني لبذل الشغل، ووحدة قياسها هي الواط (جول/ثانية)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_easy_58",
+    "titleEn": "Free Fall Speed via Conservation of Energy",
+    "titleAr": "سرعة السقوط الحر من حفظ الطاقة الميكانيكية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rock of mass $m$ is released from rest from a height $h = 20\\text{ m}$. Using conservation of mechanical energy with $g = 10\\text{ m/s}^2$, find its speed $v$ just before striking the ground.",
+    "questionAr": "تُركت صخرة كتلتها $m$ لتسقط من السكون من ارتفاع $h = 20\\text{ م}$. باستخدام حفظ الطاقة الميكانيكية وباعتبار $g = 10\\text{ م/ث}^2$، أوجد سرعتها $v$ لحظة ملامسة الأرض.",
+    "optionsEn": [
+      "$20\\text{ m/s}$",
+      "$400\\text{ m/s}$",
+      "$14.14\\text{ m/s}$",
+      "$10\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$20\\text{ م/ث}$",
+      "$400\\text{ م/ث}$",
+      "$14.14\\text{ م/ث}$",
+      "$10\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$20\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Equate initial potential energy to final kinetic energy: $mgh = \\frac{1}{2}mv^2 \\implies v = \\sqrt{2gh}$.",
+    "hintAr": "ساوِ طاقة الوضع الابتدائية بطاقة الحركة النهائية: $mgh = \\frac{1}{2}mv^2 \\implies v = \\sqrt{2gh}$.",
+    "stepByStepSolutionEn": [
+      "Conservation of energy: $E_1 = E_2 \\implies mgh = \\frac{1}{2} m v^2$.",
+      "Solve for $v$: $v = \\sqrt{2gh} = \\sqrt{2 \\times 10 \\times 20} = \\sqrt{400} = 20\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "حفظ الطاقة: $mgh = \\frac{1}{2} mv^2$.",
+      "السرعة: $v = \\sqrt{2gh} = \\sqrt{2 \\times 10 \\times 20} = 20\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Notice the mass cancels out completely, confirming Galileo's observation that all bodies fall at the same rate in a vacuum.",
+    "teacherTipAr": "لاحظ اختصار الكتلة تماماً، مما يؤكد مبدأ جاليليو بأن جميع الأجسام تسقط بنفس المعدل في الفراغ."
   }
 ],
   medium: [
@@ -3343,6 +3616,343 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Halving the radius doubles the transverse velocity to conserve angular momentum.",
     "teacherTipAr": "تنصيف نصف القطر يضاعف السرعة المستعرضة للحفاظ على كمية الحركة الزاوية."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_51",
+    "titleEn": "Force from a 1D Potential Energy Function",
+    "titleAr": "استنتاج القوة من دالة طاقة الوضع",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a 1D potential energy field $U(x) = 4x^3 - 6x^2 + 5\\text{ J}$. Find the force $F(x)$ acting on the particle at position $x = 2\\text{ m}$.",
+    "questionAr": "يتحرك جسيم في مجال طاقة وضع أحادي البعد $U(x) = 4x^3 - 6x^2 + 5\\text{ جول}$. أوجد القوة $F(x)$ المؤثرة على الجسيم عند الموضع $x = 2\\text{ م}$.",
+    "optionsEn": [
+      "$-24\\text{ N}$",
+      "$24\\text{ N}$",
+      "$-12\\text{ N}$",
+      "$48\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$-24\\text{ ن}$",
+      "$24\\text{ ن}$",
+      "$-12\\text{ ن}$",
+      "$48\\text{ ن}$"
+    ],
+    "correctAnswer": "$-24\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "The force is the negative derivative of the potential energy: $F(x) = -\\frac{dU}{dx}$.",
+    "hintAr": "القوة هي سالب مشتقة دالة طاقة الوضع: $F(x) = -\\frac{dU}{dx}$.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $\\frac{dU}{dx} = 12x^2 - 12x$.",
+      "Force: $F(x) = -\\frac{dU}{dx} = -12x^2 + 12x$.",
+      "Evaluate at $x = 2$: $F(2) = -12(2^2) + 12(2) = -48 + 24 = -24\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $\\frac{dU}{dx} = 12x^2 - 12x$.",
+      "القوة: $F(x) = -\\frac{dU}{dx} = -12x^2 + 12x$.",
+      "عند $x = 2$: $F(2) = -12(4) + 24 = -24\\text{ ن}$."
+    ],
+    "teacherTipEn": "Always remember the crucial minus sign: forces point down the gradient of potential energy toward lower energy states.",
+    "teacherTipAr": "تذكر دائماً إشارة السالب: القوة تتجه دائماً نحو انحدار طاقة الوضع (نحو مستويات الطاقة الأقل)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_52",
+    "titleEn": "Work Done by a Position-Dependent Force",
+    "titleAr": "شغل قوة متغيرة مع الموضع",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F(x) = 3x^2 + 2x\\text{ N}$ acts on a particle moving along the $x$-axis from $x = 1\\text{ m}$ to $x = 3\\text{ m}$. Calculate the work done by the force.",
+    "questionAr": "تؤثر قوة $F(x) = 3x^2 + 2x\\text{ ن}$ على جسيم يتحرك على محور السينات من $x = 1\\text{ م}$ إلى $x = 3\\text{ م}$. احسب الشغل المبذول بواسطة هذه القوة.",
+    "optionsEn": [
+      "$34\\text{ J}$",
+      "$36\\text{ J}$",
+      "$28\\text{ J}$",
+      "$40\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$34\\text{ جول}$",
+      "$36\\text{ جول}$",
+      "$28\\text{ جول}$",
+      "$40\\text{ جول}$"
+    ],
+    "correctAnswer": "$34\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate the force with respect to position: $W = \\int_{x_1}^{x_2} F(x) dx$.",
+    "hintAr": "كامل القوة بالنسبة للموضع: $W = \\int_{x_1}^{x_2} F(x) dx$.",
+    "stepByStepSolutionEn": [
+      "Set up the integral: $W = \\int_1^3 (3x^2 + 2x)\\,dx$.",
+      "Find antiderivative: $\\left[ x^3 + x^2 \\right]_1^3$.",
+      "Evaluate at limits: $(3^3 + 3^2) - (1^3 + 1^2) = (27 + 9) - (1 + 1) = 36 - 2 = 34\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "التكامل: $W = \\int_1^3 (3x^2 + 2x)\\,dx$.",
+      "الدالة الأصلية: $[x^3 + x^2]_1^3$.",
+      "التعويض: $(27 + 9) - (1 + 1) = 36 - 2 = 34\\text{ جول}$."
+    ],
+    "teacherTipEn": "Work is the area under the force-displacement graph.",
+    "teacherTipAr": "الشغل يمثل المساحة تحت منحنى (القوة - الإزاحة)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_53",
+    "titleEn": "Testing if a 2D Force Field is Conservative",
+    "titleAr": "اختبار هل مجال القوة ثنائي الأبعاد مجال محافظ",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Consider the force field $\\vec{F}(x, y) = (2xy, x^2 + 3y^2)\\text{ N}$. Is $\\vec{F}$ conservative?",
+    "questionAr": "تأمل مجال القوة $\\vec{F}(x, y) = (2xy, x^2 + 3y^2)\\text{ ن}$. هل هذا المجال محافظ؟",
+    "optionsEn": [
+      "Yes, because $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y} = 2x$",
+      "No, because the curl is non-zero",
+      "No, because it depends on $y^2$",
+      "Only along closed circular paths"
+    ],
+    "optionsAr": [
+      "نعم، لأن $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y} = 2x$",
+      "لا، لأن الدوران غير صفري",
+      "لا، لأنه يعتمد على $y^2$",
+      "فقط على المسارات الدائرية المغلقة"
+    ],
+    "correctAnswer": "Yes, because $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y} = 2x$",
+    "correctIndex": 0,
+    "hintEn": "A planar force field is conservative on $\\mathbb{R}^2$ if and only if $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y}$.",
+    "hintAr": "يكون مجال القوة المستوي محافظاً في $\\mathbb{R}^2$ إذا وفقط إذا كان $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y}$.",
+    "stepByStepSolutionEn": [
+      "Identify components: $F_x = 2xy$ and $F_y = x^2 + 3y^2$.",
+      "Compute cross partial derivatives:",
+      "$\\frac{\\partial F_x}{\\partial y} = 2x$.",
+      "$\\frac{\\partial F_y}{\\partial x} = 2x$.",
+      "Since $\\frac{\\partial F_y}{\\partial x} = \\frac{\\partial F_x}{\\partial y}$ everywhere on $\\mathbb{R}^2$, the field is conservative."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبتا القوة: $F_x = 2xy$ و $F_y = x^2 + 3y^2$.",
+      "المشتقات الجزئية المتقاطعة: $\\frac{\\partial F_x}{\\partial y} = 2x$ و $\\frac{\\partial F_y}{\\partial x} = 2x$.",
+      "بما أن المشتقات متساوية في كل مكان، فإن مجال القوة محافظ."
+    ],
+    "teacherTipEn": "For a conservative field, work done between two points is path-independent.",
+    "teacherTipAr": "في المجال المحافظ، الشغل المبذول بين أي نقطتين لا يعتمد على المسار إطلاقاً."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_54",
+    "titleEn": "Escape Velocity Scaling with Mass and Radius",
+    "titleAr": "تناسب سرعة الإفلات مع الكتلة ونصف القطر",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The escape velocity from a planet is given by $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$. If planet B has 4 times the mass and 2 times the radius of planet A ($M_B = 4M_A, R_B = 2R_A$), what is the ratio of their escape velocities $\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}}$?",
+    "questionAr": "تعطى سرعة الإفلات من كوكب بالعلاقة $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$. إذا كان للكوكب B كتلة تعادل 4 أمثال كتلة الكوكب A ونصف قطر يعادل ضعفي نصف قطر A، فما نسبة سرعتي إفلاتهما $\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}}$؟",
+    "optionsEn": [
+      "$\\sqrt{2} \\approx 1.414$",
+      "$2$",
+      "$4$",
+      "$\\frac{1}{\\sqrt{2}}$"
+    ],
+    "optionsAr": [
+      "$\\sqrt{2} \\approx 1.414$",
+      "$2$",
+      "$4$",
+      "$\\frac{1}{\\sqrt{2}}$"
+    ],
+    "correctAnswer": "$\\sqrt{2} \\approx 1.414$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $M_B = 4M_A$ and $R_B = 2R_A$ into the square root.",
+    "hintAr": "عوض بـ $M_B = 4M_A$ و $R_B = 2R_A$ تحت الجذر.",
+    "stepByStepSolutionEn": [
+      "Ratio of escape velocities:",
+      "$\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}} = \\sqrt{\\frac{M_B / R_B}{M_A / R_A}} = \\sqrt{\\frac{4 M_A / (2 R_A)}{M_A / R_A}} = \\sqrt{\\frac{4}{2}} = \\sqrt{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "نسبة السرعتين:",
+      "$\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}} = \\sqrt{\\frac{M_B / R_B}{M_A / R_A}} = \\sqrt{\\frac{4}{2}} = \\sqrt{2}$."
+    ],
+    "teacherTipEn": "Earth's escape velocity is approximately $11.2\\text{ km/s}$.",
+    "teacherTipAr": "سرعة الإفلات من سطح كوكب الأرض تبلغ حوالي $11.2\\text{ كم/ث}$."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_55",
+    "titleEn": "Potential Energy from Conservative Force Components",
+    "titleAr": "إيجاد دالة طاقة الوضع من مركبات القوة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Given the conservative force field $\\vec{F} = (-2x, -4y)\\text{ N}$, find its potential energy function $U(x, y)$ such that $U(0, 0) = 0$.",
+    "questionAr": "معطى مجال القوة المحافظ $\\vec{F} = (-2x, -4y)\\text{ ن}$. أوجد دالة طاقة الوضع $U(x, y)$ بحيث $U(0, 0) = 0$.",
+    "optionsEn": [
+      "$U(x, y) = x^2 + 2y^2$",
+      "$U(x, y) = -x^2 - 2y^2$",
+      "$U(x, y) = 2x^2 + 4y^2$",
+      "$U(x, y) = x^2 - 2y^2$"
+    ],
+    "optionsAr": [
+      "$U(x, y) = x^2 + 2y^2$",
+      "$U(x, y) = -x^2 - 2y^2$",
+      "$U(x, y) = 2x^2 + 4y^2$",
+      "$U(x, y) = x^2 - 2y^2$"
+    ],
+    "correctAnswer": "$U(x, y) = x^2 + 2y^2$",
+    "correctIndex": 0,
+    "hintEn": "Integrate $\\frac{\\partial U}{\\partial x} = -F_x = 2x$ and $\\frac{\\partial U}{\\partial y} = -F_y = 4y$.",
+    "hintAr": "كامل $\\frac{\\partial U}{\\partial x} = -F_x = 2x$ و $\\frac{\\partial U}{\\partial y} = -F_y = 4y$.",
+    "stepByStepSolutionEn": [
+      "We know $\\vec{F} = -\\nabla U$, so $\\frac{\\partial U}{\\partial x} = -(-2x) = 2x$ and $\\frac{\\partial U}{\\partial y} = -(-4y) = 4y$.",
+      "Integrate with respect to $x$: $U(x, y) = x^2 + g(y)$.",
+      "Differentiate with respect to $y$: $\\frac{\\partial U}{\\partial y} = g'(y) = 4y \\implies g(y) = 2y^2 + C$.",
+      "With $U(0, 0) = 0$, $C = 0$.",
+      "Thus, $U(x, y) = x^2 + 2y^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "العلاقة: $\\vec{F} = -\\nabla U$. إذن $\\frac{\\partial U}{\\partial x} = 2x$ و $\\frac{\\partial U}{\\partial y} = 4y$.",
+      "بالتكامل بالنسبة لـ $x$: $U = x^2 + g(y)$.",
+      "بالاشتقاق بالنسبة لـ $y$: $g'(y) = 4y \\implies g(y) = 2y^2$.",
+      "إذن $U(x, y) = x^2 + 2y^2$."
+    ],
+    "teacherTipEn": "The equipotential curves $U(x, y) = C$ are concentric ellipses centered at the origin.",
+    "teacherTipAr": "خطوط تساوي الجهد $x^2 + 2y^2 = C$ هي عائلة من القطوع الناقصة المتحدة المركز."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_56",
+    "titleEn": "Equilibrium Points and Stability of a Quartic Potential",
+    "titleAr": "نقاط الاتزان واستقرارها لطاقة وضع من الدرجة الرابعة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a potential $U(x) = x^4 - 2x^2\\text{ J}$. What is the nature of the equilibrium point at $x = 0$?",
+    "questionAr": "يتحرك جسيم في مجال طاقة وضع $U(x) = x^4 - 2x^2\\text{ جول}$. ما هي طبيعة نقطة الاتزان عند $x = 0$؟",
+    "optionsEn": [
+      "Unstable equilibrium (local maximum of $U$)",
+      "Stable equilibrium (local minimum of $U$)",
+      "Neutral equilibrium",
+      "Not an equilibrium point"
+    ],
+    "optionsAr": [
+      "اتزان غير مستقر (قيمة عظمى محلية لـ $U$)",
+      "اتزان مستقر (قيمة صغرى محلية لـ $U$)",
+      "اتزان محايد",
+      "ليست نقطة اتزان"
+    ],
+    "correctAnswer": "Unstable equilibrium (local maximum of $U$)",
+    "correctIndex": 0,
+    "hintEn": "Compute $U''(0)$ to determine the concavity at $x = 0$.",
+    "hintAr": "احسب $U''(0)$ لتحديد إشارة المشتقة الثانية عند $x = 0$.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $U'(x) = 4x^3 - 4x = 4x(x^2 - 1)$.",
+      "At $x = 0$, $U'(0) = 0$, so $x = 0$ is an equilibrium point.",
+      "Compute second derivative: $U''(x) = 12x^2 - 4$.",
+      "At $x = 0$: $U''(0) = -4 < 0$.",
+      "Since $U''(0) < 0$, $U(x)$ has a local maximum at $x = 0$, so the equilibrium is UNSTABLE."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $U'(x) = 4x^3 - 4x = 0$ عند $x = 0$.",
+      "المشتقة الثانية: $U''(x) = 12x^2 - 4$.",
+      "عند $x = 0$: $U''(0) = -4 < 0$.",
+      "بما أن المشتقة الثانية سالبة، فإن طاقة الوضع لها قيمة عظمى محلية، والاتزان غير مستقر."
+    ],
+    "teacherTipEn": "The points $x = \\pm 1$ have $U''(\\pm 1) = 8 > 0$, so they represent the two stable equilibrium points (double-well potential).",
+    "teacherTipAr": "النقطتان $x = \\pm 1$ تمثلان نقطتي اتزان مستقر لأن المشتقة الثانية عندهما موجبة (بئر الجهد المزدوج)."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_57",
+    "titleEn": "Work Done by Friction on an Incline",
+    "titleAr": "الشغل المبذول بواسطة قوة الاحتكاك على مستوى مائل",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A block of mass $m = 4\\text{ kg}$ slides a distance $L = 5\\text{ m}$ down an inclined plane of angle $\\theta = 30^\\circ$. If the coefficient of kinetic friction is $\\mu_k = 0.2$ and $g = 9.8\\text{ m/s}^2$, what is the work done by friction?",
+    "questionAr": "كتلة $m = 4\\text{ كجم}$ تنزلق مسافة $L = 5\\text{ م}$ إلى أسفل مستوى مائل بزاوية $\\theta = 30^\\circ$. إذا كان معامل الاحتكاك الحركي $\\mu_k = 0.2$ و $g = 9.8\\text{ م/ث}^2$، فما الشغل المبذول بواسطة قوة الاحتكاك؟",
+    "optionsEn": [
+      "$-33.95\\text{ J}$",
+      "$-39.20\\text{ J}$",
+      "$-19.60\\text{ J}$",
+      "$-98.00\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$-33.95\\text{ جول}$",
+      "$-39.20\\text{ جول}$",
+      "$-19.60\\text{ جول}$",
+      "$-98.00\\text{ جول}$"
+    ],
+    "correctAnswer": "$-33.95\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Normal force is $N = m g \\cos\\theta$. Friction force is $f_k = \\mu_k N$. Work is $W_f = -f_k L$.",
+    "hintAr": "رد الفعل العمودي $N = mg\\cos\\theta$، وقوة الاحتكاك $f_k = \\mu_k N$. الشغل $W_f = -f_k L$.",
+    "stepByStepSolutionEn": [
+      "Normal force: $N = m g \\cos(30^\\circ) = 4 \\times 9.8 \\times \\frac{\\sqrt{3}}{2} = 19.6\\sqrt{3} \\approx 33.948\\text{ N}$.",
+      "Friction force: $f_k = \\mu_k N = 0.2 \\times 33.948 \\approx 6.790\\text{ N}$.",
+      "Work done by friction: $W_f = -f_k \\cdot L = -6.790 \\times 5 = -33.95\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $N = 4 \\times 9.8 \\times \\cos(30^\\circ) = 19.6\\sqrt{3} \\approx 33.95\\text{ ن}$.",
+      "قوة الاحتكاك: $f_k = 0.2 \\times 33.95 = 6.79\\text{ ن}$.",
+      "الشغل المبذول بواسطة الاحتكاك: $W_f = -f_k \\times L = -6.79 \\times 5 = -33.95\\text{ جول}$."
+    ],
+    "teacherTipEn": "Friction work is negative because the friction force opposes the displacement direction.",
+    "teacherTipAr": "شغل الاحتكاك دائماً سالب لأن اتجاه قوة الاحتكاك يعاكس اتجاه الإزاحة."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_58",
+    "titleEn": "Spring Launcher Maximum Height on Incline",
+    "titleAr": "أقصى ارتفاع تبلغه كتلة مقذوفة بزنبرك على مستوى",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A spring ($k = 800\\text{ N/m}$) is compressed by $x = 0.2\\text{ m}$ and releases a block of mass $m = 2\\text{ kg}$ up a frictionless ramp. Taking $g = 10\\text{ m/s}^2$, what is the maximum vertical height $h$ the block reaches?",
+    "questionAr": "زنبرك ($k = 800\\text{ ن/م}$) ضُغط بمقدار $x = 0.2\\text{ م}$ وأطلق كتلة $m = 2\\text{ كجم}$ إلى أعلى منحدر أملس. باعتبار $g = 10\\text{ م/ث}^2$، ما هو أقصى ارتفاع رأسي $h$ تبلغه الكتلة؟",
+    "optionsEn": [
+      "$0.8\\text{ m}$",
+      "$1.6\\text{ m}$",
+      "$0.4\\text{ m}$",
+      "$3.2\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$0.8\\text{ م}$",
+      "$1.6\\text{ م}$",
+      "$0.4\\text{ م}$",
+      "$3.2\\text{ م}$"
+    ],
+    "correctAnswer": "$0.8\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "All initial elastic potential energy converts to gravitational potential energy at the peak: $\\frac{1}{2} k x^2 = mgh$.",
+    "hintAr": "تتحول طاقة الوضع المرونية للزنبرك بالكامل إلى طاقة وضع تثاقلية عند أعلى نقطة: $\\frac{1}{2} k x^2 = mgh$.",
+    "stepByStepSolutionEn": [
+      "Initial elastic energy: $U_s = \\frac{1}{2} k x^2 = \\frac{1}{2} (800) (0.2)^2 = 400 \\times 0.04 = 16\\text{ J}$.",
+      "At maximum height, $T = 0$, so $U_g = mgh = 16\\text{ J}$.",
+      "Solve for $h$: $h = \\frac{16}{mg} = \\frac{16}{2 \\times 10} = \\frac{16}{20} = 0.8\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "طاقة وضع الزنبرك الابتدائية: $U_s = \\frac{1}{2} (800)(0.2)^2 = 16\\text{ جول}$.",
+      "عند أقصى ارتفاع: $mgh = 16\\text{ جول}$.",
+      "$h = \\frac{16}{2 \\times 10} = 0.8\\text{ م}$."
+    ],
+    "teacherTipEn": "Notice this result depends only on the vertical height $h$, regardless of the slope angle of the ramp.",
+    "teacherTipAr": "لاحظ أن النتيجة تعتمد على الارتفاع الرأسي $h$ فقط، ولا تتأثر بزاوية ميل المنحدر الأملس."
+  },
+  {
+    "id": "egbac_mech_ch2_db_med_59",
+    "titleEn": "Engine Power Needed to Maintain Constant Speed",
+    "titleAr": "قدرة المحرك المطلوبة للحفاظ على سرعة ثابتة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A truck travels at a constant speed $v = 20\\text{ m/s}$ up an incline where the opposing forces (gravity component plus resistance) total $F_{\\text{opp}} = 2500\\text{ N}$. What is the mechanical power output of the truck's engine?",
+    "questionAr": "شاحنة تسير بسرعة منتظمة $v = 20\\text{ م/ث}$ صاعدة طريقاً مائلاً حيث مجموع القوى المقاومة (مركبة الوزن والمقاومات) يساوي $F_{\\text{opp}} = 2500\\text{ ن}$. ما هي القدرة الميكانيكية التي يبذلها محرك الشاحنة؟",
+    "optionsEn": [
+      "$50\\text{ kW}$",
+      "$125\\text{ kW}$",
+      "$25\\text{ kW}$",
+      "$100\\text{ kW}$"
+    ],
+    "optionsAr": [
+      "$50\\text{ ك.وات}$",
+      "$125\\text{ ك.وات}$",
+      "$25\\text{ ك.وات}$",
+      "$100\\text{ ك.وات}$"
+    ],
+    "correctAnswer": "$50\\text{ kW}$",
+    "correctIndex": 0,
+    "hintEn": "At constant speed, engine traction force equals opposing force: $F = F_{\\text{opp}}$. Power is $P = F v$.",
+    "hintAr": "عند ثبوت السرعة، تتساوى قوة المحرك مع مجموع المقاومات: $F = F_{\\text{opp}}$. والقدرة $P = F v$.",
+    "stepByStepSolutionEn": [
+      "For constant speed, acceleration is zero, so driving force $F = 2500\\text{ N}$.",
+      "Power output: $P = F \\cdot v = 2500 \\times 20 = 50,000\\text{ W} = 50\\text{ kW}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بما أن السرعة منتظمة، فقوة المحرك $F = 2500\\text{ ن}$.",
+      "القدرة: $P = F \\times v = 2500 \\times 20 = 50,000\\text{ واط} = 50\\text{ ك.وات}$."
+    ],
+    "teacherTipEn": "Power equals force multiplied by velocity ($P = F v$).",
+    "teacherTipAr": "القدرة تساوي القوة مضروبة في السرعة ($P = F v$)."
   }
 ],
   hots: [
@@ -5185,6 +5795,315 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Inverse-cube forces (n=3) and steeper (n>3) lead to spiral-in collision or escaping spirals.",
     "teacherTipAr": "قوى التناسب العكسي التكعيبي (n=3) أو الأكبر تسبب مسارات حلزونية تؤدي للتصادم أو الهروب التام."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_51",
+    "titleEn": "Effective Potential and Stable Circular Orbit Radius",
+    "titleAr": "الجهد الفعال ونصف قطر المدار الدائري المستقر",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In central force motion with gravitational potential $U(r) = -\\frac{k}{r}$, the effective potential is $U_{\\text{eff}}(r) = -\\frac{k}{r} + \\frac{L^2}{2mr^2}$. What is the radius $r_0$ of the circular orbit that minimizes $U_{\\text{eff}}$?",
+    "questionAr": "في حركة القوى المركزية مع طاقة وضع تجاذبية $U(r) = -\\frac{k}{r}$، فإن الجهد الفعال هو $U_{\\text{eff}}(r) = -\\frac{k}{r} + \\frac{L^2}{2mr^2}$. ما هو نصف قطر المدار الدائري $r_0$ الذي يجعل $U_{\\text{eff}}$ أصغر ما يمكن؟",
+    "optionsEn": [
+      "$r_0 = \\frac{L^2}{m k}$",
+      "$r_0 = \\frac{L^2}{2m k}$",
+      "$r_0 = \\frac{2L^2}{m k}$",
+      "$r_0 = \\frac{m k}{L^2}$"
+    ],
+    "optionsAr": [
+      "$r_0 = \\frac{L^2}{m k}$",
+      "$r_0 = \\frac{L^2}{2m k}$",
+      "$r_0 = \\frac{2L^2}{m k}$",
+      "$r_0 = \\frac{m k}{L^2}$"
+    ],
+    "correctAnswer": "$r_0 = \\frac{L^2}{m k}$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate $U_{\\text{eff}}(r)$ with respect to $r$ and set the derivative to zero: $U'_{\\text{eff}}(r_0) = 0$.",
+    "hintAr": "اشتق $U_{\\text{eff}}(r)$ بالنسبة إلى $r$ وساوِ المشتقة بالصفر: $U'_{\\text{eff}}(r_0) = 0$.",
+    "stepByStepSolutionEn": [
+      "Differentiate effective potential:",
+      "$\\frac{dU_{\\text{eff}}}{dr} = \\frac{k}{r^2} - \\frac{L^2}{m r^3}$.",
+      "Set to zero: $\\frac{k}{r_0^2} = \\frac{L^2}{m r_0^3}$.",
+      "Multiply both sides by $r_0^3$: $k r_0 = \\frac{L^2}{m} \\implies r_0 = \\frac{L^2}{m k}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مشتقة الجهد الفعال: $\\frac{dU_{\\text{eff}}}{dr} = \\frac{k}{r^2} - \\frac{L^2}{mr^3}$.",
+      "بالمساواة بالصفر: $\\frac{k}{r_0^2} = \\frac{L^2}{mr_0^3}$.",
+      "بالضرب في $r_0^3$: $kr_0 = \\frac{L^2}{m} \\implies r_0 = \\frac{L^2}{mk}$."
+    ],
+    "teacherTipEn": "The term $\\frac{L^2}{2mr^2}$ is the centrifugal potential barrier that prevents the orbiting mass from falling into the center.",
+    "teacherTipAr": "الحد $\\frac{L^2}{2mr^2}$ يمثل حاجز جهد الطرد المركزي الذي يمنع الجسم من الانهيار نحو المركز."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_52",
+    "titleEn": "Frequency of Small Oscillations About Stable Equilibrium",
+    "titleAr": "تردد الاهتزازات الصغيرة حول موضع الاتزان المستقر",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle of mass $m$ moves in a potential $U(x)$ with a stable equilibrium point at $x_0$. For small displacements, the particle undergoes simple harmonic motion. What is its angular frequency $\\omega$?",
+    "questionAr": "جسيم كتلته $m$ يتحرك في مجال طاقة وضع $U(x)$ وله موضع اتزان مستقر عند $x_0$. في حالة الإزاحات الصغيرة، يتحرك الجسيم حركة توافقية بسيطة. ما هو تردده الزاوي $\\omega$؟",
+    "optionsEn": [
+      "$\\omega = \\sqrt{\\frac{U''(x_0)}{m}}$",
+      "$\\omega = \\sqrt{\\frac{m}{U''(x_0)}}$",
+      "$\\omega = \\frac{U''(x_0)}{m}$",
+      "$\\omega = \\sqrt{\\frac{U'(x_0)}{m}}$"
+    ],
+    "optionsAr": [
+      "$\\omega = \\sqrt{\\frac{U''(x_0)}{m}}$",
+      "$\\omega = \\sqrt{\\frac{m}{U''(x_0)}}$",
+      "$\\omega = \\frac{U''(x_0)}{m}$",
+      "$\\omega = \\sqrt{\\frac{U'(x_0)}{m}}$"
+    ],
+    "correctAnswer": "$\\omega = \\sqrt{\\frac{U''(x_0)}{m}}$",
+    "correctIndex": 0,
+    "hintEn": "Taylor-expand $U(x) \\approx U(x_0) + \\frac{1}{2} U''(x_0) (x - x_0)^2$, which is equivalent to a spring with effective stiffness $k_{\\text{eff}} = U''(x_0)$.",
+    "hintAr": "مفكوك تايلور حول موضع الاتزان يكافئ زنبركاً بثابت مرونة فعال $k_{\\text{eff}} = U''(x_0)$.",
+    "stepByStepSolutionEn": [
+      "Expand $U(x)$ around $x_0$ using Taylor series:",
+      "$U(x) = U(x_0) + U'(x_0)(x - x_0) + \\frac{1}{2} U''(x_0)(x - x_0)^2 + \\dots$.",
+      "Since $x_0$ is an equilibrium point, $U'(x_0) = 0$.",
+      "The force is $F = -\\frac{dU}{dx} \\approx -U''(x_0)(x - x_0)$.",
+      "This matches Hooke's Law $F = -k_{\\text{eff}} \\Delta x$ with $k_{\\text{eff}} = U''(x_0)$.",
+      "The angular frequency of simple harmonic motion is $\\omega = \\sqrt{\\frac{k_{\\text{eff}}}{m}} = \\sqrt{\\frac{U''(x_0)}{m}}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مفكوك تايلور لطاقة الوضع: $U(x) \\approx U(x_0) + \\frac{1}{2} U''(x_0)(x - x_0)^2$.",
+      "القوة الناتجة: $F = -U'(x) = -U''(x_0)(x - x_0)$.",
+      "تطابق قانون هوك $F = -k \\Delta x$ بثابت مرونة فعال $k_{\\text{eff}} = U''(x_0)$.",
+      "التردد الزاوي: $\\omega = \\sqrt{\\frac{U''(x_0)}{m}}$."
+    ],
+    "teacherTipEn": "This fundamental principle allows approximating almost any stable system as a harmonic oscillator for small perturbations.",
+    "teacherTipAr": "هذا المبدأ الأساسي يسمح بتقريب أي نظام فيزيائي مستقر إلى متذبذب توافقي بسيط عند الاضطرابات الصغيرة."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_53",
+    "titleEn": "Line Integral Work of a Non-Conservative Force on Closed Loop",
+    "titleAr": "شغل قوة غير محافظة عبر مسار دائري مغلق",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Calculate the work done by the non-conservative force $\\vec{F}(x, y) = (-y, x)\\text{ N}$ along the counterclockwise unit circle $C: x^2 + y^2 = 1$.",
+    "questionAr": "احسب الشغل المبذول بواسطة القوة غير المحافظة $\\vec{F}(x, y) = (-y, x)\\text{ ن}$ على طول مسار دائرة الوحدة $C: x^2 + y^2 = 1$ في عكس اتجاه عقارب الساعة.",
+    "optionsEn": [
+      "$2\\pi\\text{ J}$",
+      "$0\\text{ J}$",
+      "$\\pi\\text{ J}$",
+      "$4\\pi\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$2\\pi\\text{ جول}$",
+      "$0\\text{ جول}$",
+      "$\\pi\\text{ جول}$",
+      "$4\\pi\\text{ جول}$"
+    ],
+    "correctAnswer": "$2\\pi\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "By Green's Theorem: $\\oint_C F_x dx + F_y dy = \\iint_D \\left(\\frac{\\partial F_y}{\\partial x} - \\frac{\\partial F_x}{\\partial y}\\right) dA$.",
+    "hintAr": "باستخدام مبرهنة جرين: $\\oint_C (-y dx + x dy) = \\iint_D (1 - (-1)) dA = 2 \\times \\text{المساحة}$.",
+    "stepByStepSolutionEn": [
+      "Using Green's Theorem: $\\oint_C (-y\\,dx + x\\,dy) = \\iint_D \\left[ \\frac{\\partial}{\\partial x}(x) - \\frac{\\partial}{\\partial y}(-y) \\right] dA$.",
+      "The integrand is $1 - (-1) = 2$.",
+      "Then $W = \\iint_D 2\\,dA = 2 \\times \\text{Area}(D) = 2 \\times (\\pi \\cdot 1^2) = 2\\pi\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "باستخدام مبرهنة جرين لتحويل التكامل الخطي إلى تكامل ثنائي:",
+      "$\\oint_C (-y dx + x dy) = \\iint_D (1 - (-1)) dA = \\iint_D 2 dA$.",
+      "الناتج: $2 \\times \\text{مساحة القرص} = 2 \\times \\pi(1^2) = 2\\pi\\text{ جول}$."
+    ],
+    "teacherTipEn": "For a conservative field, the work around any closed loop is strictly zero. A non-zero closed-loop work proves the force is non-conservative.",
+    "teacherTipAr": "لأي مجال محافظ، يكون الشغل على أي مسار مغلق صفراً تماماً. والناتج غير الصفري يثبت أن القوة غير محافظة."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_54",
+    "titleEn": "Equilibrium Separation in Lennard-Jones Potential",
+    "titleAr": "المسافة التوازنية في جهد لينارد-جونز الجزيئي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The Lennard-Jones intermolecular potential is $U(r) = 4\\epsilon \\left[ \\left(\\frac{\\sigma}{r}\\right)^{12} - \\left(\\frac{\\sigma}{r}\\right)^6 \\right]$. What is the equilibrium separation distance $r_{\\min}$ that minimizes the potential?",
+    "questionAr": "جهد لينارد-جونز بين الجزيئات هو $U(r) = 4\\epsilon \\left[ \\left(\\frac{\\sigma}{r}\\right)^{12} - \\left(\\frac{\\sigma}{r}\\right)^6 \\right]$. ما هي المسافة التوازنية $r_{\\min}$ التي تجعل طاقة الوضع أصغر ما يمكن؟",
+    "optionsEn": [
+      "$2^{1/6} \\sigma \\approx 1.122 \\sigma$",
+      "$\\sigma$",
+      "$2 \\sigma$",
+      "$2^{1/12} \\sigma$"
+    ],
+    "optionsAr": [
+      "$2^{1/6} \\sigma \\approx 1.122 \\sigma$",
+      "$\\sigma$",
+      "$2 \\sigma$",
+      "$2^{1/12} \\sigma$"
+    ],
+    "correctAnswer": "$2^{1/6} \\sigma \\approx 1.122 \\sigma$",
+    "correctIndex": 0,
+    "hintEn": "Set $dU/dr = 0$. Differentiate with respect to $r$ and set the derivative to zero.",
+    "hintAr": "اشتق $U(r)$ بالنسبة لـ $r$ وساوِ المشتقة بالصفر: $dU/dr = 0$.",
+    "stepByStepSolutionEn": [
+      "Let $u = \\frac{\\sigma}{r}$, then $U(u) = 4\\epsilon (u^{12} - u^6)$.",
+      "Differentiate with respect to $u$: $\\frac{dU}{du} = 4\\epsilon (12u^{11} - 6u^5) = 0$.",
+      "Since $u \\neq 0$: $12u^6 = 6 \\implies u^6 = \\frac{1}{2}$.",
+      "Then $\\left(\\frac{\\sigma}{r}\\right)^6 = \\frac{1}{2} \\implies \\frac{r}{\\sigma} = 2^{1/6} \\implies r_{\\min} = 2^{1/6} \\sigma$."
+    ],
+    "stepByStepSolutionAr": [
+      "بوضع $u = \\frac{\\sigma}{r}$ تصبح الدالة: $U(u) = 4\\epsilon(u^{12} - u^6)$.",
+      "المشتقة: $12u^{11} - 6u^5 = 0 \\implies 12u^6 = 6 \\implies u^6 = \\frac{1}{2}$.",
+      "إذن $(\\frac{\\sigma}{r})^6 = \\frac{1}{2} \\implies r_{\\min} = 2^{1/6} \\sigma$."
+    ],
+    "teacherTipEn": "At $r = r_{\\min}$, the potential value is $U(r_{\\min}) = -\\epsilon$, which defines the depth of the potential well (bond energy).",
+    "teacherTipAr": "عند $r = r_{\\min}$ تبلغ طاقة الوضع أقل قيمة لها وهي $-\\epsilon$، والتي تمثل طاقة الرابطة الكيميائية."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_55",
+    "titleEn": "Total Mechanical Energy of Orbit Types",
+    "titleAr": "الطاقة الميكانيكية الكلية وتصنيف أنواع المدارات",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the gravitational Kepler two-body problem with $U(r) = -\\frac{GMm}{r} < 0$, what value of the total mechanical energy $E = T + U$ corresponds to a parabolic escape orbit?",
+    "questionAr": "في مسألة كبلر للجاذبية مع طاقة الوضع $U(r) = -\\frac{GMm}{r}$، ما قيمة الطاقة الميكانيكية الكلية $E = T + U$ التي تقابل مدار إفلات مكافئاً؟",
+    "optionsEn": [
+      "$E = 0$",
+      "$E < 0$",
+      "$E > 0$",
+      "$E = -\\infty$"
+    ],
+    "optionsAr": [
+      "$E = 0$",
+      "$E < 0$",
+      "$E > 0$",
+      "$E = -\\infty$"
+    ],
+    "correctAnswer": "$E = 0$",
+    "correctIndex": 0,
+    "hintEn": "A parabolic orbit reaches infinity with zero residual speed ($v_\\infty = 0$), so $T_\\infty = 0$ and $U_\\infty = 0$.",
+    "hintAr": "المدار المكافئ يصل إلى اللانهاية بسرعة متبقية منعدمة، فتكون طاقته الكلية عند اللانهاية صفراً.",
+    "stepByStepSolutionEn": [
+      "Bound orbits (ellipses and circles) have negative total energy: $E < 0$.",
+      "Unbound escape orbits (hyperbolas) have positive total energy: $E > 0$.",
+      "The boundary between bound and unbound motion is the parabolic trajectory with $E = 0$, where the particle just reaches $r \\to \\infty$ with speed $v \\to 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "المدارات المقيدة (الدوائر والقطوع الناقصة) تكون طاقتها الكلية سالبة: $E < 0$.",
+      "المدارات غير المقيدة المفتوحة (القطوع الزائدة) طاقتها موجبة: $E > 0$.",
+      "الحد الفاصل بين الحالتين هو المدار المكافئ وطاقته الميكانيكية الكلية تساوي صفراً: $E = 0$."
+    ],
+    "teacherTipEn": "This energy classification directly connects mechanical energy with eccentricity: $e = \\sqrt{1 + \\frac{2 E L^2}{m k^2}}$.",
+    "teacherTipAr": "يرتبط هذا التصنيف بالاختلاف المركزي: $E < 0 \\implies e < 1$، و $E = 0 \\implies e = 1$، و $E > 0 \\implies e > 1$."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_56",
+    "titleEn": "The Virial Theorem for Gravitational Bound Systems",
+    "titleAr": "مبرهنة فيريال للأنظمة التجاذبية المقيدة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "According to the Virial Theorem, for any stable bound system of particles interacting via an inverse-square gravitational force, what is the exact relationship between the time-averaged kinetic energy $\\langle T \\rangle$ and time-averaged potential energy $\\langle U \\rangle$?",
+    "questionAr": "وفقاً لمبرهنة فيريال، لأي نظام جسيمات مقيد ومستقر يتفاعل بقوى جاذبية تتناسب عكسياً مع مربع المسافة، ما هي العلاقة الدقيقة بين متوسط طاقة الحركة مع الزمن $\\langle T \\rangle$ ومتوسط طاقة الوضع $\\langle U \\rangle$؟",
+    "optionsEn": [
+      "$2\\langle T \\rangle + \\langle U \\rangle = 0$",
+      "$\\langle T \\rangle = \\langle U \\rangle$",
+      "$\\langle T \\rangle + \\langle U \\rangle = 0$",
+      "$\\langle T \\rangle = 2\\langle U \\rangle$"
+    ],
+    "optionsAr": [
+      "$2\\langle T \\rangle + \\langle U \\rangle = 0$",
+      "$\\langle T \\rangle = \\langle U \\rangle$",
+      "$\\langle T \\rangle + \\langle U \\rangle = 0$",
+      "$\\langle T \\rangle = 2\\langle U \\rangle$"
+    ],
+    "correctAnswer": "$2\\langle T \\rangle + \\langle U \\rangle = 0$",
+    "correctIndex": 0,
+    "hintEn": "For a potential $U \\propto r^n$, the Virial theorem gives $2\\langle T \\rangle = n\\langle U \\rangle$. For gravity, $n = -1$.",
+    "hintAr": "لأي جهد يتناسب مع $r^n$، تنص مبرهنة فيريال على $2\\langle T \\rangle = n\\langle U \\rangle$. وفي الجاذبية $n = -1$.",
+    "stepByStepSolutionEn": [
+      "The general Virial Theorem states: $2\\langle T \\rangle = \\left\\langle \\sum_i \\vec{r}_i \\cdot \\nabla_i U \\right\\rangle$.",
+      "For a homogeneous potential of degree $n = -1$ (inverse-square force $U \\propto r^{-1}$): $\\vec{r} \\cdot \\nabla U = -U$.",
+      "Therefore: $2\\langle T \\rangle = -\\langle U \\rangle \\implies 2\\langle T \\rangle + \\langle U \\rangle = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "تنص مبرهنة فيريال العامة على أنه لجهد متجانس من الدرجة $n$ يكون $2\\langle T \\rangle = n \\langle U \\rangle$.",
+      "لطاقة الوضع التجاذبية $U \\propto r^{-1}$ نجد أن $n = -1$.",
+      "إذن $2\\langle T \\rangle = -\\langle U \\rangle \\implies 2\\langle T \\rangle + \\langle U \\rangle = 0$."
+    ],
+    "teacherTipEn": "Consequently, the total energy is $\\langle E \\rangle = \\langle T \\rangle + \\langle U \\rangle = -\\langle T \\rangle = \\frac{1}{2}\\langle U \\rangle < 0$.",
+    "teacherTipAr": "ينتج عن ذلك أن الطاقة الكلية للنظام تساوي نصف متوسط طاقة الوضع: $\\langle E \\rangle = \\frac{1}{2}\\langle U \\rangle$."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_57",
+    "titleEn": "Total Mechanical Energy of a Satellite in Circular Orbit",
+    "titleAr": "الطاقة الميكانيكية الكلية لقمر صناعي في مدار دائري",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A satellite of mass $m$ orbits the Earth (mass $M$) in a stable circular orbit of radius $r$. What is its total mechanical energy $E = T + U$?",
+    "questionAr": "قمر صناعي كتلته $m$ يدور حول الأرض (كتلتها $M$) في مدار دائري نصف قطره $r$. ما هي طاقته الميكانيكية الكلية $E = T + U$؟",
+    "optionsEn": [
+      "$-\\frac{GMm}{2r}$",
+      "$-\\frac{GMm}{r}$",
+      "$\\frac{GMm}{2r}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$-\\frac{GMm}{2r}$",
+      "$-\\frac{GMm}{r}$",
+      "$\\frac{GMm}{2r}$",
+      "$0$"
+    ],
+    "correctAnswer": "$-\\frac{GMm}{2r}$",
+    "correctIndex": 0,
+    "hintEn": "Centripetal force is $\\frac{m v^2}{r} = \\frac{GMm}{r^2}$, so $T = \\frac{1}{2} m v^2 = \\frac{GMm}{2r}$. Add $U = -\\frac{GMm}{r}$.",
+    "hintAr": "القوة المركزية $\\frac{mv^2}{r} = \\frac{GMm}{r^2}$، فتكون $T = \\frac{GMm}{2r}$. اجمعها مع $U = -\\frac{GMm}{r}$.",
+    "stepByStepSolutionEn": [
+      "In a circular orbit, gravity provides the centripetal acceleration:",
+      "$\\frac{m v^2}{r} = \\frac{GMm}{r^2} \\implies m v^2 = \\frac{GMm}{r}$.",
+      "Kinetic energy: $T = \\frac{1}{2} m v^2 = \\frac{GMm}{2r}$.",
+      "Potential energy: $U = -\\frac{GMm}{r}$.",
+      "Total energy: $E = T + U = \\frac{GMm}{2r} - \\frac{GMm}{r} = -\\frac{GMm}{2r}$."
+    ],
+    "stepByStepSolutionAr": [
+      "شرط الحركة الدائرية: $\\frac{mv^2}{r} = \\frac{GMm}{r^2} \\implies mv^2 = \\frac{GMm}{r}$.",
+      "طاقة الحركة: $T = \\frac{GMm}{2r}$.",
+      "طاقة الوضع: $U = -\\frac{GMm}{r}$.",
+      "الطاقة الكلية: $E = T + U = \\frac{GMm}{2r} - \\frac{GMm}{r} = -\\frac{GMm}{2r}$."
+    ],
+    "teacherTipEn": "Notice that $T = -E$ and $U = 2E$. To move a satellite to a higher orbit ($r$ increases), its total energy must increase (less negative).",
+    "teacherTipAr": "لاحظ أن $T = -E$ و $U = 2E$. لنقل قمر صناعي لمدار أعلى، يجب زيادة طاقته الميكانيكية الكلية."
+  },
+  {
+    "id": "egbac_mech_ch2_db_hots_58",
+    "titleEn": "Relativistic Kinetic Energy Low-Velocity Correction",
+    "titleAr": "تصحيح طاقة الحركة النسبية عند السرعات المنخفضة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The relativistic kinetic energy is $T = (\\gamma - 1) m c^2$ where $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$. Expanding $\\gamma$ in powers of $\\frac{v^2}{c^2}$ for $v \\ll c$, what is the first relativistic correction term beyond classical kinetic energy $\\frac{1}{2}mv^2$?",
+    "questionAr": "طاقة الحركة في النسبية الخاصة هي $T = (\\gamma - 1) m c^2$ حيث $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$. بمفكوك $\\gamma$ لقوى $\\frac{v^2}{c^2}$ عند السرعات المنخفضة $v \\ll c$، ما هو حد التصحيح النسبي الأول المضاف إلى طاقة الحركة الكلاسيكية $\\frac{1}{2}mv^2$؟",
+    "optionsEn": [
+      "$\\frac{3}{8} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{4} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{8} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{2} m \\frac{v^3}{c}$"
+    ],
+    "optionsAr": [
+      "$\\frac{3}{8} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{4} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{8} m \\frac{v^4}{c^2}$",
+      "$\\frac{1}{2} m \\frac{v^3}{c}$"
+    ],
+    "correctAnswer": "$\\frac{3}{8} m \\frac{v^4}{c^2}$",
+    "correctIndex": 0,
+    "hintEn": "Use the binomial expansion $(1 - u)^{-1/2} = 1 + \\frac{1}{2}u + \\frac{3}{8}u^2 + O(u^3)$ with $u = \\frac{v^2}{c^2}$.",
+    "hintAr": "استخدم مفكوك ذات الحدين $(1 - u)^{-1/2} = 1 + \\frac{1}{2}u + \\frac{3}{8}u^2 + \\dots$ بوضع $u = \\frac{v^2}{c^2}$.",
+    "stepByStepSolutionEn": [
+      "Expand $(1 - v^2/c^2)^{-1/2}$ using binomial series:",
+      "$\\gamma = 1 + \\frac{1}{2}\\frac{v^2}{c^2} + \\frac{(-1/2)(-3/2)}{2!} \\left(-\\frac{v^2}{c^2}\\right)^2 + \\dots = 1 + \\frac{1}{2}\\frac{v^2}{c^2} + \\frac{3}{8}\\frac{v^4}{c^4} + O\\left(\\frac{v^6}{c^6}\\right)$.",
+      "Substitute into $T = (\\gamma - 1) m c^2$:",
+      "$T = \\left( \\frac{1}{2}\\frac{v^2}{c^2} + \\frac{3}{8}\\frac{v^4}{c^4} \\right) m c^2 = \\frac{1}{2} m v^2 + \\frac{3}{8} m \\frac{v^4}{c^2}$.",
+      "The first correction term is $\\frac{3}{8} m \\frac{v^4}{c^2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مفكوك $\\gamma = (1 - v^2/c^2)^{-1/2}$ بذات الحدين:",
+      "$\\gamma = 1 + \\frac{1}{2}\\frac{v^2}{c^2} + \\frac{3}{8}\\frac{v^4}{c^4} + \\dots$",
+      "بالتعويض في $T = (\\gamma - 1) m c^2$:",
+      "$T = \\frac{1}{2} mv^2 + \\frac{3}{8} m \\frac{v^4}{c^2}$.",
+      "حد التصحيح الأول هو $\\frac{3}{8} m \\frac{v^4}{c^2}$."
+    ],
+    "teacherTipEn": "This shows Newtonian mechanics is the exact first-order low-velocity limit of special relativity.",
+    "teacherTipAr": "يوضح هذا أن الميكانيكا الكلاسيكية لنيوتن هي التقريب الدقيق من الدرجة الأولى للنسبية الخاصة عند السرعات المنخفضة."
   }
 ]
 };

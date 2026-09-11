@@ -1761,6 +1761,301 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
     "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+  },
+  {
+    "id": "dyn_ch2_db_easy_51",
+    "titleEn": "Newton's First Law Condition for Constant Velocity",
+    "titleAr": "شرط القانون الأول لنيوتن للحركة بسرعة منتظمة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body of mass $m = 10\\text{ kg}$ moves with a constant velocity $\\vec{v} = 5\\hat{i} - 2\\hat{j}\\text{ m/s}$ under the action of three forces $\\vec{F}_1 = 4\\hat{i} + 6\\hat{j}\\text{ N}$, $\\vec{F}_2 = -7\\hat{i} + 2\\hat{j}\\text{ N}$, and $\\vec{F}_3$. Find $\\vec{F}_3$.",
+    "questionAr": "جسم كتلته $m = 10\\text{ كجم}$ يتحرك بسرعة منتظمة $\\vec{v} = 5\\hat{i} - 2\\hat{j}\\text{ م/ث}$ تحت تأثير ثلاث قوى $\\vec{F}_1 = 4\\hat{i} + 6\\hat{j}\\text{ ن}$ و $\\vec{F}_2 = -7\\hat{i} + 2\\hat{j}\\text{ ن}$ و $\\vec{F}_3$. أوجد $\\vec{F}_3$.",
+    "optionsEn": [
+      "$\\vec{F}_3 = 3\\hat{i} - 8\\hat{j}\\text{ N}$",
+      "$\\vec{F}_3 = -3\\hat{i} + 8\\hat{j}\\text{ N}$",
+      "$\\vec{F}_3 = 11\\hat{i} - 4\\hat{j}\\text{ N}$",
+      "$\\vec{F}_3 = 50\\hat{i} - 20\\hat{j}\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$\\vec{F}_3 = 3\\hat{i} - 8\\hat{j}\\text{ ن}$",
+      "$\\vec{F}_3 = -3\\hat{i} + 8\\hat{j}\\text{ ن}$",
+      "$\\vec{F}_3 = 11\\hat{i} - 4\\hat{j}\\text{ ن}$",
+      "$\\vec{F}_3 = 50\\hat{i} - 20\\hat{j}\\text{ ن}$"
+    ],
+    "correctAnswer": "$\\vec{F}_3 = 3\\hat{i} - 8\\hat{j}\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "Constant velocity means zero acceleration, so by Newton's first law $\\sum \\vec{F} = \\vec{0}$.",
+    "hintAr": "السرعة المنتظمة تعني انعدام العجلة، ومن القانون الأول لنيوتن يكون $\\sum \\vec{F} = \\vec{0}$.",
+    "stepByStepSolutionEn": [
+      "Since velocity is constant, $\\vec{a} = \\frac{d\\vec{v}}{dt} = \\vec{0}$.",
+      "By Newton's first law: $\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$.",
+      "$(4 - 7)\\hat{i} + (6 + 2)\\hat{j} + \\vec{F}_3 = \\vec{0} \\implies -3\\hat{i} + 8\\hat{j} + \\vec{F}_3 = \\vec{0}$.",
+      "$\\vec{F}_3 = 3\\hat{i} - 8\\hat{j}\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بما أن السرعة منتظمة، فإن $\\vec{a} = \\vec{0}$.",
+      "من القانون الأول لنيوتن: $\\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$.",
+      "$-3\\hat{i} + 8\\hat{j} + \\vec{F}_3 = \\vec{0} \\implies \\vec{F}_3 = 3\\hat{i} - 8\\hat{j}\\text{ ن}$."
+    ],
+    "teacherTipEn": "Mass and velocity values are distractors here; constant velocity always requires $\\sum \\vec{F} = \\vec{0}$.",
+    "teacherTipAr": "قيم الكتلة والسرعة لا تؤثر هنا؛ السرعة المنتظمة تعني دائماً انعدام محصلة القوى."
+  },
+  {
+    "id": "dyn_ch2_db_easy_52",
+    "titleEn": "Newton's Second Law with Constant Force and Mass",
+    "titleAr": "القانون الثاني لنيوتن بقوة وكتلة ثابتتين",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F = 35\\text{ N}$ acts on a body of mass $m = 5\\text{ kg}$ resting on a smooth horizontal plane. What is the acceleration produced?",
+    "questionAr": "أثرت قوة $F = 35\\text{ ن}$ على جسم كتلته $m = 5\\text{ كجم}$ موضوع على مستوى أفقي أملس. ما مقدار العجلة الناشئة؟",
+    "optionsEn": [
+      "$7\\text{ m/s}^2$",
+      "$175\\text{ m/s}^2$",
+      "$0.14\\text{ m/s}^2$",
+      "$30\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$7\\text{ م/ث}^2$",
+      "$175\\text{ م/ث}^2$",
+      "$0.14\\text{ م/ث}^2$",
+      "$30\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$7\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "$a = \\frac{F}{m}$.",
+    "hintAr": "$a = \\frac{F}{m}$.",
+    "stepByStepSolutionEn": [
+      "By Newton's second law for a smooth horizontal plane: $F = m a$.",
+      "$a = \\frac{F}{m} = \\frac{35}{5} = 7\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "من القانون الثاني لنيوتن: $F = m a$.",
+      "$a = \\frac{F}{m} = \\frac{35}{5} = 7\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Direct application of $F = ma$ in standard SI units (Newtons, kg, m/s²).",
+    "teacherTipAr": "تطبيق مباشر على $F = ma$ بالوحدات الدولية المعتمدة."
+  },
+  {
+    "id": "dyn_ch2_db_easy_53",
+    "titleEn": "Apparent Weight of a Man in an Upward Accelerating Elevator",
+    "titleAr": "الوزن الظاهري لشخص داخل مصعد يتسارع لأعلى",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A man of mass $m = 70\\text{ kg}$ stands on a spring balance inside an elevator accelerating vertically upwards at $a = 2\\text{ m/s}^2$. Taking $g = 9.8\\text{ m/s}^2$, what is the reading of the balance in Newtons?",
+    "questionAr": "رجل كتلته $m = 70\\text{ كجم}$ يقف على ميزان ضغط داخل مصعد يتحرك رأسياً لأعلى بعجلة $a = 2\\text{ م/ث}^2$. باعتبار $g = 9.8\\text{ م/ث}^2$، ما قراءة الميزان بالنيوتن؟",
+    "optionsEn": [
+      "$826\\text{ N}$",
+      "$546\\text{ N}$",
+      "$686\\text{ N}$",
+      "$140\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$826\\text{ ن}$",
+      "$546\\text{ ن}$",
+      "$686\\text{ ن}$",
+      "$140\\text{ ن}$"
+    ],
+    "correctAnswer": "$826\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "When accelerating upwards, apparent weight is $N = m(g + a)$.",
+    "hintAr": "عند التسارع لأعلى، يكون الوزن الظاهري $N = m(g + a)$.",
+    "stepByStepSolutionEn": [
+      "Equation of motion in upward accelerating elevator:",
+      "$N - mg = ma \\implies N = m(g + a)$.",
+      "$N = 70(9.8 + 2) = 70(11.8) = 826\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الحركة داخل مصعد صاعد بعجلة:",
+      "$N - mg = ma \\implies N = m(g + a)$.",
+      "$N = 70(9.8 + 2) = 70(11.8) = 826\\text{ ن}$."
+    ],
+    "teacherTipEn": "Upward acceleration increases apparent weight; downward acceleration decreases apparent weight.",
+    "teacherTipAr": "العجلة لأعلى تزيد الوزن الظاهري، بينما العجلة لأسفل تنقصه."
+  },
+  {
+    "id": "dyn_ch2_db_easy_54",
+    "titleEn": "Acceleration of an Atwood Machine (Simple Vertical Pulley)",
+    "titleAr": "عجلة حركة آلة آتوود (بكرة ملساء بسيطة)",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two bodies of masses $m_1 = 5\\text{ kg}$ and $m_2 = 3\\text{ kg}$ are connected by a light inextensible string passing over a smooth fixed pulley. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
+    "questionAr": "جسمان كتلتاهما $m_1 = 5\\text{ كجم}$ و $m_2 = 3\\text{ كجم}$ متصلان بخيط خفيف غير مرن يمر فوق بكرة صغيرة ملساء. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
+    "optionsEn": [
+      "$2.45\\text{ m/s}^2$",
+      "$4.90\\text{ m/s}^2$",
+      "$1.225\\text{ m/s}^2$",
+      "$9.80\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$2.45\\text{ م/ث}^2$",
+      "$4.90\\text{ م/ث}^2$",
+      "$1.225\\text{ م/ث}^2$",
+      "$9.80\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$2.45\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "For an Atwood machine: $a = \\frac{m_1 - m_2}{m_1 + m_2} g$.",
+    "hintAr": "لآلة آتوود الرأسية: $a = \\frac{m_1 - m_2}{m_1 + m_2} g$.",
+    "stepByStepSolutionEn": [
+      "Using the standard vertical pulley formula:",
+      "$a = \\frac{m_1 - m_2}{m_1 + m_2} g = \\frac{5 - 3}{5 + 3} (9.8) = \\frac{2}{8} (9.8) = \\frac{1}{4} (9.8) = 2.45\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "باستخدام صيغة البكرة الرأسية البسيطة:",
+      "$a = \\frac{5 - 3}{5 + 3} (9.8) = \\frac{2}{8} \\times 9.8 = 2.45\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Notice the driving net force is $(m_1 - m_2)g$ and the total accelerating mass is $(m_1 + m_2)$.",
+    "teacherTipAr": "لاحظ أن القوة المحركة الصافية هي $(m_1 - m_2)g$ وإجمالي الكتلة المتحركة هي $(m_1 + m_2)$."
+  },
+  {
+    "id": "dyn_ch2_db_easy_55",
+    "titleEn": "Tension in the String of an Atwood Machine",
+    "titleAr": "الشد في خيط آلة آتوود",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the previous problem ($m_1 = 5\\text{ kg}$, $m_2 = 3\\text{ kg}$, $a = 2.45\\text{ m/s}^2$, $g = 9.8\\text{ m/s}^2$), find the tension $T$ in the string.",
+    "questionAr": "في المسألة السابقة ($m_1 = 5\\text{ كجم}$، $m_2 = 3\\text{ كجم}$، $a = 2.45\\text{ م/ث}^2$، $g = 9.8\\text{ م/ث}^2$)، أوجد مقدار قوة الشد $T$ في الخيط.",
+    "optionsEn": [
+      "$36.75\\text{ N}$",
+      "$49.00\\text{ N}$",
+      "$29.40\\text{ N}$",
+      "$73.50\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$36.75\\text{ ن}$",
+      "$49.00\\text{ ن}$",
+      "$29.40\\text{ ن}$",
+      "$73.50\\text{ ن}$"
+    ],
+    "correctAnswer": "$36.75\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "Use the equation of motion for either mass: $T = m_2(g + a)$ or $T = m_1(g - a)$.",
+    "hintAr": "استخدم معادلة حركة إحدى الكتلتين: $T = m_2(g + a)$ أو $T = m_1(g - a)$.",
+    "stepByStepSolutionEn": [
+      "For the ascending mass $m_2 = 3\\text{ kg}$:",
+      "$T - m_2 g = m_2 a \\implies T = m_2(g + a) = 3(9.8 + 2.45) = 3(12.25) = 36.75\\text{ N}$.",
+      "Check with descending mass $m_1 = 5\\text{ kg}$:",
+      "$m_1 g - T = m_1 a \\implies T = m_1(g - a) = 5(9.8 - 2.45) = 5(7.35) = 36.75\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "للكتلة الصاعدة $m_2 = 3\\text{ كجم}$:",
+      "$T = m_2(g + a) = 3(9.8 + 2.45) = 3(12.25) = 36.75\\text{ ن}$.",
+      "للتحقق بالكتلة الهابطة $m_1 = 5\\text{ كجم}$:",
+      "$T = m_1(g - a) = 5(9.8 - 2.45) = 36.75\\text{ ن}$."
+    ],
+    "teacherTipEn": "Double-checking with both masses confirms both your acceleration and tension are correct.",
+    "teacherTipAr": "التحقق باستخدام معادلتي الكتلتين يضمن صحة كل من العجلة والشد معاً."
+  },
+  {
+    "id": "dyn_ch2_db_easy_56",
+    "titleEn": "Pressure on the Axis of a Smooth Vertical Pulley",
+    "titleAr": "الضغط على محور بكرة رأسية ملساء",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "When two bodies hang vertically from a string passing over a smooth pulley, the tension in the string is $T = 40\\text{ N}$. What is the pressure $P$ on the axis of the pulley?",
+    "questionAr": "عندما يتدلى جسمان رأسياً بواسطة خيط يمر على بكرة ملساء، كان الشد في الخيط $T = 40\\text{ ن}$. ما مقدار الضغط $P$ الواقع على محور البكرة؟",
+    "optionsEn": [
+      "$P = 80\\text{ N}$ (vertically downwards)",
+      "$P = 40\\text{ N}$",
+      "$P = 40\\sqrt{2}\\text{ N}$",
+      "$P = 0$"
+    ],
+    "optionsAr": [
+      "$P = 80\\text{ ن}$ (رأسياً لأسفل)",
+      "$P = 40\\text{ ن}$",
+      "$P = 40\\sqrt{2}\\text{ ن}$",
+      "$P = 0$"
+    ],
+    "correctAnswer": "$P = 80\\text{ N}$ (vertically downwards)",
+    "correctIndex": 0,
+    "hintEn": "Both strings hang vertically downward, so the resultant force on the pulley is $P = 2T$.",
+    "hintAr": "فرعا الخيط يتدليان رأسياً لأسفل، فتكون محصلة الضغط على محور البكرة $P = 2T$.",
+    "stepByStepSolutionEn": [
+      "The string has two vertical segments pulling down on the pulley, each with tension $T = 40\\text{ N}$.",
+      "Since the two forces are parallel and in the same direction, resultant pressure is:",
+      "$P = T + T = 2T = 2(40) = 80\\text{ N}$ vertically downwards."
+    ],
+    "stepByStepSolutionAr": [
+      "الخيط يتدلى من جانبين برأسية تامة بقوة شد $T = 40\\text{ ن}$ في كل فرع.",
+      "بما أن القوتين متوازيتان ومتحدتا الاتجاه، فإن الضغط الكلي:",
+      "$P = 2T = 2 \\times 40 = 80\\text{ ن}$ رأسياً لأسفل."
+    ],
+    "teacherTipEn": "Pressure on the pulley axis is always the vector resultant of the two string tension forces.",
+    "teacherTipAr": "الضغط على محور البكرة هو دائماً المحصلة الاتجاهية لقوتي الشد في فرعي الخيط."
+  },
+  {
+    "id": "dyn_ch2_db_easy_57",
+    "titleEn": "Motion of a Body on a Smooth Inclined Plane under Gravity",
+    "titleAr": "حركة جسم على مستوى مائل أملس تحت تأثير الجاذبية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body is released from rest at the top of a smooth plane inclined at $30^\\circ$ to the horizontal. Taking $g = 9.8\\text{ m/s}^2$, what is the acceleration of the body down the plane?",
+    "questionAr": "تُرك جسم من السكون عند قمة مستوى أملس يميل بزاوية $30^\\circ$ على الأفقي. باعتبار $g = 9.8\\text{ م/ث}^2$، ما عجلة حركة الجسم لأسفل المستوى؟",
+    "optionsEn": [
+      "$4.9\\text{ m/s}^2$",
+      "$9.8\\text{ m/s}^2$",
+      "$4.9\\sqrt{3}\\text{ m/s}^2$",
+      "$2.45\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$4.9\\text{ م/ث}^2$",
+      "$9.8\\text{ م/ث}^2$",
+      "$4.9\\sqrt{3}\\text{ م/ث}^2$",
+      "$2.45\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$4.9\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Acceleration down a smooth inclined plane is $a = g \\sin\\theta$, independent of the body's mass.",
+    "hintAr": "عجلة الهبوط على مستوى أملس هي $a = g \\sin\\theta$ وهي مستقلة تماماً عن كتلة الجسم.",
+    "stepByStepSolutionEn": [
+      "The only component of force along the plane is the component of gravity: $F = m g \\sin 30^\\circ$.",
+      "By Newton's second law: $m a = m g \\sin 30^\\circ \\implies a = g \\sin 30^\\circ$.",
+      "$a = 9.8 \\times 0.5 = 4.9\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبة القوة الوحيدة الموازية للمستوى هي مركبة الوزن: $m g \\sin 30^\\circ$.",
+      "من قانون نيوتن الثاني: $m a = m g \\sin 30^\\circ \\implies a = g \\sin 30^\\circ$.",
+      "$a = 9.8 \\times 0.5 = 4.9\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Mass cancels out completely for frictionless gravity-driven slides.",
+    "teacherTipAr": "تختصر الكتلة تماماً في الانزلاق الحر بدون احتكاك تحت تأثير الجاذبية."
+  },
+  {
+    "id": "dyn_ch2_db_easy_58",
+    "titleEn": "Linear Momentum of a Particle",
+    "titleAr": "كمية الحركة لجسيم",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile of mass $m = 200\\text{ g}$ has velocity $\\vec{v} = 30\\hat{i} - 40\\hat{j}\\text{ m/s}$. What is the magnitude of its linear momentum in $\\text{kg}\\cdot\\text{m/s}$?",
+    "questionAr": "قذيفة كتلتها $m = 200\\text{ جم}$ سرعتها $\\vec{v} = 30\\hat{i} - 40\\hat{j}\\text{ م/ث}$. ما مقدار كمية حركتها بوحدة $\\text{كجم}\\cdot\\text{م/ث}$؟",
+    "optionsEn": [
+      "$10\\text{ kg}\\cdot\\text{m/s}$",
+      "$50\\text{ kg}\\cdot\\text{m/s}$",
+      "$10000\\text{ kg}\\cdot\\text{m/s}$",
+      "$14\\text{ kg}\\cdot\\text{m/s}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ كجم}\\cdot\\text{م/ث}$",
+      "$50\\text{ كجم}\\cdot\\text{م/ث}$",
+      "$10000\\text{ كجم}\\cdot\\text{م/ث}$",
+      "$14\\text{ كجم}\\cdot\\text{م/ث}$"
+    ],
+    "correctAnswer": "$10\\text{ kg}\\cdot\\text{m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Convert mass to kilograms ($m = 0.2\\text{ kg}$), then magnitude of momentum is $p = m |v|$.",
+    "hintAr": "حول الكتلة إلى كيلوجرام ($m = 0.2\\text{ كجم}$) ثم احسب معيار كمية الحركة $p = m |v|$.",
+    "stepByStepSolutionEn": [
+      "Speed $|v| = \\sqrt{30^2 + (-40)^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ m/s}$.",
+      "Mass in kg: $m = \\frac{200}{1000} = 0.2\\text{ kg}$.",
+      "Magnitude of momentum: $p = m |v| = 0.2 \\times 50 = 10\\text{ kg}\\cdot\\text{m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مقدار السرعة $|v| = \\sqrt{30^2 + 40^2} = 50\\text{ م/ث}$.",
+      "الكتلة بالكيلوجرام: $m = 0.2\\text{ كجم}$.",
+      "معيار كمية الحركة: $p = 0.2 \\times 50 = 10\\text{ كجم}\\cdot\\text{م/ث}$."
+    ],
+    "teacherTipEn": "Always convert grams to kilograms when working with SI units of momentum and force.",
+    "teacherTipAr": "حول الجرام دائماً إلى كيلوجرام للتعامل بالوحدات الدولية المتسقة."
   }
 ],
   medium: [
@@ -3483,6 +3778,364 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
     "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+  },
+  {
+    "id": "dyn_ch2_db_med_51",
+    "titleEn": "Newton's Second Law with Variable Mass",
+    "titleAr": "القانون الثاني لنيوتن لكتلة متغيرة مع الزمن",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rocket moves in a straight line such that its mass decreases due to fuel consumption according to $m(t) = 1000 - 20t\\text{ kg}$. If its velocity is $v(t) = 2t^2 + 50\\text{ m/s}$, find the net force $F$ acting on the rocket at $t = 10\\text{ s}$.",
+    "questionAr": "صاروخ يتحرك في خط مستقيم بحيث تتناقص كتلته لاحتراق الوقود وفق العلاقة $m(t) = 1000 - 20t\\text{ كجم}$. إذا كانت سرعته $v(t) = 2t^2 + 50\\text{ م/ث}$، فأوجد القوة المحصلة $F$ المؤثرة على الصاروخ عند $t = 10\\text{ ث}$.",
+    "optionsEn": [
+      "$27000\\text{ N}$",
+      "$32000\\text{ N}$",
+      "$37000\\text{ N}$",
+      "$22000\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$27000\\text{ ن}$",
+      "$32000\\text{ ن}$",
+      "$37000\\text{ ن}$",
+      "$22000\\text{ ن}$"
+    ],
+    "correctAnswer": "$27000\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "When mass is variable, Newton's second law is $F = \\frac{dp}{dt} = \\frac{d}{dt}(m v) = m \\frac{dv}{dt} + v \\frac{dm}{dt}$.",
+    "hintAr": "عندما تكون الكتلة متغيرة، قانون نيوتن الثاني هو $F = \\frac{d}{dt}(m v) = m \\frac{dv}{dt} + v \\frac{dm}{dt}$.",
+    "stepByStepSolutionEn": [
+      "At $t = 10\\text{ s}$:",
+      "$m(10) = 1000 - 20(10) = 800\\text{ kg}$, and $\\frac{dm}{dt} = -20\\text{ kg/s}$.",
+      "$v(10) = 2(10)^2 + 50 = 200 + 50 = 250\\text{ m/s}$.",
+      "$\\frac{dv}{dt} = 4t \\implies \\left.\\frac{dv}{dt}\\right|_{t=10} = 40\\text{ m/s}^2$.",
+      "Using $F = \\frac{d}{dt}(mv) = m \\frac{dv}{dt} + v \\frac{dm}{dt}$:",
+      "$F = (800 \\times 40) + (250 \\times (-20)) = 32000 - 5000 = 27000\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند $t = 10\\text{ ث}$:",
+      "$m(10) = 800\\text{ كجم}$، و $\\frac{dm}{dt} = -20\\text{ كجم/ث}$.",
+      "$v(10) = 250\\text{ م/ث}$، و $\\frac{dv}{dt} = 40\\text{ م/ث}^2$.",
+      "بتطبيق $F = m \\frac{dv}{dt} + v \\frac{dm}{dt}$:",
+      "$F = 800(40) + 250(-20) = 32000 - 5000 = 27000\\text{ ن}$."
+    ],
+    "teacherTipEn": "Never write $F = ma$ when mass varies with time; you must use the product rule on momentum $p = mv$!",
+    "teacherTipAr": "إياك أن تكتب $F = ma$ عندما تتغير الكتلة؛ بل يجب استخدام مشتقة حاصل الضرب لكمية الحركة $p = mv$!"
+  },
+  {
+    "id": "dyn_ch2_db_med_52",
+    "titleEn": "Connected Bodies on a Horizontal Table and Hanging Mass",
+    "titleAr": "جسمان متصلان: أحدهما على منضدة أفقية والآخر معلق",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A mass $m_1 = 4\\text{ kg}$ rests on a rough horizontal table (friction coefficient $\\mu = 0.25$). It is connected by a light string over a smooth pulley at the edge of the table to a hanging mass $m_2 = 6\\text{ kg}$. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
+    "questionAr": "كتلة $m_1 = 4\\text{ كجم}$ موضوعة على نضد أفقي خشن (معامل احتكاكه $\\mu = 0.25$). تتصل بخيط خفيف يمر فوق بكرة ملساء عند حافة النضد بكتلة معلقة $m_2 = 6\\text{ كجم}$. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
+    "optionsEn": [
+      "$4.9\\text{ m/s}^2$",
+      "$5.88\\text{ m/s}^2$",
+      "$3.92\\text{ m/s}^2$",
+      "$2.45\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$4.9\\text{ م/ث}^2$",
+      "$5.88\\text{ م/ث}^2$",
+      "$3.92\\text{ م/ث}^2$",
+      "$2.45\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$4.9\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "The friction force on the table is $F_k = \\mu m_1 g$. The equation of motion is $(m_1 + m_2)a = m_2 g - \\mu m_1 g$.",
+    "hintAr": "قوة الاحتكاك على النضد هي $F_k = \\mu m_1 g$. ومعادلة الحركة الكلية: $(m_1 + m_2)a = m_2 g - \\mu m_1 g$.",
+    "stepByStepSolutionEn": [
+      "Friction on table mass: $F_k = \\mu N = \\mu m_1 g = 0.25 \\times 4 \\times 9.8 = 9.8\\text{ N}$.",
+      "Driving gravitational force on hanging mass: $m_2 g = 6 \\times 9.8 = 58.8\\text{ N}$.",
+      "Net accelerating force: $58.8 - 9.8 = 49.0\\text{ N}$.",
+      "Total mass: $m_1 + m_2 = 4 + 6 = 10\\text{ kg}$.",
+      "Acceleration: $a = \\frac{49.0}{10} = 4.9\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "قوة الاحتكاك على النضد: $F_k = 0.25 \\times 4 \\times 9.8 = 9.8\\text{ ن}$.",
+      "القوة المحركة لأسفل: $m_2 g = 6 \\times 9.8 = 58.8\\text{ ن}$.",
+      "القوة المحصلة: $58.8 - 9.8 = 49.0\\text{ ن}$.",
+      "الكتلة الكلية: $4 + 6 = 10\\text{ كجم}$.",
+      "العجلة: $a = \\frac{49.0}{10} = 4.9\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Writing the single combined system equation $a = \\frac{\\text{Driving Force} - \\text{Resistances}}{\\sum m}$ saves time.",
+    "teacherTipAr": "معادلة النظام الموحد $a = \\frac{\\text{القوة المحركة} - \\text{المقاومات}}{\\text{مجموع الكتل}}$ توفر وقتاً كبيراً في الامتحان."
+  },
+  {
+    "id": "dyn_ch2_db_med_53",
+    "titleEn": "Pressure on Pulley for Horizontal Table System",
+    "titleAr": "الضغط على محور البكرة لمنظومة نضد أفقي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the table-pulley system of the previous question ($T = m_1(a + \\mu g) = 4(4.9 + 2.45) = 29.4\\text{ N}$), the two segments of string are perpendicular (one horizontal, one vertical). What is the magnitude of the pressure $P$ on the pulley axis?",
+    "questionAr": "في منظومة النضد والبكرة في المسألة السابقة حيث الشد $T = 29.4\\text{ ن}$، وفرعا الخيط متعامدان (أحدهما أفقي والآخر رأسي). ما مقدار الضغط $P$ الواقع على محور البكرة؟",
+    "optionsEn": [
+      "$29.4\\sqrt{2}\\text{ N}$",
+      "$58.8\\text{ N}$",
+      "$29.4\\text{ N}$",
+      "$41.58\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$29.4\\sqrt{2}\\text{ ن}$",
+      "$58.8\\text{ ن}$",
+      "$29.4\\text{ ن}$",
+      "$41.58\\text{ ن}$"
+    ],
+    "correctAnswer": "$29.4\\sqrt{2}\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "For two perpendicular forces of magnitude $T$, the resultant pressure is $P = T\\sqrt{2}$.",
+    "hintAr": "لقوتين متعامدتين مقدار كل منهما $T$، تكون المحصلة $P = T\\sqrt{2}$.",
+    "stepByStepSolutionEn": [
+      "The horizontal string segment exerts force $T$ to the left.",
+      "The vertical string segment exerts force $T$ downwards.",
+      "Since the angle between them is $90^\\circ$:",
+      "$P = \\sqrt{T^2 + T^2} = T\\sqrt{2} = 29.4\\sqrt{2}\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الفرع الأفقي يشد بقوة $T$ أفقياً، والفرع الرأسي يشد بقوة $T$ لأسفل.",
+      "الزاوية بين الفرعين $90^\\circ$:",
+      "$P = \\sqrt{T^2 + T^2} = T\\sqrt{2} = 29.4\\sqrt{2}\\text{ ن}$."
+    ],
+    "teacherTipEn": "Contrast this with the vertical pulley ($P = 2T$): here the angle is $90^\\circ$, so $P = T\\sqrt{2}$.",
+    "teacherTipAr": "قارن مع البكرة الرأسية ($P = 2T$): هنا الزاوية $90^\\circ$ إذن $P = T\\sqrt{2}$."
+  },
+  {
+    "id": "dyn_ch2_db_med_54",
+    "titleEn": "Motion of a Train Resisted by Friction Proportional to Mass",
+    "titleAr": "حركة قطار ضد مقاومة تتناسب طردياً مع الكتلة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A train of mass $200\\text{ tonnes}$ moves on a straight level track. Its engine exerts a constant pulling force of $4\\text{ tonnes-weight}$. The track resistance is $10\\text{ kg-wt per tonne}$ of mass. Find the acceleration of the train in $\\text{m/s}^2$. (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "قطار كتلته $200\\text{ طن}$ يتحرك على خط مستقيم أفقي. تجره قاطرة بقوة ثابتة $4\\text{ طن-وزن}$. ومقاومة الحركة تعادل $10\\text{ ث.كجم لكل طن}$ من الكتلة. أوجد عجلة حركة القطار بوحدة $\\text{م/ث}^2$. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$0.098\\text{ m/s}^2$",
+      "$0.196\\text{ m/s}^2$",
+      "$0.049\\text{ m/s}^2$",
+      "$0.98\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$0.098\\text{ م/ث}^2$",
+      "$0.196\\text{ م/ث}^2$",
+      "$0.049\\text{ م/ث}^2$",
+      "$0.98\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$0.098\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Total resistance $= 200 \\times 10 = 2000\\text{ kg-wt} = 2\\text{ tonnes-wt}$. Net force $= 4 - 2 = 2\\text{ tonnes-wt}$. Convert to Newtons!",
+    "hintAr": "المقاومة الكلية $= 200 \\times 10 = 2000\\text{ ث.كجم} = 2\\text{ طن-وزن}$. القوة الصافية $= 4 - 2 = 2\\text{ طن-وزن}$. حول إلى نيوتن!",
+    "stepByStepSolutionEn": [
+      "Engine force: $F = 4\\text{ tonnes-wt} = 4000\\text{ kg-wt} = 4000 \\times 9.8\\text{ N} = 39200\\text{ N}$.",
+      "Total resistance: $R = 200 \\times 10 = 2000\\text{ kg-wt} = 2000 \\times 9.8\\text{ N} = 19600\\text{ N}$.",
+      "Net force $F_{\\text{net}} = F - R = 39200 - 19600 = 19600\\text{ N}$.",
+      "Total mass in kg: $m = 200 \\times 1000 = 200,000\\text{ kg}$.",
+      "Acceleration $a = \\frac{F_{\\text{net}}}{m} = \\frac{19600}{200,000} = 0.098\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "قوة المحرك: $F = 4000 \\times 9.8 = 39200\\text{ ن}$.",
+      "المقاومة الكلية: $R = 200 \\times 10 \\times 9.8 = 19600\\text{ ن}$.",
+      "القوة المحصلة: $F_{\\text{net}} = 19600\\text{ ن}$.",
+      "الكتلة بالكيلوجرام: $m = 200000\\text{ كجم}$.",
+      "العجلة: $a = \\frac{19600}{200000} = 0.098\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Always be mindful of gravimetric units like tonne-weight and kg-weight: multiply by 9.8 to get Newtons.",
+    "teacherTipAr": "انتبه دائماً للوحدات التثاقلية (طن-وزن وثقل كجم): اضرب في 9.8 للتحويل إلى نيوتن."
+  },
+  {
+    "id": "dyn_ch2_db_med_55",
+    "titleEn": "Distance Traveled After String is Cut in a Pulley System",
+    "titleAr": "المسافة المقطوعة بعد قطع الخيط في منظومة بكرات",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In an Atwood machine, two masses of $5\\text{ kg}$ and $3\\text{ kg}$ start from rest. After moving for $2\\text{ seconds}$ with acceleration $a = 2.45\\text{ m/s}^2$, the string is suddenly cut. How much higher does the lighter ascending $3\\text{ kg}$ mass rise before coming to rest?",
+    "questionAr": "في آلة آتوود، تحركت كتلتان $5\\text{ كجم}$ و $3\\text{ كجم}$ من السكون. وبعد مرور ثانيتين ($t = 2\\text{ ث}$) بعجلة $a = 2.45\\text{ م/ث}^2$ قُطع الخيط فجأة. كم مسافة إضافية تصعدها الكتلة الأخف $3\\text{ كجم}$ لأعلى قبل أن تسكن لحظياً؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$1.225\\text{ m}$",
+      "$2.45\\text{ m}$",
+      "$0.6125\\text{ m}$",
+      "$4.90\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$1.225\\text{ م}$",
+      "$2.45\\text{ م}$",
+      "$0.6125\\text{ م}$",
+      "$4.90\\text{ م}$"
+    ],
+    "correctAnswer": "$1.225\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Find velocity at cut instant: $v = a t = 2.45 \\times 2 = 4.9\\text{ m/s}$. Then it moves freely under gravity: $s = \\frac{v^2}{2g}$.",
+    "hintAr": "احسب السرعة لحظة قطع الخيط: $v = at = 4.9\\text{ م/ث}$، ثم تتحرك حرة تحت الجاذبية: $s = \\frac{v^2}{2g}$.",
+    "stepByStepSolutionEn": [
+      "Velocity at the instant the string is cut: $v = v_0 + a t = 0 + (2.45 \\times 2) = 4.9\\text{ m/s}$ upwards.",
+      "After the string is cut, tension becomes zero ($T = 0$).",
+      "The $3\\text{ kg}$ mass now moves purely under gravity with deceleration $g = 9.8\\text{ m/s}^2$.",
+      "Using $v_f^2 = v_i^2 - 2g s$ with $v_f = 0$:",
+      "$0 = (4.9)^2 - 2(9.8) s \\implies 19.6 s = 24.01 \\implies s = \\frac{24.01}{19.6} = 1.225\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة لحظة قطع الخيط: $v = 2.45 \\times 2 = 4.9\\text{ م/ث}$ لأعلى.",
+      "بعد قطع الخيط ينعدم الشد وتتحرك الكتلة بحرية تحت تأثير الجاذبية فقط بتقصير $g = 9.8\\text{ م/ث}^2$.",
+      "باستخدام $0 = v^2 - 2g s$:",
+      "$s = \\frac{(4.9)^2}{2 \\times 9.8} = \\frac{24.01}{19.6} = 1.225\\text{ م}$."
+    ],
+    "teacherTipEn": "The velocity at the instant of cutting serves as the initial velocity for the subsequent free gravitational motion.",
+    "teacherTipAr": "السرعة لحظة انقطاع الخيط تعتبر هي السرعة الابتدائية للمرحلة التالية من الحركة الحرة."
+  },
+  {
+    "id": "dyn_ch2_db_med_56",
+    "titleEn": "Inclined Plane Connected to Hanging Mass",
+    "titleAr": "حركة كتلة على مستوى مائل متصلة بكتلة معلقة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body of mass $m_1 = 6\\text{ kg}$ on a smooth plane inclined at $30^\\circ$ to the horizontal is connected by a string over a pulley at the top of the incline to a vertically hanging mass $m_2 = 5\\text{ kg}$. Find the acceleration $a$ of the system. (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "جسم كتلته $m_1 = 6\\text{ كجم}$ موضوع على مستوى أملس يميل بزاوية $30^\\circ$ على الأفقي متصل بخيط يمر فوق بكرة عند قمة المستوى بكتلة تتدلى رأسياً $m_2 = 5\\text{ كجم}$. أوجد عجلة حركة المجموعة $a$. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$\\frac{19.6}{11} \\approx 1.78\\text{ m/s}^2$",
+      "$2.45\\text{ m/s}^2$",
+      "$\\frac{9.8}{11}\\text{ m/s}^2$",
+      "$3.27\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$\\frac{19.6}{11} \\approx 1.78\\text{ م/ث}^2$",
+      "$2.45\\text{ م/ث}^2$",
+      "$\\frac{9.8}{11}\\text{ م/ث}^2$",
+      "$3.27\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$\\frac{19.6}{11} \\approx 1.78\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Compare the hanging weight $m_2 g = 5g$ with the incline component $m_1 g \\sin 30^\\circ = 3g$. Since $5g > 3g$, the hanging mass descends.",
+    "hintAr": "قارن وزن الكتلة المعلقة $5g$ مع مركبة وزن الكتلة على المستوى $6g \\sin 30^\\circ = 3g$. بما أن $5g > 3g$ فإن الكتلة المعلقة تهبط.",
+    "stepByStepSolutionEn": [
+      "Driving force on hanging mass: $m_2 g = 5g$.",
+      "Opposing component on smooth incline: $m_1 g \\sin 30^\\circ = 6g \\times 0.5 = 3g$.",
+      "Net force: $5g - 3g = 2g = 2(9.8) = 19.6\\text{ N}$.",
+      "Total moving mass: $m_1 + m_2 = 6 + 5 = 11\\text{ kg}$.",
+      "Acceleration: $a = \\frac{19.6}{11} \\approx 1.78\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة المحركة: $m_2 g = 5g$.",
+      "المركبة المقاومة على المستوى الأملس: $6g \\sin 30^\\circ = 3g$.",
+      "القوة المحصلة: $5g - 3g = 2g = 19.6\\text{ ن}$.",
+      "الكتلة الكلية: $6 + 5 = 11\\text{ كجم}$.",
+      "العجلة: $a = \\frac{19.6}{11} \\approx 1.78\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Always compare $m_2$ and $m_1 \\sin\\theta$ first to determine the direction of motion before writing equations.",
+    "teacherTipAr": "قارن دائماً بين $m_2$ و $m_1 \\sin\\theta$ لتحديد اتجاه الحركة قبل كتابة المعادلات."
+  },
+  {
+    "id": "dyn_ch2_db_med_57",
+    "titleEn": "Free Fall in a Severed Elevator Cable",
+    "titleAr": "انعدام الوزن الظاهري عند انقطاع حبل المصعد",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If the cable supporting an elevator snaps and the elevator falls freely under gravity ($a = g$), what is the apparent weight reading of a person of mass $80\\text{ kg}$ standing on a scale inside?",
+    "questionAr": "إذا انقطع كابل مصعد وهبط المصعد هبوطاً حراً تحت تأثير الجاذبية ($a = g$)، فما قراءة الميزان لشخص كتلته $80\\text{ كجم}$ يقف داخله؟",
+    "optionsEn": [
+      "$0$ (state of apparent weightlessness)",
+      "$784\\text{ N}$",
+      "$1568\\text{ N}$",
+      "$80\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$0$ (حالة انعدام وزن ظاهري تام)",
+      "$784\\text{ ن}$",
+      "$1568\\text{ ن}$",
+      "$80\\text{ ن}$"
+    ],
+    "correctAnswer": "$0$ (state of apparent weightlessness)",
+    "correctIndex": 0,
+    "hintEn": "When accelerating downwards at $a = g$, the normal force is $N = m(g - a) = m(g - g) = 0$.",
+    "hintAr": "عند التسارع لأسفل بعجلة الجاذبية $a = g$، يكون رد الفعل العمودي $N = m(g - g) = 0$.",
+    "stepByStepSolutionEn": [
+      "Equation for downward acceleration: $mg - N = ma \\implies N = m(g - a)$.",
+      "In free fall, $a = g$.",
+      "Therefore, $N = m(g - g) = 0$.",
+      "The scale reads zero; both the person and the elevator accelerate at the exact same rate under gravity."
+    ],
+    "stepByStepSolutionAr": [
+      "معادلة الحركة لأسفل: $N = m(g - a)$.",
+      "في حالة السقوط الحر: $a = g$.",
+      "إذن $N = m(g - g) = 0$.",
+      "الميزان يقرأ صفراً وتتحقق حالة انعدام الوزن الظاهري."
+    ],
+    "teacherTipEn": "Apparent weightlessness does not mean gravity vanishes; it means there is zero contact normal force.",
+    "teacherTipAr": "انعدام الوزن الظاهري لا يعني انعدام الجاذبية؛ بل يعني انعدام قوة التلامس ورد الفعل."
+  },
+  {
+    "id": "dyn_ch2_db_med_58",
+    "titleEn": "Relative Acceleration in an Elevator",
+    "titleAr": "العجلة النسبية لجسم يسقط داخل مصعد متحرك",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball is dropped from the ceiling of an elevator of height $h = 2.4\\text{ m}$. If the elevator is ascending with constant acceleration $a_e = 2.2\\text{ m/s}^2$ and $g = 9.8\\text{ m/s}^2$, how long does it take for the ball to hit the elevator floor?",
+    "questionAr": "سقطت كرة من سقف مصعد ارتفاعه $h = 2.4\\text{ م}$. إذا كان المصعد يصعد بعجلة منتظمة $a_e = 2.2\\text{ م/ث}^2$ و $g = 9.8\\text{ م/ث}^2$، فكم ثانية تستغرق الكرة حتى تصطدم بأرضية المصعد؟",
+    "optionsEn": [
+      "$\\sqrt{\\frac{2.4}{6}} \\approx 0.63\\text{ s}$",
+      "$0.70\\text{ s}$",
+      "$0.50\\text{ s}$",
+      "$1.00\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$\\sqrt{\\frac{2.4}{6}} \\approx 0.63\\text{ ث}$",
+      "$0.70\\text{ ث}$",
+      "$0.50\\text{ ث}$",
+      "$1.00\\text{ ث}$"
+    ],
+    "correctAnswer": "$\\sqrt{\\frac{2.4}{6}} \\approx 0.63\\text{ s}$",
+    "correctIndex": 0,
+    "hintEn": "The effective relative acceleration of the ball towards the floor is $a_{\\text{rel}} = g + a_e = 9.8 + 2.2 = 12\\text{ m/s}^2$. Use $h = \\frac{1}{2} a_{\\text{rel}} t^2$.",
+    "hintAr": "العجلة النسبية للكرة بالنسبة لأرضية المصعد هي $a_{\\text{rel}} = g + a_e = 9.8 + 2.2 = 12\\text{ م/ث}^2$. استخدم $h = \\frac{1}{2} a_{\\text{rel}} t^2$.",
+    "stepByStepSolutionEn": [
+      "In the non-inertial reference frame of the elevator, effective gravity is $g_{\\text{eff}} = g + a_e = 9.8 + 2.2 = 12\\text{ m/s}^2$.",
+      "Using kinematic equation: $h = \\frac{1}{2} g_{\\text{eff}} t^2 \\implies 2.4 = \\frac{1}{2}(12) t^2 = 6 t^2$.",
+      "$t^2 = \\frac{2.4}{6} = 0.4 \\implies t = \\sqrt{0.4} \\approx 0.632\\text{ s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "العجلة النسبية داخل المصعد الصاعد: $g_{\\text{eff}} = 9.8 + 2.2 = 12\\text{ م/ث}^2$.",
+      "معادلة السقوط الحر داخل المصعد: $h = \\frac{1}{2} (12) t^2 = 6 t^2$.",
+      "$6 t^2 = 2.4 \\implies t^2 = 0.4 \\implies t \\approx 0.632\\text{ ث}$."
+    ],
+    "teacherTipEn": "Using relative acceleration avoids solving coupled quadratic equations in the ground frame.",
+    "teacherTipAr": "استخدام العجلة النسبية يغني عن حل معادلات تربيعية مركبة بالنسبة لإحداثيات الأرض."
+  },
+  {
+    "id": "dyn_ch2_db_med_59",
+    "titleEn": "Newton's Second Law for Two Blocks Pushed in Contact",
+    "titleAr": "القوة المتبادلة بين كتلتين متلاصقتين تحت تأثير قوة أفقية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two blocks $A$ and $B$ of masses $m_A = 3\\text{ kg}$ and $m_B = 2\\text{ kg}$ are in contact on a smooth horizontal surface. A horizontal pushing force $F = 20\\text{ N}$ is applied to block $A$, driving both blocks forward. What is the contact force exerted by block $A$ on block $B$?",
+    "questionAr": "كتلتان $A$ و $B$ مقدارهما $m_A = 3\\text{ كجم}$ و $m_B = 2\\text{ كجم}$ متلامستان على سطح أفقي أملس. أثرت قوة دفع أفقية $F = 20\\text{ ن}$ على الكتلة $A$ لتحريك الكتلتين معاً. ما مقدار قوة التلامس التي تؤثر بها الكتلة $A$ على الكتلة $B$؟",
+    "optionsEn": [
+      "$8\\text{ N}$",
+      "$12\\text{ N}$",
+      "$20\\text{ N}$",
+      "$10\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$8\\text{ ن}$",
+      "$12\\text{ ن}$",
+      "$20\\text{ ن}$",
+      "$10\\text{ ن}$"
+    ],
+    "correctAnswer": "$8\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "First find system acceleration $a = \\frac{F}{m_A + m_B} = 4\\text{ m/s}^2$. Then apply $F_{\\text{contact}} = m_B a$.",
+    "hintAr": "أوجد أولاً عجلة المجموعة $a = \\frac{F}{m_A + m_B} = 4\\text{ م/ث}^2$، ثم طبق $F_{\\text{تلامس}} = m_B a$.",
+    "stepByStepSolutionEn": [
+      "Total mass $M = 3 + 2 = 5\\text{ kg}$.",
+      "Common acceleration: $a = \\frac{F}{M} = \\frac{20}{5} = 4\\text{ m/s}^2$.",
+      "Block $B$ is accelerated solely by the normal contact force from $A$:",
+      "$F_{AB} = m_B a = 2 \\times 4 = 8\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الكتلة الكلية $M = 3 + 2 = 5\\text{ كجم}$.",
+      "العجلة المشتركة: $a = \\frac{20}{5} = 4\\text{ م/ث}^2$.",
+      "الكتلة $B$ تتسارع فقط بقوة التلامس من الكتلة $A$:",
+      "$F_{AB} = m_B a = 2 \\times 4 = 8\\text{ ن}$."
+    ],
+    "teacherTipEn": "Notice that $A$ absorbs $m_A a = 3 \\times 4 = 12\\text{ N}$ to accelerate itself, passing on the remaining $8\\text{ N}$ to $B$.",
+    "teacherTipAr": "لاحظ أن الكتلة $A$ تستهلك $12\\text{ ن}$ لتتسارع هي نفسها، وتمرر الباقي $8\\text{ ن}$ إلى $B$."
   }
 ],
   hots: [
@@ -4227,8 +4880,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$4.9\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{3}{1}$.",
@@ -4263,8 +4916,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$3.27\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{4}{2}$.",
@@ -4299,8 +4952,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$2.45\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{5}{3}$.",
@@ -4335,8 +4988,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$1.96\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{6}{4}$.",
@@ -4371,8 +5024,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$1.63\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{7}{5}$.",
@@ -4407,8 +5060,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$1.4\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{8}{6}$.",
@@ -4443,8 +5096,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$1.23\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{9}{7}$.",
@@ -4479,8 +5132,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$1.09\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{10}{8}$.",
@@ -4515,8 +5168,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$0.98\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{11}{9}$.",
@@ -4551,8 +5204,8 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$0.89\\text{ m/s}^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the ratio $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$, then solve for $a$.",
-    "hintAr": "كون النسبة: $\\frac{g + a}{g - a} = \\frac{${ratioNum}}{${ratioDen}}$ ثم أوجد $a$.",
+    "hintEn": "Set up the ratio of apparent weights $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$, then solve for $a$.",
+    "hintAr": "كون نسبة الوزن الظاهري $\\frac{N_1}{N_2} = \\frac{g + a}{g - a}$ ثم حل المعادلة لإيجاد $a$.",
     "stepByStepSolutionEn": [
       "1. Apparent weight formula: $N_{\\text{up}} = m(g + a)$, $N_{\\text{down}} = m(g - a)$.",
       "2. Ratio: $\\frac{g + a}{g - a} = \\frac{12}{10}$.",
@@ -5305,6 +5958,318 @@ export const dynCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "v cancels out in m*v*(dv/dx) = -k*v, making integration linear in x!",
     "teacherTipAr": "تختصر السرعة ع من الطرفين في معادلة الحركة لتصبح مشتقة السرعة بالنسبة للموضع ثابتة!"
+  },
+  {
+    "id": "dyn_ch2_db_hots_51",
+    "titleEn": "System of Two Inclines with a Pulley at the Ridge",
+    "titleAr": "حركة كتلتين على مستويين مائلين متقابلين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two smooth inclined planes have inclinations $\\alpha = 30^\\circ$ and $\\beta = 60^\\circ$ back to back. Masses $m_1 = 4\\text{ kg}$ on the $30^\\circ$ plane and $m_2 = 2\\text{ kg}$ on the $60^\\circ$ plane are connected by a string passing over a smooth pulley at the apex. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
+    "questionAr": "مستويان مائلان أملسان متعاكسان زاويتا ميلهما $\\alpha = 30^\\circ$ و $\\beta = 60^\\circ$. وضعت كتلة $m_1 = 4\\text{ كجم}$ على المستوى الأول وكتلة $m_2 = 2\\text{ كجم}$ على المستوى الثاني، ووصلتا بخيط يمر على بكرة ملساء عند القمة. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
+    "optionsEn": [
+      "$\\frac{9.8(2 - \\sqrt{3})}{6} \\approx 0.438\\text{ m/s}^2$ (with $m_1$ descending)",
+      "$\\frac{9.8(\\sqrt{3} - 1)}{6}\\text{ m/s}^2$",
+      "$1.25\\text{ m/s}^2$",
+      "Zero (system is in static equilibrium)"
+    ],
+    "optionsAr": [
+      "$\\frac{9.8(2 - \\sqrt{3})}{6} \\approx 0.438\\text{ م/ث}^2$ (مع هبوط $m_1$)",
+      "$\\frac{9.8(\\sqrt{3} - 1)}{6}\\text{ م/ث}^2$",
+      "$1.25\\text{ م/ث}^2$",
+      "صفر (المجموعة في حالة اتزان سكوني)"
+    ],
+    "correctAnswer": "$\\frac{9.8(2 - \\sqrt{3})}{6} \\approx 0.438\\text{ m/s}^2$ (with $m_1$ descending)",
+    "correctIndex": 0,
+    "hintEn": "Compare downhill components: $m_1 g \\sin 30^\\circ = 4(0.5)g = 2g$ versus $m_2 g \\sin 60^\\circ = 2(\\frac{\\sqrt{3}}{2})g = \\sqrt{3}g$. Since $2 > \\sqrt{3} \\approx 1.732$, $m_1$ descends.",
+    "hintAr": "قارن مركبتي الوزن لأسفل: $m_1 g \\sin 30^\\circ = 2g$ مقابل $m_2 g \\sin 60^\\circ = \\sqrt{3}g$. بما أن $2 > \\sqrt{3}$، فإن الكتلة $m_1$ تهبط لأسفل.",
+    "stepByStepSolutionEn": [
+      "Component along $30^\\circ$ plane: $F_1 = 4g \\sin 30^\\circ = 2g$.",
+      "Component along $60^\\circ$ plane: $F_2 = 2g \\sin 60^\\circ = \\sqrt{3}g$.",
+      "Net driving force: $F_{\\text{net}} = F_1 - F_2 = (2 - \\sqrt{3})g$.",
+      "Total moving mass: $m_1 + m_2 = 4 + 2 = 6\\text{ kg}$.",
+      "Acceleration: $a = \\frac{F_{\\text{net}}}{m_1 + m_2} = \\frac{(2 - \\sqrt{3})(9.8)}{6} = \\frac{0.2679 \\times 9.8}{6} \\approx 0.438\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبة الوزن على المستوى الأول: $4g \\sin 30^\\circ = 2g$.",
+      "مركبة الوزن على المستوى الثاني: $2g \\sin 60^\\circ = \\sqrt{3}g$.",
+      "القوة المحصلة: $(2 - \\sqrt{3})g$.",
+      "الكتلة الكلية: $4 + 2 = 6\\text{ كجم}$.",
+      "العجلة: $a = \\frac{(2 - \\sqrt{3}) \\times 9.8}{6} \\approx 0.438\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Comparing $m_1 \\sin\\alpha$ with $m_2 \\sin\\beta$ is the crucial first step to establish motion direction.",
+    "teacherTipAr": "المقارنة بين $m_1 \\sin\\alpha$ و $m_2 \\sin\\beta$ هي الخطوة المحورية لتحديد اتجاه الحركة."
+  },
+  {
+    "id": "dyn_ch2_db_hots_52",
+    "titleEn": "Movable Pulley with Doubled Mechanical Advantage",
+    "titleAr": "بكرة متحركة بضعف الفائدة الميكانيكية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A block of mass $m_1 = 6\\text{ kg}$ rests on a smooth horizontal table. It is attached to a string that passes around a smooth movable pulley of mass $M = 2\\text{ kg}$, with the other end fixed to a wall. A second body of mass $m_2 = 4\\text{ kg}$ hangs from the axis of the movable pulley. What is the relation between the acceleration $a_1$ of the block on the table and the vertical acceleration $a_2$ of the hanging pulley?",
+    "questionAr": "كتلة $m_1 = 6\\text{ كجم}$ موضوعة على نضد أفقي أملس مربوطة بخيط يمر حول بكرة ملساء متحركة كتلتها $M = 2\\text{ كجم}$، وطرف الخيط الآخر مثبت بحائط. عُلقت كتلة ثانية $m_2 = 4\\text{ كجم}$ من محور البكرة المتحركة. ما العلاقة بين عجلة الكتلة على النضد $a_1$ وعجلة البكرة المتحركة الرأسية $a_2$؟",
+    "optionsEn": [
+      "$a_1 = 2 a_2$",
+      "$a_2 = 2 a_1$",
+      "$a_1 = a_2$",
+      "$a_1 = 4 a_2$"
+    ],
+    "optionsAr": [
+      "$a_1 = 2 a_2$",
+      "$a_2 = 2 a_1$",
+      "$a_1 = a_2$",
+      "$a_1 = 4 a_2$"
+    ],
+    "correctAnswer": "$a_1 = 2 a_2$",
+    "correctIndex": 0,
+    "hintEn": "When the movable pulley descends by distance $y$, the horizontal string pays out by $2y$. Differentiate twice.",
+    "hintAr": "عندما تهبط البكرة المتحركة مسافة $y$، يتحرك الخيط الأفقي مسافة $2y$. فاضل مرتين بالنسبة للزمن.",
+    "stepByStepSolutionEn": [
+      "Let the position of block $m_1$ from the wall be $x$, and the downward position of the movable pulley be $y$.",
+      "The total length of the continuous string is $L = x + 2y + \\text{const}$.",
+      "Differentiating twice with respect to time gives $\\ddot{x} + 2\\ddot{y} = 0$.",
+      "In terms of magnitudes: $a_1 = 2 a_2$."
+    ],
+    "stepByStepSolutionAr": [
+      "طول الخيط الكلي: $L = x + 2y + \\text{ثابت}$.",
+      "بالتفاضل مرتين بالنسبة للزمن: $\\ddot{x} + 2\\ddot{y} = 0$.",
+      "بالمقادير: $a_1 = 2 a_2$."
+    ],
+    "teacherTipEn": "Movable pulleys cut the displacement and acceleration in half while doubling the tension force: $2T = (m_2 + M)g$.",
+    "teacherTipAr": "البكرات المتحركة تنصف الإزاحة والعجلة وتضاعف قوة الشد."
+  },
+  {
+    "id": "dyn_ch2_db_hots_53",
+    "titleEn": "Newton's Third Law and Thrust of a Water Jet",
+    "titleAr": "رد فعل اندفاع نافورة مياه على جدار",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A horizontal jet of water of cross-sectional area $A = 0.01\\text{ m}^2$ strikes a vertical wall normally with speed $v = 15\\text{ m/s}$ and drops vertically to the floor without splashing back. Taking the density of water $\\rho = 1000\\text{ kg/m}^3$, find the average force exerted on the wall.",
+    "questionAr": "خرطوم يطلق تياراً أفقياً من الماء مساحة مقطعه $A = 0.01\\text{ م}^2$ يصطدم عمودياً بجدار رأسي بسرعة $v = 15\\text{ م/ث}$ ويسقط رأسياً دون ارتداد. باعتبار كثافة الماء $\\rho = 1000\\text{ كجم/م}^3$، أوجد القوة التي يؤثر بها الماء على الجدار.",
+    "optionsEn": [
+      "$2250\\text{ N}$",
+      "$150\\text{ N}$",
+      "$1500\\text{ N}$",
+      "$4500\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$2250\\text{ ن}$",
+      "$150\\text{ ن}$",
+      "$1500\\text{ ن}$",
+      "$4500\\text{ ن}$"
+    ],
+    "correctAnswer": "$2250\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "The mass flow rate is $\\frac{dm}{dt} = \\rho A v$. By Newton's second law, $F = \\frac{dp}{dt} = \\frac{dm}{dt} v = \\rho A v^2$.",
+    "hintAr": "معدل تدفق الكتلة $\\frac{dm}{dt} = \\rho A v$. ومن قانون نيوتن الثاني: $F = \\rho A v^2$.",
+    "stepByStepSolutionEn": [
+      "Mass flow rate: $\\frac{dm}{dt} = \\rho A v = 1000 \\times 0.01 \\times 15 = 150\\text{ kg/s}$.",
+      "Change in velocity per mass element: $\\Delta v = v - 0 = 15\\text{ m/s}$.",
+      "Force exerted: $F = \\frac{dm}{dt} \\Delta v = 150 \\times 15 = 2250\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معدل تدفق الكتلة: $\\frac{dm}{dt} = \\rho A v = 1000 \\times 0.01 \\times 15 = 150\\text{ كجم/ث}$.",
+      "التغير في السرعة: $\\Delta v = 15\\text{ م/ث}$.",
+      "القوة المؤثرة: $F = 150 \\times 15 = 2250\\text{ ن}$."
+    ],
+    "teacherTipEn": "Force exerted by a continuous fluid stream is $F = \\rho A v^2$ if absorbed, and $2\\rho A v^2$ if elastically reflected.",
+    "teacherTipAr": "قوة تيار السائل المستمر هي $\\rho A v^2$ إذا انعدمت سرعته دون ارتداد، وتتضاعف إلى $2\\rho A v^2$ إذا ارتد ارتداداً مرناً."
+  },
+  {
+    "id": "dyn_ch2_db_hots_54",
+    "titleEn": "Terminal Equilibrium of a Dust Particle Accumulating Mass",
+    "titleAr": "حركة قطرة مطر تجمع كتلة بمعدل ثابت",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A spherical raindrop of initial mass $m_0 = 0.5\\text{ g}$ falls from rest under gravity while accumulating vapor such that its mass increases linearly with time: $m(t) = m_0 + k t$, where $k = 0.1\\text{ g/s}$. Neglecting air drag, what is the net gravitational momentum $p(t)$ at $t = 10\\text{ s}$? (Take $g = 980\\text{ cm/s}^2$)",
+    "questionAr": "قطرة مطر كروية كتلتها الابتدائية $m_0 = 0.5\\text{ جم}$ تسقط من السكون تحت الجاذبية وتتراكم عليها قطرات بخار ماء بحيث تزداد كتلتها خطياً مع الزمن: $m(t) = m_0 + k t$ حيث $k = 0.1\\text{ جم/ث}$. بإهمال مقاومة الهواء، ما كمية حركة القطرة $p(t)$ عند $t = 10\\text{ ث}$؟ (اعتبر $g = 980\\text{ سم/ث}^2$)",
+    "optionsEn": [
+      "$9800\\text{ g}\\cdot\\text{cm/s}$",
+      "$4900\\text{ g}\\cdot\\text{cm/s}$",
+      "$14700\\text{ g}\\cdot\\text{cm/s}$",
+      "$7350\\text{ g}\\cdot\\text{cm/s}$"
+    ],
+    "optionsAr": [
+      "$9800\\text{ جم}\\cdot\\text{سم/ث}$",
+      "$4900\\text{ جم}\\cdot\\text{سم/ث}$",
+      "$14700\\text{ جم}\\cdot\\text{سم/ث}$",
+      "$7350\\text{ جم}\\cdot\\text{سم/ث}$"
+    ],
+    "correctAnswer": "$9800\\text{ g}\\cdot\\text{cm/s}$",
+    "correctIndex": 0,
+    "hintEn": "By Newton's second law: $\\frac{dp}{dt} = m(t) g = (m_0 + kt)g$. Integrate to get $p(t) = m_0 g t + \\frac{1}{2} k g t^2$.",
+    "hintAr": "من قانون نيوتن الثاني: $\\frac{dp}{dt} = m(t) g$. بالتكامل: $p(t) = m_0 g t + \\frac{1}{2} k g t^2$.",
+    "stepByStepSolutionEn": [
+      "$\\frac{dp}{dt} = F_{\\text{gravity}} = m(t) g = (0.5 + 0.1t)(980)$.",
+      "Since the drop starts from rest, initial momentum $p(0) = 0$.",
+      "$p(t) = \\int_0^{10} (0.5 + 0.1t)(980)\\,dt = 980 \\left[0.5t + 0.05t^2\\right]_0^{10}$.",
+      "$0.5(10) + 0.05(100) = 5 + 5 = 10$.",
+      "$p(10) = 980 \\times 10 = 9800\\text{ g}\\cdot\\text{cm/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\frac{dp}{dt} = m(t) g = (0.5 + 0.1t)(980)$.",
+      "بما أن الحركة بدأت من السكون، فإن $p(0) = 0$.",
+      "$p(10) = 980 [0.5(10) + 0.05(100)] = 980 \\times 10 = 9800\\text{ جم}\\cdot\\text{سم/ث}$."
+    ],
+    "teacherTipEn": "Notice how integrating $F = \\frac{dp}{dt}$ directly yields momentum without needing to solve for velocity first.",
+    "teacherTipAr": "تكامل $F = \\frac{dp}{dt}$ يعطي كمية الحركة مباشرة دون الحاجة لحساب السرعة أولاً."
+  },
+  {
+    "id": "dyn_ch2_db_hots_55",
+    "titleEn": "Three Unequal Masses Connected by Two Pulleys",
+    "titleAr": "ثلاث كتل متصلة بخيطين وبكرتين ملساوين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A mass $m_2 = 4\\text{ kg}$ on a smooth horizontal table is connected by two strings to two hanging masses: $m_1 = 5\\text{ kg}$ hanging off the left edge, and $m_3 = 2\\text{ kg}$ hanging off the right edge. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
+    "questionAr": "كتلة $m_2 = 4\\text{ كجم}$ موضوعة على نضد أفقي أملس متصلة بخيطين يمران فوق بكرتين ملساوين بكتلتين متدليتين: $m_1 = 5\\text{ كجم}$ تتدلى من الحافة اليسرى، و $m_3 = 2\\text{ كجم}$ تتدلى من الحافة اليمنى. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
+    "optionsEn": [
+      "$\\frac{29.4}{11} \\approx 2.67\\text{ m/s}^2$",
+      "$3.27\\text{ m/s}^2$",
+      "$1.96\\text{ m/s}^2$",
+      "$4.90\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$\\frac{29.4}{11} \\approx 2.67\\text{ م/ث}^2$",
+      "$3.27\\text{ م/ث}^2$",
+      "$1.96\\text{ م/ث}^2$",
+      "$4.90\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$\\frac{29.4}{11} \\approx 2.67\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "The net driving force is the difference between the two hanging weights: $(m_1 - m_3)g$. Total mass is $m_1 + m_2 + m_3$.",
+    "hintAr": "القوة المحركة الصافية هي الفرق بين وزني الكتلتين المعلقين: $(m_1 - m_3)g$. والكتلة الكلية هي $m_1 + m_2 + m_3$.",
+    "stepByStepSolutionEn": [
+      "Net pulling force: $(m_1 - m_3)g = (5 - 2)(9.8) = 3 \\times 9.8 = 29.4\\text{ N}$ towards the left.",
+      "Total moving mass of the three bodies: $m_1 + m_2 + m_3 = 5 + 4 + 2 = 11\\text{ kg}$.",
+      "Acceleration: $a = \\frac{29.4}{11} \\approx 2.673\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة المحركة الصافية: $(5 - 2)g = 3 \\times 9.8 = 29.4\\text{ ن}$ نحو اليسار.",
+      "إجمالي الكتل المتحركة: $5 + 4 + 2 = 11\\text{ كجم}$.",
+      "العجلة: $a = \\frac{29.4}{11} \\approx 2.673\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Notice the table mass $m_2$ contributes to the total inertia in the denominator, but its weight is normal to motion and doesn't appear in the numerator.",
+    "teacherTipAr": "لاحظ أن كتلة النضد $m_2$ تسهم في القصور الذاتي الكلي في المقام، لكن وزنها العمودي لا يسهم في القوة المحركة في البسط."
+  },
+  {
+    "id": "dyn_ch2_db_hots_56",
+    "titleEn": "Maximum Acceleration of a Truck Without Sliding Its Cargo",
+    "titleAr": "أقصى عجلة لشاحنة دون انزلاق الحمولة في الصندوق",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A crate rests on the flat bed of a truck with coefficient of static friction $\\mu_s = 0.35$. What is the maximum acceleration $a_{\\max}$ the truck can have on a level road without the crate sliding backwards? (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "صندوق يستند على أرضية شاحنة مسطحة معامل الاحتكاك السكوني بينهما $\\mu_s = 0.35$. ما أقصى عجلة $a_{\\max}$ يمكن أن تتحرك بها الشاحنة على طريق أفقي دون أن ينزلق الصندوق للخلف؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$3.43\\text{ m/s}^2$",
+      "$2.80\\text{ m/s}^2$",
+      "$4.90\\text{ m/s}^2$",
+      "$0.35\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$3.43\\text{ م/ث}^2$",
+      "$2.80\\text{ م/ث}^2$",
+      "$4.90\\text{ م/ث}^2$",
+      "$0.35\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$3.43\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "The only horizontal force accelerating the crate forward is static friction: $F_s \\le \\mu_s m g$. Hence $m a \\le \\mu_s m g \\implies a \\le \\mu_s g$.",
+    "hintAr": "القوة الوحيدة التي تكسب الصندوق عجلته للأمام هي قوة الاحتكاك السكوني: $m a \\le \\mu_s m g \\implies a \\le \\mu_s g$.",
+    "stepByStepSolutionEn": [
+      "The crate's forward acceleration is produced entirely by static friction $F_s$ from the truck bed.",
+      "By Newton's second law: $F_s = m a$.",
+      "Maximum static friction is $F_{s,\\max} = \\mu_s N = \\mu_s m g$.",
+      "For no slipping: $m a \\le \\mu_s m g \\implies a \\le \\mu_s g$.",
+      "$a_{\\max} = 0.35 \\times 9.8 = 3.43\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "تسارع الصندوق للأمام ناتج بالكامل عن قوة الاحتكاك السكوني $F_s$.",
+      "قانون نيوتن الثاني: $F_s = m a$.",
+      "أقصى قوة احتكاك سكوني: $F_{s,\\max} = \\mu_s m g$.",
+      "لعدم الانزلاق: $m a \\le \\mu_s m g \\implies a \\le \\mu_s g$.",
+      "$a_{\\max} = 0.35 \\times 9.8 = 3.43\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Notice the mass of the crate cancels out; maximum non-slip acceleration depends solely on $\\mu_s$ and $g$.",
+    "teacherTipAr": "لاحظ أن كتلة الصندوق تختصر؛ أقصى عجلة بدون انزلاق تعتمد فقط على $\\mu_s$ و $g$."
+  },
+  {
+    "id": "dyn_ch2_db_hots_57",
+    "titleEn": "Equilibrium on a Double Incline with Friction",
+    "titleAr": "شرط عدم الانزلاق لكتلتين على مستويين مائلين خشنين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two identical masses $m$ are on two symmetrical rough inclined planes of angle $\\theta = 30^\\circ$ connected by a string over a smooth apex pulley. If the friction coefficient on both inclines is $\\mu = 0.4$, can the system begin to move from rest on its own?",
+    "questionAr": "كتلتان متطابقتان $m$ على مستويين مائلين متماثلين خشنين زاوية ميل كل منهما $\\theta = 30^\\circ$ متصلتان بخيط يمر على بكرة ملساء عند القمة. إذا كان معامل الاحتكاك على المستويين $\\mu = 0.4$، فهل يمكن للمجموعة أن تبدأ الحركة تلقائياً من السكون؟",
+    "optionsEn": [
+      "No, the net gravitational driving force is zero by symmetry, so it remains in static equilibrium",
+      "Yes, both masses accelerate downwards",
+      "Yes, with acceleration $a = 0.4g$",
+      "Yes, with acceleration $a = g \\sin 30^\\circ$"
+    ],
+    "optionsAr": [
+      "لا، محصلة القوى المحركة للجاذبية منعدمة بسبب التماثل، وتظل المجموعة متزنة سكونياً",
+      "نعم، تتسارع الكتلتان لأسفل",
+      "نعم، بعجلة $a = 0.4g$",
+      "نعم، بعجلة $a = g \\sin 30^\\circ$"
+    ],
+    "correctAnswer": "No, the net gravitational driving force is zero by symmetry, so it remains in static equilibrium",
+    "correctIndex": 0,
+    "hintEn": "The downhill gravitational forces are identical ($m g \\sin 30^\\circ$ on both sides), so net driving force is strictly zero.",
+    "hintAr": "مركبتا الوزن لأسفل متساويتان في المقدار ($m g \\sin 30^\\circ$ في الجانبين)، فتكون القوة المحركة منعدمة تماماً.",
+    "stepByStepSolutionEn": [
+      "Downhill gravitational component on left: $F_1 = m g \\sin 30^\\circ$.",
+      "Downhill gravitational component on right: $F_2 = m g \\sin 30^\\circ$.",
+      "Net gravitational difference: $F_1 - F_2 = 0$.",
+      "Since there is no net driving force to overcome friction, the system remains in static equilibrium with zero motion."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبة الوزن لأسفل المستوى الأيسر: $m g \\sin 30^\\circ$.",
+      "مركبة الوزن لأسفل المستوى الأيمن: $m g \\sin 30^\\circ$.",
+      "فرق القوتين: $F_1 - F_2 = 0$.",
+      "لعدم وجود أي قوة محركة، تظل المجموعة ساكنة ومتزنة."
+    ],
+    "teacherTipEn": "Always check for symmetry before embarking on lengthy friction computations.",
+    "teacherTipAr": "تحقق دائماً من وجود تماثل قبل البدء في حسابات مطولة للاحتكاك."
+  },
+  {
+    "id": "dyn_ch2_db_hots_58",
+    "titleEn": "Deceleration Distance of a Bullet Penetrating a Wooden Barrier",
+    "titleAr": "المسافة التي تقطعها رصاصة داخل حاجز خشبي قبل أن تسكن",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A bullet of mass $m = 20\\text{ g}$ enters a wooden target with speed $v_0 = 400\\text{ m/s}$. The wood exerts a constant resistive force of $F_R = 8000\\text{ N}$. How far $s$ does the bullet penetrate into the wood before coming to rest?",
+    "questionAr": "رصاصة كتلتها $m = 20\\text{ جم}$ اخترقت حاجزاً خشبياً بسرعة $v_0 = 400\\text{ م/ث}$. لاقت الرصاصة مقاومة ثابتة من الخشب مقدارها $F_R = 8000\\text{ ن}$. ما المسافة $s$ التي تخترقها الرصاصة داخل الخشب حتى تسكن؟",
+    "optionsEn": [
+      "$0.2\\text{ m}$ ($20\\text{ cm}$)",
+      "$0.4\\text{ m}$ ($40\\text{ cm}$)",
+      "$0.1\\text{ m}$ ($10\\text{ cm}$)",
+      "$0.05\\text{ m}$ ($5\\text{ cm}$)"
+    ],
+    "optionsAr": [
+      "$0.2\\text{ م}$ ($20\\text{ سم}$)",
+      "$0.4\\text{ م}$ ($40\\text{ سم}$)",
+      "$0.1\\text{ م}$ ($10\\text{ سم}$)",
+      "$0.05\\text{ م}$ ($5\\text{ سم}$)"
+    ],
+    "correctAnswer": "$0.2\\text{ m}$ ($20\\text{ cm}$)",
+    "correctIndex": 0,
+    "hintEn": "By work-energy or Newton's law: Deceleration is $a = \\frac{F_R}{m}$, then $s = \\frac{v_0^2}{2a}$.",
+    "hintAr": "من مبدأ الشغل والطاقة أو قانون نيوتن: العجلة $a = \\frac{F_R}{m}$ ثم $s = \\frac{v_0^2}{2a}$.",
+    "stepByStepSolutionEn": [
+      "Mass in kg: $m = \\frac{20}{1000} = 0.02\\text{ kg}$.",
+      "Deceleration: $a = \\frac{F_R}{m} = \\frac{8000}{0.02} = 400,000\\text{ m/s}^2$.",
+      "Using $v^2 = v_0^2 - 2a s$ with $v = 0$:",
+      "$0 = (400)^2 - 2(400,000) s \\implies 800,000 s = 160,000$.",
+      "$s = \\frac{160,000}{800,000} = \\frac{16}{80} = 0.2\\text{ m} = 20\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الكتلة بالكيلوجرام: $m = 0.02\\text{ كجم}$.",
+      "التقصير: $a = \\frac{8000}{0.02} = 400000\\text{ م/ث}^2$.",
+      "باستخدام $0 = v_0^2 - 2as$:",
+      "$s = \\frac{(400)^2}{2 \\times 400000} = \\frac{160000}{800000} = 0.2\\text{ م} = 20\\text{ سم}$."
+    ],
+    "teacherTipEn": "Alternatively, use Work-Energy Theorem: $\\Delta T = - W_R \\implies \\frac{1}{2} m v_0^2 = F_R s$. Same result in one line!",
+    "teacherTipAr": "يمكن استخدام مبدأ الشغل والطاقة مباشرة: $\\frac{1}{2} m v_0^2 = F_R s$ في سطر واحد!"
   }
 ]
 };

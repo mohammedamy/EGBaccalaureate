@@ -1647,6 +1647,289 @@ export const solidCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Reversing the vector order flips the orientation vector by $180^\\circ$.",
     "teacherTipAr": "تبديل ترتيب المتجهين في الضرب الاتجاهي يعكس اتجاه المتجه الناتج."
+  },
+  {
+    "id": "solid_ch1_db_easy_51",
+    "titleEn": "Perpendicular Distance from Point to Coordinate Plane",
+    "titleAr": "البعد العمودي لنقطة في الفراغ عن مستوى إحداثي",
+    "difficulty": "easy",
+    "diagramType": "distance_3d_box",
+    "questionEn": "Find the perpendicular distance from the point $P(3, -4, 5)$ to the $xy$-plane.",
+    "questionAr": "أوجد البعد العمودي للنقطة $P(3, -4, 5)$ عن المستوى الإحداثي $xy$.",
+    "optionsEn": [
+      "5 units",
+      "4 units",
+      "3 units",
+      "$\\sqrt{41}$ units"
+    ],
+    "optionsAr": [
+      "5 وحدات طول",
+      "4 وحدات طول",
+      "3 وحدات طول",
+      "$\\sqrt{41}$ وحدة طول"
+    ],
+    "correctAnswer": "5 units",
+    "correctIndex": 0,
+    "hintEn": "The distance from point (x, y, z) to the xy-plane is |z|.",
+    "hintAr": "البعد عن المستوى الإحداثي س ص يساوي القيمة المطلقة للإحداثي العيني |ع|.",
+    "stepByStepSolutionEn": [
+      "1. The distance of any point $(x, y, z)$ from the $xy$-plane ($z = 0$) is given by $|z|$.",
+      "2. For $P(3, -4, 5)$, $|z| = |5| = 5$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بعد أي نقطة (س، ص، ع) عن المستوى س ص هو القيمة المطلقة للإحداثي ع: |ع|.",
+      "٢. للنقطة (٣، -٤، ٥): البعد = |٥| = ٥ وحدات طول."
+    ],
+    "teacherTipEn": "Similarly, distance to yz-plane is |x|, and distance to xz-plane is |y|.",
+    "teacherTipAr": "بالمثل، البعد عن المستوى ص ع هو |س|، والبعد عن المستوى س ع هو |ص|."
+  },
+  {
+    "id": "solid_ch1_db_easy_52",
+    "titleEn": "Midpoint Coordinates of a 3D Segment",
+    "titleAr": "إحداثيات نقطة منتصف قطعة مستقيمة في الفراغ",
+    "difficulty": "easy",
+    "questionEn": "Find the coordinates of the midpoint of the line segment joining $A(2, -1, 4)$ and $B(6, 3, -2)$.",
+    "questionAr": "أوجد إحداثيات نقطة منتصف القطعة المستقيمة الواصلة بين النقطتين $A(2, -1, 4)$ و $B(6, 3, -2)$.",
+    "optionsEn": [
+      "$(4, 1, 1)$",
+      "$(8, 2, 2)$",
+      "$(2, 2, -3)$",
+      "$(4, 2, 1)$"
+    ],
+    "optionsAr": [
+      "$(4, 1, 1)$",
+      "$(8, 2, 2)$",
+      "$(2, 2, -3)$",
+      "$(4, 2, 1)$"
+    ],
+    "correctAnswer": "$(4, 1, 1)$",
+    "correctIndex": 0,
+    "hintEn": "M = ((x1 + x2)/2, (y1 + y2)/2, (z1 + z2)/2).",
+    "hintAr": "إحداثيات المنتصف = متوسط السينات، متوسط الصادات، متوسط العينات.",
+    "stepByStepSolutionEn": [
+      "1. Midpoint formula: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}, \\frac{z_1 + z_2}{2}\\right)$.",
+      "2. Calculate: $M = \\left(\\frac{2 + 6}{2}, \\frac{-1 + 3}{2}, \\frac{4 + (-2)}{2}\\right) = (4, 1, 1)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون نقطة المنتصف: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}, \\frac{z_1 + z_2}{2}\\right)$.",
+      "٢. بالتعويض: $\\left(\\frac{2 + 6}{2}, \\frac{-1 + 3}{2}, \\frac{4 - 2}{2}\\right) = (4, 1, 1)$."
+    ],
+    "teacherTipEn": "A common mistake is subtracting coordinates instead of adding them.",
+    "teacherTipAr": "خطأ شائع هو طرح الإحداثيات بدلاً من جمعها في قانون المنتصف."
+  },
+  {
+    "id": "solid_ch1_db_easy_53",
+    "titleEn": "Standard Sphere Center and Radius Identification",
+    "titleAr": "تحديد مركز ونصف قطر الكرة من الصورة القياسية",
+    "difficulty": "easy",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "Find the center and radius of the sphere with equation $(x - 1)^2 + (y + 3)^2 + (z - 5)^2 = 49$.",
+    "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها $(x - 1)^2 + (y + 3)^2 + (z - 5)^2 = 49$.",
+    "optionsEn": [
+      "Center $(1, -3, 5)$, radius $r = 7$",
+      "Center $(-1, 3, -5)$, radius $r = 7$",
+      "Center $(1, -3, 5)$, radius $r = 49$",
+      "Center $(-1, 3, -5)$, radius $r = 49$"
+    ],
+    "optionsAr": [
+      "المركز (١، -٣، ٥) ونصف القطر نق = ٧",
+      "المركز (-١، ٣، -٥) ونصف القطر نق = ٧",
+      "المركز (١، -٣، ٥) ونصف القطر نق = ٤٩",
+      "المركز (-١، ٣، -٥) ونصف القطر نق = ٤٩"
+    ],
+    "correctAnswer": "Center $(1, -3, 5)$, radius $r = 7$",
+    "correctIndex": 0,
+    "hintEn": "Compare with (x - d)^2 + (y - e)^2 + (z - f)^2 = r^2.",
+    "hintAr": "قارن بالمعادلة القياسية: (س - د)^٢ + (ص - هـ)^٢ + (ع - و)^٢ = نق^٢.",
+    "stepByStepSolutionEn": [
+      "1. Standard sphere equation is $(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2$.",
+      "2. Comparing terms: $a = 1, b = -3, c = 5$.",
+      "3. $r^2 = 49 \\implies r = 7$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الصورة القياسية لمعادلة الكرة: $(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2$.",
+      "٢. بالمقارنة: أ = ١، ب = -٣، جـ = ٥، فيكون المركز هو (١، -٣، ٥).",
+      "٣. نق^٢ = ٤٩ ومنها نصف القطر نق = ٧ وحدات طول."
+    ],
+    "teacherTipEn": "Remember that radius is sqrt(49) = 7, not 49.",
+    "teacherTipAr": "انتبه دائماً لأخذ الجذر التربيعي للطرف الأيمن للحصول على نق وليس نق^٢."
+  },
+  {
+    "id": "solid_ch1_db_easy_54",
+    "titleEn": "Direction Cosines Fundamental Identity",
+    "titleAr": "المتطابقة الأساسية لجيوب تمام الاتجاه",
+    "difficulty": "easy",
+    "questionEn": "If the direction angles of a vector are $45^\\circ, 60^\\circ, \\theta$ where $\\theta$ is acute, find $\\theta$.",
+    "questionAr": "إذا كانت زوايا الاتجاه لمتجه هي $45^\\circ, 60^\\circ, \\theta$ حيث $\\theta$ زاوية حادة، فأوجد قياس $\\theta$.",
+    "optionsEn": [
+      "$60^\\circ$",
+      "$45^\\circ$",
+      "$30^\\circ$",
+      "$75^\\circ$"
+    ],
+    "optionsAr": [
+      "$60^\\circ$",
+      "$45^\\circ$",
+      "$30^\\circ$",
+      "$75^\\circ$"
+    ],
+    "correctAnswer": "$60^\\circ$",
+    "correctIndex": 0,
+    "hintEn": "cos^2(alpha) + cos^2(beta) + cos^2(gamma) = 1.",
+    "hintAr": "مجموع مربعات جيوب تمام الاتجاه يساوي الواحد الصحيح: جتا^٢(س) + جتا^٢(ص) + جتا^٢(ع) = ١.",
+    "stepByStepSolutionEn": [
+      "1. By the fundamental direction cosine identity: $\\cos^2(45^\\circ) + \\cos^2(60^\\circ) + \\cos^2\\theta = 1$.",
+      "2. Substitute: $\\left(\\frac{1}{\\sqrt{2}}\\right)^2 + \\left(\\frac{1}{2}\\right)^2 + \\cos^2\\theta = 1 \\implies \\frac{1}{2} + \\frac{1}{4} + \\cos^2\\theta = 1$.",
+      "3. $\\cos^2\\theta = 1 - \\frac{3}{4} = \\frac{1}{4}$.",
+      "4. Since $\\theta$ is acute: $\\cos\\theta = \\frac{1}{2} \\implies \\theta = 60^\\circ$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتطابقة الأساسية: $\\cos^2(45^\\circ) + \\cos^2(60^\\circ) + \\cos^2\\theta = 1$.",
+      "٢. بالتعويض: (١/٢) + (١/٤) + جتا^٢(هـ) = ١ ومنها جتا^٢(هـ) = ١ - (٣/٤) = ١/٤.",
+      "٣. بما أن الزاوية حادة: جتا(هـ) = ١/٢ ومنها هـ = ٦٠ درجة."
+    ],
+    "teacherTipEn": "If theta were obtuse, it would be 180 - 60 = 120 degrees.",
+    "teacherTipAr": "لو كانت الزاوية منفرجة لكانت قيمتها ١٨٠ - ٦٠ = ١٢٠ درجة."
+  },
+  {
+    "id": "solid_ch1_db_easy_55",
+    "titleEn": "Orthogonal Vectors Dot Product Condition",
+    "titleAr": "شرط تعامد متجهين وانعدام الضرب القياسي",
+    "difficulty": "easy",
+    "questionEn": "If the vectors $\\vec{A} = (2, m, -3)$ and $\\vec{B} = (3, 2, 4)$ are orthogonal (perpendicular), find the value of $m$.",
+    "questionAr": "إذا كان المتجهان $\\vec{A} = (2, m, -3)$ و $\\vec{B} = (3, 2, 4)$ متعامدين، فأوجد قيمة $m$.",
+    "optionsEn": [
+      "3",
+      "$-3$",
+      "6",
+      "$-6$"
+    ],
+    "optionsAr": [
+      "3",
+      "$-3$",
+      "6",
+      "$-6$"
+    ],
+    "correctAnswer": "3",
+    "correctIndex": 0,
+    "hintEn": "Two vectors are perpendicular iff their dot product is zero: A . B = 0.",
+    "hintAr": "يتعامد متجهان إذا وفقط إذا كان حاصل ضربهما القياسي يساوي صفراً.",
+    "stepByStepSolutionEn": [
+      "1. For perpendicular vectors: $\\vec{A} \\cdot \\vec{B} = 0$.",
+      "2. $\\vec{A} \\cdot \\vec{B} = (2)(3) + (m)(2) + (-3)(4) = 6 + 2m - 12 = 2m - 6$.",
+      "3. Set $2m - 6 = 0 \\implies 2m = 6 \\implies m = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. شرط التعامد: الضرب القياسي يساوي صفراً: $\\vec{A} \\cdot \\vec{B} = 0$.",
+      "٢. (٢)(٣) + (م)(٢) + (-٣)(٤) = ٦ + ٢م - ١٢ = ٢م - ٦ = ٠.",
+      "٣. ٢م = ٦ ومنها م = ٣."
+    ],
+    "teacherTipEn": "Dot product A . B = A_x B_x + A_y B_y + A_z B_z.",
+    "teacherTipAr": "الضرب القياسي هو مجموع حاصل ضرب المركبات المتناظرة."
+  },
+  {
+    "id": "solid_ch1_db_easy_56",
+    "titleEn": "Unit Vector in Direction of Given Vector",
+    "titleAr": "متجه الوحدة في اتجاه متجه معلوم",
+    "difficulty": "easy",
+    "questionEn": "Find the unit vector $\\vec{u}$ in the direction of $\\vec{A} = (2, -1, 2)$.",
+    "questionAr": "أوجد متجه الوحدة $\\vec{u}$ في اتجاه المتجه $\\vec{A} = (2, -1, 2)$.",
+    "optionsEn": [
+      "$(\\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3})$",
+      "$(\\frac{2}{9}, -\\frac{1}{9}, \\frac{2}{9})$",
+      "$(\\frac{2}{\\sqrt{5}}, -\\frac{1}{\\sqrt{5}}, \\frac{2}{\\sqrt{5}})$",
+      "$(1, -\\frac{1}{2}, 1)$"
+    ],
+    "optionsAr": [
+      "$(\\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3})$",
+      "$(\\frac{2}{9}, -\\frac{1}{9}, \\frac{2}{9})$",
+      "$(\\frac{2}{\\sqrt{5}}, -\\frac{1}{\\sqrt{5}}, \\frac{2}{\\sqrt{5}})$",
+      "$(1, -\\frac{1}{2}, 1)$"
+    ],
+    "correctAnswer": "$(\\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3})$",
+    "correctIndex": 0,
+    "hintEn": "u = A / |A|.",
+    "hintAr": "متجه الوحدة = المتجه مقسوماً على معياره.",
+    "stepByStepSolutionEn": [
+      "1. Find the magnitude of $\\vec{A}$: $|\\vec{A}| = \\sqrt{2^2 + (-1)^2 + 2^2} = \\sqrt{4 + 1 + 4} = \\sqrt{9} = 3$.",
+      "2. Divide $\\vec{A}$ by its magnitude: $\\vec{u} = \\frac{\\vec{A}}{|\\vec{A}|} = \\left(\\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3}\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. حساب معيار المتجه: $|\\vec{A}| = \\sqrt{2^2 + (-1)^2 + 2^2} = \\sqrt{9} = 3$.",
+      "٢. قسمة المتجه على معياره: $\\vec{u} = \\left(\\frac{2}{3}, -\\frac{1}{3}, \\frac{2}{3}\\right)$."
+    ],
+    "teacherTipEn": "Check that the magnitude of the unit vector is indeed sqrt((2/3)^2 + (-1/3)^2 + (2/3)^2) = 1.",
+    "teacherTipAr": "تحقق دائماً أن معيار متجه الوحدة الناتج يساوي ١ تماماً."
+  },
+  {
+    "id": "solid_ch1_db_easy_57",
+    "titleEn": "Cross Product of Parallel Vectors",
+    "titleAr": "الضرب الاتجاهي لمتجهين متوازيين",
+    "difficulty": "easy",
+    "questionEn": "If $\\vec{A} = (3, -1, 2)$ and $\\vec{B} = (-6, 2, -4)$, find $\\vec{A} \\times \\vec{B}$.",
+    "questionAr": "إذا كان $\\vec{A} = (3, -1, 2)$ و $\\vec{B} = (-6, 2, -4)$، فأوجد $\\vec{A} \\times \\vec{B}$.",
+    "optionsEn": [
+      "$\\vec{0} = (0, 0, 0)$",
+      "$(18, -2, -8)$",
+      "$(0, 0, 1)$",
+      "$-2$"
+    ],
+    "optionsAr": [
+      "$\\vec{0} = (0, 0, 0)$",
+      "$(18, -2, -8)$",
+      "$(0, 0, 1)$",
+      "$-2$"
+    ],
+    "correctAnswer": "$\\vec{0} = (0, 0, 0)$",
+    "correctIndex": 0,
+    "hintEn": "Notice that B = -2 * A, so the vectors are parallel.",
+    "hintAr": "لاحظ أن ب = -٢ أ، أي أن المتجهين متوازيان، وحاصل ضربهما الاتجاهي هو المتجه الصفري.",
+    "stepByStepSolutionEn": [
+      "1. Notice that $\\vec{B} = -2(3, -1, 2) = -2\\vec{A}$, so $\\vec{A}$ and $\\vec{B}$ are parallel.",
+      "2. For any two parallel vectors, the angle between them is $0^\\circ$ or $180^\\circ$, and $\\sin(0) = \\sin(180) = 0$.",
+      "3. Therefore, $\\vec{A} \\times \\vec{B} = \\vec{0} = (0, 0, 0)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نلاحظ أن المتجه ب = -٢ أ، أي أن المتجهين متوازيان.",
+      "٢. جيب الزاوية بين أي متجهين متوازيين يساوي صفراً.",
+      "٣. إذن الضرب الاتجاهي لمتجهين متوازيين هو المتجه الصفري $\\vec{0} = (0, 0, 0)$."
+    ],
+    "teacherTipEn": "Cross product of parallel vectors produces the ZERO VECTOR, not the scalar zero.",
+    "teacherTipAr": "الضرب الاتجاهي ينتج متجهاً صفرياً وليس عدداً قياسياً."
+  },
+  {
+    "id": "solid_ch1_db_easy_58",
+    "titleEn": "Scalar Component Along Coordinate Axis",
+    "titleAr": "المسقط الجبري لمتجه على محور إحداثي",
+    "difficulty": "easy",
+    "questionEn": "Find the algebraic component (projection) of $\\vec{A} = (4, 2, -7)$ along the $z$-axis.",
+    "questionAr": "أوجد المسقط الجبري للمتجه $\\vec{A} = (4, 2, -7)$ في اتجاه محور $z$.",
+    "optionsEn": [
+      "$-7$",
+      "7",
+      "$\\sqrt{69}$",
+      "4"
+    ],
+    "optionsAr": [
+      "$-7$",
+      "7",
+      "$\\sqrt{69}$",
+      "4"
+    ],
+    "correctAnswer": "$-7$",
+    "correctIndex": 0,
+    "hintEn": "The component of A along the z-axis is A . k = A_z.",
+    "hintAr": "المسقط الجبري على محور ع هو حاصل الضرب القياسي في متجه الوحدة ع (الإحداثي ع مباشرة).",
+    "stepByStepSolutionEn": [
+      "1. The unit vector along the $z$-axis is $\\hat{k} = (0, 0, 1)$.",
+      "2. The algebraic component of $\\vec{A}$ along the $z$-axis is $\\vec{A} \\cdot \\hat{k} = (4)(0) + (2)(0) + (-7)(1) = -7$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. متجه الوحدة في اتجاه محور ع هو ع^ = (٠، ٠، ١).",
+      "٢. المسقط الجبري = أ · ع^ = -٧ مباشرة."
+    ],
+    "teacherTipEn": "Algebraic components can be negative, whereas geometric lengths are non-negative.",
+    "teacherTipAr": "المسقط الجبري قد يكون سالباً، بينما الطول الهندسي للمسقط موجب دائماً."
   }
 ],
   medium: [
@@ -3391,6 +3674,348 @@ export const solidCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Simplify $10/14$ to its lowest terms: $5/7$.",
     "teacherTipAr": "بسط الكسر ١٠/١٤ إلى أبسط صورة: ٥/٧."
+  },
+  {
+    "id": "solid_ch1_db_med_51",
+    "titleEn": "General Sphere Center and Radius Conversion",
+    "titleAr": "إيجاد مركز ونصف قطر الكرة من الصورة العامة",
+    "difficulty": "medium",
+    "diagramType": "sphere_general_center_radius",
+    "questionEn": "Find the center and radius of the sphere given by: $x^2 + y^2 + z^2 - 4x + 6y - 8z - 7 = 0$.",
+    "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها: $x^2 + y^2 + z^2 - 4x + 6y - 8z - 7 = 0$.",
+    "optionsEn": [
+      "Center $(2, -3, 4)$, radius $r = 6$",
+      "Center $(-2, 3, -4)$, radius $r = 6$",
+      "Center $(2, -3, 4)$, radius $r = 36$",
+      "Center $(-4, 6, -8)$, radius $r = 7$"
+    ],
+    "optionsAr": [
+      "المركز (٢، -٣، ٤) ونصف القطر نق = ٦",
+      "المركز (-٢، ٣، -٤) ونصف القطر نق = ٦",
+      "المركز (٢، -٣، ٤) ونصف القطر نق = ٣٦",
+      "المركز (-٤، ٦، -٨) ونصف القطر نق = ٧"
+    ],
+    "correctAnswer": "Center $(2, -3, 4)$, radius $r = 6$",
+    "correctIndex": 0,
+    "hintEn": "Center = (-coeff(x)/2, -coeff(y)/2, -coeff(z)/2), r = sqrt(d^2 + e^2 + f^2 - D).",
+    "hintAr": "المركز = (-نصف معامل س، -نصف معامل ص، -نصف معامل ع)، ونق = جذر(د^٢ + هـ^٢ + و^٢ - د).",
+    "stepByStepSolutionEn": [
+      "1. Center: $M = \\left(-\\frac{-4}{2}, -\\frac{6}{2}, -\\frac{-8}{2}\\right) = (2, -3, 4)$.",
+      "2. Here $d = 2, e = -3, f = 4$ and $D = -7$.",
+      "3. Radius $r = \\sqrt{d^2 + e^2 + f^2 - D} = \\sqrt{2^2 + (-3)^2 + 4^2 - (-7)} = \\sqrt{4 + 9 + 16 + 7} = \\sqrt{36} = 6$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إحداثيات المركز م = (-نصف معامل س، -نصف معامل ص، -نصف معامل ع) = (٢، -٣، ٤).",
+      "٢. الحد المطلق د = -٧.",
+      "٣. نصف القطر نق = $\\sqrt{2^2 + (-3)^2 + 4^2 - (-7)} = \\sqrt{36} = 6$ وحدات طول."
+    ],
+    "teacherTipEn": "Notice the subtraction of D: since D = -7, -D becomes +7.",
+    "teacherTipAr": "انتبه لطرح الحد المطلق د: بما أن د = -٧، فإن -د تصبح +٧ تحت الجذر."
+  },
+  {
+    "id": "solid_ch1_db_med_52",
+    "titleEn": "Area of Triangle in 3D via Cross Product",
+    "titleAr": "مساحة مثلث في الفراغ باستخدام الضرب الاتجاهي",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the triangle with vertices $A(1, 0, 0)$, $B(0, 2, 0)$, and $C(0, 0, 3)$.",
+    "questionAr": "أوجد مساحة المثلث الذي رؤوسه $A(1, 0, 0)$ و $B(0, 2, 0)$ و $C(0, 0, 3)$.",
+    "optionsEn": [
+      "$\\frac{7}{2}$",
+      "7",
+      "$\\frac{\\sqrt{49}}{4}$",
+      "3"
+    ],
+    "optionsAr": [
+      "$\\frac{7}{2}$",
+      "7",
+      "$\\frac{\\sqrt{49}}{4}$",
+      "3"
+    ],
+    "correctAnswer": "$\\frac{7}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Area = 0.5 * |AB x AC|.",
+    "hintAr": "مساحة المثلث = نصف معيار حاصل الضرب الاتجاهي لضلعين متجاورين: ٠٫٥ |أ ب × أ جـ|.",
+    "stepByStepSolutionEn": [
+      "1. Find vectors: $\\vec{AB} = B - A = (-1, 2, 0)$ and $\\vec{AC} = C - A = (-1, 0, 3)$.",
+      "2. Compute cross product:",
+      "   $$\\vec{AB} \\times \\vec{AC} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -1 & 2 & 0 \\\\ -1 & 0 & 3 \\end{vmatrix} = (6 - 0)\\hat{i} - (-3 - 0)\\hat{j} + (0 - (-2))\\hat{k} = (6, 3, 2)$$",
+      "3. Magnitude: $|(6, 3, 2)| = \\sqrt{6^2 + 3^2 + 2^2} = \\sqrt{36 + 9 + 4} = \\sqrt{49} = 7$.",
+      "4. Triangle Area = $\\frac{1}{2} \\times 7 = \\frac{7}{2}$ square units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتجهان: أ ب = (-١، ٢، ٠) و أ جـ = (-١، ٠، ٣).",
+      "٢. الضرب الاتجاهي: أ ب × أ جـ = (٦، ٣، ٢).",
+      "٣. معيار الضرب الاتجاهي = جذر(٣٦ + ٩ + ٤) = ٧.",
+      "٤. مساحة المثلث = نصف المعيار = ٧ / ٢ وحدة مربعة."
+    ],
+    "teacherTipEn": "Cross product gives the parallelogram area; divide by 2 for the triangle area.",
+    "teacherTipAr": "الضرب الاتجاهي يعطي مساحة متوازي الأضلاع كاملاً؛ اقسم على ٢ للحصول على مساحة المثلث."
+  },
+  {
+    "id": "solid_ch1_db_med_53",
+    "titleEn": "Coplanar Vectors Condition via Scalar Triple Product",
+    "titleAr": "شرط وقوع ثلاثة متجهات في مستوى واحد (الضرب الثلاثي القياسي)",
+    "difficulty": "medium",
+    "diagramType": "coplanar_vectors_3d",
+    "questionEn": "Find the value of $k$ for which the vectors $\\vec{A} = (1, 2, 3)$, $\\vec{B} = (2, -1, 1)$, and $\\vec{C} = (3, 1, k)$ are coplanar.",
+    "questionAr": "أوجد قيمة $k$ التي تجعل المتجهات $\\vec{A} = (1, 2, 3)$ و $\\vec{B} = (2, -1, 1)$ و $\\vec{C} = (3, 1, k)$ تقع في مستوى واحد.",
+    "optionsEn": [
+      "4",
+      "2",
+      "$-4$",
+      "6"
+    ],
+    "optionsAr": [
+      "4",
+      "2",
+      "$-4$",
+      "6"
+    ],
+    "correctAnswer": "4",
+    "correctIndex": 0,
+    "hintEn": "Three vectors are coplanar iff their scalar triple product is zero: det([A; B; C]) = 0.",
+    "hintAr": "تقع ثلاثة متجهات في مستوى واحد إذا وفقط إذا كان حاصل ضربها الثلاثي القياسي مساوياً للصفر.",
+    "stepByStepSolutionEn": [
+      "1. Three vectors are coplanar if and only if $\\vec{A} \\cdot (\\vec{B} \\times \\vec{C}) = 0$.",
+      "2. Set up determinant:",
+      "   $$\\begin{vmatrix} 1 & 2 & 3 \\\\ 2 & -1 & 1 \\\\ 3 & 1 & k \\end{vmatrix} = 0$$",
+      "3. Expand along row 1: $1(-k - 1) - 2(2k - 3) + 3(2 - (-3)) = -k - 1 - 4k + 6 + 15 = -5k + 20 = 0$.",
+      "4. $-5k + 20 = 0 \\implies 5k = 20 \\implies k = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. شرط وقوع المتجهات في مستوى واحد: محدد المصفوفة التي صفوفها المتجهات الثلاثة يساوي صفراً.",
+      "٢. فك المحدد: ١(-ك - ١) - ٢(٢ك - ٣) + ٣(٢ + ٣) = -٥ك + ٢٠ = ٠.",
+      "٣. ٥ك = ٢٠ ومنها ك = ٤."
+    ],
+    "teacherTipEn": "Coplanar vectors have scalar triple product equal to zero because the volume of the spanned parallelepiped is zero.",
+    "teacherTipAr": "انعدام الضرب الثلاثي القياسي يعني هندسياً انعدام حجم متوازي السطوح الذي تنشئه المتجهات."
+  },
+  {
+    "id": "solid_ch1_db_med_54",
+    "titleEn": "Volume of Parallelepiped from Spanning Vectors",
+    "titleAr": "حجم متوازي السطوح المنشأ على ثلاثة متجهات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of the parallelepiped having coterminous edges $\\vec{u} = (2, -3, 4)$, $\\vec{v} = (1, 2, -1)$, and $\\vec{w} = (3, -1, 2)$.",
+    "questionAr": "أوجد حجم متوازي السطوح الذي فيه ثلاثة أحرف متجاورة يمثلها المتجهات $\\vec{u} = (2, -3, 4)$ و $\\vec{v} = (1, 2, -1)$ و $\\vec{w} = (3, -1, 2)$.",
+    "optionsEn": [
+      "7 cubic units",
+      "14 cubic units",
+      "21 cubic units",
+      "28 cubic units"
+    ],
+    "optionsAr": [
+      "7 وحدات مكعبة",
+      "14 وحدة مكعبة",
+      "21 وحدة مكعبة",
+      "28 وحدة مكعبة"
+    ],
+    "correctAnswer": "7 cubic units",
+    "correctIndex": 0,
+    "hintEn": "Volume = |u . (v x w)| = |det([u; v; w])|.",
+    "hintAr": "الحجم = القيمة المطلقة لحاصل الضرب الثلاثي القياسي للمتجهات الثلاثة.",
+    "stepByStepSolutionEn": [
+      "1. Volume $V = |\\vec{u} \\cdot (\\vec{v} \\times \\vec{w})|$.",
+      "2. Calculate determinant:",
+      "   $$\\begin{vmatrix} 2 & -3 & 4 \\\\ 1 & 2 & -1 \\\\ 3 & -1 & 2 \\end{vmatrix} = 2(4 - 1) - (-3)(2 - (-3)) + 4(-1 - 6)$$",
+      "   $$= 2(3) + 3(5) + 4(-7) = 6 + 15 - 28 = -7$$",
+      "3. Volume is the absolute value: $|-7| = 7$ cubic units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الحجم = |الضرب الثلاثي القياسي| للمتجهات الثلاثة.",
+      "٢. بحساب المحدد: ٢(٤ - ١) - (-٣)(٢ + ٣) + ٤(-١ - ٦) = ٦ + ١٥ - ٢٨ = -٧.",
+      "٣. الحجم قيمة موجبة = |-٧| = ٧ وحدات مكعبة."
+    ],
+    "teacherTipEn": "Always take the absolute value since volume is strictly non-negative.",
+    "teacherTipAr": "لا تنسَ أخذ القيمة المطلقة لأن الحجم كمية هندسية موجبة دائماً."
+  },
+  {
+    "id": "solid_ch1_db_med_55",
+    "titleEn": "Angle Between Two 3D Vectors",
+    "titleAr": "قياس الزاوية بين متجهين في الفراغ",
+    "difficulty": "medium",
+    "questionEn": "Find $\\cos\\theta$ where $\\theta$ is the angle between $\\vec{A} = (1, 2, 2)$ and $\\vec{B} = (2, 2, 1)$.",
+    "questionAr": "أوجد قيمة $\\cos\\theta$ حيث $\\theta$ هي الزاوية المحصورة بين $\\vec{A} = (1, 2, 2)$ و $\\vec{B} = (2, 2, 1)$.",
+    "optionsEn": [
+      "$\\frac{8}{9}$",
+      "$\\frac{7}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{9}$"
+    ],
+    "optionsAr": [
+      "$\\frac{8}{9}$",
+      "$\\frac{7}{9}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{9}$"
+    ],
+    "correctAnswer": "$\\frac{8}{9}$",
+    "correctIndex": 0,
+    "hintEn": "cos(theta) = (A . B) / (|A| * |B|).",
+    "hintAr": "جتا(هـ) = حاصل الضرب القياسي مقسوماً على حاصل ضرب المعيارين.",
+    "stepByStepSolutionEn": [
+      "1. Dot product: $\\vec{A} \\cdot \\vec{B} = (1)(2) + (2)(2) + (2)(1) = 2 + 4 + 2 = 8$.",
+      "2. Magnitudes: $|\\vec{A}| = \\sqrt{1 + 4 + 4} = 3$, and $|\\vec{B}| = \\sqrt{4 + 4 + 1} = 3$.",
+      "3. $\\cos\\theta = \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{A}||\\vec{B}|} = \\frac{8}{3 \\times 3} = \\frac{8}{9}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الضرب القياسي: أ · ب = (١)(٢) + (٢)(٢) + (٢)(١) = ٨.",
+      "٢. معيار كل متجه: |أ| = جذر(٩) = ٣، و |ب| = جذر(٩) = ٣.",
+      "٣. جتا(هـ) = ٨ / (٣ × ٣) = ٨ / ٩."
+    ],
+    "teacherTipEn": "Notice both vectors have magnitude 3, simplifying calculation.",
+    "teacherTipAr": "لاحظ أن كلا المتجهين لهما نفس المعيار (٣) مما يسهل الحساب."
+  },
+  {
+    "id": "solid_ch1_db_med_56",
+    "titleEn": "Sphere Tangent to All Three Coordinate Planes",
+    "titleAr": "معادلة كرة تمس مستويات الإحداثيات الثلاثة",
+    "difficulty": "medium",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "Find the equation of a sphere in the first octant ($x, y, z > 0$) with radius $r = 4$ that is tangent to all three coordinate planes.",
+    "questionAr": "أوجد معادلة الكرة الواقعة في الثمن الأول ($x, y, z > 0$) بنصف قطر $r = 4$ وتمس مستويات الإحداثيات الثلاثة.",
+    "optionsEn": [
+      "$(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 16$",
+      "$(x + 4)^2 + (y + 4)^2 + (z + 4)^2 = 16$",
+      "$(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 4$",
+      "$x^2 + y^2 + z^2 = 16$"
+    ],
+    "optionsAr": [
+      "$(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 16$",
+      "$(x + 4)^2 + (y + 4)^2 + (z + 4)^2 = 16$",
+      "$(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 4$",
+      "$x^2 + y^2 + z^2 = 16$"
+    ],
+    "correctAnswer": "$(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 16$",
+    "correctIndex": 0,
+    "hintEn": "Tangent to all 3 coordinate planes means center is (+-r, +-r, +-r).",
+    "hintAr": "مماسة مستويات الإحداثيات تعني أن إحداثيات المركز هي (±نق، ±نق، ±نق).",
+    "stepByStepSolutionEn": [
+      "1. When a sphere is tangent to the three coordinate planes, its distance from each plane equals the radius $r = 4$.",
+      "2. In the positive first octant, the center is $(r, r, r) = (4, 4, 4)$.",
+      "3. Standard equation: $(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 4^2 = 16$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عندما تمس الكرة مستويات الإحداثيات، يكون بعد المركز عن كل مستوى مساوياً لنصف القطر نق = ٤.",
+      "٢. في الثمن الأول الموجب يكون المركز هو (نق، نق، نق) = (٤، ٤، ٤).",
+      "٣. المعادلة القياسية: $(x - 4)^2 + (y - 4)^2 + (z - 4)^2 = 16$."
+    ],
+    "teacherTipEn": "There are 8 such spheres in space corresponding to the 8 octants.",
+    "teacherTipAr": "يوجد في الفراغ ٨ كرات مماسة لمستويات الإحداثيات بنفس نصف القطر تقابل الأثمان الثمانية."
+  },
+  {
+    "id": "solid_ch1_db_med_57",
+    "titleEn": "Vector Projection Formula",
+    "titleAr": "المسقط الاتجاهي لمتجه في اتجاه متجه آخر",
+    "difficulty": "medium",
+    "questionEn": "Find the vector projection of $\\vec{A} = (4, 1, 3)$ onto $\\vec{B} = (2, 2, 1)$.",
+    "questionAr": "أوجد المسقط الاتجاهي للمتجه $\\vec{A} = (4, 1, 3)$ على المتجه $\\vec{B} = (2, 2, 1)$.",
+    "optionsEn": [
+      "$(\\frac{26}{9}, \\frac{26}{9}, \\frac{13}{9})$",
+      "$(\\frac{13}{3}, \\frac{13}{3}, \\frac{13}{6})$",
+      "$(2, 2, 1)$",
+      "$(\\frac{13}{9}, \\frac{13}{9}, \\frac{13}{18})$"
+    ],
+    "optionsAr": [
+      "$(\\frac{26}{9}, \\frac{26}{9}, \\frac{13}{9})$",
+      "$(\\frac{13}{3}, \\frac{13}{3}, \\frac{13}{6})$",
+      "$(2, 2, 1)$",
+      "$(\\frac{13}{9}, \\frac{13}{9}, \\frac{13}{18})$"
+    ],
+    "correctAnswer": "$(\\frac{26}{9}, \\frac{26}{9}, \\frac{13}{9})$",
+    "correctIndex": 0,
+    "hintEn": "proj_B(A) = ((A . B) / |B|^2) * B.",
+    "hintAr": "المسقط الاتجاهي = [(أ · ب) / |ب|^٢] × المتجه ب.",
+    "stepByStepSolutionEn": [
+      "1. Formula: $\\operatorname{proj}_{\\vec{B}}\\vec{A} = \\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|^2} \\vec{B}$.",
+      "2. $\\vec{A} \\cdot \\vec{B} = (4)(2) + (1)(2) + (3)(1) = 8 + 2 + 3 = 13$.",
+      "3. $|\\vec{B}|^2 = 2^2 + 2^2 + 1^2 = 4 + 4 + 1 = 9$.",
+      "4. Vector projection $= \\frac{13}{9} (2, 2, 1) = \\left(\\frac{26}{9}, \\frac{26}{9}, \\frac{13}{9}\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون المسقط الاتجاهي: $\\frac{\\vec{A} \\cdot \\vec{B}}{|\\vec{B}|^2} \\vec{B}$.",
+      "٢. أ · ب = ٨ + ٢ + ٣ = ١٣.",
+      "٣. |ب|^٢ = ٤ + ٤ + ١ = ٩.",
+      "٤. المسقط الاتجاهي = (١٣ / ٩)(٢، ٢، ١) = $\\left(\\frac{26}{9}, \\frac{26}{9}, \\frac{13}{9}\\right)$."
+    ],
+    "teacherTipEn": "Notice the difference: scalar projection is (A . B) / |B|, whereas vector projection multiplies by B / |B|.",
+    "teacherTipAr": "فرق بين المسقط الجبري (عدد قياسي) والمسقط الاتجاهي (متجه في اتجاه ب)."
+  },
+  {
+    "id": "solid_ch1_db_med_58",
+    "titleEn": "Moment Vector of Force in 3D Space",
+    "titleAr": "عزم قوة حول نقطة في الفراغ ثلاثي الأبعاد",
+    "difficulty": "medium",
+    "questionEn": "A force $\\vec{F} = (2, -1, 3)$ acts at point $A(1, 2, -1)$. Find the moment vector of $\\vec{F}$ about point $B(2, 0, 1)$.",
+    "questionAr": "تؤثر قوة $\\vec{F} = (2, -1, 3)$ عند النقطة $A(1, 2, -1)$. أوجد متجه عزم القوة $\\vec{F}$ حول النقطة $B(2, 0, 1)$.",
+    "optionsEn": [
+      "$(4, -1, -3)$",
+      "$(-4, 1, 3)$",
+      "$(6, -1, 2)$",
+      "$(4, 1, -3)$"
+    ],
+    "optionsAr": [
+      "$(4, -1, -3)$",
+      "$(-4, 1, 3)$",
+      "$(6, -1, 2)$",
+      "$(4, 1, -3)$"
+    ],
+    "correctAnswer": "$(4, -1, -3)$",
+    "correctIndex": 0,
+    "hintEn": "M_B = r x F, where r = BA = A - B.",
+    "hintAr": "العزم حول ب = ر × ق، حيث ر = ب أ = أ - ب.",
+    "stepByStepSolutionEn": [
+      "1. Position vector: $\\vec{r} = \\vec{BA} = A - B = (1 - 2, 2 - 0, -1 - 1) = (-1, 2, -2)$.",
+      "2. Moment: $\\vec{M}_B = \\vec{r} \\times \\vec{F}$:",
+      "   $$\\vec{M}_B = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -1 & 2 & -2 \\\\ 2 & -1 & 3 \\end{vmatrix}$$",
+      "3. Component evaluation:",
+      "   $$\\hat{i}(6 - 2) - \\hat{j}(-3 - (-4)) + \\hat{k}(1 - 4) = 4\\hat{i} - \\hat{j} - 3\\hat{k} = (4, -1, -3)$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. متجه الموضع: ر = ب أ = أ - ب = (-١، ٢، -٢).",
+      "٢. العزم = ر × ق:",
+      "   $$\\vec{M}_B = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ -1 & 2 & -2 \\\\ 2 & -1 & 3 \\end{vmatrix}$$",
+      "٣. بحساب المحدد: ٤ س^ - ص^ - ٣ ع^ = (٤، -١، -٣)."
+    ],
+    "teacherTipEn": "Always start position vector r from the pivot point B to the action point A (r = BA).",
+    "teacherTipAr": "يبدأ متجه الموضع دائماً من نقطة العزم (ب) إلى نقطة التأثير (أ)."
+  },
+  {
+    "id": "solid_ch1_db_med_59",
+    "titleEn": "Radius of Circular Section of Intersected Sphere",
+    "titleAr": "نصف قطر المقطع الدائري الناتج من قطع كرة بمستوى",
+    "difficulty": "medium",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "Find the radius of the circle formed by the intersection of the sphere $x^2 + y^2 + z^2 = 25$ with the horizontal plane $z = 3$.",
+    "questionAr": "أوجد نصف قطر الدائرة الناتجة من تقاطع الكرة $x^2 + y^2 + z^2 = 25$ مع المستوى الأفقي $z = 3$.",
+    "optionsEn": [
+      "4 units",
+      "3 units",
+      "$\\sqrt{34}$ units",
+      "5 units"
+    ],
+    "optionsAr": [
+      "4 وحدات طول",
+      "3 وحدات طول",
+      "$\\sqrt{34}$ وحدة طول",
+      "5 وحدات طول"
+    ],
+    "correctAnswer": "4 units",
+    "correctIndex": 0,
+    "hintEn": "Substitute z = 3: x^2 + y^2 + 9 = 25 => x^2 + y^2 = 16.",
+    "hintAr": "عوض عن ع = ٣ في معادلة الكرة: س^٢ + ص^٢ + ٩ = ٢٥.",
+    "stepByStepSolutionEn": [
+      "1. Substitute $z = 3$ into the sphere equation $x^2 + y^2 + z^2 = 25$:",
+      "   $$x^2 + y^2 + 3^2 = 25 \\implies x^2 + y^2 + 9 = 25$$",
+      "2. $x^2 + y^2 = 25 - 9 = 16$.",
+      "3. The intersection curve is a circle in plane $z = 3$ with radius $r' = \\sqrt{16} = 4$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض عن ع = ٣ في معادلة الكرة:",
+      "   $$x^2 + y^2 + 9 = 25 \\implies x^2 + y^2 = 16$$",
+      "٢. هذه معادلة دائرة في المستوى ع = ٣ مركزها (٠، ٠، ٣).",
+      "٣. نصف قطر مقطع الدائرة نق' = جذر(١٦) = ٤ وحدات طول."
+    ],
+    "teacherTipEn": "Geometric relation: (radius of circle)^2 + (distance to center)^2 = (radius of sphere)^2.",
+    "teacherTipAr": "العلاقة الهندسية بفيثاغورس: (نصف قطر الدائرة)^٢ + (بعد المركز)^٢ = (نصف قطر الكرة)^٢."
   }
 ],
   hots: [
@@ -5466,6 +6091,315 @@ export const solidCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "For any sphere of radius $R$, the inscribed box of maximum volume is always a cube of edge length $L = \\frac{2R}{\\sqrt{3}}$, giving volume $V = \\frac{8R^3}{3\\sqrt{3}}$.",
     "teacherTipAr": "قاعدة عامة: أكبر متوازي مستطيلات داخل كرة هو دائماً مكعب، وطول حرفه $L = \\frac{٢R}{\\sqrt{٣}}$."
+  },
+  {
+    "id": "solid_ch1_db_hots_51",
+    "titleEn": "Volume of Tetrahedron Formed by Coordinate Intercepts",
+    "titleAr": "حجم رباعي السطوح المحدود بمستويات الإحداثيات",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the tetrahedron with vertices at the origin $O(0, 0, 0)$ and the points $A(2, 0, 0)$, $B(0, 3, 0)$, $C(0, 0, 4)$.",
+    "questionAr": "أوجد حجم رباعي السطوح الذي رؤوسه نقطة الأصل $O(0, 0, 0)$ والنقاط $A(2, 0, 0)$ و $B(0, 3, 0)$ و $C(0, 0, 4)$.",
+    "optionsEn": [
+      "4 cubic units",
+      "12 cubic units",
+      "24 cubic units",
+      "8 cubic units"
+    ],
+    "optionsAr": [
+      "4 وحدات مكعبة",
+      "12 وحدة مكعبة",
+      "24 وحدة مكعبة",
+      "8 وحدات مكعبة"
+    ],
+    "correctAnswer": "4 cubic units",
+    "correctIndex": 0,
+    "hintEn": "Volume of tetrahedron = (1/6) * |a * b * c|.",
+    "hintAr": "حجم هرم ثلاثي الرؤوس المتعامدة = (١ / ٦) × أ × ب × جـ.",
+    "stepByStepSolutionEn": [
+      "1. The tetrahedron vertices lie along the mutually perpendicular coordinate axes.",
+      "2. The volume of a tetrahedron spanned by three vectors is $\\frac{1}{6}$ of the volume of the corresponding parallelepiped:",
+      "   $$V = \\frac{1}{6} |\\vec{OA} \\cdot (\\vec{OB} \\times \\vec{OC})| = \\frac{1}{6} \\begin{vmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{vmatrix}$$",
+      "3. $V = \\frac{1}{6} (2 \\times 3 \\times 4) = \\frac{24}{6} = 4$ cubic units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. رؤوس رباعي السطوح تقع على محاور الإحداثيات المتعامدة مثنى مثنى.",
+      "٢. حجم رباعي السطوح = (١ / ٦) حاصل الضرب الثلاثي القياسي للمتجهات الثلاثة:",
+      "   $$V = \\frac{1}{6} (2 \\times 3 \\times 4) = \\frac{24}{6} = 4$$",
+      "٣. الحجم = ٤ وحدات مكعبة."
+    ],
+    "teacherTipEn": "Parallelepiped volume is base * height; tetrahedron volume is 1/6 of that.",
+    "teacherTipAr": "حجم رباعي السطوح (الهرم الثلاثي) يساوي سدس حجم متوازي السطوح المشترك معه في نفس الأحرف."
+  },
+  {
+    "id": "solid_ch1_db_hots_52",
+    "titleEn": "Vector Triple Product BAC-CAB Identity",
+    "titleAr": "متطابقة الضرب الثلاثي الاتجاهي (BAC - CAB)",
+    "difficulty": "hots",
+    "questionEn": "Expand the vector triple product: $\\vec{A} \\times (\\vec{B} \\times \\vec{C})$.",
+    "questionAr": "فُك حاصل الضرب الثلاثي الاتجاهي: $\\vec{A} \\times (\\vec{B} \\times \\vec{C})$.",
+    "optionsEn": [
+      "$(\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$",
+      "$(\\vec{A} \\cdot \\vec{B})\\vec{C} - (\\vec{A} \\cdot \\vec{C})\\vec{B}$",
+      "$(\\vec{A} \\cdot \\vec{C})\\vec{B} + (\\vec{A} \\cdot \\vec{B})\\vec{C}$",
+      "$\\vec{0}$"
+    ],
+    "optionsAr": [
+      "$(\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$",
+      "$(\\vec{A} \\cdot \\vec{B})\\vec{C} - (\\vec{A} \\cdot \\vec{C})\\vec{B}$",
+      "$(\\vec{A} \\cdot \\vec{C})\\vec{B} + (\\vec{A} \\cdot \\vec{B})\\vec{C}$",
+      "$\\vec{0}$"
+    ],
+    "correctAnswer": "$(\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$",
+    "correctIndex": 0,
+    "hintEn": "The famous 'BAC - CAB' identity.",
+    "hintAr": "المتطابقة الشهيرة: (البعيد ضرب قياسي الأول) في الأوسط ناقص (الأول ضرب قياسي الأوسط) في البعيد.",
+    "stepByStepSolutionEn": [
+      "1. By the fundamental vector triple product expansion identity:",
+      "   $$\\vec{A} \\times (\\vec{B} \\times \\vec{C}) = (\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$$",
+      "2. This identity shows that the resulting vector lies entirely in the plane spanned by $\\vec{B}$ and $\\vec{C}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. من المتطابقة الأساسية للضرب الثلاثي الاتجاهي:",
+      "   $$\\vec{A} \\times (\\vec{B} \\times \\vec{C}) = (\\vec{A} \\cdot \\vec{C})\\vec{B} - (\\vec{A} \\cdot \\vec{B})\\vec{C}$$",
+      "٢. يوضح هذا القانون أن المتجه الناتج يقع بالكامل في المستوى الذي يحوي المتجهين ب و جـ."
+    ],
+    "teacherTipEn": "Mnemonic: 'BAC minus CAB'. Notice vector B has positive sign.",
+    "teacherTipAr": "قاعدة التذكر الشهيرة: 'BAC ناقص CAB' حيث المتجه الأوسط ب هو الموجب دائماً."
+  },
+  {
+    "id": "solid_ch1_db_hots_53",
+    "titleEn": "External Tangency Condition for Two Spheres",
+    "titleAr": "شرط التماس الخارجي بين كرتين في الفراغ",
+    "difficulty": "hots",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "Two spheres have equations $(x - 1)^2 + y^2 + z^2 = 9$ and $(x - 5)^2 + (y - 3)^2 + z^2 = r^2$. If the spheres touch externally, find $r$.",
+    "questionAr": "كرتان معادلتاهما $(x - 1)^2 + y^2 + z^2 = 9$ و $(x - 5)^2 + (y - 3)^2 + z^2 = r^2$. إذا كانت الكرتان متماستين من الخارج، فأوجد قيمة $r$.",
+    "optionsEn": [
+      "2",
+      "8",
+      "5",
+      "3"
+    ],
+    "optionsAr": [
+      "2",
+      "8",
+      "5",
+      "3"
+    ],
+    "correctAnswer": "2",
+    "correctIndex": 0,
+    "hintEn": "External contact condition: distance between centers = r1 + r2.",
+    "hintAr": "شرط التماس من الخارج: البعد بين المركزين = نق١ + نق٢.",
+    "stepByStepSolutionEn": [
+      "1. First sphere: center $M_1(1, 0, 0)$, radius $r_1 = \\sqrt{9} = 3$.",
+      "2. Second sphere: center $M_2(5, 3, 0)$, radius $r_2 = r$.",
+      "3. Distance between centers:",
+      "   $$M_1 M_2 = \\sqrt{(5 - 1)^2 + (3 - 0)^2 + (0 - 0)^2} = \\sqrt{4^2 + 3^2} = \\sqrt{25} = 5$$",
+      "4. For external tangency: $M_1 M_2 = r_1 + r_2 \\implies 5 = 3 + r \\implies r = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الكرة الأولى: المركز م١ = (١، ٠، ٠) ونصف القطر نق١ = ٣.",
+      "٢. الكرة الثانية: المركز م٢ = (٥، ٣، ٠) ونصف القطر نق٢ = نق.",
+      "٣. البعد بين المركزين: م١ م٢ = $\\sqrt{4^2 + 3^2} = 5$.",
+      "٤. شرط التماس من الخارج: م١ م٢ = نق١ + نق٢ ومنها ٥ = ٣ + نق أي نق = ٢."
+    ],
+    "teacherTipEn": "If touching internally, the condition would be M1 M2 = |r1 - r2|.",
+    "teacherTipAr": "لو كان التماس من الداخل لكان الشرط م١ م٢ = |نق١ - نق٢|."
+  },
+  {
+    "id": "solid_ch1_db_hots_54",
+    "titleEn": "Lagrange Identity for Vector Norms",
+    "titleAr": "متطابقة لاغرانج لمعياري الضرب القياسي والاتجاهي",
+    "difficulty": "hots",
+    "questionEn": "If $|\\vec{A}| = 5$, $|\\vec{B}| = 4$, and $\\vec{A} \\cdot \\vec{B} = 12$, find $|\\vec{A} \\times \\vec{B}|$.",
+    "questionAr": "إذا كان $|\\vec{A}| = 5$ و $|\\vec{B}| = 4$ وكان $\\vec{A} \\cdot \\vec{B} = 12$، فأوجد $|\\vec{A} \\times \\vec{B}|$.",
+    "optionsEn": [
+      "16",
+      "20",
+      "8",
+      "256"
+    ],
+    "optionsAr": [
+      "16",
+      "20",
+      "8",
+      "256"
+    ],
+    "correctAnswer": "16",
+    "correctIndex": 0,
+    "hintEn": "Lagrange Identity: |A x B|^2 + (A . B)^2 = |A|^2 * |B|^2.",
+    "hintAr": "متطابقة لاغرانج: مربع معيار الضرب الاتجاهي + مربع الضرب القياسي = مربع معيار أ × مربع معيار ب.",
+    "stepByStepSolutionEn": [
+      "1. By Lagrange's Identity for vector products: $|\\vec{A} \\times \\vec{B}|^2 + (\\vec{A} \\cdot \\vec{B})^2 = |\\vec{A}|^2 |\\vec{B}|^2$.",
+      "2. Substitute known values:",
+      "   $$|\\vec{A} \\times \\vec{B}|^2 + 12^2 = (5)^2 \\times (4)^2$$",
+      "   $$|\\vec{A} \\times \\vec{B}|^2 + 144 = 25 \\times 16 = 400$$",
+      "3. $|\\vec{A} \\times \\vec{B}|^2 = 400 - 144 = 256 \\implies |\\vec{A} \\times \\vec{B}| = \\sqrt{256} = 16$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. من متطابقة لاغرانج: $|\\vec{A} \\times \\vec{B}|^2 + (\\vec{A} \\cdot \\vec{B})^2 = |\\vec{A}|^2 |\\vec{B}|^2$.",
+      "٢. بالتعويض: $|\\vec{A} \\times \\vec{B}|^2 + 144 = 25 \\times 16 = 400$.",
+      "٣. $|\\vec{A} \\times \\vec{B}|^2 = 400 - 144 = 256$ ومنها المعيار = جذر(٢٥٦) = ١٦."
+    ],
+    "teacherTipEn": "This identity is equivalent to sin^2(theta) + cos^2(theta) = 1.",
+    "teacherTipAr": "تكافئ هذه المتطابقة تماماً المتطابقة المثلثية جا^٢(هـ) + جتا^٢(هـ) = ١."
+  },
+  {
+    "id": "solid_ch1_db_hots_55",
+    "titleEn": "Sphere Through Origin and Three Coordinate Intercepts",
+    "titleAr": "معادلة كرة تمر بنقطة الأصل ونقاط التقاطع مع المحاور",
+    "difficulty": "hots",
+    "diagramType": "sphere_general_center_radius",
+    "questionEn": "Find the diameter of the sphere passing through the origin $(0, 0, 0)$ and the three points $(6, 0, 0)$, $(0, 8, 0)$, and $(0, 0, 0)$ wait, $(0, 0, 24)$.",
+    "questionAr": "أوجد طول قطر الكرة التي تمر بنقطة الأصل $(0, 0, 0)$ والنقاط الثلاث $(6, 0, 0)$ و $(0, 8, 0)$ و $(0, 0, 24)$.",
+    "optionsEn": [
+      "26 units",
+      "13 units",
+      "52 units",
+      "24 units"
+    ],
+    "optionsAr": [
+      "26 وحدة طول",
+      "13 وحدة طول",
+      "52 وحدة طول",
+      "24 وحدة طول"
+    ],
+    "correctAnswer": "26 units",
+    "correctIndex": 0,
+    "hintEn": "Center is (a/2, b/2, c/2) and radius is sqrt((a/2)^2 + (b/2)^2 + (c/2)^2). Diameter = sqrt(a^2 + b^2 + c^2).",
+    "hintAr": "القطر الواصل بين نقطة الأصل والنقطة المقابلة قطرياً = جذر(أ^٢ + ب^٢ + جـ^٢).",
+    "stepByStepSolutionEn": [
+      "1. A sphere passing through the origin and points $(a, 0, 0), (0, b, 0), (0, 0, c)$ has center at $\\left(\\frac{a}{2}, \\frac{b}{2}, \\frac{c}{2}\\right)$.",
+      "2. Here $a = 6, b = 8, c = 24$.",
+      "3. The radius is $r = \\sqrt{3^2 + 4^2 + 12^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$ units.",
+      "4. The diameter is $2r = 2(13) = 26$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مركز الكرة المارة بنقطة الأصل والنقاط الثلاث هو منتصف الأبعاد: (أ/٢، ب/٢، جـ/٢) = (٣، ٤، ١٢).",
+      "٢. نصف القطر نق = جذر(٩ + ١٦ + ١٤٤) = جذر(١٦٩) = ١٣ وحدة طول.",
+      "٣. طول القطر = ٢ × ١٣ = ٢٦ وحدة طول."
+    ],
+    "teacherTipEn": "The opposite vertices of the bounding rectangular box form a space diagonal that acts as diameter.",
+    "teacherTipAr": "يمثل القطر الرئيسي للصندوق متوازي المستطيلات قطراً كاملاً للكرة المحيطة به."
+  },
+  {
+    "id": "solid_ch1_db_hots_56",
+    "titleEn": "Angle Bisector Vector Between Two Vectors",
+    "titleAr": "متجه منصف الزاوية بين متجهين في الفراغ",
+    "difficulty": "hots",
+    "questionEn": "Find a vector pointing along the interior angle bisector between $\\vec{A} = (1, 2, 2)$ and $\\vec{B} = (2, 2, -1)$.",
+    "questionAr": "أوجد متجهاً يقع في اتجاه منصف الزاوية الداخلية بين المتجهين $\\vec{A} = (1, 2, 2)$ و $\\vec{B} = (2, 2, -1)$.",
+    "optionsEn": [
+      "$(3, 4, 1)$",
+      "$(1, 0, 3)$",
+      "$(3, 0, 1)$",
+      "$(1, 4, 1)$"
+    ],
+    "optionsAr": [
+      "$(3, 4, 1)$",
+      "$(1, 0, 3)$",
+      "$(3, 0, 1)$",
+      "$(1, 4, 1)$"
+    ],
+    "correctAnswer": "$(3, 4, 1)$",
+    "correctIndex": 0,
+    "hintEn": "Add the unit vectors: v = (A / |A|) + (B / |B|).",
+    "hintAr": "اجمع متجهات الوحدة: منصف الزاوية يوازي (أ / |أ|) + (ب / |ب|).",
+    "stepByStepSolutionEn": [
+      "1. Find magnitudes: $|\\vec{A}| = \\sqrt{1+4+4} = 3$, $|\\vec{B}| = \\sqrt{4+4+1} = 3$.",
+      "2. Since both vectors already have the same magnitude 3, the angle bisector vector is simply in the direction of their sum $\\vec{A} + \\vec{B}$.",
+      "3. $\\vec{A} + \\vec{B} = (1 + 2, 2 + 2, 2 + (-1)) = (3, 4, 1)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. معيار المتجهين: |أ| = ٣، |ب| = ٣ (متساويان في المعيار).",
+      "٢. عندما يتساوى معيارا متجهين، يكون منصف الزاوية منطبقاً على قطر متوازي الأضلاع (المعين) وهو المجموع أ + ب.",
+      "٣. أ + ب = (١ + ٢، ٢ + ٢، ٢ - ١) = (٣، ٤، ١)."
+    ],
+    "teacherTipEn": "If the vectors have unequal magnitudes, you MUST normalize them to unit vectors before adding.",
+    "teacherTipAr": "إذا كان المعياران غير متساويين، يجب قسمة كل متجه على معياره أولاً قبل الجمع."
+  },
+  {
+    "id": "solid_ch1_db_hots_57",
+    "titleEn": "Shortest Distance from Point to Sphere Surface",
+    "titleAr": "أقصر مسافة من نقطة خارج الكرة إلى سطحها",
+    "difficulty": "hots",
+    "diagramType": "solid_geometry_sphere",
+    "questionEn": "Find the shortest distance from the point $P(5, 7, -6)$ to the surface of the sphere $(x - 2)^2 + (y - 3)^2 + (z + 6)^2 = 9$.",
+    "questionAr": "أوجد أقصر بعد من النقطة $P(5, 7, -6)$ إلى سطح الكرة $(x - 2)^2 + (y - 3)^2 + (z + 6)^2 = 9$.",
+    "optionsEn": [
+      "2 units",
+      "5 units",
+      "3 units",
+      "8 units"
+    ],
+    "optionsAr": [
+      "2 وحدة طول",
+      "5 وحدات طول",
+      "3 وحدات طول",
+      "8 وحدات طول"
+    ],
+    "correctAnswer": "2 units",
+    "correctIndex": 0,
+    "hintEn": "Shortest distance is |PM| - r where M is the center.",
+    "hintAr": "أقصر مسافة للسطح = البعد بين النقطة والمركز ناقص نصف القطر: ب م - نق.",
+    "stepByStepSolutionEn": [
+      "1. Center of sphere: $M(2, 3, -6)$, and radius $r = \\sqrt{9} = 3$.",
+      "2. Distance from $P$ to center $M$:",
+      "   $$PM = \\sqrt{(5 - 2)^2 + (7 - 3)^2 + (-6 - (-6))^2} = \\sqrt{3^2 + 4^2 + 0^2} = \\sqrt{25} = 5$$",
+      "3. Shortest distance to sphere surface = $PM - r = 5 - 3 = 2$ units."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مركز الكرة م = (٢، ٣، -٦) ونصف القطر نق = ٣.",
+      "٢. بعد النقطة عن المركز: ب م = جذر(٩ + ١٦ + ٠) = ٥ وحدات طول.",
+      "٣. أقصر بعد عن سطح الكرة = ب م - نق = ٥ - ٣ = ٢ وحدة طول."
+    ],
+    "teacherTipEn": "The longest distance from P to the sphere surface is PM + r = 5 + 3 = 8 units.",
+    "teacherTipAr": "أبعد مسافة للنقطة عن سطح الكرة هي ب م + نق = ٥ + ٣ = ٨ وحدات طول."
+  },
+  {
+    "id": "solid_ch1_db_hots_58",
+    "titleEn": "Distance Invariant to Vertices of a Cube",
+    "titleAr": "المحل الهندسي لنقطة مجموع مربعات أبعادها عن رؤوس مكعب",
+    "difficulty": "hots",
+    "diagramType": "distance_3d_box",
+    "questionEn": "In a cube of side length $a$, the sum of the squares of the distances from any point $P$ on the circumscribed sphere to all 8 vertices of the cube is:",
+    "questionAr": "في مكعب طول ضلعه $a$، مجموع مربعات المسافات من أي نقطة $P$ على سطح الكرة المحيطة بالمكعب إلى رؤوسه الثمانية يساوي:",
+    "optionsEn": [
+      "$12a^2$",
+      "$8a^2$",
+      "$6a^2$",
+      "$16a^2$"
+    ],
+    "optionsAr": [
+      "$12a^2$",
+      "$8a^2$",
+      "$6a^2$",
+      "$16a^2$"
+    ],
+    "correctAnswer": "$12a^2$",
+    "correctIndex": 0,
+    "hintEn": "Radius of circumscribed sphere is (a*sqrt(3))/2. Sum = 8 R^2 + sum(vertex coordinates^2).",
+    "hintAr": "نصف قطر الكرة المحيطة بالمكعب هو (أ جذر ٣) / ٢.",
+    "stepByStepSolutionEn": [
+      "1. Place the center of the cube at origin $(0, 0, 0)$. The 8 vertices have coordinates $\\left(\\pm \\frac{a}{2}, \\pm \\frac{a}{2}, \\pm \\frac{a}{2}\\right)$.",
+      "2. The radius of the circumscribed sphere passing through all vertices is $R = \\sqrt{3\\left(\\frac{a}{2}\\right)^2} = \\frac{a\\sqrt{3}}{2}$.",
+      "3. For any point $P(x, y, z)$ on the sphere, $x^2 + y^2 + z^2 = R^2 = \\frac{3a^2}{4}$.",
+      "4. Sum of squared distances to all 8 vertices:",
+      "   $$\\sum_{i=1}^{8} |P - V_i|^2 = \\sum_{i=1}^{8} (|P|^2 + |V_i|^2 - 2 P \\cdot V_i)$$",
+      "   Since the centroid of the vertices is the origin, $\\sum V_i = \\vec{0}$, so the cross term vanishes:",
+      "   $$\\text{Sum} = 8 R^2 + 8 R^2 = 8 \\left(\\frac{3a^2}{4}\\right) + 8 \\left(\\frac{3a^2}{4}\\right) \\dots \\text{wait: } 8(R^2 + R^2) = 16 R^2 = 16 \\times \\frac{3a^2}{4} = 12a^2$$",
+      "   Wait! Let's check: 8 * (R^2 + R^2) = 16 R^2 = 16 * (3/4 a^2) = 12 a^2. Let's make the correct answer 8a^2 or 12a^2 cleanly! Let's verify.",
+      "   If P is at (a/2, a/2, a/2), distance to itself is 0, to 3 adjacent is a^2, to 3 face-diagonal is 2a^2, to space-diagonal is 3a^2:",
+      "   0 + 3(a^2) + 3(2a^2) + 1(3a^2) = 3 + 6 + 3 = 12 a^2! Yes, exactly 12 a^2!",
+      "   So the correct answer is 12 a^2. Let's set optionsEn: ['12a^2', '8a^2', '6a^2', '4a^2'] with correctIndex 0!"
+    ],
+    "stepByStepSolutionAr": [
+      "١. بوضع مركز المكعب عند نقطة الأصل، يكون نصف قطر الكرة المحيطة هو $R = \\frac{a\\sqrt{3}}{2}$.",
+      "٢. لأي نقطة على سطح الكرة، وبحساب مجموع المسافات إلى الرؤوس الثمانية مع تلاشي المجموع الخطي بتماثل المركز:",
+      "٣. المجموع = ٨(نق^٢ + نق^٢) = ١٦ نق^٢ = ١٦ × (٣/٤ أ^٢) = ١٢ أ^٢."
+    ],
+    "teacherTipEn": "Testing P at one of the vertices immediately confirms 0 + 3(a^2) + 3(2a^2) + 3a^2 = 12a^2.",
+    "teacherTipAr": "اختبار نقطة تقع على أحد الرؤوس يعطي فوراً: ٠ + ٣(أ^٢) + ٣(٢أ^٢) + ٣أ^٢ = ١٢أ^٢."
   }
 ]
 };

@@ -1741,6 +1741,298 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Because impact time is tiny, the impulsive force is typically very large.",
     "teacherTipAr": "نظراً لأن زمن التصادم قصير جداً، فإن القوة الدفعية تكون كبيرة جداً في العادة."
+  },
+  {
+    "id": "dyn_ch3_db_easy_51",
+    "titleEn": "Impulse of a Constant Force",
+    "titleAr": "دفع قوة ثابتة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A constant force $F = 40\\text{ N}$ acts on a body for a duration $\\Delta t = 0.25\\text{ seconds}$. What is the magnitude of the impulse imparted to the body?",
+    "questionAr": "أثرت قوة ثابتة $F = 40\\text{ ن}$ على جسم لمدة زمنية $\\Delta t = 0.25\\text{ ثانية}$. ما مقدار الدفع المؤثر على الجسم؟",
+    "optionsEn": [
+      "$10\\text{ N}\\cdot\\text{s}$",
+      "$160\\text{ N}\\cdot\\text{s}$",
+      "$40\\text{ N}\\cdot\\text{s}$",
+      "$2.5\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ ن}\\cdot\\text{ث}$",
+      "$160\\text{ ن}\\cdot\\text{ث}$",
+      "$40\\text{ ن}\\cdot\\text{ث}$",
+      "$2.5\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$10\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Impulse of a constant force is $I = F \\Delta t$.",
+    "hintAr": "دفع قوة ثابتة هو $I = F \\Delta t$.",
+    "stepByStepSolutionEn": [
+      "Impulse $I = F \\cdot \\Delta t = 40 \\times 0.25 = 10\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الدفع $I = F \\cdot \\Delta t = 40 \\times 0.25 = 10\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "The unit $\\text{N}\\cdot\\text{s}$ is dimensionally identical to $\\text{kg}\\cdot\\text{m/s}$ (momentum).",
+    "teacherTipAr": "وحدة قياس الدفع $\\text{ن}\\cdot\\text{ث}$ تكافئ تماماً وحدة كمية الحركة $\\text{كجم}\\cdot\\text{م/ث}$."
+  },
+  {
+    "id": "dyn_ch3_db_easy_52",
+    "titleEn": "Change in Momentum Caused by an Impulse",
+    "titleAr": "التغير في كمية الحركة الناتج عن الدفع",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball of mass $m = 0.5\\text{ kg}$ moving at $12\\text{ m/s}$ is struck by an impulse in the opposite direction, reversing its speed to $8\\text{ m/s}$. Find the magnitude of the impulse.",
+    "questionAr": "كرة كتلتها $m = 0.5\\text{ كجم}$ تتحرك بسرعة $12\\text{ م/ث}$ تلقت دفعاً في الاتجاه المضاد فارتدت بسرعة $8\\text{ م/ث}$. أوجد مقدار الدفع.",
+    "optionsEn": [
+      "$10\\text{ N}\\cdot\\text{s}$",
+      "$2\\text{ N}\\cdot\\text{s}$",
+      "$6\\text{ N}\\cdot\\text{s}$",
+      "$4\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ ن}\\cdot\\text{ث}$",
+      "$2\\text{ ن}\\cdot\\text{ث}$",
+      "$6\\text{ ن}\\cdot\\text{ث}$",
+      "$4\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$10\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Impulse equals change in momentum: $I = |m v_2 - m v_1|$. Remember that rebounding reverses velocity sign: $v_2 - v_1 = 8 - (-12) = 20\\text{ m/s}$.",
+    "hintAr": "الدفع يساوي التغير في كمية الحركة: $I = m(v_2 - v_1)$ مع مراعاة إشارة الارتداد المعاكس: $8 - (-12) = 20$.",
+    "stepByStepSolutionEn": [
+      "Let the initial direction be positive: $v_1 = +12\\text{ m/s}$.",
+      "Rebounded velocity is in the opposite direction: $v_2 = -8\\text{ m/s}$.",
+      "Change in momentum $\\Delta p = m(v_2 - v_1) = 0.5(-8 - 12) = 0.5(-20) = -10\\text{ kg}\\cdot\\text{m/s}$.",
+      "Magnitude of impulse $|I| = 10\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "باعتبار الاتجاه الابتدائي موجباً: $v_1 = +12\\text{ م/ث}$.",
+      "سرعة الارتداد في الاتجاه المعاكس: $v_2 = -8\\text{ م/ث}$.",
+      "التغير في كمية الحركة: $\\Delta p = 0.5(-8 - 12) = -10\\text{ كجم}\\cdot\\text{م/ث}$.",
+      "معيار الدفع $|I| = 10\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "When a body rebounds, add the speeds: $\\Delta v = v_1 + v_2$.",
+    "teacherTipAr": "عندما يرتد الجسم، تُجمع السرعتان لأن اتجاه الحركة انعكس: $\\Delta v = v_1 + v_2$."
+  },
+  {
+    "id": "dyn_ch3_db_easy_53",
+    "titleEn": "Impulse from a Triangular Force-Time Graph",
+    "titleAr": "الدفع من منحنى (القوة - الزمن) المثلثي",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force acts on a body over an interval from $t = 0$ to $t = 4\\text{ s}$. The force-time graph is a triangle of base $4\\text{ s}$ and peak force $F_{\\max} = 60\\text{ N}$. Find the impulse of this force.",
+    "questionAr": "أثرت قوة على جسم خلال الفترة من $t = 0$ إلى $t = 4\\text{ ث}$. وكان منحنى (القوة - الزمن) مثلثاً قاعدته $4\\text{ ث}$ وقمتها $F_{\\max} = 60\\text{ ن}$. أوجد دفع هذه القوة.",
+    "optionsEn": [
+      "$120\\text{ N}\\cdot\\text{s}$",
+      "$240\\text{ N}\\cdot\\text{s}$",
+      "$60\\text{ N}\\cdot\\text{s}$",
+      "$15\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$120\\text{ ن}\\cdot\\text{ث}$",
+      "$240\\text{ ن}\\cdot\\text{ث}$",
+      "$60\\text{ ن}\\cdot\\text{ث}$",
+      "$15\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$120\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Impulse equals the area under the force-time graph: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$.",
+    "hintAr": "الدفع يساوي المساحة المحصورة تحت منحنى (القوة - الزمن): $I = \\frac{1}{2} \\times \\text{القاعدة} \\times \\text{الارتفاع}$.",
+    "stepByStepSolutionEn": [
+      "Impulse $I = \\int_0^4 F(t)\\,dt = \\text{Area of triangle}$.",
+      "Area $= \\frac{1}{2} \\times 4 \\times 60 = 120\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الدفع $I = \\text{مساحة المثلث}$.",
+      "المساحة $= \\frac{1}{2} \\times 4 \\times 60 = 120\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Area under $F-t$ curve is impulse; area under $v-t$ curve is displacement.",
+    "teacherTipAr": "المساحة تحت منحنى $F-t$ تمثل الدفع، بينما المساحة تحت $v-t$ تمثل الإزاحة."
+  },
+  {
+    "id": "dyn_ch3_db_easy_54",
+    "titleEn": "Average Impulsive Force During an Impact",
+    "titleAr": "متوسط القوة الدفعية خلال التصادم",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A tennis racket delivers an impulse of $24\\text{ N}\\cdot\\text{s}$ to a tennis ball during a contact duration of $\\Delta t = 0.008\\text{ seconds}$. What is the average impulsive force exerted on the ball?",
+    "questionAr": "مضرب تنس يؤثر بدفع مقداره $24\\text{ ن}\\cdot\\text{ث}$ على كرة تنس خلال زمن تلامس $\\Delta t = 0.008\\text{ ثانية}$. ما متوسط القوة الدفعية المؤثرة على الكرة؟",
+    "optionsEn": [
+      "$3000\\text{ N}$",
+      "$192\\text{ N}$",
+      "$300\\text{ N}$",
+      "$1500\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$3000\\text{ ن}$",
+      "$192\\text{ ن}$",
+      "$300\\text{ ن}$",
+      "$1500\\text{ ن}$"
+    ],
+    "correctAnswer": "$3000\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "Average impulsive force is $F_{\\text{avg}} = \\frac{I}{\\Delta t}$.",
+    "hintAr": "متوسط القوة الدفعية هو $F_{\\text{avg}} = \\frac{I}{\\Delta t}$.",
+    "stepByStepSolutionEn": [
+      "$F_{\\text{avg}} = \\frac{I}{\\Delta t} = \\frac{24}{0.008} = \\frac{24000}{8} = 3000\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$F_{\\text{avg}} = \\frac{I}{\\Delta t} = \\frac{24}{0.008} = 3000\\text{ ن}$."
+    ],
+    "teacherTipEn": "Because collision time $\\Delta t$ is very small, impulsive forces are extremely large.",
+    "teacherTipAr": "نظراً لأن زمن التصادم $\\Delta t$ متناهٍ في الصغر، فإن القوى الدفعية تكون هائلة المقدار."
+  },
+  {
+    "id": "dyn_ch3_db_easy_55",
+    "titleEn": "Conservation of Momentum in a Direct Inelastic Collision",
+    "titleAr": "حفظ كمية الحركة في تصادم غير مرن ملتحم",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body of mass $m_1 = 3\\text{ kg}$ moving at $8\\text{ m/s}$ collides directly with a stationary body of mass $m_2 = 5\\text{ kg}$. The two bodies coalesce and move together as a single body. What is their common speed $V$ after the collision?",
+    "questionAr": "جسم كتلته $m_1 = 3\\text{ كجم}$ يتحرك بسرعة $8\\text{ م/ث}$ اصطدم تصادماً مباشراً بجسم ساكن كتلته $m_2 = 5\\text{ كجم}$ والتحما معاً كجسم واحد. ما سرعتهما المشتركة $V$ بعد التصادم مباشرة؟",
+    "optionsEn": [
+      "$3\\text{ m/s}$",
+      "$4\\text{ m/s}$",
+      "$2.4\\text{ m/s}$",
+      "$5\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ م/ث}$",
+      "$4\\text{ م/ث}$",
+      "$2.4\\text{ م/ث}$",
+      "$5\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$3\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "By conservation of linear momentum: $m_1 v_1 + m_2 v_2 = (m_1 + m_2)V$.",
+    "hintAr": "من قانون حفظ كمية الحركة: $m_1 v_1 + m_2 v_2 = (m_1 + m_2)V$.",
+    "stepByStepSolutionEn": [
+      "Total momentum before collision: $m_1 v_1 + m_2 v_2 = (3 \\times 8) + (5 \\times 0) = 24\\text{ kg}\\cdot\\text{m/s}$.",
+      "Total mass after coalescence: $m_1 + m_2 = 3 + 5 = 8\\text{ kg}$.",
+      "Common velocity: $V = \\frac{24}{8} = 3\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "كمية الحركة الكلية قبل التصادم: $3(8) + 5(0) = 24\\text{ كجم}\\cdot\\text{م/ث}$.",
+      "الكتلة الكلية بعد الالتحام: $3 + 5 = 8\\text{ كجم}$.",
+      "السرعة المشتركة: $V = \\frac{24}{8} = 3\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Coalescence implies maximum possible loss of kinetic energy compatible with momentum conservation.",
+    "teacherTipAr": "الالتحام يعني حدوث أكبر فقد ممكن في طاقة الحركة بما يتفق مع بقاء كمية الحركة."
+  },
+  {
+    "id": "dyn_ch3_db_easy_56",
+    "titleEn": "Impulse of a Vector Force",
+    "titleAr": "دفع قوة متجهة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $\\vec{F} = (2t + 1)\\hat{i} + 3t^2\\hat{j}\\text{ N}$ acts on a body from $t = 0$ to $t = 2\\text{ s}$. Find the vector impulse $\\vec{I}$.",
+    "questionAr": "أثرت قوة $\\vec{F} = (2t + 1)\\hat{i} + 3t^2\\hat{j}\\text{ ن}$ على جسم من $t = 0$ إلى $t = 2\\text{ ث}$. أوجد متجه الدفع $\\vec{I}$.",
+    "optionsEn": [
+      "$6\\hat{i} + 8\\hat{j}\\text{ N}\\cdot\\text{s}$",
+      "$4\\hat{i} + 12\\hat{j}\\text{ N}\\cdot\\text{s}$",
+      "$5\\hat{i} + 6\\hat{j}\\text{ N}\\cdot\\text{s}$",
+      "$3\\hat{i} + 8\\hat{j}\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$6\\hat{i} + 8\\hat{j}\\text{ ن}\\cdot\\text{ث}$",
+      "$4\\hat{i} + 12\\hat{j}\\text{ ن}\\cdot\\text{ث}$",
+      "$5\\hat{i} + 6\\hat{j}\\text{ ن}\\cdot\\text{ث}$",
+      "$3\\hat{i} + 8\\hat{j}\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$6\\hat{i} + 8\\hat{j}\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate each component with respect to time: $\\vec{I} = \\int_0^2 \\vec{F}(t)\\,dt$.",
+    "hintAr": "كامل كل مركبة بالنسبة للزمن: $\\vec{I} = \\int_0^2 \\vec{F}(t)\\,dt$.",
+    "stepByStepSolutionEn": [
+      "$\\vec{I} = \\int_0^2 [(2t + 1)\\hat{i} + 3t^2\\hat{j}]\\,dt$.",
+      "$x$-component: $\\int_0^2 (2t + 1)\\,dt = [t^2 + t]_0^2 = 4 + 2 = 6$.",
+      "$y$-component: $\\int_0^2 3t^2\\,dt = [t^3]_0^2 = 8 - 0 = 8$.",
+      "Thus, $\\vec{I} = 6\\hat{i} + 8\\hat{j}\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مركبة $x$: $\\int_0^2 (2t + 1)\\,dt = [t^2 + t]_0^2 = 6$.",
+      "مركبة $y$: $\\int_0^2 3t^2\\,dt = [t^3]_0^2 = 8$.",
+      "إذن المتجه $\\vec{I} = 6\\hat{i} + 8\\hat{j}\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Vector impulse magnitude is $|I| = \\sqrt{6^2 + 8^2} = 10\\text{ N}\\cdot\\text{s}$.",
+    "teacherTipAr": "معيار متجه الدفع هو $|I| = \\sqrt{6^2 + 8^2} = 10\\text{ ن}\\cdot\\text{ث}$."
+  },
+  {
+    "id": "dyn_ch3_db_easy_57",
+    "titleEn": "Recoil Velocity of a Rifle",
+    "titleAr": "سرعة ارتداد بندقية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rifle of mass $M = 4\\text{ kg}$ fires a bullet of mass $m = 20\\text{ g}$ with a muzzle velocity of $v_b = 600\\text{ m/s}$. Find the initial recoil speed of the rifle.",
+    "questionAr": "بندقية كتلتها $M = 4\\text{ كجم}$ أطلقت رصاصة كتلتها $m = 20\\text{ جم}$ بسرعة خروج $v_b = 600\\text{ م/ث}$. أوجد سرعة ارتداد البندقية.",
+    "optionsEn": [
+      "$3\\text{ m/s}$",
+      "$12\\text{ m/s}$",
+      "$0.3\\text{ m/s}$",
+      "$6\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ م/ث}$",
+      "$12\\text{ م/ث}$",
+      "$0.3\\text{ م/ث}$",
+      "$6\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$3\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Before firing, total momentum is zero: $M V_r + m v_b = 0 \\implies |V_r| = \\frac{m v_b}{M}$. Convert $20\\text{ g} = 0.02\\text{ kg}$.",
+    "hintAr": "قبل الإطلاق كمية الحركة الكلية صفر: $M V_r + m v_b = 0$. حول الكتلة: $20\\text{ جم} = 0.02\\text{ كجم}$.",
+    "stepByStepSolutionEn": [
+      "Bullet mass in kg: $m = \\frac{20}{1000} = 0.02\\text{ kg}$.",
+      "Bullet momentum: $p_b = 0.02 \\times 600 = 12\\text{ kg}\\cdot\\text{m/s}$.",
+      "By conservation of momentum: $M V_r + p_b = 0 \\implies 4 V_r + 12 = 0 \\implies V_r = -3\\text{ m/s}$.",
+      "Recoil speed is $|V_r| = 3\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "كتلة الرصاصة بالكيلوجرام: $m = 0.02\\text{ كجم}$.",
+      "كمية حركة الرصاصة: $p_b = 0.02 \\times 600 = 12\\text{ كجم}\\cdot\\text{م/ث}$.",
+      "من بقاء كمية الحركة: $4 V_r + 12 = 0 \\implies V_r = -3\\text{ م/ث}$.",
+      "مقدار سرعة الارتداد هو $3\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Heavier rifles experience smaller recoil speeds for the same bullet momentum.",
+    "teacherTipAr": "كلما زادت كتلة البندقية، قلت سرعة ارتدادها لنفس طلقة الرصاص."
+  },
+  {
+    "id": "dyn_ch3_db_easy_58",
+    "titleEn": "Coefficient of Restitution Definition",
+    "titleAr": "تعريف معامل الارتداد في التصادم",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In a direct central collision between two smooth bodies, the coefficient of restitution $e$ is defined as the ratio of:",
+    "questionAr": "في التصادم المركزي المباشر بين جسمين أملسين، يُعرّف معامل الارتداد $e$ بأنه النسبة بين:",
+    "optionsEn": [
+      "Relative speed of separation to relative speed of approach",
+      "Kinetic energy after to kinetic energy before",
+      "Momentum after to momentum before",
+      "Mass of the first body to mass of the second body"
+    ],
+    "optionsAr": [
+      "سرعة الابتعاد النسبية إلى سرعة الاقتراب النسبية",
+      "طاقة الحركة بعد التصادم إلى طاقة الحركة قبله",
+      "كمية الحركة بعد التصادم إلى كمية الحركة قبله",
+      "كتلة الجسم الأول إلى كتلة الجسم الثاني"
+    ],
+    "correctAnswer": "Relative speed of separation to relative speed of approach",
+    "correctIndex": 0,
+    "hintEn": "Newton's experimental law of restitution: $v_2' - v_1' = - e (v_2 - v_1)$, so $e = \\frac{|v_{\\text{sep}}|}{|v_{\\text{app}}|}$.",
+    "hintAr": "قانون نيوتن التجريبي للارتداد: $e = \\frac{\\text{سرعة الانفصال}}{\\text{سرعة الاقتراب}}$.",
+    "stepByStepSolutionEn": [
+      "By Newton's experimental law of collision, the relative velocity after impact is directly proportional to the relative velocity before impact and in the opposite sense:",
+      "$(v_2' - v_1') = - e (v_2 - v_1)$.",
+      "Taking magnitudes: $e = \\frac{\\text{speed of separation}}{\\text{speed of approach}}$.",
+      "For a perfectly elastic collision $e = 1$; for a completely inelastic collision $e = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "ينص قانون نيوتن التجريبي للتصادم على أن السرعة النسبية بعد التصادم تتناسب مع السرعة النسبية قبل التصادم في الاتجاه المضاد:",
+      "$e = \\frac{\\text{سرعة الابتعاد النسبية}}{\\text{سرعة الاقتراب النسبية}}$.",
+      "للتصادم المرن تماماً $e = 1$، وللتصادم عديم المرونة (الالتحامي) $e = 0$."
+    ],
+    "teacherTipEn": "$0 \\le e \\le 1$ always holds for passive collisions without external explosive release of energy.",
+    "teacherTipAr": "دائماً $0 \\le e \\le 1$ في التصادمات العادية دون حدوث انفجارات."
   }
 ],
   medium: [
@@ -2525,8 +2817,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 2\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{1} (2t + 3) dt = [t^2 + 3t]_0^{1} = (1^2 + 3(1)) - 0 = 4\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{4}{2} = 2\\text{ m/s}$."
@@ -2559,8 +2851,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 5\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{2} (2t + 3) dt = [t^2 + 3t]_0^{2} = (2^2 + 3(2)) - 0 = 10\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{10}{2} = 5\\text{ m/s}$."
@@ -2593,8 +2885,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 9\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{3} (2t + 3) dt = [t^2 + 3t]_0^{3} = (3^2 + 3(3)) - 0 = 18\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{18}{2} = 9\\text{ m/s}$."
@@ -2627,8 +2919,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 14\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{4} (2t + 3) dt = [t^2 + 3t]_0^{4} = (4^2 + 3(4)) - 0 = 28\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{28}{2} = 14\\text{ m/s}$."
@@ -2661,8 +2953,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 20\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{5} (2t + 3) dt = [t^2 + 3t]_0^{5} = (5^2 + 3(5)) - 0 = 40\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{40}{2} = 20\\text{ m/s}$."
@@ -2695,8 +2987,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 27\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{6} (2t + 3) dt = [t^2 + 3t]_0^{6} = (6^2 + 3(6)) - 0 = 54\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{54}{2} = 27\\text{ m/s}$."
@@ -2729,8 +3021,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 35\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{7} (2t + 3) dt = [t^2 + 3t]_0^{7} = (7^2 + 3(7)) - 0 = 70\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{70}{2} = 35\\text{ m/s}$."
@@ -2763,8 +3055,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 44\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{8} (2t + 3) dt = [t^2 + 3t]_0^{8} = (8^2 + 3(8)) - 0 = 88\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{88}{2} = 44\\text{ m/s}$."
@@ -2797,8 +3089,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 54\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{9} (2t + 3) dt = [t^2 + 3t]_0^{9} = (9^2 + 3(9)) - 0 = 108\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{108}{2} = 54\\text{ m/s}$."
@@ -2831,8 +3123,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\Delta v = 65\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $F(t)$ over $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$, then $\\Delta v = I / m$.",
-    "hintAr": "كامل $F(t)$ على $[0, ${T}]$: $I = \\int_0^{${T}} (2t + 3) dt = [t^2 + 3t]_0^{${T}}$، ثم $\\Delta v = I / m$.",
+    "hintEn": "Integrate $F(t)$ over the given time interval: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$, then $\\Delta v = \\frac{I}{m}$.",
+    "hintAr": "كامل القوة $F(t)$ على الفترة الزمنية المعطاة: $I = \\int_0^T (2t + 3)\\,dt = [t^2 + 3t]_0^T$، ثم $\\Delta v = \\frac{I}{m}$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse: $I = \\int_0^{10} (2t + 3) dt = [t^2 + 3t]_0^{10} = (10^2 + 3(10)) - 0 = 130\\text{ N}\\cdot\\text{s}$.",
       "2. Change in velocity: $\\Delta v = \\frac{I}{m} = \\frac{130}{2} = 65\\text{ m/s}$."
@@ -3583,6 +3875,356 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Kinetic energy loss formula for coalescing with stationary target: Loss = (1/2) * (m1*m2/(m1+m2)) * u1^2.",
     "teacherTipAr": "قانون سريع للفقد في طاقة الحركة عند سكون الهدف: الفقد = ٠٫٥ × (ك١ × ك٢ / (ك١ + ك٢)) × ع١²."
+  },
+  {
+    "id": "dyn_ch3_db_medium_51",
+    "titleEn": "Rebound Height of a Bouncing Ball",
+    "titleAr": "ارتفاع ارتداد كرة تسقط على أرضية أفقية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball is dropped from a height $h_1 = 16\\text{ m}$ onto a smooth horizontal floor. If the coefficient of restitution is $e = 0.75$, to what height $h_2$ does the ball rise on its first rebound?",
+    "questionAr": "سقطت كرة من ارتفاع $h_1 = 16\\text{ م}$ على أرضية أفقية ملساء. إذا كان معامل الارتداد $e = 0.75 = \\frac{3}{4}$، فما الارتفاع $h_2$ الذي تصعد إليه الكرة بعد ارتدادها الأول؟",
+    "optionsEn": [
+      "$9\\text{ m}$",
+      "$12\\text{ m}$",
+      "$6\\text{ m}$",
+      "$8\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$9\\text{ م}$",
+      "$12\\text{ م}$",
+      "$6\\text{ م}$",
+      "$8\\text{ م}$"
+    ],
+    "correctAnswer": "$9\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Rebound velocity is $v_2 = e v_1$. Since $h \\propto v^2$, the rebound height is $h_2 = e^2 h_1$.",
+    "hintAr": "سرعة الارتداد $v_2 = e v_1$. وبما أن الارتفاع يتناسب مع مربع السرعة: $h_2 = e^2 h_1$.",
+    "stepByStepSolutionEn": [
+      "Impact speed: $v_1 = \\sqrt{2g h_1}$.",
+      "Rebound speed: $v_2 = e v_1 = e \\sqrt{2g h_1}$.",
+      "Rebound height: $h_2 = \\frac{v_2^2}{2g} = \\frac{e^2(2g h_1)}{2g} = e^2 h_1$.",
+      "Substitute $e = 0.75 = \\frac{3}{4}$ and $h_1 = 16\\text{ m}$:",
+      "$h_2 = \\left(\\frac{3}{4}\\right)^2 \\times 16 = \\frac{9}{16} \\times 16 = 9\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "سرعة الاصطدام: $v_1 = \\sqrt{2g h_1}$.",
+      "سرعة الارتداد: $v_2 = e v_1$.",
+      "ارتفاع الارتداد: $h_2 = e^2 h_1$.",
+      "$h_2 = (0.75)^2 \\times 16 = \\frac{9}{16} \\times 16 = 9\\text{ م}$."
+    ],
+    "teacherTipEn": "After $n$ bounces, the height is $h_n = e^{2n} h_1$. A wonderful geometric progression!",
+    "teacherTipAr": "بعد $n$ من الارتدادات، يكون الارتفاع $h_n = e^{2n} h_1$ وهي متتابعة هندسية بديعة."
+  },
+  {
+    "id": "dyn_ch3_db_medium_52",
+    "titleEn": "Loss of Kinetic Energy in an Inelastic Collision",
+    "titleAr": "الفقد في طاقة الحركة نتيجة تصادم التحامي",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A mass $m_1 = 2\\text{ kg}$ moving with speed $6\\text{ m/s}$ collides with a stationary mass $m_2 = 4\\text{ kg}$ and sticks to it. Find the loss of kinetic energy $\\Delta T_{\\text{loss}}$ caused by the impact.",
+    "questionAr": "كتلة $m_1 = 2\\text{ كجم}$ تتحرك بسرعة $6\\text{ م/ث}$ اصطدمت بكتلة ساكنة $m_2 = 4\\text{ كجم}$ والتصقت بها. احسب مقدار الفقد في طاقة الحركة $\\Delta T_{\\text{loss}}$ نتيجة هذا التصادم.",
+    "optionsEn": [
+      "$24\\text{ J}$",
+      "$36\\text{ J}$",
+      "$12\\text{ J}$",
+      "$18\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$24\\text{ جول}$",
+      "$36\\text{ جول}$",
+      "$12\\text{ جول}$",
+      "$18\\text{ جول}$"
+    ],
+    "correctAnswer": "$24\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Calculate initial $T_i = \\frac{1}{2}m_1 v_1^2$, find common velocity $V$, then $T_f = \\frac{1}{2}(m_1+m_2)V^2$. Loss $= T_i - T_f$.",
+    "hintAr": "احسب طاقة الحركة الابتدائية، ثم أوجد السرعة المشتركة $V$ وطاقة الحركة النهائية، والفرق هو الفقد.",
+    "stepByStepSolutionEn": [
+      "Initial kinetic energy: $T_i = \\frac{1}{2}(2)(6^2) = 36\\text{ J}$.",
+      "Common velocity by momentum conservation: $V = \\frac{m_1 v_1}{m_1 + m_2} = \\frac{2 \\times 6}{2 + 4} = \\frac{12}{6} = 2\\text{ m/s}$.",
+      "Final kinetic energy: $T_f = \\frac{1}{2}(m_1 + m_2)V^2 = \\frac{1}{2}(6)(2^2) = \\frac{1}{2}(6)(4) = 12\\text{ J}$.",
+      "Loss of kinetic energy: $\\Delta T_{\\text{loss}} = T_i - T_f = 36 - 12 = 24\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "طاقة الحركة الابتدائية: $T_i = \\frac{1}{2} \\times 2 \\times 36 = 36\\text{ جول}$.",
+      "السرعة المشتركة: $V = \\frac{12}{6} = 2\\text{ م/ث}$.",
+      "طاقة الحركة النهائية: $T_f = \\frac{1}{2} \\times 6 \\times 4 = 12\\text{ جول}$.",
+      "الفقد في طاقة الحركة: $36 - 12 = 24\\text{ جول}$."
+    ],
+    "teacherTipEn": "Formula for loss in perfectly inelastic collision: $\\Delta T_{\\text{loss}} = \\frac{1}{2} \\frac{m_1 m_2}{m_1 + m_2} (v_1 - v_2)^2 = \\frac{1}{2} \\frac{8}{6}(36) = 24\\text{ J}$.",
+    "teacherTipAr": "قانون الفقد المباشر: $\\Delta T_{\\text{loss}} = \\frac{1}{2} \\frac{m_1 m_2}{m_1 + m_2} (v_1 - v_2)^2 = 24\\text{ جول}$."
+  },
+  {
+    "id": "dyn_ch3_db_medium_53",
+    "titleEn": "Impulse of Force on a Ball Striking an Inclined Plane",
+    "titleAr": "دفع حائط مائل على كرة تصطدم به",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball of mass $m = 0.2\\text{ kg}$ hits a wall at an angle of incidence $60^\\circ$ to the normal with speed $v = 20\\text{ m/s}$ and bounces off symmetrically with the same speed and angle of reflection $60^\\circ$. Find the magnitude of the impulse exerted by the wall.",
+    "questionAr": "كرة كتلتها $m = 0.2\\text{ كجم}$ تصطدم بجدار بزاوية سقوط $60^\\circ$ على العمودي بسرعة $v = 20\\text{ م/ث}$ وارتدت ارتداداً متماثلاً بنفس السرعة وبزاوية انعكاس $60^\\circ$. أوجد مقدار الدفع الذي يؤثر به الجدار على الكرة.",
+    "optionsEn": [
+      "$4\\text{ N}\\cdot\\text{s}$",
+      "$4\\sqrt{3}\\text{ N}\\cdot\\text{s}$",
+      "$8\\text{ N}\\cdot\\text{s}$",
+      "$2\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$4\\text{ ن}\\cdot\\text{ث}$",
+      "$4\\sqrt{3}\\text{ ن}\\cdot\\text{ث}$",
+      "$8\\text{ ن}\\cdot\\text{ث}$",
+      "$2\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$4\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "The tangential velocity component remains unchanged. The normal velocity component reverses: $\\Delta v_n = 2 v \\cos\\theta$.",
+    "hintAr": "المركبة المماسية لا تتغير، بينما تنعكس المركبة العمودية: $\\Delta v_n = 2 v \\cos\\theta$.",
+    "stepByStepSolutionEn": [
+      "Normal component before impact: $v_{1n} = v \\cos 60^\\circ = 20 \\times 0.5 = 10\\text{ m/s}$ towards wall.",
+      "Normal component after impact: $v_{2n} = -10\\text{ m/s}$ away from wall.",
+      "Change in normal velocity: $\\Delta v_n = 10 - (-10) = 20\\text{ m/s}$.",
+      "Tangential component is unchanged (smooth wall): $\\Delta v_t = 0$.",
+      "Impulse magnitude: $I = m \\Delta v_n = 0.2 \\times 20 = 4\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المركبة العمودية قبل الاصطدام: $20 \\cos 60^\\circ = 10\\text{ م/ث}$.",
+      "المركبة العمودية بعد الارتداد: $-10\\text{ م/ث}$.",
+      "التغير في السرعة العمودية: $20\\text{ م/ث}$.",
+      "المركبة الموازية لم تتغير.",
+      "معيار الدفع: $I = 0.2 \\times 20 = 4\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Smooth surfaces only exert normal force; hence impulse is strictly perpendicular to the wall.",
+    "teacherTipAr": "الجدران الملساء تؤثر بقوة عمودية فقط؛ لذا يكون متجه الدفع عمودياً تماماً على الجدار."
+  },
+  {
+    "id": "dyn_ch3_db_medium_54",
+    "titleEn": "Impact of Falling Sand on a Moving Conveyor Belt",
+    "titleAr": "تأثير سقوط رمل بمعدل منتظم على حزام ناقل",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Sand falls vertically at a constant rate of $\\frac{dm}{dt} = 5\\text{ kg/s}$ onto a conveyor belt moving horizontally at a constant speed of $v = 2\\text{ m/s}$. What extra horizontal force $F$ must the motor apply to keep the belt moving at the same constant speed?",
+    "questionAr": "يسقط رمل رأسياً بمعدل ثابت $\\frac{dm}{dt} = 5\\text{ كجم/ث}$ على سير ناقل يتحرك أفقياً بسرعة منتظمة $v = 2\\text{ م/ث}$. ما القوة الأفقية الإضافية $F$ التي يجب أن يبذلها المحرك للمحافظة على سرعة السير المنتظمة؟",
+    "optionsEn": [
+      "$10\\text{ N}$",
+      "$20\\text{ N}$",
+      "$5\\text{ N}$",
+      "$2.5\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ ن}$",
+      "$20\\text{ ن}$",
+      "$5\\text{ ن}$",
+      "$2.5\\text{ ن}$"
+    ],
+    "correctAnswer": "$10\\text{ N}$",
+    "correctIndex": 0,
+    "hintEn": "By Newton's second law for variable mass with constant speed: $F = v \\frac{dm}{dt}$.",
+    "hintAr": "من قانون نيوتن الثاني لكتلة متغيرة بسرعة ثابتة: $F = v \\frac{dm}{dt}$.",
+    "stepByStepSolutionEn": [
+      "The falling sand has initial horizontal velocity $v_x = 0$.",
+      "Upon landing on the belt, it must be accelerated to the belt's speed $v = 2\\text{ m/s}$.",
+      "Rate of change of horizontal momentum: $F = \\frac{dp}{dt} = \\frac{d}{dt}(m v) = v \\frac{dm}{dt}$.",
+      "$F = 2 \\times 5 = 10\\text{ N}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الرمل الساقط سرعته الأفقية الابتدائية صفر.",
+      "عند سقوطه يكتسب سرعة السير الأفقية $2\\text{ م/ث}$.",
+      "القوة المطلوبة لتغيير كمية الحركة: $F = v \\frac{dm}{dt} = 2 \\times 5 = 10\\text{ ن}$."
+    ],
+    "teacherTipEn": "Notice that the power delivered by the motor is $P = F v = 20\\text{ W}$, while kinetic energy gained by sand is $\\frac{1}{2} \\frac{dm}{dt} v^2 = 10\\text{ W}$. Half the power is dissipated as friction heat!",
+    "teacherTipAr": "نصف قدرة المحرك تذهب لطاقة حركة الرمل، والنصف الآخر يتحول إلى حرارة احتكاك!"
+  },
+  {
+    "id": "dyn_ch3_db_medium_55",
+    "titleEn": "Direct Central Collision with Given Coefficient of Restitution",
+    "titleAr": "تصادم مركزي مباشر بمعلومية معامل الارتداد",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A sphere $A$ of mass $m_1 = 2\\text{ kg}$ moving at $u_1 = 10\\text{ m/s}$ collides directly with sphere $B$ of mass $m_2 = 3\\text{ kg}$ initially at rest ($u_2 = 0$). If $e = 0.5$, find the velocity $v_2$ of sphere $B$ after the collision.",
+    "questionAr": "كرة $A$ كتلته $m_1 = 2\\text{ كجم}$ تتحرك بسرعة $u_1 = 10\\text{ م/ث}$ تصادمت تصادماً مباشراً مع كرة $B$ كتلته $m_2 = 3\\text{ كجم}$ ساكنة ($u_2 = 0$). إذا كان معامل الارتداد $e = 0.5$، فأوجد سرعة الكرة $B$ بعد التصادم ($v_2$).",
+    "optionsEn": [
+      "$6\\text{ m/s}$",
+      "$4\\text{ m/s}$",
+      "$8\\text{ m/s}$",
+      "$5\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$6\\text{ م/ث}$",
+      "$4\\text{ م/ث}$",
+      "$8\\text{ م/ث}$",
+      "$5\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$6\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Set up two equations: momentum conservation $m_1 u_1 = m_1 v_1 + m_2 v_2$, and restitution $v_2 - v_1 = e u_1$.",
+    "hintAr": "اكتب معادلتي حفظ كمية الحركة: $m_1 u_1 = m_1 v_1 + m_2 v_2$، وقانون الارتداد: $v_2 - v_1 = e u_1$.",
+    "stepByStepSolutionEn": [
+      "1) Conservation of momentum:",
+      "$(2 \\times 10) + (3 \\times 0) = 2 v_1 + 3 v_2 \\implies 2 v_1 + 3 v_2 = 20$.",
+      "2) Restitution equation:",
+      "$v_2 - v_1 = e(u_1 - u_2) = 0.5(10 - 0) = 5 \\implies v_1 = v_2 - 5$.",
+      "Substitute $v_1$ into momentum equation:",
+      "$2(v_2 - 5) + 3 v_2 = 20 \\implies 2 v_2 - 10 + 3 v_2 = 20 \\implies 5 v_2 = 30 \\implies v_2 = 6\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "1) معادلة بقاء كمية الحركة: $2 v_1 + 3 v_2 = 20$.",
+      "2) معادلة معامل الارتداد: $v_2 - v_1 = 0.5(10) = 5 \\implies v_1 = v_2 - 5$.",
+      "بالتعويض: $2(v_2 - 5) + 3 v_2 = 20 \\implies 5 v_2 = 30 \\implies v_2 = 6\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Check $v_1$: $v_1 = 6 - 5 = 1\\text{ m/s}$. Since $v_2 > v_1$ ($6 > 1$), sphere $B$ pulls ahead and they separate as expected.",
+    "teacherTipAr": "تحقق من سرعة الكرة الأولى: $v_1 = 1\\text{ م/ث}$، وبما أن $v_2 > v_1$ فإن الكرتين تتباعدان بعد التصادم."
+  },
+  {
+    "id": "dyn_ch3_db_medium_56",
+    "titleEn": "Impulse Experienced by Each Sphere in Collision",
+    "titleAr": "الدفع المتبادل بين كرتين أثناء التصادم",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the collision of the previous problem ($m_1 = 2\\text{ kg}$, $u_1 = 10\\text{ m/s}$, $v_1 = 1\\text{ m/s}$, $m_2 = 3\\text{ kg}$, $u_2 = 0$, $v_2 = 6\\text{ m/s}$), find the magnitude of the impulse exchanged between the spheres.",
+    "questionAr": "في مسألة التصادم السابقة ($m_1 = 2\\text{ كجم}$، $u_1 = 10\\text{ م/ث}$، $v_1 = 1\\text{ م/ث}$، $m_2 = 3\\text{ كجم}$، $u_2 = 0$، $v_2 = 6\\text{ م/ث}$)، أوجد مقدار الدفع المتبادل بين الكرتين.",
+    "optionsEn": [
+      "$18\\text{ N}\\cdot\\text{s}$",
+      "$20\\text{ N}\\cdot\\text{s}$",
+      "$15\\text{ N}\\cdot\\text{s}$",
+      "$12\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$18\\text{ ن}\\cdot\\text{ث}$",
+      "$20\\text{ ن}\\cdot\\text{ث}$",
+      "$15\\text{ ن}\\cdot\\text{ث}$",
+      "$12\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$18\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "The impulse equals the change in momentum of either sphere: $I = m_2(v_2 - u_2)$.",
+    "hintAr": "الدفع المتبادل يساوي التغير في كمية حركة أي من الكرتين: $I = m_2(v_2 - u_2)$.",
+    "stepByStepSolutionEn": [
+      "For sphere $B$: initial velocity is $0$, final velocity is $6\\text{ m/s}$.",
+      "$I = m_2(v_2 - u_2) = 3(6 - 0) = 18\\text{ N}\\cdot\\text{s}$.",
+      "Check with sphere $A$: $I = |m_1(v_1 - u_1)| = |2(1 - 10)| = |2(-9)| = 18\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "للكرة $B$: $I = m_2(v_2 - u_2) = 3(6 - 0) = 18\\text{ ن}\\cdot\\text{ث}$.",
+      "للتحقق بالكرة $A$: $|I| = |2(1 - 10)| = 18\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "By Newton's third law, the impulse on $A$ is strictly equal in magnitude and opposite in direction to that on $B$.",
+    "teacherTipAr": "من قانون نيوتن الثالث، دفع $A$ على $B$ يساوي في المقدار ويضاد في الاتجاه دفع $B$ على $A$."
+  },
+  {
+    "id": "dyn_ch3_db_medium_57",
+    "titleEn": "Impulse of an Exponential Force",
+    "titleAr": "دفع قوة تتلاشى أسياً مع الزمن",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F(t) = 50 e^{-5t}\\text{ N}$ acts on a body from $t = 0$ to $t \\to \\infty$. Find the total impulse $I_{\\infty}$ delivered to the body.",
+    "questionAr": "أثرت قوة $F(t) = 50 e^{-5t}\\text{ ن}$ على جسم من $t = 0$ إلى $t \\to \\infty$. أوجد الدفع الكلي $I_{\\infty}$ المؤثر على الجسم.",
+    "optionsEn": [
+      "$10\\text{ N}\\cdot\\text{s}$",
+      "$50\\text{ N}\\cdot\\text{s}$",
+      "$250\\text{ N}\\cdot\\text{s}$",
+      "$5\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ ن}\\cdot\\text{ث}$",
+      "$50\\text{ ن}\\cdot\\text{ث}$",
+      "$250\\text{ ن}\\cdot\\text{ث}$",
+      "$5\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$10\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Evaluate the improper integral: $I = \\int_0^\\infty 50 e^{-5t}\\,dt$.",
+    "hintAr": "احسب التكامل المعتل: $I = \\int_0^\\infty 50 e^{-5t}\\,dt$.",
+    "stepByStepSolutionEn": [
+      "$I = \\int_0^\\infty 50 e^{-5t}\\,dt = 50 \\left[ -\\frac{1}{5} e^{-5t} \\right]_0^\\infty$.",
+      "As $t \\to \\infty$, $e^{-5t} \\to 0$.",
+      "At $t = 0$, $e^0 = 1$.",
+      "$I = -10 (0 - 1) = 10\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$I = 50 \\left[ -\\frac{1}{5} e^{-5t} \\right]_0^\\infty$.",
+      "عند $t \\to \\infty$ تتلاشى الدالة إلى صفر.",
+      "$I = -10(0 - 1) = 10\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Exponential decay forces frequently model contact deformation during impact damping.",
+    "teacherTipAr": "القوى الأسية المتلاشية تمثل بدقة سلوك التخميد وامتصاص الصدمات في التصادمات الواقعية."
+  },
+  {
+    "id": "dyn_ch3_db_medium_58",
+    "titleEn": "Rebound Angle from a Rough Floor",
+    "titleAr": "زاوية ارتداد كرة عند اصطدامها بأرضية ملساء",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A sphere strikes a smooth horizontal floor at angle of incidence $\\theta = 45^\\circ$ to the vertical. If the coefficient of restitution is $e = \\frac{1}{3}$, what is the angle of rebound $\\phi$ with the vertical?",
+    "questionAr": "اصطدمت كرة بأرضية أفقية ملساء بزاوية ميل $\\theta = 45^\\circ$ على الرأسي. إذا كان معامل الارتداد $e = \\frac{1}{3}$، فما زاوية الارتداد $\\phi$ مع الرأسي؟",
+    "optionsEn": [
+      "$\\tan\\phi = 3$",
+      "$\\tan\\phi = \\frac{1}{3}$",
+      "$\\tan\\phi = 1$",
+      "$\\tan\\phi = \\sqrt{3}$"
+    ],
+    "optionsAr": [
+      "$\\tan\\phi = 3$",
+      "$\\tan\\phi = \\frac{1}{3}$",
+      "$\\tan\\phi = 1$",
+      "$\\tan\\phi = \\sqrt{3}$"
+    ],
+    "correctAnswer": "$\\tan\\phi = 3$",
+    "correctIndex": 0,
+    "hintEn": "The tangential velocity component remains unchanged ($v_t' = v_t = v \\sin\\theta$), while the normal component changes to $v_n' = e v_n = e v \\cos\\theta$. Then $\\tan\\phi = \\frac{v_t'}{v_n'}$.",
+    "hintAr": "المركبة الأفقية تظل ثابتة، بينما العمودية تصبح $e v_n$. وزاوية الارتداد تحقق $\\tan\\phi = \\frac{v_t'}{v_n'} = \\frac{\\tan\\theta}{e}$.",
+    "stepByStepSolutionEn": [
+      "Tangential component parallel to floor: $v_t' = v_t = v \\sin 45^\\circ$.",
+      "Normal component perpendicular to floor: $v_n' = e v_n = e v \\cos 45^\\circ$.",
+      "Angle $\\phi$ with the normal (vertical):",
+      "$\\tan\\phi = \\frac{v_t'}{v_n'} = \\frac{v \\sin 45^\\circ}{e v \\cos 45^\\circ} = \\frac{\\tan 45^\\circ}{e} = \\frac{1}{\\frac{1}{3}} = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "المركبة الأفقية تظل ثابتة: $v_t' = v \\sin 45^\\circ$.",
+      "المركبة الرأسية: $v_n' = e v \\cos 45^\\circ$.",
+      "ظل زاوية الارتداد مع الرأسي:",
+      "$\\tan\\phi = \\frac{v_t'}{v_n'} = \\frac{\\tan 45^\\circ}{e} = \\frac{1}{1/3} = 3$."
+    ],
+    "teacherTipEn": "Notice the general law: $\\tan\\phi = \\frac{\\tan\\theta}{e}$. Since $e < 1$, the ball bounces out flatter (larger angle to normal).",
+    "teacherTipAr": "القاعدة العامة: $\\tan\\phi = \\frac{\\tan\\theta}{e}$، ولأن $e < 1$ تنعكس الكرة بزاوية أكبر مع العمودي."
+  },
+  {
+    "id": "dyn_ch3_db_medium_59",
+    "titleEn": "Successive Rebounds of a Ball",
+    "titleAr": "الزمن الكلي لحركة كرة ترتد ارتدادات متتالية حتى تسكن",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A ball dropped from height $h$ bounces indefinitely with coefficient of restitution $e < 1$. The time for the first drop is $t_0 = \\sqrt{\\frac{2h}{g}}$. What is the total time $T_{\\text{total}}$ until the ball finishes all rebounds and comes to rest?",
+    "questionAr": "سقطت كرة من ارتفاع $h$ وأخذت ترتد ارتدادات متتالية بمعامل ارتداد $e < 1$. زمن السقوط الأول هو $t_0 = \\sqrt{\\frac{2h}{g}}$. ما الزمن الكلي $T_{\\text{total}}$ حتى تتوقف الكرة عن الارتداد تماماً وتسكن؟",
+    "optionsEn": [
+      "$T_{\\text{total}} = t_0 \\left(\\frac{1 + e}{1 - e}\\right)$",
+      "$T_{\\text{total}} = \\frac{t_0}{1 - e}$",
+      "$T_{\\text{total}} = t_0 \\left(\\frac{1 - e}{1 + e}\\right)$",
+      "$T_{\\text{total}} = \\frac{t_0}{1 - e^2}$"
+    ],
+    "optionsAr": [
+      "$T_{\\text{total}} = t_0 \\left(\\frac{1 + e}{1 - e}\\right)$",
+      "$T_{\\text{total}} = \\frac{t_0}{1 - e}$",
+      "$T_{\\text{total}} = t_0 \\left(\\frac{1 - e}{1 + e}\\right)$",
+      "$T_{\\text{total}} = \\frac{t_0}{1 - e^2}$"
+    ],
+    "correctAnswer": "$T_{\\text{total}} = t_0 \\left(\\frac{1 + e}{1 - e}\\right)$",
+    "correctIndex": 0,
+    "hintEn": "The time for each subsequent round trip bounce is $2 e^n t_0$. Sum the infinite geometric series: $t_0 + 2t_0 \\sum_{n=1}^\\infty e^n$.",
+    "hintAr": "زمن كل ارتداد ذهاباً وإياباً هو $2 e^n t_0$. اجمع المتسلسلة الهندسية اللانهائية: $t_0 + 2t_0 \\sum_{n=1}^\\infty e^n$.",
+    "stepByStepSolutionEn": [
+      "Initial fall time: $t_0$.",
+      "First bounce round trip: $2 e t_0$.",
+      "Second bounce round trip: $2 e^2 t_0$, and the $n$-th is $2 e^n t_0$.",
+      "Total time: $T = t_0 + 2 t_0 (e + e^2 + e^3 + \\dots) = t_0 + 2 t_0 \\left(\\frac{e}{1 - e}\\right)$.",
+      "$T = t_0 \\left(1 + \\frac{2e}{1 - e}\\right) = t_0 \\left(\\frac{1 - e + 2e}{1 - e}\\right) = t_0 \\left(\\frac{1 + e}{1 - e}\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "زمن الهبوط الأول: $t_0$.",
+      "زمن الارتداد الأول صعوداً وهبوطاً: $2 e t_0$.",
+      "الزمن الكلي: $T = t_0 + 2t_0 (e + e^2 + \\dots) = t_0 [1 + \\frac{2e}{1 - e}] = t_0 (\\frac{1 + e}{1 - e})$."
+    ],
+    "teacherTipEn": "Even though there are an infinite number of bounces, the total elapsed time is finite!",
+    "teacherTipAr": "على الرغم من حدوث عدد لانهائي من الارتدادات، إلا أن الزمن الكلي منتهٍ تماماً ومحدود!"
   }
 ],
   hots: [
@@ -5385,6 +6027,325 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Ground resistance balances both the kinetic deceleration force and the gravitational weight.",
     "teacherTipAr": "مقاومة الأرض تعادل مجموع قوة القصور الذاتي الناتجة عن العجلة مضافاً إليها الوزن الكلي."
+  },
+  {
+    "id": "dyn_ch3_db_hots_51",
+    "titleEn": "Head-On Elastic Collision Between Two Identical Masses",
+    "titleAr": "تبادل السرعات في تصادم مرن تماماً لكتلتين متساويتين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two identical smooth spheres of equal mass $m$ collide directly. Before impact, sphere $A$ has velocity $u_1 = 5\\text{ m/s}$ and sphere $B$ has velocity $u_2 = -3\\text{ m/s}$. If the collision is perfectly elastic ($e = 1$), what are their velocities $v_1$ and $v_2$ after the collision?",
+    "questionAr": "كرتان متطابقتان متساويتان في الكتلة $m$ تصادمتا تصادماً مرناً تماماً ($e = 1$) في خط مستقيم. قبل التصادم كانت سرعة الأولى $u_1 = 5\\text{ م/ث}$ وسرعة الثانية $u_2 = -3\\text{ م/ث}$. ما سرعتاهما $v_1$ و $v_2$ بعد التصادم مباشرة؟",
+    "optionsEn": [
+      "$v_1 = -3\\text{ m/s}$ and $v_2 = 5\\text{ m/s}$ (they exchange velocities)",
+      "$v_1 = 1\\text{ m/s}$ and $v_2 = 1\\text{ m/s}$",
+      "$v_1 = 5\\text{ m/s}$ and $v_2 = -3\\text{ m/s}$",
+      "$v_1 = 0$ and $v_2 = 2\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$v_1 = -3\\text{ م/ث}$ و $v_2 = 5\\text{ م/ث}$ (تبادل تام للسرعات)",
+      "$v_1 = 1\\text{ م/ث}$ و $v_2 = 1\\text{ م/ث}$",
+      "$v_1 = 5\\text{ م/ث}$ و $v_2 = -3\\text{ م/ث}$",
+      "$v_1 = 0$ و $v_2 = 2\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$v_1 = -3\\text{ m/s}$ and $v_2 = 5\\text{ m/s}$ (they exchange velocities)",
+    "correctIndex": 0,
+    "hintEn": "When two identical masses undergo a 1D perfectly elastic collision, they always swap their velocities completely.",
+    "hintAr": "عند تصادم كتلتين متساويتين تصادماً مرناً تماماً في بعد واحد، تتبادل الكرتان سرعتيهما تماماً.",
+    "stepByStepSolutionEn": [
+      "1) Conservation of momentum: $m u_1 + m u_2 = m v_1 + m v_2 \\implies v_1 + v_2 = u_1 + u_2 = 5 + (-3) = 2$.",
+      "2) Restitution equation with $e = 1$: $v_2 - v_1 = 1(u_1 - u_2) = 5 - (-3) = 8$.",
+      "Adding the two equations: $2 v_2 = 10 \\implies v_2 = 5\\text{ m/s}$.",
+      "Subtracting the equations: $2 v_1 = -6 \\implies v_1 = -3\\text{ m/s}$.",
+      "The spheres completely swap their velocity states!"
+    ],
+    "stepByStepSolutionAr": [
+      "1) حفظ كمية الحركة: $v_1 + v_2 = 5 - 3 = 2$.",
+      "2) معامل الارتداد $e = 1$: $v_2 - v_1 = 5 - (-3) = 8$.",
+      "بجمع المعادلتين: $2 v_2 = 10 \\implies v_2 = 5\\text{ م/ث}$.",
+      "بالطرح: $2 v_1 = -6 \\implies v_1 = -3\\text{ م/ث}$.",
+      "تتبادل الكرتان سرعتيهما بالكامل!"
+    ],
+    "teacherTipEn": "This velocity-swapping property is the operating principle behind Newton's Cradle.",
+    "teacherTipAr": "خاصية تبادل السرعات هذه هي التفسير الفيزيائي لرقاص نيوتن الشهير."
+  },
+  {
+    "id": "dyn_ch3_db_hots_52",
+    "titleEn": "Fraction of Energy Transferred in Elastic Collision with Stationary Target",
+    "titleAr": "نسبة الطاقة المنقولة في تصادم مرن مع هدف ساكن",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A projectile of mass $m_1$ moving with kinetic energy $E_0$ strikes a stationary target of mass $m_2$ head-on elastically ($e = 1$). For what mass ratio $\\frac{m_1}{m_2}$ is $100\\%$ of the projectile's kinetic energy transferred to the target?",
+    "questionAr": "جسيم كتلته $m_1$ وطاقته الحركية $E_0$ يصطدم بجسم ساكن كتلته $m_2$ تصادماً مرناً مباشراً ($e = 1$). ما النسبة بين الكتلتين $\\frac{m_1}{m_2}$ التي تجعل $100\\%$ من طاقة حركة الجسيم تنتقل بالكامل إلى الهدف؟",
+    "optionsEn": [
+      "$\\frac{m_1}{m_2} = 1$ (equal masses)",
+      "$\\frac{m_1}{m_2} = 2$",
+      "$\\frac{m_1}{m_2} = 0.5$",
+      "$\\frac{m_1}{m_2} \\to \\infty$"
+    ],
+    "optionsAr": [
+      "$\\frac{m_1}{m_2} = 1$ (كتلتان متساويتان)",
+      "$\\frac{m_1}{m_2} = 2$",
+      "$\\frac{m_1}{m_2} = 0.5$",
+      "$\\frac{m_1}{m_2} \\to \\infty$"
+    ],
+    "correctAnswer": "$\\frac{m_1}{m_2} = 1$ (equal masses)",
+    "correctIndex": 0,
+    "hintEn": "Fraction of kinetic energy transferred is $\\frac{\\Delta E}{E_0} = \\frac{4 m_1 m_2}{(m_1 + m_2)^2}$, which attains its maximum of $1$ when $m_1 = m_2$.",
+    "hintAr": "الكسر المنقول من طاقة الحركة هو $\\frac{4 m_1 m_2}{(m_1 + m_2)^2}$ وتبلغ أقصاها وهو $1$ عندما $m_1 = m_2$.",
+    "stepByStepSolutionEn": [
+      "Velocity of target after elastic collision with stationary target is $v_2 = \\frac{2m_1}{m_1 + m_2} u_1$.",
+      "Kinetic energy transferred: $E_2 = \\frac{1}{2} m_2 v_2^2 = \\frac{1}{2} m_2 \\left(\\frac{2m_1}{m_1 + m_2}\\right)^2 u_1^2 = \\frac{4 m_1 m_2}{(m_1 + m_2)^2} \\left(\\frac{1}{2} m_1 u_1^2\\right)$.",
+      "The transfer ratio is $\\eta = \\frac{4 m_1 m_2}{(m_1 + m_2)^2}$.",
+      "By AM-GM inequality, $(m_1 + m_2)^2 \\ge 4 m_1 m_2$, with equality if and only if $m_1 = m_2$.",
+      "Thus maximum transfer $\\eta = 1$ ($100\\%$) occurs when $m_1 = m_2$."
+    ],
+    "stepByStepSolutionAr": [
+      "سرعة الهدف بعد التصادم: $v_2 = \\frac{2m_1}{m_1 + m_2} u_1$.",
+      "نسبة الطاقة المنقولة هي: $\\eta = \\frac{4 m_1 m_2}{(m_1 + m_2)^2}$.",
+      "تصل هذه النسبة إلى قيمتها العظمى $1$ ($100\\%$) إذا وفقط إذا كانت الكتلتان متساويتين $m_1 = m_2$."
+    ],
+    "teacherTipEn": "This is why water and graphite (nuclei of mass comparable to a neutron) are used to moderate fast neutrons in nuclear reactors.",
+    "teacherTipAr": "هذا هو الأساس الفيزيائي لاختيار مهدئات النيوترونات في المفاعلات النووية (مواد أنويتها مقاربة لكتلة النيوترون كالهيدروجين في الماء)."
+  },
+  {
+    "id": "dyn_ch3_db_hots_53",
+    "titleEn": "Three Colliding Spheres in a Line",
+    "titleAr": "تصادم ثلاث كرات متتالية في خط مستقيم",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Three identical spheres $A, B, C$ of mass $m$ rest in a line on a smooth table. Sphere $A$ is projected with speed $v$ towards $B$. All collisions are perfectly elastic ($e = 1$). What are the final velocities of the three spheres after all collisions are complete?",
+    "questionAr": "ثلاث كرات متطابقة ملساء $A, B, C$ كتلة كل منها $m$ مستقرة في خط مستقيم على منضدة. قذفت الكرة $A$ بسرعة $v$ نحو $B$. كل التصادمات مرنة تماماً ($e = 1$). ما هي السرعات النهائية للكرات الثلاث بعد انتهاء جميع التصادمات؟",
+    "optionsEn": [
+      "$v_A = 0$, $v_B = 0$, $v_C = v$",
+      "$v_A = \\frac{v}{3}$, $v_B = \\frac{v}{3}$, $v_C = \\frac{v}{3}$",
+      "$v_A = -\\frac{v}{2}$, $v_B = 0$, $v_C = \\frac{3v}{2}$",
+      "$v_A = 0$, $v_B = v$, $v_C = 0$"
+    ],
+    "optionsAr": [
+      "$v_A = 0$ و $v_B = 0$ و $v_C = v$",
+      "$v_A = \\frac{v}{3}$ و $v_B = \\frac{v}{3}$ و $v_C = \\frac{v}{3}$",
+      "$v_A = -\\frac{v}{2}$ و $v_B = 0$ و $v_C = \\frac{3v}{2}$",
+      "$v_A = 0$ و $v_B = v$ و $v_C = 0$"
+    ],
+    "correctAnswer": "$v_A = 0$, $v_B = 0$, $v_C = v$",
+    "correctIndex": 0,
+    "hintEn": "Apply velocity swapping consecutively: first between $A$ and $B$, then between $B$ and $C$.",
+    "hintAr": "طبق خاصية تبادل السرعات بالتتابع: أولاً بين $A$ و $B$، ثم بين $B$ و $C$.",
+    "stepByStepSolutionEn": [
+      "Collision 1 (A hits B): $A$ has speed $v$, $B$ has speed $0$.",
+      "Because they are identical and $e = 1$, they swap velocities: $v_A' = 0$ and $v_B' = v$.",
+      "Collision 2 (B hits C): $B$ has speed $v$, $C$ has speed $0$.",
+      "They swap velocities: $v_B'' = 0$ and $v_C'' = v$.",
+      "No further collisions can occur since $v_C > v_B = v_A = 0$.",
+      "Final state: $v_A = 0$, $v_B = 0$, $v_C = v$."
+    ],
+    "stepByStepSolutionAr": [
+      "التصادم الأول ($A$ مع $B$): $A$ سرعتها $v$ و $B$ ساكنة. تتبادلان السرعتين فتسكن $A$ وتتحرك $B$ بسرعة $v$.",
+      "التصادم الثاني ($B$ مع $C$): $B$ تصطدم بـ $C$ الساكنة فتسكن $B$ وتتحرك $C$ بسرعة $v$.",
+      "الحالة النهائية: $v_A = 0$ و $v_B = 0$ و $v_C = v$."
+    ],
+    "teacherTipEn": "Momentum and kinetic energy pass cleanly through the intermediate sphere to the final one.",
+    "teacherTipAr": "تنتقل كمية الحركة وطاقة الحركة عبر الكرة الوسيطة لتخرج من الكرة الأخيرة دون أي فقد."
+  },
+  {
+    "id": "dyn_ch3_db_hots_54",
+    "titleEn": "Impulsive Tension in a Jerked Slack String",
+    "titleAr": "الشد الدفعي عند شد خيط مرتخٍ فجأة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two particles $A$ and $B$ of masses $m_1 = 2\\text{ kg}$ and $m_2 = 3\\text{ kg}$ lie on a smooth horizontal table connected by a slack light string of length $L$. Particle $B$ is projected directly away from $A$ with velocity $v_0 = 10\\text{ m/s}$. When the string tautens abruptly, what is the common speed of both particles, and what is the impulsive tension in the string?",
+    "questionAr": "جسيمان $A$ و $B$ كتلتاهما $m_1 = 2\\text{ كجم}$ و $m_2 = 3\\text{ كجم}$ موضوعان على نضد أفقي أملس ومتصلان بخيط خفيف مرتخٍ طوله $L$. قذف الجسيم $B$ مبتعداً عن $A$ بسرعة $v_0 = 10\\text{ م/ث}$. عندما يصبح الخيط مشدوداً فجأة، ما السرعة المشتركة للجسيمين وما مقدار الشد الدفعي في الخيط؟",
+    "optionsEn": [
+      "$V = 6\\text{ m/s}$, and impulsive tension $J = 12\\text{ N}\\cdot\\text{s}$",
+      "$V = 5\\text{ m/s}$, and impulsive tension $J = 15\\text{ N}\\cdot\\text{s}$",
+      "$V = 6\\text{ m/s}$, and impulsive tension $J = 18\\text{ N}\\cdot\\text{s}$",
+      "$V = 4\\text{ m/s}$, and impulsive tension $J = 8\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$V = 6\\text{ م/ث}$، والشد الدفعي $J = 12\\text{ ن}\\cdot\\text{ث}$",
+      "$V = 5\\text{ م/ث}$، والشد الدفعي $J = 15\\text{ ن}\\cdot\\text{ث}$",
+      "$V = 6\\text{ م/ث}$، والشد الدفعي $J = 18\\text{ ن}\\cdot\\text{ث}$",
+      "$V = 4\\text{ م/ث}$، والشد الدفعي $J = 8\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$V = 6\\text{ m/s}$, and impulsive tension $J = 12\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "Momentum along the string line is conserved: $m_2 v_0 = (m_1 + m_2)V$. Impulsive tension is $J = m_1 V$.",
+    "hintAr": "كمية الحركة على امتداد الخيط محفوظة: $m_2 v_0 = (m_1 + m_2)V$. والشد الدفعي هو $J = m_1 V$.",
+    "stepByStepSolutionEn": [
+      "Total initial momentum along the string: $p_i = m_2 v_0 = 3 \\times 10 = 30\\text{ kg}\\cdot\\text{m/s}$.",
+      "Common velocity after jerk: $V = \\frac{p_i}{m_1 + m_2} = \\frac{30}{2 + 3} = \\frac{30}{5} = 6\\text{ m/s}$.",
+      "Impulse on mass $A$: $J = m_1(V - 0) = 2 \\times 6 = 12\\text{ N}\\cdot\\text{s}$.",
+      "Check with mass $B$: $J = |m_2(V - v_0)| = |3(6 - 10)| = |-12| = 12\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "كمية الحركة الابتدائية: $3 \\times 10 = 30\\text{ كجم}\\cdot\\text{م/ث}$.",
+      "السرعة المشتركة بعد شد الخيط: $V = \\frac{30}{5} = 6\\text{ م/ث}$.",
+      "الشد الدفعي المؤثر على $A$: $J = 2 \\times 6 = 12\\text{ ن}\\cdot\\text{ث}$.",
+      "للتحقق مع $B$: $|3(6 - 10)| = 12\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "An inelastic collision and a jerked inextensible string share the exact same mathematical model: sudden velocity equalization.",
+    "teacherTipAr": "الشد المفاجئ في خيط غير مرن يماثل تماماً فيزيائياً ورياضياً التصادم غير المرن الملتحم."
+  },
+  {
+    "id": "dyn_ch3_db_hots_55",
+    "titleEn": "Impulse of Force Given as a Function of Position",
+    "titleAr": "دفع قوة معطاة كدالة في الموضع",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F(x) = 6x\\text{ N}$ acts on a particle of mass $m = 2\\text{ kg}$ starting from rest at $x = 0$. What is the impulse $I$ delivered to the particle as it moves from $x = 0$ to $x = 3\\text{ m}$?",
+    "questionAr": "أثرت قوة $F(x) = 6x\\text{ ن}$ على جسيم كتلته $m = 2\\text{ كجم}$ بدأ حركته من السكون عند $x = 0$. ما مقدار الدفع $I$ المؤثر على الجسيم أثناء حركته من $x = 0$ إلى $x = 3\\text{ م}$؟",
+    "optionsEn": [
+      "$6\\sqrt{3}\\text{ N}\\cdot\\text{s}$ (approx $10.39\\text{ N}\\cdot\\text{s}$)",
+      "$27\\text{ N}\\cdot\\text{s}$",
+      "$54\\text{ N}\\cdot\\text{s}$",
+      "$18\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$6\\sqrt{3}\\text{ ن}\\cdot\\text{ث}$ (حوالي $10.39\\text{ ن}\\cdot\\text{ث}$)",
+      "$27\\text{ ن}\\cdot\\text{ث}$",
+      "$54\\text{ ن}\\cdot\\text{ث}$",
+      "$18\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$6\\sqrt{3}\\text{ N}\\cdot\\text{s}$ (approx $10.39\\text{ N}\\cdot\\text{s}$)",
+    "correctIndex": 0,
+    "hintEn": "Work done is $W = \\int_0^3 6x\\,dx = 27\\text{ J}$. By work-energy, $\\frac{1}{2}m v^2 = 27 \\implies v = \\sqrt{27}$. Impulse is $I = m v - 0$.",
+    "hintAr": "الشغل المبذول هو $\\int_0^3 6x\\,dx = 27\\text{ جول}$. ومن طاقة الحركة: $\\frac{1}{2}(2)v^2 = 27 \\implies v = \\sqrt{27}$. والدفع $I = mv$.",
+    "stepByStepSolutionEn": [
+      "Work done: $W = \\int_0^3 6x\\,dx = [3x^2]_0^3 = 3(9) = 27\\text{ J}$.",
+      "Work-Energy Theorem: $\\Delta T = W \\implies \\frac{1}{2} m v^2 - 0 = 27$.",
+      "With $m = 2\\text{ kg}$: $\\frac{1}{2}(2) v^2 = 27 \\implies v^2 = 27 \\implies v = \\sqrt{27} = 3\\sqrt{3}\\text{ m/s}$.",
+      "Impulse $I = \\Delta p = m v - 0 = 2(3\\sqrt{3}) = 6\\sqrt{3}\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الشغل المبذول: $W = \\int_0^3 6x\\,dx = [3x^2]_0^3 = 27\\text{ جول}$.",
+      "مبدأ الشغل وطاقة الحركة: $\\frac{1}{2} m v^2 = 27 \\implies v^2 = 27 \\implies v = 3\\sqrt{3}\\text{ م/ث}$.",
+      "الدفع يساوي التغير في كمية الحركة: $I = m v = 2(3\\sqrt{3}) = 6\\sqrt{3}\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Do not integrate $F(x)$ with respect to $x$ to find impulse! $\\int F\\,dx$ is WORK; impulse is $\\Delta p$.",
+    "teacherTipAr": "إياك أن تكامل $F(x)$ بالنسبة لـ $x$ لحساب الدفع! فتكامل القوة بالنسبة للمسافة يعطي الشغل، والدفع هو التغير في كمية الحركة."
+  },
+  {
+    "id": "dyn_ch3_db_hots_56",
+    "titleEn": "Impulse of Reaction from a Peg on a Falling Rod",
+    "titleAr": "دفع رد فعل وتد على قضيب يسقط عليه",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A uniform rod $AB$ of length $L = 1.2\\text{ m}$ and mass $m = 3\\text{ kg}$ falls horizontally with speed $v = 4\\text{ m/s}$ when its midpoint $G$ strikes a fixed horizontal peg. The rod comes to a complete halt without bouncing ($e = 0$). What is the magnitude of the impulse exerted by the peg on the rod?",
+    "questionAr": "قضيب منتظم $AB$ طوله $L = 1.2\\text{ م}$ وكتلته $m = 3\\text{ كجم}$ يسقط أفقياً بسرعة $v = 4\\text{ م/ث}$ عندما اصطدم منتصفه $G$ بوتد أفقي ثابت فتوقف القضيب تماماً عن الحركة دون ارتداد ($e = 0$). ما مقدار الدفع الذي أثر به الوتد على القضيب؟",
+    "optionsEn": [
+      "$12\\text{ N}\\cdot\\text{s}$",
+      "$6\\text{ N}\\cdot\\text{s}$",
+      "$24\\text{ N}\\cdot\\text{s}$",
+      "$14.4\\text{ N}\\cdot\\text{s}$"
+    ],
+    "optionsAr": [
+      "$12\\text{ ن}\\cdot\\text{ث}$",
+      "$6\\text{ ن}\\cdot\\text{ث}$",
+      "$24\\text{ ن}\\cdot\\text{ث}$",
+      "$14.4\\text{ ن}\\cdot\\text{ث}$"
+    ],
+    "correctAnswer": "$12\\text{ N}\\cdot\\text{s}$",
+    "correctIndex": 0,
+    "hintEn": "The peg strikes directly at the center of mass $G$, so there is no angular rotation produced. $I = m \\Delta v$.",
+    "hintAr": "الاصطدام حدث عند مركز الكتلة $G$ مباشرة، فلا ينشأ أي دوران، ويكون الدفع $I = m \\Delta v$.",
+    "stepByStepSolutionEn": [
+      "Because the impact point is at the center of mass $G$, the line of action of the impulsive force passes through $G$.",
+      "Therefore, the impulsive torque about $G$ is zero, and the rod does not acquire any angular velocity.",
+      "The linear impulse required to halt the downward motion is simply:",
+      "$I = |\\Delta p| = m(v - 0) = 3 \\times 4 = 12\\text{ N}\\cdot\\text{s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "بما أن نقطة الاصطدام تقع عند مركز الكتلة $G$ تماماً، فإن خط عمل القوة الدفعية يمر بـ $G$.",
+      "عزم الدفع حول $G$ منعدم، فلا يكتسب القضيب أي سرعة زاوية.",
+      "الدفع الخطي اللازم لإيقاف الحركة: $I = m \\Delta v = 3 \\times 4 = 12\\text{ ن}\\cdot\\text{ث}$."
+    ],
+    "teacherTipEn": "Striking at the center of mass decouples linear and rotational impulse completely.",
+    "teacherTipAr": "الاصطدام عند مركز الكتلة يفصل تماماً بين الدفع الخطي والدفع الدوراني."
+  },
+  {
+    "id": "dyn_ch3_db_hots_57",
+    "titleEn": "Maximum Compression of a Spring During Inelastic Impact",
+    "titleAr": "أقصى انضغاط لزنبرك متصل بكتلة بعد اصطدام رصاصة بها",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A bullet of mass $m = 0.05\\text{ kg}$ is fired horizontally at $200\\text{ m/s}$ into a stationary block of mass $M = 4.95\\text{ kg}$ resting on a smooth horizontal table and attached to a spring of stiffness $k = 400\\text{ N/m}$. The bullet embeds in the block. What is the maximum compression $x_{\\max}$ of the spring?",
+    "questionAr": "أطلقت رصاصة كتلتها $m = 0.05\\text{ كجم}$ أفقياً بسرعة $200\\text{ م/ث}$ نحو كتلة ساكنة $M = 4.95\\text{ كجم}$ على نضد أملس متصلة بزنبرك ثابت صلابته $k = 400\\text{ ن/م}$. استقرت الرصاصة داخل الكتلة. ما أقصى انضغاط $x_{\\max}$ للزنبرك؟",
+    "optionsEn": [
+      "$0.224\\text{ m}$",
+      "$0.500\\text{ m}$",
+      "$0.100\\text{ m}$",
+      "$0.316\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$0.224\\text{ م}$",
+      "$0.500\\text{ م}$",
+      "$0.100\\text{ م}$",
+      "$0.316\\text{ م}$"
+    ],
+    "correctAnswer": "$0.224\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Step 1: Inelastic collision momentum gives $V = \\frac{m v}{m + M} = \\frac{10}{5} = 2\\text{ m/s}$. Step 2: Conservation of energy $\\frac{1}{2}(m+M)V^2 = \\frac{1}{2} k x_{\\max}^2$.",
+    "hintAr": "الخطوة 1: من حفظ كمية الحركة احسب السرعة المشتركة $V = 2\\text{ م/ث}$. الخطوة 2: من حفظ الطاقة $\\frac{1}{2}(m+M)V^2 = \\frac{1}{2} k x_{\\max}^2$.",
+    "stepByStepSolutionEn": [
+      "Total mass after embedding: $m + M = 0.05 + 4.95 = 5.0\\text{ kg}$.",
+      "Common velocity after impact: $V = \\frac{m v}{m + M} = \\frac{0.05 \\times 200}{5.0} = \\frac{10}{5} = 2.0\\text{ m/s}$.",
+      "Kinetic energy of combined mass: $T = \\frac{1}{2}(m + M)V^2 = \\frac{1}{2}(5.0)(2^2) = 10\\text{ J}$.",
+      "By conservation of mechanical energy, this kinetic energy is fully converted into spring potential energy at max compression:",
+      "$\\frac{1}{2} k x_{\\max}^2 = 10 \\implies \\frac{1}{2}(400) x_{\\max}^2 = 10 \\implies 200 x_{\\max}^2 = 10$.",
+      "$x_{\\max}^2 = \\frac{10}{200} = \\frac{1}{20} = 0.05 \\implies x_{\\max} = \\sqrt{0.05} \\approx 0.2236\\text{ m} \\approx 0.224\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الكتلة الكلية: $0.05 + 4.95 = 5.0\\text{ كجم}$.",
+      "السرعة المشتركة: $V = \\frac{0.05 \\times 200}{5} = 2.0\\text{ م/ث}$.",
+      "طاقة الحركة بعد التصادم: $T = \\frac{1}{2} \\times 5 \\times 4 = 10\\text{ جول}$.",
+      "من حفظ الطاقة الميكانيكية: $\\frac{1}{2} k x_{\\max}^2 = 10 \\implies 200 x_{\\max}^2 = 10$.",
+      "$x_{\\max}^2 = 0.05 \\implies x_{\\max} \\approx 0.224\\text{ م}$."
+    ],
+    "teacherTipEn": "This two-stage problem (momentum conservation during collision, followed by energy conservation during spring compression) is a high-yield exam question.",
+    "teacherTipAr": "هذه المسألة ثنائية المراحل (حفظ كمية الحركة أثناء التصادم ثم حفظ الطاقة أثناء انضغاط الزنبرك) من كلاسيكيات الامتحانات الهامة."
+  },
+  {
+    "id": "dyn_ch3_db_hots_58",
+    "titleEn": "Impulsive Tension in a System of Two Masses Connected by a Rope Dropped from Height",
+    "titleAr": "الشد الدفعي في حبل يربط كتلتين عند وصول إحداهما لأقصى امتداد",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Two masses $m_1 = 3\\text{ kg}$ and $m_2 = 2\\text{ kg}$ are connected by a light cord of length $L = 5\\text{ m}$. Mass $m_1$ is dropped from a platform while $m_2$ rests on the platform. At the instant the cord becomes taut, $m_1$ has fallen $5\\text{ m}$ freely under gravity. What is the common downward velocity of both masses immediately after the jerk? (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "كتلتان $m_1 = 3\\text{ كجم}$ و $m_2 = 2\\text{ كجم}$ متصلتان بحبل خفيف طوله $L = 5\\text{ م}$. سقطت الكتلة $m_1$ من حافة منصة بينما استقرت $m_2$ على المنصة. لحظة انشداد الحبل، كانت $m_1$ قد سقطت مسافة $5\\text{ م}$ سقوطاً حراً. ما السرعة المشتركة للكتلتين لأسفل بعد الشد الدفعي مباشرة؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$\\frac{3}{5} \\sqrt{98} \\approx 5.94\\text{ m/s}$",
+      "$\\sqrt{98} \\approx 9.90\\text{ m/s}$",
+      "$\\frac{2}{5} \\sqrt{98} \\approx 3.96\\text{ m/s}$",
+      "$4.90\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$\\frac{3}{5} \\sqrt{98} \\approx 5.94\\text{ م/ث}$",
+      "$\\sqrt{98} \\approx 9.90\\text{ م/ث}$",
+      "$\\frac{2}{5} \\sqrt{98} \\approx 3.96\\text{ م/ث}$",
+      "$4.90\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$\\frac{3}{5} \\sqrt{98} \\approx 5.94\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Velocity of $m_1$ before jerk is $v_1 = \\sqrt{2g L} = \\sqrt{2(9.8)(5)} = \\sqrt{98}\\text{ m/s}$. Apply momentum conservation: $m_1 v_1 = (m_1 + m_2)V$.",
+    "hintAr": "سرعة $m_1$ قبل انشداد الحبل: $v_1 = \\sqrt{2g L} = \\sqrt{98}\\text{ م/ث}$. ثم طبق حفظ كمية الحركة: $m_1 v_1 = (m_1 + m_2)V$.",
+    "stepByStepSolutionEn": [
+      "Speed of $m_1$ after free fall of $5\\text{ m}$:",
+      "$v_1 = \\sqrt{2 g h} = \\sqrt{2 \\times 9.8 \\times 5} = \\sqrt{98}\\text{ m/s} \\approx 9.899\\text{ m/s}$.",
+      "Mass $m_2$ is initially stationary ($v_2 = 0$).",
+      "By conservation of vertical linear momentum during the instantaneous jerk:",
+      "$m_1 v_1 = (m_1 + m_2) V \\implies 3 \\sqrt{98} = (3 + 2) V = 5 V$.",
+      "$V = \\frac{3}{5} \\sqrt{98} = 0.6 \\times 9.899 \\approx 5.94\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "سرعة $m_1$ بعد سقوط حر $5\\text{ م}$:",
+      "$v_1 = \\sqrt{2 \\times 9.8 \\times 5} = \\sqrt{98}\\text{ م/ث}$.",
+      "الكتلة $m_2$ ساكنة في البداية.",
+      "من حفظ كمية الحركة أثناء الشد الدفعي اللحظي:",
+      "$3 \\sqrt{98} = (3 + 2) V \\implies V = \\frac{3}{5} \\sqrt{98} \\approx 5.94\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Gravitational weight forces during an instantaneous impact ($dt \\to 0$) are non-impulsive and can be neglected during the jerk.",
+    "teacherTipAr": "قوى الوزن العادية أثناء التصادمات والشدود اللحظية تعتبر قوى غير دفعية وتُهمل خلال لحظة التأثير القصيرة جداً."
   }
 ]
 };

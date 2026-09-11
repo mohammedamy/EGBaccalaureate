@@ -1,7 +1,7 @@
 import type { ChapterDatabank } from '../../../types/curriculum';
 
 export const calcCh3Databank: ChapterDatabank = {
-  "easy": [
+  easy: [
   {
     "id": "calc_ch3_db_easy_01",
     "titleEn": "Critical Points of Quadratic Parabola",
@@ -1701,9 +1701,309 @@ export const calcCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
     "teacherTipAr": "سؤال مباشر من المنهج المصري للثانوية العامة."
+  },
+  {
+    "id": "calc_ch3_db_easy_51",
+    "titleEn": "Critical Points of Cubic Polynomial",
+    "titleAr": "النقاط الحرجة لكثيرة حدود تكعيبية",
+    "difficulty": "easy",
+    "questionEn": "Find the x-coordinates of the critical points of $f(x) = 2x^3 - 9x^2 + 12x - 5$.",
+    "questionAr": "أوجد الإحداثيات السينية للنقاط الحرجة للدالة $f(x) = 2x^3 - 9x^2 + 12x - 5$.",
+    "optionsEn": [
+      "$x = 1, x = 2$",
+      "$x = -1, x = -2$",
+      "$x = 0, x = 3$",
+      "$x = 1, x = 3$"
+    ],
+    "optionsAr": [
+      "$x = 1, x = 2$",
+      "$x = -1, x = -2$",
+      "$x = 0, x = 3$",
+      "$x = 1, x = 3$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$x = 1, x = 2$",
+    "hintEn": "Set the first derivative $f'(x) = 0$ and factor.",
+    "hintAr": "ضع المشتقة الأولى $f'(x) = 0$ وحلل المعادلة إلى عوامل.",
+    "teacherTipEn": "Critical points occur where $f'(x) = 0$ or where $f'(x)$ does not exist within the domain.",
+    "teacherTipAr": "النقاط الحرجة توجد عندما $f'(x) = 0$ أو عندما تكون المشتقة غير معرفة داخل المجال.",
+    "stepByStepSolutionEn": [
+      "Differentiate: $f'(x) = 6x^2 - 18x + 12$.",
+      "Set $f'(x) = 0$: $6(x^2 - 3x + 2) = 0$.",
+      "Factor: $6(x - 1)(x - 2) = 0 \\implies x = 1$ or $x = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "اشتق الدالة: $f'(x) = 6x^2 - 18x + 12$.",
+      "المساواة بالصفر: $6(x^2 - 3x + 2) = 0$.",
+      "التحليل: $6(x - 1)(x - 2) = 0 \\implies x = 1$ أو $x = 2$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_52",
+    "titleEn": "Intervals of Increase for a Quadratic Function",
+    "titleAr": "فترات التزايد لدالة تربيعية",
+    "difficulty": "easy",
+    "questionEn": "Determine the interval on which the function $f(x) = 6x - x^2$ is strictly increasing.",
+    "questionAr": "حدد الفترة التي تكون فيها الدالة $f(x) = 6x - x^2$ متزايدة تماماً.",
+    "optionsEn": [
+      "$(-\\infty, 3)$",
+      "$(3, \\infty)$",
+      "$(0, 6)$",
+      "$(-\\infty, 6)$"
+    ],
+    "optionsAr": [
+      "$(-\\infty, 3)$",
+      "$(3, \\infty)$",
+      "$(0, 6)$",
+      "$(-\\infty, 6)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$(-\\infty, 3)$",
+    "hintEn": "A function is increasing where $f'(x) > 0$.",
+    "hintAr": "تكون الدالة متزايدة حيث $f'(x) > 0$.",
+    "teacherTipEn": "Since $f(x)$ is a parabola opening downwards with vertex at $x=3$, it increases to the left of the vertex.",
+    "teacherTipAr": "بما أن المنحنى يمثل قطعاً مكافئاً مفتوحاً لأسفل رأسه عند $x = 3$، فإنه يتزايد على يسار الرأس.",
+    "stepByStepSolutionEn": [
+      "Find $f'(x) = 6 - 2x$.",
+      "Set $f'(x) > 0 \\implies 6 - 2x > 0 \\implies 2x < 6 \\implies x < 3$.",
+      "Interval of increase: $(-\\infty, 3)$."
+    ],
+    "stepByStepSolutionAr": [
+      "إيجاد المشتقة: $f'(x) = 6 - 2x$.",
+      "وضع $f'(x) > 0 \\implies 6 - 2x > 0 \\implies x < 3$.",
+      "فترة التزايد هي $(-\\infty, 3)$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_53",
+    "titleEn": "Inflection Point of Cubic Polynomial",
+    "titleAr": "نقطة انقلاب لكثيرة حدود تكعيبية",
+    "difficulty": "easy",
+    "diagramType": "cotangent_curvature_graph",
+    "questionEn": "Find the x-coordinate of the inflection point of the curve $y = x^3 - 6x^2 + 9x + 2$.",
+    "questionAr": "أوجد الإحداثي السيني لنقطة الانقلاب للمنحنى $y = x^3 - 6x^2 + 9x + 2$.",
+    "optionsEn": [
+      "$x = 2$",
+      "$x = 3$",
+      "$x = 1$",
+      "$x = 4$"
+    ],
+    "optionsAr": [
+      "$x = 2$",
+      "$x = 3$",
+      "$x = 1$",
+      "$x = 4$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$x = 2$",
+    "hintEn": "Set the second derivative $y'' = 0$ and verify that concavity changes sign.",
+    "hintAr": "ضع المشتقة الثانية $y'' = 0$ وتأكد من تغير إشارة التحدب.",
+    "teacherTipEn": "For any cubic $y = ax^3 + bx^2 + cx + d$, the inflection point always occurs at $x = -b/(3a)$. Here $x = -(-6)/3 = 2$.",
+    "teacherTipAr": "لأي دالة تكعيبية، تقع نقطة الانقلاب دائماً عند $x = -b/(3a)$. هنا $x = -(-6)/3 = 2$.",
+    "stepByStepSolutionEn": [
+      "First derivative: $y' = 3x^2 - 12x + 9$.",
+      "Second derivative: $y'' = 6x - 12$.",
+      "Set $y'' = 0 \\implies 6x = 12 \\implies x = 2$. Concavity changes from down to up."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $y' = 3x^2 - 12x + 9$.",
+      "المشتقة الثانية: $y'' = 6x - 12$.",
+      "وضع $y'' = 0 \\implies 6x = 12 \\implies x = 2$. ويتغير التحدب حولها."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_54",
+    "titleEn": "Absolute Maximum on Closed Interval",
+    "titleAr": "القيمة العظمى المطلقة على فترة مغلقة",
+    "difficulty": "easy",
+    "questionEn": "Find the absolute maximum value of $f(x) = x^3 - 3x + 2$ on the closed interval $[0, 2]$.",
+    "questionAr": "أوجد القيمة العظمى المطلقة للدالة $f(x) = x^3 - 3x + 2$ على الفترة المغلقة $[0, 2]$.",
+    "optionsEn": [
+      "$4$",
+      "$2$",
+      "$0$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$2$",
+      "$0$",
+      "$6$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$4$",
+    "hintEn": "Evaluate $f(x)$ at critical points inside $(0, 2)$ and at the endpoints $x = 0$ and $x = 2$.",
+    "hintAr": "احسب قيمة الدالة عند النقاط الحرجة الداخلية وعند طرفي الفترة $x = 0$ و $x = 2$.",
+    "teacherTipEn": "Never forget to test the interval endpoints when finding absolute extrema.",
+    "teacherTipAr": "لا تنسَ أبداً اختبار طرفي الفترة عند إيجاد القيم القصوى المطلقة.",
+    "stepByStepSolutionEn": [
+      "Critical points: $f'(x) = 3x^2 - 3 = 0 \\implies x = \\pm 1$. In $[0, 2]$, $x = 1$.",
+      "Evaluate at $x = 0$: $f(0) = 2$.",
+      "Evaluate at $x = 1$: $f(1) = 1 - 3 + 2 = 0$.",
+      "Evaluate at $x = 2$: $f(2) = 8 - 6 + 2 = 4$.",
+      "Absolute maximum is $4$ (at $x = 2$)."
+    ],
+    "stepByStepSolutionAr": [
+      "النقاط الحرجة: $f'(x) = 3x^2 - 3 = 0 \\implies x = 1$ داخل الفترة.",
+      "قيمة الدالة عند $x = 0$: $f(0) = 2$.",
+      "قيمة الدالة عند $x = 1$: $f(1) = 0$.",
+      "قيمة الدالة عند $x = 2$: $f(2) = 8 - 6 + 2 = 4$.",
+      "القيمة العظمى المطلقة هي $4$ وتحدث عند $x = 2$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_55",
+    "titleEn": "Simple Perimeter Optimization",
+    "titleAr": "تطبيق بسيط للقيم القصوى: أقصى مساحة مستطيل",
+    "difficulty": "easy",
+    "questionEn": "A rectangular garden is to be fenced with $40\\text{ m}$ of wire. What is the maximum possible area of the garden?",
+    "questionAr": "حديقة مستطيلة الشكل يُراد إحاطتها بسلك طوله $40\\text{ م}$. ما هي أكبر مساحة ممكنة للحديقة؟",
+    "optionsEn": [
+      "$100\\text{ m}^2$",
+      "$400\\text{ m}^2$",
+      "$200\\text{ m}^2$",
+      "$80\\text{ m}^2$"
+    ],
+    "optionsAr": [
+      "$100\\text{ م}^2$",
+      "$400\\text{ م}^2$",
+      "$200\\text{ م}^2$",
+      "$80\\text{ م}^2$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$100\\text{ m}^2$",
+    "hintEn": "Let length be $x$, width $20 - x$. Maximize area $A(x) = x(20 - x)$.",
+    "hintAr": "افرض الطول $x$ والعرض $20 - x$. اجعل المساحة $A(x) = x(20 - x)$ قيمة عظمى.",
+    "teacherTipEn": "For a given perimeter, a rectangle attains its maximum area when it is a square.",
+    "teacherTipAr": "لأي محيط ثابت، يبلغ المستطيل أقصى مساحة ممكنة عندما يكون مربعاً.",
+    "stepByStepSolutionEn": [
+      "Perimeter: $2(x + y) = 40 \\implies y = 20 - x$.",
+      "Area: $A = x(20 - x) = 20x - x^2$.",
+      "Maximize: $A' = 20 - 2x = 0 \\implies x = 10\\text{ m}$.",
+      "Max area: $A(10) = 10 \\times 10 = 100\\text{ m}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "المحيط: $2(x + y) = 40 \\implies y = 20 - x$.",
+      "المساحة: $A = 20x - x^2$.",
+      "المشتقة: $A' = 20 - 2x = 0 \\implies x = 10\\text{ م}$.",
+      "أكبر مساحة: $A = 10 \\times 10 = 100\\text{ م}^2$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_56",
+    "titleEn": "Interval of Concavity Downwards",
+    "titleAr": "فترة التحدب لأعلى",
+    "difficulty": "easy",
+    "diagramType": "cotangent_curvature_graph",
+    "questionEn": "On what interval is the curve $y = 12x^2 - x^4$ concave downwards (convex up)?",
+    "questionAr": "في أي فترة يكون المنحنى $y = 12x^2 - x^4$ محدباً لأعلى (مقعراً لأسفل)؟",
+    "optionsEn": [
+      "$(-\\infty, -\\sqrt{2}) \\cup (\\sqrt{2}, \\infty)$",
+      "$(-\\sqrt{2}, \\sqrt{2})$",
+      "$(-\\infty, 0)$",
+      "$(0, \\infty)$"
+    ],
+    "optionsAr": [
+      "$(-\\infty, -\\sqrt{2}) \\cup (\\sqrt{2}, \\infty)$",
+      "$(-\\sqrt{2}, \\sqrt{2})$",
+      "$(-\\infty, 0)$",
+      "$(0, \\infty)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$(-\\infty, -\\sqrt{2}) \\cup (\\sqrt{2}, \\infty)$",
+    "hintEn": "Concave downwards (convex up) means $y'' < 0$.",
+    "hintAr": "التحدب لأعلى يعني أن المشتقة الثانية سالبة $y'' < 0$.",
+    "teacherTipEn": "In Egyptian curriculum terminology, \"convex up\" (محدب لأعلى) corresponds to $y'' < 0$.",
+    "teacherTipAr": "في المنهج المصري، التحدب لأعلى يعني $y'' < 0$ (مثل القبة).",
+    "stepByStepSolutionEn": [
+      "First derivative: $y' = 24x - 4x^3$.",
+      "Second derivative: $y'' = 24 - 12x^2 = 12(2 - x^2)$.",
+      "Set $y'' < 0 \\implies 2 - x^2 < 0 \\implies x^2 > 2 \\implies x < -\\sqrt{2}$ or $x > \\sqrt{2}$.",
+      "Intervals: $(-\\infty, -\\sqrt{2}) \\cup (\\sqrt{2}, \\infty)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $y' = 24x - 4x^3$.",
+      "المشتقة الثانية: $y'' = 24 - 12x^2 = 12(2 - x^2)$.",
+      "شرط التحدب لأعلى: $y'' < 0 \\implies x^2 > 2$.",
+      "الفترات: $(-\\infty, -\\sqrt{2}) \\cup (\\sqrt{2}, \\infty)$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_57",
+    "titleEn": "Local Minimum Using Second Derivative Test",
+    "titleAr": "قيمة صغرى محلية باختبار المشتقة الثانية",
+    "difficulty": "easy",
+    "questionEn": "Classify the critical point of $f(x) = x + \\frac{4}{x}$ at $x = 2$ using the second derivative test.",
+    "questionAr": "حدد نوع النقطة الحرجة للدالة $f(x) = x + \\frac{4}{x}$ عند $x = 2$ باستخدام اختبار المشتقة الثانية.",
+    "optionsEn": [
+      "Local minimum of value $4$",
+      "Local maximum of value $4$",
+      "Point of inflection",
+      "Saddle point"
+    ],
+    "optionsAr": [
+      "قيمة صغرى محلية تساوي $4$",
+      "قيمة عظمى محلية تساوي $4$",
+      "نقطة انقلاب",
+      "نقطة سرجية"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "Local minimum of value $4$",
+    "hintEn": "Find $f''(x)$ and evaluate at $x = 2$. If $f''(2) > 0$, it is a local minimum.",
+    "hintAr": "احسب $f''(x)$ وعوض عن $x = 2$. إذا كانت $f''(2) > 0$ فهي صغرى محلية.",
+    "teacherTipEn": "$f''(c) > 0$ indicates concave upwards (smile shape), hence a local minimum.",
+    "teacherTipAr": "$f''(c) > 0$ يعني أن المنحنى محدب لأسفل (مفتوح لأعلى)، مما يعني وجود قاع وقيمة صغرى.",
+    "stepByStepSolutionEn": [
+      "First derivative: $f'(x) = 1 - \\frac{4}{x^2}$. At $x = 2$, $f'(2) = 1 - 1 = 0$.",
+      "Second derivative: $f''(x) = \\frac{8}{x^3}$.",
+      "At $x = 2$: $f''(2) = \\frac{8}{8} = 1 > 0 \\implies$ local minimum.",
+      "Value: $f(2) = 2 + 4/2 = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $f'(x) = 1 - \\frac{4}{x^2}$، وتساوي صفراً عند $x = 2$.",
+      "المشتقة الثانية: $f''(x) = \\frac{8}{x^3}$.",
+      "التعويض: $f''(2) = 1 > 0 \\implies$ قيمة صغرى محلية.",
+      "قيمة الدالة: $f(2) = 4$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_easy_58",
+    "titleEn": "Sum and Product Extremum",
+    "titleAr": "أكبر حاصل ضرب لعددين مجموعهما ثابت",
+    "difficulty": "easy",
+    "questionEn": "Find two positive numbers whose sum is $16$ such that their product is maximized.",
+    "questionAr": "أوجد عددين موجبين مجموعهما $16$ وحاصل ضربهما أكبر ما يمكن.",
+    "optionsEn": [
+      "$8$ and $8$",
+      "$10$ and $6$",
+      "$12$ and $4$",
+      "$9$ and $7$"
+    ],
+    "optionsAr": [
+      "$8$ و $8$",
+      "$10$ و $6$",
+      "$12$ و $4$",
+      "$9$ و $7$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$8$ and $8$",
+    "hintEn": "Let the numbers be $x$ and $16 - x$. Maximize $P(x) = 16x - x^2$.",
+    "hintAr": "افرض العددين $x$ و $16 - x$ ثم اجعل حاصل ضربهما أكبر ما يمكن.",
+    "teacherTipEn": "Two numbers with fixed sum always have maximal product when they are equal.",
+    "teacherTipAr": "العددان ذوا المجموع الثابت يكون حاصل ضربهما أقصى ما يمكن عندما يتساويان.",
+    "stepByStepSolutionEn": [
+      "Product function: $P(x) = x(16 - x) = 16x - x^2$.",
+      "Differentiate: $P'(x) = 16 - 2x = 0 \\implies x = 8$.",
+      "The two numbers are $8$ and $16 - 8 = 8$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة حاصل الضرب: $P(x) = 16x - x^2$.",
+      "المشتقة: $P'(x) = 16 - 2x = 0 \\implies x = 8$.",
+      "العددان هما $8$ و $8$."
+    ]
   }
 ],
-  "medium": [
+  medium: [
   {
     "id": "calc_ch3_db_med_51",
     "titleEn": "Critical Points of Rational Function x + 4/x",
@@ -3505,9 +3805,341 @@ export const calcCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "A strictly monotonic cubic has $f'(x) \\ge 0$ with discriminant $\\le 0$.",
     "teacherTipAr": "الدالة التكعيبية أحادية الاطراد تماماً يكون مميز مشتقتها سالباً أو صفراً."
+  },
+  {
+    "id": "calc_ch3_db_med_101",
+    "titleEn": "Optimization: Minimum Distance from Point to Line",
+    "titleAr": "تطبيقات القيم العظمى: أقصر مسافة بين نقطة ومستقيم",
+    "difficulty": "medium",
+    "questionEn": "Find the coordinates of the point on the line $y = 2x + 1$ that is closest to the point $P(4, 2)$.",
+    "questionAr": "أوجد إحداثيات النقطة على المستقيم $y = 2x + 1$ الأقرب إلى النقطة $P(4, 2)$.",
+    "optionsEn": [
+      "$(1.2, 3.4)$",
+      "$(1.6, 4.2)$",
+      "$(1, 3)$",
+      "$(2, 5)$"
+    ],
+    "optionsAr": [
+      "$(1.2, 3.4)$",
+      "$(1.6, 4.2)$",
+      "$(1, 3)$",
+      "$(2, 5)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$(1.2, 3.4)$",
+    "hintEn": "Minimize squared distance $D^2 = (x - 4)^2 + (2x + 1 - 2)^2$.",
+    "hintAr": "اجعل مربع المسافة $D^2 = (x - 4)^2 + (2x - 1)^2$ في نهايته الصغرى.",
+    "teacherTipEn": "Always minimize the square of the distance rather than the square root to avoid cumbersome radicals.",
+    "teacherTipAr": "اشتق مربع المسافة $D^2$ دائماً بدلاً من الجذر لتجنب الجذور المزعجة.",
+    "stepByStepSolutionEn": [
+      "Squared distance: $f(x) = (x - 4)^2 + (2x - 1)^2 = x^2 - 8x + 16 + 4x^2 - 4x + 1 = 5x^2 - 12x + 17$.",
+      "Minimize: $f'(x) = 10x - 12 = 0 \\implies x = 1.2$? Wait! Let us re-expand: $(2x + 1 - 2) = 2x - 1$. $(2x - 1)^2 = 4x^2 - 4x + 1$. Total: $5x^2 - 12x + 17$. Derivative is $10x - 12 = 0 \\implies x = 1.2$. Then $y = 2(1.2) + 1 = 3.4$. So $(1.2, 3.4)$ is correct! Let us make option 0 $(1.2, 3.4)$!",
+      "Wait, let us check perpendicular slope: line slope is $2$, normal slope is $-1/2$. Normal from $(4, 2)$: $y - 2 = -0.5(x - 4) \\implies y = -0.5x + 4$. Equate: $2x + 1 = -0.5x + 4 \\implies 2.5x = 3 \\implies x = 3/2.5 = 1.2$. $y = 2(1.2) + 1 = 3.4$. Exactly $(1.2, 3.4)$!"
+    ],
+    "stepByStepSolutionAr": [
+      "مربع المسافة: $f(x) = (x - 4)^2 + (2x - 1)^2 = 5x^2 - 12x + 17$.",
+      "المشتقة: $f'(x) = 10x - 12 = 0 \\implies x = 1.2$.",
+      "الإحداثي الصادي: $y = 2(1.2) + 1 = 3.4$. النقطة هي $(1.2, 3.4)$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_102",
+    "titleEn": "Optimization: Largest Inscribed Cylinder in a Cone",
+    "titleAr": "تطبيقات القيم العظمى: أسطوانة محتواة داخل مخروط",
+    "difficulty": "medium",
+    "questionEn": "A right circular cylinder of radius $r$ and height $h$ is inscribed in a right circular cone of base radius $R = 6\\text{ cm}$ and height $H = 12\\text{ cm}$. Find the radius $r$ that maximizes the volume of the cylinder.",
+    "questionAr": "أسطوانة دائرية قائمة نصف قطرها $r$ وارتفاعها $h$ مرسومة داخل مخروط دائري قائم نصف قطر قاعدته $R = 6\\text{ سم}$ وارتفاعه $H = 12\\text{ سم}$. أوجد نصف القطر $r$ الذي يجعل حجم الأسطوانة أكبر ما يمكن.",
+    "optionsEn": [
+      "$4\\text{ cm}$",
+      "$3\\text{ cm}$",
+      "$2\\text{ cm}$",
+      "$4.5\\text{ cm}$"
+    ],
+    "optionsAr": [
+      "$4\\text{ سم}$",
+      "$3\\text{ سم}$",
+      "$2\\text{ سم}$",
+      "$4.5\\text{ سم}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$4\\text{ cm}$",
+    "hintEn": "Use similar triangles: $\\frac{12 - h}{r} = \\frac{12}{6} = 2 \\implies h = 12 - 2r$.",
+    "hintAr": "استخدم تشابه المثلثات: $\\frac{12 - h}{r} = \\frac{12}{6} = 2 \\implies h = 12 - 2r$.",
+    "teacherTipEn": "The maximum volume inscribed cylinder in any cone always has radius $r = \\frac{2}{3}R$ and height $h = \\frac{1}{3}H$. Here $r = \\frac{2}{3}(6) = 4\\text{ cm}$.",
+    "teacherTipAr": "الأسطوانة ذات الحجم الأقصى داخل أي مخروط يكون نصف قطرها دائماً ثلثي نصف قطر المخروط $r = \\frac{2}{3}R$ وارتفاعها ثلث ارتفاع المخروط.",
+    "stepByStepSolutionEn": [
+      "By similar triangles: $\\frac{H - h}{H} = \\frac{r}{R} \\implies \\frac{12 - h}{12} = \\frac{r}{6} \\implies h = 12 - 2r$.",
+      "Volume of cylinder: $V(r) = \\pi r^2 h = \\pi r^2 (12 - 2r) = 2\\pi (6r^2 - r^3)$.",
+      "Maximize: $V'(r) = 2\\pi (12r - 3r^2) = 0 \\implies 3r(4 - r) = 0$.",
+      "For $r > 0$, $r = 4\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "من تشابه المثلثات: $h = 12 - 2r$.",
+      "حجم الأسطوانة: $V = \\pi r^2 (12 - 2r) = 2\\pi(6r^2 - r^3)$.",
+      "المشتقة: $V'(r) = 2\\pi(12r - 3r^2) = 0 \\implies r = 4\\text{ سم}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_103",
+    "titleEn": "Inflection Points of Quartic Curve",
+    "titleAr": "نقاط الانقلاب لمنحنى من الدرجة الرابعة",
+    "difficulty": "medium",
+    "diagramType": "cotangent_curvature_graph",
+    "questionEn": "Find the distance between the two inflection points of the curve $y = x^4 - 2x^3 - 12x^2 + 5$.",
+    "questionAr": "أوجد المسافة بين الإحداثيين السينيين لنقطتي الانقلاب للمنحنى $y = x^4 - 2x^3 - 12x^2 + 5$.",
+    "optionsEn": [
+      "$3\\text{ units}$",
+      "$4\\text{ units}$",
+      "$2\\text{ units}$",
+      "$5\\text{ units}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ وحدات}$",
+      "$4\\text{ وحدات}$",
+      "$2\\text{ وحدات}$",
+      "$5\\text{ وحدات}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$3\\text{ units}$",
+    "hintEn": "Find $y''$ and solve $y'' = 0$ for the two roots $x_1$ and $x_2$. Distance is $|x_2 - x_1|$.",
+    "hintAr": "احسب $y''$ ثم حل $y'' = 0$ لإيجاد الجذرين $x_1$ و $x_2$. المسافة بينهما هي $|x_2 - x_1|$.",
+    "teacherTipEn": "For a quadratic $Ax^2 + Bx + C = 0$, the distance between roots is $\\frac{\\sqrt{B^2 - 4AC}}{|A|}$.",
+    "teacherTipAr": "لأي معادلة تربيعية، الفرق بين الجذرين يساوي $\\frac{\\sqrt{\\Delta}}{|a|}$.",
+    "stepByStepSolutionEn": [
+      "First derivative: $y' = 4x^3 - 6x^2 - 24x$.",
+      "Second derivative: $y'' = 12x^2 - 12x - 24 = 12(x^2 - x - 2)$.",
+      "Set $y'' = 0 \\implies (x - 2)(x + 1) = 0 \\implies x_1 = -1, x_2 = 2$.",
+      "Distance between x-coordinates: $2 - (-1) = 3\\text{ units}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $y' = 4x^3 - 6x^2 - 24x$.",
+      "المشتقة الثانية: $y'' = 12(x^2 - x - 2) = 0$.",
+      "التحليل: $(x - 2)(x + 1) = 0 \\implies x = 2, -1$.",
+      "المسافة بين الإحداثيين السينيين: $2 - (-1) = 3\\text{ وحدات}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_104",
+    "titleEn": "Optimization: Open Box from Square Sheet",
+    "titleAr": "تطبيقات القيم العظمى: صندوق مفتوح من صفيحة مربعة",
+    "difficulty": "medium",
+    "questionEn": "An open-top rectangular box is formed from a square cardboard sheet of side $18\\text{ cm}$ by cutting equal squares of side $x$ from each corner and folding up the sides. What value of $x$ maximizes the volume of the box?",
+    "questionAr": "صندوق مفتوح من أعلى يُصنع من قطعة كرتون مربعة طول ضلعها $18\\text{ سم}$ بقص مربعات متساوية طول ضلع كل منها $x$ من الأركان الأربعة وثني الجوانب. ما قيمة $x$ التي تجعل سعة الصندوق أكبر ما يمكن؟",
+    "optionsEn": [
+      "$3\\text{ cm}$",
+      "$4\\text{ cm}$",
+      "$2\\text{ cm}$",
+      "$4.5\\text{ cm}$"
+    ],
+    "optionsAr": [
+      "$3\\text{ سم}$",
+      "$4\\text{ سم}$",
+      "$2\\text{ سم}$",
+      "$4.5\\text{ سم}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$3\\text{ cm}$",
+    "hintEn": "Volume is $V(x) = x(18 - 2x)^2$. Find $V'(x) = 0$.",
+    "hintAr": "الحجم هو $V(x) = x(18 - 2x)^2$. ضع $V'(x) = 0$.",
+    "teacherTipEn": "For any square sheet of side $L$, the maximum box volume always occurs at $x = L/6$. Here $18/6 = 3\\text{ cm}$.",
+    "teacherTipAr": "لأي صفيحة مربعة طول ضلعها $L$، يتحقق أقصى حجم عندما يكون طول ضلع المربع المقطوع $x = L/6$. هنا $18/6 = 3\\text{ سم}$.",
+    "stepByStepSolutionEn": [
+      "Dimensions of box: base $(18 - 2x) \\times (18 - 2x)$, height $x$.",
+      "Volume: $V(x) = x(18 - 2x)^2 = 4x(9 - x)^2 = 4x(81 - 18x + x^2) = 4(x^3 - 18x^2 + 81x)$.",
+      "Differentiate: $V'(x) = 4(3x^2 - 36x + 81) = 12(x^2 - 12x + 27) = 12(x - 3)(x - 9) = 0$.",
+      "Since $0 < x < 9$, the maximum occurs at $x = 3\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "أبعاد الصندوق: القاعدة $(18 - 2x) \\times (18 - 2x)$ والارتفاع $x$.",
+      "الحجم: $V = x(18 - 2x)^2$.",
+      "المشتقة: $V' = 12(x - 3)(x - 9) = 0$.",
+      "بما أن $0 < x < 9$، فإن القيمة العظمى عند $x = 3\\text{ سم}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_105",
+    "titleEn": "Extrema of Rational Function",
+    "titleAr": "القيم القصوى لدالة كسرية",
+    "difficulty": "medium",
+    "questionEn": "Find the maximum value of the function $f(x) = \\frac{x}{x^2 + 9}$ for all real $x$.",
+    "questionAr": "أوجد القيمة العظمى للدالة $f(x) = \\frac{x}{x^2 + 9}$ لجميع الأعداد الحقيقية $x$.",
+    "optionsEn": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{9}$",
+      "$\\frac{1}{18}$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{9}$",
+      "$\\frac{1}{18}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$\\frac{1}{6}$",
+    "hintEn": "Differentiate using the quotient rule: $f'(x) = \\frac{(x^2+9) - 2x^2}{(x^2+9)^2} = \\frac{9 - x^2}{(x^2+9)^2}$.",
+    "hintAr": "اشتق باستخدام قاعدة القسمة وساوِ البسط بالصفر.",
+    "teacherTipEn": "For $f(x) = \\frac{x}{x^2 + a^2}$, the maximum is always $\\frac{1}{2a}$, attained at $x = a$. Here $a = 3$, so max is $\\frac{1}{6}$.",
+    "teacherTipAr": "للدالة $\\frac{x}{x^2 + a^2}$ تكون القيمة العظمى دائماً $\\frac{1}{2a}$ عند $x = a$. هنا $a = 3$ فالقيمة العظمى $\\frac{1}{6}$.",
+    "stepByStepSolutionEn": [
+      "Differentiate: $f'(x) = \\frac{1(x^2 + 9) - x(2x)}{(x^2 + 9)^2} = \\frac{9 - x^2}{(x^2 + 9)^2}$.",
+      "Set $f'(x) = 0 \\implies 9 - x^2 = 0 \\implies x = \\pm 3$.",
+      "At $x = 3$: $f(3) = \\frac{3}{3^2 + 9} = \\frac{3}{18} = \\frac{1}{6}$."
+    ],
+    "stepByStepSolutionAr": [
+      "مشتقة القسمة: $f'(x) = \\frac{9 - x^2}{(x^2 + 9)^2}$.",
+      "وضع المشتقة $= 0 \\implies x = \\pm 3$.",
+      "أكبر قيمة عند $x = 3$: $f(3) = \\frac{3}{18} = \\frac{1}{6}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_106",
+    "titleEn": "Tangent with Minimum Slope to Cubic Curve",
+    "titleAr": "المماس ذو الميل الأصغر لمنحنى تكعيبي",
+    "difficulty": "medium",
+    "diagramType": "trig_derivative_tangent",
+    "questionEn": "Find the minimum slope of any tangent line to the cubic curve $y = x^3 - 6x^2 + 15x - 7$.",
+    "questionAr": "أوجد أقل ميل ممكن لمماس مرسوم للمنحنى التكعيبي $y = x^3 - 6x^2 + 15x - 7$.",
+    "optionsEn": [
+      "$3$",
+      "$0$",
+      "$15$",
+      "$-3$"
+    ],
+    "optionsAr": [
+      "$3$",
+      "$0$",
+      "$15$",
+      "$-3$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$3$",
+    "hintEn": "The slope is $m(x) = y' = 3x^2 - 12x + 15$. Complete the square or find the vertex.",
+    "hintAr": "ميل المماس هو $m(x) = y' = 3x^2 - 12x + 15$. أكمل المربع أو أوجد رأس القطع المكافئ.",
+    "teacherTipEn": "The slope of a cubic curve is minimized (or maximized) exactly at its point of inflection!",
+    "teacherTipAr": "يبلغ ميل مماس الدالة التكعيبية قيمته الصغرى (أو العظمى) تماماً عند نقطة الانقلاب!",
+    "stepByStepSolutionEn": [
+      "Tangent slope function: $m(x) = y' = 3x^2 - 12x + 15$.",
+      "Complete the square: $m(x) = 3(x^2 - 4x + 4) + 15 - 12 = 3(x - 2)^2 + 3$.",
+      "Since $(x - 2)^2 \\ge 0$, the minimum slope is $3$ (at $x = 2$)."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة الميل: $m(x) = y' = 3x^2 - 12x + 15$.",
+      "إكمال المربع: $m(x) = 3(x - 2)^2 + 3$.",
+      "أقل قيمة للميل هي $3$ وتحدث عند $x = 2$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_107",
+    "titleEn": "Optimization: Maximum Area of Inscribed Isosceles Triangle in Circle",
+    "titleAr": "تطبيقات القيم العظمى: أكبر مثلث متساوي الساقين داخل دائرة",
+    "difficulty": "medium",
+    "questionEn": "An isosceles triangle is inscribed in a circle of radius $R = 6\\text{ cm}$ with one vertex at the top of the vertical diameter. What is the height $h$ of the triangle that maximizes its area?",
+    "questionAr": "مثلث متساوي الساقين مرسوم داخل دائرة نصف قطرها $R = 6\\text{ سم}$ بحيث يقع أحد رؤوسه عند طرف القطر الرأسي. ما هو ارتفاع المثلث $h$ الذي يجعل مساحته أكبر ما يمكن؟",
+    "optionsEn": [
+      "$9\\text{ cm}$",
+      "$6\\text{ cm}$",
+      "$8\\text{ cm}$",
+      "$10\\text{ cm}$"
+    ],
+    "optionsAr": [
+      "$9\\text{ سم}$",
+      "$6\\text{ سم}$",
+      "$8\\text{ سم}$",
+      "$10\\text{ سم}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$9\\text{ cm}$",
+    "hintEn": "Base half-width is $b = \\sqrt{h(2R - h)}$. Area is $A = h \\sqrt{h(2R - h)}$. Maximize $A^2$.",
+    "hintAr": "نصف طول القاعدة هو $b = \\sqrt{h(2R - h)}$. المساحة $A = h\\sqrt{h(2R-h)}$. اجعل $A^2$ في نهايتها العظمى.",
+    "teacherTipEn": "The triangle of maximum area inscribed in a circle is always equilateral, so $h = \\frac{3}{2}R = 1.5(6) = 9\\text{ cm}$.",
+    "teacherTipAr": "المثلث ذو أكبر مساحة داخل دائرة يكون دائماً متساوي الأضلاع، وارتفاعه $h = \\frac{3}{2}R = 9\\text{ سم}$.",
+    "stepByStepSolutionEn": [
+      "By intersecting chords theorem: half base squared is $x^2 = h(2R - h) = h(12 - h)$.",
+      "Area squared: $S = A^2 = h^2 x^2 = h^3(12 - h) = 12h^3 - h^4$.",
+      "Differentiate: $S' = 36h^2 - 4h^3 = 4h^2(9 - h) = 0$.",
+      "For $h > 0$, $h = 9\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "من نظرية الأوتار المتقاطعة: مربع نصف القاعدة $x^2 = h(12 - h)$.",
+      "مربع المساحة: $S = h^3(12 - h) = 12h^3 - h^4$.",
+      "المشتقة: $S' = 4h^2(9 - h) = 0 \\implies h = 9\\text{ سم}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_108",
+    "titleEn": "Intervals of Monotonicity with Exponential Factor",
+    "titleAr": "فترات الرتابة لدالة مضروبة في دالة أسية",
+    "difficulty": "medium",
+    "questionEn": "Determine the interval on which the function $f(x) = (x^2 - 3)e^{-x}$ is strictly decreasing.",
+    "questionAr": "حدد الفترة التي تكون فيها الدالة $f(x) = (x^2 - 3)e^{-x}$ متناقصة تماماً.",
+    "optionsEn": [
+      "$(-\\infty, -1) \\cup (3, \\infty)$",
+      "$(-1, 3)$",
+      "$(0, 3)$",
+      "$(-\\infty, 3)$"
+    ],
+    "optionsAr": [
+      "$(-\\infty, -1) \\cup (3, \\infty)$",
+      "$(-1, 3)$",
+      "$(0, 3)$",
+      "$(-\\infty, 3)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$(-\\infty, -1) \\cup (3, \\infty)$",
+    "hintEn": "Differentiate by product rule: $f'(x) = [2x - (x^2 - 3)]e^{-x} = -(x^2 - 2x - 3)e^{-x}$.",
+    "hintAr": "اشتق باستخدام حاصل الضرب واختبر إشارة $f'(x) < 0$.",
+    "teacherTipEn": "Since $e^{-x} > 0$ everywhere, the sign of $f'(x)$ is entirely determined by the quadratic factor $-(x^2 - 2x - 3)$.",
+    "teacherTipAr": "بما أن $e^{-x} > 0$ دائماً، فإن إشارة المشتقة تتحدد كلياً بإشارة المقدار التربيعي $-(x-3)(x+1)$.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $f'(x) = 2x e^{-x} - (x^2 - 3)e^{-x} = -(x^2 - 2x - 3)e^{-x} = -(x - 3)(x + 1)e^{-x}$.",
+      "Decreasing condition: $f'(x) < 0 \\implies -(x - 3)(x + 1) < 0 \\implies (x - 3)(x + 1) > 0$.",
+      "This holds for $x < -1$ or $x > 3$: $(-\\infty, -1) \\cup (3, \\infty)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $f'(x) = -(x - 3)(x + 1)e^{-x}$.",
+      "شرط التناقص: $f'(x) < 0 \\implies (x - 3)(x + 1) > 0$.",
+      "الفترة: $(-\\infty, -1) \\cup (3, \\infty)$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_med_109",
+    "titleEn": "Common Inflection Point Coordinate Condition",
+    "titleAr": "شرط إحداثيات نقطة انقلاب مشتركة",
+    "difficulty": "medium",
+    "questionEn": "If the curve $y = ax^3 + bx^2$ has an inflection point at $(1, 2)$, find the value of $a + b$.",
+    "questionAr": "إذا كان للمنحنى $y = ax^3 + bx^2$ نقطة انقلاب عند $(1, 2)$، فأوجد قيمة $a + b$.",
+    "optionsEn": [
+      "$2$",
+      "$0$",
+      "$-1$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$0$",
+      "$-1$",
+      "$4$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2$",
+    "hintEn": "The point $(1, 2)$ lies on the curve itself, so it must satisfy the curve equation.",
+    "hintAr": "النقطة $(1, 2)$ تقع على المنحنى نفسه، لذا فهي تحقق معادلته مباشرة.",
+    "teacherTipEn": "A delightful question that tests reading comprehension: you do not even need to solve for $a$ and $b$ individually!",
+    "teacherTipAr": "سؤال رائع يقيس ذكاء الطالب: مجرد تعويض النقطة في معادلة المنحنى يعطي $a + b = 2$ فوراً دون حل أي معادلات تفاضلية!",
+    "stepByStepSolutionEn": [
+      "The point $(1, 2)$ lies on the curve $y = ax^3 + bx^2$.",
+      "Substitute $x = 1, y = 2$: $2 = a(1)^3 + b(1)^2 = a + b$.",
+      "Therefore, $a + b = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "النقطة $(1, 2)$ تقع على المنحنى $y = ax^3 + bx^2$.",
+      "بالتعويض المباشر: $2 = a(1) + b(1) = a + b$.",
+      "إذن $a + b = 2$."
+    ]
   }
 ],
-  "hots": [
+  hots: [
   {
     "id": "calc_ch3_db_hots_101",
     "titleEn": "Oblique Asymptote of Rational Function",
@@ -5392,6 +6024,322 @@ export const calcCh3Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "The mathematical equivalence between circumscribed triangles and shortest ladders reveals the unity of calculus optimization.",
     "teacherTipAr": "التطابق الرياضي بين المثلثات المحيطة وأقصر طول سلم يبرز وحدة وتناغم مسائل التفاضل والتحسين."
+  },
+  {
+    "id": "calc_ch3_db_hots_151",
+    "titleEn": "Optimization: Maximum Area of Inscribed Trapezoid in Semicircle",
+    "titleAr": "تطبيقات القيم القصوى: شبه منحرف مرسوم داخل نصف دائرة",
+    "difficulty": "hots",
+    "questionEn": "A trapezoid is inscribed in a semicircle of radius $R = 10\\text{ cm}$ such that one of its parallel sides is the diameter. Find the length of the other parallel side that maximizes the area of the trapezoid.",
+    "questionAr": "شبه منحرف مرسوم داخل نصف دائرة نصف قطرها $R = 10\\text{ سم}$ بحيث إحدى قاعدتيه المتوازيتين هي القطر. أوجد طول القاعدة المتوازية الأخرى التي تجعل مساحة شبه المنحرف أكبر ما يمكن.",
+    "optionsEn": [
+      "$10\\text{ cm}$",
+      "$5\\text{ cm}$",
+      "$10\\sqrt{3}\\text{ cm}$",
+      "$8\\text{ cm}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ سم}$",
+      "$5\\text{ سم}$",
+      "$10\\sqrt{3}\\text{ سم}$",
+      "$8\\text{ سم}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$10\\text{ cm}$",
+    "hintEn": "Parametrize the top vertices as $(\\pm R\\cos\\theta, R\\sin\\theta)$. Area is $A(\\theta) = R^2(1 + \\cos\\theta)\\sin\\theta$.",
+    "hintAr": "عبر عن إحداثيات الرأسين بـ $(\\pm R\\cos\\theta, R\\sin\\theta)$. المساحة $A(\\theta) = R^2(1+\\cos\\theta)\\sin\\theta$.",
+    "teacherTipEn": "The maximal inscribed trapezoid forms half of a regular hexagon; thus each non-diameter side equals the radius $R$.",
+    "teacherTipAr": "شبه المنحرف ذو المساحة القصوى يشكل نصف مسدس منتظم، وبالتالي طول قاعدته العليا يساوي نصف القطر $R = 10\\text{ سم}$.",
+    "stepByStepSolutionEn": [
+      "Let $\\theta$ be the angle subtended from the horizontal. The upper vertices are $(\\pm R\\cos\\theta, R\\sin\\theta)$.",
+      "The base is $2R = 20$, upper side is $2x = 2R\\cos\\theta$, height is $h = R\\sin\\theta$.",
+      "Area: $A(\\theta) = \\frac{1}{2}(2R + 2R\\cos\\theta) R\\sin\\theta = R^2(1 + \\cos\\theta)\\sin\\theta$.",
+      "Differentiate: $A'(\\theta) = R^2[\\cos\\theta(1+\\cos\\theta) - \\sin^2\\theta] = R^2[2\\cos^2\\theta + \\cos\\theta - 1] = 0$.",
+      "Factor: $(2\\cos\\theta - 1)(\\cos\\theta + 1) = 0 \\implies \\cos\\theta = \\frac{1}{2} \\implies \\theta = \\frac{\\pi}{3}$.",
+      "Top side length: $2R\\cos(\\pi/3) = 2(10)(1/2) = 10\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الرؤوس العليا: $(\\pm R\\cos\\theta, R\\sin\\theta)$.",
+      "المساحة: $A(\\theta) = R^2(1 + \\cos\\theta)\\sin\\theta$.",
+      "المشتقة: $2\\cos^2\\theta + \\cos\\theta - 1 = 0 \\implies \\cos\\theta = 1/2$.",
+      "طول القاعدة العليا: $2R\\cos\\theta = 2(10)(1/2) = 10\\text{ سم}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_152",
+    "titleEn": "Optimization: Minimum Length of Line Segment Cut by Coordinate Axes",
+    "titleAr": "تطبيقات القيم القصوى: أقل طول لقطعة مستقيمة تمر بنقطة وتمس المحورين",
+    "difficulty": "hots",
+    "questionEn": "A line passing through the point $P(8, 1)$ in the first quadrant intersects the positive x-axis at $A$ and the positive y-axis at $B$. Find the minimum possible length of the segment $AB$.",
+    "questionAr": "مستقيم يمر بالنقطة $P(8, 1)$ في الربع الأول ويقطع الجزء الموجب لمحور السينات في $A$ والجزء الموجب لمحور الصادات في $B$. أوجد أقل طول ممكن للقطعة المستقيمة $AB$.",
+    "optionsEn": [
+      "$5\\sqrt{5}\\text{ units}$",
+      "$9\\text{ units}$",
+      "$10\\text{ units}$",
+      "$4\\sqrt{5}\\text{ units}$"
+    ],
+    "optionsAr": [
+      "$5\\sqrt{5}\\text{ وحدة طول}$",
+      "$9\\text{ وحدة طول}$",
+      "$10\\text{ وحدة طول}$",
+      "$4\\sqrt{5}\\text{ وحدة طول}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$5\\sqrt{5}\\text{ units}$",
+    "hintEn": "Express length $L$ in terms of angle $\\theta$: $L = \\frac{8}{\\cos\\theta} + \\frac{1}{\\sin\\theta}$. Use Astroid minimum formula $(a^{2/3} + b^{2/3})^{3/2}$.",
+    "hintAr": "عبر عن الطول بدلالة زاوية الميل: $L = \\frac{8}{\\cos\\theta} + \\frac{1}{\\sin\\theta}$. وطبق صيغة الاسترويد $(a^{2/3} + b^{2/3})^{3/2}$.",
+    "teacherTipEn": "The classic ladder-around-a-corner problem: the minimum length of a segment through $(a, b)$ is $(a^{2/3} + b^{2/3})^{3/2}$.",
+    "teacherTipAr": "مسألة السلم الكلاسيكية حول ركن: أقل طول لقطعة مستقيمة تمر بالنقطة $(a, b)$ هو $(a^{2/3} + b^{2/3})^{3/2}$.",
+    "stepByStepSolutionEn": [
+      "Let $\\theta$ be the angle the segment makes with the positive x-axis.",
+      "Intercepts: $OA = 8 + \\cot\\theta$, $OB = 1 + 8\\tan\\theta$? More cleanly: $L = \\frac{8}{\\cos\\theta} + \\frac{1}{\\sin\\theta}$.",
+      "Differentiate: $L'(\\theta) = \\frac{8\\sin\\theta}{\\cos^2\\theta} - \\frac{\\cos\\theta}{\\sin^2\\theta} = 0 \\implies 8\\sin^3\\theta = \\cos^3\\theta \\implies \\tan^3\\theta = \\frac{1}{8} \\implies \\tan\\theta = \\frac{1}{2}$.",
+      "When $\\tan\\theta = 1/2$, $\\sin\\theta = \\frac{1}{\\sqrt{5}}$ and $\\cos\\theta = \\frac{2}{\\sqrt{5}}$.",
+      "Length: $L = \\frac{8}{2/\\sqrt{5}} + \\frac{1}{1/\\sqrt{5}} = 4\\sqrt{5} + \\sqrt{5} = 5\\sqrt{5}\\text{ units}$."
+    ],
+    "stepByStepSolutionAr": [
+      "طول القطعة بدلالة الزاوية: $L = \\frac{8}{\\cos\\theta} + \\frac{1}{\\sin\\theta}$.",
+      "مشتقة الطول: $L'(\\theta) = 0 \\implies \\tan^3\\theta = 1/8 \\implies \\tan\\theta = 1/2$.",
+      "النسب المثلثية: $\\sin\\theta = \\frac{1}{\\sqrt{5}}$ و $\\cos\\theta = \\frac{2}{\\sqrt{5}}$.",
+      "أقل طول: $L = 4\\sqrt{5} + \\sqrt{5} = 5\\sqrt{5}\\text{ وحدة طول}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_153",
+    "titleEn": "Curvature and Collinearity of Three Inflection Points",
+    "titleAr": "استقامة نقاط الانقلاب الثلاث لمنحنى من الدرجة الخامسة التناظرية",
+    "difficulty": "hots",
+    "diagramType": "cotangent_curvature_graph",
+    "questionEn": "If the curve $y = x^5 - 5x^3 + 4x$ has three points of inflection, find the slope of the straight line passing through all three inflection points.",
+    "questionAr": "إذا كان للمنحنى $y = x^5 - 5x^3 + 4x$ ثلاث نقاط انقلاب، فأوجد ميل الخط المستقيم المار بجميع نقاط الانقلاب الثلاث.",
+    "optionsEn": [
+      "$-\\frac{5}{4}$",
+      "$4$",
+      "$-3$",
+      "$\\frac{5}{2}$"
+    ],
+    "optionsAr": [
+      "$-\\frac{5}{4}$",
+      "$4$",
+      "$-3$",
+      "$\\frac{5}{2}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$-\\frac{5}{4}$",
+    "hintEn": "Find $y'' = 20x^3 - 30x = 10x(2x^2 - 3) = 0$. Substitute $x^2 = 3/2$ into $y$.",
+    "hintAr": "احسب $y'' = 10x(2x^2 - 3) = 0$. عوض بقيمة $x^2 = 3/2$ في معادلة المنحنى.",
+    "teacherTipEn": "Replacing higher powers of $x$ using the inflection condition $x^2 = 3/2$ linearizes the curve into the collinear inflection line!",
+    "teacherTipAr": "التعويض عن القوى العليا باستخدام شرط الانقلاب $x^2 = 3/2$ يحول المنحنى مباشرة إلى معادلة خط مستقيم يمر بنقاط الانقلاب!",
+    "stepByStepSolutionEn": [
+      "Second derivative: $y'' = 20x^3 - 30x = 10x(2x^2 - 3)$.",
+      "Inflection points: $x = 0$ and $x^2 = \\frac{3}{2} \\implies x = \\pm \\sqrt{\\frac{3}{2}}$.",
+      "For $x = 0$, $y = 0$, so $(0, 0)$ is the central inflection point.",
+      "Substitute $x^2 = \\frac{3}{2}$ into $y = x(x^4 - 5x^2 + 4)$: $y = x\\left(\\frac{9}{4} - 5\\left(\\frac{3}{2}\\right) + 4\\right) = x\\left(\\frac{9 - 30 + 16}{4}\\right) = -\\frac{5}{4}x$? Wait! Let us recompute: $9/4 - 15/2 + 4 = 9/4 - 30/4 + 16/4 = -5/4$. Wait, then the slope is $-5/4$? Let us re-check the options: where did $-7/2$ come from? Wait! What if $y = x^5 - 5x^3 + 4x$? First: $y' = 5x^4 - 15x^2 + 4$. Second: $y'' = 20x^3 - 30x = 0 \\implies x(2x^2 - 3) = 0 \\implies x^2 = 3/2$. Then $y = x(x^4 - 5x^2 + 4) = x(9/4 - 15/2 + 4) = -\\frac{5}{4}x$. If so, the slope is $-5/4$! Let us make $-5/4$ the correct answer and fix the options!",
+      "Updated options: $[-\\frac{5}{4}, 4, -3, \\frac{5}{2}]$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الثانية: $y'' = 10x(2x^2 - 3) = 0$.",
+      "نقاط الانقلاب عند $x = 0$ و $x^2 = 3/2$.",
+      "بالتعويض عن $x^2 = 3/2$ في معادلة المنحنى: $y = x(9/4 - 15/2 + 4) = -\\frac{5}{4}x$.",
+      "ميل الخط المستقيم المار بنقاط الانقلاب الثلاث هو $-\\frac{5}{4}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_154",
+    "titleEn": "Optimization: Maximum Cone Volume from Circular Sector",
+    "titleAr": "تطبيقات القيم القصوى: أكبر مخروط يُصنع من قطاع دائري",
+    "difficulty": "hots",
+    "questionEn": "A conical cup is formed from a circular paper sheet of radius $R = 12\\text{ cm}$ by cutting out a sector of central angle $\\theta$ and joining the edges. Find the angle $\\theta$ (in radians) that maximizes the volume of the cone.",
+    "questionAr": "كوب مخروطي يُصنع من ورقة دائرية نصف قطرها $R = 12\\text{ سم}$ بقص قطاع دائري زاوية رأسه $\\theta$ وثني الحواف. ما قياس الزاوية المقصوصة $\\theta$ (بالراديان) التي تجعل حجم المخروط أكبر ما يمكن؟",
+    "optionsEn": [
+      "$2\\pi\\left(1 - \\sqrt{\\frac{2}{3}}\\right)$",
+      "$2\\pi\\sqrt{\\frac{2}{3}}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\pi\\left(1 - \\frac{1}{\\sqrt{3}}\\right)$"
+    ],
+    "optionsAr": [
+      "$2\\pi\\left(1 - \\sqrt{\\frac{2}{3}}\\right)$",
+      "$2\\pi\\sqrt{\\frac{2}{3}}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\pi\\left(1 - \\frac{1}{\\sqrt{3}}\\right)$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2\\pi\\left(1 - \\sqrt{\\frac{2}{3}}\\right)$",
+    "hintEn": "The slant height is $R$. Slant height, radius, and height satisfy $r^2 + h^2 = R^2$. Maximize $V = \\frac{1}{3}\\pi (R^2 - h^2)h$.",
+    "hintAr": "الراسم هو $R$. نصف قطر القاعدة والارتفاع يحققان $r^2 + h^2 = R^2$. اجعل الحجم $V = \\frac{1}{3}\\pi (R^2 - h^2)h$ في نهايته العظمى.",
+    "teacherTipEn": "Maximum volume cone always has $h = R/\\sqrt{3}$ and $r = R\\sqrt{2/3}$. The circumference of the base is $2\\pi r = 2\\pi R\\sqrt{2/3}$. The cutout angle is therefore $2\\pi(1 - \\sqrt{2/3})$.",
+    "teacherTipAr": "المخروط ذو الحجم الأقصى يحقق دائماً $r = R\\sqrt{2/3}$. وعليه تكون زاوية القطاع المتبقي $2\\pi\\sqrt{2/3}$، والزاوية المقصوصة $2\\pi(1 - \\sqrt{2/3})$.",
+    "stepByStepSolutionEn": [
+      "Let $r$ be base radius and $h$ be height of the cone. Slant height is $R = 12$.",
+      "Relation: $r^2 = R^2 - h^2$. Volume: $V(h) = \\frac{1}{3}\\pi (R^2 - h^2)h = \\frac{1}{3}\\pi (R^2 h - h^3)$.",
+      "Maximize: $V'(h) = \\frac{1}{3}\\pi (R^2 - 3h^2) = 0 \\implies h = \\frac{R}{\\sqrt{3}}$.",
+      "Then $r = \\sqrt{R^2 - R^2/3} = R\\sqrt{\\frac{2}{3}}$.",
+      "The perimeter of the cone base is $2\\pi r = 2\\pi R \\sqrt{\\frac{2}{3}}$.",
+      "The remaining sector angle is $2\\pi \\sqrt{\\frac{2}{3}}$, so the cut-out angle is $\\theta = 2\\pi\\left(1 - \\sqrt{\\frac{2}{3}}\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "العلاقة بين نصف القطر والارتفاع: $r^2 + h^2 = R^2$.",
+      "الحجم: $V = \\frac{1}{3}\\pi (R^2 h - h^3)$.",
+      "المشتقة: $V' = 0 \\implies h = R/\\sqrt{3}$ وبالتالي $r = R\\sqrt{2/3}$.",
+      "محيط القاعدة: $2\\pi r = 2\\pi R \\sqrt{2/3}$.",
+      "الزاوية المقصوصة: $\\theta = 2\\pi(1 - \\sqrt{2/3})$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_155",
+    "titleEn": "Number of Real Roots via Calculus Analysis",
+    "titleAr": "تحديد عدد الجذور الحقيقية باستخدام فترات الرتابة والقيم القصوى",
+    "difficulty": "hots",
+    "questionEn": "How many distinct real roots does the polynomial equation $3x^4 - 4x^3 - 12x^2 + 25 = 0$ possess?",
+    "questionAr": "كم جذراً حقيقياً متمايزاً تمتلكه المعادلة $3x^4 - 4x^3 - 12x^2 + 25 = 0$؟",
+    "optionsEn": [
+      "$2$",
+      "$0$",
+      "$4$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$0$",
+      "$4$",
+      "$1$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2$",
+    "hintEn": "Find the absolute minimum value of $f(x) = 3x^4 - 4x^3 - 12x^2 + 25$.",
+    "hintAr": "احسب القيمة الصغرى المطلقة للدالة $f(x) = 3x^4 - 4x^3 - 12x^2 + 25$.",
+    "teacherTipEn": "If the absolute minimum of a polynomial is strictly positive, the equation has zero real roots.",
+    "teacherTipAr": "إذا كانت القيمة الصغرى المطلقة لكثيرة حدود موجبة تماماً، فلا يمكن أن يقطع المنحنى محور السينات، ولا توجد جذور حقيقية.",
+    "stepByStepSolutionEn": [
+      "Differentiate: $f'(x) = 12x^3 - 12x^2 - 24x = 12x(x^2 - x - 2) = 12x(x - 2)(x + 1)$.",
+      "Critical points: $x = -1, 0, 2$.",
+      "Evaluate at $x = -1$: $f(-1) = 3(-1)^4 - 4(-1)^3 - 12(-1)^2 + 25 = 3 + 4 - 12 + 25 = 20 > 0$.",
+      "Evaluate at $x = 0$: $f(0) = 25 > 0$.",
+      "Evaluate at $x = 2$: $f(2) = 3(16) - 4(8) - 12(4) + 25 = 48 - 32 - 48 + 25 = -7$? Wait! $f(2) = -7 < 0$!",
+      "Wait! If $f(2) = -7 < 0$ and $f(0) = 25 > 0$ and $\\lim_{x \\to \\infty} f(x) = +\\infty$, then by Intermediate Value Theorem there are two real roots for $x > 0$ (one between 0 and 2, one for $x > 2$)! Since $f(-1) = 20 > 0$ and $\\lim_{x \\to -\\infty} = +\\infty$, there are no real roots for $x < 0$. Total real roots $= 2$!",
+      "What a critical check! Let us make 2 the correct answer and adjust options!"
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $f'(x) = 12x(x - 2)(x + 1) = 0 \\implies x = -1, 0, 2$.",
+      "قيم الدالة: $f(-1) = 20$ (صغرى محلية موجبة)، $f(0) = 25$ (عظمى محلية)، $f(2) = -7$ (صغرى مطلقة سالبة).",
+      "بما أن الدالة سالبة عند $x = 2$ وموجبة عند $x = 0$ وتؤول إلى $+\\infty$ عند الأطراف، يوجد جذران حقيقيان فقط."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_156",
+    "titleEn": "Optimization: Minimum Wire Length Connecting Ground Anchors",
+    "titleAr": "تطبيقات القيم القصوى: أقل طول لسلك يربط عمودين بالأرض",
+    "difficulty": "hots",
+    "questionEn": "Two vertical poles of heights $3\\text{ m}$ and $6\\text{ m}$ stand $12\\text{ m}$ apart on level ground. A wire is to run from the top of the first pole to a point on the ground between them and then to the top of the second pole. Find the distance from the shorter pole to the ground anchor that minimizes the total length of the wire.",
+    "questionAr": "عمودان رأسيان ارتفاعهما $3\\text{ م}$ و $6\\text{ م}$ والمسافة بينهما على أرض أفقية $12\\text{ م}$. يُراد تثبيت سلك من قمة العمود الأول إلى نقطة على الأرض بينهما ثم إلى قمة العمود الثاني. أوجد بعد نقطة التثبيت في الأرض عن العمود الأقصر التي تجعل طول السلك أقل ما يمكن.",
+    "optionsEn": [
+      "$4\\text{ m}$",
+      "$6\\text{ m}$",
+      "$3\\text{ m}$",
+      "$5\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$4\\text{ م}$",
+      "$6\\text{ م}$",
+      "$3\\text{ م}$",
+      "$5\\text{ م}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$4\\text{ m}$",
+    "hintEn": "Use the principle of reflection (Fermat's principle of least time) or differentiate the sum of hypotenuses.",
+    "hintAr": "استخدم مبدأ الانعكاس لفيثاغورس (مبدأ فيرما لأقصر مسار) أو اشتق مجموع الوترين.",
+    "teacherTipEn": "By reflecting the $3\\text{ m}$ pole across the ground, the straight line connects $(-3)$ to $(+6)$ over distance $12$, dividing the distance in ratio $3 : 6 = 1 : 2$. Thus $x = \\frac{1}{3}(12) = 4\\text{ m}$.",
+    "teacherTipAr": "بعكس أحد العمودين أسفل الأرض، يتصل الخط المستقيم مباشرة وينقسم البعد الأفقي بنسبة الارتفاعين $3 : 6 = 1 : 2$. إذن $x = \\frac{1}{3}(12) = 4\\text{ م}$.",
+    "stepByStepSolutionEn": [
+      "Total wire length: $L(x) = \\sqrt{x^2 + 9} + \\sqrt{(12 - x)^2 + 36}$.",
+      "By optical reflection: angle of incidence equals angle of reflection.",
+      "Therefore, $\\frac{x}{3} = \\frac{12 - x}{6} \\implies 6x = 36 - 3x \\implies 9x = 36 \\implies x = 4\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة طول السلك: $L(x) = \\sqrt{x^2 + 9} + \\sqrt{(12 - x)^2 + 36}$.",
+      "من التماثل بالانعكاس (تساوي زوايا السقوط والانعكاس): $\\frac{x}{3} = \\frac{12 - x}{6}$.",
+      "حل المعادلة: $9x = 36 \\implies x = 4\\text{ م}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_157",
+    "titleEn": "Optimization: Maximum Illumination from Elevated Light Source",
+    "titleAr": "تطبيقات القيم القصوى: أقصى شدة إضاءة من مصدر معلق",
+    "difficulty": "hots",
+    "questionEn": "A light source is suspended vertically above the center of a circular table of radius $R = 4\\text{ m}$. The illumination $I$ at the edge of the table is proportional to $\\frac{\\cos\\theta}{d^2}$, where $d$ is the distance to the edge and $\\theta$ is the angle of incidence with the vertical. What height $h$ above the center gives maximum illumination at the edge?",
+    "questionAr": "مصباح معلق رأسياً فوق مركز طاولة دائرية نصف قطرها $R = 4\\text{ م}$. شدة الإضاءة $I$ عند حافة الطاولة تتناسب طردياً مع $\\frac{\\cos\\theta}{d^2}$ حيث $d$ بعد المصباح عن الحافة و $\\theta$ زاوية السقوط مع الرأسي. ما هو الارتفاع $h$ فوق المركز الذي يعطي أقصى شدة إضاءة عند الحافة؟",
+    "optionsEn": [
+      "$2\\sqrt{2}\\text{ m}$",
+      "$4\\text{ m}$",
+      "$2\\text{ m}$",
+      "$4\\sqrt{2}\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$2\\sqrt{2}\\text{ م}$",
+      "$4\\text{ م}$",
+      "$2\\text{ م}$",
+      "$4\\sqrt{2}\\text{ م}$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "$2\\sqrt{2}\\text{ m}$",
+    "hintEn": "Express $I$ in terms of $h$: $I(h) = \\frac{k h}{(h^2 + R^2)^{3/2}}$. Maximize $I(h)$.",
+    "hintAr": "عبر عن شدة الإضاءة بدلالة $h$: $I(h) = \\frac{k h}{(h^2 + R^2)^{3/2}}$.",
+    "teacherTipEn": "The classic Lambert's illumination law result: maximum illumination at radius $R$ always occurs at $h = \\frac{R}{\\sqrt{2}}$. Here $h = 4/\\sqrt{2} = 2\\sqrt{2}\\text{ m}$.",
+    "teacherTipAr": "نتيجة قانون لامبرت الكلاسيكية للإضاءة: أقصى شدة إضاءة تحدث دائماً عند ارتفاع $h = \\frac{R}{\\sqrt{2}}$. هنا $h = 4/\\sqrt{2} = 2\\sqrt{2}\\text{ م}$.",
+    "stepByStepSolutionEn": [
+      "Geometry: distance $d = \\sqrt{h^2 + R^2}$, $\\cos\\theta = \\frac{h}{d}$.",
+      "Illumination: $I(h) = k \\frac{h}{(h^2 + R^2)^{3/2}}$.",
+      "Differentiate: $I'(h) = k \\frac{(h^2 + R^2)^{3/2} - h \\cdot \\frac{3}{2}(h^2 + R^2)^{1/2}(2h)}{(h^2 + R^2)^3} = k \\frac{(h^2 + R^2) - 3h^2}{(h^2 + R^2)^{5/2}} = 0$.",
+      "Solve $R^2 - 2h^2 = 0 \\implies h = \\frac{R}{\\sqrt{2}} = \\frac{4}{\\sqrt{2}} = 2\\sqrt{2}\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "العلاقات الهندسية: $d = \\sqrt{h^2 + R^2}$ و $\\cos\\theta = h/d$.",
+      "دالة شدة الإضاءة: $I(h) = \\frac{k h}{(h^2 + R^2)^{3/2}}$.",
+      "المشتقة ومساواتها بالصفر: $R^2 - 2h^2 = 0 \\implies h = R/\\sqrt{2}$.",
+      "الارتفاع الأمثل: $h = 4/\\sqrt{2} = 2\\sqrt{2}\\text{ م}$."
+    ]
+  },
+  {
+    "id": "calc_ch3_db_hots_158",
+    "titleEn": "Tangent Intersection with Inflection Point Slope",
+    "titleAr": "تقاطع المماس عند نقطة الانقلاب مع المنحنى",
+    "difficulty": "hots",
+    "diagramType": "trig_derivative_tangent",
+    "questionEn": "The tangent to the cubic curve $y = x^3 - 3x^2$ at its point of inflection intersects the curve again at a point $Q$. Find the x-coordinate of $Q$.",
+    "questionAr": "المماس للمنحنى التكعيبي $y = x^3 - 3x^2$ عند نقطة انقلابه يقطع المنحنى مرة أخرى في نقطة $Q$. ما هو الإحداثي السيني للنقطة $Q$؟",
+    "optionsEn": [
+      "No other intersection point exists",
+      "$x = 3$",
+      "$x = -1$",
+      "$x = 2$"
+    ],
+    "optionsAr": [
+      "لا توجد أي نقطة تقاطع أخرى",
+      "$x = 3$",
+      "$x = -1$",
+      "$x = 2$"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "No other intersection point exists",
+    "hintEn": "The inflection tangent has a triple root (multiplicity 3) at the inflection point of any cubic curve.",
+    "hintAr": "المماس عند نقطة الانقلاب يمس المنحنى التكعيبي بتماس ثلاثي (جذر مكرر ثلاث مرات).",
+    "teacherTipEn": "A fundamental theorem of cubic curves: the tangent at the inflection point has intersection multiplicity 3, meaning it never intersects the cubic anywhere else!",
+    "teacherTipAr": "نظرية أساسية في المنحنيات التكعيبية: المماس عند نقطة الانقلاب له رتبة تقاطع 3، ولذا لا يمكن أن يقطع المنحنى في أي نقطة أخرى أبداً!",
+    "stepByStepSolutionEn": [
+      "Find inflection point: $y' = 3x^2 - 6x$, $y'' = 6x - 6 = 0 \\implies x = 1$. Inflection point is $(1, -2)$.",
+      "Slope at inflection point: $m = y'(1) = 3(1)^2 - 6(1) = -3$.",
+      "Tangent line equation: $y - (-2) = -3(x - 1) \\implies y = -3x + 1$.",
+      "Intersect with curve: $x^3 - 3x^2 = -3x + 1 \\implies x^3 - 3x^2 + 3x - 1 = 0$.",
+      "Recognize perfect cube: $(x - 1)^3 = 0$.",
+      "Since $x = 1$ is a triple root, there are no other points of intersection!"
+    ],
+    "stepByStepSolutionAr": [
+      "نقطة الانقلاب: $y'' = 6x - 6 = 0 \\implies x = 1$. النقطة $(1, -2)$.",
+      "ميل المماس: $m = 3(1) - 6 = -3$.",
+      "معادلة المماس: $y = -3x + 1$.",
+      "التقاطع مع المنحنى: $x^3 - 3x^2 + 3x - 1 = 0 \\implies (x - 1)^3 = 0$.",
+      "بما أن $x = 1$ جذر ثلاثي مكرر، فلا توجد أي نقاط تقاطع أخرى على الإطلاق."
+    ]
   }
 ]
 };

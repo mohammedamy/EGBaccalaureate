@@ -1679,6 +1679,280 @@ export const algCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "r = 6 gives the 7th term.",
     "teacherTipAr": "قيمة r = 6 تقابل الحد السابع."
+  },
+  {
+    "id": "alg_ch1_db_easy_51",
+    "titleEn": "Complementary Combination Symmetry",
+    "titleAr": "خاصية التبسيط والتوافيق المتكاملة",
+    "difficulty": "easy",
+    "questionEn": "If $\\binom{n}{8} = \\binom{n}{12}$, find the value of $\\binom{n}{18}$.",
+    "questionAr": "إذا كان $\\binom{n}{8} = \\binom{n}{12}$، فأوجد قيمة $\\binom{n}{18}$.",
+    "optionsEn": [
+      "190",
+      "20",
+      "210",
+      "380"
+    ],
+    "optionsAr": [
+      "190",
+      "20",
+      "210",
+      "380"
+    ],
+    "correctAnswer": "190",
+    "correctIndex": 0,
+    "hintEn": "Apply C(n, x) = C(n, y) => x = y or x + y = n.",
+    "hintAr": "استخدم القاعدة: إما س = ص أو س + ص = ن.",
+    "stepByStepSolutionEn": [
+      "1. Since $8 \\neq 12$, by the symmetry property of combinations: $n = 8 + 12 = 20$.",
+      "2. Calculate $\\binom{20}{18} = \\binom{20}{2} = \\frac{20 \\times 19}{2} = 190$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بما أن ٨ ≠ ١٢، إذن من خاصية التساوي: ن = ٨ + ١٢ = ٢٠.",
+      "٢. حساب $\\binom{20}{18} = \\binom{20}{2} = \\frac{20 \\times 19}{2} = 190$."
+    ],
+    "teacherTipEn": "Always use C(n, r) = C(n, n - r) to reduce large lower indices.",
+    "teacherTipAr": "استخدم دائماً خاصية التبسيط لتصغير الدليل السفلي وتسهيل الحساب."
+  },
+  {
+    "id": "alg_ch1_db_easy_52",
+    "titleEn": "Pascal Addition Formula for Combinations",
+    "titleAr": "قانون جمع التوافيق (مثلث باسكال)",
+    "difficulty": "easy",
+    "questionEn": "Simplify the expression: $\\binom{15}{7} + \\binom{15}{8}$.",
+    "questionAr": "بسّط المقدار: $\\binom{15}{7} + \\binom{15}{8}$.",
+    "optionsEn": [
+      "$\\binom{16}{8}$",
+      "$\\binom{16}{7}$",
+      "$\\binom{30}{15}$",
+      "$\\binom{15}{15}$"
+    ],
+    "optionsAr": [
+      "$\\binom{16}{8}$",
+      "$\\binom{16}{7}$",
+      "$\\binom{30}{15}$",
+      "$\\binom{15}{15}$"
+    ],
+    "correctAnswer": "$\\binom{16}{8}$",
+    "correctIndex": 0,
+    "hintEn": "Recall Pascal's identity: C(n, r-1) + C(n, r) = C(n+1, r).",
+    "hintAr": "تذكر قانون الجمع: نزود العلم واحداً ونأخذ الدليل الأكبر.",
+    "stepByStepSolutionEn": [
+      "1. By Pascal's combination identity, $\\binom{n}{r-1} + \\binom{n}{r} = \\binom{n+1}{r}$.",
+      "2. Here $n = 15$ and the larger index is $r = 8$, so the sum is $\\binom{16}{8}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بتطبيق قانون جمع التوافيق: $\\binom{n}{r-1} + \\binom{n}{r} = \\binom{n+1}{r}$.",
+      "٢. هنا ن = ١٥ والدليل الأكبر هو ٨، فيكون الناتج $\\binom{16}{8}$."
+    ],
+    "teacherTipEn": "Check that the upper indices are identical and lower indices consecutive.",
+    "teacherTipAr": "تأكد دائماً أن العَلَمين متساويان والدليلين متتاليان قبل تطبيق قانون الجمع."
+  },
+  {
+    "id": "alg_ch1_db_easy_53",
+    "titleEn": "Sum of Coefficients in Binomial Expansion",
+    "titleAr": "مجموع معاملات حدود مفكوك ذات الحدين",
+    "difficulty": "easy",
+    "questionEn": "Find the sum of all coefficients in the expansion of $(3x - 2y)^7$.",
+    "questionAr": "أوجد مجموع معاملات حدود مفكوك $(3x - 2y)^7$.",
+    "optionsEn": [
+      "1",
+      "$-1$",
+      "$5^7$",
+      "$128$"
+    ],
+    "optionsAr": [
+      "1",
+      "$-1$",
+      "$5^7$",
+      "$128$"
+    ],
+    "correctAnswer": "1",
+    "correctIndex": 0,
+    "hintEn": "Substitute x = 1 and y = 1 into the polynomial expression.",
+    "hintAr": "ضع س = ١ و ص = ١ في المقدار مباشرة.",
+    "stepByStepSolutionEn": [
+      "1. To find the sum of all coefficients of a polynomial expansion, substitute all variables equal to 1.",
+      "2. Setting $x = 1, y = 1$: $(3(1) - 2(1))^7 = (3 - 2)^7 = 1^7 = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. لإيجاد مجموع معاملات أي مفكوك جبري نضع جميع المتغيرات تساوي ١.",
+      "٢. بالتعويض: $(3(1) - 2(1))^7 = (1)^7 = 1$."
+    ],
+    "teacherTipEn": "Setting variables to 1 is the universal shortcut for polynomial coefficient sums.",
+    "teacherTipAr": "التعويض بالقيمة ١ لكل مجهول هو القاعدة الذهبية لمجموع المعاملات."
+  },
+  {
+    "id": "alg_ch1_db_easy_54",
+    "titleEn": "Number of Terms in Even/Odd Binomial Combination",
+    "titleAr": "عدد حدود مفكوك مجموع أو فرق مقدارين مترافقين",
+    "difficulty": "easy",
+    "questionEn": "How many terms remain in simplified form for $(x + y)^{10} + (x - y)^{10}$?",
+    "questionAr": "كم حداً ينتج بعد التبسيط في المقدار $(x + y)^{10} + (x - y)^{10}$؟",
+    "optionsEn": [
+      "6 terms",
+      "5 terms",
+      "11 terms",
+      "10 terms"
+    ],
+    "optionsAr": [
+      "6 حدود",
+      "5 حدود",
+      "11 حداً",
+      "10 حدود"
+    ],
+    "correctAnswer": "6 terms",
+    "correctIndex": 0,
+    "hintEn": "The sum keeps twice the odd-ranked terms: 2(T1 + T3 + T5 + T7 + T9 + T11).",
+    "hintAr": "المجموع يبقي ضعف الحدود الفردية الرتبة: ٢(ح١ + ح٣ + ح٥ + ح٧ + ح٩ + ح١١).",
+    "stepByStepSolutionEn": [
+      "1. When adding conjugate expansions $(x+y)^n + (x-y)^n$, even-ranked terms cancel out.",
+      "2. The remaining terms are the odd-ranked terms: $T_1, T_3, T_5, T_7, T_9, T_{11}$.",
+      "3. Total number of terms is $\\frac{10}{2} + 1 = 6$ terms."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عند جمع المفكوكين المترافقين تتلاشى الحدود ذات الرتب الزوجية.",
+      "٢. يتبقى ضعف الحدود الفردية الرتبة: ح١، ح٣، ح٥، ح٧، ح٩، ح١١.",
+      "٣. عدد الحدود = (١٠ / ٢) + ١ = ٦ حدود."
+    ],
+    "teacherTipEn": "For (x+y)^n - (x-y)^n with n even, the number of terms is n/2.",
+    "teacherTipAr": "في حالة الطرح والأس زوجي يكون عدد الحدود ن / ٢ فقط."
+  },
+  {
+    "id": "alg_ch1_db_easy_55",
+    "titleEn": "Permutations of Circular Table Seating",
+    "titleAr": "التباديل الدائرية والجلوس حول طاولة مستديرة",
+    "difficulty": "easy",
+    "questionEn": "In how many ways can 6 students sit around a circular table?",
+    "questionAr": "بكم طريقة يمكن لـ ٦ طلاب الجلوس حول مائدة مستديرة؟",
+    "optionsEn": [
+      "120",
+      "720",
+      "24",
+      "60"
+    ],
+    "optionsAr": [
+      "120",
+      "720",
+      "24",
+      "60"
+    ],
+    "correctAnswer": "120",
+    "correctIndex": 0,
+    "hintEn": "Circular arrangements without a reference point is (n - 1)!.",
+    "hintAr": "عدد طرق الترتيب في دائرة بدون نقطة مرجعية هو (ن - ١)!.",
+    "stepByStepSolutionEn": [
+      "1. For $n$ distinct items arranged in a circle without a designated starting seat, the formula is $(n - 1)!$.",
+      "2. Here $n = 6$, so $(6 - 1)! = 5! = 120$ ways."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عدد طرق ترتيب ن من الأشياء المتمايزة في حلقة دائرية هو (ن - ١)!.",
+      "٢. إذن (٦ - ١)! = ٥! = ١٢٠ طريقة."
+    ],
+    "teacherTipEn": "If seats are numbered or there is an entrance reference point, it reverts to n!.",
+    "teacherTipAr": "إذا كانت المقاعد مرقمة أو نسبت إلى معلم ثابت (كباب القاعة) يتحول الحساب إلى ن!."
+  },
+  {
+    "id": "alg_ch1_db_easy_56",
+    "titleEn": "Ratio Between Consecutive Binomial Terms",
+    "titleAr": "النسبة بين حدين متتاليين في مفكوك ذات الحدين",
+    "difficulty": "easy",
+    "questionEn": "In the expansion of $(1 + x)^8$, find the ratio $\\frac{T_5}{T_4}$ when $x = 2$.",
+    "questionAr": "في مفكوك $(1 + x)^8$، أوجد قيمة النسبة $\\frac{T_5}{T_4}$ عندما $x = 2$.",
+    "optionsEn": [
+      "$\\frac{5}{2}$",
+      "$\\frac{5}{4}$",
+      "$\\frac{2}{5}$",
+      "5"
+    ],
+    "optionsAr": [
+      "$\\frac{5}{2}$",
+      "$\\frac{5}{4}$",
+      "$\\frac{2}{5}$",
+      "5"
+    ],
+    "correctAnswer": "$\\frac{5}{2}$",
+    "correctIndex": 0,
+    "hintEn": "T_(r+1)/T_r = ((n - r + 1)/r) * (second/first).",
+    "hintAr": "استخدم قانون النسبة: (ن - ر + ١)/ر × (الثاني / الأول).",
+    "stepByStepSolutionEn": [
+      "1. Ratio formula: $\\frac{T_{r+1}}{T_r} = \\frac{n - r + 1}{r} \\times \\frac{\\text{second}}{\\text{first}}$.",
+      "2. Here $n = 8, r = 4$: $\\frac{T_5}{T_4} = \\frac{8 - 4 + 1}{4} \\times x = \\frac{5}{4} (2) = \\frac{5}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون النسبة: $\\frac{T_{r+1}}{T_r} = \\frac{n - r + 1}{r} \\times \\frac{\\text{الثاني}}{\\text{الأول}}$.",
+      "٢. بالتعويض: ن = ٨، ر = ٤: $\\frac{T_5}{T_4} = \\frac{8 - 4 + 1}{4} \\times 2 = \\frac{5}{4} \\times 2 = \\frac{5}{2}$."
+    ],
+    "teacherTipEn": "Notice that r is the smaller rank (here r = 4 for T5/T4).",
+    "teacherTipAr": "انتبه دائماً أن (ر) في قانون النسبة هي رتبة الحد الأصغر (ر = ٤)."
+  },
+  {
+    "id": "alg_ch1_db_easy_57",
+    "titleEn": "Permutations with Repetition Formula",
+    "titleAr": "التباديل مع التكرار لأحرف كلمة",
+    "difficulty": "easy",
+    "questionEn": "How many distinct 5-letter arrangements can be formed from the letters of the word 'APPLE'?",
+    "questionAr": "كم ترتيباً مختلفاً من ٥ أحرف يمكن تكوينه من أحرف كلمة 'APPLE'؟",
+    "optionsEn": [
+      "60",
+      "120",
+      "24",
+      "30"
+    ],
+    "optionsAr": [
+      "60",
+      "120",
+      "24",
+      "30"
+    ],
+    "correctAnswer": "60",
+    "correctIndex": 0,
+    "hintEn": "Total letters = 5, letter P is repeated 2 times: 5! / 2!.",
+    "hintAr": "عدد الأحرف = ٥، والحرف P مكرر مرتين: ٥! / ٢!.",
+    "stepByStepSolutionEn": [
+      "1. The word APPLE has 5 letters with 'P' repeating 2 times.",
+      "2. Number of arrangements = $\\frac{5!}{2!} = \\frac{120}{2} = 60$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. كلمة APPLE تحتوي على ٥ أحرف، حرف P مكرر مرتين وبقية الأحرف متمايزة.",
+      "٢. عدد التباديل = $\\frac{5!}{2!} = \\frac{120}{2} = 60$."
+    ],
+    "teacherTipEn": "Divide by the factorial of the frequency of each repeated element.",
+    "teacherTipAr": "اقسم مضروب العدد الكلي على مضروب تكرار كل عنصر."
+  },
+  {
+    "id": "alg_ch1_db_easy_58",
+    "titleEn": "Selection with At Least One Element Chosen",
+    "titleAr": "اختيار عنصر واحد على الأقل من مجموعة",
+    "difficulty": "easy",
+    "questionEn": "A student has 6 distinct books. In how many ways can they choose at least one book?",
+    "questionAr": "لدى طالب ٦ كتب متمايزة. بكم طريقة يمكنه اختيار كتاب واحد على الأقل؟",
+    "optionsEn": [
+      "63",
+      "64",
+      "32",
+      "60"
+    ],
+    "optionsAr": [
+      "63",
+      "64",
+      "32",
+      "60"
+    ],
+    "correctAnswer": "63",
+    "correctIndex": 0,
+    "hintEn": "Total non-empty subsets of an n-element set is 2^n - 1.",
+    "hintAr": "مجموع عدد المجموعات الجزئية غير الخالية هو ٢^ن - ١.",
+    "stepByStepSolutionEn": [
+      "1. Each of the 6 books can either be chosen or not chosen (2 options each), giving $2^6 = 64$ total combinations.",
+      "2. Excluding the case where zero books are chosen: $2^6 - 1 = 64 - 1 = 63$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. كل كتاب له خياران (إما يختار أو لا يختار)، فيكون الإجمالي $2^6 = 64$.",
+      "٢. استبعاد الحالة التي لا يُختار فيها أي كتاب: ٦٤ - ١ = ٦٣ طريقة."
+    ],
+    "teacherTipEn": "At least one = Total possibilities minus none (complementary counting).",
+    "teacherTipAr": "'على الأقل واحد' تعني دائماً جميع الاحتمالات مطروحاً منها احتمال الصفر."
   }
 ],
   medium: [
@@ -3444,6 +3718,328 @@ export const algCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "(-1)^8 = +1 because 8 is even.",
     "teacherTipAr": "(-١)^٨ = +١ لأن الأس ٨ زوجي."
+  },
+  {
+    "id": "alg_ch1_db_med_51",
+    "titleEn": "Independent Term in Fractional Binomial",
+    "titleAr": "الحد الخالي من س في مفكوك كسري",
+    "difficulty": "medium",
+    "questionEn": "Find the term independent of $x$ in the expansion of $\\left(x^2 + \\frac{1}{x}\\right)^{12}$.",
+    "questionAr": "أوجد الحد الخالي من $x$ في مفكوك $\\left(x^2 + \\frac{1}{x}\\right)^{12}$.",
+    "optionsEn": [
+      "$\\binom{12}{8} = 495$",
+      "$\\binom{12}{4} = 495$",
+      "$\\binom{12}{6} = 924$",
+      "$\\binom{12}{9} = 220$"
+    ],
+    "optionsAr": [
+      "$\\binom{12}{8} = 495$",
+      "$\\binom{12}{4} = 495$",
+      "$\\binom{12}{6} = 924$",
+      "$\\binom{12}{9} = 220$"
+    ],
+    "correctAnswer": "$\\binom{12}{8} = 495$",
+    "correctIndex": 0,
+    "hintEn": "Write general term T_(r+1) and set the power of x to zero.",
+    "hintAr": "اكتب الحد العام واجعل أس س مساوياً للصفر.",
+    "stepByStepSolutionEn": [
+      "1. General term: $T_{r+1} = \\binom{12}{r} (x^2)^{12-r} (x^{-1})^r = \\binom{12}{r} x^{24 - 3r}$.",
+      "2. For term independent of $x$, set $24 - 3r = 0 \\implies 3r = 24 \\implies r = 8$.",
+      "3. The term is $T_9 = \\binom{12}{8} = \\binom{12}{4} = 495$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الحد العام: $T_{r+1} = \\binom{12}{r} (x^2)^{12-r} (x^{-1})^r = \\binom{12}{r} x^{24 - 3r}$.",
+      "٢. لجعل الحد خالياً من س نساوي الأس بالصفر: ٢٤ - ٣ر = ٠ ومنها ر = ٨.",
+      "٣. إذن الحد التاسع هو $T_9 = \\binom{12}{8} = 495$."
+    ],
+    "teacherTipEn": "Remember that r = 8 corresponds to term T_(8+1) = T9.",
+    "teacherTipAr": "تذكر دائماً أن ر = ٨ تعني أن الحد هو الحد التاسع (ر + ١)."
+  },
+  {
+    "id": "alg_ch1_db_med_52",
+    "titleEn": "Greatest Coefficient in Binomial Expansion",
+    "titleAr": "أكبر معامل في مفكوك ذات الحدين",
+    "difficulty": "medium",
+    "questionEn": "Which term has the greatest coefficient in the expansion of $(1 + x)^{15}$?",
+    "questionAr": "أي حد يمتلك أكبر معامل في مفكوك $(1 + x)^{15}$؟",
+    "optionsEn": [
+      "$T_8$ and $T_9$",
+      "$T_7$ and $T_8$",
+      "$T_8$ only",
+      "$T_9$ only"
+    ],
+    "optionsAr": [
+      "$T_8$ و $T_9$",
+      "$T_7$ و $T_8$",
+      "$T_8$ فقط",
+      "$T_9$ فقط"
+    ],
+    "correctAnswer": "$T_8$ and $T_9$",
+    "correctIndex": 0,
+    "hintEn": "When n is odd, the two middle terms have equal maximum binomial coefficients.",
+    "hintAr": "عندما يكون الأس فردياً يوجد حدان أوسطان لهما نفس أكبر معامل.",
+    "stepByStepSolutionEn": [
+      "1. Since $n = 15$ is odd, the middle terms are ranked $\\frac{15+1}{2} = 8$ and $8 + 1 = 9$.",
+      "2. The coefficients are $\\binom{15}{7}$ and $\\binom{15}{8}$, which are equal and maximal."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بما أن ن = ١٥ فردي، فإن رتبتي الحدين الأوسطين هما (١٥ + ١)/٢ = ٨ و ٩.",
+      "٢. المعاملان هما $\\binom{15}{7} = \\binom{15}{8}$ وهما متساويان وأكبر ما يمكن."
+    ],
+    "teacherTipEn": "If n is even, there is a single middle term with the greatest coefficient.",
+    "teacherTipAr": "إذا كان ن زوجياً يوجد حد أوسط واحد فقط يمتلك أكبر معامل."
+  },
+  {
+    "id": "alg_ch1_db_med_53",
+    "titleEn": "Linear Equation with Permutation and Combination",
+    "titleAr": "معادلة جبرية تربط بين التباديل والتوافيق",
+    "difficulty": "medium",
+    "questionEn": "If $P(n, 3) = 6 \\binom{n}{4}$, find the value of $n$.",
+    "questionAr": "إذا كان $P(n, 3) = 6 \\binom{n}{4}$، فأوجد قيمة $n$.",
+    "optionsEn": [
+      "7",
+      "6",
+      "8",
+      "5"
+    ],
+    "optionsAr": [
+      "7",
+      "6",
+      "8",
+      "5"
+    ],
+    "correctAnswer": "7",
+    "correctIndex": 0,
+    "hintEn": "Express both in terms of factorials or use P(n, 4) = 4! * C(n, 4).",
+    "hintAr": "استخدم العلاقة: ل(ن، ٤) = ٤! × ق(ن، ٤).",
+    "stepByStepSolutionEn": [
+      "1. $P(n, 3) = n(n-1)(n-2)$.",
+      "2. $6 \\binom{n}{4} = 6 \\times \\frac{n(n-1)(n-2)(n-3)}{24} = \\frac{n(n-1)(n-2)(n-3)}{4}$.",
+      "3. Equating both: $1 = \\frac{n-3}{4} \\implies n - 3 = 4 \\implies n = 7$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. ل(ن، ٣) = ن(ن - ١)(ن - ٢).",
+      "٢. ٦ × ق(ن، ٤) = ٦ × [ن(ن - ١)(ن - ٢)(ن - ٣)] / ٢٤ = [ن(ن - ١)(ن - ٢)(ن - ٣)] / ٤.",
+      "٣. بالقسمة على ن(ن - ١)(ن - ٢): ١ = (ن - ٣)/٤ ومنها ن - ٣ = ٤ أي ن = ٧."
+    ],
+    "teacherTipEn": "Cancel the common product n(n-1)(n-2) since n >= 4.",
+    "teacherTipAr": "يمكنك اختصار العوامل المشتركة مباشرة لأن ن أكبر من أو تساوي ٤."
+  },
+  {
+    "id": "alg_ch1_db_med_54",
+    "titleEn": "Coefficient of x^k in Product of Two Polynomials",
+    "titleAr": "معامل س^ك في حاصل ضرب مفكوكين",
+    "difficulty": "medium",
+    "questionEn": "Find the coefficient of $x^2$ in the expansion of $(1 + x)^5 (1 - x)^5$.",
+    "questionAr": "أوجد معامل $x^2$ في مفكوك $(1 + x)^5 (1 - x)^5$.",
+    "optionsEn": [
+      "$-5$",
+      "5",
+      "$-10$",
+      "10"
+    ],
+    "optionsAr": [
+      "$-5$",
+      "5",
+      "$-10$",
+      "10"
+    ],
+    "correctAnswer": "$-5$",
+    "correctIndex": 0,
+    "hintEn": "Combine the bases first: (1 + x)^5 (1 - x)^5 = (1 - x^2)^5.",
+    "hintAr": "اجمع الأساسين أولاً كفرق بين مربعين: (١ - س^٢)^٥.",
+    "stepByStepSolutionEn": [
+      "1. Notice that $(1 + x)^5 (1 - x)^5 = [(1 + x)(1 - x)]^5 = (1 - x^2)^5$.",
+      "2. The expansion of $(1 - x^2)^5$ has general term $\\binom{5}{r} (-x^2)^r = \\binom{5}{r} (-1)^r x^{2r}$.",
+      "3. For $x^2$, set $2r = 2 \\implies r = 1$. The coefficient is $\\binom{5}{1}(-1)^1 = -5$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نلاحظ أن $[(1+x)(1-x)]^5 = (1 - x^2)^5$.",
+      "٢. الحد العام في مفكوك $(1 - x^2)^5$ هو $\\binom{5}{r} (-1)^r x^{2r}$.",
+      "٣. للحصول على معامل س^٢ نضع ٢ر = ٢ ومنها ر = ١، فيكون المعامل $\\binom{5}{1}(-1)^1 = -5$."
+    ],
+    "teacherTipEn": "Always check if base factors can be multiplied into a difference of squares first.",
+    "teacherTipAr": "البحث عن تبسيط الأساسات قبل الفك يوفر خطوات جبرية طويلة."
+  },
+  {
+    "id": "alg_ch1_db_med_55",
+    "titleEn": "Arranging Items with Two Elements Not Adjacent",
+    "titleAr": "ترتيب عناصر بشرط عدم تجاور عنصرين محددين",
+    "difficulty": "medium",
+    "questionEn": "In how many ways can 5 boys and 2 girls stand in a row such that the 2 girls are NOT adjacent?",
+    "questionAr": "بكم طريقة يمكن لـ ٥ أولاد وبنتين الوقوف في صف بحيث لا تقف البنتان متجاورتين؟",
+    "optionsEn": [
+      "3600",
+      "1440",
+      "5040",
+      "2880"
+    ],
+    "optionsAr": [
+      "3600",
+      "1440",
+      "5040",
+      "2880"
+    ],
+    "correctAnswer": "3600",
+    "correctIndex": 0,
+    "hintEn": "Total permutations (7!) minus permutations where girls are together (6! * 2!).",
+    "hintAr": "العدد الكلي (٧!) مطروحاً منه الحالات التي تتجاور فيها البنتان (٦! × ٢!).",
+    "stepByStepSolutionEn": [
+      "1. Total arrangements of 7 people: $7! = 5040$.",
+      "2. Treat the 2 girls as a single unit: number of arrangements of 6 units is $6! = 720$, and girls can switch places in $2! = 2$ ways: $720 \\times 2 = 1440$.",
+      "3. Non-adjacent arrangements: $5040 - 1440 = 3600$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. العدد الكلي لترتيب ٧ أشخاص = ٧! = ٥٠٤٠.",
+      "٢. نعتبر البنتين ككتلة واحدة: عدد الطرق = ٦! × ٢! = ٧٢٠ × ٢ = ١٤٤٠.",
+      "٣. الطرق التي لا تتجاور فيها البنتان = ٥٠٤٠ - ١٤٤٠ = ٣٦٠٠ طريقة."
+    ],
+    "teacherTipEn": "Alternatively, place the 5 boys first (5!) and choose 2 of the 6 gaps for girls: P(6, 2) * 5! = 30 * 120 = 3600.",
+    "teacherTipAr": "طريقة الفراغات: ترتيب الأولاد (٥!) واختيار فراغين من بين ٦ فراغات للبنات: ل(٦، ٢) × ٥! = ٣٦٠٠."
+  },
+  {
+    "id": "alg_ch1_db_med_56",
+    "titleEn": "Binomial Derivative Identity Sum",
+    "titleAr": "متطابقة مجموع مشتقة معاملات ذات الحدين",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the sum: $\\sum_{r=1}^{n} r \\binom{n}{r}$.",
+    "questionAr": "احسب قيمة المجموع: $\\sum_{r=1}^{n} r \\binom{n}{r}$.",
+    "optionsEn": [
+      "$n 2^{n-1}$",
+      "$n 2^n$",
+      "$2^{n-1}$",
+      "$(n-1) 2^n$"
+    ],
+    "optionsAr": [
+      "$n 2^{n-1}$",
+      "$n 2^n$",
+      "$2^{n-1}$",
+      "$(n-1) 2^n$"
+    ],
+    "correctAnswer": "$n 2^{n-1}$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate (1 + x)^n with respect to x, then set x = 1.",
+    "hintAr": "اشتق الطرفين للمفكوك (١ + س)^ن بالنسبة لـ س، ثم ضع س = ١.",
+    "stepByStepSolutionEn": [
+      "1. Consider the identity $(1 + x)^n = \\sum_{r=0}^{n} \\binom{n}{r} x^r$.",
+      "2. Differentiate with respect to $x$: $n(1 + x)^{n-1} = \\sum_{r=1}^{n} r \\binom{n}{r} x^{r-1}$.",
+      "3. Set $x = 1$: $n(1 + 1)^{n-1} = \\sum_{r=1}^{n} r \\binom{n}{r} = n 2^{n-1}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتطابقة الأساسية: $(1 + x)^n = \\sum_{r=0}^{n} \\binom{n}{r} x^r$.",
+      "٢. بالاشتقاق بالنسبة لـ س: $n(1 + x)^{n-1} = \\sum_{r=1}^{n} r \\binom{n}{r} x^{r-1}$.",
+      "٣. بوضع س = ١: $n (2)^{n-1} = \\sum_{r=1}^{n} r \\binom{n}{r}$."
+    ],
+    "teacherTipEn": "Combinatorial interpretation: choosing a committee of r people with 1 leader.",
+    "teacherTipAr": "التفسير التوافقي: اختيار لجنة من ر شخصاً مع تحديد رئيس لها."
+  },
+  {
+    "id": "alg_ch1_db_med_57",
+    "titleEn": "Grid Paths Between Two Diagonal Points",
+    "titleAr": "عدد المسارات على شبكة مستطيلة",
+    "difficulty": "medium",
+    "questionEn": "How many shortest paths exist on a grid from $(0, 0)$ to $(5, 3)$ moving only right and up?",
+    "questionAr": "كم أقصر مسار يمكن سلوكه على شبكة من النقطة (٠، ٠) إلى (٥، ٣) بالتحرك يميناً ولأعلى فقط؟",
+    "optionsEn": [
+      "56",
+      "28",
+      "120",
+      "70"
+    ],
+    "optionsAr": [
+      "56",
+      "28",
+      "120",
+      "70"
+    ],
+    "correctAnswer": "56",
+    "correctIndex": 0,
+    "hintEn": "Total steps = 5 (Right) + 3 (Up) = 8 steps. Total paths = C(8, 3).",
+    "hintAr": "الخطوات الكلية = ٥ يمين + ٣ أعلى = ٨ خطوات. عدد المسارات = ق(٨، ٣).",
+    "stepByStepSolutionEn": [
+      "1. Any valid shortest path requires exactly 5 horizontal (R) and 3 vertical (U) steps, total 8 steps.",
+      "2. The number of paths is the number of ways to choose which 3 of the 8 steps are Up: $\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{6} = 56$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. أي مسار يتطلب ٥ خطوات أفقية (يمين) و ٣ خطوات رأسية (أعلى)، أي ٨ خطوات إجمالاً.",
+      "٢. عدد المسارات هو طرق اختيار ٣ خطوات رأسية من بين ٨ خطوات: $\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{6} = 56$ مساراً."
+    ],
+    "teacherTipEn": "Grid paths from (0,0) to (m, n) is always C(m+n, m).",
+    "teacherTipAr": "عدد المسارات من (٠، ٠) إلى (م، ن) يساوي دائماً ق(م + ن، م)."
+  },
+  {
+    "id": "alg_ch1_db_med_58",
+    "titleEn": "Ratio of Middle Terms to Equal Coefficients",
+    "titleAr": "تساوي معاملي حدين في مفكوك ذات الحدين",
+    "difficulty": "medium",
+    "questionEn": "In the expansion of $(2 + 3x)^{10}$, the coefficients of $x^4$ and $x^5$ are in what ratio?",
+    "questionAr": "في مفكوك $(2 + 3x)^{10}$، ما هي النسبة بين معامل $x^4$ ومعامل $x^5$؟",
+    "optionsEn": [
+      "$\\frac{5}{9}$",
+      "$\\frac{9}{5}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{2}$"
+    ],
+    "optionsAr": [
+      "$\\frac{5}{9}$",
+      "$\\frac{9}{5}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{3}{2}$"
+    ],
+    "correctAnswer": "$\\frac{5}{9}$",
+    "correctIndex": 0,
+    "hintEn": "Coefficient of x^r is C(10, r) * 2^(10-r) * 3^r.",
+    "hintAr": "معامل س^ر هو ق(١٠، ر) × ٢^(١٠ - ر) × ٣^ر.",
+    "stepByStepSolutionEn": [
+      "1. Coeff of $x^4$: $c_4 = \\binom{10}{4} 2^6 \\cdot 3^4 = 210 \\times 64 \\times 81$.",
+      "2. Coeff of $x^5$: $c_5 = \\binom{10}{5} 2^5 \\cdot 3^5 = 252 \\times 32 \\times 243$.",
+      "3. Ratio $\\frac{c_4}{c_5} = \\frac{\\binom{10}{4}}{\\binom{10}{5}} \\times \\frac{2}{3} = \\frac{5}{6} \\times \\frac{2}{3} = \\frac{10}{18} = \\frac{5}{9}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. معامل س^٤: $c_4 = \\binom{10}{4} (2)^6 (3)^4$.",
+      "٢. معامل س^٥: $c_5 = \\binom{10}{5} (2)^5 (3)^5$.",
+      "٣. النسبة: $\\frac{c_4}{c_5} = \\frac{\\binom{10}{4}}{\\binom{10}{5}} \\times \\frac{2}{3} = \\frac{5}{6} \\times \\frac{2}{3} = \\frac{5}{9}$."
+    ],
+    "teacherTipEn": "Use C(n, r-1)/C(n, r) = r / (n - r + 1) to simplify coefficient ratios instantly.",
+    "teacherTipAr": "استخدم النسبة بين التوافيق المتتالية للاختصار المباشر دون حساب الأرقام الكبيرة."
+  },
+  {
+    "id": "alg_ch1_db_med_59",
+    "titleEn": "Partitioning Distinct Objects into Subsets",
+    "titleAr": "تقسيم مجموعة عناصر متمايزة إلى مجموعات جزئية",
+    "difficulty": "medium",
+    "questionEn": "In how many ways can 9 distinct books be divided equally among 3 students?",
+    "questionAr": "بكم طريقة يمكن تقسيم ٩ كتب متمايزة بالتساوي بين ٣ طلاب؟",
+    "optionsEn": [
+      "1680",
+      "560",
+      "3360",
+      "840"
+    ],
+    "optionsAr": [
+      "1680",
+      "560",
+      "3360",
+      "840"
+    ],
+    "correctAnswer": "1680",
+    "correctIndex": 0,
+    "hintEn": "C(9, 3) * C(6, 3) * C(3, 3).",
+    "hintAr": "طرق اختيار الأول × طرق اختيار الثاني × طرق اختيار الثالث.",
+    "stepByStepSolutionEn": [
+      "1. Student 1 receives 3 books: $\\binom{9}{3} = 84$ ways.",
+      "2. Student 2 receives 3 from the remaining 6: $\\binom{6}{3} = 20$ ways.",
+      "3. Student 3 receives the remaining 3: $\\binom{3}{3} = 1$ way.",
+      "4. Total ways = $84 \\times 20 \\times 1 = 1680$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. يحصل الطالب الأول على ٣ كتب من ٩: $\\binom{9}{3} = 84$ طريقة.",
+      "٢. يحصل الطالب الثاني على ٣ من الـ ٦ المتبقية: $\\binom{6}{3} = 20$ طريقة.",
+      "٣. يحصل الثالث على الـ ٣ المتبقية: $\\binom{3}{3} = 1$ طريقة.",
+      "٤. إجمالي الطرق = ٨٤ × ٢٠ × ١ = ١٦٨٠ طريقة."
+    ],
+    "teacherTipEn": "Because the recipients are distinct persons, do NOT divide by 3!.",
+    "teacherTipAr": "بما أن الطلاب أشخاص متمايزون فلا نقسم على ٣! كما نفعل في حالة المجموعات غير المعنونة."
   }
 ],
   hots: [
@@ -5372,6 +5968,304 @@ export const algCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "A hallmark question combining number theory (divisibility) with the Binomial Theorem.",
     "teacherTipAr": "مسألة نموذجية راقية تجمع بين نظرية الأعداد ونظرية ذات الحدين."
+  },
+  {
+    "id": "alg_ch1_db_hots_51",
+    "titleEn": "Multinomial Coefficient of Specific Power",
+    "titleAr": "معامل حد معين في مفكوك ثلاثي الحدود",
+    "difficulty": "hots",
+    "questionEn": "Find the coefficient of $x^3$ in the expansion of $(1 + x - x^2)^6$.",
+    "questionAr": "أوجد معامل $x^3$ في مفكوك $(1 + x - x^2)^6$.",
+    "optionsEn": [
+      "$-10$",
+      "10",
+      "$-30$",
+      "20"
+    ],
+    "optionsAr": [
+      "$-10$",
+      "10",
+      "$-30$",
+      "20"
+    ],
+    "correctAnswer": "$-10$",
+    "correctIndex": 0,
+    "hintEn": "Decompose powers: b + 2c = 3 with a + b + c = 6.",
+    "hintAr": "حل معادلة الأسس: ب + ٢جـ = ٣ مع أ + ب + جـ = ٦.",
+    "stepByStepSolutionEn": [
+      "1. General term: $\\frac{6!}{a! b! c!} (1)^a (x)^b (-x^2)^c = \\frac{6!}{a! b! c!} (-1)^c x^{b + 2c}$ where $a + b + c = 6$.",
+      "2. For power of $x$ to be 3, non-negative integer solutions to $b + 2c = 3$:",
+      "   - Case 1: $c = 0 \\implies b = 3 \\implies a = 3$. Coefficient = $\\frac{6!}{3! 3! 0!} (-1)^0 = 20$.",
+      "   - Case 2: $c = 1 \\implies b = 1 \\implies a = 4$. Coefficient = $\\frac{6!}{4! 1! 1!} (-1)^1 = -30$.",
+      "3. Summing all valid cases: $20 + (-30) = -10$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الحد العام: $\\frac{6!}{a! b! c!} (1)^a (x)^b (-x^2)^c = \\frac{6!}{a! b! c!} (-1)^c x^{b + 2c}$ مع أ + ب + جـ = ٦.",
+      "٢. لجعل أس س مساوياً لـ ٣، ندرس حلول ب + ٢جـ = ٣ في الأعداد الطبيعية:",
+      "   - الحالة الأولى: جـ = ٠، ب = ٣، أ = ٣: $\\frac{6!}{3! 3!} = 20$.",
+      "   - الحالة الثانية: جـ = ١، ب = ١، أ = ٤: $\\frac{6!}{4! 1! 1!} (-1) = -30$.",
+      "٣. إجمالي المعامل = ٢٠ + (-٣٠) = -١٠."
+    ],
+    "teacherTipEn": "Always test all possible partitions of the target exponent.",
+    "teacherTipAr": "تحقق دائماً من جميع احتمالات تفكيك الأس المطلوب."
+  },
+  {
+    "id": "alg_ch1_db_hots_52",
+    "titleEn": "Greatest Numerical Term in Binomial Expansion",
+    "titleAr": "الحد الأعظم قيمة عددية في مفكوك ذات الحدين",
+    "difficulty": "hots",
+    "questionEn": "Find the greatest numerical term in the expansion of $(2x - 3y)^{10}$ when $x = 3$ and $y = 2$.",
+    "questionAr": "أوجد الحد الأعظم قيمة عددية في مفكوك $(2x - 3y)^{10}$ عندما $x = 3$ و $y = 2$.",
+    "optionsEn": [
+      "$T_6$",
+      "$T_5$",
+      "$T_7$",
+      "$T_4$"
+    ],
+    "optionsAr": [
+      "$T_6$",
+      "$T_5$",
+      "$T_7$",
+      "$T_4$"
+    ],
+    "correctAnswer": "$T_6$",
+    "correctIndex": 0,
+    "hintEn": "At x=3, y=2: 2x = 6 and 3y = 6, so ratio is (11 - r) / r.",
+    "hintAr": "بالتعويض: ٢س = ٦ و ٣ص = ٦، فتصبح النسبة (١١ - ر) / ر.",
+    "stepByStepSolutionEn": [
+      "1. Calculate the values of the two terms: $|2x| = 2(3) = 6$, $|-3y| = 3(2) = 6$.",
+      "2. The ratio of consecutive terms in magnitude: $\\left|\\frac{T_{r+1}}{T_r}\\right| = \\frac{10 - r + 1}{r} \\times \\frac{6}{6} = \\frac{11 - r}{r}$.",
+      "3. Set $\\frac{11 - r}{r} \\ge 1 \\implies 11 - r \\ge r \\implies 2r \\le 11 \\implies r \\le 5.5$.",
+      "4. The integer value is $r = 5$, giving $T_{5+1} = T_6$ as the greatest numerical term."
+    ],
+    "stepByStepSolutionAr": [
+      "١. حساب قيمتي حدي المفكوك: |٢س| = ٦ و |-٣ص| = ٦.",
+      "٢. النسبة بين حدين متتاليين كقيمة مطلقة: $|T_{r+1}/T_r| = \\frac{10 - r + 1}{r} \\times \\frac{6}{6} = \\frac{11 - r}{r}$.",
+      "٣. بحل المتباينة: (١١ - ر)/ر ≥ ١ ومنها ٢ر ≤ ١١ أي ر ≤ ٥٫٥.",
+      "٤. أكبر قيمة صحيحة هي ر = ٥، فيكون الحد الأعظم هو الحد السادس $T_6$."
+    ],
+    "teacherTipEn": "When the boundary is not an integer, the ceiling integer yields the unique maximum term.",
+    "teacherTipAr": "عندما لا يكون الناتج عدداً صحيحاً، يعطي العدد الصحيح التالي مباشرة حداً أعظم وحيداً."
+  },
+  {
+    "id": "alg_ch1_db_hots_53",
+    "titleEn": "Alternating Sum of Squared Binomial Coefficients",
+    "titleAr": "المجموع المتناوب لمربعات معاملات ذات الحدين",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the sum: $\\sum_{r=0}^{6} (-1)^r \\binom{6}{r}^2$.",
+    "questionAr": "احسب قيمة المجموع: $\\sum_{r=0}^{6} (-1)^r \\binom{6}{r}^2$.",
+    "optionsEn": [
+      "$-20$",
+      "20",
+      "0",
+      "64"
+    ],
+    "optionsAr": [
+      "$-20$",
+      "20",
+      "0",
+      "64"
+    ],
+    "correctAnswer": "$-20$",
+    "correctIndex": 0,
+    "hintEn": "Recall the identity sum (-1)^r C(2n, r)^2 = (-1)^n C(2n, n).",
+    "hintAr": "تذكر المتطابقة: المجموع المتناوب لمربعات التوافيق لأس زوجي ٢ن يساوي (-١)^ن × ق(٢ن، ن).",
+    "stepByStepSolutionEn": [
+      "1. For an even degree $2n = 6$ ($n = 3$), the alternating sum of squares of binomial coefficients equals $(-1)^n \\binom{2n}{n}$.",
+      "2. Here $n = 3$: $(-1)^3 \\binom{6}{3} = -1 \\times 20 = -20$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. للأسس الزوجية ٢ن = ٦ (أي ن = ٣)، المتطابقة الشهيرة تنص على أن المجموع يساوي $(-1)^n \\binom{2n}{n}$.",
+      "٢. بالتعويض: $(-1)^3 \\binom{6}{3} = -1 \\times 20 = -20$."
+    ],
+    "teacherTipEn": "This identity arises from the constant term in (1 - x^2)^n * (1 + 1/x)^n.",
+    "teacherTipAr": "تنتج هذه المتطابقة من إيجاد الحد الثابت في حاصل ضرب المفكوكين المترافقين."
+  },
+  {
+    "id": "alg_ch1_db_hots_54",
+    "titleEn": "Sum of Even-Indexed Binomial Coefficients",
+    "titleAr": "مجموع المعاملات ذات الرتب الزوجية في ذات الحدين",
+    "difficulty": "hots",
+    "questionEn": "If the sum of all even-indexed coefficients $\\binom{n}{0} + \\binom{n}{2} + \\binom{n}{4} + \\dots$ in $(1+x)^n$ equals $512$, find $\\binom{n}{3}$.",
+    "questionAr": "إذا كان مجموع المعاملات ذات الرتب الزوجية $\\binom{n}{0} + \\binom{n}{2} + \\binom{n}{4} + \\dots$ في مفكوك $(1+x)^n$ يساوي $512$، فأوجد $\\binom{n}{3}$.",
+    "optionsEn": [
+      "120",
+      "210",
+      "45",
+      "90"
+    ],
+    "optionsAr": [
+      "120",
+      "210",
+      "45",
+      "90"
+    ],
+    "correctAnswer": "120",
+    "correctIndex": 0,
+    "hintEn": "The sum of even-indexed coefficients is 2^(n-1).",
+    "hintAr": "مجموع المعاملات الزوجية يساوي نصف المجموع الكلي: ٢^(ن - ١).",
+    "stepByStepSolutionEn": [
+      "1. The sum of even-indexed binomial coefficients is $\\sum_{k} \\binom{n}{2k} = 2^{n-1}$.",
+      "2. We are given $2^{n-1} = 512 = 2^9 \\implies n - 1 = 9 \\implies n = 10$.",
+      "3. Then $\\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{6} = 120$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مجموع المعاملات ذات الرتب الزوجية يساوي دائماً $2^{n-1}$.",
+      "٢. بما أن $2^{n-1} = 512 = 2^9$ إذن ن - ١ = ٩ ومنها ن = ١٠.",
+      "٣. إذن $\\binom{10}{3} = \\frac{10 \\times 9 \\times 8}{6} = 120$."
+    ],
+    "teacherTipEn": "Sum of odd-indexed coefficients is also equal to 2^(n-1).",
+    "teacherTipAr": "مجموع المعاملات الفردية يساوي أيضاً مجموع المعاملات الزوجية ويساوي ٢^(ن - ١)."
+  },
+  {
+    "id": "alg_ch1_db_hots_55",
+    "titleEn": "Number of Rational Terms in Binomial Expansion",
+    "titleAr": "عدد الحدود النسبية (الخالية من الجذور) في مفكوك",
+    "difficulty": "hots",
+    "questionEn": "Find the number of rational terms in the expansion of $(\\sqrt{2} + \\sqrt[3]{3})^{60}$.",
+    "questionAr": "أوجد عدد الحدود النسبية (الخالية من الجذور) في مفكوك $(\\sqrt{2} + \\sqrt[3]{3})^{60}$.",
+    "optionsEn": [
+      "11 terms",
+      "10 terms",
+      "31 terms",
+      "21 terms"
+    ],
+    "optionsAr": [
+      "11 حداً",
+      "10 حدود",
+      "31 حداً",
+      "21 حداً"
+    ],
+    "correctAnswer": "11 terms",
+    "correctIndex": 0,
+    "hintEn": "Power of 2 is (60 - r)/2 and power of 3 is r/3, so r must be a multiple of lcm(2, 3) = 6.",
+    "hintAr": "أس ٢ هو (٦٠ - ر)/٢ وأس ٣ هو ر/٣، إذن ر مضاعف للعدد ٦.",
+    "stepByStepSolutionEn": [
+      "1. General term: $T_{r+1} = \\binom{60}{r} (2^{1/2})^{60-r} (3^{1/3})^r = \\binom{60}{r} 2^{\\frac{60-r}{2}} 3^{\\frac{r}{3}}$.",
+      "2. For the term to be rational, $\\frac{r}{3} \\in \\mathbb{Z}$ (so $r$ is a multiple of 3) and $\\frac{60-r}{2} \\in \\mathbb{Z}$ (so $r$ is even).",
+      "3. Therefore, $r$ must be a multiple of $\\operatorname{lcm}(2, 3) = 6$.",
+      "4. The possible values of $r$ are $0, 6, 12, 18, \\dots, 60$.",
+      "5. Number of terms = $\\frac{60 - 0}{6} + 1 = 11$ terms."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الحد العام: $T_{r+1} = \\binom{60}{r} 2^{\\frac{60-r}{2}} 3^{\\frac{r}{3}}$.",
+      "٢. لكي يكون الحد نسبياً، يجب أن يقبل ر القسمة على ٣، و (٦٠ - ر) يقبل القسمة على ٢ (أي ر زوجي).",
+      "٣. إذن ر من مضاعفات المضاعف المشترك الأصغر للعددين ٢ و ٣ وهو ٦.",
+      "٤. قيم ر الممكنة: ٠، ٦، ١٢، ١٨، ...، ٦٠.",
+      "٥. عدد الحدود = (٦٠ / ٦) + ١ = ١١ حداً."
+    ],
+    "teacherTipEn": "Do not forget r = 0, which corresponds to the first term T1.",
+    "teacherTipAr": "لا تنسَ أبداً حساب ر = ٠ التي تمثل الحد الأول في المفكوك."
+  },
+  {
+    "id": "alg_ch1_db_hots_56",
+    "titleEn": "Consecutive Combinations Ratio System",
+    "titleAr": "نظام النسب بين ثلاثة حدود توافيق متتالية",
+    "difficulty": "hots",
+    "questionEn": "If $\\binom{n}{r-1} : \\binom{n}{r} : \\binom{n}{r+1} = 1 : 2 : 3$, find the value of $n$.",
+    "questionAr": "إذا كان $\\binom{n}{r-1} : \\binom{n}{r} : \\binom{n}{r+1} = 1 : 2 : 3$، فأوجد قيمة $n$.",
+    "optionsEn": [
+      "14",
+      "12",
+      "16",
+      "10"
+    ],
+    "optionsAr": [
+      "14",
+      "12",
+      "16",
+      "10"
+    ],
+    "correctAnswer": "14",
+    "correctIndex": 0,
+    "hintEn": "Set up two ratio equations: C(n, r)/C(n, r-1) = 2 and C(n, r+1)/C(n, r) = 3/2.",
+    "hintAr": "اكتب معادلتين باستخدام قانون النسبة بين التوافيق المتتالية.",
+    "stepByStepSolutionEn": [
+      "1. First ratio: $\\frac{\\binom{n}{r}}{\\binom{n}{r-1}} = \\frac{n - r + 1}{r} = 2 \\implies n - r + 1 = 2r \\implies n - 3r = -1$.",
+      "2. Second ratio: $\\frac{\\binom{n}{r+1}}{\\binom{n}{r}} = \\frac{n - r}{r + 1} = \\frac{3}{2} \\implies 2n - 2r = 3r + 3 \\implies 2n - 5r = 3$.",
+      "3. From first equation, $n = 3r - 1$. Substitute into second: $2(3r - 1) - 5r = 3 \\implies 6r - 2 - 5r = 3 \\implies r = 5$.",
+      "4. Then $n = 3(5) - 1 = 14$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. النسبة الأولى: $\\frac{n - r + 1}{r} = 2 \\implies n - 3r = -1$.",
+      "٢. النسبة الثانية: $\\frac{n - r}{r + 1} = \\frac{3}{2} \\implies 2n - 5r = 3$.",
+      "٣. بالتعويض عن ن = ٣ر - ١ في المعادلة الثانية: ٢(٣ر - ١) - ٥ر = ٣ ومنها ر = ٥.",
+      "٤. إذن ن = ٣(٥) - ١ = ١٤."
+    ],
+    "teacherTipEn": "This is a recurring hallmark Thanaweya exam question. Master the ratio formula manipulation.",
+    "teacherTipAr": "مسألة كلاسيكية في امتحانات الثانوية العامة، اتقن توظيف قانون النسبة بدقة."
+  },
+  {
+    "id": "alg_ch1_db_hots_57",
+    "titleEn": "Positive Integer Solutions via Stars and Bars",
+    "titleAr": "عدد الحلول الصحيحة الموجبة (طريقة الفواصل)",
+    "difficulty": "hots",
+    "questionEn": "Find the number of strictly positive integer solutions $(x_1, x_2, x_3, x_4)$ to the equation $x_1 + x_2 + x_3 + x_4 = 12$.",
+    "questionAr": "أوجد عدد الحلول الصحيحة الموجبة تماماً $(x_1, x_2, x_3, x_4)$ للمعادلة $x_1 + x_2 + x_3 + x_4 = 12$.",
+    "optionsEn": [
+      "165",
+      "455",
+      "220",
+      "120"
+    ],
+    "optionsAr": [
+      "165",
+      "455",
+      "220",
+      "120"
+    ],
+    "correctAnswer": "165",
+    "correctIndex": 0,
+    "hintEn": "For strictly positive integers x_i >= 1, the formula is C(n - 1, k - 1).",
+    "hintAr": "للحلول الصحيحة الموجبة تماماً (س_ك ≥ ١) القانون هو ق(ن - ١، ك - ١).",
+    "stepByStepSolutionEn": [
+      "1. For positive integers $x_i \\ge 1$, distributing 1 to each of the $k = 4$ variables leaves $12 - 4 = 8$ remaining units.",
+      "2. The number of ways is $\\binom{n - 1}{k - 1} = \\binom{12 - 1}{4 - 1} = \\binom{11}{3}$.",
+      "3. Calculate $\\binom{11}{3} = \\frac{11 \\times 10 \\times 9}{6} = 165$ solutions."
+    ],
+    "stepByStepSolutionAr": [
+      "١. للأعداد الصحيحة الموجبة تماماً، نضمن ١ لكل متغير يتبقى ٨ وحدات.",
+      "٢. القانون المباشر: $\\binom{n - 1}{k - 1} = \\binom{11}{3}$.",
+      "٣. حساب $\\binom{11}{3} = \\frac{11 \\times 10 \\times 9}{6} = 165$ حلاً."
+    ],
+    "teacherTipEn": "If non-negative integers (x_i >= 0) were allowed, the formula would be C(n + k - 1, k - 1) = C(15, 3) = 455.",
+    "teacherTipAr": "لو كانت الحلول غير سالبة (س ≥ ٠) لكان القانون ق(ن + ك - ١، ك - ١) = ٤٥٥."
+  },
+  {
+    "id": "alg_ch1_db_hots_58",
+    "titleEn": "Vandermonde Sum of Squared Combinations",
+    "titleAr": "متطابقة فاندرموند لمجموع مربعات التوافيق",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the sum: $\\sum_{r=0}^{5} \\binom{5}{r}^2$.",
+    "questionAr": "احسب قيمة المجموع: $\\sum_{r=0}^{5} \\binom{5}{r}^2$.",
+    "optionsEn": [
+      "252",
+      "126",
+      "512",
+      "1024"
+    ],
+    "optionsAr": [
+      "252",
+      "126",
+      "512",
+      "1024"
+    ],
+    "correctAnswer": "252",
+    "correctIndex": 0,
+    "hintEn": "By Vandermonde identity: sum C(n, r)^2 = C(2n, n).",
+    "hintAr": "من متطابقة فاندرموند: مجموع مربعات التوافيق يساوي ق(٢ن، ن).",
+    "stepByStepSolutionEn": [
+      "1. By Vandermonde's combinatorial identity, the sum of squares of binomial coefficients for power $n$ is $\\sum_{r=0}^{n} \\binom{n}{r}^2 = \\binom{2n}{n}$.",
+      "2. Here $n = 5$, so the sum is $\\binom{10}{5}$.",
+      "3. Calculate $\\binom{10}{5} = \\frac{10 \\times 9 \\times 8 \\times 7 \\times 6}{120} = 252$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تنص متطابقة فاندرموند على أن مجموع مربعات معاملات ذات الحدين يساوي $\\binom{2n}{n}$.",
+      "٢. بالتعويض عن ن = ٥: $\\binom{10}{5}$.",
+      "٣. حساب $\\binom{10}{5} = \\frac{10 \\times 9 \\times 8 \\times 7 \\times 6}{120} = 252$."
+    ],
+    "teacherTipEn": "This represents equating the coefficient of x^n in (1+x)^n * (x+1)^n = (1+x)^(2n).",
+    "teacherTipAr": "يمثل هذا معامل س^ن في مفكوك حاصل ضرب (١ + س)^ن × (س + ١)^ن = (١ + س)^(٢ن)."
   }
 ]
 };

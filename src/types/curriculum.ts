@@ -78,7 +78,10 @@ export type DiagramType =
   | 'cotangent_curvature_graph'
   | 'plane_intercepts_3d'
   | 'coplanar_vectors_3d'
-  | 'line_plane_angle_3d';
+  | 'line_plane_angle_3d'
+  | 'cartesian_plane'
+  | 'triangle'
+  | 'circle';
 
 export interface SolvedProblem {
   id: string;
@@ -111,7 +114,7 @@ export interface Worksheet {
 }
 
 export interface InteractiveWidgetConfig {
-  type: '3d_vectors' | 'pascal_binomial' | 'calculus_tangent' | 'statics_friction' | 'complex_argand' | 'normal_distribution' | 'dynamics_motion';
+  type: '3d_vectors' | 'pascal_binomial' | 'calculus_tangent' | 'statics_friction' | 'complex_argand' | 'normal_distribution' | 'dynamics_motion' | 'matrix_solver' | 'work_energy';
   titleEn: string;
   titleAr: string;
   descriptionEn: string;

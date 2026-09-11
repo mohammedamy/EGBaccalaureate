@@ -1754,6 +1754,282 @@ export const algCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Any constant multiple of $(1 + \\omega + \\omega^2)$ is 0.",
     "teacherTipAr": "أي مضاعف للمقدار $(١ + \\omega + \\omega^٢)$ يساوي صفراً."
+  },
+  {
+    "id": "alg_ch2_db_easy_51",
+    "titleEn": "Modulus of Complex Number with Pythagorean Triplet",
+    "titleAr": "مقياس العدد المركب وثلاثية فيثاغورس",
+    "difficulty": "easy",
+    "questionEn": "Find the modulus $|z|$ of the complex number $z = 5 - 12i$.",
+    "questionAr": "أوجد مقياس $|z|$ للعدد المركب $z = 5 - 12i$.",
+    "optionsEn": [
+      "13",
+      "17",
+      "7",
+      "169"
+    ],
+    "optionsAr": [
+      "13",
+      "17",
+      "7",
+      "169"
+    ],
+    "correctAnswer": "13",
+    "correctIndex": 0,
+    "hintEn": "|z| = sqrt(x^2 + y^2).",
+    "hintAr": "المقياس = الجذر التربيعي لمجموع مربعي الجزء الحقيقي والتخيلي.",
+    "stepByStepSolutionEn": [
+      "1. For $z = x + iy$, the modulus is $|z| = \\sqrt{x^2 + y^2}$.",
+      "2. Here $x = 5, y = -12$: $|z| = \\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مقياس العدد المركب ع = س + ت ص هو |ع| = $\\sqrt{x^2 + y^2}$.",
+      "٢. بالتعويض: $|z| = \\sqrt{5^2 + (-12)^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$."
+    ],
+    "teacherTipEn": "Notice the standard 5-12-13 Pythagorean right triangle triplet.",
+    "teacherTipAr": "لاحظ ثلاثية فيثاغورس الشهيرة (٥، ١٢، ١٣) لحساب فوري."
+  },
+  {
+    "id": "alg_ch2_db_easy_52",
+    "titleEn": "Principal Argument in Third Quadrant",
+    "titleAr": "السعة الأساسية في الربع الثالث",
+    "difficulty": "easy",
+    "questionEn": "Find the principal argument $\\theta$ of the complex number $z = -1 - i$.",
+    "questionAr": "أوجد السعة الأساسية $\\theta$ للعدد المركب $z = -1 - i$.",
+    "optionsEn": [
+      "$-\\frac{3\\pi}{4}$",
+      "$\\frac{3\\pi}{4}$",
+      "$\\frac{5\\pi}{4}$",
+      "$-\\frac{\\pi}{4}$"
+    ],
+    "optionsAr": [
+      "$-\\frac{3\\pi}{4}$",
+      "$\\frac{3\\pi}{4}$",
+      "$\\frac{5\\pi}{4}$",
+      "$-\\frac{\\pi}{4}$"
+    ],
+    "correctAnswer": "$-\\frac{3\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "The point (-1, -1) lies in the third quadrant: theta = -pi + alpha.",
+    "hintAr": "النقطة (-١، -١) تقع في الربع الثالث، والسعة الأساسية تنتمي للمجال (-ط، ط].",
+    "stepByStepSolutionEn": [
+      "1. The reference angle is $\\alpha = \\tan^{-1}|-1 / -1| = \\frac{\\pi}{4}$.",
+      "2. Since both real and imaginary parts are negative, $z$ lies in quadrant 3.",
+      "3. Principal argument $\\theta \\in (-\\pi, \\pi]$ is $\\theta = -\\pi + \\frac{\\pi}{4} = -\\frac{3\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. زاوية الإسناد: $\\alpha = \\tan^{-1}(1) = \\frac{\\pi}{4}$.",
+      "٢. بما أن الجزأين الحقيقي والتخيلي سالبان، فالعدد يقع في الربع الثالث.",
+      "٣. السعة الأساسية في المجال $(-\\pi, \\pi]$ هي $\\theta = -\\pi + \\frac{\\pi}{4} = -\\frac{3\\pi}{4}$."
+    ],
+    "teacherTipEn": "Principal argument MUST strictly lie in the interval (-pi, pi]. Never use 5pi/4 for principal argument.",
+    "teacherTipAr": "السعة الأساسية يجب أن تقع حصراً في الفترة (-ط، ط]. لا تستخدم ٥ط/٤."
+  },
+  {
+    "id": "alg_ch2_db_easy_53",
+    "titleEn": "High Power of Imaginary Unit i",
+    "titleAr": "قوى الوحدة التخيلية ت المرتفعة",
+    "difficulty": "easy",
+    "questionEn": "Simplify the power: $i^{105}$.",
+    "questionAr": "احسب قيمة المقدار: $i^{105}$.",
+    "optionsEn": [
+      "$i$",
+      "$-i$",
+      "$1$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "$i$",
+      "$-i$",
+      "$1$",
+      "$-1$"
+    ],
+    "correctAnswer": "$i$",
+    "correctIndex": 0,
+    "hintEn": "Divide the exponent 105 by 4 and determine the remainder.",
+    "hintAr": "اقسم الأس ١٠٥ على ٤ وحدد باقي القسمة.",
+    "stepByStepSolutionEn": [
+      "1. Divide 105 by 4: $105 = 4 \\times 26 + 1$, so remainder is 1.",
+      "2. $i^{105} = (i^4)^{26} \\times i^1 = 1^{26} \\times i = i$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بقسمة الأس ١٠٥ على ٤: ١٠٥ = ٤ × ٢٦ + ١ (الباقي ١).",
+      "٢. $i^{105} = (i^4)^{26} \\times i^1 = 1 \\times i = i$."
+    ],
+    "teacherTipEn": "The powers of i repeat with period 4: remainders 0, 1, 2, 3 give 1, i, -1, -i.",
+    "teacherTipAr": "قوى ت دورية بمدى ٤: البواقي ٠، ١، ٢، ٣ تقابل ١، ت، -١، -ت."
+  },
+  {
+    "id": "alg_ch2_db_easy_54",
+    "titleEn": "Product of Conjugate Complex Numbers",
+    "titleAr": "حاصل ضرب عددين مركبين مترافقين",
+    "difficulty": "easy",
+    "questionEn": "Find the product: $(3 + 4i)(3 - 4i)$.",
+    "questionAr": "احسب حاصل الضرب: $(3 + 4i)(3 - 4i)$.",
+    "optionsEn": [
+      "25",
+      "$-7$",
+      "$7$",
+      "$25i$"
+    ],
+    "optionsAr": [
+      "25",
+      "$-7$",
+      "$7$",
+      "$25i$"
+    ],
+    "correctAnswer": "25",
+    "correctIndex": 0,
+    "hintEn": "z * bar(z) = a^2 + b^2, always a non-negative real number.",
+    "hintAr": "حاصل ضرب العدد في مرافقه = س^٢ + ص^٢ (عدد حقيقي موجب دائماً).",
+    "stepByStepSolutionEn": [
+      "1. For any complex number $z = a + bi$, $z \\bar{z} = a^2 + b^2$.",
+      "2. Here $a = 3, b = 4$: $3^2 + 4^2 = 9 + 16 = 25$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. لأي عدد مركب ع = أ + ب ت، ع × ع مرافق = أ^٢ + ب^٢.",
+      "٢. بالتعويض: ۳^۲ + ٤^۲ = ٩ + ١٦ = ٢٥."
+    ],
+    "teacherTipEn": "The product of conjugates is always real and equals |z|^2.",
+    "teacherTipAr": "حاصل ضرب المترافقين هو عدد حقيقي دائماً ويساوي مربع المقياس |ع|^٢."
+  },
+  {
+    "id": "alg_ch2_db_easy_55",
+    "titleEn": "Basic Cube Roots of Unity Relation",
+    "titleAr": "علاقة الجذور التكعيبية للواحد الصحيح (أوميجا)",
+    "difficulty": "easy",
+    "questionEn": "Simplify the expression: $(1 + \\omega)^4$.",
+    "questionAr": "بسّط المقدار: $(1 + \\omega)^4$.",
+    "optionsEn": [
+      "$\\omega^2$",
+      "$\\omega$",
+      "$1$",
+      "$-\\omega^2$"
+    ],
+    "optionsAr": [
+      "$\\omega^2$",
+      "$\\omega$",
+      "$1$",
+      "$-\\omega^2$"
+    ],
+    "correctAnswer": "$\\omega^2$",
+    "correctIndex": 0,
+    "hintEn": "Recall that 1 + omega + omega^2 = 0 => 1 + omega = -omega^2.",
+    "hintAr": "تذكر أن ١ + أوميجا = -أوميجا^٢.",
+    "stepByStepSolutionEn": [
+      "1. From $1 + \\omega + \\omega^2 = 0$, we have $1 + \\omega = -\\omega^2$.",
+      "2. Therefore $(1 + \\omega)^4 = (-\\omega^2)^4 = (-\\omega^2)^4 = \\omega^8 = \\omega^6 \\cdot \\omega^2 = \\omega^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. من المتطابقة الأساسية ١ + أوميجا + أوميجا^٢ = ٠، ينتج ١ + أوميجا = -أوميجا^٢.",
+      "٢. بالتعويض: $(-\\omega^2)^4 = \\omega^8 = \\omega^2$."
+    ],
+    "teacherTipEn": "Any two terms of {1, omega, omega^2} sum to the negative of the third.",
+    "teacherTipAr": "مجموع أي حدين من {١، أوميجا، أوميجا^٢} يساوي سالب الحد الثالث دائماً."
+  },
+  {
+    "id": "alg_ch2_db_easy_56",
+    "titleEn": "Exponential Form of Purely Imaginary Number",
+    "titleAr": "الصورة الأسية لعدد تخيلي بحت",
+    "difficulty": "easy",
+    "questionEn": "Express $z = -2i$ in Euler's exponential form $r e^{i\\theta}$.",
+    "questionAr": "اكتب العدد $z = -2i$ بالصورة الأسية (صورة أويلر) $r e^{i\\theta}$.",
+    "optionsEn": [
+      "$2 e^{-i\\pi/2}$",
+      "$2 e^{i\\pi/2}$",
+      "$-2 e^{i\\pi/2}$",
+      "$2 e^{i\\pi}$"
+    ],
+    "optionsAr": [
+      "$2 e^{-i\\pi/2}$",
+      "$2 e^{i\\pi/2}$",
+      "$-2 e^{i\\pi/2}$",
+      "$2 e^{i\\pi}$"
+    ],
+    "correctAnswer": "$2 e^{-i\\pi/2}$",
+    "correctIndex": 0,
+    "hintEn": "|z| = 2 and argument of -i is -pi/2.",
+    "hintAr": "المقياس = ٢ وسعة -ت هي -ط / ٢.",
+    "stepByStepSolutionEn": [
+      "1. Modulus: $r = |-2i| = 2$.",
+      "2. The point $(0, -2)$ lies on the negative imaginary axis, so $\\theta = -\\frac{\\pi}{2}$.",
+      "3. Exponential form: $z = r e^{i\\theta} = 2 e^{-i\\pi/2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المقياس: ل = |-٢ت| = ٢.",
+      "٢. النقطة تقع على محور الصادات السالب، إذن السعة الأساسية $\\theta = -\\frac{\\pi}{2}$.",
+      "٣. الصورة الأسية: $2 e^{-i\\pi/2}$."
+    ],
+    "teacherTipEn": "r must ALWAYS be positive in exponential form; never keep a negative sign in front.",
+    "teacherTipAr": "المقياس (ل) يجب أن يكون موجباً دائماً؛ لا تضع إشارة سالبة أمام المقياس."
+  },
+  {
+    "id": "alg_ch2_db_easy_57",
+    "titleEn": "Distance Between Two Points on Argand Plane",
+    "titleAr": "المسافة بين نقطتين في شكل أرجاند",
+    "difficulty": "easy",
+    "questionEn": "Find the distance between the two complex numbers $z_1 = 3 + 2i$ and $z_2 = -1 + 5i$ on the Argand plane.",
+    "questionAr": "أوجد البعد بين العددين المركبين $z_1 = 3 + 2i$ و $z_2 = -1 + 5i$ في شكل أرجاند.",
+    "optionsEn": [
+      "5",
+      "25",
+      "$\\sqrt{13}$",
+      "7"
+    ],
+    "optionsAr": [
+      "5",
+      "25",
+      "$\\sqrt{13}$",
+      "7"
+    ],
+    "correctAnswer": "5",
+    "correctIndex": 0,
+    "hintEn": "Distance is |z1 - z2|.",
+    "hintAr": "البعد بين عددين مركبين يساوي مقياس الفرق بينهما |ع١ - ع٢|.",
+    "stepByStepSolutionEn": [
+      "1. Distance $d = |z_1 - z_2| = |(3 - (-1)) + (2 - 5)i| = |4 - 3i|$.",
+      "2. $|4 - 3i| = \\sqrt{4^2 + (-3)^2} = \\sqrt{16 + 9} = 5$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المسافة = |ع١ - ع٢| = |(٣ - (-١)) + (٢ - ٥)ت| = |٤ - ٣ت|.",
+      "٢. حساب المقياس: $\\sqrt{4^2 + (-3)^2} = \\sqrt{25} = 5$."
+    ],
+    "teacherTipEn": "Argand plane geometry directly translates complex subtraction into Euclidean distance.",
+    "teacherTipAr": "طرح الأعداد المركبة يمثل هندسياً المسافة الإقليدية المستقيمة بين النقطتين."
+  },
+  {
+    "id": "alg_ch2_db_easy_58",
+    "titleEn": "Reciprocal of Complex Number",
+    "titleAr": "المعكوس الضربي للعدد المركب",
+    "difficulty": "easy",
+    "questionEn": "Find the multiplicative inverse of $z = 1 + i$.",
+    "questionAr": "أوجد المعكوس الضربي للعدد المركب $z = 1 + i$.",
+    "optionsEn": [
+      "$\\frac{1}{2} - \\frac{1}{2}i$",
+      "$\\frac{1}{2} + \\frac{1}{2}i$",
+      "$1 - i$",
+      "$-1 - i$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{2} - \\frac{1}{2}i$",
+      "$\\frac{1}{2} + \\frac{1}{2}i$",
+      "$1 - i$",
+      "$-1 - i$"
+    ],
+    "correctAnswer": "$\\frac{1}{2} - \\frac{1}{2}i$",
+    "correctIndex": 0,
+    "hintEn": "Multiply numerator and denominator by the conjugate 1 - i.",
+    "hintAr": "اضرب بسطاً ومقاماً في مرافق المقام (١ - ت).",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{1}{z} = \\frac{1}{1+i} = \\frac{1-i}{(1+i)(1-i)}$.",
+      "2. Denominator is $1^2 + 1^2 = 2$, so $\\frac{1}{z} = \\frac{1}{2} - \\frac{1}{2}i$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المعكوس الضربي: $\\frac{1}{1+i} \\times \\frac{1-i}{1-i}$.",
+      "٢. المقام = ١ + ١ = ٢، فيكون الناتج $\\frac{1}{2} - \\frac{1}{2}i$."
+    ],
+    "teacherTipEn": "Formula: 1/z = bar(z) / |z|^2.",
+    "teacherTipAr": "القانون العام: المعكوس الضربي = المرافق / مربع المقياس."
   }
 ],
   medium: [
@@ -3568,6 +3844,338 @@ export const algCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Minimum modulus is $|z_0| - R = 5 - 2 = 3$, and maximum modulus is $|z_0| + R = 5 + 2 = 7$.",
     "teacherTipAr": "أقل مقياس هو $٥ - ٢ = ٣$، وأكبر مقياس هو $٥ + ٢ = ٧$."
+  },
+  {
+    "id": "alg_ch2_db_med_51",
+    "titleEn": "Simplifying Ratio with Omega Permuted Coefficients",
+    "titleAr": "تبسيط كسر بمعاملات أوميجا الدائرية",
+    "difficulty": "medium",
+    "questionEn": "Simplify the fraction: $\\frac{3\\omega^2 + 5\\omega + 2}{3\\omega + 5 + 2\\omega^2}$.",
+    "questionAr": "بسّط المقدار: $\\frac{3\\omega^2 + 5\\omega + 2}{3\\omega + 5 + 2\\omega^2}$.",
+    "optionsEn": [
+      "$\\omega$",
+      "$\\omega^2$",
+      "1",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "$\\omega$",
+      "$\\omega^2$",
+      "1",
+      "$-1$"
+    ],
+    "correctAnswer": "$\\omega$",
+    "correctIndex": 0,
+    "hintEn": "Notice that the numerator is omega times the denominator (using 2 = 2 omega^3).",
+    "hintAr": "لاحظ أن وضع ٢ = ٢ أوميجا^٣ في البسط يسمح بأخذ أوميجا عاملاً مشتركاً.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite the constant 2 in the numerator as $2\\omega^3$:",
+      "   $$3\\omega^2 + 5\\omega + 2\\omega^3 = \\omega(3\\omega + 5 + 2\\omega^2)$$",
+      "2. The expression in parentheses is precisely the denominator.",
+      "3. Canceling the common factor leaves $\\omega$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نكتب الحد الثابت ٢ في البسط على صورة ٢ أوميجا^٣:",
+      "   $$3\\omega^2 + 5\\omega + 2\\omega^3 = \\omega(3\\omega + 5 + 2\\omega^2)$$",
+      "٢. القوس الناتج يطابق المقام تماماً.",
+      "٣. باختصار القوسين يتبقى $\\omega$."
+    ],
+    "teacherTipEn": "Multiply any standalone constant by omega^3 to factor out omega or omega^2.",
+    "teacherTipAr": "ضرب أي حد مطلق في أوميجا^٣ يتيح أخذ عامل مشترك وتبسيط الكسر فوراً."
+  },
+  {
+    "id": "alg_ch2_db_med_52",
+    "titleEn": "De Moivre Theorem with Negative Integer Exponent",
+    "titleAr": "نظرية ديموافر بأسس صحيحة سالبة",
+    "difficulty": "medium",
+    "questionEn": "Evaluate: $\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)^{-4}$.",
+    "questionAr": "احسب قيمة: $\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)^{-4}$.",
+    "optionsEn": [
+      "$-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+      "$-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$",
+      "$\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+      "$\\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$"
+    ],
+    "optionsAr": [
+      "$-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+      "$-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$",
+      "$\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+      "$\\frac{\\sqrt{3}}{2} - \\frac{1}{2}i$"
+    ],
+    "correctAnswer": "$-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$",
+    "correctIndex": 0,
+    "hintEn": "Apply De Moivre: [cos theta + i sin theta]^(-4) = cos(-4 theta) + i sin(-4 theta).",
+    "hintAr": "طبق ديموافر: اضرب الزاوية في الأس السالب مباشرة.",
+    "stepByStepSolutionEn": [
+      "1. By De Moivre's theorem: angle becomes $-4 \\times \\frac{\\pi}{6} = -\\frac{2\\pi}{3}$.",
+      "2. $\\cos(-\\frac{2\\pi}{3}) = -\\frac{1}{2}$, and $\\sin(-\\frac{2\\pi}{3}) = -\\frac{\\sqrt{3}}{2}$.",
+      "3. The result is $-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بنظرية ديموافر: الزاوية الجديدة = -٤ × (ط / ٦) = -٢ط / ٣.",
+      "٢. جتا(-٢ط / ٣) = -١ / ٢، وجا(-٢ط / ٣) = -جذر(٣) / ٢.",
+      "٣. الناتج هو $-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$."
+    ],
+    "teacherTipEn": "Remember cos(-theta) = cos(theta) while sin(-theta) = -sin(theta).",
+    "teacherTipAr": "تذكر أن جيب التمام يمتص الإشارة السالبة بينما الجيب يطردها."
+  },
+  {
+    "id": "alg_ch2_db_med_53",
+    "titleEn": "Circle Locus Equation in Argand Plane",
+    "titleAr": "معادلة المحل الهندسي للدائرة في شكل أرجاند",
+    "difficulty": "medium",
+    "questionEn": "Identify the geometric locus of points $z$ in the complex plane satisfying $|z - 2 + 3i| = 5$.",
+    "questionAr": "حدد المحل الهندسي للنقاط $z$ في المستوى المركب التي تحقق $|z - 2 + 3i| = 5$.",
+    "optionsEn": [
+      "Circle with center $(2, -3)$ and radius $5$",
+      "Circle with center $(-2, 3)$ and radius $5$",
+      "Circle with center $(2, 3)$ and radius $25$",
+      "Straight line passing through $(2, -3)$"
+    ],
+    "optionsAr": [
+      "دائرة مركزها (٢، -٣) ونصف قطرها ٥",
+      "دائرة مركزها (-٢، ٣) ونصف قطرها ٥",
+      "دائرة مركزها (٢، ٣) ونصف قطرها ٢٥",
+      "مستقيم يمر بالنقطة (٢، -٣)"
+    ],
+    "correctAnswer": "Circle with center $(2, -3)$ and radius $5$",
+    "correctIndex": 0,
+    "hintEn": "Write as |z - z0| = r where z0 is the center.",
+    "hintAr": "اكتب المعادلة على صورة |ع - ع٠| = نق، حيث ع٠ هو المركز.",
+    "stepByStepSolutionEn": [
+      "1. Factor out the negative sign: $|z - (2 - 3i)| = 5$.",
+      "2. This represents the set of all points $z$ whose distance from $z_0 = 2 - 3i$ is constant and equals 5.",
+      "3. Therefore, it is a circle with center $(2, -3)$ and radius $r = 5$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نأخذ إشارة سالبة عاملاً مشتركاً: $|z - (2 - 3i)| = 5$.",
+      "٢. تعبر هذه المعادلة عن بعد النقطة ع عن النقطة الثابتة ع٠ = ٢ - ٣ت بقيمة ثابتة تساوي ٥.",
+      "٣. إذن المحل الهندسي هو دائرة مركزها (٢، -٣) ونصف قطرها ٥ وحدات."
+    ],
+    "teacherTipEn": "Take care with signs when identifying z0: |z - (x0 + i y0)| = r.",
+    "teacherTipAr": "انتبه للإشارات عند تحديد إحداثيات المركز: |ع - (س٠ + ت ص٠)| = نق."
+  },
+  {
+    "id": "alg_ch2_db_med_54",
+    "titleEn": "Argument of Quotient of Two Complex Numbers",
+    "titleAr": "سعة خارج قسمة عددين مركبين",
+    "difficulty": "medium",
+    "questionEn": "If $\\operatorname{Arg}(z_1) = \\frac{2\\pi}{3}$ and $\\operatorname{Arg}(z_2) = \\frac{\\pi}{4}$, find the principal argument of $\\frac{z_1}{z_2}$.",
+    "questionAr": "إذا كانت السعة الأساسية للعدد $z_1$ هي $\\frac{2\\pi}{3}$ وللعدد $z_2$ هي $\\frac{\\pi}{4}$، فأوجد السعة الأساسية للعدد $\\frac{z_1}{z_2}$.",
+    "optionsEn": [
+      "$\\frac{5\\pi}{12}$",
+      "$\\frac{11\\pi}{12}$",
+      "$-\\frac{5\\pi}{12}$",
+      "$\\frac{\\pi}{12}$"
+    ],
+    "optionsAr": [
+      "$\\frac{5\\pi}{12}$",
+      "$\\frac{11\\pi}{12}$",
+      "$-\\frac{5\\pi}{12}$",
+      "$\\frac{\\pi}{12}$"
+    ],
+    "correctAnswer": "$\\frac{5\\pi}{12}$",
+    "correctIndex": 0,
+    "hintEn": "Arg(z1 / z2) = Arg(z1) - Arg(z2).",
+    "hintAr": "سعة خارج القسمة = سعة البسط ناقص سعة المقام.",
+    "stepByStepSolutionEn": [
+      "1. By the argument properties of complex numbers: $\\operatorname{Arg}\\left(\\frac{z_1}{z_2}\\right) = \\operatorname{Arg}(z_1) - \\operatorname{Arg}(z_2)$.",
+      "2. $\\frac{2\\pi}{3} - \\frac{\\pi}{4} = \\frac{8\\pi - 3\\pi}{12} = \\frac{5\\pi}{12}$.",
+      "3. Since $\\frac{5\\pi}{12} \\in (-\\pi, \\pi]$, it is already the principal argument."
+    ],
+    "stepByStepSolutionAr": [
+      "١. من خواص السعة: سعة خارج القسمة = سعة البسط - سعة المقام.",
+      "٢. $\\frac{2\\pi}{3} - \\frac{\\pi}{4} = \\frac{8\\pi - 3\\pi}{12} = \\frac{5\\pi}{12}$.",
+      "٣. القيمة تقع داخل الفترة (-ط، ط] فهي السعة الأساسية المطلوبة."
+    ],
+    "teacherTipEn": "If the difference exceeds pi or is less than -pi, add or subtract 2pi.",
+    "teacherTipAr": "إذا خرج الناتج عن نطاق (-ط، ط] أضف أو اطرح ٢ط لإعادته للسعة الأساسية."
+  },
+  {
+    "id": "alg_ch2_db_med_55",
+    "titleEn": "Square Roots of Purely Imaginary 2i",
+    "titleAr": "الجذران التربيعيان للعدد التخيلي ٢ت",
+    "difficulty": "medium",
+    "questionEn": "Find the two square roots of $z = 2i$.",
+    "questionAr": "أوجد الجذرين التربيعيين للعدد المركب $z = 2i$.",
+    "optionsEn": [
+      "$\\pm(1 + i)$",
+      "$\\pm(1 - i)$",
+      "$\\pm(\\sqrt{2} + \\sqrt{2}i)$",
+      "$\\pm(2 + 2i)$"
+    ],
+    "optionsAr": [
+      "$\\pm(1 + i)$",
+      "$\\pm(1 - i)$",
+      "$\\pm(\\sqrt{2} + \\sqrt{2}i)$",
+      "$\\pm(2 + 2i)$"
+    ],
+    "correctAnswer": "$\\pm(1 + i)$",
+    "correctIndex": 0,
+    "hintEn": "(1 + i)^2 = 1 + 2i - 1 = 2i.",
+    "hintAr": "مربع المقدار (١ + ت) يساوي ٢ت مباشرة.",
+    "stepByStepSolutionEn": [
+      "1. In trigonometric form: $2i = 2(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2})$.",
+      "2. By De Moivre roots formula: $\\sqrt{2i} = \\sqrt{2}\\left(\\cos\\frac{\\pi/2 + 2k\\pi}{2} + i\\sin\\frac{\\pi/2 + 2k\\pi}{2}\\right)$ for $k = 0, 1$.",
+      "3. For $k = 0$: $\\sqrt{2}(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}) = \\sqrt{2}(\\frac{1}{\\sqrt{2}} + \\frac{1}{\\sqrt{2}}i) = 1 + i$.",
+      "4. For $k = 1$: $-(1 + i)$. Hence $\\pm(1 + i)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالصورة المثلثية: ٢ت = ٢(جتا ط/٢ + ت جا ط/٢).",
+      "٢. بتطبيق نتيجة ديموافر: نقسم الزاوية على ٢ ونأخذ جذر المقياس.",
+      "٣. الجذر الأول: جذر(٢)(جتا ط/٤ + ت جا ط/٤) = ١ + ت.",
+      "٤. الجذر الثاني: -(١ + ت)، فيكون الحلان $\\pm(1 + i)$."
+    ],
+    "teacherTipEn": "Always check algebraic squaring: (1+i)^2 = 1 + 2i - 1 = 2i.",
+    "teacherTipAr": "تحقق بالتربيع المباشر: (١ + ت)^٢ = ١ + ٢ت - ١ = ٢ت."
+  },
+  {
+    "id": "alg_ch2_db_med_56",
+    "titleEn": "Quadratic Equation with Complex Roots in Exponential Form",
+    "titleAr": "حل معادلة تربيعية مركبة بالصورة الأسية",
+    "difficulty": "medium",
+    "questionEn": "Find the roots of $z^2 - 2z + 4 = 0$ in exponential form.",
+    "questionAr": "أوجد جذري المعادلة $z^2 - 2z + 4 = 0$ بالصورة الأسية.",
+    "optionsEn": [
+      "$2 e^{\\pm i\\pi/3}$",
+      "$2 e^{\\pm i\\pi/6}$",
+      "$4 e^{\\pm i\\pi/3}$",
+      "$e^{\\pm i\\pi/3}$"
+    ],
+    "optionsAr": [
+      "$2 e^{\\pm i\\pi/3}$",
+      "$2 e^{\\pm i\\pi/6}$",
+      "$4 e^{\\pm i\\pi/3}$",
+      "$e^{\\pm i\\pi/3}$"
+    ],
+    "correctAnswer": "$2 e^{\\pm i\\pi/3}$",
+    "correctIndex": 0,
+    "hintEn": "Complete the square: (z - 1)^2 = -3 => z = 1 +- i*sqrt(3).",
+    "hintAr": "بإكمال المربع: (ع - ١)^٢ = -٣ ومنها ع = ١ ± ت جذر(٣).",
+    "stepByStepSolutionEn": [
+      "1. By quadratic formula: $z = \\frac{2 \\pm \\sqrt{4 - 16}}{2} = \\frac{2 \\pm \\sqrt{-12}}{2} = 1 \\pm i\\sqrt{3}$.",
+      "2. Modulus: $r = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = 2$.",
+      "3. Argument: $\\theta = \\pm\\tan^{-1}(\\sqrt{3}) = \\pm\\frac{\\pi}{3}$.",
+      "4. Exponential form: $z = 2 e^{\\pm i\\pi/3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالقانون العام: ع = [٢ ± جذر(٤ - ١٦)] / ٢ = ١ ± ت جذر(٣).",
+      "٢. المقياس: ل = جذر(١ + ٣) = ٢.",
+      "٣. السعة: $\\theta = \\pm\\tan^{-1}(\\sqrt{3}) = \\pm\\frac{\\pi}{3}$.",
+      "٤. الصورة الأسية: $2 e^{\\pm i\\pi/3}$."
+    ],
+    "teacherTipEn": "Complex conjugate roots always have identical modulus and opposite arguments.",
+    "teacherTipAr": "الجذران المترافقان يمتلكان نفس المقياس وسعتين متعاكستين في الإشارة."
+  },
+  {
+    "id": "alg_ch2_db_med_57",
+    "titleEn": "Linear Combination of Cube Roots of Unity",
+    "titleAr": "تبسيط مقدار خطي في قوى أوميجا",
+    "difficulty": "medium",
+    "questionEn": "Evaluate: $(2 + 3\\omega + 3\\omega^2)^5$.",
+    "questionAr": "احسب قيمة المقدار: $(2 + 3\\omega + 3\\omega^2)^5$.",
+    "optionsEn": [
+      "$-1$",
+      "1",
+      "32",
+      "$-32$"
+    ],
+    "optionsAr": [
+      "$-1$",
+      "1",
+      "32",
+      "$-32$"
+    ],
+    "correctAnswer": "$-1$",
+    "correctIndex": 0,
+    "hintEn": "Factor out 3 from 3omega + 3omega^2 = 3(omega + omega^2) = -3.",
+    "hintAr": "خذ ٣ عاملاً مشتركاً: ٣(أوميجا + أوميجا^٢) = ٣(-١) = -٣.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite the expression: $2 + 3(\\omega + \\omega^2)$.",
+      "2. Since $\\omega + \\omega^2 = -1$, this becomes $2 + 3(-1) = 2 - 3 = -1$.",
+      "3. $(-1)^5 = -1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نأخذ ٣ عاملاً مشتركاً: ٢ + ٣(أوميجا + أوميجا^٢).",
+      "٢. بما أن أوميجا + أوميجا^٢ = -١، فإن المقدار = ٢ + ٣(-١) = -١.",
+      "٣. (-١)^٥ = -١."
+    ],
+    "teacherTipEn": "Always isolate matching coefficients of omega and omega^2 to replace with -1.",
+    "teacherTipAr": "ابحث عن المعاملات المتساوية لأوميجا وأوميجا^٢ لاستبدالها فوراً بالقيمة -١."
+  },
+  {
+    "id": "alg_ch2_db_med_58",
+    "titleEn": "Triple Angle Identity from De Moivre",
+    "titleAr": "استنتاج قانون ضعف الزاوية الثلاثي من ديموافر",
+    "difficulty": "medium",
+    "questionEn": "Using De Moivre's theorem, express $\\cos(3\\theta)$ entirely in terms of $\\cos\\theta$.",
+    "questionAr": "باستخدام نظرية ديموافر، عبّر عن $\\cos(3\\theta)$ بدلالة $\\cos\\theta$ فقط.",
+    "optionsEn": [
+      "$4\\cos^3\\theta - 3\\cos\\theta$",
+      "$3\\cos^3\\theta - 4\\cos\\theta$",
+      "$4\\cos^3\\theta + 3\\cos\\theta$",
+      "$\\cos^3\\theta - 3\\cos\\theta$"
+    ],
+    "optionsAr": [
+      "$4\\cos^3\\theta - 3\\cos\\theta$",
+      "$3\\cos^3\\theta - 4\\cos\\theta$",
+      "$4\\cos^3\\theta + 3\\cos\\theta$",
+      "$\\cos^3\\theta - 3\\cos\\theta$"
+    ],
+    "correctAnswer": "$4\\cos^3\\theta - 3\\cos\\theta$",
+    "correctIndex": 0,
+    "hintEn": "Expand (cos theta + i sin theta)^3 and equate real parts.",
+    "hintAr": "فُك (جتا هـ + ت جا هـ)^٣ وساوِ الأجزاء الحقيقية.",
+    "stepByStepSolutionEn": [
+      "1. $(\\cos\\theta + i\\sin\\theta)^3 = \\cos^3\\theta + 3i\\cos^2\\theta\\sin\\theta - 3\\cos\\theta\\sin^2\\theta - i\\sin^3\\theta$.",
+      "2. The real part equals $\\cos(3\\theta) = \\cos^3\\theta - 3\\cos\\theta\\sin^2\\theta$.",
+      "3. Substitute $\\sin^2\\theta = 1 - \\cos^2\\theta$:",
+      "   $$\\cos(3\\theta) = \\cos^3\\theta - 3\\cos\\theta(1 - \\cos^2\\theta) = \\cos^3\\theta - 3\\cos\\theta + 3\\cos^3\\theta = 4\\cos^3\\theta - 3\\cos\\theta$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. بفك المقدار ذات الحدين: $(\\cos\\theta + i\\sin\\theta)^3 = \\cos^3\\theta - 3\\cos\\theta\\sin^2\\theta + i(\\dots)$.",
+      "٢. الجزء الحقيقي يطابق $\\cos(3\\theta)$:",
+      "   $$\\cos(3\\theta) = \\cos^3\\theta - 3\\cos\\theta(1 - \\cos^2\\theta)$$",
+      "٣. بالتبسيط: $4\\cos^3\\theta - 3\\cos\\theta$."
+    ],
+    "teacherTipEn": "Equating imaginary parts gives the dual identity: sin(3theta) = 3sin(theta) - 4sin^3(theta).",
+    "teacherTipAr": "بمساواة الأجزاء التخيلية تحصل على المتطابقة المقابلة: جا(٣هـ) = ٣جا(هـ) - ٤جا^٣(هـ)."
+  },
+  {
+    "id": "alg_ch2_db_med_59",
+    "titleEn": "Product (1 - omega)(1 - omega^2)",
+    "titleAr": "حاصل ضرب العوامل الأولية للواحد وأوميجا",
+    "difficulty": "medium",
+    "questionEn": "Calculate the value of $(1 - \\omega)(1 - \\omega^2)$.",
+    "questionAr": "احسب قيمة المقدار: $(1 - \\omega)(1 - \\omega^2)$.",
+    "optionsEn": [
+      "3",
+      "1",
+      "$\\sqrt{3}i$",
+      "$-3$"
+    ],
+    "optionsAr": [
+      "3",
+      "1",
+      "$\\sqrt{3}i$",
+      "$-3$"
+    ],
+    "correctAnswer": "3",
+    "correctIndex": 0,
+    "hintEn": "Expand the product and use omega + omega^2 = -1 and omega^3 = 1.",
+    "hintAr": "فُك القوسين واستخدم أوميجا + أوميجا^٢ = -١ و أوميجا^٣ = ١.",
+    "stepByStepSolutionEn": [
+      "1. Expand: $(1 - \\omega)(1 - \\omega^2) = 1 - \\omega^2 - \\omega + \\omega^3$.",
+      "2. Substitute $-(\\omega + \\omega^2) = -(-1) = 1$ and $\\omega^3 = 1$.",
+      "3. Total = $1 + 1 + 1 = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بفك القوسين: ۱ - أوميجا^٢ - أوميجا + أوميجا^٣.",
+      "٢. تجميع الحدود: ۱ - (أوميجا + أوميجا^٢) + أوميجا^٣ = ۱ - (-١) + ١.",
+      "٣. الناتج = ۱ + ۱ + ۱ = ٣."
+    ],
+    "teacherTipEn": "This product represents the squared modulus |1 - omega|^2 = 3.",
+    "teacherTipAr": "يمثل هذا الناتج هندسياً مربع طول الضلع في المثلث المتساوي الأضلاع لجذور الوحدة."
   }
 ],
   hots: [
@@ -5460,6 +6068,307 @@ export const algCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "A grand finale synthesis problem tying the whole chapter together!",
     "teacherTipAr": "مسألة ختامية جامعة تلخص مهارات التبسيط الجبري في الفصل."
+  },
+  {
+    "id": "alg_ch2_db_hots_51",
+    "titleEn": "Sum of Cubes Factorization via Roots of Unity",
+    "titleAr": "تحليل مجموع المكعبين بدلالة الجذور التكعيبية للواحد",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the product $(4 + 3)(4 + 3\\omega)(4 + 3\\omega^2)$.",
+    "questionAr": "احسب قيمة حاصل الضرب: $(4 + 3)(4 + 3\\omega)(4 + 3\\omega^2)$.",
+    "optionsEn": [
+      "91",
+      "64",
+      "27",
+      "125"
+    ],
+    "optionsAr": [
+      "91",
+      "64",
+      "27",
+      "125"
+    ],
+    "correctAnswer": "91",
+    "correctIndex": 0,
+    "hintEn": "Identity: (x + y)(x + omega y)(x + omega^2 y) = x^3 + y^3.",
+    "hintAr": "المتطابقة الجبرية الشهيرة: (س + ص)(س + أوميجا ص)(س + أوميجا^٢ ص) = س^٣ + ص^٣.",
+    "stepByStepSolutionEn": [
+      "1. By the algebraic identity for sum of cubes using cube roots of unity:",
+      "   $$(x + y)(x + \\omega y)(x + \\omega^2 y) = x^3 + y^3$$",
+      "2. Here $x = 4, y = 3$:",
+      "   $$4^3 + 3^3 = 64 + 27 = 91$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. المتطابقة الجبرية لتحليل مجموع المكعبين باستخدام أوميجا تنص على:",
+      "   $$(x + y)(x + \\omega y)(x + \\omega^2 y) = x^3 + y^3$$",
+      "٢. بالتعويض عن س = ٤، ص = ٣:",
+      "   $$4^3 + 3^3 = 64 + 27 = 91$$"
+    ],
+    "teacherTipEn": "Remember also the difference of cubes identity: (x - y)(x - omega y)(x - omega^2 y) = x^3 - y^3.",
+    "teacherTipAr": "تذكر أيضاً متطابقة فرق المكعبين: (س - ص)(س - أوميجا ص)(س - أوميجا^٢ ص) = س^٣ - ص^٣."
+  },
+  {
+    "id": "alg_ch2_db_hots_52",
+    "titleEn": "Purely Imaginary Roots of Equation",
+    "titleAr": "الجذور الواقعة على محور الصادات لمعادلة مترافقة",
+    "difficulty": "hots",
+    "questionEn": "Prove the geometric locus of all solutions to $\\left(\\frac{z+1}{z-1}\\right)^6 = 1$. The non-zero roots lie on which set?",
+    "questionAr": "أين تقع جميع الجذور غير الصفرية للمعادلة $\\left(\\frac{z+1}{z-1}\\right)^6 = 1$ في شكل أرجاند؟",
+    "optionsEn": [
+      "The imaginary axis (Re(z) = 0)",
+      "The real axis (Im(z) = 0)",
+      "The unit circle |z| = 1",
+      "The line y = x"
+    ],
+    "optionsAr": [
+      "محور الصادات (التخيلي: الجزء الحقيقي = ٠)",
+      "محور السينات (الحقيقي: الجزء التخيلي = ٠)",
+      "دائرة الوحدة |ع| = ١",
+      "المستقيم ص = س"
+    ],
+    "correctAnswer": "The imaginary axis (Re(z) = 0)",
+    "correctIndex": 0,
+    "hintEn": "Taking modulus of both sides: |z + 1| = |z - 1|.",
+    "hintAr": "بأخذ المقياس للطرفين: |ع + ١| = |ع - ١| (المسافة من ١ تساوي المسافة من -١).",
+    "stepByStepSolutionEn": [
+      "1. Taking the modulus of both sides: $\\left|\\frac{z+1}{z-1}\\right|^6 = 1 \\implies |z + 1| = |z - 1|$.",
+      "2. This equation means the distance from $z$ to $-1$ equals the distance from $z$ to $+1$.",
+      "3. The locus of points equidistant from $(-1, 0)$ and $(1, 0)$ is the perpendicular bisector of the segment connecting them, which is the imaginary axis $x = 0$ (i.e. $\\operatorname{Re}(z) = 0$)."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بأخذ المقياس للطرفين: $|z + 1|^6 = |z - 1|^6 \\implies |z + 1| = |z - 1|$.",
+      "٢. تعني هذه المعادلة أن بعد النقطة ع عن النقطة (-١، ٠) يساوي بعدها عن النقطة (١، ٠).",
+      "٣. المحل الهندسي للنقاط المتساوية البعد عن هاتين النقطتين هو المنصف العمودي للقطعة الواصلة بينهما، وهو محور الصادات (س = ٠ أي الجزء الحقيقي = ٠)."
+    ],
+    "teacherTipEn": "Any equation of the form |z - a| = |z - b| represents the perpendicular bisector of segment ab.",
+    "teacherTipAr": "المعادلة |ع - أ| = |ع - ب| تمثل هندسياً محور التماثل العمودي للقطعة المستقيمة أ ب."
+  },
+  {
+    "id": "alg_ch2_db_hots_53",
+    "titleEn": "High Power Symmetric Omega Expression",
+    "titleAr": "قوى عليا لمقدار متماثل في أوميجا",
+    "difficulty": "hots",
+    "questionEn": "Evaluate: $(1 + \\omega - \\omega^2)^6 + (1 - \\omega + \\omega^2)^6$.",
+    "questionAr": "احسب قيمة المقدار: $(1 + \\omega - \\omega^2)^6 + (1 - \\omega + \\omega^2)^6$.",
+    "optionsEn": [
+      "128",
+      "64",
+      "256",
+      "0"
+    ],
+    "optionsAr": [
+      "128",
+      "64",
+      "256",
+      "0"
+    ],
+    "correctAnswer": "128",
+    "correctIndex": 0,
+    "hintEn": "Substitute 1 + omega = -omega^2 and 1 + omega^2 = -omega.",
+    "hintAr": "عوض عن ١ + أوميجا = -أوميجا^٢ وعن ١ + أوميجا^٢ = -أوميجا.",
+    "stepByStepSolutionEn": [
+      "1. First term: $1 + \\omega - \\omega^2 = -\\omega^2 - \\omega^2 = -2\\omega^2$.",
+      "   $$(-2\\omega^2)^6 = (-2)^6 (\\omega^2)^6 = 64 \\omega^{12} = 64(1) = 64$$",
+      "2. Second term: $1 - \\omega + \\omega^2 = -\\omega - \\omega = -2\\omega$.",
+      "   $$(-2\\omega)^6 = (-2)^6 \\omega^6 = 64(1) = 64$$",
+      "3. Sum: $64 + 64 = 128$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الحد الأول: ١ + أوميجا - أوميجا^٢ = -أوميجا^٢ - أوميجا^٢ = -٢أوميجا^٢.",
+      "   $$(-2\\omega^2)^6 = 64 \\omega^{12} = 64(1) = 64$$",
+      "٢. الحد الثاني: ١ - أوميجا + أوميجا^٢ = -أوميجا - أوميجا = -٢أوميجا.",
+      "   $$(-2\\omega)^6 = 64 \\omega^6 = 64(1) = 64$$",
+      "٣. المجموع: ٦٤ + ٦٤ = ١٢٨."
+    ],
+    "teacherTipEn": "Notice how the even power 6 eliminates both negative signs and omega fractional powers.",
+    "teacherTipAr": "لاحظ كيف أن الأس الزوجي ٦ ألغى الإشارات السالبة وجعل قوى أوميجا مضاعفات للعدد ٣."
+  },
+  {
+    "id": "alg_ch2_db_hots_54",
+    "titleEn": "Equilateral Triangle Criterion in Argand Plane",
+    "titleAr": "شرط المثلث المتساوي الأضلاع في شكل أرجاند",
+    "difficulty": "hots",
+    "questionEn": "Three complex numbers $z_1, z_2, z_3$ form an equilateral triangle in the Argand plane if and only if which identity holds?",
+    "questionAr": "تكون الأعداد المركبة $z_1, z_2, z_3$ رؤوس مثلث متساوي الأضلاع في شكل أرجاند إذا وفقط إذا تحققت المتطابقة:",
+    "optionsEn": [
+      "$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$",
+      "$z_1 + z_2 + z_3 = 0$",
+      "$z_1^3 + z_2^3 + z_3^3 = 3 z_1 z_2 z_3$",
+      "$z_1^2 + z_2^2 + z_3^2 = 0$"
+    ],
+    "optionsAr": [
+      "$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$",
+      "$z_1 + z_2 + z_3 = 0$",
+      "$z_1^3 + z_2^3 + z_3^3 = 3 z_1 z_2 z_3$",
+      "$z_1^2 + z_2^2 + z_3^2 = 0$"
+    ],
+    "correctAnswer": "$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$",
+    "correctIndex": 0,
+    "hintEn": "Consider rotation by 60 degrees: (z3 - z1) = e^(i pi/3) (z2 - z1).",
+    "hintAr": "ينتج من دوران الضلع بزاوية ٦٠ درجة (ط / ٣): (ع٣ - ع١) = هـ^(ت ط/٣) (ع٢ - ع١).",
+    "stepByStepSolutionEn": [
+      "1. In an equilateral triangle, vertex $z_3$ is obtained by rotating $(z_2 - z_1)$ by $60^\\circ = \\frac{\\pi}{3}$ radians:",
+      "   $$\\frac{z_3 - z_1}{z_2 - z_1} = e^{\\pm i\\pi/3} = \\frac{1 \\pm i\\sqrt{3}}{2} = -\\omega^2 \\text{ or } -\\omega$$",
+      "2. Rearranging and using $1 + \\omega + \\omega^2 = 0$ yields the symmetric condition:",
+      "   $$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$$"
+    ],
+    "stepByStepSolutionAr": [
+      "١. في المثلث المتساوي الأضلاع ينتج الرأس الثالث بدوران الضلع بزاوية ٦٠ درجة حول الرأس الأول.",
+      "٢. بالتربيع والتبسيط باستخدام خواص جذور الوحدة المركبة:",
+      "   $$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 + z_2 z_3 + z_3 z_1$$"
+    ],
+    "teacherTipEn": "This fundamental theorem connects complex algebraic quadratic forms with Euclidean equilateral geometry.",
+    "teacherTipAr": "تربط هذه النظرية الرائعة بين الصورة التربيعية الجبرية وهندسة المثلثات المنتظمة."
+  },
+  {
+    "id": "alg_ch2_db_hots_55",
+    "titleEn": "Maximum Modulus with Triangle Inequality",
+    "titleAr": "القيمة العظمى للمقياس باستخدام متباينة المثلث",
+    "difficulty": "hots",
+    "questionEn": "If $|z - \\frac{4}{z}| = 2$, find the maximum possible value of $|z|$.",
+    "questionAr": "إذا كان $|z - \\frac{4}{z}| = 2$، فأوجد أكبر قيمة ممكنة للمقياس $|z|$.",
+    "optionsEn": [
+      "$1 + \\sqrt{5}$",
+      "$\\sqrt{5}$",
+      "$2 + \\sqrt{5}$",
+      "4"
+    ],
+    "optionsAr": [
+      "$1 + \\sqrt{5}$",
+      "$\\sqrt{5}$",
+      "$2 + \\sqrt{5}$",
+      "4"
+    ],
+    "correctAnswer": "$1 + \\sqrt{5}$",
+    "correctIndex": 0,
+    "hintEn": "By triangle inequality: |z| = |(z - 4/z) + 4/z| <= |z - 4/z| + 4/|z|.",
+    "hintAr": "طبق متباينة المثلث: |ع| ≤ |ع - ٤/ع| + ٤/|ع| وحل المتباينة التربيعية.",
+    "stepByStepSolutionEn": [
+      "1. Let $R = |z|$. By the reverse triangle inequality:",
+      "   $$R = \\left|\\left(z - \\frac{4}{z}\\right) + \\frac{4}{z}\\right| \\le \\left|z - \\frac{4}{z}\\right| + \\frac{4}{|z|} = 2 + \\frac{4}{R}$$",
+      "2. Multiply by $R > 0$: $R^2 \\le 2R + 4 \\implies R^2 - 2R - 4 \\le 0$.",
+      "3. Solving the quadratic equation $R^2 - 2R - 4 = 0$ gives $R = \\frac{2 \\pm \\sqrt{4 + 16}}{2} = 1 \\pm \\sqrt{5}$.",
+      "4. Since $R > 0$, the maximum value is $R_{\\max} = 1 + \\sqrt{5}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بفرض ر = |ع|، من متباينة المثلث:",
+      "   $$R \\le 2 + \\frac{4}{R}$$",
+      "٢. بالضرب في ر > ٠: ر^٢ - ٢ر - ٤ ≤ ٠.",
+      "٣. بحل المعادلة المرافقة بالقانون العام: ر = ١ ± جذر(٥).",
+      "٤. بما أن المقياس موجب، فإن القيمة العظمى هي $1 + \\sqrt{5}$."
+    ],
+    "teacherTipEn": "The minimum value of |z| is -1 + sqrt(5).",
+    "teacherTipAr": "القيمة الصغرى لمقياس ع هي -١ + جذر(٥)."
+  },
+  {
+    "id": "alg_ch2_db_hots_56",
+    "titleEn": "Sum of Non-Trivial Powers of Roots of Unity",
+    "titleAr": "مجموع قوى جذور الوحدة النونية",
+    "difficulty": "hots",
+    "questionEn": "Let $z_0, z_1, z_2, z_3, z_4$ be the 5 fifth roots of unity ($z^5 = 1$). Evaluate the sum: $\\sum_{k=0}^{4} z_k^3$.",
+    "questionAr": "لتكن $z_0, z_1, z_2, z_3, z_4$ هي الجذور الخماسية للواحد الصحيح ($z^5 = 1$). احسب قيمة المجموع: $\\sum_{k=0}^{4} z_k^3$.",
+    "optionsEn": [
+      "0",
+      "1",
+      "5",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "5",
+      "$-1$"
+    ],
+    "correctAnswer": "0",
+    "correctIndex": 0,
+    "hintEn": "The sum of the m-th powers of the n-th roots of unity is 0 whenever m is not a multiple of n.",
+    "hintAr": "مجموع القوى م لجذور الوحدة النونية يساوي صفراً دائماً إذا لم تكن م مضاعفاً لـ ن.",
+    "stepByStepSolutionEn": [
+      "1. The fifth roots of unity are given by $z_k = e^{i 2k\\pi / 5}$ for $k = 0, 1, 2, 3, 4$.",
+      "2. Raising to the third power: $z_k^3 = (e^{i 2k\\pi / 5})^3 = (e^{i 6\\pi / 5})^k = w^k$, where $w = e^{i 6\\pi / 5} \\neq 1$.",
+      "3. This is a finite geometric series with common ratio $w$: $\\sum_{k=0}^{4} w^k = \\frac{1 - w^5}{1 - w}$.",
+      "4. Since $w^5 = (e^{i 6\\pi / 5})^5 = e^{i 6\\pi} = 1$, the numerator is $1 - 1 = 0$. Hence the sum is 0."
+    ],
+    "stepByStepSolutionAr": [
+      "١. جذور الوحدة الخماسية هي $z_k = e^{i 2k\\pi / 5}$ لقيم ك = ٠، ١، ٢، ٣، ٤.",
+      "٢. برفع كل جذر للأس ٣ نحصل على متتابعة هندسية أساسها $w = e^{i 6\\pi / 5} \\neq 1$.",
+      "٣. مجموع المتتابعة الهندسية: $\\frac{1 - w^5}{1 - w}$.",
+      "٤. بما أن $w^5 = 1$، فإن البسط يساوي صفراً، ويكون المجموع الإجمالي = ٠."
+    ],
+    "teacherTipEn": "The sum of m-th powers is n if n divides m, and 0 otherwise.",
+    "teacherTipAr": "مجموع القوى م يساوي ن إذا كانت م تقبل القسمة على ن، ويساوي صفراً في غير ذلك."
+  },
+  {
+    "id": "alg_ch2_db_hots_57",
+    "titleEn": "Counterclockwise Rotation by 90 Degrees in Argand Plane",
+    "titleAr": "الدوران بزاوية ٩٠ درجة في شكل أرجاند",
+    "difficulty": "hots",
+    "questionEn": "The complex number $z = 3 + 4i$ is rotated counterclockwise by $90^\\circ$ about the origin. Find the resulting complex number.",
+    "questionAr": "تم تدوير العدد المركب $z = 3 + 4i$ بزاوية قياسها $90^\\circ$ عكس عقارب الساعة حول نقطة الأصل. ما هو العدد المركب الناتج؟",
+    "optionsEn": [
+      "$-4 + 3i$",
+      "$4 - 3i$",
+      "$-3 - 4i$",
+      "$-4 - 3i$"
+    ],
+    "optionsAr": [
+      "$-4 + 3i$",
+      "$4 - 3i$",
+      "$-3 - 4i$",
+      "$-4 - 3i$"
+    ],
+    "correctAnswer": "$-4 + 3i$",
+    "correctIndex": 0,
+    "hintEn": "Rotating counterclockwise by 90 degrees corresponds to multiplication by i.",
+    "hintAr": "الدوران بزاوية ٩٠ درجة عكس عقارب الساعة يكافئ هندسياً الضرب في الوحدة التخيلية ت.",
+    "stepByStepSolutionEn": [
+      "1. In the Argand plane, rotation by $\\frac{\\pi}{2}$ ($90^\\circ$) counterclockwise corresponds to multiplying by $e^{i\\pi/2} = i$.",
+      "2. Calculate $z' = z \\cdot i = (3 + 4i) i = 3i + 4i^2 = 3i - 4 = -4 + 3i$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. في شكل أرجاند، الدوران بزاوية ٩٠ درجة ضد عقارب الساعة يعادل الضرب في $e^{i\\pi/2} = i$.",
+      "٢. بالضرب: $(3 + 4i) \\times i = 3i + 4i^2 = -4 + 3i$."
+    ],
+    "teacherTipEn": "Multiplication by i rotates by +90 deg; multiplication by -i rotates by -90 deg.",
+    "teacherTipAr": "الضرب في ت يدور بزاوية +٩٠ درجة، والضرب في -ت يدور بزاوية -٩٠ درجة."
+  },
+  {
+    "id": "alg_ch2_db_hots_58",
+    "titleEn": "Finite Trigonometric Cosine Sum via De Moivre",
+    "titleAr": "حساب مجموع جيوب تمام زوايا دورية باستخدام ديموافر",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the exact trigonometric sum: $\\cos\\frac{2\\pi}{7} + \\cos\\frac{4\\pi}{7} + \\cos\\frac{6\\pi}{7}$.",
+    "questionAr": "احسب القيمة الدقيقة للمجموع المثلثي: $\\cos\\frac{2\\pi}{7} + \\cos\\frac{4\\pi}{7} + \\cos\\frac{6\\pi}{7}$.",
+    "optionsEn": [
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{2}$",
+      "0",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{2}$",
+      "0",
+      "$-1$"
+    ],
+    "correctAnswer": "$-\\frac{1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Consider the real part of the sum of the 7th roots of unity excluding 1.",
+    "hintAr": "استخدم مجموع الجذور السبعية للواحد الصحيح: ١ + ع١ + ع٢ + ... + ع٦ = ٠.",
+    "stepByStepSolutionEn": [
+      "1. Let $w = e^{i 2\\pi / 7}$. The 7 seventh roots of unity sum to 0: $1 + w + w^2 + w^3 + w^4 + w^5 + w^6 = 0$.",
+      "2. Taking the real parts: $1 + \\sum_{k=1}^{6} \\cos\\frac{2k\\pi}{7} = 0$.",
+      "3. By symmetry, $\\cos\\frac{12\\pi}{7} = \\cos\\frac{2\\pi}{7}$, $\\cos\\frac{10\\pi}{7} = \\cos\\frac{4\\pi}{7}$, and $\\cos\\frac{8\\pi}{7} = \\cos\\frac{6\\pi}{7}$.",
+      "4. Therefore: $1 + 2\\left(\\cos\\frac{2\\pi}{7} + \\cos\\frac{4\\pi}{7} + \\cos\\frac{6\\pi}{7}\\right) = 0 \\implies \\text{Sum} = -\\frac{1}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مجموع الجذور السبعية للواحد الصحيح يساوي صفراً: $1 + w + w^2 + \\dots + w^6 = 0$.",
+      "٢. بأخذ الجزء الحقيقي: $1 + \\sum_{k=1}^{6} \\cos\\frac{2k\\pi}{7} = 0$.",
+      "٣. بالاستفادة من التماثل: جتا(١٢ط/٧) = جتا(٢ط/٧)، وهكذا لبقية الحدود.",
+      "٤. إذن: $1 + 2(\\text{المجموع}) = 0 \\implies \\text{المجموع} = -\\frac{1}{2}$."
+    ],
+    "teacherTipEn": "This classic contest identity illustrates the profound bridge between roots of unity and trigonometric sums.",
+    "teacherTipAr": "تطبيق رائع يوضح كيف تحل جذور الوحدة المركبة متسلسلات مثلثية معقدة ببراعة."
   }
 ]
 };

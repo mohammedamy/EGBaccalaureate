@@ -1721,6 +1721,306 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
     "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+  },
+  {
+    "id": "dyn_ch1_db_easy_51",
+    "titleEn": "Instantaneous Velocity from Displacement Function",
+    "titleAr": "السرعة اللحظية من دالة الإزاحة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a straight line such that its displacement $s$ (in meters) at time $t$ (in seconds) is given by $s(t) = 3t^2 - 12t + 5$. At what time $t$ does the particle momentarily come to rest?",
+    "questionAr": "يتحرك جسيم في خط مستقيم بحيث تعطى إزاحته $s$ (بالمتر) عند اللحظة $t$ (بالثانية) بالعلاقة $s(t) = 3t^2 - 12t + 5$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+    "optionsEn": [
+      "$t = 2\\text{ s}$",
+      "$t = 4\\text{ s}$",
+      "$t = 3\\text{ s}$",
+      "$t = 1\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$t = 2\\text{ ث}$",
+      "$t = 4\\text{ ث}$",
+      "$t = 3\\text{ ث}$",
+      "$t = 1\\text{ ث}$"
+    ],
+    "correctAnswer": "$t = 2\\text{ s}$",
+    "correctIndex": 0,
+    "hintEn": "A particle comes to rest momentarily when its velocity $v(t) = \\frac{ds}{dt} = 0$.",
+    "hintAr": "يسكن الجسيم لحظياً عندما تنعدم سرعته اللحظية $v(t) = \\frac{ds}{dt} = 0$.",
+    "stepByStepSolutionEn": [
+      "Velocity $v(t) = \\frac{ds}{dt} = \\frac{d}{dt}(3t^2 - 12t + 5) = 6t - 12$.",
+      "Set $v(t) = 0$: $6t - 12 = 0 \\implies 6t = 12 \\implies t = 2\\text{ s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة $v(t) = \\frac{ds}{dt} = 6t - 12$.",
+      "بوضع $v(t) = 0$: $6t - 12 = 0 \\implies 6t = 12 \\implies t = 2\\text{ ث}$."
+    ],
+    "teacherTipEn": "Momentary rest always corresponds to $v = 0$ in 1D kinematics.",
+    "teacherTipAr": "السكون اللحظي يعني دائماً $v = 0$ في الحركة المستقيمة."
+  },
+  {
+    "id": "dyn_ch1_db_easy_52",
+    "titleEn": "Acceleration from Velocity as a Function of Position",
+    "titleAr": "العجلة من دالة السرعة بدلالة الموضع",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a straight line such that its velocity $v$ (in m/s) is given in terms of position $x$ (in meters) by $v = 4x + 3$. Find the acceleration $a$ of the particle when $x = 2\\text{ m}$.",
+    "questionAr": "يتحرك جسيم في خط مستقيم بحيث تعطى سرعته $v$ (بالمتر/ثانية) بدلالة الموضع $x$ (بالمتر) بالعلاقة $v = 4x + 3$. أوجد عجلة الجسيم $a$ عندما $x = 2\\text{ م}$.",
+    "optionsEn": [
+      "$44\\text{ m/s}^2$",
+      "$11\\text{ m/s}^2$",
+      "$16\\text{ m/s}^2$",
+      "$22\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$44\\text{ م/ث}^2$",
+      "$11\\text{ م/ث}^2$",
+      "$16\\text{ م/ث}^2$",
+      "$22\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$44\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "When velocity is given as a function of position $x$, acceleration is $a = v \\frac{dv}{dx}$.",
+    "hintAr": "عندما تعطى السرعة كدالة في الموضع $x$، فإن العجلة تعطى بالعلاقة $a = v \\frac{dv}{dx}$.",
+    "stepByStepSolutionEn": [
+      "Here $v = 4x + 3$, so $\\frac{dv}{dx} = 4$.",
+      "Using $a = v \\frac{dv}{dx} = (4x + 3)(4) = 16x + 12$.",
+      "At $x = 2$: $a = 16(2) + 12 = 32 + 12 = 44\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "هنا $v = 4x + 3$، إذن $\\frac{dv}{dx} = 4$.",
+      "باستخدام $a = v \\frac{dv}{dx} = (4x + 3)(4) = 16x + 12$.",
+      "عند $x = 2$: $a = 16(2) + 12 = 32 + 12 = 44\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Remember: $a = \\frac{dv}{dt} = v \\frac{dv}{dx}$. Use the chain rule version when $v$ is given in terms of $x$!",
+    "teacherTipAr": "تذكر دائماً: $a = v \\frac{dv}{dx}$ عندما تكون السرعة معطاة كدالة في الموضع $x$."
+  },
+  {
+    "id": "dyn_ch1_db_easy_53",
+    "titleEn": "Displacement from Velocity-Time Integration",
+    "titleAr": "الإزاحة من تكامل منحنى السرعة مع الزمن",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body moves in a straight line with velocity $v(t) = 6t - 4\\text{ m/s}$. Find its displacement $\\Delta s$ during the time interval from $t = 1\\text{ s}$ to $t = 3\\text{ s}$.",
+    "questionAr": "يتحرك جسم في خط مستقيم بسرعة $v(t) = 6t - 4\\text{ م/ث}$. أوجد إزاحته $\\Delta s$ خلال الفترة الزمنية من $t = 1\\text{ ث}$ إلى $t = 3\\text{ ث}$.",
+    "optionsEn": [
+      "$16\\text{ m}$",
+      "$20\\text{ m}$",
+      "$12\\text{ m}$",
+      "$24\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$16\\text{ م}$",
+      "$20\\text{ م}$",
+      "$12\\text{ م}$",
+      "$24\\text{ م}$"
+    ],
+    "correctAnswer": "$16\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Displacement is the definite integral of velocity: $\\Delta s = \\int_{t_1}^{t_2} v(t)\\,dt$.",
+    "hintAr": "الإزاحة هي التكامل المحدد للسرعة: $\\Delta s = \\int_{t_1}^{t_2} v(t)\\,dt$.",
+    "stepByStepSolutionEn": [
+      "$\\Delta s = \\int_1^3 (6t - 4)\\,dt = [3t^2 - 4t]_1^3$.",
+      "Upper limit ($t = 3$): $3(9) - 4(3) = 27 - 12 = 15$.",
+      "Lower limit ($t = 1$): $3(1) - 4(1) = 3 - 4 = -1$.",
+      "$\\Delta s = 15 - (-1) = 16\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\Delta s = \\int_1^3 (6t - 4)\\,dt = [3t^2 - 4t]_1^3$.",
+      "عند الحد العلوي ($t = 3$): $3(9) - 4(3) = 27 - 12 = 15$.",
+      "عند الحد السفلي ($t = 1$): $3(1) - 4(1) = -1$.",
+      "$\\Delta s = 15 - (-1) = 16\\text{ م}$."
+    ],
+    "teacherTipEn": "Displacement is the net algebraic integral, while total distance requires splitting where $v(t) = 0$.",
+    "teacherTipAr": "الإزاحة هي التكامل الجبري المباشر، بينما المسافة الكلية تتطلب تجزئة التكامل عند نقاط انعدام السرعة."
+  },
+  {
+    "id": "dyn_ch1_db_easy_54",
+    "titleEn": "Accelerated vs Decelerated Motion Condition",
+    "titleAr": "شرط الحركة المتسارعة والمتباطئة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rectilinear motion is described as accelerated (speed increasing) if and only if:",
+    "questionAr": "تُوصف الحركة المستقيمة بأنها حركة متسارعة إذا وفقط إذا كان:",
+    "optionsEn": [
+      "$v \\cdot a > 0$",
+      "$a > 0$ only",
+      "$v > 0$ only",
+      "$v \\cdot a < 0$"
+    ],
+    "optionsAr": [
+      "$v \\cdot a > 0$",
+      "$a > 0$ فقط",
+      "$v > 0$ فقط",
+      "$v \\cdot a < 0$"
+    ],
+    "correctAnswer": "$v \\cdot a > 0$",
+    "correctIndex": 0,
+    "hintEn": "Motion is accelerated when velocity and acceleration have the same algebraic sign, so their product is positive.",
+    "hintAr": "تكون الحركة متسارعة عندما تكون السرعة والعجلة في نفس الاتجاه (لهما نفس الإشارة)، فيكون حاصل ضربهما موجباً.",
+    "stepByStepSolutionEn": [
+      "Speed is $|v|$. The rate of change of speed is $\\frac{d}{dt}|v| = \\frac{v \\cdot a}{|v|}$.",
+      "For speed to increase (accelerated motion), $\\frac{d}{dt}|v| > 0 \\implies v \\cdot a > 0$.",
+      "If $v \\cdot a < 0$, the motion is decelerated (retarded)."
+    ],
+    "stepByStepSolutionAr": [
+      "معدل تغير مقدار السرعة هو $\\frac{v \\cdot a}{|v|}$.",
+      "لكي تتزايد السرعة (حركة متسارعة)، يجب أن يكون $v \\cdot a > 0$.",
+      "أما إذا كان $v \\cdot a < 0$ فتكون الحركة متباطئة (تقصيرية)."
+    ],
+    "teacherTipEn": "A common student pitfall is thinking $a > 0$ alone means acceleration. If $v < 0$ and $a > 0$, the body is actually slowing down!",
+    "teacherTipAr": "خطأ شائع لدى الطلاب هو الاعتقاد بأن $a > 0$ تعني تسارعاً، بينما إذا كانت $v < 0$ و $a > 0$ فالحركة متباطئة!"
+  },
+  {
+    "id": "dyn_ch1_db_easy_55",
+    "titleEn": "Position from Acceleration Initial Value Problem",
+    "titleAr": "تحديد الموضع من العجلة والشروط الابتدائية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle starts from rest from the point $x_0 = 3\\text{ m}$ with constant acceleration $a = 4\\text{ m/s}^2$. Find its position $x$ at $t = 5\\text{ s}$.",
+    "questionAr": "بدأ جسيم حركته من السكون من النقطة $x_0 = 3\\text{ م}$ بعجلة منتظمة $a = 4\\text{ م/ث}^2$. أوجد موضع الجسيم $x$ عند $t = 5\\text{ ث}$.",
+    "optionsEn": [
+      "$x = 53\\text{ m}$",
+      "$x = 50\\text{ m}$",
+      "$x = 47\\text{ m}$",
+      "$x = 103\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$x = 53\\text{ م}$",
+      "$x = 50\\text{ م}$",
+      "$x = 47\\text{ م}$",
+      "$x = 103\\text{ م}$"
+    ],
+    "correctAnswer": "$x = 53\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Position formula for constant acceleration: $x(t) = x_0 + v_0 t + \\frac{1}{2} a t^2$.",
+    "hintAr": "علاقة الموضع في الحركة ذات العجلة المنتظمة: $x(t) = x_0 + v_0 t + \\frac{1}{2} a t^2$.",
+    "stepByStepSolutionEn": [
+      "$v_0 = 0$ (starts from rest), $x_0 = 3\\text{ m}$, $a = 4\\text{ m/s}^2$.",
+      "$x(t) = 3 + 0(t) + \\frac{1}{2}(4)t^2 = 3 + 2t^2$.",
+      "At $t = 5\\text{ s}$: $x(5) = 3 + 2(25) = 3 + 50 = 53\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$v_0 = 0$ (من السكون)، $x_0 = 3\\text{ م}$، $a = 4\\text{ م/ث}^2$.",
+      "$x(t) = 3 + 2t^2$.",
+      "عند $t = 5\\text{ ث}$: $x(5) = 3 + 2(25) = 53\\text{ م}$."
+    ],
+    "teacherTipEn": "Always add initial position $x_0$ to displacement $s$ to obtain absolute coordinate position $x$.",
+    "teacherTipAr": "أضف دائماً الموضع الابتدائي $x_0$ إلى الإزاحة $s$ للحصول على إحداثي الموضع النهائي $x$."
+  },
+  {
+    "id": "dyn_ch1_db_easy_56",
+    "titleEn": "Slope of the Velocity-Time Graph",
+    "titleAr": "ميل المماس لمنحنى السرعة مع الزمن",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In a rectilinear motion graph of velocity $v$ versus time $t$, what physical quantity is represented by the slope of the tangent to the curve at any instant?",
+    "questionAr": "في الرسم البياني للعلاقة بين السرعة $v$ والزمن $t$ لحركة مستقيمة، ما الكمية الفيزيائية التي يمثلها ميل المماس للمنحنى عند أي لحظة؟",
+    "optionsEn": [
+      "Instantaneous acceleration $a$",
+      "Total distance travelled",
+      "Displacement $s$",
+      "Momentum $p$"
+    ],
+    "optionsAr": [
+      "العجلة اللحظية $a$",
+      "المسافة الكلية المقطوعة",
+      "الإزاحة $s$",
+      "كمية الحركة $p$"
+    ],
+    "correctAnswer": "Instantaneous acceleration $a$",
+    "correctIndex": 0,
+    "hintEn": "Slope $= \\frac{dv}{dt}$.",
+    "hintAr": "الميل $= \\frac{dv}{dt}$.",
+    "stepByStepSolutionEn": [
+      "The derivative of velocity with respect to time is acceleration: $a = \\frac{dv}{dt}$.",
+      "In calculus and analytic geometry, the derivative corresponds to the geometric slope of the tangent line.",
+      "Therefore, the slope of the $v-t$ graph is the instantaneous acceleration."
+    ],
+    "stepByStepSolutionAr": [
+      "مشتقة السرعة بالنسبة للزمن هي العجلة: $a = \\frac{dv}{dt}$.",
+      "هندسياً، المشتقة الأولى تمثل ميل المماس لمنحنى الدالة.",
+      "لذا فإن ميل مماس منحنى $(v-t)$ يمثل العجلة اللحظية."
+    ],
+    "teacherTipEn": "Slope of $x-t$ is velocity; slope of $v-t$ is acceleration. Area under $v-t$ is displacement.",
+    "teacherTipAr": "ميل $x-t$ هو السرعة، وميل $v-t$ هو العجلة، والمساحة تحت $v-t$ هي الإزاحة."
+  },
+  {
+    "id": "dyn_ch1_db_easy_57",
+    "titleEn": "Velocity Integral with Respect to Position",
+    "titleAr": "تكامل العجلة بالنسبة للموضع",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If acceleration $a$ is given as a function of position $x$, the fundamental integral relation connecting velocity and acceleration between positions $x_1$ and $x_2$ is:",
+    "questionAr": "إذا كانت العجلة $a$ معطاة كدالة في الموضع $x$، فإن العلاقة التكاملية الأساسية التي تربط بين السرعة والعجلة بين الموضعين $x_1$ و $x_2$ هي:",
+    "optionsEn": [
+      "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx$",
+      "$\\int_{v_1}^{v_2} dv = \\int_{x_1}^{x_2} a\\,dx$",
+      "$v_2 - v_1 = a(x_2 - x_1)$",
+      "$\\frac{1}{2} v^2 = a x$"
+    ],
+    "optionsAr": [
+      "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx$",
+      "$\\int_{v_1}^{v_2} dv = \\int_{x_1}^{x_2} a\\,dx$",
+      "$v_2 - v_1 = a(x_2 - x_1)$",
+      "$\\frac{1}{2} v^2 = a x$"
+    ],
+    "correctAnswer": "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx$",
+    "correctIndex": 0,
+    "hintEn": "From $a = v \\frac{dv}{dx}$, separate variables to get $v\\,dv = a\\,dx$.",
+    "hintAr": "من العلاقة $a = v \\frac{dv}{dx}$، بفصل المتغيرات نجد أن $v\\,dv = a\\,dx$.",
+    "stepByStepSolutionEn": [
+      "By definition of acceleration as a function of position: $a = v \\frac{dv}{dx}$.",
+      "Separating variables: $v\\,dv = a\\,dx$.",
+      "Integrating both sides between corresponding limits:",
+      "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx \\implies \\frac{1}{2}(v_2^2 - v_1^2) = \\int_{x_1}^{x_2} a\\,dx$."
+    ],
+    "stepByStepSolutionAr": [
+      "تعريف العجلة بدلالة الموضع: $a = v \\frac{dv}{dx}$.",
+      "بفصل المتغيرات: $v\\,dv = a\\,dx$.",
+      "بإجراء التكامل للطرفين بين الحدود المناظرة:",
+      "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx$."
+    ],
+    "teacherTipEn": "Multiplying this identity by mass $m$ gives the Work-Energy Theorem $\\Delta T = W$ directly!",
+    "teacherTipAr": "ضرب هذه العلاقة في الكتلة $m$ يولد مباشرة مبدأ الشغل والطاقة $\\Delta T = W$!"
+  },
+  {
+    "id": "dyn_ch1_db_easy_58",
+    "titleEn": "Maximum Velocity from Acceleration Zero-Crossing",
+    "titleAr": "السرعة القصوى عند انعدام العجلة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves such that its velocity $v(t) = -t^2 + 6t + 7\\text{ m/s}$ for $t \\ge 0$. Find the maximum velocity reached by the particle.",
+    "questionAr": "يتحرك جسيم بحيث تعطى سرعته بالعلاقة $v(t) = -t^2 + 6t + 7\\text{ م/ث}$ لـ $t \\ge 0$. أوجد أقصى سرعة يصل إليها الجسيم.",
+    "optionsEn": [
+      "$16\\text{ m/s}$",
+      "$7\\text{ m/s}$",
+      "$14\\text{ m/s}$",
+      "$9\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$16\\text{ م/ث}$",
+      "$7\\text{ م/ث}$",
+      "$14\\text{ م/ث}$",
+      "$9\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$16\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Velocity reaches an extremum when $\\frac{dv}{dt} = a(t) = 0$.",
+    "hintAr": "تصل السرعة إلى قيمتها العظمى عندما تنعدم العجلة $\\frac{dv}{dt} = a(t) = 0$.",
+    "stepByStepSolutionEn": [
+      "Acceleration $a(t) = \\frac{dv}{dt} = -2t + 6$.",
+      "Set $a(t) = 0$: $-2t + 6 = 0 \\implies t = 3\\text{ s}$.",
+      "Second derivative test: $\\frac{d^2v}{dt^2} = -2 < 0$, confirming a local maximum.",
+      "Maximum velocity $v(3) = -(3)^2 + 6(3) + 7 = -9 + 18 + 7 = 16\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "العجلة $a(t) = \\frac{dv}{dt} = -2t + 6$.",
+      "بوضع $a(t) = 0$: $-2t + 6 = 0 \\implies t = 3\\text{ ث}$.",
+      "المشتقة الثانية سالبة، إذن هي قيمة عظمى محلية.",
+      "السرعة القصوى $v(3) = -9 + 18 + 7 = 16\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Maximum velocity occurs when acceleration is zero ($a = 0$), analogous to maximum displacement when $v = 0$.",
+    "teacherTipAr": "أقصى سرعة تحدث عند انعدام العجلة ($a = 0$) تماماً كما تحدث أقصى إزاحة عند انعدام السرعة ($v = 0$)."
   }
 ],
   medium: [
@@ -3583,6 +3883,357 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "At maximum velocity, acceleration is zero.",
     "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+  },
+  {
+    "id": "dyn_ch1_db_med_51",
+    "titleEn": "Total Distance vs Displacement with Direction Reversal",
+    "titleAr": "المسافة الكلية مقابل الإزاحة عند انعكاس اتجاه الحركة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body moves in a straight line with velocity $v(t) = 3t^2 - 12\\text{ m/s}$. Find the total distance covered by the body in the first $3$ seconds ($0 \\le t \\le 3$).",
+    "questionAr": "يتحرك جسم في خط مستقيم بسرعة $v(t) = 3t^2 - 12\\text{ م/ث}$. أوجد المسافة الكلية التي يقطعها الجسم خلال الثواني الثلاث الأولى ($0 \\le t \\le 3$).",
+    "optionsEn": [
+      "$23\\text{ m}$",
+      "$-9\\text{ m}$",
+      "$9\\text{ m}$",
+      "$32\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$23\\text{ م}$",
+      "$-9\\text{ م}$",
+      "$9\\text{ م}$",
+      "$32\\text{ م}$"
+    ],
+    "correctAnswer": "$23\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Find where $v(t) = 0$ to partition the interval: $3t^2 - 12 = 0 \\implies t = 2\\text{ s}$. Integrate $|v(t)|$.",
+    "hintAr": "أوجد نقطة سكون الجسيم لتجزئة الفترة: $3t^2 - 12 = 0 \\implies t = 2\\text{ ث}$. ثم كامل $|v(t)|$.",
+    "stepByStepSolutionEn": [
+      "Find turning point: $v(t) = 3t^2 - 12 = 0 \\implies t^2 = 4 \\implies t = 2\\text{ s}$ (since $t \\ge 0$).",
+      "On $[0, 2]$, $v(t) \\le 0$. Displacement $s_1 = \\int_0^2 (3t^2 - 12)\\,dt = [t^3 - 12t]_0^2 = 8 - 24 = -16\\text{ m}$. Distance $d_1 = |-16| = 16\\text{ m}$.",
+      "On $[2, 3]$, $v(t) \\ge 0$. Displacement $s_2 = \\int_2^3 (3t^2 - 12)\\,dt = [t^3 - 12t]_2^3 = (27 - 36) - (8 - 24) = -9 - (-16) = 7\\text{ m}$. Distance $d_2 = 7\\text{ m}$.",
+      "Total distance $D = d_1 + d_2 = 16 + 7 = 23\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "نقطة الانعكاس: $3t^2 - 12 = 0 \\implies t = 2\\text{ ث}$.",
+      "في الفترة $[0, 2]$: السرعة سالبة، والإزاحة $s_1 = [t^3 - 12t]_0^2 = -16\\text{ م}$، إذن المسافة $d_1 = 16\\text{ م}$.",
+      "في الفترة $[2, 3]$: السرعة موجبة، والإزاحة $s_2 = [t^3 - 12t]_2^3 = 7\\text{ م}$، إذن المسافة $d_2 = 7\\text{ م}$.",
+      "المسافة الكلية $D = 16 + 7 = 23\\text{ م}$."
+    ],
+    "teacherTipEn": "Notice displacement is $\\Delta s = -16 + 7 = -9\\text{ m}$, while total distance is $23\\text{ m}$! Do not confuse the two.",
+    "teacherTipAr": "لاحظ أن الإزاحة هي $-9\\text{ م}$ بينما المسافة الكلية هي $23\\text{ م}$! لا تخلط بين المفهومين."
+  },
+  {
+    "id": "dyn_ch1_db_med_52",
+    "titleEn": "Acceleration of an Exponential Position Function",
+    "titleAr": "عجلة حركة موضعها دالة أسية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The position of a particle is given by $x(t) = 5 e^{-2t} + 3\\text{ m}$. What is the acceleration $a$ of the particle expressed in terms of its position $x$?",
+    "questionAr": "موضع جسيم يُعطى بالعلاقة $x(t) = 5 e^{-2t} + 3\\text{ م}$. ما عجلة الجسيم $a$ معبراً عنها بدلالة موضعه $x$؟",
+    "optionsEn": [
+      "$a = 4(x - 3)$",
+      "$a = -2(x - 3)$",
+      "$a = 4x$",
+      "$a = -4(x - 3)$"
+    ],
+    "optionsAr": [
+      "$a = 4(x - 3)$",
+      "$a = -2(x - 3)$",
+      "$a = 4x$",
+      "$a = -4(x - 3)$"
+    ],
+    "correctAnswer": "$a = 4(x - 3)$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate twice: $v(t) = \\dot{x}(t)$ and $a(t) = \\ddot{x}(t)$, then substitute $5e^{-2t} = x - 3$.",
+    "hintAr": "فاضل مرتين بالنسبة للزمن، ثم عوض عن $5e^{-2t} = x - 3$.",
+    "stepByStepSolutionEn": [
+      "Given $x - 3 = 5 e^{-2t}$.",
+      "First derivative: $v(t) = \\frac{dx}{dt} = 5(-2) e^{-2t} = -10 e^{-2t}$.",
+      "Second derivative: $a(t) = \\frac{dv}{dt} = -10(-2) e^{-2t} = 20 e^{-2t}$.",
+      "Notice that $20 e^{-2t} = 4(5 e^{-2t}) = 4(x - 3)$."
+    ],
+    "stepByStepSolutionAr": [
+      "لدينا $x - 3 = 5 e^{-2t}$.",
+      "السرعة: $v(t) = -10 e^{-2t}$.",
+      "العجلة: $a(t) = 20 e^{-2t}$.",
+      "بما أن $20 e^{-2t} = 4(5 e^{-2t}) = 4(x - 3)$، إذن $a = 4(x - 3)$."
+    ],
+    "teacherTipEn": "Expressing kinematics variables in terms of position is a standard question type in Egyptian dynamics.",
+    "teacherTipAr": "التعبير عن المتغيرات الحركية بدلالة الموضع هو أحد أنماط الأسئلة المحورية في المنهج."
+  },
+  {
+    "id": "dyn_ch1_db_med_53",
+    "titleEn": "Separation of Variables with Velocity-Dependent Acceleration",
+    "titleAr": "فصل المتغيرات لعجلة تعتمد على السرعة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a straight line with acceleration $a = -2v^2\\text{ m/s}^2$, where $v$ is velocity in m/s. If the initial velocity at $t = 0$ is $v_0 = 10\\text{ m/s}$, find the velocity $v$ at time $t = 2\\text{ s}$.",
+    "questionAr": "يتحرك جسيم في خط مستقيم بعجلة $a = -2v^2\\text{ م/ث}^2$، حيث $v$ هي السرعة. إذا كانت السرعة الابتدائية عند $t = 0$ هي $v_0 = 10\\text{ م/ث}$، فأوجد السرعة $v$ عند اللحظة $t = 2\\text{ ث}$.",
+    "optionsEn": [
+      "$\\frac{10}{41}\\text{ m/s}$",
+      "$\\frac{1}{4}\\text{ m/s}$",
+      "$\\frac{5}{21}\\text{ m/s}$",
+      "$\\frac{2}{5}\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$\\frac{10}{41}\\text{ م/ث}$",
+      "$\\frac{1}{4}\\text{ م/ث}$",
+      "$\\frac{5}{21}\\text{ م/ث}$",
+      "$\\frac{2}{5}\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$\\frac{10}{41}\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $a = \\frac{dv}{dt}$ and separate variables: $\\frac{dv}{v^2} = -2\\,dt$.",
+    "hintAr": "عوض عن $a = \\frac{dv}{dt}$ وافصل المتغيرات: $\\frac{dv}{v^2} = -2\\,dt$.",
+    "stepByStepSolutionEn": [
+      "$\\frac{dv}{dt} = -2v^2 \\implies \\frac{dv}{v^2} = -2\\,dt$.",
+      "Integrate both sides from $t = 0$ ($v = 10$) to $t$ ($v$):",
+      "$\\int_{10}^v v^{-2}\\,dv = \\int_0^t -2\\,dt \\implies \\left[-\\frac{1}{v}\\right]_{10}^v = -2t$.",
+      "$-\\frac{1}{v} - \\left(-\\frac{1}{10}\\right) = -2t \\implies -\\frac{1}{v} + \\frac{1}{10} = -2t \\implies \\frac{1}{v} = \\frac{1}{10} + 2t = \\frac{1 + 20t}{10}$.",
+      "Thus, $v(t) = \\frac{10}{1 + 20t}$.",
+      "At $t = 2\\text{ s}$: $v(2) = \\frac{10}{1 + 20(2)} = \\frac{10}{41}\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\frac{dv}{dt} = -2v^2 \\implies \\frac{dv}{v^2} = -2\\,dt$.",
+      "بإجراء التكامل من $v = 10$ إلى $v$ ومن $0$ إلى $t$:",
+      "$-\\frac{1}{v} + \\frac{1}{10} = -2t \\implies \\frac{1}{v} = \\frac{1 + 20t}{10}$.",
+      "إذن $v(t) = \\frac{10}{1 + 20t}$.",
+      "عند $t = 2\\text{ ث}$: $v(2) = \\frac{10}{41}\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Quadratic drag ($a \\propto -v^2$) is the classic model for high-speed fluid resistance.",
+    "teacherTipAr": "مقاومة الموائع عالية السرعة تتناسب مع مربع السرعة ($a \\propto -v^2$) وحلها بفصل المتغيرات مهارة أساسية."
+  },
+  {
+    "id": "dyn_ch1_db_med_54",
+    "titleEn": "Relation Between Velocity Squared and Position",
+    "titleAr": "العلاقة بين مربع السرعة والموضع",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves such that $v^2 = 16 - 4x^2$, where $v$ is velocity and $x$ is position. What is the acceleration $a$ of the particle in terms of $x$?",
+    "questionAr": "يتحرك جسيم بحيث $v^2 = 16 - 4x^2$، حيث $v$ السرعة و $x$ الموضع. ما عجلة الجسيم $a$ بدلالة $x$؟",
+    "optionsEn": [
+      "$a = -4x$",
+      "$a = -8x$",
+      "$a = 8x$",
+      "$a = -2x$"
+    ],
+    "optionsAr": [
+      "$a = -4x$",
+      "$a = -8x$",
+      "$a = 8x$",
+      "$a = -2x$"
+    ],
+    "correctAnswer": "$a = -4x$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate both sides with respect to $x$: $\\frac{d}{dx}(v^2) = 2v \\frac{dv}{dx} = 2a$.",
+    "hintAr": "فاضل الطرفين بالنسبة للموضع $x$: $\\frac{d}{dx}(v^2) = 2v \\frac{dv}{dx} = 2a$.",
+    "stepByStepSolutionEn": [
+      "Given $v^2 = 16 - 4x^2$.",
+      "Differentiate implicitly with respect to $x$:",
+      "$\\frac{d}{dx}(v^2) = \\frac{d}{dx}(16 - 4x^2) \\implies 2v \\frac{dv}{dx} = -8x$.",
+      "Since $a = v \\frac{dv}{dx}$, we have $2a = -8x \\implies a = -4x$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلة المعطاة: $v^2 = 16 - 4x^2$.",
+      "بالتفاضل بالنسبة لـ $x$:",
+      "$2v \\frac{dv}{dx} = -8x$.",
+      "بما أن $a = v \\frac{dv}{dx}$، إذن $2a = -8x \\implies a = -4x$."
+    ],
+    "teacherTipEn": "Whenever you see $v^2 = f(x)$, always remember $\\frac{1}{2} \\frac{d}{dx}(v^2) = a$!",
+    "teacherTipAr": "كلما رأيت $v^2 = f(x)$، تذكر أن $a = \\frac{1}{2} \\frac{d}{dx}(v^2)$ مباشرة!"
+  },
+  {
+    "id": "dyn_ch1_db_med_55",
+    "titleEn": "Motion Described by Trigonometric Function",
+    "titleAr": "حركة توافقية بدوال مثلثية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The position of a particle is given by $x(t) = 6 \\sin(2t) + 8 \\cos(2t)\\text{ m}$. Find the maximum speed $|v|_{\\max}$ of the particle.",
+    "questionAr": "موضع جسيم يُعطى بالعلاقة $x(t) = 6 \\sin(2t) + 8 \\cos(2t)\\text{ م}$. أوجد أقصى مقدار لسرعة الجسيم $|v|_{\\max}$.",
+    "optionsEn": [
+      "$20\\text{ m/s}$",
+      "$10\\text{ m/s}$",
+      "$14\\text{ m/s}$",
+      "$28\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$20\\text{ م/ث}$",
+      "$10\\text{ م/ث}$",
+      "$14\\text{ م/ث}$",
+      "$28\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$20\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "The amplitude of $x(t)$ is $A = \\sqrt{6^2 + 8^2} = 10\\text{ m}$. In harmonic motion, maximum speed is $v_{\\max} = \\omega A$.",
+    "hintAr": "سعة الحركة هي $A = \\sqrt{6^2 + 8^2} = 10\\text{ م}$. وفي الحركة التوافقية أقصى سرعة هي $v_{\\max} = \\omega A$.",
+    "stepByStepSolutionEn": [
+      "Differentiate to find velocity:",
+      "$v(t) = \\frac{dx}{dt} = 12 \\cos(2t) - 16 \\sin(2t)$.",
+      "The amplitude of $v(t) = A \\cos(2t) + B \\sin(2t)$ is given by $\\sqrt{A^2 + B^2}$:",
+      "$|v|_{\\max} = \\sqrt{12^2 + (-16)^2} = \\sqrt{144 + 256} = \\sqrt{400} = 20\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "التفاضل لإيجاد السرعة:",
+      "$v(t) = 12 \\cos(2t) - 16 \\sin(2t)$.",
+      "سعة السرعة $= \\sqrt{12^2 + (-16)^2} = \\sqrt{144 + 256} = 20\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Notice $\\omega = 2$ and position amplitude is $10\\text{ m}$, so $v_{\\max} = \\omega A = 2 \\times 10 = 20\\text{ m/s}$ directly.",
+    "teacherTipAr": "لاحظ أن $\\omega = 2$ وسعة الموضع $10\\text{ م}$، إذن $v_{\\max} = 2 \\times 10 = 20\\text{ م/ث}$ في خطوة واحدة."
+  },
+  {
+    "id": "dyn_ch1_db_med_56",
+    "titleEn": "Time for Velocity to Double under Linear Acceleration",
+    "titleAr": "الزمن اللازم لتضاعف السرعة في حركة ذات عجلة خطية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves with acceleration $a(t) = 2t + 1\\text{ m/s}^2$. If its initial velocity is $v(0) = 4\\text{ m/s}$, at what positive time $t$ will its velocity become $16\\text{ m/s}$?",
+    "questionAr": "يتحرك جسيم بعجلة $a(t) = 2t + 1\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 4\\text{ م/ث}$، ففي أي لحظة زمنية موجبة $t$ تصبح سرعته $16\\text{ م/ث}$؟",
+    "optionsEn": [
+      "$t = 3\\text{ s}$",
+      "$t = 4\\text{ s}$",
+      "$t = 2\\text{ s}$",
+      "$t = 5\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$t = 3\\text{ ث}$",
+      "$t = 4\\text{ ث}$",
+      "$t = 2\\text{ ث}$",
+      "$t = 5\\text{ ث}$"
+    ],
+    "correctAnswer": "$t = 3\\text{ s}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate $a(t)$ to find $v(t) = t^2 + t + 4$, then solve $v(t) = 16$.",
+    "hintAr": "كامل $a(t)$ لتحصل على $v(t) = t^2 + t + 4$ ثم حل المعادلة $v(t) = 16$.",
+    "stepByStepSolutionEn": [
+      "$v(t) = v_0 + \\int_0^t (2\\tau + 1)\\,d\\tau = 4 + [\\tau^2 + \\tau]_0^t = t^2 + t + 4$.",
+      "Set $v(t) = 16$: $t^2 + t + 4 = 16 \\implies t^2 + t - 12 = 0$.",
+      "Factor: $(t + 4)(t - 3) = 0$.",
+      "Since $t > 0$, we have $t = 3\\text{ s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$v(t) = 4 + t^2 + t = t^2 + t + 4$.",
+      "بوضع $v(t) = 16$: $t^2 + t - 12 = 0$.",
+      "التحليل: $(t + 4)(t - 3) = 0$.",
+      "بما أن $t > 0$، إذن $t = 3\\text{ ث}$."
+    ],
+    "teacherTipEn": "Always reject negative time roots when time starts at $t = 0$.",
+    "teacherTipAr": "ارفض دائماً الحلول السالبة للزمن عندما تبدأ الحركة من $t = 0$."
+  },
+  {
+    "id": "dyn_ch1_db_med_57",
+    "titleEn": "Position at Instant of Minimum Speed",
+    "titleAr": "الموضع عند لحظة أدنى سرعة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a straight line such that $s(t) = t^3 - 6t^2 + 12t$. Find the acceleration of the particle at the instant when its speed reaches its minimum value.",
+    "questionAr": "يتحرك جسيم في خط مستقيم بحيث $s(t) = t^3 - 6t^2 + 12t$. أوجد عجلة الجسيم عند اللحظة التي تبلغ فيها سرعته قيمتها الصغرى.",
+    "optionsEn": [
+      "$a = 0$",
+      "$a = 6\\text{ m/s}^2$",
+      "$a = 12\\text{ m/s}^2$",
+      "$a = -6\\text{ m/s}^2$"
+    ],
+    "optionsAr": [
+      "$a = 0$",
+      "$a = 6\\text{ م/ث}^2$",
+      "$a = 12\\text{ م/ث}^2$",
+      "$a = -6\\text{ م/ث}^2$"
+    ],
+    "correctAnswer": "$a = 0$",
+    "correctIndex": 0,
+    "hintEn": "Minimum velocity occurs when $\\frac{dv}{dt} = a = 0$.",
+    "hintAr": "السرعة تبلغ قيمتها الصغرى عندما تنعدم العجلة $\\frac{dv}{dt} = a = 0$.",
+    "stepByStepSolutionEn": [
+      "Velocity $v(t) = \\frac{ds}{dt} = 3t^2 - 12t + 12 = 3(t - 2)^2$.",
+      "Notice that $v(t) = 3(t - 2)^2 \\ge 0$ for all $t$.",
+      "The minimum speed is $0$, which occurs at $t = 2\\text{ s}$.",
+      "Acceleration $a(t) = \\frac{dv}{dt} = 6t - 12$.",
+      "At $t = 2\\text{ s}$: $a(2) = 6(2) - 12 = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة $v(t) = 3t^2 - 12t + 12 = 3(t - 2)^2$.",
+      "بما أن $3(t - 2)^2 \\ge 0$، فإن أدنى سرعة هي صفر وتحدث عند $t = 2\\text{ ث}$.",
+      "العجلة $a(t) = 6t - 12$.",
+      "عند $t = 2\\text{ ث}$: $a(2) = 12 - 12 = 0$."
+    ],
+    "teacherTipEn": "A critical point of velocity ($dv/dt = 0$) means acceleration is zero by definition.",
+    "teacherTipAr": "النقطة الحرجة للسرعة ($dv/dt = 0$) تعني بالضرورة أن العجلة مساوية للصفر."
+  },
+  {
+    "id": "dyn_ch1_db_med_58",
+    "titleEn": "Area Under Acceleration-Time Graph",
+    "titleAr": "المساحة تحت منحنى العجلة مع الزمن",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle starts from rest ($v(0) = 0$). In the acceleration-time graph, the area between the curve and the time axis from $t = 0$ to $t = 6\\text{ s}$ consists of a triangle of base $6\\text{ s}$ and height $8\\text{ m/s}^2$. What is the velocity of the particle at $t = 6\\text{ s}$?",
+    "questionAr": "بدأ جسيم حركته من السكون ($v(0) = 0$). في منحنى (العجلة - الزمن)، كانت المساحة المحصورة بين المنحنى ومحور الزمن من $t = 0$ إلى $t = 6\\text{ ث}$ على شكل مثلث قاعدته $6\\text{ ث}$ وارتفاعه $8\\text{ م/ث}^2$. ما سرعة الجسيم عند $t = 6\\text{ ث}$؟",
+    "optionsEn": [
+      "$24\\text{ m/s}$",
+      "$48\\text{ m/s}$",
+      "$12\\text{ m/s}$",
+      "$16\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$24\\text{ م/ث}$",
+      "$48\\text{ م/ث}$",
+      "$12\\text{ م/ث}$",
+      "$16\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$24\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "The change in velocity is the integral of acceleration, which is the geometric area under the $a-t$ graph: $\\Delta v = \\text{Area}$.",
+    "hintAr": "التغير في السرعة هو تكامل العجلة، وهو المساحة الهندسية تحت منحنى $(a-t)$: $\\Delta v = \\text{المساحة}$.",
+    "stepByStepSolutionEn": [
+      "$\\Delta v = v(6) - v(0) = \\int_0^6 a(t)\\,dt = \\text{Area under } a-t \\text{ graph}$.",
+      "Area of triangle $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 6 \\times 8 = 24\\text{ m/s}$.",
+      "Since $v(0) = 0$, $v(6) = 24\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\Delta v = v(6) - v(0) = \\text{المساحة تحت المنحنى}$.",
+      "مساحة المثلث $= \\frac{1}{2} \\times 6 \\times 8 = 24\\text{ م/ث}$.",
+      "بما أن $v(0) = 0$، فإن $v(6) = 24\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Always check the initial velocity: $v(t) = v_0 + \\text{Area}$. Here $v_0 = 0$.",
+    "teacherTipAr": "انتبه دائماً للسرعة الابتدائية: $v(t) = v_0 + \\text{المساحة}$."
+  },
+  {
+    "id": "dyn_ch1_db_med_59",
+    "titleEn": "Position-Dependent Acceleration Integrating to Velocity",
+    "titleAr": "تكامل عجلة دالية في الموضع لإيجاد السرعة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves along the $x$-axis with acceleration $a(x) = 2x + 3\\text{ m/s}^2$. If it starts from the origin ($x = 0$) with velocity $v_0 = 2\\text{ m/s}$, find its velocity $v$ when it reaches $x = 4\\text{ m}$.",
+    "questionAr": "يتحرك جسيم على محور $x$ بعجلة $a(x) = 2x + 3\\text{ م/ث}^2$. إذا بدأ حركته من نقطة الأصل ($x = 0$) بسرعة $v_0 = 2\\text{ م/ث}$، فأوجد سرعته $v$ عندما يصل إلى $x = 4\\text{ م}$.",
+    "optionsEn": [
+      "$6\\sqrt{2}\\text{ m/s}$",
+      "$8\\text{ m/s}$",
+      "$2\\sqrt{15}\\text{ m/s}$",
+      "$10\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$6\\sqrt{2}\\text{ م/ث}$",
+      "$8\\text{ م/ث}$",
+      "$2\\sqrt{15}\\text{ م/ث}$",
+      "$10\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$2\\sqrt{15}\\text{ m/s}$",
+    "correctIndex": 2,
+    "hintEn": "Integrate $\\frac{1}{2}(v^2 - v_0^2) = \\int_0^4 a(x)\\,dx$.",
+    "hintAr": "كامل العلاقة $\\frac{1}{2}(v^2 - v_0^2) = \\int_0^4 a(x)\\,dx$.",
+    "stepByStepSolutionEn": [
+      "$\\int_{v_0}^v v\\,dv = \\int_0^4 (2x + 3)\\,dx$.",
+      "$\\frac{1}{2}(v^2 - 4) = [x^2 + 3x]_0^4 = (16 + 12) - 0 = 28$.",
+      "$v^2 - 4 = 56 \\implies v^2 = 60$? Wait, $2 \\times 28 = 56$, so $v^2 = 60 \\implies v = \\sqrt{60} = 2\\sqrt{15}\\text{ m/s}$!",
+      "Let's check option C: $2\\sqrt{15}\\text{ m/s}$! We will select option C as the answer."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\int_{2}^v v\\,dv = \\int_0^4 (2x + 3)\\,dx$.",
+      "$\\frac{1}{2}(v^2 - 4) = [x^2 + 3x]_0^4 = 16 + 12 = 28$.",
+      "$v^2 - 4 = 56 \\implies v^2 = 60 \\implies v = \\sqrt{60} = 2\\sqrt{15}\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "Don't forget the factor of $\\frac{1}{2}$ when evaluating $\\int v\\,dv = \\frac{1}{2}v^2$!",
+    "teacherTipAr": "لا تنسَ معامل $\\frac{1}{2}$ عند حساب تكامل $\\int v\\,dv = \\frac{1}{2}v^2$!"
   }
 ],
   hots: [
@@ -3967,8 +4618,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$2\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{2}{u^2} du = \\left[\\frac{2}{u}\\right]_1^x = \\frac{2}{x} - 2$.",
       "2. $\\frac{1}{2}(v^2 - 8) = \\frac{2}{x} - 2$.",
@@ -4006,8 +4657,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$3\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{4}{u^2} du = \\left[\\frac{4}{u}\\right]_1^x = \\frac{4}{x} - 4$.",
       "2. $\\frac{1}{2}(v^2 - 17) = \\frac{4}{x} - 4$.",
@@ -4045,8 +4696,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$4\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{6}{u^2} du = \\left[\\frac{6}{u}\\right]_1^x = \\frac{6}{x} - 6$.",
       "2. $\\frac{1}{2}(v^2 - 28) = \\frac{6}{x} - 6$.",
@@ -4084,8 +4735,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$5\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{8}{u^2} du = \\left[\\frac{8}{u}\\right]_1^x = \\frac{8}{x} - 8$.",
       "2. $\\frac{1}{2}(v^2 - 41) = \\frac{8}{x} - 8$.",
@@ -4123,8 +4774,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$6\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{10}{u^2} du = \\left[\\frac{10}{u}\\right]_1^x = \\frac{10}{x} - 10$.",
       "2. $\\frac{1}{2}(v^2 - 56) = \\frac{10}{x} - 10$.",
@@ -4162,8 +4813,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$7\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{12}{u^2} du = \\left[\\frac{12}{u}\\right]_1^x = \\frac{12}{x} - 12$.",
       "2. $\\frac{1}{2}(v^2 - 73) = \\frac{12}{x} - 12$.",
@@ -4201,8 +4852,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$8\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{14}{u^2} du = \\left[\\frac{14}{u}\\right]_1^x = \\frac{14}{x} - 14$.",
       "2. $\\frac{1}{2}(v^2 - 92) = \\frac{14}{x} - 14$.",
@@ -4240,8 +4891,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$9\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{16}{u^2} du = \\left[\\frac{16}{u}\\right]_1^x = \\frac{16}{x} - 16$.",
       "2. $\\frac{1}{2}(v^2 - 113) = \\frac{16}{x} - 16$.",
@@ -4279,8 +4930,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$10\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{18}{u^2} du = \\left[\\frac{18}{u}\\right]_1^x = \\frac{18}{x} - 18$.",
       "2. $\\frac{1}{2}(v^2 - 136) = \\frac{18}{x} - 18$.",
@@ -4318,8 +4969,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$11\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Integrate $v dv = a dx = -\\frac{${2 * factor}}{x^2} dx$, and let $x \\to \\infty$.",
-    "hintAr": "كامل: $v dv = -\\frac{${2 * factor}}{x^2} dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
+    "hintEn": "Integrate $v dv = a dx$, and let $x \\to \\infty$.",
+    "hintAr": "كامل: $v dv = a dx$، ثم احسب النهاية عندما $x \\to \\infty$.",
     "stepByStepSolutionEn": [
       "1. $\\int_{v_0}^v v dv = \\int_1^x -\\frac{20}{u^2} du = \\left[\\frac{20}{u}\\right]_1^x = \\frac{20}{x} - 20$.",
       "2. $\\frac{1}{2}(v^2 - 161) = \\frac{20}{x} - 20$.",
@@ -5435,6 +6086,319 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
     "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+  },
+  {
+    "id": "dyn_ch1_db_hots_51",
+    "titleEn": "Terminal Velocity under Resistance Proportional to Velocity",
+    "titleAr": "السرعة القصوى لجسم تحت مقاومة تتناسب طردياً مع السرعة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A body falling vertically under gravity experiences air resistance giving net acceleration $a = g - k v$, where $k > 0$ is a constant. If the body starts from rest at $t = 0$, what is the terminal velocity $v_{\\text{term}}$ as $t \\to \\infty$, and what is the velocity at $t = \\frac{1}{k}$?",
+    "questionAr": "جسم يسقط رأسياً تحت تأثير الجاذبية الأرضية ومقاومة هواء تجعل عجلته $a = g - k v$، حيث $k > 0$ ثابت. إذا بدأ الجسم حركته من السكون عند $t = 0$، فما هي السرعة الحدية $v_{\\text{term}}$ عندما $t \\to \\infty$، وما سرعته عند $t = \\frac{1}{k}$؟",
+    "optionsEn": [
+      "$v_{\\text{term}} = \\frac{g}{k}$, and $v(1/k) = \\frac{g}{k}(1 - e^{-1})$",
+      "$v_{\\text{term}} = g k$, and $v(1/k) = g k e^{-1}$",
+      "$v_{\\text{term}} = \\frac{g}{k}$, and $v(1/k) = \\frac{g}{k} e^{-1}$",
+      "$v_{\\text{term}} = \\frac{k}{g}$, and $v(1/k) = \\frac{k}{g}(1 - e^{-1})$"
+    ],
+    "optionsAr": [
+      "$v_{\\text{term}} = \\frac{g}{k}$ و $v(1/k) = \\frac{g}{k}(1 - e^{-1})$",
+      "$v_{\\text{term}} = g k$ و $v(1/k) = g k e^{-1}$",
+      "$v_{\\text{term}} = \\frac{g}{k}$ و $v(1/k) = \\frac{g}{k} e^{-1}$",
+      "$v_{\\text{term}} = \\frac{k}{g}$ و $v(1/k) = \\frac{k}{g}(1 - e^{-1})$"
+    ],
+    "correctAnswer": "$v_{\\text{term}} = \\frac{g}{k}$, and $v(1/k) = \\frac{g}{k}(1 - e^{-1})$",
+    "correctIndex": 0,
+    "hintEn": "Terminal velocity occurs when acceleration drops to zero: $g - k v_{\\text{term}} = 0$.",
+    "hintAr": "السرعة الحدية تحدث عندما تنعدم العجلة: $g - k v_{\\text{term}} = 0$.",
+    "stepByStepSolutionEn": [
+      "At terminal velocity, acceleration $a = 0 \\implies g - k v_{\\text{term}} = 0 \\implies v_{\\text{term}} = \\frac{g}{k}$.",
+      "Separating variables: $\\frac{dv}{g - kv} = dt$.",
+      "Integrating from $v = 0$ to $v$: $-\\frac{1}{k} \\ln\\left(1 - \\frac{kv}{g}\\right) = t \\implies 1 - \\frac{kv}{g} = e^{-kt}$.",
+      "$v(t) = \\frac{g}{k}(1 - e^{-kt})$.",
+      "At $t = \\frac{1}{k}$: $v(1/k) = \\frac{g}{k}(1 - e^{-1})$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند السرعة الحدية تنعدم العجلة $a = 0 \\implies g - kv = 0 \\implies v_{\\text{term}} = \\frac{g}{k}$.",
+      "بفصل المتغيرات والتكامل من السكون: $v(t) = \\frac{g}{k}(1 - e^{-kt})$.",
+      "عند $t = \\frac{1}{k}$: $v = \\frac{g}{k}(1 - e^{-1})$."
+    ],
+    "teacherTipEn": "The characteristic time $\\tau = \\frac{1}{k}$ is the time constant where the body reaches $(1 - 1/e) \\approx 63.2\\%$ of terminal speed.",
+    "teacherTipAr": "الزمن $\\tau = 1/k$ يمثل ثابت الزمن الذي يبلغ عنده الجسم حوالي $63.2\\%$ من سرعته الحدية."
+  },
+  {
+    "id": "dyn_ch1_db_hots_52",
+    "titleEn": "Deducing Acceleration from a Parabolic v-x Graph",
+    "titleAr": "استنتاج العجلة من منحنى سرعة وموضع مكافئ",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "The velocity-position graph of a particle is a parabola given by $v(x) = k \\sqrt{x}$, where $k$ is a positive constant and $x > 0$. What is the nature of the particle's acceleration?",
+    "questionAr": "المنحنى البياني للعلاقة بين السرعة والموضع لجسيم هو $v(x) = k \\sqrt{x}$، حيث $k$ ثابت موجب و $x > 0$. ما طبيعة عجلة حركة هذا الجسيم؟",
+    "optionsEn": [
+      "Constant acceleration $a = \\frac{k^2}{2}$",
+      "Acceleration proportional to $\\sqrt{x}$",
+      "Acceleration inversely proportional to $x$",
+      "Zero acceleration"
+    ],
+    "optionsAr": [
+      "عجلة منتظمة ثابتة $a = \\frac{k^2}{2}$",
+      "عجلة تتناسب طردياً مع $\\sqrt{x}$",
+      "عجلة تتناسب عكسياً مع $x$",
+      "عجلة صفرية"
+    ],
+    "correctAnswer": "Constant acceleration $a = \\frac{k^2}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Compute $a = v \\frac{dv}{dx}$ using $v = k x^{1/2}$.",
+    "hintAr": "احسب $a = v \\frac{dv}{dx}$ حيث $v = k x^{1/2}$.",
+    "stepByStepSolutionEn": [
+      "Given $v = k x^{1/2}$.",
+      "Derivative: $\\frac{dv}{dx} = k \\left(\\frac{1}{2} x^{-1/2}\\right) = \\frac{k}{2\\sqrt{x}}$.",
+      "Acceleration $a = v \\frac{dv}{dx} = (k\\sqrt{x}) \\left(\\frac{k}{2\\sqrt{x}}\\right) = \\frac{k^2}{2}$.",
+      "Notice that $x$ cancels out completely: the acceleration is strictly constant!"
+    ],
+    "stepByStepSolutionAr": [
+      "لدينا $v = k x^{1/2}$.",
+      "المشتقة: $\\frac{dv}{dx} = \\frac{k}{2\\sqrt{x}}$.",
+      "العجلة: $a = v \\frac{dv}{dx} = (k\\sqrt{x}) \\left(\\frac{k}{2\\sqrt{x}}\\right) = \\frac{k^2}{2}$.",
+      "تختصر $x$ تماماً، وتكون العجلة ثابته وموجبة دائماً!"
+    ],
+    "teacherTipEn": "Remember Torricelli's equation $v^2 = 2as$. Here $v = \\sqrt{2a} \\sqrt{x} = k\\sqrt{x} \\implies 2a = k^2 \\implies a = \\frac{k^2}{2}$.",
+    "teacherTipAr": "قارن مع معادلة الحركة بعجلة منتظمة $v^2 = 2ax$ لتكتشف النتيجة بالنظر مباشرة!"
+  },
+  {
+    "id": "dyn_ch1_db_hots_53",
+    "titleEn": "Distance Traveled to Rest under Fractional Power Resistance",
+    "titleAr": "المسافة المقطوعة حتى السكون تحت مقاومة ذات قوى كسرية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves with deceleration $a = -k \\sqrt{v}$, where $k > 0$ and $v$ is velocity. If its initial velocity at $x = 0$ is $v_0$, what is the total distance $x_{\\text{stop}}$ traveled until the particle comes to rest?",
+    "questionAr": "يتحرك جسيم بتقصير $a = -k \\sqrt{v}$، حيث $k > 0$ و $v$ السرعة. إذا كانت سرعته الابتدائية عند $x = 0$ هي $v_0$، فما المسافة الكلية $x_{\\text{stop}}$ المقطوعة حتى يسكن الجسيم؟",
+    "optionsEn": [
+      "$x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$",
+      "$x_{\\text{stop}} = \\frac{1}{2k} v_0^2$",
+      "$x_{\\text{stop}} = \\frac{2}{k} \\sqrt{v_0}$",
+      "$x_{\\text{stop}} = \\frac{1}{k} v_0^{3/2}$"
+    ],
+    "optionsAr": [
+      "$x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$",
+      "$x_{\\text{stop}} = \\frac{1}{2k} v_0^2$",
+      "$x_{\\text{stop}} = \\frac{2}{k} \\sqrt{v_0}$",
+      "$x_{\\text{stop}} = \\frac{1}{k} v_0^{3/2}$"
+    ],
+    "correctAnswer": "$x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$",
+    "correctIndex": 0,
+    "hintEn": "Express $a$ in terms of position: $v \\frac{dv}{dx} = -k \\sqrt{v} \\implies \\sqrt{v}\\,dv = -k\\,dx$.",
+    "hintAr": "عبر عن العجلة بدلالة الموضع: $v \\frac{dv}{dx} = -k \\sqrt{v} \\implies \\sqrt{v}\\,dv = -k\\,dx$.",
+    "stepByStepSolutionEn": [
+      "$v \\frac{dv}{dx} = -k \\sqrt{v}$.",
+      "Divide by $\\sqrt{v}$: $\\frac{v}{\\sqrt{v}}\\,dv = -k\\,dx \\implies v^{1/2}\\,dv = -k\\,dx$.",
+      "Integrate from $v_0$ to $0$ and from $0$ to $x_{\\text{stop}}$:",
+      "$\\int_{v_0}^0 v^{1/2}\\,dv = \\int_0^{x_{\\text{stop}}} -k\\,dx$.",
+      "$\\left[\\frac{2}{3} v^{3/2}\\right]_{v_0}^0 = -k x_{\\text{stop}} \\implies -\\frac{2}{3} v_0^{3/2} = -k x_{\\text{stop}}$.",
+      "$x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$v \\frac{dv}{dx} = -k \\sqrt{v}$.",
+      "بالقسمة على $\\sqrt{v}$: $v^{1/2}\\,dv = -k\\,dx$.",
+      "بالتكامل من $v_0$ إلى $0$ ومن $0$ إلى $x_{\\text{stop}}$:",
+      "$-\\frac{2}{3} v_0^{3/2} = -k x_{\\text{stop}} \\implies x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$."
+    ],
+    "teacherTipEn": "When asked for distance to stop, use $a = v\\frac{dv}{dx}$ directly rather than finding $v(t)$ and integrating twice!",
+    "teacherTipAr": "عند طلب مسافة التوقف، استخدم $a = v\\frac{dv}{dx}$ مباشرة بدلاً من إيجاد $v(t)$ والتكامل مرتين!"
+  },
+  {
+    "id": "dyn_ch1_db_hots_54",
+    "titleEn": "Position Vector with Curvilinear Tangential Velocity",
+    "titleAr": "متجه الموضع وسرعة الحركة في بعدين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in the $xy$-plane such that its position vector is $\\vec{r}(t) = (3t^2 - 2)\\hat{i} + (4t^2 + 1)\\hat{j}\\text{ m}$. What is the path of the particle and its acceleration magnitude?",
+    "questionAr": "يتحرك جسيم في المستوى $xy$ بحيث متجه موضعه $\\vec{r}(t) = (3t^2 - 2)\\hat{i} + (4t^2 + 1)\\hat{j}\\text{ م}$. ما معادلة مسار الجسيم وما مقدار عجلته؟",
+    "optionsEn": [
+      "Straight line $4x - 3y + 11 = 0$, with constant acceleration $10\\text{ m/s}^2$",
+      "Parabola $y = x^2$, with acceleration $5\\text{ m/s}^2$",
+      "Straight line $3x - 4y + 10 = 0$, with acceleration $14\\text{ m/s}^2$",
+      "Circle of radius $5\\text{ m}$, with variable acceleration"
+    ],
+    "optionsAr": [
+      "خط مستقيم $4x - 3y + 11 = 0$ بعجلة ثابتة $10\\text{ م/ث}^2$",
+      "قطع مكافئ $y = x^2$ بعجلة $5\\text{ م/ث}^2$",
+      "خط مستقيم $3x - 4y + 10 = 0$ بعجلة $14\\text{ م/ث}^2$",
+      "دائرة نصف قطرها $5\\text{ م}$ بعجلة متغيرة"
+    ],
+    "correctAnswer": "Straight line $4x - 3y + 11 = 0$, with constant acceleration $10\\text{ m/s}^2$",
+    "correctIndex": 0,
+    "hintEn": "Eliminate the parameter $t^2$ to find the path equation $y = f(x)$, then compute $\\vec{a} = \\ddot{\\vec{r}}$.",
+    "hintAr": "احذف الوسيط $t^2$ لإيجاد معادلة المسار $y = f(x)$، ثم احسب العجلة $\\vec{a} = \\ddot{\\vec{r}}$.",
+    "stepByStepSolutionEn": [
+      "Parametric equations: $x = 3t^2 - 2 \\implies t^2 = \\frac{x + 2}{3}$.",
+      "$y = 4t^2 + 1 = 4\\left(\\frac{x + 2}{3}\\right) + 1 = \\frac{4x + 8 + 3}{3} = \\frac{4x + 11}{3}$.",
+      "$3y = 4x + 11 \\implies 4x - 3y + 11 = 0$ (a straight line).",
+      "Acceleration: $\\vec{v}(t) = 6t\\hat{i} + 8t\\hat{j}$, $\\vec{a}(t) = 6\\hat{i} + 8\\hat{j}$.",
+      "Magnitude of acceleration: $|\\vec{a}| = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = 10\\text{ m/s}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلتان الوسيطتان: $x = 3t^2 - 2 \\implies t^2 = \\frac{x + 2}{3}$.",
+      "$y = 4t^2 + 1 \\implies 3y = 4x + 11 \\implies 4x - 3y + 11 = 0$ (خط مستقيم).",
+      "متجه العجلة: $\\vec{a} = 6\\hat{i} + 8\\hat{j}$.",
+      "مقدار العجلة: $|\\vec{a}| = \\sqrt{6^2 + 8^2} = 10\\text{ م/ث}^2$."
+    ],
+    "teacherTipEn": "Linear relations between components mean rectilinear motion, even when written in parametric form!",
+    "teacherTipAr": "العلاقة الخطية بين مركبات الإحداثيات تعني أن الحركة مستقيمة حتى لو كُتبت في صورة متجهات."
+  },
+  {
+    "id": "dyn_ch1_db_hots_55",
+    "titleEn": "Third Derivative of Displacement: The Jerk",
+    "titleAr": "المشتقة الثالثة للإزاحة وانعدام التغير في العجلة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A high-speed train starts from rest with displacement given by $s(t) = \\frac{1}{12} t^4 - \\frac{1}{3} t^3 + 2t^2$. At what non-zero time $t$ is the acceleration constant momentarily (i.e., jerk $j = \\frac{da}{dt} = 0$)?",
+    "questionAr": "قطار فائق السرعة يبدأ حركته من السكون وإزاحته تعطى بالعلاقة $s(t) = \\frac{1}{12} t^4 - \\frac{1}{3} t^3 + 2t^2$. عند أي لحظة زمنية غير صفرية $t$ يثبت معدل تغير العجلة لحظياً (أي ينعدم معدل التغير في العجلة $j = \\frac{da}{dt} = 0$)؟",
+    "optionsEn": [
+      "$t = 2\\text{ s}$",
+      "$t = 1\\text{ s}$",
+      "$t = 3\\text{ s}$",
+      "$t = 4\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$t = 2\\text{ ث}$",
+      "$t = 1\\text{ ث}$",
+      "$t = 3\\text{ ث}$",
+      "$t = 4\\text{ ث}$"
+    ],
+    "correctAnswer": "$t = 1\\text{ s}$",
+    "correctIndex": 1,
+    "hintEn": "Differentiate three times to find jerk $j(t) = \\frac{d^3s}{dt^3} = 0$.",
+    "hintAr": "فاضل ثلاث مرات لإيجاد معدل تغير العجلة $j(t) = \\frac{d^3s}{dt^3} = 0$.",
+    "stepByStepSolutionEn": [
+      "$v(t) = \\frac{ds}{dt} = \\frac{1}{3} t^3 - t^2 + 4t$.",
+      "$a(t) = \\frac{dv}{dt} = t^2 - 2t + 4$.",
+      "Jerk $j(t) = \\frac{da}{dt} = 2t - 2$.",
+      "Set $j(t) = 0 \\implies 2t - 2 = 0 \\implies t = 1\\text{ s}$? Wait: $2t - 2 = 0 \\implies t = 1\\text{ s}$! Let us check options: Option B is $t = 1\\text{ s}$. Let's set Option B as answer."
+    ],
+    "stepByStepSolutionAr": [
+      "$v(t) = \\frac{1}{3} t^3 - t^2 + 4t$.",
+      "$a(t) = t^2 - 2t + 4$.",
+      "معدل تغير العجلة $j(t) = 2t - 2$.",
+      "بوضع $j(t) = 0 \\implies 2t = 2 \\implies t = 1\\text{ ث}$."
+    ],
+    "teacherTipEn": "Minimizing jerk is the central design objective in elevator and high-speed rail passenger comfort.",
+    "teacherTipAr": "تقليل معدل تغير العجلة هو الهدف الهندسي الأساسي لتوفير الراحة لركاب القطارات والمصاعد."
+  },
+  {
+    "id": "dyn_ch1_db_hots_56",
+    "titleEn": "Reconstruction of Displacement from a Non-Linear v-x Graph",
+    "titleAr": "تحديد الزمن المستغرق من علاقة السرعة والموضع",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves such that its velocity is $v = \\frac{1}{x + 1}\\text{ m/s}$ for $x \\ge 0$. If $x = 0$ at $t = 0$, find the time $t$ required for the particle to reach $x = 3\\text{ m}$.",
+    "questionAr": "يتحرك جسيم بحيث سرعته $v = \\frac{1}{x + 1}\\text{ م/ث}$ لـ $x \\ge 0$. إذا كان $x = 0$ عند $t = 0$، فأوجد الزمن $t$ اللازم لكي يصل الجسيم إلى الموضع $x = 3\\text{ م}$.",
+    "optionsEn": [
+      "$7.5\\text{ s}$",
+      "$6.0\\text{ s}$",
+      "$4.5\\text{ s}$",
+      "$9.0\\text{ s}$"
+    ],
+    "optionsAr": [
+      "$7.5\\text{ ث}$",
+      "$6.0\\text{ ث}$",
+      "$4.5\\text{ ث}$",
+      "$9.0\\text{ ث}$"
+    ],
+    "correctAnswer": "$7.5\\text{ s}$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $v = \\frac{dx}{dt}$ and separate variables: $(x + 1)\\,dx = dt$.",
+    "hintAr": "عوض عن $v = \\frac{dx}{dt}$ وافصل المتغيرات: $(x + 1)\\,dx = dt$.",
+    "stepByStepSolutionEn": [
+      "$\\frac{dx}{dt} = \\frac{1}{x + 1} \\implies (x + 1)\\,dx = dt$.",
+      "Integrate from $x = 0$ to $x = 3$:",
+      "$t = \\int_0^3 (x + 1)\\,dx = \\left[\\frac{1}{2} x^2 + x\\right]_0^3 = \\frac{1}{2}(9) + 3 = 4.5 + 3 = 7.5\\text{ s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\frac{dx}{dt} = \\frac{1}{x + 1} \\implies (x + 1)\\,dx = dt$.",
+      "بالتكامل من $x = 0$ إلى $x = 3$:",
+      "$t = \\int_0^3 (x + 1)\\,dx = [\\frac{1}{2} x^2 + x]_0^3 = 4.5 + 3 = 7.5\\text{ ث}$."
+    ],
+    "teacherTipEn": "Writing $dt = \\frac{dx}{v}$ allows direct integration for travel time when $v$ is known as a function of $x$.",
+    "teacherTipAr": "كتابة $dt = \\frac{dx}{v}$ تتيح حساب زمن الرحلة بالتكامل المباشر عندما تكون السرعة دالة في الموضع."
+  },
+  {
+    "id": "dyn_ch1_db_hots_57",
+    "titleEn": "Invariant Acceleration for Relativistic-Form Kinematic Law",
+    "titleAr": "تسارع حركة متغيرة النمط",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves such that $x(t) = \\sqrt{t^2 + 16}$. Find the acceleration $a(t)$ of the particle as a function of its position $x$.",
+    "questionAr": "يتحرك جسيم بحيث $x(t) = \\sqrt{t^2 + 16}$. أوجد عجلة الجسيم $a(t)$ كدالة في موضعه $x$.",
+    "optionsEn": [
+      "$a = \\frac{16}{x^3}$",
+      "$a = \\frac{4}{x^2}$",
+      "$a = \\frac{1}{x}$",
+      "$a = \\frac{16}{x^2}$"
+    ],
+    "optionsAr": [
+      "$a = \\frac{16}{x^3}$",
+      "$a = \\frac{4}{x^2}$",
+      "$a = \\frac{1}{x}$",
+      "$a = \\frac{16}{x^2}$"
+    ],
+    "correctAnswer": "$a = \\frac{16}{x^3}$",
+    "correctIndex": 0,
+    "hintEn": "Square both sides: $x^2 = t^2 + 16$, then differentiate implicitly with respect to $t$.",
+    "hintAr": "ربع الطرفين: $x^2 = t^2 + 16$، ثم فاضل ضمنياً بالنسبة للزمن $t$.",
+    "stepByStepSolutionEn": [
+      "$x^2 = t^2 + 16$.",
+      "Differentiate with respect to $t$: $2x \\frac{dx}{dt} = 2t \\implies x v = t \\implies v = \\frac{t}{x}$.",
+      "Differentiate again: $v^2 + x a = 1$.",
+      "$x a = 1 - v^2 = 1 - \\frac{t^2}{x^2} = \\frac{x^2 - t^2}{x^2}$.",
+      "Since $x^2 - t^2 = 16$, we have $x a = \\frac{16}{x^2} \\implies a = \\frac{16}{x^3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$x^2 = t^2 + 16$.",
+      "بالتفاضل بالنسبة لـ $t$: $2x v = 2t \\implies x v = t$.",
+      "بالتفاضل مرة ثانية: $v^2 + x a = 1$.",
+      "$x a = 1 - v^2 = 1 - \\frac{t^2}{x^2} = \\frac{x^2 - t^2}{x^2}$.",
+      "بما أن $x^2 - t^2 = 16$، إذن $x a = \\frac{16}{x^2} \\implies a = \\frac{16}{x^3}$."
+    ],
+    "teacherTipEn": "Implicit differentiation of $x^2 = f(t)$ is much faster and cleaner than chain rule with radicals!",
+    "teacherTipAr": "التفاضل الضمني للعلاقة $x^2 = f(t)$ أسرع بكثير وأنظف من تفاضل الجذور بالقسمة."
+  },
+  {
+    "id": "dyn_ch1_db_hots_58",
+    "titleEn": "Inflection Points in Displacement Graphs and Zero Acceleration",
+    "titleAr": "نقاط الانقلاب في منحنى الإزاحة وانعدام العجلة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "In the displacement-time graph $s(t)$ of a particle moving along a straight line, an inflection point occurs at $t = t_0$. What does this physically imply about the particle's motion at $t_0$?",
+    "questionAr": "في منحنى (الإزاحة - الزمن) $s(t)$ لجسيم يتحرك في خط مستقيم، حدثت نقطة انقلاب عند $t = t_0$. ما التفسير الفيزيائي لهذه النقطة في حركة الجسيم؟",
+    "optionsEn": [
+      "The acceleration is zero ($a(t_0) = 0$) and the velocity has an extremum (maximum or minimum)",
+      "The particle comes to a complete rest ($v(t_0) = 0$)",
+      "The displacement is zero ($s(t_0) = 0$)",
+      "The acceleration attains its maximum value"
+    ],
+    "optionsAr": [
+      "تنعدم العجلة ($a(t_0) = 0$) وتصل السرعة إلى قيمة عظمى أو صغرى محلية",
+      "يسكن الجسيم تماماً ($v(t_0) = 0$)",
+      "تنعدم الإزاحة ($s(t_0) = 0$)",
+      "تبلغ العجلة قيمتها العظمى"
+    ],
+    "correctAnswer": "The acceleration is zero ($a(t_0) = 0$) and the velocity has an extremum (maximum or minimum)",
+    "correctIndex": 0,
+    "hintEn": "An inflection point of $s(t)$ occurs where $\\frac{d^2s}{dt^2} = 0$, which is the acceleration $a(t)$.",
+    "hintAr": "نقطة الانقلاب لمنحنى $s(t)$ تحدث عندما تنعدم المشتقة الثانية $\\frac{d^2s}{dt^2} = 0$، وهي تمثل العجلة $a(t)$ مباشرة.",
+    "stepByStepSolutionEn": [
+      "By definition of inflection points in differential calculus, $\\frac{d^2s}{dt^2} = 0$ and changes sign.",
+      "Since acceleration $a = \\frac{d^2s}{dt^2}$, an inflection point corresponds to $a(t_0) = 0$.",
+      "Furthermore, since $\\frac{dv}{dt} = a(t_0) = 0$, the velocity $v(t)$ has a local extremum (maximum or minimum speed) at that instant."
+    ],
+    "stepByStepSolutionAr": [
+      "بتعريف نقطة الانقلاب في التفاضل، تكون المشتقة الثانية $\\frac{d^2s}{dt^2} = 0$ وتغير إشارتها.",
+      "بما أن العجلة $a = \\frac{d^2s}{dt^2}$، فإن نقطة الانقلاب تعني انعدام العجلة $a(t_0) = 0$.",
+      "وحيث أن $\\frac{dv}{dt} = 0$، فإن السرعة $v(t)$ تبلغ قيمة عظمى أو صغرى محلية عند تلك اللحظة."
+    ],
+    "teacherTipEn": "This question bridges calculus and kinematics: concave up $\\implies a > 0$, concave down $\\implies a < 0$, inflection $\\implies a = 0$.",
+    "teacherTipAr": "هذا السؤال يربط بين التفاضل والحركة: التحدب لأسفل $\\implies a > 0$، والتحدب لأعلى $\\implies a < 0$، ونقطة الانقلاب $\\implies a = 0$."
   }
 ]
 };

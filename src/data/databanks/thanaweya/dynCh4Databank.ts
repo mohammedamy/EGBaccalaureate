@@ -1701,6 +1701,286 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
     "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+  },
+  {
+    "id": "dyn_ch4_db_easy_51",
+    "titleEn": "Work Done by a Constant Force at an Angle",
+    "titleAr": "شغل قوة ثابتة تميل بزاوية على اتجاه الإزاحة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F = 50\\text{ N}$ pulls a sled across a horizontal surface through a displacement $s = 10\\text{ m}$. The pulling rope makes an angle of $60^\\circ$ with the horizontal. What is the work done by the force?",
+    "questionAr": "قوة $F = 50\\text{ ن}$ تسحب مزلاجة على سطح أفقي بإزاحة $s = 10\\text{ م}$. حبل السحب يميل بزاوية $60^\\circ$ على الأفقي. ما مقدار الشغل المبذول بواسطة هذه القوة؟",
+    "optionsEn": [
+      "$250\\text{ J}$",
+      "$500\\text{ J}$",
+      "$250\\sqrt{3}\\text{ J}$",
+      "$433\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$250\\text{ جول}$",
+      "$500\\text{ جول}$",
+      "$250\\sqrt{3}\\text{ جول}$",
+      "$433\\text{ جول}$"
+    ],
+    "correctAnswer": "$250\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Work $W = F s \\cos\\theta$.",
+    "hintAr": "الشغل $W = F s \\cos\\theta$.",
+    "stepByStepSolutionEn": [
+      "$W = F \\cdot s \\cdot \\cos\\theta = 50 \\times 10 \\times \\cos 60^\\circ = 500 \\times 0.5 = 250\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$W = F \\cdot s \\cdot \\cos\\theta = 50 \\times 10 \\times \\cos 60^\\circ = 250\\text{ جول}$."
+    ],
+    "teacherTipEn": "Only the force component parallel to displacement ($F \\cos\\theta$) does mechanical work.",
+    "teacherTipAr": "مركبة القوة الموازية للإزاحة ($F \\cos\\theta$) هي وحدها التي تبذل شغلاً ميكانيكياً."
+  },
+  {
+    "id": "dyn_ch4_db_easy_52",
+    "titleEn": "Work Done by Gravity on a Descending Mass",
+    "titleAr": "شغل قوة الجاذبية على جسم هابط",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A crate of mass $m = 25\\text{ kg}$ is lowered vertically through a height of $h = 8\\text{ m}$. What is the work done by gravity on the crate? (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "صندوق كتلته $m = 25\\text{ كجم}$ هبط رأسياً لمسافة $h = 8\\text{ م}$. ما الشغل المبذول بواسطة قوة الجاذبية على الصندوق؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$+1960\\text{ J}$",
+      "$-1960\\text{ J}$",
+      "$+200\\text{ J}$",
+      "$+245\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$+1960\\text{ جول}$",
+      "$-1960\\text{ جول}$",
+      "$+200\\text{ جول}$",
+      "$+245\\text{ جول}$"
+    ],
+    "correctAnswer": "$+1960\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "When motion is downward in the direction of gravity, the work done by gravity is positive: $W_g = + m g h$.",
+    "hintAr": "عندما تكون الحركة لأسفل في نفس اتجاه الجاذبية، يكون شغل الجاذبية موجباً: $W_g = + m g h$.",
+    "stepByStepSolutionEn": [
+      "Gravity acts downward, and displacement is downward (angle $\\theta = 0^\\circ$, $\\cos 0^\\circ = 1$).",
+      "$W_g = m g h = 25 \\times 9.8 \\times 8 = 1960\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "قوة الجاذبية لأسفل والإزاحة لأسفل (في نفس الاتجاه).",
+      "$W_g = m g h = 25 \\times 9.8 \\times 8 = 1960\\text{ جول}$."
+    ],
+    "teacherTipEn": "Remember: gravity does POSITIVE work on descending bodies and NEGATIVE work on ascending bodies.",
+    "teacherTipAr": "تذكر: تبذل الجاذبية شغلاً موجباً على الأجسام الهابطة، وشغلاً سالباً على الأجسام الصاعدة."
+  },
+  {
+    "id": "dyn_ch4_db_easy_53",
+    "titleEn": "Kinetic Energy Calculation",
+    "titleAr": "حساب طاقة الحركة لسيارة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A car of mass $m = 1200\\text{ kg}$ is traveling at a speed of $v = 20\\text{ m/s}$ ($72\\text{ km/h}$). Find its kinetic energy.",
+    "questionAr": "سيارة كتلتها $m = 1200\\text{ كجم}$ تسير بسرعة $v = 20\\text{ م/ث}$ ($72\\text{ كم/س}$). احسب طاقة حركتها.",
+    "optionsEn": [
+      "$240,000\\text{ J}$ ($240\\text{ kJ}$)",
+      "$480,000\\text{ J}$",
+      "$24,000\\text{ J}$",
+      "$120,000\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$240,000\\text{ جول}$ ($240\\text{ ك.جول}$)",
+      "$480,000\\text{ جول}$",
+      "$24,000\\text{ جول}$",
+      "$120,000\\text{ جول}$"
+    ],
+    "correctAnswer": "$240,000\\text{ J}$ ($240\\text{ kJ}$)",
+    "correctIndex": 0,
+    "hintEn": "Kinetic energy $T = \\frac{1}{2} m v^2$.",
+    "hintAr": "طاقة الحركة $T = \\frac{1}{2} m v^2$.",
+    "stepByStepSolutionEn": [
+      "$T = \\frac{1}{2} m v^2 = \\frac{1}{2}(1200)(20)^2 = 600 \\times 400 = 240,000\\text{ J} = 240\\text{ kJ}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$T = \\frac{1}{2} m v^2 = \\frac{1}{2} \\times 1200 \\times 400 = 240000\\text{ جول}$."
+    ],
+    "teacherTipEn": "Always make sure speed is in m/s before squaring: multiply km/h by $\\frac{5}{18}$.",
+    "teacherTipAr": "تأكد دائماً أن السرعة بوحدة م/ث قبل التربيع: اضرب كم/س في $\\frac{5}{18}$."
+  },
+  {
+    "id": "dyn_ch4_db_easy_54",
+    "titleEn": "Instantaneous Power from Force and Velocity",
+    "titleAr": "القدرة اللحظية من القوة والسرعة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "An engine exerts a forward driving force of $F = 4500\\text{ N}$ on a truck moving at a constant speed of $v = 16\\text{ m/s}$. What is the power developed by the engine in kilowatts?",
+    "questionAr": "محرك يبذل قوة جر للأمام $F = 4500\\text{ ن}$ على شاحنة تتحرك بسرعة منتظمة $v = 16\\text{ م/ث}$. ما القدرة التي يولدها المحرك بوحدة الكيلووات؟",
+    "optionsEn": [
+      "$72\\text{ kW}$",
+      "$281.25\\text{ kW}$",
+      "$36\\text{ kW}$",
+      "$144\\text{ kW}$"
+    ],
+    "optionsAr": [
+      "$72\\text{ ك.وات}$",
+      "$281.25\\text{ ك.وات}$",
+      "$36\\text{ ك.وات}$",
+      "$144\\text{ ك.وات}$"
+    ],
+    "correctAnswer": "$72\\text{ kW}$",
+    "correctIndex": 0,
+    "hintEn": "Power $P = F \\cdot v$. Convert Watts to kW by dividing by $1000$.",
+    "hintAr": "القدرة $P = F \\cdot v$. وللتحويل من وات إلى كيلووات اقسم على $1000$.",
+    "stepByStepSolutionEn": [
+      "$P = F \\cdot v = 4500 \\times 16 = 72,000\\text{ W}$.",
+      "In kilowatts: $P = \\frac{72000}{1000} = 72\\text{ kW}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$P = F \\cdot v = 4500 \\times 16 = 72000\\text{ وات}$.",
+      "بالكيلووات: $P = 72\\text{ ك.وات}$."
+    ],
+    "teacherTipEn": "If asked for horsepower (hp): $1\\text{ metric hp} = 735\\text{ W}$, or $1\\text{ mechanical hp} = 746\\text{ W}$.",
+    "teacherTipAr": "إذا طُلبت القدرة بالحصان: $1\\text{ حصان متري} = 735\\text{ وات}$ (أو $75\\text{ ث.كجم}\\cdot\\text{م/ث}$)."
+  },
+  {
+    "id": "dyn_ch4_db_easy_55",
+    "titleEn": "Work Done by a Vector Force over a Vector Displacement",
+    "titleAr": "شغل قوة متجهة عبر إزاحة متجهة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $\\vec{F} = 8\\hat{i} - 5\\hat{j}\\text{ N}$ moves a particle from point $A(1, 2)$ to point $B(4, 6)$. Find the work done by the force in Joules.",
+    "questionAr": "قوة $\\vec{F} = 8\\hat{i} - 5\\hat{j}\\text{ ن}$ حركت جسيماً من النقطة $A(1, 2)$ إلى النقطة $B(4, 6)$. احسب الشغل المبذول بواسطة القوة بالجول.",
+    "optionsEn": [
+      "$4\\text{ J}$",
+      "$44\\text{ J}$",
+      "$-4\\text{ J}$",
+      "$24\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$4\\text{ جول}$",
+      "$44\\text{ جول}$",
+      "$-4\\text{ جول}$",
+      "$24\\text{ جول}$"
+    ],
+    "correctAnswer": "$4\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Find displacement vector $\\vec{s} = B - A$, then compute the dot product $W = \\vec{F} \\cdot \\vec{s}$.",
+    "hintAr": "أوجد متجه الإزاحة $\\vec{s} = B - A$ ثم احسب الضرب القياسي $W = \\vec{F} \\cdot \\vec{s}$.",
+    "stepByStepSolutionEn": [
+      "Displacement $\\vec{s} = \\vec{AB} = (4 - 1)\\hat{i} + (6 - 2)\\hat{j} = 3\\hat{i} + 4\\hat{j}$.",
+      "Work $W = \\vec{F} \\cdot \\vec{s} = (8)(3) + (-5)(4) = 24 - 20 = 4\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "متجه الإزاحة: $\\vec{s} = B - A = 3\\hat{i} + 4\\hat{j}$.",
+      "الشغل: $W = \\vec{F} \\cdot \\vec{s} = 8(3) + (-5)(4) = 24 - 20 = 4\\text{ جول}$."
+    ],
+    "teacherTipEn": "The dot product $F_x s_x + F_y s_y$ automatically takes into account the cosine of the angle between them.",
+    "teacherTipAr": "الضرب القياسي يراعي تلقائياً جيب تمام الزاوية المحصورة بين المتجهين."
+  },
+  {
+    "id": "dyn_ch4_db_easy_56",
+    "titleEn": "Potential Energy of an Ideal Compressed Spring",
+    "titleAr": "طاقة وضع زنبرك مرن مضغوط",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A spring with spring constant $k = 500\\text{ N/m}$ is compressed by $x = 0.2\\text{ m}$ from its natural equilibrium length. What is the elastic potential energy stored in the spring?",
+    "questionAr": "زنبرك ثابت مرونته $k = 500\\text{ ن/م}$ ضُغط بمقدار $x = 0.2\\text{ م}$ عن وضعه الطبيعي. ما طاقة الوضع المرنة المختزنة في الزنبرك؟",
+    "optionsEn": [
+      "$10\\text{ J}$",
+      "$20\\text{ J}$",
+      "$50\\text{ J}$",
+      "$100\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$10\\text{ جول}$",
+      "$20\\text{ جول}$",
+      "$50\\text{ جول}$",
+      "$100\\text{ جول}$"
+    ],
+    "correctAnswer": "$10\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Elastic potential energy is $V_e = \\frac{1}{2} k x^2$.",
+    "hintAr": "طاقة الوضع المرنة تعطى بالعلاقة $V_e = \\frac{1}{2} k x^2$.",
+    "stepByStepSolutionEn": [
+      "$V_e = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 500 \\times (0.2)^2 = 250 \\times 0.04 = 10\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$V_e = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 500 \\times 0.04 = 10\\text{ جول}$."
+    ],
+    "teacherTipEn": "Elastic potential energy is always positive ($x^2 > 0$), whether the spring is stretched or compressed.",
+    "teacherTipAr": "طاقة الوضع المرنة موجبة دائماً سواء كان الزنبرك مشدوداً أو مضغوطاً."
+  },
+  {
+    "id": "dyn_ch4_db_easy_57",
+    "titleEn": "Work Done by Friction on a Sliding Body",
+    "titleAr": "شغل قوة الاحتكاك لجسم ينزلق على مستوى خشن",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A block of mass $m = 4\\text{ kg}$ slides a distance of $s = 5\\text{ m}$ along a rough horizontal floor with kinetic friction coefficient $\\mu_k = 0.3$. Taking $g = 9.8\\text{ m/s}^2$, find the work done by friction.",
+    "questionAr": "كتلة مقدارها $m = 4\\text{ كجم}$ تنزلق مسافة $s = 5\\text{ م}$ على أرضية أفقية خشنة معامل احتكاكها الحركي $\\mu_k = 0.3$. باعتبار $g = 9.8\\text{ م/ث}^2$، احسب الشغل المبذول بواسطة قوة الاحتكاك.",
+    "optionsEn": [
+      "$-58.8\\text{ J}$",
+      "$+58.8\\text{ J}$",
+      "$-11.76\\text{ J}$",
+      "$-19.6\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$-58.8\\text{ جول}$",
+      "$+58.8\\text{ جول}$",
+      "$-11.76\\text{ جول}$",
+      "$-19.6\\text{ جول}$"
+    ],
+    "correctAnswer": "$-58.8\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Friction opposes displacement ($\\theta = 180^\\circ$), so work done by friction is $W_f = - F_k s = - \\mu_k m g s$.",
+    "hintAr": "الاحتكاك يعاكس اتجاه الإزاحة ($\\theta = 180^\\circ$)، ولذا يكون شغله سالباً: $W_f = - \\mu_k m g s$.",
+    "stepByStepSolutionEn": [
+      "Normal force $N = m g = 4 \\times 9.8 = 39.2\\text{ N}$.",
+      "Friction force $F_k = \\mu_k N = 0.3 \\times 39.2 = 11.76\\text{ N}$ opposite to motion.",
+      "Work done by friction: $W_f = - F_k s = - (11.76 \\times 5) = -58.8\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "رد الفعل العمودي: $N = 4 \\times 9.8 = 39.2\\text{ ن}$.",
+      "قوة الاحتكاك: $F_k = 0.3 \\times 39.2 = 11.76\\text{ ن}$.",
+      "شغل الاحتكاك: $W_f = - 11.76 \\times 5 = -58.8\\text{ جول}$."
+    ],
+    "teacherTipEn": "Kinetic friction always opposes the direction of motion, so its work is invariably negative.",
+    "teacherTipAr": "الاحتكاك الحركي يعاكس دائماً اتجاه الحركة، ولذلك فشغله سالب دائماً."
+  },
+  {
+    "id": "dyn_ch4_db_easy_58",
+    "titleEn": "Work Done by a Variable Force F(x)",
+    "titleAr": "شغل قوة متغيرة مع الموضع",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force $F(x) = 3x^2 + 4\\text{ N}$ acts on a particle moving along the $x$-axis from $x = 1\\text{ m}$ to $x = 3\\text{ m}$. Find the work done by the force.",
+    "questionAr": "أثرت قوة $F(x) = 3x^2 + 4\\text{ ن}$ على جسيم يتحرك على محور $x$ من $x = 1\\text{ م}$ إلى $x = 3\\text{ م}$. أوجد الشغل المبذول بواسطة القوة.",
+    "optionsEn": [
+      "$34\\text{ J}$",
+      "$31\\text{ J}$",
+      "$26\\text{ J}$",
+      "$38\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$34\\text{ جول}$",
+      "$31\\text{ جول}$",
+      "$26\\text{ جول}$",
+      "$38\\text{ جول}$"
+    ],
+    "correctAnswer": "$34\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate: $W = \\int_{x_1}^{x_2} F(x)\\,dx$.",
+    "hintAr": "احسب التكامل: $W = \\int_{x_1}^{x_2} F(x)\\,dx$.",
+    "stepByStepSolutionEn": [
+      "$W = \\int_1^3 (3x^2 + 4)\\,dx = [x^3 + 4x]_1^3$.",
+      "At $x = 3$: $3^3 + 4(3) = 27 + 12 = 39$.",
+      "At $x = 1$: $1^3 + 4(1) = 1 + 4 = 5$.",
+      "$W = 39 - 5 = 34\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$W = \\int_1^3 (3x^2 + 4)\\,dx = [x^3 + 4x]_1^3$.",
+      "عند $x = 3$: $27 + 12 = 39$.",
+      "عند $x = 1$: $1 + 4 = 5$.",
+      "$W = 39 - 5 = 34\\text{ جول}$."
+    ],
+    "teacherTipEn": "Work is the definite integral of force over displacement: $W = \\int F\\,dx$.",
+    "teacherTipAr": "الشغل هو التكامل المحدد للقوة بالنسبة للإزاحة: $W = \\int F\\,dx$."
   }
 ],
   medium: [
@@ -3100,7 +3380,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 1",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.1\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 111\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.1\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 111\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.1\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $111\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$111\\text{ Joules}$",
       "$131\\text{ Joules}$",
@@ -3123,7 +3403,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 111\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $111\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3134,7 +3414,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 2",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.2\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 116\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.2\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 116\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.2\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $116\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$136\\text{ Joules}$",
       "$116\\text{ Joules}$",
@@ -3157,7 +3437,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 116\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $116\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3168,7 +3448,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 3",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.3\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 121\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.3\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 121\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.3\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $121\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$141\\text{ Joules}$",
       "$161\\text{ Joules}$",
@@ -3191,7 +3471,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 121\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $121\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3202,7 +3482,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 4",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.4\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 126\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.4\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 126\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.4\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $126\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$146\\text{ Joules}$",
       "$166\\text{ Joules}$",
@@ -3225,7 +3505,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 126\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $126\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3236,7 +3516,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 5",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.5\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 131\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.5\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 131\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.5\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $131\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$131\\text{ Joules}$",
       "$151\\text{ Joules}$",
@@ -3259,7 +3539,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 131\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $131\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3270,7 +3550,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 6",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.6\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 136\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.6\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 136\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.6\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $136\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$156\\text{ Joules}$",
       "$136\\text{ Joules}$",
@@ -3293,7 +3573,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 136\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $136\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3304,7 +3584,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 7",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.7\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 141\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.7\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 141\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.7\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $141\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$161\\text{ Joules}$",
       "$181\\text{ Joules}$",
@@ -3327,7 +3607,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 141\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $141\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3338,7 +3618,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 8",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.8\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 146\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.8\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 146\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.8\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $146\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$166\\text{ Joules}$",
       "$186\\text{ Joules}$",
@@ -3361,7 +3641,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 146\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $146\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3372,7 +3652,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 9",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 4.9\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 151\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.9\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 151\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 4.9\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $151\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$151\\text{ Joules}$",
       "$171\\text{ Joules}$",
@@ -3395,7 +3675,7 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 151\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $151\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
@@ -3406,7 +3686,7 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleAr": "الفقد في الطاقة الميكانيكية على مستوى خشن رقم 10",
     "difficulty": "medium",
     "questionEn": "A body of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of vertical height $h = 5.0\\text{ m}$. If the work done against friction during descent is calculated, find the total loss in mechanical energy if it equals $W_f = 156\\text{ J}$.",
-    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 5.0\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره 156\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
+    "questionAr": "هبط جسم كتلته $m = 5\\text{ كجم}$ من السكون من قمة مستوى مائل خشن ارتفاعه الرأسي $h = 5.0\\text{ م}$. فإذا بذل شغل ضد الاحتكاك مقداره $156\\text{ جول}$ أثناء الهبوط، فما هو مقدار الفقد في الطاقة الميكانيكية للجسم؟",
     "optionsEn": [
       "$176\\text{ Joules}$",
       "$156\\text{ Joules}$",
@@ -3429,10 +3709,360 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بمبدأ الشغل والطاقة في وجود قوى غير محافظة: الطاقة الميكانيكية النهائية - الابتدائية = $-W_f$.",
-      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = 156\\text{ جول}$."
+      "٢. إذن الفقد في الطاقة الميكانيكية = شغل الاحتكاك = $156\\text{ جول}$."
     ],
     "teacherTipEn": "Energy is conserved as a whole: mechanical energy lost is converted into heat.",
     "teacherTipAr": "الطاقة محفوظة كلياً؛ الطاقة الميكانيكية المفقودة تتحول بالكامل إلى طاقة حرارية."
+  },
+  {
+    "id": "dyn_ch4_db_med_51",
+    "titleEn": "Maximum Velocity of a Car Climbing an Incline",
+    "titleAr": "أقصى سرعة لسيارة تصعد مستوى مائلاً",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A car of mass $2\\text{ tonnes}$ has an engine of maximum power $P = 60\\text{ kW}$. The road resistance is $400\\text{ N}$. If the car climbs an incline of slope $\\sin\\theta = \\frac{1}{20}$, find the maximum uniform speed $v_{\\max}$ it can sustain up the incline. (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "سيارة كتلتها $2\\text{ طن}$ قدرة محركها القصوى $P = 60\\text{ ك.وات}$. ومقاومة الطريق $400\\text{ ن}$. إذا صعدت السيارة طريقاً يميل بزاوية جيبها $\\sin\\theta = \\frac{1}{20}$، فأوجد أقصى سرعة منتظمة $v_{\\max}$ يمكن أن تصعد بها. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$43.48\\text{ m/s}$",
+      "$30.00\\text{ m/s}$",
+      "$25.50\\text{ m/s}$",
+      "$50.00\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$43.48\\text{ م/ث}$",
+      "$30.00\\text{ م/ث}$",
+      "$25.50\\text{ م/ث}$",
+      "$50.00\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$43.48\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "At maximum uniform speed, acceleration is zero, so $F = R + m g \\sin\\theta$. Then $v_{\\max} = \\frac{P}{F}$.",
+    "hintAr": "عند أقصى سرعة منتظمة تنعدم العجلة، وتكون قوة المحرك $F = R + m g \\sin\\theta$. ثم $v_{\\max} = \\frac{P}{F}$.",
+    "stepByStepSolutionEn": [
+      "Mass $m = 2000\\text{ kg}$.",
+      "Gravity component down incline: $m g \\sin\\theta = 2000 \\times 9.8 \\times \\frac{1}{20} = 980\\text{ N}$.",
+      "Total resistance opposing ascent: $F = R + m g \\sin\\theta = 400 + 980 = 1380\\text{ N}$.",
+      "Power $P = 60\\text{ kW} = 60,000\\text{ W}$.",
+      "Maximum speed $v_{\\max} = \\frac{P}{F} = \\frac{60000}{1380} \\approx 43.478\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الكتلة $m = 2000\\text{ كجم}$.",
+      "مركبة الوزن لأسفل المستوى: $2000 \\times 9.8 \\times \\frac{1}{20} = 980\\text{ ن}$.",
+      "القوة المطلوبة عند أقصى سرعة: $F = R + mg\\sin\\theta = 400 + 980 = 1380\\text{ ن}$.",
+      "أقصى سرعة: $v_{\\max} = \\frac{60000}{1380} \\approx 43.48\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "At maximum speed, acceleration is strictly zero: $F = \\sum \\text{Resistances}$.",
+    "teacherTipAr": "عند أقصى سرعة تنعدم العجلة تماماً: قوة المحرك = مجموع قوى المقاومة."
+  },
+  {
+    "id": "dyn_ch4_db_med_52",
+    "titleEn": "Work-Energy Theorem with Friction on an Inclined Plane",
+    "titleAr": "مبدأ الشغل وطاقة الحركة على مستوى مائل خشن",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A block of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of length $s = 10\\text{ m}$ and height $h = 6\\text{ m}$ ($\\sin\\theta = 0.6$, $\\cos\\theta = 0.8$). The friction coefficient is $\\mu_k = 0.25$. Find the kinetic energy of the block at the bottom of the incline. (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "كتلة مقدارها $m = 5\\text{ كجم}$ تركت من السكون عند قمة مستوى مائل خشن طوله $s = 10\\text{ م}$ وارتفاعه $h = 6\\text{ م}$ ($\\sin\\theta = 0.6$ و $\\cos\\theta = 0.8$). معامل الاحتكاك الحركي $\\mu_k = 0.25$. احسب طاقة حركة الكتلة عند قاعدة المستوى. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$196\\text{ J}$",
+      "$294\\text{ J}$",
+      "$98\\text{ J}$",
+      "$147\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$196\\text{ جول}$",
+      "$294\\text{ جول}$",
+      "$98\\text{ جول}$",
+      "$147\\text{ جول}$"
+    ],
+    "correctAnswer": "$196\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "By the work-energy theorem: $T_{\\text{bottom}} - T_{\\text{top}} = W_{\\text{net}} = W_g - W_f$.",
+    "hintAr": "من مبدأ الشغل والطاقة: $T_{\\text{قاعدة}} = W_{\\text{جاذبية}} - W_{\\text{احتكاك}}$.",
+    "stepByStepSolutionEn": [
+      "Work done by gravity: $W_g = m g h = 5 \\times 9.8 \\times 6 = 294\\text{ J}$.",
+      "Normal force: $N = m g \\cos\\theta = 5 \\times 9.8 \\times 0.8 = 39.2\\text{ N}$.",
+      "Friction force: $F_k = \\mu_k N = 0.25 \\times 39.2 = 9.8\\text{ N}$.",
+      "Work done by friction over length $s = 10\\text{ m}$: $W_f = F_k s = 9.8 \\times 10 = 98\\text{ J}$.",
+      "Final kinetic energy: $T_{\\text{bottom}} = W_g - W_f = 294 - 98 = 196\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "شغل الجاذبية: $W_g = m g h = 5 \\times 9.8 \\times 6 = 294\\text{ جول}$.",
+      "قوة الاحتكاك: $F_k = \\mu_k m g \\cos\\theta = 0.25 \\times 39.2 = 9.8\\text{ ن}$.",
+      "الشغل المفقود بالاحتكاك: $W_f = 9.8 \\times 10 = 98\\text{ جول}$.",
+      "طاقة الحركة النهائية: $T = 294 - 98 = 196\\text{ جول}$."
+    ],
+    "teacherTipEn": "Work done by gravity depends ONLY on vertical drop $h$, not the incline slope or length!",
+    "teacherTipAr": "شغل قوة الجاذبية يعتمد فقط على الارتفاع الرأسي $h$ ولا يعتمد على طول المستوى أو زاوية ميله!"
+  },
+  {
+    "id": "dyn_ch4_db_med_53",
+    "titleEn": "Speed of a Roller Coaster Loop-the-Loop",
+    "titleAr": "أدنى سرعة لإكمال مسار دائري رأسي",
+    "difficulty": "medium",
+    "diagramType": "circle",
+    "questionEn": "A roller coaster car of mass $m$ enters a vertical circular loop of radius $R = 10\\text{ m}$. What is the minimum speed $v_{\\text{top}}$ at the very top of the loop required for the car not to fall off the track? (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "عربة قطار ملاهٍ كتلتها $m$ تدخل مساراً دائرياً رأسياً نصف قطره $R = 10\\text{ م}$. ما أدنى سرعة $v_{\\text{top}}$ عند أعلى نقطة في المسار تضمن عدم سقوط العربة عن القضبان؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$\\sqrt{g R} \\approx 9.90\\text{ m/s}$",
+      "$\\sqrt{2g R} \\approx 14.00\\text{ m/s}$",
+      "$\\sqrt{5g R} \\approx 22.14\\text{ m/s}$",
+      "$g R = 98\\text{ m/s}$"
+    ],
+    "optionsAr": [
+      "$\\sqrt{g R} \\approx 9.90\\text{ م/ث}$",
+      "$\\sqrt{2g R} \\approx 14.00\\text{ م/ث}$",
+      "$\\sqrt{5g R} \\approx 22.14\\text{ م/ث}$",
+      "$g R = 98\\text{ م/ث}$"
+    ],
+    "correctAnswer": "$\\sqrt{g R} \\approx 9.90\\text{ m/s}$",
+    "correctIndex": 0,
+    "hintEn": "At the verge of losing contact at the top, the normal force drops to zero ($N = 0$). Centripetal force is provided solely by gravity: $\\frac{m v^2}{R} = m g$.",
+    "hintAr": "عند وشك فقدان التلامس في القمة، ينعدم رد الفعل ($N = 0$). وتكون قوة الجاذبية وحدها هي القوة الجاذبة المركزية: $\\frac{m v^2}{R} = m g$.",
+    "stepByStepSolutionEn": [
+      "At the top of the vertical circle, the equation of motion along the radial direction is:",
+      "$N + m g = \\frac{m v^2}{R}$.",
+      "For the car to barely remain on the track without falling, $N \\ge 0$, with limiting condition $N = 0$:",
+      "$m g = \\frac{m v_{\\text{top}}^2}{R} \\implies v_{\\text{top}} = \\sqrt{g R}$.",
+      "For $R = 10\\text{ m}$: $v_{\\text{top}} = \\sqrt{9.8 \\times 10} = \\sqrt{98} \\approx 9.899\\text{ m/s} \\approx 9.90\\text{ m/s}$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند قمة الدائرة الرأسية: $N + m g = \\frac{m v^2}{R}$.",
+      "شرط عدم السقوط هو أن يكون رد الفعل $N \\ge 0$، والحد الحرج $N = 0$:",
+      "$m g = \\frac{m v^2}{R} \\implies v = \\sqrt{g R} = \\sqrt{98} \\approx 9.90\\text{ م/ث}$."
+    ],
+    "teacherTipEn": "At the bottom of the loop, the minimum speed required to reach the top is $\\sqrt{5gR}$.",
+    "teacherTipAr": "عند قاع الدائرة الرأسية، أدنى سرعة مطلوبة للوصول إلى القمة وإكمال الدورة هي $\\sqrt{5gR}$."
+  },
+  {
+    "id": "dyn_ch4_db_med_54",
+    "titleEn": "Power Consumed by Electric Pump Lifting Water",
+    "titleAr": "قدرة مضخة مياه ترفع الماء إلى خزان مرتفع",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "An electric pump raises water from a well of depth $h = 15\\text{ m}$ at a volume flow rate of $1200\\text{ liters per minute}$. Neglecting kinetic energy at the exit, what is the useful output power of the pump? (Density of water $= 1000\\text{ kg/m}^3$, $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "مضخة كهربائية ترفع الماء من بئر عمقها $h = 15\\text{ م}$ بمعدل تدفق $1200\\text{ لتر في الدقيقة}$. بإهمال طاقة الحركة عند المخرج، ما القدرة النافعة للمضخة؟ (كثافة الماء $= 1000\\text{ كجم/م}^3$، $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$2.94\\text{ kW}$",
+      "$176.4\\text{ kW}$",
+      "$5.88\\text{ kW}$",
+      "$1.47\\text{ kW}$"
+    ],
+    "optionsAr": [
+      "$2.94\\text{ ك.وات}$",
+      "$176.4\\text{ ك.وات}$",
+      "$5.88\\text{ ك.وات}$",
+      "$1.47\\text{ ك.وات}$"
+    ],
+    "correctAnswer": "$2.94\\text{ kW}$",
+    "correctIndex": 0,
+    "hintEn": "Find mass per second: $\\frac{1200\\text{ kg}}{60\\text{ s}} = 20\\text{ kg/s}$. Power $P = \\frac{dm}{dt} g h$.",
+    "hintAr": "احسب معدل تدفق الكتلة في الثانية: $\\frac{1200}{60} = 20\\text{ كجم/ث}$. والقدرة $P = \\frac{dm}{dt} g h$.",
+    "stepByStepSolutionEn": [
+      "Mass flow rate: $\\frac{dm}{dt} = \\frac{1200\\text{ kg}}{60\\text{ s}} = 20\\text{ kg/s}$.",
+      "Work per second (power) to raise water through height $h = 15\\text{ m}$:",
+      "$P = \\frac{dm}{dt} g h = 20 \\times 9.8 \\times 15 = 2940\\text{ W}$.",
+      "In kilowatts: $P = \\frac{2940}{1000} = 2.94\\text{ kW}$."
+    ],
+    "stepByStepSolutionAr": [
+      "معدل رفع الكتلة في الثانية: $\\frac{1200}{60} = 20\\text{ كجم/ث}$.",
+      "القدرة = الشغل في الثانية: $P = 20 \\times 9.8 \\times 15 = 2940\\text{ وات}$.",
+      "بالكيلووات: $P = 2.94\\text{ ك.وات}$."
+    ],
+    "teacherTipEn": "Always convert rates from per-minute to per-second (divide by 60) for Watt units.",
+    "teacherTipAr": "حول المعدلات دائماً من الدقيقة إلى الثانية (بالقسمة على 60) للوصول لوحدة الوات."
+  },
+  {
+    "id": "dyn_ch4_db_med_55",
+    "titleEn": "Equating Kinetic Energy to Momentum",
+    "titleAr": "العلاقة بين كمية الحركة وطاقة الحركة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If the linear momentum of a particle of mass $m$ is increased by $50\\%$, by what percentage does its kinetic energy increase?",
+    "questionAr": "إذا زادت كمية حركة جسيم كتلته $m$ بنسبة $50\\%$، فبأي نسبة مئوية تزداد طاقة حركته؟",
+    "optionsEn": [
+      "$125\\%$",
+      "$50\\%$",
+      "$100\\%$",
+      "$225\\%$"
+    ],
+    "optionsAr": [
+      "$125\\%$",
+      "$50\\%$",
+      "$100\\%$",
+      "$225\\%$"
+    ],
+    "correctAnswer": "$125\\%$",
+    "correctIndex": 0,
+    "hintEn": "Kinetic energy is related to momentum by $T = \\frac{p^2}{2m}$. If $p' = 1.5 p$, compute $T' = (1.5)^2 T$.",
+    "hintAr": "طاقة الحركة ترتبط بكمية الحركة بالعلاقة $T = \\frac{p^2}{2m}$. إذا كانت $p' = 1.5 p$، فاحسب $T' = (1.5)^2 T$.",
+    "stepByStepSolutionEn": [
+      "We know $T = \\frac{p^2}{2m}$.",
+      "New momentum: $p' = p + 0.5p = 1.5p$.",
+      "New kinetic energy: $T' = \\frac{(p')^2}{2m} = \\frac{(1.5p)^2}{2m} = 2.25 \\left(\\frac{p^2}{2m}\\right) = 2.25 T$.",
+      "Percentage increase: $\\frac{T' - T}{T} \\times 100\\% = (2.25 - 1) \\times 100\\% = 125\\%$."
+    ],
+    "stepByStepSolutionAr": [
+      "العلاقة بين طاقة الحركة وكمية الحركة: $T = \\frac{p^2}{2m}$.",
+      "كمية الحركة الجديدة: $p' = 1.5 p$.",
+      "طاقة الحركة الجديدة: $T' = (1.5)^2 T = 2.25 T$.",
+      "الزيادة المئوية: $(2.25 - 1) \\times 100\\% = 125\\%$."
+    ],
+    "teacherTipEn": "Because $T \\propto p^2$, small fractional increases in momentum produce more than double the effect in kinetic energy.",
+    "teacherTipAr": "نظراً لأن طاقة الحركة تتناسب مع مربع كمية الحركة، فإن أي زيادة في كمية الحركة تتضاعف تربيعياً في طاقة الحركة."
+  },
+  {
+    "id": "dyn_ch4_db_med_56",
+    "titleEn": "Work of a Variable Central Force Field",
+    "titleAr": "شغل قوة جذب مركزية متغيرة عكسياً مع مربع المسافة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves away from the origin under a repulsive radial force $F(r) = \\frac{C}{r^2}$, where $C = 120\\text{ N}\\cdot\\text{m}^2$. Find the work done by this force as the particle moves from $r_1 = 2\\text{ m}$ to $r_2 = 6\\text{ m}$.",
+    "questionAr": "يتحرك جسيم مبتعداً عن نقطة الأصل تحت تأثير قوة تنافر مركزية $F(r) = \\frac{C}{r^2}$، حيث $C = 120\\text{ ن}\\cdot\\text{م}^2$. احسب الشغل المبذول بواسطة هذه القوة أثناء تحرك الجسيم من $r_1 = 2\\text{ م}$ إلى $r_2 = 6\\text{ م}$.",
+    "optionsEn": [
+      "$40\\text{ J}$",
+      "$20\\text{ J}$",
+      "$60\\text{ J}$",
+      "$80\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$40\\text{ جول}$",
+      "$20\\text{ جول}$",
+      "$60\\text{ جول}$",
+      "$80\\text{ جول}$"
+    ],
+    "correctAnswer": "$40\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate: $W = \\int_{r_1}^{r_2} \\frac{C}{r^2}\\,dr = C \\left[ -\\frac{1}{r} \\right]_{r_1}^{r_2} = C \\left(\\frac{1}{r_1} - \\frac{1}{r_2}\\right)$.",
+    "hintAr": "احسب التكامل: $W = \\int_2^6 \\frac{C}{r^2}\\,dr = C \\left(\\frac{1}{r_1} - \\frac{1}{r_2}\\right)$.",
+    "stepByStepSolutionEn": [
+      "$W = \\int_2^6 120 r^{-2}\\,dr = 120 \\left[ -\\frac{1}{r} \\right]_2^6$.",
+      "$W = 120 \\left( -\\frac{1}{6} - \\left(-\\frac{1}{2}\\right) \\right) = 120 \\left( \\frac{1}{2} - \\frac{1}{6} \\right) = 120 \\left( \\frac{3 - 1}{6} \\right) = 120 \\left( \\frac{1}{3} \\right) = 40\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$W = 120 \\int_2^6 r^{-2}\\,dr = 120 \\left[ -\\frac{1}{r} \\right]_2^6$.",
+      "$W = 120 \\left( \\frac{1}{2} - \\frac{1}{6} \\right) = 120 \\times \\frac{1}{3} = 40\\text{ جول}$."
+    ],
+    "teacherTipEn": "This inverse-square integration is the fundamental basis of gravitational and electrostatic potential energy.",
+    "teacherTipAr": "تكامل التربيع العكسي هذا هو الأساس الرياضي لطاقة الوضع التثاقلية والكهروستاتيكية."
+  },
+  {
+    "id": "dyn_ch4_db_med_57",
+    "titleEn": "Deceleration Work in Braking a High-Speed Train",
+    "titleAr": "شغل الفرامل اللازم لإيقاف قطار",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A train of mass $m = 300\\text{ tonnes}$ traveling at $v = 30\\text{ m/s}$ ($108\\text{ km/h}$) is brought to rest by its brakes over a stopping distance of $s = 450\\text{ m}$. Find the average braking force exerted by the brakes.",
+    "questionAr": "قطار كتلته $m = 300\\text{ طن}$ يسير بسرعة $v = 30\\text{ م/ث}$ ($108\\text{ كم/س}$) أوقفته الفرامل بعد مسافة توقف $s = 450\\text{ م}$. أوجد متوسط قوة الفرملة المؤثرة.",
+    "optionsEn": [
+      "$300,000\\text{ N}$ ($300\\text{ kN}$)",
+      "$150,000\\text{ N}$",
+      "$600,000\\text{ N}$",
+      "$450,000\\text{ N}$"
+    ],
+    "optionsAr": [
+      "$300,000\\text{ ن}$ ($300\\text{ ك.ن}$)",
+      "$150,000\\text{ ن}$",
+      "$600,000\\text{ ن}$",
+      "$450,000\\text{ ن}$"
+    ],
+    "correctAnswer": "$300,000\\text{ N}$ ($300\\text{ kN}$)",
+    "correctIndex": 0,
+    "hintEn": "By the work-energy theorem: Work done by brakes equals initial kinetic energy: $F_{\\text{brake}} s = \\frac{1}{2} m v^2$.",
+    "hintAr": "من مبدأ الشغل والطاقة: شغل الفرامل يساوي طاقة الحركة الابتدائية: $F_{\\text{فرامل}} s = \\frac{1}{2} m v^2$.",
+    "stepByStepSolutionEn": [
+      "Mass in kg: $m = 300 \\times 1000 = 300,000\\text{ kg}$.",
+      "Initial kinetic energy: $T_i = \\frac{1}{2} m v^2 = \\frac{1}{2}(300,000)(30^2) = 150,000 \\times 900 = 135,000,000\\text{ J}$.",
+      "By work-energy theorem: $W_{\\text{brake}} = F_{\\text{brake}} \\times s = 135,000,000\\text{ J}$.",
+      "$F_{\\text{brake}} = \\frac{135,000,000}{450} = 300,000\\text{ N} = 300\\text{ kN}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الكتلة بالكيلوجرام: $m = 300000\\text{ كجم}$.",
+      "طاقة الحركة الابتدائية: $T_i = \\frac{1}{2} \\times 300000 \\times 900 = 135 \\times 10^6\\text{ جول}$.",
+      "شغل الفرامل: $F \\times s = 135 \\times 10^6$.",
+      "قوة الفرملة: $F = \\frac{135000000}{450} = 300000\\text{ ن} = 300\\text{ ك.ن}$."
+    ],
+    "teacherTipEn": "Equating braking work $F s$ to kinetic energy $\\frac{1}{2}mv^2$ is the most direct method in stopping distance calculations.",
+    "teacherTipAr": "مساواة شغل الفرامل بطاقة الحركة هي أسرع طريقة لحساب مسافات وقوى التوقف."
+  },
+  {
+    "id": "dyn_ch4_db_med_58",
+    "titleEn": "Mechanical Efficiency of a Motor Lifting a Load",
+    "titleAr": "الكفاءة الميكانيكية لمحرك يرفع حملاً",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "An electric hoist with an electrical input power of $P_{\\text{in}} = 5\\text{ kW}$ lifts a load of mass $m = 300\\text{ kg}$ at a steady speed of $v = 1.2\\text{ m/s}$. What is the mechanical efficiency $\\eta$ of the hoist? (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "ونش كهربائي قدرته الكهربائية المستهلكة $P_{\\text{in}} = 5\\text{ ك.وات}$ يرفع حملاً كتلته $m = 300\\text{ كجم}$ بسرعة منتظمة $v = 1.2\\text{ م/ث}$. ما الكفاءة الميكانيكية $\\eta$ للونش؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$70.56\\%$",
+      "$85.00\\%$",
+      "$60.00\\%$",
+      "$75.25\\%$"
+    ],
+    "optionsAr": [
+      "$70.56\\%$",
+      "$85.00\\%$",
+      "$60.00\\%$",
+      "$75.25\\%$"
+    ],
+    "correctAnswer": "$70.56\\%$",
+    "correctIndex": 0,
+    "hintEn": "Efficiency is $\\eta = \\frac{P_{\\text{out}}}{P_{\\text{in}}} \\times 100\\%$, where $P_{\\text{out}} = m g v$.",
+    "hintAr": "الكفاءة هي $\\eta = \\frac{P_{\\text{out}}}{P_{\\text{in}}} \\times 100\\%$ حيث $P_{\\text{out}} = m g v$.",
+    "stepByStepSolutionEn": [
+      "Useful output power: $P_{\\text{out}} = F \\cdot v = (m g) v = (300 \\times 9.8) \\times 1.2 = 2940 \\times 1.2 = 3528\\text{ W}$.",
+      "Input power: $P_{\\text{in}} = 5\\text{ kW} = 5000\\text{ W}$.",
+      "Efficiency: $\\eta = \\frac{P_{\\text{out}}}{P_{\\text{in}}} \\times 100\\% = \\frac{3528}{5000} \\times 100\\% = 70.56\\%$."
+    ],
+    "stepByStepSolutionAr": [
+      "القدرة المفيدة الناتجة: $P_{\\text{out}} = mgv = 300 \\times 9.8 \\times 1.2 = 3528\\text{ وات}$.",
+      "القدرة المستهلكة: $P_{\\text{in}} = 5000\\text{ وات}$.",
+      "الكفاءة: $\\eta = \\frac{3528}{5000} \\times 100\\% = 70.56\\%$."
+    ],
+    "teacherTipEn": "Efficiency is always less than $100\\%$ in real machines due to friction and electrical resistance.",
+    "teacherTipAr": "الكفاءة في الآلات الحقيقية تكون دائماً أقل من $100\\%$ بسبب الاحتكاك ومقاومة الأسلاك."
+  },
+  {
+    "id": "dyn_ch4_db_med_59",
+    "titleEn": "Potential Energy Curve and Equilibrium Positions",
+    "titleAr": "منحنى طاقة الوضع ومواضع الاتزان المستقر",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A particle moves in a 1D potential energy field given by $V(x) = x^3 - 6x^2 + 9x\\text{ Joules}$. At which point does the particle have a stable equilibrium position?",
+    "questionAr": "يتحرك جسيم في مجال طاقة وضع أحادي البعد يُعطى بالعلاقة $V(x) = x^3 - 6x^2 + 9x\\text{ جول}$. عند أي نقطة يكون للجسيم موضع اتزان مستقر؟",
+    "optionsEn": [
+      "$x = 3\\text{ m}$",
+      "$x = 1\\text{ m}$",
+      "$x = 0$",
+      "$x = 2\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$x = 3\\text{ م}$",
+      "$x = 1\\text{ م}$",
+      "$x = 0$",
+      "$x = 2\\text{ م}$"
+    ],
+    "correctAnswer": "$x = 3\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Equilibrium occurs where force $F = -\\frac{dV}{dx} = 0$. Stable equilibrium corresponds to a local MINIMUM of potential energy ($\\frac{d^2V}{dx^2} > 0$).",
+    "hintAr": "يحدث الاتزان عندما تنعدم القوة $F = -\\frac{dV}{dx} = 0$. ويكون الاتزان مستقراً عند القيمة الصغرى المحلية لطاقة الوضع ($\\frac{d^2V}{dx^2} > 0$).",
+    "stepByStepSolutionEn": [
+      "Force $F = -\\frac{dV}{dx} = -(3x^2 - 12x + 9) = -3(x^2 - 4x + 3) = -3(x - 1)(x - 3)$.",
+      "Equilibrium points ($F = 0$): $x = 1\\text{ m}$ and $x = 3\\text{ m}$.",
+      "Second derivative of $V$: $\\frac{d^2V}{dx^2} = 6x - 12$.",
+      "At $x = 1$: $\\frac{d^2V}{dx^2} = 6(1) - 12 = -6 < 0$ (maximum $V$, unstable equilibrium).",
+      "At $x = 3$: $\\frac{d^2V}{dx^2} = 6(3) - 12 = +6 > 0$ (minimum $V$, stable equilibrium).",
+      "Therefore, stable equilibrium is at $x = 3\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "القوة $F = -\\frac{dV}{dx} = -3(x - 1)(x - 3)$.",
+      "نقاط الاتزان: $x = 1\\text{ م}$ و $x = 3\\text{ م}$.",
+      "المشتقة الثانية: $\\frac{d^2V}{dx^2} = 6x - 12$.",
+      "عند $x = 1$: المشتقة سالبة (نهاية عظمى، اتزان غير مستقر).",
+      "عند $x = 3$: المشتقة موجبة (نهاية صغرى، اتزان مستقر).",
+      "إذن موضع الاتزان المستقر عند $x = 3\\text{ م}$."
+    ],
+    "teacherTipEn": "Minimum potential energy = stable equilibrium (like a ball in a bowl).",
+    "teacherTipAr": "القيمة الصغرى لطاقة الوضع تمثل اتزاناً مستقراً (مثل كرة في قاع وعاء)."
   }
 ],
   hots: [
@@ -5395,6 +6025,331 @@ export const dynCh4Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
     "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+  },
+  {
+    "id": "dyn_ch4_db_hots_51",
+    "titleEn": "Maximum Velocity on a Curved Highway Under Variable Power",
+    "titleAr": "القدرة المتغيرة وأقصى سرعة لقطار على منحدر",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A locomotive of mass $M$ moves up an incline of angle $\\theta$ at its maximum constant power $P$. The air resistance is $R(v) = k v^2$. What is the implicit equation for the terminal speed $v_t$ of the locomotive?",
+    "questionAr": "قاطرة كتلتها $M$ تصعد منحparamاً بزاوية $\\theta$ بأقصى قدرة ثابتة لها $P$. وكانت مقاومة الهواء $R(v) = k v^2$. ما هي المعادلة التي تحدد السرعة القصوى $v_t$ للقاطرة؟",
+    "optionsEn": [
+      "$k v_t^3 + (M g \\sin\\theta) v_t - P = 0$",
+      "$k v_t^2 + M g \\sin\\theta = P$",
+      "$k v_t^3 - P = 0$",
+      "$k v_t^2 + (M g \\sin\\theta) v_t = P$"
+    ],
+    "optionsAr": [
+      "$k v_t^3 + (M g \\sin\\theta) v_t - P = 0$",
+      "$k v_t^2 + M g \\sin\\theta = P$",
+      "$k v_t^3 - P = 0$",
+      "$k v_t^2 + (M g \\sin\\theta) v_t = P$"
+    ],
+    "correctAnswer": "$k v_t^3 + (M g \\sin\\theta) v_t - P = 0$",
+    "correctIndex": 0,
+    "hintEn": "At terminal speed, $F = M g \\sin\\theta + k v_t^2$. Substitute into $P = F v_t$.",
+    "hintAr": "عند السرعة القصوى: $F = M g \\sin\\theta + k v_t^2$. عوض في علاقة القدرة $P = F v_t$.",
+    "stepByStepSolutionEn": [
+      "At maximum steady velocity, acceleration is zero, so the engine force must balance total resistance:",
+      "$F = M g \\sin\\theta + R(v_t) = M g \\sin\\theta + k v_t^2$.",
+      "Power developed by engine: $P = F v_t = (M g \\sin\\theta + k v_t^2) v_t$.",
+      "$P = (M g \\sin\\theta) v_t + k v_t^3$.",
+      "Rearranging gives: $k v_t^3 + (M g \\sin\\theta) v_t - P = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند أقصى سرعة تنعدم العجلة وتتزن قوة المحرك مع المقاومات:",
+      "$F = M g \\sin\\theta + k v_t^2$.",
+      "القدرة: $P = F v_t = (M g \\sin\\theta + k v_t^2) v_t$.",
+      "بإعادة الترتيب: $k v_t^3 + (M g \\sin\\theta) v_t - P = 0$."
+    ],
+    "teacherTipEn": "Because aerodynamic drag is quadratic in velocity, power required scales with the CUBE of velocity ($v^3$)!",
+    "teacherTipAr": "نظراً لأن مقاومة الهواء تتناسب مع مربع السرعة، فإن القدرة المطلوبة تتناسب مع مكعب السرعة ($v^3$)!"
+  },
+  {
+    "id": "dyn_ch4_db_hots_52",
+    "titleEn": "Escape Velocity from Earth Surface Derived by Work-Energy",
+    "titleAr": "سرعة الهروب من سطح الأرض بمبدأ الشغل وطاقة الحركة",
+    "difficulty": "hots",
+    "diagramType": "circle",
+    "questionEn": "Using the work-energy theorem with Newton's universal law of gravitation $F(r) = -\\frac{G M_E m}{r^2}$, what is the escape velocity $v_{\\text{esc}}$ required for a projectile of mass $m$ to escape to infinity from the surface of Earth (radius $R_E$, surface gravity $g = \\frac{G M_E}{R_E^2}$)?",
+    "questionAr": "باستخدام مبدأ الشغل وطاقة الحركة وقانون الجذب العام لنيوتن $F(r) = -\\frac{G M_E m}{r^2}$، ما هي سرعة الهروب $v_{\\text{esc}}$ اللازمة لقذيفة كتلتها $m$ لكي تفلت إلى اللانهاية من سطح الأرض (نصف قطرها $R_E$ وعجلة الجاذبية $g = \\frac{G M_E}{R_E^2}$)؟",
+    "optionsEn": [
+      "$v_{\\text{esc}} = \\sqrt{2 g R_E}$",
+      "$v_{\\text{esc}} = \\sqrt{g R_E}$",
+      "$v_{\\text{esc}} = 2\\sqrt{g R_E}$",
+      "$v_{\\text{esc}} = \\sqrt{\\frac{g R_E}{2}}$"
+    ],
+    "optionsAr": [
+      "$v_{\\text{esc}} = \\sqrt{2 g R_E}$",
+      "$v_{\\text{esc}} = \\sqrt{g R_E}$",
+      "$v_{\\text{esc}} = 2\\sqrt{g R_E}$",
+      "$v_{\\text{esc}} = \\sqrt{\\frac{g R_E}{2}}$"
+    ],
+    "correctAnswer": "$v_{\\text{esc}} = \\sqrt{2 g R_E}$",
+    "correctIndex": 0,
+    "hintEn": "Total mechanical energy at infinity must be at least zero: $E = \\frac{1}{2} m v^2 - \\frac{G M_E m}{R_E} = 0$.",
+    "hintAr": "الطاقة الميكانيكية الكلية عند الإفلات تكون صفراً: $\\frac{1}{2} m v^2 - \\frac{G M_E m}{R_E} = 0$.",
+    "stepByStepSolutionEn": [
+      "Work done against gravity to move from $R_E$ to $\\infty$:",
+      "$W = \\int_{R_E}^\\infty \\frac{G M_E m}{r^2}\\,dr = \\left[ -\\frac{G M_E m}{r} \\right]_{R_E}^\\infty = 0 - \\left(-\\frac{G M_E m}{R_E}\\right) = \\frac{G M_E m}{R_E}$.",
+      "By work-energy: Initial kinetic energy must equal this gravitational work:",
+      "$\\frac{1}{2} m v_{\\text{esc}}^2 = \\frac{G M_E m}{R_E} \\implies v_{\\text{esc}}^2 = \\frac{2 G M_E}{R_E}$.",
+      "Substitute $g = \\frac{G M_E}{R_E^2} \\implies \\frac{G M_E}{R_E} = g R_E$:",
+      "$v_{\\text{esc}} = \\sqrt{2 g R_E}$."
+    ],
+    "stepByStepSolutionAr": [
+      "الشغل المبذول ضد الجاذبية حتى اللانهاية: $W = \\frac{G M_E m}{R_E}$.",
+      "طاقة الحركة الابتدائية تعادل هذا الشغل: $\\frac{1}{2} m v_{\\text{esc}}^2 = \\frac{G M_E m}{R_E}$.",
+      "بالتعويض عن $g R_E = \\frac{G M_E}{R_E}$ نجد أن: $v_{\\text{esc}} = \\sqrt{2 g R_E}$."
+    ],
+    "teacherTipEn": "Notice that orbital speed is $\\sqrt{g R_E}$, while escape speed is $\\sqrt{2}$ times the orbital speed.",
+    "teacherTipAr": "لاحظ أن السرعة المدارية هي $\\sqrt{g R_E}$ وسرعة الهروب تساوي $\\sqrt{2}$ في السرعة المدارية."
+  },
+  {
+    "id": "dyn_ch4_db_hots_53",
+    "titleEn": "Compression of a Non-Linear Hardening Spring",
+    "titleAr": "انضغاط زنبرك ذي مرونة لاخطية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A bumper uses a non-linear spring with restoring force $F(x) = k_1 x + k_2 x^3$, where $k_1 = 200\\text{ N/m}$ and $k_2 = 800\\text{ N/m}^3$. A mass $m = 10\\text{ kg}$ moving at $v_0 = 2\\text{ m/s}$ hits the bumper and compresses it. What is the maximum compression $x_{\\max}$?",
+    "questionAr": "مصد سيارات يستخدم زنبركاً لاخطياً قوة إرجاعه $F(x) = k_1 x + k_2 x^3$ حيث $k_1 = 200\\text{ ن/م}$ و $k_2 = 800\\text{ ن/م}^3$. اصطدمت به كتلة $m = 10\\text{ كجم}$ تتحرك بسرعة $v_0 = 2\\text{ م/ث}$. ما أقصى انضغاط $x_{\\max}$ للزنبرك؟",
+    "optionsEn": [
+      "$0.391\\text{ m}$",
+      "$0.447\\text{ m}$",
+      "$0.200\\text{ m}$",
+      "$0.500\\text{ m}$"
+    ],
+    "optionsAr": [
+      "$0.391\\text{ م}$",
+      "$0.447\\text{ م}$",
+      "$0.200\\text{ م}$",
+      "$0.500\\text{ م}$"
+    ],
+    "correctAnswer": "$0.391\\text{ m}$",
+    "correctIndex": 0,
+    "hintEn": "Work done on spring is $W = \\int_0^{x_{\\max}} (k_1 x + k_2 x^3)\\,dx = \\frac{1}{2} k_1 x_{\\max}^2 + \\frac{1}{4} k_2 x_{\\max}^4$. Equate to kinetic energy $T = \\frac{1}{2} m v_0^2 = 20\\text{ J}$.",
+    "hintAr": "الشغل المبذول لضغط الزنبرك: $\\frac{1}{2} k_1 x^2 + \\frac{1}{4} k_2 x^4$. ساوِه بطاقة الحركة الابتدائية $20\\text{ جول}$.",
+    "stepByStepSolutionEn": [
+      "Initial kinetic energy: $T = \\frac{1}{2}(10)(2^2) = 20\\text{ J}$.",
+      "Potential energy stored in non-linear spring: $V(x) = \\int_0^x (200u + 800u^3)\\,du = 100 x^2 + 200 x^4$.",
+      "Equating $V(x_{\\max}) = 20$:",
+      "$200 x^4 + 100 x^2 - 20 = 0$.",
+      "Divide by $20$: $10 (x^2)^2 + 5 (x^2) - 1 = 0$.",
+      "Let $u = x^2$: $10 u^2 + 5 u - 1 = 0$.",
+      "$u = \\frac{-5 + \\sqrt{25 - 4(10)(-1)}}{20} = \\frac{-5 + \\sqrt{25 + 40}}{20} = \\frac{-5 + \\sqrt{65}}{20} = \\frac{-5 + 8.0623}{20} = \\frac{3.0623}{20} \\approx 0.1531$.",
+      "Then $x_{\\max} = \\sqrt{u} = \\sqrt{0.1531} \\approx 0.391\\text{ m}$? Let's check quadratic coefficients!",
+      "If $u = 0.162$, let's adjust option A to $0.391\\text{ m}$."
+    ],
+    "stepByStepSolutionAr": [
+      "طاقة الحركة الابتدائية: $T = \\frac{1}{2} \\times 10 \\times 4 = 20\\text{ جول}$.",
+      "طاقة وضع الزنبرك: $V(x) = 100 x^2 + 200 x^4$.",
+      "بالمساواة: $200 x^4 + 100 x^2 - 20 = 0$.",
+      "حل المعادلة التربيعية في $x^2$: $x^2 \\approx 0.1531 \\implies x_{\\max} \\approx 0.391\\text{ م}$."
+    ],
+    "teacherTipEn": "Non-linear springs are used in automotive bumpers to prevent bottoming out during heavy impacts.",
+    "teacherTipAr": "الزنبركات اللاخطية تُستخدم في مصدات السيارات لزيادة المقاومة مع زيادة الانضغاط وتجنب الاصطدام القاسي."
+  },
+  {
+    "id": "dyn_ch4_db_hots_54",
+    "titleEn": "Mechanical Energy Conservation for Pendulum Loop",
+    "titleAr": "أدنى ارتفاع لسقوط كتلة لإكمال مسار دائري رأسي أملس",
+    "difficulty": "hots",
+    "diagramType": "circle",
+    "questionEn": "A small bead slides frictionlessly along a track that loops into a vertical circle of radius $R$. The bead is released from rest at height $h$ above the lowest point of the loop. What is the minimum release height $h_{\\min}$ for the bead to complete the circular loop without leaving the track?",
+    "questionAr": "خرزة صغيرة تنزلق بدون احتكاك على مسار ينتهي بدورة دائرية رأسية نصف قطرها $R$. تركت الخرزة من السكون عند ارتفاع $h$ فوق أخفض نقطة في المسار الدائري. ما أقل ارتفاع للبدء $h_{\\min}$ يضمن إكمال الخرزة للدورة الدائرية دون أن تسقط؟",
+    "optionsEn": [
+      "$h_{\\min} = 2.5 R$ (or $\\frac{5}{2} R$)",
+      "$h_{\\min} = 2.0 R$",
+      "$h_{\\min} = 3.0 R$",
+      "$h_{\\min} = 1.5 R$"
+    ],
+    "optionsAr": [
+      "$h_{\\min} = 2.5 R$ (أو $\\frac{5}{2} R$)",
+      "$h_{\\min} = 2.0 R$",
+      "$h_{\\min} = 3.0 R$",
+      "$h_{\\min} = 1.5 R$"
+    ],
+    "correctAnswer": "$h_{\\min} = 2.5 R$ (or $\\frac{5}{2} R$)",
+    "correctIndex": 0,
+    "hintEn": "At the top of the loop (height $2R$), the minimum speed is $v_{\\text{top}} = \\sqrt{gR}$. Use conservation of mechanical energy $m g h = m g (2R) + \\frac{1}{2} m v_{\\text{top}}^2$.",
+    "hintAr": "عند قمة الدائرة (ارتفاع $2R$)، أدنى سرعة هي $\\sqrt{gR}$. طبق حفظ الطاقة: $m g h = m g (2R) + \\frac{1}{2} m v_{\\text{top}}^2$.",
+    "stepByStepSolutionEn": [
+      "To complete the loop without leaving the track, speed at the top of the loop (height $2R$) must satisfy $v_{\\text{top}}^2 \\ge g R$.",
+      "By conservation of mechanical energy between release point and loop apex:",
+      "$E_i = m g h$, and $E_f = m g (2R) + \\frac{1}{2} m v_{\\text{top}}^2$.",
+      "Equating $E_i = E_f$ with critical speed $v_{\\text{top}}^2 = g R$:",
+      "$m g h = 2 m g R + \\frac{1}{2} m (g R) = 2.5 m g R$.",
+      "Dividing by $m g$: $h_{\\min} = 2.5 R = \\frac{5}{2} R$."
+    ],
+    "stepByStepSolutionAr": [
+      "لإكمال المسار الدائري، السرعة عند القمة (ارتفاع $2R$) يجب أن تحقق $v_{\\text{top}}^2 = g R$.",
+      "من حفظ الطاقة الميكانيكية بين نقطة البداية وقمة المسار:",
+      "$m g h = m g (2R) + \\frac{1}{2} m (g R) = 2.5 m g R$.",
+      "إذن $h_{\\min} = 2.5 R = \\frac{5}{2} R$."
+    ],
+    "teacherTipEn": "Notice the bead must be released from higher than the top of the loop ($2.5R > 2.0R$) to supply the necessary kinetic energy at the apex.",
+    "teacherTipAr": "لاحظ أن نقطة البداية يجب أن تكون أعلى من قمة المسار ($2.5R > 2R$) لتوفير طاقة الحركة اللازمة عند القمة."
+  },
+  {
+    "id": "dyn_ch4_db_hots_55",
+    "titleEn": "Work in Stretching a Wire via Young's Modulus Analogy",
+    "titleAr": "شغل شد سلك مرن",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A steel cable of length $L = 20\\text{ m}$ and cross-sectional area $A = 10^{-4}\\text{ m}^2$ behaves elastically as a spring of stiffness $k = \\frac{Y A}{L}$, where Young's modulus $Y = 2 \\times 10^{11}\\text{ N/m}^2$. What is the work done to stretch the cable by $\\Delta L = 4\\text{ mm}$ ($0.004\\text{ m}$)?",
+    "questionAr": "كابل فولاذي طوله $L = 20\\text{ م}$ ومساحة مقطعه $A = 10^{-4}\\text{ م}^2$ يتصرف كزنبرك مرن ثابت صلابته $k = \\frac{Y A}{L}$ حيث معامل ينج $Y = 2 \\times 10^{11}\\text{ ن/م}^2$. ما الشغل المبذول لاستطالة الكابل بمقدار $\\Delta L = 4\\text{ مم}$ ($0.004\\text{ م}$)?",
+    "optionsEn": [
+      "$8\\text{ J}$",
+      "$16\\text{ J}$",
+      "$4\\text{ J}$",
+      "$80\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$8\\text{ جول}$",
+      "$16\\text{ جول}$",
+      "$4\\text{ جول}$",
+      "$80\\text{ جول}$"
+    ],
+    "correctAnswer": "$8\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Calculate stiffness $k = \\frac{2 \\times 10^{11} \\times 10^{-4}}{20} = 10^6\\text{ N/m}$, then use $W = \\frac{1}{2} k (\\Delta L)^2$.",
+    "hintAr": "احسب ثابت الصلابة $k = 10^6\\text{ ن/م}$، ثم استخدم $W = \\frac{1}{2} k (\\Delta L)^2$.",
+    "stepByStepSolutionEn": [
+      "Stiffness of cable: $k = \\frac{Y A}{L} = \\frac{2 \\times 10^{11} \\times 10^{-4}}{20} = \\frac{2 \\times 10^7}{20} = 10^6\\text{ N/m}$.",
+      "Work done in elastic elongation: $W = \\frac{1}{2} k (\\Delta L)^2$.",
+      "$W = \\frac{1}{2} (10^6) (0.004)^2 = 500,000 \\times 1.6 \\times 10^{-5} = 8\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "ثابت صلابة الكابل: $k = \\frac{Y A}{L} = 10^6\\text{ ن/م}$.",
+      "الشغل المبذول: $W = \\frac{1}{2} k (\\Delta L)^2 = \\frac{1}{2} (10^6) (1.6 \\times 10^{-5}) = 8\\text{ جول}$."
+    ],
+    "teacherTipEn": "Hooke's law for solid rods links directly with standard spring potential energy.",
+    "teacherTipAr": "قانون هوك للمواد الصلبة يرتبط مباشرة بطاقة الوضع المرنة للزنبركات."
+  },
+  {
+    "id": "dyn_ch4_db_hots_56",
+    "titleEn": "Instantaneous vs Average Power in Constant Acceleration Motion",
+    "titleAr": "القدرة اللحظية مقابل متوسط القدرة لحركة بعجلة منتظمة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A car of mass $m$ starts from rest and accelerates with constant acceleration $a$ for time $t_1$. What is the ratio of the instantaneous power at $t = t_1$ to the average power over the interval $[0, t_1]$?",
+    "questionAr": "سيارة كتلتها $m$ بدأت حركتها من السكون وتسارعت بعجلة منتظمة $a$ لمدة زمنية $t_1$. ما نسبة القدرة اللحظية عند اللحظة $t = t_1$ إلى متوسط القدرة خلال الفترة الزمنية $[0, t_1]$؟",
+    "optionsEn": [
+      "$2 : 1$ (instantaneous power is twice the average power)",
+      "$1 : 1$",
+      "$3 : 2$",
+      "$4 : 1$"
+    ],
+    "optionsAr": [
+      "$2 : 1$ (القدرة اللحظية ضعف متوسط القدرة)",
+      "$1 : 1$",
+      "$3 : 2$",
+      "$4 : 1$"
+    ],
+    "correctAnswer": "$2 : 1$ (instantaneous power is twice the average power)",
+    "correctIndex": 0,
+    "hintEn": "Instantaneous power is $P(t) = F v = (ma)(at) = m a^2 t$. Average power is $P_{\\text{avg}} = \\frac{W}{t_1} = \\frac{\\frac{1}{2} m v_1^2}{t_1}$.",
+    "hintAr": "القدرة اللحظية $P(t) = m a^2 t$. ومتوسط القدرة $P_{\\text{avg}} = \\frac{\\frac{1}{2} m v^2}{t_1} = \\frac{1}{2} m a^2 t_1$.",
+    "stepByStepSolutionEn": [
+      "At time $t_1$, speed is $v_1 = a t_1$.",
+      "Instantaneous power: $P(t_1) = F \\cdot v_1 = (m a)(a t_1) = m a^2 t_1$.",
+      "Total work done over $[0, t_1]$ equals change in kinetic energy: $W = \\frac{1}{2} m v_1^2 = \\frac{1}{2} m (a t_1)^2 = \\frac{1}{2} m a^2 t_1^2$.",
+      "Average power: $P_{\\text{avg}} = \\frac{W}{t_1} = \\frac{\\frac{1}{2} m a^2 t_1^2}{t_1} = \\frac{1}{2} m a^2 t_1$.",
+      "Ratio: $\\frac{P(t_1)}{P_{\\text{avg}}} = \\frac{m a^2 t_1}{\\frac{1}{2} m a^2 t_1} = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "السرعة عند $t_1$: $v_1 = a t_1$.",
+      "القدرة اللحظية: $P(t_1) = m a^2 t_1$.",
+      "الشغل الكلي = التغير في طاقة الحركة: $W = \\frac{1}{2} m a^2 t_1^2$.",
+      "متوسط القدرة: $P_{\\text{avg}} = \\frac{W}{t_1} = \\frac{1}{2} m a^2 t_1$.",
+      "النسبة: $\\frac{P(t_1)}{P_{\\text{avg}}} = 2 : 1$."
+    ],
+    "teacherTipEn": "Because instantaneous power grows linearly with time ($P \\propto t$), its average value over $[0, t_1]$ is exactly half its final value.",
+    "teacherTipAr": "نظراً لأن القدرة اللحظية تتزايد خطياً مع الزمن ($P \\propto t$)، فإن قيمتها المتوسطة تساوي تماماً نصف قيمتها النهائية."
+  },
+  {
+    "id": "dyn_ch4_db_hots_57",
+    "titleEn": "Conservative Force Field and Path Independence",
+    "titleAr": "مجال القوى المحافظة واستقلال الشغل عن المسار",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A force field in the plane is given by $\\vec{F} = (2x y + y^2)\\hat{i} + (x^2 + 2x y)\\hat{j}\\text{ N}$. Is this force field conservative, and what is the work done moving a particle around any closed loop?",
+    "questionAr": "مجال قوى في المستوى يُعطى بالعلاقة $\\vec{F} = (2x y + y^2)\\hat{i} + (x^2 + 2x y)\\hat{j}\\text{ ن}$. هل هذا المجال محافظ، وما الشغل المبذول لنقل جسيم في أي مسار مغلق؟",
+    "optionsEn": [
+      "Yes, conservative; work around any closed loop is strictly $0$",
+      "No, not conservative; work depends on the loop area",
+      "Conservative, but closed loop work is $2\\pi$",
+      "Conservative only along circular paths"
+    ],
+    "optionsAr": [
+      "نعم، المجال محافظ، والشغل المبذول عبر أي مسار مغلق يساوي صفراً تماماً",
+      "لا، المجال غير محافظ ويعتمد الشغل على مساحة المسار",
+      "محافظ ولكن الشغل في مسار مغلق يساوي $2\\pi$",
+      "محافظ فقط على المسارات الدائرية"
+    ],
+    "correctAnswer": "Yes, conservative; work around any closed loop is strictly $0$",
+    "correctIndex": 0,
+    "hintEn": "Check if $\\frac{\\partial F_x}{\\partial y} = \\frac{\\partial F_y}{\\partial x}$. If they are equal, curl is zero, the field is conservative, and $\\oint \\vec{F} \\cdot d\\vec{r} = 0$.",
+    "hintAr": "تحقق من تساوي المشتقات الجزئية المتصالبة $\\frac{\\partial F_x}{\\partial y} = \\frac{\\partial F_y}{\\partial x}$. إذا تساويا، فالمجال محافظ والشغل عبر أي مسار مغلق ينعدم تماماً.",
+    "stepByStepSolutionEn": [
+      "$F_x = 2xy + y^2 \\implies \\frac{\\partial F_x}{\\partial y} = 2x + 2y$.",
+      "$F_y = x^2 + 2xy \\implies \\frac{\\partial F_y}{\\partial x} = 2x + 2y$.",
+      "Since $\\frac{\\partial F_x}{\\partial y} = \\frac{\\partial F_y}{\\partial x}$, the curl is zero everywhere in the plane.",
+      "Therefore, the force field is conservative, has a scalar potential $V(x, y) = - (x^2 y + x y^2)$, and the line integral of work around any closed path is strictly zero: $\\oint \\vec{F} \\cdot d\\vec{r} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "$\\frac{\\partial F_x}{\\partial y} = 2x + 2y$.",
+      "$\\frac{\\partial F_y}{\\partial x} = 2x + 2y$.",
+      "بما أن المشتقات الجزئية المتصالبة متساوية، فإن المجال محافظ.",
+      "وعليه فإن الشغل المبذول عبر أي مسار مغلق يساوي صفراً تماماً: $\\oint \\vec{F} \\cdot d\\vec{r} = 0$."
+    ],
+    "teacherTipEn": "Conservative force fields allow defining potential energy $V$ such that $W = - \\Delta V$.",
+    "teacherTipAr": "مجالات القوى المحافظة هي الوحيدة التي تتيح تعريف طاقة الوضع $V$ بحيث $W = - \\Delta V$."
+  },
+  {
+    "id": "dyn_ch4_db_hots_58",
+    "titleEn": "Work of Variable Pulling Force Overcoming Friction and Gravity",
+    "titleAr": "شغل قوة متغيرة لسحب صندوق على منحدر خشن",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A block of mass $m = 10\\text{ kg}$ is pulled up a rough incline of angle $\\theta = 30^\\circ$ and length $s = 6\\text{ m}$ by a variable pulling force $F(x) = 80 + 10x\\text{ N}$, where $x$ is the distance along the incline from the base. The friction coefficient is $\\mu_k = \\frac{1}{\\sqrt{3}}$. If the block starts from rest at the base, find its kinetic energy $T$ at the top of the incline. (Take $g = 9.8\\text{ m/s}^2$)",
+    "questionAr": "كتلة مقدارها $m = 10\\text{ كجم}$ تُسحب لأعلى مستوى مائل خشن يميل بزاوية $\\theta = 30^\\circ$ وطوله $s = 6\\text{ م}$ بواسطة قوة متغيرة $F(x) = 80 + 10x\\text{ ن}$، حيث $x$ المسافة المقاسة على طول المستوى من القاعدة. معامل الاحتكاك $\\mu_k = \\frac{1}{\\sqrt{3}}$. إذا بدأت الكتلة من السكون، فما طاقة حركتها $T$ عند قمة المستوى؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
+    "optionsEn": [
+      "$72\\text{ J}$",
+      "$120\\text{ J}$",
+      "$144\\text{ J}$",
+      "$98\\text{ J}$"
+    ],
+    "optionsAr": [
+      "$72\\text{ جول}$",
+      "$120\\text{ جول}$",
+      "$144\\text{ جول}$",
+      "$98\\text{ جول}$"
+    ],
+    "correctAnswer": "$72\\text{ J}$",
+    "correctIndex": 0,
+    "hintEn": "Work done by pulling force is $W_F = \\int_0^6 (80 + 10x)\\,dx$. Gravity component is $m g \\sin 30^\\circ = 49\\text{ N}$, friction is $\\mu_k m g \\cos 30^\\circ = \\frac{1}{\\sqrt{3}} (10 \\times 9.8 \\times \\frac{\\sqrt{3}}{2}) = 49\\text{ N}$.",
+    "hintAr": "شغل القوة $W_F = \\int_0^6 (80 + 10x)\\,dx$. مركبة الجاذبية $49\\text{ ن}$، وقوة الاحتكاك $49\\text{ ن}$.",
+    "stepByStepSolutionEn": [
+      "Work done by applied force: $W_F = \\int_0^6 (80 + 10x)\\,dx = [80x + 5x^2]_0^6 = 80(6) + 5(36) = 480 + 180 = 660\\text{ J}$.",
+      "Opposing gravity component: $F_g = m g \\sin 30^\\circ = 10 \\times 9.8 \\times 0.5 = 49\\text{ N}$.",
+      "Normal force: $N = m g \\cos 30^\\circ = 98 \\times \\frac{\\sqrt{3}}{2} = 49\\sqrt{3}\\text{ N}$.",
+      "Friction force: $F_k = \\mu_k N = \\frac{1}{\\sqrt{3}} (49\\sqrt{3}) = 49\\text{ N}$.",
+      "Total opposing force: $F_{\\text{opp}} = F_g + F_k = 49 + 49 = 98\\text{ N}$.",
+      "Work done against opposing forces: $W_{\\text{opp}} = 98 \\times 6 = 588\\text{ J}$? Wait: $660 - 588 = 72\\text{ J}$! Let's check: $480 + 180 = 660$. $98 \\times 6 = 588$. $660 - 588 = 72\\text{ J}$!",
+      "Let's adjust options: $72\\text{ J}$."
+    ],
+    "stepByStepSolutionAr": [
+      "شغل القوة المؤثرة: $W_F = \\int_0^6 (80 + 10x)\\,dx = 480 + 180 = 660\\text{ جول}$.",
+      "مركبة الوزن: $49\\text{ ن}$.",
+      "قوة الاحتكاك: $\\mu_k N = \\frac{1}{\\sqrt{3}} (49\\sqrt{3}) = 49\\text{ ن}$.",
+      "إجمالي القوى المقاومة: $49 + 49 = 98\\text{ ن}$.",
+      "الشغل المبذول ضد المقاومات: $98 \\times 6 = 588\\text{ جول}$.",
+      "طاقة الحركة النهائية: $T = 660 - 588 = 72\\text{ جول}$."
+    ],
+    "teacherTipEn": "When friction and gravity are constant, their work is simply their sum multiplied by distance.",
+    "teacherTipAr": "عندما تكون قوى الاحتكاك والجاذبية ثوابت، فإن شغلها يساوي ببساطة مجموعهما مضروباً في المسافة."
   }
 ]
 };

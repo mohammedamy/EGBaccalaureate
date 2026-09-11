@@ -1831,6 +1831,313 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Hyperbolic sine has the same coefficients as regular sine, but all signs are positive.",
     "teacherTipAr": "دالة الجيب الزائدي تماثل دالة الجيب في قواها الفردية، لكن جميع إشارات حدودها موجبة."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_51",
+    "titleEn": "Second Derivative of a Polynomial",
+    "titleAr": "المشتقة الثانية لدالة كثيرة حدود",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the second derivative $f''(x)$ of the function $f(x) = x^4 - 2x^3 + 5x - 7$.",
+    "questionAr": "أوجد المشتقة الثانية $f''(x)$ للدالة $f(x) = x^4 - 2x^3 + 5x - 7$.",
+    "optionsEn": [
+      "$12x^2 - 12x$",
+      "$4x^3 - 6x^2 + 5$",
+      "$12x^2 - 6x$",
+      "$24x - 12$"
+    ],
+    "optionsAr": [
+      "$12x^2 - 12x$",
+      "$4x^3 - 6x^2 + 5$",
+      "$12x^2 - 6x$",
+      "$24x - 12$"
+    ],
+    "correctAnswer": "$12x^2 - 12x$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate twice with respect to $x$ using the power rule.",
+    "hintAr": "اشتق الدالة مرتين بالنسبة إلى $x$ باستخدام قاعدة القوى.",
+    "stepByStepSolutionEn": [
+      "First derivative: $f'(x) = 4x^3 - 6x^2 + 5$.",
+      "Second derivative: $f''(x) = 12x^2 - 12x$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $f'(x) = 4x^3 - 6x^2 + 5$.",
+      "المشتقة الثانية: $f''(x) = 12x^2 - 12x$."
+    ],
+    "teacherTipEn": "Constants vanish upon the first differentiation.",
+    "teacherTipAr": "الحدود الثابتة تنعدم عند أول عملية اشتقاق."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_52",
+    "titleEn": "Inflection Point of a Cubic Polynomial",
+    "titleAr": "نقطة انقلاب لمنحنى دالة تكعيبية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the $x$-coordinate of the inflection point of the curve $f(x) = x^3 - 6x^2 + 9x + 1$.",
+    "questionAr": "أوجد الإحداثي السيني $x$ لنقطة الانقلاب لمنحنى الدالة $f(x) = x^3 - 6x^2 + 9x + 1$.",
+    "optionsEn": [
+      "$x = 2$",
+      "$x = 1$",
+      "$x = 3$",
+      "$x = 0$"
+    ],
+    "optionsAr": [
+      "$x = 2$",
+      "$x = 1$",
+      "$x = 3$",
+      "$x = 0$"
+    ],
+    "correctAnswer": "$x = 2$",
+    "correctIndex": 0,
+    "hintEn": "Set the second derivative to zero: $f''(x) = 0$ and check for concavity change.",
+    "hintAr": "ساوِ المشتقة الثانية بالصفر: $f''(x) = 0$ وتحقق من تغير إشارة التحدب.",
+    "stepByStepSolutionEn": [
+      "Compute $f'(x) = 3x^2 - 12x + 9$.",
+      "Compute $f''(x) = 6x - 12$.",
+      "Set $f''(x) = 0 \\implies 6x - 12 = 0 \\implies x = 2$.",
+      "Since $f''(x)$ changes sign at $x = 2$, it is an inflection point."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $f'(x) = 3x^2 - 12x + 9$.",
+      "المشتقة الثانية: $f''(x) = 6x - 12$.",
+      "$6x - 12 = 0 \\implies x = 2$.",
+      "بما أن إشارة المشتقة الثانية تتغير حول $x = 2$، فإنها نقطة انقلاب."
+    ],
+    "teacherTipEn": "For every cubic polynomial $ax^3 + bx^2 + cx + d$, the inflection point is always at $x = -\\frac{b}{3a}$.",
+    "teacherTipAr": "لكل كثيرة حدود تكعيبية، تقع نقطة الانقلاب دائماً عند $x = -\\frac{b}{3a}$."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_53",
+    "titleEn": "First-Order Separable Differential Equation",
+    "titleAr": "معادلة تفاضلية من الرتبة الأولى قابلة للفصل",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the general solution of the differential equation $\\frac{dy}{dx} = 3y$ for $y > 0$.",
+    "questionAr": "أوجد الحل العام للمعادلة التفاضلية $\\frac{dy}{dx} = 3y$ حيث $y > 0$.",
+    "optionsEn": [
+      "$y = C e^{3x}$",
+      "$y = 3x + C$",
+      "$y = C e^{-3x}$",
+      "$y = \\frac{3}{2} x^2 + C$"
+    ],
+    "optionsAr": [
+      "$y = C e^{3x}$",
+      "$y = 3x + C$",
+      "$y = C e^{-3x}$",
+      "$y = \\frac{3}{2} x^2 + C$"
+    ],
+    "correctAnswer": "$y = C e^{3x}$",
+    "correctIndex": 0,
+    "hintEn": "Separate variables: $\\frac{1}{y} dy = 3 dx$ and integrate both sides.",
+    "hintAr": "افصل المتغيرات: $\\frac{1}{y} dy = 3 dx$ ثم كامل الطرفين.",
+    "stepByStepSolutionEn": [
+      "Separate variables: $\\frac{dy}{y} = 3 dx$.",
+      "Integrate both sides: $\\int \\frac{1}{y} dy = \\int 3 dx \\implies \\ln(y) = 3x + c_0$.",
+      "Exponentiate: $y = e^{3x + c_0} = e^{c_0} e^{3x} = C e^{3x}$."
+    ],
+    "stepByStepSolutionAr": [
+      "فصل المتغيرات: $\\frac{dy}{y} = 3 dx$.",
+      "بتكامل الطرفين: $\\ln(y) = 3x + c_0$.",
+      "بأخذ الدالة الأسية: $y = C e^{3x}$."
+    ],
+    "teacherTipEn": "This equation models exponential growth when the rate of change is proportional to the current amount.",
+    "teacherTipAr": "تمثل هذه المعادلة نموذج النمو الأسي عندما يتناسب معدل التغير طردياً مع الكمية الحالية."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_54",
+    "titleEn": "Rolle's Theorem Intermediate Point",
+    "titleAr": "إيجاد نقطة مبرهنة رول",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the value of $c \\in (1, 3)$ guaranteed by Rolle's Theorem for the function $f(x) = x^2 - 4x + 3$ on the interval $[1, 3]$.",
+    "questionAr": "أوجد قيمة $c \\in (1, 3)$ التي تضمنها مبرهنة رول للدالة $f(x) = x^2 - 4x + 3$ على الفترة $[1, 3]$.",
+    "optionsEn": [
+      "$c = 2$",
+      "$c = 1.5$",
+      "$c = 2.5$",
+      "$c = 0$"
+    ],
+    "optionsAr": [
+      "$c = 2$",
+      "$c = 1.5$",
+      "$c = 2.5$",
+      "$c = 0$"
+    ],
+    "correctAnswer": "$c = 2$",
+    "correctIndex": 0,
+    "hintEn": "Check that $f(1) = f(3) = 0$, then solve $f'(c) = 0$.",
+    "hintAr": "تحقق أن $f(1) = f(3) = 0$ ثم حل المعادلة $f'(c) = 0$.",
+    "stepByStepSolutionEn": [
+      "Check hypotheses: $f$ is continuous on $[1, 3]$, differentiable on $(1, 3)$.",
+      "$f(1) = 1 - 4 + 3 = 0$ and $f(3) = 9 - 12 + 3 = 0$. So $f(1) = f(3)$.",
+      "Compute derivative: $f'(x) = 2x - 4$.",
+      "Set $f'(c) = 0 \\implies 2c - 4 = 0 \\implies c = 2 \\in (1, 3)$."
+    ],
+    "stepByStepSolutionAr": [
+      "التحقق من الشروط: $f$ متصلة على $[1, 3]$ وقابلة للاشتقاق على $(1, 3)$.",
+      "$f(1) = 0$ و $f(3) = 0$، إذن $f(1) = f(3)$.",
+      "المشتقة: $f'(x) = 2x - 4$.",
+      "$f'(c) = 0 \\implies 2c - 4 = 0 \\implies c = 2 \\in (1, 3)$."
+    ],
+    "teacherTipEn": "For any quadratic $f(x)$, the Rolle's point is exactly the midpoint of the interval: $\\frac{a+b}{2}$.",
+    "teacherTipAr": "لأي دالة تربيعية، تقع نقطة رول دائماً في منتصف الفترة تماماً: $\\frac{a+b}{2}$."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_55",
+    "titleEn": "Maclaurin Polynomial of Cosine",
+    "titleAr": "كثير حدود ماكلورين لدالة جيب التمام",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "What is the Maclaurin polynomial of degree 2 for the function $f(x) = \\cos(x)$?",
+    "questionAr": "ما هو كثير حدود ماكلورين من الدرجة الثانية للدالة $f(x) = \\cos(x)$؟",
+    "optionsEn": [
+      "$1 - \\frac{x^2}{2}$",
+      "$x - \\frac{x^2}{2}$",
+      "$1 + \\frac{x^2}{2}$",
+      "$1 - x^2$"
+    ],
+    "optionsAr": [
+      "$1 - \\frac{x^2}{2}$",
+      "$x - \\frac{x^2}{2}$",
+      "$1 + \\frac{x^2}{2}$",
+      "$1 - x^2$"
+    ],
+    "correctAnswer": "$1 - \\frac{x^2}{2}$",
+    "correctIndex": 0,
+    "hintEn": "The formula is $P_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2$.",
+    "hintAr": "الصيغة هي $P_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2$.",
+    "stepByStepSolutionEn": [
+      "$f(x) = \\cos(x) \\implies f(0) = 1$.",
+      "$f'(x) = -\\sin(x) \\implies f'(0) = 0$.",
+      "$f''(x) = -\\cos(x) \\implies f''(0) = -1$.",
+      "Substitute: $P_2(x) = 1 + 0x + \\frac{-1}{2}x^2 = 1 - \\frac{x^2}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$f(0) = \\cos(0) = 1$.",
+      "$f'(0) = -\\sin(0) = 0$.",
+      "$f''(0) = -\\cos(0) = -1$.",
+      "$P_2(x) = 1 - \\frac{x^2}{2}$."
+    ],
+    "teacherTipEn": "Because $\\cos(x)$ is an even function, its Maclaurin series contains only even powers of $x$.",
+    "teacherTipAr": "بما أن دالة جيب التمام دالة زوجية، فإن متسلسلة ماكلورين لها تحتوي على القوى الزوجية فقط."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_56",
+    "titleEn": "Local Extrema via First Derivative Test",
+    "titleAr": "القيم القصوى المحلية باختبار المشتقة الأولى",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the location of the local minimum for the cubic polynomial $f(x) = 2x^3 - 3x^2 - 12x + 5$.",
+    "questionAr": "أوجد موضع القيمة الصغرى المحلية للدالة التكعيبية $f(x) = 2x^3 - 3x^2 - 12x + 5$.",
+    "optionsEn": [
+      "$x = 2$",
+      "$x = -1$",
+      "$x = 0$",
+      "$x = 3$"
+    ],
+    "optionsAr": [
+      "$x = 2$",
+      "$x = -1$",
+      "$x = 0$",
+      "$x = 3$"
+    ],
+    "correctAnswer": "$x = 2$",
+    "correctIndex": 0,
+    "hintEn": "Set $f'(x) = 0$ and use the second derivative test: $f''(x) > 0$ indicates a local minimum.",
+    "hintAr": "ساوِ $f'(x) = 0$ واستخدم اختبار المشتقة الثانية: $f''(x) > 0$ تدل على قيمة صغرى محلية.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $f'(x) = 6x^2 - 6x - 12 = 6(x^2 - x - 2) = 6(x - 2)(x + 1)$.",
+      "Critical points are $x = 2$ and $x = -1$.",
+      "Second derivative: $f''(x) = 12x - 6$.",
+      "At $x = 2$: $f''(2) = 24 - 6 = 18 > 0$, so $x = 2$ is a local minimum.",
+      "At $x = -1$: $f''(-1) = -18 < 0$, which is a local maximum."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $f'(x) = 6(x^2 - x - 2) = 6(x - 2)(x + 1) = 0$.",
+      "النقاط الحرجة هي $x = 2$ و $x = -1$.",
+      "المشتقة الثانية: $f''(x) = 12x - 6$.",
+      "عند $x = 2$: $f''(2) = 18 > 0$، إذن توجد قيمة صغرى محلية عند $x = 2$."
+    ],
+    "teacherTipEn": "Always check the second derivative sign: positive means concave up (bowl holds water $\\implies$ minimum).",
+    "teacherTipAr": "المشتقة الثانية موجبة تعني المنحنى محدد لأسفل (مقعر لأعلى كالوعاء) مما يعطي قيمة صغرى."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_57",
+    "titleEn": "Tangent Line to an Exponential Curve",
+    "titleAr": "معادلة مماس لمنحنى دالة أسية",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the equation of the tangent line to the curve $y = e^{2x}$ at the point where $x = 0$.",
+    "questionAr": "أوجد معادلة خط المماس لمنحنى الدالة $y = e^{2x}$ عند النقطة التي فيها $x = 0$.",
+    "optionsEn": [
+      "$y = 2x + 1$",
+      "$y = x + 1$",
+      "$y = 2x$",
+      "$y = 2x - 1$"
+    ],
+    "optionsAr": [
+      "$y = 2x + 1$",
+      "$y = x + 1$",
+      "$y = 2x$",
+      "$y = 2x - 1$"
+    ],
+    "correctAnswer": "$y = 2x + 1$",
+    "correctIndex": 0,
+    "hintEn": "The slope is $m = y'(0)$ and point is $(0, y(0))$. Use $y - y_0 = m(x - x_0)$.",
+    "hintAr": "الميل هو $m = y'(0)$ والنقطة $(0, y(0))$. استخدم $y - y_0 = m(x - x_0)$.",
+    "stepByStepSolutionEn": [
+      "At $x = 0$, $y(0) = e^0 = 1$. The point of tangency is $(0, 1)$.",
+      "Compute derivative: $y' = 2e^{2x}$.",
+      "Slope at $x = 0$: $m = 2e^0 = 2$.",
+      "Equation: $y - 1 = 2(x - 0) \\implies y = 2x + 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "عند $x = 0$: $y(0) = 1$. نقطة التماس هي $(0, 1)$.",
+      "المشتقة: $y' = 2e^{2x}$.",
+      "ميل المماس: $m = 2e^0 = 2$.",
+      "معادلة المماس: $y - 1 = 2(x - 0) \\implies y = 2x + 1$."
+    ],
+    "teacherTipEn": "Notice that $y = 1 + 2x$ is also the degree 1 Taylor polynomial of $e^{2x}$ at $x=0$.",
+    "teacherTipAr": "لاحظ أن معادلة المماس عند الصفر هي نفسها كثير حدود تايلور من الدرجة الأولى للدالة."
+  },
+  {
+    "id": "egbac_ana_ch2_db_easy_58",
+    "titleEn": "Concavity Intervals of a Quartic Function",
+    "titleAr": "فترات التحدب لدالة من الدرجة الرابعة",
+    "difficulty": "easy",
+    "diagramType": "cartesian_plane",
+    "questionEn": "On which intervals is the curve $f(x) = x^4 - 6x^2$ concave upward ($f''(x) > 0$)?",
+    "questionAr": "على أي الفترات يكون منحنى الدالة $f(x) = x^4 - 6x^2$ محدباً لأسفل (مقعراً لأعلى $f''(x) > 0$)؟",
+    "optionsEn": [
+      "$(-\\infty, -1) \\cup (1, \\infty)$",
+      "$(-1, 1)$",
+      "$(-\\infty, 0)$",
+      "$(0, \\infty)$"
+    ],
+    "optionsAr": [
+      "$(-\\infty, -1) \\cup (1, \\infty)$",
+      "$(-1, 1)$",
+      "$(-\\infty, 0)$",
+      "$(0, \\infty)$"
+    ],
+    "correctAnswer": "$(-\\infty, -1) \\cup (1, \\infty)$",
+    "correctIndex": 0,
+    "hintEn": "Compute $f''(x)$ and solve the inequality $f''(x) > 0$.",
+    "hintAr": "احسب $f''(x)$ وحل المتباينة $f''(x) > 0$.",
+    "stepByStepSolutionEn": [
+      "Compute first derivative: $f'(x) = 4x^3 - 12x$.",
+      "Compute second derivative: $f''(x) = 12x^2 - 12 = 12(x^2 - 1)$.",
+      "Set $f''(x) > 0 \\implies 12(x - 1)(x + 1) > 0$.",
+      "This quadratic is positive outside the roots, so $x \\in (-\\infty, -1) \\cup (1, \\infty)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة الأولى: $f'(x) = 4x^3 - 12x$.",
+      "المشتقة الثانية: $f''(x) = 12x^2 - 12 = 12(x^2 - 1)$.",
+      "$12(x^2 - 1) > 0 \\implies x^2 > 1$.",
+      "إذن المنحنى مقعر لأعلى على الفترتين $(-\\infty, -1) \\cup (1, \\infty)$."
+    ],
+    "teacherTipEn": "On $(-1, 1)$, $f''(x) < 0$, so the curve is concave downward there.",
+    "teacherTipAr": "على الفترة $(-1, 1)$ تكون $f''(x) < 0$ والمنحنى محدب لأعلى (مقعر لأسفل)."
   }
 ],
   medium: [
@@ -3728,6 +4035,363 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Cosine contains only even powers in its Maclaurin expansion.",
     "teacherTipAr": "دالة جيب التمام تحتوي على القوى الزوجية فقط في مفكوك ماكلوران."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_51",
+    "titleEn": "Lagrange Mean Value Theorem Point",
+    "titleAr": "إيجاد نقطة مبرهنة القيمة المتوسطة للاجرانج",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the value of $c \\in (1, 4)$ that satisfies the Lagrange Mean Value Theorem for $f(x) = \\sqrt{x}$ on $[1, 4]$.",
+    "questionAr": "أوجد قيمة $c \\in (1, 4)$ التي تحقق مبرهنة القيمة المتوسطة للاجرانج للدالة $f(x) = \\sqrt{x}$ على الفترة $[1, 4]$.",
+    "optionsEn": [
+      "$2.25$ (or $\\frac{9}{4}$)",
+      "$2.50$",
+      "$2.00$",
+      "$3.00$"
+    ],
+    "optionsAr": [
+      "$2.25$ (أو $\\frac{9}{4}$)",
+      "$2.50$",
+      "$2.00$",
+      "$3.00$"
+    ],
+    "correctAnswer": "$2.25$ (or $\\frac{9}{4}$)",
+    "correctIndex": 0,
+    "hintEn": "Set $f'(c) = \\frac{f(4) - f(1)}{4 - 1}$ and solve for $c$.",
+    "hintAr": "ساوِ $f'(c) = \\frac{f(4) - f(1)}{4 - 1}$ وحل المعادلة لإيجاد $c$.",
+    "stepByStepSolutionEn": [
+      "Average rate of change: $\\frac{f(4) - f(1)}{4 - 1} = \\frac{\\sqrt{4} - \\sqrt{1}}{3} = \\frac{2 - 1}{3} = \\frac{1}{3}$.",
+      "Derivative: $f'(x) = \\frac{1}{2\\sqrt{x}}$.",
+      "Set $f'(c) = \\frac{1}{3} \\implies \\frac{1}{2\\sqrt{c}} = \\frac{1}{3} \\implies 2\\sqrt{c} = 3 \\implies \\sqrt{c} = \\frac{3}{2}$.",
+      "Squaring both sides: $c = \\frac{9}{4} = 2.25 \\in (1, 4)$."
+    ],
+    "stepByStepSolutionAr": [
+      "متوسط معدل التغير: $\\frac{\\sqrt{4} - \\sqrt{1}}{4 - 1} = \\frac{2 - 1}{3} = \\frac{1}{3}$.",
+      "المشتقة: $f'(x) = \\frac{1}{2\\sqrt{x}}$.",
+      "بالمساواة: $\\frac{1}{2\\sqrt{c}} = \\frac{1}{3} \\implies \\sqrt{c} = \\frac{3}{2}$.",
+      "بتربيع الطرفين: $c = \\frac{9}{4} = 2.25$."
+    ],
+    "teacherTipEn": "Notice $c = 2.25$ is close to, but slightly less than, the midpoint $2.5$, reflecting the sublinear growth of $\\sqrt{x}$.",
+    "teacherTipAr": "لاحظ أن $c = 2.25$ أقل قليلاً من منتصف الفترة 2.5 بسبب انحناء دالة الجذر التربيعي."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_52",
+    "titleEn": "First-Order Linear ODE with Integrating Factor",
+    "titleAr": "حل معادلة خطية من الرتبة الأولى بعامل التكامل",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Solve the initial value problem: $y' + 2xy = 4x$ with $y(0) = 5$.",
+    "questionAr": "حل مسألة القيمة الابتدائية: $y' + 2xy = 4x$ مع الشرط الابتدائي $y(0) = 5$.",
+    "optionsEn": [
+      "$y(x) = 2 + 3e^{-x^2}$",
+      "$y(x) = 2 + 5e^{-x^2}$",
+      "$y(x) = 4 + e^{-x^2}$",
+      "$y(x) = 2 + 3e^{x^2}$"
+    ],
+    "optionsAr": [
+      "$y(x) = 2 + 3e^{-x^2}$",
+      "$y(x) = 2 + 5e^{-x^2}$",
+      "$y(x) = 4 + e^{-x^2}$",
+      "$y(x) = 2 + 3e^{x^2}$"
+    ],
+    "correctAnswer": "$y(x) = 2 + 3e^{-x^2}$",
+    "correctIndex": 0,
+    "hintEn": "The integrating factor is $\\mu(x) = e^{\\int 2x dx} = e^{x^2}$.",
+    "hintAr": "عامل التكامل هو $\\mu(x) = e^{\\int 2x dx} = e^{x^2}$.",
+    "stepByStepSolutionEn": [
+      "Integrating factor: $\\mu(x) = e^{\\int 2x dx} = e^{x^2}$.",
+      "Multiply ODE by $\\mu(x)$: $\\frac{d}{dx}[y e^{x^2}] = 4x e^{x^2}$.",
+      "Integrate both sides: $y e^{x^2} = \\int 4x e^{x^2} dx = 2 e^{x^2} + C$.",
+      "Divide by $e^{x^2}$: $y(x) = 2 + C e^{-x^2}$.",
+      "Apply initial condition $y(0) = 5$: $2 + C = 5 \\implies C = 3$.",
+      "Solution: $y(x) = 2 + 3e^{-x^2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "عامل التكامل: $\\mu(x) = e^{\\int 2x dx} = e^{x^2}$.",
+      "بالضرب في عامل التكامل: $\\frac{d}{dx}[y e^{x^2}] = 4x e^{x^2}$.",
+      "بالتكامل: $y e^{x^2} = 2 e^{x^2} + C \\implies y = 2 + C e^{-x^2}$.",
+      "من الشرط الابتدائي $y(0) = 5$: $2 + C = 5 \\implies C = 3$.",
+      "الحل النهائي: $y(x) = 2 + 3e^{-x^2}$."
+    ],
+    "teacherTipEn": "As $x \\to \\infty$, $e^{-x^2} \\to 0$, so the steady-state equilibrium value is $y = 2$.",
+    "teacherTipAr": "عندما $x \\to \\infty$ يتلاشى الحد الأسي وتستقر الدالة عند قيمة التوازن $y = 2$."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_53",
+    "titleEn": "Second-Order Homogeneous ODE with Real Roots",
+    "titleAr": "معادلة تفاضلية متجانسة من الرتبة الثانية بجذور حقيقية",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the general solution to the second-order differential equation $y'' - 5y' + 6y = 0$.",
+    "questionAr": "أوجد الحل العام للمعادلة التفاضلية من الرتبة الثانية $y'' - 5y' + 6y = 0$.",
+    "optionsEn": [
+      "$y = C_1 e^{2x} + C_2 e^{3x}$",
+      "$y = C_1 e^{-2x} + C_2 e^{-3x}$",
+      "$y = (C_1 + C_2 x) e^{2x}$",
+      "$y = C_1 \\cos(2x) + C_2 \\sin(3x)$"
+    ],
+    "optionsAr": [
+      "$y = C_1 e^{2x} + C_2 e^{3x}$",
+      "$y = C_1 e^{-2x} + C_2 e^{-3x}$",
+      "$y = (C_1 + C_2 x) e^{2x}$",
+      "$y = C_1 \\cos(2x) + C_2 \\sin(3x)$"
+    ],
+    "correctAnswer": "$y = C_1 e^{2x} + C_2 e^{3x}$",
+    "correctIndex": 0,
+    "hintEn": "Solve the characteristic equation $r^2 - 5r + 6 = 0$.",
+    "hintAr": "حل المعادلة المميزة $r^2 - 5r + 6 = 0$.",
+    "stepByStepSolutionEn": [
+      "Characteristic equation: $r^2 - 5r + 6 = 0$.",
+      "Factor: $(r - 2)(r - 3) = 0 \\implies r_1 = 2, r_2 = 3$.",
+      "Since roots are distinct real numbers, the general solution is $y = C_1 e^{2x} + C_2 e^{3x}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلة المميزة: $r^2 - 5r + 6 = 0$.",
+      "التحليل: $(r - 2)(r - 3) = 0 \\implies r_1 = 2, r_2 = 3$.",
+      "جذران حقيقيان متمايزان، إذن الحل العام هو $y = C_1 e^{2x} + C_2 e^{3x}$."
+    ],
+    "teacherTipEn": "Distinct real roots $r_1, r_2$ always give fundamental solutions $e^{r_1 x}$ and $e^{r_2 x}$.",
+    "teacherTipAr": "الجذور الحقيقية المختلفة تعطي حلولاً أساسية مستقلة خطياً على صورة $e^{r_1 x}$ و $e^{r_2 x}$."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_54",
+    "titleEn": "Taylor Polynomial of Degree 3 for ln(1+x)",
+    "titleAr": "كثير حدود تايلور من الدرجة الثالثة لـ ln(1+x)",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the Taylor polynomial of degree 3 centered at $x = 0$ for $f(x) = \\ln(1 + x)$.",
+    "questionAr": "أوجد كثير حدود تايلور من الدرجة الثالثة المتمركز حول $x = 0$ للدالة $f(x) = \\ln(1 + x)$.",
+    "optionsEn": [
+      "$x - \\frac{x^2}{2} + \\frac{x^3}{3}$",
+      "$x - \\frac{x^2}{2} + \\frac{x^3}{6}$",
+      "$x + \\frac{x^2}{2} + \\frac{x^3}{3}$",
+      "$1 + x - \\frac{x^2}{2} + \\frac{x^3}{3}$"
+    ],
+    "optionsAr": [
+      "$x - \\frac{x^2}{2} + \\frac{x^3}{3}$",
+      "$x - \\frac{x^2}{2} + \\frac{x^3}{6}$",
+      "$x + \\frac{x^2}{2} + \\frac{x^3}{3}$",
+      "$1 + x - \\frac{x^2}{2} + \\frac{x^3}{3}$"
+    ],
+    "correctAnswer": "$x - \\frac{x^2}{2} + \\frac{x^3}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Compute derivatives at $0$: $f'(0)=1, f''(0)=-1, f'''(0)=2$. Recall formula $\\frac{f^{(k)}(0)}{k!}x^k$.",
+    "hintAr": "احسب المشتقات عند الصفر واستخدم الصيغة العامة $\\frac{f^{(k)}(0)}{k!}x^k$.",
+    "stepByStepSolutionEn": [
+      "$f(0) = \\ln(1) = 0$.",
+      "$f'(x) = \\frac{1}{1+x} \\implies f'(0) = 1$.",
+      "$f''(x) = -\\frac{1}{(1+x)^2} \\implies f''(0) = -1$.",
+      "$f'''(x) = \\frac{2}{(1+x)^3} \\implies f'''(0) = 2$.",
+      "Substitute into $P_3(x) = f(0) + f'(0)x + \\frac{f''(0)}{2}x^2 + \\frac{f'''(0)}{6}x^3$:",
+      "$P_3(x) = x - \\frac{x^2}{2} + \\frac{2}{6}x^3 = x - \\frac{x^2}{2} + \\frac{x^3}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "$f(0) = 0$.",
+      "$f'(0) = 1$.",
+      "$f''(0) = -1$.",
+      "$f'''(0) = 2$.",
+      "$P_3(x) = x - \\frac{x^2}{2} + \\frac{2}{3!}x^3 = x - \\frac{x^2}{2} + \\frac{x^3}{3}$."
+    ],
+    "teacherTipEn": "Notice the coefficients are $\\frac{(-1)^{k-1}}{k}$, not divided by factorials.",
+    "teacherTipAr": "لاحظ أن معاملات لوغاريتم $(1+x)$ مقسومة على $k$ وليس على المضروب $k!$ بسبب اختصار المشتقات."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_55",
+    "titleEn": "Maximum Area of a Rectangle with Fixed Perimeter",
+    "titleAr": "أكبر مساحة لمستطيل محيطه ثابت",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "A rectangle has a fixed perimeter of $40\\text{ cm}$. Find the dimensions that maximize its area, and the maximum area.",
+    "questionAr": "مستطيل محيطه ثابت ويساوي $40\\text{ سم}$. أوجد أبعاده التي تجعل مساحته أكبر ما يمكن، وقيمة هذه المساحة.",
+    "optionsEn": [
+      "Square of side $10\\text{ cm}$, Maximum Area $= 100\\text{ cm}^2$",
+      "Dimensions $8\\text{ cm} \\times 12\\text{ cm}$, Maximum Area $= 96\\text{ cm}^2$",
+      "Dimensions $5\\text{ cm} \\times 15\\text{ cm}$, Maximum Area $= 75\\text{ cm}^2$",
+      "Square of side $20\\text{ cm}$, Maximum Area $= 400\\text{ cm}^2$"
+    ],
+    "optionsAr": [
+      "مربع طول ضلعه $10\\text{ سم}$، وأكبر مساحة $= 100\\text{ سم}^2$",
+      "الأبعاد $8\\text{ سم} \\times 12\\text{ سم}$، وأكبر مساحة $= 96\\text{ سم}^2$",
+      "الأبعاد $5\\text{ سم} \\times 15\\text{ سم}$، وأكبر مساحة $= 75\\text{ سم}^2$",
+      "مربع طول ضلعه $20\\text{ سم}$، وأكبر مساحة $= 400\\text{ سم}^2$"
+    ],
+    "correctAnswer": "Square of side $10\\text{ cm}$, Maximum Area $= 100\\text{ cm}^2$",
+    "correctIndex": 0,
+    "hintEn": "Express area as $A(x) = x(20 - x)$ and find the vertex of the parabola or set $A'(x) = 0$.",
+    "hintAr": "عبر عن المساحة كدالة $A(x) = x(20 - x)$ وأوجد رأس المنحنى بمساواة $A'(x) = 0$.",
+    "stepByStepSolutionEn": [
+      "Perimeter $2(x + y) = 40 \\implies x + y = 20 \\implies y = 20 - x$.",
+      "Area function: $A(x) = x(20 - x) = 20x - x^2$.",
+      "Derivative: $A'(x) = 20 - 2x = 0 \\implies x = 10\\text{ cm}$.",
+      "Then $y = 20 - 10 = 10\\text{ cm}$ (a square).",
+      "Maximum area: $A(10) = 10 \\times 10 = 100\\text{ cm}^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "المحيط: $2(x + y) = 40 \\implies y = 20 - x$.",
+      "دالة المساحة: $A(x) = 20x - x^2$.",
+      "$A'(x) = 20 - 2x = 0 \\implies x = 10\\text{ سم}$.",
+      "إذن $y = 10\\text{ سم}$ (الشكل مربع).",
+      "المساحة العظمى: $10 \\times 10 = 100\\text{ سم}^2$."
+    ],
+    "teacherTipEn": "Among all rectangles of a given perimeter, the square always has the maximum area.",
+    "teacherTipAr": "من بين جميع المستطيلات ذات المحيط الثابت، المربع هو دائماً صاحب المساحة الكبرى."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_56",
+    "titleEn": "Cauchy Mean Value Theorem Point",
+    "titleAr": "نقطة مبرهنة كوشي للقيمة المتوسطة",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Apply Cauchy's Mean Value Theorem to $f(x) = x^2$ and $g(x) = x^3$ on the interval $[1, 2]$. Find the value of $c \\in (1, 2)$ such that $\\frac{f'(c)}{g'(c)} = \\frac{f(2) - f(1)}{g(2) - g(1)}$.",
+    "questionAr": "طبق مبرهنة كوشي للقيمة المتوسطة للدالتين $f(x) = x^2$ و $g(x) = x^3$ على الفترة $[1, 2]$. أوجد قيمة $c \\in (1, 2)$ التي تحقق $\\frac{f'(c)}{g'(c)} = \\frac{f(2) - f(1)}{g(2) - g(1)}$.",
+    "optionsEn": [
+      "$\\frac{14}{9}$",
+      "$\\frac{3}{2}$",
+      "$\\frac{7}{5}$",
+      "$\\frac{5}{3}$"
+    ],
+    "optionsAr": [
+      "$\\frac{14}{9}$",
+      "$\\frac{3}{2}$",
+      "$\\frac{7}{5}$",
+      "$\\frac{5}{3}$"
+    ],
+    "correctAnswer": "$\\frac{14}{9}$",
+    "correctIndex": 0,
+    "hintEn": "Compute $\\frac{f(2)-f(1)}{g(2)-g(1)} = \\frac{4-1}{8-1} = \\frac{3}{7}$. Then set $\\frac{2c}{3c^2} = \\frac{3}{7}$.",
+    "hintAr": "احسب النسبة $\\frac{4-1}{8-1} = \\frac{3}{7}$ ثم ساوِ $\\frac{2c}{3c^2} = \\frac{3}{7}$.",
+    "stepByStepSolutionEn": [
+      "Evaluate functions: $f(1)=1, f(2)=4 \\implies \\Delta f = 3$.",
+      "$g(1)=1, g(2)=8 \\implies \\Delta g = 7$.",
+      "Right-hand side ratio: $\\frac{\\Delta f}{\\Delta g} = \\frac{3}{7}$.",
+      "Derivatives: $f'(x) = 2x$ and $g'(x) = 3x^2$, so $\\frac{f'(c)}{g'(c)} = \\frac{2c}{3c^2} = \\frac{2}{3c}$.",
+      "Equate: $\\frac{2}{3c} = \\frac{3}{7} \\implies 9c = 14 \\implies c = \\frac{14}{9} \\approx 1.556 \\in (1, 2)$."
+    ],
+    "stepByStepSolutionAr": [
+      "حساب الفروق: $\\Delta f = 4 - 1 = 3$ و $\\Delta g = 8 - 1 = 7$.",
+      "النسبة: $\\frac{\\Delta f}{\\Delta g} = \\frac{3}{7}$.",
+      "نسبة المشتقتين: $\\frac{2c}{3c^2} = \\frac{2}{3c}$.",
+      "$\\frac{2}{3c} = \\frac{3}{7} \\implies 9c = 14 \\implies c = \\frac{14}{9}$."
+    ],
+    "teacherTipEn": "Cauchy's MVT is the foundation for proving L'Hôpital's Rule.",
+    "teacherTipAr": "مبرهنة كوشي للقيمة المتوسطة هي الأساس الرياضي الذي يُبنى عليه برهان قاعدة لوبيتال."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_57",
+    "titleEn": "Arc Length of a Planar Curve",
+    "titleAr": "طول قوس منحنى مستوٍ",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the arc length of the curve $y = \\frac{2}{3} x^{3/2}$ from $x = 0$ to $x = 3$.",
+    "questionAr": "أوجد طول قوس المنحنى $y = \\frac{2}{3} x^{3/2}$ من $x = 0$ إلى $x = 3$.",
+    "optionsEn": [
+      "$\\frac{14}{3}$",
+      "$7$",
+      "$\\frac{16}{3}$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "$\\frac{14}{3}$",
+      "$7$",
+      "$\\frac{16}{3}$",
+      "$4$"
+    ],
+    "correctAnswer": "$\\frac{14}{3}$",
+    "correctIndex": 0,
+    "hintEn": "The arc length formula is $L = \\int_a^b \\sqrt{1 + (y')^2} dx$.",
+    "hintAr": "قانون طول القوس هو $L = \\int_a^b \\sqrt{1 + (y')^2} dx$.",
+    "stepByStepSolutionEn": [
+      "Compute derivative: $y' = \\frac{2}{3} \\cdot \\frac{3}{2} x^{1/2} = \\sqrt{x}$.",
+      "Square of derivative: $(y')^2 = x$.",
+      "Arc length integral: $L = \\int_0^3 \\sqrt{1 + x}\\,dx$.",
+      "Evaluate: $\\left[ \\frac{2}{3}(1 + x)^{3/2} \\right]_0^3 = \\frac{2}{3} \\left(4^{3/2} - 1^{3/2}\\right) = \\frac{2}{3}(8 - 1) = \\frac{14}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المشتقة: $y' = \\sqrt{x}$.",
+      "مربع المشتقة: $(y')^2 = x$.",
+      "تكامل طول القوس: $L = \\int_0^3 \\sqrt{1 + x}\\,dx$.",
+      "الناتج: $\\left[ \\frac{2}{3}(1+x)^{3/2} \\right]_0^3 = \\frac{2}{3}(8 - 1) = \\frac{14}{3}$."
+    ],
+    "teacherTipEn": "The curve $y = \\frac{2}{3}x^{3/2}$ is known as the semi-cubical parabola (Neile's parabola), historically the first algebraic curve whose arc length was rectified.",
+    "teacherTipAr": "قطع نيل المكافئ هو أول منحنى جبري تم حساب طول قوسه تحليلياً في تاريخ الرياضيات."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_58",
+    "titleEn": "Second-Order ODE with Repeated Roots",
+    "titleAr": "معادلة تفاضلية من الرتبة الثانية بجذر مكرر",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the general solution to $y'' - 4y' + 4y = 0$.",
+    "questionAr": "أوجد الحل العام للمعادلة التفاضلية $y'' - 4y' + 4y = 0$.",
+    "optionsEn": [
+      "$y = (C_1 + C_2 x) e^{2x}$",
+      "$y = C_1 e^{2x} + C_2 e^{-2x}$",
+      "$y = C_1 e^{2x}$",
+      "$y = (C_1 \\cos 2x + C_2 \\sin 2x)$"
+    ],
+    "optionsAr": [
+      "$y = (C_1 + C_2 x) e^{2x}$",
+      "$y = C_1 e^{2x} + C_2 e^{-2x}$",
+      "$y = C_1 e^{2x}$",
+      "$y = (C_1 \\cos 2x + C_2 \\sin 2x)$"
+    ],
+    "correctAnswer": "$y = (C_1 + C_2 x) e^{2x}$",
+    "correctIndex": 0,
+    "hintEn": "Characteristic equation $r^2 - 4r + 4 = 0$ has a repeated root $r = 2$.",
+    "hintAr": "المعادلة المميزة $r^2 - 4r + 4 = 0$ لها جذر مكرر $r = 2$.",
+    "stepByStepSolutionEn": [
+      "Characteristic equation: $r^2 - 4r + 4 = (r - 2)^2 = 0$.",
+      "Repeated root: $r = 2$ of multiplicity 2.",
+      "The second linearly independent solution is multiplied by $x$: $x e^{2x}$.",
+      "General solution: $y = (C_1 + C_2 x) e^{2x}$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلة المميزة: $(r - 2)^2 = 0 \\implies r = 2$ (جذر مكرر).",
+      "الحل المستقل الثاني يُضرب في $x$: $x e^{2x}$.",
+      "الحل العام: $y = (C_1 + C_2 x) e^{2x}$."
+    ],
+    "teacherTipEn": "When a root has multiplicity $m$, multiply by powers of $x$ up to $x^{m-1}$.",
+    "teacherTipAr": "عند تكرار الجذر، نضرب الحلول في قوى $x$ المتتالية للحفاظ على الاستقلال الخطي."
+  },
+  {
+    "id": "egbac_ana_ch2_db_med_59",
+    "titleEn": "Integration by Parts of Product Function",
+    "titleAr": "التكامل بالتجزيء لحاصل ضرب دالتين",
+    "difficulty": "medium",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Evaluate the indefinite integral: $\\int x e^{3x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{3x} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
+      "$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$",
+      "$x e^{3x} - e^{3x} + C$",
+      "$\\frac{1}{2} x^2 e^{3x} + C$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
+      "$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$",
+      "$x e^{3x} - e^{3x} + C$",
+      "$\\frac{1}{2} x^2 e^{3x} + C$"
+    ],
+    "correctAnswer": "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
+    "correctIndex": 0,
+    "hintEn": "Set $u = x$ and $dv = e^{3x} dx$. Then $\\int u dv = uv - \\int v du$.",
+    "hintAr": "ضع $u = x$ و $dv = e^{3x} dx$ ثم طبق قانون التجزيء $\\int u dv = uv - \\int v du$.",
+    "stepByStepSolutionEn": [
+      "Let $u = x \\implies du = dx$.",
+      "Let $dv = e^{3x} dx \\implies v = \\frac{1}{3} e^{3x}$.",
+      "Integration by parts formula: $\\int u dv = u v - \\int v du$.",
+      "Substitute: $x \\left(\\frac{1}{3} e^{3x}\\right) - \\int \\frac{1}{3} e^{3x} dx = \\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "نفرض $u = x \\implies du = dx$.",
+      "نفرض $dv = e^{3x} dx \\implies v = \\frac{1}{3} e^{3x}$.",
+      "قانون التكامل بالتجزيء: $uv - \\int v du$.",
+      "الناتج: $\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$."
+    ],
+    "teacherTipEn": "Use the acronym LIATE to pick $u$: Logarithmic, Inverse trig, Algebraic, Trig, Exponential.",
+    "teacherTipAr": "استخدم قاعدة LIATE لاختيار $u$: اللوغاريتمية، المثلثية العكسية، الجبرية، المثلثية، الأسية."
   }
 ],
   hots: [
@@ -5612,6 +6276,336 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "teacherTipEn": "Notice how (0.06)^2 = 0.0036 is cleanly divisible by 9, giving 0.0004.",
     "teacherTipAr": "لاحظ أن (0.06)^2 = 0.0036 يقبل القسمة تماماً على 9 معطياً 0.0004."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_51",
+    "titleEn": "Taylor Remainder Error Bound (Lagrange Remainder)",
+    "titleAr": "تقدير خطأ باق تايلور (صيغة لاجرانج للباقي)",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "If $\\sin(0.1)$ is approximated by the Maclaurin polynomial $P_3(x) = x - \\frac{x^3}{6}$, what is the strict upper bound on the absolute error $|R_4(0.1)|$ given by the Lagrange remainder?",
+    "questionAr": "إذا قُربت قيمة $\\sin(0.1)$ بكثير حدود ماكلورين $P_3(x) = x - \\frac{x^3}{6}$، فما هو الحد الأقصى الدقيق للخطأ المطلق $|R_4(0.1)|$ وفق صيغة لاجرانج للباقي؟",
+    "optionsEn": [
+      "$\\frac{(0.1)^5}{120} \\approx 8.33 \\times 10^{-8}$",
+      "$\\frac{(0.1)^4}{24} \\approx 4.17 \\times 10^{-6}$",
+      "$\\frac{(0.1)^3}{6} \\approx 1.67 \\times 10^{-4}$",
+      "$10^{-5}$"
+    ],
+    "optionsAr": [
+      "$\\frac{(0.1)^5}{120} \\approx 8.33 \\times 10^{-8}$",
+      "$\\frac{(0.1)^4}{24} \\approx 4.17 \\times 10^{-6}$",
+      "$\\frac{(0.1)^3}{6} \\approx 1.67 \\times 10^{-4}$",
+      "$10^{-5}$"
+    ],
+    "correctAnswer": "$\\frac{(0.1)^5}{120} \\approx 8.33 \\times 10^{-8}$",
+    "correctIndex": 0,
+    "hintEn": "Since the degree 4 term of $\\sin x$ is zero, $P_3(x) = P_4(x)$, so the remainder is $R_4(x) = \\frac{f^{(5)}(c)}{5!} x^5$ with $|f^{(5)}(c)| = |\\cos c| \\le 1$.",
+    "hintAr": "بما أن الحد الرابع معدوم، فإن $P_3 = P_4$، وصيغة الباقي تصبح $R_4(x) = \\frac{f^{(5)}(c)}{5!} x^5$ مع $|\\cos c| \\le 1$.",
+    "stepByStepSolutionEn": [
+      "Because $\\sin(x)$ is an odd function, the $x^4$ coefficient is zero, so $P_3(x) = P_4(x)$.",
+      "The Lagrange remainder formula gives: $R_4(x) = \\frac{f^{(5)}(c)}{5!} x^5$ for some $c \\in (0, 0.1)$.",
+      "$f^{(5)}(x) = \\cos(x)$. Since $|\\cos(c)| \\le 1$ for all $c$, we have:",
+      "$|R_4(0.1)| \\le \\frac{1}{5!} (0.1)^5 = \\frac{10^{-5}}{120} \\approx 8.33 \\times 10^{-8}$."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة الجيب فردية، لذا معامل $x^4$ صفر، ويكون $P_3(x) = P_4(x)$.",
+      "صيغة لاجرانج للباقي: $R_4(x) = \\frac{f^{(5)}(c)}{5!} x^5$ لقيمة $c \\in (0, 0.1)$.",
+      "المشتقة الخامسة هي $\\cos(c)$ ومطلقها $\\le 1$.",
+      "أقصى خطأ: $\\frac{1}{120} (0.1)^5 \\approx 8.33 \\times 10^{-8}$."
+    ],
+    "teacherTipEn": "This shows just two terms of the Taylor series of sine achieve 7 decimal places of precision for $x = 0.1$.",
+    "teacherTipAr": "يوضح هذا أن حدين فقط من متسلسلة تايلور للجيب يحققان دقة تصل لـ 7 أرقام عشرية عند $x = 0.1$."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_52",
+    "titleEn": "Resonance in Non-Homogeneous Second-Order ODE",
+    "titleAr": "الرنين في معادلة تفاضلية من الرتبة الثانية غير متجانسة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find a particular solution $y_p(x)$ to the differential equation $y'' + 4y = 8\\cos(2x)$.",
+    "questionAr": "أوجد حلاً خاصاً $y_p(x)$ للمعادلة التفاضلية $y'' + 4y = 8\\cos(2x)$.",
+    "optionsEn": [
+      "$y_p(x) = 2x \\sin(2x)$",
+      "$y_p(x) = 2 \\cos(2x)$",
+      "$y_p(x) = -2x \\cos(2x)$",
+      "$y_p(x) = 4 \\sin(2x)$"
+    ],
+    "optionsAr": [
+      "$y_p(x) = 2x \\sin(2x)$",
+      "$y_p(x) = 2 \\cos(2x)$",
+      "$y_p(x) = -2x \\cos(2x)$",
+      "$y_p(x) = 4 \\sin(2x)$"
+    ],
+    "correctAnswer": "$y_p(x) = 2x \\sin(2x)$",
+    "correctIndex": 0,
+    "hintEn": "Since $\\cos(2x)$ is part of the complementary homogeneous solution, multiply the trial solution by $x$: $y_p = x(A \\cos 2x + B \\sin 2x)$.",
+    "hintAr": "بما أن $\\cos(2x)$ حل للمعادلة المتجانسة، اضرب الحل التجريبي في $x$: $y_p = x(A \\cos 2x + B \\sin 2x)$.",
+    "stepByStepSolutionEn": [
+      "Homogeneous equation: $y'' + 4y = 0 \\implies r^2 + 4 = 0 \\implies r = \\pm 2i$.",
+      "Complementary solution: $y_h = C_1 \\cos(2x) + C_2 \\sin(2x)$.",
+      "Since forcing frequency matches natural frequency (resonance), try $y_p = x(A \\cos 2x + B \\sin 2x)$.",
+      "Differentiate: $y_p' = (A \\cos 2x + B \\sin 2x) + x(-2A \\sin 2x + 2B \\cos 2x)$.",
+      "$y_p'' = 2(-2A \\sin 2x + 2B \\cos 2x) + x(-4A \\cos 2x - 4B \\sin 2x)$.",
+      "Substitute into $y_p'' + 4y_p = -4A \\sin 2x + 4B \\cos 2x = 8 \\cos(2x)$.",
+      "Equate coefficients: $4B = 8 \\implies B = 2$ and $-4A = 0 \\implies A = 0$.",
+      "Thus $y_p(x) = 2x \\sin(2x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "حل المعادلة المتجانسة: $y_h = C_1 \\cos(2x) + C_2 \\sin(2x)$.",
+      "نظراً لتطابق تردد القوة المؤثرة مع التردد الطبيعي (حالة رنين)، نفرض $y_p = x(A \\cos 2x + B \\sin 2x)$.",
+      "بالتعويض في $y'' + 4y = 8\\cos(2x)$:",
+      "$-4A \\sin 2x + 4B \\cos 2x = 8\\cos 2x \\implies B = 2, A = 0$.",
+      "الحل الخاص هو $y_p(x) = 2x \\sin(2x)$."
+    ],
+    "teacherTipEn": "The factor $x$ represents linearly growing amplitude, characteristic of mechanical and acoustic resonance.",
+    "teacherTipAr": "المعامل $x$ يمثل تزايد سعة الاهتزاز خطياً مع الزمن، وهو السلوك الفيزيائي الكلاسيكي لظاهرة الرنين."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_53",
+    "titleEn": "Second-Order ODE with Complex Conjugate Roots",
+    "titleAr": "معادلة تفاضلية من الرتبة الثانية بجذور مركبة مترافقة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the general solution to the damped oscillator equation $y'' + 2y' + 5y = 0$.",
+    "questionAr": "أوجد الحل العام لمعادلة المتذبذب المخمد $y'' + 2y' + 5y = 0$.",
+    "optionsEn": [
+      "$y = e^{-x} (C_1 \\cos 2x + C_2 \\sin 2x)$",
+      "$y = e^{x} (C_1 \\cos 2x + C_2 \\sin 2x)$",
+      "$y = C_1 e^{-x} + C_2 e^{-5x}$",
+      "$y = e^{-2x} (C_1 \\cos x + C_2 \\sin x)$"
+    ],
+    "optionsAr": [
+      "$y = e^{-x} (C_1 \\cos 2x + C_2 \\sin 2x)$",
+      "$y = e^{x} (C_1 \\cos 2x + C_2 \\sin 2x)$",
+      "$y = C_1 e^{-x} + C_2 e^{-5x}$",
+      "$y = e^{-2x} (C_1 \\cos x + C_2 \\sin x)$"
+    ],
+    "correctAnswer": "$y = e^{-x} (C_1 \\cos 2x + C_2 \\sin 2x)$",
+    "correctIndex": 0,
+    "hintEn": "Solve characteristic equation $r^2 + 2r + 5 = 0$ using quadratic formula: $r = \\alpha \\pm i\\beta$.",
+    "hintAr": "حل المعادلة المميزة $r^2 + 2r + 5 = 0$ بالقانون العام: $r = \\alpha \\pm i\\beta$.",
+    "stepByStepSolutionEn": [
+      "Characteristic equation: $r^2 + 2r + 5 = 0$.",
+      "Roots: $r = \\frac{-2 \\pm \\sqrt{4 - 20}}{2} = \\frac{-2 \\pm \\sqrt{-16}}{2} = -1 \\pm 2i$.",
+      "Here $\\alpha = -1$ and $\\beta = 2$.",
+      "General solution is $y(x) = e^{\\alpha x} (C_1 \\cos \\beta x + C_2 \\sin \\beta x) = e^{-x} (C_1 \\cos 2x + C_2 \\sin 2x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "المعادلة المميزة: $r^2 + 2r + 5 = 0$.",
+      "الجذور: $r = \\frac{-2 \\pm \\sqrt{-16}}{2} = -1 \\pm 2i$.",
+      "الجزء الحقيقي $\\alpha = -1$ والتخيلي $\\beta = 2$.",
+      "الحل العام: $y = e^{-x} (C_1 \\cos 2x + C_2 \\sin 2x)$."
+    ],
+    "teacherTipEn": "This models underdamped harmonic motion, where oscillations decay exponentially over time.",
+    "teacherTipAr": "يمثل هذا حركة توافقية ضعيفة التخميد، حيث تضمحل سعة الاهتزازات أسياً مع مرور الوقت."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_54",
+    "titleEn": "Orthogonal Trajectories to a Family of Parabolas",
+    "titleAr": "المسارات المتعامدة لعائلة من القطوع المكافئة",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the orthogonal trajectories to the family of parabolas $y = k x^2$ (where $k \\neq 0$).",
+    "questionAr": "أوجد المسارات المتعامدة لعائلة القطوع المكافئة $y = k x^2$ (حيث $k \\neq 0$).",
+    "optionsEn": [
+      "$x^2 + 2y^2 = C$ (family of ellipses)",
+      "$x^2 - y^2 = C$ (family of hyperbolas)",
+      "$x^2 + y^2 = C$ (family of concentric circles)",
+      "$y = C x$ (family of straight lines)"
+    ],
+    "optionsAr": [
+      "$x^2 + 2y^2 = C$ (عائلة من القطوع الناقصة)",
+      "$x^2 - y^2 = C$ (عائلة من القطوع الزائدة)",
+      "$x^2 + y^2 = C$ (عائلة من الدوائر المتحدة المركز)",
+      "$y = C x$ (عائلة من المستقيمات)"
+    ],
+    "correctAnswer": "$x^2 + 2y^2 = C$ (family of ellipses)",
+    "correctIndex": 0,
+    "hintEn": "Find the differential equation of the parabolas, replace $y'$ by $-\\frac{1}{y'}$, and solve.",
+    "hintAr": "أوجد المعادلة التفاضلية لعائلة القطوع، استبدل $y'$ بـ $-\\frac{1}{y'}$ ثم حل المعادلة الناتجة.",
+    "stepByStepSolutionEn": [
+      "Differentiate $y = k x^2$: $y' = 2kx$.",
+      "Eliminate $k$: $k = \\frac{y}{x^2} \\implies y' = 2\\left(\\frac{y}{x^2}\\right)x = \\frac{2y}{x}$.",
+      "For orthogonal trajectories, replace $y'$ with $-\\frac{1}{y'}$: $-\\frac{1}{y'} = \\frac{2y}{x} \\implies y' = -\\frac{x}{2y}$.",
+      "Separate variables: $2y dy = -x dx$.",
+      "Integrate: $y^2 = -\\frac{x^2}{2} + C' \\implies \\frac{x^2}{2} + y^2 = C' \\implies x^2 + 2y^2 = C$ (ellipses)."
+    ],
+    "stepByStepSolutionAr": [
+      "اشتقاق عائلة القطوع: $y' = 2kx$.",
+      "حذف $k$: $k = \\frac{y}{x^2} \\implies y' = \\frac{2y}{x}$.",
+      "شرط التعامد: استبدال $y'$ بـ $-\\frac{1}{y'}$ ينتج: $\\frac{dy}{dx} = -\\frac{x}{2y}$.",
+      "بفصل المتغيرات والتكامل: $2y dy = -x dx \\implies y^2 = -\\frac{x^2}{2} + c$.",
+      "إذن $x^2 + 2y^2 = C$ (عائلة من القطوع الناقصة)."
+    ],
+    "teacherTipEn": "Orthogonal trajectories are perpendicular at every point of intersection, widely used in physics to find equipotential lines from field lines.",
+    "teacherTipAr": "المسارات المتعامدة تتعامد في كل نقطة تقاطع، وتستخدم في الفيزياء لإيجاد خطوط تساوي الجهد من خطوط المجال."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_55",
+    "titleEn": "Leibniz Product Rule for n-th Derivative",
+    "titleAr": "قاعدة لايبنتز للمشتقة النونية لحاصل ضرب دالتين",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Using the Leibniz formula for higher derivatives, find the $n$-th derivative $\\frac{d^n}{dx^n} [x^2 e^x]$.",
+    "questionAr": "باستخدام صيغة لايبنتز للمشتقات العليا، أوجد المشتقة النونية $\\frac{d^n}{dx^n} [x^2 e^x]$.",
+    "optionsEn": [
+      "$(x^2 + 2nx + n(n-1)) e^x$",
+      "$(x^2 + nx + n^2) e^x$",
+      "$2n x e^x$",
+      "$(x^2 + 2nx + n) e^x$"
+    ],
+    "optionsAr": [
+      "$(x^2 + 2nx + n(n-1)) e^x$",
+      "$(x^2 + nx + n^2) e^x$",
+      "$2n x e^x$",
+      "$(x^2 + 2nx + n) e^x$"
+    ],
+    "correctAnswer": "$(x^2 + 2nx + n(n-1)) e^x$",
+    "correctIndex": 0,
+    "hintEn": "By Leibniz rule: $(uv)^{(n)} = \\sum_{k=0}^n \\binom{n}{k} u^{(k)} v^{(n-k)}$. Only the first 3 terms ($k=0,1,2$) for $u = x^2$ are non-zero.",
+    "hintAr": "صيغة لايبنتز: $(uv)^{(n)} = \\sum_{k=0}^n \\binom{n}{k} u^{(k)} v^{(n-k)}$. تذكر أن مشتقات $x^2$ تنعدم بعد المشتقة الثانية.",
+    "stepByStepSolutionEn": [
+      "Let $u = x^2$ and $v = e^x$.",
+      "Derivatives of $u$: $u = x^2$, $u' = 2x$, $u'' = 2$, and $u^{(k)} = 0$ for $k \\ge 3$.",
+      "Derivatives of $v$: $v^{(n-k)} = e^x$ for all $k$.",
+      "Apply Leibniz formula:",
+      "$(x^2 e^x)^{(n)} = \\binom{n}{0} x^2 e^x + \\binom{n}{1} (2x) e^x + \\binom{n}{2} (2) e^x$.",
+      "Substitute binomial coefficients: $\\binom{n}{0} = 1$, $\\binom{n}{1} = n$, $\\binom{n}{2} = \\frac{n(n-1)}{2}$.",
+      "Combine: $\\left[ x^2 + 2nx + \\frac{n(n-1)}{2} \\times 2 \\right] e^x = (x^2 + 2nx + n(n-1)) e^x$."
+    ],
+    "stepByStepSolutionAr": [
+      "نفرض $u = x^2$ و $v = e^x$.",
+      "مشتقات $u$: $u = x^2$، $u' = 2x$، $u'' = 2$، والمشتقات الأعلى صفراً.",
+      "مشتقات $v$: جميعها $e^x$.",
+      "صيغة لايبنتز: $\\binom{n}{0} x^2 e^x + \\binom{n}{1} (2x) e^x + \\binom{n}{2} (2) e^x$.",
+      "بالتبسيط: $(x^2 + 2nx + n(n-1)) e^x$."
+    ],
+    "teacherTipEn": "The Leibniz rule is analogous to the binomial theorem, with derivatives replacing powers.",
+    "teacherTipAr": "تشبه صيغة لايبنتز تماماً مبرهنة ذات الحدين، حيث تحل رتب المشتقات محل الأسس."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_56",
+    "titleEn": "Jensen's Inequality and Concavity of ln(x)",
+    "titleAr": "متراجحة ينسن وتحدب دالة اللوغاريتم الطبيعي",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Because $f(x) = \\ln(x)$ is strictly concave downward on $(0, \\infty)$ ($f''(x) = -\\frac{1}{x^2} < 0$), Jensen's Inequality states that for all $a, b > 0$ and $\\lambda = 0.5$:",
+    "questionAr": "بما أن دالة اللوغاريتم الطبيعي $f(x) = \\ln(x)$ مقعرة لأسفل بدقة على $(0, \\infty)$ ($f''(x) = -\\frac{1}{x^2} < 0$)، فما هي النتيجة الناتجة عن متراجحة ينسن لقيم $a, b > 0$ و $\\lambda = 0.5$؟",
+    "optionsEn": [
+      "$\\frac{a + b}{2} \\ge \\sqrt{ab}$ (Arithmetic Mean - Geometric Mean inequality)",
+      "$\\sqrt{ab} \\ge \\frac{a + b}{2}$",
+      "$\\ln(a + b) \\ge \\ln(a) + \\ln(b)$",
+      "$\\frac{a+b}{2} = \\sqrt{ab}$"
+    ],
+    "optionsAr": [
+      "$\\frac{a + b}{2} \\ge \\sqrt{ab}$ (متراجحة الوسطين الحسابي والهندسي)",
+      "$\\sqrt{ab} \\ge \\frac{a + b}{2}$",
+      "$\\ln(a + b) \\ge \\ln(a) + \\ln(b)$",
+      "$\\frac{a+b}{2} = \\sqrt{ab}$"
+    ],
+    "correctAnswer": "$\\frac{a + b}{2} \\ge \\sqrt{ab}$ (Arithmetic Mean - Geometric Mean inequality)",
+    "correctIndex": 0,
+    "hintEn": "For a concave function, $f\\left(\\frac{a+b}{2}\\right) \\ge \\frac{f(a)+f(b)}{2}$. Then exponentiate both sides.",
+    "hintAr": "لأي دالة مقعرة لأسفل: $f\\left(\\frac{a+b}{2}\\right) \\ge \\frac{f(a)+f(b)}{2}$. ثم خذ الدالة الأسية للطرفين.",
+    "stepByStepSolutionEn": [
+      "By Jensen's inequality for the concave function $f(x) = \\ln(x)$:",
+      "$\\ln\\left(\\frac{a+b}{2}\\right) \\ge \\frac{\\ln(a) + \\ln(b)}{2} = \\frac{1}{2} \\ln(ab) = \\ln\\left(\\sqrt{ab}\\right)$.",
+      "Since the exponential function $e^x$ is strictly increasing, applying it preserves the inequality:",
+      "$\\frac{a + b}{2} \\ge \\sqrt{ab}$.",
+      "This provides a rigorous analytical proof of the AM-GM inequality."
+    ],
+    "stepByStepSolutionAr": [
+      "بتطبيق متراجحة ينسن على دالة اللوغاريتم المحدبة لأعلى:",
+      "$\\ln\\left(\\frac{a+b}{2}\\right) \\ge \\frac{\\ln(a) + \\ln(b)}{2} = \\ln(\\sqrt{ab})$.",
+      "بأخذ الدالة الأسية للطرفين:",
+      "$\\frac{a+b}{2} \\ge \\sqrt{ab}$.",
+      "هذا يقدم برهاناً تحليلياً دقيقاً لمتراجحة الوسط الحسابي والهندسي."
+    ],
+    "teacherTipEn": "Jensen's inequality generalizes to any number of variables: $\\frac{x_1 + \\dots + x_n}{n} \\ge \\sqrt[n]{x_1 \\dots x_n}$.",
+    "teacherTipAr": "تعمم متراجحة ينسن على أي عدد من المتغيرات لإثبات متراجحة الوسطين لـ $n$ عنصراً."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_57",
+    "titleEn": "Clairaut's Differential Equation Singular Solution",
+    "titleAr": "الحل الشاذ لمعادلة كليرو التفاضلية",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Find the singular solution (envelope) of Clairaut's differential equation $y = x y' + (y')^2$.",
+    "questionAr": "أوجد الحل الشاذ (الغلاف) لمعادلة كليرو التفاضلية $y = x y' + (y')^2$.",
+    "optionsEn": [
+      "$y = -\\frac{x^2}{4}$ (a parabola)",
+      "$y = \\frac{x^2}{4}$",
+      "$y = -x^2$",
+      "$y = 2x + 4$"
+    ],
+    "optionsAr": [
+      "$y = -\\frac{x^2}{4}$ (قطع مكافئ)",
+      "$y = \\frac{x^2}{4}$",
+      "$y = -x^2$",
+      "$y = 2x + 4$"
+    ],
+    "correctAnswer": "$y = -\\frac{x^2}{4}$ (a parabola)",
+    "correctIndex": 0,
+    "hintEn": "Let $p = y'$, differentiate with respect to $x$: $p = p + x p' + 2p p' \\implies p'(x + 2p) = 0$. Solve $x + 2p = 0$.",
+    "hintAr": "نضع $p = y'$ ونشتق بالنسبة لـ $x$: $p'(x + 2p) = 0$. حل المعادلة $x + 2p = 0$.",
+    "stepByStepSolutionEn": [
+      "Let $p = y'$, so the equation is $y = x p + p^2$.",
+      "Differentiate both sides with respect to $x$:",
+      "$p = p + x \\frac{dp}{dx} + 2p \\frac{dp}{dx} \\implies \\frac{dp}{dx}(x + 2p) = 0$.",
+      "Setting $\\frac{dp}{dx} = 0 \\implies p = C$ gives the general solution family of lines: $y = C x + C^2$.",
+      "Setting $x + 2p = 0 \\implies p = -\\frac{x}{2}$.",
+      "Substitute $p = -\\frac{x}{2}$ back into the original ODE:",
+      "$y = x\\left(-\\frac{x}{2}\\right) + \\left(-\\frac{x}{2}\\right)^2 = -\\frac{x^2}{2} + \\frac{x^2}{4} = -\\frac{x^2}{4}$.",
+      "This parabola is the singular solution that envelops all the tangent lines in the general solution."
+    ],
+    "stepByStepSolutionAr": [
+      "بوضع $p = y'$ تصبح المعادلة $y = xp + p^2$.",
+      "بالاشتقاق بالنسبة لـ $x$: $\\frac{dp}{dx}(x + 2p) = 0$.",
+      "المعادلة الأولى تعطي عائلة المستقيمات العامة $y = Cx + C^2$.",
+      "المعادلة الثانية تعطي الحل الشاذ: $x + 2p = 0 \\implies p = -\\frac{x}{2}$.",
+      "بالتعويض في المعادلة الأصلية: $y = x(-\\frac{x}{2}) + (-\\frac{x}{2})^2 = -\\frac{x^2}{4}$."
+    ],
+    "teacherTipEn": "A singular solution cannot be obtained by setting any constant $C$ in the general solution; it is the envelope of the family of solutions.",
+    "teacherTipAr": "الحل الشاذ لا يمكن الحصول عليه بأي تعويض لقيمة الثابت $C$ في الحل العام؛ بل هو الغلاف الهندسي لعائلة الحلول."
+  },
+  {
+    "id": "egbac_ana_ch2_db_hots_58",
+    "titleEn": "Snell's Law via Fermat's Principle of Least Time",
+    "titleAr": "استنتاج قانون سنل من مبدأ فيرما لأقصر زمن",
+    "difficulty": "hots",
+    "diagramType": "cartesian_plane",
+    "questionEn": "Light travels from point $A(0, h_1)$ in medium 1 (speed $v_1$) to $B(d, -h_2)$ in medium 2 (speed $v_2$), refracting at point $P(x, 0)$ on the interface. Minimizing total time $T(x) = \\frac{\\sqrt{x^2 + h_1^2}}{v_1} + \\frac{\\sqrt{(d-x)^2 + h_2^2}}{v_2}$ by setting $T'(x) = 0$ yields which fundamental law of optics?",
+    "questionAr": "ينتقل الضوء من النقطة $A(0, h_1)$ في الوسط الأول (السرعة $v_1$) إلى $B(d, -h_2)$ في الوسط الثاني (السرعة $v_2$) منكسراً عند النقطة $P(x, 0)$ على السطح الفاصل. إن تصغير الزمن الكلي $T(x)$ بمساواة $T'(x) = 0$ يثبت أي قانون بصري أساسي؟",
+    "optionsEn": [
+      "Snell's Law of Refraction: $\\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2}$",
+      "Law of Reflection: $\\theta_1 = \\theta_2$",
+      "Brewster's Law: $\\tan\\theta_B = \\frac{n_2}{n_1}$",
+      "Beer-Lambert Law"
+    ],
+    "optionsAr": [
+      "قانون سنل للانكسار: $\\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2}$",
+      "قانون الانعكاس: $\\theta_1 = \\theta_2$",
+      "قانون بروستر: $\\tan\\theta_B = \\frac{n_2}{n_1}$",
+      "قانون بير-لامبرت"
+    ],
+    "correctAnswer": "Snell's Law of Refraction: $\\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2}$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate $T(x)$ with respect to $x$ and notice that $\\frac{x}{\\sqrt{x^2 + h_1^2}} = \\sin\\theta_1$ and $\\frac{d-x}{\\sqrt{(d-x)^2 + h_2^2}} = \\sin\\theta_2$.",
+    "hintAr": "اشتق $T(x)$ بالنسبة لـ $x$ ولاحظ أن المقادير الناتجة تمثل جيوب زوايا السقوط والانكسار.",
+    "stepByStepSolutionEn": [
+      "Total travel time: $T(x) = \\frac{\\sqrt{x^2 + h_1^2}}{v_1} + \\frac{\\sqrt{(d-x)^2 + h_2^2}}{v_2}$.",
+      "Compute derivative: $T'(x) = \\frac{1}{v_1} \\frac{x}{\\sqrt{x^2 + h_1^2}} - \\frac{1}{v_2} \\frac{d - x}{\\sqrt{(d - x)^2 + h_2^2}}$.",
+      "From geometry, $\\sin\\theta_1 = \\frac{x}{\\sqrt{x^2 + h_1^2}}$ and $\\sin\\theta_2 = \\frac{d - x}{\\sqrt{(d - x)^2 + h_2^2}}$.",
+      "Setting $T'(x) = 0 \\implies \\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2}$, which is Snell's Law."
+    ],
+    "stepByStepSolutionAr": [
+      "دالة زمن المسار: $T(x) = \\frac{\\sqrt{x^2 + h_1^2}}{v_1} + \\frac{\\sqrt{(d-x)^2 + h_2^2}}{v_2}$.",
+      "المشتقة: $T'(x) = \\frac{1}{v_1} \\frac{x}{\\sqrt{x^2 + h_1^2}} - \\frac{1}{v_2} \\frac{d - x}{\\sqrt{(d - x)^2 + h_2^2}}$.",
+      "هندسياً: المقدار الأول يمثل $\\sin\\theta_1$ والثاني يمثل $\\sin\\theta_2$.",
+      "بمساواة $T'(x) = 0$: نحصل على قانون سنل $\\frac{\\sin\\theta_1}{v_1} = \\frac{\\sin\\theta_2}{v_2}$."
+    ],
+    "teacherTipEn": "Fermat's principle of least time is a beautiful physical application of single-variable calculus optimization.",
+    "teacherTipAr": "مبدأ فيرما لأقصر زمن تطبيق فيزيائي رائع لحساب التفاضل والقيم الصغرى."
   }
 ]
 };
