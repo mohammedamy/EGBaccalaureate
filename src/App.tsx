@@ -11,6 +11,7 @@ import { TestGenerator } from './components/TestGenerator';
 import { SearchModal } from './components/SearchModal';
 import { CurriculumEquivalency } from './components/CurriculumEquivalency';
 import { FormulaHandbook } from './components/FormulaHandbook';
+import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
 import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -36,6 +37,10 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
+  const [isDesmosOpen, setIsDesmosOpen] = useState<boolean>(false);
+  const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
+  const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
+  const [desmosPresetId, setDesmosPresetId] = useState<string | undefined>(undefined);
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
@@ -76,7 +81,7 @@ export const App: React.FC = () => {
     setSelectedLesson(data.branches[0].chapters[0].lessons[0]);
   }, [curriculum]);
 
-  // Global keyboard shortcuts: Cmd+K (Search) & Cmd+J (Formula Handbook)
+  // Global keyboard shortcuts: Cmd+K (Search), Cmd+J (Formula Handbook), Cmd+D (Desmos Suite)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -87,9 +92,26 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsFormulaHandbookOpen((prev) => !prev);
       }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'd') {
+        e.preventDefault();
+        setIsDesmosOpen((prev) => !prev);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Event listener for opening Desmos with mode/preset from anywhere in the app
+  useEffect(() => {
+    const handleOpenDesmos = (e: Event) => {
+      const customEvent = e as CustomEvent<{ mode?: DesmosMode; presetId?: string; layout?: DesmosLayout }>;
+      if (customEvent.detail?.mode) setDesmosMode(customEvent.detail.mode);
+      if (customEvent.detail?.presetId) setDesmosPresetId(customEvent.detail.presetId);
+      if (customEvent.detail?.layout) setDesmosLayout(customEvent.detail.layout);
+      setIsDesmosOpen(true);
+    };
+    window.addEventListener('open-desmos', handleOpenDesmos);
+    return () => window.removeEventListener('open-desmos', handleOpenDesmos);
   }, []);
 
   const handleLanguageToggle = () => {
@@ -147,6 +169,7 @@ export const App: React.FC = () => {
         activeTab={activeTab}
         onTabChange={setActiveTab}
         onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
+        onOpenDesmos={() => setIsDesmosOpen((prev) => !prev)}
       />
 
       {/* Main Workspace Body */}
@@ -215,10 +238,23 @@ export const App: React.FC = () => {
           }}
         />
 
+        {/* Global Desmos Math Suite Widget / Modal */}
+        <DesmosSuite
+          isOpen={isDesmosOpen}
+          onClose={() => setIsDesmosOpen(false)}
+          lang={lang}
+          theme={theme}
+          initialMode={desmosMode}
+          initialPresetId={desmosPresetId}
+          layout={desmosLayout}
+          onLayoutChange={setDesmosLayout}
+        />
+
         {/* Tab View Router */}
         {activeTab === 'overview' && (
           <CurriculumOverview
             lang={lang}
+            theme={theme}
             curriculum={activeCurriculumData}
             onSelectLesson={handleSelectLesson}
             onNavigateTab={setActiveTab}
@@ -263,6 +299,10 @@ export const App: React.FC = () => {
             activeSubTab={activeTab}
             onSubTabChange={setActiveTab}
             onSelectLesson={handleSelectLesson}
+            onOpenDesmos={(targetMode = '2d') => {
+              setDesmosMode(targetMode);
+              setIsDesmosOpen(true);
+            }}
           />
         )}
 
@@ -271,6 +311,10 @@ export const App: React.FC = () => {
             lang={lang}
             currentCurriculum={curriculum}
             onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
+            onOpenDesmos={(targetMode = '2d') => {
+              setDesmosMode(targetMode);
+              setIsDesmosOpen(true);
+            }}
           />
         )}
       </main>

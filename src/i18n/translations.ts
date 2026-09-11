@@ -99,6 +99,22 @@ export interface Translations {
   score: string;
   congratulations: string;
 
+  // Desmos Suite
+  desmosCalculator: string;
+  desmosGraphing2D: string;
+  desmosGraphing3D: string;
+  desmosScientific: string;
+  desmosGeometry: string;
+  desmosCurriculumPresets: string;
+  desmosCopyExpr: string;
+  desmosCopied: string;
+  desmosOpenExternal: string;
+  desmosDockFloating: string;
+  desmosExpandModal: string;
+  desmosMinimize: string;
+  desmosClose: string;
+  desmosShortcutTip: string;
+
   // Footers & References
   copyright: string;
   moeReferenceNote: string;
@@ -196,6 +212,22 @@ export const translations: Record<Language, Translations> = {
     score: 'Your Score',
     congratulations: 'Excellent Work! You completed the exam!',
 
+    // Desmos Suite
+    desmosCalculator: 'Desmos Math Suite',
+    desmosGraphing2D: '2D Graphing',
+    desmosGraphing3D: '3D Graphing',
+    desmosScientific: 'Scientific',
+    desmosGeometry: 'Geometry',
+    desmosCurriculumPresets: 'Egyptian Curriculum Presets',
+    desmosCopyExpr: 'Copy',
+    desmosCopied: 'Copied!',
+    desmosOpenExternal: 'Open in Desmos.com',
+    desmosDockFloating: 'Floating Dock',
+    desmosExpandModal: 'Expanded View',
+    desmosMinimize: 'Minimize',
+    desmosClose: 'Close',
+    desmosShortcutTip: 'Press Ctrl+D or ⌘D anytime to toggle calculator',
+
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
     moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).'
   },
@@ -290,6 +322,22 @@ export const translations: Record<Language, Translations> = {
     timeAllowed: 'الزمن: ساعتان',
     score: 'درجتك في الاختبار',
     congratulations: 'أحسنت صنعاً! لقد أكملت الاختبار بنجاح!',
+
+    // Desmos Suite
+    desmosCalculator: 'حقيبة حاسبات ديسموس (Desmos)',
+    desmosGraphing2D: 'الرسم البياني 2D',
+    desmosGraphing3D: 'الرسم البياني 3D',
+    desmosScientific: 'الحاسبة العلمية',
+    desmosGeometry: 'بيئة الهندسة',
+    desmosCurriculumPresets: 'نماذج وقوالب المنهج المصري',
+    desmosCopyExpr: 'نسخ',
+    desmosCopied: 'تم النسخ!',
+    desmosOpenExternal: 'فتح في نافذة كاملة (Desmos.com)',
+    desmosDockFloating: 'نافذة عائمة',
+    desmosExpandModal: 'شاشة كاملة',
+    desmosMinimize: 'تصغير',
+    desmosClose: 'إغلاق',
+    desmosShortcutTip: 'اضغط ⌘D أو Ctrl+D في أي وقت لفتح/إغلاق الحاسبة',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
     moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.'

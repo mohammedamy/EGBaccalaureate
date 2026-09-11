@@ -2,7 +2,7 @@ import React from 'react';
 import type { CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type } from 'lucide-react';
+import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 
@@ -20,6 +20,7 @@ interface Props {
   activeTab: string;
   onTabChange: (tab: string) => void;
   onOpenFormulaHandbook?: () => void;
+  onOpenDesmos?: () => void;
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -36,6 +37,7 @@ export const Navbar: React.FC<Props> = ({
   activeTab,
   onTabChange,
   onOpenFormulaHandbook,
+  onOpenDesmos,
 }) => {
   const t = translations[lang];
   const isLight = theme === 'light';
@@ -216,6 +218,25 @@ export const Navbar: React.FC<Props> = ({
                 <BookOpen className="w-3 h-3 text-emerald-400" />
                 <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
                 <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘J</kbd>
+              </button>
+            )}
+
+            {/* Desmos 2D/3D Calculator Trigger */}
+            {onOpenDesmos && (
+              <button
+                onClick={onOpenDesmos}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                  isHighContrast
+                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                    : isLight
+                    ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border-indigo-300'
+                    : 'bg-cyan-950/70 hover:bg-cyan-900 text-cyan-300 border-cyan-700/60'
+                }`}
+                title={lang === 'ar' ? 'حاسبة ديسموس البيانية 2D/3D (Ctrl+D / ⌘D)' : 'Desmos 2D/3D Calculator (Ctrl+D / ⌘D)'}
+              >
+                <Calculator className="w-3 h-3 text-cyan-400" />
+                <span>{lang === 'ar' ? 'حاسبة ديسموس' : 'Desmos 2D/3D'}</span>
+                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘D</kbd>
               </button>
             )}
 

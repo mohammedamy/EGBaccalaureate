@@ -4,5287 +4,5145 @@ export const algCh3Databank: ChapterDatabank = {
   easy: [
   {
     "id": "alg_ch3_db_easy_01",
-    "titleEn": "2x2 Determinant Evaluation #1",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 1",
+    "titleEn": "Scalar Factor Property of 2x2 Determinant",
+    "titleAr": "خاصية ضرب محدد الرتبة الثانية في عدد",
     "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 2 & 3 \\\\ 2 & 5 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 2 & 3 \\\\ 2 & 5 \\end{vmatrix}$.",
+    "questionEn": "If $A$ is a $2 \\times 2$ matrix such that $|A| = 5$, find the value of $|3A|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $2 \\times 2$ بحيث $|A| = 5$، فما قيمة $|3A|$؟",
     "optionsEn": [
-      "$4$",
-      "$8$",
-      "$12$",
-      "$16$"
+      "$45$",
+      "$15$",
+      "$30$",
+      "$75$"
     ],
     "optionsAr": [
-      "4",
-      "8",
-      "12",
-      "16"
+      "45",
+      "15",
+      "30",
+      "75"
     ],
-    "correctAnswer": "$4$",
+    "correctAnswer": "$45$",
     "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
+    "hintEn": "For an n x n matrix, |kA| = k^n |A|.",
+    "hintAr": "لمصفوفة على النظم n x n، فإن |kA| = k^n |A|.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(2)(5) - (3)(2) = 10 - 6 = 4$."
+      "1. For an $n \\times n$ matrix, $|kA| = k^n |A|$.",
+      "2. Here $n = 2$, so $|3A| = 3^2 |A| = 9 \\times 5 = 45$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(2)(5) - (3)(2) = 10 - 6 = 4$."
+      "١. لمصفوفة مربعة من الرتبة $n$، تكون $|kA| = k^n |A|$.",
+      "٢. هنا $n = 2$، إذن $|3A| = 3^2 \\times 5 = 45$."
     ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
+    "teacherTipEn": "A scalar is factored out from every row of the determinant.",
+    "teacherTipAr": "يؤخذ العامل العددي مشتركاً من كل صف في المحدد."
   },
   {
     "id": "alg_ch3_db_easy_02",
-    "titleEn": "2x2 Determinant Evaluation #2",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 2",
+    "titleEn": "Scalar Factor Property of 3x3 Determinant",
+    "titleAr": "خاصية ضرب محدد الرتبة الثالثة في عدد",
     "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 3 & 3 \\\\ 2 & 6 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 3 & 3 \\\\ 2 & 6 \\end{vmatrix}$.",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix such that $|A| = -2$, what is the value of $|-2A|$?",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = -2$، فما قيمة $|-2A|$؟",
     "optionsEn": [
-      "$12$",
       "$16$",
-      "$20$",
-      "$24$"
+      "$-16$",
+      "$8$",
+      "$-8$"
     ],
     "optionsAr": [
-      "12",
       "16",
-      "20",
-      "24"
+      "-16",
+      "8",
+      "-8"
     ],
-    "correctAnswer": "$12$",
+    "correctAnswer": "$16$",
     "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
+    "hintEn": "For n = 3, |-2A| = (-2)^3 |A|.",
+    "hintAr": "عندما n = 3، فإن |-2A| = (-2)^3 |A|.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(3)(6) - (3)(2) = 18 - 6 = 12$."
+      "1. $|-2A| = (-2)^3 |A| = -8 \\times (-2) = 16$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(3)(6) - (3)(2) = 18 - 6 = 12$."
+      "١. $|-2A| = (-2)^3 |A| = -8 \\times (-2) = 16$."
     ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
+    "teacherTipEn": "Remember (-2)^3 = -8.",
+    "teacherTipAr": "تذكر أن (-2)^3 = -8."
   },
   {
     "id": "alg_ch3_db_easy_03",
-    "titleEn": "2x2 Determinant Evaluation #3",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 3",
+    "titleEn": "Determinant of the Transpose Matrix",
+    "titleAr": "محدد مدور المصفوفة",
     "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 4 & 3 \\\\ 2 & 7 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 4 & 3 \\\\ 2 & 7 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$22$",
-      "$26$",
-      "$30$",
-      "$34$"
-    ],
-    "optionsAr": [
-      "22",
-      "26",
-      "30",
-      "34"
-    ],
-    "correctAnswer": "$22$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(4)(7) - (3)(2) = 28 - 6 = 22$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(4)(7) - (3)(2) = 28 - 6 = 22$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_04",
-    "titleEn": "2x2 Determinant Evaluation #4",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 4",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 5 & 3 \\\\ 2 & 8 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 5 & 3 \\\\ 2 & 8 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$34$",
-      "$38$",
-      "$42$",
-      "$46$"
-    ],
-    "optionsAr": [
-      "34",
-      "38",
-      "42",
-      "46"
-    ],
-    "correctAnswer": "$34$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(5)(8) - (3)(2) = 40 - 6 = 34$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(5)(8) - (3)(2) = 40 - 6 = 34$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_05",
-    "titleEn": "2x2 Determinant Evaluation #5",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 5",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 6 & 3 \\\\ 2 & 9 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 6 & 3 \\\\ 2 & 9 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$48$",
-      "$52$",
-      "$56$",
-      "$60$"
-    ],
-    "optionsAr": [
-      "48",
-      "52",
-      "56",
-      "60"
-    ],
-    "correctAnswer": "$48$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(6)(9) - (3)(2) = 54 - 6 = 48$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(6)(9) - (3)(2) = 54 - 6 = 48$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_06",
-    "titleEn": "2x2 Determinant Evaluation #6",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 6",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 7 & 3 \\\\ 2 & 10 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 7 & 3 \\\\ 2 & 10 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$64$",
-      "$68$",
-      "$72$",
-      "$76$"
-    ],
-    "optionsAr": [
-      "64",
-      "68",
-      "72",
-      "76"
-    ],
-    "correctAnswer": "$64$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(7)(10) - (3)(2) = 70 - 6 = 64$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(7)(10) - (3)(2) = 70 - 6 = 64$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_07",
-    "titleEn": "2x2 Determinant Evaluation #7",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 7",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 8 & 3 \\\\ 2 & 11 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 8 & 3 \\\\ 2 & 11 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$82$",
-      "$86$",
-      "$90$",
-      "$94$"
-    ],
-    "optionsAr": [
-      "82",
-      "86",
-      "90",
-      "94"
-    ],
-    "correctAnswer": "$82$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(8)(11) - (3)(2) = 88 - 6 = 82$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(8)(11) - (3)(2) = 88 - 6 = 82$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_08",
-    "titleEn": "2x2 Determinant Evaluation #8",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 8",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 9 & 3 \\\\ 2 & 12 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 9 & 3 \\\\ 2 & 12 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$102$",
-      "$106$",
-      "$110$",
-      "$114$"
-    ],
-    "optionsAr": [
-      "102",
-      "106",
-      "110",
-      "114"
-    ],
-    "correctAnswer": "$102$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(9)(12) - (3)(2) = 108 - 6 = 102$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(9)(12) - (3)(2) = 108 - 6 = 102$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_09",
-    "titleEn": "2x2 Determinant Evaluation #9",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 9",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 10 & 3 \\\\ 2 & 13 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 10 & 3 \\\\ 2 & 13 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$124$",
-      "$128$",
-      "$132$",
-      "$136$"
-    ],
-    "optionsAr": [
-      "124",
-      "128",
-      "132",
-      "136"
-    ],
-    "correctAnswer": "$124$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(10)(13) - (3)(2) = 130 - 6 = 124$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(10)(13) - (3)(2) = 130 - 6 = 124$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_10",
-    "titleEn": "2x2 Determinant Evaluation #10",
-    "titleAr": "حساب قيمة محدد من الرتبة الثانية رقم 10",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 11 & 3 \\\\ 2 & 14 \\end{vmatrix}$.",
-    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 11 & 3 \\\\ 2 & 14 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$148$",
-      "$152$",
-      "$156$",
-      "$160$"
-    ],
-    "optionsAr": [
-      "148",
-      "152",
-      "156",
-      "160"
-    ],
-    "correctAnswer": "$148$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ is $ad - bc$.",
-    "hintAr": "قيمة محدد الرتبة الثانية هي حاصل ضرب عناصر القطر الرئيسي ناقص القطر الفرعي: $ad - bc$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$.",
-      "2. Substitute values: $(11)(14) - (3)(2) = 154 - 6 = 148$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. قانون محدد الرتبة الثانية: $ad - bc$.",
-      "٢. بالتعويض: $(11)(14) - (3)(2) = 154 - 6 = 148$."
-    ],
-    "teacherTipEn": "ad - bc: main diagonal minus secondary diagonal.",
-    "teacherTipAr": "القطر الرئيسي ناقص القطر الفرعي."
-  },
-  {
-    "id": "alg_ch3_db_easy_11",
-    "titleEn": "Scalar Multiple Property |2A| #1",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 1",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 3$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 3$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$24$",
-      "$32$",
-      "$40$",
-      "$48$"
-    ],
-    "optionsAr": [
-      "24",
-      "32",
-      "40",
-      "48"
-    ],
-    "correctAnswer": "$24$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 3 = 24$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 3 = 24$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_12",
-    "titleEn": "Scalar Multiple Property |2A| #2",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 2",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 4$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 4$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$32$",
-      "$40$",
-      "$48$",
-      "$56$"
-    ],
-    "optionsAr": [
-      "32",
-      "40",
-      "48",
-      "56"
-    ],
-    "correctAnswer": "$32$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 4 = 32$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 4 = 32$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_13",
-    "titleEn": "Scalar Multiple Property |2A| #3",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 3",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 5$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 5$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$40$",
-      "$48$",
-      "$56$",
-      "$64$"
-    ],
-    "optionsAr": [
-      "40",
-      "48",
-      "56",
-      "64"
-    ],
-    "correctAnswer": "$40$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 5 = 40$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 5 = 40$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_14",
-    "titleEn": "Scalar Multiple Property |2A| #4",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 4",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 6$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 6$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$48$",
-      "$56$",
-      "$64$",
-      "$72$"
-    ],
-    "optionsAr": [
-      "48",
-      "56",
-      "64",
-      "72"
-    ],
-    "correctAnswer": "$48$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 6 = 48$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 6 = 48$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_15",
-    "titleEn": "Scalar Multiple Property |2A| #5",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 5",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 7$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 7$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$56$",
-      "$64$",
-      "$72$",
-      "$80$"
-    ],
-    "optionsAr": [
-      "56",
-      "64",
-      "72",
-      "80"
-    ],
-    "correctAnswer": "$56$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 7 = 56$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 7 = 56$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_16",
-    "titleEn": "Scalar Multiple Property |2A| #6",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 6",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 8$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 8$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$64$",
-      "$72$",
-      "$80$",
-      "$88$"
-    ],
-    "optionsAr": [
-      "64",
-      "72",
-      "80",
-      "88"
-    ],
-    "correctAnswer": "$64$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 8 = 64$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 8 = 64$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_17",
-    "titleEn": "Scalar Multiple Property |2A| #7",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 7",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 9$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 9$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$72$",
-      "$80$",
-      "$88$",
-      "$96$"
-    ],
-    "optionsAr": [
-      "72",
-      "80",
-      "88",
-      "96"
-    ],
-    "correctAnswer": "$72$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 9 = 72$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 9 = 72$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_18",
-    "titleEn": "Scalar Multiple Property |2A| #8",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 8",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 10$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 10$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$80$",
-      "$88$",
-      "$96$",
-      "$104$"
-    ],
-    "optionsAr": [
-      "80",
-      "88",
-      "96",
-      "104"
-    ],
-    "correctAnswer": "$80$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 10 = 80$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 10 = 80$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_19",
-    "titleEn": "Scalar Multiple Property |2A| #9",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 9",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 11$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 11$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$88$",
-      "$96$",
-      "$104$",
-      "$112$"
-    ],
-    "optionsAr": [
-      "88",
-      "96",
-      "104",
-      "112"
-    ],
-    "correctAnswer": "$88$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 11 = 88$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 11 = 88$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_20",
-    "titleEn": "Scalar Multiple Property |2A| #10",
-    "titleAr": "خاصية ضرب المصفوفة في ثابت |٢ أ| رقم 10",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 12$, find the value of $|2A|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 12$، أوجد قيمة $|2A|$.",
-    "optionsEn": [
-      "$96$",
-      "$104$",
-      "$112$",
-      "$120$"
-    ],
-    "optionsAr": [
-      "96",
-      "104",
-      "112",
-      "120"
-    ],
-    "correctAnswer": "$96$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix: $|k A| = k^n |A|$. Here $n = 3$, so $|2A| = 2^3 |A| = 8 |A|$.",
-    "hintAr": "لمصفوفة من الرتبة $n \\times n$: $|k A| = k^n |A|$. هنا $n = 3$، إذن $|2A| = 2^3 |A| = 8 |A|$.",
-    "stepByStepSolutionEn": [
-      "1. Use property $|k A| = k^n |A|$.",
-      "2. For a $3 \\times 3$ matrix: $|2A| = 2^3 |A| = 8 \\times 12 = 96$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|k A| = k^n |A|$.",
-      "٢. للمصفوفة من الرتبة الثالثة: $|2A| = 2^3 |A| = 8 \\times 12 = 96$."
-    ],
-    "teacherTipEn": "|kA| = k^n |A|: remember the power n!",
-    "teacherTipAr": "تذكر رفع الثابت لأس رتبة المصفوفة ن!"
-  },
-  {
-    "id": "alg_ch3_db_easy_21",
-    "titleEn": "Determinant of Product |AB| #1",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 1",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 2$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 2$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$6$",
-      "$9$",
-      "$12$",
-      "$15$"
-    ],
-    "optionsAr": [
-      "6",
-      "9",
-      "12",
-      "15"
-    ],
-    "correctAnswer": "$6$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 2 \\times 3 = 6$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 2 \\times 3 = 6$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_22",
-    "titleEn": "Determinant of Product |AB| #2",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 2",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 3$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 3$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$9$",
-      "$12$",
-      "$15$",
-      "$18$"
-    ],
-    "optionsAr": [
-      "9",
-      "12",
-      "15",
-      "18"
-    ],
-    "correctAnswer": "$9$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 3 \\times 3 = 9$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 3 \\times 3 = 9$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_23",
-    "titleEn": "Determinant of Product |AB| #3",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 3",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 4$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 4$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$12$",
-      "$15$",
-      "$18$",
-      "$21$"
-    ],
-    "optionsAr": [
-      "12",
-      "15",
-      "18",
-      "21"
-    ],
-    "correctAnswer": "$12$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 4 \\times 3 = 12$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 4 \\times 3 = 12$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_24",
-    "titleEn": "Determinant of Product |AB| #4",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 4",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 5$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 5$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$15$",
-      "$18$",
-      "$21$",
-      "$24$"
-    ],
-    "optionsAr": [
-      "15",
-      "18",
-      "21",
-      "24"
-    ],
-    "correctAnswer": "$15$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 5 \\times 3 = 15$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 5 \\times 3 = 15$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_25",
-    "titleEn": "Determinant of Product |AB| #5",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 5",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 6$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 6$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$18$",
-      "$21$",
-      "$24$",
-      "$27$"
-    ],
-    "optionsAr": [
-      "18",
-      "21",
-      "24",
-      "27"
-    ],
-    "correctAnswer": "$18$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 6 \\times 3 = 18$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 6 \\times 3 = 18$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_26",
-    "titleEn": "Determinant of Product |AB| #6",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 6",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 7$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 7$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$21$",
-      "$24$",
-      "$27$",
-      "$30$"
-    ],
-    "optionsAr": [
-      "21",
-      "24",
-      "27",
-      "30"
-    ],
-    "correctAnswer": "$21$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 7 \\times 3 = 21$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 7 \\times 3 = 21$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_27",
-    "titleEn": "Determinant of Product |AB| #7",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 7",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 8$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 8$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$24$",
-      "$27$",
-      "$30$",
-      "$33$"
-    ],
-    "optionsAr": [
-      "24",
-      "27",
-      "30",
-      "33"
-    ],
-    "correctAnswer": "$24$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 8 \\times 3 = 24$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 8 \\times 3 = 24$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_28",
-    "titleEn": "Determinant of Product |AB| #8",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 8",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 9$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 9$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$27$",
-      "$30$",
-      "$33$",
-      "$36$"
-    ],
-    "optionsAr": [
-      "27",
-      "30",
-      "33",
-      "36"
-    ],
-    "correctAnswer": "$27$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 9 \\times 3 = 27$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 9 \\times 3 = 27$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_29",
-    "titleEn": "Determinant of Product |AB| #9",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 9",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 10$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 10$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$30$",
-      "$33$",
-      "$36$",
-      "$39$"
-    ],
-    "optionsAr": [
-      "30",
-      "33",
-      "36",
-      "39"
-    ],
-    "correctAnswer": "$30$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 10 \\times 3 = 30$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 10 \\times 3 = 30$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_30",
-    "titleEn": "Determinant of Product |AB| #10",
-    "titleAr": "محدد حاصل ضرب مصفوفتين رقم 10",
-    "difficulty": "easy",
-    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 11$ and $|B| = 3$, find $|AB|$.",
-    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة وكان $|A| = 11$ و $|B| = 3$، أوجد $|AB|$.",
-    "optionsEn": [
-      "$33$",
-      "$36$",
-      "$39$",
-      "$42$"
-    ],
-    "optionsAr": [
-      "33",
-      "36",
-      "39",
-      "42"
-    ],
-    "correctAnswer": "$33$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a product equals the product of the determinants: $|AB| = |A| \\cdot |B|$.",
-    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: $|AB| = |A| \\cdot |B|$.",
-    "stepByStepSolutionEn": [
-      "1. Property: $|AB| = |A| \\cdot |B|$.",
-      "2. Substitute values: $|AB| = 11 \\times 3 = 33$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الخاصية: $|AB| = |A| \\cdot |B|$.",
-      "٢. بالتعويض: $|AB| = 11 \\times 3 = 33$."
-    ],
-    "teacherTipEn": "|AB| = |A||B| holds for any square matrices of the same size.",
-    "teacherTipAr": "|أ ب| = |أ| × |ب| دائماً لأي مصفوفتين مربعتين من نفس الرتبة."
-  },
-  {
-    "id": "alg_ch3_db_easy_31",
-    "titleEn": "Transpose Determinant Value #1",
-    "titleAr": "قيمة محدد المدور رقم 1",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 3$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 3$، فما هي قيمة $|A^T|$؟",
-    "optionsEn": [
-      "$3$",
-      "$-3$",
-      "$5$",
-      "$7$"
-    ],
-    "optionsAr": [
-      "3",
-      "-3",
-      "5",
-      "7"
-    ],
-    "correctAnswer": "$3$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
-    "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 3$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 3$."
-    ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
-  },
-  {
-    "id": "alg_ch3_db_easy_32",
-    "titleEn": "Transpose Determinant Value #2",
-    "titleAr": "قيمة محدد المدور رقم 2",
-    "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 7$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 7$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "If $A$ is a square matrix with $|A| = 7$, what is $|A^T|$?",
+    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 7$، فما قيمة $|A^T|$؟",
     "optionsEn": [
       "$7$",
       "$-7$",
-      "$9$",
-      "$11$"
+      "$\\frac{1}{7}$",
+      "$49$"
     ],
     "optionsAr": [
       "7",
       "-7",
-      "9",
-      "11"
+      "1/7",
+      "49"
     ],
     "correctAnswer": "$7$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "|A^T| = |A|.",
+    "hintAr": "محدد مدور المصفوفة يساوي محدد المصفوفة الأصلية دائماً.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 7$."
+      "1. By the fundamental property of determinants, $|A^T| = |A| = 7$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 7$."
+      "١. من الخواص الأساسية للمحددات: $|A^T| = |A| = 7$."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Transposing exchanges rows with columns, leaving the determinant invariant.",
+    "teacherTipAr": "التدوير يبدل الصفوف بالأعمدة مع بقاء قيمة المحدد ثابتة."
+  },
+  {
+    "id": "alg_ch3_db_easy_04",
+    "titleEn": "Determinant of the Matrix Inverse",
+    "titleAr": "محدد المعكوس الضربي لمصفوفة",
+    "difficulty": "easy",
+    "questionEn": "If $A$ is an invertible square matrix with $|A| = 4$, determine $|A^{-1}|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة بحيث $|A| = 4$، فأوجد قيمة $|A^{-1}|$؟",
+    "optionsEn": [
+      "$\\frac{1}{4}$",
+      "$4$",
+      "$-4$",
+      "$\\frac{1}{16}$"
+    ],
+    "optionsAr": [
+      "1/4",
+      "4",
+      "-4",
+      "1/16"
+    ],
+    "correctAnswer": "$\\frac{1}{4}$",
+    "correctIndex": 0,
+    "hintEn": "|A^{-1}| = 1 / |A|.",
+    "hintAr": "محدد المعكوس الضربي هو مقلوب محدد المصفوفة الأصلية.",
+    "stepByStepSolutionEn": [
+      "1. Since $A A^{-1} = I$, $|A| |A^{-1}| = 1$.",
+      "2. Thus $|A^{-1}| = \\frac{1}{|A|} = \\frac{1}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بما أن $A A^{-1} = I$، فإن $|A| |A^{-1}| = 1$.",
+      "٢. إذن $|A^{-1}| = \\frac{1}{|A|} = \\frac{1}{4}$."
+    ],
+    "teacherTipEn": "A matrix has an inverse if and only if |A| != 0.",
+    "teacherTipAr": "المصفوفة تمتلك معكوساً ضربياً إذا وفقط إذا كان محددها لا يساوي صفراً."
+  },
+  {
+    "id": "alg_ch3_db_easy_05",
+    "titleEn": "Determinant of a Matrix Product",
+    "titleAr": "محدد حاصل ضرب مصفوفتين",
+    "difficulty": "easy",
+    "questionEn": "If $A$ and $B$ are square matrices of the same order with $|A| = 3$ and $|B| = -4$, find $|AB|$.",
+    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس النظم بحيث $|A| = 3$ و $|B| = -4$، فما قيمة $|AB|$؟",
+    "optionsEn": [
+      "$-12$",
+      "$12$",
+      "$-1$",
+      "$-7$"
+    ],
+    "optionsAr": [
+      "-12",
+      "12",
+      "-1",
+      "-7"
+    ],
+    "correctAnswer": "$-12$",
+    "correctIndex": 0,
+    "hintEn": "|AB| = |A| * |B|.",
+    "hintAr": "محدد حاصل الضرب يساوي حاصل ضرب المحددين: |AB| = |A| * |B|.",
+    "stepByStepSolutionEn": [
+      "1. $|AB| = |A| |B| = (3)(-4) = -12$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|AB| = |A| |B| = (3)(-4) = -12$."
+    ],
+    "teacherTipEn": "Note that |A + B| does NOT equal |A| + |B|.",
+    "teacherTipAr": "تنبيه: محدد المجموع لا يساوي مجموع المحددين."
+  },
+  {
+    "id": "alg_ch3_db_easy_06",
+    "titleEn": "Upper Triangular Matrix Evaluation",
+    "titleAr": "حساب محدد مصفوفة مثلثية علوية",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} 3 & 5 & -1 \\\\ 0 & 2 & 7 \\\\ 0 & 0 & 4 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} 3 & 5 & -1 \\\\ 0 & 2 & 7 \\\\ 0 & 0 & 4 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$24$",
+      "$14$",
+      "$0$",
+      "$18$"
+    ],
+    "optionsAr": [
+      "24",
+      "14",
+      "0",
+      "18"
+    ],
+    "correctAnswer": "$24$",
+    "correctIndex": 0,
+    "hintEn": "Multiply the entries along the main diagonal.",
+    "hintAr": "اضرب عناصر القطر الرئيسي مباشرة.",
+    "stepByStepSolutionEn": [
+      "1. The matrix is upper triangular.",
+      "2. Value = $(3)(2)(4) = 24$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المصفوفة في الصورة المثلثية العلوية.",
+      "٢. القيمة = $3 \\times 2 \\times 4 = 24$."
+    ],
+    "teacherTipEn": "Whenever all entries below or above the main diagonal are zeros, multiply diagonal entries.",
+    "teacherTipAr": "عندما تكون العناصر تحت أو فوق القطر الرئيسي أصفاراً، نضرب عناصر القطر الرئيسي."
+  },
+  {
+    "id": "alg_ch3_db_easy_07",
+    "titleEn": "Determinant with Proportional Rows",
+    "titleAr": "محدد ذو صفين متناسبين",
+    "difficulty": "easy",
+    "questionEn": "Without expanding, determine the value of $\\begin{vmatrix} 1 & 4 & 2 \\\\ 3 & 12 & 6 \\\\ 5 & -1 & 9 \\end{vmatrix}$.",
+    "questionAr": "بدون فك المحدد، حدد قيمة: $\\begin{vmatrix} 1 & 4 & 2 \\\\ 3 & 12 & 6 \\\\ 5 & -1 & 9 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$0$",
+      "$18$",
+      "$-24$",
+      "$36$"
+    ],
+    "optionsAr": [
+      "0",
+      "18",
+      "-24",
+      "36"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Row 2 is 3 times Row 1.",
+    "hintAr": "الصف الثاني هو 3 أضعاف الصف الأول.",
+    "stepByStepSolutionEn": [
+      "1. Notice $R_2 = 3 R_1$.",
+      "2. A determinant with two proportional rows is identically 0."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نلاحظ أن $R_2 = 3 R_1$.",
+      "٢. انعدام المحدد عند تناسب صفين فيه."
+    ],
+    "teacherTipEn": "Proportional rows or columns yield a zero determinant.",
+    "teacherTipAr": "تناسب الصفوف أو الأعمدة يجعل قيمة المحدد صفراً فوراً."
+  },
+  {
+    "id": "alg_ch3_db_easy_08",
+    "titleEn": "Row Interchange Property",
+    "titleAr": "أثر تبديل صفين في محدد",
+    "difficulty": "easy",
+    "questionEn": "If $\\Delta = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = 8$, find the value of $\\begin{vmatrix} c & d \\\\ a & b \\end{vmatrix}$.",
+    "questionAr": "إذا كان $\\Delta = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = 8$، فما قيمة $\\begin{vmatrix} c & d \\\\ a & b \\end{vmatrix}$؟",
+    "optionsEn": [
+      "$-8$",
+      "$8$",
+      "$\\frac{1}{8}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "-8",
+      "8",
+      "1/8",
+      "0"
+    ],
+    "correctAnswer": "$-8$",
+    "correctIndex": 0,
+    "hintEn": "Interchanging two rows negates the determinant.",
+    "hintAr": "تبديل صفين يغير إشارة المحدد.",
+    "stepByStepSolutionEn": [
+      "1. One row swap introduces a factor of $-1$.",
+      "2. New value = $-8$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تبديل صفين يضرب المحدد في $-1$.",
+      "٢. القيمة الجديدة = $-8$."
+    ],
+    "teacherTipEn": "Two swaps preserve the sign.",
+    "teacherTipAr": "تبديلان متتاليان يعيدان الإشارة الأصلية."
+  },
+  {
+    "id": "alg_ch3_db_easy_09",
+    "titleEn": "Main Diagonal of a Skew-Symmetric Matrix",
+    "titleAr": "القطر الرئيسي للمصفوفة شبه المتماثلة",
+    "difficulty": "easy",
+    "questionEn": "For any skew-symmetric matrix $A$ where $A = -A^T$, what must each diagonal entry $a_{ii}$ equal?",
+    "questionAr": "لأي مصفوفة شبه متماثلة $A$ بحيث $A = -A^T$، فماذا يجب أن تساوي كل خانة قطرية $a_{ii}$؟",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$-1$",
+      "Any real number"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "-1",
+      "أي عدد حقيقي"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "a_{ii} = -a_{ii} implies 2 a_{ii} = 0.",
+    "hintAr": "a_{ii} = -a_{ii} تؤدي إلى 2 a_{ii} = 0.",
+    "stepByStepSolutionEn": [
+      "1. $a_{ii} = -a_{ii} \\implies 2a_{ii} = 0 \\implies a_{ii} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $a_{ii} = -a_{ii} \\implies 2a_{ii} = 0 \\implies a_{ii} = 0$."
+    ],
+    "teacherTipEn": "All diagonal elements of a skew-symmetric matrix are always 0.",
+    "teacherTipAr": "جميع عناصر القطر الرئيسي لأي مصفوفة شبه متماثلة أصفار دائماً."
+  },
+  {
+    "id": "alg_ch3_db_easy_10",
+    "titleEn": "Unknown Element in a Symmetric Matrix",
+    "titleAr": "إيجاد مجهول في مصفوفة متماثلة",
+    "difficulty": "easy",
+    "questionEn": "If $A = \\begin{pmatrix} 3 & 2x - 1 \\\\ 7 & 4 \\end{pmatrix}$ is symmetric, find the value of $x$.",
+    "questionAr": "إذا كانت $A = \\begin{pmatrix} 3 & 2x - 1 \\\\ 7 & 4 \\end{pmatrix}$ مصفوفة متماثلة، فما قيمة $x$؟",
+    "optionsEn": [
+      "$4$",
+      "$3$",
+      "$5$",
+      "$-4$"
+    ],
+    "optionsAr": [
+      "4",
+      "3",
+      "5",
+      "-4"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Set a_{12} = a_{21}.",
+    "hintAr": "ساوِ بين العنصرين a_{12} و a_{21}.",
+    "stepByStepSolutionEn": [
+      "1. For a symmetric matrix, $a_{12} = a_{21}$.",
+      "2. $2x - 1 = 7 \\implies 2x = 8 \\implies x = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. في المصفوفة المتماثلة: $a_{12} = a_{21}$.",
+      "٢. $2x - 1 = 7 \\implies 2x = 8 \\implies x = 4$."
+    ],
+    "teacherTipEn": "Symmetry means reflection across the main diagonal.",
+    "teacherTipAr": "التماثل يعني التطابق عبر القطر الرئيسي."
+  },
+  {
+    "id": "alg_ch3_db_easy_11",
+    "titleEn": "Unknown Parameter in a Skew-Symmetric Matrix",
+    "titleAr": "إيجاد مجهول في مصفوفة شبه متماثلة",
+    "difficulty": "easy",
+    "questionEn": "If $A = \\begin{pmatrix} 0 & y + 3 \\\\ -5 & 0 \\end{pmatrix}$ is skew-symmetric, find the value of $y$.",
+    "questionAr": "إذا كانت المصفوفة $A = \\begin{pmatrix} 0 & y + 3 \\\\ -5 & 0 \\end{pmatrix}$ مصفوفة شبه متماثلة، فما قيمة $y$؟",
+    "optionsEn": [
+      "$2$",
+      "$-2$",
+      "$8$",
+      "$-8$"
+    ],
+    "optionsAr": [
+      "2",
+      "-2",
+      "8",
+      "-8"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "In a skew-symmetric matrix, a_{12} = -a_{21}.",
+    "hintAr": "في المصفوفة شبه المتماثلة: a_{12} = -a_{21}.",
+    "stepByStepSolutionEn": [
+      "1. $a_{12} = -a_{21} \\implies y + 3 = -(-5) = 5$.",
+      "2. $y = 5 - 3 = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $a_{12} = -a_{21} \\implies y + 3 = -(-5) = 5$.",
+      "٢. $y = 5 - 3 = 2$."
+    ],
+    "teacherTipEn": "Watch the sign change between transposed positions.",
+    "teacherTipAr": "انتبه لتغير الإشارة بين العناصر المتناظرة."
+  },
+  {
+    "id": "alg_ch3_db_easy_12",
+    "titleEn": "Trigonometric Determinant with Sine and Cosine",
+    "titleAr": "محدد مثلثي بدلالة الجيب وجيب التمام",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{vmatrix}$.",
+    "optionsEn": [
+      "$1$",
+      "$0$",
+      "$\\cos 2\\theta$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "1",
+      "0",
+      "cos 2θ",
+      "-1"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Compute ad - bc and use the Pythagorean identity.",
+    "hintAr": "احسب القطر الرئيسي ناقص الفرعي واستخدم متطابقة فيثاغورس المثلثية.",
+    "stepByStepSolutionEn": [
+      "1. Determinant = $(\\cos \\theta)(\\cos \\theta) - (-\\sin \\theta)(\\sin \\theta)$.",
+      "2. $= \\cos^2 \\theta + \\sin^2 \\theta = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. فك محدد الرتبة الثانية: $(\\cos \\theta)(\\cos \\theta) - (-\\sin \\theta)(\\sin \\theta)$.",
+      "٢. $= \\cos^2 \\theta + \\sin^2 \\theta = 1$."
+    ],
+    "teacherTipEn": "This matrix represents a 2D counterclockwise rotation, so its determinant is always 1.",
+    "teacherTipAr": "هذه مصفوفة دوران في المستوى، ومحددها يساوي دائماً 1."
+  },
+  {
+    "id": "alg_ch3_db_easy_13",
+    "titleEn": "Trigonometric Determinant with Secant and Tangent",
+    "titleAr": "محدد مثلثي بدلالة القاطع والظل",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} \\sec \\theta & \\tan \\theta \\\\ \\tan \\theta & \\sec \\theta \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} \\sec \\theta & \\tan \\theta \\\\ \\tan \\theta & \\sec \\theta \\end{vmatrix}$.",
+    "optionsEn": [
+      "$1$",
+      "$-1$",
+      "$0$",
+      "$\\sec^2 \\theta$"
+    ],
+    "optionsAr": [
+      "1",
+      "-1",
+      "0",
+      "sec^2 θ"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Recall that sec^2 θ - tan^2 θ = 1.",
+    "hintAr": "تذكر أن قا² θ - ظا² θ = 1.",
+    "stepByStepSolutionEn": [
+      "1. Expansion: $(\\sec \\theta)(\\sec \\theta) - (\\tan \\theta)(\\tan \\theta)$.",
+      "2. $= \\sec^2 \\theta - \\tan^2 \\theta = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الفك المباشر: $(\\sec \\theta)(\\sec \\theta) - (\\tan \\theta)(\\tan \\theta)$.",
+      "٢. $= \\sec^2 \\theta - \\tan^2 \\theta = 1$."
+    ],
+    "teacherTipEn": "Trig identities frequently simplify determinant problems.",
+    "teacherTipAr": "المتطابقات المثلثية تبسط حسابات المحددات بشكل رائع."
+  },
+  {
+    "id": "alg_ch3_db_easy_14",
+    "titleEn": "Exponential Expressions in a Determinant",
+    "titleAr": "محدد يتضمن مقادير أسية",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} e^x & e^{2x} \\\\ e^{-x} & 1 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} e^x & e^{2x} \\\\ e^{-x} & 1 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$0$",
+      "$e^x$",
+      "$e^{3x}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "0",
+      "e^x",
+      "e^3x",
+      "1"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Use exponent product laws: e^{2x} * e^{-x} = e^x.",
+    "hintAr": "استخدم قوانين الأسس: e^{2x} * e^{-x} = e^x.",
+    "stepByStepSolutionEn": [
+      "1. Expansion = $(e^x)(1) - (e^{2x})(e^{-x})$.",
+      "2. $= e^x - e^{2x - x} = e^x - e^x = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. فك المحدد: $(e^x)(1) - (e^{2x})(e^{-x})$.",
+      "٢. $= e^x - e^{2x - x} = e^x - e^x = 0$."
+    ],
+    "teacherTipEn": "Notice the rows are proportional since Row 2 = e^{-2x} Row 1.",
+    "teacherTipAr": "الصفان متناسبان لأن الصف الثاني هو حاصل ضرب الأول في e^{-2x}."
+  },
+  {
+    "id": "alg_ch3_db_easy_15",
+    "titleEn": "Logarithmic Entries in a Determinant",
+    "titleAr": "محدد يتضمن دوال لوغاريتمية",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} \\log_2 3 & \\log_2 5 \\\\ \\log_5 2 & \\log_3 2 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} \\log_2 3 & \\log_2 5 \\\\ \\log_5 2 & \\log_3 2 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$-1$",
+      "$\\log_2 15$"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "-1",
+      "log_2 15"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Recall that log_a b * log_b a = 1.",
+    "hintAr": "تذكر أن لو_أ ب × لو_ب أ = 1.",
+    "stepByStepSolutionEn": [
+      "1. Expansion = $(\\log_2 3)(\\log_3 2) - (\\log_2 5)(\\log_5 2)$.",
+      "2. By change of base, $(\\log_2 3)(\\log_3 2) = 1$ and $(\\log_2 5)(\\log_5 2) = 1$.",
+      "3. Result = $1 - 1 = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الفك = $(\\log_2 3)(\\log_3 2) - (\\log_2 5)(\\log_5 2)$.",
+      "٢. باستخدام قاعدة تغيير الأساس، يكون الناتج $1 - 1 = 0$."
+    ],
+    "teacherTipEn": "The reciprocal property of logs: log_a b = 1 / log_b a.",
+    "teacherTipAr": "خاصية المقلوب في اللوغاريتمات: لو_أ ب = 1 / لو_ب أ."
+  },
+  {
+    "id": "alg_ch3_db_easy_16",
+    "titleEn": "Determinant with Complex Cube Roots of Unity",
+    "titleAr": "محدد يتضمن الجذور التكعيبية للواحد الصحيح (أوميجا)",
+    "difficulty": "easy",
+    "questionEn": "If $\\omega$ is a complex cube root of unity, evaluate: $\\begin{vmatrix} 1 & \\omega \\\\ \\omega^2 & 1 \\end{vmatrix}$.",
+    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فاحسب قيمة: $\\begin{vmatrix} 1 & \\omega \\\\ \\omega^2 & 1 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\omega$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "ω",
+      "-1"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Recall that omega^3 = 1.",
+    "hintAr": "تذكر أن أوميجا تكعيب تساوي 1 (ω³ = 1).",
+    "stepByStepSolutionEn": [
+      "1. Expansion = $(1)(1) - (\\omega)(\\omega^2)$.",
+      "2. $= 1 - \\omega^3 = 1 - 1 = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الفك = $(1)(1) - (\\omega)(\\omega^2) = 1 - \\omega^3$.",
+      "٢. بما أن $\\omega^3 = 1$، فإن القيمة = $1 - 1 = 0$."
+    ],
+    "teacherTipEn": "Whenever omega^3 appears, replace it with 1.",
+    "teacherTipAr": "كلما ظهرت أوميجا تكعيب استبدلها بالعدد 1."
+  },
+  {
+    "id": "alg_ch3_db_easy_17",
+    "titleEn": "Diagonal Product of Roots of Unity",
+    "titleAr": "حاصل ضرب عناصر قطرية بدلالة أوميجا",
+    "difficulty": "easy",
+    "questionEn": "Evaluate the determinant: $\\begin{vmatrix} \\omega & 0 & 0 \\\\ 0 & \\omega^2 & 0 \\\\ 0 & 0 & 1 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} \\omega & 0 & 0 \\\\ 0 & \\omega^2 & 0 \\\\ 0 & 0 & 1 \\end{vmatrix}$.",
+    "optionsEn": [
+      "$1$",
+      "$\\omega$",
+      "$\\omega^2$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "1",
+      "ω",
+      "ω^2",
+      "0"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Multiply along the main diagonal: omega * omega^2 * 1.",
+    "hintAr": "اضرب عناصر القطر الرئيسي: أوميجا × أوميجا² × 1.",
+    "stepByStepSolutionEn": [
+      "1. Diagonal matrix: product = $\\omega \\cdot \\omega^2 \\cdot 1 = \\omega^3$.",
+      "2. Since $\\omega^3 = 1$, the determinant is 1."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مصفوفة قطرية: حاصل ضرب القطر = $\\omega \\cdot \\omega^2 \\cdot 1 = \\omega^3$.",
+      "٢. وبما أن $\\omega^3 = 1$، فإن القيمة = 1."
+    ],
+    "teacherTipEn": "The product of all three cube roots of unity is 1.",
+    "teacherTipAr": "حاصل ضرب الجذور التكعيبية الثلاثة للواحد الصحيح هو 1."
+  },
+  {
+    "id": "alg_ch3_db_easy_18",
+    "titleEn": "Singular Condition for a 2x2 Matrix",
+    "titleAr": "شرط انفراد مصفوفة من الرتبة الثانية",
+    "difficulty": "easy",
+    "questionEn": "For what value of $k$ is the matrix $A = \\begin{pmatrix} k & 6 \\\\ 2 & 3 \\end{pmatrix}$ singular (non-invertible)?",
+    "questionAr": "لأي قيمة للثابت $k$ تكون المصفوفة $A = \\begin{pmatrix} k & 6 \\\\ 2 & 3 \\end{pmatrix}$ مصفوفة منفردة (ليس لها معكوس ضربي)؟",
+    "optionsEn": [
+      "$4$",
+      "$2$",
+      "$6$",
+      "$-4$"
+    ],
+    "optionsAr": [
+      "4",
+      "2",
+      "6",
+      "-4"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "A matrix is singular when |A| = 0.",
+    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: |A| = 0.",
+    "stepByStepSolutionEn": [
+      "1. Singular means $|A| = 0$.",
+      "2. $(k)(3) - (6)(2) = 0 \\implies 3k - 12 = 0 \\implies k = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المصفوفة المنفردة تعني $|A| = 0$.",
+      "٢. $3k - 12 = 0 \\implies 3k = 12 \\implies k = 4$."
+    ],
+    "teacherTipEn": "Singular matrix = determinant is zero = no inverse exists.",
+    "teacherTipAr": "مصفوفة منفردة = محددها صفر = لا يوجد لها معكوس ضربي."
+  },
+  {
+    "id": "alg_ch3_db_easy_19",
+    "titleEn": "Condition for Invertibility of a 2x2 Matrix",
+    "titleAr": "شرط وجود المعكوس الضربي لمصفوفة مربعة",
+    "difficulty": "easy",
+    "questionEn": "The matrix $A = \\begin{pmatrix} x & 2 \\\\ 8 & x \\end{pmatrix}$ has an inverse for all $x \\in$:",
+    "questionAr": "المصفوفة $A = \\begin{pmatrix} x & 2 \\\\ 8 & x \\end{pmatrix}$ يكون لها معكوس ضربي لجميع قيم $x \\in$:",
+    "optionsEn": [
+      "$\\mathbb{R} - \\{-4, 4\\}$",
+      "$\\{-4, 4\\}$",
+      "$\\mathbb{R} - \\{4\\}$",
+      "$\\mathbb{R}$"
+    ],
+    "optionsAr": [
+      "R - {-4, 4}",
+      "{-4, 4}",
+      "R - {4}",
+      "R"
+    ],
+    "correctAnswer": "$\\mathbb{R} - \\{-4, 4\\}$",
+    "correctIndex": 0,
+    "hintEn": "The matrix is invertible when |A| != 0.",
+    "hintAr": "يكون للمصفوفة معكوس ضربي عندما |A| != 0.",
+    "stepByStepSolutionEn": [
+      "1. $|A| = x^2 - 16 \\neq 0$.",
+      "2. $x^2 \\neq 16 \\implies x \\neq \\pm 4$.",
+      "3. Thus $x \\in \\mathbb{R} - \\{-4, 4\\}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A| = x^2 - 16 \\neq 0$.",
+      "٢. $x^2 \\neq 16 \\implies x \\neq \\pm 4$.",
+      "٣. إذن مجال القيم هو $\\mathbb{R} - \\{-4, 4\\}$."
+    ],
+    "teacherTipEn": "Values that make |A| = 0 must be excluded from the domain.",
+    "teacherTipAr": "يجب استبعاد القيم التي تجعل المحدد صفراً من الأعداد الحقيقية."
+  },
+  {
+    "id": "alg_ch3_db_easy_20",
+    "titleEn": "Determinant with a Zero Row",
+    "titleAr": "محدد يحتوي على صف كامل من الأصفار",
+    "difficulty": "easy",
+    "questionEn": "Without expanding, what is the value of $\\begin{vmatrix} 4 & -1 & 3 \\\\ 0 & 0 & 0 \\\\ 7 & 2 & -5 \\end{vmatrix}$?",
+    "questionAr": "بدون فك المحدد، ما قيمة: $\\begin{vmatrix} 4 & -1 & 3 \\\\ 0 & 0 & 0 \\\\ 7 & 2 & -5 \\end{vmatrix}$؟",
+    "optionsEn": [
+      "$0$",
+      "$12$",
+      "$-35$",
+      "Undefined"
+    ],
+    "optionsAr": [
+      "0",
+      "12",
+      "-35",
+      "غير معرف"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "If any row or column is entirely zero, the determinant is 0.",
+    "hintAr": "إذا كانت عناصر أي صف أو عمود كلها أصفاراً، فإن قيمة المحدد تنعدم.",
+    "stepByStepSolutionEn": [
+      "1. Expanding along the second row gives $0 + 0 + 0 = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالفك بدلالة عناصر الصف الثاني: $0 + 0 + 0 = 0$."
+    ],
+    "teacherTipEn": "A zero row means the vectors are linearly dependent.",
+    "teacherTipAr": "وجود صف صفري يعني أن المتجهات مرتبطة خطياً."
+  },
+  {
+    "id": "alg_ch3_db_easy_21",
+    "titleEn": "2x2 Matrix Inversion Formula",
+    "titleAr": "قاعدة إيجاد المعكوس الضربي لمصفوفة 2x2",
+    "difficulty": "easy",
+    "questionEn": "Find the inverse of the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix}$.",
+    "questionAr": "أوجد المعكوس الضربي للمصفوفة $A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix}$.",
+    "optionsEn": [
+      "$\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$",
+      "$\\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$"
+    ],
+    "optionsAr": [
+      "[[3, -1], [-5, 2]]",
+      "[[2, -1], [-5, 3]]",
+      "[[-3, 1], [5, -2]]",
+      "[[3, 1], [5, 2]]"
+    ],
+    "correctAnswer": "$\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$",
+    "correctIndex": 0,
+    "hintEn": "A^{-1} = 1/|A| * [d, -b; -c, a].",
+    "hintAr": "المعكوس الضربي = 1/|A| مضروباً في تبديل القطر الرئيسي وتغيير إشارات الفرعي.",
+    "stepByStepSolutionEn": [
+      "1. $|A| = (2)(3) - (1)(5) = 6 - 5 = 1$.",
+      "2. Swap diagonal, negate off-diagonal: $\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A| = 6 - 5 = 1$.",
+      "٢. نبدل عناصر القطر الرئيسي ونغير إشارات القطر الفرعي: $\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$."
+    ],
+    "teacherTipEn": "Always compute the determinant first to ensure it is non-zero.",
+    "teacherTipAr": "احسب المحدد أولاً للتأكد من أنه لا يساوي صفراً."
+  },
+  {
+    "id": "alg_ch3_db_easy_22",
+    "titleEn": "Inverse of a Diagonal Matrix",
+    "titleAr": "معكوس المصفوفة القطرية",
+    "difficulty": "easy",
+    "questionEn": "If $D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 5 \\end{pmatrix}$, find $D^{-1}$.",
+    "questionAr": "إذا كانت $D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 5 \\end{pmatrix}$ مصفوفة قطرية، فأوجد $D^{-1}$.",
+    "optionsEn": [
+      "$\\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/5 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 5 & 0 \\\\ 0 & 2 \\end{pmatrix}$",
+      "$\\begin{pmatrix} -2 & 0 \\\\ 0 & -5 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1/10 & 0 \\\\ 0 & 1/10 \\end{pmatrix}$"
+    ],
+    "optionsAr": [
+      "[[1/2, 0], [0, 1/5]]",
+      "[[5, 0], [0, 2]]",
+      "[[-2, 0], [0, -5]]",
+      "[[1/10, 0], [0, 1/10]]"
+    ],
+    "correctAnswer": "$\\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/5 \\end{pmatrix}$",
+    "correctIndex": 0,
+    "hintEn": "Invert each non-zero entry on the diagonal.",
+    "hintAr": "اقلب كل عنصر من عناصر القطر الرئيسي غير الصفرية.",
+    "stepByStepSolutionEn": [
+      "1. The inverse of a diagonal matrix is obtained by inverting each diagonal entry.",
+      "2. $D^{-1} = \\text{diag}(1/2, 1/5)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. معكوس المصفوفة القطرية ينتج من قلب عناصر القطر الرئيسي مباشرة.",
+      "٢. $D^{-1} = \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/5 \\end{pmatrix}$."
+    ],
+    "teacherTipEn": "Diagonal matrices commute and invert component-wise.",
+    "teacherTipAr": "المصفوفات القطرية تنعكس عناصرها مباشرة كلٍ على حدة."
+  },
+  {
+    "id": "alg_ch3_db_easy_23",
+    "titleEn": "Inverse of an Identity Matrix",
+    "titleAr": "معكوس مصفوفة الوحدة",
+    "difficulty": "easy",
+    "questionEn": "For any identity matrix $I_n$, what is $(I_n)^{-1}$?",
+    "questionAr": "لأي مصفوفة وحدة $I_n$، ما قيمة $(I_n)^{-1}$؟",
+    "optionsEn": [
+      "$I_n$",
+      "$-I_n$",
+      "$n I_n$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "I_n",
+      "-I_n",
+      "n I_n",
+      "0"
+    ],
+    "correctAnswer": "$I_n$",
+    "correctIndex": 0,
+    "hintEn": "I * I = I.",
+    "hintAr": "مصفوفة الوحدة في مصفوفة الوحدة تعطي مصفوفة الوحدة.",
+    "stepByStepSolutionEn": [
+      "1. Since $I \\cdot I = I$, the inverse of the identity matrix is the identity matrix itself."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بما أن $I \\cdot I = I$، فإن المعكوس الضربي لمصفوفة الوحدة هو مصفوفة الوحدة نفسها."
+    ],
+    "teacherTipEn": "The identity matrix is self-inverse (involutory).",
+    "teacherTipAr": "مصفوفة الوحدة هي معكوس لنفسها."
+  },
+  {
+    "id": "alg_ch3_db_easy_24",
+    "titleEn": "Cramer's Rule Main Determinant Delta",
+    "titleAr": "المحدد العام دلتا في طريقة كرامر",
+    "difficulty": "easy",
+    "questionEn": "For the system $2x + 3y = 7$ and $4x - y = 5$, what is the coefficient determinant $\\Delta$?",
+    "questionAr": "للنظام الخطي $2x + 3y = 7$ و $4x - y = 5$، ما قيمة محدد المعاملات $\\Delta$؟",
+    "optionsEn": [
+      "$-14$",
+      "$14$",
+      "$-10$",
+      "$10$"
+    ],
+    "optionsAr": [
+      "-14",
+      "14",
+      "-10",
+      "10"
+    ],
+    "correctAnswer": "$-14$",
+    "correctIndex": 0,
+    "hintEn": "Form the 2x2 matrix of coefficients: [2, 3; 4, -1].",
+    "hintAr": "كون محدد المعاملات من معاملي س و ص: [2, 3; 4, -1].",
+    "stepByStepSolutionEn": [
+      "1. $\\Delta = \\begin{vmatrix} 2 & 3 \\\\ 4 & -1 \\end{vmatrix}$.",
+      "2. $\\Delta = (2)(-1) - (3)(4) = -2 - 12 = -14$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\Delta = \\begin{vmatrix} 2 & 3 \\\\ 4 & -1 \\end{vmatrix}$.",
+      "٢. $\\Delta = -2 - 12 = -14$."
+    ],
+    "teacherTipEn": "If Delta != 0, Cramer's rule guarantees a unique solution.",
+    "teacherTipAr": "إذا كانت دلتا لا تساوي صفراً، تضمن طريقة كرامر حلاً وحيداً."
+  },
+  {
+    "id": "alg_ch3_db_easy_25",
+    "titleEn": "Cramer's Rule Delta_x Determinant",
+    "titleAr": "محدد دلتا س في طريقة كرامر",
+    "difficulty": "easy",
+    "questionEn": "For the system $x + 2y = 5$ and $3x - y = 1$, find $\\Delta_x$.",
+    "questionAr": "للنظام $x + 2y = 5$ و $3x - y = 1$، احسب قيمة $\\Delta_x$.",
+    "optionsEn": [
+      "$-7$",
+      "$7$",
+      "$-14$",
+      "$14$"
+    ],
+    "optionsAr": [
+      "-7",
+      "7",
+      "-14",
+      "14"
+    ],
+    "correctAnswer": "$-7$",
+    "correctIndex": 0,
+    "hintEn": "Replace column 1 (x-coefficients) with the constants [5; 1].",
+    "hintAr": "استبدل عمود س بالحدود المطلقة [5; 1].",
+    "stepByStepSolutionEn": [
+      "1. $\\Delta_x = \\begin{vmatrix} 5 & 2 \\\\ 1 & -1 \\end{vmatrix}$.",
+      "2. $\\Delta_x = (5)(-1) - (2)(1) = -5 - 2 = -7$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\Delta_x = \\begin{vmatrix} 5 & 2 \\\\ 1 & -1 \\end{vmatrix}$.",
+      "٢. $\\Delta_x = (5)(-1) - (2)(1) = -7$."
+    ],
+    "teacherTipEn": "Delta_x replaces the x-column with constants.",
+    "teacherTipAr": "في دلتا س نضع عمود الثوابت مكان عمود معاملات س."
+  },
+  {
+    "id": "alg_ch3_db_easy_26",
+    "titleEn": "Cramer's Rule Solving for X",
+    "titleAr": "إيجاد قيمة س بطريقة كرامر",
+    "difficulty": "easy",
+    "questionEn": "If in a linear system $\\Delta = -5$ and $\\Delta_x = -15$, find the value of $x$.",
+    "questionAr": "إذا كان في نظام معادلات خطية $\\Delta = -5$ و $\\Delta_x = -15$، فما قيمة $x$؟",
+    "optionsEn": [
+      "$3$",
+      "$-3$",
+      "$1/3$",
+      "$75$"
+    ],
+    "optionsAr": [
+      "3",
+      "-3",
+      "1/3",
+      "75"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "x = Delta_x / Delta.",
+    "hintAr": "س = دلتا س مقسومة على دلتا.",
+    "stepByStepSolutionEn": [
+      "1. By Cramer's Rule, $x = \\frac{\\Delta_x}{\\Delta} = \\frac{-15}{-5} = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بقاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta} = \\frac{-15}{-5} = 3$."
+    ],
+    "teacherTipEn": "Cramer's rule expresses each variable as a ratio of determinants.",
+    "teacherTipAr": "قاعدة كرامر تعبر عن كل مجهول كنسبة بين محددين."
+  },
+  {
+    "id": "alg_ch3_db_easy_27",
+    "titleEn": "Matrix Equation Solution AX = B",
+    "titleAr": "حل المعادلة المصفوفية AX = B",
+    "difficulty": "easy",
+    "questionEn": "If $A X = B$ where $A$ is invertible, which formula gives $X$?",
+    "questionAr": "إذا كانت $A X = B$ حيث $A$ مصفوفة غير منفردة، فأي الصيغ تعطي المصفوفة $X$؟",
+    "optionsEn": [
+      "$X = A^{-1} B$",
+      "$X = B A^{-1}$",
+      "$X = B / A$",
+      "$X = A B^{-1}$"
+    ],
+    "optionsAr": [
+      "X = A^{-1} B",
+      "X = B A^{-1}",
+      "X = B / A",
+      "X = A B^{-1}"
+    ],
+    "correctAnswer": "$X = A^{-1} B$",
+    "correctIndex": 0,
+    "hintEn": "Multiply on the left by A^{-1}.",
+    "hintAr": "نضرب الطرفين من جهة اليسار في المعكوس الضربي A^{-1}.",
+    "stepByStepSolutionEn": [
+      "1. $A X = B \\implies A^{-1}(AX) = A^{-1} B \\implies IX = A^{-1} B \\implies X = A^{-1} B$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالضرب من جهة اليمين (يسار المتغير) في $A^{-1}$: $X = A^{-1} B$."
+    ],
+    "teacherTipEn": "Matrix multiplication is non-commutative: A^{-1}B is NOT equal to B A^{-1}.",
+    "teacherTipAr": "ضرب المصفوفات غير إبدالي، الترتيب جوهري جداً."
+  },
+  {
+    "id": "alg_ch3_db_easy_28",
+    "titleEn": "Matrix Equation Solution XA = B",
+    "titleAr": "حل المعادلة المصفوفية XA = B",
+    "difficulty": "easy",
+    "questionEn": "If $X A = B$ where $A$ is invertible, which expression represents $X$?",
+    "questionAr": "إذا كانت $X A = B$ حيث $A$ مصفوفة غير منفردة، فأي تعبير يمثل المصفوفة $X$؟",
+    "optionsEn": [
+      "$X = B A^{-1}$",
+      "$X = A^{-1} B$",
+      "$X = A B$",
+      "$X = A^{-1} B^{-1}$"
+    ],
+    "optionsAr": [
+      "X = B A^{-1}",
+      "X = A^{-1} B",
+      "X = A B",
+      "X = A^{-1} B^{-1}"
+    ],
+    "correctAnswer": "$X = B A^{-1}$",
+    "correctIndex": 0,
+    "hintEn": "Multiply on the right by A^{-1}.",
+    "hintAr": "اضرب من اليمين في المعكوس الضربي A^{-1}.",
+    "stepByStepSolutionEn": [
+      "1. Multiply on the right: $(XA)A^{-1} = B A^{-1} \\implies X = B A^{-1}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالضرب من جهة اليمين في $A^{-1}$: $X = B A^{-1}$."
+    ],
+    "teacherTipEn": "Pay close attention to which side the coefficient matrix sits.",
+    "teacherTipAr": "انتبه جيداً لأي جهة تقع فيها مصفوفة المعاملات."
+  },
+  {
+    "id": "alg_ch3_db_easy_29",
+    "titleEn": "Transpose of Matrix Product",
+    "titleAr": "مدور حاصل ضرب مصفوفتين",
+    "difficulty": "easy",
+    "questionEn": "For any conformable matrices $A$ and $B$, $(A B)^T$ equals:",
+    "questionAr": "لأي مصفوفتين يمكن ضربهما $A$ و $B$، فإن $(A B)^T$ تساوي:",
+    "optionsEn": [
+      "$B^T A^T$",
+      "$A^T B^T$",
+      "$A B^T$",
+      "$B A^T$"
+    ],
+    "optionsAr": [
+      "B^T A^T",
+      "A^T B^T",
+      "A B^T",
+      "B A^T"
+    ],
+    "correctAnswer": "$B^T A^T$",
+    "correctIndex": 0,
+    "hintEn": "The order reverses when taking the transpose of a product.",
+    "hintAr": "يعكس الترتيب عند تدوير حاصل ضرب مصفوفتين.",
+    "stepByStepSolutionEn": [
+      "1. A fundamental property of matrix transposition is $(AB)^T = B^T A^T$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. خاصية أساسية في جبر المصفوفات: $(AB)^T = B^T A^T$."
+    ],
+    "teacherTipEn": "Reversal of order also applies to matrix inverses: (AB)^{-1} = B^{-1} A^{-1}.",
+    "teacherTipAr": "عكس الترتيب ينطبق أيضاً على المعكوس الضربي: (AB)^{-1} = B^{-1} A^{-1}."
+  },
+  {
+    "id": "alg_ch3_db_easy_30",
+    "titleEn": "Inverse of Matrix Product",
+    "titleAr": "معكوس حاصل ضرب مصفوفتين",
+    "difficulty": "easy",
+    "questionEn": "For invertible matrices $A$ and $B$, $(A B)^{-1}$ equals:",
+    "questionAr": "لمصفوفتين غير منفردتين $A$ و $B$، فإن $(A B)^{-1}$ تساوي:",
+    "optionsEn": [
+      "$B^{-1} A^{-1}$",
+      "$A^{-1} B^{-1}$",
+      "$A B^{-1}$",
+      "$B A^{-1}$"
+    ],
+    "optionsAr": [
+      "B^{-1} A^{-1}",
+      "A^{-1} B^{-1}",
+      "A B^{-1}",
+      "B A^{-1}"
+    ],
+    "correctAnswer": "$B^{-1} A^{-1}$",
+    "correctIndex": 0,
+    "hintEn": "Shoes and socks property: invert in reverse order.",
+    "hintAr": "خاصية الحذاء والجورب: المعكوس يعكس الترتيب.",
+    "stepByStepSolutionEn": [
+      "1. $(AB)(B^{-1}A^{-1}) = A(B B^{-1})A^{-1} = A I A^{-1} = A A^{-1} = I$.",
+      "2. Thus $(AB)^{-1} = B^{-1} A^{-1}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إثبات مباشر: $(AB)(B^{-1}A^{-1}) = I$.",
+      "٢. إذن $(AB)^{-1} = B^{-1} A^{-1}$."
+    ],
+    "teacherTipEn": "The order of factors is always inverted.",
+    "teacherTipAr": "ترتيب العوامل ينعكس دائماً عند أخذ المعكوس."
+  },
+  {
+    "id": "alg_ch3_db_easy_31",
+    "titleEn": "Determinant of Squared Matrix",
+    "titleAr": "محدد مربع المصفوفة",
+    "difficulty": "easy",
+    "questionEn": "If $A$ is a square matrix with $|A| = 6$, find $|A^2|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 6$، فما قيمة $|A^2|$؟",
+    "optionsEn": [
+      "$36$",
+      "$12$",
+      "$6$",
+      "$216$"
+    ],
+    "optionsAr": [
+      "36",
+      "12",
+      "6",
+      "216"
+    ],
+    "correctAnswer": "$36$",
+    "correctIndex": 0,
+    "hintEn": "|A^2| = |A|^2.",
+    "hintAr": "محدد أ² يساوي مربع محدد أ.",
+    "stepByStepSolutionEn": [
+      "1. $|A^2| = |A \\cdot A| = |A| \\cdot |A| = |A|^2$.",
+      "2. $|A^2| = 6^2 = 36$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A^2| = |A|^2 = 6^2 = 36$."
+    ],
+    "teacherTipEn": "In general, |A^k| = |A|^k for any positive integer k.",
+    "teacherTipAr": "بوجه عام: |A^k| = |A|^k لأي عدد صحيح موجب k."
+  },
+  {
+    "id": "alg_ch3_db_easy_32",
+    "titleEn": "Determinant of Cubed Matrix",
+    "titleAr": "محدد مكعب مصفوفة",
+    "difficulty": "easy",
+    "questionEn": "If $A$ is a square matrix with $|A| = -3$, find $|A^3|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = -3$، فما قيمة $|A^3|$؟",
+    "optionsEn": [
+      "$-27$",
+      "$27$",
+      "$-9$",
+      "$9$"
+    ],
+    "optionsAr": [
+      "-27",
+      "27",
+      "-9",
+      "9"
+    ],
+    "correctAnswer": "$-27$",
+    "correctIndex": 0,
+    "hintEn": "|A^3| = (-3)^3.",
+    "hintAr": "محدد أ³ = (-3)³.",
+    "stepByStepSolutionEn": [
+      "1. $|A^3| = |A|^3 = (-3)^3 = -27$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A^3| = (-3)^3 = -27$."
+    ],
+    "teacherTipEn": "The negative sign is preserved when cubed.",
+    "teacherTipAr": "الإشارة السالبة تبقى مع الأس الفردي."
   },
   {
     "id": "alg_ch3_db_easy_33",
-    "titleEn": "Transpose Determinant Value #3",
-    "titleAr": "قيمة محدد المدور رقم 3",
+    "titleEn": "Rank of Non-Zero Singular 2x2 Matrix",
+    "titleAr": "رتبة مصفوفة غير صفرية منفردة من النظم 2x2",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 11$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 11$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "What is the rank of the matrix $A = \\begin{pmatrix} 2 & 4 \\\\ 1 & 2 \\end{pmatrix}$?",
+    "questionAr": "ما رتبة المصفوفة $A = \\begin{pmatrix} 2 & 4 \\\\ 1 & 2 \\end{pmatrix}$؟",
     "optionsEn": [
-      "$11$",
-      "$-11$",
-      "$13$",
-      "$15$"
+      "$1$",
+      "$2$",
+      "$0$",
+      "$4$"
     ],
     "optionsAr": [
-      "11",
-      "-11",
-      "13",
-      "15"
+      "1",
+      "2",
+      "0",
+      "4"
     ],
-    "correctAnswer": "$11$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "|A| = 0, but there are non-zero 1x1 entries.",
+    "hintAr": "محددها صفر ولكن يوجد عناصر غير صفرية.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 11$."
+      "1. $|A| = (2)(2) - (4)(1) = 0$, so $\\text{rank}(A) < 2$.",
+      "2. Since $A$ contains non-zero elements, $\\text{rank}(A) = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 11$."
+      "١. بما أن $|A| = 0$، فالرتبة أقل من 2.",
+      "٢. وبما أن المصفوفة غير صفرية، فإن رتبتها تساوي 1."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Rank is the order of the largest non-zero minor.",
+    "teacherTipAr": "رتبة المصفوفة هي أعلى رتبة لمحدد أصغر لا يساوي صفراً."
   },
   {
     "id": "alg_ch3_db_easy_34",
-    "titleEn": "Transpose Determinant Value #4",
-    "titleAr": "قيمة محدد المدور رقم 4",
+    "titleEn": "Rank of Invertible 2x2 Matrix",
+    "titleAr": "رتبة مصفوفة غير منفردة 2x2",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 15$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 15$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "Find the rank of the matrix $A = \\begin{pmatrix} 1 & 3 \\\\ 2 & 5 \\end{pmatrix}$.",
+    "questionAr": "أوجد رتبة المصفوفة $A = \\begin{pmatrix} 1 & 3 \\\\ 2 & 5 \\end{pmatrix}$.",
     "optionsEn": [
-      "$15$",
-      "$-15$",
-      "$17$",
-      "$19$"
+      "$2$",
+      "$1$",
+      "$0$",
+      "$3$"
     ],
     "optionsAr": [
-      "15",
-      "-15",
-      "17",
-      "19"
+      "2",
+      "1",
+      "0",
+      "3"
     ],
-    "correctAnswer": "$15$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "Check if |A| != 0.",
+    "hintAr": "تحقق مما إذا كان المحدد لا يساوي صفراً.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 15$."
+      "1. $|A| = (1)(5) - (3)(2) = 5 - 6 = -1 \\neq 0$.",
+      "2. Since $|A| \\neq 0$, the rank is 2."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 15$."
+      "١. $|A| = 5 - 6 = -1 \\neq 0$.",
+      "٢. طالما أن المحدد لا يساوي صفراً فإن رتبة المصفوفة هي 2."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "An n x n matrix has rank n if and only if |A| != 0.",
+    "teacherTipAr": "المصفوفة المربعة تكون كاملة الرتبة n إذا وفقط إذا كان محددها غير صفري."
   },
   {
     "id": "alg_ch3_db_easy_35",
-    "titleEn": "Transpose Determinant Value #5",
-    "titleAr": "قيمة محدد المدور رقم 5",
+    "titleEn": "Rank of Zero Matrix",
+    "titleAr": "رتبة المصفوفة الصفرية",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 19$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 19$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "What is the rank of the zero matrix $O_{3 \\times 3}$?",
+    "questionAr": "ما رتبة المصفوفة الصفرية $O_{3 \\times 3}$؟",
     "optionsEn": [
-      "$19$",
-      "$-19$",
-      "$21$",
-      "$23$"
+      "$0$",
+      "$1$",
+      "$3$",
+      "Undefined"
     ],
     "optionsAr": [
-      "19",
-      "-19",
-      "21",
-      "23"
+      "0",
+      "1",
+      "3",
+      "غير معرفة"
     ],
-    "correctAnswer": "$19$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "All minors of all orders are zero.",
+    "hintAr": "جميع محدداتها من جميع الرتب أصفار.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 19$."
+      "1. By definition, the only matrix with rank 0 is the zero matrix."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 19$."
+      "١. بحسب التعريف: المصفوفة الوحيدة التي رتبتها صفر هي المصفوفة الصفرية."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Every non-zero matrix has rank >= 1.",
+    "teacherTipAr": "أي مصفوفة غير صفرية رتبتها على الأقل 1."
   },
   {
     "id": "alg_ch3_db_easy_36",
-    "titleEn": "Transpose Determinant Value #6",
-    "titleAr": "قيمة محدد المدور رقم 6",
+    "titleEn": "Rank of 2x3 Matrix",
+    "titleAr": "رتبة مصفوفة على النظم 2x3",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 23$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 23$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "What is the maximum possible rank of a $2 \\times 3$ matrix?",
+    "questionAr": "ما أقصى رتبة ممكنة لمصفوفة على النظم $2 \\times 3$؟",
     "optionsEn": [
-      "$23$",
-      "$-23$",
-      "$25$",
-      "$27$"
+      "$2$",
+      "$3$",
+      "$6$",
+      "$1$"
     ],
     "optionsAr": [
-      "23",
-      "-23",
-      "25",
-      "27"
+      "2",
+      "3",
+      "6",
+      "1"
     ],
-    "correctAnswer": "$23$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "rank(A) <= min(m, n).",
+    "hintAr": "رتبة المصفوفة لا تتجاوز أصغر البعدين.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 23$."
+      "1. For an $m \\times n$ matrix, $\\text{rank}(A) \\le \\min(m, n)$.",
+      "2. Here $\\min(2, 3) = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 23$."
+      "١. لأي مصفوفة على النظم $m \\times n$: $\\text{rank}(A) \\le \\min(m, n)$.",
+      "٢. إذن أقصى رتبة هي $\\min(2, 3) = 2$."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Rank cannot exceed the number of rows or columns.",
+    "teacherTipAr": "لا يمكن للرتبة أن تتعدى عدد الصفوف أو الأعمدة."
   },
   {
     "id": "alg_ch3_db_easy_37",
-    "titleEn": "Transpose Determinant Value #7",
-    "titleAr": "قيمة محدد المدور رقم 7",
+    "titleEn": "Trace of a 2x2 Matrix",
+    "titleAr": "أثر المصفوفة (مجموع عناصر القطر الرئيسي)",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 27$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 27$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "Find the trace of the matrix $A = \\begin{pmatrix} 5 & 8 \\\\ -2 & 3 \\end{pmatrix}$.",
+    "questionAr": "أوجد أثر المصفوفة $A = \\begin{pmatrix} 5 & 8 \\\\ -2 & 3 \\end{pmatrix}$.",
     "optionsEn": [
-      "$27$",
-      "$-27$",
-      "$29$",
-      "$31$"
+      "$8$",
+      "$15$",
+      "$31$",
+      "$2$"
     ],
     "optionsAr": [
-      "27",
-      "-27",
-      "29",
-      "31"
+      "8",
+      "15",
+      "31",
+      "2"
     ],
-    "correctAnswer": "$27$",
+    "correctAnswer": "$8$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "The trace is the sum of entries on the main diagonal.",
+    "hintAr": "أثر المصفوفة هو مجموع عناصر قطرها الرئيسي.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 27$."
+      "1. $\\text{tr}(A) = a_{11} + a_{22} = 5 + 3 = 8$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 27$."
+      "١. أثر المصفوفة = مجموع عناصر القطر الرئيسي = $5 + 3 = 8$."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Trace equals the sum of eigenvalues.",
+    "teacherTipAr": "أثر المصفوفة يساوي أيضاً مجموع قيمها الذاتية."
   },
   {
     "id": "alg_ch3_db_easy_38",
-    "titleEn": "Transpose Determinant Value #8",
-    "titleAr": "قيمة محدد المدور رقم 8",
+    "titleEn": "Trace of a 3x3 Matrix",
+    "titleAr": "أثر مصفوفة من الرتبة الثالثة",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 31$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 31$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "Calculate the trace of $M = \\begin{pmatrix} 4 & 1 & 0 \\\\ 2 & -1 & 5 \\\\ 9 & 3 & 7 \\end{pmatrix}$.",
+    "questionAr": "احسب أثر المصفوفة $M = \\begin{pmatrix} 4 & 1 & 0 \\\\ 2 & -1 & 5 \\\\ 9 & 3 & 7 \\end{pmatrix}$.",
     "optionsEn": [
-      "$31$",
-      "$-31$",
-      "$33$",
-      "$35$"
+      "$10$",
+      "$12$",
+      "$7$",
+      "$0$"
     ],
     "optionsAr": [
-      "31",
-      "-31",
-      "33",
-      "35"
+      "10",
+      "12",
+      "7",
+      "0"
     ],
-    "correctAnswer": "$31$",
+    "correctAnswer": "$10$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "Sum the entries: 4 + (-1) + 7.",
+    "hintAr": "اجمع عناصر القطر: 4 + (-1) + 7.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 31$."
+      "1. $\\text{tr}(M) = 4 + (-1) + 7 = 10$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 31$."
+      "١. أثر المصفوفة = $4 + (-1) + 7 = 10$."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Off-diagonal elements do not affect the trace.",
+    "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في الأثر."
   },
   {
     "id": "alg_ch3_db_easy_39",
-    "titleEn": "Transpose Determinant Value #9",
-    "titleAr": "قيمة محدد المدور رقم 9",
+    "titleEn": "Linear System with Trivial Solution Only",
+    "titleAr": "نظام متجانس له الحل الصفري فقط",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 35$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 35$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "The homogeneous system $2x + y = 0$ and $3x + 4y = 0$ has:",
+    "questionAr": "النظام الخطي المتجانس $2x + y = 0$ و $3x + 4y = 0$ له:",
     "optionsEn": [
-      "$35$",
-      "$-35$",
-      "$37$",
-      "$39$"
+      "Only the trivial solution $(0, 0)$",
+      "Infinitely many non-trivial solutions",
+      "No solution at all",
+      "Two distinct solutions"
     ],
     "optionsAr": [
-      "35",
-      "-35",
-      "37",
-      "39"
+      "الحل الصفري (البديهي) فقط (0, 0)",
+      "عدد لا نهائي من الحلول غير الصفرية",
+      "ليس له حل على الإطلاق",
+      "حلان مختلفان فقط"
     ],
-    "correctAnswer": "$35$",
+    "correctAnswer": "Only the trivial solution $(0, 0)$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "Check if |A| != 0.",
+    "hintAr": "احسب محدد المعاملات دلتا.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 35$."
+      "1. $|A| = (2)(4) - (1)(3) = 8 - 3 = 5 \\neq 0$.",
+      "2. Since $|A| \\neq 0$, the only solution is $(0, 0)$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 35$."
+      "١. محدد المعاملات $|A| = 8 - 3 = 5 \\neq 0$.",
+      "٢. طالما المحدد غير صفري، فالنظام المتجانس له الحل الصفري فقط."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "A homogeneous system is ALWAYS consistent (it always has at least (0,0)).",
+    "teacherTipAr": "النظام المتجانس متسق دائماً ومضمون وجود الحل الصفري على الأقل."
   },
   {
     "id": "alg_ch3_db_easy_40",
-    "titleEn": "Transpose Determinant Value #10",
-    "titleAr": "قيمة محدد المدور رقم 10",
+    "titleEn": "Homogeneous System with Non-Trivial Solutions",
+    "titleAr": "نظام متجانس له حلول غير صفرية",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 39$, what is the value of $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 39$، فما هي قيمة $|A^T|$؟",
+    "questionEn": "For what value of $k$ does the system $x + 2y = 0$ and $3x + ky = 0$ have non-trivial solutions?",
+    "questionAr": "لأي قيمة للثابت $k$ يكون للنظام $x + 2y = 0$ و $3x + ky = 0$ حلول غير صفرية؟",
     "optionsEn": [
-      "$39$",
-      "$-39$",
-      "$41$",
-      "$43$"
+      "$6$",
+      "$3$",
+      "$2$",
+      "$0$"
     ],
     "optionsAr": [
-      "39",
-      "-39",
-      "41",
-      "43"
+      "6",
+      "3",
+      "2",
+      "0"
     ],
-    "correctAnswer": "$39$",
+    "correctAnswer": "$6$",
     "correctIndex": 0,
-    "hintEn": "The determinant of the transpose equals the determinant of the original matrix: $|A^T| = |A|$.",
-    "hintAr": "محدد المدور يساوي محدد المصفوفة الأصلية: $|A^T| = |A|$.",
+    "hintEn": "Set |A| = 0.",
+    "hintAr": "اجعل محدد المعاملات مساوياً للصفر.",
     "stepByStepSolutionEn": [
-      "1. By property of determinants: $|A^T| = |A|$.",
-      "2. Therefore, $|A^T| = 39$."
+      "1. Non-trivial solutions require $|A| = 0$.",
+      "2. $(1)(k) - (2)(3) = 0 \\implies k - 6 = 0 \\implies k = 6$."
     ],
     "stepByStepSolutionAr": [
-      "١. من خواص المحددات: $|A^T| = |A|$.",
-      "٢. إذن $|A^T| = 39$."
+      "١. لوجود حلول غير صفرية يجب أن ينعدم المحدد: $|A| = 0$.",
+      "٢. $k - 6 = 0 \\implies k = 6$."
     ],
-    "teacherTipEn": "Transposing does not change the determinant value.",
-    "teacherTipAr": "التدوير لا يغير قيمة المحدد."
+    "teacherTipEn": "Non-trivial solutions occur when the equations are linearly dependent.",
+    "teacherTipAr": "الحلول غير الصفرية تظهر عندما تكون المعادلات مرتبطة خطياً."
   },
   {
     "id": "alg_ch3_db_easy_41",
-    "titleEn": "Singularity Value of k #1",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 1",
+    "titleEn": "Adding Rows Invariance Property",
+    "titleAr": "خاصية إضافة صف إلى صف آخر في محدد",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 1 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 1 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $\\Delta = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = 12$, what is the value of $\\begin{vmatrix} a+c & b+d \\\\ c & d \\end{vmatrix}$?",
+    "questionAr": "إذا كان $\\Delta = \\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = 12$، فما قيمة $\\begin{vmatrix} a+c & b+d \\\\ c & d \\end{vmatrix}$؟",
     "optionsEn": [
-      "$k = 3$",
-      "$k = 5$",
-      "$k = 7$",
-      "$k = 9$"
+      "$12$",
+      "$24$",
+      "$0$",
+      "$-12$"
     ],
     "optionsAr": [
-      "$k = 3$",
-      "$k = 5$",
-      "$k = 7$",
-      "$k = 9$"
+      "12",
+      "24",
+      "0",
+      "-12"
     ],
-    "correctAnswer": "$k = 3$",
+    "correctAnswer": "$12$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "Adding one row to another does not change the determinant's value.",
+    "hintAr": "إضافة صف إلى صف آخر لا يغير من قيمة المحدد إطلاقاً.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(1) = 0$.",
-      "2. $k - 3 = 0 \\implies k = 3$."
+      "1. By elementary row operations: $R_1 \\to R_1 + R_2$ preserves the determinant.",
+      "2. Value remains $12$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(1) = 0$.",
-      "٢. إذن $k = 3$."
+      "١. العمليات الصفية البسيطة: إضافة صف لصف آخر تبقي قيمة المحدد كما هي.",
+      "٢. القيمة تظل $12$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "This is the foundation of Gaussian elimination for determinants.",
+    "teacherTipAr": "هذه الخاصية هي أساس طريقة الحذف في تبسيط المحددات."
   },
   {
     "id": "alg_ch3_db_easy_42",
-    "titleEn": "Singularity Value of k #2",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 2",
+    "titleEn": "Adding Multiple of Row Property",
+    "titleAr": "خاصية إضافة مضاعف صف لصف آخر",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 2 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 2 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $|A| = -5$, what is the determinant after replacing $R_1$ by $R_1 - 4 R_2$?",
+    "questionAr": "إذا كانت قيمة $|A| = -5$، فما قيمة المحدد بعد استبدال الصف الأول بـ $R_1 - 4 R_2$؟",
     "optionsEn": [
-      "$k = 6$",
-      "$k = 8$",
-      "$k = 10$",
-      "$k = 12$"
+      "$-5$",
+      "$20$",
+      "$-20$",
+      "$0$"
     ],
     "optionsAr": [
-      "$k = 6$",
-      "$k = 8$",
-      "$k = 10$",
-      "$k = 12$"
+      "-5",
+      "20",
+      "-20",
+      "0"
     ],
-    "correctAnswer": "$k = 6$",
+    "correctAnswer": "$-5$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "R_i -> R_i + c R_j does not change the determinant.",
+    "hintAr": "استبدال صف بمجموعه مع مضاعف صف آخر لا يغير قيمة المحدد.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(2) = 0$.",
-      "2. $k - 6 = 0 \\implies k = 6$."
+      "1. Adding a scalar multiple of a row to another leaves $|A|$ unchanged.",
+      "2. Value = $-5$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(2) = 0$.",
-      "٢. إذن $k = 6$."
+      "١. إضافة مضاعف عددي لصف إلى صف آخر لا يغير قيمة المحدد.",
+      "٢. القيمة = $-5$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Only multiplying a row by c changes the determinant by factor c.",
+    "teacherTipAr": "فقط ضرب الصف نفسه في عدد يغير قيمة المحدد بذلك العدد."
   },
   {
     "id": "alg_ch3_db_easy_43",
-    "titleEn": "Singularity Value of k #3",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 3",
+    "titleEn": "Matrix Multiplication Compatibility",
+    "titleAr": "شرط إمكانية ضرب مصفوفتين",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 3 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 3 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If matrix $A$ is of size $2 \\times 3$ and matrix $B$ is of size $3 \\times 4$, what is the size of $A B$?",
+    "questionAr": "إذا كانت المصفوفة $A$ على النظم $2 \\times 3$ والمصفوفة $B$ على النظم $3 \\times 4$، فما نظم $A B$؟",
     "optionsEn": [
-      "$k = 9$",
-      "$k = 11$",
-      "$k = 13$",
-      "$k = 15$"
+      "$2 \\times 4$",
+      "$3 \\times 3$",
+      "$4 \\times 2$",
+      "Multiplication impossible"
     ],
     "optionsAr": [
-      "$k = 9$",
-      "$k = 11$",
-      "$k = 13$",
-      "$k = 15$"
+      "2 x 4",
+      "3 x 3",
+      "4 x 2",
+      "الضرب غير ممكن"
     ],
-    "correctAnswer": "$k = 9$",
+    "correctAnswer": "$2 \\times 4$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "Inner dimensions must match, outer give resulting size.",
+    "hintAr": "الأعمدة الداخلية تتطابق والأطراف تعطي نظم الناتج.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(3) = 0$.",
-      "2. $k - 9 = 0 \\implies k = 9$."
+      "1. $A_{2 \\times 3} B_{3 \\times 4}$: the inner dimensions (3 and 3) match.",
+      "2. Resulting dimensions = $2 \\times 4$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(3) = 0$.",
-      "٢. إذن $k = 9$."
+      "١. عدد أعمدة الأولى (3) يساوي عدد صفوف الثانية (3).",
+      "٢. النظم الناتج هو $2 \\times 4$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Remember: number of columns of A must equal number of rows of B.",
+    "teacherTipAr": "تذكر: عدد أعمدة الأولى يجب أن يساوي عدد صفوف الثانية."
   },
   {
     "id": "alg_ch3_db_easy_44",
-    "titleEn": "Singularity Value of k #4",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 4",
+    "titleEn": "Incompatibility of Matrix Multiplication",
+    "titleAr": "عدم إمكانية ضرب مصفوفتين",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 4 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 4 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $A$ is $3 \\times 2$ and $B$ is $3 \\times 2$, which operation is well-defined?",
+    "questionAr": "إذا كانت $A$ على النظم $3 \\times 2$ و $B$ على النظم $3 \\times 2$، فأي العمليات الآتية معرفة؟",
     "optionsEn": [
-      "$k = 12$",
-      "$k = 14$",
-      "$k = 16$",
-      "$k = 18$"
+      "$A + B$",
+      "$A B$",
+      "$B A$",
+      "$A B^2$"
     ],
     "optionsAr": [
-      "$k = 12$",
-      "$k = 14$",
-      "$k = 16$",
-      "$k = 18$"
+      "A + B",
+      "A B",
+      "B A",
+      "A B^2"
     ],
-    "correctAnswer": "$k = 12$",
+    "correctAnswer": "$A + B$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "Addition requires identical dimensions; multiplication requires column-row match.",
+    "hintAr": "الجمع يتطلب نفس النظم تماماً، بينما الضرب يتطلب تطابق الأعمدة والصفوف.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(4) = 0$.",
-      "2. $k - 12 = 0 \\implies k = 12$."
+      "1. For addition, matrices must have identical dimensions ($3 \\times 2$).",
+      "2. For $AB$, inner dimensions would be $2$ and $3$, which do not match."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(4) = 0$.",
-      "٢. إذن $k = 12$."
+      "١. لجمع مصفوفتين يجب أن يكون لهما نفس النظم تماماً.",
+      "٢. ضرب $AB$ غير ممكن لأن عدد أعمدة $A$ (2) لا يساوي صفوف $B$ (3)."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Never attempt matrix multiplication without checking dimensions.",
+    "teacherTipAr": "لا تبدأ في ضرب مصفوفات دون فحص أبعادها."
   },
   {
     "id": "alg_ch3_db_easy_45",
-    "titleEn": "Singularity Value of k #5",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 5",
+    "titleEn": "Determinant Product Identity of Three Matrices",
+    "titleAr": "محدد حاصل ضرب ثلاث مصفوفات",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 5 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 5 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $A, B, C$ are $3 \\times 3$ matrices with $|A| = 2, |B| = -1, |C| = 5$, find $|A B C|$.",
+    "questionAr": "إذا كانت $A, B, C$ مصفوفات مربعة بحيث $|A| = 2, |B| = -1, |C| = 5$، فما قيمة $|A B C|$؟",
     "optionsEn": [
-      "$k = 15$",
-      "$k = 17$",
-      "$k = 19$",
-      "$k = 21$"
+      "$-10$",
+      "$10$",
+      "$6$",
+      "$-6$"
     ],
     "optionsAr": [
-      "$k = 15$",
-      "$k = 17$",
-      "$k = 19$",
-      "$k = 21$"
+      "-10",
+      "10",
+      "6",
+      "-6"
     ],
-    "correctAnswer": "$k = 15$",
+    "correctAnswer": "$-10$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "|ABC| = |A| * |B| * |C|.",
+    "hintAr": "محدد حاصل ضرب ثلاث مصفوفات هو حاصل ضرب محدداتها.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(5) = 0$.",
-      "2. $k - 15 = 0 \\implies k = 15$."
+      "1. $|ABC| = |A| |B| |C| = (2)(-1)(5) = -10$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(5) = 0$.",
-      "٢. إذن $k = 15$."
+      "١. $|ABC| = (2)(-1)(5) = -10$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "The multiplicative property extends to any finite product of square matrices.",
+    "teacherTipAr": "خاصية التوزيع للضرب تنطبق على أي عدد محدود من المصفوفات المربعة."
   },
   {
     "id": "alg_ch3_db_easy_46",
-    "titleEn": "Singularity Value of k #6",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 6",
+    "titleEn": "Determinant of Scalar times Identity",
+    "titleAr": "محدد مصفوفة عددية قياسية",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 6 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 6 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "What is the determinant of the $3 \\times 3$ scalar matrix $S = 4 I_3$?",
+    "questionAr": "ما محدد المصفوفة القياسية $S = 4 I_3$ على النظم $3 \\times 3$؟",
     "optionsEn": [
-      "$k = 18$",
-      "$k = 20$",
-      "$k = 22$",
-      "$k = 24$"
+      "$64$",
+      "$12$",
+      "$4$",
+      "$16$"
     ],
     "optionsAr": [
-      "$k = 18$",
-      "$k = 20$",
-      "$k = 22$",
-      "$k = 24$"
+      "64",
+      "12",
+      "4",
+      "16"
     ],
-    "correctAnswer": "$k = 18$",
+    "correctAnswer": "$64$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "|4 I_3| = 4^3 |I| = 64 * 1.",
+    "hintAr": "محدد 4 مصفوفة الوحدة = 4³ في 1.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(6) = 0$.",
-      "2. $k - 18 = 0 \\implies k = 18$."
+      "1. $|4 I_3| = 4^3 |I_3| = 64 \\times 1 = 64$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(6) = 0$.",
-      "٢. إذن $k = 18$."
+      "١. $|4 I_3| = 4^3 \\times 1 = 64$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "A scalar matrix has the constant on all diagonal entries.",
+    "teacherTipAr": "المصفوفة القياسية تحتوي على نفس العدد في القطر الرئيسي."
   },
   {
     "id": "alg_ch3_db_easy_47",
-    "titleEn": "Singularity Value of k #7",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 7",
+    "titleEn": "Skew-Symmetric 3x3 Determinant Zero",
+    "titleAr": "محدد المصفوفة شبه المتماثلة فردية الرتبة",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 7 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 7 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $A$ is a $3 \\times 3$ skew-symmetric matrix, what is the value of $|A|$?",
+    "questionAr": "إذا كانت $A$ مصفوفة شبه متماثلة من النظم $3 \\times 3$، فما قيمة $|A|$ دائماً؟",
     "optionsEn": [
-      "$k = 21$",
-      "$k = 23$",
-      "$k = 25$",
-      "$k = 27$"
+      "$0$",
+      "$1$",
+      "$-1$",
+      "Cannot be determined"
     ],
     "optionsAr": [
-      "$k = 21$",
-      "$k = 23$",
-      "$k = 25$",
-      "$k = 27$"
+      "0",
+      "1",
+      "-1",
+      "لا يمكن التحديد"
     ],
-    "correctAnswer": "$k = 21$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "For odd order, |A| = |-A^T| = (-1)^3 |A| = -|A|, so 2|A| = 0.",
+    "hintAr": "للرتب الفردية: |A| = -|A| إذن 2|A| = 0.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(7) = 0$.",
-      "2. $k - 21 = 0 \\implies k = 21$."
+      "1. Since $A = -A^T$, $|A| = |-A^T| = (-1)^3 |A^T| = -|A|$.",
+      "2. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(7) = 0$.",
-      "٢. إذن $k = 21$."
+      "١. بما أن $A = -A^T$، فإن $|A| = (-1)^3 |A| = -|A|$.",
+      "٢. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Any skew-symmetric matrix of odd order has determinant 0.",
+    "teacherTipAr": "أي مصفوفة شبه متماثلة من رتبة فردية محددها صفر دائماً."
   },
   {
     "id": "alg_ch3_db_easy_48",
-    "titleEn": "Singularity Value of k #8",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 8",
+    "titleEn": "Inverse of Inverse",
+    "titleAr": "معكوس المعكوس الضربي لمصفوفة",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 8 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 8 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "For an invertible matrix $A$, what does $(A^{-1})^{-1}$ simplify to?",
+    "questionAr": "لمصفوفة غير منفردة $A$، ما ناتج تبسيط $(A^{-1})^{-1}$؟",
     "optionsEn": [
-      "$k = 24$",
-      "$k = 26$",
-      "$k = 28$",
-      "$k = 30$"
+      "$A$",
+      "$A^T$",
+      "$I$",
+      "$A^2$"
     ],
     "optionsAr": [
-      "$k = 24$",
-      "$k = 26$",
-      "$k = 28$",
-      "$k = 30$"
+      "A",
+      "A^T",
+      "I",
+      "A^2"
     ],
-    "correctAnswer": "$k = 24$",
+    "correctAnswer": "$A$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "Inverting twice returns the original matrix.",
+    "hintAr": "أخذ المعكوس الضربي مرتين يعيد المصفوفة الأصلية.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(8) = 0$.",
-      "2. $k - 24 = 0 \\implies k = 24$."
+      "1. Inversion is an involution: $(A^{-1})^{-1} = A$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(8) = 0$.",
-      "٢. إذن $k = 24$."
+      "١. إيجاد المعكوس الضربي مرتين يعيد المصفوفة الأصلية: $(A^{-1})^{-1} = A$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Just like (-(-x)) = x and (A^T)^T = A.",
+    "teacherTipAr": "تماماً مثل نفي النفي إثبات ومدور المدور يعيد الأصل."
   },
   {
     "id": "alg_ch3_db_easy_49",
-    "titleEn": "Singularity Value of k #9",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 9",
+    "titleEn": "Transpose of Transpose",
+    "titleAr": "مدور مدور مصفوفة",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 9 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 9 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "For any matrix $A$, $(A^T)^T$ equals:",
+    "questionAr": "لأي مصفوفة $A$، فإن $(A^T)^T$ تساوي:",
     "optionsEn": [
-      "$k = 27$",
-      "$k = 29$",
-      "$k = 31$",
-      "$k = 33$"
+      "$A$",
+      "$-A$",
+      "$A^{-1}$",
+      "$I$"
     ],
     "optionsAr": [
-      "$k = 27$",
-      "$k = 29$",
-      "$k = 31$",
-      "$k = 33$"
+      "A",
+      "-A",
+      "A^{-1}",
+      "I"
     ],
-    "correctAnswer": "$k = 27$",
+    "correctAnswer": "$A$",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "Transposing twice swaps rows to columns and back to rows.",
+    "hintAr": "التدوير مرتين يعيد الصفوف كما كانت في الأصل.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(9) = 0$.",
-      "2. $k - 27 = 0 \\implies k = 27$."
+      "1. Transposing rows to columns and then back yields the original matrix $A$."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(9) = 0$.",
-      "٢. إذن $k = 27$."
+      "١. تدوير المصفوفة مرتين يعيدها إلى شكلها الأصلي $A$."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "Involution operation: doing it twice leaves the object unchanged.",
+    "teacherTipAr": "عملية ارتدادية: تكرارها مرتين يلغي أثرها."
   },
   {
     "id": "alg_ch3_db_easy_50",
-    "titleEn": "Singularity Value of k #10",
-    "titleAr": "قيمة ك التي تجعل المصفوفة منفردة رقم 10",
+    "titleEn": "Invertible Symmetric Matrix Inverse",
+    "titleAr": "معكوس المصفوفة المتماثلة",
     "difficulty": "easy",
-    "questionEn": "Find the value of $k$ for which the matrix $A = \\begin{pmatrix} k & 3 \\\\ 10 & 1 \\end{pmatrix}$ is singular.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} k & 3 \\\\ 10 & 1 \\end{pmatrix}$ مصفوفة منفردة.",
+    "questionEn": "If $A$ is an invertible symmetric matrix ($A = A^T$), its inverse $A^{-1}$ is:",
+    "questionAr": "إذا كانت $A$ مصفوفة متماثلة غير منفردة ($A = A^T$)، فإن معكوسها $A^{-1}$ يكون مصفوفة:",
     "optionsEn": [
-      "$k = 30$",
-      "$k = 32$",
-      "$k = 34$",
-      "$k = 36$"
+      "Symmetric",
+      "Skew-symmetric",
+      "Diagonal",
+      "Scalar"
     ],
     "optionsAr": [
-      "$k = 30$",
-      "$k = 32$",
-      "$k = 34$",
-      "$k = 36$"
+      "متماثلة",
+      "شبه متماثلة",
+      "قطرية",
+      "صفرية"
     ],
-    "correctAnswer": "$k = 30$",
+    "correctAnswer": "Symmetric",
     "correctIndex": 0,
-    "hintEn": "A matrix is singular when its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون المصفوفة منفردة عندما ينعدم محددها: $|A| = 0$.",
+    "hintEn": "(A^{-1})^T = (A^T)^{-1} = A^{-1}.",
+    "hintAr": "مدور المعكوس يساوي معكوس المدور.",
     "stepByStepSolutionEn": [
-      "1. Set $|A| = 0$: $k(1) - 3(10) = 0$.",
-      "2. $k - 30 = 0 \\implies k = 30$."
+      "1. $(A^{-1})^T = (A^T)^{-1} = A^{-1}$.",
+      "2. Therefore, $A^{-1}$ is also symmetric."
     ],
     "stepByStepSolutionAr": [
-      "١. وضع المحدد مساوياً للصفر: $k(1) - 3(10) = 0$.",
-      "٢. إذن $k = 30$."
+      "١. $(A^{-1})^T = (A^T)^{-1} = A^{-1}$.",
+      "٢. إذن المعكوس الضربي متماثل أيضاً."
     ],
-    "teacherTipEn": "Singular matrix <=> det(A) = 0.",
-    "teacherTipAr": "المصفوفة المنفردة تكافئ انعدام المحدد."
+    "teacherTipEn": "The inverse of a symmetric matrix inherits its symmetry.",
+    "teacherTipAr": "معكوس المصفوفة المتماثلة يرث خاصية التماثل دائماً."
   }
 ],
   medium: [
   {
-    "id": "alg_ch3_db_med_01",
-    "titleEn": "Upper Triangular Determinant #1",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 1",
+    "id": "alg_ch3_db_medium_01",
+    "titleEn": "Adjoint Matrix Fundamental Identity",
+    "titleAr": "المتطابقة الأساسية للمصفوفة الملحقة",
     "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 2 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 2 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix such that $A \\cdot \\text{adj}(A) = \\begin{pmatrix} 6 & 0 & 0 \\\\ 0 & 6 & 0 \\\\ 0 & 0 & 6 \\end{pmatrix}$, find the value of $|A|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $A \\cdot \\text{adj}(A) = \\begin{pmatrix} 6 & 0 & 0 \\\\ 0 & 6 & 0 \\\\ 0 & 0 & 6 \\end{pmatrix}$، فما قيمة $|A|$؟",
     "optionsEn": [
-      "$12$",
-      "$18$",
-      "$24$",
-      "$30$"
-    ],
-    "optionsAr": [
-      "12",
-      "18",
-      "24",
-      "30"
-    ],
-    "correctAnswer": "$12$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (2) \\times (2) \\times (3) = 12$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (2) \\times (2) \\times (3) = 12$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_02",
-    "titleEn": "Upper Triangular Determinant #2",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 2",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 3 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 3 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$18$",
-      "$24$",
-      "$30$",
-      "$36$"
-    ],
-    "optionsAr": [
-      "18",
-      "24",
-      "30",
-      "36"
-    ],
-    "correctAnswer": "$18$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (3) \\times (2) \\times (3) = 18$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (3) \\times (2) \\times (3) = 18$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_03",
-    "titleEn": "Upper Triangular Determinant #3",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 3",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 4 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 4 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$24$",
-      "$30$",
+      "$6$",
       "$36$",
-      "$42$"
+      "$216$",
+      "$2$"
     ],
     "optionsAr": [
-      "24",
-      "30",
+      "6",
       "36",
-      "42"
+      "216",
+      "2"
     ],
-    "correctAnswer": "$24$",
+    "correctAnswer": "$6$",
     "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
+    "hintEn": "Recall that A * adj(A) = |A| I.",
+    "hintAr": "تذكر المتطابقة: A * adj(A) = |A| I.",
     "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (4) \\times (2) \\times (3) = 24$."
+      "1. Fundamental identity: $A \\cdot \\text{adj}(A) = |A| I_3$.",
+      "2. Here $A \\cdot \\text{adj}(A) = 6 I_3$.",
+      "3. Therefore $|A| = 6$."
     ],
     "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (4) \\times (2) \\times (3) = 24$."
+      "١. المتطابقة الأساسية: $A \\cdot \\text{adj}(A) = |A| I_3$.",
+      "٢. الطرف الأيسر يساوي $6 I_3$.",
+      "٣. إذن $|A| = 6$."
     ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
+    "teacherTipEn": "This identity holds for every square matrix of any order.",
+    "teacherTipAr": "هذه المتطابقة صحيحة لأي مصفوفة مربعة من أي رتبة."
   },
   {
-    "id": "alg_ch3_db_med_04",
-    "titleEn": "Upper Triangular Determinant #4",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 4",
+    "id": "alg_ch3_db_medium_02",
+    "titleEn": "Determinant of the Adjoint Matrix",
+    "titleAr": "محدد المصفوفة الملحقة",
     "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 5 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 5 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$30$",
-      "$36$",
-      "$42$",
-      "$48$"
-    ],
-    "optionsAr": [
-      "30",
-      "36",
-      "42",
-      "48"
-    ],
-    "correctAnswer": "$30$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (5) \\times (2) \\times (3) = 30$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (5) \\times (2) \\times (3) = 30$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_05",
-    "titleEn": "Upper Triangular Determinant #5",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 5",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 6 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 6 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$36$",
-      "$42$",
-      "$48$",
-      "$54$"
-    ],
-    "optionsAr": [
-      "36",
-      "42",
-      "48",
-      "54"
-    ],
-    "correctAnswer": "$36$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (6) \\times (2) \\times (3) = 36$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (6) \\times (2) \\times (3) = 36$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_06",
-    "titleEn": "Upper Triangular Determinant #6",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 6",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 7 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 7 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$42$",
-      "$48$",
-      "$54$",
-      "$60$"
-    ],
-    "optionsAr": [
-      "42",
-      "48",
-      "54",
-      "60"
-    ],
-    "correctAnswer": "$42$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (7) \\times (2) \\times (3) = 42$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (7) \\times (2) \\times (3) = 42$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_07",
-    "titleEn": "Upper Triangular Determinant #7",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 7",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 8 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 8 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$48$",
-      "$54$",
-      "$60$",
-      "$66$"
-    ],
-    "optionsAr": [
-      "48",
-      "54",
-      "60",
-      "66"
-    ],
-    "correctAnswer": "$48$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (8) \\times (2) \\times (3) = 48$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (8) \\times (2) \\times (3) = 48$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_08",
-    "titleEn": "Upper Triangular Determinant #8",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 8",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 9 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 9 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$54$",
-      "$60$",
-      "$66$",
-      "$72$"
-    ],
-    "optionsAr": [
-      "54",
-      "60",
-      "66",
-      "72"
-    ],
-    "correctAnswer": "$54$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (9) \\times (2) \\times (3) = 54$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (9) \\times (2) \\times (3) = 54$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_09",
-    "titleEn": "Upper Triangular Determinant #9",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 9",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 10 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 10 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$60$",
-      "$66$",
-      "$72$",
-      "$78$"
-    ],
-    "optionsAr": [
-      "60",
-      "66",
-      "72",
-      "78"
-    ],
-    "correctAnswer": "$60$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (10) \\times (2) \\times (3) = 60$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (10) \\times (2) \\times (3) = 60$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_10",
-    "titleEn": "Upper Triangular Determinant #10",
-    "titleAr": "محدد مصفوفة مثلثية علوية رقم 10",
-    "difficulty": "medium",
-    "questionEn": "Find the value of the determinant $\\Delta = \\begin{vmatrix} 11 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "questionAr": "أوجد قيمة المحدد $\\Delta = \\begin{vmatrix} 11 & 4 & -1 \\\\ 0 & 2 & 5 \\\\ 0 & 0 & 3 \\end{vmatrix}$.",
-    "optionsEn": [
-      "$66$",
-      "$72$",
-      "$78$",
-      "$84$"
-    ],
-    "optionsAr": [
-      "66",
-      "72",
-      "78",
-      "84"
-    ],
-    "correctAnswer": "$66$",
-    "correctIndex": 0,
-    "hintEn": "The determinant of a triangular matrix equals the product of its main diagonal elements.",
-    "hintAr": "قيمة محدد المصفوفة المثلثية تساوي حاصل ضرب عناصر قطرها الرئيسي.",
-    "stepByStepSolutionEn": [
-      "1. This is an upper triangular determinant because all elements below the main diagonal are zeros.",
-      "2. $\\Delta = (11) \\times (2) \\times (3) = 66$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. محدد على الصورة المثلثية العلوية لأن جميع العناصر أسفل القطر الرئيسي أصفار.",
-      "٢. $\\Delta = (11) \\times (2) \\times (3) = 66$."
-    ],
-    "teacherTipEn": "Product of main diagonal elements gives triangular determinant immediately.",
-    "teacherTipAr": "حاصل ضرب عناصر القطر الرئيسي يعطي قيمة المحدد المثلثي فوراً."
-  },
-  {
-    "id": "alg_ch3_db_med_11",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #1",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 1",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 2$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 2$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$4$",
-      "$9$",
-      "$14$",
-      "$19$"
-    ],
-    "optionsAr": [
-      "4",
-      "9",
-      "14",
-      "19"
-    ],
-    "correctAnswer": "$4$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (2)^2 = 4$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (2)^2 = 4$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_12",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #2",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 2",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 3$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 3$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$9$",
-      "$14$",
-      "$19$",
-      "$24$"
-    ],
-    "optionsAr": [
-      "9",
-      "14",
-      "19",
-      "24"
-    ],
-    "correctAnswer": "$9$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (3)^2 = 9$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (3)^2 = 9$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_13",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #3",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 3",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 4$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 4$، أوجد قيمة $|\\text{adj}(A)|$.",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $|A| = 4$, determine the value of $|\\text{adj}(A)|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = 4$، فاحسب قيمة $|\\text{adj}(A)|$.",
     "optionsEn": [
       "$16$",
-      "$21$",
-      "$26$",
-      "$31$"
+      "$4$",
+      "$64$",
+      "$8$"
     ],
     "optionsAr": [
       "16",
-      "21",
-      "26",
-      "31"
+      "4",
+      "64",
+      "8"
     ],
     "correctAnswer": "$16$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
+    "hintEn": "|adj(A)| = |A|^{n-1}.",
+    "hintAr": "|adj(A)| = |A|^{n-1}.",
     "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (4)^2 = 16$."
+      "1. For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$.",
+      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
+      "3. $|\\text{adj}(A)| = 4^2 = 16$."
     ],
     "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (4)^2 = 16$."
+      "١. لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$.",
+      "٢. هنا $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = 4^2 = 16$."
     ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
+    "teacherTipEn": "For n = 3, determinant of adj(A) is always the square of |A|.",
+    "teacherTipAr": "للرتبة 3، محدد الملحقة هو مربع محدد المصفوفة الأصلية دائماً."
   },
   {
-    "id": "alg_ch3_db_med_14",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #4",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 4",
+    "id": "alg_ch3_db_medium_03",
+    "titleEn": "Inferring Determinant from Adjoint Determinant",
+    "titleAr": "استنتاج محدد المصفوفة من محدد ملحقتها",
     "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 5$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 5$، أوجد قيمة $|\\text{adj}(A)|$.",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix and $|\\text{adj}(A)| = 49$, find all possible values of $|A|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ وكان $|\\text{adj}(A)| = 49$، فما جميع القيم الممكنة لـ $|A|$؟",
     "optionsEn": [
-      "$25$",
-      "$30$",
-      "$35$",
-      "$40$"
-    ],
-    "optionsAr": [
-      "25",
-      "30",
-      "35",
-      "40"
-    ],
-    "correctAnswer": "$25$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (5)^2 = 25$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (5)^2 = 25$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_15",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #5",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 5",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 6$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 6$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$36$",
-      "$41$",
-      "$46$",
-      "$51$"
-    ],
-    "optionsAr": [
-      "36",
-      "41",
-      "46",
-      "51"
-    ],
-    "correctAnswer": "$36$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (6)^2 = 36$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (6)^2 = 36$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_16",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #6",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 6",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 7$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 7$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
+      "$\\pm 7$",
+      "$7$",
       "$49$",
-      "$54$",
-      "$59$",
-      "$64$"
+      "$\\pm 49$"
     ],
     "optionsAr": [
+      "±7",
+      "7",
       "49",
-      "54",
-      "59",
-      "64"
+      "±49"
     ],
-    "correctAnswer": "$49$",
+    "correctAnswer": "$\\pm 7$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
+    "hintEn": "|adj(A)| = |A|^2 = 49.",
+    "hintAr": "|adj(A)| = |A|^2 = 49.",
     "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (7)^2 = 49$."
+      "1. $|\\text{adj}(A)| = |A|^2 = 49$.",
+      "2. Taking square root: $|A| = \\pm \\sqrt{49} = \\pm 7$."
     ],
     "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (7)^2 = 49$."
+      "١. $|\\text{adj}(A)| = |A|^2 = 49$.",
+      "٢. بأخذ الجذر التربيعي: $|A| = \\pm 7$."
     ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
+    "teacherTipEn": "Never forget the negative root when taking the square root.",
+    "teacherTipAr": "لا تنسَ الحل السالب عند أخذ الجذر التربيعي."
   },
   {
-    "id": "alg_ch3_db_med_17",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #7",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 7",
+    "id": "alg_ch3_db_medium_04",
+    "titleEn": "Adjoint Determinant of a 2x2 Matrix",
+    "titleAr": "محدد ملحقة مصفوفة من النظم 2x2",
     "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 8$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 8$، أوجد قيمة $|\\text{adj}(A)|$.",
+    "questionEn": "If $A$ is a $2 \\times 2$ matrix with $|A| = -5$, find $|\\text{adj}(A)|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $2 \\times 2$ بحيث $|A| = -5$، فما قيمة $|\\text{adj}(A)|$؟",
     "optionsEn": [
-      "$64$",
-      "$69$",
-      "$74$",
-      "$79$"
+      "$-5$",
+      "$5$",
+      "$25$",
+      "$-25$"
     ],
     "optionsAr": [
-      "64",
-      "69",
-      "74",
-      "79"
+      "-5",
+      "5",
+      "25",
+      "-25"
     ],
-    "correctAnswer": "$64$",
+    "correctAnswer": "$-5$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
+    "hintEn": "For n = 2, |adj(A)| = |A|^{2-1} = |A|.",
+    "hintAr": "عندما n = 2، فإن |adj(A)| = |A|.",
     "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (8)^2 = 64$."
+      "1. For $n = 2$, $|\\text{adj}(A)| = |A|^{2-1} = |A|^1$.",
+      "2. Thus $|\\text{adj}(A)| = -5$."
     ],
     "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (8)^2 = 64$."
+      "١. للرتبة 2: $|\\text{adj}(A)| = |A|^{2-1} = |A|$.",
+      "٢. إذن القيمة = $-5$."
     ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
+    "teacherTipEn": "For 2x2 matrices, the adjoint has the exact same determinant as the matrix itself.",
+    "teacherTipAr": "لمصفوفات 2x2، محدد الملحقة يساوي محدد المصفوفة الأصلية تماماً."
   },
   {
-    "id": "alg_ch3_db_med_18",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #8",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 8",
+    "id": "alg_ch3_db_medium_05",
+    "titleEn": "Factor Theorem in Determinants",
+    "titleAr": "نظرية العامل في المحددات",
     "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 9$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 9$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$81$",
-      "$86$",
-      "$91$",
-      "$96$"
-    ],
-    "optionsAr": [
-      "81",
-      "86",
-      "91",
-      "96"
-    ],
-    "correctAnswer": "$81$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (9)^2 = 81$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (9)^2 = 81$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_19",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #9",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 9",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 10$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 10$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$100$",
-      "$105$",
-      "$110$",
-      "$115$"
-    ],
-    "optionsAr": [
-      "100",
-      "105",
-      "110",
-      "115"
-    ],
-    "correctAnswer": "$100$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (10)^2 = 100$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (10)^2 = 100$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_20",
-    "titleEn": "Determinant of Adjoint Matrix |adj(A)| #10",
-    "titleAr": "محدد المصفوفة الملحقة لمصفوفة ثلاثية رقم 10",
-    "difficulty": "medium",
-    "questionEn": "If $A$ is a square matrix of order $3 \\times 3$ with $|A| = 11$, find the value of $|\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ وكان $|A| = 11$، أوجد قيمة $|\\text{adj}(A)|$.",
-    "optionsEn": [
-      "$121$",
-      "$126$",
-      "$131$",
-      "$136$"
-    ],
-    "optionsAr": [
-      "121",
-      "126",
-      "131",
-      "136"
-    ],
-    "correctAnswer": "$121$",
-    "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|\\text{adj}(A)| = |A|^{n-1}$. For $n = 3$, $|\\text{adj}(A)| = |A|^2$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|\\text{adj}(A)| = |A|^{n-1}$. للرتبة 3 يكون $|\\text{adj}(A)| = |A|^2$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "2. Here $n = 3$, so $|\\text{adj}(A)| = |A|^2 = (11)^2 = 121$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القانون: $|\\text{adj}(A)| = |A|^{n-1}$.",
-      "٢. بما أن $n = 3$، إذن $|\\text{adj}(A)| = |A|^2 = (11)^2 = 121$."
-    ],
-    "teacherTipEn": "|adj(A)| = |A|^(n-1).",
-    "teacherTipAr": "محدد المصفوفة الملحقة يساوي محدد المصفوفة الأصلية مرفوعاً للأس (ن - ١)."
-  },
-  {
-    "id": "alg_ch3_db_med_21",
-    "titleEn": "2x2 Matrix Inversion #1",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 1",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 1 & -2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 2 & -1 \\\\ -1 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 1 & -2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 2 & -1 \\\\ -1 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (2)(1) - (1)(1) = 2 - 1 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 2 - 1 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_22",
-    "titleEn": "2x2 Matrix Inversion #2",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 2",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 2 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 2 & -3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 3 & -1 \\\\ -2 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 2 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 2 & -3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 3 & -1 \\\\ -2 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (3)(1) - (1)(2) = 3 - 2 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 3 - 2 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_23",
-    "titleEn": "2x2 Matrix Inversion #3",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 3",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 4 & 1 \\\\ 3 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 4 & 1 \\\\ 3 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -3 & 4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 3 & 4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 3 & -4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 4 & -1 \\\\ -3 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -3 & 4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 3 & 4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 3 & -4 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 4 & -1 \\\\ -3 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -3 & 4 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (4)(1) - (1)(3) = 4 - 3 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -3 & 4 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 4 - 3 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -3 & 4 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_24",
-    "titleEn": "2x2 Matrix Inversion #4",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 4",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 5 & 1 \\\\ 4 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 5 & 1 \\\\ 4 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -4 & 5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 4 & 5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 4 & -5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 5 & -1 \\\\ -4 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -4 & 5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 4 & 5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 4 & -5 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 5 & -1 \\\\ -4 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -4 & 5 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (5)(1) - (1)(4) = 5 - 4 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -4 & 5 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 5 - 4 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -4 & 5 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_25",
-    "titleEn": "2x2 Matrix Inversion #5",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 5",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 6 & 1 \\\\ 5 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 6 & 1 \\\\ 5 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -5 & 6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 5 & 6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 5 & -6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 6 & -1 \\\\ -5 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -5 & 6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 5 & 6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 5 & -6 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 6 & -1 \\\\ -5 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -5 & 6 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (6)(1) - (1)(5) = 6 - 5 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -5 & 6 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 6 - 5 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -5 & 6 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_26",
-    "titleEn": "2x2 Matrix Inversion #6",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 6",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 7 & 1 \\\\ 6 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 7 & 1 \\\\ 6 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -6 & 7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 6 & 7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 6 & -7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 7 & -1 \\\\ -6 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -6 & 7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 6 & 7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 6 & -7 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 7 & -1 \\\\ -6 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -6 & 7 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (7)(1) - (1)(6) = 7 - 6 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -6 & 7 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 7 - 6 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -6 & 7 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_27",
-    "titleEn": "2x2 Matrix Inversion #7",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 7",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 8 & 1 \\\\ 7 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 8 & 1 \\\\ 7 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -7 & 8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 7 & 8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 7 & -8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 8 & -1 \\\\ -7 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -7 & 8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 7 & 8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 7 & -8 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 8 & -1 \\\\ -7 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -7 & 8 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (8)(1) - (1)(7) = 8 - 7 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -7 & 8 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 8 - 7 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -7 & 8 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_28",
-    "titleEn": "2x2 Matrix Inversion #8",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 8",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 9 & 1 \\\\ 8 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 9 & 1 \\\\ 8 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -8 & 9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 8 & 9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 8 & -9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 9 & -1 \\\\ -8 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -8 & 9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 8 & 9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 8 & -9 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 9 & -1 \\\\ -8 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -8 & 9 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (9)(1) - (1)(8) = 9 - 8 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -8 & 9 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 9 - 8 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -8 & 9 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_29",
-    "titleEn": "2x2 Matrix Inversion #9",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 9",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 10 & 1 \\\\ 9 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 10 & 1 \\\\ 9 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -9 & 10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 9 & 10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 9 & -10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 10 & -1 \\\\ -9 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -9 & 10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 9 & 10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 9 & -10 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 10 & -1 \\\\ -9 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -9 & 10 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (10)(1) - (1)(9) = 10 - 9 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -9 & 10 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 10 - 9 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -9 & 10 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_30",
-    "titleEn": "2x2 Matrix Inversion #10",
-    "titleAr": "إيجاد المعكوس الضربي لمصفوفة مربعة رقم 10",
-    "difficulty": "medium",
-    "questionEn": "Find the multiplicative inverse $A^{-1}$ of the matrix $A = \\begin{pmatrix} 11 & 1 \\\\ 10 & 1 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي $A^{-1}$ للمصفوفة $A = \\begin{pmatrix} 11 & 1 \\\\ 10 & 1 \\end{pmatrix}$.",
-    "optionsEn": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -10 & 11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 10 & 11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 10 & -11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 11 & -1 \\\\ -10 & 1 \\end{pmatrix}$"
-    ],
-    "optionsAr": [
-      "$\\begin{pmatrix} 1 & -1 \\\\ -10 & 11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 1 & 1 \\\\ 10 & 11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -1 & 1 \\\\ 10 & -11 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 11 & -1 \\\\ -10 & 1 \\end{pmatrix}$"
-    ],
-    "correctAnswer": "$\\begin{pmatrix} 1 & -1 \\\\ -10 & 11 \\end{pmatrix}$",
-    "correctIndex": 0,
-    "hintEn": "Compute $|A| = (${A11})(1) - (1)(${A21}) = 1$, then swap main diagonal and negate off-diagonal.",
-    "hintAr": "احسب المحدد $|A| = 1$، ثم بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي.",
-    "stepByStepSolutionEn": [
-      "1. Determinant: $|A| = (11)(1) - (1)(10) = 11 - 10 = 1$.",
-      "2. Inverse formula: $A^{-1} = \\frac{1}{|A|} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -10 & 11 \\end{pmatrix}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. حساب المحدد: $|A| = 11 - 10 = 1$.",
-      "٢. تطبيق قانون المعكوس: $A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -10 & 11 \\end{pmatrix}$."
-    ],
-    "teacherTipEn": "Swap main diagonal entries, negate secondary diagonal entries, divide by det.",
-    "teacherTipAr": "بدل عناصر القطر الرئيسي، اعكس إشارات القطر الفرعي، واقسم على المحدد."
-  },
-  {
-    "id": "alg_ch3_db_med_31",
-    "titleEn": "Cramer's Rule Value of x #1",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 1",
-    "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 3$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 3$، أوجد قيمة $x$.",
+    "questionEn": "Find the roots of the equation $\\begin{vmatrix} x & 1 & 2 \\\\ 1 & x & 2 \\\\ 1 & 2 & x \\end{vmatrix} = 0$ by inspecting row equality when $x = 1$.",
+    "questionAr": "ما أحد جذور المعادلة $\\begin{vmatrix} x & 1 & 2 \\\\ 1 & x & 2 \\\\ 1 & 2 & x \\end{vmatrix} = 0$ التي تجعل صفين متطابقين؟",
     "optionsEn": [
       "$x = 1$",
-      "$x = 3$",
-      "$x = 5$",
-      "$x = 7$"
+      "$x = 0$",
+      "$x = -1$",
+      "$x = 3$"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = 3$",
-      "$x = 5$",
-      "$x = 7$"
+      "x = 1",
+      "x = 0",
+      "x = -1",
+      "x = 3"
     ],
     "correctAnswer": "$x = 1$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "When x = 1, Row 1 and Row 2 become identical.",
+    "hintAr": "عندما x = 1، يصبح الصف الأول مطابقاً تماماً للصف الثاني.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{3}{3} = 1$."
+      "1. Substitute $x = 1$: $R_1 = (1, 1, 2)$ and $R_2 = (1, 1, 2)$.",
+      "2. Since $R_1 = R_2$, the determinant is zero.",
+      "3. By factor theorem, $x = 1$ is a root."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{3}{3} = 1$."
+      "١. بالتعويض عن $x = 1$: الصف الأول $(1, 1, 2)$ يتطابق مع الصف الثاني $(1, 1, 2)$.",
+      "٢. تطابق الصفين يجعل المحدد صفراً، إذن $x = 1$ جذر للمعادلة."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "If setting x = a makes two rows identical, then (x - a) is a factor.",
+    "teacherTipAr": "إذا جعل التعويض x = a صفين متطابقين، فإن (x - a) عامل للمحدد."
   },
   {
-    "id": "alg_ch3_db_med_32",
-    "titleEn": "Cramer's Rule Value of x #2",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 2",
+    "id": "alg_ch3_db_medium_06",
+    "titleEn": "Common Column Sum in Determinants",
+    "titleAr": "جمع الأعمدة لإخراج عامل مشترك",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 6$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 6$، أوجد قيمة $x$.",
+    "questionEn": "Evaluate $\\begin{vmatrix} 1 & a & b+c \\\\ 1 & b & c+a \\\\ 1 & c & a+b \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} 1 & a & b+c \\\\ 1 & b & c+a \\\\ 1 & c & a+b \\end{vmatrix}$.",
     "optionsEn": [
-      "$x = 2$",
-      "$x = 4$",
-      "$x = 6$",
-      "$x = 8$"
+      "$0$",
+      "$a+b+c$",
+      "$abc$",
+      "$1$"
     ],
     "optionsAr": [
-      "$x = 2$",
-      "$x = 4$",
-      "$x = 6$",
-      "$x = 8$"
+      "0",
+      "a+b+c",
+      "abc",
+      "1"
     ],
-    "correctAnswer": "$x = 2$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "Add Column 2 to Column 3.",
+    "hintAr": "أضف العمود الثاني إلى العمود الثالث.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{6}{3} = 2$."
+      "1. Perform $C_3 \\to C_3 + C_2$.",
+      "2. Column 3 becomes $\\begin{pmatrix} a+b+c \\\\ a+b+c \\\\ a+b+c \\end{pmatrix}$.",
+      "3. Factor out $(a+b+c)$: $C_3$ becomes $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+      "4. Now $C_1 = C_3$, so the determinant is 0."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{6}{3} = 2$."
+      "١. بإضافة العمود الثاني للثالث: $C_3 \\to C_3 + C_2$.",
+      "٢. يصبح العمود الثالث $(a+b+c)$ في كل خانة.",
+      "٣. بأخذ $(a+b+c)$ عاملاً مشتركاً يتطابق العمودان الأول والثالث فيكون الناتج صفراً."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Column addition is one of the most powerful tools to spot proportional columns.",
+    "teacherTipAr": "إضافة الأعمدة تكشف بسرعة التطابق والتناسب."
   },
   {
-    "id": "alg_ch3_db_med_33",
-    "titleEn": "Cramer's Rule Value of x #3",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 3",
+    "id": "alg_ch3_db_medium_07",
+    "titleEn": "Compound Angle Formula in a Determinant",
+    "titleAr": "محدد يتضمن جيب تمام مجموع زاويتين",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 9$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 9$، أوجد قيمة $x$.",
+    "questionEn": "Evaluate: $\\begin{vmatrix} \\cos(\\alpha + \\beta) & -\\sin(\\alpha + \\beta) & \\cos \\gamma \\\\ \\sin \\alpha & \\cos \\alpha & 0 \\\\ -\\cos \\alpha & \\sin \\alpha & 0 \\end{vmatrix}$ if $\\gamma = \\pi/2$.",
+    "questionAr": "احسب قيمة المحدد إذا كانت $\\gamma = \\pi/2$: $\\begin{vmatrix} \\cos(\\alpha + \\beta) & -\\sin(\\alpha + \\beta) & \\cos \\gamma \\\\ \\sin \\alpha & \\cos \\alpha & 0 \\\\ -\\cos \\alpha & \\sin \\alpha & 0 \\end{vmatrix}$.",
     "optionsEn": [
-      "$x = 3$",
-      "$x = 5$",
-      "$x = 7$",
-      "$x = 9$"
+      "$0$",
+      "$1$",
+      "$\\sin 2\\alpha$",
+      "$-1$"
     ],
     "optionsAr": [
-      "$x = 3$",
-      "$x = 5$",
-      "$x = 7$",
-      "$x = 9$"
+      "0",
+      "1",
+      "sin 2α",
+      "-1"
     ],
-    "correctAnswer": "$x = 3$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "When γ = π/2, cos γ = 0, so the third column is entirely zero.",
+    "hintAr": "عندما γ = π/2، فإن جتا γ = 0 فيصبح العمود الثالث صفرياً كاملاً.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{9}{3} = 3$."
+      "1. Since $\\gamma = \\pi/2$, $\\cos \\gamma = \\cos(\\pi/2) = 0$.",
+      "2. The third column is $\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$.",
+      "3. A determinant with an entirely zero column is 0."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{9}{3} = 3$."
+      "١. بما أن $\\gamma = \\pi/2$، فإن $\\cos(\\pi/2) = 0$.",
+      "٢. يصبح العمود الثالث بالكامل أصفاراً.",
+      "٣. ينعدم المحدد عند وجود عمود كامل من الأصفار."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Always check whether single elements evaluate to zero before expanding.",
+    "teacherTipAr": "افحص القيم المعطاة للزوايا أولاً قبل الفك الجبري."
   },
   {
-    "id": "alg_ch3_db_med_34",
-    "titleEn": "Cramer's Rule Value of x #4",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 4",
+    "id": "alg_ch3_db_medium_08",
+    "titleEn": "Determinant with Cyclic Omega Entries",
+    "titleAr": "محدد ذو عناصر دورية بدلالة أوميجا",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 12$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 12$، أوجد قيمة $x$.",
+    "questionEn": "Evaluate $\\begin{vmatrix} 1 & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & 1 \\\\ \\omega^2 & 1 & \\omega \\end{vmatrix}$ where $\\omega$ is a cube root of unity.",
+    "questionAr": "احسب قيمة المحدد الدوري: $\\begin{vmatrix} 1 & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & 1 \\\\ \\omega^2 & 1 & \\omega \\end{vmatrix}$ حيث $\\omega$ جذر تكعيبي مركب للواحد.",
     "optionsEn": [
-      "$x = 4$",
-      "$x = 6$",
-      "$x = 8$",
-      "$x = 10$"
+      "$0$",
+      "$3$",
+      "$3\\omega$",
+      "$1$"
     ],
     "optionsAr": [
-      "$x = 4$",
-      "$x = 6$",
-      "$x = 8$",
-      "$x = 10$"
+      "0",
+      "3",
+      "3ω",
+      "1"
     ],
-    "correctAnswer": "$x = 4$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "Add all columns to Column 1: 1 + omega + omega^2 = 0.",
+    "hintAr": "اجمع جميع الأعمدة في العمود الأول: 1 + أوميجا + أوميجا² = 0.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{12}{3} = 4$."
+      "1. Perform $C_1 \\to C_1 + C_2 + C_3$.",
+      "2. The entries in $C_1$ become $1 + \\omega + \\omega^2$.",
+      "3. Since $1 + \\omega + \\omega^2 = 0$, $C_1$ is entirely zero.",
+      "4. Therefore, the determinant is 0."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{12}{3} = 4$."
+      "١. بإجراء العملية $C_1 \\to C_1 + C_2 + C_3$.",
+      "٢. تصبح عناصر العمود الأول: $1 + \\omega + \\omega^2$.",
+      "٣. بما أن $1 + \\omega + \\omega^2 = 0$، فإن العمود الأول يصبح صفرياً بالكامل وتكون القيمة 0."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "The identity 1 + omega + omega^2 = 0 is essential in determinant simplification.",
+    "teacherTipAr": "المتطابقة 1 + ω + ω² = 0 حاسمة في تبسيط محددات الأعداد المركبة."
   },
   {
-    "id": "alg_ch3_db_med_35",
-    "titleEn": "Cramer's Rule Value of x #5",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 5",
+    "id": "alg_ch3_db_medium_09",
+    "titleEn": "Element of Matrix Inverse via Cofactor",
+    "titleAr": "إيجاد عنصر في معكوس مصفوفة باستخدام العوامل المرافقة",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 15$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 15$، أوجد قيمة $x$.",
+    "questionEn": "For $A = \\begin{pmatrix} 1 & 0 & 2 \\\\ 2 & -1 & 3 \\\\ 4 & 1 & 8 \\end{pmatrix}$, if $|A| = -3$, what is the entry $(A^{-1})_{12}$?",
+    "questionAr": "للمصفوفة $A = \\begin{pmatrix} 1 & 0 & 2 \\\\ 2 & -1 & 3 \\\\ 4 & 1 & 8 \\end{pmatrix}$، إذا كان $|A| = -3$، فما قيمة العنصر $(A^{-1})_{12}$؟",
     "optionsEn": [
-      "$x = 5$",
-      "$x = 7$",
-      "$x = 9$",
-      "$x = 11$"
+      "$-2/3$",
+      "$2/3$",
+      "$-1/3$",
+      "$1$"
     ],
     "optionsAr": [
-      "$x = 5$",
-      "$x = 7$",
-      "$x = 9$",
-      "$x = 11$"
+      "-2/3",
+      "2/3",
+      "-1/3",
+      "1"
     ],
-    "correctAnswer": "$x = 5$",
+    "correctAnswer": "$-2/3$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "(A^{-1})_{12} = C_{21} / |A| (note transpose of indices).",
+    "hintAr": "العنصر في الصف الأول والعمود الثاني من المعكوس هو C_21 مقسوماً على |A|.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{15}{3} = 5$."
+      "1. $(A^{-1})_{ij} = \\frac{C_{ji}}{|A|}$, so $(A^{-1})_{12} = \\frac{C_{21}}{|A|}$.",
+      "2. $C_{21} = (-1)^{2+1} \\begin{vmatrix} 0 & 2 \\\\ 1 & 8 \\end{vmatrix} = -(0 - 2) = 2$.",
+      "3. Thus $(A^{-1})_{12} = \\frac{2}{-3} = -\\frac{2}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{15}{3} = 5$."
+      "١. $(A^{-1})_{12} = \\frac{C_{21}}{|A|}$ (انتبه لعكس ترتيب الدلائل بسبب التدوير).",
+      "٢. العامل المرافق $C_{21} = - (0 - 2) = 2$.",
+      "٣. إذن العنصر = $\\frac{2}{-3} = -\\frac{2}{3}$."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Remember that the adjoint transposes the cofactor matrix: entry (i,j) comes from cofactor C_{ji}.",
+    "teacherTipAr": "تذكر أن مصفوفة العوامل المرافقة تدور لتكوين الملحقة، فيأتي العنصر (i,j) من C_{ji}."
   },
   {
-    "id": "alg_ch3_db_med_36",
-    "titleEn": "Cramer's Rule Value of x #6",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 6",
+    "id": "alg_ch3_db_medium_10",
+    "titleEn": "Matrix Inverse from Polynomial Equation",
+    "titleAr": "إيجاد المعكوس الضربي من معادلة مصفوفية",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 18$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 18$، أوجد قيمة $x$.",
+    "questionEn": "If a square matrix $A$ satisfies $A^2 - 4A - 5I = O$, express $A^{-1}$ in terms of $A$ and $I$.",
+    "questionAr": "إذا كانت المصفوفة المربعة $A$ تحقق المعادلة $A^2 - 4A - 5I = O$، فما تعبير $A^{-1}$ بدلالة $A$ و $I$؟",
     "optionsEn": [
-      "$x = 6$",
-      "$x = 8$",
-      "$x = 10$",
-      "$x = 12$"
+      "$\\frac{1}{5}(A - 4I)$",
+      "$\\frac{1}{5}(A + 4I)$",
+      "$5(A - 4I)$",
+      "$A - 4I$"
     ],
     "optionsAr": [
-      "$x = 6$",
-      "$x = 8$",
-      "$x = 10$",
-      "$x = 12$"
+      "1/5 (A - 4I)",
+      "1/5 (A + 4I)",
+      "5 (A - 4I)",
+      "A - 4I"
     ],
-    "correctAnswer": "$x = 6$",
+    "correctAnswer": "$\\frac{1}{5}(A - 4I)$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "Isolate the identity matrix: 5I = A^2 - 4A = A(A - 4I).",
+    "hintAr": "اعزل مصفوفة الوحدة: 5I = A(A - 4I).",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{18}{3} = 6$."
+      "1. Rearrange: $A^2 - 4A = 5I$.",
+      "2. Factor out $A$: $A(A - 4I) = 5I$.",
+      "3. Divide by 5: $A \\left[\\frac{1}{5}(A - 4I)\\right] = I$.",
+      "4. Therefore $A^{-1} = \\frac{1}{5}(A - 4I)$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{18}{3} = 6$."
+      "١. نعزل مصفوفة الوحدة: $A(A - 4I) = 5I$.",
+      "٢. بالقسمة على 5: $A [\\frac{1}{5}(A - 4I)] = I$.",
+      "٣. إذن المعكوس الضربي هو $\\frac{1}{5}(A - 4I)$."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Whenever a polynomial has non-zero constant term c*I, the matrix is invertible.",
+    "teacherTipAr": "إذا كان الحد المطلق في المعادلة المصفوفية لا يساوي صفراً فالمصفوفة غير منفردة."
   },
   {
-    "id": "alg_ch3_db_med_37",
-    "titleEn": "Cramer's Rule Value of x #7",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 7",
+    "id": "alg_ch3_db_medium_11",
+    "titleEn": "Determinant of an Orthogonal Matrix",
+    "titleAr": "محدد المصفوفة المتعامدة",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 21$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 21$، أوجد قيمة $x$.",
+    "questionEn": "If $Q$ is an orthogonal matrix ($Q^T Q = I$), what are the possible values of $|Q|$?",
+    "questionAr": "إذا كانت $Q$ مصفوفة متعامدة ($Q^T Q = I$)، فما القيم الممكنة لمحددها $|Q|$؟",
     "optionsEn": [
-      "$x = 7$",
-      "$x = 9$",
-      "$x = 11$",
-      "$x = 13$"
+      "$\\pm 1$",
+      "$1$ only",
+      "$0$ or $1$",
+      "Any non-zero real number"
     ],
     "optionsAr": [
-      "$x = 7$",
-      "$x = 9$",
-      "$x = 11$",
-      "$x = 13$"
+      "±1",
+      "1 فقط",
+      "0 أو 1",
+      "أي عدد حقيقي غير صفري"
     ],
-    "correctAnswer": "$x = 7$",
+    "correctAnswer": "$\\pm 1$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "|Q^T Q| = |Q^T| |Q| = |Q|^2 = |I| = 1.",
+    "hintAr": "|Q^T Q| = |Q|^2 = 1.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{21}{3} = 7$."
+      "1. $|Q^T Q| = |I| \\implies |Q^T| |Q| = 1$.",
+      "2. Since $|Q^T| = |Q|$, $|Q|^2 = 1 \\implies |Q| = \\pm 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{21}{3} = 7$."
+      "١. $|Q^T Q| = |I| \\implies |Q|^2 = 1$.",
+      "٢. بأخذ الجذر: $|Q| = \\pm 1$."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "An orthogonal matrix preserves lengths and angles (e.g. rotations have det = 1, reflections det = -1).",
+    "teacherTipAr": "المصفوفة المتعامدة تمثل دوراناً أو انعكاساً، وتحافظ على الأطوال."
   },
   {
-    "id": "alg_ch3_db_med_38",
-    "titleEn": "Cramer's Rule Value of x #8",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 8",
+    "id": "alg_ch3_db_medium_12",
+    "titleEn": "Determinant of an Idempotent Matrix",
+    "titleAr": "محدد المصفوفة المتطابقة (ذات القوة)",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 24$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 24$، أوجد قيمة $x$.",
+    "questionEn": "A square matrix $A$ is idempotent if $A^2 = A$. What are all possible values of $|A|$?",
+    "questionAr": "تكون المصفوفة المربعة $A$ متطابقة إذا كان $A^2 = A$. فما جميع القيم الممكنة لمحددها $|A|$؟",
     "optionsEn": [
-      "$x = 8$",
-      "$x = 10$",
-      "$x = 12$",
-      "$x = 14$"
+      "$0$ or $1$",
+      "$1$ only",
+      "$-1$ or $1$",
+      "$0$ only"
     ],
     "optionsAr": [
-      "$x = 8$",
-      "$x = 10$",
-      "$x = 12$",
-      "$x = 14$"
+      "0 أو 1",
+      "1 فقط",
+      "-1 أو 1",
+      "0 فقط"
     ],
-    "correctAnswer": "$x = 8$",
+    "correctAnswer": "$0$ or $1$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "|A^2| = |A|^2 = |A|.",
+    "hintAr": "|A|^2 = |A|.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{24}{3} = 8$."
+      "1. Take determinant of both sides: $|A^2| = |A|$.",
+      "2. $|A|^2 - |A| = 0 \\implies |A|(|A| - 1) = 0$.",
+      "3. Thus $|A| = 0$ or $|A| = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{24}{3} = 8$."
+      "١. بأخذ المحدد للطرفين: $|A|^2 = |A|$.",
+      "٢. $|A|^2 - |A| = 0 \\implies |A|(|A| - 1) = 0$.",
+      "٣. إذن $|A| = 0$ أو $|A| = 1$."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Projections are typical idempotent matrices.",
+    "teacherTipAr": "مصفوفات الإسقاط هي أشهر الأمثلة على المصفوفات المتطابقة."
   },
   {
-    "id": "alg_ch3_db_med_39",
-    "titleEn": "Cramer's Rule Value of x #9",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 9",
+    "id": "alg_ch3_db_medium_13",
+    "titleEn": "Inverse of an Involutory Matrix",
+    "titleAr": "معكوس المصفوفة الارتدادية",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 27$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 27$، أوجد قيمة $x$.",
+    "questionEn": "If $A$ is an involutory matrix ($A^2 = I$), what is $A^{-1}$?",
+    "questionAr": "إذا كانت $A$ مصفوفة ارتدادية ($A^2 = I$)، فما معكوسها الضربي $A^{-1}$؟",
     "optionsEn": [
-      "$x = 9$",
-      "$x = 11$",
-      "$x = 13$",
-      "$x = 15$"
+      "$A$",
+      "$A^T$",
+      "$-A$",
+      "$I$"
     ],
     "optionsAr": [
-      "$x = 9$",
-      "$x = 11$",
-      "$x = 13$",
-      "$x = 15$"
+      "A",
+      "A^T",
+      "-A",
+      "I"
     ],
-    "correctAnswer": "$x = 9$",
+    "correctAnswer": "$A$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "A * A = I means A is its own inverse.",
+    "hintAr": "A * A = I تعني أن المصفوفة هي معكوس لنفسها.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{27}{3} = 9$."
+      "1. Since $A \\cdot A = I$, by definition $A^{-1} = A$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{27}{3} = 9$."
+      "١. بما أن $A \\cdot A = I$، فإن المعكوس الضربي للمصفوفة هو المصفوفة $A$ نفسها."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Reflection across a line or plane is an involutory transformation.",
+    "teacherTipAr": "الانعكاس هو تحويل ارتدادي لأن تكراره مرتين يعيد الشكل الأصلي."
   },
   {
-    "id": "alg_ch3_db_med_40",
-    "titleEn": "Cramer's Rule Value of x #10",
-    "titleAr": "حساب المجهول س بقاعدة كرامر رقم 10",
+    "id": "alg_ch3_db_medium_14",
+    "titleEn": "Rank of Matrix with a Zero Row",
+    "titleAr": "رتبة مصفوفة ثلاثية تحتوي على صف صفري",
     "difficulty": "medium",
-    "questionEn": "In solving a linear system by Cramer's rule, if the main determinant is $\\Delta = 3$ and $\\Delta_x = 30$, find the value of $x$.",
-    "questionAr": "عند حل نظام خطي بقاعدة كرامر، إذا كان المحدد العام $\\Delta = 3$ ومحدد المجهول س هو $\\Delta_x = 30$، أوجد قيمة $x$.",
+    "questionEn": "What is the rank of $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 5 & 7 \\\\ 0 & 0 & 0 \\end{pmatrix}$?",
+    "questionAr": "ما رتبة المصفوفة $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 5 & 7 \\\\ 0 & 0 & 0 \\end{pmatrix}$؟",
     "optionsEn": [
-      "$x = 10$",
-      "$x = 12$",
-      "$x = 14$",
-      "$x = 16$"
+      "$2$",
+      "$3$",
+      "$1$",
+      "$0$"
     ],
     "optionsAr": [
-      "$x = 10$",
-      "$x = 12$",
-      "$x = 14$",
-      "$x = 16$"
+      "2",
+      "3",
+      "1",
+      "0"
     ],
-    "correctAnswer": "$x = 10$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "By Cramer's rule, $x = \\frac{\\Delta_x}{\\Delta}$.",
-    "hintAr": "وفق قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
+    "hintEn": "Check the 2x2 minor in the top-left: |1, 2; 2, 5| = 5 - 4 = 1 != 0.",
+    "hintAr": "احسب المحدد الأصغر 2x2 في الركن الأيسر العلوي.",
     "stepByStepSolutionEn": [
-      "1. Cramer's rule formula: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "2. Substitute values: $x = \\frac{30}{3} = 10$."
+      "1. Since $R_3$ is all zeros, $|A| = 0$, so $\\text{rank}(A) < 3$.",
+      "2. The $2 \\times 2$ minor $\\begin{vmatrix} 1 & 2 \\\\ 2 & 5 \\end{vmatrix} = 5 - 4 = 1 \\neq 0$.",
+      "3. Since there exists a non-zero $2 \\times 2$ minor, $\\text{rank}(A) = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. قانون قاعدة كرامر: $x = \\frac{\\Delta_x}{\\Delta}$.",
-      "٢. بالتعويض: $x = \\frac{30}{3} = 10$."
+      "١. بما أن الصف الثالث أصفار فإن $|A| = 0$ والرتبة أقل من 3.",
+      "٢. المحدد الأصغر $\\begin{vmatrix} 1 & 2 \\\\ 2 & 5 \\end{vmatrix} = 5 - 4 = 1 \\neq 0$.",
+      "٣. وجود محدد أصغر غير صفري من الرتبة الثانية يجعل رتبة المصفوفة 2."
     ],
-    "teacherTipEn": "x = Delta_x / Delta, y = Delta_y / Delta, z = Delta_z / Delta.",
-    "teacherTipAr": "س = دلتا_س ÷ دلتا."
+    "teacherTipEn": "Rank is the size of the largest non-zero sub-determinant.",
+    "teacherTipAr": "الرتبة هي سعة أكبر محدد جزئي لا يساوي صفراً."
   },
   {
-    "id": "alg_ch3_db_med_41",
-    "titleEn": "Matrix Rank Reduction Parameter #1",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 1",
+    "id": "alg_ch3_db_medium_15",
+    "titleEn": "Parameter Value for Rank Reduction",
+    "titleAr": "قيمة مجهول لتخفيض رتبة المصفوفة",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "Find the value of $k$ that makes the rank of $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & k \\\\ 3 & 6 & 9 \\end{pmatrix}$ equal to 1.",
+    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & k \\\\ 3 & 6 & 9 \\end{pmatrix}$ مساوية للواحد الصحيح.",
     "optionsEn": [
-      "$k = 1$",
+      "$6$",
+      "$3$",
+      "$0$",
+      "$9$"
+    ],
+    "optionsAr": [
+      "6",
+      "3",
+      "0",
+      "9"
+    ],
+    "correctAnswer": "$6$",
+    "correctIndex": 0,
+    "hintEn": "For rank = 1, all rows must be proportional to Row 1.",
+    "hintAr": "لكي تكون الرتبة 1، يجب أن تكون جميع الصفوف متناسبة مع الصف الأول.",
+    "stepByStepSolutionEn": [
+      "1. Notice $R_3 = 3 R_1$.",
+      "2. For $\\text{rank} = 1$, $R_2$ must also be a scalar multiple of $R_1$: $R_2 = 2 R_1$.",
+      "3. This requires $k = 2 \\times 3 = 6$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نلاحظ أن الصف الثالث يساوي 3 أضعاف الصف الأول.",
+      "٢. لكي تنخفض الرتبة إلى 1، يجب أن يكون الصف الثاني مضاعفاً للصف الأول أيضاً: $R_2 = 2 R_1$.",
+      "٣. إذن $k = 2 \\times 3 = 6$."
+    ],
+    "teacherTipEn": "When rank = 1, all 2x2 minors vanish simultaneously.",
+    "teacherTipAr": "عندما تكون الرتبة 1، تنعدم جميع المحددات الصغرى من الرتبة الثانية."
+  },
+  {
+    "id": "alg_ch3_db_medium_16",
+    "titleEn": "Rank of Outer Vector Product",
+    "titleAr": "رتبة حاصل ضرب متجه عمود في متجه صف",
+    "difficulty": "medium",
+    "questionEn": "If $u = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ and $v = \\begin{pmatrix} 4 & 5 & 6 \\end{pmatrix}$, what is the rank of the $3 \\times 3$ matrix $M = u v$?",
+    "questionAr": "إذا كان $u = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ و $v = \\begin{pmatrix} 4 & 5 & 6 \\end{pmatrix}$، فما رتبة المصفوفة الناتجة $M = u v$؟",
+    "optionsEn": [
+      "$1$",
+      "$2$",
+      "$3$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "1",
+      "2",
+      "3",
+      "0"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "The rank of an outer product of two non-zero vectors is always 1.",
+    "hintAr": "رتبة حاصل ضرب متجهين غير صفريين عمود × صف تساوي 1 دائماً.",
+    "stepByStepSolutionEn": [
+      "1. Each row of $M$ is a scalar multiple of $v$: $R_1 = 1v, R_2 = 2v, R_3 = 3v$.",
+      "2. Since all rows are parallel and non-zero, $\\text{rank}(M) = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. كل صف في المصفوفة $M$ هو مضاعف للمتجه $v$.",
+      "٢. تناسب جميع الصفوف مع وجود عناصر غير صفرية يعني أن الرتبة تساوي 1."
+    ],
+    "teacherTipEn": "An outer product uv^T has dimension 1 column space.",
+    "teacherTipAr": "فضاء الأعمدة لحاصل الضرب الخارجي أحادي البعد."
+  },
+  {
+    "id": "alg_ch3_db_medium_17",
+    "titleEn": "Rouche-Capelli Unique Solution Condition",
+    "titleAr": "شرط الحل الوحيد في مبرهنة روشيه-كابيلي",
+    "difficulty": "medium",
+    "questionEn": "A system of 3 linear equations in 3 unknowns has a unique solution if and only if:",
+    "questionAr": "يكون لنظام مكون من 3 معادلات خطية في 3 مجاهيل حل وحيد إذا وفقط إذا كان:",
+    "optionsEn": [
+      "$\\text{rank}(A) = \\text{rank}(A|B) = 3$",
+      "$\\text{rank}(A) = \\text{rank}(A|B) < 3$",
+      "$\\text{rank}(A) < \\text{rank}(A|B)$",
+      "$\\text{rank}(A) = 2$ and $\\text{rank}(A|B) = 3$"
+    ],
+    "optionsAr": [
+      "رتبة A = رتبة (A|B) = 3",
+      "رتبة A = رتبة (A|B) < 3",
+      "رتبة A < رتبة (A|B)",
+      "رتبة A = 2 ورتبة (A|B) = 3"
+    ],
+    "correctAnswer": "$\\text{rank}(A) = \\text{rank}(A|B) = 3$",
+    "correctIndex": 0,
+    "hintEn": "The ranks of the coefficient and augmented matrices must equal the number of variables.",
+    "hintAr": "يجب أن تتساوى رتبة مصفوفة المعاملات والمصفوفة الموسعة مع عدد المجاهيل.",
+    "stepByStepSolutionEn": [
+      "1. By the Rouche-Capelli theorem, consistency requires $\\text{rank}(A) = \\text{rank}(A|B)$.",
+      "2. Uniqueness requires this common rank to equal the number of unknowns $n = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. طبقاً لنظرية روشيه-كابيلي: الاتساق يتطلب تساوي رتبتي المعاملات والموسعة.",
+      "٢. والحل الوحيد يقتضي أن تساوي هذه الرتبة عدد المجاهيل (3)."
+    ],
+    "teacherTipEn": "Equivalently, the determinant of coefficients |A| must be non-zero.",
+    "teacherTipAr": "وهذا يكافئ تماماً أن محدد المعاملات دلتا لا يساوي صفراً."
+  },
+  {
+    "id": "alg_ch3_db_medium_18",
+    "titleEn": "Condition for Infinitely Many Solutions",
+    "titleAr": "شرط وجود عدد لا نهائي من الحلول",
+    "difficulty": "medium",
+    "questionEn": "A non-homogeneous system of 3 linear equations in 3 unknowns has infinitely many solutions when:",
+    "questionAr": "يكون لنظام غير متجانس من 3 معادلات في 3 مجاهيل عدد لا نهائي من الحلول عندما:",
+    "optionsEn": [
+      "$\\text{rank}(A) = \\text{rank}(A|B) < 3$",
+      "$\\text{rank}(A) = \\text{rank}(A|B) = 3$",
+      "$\\text{rank}(A) < \\text{rank}(A|B)$",
+      "$\\text{rank}(A) = 0$"
+    ],
+    "optionsAr": [
+      "رتبة A = رتبة (A|B) < 3",
+      "رتبة A = رتبة (A|B) = 3",
+      "رتبة A < رتبة (A|B)",
+      "رتبة A = 0"
+    ],
+    "correctAnswer": "$\\text{rank}(A) = \\text{rank}(A|B) < 3$",
+    "correctIndex": 0,
+    "hintEn": "Consistent but with free variables: rank < n.",
+    "hintAr": "النظام متسق ولكن الرتبة أقل من عدد المجاهيل فيوجد متغيرات حرة.",
+    "stepByStepSolutionEn": [
+      "1. Consistent: $\\text{rank}(A) = \\text{rank}(A|B)$.",
+      "2. Number of parameters = $n - \\text{rank} = 3 - r > 0$.",
+      "3. Hence infinitely many solutions exist."
+    ],
+    "stepByStepSolutionAr": [
+      "١. متسق: رتبة المصفوفة = رتبة المصفوفة الموسعة.",
+      "٢. الرتبة أقل من 3، فيوجد متغير حر أو أكثر يولد حلولاً لانهائية."
+    ],
+    "teacherTipEn": "The solution set geometrically forms a line (if rank 2) or plane (if rank 1).",
+    "teacherTipAr": "مجموعة الحلول تمثل هندسياً خطاً مستقيماً إذا كانت الرتبة 2 أو مستوى إذا كانت 1."
+  },
+  {
+    "id": "alg_ch3_db_medium_19",
+    "titleEn": "Inconsistent Linear System Condition",
+    "titleAr": "شرط تناقض النظام الخطي (عدم وجود حل)",
+    "difficulty": "medium",
+    "questionEn": "When does a linear system $A X = B$ have NO solution?",
+    "questionAr": "متى يكون النظام الخطي $A X = B$ متناقضاً (ليس له أي حل)؟",
+    "optionsEn": [
+      "$\\text{rank}(A) < \\text{rank}(A|B)$",
+      "$\\text{rank}(A) = \\text{rank}(A|B)$",
+      "$\\text{rank}(A) = 3$",
+      "$|A| \\neq 0$"
+    ],
+    "optionsAr": [
+      "رتبة A < رتبة (A|B)",
+      "رتبة A = رتبة (A|B)",
+      "رتبة A = 3",
+      "|A| != 0"
+    ],
+    "correctAnswer": "$\\text{rank}(A) < \\text{rank}(A|B)$",
+    "correctIndex": 0,
+    "hintEn": "Inconsistency occurs when the augmented matrix has higher rank than coefficient matrix.",
+    "hintAr": "يحدث التناقض عندما تكون رتبة المصفوفة الموسعة أكبر من رتبة مصفوفة المعاملات.",
+    "stepByStepSolutionEn": [
+      "1. If $\\text{rank}(A) < \\text{rank}(A|B)$, row reduction yields an impossible row like $[0 \\ 0 \\ 0 \\ | \\ c]$ with $c \\neq 0$.",
+      "2. This represents $0 = c$, so no solution exists."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إذا كانت رتبة $A$ أقل من رتبة $(A|B)$، يظهر صف مستحيل مثل $0x + 0y + 0z = c$.",
+      "٢. هذا التناقض يعني عدم وجود أي حل للنظام."
+    ],
+    "teacherTipEn": "Geometrically, planes may be parallel or form a triangular prism with no common point.",
+    "teacherTipAr": "هندسياً، قد تكون المستويات متوازية أو تتقاطع مثنى مثنى لتشكل منشوراً ثلاثياً."
+  },
+  {
+    "id": "alg_ch3_db_medium_20",
+    "titleEn": "Parameter for Inconsistency in 3-Variable System",
+    "titleAr": "إيجاد قيمة الثابت التي تجعل النظام ليس له حل",
+    "difficulty": "medium",
+    "questionEn": "For what value of $k$ does the system $x + y + z = 2$, $2x + 2y + 2z = 5$, $x - y + kz = 1$ have no solution?",
+    "questionAr": "لأي قيمة للثابت $k$ لا يكون للنظام الآتي أي حل: $x + y + z = 2$، $2x + 2y + 2z = 5$، $x - y + kz = 1$؟",
+    "optionsEn": [
+      "For any real value of $k$",
+      "$k = 1$ only",
+      "$k = 2$ only",
+      "No such value exists"
+    ],
+    "optionsAr": [
+      "لأي قيمة حقيقية للثابت k",
+      "k = 1 فقط",
+      "k = 2 فقط",
+      "لا توجد مثل هذه القيمة"
+    ],
+    "correctAnswer": "For any real value of $k$",
+    "correctIndex": 0,
+    "hintEn": "Compare the first two equations: x + y + z = 2 and 2(x + y + z) = 5.",
+    "hintAr": "قارن أول معادلتين: x + y + z = 2 و 2x + 2y + 2z = 5.",
+    "stepByStepSolutionEn": [
+      "1. Multiplying equation 1 by 2 gives $2x + 2y + 2z = 4$.",
+      "2. But equation 2 asserts $2x + 2y + 2z = 5$.",
+      "3. This is an immediate contradiction ($4 = 5$), which holds regardless of $k$.",
+      "4. Thus the system has no solution for all $k \\in \\mathbb{R}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. ضرب المعادلة الأولى في 2 يعطي $2x + 2y + 2z = 4$.",
+      "٢. لكن المعادلة الثانية تنص على $2x + 2y + 2z = 5$.",
+      "٣. هذا تناقض مباشر ($4 = 5$) مستقل تماماً عن قيمة $k$.",
+      "٤. إذن النظام ليس له حل لجميع قيم $k$ الحقيقية."
+    ],
+    "teacherTipEn": "Always look for inconsistent pairs of equations before computing determinants.",
+    "teacherTipAr": "افحص العلاقات البسيطة بين المعادلات أولاً قبل الانغماس في حساب المحددات."
+  },
+  {
+    "id": "alg_ch3_db_medium_21",
+    "titleEn": "Geometric Meaning of Unique Solution in R3",
+    "titleAr": "المعنى الهندسي للحل الوحيد في الفراغ",
+    "difficulty": "medium",
+    "questionEn": "Geometrically, if a system of 3 linear equations has a unique solution, the three planes represented by the equations:",
+    "questionAr": "هندسياً، إذا كان لنظام من 3 معادلات خطية حل وحيد، فإن المستويات الثلاثة التي تمثلها المعادلات:",
+    "optionsEn": [
+      "Intersect at a single unique point",
+      "Intersect along a common straight line",
+      "Are mutually parallel",
+      "Form a triangular prism with no mutual intersection"
+    ],
+    "optionsAr": [
+      "تتقاطع في نقطة واحدة وحيدة",
+      "تتقاطع في خط مستقيم مشترك",
+      "متوازية تماماً",
+      "تشكل منشوراً ثلاثياً دون نقطة مشتركة"
+    ],
+    "correctAnswer": "Intersect at a single unique point",
+    "correctIndex": 0,
+    "hintEn": "Three non-parallel planes with det(A) != 0 meet at a single point.",
+    "hintAr": "ثلاثة مستويات بمحدد غير صفري تلتقي في نقطة واحدة.",
+    "stepByStepSolutionEn": [
+      "1. A linear equation $ax + by + cz = d$ represents a plane in $\\mathbb{R}^3$.",
+      "2. A unique solution $(x_0, y_0, z_0)$ is the unique common point of intersection."
+    ],
+    "stepByStepSolutionAr": [
+      "١. كل معادلة خطية تمثل مستوى في الفراغ ثلاثي الأبعاد.",
+      "٢. والحل الوحيد يمثل نقطة التقاطع المشتركة الوحيدة بين المستويات الثلاثة."
+    ],
+    "teacherTipEn": "Think of the corner of a room where the ceiling and two walls meet.",
+    "teacherTipAr": "تخيل ركن الغرفة حيث يلتقي السقف مع حائطين في نقطة وحيدة."
+  },
+  {
+    "id": "alg_ch3_db_medium_22",
+    "titleEn": "Geometric Meaning of Rank 2 Consistent System",
+    "titleAr": "المعنى الهندسي للحلول اللانهائية ذات الرتبة 2",
+    "difficulty": "medium",
+    "questionEn": "If 3 planes correspond to a consistent linear system with $\\text{rank}(A) = \\text{rank}(A|B) = 2$, they:",
+    "questionAr": "إذا كانت 3 مستويات تمثل نظاماً متسقاً رتبته 2، فإن المستويات الثلاثة:",
+    "optionsEn": [
+      "Intersect along a single common straight line",
+      "Are coincident (identical single plane)",
+      "Intersect at a single point",
+      "Do not intersect"
+    ],
+    "optionsAr": [
+      "تتقاطع في خط مستقيم واحد مشترك",
+      "متطابقة تماماً (مستوى واحد)",
+      "تتقاطع في نقطة وحيدة",
+      "لا تتقاطع إطلاقاً"
+    ],
+    "correctAnswer": "Intersect along a single common straight line",
+    "correctIndex": 0,
+    "hintEn": "Rank 2 with consistency gives a 1-dimensional solution space (a line).",
+    "hintAr": "الرتبة 2 مع الاتساق تعطي فضاء حلول أحادي البعد (خط مستقيم).",
+    "stepByStepSolutionEn": [
+      "1. Free variables = $3 - 2 = 1$, which is a line in $\\mathbb{R}^3$.",
+      "2. Hence all 3 planes pass through a common line (like pages of an open book)."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عدد المتغيرات الحرة = $3 - 2 = 1$، وهو يمثل خطاً مستقيماً.",
+      "٢. تلتقي المستويات الثلاثة في خط مستقيم مشترك كصفحات كتاب مفتوح."
+    ],
+    "teacherTipEn": "The pages of an open book all share the spine line.",
+    "teacherTipAr": "صفحات الكتاب المفتوح تلتقي جميعاً في خط كعب الكتاب."
+  },
+  {
+    "id": "alg_ch3_db_medium_23",
+    "titleEn": "Symmetric Part of a Square Matrix",
+    "titleAr": "الجزء المتماثل من مصفوفة مربعة",
+    "difficulty": "medium",
+    "questionEn": "Any square matrix $A$ can be uniquely decomposed as $A = S + K$, where $S$ is symmetric. What is the formula for $S$?",
+    "questionAr": "يمكن كتابة أي مصفوفة مربعة $A$ بصورة وحيدة على شكل $A = S + K$ حيث $S$ متماثلة. فما قاعدة $S$؟",
+    "optionsEn": [
+      "$\\frac{1}{2}(A + A^T)$",
+      "$\\frac{1}{2}(A - A^T)$",
+      "$A A^T$",
+      "$A + A^T$"
+    ],
+    "optionsAr": [
+      "1/2 (A + A^T)",
+      "1/2 (A - A^T)",
+      "A A^T",
+      "A + A^T"
+    ],
+    "correctAnswer": "$\\frac{1}{2}(A + A^T)$",
+    "correctIndex": 0,
+    "hintEn": "Symmetric part is half of (A + A^T).",
+    "hintAr": "الجزء المتماثل هو نصف مجموع المصفوفة مع مدورها.",
+    "stepByStepSolutionEn": [
+      "1. Check symmetry: $[\\frac{1}{2}(A + A^T)]^T = \\frac{1}{2}(A^T + A) = S$.",
+      "2. The symmetric part is indeed $S = \\frac{1}{2}(A + A^T)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتحقق من التدوير: مدور نصف المجموع يعطي نفس المقدار.",
+      "٢. إذن الجزء المتماثل هو $S = \\frac{1}{2}(A + A^T)$."
+    ],
+    "teacherTipEn": "The skew-symmetric part is K = 1/2 (A - A^T).",
+    "teacherTipAr": "والجزء شبه المتماثل هو K = 1/2 (A - A^T)."
+  },
+  {
+    "id": "alg_ch3_db_medium_24",
+    "titleEn": "Skew-Symmetric Part Calculation",
+    "titleAr": "حساب الجزء شبه المتماثل لمصفوفة",
+    "difficulty": "medium",
+    "questionEn": "For $A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 4 \\end{pmatrix}$, find its skew-symmetric component $K = \\frac{1}{2}(A - A^T)$.",
+    "questionAr": "للمصفوفة $A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 4 \\end{pmatrix}$، أوجد مركبتها شبه المتماثلة $K = \\frac{1}{2}(A - A^T)$.",
+    "optionsEn": [
+      "$\\begin{pmatrix} 0 & 2 \\\\ -2 & 0 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 2 & 3 \\\\ 3 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 0 & 4 \\\\ -4 & 0 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$"
+    ],
+    "optionsAr": [
+      "[[0, 2], [-2, 0]]",
+      "[[2, 3], [3, 4]]",
+      "[[0, 4], [-4, 0]]",
+      "[[1, 0], [0, 1]]"
+    ],
+    "correctAnswer": "$\\begin{pmatrix} 0 & 2 \\\\ -2 & 0 \\end{pmatrix}$",
+    "correctIndex": 0,
+    "hintEn": "Compute 1/2 [ A - A^T ].",
+    "hintAr": "احسب نصف حاصل طرح المدور من المصفوفة.",
+    "stepByStepSolutionEn": [
+      "1. $A^T = \\begin{pmatrix} 2 & 1 \\\\ 5 & 4 \\end{pmatrix}$.",
+      "2. $A - A^T = \\begin{pmatrix} 0 & 4 \\\\ -4 & 0 \\end{pmatrix}$.",
+      "3. Multiply by $1/2$: $K = \\begin{pmatrix} 0 & 2 \\\\ -2 & 0 \\end{pmatrix}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $A^T = \\begin{pmatrix} 2 & 1 \\\\ 5 & 4 \\end{pmatrix}$.",
+      "٢. $A - A^T = \\begin{pmatrix} 0 & 4 \\\\ -4 & 0 \\end{pmatrix}$.",
+      "٣. بالضرب في $1/2$: $K = \\begin{pmatrix} 0 & 2 \\\\ -2 & 0 \\end{pmatrix}$."
+    ],
+    "teacherTipEn": "Notice diagonal elements are 0, confirming skew-symmetry.",
+    "teacherTipAr": "لاحظ أن عناصر القطر أصفار، مما يؤكد أنها شبه متماثلة."
+  },
+  {
+    "id": "alg_ch3_db_medium_25",
+    "titleEn": "Non-negativity of Gram Determinant |A^T A|",
+    "titleAr": "عدم سالبية محدد A^T A",
+    "difficulty": "medium",
+    "questionEn": "For any real square matrix $A$, what can be said about the sign of $|A^T A|$?",
+    "questionAr": "لأي مصفوفة مربعة حقيقية $A$، ماذا يمكن القول عن إشارة $|A^T A|$؟",
+    "optionsEn": [
+      "$|A^T A| \\ge 0$ always",
+      "$|A^T A| \\le 0$ always",
+      "$|A^T A|$ can have any sign",
+      "$|A^T A| = 1$ always"
+    ],
+    "optionsAr": [
+      "|A^T A| >= 0 دائماً",
+      "|A^T A| <= 0 دائماً",
+      "قد يكون موجباً أو سالباً",
+      "|A^T A| = 1 دائماً"
+    ],
+    "correctAnswer": "$|A^T A| \\ge 0$ always",
+    "correctIndex": 0,
+    "hintEn": "|A^T A| = |A^T| |A| = |A|^2 >= 0.",
+    "hintAr": "|A^T A| = |A|^2 وهو مربع كامل غير سالب.",
+    "stepByStepSolutionEn": [
+      "1. $|A^T A| = |A^T| |A|$.",
+      "2. Since $|A^T| = |A|$, $|A^T A| = |A|^2$.",
+      "3. The square of any real number is non-negative: $|A|^2 \\ge 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A^T A| = |A^T| \\cdot |A| = |A|^2$.",
+      "٢. مربع أي عدد حقيقي غير سالب: $|A|^2 \\ge 0$ دائماً."
+    ],
+    "teacherTipEn": "This is why the Gram matrix of real vectors is always positive semidefinite.",
+    "teacherTipAr": "لذلك تكون مصفوفة غرام دائماً موجبة شبه معرفة."
+  },
+  {
+    "id": "alg_ch3_db_medium_26",
+    "titleEn": "Transpose of the Adjoint Matrix",
+    "titleAr": "مدور المصفوفة الملحقة",
+    "difficulty": "medium",
+    "questionEn": "For any square matrix $A$, which identity relates $\\text{adj}(A^T)$ to $\\text{adj}(A)$?",
+    "questionAr": "لأي مصفوفة مربعة $A$، أي متطابقة تربط بين $\\text{adj}(A^T)$ و $\\text{adj}(A)$؟",
+    "optionsEn": [
+      "$\\text{adj}(A^T) = (\\text{adj}(A))^T$",
+      "$\\text{adj}(A^T) = -(\\text{adj}(A))^T$",
+      "$\\text{adj}(A^T) = \\text{adj}(A)$",
+      "$\\text{adj}(A^T) = (\\text{adj}(A))^{-1}$"
+    ],
+    "optionsAr": [
+      "adj(A^T) = (adj(A))^T",
+      "adj(A^T) = -(adj(A))^T",
+      "adj(A^T) = adj(A)",
+      "adj(A^T) = (adj(A))^{-1}"
+    ],
+    "correctAnswer": "$\\text{adj}(A^T) = (\\text{adj}(A))^T$",
+    "correctIndex": 0,
+    "hintEn": "Adjoint and transpose commute.",
+    "hintAr": "الملحقة والتدوير عمليتان تبادليتان.",
+    "stepByStepSolutionEn": [
+      "1. Transposing and finding the adjoint commute: $\\text{adj}(A^T) = (\\text{adj}(A))^T$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد الملحقة والتدوير عمليتان إبداليتان: $\\text{adj}(A^T) = (\\text{adj}(A))^T$."
+    ],
+    "teacherTipEn": "Useful when proving that the adjoint of a symmetric matrix is symmetric.",
+    "teacherTipAr": "مفيدة جداً في إثبات أن ملحقة المصفوفة المتماثلة هي مصفوفة متماثلة."
+  },
+  {
+    "id": "alg_ch3_db_medium_27",
+    "titleEn": "Adjoint of a Symmetric Matrix",
+    "titleAr": "ملحقة المصفوفة المتماثلة",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a symmetric matrix ($A = A^T$), then $\\text{adj}(A)$ is:",
+    "questionAr": "إذا كانت $A$ مصفوفة متماثلة ($A = A^T$)، فإن ملحقتها $\\text{adj}(A)$ تكون مصفوفة:",
+    "optionsEn": [
+      "Symmetric",
+      "Skew-symmetric",
+      "Diagonal",
+      "Scalar"
+    ],
+    "optionsAr": [
+      "متماثلة",
+      "شبه متماثلة",
+      "قطرية",
+      "صفرية"
+    ],
+    "correctAnswer": "Symmetric",
+    "correctIndex": 0,
+    "hintEn": "(adj(A))^T = adj(A^T) = adj(A).",
+    "hintAr": "مدور الملحقة يساوي ملحقة المدور.",
+    "stepByStepSolutionEn": [
+      "1. $(\\text{adj}(A))^T = \\text{adj}(A^T) = \\text{adj}(A)$.",
+      "2. Thus $\\text{adj}(A)$ is symmetric."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $(\\text{adj}(A))^T = \\text{adj}(A^T) = \\text{adj}(A)$.",
+      "٢. إذن الملحقة متماثلة أيضاً."
+    ],
+    "teacherTipEn": "Symmetry is preserved under inversion and adjoint.",
+    "teacherTipAr": "التماثل محفوظ تحت عمليتي المعكوس والملحقة."
+  },
+  {
+    "id": "alg_ch3_db_medium_28",
+    "titleEn": "Adjoint of a Scalar Multiple of a Matrix",
+    "titleAr": "ملحقة حاصل ضرب مصفوفة في عدد",
+    "difficulty": "medium",
+    "questionEn": "For an $n \\times n$ matrix $A$ and scalar $k$, $\\text{adj}(kA)$ equals:",
+    "questionAr": "لمصفوفة مربعة $A$ من الرتبة $n$ وعدد حقيقي $k$، فإن $\\text{adj}(kA)$ تساوي:",
+    "optionsEn": [
+      "$k^{n-1} \\text{adj}(A)$",
+      "$k^n \\text{adj}(A)$",
+      "$k \\text{adj}(A)$",
+      "$k^{n+1} \\text{adj}(A)$"
+    ],
+    "optionsAr": [
+      "k^{n-1} adj(A)",
+      "k^n adj(A)",
+      "k adj(A)",
+      "k^{n+1} adj(A)"
+    ],
+    "correctAnswer": "$k^{n-1} \\text{adj}(A)$",
+    "correctIndex": 0,
+    "hintEn": "Each cofactor is an (n-1)x(n-1) determinant, pulling out k^{n-1}.",
+    "hintAr": "كل عامل مرافق هو محدد من الرتبة n-1 فيخرج k^{n-1} مشتركاً.",
+    "stepByStepSolutionEn": [
+      "1. Each entry of $\\text{adj}(kA)$ is a cofactor of order $(n-1)$.",
+      "2. Multiplying every entry of $A$ by $k$ scales an $(n-1) \\times (n-1)$ minor by $k^{n-1}$.",
+      "3. Thus $\\text{adj}(kA) = k^{n-1} \\text{adj}(A)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عناصر المصفوفة الملحقة هي محددات صغرى من الرتبة $n-1$.",
+      "٢. ضرب عناصر المصفوفة في $k$ يضرب كل محدد أصغر في $k^{n-1}$.",
+      "٣. إذن $\\text{adj}(kA) = k^{n-1} \\text{adj}(A)$."
+    ],
+    "teacherTipEn": "Note the exponent is n-1, NOT n.",
+    "teacherTipAr": "انتبه: الأس هو n-1 وليس n."
+  },
+  {
+    "id": "alg_ch3_db_medium_29",
+    "titleEn": "Adjoint of 2A for a 3x3 Matrix",
+    "titleAr": "ملحقة 2A لمصفوفة ثلاثية",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\text{adj}(A) = M$, what is $\\text{adj}(2A)$?",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ وكانت $\\text{adj}(A) = M$، فما قيمة $\\text{adj}(2A)$؟",
+    "optionsEn": [
+      "$4 M$",
+      "$8 M$",
+      "$2 M$",
+      "$16 M$"
+    ],
+    "optionsAr": [
+      "4 M",
+      "8 M",
+      "2 M",
+      "16 M"
+    ],
+    "correctAnswer": "$4 M$",
+    "correctIndex": 0,
+    "hintEn": "k^{n-1} = 2^{3-1} = 2^2 = 4.",
+    "hintAr": "2^{3-1} = 4.",
+    "stepByStepSolutionEn": [
+      "1. Use $\\text{adj}(kA) = k^{n-1} \\text{adj}(A)$.",
+      "2. Here $n = 3$ and $k = 2$, so $k^{n-1} = 2^2 = 4$.",
+      "3. Result is $4 M$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. القاعدة: $\\text{adj}(kA) = k^{n-1} \\text{adj}(A)$.",
+      "٢. هنا $n = 3$ و $k = 2$، إذن $k^2 = 4$.",
+      "٣. الناتج هو $4 M$."
+    ],
+    "teacherTipEn": "Common mistake: using 2^3 = 8 instead of 2^2 = 4.",
+    "teacherTipAr": "خطأ شائع: استخدام 2³ بدلاً من 2²."
+  },
+  {
+    "id": "alg_ch3_db_medium_30",
+    "titleEn": "Determinant of Adjoint of Scaled Matrix",
+    "titleAr": "محدد ملحقة مصفوفة مضروبة في عدد",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $|A| = 3$, find $|\\text{adj}(2A)|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = 3$، فما قيمة $|\\text{adj}(2A)|$؟",
+    "optionsEn": [
+      "$576$",
+      "$144$",
+      "$72$",
+      "$36$"
+    ],
+    "optionsAr": [
+      "576",
+      "144",
+      "72",
+      "36"
+    ],
+    "correctAnswer": "$576$",
+    "correctIndex": 0,
+    "hintEn": "|adj(2A)| = |2A|^2 = (2^3 |A|)^2.",
+    "hintAr": "|adj(2A)| = |2A|^2 = (8 * 3)^2.",
+    "stepByStepSolutionEn": [
+      "1. First find $|2A| = 2^3 |A| = 8 \\times 3 = 24$.",
+      "2. Then $|\\text{adj}(2A)| = |2A|^{3-1} = |2A|^2 = 24^2 = 576$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. أولاً نحسب $|2A| = 2^3 |A| = 8 \\times 3 = 24$.",
+      "٢. ثم نطبق القانون: $|\\text{adj}(2A)| = |2A|^2 = 24^2 = 576$."
+    ],
+    "teacherTipEn": "Step by step: scale the determinant first, then apply the adjoint determinant formula.",
+    "teacherTipAr": "احسب محدد المصفوفة بعد الضرب أولاً ثم ربع الناتج."
+  },
+  {
+    "id": "alg_ch3_db_medium_31",
+    "titleEn": "Area of Triangle via Determinant",
+    "titleAr": "مساحة المثلث باستخدام المحددات",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the triangle with vertices $(0, 0)$, $(4, 0)$, and $(0, 6)$ using determinants.",
+    "questionAr": "أوجد مساحة المثلث الذي رؤوسه $(0, 0)$ و $(4, 0)$ و $(0, 6)$ باستخدام المحددات.",
+    "optionsEn": [
+      "$12$",
+      "$24$",
+      "$6$",
+      "$10$"
+    ],
+    "optionsAr": [
+      "12",
+      "24",
+      "6",
+      "10"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "Area = 1/2 * |det([x1 y1 1; x2 y2 1; x3 y3 1])|.",
+    "hintAr": "المساحة = نصف القيمة المطلقة للمحدد المكون من إحداثيات الرؤوس وعمود الواحدات.",
+    "stepByStepSolutionEn": [
+      "1. $\\text{Area} = \\frac{1}{2} \\left| \\begin{vmatrix} 0 & 0 & 1 \\\\ 4 & 0 & 1 \\\\ 0 & 6 & 1 \\end{vmatrix} \\right|$.",
+      "2. Expanding along row 1: $1 \\cdot (24 - 0) = 24$.",
+      "3. $\\text{Area} = \\frac{1}{2} \\times 24 = 12$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المساحة = نصف القيمة المطلقة للمحدد: $\\frac{1}{2} \\times |24| = 12$."
+    ],
+    "teacherTipEn": "Standard geometric application in Thanaweya coordinate geometry.",
+    "teacherTipAr": "تطبيق هندسي كلاسيكي في منهج الثانوية العامة."
+  },
+  {
+    "id": "alg_ch3_db_medium_32",
+    "titleEn": "Collinearity Condition via Determinants",
+    "titleAr": "شرط استقامة ثلاث نقاط باستخدام المحددات",
+    "difficulty": "medium",
+    "questionEn": "Three points $(1, 2)$, $(3, 6)$, and $(k, 10)$ are collinear if:",
+    "questionAr": "تكون النقاط الثلاث $(1, 2)$ و $(3, 6)$ و $(k, 10)$ على استقامة واحدة إذا كان:",
+    "optionsEn": [
+      "$k = 5$",
       "$k = 4$",
-      "$k = 7$",
-      "$k = 10$"
+      "$k = 6$",
+      "$k = 2$"
     ],
     "optionsAr": [
-      "$k = 1$",
-      "$k = 4$",
-      "$k = 7$",
-      "$k = 10$"
+      "k = 5",
+      "k = 4",
+      "k = 6",
+      "k = 2"
     ],
-    "correctAnswer": "$k = 1$",
+    "correctAnswer": "$k = 5$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "Collinear points form a triangle of area 0, so the 3x3 coordinate determinant is 0.",
+    "hintAr": "استقامة النقاط تعني أن مساحة المثلث المتكون منها تنعدم (تساوي صفراً).",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (1)(1) = 0 \\implies k - 1 = 0$.",
-      "3. Therefore, $k = 1$."
+      "1. $\\begin{vmatrix} 1 & 2 & 1 \\\\ 3 & 6 & 1 \\\\ k & 10 & 1 \\end{vmatrix} = 0$.",
+      "2. Notice the slope is $\\frac{6-2}{3-1} = 2$. Line equation: $y = 2x$.",
+      "3. For $(k, 10)$: $10 = 2k \\implies k = 5$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 1 = 0$.",
-      "٣. إذن $k = 1$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. محدد استقامة النقاط = 0.",
+      "٢. ميل المستقيم = 2، والمعادلة $y = 2x$.",
+      "٣. بالتعويض عن $y = 10$: $2k = 10 \\implies k = 5$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "The determinant vanishing is equivalent to equal slopes.",
+    "teacherTipAr": "انعدام المحدد يكافئ تساوي الميول."
   },
   {
-    "id": "alg_ch3_db_med_42",
-    "titleEn": "Matrix Rank Reduction Parameter #2",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 2",
+    "id": "alg_ch3_db_medium_33",
+    "titleEn": "Equation of Line via Determinant",
+    "titleAr": "معادلة المستقيم المار بنقطتين بالمحددات",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "The equation of the straight line passing through $(2, 3)$ and $(5, 7)$ expressed as a determinant is:",
+    "questionAr": "معادلة الخط المستقيم المار بالنقطتين $(2, 3)$ و $(5, 7)$ على صورة محدد هي:",
     "optionsEn": [
-      "$k = 4$",
-      "$k = 7$",
-      "$k = 10$",
-      "$k = 13$"
+      "$\\begin{vmatrix} x & y & 1 \\\\ 2 & 3 & 1 \\\\ 5 & 7 & 1 \\end{vmatrix} = 0$",
+      "$\\begin{vmatrix} x & y & 0 \\\\ 2 & 3 & 1 \\\\ 5 & 7 & 1 \\end{vmatrix} = 0$",
+      "$\\begin{vmatrix} x & 2 & 5 \\\\ y & 3 & 7 \\\\ 1 & 1 & 0 \\end{vmatrix} = 0$",
+      "$\\begin{vmatrix} x & y \\\\ 2 & 3 \\end{vmatrix} = 0$"
     ],
     "optionsAr": [
-      "$k = 4$",
-      "$k = 7$",
-      "$k = 10$",
-      "$k = 13$"
+      "det([x, y, 1; 2, 3, 1; 5, 7, 1]) = 0",
+      "det([x, y, 0; 2, 3, 1; 5, 7, 1]) = 0",
+      "det([x, 2, 5; y, 3, 7; 1, 1, 0]) = 0",
+      "det([x, y; 2, 3]) = 0"
     ],
-    "correctAnswer": "$k = 4$",
+    "correctAnswer": "$\\begin{vmatrix} x & y & 1 \\\\ 2 & 3 & 1 \\\\ 5 & 7 & 1 \\end{vmatrix} = 0$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "The point (x, y) must be collinear with (x1, y1) and (x2, y2).",
+    "hintAr": "النقطة العامة (س, ص) تقع على استقامة واحدة مع النقطتين المعلومتين.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (2)(2) = 0 \\implies k - 4 = 0$.",
-      "3. Therefore, $k = 4$."
+      "1. Any point $(x, y)$ on the line is collinear with $(2, 3)$ and $(5, 7)$.",
+      "2. The condition of collinearity yields the determinant equation directly."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 4 = 0$.",
-      "٣. إذن $k = 4$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. أي نقطة $(x, y)$ على المستقيم تكون على استقامة واحدة مع النقطتين.",
+      "٢. محدد الاستقامة يساوي صفراً، وهو معادلة المستقيم المطلوبة."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "Expanding this determinant gives 4x - 3y + 1 = 0.",
+    "teacherTipAr": "بفك هذا المحدد نحصل على المعادلة الكارتيزية للمستقيم مباشرة."
   },
   {
-    "id": "alg_ch3_db_med_43",
-    "titleEn": "Matrix Rank Reduction Parameter #3",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 3",
+    "id": "alg_ch3_db_medium_34",
+    "titleEn": "Trace of Product Invariance",
+    "titleAr": "تساوي أثر حاصل الضرب الإبدالي tr(AB) = tr(BA)",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 3 \\\\ 3 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 3 \\\\ 3 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "If $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 0 & 1 \\\\ -1 & 5 \\end{pmatrix}$, compare $\\text{tr}(AB)$ and $\\text{tr}(BA)$.",
+    "questionAr": "إذا كانت $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ و $B = \\begin{pmatrix} 0 & 1 \\\\ -1 & 5 \\end{pmatrix}$، فقارن بين $\\text{tr}(AB)$ و $\\text{tr}(BA)$.",
     "optionsEn": [
-      "$k = 9$",
-      "$k = 12$",
-      "$k = 15$",
-      "$k = 18$"
+      "$\\text{tr}(AB) = \\text{tr}(BA) = 21$",
+      "$\\text{tr}(AB) = 21$ while $\\text{tr}(BA) = -21$",
+      "$\\text{tr}(AB) = 15$ while $\\text{tr}(BA) = 21$",
+      "$\\text{tr}(AB) \\neq \\text{tr}(BA)$ in general"
     ],
     "optionsAr": [
-      "$k = 9$",
-      "$k = 12$",
-      "$k = 15$",
-      "$k = 18$"
+      "tr(AB) = tr(BA) = 21",
+      "tr(AB) = 21 بينما tr(BA) = -21",
+      "tr(AB) = 15 بينما tr(BA) = 21",
+      "الأثران غير متساويين"
     ],
-    "correctAnswer": "$k = 9$",
+    "correctAnswer": "$\\text{tr}(AB) = \\text{tr}(BA) = 21$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "tr(AB) = tr(BA) for all square matrices.",
+    "hintAr": "أثر حاصل الضرب تبادلي دائماً: tr(AB) = tr(BA).",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (3)(3) = 0 \\implies k - 9 = 0$.",
-      "3. Therefore, $k = 9$."
+      "1. $AB = \\begin{pmatrix} -2 & 11 \\\\ -4 & 23 \\end{pmatrix}$, $\\text{tr}(AB) = -2 + 23 = 21$.",
+      "2. $BA = \\begin{pmatrix} 3 & 4 \\\\ 14 & 18 \\end{pmatrix}$, $\\text{tr}(BA) = 3 + 18 = 21$.",
+      "3. By property, $\\text{tr}(AB) = \\text{tr}(BA)$ always."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 9 = 0$.",
-      "٣. إذن $k = 9$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. $AB$: القطر الرئيسي هو -2 و 23، المجموع = 21.",
+      "٢. $BA$: القطر الرئيسي هو 3 و 18، المجموع = 21.",
+      "٣. أثر حاصل ضرب مصفوفتين تبادلي دائماً."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "Although AB != BA, their traces and determinants are always identical.",
+    "teacherTipAr": "مع أن الضرب غير إبدالي، فإن الأثر والمحدد متساويان دائماً."
   },
   {
-    "id": "alg_ch3_db_med_44",
-    "titleEn": "Matrix Rank Reduction Parameter #4",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 4",
+    "id": "alg_ch3_db_medium_35",
+    "titleEn": "Determinant of (A - lambda I)",
+    "titleAr": "محدد المعادلة المميزة",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 4 \\\\ 4 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 4 \\\\ 4 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "Find the values of $\\lambda$ for which $|A - \\lambda I| = 0$, given $A = \\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix}$.",
+    "questionAr": "أوجد قيم $\\lambda$ التي تجعل $|A - \\lambda I| = 0$، حيث $A = \\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix}$.",
     "optionsEn": [
-      "$k = 16$",
-      "$k = 19$",
-      "$k = 22$",
-      "$k = 25$"
+      "$\\lambda = 1, 6$",
+      "$\\lambda = 2, 5$",
+      "$\\lambda = -1, -6$",
+      "$\\lambda = 3, 4$"
     ],
     "optionsAr": [
-      "$k = 16$",
-      "$k = 19$",
-      "$k = 22$",
-      "$k = 25$"
+      "λ = 1, 6",
+      "λ = 2, 5",
+      "λ = -1, -6",
+      "λ = 3, 4"
     ],
-    "correctAnswer": "$k = 16$",
+    "correctAnswer": "$\\lambda = 1, 6$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "Set det([5 - λ, 2; 2, 2 - λ]) = 0.",
+    "hintAr": "فك المحدد (5 - λ)(2 - λ) - 4 = 0.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (4)(4) = 0 \\implies k - 16 = 0$.",
-      "3. Therefore, $k = 16$."
+      "1. $(5 - \\lambda)(2 - \\lambda) - 4 = 0$.",
+      "2. $\\lambda^2 - 7\\lambda + 10 - 4 = 0 \\implies \\lambda^2 - 7\\lambda + 6 = 0$.",
+      "3. $(\\lambda - 1)(\\lambda - 6) = 0 \\implies \\lambda = 1$ or $\\lambda = 6$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 16 = 0$.",
-      "٣. إذن $k = 16$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. فك محدد المعادلة المميزة: $\\lambda^2 - 7\\lambda + 6 = 0$.",
+      "٢. بالتحليل: $(\\lambda - 1)(\\lambda - 6) = 0$.",
+      "٣. إذن القيم هي 1 و 6."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "These are the eigenvalues of the matrix A.",
+    "teacherTipAr": "هذه هي القيم الذاتية (المميزة) للمصفوفة."
   },
   {
-    "id": "alg_ch3_db_med_45",
-    "titleEn": "Matrix Rank Reduction Parameter #5",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 5",
+    "id": "alg_ch3_db_medium_36",
+    "titleEn": "Trace and Determinant Relation with Eigenvalues",
+    "titleAr": "علاقة الأثر والمحدد بالقيم المميزة",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 5 \\\\ 5 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 5 \\\\ 5 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "If the eigenvalues of a $2 \\times 2$ matrix $A$ are $\\lambda_1 = 3$ and $\\lambda_2 = 4$, find $|A|$ and $\\text{tr}(A)$.",
+    "questionAr": "إذا كانت القيم المميزة لمصفوفة $2 \\times 2$ هي $3$ و $4$، فما قيمة $|A|$ وأثرها $\\text{tr}(A)$؟",
     "optionsEn": [
-      "$k = 25$",
-      "$k = 28$",
-      "$k = 31$",
-      "$k = 34$"
+      "$|A| = 12, \\text{tr}(A) = 7$",
+      "$|A| = 7, \\text{tr}(A) = 12$",
+      "$|A| = 1, \\text{tr}(A) = 7$",
+      "$|A| = 12, \\text{tr}(A) = 1$"
     ],
     "optionsAr": [
-      "$k = 25$",
-      "$k = 28$",
-      "$k = 31$",
-      "$k = 34$"
+      "|A| = 12, tr(A) = 7",
+      "|A| = 7, tr(A) = 12",
+      "|A| = 1, tr(A) = 7",
+      "|A| = 12, tr(A) = 1"
     ],
-    "correctAnswer": "$k = 25$",
+    "correctAnswer": "$|A| = 12, \\text{tr}(A) = 7$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "det(A) = product of eigenvalues, tr(A) = sum of eigenvalues.",
+    "hintAr": "المحدد = حاصل ضرب القيم الذاتية، والأثر = مجموعها.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (5)(5) = 0 \\implies k - 25 = 0$.",
-      "3. Therefore, $k = 25$."
+      "1. $\\text{tr}(A) = \\lambda_1 + \\lambda_2 = 3 + 4 = 7$.",
+      "2. $|A| = \\lambda_1 \\cdot \\lambda_2 = 3 \\times 4 = 12$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 25 = 0$.",
-      "٣. إذن $k = 25$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. أثر المصفوفة = مجموع القيم المميزة = $3 + 4 = 7$.",
+      "٢. محدد المصفوفة = حاصل ضرب القيم المميزة = $3 \\times 4 = 12$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "A powerful check for any eigenvalue calculation.",
+    "teacherTipAr": "خاصية أساسية للتحقق من صحة القيم المميزة."
   },
   {
-    "id": "alg_ch3_db_med_46",
-    "titleEn": "Matrix Rank Reduction Parameter #6",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 6",
+    "id": "alg_ch3_db_medium_37",
+    "titleEn": "Solving Matrix Equation A X B = C",
+    "titleAr": "حل المعادلة المصفوفية A X B = C",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 6 \\\\ 6 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 6 \\\\ 6 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "If $A, B$ are invertible matrices and $A X B = C$, express $X$.",
+    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين غير منفردتين وكان $A X B = C$، فما صيغة $X$؟",
     "optionsEn": [
-      "$k = 36$",
-      "$k = 39$",
-      "$k = 42$",
-      "$k = 45$"
+      "$X = A^{-1} C B^{-1}$",
+      "$X = B^{-1} C A^{-1}$",
+      "$X = C A^{-1} B^{-1}$",
+      "$X = A^{-1} B^{-1} C$"
     ],
     "optionsAr": [
-      "$k = 36$",
-      "$k = 39$",
-      "$k = 42$",
-      "$k = 45$"
+      "X = A^{-1} C B^{-1}",
+      "X = B^{-1} C A^{-1}",
+      "X = C A^{-1} B^{-1}",
+      "X = A^{-1} B^{-1} C"
     ],
-    "correctAnswer": "$k = 36$",
+    "correctAnswer": "$X = A^{-1} C B^{-1}$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "Multiply by A^{-1} on the left and B^{-1} on the right.",
+    "hintAr": "اضرب في A^{-1} يساراً وفي B^{-1} يميناً.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (6)(6) = 0 \\implies k - 36 = 0$.",
-      "3. Therefore, $k = 36$."
+      "1. Left-multiply by $A^{-1}$: $X B = A^{-1} C$.",
+      "2. Right-multiply by $B^{-1}$: $X = A^{-1} C B^{-1}$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 36 = 0$.",
-      "٣. إذن $k = 36$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. بالضرب من اليسار في $A^{-1}$: $X B = A^{-1} C$.",
+      "٢. بالضرب من اليمين في $B^{-1}$: $X = A^{-1} C B^{-1}$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "Order of operations must be respected strictly on both sides.",
+    "teacherTipAr": "حافظ بدقة على جهة الضرب لكل طرف."
   },
   {
-    "id": "alg_ch3_db_med_47",
-    "titleEn": "Matrix Rank Reduction Parameter #7",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 7",
+    "id": "alg_ch3_db_medium_38",
+    "titleEn": "Cayley-Hamilton Theorem Application",
+    "titleAr": "تطبيق مبرهنة كايلي-هاميلتون",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 7 \\\\ 7 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 7 \\\\ 7 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "Every $2 \\times 2$ matrix satisfies $A^2 - \\text{tr}(A) A + |A| I = O$. If $A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 4 \\end{pmatrix}$, express $A^2$.",
+    "questionAr": "تحقق كل مصفوفة $2 \\times 2$ المعادلة $A^2 - \\text{tr}(A) A + |A| I = O$. إذا كانت $A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 4 \\end{pmatrix}$، فما تعبير $A^2$؟",
     "optionsEn": [
-      "$k = 49$",
-      "$k = 52$",
-      "$k = 55$",
-      "$k = 58$"
+      "$6A - 5I$",
+      "$6A + 5I$",
+      "$5A - 6I$",
+      "$4A - 5I$"
     ],
     "optionsAr": [
-      "$k = 49$",
-      "$k = 52$",
-      "$k = 55$",
-      "$k = 58$"
+      "6A - 5I",
+      "6A + 5I",
+      "5A - 6I",
+      "4A - 5I"
     ],
-    "correctAnswer": "$k = 49$",
+    "correctAnswer": "$6A - 5I$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "tr(A) = 2 + 4 = 6, |A| = 8 - 3 = 5.",
+    "hintAr": "الأثر = 6، والمحدد = 5.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (7)(7) = 0 \\implies k - 49 = 0$.",
-      "3. Therefore, $k = 49$."
+      "1. $\\text{tr}(A) = 2 + 4 = 6$.",
+      "2. $|A| = (2)(4) - (1)(3) = 5$.",
+      "3. By Cayley-Hamilton: $A^2 - 6A + 5I = O \\implies A^2 = 6A - 5I$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 49 = 0$.",
-      "٣. إذن $k = 49$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. أثر المصفوفة = $2 + 4 = 6$.",
+      "٢. محدد المصفوفة = $8 - 3 = 5$.",
+      "٣. بنظرية كايلي-هاميلتون: $A^2 = 6A - 5I$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "This allows computing high powers of matrices without repeated matrix multiplication.",
+    "teacherTipAr": "تتيح هذه النظرية حساب قوى المصفوفات الكبيرة دون ضرب متكرر."
   },
   {
-    "id": "alg_ch3_db_med_48",
-    "titleEn": "Matrix Rank Reduction Parameter #8",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 8",
+    "id": "alg_ch3_db_medium_39",
+    "titleEn": "Vandermonde Determinant Expansion",
+    "titleAr": "فك محدد فانديرموند",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 8 \\\\ 8 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 8 \\\\ 8 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "Evaluate the determinant $\\begin{vmatrix} 1 & 1 & 1 \\\\ a & b & c \\\\ a^2 & b^2 & c^2 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة محدد فانديرموند: $\\begin{vmatrix} 1 & 1 & 1 \\\\ a & b & c \\\\ a^2 & b^2 & c^2 \\end{vmatrix}$.",
     "optionsEn": [
-      "$k = 64$",
-      "$k = 67$",
-      "$k = 70$",
-      "$k = 73$"
+      "$(b - a)(c - a)(c - b)$",
+      "$(a - b)(b - c)(c - a)$",
+      "$abc$",
+      "$a+b+c$"
     ],
     "optionsAr": [
-      "$k = 64$",
-      "$k = 67$",
-      "$k = 70$",
-      "$k = 73$"
+      "(b - a)(c - a)(c - b)",
+      "(a - b)(b - c)(c - a)",
+      "abc",
+      "a+b+c"
     ],
-    "correctAnswer": "$k = 64$",
+    "correctAnswer": "$(b - a)(c - a)(c - b)$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "Perform C2 - C1 and C3 - C1 and factor out (b - a) and (c - a).",
+    "hintAr": "اطرح العمود الأول من الثاني والثالث ثم خذ العوامل المشتركة.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (8)(8) = 0 \\implies k - 64 = 0$.",
-      "3. Therefore, $k = 64$."
+      "1. This is the classical $3 \\times 3$ Vandermonde determinant.",
+      "2. By subtracting columns and factoring: $\\Delta = (b - a)(c - a)(c - b)$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 64 = 0$.",
-      "٣. إذن $k = 64$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. هذا هو محدد فانديرموند الشهير من الرتبة الثالثة.",
+      "٢. بطرح الأعمدة وإخراج العوامل المشتركة ينتج $(b - a)(c - a)(c - b)$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "A standard theorem result frequently asked in pure mathematics exams.",
+    "teacherTipAr": "نتيجة قياسية مشهورة تتكرر في امتحانات الجبر."
   },
   {
-    "id": "alg_ch3_db_med_49",
-    "titleEn": "Matrix Rank Reduction Parameter #9",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 9",
+    "id": "alg_ch3_db_medium_40",
+    "titleEn": "Cramer's Rule for Z Variable",
+    "titleAr": "إيجاد المجهول ع بقاعدة كرامر",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 9 \\\\ 9 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 9 \\\\ 9 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "In a system of 3 linear equations, $\\Delta = 4$ and $\\Delta_z = -12$. What is $z$?",
+    "questionAr": "في نظام خطي ثلاثي، كانت $\\Delta = 4$ و $\\Delta_z = -12$. فما قيمة $z$؟",
     "optionsEn": [
-      "$k = 81$",
-      "$k = 84$",
-      "$k = 87$",
-      "$k = 90$"
+      "$-3$",
+      "$3$",
+      "$-1/3$",
+      "$-48$"
     ],
     "optionsAr": [
-      "$k = 81$",
-      "$k = 84$",
-      "$k = 87$",
-      "$k = 90$"
+      "-3",
+      "3",
+      "-1/3",
+      "-48"
     ],
-    "correctAnswer": "$k = 81$",
+    "correctAnswer": "$-3$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "z = Delta_z / Delta.",
+    "hintAr": "ع = دلتا ع مقسومة على دلتا.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (9)(9) = 0 \\implies k - 81 = 0$.",
-      "3. Therefore, $k = 81$."
+      "1. $z = \\frac{\\Delta_z}{\\Delta} = \\frac{-12}{4} = -3$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 81 = 0$.",
-      "٣. إذن $k = 81$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. $z = \\frac{\\Delta_z}{\\Delta} = \\frac{-12}{4} = -3$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "Direct application of Cramer's formula for the third variable.",
+    "teacherTipAr": "تطبيق مباشر لصيغة كرامر على المجهول الثالث."
   },
   {
-    "id": "alg_ch3_db_med_50",
-    "titleEn": "Matrix Rank Reduction Parameter #10",
-    "titleAr": "قيمة ك لتخفيض رتبة المصفوفة رقم 10",
+    "id": "alg_ch3_db_medium_41",
+    "titleEn": "Inverse of Product of 3 Matrices",
+    "titleAr": "معكوس حاصل ضرب ثلاث مصفوفات",
     "difficulty": "medium",
-    "questionEn": "Find the value of $k$ that makes the rank of the matrix $A = \\begin{pmatrix} 1 & 10 \\\\ 10 & k \\end{pmatrix}$ equal to 1.",
-    "questionAr": "أوجد قيمة $k$ التي تجعل رتبة المصفوفة $A = \\begin{pmatrix} 1 & 10 \\\\ 10 & k \\end{pmatrix}$ تساوي 1.",
+    "questionEn": "For invertible matrices $A, B, C$, $(A B C)^{-1}$ equals:",
+    "questionAr": "لمصفوفات غير منفردة $A, B, C$، فإن $(A B C)^{-1}$ تساوي:",
     "optionsEn": [
-      "$k = 100$",
-      "$k = 103$",
-      "$k = 106$",
-      "$k = 109$"
+      "$C^{-1} B^{-1} A^{-1}$",
+      "$A^{-1} B^{-1} C^{-1}$",
+      "$B^{-1} A^{-1} C^{-1}$",
+      "$C A B$"
     ],
     "optionsAr": [
-      "$k = 100$",
-      "$k = 103$",
-      "$k = 106$",
-      "$k = 109$"
+      "C^{-1} B^{-1} A^{-1}",
+      "A^{-1} B^{-1} C^{-1}",
+      "B^{-1} A^{-1} C^{-1}",
+      "C A B"
     ],
-    "correctAnswer": "$k = 100$",
+    "correctAnswer": "$C^{-1} B^{-1} A^{-1}$",
     "correctIndex": 0,
-    "hintEn": "The rank of a non-zero $2 \\times 2$ matrix is 1 if and only if its determinant is zero: $|A| = 0$.",
-    "hintAr": "تكون رتبة مصفوفة غير صفرية $2 \\times 2$ مساوية لـ 1 إذا وفقط إذا كان محددها صفراً: $|A| = 0$.",
+    "hintEn": "Reverse the order of all factors when inverting.",
+    "hintAr": "اعكس ترتيب جميع العوامل عند أخذ المعكوس الضربي.",
     "stepByStepSolutionEn": [
-      "1. For $\\text{rank}(A) = 1$, the determinant must vanish: $|A| = 0$.",
-      "2. Equation: $1(k) - (10)(10) = 0 \\implies k - 100 = 0$.",
-      "3. Therefore, $k = 100$."
+      "1. $(ABC)^{-1} = ((AB)C)^{-1} = C^{-1}(AB)^{-1} = C^{-1} B^{-1} A^{-1}$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي تكون الرتبة مساوية لـ 1 يجب أن ينعدم المحدد: $|A| = 0$.",
-      "٢. المعادلة: $k - 100 = 0$.",
-      "٣. إذن $k = 100$ (وهي مصفوفة غير صفرية فرتبتها 1)."
+      "١. $(ABC)^{-1} = C^{-1} B^{-1} A^{-1}$."
     ],
-    "teacherTipEn": "A 2x2 non-zero matrix has rank 1 iff det(A) = 0.",
-    "teacherTipAr": "مصفوفة ٢×٢ غير صفرية رتبتها ١ إذا وفقط إذا انعدم محددها."
+    "teacherTipEn": "Every factor is inverted and written in reverse order.",
+    "teacherTipAr": "يعكس كل عامل ويكتب بالترتيب العكسي."
+  },
+  {
+    "id": "alg_ch3_db_medium_42",
+    "titleEn": "Transpose of Sum Property",
+    "titleAr": "مدور مجموع مصفوفتين",
+    "difficulty": "medium",
+    "questionEn": "For square matrices $A$ and $B$, $(A + B)^T$ is:",
+    "questionAr": "لأي مصفوفتين مربعتين $A$ و $B$، فإن $(A + B)^T$ تساوي:",
+    "optionsEn": [
+      "$A^T + B^T$",
+      "$B^T A^T$",
+      "$A^T - B^T$",
+      "$(AB)^T$"
+    ],
+    "optionsAr": [
+      "A^T + B^T",
+      "B^T A^T",
+      "A^T - B^T",
+      "(AB)^T"
+    ],
+    "correctAnswer": "$A^T + B^T$",
+    "correctIndex": 0,
+    "hintEn": "Transposition distributes directly across addition.",
+    "hintAr": "التدوير يوزع مباشرة على الجمع بنفس الترتيب.",
+    "stepByStepSolutionEn": [
+      "1. Unlike multiplication, transposition distributes linearly: $(A + B)^T = A^T + B^T$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. التدوير يتوزع خطياً على الجمع دون تغيير الترتيب: $(A + B)^T = A^T + B^T$."
+    ],
+    "teacherTipEn": "Addition does not invert order, only multiplication does.",
+    "teacherTipAr": "الجمع لا يعكس الترتيب، الضرب فقط هو من يعكسه."
+  },
+  {
+    "id": "alg_ch3_db_medium_43",
+    "titleEn": "Nilpotent Matrix Property",
+    "titleAr": "خواص المصفوفة المتلاشية (الصفرية القوى)",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a square matrix such that $A^3 = O$, then $|A|$ must equal:",
+    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $A^3 = O$، فإن محددها $|A|$ يجب أن يساوي:",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$-1$",
+      "Cannot be determined"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "-1",
+      "لا يمكن التحديد"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "|A^3| = |A|^3 = |O| = 0.",
+    "hintAr": "|A|^3 = 0 يؤدي إلى |A| = 0.",
+    "stepByStepSolutionEn": [
+      "1. $|A^3| = |A|^3$.",
+      "2. $|A|^3 = 0 \\implies |A| = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A^3| = |A|^3 = 0$.",
+      "٢. إذن $|A| = 0$ حتماً."
+    ],
+    "teacherTipEn": "A nilpotent matrix is always singular and has no inverse.",
+    "teacherTipAr": "المصفوفة المتلاشية منفردة دائماً وليس لها معكوس ضربي."
+  },
+  {
+    "id": "alg_ch3_db_medium_44",
+    "titleEn": "Determinant of (adj A) Inverse",
+    "titleAr": "محدد معكوس المصفوفة الملحقة",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $|A| = 2$, find $|(\\text{adj}(A))^{-1}|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = 2$، فما قيمة $|(\\text{adj}(A))^{-1}|$؟",
+    "optionsEn": [
+      "$1/4$",
+      "$4$",
+      "$1/8$",
+      "$1/2$"
+    ],
+    "optionsAr": [
+      "1/4",
+      "4",
+      "1/8",
+      "1/2"
+    ],
+    "correctAnswer": "$1/4$",
+    "correctIndex": 0,
+    "hintEn": "|adj(A)| = |A|^2 = 4, so |(adj A)^{-1}| = 1 / 4.",
+    "hintAr": "|adj(A)| = 4 ومحدد معكوسها مقلوبه.",
+    "stepByStepSolutionEn": [
+      "1. $|\\text{adj}(A)| = |A|^{3-1} = |A|^2 = 2^2 = 4$.",
+      "2. Determinant of inverse is reciprocal: $\\frac{1}{|\\text{adj}(A)|} = \\frac{1}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. محدد الملحقة $= |A|^2 = 2^2 = 4$.",
+      "٢. محدد معكوسها هو المقلوب $= 1/4$."
+    ],
+    "teacherTipEn": "Combine the adjoint formula with the inverse formula.",
+    "teacherTipAr": "ادمج قاعدة الملحقة مع قاعدة المعكوس."
+  },
+  {
+    "id": "alg_ch3_db_medium_45",
+    "titleEn": "Rank of Product Inequality",
+    "titleAr": "متباينة رتبة حاصل ضرب مصفوفتين",
+    "difficulty": "medium",
+    "questionEn": "If $A$ has rank 2 and $B$ has rank 3, what is the maximum possible rank of $A B$?",
+    "questionAr": "إذا كانت رتبة $A$ تساوي 2 ورتبة $B$ تساوي 3، فما أقصى رتبة ممكنة لحاصل الضرب $A B$؟",
+    "optionsEn": [
+      "$2$",
+      "$3$",
+      "$5$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "2",
+      "3",
+      "5",
+      "6"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "rank(AB) <= min(rank(A), rank(B)).",
+    "hintAr": "رتبة حاصل الضرب لا تتعدى أصغر رتبتي المصفوفتين.",
+    "stepByStepSolutionEn": [
+      "1. By rank inequality: $\\text{rank}(AB) \\le \\min(\\text{rank}(A), \\text{rank}(B))$.",
+      "2. $\\min(2, 3) = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. متباينة الرتبة: $\\text{rank}(AB) \\le \\min(\\text{rank}(A), \\text{rank}(B))$.",
+      "٢. أصغر القيمتين هو 2."
+    ],
+    "teacherTipEn": "Matrix multiplication cannot increase the rank.",
+    "teacherTipAr": "ضرب المصفوفات لا يمكن أن يزيد الرتبة إطلاقاً."
+  },
+  {
+    "id": "alg_ch3_db_medium_46",
+    "titleEn": "Homogeneous 3x3 System Non-Trivial Condition",
+    "titleAr": "شرط الحلول غير الصفرية لنظام متجانس ثلاثي",
+    "difficulty": "medium",
+    "questionEn": "For what value of $m$ does the homogeneous system $x + y + z = 0$, $2x + my + 3z = 0$, $3x + 4y + 4z = 0$ have non-trivial solutions?",
+    "questionAr": "لأي قيمة للثابت $m$ يكون للنظام المتجانس الآتي حلول غير صفرية: $x + y + z = 0$، $2x + my + 3z = 0$، $3x + 4y + 4z = 0$؟",
+    "optionsEn": [
+      "$m = 3$",
+      "$m = 2$",
+      "$m = 1$",
+      "$m = -3$"
+    ],
+    "optionsAr": [
+      "m = 3",
+      "m = 2",
+      "m = 1",
+      "m = -3"
+    ],
+    "correctAnswer": "$m = 3$",
+    "correctIndex": 0,
+    "hintEn": "Set the determinant of coefficients equal to 0.",
+    "hintAr": "اجعل محدد المعاملات مساوياً للصفر.",
+    "stepByStepSolutionEn": [
+      "1. $\\begin{vmatrix} 1 & 1 & 1 \\\\ 2 & m & 3 \\\\ 3 & 4 & 4 \\end{vmatrix} = 0$.",
+      "2. Expanding along row 1: $1(4m - 12) - 1(8 - 9) + 1(8 - 3m) = 0$.",
+      "3. $(4m - 12) + 1 + (8 - 3m) = 0 \\implies m - 3 = 0 \\implies m = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. شرط الحلول غير الصفرية: محدد المعاملات ينعدم.",
+      "٢. بالفك بدلالة عناصر الصف الأول: $m - 3 = 0 \\implies m = 3$."
+    ],
+    "teacherTipEn": "A zero determinant ensures the planes intersect in at least a line through the origin.",
+    "teacherTipAr": "انعدام المحدد يضمن تقاطع المستويات في خط مستقيم يمر بالأصل."
+  },
+  {
+    "id": "alg_ch3_db_medium_47",
+    "titleEn": "Circulant Matrix Determinant Value",
+    "titleAr": "محدد المصفوفة الدائرية التناظرية",
+    "difficulty": "medium",
+    "questionEn": "If $a + b + c = 0$, what is the value of $\\begin{vmatrix} a & b & c \\\\ b & c & a \\\\ c & a & b \\end{vmatrix}$?",
+    "questionAr": "إذا كان $a + b + c = 0$، فما قيمة المحدد الدائري: $\\begin{vmatrix} a & b & c \\\\ b & c & a \\\\ c & a & b \\end{vmatrix}$؟",
+    "optionsEn": [
+      "$0$",
+      "$3abc$",
+      "$a^3+b^3+c^3$",
+      "$-3abc$"
+    ],
+    "optionsAr": [
+      "0",
+      "3abc",
+      "a^3+b^3+c^3",
+      "-3abc"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Add all columns to C1: entries become a+b+c = 0.",
+    "hintAr": "اجمع كل الأعمدة في العمود الأول فتصبح عناصره a+b+c = 0.",
+    "stepByStepSolutionEn": [
+      "1. $C_1 \\to C_1 + C_2 + C_3$.",
+      "2. Every entry in $C_1$ becomes $a+b+c$.",
+      "3. Since $a+b+c = 0$, $C_1$ is all zeros, so the determinant is 0."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بإضافة الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
+      "٢. تصبح عناصر العمود الأول $a+b+c = 0$.",
+      "٣. عمود كامل من الأصفار يجعل المحدد صفراً."
+    ],
+    "teacherTipEn": "Factoring (a+b+c) out of circulant determinants is a standard technique.",
+    "teacherTipAr": "إخراج (a+b+c) عامل مشترك تقنية قياسية في المحددات الدائرية."
+  },
+  {
+    "id": "alg_ch3_db_medium_48",
+    "titleEn": "Determinant Multiplication by Matrix Transpose",
+    "titleAr": "محدد حاصل ضرب المصفوفة في مدورها",
+    "difficulty": "medium",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $|A| = -3$, find $|A A^T|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = -3$، فما قيمة $|A A^T|$؟",
+    "optionsEn": [
+      "$9$",
+      "$-9$",
+      "$27$",
+      "$-27$"
+    ],
+    "optionsAr": [
+      "9",
+      "-9",
+      "27",
+      "-27"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "|A A^T| = |A| * |A^T| = |A|^2 = (-3)^2 = 9.",
+    "hintAr": "|A A^T| = |A|^2 = 9.",
+    "stepByStepSolutionEn": [
+      "1. $|A A^T| = |A| \\cdot |A^T|$.",
+      "2. Since $|A^T| = |A| = -3$, $|A A^T| = (-3)(-3) = 9$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|A A^T| = |A| \\cdot |A^T| = |A|^2$.",
+      "٢. $(-3)^2 = 9$."
+    ],
+    "teacherTipEn": "Always positive regardless of whether |A| is negative.",
+    "teacherTipAr": "دائماً موجب حتى لو كان محدد أ سالباً."
+  },
+  {
+    "id": "alg_ch3_db_medium_49",
+    "titleEn": "Inverse of Scalar Times Matrix",
+    "titleAr": "معكوس حاصل ضرب عدد في مصفوفة",
+    "difficulty": "medium",
+    "questionEn": "For an invertible matrix $A$ and non-zero scalar $k$, $(k A)^{-1}$ is:",
+    "questionAr": "لمصفوفة غير منفردة $A$ وعدد حقيقي غير صفري $k$، فإن $(k A)^{-1}$ تساوي:",
+    "optionsEn": [
+      "$\\frac{1}{k} A^{-1}$",
+      "$k A^{-1}$",
+      "$\\frac{1}{k^n} A^{-1}$",
+      "$-k A^{-1}$"
+    ],
+    "optionsAr": [
+      "1/k A^{-1}",
+      "k A^{-1}",
+      "1/k^n A^{-1}",
+      "-k A^{-1}"
+    ],
+    "correctAnswer": "$\\frac{1}{k} A^{-1}$",
+    "correctIndex": 0,
+    "hintEn": "(kA) * (1/k A^{-1}) = (k * 1/k)(A A^{-1}) = 1 * I = I.",
+    "hintAr": "(kA) في (1/k A^{-1}) تعطي مصفوفة الوحدة.",
+    "stepByStepSolutionEn": [
+      "1. By definition of scalar inverse: $(kA)^{-1} = \\frac{1}{k} A^{-1}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. معكوس حاصل ضرب عدد في مصفوفة: $(kA)^{-1} = \\frac{1}{k} A^{-1}$."
+    ],
+    "teacherTipEn": "Don't confuse matrix inverse (1/k) with determinant (k^n).",
+    "teacherTipAr": "لا تخلط بين مقلوب العدد في المعكوس والأس n في المحدد."
+  },
+  {
+    "id": "alg_ch3_db_medium_50",
+    "titleEn": "Determinant of Negative Matrix of Order 3",
+    "titleAr": "محدد المعكوس الجمعي لمصفوفة من الرتبة الثالثة",
+    "difficulty": "medium",
+    "questionEn": "For any $3 \\times 3$ matrix $A$, $|-A|$ is always equal to:",
+    "questionAr": "لأي مصفوفة $A$ من الرتبة الثالثة، فإن محدد المعكوس الجمعي $|-A|$ يساوي دائماً:",
+    "optionsEn": [
+      "$-|A|$",
+      "$|A|$",
+      "$3|A|$",
+      "$-3|A|$"
+    ],
+    "optionsAr": [
+      "-|A|",
+      "|A|",
+      "3|A|",
+      "-3|A|"
+    ],
+    "correctAnswer": "$-|A|$",
+    "correctIndex": 0,
+    "hintEn": "|-A| = (-1)^3 |A| = -|A|.",
+    "hintAr": "|-A| = (-1)³ |A| = -|A|.",
+    "stepByStepSolutionEn": [
+      "1. $|-A| = |(-1) A| = (-1)^3 |A| = -|A|$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $|-A| = (-1)^3 |A| = -|A|$."
+    ],
+    "teacherTipEn": "For odd orders the sign changes; for even orders it stays positive.",
+    "teacherTipAr": "للرتب الفردية تتغير الإشارة، وللرتب الزوجية تظل الإشارة موجبة."
   }
 ],
   hots: [
   {
     "id": "alg_ch3_db_hots_01",
-    "titleEn": "Non-Trivial Solutions Condition #1",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 1",
+    "titleEn": "Determinant of Double Adjoint Matrix",
+    "titleAr": "محدد المصفوفة الملحقة للملحقة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 1z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 1z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "For any $3 \\times 3$ matrix $A$, what is $|\\text{adj}(\\text{adj}(A))|$ in terms of $|A|$?",
+    "questionAr": "لأي مصفوفة مربعة $A$ من الرتبة الثالثة، ما قيمة $|\\text{adj}(\\text{adj}(A))|$ بدلالة $|A|$؟",
     "optionsEn": [
-      "$k = 4$",
-      "$k = 6$",
-      "$k = 2$",
-      "$k = 9$"
+      "$|A|^4$",
+      "$|A|^2$",
+      "$|A|^6$",
+      "$|A|^8$"
     ],
     "optionsAr": [
-      "$k = 4$",
-      "$k = 6$",
-      "$k = 2$",
-      "$k = 9$"
+      "|A|^4",
+      "|A|^2",
+      "|A|^6",
+      "|A|^8"
     ],
-    "correctAnswer": "$k = 4$",
+    "correctAnswer": "$|A|^4$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "|adj(M)| = |M|^{n-1}, so for M = adj(A), |adj(adj(A))| = (|A|^{n-1})^{n-1} = |A|^{(n-1)^2}.",
+    "hintAr": "قانون محدد الملحقة للملحقة: |A| مرفوعاً للأس (n-1)².",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 1 + 3 = 4$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(1) = -3(k - 4) = 0 \\implies k = 4$."
+      "1. For any matrix $M$ of order $n$, $|\\text{adj}(M)| = |M|^{n-1}$.",
+      "2. Let $M = \\text{adj}(A)$: $|\\text{adj}(\\text{adj}(A))| = (|\\text{adj}(A)|)^{n-1}$.",
+      "3. Since $|\\text{adj}(A)| = |A|^{n-1}$, $|\\text{adj}(\\text{adj}(A))| = (|A|^{n-1})^{n-1} = |A|^{(n-1)^2}$.",
+      "4. For $n = 3$: $(3 - 1)^2 = 2^2 = 4$, so $|\\text{adj}(\\text{adj}(A))| = |A|^4$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 1 + 3 = 4$.",
-      "٤. إذن $k = 4$."
+      "١. محدد الملحقة لأي مصفوفة $M$ من الرتبة $n$ هو $|M|^{n-1}$.",
+      "٢. بوضع $M = \\text{adj}(A)$، ينتج: $|\\text{adj}(\\text{adj}(A))| = |A|^{(n-1)^2}$.",
+      "٣. عندما $n = 3$، فإن $(3-1)^2 = 4$، إذن القيمة هي $|A|^4$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "A legendary high-order thinking question in Egyptian secondary mathematics.",
+    "teacherTipAr": "سؤال مميز ومشهور في مستويات التفكير العليا بالثانوية العامة."
   },
   {
     "id": "alg_ch3_db_hots_02",
-    "titleEn": "Non-Trivial Solutions Condition #2",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 2",
+    "titleEn": "Double Adjoint Matrix Identity",
+    "titleAr": "متطابقة المصفوفة الملحقة للملحقة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 2z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 2z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "For an invertible $3 \\times 3$ matrix $A$, which expression equals $\\text{adj}(\\text{adj}(A))$?",
+    "questionAr": "لمصفوفة غير منفردة $A$ من الرتبة الثالثة، أي تعبير يساوي $\\text{adj}(\\text{adj}(A))$؟",
     "optionsEn": [
-      "$k = 5$",
-      "$k = 7$",
-      "$k = 3$",
-      "$k = 10$"
+      "$|A| A$",
+      "$|A|^2 A$",
+      "$A$",
+      "$|A|^3 A^{-1}$"
     ],
     "optionsAr": [
-      "$k = 5$",
-      "$k = 7$",
-      "$k = 3$",
-      "$k = 10$"
+      "|A| A",
+      "|A|^2 A",
+      "A",
+      "|A|^3 A^{-1}"
     ],
-    "correctAnswer": "$k = 5$",
+    "correctAnswer": "$|A| A$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "General formula: adj(adj(A)) = |A|^{n-2} A.",
+    "hintAr": "الصيغة العامة: adj(adj(A)) = |A|^{n-2} A.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 2 + 3 = 5$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(2) = -3(k - 5) = 0 \\implies k = 5$."
+      "1. For an $n \\times n$ matrix, $\\text{adj}(\\text{adj}(A)) = |A|^{n-2} A$.",
+      "2. Here $n = 3$, so $|A|^{3-2} A = |A|^1 A = |A| A$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 2 + 3 = 5$.",
-      "٤. إذن $k = 5$."
+      "١. القاعدة العامة لمصفوفة من الرتبة $n$: $\\text{adj}(\\text{adj}(A)) = |A|^{n-2} A$.",
+      "٢. هنا $n = 3$، إذن $|A|^{3-2} A = |A| A$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "When n = 3, adj(adj(A)) is simply a scalar multiple of the original matrix A.",
+    "teacherTipAr": "عندما تكون الرتبة 3، ملحقة الملحقة هي المصفوفة الأصلية مضروبة في محددها."
   },
   {
     "id": "alg_ch3_db_hots_03",
-    "titleEn": "Non-Trivial Solutions Condition #3",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 3",
+    "titleEn": "Numerical Value of Double Adjoint Determinant",
+    "titleAr": "القيمة العددية لمحدد ملحقة الملحقة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 3z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 3z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $|A| = 2$, find the value of $|\\text{adj}(\\text{adj}(A))|$.",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|A| = 2$، فما قيمة $|\\text{adj}(\\text{adj}(A))|$؟",
     "optionsEn": [
-      "$k = 6$",
-      "$k = 8$",
-      "$k = 4$",
-      "$k = 11$"
+      "$16$",
+      "$8$",
+      "$64$",
+      "$32$"
     ],
     "optionsAr": [
-      "$k = 6$",
-      "$k = 8$",
-      "$k = 4$",
-      "$k = 11$"
+      "16",
+      "8",
+      "64",
+      "32"
     ],
-    "correctAnswer": "$k = 6$",
+    "correctAnswer": "$16$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "Use |adj(adj(A))| = |A|^4.",
+    "hintAr": "استخدم القاعدة: |adj(adj(A))| = |A|^4.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 3 + 3 = 6$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(3) = -3(k - 6) = 0 \\implies k = 6$."
+      "1. For $n = 3$, $|\\text{adj}(\\text{adj}(A))| = |A|^4$.",
+      "2. Substitute $|A| = 2$: $2^4 = 16$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 3 + 3 = 6$.",
-      "٤. إذن $k = 6$."
+      "١. للرتبة 3: $|\\text{adj}(\\text{adj}(A))| = |A|^4$.",
+      "٢. بالتعويض عن $|A| = 2$: $2^4 = 16$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "Direct application of the power 4 formula.",
+    "teacherTipAr": "تطبيق مباشر لصيغة الأس 4."
   },
   {
     "id": "alg_ch3_db_hots_04",
-    "titleEn": "Non-Trivial Solutions Condition #4",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 4",
+    "titleEn": "Inferring Determinant from Double Adjoint",
+    "titleAr": "إيجاد محدد المصفوفة من محدد ملحقة الملحقة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 4z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 4z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix such that $|\\text{adj}(\\text{adj}(A))| = 81$, what are the possible values of $|A|$?",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 3$ بحيث $|\\text{adj}(\\text{adj}(A))| = 81$، فما القيم الممكنة لـ $|A|$؟",
     "optionsEn": [
-      "$k = 7$",
-      "$k = 9$",
-      "$k = 5$",
-      "$k = 12$"
+      "$\\pm 3$",
+      "$3$",
+      "$\\pm 9$",
+      "$9$"
     ],
     "optionsAr": [
-      "$k = 7$",
-      "$k = 9$",
-      "$k = 5$",
-      "$k = 12$"
+      "±3",
+      "3",
+      "±9",
+      "9"
     ],
-    "correctAnswer": "$k = 7$",
+    "correctAnswer": "$\\pm 3$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "|A|^4 = 81 implies |A| = ±3.",
+    "hintAr": "|A|^4 = 81 تعني أن |A| = ±3.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 4 + 3 = 7$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(4) = -3(k - 7) = 0 \\implies k = 7$."
+      "1. $|\\text{adj}(\\text{adj}(A))| = |A|^4 = 81$.",
+      "2. $|A| = \\pm \\sqrt[4]{81} = \\pm 3$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 4 + 3 = 7$.",
-      "٤. إذن $k = 7$."
+      "١. $|A|^4 = 81$.",
+      "٢. بأخذ الجذر الرابع: $|A| = \\pm 3$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "An even root yields both positive and negative solutions.",
+    "teacherTipAr": "الجذر ذو الدليل الزوجي يعطي إشارتين موجبة وسالبة."
   },
   {
     "id": "alg_ch3_db_hots_05",
-    "titleEn": "Non-Trivial Solutions Condition #5",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 5",
+    "titleEn": "Powers of Upper Triangular Jordan Block",
+    "titleAr": "قوى مصفوفة الوحدة مع عنصر فوق القطر",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 5z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 5z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$, what is the general form of $A^n$ for any positive integer $n$?",
+    "questionAr": "إذا كانت $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$، فما الصورة العامة لـ $A^n$ لأي عدد صحيح موجب $n$؟",
     "optionsEn": [
-      "$k = 8$",
-      "$k = 10$",
-      "$k = 6$",
-      "$k = 13$"
+      "$\\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 2^n \\\\ 0 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} n & n \\\\ 0 & n \\end{pmatrix}$"
     ],
     "optionsAr": [
-      "$k = 8$",
-      "$k = 10$",
-      "$k = 6$",
-      "$k = 13$"
+      "[[1, n], [0, 1]]",
+      "[[1, 1], [0, 1]]",
+      "[[1, 2^n], [0, 1]]",
+      "[[n, n], [0, n]]"
     ],
-    "correctAnswer": "$k = 8$",
+    "correctAnswer": "$\\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "Compute A^2 and A^3 to discover the arithmetic progression in the top-right entry.",
+    "hintAr": "احسب أ² و أ³ لتلاحظ المتتابعة الحسابية في العنصر العلوي الأيمن.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 5 + 3 = 8$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(5) = -3(k - 8) = 0 \\implies k = 8$."
+      "1. $A^2 = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$.",
+      "2. $A^3 = A^2 A = \\begin{pmatrix} 1 & 3 \\\\ 0 & 1 \\end{pmatrix}$.",
+      "3. By induction, $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 5 + 3 = 8$.",
-      "٤. إذن $k = 8$."
+      "١. $A^2 = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$.",
+      "٢. $A^3 = \\begin{pmatrix} 1 & 3 \\\\ 0 & 1 \\end{pmatrix}$.",
+      "٣. بالاستنتاج الرياضي: $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "A standard pattern question test of mathematical induction in matrices.",
+    "teacherTipAr": "سؤال استنتاجي كلاسيكي لاختبار مهارة إيجاد الأنماط في المصفوفات."
   },
   {
     "id": "alg_ch3_db_hots_06",
-    "titleEn": "Non-Trivial Solutions Condition #6",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 6",
+    "titleEn": "Powers of 2D Rotation Matrix",
+    "titleAr": "قوى مصفوفة الدوران المستوي",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 6z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 6z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $R(\\theta) = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{pmatrix}$, what is $[R(\\theta)]^n$?",
+    "questionAr": "إذا كانت $R(\\theta) = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{pmatrix}$، فما قيمة $[R(\\theta)]^n$؟",
     "optionsEn": [
-      "$k = 9$",
-      "$k = 11$",
-      "$k = 7$",
-      "$k = 14$"
+      "$\\begin{pmatrix} \\cos(n\\theta) & -\\sin(n\\theta) \\\\ \\sin(n\\theta) & \\cos(n\\theta) \\end{pmatrix}$",
+      "$\\begin{pmatrix} \\cos^n \\theta & -\\sin^n \\theta \\\\ \\sin^n \\theta & \\cos^n \\theta \\end{pmatrix}$",
+      "$n R(\\theta)$",
+      "$I$"
     ],
     "optionsAr": [
-      "$k = 9$",
-      "$k = 11$",
-      "$k = 7$",
-      "$k = 14$"
+      "[[cos nθ, -sin nθ], [sin nθ, cos nθ]]",
+      "[[cos^n θ, -sin^n θ], [sin^n θ, cos^n θ]]",
+      "n R(θ)",
+      "I"
     ],
-    "correctAnswer": "$k = 9$",
+    "correctAnswer": "$\\begin{pmatrix} \\cos(n\\theta) & -\\sin(n\\theta) \\\\ \\sin(n\\theta) & \\cos(n\\theta) \\end{pmatrix}$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "Applying rotation by θ n times corresponds to a single rotation by nθ.",
+    "hintAr": "تكرار الدوران بالزاوية θ نون من المرات يكافئ دوراناً واحداً بالزاوية ن θ.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 6 + 3 = 9$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(6) = -3(k - 9) = 0 \\implies k = 9$."
+      "1. Geometrically, multiplying by $R(\\theta)$ rotates a vector by $\\theta$.",
+      "2. Doing this $n$ times rotates by $n\\theta$.",
+      "3. By De Moivre's theorem for matrices, $[R(\\theta)]^n = R(n\\theta)$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 6 + 3 = 9$.",
-      "٤. إذن $k = 9$."
+      "١. هندسياً: ضرب المتجه في المصفوفة يديره بزاوية $\\theta$.",
+      "٢. تكرار العملية $n$ مرة يدير المتجه بزاوية إجمالية $n\\theta$.",
+      "٣. بنظرية ديموافر: $[R(\\theta)]^n = R(n\\theta)$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "Deep connection between complex numbers (De Moivre) and 2D matrix transformations.",
+    "teacherTipAr": "رابط جوهري عميق بين نظرية ديموافر في الأعداد المركبة ومصفوفات الدوران."
   },
   {
     "id": "alg_ch3_db_hots_07",
-    "titleEn": "Non-Trivial Solutions Condition #7",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 7",
+    "titleEn": "High Power of 90-degree Rotation Matrix",
+    "titleAr": "حساب قوة كبيرة لمصفوفة الدوران بزاوية قائمة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 7z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 7z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $J = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$, find $J^{102}$.",
+    "questionAr": "إذا كانت $J = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$، فاحسب قيمة $J^{102}$.",
     "optionsEn": [
-      "$k = 10$",
-      "$k = 12$",
-      "$k = 8$",
-      "$k = 15$"
+      "$-I$",
+      "$I$",
+      "$J$",
+      "$-J$"
     ],
     "optionsAr": [
-      "$k = 10$",
-      "$k = 12$",
-      "$k = 8$",
-      "$k = 15$"
+      "-I",
+      "I",
+      "J",
+      "-J"
     ],
-    "correctAnswer": "$k = 10$",
+    "correctAnswer": "$-I$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "J^2 = -I, so J^4 = I.",
+    "hintAr": "J² = -I، وبالتالي J⁴ = I.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 7 + 3 = 10$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(7) = -3(k - 10) = 0 \\implies k = 10$."
+      "1. $J^2 = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix} = -I$.",
+      "2. $J^4 = (J^2)^2 = (-I)^2 = I$.",
+      "3. Divide 102 by 4: $102 = 4 \\times 25 + 2$.",
+      "4. $J^{102} = (J^4)^{25} \\cdot J^2 = I^{25} (-I) = -I$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 7 + 3 = 10$.",
-      "٤. إذن $k = 10$."
+      "١. $J^2 = -I$.",
+      "٢. $J^4 = (-I)^2 = I$.",
+      "٣. نقسم الأس 102 على 4 فيكون الباقي 2: $102 = 4 \\times 25 + 2$.",
+      "٤. إذن $J^{102} = J^2 = -I$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "J represents multiplication by the imaginary unit i in the complex plane.",
+    "teacherTipAr": "المصفوفة J تكافئ تماماً الضرب في الوحدة التخيلية ت (i)."
   },
   {
     "id": "alg_ch3_db_hots_08",
-    "titleEn": "Non-Trivial Solutions Condition #8",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 8",
+    "titleEn": "Inverse of (I - N) for Nilpotent Matrix",
+    "titleAr": "معكوس (مصفوفة الوحدة - مصفوفة متلاشية)",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 8z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 8z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $N$ is a square matrix such that $N^3 = O$, what is $(I - N)^{-1}$?",
+    "questionAr": "إذا كانت $N$ مصفوفة مربعة بحيث $N^3 = O$، فما قيمة $(I - N)^{-1}$؟",
     "optionsEn": [
-      "$k = 11$",
-      "$k = 13$",
-      "$k = 9$",
-      "$k = 16$"
+      "$I + N + N^2$",
+      "$I - N + N^2$",
+      "$I + N$",
+      "$N^2$"
     ],
     "optionsAr": [
-      "$k = 11$",
-      "$k = 13$",
-      "$k = 9$",
-      "$k = 16$"
+      "I + N + N^2",
+      "I - N + N^2",
+      "I + N",
+      "N^2"
     ],
-    "correctAnswer": "$k = 11$",
+    "correctAnswer": "$I + N + N^2$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "Use the algebraic identity: (I - N)(I + N + N^2) = I - N^3.",
+    "hintAr": "استخدم المتطابقة الجبرية: (I - N)(I + N + N^2) = I - N^3.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 8 + 3 = 11$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(8) = -3(k - 11) = 0 \\implies k = 11$."
+      "1. Multiply: $(I - N)(I + N + N^2) = I + N + N^2 - N - N^2 - N^3 = I - N^3$.",
+      "2. Since $N^3 = O$, $(I - N)(I + N + N^2) = I - O = I$.",
+      "3. Therefore $(I - N)^{-1} = I + N + N^2$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 8 + 3 = 11$.",
-      "٤. إذن $k = 11$."
+      "١. بضرب المقدارين: $(I - N)(I + N + N^2) = I - N^3$.",
+      "٢. بما أن $N^3 = O$، فإن حاصل الضرب يعطي $I$.",
+      "٣. إذن المعكوس الضربي هو $I + N + N^2$."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "This is the finite truncation of the geometric series (Neumann series) for matrices.",
+    "teacherTipAr": "هذا هو المجموع المنتهي لمتسلسلة القوى الهندسية للمصفوفات."
   },
   {
     "id": "alg_ch3_db_hots_09",
-    "titleEn": "Non-Trivial Solutions Condition #9",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 9",
+    "titleEn": "Rank Equals Trace for Idempotent Matrix",
+    "titleAr": "تساوي الرتبة والأثر في المصفوفة المتطابقة",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 9z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 9z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "If $P$ is an idempotent projection matrix ($P^2 = P$) of order 3 with $\\text{tr}(P) = 2$, what is $\\text{rank}(P)$?",
+    "questionAr": "إذا كانت $P$ مصفوفة إسقاط متطابقة ($P^2 = P$) من الرتبة الثالثة بحيث $\\text{tr}(P) = 2$، فما رتبتها $\\text{rank}(P)$؟",
     "optionsEn": [
-      "$k = 12$",
-      "$k = 14$",
-      "$k = 10$",
-      "$k = 17$"
+      "$2$",
+      "$1$",
+      "$3$",
+      "$0$"
     ],
     "optionsAr": [
-      "$k = 12$",
-      "$k = 14$",
-      "$k = 10$",
-      "$k = 17$"
+      "2",
+      "1",
+      "3",
+      "0"
     ],
-    "correctAnswer": "$k = 12$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "For any idempotent matrix, rank(P) = tr(P).",
+    "hintAr": "لأي مصفوفة متطابقة، رتبة المصفوفة تساوي أثرها دائماً.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 9 + 3 = 12$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(9) = -3(k - 12) = 0 \\implies k = 12$."
+      "1. The eigenvalues of an idempotent matrix ($P^2 = P$) are only 0 or 1.",
+      "2. The trace is the sum of eigenvalues, which counts the number of 1s.",
+      "3. The rank is the dimension of the image, which also equals the number of non-zero eigenvalues.",
+      "4. Therefore $\\text{rank}(P) = \\text{tr}(P) = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 9 + 3 = 12$.",
-      "٤. إذن $k = 12$."
+      "١. القيم المميزة للمصفوفة المتطابقة هي 0 أو 1 فقط.",
+      "٢. أثر المصفوفة هو مجموع القيم المميزة، فيساوي عدد الواحدات.",
+      "٣. رتبة المصفوفة تساوي أيضاً عدد الواحدات، إذن الرتبة = الأثر = 2."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "A profound linear algebra theorem connecting geometry (projection), algebra (trace), and rank.",
+    "teacherTipAr": "مبرهنة عميقة تربط بين الهندسة والجبر ورتبة المصفوفة."
   },
   {
     "id": "alg_ch3_db_hots_10",
-    "titleEn": "Non-Trivial Solutions Condition #10",
-    "titleAr": "شرط وجود حلول غير صفرية للنظام المتجانس رقم 10",
+    "titleEn": "Impossibility of AB - BA = I for Finite Matrices",
+    "titleAr": "استحالة تحقق AB - BA = I للمصفوفات المنتهية",
     "difficulty": "hots",
-    "questionEn": "The homogeneous system of equations:\n$$x + 2y + 10z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nhas non-trivial (non-zero) solutions if and only if $k$ equals:",
-    "questionAr": "النظام الخطي المتجانس:\n$$x + 2y + 10z = 0$$\n$$2x + y + 3z = 0$$\n$$3x + 3y + kz = 0$$\nله حلول غير صفرية (غير تافهة) إذا وفقط إذا كانت $k$ تساوي:",
+    "questionEn": "Why can NO finite $n \\times n$ matrices satisfy $A B - B A = I_n$?",
+    "questionAr": "لماذا يستحيل وجود مصفوفتين مربعتين $A, B$ من الرتبة $n$ تحققان $A B - B A = I_n$؟",
     "optionsEn": [
-      "$k = 13$",
-      "$k = 15$",
-      "$k = 11$",
-      "$k = 18$"
+      "Because $\\text{tr}(AB - BA) = 0$ while $\\text{tr}(I_n) = n \\neq 0$",
+      "Because determinants cannot be subtracted",
+      "Because matrix multiplication is non-commutative",
+      "Because $I_n$ is always singular"
     ],
     "optionsAr": [
-      "$k = 13$",
-      "$k = 15$",
-      "$k = 11$",
-      "$k = 18$"
+      "لأن أثر (AB - BA) يساوي صفراً بينما أثر مصفوفة الوحدة يساوي n",
+      "لأنه لا يمكن طرح المحددات",
+      "لأن ضرب المصفوفات غير إبدالي",
+      "لأن مصفوفة الوحدة منفردة دائماً"
     ],
-    "correctAnswer": "$k = 13$",
+    "correctAnswer": "Because $\\text{tr}(AB - BA) = 0$ while $\\text{tr}(I_n) = n \\neq 0$",
     "correctIndex": 0,
-    "hintEn": "A homogeneous system has non-trivial solutions if and only if the determinant of its coefficient matrix is zero ($|A| = 0$).",
-    "hintAr": "يكون للنظام المتجانس حلول غير صفرية إذا وفقط إذا كان محدد مصفوفة المعاملات منعدماً ($|A| = 0$).",
+    "hintEn": "Take trace of both sides: tr(AB - BA) = tr(AB) - tr(BA) = 0.",
+    "hintAr": "خذ الأثر للطرفين: أثر الطرف الأيمن صفر والطرف الأيسر n.",
     "stepByStepSolutionEn": [
-      "1. For a homogeneous system $AX = O$ to possess non-trivial solutions, we must have $|A| = 0$.",
-      "2. Notice that the third equation's $x$ and $y$ coefficients are the sum of the first two: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "3. For the rows to be linearly dependent, the $z$ coefficient must also satisfy $k = 10 + 3 = 13$.",
-      "4. Alternatively, expanding $|A| = -3k + 9 + 3(10) = -3(k - 13) = 0 \\implies k = 13$."
+      "1. Take the trace of both sides: $\\text{tr}(AB - BA) = \\text{tr}(I_n)$.",
+      "2. $\\text{tr}(AB) - \\text{tr}(BA) = 0$ because $\\text{tr}(AB) = \\text{tr}(BA)$.",
+      "3. But $\\text{tr}(I_n) = n \\ge 1$.",
+      "4. $0 = n$ is a contradiction, so no such matrices exist."
     ],
     "stepByStepSolutionAr": [
-      "١. لكي يكون للنظام المتجانس $AX = O$ حلول غير صفرية، يجب أن ينعدم محدد المعاملات: $|A| = 0$.",
-      "٢. نلاحظ أن معاملي $x$ و $y$ في المعادلة الثالثة هما مجموع المعادلتين الأولى والثانية: $(1+2)x + (2+1)y = 3x + 3y$.",
-      "٣. لكي تكون الصفوف مرتبطة خطياً وينعدم المحدد، يجب أن يكون معامل $z$ مساوياً لمجموع المعاملين: $k = 10 + 3 = 13$.",
-      "٤. إذن $k = 13$."
+      "١. بأخذ الأثر لكلا الطرفين: $\\text{tr}(AB - BA) = \\text{tr}(I_n)$.",
+      "٢. أثر الطرف الأيمن = $\\text{tr}(AB) - \\text{tr}(BA) = 0$.",
+      "٣. أثر مصفوفة الوحدة = $n \\ge 1$، وتناقض $0 = n$ يثبت استحالة وجودهما."
     ],
-    "teacherTipEn": "Linear dependence of rows immediately forces det(A) = 0 without lengthy expansion!",
-    "teacherTipAr": "ملاحظة الاعتماد الخطي للصفوف توفر وقت فك المحدد الطويل مباشرة!"
+    "teacherTipEn": "This famous theorem is why quantum position and momentum operators must be infinite-dimensional.",
+    "teacherTipAr": "لهذا السبب تكون مؤثرات ميكانيكا الكم في الفضاءات اللانهائية الأبعاد."
   },
   {
     "id": "alg_ch3_db_hots_11",
-    "titleEn": "Infinite Solutions Parameter Condition #1",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 1",
+    "titleEn": "Block Triangular Matrix Determinant",
+    "titleAr": "محدد المصفوفة المثلثية الكتلية",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 1$$\n$$2x + 3y + 4z = 2$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 1$$\n$$2x + 3y + 4z = 2$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "Evaluate $\\begin{vmatrix} A & B \\\\ O & D \\end{vmatrix}$ where $A$ and $D$ are square matrices.",
+    "questionAr": "احسب قيمة محدد المصفوفة الكتلية $\\begin{vmatrix} A & B \\\\ O & D \\end{vmatrix}$ حيث $A$ و $D$ مصفوفتان مربعتان.",
     "optionsEn": [
-      "$k = 5$ and $m = 3$",
-      "$k = 5$ and $m = 6$",
-      "$k = 4$ and $m = 3$",
-      "$k = 3$ and $m = 1$"
+      "$|A| |D|$",
+      "$|A| + |D|$",
+      "$|A| |D| - |B|$",
+      "$0$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 3$",
-      "$k = 5$ و $m = 6$",
-      "$k = 4$ و $m = 3$",
-      "$k = 3$ و $m = 1$"
+      "|A| |D|",
+      "|A| + |D|",
+      "|A| |D| - |B|",
+      "0"
     ],
-    "correctAnswer": "$k = 5$ and $m = 3$",
+    "correctAnswer": "$|A| |D|$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "For block triangular matrices, determinant is product of diagonal block determinants.",
+    "hintAr": "لمصفوفة كتلية مثلثية، المحدد هو حاصل ضرب محددات الكتل القطرية.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $1 + 2 = 3$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 3$."
+      "1. For block triangular matrices with zero sub-block, $|M| = |A| \\cdot |D|$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 1 + 2 = 3$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 3$."
+      "١. للمصفوفات الكتلية المثلثية: القيمة هي حاصل ضرب محدد الكتلتين القطريتين."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "Generalization of triangular matrix rule to block matrices.",
+    "teacherTipAr": "تعميم لقاعدة المصفوفة المثلثية على الكتل المصفوفية."
   },
   {
     "id": "alg_ch3_db_hots_12",
-    "titleEn": "Infinite Solutions Parameter Condition #2",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 2",
+    "titleEn": "Rank of Product of Non-Square Matrices",
+    "titleAr": "رتبة حاصل ضرب مصفوفتين مستطيلتين",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 2$$\n$$2x + 3y + 4z = 3$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 2$$\n$$2x + 3y + 4z = 3$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "If $A$ is a $3 \\times 2$ matrix and $B$ is a $2 \\times 3$ matrix, what is $|A B|$?",
+    "questionAr": "إذا كانت $A$ مصفوفة على النظم $3 \\times 2$ و $B$ مصفوفة على النظم $2 \\times 3$، فما قيمة محدد حاصل ضربهما $|A B|$؟",
     "optionsEn": [
-      "$k = 5$ and $m = 5$",
-      "$k = 5$ and $m = 8$",
-      "$k = 4$ and $m = 5$",
-      "$k = 3$ and $m = 3$"
+      "$0$ always",
+      "$1$ always",
+      "Can be any non-zero value",
+      "$-1$ always"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 5$",
-      "$k = 5$ و $m = 8$",
-      "$k = 4$ و $m = 5$",
-      "$k = 3$ و $m = 3$"
+      "0 دائماً",
+      "1 دائماً",
+      "يمكن أن يكون أي عدد غير صفري",
+      "-1 دائماً"
     ],
-    "correctAnswer": "$k = 5$ and $m = 5$",
+    "correctAnswer": "$0$ always",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "rank(AB) <= min(rank(A), rank(B)) <= 2, so 3x3 matrix AB has rank <= 2.",
+    "hintAr": "رتبة AB لا تتجاوز 2، فالمصفوفة الثلاثية الناتجة رتبتها أقل من 3 ومحددها صفر.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $2 + 3 = 5$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 5$."
+      "1. $\\text{rank}(AB) \\le \\min(\\text{rank}(A), \\text{rank}(B)) \\le 2$.",
+      "2. Since $AB$ is $3 \\times 3$ with rank at most 2, it is singular.",
+      "3. Therefore $|AB| = 0$ always."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 2 + 3 = 5$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 5$."
+      "١. رتبة حاصل الضرب لا تتجاوز 2.",
+      "٢. بما أن الناتج مصفوفة $3 \\times 3$ رتبتها أقل من 3، فهي مصفوفة منفردة.",
+      "٣. إذن محددها يساوي صفراً دائماً."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "A crucial result: product of tall and wide matrices cannot be full rank.",
+    "teacherTipAr": "نتيجة حاسمة: حاصل ضرب مصفوفة طويلة في عريضة لا يمكن أن يكون كامل الرتبة."
   },
   {
     "id": "alg_ch3_db_hots_13",
-    "titleEn": "Infinite Solutions Parameter Condition #3",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 3",
+    "titleEn": "Sylvester Rank Inequality",
+    "titleAr": "متباينة سيلفستر للرتبة",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 3$$\n$$2x + 3y + 4z = 4$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 3$$\n$$2x + 3y + 4z = 4$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "If $A$ and $B$ are $3 \\times 3$ matrices with $\\text{rank}(A) = 2$ and $\\text{rank}(B) = 2$, what is the minimum possible rank of $A B$?",
+    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من الرتبة الثالثة بحيث رتبة كل منهما 2، فما أدنى رتبة ممكنة لـ $A B$؟",
     "optionsEn": [
-      "$k = 5$ and $m = 7$",
-      "$k = 5$ and $m = 10$",
-      "$k = 4$ and $m = 7$",
-      "$k = 3$ and $m = 5$"
+      "$1$",
+      "$0$",
+      "$2$",
+      "$3$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 7$",
-      "$k = 5$ و $m = 10$",
-      "$k = 4$ و $m = 7$",
-      "$k = 3$ و $m = 5$"
+      "1",
+      "0",
+      "2",
+      "3"
     ],
-    "correctAnswer": "$k = 5$ and $m = 7$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "Sylvester's inequality: rank(AB) >= rank(A) + rank(B) - n.",
+    "hintAr": "متباينة سيلفستر: رتبة AB >= رتبة A + رتبة B - n.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $3 + 4 = 7$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 7$."
+      "1. By Sylvester's Rank Inequality: $\\text{rank}(AB) \\ge \\text{rank}(A) + \\text{rank}(B) - n$.",
+      "2. $\\text{rank}(AB) \\ge 2 + 2 - 3 = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 3 + 4 = 7$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 7$."
+      "١. بمتباينة سيلفستر: $\\text{rank}(AB) \\ge 2 + 2 - 3 = 1$.",
+      "٢. إذن أدنى رتبة ممكنة هي 1."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "Sylvester's inequality provides the rigorous lower bound for rank of products.",
+    "teacherTipAr": "متباينة سيلفستر تعطي الحد الأدنى الدقيق لرتبة حاصل الضرب."
   },
   {
     "id": "alg_ch3_db_hots_14",
-    "titleEn": "Infinite Solutions Parameter Condition #4",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 4",
+    "titleEn": "Rank of Adjoint when Rank(A) = 2",
+    "titleAr": "رتبة المصفوفة الملحقة عندما تكون رتبة المصفوفة 2",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 4$$\n$$2x + 3y + 4z = 5$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 4$$\n$$2x + 3y + 4z = 5$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\text{rank}(A) = 2$, what is $\\text{rank}(\\text{adj}(A))$?",
+    "questionAr": "إذا كانت $A$ مصفوفة من الرتبة الثالثة بحيث $\\text{rank}(A) = 2$، فما رتبة ملحقتها $\\text{rank}(\\text{adj}(A))$؟",
     "optionsEn": [
-      "$k = 5$ and $m = 9$",
-      "$k = 5$ and $m = 12$",
-      "$k = 4$ and $m = 9$",
-      "$k = 3$ and $m = 7$"
+      "$1$",
+      "$2$",
+      "$0$",
+      "$3$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 9$",
-      "$k = 5$ و $m = 12$",
-      "$k = 4$ و $m = 9$",
-      "$k = 3$ و $m = 7$"
+      "1",
+      "2",
+      "0",
+      "3"
     ],
-    "correctAnswer": "$k = 5$ and $m = 9$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "When rank(A) = n - 1, rank(adj(A)) = 1.",
+    "hintAr": "عندما تكون رتبة المصفوفة n - 1، فإن رتبة مصفوفتها الملحقة تساوي 1 دائماً.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $4 + 5 = 9$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 9$."
+      "1. Since $\\text{rank}(A) = 2 < 3$, $|A| = 0$, so $A \\cdot \\text{adj}(A) = O$.",
+      "2. Since $\\text{rank}(A) = 2$, there exists at least one non-zero $2 \\times 2$ minor, so $\\text{adj}(A) \\neq O$.",
+      "3. A fundamental theorem states that if $\\text{rank}(A) = n - 1$, then $\\text{rank}(\\text{adj}(A)) = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 4 + 5 = 9$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 9$."
+      "١. بما أن الرتبة 2 فإن محدد أ = صفر، إذن حاصل ضرب أ في ملحقتها هو المصفوفة الصفرية.",
+      "٢. وبما أن هناك محدداً أصغر غير صفري، فإن الملحقة ليست صفرية.",
+      "٣. مبرهنة أساسية: إذا كانت رتبة المصفوفة n - 1 فإن رتبة ملحقتها 1."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "If rank(A) <= n - 2, then adj(A) = O (rank 0).",
+    "teacherTipAr": "إذا كانت رتبة المصفوفة أقل من أو تساوي n - 2 فإن ملحقتها تكون مصفوفة صفرية بالكامل."
   },
   {
     "id": "alg_ch3_db_hots_15",
-    "titleEn": "Infinite Solutions Parameter Condition #5",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 5",
+    "titleEn": "Adjoint of Matrix with Rank 1",
+    "titleAr": "ملحقة مصفوفة ثلاثية رتبتها 1",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 5$$\n$$2x + 3y + 4z = 6$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 5$$\n$$2x + 3y + 4z = 6$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\text{rank}(A) = 1$, what is $\\text{adj}(A)$?",
+    "questionAr": "إذا كانت $A$ مصفوفة ثلاثية رتبتها $\\text{rank}(A) = 1$، فما هي $\\text{adj}(A)$؟",
     "optionsEn": [
-      "$k = 5$ and $m = 11$",
-      "$k = 5$ and $m = 14$",
-      "$k = 4$ and $m = 11$",
-      "$k = 3$ and $m = 9$"
+      "The zero matrix $O_{3 \\times 3}$",
+      "A matrix of rank 1",
+      "A matrix of rank 2",
+      "The identity matrix $I_3$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 11$",
-      "$k = 5$ و $m = 14$",
-      "$k = 4$ و $m = 11$",
-      "$k = 3$ و $m = 9$"
+      "المصفوفة الصفرية O",
+      "مصفوفة من الرتبة 1",
+      "مصفوفة من الرتبة 2",
+      "مصفوفة الوحدة I"
     ],
-    "correctAnswer": "$k = 5$ and $m = 11$",
+    "correctAnswer": "The zero matrix $O_{3 \\times 3}$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "Every 2x2 minor vanishes when rank(A) = 1, so all cofactors are 0.",
+    "hintAr": "كل محدد أصغر 2x2 ينعدم عندما تكون الرتبة 1، فتكون جميع العوامل المرافقة أصفاراً.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $5 + 6 = 11$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 11$."
+      "1. The entries of $\\text{adj}(A)$ are the cofactors of $A$, which are $2 \\times 2$ minors.",
+      "2. Since $\\text{rank}(A) = 1$, all $2 \\times 2$ minors are identically zero.",
+      "3. Therefore $\\text{adj}(A) = O$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 5 + 6 = 11$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 11$."
+      "١. عناصر الملحقة هي محددات من الرتبة الثانية.",
+      "٢. بما أن رتبة أ = 1، فإن كل محدد من الرتبة الثانية يساوي صفراً.",
+      "٣. إذن الملحقة هي المصفوفة الصفرية."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "When rank(A) < n - 1, the adjoint is always identically the zero matrix.",
+    "teacherTipAr": "عندما تكون رتبة المصفوفة أقل من n - 1 فإن ملحقتها صفرية تماماً."
   },
   {
     "id": "alg_ch3_db_hots_16",
-    "titleEn": "Infinite Solutions Parameter Condition #6",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 6",
+    "titleEn": "System of 3 Planes Forming a Prism",
+    "titleAr": "ثلاثة مستويات تشكل منشوراً ثلاثياً",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 6$$\n$$2x + 3y + 4z = 7$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 6$$\n$$2x + 3y + 4z = 7$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "If the normal vectors to 3 planes are not all parallel, but $\\text{rank}(A) = 2$ and $\\text{rank}(A|B) = 3$, geometrically the planes:",
+    "questionAr": "إذا كانت متجهات الاتجاه العمودية لـ 3 مستويات غير متوازية جميعاً، ولكن $\\text{rank}(A) = 2$ و $\\text{rank}(A|B) = 3$، فإن المستويات هندسياً:",
     "optionsEn": [
-      "$k = 5$ and $m = 13$",
-      "$k = 5$ and $m = 16$",
-      "$k = 4$ and $m = 13$",
-      "$k = 3$ and $m = 11$"
+      "Intersect pairwise in three parallel lines (forming a triangular prism)",
+      "Intersect at a single common point",
+      "All coincide into a single plane",
+      "Intersect in a single common line"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 13$",
-      "$k = 5$ و $m = 16$",
-      "$k = 4$ و $m = 13$",
-      "$k = 3$ و $m = 11$"
+      "تتقاطع مثنى مثنى في ثلاثة مستقيمات متوازية (تشكل منشوراً ثلاثياً)",
+      "تتقاطع في نقطة واحدة مشتركة",
+      "تتطابق جميعاً في مستوى واحد",
+      "تتقاطع في خط مستقيم مشترك"
     ],
-    "correctAnswer": "$k = 5$ and $m = 13$",
+    "correctAnswer": "Intersect pairwise in three parallel lines (forming a triangular prism)",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "rank(A) = 2 means normals are coplanar, rank(A|B) = 3 means no common intersection.",
+    "hintAr": "رتبة المعاملات 2 تعني أن الأعمدة متحدة المستوى، ورتبة الموسعة 3 تعني عدم وجود نقطة مشتركة.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $6 + 7 = 13$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 13$."
+      "1. $\\text{rank}(A) = 2$ indicates the three normal vectors are coplanar.",
+      "2. $\\text{rank}(A|B) = 3 > \\text{rank}(A)$ means no point satisfies all three equations.",
+      "3. The planes intersect in pairs along 3 mutually parallel lines, forming a triangular prism."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 6 + 7 = 13$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 13$."
+      "١. رتبة أ = 2 تعني أن متجهات الأعمدة تقع في مستوى واحد.",
+      "٢. رتبة الموسعة = 3 تعني تناقض النظام وعدم وجود أي نقطة مشتركة.",
+      "٣. هندسياً: تتقاطع المستويات مثنى مثنى في 3 مستقيمات متوازية تشكل منشوراً ثلاثياً."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "A famous geometric classification question in Thanaweya solid coordinate geometry.",
+    "teacherTipAr": "سؤال تصنيف هندسي شهير في امتحانات الثانوية العامة المتقدمة."
   },
   {
     "id": "alg_ch3_db_hots_17",
-    "titleEn": "Infinite Solutions Parameter Condition #7",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 7",
+    "titleEn": "Two Parameters Linear System Consistency",
+    "titleAr": "اتساق نظام خطي بمجهولين ثابتين",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 7$$\n$$2x + 3y + 4z = 8$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 7$$\n$$2x + 3y + 4z = 8$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "For the system $x + y + z = 1$, $x + 2y + 3z = 2$, $2x + 3y + az = b$, find $(a, b)$ for infinitely many solutions.",
+    "questionAr": "للنظام: $x + y + z = 1$، $x + 2y + 3z = 2$، $2x + 3y + az = b$، أوجد قيمتي $(a, b)$ ليكون للنظام عدد لا نهائي من الحلول.",
     "optionsEn": [
-      "$k = 5$ and $m = 15$",
-      "$k = 5$ and $m = 18$",
-      "$k = 4$ and $m = 15$",
-      "$k = 3$ and $m = 13$"
+      "$a = 4, b = 3$",
+      "$a = 4, b \\neq 3$",
+      "$a \\neq 4, b = 3$",
+      "$a = 2, b = 1$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 15$",
-      "$k = 5$ و $m = 18$",
-      "$k = 4$ و $m = 15$",
-      "$k = 3$ و $m = 13$"
+      "a = 4, b = 3",
+      "a = 4, b != 3",
+      "a != 4, b = 3",
+      "a = 2, b = 1"
     ],
-    "correctAnswer": "$k = 5$ and $m = 15$",
+    "correctAnswer": "$a = 4, b = 3$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "Equation 3 must be Equation 1 + Equation 2.",
+    "hintAr": "المعادلة الثالثة يجب أن تكون مجموع المعادلتين الأولى والثانية.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $7 + 8 = 15$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 15$."
+      "1. Add equation 1 and equation 2: $(x+y+z) + (x+2y+3z) = 2x + 3y + 4z = 3$.",
+      "2. Compare with equation 3: $2x + 3y + az = b$.",
+      "3. For consistency with infinite solutions, equation 3 must be identical: $a = 4$ and $b = 3$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 7 + 8 = 15$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 15$."
+      "١. بجمع المعادلة الأولى والثانية: $2x + 3y + 4z = 3$.",
+      "٢. بمقارنتها بالمعادلة الثالثة: $2x + 3y + az = b$.",
+      "٣. لوجود حلول لانهائية يجب أن تتطابق المعادلة الثالثة تماماً: $a = 4$ و $b = 3$."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "If a = 4 and b != 3, the system has no solution.",
+    "teacherTipAr": "إذا كان a = 4 و b != 3 يصبح النظام متناقضاً وليس له حل."
   },
   {
     "id": "alg_ch3_db_hots_18",
-    "titleEn": "Infinite Solutions Parameter Condition #8",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 8",
+    "titleEn": "Two Parameters Linear System Inconsistency",
+    "titleAr": "تناقض نظام خطي بمجهولين ثابتين",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 8$$\n$$2x + 3y + 4z = 9$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 8$$\n$$2x + 3y + 4z = 9$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "For the system $x + y + z = 1$, $x + 2y + 3z = 2$, $2x + 3y + az = b$, when does the system have NO solution?",
+    "questionAr": "للنظام: $x + y + z = 1$، $x + 2y + 3z = 2$، $2x + 3y + az = b$، متى لا يكون للنظام أي حل؟",
     "optionsEn": [
-      "$k = 5$ and $m = 17$",
-      "$k = 5$ and $m = 20$",
-      "$k = 4$ and $m = 17$",
-      "$k = 3$ and $m = 15$"
+      "$a = 4$ and $b \\neq 3$",
+      "$a = 4$ and $b = 3$",
+      "$a \\neq 4$",
+      "$a = 0$ and $b = 0$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 17$",
-      "$k = 5$ و $m = 20$",
-      "$k = 4$ و $m = 17$",
-      "$k = 3$ و $m = 15$"
+      "a = 4 و b != 3",
+      "a = 4 و b = 3",
+      "a != 4",
+      "a = 0 و b = 0"
     ],
-    "correctAnswer": "$k = 5$ and $m = 17$",
+    "correctAnswer": "$a = 4$ and $b \\neq 3$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "rank(A) = 2 when a = 4, but rank(A|B) = 3 when b != 3.",
+    "hintAr": "رتبة أ = 2 عندما a = 4، بينما رتبة الموسعة = 3 عندما b != 3.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $8 + 9 = 17$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 17$."
+      "1. Sum of equations 1 and 2 gives $2x + 3y + 4z = 3$.",
+      "2. If $a = 4$, the LHS of equation 3 matches ($2x + 3y + 4z$).",
+      "3. If $b \\neq 3$, this asserts $3 = b \\neq 3$, an impossibility.",
+      "4. Hence no solution when $a = 4, b \\neq 3$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 8 + 9 = 17$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 17$."
+      "١. مجموع المعادلتين الأولى والثانية: $2x + 3y + 4z = 3$.",
+      "٢. إذا كانت $a = 4$ يتطابق الطرف الأيمن.",
+      "٣. وإذا كانت $b \\neq 3$ ينتج تناقض مباشر، فلا يوجد حل."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "Classic exam question for determining parameters in linear systems.",
+    "teacherTipAr": "سؤال امتحاني نموذجي لتحديد قيم الثوابت في الأنظمة الخطية."
   },
   {
     "id": "alg_ch3_db_hots_19",
-    "titleEn": "Infinite Solutions Parameter Condition #9",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 9",
+    "titleEn": "Two Parameters Linear System Unique Solution",
+    "titleAr": "الحل الوحيد لنظام بمجهولين ثابتين",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 9$$\n$$2x + 3y + 4z = 10$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 9$$\n$$2x + 3y + 4z = 10$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "For the system $x + y + z = 1$, $x + 2y + 3z = 2$, $2x + 3y + az = b$, when does a unique solution exist?",
+    "questionAr": "للنظام: $x + y + z = 1$، $x + 2y + 3z = 2$، $2x + 3y + az = b$، متى يوجد حل وحيد؟",
     "optionsEn": [
-      "$k = 5$ and $m = 19$",
-      "$k = 5$ and $m = 22$",
-      "$k = 4$ and $m = 19$",
-      "$k = 3$ and $m = 17$"
+      "$a \\neq 4$ (for any value of $b$)",
+      "$a = 4$ and $b = 3$",
+      "$a = 4$ and $b \\neq 3$",
+      "$b \\neq 3$ only"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 19$",
-      "$k = 5$ و $m = 22$",
-      "$k = 4$ و $m = 19$",
-      "$k = 3$ و $m = 17$"
+      "a != 4 (لأي قيمة لـ b)",
+      "a = 4 و b = 3",
+      "a = 4 و b != 3",
+      "b != 3 فقط"
     ],
-    "correctAnswer": "$k = 5$ and $m = 19$",
+    "correctAnswer": "$a \\neq 4$ (for any value of $b$)",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "A unique solution requires det(A) != 0.",
+    "hintAr": "الحل الوحيد يتطلب فقط أن يكون محدد المعاملات لا يساوي صفراً.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $9 + 10 = 19$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 19$."
+      "1. Compute $|A| = \\begin{vmatrix} 1 & 1 & 1 \\\\ 1 & 2 & 3 \\\\ 2 & 3 & a \\end{vmatrix}$.",
+      "2. $R_3 - (R_1 + R_2) \\implies \\begin{vmatrix} 1 & 1 & 1 \\\\ 1 & 2 & 3 \\\\ 0 & 0 & a - 4 \\end{vmatrix} = (a - 4)(2 - 1) = a - 4$.",
+      "3. Unique solution exists if and only if $|A| \\neq 0 \\implies a \\neq 4$."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 9 + 10 = 19$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 19$."
+      "١. محدد المعاملات $|A| = a - 4$.",
+      "٢. لكي يكون هناك حل وحيد يجب أن يكون $|A| \\neq 0$.",
+      "٣. إذن الشرط هو $a \\neq 4$ لأي قيمة للمقدار $b$."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "Notice that for a unique solution, the value of b is completely irrelevant.",
+    "teacherTipAr": "لاحظ أنه للحل الوحيد، قيمة الثابت b غير مؤثرة تماماً."
   },
   {
     "id": "alg_ch3_db_hots_20",
-    "titleEn": "Infinite Solutions Parameter Condition #10",
-    "titleAr": "شرط وجود عدد لا نهائي من الحلول رقم 10",
+    "titleEn": "Determinant of Circulant Matrix with Omega",
+    "titleAr": "محدد المصفوفة الدائرية مع الجذور التكعيبية",
     "difficulty": "hots",
-    "questionEn": "For what values of $k$ and $m$ does the linear system have infinitely many solutions?\n$$x + y + z = 10$$\n$$2x + 3y + 4z = 11$$\n$$3x + 4y + kz = m$$",
-    "questionAr": "ما هما قيمتا $k$ و $m$ اللتان تجعلان للنظام الخطي عدداً لا نهائياً من الحلول؟\n$$x + y + z = 10$$\n$$2x + 3y + 4z = 11$$\n$$3x + 4y + kz = m$$",
+    "questionEn": "Evaluate $\\begin{vmatrix} 1 & \\omega & \\omega^2 \\\\ \\omega^2 & 1 & \\omega \\\\ \\omega & \\omega^2 & 1 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد: $\\begin{vmatrix} 1 & \\omega & \\omega^2 \\\\ \\omega^2 & 1 & \\omega \\\\ \\omega & \\omega^2 & 1 \\end{vmatrix}$.",
     "optionsEn": [
-      "$k = 5$ and $m = 21$",
-      "$k = 5$ and $m = 24$",
-      "$k = 4$ and $m = 21$",
-      "$k = 3$ and $m = 19$"
+      "$0$",
+      "$3$",
+      "$1$",
+      "$-3$"
     ],
     "optionsAr": [
-      "$k = 5$ و $m = 21$",
-      "$k = 5$ و $m = 24$",
-      "$k = 4$ و $m = 21$",
-      "$k = 3$ و $m = 19$"
+      "0",
+      "3",
+      "1",
+      "-3"
     ],
-    "correctAnswer": "$k = 5$ and $m = 21$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "For infinitely many solutions, rank(A) = rank(A|B) < 3, which means the third equation must be a linear combination of the first two.",
-    "hintAr": "لوجود عدد لا نهائي من الحلول، يجب أن تكون رتبة مصفوفة المعاملات تساوي رتبة المصفوفة الموسعة وتكون أقل من 3، أي المعادلة الثالثة تركيب خطي للأوليين.",
+    "hintEn": "Add all rows: 1 + omega + omega^2 = 0.",
+    "hintAr": "اجمع كل الصفوف في الصف الأول: 1 + أوميجا + أوميجا² = 0.",
     "stepByStepSolutionEn": [
-      "1. Summing the first two equations: $(x + 2x) + (y + 3y) + (z + 4z) = 3x + 4y + 5z$, and the constant sum is $10 + 11 = 21$.",
-      "2. For $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$, the third equation must be identical to this sum: $3x + 4y + kz = m$.",
-      "3. Equating coefficients gives $k = 5$ and $m = 21$."
+      "1. $R_1 \\to R_1 + R_2 + R_3$.",
+      "2. Each entry in Row 1 becomes $1 + \\omega + \\omega^2 = 0$.",
+      "3. The determinant is 0."
     ],
     "stepByStepSolutionAr": [
-      "١. بجمع المعادلتين الأولى والثانية: $3x + 4y + 5z = 10 + 11 = 21$.",
-      "٢. لكي يكون للنظام عدد لا نهائي من الحلول، يجب أن تكون $\\text{rank}(A) = \\text{rank}(A|B) = 2 < 3$، أي تتطابق المعادلة الثالثة مع مجموع المعادلتين.",
-      "٣. بمقارنة المعاملات نجد مباشرة: $k = 5$ و $m = 21$."
+      "١. بجمع الصفوف إلى الصف الأول ينتج صف كامل من الأصفار.",
+      "٢. إذن قيمة المحدد = 0."
     ],
-    "teacherTipEn": "rank(A) = rank(A|B) < n guarantees infinitely many solutions.",
-    "teacherTipAr": "تساوي رتبة المصفوفة ورتبة الموسعة بقيمة أقل من عدد المجاهيل يضمن وجود عدد لا نهائي من الحلول."
+    "teacherTipEn": "Standard omega identity test.",
+    "teacherTipAr": "اختبار لمتطابقة أوميجا القياسية."
   },
   {
     "id": "alg_ch3_db_hots_21",
-    "titleEn": "Matrix Inverse from Characteristic Identity #1",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 1",
+    "titleEn": "Characteristic Polynomial of 2x2 Matrix",
+    "titleAr": "كثير الحدود المميز لمصفوفة 2x2",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 3A + 2I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 3A + 2I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "Find the characteristic polynomial $p(\\lambda) = |A - \\lambda I|$ of $A = \\begin{pmatrix} 3 & 1 \\\\ 4 & 3 \\end{pmatrix}$.",
+    "questionAr": "أوجد كثير الحدود المميز $p(\\lambda) = |A - \\lambda I|$ للمصفوفة $A = \\begin{pmatrix} 3 & 1 \\\\ 4 & 3 \\end{pmatrix}$.",
     "optionsEn": [
-      "$\\frac{1}{2} (3I - A)$",
-      "$\\frac{1}{2} (A - 3I)$",
-      "$2 (3I - A)$",
-      "$\\frac{1}{3} (2I - A)$"
+      "$\\lambda^2 - 6\\lambda + 5$",
+      "$\\lambda^2 - 6\\lambda - 5$",
+      "$\\lambda^2 + 6\\lambda + 5$",
+      "$\\lambda^2 - 3\\lambda + 5$"
     ],
     "optionsAr": [
-      "$\\frac{1}{2} (3I - A)$",
-      "$\\frac{1}{2} (A - 3I)$",
-      "$2 (3I - A)$",
-      "$\\frac{1}{3} (2I - A)$"
+      "λ^2 - 6λ + 5",
+      "λ^2 - 6λ - 5",
+      "λ^2 + 6λ + 5",
+      "λ^2 - 3λ + 5"
     ],
-    "correctAnswer": "$\\frac{1}{2} (3I - A)$",
+    "correctAnswer": "$\\lambda^2 - 6\\lambda + 5$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "p(λ) = λ^2 - tr(A) λ + det(A).",
+    "hintAr": "كثير الحدود = λ² - الأثر λ + المحدد.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 3A + 2I = O$.",
-      "2. Isolate the term with $I$: 2I = 3A - A^2 = A(3I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{2}$: $I = A \\left[ \\frac{1}{2} (3I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{2} (3I - A)$."
+      "1. $\\text{tr}(A) = 3 + 3 = 6$.",
+      "2. $|A| = 9 - 4 = 5$.",
+      "3. $p(\\lambda) = \\lambda^2 - 6\\lambda + 5$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 3A + 2I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 2I = 3A - A^2 = A(3I - A)$.",
-      "٣. بالقسمة على 2: $I = A \\left[ \\frac{1}{2} (3I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{2} (3I - A)$."
+      "١. أثر المصفوفة = 6.",
+      "٢. محدد المصفوفة = 5.",
+      "٣. كثير الحدود المميز: $\\lambda^2 - 6\\lambda + 5$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "The roots of p(λ) are the eigenvalues λ = 1, 5.",
+    "teacherTipAr": "جذور هذا المقدار هي القيم الذاتية 1 و 5."
   },
   {
     "id": "alg_ch3_db_hots_22",
-    "titleEn": "Matrix Inverse from Characteristic Identity #2",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 2",
+    "titleEn": "Eigenvalues of Triangular Matrix",
+    "titleAr": "القيم المميزة للمصفوفة المثلثية",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 4A + 3I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 4A + 3I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "What are the eigenvalues of $T = \\begin{pmatrix} 4 & 9 & -2 \\\\ 0 & -1 & 5 \\\\ 0 & 0 & 7 \\end{pmatrix}$?",
+    "questionAr": "ما القيم المميزة للمصفوفة المثلثية $T = \\begin{pmatrix} 4 & 9 & -2 \\\\ 0 & -1 & 5 \\\\ 0 & 0 & 7 \\end{pmatrix}$؟",
     "optionsEn": [
-      "$\\frac{1}{3} (4I - A)$",
-      "$\\frac{1}{3} (A - 4I)$",
-      "$3 (4I - A)$",
-      "$\\frac{1}{4} (3I - A)$"
+      "$4, -1, 7$",
+      "$4, 9, 7$",
+      "$0, -1, 7$",
+      "$\\pm 1, 4$"
     ],
     "optionsAr": [
-      "$\\frac{1}{3} (4I - A)$",
-      "$\\frac{1}{3} (A - 4I)$",
-      "$3 (4I - A)$",
-      "$\\frac{1}{4} (3I - A)$"
+      "4, -1, 7",
+      "4, 9, 7",
+      "0, -1, 7",
+      "±1, 4"
     ],
-    "correctAnswer": "$\\frac{1}{3} (4I - A)$",
+    "correctAnswer": "$4, -1, 7$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "The eigenvalues of a triangular matrix are its diagonal entries.",
+    "hintAr": "القيم المميزة للمصفوفة المثلثية هي عناصر قطرها الرئيسي مباشرة.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 4A + 3I = O$.",
-      "2. Isolate the term with $I$: 3I = 4A - A^2 = A(4I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{3}$: $I = A \\left[ \\frac{1}{3} (4I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{3} (4I - A)$."
+      "1. $|T - \\lambda I| = (4 - \\lambda)(-1 - \\lambda)(7 - \\lambda) = 0$.",
+      "2. The roots are the main diagonal elements: $\\lambda = 4, -1, 7$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 4A + 3I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 3I = 4A - A^2 = A(4I - A)$.",
-      "٣. بالقسمة على 3: $I = A \\left[ \\frac{1}{3} (4I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{3} (4I - A)$."
+      "١. محدد المصفوفة المثلثية هو حاصل ضرب عناصر القطر.",
+      "٢. القيم المميزة هي عناصر القطر الرئيسي: $4, -1, 7$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "No expansion needed for triangular matrices.",
+    "teacherTipAr": "لا حاجة للفك في المصفوفات المثلثية."
   },
   {
     "id": "alg_ch3_db_hots_23",
-    "titleEn": "Matrix Inverse from Characteristic Identity #3",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 3",
+    "titleEn": "Determinant of Adjoint Product adj(AB)",
+    "titleAr": "ملحقة حاصل ضرب مصفوفتين",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 5A + 4I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 5A + 4I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "Which identity correctly expresses $\\text{adj}(A B)$ for invertible matrices $A$ and $B$?",
+    "questionAr": "أي متطابقة تعبر بشكل صحيح عن $\\text{adj}(A B)$ لمصفوفتين غير منفردتين $A$ و $B$؟",
     "optionsEn": [
-      "$\\frac{1}{4} (5I - A)$",
-      "$\\frac{1}{4} (A - 5I)$",
-      "$4 (5I - A)$",
-      "$\\frac{1}{5} (4I - A)$"
+      "$\\text{adj}(B) \\cdot \\text{adj}(A)$",
+      "$\\text{adj}(A) \\cdot \\text{adj}(B)$",
+      "$|A| \\text{adj}(B)$",
+      "$\\text{adj}(A) + \\text{adj}(B)$"
     ],
     "optionsAr": [
-      "$\\frac{1}{4} (5I - A)$",
-      "$\\frac{1}{4} (A - 5I)$",
-      "$4 (5I - A)$",
-      "$\\frac{1}{5} (4I - A)$"
+      "adj(B) * adj(A)",
+      "adj(A) * adj(B)",
+      "|A| adj(B)",
+      "adj(A) + adj(B)"
     ],
-    "correctAnswer": "$\\frac{1}{4} (5I - A)$",
+    "correctAnswer": "$\\text{adj}(B) \\cdot \\text{adj}(A)$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Adjoint of a product reverses order: adj(AB) = adj(B) adj(A).",
+    "hintAr": "ملحقة حاصل الضرب تعكس ترتيب المصفوفتين.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 5A + 4I = O$.",
-      "2. Isolate the term with $I$: 4I = 5A - A^2 = A(5I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{4}$: $I = A \\left[ \\frac{1}{4} (5I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{4} (5I - A)$."
+      "1. Since $(AB)^{-1} = B^{-1} A^{-1}$ and $\\text{adj}(M) = |M| M^{-1}$.",
+      "2. $\\text{adj}(AB) = |AB| (AB)^{-1} = |A||B| B^{-1} A^{-1} = (|B| B^{-1}) (|A| A^{-1}) = \\text{adj}(B) \\text{adj}(A)$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 5A + 4I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 4I = 5A - A^2 = A(5I - A)$.",
-      "٣. بالقسمة على 4: $I = A \\left[ \\frac{1}{4} (5I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{4} (5I - A)$."
+      "١. من تعريف الملحقة ومعكوس حاصل الضرب: الترتيب ينعكس.",
+      "٢. $\\text{adj}(AB) = \\text{adj}(B) \\cdot \\text{adj}(A)$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Another reversal identity alongside transpose and inverse.",
+    "teacherTipAr": "خاصية أخرى تعكس الترتيب بجانب المدور والمعكوس."
   },
   {
     "id": "alg_ch3_db_hots_24",
-    "titleEn": "Matrix Inverse from Characteristic Identity #4",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 4",
+    "titleEn": "Condition for Collinear Normal Vectors",
+    "titleAr": "شرط توازي مستويين عبر المحددات",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 6A + 5I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 6A + 5I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "The two planes $2x - y + 3z = 4$ and $4x - 2y + kz = 9$ are parallel if:",
+    "questionAr": "يتوازى المستويان $2x - y + 3z = 4$ و $4x - 2y + kz = 9$ إذا كان:",
     "optionsEn": [
-      "$\\frac{1}{5} (6I - A)$",
-      "$\\frac{1}{5} (A - 6I)$",
-      "$5 (6I - A)$",
-      "$\\frac{1}{6} (5I - A)$"
+      "$k = 6$",
+      "$k = 3$",
+      "$k = -6$",
+      "$k = 12$"
     ],
     "optionsAr": [
-      "$\\frac{1}{5} (6I - A)$",
-      "$\\frac{1}{5} (A - 6I)$",
-      "$5 (6I - A)$",
-      "$\\frac{1}{6} (5I - A)$"
+      "k = 6",
+      "k = 3",
+      "k = -6",
+      "k = 12"
     ],
-    "correctAnswer": "$\\frac{1}{5} (6I - A)$",
+    "correctAnswer": "$k = 6$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Normal vectors must be proportional: [4, -2, k] = 2 * [2, -1, 3].",
+    "hintAr": "متجها العمودين متناسبان: [4, -2, k] = 2 * [2, -1, 3].",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 6A + 5I = O$.",
-      "2. Isolate the term with $I$: 5I = 6A - A^2 = A(6I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{5}$: $I = A \\left[ \\frac{1}{5} (6I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{5} (6I - A)$."
+      "1. Proportionality: $\\frac{4}{2} = \\frac{-2}{-1} = \\frac{k}{3} = 2$.",
+      "2. $k / 3 = 2 \\implies k = 6$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 6A + 5I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 5I = 6A - A^2 = A(6I - A)$.",
-      "٣. بالقسمة على 5: $I = A \\left[ \\frac{1}{5} (6I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{5} (6I - A)$."
+      "١. تناسب معاملات س وص وع: $\\frac{k}{3} = 2$.",
+      "٢. $k = 6$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Parallel planes have linearly dependent normal vectors.",
+    "teacherTipAr": "المستويات المتوازية لها متجهات عمودية مرتبطة خطياً."
   },
   {
     "id": "alg_ch3_db_hots_25",
-    "titleEn": "Matrix Inverse from Characteristic Identity #5",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 5",
+    "titleEn": "Orthogonal Planes Determinant Relation",
+    "titleAr": "تعامد مستويين بالمحددات",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 7A + 6I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 7A + 6I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "The planes $x + 2y - z = 0$ and $2x - y + kz = 5$ are perpendicular if:",
+    "questionAr": "يتعامد المستويان $x + 2y - z = 0$ و $2x - y + kz = 5$ إذا كان:",
     "optionsEn": [
-      "$\\frac{1}{6} (7I - A)$",
-      "$\\frac{1}{6} (A - 7I)$",
-      "$6 (7I - A)$",
-      "$\\frac{1}{7} (6I - A)$"
+      "$k = 0$",
+      "$k = 1$",
+      "$k = -1$",
+      "$k = 2$"
     ],
     "optionsAr": [
-      "$\\frac{1}{6} (7I - A)$",
-      "$\\frac{1}{6} (A - 7I)$",
-      "$6 (7I - A)$",
-      "$\\frac{1}{7} (6I - A)$"
+      "k = 0",
+      "k = 1",
+      "k = -1",
+      "k = 2"
     ],
-    "correctAnswer": "$\\frac{1}{6} (7I - A)$",
+    "correctAnswer": "$k = 0$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Dot product of normals must equal 0: (1)(2) + (2)(-1) + (-1)(k) = 0.",
+    "hintAr": "حاصل الضرب القياسي لمتجهي العمودين = 0.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 7A + 6I = O$.",
-      "2. Isolate the term with $I$: 6I = 7A - A^2 = A(7I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{6}$: $I = A \\left[ \\frac{1}{6} (7I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{6} (7I - A)$."
+      "1. $n_1 \\cdot n_2 = (1)(2) + (2)(-1) + (-1)(k) = 2 - 2 - k = -k$.",
+      "2. For orthogonality, $-k = 0 \\implies k = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 7A + 6I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 6I = 7A - A^2 = A(7I - A)$.",
-      "٣. بالقسمة على 6: $I = A \\left[ \\frac{1}{6} (7I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{6} (7I - A)$."
+      "١. شرط التعامد: الضرب القياسي للعمودين ينعدم: $2 - 2 - k = 0$.",
+      "٢. $-k = 0 \\implies k = 0$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Perpendicular planes have orthogonal normal vectors.",
+    "teacherTipAr": "المستويات المتعامدة متجهاتها العمودية متعامدة."
   },
   {
     "id": "alg_ch3_db_hots_26",
-    "titleEn": "Matrix Inverse from Characteristic Identity #6",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 6",
+    "titleEn": "Determinant of Quadratic Form Matrix",
+    "titleAr": "محدد مصفوفة الصورة التربيعية",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 8A + 7I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 8A + 7I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "Find the determinant of the symmetric matrix representing the quadratic form $Q(x, y) = 3x^2 + 8xy + 5y^2$.",
+    "questionAr": "أوجد محدد المصفوفة المتماثلة التي تمثل الصورة التربيعية $Q(x, y) = 3x^2 + 8xy + 5y^2$.",
     "optionsEn": [
-      "$\\frac{1}{7} (8I - A)$",
-      "$\\frac{1}{7} (A - 8I)$",
-      "$7 (8I - A)$",
-      "$\\frac{1}{8} (7I - A)$"
+      "$-1$",
+      "$1$",
+      "$15$",
+      "$-16$"
     ],
     "optionsAr": [
-      "$\\frac{1}{7} (8I - A)$",
-      "$\\frac{1}{7} (A - 8I)$",
-      "$7 (8I - A)$",
-      "$\\frac{1}{8} (7I - A)$"
+      "-1",
+      "1",
+      "15",
+      "-16"
     ],
-    "correctAnswer": "$\\frac{1}{7} (8I - A)$",
+    "correctAnswer": "$-1$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Matrix is [3, 4; 4, 5]. Det = 3*5 - 16 = -1.",
+    "hintAr": "المصفوفة المتماثلة هي [3, 4; 4, 5] ومحددها 15 - 16 = -1.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 8A + 7I = O$.",
-      "2. Isolate the term with $I$: 7I = 8A - A^2 = A(8I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{7}$: $I = A \\left[ \\frac{1}{7} (8I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{7} (8I - A)$."
+      "1. The matrix of coefficients is $A = \\begin{pmatrix} 3 & 4 \\\\ 4 & 5 \\end{pmatrix}$.",
+      "2. $|A| = (3)(5) - 4^2 = 15 - 16 = -1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 8A + 7I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 7I = 8A - A^2 = A(8I - A)$.",
-      "٣. بالقسمة على 7: $I = A \\left[ \\frac{1}{7} (8I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{7} (8I - A)$."
+      "١. مصفوفة المعاملات المتماثلة: $A = \\begin{pmatrix} 3 & 4 \\\\ 4 & 5 \\end{pmatrix}$.",
+      "٢. محددها $= 15 - 16 = -1$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Since det < 0, the quadratic form is indefinite.",
+    "teacherTipAr": "بما أن المحدد سالب فإن الصورة التربيعية غير معرفة الإشارة."
   },
   {
     "id": "alg_ch3_db_hots_27",
-    "titleEn": "Matrix Inverse from Characteristic Identity #7",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 7",
+    "titleEn": "Determinant of Matrix Derivative",
+    "titleAr": "مشتقة محدد يتضمن متغيراً",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 9A + 8I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 9A + 8I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "If $f(x) = \\begin{vmatrix} x^2 & x \\\\ 3 & 1 \\end{vmatrix}$, find $f'(2)$.",
+    "questionAr": "إذا كانت $f(x) = \\begin{vmatrix} x^2 & x \\\\ 3 & 1 \\end{vmatrix}$، فما قيمة $f'(2)$؟",
     "optionsEn": [
-      "$\\frac{1}{8} (9I - A)$",
-      "$\\frac{1}{8} (A - 9I)$",
-      "$8 (9I - A)$",
-      "$\\frac{1}{9} (8I - A)$"
+      "$1$",
+      "$4$",
+      "$7$",
+      "$0$"
     ],
     "optionsAr": [
-      "$\\frac{1}{8} (9I - A)$",
-      "$\\frac{1}{8} (A - 9I)$",
-      "$8 (9I - A)$",
-      "$\\frac{1}{9} (8I - A)$"
+      "1",
+      "4",
+      "7",
+      "0"
     ],
-    "correctAnswer": "$\\frac{1}{8} (9I - A)$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Expand f(x) = x^2 - 3x, then differentiate f'(x) = 2x - 3.",
+    "hintAr": "فك المحدد: f(x) = x² - 3x، ثم اشتق: f'(x) = 2x - 3.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 9A + 8I = O$.",
-      "2. Isolate the term with $I$: 8I = 9A - A^2 = A(9I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{8}$: $I = A \\left[ \\frac{1}{8} (9I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{8} (9I - A)$."
+      "1. $f(x) = x^2(1) - x(3) = x^2 - 3x$.",
+      "2. $f'(x) = 2x - 3$.",
+      "3. $f'(2) = 2(2) - 3 = 4 - 3 = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 9A + 8I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 8I = 9A - A^2 = A(9I - A)$.",
-      "٣. بالقسمة على 8: $I = A \\left[ \\frac{1}{8} (9I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{8} (9I - A)$."
+      "١. بالفك: $f(x) = x^2 - 3x$.",
+      "٢. المشتقة الأولى: $f'(x) = 2x - 3$.",
+      "٣. عند $x = 2$: $f'(2) = 1$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Alternatively differentiate row by row.",
+    "teacherTipAr": "يمكن أيضاً الاشتقاق صفاً بصف."
   },
   {
     "id": "alg_ch3_db_hots_28",
-    "titleEn": "Matrix Inverse from Characteristic Identity #8",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 8",
+    "titleEn": "Integral of a Matrix",
+    "titleAr": "تكامل مصفوفة",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 10A + 9I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 10A + 9I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "If $A(t) = \\begin{pmatrix} 2t & 3t^2 \\\\ 1 & 4 \\end{pmatrix}$, evaluate $\\int_0^1 A(t) \\, dt$.",
+    "questionAr": "إذا كانت $A(t) = \\begin{pmatrix} 2t & 3t^2 \\\\ 1 & 4 \\end{pmatrix}$، فاحسب $\\int_0^1 A(t) \\, dt$.",
     "optionsEn": [
-      "$\\frac{1}{9} (10I - A)$",
-      "$\\frac{1}{9} (A - 10I)$",
-      "$9 (10I - A)$",
-      "$\\frac{1}{10} (9I - A)$"
+      "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 1 \\\\ 0 & 0 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 0 & 0 \\\\ 1 & 4 \\end{pmatrix}$"
     ],
     "optionsAr": [
-      "$\\frac{1}{9} (10I - A)$",
-      "$\\frac{1}{9} (A - 10I)$",
-      "$9 (10I - A)$",
-      "$\\frac{1}{10} (9I - A)$"
+      "[[1, 1], [1, 4]]",
+      "[[2, 3], [1, 4]]",
+      "[[1, 1], [0, 0]]",
+      "[[0, 0], [1, 4]]"
     ],
-    "correctAnswer": "$\\frac{1}{9} (10I - A)$",
+    "correctAnswer": "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 4 \\end{pmatrix}$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "Integrate each entry independently.",
+    "hintAr": "كامل كل عنصر في المصفوفة على حدة.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 10A + 9I = O$.",
-      "2. Isolate the term with $I$: 9I = 10A - A^2 = A(10I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{9}$: $I = A \\left[ \\frac{1}{9} (10I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{9} (10I - A)$."
+      "1. $\\int_0^1 2t \\, dt = [t^2]_0^1 = 1$.",
+      "2. $\\int_0^1 3t^2 \\, dt = [t^3]_0^1 = 1$.",
+      "3. $\\int_0^1 1 \\, dt = 1$ and $\\int_0^1 4 \\, dt = 4$.",
+      "4. Result = $\\begin{pmatrix} 1 & 1 \\\\ 1 & 4 \\end{pmatrix}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 10A + 9I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 9I = 10A - A^2 = A(10I - A)$.",
-      "٣. بالقسمة على 9: $I = A \\left[ \\frac{1}{9} (10I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{9} (10I - A)$."
+      "١. تكامل كل عنصر بمفرده بين 0 و 1.",
+      "٢. ينتج المصفوفة $\\begin{pmatrix} 1 & 1 \\\\ 1 & 4 \\end{pmatrix}$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "Matrix calculus operates entrywise.",
+    "teacherTipAr": "تفاضل وتكامل المصفوفات يجري على كل عنصر بمفرده."
   },
   {
     "id": "alg_ch3_db_hots_29",
-    "titleEn": "Matrix Inverse from Characteristic Identity #9",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 9",
+    "titleEn": "Condition for Skew-Symmetric to be Singular",
+    "titleAr": "انفراد المصفوفة شبه المتماثلة",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 11A + 10I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 11A + 10I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "Under what condition on the order $n$ is EVERY real skew-symmetric matrix guaranteed to be singular?",
+    "questionAr": "تحت أي شرط على الرتبة $n$ تكون أي مصفوفة حقيقية شبه متماثلة منفردة حتماً؟",
     "optionsEn": [
-      "$\\frac{1}{10} (11I - A)$",
-      "$\\frac{1}{10} (A - 11I)$",
-      "$10 (11I - A)$",
-      "$\\frac{1}{11} (10I - A)$"
+      "When $n$ is an odd positive integer",
+      "When $n$ is an even positive integer",
+      "For all positive integers $n$",
+      "Never"
     ],
     "optionsAr": [
-      "$\\frac{1}{10} (11I - A)$",
-      "$\\frac{1}{10} (A - 11I)$",
-      "$10 (11I - A)$",
-      "$\\frac{1}{11} (10I - A)$"
+      "عندما تكون n عدداً صحيحاً موجباً فردياً",
+      "عندما تكون n عدداً صحيحاً موجباً زوجياً",
+      "لجميع الأعداد الصحيحة الموجبة n",
+      "لا تنفرد أبداً"
     ],
-    "correctAnswer": "$\\frac{1}{10} (11I - A)$",
+    "correctAnswer": "When $n$ is an odd positive integer",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "|A| = |-A^T| = (-1)^n |A| = -|A| only when n is odd.",
+    "hintAr": "المحدد يساوي سالب نفسه فقط عندما تكون الرتبة فردية.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 11A + 10I = O$.",
-      "2. Isolate the term with $I$: 10I = 11A - A^2 = A(11I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{10}$: $I = A \\left[ \\frac{1}{10} (11I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{10} (11I - A)$."
+      "1. $A = -A^T \\implies |A| = |-A^T| = (-1)^n |A^T| = (-1)^n |A|$.",
+      "2. If $n$ is odd, $(-1)^n = -1$, so $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 11A + 10I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 10I = 11A - A^2 = A(11I - A)$.",
-      "٣. بالقسمة على 10: $I = A \\left[ \\frac{1}{10} (11I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{10} (11I - A)$."
+      "١. $|A| = (-1)^n |A|$.",
+      "٢. إذا كانت الرتبة $n$ فردية فإن $(-1)^n = -1$ وبالتالي $|A| = 0$ دائماً."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "For even n, skew-symmetric matrices can be invertible (e.g. 2x2 rotation by 90 deg has det = 1).",
+    "teacherTipAr": "للرتب الزوجية، يمكن أن تكون غير منفردة مثل مصفوفة الدوران 90 درجة محددها 1."
   },
   {
     "id": "alg_ch3_db_hots_30",
-    "titleEn": "Matrix Inverse from Characteristic Identity #10",
-    "titleAr": "إيجاد المعكوس الضربي من علاقة مصفوفية رقم 10",
+    "titleEn": "Eigenvalues of Involutory Matrix",
+    "titleAr": "القيم المميزة للمصفوفة الارتدادية",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a square non-singular matrix satisfying the equation $A^2 - 12A + 11I = O$, where $I$ is the identity matrix and $O$ is the zero matrix, then $A^{-1}$ equals:",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة غير منفردة تحقق المعادلة $A^2 - 12A + 11I = O$، حيث $I$ مصفوفة الوحدة و $O$ المصفوفة الصفرية، فإن $A^{-1}$ تساوي:",
+    "questionEn": "If $A^2 = I$, what are the only possible eigenvalues of $A$?",
+    "questionAr": "إذا كانت $A^2 = I$، فما القيم المميزة الوحيدة الممكنة للمصفوفة $A$؟",
     "optionsEn": [
-      "$\\frac{1}{11} (12I - A)$",
-      "$\\frac{1}{11} (A - 12I)$",
-      "$11 (12I - A)$",
-      "$\\frac{1}{12} (11I - A)$"
+      "$1$ or $-1$",
+      "$0$ or $1$",
+      "$0$ only",
+      "Any real number"
     ],
     "optionsAr": [
-      "$\\frac{1}{11} (12I - A)$",
-      "$\\frac{1}{11} (A - 12I)$",
-      "$11 (12I - A)$",
-      "$\\frac{1}{12} (11I - A)$"
+      "1 أو -1",
+      "0 أو 1",
+      "0 فقط",
+      "أي عدد حقيقي"
     ],
-    "correctAnswer": "$\\frac{1}{11} (12I - A)$",
+    "correctAnswer": "$1$ or $-1$",
     "correctIndex": 0,
-    "hintEn": "Multiply the equation by $A^{-1}$ from the left, or isolate $I$ on one side and factor out $A$.",
-    "hintAr": "اضرب طرفي المعادلة في $A^{-1}$، أو اعزل حد مصفوفة الوحدة في طرف وخذ $A$ عاملاً مشتركاً.",
+    "hintEn": "λ^2 = 1 implies λ = ±1.",
+    "hintAr": "λ² = 1 تؤدي إلى λ = ±1.",
     "stepByStepSolutionEn": [
-      "1. Start from $A^2 - 12A + 11I = O$.",
-      "2. Isolate the term with $I$: 11I = 12A - A^2 = A(12I - A)$.",
-      "3. Multiply both sides by $\\frac{1}{11}$: $I = A \\left[ \\frac{1}{11} (12I - A) \\right]$.",
-      "4. By definition of multiplicative inverse, $A^{-1} = \\frac{1}{11} (12I - A)$."
+      "1. If $A v = \\lambda v$, then $A^2 v = \\lambda^2 v$.",
+      "2. Since $A^2 = I$, $I v = v = \\lambda^2 v \\implies \\lambda^2 = 1 \\implies \\lambda = \\pm 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من المعادلة: $A^2 - 12A + 11I = O$.",
-      "٢. عزل الحد المحتوي على $I$: 11I = 12A - A^2 = A(12I - A)$.",
-      "٣. بالقسمة على 11: $I = A \\left[ \\frac{1}{11} (12I - A) \\right]$.",
-      "٤. من تعريف المعكوس الضربي: $A^{-1} = \\frac{1}{11} (12I - A)$."
+      "١. $A^2 v = \\lambda^2 v = v$.",
+      "٢. $\\lambda^2 = 1 \\implies \\lambda = \\pm 1$."
     ],
-    "teacherTipEn": "Multiplying a matrix polynomial by A^-1 reduces the power of every term by 1 and turns I into A^-1.",
-    "teacherTipAr": "ضرب المعادلة المصفوفية في المعكوس يحول مصفوفة الوحدة مباشرة إلى المعكوس الضربي."
+    "teacherTipEn": "A reflection has eigenvalue 1 along the mirror and -1 perpendicular to it.",
+    "teacherTipAr": "الانعكاس له قيمة ذاتية 1 في اتجاه المرآة و -1 عمودياً عليها."
   },
   {
     "id": "alg_ch3_db_hots_31",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #1",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 1",
+    "titleEn": "Rank of Matrix Sum Bounds",
+    "titleAr": "حدود رتبة مجموع مصفوفتين",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 2$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 2$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "For any two $n \\times n$ matrices $A$ and $B$, $\\text{rank}(A + B)$ is bounded above by:",
+    "questionAr": "لأي مصفوفتين مربعتين $A$ و $B$، يكون الحد الأعلى لرتبة مجموعهما هو:",
     "optionsEn": [
-      "$32$",
-      "$40$",
-      "$48$",
-      "$56$"
+      "$\\text{rank}(A) + \\text{rank}(B)$",
+      "$\\text{rank}(A) \\cdot \\text{rank}(B)$",
+      "$\\max(\\text{rank}(A), \\text{rank}(B))$",
+      "$n$ always"
     ],
     "optionsAr": [
-      "32",
-      "40",
-      "48",
-      "56"
+      "رتبة A + رتبة B",
+      "رتبة A × رتبة B",
+      "أكبر الرتبتين",
+      "n دائماً"
     ],
-    "correctAnswer": "$32$",
+    "correctAnswer": "$\\text{rank}(A) + \\text{rank}(B)$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Subadditivity of rank: rank(A + B) <= rank(A) + rank(B).",
+    "hintAr": "خاصية شبه الجمعية للرتبة: رتبة المجموع <= مجموع الرتبتين.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (2)^2 = 8 \\times 4 = 32$."
+      "1. The column space of $A + B$ is contained in the sum of the column spaces of $A$ and $B$.",
+      "2. By dimension of vector space sums: $\\text{rank}(A + B) \\le \\text{rank}(A) + \\text{rank}(B)$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (2)^2 = 8 \\times 4 = 32$."
+      "١. فضاء الأعمدة للمجموع محتوى في مجموع فضاءي الأعمدة.",
+      "٢. بالتالي: $\\text{rank}(A + B) \\le \\text{rank}(A) + \\text{rank}(B)$."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Fundamental subadditivity property of matrix rank.",
+    "teacherTipAr": "خاصية أساسية من خواص رتبة المصفوفات."
   },
   {
     "id": "alg_ch3_db_hots_32",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #2",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 2",
+    "titleEn": "Invertibility of (I + AB) vs (I + BA)",
+    "titleAr": "قابلية انعكاس I + AB و I + BA",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 3$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 3$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "If $A$ and $B$ are square matrices such that $I + A B$ is invertible, what can be said about $I + B A$?",
+    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين بحيث $I + A B$ غير منفردة، فماذا يمكن القول عن $I + B A$؟",
     "optionsEn": [
-      "$72$",
-      "$80$",
-      "$88$",
-      "$96$"
+      "$I + B A$ is also invertible and $|I + AB| = |I + BA|$",
+      "$I + B A$ is always singular",
+      "$I + B A$ has determinant 0",
+      "No relationship exists"
     ],
     "optionsAr": [
-      "72",
-      "80",
-      "88",
-      "96"
+      "I + BA غير منفردة أيضاً ومحدداهما متساويان",
+      "I + BA منفردة دائماً",
+      "محددها صفر",
+      "لا توجد أي علاقة"
     ],
-    "correctAnswer": "$72$",
+    "correctAnswer": "$I + B A$ is also invertible and $|I + AB| = |I + BA|$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Sylvester's determinant identity: det(I + AB) = det(I + BA).",
+    "hintAr": "متطابقة سيلفستر للمحددات: det(I + AB) = det(I + BA).",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (3)^2 = 8 \\times 9 = 72$."
+      "1. By Sylvester's Determinant Identity, $|I_n + AB| = |I_m + BA|$.",
+      "2. Since $|I + AB| \\neq 0$, $|I + BA| \\neq 0$, meaning it is also invertible."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (3)^2 = 8 \\times 9 = 72$."
+      "١. بنظرية سيلفستر للمحددات: $|I + AB| = |I + BA|$.",
+      "٢. كلاهما غير صفري وبالتالي كلاهما قابل للانعكاس."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Known as the Weinstein-Aronszajn identity.",
+    "teacherTipAr": "مبرهنة شهيرة في التحليل الطيفي للمصفوفات."
   },
   {
     "id": "alg_ch3_db_hots_33",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #3",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 3",
+    "titleEn": "Determinant of Matrix with Linear Functions",
+    "titleAr": "محدد بدلالة دوال خطية",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 4$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 4$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "Evaluate $\\begin{vmatrix} 1 & x & x^2 \\\\ 1 & y & y^2 \\\\ 1 & z & z^2 \\end{vmatrix}$ if $x, y, z$ are three consecutive terms of an AP with common difference $d$.",
+    "questionAr": "احسب قيمة المحدد $\\begin{vmatrix} 1 & x & x^2 \\\\ 1 & y & y^2 \\\\ 1 & z & z^2 \\end{vmatrix}$ إذا كانت $x, y, z$ ثلاثة حدود متتالية في متتابعة حسابية أساسها $d$.",
     "optionsEn": [
-      "$128$",
-      "$136$",
-      "$144$",
-      "$152$"
+      "$2d^3$",
+      "$d^3$",
+      "$3d^2$",
+      "$0$"
     ],
     "optionsAr": [
-      "128",
-      "136",
-      "144",
-      "152"
+      "2d^3",
+      "d^3",
+      "3d^2",
+      "0"
     ],
-    "correctAnswer": "$128$",
+    "correctAnswer": "$2d^3$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Vandermonde formula gives (y - x)(z - x)(z - y) = (d)(2d)(d) = 2d^3.",
+    "hintAr": "محدد فانديرموند = (y - x)(z - x)(z - y) = d * 2d * d = 2d³.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (4)^2 = 8 \\times 16 = 128$."
+      "1. Vandermonde value $= (y - x)(z - x)(z - y)$.",
+      "2. Since $y - x = d$, $z - y = d$, and $z - x = 2d$.",
+      "3. Product = $(d)(2d)(d) = 2d^3$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (4)^2 = 8 \\times 16 = 128$."
+      "١. فك محدد فانديرموند: $(y - x)(z - x)(z - y)$.",
+      "٢. بالتعويض عن الفروق بأساس المتتابعة $d$: $d \\times 2d \\times d = 2d^3$."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Combines arithmetic progressions with determinant theory.",
+    "teacherTipAr": "دمج رائع بين المتتابعات الحسابية والمحددات."
   },
   {
     "id": "alg_ch3_db_hots_34",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #4",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 4",
+    "titleEn": "Determinant Vanishing with Equal AP Terms",
+    "titleAr": "انعدام محدد فانديرموند",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 5$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 5$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "The determinant $\\begin{vmatrix} 1 & a & a^2 \\\\ 1 & b & b^2 \\\\ 1 & c & c^2 \\end{vmatrix}$ equals 0 if and only if:",
+    "questionAr": "ينعدم محدد فانديرموند $\\begin{vmatrix} 1 & a & a^2 \\\\ 1 & b & b^2 \\\\ 1 & c & c^2 \\end{vmatrix}$ إذا وفقط إذا كان:",
     "optionsEn": [
-      "$200$",
-      "$208$",
-      "$216$",
-      "$224$"
+      "At least two of the numbers $a, b, c$ are equal",
+      "All three numbers are zero",
+      "$a + b + c = 0$",
+      "$a b c = 1$"
     ],
     "optionsAr": [
-      "200",
-      "208",
-      "216",
-      "224"
+      "على الأقل عددان من الأعداد متساويان",
+      "الأعداد الثلاثة أصفار",
+      "مجموع الأعداد صفر",
+      "حاصل ضربها 1"
     ],
-    "correctAnswer": "$200$",
+    "correctAnswer": "At least two of the numbers $a, b, c$ are equal",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Vandermonde = (b - a)(c - a)(c - b) = 0 iff two are equal.",
+    "hintAr": "المحدد ينعدم إذا كان أحد الفروق صفراً أي تساوى عنصران على الأقل.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (5)^2 = 8 \\times 25 = 200$."
+      "1. $\\Delta = (b - a)(c - a)(c - b) = 0$.",
+      "2. This occurs if $a = b$ or $b = c$ or $c = a$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (5)^2 = 8 \\times 25 = 200$."
+      "١. $\\Delta = (b - a)(c - a)(c - b) = 0$.",
+      "٢. ينعدم المقدار إذا وفقط إذا تساوى عددان منهما."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "This proves distinct nodes yield non-singular interpolation matrices.",
+    "teacherTipAr": "هذا يثبت أن العقد المختلفة تعطي مصفوفة استيفاء غير منفردة."
   },
   {
     "id": "alg_ch3_db_hots_35",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #5",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 5",
+    "titleEn": "Intersection Line of Two Planes Direction Vector",
+    "titleAr": "متجه اتجاه خط تقاطع مستويين",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 6$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 6$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "The direction vector of the line of intersection of the planes $x + y + z = 1$ and $2x - y + 3z = 4$ is given by:",
+    "questionAr": "متجه اتجاه خط تقاطع المستويين $x + y + z = 1$ و $2x - y + 3z = 4$ يعطى بالضرب الاتجاهي لعموديهما:",
     "optionsEn": [
-      "$288$",
-      "$296$",
-      "$304$",
-      "$312$"
+      "$(4, -1, -3)$",
+      "$(1, -1, 1)$",
+      "$(2, 1, 3)$",
+      "$(3, 0, 4)$"
     ],
     "optionsAr": [
-      "288",
-      "296",
-      "304",
-      "312"
+      "(4, -1, -3)",
+      "(1, -1, 1)",
+      "(2, 1, 3)",
+      "(3, 0, 4)"
     ],
-    "correctAnswer": "$288$",
+    "correctAnswer": "$(4, -1, -3)$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "d = n1 x n2 = det([i, j, k; 1, 1, 1; 2, -1, 3]).",
+    "hintAr": "متجه الاتجاه هو الضرب الاتجاهي لمتجهي العموديين.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (6)^2 = 8 \\times 36 = 288$."
+      "1. $n_1 = (1, 1, 1)$, $n_2 = (2, -1, 3)$.",
+      "2. $n_1 \\times n_2 = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & 1 & 1 \\\\ 2 & -1 & 3 \\end{vmatrix} = \\hat{i}(3 - (-1)) - \\hat{j}(3 - 2) + \\hat{k}(-1 - 2) = (4, -1, -3)$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (6)^2 = 8 \\times 36 = 288$."
+      "١. $n_1 = (1, 1, 1)$ و $n_2 = (2, -1, 3)$.",
+      "٢. الضرب الاتجاهي يعطي متجه اتجاه خط التقاطع: $(4, -1, -3)$."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Direct connection between linear systems and 3D vector geometry.",
+    "teacherTipAr": "ربط مباشر بين أنظمة المعادلات وهندسة المتجهات الفراغية."
   },
   {
     "id": "alg_ch3_db_hots_36",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #6",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 6",
+    "titleEn": "Nullity of a 3x3 Matrix",
+    "titleAr": "بُعد فضاء الحلول (الصفرية) لنظام متجانس",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 7$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 7$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "By the Rank-Nullity theorem, if a $3 \\times 3$ matrix $A$ has $\\text{rank}(A) = 1$, what is the dimension of the solution space to $A X = 0$?",
+    "questionAr": "بنظرية الرتبة والعدمية، إذا كانت رتبة مصفوفة ثلاثية $A$ تساوي 1، فما بعد فضاء حلول النظام المتجانس $A X = 0$؟",
     "optionsEn": [
-      "$392$",
-      "$400$",
-      "$408$",
-      "$416$"
+      "$2$",
+      "$1$",
+      "$3$",
+      "$0$"
     ],
     "optionsAr": [
-      "392",
-      "400",
-      "408",
-      "416"
+      "2",
+      "1",
+      "3",
+      "0"
     ],
-    "correctAnswer": "$392$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Nullity = n - rank = 3 - 1 = 2.",
+    "hintAr": "العدمية = عدد المجاهيل - الرتبة = 3 - 1 = 2.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (7)^2 = 8 \\times 49 = 392$."
+      "1. $\\text{Rank} + \\text{Nullity} = n$.",
+      "2. Here $n = 3$ and $\\text{Rank} = 1$.",
+      "3. $\\text{Nullity} = 3 - 1 = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (7)^2 = 8 \\times 49 = 392$."
+      "١. نظرية الرتبة والعدمية: الرتبة + العدمية = $n$.",
+      "٢. العدمية $= 3 - 1 = 2$."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "The solution set geometrically forms a 2D plane through the origin.",
+    "teacherTipAr": "مجموعة الحلول تمثل هندسياً مستوياً ثنائي الأبعاد يمر بنقطة الأصل."
   },
   {
     "id": "alg_ch3_db_hots_37",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #7",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 7",
+    "titleEn": "Cramer Inconsistency Test",
+    "titleAr": "فحص التناقض بطريقة كرامر",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 8$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 8$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "In a 3-variable system, if $\\Delta = 0$ while $\\Delta_x = 7$, what can be conclusively deduced?",
+    "questionAr": "في نظام ثلاثي، إذا كانت $\\Delta = 0$ بينما $\\Delta_x = 7$، فما النتيجة الحاسمة المؤكدة؟",
     "optionsEn": [
-      "$512$",
-      "$520$",
-      "$528$",
-      "$536$"
+      "The system has NO solution (inconsistent)",
+      "The system has infinitely many solutions",
+      "The system has a unique solution",
+      "x = 0"
     ],
     "optionsAr": [
-      "512",
-      "520",
-      "528",
-      "536"
+      "النظام ليس له أي حل (متناقض)",
+      "النظام له عدد لا نهائي من الحلول",
+      "النظام له حل وحيد",
+      "س = 0"
     ],
-    "correctAnswer": "$512$",
+    "correctAnswer": "The system has NO solution (inconsistent)",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Delta = 0 with any Delta_i != 0 means division by zero, implying inconsistency.",
+    "hintAr": "انعدام دلتا مع وجود محدد مجهول غير صفري يعني استحالة الحل.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (8)^2 = 8 \\times 64 = 512$."
+      "1. If $\\Delta = 0$ and at least one $\\Delta_i \\neq 0$, the system is strictly inconsistent.",
+      "2. Therefore there are no solutions."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (8)^2 = 8 \\times 64 = 512$."
+      "١. إذا كانت دلتا = 0 وأحد محددات المجاهيل لا يساوي صفراً، فالنظام متناقض حتماً.",
+      "٢. إذن لا يوجد أي حل."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "A non-zero numerator over zero denominator signifies impossibility.",
+    "teacherTipAr": "بسط غير صفري مع مقام صفري يعني الاستحالة التامة."
   },
   {
     "id": "alg_ch3_db_hots_38",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #8",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 8",
+    "titleEn": "All Deltas Zero Indeterminacy",
+    "titleAr": "حالة انعدام جميع محددات كرامر",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 9$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 9$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "If in a non-homogeneous system $\\Delta = \\Delta_x = \\Delta_y = \\Delta_z = 0$, what are the possible outcomes?",
+    "questionAr": "إذا كان في نظام غير متجانس $\\Delta = \\Delta_x = \\Delta_y = \\Delta_z = 0$، فما الحالات الممكنة للنظام؟",
     "optionsEn": [
-      "$648$",
-      "$656$",
-      "$664$",
-      "$672$"
+      "Either infinitely many solutions OR no solution",
+      "Always infinitely many solutions",
+      "Always unique solution (0, 0, 0)",
+      "Always no solution"
     ],
     "optionsAr": [
-      "648",
-      "656",
-      "664",
-      "672"
+      "إما عدد لا نهائي من الحلول أو ليس له حل",
+      "عدد لا نهائي من الحلول دائماً",
+      "حل وحيد (0, 0, 0)",
+      "ليس له حل دائماً"
     ],
-    "correctAnswer": "$648$",
+    "correctAnswer": "Either infinitely many solutions OR no solution",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "All Deltas = 0 is indeterminate; rank test is required to distinguish.",
+    "hintAr": "انعدام جميع المحدّدات لا يحسم بمفرده، ويلزم فحص الرتبة للتمييز.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (9)^2 = 8 \\times 81 = 648$."
+      "1. All $\\Delta = 0$ indicates indeterminacy in Cramer's rule.",
+      "2. The system may have infinitely many solutions (if $\\text{rank}(A) = \\text{rank}(A|B)$).",
+      "3. Or it may have no solution (e.g. three parallel non-coincident planes)."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (9)^2 = 8 \\times 81 = 648$."
+      "١. انعدام دلتا وجميع محددات المجاهيل حالة غير معينة في كرامر.",
+      "٢. قد يكون للنظام حلول لانهائية إذا تساوت الرتبتان، أو ليس له حل إذا اختلفت الرتبتان."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Cramer's rule alone cannot resolve this case; Gaussian elimination/rank is needed.",
+    "teacherTipAr": "قاعدة كرامر لا تكفي هنا ويجب اللجوء إلى فحص رتبة المصفوفات."
   },
   {
     "id": "alg_ch3_db_hots_39",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #9",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 9",
+    "titleEn": "Trace of Similar Matrices",
+    "titleAr": "أثر المصفوفات المتشابهة",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 10$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 10$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "If $B = P^{-1} A P$ for an invertible matrix $P$, what is $\\text{tr}(B)$?",
+    "questionAr": "إذا كانت $B = P^{-1} A P$ لمصفوفة غير منفردة $P$، فما قيمة $\\text{tr}(B)$؟",
     "optionsEn": [
-      "$800$",
-      "$808$",
-      "$816$",
-      "$824$"
+      "$\\text{tr}(A)$",
+      "$|P| \\text{tr}(A)$",
+      "$0$",
+      "$\\text{tr}(A) / |P|$"
     ],
     "optionsAr": [
-      "800",
-      "808",
-      "816",
-      "824"
+      "tr(A)",
+      "|P| tr(A)",
+      "0",
+      "tr(A) / |P|"
     ],
-    "correctAnswer": "$800$",
+    "correctAnswer": "$\\text{tr}(A)$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "Trace is a similarity invariant: tr(P^{-1} A P) = tr(A P P^{-1}) = tr(A).",
+    "hintAr": "الأثر لا يتغير تحت تحويلات التشابه.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (10)^2 = 8 \\times 100 = 800$."
+      "1. By cyclic property of trace: $\\text{tr}(P^{-1} (AP)) = \\text{tr}((AP) P^{-1}) = \\text{tr}(A I) = \\text{tr}(A)$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (10)^2 = 8 \\times 100 = 800$."
+      "١. بالخاصية الدورية للأثر: $\\text{tr}(P^{-1}AP) = \\text{tr}(A)$.",
+      "٢. الأثر ثابت لا يتغير بالتشابه."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Trace and determinant are similarity invariants.",
+    "teacherTipAr": "الأثر والمحدد كلاهما صامدان تحت تحويلات التشابه."
   },
   {
     "id": "alg_ch3_db_hots_40",
-    "titleEn": "Determinant of Scalar Multiple of Adjoint #10",
-    "titleAr": "محدد مضاعف المصفوفة الملحقة رقم 10",
+    "titleEn": "Determinant of Similar Matrices",
+    "titleAr": "محدد المصفوفات المتشابهة",
     "difficulty": "hots",
-    "questionEn": "If $A$ is a $3 \\times 3$ square matrix such that $|A| = 11$, find the numerical value of $|2\\,\\text{adj}(A)|$.",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة من الرتبة $3 \\times 3$ حيث $|A| = 11$، أوجد القيمة العددية لـ $|2\\,\\text{adj}(A)|$.",
+    "questionEn": "If $B = P^{-1} A P$, what is $|B|$ in terms of $|A|$?",
+    "questionAr": "إذا كانت $B = P^{-1} A P$، فما قيمة $|B|$ بدلالة $|A|$؟",
     "optionsEn": [
-      "$968$",
-      "$976$",
-      "$984$",
-      "$992$"
+      "$|A|$",
+      "$|P| |A|$",
+      "$|A| / |P|$",
+      "$|A|^2$"
     ],
     "optionsAr": [
-      "968",
-      "976",
-      "984",
-      "992"
+      "|A|",
+      "|P| |A|",
+      "|A| / |P|",
+      "|A|^2"
     ],
-    "correctAnswer": "$968$",
+    "correctAnswer": "$|A|$",
     "correctIndex": 0,
-    "hintEn": "For an $n \\times n$ matrix, $|c M| = c^n |M|$, and $|\\text{adj}(A)| = |A|^{n-1}$.",
-    "hintAr": "لمصفوفة من الرتبة $n$: $|c M| = c^n |M|$، ومحدد الملحقة يساوي $|\\text{adj}(A)| = |A|^{n-1}$.",
+    "hintEn": "|B| = |P^{-1}| |A| |P| = (1/|P|) |A| |P| = |A|.",
+    "hintAr": "المحدد صامد تحت التشابه: |B| = |A|.",
     "stepByStepSolutionEn": [
-      "1. Since $\\text{adj}(A)$ is a $3 \\times 3$ matrix, pulling out the scalar $2$ gives: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "2. For a $3 \\times 3$ matrix, $|\\text{adj}(A)| = |A|^{3-1} = |A|^2$.",
-      "3. Thus, $|2\\,\\text{adj}(A)| = 8 (|A|)^2 = 8 (11)^2 = 8 \\times 121 = 968$."
+      "1. $|B| = |P^{-1} A P| = |P^{-1}| |A| |P| = \\frac{1}{|P|} |A| |P| = |A|$."
     ],
     "stepByStepSolutionAr": [
-      "١. بما أن $\\text{adj}(A)$ مصفوفة على الرتبة $3 \\times 3$، فإن إخراج العدد ٢ كعامل يعطي: $|2\\,\\text{adj}(A)| = 2^3 |\\text{adj}(A)| = 8 |\\text{adj}(A)|$.",
-      "٢. محدد المصفوفة الملحقة لمصفوفة ثلاثية هو: $|\\text{adj}(A)| = |A|^2$.",
-      "٣. إذن الناتج: $8 (11)^2 = 8 \\times 121 = 968$."
+      "١. $|B| = \\frac{1}{|P|} \\times |A| \\times |P| = |A|$."
     ],
-    "teacherTipEn": "Don't forget to raise the scalar to the power n when factoring it out of an n x n determinant!",
-    "teacherTipAr": "تذكر دائماً رفع الثابت للأس ن (رتبة المصفوفة) عند إخراجه خارج المحدد!"
+    "teacherTipEn": "Similar matrices have identical determinants, traces, and eigenvalues.",
+    "teacherTipAr": "المصفوفات المتشابهة لها نفس المحدد ونفس الأثر ونفس القيم المميزة."
   },
   {
     "id": "alg_ch3_db_hots_41",
-    "titleEn": "Skew-Symmetric Matrix Determinant #1",
-    "titleAr": "محدد مصفوفة شبه متماثلة ثلاثية رقم 1",
+    "titleEn": "Determinant of Exponentiated Matrix",
+    "titleAr": "محدد دالة أس المصفوفة",
     "difficulty": "hots",
-    "questionEn": "Find the value of the determinant:\n$$\\Delta = \\begin{vmatrix} 0 & 2 & -4 \\\\ -2 & 0 & 5 \\\\ 4 & -5 & 0 \\end{vmatrix}$$",
-    "questionAr": "أوجد قيمة المحدد:\n$$\\Delta = \\begin{vmatrix} 0 & 2 & -4 \\\\ -2 & 0 & 5 \\\\ 4 & -5 & 0 \\end{vmatrix}$$",
+    "questionEn": "If $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$, what is $|e^A|$?",
+    "questionAr": "إذا كانت $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$، فما قيمة $|e^A|$؟",
     "optionsEn": [
-      "$0$",
-      "$40$",
-      "$11$",
-      "$1$"
+      "$e^5$",
+      "$e^6$",
+      "$5e$",
+      "$e^2 + e^3$"
     ],
     "optionsAr": [
-      "0",
-      "40",
-      "11",
-      "1"
+      "e^5",
+      "e^6",
+      "5e",
+      "e^2 + e^3"
     ],
-    "correctAnswer": "$0$",
+    "correctAnswer": "$e^5$",
     "correctIndex": 0,
-    "hintEn": "The determinant of any odd-order skew-symmetric matrix is always identically zero.",
-    "hintAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية يساوي دائماً صفراً.",
+    "hintEn": "det(e^A) = e^{tr(A)} = e^{2+3} = e^5.",
+    "hintAr": "محدد هـ^أ = هـ^(أثر أ) = هـ^(2+3) = هـ^5.",
     "stepByStepSolutionEn": [
-      "1. Note that the matrix $A$ satisfies $A^T = -A$ with zero main diagonal, making it skew-symmetric.",
-      "2. Taking determinants of both sides: $|A^T| = |-A|$.",
-      "3. Since $|A^T| = |A|$ and for a $3 \\times 3$ matrix $|-A| = (-1)^3 |A| = -|A|$:",
-      "4. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "1. $e^A = \\begin{pmatrix} e^2 & 0 \\\\ 0 & e^3 \\end{pmatrix}$.",
+      "2. $|e^A| = e^2 \\cdot e^3 = e^{2+3} = e^5$.",
+      "3. In general, $|e^A| = e^{\\text{tr}(A)}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المصفوفة تحقق $A^T = -A$ وعناصر القطر الرئيسي أصفار، فهي شبه متماثلة.",
-      "٢. بأخذ المحدد للطرفين: $|A^T| = |-A|$.",
-      "٣. بما أن $|A^T| = |A|$ ولأن رتبة المصفوفة فردية (3) فإن $|-A| = (-1)^3 |A| = -|A|$.",
-      "٤. ينتج: $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "١. $e^A = \\begin{pmatrix} e^2 & 0 \\\\ 0 & e^3 \\end{pmatrix}$.",
+      "٢. المحدد $= e^2 \\times e^3 = e^5$.",
+      "٣. القاعدة العامة: $|e^A| = e^{\\text{tr}(A)}$."
     ],
-    "teacherTipEn": "Any skew-symmetric matrix of odd order (3x3, 5x5) has det = 0.",
-    "teacherTipAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية ينعدم دائماً."
+    "teacherTipEn": "The Jacobi determinant formula: det(exp(A)) = exp(tr(A)).",
+    "teacherTipAr": "صيغة ياكوبي الشهيرة في التحليل المصفوفي."
   },
   {
     "id": "alg_ch3_db_hots_42",
-    "titleEn": "Skew-Symmetric Matrix Determinant #2",
-    "titleAr": "محدد مصفوفة شبه متماثلة ثلاثية رقم 2",
+    "titleEn": "Matrix Polynomial Factorization",
+    "titleAr": "تحليل كثير حدود مصفوفي",
     "difficulty": "hots",
-    "questionEn": "Find the value of the determinant:\n$$\\Delta = \\begin{vmatrix} 0 & 4 & -7 \\\\ -4 & 0 & 6 \\\\ 7 & -6 & 0 \\end{vmatrix}$$",
-    "questionAr": "أوجد قيمة المحدد:\n$$\\Delta = \\begin{vmatrix} 0 & 4 & -7 \\\\ -4 & 0 & 6 \\\\ 7 & -6 & 0 \\end{vmatrix}$$",
+    "questionEn": "If $A^2 - 5A + 6I = O$, what are the possible eigenvalues of $A$?",
+    "questionAr": "إذا كانت $A^2 - 5A + 6I = O$، فما القيم المميزة الممكنة للمصفوفة $A$؟",
     "optionsEn": [
-      "$0$",
-      "$168$",
-      "$17$",
-      "$1$"
+      "$2$ or $3$",
+      "$1$ or $6$",
+      "$-2$ or $-3$",
+      "$5$ or $6$"
     ],
     "optionsAr": [
-      "0",
-      "168",
-      "17",
-      "1"
+      "2 أو 3",
+      "1 أو 6",
+      "-2 أو -3",
+      "5 أو 6"
     ],
-    "correctAnswer": "$0$",
+    "correctAnswer": "$2$ or $3$",
     "correctIndex": 0,
-    "hintEn": "The determinant of any odd-order skew-symmetric matrix is always identically zero.",
-    "hintAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية يساوي دائماً صفراً.",
+    "hintEn": "λ^2 - 5λ + 6 = (λ - 2)(λ - 3) = 0.",
+    "hintAr": "تحليل المعادلة المميزة: (λ - 2)(λ - 3) = 0.",
     "stepByStepSolutionEn": [
-      "1. Note that the matrix $A$ satisfies $A^T = -A$ with zero main diagonal, making it skew-symmetric.",
-      "2. Taking determinants of both sides: $|A^T| = |-A|$.",
-      "3. Since $|A^T| = |A|$ and for a $3 \\times 3$ matrix $|-A| = (-1)^3 |A| = -|A|$:",
-      "4. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "1. If $A v = \\lambda v$, then $(\\lambda^2 - 5\\lambda + 6)v = 0$.",
+      "2. Since $v \\neq 0$, $\\lambda^2 - 5\\lambda + 6 = 0 \\implies (\\lambda - 2)(\\lambda - 3) = 0$.",
+      "3. Thus $\\lambda = 2$ or $\\lambda = 3$."
     ],
     "stepByStepSolutionAr": [
-      "١. المصفوفة تحقق $A^T = -A$ وعناصر القطر الرئيسي أصفار، فهي شبه متماثلة.",
-      "٢. بأخذ المحدد للطرفين: $|A^T| = |-A|$.",
-      "٣. بما أن $|A^T| = |A|$ ولأن رتبة المصفوفة فردية (3) فإن $|-A| = (-1)^3 |A| = -|A|$.",
-      "٤. ينتج: $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "١. تعويض القيم المميزة في المعادلة: $\\lambda^2 - 5\\lambda + 6 = 0$.",
+      "٢. بالتحليل: $(\\lambda - 2)(\\lambda - 3) = 0$.",
+      "٣. القيم الممكنة هي 2 أو 3."
     ],
-    "teacherTipEn": "Any skew-symmetric matrix of odd order (3x3, 5x5) has det = 0.",
-    "teacherTipAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية ينعدم دائماً."
+    "teacherTipEn": "Eigenvalues satisfy the annihilating polynomial of the matrix.",
+    "teacherTipAr": "القيم المميزة تحقق دائماً المعادلة الصفرية للمصفوفة."
   },
   {
     "id": "alg_ch3_db_hots_43",
-    "titleEn": "Skew-Symmetric Matrix Determinant #3",
-    "titleAr": "محدد مصفوفة شبه متماثلة ثلاثية رقم 3",
+    "titleEn": "Adjoint of Diagonal Matrix",
+    "titleAr": "ملحقة المصفوفة القطرية",
     "difficulty": "hots",
-    "questionEn": "Find the value of the determinant:\n$$\\Delta = \\begin{vmatrix} 0 & 6 & -10 \\\\ -6 & 0 & 7 \\\\ 10 & -7 & 0 \\end{vmatrix}$$",
-    "questionAr": "أوجد قيمة المحدد:\n$$\\Delta = \\begin{vmatrix} 0 & 6 & -10 \\\\ -6 & 0 & 7 \\\\ 10 & -7 & 0 \\end{vmatrix}$$",
+    "questionEn": "If $D = \\text{diag}(2, 3, 4)$, what is $\\text{adj}(D)$?",
+    "questionAr": "إذا كانت $D = \\text{diag}(2, 3, 4)$ مصفوفة قطرية، فما هي $\\text{adj}(D)$؟",
     "optionsEn": [
-      "$0$",
-      "$420$",
-      "$23$",
-      "$1$"
+      "$\\text{diag}(12, 8, 6)$",
+      "$\\text{diag}(2, 3, 4)$",
+      "$\\text{diag}(1/2, 1/3, 1/4)$",
+      "$\\text{diag}(24, 24, 24)$"
     ],
     "optionsAr": [
-      "0",
-      "420",
-      "23",
-      "1"
+      "diag(12, 8, 6)",
+      "diag(2, 3, 4)",
+      "diag(1/2, 1/3, 1/4)",
+      "diag(24, 24, 24)"
     ],
-    "correctAnswer": "$0$",
+    "correctAnswer": "$\\text{diag}(12, 8, 6)$",
     "correctIndex": 0,
-    "hintEn": "The determinant of any odd-order skew-symmetric matrix is always identically zero.",
-    "hintAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية يساوي دائماً صفراً.",
+    "hintEn": "adj(D) = |D| D^{-1}. |D| = 24, D^{-1} = diag(1/2, 1/3, 1/4).",
+    "hintAr": "الملحقة = |D| في المعكوس = 24 في مقلوب القطر.",
     "stepByStepSolutionEn": [
-      "1. Note that the matrix $A$ satisfies $A^T = -A$ with zero main diagonal, making it skew-symmetric.",
-      "2. Taking determinants of both sides: $|A^T| = |-A|$.",
-      "3. Since $|A^T| = |A|$ and for a $3 \\times 3$ matrix $|-A| = (-1)^3 |A| = -|A|$:",
-      "4. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "1. $|D| = 2 \\times 3 \\times 4 = 24$.",
+      "2. $\\text{adj}(D) = |D| D^{-1} = 24 \\times \\text{diag}(1/2, 1/3, 1/4) = \\text{diag}(12, 8, 6)$."
     ],
     "stepByStepSolutionAr": [
-      "١. المصفوفة تحقق $A^T = -A$ وعناصر القطر الرئيسي أصفار، فهي شبه متماثلة.",
-      "٢. بأخذ المحدد للطرفين: $|A^T| = |-A|$.",
-      "٣. بما أن $|A^T| = |A|$ ولأن رتبة المصفوفة فردية (3) فإن $|-A| = (-1)^3 |A| = -|A|$.",
-      "٤. ينتج: $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "١. $|D| = 24$.",
+      "٢. $\\text{adj}(D) = 24 \\times \\text{diag}(1/2, 1/3, 1/4) = \\text{diag}(12, 8, 6)$."
     ],
-    "teacherTipEn": "Any skew-symmetric matrix of odd order (3x3, 5x5) has det = 0.",
-    "teacherTipAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية ينعدم دائماً."
+    "teacherTipEn": "Each diagonal entry of the adjoint is the product of the other diagonal entries.",
+    "teacherTipAr": "كل عنصر في قطر الملحقة هو حاصل ضرب العنصرين الآخرين."
   },
   {
     "id": "alg_ch3_db_hots_44",
-    "titleEn": "Skew-Symmetric Matrix Determinant #4",
-    "titleAr": "محدد مصفوفة شبه متماثلة ثلاثية رقم 4",
+    "titleEn": "Determinant with Trigonometric Product Expansion",
+    "titleAr": "محدد مع متطابقات ضعف الزاوية",
     "difficulty": "hots",
-    "questionEn": "Find the value of the determinant:\n$$\\Delta = \\begin{vmatrix} 0 & 8 & -13 \\\\ -8 & 0 & 8 \\\\ 13 & -8 & 0 \\end{vmatrix}$$",
-    "questionAr": "أوجد قيمة المحدد:\n$$\\Delta = \\begin{vmatrix} 0 & 8 & -13 \\\\ -8 & 0 & 8 \\\\ 13 & -8 & 0 \\end{vmatrix}$$",
+    "questionEn": "Evaluate $\\begin{vmatrix} 1 & \\cos 2\\theta & \\cos 4\\theta \\\\ 0 & 2\\cos^2 \\theta & 2\\cos^2 2\\theta \\\\ 0 & 0 & 1 \\end{vmatrix}$.",
+    "questionAr": "احسب قيمة المحدد المثلثي: $\\begin{vmatrix} 1 & \\cos 2\\theta & \\cos 4\\theta \\\\ 0 & 2\\cos^2 \\theta & 2\\cos^2 2\\theta \\\\ 0 & 0 & 1 \\end{vmatrix}$.",
     "optionsEn": [
-      "$0$",
-      "$832$",
-      "$29$",
-      "$1$"
+      "$2\\cos^2 \\theta$",
+      "$\\cos 2\\theta$",
+      "$1$",
+      "$0$"
     ],
     "optionsAr": [
-      "0",
-      "832",
-      "29",
-      "1"
+      "2 cos^2 θ",
+      "cos 2θ",
+      "1",
+      "0"
     ],
-    "correctAnswer": "$0$",
+    "correctAnswer": "$2\\cos^2 \\theta$",
     "correctIndex": 0,
-    "hintEn": "The determinant of any odd-order skew-symmetric matrix is always identically zero.",
-    "hintAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية يساوي دائماً صفراً.",
+    "hintEn": "The matrix is upper triangular, so multiply diagonal elements.",
+    "hintAr": "المصفوفة مثلثية علوية: نضرب عناصر القطر الرئيسي مباشرة.",
     "stepByStepSolutionEn": [
-      "1. Note that the matrix $A$ satisfies $A^T = -A$ with zero main diagonal, making it skew-symmetric.",
-      "2. Taking determinants of both sides: $|A^T| = |-A|$.",
-      "3. Since $|A^T| = |A|$ and for a $3 \\times 3$ matrix $|-A| = (-1)^3 |A| = -|A|$:",
-      "4. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "1. The matrix is upper triangular.",
+      "2. Determinant = product of diagonal entries = $1 \\times (2\\cos^2 \\theta) \\times 1 = 2\\cos^2 \\theta$."
     ],
     "stepByStepSolutionAr": [
-      "١. المصفوفة تحقق $A^T = -A$ وعناصر القطر الرئيسي أصفار، فهي شبه متماثلة.",
-      "٢. بأخذ المحدد للطرفين: $|A^T| = |-A|$.",
-      "٣. بما أن $|A^T| = |A|$ ولأن رتبة المصفوفة فردية (3) فإن $|-A| = (-1)^3 |A| = -|A|$.",
-      "٤. ينتج: $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "١. المصفوفة في الصورة المثلثية العلوية.",
+      "٢. القيمة = حاصل ضرب عناصر القطر الرئيسي = $2\\cos^2 \\theta$."
     ],
-    "teacherTipEn": "Any skew-symmetric matrix of odd order (3x3, 5x5) has det = 0.",
-    "teacherTipAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية ينعدم دائماً."
+    "teacherTipEn": "Do not be distracted by complicated off-diagonal expressions in triangular matrices.",
+    "teacherTipAr": "لا تنخدع بالمقادير المعقدة خارج القطر إذا كانت المصفوفة مثلثية."
   },
   {
     "id": "alg_ch3_db_hots_45",
-    "titleEn": "Skew-Symmetric Matrix Determinant #5",
-    "titleAr": "محدد مصفوفة شبه متماثلة ثلاثية رقم 5",
+    "titleEn": "Rank of Matrix Powers",
+    "titleAr": "رتبة قوى المصفوفة",
     "difficulty": "hots",
-    "questionEn": "Find the value of the determinant:\n$$\\Delta = \\begin{vmatrix} 0 & 10 & -16 \\\\ -10 & 0 & 9 \\\\ 16 & -9 & 0 \\end{vmatrix}$$",
-    "questionAr": "أوجد قيمة المحدد:\n$$\\Delta = \\begin{vmatrix} 0 & 10 & -16 \\\\ -10 & 0 & 9 \\\\ 16 & -9 & 0 \\end{vmatrix}$$",
+    "questionEn": "If $A$ is an $n \\times n$ matrix, how does $\\text{rank}(A^{k+1})$ compare to $\\text{rank}(A^k)$?",
+    "questionAr": "لأي مصفوفة مربعة $A$، كيف تقارن رتبة $A^{k+1}$ برتبة $A^k$؟",
     "optionsEn": [
-      "$0$",
-      "$1440$",
-      "$35$",
-      "$1$"
+      "$\\text{rank}(A^{k+1}) \\le \\text{rank}(A^k)$",
+      "$\\text{rank}(A^{k+1}) \\ge \\text{rank}(A^k)$",
+      "$\\text{rank}(A^{k+1}) = \\text{rank}(A) + k$",
+      "$\\text{rank}(A^{k+1}) = k \\cdot \\text{rank}(A)$"
     ],
     "optionsAr": [
-      "0",
-      "1440",
-      "35",
-      "1"
+      "رتبة A^{k+1} <= رتبة A^k",
+      "رتبة A^{k+1} >= رتبة A^k",
+      "تزيد بمقدار k",
+      "تساوي k في الرتبة"
     ],
-    "correctAnswer": "$0$",
+    "correctAnswer": "$\\text{rank}(A^{k+1}) \\le \\text{rank}(A^k)$",
     "correctIndex": 0,
-    "hintEn": "The determinant of any odd-order skew-symmetric matrix is always identically zero.",
-    "hintAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية يساوي دائماً صفراً.",
+    "hintEn": "Matrix powers have non-increasing ranks.",
+    "hintAr": "قوى المصفوفات لها رتب غير متزايدة.",
     "stepByStepSolutionEn": [
-      "1. Note that the matrix $A$ satisfies $A^T = -A$ with zero main diagonal, making it skew-symmetric.",
-      "2. Taking determinants of both sides: $|A^T| = |-A|$.",
-      "3. Since $|A^T| = |A|$ and for a $3 \\times 3$ matrix $|-A| = (-1)^3 |A| = -|A|$:",
-      "4. $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "1. $\\text{rank}(A^{k+1}) = \\text{rank}(A^k \\cdot A) \\le \\min(\\text{rank}(A^k), \\text{rank}(A)) \\le \\text{rank}(A^k)$."
     ],
     "stepByStepSolutionAr": [
-      "١. المصفوفة تحقق $A^T = -A$ وعناصر القطر الرئيسي أصفار، فهي شبه متماثلة.",
-      "٢. بأخذ المحدد للطرفين: $|A^T| = |-A|$.",
-      "٣. بما أن $|A^T| = |A|$ ولأن رتبة المصفوفة فردية (3) فإن $|-A| = (-1)^3 |A| = -|A|$.",
-      "٤. ينتج: $|A| = -|A| \\implies 2|A| = 0 \\implies |A| = 0$."
+      "١. رتبة حاصل الضرب لا تزيد عن رتبة العوامل، إذن رتب القوى تتناقص أو تثبت."
     ],
-    "teacherTipEn": "Any skew-symmetric matrix of odd order (3x3, 5x5) has det = 0.",
-    "teacherTipAr": "محدد أي مصفوفة شبه متماثلة ذات رتبة فردية ينعدم دائماً."
+    "teacherTipEn": "Ranks of powers stabilize at the index of the matrix.",
+    "teacherTipAr": "تثبت رتب القوى عند مؤشر المصفوفة."
   },
   {
     "id": "alg_ch3_db_hots_46",
-    "titleEn": "Cube Roots of Unity Determinant Zero Root #1",
-    "titleAr": "الجذر الصفري لمحدد الجذور التكعيبية للواحد رقم 1",
+    "titleEn": "Determinant Formula for Inversion of 3x3 Block",
+    "titleAr": "معكوس مصفوفة كتلية قطرية",
     "difficulty": "hots",
-    "questionEn": "If $\\omega$ is a complex cube root of unity, which value of $x$ makes the determinant equal to zero?\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
-    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فما هي قيمة $x$ التي تجعل قيمة المحدد مساوية للصفر؟\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
+    "questionEn": "If $M = \\begin{pmatrix} A & O \\\\ O & B \\end{pmatrix}$ where $A, B$ are invertible, $M^{-1}$ is:",
+    "questionAr": "إذا كانت $M = \\begin{pmatrix} A & O \\\\ O & B \\end{pmatrix}$ مصفوفة كتلية قطرية، فإن $M^{-1}$ تساوي:",
     "optionsEn": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "$\\begin{pmatrix} A^{-1} & O \\\\ O & B^{-1} \\end{pmatrix}$",
+      "$\\begin{pmatrix} B^{-1} & O \\\\ O & A^{-1} \\end{pmatrix}$",
+      "$\\begin{pmatrix} A & O \\\\ O & B \\end{pmatrix}$",
+      "$\\frac{1}{|M|} M$"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "[[A^{-1}, O], [O, B^{-1}]]",
+      "[[B^{-1}, O], [O, A^{-1}]]",
+      "[[A, O], [O, B]]",
+      "1/|M| M"
     ],
-    "correctAnswer": "$x = 1$",
+    "correctAnswer": "$\\begin{pmatrix} A^{-1} & O \\\\ O & B^{-1} \\end{pmatrix}$",
     "correctIndex": 0,
-    "hintEn": "Add all columns to the first column: $C_1 \\to C_1 + C_2 + C_3$. What makes $x + \\omega + \\omega^2 = 0$?",
-    "hintAr": "أضف العمودين الثاني والثالث إلى الأول: $C_1 \\to C_1 + C_2 + C_3$. ما القيمة التي تجعل $x + \\omega + \\omega^2 = 0$؟",
+    "hintEn": "Block diagonal matrices invert block by block.",
+    "hintAr": "المصفوفات الكتلية القطرية تنعكس كتلة بكتلة.",
     "stepByStepSolutionEn": [
-      "1. Perform the elementary column operation $C_1 \\to C_1 + C_2 + C_3$.",
-      "2. Each element in the first column becomes $x + \\omega + \\omega^2$.",
-      "3. Recall the fundamental identity for complex cube roots of unity: $1 + \\omega + \\omega^2 = 0$.",
-      "4. Setting $x = 1$ makes every entry in the first column $1 + \\omega + \\omega^2 = 0$, producing a column of all zeros, so the determinant vanishes."
+      "1. Multiply: $\\begin{pmatrix} A & O \\\\ O & B \\end{pmatrix} \\begin{pmatrix} A^{-1} & O \\\\ O & B^{-1} \\end{pmatrix} = \\begin{pmatrix} A A^{-1} & O \\\\ O & B B^{-1} \\end{pmatrix} = \\begin{pmatrix} I & O \\\\ O & I \\end{pmatrix} = I$."
     ],
     "stepByStepSolutionAr": [
-      "١. بإجراء العملية على الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
-      "٢. يصبح كل عنصر في العمود الأول مساوياً لـ $(x + \\omega + \\omega^2)$.",
-      "٣. نعلم أن مجموع الجذور التكعيبية للواحد الصحيح: $1 + \\omega + \\omega^2 = 0$.",
-      "٤. بوضع $x = 1$ يصبح العمود الأول بالكامل أصفاراً، وبالتالي ينعدم المحدد."
+      "١. ضرب الكتل يؤكد الحصول على مصفوفة الوحدة الكتلية.",
+      "٢. إذن المعكوس هو معكوس كل كتلة بمفردها."
     ],
-    "teacherTipEn": "Using 1 + omega + omega^2 = 0 is a classic Thanaweya Amma determinant question.",
-    "teacherTipAr": "خاصية مجموع الجذور التكعيبية ١ + أوميجا + أوميجا تربيع = صفر تتكرر كثيراً في امتحانات الثانوية العامة."
+    "teacherTipEn": "Extends single element diagonal inversion to matrix blocks.",
+    "teacherTipAr": "امتداد لقاعدة معكوس المصفوفة القطرية إلى الكتل."
   },
   {
     "id": "alg_ch3_db_hots_47",
-    "titleEn": "Cube Roots of Unity Determinant Zero Root #2",
-    "titleAr": "الجذر الصفري لمحدد الجذور التكعيبية للواحد رقم 2",
+    "titleEn": "Symmetric Matrix with Negative Eigenvalue",
+    "titleAr": "المصفوفة المتماثلة والقيم المميزة السالبة",
     "difficulty": "hots",
-    "questionEn": "If $\\omega$ is a complex cube root of unity, which value of $x$ makes the determinant equal to zero?\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
-    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فما هي قيمة $x$ التي تجعل قيمة المحدد مساوية للصفر؟\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
+    "questionEn": "If a $2 \\times 2$ symmetric matrix has $|A| < 0$, what can be deduced about its eigenvalues?",
+    "questionAr": "إذا كانت مصفوفة متماثلة $2 \\times 2$ لها محدد سالباً $|A| < 0$، فماذا يمكن استنتاجه عن قيمها المميزة؟",
     "optionsEn": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "One eigenvalue is strictly positive and the other is strictly negative",
+      "Both eigenvalues are negative",
+      "Both eigenvalues are positive",
+      "The eigenvalues are complex conjugate"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "إحدى القيمتين موجبة تماماً والأخرى سالبة تماماً",
+      "القيمتان سالبتان معاً",
+      "القيمتان موجبتان معاً",
+      "القيمتان مركبتان مترافقتان"
     ],
-    "correctAnswer": "$x = 1$",
+    "correctAnswer": "One eigenvalue is strictly positive and the other is strictly negative",
     "correctIndex": 0,
-    "hintEn": "Add all columns to the first column: $C_1 \\to C_1 + C_2 + C_3$. What makes $x + \\omega + \\omega^2 = 0$?",
-    "hintAr": "أضف العمودين الثاني والثالث إلى الأول: $C_1 \\to C_1 + C_2 + C_3$. ما القيمة التي تجعل $x + \\omega + \\omega^2 = 0$؟",
+    "hintEn": "det(A) = λ1 * λ2 < 0 and eigenvalues of real symmetric matrices are always real.",
+    "hintAr": "المحدد حاصل ضرب القيمتين وهو سالب، وقيم المتماثلة حقيقية دائماً.",
     "stepByStepSolutionEn": [
-      "1. Perform the elementary column operation $C_1 \\to C_1 + C_2 + C_3$.",
-      "2. Each element in the first column becomes $x + \\omega + \\omega^2$.",
-      "3. Recall the fundamental identity for complex cube roots of unity: $1 + \\omega + \\omega^2 = 0$.",
-      "4. Setting $x = 1$ makes every entry in the first column $1 + \\omega + \\omega^2 = 0$, producing a column of all zeros, so the determinant vanishes."
+      "1. All eigenvalues of real symmetric matrices are guaranteed to be real.",
+      "2. Since $|A| = \\lambda_1 \\lambda_2 < 0$, the two real eigenvalues must have opposite signs."
     ],
     "stepByStepSolutionAr": [
-      "١. بإجراء العملية على الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
-      "٢. يصبح كل عنصر في العمود الأول مساوياً لـ $(x + \\omega + \\omega^2)$.",
-      "٣. نعلم أن مجموع الجذور التكعيبية للواحد الصحيح: $1 + \\omega + \\omega^2 = 0$.",
-      "٤. بوضع $x = 1$ يصبح العمود الأول بالكامل أصفاراً، وبالتالي ينعدم المحدد."
+      "١. القيم المميزة للمصفوفة الحقيقية المتماثلة حقيقية دائماً.",
+      "٢. وبما أن حاصل ضربهما $|A| < 0$، فيجب أن تكون إحداهما موجبة والأخرى سالبة."
     ],
-    "teacherTipEn": "Using 1 + omega + omega^2 = 0 is a classic Thanaweya Amma determinant question.",
-    "teacherTipAr": "خاصية مجموع الجذور التكعيبية ١ + أوميجا + أوميجا تربيع = صفر تتكرر كثيراً في امتحانات الثانوية العامة."
+    "teacherTipEn": "Geometric saddle point condition in multivariable calculus.",
+    "teacherTipAr": "شرط النقطة السرجية في هندسة السطوح وتحليل الدوال متعددة المتغيرات."
   },
   {
     "id": "alg_ch3_db_hots_48",
-    "titleEn": "Cube Roots of Unity Determinant Zero Root #3",
-    "titleAr": "الجذر الصفري لمحدد الجذور التكعيبية للواحد رقم 3",
+    "titleEn": "Determinant of Rank 1 Perturbation",
+    "titleAr": "محدد إضافة مصفوفة رتبتها 1 لمصفوفة الوحدة",
     "difficulty": "hots",
-    "questionEn": "If $\\omega$ is a complex cube root of unity, which value of $x$ makes the determinant equal to zero?\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
-    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فما هي قيمة $x$ التي تجعل قيمة المحدد مساوية للصفر؟\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
+    "questionEn": "For vectors $u, v \\in \\mathbb{R}^3$, the matrix determinant $|I_3 + u v^T|$ equals:",
+    "questionAr": "لمتجهين $u, v$ في الفضاء الثلاثي، محدد المصفوفة $|I_3 + u v^T|$ يساوي:",
     "optionsEn": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "$1 + u^T v$",
+      "$1 + |u| |v|$",
+      "$u^T v$",
+      "$1 - u^T v$"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "1 + u^T v",
+      "1 + |u| |v|",
+      "u^T v",
+      "1 - u^T v"
     ],
-    "correctAnswer": "$x = 1$",
+    "correctAnswer": "$1 + u^T v$",
     "correctIndex": 0,
-    "hintEn": "Add all columns to the first column: $C_1 \\to C_1 + C_2 + C_3$. What makes $x + \\omega + \\omega^2 = 0$?",
-    "hintAr": "أضف العمودين الثاني والثالث إلى الأول: $C_1 \\to C_1 + C_2 + C_3$. ما القيمة التي تجعل $x + \\omega + \\omega^2 = 0$؟",
+    "hintEn": "Matrix determinant lemma: det(I + uv^T) = 1 + v^T u.",
+    "hintAr": "صيغة محدد مصفوفة الرتبة الأولى: det(I + uv^T) = 1 + v^T u.",
     "stepByStepSolutionEn": [
-      "1. Perform the elementary column operation $C_1 \\to C_1 + C_2 + C_3$.",
-      "2. Each element in the first column becomes $x + \\omega + \\omega^2$.",
-      "3. Recall the fundamental identity for complex cube roots of unity: $1 + \\omega + \\omega^2 = 0$.",
-      "4. Setting $x = 1$ makes every entry in the first column $1 + \\omega + \\omega^2 = 0$, producing a column of all zeros, so the determinant vanishes."
+      "1. By the Matrix Determinant Lemma: $|I + u v^T| = 1 + v^T u = 1 + u \\cdot v$."
     ],
     "stepByStepSolutionAr": [
-      "١. بإجراء العملية على الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
-      "٢. يصبح كل عنصر في العمود الأول مساوياً لـ $(x + \\omega + \\omega^2)$.",
-      "٣. نعلم أن مجموع الجذور التكعيبية للواحد الصحيح: $1 + \\omega + \\omega^2 = 0$.",
-      "٤. بوضع $x = 1$ يصبح العمود الأول بالكامل أصفاراً، وبالتالي ينعدم المحدد."
+      "١. صيغة محدد تعديل الرتبة الأولى: $|I + u v^T| = 1 + u^T v$."
     ],
-    "teacherTipEn": "Using 1 + omega + omega^2 = 0 is a classic Thanaweya Amma determinant question.",
-    "teacherTipAr": "خاصية مجموع الجذور التكعيبية ١ + أوميجا + أوميجا تربيع = صفر تتكرر كثيراً في امتحانات الثانوية العامة."
+    "teacherTipEn": "Widely used in Sherman-Morrison inversion updates.",
+    "teacherTipAr": "تطبيق أساسي في خوارزميات التحديث السريع للمعكوس."
   },
   {
     "id": "alg_ch3_db_hots_49",
-    "titleEn": "Cube Roots of Unity Determinant Zero Root #4",
-    "titleAr": "الجذر الصفري لمحدد الجذور التكعيبية للواحد رقم 4",
+    "titleEn": "Matrix Exponential Inverse",
+    "titleAr": "معكوس دالة أس المصفوفة",
     "difficulty": "hots",
-    "questionEn": "If $\\omega$ is a complex cube root of unity, which value of $x$ makes the determinant equal to zero?\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
-    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فما هي قيمة $x$ التي تجعل قيمة المحدد مساوية للصفر؟\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
+    "questionEn": "For any square matrix $A$, $(e^A)^{-1}$ equals:",
+    "questionAr": "لأي مصفوفة مربعة $A$، فإن المعكوس الضربي $(e^A)^{-1}$ يساوي:",
     "optionsEn": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "$e^{-A}$",
+      "$-e^A$",
+      "$e^{A^{-1}}$",
+      "$I$"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "e^{-A}",
+      "-e^A",
+      "e^{A^{-1}}",
+      "I"
     ],
-    "correctAnswer": "$x = 1$",
+    "correctAnswer": "$e^{-A}$",
     "correctIndex": 0,
-    "hintEn": "Add all columns to the first column: $C_1 \\to C_1 + C_2 + C_3$. What makes $x + \\omega + \\omega^2 = 0$?",
-    "hintAr": "أضف العمودين الثاني والثالث إلى الأول: $C_1 \\to C_1 + C_2 + C_3$. ما القيمة التي تجعل $x + \\omega + \\omega^2 = 0$؟",
+    "hintEn": "e^A * e^{-A} = e^{A - A} = e^O = I.",
+    "hintAr": "هـ^أ في هـ^(-أ) = مصفوفة الوحدة.",
     "stepByStepSolutionEn": [
-      "1. Perform the elementary column operation $C_1 \\to C_1 + C_2 + C_3$.",
-      "2. Each element in the first column becomes $x + \\omega + \\omega^2$.",
-      "3. Recall the fundamental identity for complex cube roots of unity: $1 + \\omega + \\omega^2 = 0$.",
-      "4. Setting $x = 1$ makes every entry in the first column $1 + \\omega + \\omega^2 = 0$, producing a column of all zeros, so the determinant vanishes."
+      "1. Since $A$ and $-A$ commute: $e^A e^{-A} = e^{A + (-A)} = e^O = I$.",
+      "2. Thus $(e^A)^{-1} = e^{-A}$."
     ],
     "stepByStepSolutionAr": [
-      "١. بإجراء العملية على الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
-      "٢. يصبح كل عنصر في العمود الأول مساوياً لـ $(x + \\omega + \\omega^2)$.",
-      "٣. نعلم أن مجموع الجذور التكعيبية للواحد الصحيح: $1 + \\omega + \\omega^2 = 0$.",
-      "٤. بوضع $x = 1$ يصبح العمود الأول بالكامل أصفاراً، وبالتالي ينعدم المحدد."
+      "١. $e^A \\cdot e^{-A} = e^O = I$.",
+      "٢. إذن $(e^A)^{-1} = e^{-A}$."
     ],
-    "teacherTipEn": "Using 1 + omega + omega^2 = 0 is a classic Thanaweya Amma determinant question.",
-    "teacherTipAr": "خاصية مجموع الجذور التكعيبية ١ + أوميجا + أوميجا تربيع = صفر تتكرر كثيراً في امتحانات الثانوية العامة."
+    "teacherTipEn": "Matrix exponential is always non-singular for every matrix.",
+    "teacherTipAr": "دالة أس المصفوفة غير منفردة دائماً لأي مصفوفة على الإطلاق."
   },
   {
     "id": "alg_ch3_db_hots_50",
-    "titleEn": "Cube Roots of Unity Determinant Zero Root #5",
-    "titleAr": "الجذر الصفري لمحدد الجذور التكعيبية للواحد رقم 5",
+    "titleEn": "Full Rank Square Matrix Characterization",
+    "titleAr": "الخصائص المكافئة للمصفوفة كاملة الرتبة",
     "difficulty": "hots",
-    "questionEn": "If $\\omega$ is a complex cube root of unity, which value of $x$ makes the determinant equal to zero?\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
-    "questionAr": "إذا كانت $\\omega$ أحد الجذور التكعيبية المركبة للواحد الصحيح، فما هي قيمة $x$ التي تجعل قيمة المحدد مساوية للصفر؟\n$$\\begin{vmatrix} x & \\omega & \\omega^2 \\\\ \\omega & \\omega^2 & x \\\\ \\omega^2 & x & \\omega \\end{vmatrix} = 0$$",
+    "questionEn": "For an $n \\times n$ matrix $A$, which of the following is NOT equivalent to $\\text{rank}(A) = n$?",
+    "questionAr": "لمصفوفة مربعة $A$ من الرتبة $n$، أي من العبارات الآتية لا تكافئ كون رتبتها $n$؟",
     "optionsEn": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "$\\text{tr}(A) \\neq 0$",
+      "$|A| \\neq 0$",
+      "$A$ is invertible ($A^{-1}$ exists)",
+      "The homogeneous system $AX = 0$ has only the trivial solution"
     ],
     "optionsAr": [
-      "$x = 1$",
-      "$x = -1$",
-      "$x = 0$",
-      "$x = 2$"
+      "أثر المصفوفة لا يساوي صفراً",
+      "محدد المصفوفة لا يساوي صفراً",
+      "المصفوفة غير منفردة (تمتلك معكوساً)",
+      "النظام المتجانس له الحل الصفري فقط"
     ],
-    "correctAnswer": "$x = 1$",
+    "correctAnswer": "$\\text{tr}(A) \\neq 0$",
     "correctIndex": 0,
-    "hintEn": "Add all columns to the first column: $C_1 \\to C_1 + C_2 + C_3$. What makes $x + \\omega + \\omega^2 = 0$?",
-    "hintAr": "أضف العمودين الثاني والثالث إلى الأول: $C_1 \\to C_1 + C_2 + C_3$. ما القيمة التي تجعل $x + \\omega + \\omega^2 = 0$؟",
+    "hintEn": "A full rank matrix can have trace 0 (e.g. [1, 0; 0, -1] has rank 2, det -1, but trace 0).",
+    "hintAr": "المصفوفة كاملة الرتبة يمكن أن يكون أثرها صفراً (مثل [1, 0; 0, -1]).",
     "stepByStepSolutionEn": [
-      "1. Perform the elementary column operation $C_1 \\to C_1 + C_2 + C_3$.",
-      "2. Each element in the first column becomes $x + \\omega + \\omega^2$.",
-      "3. Recall the fundamental identity for complex cube roots of unity: $1 + \\omega + \\omega^2 = 0$.",
-      "4. Setting $x = 1$ makes every entry in the first column $1 + \\omega + \\omega^2 = 0$, producing a column of all zeros, so the determinant vanishes."
+      "1. Full rank ($r = n$) means $|A| \\neq 0$, $A^{-1}$ exists, and only trivial solution to $AX = 0$.",
+      "2. However, the trace can easily be 0 (e.g. $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$ has rank 2, but $\\text{tr}(A) = 0$).",
+      "3. Thus $\\text{tr}(A) \\neq 0$ is NOT equivalent to full rank."
     ],
     "stepByStepSolutionAr": [
-      "١. بإجراء العملية على الأعمدة: $C_1 \\to C_1 + C_2 + C_3$.",
-      "٢. يصبح كل عنصر في العمود الأول مساوياً لـ $(x + \\omega + \\omega^2)$.",
-      "٣. نعلم أن مجموع الجذور التكعيبية للواحد الصحيح: $1 + \\omega + \\omega^2 = 0$.",
-      "٤. بوضع $x = 1$ يصبح العمود الأول بالكامل أصفاراً، وبالتالي ينعدم المحدد."
+      "١. الرتبة الكاملة تكافئ انعدام الحلول غير الصفرية ووجود المعكوس وعدم انعدام المحدد.",
+      "٢. لكن أثر المصفوفة يمكن أن يكون صفراً دون أن تفقد رتبتها (مثل مصفوفة دوران 90 درجة أثرها 0 ومحددها 1).",
+      "٣. إذن الأثر ليس شرطاً مكافئاً."
     ],
-    "teacherTipEn": "Using 1 + omega + omega^2 = 0 is a classic Thanaweya Amma determinant question.",
-    "teacherTipAr": "خاصية مجموع الجذور التكعيبية ١ + أوميجا + أوميجا تربيع = صفر تتكرر كثيراً في امتحانات الثانوية العامة."
+    "teacherTipEn": "Classic conceptual multiple choice question in advanced linear algebra.",
+    "teacherTipAr": "سؤال مفاهيمي كلاسيكي في امتحانات الجبر المتقدمة."
   }
 ]
 };

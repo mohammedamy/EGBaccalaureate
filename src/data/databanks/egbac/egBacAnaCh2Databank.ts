@@ -1474,363 +1474,363 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch2_db_easy_41",
-    "titleEn": "General Maclaurin Coefficient Formula #1",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 1",
+    "titleEn": "Maclaurin Series Coefficient #1",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 1",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = e^{2x}$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = e^{2x}$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$\\frac{4}{3}$",
+      "$\\frac{8}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$\\frac{4}{3}$",
+      "$\\frac{8}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$\\frac{4}{3}$",
     "correctIndex": 0,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Recall the standard Maclaurin series for $e^u$: $e^u = \\sum_{n=0}^\\infty \\frac{u^n}{n!} = 1 + u + \\frac{u^2}{2} + \\frac{u^3}{6} + \\cdots$.",
+      "2. Substitute $u = 2x$: $e^{2x} = 1 + 2x + \\frac{(2x)^2}{2} + \\frac{(2x)^3}{6} + \\cdots$.",
+      "3. The term containing $x^3$ is $\\frac{8x^3}{6} = \\frac{4}{3}x^3$, so the coefficient is $\\frac{4}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك ماكلوران القياسي للدالة $e^u$: هو $e^u = 1 + u + \\frac{u^2}{2} + \\frac{u^3}{6} + \\cdots$.",
+      "٢. بالتعويض بـ $u = 2x$: نجد أن $e^{2x} = 1 + 2x + \\frac{4x^2}{2} + \\frac{8x^3}{6} + \\cdots$.",
+      "٣. حد $x^3$ هو $\\frac{8}{6}x^3 = \\frac{4}{3}x^3$، وبالتالي المعامل المطلوب هو $\\frac{4}{3}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "For e^(kx), the coefficient of x^n is k^n / n!.",
+    "teacherTipAr": "في مفكوك e^(kx)، يكون معامل x^n هو دائماً k^n / n!."
   },
   {
     "id": "egbac_ana_ch2_db_easy_42",
-    "titleEn": "General Maclaurin Coefficient Formula #2",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 2",
+    "titleEn": "Maclaurin Series Coefficient #2",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 2",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = \\sin(3x)$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\sin(3x)$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$\\frac{9}{2}$",
+      "$-\\frac{9}{2}$",
+      "$-\\frac{27}{2}$",
+      "$-\\frac{3}{2}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$\\frac{9}{2}$",
+      "$-\\frac{9}{2}$",
+      "$-\\frac{27}{2}$",
+      "$-\\frac{3}{2}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$-\\frac{9}{2}$",
     "correctIndex": 1,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Recall $\\sin u = u - \\frac{u^3}{6} + \\frac{u^5}{120} - \\cdots$.",
+      "2. Substitute $u = 3x$: $\\sin(3x) = 3x - \\frac{(3x)^3}{6} + \\cdots = 3x - \\frac{27x^3}{6} + \\cdots$.",
+      "3. Simplify: $-\\frac{27}{6} = -\\frac{9}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك جيب الزاوية: $\\sin u = u - \\frac{u^3}{6} + \\cdots$.",
+      "٢. بالتعويض بـ $u = 3x$: نحصل على $3x - \\frac{27x^3}{6} + \\cdots$.",
+      "٣. بالتبسيط: $-\\frac{27}{6} = -\\frac{9}{2}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "The signs in the Maclaurin series for sine alternate: +, -, +, -.",
+    "teacherTipAr": "إشارات مفكوك دالة الجيب تتناوب: موجبة، سالبة، موجبة..."
   },
   {
     "id": "egbac_ana_ch2_db_easy_43",
-    "titleEn": "General Maclaurin Coefficient Formula #3",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 3",
+    "titleEn": "Maclaurin Series Coefficient #3",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 3",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{4}$ in the Maclaurin series expansion of $f(x) = \\cos(2x)$.",
+    "questionAr": "أوجد معامل $x^{4}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\cos(2x)$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{2}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{24}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{2}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{24}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$\\frac{2}{3}$",
     "correctIndex": 2,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^4.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^4.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Recall $\\cos u = 1 - \\frac{u^2}{2!} + \\frac{u^4}{4!} - \\cdots$.",
+      "2. Substitute $u = 2x$: $\\frac{(2x)^4}{24} = \\frac{16x^4}{24} = \\frac{2}{3}x^4$.",
+      "3. The coefficient of $x^4$ is $\\frac{2}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك جيب التمام: $\\cos u = 1 - \\frac{u^2}{2} + \\frac{u^4}{24} - \\cdots$.",
+      "٢. بالتعويض بـ $u = 2x$: حد $x^4$ هو $\\frac{16x^4}{24} = \\frac{2}{3}x^4$.",
+      "٣. المعامل هو $\\frac{2}{3}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Cosine contains only even powers in its Maclaurin series.",
+    "teacherTipAr": "متسلسلة ماكلوران لجيب التمام تحتوي فقط على القوى الزوجية لـ x."
   },
   {
     "id": "egbac_ana_ch2_db_easy_44",
-    "titleEn": "General Maclaurin Coefficient Formula #4",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 4",
+    "titleEn": "Maclaurin Series Coefficient #4",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 4",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{4}$ in the Maclaurin series expansion of $f(x) = \\frac{1}{1 - 2x}$.",
+    "questionAr": "أوجد معامل $x^{4}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\frac{1}{1 - 2x}$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$"
+      "$-16$",
+      "$8$",
+      "$32$",
+      "$16$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$"
+      "$-16$",
+      "$8$",
+      "$32$",
+      "$16$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$16$",
     "correctIndex": 3,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^4.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^4.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Use the geometric series formula: $\\frac{1}{1 - u} = \\sum_{n=0}^\\infty u^n$ for $|u| < 1$.",
+      "2. Set $u = 2x$: $\\frac{1}{1 - 2x} = \\sum_{n=0}^\\infty (2x)^n = 1 + 2x + 4x^2 + 8x^3 + 16x^4 + \\cdots$.",
+      "3. The coefficient of $x^4$ is $2^4 = 16$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. باستخدام المتسلسلة الهندسية: $\\frac{1}{1 - u} = 1 + u + u^2 + u^3 + u^4 + \\cdots$.",
+      "٢. بوضع $u = 2x$: نحصل على $(2x)^4 = 16x^4$.",
+      "٣. معامل $x^4$ هو $16$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Geometric series expansions 1/(1-u) are the fastest way to expand rational functions.",
+    "teacherTipAr": "المتسلسلة الهندسية 1/(1-u) هي أسرع وسيلة لفك الدوال الكسرية ذات المقامات الخطية."
   },
   {
     "id": "egbac_ana_ch2_db_easy_45",
-    "titleEn": "General Maclaurin Coefficient Formula #5",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 5",
+    "titleEn": "Maclaurin Series Coefficient #5",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 5",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = \\ln(1 + 3x)$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\ln(1 + 3x)$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$9$",
+      "$-9$",
+      "$\\frac{27}{2}$",
+      "$3$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$9$",
+      "$-9$",
+      "$\\frac{27}{2}$",
+      "$3$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$9$",
     "correctIndex": 0,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Recall $\\ln(1 + u) = u - \\frac{u^2}{2} + \\frac{u^3}{3} - \\cdots$.",
+      "2. For $u = 3x$, the cubic term is $\\frac{(3x)^3}{3} = \\frac{27x^3}{3} = 9x^3$.",
+      "3. The coefficient of $x^3$ is $9$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك اللوغاريتم الطبيعي: $\\ln(1 + u) = u - \\frac{u^2}{2} + \\frac{u^3}{3} - \\cdots$.",
+      "٢. عند $u = 3x$: الحد التكعيبي هو $\\frac{(3x)^3}{3} = \\frac{27x^3}{3} = 9x^3$.",
+      "٣. إذن المعامل هو $9$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Notice the absence of factorials in the denominator of ln(1+u): denominators are simply n.",
+    "teacherTipAr": "لاحظ عدم وجود المضروب في مقامات مفكوك اللوغاريتم، فالمقامات هي الأعداد n مباشرة."
   },
   {
     "id": "egbac_ana_ch2_db_easy_46",
-    "titleEn": "General Maclaurin Coefficient Formula #6",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 6",
+    "titleEn": "Maclaurin Series Coefficient #6",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 6",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{4}$ in the Maclaurin series expansion of $f(x) = \\frac{1}{1 + x^2}$.",
+    "questionAr": "أوجد معامل $x^{4}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\frac{1}{1 + x^2}$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$\\frac{1}{24}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$\\frac{1}{24}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$1$",
     "correctIndex": 1,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^4.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^4.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Rewrite as $\\frac{1}{1 - (-x^2)} = 1 + (-x^2) + (-x^2)^2 + \\cdots$.",
+      "2. Expanding: $1 - x^2 + x^4 - x^6 + \\cdots$.",
+      "3. The coefficient of $x^4$ is $+1$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. نعيد الكتابة كمتسلسلة هندسية: $\\frac{1}{1 - (-x^2)} = 1 - x^2 + x^4 - x^6 + \\cdots$.",
+      "٢. حد $x^4$ هو $+x^4$.",
+      "٣. المعامل المطلوب هو $1$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Substituting -x^2 into 1/(1-u) creates alternating even powers.",
+    "teacherTipAr": "التعويض بـ -x^2 في المتسلسلة الهندسية يولد قوى زوجية متناوبة الإشارة."
   },
   {
     "id": "egbac_ana_ch2_db_easy_47",
-    "titleEn": "General Maclaurin Coefficient Formula #7",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 7",
+    "titleEn": "Maclaurin Series Coefficient #7",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 7",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = x e^{-x}$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = x e^{-x}$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{2}$",
+      "$-\\frac{1}{6}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{2}$",
+      "$-\\frac{1}{6}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$\\frac{1}{2}$",
     "correctIndex": 2,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. $e^{-x} = 1 - x + \\frac{x^2}{2!} - \\frac{x^3}{3!} + \\cdots$.",
+      "2. Multiply by $x$: $x e^{-x} = x - x^2 + \\frac{x^3}{2} - \\frac{x^4}{6} + \\cdots$.",
+      "3. The coefficient of $x^3$ comes from the $x^2$ term of $e^{-x}$, which is $\\frac{1}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك $e^{-x} = 1 - x + \\frac{x^2}{2} - \\frac{x^3}{6} + \\cdots$.",
+      "٢. بالضرب في $x$: نجد $x e^{-x} = x - x^2 + \\frac{x^3}{2} - \\cdots$.",
+      "٣. إذن معامل $x^3$ هو $\\frac{1}{2}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Multiplying by x shifts all powers up by 1 and keeps the coefficients unchanged.",
+    "teacherTipAr": "الضرب في x يرفع كل الأسس بمقدار 1 مع بقاء المعاملات كما هي."
   },
   {
     "id": "egbac_ana_ch2_db_easy_48",
-    "titleEn": "General Maclaurin Coefficient Formula #8",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 8",
+    "titleEn": "Maclaurin Series Coefficient #8",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 8",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = \\arctan(x)$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\arctan(x)$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$"
+      "$\\frac{1}{3}$",
+      "$-\\frac{1}{6}$",
+      "$-1$",
+      "$-\\frac{1}{3}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$"
+      "$\\frac{1}{3}$",
+      "$-\\frac{1}{6}$",
+      "$-1$",
+      "$-\\frac{1}{3}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$-\\frac{1}{3}$",
     "correctIndex": 3,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Integrate $\\frac{1}{1 + t^2} = 1 - t^2 + t^4 - \\cdots$ term by term.",
+      "2. $\\int_0^x (1 - t^2 + \\cdots) dt = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\cdots$.",
+      "3. The coefficient of $x^3$ is $-\\frac{1}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. بتكامل متسلسلة $\\frac{1}{1+t^2} = 1 - t^2 + \\cdots$ حداً بحداً.",
+      "٢. نجد $\\arctan(x) = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\cdots$.",
+      "٣. إذن معامل $x^3$ هو $-\\frac{1}{3}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Arctangent has only odd powers with alternating signs and no factorials.",
+    "teacherTipAr": "متسلسلة ظل الزاوية العكسي تحوي فقط قوى فردية بإشارات متناوبة ودون مضروب."
   },
   {
     "id": "egbac_ana_ch2_db_easy_49",
-    "titleEn": "General Maclaurin Coefficient Formula #9",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 9",
+    "titleEn": "Maclaurin Series Coefficient #9",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 9",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{2}$ in the Maclaurin series expansion of $f(x) = \\sqrt{1 + x}$.",
+    "questionAr": "أوجد معامل $x^{2}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\sqrt{1 + x}$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{1}{8}$",
+      "$\\frac{1}{8}$",
+      "$-\\frac{1}{4}$",
+      "$\\frac{1}{2}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{1}{8}$",
+      "$\\frac{1}{8}$",
+      "$-\\frac{1}{4}$",
+      "$\\frac{1}{2}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$-\\frac{1}{8}$",
     "correctIndex": 0,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^2.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^2.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Use the generalized binomial series: $(1+x)^\\alpha = 1 + \\alpha x + \\frac{\\alpha(\\alpha-1)}{2!} x^2 + \\cdots$.",
+      "2. For $\\alpha = \\frac{1}{2}$: coefficient of $x^2$ is $\\frac{(1/2)(-1/2)}{2} = -\\frac{1}{8}$.",
+      "3. Thus the coefficient is $-\\frac{1}{8}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. باستخدام متسلسلة ذات الحدين العامة: $(1+x)^{1/2} = 1 + \\frac{1}{2}x + \\frac{(1/2)(-1/2)}{2!}x^2 + \\cdots$.",
+      "٢. حساب المعامل: $\\frac{-1/4}{2} = -\\frac{1}{8}$.",
+      "٣. إذن معامل $x^2$ هو $-\\frac{1}{8}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "The binomial series coefficient for (1/2 choose 2) is always -1/8.",
+    "teacherTipAr": "معامل ذات الحدين لـ (1/2 فوق 2) يساوي دائماً -1/8."
   },
   {
     "id": "egbac_ana_ch2_db_easy_50",
-    "titleEn": "General Maclaurin Coefficient Formula #10",
-    "titleAr": "صيغة معامل ماكلوران العام رقم 10",
+    "titleEn": "Maclaurin Series Coefficient #10",
+    "titleAr": "معامل متسلسلة ماكلوران رقم 10",
     "difficulty": "easy",
-    "questionEn": "In the Maclaurin series expansion of an infinitely differentiable function $f(x) = \\sum_{n=0}^\\infty a_n x^n$, what is the general formula for coefficient $a_n$?",
-    "questionAr": "في مفكوك متسلسلة ماكلوران لدالة قابلة للاشتقاق عدداً لا نهائياً من المرات $f(x) = \\sum_{n=0}^\\infty a_n x^n$، ما هي الصيغة العامة للمعامل $a_n$؟",
+    "questionEn": "Find the coefficient of $x^{3}$ in the Maclaurin series expansion of $f(x) = \\sinh(2x)$.",
+    "questionAr": "أوجد معامل $x^{3}$ في مفكوك متسلسلة ماكلوران للدالة $f(x) = \\sinh(2x)$.",
     "optionsEn": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{4}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{8}{3}$"
     ],
     "optionsAr": [
-      "$\\frac{f^{(n)}(0)}{(n+1)!}$",
-      "$\\frac{f^{(n)}(0)}{n!}$",
-      "$f^{(n)}(0)$",
-      "$\\frac{f'(0)}{n!}$"
+      "$-\\frac{4}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{8}{3}$"
     ],
-    "correctAnswer": "$\\frac{f^{(n)}(0)}{n!}$",
+    "correctAnswer": "$\\frac{4}{3}$",
     "correctIndex": 1,
-    "hintEn": "By Taylor's Theorem at a = 0, a_n is the n-th derivative at zero divided by n factorial.",
-    "hintAr": "بنظرية تايلور عند الصفر، المعامل a_n هو المشتقة النونية عند الصفر مقسومة على مضروب n.",
+    "hintEn": "Expand using the standard Maclaurin series for this function and read off the coefficient of x^3.",
+    "hintAr": "قم بفك المتسلسلة باستخدام المفكوك القياسي للدالة وحدد معامل x^3.",
     "stepByStepSolutionEn": [
-      "1. Differentiate $f(x) = a_0 + a_1 x + a_2 x^2 + \\cdots + a_n x^n + \\cdots$ repeatedly.",
-      "2. The $n$-th derivative evaluated at $x = 0$ is $f^{(n)}(0) = n! \\cdot a_n$.",
-      "3. Solving for $a_n$ gives $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "1. Recall $\\sinh u = u + \\frac{u^3}{3!} + \\frac{u^5}{5!} + \\cdots$ (all plus signs, odd powers).",
+      "2. Substitute $u = 2x$: $\\frac{(2x)^3}{6} = \\frac{8x^3}{6} = \\frac{4}{3}x^3$.",
+      "3. The coefficient of $x^3$ is $\\frac{4}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. باشتقاق مفكوك المتسلسلة n مرة والتعويض بـ x = 0:",
-      "٢. نجد أن المشتقة النونية عند الصفر تساوي $n! \\times a_n$.",
-      "٣. بالقسمة على $n!$ ينتج $a_n = \\frac{f^{(n)}(0)}{n!}."
+      "١. مفكوك دالة الجيب الزائدي: $\\sinh u = u + \\frac{u^3}{6} + \\cdots$ (جميع الحدود موجبة بقوى فردية).",
+      "٢. بالتعويض بـ $u = 2x$: $\\frac{8x^3}{6} = \\frac{4}{3}x^3$.",
+      "٣. المعامل هو $\\frac{4}{3}$."
     ],
-    "teacherTipEn": "Remember the factorial in the denominator: a_n = f^(n)(0) / n!.",
-    "teacherTipAr": "تذكر دائماً المضروب في المقام: المعامل يساوي المشتقة النونية مقسومة على مضروب n."
+    "teacherTipEn": "Hyperbolic sine has the same coefficients as regular sine, but all signs are positive.",
+    "teacherTipAr": "دالة الجيب الزائدي تماثل دالة الجيب في قواها الفردية، لكن جميع إشارات حدودها موجبة."
   }
 ],
   medium: [
@@ -5253,383 +5253,365 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch2_db_hots_41",
-    "titleEn": "Lagrange Remainder Truncation Error #1",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 1",
+    "titleEn": "Exponential Lagrange Remainder Bound #1",
+    "titleAr": "تقدير خطأ باقي لاجرانج للدالة الأسية رقم 1",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "When approximating $e^{0.5}$ by its 2nd-degree Taylor polynomial $P_2(0.5) = 1 + 0.5 + \\frac{0.5^2}{2} = 1.625$ centered at $0$, what is the strict upper bound on the remainder $|R_2(0.5)|$ using the bound $e^{0.5} < 2$?",
+    "questionAr": "عند تقريب $e^{0.5}$ بكثيرة حدود تايلور من الدرجة الثانية $P_2(0.5) = 1 + 0.5 + \\frac{0.5^2}{2} = 1.625$ حول $0$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_2(0.5)|$ باستخدام التقدير $e^{0.5} < 2$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_2(0.5)| < \\frac{1}{24}$",
+      "$|R_2(0.5)| < \\frac{1}{12}$",
+      "$|R_2(0.5)| < \\frac{1}{48}$",
+      "$|R_2(0.5)| < \\frac{1}{6}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_2(0.5)| < \\frac{1}{24}$",
+      "$|R_2(0.5)| < \\frac{1}{12}$",
+      "$|R_2(0.5)| < \\frac{1}{48}$",
+      "$|R_2(0.5)| < \\frac{1}{6}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_2(0.5)| < \\frac{1}{24}$",
     "correctIndex": 0,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "R_2(x) = e^xi / 3! * x^3 for 0 < xi < 0.5. With e^xi < 2 and x = 1/2, calculate the bound.",
+    "hintAr": "باقي لاجرانج R_2(x) = e^xi / 3! * x^3 حيث 0 < xi < 0.5. بما أن e^xi < 2 و x = 1/2، احسب الحد.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. By Taylor's Theorem: $R_2(0.5) = \\frac{f'''(\\xi)}{3!} (0.5)^3 = \\frac{e^\\xi}{6} \\left(\\frac{1}{2}\\right)^3 = \\frac{e^\\xi}{48}$ where $0 < \\xi < 0.5$.",
+      "2. Since $\\xi < 0.5$, $e^\\xi < e^{0.5} < 2$.",
+      "3. Therefore $|R_2(0.5)| < \\frac{2}{48} = \\frac{1}{24}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. بنظرية تايلور: $R_2(0.5) = \\frac{f'''(\\xi)}{6} (0.5)^3 = \\frac{e^\\xi}{48}$ حيث $0 < \\xi < 0.5$.",
+      "٢. بما أن $\\xi < 0.5$، فإن $e^\\xi < 2$.",
+      "٣. إذن $|R_2(0.5)| < \\frac{2}{48} = \\frac{1}{24}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Lagrange's form of the remainder gives an exact formula for the truncation error.",
+    "teacherTipAr": "صيغة لاجرانج للباقي تعطي تعبيراً دقيقاً لخطأ قطع متسلسلة تايلور."
   },
   {
     "id": "egbac_ana_ch2_db_hots_42",
-    "titleEn": "Lagrange Remainder Truncation Error #2",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 2",
+    "titleEn": "Sine Maclaurin Polynomial Remainder Bound #2",
+    "titleAr": "تقدير خطأ قطع متسلسلة ماكلوران لجيب الزاوية رقم 2",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "When approximating $\\sin(0.1)$ by its 3rd-degree Maclaurin polynomial $P_3(0.1) = 0.1 - \\frac{0.1^3}{6}$, what is the strict upper bound on $|R_4(0.1)|$ given $|sin^{(5)}(\\xi)| \\le 1$?",
+    "questionAr": "عند تقريب $\\sin(0.1)$ بكثيرة حدود ماكلوران من الدرجة الثالثة $P_3(0.1) = 0.1 - \\frac{0.1^3}{6}$، ما هو الحد الأعلى الدقيق للباقي $|R_4(0.1)|$ علماً بأن $|sin^{(5)}(\\xi)| \\le 1$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_4(0.1)| \\le \\frac{10^{-5}}{24}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-5}}{120}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-4}}{120}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-3}}{6}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_4(0.1)| \\le \\frac{10^{-5}}{24}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-5}}{120}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-4}}{120}$",
+      "$|R_4(0.1)| \\le \\frac{10^{-3}}{6}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_4(0.1)| \\le \\frac{10^{-5}}{120}$",
     "correctIndex": 1,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "Since the 4th-degree term vanishes for sine, P_3(x) = P_4(x), so the error is of order 5: R_4(x) = cos(xi) / 5! * x^5.",
+    "hintAr": "بما أن معامل x^4 يساوي صفراً في دالة الجيب، فإن P_3 = P_4 ويكون الباقي من الرتبة الخامسة مقسوماً على 5!.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. For $f(x) = \\sin x$, $f^{(4)}(0) = 0$, so $P_3(x) = P_4(x)$.",
+      "2. The Lagrange remainder of order 4 is $R_4(x) = \\frac{f^{(5)}(\\xi)}{5!} x^5 = \\frac{\\cos\\xi}{120} x^5$.",
+      "3. For $x = 0.1 = 10^{-1}$ and $|cos\\xi| \\le 1$: $|R_4(0.1)| \\le \\frac{10^{-5}}{120}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. لدالة الجيب، المشتقة الرابعة عند الصفر تساوي صفراً، وبالتالي $P_3(x) = P_4(x)$.",
+      "٢. باقي لاجرانج من الرتبة 4 هو $R_4(x) = \\frac{\\cos\\xi}{5!} x^5 = \\frac{\\cos\\xi}{120} x^5$.",
+      "٣. عند $x = 0.1$: نجد $|R_4(0.1)| \\le \\frac{(0.1)^5}{120} = \\frac{10^{-5}}{120}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Taking advantage of vanishing terms increases the order of accuracy without extra work.",
+    "teacherTipAr": "الاستفادة من الحدود الصفرية يرفع رتبة دقة التقريب دون بذل مجهود حسابي إضافي."
   },
   {
     "id": "egbac_ana_ch2_db_hots_43",
-    "titleEn": "Lagrange Remainder Truncation Error #3",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 3",
+    "titleEn": "Cosine Taylor Error Bound on Interval #3",
+    "titleAr": "تقدير خطأ تقريب جيب التمام على فترة رقم 3",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "For $f(x) = \\cos x$ on the interval $[0, 1]$, using the quadratic approximation $P_2(x) = 1 - \\frac{x^2}{2}$, what is the maximum truncation error guaranteed by Lagrange's remainder?",
+    "questionAr": "للدالة $f(x) = \\cos x$ على الفترة $[0, 1]$ باستخدام التقريب التربيعي $P_2(x) = 1 - \\frac{x^2}{2}$، ما هو أقصى خطأ قطع تضمنه نظرية باقي لاجرانج؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_2(x)| \\le \\frac{1}{2}$",
+      "$|R_2(x)| \\le \\frac{1}{24}$",
+      "$|R_2(x)| \\le \\frac{1}{6}$",
+      "$|R_2(x)| \\le \\frac{1}{12}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_2(x)| \\le \\frac{1}{2}$",
+      "$|R_2(x)| \\le \\frac{1}{24}$",
+      "$|R_2(x)| \\le \\frac{1}{6}$",
+      "$|R_2(x)| \\le \\frac{1}{12}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_2(x)| \\le \\frac{1}{6}$",
     "correctIndex": 2,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "|R_2(x)| <= max |f'''(xi)| / 3! * |x|^3 where f'''(x) = sin x.",
+    "hintAr": "أقصى خطأ للباقي من الرتبة الثانية هو أقصى قيمة للمشتقة الثالثة مقسومة على 3! مضروبة في |x|^3.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Third derivative: $f'''(x) = \\sin x$.",
+      "2. On $[0, 1]$, $\\max |\\sin\\xi| \\le 1$ and $\\max |x|^3 = 1^3 = 1$.",
+      "3. Remainder bound: $|R_2(x)| \\le \\frac{1}{3!} (1) = \\frac{1}{6}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقة الثالثة: $f'''(x) = \\sin x$.",
+      "٢. على الفترة $[0, 1]$، نجد أن $|sin\\xi| \\le 1$ و $|x|^3 \\le 1$.",
+      "٣. إذن الحد الأعلى للخطأ هو $|R_2(x)| \\le \\frac{1}{3!} = \\frac{1}{6}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Bounding the remainder uniformly on an interval is fundamental for numerical analysis.",
+    "teacherTipAr": "تقدير الباقي بانتظام على فترة كاملة هو ركيزة أساسية في التحليل العددي."
   },
   {
     "id": "egbac_ana_ch2_db_hots_44",
-    "titleEn": "Lagrange Remainder Truncation Error #4",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 4",
+    "titleEn": "Logarithmic Taylor Remainder Bound #4",
+    "titleAr": "تقدير خطأ تقريب الدالة اللوغاريتمية رقم 4",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "When approximating $\\ln(1.2)$ using the 2nd-degree Taylor polynomial $P_2(0.2) = 0.2 - \\frac{0.04}{2} = 0.18$ of $f(x) = \\ln(1+x)$, what is the strict upper bound on the Lagrange remainder $|R_2(0.2)|$?",
+    "questionAr": "عند تقريب $\\ln(1.2)$ باستخدام كثيرة حدود تايلور من الدرجة الثانية $P_2(0.2) = 0.2 - \\frac{0.04}{2} = 0.18$ للدالة $f(x) = \\ln(1+x)$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_2(0.2)|$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$",
-      "$|R_3(1)| < \\frac{1}{8}$"
+      "$|R_2(0.2)| < \\frac{1}{125}$",
+      "$|R_2(0.2)| < \\frac{1}{750}$",
+      "$|R_2(0.2)| < \\frac{1}{50}$",
+      "$|R_2(0.2)| < \\frac{1}{375}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$",
-      "$|R_3(1)| < \\frac{1}{8}$"
+      "$|R_2(0.2)| < \\frac{1}{125}$",
+      "$|R_2(0.2)| < \\frac{1}{750}$",
+      "$|R_2(0.2)| < \\frac{1}{50}$",
+      "$|R_2(0.2)| < \\frac{1}{375}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_2(0.2)| < \\frac{1}{375}$",
     "correctIndex": 3,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "f'''(x) = 2/(1+x)^3. For xi in (0, 0.2), 1/(1+xi)^3 < 1.",
+    "hintAr": "المشتقة الثالثة هي 2/(1+س)^3، وعلى الفترة (0، 0.2) تكون 1/(1+xi)^3 أقل من 1.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Compute derivatives: $f'(x) = \\frac{1}{1+x}$, $f''(x) = -\\frac{1}{(1+x)^2}$, $f'''(x) = \\frac{2}{(1+x)^3}$.",
+      "2. Lagrange remainder: $R_2(0.2) = \\frac{f'''(\\xi)}{3!} (0.2)^3 = \\frac{2}{6(1+\\xi)^3} (0.008) = \\frac{0.008}{3(1+\\xi)^3}$.",
+      "3. Since $\\xi > 0$, $(1+\\xi)^3 > 1$, so $|R_2(0.2)| < \\frac{0.008}{3} = \\frac{8}{3000} = \\frac{1}{375}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقات: $f'(x) = (1+x)^{-1}$، $f''(x) = -(1+x)^{-2}$، $f'''(x) = 2(1+x)^{-3}$.",
+      "٢. باقي لاجرانج: $R_2(0.2) = \\frac{2}{6(1+\\xi)^3} (0.2)^3 = \\frac{0.008}{3(1+\\xi)^3}$.",
+      "٣. بما أن $\\xi > 0$، فإن $(1+\\xi)^3 > 1$، وبالتالي $|R_2(0.2)| < \\frac{0.008}{3} = \\frac{1}{375}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Since 1/(1+xi)^3 decreases as xi increases, the maximum occurs at the left endpoint xi = 0.",
+    "teacherTipAr": "بما أن الدالة متناقصة، فإن القيمة العظمى تقع عند الطرف الأيسر xi = 0."
   },
   {
     "id": "egbac_ana_ch2_db_hots_45",
-    "titleEn": "Lagrange Remainder Truncation Error #5",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 5",
+    "titleEn": "Square Root Linear Approximation Error Bound #5",
+    "titleAr": "تقدير خطأ التقريب الخطي للجذر التربيعي رقم 5",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "Approximate $\\sqrt{1.2}$ using the linear Taylor polynomial $P_1(0.2) = 1 + \\frac{0.2}{2} = 1.1$ of $f(x) = \\sqrt{1+x}$. What is the maximum truncation error $|R_1(0.2)|$ given $|f''(\\xi)| \\le \\frac{1}{4}$ for $\\xi \\in (0, 0.2)$?",
+    "questionAr": "عند تقريب $\\sqrt{1.2}$ بالتقريب الخطي لتايلور $P_1(0.2) = 1 + \\frac{0.2}{2} = 1.1$ للدالة $f(x) = \\sqrt{1+x}$، ما هو الحد الأقصى لخطأ القطع $|R_1(0.2)|$ علماً بأن $|f''(\\xi)| \\le \\frac{1}{4}$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_1(0.2)| \\le \\frac{1}{200}$",
+      "$|R_1(0.2)| \\le \\frac{1}{100}$",
+      "$|R_1(0.2)| \\le \\frac{1}{400}$",
+      "$|R_1(0.2)| \\le \\frac{1}{50}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_1(0.2)| \\le \\frac{1}{200}$",
+      "$|R_1(0.2)| \\le \\frac{1}{100}$",
+      "$|R_1(0.2)| \\le \\frac{1}{400}$",
+      "$|R_1(0.2)| \\le \\frac{1}{50}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_1(0.2)| \\le \\frac{1}{200}$",
     "correctIndex": 0,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "R_1(x) = f''(xi) / 2! * x^2. Bound |f''(xi)| by 1/4 and set x = 0.2.",
+    "hintAr": "باقي الدرجة الأولى: R_1(x) = f''(xi) / 2 * x^2. استبدل المشتقة الثانية بـ 1/4 و x بـ 0.2.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Second derivative: $f''(x) = -\\frac{1}{4(1+x)^{3/2}}$.",
+      "2. For $\\xi > 0$: $|f''(\\xi)| < \\frac{1}{4}$.",
+      "3. Remainder: $|R_1(0.2)| \\le \\frac{1/4}{2} (0.2)^2 = \\frac{1}{8} (0.04) = 0.005 = \\frac{1}{200}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقة الثانية: $f''(x) = -\\frac{1}{4(1+x)^{3/2}}$.",
+      "٢. عند $\\xi > 0$: يكون $|f''(\\xi)| < \\frac{1}{4}$.",
+      "٣. الباقي: $|R_1(0.2)| \\le \\frac{1}{8} (0.04) = 0.005 = \\frac{1}{200}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Linear approximation sqrt(1+x) approx 1 + x/2 is widely used in physics for small strains and perturbations.",
+    "teacherTipAr": "التقريب الخطي للجذر التربيعي مستخدم بكثرة في الفيزياء الهندسية لحساب الانفعالات الصغيرة."
   },
   {
     "id": "egbac_ana_ch2_db_hots_46",
-    "titleEn": "Lagrange Remainder Truncation Error #6",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 6",
+    "titleEn": "Rational Function Remainder Form #6",
+    "titleAr": "صيغة باقي لاجرانج لدالة كسرية رقم 6",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "For $f(x) = \\frac{1}{1-x}$ expanded about $x=0$, what is the exact expression for the Lagrange remainder $R_2(0.1)$ in terms of $\\xi \\in (0, 0.1)$?",
+    "questionAr": "للدالة $f(x) = \\frac{1}{1-x}$ المفكوكة حول $x=0$، ما هو التعبير الدقيق لباقي لاجرانج $R_2(0.1)$ بدلالة $\\xi \\in (0, 0.1)$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$R_2(0.1) = \\frac{6 \\times 10^{-3}}{(1-\\xi)^3}$",
+      "$R_2(0.1) = \\frac{10^{-3}}{(1-\\xi)^4}$",
+      "$R_2(0.1) = \\frac{10^{-2}}{(1-\\xi)^4}$",
+      "$R_2(0.1) = \\frac{10^{-3}}{6(1-\\xi)^4}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$R_2(0.1) = \\frac{6 \\times 10^{-3}}{(1-\\xi)^3}$",
+      "$R_2(0.1) = \\frac{10^{-3}}{(1-\\xi)^4}$",
+      "$R_2(0.1) = \\frac{10^{-2}}{(1-\\xi)^4}$",
+      "$R_2(0.1) = \\frac{10^{-3}}{6(1-\\xi)^4}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$R_2(0.1) = \\frac{10^{-3}}{(1-\\xi)^4}$",
     "correctIndex": 1,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "f'''(x) = 6/(1-x)^4. Then R_2(x) = f'''(xi) / 3! * x^3. Notice 6 / 3! = 1.",
+    "hintAr": "المشتقة الثالثة هي 6/(1-س)^4، وصيغة الباقي تحوي 6/3! = 1 مضروبة في (0.1)^3.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Third derivative: $f'(x) = (1-x)^{-2}$, $f''(x) = 2(1-x)^{-3}$, $f'''(x) = 6(1-x)^{-4}$.",
+      "2. Lagrange remainder: $R_2(x) = \\frac{f'''(\\xi)}{3!} x^3 = \\frac{6(1-\\xi)^{-4}}{6} x^3 = \\frac{x^3}{(1-\\xi)^4}$.",
+      "3. For $x = 0.1$: $R_2(0.1) = \\frac{(0.1)^3}{(1-\\xi)^4} = \\frac{10^{-3}}{(1-\\xi)^4}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقة الثالثة: $f'''(x) = 6(1-x)^{-4}$.",
+      "٢. صيغة الباقي: $R_2(x) = \\frac{6(1-\\xi)^{-4}}{6} x^3 = \\frac{x^3}{(1-\\xi)^4}$.",
+      "٣. بالتعويض بـ $x = 0.1$: نجد $R_2(0.1) = \\frac{10^{-3}}{(1-\\xi)^4}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "The 3! in the denominator exactly cancels the factor 6 from repeated differentiation.",
+    "teacherTipAr": "يختصر مضروب العدد 3! في المقام تماماً مع المعامل 6 الناتج عن الاشتقاق المتكرر."
   },
   {
     "id": "egbac_ana_ch2_db_hots_47",
-    "titleEn": "Lagrange Remainder Truncation Error #7",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 7",
+    "titleEn": "Minimum Taylor Degree for Specified Precision #7",
+    "titleAr": "أقل درجة لكثيرة حدود تايلور لتحقيق دقة محددة رقم 7",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "What is the minimum degree $n$ of the Maclaurin polynomial $P_n(x)$ of $e^x$ required to approximate $e^1$ with error $|R_n(1)| < 0.01$, using the bound $e < 3$?",
+    "questionAr": "ما هي أقل درجة $n$ لكثيرة حدود ماكلوران $P_n(x)$ للدالة $e^x$ تكفي لتقريب العدد $e^1$ بخطأ $|R_n(1)| < 0.01$ باستخدام التقدير $e < 3$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$n = 4$",
+      "$n = 6$",
+      "$n = 5$",
+      "$n = 3$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$n = 4$",
+      "$n = 6$",
+      "$n = 5$",
+      "$n = 3$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$n = 5$",
     "correctIndex": 2,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "Set 3 / (n+1)! < 0.01, which requires (n+1)! > 300. Check factorials.",
+    "hintAr": "ضع 3 / (n+1)! < 0.01، مما يقتضي (n+1)! > 300. تحقق من قيم المضروب.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Error bound formula: $|R_n(1)| = \\frac{e^\\xi}{(n+1)!} < \\frac{3}{(n+1)!}$.",
+      "2. Require $\\frac{3}{(n+1)!} < 0.01 \\iff (n+1)! > 300$.",
+      "3. Testing factorials: $5! = 120 < 300$, but $6! = 720 > 300$.",
+      "4. Thus $n+1 = 6 \\implies n = 5$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. حد الخطأ: $|R_n(1)| < \\frac{3}{(n+1)!}$.",
+      "٢. الشرط المطلوب: $\\frac{3}{(n+1)!} < 0.01 \\iff (n+1)! > 300$.",
+      "٣. باختبار المضروب: $5! = 120 < 300$ بينما $6! = 720 > 300$.",
+      "٤. إذن $n+1 = 6 \\implies n = 5$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Factorials grow faster than any exponential, making Taylor series converge extremely rapidly.",
+    "teacherTipAr": "دالة المضروب تنمو أسرع من أي دالة أسية، مما يمنح متسلسلات تايلور تقارباً فائق السرعة."
   },
   {
     "id": "egbac_ana_ch2_db_hots_48",
-    "titleEn": "Lagrange Remainder Truncation Error #8",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 8",
+    "titleEn": "Decaying Exponential Error Bound #8",
+    "titleAr": "تقدير خطأ الدالة الأسية المتناقصة رقم 8",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "For $f(x) = e^{-x}$ on $[0, 0.1]$, approximated by $P_1(x) = 1 - x$, what is the strict upper bound on the remainder $|R_1(0.1)|$ given $e^{-\\xi} < 1$ for $\\xi > 0$?",
+    "questionAr": "للدالة $f(x) = e^{-x}$ على $[0, 0.1]$ مقربة بـ $P_1(x) = 1 - x$، ما هو الحد الأعلى للباقي $|R_1(0.1)|$ علماً بأن $e^{-\\xi} < 1$ لكل $\\xi > 0$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$",
-      "$|R_3(1)| < \\frac{1}{8}$"
+      "$|R_1(0.1)| < 10^{-2}$",
+      "$|R_1(0.1)| < 2.5 \\times 10^{-3}$",
+      "$|R_1(0.1)| < 5 \\times 10^{-2}$",
+      "$|R_1(0.1)| < 5 \\times 10^{-3}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$",
-      "$|R_3(1)| < \\frac{1}{8}$"
+      "$|R_1(0.1)| < 10^{-2}$",
+      "$|R_1(0.1)| < 2.5 \\times 10^{-3}$",
+      "$|R_1(0.1)| < 5 \\times 10^{-2}$",
+      "$|R_1(0.1)| < 5 \\times 10^{-3}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_1(0.1)| < 5 \\times 10^{-3}$",
     "correctIndex": 3,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "R_1(0.1) = e^(-xi) / 2! * (0.1)^2 < 1 / 2 * 0.01.",
+    "hintAr": "باقي الرتبة الأولى هو e^(-xi)/2 * (0.1)^2 < 0.5 * 0.01.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Second derivative: $f''(x) = e^{-x}$.",
+      "2. Remainder: $R_1(0.1) = \\frac{e^{-\\xi}}{2!} (0.1)^2 = \\frac{e^{-\\xi}}{2} (0.01)$.",
+      "3. Since $\\xi \\in (0, 0.1)$, $e^{-\\xi} < 1$, yielding $|R_1(0.1)| < \\frac{0.01}{2} = 0.005 = 5 \\times 10^{-3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقة الثانية: $f''(x) = e^{-x}$.",
+      "٢. صيغة الباقي: $R_1(0.1) = \\frac{e^{-\\xi}}{2} (0.01)$.",
+      "٣. بما أن $\\xi > 0$، فإن $e^{-\\xi} < 1$، وبالتالي $|R_1(0.1)| < 0.005 = 5 \\times 10^{-3}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "For decaying functions, the maximum derivative on [0, x] is simply at xi = 0.",
+    "teacherTipAr": "في الدوال المتناقصة، تقع القيمة العظمى للمشتقة عند الطرف الأيسر xi = 0."
   },
   {
     "id": "egbac_ana_ch2_db_hots_49",
-    "titleEn": "Lagrange Remainder Truncation Error #9",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 9",
+    "titleEn": "Asymptotic Order of Tangent Remainder #9",
+    "titleAr": "الرتبة التقاربية لباقي دالة الظل رقم 9",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "When approximating $f(x) = \\tan x$ by its 3rd-degree Maclaurin polynomial $P_3(x) = x + \\frac{x^3}{3}$, what is the asymptotic order of the remainder $R_3(x)$ as $x \\to 0$?",
+    "questionAr": "عند تقريب الدالة $f(x) = \\tan x$ بكثيرة حدود ماكلوران من الدرجة الثالثة $P_3(x) = x + \\frac{x^3}{3}$، ما هي الرتبة التقاربية للباقي $R_3(x)$ عندما $x \\to 0$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$\\mathcal{O}(x^5)$",
+      "$\\mathcal{O}(x^4)$",
+      "$\\mathcal{O}(x^6)$",
+      "$\\mathcal{O}(x^3)$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$\\mathcal{O}(x^5)$",
+      "$\\mathcal{O}(x^4)$",
+      "$\\mathcal{O}(x^6)$",
+      "$\\mathcal{O}(x^3)$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$\\mathcal{O}(x^5)$",
     "correctIndex": 0,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "Since tan x is an odd function, all even-degree terms vanish. The next non-zero term is of degree 5.",
+    "hintAr": "بما أن ظل الزاوية دالة فردية، فإن الحدود الزوجية تنعدم، والحد التالي غير الصفري هو من الدرجة الخامسة.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. The full Maclaurin expansion of tangent is $\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + \\mathcal{O}(x^7)$.",
+      "2. Truncating after $x^3$, the remainder is $R_3(x) = \\tan x - \\left(x + \\frac{x^3}{3}\\right) = \\frac{2x^5}{15} + \\cdots$.",
+      "3. Therefore, the leading term is of degree 5, which means $R_3(x) = \\mathcal{O}(x^5)$ as $x \\to 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. مفكوك ماكلوران لدالة الظل هو $\\tan x = x + \\frac{x^3}{3} + \\frac{2x^5}{15} + \\cdots$.",
+      "٢. عند الاقتصار على الدرجة الثالثة، يكون الباقي $R_3(x) = \\frac{2x^5}{15} + \\cdots$.",
+      "٣. وبالتالي فإن الرتبة التقاربية للحد الرائد هي $\\mathcal{O}(x^5)$ عندما $x \\to 0$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "For odd functions, truncating at degree 2k-1 automatically yields an error of order 2k+1.",
+    "teacherTipAr": "للدوال الفردية، القطع عند الدرجة 2k-1 يعطي تلقائياً خطأً من الرتبة 2k+1."
   },
   {
     "id": "egbac_ana_ch2_db_hots_50",
-    "titleEn": "Lagrange Remainder Truncation Error #10",
-    "titleAr": "تقدير خطأ قطع باقي لاجرانج رقم 10",
+    "titleEn": "Cube Root Linear Truncation Bound #10",
+    "titleAr": "تقدير خطأ قطع التقريب الخطي للجذر التكعيبي رقم 10",
     "difficulty": "hots",
-    "questionEn": "When approximating $e$ by its 3rd-degree Taylor polynomial $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$, what is the strict upper bound on the remainder $|R_3(1)|$ using the bound $e < 3$?",
-    "questionAr": "عند تقريب العدد النيبيري $e$ بكثيرة حدود تايلور من الدرجة الثالثة $P_3(1) = 1 + 1 + \\frac{1}{2} + \\frac{1}{6}$، ما هو الحد الأعلى الدقيق لباقي لاجرانج $|R_3(1)|$ باستخدام التقدير $e < 3$؟",
+    "questionEn": "Approximate $\\sqrt[3]{1.06} = (1 + 0.06)^{1/3}$ by the linear Taylor polynomial $P_1(0.06) = 1 + \\frac{1}{3}(0.06) = 1.02$. What is the strict upper bound on the truncation error $|R_1(0.06)|$ given $|f''(\\xi)| < \\frac{2}{9}$ for $\\xi > 0$?",
+    "questionAr": "عند تقريب $\\sqrt[3]{1.06}$ بالتقريب الخطي لتايلور $P_1(0.06) = 1 + \\frac{1}{3}(0.06) = 1.02$، ما هو الحد الأعلى لخطأ القطع $|R_1(0.06)|$ علماً بأن $|f''(\\xi)| < \\frac{2}{9}$؟",
     "optionsEn": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_1(0.06)| < 2 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 4 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 8 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 10^{-3}$"
     ],
     "optionsAr": [
-      "$|R_3(1)| < \\frac{1}{24}$",
-      "$|R_3(1)| < \\frac{1}{8}$",
-      "$|R_3(1)| < \\frac{1}{6}$",
-      "$|R_3(1)| < \\frac{1}{4}$"
+      "$|R_1(0.06)| < 2 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 4 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 8 \\times 10^{-4}$",
+      "$|R_1(0.06)| < 10^{-3}$"
     ],
-    "correctAnswer": "$|R_3(1)| < \\frac{1}{8}$",
+    "correctAnswer": "$|R_1(0.06)| < 4 \\times 10^{-4}$",
     "correctIndex": 1,
-    "hintEn": "R_3(1) = e^c / 4! where 0 < c < 1. Since e^c < e < 3, R_3(1) < 3 / 24 = 1/8.",
-    "hintAr": "باقي لاجرانج R_3(1) = e^c / 4! حيث c بين 0 و 1، وبما أن e^c < 3 فإن الباقي أقل من 3/24 = 1/8.",
+    "hintEn": "R_1(x) = |f''(xi)| / 2! * x^2. Plug in |f''(xi)| < 2/9 and x = 0.06.",
+    "hintAr": "باقي الرتبة الأولى هو |f''(xi)| / 2 * x^2. عوض بـ 2/9 و x = 0.06.",
     "stepByStepSolutionEn": [
-      "1. By Taylor's Theorem, the Lagrange remainder of order 3 is:",
-      "   $$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!} x^4 = \\frac{e^\\xi}{24} x^4, \\quad \\text{where } 0 < \\xi < x$$",
-      "2. For $x = 1$: $R_3(1) = \\frac{e^\\xi}{24}$.",
-      "3. Since $0 < \\xi < 1$, $e^\\xi < e^1 < 3$.",
-      "4. Therefore, $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8} = 0.125$."
+      "1. Second derivative: $f''(x) = -\\frac{2}{9}(1+x)^{-5/3}$.",
+      "2. For $\\xi > 0$: $|f''(\\xi)| < \\frac{2}{9}$.",
+      "3. Remainder: $|R_1(0.06)| < \\frac{2/9}{2} (0.06)^2 = \\frac{1}{9} (0.0036) = 0.0004 = 4 \\times 10^{-4}$."
     ],
     "stepByStepSolutionAr": [
-      "١. صيغة باقي لاجرانج من الرتبة الثالثة: $R_3(1) = \\frac{e^\\xi}{4!} (1)^4 = \\frac{e^\\xi}{24}$ حيث $0 < \\xi < 1$.",
-      "٢. بما أن $\\xi < 1$، فإن $e^\\xi < e < 3$.",
-      "٣. بالتعويض نجد أن: $|R_3(1)| < \\frac{3}{24} = \\frac{1}{8}$."
+      "١. المشتقة الثانية: $f''(x) = -\\frac{2}{9}(1+x)^{-5/3}$.",
+      "٢. عند $\\xi > 0$: يكون $|f''(\\xi)| < \\frac{2}{9}$.",
+      "٣. الباقي: $|R_1(0.06)| < \\frac{1}{9} (0.0036) = 0.0004 = 4 \\times 10^{-4}$."
     ],
-    "teacherTipEn": "R_n(x) < M / (n+1)! * (b-a)^(n+1) bounds the error of numerical Taylor approximation.",
-    "teacherTipAr": "صيغة باقي لاجرانج تمنح الباحثين والمهندسين تقديراً دقيقاً لأقصى خطأ محتمل."
+    "teacherTipEn": "Notice how (0.06)^2 = 0.0036 is cleanly divisible by 9, giving 0.0004.",
+    "teacherTipAr": "لاحظ أن (0.06)^2 = 0.0036 يقبل القسمة تماماً على 9 معطياً 0.0004."
   }
 ]
 };

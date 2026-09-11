@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
-import type { CurriculumType, ThemeMode } from '../types/curriculum';
+import type { CurriculumType, BranchId, ThemeMode } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import {
   GitCompare,
+  TrendingUp,
+  Award,
+  BookOpen,
   ArrowRight,
   ArrowLeft,
-  BookOpen,
-  Award,
+  CheckCircle2,
+  Compass,
+  Cpu,
   GraduationCap,
   Sparkles,
-  Zap,
-  Layers,
-  Compass,
-  CheckCircle2,
-  TrendingUp,
-  Cpu,
-  Calculator,
   Binary,
   Microscope,
+  Calculator,
 } from 'lucide-react';
 
 interface Props {
   lang: Language;
-  theme: ThemeMode;
-  onNavigateTrack: (track: CurriculumType, branchId?: string) => void;
+  theme?: ThemeMode;
+  onNavigateTrack: (track: CurriculumType, branchId?: BranchId) => void;
 }
 
 interface BranchBridge {
@@ -32,8 +30,8 @@ interface BranchBridge {
   titleEn: string;
   titleAr: string;
   icon: React.ReactNode;
-  thanaweyaBranchId: string;
-  egBacBranchId: string;
+  thanaweyaBranchId: BranchId;
+  egBacBranchId: BranchId;
   thanaweyaTitleEn: string;
   thanaweyaTitleAr: string;
   thanaweyaTopicsEn: string[];
@@ -48,8 +46,10 @@ interface BranchBridge {
   universityAdvantageAr: string;
 }
 
-export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }) => {
+export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', onNavigateTrack }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const [activeBridgeIndex, setActiveBridgeIndex] = useState<number>(0);
 
   const bridges: BranchBridge[] = [
@@ -71,132 +71,130 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
       ],
       thanaweyaTopicsAr: [
         'المشتقات العليا للدوال المثلثية والأسية واللوغاريتمية',
-        'الاشتقاق البارامتري والضمني والمعدلات الزمنية المرتبطة',
-        'النهايات المرتبطة بالعدد النيبيري e والدوال اللوغاريتمية',
-        'تطبيقات التفاضل: القيم العظمى والصغرى ورسم المنحنيات',
-        'التكامل المحدد وغير المحدد وحساب حجوم الأجسام الدورانية',
+        'الاشتقاق الضمني والبارامتري وتطبيقات المعدلات الزمنية',
+        'نهايات العدد هـ واللوغاريتم الطبيعي ورسم المنحنيات',
+        'القيم العظمى والصغرى ونقط الانقلاب وتحدب المنحنيات',
+        'طرق التكامل بالتعويض والتجزيء وحجوم الأجسام الدورانية',
       ],
-      egBacTitleEn: 'Advanced Mathematical Analysis (2 Intensive Chapters)',
-      egBacTitleAr: 'التحليل الرياضي المتقدم للبكالوريا (فصلان مكثفان)',
+      egBacTitleEn: 'Real Analysis, Taylor Series & Vector Calculus (2 Chapters)',
+      egBacTitleAr: 'التحليل الحقيقي ومتسلسلات تايلور وتكامل المتجهات (فصلان مكثفان)',
       egBacTopicsEn: [
-        'Rigorous limit proofs & foundational real analysis',
-        'Taylor & Maclaurin polynomial series approximations',
-        'First & second-order ordinary differential equations (ODE)',
-        'Multivariable functions & introduction to partial derivatives',
-        'Numerical integration methods (Trapezoidal & Simpson’s rule)',
+        'Epsilon-delta definitions of limits & uniform continuity',
+        'Taylor and Maclaurin expansions with Lagrange remainder',
+        'Integration techniques: partial fractions & improper integrals',
+        'Numerical integration (Simpson’s & Trapezoidal rules)',
+        'Differential equations: separable & first-order integrating factor',
       ],
       egBacTopicsAr: [
-        'البراهين التحليلية الدقيقة للنهايات وأسس التحليل الحقيقي',
-        'متسلسلات تايلور وماكلوران والتقريب بالمتعددات الحدودية',
-        'المعادلات التفاضلية العادية من الرتبة الأولى والثانية وتطبيقاتها',
-        'الدوال في عدة متغيرات ومقدمة المشتقات الجزئية ومستويات المماس',
-        'طرق التكامل العددي والتقريب الحسابي (شبه المنحرف وسيمبسون)',
+        'التعريف الصارم للنهايات بالـ إبسيلون ودلتا والاستمرار المنتظم',
+        'متسلسلات تايلور وماكلوران مع صيغة الباقي للاجرانج للتقريب',
+        'التكامل بالكسور الجزئية والتكاملات المعتلة غير المحدودة',
+        'طرق التكامل العددي الحاسوبي (قاعدة سمبسون وشبه المنحرف)',
+        'المعادلات التفاضلية القابلة للفصل وعامل التكامل من الدرجة الأولى',
       ],
       bridgeInsightEn:
-        'While Thanaweya Amma focuses on masterful symbolic manipulation and geometric curve properties, the EG-Bac curriculum bridges directly to university engineering by incorporating Taylor approximations, numerical quadrature, and differential equation modeling.',
+        'While Thanaweya Amma focuses heavily on algebraic fluency, computational speed, and mechanical integration drill, the Egyptian Baccalaureate introduces structural real analysis, error bounds, and numerical approximation methods standard in MIT/Imperial undergraduate engineering.',
       bridgeInsightAr:
-        'بينما تركز الثانوية العامة على المهارة الجبرية الفائقة في الاشتقاق والخواص الهندسية للمنحنيات، يقفز منهج البكالوريا بالطلاب إلى المستوى الجامعي بإدخال متسلسلات تايلور ونمذجة المعادلات التفاضلية وطرق التقريب العددي.',
-      universityAdvantageEn: 'Direct readiness for Engineering Calculus I & II, Numerical Methods, and Differential Equations.',
-      universityAdvantageAr: 'جاهزية مباشرة لكليات الهندسة في مقررات التفاضل الجامعي والتحليل العددي والمعادلات التفاضلية.',
+        'في حين تركز الثانوية العامة المصرية على البراعة الحسابية والسرعة في فك التكاملات والاشتقاقات الميكانيكية، يركز مسار البكالوريا المصرية على البناء التحليلي الصارم، حساب حدود الخطأ، والتحليل العددي المعتمد في جامعات الهندسة الدولية.',
+      universityAdvantageEn: 'Gives students a 1-year head start in University Calculus I & II and Engineering Differential Equations.',
+      universityAdvantageAr: 'يمنح الطالب أسبقية تفوق عام دراسي كامل في مقررات الرياضيات الهندسية والتفاضل والتكامل الجامعي المتقدم.',
     },
     {
-      id: 'algebra_geometry',
-      titleEn: 'Linear Algebra & 3D Spatial Geometry',
-      titleAr: 'الجبر الخطي والهندسة الفراغية ثلاثية الأبعاد',
-      icon: <Layers className="w-5 h-5 text-cyan-400" />,
+      id: 'algebra_discrete',
+      titleEn: 'Algebra, Matrices & Linear Spaces',
+      titleAr: 'الجبر والمصفوفات والفضاءات الخطية',
+      icon: <Cpu className="w-5 h-5 text-cyan-400" />,
       thanaweyaBranchId: 'algebra_solid',
       egBacBranchId: 'egbac_vectors_geometry',
-      thanaweyaTitleEn: 'Algebra & Solid Geometry (5 Chapters)',
-      thanaweyaTitleAr: 'الجبر والهندسة الفراغية للثانوية العامة (٥ فصول)',
+      thanaweyaTitleEn: 'Algebra & Combinatorics (3 Chapters)',
+      thanaweyaTitleAr: 'الجبر العام والتباديل والتوافيق (٣ فصول)',
       thanaweyaTopicsEn: [
-        'Counting principle, permutations & combinations',
-        'Binomial theorem with fractional & negative indices',
-        'Complex numbers: Argand diagram & De Moivre’s theorem',
-        'Matrices, determinants & Gaussian elimination rank',
-        'Cartesian coordinates, lines & planes in 3D space',
+        'Fundamental counting principle, permutations & combinations',
+        'Binomial theorem with integer powers & middle term',
+        'Complex numbers: trigonometric and exponential (Euler) forms',
+        "De Moivre's theorem & n-th roots of unity",
+        'Determinants & solving linear systems via matrix inversion (Cramer)',
       ],
       thanaweyaTopicsAr: [
-        'مبدأ العد والتباديل والتوافيق وخواصها',
-        'نظرية ذات الحدين ومفكوك الأسس الصحيحة',
-        'الأعداد المركبة: الصورة المثلثية والأسية ونظرية ديموافر والجذور التكعيبية للواحد',
-        'المحددات والمصفوفات ومعكوس المصفوفة ورتبة المصفوفة وحل النظم الخطية',
-        'الهندسة الفراغية: معادلات المستقيم والمستوى والكرة والزوايا في الفراغ',
+        'مبدأ العد والتباديل والتوافيق والمضاريب',
+        'نظرية ذات الحدين بأسس صحيحة موجبة والحد الأوسط والأكبر قيمة',
+        'الأعداد المركبة في الصورة المثلثية والصورة الأسية (أويلر)',
+        'نظرية ديموافر والجذور التكعيبية والـ ن-ية للواحد الصحيح (أوميجا)',
+        'المحددات وخواصها وحل أنظمة المعادلات الخطية بطريقة كرامر والمعكوس',
       ],
-      egBacTitleEn: 'Discrete Algebra & Modern Vector Geometry (2 Intensive Chapters)',
-      egBacTitleAr: 'الجبر المتقطع وهندسة المتجهات الحديثة (فصلان مكثفان)',
+      egBacTitleEn: 'Linear Algebra, Eigenvalues & Discrete Math (2 Chapters)',
+      egBacTitleAr: 'الجبر الخطي والمصفوفات الذاتية والرياضيات المتقطعة (فصلان)',
       egBacTopicsEn: [
         'Vector spaces, basis, dimension & linear independence',
-        'Matrix transformations, eigenvalues & eigenvectors',
-        '3D vector fields, gradient & directional derivatives',
-        'Quadric surfaces (ellipsoids, paraboloids, hyperboloids)',
-        'Parametric space curves, curvature & torsion',
+        'Matrix transformations, rank & nullity theorem',
+        'Eigenvalues, eigenvectors & matrix diagonalization',
+        'Combinatorial proofs, graph theory basics & modular arithmetic',
+        'Mathematical induction & recurrence relations',
       ],
       egBacTopicsAr: [
-        'الفضاءات الاتجاهية والاستقلال الخطي والأساس والأبعاد',
-        'التحويلات الخطية والقيم الذاتية والمتجهات الذاتية (Eigenvalues)',
-        'مجالات المتجهات في الفراغ وتدرج الدالة والمشتقات الاتجاهية',
-        'السطوح التربيعية ثلاثية الأبعاد (المجسم الإهليلجي والمكافئ والزائدي)',
-        'المنحنيات الفراغية البارامترية والانحناء والالتواء الفراغي',
+        'الفضاءات الاتجاهية، الأساس، البعد، والاستقلال الخطي للمتجهات',
+        'التحويلات الخطية ورتبة المصفوفة ونظرية الرتبة والفراغ الصفري',
+        'القيم والمتجهات الذاتية (Eigenvalues) وقطرية المصفوفات وتطبيقاتها',
+        'البراهين التوافقية ونظرية المخططات والحسابيات المعيارية (Modular)',
+        'الاستقراء الرياضي الشامل والعلاقات التكرارية المستخدمة في الخوارزميات',
       ],
       bridgeInsightEn:
-        'Thanaweya provides an unyielding bedrock in determinants, 3D line equations, and De Moivre roots. The EG-Bac track translates this into modern computational linear algebra—vital for Artificial Intelligence, 3D Computer Graphics, and Robotics.',
+        'Thanaweya provides world-class proficiency in combinatorial manipulation and complex roots. EG-Bac pivots toward modern computer science foundations: Eigenvalues, vector spaces, and algorithm-ready discrete structures.',
       bridgeInsightAr:
-        'تمنح الثانوية العامة أساساً متيناً لا غنى عنه في المحددات ومعادلات المستقيم والمستوى وجذور ديموافر، بينما يحولها مسار البكالوريا إلى جبر خطي حديث للمتجهات الذاتية وتحويلات الفضاء، وهو الأساس المباشر للذكاء الاصطناعي والجرافيكس ثلاثي الأبعاد والروبوتات.',
-      universityAdvantageEn: 'Direct readiness for College Linear Algebra, Computer Graphics, Machine Learning math, and Robotics.',
-      universityAdvantageAr: 'جاهزية تامة لكليات الحاسبات والمعلومات والذكاء الاصطناعي ومقررات الجبر الخطي المتقدم والرسم الحاسوبي.',
+        'توفر الثانوية العامة المصرية تمكناً لا يضاهى في فك التباديل والتوافيق وجذور الأعداد المركبة، بينما يوجه مسار البكالوريا الطالب مباشرة إلى أساسيات علوم الحاسب والذكاء الاصطناعي من خلال القيم الذاتية والفضاءات المتجهية.',
+      universityAdvantageEn: 'Direct seamless entry into Linear Algebra for AI, Machine Learning, Computer Vision, and Graphics pipelines.',
+      universityAdvantageAr: 'تأهيل مباشر لمقررات الجبر الخطي للذكاء الاصطناعي ومعالجة البيانات والرسوميات الحاسوبية.',
     },
     {
-      id: 'mechanics_kinetics',
-      titleEn: 'Applied Mechanics & Vector Dynamics',
-      titleAr: 'الميكانيكا التطبيقية والتحريك الاتجاهي',
-      icon: <Zap className="w-5 h-5 text-amber-400" />,
+      id: 'mechanics_physics',
+      titleEn: 'Mechanics: Statics & Dynamics',
+      titleAr: 'الميكانيكا: الاستاتيكا والديناميكا',
+      icon: <Compass className="w-5 h-5 text-amber-400" />,
       thanaweyaBranchId: 'statics',
       egBacBranchId: 'egbac_mechanics',
-      thanaweyaTitleEn: 'Statics & Dynamics (10 Chapters)',
-      thanaweyaTitleAr: 'الاستاتيكا والديناميكا للثانوية العامة (١٠ فصول)',
+      thanaweyaTitleEn: 'Comprehensive Classical Mechanics (10 Chapters: 6 Statics + 4 Dynamics)',
+      thanaweyaTitleAr: 'الميكانيكا الكلاسيكية الشاملة (١٠ فصول: ٦ استاتيكا + ٤ ديناميكا)',
       thanaweyaTopicsEn: [
-        'Static friction & inclined plane equilibrium',
-        'Parallel forces, moments in 2D and 3D',
-        'General equilibrium of rigid bodies & couples',
-        'Center of gravity & suspended lamina',
-        'Newton’s laws of motion, pulleys & connected bodies',
-        'Momentum, impulse, work, kinetic & potential energy',
+        'Friction on horizontal and inclined rough planes',
+        'Moments in 2D and 3D Cartesian coordinates',
+        'Parallel coplanar forces & general equilibrium of rigid bodies',
+        'Couples, equivalent systems & center of gravity of laminae',
+        "Newton's Laws, impulse, momentum, work, energy & power",
       ],
       thanaweyaTopicsAr: [
-        'احتكاك الأجسام على المستويات الأفقية والمائلة',
-        'عزوم القوى في المستوى والفراغ والقوى المتوازية',
-        'الاتزان العام للجسم الجاسئ والازدواجات وتكافؤها',
-        'مركز الثقل وطريقة الكتل السالبة والتعليق الحر',
-        'قوانين نيوتن للحركة وتطبيقات البكرات والمستويات الملساء والخشنة',
-        'كمية الحركة والدفع والشغل وطاقة الحركة وطاقة الوضع والقدرة',
+        'الاتزان والاحتكاك على المستويات الأفقية والمائلة الخشنة',
+        'عزوم القوى في الإحداثيات المستوية والفراغية ثلاثية الأبعاد',
+        'القوى المتوازية المستوية والاتزان العام للقضبان والأجسام الجاسئة',
+        'الازدواجات والأنظمة المكافئة ومراكز الثقل بالكتل السالبة',
+        'قوانين نيوتن الثلاثة، الدفع، التصادم، الشغل، طاقة الحركة، والقدرة',
       ],
-      egBacTitleEn: 'Analytical Mechanics & Vector Kinetics (2 Intensive Chapters)',
-      egBacTitleAr: 'الميكانيكا التحليلية وكينتيكا المتجهات (فصلان مكثفان)',
+      egBacTitleEn: 'Vector Mechanics, Energy Methods & Oscillations (2 Chapters)',
+      egBacTitleAr: 'ميكانيكا المتجهات وحفظ الطاقة والحركة الاهتزازية (فصلان)',
       egBacTopicsEn: [
-        'Curvilinear kinematics in cylindrical & polar coordinates',
-        'Conservative vector force fields & potential energy functions',
-        'Rotational dynamics & moment of inertia tensors',
-        'Damped and driven harmonic oscillations',
-        'Energy conservation in constrained multidimensional systems',
+        'Lagrangian & Hamiltonian energy principles preview',
+        'Conservative force fields & potential energy functions',
+        'Damped and forced simple harmonic motion (SHM)',
+        'Variable mass systems (rocket propulsion mechanics)',
+        'Rigid body moment of inertia via triple integrals',
       ],
       egBacTopicsAr: [
-        'الحركة المنحنية في الإحداثيات القطبية والأسطوانية والذاتية',
-        'مجالات القوى المحافظة ودوال الجهد وطاقة الوضع التدرجية',
-        'ديناميكا الدوران وموتر عزم القصور الذاتي للأجسام المركبة',
-        'الاهتزازات التوافقية المخمدة والقسرية وحالات الرنين',
-        'حفظ الطاقة والميكانيكا التحليلية في الأنظمة المقيدة متسعة الأبعاد',
+        'مبادئ حفظ الطاقة المتقدمة وتمهيد لميكانيكا لاجرانج',
+        'مجالات القوى المحافظة ودوال طاقة الوضع المشتقة',
+        'الحركة التوافقية البسيطة المخمدة والقسرية والتردد الرنيني',
+        'أنظمة الكتل المتغيرة وحركة دفع الصواريخ الفضائية',
+        'عزوم القصور الذاتي للأجسام الدورانية بالتكامل الثلاثي',
       ],
       bridgeInsightEn:
-        'Thanaweya’s legendary 10-chapter mechanics sequence builds unparalleled endurance in resolving physical free-body diagrams. EG-Bac builds atop this foundation by formalizing vector fields, polar orbital mechanics, and harmonic oscillatory resonance.',
+        'Thanaweya Amma mechanics is internationally renowned for its deep, exhaustive problem bank in static equilibrium and rigid beam physics. EG-Bac introduces vector differential equations, energy conservation methods, and dynamic oscillatory physics.',
       bridgeInsightAr:
-        'تعد سلسلة الميكانيكا المكونة من ١٠ فصول في الثانوية العامة مدرسة عريقة لبناء قدرة لا نظير لها على رسم مخططات الجسم الحر وحل المسائل الهندسية المعقدة، ويطورها مسار البكالوريا إلى صياغة متجهات حقول القوى وديناميكا المدارات والاهتزازات التوافقية.',
-      universityAdvantageEn: 'Direct readiness for Mechanical, Civil, Aerospace Engineering Statics & Dynamics courses.',
-      universityAdvantageAr: 'جاهزية قصوى لأقسام الهندسة الميكانيكية، المدنية، الطيران والفضاء، وهندسة السيارات.',
+        'تعد ميكانيكا الثانوية العامة المصرية من أقوى المناهج عالمياً في تدريب الطالب على اتزان القضبان، العزوم، وردود الأفعال المعقدة. يضيف مسار البكالوريا معادلات الحركة التفاضلية، وميكانيكا التذبذب، ودفع الصواريخ.',
+      universityAdvantageEn: 'Guarantees top-percentile performance in Mechanical, Aerospace, and Civil Engineering Statics & Dynamics.',
+      universityAdvantageAr: 'يضمن تفوقاً استثنائياً في مقررات الميكانيكا الهندسية لأقسام الميكانيكا، الطيران، والفضاء والهندسة المدنية.',
     },
     {
       id: 'probability_statistics',
-      titleEn: 'Probability & Data Statistics',
-      titleAr: 'الاحتمالات والإحصاء التطبيقي للبيانات',
+      titleEn: 'Probability, Statistics & Data Science',
+      titleAr: 'الاحتمالات والإحصاء وعلم البيانات',
       icon: <Binary className="w-5 h-5 text-emerald-400" />,
       thanaweyaBranchId: 'algebra_solid',
       egBacBranchId: 'egbac_probability',
@@ -246,23 +244,39 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
   return (
     <div className="space-y-8 animate-fadeIn">
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className={`rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border ${
+        isContrast
+          ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+          : isLight
+          ? 'bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 border border-indigo-400/40 text-white shadow-xl shadow-indigo-100/50'
+          : 'bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 border border-slate-800 text-slate-100'
+      }`}>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-950/60 text-indigo-300 text-xs font-bold">
+          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-bold ${
+            isContrast
+              ? 'bg-black text-cyan-300 border-cyan-400'
+              : isLight
+              ? 'bg-white/20 text-white border-white/30 backdrop-blur-xs'
+              : 'border-indigo-500/30 bg-indigo-950/60 text-indigo-300'
+          }`}>
             <GitCompare className="w-3.5 h-3.5" />
             <span>
               {isArabic ? 'المرجع المقارن لمعايير وزارة التربية والتعليم' : 'Official Ministry Curriculum Bridge'}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-100 tracking-tight">
+          <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${
+            isLight ? 'text-white' : 'text-slate-100'
+          }`}>
             {isArabic ? 'مقارنة المسارات والجسور المعرفية بين الثانوية العامة والبكالوريا' : 'Egyptian Secondary Tracks Comparison & Topic Bridges'}
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className={`text-xs sm:text-sm leading-relaxed ${
+            isLight ? 'text-indigo-100 font-medium' : 'text-slate-300'
+          }`}>
             {isArabic
               ? 'دليل استراتيجي يوضح التكافؤ العلمي، النقلة البيداغوجية، والجاهزية الجامعية بين مسار الثانوية العامة العريق ومسار البكالوريا المصرية الحديث لمدارس المتفوقين والعلوم والتكنولوجيا (STEM).'
               : 'A strategic cross-track comparison mapping theoretical parity, pedagogical evolution, and university engineering readiness between the classical Egyptian General Secondary and the modern Egyptian Baccalaureate STEM framework.'}
@@ -270,44 +284,54 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
         </div>
 
         {/* Global Stats Matrix */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-800/80">
-          <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-1">
-            <span className="text-[11px] font-semibold text-slate-400 block">
+        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t ${
+          isContrast ? 'border-yellow-400/50' : isLight ? 'border-white/30' : 'border-slate-800/80'
+        }`}>
+          <div className={`p-4 rounded-2xl border space-y-1 ${
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+          }`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black text-indigo-400">{isArabic ? toHindiDigits(27) : '27'}</span>
-              <span className="text-[10px] text-slate-500">{isArabic ? '(١٩ ثانوية + ٨ بكالوريا)' : '(19 Thanaweya + 8 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(27) : '27'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٩ ثانوية + ٨ بكالوريا)' : '(19 Thanaweya + 8 Bac)'}</span>
             </div>
           </div>
 
-          <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-1">
-            <span className="text-[11px] font-semibold text-slate-400 block">
+          <div className={`p-4 rounded-2xl border space-y-1 ${
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+          }`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black text-emerald-400">{isArabic ? toHindiDigits(4725) : '4,725'}</span>
-              <span className="text-[10px] text-slate-500">{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(4725) : '4,725'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
 
-          <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-1">
-            <span className="text-[11px] font-semibold text-slate-400 block">
+          <div className={`p-4 rounded-2xl border space-y-1 ${
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+          }`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'فروع الرياضيات' : 'Curriculum Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black text-cyan-400">{isArabic ? toHindiDigits(8) : '8'}</span>
-              <span className="text-[10px] text-slate-500">{isArabic ? '(٤ لكل مسار تعليمي)' : '(4 per track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(8) : '8'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٤ لكل مسار تعليمي)' : '(4 per track)'}</span>
             </div>
           </div>
 
-          <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 space-y-1">
-            <span className="text-[11px] font-semibold text-slate-400 block">
+          <div className={`p-4 rounded-2xl border space-y-1 ${
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+          }`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'الجاهزية لجامعات الهندسة والـ AI' : 'STEM University Readiness'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black text-amber-400">98%</span>
-              <span className="text-[10px] text-slate-500">{isArabic ? 'مطابقة المعايير الدولية' : 'International ABET'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-amber-200' : 'text-amber-400'}`}>98%</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مطابقة المعايير الدولية' : 'International ABET'}</span>
             </div>
           </div>
         </div>
@@ -316,102 +340,126 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
       {/* Track Architectural Highlights (Side by Side) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Track 1: Thanaweya Amma Card */}
-        <div className="bg-slate-900/80 border border-indigo-950 rounded-2xl p-6 space-y-4 relative overflow-hidden group hover:border-indigo-800/80 transition-all shadow-xl">
+        <div className={`rounded-2xl p-6 space-y-4 relative overflow-hidden group transition-all shadow-xl border ${
+          isContrast
+            ? 'bg-black border-2 border-yellow-400 text-white'
+            : isLight
+            ? 'bg-white border-slate-200/90 text-slate-900 shadow-lg hover:border-indigo-300'
+            : 'bg-slate-900/80 border-indigo-950 text-slate-100 hover:border-indigo-800/80'
+        }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30">
+              <div className={`p-2 rounded-xl border ${
+                isLight ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'bg-indigo-600/20 text-indigo-400 border-indigo-500/30'
+              }`}>
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-100">
+                <h3 className={`text-base font-bold ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-100'}`}>
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                   {isArabic ? 'المنهج الوطني التاريخي المعتمد • ٤ فروع • ١٩ فصلاً' : 'National Standard Track • 4 Branches • 19 Chapters'}
                 </p>
               </div>
             </div>
             <button
               onClick={() => onNavigateTrack('thanaweya')}
-              className="text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 cursor-pointer bg-indigo-950/60 px-3 py-1.5 rounded-lg border border-indigo-800/60 hover:bg-indigo-900/60 transition-all"
+              className={`text-xs font-bold flex items-center gap-1 cursor-pointer px-3 py-1.5 rounded-lg border transition-all ${
+                isLight
+                  ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
+                  : 'bg-indigo-950/60 hover:bg-indigo-900/60 text-indigo-400 border-indigo-800/60'
+              }`}
             >
               <span>{isArabic ? 'تصفح المنهج' : 'Explore'}</span>
               {isArabic ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
             </button>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
               ? 'يتميز بالعمق الرياضي التحليلي والمهارة اليدوية الفائقة في فك التباديل والتوافيق، حساب النهايات الدقيقة، حل منظومات القوى الميكانيكية المعقدة، والتحليل الهندسي ثلاثي الأبعاد.'
               : 'Renowned for rigorous analytical algebra, deep symbolic calculus manipulation, extensive classical mechanics equilibrium, and classical 3D coordinate geometry.'}
           </p>
 
-          <div className="space-y-2 pt-2 border-t border-slate-800/80 text-xs">
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
+          <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'الرياضيات البحتة: الجبر والهندسة الفراغية (٥ فصول)' : 'Pure Mathematics: Algebra & Solid Geometry (5 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'الرياضيات البحتة: التفاضل والتكامل (٤ فصول)' : 'Pure Mathematics: Calculus & Integration (4 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'الرياضيات التطبيقية: الاستاتيكا (٦ فصول)' : 'Applied Mathematics: Statics (6 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'الرياضيات التطبيقية: الديناميكا (٤ فصول)' : 'Applied Mathematics: Dynamics (4 Ch)'}</span>
             </div>
           </div>
         </div>
 
         {/* Track 2: EG-Bac STEM Card */}
-        <div className="bg-slate-900/80 border border-teal-950 rounded-2xl p-6 space-y-4 relative overflow-hidden group hover:border-teal-800/80 transition-all shadow-xl">
+        <div className={`rounded-2xl p-6 space-y-4 relative overflow-hidden group transition-all shadow-xl border ${
+          isContrast
+            ? 'bg-black border-2 border-yellow-400 text-white'
+            : isLight
+            ? 'bg-white border-slate-200/90 text-slate-900 shadow-lg hover:border-teal-300'
+            : 'bg-slate-900/80 border-teal-950 text-slate-100 hover:border-teal-800/80'
+        }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-teal-600/20 text-teal-400 border border-teal-500/30">
+              <div className={`p-2 rounded-xl border ${
+                isLight ? 'bg-teal-50 text-teal-700 border-teal-200' : 'bg-teal-600/20 text-teal-400 border-teal-500/30'
+              }`}>
                 <BookOpen className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-100">
+                <h3 className={`text-base font-bold ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-100'}`}>
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Bac STEM)' : 'New Egyptian Baccalaureate (STEM)'}
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                   {isArabic ? 'معايير STEM والجامعات الدولية • ٤ فروع • ٨ فصول مكثفة' : 'International STEM Track • 4 Branches • 8 Intensive Chapters'}
                 </p>
               </div>
             </div>
             <button
               onClick={() => onNavigateTrack('egbac')}
-              className="text-xs font-bold text-teal-400 hover:text-teal-300 flex items-center gap-1 cursor-pointer bg-teal-950/60 px-3 py-1.5 rounded-lg border border-teal-800/60 hover:bg-teal-900/60 transition-all"
+              className={`text-xs font-bold flex items-center gap-1 cursor-pointer px-3 py-1.5 rounded-lg border transition-all ${
+                isLight
+                  ? 'bg-teal-50 hover:bg-teal-100 text-teal-700 border-teal-200'
+                  : 'bg-teal-950/60 hover:bg-teal-900/60 text-teal-400 border-teal-800/60'
+              }`}
             >
               <span>{isArabic ? 'تصفح المنهج' : 'Explore'}</span>
               {isArabic ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
             </button>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
               ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج المصفوفات الذاتية، متسلسلات تايلور، التحليل العددي، ميكانيكا الحقول الاتجاهية، والإحصاء الحيوي البايزي.'
               : 'Engineered on international baccalaureate benchmarks. Synthesizes computational linear algebra, Taylor expansions, vector mechanics, and calculus-grounded continuous probability.'}
           </p>
 
-          <div className="space-y-2 pt-2 border-t border-slate-800/80 text-xs">
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+          <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'التحليل الرياضي والتفاضل والتكامل المتقدم (فصلان)' : 'Mathematical Analysis & Advanced Calculus (2 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'الجبر المتقطع وهندسة المتجهات الفضائية (فصلان)' : 'Discrete Algebra & Spatial Vector Geometry (2 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'الميكانيكا التحليلية وكينتيكا الأجسام (فصلان)' : 'Analytical Mechanics & Body Kinetics (2 Ch)'}</span>
             </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'الاحتمالات المتقدمة والإحصاء الحيوي للبيانات (فصلان)' : 'Applied Probability & Biostatistics (2 Ch)'}</span>
             </div>
           </div>
@@ -419,17 +467,27 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
       </div>
 
       {/* Interactive Branch Bridge Tabs */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className={`rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 border ${
+        isContrast
+          ? 'bg-black border-2 border-yellow-400 text-white'
+          : isLight
+          ? 'bg-white border-slate-200/90 shadow-xl text-slate-900'
+          : 'bg-slate-900/90 border-slate-800 text-slate-100'
+      }`}>
+        <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400">
+            <div className={`p-2.5 rounded-2xl border ${
+              isLight ? 'bg-indigo-50 border-indigo-200 text-indigo-700' : 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400'
+            }`}>
               <Compass className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-slate-100">
+              <h3 className={`text-lg font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                 {isArabic ? 'الجسور المعرفية التخصصية بين الفرعين' : 'Disciplinary Cross-Track Bridges'}
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isArabic
                   ? 'اختر الفرع لمشاهدة المقارنة المباشرة، المفاهيم المشتركة، والنقلة النوعية للتعليم الجامعي'
                   : 'Select a mathematical domain to examine thematic mapping and pedagogical bridges'}
@@ -438,7 +496,9 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
           </div>
 
           {/* Tab Selector Buttons */}
-          <div className="flex items-center gap-1.5 overflow-x-auto p-1.5 bg-slate-950 rounded-2xl border border-slate-800 no-scrollbar">
+          <div className={`flex items-center gap-1.5 overflow-x-auto p-1.5 rounded-2xl border no-scrollbar ${
+            isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-950 border-slate-800'
+          }`}>
             {bridges.map((b, idx) => {
               const isSelected = idx === activeBridgeIndex;
               return (
@@ -447,7 +507,11 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
                   onClick={() => setActiveBridgeIndex(idx)}
                   className={`px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${
                     isSelected
-                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                      ? isContrast
+                        ? 'bg-yellow-400 text-black font-black'
+                        : 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-white'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                   }`}
                 >
@@ -462,31 +526,47 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
         {/* Active Bridge Detailed Comparison */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
           {/* Thanaweya Side */}
-          <div className="bg-slate-950/70 border border-indigo-900/50 rounded-2xl p-5 sm:p-6 space-y-4 relative">
-            <div className="flex items-center justify-between border-b border-indigo-900/40 pb-3">
+          <div className={`rounded-2xl p-5 sm:p-6 space-y-4 relative border ${
+            isContrast
+              ? 'bg-black border-2 border-yellow-400 text-white'
+              : isLight
+              ? 'bg-slate-50/90 border-indigo-200 text-slate-900'
+              : 'bg-slate-950/70 border-indigo-900/50 text-slate-100'
+          }`}>
+            <div className={`flex items-center justify-between border-b pb-3 ${
+              isLight ? 'border-indigo-100' : 'border-indigo-900/40'
+            }`}>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-                <h4 className="text-sm font-black text-indigo-300">
+                <h4 className={`text-sm font-black ${isLight ? 'text-indigo-900' : 'text-indigo-300'}`}>
                   {isArabic ? activeBridge.thanaweyaTitleAr : activeBridge.thanaweyaTitleEn}
                 </h4>
               </div>
               <button
                 onClick={() => onNavigateTrack('thanaweya', activeBridge.thanaweyaBranchId)}
-                className="text-[11px] font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 cursor-pointer bg-indigo-950/60 px-2.5 py-1 rounded-lg border border-indigo-800/60 transition-all"
+                className={`text-[11px] font-bold flex items-center gap-1 cursor-pointer px-2.5 py-1 rounded-lg border transition-all ${
+                  isLight
+                    ? 'bg-white hover:bg-indigo-50 text-indigo-700 border-indigo-300'
+                    : 'bg-indigo-950/60 hover:bg-indigo-900/60 text-indigo-400 border-indigo-800/60'
+                }`}
               >
                 <span>{isArabic ? 'فتح في الثانوية' : 'Open in Thanaweya'}</span>
                 {isArabic ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
               </button>
             </div>
 
-            <p className="text-xs text-slate-400 font-semibold">
+            <p className={`text-xs font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isArabic ? 'المحاور الأساسية في امتحانات الوزارة الرسمية:' : 'Core Topics & Official Examination Scope:'}
             </p>
 
-            <ul className="space-y-2 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs">
               {(isArabic ? activeBridge.thanaweyaTopicsAr : activeBridge.thanaweyaTopicsEn).map((topic, i) => (
-                <li key={i} className="flex items-start gap-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
-                  <span className="w-5 h-5 rounded-full bg-indigo-950 text-indigo-400 font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-indigo-800">
+                <li key={i} className={`flex items-start gap-2 p-2.5 rounded-xl border ${
+                  isLight ? 'bg-white border-slate-200 text-slate-800 shadow-2xs' : 'bg-slate-900/60 border-slate-800/80 text-slate-300'
+                }`}>
+                  <span className={`w-5 h-5 rounded-full font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border ${
+                    isLight ? 'bg-indigo-100 text-indigo-800 border-indigo-200' : 'bg-indigo-950 text-indigo-400 border-indigo-800'
+                  }`}>
                     {isArabic ? toHindiDigits(i + 1) : i + 1}
                   </span>
                   <span className="leading-relaxed">{topic}</span>
@@ -496,31 +576,47 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
           </div>
 
           {/* EG-Bac Side */}
-          <div className="bg-slate-950/70 border border-teal-900/50 rounded-2xl p-5 sm:p-6 space-y-4 relative">
-            <div className="flex items-center justify-between border-b border-teal-900/40 pb-3">
+          <div className={`rounded-2xl p-5 sm:p-6 space-y-4 relative border ${
+            isContrast
+              ? 'bg-black border-2 border-yellow-400 text-white'
+              : isLight
+              ? 'bg-slate-50/90 border-teal-200 text-slate-900'
+              : 'bg-slate-950/70 border-teal-900/50 text-slate-100'
+          }`}>
+            <div className={`flex items-center justify-between border-b pb-3 ${
+              isLight ? 'border-teal-100' : 'border-teal-900/40'
+            }`}>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-teal-400" />
-                <h4 className="text-sm font-black text-teal-300">
+                <h4 className={`text-sm font-black ${isLight ? 'text-teal-900' : 'text-teal-300'}`}>
                   {isArabic ? activeBridge.egBacTitleAr : activeBridge.egBacTitleEn}
                 </h4>
               </div>
               <button
                 onClick={() => onNavigateTrack('egbac', activeBridge.egBacBranchId)}
-                className="text-[11px] font-bold text-teal-400 hover:text-teal-300 flex items-center gap-1 cursor-pointer bg-teal-950/60 px-2.5 py-1 rounded-lg border border-teal-800/60 transition-all"
+                className={`text-[11px] font-bold flex items-center gap-1 cursor-pointer px-2.5 py-1 rounded-lg border transition-all ${
+                  isLight
+                    ? 'bg-white hover:bg-teal-50 text-teal-700 border-teal-300'
+                    : 'bg-teal-950/60 hover:bg-teal-900/60 text-teal-400 border-teal-800/60'
+                }`}
               >
                 <span>{isArabic ? 'فتح في البكالوريا' : 'Open in EG-Bac'}</span>
                 {isArabic ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
               </button>
             </div>
 
-            <p className="text-xs text-slate-400 font-semibold">
+            <p className={`text-xs font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isArabic ? 'المحاور المتقدمة لمدارس المتفوقين STEM والجامعات:' : 'Advanced STEM & Modern Engineering Scope:'}
             </p>
 
-            <ul className="space-y-2 text-xs text-slate-300">
+            <ul className="space-y-2 text-xs">
               {(isArabic ? activeBridge.egBacTopicsAr : activeBridge.egBacTopicsEn).map((topic, i) => (
-                <li key={i} className="flex items-start gap-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800/80">
-                  <span className="w-5 h-5 rounded-full bg-teal-950 text-teal-400 font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-teal-800">
+                <li key={i} className={`flex items-start gap-2 p-2.5 rounded-xl border ${
+                  isLight ? 'bg-white border-slate-200 text-slate-800 shadow-2xs' : 'bg-slate-900/60 border-slate-800/80 text-slate-300'
+                }`}>
+                  <span className={`w-5 h-5 rounded-full font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border ${
+                    isLight ? 'bg-teal-100 text-teal-800 border-teal-200' : 'bg-teal-950 text-teal-400 border-teal-800'
+                  }`}>
                     {isArabic ? toHindiDigits(i + 1) : i + 1}
                   </span>
                   <span className="leading-relaxed">{topic}</span>
@@ -531,36 +627,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
         </div>
 
         {/* Pedagogical Synthesis & University Advantage Card */}
-        <div className="bg-gradient-to-r from-indigo-950/40 via-slate-950 to-teal-950/40 border border-slate-800 rounded-2xl p-5 sm:p-6 space-y-4">
+        <div className={`rounded-2xl p-5 sm:p-6 space-y-4 border ${
+          isLight
+            ? 'bg-gradient-to-r from-indigo-50/70 via-slate-50 to-teal-50/70 border-slate-200 text-slate-900'
+            : 'bg-gradient-to-r from-indigo-950/40 via-slate-950 to-teal-950/40 border-slate-800 text-slate-100'
+        }`}>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-400" />
-            <h4 className="text-sm font-bold text-slate-200">
+            <Sparkles className="w-5 h-5 text-amber-500" />
+            <h4 className={`text-sm font-bold ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-200'}`}>
               {isArabic ? 'الرؤية البيداغوجية والتكامل العلمي' : 'Pedagogical Synthesis & Academic Trajectory'}
             </h4>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
             {isArabic ? activeBridge.bridgeInsightAr : activeBridge.bridgeInsightEn}
           </p>
 
-          <div className="flex items-center gap-3 pt-2 text-xs text-emerald-400 font-semibold bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-            <GraduationCap className="w-5 h-5 shrink-0 text-emerald-400" />
+          <div className={`flex items-center gap-3 pt-2 text-xs font-semibold p-3 rounded-xl border ${
+            isLight
+              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+              : 'bg-emerald-950/30 text-emerald-400 border-emerald-900/40'
+          }`}>
+            <GraduationCap className="w-5 h-5 shrink-0" />
             <span>{isArabic ? activeBridge.universityAdvantageAr : activeBridge.universityAdvantageEn}</span>
           </div>
         </div>
       </div>
 
       {/* University Faculty Readiness Matrix */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+      <div className={`rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl border ${
+        isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/80 border-slate-800 text-slate-100'
+      }`}>
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-amber-600/20 text-amber-400 border border-amber-500/30">
+          <div className={`p-2 rounded-xl border ${
+            isLight ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-amber-600/20 text-amber-400 border-amber-500/30'
+          }`}>
             <GraduationCap className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-lg font-black text-slate-100">
+            <h3 className={`text-lg font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
               {isArabic ? 'مصفوفة التوافق مع كليات القمة الجامعية' : 'Egyptian & International University Faculty Readiness Matrix'}
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isArabic
                 ? 'نسب الجاهزية الأكاديمية لخريجي كلا المسارين في السنة الإعدادية والأولى للجامعات'
                 : 'Comparative readiness percentage for first-year undergraduate university curricula'}
@@ -569,106 +677,114 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, onNavigateTrack }
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-3">
+          <div className={`p-4 rounded-2xl border space-y-3 ${
+            isLight ? 'bg-slate-50/90 border-slate-200' : 'bg-slate-950/70 border-slate-800'
+          }`}>
             <div className="flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-indigo-400" />
-              <h5 className="text-xs font-bold text-slate-200">{isArabic ? 'كليات الهندسة' : 'Faculty of Engineering'}</h5>
+              <Cpu className="w-4 h-4 text-indigo-500" />
+              <h5 className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{isArabic ? 'كليات الهندسة' : 'Faculty of Engineering'}</h5>
             </div>
-            <p className="text-[11px] text-slate-400">
+            <p className={`text-[11px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isArabic ? 'الميكانيكا، التفاضل، والجبر الخطي' : 'Mechanics, Calculus & Linear Algebra'}
             </p>
             <div className="space-y-1 pt-1 text-xs">
-              <div className="flex justify-between text-[11px] text-slate-300">
+              <div className={`flex justify-between text-[11px] ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'الثانوية العامة' : 'Thanaweya'}</span>
-                <span className="font-bold text-indigo-400">92%</span>
+                <span className={`font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>92%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-indigo-500 h-full rounded-full" style={{ width: '92%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-indigo-600 h-full rounded-full" style={{ width: '92%' }} />
               </div>
-              <div className="flex justify-between text-[11px] text-slate-300 pt-1">
+              <div className={`flex justify-between text-[11px] pt-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'البكالوريا المصرية' : 'EG-Bac STEM'}</span>
-                <span className="font-bold text-teal-400">98%</span>
+                <span className={`font-bold ${isLight ? 'text-teal-700' : 'text-teal-400'}`}>98%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-teal-400 h-full rounded-full" style={{ width: '98%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-teal-500 h-full rounded-full" style={{ width: '98%' }} />
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-3">
+          <div className={`p-4 rounded-2xl border space-y-3 ${
+            isLight ? 'bg-slate-50/90 border-slate-200' : 'bg-slate-950/70 border-slate-800'
+          }`}>
             <div className="flex items-center gap-2">
-              <Binary className="w-4 h-4 text-cyan-400" />
-              <h5 className="text-xs font-bold text-slate-200">{isArabic ? 'الحاسبات والذكاء الاصطناعي' : 'Computer Science & AI'}</h5>
+              <Binary className="w-4 h-4 text-cyan-500" />
+              <h5 className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{isArabic ? 'الحاسبات والذكاء الاصطناعي' : 'Computer Science & AI'}</h5>
             </div>
-            <p className="text-[11px] text-slate-400">
+            <p className={`text-[11px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isArabic ? 'الجبر المتقطع، المصفوفات، والاحتمالات' : 'Discrete Math, Matrices & Probability'}
             </p>
             <div className="space-y-1 pt-1 text-xs">
-              <div className="flex justify-between text-[11px] text-slate-300">
+              <div className={`flex justify-between text-[11px] ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'الثانوية العامة' : 'Thanaweya'}</span>
-                <span className="font-bold text-indigo-400">78%</span>
+                <span className={`font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>78%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-indigo-500 h-full rounded-full" style={{ width: '78%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-indigo-600 h-full rounded-full" style={{ width: '78%' }} />
               </div>
-              <div className="flex justify-between text-[11px] text-slate-300 pt-1">
+              <div className={`flex justify-between text-[11px] pt-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'البكالوريا المصرية' : 'EG-Bac STEM'}</span>
-                <span className="font-bold text-teal-400">97%</span>
+                <span className={`font-bold ${isLight ? 'text-teal-700' : 'text-teal-400'}`}>97%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-teal-400 h-full rounded-full" style={{ width: '97%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-teal-500 h-full rounded-full" style={{ width: '97%' }} />
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-3">
+          <div className={`p-4 rounded-2xl border space-y-3 ${
+            isLight ? 'bg-slate-50/90 border-slate-200' : 'bg-slate-950/70 border-slate-800'
+          }`}>
             <div className="flex items-center gap-2">
-              <Calculator className="w-4 h-4 text-amber-400" />
-              <h5 className="text-xs font-bold text-slate-200">{isArabic ? 'العلوم والرياضيات البحتة' : 'Science & Mathematics'}</h5>
+              <Calculator className="w-4 h-4 text-amber-500" />
+              <h5 className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{isArabic ? 'العلوم والرياضيات البحتة' : 'Science & Mathematics'}</h5>
             </div>
-            <p className="text-[11px] text-slate-400">
+            <p className={`text-[11px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isArabic ? 'التحليل الرياضي، الفضاءات، والمعادلات التفاضلية' : 'Real Analysis, Vector Spaces & ODE'}
             </p>
             <div className="space-y-1 pt-1 text-xs">
-              <div className="flex justify-between text-[11px] text-slate-300">
+              <div className={`flex justify-between text-[11px] ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'الثانوية العامة' : 'Thanaweya'}</span>
-                <span className="font-bold text-indigo-400">90%</span>
+                <span className={`font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>90%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-indigo-500 h-full rounded-full" style={{ width: '90%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-indigo-600 h-full rounded-full" style={{ width: '90%' }} />
               </div>
-              <div className="flex justify-between text-[11px] text-slate-300 pt-1">
+              <div className={`flex justify-between text-[11px] pt-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'البكالوريا المصرية' : 'EG-Bac STEM'}</span>
-                <span className="font-bold text-teal-400">96%</span>
+                <span className={`font-bold ${isLight ? 'text-teal-700' : 'text-teal-400'}`}>96%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-teal-400 h-full rounded-full" style={{ width: '96%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-teal-500 h-full rounded-full" style={{ width: '96%' }} />
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-3">
+          <div className={`p-4 rounded-2xl border space-y-3 ${
+            isLight ? 'bg-slate-50/90 border-slate-200' : 'bg-slate-950/70 border-slate-800'
+          }`}>
             <div className="flex items-center gap-2">
-              <Microscope className="w-4 h-4 text-emerald-400" />
-              <h5 className="text-xs font-bold text-slate-200">{isArabic ? 'الطب الحيوي والصيدلة' : 'Biomedicine & Pharmacy'}</h5>
+              <Microscope className="w-4 h-4 text-emerald-500" />
+              <h5 className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{isArabic ? 'الطب الحيوي والصيدلة' : 'Biomedicine & Pharmacy'}</h5>
             </div>
-            <p className="text-[11px] text-slate-400">
+            <p className={`text-[11px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isArabic ? 'الإحصاء الحيوي، التوزيعات، والنمذجة' : 'Biostatistics, Distributions & Modeling'}
             </p>
             <div className="space-y-1 pt-1 text-xs">
-              <div className="flex justify-between text-[11px] text-slate-300">
+              <div className={`flex justify-between text-[11px] ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'الثانوية العامة' : 'Thanaweya'}</span>
-                <span className="font-bold text-indigo-400">70%</span>
+                <span className={`font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>70%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-indigo-500 h-full rounded-full" style={{ width: '70%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-indigo-600 h-full rounded-full" style={{ width: '70%' }} />
               </div>
-              <div className="flex justify-between text-[11px] text-slate-300 pt-1">
+              <div className={`flex justify-between text-[11px] pt-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                 <span>{isArabic ? 'البكالوريا المصرية' : 'EG-Bac STEM'}</span>
-                <span className="font-bold text-teal-400">93%</span>
+                <span className={`font-bold ${isLight ? 'text-teal-700' : 'text-teal-400'}`}>93%</span>
               </div>
-              <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-teal-400 h-full rounded-full" style={{ width: '93%' }} />
+              <div className={`w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+                <div className="bg-teal-500 h-full rounded-full" style={{ width: '93%' }} />
               </div>
             </div>
           </div>

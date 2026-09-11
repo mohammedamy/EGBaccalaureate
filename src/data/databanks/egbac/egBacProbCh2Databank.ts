@@ -3928,353 +3928,349 @@ export const egBacProbCh2Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_prob_ch2_db_hots_11",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #1",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 1",
+    "titleEn": "Maximum Likelihood Estimation of Exponential Distribution #1",
+    "titleAr": "تقدير الإمكان الأكبر لـ التوزيع الأسي رقم 1",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be an i.i.d. random sample from an Exponential distribution with PDF $f(x; \\lambda) = \\lambda e^{-\\lambda x}$ for $x > 0$ and $\\lambda > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\lambda}$.",
+    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية مستقلة ومتطابقة من توزيع أسي دالة كثافته $f(x; \\lambda) = \\lambda e^{-\\lambda x}$ حيث $x > 0$ و $\\lambda > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\lambda$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\sqrt{\\frac{n}{\\sum_{i=1}^n X_i^2}}$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\sqrt{\\frac{n}{\\sum_{i=1}^n X_i^2}}$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
     "correctIndex": 2,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "L(lambda) = lambda^n * exp(-lambda * sum X_i). Take log, differentiate w.r.t lambda, and equate to 0.",
+    "hintAr": "دالة الإمكان L = lambda^n * exp(-lambda * sum X_i). خذ اللوغاريتم وفاضل بالنسبة إلى lambda وساوِ بالصفر.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood function: $L(\\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda X_i} = \\lambda^n e^{-\\lambda \\sum_{i=1}^n X_i}$.",
+      "2. Log-likelihood: $\\ln L(\\lambda) = n \\ln \\lambda - \\lambda \\sum_{i=1}^n X_i$.",
+      "3. Differentiate: $\\frac{d}{d\\lambda} \\ln L = \\frac{n}{\\lambda} - \\sum_{i=1}^n X_i = 0$.",
+      "4. Solve for $\\lambda$: $\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(\\lambda) = \\lambda^n e^{-\\lambda \\sum_{i=1}^n X_i}$.",
+      "٢. لوغاريتم الإمكان: $\\ln L(\\lambda) = n \\ln \\lambda - \\lambda \\sum_{i=1}^n X_i$.",
+      "٣. المشتقة الأولى: $\\frac{n}{\\lambda} - \\sum_{i=1}^n X_i = 0$.",
+      "٤. حل المعادلة يعطي مقدر الإمكان الأكبر: $\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "The MLE for an exponential rate is the inverse of the sample mean: lambda_hat = 1 / X_bar.",
+    "teacherTipAr": "مقدر الإمكان الأكبر لمعدل التوزيع الأسي هو مقلوب المتوسط الحسابي للعينة."
   },
   {
     "id": "egbac_prob_ch2_db_hots_12",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #2",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 2",
+    "titleEn": "Maximum Likelihood Estimation of Poisson Distribution #2",
+    "titleAr": "تقدير الإمكان الأكبر لـ توزيع بواسون رقم 2",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be an i.i.d. sample from a Poisson distribution with PMF $P(X = x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$ for $x \\in \\{0, 1, 2, \\dots\\}$. Derive the MLE $\\hat{\\lambda}$.",
+    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية مستقلة ومتطابقة من توزيع بواسون بدالة كتلة $P(X = x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\lambda$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$"
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\sqrt{\\bar{X}}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\bar{X} = \\frac{1}{n} \\sum_{i=1}^n X_i$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$"
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\sqrt{\\bar{X}}$",
+      "$\\hat{\\lambda}_{\\text{MLE}} = \\bar{X} = \\frac{1}{n} \\sum_{i=1}^n X_i$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\lambda}_{\\text{MLE}} = \\bar{X} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
     "correctIndex": 3,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "Log-likelihood is -n*lambda + (sum X_i)*ln(lambda) - sum ln(X_i!). Differentiate w.r.t lambda.",
+    "hintAr": "لوغاريتم دالة الإمكان هو -n*lambda + (sum X_i)*ln(lambda) ناقص الثوابت. فاضل بالنسبة إلى lambda.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood: $L(\\lambda) = \\prod_{i=1}^n \\frac{\\lambda^{X_i} e^{-\\lambda}}{X_i!} = e^{-n\\lambda} \\lambda^{\\sum X_i} \\prod \\frac{1}{X_i!}$.",
+      "2. Log-likelihood: $\\ln L(\\lambda) = -n\\lambda + \\left(\\sum_{i=1}^n X_i\\right) \\ln\\lambda - \\sum_{i=1}^n \\ln(X_i!)$.",
+      "3. Differentiate: $\\frac{d}{d\\lambda} \\ln L = -n + \\frac{\\sum_{i=1}^n X_i}{\\lambda} = 0$.",
+      "4. Thus $\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i = \\bar{X}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(\\lambda) = e^{-n\\lambda} \\lambda^{\\sum X_i} \\prod \\frac{1}{X_i!}$.",
+      "٢. لوغاريتم الإمكان: $\\ln L(\\lambda) = -n\\lambda + (\\sum X_i)\\ln\\lambda - \\sum \\ln(X_i!)$.",
+      "٣. بمساواة المشتقة بالصفر: $-n + \\frac{\\sum X_i}{\\lambda} = 0$.",
+      "٤. إذن $\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{n} \\sum X_i = \\bar{X}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "For Poisson, both the expected value and variance equal lambda, and the sample mean is the optimal MLE.",
+    "teacherTipAr": "في توزيع بواسون، يتساوى التوقع والتباين مع المعلمة lambda، والمتوسط الحسابي هو المقدر الأمثل."
   },
   {
     "id": "egbac_prob_ch2_db_hots_13",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #3",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 3",
+    "titleEn": "Maximum Likelihood Estimation of Bernoulli Distribution #3",
+    "titleAr": "تقدير الإمكان الأكبر لـ توزيع برنولي رقم 3",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be an i.i.d. sample from a Bernoulli distribution with parameter $p \\in (0, 1)$ where $P(X = 1) = p$ and $P(X = 0) = 1-p$. Derive the MLE $\\hat{p}$.",
+    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية مستقلة ومتطابقة من توزيع برنولي بالمعلمة $p \\in (0, 1)$ حيث $P(X=1)=p$. استنتج مقدر الإمكان الأكبر (MLE) لمعلمة النجاح $p$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{p}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n + 1}$",
+      "$\\hat{p}_{\\text{MLE}} = 1 - \\frac{1}{n} \\sum_{i=1}^n X_i$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{p}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i}$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n + 1}$",
+      "$\\hat{p}_{\\text{MLE}} = 1 - \\frac{1}{n} \\sum_{i=1}^n X_i$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{p}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
     "correctIndex": 0,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "L(p) = p^(sum X_i) * (1-p)^(n - sum X_i). Maximize ln L(p).",
+    "hintAr": "دالة الإمكان L(p) = p^(sum X_i) * (1-p)^(n - sum X_i). عظم لوغاريتم الإمكان.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood: $L(p) = p^{\\sum X_i} (1-p)^{n - \\sum X_i}$.",
+      "2. Log-likelihood: $\\ln L(p) = \\left(\\sum_{i=1}^n X_i\\right) \\ln p + \\left(n - \\sum_{i=1}^n X_i\\right) \\ln(1-p)$.",
+      "3. Differentiate: $\\frac{d}{dp}\\ln L = \\frac{\\sum X_i}{p} - \\frac{n - \\sum X_i}{1-p} = 0$.",
+      "4. Solving gives $(1-p)\\sum X_i = p(n - \\sum X_i) \\implies \\sum X_i = np \\implies \\hat{p}_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^n X_i = \\bar{X}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(p) = p^{\\sum X_i} (1-p)^{n - \\sum X_i}$.",
+      "٢. لوغاريتم الإمكان: $\\ln L = (\\sum X_i)\\ln p + (n - \\sum X_i)\\ln(1-p)$.",
+      "٣. المشتقة: $\\frac{\\sum X_i}{p} - \\frac{n - \\sum X_i}{1-p} = 0$.",
+      "٤. بحل المعادلة نجد أن: $\\hat{p}_{\\text{MLE}} = \\frac{\\sum X_i}{n} = \\bar{X}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "The sample proportion of successes is the unbiased, minimum-variance MLE for p.",
+    "teacherTipAr": "نسبة النجاحات في العينة هي مقدر الإمكان الأكبر غير المتحيز ذو التباين الأدنى لـ p."
   },
   {
     "id": "egbac_prob_ch2_db_hots_14",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #4",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 4",
+    "titleEn": "Maximum Likelihood Estimation of Normal Distribution Unknown Mean #4",
+    "titleAr": "تقدير الإمكان الأكبر لـ التوزيع الطبيعي لمتوسط مجهول رقم 4",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, \\dots, X_n \\sim \\mathcal{N}(\\mu, \\sigma_0^2)$ where variance $\\sigma_0^2$ is known and mean $\\mu$ is unknown. Derive the Maximum Likelihood Estimator $\\hat{\\mu}$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n \\sim \\mathcal{N}(\\mu, \\sigma_0^2)$ حيث التباين $\\sigma_0^2$ معلوم والمتوسط $\\mu$ مجهول. استنتج مقدر الإمكان الأكبر $\\hat{\\mu}$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n-1} \\sum_{i=1}^n X_i$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\bar{X})^2$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\operatorname{median}(X_1, \\dots, X_n)$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n-1} \\sum_{i=1}^n X_i$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\bar{X})^2$",
+      "$\\hat{\\mu}_{\\text{MLE}} = \\operatorname{median}(X_1, \\dots, X_n)$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
     "correctIndex": 1,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "The log-likelihood has term -1/(2*sigma_0^2) * sum(X_i - mu)^2. Differentiate w.r.t mu.",
+    "hintAr": "لوغاريتم الإمكان يحوي الحد -1/(2*sigma_0^2) * sum(X_i - mu)^2. فاضل بالنسبة إلى mu.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Log-likelihood: $\\ln L(\\mu) = -\\frac{n}{2}\\ln(2\\pi\\sigma_0^2) - \\frac{1}{2\\sigma_0^2}\\sum_{i=1}^n (X_i - \\mu)^2$.",
+      "2. Differentiate w.r.t $\\mu$: $\\frac{d}{d\\mu}\\ln L = \\frac{1}{\\sigma_0^2}\\sum_{i=1}^n (X_i - \\mu) = 0$.",
+      "3. $\\sum_{i=1}^n X_i - n\\mu = 0 \\implies \\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^n X_i = \\bar{X}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. لوغاريتم دالة الإمكان: $\\ln L(\\mu) = -\\frac{n}{2}\\ln(2\\pi\\sigma_0^2) - \\frac{1}{2\\sigma_0^2}\\sum (X_i - \\mu)^2$.",
+      "٢. بالمفاضلة بالنسبة إلى $\\mu$: $\\frac{1}{\\sigma_0^2}\\sum (X_i - \\mu) = 0$.",
+      "٣. فك المجموع: $\\sum X_i - n\\mu = 0 \\implies \\hat{\\mu}_{\\text{MLE}} = \\frac{1}{n}\\sum X_i = \\bar{X}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "Maximizing the normal likelihood is mathematically equivalent to Ordinary Least Squares (OLS).",
+    "teacherTipAr": "تعظيم دالة الإمكان للتوزيع الطبيعي يكافئ رياضياً طريقة المربعات الصغرى العادية."
   },
   {
     "id": "egbac_prob_ch2_db_hots_15",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #5",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 5",
+    "titleEn": "Maximum Likelihood Estimation of Normal Distribution Unknown Variance #5",
+    "titleAr": "تقدير الإمكان الأكبر لـ التوزيع الطبيعي لتباين مجهول رقم 5",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, \\dots, X_n \\sim \\mathcal{N}(\\mu_0, \\sigma^2)$ where mean $\\mu_0$ is known and variance $\\sigma^2$ is unknown. Derive the MLE $\\hat{\\sigma}^2$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n \\sim \\mathcal{N}(\\mu_0, \\sigma^2)$ حيث المتوسط $\\mu_0$ معلوم والتباين $\\sigma^2$ مجهول. استنتج مقدر الإمكان الأكبر للتباين $\\hat{\\sigma}^2$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\mu_0)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n (X_i - \\mu_0)^2}$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\mu_0)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\bar{X})$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\mu_0)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n (X_i - \\mu_0)^2}$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\mu_0)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\bar{X})$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n (X_i - \\mu_0)^2$",
     "correctIndex": 2,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "Treat v = sigma^2 as the parameter. Differentiate ln L w.r.t v.",
+    "hintAr": "اعتبر v = sigma^2 هي المعلمة، وفاضل لوغاريتم دالة الإمكان بالنسبة إلى v.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Let $v = \\sigma^2$: $\\ln L(v) = -\\frac{n}{2}\\ln(2\\pi) - \\frac{n}{2}\\ln v - \\frac{1}{2v}\\sum_{i=1}^n (X_i - \\mu_0)^2$.",
+      "2. Differentiate w.r.t $v$: $\\frac{d}{dv}\\ln L = -\\frac{n}{2v} + \\frac{1}{2v^2}\\sum_{i=1}^n (X_i - \\mu_0)^2 = 0$.",
+      "3. Multiply by $2v^2$: $-nv + \\sum_{i=1}^n (X_i - \\mu_0)^2 = 0 \\implies \\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^n (X_i - \\mu_0)^2$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. بوضع $v = \\sigma^2$: نجد $\\ln L(v) = -\\frac{n}{2}\\ln v - \\frac{1}{2v}\\sum (X_i - \\mu_0)^2 + \\text{ثابت}$.",
+      "٢. المشتقة بالنسبة إلى $v$: $-\\frac{n}{2v} + \\frac{1}{2v^2}\\sum (X_i - \\mu_0)^2 = 0$.",
+      "٣. بالضرب في $2v^2$: ينتج $\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^n (X_i - \\mu_0)^2$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "When the true mean mu_0 is known, division is by n (not n-1), and the estimator is unbiased.",
+    "teacherTipAr": "عندما يكون المتوسط الحقيقي معلوماً، نقسم على n (وليس n-1) ويكون المقدر غير متحيز تماماً."
   },
   {
     "id": "egbac_prob_ch2_db_hots_16",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #6",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 6",
+    "titleEn": "Maximum Likelihood Estimation of Continuous Uniform Distribution #6",
+    "titleAr": "تقدير الإمكان الأكبر لـ التوزيع المنتظم المتصل رقم 6",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be an i.i.d. sample from a continuous Uniform distribution on $[0, \\theta]$ with PDF $f(x) = \\frac{1}{\\theta}$ for $0 \\le x \\le \\theta$. Derive the MLE $\\hat{\\theta}$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n$ عينة مستقلة ومتطابقة من توزيع منتظم متصل على $[0, \\theta]$ بكثافة $f(x) = \\frac{1}{\\theta}$ لكل $0 \\le x \\le \\theta$. استنتج مقدر الإمكان الأكبر $\\hat{\\theta}$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$"
+      "$\\hat{\\theta}_{\\text{MLE}} = 2\\bar{X}$",
+      "$\\hat{\\theta}_{\\text{MLE}} = X_{(1)} = \\min(X_1, \\dots, X_n)$",
+      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n+1}{n} X_{(n)}$",
+      "$\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\dots, X_n)$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$"
+      "$\\hat{\\theta}_{\\text{MLE}} = 2\\bar{X}$",
+      "$\\hat{\\theta}_{\\text{MLE}} = X_{(1)} = \\min(X_1, \\dots, X_n)$",
+      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n+1}{n} X_{(n)}$",
+      "$\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\dots, X_n)$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\dots, X_n)$",
     "correctIndex": 3,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "L(theta) = 1/theta^n provided theta >= max(X_i). Since 1/theta^n is strictly decreasing, the maximum is at the boundary.",
+    "hintAr": "دالة الإمكان هي 1/theta^n بشرط theta >= max(X_i). وبما أنها متناقصة تماماً، فإن القيمة العظمى تقع عند الحد الأدنى المسموح به.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood: $L(\\theta) = \\frac{1}{\\theta^n}$ for $\\theta \\ge \\max(X_1, \\dots, X_n) = X_{(n)}$, and $0$ otherwise.",
+      "2. Since $\\frac{1}{\\theta^n}$ is a strictly decreasing function of $\\theta$, $L(\\theta)$ is maximized at the smallest allowable value of $\\theta$.",
+      "3. The smallest value that satisfies $\\theta \\ge X_i$ for all $i$ is $\\theta = X_{(n)}$.",
+      "4. Therefore, $\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\dots, X_n)$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(\\theta) = \\frac{1}{\\theta^n}$ بشرط $\\theta \\ge \\max(X_1, \\dots, X_n) = X_{(n)}$.",
+      "٢. دالة الإمكان دالة متناقصة تماماً بالنسبة إلى $\\theta$، وبالتالي تبلغ قيمتها العظمى عند أقل قيمة مسموح بها للمعلمة.",
+      "٣. أقل قيمة تحقق الشرط هي أقصى قيمة مشاهدة في العينة $X_{(n)}$.",
+      "٤. إذن $\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\dots, X_n)$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "This is a classic non-regular estimation problem where differentiation cannot be used due to parameter-dependent support.",
+    "teacherTipAr": "هذه مسألة غير منتظمة كلاسيكية لا يمكن حلها بالاشتقاق لأن نطاق الدالة يعتمد على المعلمة نفسها."
   },
   {
     "id": "egbac_prob_ch2_db_hots_17",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #7",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 7",
+    "titleEn": "Maximum Likelihood Estimation of Rayleigh Distribution #7",
+    "titleAr": "تقدير الإمكان الأكبر لـ توزيع رايلي رقم 7",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, \\dots, X_n$ be an i.i.d. sample from a Rayleigh distribution with PDF $f(x; \\sigma^2) = \\frac{x}{\\sigma^2} e^{-x^2 / (2\\sigma^2)}$ for $x > 0$. Derive the MLE of $\\sigma^2$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n$ عينة مستقلة ومتطابقة من توزيع رايلي بكثافة $f(x; \\sigma^2) = \\frac{x}{\\sigma^2} e^{-x^2 / (2\\sigma^2)}$ حيث $x > 0$. استنتج مقدر الإمكان الأكبر لمعلمة المقياس $\\sigma^2$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\left(\\frac{1}{n} \\sum_{i=1}^n X_i\\right)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n} \\sum_{i=1}^n X_i$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n} \\sum_{i=1}^n X_i^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\left(\\frac{1}{n} \\sum_{i=1}^n X_i\\right)^2$",
+      "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n} \\sum_{i=1}^n X_i$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n} \\sum_{i=1}^n X_i^2$",
     "correctIndex": 0,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "Write ln L in terms of theta = sigma^2: ln L = -n*ln(theta) - 1/(2*theta)*sum(X_i^2) + const. Differentiate w.r.t theta.",
+    "hintAr": "اكتب لوغاريتم الإمكان بدلالة theta = sigma^2 وفاضل وساوِ بالصفر.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Let $\\theta = \\sigma^2$: $L(\\theta) = \\theta^{-n} \\left(\\prod_{i=1}^n X_i\\right) \\exp\\left(-\\frac{1}{2\\theta}\\sum_{i=1}^n X_i^2\\right)$.",
+      "2. Log-likelihood: $\\ln L(\\theta) = -n\\ln\\theta + \\sum_{i=1}^n \\ln X_i - \\frac{1}{2\\theta}\\sum_{i=1}^n X_i^2$.",
+      "3. Differentiate: $\\frac{d}{d\\theta}\\ln L = -\\frac{n}{\\theta} + \\frac{1}{2\\theta^2}\\sum_{i=1}^n X_i^2 = 0$.",
+      "4. Solving gives $\\hat{\\sigma}^2_{\\text{MLE}} = \\hat{\\theta} = \\frac{1}{2n}\\sum_{i=1}^n X_i^2$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. بوضع $\\theta = \\sigma^2$: نجد $\\ln L(\\theta) = -n\\ln\\theta - \\frac{1}{2\\theta}\\sum X_i^2 + \\text{ثابت}$.",
+      "٢. المشتقة بالنسبة إلى $\\theta$: $-\\frac{n}{\\theta} + \\frac{1}{2\\theta^2}\\sum X_i^2 = 0$.",
+      "٣. بالضرب في $\\theta^2$: نجد $-n\\theta + \\frac{1}{2}\\sum X_i^2 = 0$.",
+      "٤. إذن $\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{2n}\\sum_{i=1}^n X_i^2$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "The Rayleigh distribution models wind speeds and wave amplitudes; its MLE depends on the mean squared observation.",
+    "teacherTipAr": "يستخدم توزيع رايلي لنمذجة سرعة الرياح وارتفاع الأمواج؛ ويعتمد مقدره على متوسط المربعات."
   },
   {
     "id": "egbac_prob_ch2_db_hots_18",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #8",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 8",
+    "titleEn": "Maximum Likelihood Estimation of Pareto Distribution #8",
+    "titleAr": "تقدير الإمكان الأكبر لـ توزيع باريتو رقم 8",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, \\dots, X_n$ be an i.i.d. sample from a Pareto distribution with PDF $f(x; \\alpha) = \\frac{\\alpha x_0^\\alpha}{x^{\\alpha+1}}$ for $x \\ge x_0 > 0$, where $x_0$ is known and $\\alpha > 0$ is unknown. Derive the MLE $\\hat{\\alpha}$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n$ عينة مستقلة ومتطابقة من توزيع باريتو بدالة كثافة $f(x; \\alpha) = \\frac{\\alpha x_0^\\alpha}{x^{\\alpha+1}}$ حيث $x \\ge x_0 > 0$ مع كون $x_0$ معلوماً. استنتج مقدر الإمكان الأكبر $\\hat{\\alpha}$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n \\ln(X_i / x_0)}{n}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n \\ln(X_i / x_0)}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n (X_i - x_0)}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = 1 + \\frac{n}{\\sum_{i=1}^n X_i}$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n \\ln(X_i / x_0)}{n}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n \\ln(X_i / x_0)}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n (X_i - x_0)}$",
+      "$\\hat{\\alpha}_{\\text{MLE}} = 1 + \\frac{n}{\\sum_{i=1}^n X_i}$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n \\ln(X_i / x_0)}$",
     "correctIndex": 1,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "Log-likelihood is n*ln(alpha) + n*alpha*ln(x_0) - (alpha+1)*sum(ln X_i). Group the alpha terms.",
+    "hintAr": "لوغاريتم الإمكان هو n*ln(alpha) + n*alpha*ln(x_0) - (alpha+1)*sum(ln X_i). اجمع حدود alpha وفاضل.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood: $L(\\alpha) = \\alpha^n x_0^{n\\alpha} \\prod_{i=1}^n X_i^{-(\\alpha+1)}$.",
+      "2. Log-likelihood: $\\ln L(\\alpha) = n\\ln\\alpha + n\\alpha\\ln x_0 - (\\alpha+1)\\sum_{i=1}^n \\ln X_i = n\\ln\\alpha - \\alpha \\sum_{i=1}^n \\ln\\left(\\frac{X_i}{x_0}\\right) - \\sum_{i=1}^n \\ln X_i$.",
+      "3. Differentiate: $\\frac{d}{d\\alpha}\\ln L = \\frac{n}{\\alpha} - \\sum_{i=1}^n \\ln\\left(\\frac{X_i}{x_0}\\right) = 0$.",
+      "4. Thus $\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n \\ln(X_i / x_0)}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(\\alpha) = \\alpha^n x_0^{n\\alpha} \\prod X_i^{-(\\alpha+1)}$.",
+      "٢. لوغاريتم الإمكان: $\\ln L = n\\ln\\alpha - \\alpha \\sum \\ln(X_i / x_0) - \\sum \\ln X_i$.",
+      "٣. المشتقة بالنسبة إلى $\\alpha$: $\\frac{n}{\\alpha} - \\sum \\ln(X_i / x_0) = 0$.",
+      "٤. إذن $\\hat{\\alpha}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n \\ln(X_i / x_0)}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "Pareto's MLE resembles the exponential MLE because ln(X/x_0) follows an Exponential distribution.",
+    "teacherTipAr": "يشبه مقدر باريتو مقدر التوزيع الأسي لأن التحويل ln(X/x_0) يتبع توزيعاً أسياً."
   },
   {
     "id": "egbac_prob_ch2_db_hots_19",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #9",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 9",
+    "titleEn": "Maximum Likelihood Estimation of Geometric Distribution #9",
+    "titleAr": "تقدير الإمكان الأكبر لـ التوزيع الهندسي رقم 9",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, \\dots, X_n$ be an i.i.d. sample from a Geometric distribution with PMF $P(X = x) = (1-p)^{x-1} p$ for $x \\in \\{1, 2, 3, \\dots\\}$ and $p \\in (0, 1)$. Derive the MLE $\\hat{p}$.",
+    "questionAr": "لتكن $X_1, \\dots, X_n$ عينة مستقلة ومتطابقة من توزيع هندسي بدالة كتلة $P(X = x) = (1-p)^{x-1} p$ حيث $x \\in \\{1, 2, 3, \\dots\\}$. استنتج مقدر الإمكان الأكبر $\\hat{p}$.",
     "optionsEn": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{p}_{\\text{MLE}} = \\bar{X} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{1}{\\bar{X} + 1}$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$",
+      "$\\hat{p}_{\\text{MLE}} = 1 - \\frac{1}{\\bar{X}}$"
     ],
     "optionsAr": [
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
-      "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{\\sum_{i=1}^n \\ln X_i}{n}$"
+      "$\\hat{p}_{\\text{MLE}} = \\bar{X} = \\frac{1}{n} \\sum_{i=1}^n X_i$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{1}{\\bar{X} + 1}$",
+      "$\\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$",
+      "$\\hat{p}_{\\text{MLE}} = 1 - \\frac{1}{\\bar{X}}$"
     ],
-    "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
+    "correctAnswer": "$\\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$",
     "correctIndex": 2,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "L(p) = p^n * (1-p)^(sum(X_i) - n). Differentiate ln L w.r.t p.",
+    "hintAr": "دالة الإمكان L(p) = p^n * (1-p)^(sum(X_i) - n). فاضل لوغاريتم الإمكان بالنسبة إلى p.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "1. Likelihood: $L(p) = \\prod_{i=1}^n (1-p)^{X_i - 1} p = p^n (1-p)^{\\sum_{i=1}^n X_i - n}$.",
+      "2. Log-likelihood: $\\ln L(p) = n\\ln p + \\left(\\sum_{i=1}^n X_i - n\\right)\\ln(1-p)$.",
+      "3. Differentiate: $\\frac{d}{dp}\\ln L = \\frac{n}{p} - \\frac{\\sum X_i - n}{1-p} = 0$.",
+      "4. Solving yields $n(1-p) = p(\\sum X_i - n) \\implies n = p\\sum X_i \\implies \\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i} = \\frac{1}{\\bar{X}}$."
     ],
     "stepByStepSolutionAr": [
-      "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
-      "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
+      "١. دالة الإمكان: $L(p) = p^n (1-p)^{\\sum X_i - n}$.",
+      "٢. لوغاريتم الإمكان: $\\ln L(p) = n\\ln p + (\\sum X_i - n)\\ln(1-p)$.",
+      "٣. بمساواة المشتقة بالصفر: $\\frac{n}{p} - \\frac{\\sum X_i - n}{1-p} = 0$.",
+      "٤. ينتج أن $n = p\\sum X_i \\implies \\hat{p}_{\\text{MLE}} = \\frac{n}{\\sum X_i} = \\frac{1}{\\bar{X}}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
-    "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
+    "teacherTipEn": "Since E[X] = 1/p for the geometric distribution, the MLE aligns intuitively with the method of moments.",
+    "teacherTipAr": "بما أن التوقع للتوزيع الهندسي هو 1/p، فإن مقدر الإمكان الأكبر يتطابق بديهياً مع مقدر طريقة العزوم."
   },
   {
     "id": "egbac_prob_ch2_db_hots_20",
-    "titleEn": "Maximum Likelihood Estimation of Power Parameter #10",
-    "titleAr": "تقدير الإمكان الأكبر لمعلمة القوة رقم 10",
+    "titleEn": "Maximum Likelihood Estimation of Power Distribution #10",
+    "titleAr": "تقدير الإمكان الأكبر لـ توزيع القوة رقم 10",
     "difficulty": "hots",
-    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be a random sample from a population with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
-    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية من مجتمع دالة كثافته $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
+    "questionEn": "Let $X_1, X_2, \\dots, X_n$ be an i.i.d. sample from a Power distribution with PDF $f(x; \\theta) = \\theta x^{\\theta - 1}$ for $0 < x < 1$ and $\\theta > 0$. Derive the Maximum Likelihood Estimator (MLE) $\\hat{\\theta}$.",
+    "questionAr": "لتكن $X_1, X_2, \\dots, X_n$ عينة عشوائية مستقلة ومتطابقة من مجتمع يتبع توزيع القوة بدالة كثافة $f(x; \\theta) = \\theta x^{\\theta - 1}$ على الفترة $0 < x < 1$ حيث $\\theta > 0$. استنتج مقدر الإمكان الأكبر (MLE) للمعلَمة $\\theta$.",
     "optionsEn": [
       "$\\hat{\\theta}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n}$",
       "$\\hat{\\theta}_{\\text{MLE}} = \\frac{n}{\\sum_{i=1}^n X_i^2}$",
@@ -4289,21 +4285,21 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$",
     "correctIndex": 3,
-    "hintEn": "Set up the likelihood function L(theta), take the log ln L(theta), differentiate with respect to theta, and set to 0.",
-    "hintAr": "اكتب دالة الإمكان L(theta)، خذ اللوغاريتم الطبيعي، فاضل بالنسبة إلى theta وساوِ بالصفر.",
+    "hintEn": "Log-likelihood is n*ln(theta) + (theta-1)*sum(ln X_i). Differentiate w.r.t theta.",
+    "hintAr": "لوغاريتم الإمكان هو n*ln(theta) + (theta-1)*sum(ln X_i). فاضل بالنسبة إلى theta.",
     "stepByStepSolutionEn": [
-      "1. Likelihood function: $L(\\theta) = \\prod_{i=1}^n \\theta X_i^{\\theta - 1} = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
+      "1. Likelihood: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
       "2. Log-likelihood: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
-      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L(\\theta) = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
+      "3. Differentiate: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
       "4. Solve for $\\theta$: $\\frac{n}{\\theta} = -\\sum_{i=1}^n \\ln X_i \\implies \\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
     ],
     "stepByStepSolutionAr": [
       "١. دالة الإمكان: $L(\\theta) = \\theta^n \\prod_{i=1}^n X_i^{\\theta - 1}$.",
-      "٢. اللوغاريتم الطبيعي للإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
+      "٢. لوغاريتم الإمكان: $\\ln L(\\theta) = n \\ln \\theta + (\\theta - 1) \\sum_{i=1}^n \\ln X_i$.",
       "٣. المشتقة الأولى: $\\frac{d}{d\\theta} \\ln L = \\frac{n}{\\theta} + \\sum_{i=1}^n \\ln X_i = 0$.",
       "٤. حل المعادلة: $\\hat{\\theta}_{\\text{MLE}} = -\\frac{n}{\\sum_{i=1}^n \\ln X_i}$."
     ],
-    "teacherTipEn": "Notice that since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
+    "teacherTipEn": "Since 0 < X_i < 1, ln(X_i) is strictly negative, ensuring that theta_hat is always positive.",
     "teacherTipAr": "لاحظ أنه بما أن 0 < X_i < 1 فإن ln(X_i) سالبة دائماً، مما يضمن أن المقدر موجباً تماماً."
   },
   {

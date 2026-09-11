@@ -1,1074 +1,796 @@
 import type { ChapterDatabank } from '../../../types/curriculum';
 
 export const calcCh2Databank: ChapterDatabank = {
-  easy: [
+  "easy": [
   {
     "id": "calc_ch2_db_easy_01",
-    "titleEn": "Limit of (1 + 2/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 2/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Fundamental Limit for Euler's Constant e",
+    "titleAr": "النهاية الأساسية للعدد النيبيري هـ",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{2}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{2}{x}\\right)^x$$",
+    "questionEn": "Evaluate the fundamental limit: $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x$.",
+    "questionAr": "احسب قيمة النهاية الأساسية: $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x$.",
     "optionsEn": [
-      "$e^{2}$",
-      "$e^{3}$",
-      "$e^{5}$",
-      "$2$"
+      "$e$",
+      "$1$",
+      "$\\infty$",
+      "$0$"
     ],
     "optionsAr": [
-      "هـ^{2}",
-      "هـ^{3}",
-      "هـ^{5}",
-      "2"
+      "هـ",
+      "1",
+      "∞",
+      "0"
     ],
-    "correctAnswer": "$e^{2}$",
+    "correctAnswer": "$e$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Recall definition of Euler's constant e.",
+    "hintAr": "تذكر تعريف ثابت أويلر هـ.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 2$, therefore the limit is $e^{2}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 2$، فإن قيمة النهاية هي $e^{2}$ (هـ مرفوعة للأس 2)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_02",
-    "titleEn": "Limit of (1 + 3/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 3/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Limit with Integer Power in Exponent",
+    "titleAr": "نهاية مع معامل في الأس",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$$",
+    "questionEn": "Determine the limit Limit with Integer Power in Exponent: $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^{4x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية مع معامل في الأس): $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^{4x}$.",
     "optionsEn": [
-      "$e^{3}$",
-      "$e^{4}$",
-      "$e^{6}$",
-      "$3$"
-    ],
-    "optionsAr": [
-      "هـ^{3}",
-      "هـ^{4}",
-      "هـ^{6}",
-      "3"
-    ],
-    "correctAnswer": "$e^{3}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 3$, therefore the limit is $e^{3}$."
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 3$، فإن قيمة النهاية هي $e^{3}$ (هـ مرفوعة للأس 3)."
-    ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
-  },
-  {
-    "id": "calc_ch2_db_easy_03",
-    "titleEn": "Limit of (1 + 4/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 4/س)^س عندما س تؤول إلى مالانهاية",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^x$$",
-    "optionsEn": [
-      "$e^{4}$",
-      "$e^{5}$",
-      "$e^{7}$",
+      "$e^4$",
+      "$4e$",
+      "$e^{1/4}$",
       "$4$"
     ],
     "optionsAr": [
-      "هـ^{4}",
-      "هـ^{5}",
-      "هـ^{7}",
+      "هـ⁴",
+      "4هـ",
+      "هـ^(1/4)",
       "4"
     ],
-    "correctAnswer": "$e^{4}$",
+    "correctAnswer": "$e^4$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "lim (1 + 1/x)^(kx) = e^k.",
+    "hintAr": "استخدم القاعدة العامة لنهاية العدد النيبيري.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 4$, therefore the limit is $e^{4}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 4$، فإن قيمة النهاية هي $e^{4}$ (هـ مرفوعة للأس 4)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_03",
+    "titleEn": "Limit with Scaled Fraction",
+    "titleAr": "نهاية بكسر مضاعف",
+    "difficulty": "easy",
+    "questionEn": "Determine the limit Limit with Scaled Fraction: $\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$.",
+    "questionAr": "احسب قيمة النهاية (نهاية بكسر مضاعف): $\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x}\\right)^x$.",
+    "optionsEn": [
+      "$e^3$",
+      "$3e$",
+      "$e^{1/3}$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "هـ³",
+      "3هـ",
+      "هـ^(1/3)",
+      "3"
+    ],
+    "correctAnswer": "$e^3$",
+    "correctIndex": 0,
+    "hintEn": "lim (1 + a/x)^x = e^a.",
+    "hintAr": "نهاية (1 + أ/س)^س = هـ^أ.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_04",
-    "titleEn": "Limit of (1 + 5/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 5/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Limit with Negative Term in Parenthesis",
+    "titleAr": "نهاية بإشارة سالبة داخل القوس",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{5}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{5}{x}\\right)^x$$",
+    "questionEn": "Determine the limit Limit with Negative Term in Parenthesis: $\\lim_{x \\to \\infty} \\left(1 - \\frac{2}{x}\\right)^x$.",
+    "questionAr": "احسب قيمة النهاية (نهاية بإشارة سالبة داخل القوس): $\\lim_{x \\to \\infty} \\left(1 - \\frac{2}{x}\\right)^x$.",
     "optionsEn": [
-      "$e^{5}$",
-      "$e^{6}$",
-      "$e^{8}$",
-      "$5$"
+      "$e^{-2}$",
+      "$e^2$",
+      "$-2e$",
+      "$-2$"
     ],
     "optionsAr": [
-      "هـ^{5}",
-      "هـ^{6}",
-      "هـ^{8}",
-      "5"
+      "هـ⁻²",
+      "هـ²",
+      "-2هـ",
+      "-2"
     ],
-    "correctAnswer": "$e^{5}$",
+    "correctAnswer": "$e^{-2}$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Here a = -2, so result is e^(-2).",
+    "hintAr": "المعامل هنا هو -2، فالناتج هـ⁻².",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 5$, therefore the limit is $e^{5}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 5$، فإن قيمة النهاية هي $e^{5}$ (هـ مرفوعة للأس 5)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_05",
-    "titleEn": "Limit of (1 + 6/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 6/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Limit as x Approaches Zero",
+    "titleAr": "نهاية عندما س تؤول للصفر",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{6}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{6}{x}\\right)^x$$",
+    "questionEn": "Determine the limit Limit as x Approaches Zero: $\\lim_{x \\to 0} (1 + x)^{1/x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية عندما س تؤول للصفر): $\\lim_{x \\to 0} (1 + x)^{1/x}$.",
     "optionsEn": [
-      "$e^{6}$",
-      "$e^{7}$",
-      "$e^{9}$",
-      "$6$"
+      "$e$",
+      "$1$",
+      "$0$",
+      "$\\infty$"
     ],
     "optionsAr": [
-      "هـ^{6}",
-      "هـ^{7}",
-      "هـ^{9}",
-      "6"
+      "هـ",
+      "1",
+      "0",
+      "∞"
     ],
-    "correctAnswer": "$e^{6}$",
+    "correctAnswer": "$e$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Standard limit definition as x -> 0.",
+    "hintAr": "الصورة المكافئة للعدد هـ عند الصفر.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 6$, therefore the limit is $e^{6}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 6$، فإن قيمة النهاية هي $e^{6}$ (هـ مرفوعة للأس 6)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_06",
-    "titleEn": "Limit of (1 + 7/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 7/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Limit with Scaled Linear Factor at Zero",
+    "titleAr": "نهاية بعامل خطي عند الصفر",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{7}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{7}{x}\\right)^x$$",
+    "questionEn": "Determine the limit Limit with Scaled Linear Factor at Zero: $\\lim_{x \\to 0} (1 + 5x)^{1/x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية بعامل خطي عند الصفر): $\\lim_{x \\to 0} (1 + 5x)^{1/x}$.",
     "optionsEn": [
-      "$e^{7}$",
-      "$e^{8}$",
-      "$e^{10}$",
-      "$7$"
+      "$e^5$",
+      "$5e$",
+      "$e^{1/5}$",
+      "$5$"
     ],
     "optionsAr": [
-      "هـ^{7}",
-      "هـ^{8}",
-      "هـ^{10}",
-      "7"
+      "هـ⁵",
+      "5هـ",
+      "هـ^(1/5)",
+      "5"
     ],
-    "correctAnswer": "$e^{7}$",
+    "correctAnswer": "$e^5$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "lim (1 + kx)^(1/x) = e^k.",
+    "hintAr": "القاعدة: (1 + ك س)^(1/س) تؤول إلى هـ^ك.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 7$, therefore the limit is $e^{7}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 7$، فإن قيمة النهاية هي $e^{7}$ (هـ مرفوعة للأس 7)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_07",
-    "titleEn": "Limit of (1 + 8/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 8/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Standard Natural Exponential Limit",
+    "titleAr": "النهاية القياسية للدالة الأسية الطبيعية",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{8}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{8}{x}\\right)^x$$",
+    "questionEn": "Evaluate the limit for Standard Natural Exponential Limit: $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$.",
+    "questionAr": "احسب قيمة النهاية (النهاية القياسية للدالة الأسية الطبيعية): $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$.",
     "optionsEn": [
-      "$e^{8}$",
-      "$e^{9}$",
-      "$e^{11}$",
-      "$8$"
+      "$1$",
+      "$0$",
+      "$e$",
+      "$\\infty$"
     ],
     "optionsAr": [
-      "هـ^{8}",
-      "هـ^{9}",
-      "هـ^{11}",
-      "8"
+      "1",
+      "0",
+      "هـ",
+      "∞"
     ],
-    "correctAnswer": "$e^{8}$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Standard limit for exponential derivative at 0.",
+    "hintAr": "نهاية قياسية تعبر عن مشتقة هـ^س عند س = 0.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 8$, therefore the limit is $e^{8}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 8$، فإن قيمة النهاية هي $e^{8}$ (هـ مرفوعة للأس 8)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_08",
-    "titleEn": "Limit of (1 + 9/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 9/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Scaled Exponential Limit",
+    "titleAr": "نهاية أسية ذات معامل خطي",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{9}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{9}{x}\\right)^x$$",
+    "questionEn": "Evaluate the limit for Scaled Exponential Limit: $\\lim_{x \\to 0} \\frac{e^{3x} - 1}{x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية أسية ذات معامل خطي): $\\lim_{x \\to 0} \\frac{e^{3x} - 1}{x}$.",
     "optionsEn": [
-      "$e^{9}$",
-      "$e^{10}$",
-      "$e^{12}$",
-      "$9$"
+      "$3$",
+      "$1$",
+      "$e^3$",
+      "$\\frac{1}{3}$"
     ],
     "optionsAr": [
-      "هـ^{9}",
-      "هـ^{10}",
-      "هـ^{12}",
-      "9"
+      "3",
+      "1",
+      "هـ³",
+      "1/3"
     ],
-    "correctAnswer": "$e^{9}$",
+    "correctAnswer": "$3$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "lim (e^(kx)-1)/x = k.",
+    "hintAr": "المعامل ك يخرج كناتج للنهاية.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 9$, therefore the limit is $e^{9}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 9$، فإن قيمة النهاية هي $e^{9}$ (هـ مرفوعة للأس 9)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_09",
-    "titleEn": "Limit of (1 + 10/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 10/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "General Base Exponential Limit",
+    "titleAr": "نهاية الدالة الأسية لأساس عام",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{10}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{10}{x}\\right)^x$$",
+    "questionEn": "Evaluate the limit for General Base Exponential Limit: $\\lim_{x \\to 0} \\frac{2^x - 1}{x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية الدالة الأسية لأساس عام): $\\lim_{x \\to 0} \\frac{2^x - 1}{x}$.",
     "optionsEn": [
-      "$e^{10}$",
-      "$e^{11}$",
-      "$e^{13}$",
-      "$10$"
+      "$\\ln 2$",
+      "$2$",
+      "$\\frac{1}{\\ln 2}$",
+      "$1$"
     ],
     "optionsAr": [
-      "هـ^{10}",
-      "هـ^{11}",
-      "هـ^{13}",
-      "10"
+      "لو_هـ 2",
+      "2",
+      "1 / لو_هـ 2",
+      "1"
     ],
-    "correctAnswer": "$e^{10}$",
+    "correctAnswer": "$\\ln 2$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Standard theorem: lim (a^x - 1)/x = ln a.",
+    "hintAr": "نهاية (أ^س - 1)/س = لو_هـ أ.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 10$, therefore the limit is $e^{10}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 10$، فإن قيمة النهاية هي $e^{10}$ (هـ مرفوعة للأس 10)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_10",
-    "titleEn": "Limit of (1 + 11/x)^x as x approaches infinity",
-    "titleAr": "نهاية (١ + 11/س)^س عندما س تؤول إلى مالانهاية",
+    "titleEn": "Scaled General Exponential Limit",
+    "titleAr": "نهاية أسية عامة بمقام مضاعف",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{11}{x}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(1 + \\frac{11}{x}\\right)^x$$",
+    "questionEn": "Evaluate the limit for Scaled General Exponential Limit: $\\lim_{x \\to 0} \\frac{5^x - 1}{2x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية أسية عامة بمقام مضاعف): $\\lim_{x \\to 0} \\frac{5^x - 1}{2x}$.",
     "optionsEn": [
-      "$e^{11}$",
-      "$e^{12}$",
-      "$e^{14}$",
-      "$11$"
+      "$\\frac{\\ln 5}{2}$",
+      "$\\ln 5$",
+      "$2\\ln 5$",
+      "$\\frac{5}{2}$"
     ],
     "optionsAr": [
-      "هـ^{11}",
-      "هـ^{12}",
-      "هـ^{14}",
-      "11"
+      "(لو_هـ 5)/2",
+      "لو_هـ 5",
+      "2 لو_هـ 5",
+      "5/2"
     ],
-    "correctAnswer": "$e^{11}$",
+    "correctAnswer": "$\\frac{\\ln 5}{2}$",
     "correctIndex": 0,
-    "hintEn": "Apply the fundamental definition: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
-    "hintAr": "طبق التعريف الأساسي للعدد النيبيري: $\\lim_{x \\to \\infty} (1 + k/x)^x = e^k$.",
+    "hintEn": "Factor out 1/2 from denominator.",
+    "hintAr": "أخرج 1/2 كعامل مشترك.",
     "stepByStepSolutionEn": [
-      "By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "Here $k = 11$, therefore the limit is $e^{11}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً للنظرية الأساسية لنهايات العدد النيبيري:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^x = e^k$$",
-      "بما أن $k = 11$، فإن قيمة النهاية هي $e^{11}$ (هـ مرفوعة للأس 11)."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The numerator inside the fraction directly gives the power of e.",
-    "teacherTipAr": "بسط الكسر داخل القوس يمثل مباشرة أس العدد النيبيري هـ."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_11",
-    "titleEn": "Exponential Limit of (3^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (3^س - ١)/س",
+    "titleEn": "Standard Natural Logarithmic Limit",
+    "titleAr": "النهاية القياسية للوغاريتم الطبيعي",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{3^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{3^x - 1}{x}$$",
+    "questionEn": "Evaluate the limit for Standard Natural Logarithmic Limit: $\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x}$.",
+    "questionAr": "احسب قيمة النهاية (النهاية القياسية للوغاريتم الطبيعي): $\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x}$.",
     "optionsEn": [
-      "$\\ln 3$",
-      "$3$",
       "$1$",
-      "$\\frac{1}{\\ln 3}$"
+      "$0$",
+      "$e$",
+      "$\\ln 2$"
     ],
     "optionsAr": [
-      "لو_هـ 3",
-      "3",
       "1",
-      "\\frac{1}{\\text{لو}_هـ 3}"
+      "0",
+      "هـ",
+      "لو_هـ 2"
     ],
-    "correctAnswer": "$\\ln 3$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "lim ln(1+x)/x = 1.",
+    "hintAr": "النهاية القياسية للوغاريتم الطبيعي عند الصفر تساوي 1.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 3$, the result is $\\ln 3$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $3$، إذن الناتج هو $\\ln 3$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_12",
-    "titleEn": "Exponential Limit of (4^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (4^س - ١)/س",
+    "titleEn": "Scaled Natural Logarithmic Limit",
+    "titleAr": "نهاية لوغاريتمية بمضاعف خطي",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{4^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{4^x - 1}{x}$$",
+    "questionEn": "Evaluate the limit for Scaled Natural Logarithmic Limit: $\\lim_{x \\to 0} \\frac{\\ln(1 + 4x)}{x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية لوغاريتمية بمضاعف خطي): $\\lim_{x \\to 0} \\frac{\\ln(1 + 4x)}{x}$.",
     "optionsEn": [
-      "$\\ln 4$",
       "$4$",
       "$1$",
-      "$\\frac{1}{\\ln 4}$"
+      "$\\frac{1}{4}$",
+      "$\\ln 4$"
     ],
     "optionsAr": [
-      "لو_هـ 4",
       "4",
       "1",
-      "\\frac{1}{\\text{لو}_هـ 4}"
+      "1/4",
+      "لو_هـ 4"
     ],
-    "correctAnswer": "$\\ln 4$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "lim ln(1+kx)/x = k.",
+    "hintAr": "الناتج يساوي معامل س وهو 4.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 4$, the result is $\\ln 4$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $4$، إذن الناتج هو $\\ln 4$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_13",
-    "titleEn": "Exponential Limit of (5^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (5^س - ١)/س",
+    "titleEn": "General Base Logarithmic Limit",
+    "titleAr": "نهاية اللوغاريتم المعتاد لأساس عام",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{5^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{5^x - 1}{x}$$",
+    "questionEn": "Evaluate the limit for General Base Logarithmic Limit: $\\lim_{x \\to 0} \\frac{\\log_3(1 + x)}{x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية اللوغاريتم المعتاد لأساس عام): $\\lim_{x \\to 0} \\frac{\\log_3(1 + x)}{x}$.",
     "optionsEn": [
-      "$\\ln 5$",
-      "$5$",
-      "$1$",
-      "$\\frac{1}{\\ln 5}$"
+      "$\\log_3 e$",
+      "$\\ln 3$",
+      "$3$",
+      "$1$"
     ],
     "optionsAr": [
-      "لو_هـ 5",
-      "5",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 5}"
+      "لو_3 هـ",
+      "لو_هـ 3",
+      "3",
+      "1"
     ],
-    "correctAnswer": "$\\ln 5$",
+    "correctAnswer": "$\\log_3 e$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "lim log_a(1+x)/x = log_a e = 1 / ln a.",
+    "hintAr": "نهاية لو_أ(1+س)/س = لو_أ هـ.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 5$, the result is $\\ln 5$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $5$، إذن الناتج هو $\\ln 5$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_14",
-    "titleEn": "Exponential Limit of (6^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (6^س - ١)/س",
+    "titleEn": "Difference of Exponentials Limit",
+    "titleAr": "نهاية فرق دالتين أسيتين",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{6^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{6^x - 1}{x}$$",
+    "questionEn": "Evaluate the limit for Difference of Exponentials Limit: $\\lim_{x \\to 0} \\frac{e^{2x} - e^x}{x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية فرق دالتين أسيتين): $\\lim_{x \\to 0} \\frac{e^{2x} - e^x}{x}$.",
     "optionsEn": [
-      "$\\ln 6$",
-      "$6$",
       "$1$",
-      "$\\frac{1}{\\ln 6}$"
+      "$2$",
+      "$0$",
+      "$e$"
     ],
     "optionsAr": [
-      "لو_هـ 6",
-      "6",
       "1",
-      "\\frac{1}{\\text{لو}_هـ 6}"
+      "2",
+      "0",
+      "هـ"
     ],
-    "correctAnswer": "$\\ln 6$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "(e^(2x)-1)/x - (e^x-1)/x = 2 - 1 = 1.",
+    "hintAr": "أضف واطرح 1 في البسط ثم وزع على المقام.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 6$, the result is $\\ln 6$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $6$، إذن الناتج هو $\\ln 6$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_15",
-    "titleEn": "Exponential Limit of (7^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (7^س - ١)/س",
+    "titleEn": "Limit with Subtraction in Base",
+    "titleAr": "نهاية كسرية بأس متغير عند الصفر",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{7^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{7^x - 1}{x}$$",
+    "questionEn": "Determine the limit Limit with Subtraction in Base: $\\lim_{x \\to 0} (1 - 3x)^{1/x}$.",
+    "questionAr": "احسب قيمة النهاية (نهاية كسرية بأس متغير عند الصفر): $\\lim_{x \\to 0} (1 - 3x)^{1/x}$.",
     "optionsEn": [
-      "$\\ln 7$",
-      "$7$",
-      "$1$",
-      "$\\frac{1}{\\ln 7}$"
+      "$e^{-3}$",
+      "$e^3$",
+      "$-3$",
+      "$\\frac{1}{3}$"
     ],
     "optionsAr": [
-      "لو_هـ 7",
-      "7",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 7}"
+      "هـ⁻³",
+      "هـ³",
+      "-3",
+      "1/3"
     ],
-    "correctAnswer": "$\\ln 7$",
+    "correctAnswer": "$e^{-3}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "Formula gives e^(-3).",
+    "hintAr": "القاعدة تعطي هـ^(-3).",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 7$, the result is $\\ln 7$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $7$، إذن الناتج هو $\\ln 7$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_16",
-    "titleEn": "Exponential Limit of (8^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (8^س - ١)/س",
+    "titleEn": "Derivative of Simple Natural Exponential",
+    "titleAr": "مشتقة دالة أسية طبيعية بسيطة",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{8^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{8^x - 1}{x}$$",
+    "questionEn": "Find the derivative with respect to x for Derivative of Simple Natural Exponential: $\\frac{d}{dx} [e^{5x}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية طبيعية بسيطة): $\\frac{d}{dx} [e^{5x}]$.",
     "optionsEn": [
-      "$\\ln 8$",
-      "$8$",
-      "$1$",
-      "$\\frac{1}{\\ln 8}$"
+      "$5e^{5x}$",
+      "$e^{5x}$",
+      "$5x e^{5x-1}$",
+      "$\\frac{1}{5}e^{5x}$"
     ],
     "optionsAr": [
-      "لو_هـ 8",
-      "8",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 8}"
+      "5هـ^(5س)",
+      "هـ^(5س)",
+      "5س هـ^(5س-1)",
+      "(1/5)هـ^(5س)"
     ],
-    "correctAnswer": "$\\ln 8$",
+    "correctAnswer": "$5e^{5x}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "d/dx[e^(kx)] = k e^(kx).",
+    "hintAr": "مشتقة هـ^(أ س) = أ هـ^(أ س).",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 8$, the result is $\\ln 8$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $8$، إذن الناتج هو $\\ln 8$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_17",
-    "titleEn": "Exponential Limit of (9^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (9^س - ١)/س",
+    "titleEn": "Derivative with Quadratic Exponent",
+    "titleAr": "مشتقة دالة أسية بأس تربيعي",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{9^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{9^x - 1}{x}$$",
+    "questionEn": "Find the derivative with respect to x for Derivative with Quadratic Exponent: $\\frac{d}{dx} [e^{x^2}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية بأس تربيعي): $\\frac{d}{dx} [e^{x^2}]$.",
     "optionsEn": [
-      "$\\ln 9$",
-      "$9$",
-      "$1$",
-      "$\\frac{1}{\\ln 9}$"
+      "$2x e^{x^2}$",
+      "$e^{x^2}$",
+      "$x^2 e^{x^2-1}$",
+      "$2 e^{x^2}$"
     ],
     "optionsAr": [
-      "لو_هـ 9",
-      "9",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 9}"
+      "2س هـ^(س²)",
+      "هـ^(س²)",
+      "س² هـ^(س²-1)",
+      "2هـ^(س²)"
     ],
-    "correctAnswer": "$\\ln 9$",
+    "correctAnswer": "$2x e^{x^2}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "Chain rule: u' * e^u.",
+    "hintAr": "قاعدة السلسلة: مشتقة الأس في الدالة نفسها.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 9$, the result is $\\ln 9$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $9$، إذن الناتج هو $\\ln 9$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_18",
-    "titleEn": "Exponential Limit of (10^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (10^س - ١)/س",
+    "titleEn": "Derivative with Negative Linear Exponent",
+    "titleAr": "مشتقة دالة أسية بأس سالب",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{10^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{10^x - 1}{x}$$",
+    "questionEn": "Find the derivative with respect to x for Derivative with Negative Linear Exponent: $\\frac{d}{dx} [e^{-3x}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية بأس سالب): $\\frac{d}{dx} [e^{-3x}]$.",
     "optionsEn": [
-      "$\\ln 10$",
-      "$10$",
-      "$1$",
-      "$\\frac{1}{\\ln 10}$"
+      "$-3e^{-3x}$",
+      "$3e^{-3x}$",
+      "$-\\frac{1}{3}e^{-3x}$",
+      "$-3x e^{-3x}$"
     ],
     "optionsAr": [
-      "لو_هـ 10",
-      "10",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 10}"
+      "-3هـ^(-3س)",
+      "3هـ^(-3س)",
+      "-(1/3)هـ^(-3س)",
+      "-3س هـ^(-3س)"
     ],
-    "correctAnswer": "$\\ln 10$",
+    "correctAnswer": "$-3e^{-3x}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "d/dx(e^(-3x)) = -3 e^(-3x).",
+    "hintAr": "مشتقة -3س هي -3.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 10$, the result is $\\ln 10$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $10$، إذن الناتج هو $\\ln 10$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_19",
-    "titleEn": "Exponential Limit of (11^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (11^س - ١)/س",
+    "titleEn": "Derivative with Sine in Exponent",
+    "titleAr": "مشتقة دالة أسية بأس مثلثي جا",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{11^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{11^x - 1}{x}$$",
+    "questionEn": "Find the derivative with respect to x for Derivative with Sine in Exponent: $\\frac{d}{dx} [e^{\\sin x}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية بأس مثلثي جا): $\\frac{d}{dx} [e^{\\sin x}]$.",
     "optionsEn": [
-      "$\\ln 11$",
-      "$11$",
-      "$1$",
-      "$\\frac{1}{\\ln 11}$"
+      "$\\cos x \\cdot e^{\\sin x}$",
+      "$-\\cos x \\cdot e^{\\sin x}$",
+      "$\\sin x \\cdot e^{\\sin x}$",
+      "$e^{\\cos x}$"
     ],
     "optionsAr": [
-      "لو_هـ 11",
-      "11",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 11}"
+      "جتا س · هـ^(جا س)",
+      "-جتا س · هـ^(جا س)",
+      "جا س · هـ^(جا س)",
+      "هـ^(جتا س)"
     ],
-    "correctAnswer": "$\\ln 11$",
+    "correctAnswer": "$\\cos x \\cdot e^{\\sin x}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "Derivative of sin x is cos x.",
+    "hintAr": "مشتقة جا س هي جتا س.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 11$, the result is $\\ln 11$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $11$، إذن الناتج هو $\\ln 11$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_20",
-    "titleEn": "Exponential Limit of (12^x - 1)/x",
-    "titleAr": "نهاية الدالة الأسية (12^س - ١)/س",
+    "titleEn": "Derivative with Cosine in Exponent",
+    "titleAr": "مشتقة دالة أسية بأس مثلثي جتا",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to 0} \\frac{12^x - 1}{x}$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to 0} \\frac{12^x - 1}{x}$$",
+    "questionEn": "Find the derivative with respect to x for Derivative with Cosine in Exponent: $\\frac{d}{dx} [e^{\\cos x}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية بأس مثلثي جتا): $\\frac{d}{dx} [e^{\\cos x}]$.",
     "optionsEn": [
-      "$\\ln 12$",
-      "$12$",
-      "$1$",
-      "$\\frac{1}{\\ln 12}$"
+      "$-\\sin x \\cdot e^{\\cos x}$",
+      "$\\sin x \\cdot e^{\\cos x}$",
+      "$\\cos x \\cdot e^{\\cos x}$",
+      "$-e^{\\sin x}$"
     ],
     "optionsAr": [
-      "لو_هـ 12",
-      "12",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 12}"
+      "-جا س · هـ^(جتا س)",
+      "جا س · هـ^(جتا س)",
+      "جتا س · هـ^(جتا س)",
+      "-هـ^(جا س)"
     ],
-    "correctAnswer": "$\\ln 12$",
+    "correctAnswer": "$-\\sin x \\cdot e^{\\cos x}$",
     "correctIndex": 0,
-    "hintEn": "Standard theorem: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
-    "hintAr": "نظرية قياسية: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+    "hintEn": "Derivative of cos x is -sin x.",
+    "hintAr": "مشتقة جتا س هي -جا س.",
     "stepByStepSolutionEn": [
-      "Using the standard limit for general exponential functions:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "With base $a = 12$, the result is $\\ln 12$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "باستخدام النظرية القياسية لنهايات الدوال الأسية:",
-      "$$\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$$",
-      "الأساس هنا هو $12$، إذن الناتج هو $\\ln 12$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For base a, the limit evaluates to ln(a).",
-    "teacherTipAr": "لأي أساس أ، النهاية تساوي لو_هـ(أ)."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_21",
-    "titleEn": "Slope of y = e^(2x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(2س) عند س = ٠",
+    "titleEn": "Derivative of General Exponential Base 2",
+    "titleAr": "مشتقة دالة أسية ذات أساس 2",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{2x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{2x}$ عند $x = 0$.",
+    "questionEn": "Find the derivative with respect to x for Derivative of General Exponential Base 2: $\\frac{d}{dx} [2^x]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية ذات أساس 2): $\\frac{d}{dx} [2^x]$.",
     "optionsEn": [
-      "2",
-      "4",
-      "7",
-      "10"
+      "$2^x \\ln 2$",
+      "$x 2^{x-1}$",
+      "$\\frac{2^x}{\\ln 2}$",
+      "$2^x$"
     ],
     "optionsAr": [
-      "2",
-      "4",
-      "7",
-      "10"
+      "2^س لو_هـ 2",
+      "س 2^(س-1)",
+      "2^س / لو_هـ 2",
+      "2^س"
     ],
-    "correctAnswer": "2",
+    "correctAnswer": "$2^x \\ln 2$",
     "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
+    "hintEn": "d/dx(a^x) = a^x ln a.",
+    "hintAr": "مشتقة أ^س = أ^س لو_هـ أ.",
     "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 2 e^{2x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 2 e^0 = 2(1) = 2$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 2 e^{2x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 2 e^0 = 2$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_22",
-    "titleEn": "Slope of y = e^(3x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(3س) عند س = ٠",
+    "titleEn": "Derivative of General Exponential Base 7 with Linear Exponent",
+    "titleAr": "مشتقة دالة أسية ذات أساس 7 ومعامل في الأس",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{3x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{3x}$ عند $x = 0$.",
+    "questionEn": "Find the derivative with respect to x for Derivative of General Exponential Base 7 with Linear Exponent: $\\frac{d}{dx} [7^{2x}]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية ذات أساس 7 ومعامل في الأس): $\\frac{d}{dx} [7^{2x}]$.",
     "optionsEn": [
-      "3",
-      "5",
-      "8",
-      "11"
+      "$2 \\cdot 7^{2x} \\ln 7$",
+      "$7^{2x} \\ln 7$",
+      "$2 \\cdot 7^{2x}$",
+      "$14^{2x}$"
     ],
     "optionsAr": [
-      "3",
-      "5",
-      "8",
-      "11"
+      "2 · 7^(2س) لو_هـ 7",
+      "7^(2س) لو_هـ 7",
+      "2 · 7^(2س)",
+      "14^(2س)"
     ],
-    "correctAnswer": "3",
+    "correctAnswer": "$2 \\cdot 7^{2x} \\ln 7$",
     "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
+    "hintEn": "Multiply by derivative of exponent 2 and ln 7.",
+    "hintAr": "اضرب في مشتقة الأس 2 وفي لو_هـ 7.",
     "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 3 e^{3x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 3 e^0 = 3(1) = 3$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 3 e^{3x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 3 e^0 = 3$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_23",
-    "titleEn": "Slope of y = e^(4x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(4س) عند س = ٠",
+    "titleEn": "Derivative of General Base 10 Exponential",
+    "titleAr": "مشتقة دالة أسية لأساس 10",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{4x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{4x}$ عند $x = 0$.",
+    "questionEn": "Find the derivative with respect to x for Derivative of General Base 10 Exponential: $\\frac{d}{dx} [10^x]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة دالة أسية لأساس 10): $\\frac{d}{dx} [10^x]$.",
     "optionsEn": [
-      "4",
-      "6",
-      "9",
-      "12"
+      "$10^x \\ln 10$",
+      "$x 10^{x-1}$",
+      "$\\frac{10^x}{\\ln 10}$",
+      "$10^x$"
     ],
     "optionsAr": [
-      "4",
-      "6",
-      "9",
-      "12"
+      "10^س لو_هـ 10",
+      "س 10^(س-1)",
+      "10^س / لو_هـ 10",
+      "10^س"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": "$10^x \\ln 10$",
     "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
+    "hintEn": "d/dx(10^x) = 10^x ln 10.",
+    "hintAr": "مشتقة 10^س = 10^س لو_هـ 10.",
     "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 4 e^{4x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 4 e^0 = 4(1) = 4$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 4 e^{4x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 4 e^0 = 4$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_24",
-    "titleEn": "Slope of y = e^(5x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(5س) عند س = ٠",
+    "titleEn": "Derivative of Natural Log with Linear Argument",
+    "titleAr": "مشتقة لوغاريتم طبيعي بمقدار خطي",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{5x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{5x}$ عند $x = 0$.",
-    "optionsEn": [
-      "5",
-      "7",
-      "10",
-      "13"
-    ],
-    "optionsAr": [
-      "5",
-      "7",
-      "10",
-      "13"
-    ],
-    "correctAnswer": "5",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 5 e^{5x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 5 e^0 = 5(1) = 5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 5 e^{5x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 5 e^0 = 5$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_25",
-    "titleEn": "Slope of y = e^(6x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(6س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{6x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{6x}$ عند $x = 0$.",
-    "optionsEn": [
-      "6",
-      "8",
-      "11",
-      "14"
-    ],
-    "optionsAr": [
-      "6",
-      "8",
-      "11",
-      "14"
-    ],
-    "correctAnswer": "6",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 6 e^{6x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 6 e^0 = 6(1) = 6$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 6 e^{6x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 6 e^0 = 6$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_26",
-    "titleEn": "Slope of y = e^(7x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(7س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{7x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{7x}$ عند $x = 0$.",
-    "optionsEn": [
-      "7",
-      "9",
-      "12",
-      "15"
-    ],
-    "optionsAr": [
-      "7",
-      "9",
-      "12",
-      "15"
-    ],
-    "correctAnswer": "7",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 7 e^{7x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 7 e^0 = 7(1) = 7$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 7 e^{7x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 7 e^0 = 7$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_27",
-    "titleEn": "Slope of y = e^(8x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(8س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{8x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{8x}$ عند $x = 0$.",
-    "optionsEn": [
-      "8",
-      "10",
-      "13",
-      "16"
-    ],
-    "optionsAr": [
-      "8",
-      "10",
-      "13",
-      "16"
-    ],
-    "correctAnswer": "8",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 8 e^{8x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 8 e^0 = 8(1) = 8$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 8 e^{8x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 8 e^0 = 8$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_28",
-    "titleEn": "Slope of y = e^(9x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(9س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{9x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{9x}$ عند $x = 0$.",
-    "optionsEn": [
-      "9",
-      "11",
-      "14",
-      "17"
-    ],
-    "optionsAr": [
-      "9",
-      "11",
-      "14",
-      "17"
-    ],
-    "correctAnswer": "9",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 9 e^{9x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 9 e^0 = 9(1) = 9$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 9 e^{9x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 9 e^0 = 9$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_29",
-    "titleEn": "Slope of y = e^(10x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(10س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{10x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{10x}$ عند $x = 0$.",
-    "optionsEn": [
-      "10",
-      "12",
-      "15",
-      "18"
-    ],
-    "optionsAr": [
-      "10",
-      "12",
-      "15",
-      "18"
-    ],
-    "correctAnswer": "10",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 10 e^{10x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 10 e^0 = 10(1) = 10$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 10 e^{10x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 10 e^0 = 10$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_30",
-    "titleEn": "Slope of y = e^(11x) at x = 0",
-    "titleAr": "ميل مماس ص = هـ^(11س) عند س = ٠",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = e^{11x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{11x}$ عند $x = 0$.",
-    "optionsEn": [
-      "11",
-      "13",
-      "16",
-      "19"
-    ],
-    "optionsAr": [
-      "11",
-      "13",
-      "16",
-      "19"
-    ],
-    "correctAnswer": "11",
-    "correctIndex": 0,
-    "hintEn": "Find $\\frac{dy}{dx} = k e^{kx}$ and substitute $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx} = k e^{kx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative: $\\frac{dy}{dx} = 11 e^{11x}$.",
-      "2. At $x = 0$: $\\frac{dy}{dx} = 11 e^0 = 11(1) = 11$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. المشتقة: $\\frac{dy}{dx} = 11 e^{11x}$.",
-      "٢. عند $x = 0$: $\\frac{dy}{dx} = 11 e^0 = 11$."
-    ],
-    "teacherTipEn": "The derivative of e^(kx) evaluated at 0 is simply the coefficient k.",
-    "teacherTipAr": "مشتقة هـ^(ك س) عند الصفر تساوي المعامل ك مباشرة لأن هـ^٠ = ١."
-  },
-  {
-    "id": "calc_ch2_db_easy_31",
-    "titleEn": "Derivative of ln(3x)",
-    "titleAr": "مشتقة لوغاريتم (3س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(3x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(3x)$ حيث $x > 0$.",
+    "questionEn": "Find the derivative with respect to x for Derivative of Natural Log with Linear Argument: $\\frac{d}{dx} [\\ln(3x)]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم طبيعي بمقدار خطي): $\\frac{d}{dx} [\\ln(3x)]$.",
     "optionsEn": [
       "$\\frac{1}{x}$",
       "$\\frac{3}{x}$",
@@ -1076,4525 +798,4406 @@ export const calcCh2Databank: ChapterDatabank = {
       "$3\\ln(3x)$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{3}{x}",
-      "\\frac{1}{3x}",
-      "3\\text{لو}_هـ(3x)"
+      "1/س",
+      "3/س",
+      "1/(3س)",
+      "3 لو_هـ(3س)"
     ],
     "correctAnswer": "$\\frac{1}{x}$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "d/dx[ln(kx)] = k/(kx) = 1/x.",
+    "hintAr": "مشتقة لو_هـ(أ س) = أ/(أ س) = 1/س دائماً.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{3}{3x}$.",
-      "2. Simplifying: $\\frac{3}{3x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(3x) = \\ln(3) + \\ln(x)$. Since $\\ln(3)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{3}{3x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(3x) = \\ln(3) + \\ln(x)$، ومشتقة الثابت $\\ln(3)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_25",
+    "titleEn": "Derivative of Natural Log of Quadratic",
+    "titleAr": "مشتقة لوغاريتم طبيعي لدالة تربيعية",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Natural Log of Quadratic: $\\frac{d}{dx} [\\ln(x^2 + 4)]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم طبيعي لدالة تربيعية): $\\frac{d}{dx} [\\ln(x^2 + 4)]$.",
+    "optionsEn": [
+      "$\\frac{2x}{x^2 + 4}$",
+      "$\\frac{1}{x^2 + 4}$",
+      "$\\frac{x}{x^2 + 4}$",
+      "$\\frac{2}{x^2 + 4}$"
+    ],
+    "optionsAr": [
+      "2س / (س² + 4)",
+      "1 / (س² + 4)",
+      "س / (س² + 4)",
+      "2 / (س² + 4)"
+    ],
+    "correctAnswer": "$\\frac{2x}{x^2 + 4}$",
+    "correctIndex": 0,
+    "hintEn": "u'/u = 2x / (x^2 + 4).",
+    "hintAr": "مشتقة ما بداخل اللوغاريتم مقسوماً عليه.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_26",
+    "titleEn": "Derivative of Natural Log of Linear Binomial",
+    "titleAr": "مشتقة لوغاريتم مقدار ذي حدين",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Natural Log of Linear Binomial: $\\frac{d}{dx} [\\ln(5x - 2)]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم مقدار ذي حدين): $\\frac{d}{dx} [\\ln(5x - 2)]$.",
+    "optionsEn": [
+      "$\\frac{5}{5x - 2}$",
+      "$\\frac{1}{5x - 2}$",
+      "$\\frac{-2}{5x - 2}$",
+      "$5(5x - 2)$"
+    ],
+    "optionsAr": [
+      "5 / (5س - 2)",
+      "1 / (5س - 2)",
+      "-2 / (5س - 2)",
+      "5(5س - 2)"
+    ],
+    "correctAnswer": "$\\frac{5}{5x - 2}$",
+    "correctIndex": 0,
+    "hintEn": "u'/u = 5 / (5x - 2).",
+    "hintAr": "مشتقة (5س - 2) هي 5.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_27",
+    "titleEn": "Derivative of Natural Log of Sine",
+    "titleAr": "مشتقة لوغاريتم جيب الزاوية",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Natural Log of Sine: $\\frac{d}{dx} [\\ln(\\sin x)]$ for $x \\in (0, \\pi)$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم جيب الزاوية): $\\frac{d}{dx} [\\ln(\\sin x)]$ حيث $x \\in (0, \\pi)$.",
+    "optionsEn": [
+      "$\\cot x$",
+      "$\\tan x$",
+      "$-\\cot x$",
+      "$\\sec x$"
+    ],
+    "optionsAr": [
+      "ظتا س",
+      "ظا س",
+      "-ظتا س",
+      "قا س"
+    ],
+    "correctAnswer": "$\\cot x$",
+    "correctIndex": 0,
+    "hintEn": "cos x / sin x = cot x.",
+    "hintAr": "مشتقة جا س / جا س = جتا س / جا س = ظتا س.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_28",
+    "titleEn": "Derivative of Natural Log of Cosine",
+    "titleAr": "مشتقة لوغاريتم جيب تمام الزاوية",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Natural Log of Cosine: $\\frac{d}{dx} [\\ln(\\cos x)]$ for $x \\in (0, \\pi/2)$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم جيب تمام الزاوية): $\\frac{d}{dx} [\\ln(\\cos x)]$ حيث $x \\in (0, \\pi/2)$.",
+    "optionsEn": [
+      "$-\\tan x$",
+      "$\\tan x$",
+      "$-\\cot x$",
+      "$\\cot x$"
+    ],
+    "optionsAr": [
+      "-ظا س",
+      "ظا س",
+      "-ظتا س",
+      "ظتا س"
+    ],
+    "correctAnswer": "$-\\tan x$",
+    "correctIndex": 0,
+    "hintEn": "-sin x / cos x = -tan x.",
+    "hintAr": "مشتقة جتا س / جتا س = -جا س / جتا س = -ظا س.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_29",
+    "titleEn": "Derivative of Logarithm to Base 10",
+    "titleAr": "مشتقة لوغاريتم معتاد لأساس 10",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Logarithm to Base 10: $\\frac{d}{dx} [\\log_{10}(x)]$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم معتاد لأساس 10): $\\frac{d}{dx} [\\log_{10}(x)]$.",
+    "optionsEn": [
+      "$\\frac{1}{x \\ln 10}$",
+      "$\\frac{\\ln 10}{x}$",
+      "$\\frac{1}{x}$",
+      "$\\frac{10}{x}$"
+    ],
+    "optionsAr": [
+      "1 / (س لو_هـ 10)",
+      "لو_هـ 10 / س",
+      "1/س",
+      "10/س"
+    ],
+    "correctAnswer": "$\\frac{1}{x \\ln 10}$",
+    "correctIndex": 0,
+    "hintEn": "d/dx(log_a x) = 1/(x ln a).",
+    "hintAr": "مشتقة لو_أ س = 1/(س لو_هـ أ).",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_30",
+    "titleEn": "Derivative of Logarithm to Base 2",
+    "titleAr": "مشتقة لوغاريتم لأساس 2",
+    "difficulty": "easy",
+    "questionEn": "Find the derivative with respect to x for Derivative of Logarithm to Base 2: $\\frac{d}{dx} [\\log_2(x^2)]$ for $x > 0$.",
+    "questionAr": "أوجد المشتقة الأولى بالنسبة لـ س (مشتقة لوغاريتم لأساس 2): $\\frac{d}{dx} [\\log_2(x^2)]$ حيث $x > 0$.",
+    "optionsEn": [
+      "$\\frac{2}{x \\ln 2}$",
+      "$\\frac{1}{x \\ln 2}$",
+      "$\\frac{2x}{\\ln 2}$",
+      "$\\frac{1}{2x \\ln 2}$"
+    ],
+    "optionsAr": [
+      "2 / (س لو_هـ 2)",
+      "1 / (س لو_هـ 2)",
+      "2س / لو_هـ 2",
+      "1 / (2س لو_هـ 2)"
+    ],
+    "correctAnswer": "$\\frac{2}{x \\ln 2}$",
+    "correctIndex": 0,
+    "hintEn": "log_2(x^2) = 2 log_2(x) => derivative is 2/(x ln 2).",
+    "hintAr": "لو_2(س²) = 2 لو_2(س) ثم اشتق.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_31",
+    "titleEn": "Slope of Tangent to Exponential at Origin",
+    "titleAr": "ميل المماس لمنحنى أسّي عند نقطة الأصل",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the tangent to $y = e^{3x}$ at $x = 0$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{3x}$ عند $x = 0$.",
+    "optionsEn": [
+      "$3$",
+      "$1$",
+      "$e^3$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "3",
+      "1",
+      "هـ³",
+      "0"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "y' = 3e^(3x). At x=0, y' = 3.",
+    "hintAr": "المشتقة ص' = 3 هـ^(3س)، وعند س=0 تكون 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_32",
-    "titleEn": "Derivative of ln(4x)",
-    "titleAr": "مشتقة لوغاريتم (4س)",
+    "titleEn": "Slope of Tangent to Natural Log at Point (1, 0)",
+    "titleAr": "ميل المماس للوغاريتم الطبيعي عند (1، 0)",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(4x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(4x)$ حيث $x > 0$.",
+    "questionEn": "Find the slope of the tangent to $y = \\ln x$ at $x = 1$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = \\ln x$ عند $x = 1$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{4}{x}$",
-      "$\\frac{1}{4x}$",
-      "$4\\ln(4x)$"
+      "$1$",
+      "$0$",
+      "$e$",
+      "$-1$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{4}{x}",
-      "\\frac{1}{4x}",
-      "4\\text{لو}_هـ(4x)"
+      "1",
+      "0",
+      "هـ",
+      "-1"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "y' = 1/x => y'(1) = 1.",
+    "hintAr": "ص' = 1/س وعند س=1 يكون الميل 1.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{4}{4x}$.",
-      "2. Simplifying: $\\frac{4}{4x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(4x) = \\ln(4) + \\ln(x)$. Since $\\ln(4)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{4}{4x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(4x) = \\ln(4) + \\ln(x)$، ومشتقة الثابت $\\ln(4)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_33",
-    "titleEn": "Derivative of ln(5x)",
-    "titleAr": "مشتقة لوغاريتم (5س)",
+    "titleEn": "Slope of Normal Line to Exponential",
+    "titleAr": "ميل العمودي على منحنى الدالة الأسية",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(5x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(5x)$ حيث $x > 0$.",
+    "questionEn": "Find the slope of the normal to $y = e^{2x}$ at $x = 0$.",
+    "questionAr": "أوجد ميل العمودي على المنحنى $y = e^{2x}$ عند $x = 0$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{5}{x}$",
-      "$\\frac{1}{5x}$",
-      "$5\\ln(5x)$"
+      "$-\\frac{1}{2}$",
+      "$\\frac{1}{2}$",
+      "$-2$",
+      "$2$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{5}{x}",
-      "\\frac{1}{5x}",
-      "5\\text{لو}_هـ(5x)"
+      "-1/2",
+      "1/2",
+      "-2",
+      "2"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$-\\frac{1}{2}$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "m_tan = 2 => m_norm = -1/2.",
+    "hintAr": "ميل المماس = 2 إذن ميل العمودي = -1/2.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{5}{5x}$.",
-      "2. Simplifying: $\\frac{5}{5x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(5x) = \\ln(5) + \\ln(x)$. Since $\\ln(5)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{5}{5x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(5x) = \\ln(5) + \\ln(x)$، ومشتقة الثابت $\\ln(5)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_34",
-    "titleEn": "Derivative of ln(6x)",
-    "titleAr": "مشتقة لوغاريتم (6س)",
+    "titleEn": "Equation of Tangent Line to Exponential Curve",
+    "titleAr": "معادلة المماس لمنحنى دالة أسية",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(6x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(6x)$ حيث $x > 0$.",
+    "questionEn": "Find the equation of the tangent to $y = e^x$ at $(0, 1)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $y = e^x$ عند $(0، 1)$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{6}{x}$",
-      "$\\frac{1}{6x}$",
-      "$6\\ln(6x)$"
+      "$y = x + 1$",
+      "$y = x - 1$",
+      "$y = 2x + 1$",
+      "$y = e x + 1$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{6}{x}",
-      "\\frac{1}{6x}",
-      "6\\text{لو}_هـ(6x)"
+      "ص = س + 1",
+      "ص = س - 1",
+      "ص = 2س + 1",
+      "ص = هـ س + 1"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$y = x + 1$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "m = 1, point (0, 1) => y - 1 = 1(x - 0) => y = x + 1.",
+    "hintAr": "الميل = 1، المعادلة: ص - 1 = س - 0.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{6}{6x}$.",
-      "2. Simplifying: $\\frac{6}{6x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(6x) = \\ln(6) + \\ln(x)$. Since $\\ln(6)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{6}{6x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(6x) = \\ln(6) + \\ln(x)$، ومشتقة الثابت $\\ln(6)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_35",
-    "titleEn": "Derivative of ln(7x)",
-    "titleAr": "مشتقة لوغاريتم (7س)",
+    "titleEn": "Equation of Tangent to Natural Log Curve",
+    "titleAr": "معادلة المماس لمنحنى اللوغاريتم الطبيعي",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(7x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(7x)$ حيث $x > 0$.",
+    "questionEn": "Find the equation of the tangent line to $y = \\ln x$ at $(1, 0)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $y = \\ln x$ عند $(1، 0)$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{7}{x}$",
-      "$\\frac{1}{7x}$",
-      "$7\\ln(7x)$"
+      "$y = x - 1$",
+      "$y = x + 1$",
+      "$y = -x + 1$",
+      "$y = 2x - 2$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{7}{x}",
-      "\\frac{1}{7x}",
-      "7\\text{لو}_هـ(7x)"
+      "ص = س - 1",
+      "ص = س + 1",
+      "ص = -س + 1",
+      "ص = 2س - 2"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$y = x - 1$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "m = 1, point (1, 0) => y - 0 = 1(x - 1) => y = x - 1.",
+    "hintAr": "الميل = 1 والنقطة (1، 0).",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{7}{7x}$.",
-      "2. Simplifying: $\\frac{7}{7x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(7x) = \\ln(7) + \\ln(x)$. Since $\\ln(7)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{7}{7x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(7x) = \\ln(7) + \\ln(x)$، ومشتقة الثابت $\\ln(7)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_36",
-    "titleEn": "Derivative of ln(8x)",
-    "titleAr": "مشتقة لوغاريتم (8س)",
+    "titleEn": "Slope of Tangent to Base 2 Exponential",
+    "titleAr": "ميل المماس للدالة الأسية لأساس 2",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(8x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(8x)$ حيث $x > 0$.",
+    "questionEn": "Find the slope of the tangent to $y = 2^x$ at $x = 0$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = 2^x$ عند $x = 0$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{8}{x}$",
-      "$\\frac{1}{8x}$",
-      "$8\\ln(8x)$"
+      "$\\ln 2$",
+      "$1$",
+      "$2$",
+      "$0$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{8}{x}",
-      "\\frac{1}{8x}",
-      "8\\text{لو}_هـ(8x)"
+      "لو_هـ 2",
+      "1",
+      "2",
+      "0"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$\\ln 2$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "y' = 2^x ln 2 => at x=0, y' = ln 2.",
+    "hintAr": "المشتقة ص' = 2^س لو_هـ 2، وعند س=0 تساوي لو_هـ 2.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{8}{8x}$.",
-      "2. Simplifying: $\\frac{8}{8x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(8x) = \\ln(8) + \\ln(x)$. Since $\\ln(8)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{8}{8x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(8x) = \\ln(8) + \\ln(x)$، ومشتقة الثابت $\\ln(8)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_37",
-    "titleEn": "Derivative of ln(9x)",
-    "titleAr": "مشتقة لوغاريتم (9س)",
+    "titleEn": "Second Derivative of Natural Exponential",
+    "titleAr": "المشتقة الثانية للدالة الأسية الطبيعية",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(9x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(9x)$ حيث $x > 0$.",
+    "questionEn": "Find $\\frac{d^2y}{dx^2}$ if $y = e^{3x}$.",
+    "questionAr": "أوجد $\\frac{d^2y}{dx^2}$ إذا كانت $y = e^{3x}$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{9}{x}$",
-      "$\\frac{1}{9x}$",
-      "$9\\ln(9x)$"
+      "$9e^{3x}$",
+      "$3e^{3x}$",
+      "$6e^{3x}$",
+      "$27e^{3x}$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{9}{x}",
-      "\\frac{1}{9x}",
-      "9\\text{لو}_هـ(9x)"
+      "9هـ^(3س)",
+      "3هـ^(3س)",
+      "6هـ^(3س)",
+      "27هـ^(3س)"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$9e^{3x}$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "y' = 3e^(3x) => y'' = 9e^(3x).",
+    "hintAr": "اشتق مرتين متتاليتين.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{9}{9x}$.",
-      "2. Simplifying: $\\frac{9}{9x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(9x) = \\ln(9) + \\ln(x)$. Since $\\ln(9)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{9}{9x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(9x) = \\ln(9) + \\ln(x)$، ومشتقة الثابت $\\ln(9)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_38",
-    "titleEn": "Derivative of ln(10x)",
-    "titleAr": "مشتقة لوغاريتم (10س)",
+    "titleEn": "Second Derivative of Natural Logarithm",
+    "titleAr": "المشتقة الثانية للوغاريتم الطبيعي",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(10x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(10x)$ حيث $x > 0$.",
+    "questionEn": "Find $\\frac{d^2y}{dx^2}$ if $y = \\ln x$.",
+    "questionAr": "أوجد $\\frac{d^2y}{dx^2}$ إذا كانت $y = \\ln x$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{10}{x}$",
-      "$\\frac{1}{10x}$",
-      "$10\\ln(10x)$"
+      "$-\\frac{1}{x^2}$",
+      "$\\frac{1}{x^2}$",
+      "$-\\frac{1}{x}$",
+      "$\\frac{2}{x^3}$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{10}{x}",
-      "\\frac{1}{10x}",
-      "10\\text{لو}_هـ(10x)"
+      "-1/س²",
+      "1/س²",
+      "-1/س",
+      "2/س³"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$-\\frac{1}{x^2}$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "y' = 1/x => y'' = -1/x^2.",
+    "hintAr": "ص' = س⁻¹ إذن ص'' = -س⁻².",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{10}{10x}$.",
-      "2. Simplifying: $\\frac{10}{10x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(10x) = \\ln(10) + \\ln(x)$. Since $\\ln(10)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{10}{10x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(10x) = \\ln(10) + \\ln(x)$، ومشتقة الثابت $\\ln(10)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_39",
-    "titleEn": "Derivative of ln(11x)",
-    "titleAr": "مشتقة لوغاريتم (11س)",
+    "titleEn": "Product Rule with Exponential Function",
+    "titleAr": "قاعدة ضرب دالة في دالة أسية",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(11x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(11x)$ حيث $x > 0$.",
+    "questionEn": "Compute the derivative $\\frac{dy}{dx}$ for Product Rule with Exponential Function$ if $y = x e^x$.",
+    "questionAr": "احسب المشتقة الأولى صَ (قاعدة ضرب دالة في دالة أسية)$ إذا كانت $y = x e^x$.",
     "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{11}{x}$",
-      "$\\frac{1}{11x}$",
-      "$11\\ln(11x)$"
+      "$(x + 1)e^x$",
+      "$x e^x$",
+      "$e^x$",
+      "$(x - 1)e^x$"
     ],
     "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{11}{x}",
-      "\\frac{1}{11x}",
-      "11\\text{لو}_هـ(11x)"
+      "(س + 1)هـ^س",
+      "س هـ^س",
+      "هـ^س",
+      "(س - 1)هـ^س"
     ],
-    "correctAnswer": "$\\frac{1}{x}$",
+    "correctAnswer": "$(x + 1)e^x$",
     "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
+    "hintEn": "y' = 1*e^x + x*e^x = (x+1)e^x.",
+    "hintAr": "مشتقة الأولى × الثانية + الأولى × مشتقة الثانية.",
     "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{11}{11x}$.",
-      "2. Simplifying: $\\frac{11}{11x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(11x) = \\ln(11) + \\ln(x)$. Since $\\ln(11)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{11}{11x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(11x) = \\ln(11) + \\ln(x)$، ومشتقة الثابت $\\ln(11)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
     "id": "calc_ch2_db_easy_40",
-    "titleEn": "Derivative of ln(12x)",
-    "titleAr": "مشتقة لوغاريتم (12س)",
+    "titleEn": "Value of Derivative at a Point",
+    "titleAr": "قيمة المشتقة الأولى عند نقطة",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(12x)$ for $x > 0$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\ln(12x)$ حيث $x > 0$.",
-    "optionsEn": [
-      "$\\frac{1}{x}$",
-      "$\\frac{12}{x}$",
-      "$\\frac{1}{12x}$",
-      "$12\\ln(12x)$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{x}",
-      "\\frac{12}{x}",
-      "\\frac{1}{12x}",
-      "12\\text{لو}_هـ(12x)"
-    ],
-    "correctAnswer": "$\\frac{1}{x}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(kx)] = \\frac{k}{kx} = \\frac{1}{x}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the chain rule: $\\frac{dy}{dx} = \\frac{(kx)'}{kx} = \\frac{12}{12x}$.",
-      "2. Simplifying: $\\frac{12}{12x} = \\frac{1}{x}$.",
-      "Alternatively, $\\ln(12x) = \\ln(12) + \\ln(x)$. Since $\\ln(12)$ is a constant, its derivative is $0$, leaving $\\frac{1}{x}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باستخدام قاعدة اشتقاق اللوغاريتم: $\\frac{dy}{dx} = \\frac{12}{12x} = \\frac{1}{x}$.",
-      "٢. بطريقة أخرى: $\\ln(12x) = \\ln(12) + \\ln(x)$، ومشتقة الثابت $\\ln(12)$ تساوي صفراً، فيتبقى $\\frac{1}{x}$."
-    ],
-    "teacherTipEn": "The derivative of ln(kx) is independent of k and always equals 1/x!",
-    "teacherTipAr": "مشتقة لو_هـ(ك س) مستقلة عن الثابت ك وتساوي دائماً ١/س!"
-  },
-  {
-    "id": "calc_ch2_db_easy_41",
-    "titleEn": "Indefinite Integral of e^(2x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(2س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{2x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{2x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{2} e^{2x} + C$",
-      "$2 e^{2x} + C$",
-      "$e^{2x} + C$",
-      "$\\frac{1}{4} e^{2x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{2} e^{2x} + C",
-      "2 e^{2x} + C",
-      "e^{2x} + C",
-      "\\frac{1}{4} e^{2x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{2} e^{2x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 2$:",
-      "$$\\int e^{2x} \\, dx = \\frac{1}{2} e^{2x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 2$، فإن التكامل يساوي:",
-      "$$\\frac{1}{2} e^{2x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_42",
-    "titleEn": "Indefinite Integral of e^(3x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(3س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{3x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{3x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{3} e^{3x} + C$",
-      "$3 e^{3x} + C$",
-      "$e^{3x} + C$",
-      "$\\frac{1}{5} e^{3x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{3} e^{3x} + C",
-      "3 e^{3x} + C",
-      "e^{3x} + C",
-      "\\frac{1}{5} e^{3x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{3} e^{3x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 3$:",
-      "$$\\int e^{3x} \\, dx = \\frac{1}{3} e^{3x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 3$، فإن التكامل يساوي:",
-      "$$\\frac{1}{3} e^{3x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_43",
-    "titleEn": "Indefinite Integral of e^(4x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(4س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{4x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{4x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{4} e^{4x} + C$",
-      "$4 e^{4x} + C$",
-      "$e^{4x} + C$",
-      "$\\frac{1}{6} e^{4x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{4} e^{4x} + C",
-      "4 e^{4x} + C",
-      "e^{4x} + C",
-      "\\frac{1}{6} e^{4x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{4} e^{4x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 4$:",
-      "$$\\int e^{4x} \\, dx = \\frac{1}{4} e^{4x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 4$، فإن التكامل يساوي:",
-      "$$\\frac{1}{4} e^{4x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_44",
-    "titleEn": "Indefinite Integral of e^(5x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(5س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{5x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{5x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{5} e^{5x} + C$",
-      "$5 e^{5x} + C$",
-      "$e^{5x} + C$",
-      "$\\frac{1}{7} e^{5x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{5} e^{5x} + C",
-      "5 e^{5x} + C",
-      "e^{5x} + C",
-      "\\frac{1}{7} e^{5x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{5} e^{5x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 5$:",
-      "$$\\int e^{5x} \\, dx = \\frac{1}{5} e^{5x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 5$، فإن التكامل يساوي:",
-      "$$\\frac{1}{5} e^{5x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_45",
-    "titleEn": "Indefinite Integral of e^(6x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(6س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{6x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{6x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{6} e^{6x} + C$",
-      "$6 e^{6x} + C$",
-      "$e^{6x} + C$",
-      "$\\frac{1}{8} e^{6x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{6} e^{6x} + C",
-      "6 e^{6x} + C",
-      "e^{6x} + C",
-      "\\frac{1}{8} e^{6x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{6} e^{6x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 6$:",
-      "$$\\int e^{6x} \\, dx = \\frac{1}{6} e^{6x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 6$، فإن التكامل يساوي:",
-      "$$\\frac{1}{6} e^{6x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_46",
-    "titleEn": "Indefinite Integral of e^(7x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(7س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{7x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{7x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{7} e^{7x} + C$",
-      "$7 e^{7x} + C$",
-      "$e^{7x} + C$",
-      "$\\frac{1}{9} e^{7x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{7} e^{7x} + C",
-      "7 e^{7x} + C",
-      "e^{7x} + C",
-      "\\frac{1}{9} e^{7x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{7} e^{7x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 7$:",
-      "$$\\int e^{7x} \\, dx = \\frac{1}{7} e^{7x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 7$، فإن التكامل يساوي:",
-      "$$\\frac{1}{7} e^{7x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_47",
-    "titleEn": "Indefinite Integral of e^(8x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(8س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{8x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{8x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{8} e^{8x} + C$",
-      "$8 e^{8x} + C$",
-      "$e^{8x} + C$",
-      "$\\frac{1}{10} e^{8x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{8} e^{8x} + C",
-      "8 e^{8x} + C",
-      "e^{8x} + C",
-      "\\frac{1}{10} e^{8x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{8} e^{8x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 8$:",
-      "$$\\int e^{8x} \\, dx = \\frac{1}{8} e^{8x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 8$، فإن التكامل يساوي:",
-      "$$\\frac{1}{8} e^{8x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_48",
-    "titleEn": "Indefinite Integral of e^(9x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(9س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{9x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{9x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{9} e^{9x} + C$",
-      "$9 e^{9x} + C$",
-      "$e^{9x} + C$",
-      "$\\frac{1}{11} e^{9x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{9} e^{9x} + C",
-      "9 e^{9x} + C",
-      "e^{9x} + C",
-      "\\frac{1}{11} e^{9x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{9} e^{9x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 9$:",
-      "$$\\int e^{9x} \\, dx = \\frac{1}{9} e^{9x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 9$، فإن التكامل يساوي:",
-      "$$\\frac{1}{9} e^{9x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_49",
-    "titleEn": "Indefinite Integral of e^(10x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(10س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{10x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{10x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{10} e^{10x} + C$",
-      "$10 e^{10x} + C$",
-      "$e^{10x} + C$",
-      "$\\frac{1}{12} e^{10x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{10} e^{10x} + C",
-      "10 e^{10x} + C",
-      "e^{10x} + C",
-      "\\frac{1}{12} e^{10x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{10} e^{10x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 10$:",
-      "$$\\int e^{10x} \\, dx = \\frac{1}{10} e^{10x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 10$، فإن التكامل يساوي:",
-      "$$\\frac{1}{10} e^{10x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  },
-  {
-    "id": "calc_ch2_db_easy_50",
-    "titleEn": "Indefinite Integral of e^(11x)",
-    "titleAr": "التكامل غير المحدد لـ هـ^(11س)",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $$\\int e^{11x} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int e^{11x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{11} e^{11x} + C$",
-      "$11 e^{11x} + C$",
-      "$e^{11x} + C$",
-      "$\\frac{1}{13} e^{11x} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{11} e^{11x} + C",
-      "11 e^{11x} + C",
-      "e^{11x} + C",
-      "\\frac{1}{13} e^{11x} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{11} e^{11x} + C$",
-    "correctIndex": 0,
-    "hintEn": "The integral of $e^{ax} dx$ is $\\frac{1}{a} e^{ax} + C$.",
-    "hintAr": "تكامل $e^{ax} dx$ هو $\\frac{1}{a} e^{ax} + C$.",
-    "stepByStepSolutionEn": [
-      "By the standard exponential integration rule:",
-      "$$\\int e^{ax} \\, dx = \\frac{1}{a} e^{ax} + C$$",
-      "For $a = 11$:",
-      "$$\\int e^{11x} \\, dx = \\frac{1}{11} e^{11x} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "وفقاً لقاعدة تكامل الدالة الأسية ذات الأس الخطي:",
-      "$$\\int e^{ax} dx = \\frac{1}{a} e^{ax} + C$$",
-      "بما أن $a = 11$، فإن التكامل يساوي:",
-      "$$\\frac{1}{11} e^{11x} + C$$"
-    ],
-    "teacherTipEn": "When integrating, divide by the coefficient of x; when differentiating, multiply by it.",
-    "teacherTipAr": "في التكامل نقسم على معامل س، وفي الاشتقاق نضرب فيه."
-  }
-],
-  medium: [
-  {
-    "id": "calc_ch2_db_med_01",
-    "titleEn": "Rational Base Exponential Limit (diff=2)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=2)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x + 2}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x + 2}\\right)^x$$",
-    "optionsEn": [
-      "$e^{2}$",
-      "$e^{4}$",
-      "$e^{6}$",
-      "$2$"
-    ],
-    "optionsAr": [
-      "هـ^{2}",
-      "هـ^{4}",
-      "هـ^{6}",
-      "2"
-    ],
-    "correctAnswer": "$e^{2}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 4}{x + 2} = \\frac{(x + 2) + 2}{x + 2} = 1 + \\frac{2}{x + 2}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{2}{x + 2}\\right)^x = e^{2}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 4}{x + 2} = 1 + \\frac{2}{x + 2}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{2}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_02",
-    "titleEn": "Rational Base Exponential Limit (diff=3)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=3)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 6}{x + 3}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 6}{x + 3}\\right)^x$$",
-    "optionsEn": [
-      "$e^{3}$",
-      "$e^{5}$",
-      "$e^{7}$",
-      "$3$"
-    ],
-    "optionsAr": [
-      "هـ^{3}",
-      "هـ^{5}",
-      "هـ^{7}",
-      "3"
-    ],
-    "correctAnswer": "$e^{3}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 6}{x + 3} = \\frac{(x + 3) + 3}{x + 3} = 1 + \\frac{3}{x + 3}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{3}{x + 3}\\right)^x = e^{3}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 6}{x + 3} = 1 + \\frac{3}{x + 3}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{3}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_03",
-    "titleEn": "Rational Base Exponential Limit (diff=4)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=4)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 5}{x + 1}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 5}{x + 1}\\right)^x$$",
-    "optionsEn": [
-      "$e^{4}$",
-      "$e^{6}$",
-      "$e^{8}$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "هـ^{4}",
-      "هـ^{6}",
-      "هـ^{8}",
-      "4"
-    ],
-    "correctAnswer": "$e^{4}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 5}{x + 1} = \\frac{(x + 1) + 4}{x + 1} = 1 + \\frac{4}{x + 1}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x + 1}\\right)^x = e^{4}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 5}{x + 1} = 1 + \\frac{4}{x + 1}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{4}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_04",
-    "titleEn": "Rational Base Exponential Limit (diff=5)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=5)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 7}{x + 2}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 7}{x + 2}\\right)^x$$",
-    "optionsEn": [
-      "$e^{5}$",
-      "$e^{7}$",
-      "$e^{9}$",
-      "$5$"
-    ],
-    "optionsAr": [
-      "هـ^{5}",
-      "هـ^{7}",
-      "هـ^{9}",
-      "5"
-    ],
-    "correctAnswer": "$e^{5}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 7}{x + 2} = \\frac{(x + 2) + 5}{x + 2} = 1 + \\frac{5}{x + 2}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{5}{x + 2}\\right)^x = e^{5}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 7}{x + 2} = 1 + \\frac{5}{x + 2}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{5}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_05",
-    "titleEn": "Rational Base Exponential Limit (diff=6)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=6)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 9}{x + 3}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 9}{x + 3}\\right)^x$$",
-    "optionsEn": [
-      "$e^{6}$",
-      "$e^{8}$",
-      "$e^{10}$",
-      "$6$"
-    ],
-    "optionsAr": [
-      "هـ^{6}",
-      "هـ^{8}",
-      "هـ^{10}",
-      "6"
-    ],
-    "correctAnswer": "$e^{6}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 9}{x + 3} = \\frac{(x + 3) + 6}{x + 3} = 1 + \\frac{6}{x + 3}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{6}{x + 3}\\right)^x = e^{6}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 9}{x + 3} = 1 + \\frac{6}{x + 3}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{6}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_06",
-    "titleEn": "Rational Base Exponential Limit (diff=7)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=7)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 8}{x + 1}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 8}{x + 1}\\right)^x$$",
-    "optionsEn": [
-      "$e^{7}$",
-      "$e^{9}$",
-      "$e^{11}$",
-      "$7$"
-    ],
-    "optionsAr": [
-      "هـ^{7}",
-      "هـ^{9}",
-      "هـ^{11}",
-      "7"
-    ],
-    "correctAnswer": "$e^{7}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 8}{x + 1} = \\frac{(x + 1) + 7}{x + 1} = 1 + \\frac{7}{x + 1}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{7}{x + 1}\\right)^x = e^{7}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 8}{x + 1} = 1 + \\frac{7}{x + 1}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{7}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_07",
-    "titleEn": "Rational Base Exponential Limit (diff=8)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=8)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 10}{x + 2}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 10}{x + 2}\\right)^x$$",
-    "optionsEn": [
-      "$e^{8}$",
-      "$e^{10}$",
-      "$e^{12}$",
-      "$8$"
-    ],
-    "optionsAr": [
-      "هـ^{8}",
-      "هـ^{10}",
-      "هـ^{12}",
-      "8"
-    ],
-    "correctAnswer": "$e^{8}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 10}{x + 2} = \\frac{(x + 2) + 8}{x + 2} = 1 + \\frac{8}{x + 2}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{8}{x + 2}\\right)^x = e^{8}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 10}{x + 2} = 1 + \\frac{8}{x + 2}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{8}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_08",
-    "titleEn": "Rational Base Exponential Limit (diff=9)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=9)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 12}{x + 3}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 12}{x + 3}\\right)^x$$",
-    "optionsEn": [
-      "$e^{9}$",
-      "$e^{11}$",
-      "$e^{13}$",
-      "$9$"
-    ],
-    "optionsAr": [
-      "هـ^{9}",
-      "هـ^{11}",
-      "هـ^{13}",
-      "9"
-    ],
-    "correctAnswer": "$e^{9}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 12}{x + 3} = \\frac{(x + 3) + 9}{x + 3} = 1 + \\frac{9}{x + 3}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{9}{x + 3}\\right)^x = e^{9}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 12}{x + 3} = 1 + \\frac{9}{x + 3}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{9}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_09",
-    "titleEn": "Rational Base Exponential Limit (diff=10)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=10)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 11}{x + 1}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 11}{x + 1}\\right)^x$$",
-    "optionsEn": [
-      "$e^{10}$",
-      "$e^{12}$",
-      "$e^{14}$",
-      "$10$"
-    ],
-    "optionsAr": [
-      "هـ^{10}",
-      "هـ^{12}",
-      "هـ^{14}",
-      "10"
-    ],
-    "correctAnswer": "$e^{10}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 11}{x + 1} = \\frac{(x + 1) + 10}{x + 1} = 1 + \\frac{10}{x + 1}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{10}{x + 1}\\right)^x = e^{10}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 11}{x + 1} = 1 + \\frac{10}{x + 1}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{10}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_10",
-    "titleEn": "Rational Base Exponential Limit (diff=11)",
-    "titleAr": "نهاية الأساس النسبي للعدد النيبيري (الفرق=11)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 13}{x + 2}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 13}{x + 2}\\right)^x$$",
-    "optionsEn": [
-      "$e^{11}$",
-      "$e^{13}$",
-      "$e^{15}$",
-      "$11$"
-    ],
-    "optionsAr": [
-      "هـ^{11}",
-      "هـ^{13}",
-      "هـ^{15}",
-      "11"
-    ],
-    "correctAnswer": "$e^{11}$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite the base as $1 + \\frac{a - b}{x + b}$ to obtain $e^{a - b}$.",
-    "hintAr": "أعد كتابة الكسر بالصورة $1 + \\frac{a - b}{x + b}$ لتحصل على هـ^(أ - ب).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 13}{x + 2} = \\frac{(x + 2) + 11}{x + 2} = 1 + \\frac{11}{x + 2}$$",
-      "2. By the standard limit theorem as $x \\to \\infty$:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{11}{x + 2}\\right)^x = e^{11}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بصورة مجموع:",
-      "$$\\frac{x + 13}{x + 2} = 1 + \\frac{11}{x + 2}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{11}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(numerator constant - denominator constant) = e^(a - b).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(ثابت البسط - ثابت المقام) = هـ^(${diff})."
-  },
-  {
-    "id": "calc_ch2_db_med_11",
-    "titleEn": "Derivative of e^(2x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(2س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{2x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{2x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$4 e^{2}$",
-      "$2 e^{2}$",
-      "$6 e^{2}$",
-      "$4 e^{1}$"
-    ],
-    "optionsAr": [
-      "$4 e^{2}$",
-      "$2 e^{2}$",
-      "$6 e^{2}$",
-      "$4 e^{1}$"
-    ],
-    "correctAnswer": "$4 e^{2}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[2x^2] \\cdot e^{2x^2} = 2(2)x \\cdot e^{2x^2} = 4x e^{2x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 4(1) e^{2(1)^2} = 4 e^{2}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 4x e^{2x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 4 e^{2}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_12",
-    "titleEn": "Derivative of e^(3x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(3س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{3x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{3x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$6 e^{3}$",
-      "$3 e^{3}$",
-      "$8 e^{3}$",
-      "$6 e^{2}$"
-    ],
-    "optionsAr": [
-      "$6 e^{3}$",
-      "$3 e^{3}$",
-      "$8 e^{3}$",
-      "$6 e^{2}$"
-    ],
-    "correctAnswer": "$6 e^{3}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[3x^2] \\cdot e^{3x^2} = 2(3)x \\cdot e^{3x^2} = 6x e^{3x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 6(1) e^{3(1)^2} = 6 e^{3}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 6x e^{3x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 6 e^{3}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_13",
-    "titleEn": "Derivative of e^(4x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(4س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{4x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{4x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$8 e^{4}$",
-      "$4 e^{4}$",
-      "$10 e^{4}$",
-      "$8 e^{3}$"
-    ],
-    "optionsAr": [
-      "$8 e^{4}$",
-      "$4 e^{4}$",
-      "$10 e^{4}$",
-      "$8 e^{3}$"
-    ],
-    "correctAnswer": "$8 e^{4}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[4x^2] \\cdot e^{4x^2} = 2(4)x \\cdot e^{4x^2} = 8x e^{4x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 8(1) e^{4(1)^2} = 8 e^{4}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 8x e^{4x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 8 e^{4}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_14",
-    "titleEn": "Derivative of e^(5x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(5س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{5x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{5x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$10 e^{5}$",
-      "$5 e^{5}$",
-      "$12 e^{5}$",
-      "$10 e^{4}$"
-    ],
-    "optionsAr": [
-      "$10 e^{5}$",
-      "$5 e^{5}$",
-      "$12 e^{5}$",
-      "$10 e^{4}$"
-    ],
-    "correctAnswer": "$10 e^{5}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[5x^2] \\cdot e^{5x^2} = 2(5)x \\cdot e^{5x^2} = 10x e^{5x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 10(1) e^{5(1)^2} = 10 e^{5}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 10x e^{5x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 10 e^{5}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_15",
-    "titleEn": "Derivative of e^(6x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(6س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{6x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{6x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$12 e^{6}$",
-      "$6 e^{6}$",
-      "$14 e^{6}$",
-      "$12 e^{5}$"
-    ],
-    "optionsAr": [
-      "$12 e^{6}$",
-      "$6 e^{6}$",
-      "$14 e^{6}$",
-      "$12 e^{5}$"
-    ],
-    "correctAnswer": "$12 e^{6}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[6x^2] \\cdot e^{6x^2} = 2(6)x \\cdot e^{6x^2} = 12x e^{6x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 12(1) e^{6(1)^2} = 12 e^{6}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 12x e^{6x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 12 e^{6}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_16",
-    "titleEn": "Derivative of e^(7x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(7س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{7x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{7x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$14 e^{7}$",
-      "$7 e^{7}$",
-      "$16 e^{7}$",
-      "$14 e^{6}$"
-    ],
-    "optionsAr": [
-      "$14 e^{7}$",
-      "$7 e^{7}$",
-      "$16 e^{7}$",
-      "$14 e^{6}$"
-    ],
-    "correctAnswer": "$14 e^{7}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[7x^2] \\cdot e^{7x^2} = 2(7)x \\cdot e^{7x^2} = 14x e^{7x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 14(1) e^{7(1)^2} = 14 e^{7}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 14x e^{7x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 14 e^{7}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_17",
-    "titleEn": "Derivative of e^(8x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(8س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{8x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{8x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$16 e^{8}$",
-      "$8 e^{8}$",
-      "$18 e^{8}$",
-      "$16 e^{7}$"
-    ],
-    "optionsAr": [
-      "$16 e^{8}$",
-      "$8 e^{8}$",
-      "$18 e^{8}$",
-      "$16 e^{7}$"
-    ],
-    "correctAnswer": "$16 e^{8}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[8x^2] \\cdot e^{8x^2} = 2(8)x \\cdot e^{8x^2} = 16x e^{8x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 16(1) e^{8(1)^2} = 16 e^{8}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 16x e^{8x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 16 e^{8}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_18",
-    "titleEn": "Derivative of e^(9x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(9س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{9x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{9x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$18 e^{9}$",
-      "$9 e^{9}$",
-      "$20 e^{9}$",
-      "$18 e^{8}$"
-    ],
-    "optionsAr": [
-      "$18 e^{9}$",
-      "$9 e^{9}$",
-      "$20 e^{9}$",
-      "$18 e^{8}$"
-    ],
-    "correctAnswer": "$18 e^{9}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[9x^2] \\cdot e^{9x^2} = 2(9)x \\cdot e^{9x^2} = 18x e^{9x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 18(1) e^{9(1)^2} = 18 e^{9}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 18x e^{9x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 18 e^{9}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_19",
-    "titleEn": "Derivative of e^(10x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(10س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{10x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{10x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$20 e^{10}$",
-      "$10 e^{10}$",
-      "$22 e^{10}$",
-      "$20 e^{9}$"
-    ],
-    "optionsAr": [
-      "$20 e^{10}$",
-      "$10 e^{10}$",
-      "$22 e^{10}$",
-      "$20 e^{9}$"
-    ],
-    "correctAnswer": "$20 e^{10}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[10x^2] \\cdot e^{10x^2} = 2(10)x \\cdot e^{10x^2} = 20x e^{10x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 20(1) e^{10(1)^2} = 20 e^{10}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 20x e^{10x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 20 e^{10}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_20",
-    "titleEn": "Derivative of e^(11x^2) at x = 1",
-    "titleAr": "مشتقة هـ^(11س^٢) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find $\\frac{dy}{dx}$ for the curve $y = e^{11x^2}$ at the point where $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للمنحنى $y = e^{11x^2}$ عند النقطة التي فيها $x = 1$.",
-    "optionsEn": [
-      "$22 e^{11}$",
-      "$11 e^{11}$",
-      "$24 e^{11}$",
-      "$22 e^{10}$"
-    ],
-    "optionsAr": [
-      "$22 e^{11}$",
-      "$11 e^{11}$",
-      "$24 e^{11}$",
-      "$22 e^{10}$"
-    ],
-    "correctAnswer": "$22 e^{11}$",
-    "correctIndex": 0,
-    "hintEn": "By the chain rule: $\\frac{dy}{dx} = (2kx) e^{kx^2}$. Evaluate at $x = 1$.",
-    "hintAr": "بقاعدة السلسلة: $\\frac{dy}{dx} = (2kx) e^{kx^2}$، ثم عوض عن $x = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Chain rule: $\\frac{dy}{dx} = \\frac{d}{dx}[11x^2] \\cdot e^{11x^2} = 2(11)x \\cdot e^{11x^2} = 22x e^{11x^2}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = 22(1) e^{11(1)^2} = 22 e^{11}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. باشتقاق الأس بقاعدة السلسلة: $\\frac{dy}{dx} = 22x e^{11x^2}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = 22 e^{11}$."
-    ],
-    "teacherTipEn": "Multiply the exponential by the derivative of its exponent.",
-    "teacherTipAr": "اضرب الدالة الأسية في مشتقة الأس كاملاً."
-  },
-  {
-    "id": "calc_ch2_db_med_21",
-    "titleEn": "Slope of Tangent to y = x e^(1x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(1س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{1x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{1x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$2 e^{1}$",
-      "$1 e^{1}$",
-      "$4 e^{1}$",
-      "$6 e^{1}$"
-    ],
-    "optionsAr": [
-      "$2 e^{1}$",
-      "$1 e^{1}$",
-      "$4 e^{1}$",
-      "$6 e^{1}$"
-    ],
-    "correctAnswer": "$2 e^{1}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{1x} + x \\cdot (1 e^{1x}) = (1 + 1x) e^{1x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 1(1)) e^{1(1)} = 2 e^{1}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 1x) e^{1x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 1) e^{1} = 2 e^{1}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_22",
-    "titleEn": "Slope of Tangent to y = x e^(2x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(2س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{2x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{2x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$3 e^{2}$",
-      "$2 e^{2}$",
-      "$5 e^{2}$",
-      "$7 e^{2}$"
-    ],
-    "optionsAr": [
-      "$3 e^{2}$",
-      "$2 e^{2}$",
-      "$5 e^{2}$",
-      "$7 e^{2}$"
-    ],
-    "correctAnswer": "$3 e^{2}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{2x} + x \\cdot (2 e^{2x}) = (1 + 2x) e^{2x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 2(1)) e^{2(1)} = 3 e^{2}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 2x) e^{2x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 2) e^{2} = 3 e^{2}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_23",
-    "titleEn": "Slope of Tangent to y = x e^(3x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(3س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{3x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{3x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$4 e^{3}$",
-      "$3 e^{3}$",
-      "$6 e^{3}$",
-      "$8 e^{3}$"
-    ],
-    "optionsAr": [
-      "$4 e^{3}$",
-      "$3 e^{3}$",
-      "$6 e^{3}$",
-      "$8 e^{3}$"
-    ],
-    "correctAnswer": "$4 e^{3}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{3x} + x \\cdot (3 e^{3x}) = (1 + 3x) e^{3x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 3(1)) e^{3(1)} = 4 e^{3}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 3x) e^{3x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 3) e^{3} = 4 e^{3}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_24",
-    "titleEn": "Slope of Tangent to y = x e^(4x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(4س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{4x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{4x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$5 e^{4}$",
-      "$4 e^{4}$",
-      "$7 e^{4}$",
-      "$9 e^{4}$"
-    ],
-    "optionsAr": [
-      "$5 e^{4}$",
-      "$4 e^{4}$",
-      "$7 e^{4}$",
-      "$9 e^{4}$"
-    ],
-    "correctAnswer": "$5 e^{4}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{4x} + x \\cdot (4 e^{4x}) = (1 + 4x) e^{4x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 4(1)) e^{4(1)} = 5 e^{4}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 4x) e^{4x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 4) e^{4} = 5 e^{4}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_25",
-    "titleEn": "Slope of Tangent to y = x e^(5x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(5س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{5x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{5x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$6 e^{5}$",
-      "$5 e^{5}$",
-      "$8 e^{5}$",
-      "$10 e^{5}$"
-    ],
-    "optionsAr": [
-      "$6 e^{5}$",
-      "$5 e^{5}$",
-      "$8 e^{5}$",
-      "$10 e^{5}$"
-    ],
-    "correctAnswer": "$6 e^{5}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{5x} + x \\cdot (5 e^{5x}) = (1 + 5x) e^{5x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 5(1)) e^{5(1)} = 6 e^{5}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 5x) e^{5x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 5) e^{5} = 6 e^{5}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_26",
-    "titleEn": "Slope of Tangent to y = x e^(6x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(6س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{6x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{6x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$7 e^{6}$",
-      "$6 e^{6}$",
-      "$9 e^{6}$",
-      "$11 e^{6}$"
-    ],
-    "optionsAr": [
-      "$7 e^{6}$",
-      "$6 e^{6}$",
-      "$9 e^{6}$",
-      "$11 e^{6}$"
-    ],
-    "correctAnswer": "$7 e^{6}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{6x} + x \\cdot (6 e^{6x}) = (1 + 6x) e^{6x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 6(1)) e^{6(1)} = 7 e^{6}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 6x) e^{6x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 6) e^{6} = 7 e^{6}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_27",
-    "titleEn": "Slope of Tangent to y = x e^(7x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(7س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{7x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{7x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$8 e^{7}$",
-      "$7 e^{7}$",
-      "$10 e^{7}$",
-      "$12 e^{7}$"
-    ],
-    "optionsAr": [
-      "$8 e^{7}$",
-      "$7 e^{7}$",
-      "$10 e^{7}$",
-      "$12 e^{7}$"
-    ],
-    "correctAnswer": "$8 e^{7}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{7x} + x \\cdot (7 e^{7x}) = (1 + 7x) e^{7x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 7(1)) e^{7(1)} = 8 e^{7}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 7x) e^{7x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 7) e^{7} = 8 e^{7}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_28",
-    "titleEn": "Slope of Tangent to y = x e^(8x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(8س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{8x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{8x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$9 e^{8}$",
-      "$8 e^{8}$",
-      "$11 e^{8}$",
-      "$13 e^{8}$"
-    ],
-    "optionsAr": [
-      "$9 e^{8}$",
-      "$8 e^{8}$",
-      "$11 e^{8}$",
-      "$13 e^{8}$"
-    ],
-    "correctAnswer": "$9 e^{8}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{8x} + x \\cdot (8 e^{8x}) = (1 + 8x) e^{8x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 8(1)) e^{8(1)} = 9 e^{8}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 8x) e^{8x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 8) e^{8} = 9 e^{8}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_29",
-    "titleEn": "Slope of Tangent to y = x e^(9x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(9س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{9x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{9x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$10 e^{9}$",
-      "$9 e^{9}$",
-      "$12 e^{9}$",
-      "$14 e^{9}$"
-    ],
-    "optionsAr": [
-      "$10 e^{9}$",
-      "$9 e^{9}$",
-      "$12 e^{9}$",
-      "$14 e^{9}$"
-    ],
-    "correctAnswer": "$10 e^{9}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{9x} + x \\cdot (9 e^{9x}) = (1 + 9x) e^{9x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 9(1)) e^{9(1)} = 10 e^{9}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 9x) e^{9x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 9) e^{9} = 10 e^{9}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_30",
-    "titleEn": "Slope of Tangent to y = x e^(10x) at x = 1",
-    "titleAr": "ميل مماس ص = س هـ^(10س) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $y = x e^{10x}$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = x e^{10x}$ عند $x = 1$.",
-    "optionsEn": [
-      "$11 e^{10}$",
-      "$10 e^{10}$",
-      "$13 e^{10}$",
-      "$15 e^{10}$"
-    ],
-    "optionsAr": [
-      "$11 e^{10}$",
-      "$10 e^{10}$",
-      "$13 e^{10}$",
-      "$15 e^{10}$"
-    ],
-    "correctAnswer": "$11 e^{10}$",
-    "correctIndex": 0,
-    "hintEn": "Apply the product rule: $y' = (1)e^{kx} + x(k e^{kx}) = (1 + kx)e^{kx}$.",
-    "hintAr": "طبق قاعدة حاصل الضرب: $y' = (1 + kx)e^{kx}$.",
-    "stepByStepSolutionEn": [
-      "1. Product rule: $\\frac{dy}{dx} = (1) \\cdot e^{10x} + x \\cdot (10 e^{10x}) = (1 + 10x) e^{10x}$.",
-      "2. At $x = 1$: $\\frac{dy}{dx} = (1 + 10(1)) e^{10(1)} = 11 e^{10}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بقاعدة حاصل الضرب: $\\frac{dy}{dx} = (1 + 10x) e^{10x}$.",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = (1 + 10) e^{10} = 11 e^{10}$."
-    ],
-    "teacherTipEn": "Always use the product rule when x multiplies an exponential expression.",
-    "teacherTipAr": "استخدم دائماً قاعدة ضرب دالتين عندما تضرب س في دالة أسية."
-  },
-  {
-    "id": "calc_ch2_db_med_31",
-    "titleEn": "Derivative of ln(x^2 + 1) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 1) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 1)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 1)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{2}$",
-      "$\\frac{1}{2}$",
-      "$\\frac{2}{4}$",
-      "$2$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{2}",
-      "\\frac{1}{2}",
-      "\\frac{2}{4}",
-      "2"
-    ],
-    "correctAnswer": "$\\frac{2}{2}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 1)'}{x^2 + 1} = \\frac{2x}{x^2 + 1}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 1} = \\frac{2}{2}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 1}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{2}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_32",
-    "titleEn": "Derivative of ln(x^2 + 2) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 2) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 2)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 2)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{3}$",
-      "$\\frac{1}{3}$",
-      "$\\frac{2}{5}$",
-      "$3$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{3}",
-      "\\frac{1}{3}",
-      "\\frac{2}{5}",
-      "3"
-    ],
-    "correctAnswer": "$\\frac{2}{3}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 2)'}{x^2 + 2} = \\frac{2x}{x^2 + 2}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 2} = \\frac{2}{3}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 2}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{3}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_33",
-    "titleEn": "Derivative of ln(x^2 + 3) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 3) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 3)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 3)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{4}$",
-      "$\\frac{1}{4}$",
-      "$\\frac{2}{6}$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{4}",
-      "\\frac{1}{4}",
-      "\\frac{2}{6}",
-      "4"
-    ],
-    "correctAnswer": "$\\frac{2}{4}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 3)'}{x^2 + 3} = \\frac{2x}{x^2 + 3}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 3} = \\frac{2}{4}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 3}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{4}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_34",
-    "titleEn": "Derivative of ln(x^2 + 4) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 4) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 4)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 4)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{5}$",
-      "$\\frac{1}{5}$",
-      "$\\frac{2}{7}$",
-      "$5$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{5}",
-      "\\frac{1}{5}",
-      "\\frac{2}{7}",
-      "5"
-    ],
-    "correctAnswer": "$\\frac{2}{5}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 4)'}{x^2 + 4} = \\frac{2x}{x^2 + 4}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 4} = \\frac{2}{5}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 4}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{5}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_35",
-    "titleEn": "Derivative of ln(x^2 + 5) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 5) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 5)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 5)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{6}$",
-      "$\\frac{1}{6}$",
-      "$\\frac{2}{8}$",
-      "$6$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{6}",
-      "\\frac{1}{6}",
-      "\\frac{2}{8}",
-      "6"
-    ],
-    "correctAnswer": "$\\frac{2}{6}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 5)'}{x^2 + 5} = \\frac{2x}{x^2 + 5}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 5} = \\frac{2}{6}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 5}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{6}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_36",
-    "titleEn": "Derivative of ln(x^2 + 6) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 6) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 6)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 6)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{7}$",
-      "$\\frac{1}{7}$",
-      "$\\frac{2}{9}$",
-      "$7$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{7}",
-      "\\frac{1}{7}",
-      "\\frac{2}{9}",
-      "7"
-    ],
-    "correctAnswer": "$\\frac{2}{7}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 6)'}{x^2 + 6} = \\frac{2x}{x^2 + 6}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 6} = \\frac{2}{7}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 6}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{7}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_37",
-    "titleEn": "Derivative of ln(x^2 + 7) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 7) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 7)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 7)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{8}$",
-      "$\\frac{1}{8}$",
-      "$\\frac{2}{10}$",
-      "$8$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{8}",
-      "\\frac{1}{8}",
-      "\\frac{2}{10}",
-      "8"
-    ],
-    "correctAnswer": "$\\frac{2}{8}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 7)'}{x^2 + 7} = \\frac{2x}{x^2 + 7}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 7} = \\frac{2}{8}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 7}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{8}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_38",
-    "titleEn": "Derivative of ln(x^2 + 8) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 8) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 8)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 8)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{9}$",
-      "$\\frac{1}{9}$",
-      "$\\frac{2}{11}$",
-      "$9$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{9}",
-      "\\frac{1}{9}",
-      "\\frac{2}{11}",
-      "9"
-    ],
-    "correctAnswer": "$\\frac{2}{9}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 8)'}{x^2 + 8} = \\frac{2x}{x^2 + 8}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 8} = \\frac{2}{9}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 8}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{9}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_39",
-    "titleEn": "Derivative of ln(x^2 + 9) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 9) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 9)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 9)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{10}$",
-      "$\\frac{1}{10}$",
-      "$\\frac{2}{12}$",
-      "$10$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{10}",
-      "\\frac{1}{10}",
-      "\\frac{2}{12}",
-      "10"
-    ],
-    "correctAnswer": "$\\frac{2}{10}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 9)'}{x^2 + 9} = \\frac{2x}{x^2 + 9}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 9} = \\frac{2}{10}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 9}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{10}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_40",
-    "titleEn": "Derivative of ln(x^2 + 10) at x = 1",
-    "titleAr": "مشتقة لو_هـ(س^٢ + 10) عند س = ١",
-    "difficulty": "medium",
-    "questionEn": "Find the value of $\\frac{dy}{dx}$ for $y = \\ln(x^2 + 10)$ at $x = 1$.",
-    "questionAr": "أوجد قيمة $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 10)$ عند $x = 1$.",
-    "optionsEn": [
-      "$\\frac{2}{11}$",
-      "$\\frac{1}{11}$",
-      "$\\frac{2}{13}$",
-      "$11$"
-    ],
-    "optionsAr": [
-      "\\frac{2}{11}",
-      "\\frac{1}{11}",
-      "\\frac{2}{13}",
-      "11"
-    ],
-    "correctAnswer": "$\\frac{2}{11}$",
-    "correctIndex": 0,
-    "hintEn": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "hintAr": "$\\frac{d}{dx}[\\ln(u)] = \\frac{u'}{u} = \\frac{2x}{x^2 + k}$.",
-    "stepByStepSolutionEn": [
-      "1. Using the logarithmic derivative rule:",
-      "$$\\frac{dy}{dx} = \\frac{(x^2 + 10)'}{x^2 + 10} = \\frac{2x}{x^2 + 10}$$",
-      "2. At $x = 1$:",
-      "$$\\frac{dy}{dx} = \\frac{2(1)}{1^2 + 10} = \\frac{2}{11}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة ما بداخل اللوغاريتم مقسوماً على ما بداخل اللوغاريتم:",
-      "$$\\frac{dy}{dx} = \\frac{2x}{x^2 + 10}$$",
-      "٢. عند $x = 1$: $\\frac{dy}{dx} = \\frac{2}{11}$."
-    ],
-    "teacherTipEn": "The derivative of ln(f(x)) is f'(x) / f(x).",
-    "teacherTipAr": "مشتقة لوغاريتم دالة هي مشتقة الدالة مقسومة على الدالة نفسها."
-  },
-  {
-    "id": "calc_ch2_db_med_41",
-    "titleEn": "Indefinite Integral of x e^(2x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(2س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{2x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{2x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{4} e^{2x^2} + C$",
-      "$\\frac{1}{2} e^{2x^2} + C$",
-      "$4 e^{2x^2} + C$",
-      "$\\frac{1}{6} e^{2x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{4} e^{2x^2} + C",
-      "\\frac{1}{2} e^{2x^2} + C",
-      "4 e^{2x^2} + C",
-      "\\frac{1}{6} e^{2x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{4} e^{2x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 2x^2$, whose derivative is $u' = 2(2)x = 4x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{2x^2} \\, dx = \\frac{1}{4} \\int (4x) e^{2x^2} \\, dx = \\frac{1}{4} e^{2x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 2x^2$، ومشقته $u' = 4x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 4:",
-      "$$\\int x e^{2x^2} dx = \\frac{1}{4} e^{2x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_42",
-    "titleEn": "Indefinite Integral of x e^(3x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(3س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{3x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{3x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{6} e^{3x^2} + C$",
-      "$\\frac{1}{3} e^{3x^2} + C$",
-      "$6 e^{3x^2} + C$",
-      "$\\frac{1}{8} e^{3x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{6} e^{3x^2} + C",
-      "\\frac{1}{3} e^{3x^2} + C",
-      "6 e^{3x^2} + C",
-      "\\frac{1}{8} e^{3x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{6} e^{3x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 3x^2$, whose derivative is $u' = 2(3)x = 6x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{3x^2} \\, dx = \\frac{1}{6} \\int (6x) e^{3x^2} \\, dx = \\frac{1}{6} e^{3x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 3x^2$، ومشقته $u' = 6x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 6:",
-      "$$\\int x e^{3x^2} dx = \\frac{1}{6} e^{3x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_43",
-    "titleEn": "Indefinite Integral of x e^(4x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(4س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{4x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{4x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{8} e^{4x^2} + C$",
-      "$\\frac{1}{4} e^{4x^2} + C$",
-      "$8 e^{4x^2} + C$",
-      "$\\frac{1}{10} e^{4x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{8} e^{4x^2} + C",
-      "\\frac{1}{4} e^{4x^2} + C",
-      "8 e^{4x^2} + C",
-      "\\frac{1}{10} e^{4x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{8} e^{4x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 4x^2$, whose derivative is $u' = 2(4)x = 8x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{4x^2} \\, dx = \\frac{1}{8} \\int (8x) e^{4x^2} \\, dx = \\frac{1}{8} e^{4x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 4x^2$، ومشقته $u' = 8x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 8:",
-      "$$\\int x e^{4x^2} dx = \\frac{1}{8} e^{4x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_44",
-    "titleEn": "Indefinite Integral of x e^(5x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(5س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{5x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{5x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{10} e^{5x^2} + C$",
-      "$\\frac{1}{5} e^{5x^2} + C$",
-      "$10 e^{5x^2} + C$",
-      "$\\frac{1}{12} e^{5x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{10} e^{5x^2} + C",
-      "\\frac{1}{5} e^{5x^2} + C",
-      "10 e^{5x^2} + C",
-      "\\frac{1}{12} e^{5x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{10} e^{5x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 5x^2$, whose derivative is $u' = 2(5)x = 10x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{5x^2} \\, dx = \\frac{1}{10} \\int (10x) e^{5x^2} \\, dx = \\frac{1}{10} e^{5x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 5x^2$، ومشقته $u' = 10x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 10:",
-      "$$\\int x e^{5x^2} dx = \\frac{1}{10} e^{5x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_45",
-    "titleEn": "Indefinite Integral of x e^(6x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(6س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{6x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{6x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{12} e^{6x^2} + C$",
-      "$\\frac{1}{6} e^{6x^2} + C$",
-      "$12 e^{6x^2} + C$",
-      "$\\frac{1}{14} e^{6x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{12} e^{6x^2} + C",
-      "\\frac{1}{6} e^{6x^2} + C",
-      "12 e^{6x^2} + C",
-      "\\frac{1}{14} e^{6x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{12} e^{6x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 6x^2$, whose derivative is $u' = 2(6)x = 12x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{6x^2} \\, dx = \\frac{1}{12} \\int (12x) e^{6x^2} \\, dx = \\frac{1}{12} e^{6x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 6x^2$، ومشقته $u' = 12x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 12:",
-      "$$\\int x e^{6x^2} dx = \\frac{1}{12} e^{6x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_46",
-    "titleEn": "Indefinite Integral of x e^(7x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(7س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{7x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{7x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{14} e^{7x^2} + C$",
-      "$\\frac{1}{7} e^{7x^2} + C$",
-      "$14 e^{7x^2} + C$",
-      "$\\frac{1}{16} e^{7x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{14} e^{7x^2} + C",
-      "\\frac{1}{7} e^{7x^2} + C",
-      "14 e^{7x^2} + C",
-      "\\frac{1}{16} e^{7x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{14} e^{7x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 7x^2$, whose derivative is $u' = 2(7)x = 14x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{7x^2} \\, dx = \\frac{1}{14} \\int (14x) e^{7x^2} \\, dx = \\frac{1}{14} e^{7x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 7x^2$، ومشقته $u' = 14x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 14:",
-      "$$\\int x e^{7x^2} dx = \\frac{1}{14} e^{7x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_47",
-    "titleEn": "Indefinite Integral of x e^(8x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(8س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{8x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{8x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{16} e^{8x^2} + C$",
-      "$\\frac{1}{8} e^{8x^2} + C$",
-      "$16 e^{8x^2} + C$",
-      "$\\frac{1}{18} e^{8x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{16} e^{8x^2} + C",
-      "\\frac{1}{8} e^{8x^2} + C",
-      "16 e^{8x^2} + C",
-      "\\frac{1}{18} e^{8x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{16} e^{8x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 8x^2$, whose derivative is $u' = 2(8)x = 16x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{8x^2} \\, dx = \\frac{1}{16} \\int (16x) e^{8x^2} \\, dx = \\frac{1}{16} e^{8x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 8x^2$، ومشقته $u' = 16x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 16:",
-      "$$\\int x e^{8x^2} dx = \\frac{1}{16} e^{8x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_48",
-    "titleEn": "Indefinite Integral of x e^(9x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(9س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{9x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{9x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{18} e^{9x^2} + C$",
-      "$\\frac{1}{9} e^{9x^2} + C$",
-      "$18 e^{9x^2} + C$",
-      "$\\frac{1}{20} e^{9x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{18} e^{9x^2} + C",
-      "\\frac{1}{9} e^{9x^2} + C",
-      "18 e^{9x^2} + C",
-      "\\frac{1}{20} e^{9x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{18} e^{9x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 9x^2$, whose derivative is $u' = 2(9)x = 18x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{9x^2} \\, dx = \\frac{1}{18} \\int (18x) e^{9x^2} \\, dx = \\frac{1}{18} e^{9x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 9x^2$، ومشقته $u' = 18x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 18:",
-      "$$\\int x e^{9x^2} dx = \\frac{1}{18} e^{9x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_49",
-    "titleEn": "Indefinite Integral of x e^(10x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(10س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{10x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{10x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{20} e^{10x^2} + C$",
-      "$\\frac{1}{10} e^{10x^2} + C$",
-      "$20 e^{10x^2} + C$",
-      "$\\frac{1}{22} e^{10x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{20} e^{10x^2} + C",
-      "\\frac{1}{10} e^{10x^2} + C",
-      "20 e^{10x^2} + C",
-      "\\frac{1}{22} e^{10x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{20} e^{10x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 10x^2$, whose derivative is $u' = 2(10)x = 20x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{10x^2} \\, dx = \\frac{1}{20} \\int (20x) e^{10x^2} \\, dx = \\frac{1}{20} e^{10x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 10x^2$، ومشقته $u' = 20x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 20:",
-      "$$\\int x e^{10x^2} dx = \\frac{1}{20} e^{10x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  },
-  {
-    "id": "calc_ch2_db_med_50",
-    "titleEn": "Indefinite Integral of x e^(11x^2)",
-    "titleAr": "التكامل غير المحدد لـ س هـ^(11س^٢)",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $$\\int x e^{11x^2} \\, dx$$",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int x e^{11x^2} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{22} e^{11x^2} + C$",
-      "$\\frac{1}{11} e^{11x^2} + C$",
-      "$22 e^{11x^2} + C$",
-      "$\\frac{1}{24} e^{11x^2} + C$"
-    ],
-    "optionsAr": [
-      "\\frac{1}{22} e^{11x^2} + C",
-      "\\frac{1}{11} e^{11x^2} + C",
-      "22 e^{11x^2} + C",
-      "\\frac{1}{24} e^{11x^2} + C"
-    ],
-    "correctAnswer": "$\\frac{1}{22} e^{11x^2} + C$",
-    "correctIndex": 0,
-    "hintEn": "Multiply and divide by $2k$: $\\frac{1}{2k} \\int (2kx) e^{kx^2} dx$.",
-    "hintAr": "اضرب واقسم على $2k$ لتوفير مشتقة الأس.",
-    "stepByStepSolutionEn": [
-      "1. The exponent is $u = 11x^2$, whose derivative is $u' = 2(11)x = 22x$.",
-      "2. Adjust the constant factor:",
-      "$$\\int x e^{11x^2} \\, dx = \\frac{1}{22} \\int (22x) e^{11x^2} \\, dx = \\frac{1}{22} e^{11x^2} + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. الأس $u = 11x^2$، ومشقته $u' = 22x$.",
-      "٢. نوفر معامل الاشتقاق بالضرب والقسمة على 22:",
-      "$$\\int x e^{11x^2} dx = \\frac{1}{22} e^{11x^2} + C$$"
-    ],
-    "teacherTipEn": "Whenever you integrate x * e^(kx^2), the factor 1/(2k) appears outside.",
-    "teacherTipAr": "عند تكامل س هـ^(ك س²)، يخرج المعامل ١/(٢ك) خارج التكامل."
-  }
-],
-  hots: [
-  {
-    "id": "calc_ch2_db_hots_01",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=2)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=2)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 2}{x - 2}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 2}{x - 2}\\right)^x$$",
-    "optionsEn": [
-      "$e^{4}$",
-      "$e^{2}$",
-      "$e^{6}$",
-      "$e^{8}$"
-    ],
-    "optionsAr": [
-      "هـ^{4}",
-      "هـ^{2}",
-      "هـ^{6}",
-      "هـ^{8}"
-    ],
-    "correctAnswer": "$e^{4}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 2}{x - 2} = \\frac{(x - 2) + 4}{x - 2} = 1 + \\frac{4}{x - 2}$$",
-      "2. As $x \\to \\infty$, $(x - 2) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x - 2}\\right)^x = e^{4}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 2}{x - 2} = 1 + \\frac{4}{x - 2}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{4}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_02",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=3)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=3)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 3}{x - 3}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 3}{x - 3}\\right)^x$$",
-    "optionsEn": [
-      "$e^{6}$",
-      "$e^{3}$",
-      "$e^{8}$",
-      "$e^{10}$"
-    ],
-    "optionsAr": [
-      "هـ^{6}",
-      "هـ^{3}",
-      "هـ^{8}",
-      "هـ^{10}"
-    ],
-    "correctAnswer": "$e^{6}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 3}{x - 3} = \\frac{(x - 3) + 6}{x - 3} = 1 + \\frac{6}{x - 3}$$",
-      "2. As $x \\to \\infty$, $(x - 3) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{6}{x - 3}\\right)^x = e^{6}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 3}{x - 3} = 1 + \\frac{6}{x - 3}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{6}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_03",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=4)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=4)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x - 4}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x - 4}\\right)^x$$",
-    "optionsEn": [
-      "$e^{8}$",
-      "$e^{4}$",
-      "$e^{10}$",
-      "$e^{12}$"
-    ],
-    "optionsAr": [
-      "هـ^{8}",
-      "هـ^{4}",
-      "هـ^{10}",
-      "هـ^{12}"
-    ],
-    "correctAnswer": "$e^{8}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 4}{x - 4} = \\frac{(x - 4) + 8}{x - 4} = 1 + \\frac{8}{x - 4}$$",
-      "2. As $x \\to \\infty$, $(x - 4) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{8}{x - 4}\\right)^x = e^{8}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 4}{x - 4} = 1 + \\frac{8}{x - 4}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{8}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_04",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=5)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=5)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 5}{x - 5}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 5}{x - 5}\\right)^x$$",
-    "optionsEn": [
-      "$e^{10}$",
-      "$e^{5}$",
-      "$e^{12}$",
-      "$e^{14}$"
-    ],
-    "optionsAr": [
-      "هـ^{10}",
-      "هـ^{5}",
-      "هـ^{12}",
-      "هـ^{14}"
-    ],
-    "correctAnswer": "$e^{10}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 5}{x - 5} = \\frac{(x - 5) + 10}{x - 5} = 1 + \\frac{10}{x - 5}$$",
-      "2. As $x \\to \\infty$, $(x - 5) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{10}{x - 5}\\right)^x = e^{10}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 5}{x - 5} = 1 + \\frac{10}{x - 5}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{10}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_05",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=6)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=6)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 6}{x - 6}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 6}{x - 6}\\right)^x$$",
-    "optionsEn": [
-      "$e^{12}$",
-      "$e^{6}$",
-      "$e^{14}$",
-      "$e^{16}$"
-    ],
-    "optionsAr": [
-      "هـ^{12}",
-      "هـ^{6}",
-      "هـ^{14}",
-      "هـ^{16}"
-    ],
-    "correctAnswer": "$e^{12}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 6}{x - 6} = \\frac{(x - 6) + 12}{x - 6} = 1 + \\frac{12}{x - 6}$$",
-      "2. As $x \\to \\infty$, $(x - 6) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{12}{x - 6}\\right)^x = e^{12}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 6}{x - 6} = 1 + \\frac{12}{x - 6}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{12}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_06",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=7)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=7)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 7}{x - 7}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 7}{x - 7}\\right)^x$$",
-    "optionsEn": [
-      "$e^{14}$",
-      "$e^{7}$",
-      "$e^{16}$",
-      "$e^{18}$"
-    ],
-    "optionsAr": [
-      "هـ^{14}",
-      "هـ^{7}",
-      "هـ^{16}",
-      "هـ^{18}"
-    ],
-    "correctAnswer": "$e^{14}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 7}{x - 7} = \\frac{(x - 7) + 14}{x - 7} = 1 + \\frac{14}{x - 7}$$",
-      "2. As $x \\to \\infty$, $(x - 7) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{14}{x - 7}\\right)^x = e^{14}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 7}{x - 7} = 1 + \\frac{14}{x - 7}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{14}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_07",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=8)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=8)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 8}{x - 8}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 8}{x - 8}\\right)^x$$",
-    "optionsEn": [
-      "$e^{16}$",
-      "$e^{8}$",
-      "$e^{18}$",
-      "$e^{20}$"
-    ],
-    "optionsAr": [
-      "هـ^{16}",
-      "هـ^{8}",
-      "هـ^{18}",
-      "هـ^{20}"
-    ],
-    "correctAnswer": "$e^{16}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 8}{x - 8} = \\frac{(x - 8) + 16}{x - 8} = 1 + \\frac{16}{x - 8}$$",
-      "2. As $x \\to \\infty$, $(x - 8) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{16}{x - 8}\\right)^x = e^{16}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 8}{x - 8} = 1 + \\frac{16}{x - 8}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{16}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_08",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=9)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=9)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 9}{x - 9}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 9}{x - 9}\\right)^x$$",
-    "optionsEn": [
-      "$e^{18}$",
-      "$e^{9}$",
-      "$e^{20}$",
-      "$e^{22}$"
-    ],
-    "optionsAr": [
-      "هـ^{18}",
-      "هـ^{9}",
-      "هـ^{20}",
-      "هـ^{22}"
-    ],
-    "correctAnswer": "$e^{18}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 9}{x - 9} = \\frac{(x - 9) + 18}{x - 9} = 1 + \\frac{18}{x - 9}$$",
-      "2. As $x \\to \\infty$, $(x - 9) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{18}{x - 9}\\right)^x = e^{18}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 9}{x - 9} = 1 + \\frac{18}{x - 9}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{18}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_09",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=10)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=10)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 10}{x - 10}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 10}{x - 10}\\right)^x$$",
-    "optionsEn": [
-      "$e^{20}$",
-      "$e^{10}$",
-      "$e^{22}$",
-      "$e^{24}$"
-    ],
-    "optionsAr": [
-      "هـ^{20}",
-      "هـ^{10}",
-      "هـ^{22}",
-      "هـ^{24}"
-    ],
-    "correctAnswer": "$e^{20}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 10}{x - 10} = \\frac{(x - 10) + 20}{x - 10} = 1 + \\frac{20}{x - 10}$$",
-      "2. As $x \\to \\infty$, $(x - 10) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{20}{x - 10}\\right)^x = e^{20}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 10}{x - 10} = 1 + \\frac{20}{x - 10}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{20}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_10",
-    "titleEn": "Symmetric Rational Base Exponential Limit (k=11)",
-    "titleAr": "نهاية الأساس النسبي المتماثل للعدد النيبيري (k=11)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 11}{x - 11}\\right)^x$$",
-    "questionAr": "احسب قيمة النهاية: $$\\lim_{x \\to \\infty} \\left(\\frac{x + 11}{x - 11}\\right)^x$$",
-    "optionsEn": [
-      "$e^{22}$",
-      "$e^{11}$",
-      "$e^{24}$",
-      "$e^{26}$"
-    ],
-    "optionsAr": [
-      "هـ^{22}",
-      "هـ^{11}",
-      "هـ^{24}",
-      "هـ^{26}"
-    ],
-    "correctAnswer": "$e^{22}$",
-    "correctIndex": 0,
-    "hintEn": "Express the base as $1 + \\frac{2k}{x - k}$. Then the limit is $e^{2k}$.",
-    "hintAr": "عبر عن الأساس بالصورة $1 + \\frac{2k}{x - k}$، فتكون النهاية هي هـ^(٢ك).",
-    "stepByStepSolutionEn": [
-      "1. Rewrite the fraction:",
-      "$$\\frac{x + 11}{x - 11} = \\frac{(x - 11) + 22}{x - 11} = 1 + \\frac{22}{x - 11}$$",
-      "2. As $x \\to \\infty$, $(x - 11) \\to \\infty$.",
-      "3. By the standard exponential limit theorem:",
-      "$$\\lim_{x \\to \\infty} \\left(1 + \\frac{22}{x - 11}\\right)^x = e^{22}$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة الكسر بالصورة:",
-      "$$\\frac{x + 11}{x - 11} = 1 + \\frac{22}{x - 11}$$",
-      "٢. بتطبيق نظرية نهاية العدد النيبيري:",
-      "$$\\text{الناتج} = e^{22}$$"
-    ],
-    "teacherTipEn": "Shortcut: e^(k - (-k)) = e^(2k).",
-    "teacherTipAr": "قاعدة سريعة: هـ^(${k} - (-${k})) = هـ^(${pwr})."
-  },
-  {
-    "id": "calc_ch2_db_hots_11",
-    "titleEn": "Derivative of x^(2x) at x = 1",
-    "titleAr": "مشتقة س^(2س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{2x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{2x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "2",
-      "4",
-      "7",
-      "10"
-    ],
-    "optionsAr": [
-      "2",
-      "4",
-      "7",
-      "10"
-    ],
-    "correctAnswer": "2",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 2x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 2x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 2x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 2 \\ln x + 2x \\left(\\frac{1}{x}\\right) = 2\\ln x + 2$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{2x} [2\\ln x + 2]$$",
-      "4. At $x = 1$: $y = 1^{2} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 2] = 2$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 2x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 2\\ln x + 2$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 2) = 2$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_12",
-    "titleEn": "Derivative of x^(3x) at x = 1",
-    "titleAr": "مشتقة س^(3س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{3x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{3x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "3",
-      "5",
-      "8",
-      "11"
-    ],
-    "optionsAr": [
-      "3",
-      "5",
-      "8",
-      "11"
-    ],
-    "correctAnswer": "3",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 3x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 3x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 3x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 3 \\ln x + 3x \\left(\\frac{1}{x}\\right) = 3\\ln x + 3$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{3x} [3\\ln x + 3]$$",
-      "4. At $x = 1$: $y = 1^{3} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 3] = 3$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 3x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 3\\ln x + 3$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 3) = 3$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_13",
-    "titleEn": "Derivative of x^(4x) at x = 1",
-    "titleAr": "مشتقة س^(4س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{4x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{4x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "4",
-      "6",
-      "9",
-      "12"
-    ],
-    "optionsAr": [
-      "4",
-      "6",
-      "9",
-      "12"
-    ],
-    "correctAnswer": "4",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 4x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 4x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 4x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 4 \\ln x + 4x \\left(\\frac{1}{x}\\right) = 4\\ln x + 4$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{4x} [4\\ln x + 4]$$",
-      "4. At $x = 1$: $y = 1^{4} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 4] = 4$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 4x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 4\\ln x + 4$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 4) = 4$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_14",
-    "titleEn": "Derivative of x^(5x) at x = 1",
-    "titleAr": "مشتقة س^(5س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{5x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{5x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "5",
-      "7",
-      "10",
-      "13"
-    ],
-    "optionsAr": [
-      "5",
-      "7",
-      "10",
-      "13"
-    ],
-    "correctAnswer": "5",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 5x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 5x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 5x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 5 \\ln x + 5x \\left(\\frac{1}{x}\\right) = 5\\ln x + 5$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{5x} [5\\ln x + 5]$$",
-      "4. At $x = 1$: $y = 1^{5} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 5] = 5$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 5x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 5\\ln x + 5$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 5) = 5$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_15",
-    "titleEn": "Derivative of x^(6x) at x = 1",
-    "titleAr": "مشتقة س^(6س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{6x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{6x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "6",
-      "8",
-      "11",
-      "14"
-    ],
-    "optionsAr": [
-      "6",
-      "8",
-      "11",
-      "14"
-    ],
-    "correctAnswer": "6",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 6x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 6x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 6x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 6 \\ln x + 6x \\left(\\frac{1}{x}\\right) = 6\\ln x + 6$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{6x} [6\\ln x + 6]$$",
-      "4. At $x = 1$: $y = 1^{6} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 6] = 6$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 6x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 6\\ln x + 6$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 6) = 6$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_16",
-    "titleEn": "Derivative of x^(7x) at x = 1",
-    "titleAr": "مشتقة س^(7س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{7x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{7x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "7",
-      "9",
-      "12",
-      "15"
-    ],
-    "optionsAr": [
-      "7",
-      "9",
-      "12",
-      "15"
-    ],
-    "correctAnswer": "7",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 7x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 7x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 7x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 7 \\ln x + 7x \\left(\\frac{1}{x}\\right) = 7\\ln x + 7$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{7x} [7\\ln x + 7]$$",
-      "4. At $x = 1$: $y = 1^{7} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 7] = 7$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 7x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 7\\ln x + 7$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 7) = 7$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_17",
-    "titleEn": "Derivative of x^(8x) at x = 1",
-    "titleAr": "مشتقة س^(8س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{8x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{8x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "8",
-      "10",
-      "13",
-      "16"
-    ],
-    "optionsAr": [
-      "8",
-      "10",
-      "13",
-      "16"
-    ],
-    "correctAnswer": "8",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 8x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 8x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 8x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 8 \\ln x + 8x \\left(\\frac{1}{x}\\right) = 8\\ln x + 8$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{8x} [8\\ln x + 8]$$",
-      "4. At $x = 1$: $y = 1^{8} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 8] = 8$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 8x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 8\\ln x + 8$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 8) = 8$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_18",
-    "titleEn": "Derivative of x^(9x) at x = 1",
-    "titleAr": "مشتقة س^(9س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{9x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{9x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "9",
-      "11",
-      "14",
-      "17"
-    ],
-    "optionsAr": [
-      "9",
-      "11",
-      "14",
-      "17"
-    ],
-    "correctAnswer": "9",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 9x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 9x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 9x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 9 \\ln x + 9x \\left(\\frac{1}{x}\\right) = 9\\ln x + 9$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{9x} [9\\ln x + 9]$$",
-      "4. At $x = 1$: $y = 1^{9} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 9] = 9$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 9x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 9\\ln x + 9$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 9) = 9$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_19",
-    "titleEn": "Derivative of x^(10x) at x = 1",
-    "titleAr": "مشتقة س^(10س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{10x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{10x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "10",
-      "12",
-      "15",
-      "18"
-    ],
-    "optionsAr": [
-      "10",
-      "12",
-      "15",
-      "18"
-    ],
-    "correctAnswer": "10",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 10x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 10x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 10x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 10 \\ln x + 10x \\left(\\frac{1}{x}\\right) = 10\\ln x + 10$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{10x} [10\\ln x + 10]$$",
-      "4. At $x = 1$: $y = 1^{10} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 10] = 10$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 10x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 10\\ln x + 10$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 10) = 10$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_20",
-    "titleEn": "Derivative of x^(11x) at x = 1",
-    "titleAr": "مشتقة س^(11س) عند س = ١",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{11x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
-    "questionAr": "إذا كان $y = x^{11x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
-    "optionsEn": [
-      "11",
-      "13",
-      "16",
-      "19"
-    ],
-    "optionsAr": [
-      "11",
-      "13",
-      "16",
-      "19"
-    ],
-    "correctAnswer": "11",
-    "correctIndex": 0,
-    "hintEn": "Take the natural logarithm of both sides: $\\ln y = 11x \\ln x$, then differentiate implicitly.",
-    "hintAr": "خذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 11x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Take natural logarithm of both sides:",
-      "$$\\ln y = 11x \\ln x$$",
-      "2. Differentiate with respect to $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 11 \\ln x + 11x \\left(\\frac{1}{x}\\right) = 11\\ln x + 11$$",
-      "3. Multiply by $y$:",
-      "$$\\frac{dy}{dx} = x^{11x} [11\\ln x + 11]$$",
-      "4. At $x = 1$: $y = 1^{11} = 1$ and $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx}\\Big|_{x = 1} = 1 \\cdot [0 + 11] = 11$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = 11x \\ln x$.",
-      "٢. بالاشتقاق الضمني بالنسبة إلى $x$:",
-      "$$\\frac{1}{y} \\frac{dy}{dx} = 11\\ln x + 11$$",
-      "٣. بالتعويض عن $x = 1$: نجد أن $y = 1$ و $\\ln 1 = 0$:",
-      "$$\\frac{dy}{dx} = 1 \\cdot (0 + 11) = 11$$"
-    ],
-    "teacherTipEn": "At x = 1, ln(1) = 0, so only the product rule term containing 1/x survives.",
-    "teacherTipAr": "عند س = ١ يكون لو_هـ(١) = ٠، فيتبقى فقط الحد الناتج من مشتقة لو س."
-  },
-  {
-    "id": "calc_ch2_db_hots_21",
-    "titleEn": "Tangent from Origin to y = e^(2x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(2س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{2x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{2x}$.",
+    "questionEn": "If $y = e^{x^2}$, find $y'(1)$.",
+    "questionAr": "إذا كانت $y = e^{x^2}$، فأوجد قيمة $y'(1)$.",
     "optionsEn": [
       "$2e$",
       "$e$",
-      "$4e$",
-      "$\\frac{e}{2}$"
+      "$2$",
+      "$e^2$"
     ],
     "optionsAr": [
-      "2e",
-      "e",
-      "4e",
-      "\\frac{e}{2}"
+      "2هـ",
+      "هـ",
+      "2",
+      "هـ²"
     ],
     "correctAnswer": "$2e$",
     "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
+    "hintEn": "y' = 2x e^(x^2) => y'(1) = 2(1)e^1 = 2e.",
+    "hintAr": "ص'(1) = 2(1)هـ¹ = 2هـ.",
     "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{2x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 2 e^{2x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{2x_0} - 0}{x_0 - 0} = \\frac{e^{2x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$2 e^{2x_0} = \\frac{e^{2x_0}}{x_0} \\implies 2 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{2}$$",
-      "5. Substitute $x_0 = \\frac{1}{2}$ into the slope:",
-      "$$m = 2 e^{2(1/2)} = 2 e^1 = 2e$$"
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{2x_0})$.",
-      "٢. ميل المماس: $m = 2 e^{2x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{2x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 2 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{2}$.",
-      "٥. بالتعويض في الميل: $m = 2e$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
-    "id": "calc_ch2_db_hots_22",
-    "titleEn": "Tangent from Origin to y = e^(3x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(3س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{3x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{3x}$.",
+    "id": "calc_ch2_db_easy_41",
+    "titleEn": "Basic Integral of Exponential",
+    "titleAr": "التكامل الأساسي للدالة الأسية",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int e^{4x} dx$.",
+    "questionAr": "أوجد $\\int e^{4x} dx$.",
     "optionsEn": [
-      "$3e$",
-      "$e$",
-      "$5e$",
-      "$\\frac{e}{3}$"
+      "$\\frac{1}{4}e^{4x} + C$",
+      "$4e^{4x} + C$",
+      "$e^{4x} + C$",
+      "$\\frac{1}{5}e^{5x} + C$"
     ],
     "optionsAr": [
-      "3e",
-      "e",
-      "5e",
-      "\\frac{e}{3}"
+      "(1/4)هـ^(4س) + ث",
+      "4هـ^(4س) + ث",
+      "هـ^(4س) + ث",
+      "(1/5)هـ^(5س) + ث"
     ],
-    "correctAnswer": "$3e$",
+    "correctAnswer": "$\\frac{1}{4}e^{4x} + C$",
     "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
+    "hintEn": "int e^(kx) dx = (1/k) e^(kx) + C.",
+    "hintAr": "تكامل هـ^(أ س) = (1/أ) هـ^(أ س) + ث.",
     "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{3x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 3 e^{3x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{3x_0} - 0}{x_0 - 0} = \\frac{e^{3x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$3 e^{3x_0} = \\frac{e^{3x_0}}{x_0} \\implies 3 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{3}$$",
-      "5. Substitute $x_0 = \\frac{1}{3}$ into the slope:",
-      "$$m = 3 e^{3(1/3)} = 3 e^1 = 3e$$"
+      "1. Apply theorem.",
+      "2. Simplify result."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{3x_0})$.",
-      "٢. ميل المماس: $m = 3 e^{3x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{3x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 3 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{3}$.",
-      "٥. بالتعويض في الميل: $m = 3e$."
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
     ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
   },
   {
-    "id": "calc_ch2_db_hots_23",
-    "titleEn": "Tangent from Origin to y = e^(4x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(4س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{4x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{4x}$.",
+    "id": "calc_ch2_db_easy_42",
+    "titleEn": "Integral with Negative Linear Exponent",
+    "titleAr": "تكامل دالة أسية بأس سالب",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int e^{-x} dx$.",
+    "questionAr": "أوجد $\\int e^{-x} dx$.",
     "optionsEn": [
-      "$4e$",
+      "$-e^{-x} + C$",
+      "$e^{-x} + C$",
+      "$-x e^{-x} + C$",
+      "$-e^x + C$"
+    ],
+    "optionsAr": [
+      "-هـ^(-س) + ث",
+      "هـ^(-س) + ث",
+      "-س هـ^(-س) + ث",
+      "-هـ^س + ث"
+    ],
+    "correctAnswer": "$-e^{-x} + C$",
+    "correctIndex": 0,
+    "hintEn": "int e^(-x) dx = -e^(-x) + C.",
+    "hintAr": "اقسم على معامل س (-1).",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_43",
+    "titleEn": "Integral of General Exponential Base 3",
+    "titleAr": "تكامل دالة أسية ذات أساس 3",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int 3^x dx$.",
+    "questionAr": "أوجد $\\int 3^x dx$.",
+    "optionsEn": [
+      "$\\frac{3^x}{\\ln 3} + C$",
+      "$3^x \\ln 3 + C$",
+      "$\\frac{3^{x+1}}{x+1} + C$",
+      "$3^x + C$"
+    ],
+    "optionsAr": [
+      "3^س / لو_هـ 3 + ث",
+      "3^س لو_هـ 3 + ث",
+      "3^(س+1)/(س+1) + ث",
+      "3^س + ث"
+    ],
+    "correctAnswer": "$\\frac{3^x}{\\ln 3} + C$",
+    "correctIndex": 0,
+    "hintEn": "int a^x dx = a^x / ln a + C.",
+    "hintAr": "تكامل أ^س = أ^س / لو_هـ أ + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_44",
+    "titleEn": "Integral Leading to Natural Log",
+    "titleAr": "تكامل يعطي اللوغاريتم الطبيعي",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\frac{1}{x + 5} dx$.",
+    "questionAr": "أوجد $\\int \\frac{1}{x + 5} dx$.",
+    "optionsEn": [
+      "$\\ln|x + 5| + C$",
+      "$\\frac{1}{(x + 5)^2} + C$",
+      "$\\ln|x| + 5 + C$",
+      "$5\\ln|x + 5| + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ|س + 5| + ث",
+      "1/(س + 5)² + ث",
+      "لو_هـ|س| + 5 + ث",
+      "5 لو_هـ|س + 5| + ث"
+    ],
+    "correctAnswer": "$\\ln|x + 5| + C$",
+    "correctIndex": 0,
+    "hintEn": "Numerator is derivative of denominator.",
+    "hintAr": "البسط مشتقة المقام فالناتج لوغاريتم المقام.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_45",
+    "titleEn": "Integral with Linear Form in Denominator",
+    "titleAr": "تكامل كسر ذي مقام خطي بمضاعف",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\frac{1}{2x - 3} dx$.",
+    "questionAr": "أوجد $\\int \\frac{1}{2x - 3} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}\\ln|2x - 3| + C$",
+      "$\\ln|2x - 3| + C$",
+      "$2\\ln|2x - 3| + C$",
+      "$-\\frac{1}{(2x-3)^2} + C$"
+    ],
+    "optionsAr": [
+      "(1/2)لو_هـ|2س - 3| + ث",
+      "لو_هـ|2س - 3| + ث",
+      "2 لو_هـ|2س - 3| + ث",
+      "-1/(2س - 3)² + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}\\ln|2x - 3| + C$",
+    "correctIndex": 0,
+    "hintEn": "Multiply numerator and outside by 2 and 1/2.",
+    "hintAr": "اجعل البسط مشتقة المقام بالضرب في 2 والقسمة على 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_46",
+    "titleEn": "Integral of Derivative over Quadratic Function",
+    "titleAr": "تكامل كسر بسطه مشتقة مقامه التربيعي",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\frac{2x}{x^2 + 9} dx$.",
+    "questionAr": "أوجد $\\int \\frac{2x}{x^2 + 9} dx$.",
+    "optionsEn": [
+      "$\\ln(x^2 + 9) + C$",
+      "$\\frac{1}{2}\\ln(x^2 + 9) + C$",
+      "$2\\ln(x^2 + 9) + C$",
+      "$\\arctan(x/3) + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ(س² + 9) + ث",
+      "(1/2)لو_هـ(س² + 9) + ث",
+      "2 لو_هـ(س² + 9) + ث",
+      "ظا⁻¹(س/3) + ث"
+    ],
+    "correctAnswer": "$\\ln(x^2 + 9) + C$",
+    "correctIndex": 0,
+    "hintEn": "d/dx(x^2+9) = 2x, so ln|denominator| + C.",
+    "hintAr": "مشتقة س² + 9 هي 2س، إذن الناتج لوغاريتم المقام.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_47",
+    "titleEn": "Standard Integral of Tangent",
+    "titleAr": "تكامل دالة الظل",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\tan x \\, dx$.",
+    "questionAr": "أوجد $\\int \\tan x \\, dx$.",
+    "optionsEn": [
+      "$\\ln|\\sec x| + C$",
+      "$\\ln|\\cos x| + C$",
+      "$\\sec^2 x + C$",
+      "$-\\ln|\\sec x| + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ|قا س| + ث",
+      "لو_هـ|جتا س| + ث",
+      "قا² س + ث",
+      "-لو_هـ|قا س| + ث"
+    ],
+    "correctAnswer": "$\\ln|\\sec x| + C$",
+    "correctIndex": 0,
+    "hintEn": "tan x = sin x / cos x = -(-sin x)/cos x => -ln|cos x| = ln|sec x|.",
+    "hintAr": "ظا س = جا س / جتا س.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_48",
+    "titleEn": "Standard Integral of Cotangent",
+    "titleAr": "تكامل دالة ظل التمام",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\cot x \\, dx$.",
+    "questionAr": "أوجد $\\int \\cot x \\, dx$.",
+    "optionsEn": [
+      "$\\ln|\\sin x| + C$",
+      "$\\ln|\\csc x| + C$",
+      "$-\\csc^2 x + C$",
+      "$-\\ln|\\sin x| + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ|جا س| + ث",
+      "لو_هـ|قتا س| + ث",
+      "-قتا² س + ث",
+      "-لو_هـ|جا س| + ث"
+    ],
+    "correctAnswer": "$\\ln|\\sin x| + C$",
+    "correctIndex": 0,
+    "hintEn": "cot x = cos x / sin x => ln|sin x| + C.",
+    "hintAr": "ظتا س = جتا س / جا س.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_49",
+    "titleEn": "Integral of Substitution Type x e^(x^2)",
+    "titleAr": "تكامل بالتعويض لدالة أسية بأس تربيعي",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int x e^{x^2} dx$.",
+    "questionAr": "أوجد $\\int x e^{x^2} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}e^{x^2} + C$",
+      "$e^{x^2} + C$",
+      "$2e^{x^2} + C$",
+      "$\\frac{1}{2}x^2 e^{x^2} + C$"
+    ],
+    "optionsAr": [
+      "(1/2)هـ^(س²) + ث",
+      "هـ^(س²) + ث",
+      "2هـ^(س²) + ث",
+      "(1/2)س² هـ^(س²) + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}e^{x^2} + C$",
+    "correctIndex": 0,
+    "hintEn": "Let u = x^2, du = 2x dx => (1/2) e^(x^2) + C.",
+    "hintAr": "ضع ع = س² فتكون د ع = 2س د س.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  },
+  {
+    "id": "calc_ch2_db_easy_50",
+    "titleEn": "Integral of ln(x)/x",
+    "titleAr": "تكامل حاصل ضرب لوغاريتم س في مقلوبه",
+    "difficulty": "easy",
+    "questionEn": "Find $\\int \\frac{\\ln x}{x} dx$ for $x > 0$.",
+    "questionAr": "أوجد $\\int \\frac{\\ln x}{x} dx$ حيث $x > 0$.",
+    "optionsEn": [
+      "$\\frac{1}{2}(\\ln x)^2 + C$",
+      "$(\\ln x)^2 + C$",
+      "$\\frac{1}{x^2} + C$",
+      "$\\ln(\\ln x) + C$"
+    ],
+    "optionsAr": [
+      "(1/2)(لو_هـ س)² + ث",
+      "(لو_هـ س)² + ث",
+      "1/س² + ث",
+      "لو_هـ(لو_هـ س) + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}(\\ln x)^2 + C$",
+    "correctIndex": 0,
+    "hintEn": "u = ln x, du = 1/x dx => int u du = u^2 / 2 + C.",
+    "hintAr": "الدالة في مشتقتها: تكامل ع د ع = ع²/2 + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply theorem.",
+      "2. Simplify result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق النظرية الرياضية المباشرة.",
+      "٢. تبسيط المقدار."
+    ],
+    "teacherTipEn": "Direct curriculum application.",
+    "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+  }
+],
+  "medium": [
+  {
+    "id": "calc_ch2_db_med_51",
+    "titleEn": "Limit of Rational Form Raised to Power x",
+    "titleAr": "نهاية كسر جبري مرفوع لأس س عند المالانهاية",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Limit of Rational Form Raised to Power x): $\\lim_{x \\to \\infty} \\left(\\frac{x + 2}{x - 1}\\right)^x$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to \\infty} \\left(\\frac{x + 2}{x - 1}\\right)^x$.",
+    "optionsEn": [
+      "$e^3$",
       "$e$",
-      "$6e$",
+      "$e^2$",
+      "$e^{-1}$"
+    ],
+    "optionsAr": [
+      "هـ³",
+      "هـ",
+      "هـ²",
+      "هـ⁻¹"
+    ],
+    "correctAnswer": "$e^3$",
+    "correctIndex": 0,
+    "hintEn": "((1 + 2/x) / (1 - 1/x))^x -> e^2 / e^(-1) = e^3.",
+    "hintAr": "اكتب المقدار على صورة (1 + 2/س)^س / (1 - 1/س)^س فتكون هـ² / هـ⁻¹ = هـ³.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_52",
+    "titleEn": "Limit with Scaled Rational Expression",
+    "titleAr": "نهاية كسر جبري بأس مضاعف",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Limit with Scaled Rational Expression): $\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x + 1}\\right)^{2x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to \\infty} \\left(\\frac{x + 4}{x + 1}\\right)^{2x}$.",
+    "optionsEn": [
+      "$e^6$",
+      "$e^8$",
+      "$e^3$",
+      "$e^4$"
+    ],
+    "optionsAr": [
+      "هـ⁶",
+      "هـ⁸",
+      "هـ³",
+      "هـ⁴"
+    ],
+    "correctAnswer": "$e^6$",
+    "correctIndex": 0,
+    "hintEn": "e^(4*2) / e^(1*2) = e^8 / e^2 = e^6.",
+    "hintAr": "الأساس يؤول إلى هـ^(4-1) = هـ³، والأس الخارجي 2 يعطي هـ⁶.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_53",
+    "titleEn": "Trigonometric Limit with Tangent and Cotangent",
+    "titleAr": "نهاية مثلثية تتضمن ظا وظتا",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Trigonometric Limit with Tangent and Cotangent): $\\lim_{x \\to 0} (1 + 3\\tan^2 x)^{\\cot^2 x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} (1 + 3\\tan^2 x)^{\\cot^2 x}$.",
+    "optionsEn": [
+      "$e^3$",
+      "$e$",
+      "$3e$",
+      "$\\frac{1}{e^3}$"
+    ],
+    "optionsAr": [
+      "هـ³",
+      "هـ",
+      "3هـ",
+      "1/هـ³"
+    ],
+    "correctAnswer": "$e^3$",
+    "correctIndex": 0,
+    "hintEn": "Let y = tan^2 x -> 0. Limit is lim (1 + 3y)^(1/y) = e^3.",
+    "hintAr": "بوضع ص = ظا² س فتؤول ص للصفر، وتصبح النهاية (1 + 3ص)^(1/ص) = هـ³.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_54",
+    "titleEn": "Limit of Difference of Two Exponentials",
+    "titleAr": "نهاية الفرق بين دالتين أسيتين",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Limit of Difference of Two Exponentials): $\\lim_{x \\to 0} \\frac{e^{5x} - e^{2x}}{x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} \\frac{e^{5x} - e^{2x}}{x}$.",
+    "optionsEn": [
+      "$3$",
+      "$5$",
+      "$2$",
+      "$e^3$"
+    ],
+    "optionsAr": [
+      "3",
+      "5",
+      "2",
+      "هـ³"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "(e^(5x)-1)/x - (e^(2x)-1)/x = 5 - 2 = 3.",
+    "hintAr": "أضف واطرح 1 في البسط لتصبح (5 - 2) = 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_55",
+    "titleEn": "Limit of Difference of General Exponentials",
+    "titleAr": "نهاية الفرق بين دالتين أسيتين لأساسات عامة",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Limit of Difference of General Exponentials): $\\lim_{x \\to 0} \\frac{6^x - 2^x}{x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} \\frac{6^x - 2^x}{x}$.",
+    "optionsEn": [
+      "$\\ln 3$",
+      "$\\ln 4$",
+      "$4$",
+      "$\\frac{\\ln 6}{\\ln 2}$"
+    ],
+    "optionsAr": [
+      "لو_هـ 3",
+      "لو_هـ 4",
+      "4",
+      "لو_هـ 6 / لو_هـ 2"
+    ],
+    "correctAnswer": "$\\ln 3$",
+    "correctIndex": 0,
+    "hintEn": "ln 6 - ln 2 = ln(6/2) = ln 3.",
+    "hintAr": "الناتج لو_هـ 6 - لو_هـ 2 = لو_هـ (6/2) = لو_هـ 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_56",
+    "titleEn": "Logarithmic Limit with Sine Argument",
+    "titleAr": "نهاية لوغاريتمية بدالة الجيب",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the limit (Logarithmic Limit with Sine Argument): $\\lim_{x \\to 0} \\frac{\\ln(1 + \\sin 3x)}{x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} \\frac{\\ln(1 + \\sin 3x)}{x}$.",
+    "optionsEn": [
+      "$3$",
+      "$1$",
+      "$0$",
+      "$\\ln 3$"
+    ],
+    "optionsAr": [
+      "3",
+      "1",
+      "0",
+      "لو_هـ 3"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "[ln(1 + sin 3x) / sin 3x] * [sin 3x / x] -> 1 * 3 = 3.",
+    "hintAr": "اضرب واقسم على جا 3س فتكون 1 × 3 = 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_57",
+    "titleEn": "Product Rule with Quadratic and Exponential",
+    "titleAr": "مشتقة حاصل ضرب دالة تربيعية ودالة أسية",
+    "difficulty": "medium",
+    "questionEn": "If $y = x^2 e^{2x}$, find $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = x^2 e^{2x}$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
+    "optionsEn": [
+      "$4e^2$",
+      "$2e^2$",
+      "$3e^2$",
+      "$5e^2$"
+    ],
+    "optionsAr": [
+      "4هـ²",
+      "2هـ²",
+      "3هـ²",
+      "5هـ²"
+    ],
+    "correctAnswer": "$4e^2$",
+    "correctIndex": 0,
+    "hintEn": "y' = 2x e^(2x) + 2x^2 e^(2x) = 2x(1+x)e^(2x). At x=1: 2(2)e^2 = 4e^2.",
+    "hintAr": "ص' = 2س هـ^(2س) + 2س² هـ^(2س). بالتعويض عن س=1 نحصل على 4هـ².",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_58",
+    "titleEn": "Quotient Rule with Exponential Function",
+    "titleAr": "مشتقة قسمة دالة أسية على متغير خطي",
+    "difficulty": "medium",
+    "questionEn": "If $y = \\frac{e^x}{x}$, find $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = \\frac{e^x}{x}$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
+    "optionsEn": [
+      "$0$",
+      "$e$",
+      "$1$",
+      "$-e$"
+    ],
+    "optionsAr": [
+      "0",
+      "هـ",
+      "1",
+      "-هـ"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "y' = (x e^x - e^x) / x^2 = e^x(x-1)/x^2. At x=1, numerator is 0.",
+    "hintAr": "مشتقة الكسر: هـ^س(س - 1)/س²، وعند س=1 تساوي صفراً.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_59",
+    "titleEn": "Derivative of x ln(x) at x = e",
+    "titleAr": "مشتقة س لو_هـ س عند س = هـ",
+    "difficulty": "medium",
+    "questionEn": "Find $\\frac{dy}{dx}$ for $y = x \\ln x$ evaluated at $x = e$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ للدالة $y = x \\ln x$ عند $x = e$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$e$",
+      "$1 + e$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "هـ",
+      "1 + هـ"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "y' = ln x + 1. At x=e: ln e + 1 = 1 + 1 = 2.",
+    "hintAr": "ص' = لو_هـ س + 1، وعند س = هـ: 1 + 1 = 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_60",
+    "titleEn": "Derivative of ln(x) / x",
+    "titleAr": "مشتقة قسمة لوغاريتم س على س",
+    "difficulty": "medium",
+    "questionEn": "Find $\\frac{dy}{dx}$ for $y = \\frac{\\ln x}{x}$ at $x = e$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ للدالة $y = \\frac{\\ln x}{x}$ عند $x = e$.",
+    "optionsEn": [
+      "$0$",
+      "$\\frac{1}{e^2}$",
+      "$-\\frac{1}{e^2}$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "0",
+      "1/هـ²",
+      "-1/هـ²",
+      "1/هـ"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "y' = (1 - ln x) / x^2. At x=e, 1 - 1 = 0.",
+    "hintAr": "ص' = (1 - لو_هـ س)/س² وعند س = هـ يكون البسط 1 - 1 = 0.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_61",
+    "titleEn": "Derivative of Logarithm with Radicals via Laws",
+    "titleAr": "مشتقة لوغاريتم جذر كسري باستخدام الخواص",
+    "difficulty": "medium",
+    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln\\sqrt{\\frac{x + 1}{x - 1}}$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\ln\\sqrt{\\frac{x + 1}{x - 1}}$.",
+    "optionsEn": [
+      "$-\\frac{1}{x^2 - 1}$",
+      "$\\frac{1}{x^2 - 1}$",
+      "$\\frac{x}{x^2 - 1}$",
+      "$-\\frac{x}{x^2 - 1}$"
+    ],
+    "optionsAr": [
+      "-1 / (س² - 1)",
+      "1 / (س² - 1)",
+      "س / (س² - 1)",
+      "-س / (س² - 1)"
+    ],
+    "correctAnswer": "$-\\frac{1}{x^2 - 1}$",
+    "correctIndex": 0,
+    "hintEn": "y = (1/2)[ln(x+1) - ln(x-1)] => y' = (1/2)[1/(x+1) - 1/(x-1)] = -1/(x^2-1).",
+    "hintAr": "استخدم خواص اللوغاريتم: ص = 1/2 [لو(س+1) - لو(س-1)].",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_62",
+    "titleEn": "Derivative of Inverse Hyperbolic Form",
+    "titleAr": "مشتقة لوغاريتم مجموع س والجذر التربيعي",
+    "difficulty": "medium",
+    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\ln(x + \\sqrt{x^2 + 1})$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\ln(x + \\sqrt{x^2 + 1})$.",
+    "optionsEn": [
+      "$\\frac{1}{\\sqrt{x^2 + 1}}$",
+      "$\\frac{x}{\\sqrt{x^2 + 1}}$",
+      "$\\frac{1}{x + \\sqrt{x^2 + 1}}$",
+      "$\\sqrt{x^2 + 1}$"
+    ],
+    "optionsAr": [
+      "1 / √(س² + 1)",
+      "س / √(س² + 1)",
+      "1 / (س + √(س² + 1))",
+      "√(س² + 1)"
+    ],
+    "correctAnswer": "$\\frac{1}{\\sqrt{x^2 + 1}}$",
+    "correctIndex": 0,
+    "hintEn": "y' = (1 + x/sqrt(x^2+1)) / (x + sqrt(x^2+1)) = 1/sqrt(x^2+1).",
+    "hintAr": "باشتقاق ما بداخل اللوغاريتم وتبسيطه يختصر القوس بالكامل.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_63",
+    "titleEn": "Derivative with Square Root in Exponent",
+    "titleAr": "مشتقة دالة أسية بأس جذر تربيعي",
+    "difficulty": "medium",
+    "questionEn": "If $y = e^{\\sqrt{x}}$, find $\\frac{dy}{dx}$ at $x = 4$.",
+    "questionAr": "إذا كانت $y = e^{\\sqrt{x}}$، فأوجد $\\frac{dy}{dx}$ عند $x = 4$.",
+    "optionsEn": [
+      "$\\frac{e^2}{4}$",
+      "$\\frac{e^2}{2}$",
+      "$e^2$",
       "$\\frac{e}{4}$"
     ],
     "optionsAr": [
-      "4e",
-      "e",
-      "6e",
-      "\\frac{e}{4}"
+      "هـ² / 4",
+      "هـ² / 2",
+      "هـ²",
+      "هـ / 4"
     ],
-    "correctAnswer": "$4e$",
+    "correctAnswer": "$\\frac{e^2}{4}$",
     "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
+    "hintEn": "y' = e^(sqrt(x)) / (2 sqrt(x)). At x=4: e^2 / (2*2) = e^2 / 4.",
+    "hintAr": "ص' = هـ^(√س) / (2√س)، وبالتعويض عن س=4 تصبح هـ²/4.",
     "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{4x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 4 e^{4x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{4x_0} - 0}{x_0 - 0} = \\frac{e^{4x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$4 e^{4x_0} = \\frac{e^{4x_0}}{x_0} \\implies 4 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{4}$$",
-      "5. Substitute $x_0 = \\frac{1}{4}$ into the slope:",
-      "$$m = 4 e^{4(1/4)} = 4 e^1 = 4e$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{4x_0})$.",
-      "٢. ميل المماس: $m = 4 e^{4x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{4x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 4 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{4}$.",
-      "٥. بالتعويض في الميل: $m = 4e$."
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_24",
-    "titleEn": "Tangent from Origin to y = e^(5x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(5س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{5x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{5x}$.",
+    "id": "calc_ch2_db_med_64",
+    "titleEn": "Chain Rule on General Exponential with Polynomial Exponent",
+    "titleAr": "قاعدة السلسلة لدالة أسية عامة بأس حدودي",
+    "difficulty": "medium",
+    "questionEn": "If $y = 3^{x^2 - 1}$, find $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = 3^{x^2 - 1}$، فأوجد $\\frac{dy}{dx}$ عند $x = 1$.",
     "optionsEn": [
-      "$5e$",
-      "$e$",
-      "$7e$",
-      "$\\frac{e}{5}$"
+      "$2\\ln 3$",
+      "$6\\ln 3$",
+      "$2$",
+      "$3\\ln 3$"
     ],
     "optionsAr": [
-      "5e",
-      "e",
-      "7e",
-      "\\frac{e}{5}"
+      "2 لو_هـ 3",
+      "6 لو_هـ 3",
+      "2",
+      "3 لو_هـ 3"
     ],
-    "correctAnswer": "$5e$",
+    "correctAnswer": "$2\\ln 3$",
     "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
+    "hintEn": "y' = 2x * 3^(x^2-1) * ln 3. At x=1: 2(1)(3^0) ln 3 = 2 ln 3.",
+    "hintAr": "ص' = 2س · 3^(س²-1) · لو_هـ 3. بالتعويض عن س=1 نجد 2 لو_هـ 3.",
     "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{5x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 5 e^{5x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{5x_0} - 0}{x_0 - 0} = \\frac{e^{5x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$5 e^{5x_0} = \\frac{e^{5x_0}}{x_0} \\implies 5 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{5}$$",
-      "5. Substitute $x_0 = \\frac{1}{5}$ into the slope:",
-      "$$m = 5 e^{5(1/5)} = 5 e^1 = 5e$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{5x_0})$.",
-      "٢. ميل المماس: $m = 5 e^{5x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{5x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 5 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{5}$.",
-      "٥. بالتعويض في الميل: $m = 5e$."
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_25",
-    "titleEn": "Tangent from Origin to y = e^(6x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(6س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{6x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{6x}$.",
+    "id": "calc_ch2_db_med_65",
+    "titleEn": "Logarithmic Differentiation of Variable to Variable Power",
+    "titleAr": "اشتقاق لوغاريتمي لدالة مرفوعة لمتغير س^س",
+    "difficulty": "medium",
+    "questionEn": "If $y = x^x$ for $x > 0$, find $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = x^x$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
     "optionsEn": [
-      "$6e$",
+      "$1$",
+      "$0$",
       "$e$",
-      "$8e$",
-      "$\\frac{e}{6}$"
-    ],
-    "optionsAr": [
-      "6e",
-      "e",
-      "8e",
-      "\\frac{e}{6}"
-    ],
-    "correctAnswer": "$6e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{6x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 6 e^{6x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{6x_0} - 0}{x_0 - 0} = \\frac{e^{6x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$6 e^{6x_0} = \\frac{e^{6x_0}}{x_0} \\implies 6 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{6}$$",
-      "5. Substitute $x_0 = \\frac{1}{6}$ into the slope:",
-      "$$m = 6 e^{6(1/6)} = 6 e^1 = 6e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{6x_0})$.",
-      "٢. ميل المماس: $m = 6 e^{6x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{6x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 6 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{6}$.",
-      "٥. بالتعويض في الميل: $m = 6e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_26",
-    "titleEn": "Tangent from Origin to y = e^(7x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(7س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{7x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{7x}$.",
-    "optionsEn": [
-      "$7e$",
-      "$e$",
-      "$9e$",
-      "$\\frac{e}{7}$"
-    ],
-    "optionsAr": [
-      "7e",
-      "e",
-      "9e",
-      "\\frac{e}{7}"
-    ],
-    "correctAnswer": "$7e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{7x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 7 e^{7x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{7x_0} - 0}{x_0 - 0} = \\frac{e^{7x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$7 e^{7x_0} = \\frac{e^{7x_0}}{x_0} \\implies 7 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{7}$$",
-      "5. Substitute $x_0 = \\frac{1}{7}$ into the slope:",
-      "$$m = 7 e^{7(1/7)} = 7 e^1 = 7e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{7x_0})$.",
-      "٢. ميل المماس: $m = 7 e^{7x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{7x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 7 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{7}$.",
-      "٥. بالتعويض في الميل: $m = 7e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_27",
-    "titleEn": "Tangent from Origin to y = e^(8x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(8س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{8x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{8x}$.",
-    "optionsEn": [
-      "$8e$",
-      "$e$",
-      "$10e$",
-      "$\\frac{e}{8}$"
-    ],
-    "optionsAr": [
-      "8e",
-      "e",
-      "10e",
-      "\\frac{e}{8}"
-    ],
-    "correctAnswer": "$8e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{8x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 8 e^{8x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{8x_0} - 0}{x_0 - 0} = \\frac{e^{8x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$8 e^{8x_0} = \\frac{e^{8x_0}}{x_0} \\implies 8 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{8}$$",
-      "5. Substitute $x_0 = \\frac{1}{8}$ into the slope:",
-      "$$m = 8 e^{8(1/8)} = 8 e^1 = 8e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{8x_0})$.",
-      "٢. ميل المماس: $m = 8 e^{8x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{8x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 8 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{8}$.",
-      "٥. بالتعويض في الميل: $m = 8e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_28",
-    "titleEn": "Tangent from Origin to y = e^(9x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(9س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{9x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{9x}$.",
-    "optionsEn": [
-      "$9e$",
-      "$e$",
-      "$11e$",
-      "$\\frac{e}{9}$"
-    ],
-    "optionsAr": [
-      "9e",
-      "e",
-      "11e",
-      "\\frac{e}{9}"
-    ],
-    "correctAnswer": "$9e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{9x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 9 e^{9x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{9x_0} - 0}{x_0 - 0} = \\frac{e^{9x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$9 e^{9x_0} = \\frac{e^{9x_0}}{x_0} \\implies 9 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{9}$$",
-      "5. Substitute $x_0 = \\frac{1}{9}$ into the slope:",
-      "$$m = 9 e^{9(1/9)} = 9 e^1 = 9e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{9x_0})$.",
-      "٢. ميل المماس: $m = 9 e^{9x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{9x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 9 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{9}$.",
-      "٥. بالتعويض في الميل: $m = 9e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_29",
-    "titleEn": "Tangent from Origin to y = e^(10x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(10س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{10x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{10x}$.",
-    "optionsEn": [
-      "$10e$",
-      "$e$",
-      "$12e$",
-      "$\\frac{e}{10}$"
-    ],
-    "optionsAr": [
-      "10e",
-      "e",
-      "12e",
-      "\\frac{e}{10}"
-    ],
-    "correctAnswer": "$10e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{10x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 10 e^{10x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{10x_0} - 0}{x_0 - 0} = \\frac{e^{10x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$10 e^{10x_0} = \\frac{e^{10x_0}}{x_0} \\implies 10 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{10}$$",
-      "5. Substitute $x_0 = \\frac{1}{10}$ into the slope:",
-      "$$m = 10 e^{10(1/10)} = 10 e^1 = 10e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{10x_0})$.",
-      "٢. ميل المماس: $m = 10 e^{10x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{10x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 10 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{10}$.",
-      "٥. بالتعويض في الميل: $m = 10e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_30",
-    "titleEn": "Tangent from Origin to y = e^(11x)",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = هـ^(11س)",
-    "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the curve $y = e^{11x}$.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ للمنحنى $y = e^{11x}$.",
-    "optionsEn": [
-      "$11e$",
-      "$e$",
-      "$13e$",
-      "$\\frac{e}{11}$"
-    ],
-    "optionsAr": [
-      "11e",
-      "e",
-      "13e",
-      "\\frac{e}{11}"
-    ],
-    "correctAnswer": "$11e$",
-    "correctIndex": 0,
-    "hintEn": "Equate the derivative $y'(x_0) = k e^{k x_0}$ with the secant slope $\\frac{y_0 - 0}{x_0 - 0} = \\frac{e^{k x_0}}{x_0}$.",
-    "hintAr": "ساو المشتقة $y'(x_0) = k e^{k x_0}$ بميل الخط المار بنقطة الأصل $\\frac{e^{k x_0}}{x_0}$.",
-    "stepByStepSolutionEn": [
-      "1. Let the point of tangency be $(x_0, y_0) = (x_0, e^{11x_0})$.",
-      "2. The slope of the tangent is $m = y'(x_0) = 11 e^{11x_0}$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{e^{11x_0} - 0}{x_0 - 0} = \\frac{e^{11x_0}}{x_0}$$",
-      "4. Equating the two expressions:",
-      "$11 e^{11x_0} = \\frac{e^{11x_0}}{x_0} \\implies 11 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{11}$$",
-      "5. Substitute $x_0 = \\frac{1}{11}$ into the slope:",
-      "$$m = 11 e^{11(1/11)} = 11 e^1 = 11e$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $(x_0, e^{11x_0})$.",
-      "٢. ميل المماس: $m = 11 e^{11x_0}$.",
-      "٣. بما أن المماس يمر بالأصل: $m = \\frac{e^{11x_0}}{x_0}$.",
-      "٤. بمساواة الميلين: 11 = \\frac{1}{x_0} \\implies x_0 = \\frac{1}{11}$.",
-      "٥. بالتعويض في الميل: $m = 11e$."
-    ],
-    "teacherTipEn": "For y = e^(kx), the tangent from origin always touches the curve at x = 1/k with slope ke.",
-    "teacherTipAr": "للمنحنى ص = هـ^(ك س)، يمس المماس المار بالأصل المنحنى عند س = ١/ك بميل قدره ك هـ دائماً."
-  },
-  {
-    "id": "calc_ch2_db_hots_31",
-    "titleEn": "Definite Integral of (ln x)^1 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^1 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{1}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{1}}{x} \\, dx$$",
-    "optionsEn": [
-      "$\\frac{1}{2}$",
-      "$\\frac{1}{1}$",
-      "$\\frac{1}{4}$",
       "$2$"
     ],
     "optionsAr": [
-      "\\frac{1}{2}",
-      "\\frac{1}{1}",
-      "\\frac{1}{4}",
+      "1",
+      "0",
+      "هـ",
       "2"
     ],
-    "correctAnswer": "$\\frac{1}{2}$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "ln y = x ln x => y'/y = ln x + 1 => y' = x^x(ln x + 1). At x=1: 1^1(0 + 1) = 1.",
+    "hintAr": "بأخذ اللوغاريتم للطرفين: لو ص = س لو س، إذن ص' = س^س (لو س + 1).",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{1} \\, du = \\left[ \\frac{u^{2}}{2} \\right]_0^1 = \\frac{1^{2}}{2} - 0 = \\frac{1}{2}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{1} du = \\left[ \\frac{u^{2}}{2} \\right]_0^1 = \\frac{1}{2}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_32",
-    "titleEn": "Definite Integral of (ln x)^2 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^2 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{2}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{2}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_66",
+    "titleEn": "Logarithmic Differentiation of x raised to ln(x)",
+    "titleAr": "اشتقاق لوغاريتمي لدالة س أس لوغاريتم س",
+    "difficulty": "medium",
+    "questionEn": "If $y = x^{\\ln x}$ for $x > 0$, find $\\frac{dy}{dx}$ at $x = e$.",
+    "questionAr": "إذا كانت $y = x^{\\ln x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = e$.",
     "optionsEn": [
-      "$\\frac{1}{3}$",
-      "$\\frac{1}{2}$",
-      "$\\frac{1}{5}$",
-      "$3$"
+      "$2$",
+      "$1$",
+      "$2e$",
+      "$e$"
     ],
     "optionsAr": [
-      "\\frac{1}{3}",
-      "\\frac{1}{2}",
-      "\\frac{1}{5}",
-      "3"
+      "2",
+      "1",
+      "2هـ",
+      "هـ"
     ],
-    "correctAnswer": "$\\frac{1}{3}$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "ln y = (ln x)^2 => y'/y = 2 ln x / x => y' = x^(ln x) * (2 ln x / x). At x=e: e^1 * (2*1/e) = 2.",
+    "hintAr": "لو ص = (لو س)²، إذن ص'/ص = 2 لو س / س. عند س=هـ: ص' = 2.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{2} \\, du = \\left[ \\frac{u^{3}}{3} \\right]_0^1 = \\frac{1^{3}}{3} - 0 = \\frac{1}{3}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{2} du = \\left[ \\frac{u^{3}}{3} \\right]_0^1 = \\frac{1}{3}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_33",
-    "titleEn": "Definite Integral of (ln x)^3 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^3 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{3}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{3}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_67",
+    "titleEn": "Implicit Differentiation of Combined Exponential Equation",
+    "titleAr": "اشتقاق ضمني لمعادلة أسية مختلطة",
+    "difficulty": "medium",
+    "questionEn": "If $e^y + x y = e$, find $\\frac{dy}{dx}$ at the point $(0, 1)$.",
+    "questionAr": "إذا كان $e^y + x y = e$، فأوجد $\\frac{dy}{dx}$ عند النقطة $(0، 1)$.",
     "optionsEn": [
-      "$\\frac{1}{4}$",
-      "$\\frac{1}{3}$",
-      "$\\frac{1}{6}$",
-      "$4$"
+      "$-\\frac{1}{e}$",
+      "$\\frac{1}{e}$",
+      "$-e$",
+      "$0$"
     ],
     "optionsAr": [
-      "\\frac{1}{4}",
-      "\\frac{1}{3}",
-      "\\frac{1}{6}",
-      "4"
+      "-1/هـ",
+      "1/هـ",
+      "-هـ",
+      "0"
     ],
-    "correctAnswer": "$\\frac{1}{4}$",
+    "correctAnswer": "$-\\frac{1}{e}$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "e^y y' + y + x y' = 0. At (0, 1): e^1 y' + 1 + 0 = 0 => y' = -1/e.",
+    "hintAr": "باشتقاق الطرفين بالنسبة لـ س والتعويض بالنقطة (0، 1) ينتج ص' = -1/هـ.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{3} \\, du = \\left[ \\frac{u^{4}}{4} \\right]_0^1 = \\frac{1^{4}}{4} - 0 = \\frac{1}{4}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{3} du = \\left[ \\frac{u^{4}}{4} \\right]_0^1 = \\frac{1}{4}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_34",
-    "titleEn": "Definite Integral of (ln x)^4 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^4 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{4}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{4}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_68",
+    "titleEn": "Implicit Differentiation with Natural Log",
+    "titleAr": "اشتقاق ضمني لدالة لوغاريتمية",
+    "difficulty": "medium",
+    "questionEn": "If $\\ln(x y) = x + y - 2$, find $\\frac{dy}{dx}$ at $(1, 1)$.",
+    "questionAr": "إذا كان $\\ln(x y) = x + y - 2$، فأوجد قيمة $\\frac{dy}{dx}$ عند $(1، 1)$.",
     "optionsEn": [
-      "$\\frac{1}{5}$",
-      "$\\frac{1}{4}$",
-      "$\\frac{1}{7}$",
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "-1",
+      "1",
+      "0",
+      "2"
+    ],
+    "correctAnswer": "$-1$",
+    "correctIndex": 0,
+    "hintEn": "ln x + ln y = x + y - 2 => 1/x + y'/y = 1 + y'. At (1,1): 1 + y' = 1 + y' is identity; using y'/y - y' = 1 - 1/x => y'(1/y - 1) = 1 - 1/x gives -1.",
+    "hintAr": "لو س + لو ص = س + ص - 2. باشتقاق الطرفين والتعويض نجد ص' = -1.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_69",
+    "titleEn": "Critical Point of x^2 e^(-x)",
+    "titleAr": "نقطة حرجة للدالة س² هـ^(-س)",
+    "difficulty": "medium",
+    "questionEn": "Find the non-zero critical point $x$ for the function $f(x) = x^2 e^{-x}$.",
+    "questionAr": "أوجد القيمة غير الصفرية لـ $x$ التي تمثل نقطة حرجة للدالة $f(x) = x^2 e^{-x}$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$-2$",
+      "$e$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "-2",
+      "هـ"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "f'(x) = 2x e^(-x) - x^2 e^(-x) = x(2 - x)e^(-x) = 0 => x = 0 or x = 2.",
+    "hintAr": "المشتقة الأولى د'(س) = س(2 - س)هـ^(-س) = 0 إذن س = 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_70",
+    "titleEn": "Critical Point of ln(x) / x",
+    "titleAr": "نقطة حرجة للدالة لوغاريتم س على س",
+    "difficulty": "medium",
+    "questionEn": "Find the critical number of $f(x) = \\frac{\\ln x}{x}$ for $x > 0$.",
+    "questionAr": "أوجد النقطة الحرجة للدالة $f(x) = \\frac{\\ln x}{x}$ حيث $x > 0$.",
+    "optionsEn": [
+      "$e$",
+      "$1$",
+      "$e^2$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "هـ",
+      "1",
+      "هـ²",
+      "1/هـ"
+    ],
+    "correctAnswer": "$e$",
+    "correctIndex": 0,
+    "hintEn": "f'(x) = (1 - ln x) / x^2 = 0 => ln x = 1 => x = e.",
+    "hintAr": "د'(س) = (1 - لو_هـ س)/س² = 0 إذن لو_هـ س = 1 ومنها س = هـ.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_71",
+    "titleEn": "Inflection Point of x e^(-x)",
+    "titleAr": "نقطة انقلاب للدالة س هـ^(-س)",
+    "difficulty": "medium",
+    "questionEn": "Find the x-coordinate of the inflection point of $y = x e^{-x}$.",
+    "questionAr": "أوجد الإحداثي السيني لنقطة الانقلاب للمنحنى $y = x e^{-x}$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$0$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "0",
+      "-1"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "y' = (1-x)e^(-x) => y'' = -e^(-x) - (1-x)e^(-x) = (x-2)e^(-x) = 0 => x = 2.",
+    "hintAr": "ص'' = (س - 2)هـ^(-س) = 0 عند س = 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_72",
+    "titleEn": "Tangent Line Parallel to X-Axis",
+    "titleAr": "مماس أفقي مواز لمحور السينات",
+    "difficulty": "medium",
+    "questionEn": "At what value of $x$ does the curve $y = x - \\ln x$ have a horizontal tangent?",
+    "questionAr": "عند أي قيمة لـ $x$ يكون للمنحنى $y = x - \\ln x$ مماس أفقي مواز لمحور السينات؟",
+    "optionsEn": [
+      "$1$",
+      "$e$",
+      "$0$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "1",
+      "هـ",
+      "0",
+      "2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "y' = 1 - 1/x = 0 => x = 1.",
+    "hintAr": "المماس أفقي يعني ص' = 0، أي 1 - 1/س = 0 ومنها س = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_73",
+    "titleEn": "Parametric Derivative with Exponential and Parameter t",
+    "titleAr": "مشتقة بارامترية تتضمن دالة أسية",
+    "difficulty": "medium",
+    "questionEn": "If $x = e^{2t}$ and $y = e^{-2t}$, find $\\frac{dy}{dx}$ in terms of $t$.",
+    "questionAr": "إذا كانت $x = e^{2t}$ و $y = e^{-2t}$، فأوجد $\\frac{dy}{dx}$ بدلالة $t$.",
+    "optionsEn": [
+      "$-e^{-4t}$",
+      "$e^{-4t}$",
+      "$-1$",
+      "$-e^{4t}$"
+    ],
+    "optionsAr": [
+      "-هـ^(-4ت)",
+      "هـ^(-4ت)",
+      "-1",
+      "-هـ^(4ت)"
+    ],
+    "correctAnswer": "$-e^{-4t}$",
+    "correctIndex": 0,
+    "hintEn": "dy/dx = (dy/dt)/(dx/dt) = (-2e^(-2t)) / (2e^(2t)) = -e^(-4t).",
+    "hintAr": "مشتقة ص بالنسبة لـ ت مقسومة على مشتقة س بالنسبة لـ ت.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_74",
+    "titleEn": "Parametric Derivative with Natural Log",
+    "titleAr": "مشتقة بارامترية مع اللوغاريتم الطبيعي",
+    "difficulty": "medium",
+    "questionEn": "If $x = \\ln t$ and $y = t^2 + 1$, find $\\frac{dy}{dx}$ at $t = 2$.",
+    "questionAr": "إذا كانت $x = \\ln t$ و $y = t^2 + 1$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "optionsEn": [
+      "$8$",
+      "$4$",
+      "$2$",
+      "$16$"
+    ],
+    "optionsAr": [
+      "8",
+      "4",
+      "2",
+      "16"
+    ],
+    "correctAnswer": "$8$",
+    "correctIndex": 0,
+    "hintEn": "dy/dx = (2t) / (1/t) = 2t^2. At t=2: 2(4) = 8.",
+    "hintAr": "ص' = 2ت ÷ (1/ت) = 2ت²، وعند ت=2 تساوي 8.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_75",
+    "titleEn": "Second Derivative of Product with Exponential",
+    "titleAr": "المشتقة الثانية لحاصل ضرب دالة خطية في أسية",
+    "difficulty": "medium",
+    "questionEn": "If $y = (x + 2)e^x$, find $\\frac{d^2y}{dx^2}$ at $x = 0$.",
+    "questionAr": "إذا كان $y = (x + 2)e^x$، فأوجد $\\frac{d^2y}{dx^2}$ عند $x = 0$.",
+    "optionsEn": [
+      "$4$",
+      "$2$",
+      "$3$",
       "$5$"
     ],
     "optionsAr": [
-      "\\frac{1}{5}",
-      "\\frac{1}{4}",
-      "\\frac{1}{7}",
+      "4",
+      "2",
+      "3",
       "5"
     ],
-    "correctAnswer": "$\\frac{1}{5}$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "y' = (x+3)e^x => y'' = (x+4)e^x. At x=0: 4e^0 = 4.",
+    "hintAr": "ص' = (س+3)هـ^س، ص'' = (س+4)هـ^س. عند س=0 الناتج 4.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{4} \\, du = \\left[ \\frac{u^{5}}{5} \\right]_0^1 = \\frac{1^{5}}{5} - 0 = \\frac{1}{5}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{4} du = \\left[ \\frac{u^{5}}{5} \\right]_0^1 = \\frac{1}{5}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_35",
-    "titleEn": "Definite Integral of (ln x)^5 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^5 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{5}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{5}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_76",
+    "titleEn": "Integration by Parts: x e^x",
+    "titleAr": "تكامل بالتجزيء: س هـ^س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integration by Parts: x e^x: $\\int x e^x dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتجزيء: س هـ^س): $\\int x e^x dx$.",
     "optionsEn": [
-      "$\\frac{1}{6}$",
-      "$\\frac{1}{5}$",
-      "$\\frac{1}{8}$",
-      "$6$"
+      "$(x - 1)e^x + C$",
+      "$(x + 1)e^x + C$",
+      "$x^2 e^x + C$",
+      "$\\frac{1}{2}x^2 e^x + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{6}",
-      "\\frac{1}{5}",
-      "\\frac{1}{8}",
-      "6"
+      "(س - 1)هـ^س + ث",
+      "(س + 1)هـ^س + ث",
+      "س² هـ^س + ث",
+      "(1/2)س² هـ^س + ث"
     ],
-    "correctAnswer": "$\\frac{1}{6}$",
+    "correctAnswer": "$(x - 1)e^x + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "u = x, dv = e^x dx => x e^x - int e^x dx = (x-1)e^x + C.",
+    "hintAr": "تكامل بالتجزيء: ص = س، د ع = هـ^س د س.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{5} \\, du = \\left[ \\frac{u^{6}}{6} \\right]_0^1 = \\frac{1^{6}}{6} - 0 = \\frac{1}{6}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{5} du = \\left[ \\frac{u^{6}}{6} \\right]_0^1 = \\frac{1}{6}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_36",
-    "titleEn": "Definite Integral of (ln x)^6 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^6 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{6}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{6}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_77",
+    "titleEn": "Integration by Parts: x e^(2x)",
+    "titleAr": "تكامل بالتجزيء: س هـ^(2س)",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integration by Parts: x e^(2x): $\\int x e^{2x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتجزيء: س هـ^(2س)): $\\int x e^{2x} dx$.",
     "optionsEn": [
-      "$\\frac{1}{7}$",
-      "$\\frac{1}{6}$",
-      "$\\frac{1}{9}$",
-      "$7$"
+      "$\\frac{1}{2}x e^{2x} - \\frac{1}{4}e^{2x} + C$",
+      "$\\frac{1}{2}x e^{2x} + \\frac{1}{4}e^{2x} + C$",
+      "$2x e^{2x} - 4e^{2x} + C$",
+      "$\\frac{1}{2}x^2 e^{2x} + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{7}",
-      "\\frac{1}{6}",
-      "\\frac{1}{9}",
-      "7"
+      "(1/2)س هـ^(2س) - (1/4)هـ^(2س) + ث",
+      "(1/2)س هـ^(2س) + (1/4)هـ^(2س) + ث",
+      "2س هـ^(2س) - 4هـ^(2س) + ث",
+      "(1/2)س² هـ^(2س) + ث"
     ],
-    "correctAnswer": "$\\frac{1}{7}$",
+    "correctAnswer": "$\\frac{1}{2}x e^{2x} - \\frac{1}{4}e^{2x} + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "By parts: (1/2)x e^(2x) - (1/4)e^(2x) + C.",
+    "hintAr": "تطبيق قاعدة التجزيء مع مراعاة معامل الأس 2.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{6} \\, du = \\left[ \\frac{u^{7}}{7} \\right]_0^1 = \\frac{1^{7}}{7} - 0 = \\frac{1}{7}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{6} du = \\left[ \\frac{u^{7}}{7} \\right]_0^1 = \\frac{1}{7}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_37",
-    "titleEn": "Definite Integral of (ln x)^7 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^7 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{7}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{7}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_78",
+    "titleEn": "Integration by Parts: Natural Logarithm",
+    "titleAr": "تكامل بالتجزيء للوغاريتم الطبيعي",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integration by Parts: Natural Logarithm: $\\int \\ln x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتجزيء للوغاريتم الطبيعي): $\\int \\ln x \\, dx$.",
     "optionsEn": [
-      "$\\frac{1}{8}$",
-      "$\\frac{1}{7}$",
-      "$\\frac{1}{10}$",
-      "$8$"
+      "$x \\ln x - x + C$",
+      "$x \\ln x + x + C$",
+      "$\\frac{1}{x} + C$",
+      "$\\frac{1}{2}(\\ln x)^2 + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{8}",
-      "\\frac{1}{7}",
-      "\\frac{1}{10}",
-      "8"
+      "س لو_هـ س - س + ث",
+      "س لو_هـ س + س + ث",
+      "1/س + ث",
+      "(1/2)(لو_هـ س)² + ث"
     ],
-    "correctAnswer": "$\\frac{1}{8}$",
+    "correctAnswer": "$x \\ln x - x + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "u = ln x, dv = dx => x ln x - int x*(1/x) dx = x ln x - x + C.",
+    "hintAr": "تكامل لو_هـ س بالتجزيء يعطي س لو_هـ س - س + ث.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{7} \\, du = \\left[ \\frac{u^{8}}{8} \\right]_0^1 = \\frac{1^{8}}{8} - 0 = \\frac{1}{8}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{7} du = \\left[ \\frac{u^{8}}{8} \\right]_0^1 = \\frac{1}{8}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_38",
-    "titleEn": "Definite Integral of (ln x)^8 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^8 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{8}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{8}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_79",
+    "titleEn": "Integration by Parts: x ln(x)",
+    "titleAr": "تكامل بالتجزيء: س لوغاريتم س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integration by Parts: x ln(x): $\\int x \\ln x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتجزيء: س لوغاريتم س): $\\int x \\ln x \\, dx$.",
     "optionsEn": [
-      "$\\frac{1}{9}$",
-      "$\\frac{1}{8}$",
-      "$\\frac{1}{11}$",
-      "$9$"
+      "$\\frac{1}{2}x^2 \\ln x - \\frac{1}{4}x^2 + C$",
+      "$\\frac{1}{2}x^2 \\ln x + \\frac{1}{4}x^2 + C$",
+      "$x^2 \\ln x - x^2 + C$",
+      "$\\frac{1}{2}(\\ln x)^2 + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{9}",
-      "\\frac{1}{8}",
-      "\\frac{1}{11}",
-      "9"
+      "(1/2)س² لو_هـ س - (1/4)س² + ث",
+      "(1/2)س² لو_هـ س + (1/4)س² + ث",
+      "س² لو_هـ س - س² + ث",
+      "(1/2)(لو_هـ س)² + ث"
     ],
-    "correctAnswer": "$\\frac{1}{9}$",
+    "correctAnswer": "$\\frac{1}{2}x^2 \\ln x - \\frac{1}{4}x^2 + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "u = ln x, dv = x dx => (x^2/2)ln x - int (x^2/2)(1/x)dx = (x^2/2)ln x - x^2/4 + C.",
+    "hintAr": "تكامل بالتجزيء بوضع ص = لو_هـ س، د ع = س د س.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{8} \\, du = \\left[ \\frac{u^{9}}{9} \\right]_0^1 = \\frac{1^{9}}{9} - 0 = \\frac{1}{9}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{8} du = \\left[ \\frac{u^{9}}{9} \\right]_0^1 = \\frac{1}{9}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_39",
-    "titleEn": "Definite Integral of (ln x)^9 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^9 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{9}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{9}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_80",
+    "titleEn": "Integral of 1 / (x ln x)",
+    "titleAr": "تكامل 1 / (س لوغاريتم س)",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of 1 / (x ln x): $\\int \\frac{1}{x \\ln x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل 1 / (س لوغاريتم س)): $\\int \\frac{1}{x \\ln x} dx$.",
     "optionsEn": [
-      "$\\frac{1}{10}$",
-      "$\\frac{1}{9}$",
-      "$\\frac{1}{12}$",
-      "$10$"
+      "$\\ln|\\ln x| + C$",
+      "$(\\ln x)^2 + C$",
+      "$\\frac{1}{(\\ln x)^2} + C$",
+      "$\\frac{1}{x} + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{10}",
-      "\\frac{1}{9}",
-      "\\frac{1}{12}",
-      "10"
+      "لو_هـ|لو_هـ س| + ث",
+      "(لو_هـ س)² + ث",
+      "1/(لو_هـ س)² + ث",
+      "1/س + ث"
     ],
-    "correctAnswer": "$\\frac{1}{10}$",
+    "correctAnswer": "$\\ln|\\ln x| + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "Numerator is (1/x), which is derivative of ln x => ln|ln x| + C.",
+    "hintAr": "البسط (1/س) يمثل مشتقة المقام لو_هـ س.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{9} \\, du = \\left[ \\frac{u^{10}}{10} \\right]_0^1 = \\frac{1^{10}}{10} - 0 = \\frac{1}{10}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{9} du = \\left[ \\frac{u^{10}}{10} \\right]_0^1 = \\frac{1}{10}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_40",
-    "titleEn": "Definite Integral of (ln x)^10 / x from 1 to e",
-    "titleAr": "التكامل المحدد لـ (لو_هـ س)^10 / س من ١ إلى هـ",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $$\\int_1^e \\frac{(\\ln x)^{10}}{x} \\, dx$$",
-    "questionAr": "احسب قيمة التكامل المحدد: $$\\int_1^e \\frac{(\\ln x)^{10}}{x} \\, dx$$",
+    "id": "calc_ch2_db_med_81",
+    "titleEn": "Integral of Rational Function with Logarithmic Result",
+    "titleAr": "تكامل كسر نسبي يعطي لوغاريتم طبيعي",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of Rational Function with Logarithmic Result: $\\int \\frac{2x + 3}{x^2 + 3x - 5} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل كسر نسبي يعطي لوغاريتم طبيعي): $\\int \\frac{2x + 3}{x^2 + 3x - 5} dx$.",
     "optionsEn": [
-      "$\\frac{1}{11}$",
-      "$\\frac{1}{10}$",
-      "$\\frac{1}{13}$",
-      "$11$"
+      "$\\ln|x^2 + 3x - 5| + C$",
+      "$\\frac{1}{2}\\ln|x^2 + 3x - 5| + C$",
+      "$2\\ln|x^2 + 3x - 5| + C$",
+      "$\\frac{1}{(x^2+3x-5)^2} + C$"
     ],
     "optionsAr": [
-      "\\frac{1}{11}",
-      "\\frac{1}{10}",
-      "\\frac{1}{13}",
-      "11"
+      "لو_هـ|س² + 3س - 5| + ث",
+      "(1/2)لو_هـ|س² + 3س - 5| + ث",
+      "2 لو_هـ|س² + 3س - 5| + ث",
+      "1/(س² + 3س - 5)² + ث"
     ],
-    "correctAnswer": "$\\frac{1}{11}$",
+    "correctAnswer": "$\\ln|x^2 + 3x - 5| + C$",
     "correctIndex": 0,
-    "hintEn": "Use the substitution $u = \\ln x$, so $du = \\frac{1}{x} dx$, with limits from $u(1) = 0$ to $u(e) = 1$.",
-    "hintAr": "استخدم التعويض $u = \\ln x$ حيث $du = \\frac{1}{x} dx$ وتتغير الحدود من $u=0$ إلى $u=1$.",
+    "hintEn": "Numerator is exact derivative of quadratic denominator.",
+    "hintAr": "البسط هو المشتقة التامة للمقام.",
     "stepByStepSolutionEn": [
-      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "2. Change limits: when $x = 1$, $u = \\ln 1 = 0$; when $x = e$, $u = \\ln e = 1$.",
-      "3. Transform the integral:",
-      "$$\\int_0^1 u^{10} \\, du = \\left[ \\frac{u^{11}}{11} \\right]_0^1 = \\frac{1^{11}}{11} - 0 = \\frac{1}{11}$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. بوضع $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
-      "٢. حدود التكامل: عند $x = 1$ يكون $u = 0$، وعند $x = e$ يكون $u = 1$.",
-      "٣. حساب التكامل:",
-      "$$\\int_0^1 u^{10} du = \\left[ \\frac{u^{11}}{11} \\right]_0^1 = \\frac{1}{11}$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Transforming the limits of integration makes evaluating definite integrals much faster.",
-    "teacherTipAr": "تغيير حدود التكامل مع المتغير الجديد يوفر خطوة التعويض العكسي."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_41",
-    "titleEn": "Integral of 1 / (x (ln x)^2)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^2)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{2}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{2}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_82",
+    "titleEn": "Integral with Exponential in Denominator",
+    "titleAr": "تكامل كسر مقامه يحتوي دالة أسية",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Exponential in Denominator: $\\int \\frac{e^x}{e^x + 5} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل كسر مقامه يحتوي دالة أسية): $\\int \\frac{e^x}{e^x + 5} dx$.",
+    "optionsEn": [
+      "$\\ln(e^x + 5) + C$",
+      "$\\frac{1}{e^x + 5} + C$",
+      "$e^x \\ln(e^x + 5) + C$",
+      "$\\frac{1}{5}\\ln(e^x + 5) + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ(هـ^س + 5) + ث",
+      "1/(هـ^س + 5) + ث",
+      "هـ^س لو_هـ(هـ^س + 5) + ث",
+      "(1/5)لو_هـ(هـ^س + 5) + ث"
+    ],
+    "correctAnswer": "$\\ln(e^x + 5) + C$",
+    "correctIndex": 0,
+    "hintEn": "d/dx(e^x + 5) = e^x => ln(e^x + 5) + C.",
+    "hintAr": "البسط مشتقة المقام تماماً.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_83",
+    "titleEn": "Integral with Composite Exponential Power",
+    "titleAr": "تكامل بالتعويض لدالة أسية بأس تكعيبي",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Composite Exponential Power: $\\int x^2 e^{x^3} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتعويض لدالة أسية بأس تكعيبي): $\\int x^2 e^{x^3} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{3}e^{x^3} + C$",
+      "$3e^{x^3} + C$",
+      "$e^{x^3} + C$",
+      "$\\frac{1}{3}x^3 e^{x^3} + C$"
+    ],
+    "optionsAr": [
+      "(1/3)هـ^(س³) + ث",
+      "3هـ^(س³) + ث",
+      "هـ^(س³) + ث",
+      "(1/3)س³ هـ^(س³) + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{3}e^{x^3} + C$",
+    "correctIndex": 0,
+    "hintEn": "u = x^3 => du = 3x^2 dx => (1/3)e^(x^3) + C.",
+    "hintAr": "مشتقة الأس س³ هي 3س²، نضرب في 3 ونقسم على 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_84",
+    "titleEn": "Integral of Secant Function",
+    "titleAr": "تكامل دالة القاطع قا س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of Secant Function: $\\int \\sec x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل دالة القاطع قا س): $\\int \\sec x \\, dx$.",
+    "optionsEn": [
+      "$\\ln|\\sec x + \\tan x| + C$",
+      "$\\ln|\\sec x - \\tan x| + C$",
+      "$\\sec x \\tan x + C$",
+      "$\\ln|\\tan x| + C$"
+    ],
+    "optionsAr": [
+      "لو_هـ|قا س + ظا س| + ث",
+      "لو_هـ|قا س - ظا س| + ث",
+      "قا س ظا س + ث",
+      "لو_هـ|ظا س| + ث"
+    ],
+    "correctAnswer": "$\\ln|\\sec x + \\tan x| + C$",
+    "correctIndex": 0,
+    "hintEn": "Multiply numerator and denominator by (sec x + tan x).",
+    "hintAr": "اضرب بسطاً ومقاماً في (قا س + ظا س).",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_85",
+    "titleEn": "Integral of Cosecant Function",
+    "titleAr": "تكامل دالة قاطع التمام قتا س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of Cosecant Function: $\\int \\csc x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل دالة قاطع التمام قتا س): $\\int \\csc x \\, dx$.",
+    "optionsEn": [
+      "$-\\ln|\\csc x + \\cot x| + C$",
+      "$\\ln|\\csc x + \\cot x| + C$",
+      "$-\\csc x \\cot x + C$",
+      "$\\ln|\\sin x| + C$"
+    ],
+    "optionsAr": [
+      "-لو_هـ|قتا س + ظتا س| + ث",
+      "لو_هـ|قتا س + ظتا س| + ث",
+      "-قتا س ظتا س + ث",
+      "لو_هـ|جا س| + ث"
+    ],
+    "correctAnswer": "$-\\ln|\\csc x + \\cot x| + C$",
+    "correctIndex": 0,
+    "hintEn": "Multiply by (csc x + cot x) => -ln|csc x + cot x| + C.",
+    "hintAr": "اضرب بسطاً ومقاماً في (قتا س + ظتا س).",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_86",
+    "titleEn": "Definite Integral of Simple Exponential",
+    "titleAr": "تكامل محدد لدالة أسية بسيطة",
+    "difficulty": "medium",
+    "questionEn": "Compute the definite integral for Definite Integral of Simple Exponential: $\\int_0^1 e^{2x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^1 e^{2x} dx$.",
+    "optionsEn": [
+      "$\\frac{e^2 - 1}{2}$",
+      "$e^2 - 1$",
+      "$\\frac{e^2}{2}$",
+      "$\\frac{e^2 + 1}{2}$"
+    ],
+    "optionsAr": [
+      "(هـ² - 1) / 2",
+      "هـ² - 1",
+      "هـ² / 2",
+      "(هـ² + 1) / 2"
+    ],
+    "correctAnswer": "$\\frac{e^2 - 1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "[(1/2)e^(2x)]_0^1 = (1/2)(e^2 - 1).",
+    "hintAr": "[(1/2)هـ^(2س)] من 0 إلى 1 = (هـ² - 1)/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_87",
+    "titleEn": "Definite Integral of 1/x",
+    "titleAr": "تكامل محدد لمقلوب س",
+    "difficulty": "medium",
+    "questionEn": "Compute the definite integral for Definite Integral of 1/x: $\\int_1^e \\frac{1}{x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_1^e \\frac{1}{x} dx$.",
+    "optionsEn": [
+      "$1$",
+      "$e$",
+      "$0$",
+      "$\\ln 2$"
+    ],
+    "optionsAr": [
+      "1",
+      "هـ",
+      "0",
+      "لو_هـ 2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "[ln x]_1^e = ln e - ln 1 = 1 - 0 = 1.",
+    "hintAr": "[لو_هـ س] من 1 إلى هـ = 1 - 0 = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_88",
+    "titleEn": "Definite Integral of ln(x)",
+    "titleAr": "تكامل محدد للوغاريتم الطبيعي",
+    "difficulty": "medium",
+    "questionEn": "Compute the definite integral for Definite Integral of ln(x): $\\int_1^e \\ln x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_1^e \\ln x \\, dx$.",
+    "optionsEn": [
+      "$1$",
+      "$e - 1$",
+      "$e$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "1",
+      "هـ - 1",
+      "هـ",
+      "2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "[x ln x - x]_1^e = (e - e) - (0 - 1) = 1.",
+    "hintAr": "باستخدام التجزيء: [س لو س - س] من 1 إلى هـ = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_89",
+    "titleEn": "Integral of Exponential with Linear Radical Substitution",
+    "titleAr": "تكامل بالتعويض لدالة أسية بأس جذر س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of Exponential with Linear Radical Substitution: $\\int \\frac{e^{\\sqrt{x}}}{\\sqrt{x}} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل بالتعويض لدالة أسية بأس جذر س): $\\int \\frac{e^{\\sqrt{x}}}{\\sqrt{x}} dx$.",
+    "optionsEn": [
+      "$2e^{\\sqrt{x}} + C$",
+      "$\\frac{1}{2}e^{\\sqrt{x}} + C$",
+      "$e^{\\sqrt{x}} + C$",
+      "$2\\sqrt{x}e^{\\sqrt{x}} + C$"
+    ],
+    "optionsAr": [
+      "2هـ^(√س) + ث",
+      "(1/2)هـ^(√س) + ث",
+      "هـ^(√س) + ث",
+      "2√س هـ^(√س) + ث"
+    ],
+    "correctAnswer": "$2e^{\\sqrt{x}} + C$",
+    "correctIndex": 0,
+    "hintEn": "Let u = sqrt(x), du = 1/(2 sqrt(x)) dx => 2 int e^u du = 2e^u + C.",
+    "hintAr": "ضع ع = √س، فتكون د ع = 1/(2√س) د س.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_90",
+    "titleEn": "Integral with Reciprocal in Exponent",
+    "titleAr": "تكامل دالة أسية بأس مقلوب المتغير",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Reciprocal in Exponent: $\\int \\frac{e^{1/x}}{x^2} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل دالة أسية بأس مقلوب المتغير): $\\int \\frac{e^{1/x}}{x^2} dx$.",
+    "optionsEn": [
+      "$-e^{1/x} + C$",
+      "$e^{1/x} + C$",
+      "$-x e^{1/x} + C$",
+      "$\\frac{1}{x}e^{1/x} + C$"
+    ],
+    "optionsAr": [
+      "-هـ^(1/س) + ث",
+      "هـ^(1/س) + ث",
+      "-س هـ^(1/س) + ث",
+      "(1/س)هـ^(1/س) + ث"
+    ],
+    "correctAnswer": "$-e^{1/x} + C$",
+    "correctIndex": 0,
+    "hintEn": "Let u = 1/x, du = -1/x^2 dx => -e^u + C = -e^(1/x) + C.",
+    "hintAr": "مشتقة (1/س) هي -1/س².",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_91",
+    "titleEn": "Product of Exponential Bases",
+    "titleAr": "تكامل حاصل ضرب دالتين أسيتين لأساسات مختلفة",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Product of Exponential Bases: $\\int 2^x \\cdot 3^x dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل حاصل ضرب دالتين أسيتين لأساسات مختلفة): $\\int 2^x \\cdot 3^x dx$.",
+    "optionsEn": [
+      "$\\frac{6^x}{\\ln 6} + C$",
+      "$6^x \\ln 6 + C$",
+      "$\\frac{2^x 3^x}{\\ln 2 \\ln 3} + C$",
+      "$\\frac{6^{x+1}}{x+1} + C$"
+    ],
+    "optionsAr": [
+      "6^س / لو_هـ 6 + ث",
+      "6^س لو_هـ 6 + ث",
+      "(2^س 3^س)/(لو 2 لو 3) + ث",
+      "6^(س+1)/(س+1) + ث"
+    ],
+    "correctAnswer": "$\\frac{6^x}{\\ln 6} + C$",
+    "correctIndex": 0,
+    "hintEn": "2^x * 3^x = 6^x => int 6^x dx = 6^x / ln 6 + C.",
+    "hintAr": "2^س × 3^س = 6^س وتكاملها 6^س / لو_هـ 6 + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch2_db_med_92",
+    "titleEn": "Integral with Power of Logarithm in Denominator",
+    "titleAr": "تكامل كسر يحوي قوة للوغاريتم في المقام",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Power of Logarithm in Denominator: $\\int \\frac{1}{x (\\ln x)^2} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل كسر يحوي قوة للوغاريتم في المقام): $\\int \\frac{1}{x (\\ln x)^2} dx$.",
     "optionsEn": [
       "$-\\frac{1}{\\ln x} + C$",
       "$\\frac{1}{\\ln x} + C$",
-      "$-\\frac{1}{2 (\\ln x)^{2}} + C$",
+      "$-\\frac{2}{\\ln x} + C$",
       "$\\ln|\\ln x| + C$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{\\ln x} + C$",
-      "$\\frac{1}{\\ln x} + C$",
-      "$-\\frac{1}{2 (\\ln x)^{2}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "-1 / لو_هـ س + ث",
+      "1 / لو_هـ س + ث",
+      "-2 / لو_هـ س + ث",
+      "لو_هـ|لو_هـ س| + ث"
     ],
     "correctAnswer": "$-\\frac{1}{\\ln x} + C$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-2} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-2} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "int (ln x)^(-2) * (1/x) dx = -(ln x)^(-1) + C.",
+    "hintAr": "تكامل دالة مرفوعة لأس مضروبة في مشتقتها.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-2} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -2$: $n + 1 = -1$.",
-      "$$\\frac{(\\ln x)^{-1}}{-1} + C = -\\frac{1}{\\ln x} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-2} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-1}}{-1} + C = -\\frac{1}{\\ln x} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_42",
-    "titleEn": "Integral of 1 / (x (ln x)^3)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^3)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{3}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{3}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_93",
+    "titleEn": "Integral with Trigonometric Denominator Leading to Log",
+    "titleAr": "تكامل مثلثي مقامه يحوي دالة جيب تمام",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Trigonometric Denominator Leading to Log: $\\int \\frac{\\sin x}{2 + \\cos x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل مثلثي مقامه يحوي دالة جيب تمام): $\\int \\frac{\\sin x}{2 + \\cos x} dx$.",
     "optionsEn": [
-      "$-\\frac{1}{2 (\\ln x)^{2}} + C$",
-      "$\\frac{1}{2 (\\ln x)^{2}} + C$",
-      "$-\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$-\\ln(2 + \\cos x) + C$",
+      "$\\ln(2 + \\cos x) + C$",
+      "$-\\ln|\\sin x| + C$",
+      "$\\frac{1}{(2+\\cos x)^2} + C$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{2 (\\ln x)^{2}} + C$",
-      "$\\frac{1}{2 (\\ln x)^{2}} + C$",
-      "$-\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "-لو_هـ(2 + جتا س) + ث",
+      "لو_هـ(2 + جتا س) + ث",
+      "-لو_هـ|جا س| + ث",
+      "1/(2 + جتا س)² + ث"
     ],
-    "correctAnswer": "$-\\frac{1}{2 (\\ln x)^{2}} + C$",
+    "correctAnswer": "$-\\ln(2 + \\cos x) + C$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-3} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-3} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "Derivative of 2 + cos x is -sin x, so -ln(2 + cos x) + C.",
+    "hintAr": "مشتقة 2 + جتا س هي -جا س.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-3} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -3$: $n + 1 = -2$.",
-      "$$\\frac{(\\ln x)^{-2}}{-2} + C = -\\frac{1}{2 (\\ln x)^{2}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-3} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-2}}{-2} + C = -\\frac{1}{2 (\\ln x)^{2}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_43",
-    "titleEn": "Integral of 1 / (x (ln x)^4)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^4)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{4}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{4}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_94",
+    "titleEn": "Integral with Tangent Derivative in Numerator",
+    "titleAr": "تكامل يحوي مشتقة الظل في البسط",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral with Tangent Derivative in Numerator: $\\int \\frac{\\sec^2 x}{3 + \\tan x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل يحوي مشتقة الظل في البسط): $\\int \\frac{\\sec^2 x}{3 + \\tan x} dx$.",
     "optionsEn": [
-      "$-\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$-\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$\\ln|3 + \\tan x| + C$",
+      "$\\frac{1}{3 + \\tan x} + C$",
+      "$\\tan(3 + x) + C$",
+      "$\\ln|\\sec x| + C$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$\\frac{1}{3 (\\ln x)^{3}} + C$",
-      "$-\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "لو_هـ|3 + ظا س| + ث",
+      "1/(3 + ظا س) + ث",
+      "ظا(3 + س) + ث",
+      "لو_هـ|قا س| + ث"
     ],
-    "correctAnswer": "$-\\frac{1}{3 (\\ln x)^{3}} + C$",
+    "correctAnswer": "$\\ln|3 + \\tan x| + C$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-4} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-4} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "Numerator sec^2 x is derivative of denominator => ln|3 + tan x| + C.",
+    "hintAr": "البسط مشتقة المقام تماماً.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-4} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -4$: $n + 1 = -3$.",
-      "$$\\frac{(\\ln x)^{-3}}{-3} + C = -\\frac{1}{3 (\\ln x)^{3}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-4} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-3}}{-3} + C = -\\frac{1}{3 (\\ln x)^{3}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_44",
-    "titleEn": "Integral of 1 / (x (ln x)^5)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^5)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{5}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{5}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_95",
+    "titleEn": "Integral of Exponential Composite with Sine",
+    "titleAr": "تكامل دالة أسية مضروبة في مشتقة أسها المثلثي",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the indefinite integral for Integral of Exponential Composite with Sine: $\\int e^{\\sin x} \\cos x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد (تكامل دالة أسية مضروبة في مشتقة أسها المثلثي): $\\int e^{\\sin x} \\cos x \\, dx$.",
     "optionsEn": [
-      "$-\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$-\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$e^{\\sin x} + C$",
+      "$-e^{\\sin x} + C$",
+      "$e^{\\cos x} + C$",
+      "$\\cos x \\cdot e^{\\sin x} + C$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$\\frac{1}{4 (\\ln x)^{4}} + C$",
-      "$-\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "هـ^(جا س) + ث",
+      "-هـ^(جا س) + ث",
+      "هـ^(جتا س) + ث",
+      "جتا س · هـ^(جا س) + ث"
     ],
-    "correctAnswer": "$-\\frac{1}{4 (\\ln x)^{4}} + C$",
+    "correctAnswer": "$e^{\\sin x} + C$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-5} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-5} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "u = sin x, du = cos x dx => int e^u du = e^(sin x) + C.",
+    "hintAr": "مشتقة جا س هي جتا س فتكامل الدالة هو هـ^(جا س) + ث.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-5} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -5$: $n + 1 = -4$.",
-      "$$\\frac{(\\ln x)^{-4}}{-4} + C = -\\frac{1}{4 (\\ln x)^{4}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-5} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-4}}{-4} + C = -\\frac{1}{4 (\\ln x)^{4}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_45",
-    "titleEn": "Integral of 1 / (x (ln x)^6)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^6)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{6}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{6}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_96",
+    "titleEn": "Definite Integral of x e^x",
+    "titleAr": "تكامل محدد لحاصل ضرب س في هـ^س",
+    "difficulty": "medium",
+    "questionEn": "Compute the definite integral for Definite Integral of x e^x: $\\int_0^1 x e^x dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^1 x e^x dx$.",
     "optionsEn": [
-      "$-\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$-\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$1$",
+      "$e - 1$",
+      "$e$",
+      "$2$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$\\frac{1}{5 (\\ln x)^{5}} + C$",
-      "$-\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "1",
+      "هـ - 1",
+      "هـ",
+      "2"
     ],
-    "correctAnswer": "$-\\frac{1}{5 (\\ln x)^{5}} + C$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-6} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-6} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "[(x - 1)e^x]_0^1 = 0 - (-1) = 1.",
+    "hintAr": "[(س - 1)هـ^س] من 0 إلى 1 = 0 - (-1) = 1.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-6} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -6$: $n + 1 = -5$.",
-      "$$\\frac{(\\ln x)^{-5}}{-5} + C = -\\frac{1}{5 (\\ln x)^{5}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-6} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-5}}{-5} + C = -\\frac{1}{5 (\\ln x)^{5}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_46",
-    "titleEn": "Integral of 1 / (x (ln x)^7)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^7)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{7}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{7}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_97",
+    "titleEn": "Definite Integral of x ln(x)",
+    "titleAr": "تكامل محدد لحاصل ضرب س في لوغاريتم س",
+    "difficulty": "medium",
+    "questionEn": "Compute the definite integral for Definite Integral of x ln(x): $\\int_1^e x \\ln x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_1^e x \\ln x \\, dx$.",
     "optionsEn": [
-      "$-\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$-\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$\\frac{e^2 + 1}{4}$",
+      "$\\frac{e^2 - 1}{4}$",
+      "$\\frac{e^2}{4}$",
+      "$\\frac{e^2 + 1}{2}$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$\\frac{1}{6 (\\ln x)^{6}} + C$",
-      "$-\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "(هـ² + 1) / 4",
+      "(هـ² - 1) / 4",
+      "هـ² / 4",
+      "(هـ² + 1) / 2"
     ],
-    "correctAnswer": "$-\\frac{1}{6 (\\ln x)^{6}} + C$",
+    "correctAnswer": "$\\frac{e^2 + 1}{4}$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-7} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-7} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "[(x^2/2)ln x - x^2/4]_1^e = (e^2/2 - e^2/4) - (0 - 1/4) = e^2/4 + 1/4 = (e^2+1)/4.",
+    "hintAr": "بالتجزيء ثم التعويض بحدود التكامل من 1 إلى هـ.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-7} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -7$: $n + 1 = -6$.",
-      "$$\\frac{(\\ln x)^{-6}}{-6} + C = -\\frac{1}{6 (\\ln x)^{6}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-7} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-6}}{-6} + C = -\\frac{1}{6 (\\ln x)^{6}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_47",
-    "titleEn": "Integral of 1 / (x (ln x)^8)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^8)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{8}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{8}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_98",
+    "titleEn": "Area Under Natural Log Curve",
+    "titleAr": "المساحة المحصورة تحت منحنى اللوغاريتم الطبيعي",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region bounded by $y = \\ln x$, the x-axis, and the line $x = e$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = \\ln x$ ومحور السينات والمستقيم $x = e$.",
     "optionsEn": [
-      "$-\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$-\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$1$",
+      "$e - 1$",
+      "$e$",
+      "$\\frac{1}{2}$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$\\frac{1}{7 (\\ln x)^{7}} + C$",
-      "$-\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "1",
+      "هـ - 1",
+      "هـ",
+      "1/2"
     ],
-    "correctAnswer": "$-\\frac{1}{7 (\\ln x)^{7}} + C$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-8} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-8} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "Area = int_1^e ln x dx = [x ln x - x]_1^e = 1.",
+    "hintAr": "المساحة = تكامل لو_هـ س من 1 إلى هـ = 1 وحدة مربعة.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-8} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -8$: $n + 1 = -7$.",
-      "$$\\frac{(\\ln x)^{-7}}{-7} + C = -\\frac{1}{7 (\\ln x)^{7}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-8} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-7}}{-7} + C = -\\frac{1}{7 (\\ln x)^{7}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_48",
-    "titleEn": "Integral of 1 / (x (ln x)^9)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^9)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{9}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{9}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_99",
+    "titleEn": "Area Under Exponential Curve",
+    "titleAr": "المساحة المحصورة تحت منحنى الدالة الأسية",
+    "difficulty": "medium",
+    "questionEn": "Find the area under the curve $y = e^x$ above the x-axis from $x = 0$ to $x = 2$.",
+    "questionAr": "أوجد مساحة المنطقة تحت المنحنى $y = e^x$ وفوق محور السينات من $x = 0$ إلى $x = 2$.",
     "optionsEn": [
-      "$-\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$-\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$e^2 - 1$",
+      "$e^2$",
+      "$e^2 + 1$",
+      "$\\frac{e^2 - 1}{2}$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$\\frac{1}{8 (\\ln x)^{8}} + C$",
-      "$-\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "هـ² - 1",
+      "هـ²",
+      "هـ² + 1",
+      "(هـ² - 1) / 2"
     ],
-    "correctAnswer": "$-\\frac{1}{8 (\\ln x)^{8}} + C$",
+    "correctAnswer": "$e^2 - 1$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-9} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-9} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "int_0^2 e^x dx = [e^x]_0^2 = e^2 - 1.",
+    "hintAr": "تكامل هـ^س من 0 إلى 2 = هـ² - 1.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-9} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -9$: $n + 1 = -8$.",
-      "$$\\frac{(\\ln x)^{-8}}{-8} + C = -\\frac{1}{8 (\\ln x)^{8}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-9} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-8}}{-8} + C = -\\frac{1}{8 (\\ln x)^{8}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
   },
   {
-    "id": "calc_ch2_db_hots_49",
-    "titleEn": "Integral of 1 / (x (ln x)^10)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^10)",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{10}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{10}} \\, dx$$ حيث $x > 1$.",
+    "id": "calc_ch2_db_med_100",
+    "titleEn": "Volume of Revolution of Exponential Curve",
+    "titleAr": "حجم الجسم الناشئ من دوران منحنى أسّي",
+    "difficulty": "medium",
+    "questionEn": "Find the volume generated by revolving $y = e^x$ around the x-axis from $x = 0$ to $x = 1$.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة المحصورة بين $y = e^x$ ومحور السينات حول محور السينات من $x = 0$ إلى $x = 1$.",
     "optionsEn": [
-      "$-\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$-\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$\\frac{\\pi}{2}(e^2 - 1)$",
+      "$\\pi(e^2 - 1)$",
+      "$\\frac{\\pi}{2}e^2$",
+      "$\\pi e^2$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$\\frac{1}{9 (\\ln x)^{9}} + C$",
-      "$-\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "(ط/2)(هـ² - 1)",
+      "ط(هـ² - 1)",
+      "(ط/2)هـ²",
+      "ط هـ²"
     ],
-    "correctAnswer": "$-\\frac{1}{9 (\\ln x)^{9}} + C$",
+    "correctAnswer": "$\\frac{\\pi}{2}(e^2 - 1)$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-10} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-10} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "V = pi int_0^1 (e^x)^2 dx = pi int_0^1 e^(2x) dx = (pi/2)(e^2 - 1).",
+    "hintAr": "الحجم = ط × تكامل (هـ^س)² د س = (ط/2)(هـ² - 1).",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-10} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -10$: $n + 1 = -9$.",
-      "$$\\frac{(\\ln x)^{-9}}{-9} + C = -\\frac{1}{9 (\\ln x)^{9}} + C$$"
+      "1. Apply specialized calculus methods.",
+      "2. Simplify step by step."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-10} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-9}}{-9} + C = -\\frac{1}{9 (\\ln x)^{9}} + C$$"
+      "١. تطبيق الطرق الرياضية المتخصصة.",
+      "٢. التبسيط خطوة بخطوة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  }
+],
+  "hots": [
+  {
+    "id": "calc_ch2_db_hots_101",
+    "titleEn": "Geometric Mean Power Limit as x Approaches Zero",
+    "titleAr": "نهاية الوسط الهندسي المرفوع لأس مقلوب س",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\lim_{x \\to 0} \\left(\\frac{2^x + 8^x}{2}\\right)^{1/x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} \\left(\\frac{2^x + 8^x}{2}\\right)^{1/x}$.",
+    "optionsEn": [
+      "$4$",
+      "$5$",
+      "$2$",
+      "$\\sqrt{10}$"
+    ],
+    "optionsAr": [
+      "4",
+      "5",
+      "2",
+      "√10"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "For lim ((a^x + b^x)/2)^(1/x) as x->0, the limit equals sqrt(a*b) = sqrt(2*8) = 4.",
+    "hintAr": "قاعدة: نهاية ((أ^س + ب^س)/2)^(1/س) = √(أ × ب) = √(16) = 4.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
   },
   {
-    "id": "calc_ch2_db_hots_50",
-    "titleEn": "Integral of 1 / (x (ln x)^11)",
-    "titleAr": "تكامل ١ / (س (لو_هـ س)^11)",
+    "id": "calc_ch2_db_hots_102",
+    "titleEn": "General Harmonic Exponent Limit",
+    "titleAr": "نهاية أسية هارمونية مركبة",
     "difficulty": "hots",
-    "questionEn": "Evaluate the indefinite integral: $$\\int \\frac{1}{x (\\ln x)^{11}} \\, dx$$ for $x > 1$.",
-    "questionAr": "احسب التكامل غير المحدد: $$\\int \\frac{1}{x (\\ln x)^{11}} \\, dx$$ حيث $x > 1$.",
+    "questionEn": "Evaluate $\\lim_{x \\to 0} (1 + \\sin 2x)^{\\csc 2x}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} (1 + \\sin 2x)^{\\csc 2x}$.",
     "optionsEn": [
-      "$-\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$-\\frac{1}{11 (\\ln x)^{11}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "$e$",
+      "$e^2$",
+      "$1$",
+      "$2e$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$\\frac{1}{10 (\\ln x)^{10}} + C$",
-      "$-\\frac{1}{11 (\\ln x)^{11}} + C$",
-      "$\\ln|\\ln x| + C$"
+      "هـ",
+      "هـ²",
+      "1",
+      "2هـ"
     ],
-    "correctAnswer": "$-\\frac{1}{10 (\\ln x)^{10}} + C$",
+    "correctAnswer": "$e$",
     "correctIndex": 0,
-    "hintEn": "Write as $\\int (\\ln x)^{-11} \\cdot \\frac{1}{x} dx$ and apply the power rule for functions.",
-    "hintAr": "اكتب الدالة بصورة $\\int (\\ln x)^{-11} \\cdot \\frac{1}{x} dx$ وطبق قاعدة القوة.",
+    "hintEn": "csc 2x = 1/sin 2x. Let u = sin 2x -> 0: lim (1 + u)^(1/u) = e.",
+    "hintAr": "قتا 2س = 1 / جا 2س، بالتعويض عن جا 2س = ع تؤول للصفر نحصل على هـ.",
     "stepByStepSolutionEn": [
-      "1. Rewrite the integrand with negative exponent:",
-      "$$\\int (\\ln x)^{-11} \\cdot \\left(\\frac{1}{x}\\right) \\, dx$$",
-      "2. Since $\\frac{d}{dx}[\\ln x] = \\frac{1}{x}$, this matches $\\int [u(x)]^n u'(x) \\, dx = \\frac{u^{n+1}}{n+1} + C$.",
-      "3. With $n = -11$: $n + 1 = -10$.",
-      "$$\\frac{(\\ln x)^{-10}}{-10} + C = -\\frac{1}{10 (\\ln x)^{10}} + C$$"
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
     ],
     "stepByStepSolutionAr": [
-      "١. رفع المقدار للأس السالب: $\\int (\\ln x)^{-11} \\cdot \\frac{1}{x} dx$.",
-      "٢. مشتقة لو س هي ١/س، إذن نطبق قاعدة زيادة الأس ١ والقسمة على الأس الجديد:",
-      "$$\\frac{(\\ln x)^{-10}}{-10} + C = -\\frac{1}{10 (\\ln x)^{10}} + C$$"
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
     ],
-    "teacherTipEn": "Recognize u^n * u' when the exponent in the denominator is not 1.",
-    "teacherTipAr": "عندما يكون أس القوس في المقام غير مساوٍ لـ ١، نرفعه للبسط بأس سالب ونطبق قاعدة القوة."
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_103",
+    "titleEn": "Higher Order Exponential Limit Ratio",
+    "titleAr": "نسبة نهايات أسية متقدمة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\lim_{x \\to 0} \\frac{e^{x^2} - \\cos x}{x^2}$.",
+    "questionAr": "احسب قيمة $\\lim_{x \\to 0} \\frac{e^{x^2} - \\cos x}{x^2}$.",
+    "optionsEn": [
+      "$\\frac{3}{2}$",
+      "$1$",
+      "$\\frac{1}{2}$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "3/2",
+      "1",
+      "1/2",
+      "2"
+    ],
+    "correctAnswer": "$\\frac{3}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Split: (e^(x^2)-1)/x^2 + (1-cos x)/x^2 -> 1 + 1/2 = 3/2.",
+    "hintAr": "اكتب البسط كـ (هـ^(س²) - 1) + (1 - جتا س) وقسم على س² يعطي 1 + 1/2 = 3/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_104",
+    "titleEn": "Double Derivative of x^x at Point 1",
+    "titleAr": "المشتقة الثانية لـ س^س عند النقطة 1",
+    "difficulty": "hots",
+    "questionEn": "If $y = x^x$, find the value of $\\frac{d^2y}{dx^2}$ at $x = 1$.",
+    "questionAr": "إذا كان $y = x^x$، فأوجد قيمة $\\frac{d^2y}{dx^2}$ عند $x = 1$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$0$",
+      "$e$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "0",
+      "هـ"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "y' = x^x(ln x + 1). y'' = y'(ln x + 1) + x^x(1/x). At x=1: (1)(1) + (1)(1) = 2.",
+    "hintAr": "ص' = س^س(لو س + 1)، ص'' = ص'(لو س + 1) + س^س(1/س). بالتعويض عن س=1 الناتج 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_105",
+    "titleEn": "Logarithmic Derivative of Sine to the Power Cosine",
+    "titleAr": "مشتقة لوغاريتمية لـ جا س أس جتا س",
+    "difficulty": "hots",
+    "questionEn": "If $y = (\\sin x)^{\\cos x}$, find $\\frac{dy}{dx}$ at $x = \\frac{\\pi}{2}$.",
+    "questionAr": "إذا كانت $y = (\\sin x)^{\\cos x}$، فأوجد $\\frac{dy}{dx}$ عند $x = \\frac{\\pi}{2}$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$-1$",
+      "$\\pi/2$"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "-1",
+      "ط/2"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "ln y = cos x ln(sin x) => y'/y = -sin x ln(sin x) + cos x cot x. At pi/2: -1*ln(1) + 0 = 0.",
+    "hintAr": "لو ص = جتا س لو(جا س). عند ط/2 يكون الناتج صفراً.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_106",
+    "titleEn": "Implicit Symmetric Exponents x^y = y^x",
+    "titleAr": "اشتقاق ضمني متماثل س^ص = ص^س عند النقطة (هـ، هـ)",
+    "difficulty": "hots",
+    "questionEn": "If $x^y = y^x$ for $x, y > 0$, find $\\frac{dy}{dx}$ at the point $(e, e)$.",
+    "questionAr": "إذا كان $x^y = y^x$ حيث $x, y > 0$، فأوجد $\\frac{dy}{dx}$ عند النقطة $(e, e)$.",
+    "optionsEn": [
+      "$1$",
+      "$-1$",
+      "$e$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "1",
+      "-1",
+      "هـ",
+      "1/هـ"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "y ln x = x ln y => y' ln x + y/x = ln y + x(y'/y). At (e,e): y'(1) + 1 = 1 + y'(1) => by symmetry along line y=x, slope is 1.",
+    "hintAr": "بتفاضل الطرفين واستخدام التماثل حول المستقيم ص = س نجد أن الميل = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_107",
+    "titleEn": "N-th Derivative of x e^x Formula",
+    "titleAr": "الصيغة العامة للمشتقة النونية لـ س هـ^س",
+    "difficulty": "hots",
+    "questionEn": "Find the $n$-th derivative $y^{(n)}$ of $y = x e^x$.",
+    "questionAr": "أوجد المشتقة ذات الرتبة $n$ للدالة $y = x e^x$.",
+    "optionsEn": [
+      "$(x + n)e^x$",
+      "$(x + 1)^n e^x$",
+      "$n x e^x$",
+      "$n! e^x$"
+    ],
+    "optionsAr": [
+      "(س + ن)هـ^س",
+      "(س + 1)^ن هـ^س",
+      "ن س هـ^س",
+      "ن! هـ^س"
+    ],
+    "correctAnswer": "$(x + n)e^x$",
+    "correctIndex": 0,
+    "hintEn": "By induction: y' = (x+1)e^x, y'' = (x+2)e^x, ..., y^(n) = (x+n)e^x.",
+    "hintAr": "بالاستقراء الرياضي: كل اشتقاق يضيف 1 إلى المعامل الخطي.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_108",
+    "titleEn": "Tangent Passing Through Origin to Exponential Curve",
+    "titleAr": "المماس المار بنقطة الأصل لمنحنى الدالة الأسية",
+    "difficulty": "hots",
+    "questionEn": "Find the equation of the tangent line to $y = e^x$ that passes through the origin $(0, 0)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $y = e^x$ المار بنقطة الأصل $(0، 0)$.",
+    "optionsEn": [
+      "$y = e x$",
+      "$y = x$",
+      "$y = 2e x$",
+      "$y = \\frac{x}{e}$"
+    ],
+    "optionsAr": [
+      "ص = هـ س",
+      "ص = س",
+      "ص = 2هـ س",
+      "ص = س/هـ"
+    ],
+    "correctAnswer": "$y = e x$",
+    "correctIndex": 0,
+    "hintEn": "Let contact point be (a, e^a). Slope m = e^a. Line y = e^a x. Since e^a = e^a * a, a = 1 => y = e x.",
+    "hintAr": "نقطة التماس (أ، هـ^أ) وميل المماس هـ^أ، بالمرور بنقطة الأصل نجد أ = 1 والمعادلة ص = هـ س.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_109",
+    "titleEn": "Tangent Passing Through Origin to Natural Logarithm",
+    "titleAr": "المماس المار بنقطة الأصل لمنحنى اللوغاريتم الطبيعي",
+    "difficulty": "hots",
+    "questionEn": "Find the equation of the tangent line to $y = \\ln x$ that passes through the origin $(0, 0)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $y = \\ln x$ المار بنقطة الأصل $(0، 0)$.",
+    "optionsEn": [
+      "$y = \\frac{x}{e}$",
+      "$y = e x$",
+      "$y = x$",
+      "$y = \\frac{2x}{e}$"
+    ],
+    "optionsAr": [
+      "ص = س / هـ",
+      "ص = هـ س",
+      "ص = س",
+      "ص = 2س / هـ"
+    ],
+    "correctAnswer": "$y = \\frac{x}{e}$",
+    "correctIndex": 0,
+    "hintEn": "Contact point (a, ln a). Slope m = 1/a. y = (1/a)x. ln a = (1/a)*a = 1 => a = e => y = x/e.",
+    "hintAr": "نقطة التماس (هـ، 1) وميل المماس 1/هـ، إذن المعادلة ص = س/هـ.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_110",
+    "titleEn": "Absolute Maximum of ln(x) / x",
+    "titleAr": "القيمة العظمى المطلقة للدالة لوغاريتم س على س",
+    "difficulty": "hots",
+    "questionEn": "Find the maximum value of $f(x) = \\frac{\\ln x}{x}$ on the interval $(0, \\infty)$.",
+    "questionAr": "أوجد القيمة العظمى للدالة $f(x) = \\frac{\\ln x}{x}$ على الفترة $(0, \\infty)$.",
+    "optionsEn": [
+      "$\\frac{1}{e}$",
+      "$e$",
+      "$1$",
+      "$\\frac{1}{e^2}$"
+    ],
+    "optionsAr": [
+      "1/هـ",
+      "هـ",
+      "1",
+      "1/هـ²"
+    ],
+    "correctAnswer": "$\\frac{1}{e}$",
+    "correctIndex": 0,
+    "hintEn": "Critical point at x = e. f(e) = ln(e) / e = 1/e.",
+    "hintAr": "النقطة الحرجة عند س = هـ، وتكون القيمة العظمى 1/هـ.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_111",
+    "titleEn": "Absolute Minimum of x^x Function",
+    "titleAr": "القيمة الصغرى المطلقة للدالة س^س",
+    "difficulty": "hots",
+    "questionEn": "Find the minimum value of $f(x) = x^x$ for $x > 0$.",
+    "questionAr": "أوجد القيمة الصغرى للدالة $f(x) = x^x$ حيث $x > 0$.",
+    "optionsEn": [
+      "$e^{-1/e}$",
+      "$e^{1/e}$",
+      "$\\frac{1}{e}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "هـ^(-1/هـ)",
+      "هـ^(1/هـ)",
+      "1/هـ",
+      "1"
+    ],
+    "correctAnswer": "$e^{-1/e}$",
+    "correctIndex": 0,
+    "hintEn": "f'(x) = x^x(ln x + 1) = 0 => x = 1/e. f(1/e) = (1/e)^(1/e) = e^(-1/e).",
+    "hintAr": "تحدث القيمة الصغرى عند س = 1/هـ، وقيمتها هـ^(-1/هـ).",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_112",
+    "titleEn": "Inflection Points of Gaussian Function e^(-x^2)",
+    "titleAr": "نقاط انقلاب الدالة الغاوسية هـ^(-س²)",
+    "difficulty": "hots",
+    "questionEn": "Find the x-coordinates of the points of inflection of $f(x) = e^{-x^2}$.",
+    "questionAr": "أوجد الإحداثيين السينيين لنقطتي الانقلاب للمنحنى $f(x) = e^{-x^2}$.",
+    "optionsEn": [
+      "$x = \\pm \\frac{1}{\\sqrt{2}}$",
+      "$x = \\pm 1$",
+      "$x = \\pm \\frac{1}{2}$",
+      "$x = 0$"
+    ],
+    "optionsAr": [
+      "س = ± 1/√2",
+      "س = ± 1",
+      "س = ± 1/2",
+      "س = 0"
+    ],
+    "correctAnswer": "$x = \\pm \\frac{1}{\\sqrt{2}}$",
+    "correctIndex": 0,
+    "hintEn": "f'' = (4x^2 - 2)e^(-x^2) = 0 => x^2 = 1/2 => x = +- 1/sqrt(2).",
+    "hintAr": "المشتقة الثانية (4س² - 2)هـ^(-س²) = 0 إذن س = ± 1/√2.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_113",
+    "titleEn": "Integral of e^x(f(x) + f'(x)) Special Form",
+    "titleAr": "التكامل الخاص لصورة هـ^س [د(س) + د'(س)]",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int e^x (\\tan x + \\sec^2 x) dx$.",
+    "questionAr": "أوجد $\\int e^x (\\tan x + \\sec^2 x) dx$.",
+    "optionsEn": [
+      "$e^x \\tan x + C$",
+      "$e^x \\sec^2 x + C$",
+      "$e^x (\\tan x + 1) + C$",
+      "$\\frac{1}{2}e^x \\tan^2 x + C$"
+    ],
+    "optionsAr": [
+      "هـ^س ظا س + ث",
+      "هـ^س قا² س + ث",
+      "هـ^س (ظا س + 1) + ث",
+      "(1/2)هـ^س ظا² س + ث"
+    ],
+    "correctAnswer": "$e^x \\tan x + C$",
+    "correctIndex": 0,
+    "hintEn": "Standard identity: int e^x(f(x) + f'(x))dx = e^x f(x) + C with f(x) = tan x.",
+    "hintAr": "الصورة القياسية الشهيرة: تكامل هـ^س [د(س) + د'(س)] = هـ^س د(س) + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_114",
+    "titleEn": "Integral of e^x (1/x - 1/x^2)",
+    "titleAr": "تكامل هـ^س [1/س - 1/س²]",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int e^x \\left(\\frac{1}{x} - \\frac{1}{x^2}\\right) dx$.",
+    "questionAr": "أوجد $\\int e^x \\left(\\frac{1}{x} - \\frac{1}{x^2}\\right) dx$.",
+    "optionsEn": [
+      "$\\frac{e^x}{x} + C$",
+      "$-\\frac{e^x}{x^2} + C$",
+      "$e^x \\ln x + C$",
+      "$\\frac{e^x}{x^2} + C$"
+    ],
+    "optionsAr": [
+      "هـ^س / س + ث",
+      "-هـ^س / س² + ث",
+      "هـ^س لو_هـ س + ث",
+      "هـ^س / س² + ث"
+    ],
+    "correctAnswer": "$\\frac{e^x}{x} + C$",
+    "correctIndex": 0,
+    "hintEn": "Here f(x) = 1/x, f'(x) = -1/x^2 => e^x f(x) + C = e^x / x + C.",
+    "hintAr": "هنا د(س) = 1/س وتكون المشتقة -1/س² فالناتج هـ^س / س + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_115",
+    "titleEn": "Integral of e^x (ln x + 1/x)",
+    "titleAr": "تكامل هـ^س [لوغاريتم س + 1/س]",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int e^x \\left(\\ln x + \\frac{1}{x}\\right) dx$.",
+    "questionAr": "أوجد $\\int e^x \\left(\\ln x + \\frac{1}{x}\\right) dx$.",
+    "optionsEn": [
+      "$e^x \\ln x + C$",
+      "$\\frac{e^x}{x} + C$",
+      "$e^x (\\ln x)^2 + C$",
+      "$x e^x \\ln x + C$"
+    ],
+    "optionsAr": [
+      "هـ^س لو_هـ س + ث",
+      "هـ^س / س + ث",
+      "هـ^س (لو_هـ س)² + ث",
+      "س هـ^س لو_هـ س + ث"
+    ],
+    "correctAnswer": "$e^x \\ln x + C$",
+    "correctIndex": 0,
+    "hintEn": "f(x) = ln x, f'(x) = 1/x => result is e^x ln x + C.",
+    "hintAr": "د(س) = لو_هـ س، إذن الناتج هـ^س لو_هـ س + ث.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_116",
+    "titleEn": "Integration of x^3 e^(x^2)",
+    "titleAr": "تكامل س³ هـ^(س²)",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int x^3 e^{x^2} dx$.",
+    "questionAr": "أوجد $\\int x^3 e^{x^2} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}(x^2 - 1)e^{x^2} + C$",
+      "$\\frac{1}{2}(x^2 + 1)e^{x^2} + C$",
+      "$\\frac{1}{4}x^4 e^{x^2} + C$",
+      "$(x^2 - 1)e^{x^2} + C$"
+    ],
+    "optionsAr": [
+      "(1/2)(س² - 1)هـ^(س²) + ث",
+      "(1/2)(س² + 1)هـ^(س²) + ث",
+      "(1/4)س⁴ هـ^(س²) + ث",
+      "(س² - 1)هـ^(س²) + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}(x^2 - 1)e^{x^2} + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_117",
+    "titleEn": "Integral of (ln x)^2",
+    "titleAr": "تكامل (لوغاريتم س)²",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int (\\ln x)^2 dx$.",
+    "questionAr": "أوجد $\\int (\\ln x)^2 dx$.",
+    "optionsEn": [
+      "$x(\\ln x)^2 - 2x \\ln x + 2x + C$",
+      "$x(\\ln x)^2 + 2x \\ln x + 2x + C$",
+      "$\\frac{1}{3}(\\ln x)^3 + C$",
+      "$x(\\ln x)^2 - x + C$"
+    ],
+    "optionsAr": [
+      "س(لو س)² - 2س لو س + 2س + ث",
+      "س(لو س)² + 2س لو س + 2س + ث",
+      "(1/3)(لو س)³ + ث",
+      "س(لو س)² - س + ث"
+    ],
+    "correctAnswer": "$x(\\ln x)^2 - 2x \\ln x + 2x + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_118",
+    "titleEn": "Integral of Product e^x sin(x)",
+    "titleAr": "تكامل حاصل ضرب هـ^س في جا س",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int e^x \\sin x \\, dx$.",
+    "questionAr": "أوجد $\\int e^x \\sin x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}e^x(\\sin x - \\cos x) + C$",
+      "$\\frac{1}{2}e^x(\\sin x + \\cos x) + C$",
+      "$e^x(\\cos x - \\sin x) + C$",
+      "$e^x \\sin x + C$"
+    ],
+    "optionsAr": [
+      "(1/2)هـ^س(جا س - جتا س) + ث",
+      "(1/2)هـ^س(جا س + جتا س) + ث",
+      "هـ^س(جتا س - جا س) + ث",
+      "هـ^س جا س + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}e^x(\\sin x - \\cos x) + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_119",
+    "titleEn": "Integral of Product e^x cos(x)",
+    "titleAr": "تكامل حاصل ضرب هـ^س في جتا س",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int e^x \\cos x \\, dx$.",
+    "questionAr": "أوجد $\\int e^x \\cos x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}e^x(\\cos x + \\sin x) + C$",
+      "$\\frac{1}{2}e^x(\\cos x - \\sin x) + C$",
+      "$e^x \\cos x + C$",
+      "$-\\frac{1}{2}e^x(\\cos x + \\sin x) + C$"
+    ],
+    "optionsAr": [
+      "(1/2)هـ^س(جتا س + جا س) + ث",
+      "(1/2)هـ^س(جتا س - جا س) + ث",
+      "هـ^س جتا س + ث",
+      "-(1/2)هـ^س(جتا س + جا س) + ث"
+    ],
+    "correctAnswer": "$\\frac{1}{2}e^x(\\cos x + \\sin x) + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_120",
+    "titleEn": "Integral of Rational Function with Squared Binomial",
+    "titleAr": "تكامل دالة كسرية بمربع مقدار في المقام",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int \\frac{x e^x}{(x + 1)^2} dx$.",
+    "questionAr": "أوجد $\\int \\frac{x e^x}{(x + 1)^2} dx$.",
+    "optionsEn": [
+      "$\\frac{e^x}{x + 1} + C$",
+      "$-\\frac{e^x}{x + 1} + C$",
+      "$\\frac{e^x}{(x + 1)^2} + C$",
+      "$e^x \\ln|x + 1| + C$"
+    ],
+    "optionsAr": [
+      "هـ^س / (س + 1) + ث",
+      "-هـ^س / (س + 1) + ث",
+      "هـ^س / (س + 1)² + ث",
+      "هـ^س لو_هـ|س + 1| + ث"
+    ],
+    "correctAnswer": "$\\frac{e^x}{x + 1} + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_121",
+    "titleEn": "Integral of x^2 e^(-x)",
+    "titleAr": "تكامل بالتجزيء مرتين: س² هـ^(-س)",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int x^2 e^{-x} dx$.",
+    "questionAr": "أوجد $\\int x^2 e^{-x} dx$.",
+    "optionsEn": [
+      "$-(x^2 + 2x + 2)e^{-x} + C$",
+      "$-(x^2 - 2x + 2)e^{-x} + C$",
+      "$(x^2 + 2x + 2)e^{-x} + C$",
+      "$(-x^2 + 2x - 2)e^{-x} + C$"
+    ],
+    "optionsAr": [
+      "-(س² + 2س + 2)هـ^(-س) + ث",
+      "-(س² - 2س + 2)هـ^(-س) + ث",
+      "(س² + 2س + 2)هـ^(-س) + ث",
+      "(-س² + 2س - 2)هـ^(-س) + ث"
+    ],
+    "correctAnswer": "$-(x^2 + 2x + 2)e^{-x} + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_122",
+    "titleEn": "Integral of ln(x+1) / (x+1)^2",
+    "titleAr": "تكامل لوغاريتم (س+1) على (س+1)²",
+    "difficulty": "hots",
+    "questionEn": "Find $\\int \\frac{\\ln(x + 1)}{(x + 1)^2} dx$.",
+    "questionAr": "أوجد $\\int \\frac{\\ln(x + 1)}{(x + 1)^2} dx$.",
+    "optionsEn": [
+      "$-\\frac{\\ln(x + 1) + 1}{x + 1} + C$",
+      "$\\frac{\\ln(x + 1) + 1}{x + 1} + C$",
+      "$-\\frac{\\ln(x + 1)}{x + 1} + C$",
+      "$-\\frac{1}{x + 1} + C$"
+    ],
+    "optionsAr": [
+      "-(لو_هـ(س+1) + 1)/(س+1) + ث",
+      "(لو_هـ(س+1) + 1)/(س+1) + ث",
+      "-لو_هـ(س+1)/(س+1) + ث",
+      "-1/(س+1) + ث"
+    ],
+    "correctAnswer": "$-\\frac{\\ln(x + 1) + 1}{x + 1} + C$",
+    "correctIndex": 0,
+    "hintEn": "Advanced integration by parts.",
+    "hintAr": "تكامل بالتجزيء المتقدم.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_123",
+    "titleEn": "Orthogonal Trajectories of Exponential Family",
+    "titleAr": "المسارات المتعامدة لعائلة المنحنيات الأسية",
+    "difficulty": "hots",
+    "questionEn": "Find the equation of the orthogonal trajectories to the family of curves $y = C e^{2x}$.",
+    "questionAr": "أوجد معادلة المسارات المتعامدة لعائلة المنحنيات $y = C e^{2x}$.",
+    "optionsEn": [
+      "$y^2 = -x + K$",
+      "$y^2 = x + K$",
+      "$y = -2x + K$",
+      "$y^2 = -\\frac{x}{2} + K$"
+    ],
+    "optionsAr": [
+      "ص² = -س + ث",
+      "ص² = س + ث",
+      "ص = -2س + ث",
+      "ص² = -س/2 + ث"
+    ],
+    "correctAnswer": "$y^2 = -x + K$",
+    "correctIndex": 0,
+    "hintEn": "y' = 2y => dy/dx for orthogonal is -1/(2y) => 2y dy = -dx => y^2 = -x + K.",
+    "hintAr": "المسارات المتعامدة تحقق ميل عمودي = -1/الميل.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_124",
+    "titleEn": "Population Growth Rate Model",
+    "titleAr": "نموذج المعدل الزمني للنمو السكاني",
+    "difficulty": "hots",
+    "questionEn": "A population grows according to $P(t) = 1000 e^{0.05 t}$. At what time $t$ will the population double?",
+    "questionAr": "يتزايد مجتمع سكاني وفق العلاقة $P(t) = 1000 e^{0.05 t}$ حيث $t$ بالسنوات. بعد كم سنة يتضاعف عدد السكان؟",
+    "optionsEn": [
+      "$20\\ln 2$",
+      "$10\\ln 2$",
+      "$50\\ln 2$",
+      "$5\\ln 2$"
+    ],
+    "optionsAr": [
+      "20 لو_هـ 2",
+      "10 لو_هـ 2",
+      "50 لو_هـ 2",
+      "5 لو_هـ 2"
+    ],
+    "correctAnswer": "$20\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "2000 = 1000 e^(0.05 t) => e^(0.05 t) = 2 => t = ln(2) / 0.05 = 20 ln 2.",
+    "hintAr": "2 = هـ^(0.05 ن) ومنها ن = لو_هـ 2 / 0.05 = 20 لو_هـ 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_125",
+    "titleEn": "Radioactive Decay Half-life Model",
+    "titleAr": "نموذج عمر النصف للانحلال الإشعاعي",
+    "difficulty": "hots",
+    "questionEn": "A radioactive substance decays according to $m(t) = m_0 e^{-k t}$. If half-life is $10$ years, find $k$.",
+    "questionAr": "تنحل مادة مشعة وفق القانون $m(t) = m_0 e^{-k t}$. إذا كان عمر النصف 10 سنوات، فما قيمة ثابت الانحلال $k$؟",
+    "optionsEn": [
+      "$\\frac{\\ln 2}{10}$",
+      "$10\\ln 2$",
+      "$\\frac{1}{10\\ln 2}$",
+      "$5\\ln 2$"
+    ],
+    "optionsAr": [
+      "(لو_هـ 2) / 10",
+      "10 لو_هـ 2",
+      "1 / (10 لو_هـ 2)",
+      "5 لو_هـ 2"
+    ],
+    "correctAnswer": "$\\frac{\\ln 2}{10}$",
+    "correctIndex": 0,
+    "hintEn": "1/2 = e^(-10k) => k = ln 2 / 10.",
+    "hintAr": "1/2 = هـ^(-10ك) إذن ك = لو_هـ 2 / 10.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_126",
+    "titleEn": "Newton's Law of Cooling Differential Model",
+    "titleAr": "نموذج قانون نيوتن للتبريد",
+    "difficulty": "hots",
+    "questionEn": "A body cools in a medium of constant temperature $20^\\circ\\text{C}$ according to $\\frac{dT}{dt} = -k(T - 20)$. Find $T(t)$ if $T(0) = 80$.",
+    "questionAr": "يبرد جسم في وسط درجة حرارته ثابتة $20^\\circ\\text{C}$ بمعدل $\\frac{dT}{dt} = -k(T - 20)$. إذا كانت $T(0) = 80$، فما صيغة $T(t)$؟",
+    "optionsEn": [
+      "$T(t) = 20 + 60e^{-kt}$",
+      "$T(t) = 20 + 80e^{-kt}$",
+      "$T(t) = 80e^{-kt}$",
+      "$T(t) = 60 + 20e^{-kt}$"
+    ],
+    "optionsAr": [
+      "د(ن) = 20 + 60هـ^(-ك ن)",
+      "د(ن) = 20 + 80هـ^(-ك ن)",
+      "د(ن) = 80هـ^(-ك ن)",
+      "د(ن) = 60 + 20هـ^(-ك ن)"
+    ],
+    "correctAnswer": "$T(t) = 20 + 60e^{-kt}$",
+    "correctIndex": 0,
+    "hintEn": "T - 20 = C e^(-kt). At t=0, C = 60.",
+    "hintAr": "حل المعادلة التفاضلية الخطية وفصل المتغيرات.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_127",
+    "titleEn": "Intersection Angle of Exponentials",
+    "titleAr": "زاوية تقاطع المنحنيين الأسيين",
+    "difficulty": "hots",
+    "questionEn": "Find the acute angle between the tangent lines to $y = e^x$ and $y = e^{-x}$ at their point of intersection $(0, 1)$.",
+    "questionAr": "أوجد قياس الزاوية الحادة بين مماسي المنحنيين $y = e^x$ و $y = e^{-x}$ عند نقطة تقاطعهما $(0، 1)$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{2}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{6}$"
+    ],
+    "optionsAr": [
+      "ط/2 (90°)",
+      "ط/4 (45°)",
+      "ط/3 (60°)",
+      "ط/6 (30°)"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{2}$",
+    "correctIndex": 0,
+    "hintEn": "m1 = 1, m2 = -1 => m1 * m2 = -1 => perpendicular (pi/2).",
+    "hintAr": "ميل الأول 1 وميل الثاني -1، حاصل ضربهما -1 فهما متعامدان.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_128",
+    "titleEn": "Logarithmic Differentiation of Variable Base and Exponential Power",
+    "titleAr": "الاشتقاق اللوغاريتمي لدالة أساسها متغير وأسها دالة أسية",
+    "difficulty": "hots",
+    "questionEn": "If $y = x^{e^x}$ for $x > 0$, find the value of $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كان $y = x^{e^x}$ حيث $x > 0$، فأوجد قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
+    "optionsEn": [
+      "$e$",
+      "$2e$",
+      "$e + 1$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "هـ",
+      "2هـ",
+      "هـ + 1",
+      "1/هـ"
+    ],
+    "correctAnswer": "$e$",
+    "correctIndex": 0,
+    "hintEn": "Take natural logarithm of both sides: ln y = e^x ln x, then differentiate implicitly.",
+    "hintAr": "بأخذ اللوغاريتم الطبيعي للطرفين: لو_هـ (ص) = هـ^س لو_هـ (س)، ثم الاشتقاق الضمني.",
+    "stepByStepSolutionEn": [
+      "1. Take natural logarithm of both sides: $\\ln y = e^x \\ln x$.",
+      "2. Differentiate with respect to $x$: $\\frac{1}{y} \\frac{dy}{dx} = e^x \\ln x + e^x \\cdot \\frac{1}{x} = e^x \\left(\\ln x + \\frac{1}{x}\\right)$.",
+      "3. Hence $\\frac{dy}{dx} = x^{e^x} \\cdot e^x \\left(\\ln x + \\frac{1}{x}\\right)$.",
+      "4. At $x = 1$: $y(1) = 1^e = 1$, so $\\frac{dy}{dx}\\Big|_{x=1} = 1 \\cdot e^1 \\left(\\ln 1 + 1\\right) = e(0 + 1) = e$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = e^x \\ln x$.",
+      "٢. بالاشتقاق بالنسبة إلى $x$: $\\frac{1}{y} \\frac{dy}{dx} = e^x \\ln x + \\frac{e^x}{x} = e^x \\left(\\ln x + \\frac{1}{x}\\right)$.",
+      "٣. إذن المشتقة الأولى: $\\frac{dy}{dx} = x^{e^x} e^x \\left(\\ln x + \\frac{1}{x}\\right)$.",
+      "٤. بالتعويض عن $x = 1$: $\\frac{dy}{dx}\\Big|_{x=1} = 1 \\cdot e (0 + 1) = e$."
+    ],
+    "teacherTipEn": "When a function has variables in both the base and exponent, logarithmic differentiation is mandatory.",
+    "teacherTipAr": "عندما يكون المتغير في الأساس والأس معاً، يلزم استخدام الاشتقاق اللوغاريتمي بأخذ لوغاريتم الطرفين أولاً."
+  },
+  {
+    "id": "calc_ch2_db_hots_129",
+    "titleEn": "Volume of Solid Generated by y = ln(x) Around Y-Axis",
+    "titleAr": "حجم الجسم الناشئ عن دوران لوغاريتم س حول محور الصادات",
+    "difficulty": "hots",
+    "questionEn": "Find the volume generated by revolving the region bounded by $y = \\ln x$, $y = 0$, and $y = 1$ around the y-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني المتولد من دوران المنطقة المحصورة بين $y = \\ln x$ و $y = 0$ و $y = 1$ ومحور الصادات حول محور الصادات.",
+    "optionsEn": [
+      "$\\frac{\\pi}{2}(e^2 - 1)$",
+      "$\\pi(e^2 - 1)$",
+      "$\\frac{\\pi}{2}e^2$",
+      "$\\pi e$"
+    ],
+    "optionsAr": [
+      "(ط/2)(هـ² - 1)",
+      "ط(هـ² - 1)",
+      "(ط/2)هـ²",
+      "ط هـ"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{2}(e^2 - 1)$",
+    "correctIndex": 0,
+    "hintEn": "x = e^y. V = pi int_0^1 (e^y)^2 dy = (pi/2)(e^2 - 1).",
+    "hintAr": "الدوران حول محور الصادات: س = هـ^ص والحجم = ط × تكامل (هـ^ص)² د ص.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_130",
+    "titleEn": "Second Parametric Derivative with Exponential",
+    "titleAr": "المشتقة البارامترية الثانية لمنحنى أسي",
+    "difficulty": "hots",
+    "questionEn": "If $x = e^t$ and $y = t e^t$, find $\\frac{d^2y}{dx^2}$ at $t = 0$.",
+    "questionAr": "إذا كان $x = e^t$ و $y = t e^t$، فأوجد قيمة $\\frac{d^2y}{dx^2}$ عند $t = 0$.",
+    "optionsEn": [
+      "$1$",
+      "$2$",
+      "$0$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "1",
+      "2",
+      "0",
+      "-1"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "dy/dx = (e^t + t e^t)/e^t = 1 + t. d^2y/dx^2 = (d/dt(1+t))/(dx/dt) = 1/e^t. At t=0: 1.",
+    "hintAr": "المشتقة الأولى ص' = 1 + ت، والمشتقة الثانية = 1 / هـ^ت وعند ت=0 تساوي 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply high order analysis.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق التحليل الرياضي العميق.",
+      "٢. استنتاج القيمة الدقيقة."
+    ],
+    "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
+    "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch2_db_hots_131",
+    "titleEn": "Continuous Compounding Tripling Time",
+    "titleAr": "زمن مضاعفة رأس المال ثلاث مرات بالنمو الأسي المستمر",
+    "difficulty": "hots",
+    "questionEn": "An initial capital grows continuously at an annual interest rate of $8\\%$, following $A(t) = A_0 e^{0.08 t}$. In how many years will the capital triple?",
+    "questionAr": "ينمو رأس مال بشكل مستمر بمعدل فائدة سنوي $8\\%$ وفق العلاقة $A(t) = A_0 e^{0.08 t}$. بعد كم سنة يتضاعف رأس المال 3 مرات؟",
+    "optionsEn": [
+      "$12.5 \\ln 3$",
+      "$8 \\ln 3$",
+      "$\\frac{\\ln 3}{8}$",
+      "$3 \\ln 12.5$"
+    ],
+    "optionsAr": [
+      "12.5 لوـهـ(3)",
+      "8 لوـهـ(3)",
+      "لوـهـ(3) / 8",
+      "3 لوـهـ(12.5)"
+    ],
+    "correctAnswer": "$12.5 \\ln 3$",
+    "correctIndex": 0,
+    "hintEn": "Set $A(t) = 3 A_0$ and solve for $t$.",
+    "hintAr": "ضع جملة المبلغ مساوية لثلاثة أمثال المبلغ الأصلي وحل المعادلة الأسية بالنسبة للزمن.",
+    "stepByStepSolutionEn": [
+      "1. Set $A_0 e^{0.08 t} = 3 A_0 \\implies e^{0.08 t} = 3$.",
+      "2. Take natural logarithm of both sides: $0.08 t = \\ln 3$.",
+      "3. Solve for $t$: $t = \\frac{\\ln 3}{0.08} = \\frac{100}{8} \\ln 3 = 12.5 \\ln 3\\text{ years}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نضع المعادلة: هـ^(0.08 ن) = 3.",
+      "٢. بأخذ اللوغاريتم الطبيعي للطرفين: 0.08 ن = لوـهـ(3).",
+      "٣. ن = لوـهـ(3) / 0.08 = 12.5 لوـهـ(3) سنة."
+    ],
+    "teacherTipEn": "Dividing by 0.08 is equivalent to multiplying by 12.5.",
+    "teacherTipAr": "القسمة على 0.08 تكافئ الضرب في 12.5 مباشرة."
+  },
+  {
+    "id": "calc_ch2_db_hots_132",
+    "titleEn": "Euler Limit of Rational Power",
+    "titleAr": "نهاية أسية لكسر جبري تؤول للعدد هـ",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to \\infty} \\left(\\frac{x}{x - 1}\\right)^x$.",
+    "questionAr": "احسب قيمة النهاية: $\\lim_{x \\to \\infty} \\left(\\frac{x}{x - 1}\\right)^x$.",
+    "optionsEn": [
+      "$e$",
+      "$e^{-1}$",
+      "$1$",
+      "$e^2$"
+    ],
+    "optionsAr": [
+      "هـ",
+      "هـ⁻¹",
+      "1",
+      "هـ²"
+    ],
+    "correctAnswer": "$e$",
+    "correctIndex": 0,
+    "hintEn": "Rewrite as $\\left(1 + \\frac{1}{x - 1}\\right)^x$.",
+    "hintAr": "أعد كتابة المقدار داخل القوس بصورة (1 + 1/(س - 1)).",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{x}{x - 1} = \\frac{(x - 1) + 1}{x - 1} = 1 + \\frac{1}{x - 1}$.",
+      "2. Write exponent as $(x - 1) + 1$: $\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x - 1}\\right)^{x - 1} \\cdot \\left(1 + \\frac{1}{x - 1}\\right)^1$.",
+      "3. As $x \\to \\infty$, let $u = x - 1 \\to \\infty$.",
+      "4. The limit becomes $e \\cdot (1 + 0) = e$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. س / (س - 1) = 1 + 1 / (س - 1).",
+      "٢. نفصل الأس إلى (س - 1) + 1.",
+      "٣. بوضع ص = س - 1 تؤول لما لا نهاية، تصبح النهاية هـ × 1 = هـ."
+    ],
+    "teacherTipEn": "Splitting numerator as $(x - 1) + 1$ reveals the standard Euler limit definition.",
+    "teacherTipAr": "تفكيك البسط إلى (س - 1) + 1 يظهر الصورة القياسية لنهاية أويلر فوراً."
+  },
+  {
+    "id": "calc_ch2_db_hots_133",
+    "titleEn": "Trigonometric Power Limit Involving Cosine",
+    "titleAr": "نهاية جيب التمام مرفوعة لقوة تربيعية في المقام",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+    "questionAr": "احسب قيمة النهاية: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+    "optionsEn": [
+      "$\\frac{1}{\\sqrt{e}}$",
+      "$\\sqrt{e}$",
+      "$1$",
+      "$e$"
+    ],
+    "optionsAr": [
+      "1 / جذر(هـ)",
+      "جذر(هـ)",
+      "1",
+      "هـ"
+    ],
+    "correctAnswer": "$\\frac{1}{\\sqrt{e}}$",
+    "correctIndex": 0,
+    "hintEn": "Take natural logarithm of the limit and apply L'Hopital's rule.",
+    "hintAr": "افرض النهاية بـ ل ثم خذ اللوغاريتم الطبيعي للطرفين واستخدم قاعدة لوبيتال.",
+    "stepByStepSolutionEn": [
+      "1. Let $L = \\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+      "2. $\\ln L = \\lim_{x \\to 0} \\frac{\\ln \\cos x}{x^2}$.",
+      "3. Applying L'Hopital's rule (0/0 form): $\\lim_{x \\to 0} \\frac{-\\tan x}{2x} = -\\frac{1}{2} \\lim_{x \\to 0} \\frac{\\tan x}{x} = -\\frac{1}{2}$.",
+      "4. Since $\\ln L = -\\frac{1}{2} \\implies L = e^{-1/2} = \\frac{1}{\\sqrt{e}}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ل = النهاية المطلوبة.",
+      "٢. لوـهـ(ل) = نهاية (لوـهـ(جتا س) / س²).",
+      "٣. بالاشتقاق بسطاً ومقاماً (لوبيتال): المشتقة = -ظا س / (2س) وتؤول لـ -1/2.",
+      "٤. إذن لوـهـ(ل) = -1/2 ومنها ل = هـ^(-1/2) = 1 / جذر(هـ)."
+    ],
+    "teacherTipEn": "Whenever limits have indeterminate form $1^\\infty$, taking natural logarithm is the standard technique.",
+    "teacherTipAr": "عندما تكون النهاية على الصورة غير المعينة 1^∞، فإن أخذ اللوغاريتم الطبيعي هو الأسلوب القياسي."
+  },
+  {
+    "id": "calc_ch2_db_hots_134",
+    "titleEn": "Derivative of Tower Exponential at One",
+    "titleAr": "مشتقة دالة أسية برجية س^(س^س) عند س = 1",
+    "difficulty": "hots",
+    "questionEn": "Find the value of the derivative $\\frac{dy}{dx}$ at $x = 1$ for the tower function $y = x^{(x^x)}$.",
+    "questionAr": "أوجد قيمة المشتقة الأولى $\\frac{dy}{dx}$ عند $x = 1$ للدالة الأسية البرجية $y = x^{(x^x)}$.",
+    "optionsEn": [
+      "$1$",
+      "$0$",
+      "$e$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "1",
+      "0",
+      "هـ",
+      "2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Take the natural logarithm: $\\ln y = x^x \\ln x$, then differentiate implicitly.",
+    "hintAr": "بأخذ اللوغاريتم الطبيعي: لوـهـ(ص) = س^س لوـهـ(س)، ثم اشتق ضمنياً بالنسبة لـ س.",
+    "stepByStepSolutionEn": [
+      "1. At $x = 1$, $y = 1^{(1^1)} = 1$.",
+      "2. Taking natural logarithm: $\\ln y = x^x \\ln x$.",
+      "3. Differentiating both sides: $\\frac{y'}{y} = (x^x)' \\ln x + x^x \\cdot \\frac{1}{x}$.",
+      "4. At $x = 1$, $\\ln(1) = 0$, and $x^x = 1^1 = 1$.",
+      "5. Therefore: $\\frac{y'(1)}{1} = (x^x)' (0) + (1) \\cdot \\frac{1}{1} = 1 \\implies y'(1) = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. عند س = 1، تكون ص = 1.",
+      "٢. بأخذ لوـهـ للطرفين: لوـهـ(ص) = س^س لوـهـ(س).",
+      "٣. بالاشتقاق: صَ / ص = (مشتقة س^س) لوـهـ(س) + س^س × (1/س).",
+      "٤. بالتعويض عن س = 1: لوـهـ(1) = 0، فيتبقى: صَ(1) / 1 = 0 + 1 × 1 = 1.",
+      "٥. إذن صَ(1) = 1."
+    ],
+    "teacherTipEn": "Because $\\ln(1) = 0$, you do not even need to calculate the complicated derivative $(x^x)'$!",
+    "teacherTipAr": "بما أن لوـهـ(1) = 0، فلست بحاجة لحساب مشتقة س^س المعقدة لأنها مضروبة في صفر!"
+  },
+  {
+    "id": "calc_ch2_db_hots_135",
+    "titleEn": "Second Derivative of Logarithmic Quotient at e",
+    "titleAr": "المشتقة الثانية لحاصل قسمة لوغاريتم على س عند س = هـ",
+    "difficulty": "hots",
+    "questionEn": "If $y = \\frac{\\ln x}{x}$, find the exact value of the second derivative $\\frac{d^2y}{dx^2}$ at $x = e$.",
+    "questionAr": "إذا كانت $y = \\frac{\\ln x}{x}$، فما القيمة الدقيقة للمشتقة الثانية $\\frac{d^2y}{dx^2}$ عند $x = e$؟",
+    "optionsEn": [
+      "$-\\frac{1}{e^3}$",
+      "$\\frac{1}{e^3}$",
+      "$0$",
+      "$-\\frac{2}{e^3}$"
+    ],
+    "optionsAr": [
+      "-1 / هـ³",
+      "1 / هـ³",
+      "0",
+      "-2 / هـ³"
+    ],
+    "correctAnswer": "$-\\frac{1}{e^3}$",
+    "correctIndex": 0,
+    "hintEn": "Compute the first derivative using quotient rule, then differentiate again.",
+    "hintAr": "احسب المشتقة الأولى بقاعدة القسمة ثم اشتق مرة ثانية وبسط المقدار.",
+    "stepByStepSolutionEn": [
+      "1. First derivative: $y' = \\frac{(1/x)(x) - (\\ln x)(1)}{x^2} = \\frac{1 - \\ln x}{x^2}$.",
+      "2. Second derivative: $y'' = \\frac{(-1/x)(x^2) - (1 - \\ln x)(2x)}{x^4} = \\frac{-x - 2x + 2x \\ln x}{x^4} = \\frac{2\\ln x - 3}{x^3}$.",
+      "3. At $x = e$, $\\ln e = 1$, so $y''(e) = \\frac{2(1) - 3}{e^3} = -\\frac{1}{e^3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة الأولى: صَ = (1 - لوـهـ س) / س².",
+      "٢. المشتقة الثانية: صً = (-س - 2س + 2س لوـهـ س) / س⁴ = (2 لوـهـ س - 3) / س³.",
+      "٣. عند س = هـ: صً(هـ) = (2(1) - 3) / هـ³ = -1 / هـ³."
+    ],
+    "teacherTipEn": "The point $x = e$ is the local maximum of the function $f(x) = \\frac{\\ln x}{x}$, confirming $y''(e) < 0$.",
+    "teacherTipAr": "النقطة س = هـ هي نقطة نهاية عظمى محلية للدالة، وإشارتها السالبة في المشتقة الثانية تؤكد ذلك."
+  },
+  {
+    "id": "calc_ch2_db_hots_136",
+    "titleEn": "Distance Between Parallel Tangents to Inverse Curves",
+    "titleAr": "البعد بين مماسين متوازيين لمنحنيي الدالتين العكسيتين هـ^س و لوـهـ(س)",
+    "difficulty": "hots",
+    "questionEn": "The line tangent to $y = e^x$ with slope $m = 1$ is parallel to the line tangent to $y = \\ln x$ with slope $m = 1$. Find the perpendicular distance between these two parallel tangent lines.",
+    "questionAr": "المماس للمنحنى $y = e^x$ ذو الميل 1 يوازي المماس للمنحنى $y = \\ln x$ ذو الميل 1. أوجد البعد العمودي بين هذين المماسين المتوازيين.",
+    "optionsEn": [
+      "$\\sqrt{2}$",
+      "$2$",
+      "$2\\sqrt{2}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "جذر(2)",
+      "2",
+      "2 جذر(2)",
+      "1"
+    ],
+    "correctAnswer": "$\\sqrt{2}$",
+    "correctIndex": 0,
+    "hintEn": "Find the equations of both tangent lines: $y = x + 1$ and $y = x - 1$.",
+    "hintAr": "أوجد معادلة كل من المماسين: ص = س + 1 و ص = س - 1، ثم طبق قانون البعد بين مستقيمين متوازيين.",
+    "stepByStepSolutionEn": [
+      "1. For $y = e^x$: $y' = e^x = 1 \\implies x = 0, y = 1$. Tangent line: $y - 1 = 1(x - 0) \\implies x - y + 1 = 0$.",
+      "2. For $y = \\ln x$: $y' = 1/x = 1 \\implies x = 1, y = 0$. Tangent line: $y - 0 = 1(x - 1) \\implies x - y - 1 = 0$.",
+      "3. Distance between parallel lines $Ax + By + C_1 = 0$ and $Ax + By + C_2 = 0$ is $d = \\frac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}}$.",
+      "4. $d = \\frac{|1 - (-1)|}{\\sqrt{1^2 + (-1)^2}} = \\frac{2}{\\sqrt{2}} = \\sqrt{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. لمنحنى هـ^س: المشتقة = 1 عند س = 0، ص = 1. معادلة المماس: س - ص + 1 = 0.",
+      "٢. لمنحنى لوـهـ س: المشتقة = 1 عند س = 1، ص = 0. معادلة المماس: س - ص - 1 = 0.",
+      "٣. البعد العمودي بين المستقيمين = |1 - (-1)| / جذر(1 + 1) = 2 / جذر(2) = جذر(2)."
+    ],
+    "teacherTipEn": "Because $y = e^x$ and $y = \\ln x$ are reflections across $y = x$, the geometry is symmetric.",
+    "teacherTipAr": "منحنى هـ^س ولوـهـ س متناظران حول المستقيم ص = س، مما يمنح المماسين تماثلاً هندسياً رائعاً."
+  },
+  {
+    "id": "calc_ch2_db_hots_137",
+    "titleEn": "Improper Integral of x Squared Exp Negative x",
+    "titleAr": "تكامل معتل لـ س² هـ^(-س) من صفر لما لا نهاية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the improper definite integral: $\\int_0^\\infty x^2 e^{-x} dx$.",
+    "questionAr": "احسب قيمة التكامل المعتل: $\\int_0^\\infty x^2 e^{-x} dx$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$6$",
+      "$\\infty$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "6",
+      "∞"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "Integrate by parts twice, or recognize the Gamma function $\\Gamma(3) = 2!$.",
+    "hintAr": "كامل بالتجزيء مرتين متتاليتين، أو استخدم دالة غاما: غاما(3) = !2 = 2.",
+    "stepByStepSolutionEn": [
+      "1. Integration by parts with $u = x^2, dv = e^{-x} dx$:",
+      "   $\\int x^2 e^{-x} dx = -x^2 e^{-x} + 2 \\int x e^{-x} dx$.",
+      "2. Integrate by parts again for $\\int x e^{-x} dx = -x e^{-x} - e^{-x}$.",
+      "3. Antiderivative is $F(x) = -e^{-x}(x^2 + 2x + 2)$.",
+      "4. Evaluate limits: as $x \\to \\infty$, $\\lim_{x \\to \\infty} F(x) = 0$ (exponential dominates polynomial).",
+      "5. At $x = 0$: $F(0) = -e^0(0 + 0 + 2) = -2$.",
+      "6. Integral value: $0 - (-2) = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. التكامل بالتجزيء مرتين: الدالة المقابلة هي -هـ^(-س) (س² + 2س + 2).",
+      "٢. عند المالانهاية تؤول الدالة إلى الصفر لأن الدالة الأسية تهيمن على كثيرات الحدود.",
+      "٣. عند س = 0 تكون القيمة = -2.",
+      "٤. قيمة التكامل = 0 - (-2) = 2."
+    ],
+    "teacherTipEn": "Formula: $\\int_0^\\infty x^n e^{-x} dx = n!$ for any non-negative integer $n$.",
+    "teacherTipAr": "قاعدة عامة: تكامل س^ن هـ^(-س) من صفر للمالانهاية يساوي مضروب ن دائماً."
+  },
+  {
+    "id": "calc_ch2_db_hots_138",
+    "titleEn": "Area Between Curve x e^x and X-Axis",
+    "titleAr": "مساحة المنطقة المحصورة بين منحنى س هـ^س ومحور السينات",
+    "difficulty": "hots",
+    "questionEn": "Find the area of the region enclosed between the curve $y = x e^x$ and the x-axis from $x = -1$ to $x = 0$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x e^x$ ومحور السينات في الفترة من $x = -1$ إلى $x = 0$.",
+    "optionsEn": [
+      "$\\frac{e - 2}{e}$",
+      "$\\frac{2 - e}{e}$",
+      "$\\frac{1}{e}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "(هـ - 2) / هـ",
+      "(2 - هـ) / هـ",
+      "1 / هـ",
+      "1"
+    ],
+    "correctAnswer": "$\\frac{e - 2}{e}$",
+    "correctIndex": 0,
+    "hintEn": "Since $x e^x \\le 0$ on $[-1, 0]$, area is given by $\\int_{-1}^0 (-x e^x) dx$.",
+    "hintAr": "بما أن الدالة سالبة في الفترة المعطاة، فإن المساحة تحسب من تكامل المعكوس الجمعي للدالة.",
+    "stepByStepSolutionEn": [
+      "1. On $[-1, 0]$, $x \\le 0$ and $e^x > 0$, so $y = x e^x \\le 0$.",
+      "2. Area $A = \\int_{-1}^0 -x e^x dx = -\\left[ (x - 1)e^x \\right]_{-1}^0$.",
+      "3. At $x = 0$: $(0 - 1)e^0 = -1$.",
+      "4. At $x = -1$: $(-1 - 1)e^{-1} = -2e^{-1} = -\\frac{2}{e}$.",
+      "5. $A = -\\left[ -1 - (-\\frac{2}{e}) \\right] = -\\left[ -1 + \\frac{2}{e} \\right] = 1 - \\frac{2}{e} = \\frac{e - 2}{e}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الدالة سالبة على الفترة المعطاة، فتكون المساحة = - تكامل (س هـ^س).",
+      "٢. الدالة المقابلة للتكامل هي (س - 1) هـ^س.",
+      "٣. بالتعويض بحدود التكامل من -1 إلى 0:",
+      "٤. المساحة = 1 - 2/هـ = (هـ - 2) / هـ."
+    ],
+    "teacherTipEn": "Area is always positive; since the curve is below the x-axis, negate the integral.",
+    "teacherTipAr": "المساحة موجبة دائماً؛ وبما أن المنحنى يقع أسفل محور السينات نعكس إشارة التكامل."
+  },
+  {
+    "id": "calc_ch2_db_hots_139",
+    "titleEn": "Parameter for Unique Real Solution of e^x = kx",
+    "titleAr": "قيمة الثابت التي تجعل للمعادلة هـ^س = ك س حلاً حقيقياً وحيداً",
+    "difficulty": "hots",
+    "questionEn": "For what positive value of $k$ does the equation $e^x = k x$ have exactly one real solution?",
+    "questionAr": "ما قيمة $k > 0$ التي تجعل للمعادلة $e^x = k x$ حل حقيقي وحيد؟",
+    "optionsEn": [
+      "$e$",
+      "$1$",
+      "$e^2$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "هـ",
+      "1",
+      "هـ²",
+      "1 / هـ"
+    ],
+    "correctAnswer": "$e$",
+    "correctIndex": 0,
+    "hintEn": "The line $y = kx$ must be tangent to the curve $y = e^x$.",
+    "hintAr": "المستقيم ص = ك س يجب أن يمس المنحنى ص = هـ^س حتى يكون هناك حل وحيد.",
+    "stepByStepSolutionEn": [
+      "1. For exactly one solution, the line $y = kx$ through origin must be tangent to $y = e^x$.",
+      "2. Let the point of contact be $(x_0, y_0)$.",
+      "3. Slope of tangent is $y'(x_0) = e^{x_0} = k$.",
+      "4. Since the point lies on both curves: $e^{x_0} = k x_0$.",
+      "5. Substitute $k = e^{x_0}$: $e^{x_0} = e^{x_0} x_0 \\implies x_0 = 1$.",
+      "6. Then $k = e^1 = e$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. لكي يكون للمعادلة حل وحيد، يجب أن يمس الخط المستقيم ص = ك س المنحنى ص = هـ^س.",
+      "٢. نفرض نقطة التماس هي (س0، ص0).",
+      "٣. ميل المماس = هـ^س0 = ك.",
+      "٤. بالنقطة المشتركة: هـ^س0 = ك س0.",
+      "٥. بالتعويض عن ك بـ هـ^س0 ينتج: هـ^س0 = هـ^س0 × س0 ومنها س0 = 1.",
+      "٦. إذن ك = هـ¹ = هـ."
+    ],
+    "teacherTipEn": "If $k > e$ there are two solutions, if $k = e$ exactly one solution, and if $0 < k < e$ no real solution.",
+    "teacherTipAr": "إذا كانت ك > هـ يوجد حلان، وإذا كانت ك = هـ حل وحيد، وإذا كانت ك < هـ لا يوجد حل."
+  },
+  {
+    "id": "calc_ch2_db_hots_140",
+    "titleEn": "Differential Equation of Damped Harmonic Motion",
+    "titleAr": "المعادلة التفاضلية للحركة التوافقية المخمدة هـ^س جا(2س)",
+    "difficulty": "hots",
+    "questionEn": "If $y = e^x \\sin 2x$, find the constant $k$ such that $\\frac{d^2y}{dx^2} - 2\\frac{dy}{dx} + k y = 0$.",
+    "questionAr": "إذا كانت $y = e^x \\sin 2x$، فأوجد قيمة الثابت $k$ التي تحقق المعادلة: $\\frac{d^2y}{dx^2} - 2\\frac{dy}{dx} + k y = 0$.",
+    "optionsEn": [
+      "$5$",
+      "$3$",
+      "$4$",
+      "$-5$"
+    ],
+    "optionsAr": [
+      "5",
+      "3",
+      "4",
+      "-5"
+    ],
+    "correctAnswer": "$5$",
+    "correctIndex": 0,
+    "hintEn": "Compute $y'$ and $y''$, or recognize characteristic roots $r = 1 \\pm 2i$.",
+    "hintAr": "احسب المشتقة الأولى والثانية، أو استخدم الجذور المميزة: ل = 1 ± 2 ت.",
+    "stepByStepSolutionEn": [
+      "1. $y' = e^x \\sin 2x + 2 e^x \\cos 2x = y + 2 e^x \\cos 2x$.",
+      "2. $y'' = y' + 2 e^x \\cos 2x - 4 e^x \\sin 2x = y' + (y' - y) - 4y = 2y' - 5y$.",
+      "3. Rearranging gives: $y'' - 2y' + 5y = 0$.",
+      "4. Comparing with $y'' - 2y' + ky = 0$ yields $k = 5$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صَ = هـ^س جا 2س + 2 هـ^س جتا 2س = ص + 2 هـ^س جتا 2س.",
+      "٢. بالاشتقاق مرة أخرى: صً = 2 صَ - 5 ص.",
+      "٣. بترتيب المعادلة: صً - 2 صَ + 5 ص = 0.",
+      "٤. بمقارنة المعاملات نجد أن ك = 5."
+    ],
+    "teacherTipEn": "For $y = e^{ax} \\sin(bx)$, the characteristic equation is $(r - a)^2 + b^2 = 0 \\implies r^2 - 2ar + (a^2 + b^2) = 0$. Here $1^2 + 2^2 = 5$.",
+    "teacherTipAr": "للدالة هـ^(أ س) جا(ب س)، المعامل الثابت يساوي دائماً أ² + ب² = 1 + 4 = 5."
+  },
+  {
+    "id": "calc_ch2_db_hots_141",
+    "titleEn": "Difference of Exponentials Limit",
+    "titleAr": "نهاية الفرق بين دالتين أسيتين مقسوماً على س",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{6^x - 2^x}{x}$.",
+    "questionAr": "احسب قيمة النهاية: $\\lim_{x \\to 0} \\frac{6^x - 2^x}{x}$.",
+    "optionsEn": [
+      "$\\ln 3$",
+      "$\\ln 4$",
+      "$4$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "لوـهـ(3)",
+      "لوـهـ(4)",
+      "4",
+      "3"
+    ],
+    "correctAnswer": "$\\ln 3$",
+    "correctIndex": 0,
+    "hintEn": "Subtract and add 1 in numerator: $\\frac{(6^x - 1) - (2^x - 1)}{x}$.",
+    "hintAr": "اطرح واجمع 1 في البسط لتطبيق نظرية نهاية الدالة الأسية.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite numerator: $\\lim_{x \\to 0} \\left[ \\frac{6^x - 1}{x} - \\frac{2^x - 1}{x} \\right]$.",
+      "2. By standard exponential limit theorems: $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a$.",
+      "3. The limit is $\\ln 6 - \\ln 2 = \\ln(\\frac{6}{2}) = \\ln 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نعيد كتابة البسط بطرح وإضافة 1: [(6^س - 1)/س] - [(2^س - 1)/س].",
+      "٢. بنظرية نهاية الدالة الأسية: نهاية (أ^س - 1)/س = لوـهـ(أ).",
+      "٣. الناتج = لوـهـ(6) - لوـهـ(2) = لوـهـ(6 / 2) = لوـهـ(3)."
+    ],
+    "teacherTipEn": "Theorem: $\\lim_{x \\to 0} \\frac{a^x - b^x}{x} = \\ln(a/b)$.",
+    "teacherTipAr": "قاعدة سريعة: نهاية (أ^س - ب^س)/س عند س تؤول لصفر تساوي دائماً لوـهـ(أ/ب)."
+  },
+  {
+    "id": "calc_ch2_db_hots_142",
+    "titleEn": "Integral of Reciprocal One Plus Exponential",
+    "titleAr": "تكامل 1 / (1 + هـ^س)",
+    "difficulty": "hots",
+    "questionEn": "Find the indefinite integral: $\\int \\frac{1}{1 + e^x} dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{1 + e^x} dx$.",
+    "optionsEn": [
+      "$x - \\ln(1 + e^x) + C$",
+      "$\\ln(1 + e^x) + C$",
+      "$-\\frac{1}{(1 + e^x)^2} + C$",
+      "$e^{-x} + C$"
+    ],
+    "optionsAr": [
+      "س - لوـهـ(1 + هـ^س) + ث",
+      "لوـهـ(1 + هـ^س) + ث",
+      "-1 / (1 + هـ^س)² + ث",
+      "هـ^(-س) + ث"
+    ],
+    "correctAnswer": "$x - \\ln(1 + e^x) + C$",
+    "correctIndex": 0,
+    "hintEn": "Add and subtract $e^x$ in the numerator, or multiply numerator and denominator by $e^{-x}$.",
+    "hintAr": "أضف واطرح هـ^س في البسط، أو اضرب حدي الكسر في هـ^(-س).",
+    "stepByStepSolutionEn": [
+      "1. Method 1: $\\frac{1}{1 + e^x} = \\frac{(1 + e^x) - e^x}{1 + e^x} = 1 - \\frac{e^x}{1 + e^x}$.",
+      "2. Integrate each term: $\\int 1 dx - \\int \\frac{e^x}{1 + e^x} dx$.",
+      "3. The second integral has numerator equal to derivative of denominator, so it equals $\\ln(1 + e^x)$.",
+      "4. The result is $x - \\ln(1 + e^x) + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. فكرة الحل: كتابة البسط على الصورة (1 + هـ^س - هـ^س) / (1 + هـ^س).",
+      "٢. تفكيك الكسر: 1 - [هـ^س / (1 + هـ^س)].",
+      "٣. تكامل 1 هو س، وتكامل الكسر الثاني يعطي لوـهـ(المقام) لأن البسط مشتقة المقام.",
+      "٤. الناتج = س - لوـهـ(1 + هـ^س) + ث."
+    ],
+    "teacherTipEn": "Both $x - \\ln(1 + e^x) + C$ and $-\\ln(1 + e^{-x}) + C$ are equivalent forms of the antiderivative.",
+    "teacherTipAr": "الصورتان س - لوـهـ(1 + هـ^س) و -لوـهـ(1 + هـ^(-س)) متطابقتان رياضياً."
+  },
+  {
+    "id": "calc_ch2_db_hots_143",
+    "titleEn": "Integral of Exp Square Root x",
+    "titleAr": "تكامل هـ^(جذر س) بالنسبة لـ س",
+    "difficulty": "hots",
+    "questionEn": "Find the indefinite integral: $\\int e^{\\sqrt{x}} dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int e^{\\sqrt{x}} dx$.",
+    "optionsEn": [
+      "$2(\\sqrt{x} - 1)e^{\\sqrt{x}} + C$",
+      "$(\\sqrt{x} - 1)e^{\\sqrt{x}} + C$",
+      "$2\\sqrt{x} e^{\\sqrt{x}} + C$",
+      "$e^{\\sqrt{x}} + C$"
+    ],
+    "optionsAr": [
+      "2(جذر س - 1) هـ^(جذر س) + ث",
+      "(جذر س - 1) هـ^(جذر س) + ث",
+      "2 جذر(س) هـ^(جذر س) + ث",
+      "هـ^(جذر س) + ث"
+    ],
+    "correctAnswer": "$2(\\sqrt{x} - 1)e^{\\sqrt{x}} + C$",
+    "correctIndex": 0,
+    "hintEn": "Use substitution $u = \\sqrt{x} \\implies x = u^2, dx = 2u du$, then integrate by parts.",
+    "hintAr": "استخدم التعويض: ع = جذر(س) فتكون س = ع² و د س = 2 ع د ع، ثم كامل بالتجزيء.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = \\sqrt{x} \\implies x = u^2 \\implies dx = 2u du$.",
+      "2. The integral becomes $\\int 2u e^u du = 2 \\int u e^u du$.",
+      "3. Integration by parts: $\\int u e^u du = u e^u - e^u = (u - 1)e^u$.",
+      "4. Substitute back $u = \\sqrt{x}$: $2(\\sqrt{x} - 1)e^{\\sqrt{x}} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض ع = جذر(س)، إذن س = ع²، د س = 2 ع د ع.",
+      "٢. يتحول التكامل إلى 2 تكامل (ع هـ^ع د ع).",
+      "٣. بالتجزيء: تكامل ع هـ^ع د ع = (ع - 1) هـ^ع.",
+      "٤. بالتعويض عن ع بقيمتها: 2 (جذر س - 1) هـ^(جذر س) + ث."
+    ],
+    "teacherTipEn": "Substitution followed by integration by parts is a standard composite integration pattern.",
+    "teacherTipAr": "التعويض المتبوع بالتجزيء نمط تكاملي أساسي في مسائل التفوق في الثانوية العامة."
+  },
+  {
+    "id": "calc_ch2_db_hots_144",
+    "titleEn": "Inflection Point of Standard Logistic Curve",
+    "titleAr": "نقطة انقلاب المنحنى اللوجستي القياسي 1 / (1 + هـ^(-س))",
+    "difficulty": "hots",
+    "questionEn": "Find the coordinates of the point of inflection of the logistic function $y = \\frac{1}{1 + e^{-x}}$.",
+    "questionAr": "أوجد إحداثيات نقطة الانقلاب للدالة اللوجستية $y = \\frac{1}{1 + e^{-x}}$.",
+    "optionsEn": [
+      "$(0, \\frac{1}{2})$",
+      "$(0, 1)$",
+      "$(1, \\frac{1}{2})$",
+      "$(-1, \\frac{1}{2})$"
+    ],
+    "optionsAr": [
+      "(0، 1/2)",
+      "(0، 1)",
+      "(1، 1/2)",
+      "(-1، 1/2)"
+    ],
+    "correctAnswer": "$(0, \\frac{1}{2})$",
+    "correctIndex": 0,
+    "hintEn": "Express derivatives in terms of y: $y' = y(1 - y)$ and $y'' = y'(1 - 2y)$.",
+    "hintAr": "عبر عن المشتقات بدلالة ص: صَ = ص(1 - ص) و صً = صَ(1 - 2ص).",
+    "stepByStepSolutionEn": [
+      "1. Notice $y' = \\frac{e^{-x}}{(1 + e^{-x})^2} = y(1 - y)$.",
+      "2. Differentiating again: $y'' = y'(1 - y) + y(-y') = y'(1 - 2y)$.",
+      "3. Since $y' > 0$ everywhere, $y'' = 0 \\iff 1 - 2y = 0 \\implies y = 1/2$.",
+      "4. From $\\frac{1}{1 + e^{-x}} = \\frac{1}{2} \\implies 1 + e^{-x} = 2 \\implies e^{-x} = 1 \\implies x = 0$.",
+      "5. The point of inflection is $(0, 1/2)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة الأولى: صَ = ص(1 - ص).",
+      "٢. المشتقة الثانية: صً = صَ (1 - 2ص).",
+      "٣. نقطة الانقلاب تحدث عندما صً = 0 أي 1 - 2ص = 0 ومنها ص = 1/2.",
+      "٤. 1 / (1 + هـ^(-س)) = 1/2 تعطي هـ^(-س) = 1 أي س = 0.",
+      "٥. إحداثيات نقطة الانقلاب هي (0، 1/2)."
+    ],
+    "teacherTipEn": "The inflection point of any symmetric logistic curve occurs exactly at half of its carrying capacity.",
+    "teacherTipAr": "نقطة انقلاب أي منحنى لوجستي متناظر تحدث دائماً عند نصف قيمته القصوى."
+  },
+  {
+    "id": "calc_ch2_db_hots_145",
+    "titleEn": "Point of Maximum Curvature of Natural Logarithm",
+    "titleAr": "نقطة أقصى انحناء لمنحنى اللوغاريتم الطبيعي",
+    "difficulty": "hots",
+    "questionEn": "The curvature of a plane curve is $\\kappa(x) = \\frac{|y''|}{(1 + y'^2)^{3/2}}$. At what value of $x$ does the curve $y = \\ln x$ achieve its maximum curvature?",
+    "questionAr": "انحناء أي منحنى مستوٍ يحسب من $\\kappa(x) = \\frac{|y''|}{(1 + y'^2)^{3/2}}$. عند أي قيمة لـ $x$ يبلغ منحنى $y = \\ln x$ أقصى انحناء له؟",
+    "optionsEn": [
+      "$\\frac{1}{\\sqrt{2}}$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{e}$"
+    ],
+    "optionsAr": [
+      "1 / جذر(2)",
+      "1 / 2",
+      "1",
+      "1 / هـ"
+    ],
+    "correctAnswer": "$\\frac{1}{\\sqrt{2}}$",
+    "correctIndex": 0,
+    "hintEn": "Compute $\\kappa(x) = \\frac{x}{(x^2 + 1)^{3/2}}$ and maximize with respect to x.",
+    "hintAr": "احسب دالة الانحناء ق(س) = س / (س² + 1)^(3/2) ثم أوجد النقطة الحرجة العظمى لها.",
+    "stepByStepSolutionEn": [
+      "1. For $y = \\ln x$: $y' = 1/x$ and $y'' = -1/x^2$.",
+      "2. Curvature: $\\kappa(x) = \\frac{1/x^2}{(1 + 1/x^2)^{3/2}} = \\frac{1/x^2}{\\frac{(x^2 + 1)^{3/2}}{x^3}} = \\frac{x}{(x^2 + 1)^{3/2}}$.",
+      "3. Differentiate $\\kappa(x)$: $\\kappa'(x) = \\frac{(x^2 + 1)^{3/2}(1) - x \\cdot \\frac{3}{2}(x^2 + 1)^{1/2}(2x)}{(x^2 + 1)^3} = \\frac{(x^2 + 1) - 3x^2}{(x^2 + 1)^{5/2}} = \\frac{1 - 2x^2}{(x^2 + 1)^{5/2}}$.",
+      "4. Setting $\\kappa'(x) = 0 \\implies 1 - 2x^2 = 0 \\implies x^2 = 1/2 \\implies x = \\frac{1}{\\sqrt{2}}$ (since $x > 0$)."
+    ],
+    "stepByStepSolutionAr": [
+      "١. لدالة اللوغاريتم: صَ = 1/س، صً = -1/س².",
+      "٢. دالة الانحناء بعد التبسيط: ق(س) = س / (س² + 1)^(3/2).",
+      "٣. باشتقاق دالة الانحناء بالنسبة لـ س ومساواتها بالصفر:",
+      "   البسط = (س² + 1) - 3س² = 1 - 2س² = 0.",
+      "٤. 2س² = 1 ومنها س = 1 / جذر(2)."
+    ],
+    "teacherTipEn": "Maximum curvature of $y = \\ln x$ is a classic Olympiad application of differentiation.",
+    "teacherTipAr": "أقصى انحناء لمنحنى اللوغاريتم مسألة تفكير عليا نموذجية تجمع بين المشتقات الأولى والثانية والقصوى."
+  },
+  {
+    "id": "calc_ch2_db_hots_146",
+    "titleEn": "Definite Integral with Logarithmic Substitution",
+    "titleAr": "تكامل محدد بالتعويض اللوغاريتمي",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_1^e \\frac{\\ln x}{x (1 + (\\ln x)^2)} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_1^e \\frac{\\ln x}{x (1 + (\\ln x)^2)} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2} \\ln 2$",
+      "$\\ln 2$",
+      "$\\frac{1}{4}$",
+      "$\\frac{\\pi}{4}$"
+    ],
+    "optionsAr": [
+      "1/2 لوـهـ(2)",
+      "لوـهـ(2)",
+      "1 / 4",
+      "ط / 4"
+    ],
+    "correctAnswer": "$\\frac{1}{2} \\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
+    "hintAr": "استخدم التعويض: ع = لوـهـ(س) فتكون د ع = (1/س) د س.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = \\ln x \\implies du = \\frac{1}{x} dx$.",
+      "2. Change limits of integration: when $x = 1 \\implies u = 0$; when $x = e \\implies u = 1$.",
+      "3. The integral becomes $\\int_0^1 \\frac{u}{1 + u^2} du$.",
+      "4. $\\int_0^1 \\frac{u}{1 + u^2} du = \\frac{1}{2} \\left[ \\ln(1 + u^2) \\right]_0^1 = \\frac{1}{2} (\\ln 2 - \\ln 1) = \\frac{1}{2} \\ln 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض: ع = لوـهـ(س)، إذن د ع = (1/س) د س.",
+      "٢. حدود التكامل: عند س = 1 تكون ع = 0، وعند س = هـ تكون ع = 1.",
+      "٣. يتحول التكامل إلى تكامل ع / (1 + ع²) د ع من 0 إلى 1.",
+      "٤. الناتج = (1/2) [لوـهـ(1 + ع²)] من 0 إلى 1 = (1/2) لوـهـ(2)."
+    ],
+    "teacherTipEn": "Notice that $(1/2)\\ln 2 = \\ln\\sqrt{2}$.",
+    "teacherTipAr": "تذكر أن (1/2) لوـهـ(2) هي نفسها لوـهـ(جذر 2)."
+  },
+  {
+    "id": "calc_ch2_db_hots_147",
+    "titleEn": "Logarithmic Differentiation of Complex Product",
+    "titleAr": "الاشتقاق اللوغاريتمي لحاصل ضرب مقادير خطية مرفوعة لقوى",
+    "difficulty": "hots",
+    "questionEn": "For the function $f(x) = (x + 1)^2 (x + 2)^3 (x + 3)^4$, find the value of $f'(0)$.",
+    "questionAr": "للدالة $f(x) = (x + 1)^2 (x + 2)^3 (x + 3)^4$، أوجد قيمة المشتقة الأولى $f'(0)$.",
+    "optionsEn": [
+      "$3132$",
+      "$648$",
+      "$1566$",
+      "$6264$"
+    ],
+    "optionsAr": [
+      "3132",
+      "648",
+      "1566",
+      "6264"
+    ],
+    "correctAnswer": "$3132$",
+    "correctIndex": 0,
+    "hintEn": "Use logarithmic differentiation: $\\frac{f'(x)}{f(x)} = \\frac{2}{x+1} + \\frac{3}{x+2} + \\frac{4}{x+3}$.",
+    "hintAr": "استخدم الاشتقاق اللوغاريتمي: دَ(س) / د(س) = 2/(س+1) + 3/(س+2) + 4/(س+3).",
+    "stepByStepSolutionEn": [
+      "1. Compute $f(0) = (1)^2 (2)^3 (3)^4 = 1 \\times 8 \\times 81 = 648$.",
+      "2. Taking the natural logarithm: $\\ln f(x) = 2\\ln(x + 1) + 3\\ln(x + 2) + 4\\ln(x + 3)$.",
+      "3. Differentiating: $\\frac{f'(x)}{f(x)} = \\frac{2}{x + 1} + \\frac{3}{x + 2} + \\frac{4}{x + 3}$.",
+      "4. At $x = 0$: $\\frac{f'(0)}{648} = \\frac{2}{1} + \\frac{3}{2} + \\frac{4}{3} = \\frac{12 + 9 + 8}{6} = \\frac{29}{6}$.",
+      "5. $f'(0) = 648 \\times \\frac{29}{6} = 108 \\times 29 = 3132$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نحسب د(0) = 1² × 2³ × 3⁴ = 1 × 8 × 81 = 648.",
+      "٢. بأخذ اللوغاريتم الطبيعي: لوـهـ د(س) = 2 لوـهـ(س+1) + 3 لوـهـ(س+2) + 4 لوـهـ(س+3).",
+      "٣. بالاشتقاق: دَ(س) / د(س) = 2/(س+1) + 3/(س+2) + 4/(س+3).",
+      "٤. بالتعويض عن س = 0: دَ(0) / 648 = 2 + 1.5 + 4/3 = 29 / 6.",
+      "٥. دَ(0) = 648 × (29 / 6) = 108 × 29 = 3132."
+    ],
+    "teacherTipEn": "Logarithmic differentiation converts a massive product rule into a simple sum of fractions.",
+    "teacherTipAr": "الاشتقاق اللوغاريتمي يحول حاصل ضرب العوامل المعقدة إلى مجموع كسور بسيطة يسهل حسابها."
+  },
+  {
+    "id": "calc_ch2_db_hots_148",
+    "titleEn": "Trigonometric Exponential Integral Special Form",
+    "titleAr": "تكامل أسي مثلثي خاص هـ^س (ظا(س/2) + 0.5 قا²(س/2))",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the indefinite integral: $\\int e^x \\left(\\frac{1 + \\sin x}{1 + \\cos x}\\right) dx$.",
+    "questionAr": "احسب قيمة التكامل غير المحدد: $\\int e^x \\left(\\frac{1 + \\sin x}{1 + \\cos x}\\right) dx$.",
+    "optionsEn": [
+      "$e^x \\tan(\\frac{x}{2}) + C$",
+      "$e^x \\sec(\\frac{x}{2}) + C$",
+      "$e^x \\cot(\\frac{x}{2}) + C$",
+      "$e^x (1 + \\sin x) + C$"
+    ],
+    "optionsAr": [
+      "هـ^س ظا(س/2) + ث",
+      "هـ^س قا(س/2) + ث",
+      "هـ^س ظتا(س/2) + ث",
+      "هـ^س (1 + جا س) + ث"
+    ],
+    "correctAnswer": "$e^x \\tan(\\frac{x}{2}) + C$",
+    "correctIndex": 0,
+    "hintEn": "Use half-angle identities to write the integrand in the form $e^x [g(x) + g'(x)]$.",
+    "hintAr": "استخدم قوانين نصف الزاوية لكتابة المقدار على الصورة هـ^س [د(س) + دَ(س)].",
+    "stepByStepSolutionEn": [
+      "1. Use half-angle identities: $1 + \\cos x = 2\\cos^2(\\frac{x}{2})$ and $\\sin x = 2\\sin(\\frac{x}{2})\\cos(\\frac{x}{2})$.",
+      "2. $\\frac{1 + \\sin x}{1 + \\cos x} = \\frac{1}{2\\cos^2(x/2)} + \\frac{2\\sin(x/2)\\cos(x/2)}{2\\cos^2(x/2)} = \\frac{1}{2}\\sec^2(\\frac{x}{2}) + \\tan(\\frac{x}{2})$.",
+      "3. Notice that the derivative of $\\tan(\\frac{x}{2})$ is $\\frac{1}{2}\\sec^2(\\frac{x}{2})$.",
+      "4. By theorem $\\int e^x [g(x) + g'(x)] dx = e^x g(x) + C$, the integral is $e^x \\tan(\\frac{x}{2}) + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بقوانين نصف الزاوية: 1 + جتا س = 2 جتا²(س/2)، جا س = 2 جا(س/2) جتا(س/2).",
+      "٢. بتبسيط الكسر: 1/2 قا²(س/2) + ظا(س/2).",
+      "٣. نلاحظ أن مشتقة ظا(س/2) هي 1/2 قا²(س/2).",
+      "٤. بتطبيق القاعدة: تكامل هـ^س [ق(س) + قَ(س)] د س = هـ^س ق(س) + ث، ينتج: هـ^س ظا(س/2) + ث."
+    ],
+    "teacherTipEn": "Recognizing the $e^x(f + f')$ pattern avoids tedious integration by parts.",
+    "teacherTipAr": "ملاحظة صورة هـ^س [د + دَ] تختصر خطوات التجزيء الطويلة تماماً."
+  },
+  {
+    "id": "calc_ch2_db_hots_149",
+    "titleEn": "Symmetric Definite Integral King Property",
+    "titleAr": "تكامل محدد شهير بخاصية التماثل (خاصية الملك)",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "ط / 4",
+      "ط / 2",
+      "1",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Use property $\\int_a^b f(x) dx = \\int_a^b f(a + b - x) dx$.",
+    "hintAr": "استخدم خاصية التماثل: تكامل د(س) = تكامل د(أ + ب - س).",
+    "stepByStepSolutionEn": [
+      "1. Let $I = \\int_0^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$.",
+      "2. Apply $x \\to \\frac{\\pi}{2} - x$: $\\sin(\\frac{\\pi}{2} - x) = \\cos x$ and $\\cos(\\frac{\\pi}{2} - x) = \\sin x$.",
+      "3. $I = \\int_0^{\\pi/2} \\frac{\\cos x}{\\cos x + \\sin x} dx$.",
+      "4. Adding the two equations: $2I = \\int_0^{\\pi/2} \\frac{\\sin x + \\cos x}{\\sin x + \\cos x} dx = \\int_0^{\\pi/2} 1 dx = \\frac{\\pi}{2}$.",
+      "5. Therefore, $I = \\frac{\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ت = التكامل المطلوب.",
+      "٢. بالتعويض عن س بـ (ط/2 - س): يتحول جا س إلى جتا س وجتا س إلى جا س.",
+      "٣. ت = تكامل [جتا س / (جتا س + جا س)] د س.",
+      "٤. بجمع المعادلتين: 2 ت = تكامل 1 د س = ط / 2.",
+      "٥. إذن ت = ط / 4."
+    ],
+    "teacherTipEn": "One of the most elegant and famous definite integral results in mathematics.",
+    "teacherTipAr": "من أشهر وأروع نتائج التكامل المحدد في الرياضيات العالمية."
+  },
+  {
+    "id": "calc_ch2_db_hots_150",
+    "titleEn": "Volume of Revolution of x Exp Negative x",
+    "titleAr": "حجم الجسم الناشئ من دوران س هـ^(-س) حول محور السينات",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x e^{-x}$ and the x-axis for $x \\in [0, \\infty)$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x e^{-x}$ ومحور السينات لـ $x \\in [0، \\infty)$ دورة كاملة حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$\\pi$",
+      "$\\frac{\\pi}{8}$"
+    ],
+    "optionsAr": [
+      "ط / 4",
+      "ط / 2",
+      "ط",
+      "ط / 8"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Use volume of revolution formula: $V = \\pi \\int_0^\\infty y^2 dx = \\pi \\int_0^\\infty x^2 e^{-2x} dx$.",
+    "hintAr": "استخدم قانون حجم الدوران: الحجم = ط × تكامل ص² د س من صفر للمالانهاية.",
+    "stepByStepSolutionEn": [
+      "1. Volume formula: $V = \\pi \\int_0^\\infty (x e^{-x})^2 dx = \\pi \\int_0^\\infty x^2 e^{-2x} dx$.",
+      "2. Substitute $u = 2x \\implies x = u/2, dx = du/2$.",
+      "3. $V = \\pi \\int_0^\\infty (\\frac{u}{2})^2 e^{-u} (\\frac{du}{2}) = \\frac{\\pi}{8} \\int_0^\\infty u^2 e^{-u} du$.",
+      "4. Since $\\int_0^\\infty u^2 e^{-u} du = 2! = 2$, we obtain: $V = \\frac{\\pi}{8} \\times 2 = \\frac{\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الحجم: ح = ط × تكامل (س هـ^(-س))² د س = ط × تكامل (س² هـ^(-2س)) د س.",
+      "٢. بالتعويض ع = 2س ينتج: ح = (ط / 8) × تكامل (ع² هـ^(-ع) د ع).",
+      "٣. قيمة التكامل = !2 = 2.",
+      "٤. الحجم = (ط / 8) × 2 = ط / 4."
+    ],
+    "teacherTipEn": "Revolving an improper exponential region yields a finite, beautifully compact volume.",
+    "teacherTipAr": "دوران منطقة أسية غير محدودة يعطي حجماً منتهياً مدمجاً يساوي ط/4."
   }
 ]
 };

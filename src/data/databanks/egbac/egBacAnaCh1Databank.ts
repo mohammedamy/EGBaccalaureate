@@ -4978,363 +4978,363 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch1_db_hots_31",
-    "titleEn": "Uniform Continuity Extension Criterion #1",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 1",
+    "titleEn": "Uniform Continuity of f(x) = x^2 #1",
+    "titleAr": "الاتصال المنتظم للدالة رقم 1",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = x^2$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #1).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = x^2$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #1).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The function has at least one root in $(0, 1)$"
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Yes, $f(x) = x^2$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1 (both finite)",
+      "Uniform continuity cannot be determined for $f(x) = x^2$"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايات الأطراف موجودة ومحدودة",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = x^2$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1 (both finite)",
     "correctIndex": 2,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = x^2$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = x^2$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1 (both finite)."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايات الأطراف موجودة ومحدودة."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_32",
-    "titleEn": "Uniform Continuity Extension Criterion #2",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 2",
+    "titleEn": "Uniform Continuity of f(x) = \\frac{1}{x} #2",
+    "titleAr": "الاتصال المنتظم للدالة رقم 2",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\frac{1}{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #2).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = 1/x$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #2).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite"
+      "Yes, every continuous function on $(0, 1)$ is automatically uniformly continuous",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = \\frac{1}{x}$",
+      "No, $f(x) = \\frac{1}{x}$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is +infinity (unbounded)"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان"
+      "نعم، كل دالة متصلة على فترة مفتوحة تكون متصلة بانتظام تلقائياً",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة",
+      "لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر تؤول للمالانهاية"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "No, $f(x) = \\frac{1}{x}$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is +infinity (unbounded)",
     "correctIndex": 3,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\frac{1}{x}$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: No, $f(x) = \\frac{1}{x}$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is +infinity (unbounded)."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر تؤول للمالانهاية."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_33",
-    "titleEn": "Uniform Continuity Extension Criterion #3",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 3",
+    "titleEn": "Uniform Continuity of f(x) = \\sin(1/x) #3",
+    "titleAr": "الاتصال المنتظم للدالة رقم 3",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\sin(1/x)$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #3).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = \\sin(1/x)$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #3).",
     "optionsEn": [
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$"
+      "No, $f(x) = \\sin(1/x)$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ oscillates and does not exist",
+      "Yes, every continuous function on $(0, 1)$ is automatically uniformly continuous",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = \\sin(1/x)$"
     ],
     "optionsAr": [
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر غير موجودة بسبب التذبذب",
+      "نعم، كل دالة متصلة على فترة مفتوحة تكون متصلة بانتظام تلقائياً",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "No, $f(x) = \\sin(1/x)$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ oscillates and does not exist",
     "correctIndex": 0,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\sin(1/x)$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: No, $f(x) = \\sin(1/x)$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ oscillates and does not exist."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر غير موجودة بسبب التذبذب."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_34",
-    "titleEn": "Uniform Continuity Extension Criterion #4",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 4",
+    "titleEn": "Uniform Continuity of f(x) = \\sqrt{x} #4",
+    "titleAr": "الاتصال المنتظم للدالة رقم 4",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\sqrt{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #4).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = \\sqrt{x}$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #4).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$"
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "Yes, $f(x) = \\sqrt{x}$ is uniformly continuous on $(0, 1)$ because it extends continuously to the compact interval [0, 1]",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = \\sqrt{x}$"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن تمتد بالاتصال إلى الفترة المغلقة [0, 1]",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = \\sqrt{x}$ is uniformly continuous on $(0, 1)$ because it extends continuously to the compact interval [0, 1]",
     "correctIndex": 1,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\sqrt{x}$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = \\sqrt{x}$ is uniformly continuous on $(0, 1)$ because it extends continuously to the compact interval [0, 1]."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن تمتد بالاتصال إلى الفترة المغلقة [0, 1]."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_35",
-    "titleEn": "Uniform Continuity Extension Criterion #5",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 5",
+    "titleEn": "Uniform Continuity of f(x) = x \\sin(1/x) #5",
+    "titleAr": "الاتصال المنتظم للدالة رقم 5",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = x \\sin(1/x)$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #5).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = x \\sin(1/x)$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #5).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The function has at least one root in $(0, 1)$"
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Yes, $f(x) = x \\sin(1/x)$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 by squeeze theorem, so it extends continuously",
+      "Uniform continuity cannot be determined for $f(x) = x \\sin(1/x)$"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 بنظرية الحصر وتمتد بالاتصال",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = x \\sin(1/x)$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 by squeeze theorem, so it extends continuously",
     "correctIndex": 2,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = x \\sin(1/x)$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = x \\sin(1/x)$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 by squeeze theorem, so it extends continuously."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 بنظرية الحصر وتمتد بالاتصال."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_36",
-    "titleEn": "Uniform Continuity Extension Criterion #6",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 6",
+    "titleEn": "Uniform Continuity of f(x) = \\ln x #6",
+    "titleAr": "الاتصال المنتظم للدالة رقم 6",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\ln x$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #6).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = \\ln x$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #6).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite"
+      "Yes, every continuous function on $(0, 1)$ is automatically uniformly continuous",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = \\ln x$",
+      "No, $f(x) = \\ln x$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is -infinity"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان"
+      "نعم، كل دالة متصلة على فترة مفتوحة تكون متصلة بانتظام تلقائياً",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة",
+      "لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر تؤول إلى -مالانهاية"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "No, $f(x) = \\ln x$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is -infinity",
     "correctIndex": 3,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\ln x$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: No, $f(x) = \\ln x$ is NOT uniformly continuous on $(0, 1)$ because lim as x->0+ is -infinity."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر تؤول إلى -مالانهاية."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_37",
-    "titleEn": "Uniform Continuity Extension Criterion #7",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 7",
+    "titleEn": "Uniform Continuity of f(x) = e^{-1/x} #7",
+    "titleAr": "الاتصال المنتظم للدالة رقم 7",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = e^{-1/x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #7).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = e^{-1/x}$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #7).",
     "optionsEn": [
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$"
+      "Yes, $f(x) = e^{-1/x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1/e (finite)",
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = e^{-1/x}$"
     ],
     "optionsAr": [
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 وعند 1 تساوي 1/هـ",
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = e^{-1/x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1/e (finite)",
     "correctIndex": 0,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = e^{-1/x}$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = e^{-1/x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 1/e (finite)."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 وعند 1 تساوي 1/هـ."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_38",
-    "titleEn": "Uniform Continuity Extension Criterion #8",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 8",
+    "titleEn": "Uniform Continuity of f(x) = \\cos(1/x) #8",
+    "titleAr": "الاتصال المنتظم للدالة رقم 8",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\cos(1/x)$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #8).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = \\cos(1/x)$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #8).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$"
+      "Yes, every continuous function on $(0, 1)$ is automatically uniformly continuous",
+      "No, $f(x) = \\cos(1/x)$ is NOT uniformly continuous on $(0, 1)$ because boundary limit at 0 does not exist due to infinite oscillation",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = \\cos(1/x)$"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "نعم، كل دالة متصلة على فترة مفتوحة تكون متصلة بانتظام تلقائياً",
+      "لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر غير موجودة لكثرة التذبذب",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "No, $f(x) = \\cos(1/x)$ is NOT uniformly continuous on $(0, 1)$ because boundary limit at 0 does not exist due to infinite oscillation",
     "correctIndex": 1,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\cos(1/x)$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: No, $f(x) = \\cos(1/x)$ is NOT uniformly continuous on $(0, 1)$ because boundary limit at 0 does not exist due to infinite oscillation."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: لا، الدالة ليست متصلة بانتظام على $(0, 1)$ لأن النهاية عند الصفر غير موجودة لكثرة التذبذب."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_39",
-    "titleEn": "Uniform Continuity Extension Criterion #9",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 9",
+    "titleEn": "Uniform Continuity of f(x) = \\frac{\\sin x}{x} #9",
+    "titleAr": "الاتصال المنتظم للدالة رقم 9",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = \\frac{\\sin x}{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #9).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = \\frac{\\sin x}{x}$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #9).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
-      "The function has at least one root in $(0, 1)$"
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Yes, $f(x) = \\frac{\\sin x}{x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 1 and lim as x->1- is sin(1), so it extends continuously to [0, 1]",
+      "Uniform continuity cannot be determined for $f(x) = \\frac{\\sin x}{x}$"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$"
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 1 وتمتد بالاتصال للفترة المغلقة",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = \\frac{\\sin x}{x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 1 and lim as x->1- is sin(1), so it extends continuously to [0, 1]",
     "correctIndex": 2,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = \\frac{\\sin x}{x}$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = \\frac{\\sin x}{x}$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 1 and lim as x->1- is sin(1), so it extends continuously to [0, 1]."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 1 وتمتد بالاتصال للفترة المغلقة."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_40",
-    "titleEn": "Uniform Continuity Extension Criterion #10",
-    "titleAr": "معيار التمديد للاتصال المنتظم رقم 10",
+    "titleEn": "Uniform Continuity of f(x) = x \\ln x #10",
+    "titleAr": "الاتصال المنتظم للدالة رقم 10",
     "difficulty": "hots",
-    "questionEn": "Let $f: (0, 1) \\to \\mathbb{R}$ be a continuous function. According to the Continuous Extension Theorem, $f$ is UNIFORMLY continuous on $(0, 1)$ if and only if:",
-    "questionAr": "لتكن $f: (0, 1) \\to \\mathbb{R}$ دالة متصلة. وفقاً لنظرية التمديد بالاتصال، تكون الدالة $f$ متصلة بانتظام (Uniformly Continuous) على $(0, 1)$ إذا وفقط إذا كان:",
+    "questionEn": "Determine whether the function $f(x) = x \\ln x$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #10).",
+    "questionAr": "حدد ما إذا كانت الدالة $f(x) = x \\ln x$ متصلة بانتظام (Uniformly Continuous) على الفترة المفتوحة المحدودة $(0, 1)$ (المسألة #10).",
     "optionsEn": [
-      "The function is bounded on $(0, 1)$ without limit requirements",
-      "The derivative $f'(x)$ exists at all points of $(0, 1)$",
-      "The function has at least one root in $(0, 1)$",
-      "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite"
+      "No, it is not uniformly continuous because $(0, 1)$ is not compact",
+      "It is uniformly continuous only on $(0.5, 1)$",
+      "Uniform continuity cannot be determined for $f(x) = x \\ln x$",
+      "Yes, $f(x) = x \\ln x$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 0, so it extends continuously to [0, 1]"
     ],
     "optionsAr": [
-      "الدالة محدودة على الفترة $(0, 1)$ دون اشتراط وجود النهايات",
-      "المشتقة الأولى $f'(x)$ موجودة عند جميع نقاط الفترة $(0, 1)$",
-      "تمتلك الدالة جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$",
-      "كلا النهايتين من جهة واحدة $\\lim_{x \\to 0^+} f(x)$ و $\\lim_{x \\to 1^-} f(x)$ موجودتان ومحدودتان"
+      "لا، ليست متصلة بانتظام لأن الفترة مفتوحة وليست متراصة",
+      "تكون متصلة بانتظام فقط على الفترة $(0.5, 1)$",
+      "لا يمكن تحديد الاتصال المنتظم للدالة المعطاة",
+      "نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 وتمتد بالاتصال"
     ],
-    "correctAnswer": "Both one-sided limits $\\lim_{x \\to 0^+} f(x)$ and $\\lim_{x \\to 1^-} f(x)$ exist and are finite",
+    "correctAnswer": "Yes, $f(x) = x \\ln x$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 0, so it extends continuously to [0, 1]",
     "correctIndex": 3,
-    "hintEn": "Uniform continuity on a bounded open interval is equivalent to extending continuously to the closed interval [0, 1].",
-    "hintAr": "الاتصال المنتظم على فترة مفتوحة محدودة يكافئ إمكانية تمديد الدالة بالاتصال على الفترة المغلقة.",
+    "hintEn": "By the Continuous Extension Theorem, check whether the one-sided limits at 0 and 1 exist and are finite.",
+    "hintAr": "وفق نظرية التمديد بالاتصال، افحص هل النهايتان عند الصفر والواحد موجودتان ومحدودتان.",
     "stepByStepSolutionEn": [
-      "1. By the Continuous Extension Theorem, a continuous function on a bounded interval $(a, b)$ is uniformly continuous if and only if it can be extended to a continuous function on the compact interval $[a, b]$.",
-      "2. This extension is valid if and only if the boundary limits $\\lim_{x \\to a^+} f(x)$ and $\\lim_{x \\to b^-} f(x)$ exist and are finite.",
-      "3. For example, $f(x) = \\sin(1/x)$ is not uniformly continuous because $\\lim_{x \\to 0^+} \\sin(1/x)$ does not exist."
+      "1. Consider the function $f(x) = x \\ln x$ on $(0, 1)$.",
+      "2. Analyze the boundary behavior as $x \\to 0^+$ and $x \\to 1^-$.",
+      "3. Conclusion: Yes, $f(x) = x \\ln x$ is uniformly continuous on $(0, 1)$ because lim as x->0+ is 0 and lim as x->1- is 0, so it extends continuously to [0, 1]."
     ],
     "stepByStepSolutionAr": [
-      "١. وفق نظرية التمديد بالاتصال، تكون الدالة المتصلة على فترة مفتوحة متصلة بانتظام إذا وفقط إذا أمكن تمديدها بالاتصال إلى الفترة المغلقة $[a, b]$.",
-      "٢. هذا التمديد يكون ممكناً إذا وفقط إذا كانت النهايتان عند طرفي الفترة موجودتين ومحدودتين.",
-      "٣. مثلاً: دالة $\\sin(1/x)$ غير متصلة بانتظام على $(0, 1)$ لعدم وجود نهايتها عند الصفر."
+      "١. دراسة سلوك الدالة على الفترة $(0, 1)$.",
+      "٢. فحص النهايات عند الأطراف.",
+      "٣. النتيجة: نعم، الدالة متصلة بانتظام على $(0, 1)$ لأن نهايتها عند الصفر تساوي 0 وتمتد بالاتصال."
     ],
-    "teacherTipEn": "Continuous extension to the compact closure [a, b] is the definitive test for uniform continuity on (a, b).",
-    "teacherTipAr": "قابلية التمديد بالاتصال على الانغلاق المتراص [a, b] هي الاختبار الحاسم للاتصال المنتظم."
+    "teacherTipEn": "Continuous extension to [a, b] is the definitive test for uniform continuity on (a, b).",
+    "teacherTipAr": "قابلية التمديد بالاتصال على الفترة المغلقة هي الاختبار الحاسم للاتصال المنتظم."
   },
   {
     "id": "egbac_ana_ch1_db_hots_41",

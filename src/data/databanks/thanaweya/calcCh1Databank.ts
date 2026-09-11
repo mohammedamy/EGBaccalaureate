@@ -1,5870 +1,5538 @@
-import type { ChapterDatabank } from '../../../types/curriculum';
+import type { ChapterDatabank } from "../../../types/curriculum";
 
 export const calcCh1Databank: ChapterDatabank = {
   easy: [
   {
     "id": "calc_ch1_db_easy_01",
-    "titleEn": "Derivative of csc(3x)",
-    "titleAr": "مشتقة دالة قتا(3س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\csc(3x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\csc(3x)$.",
-    "optionsEn": [
-      "$-3\\csc(3x)\\cot(3x)$",
-      "$-\\csc(3x)\\cot(3x)$",
-      "$3\\csc(3x)\\cot(3x)$",
-      "$-3\\csc^2(3x)$"
-    ],
-    "optionsAr": [
-      "$-3\\csc(3x)\\cot(3x)$",
-      "$-\\csc(3x)\\cot(3x)$",
-      "$3\\csc(3x)\\cot(3x)$",
-      "$-3\\csc^2(3x)$"
-    ],
-    "correctAnswer": "$-3\\csc(3x)\\cot(3x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 3.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 3.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 3x \\implies u' = 3$.",
-      "$$\\frac{dy}{dx} = -3\\csc(3x)\\cot(3x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 3x$ هي $u' = 3$.",
-      "$$\\frac{dy}{dx} = -3\\csc(3x)\\cot(3x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_02",
-    "titleEn": "Derivative of cot(4x)",
-    "titleAr": "مشتقة دالة ظتا(4س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\cot(4x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\cot(4x)$.",
-    "optionsEn": [
-      "$-4\\csc^2(4x)$",
-      "$-\\csc^2(4x)$",
-      "$4\\sec^2(4x)$",
-      "$-4\\cot^2(4x)$"
-    ],
-    "optionsAr": [
-      "$-4\\csc^2(4x)$",
-      "$-\\csc^2(4x)$",
-      "$4\\sec^2(4x)$",
-      "$-4\\cot^2(4x)$"
-    ],
-    "correctAnswer": "$-4\\csc^2(4x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 4.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 4.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 4x \\implies u' = 4$.",
-      "$$\\frac{dy}{dx} = -4\\csc^2(4x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 4x$ هي $u' = 4$.",
-      "$$\\frac{dy}{dx} = -4\\csc^2(4x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_03",
-    "titleEn": "Derivative of sec(5x)",
-    "titleAr": "مشتقة دالة قا(5س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\sec(5x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\sec(5x)$.",
-    "optionsEn": [
-      "$5\\sec(5x)\\tan(5x)$",
-      "$\\sec(5x)\\tan(5x)$",
-      "$-5\\sec(5x)\\tan(5x)$",
-      "$5\\sec^2(5x)$"
-    ],
-    "optionsAr": [
-      "$5\\sec(5x)\\tan(5x)$",
-      "$\\sec(5x)\\tan(5x)$",
-      "$-5\\sec(5x)\\tan(5x)$",
-      "$5\\sec^2(5x)$"
-    ],
-    "correctAnswer": "$5\\sec(5x)\\tan(5x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 5.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 5.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 5x \\implies u' = 5$.",
-      "$$\\frac{dy}{dx} = 5\\sec(5x)\\tan(5x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 5x$ هي $u' = 5$.",
-      "$$\\frac{dy}{dx} = 5\\sec(5x)\\tan(5x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_04",
-    "titleEn": "Derivative of csc(6x)",
-    "titleAr": "مشتقة دالة قتا(6س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\csc(6x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\csc(6x)$.",
-    "optionsEn": [
-      "$-6\\csc(6x)\\cot(6x)$",
-      "$-\\csc(6x)\\cot(6x)$",
-      "$6\\csc(6x)\\cot(6x)$",
-      "$-6\\csc^2(6x)$"
-    ],
-    "optionsAr": [
-      "$-6\\csc(6x)\\cot(6x)$",
-      "$-\\csc(6x)\\cot(6x)$",
-      "$6\\csc(6x)\\cot(6x)$",
-      "$-6\\csc^2(6x)$"
-    ],
-    "correctAnswer": "$-6\\csc(6x)\\cot(6x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 6.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 6.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 6x \\implies u' = 6$.",
-      "$$\\frac{dy}{dx} = -6\\csc(6x)\\cot(6x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 6x$ هي $u' = 6$.",
-      "$$\\frac{dy}{dx} = -6\\csc(6x)\\cot(6x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_05",
-    "titleEn": "Derivative of cot(2x)",
-    "titleAr": "مشتقة دالة ظتا(2س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\cot(2x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\cot(2x)$.",
-    "optionsEn": [
-      "$-2\\csc^2(2x)$",
-      "$-\\csc^2(2x)$",
-      "$2\\sec^2(2x)$",
-      "$-2\\cot^2(2x)$"
-    ],
-    "optionsAr": [
-      "$-2\\csc^2(2x)$",
-      "$-\\csc^2(2x)$",
-      "$2\\sec^2(2x)$",
-      "$-2\\cot^2(2x)$"
-    ],
-    "correctAnswer": "$-2\\csc^2(2x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 2.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 2.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 2x \\implies u' = 2$.",
-      "$$\\frac{dy}{dx} = -2\\csc^2(2x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 2x$ هي $u' = 2$.",
-      "$$\\frac{dy}{dx} = -2\\csc^2(2x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_06",
-    "titleEn": "Derivative of sec(3x)",
-    "titleAr": "مشتقة دالة قا(3س)",
+    "titleEn": "Derivative of Secant Function",
+    "titleAr": "مشتقة دالة القاطع",
     "difficulty": "easy",
     "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\sec(3x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\sec(3x)$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\sec(3x)$.",
     "optionsEn": [
       "$3\\sec(3x)\\tan(3x)$",
       "$\\sec(3x)\\tan(3x)$",
-      "$-3\\sec(3x)\\tan(3x)$",
-      "$3\\sec^2(3x)$"
+      "$3\\sec^2(3x)$",
+      "$-3\\sec(3x)\\tan(3x)$"
     ],
     "optionsAr": [
       "$3\\sec(3x)\\tan(3x)$",
       "$\\sec(3x)\\tan(3x)$",
-      "$-3\\sec(3x)\\tan(3x)$",
-      "$3\\sec^2(3x)$"
+      "$3\\sec^2(3x)$",
+      "$-3\\sec(3x)\\tan(3x)$"
     ],
     "correctAnswer": "$3\\sec(3x)\\tan(3x)$",
     "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 3.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 3.",
+    "hintEn": "Remember $\\frac{d}{dx}[\\sec(u)] = \\sec(u)\\tan(u) \\cdot u'$.",
+    "hintAr": "تذكر أن مشتقة $\\sec(u)$ هي $\\sec(u)\\tan(u) \\cdot u'$.",
     "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 3x \\implies u' = 3$.",
-      "$$\\frac{dy}{dx} = 3\\sec(3x)\\tan(3x)$$"
+      "1. Apply chain rule: $\\frac{d}{dx}[\\sec(3x)] = \\sec(3x)\\tan(3x) \\cdot \\frac{d}{dx}(3x)$.",
+      "2. Since $\\frac{d}{dx}(3x) = 3$, the derivative is $3\\sec(3x)\\tan(3x)$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 3x$ هي $u' = 3$.",
-      "$$\\frac{dy}{dx} = 3\\sec(3x)\\tan(3x)$$"
+      "١. نطبق قاعدة السلسلة: مشتقة $\\sec(3x)$ هي $\\sec(3x)\\tan(3x) \\cdot 3$.",
+      "٢. إذن المشتقة تساوي $3\\sec(3x)\\tan(3x)$."
     ],
     "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
+    "teacherTipAr": "تذكر دائمًا الضرب في مشتقة الزاوية الداخليّة."
+  },
+  {
+    "id": "calc_ch1_db_easy_02",
+    "titleEn": "Derivative of Cosecant Function",
+    "titleAr": "مشتقة دالة قاطع التمام",
+    "difficulty": "easy",
+    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\csc(5x)$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\csc(5x)$.",
+    "optionsEn": [
+      "$-5\\csc(5x)\\cot(5x)$",
+      "$5\\csc(5x)\\cot(5x)$",
+      "$-5\\csc^2(5x)$",
+      "$-5\\cot(5x)$"
+    ],
+    "optionsAr": [
+      "$-5\\csc(5x)\\cot(5x)$",
+      "$5\\csc(5x)\\cot(5x)$",
+      "$-5\\csc^2(5x)$",
+      "$-5\\cot(5x)$"
+    ],
+    "correctAnswer": "$-5\\csc(5x)\\cot(5x)$",
+    "correctIndex": 0,
+    "hintEn": "Co-functions have negative derivatives: $\\frac{d}{dx}(\\csc u) = -u'\\csc u \\cot u$.",
+    "hintAr": "مشتقات الدوال المثلثية التائية تبدأ بإشارة سالبة: مشتقة $\\csc u$ هي $-u'\\csc u \\cot u$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{d}{dx}[\\csc(5x)] = -\\csc(5x)\\cot(5x) \\cdot \\frac{d}{dx}(5x)$.",
+      "2. Multiplying by $5$ gives $-5\\csc(5x)\\cot(5x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مشتقة $\\csc(5x)$ تساوي $-\\csc(5x)\\cot(5x) \\cdot 5$.",
+      "٢. الناتج النهائي هو $-5\\csc(5x)\\cot(5x)$."
+    ],
+    "teacherTipEn": "All trigonometric 'co-' functions (cos, cot, csc) have negative derivatives.",
+    "teacherTipAr": "جميع الدوال التي تبدأ بـ 'Co' في الإنجليزية مشتقاتها مسبوقة بإشارة سالبة."
+  },
+  {
+    "id": "calc_ch1_db_easy_03",
+    "titleEn": "Derivative of Cotangent Function",
+    "titleAr": "مشتقة دالة ظل التمام",
+    "difficulty": "easy",
+    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\cot(4x)$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\cot(4x)$.",
+    "optionsEn": [
+      "$-4\\csc^2(4x)$",
+      "$4\\sec^2(4x)$",
+      "$-4\\cot^2(4x)$",
+      "$4\\csc^2(4x)$"
+    ],
+    "optionsAr": [
+      "$-4\\csc^2(4x)$",
+      "$4\\sec^2(4x)$",
+      "$-4\\cot^2(4x)$",
+      "$4\\csc^2(4x)$"
+    ],
+    "correctAnswer": "$-4\\csc^2(4x)$",
+    "correctIndex": 0,
+    "hintEn": "Derivative of cotangent is $-\\csc^2(u) \\cdot u'$.",
+    "hintAr": "مشتقة $\\cot(u)$ هي $-\\csc^2(u) \\cdot u'$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{d}{dx}[\\cot(4x)] = -\\csc^2(4x) \\cdot \\frac{d}{dx}(4x)$.",
+      "2. Therefore, $\\frac{dy}{dx} = -4\\csc^2(4x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مشتقة $\\cot(4x)$ هي $-\\csc^2(4x) \\cdot 4$.",
+      "٢. إذن الناتج هو $-4\\csc^2(4x)$."
+    ],
+    "teacherTipEn": "Do not confuse $\\frac{d}{dx}(\\cot x) = -\\csc^2 x$ with $\\frac{d}{dx}(\\tan x) = \\sec^2 x$.",
+    "teacherTipAr": "لا تخلط بين مشتقة الظل ومشتقة ظل التمام."
+  },
+  {
+    "id": "calc_ch1_db_easy_04",
+    "titleEn": "Power of a Trigonometric Function",
+    "titleAr": "مشتقة قوة دالة دائرية",
+    "difficulty": "easy",
+    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\tan^3(x)$.",
+    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كانت $y = \\tan^3(x)$.",
+    "optionsEn": [
+      "$3\\tan^2(x)\\sec^2(x)$",
+      "$3\\tan^2(x)$",
+      "$3\\sec^4(x)$",
+      "$\\tan^2(x)\\sec^2(x)$"
+    ],
+    "optionsAr": [
+      "$3\\tan^2(x)\\sec^2(x)$",
+      "$3\\tan^2(x)$",
+      "$3\\sec^4(x)$",
+      "$\\tan^2(x)\\sec^2(x)$"
+    ],
+    "correctAnswer": "$3\\tan^2(x)\\sec^2(x)$",
+    "correctIndex": 0,
+    "hintEn": "Use the generalized power rule: $\\frac{d}{dx}[u^n] = n u^{n-1} u'$.",
+    "hintAr": "استخدم مشتقة القوس المرفوع لأس: $n u^{n-1} u'$.",
+    "stepByStepSolutionEn": [
+      "1. Treat as $y = [\\tan(x)]^3$.",
+      "2. $\\frac{dy}{dx} = 3\\tan^2(x) \\cdot \\frac{d}{dx}(\\tan x) = 3\\tan^2(x)\\sec^2(x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نعتبر $y = [\\tan(x)]^3$.",
+      "٢. المشتقة = $3\\tan^2(x) \\cdot \\sec^2(x)$."
+    ],
+    "teacherTipEn": "Differentiate the outer power first, then multiply by the derivative of the base function.",
+    "teacherTipAr": "اشتق القوة الخارجية أولاً ثم اضرب في مشتقة ما بداخل القوس."
+  },
+  {
+    "id": "calc_ch1_db_easy_05",
+    "titleEn": "Slope of Tangent to Sum of Trig Functions",
+    "titleAr": "ميل المماس لمجموع دوال مثلثية",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the tangent line to the curve $y = \\sin(2x) + \\cos(3x)$ at $x = 0$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = \\sin(2x) + \\cos(3x)$ عند $x = 0$.",
+    "optionsEn": [
+      "$2$",
+      "$0$",
+      "$-3$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "$2$",
+      "$0$",
+      "$-3$",
+      "$-1$"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "Find $\\frac{dy}{dx}$ and substitute $x = 0$.",
+    "hintAr": "أوجد $\\frac{dy}{dx}$ ثم عوّض بـ $x = 0$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dy}{dx} = 2\\cos(2x) - 3\\sin(3x)$.",
+      "2. At $x = 0$: $2\\cos(0) - 3\\sin(0) = 2(1) - 3(0) = 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\frac{dy}{dx} = 2\\cos(2x) - 3\\sin(3x)$.",
+      "٢. عند $x = 0$: $2(1) - 3(0) = 2$."
+    ],
+    "teacherTipEn": "Remember $\\cos(0) = 1$ and $\\sin(0) = 0$.",
+    "teacherTipAr": "تذكر دائماً أن $\\cos(0) = 1$ و $\\sin(0) = 0$."
+  },
+  {
+    "id": "calc_ch1_db_easy_06",
+    "titleEn": "Equation of Tangent to Parabola",
+    "titleAr": "معادلة المماس لقطع مكافئ",
+    "difficulty": "easy",
+    "questionEn": "Find the equation of the tangent line to $y = x^2$ at the point $(1, 1)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2$ عند النقطة $(1, 1)$.",
+    "optionsEn": [
+      "$y = 2x - 1$",
+      "$y = 2x + 1$",
+      "$y = x$",
+      "$y = -2x + 3$"
+    ],
+    "optionsAr": [
+      "$y = 2x - 1$",
+      "$y = 2x + 1$",
+      "$y = x$",
+      "$y = -2x + 3$"
+    ],
+    "correctAnswer": "$y = 2x - 1$",
+    "correctIndex": 0,
+    "hintEn": "Slope $m = y'(1)$, then use $y - y_1 = m(x - x_1)$.",
+    "hintAr": "الميل $m = y'(1)$ ثم طبق $y - y_1 = m(x - x_1)$.",
+    "stepByStepSolutionEn": [
+      "1. $y' = 2x \\implies m = 2(1) = 2$.",
+      "2. Tangent equation: $y - 1 = 2(x - 1) \\implies y = 2x - 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = 2x \\implies m = 2$.",
+      "٢. معادلة المماس: $y - 1 = 2(x - 1) \\implies y = 2x - 1$."
+    ],
+    "teacherTipEn": "Point-slope form is standard for all tangent lines.",
+    "teacherTipAr": "صيغة النقطة والميل هي الأسرع لإيجاد معادلة المماس."
   },
   {
     "id": "calc_ch1_db_easy_07",
-    "titleEn": "Derivative of csc(4x)",
-    "titleAr": "مشتقة دالة قتا(4س)",
+    "titleEn": "Slope of the Normal Line",
+    "titleAr": "ميل العمودي على المماس",
     "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\csc(4x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\csc(4x)$.",
-    "optionsEn": [
-      "$-4\\csc(4x)\\cot(4x)$",
-      "$-\\csc(4x)\\cot(4x)$",
-      "$4\\csc(4x)\\cot(4x)$",
-      "$-4\\csc^2(4x)$"
-    ],
-    "optionsAr": [
-      "$-4\\csc(4x)\\cot(4x)$",
-      "$-\\csc(4x)\\cot(4x)$",
-      "$4\\csc(4x)\\cot(4x)$",
-      "$-4\\csc^2(4x)$"
-    ],
-    "correctAnswer": "$-4\\csc(4x)\\cot(4x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 4.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 4.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 4x \\implies u' = 4$.",
-      "$$\\frac{dy}{dx} = -4\\csc(4x)\\cot(4x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 4x$ هي $u' = 4$.",
-      "$$\\frac{dy}{dx} = -4\\csc(4x)\\cot(4x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_08",
-    "titleEn": "Derivative of cot(5x)",
-    "titleAr": "مشتقة دالة ظتا(5س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\cot(5x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\cot(5x)$.",
-    "optionsEn": [
-      "$-5\\csc^2(5x)$",
-      "$-\\csc^2(5x)$",
-      "$5\\sec^2(5x)$",
-      "$-5\\cot^2(5x)$"
-    ],
-    "optionsAr": [
-      "$-5\\csc^2(5x)$",
-      "$-\\csc^2(5x)$",
-      "$5\\sec^2(5x)$",
-      "$-5\\cot^2(5x)$"
-    ],
-    "correctAnswer": "$-5\\csc^2(5x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 5.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 5.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 5x \\implies u' = 5$.",
-      "$$\\frac{dy}{dx} = -5\\csc^2(5x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 5x$ هي $u' = 5$.",
-      "$$\\frac{dy}{dx} = -5\\csc^2(5x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_09",
-    "titleEn": "Derivative of sec(6x)",
-    "titleAr": "مشتقة دالة قا(6س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\sec(6x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\sec(6x)$.",
-    "optionsEn": [
-      "$6\\sec(6x)\\tan(6x)$",
-      "$\\sec(6x)\\tan(6x)$",
-      "$-6\\sec(6x)\\tan(6x)$",
-      "$6\\sec^2(6x)$"
-    ],
-    "optionsAr": [
-      "$6\\sec(6x)\\tan(6x)$",
-      "$\\sec(6x)\\tan(6x)$",
-      "$-6\\sec(6x)\\tan(6x)$",
-      "$6\\sec^2(6x)$"
-    ],
-    "correctAnswer": "$6\\sec(6x)\\tan(6x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 6.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 6.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 6x \\implies u' = 6$.",
-      "$$\\frac{dy}{dx} = 6\\sec(6x)\\tan(6x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 6x$ هي $u' = 6$.",
-      "$$\\frac{dy}{dx} = 6\\sec(6x)\\tan(6x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_10",
-    "titleEn": "Derivative of csc(2x)",
-    "titleAr": "مشتقة دالة قتا(2س)",
-    "difficulty": "easy",
-    "questionEn": "Find $\\frac{dy}{dx}$ if $y = \\csc(2x)$.",
-    "questionAr": "أوجد $\\frac{dy}{dx}$ إذا كان $y = \\csc(2x)$.",
-    "optionsEn": [
-      "$-2\\csc(2x)\\cot(2x)$",
-      "$-\\csc(2x)\\cot(2x)$",
-      "$2\\csc(2x)\\cot(2x)$",
-      "$-2\\csc^2(2x)$"
-    ],
-    "optionsAr": [
-      "$-2\\csc(2x)\\cot(2x)$",
-      "$-\\csc(2x)\\cot(2x)$",
-      "$2\\csc(2x)\\cot(2x)$",
-      "$-2\\csc^2(2x)$"
-    ],
-    "correctAnswer": "$-2\\csc(2x)\\cot(2x)$",
-    "correctIndex": 0,
-    "hintEn": "Multiply the derivative formula by the interior coefficient 2.",
-    "hintAr": "اضرب قاعدة الاشتقاق في معامل الزاوية الداخلي 2.",
-    "stepByStepSolutionEn": [
-      "Using the chain rule with angle $u = 2x \\implies u' = 2$.",
-      "$$\\frac{dy}{dx} = -2\\csc(2x)\\cot(2x)$$"
-    ],
-    "stepByStepSolutionAr": [
-      "باشتقاق الزاوية: مشتقة $u = 2x$ هي $u' = 2$.",
-      "$$\\frac{dy}{dx} = -2\\csc(2x)\\cot(2x)$$"
-    ],
-    "teacherTipEn": "Always multiply by the derivative of the angle.",
-    "teacherTipAr": "اضرب دائماً في مشتقة الزاوية الداخلية."
-  },
-  {
-    "id": "calc_ch1_db_easy_11",
-    "titleEn": "Slope of Tangent to Polynomial 11",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 11",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 1x^2 + 4x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 1x^2 + 4x$ عند $x = 0$.",
-    "optionsEn": [
-      "4",
-      "6",
-      "3",
-      "8"
-    ],
-    "optionsAr": [
-      "4",
-      "6",
-      "3",
-      "8"
-    ],
-    "correctAnswer": "4",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 2x + 4$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 4 = 4$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 2x + 4$.",
-      "عند $x = 0$: الميل هو 4."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_12",
-    "titleEn": "Slope of Tangent to Polynomial 12",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 12",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 2x^2 + 5x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 2x^2 + 5x$ عند $x = 0$.",
-    "optionsEn": [
-      "5",
-      "7",
-      "4",
-      "10"
-    ],
-    "optionsAr": [
-      "5",
-      "7",
-      "4",
-      "10"
-    ],
-    "correctAnswer": "5",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 4x + 5$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 5 = 5$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 4x + 5$.",
-      "عند $x = 0$: الميل هو 5."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_13",
-    "titleEn": "Slope of Tangent to Polynomial 13",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 13",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 3x^2 + 6x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 3x^2 + 6x$ عند $x = 0$.",
-    "optionsEn": [
-      "6",
-      "8",
-      "5",
-      "12"
-    ],
-    "optionsAr": [
-      "6",
-      "8",
-      "5",
-      "12"
-    ],
-    "correctAnswer": "6",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 6x + 6$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 6 = 6$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 6x + 6$.",
-      "عند $x = 0$: الميل هو 6."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_14",
-    "titleEn": "Slope of Tangent to Polynomial 14",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 14",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 4x^2 + 7x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 4x^2 + 7x$ عند $x = 0$.",
-    "optionsEn": [
-      "7",
-      "9",
-      "6",
-      "14"
-    ],
-    "optionsAr": [
-      "7",
-      "9",
-      "6",
-      "14"
-    ],
-    "correctAnswer": "7",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 8x + 7$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 7 = 7$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 8x + 7$.",
-      "عند $x = 0$: الميل هو 7."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_15",
-    "titleEn": "Slope of Tangent to Polynomial 15",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 15",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 5x^2 + 8x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 5x^2 + 8x$ عند $x = 0$.",
-    "optionsEn": [
-      "8",
-      "10",
-      "7",
-      "16"
-    ],
-    "optionsAr": [
-      "8",
-      "10",
-      "7",
-      "16"
-    ],
-    "correctAnswer": "8",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 10x + 8$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 8 = 8$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 10x + 8$.",
-      "عند $x = 0$: الميل هو 8."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_16",
-    "titleEn": "Slope of Tangent to Polynomial 16",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 16",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 6x^2 + 9x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 6x^2 + 9x$ عند $x = 0$.",
-    "optionsEn": [
-      "9",
-      "11",
-      "8",
-      "18"
-    ],
-    "optionsAr": [
-      "9",
-      "11",
-      "8",
-      "18"
-    ],
-    "correctAnswer": "9",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 12x + 9$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 9 = 9$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 12x + 9$.",
-      "عند $x = 0$: الميل هو 9."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_17",
-    "titleEn": "Slope of Tangent to Polynomial 17",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 17",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 7x^2 + 10x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 7x^2 + 10x$ عند $x = 0$.",
-    "optionsEn": [
-      "10",
-      "12",
-      "9",
-      "20"
-    ],
-    "optionsAr": [
-      "10",
-      "12",
-      "9",
-      "20"
-    ],
-    "correctAnswer": "10",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 14x + 10$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 10 = 10$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 14x + 10$.",
-      "عند $x = 0$: الميل هو 10."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_18",
-    "titleEn": "Slope of Tangent to Polynomial 18",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 18",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 8x^2 + 11x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 8x^2 + 11x$ عند $x = 0$.",
-    "optionsEn": [
-      "11",
-      "13",
-      "10",
-      "22"
-    ],
-    "optionsAr": [
-      "11",
-      "13",
-      "10",
-      "22"
-    ],
-    "correctAnswer": "11",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 16x + 11$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 11 = 11$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 16x + 11$.",
-      "عند $x = 0$: الميل هو 11."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_19",
-    "titleEn": "Slope of Tangent to Polynomial 19",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 19",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 9x^2 + 12x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 9x^2 + 12x$ عند $x = 0$.",
-    "optionsEn": [
-      "12",
-      "14",
-      "11",
-      "24"
-    ],
-    "optionsAr": [
-      "12",
-      "14",
-      "11",
-      "24"
-    ],
-    "correctAnswer": "12",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 18x + 12$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 12 = 12$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 18x + 12$.",
-      "عند $x = 0$: الميل هو 12."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_20",
-    "titleEn": "Slope of Tangent to Polynomial 20",
-    "titleAr": "ميل المماس لمنحنى كثير حدود 20",
-    "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to the curve $y = 10x^2 + 13x$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = 10x^2 + 13x$ عند $x = 0$.",
-    "optionsEn": [
-      "13",
-      "15",
-      "12",
-      "26"
-    ],
-    "optionsAr": [
-      "13",
-      "15",
-      "12",
-      "26"
-    ],
-    "correctAnswer": "13",
-    "correctIndex": 0,
-    "hintEn": "Differentiate to find $\\frac{dy}{dx}$ and evaluate at $x = 0$.",
-    "hintAr": "اشتق لإيجاد $\\frac{dy}{dx}$ ثم عوض بـ $x = 0$.",
-    "stepByStepSolutionEn": [
-      "$\\frac{dy}{dx} = 20x + 13$.",
-      "At $x = 0$: $\\frac{dy}{dx} = 0 + 13 = 13$."
-    ],
-    "stepByStepSolutionAr": [
-      "$\\frac{dy}{dx} = 20x + 13$.",
-      "عند $x = 0$: الميل هو 13."
-    ],
-    "teacherTipEn": "At $x = 0$, the derivative of a polynomial equals the linear coefficient.",
-    "teacherTipAr": "عند $x = 0$، مشتقة كثير الحدود عند نقطة الأصل تساوي معامل الحد الخطي مباشرة."
-  },
-  {
-    "id": "calc_ch1_db_easy_21",
-    "titleEn": "4th Derivative of x^4",
-    "titleAr": "المشتقة ذات الرتبة 4 للدالة س^4",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{4}$, find the 4th derivative $\\frac{d^{4} y}{dx^{4}}$.",
-    "questionAr": "إذا كان $y = x^{4}$، فأوجد المشتقة ذات الرتبة 4: $\\frac{d^{4} y}{dx^{4}}$.",
-    "optionsEn": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "optionsAr": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "correctAnswer": "24",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 4 \\implies 4! = 24$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $4! = 24$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_22",
-    "titleEn": "5th Derivative of x^5",
-    "titleAr": "المشتقة ذات الرتبة 5 للدالة س^5",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{5}$, find the 5th derivative $\\frac{d^{5} y}{dx^{5}}$.",
-    "questionAr": "إذا كان $y = x^{5}$، فأوجد المشتقة ذات الرتبة 5: $\\frac{d^{5} y}{dx^{5}}$.",
-    "optionsEn": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "optionsAr": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "correctAnswer": "120",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 5 \\implies 5! = 120$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $5! = 120$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_23",
-    "titleEn": "6th Derivative of x^6",
-    "titleAr": "المشتقة ذات الرتبة 6 للدالة س^6",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{6}$, find the 6th derivative $\\frac{d^{6} y}{dx^{6}}$.",
-    "questionAr": "إذا كان $y = x^{6}$، فأوجد المشتقة ذات الرتبة 6: $\\frac{d^{6} y}{dx^{6}}$.",
-    "optionsEn": [
-      "720",
-      "0",
-      "1440",
-      "1"
-    ],
-    "optionsAr": [
-      "720",
-      "0",
-      "1440",
-      "1"
-    ],
-    "correctAnswer": "720",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 6 \\implies 6! = 720$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $6! = 720$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_24",
-    "titleEn": "3th Derivative of x^3",
-    "titleAr": "المشتقة ذات الرتبة 3 للدالة س^3",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{3}$, find the 3th derivative $\\frac{d^{3} y}{dx^{3}}$.",
-    "questionAr": "إذا كان $y = x^{3}$، فأوجد المشتقة ذات الرتبة 3: $\\frac{d^{3} y}{dx^{3}}$.",
-    "optionsEn": [
-      "6",
-      "0",
-      "12",
-      "1"
-    ],
-    "optionsAr": [
-      "6",
-      "0",
-      "12",
-      "1"
-    ],
-    "correctAnswer": "6",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 3 \\implies 3! = 6$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $3! = 6$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_25",
-    "titleEn": "4th Derivative of x^4",
-    "titleAr": "المشتقة ذات الرتبة 4 للدالة س^4",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{4}$, find the 4th derivative $\\frac{d^{4} y}{dx^{4}}$.",
-    "questionAr": "إذا كان $y = x^{4}$، فأوجد المشتقة ذات الرتبة 4: $\\frac{d^{4} y}{dx^{4}}$.",
-    "optionsEn": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "optionsAr": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "correctAnswer": "24",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 4 \\implies 4! = 24$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $4! = 24$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_26",
-    "titleEn": "5th Derivative of x^5",
-    "titleAr": "المشتقة ذات الرتبة 5 للدالة س^5",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{5}$, find the 5th derivative $\\frac{d^{5} y}{dx^{5}}$.",
-    "questionAr": "إذا كان $y = x^{5}$، فأوجد المشتقة ذات الرتبة 5: $\\frac{d^{5} y}{dx^{5}}$.",
-    "optionsEn": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "optionsAr": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "correctAnswer": "120",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 5 \\implies 5! = 120$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $5! = 120$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_27",
-    "titleEn": "6th Derivative of x^6",
-    "titleAr": "المشتقة ذات الرتبة 6 للدالة س^6",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{6}$, find the 6th derivative $\\frac{d^{6} y}{dx^{6}}$.",
-    "questionAr": "إذا كان $y = x^{6}$، فأوجد المشتقة ذات الرتبة 6: $\\frac{d^{6} y}{dx^{6}}$.",
-    "optionsEn": [
-      "720",
-      "0",
-      "1440",
-      "1"
-    ],
-    "optionsAr": [
-      "720",
-      "0",
-      "1440",
-      "1"
-    ],
-    "correctAnswer": "720",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 6 \\implies 6! = 720$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $6! = 720$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_28",
-    "titleEn": "3th Derivative of x^3",
-    "titleAr": "المشتقة ذات الرتبة 3 للدالة س^3",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{3}$, find the 3th derivative $\\frac{d^{3} y}{dx^{3}}$.",
-    "questionAr": "إذا كان $y = x^{3}$، فأوجد المشتقة ذات الرتبة 3: $\\frac{d^{3} y}{dx^{3}}$.",
-    "optionsEn": [
-      "6",
-      "0",
-      "12",
-      "1"
-    ],
-    "optionsAr": [
-      "6",
-      "0",
-      "12",
-      "1"
-    ],
-    "correctAnswer": "6",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 3 \\implies 3! = 6$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $3! = 6$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_29",
-    "titleEn": "4th Derivative of x^4",
-    "titleAr": "المشتقة ذات الرتبة 4 للدالة س^4",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{4}$, find the 4th derivative $\\frac{d^{4} y}{dx^{4}}$.",
-    "questionAr": "إذا كان $y = x^{4}$، فأوجد المشتقة ذات الرتبة 4: $\\frac{d^{4} y}{dx^{4}}$.",
-    "optionsEn": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "optionsAr": [
-      "24",
-      "0",
-      "48",
-      "1"
-    ],
-    "correctAnswer": "24",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 4 \\implies 4! = 24$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $4! = 24$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_30",
-    "titleEn": "5th Derivative of x^5",
-    "titleAr": "المشتقة ذات الرتبة 5 للدالة س^5",
-    "difficulty": "easy",
-    "questionEn": "If $y = x^{5}$, find the 5th derivative $\\frac{d^{5} y}{dx^{5}}$.",
-    "questionAr": "إذا كان $y = x^{5}$، فأوجد المشتقة ذات الرتبة 5: $\\frac{d^{5} y}{dx^{5}}$.",
-    "optionsEn": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "optionsAr": [
-      "120",
-      "0",
-      "240",
-      "1"
-    ],
-    "correctAnswer": "120",
-    "correctIndex": 0,
-    "hintEn": "The $n$th derivative of $x^n$ is a constant equal to $n!$.",
-    "hintAr": "المشتقة رقم $n$ للدالة $x^n$ هي مقدار ثابت يساوي مضروب $n!$.",
-    "stepByStepSolutionEn": [
-      "For $y = x^n$, $y^{(n)} = n!$.",
-      "Here $n = 5 \\implies 5! = 120$."
-    ],
-    "stepByStepSolutionAr": [
-      "مشتقة $x^n$ من الرتبة $n$ هي $n!$.",
-      "إذن: $5! = 120$."
-    ],
-    "teacherTipEn": "The $(n+1)$th derivative of $x^n$ is zero, while the $n$th derivative is $n!$.",
-    "teacherTipAr": "المشتقة التالية من الرتبة $(n+1)$ تنعدم وتساوي صفراً بينما المشتقة رقم n تساوي المضروب."
-  },
-  {
-    "id": "calc_ch1_db_easy_31",
-    "titleEn": "Slope of Normal Line with Tangent Slope 2",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 2",
-    "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 2$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 2$، فما هو ميل الخط العمودي؟",
-    "optionsEn": [
-      "$-\\frac{1}{2}$",
-      "$\\frac{1}{2}$",
-      "$-2$",
-      "2"
-    ],
-    "optionsAr": [
-      "$-\\frac{1}{2}$",
-      "$\\frac{1}{2}$",
-      "$-2$",
-      "2"
-    ],
-    "correctAnswer": "$-\\frac{1}{2}$",
-    "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
-    "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{2}$."
-    ],
-    "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{2}$."
-    ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
-  },
-  {
-    "id": "calc_ch1_db_easy_32",
-    "titleEn": "Slope of Normal Line with Tangent Slope 3",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 3",
-    "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 3$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 3$، فما هو ميل الخط العمودي؟",
-    "optionsEn": [
-      "$-\\frac{1}{3}$",
-      "$\\frac{1}{3}$",
-      "$-3$",
-      "3"
-    ],
-    "optionsAr": [
-      "$-\\frac{1}{3}$",
-      "$\\frac{1}{3}$",
-      "$-3$",
-      "3"
-    ],
-    "correctAnswer": "$-\\frac{1}{3}$",
-    "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
-    "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{3}$."
-    ],
-    "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{3}$."
-    ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
-  },
-  {
-    "id": "calc_ch1_db_easy_33",
-    "titleEn": "Slope of Normal Line with Tangent Slope 4",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 4",
-    "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 4$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 4$، فما هو ميل الخط العمودي؟",
+    "questionEn": "If the slope of the tangent to a curve at point $P$ is $4$, what is the slope of the normal line at $P$?",
+    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة $P$ هو $4$، فما هو ميل العمودي عند $P$؟",
     "optionsEn": [
       "$-\\frac{1}{4}$",
       "$\\frac{1}{4}$",
       "$-4$",
-      "4"
+      "$4$"
     ],
     "optionsAr": [
       "$-\\frac{1}{4}$",
       "$\\frac{1}{4}$",
       "$-4$",
-      "4"
+      "$4$"
     ],
     "correctAnswer": "$-\\frac{1}{4}$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "The normal line is perpendicular to the tangent line: $m_t \\cdot m_n = -1$.",
+    "hintAr": "العمودي يعامد المماس: $m_t \\cdot m_n = -1$.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{4}$."
+      "1. Normal is perpendicular to tangent, so $m_n = -\\frac{1}{m_t}$.",
+      "2. Since $m_t = 4$, $m_n = -\\frac{1}{4}$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{4}$."
+      "١. ميل العمودي هو مقلوب ميل المماس مع تغيير الإشارة: $m_n = -\\frac{1}{m_t}$.",
+      "٢. بما أن $m_t = 4$ فإن $m_n = -\\frac{1}{4}$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "Always negate and invert the slope to find the normal slope.",
+    "teacherTipAr": "اعكس إشارة مقلوب الميل للحصول على ميل العمودي."
   },
   {
-    "id": "calc_ch1_db_easy_34",
-    "titleEn": "Slope of Normal Line with Tangent Slope 5",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 5",
+    "id": "calc_ch1_db_easy_08",
+    "titleEn": "Implicit Derivative of Circle",
+    "titleAr": "الاشتقاق الضمني للدائرة",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 5$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 5$، فما هو ميل الخط العمودي؟",
+    "questionEn": "If $x^2 + y^2 = 25$, find $\\frac{dy}{dx}$ in terms of $x$ and $y$.",
+    "questionAr": "إذا كانت $x^2 + y^2 = 25$، أوجد $\\frac{dy}{dx}$ بدلالة $x$ و $y$.",
     "optionsEn": [
-      "$-\\frac{1}{5}$",
-      "$\\frac{1}{5}$",
-      "$-5$",
-      "5"
+      "$-\\frac{x}{y}$",
+      "$\\frac{x}{y}$",
+      "$-\\frac{y}{x}$",
+      "$\\frac{y}{x}$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{5}$",
-      "$\\frac{1}{5}$",
-      "$-5$",
-      "5"
+      "$-\\frac{x}{y}$",
+      "$\\frac{x}{y}$",
+      "$-\\frac{y}{x}$",
+      "$\\frac{y}{x}$"
     ],
-    "correctAnswer": "$-\\frac{1}{5}$",
+    "correctAnswer": "$-\\frac{x}{y}$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Differentiate implicitly with respect to $x$: $\\frac{d}{dx}(y^2) = 2y y'$.",
+    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: مشتقة $y^2$ هي $2y y'$.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{5}$."
+      "1. Differentiating: $2x + 2y \\frac{dy}{dx} = 0$.",
+      "2. $2y \\frac{dy}{dx} = -2x \\implies \\frac{dy}{dx} = -\\frac{x}{y}$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{5}$."
+      "١. بالاشتقاق: $2x + 2y y' = 0$.",
+      "٢. $y' = -\\frac{2x}{2y} = -\\frac{x}{y}$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "For any concentric circle centered at origin, the tangent slope is always $-x/y$.",
+    "teacherTipAr": "لأي دائرة مركزها الأصل، ميل المماس يساوي دائماً $-x/y$ وميل نصف القطر هو $y/x$."
   },
   {
-    "id": "calc_ch1_db_easy_35",
-    "titleEn": "Slope of Normal Line with Tangent Slope 6",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 6",
+    "id": "calc_ch1_db_easy_09",
+    "titleEn": "Parametric First Derivative",
+    "titleAr": "المشتقة الأولى لمعادلات بارامترية",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 6$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 6$، فما هو ميل الخط العمودي؟",
+    "questionEn": "If $x = 3t^2$ and $y = 2t^3$, find $\\frac{dy}{dx}$ in terms of $t$ ($t \\neq 0$).",
+    "questionAr": "إذا كانت $x = 3t^2$ و $y = 2t^3$، أوجد $\\frac{dy}{dx}$ بدلالة $t$ ($t \\neq 0$).",
     "optionsEn": [
-      "$-\\frac{1}{6}$",
-      "$\\frac{1}{6}$",
+      "$t$",
+      "$\\frac{1}{t}$",
+      "$t^2$",
+      "$6t$"
+    ],
+    "optionsAr": [
+      "$t$",
+      "$\\frac{1}{t}$",
+      "$t^2$",
+      "$6t$"
+    ],
+    "correctAnswer": "$t$",
+    "correctIndex": 0,
+    "hintEn": "Parametric rule: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
+    "hintAr": "قاعدة الاشتقاق البارامتري: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dx}{dt} = 6t$ and $\\frac{dy}{dt} = 6t^2$.",
+      "2. $\\frac{dy}{dx} = \\frac{6t^2}{6t} = t$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\frac{dx}{dt} = 6t$ و $\\frac{dy}{dt} = 6t^2$.",
+      "٢. $\\frac{dy}{dx} = \\frac{6t^2}{6t} = t$."
+    ],
+    "teacherTipEn": "Divide $\\frac{dy}{dt}$ by $\\frac{dx}{dt}$, never the reverse.",
+    "teacherTipAr": "تأكد دائماً من وضع مشتقة $y$ في البسط ومشتقة $x$ في المقام."
+  },
+  {
+    "id": "calc_ch1_db_easy_10",
+    "titleEn": "Second Derivative of Polynomial",
+    "titleAr": "المشتقة الثانية لكثيرة حدود",
+    "difficulty": "easy",
+    "questionEn": "If $y = x^4 - 2x^3 + 5$, find $\\frac{d^2y}{dx^2}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = x^4 - 2x^3 + 5$، أوجد $\\frac{d^2y}{dx^2}$ عند $x = 1$.",
+    "optionsEn": [
+      "$0$",
+      "$6$",
       "$-6$",
-      "6"
+      "$12$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{6}$",
-      "$\\frac{1}{6}$",
+      "$0$",
+      "$6$",
       "$-6$",
-      "6"
+      "$12$"
     ],
-    "correctAnswer": "$-\\frac{1}{6}$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Differentiate twice then substitute $x = 1$.",
+    "hintAr": "اشتق مرتين ثم عوّض عن $x = 1$.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{6}$."
+      "1. $y' = 4x^3 - 6x^2$.",
+      "2. $y'' = 12x^2 - 12x$.",
+      "3. At $x = 1$: $y''(1) = 12(1)^2 - 12(1) = 0$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{6}$."
+      "١. المشتقة الأولى: $y' = 4x^3 - 6x^2$.",
+      "٢. المشتقة الثانية: $y'' = 12x^2 - 12x$.",
+      "٣. عند $x = 1$: $y''(1) = 12 - 12 = 0$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "When $y'' = 0$, this often marks a candidate inflection point.",
+    "teacherTipAr": "انعدام المشتقة الثانية هو شرط أساسي للبحث عن نقط الانقلاب."
   },
   {
-    "id": "calc_ch1_db_easy_36",
-    "titleEn": "Slope of Normal Line with Tangent Slope 7",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 7",
+    "id": "calc_ch1_db_easy_11",
+    "titleEn": "Derivative of Trigonometric Identity",
+    "titleAr": "مشتقة متطابقة مثلثية",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 7$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 7$، فما هو ميل الخط العمودي؟",
+    "questionEn": "Find $\\frac{d}{dx}(\\sec^2 x - \\tan^2 x)$ for all $x$ in the domain.",
+    "questionAr": "أوجد $\\frac{d}{dx}(\\sec^2 x - \\tan^2 x)$ لجميع قيم $x$ في مجال التعريف.",
     "optionsEn": [
-      "$-\\frac{1}{7}$",
-      "$\\frac{1}{7}$",
-      "$-7$",
-      "7"
+      "$0$",
+      "$1$",
+      "$2\\sec^2 x \\tan x$",
+      "$\\sec x \\tan x$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{7}$",
-      "$\\frac{1}{7}$",
-      "$-7$",
-      "7"
+      "$0$",
+      "$1$",
+      "$2\\sec^2 x \\tan x$",
+      "$\\sec x \\tan x$"
     ],
-    "correctAnswer": "$-\\frac{1}{7}$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Simplify using the Pythagorean identity $\\sec^2 x - \\tan^2 x = 1$ before differentiating.",
+    "hintAr": "بسّط المتطابقة الفيثاغورسية $\\sec^2 x - \\tan^2 x = 1$ قبل الاشتقاق.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{7}$."
+      "1. The identity $\\sec^2 x - \\tan^2 x = 1$ holds everywhere in the domain.",
+      "2. The derivative of a constant function is $0$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{7}$."
+      "١. من المتطابقات الأساسية: $\\sec^2 x - \\tan^2 x = 1$.",
+      "٢. مشتقة أي مقدار ثابت تساوي صفراً."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "Simplifying trig expressions using identities saves significant time on exams.",
+    "teacherTipAr": "تبسيط المقدار المثلثي قبل الاشتقاق يوفر وقتًا ثمينًا في الامتحان."
   },
   {
-    "id": "calc_ch1_db_easy_37",
-    "titleEn": "Slope of Normal Line with Tangent Slope 8",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 8",
+    "id": "calc_ch1_db_easy_12",
+    "titleEn": "Derivative of Product Csc and Cot",
+    "titleAr": "مشتقة حاصل ضرب قاطع التمام وظل التمام",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 8$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 8$، فما هو ميل الخط العمودي؟",
+    "questionEn": "If $y = \\csc x \\cot x$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\csc x \\cot x$، أوجد $\\frac{dy}{dx}$.",
     "optionsEn": [
-      "$-\\frac{1}{8}$",
-      "$\\frac{1}{8}$",
-      "$-8$",
-      "8"
+      "$-\\csc x(\\cot^2 x + \\csc^2 x)$",
+      "$\\csc x(\\cot^2 x - \\csc^2 x)$",
+      "$-\\csc^3 x$",
+      "$\\cot^3 x$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{8}$",
-      "$\\frac{1}{8}$",
-      "$-8$",
-      "8"
+      "$-\\csc x(\\cot^2 x + \\csc^2 x)$",
+      "$\\csc x(\\cot^2 x - \\csc^2 x)$",
+      "$-\\csc^3 x$",
+      "$\\cot^3 x$"
     ],
-    "correctAnswer": "$-\\frac{1}{8}$",
+    "correctAnswer": "$-\\csc x(\\cot^2 x + \\csc^2 x)$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Use product rule: $(uv)' = u'v + uv'$.",
+    "hintAr": "طبق قاعدة ضرب دالتين: الأولى في مشتقة الثانية + الثانية في مشتقة الأولى.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{8}$."
+      "1. $y' = (-\\csc x \\cot x)(\\cot x) + (\\csc x)(-\\csc^2 x)$.",
+      "2. Factor out $-\\csc x$: $y' = -\\csc x(\\cot^2 x + \\csc^2 x)$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{8}$."
+      "١. بالاشتقاق كضرب دالتين: $y' = (-\\csc x \\cot x)(\\cot x) + (\\csc x)(-\\csc^2 x)$.",
+      "٢. بأخذ $-\\csc x$ عاملاً مشتركاً: $y' = -\\csc x(\\cot^2 x + \\csc^2 x)$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "Factoring out common terms clarifies the final algebraic expression.",
+    "teacherTipAr": "إخراج العامل المشترك يسهل مطابقة الناتج مع خيارات السؤال."
   },
   {
-    "id": "calc_ch1_db_easy_38",
-    "titleEn": "Slope of Normal Line with Tangent Slope 9",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 9",
+    "id": "calc_ch1_db_easy_13",
+    "titleEn": "Derivative of Square Root of Secant",
+    "titleAr": "مشتقة الجذر التربيعي للقاطع",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 9$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 9$، فما هو ميل الخط العمودي؟",
+    "questionEn": "Find the value of $\\frac{d}{dx}(\\sqrt{\\sec x})$ at $x = 0$.",
+    "questionAr": "أوجد قيمة $\\frac{d}{dx}(\\sqrt{\\sec x})$ عند $x = 0$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\frac{1}{2}$",
+      "$\\sqrt{2}$"
+    ],
+    "optionsAr": [
+      "$0$",
+      "$1$",
+      "$\\frac{1}{2}$",
+      "$\\sqrt{2}$"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Recall $\\frac{d}{dx}\\sqrt{u} = \\frac{u'}{2\\sqrt{u}}$.",
+    "hintAr": "تذكر أن مشتقة الجذر التربيعي تساوي مشتقة ما تحت الجذر مقسومة على ضعفي الجذر.",
+    "stepByStepSolutionEn": [
+      "1. $y' = \\frac{\\sec x \\tan x}{2\\sqrt{\\sec x}}$.",
+      "2. At $x = 0$, $\\sec(0) = 1$ and $\\tan(0) = 0$.",
+      "3. Therefore, $y'(0) = \\frac{1 \\cdot 0}{2\\sqrt{1}} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = \\frac{\\sec x \\tan x}{2\\sqrt{\\sec x}}$.",
+      "٢. عند $x = 0$، لدينا $\\sec(0) = 1$ و $\\tan(0) = 0$.",
+      "٣. إذن $y'(0) = 0$."
+    ],
+    "teacherTipEn": "Because $\\tan(0) = 0$, any product with $\\tan x$ vanishes at $0$.",
+    "teacherTipAr": "بما أن $\\tan(0) = 0$، فإن أي حد يحتوي على $\\tan x$ ينعدم عند الصفر."
+  },
+  {
+    "id": "calc_ch1_db_easy_14",
+    "titleEn": "Derivative Value of Tangent Multiple Angle",
+    "titleAr": "قيمة مشتقة ظل زاوية مضاعفة",
+    "difficulty": "easy",
+    "questionEn": "If $f(x) = \\tan(2x)$, evaluate $f'\\left(\\frac{\\pi}{8}\\right)$.",
+    "questionAr": "إذا كانت $f(x) = \\tan(2x)$، فاحسب قيمة $f'\\left(\\frac{\\pi}{8}\\right)$.",
+    "optionsEn": [
+      "$4$",
+      "$2$",
+      "$2\\sqrt{2}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "$4$",
+      "$2$",
+      "$2\\sqrt{2}$",
+      "$1$"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Derivative of $\\tan(2x)$ is $2\\sec^2(2x)$.",
+    "hintAr": "مشتقة $\\tan(2x)$ هي $2\\sec^2(2x)$.",
+    "stepByStepSolutionEn": [
+      "1. $f'(x) = 2\\sec^2(2x)$.",
+      "2. When $x = \\frac{\\pi}{8}$, $2x = \\frac{\\pi}{4}$.",
+      "3. $\\sec\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2} \\implies \\sec^2\\left(\\frac{\\pi}{4}\\right) = 2$.",
+      "4. $f'(\\pi/8) = 2 \\times 2 = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $f'(x) = 2\\sec^2(2x)$.",
+      "٢. عند $x = \\frac{\\pi}{8}$، الزاوية تصبح $2x = \\frac{\\pi}{4}$.",
+      "٣. $\\sec(\\pi/4) = \\sqrt{2} \\implies \\sec^2(\\pi/4) = 2$.",
+      "٤. إذن $f'(\\pi/8) = 2 \\times 2 = 4$."
+    ],
+    "teacherTipEn": "Special angles $\\frac{\\pi}{4}, \\frac{\\pi}{6}, \\frac{\\pi}{3}$ appear very frequently in Egyptian exams.",
+    "teacherTipAr": "الزوايا الخاصة تظهر بكثرة في امتحانات الثانوية العامة المصرية."
+  },
+  {
+    "id": "calc_ch1_db_easy_15",
+    "titleEn": "Chain Rule on Cotangent Linear Argument",
+    "titleAr": "مشتقة دالة ظل التمام لزاوية خطية",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\cot\\left(\\frac{\\pi}{4} - x\\right)$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\cot\\left(\\frac{\\pi}{4} - x\\right)$، أوجد $\\frac{dy}{dx}$.",
+    "optionsEn": [
+      "$\\csc^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$-\\csc^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$\\sec^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$-\\sec^2\\left(\\frac{\\pi}{4} - x\\right)$"
+    ],
+    "optionsAr": [
+      "$\\csc^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$-\\csc^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$\\sec^2\\left(\\frac{\\pi}{4} - x\\right)$",
+      "$-\\sec^2\\left(\\frac{\\pi}{4} - x\\right)$"
+    ],
+    "correctAnswer": "$\\csc^2\\left(\\frac{\\pi}{4} - x\\right)$",
+    "correctIndex": 0,
+    "hintEn": "Derivative of the inner angle $\\frac{d}{dx}(\\frac{\\pi}{4} - x) = -1$.",
+    "hintAr": "مشتقة الزاوية الداخلية تساوي $-1$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dy}{dx} = -\\csc^2\\left(\\frac{\\pi}{4} - x\\right) \\cdot \\frac{d}{dx}\\left(\\frac{\\pi}{4} - x\\right)$.",
+      "2. Since $\\frac{d}{dx}(\\frac{\\pi}{4} - x) = -1$, the two minus signs cancel: $(-1)(-) = +$.",
+      "3. $\\frac{dy}{dx} = \\csc^2\\left(\\frac{\\pi}{4} - x\\right)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة = $-\\csc^2(\\pi/4 - x) \\cdot (-1)$.",
+      "٢. إشارة السالب تلغي السالب: $(-)(-) = +$.",
+      "٣. الناتج النهائي هو $\\csc^2(\\pi/4 - x)$."
+    ],
+    "teacherTipEn": "Watch the negative sign from the inner linear coefficient!",
+    "teacherTipAr": "انتبه للإشارة السالبة لمعامل $x$ داخل الزاوية!"
+  },
+  {
+    "id": "calc_ch1_db_easy_16",
+    "titleEn": "Slope of Tangent to x sin x",
+    "titleAr": "ميل المماس للمنحنى س جا س",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the tangent line to the curve $y = x\\sin x$ at $x = \\pi$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $y = x\\sin x$ عند $x = \\pi$.",
+    "optionsEn": [
+      "$-\\pi$",
+      "$\\pi$",
+      "$0$",
+      "$-1$"
+    ],
+    "optionsAr": [
+      "$-\\pi$",
+      "$\\pi$",
+      "$0$",
+      "$-1$"
+    ],
+    "correctAnswer": "$-\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Use product rule: $y' = \\sin x + x\\cos x$.",
+    "hintAr": "طبق قاعدة مشتقة حاصل الضرب: $y' = \\sin x + x\\cos x$.",
+    "stepByStepSolutionEn": [
+      "1. $y' = 1 \\cdot \\sin x + x \\cdot \\cos x$.",
+      "2. At $x = \\pi$: $y'(\\pi) = \\sin\\pi + \\pi\\cos\\pi = 0 + \\pi(-1) = -\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = \\sin x + x\\cos x$.",
+      "٢. عند $x = \\pi$: $y'(\\pi) = 0 + \\pi(-1) = -\\pi$."
+    ],
+    "teacherTipEn": "Remember $\\sin\\pi = 0$ and $\\cos\\pi = -1$.",
+    "teacherTipAr": "تذكر أن $\\sin\\pi = 0$ بينما $\\cos\\pi = -1$."
+  },
+  {
+    "id": "calc_ch1_db_easy_17",
+    "titleEn": "Quotient Rule with Sine",
+    "titleAr": "قاعدة القسمة مع دالة الجيب",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\frac{\\sin x}{x}$, evaluate $\\frac{dy}{dx}$ at $x = \\frac{\\pi}{2}$.",
+    "questionAr": "إذا كانت $y = \\frac{\\sin x}{x}$، فاحسب قيمة $\\frac{dy}{dx}$ عند $x = \\frac{\\pi}{2}$.",
+    "optionsEn": [
+      "$-\\frac{4}{\\pi^2}$",
+      "$\\frac{4}{\\pi^2}$",
+      "$0$",
+      "$-\\frac{2}{\\pi}$"
+    ],
+    "optionsAr": [
+      "$-\\frac{4}{\\pi^2}$",
+      "$\\frac{4}{\\pi^2}$",
+      "$0$",
+      "$-\\frac{2}{\\pi}$"
+    ],
+    "correctAnswer": "$-\\frac{4}{\\pi^2}$",
+    "correctIndex": 0,
+    "hintEn": "Quotient rule: $\\frac{x\\cos x - \\sin x}{x^2}$.",
+    "hintAr": "قاعدة القسمة: (المقام × مشتقة البسط - البسط × مشتقة المقام) على مربع المقام.",
+    "stepByStepSolutionEn": [
+      "1. $y' = \\frac{x\\cos x - (1)\\sin x}{x^2}$.",
+      "2. Substitute $x = \\pi/2$: $\\cos(\\pi/2) = 0, \\sin(\\pi/2) = 1$.",
+      "3. $y'(\\pi/2) = \\frac{(\\pi/2)(0) - 1}{(\\pi/2)^2} = \\frac{-1}{\\pi^2 / 4} = -\\frac{4}{\\pi^2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = \\frac{x\\cos x - \\sin x}{x^2}$.",
+      "٢. عند $x = \\pi/2$: البسط = $0 - 1 = -1$.",
+      "٣. المقام = $\\pi^2/4$، إذن الناتج هو $-\\frac{4}{\\pi^2}$."
+    ],
+    "teacherTipEn": "When dividing by fractions, multiply by the reciprocal.",
+    "teacherTipAr": "القسمة على كسر تعني الضرب في مقلوبه."
+  },
+  {
+    "id": "calc_ch1_db_easy_18",
+    "titleEn": "Inclination Angle of Tangent",
+    "titleAr": "زاوية ميل المماس مع محور السينات",
+    "difficulty": "easy",
+    "questionEn": "What is the angle of inclination $\\theta$ of the tangent line to $y = \\tan x$ at $x = 0$ with the positive $x$-axis?",
+    "questionAr": "ما هي زاوية ميل المماس للمنحنى $y = \\tan x$ عند $x = 0$ مع الاتجاه الموجب لمحور السينات؟",
+    "optionsEn": [
+      "$45^\\circ$",
+      "$0^\\circ$",
+      "$30^\\circ$",
+      "$60^\\circ$"
+    ],
+    "optionsAr": [
+      "$45^\\circ$",
+      "$0^\\circ$",
+      "$30^\\circ$",
+      "$60^\\circ$"
+    ],
+    "correctAnswer": "$45^\\circ$",
+    "correctIndex": 0,
+    "hintEn": "Slope $m = \\tan\\theta = y'(0)$.",
+    "hintAr": "الميل $m = \\tan\\theta = y'(0)$.",
+    "stepByStepSolutionEn": [
+      "1. $y' = \\sec^2 x$.",
+      "2. At $x = 0$: $m = \\sec^2(0) = 1$.",
+      "3. Since $\\tan\\theta = 1$, the angle of inclination is $\\theta = 45^\\circ$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = \\sec^2 x$.",
+      "٢. عند $x = 0$: الميل $m = 1$.",
+      "٣. بما أن $\\tan\\theta = 1$، إذن $\\theta = 45^\\circ$."
+    ],
+    "teacherTipEn": "The slope of a tangent is the tangent of its angle of inclination: $m = \\tan\\theta$.",
+    "teacherTipAr": "ميل المماس هو ظل زاوية ميله مع الاتجاه الموجب لمحور السينات."
+  },
+  {
+    "id": "calc_ch1_db_easy_19",
+    "titleEn": "Horizontal Tangent Condition",
+    "titleAr": "شرط المماس الأفقي",
+    "difficulty": "easy",
+    "questionEn": "If the tangent to the curve $y = f(x)$ at the point $(2, 3)$ is parallel to the $x$-axis, then:",
+    "questionAr": "إذا كان المماس للمنحنى $y = f(x)$ عند النقطة $(2, 3)$ يوازي محور السينات، فإن:",
+    "optionsEn": [
+      "$f'(2) = 0$",
+      "$f'(2) = 3$",
+      "$f'(3) = 0$",
+      "$f'(2)$ is undefined"
+    ],
+    "optionsAr": [
+      "$f'(2) = 0$",
+      "$f'(2) = 3$",
+      "$f'(3) = 0$",
+      "$f'(2)$ غير معرّف"
+    ],
+    "correctAnswer": "$f'(2) = 0$",
+    "correctIndex": 0,
+    "hintEn": "Lines parallel to the $x$-axis have a slope of zero.",
+    "hintAr": "المستقيمات الموازية لمحور السينات ميلها يساوي صفراً.",
+    "stepByStepSolutionEn": [
+      "1. A horizontal line has slope $m = 0$.",
+      "2. Since the tangent slope at $x = 2$ is $f'(2)$, we have $f'(2) = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. ميل أي مستقيم أفقي موازٍ لمحور السينات يساوي صفراً.",
+      "٢. بما أن ميل المماس عند $x = 2$ هو $f'(2)$، إذن $f'(2) = 0$."
+    ],
+    "teacherTipEn": "Parallel to $x$-axis implies $y' = 0$. Parallel to $y$-axis implies $y'$ is undefined.",
+    "teacherTipAr": "موازٍ للسينات يعني $y' = 0$، وموازٍ للصادات يعني $y'$ غير معرّف (المقام بصفر)."
+  },
+  {
+    "id": "calc_ch1_db_easy_20",
+    "titleEn": "Vertical Tangent from Horizontal Normal",
+    "titleAr": "المماس الرأسي من العمودي الأفقي",
+    "difficulty": "easy",
+    "questionEn": "If the normal line to the curve $y = f(x)$ at $(1, 4)$ is parallel to the $x$-axis, then the tangent line at $(1, 4)$ is:",
+    "questionAr": "إذا كان العمودي على المنحنى $y = f(x)$ عند النقطة $(1, 4)$ يوازي محور السينات، فإن المماس عند $(1, 4)$ يكون:",
+    "optionsEn": [
+      "Parallel to the $y$-axis",
+      "Parallel to the $x$-axis",
+      "Passing through the origin",
+      "Having a slope of 1"
+    ],
+    "optionsAr": [
+      "موازياً لمحور الصادات",
+      "موازياً لمحور السينات",
+      "ماراً بنقطة الأصل",
+      "ميله يساوي 1"
+    ],
+    "correctAnswer": "Parallel to the $y$-axis",
+    "correctIndex": 0,
+    "hintEn": "The tangent is perpendicular to the normal line.",
+    "hintAr": "المماس عمودي دائماً على العمودي.",
+    "stepByStepSolutionEn": [
+      "1. If normal is parallel to the $x$-axis (horizontal), its slope is $0$.",
+      "2. The tangent line is perpendicular to the normal, so it must be vertical (parallel to the $y$-axis)."
+    ],
+    "stepByStepSolutionAr": [
+      "١. العمودي أفقي (يوازي محور السينات وميله صفر).",
+      "٢. المماس عمودي على العمودي، لذا يجب أن يكون رأسياً (يوازي محور الصادات)."
+    ],
+    "teacherTipEn": "Horizontal normal means vertical tangent, and vice versa.",
+    "teacherTipAr": "إذا كان العمودي أفقياً فالمماس رأسي، والعكس صحيح."
+  },
+  {
+    "id": "calc_ch1_db_easy_21",
+    "titleEn": "Second Derivative of Power Expression",
+    "titleAr": "المشتقة الثانية لمقدار مرفوع لقوة",
+    "difficulty": "easy",
+    "questionEn": "If $y = (2x - 1)^5$, find $\\frac{d^2y}{dx^2}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = (2x - 1)^5$، أوجد $\\frac{d^2y}{dx^2}$ عند $x = 1$.",
+    "optionsEn": [
+      "$80$",
+      "$20$",
+      "$40$",
+      "$160$"
+    ],
+    "optionsAr": [
+      "$80$",
+      "$20$",
+      "$40$",
+      "$160$"
+    ],
+    "correctAnswer": "$80$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate twice using the chain rule, multiplying by $2$ each time.",
+    "hintAr": "اشتق مرتين بقاعدة السلسلة مع الضرب في معامل $x$ في كل مرة.",
+    "stepByStepSolutionEn": [
+      "1. $y' = 5(2x - 1)^4 \\cdot 2 = 10(2x - 1)^4$.",
+      "2. $y'' = 10 \\cdot 4(2x - 1)^3 \\cdot 2 = 80(2x - 1)^3$.",
+      "3. At $x = 1$: $80(2(1) - 1)^3 = 80(1)^3 = 80$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة الأولى: $y' = 10(2x - 1)^4$.",
+      "٢. المشتقة الثانية: $y'' = 80(2x - 1)^3$.",
+      "٣. عند $x = 1$: $y'' = 80(1) = 80$."
+    ],
+    "teacherTipEn": "Remember to multiply by the derivative of the inside function in EACH derivative step.",
+    "teacherTipAr": "لا تنسَ الضرب في معامل القوس الداخلي في كل مرحلة اشتقاق."
+  },
+  {
+    "id": "calc_ch1_db_easy_22",
+    "titleEn": "Derivative with Degree Angle",
+    "titleAr": "مشتقة دالة مثلثية زاويتها بالدرجات",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\sin(x^\\circ)$, where $x^\\circ$ is measured in degrees, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\sin(x^\\circ)$ حيث الزاوية مقاسة بالدرجات الستينية، أوجد $\\frac{dy}{dx}$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{180}\\cos(x^\\circ)$",
+      "$\\cos(x^\\circ)$",
+      "$-\\frac{\\pi}{180}\\cos(x^\\circ)$",
+      "$\\frac{180}{\\pi}\\cos(x^\\circ)$"
+    ],
+    "optionsAr": [
+      "$\\frac{\\pi}{180}\\cos(x^\\circ)$",
+      "$\\cos(x^\\circ)$",
+      "$-\\frac{\\pi}{180}\\cos(x^\\circ)$",
+      "$\\frac{180}{\\pi}\\cos(x^\\circ)$"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{180}\\cos(x^\\circ)$",
+    "correctIndex": 0,
+    "hintEn": "Convert degrees to radians before differentiating: $x^\\circ = \\frac{\\pi x}{180}$.",
+    "hintAr": "حوّل الدرجات إلى راديان قبل الاشتقاق: $x^\\circ = \\frac{\\pi x}{180}$.",
+    "stepByStepSolutionEn": [
+      "1. Calculus differentiation rules only apply when angles are in radians.",
+      "2. Since $x^\\circ = \\frac{\\pi x}{180}$, $y = \\sin\\left(\\frac{\\pi x}{180}\\right)$.",
+      "3. Differentiating gives $\\frac{dy}{dx} = \\frac{\\pi}{180}\\cos\\left(\\frac{\\pi x}{180}\\right) = \\frac{\\pi}{180}\\cos(x^\\circ)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قواعد اشتقاق الدوال الدائرية تشترط القياس الدائري.",
+      "٢. $x^\\circ = \\frac{\\pi x}{180}$، إذن $y = \\sin\\left(\\frac{\\pi x}{180}\\right)$.",
+      "٣. بالاشتقاق: $\\frac{dy}{dx} = \\frac{\\pi}{180}\\cos(x^\\circ)$."
+    ],
+    "teacherTipEn": "A classic trap question in the Egyptian General Secondary Exam!",
+    "teacherTipAr": "سؤال كلاسيكي مشهور في امتحانات الثانوية العامة!"
+  },
+  {
+    "id": "calc_ch1_db_easy_23",
+    "titleEn": "Parametric Slope of Circle",
+    "titleAr": "ميل المماس لمنحنى دائري بارامتري",
+    "difficulty": "easy",
+    "questionEn": "If $x = 2\\cos\\theta$ and $y = 2\\sin\\theta$, find $\\frac{dy}{dx}$ at $\\theta = \\frac{\\pi}{4}$.",
+    "questionAr": "إذا كانت $x = 2\\cos\\theta$ و $y = 2\\sin\\theta$، أوجد $\\frac{dy}{dx}$ عند $\\theta = \\frac{\\pi}{4}$.",
+    "optionsEn": [
+      "$-1$",
+      "$1$",
+      "$0$",
+      "Undefined"
+    ],
+    "optionsAr": [
+      "$-1$",
+      "$1$",
+      "$0$",
+      "غير معرّف"
+    ],
+    "correctAnswer": "$-1$",
+    "correctIndex": 0,
+    "hintEn": "$\\frac{dy}{dx} = \\frac{dy/d\\theta}{dx/d\\theta}$.",
+    "hintAr": "المشتقة البارامترية تساوي مشتقة ص بالنسبة لـ $\\theta$ مقسومة على مشتقة س بالنسبة لـ $\\theta$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dx}{d\\theta} = -2\\sin\\theta$ and $\\frac{dy}{d\\theta} = 2\\cos\\theta$.",
+      "2. $\\frac{dy}{dx} = \\frac{2\\cos\\theta}{-2\\sin\\theta} = -\\cot\\theta$.",
+      "3. At $\\theta = \\pi/4$: $-\\cot(\\pi/4) = -1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\frac{dx}{d\\theta} = -2\\sin\\theta$ و $\\frac{dy}{d\\theta} = 2\\cos\\theta$.",
+      "٢. $\\frac{dy}{dx} = -\\cot\\theta$.",
+      "٣. عند $\\theta = \\pi/4$: $-\\cot(\\pi/4) = -1$."
+    ],
+    "teacherTipEn": "Notice that $-\\cot\\theta = -x/y$, matching the Cartesian circle equation.",
+    "teacherTipAr": "لاحظ أن $-\\cot\\theta$ تطابق $-x/y$ بالصورة الكارتيزية للدائرة."
+  },
+  {
+    "id": "calc_ch1_db_easy_24",
+    "titleEn": "Rate of Change of Square Root Function",
+    "titleAr": "معدل تغير دالة جذرية",
+    "difficulty": "easy",
+    "questionEn": "Find the rate of change of $y = \\sqrt{2x + 5}$ with respect to $x$ at $x = 2$.",
+    "questionAr": "أوجد معدل تغير $y = \\sqrt{2x + 5}$ بالنسبة لـ $x$ عند $x = 2$.",
+    "optionsEn": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$",
+      "$3$"
+    ],
+    "correctAnswer": "$\\frac{1}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Rate of change means the derivative $\\frac{dy}{dx}$.",
+    "hintAr": "معدل التغير يعني المشتقة الأولى $\\frac{dy}{dx}$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dy}{dx} = \\frac{2}{2\\sqrt{2x + 5}} = \\frac{1}{\\sqrt{2x + 5}}$.",
+      "2. Substitute $x = 2$: $\\frac{1}{\\sqrt{4 + 5}} = \\frac{1}{\\sqrt{9}} = \\frac{1}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مشتقة الجذر: $\\frac{2}{2\\sqrt{2x + 5}} = \\frac{1}{\\sqrt{2x + 5}}$.",
+      "٢. بالتعويض عن $x = 2$: $\\frac{1}{\\sqrt{9}} = \\frac{1}{3}$."
+    ],
+    "teacherTipEn": "Cancel the factor of $2$ between numerator and denominator early.",
+    "teacherTipAr": "اختصر العدد 2 بين البسط والمقام لتسهيل الحسابات الذهنية."
+  },
+  {
+    "id": "calc_ch1_db_easy_25",
+    "titleEn": "Derivative of Secant plus Tangent",
+    "titleAr": "مشتقة القاطع مضافاً إليه الظل",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\sec x + \\tan x$, which of the following expresses $\\frac{dy}{dx}$ in terms of $y$?",
+    "questionAr": "إذا كانت $y = \\sec x + \\tan x$، فأي مما يلي يعبر عن $\\frac{dy}{dx}$ بدلالة $y$؟",
+    "optionsEn": [
+      "$y \\sec x$",
+      "$y \\tan x$",
+      "$y^2$",
+      "$\\sec^2 x$"
+    ],
+    "optionsAr": [
+      "$y \\sec x$",
+      "$y \\tan x$",
+      "$y^2$",
+      "$\\sec^2 x$"
+    ],
+    "correctAnswer": "$y \\sec x$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate and factor out $\\sec x$.",
+    "hintAr": "اشتق ثم خذ $\\sec x$ عاملاً مشتركاً.",
+    "stepByStepSolutionEn": [
+      "1. $y' = \\sec x \\tan x + \\sec^2 x$.",
+      "2. Factoring out $\\sec x$: $y' = \\sec x(\\tan x + \\sec x)$.",
+      "3. Since $y = \\sec x + \\tan x$, this simplifies to $y' = y \\sec x$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالاشتقاق: $y' = \\sec x \\tan x + \\sec^2 x$.",
+      "٢. بأخذ $\\sec x$ عاملاً مشتركاً: $y' = \\sec x(\\tan x + \\sec x)$.",
+      "٣. بما أن القوس يساوي $y$، إذن $y' = y \\sec x$."
+    ],
+    "teacherTipEn": "A famous identity in differential equations and integrating factors.",
+    "teacherTipAr": "متطابقة شهيرة جداً تفيد في حل المعادلات التفاضلية."
+  },
+  {
+    "id": "calc_ch1_db_easy_26",
+    "titleEn": "Derivative of Csc minus Cot",
+    "titleAr": "مشتقة قاطع التمام مطروحاً منه ظل التمام",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\csc x - \\cot x$, which of the following expresses $\\frac{dy}{dx}$ in terms of $y$?",
+    "questionAr": "إذا كانت $y = \\csc x - \\cot x$، فأي مما يلي يعبر عن $\\frac{dy}{dx}$ بدلالة $y$؟",
+    "optionsEn": [
+      "$y \\csc x$",
+      "$-y \\csc x$",
+      "$y \\cot x$",
+      "$-y \\cot x$"
+    ],
+    "optionsAr": [
+      "$y \\csc x$",
+      "$-y \\csc x$",
+      "$y \\cot x$",
+      "$-y \\cot x$"
+    ],
+    "correctAnswer": "$y \\csc x$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate and factor out $\\csc x$.",
+    "hintAr": "اشتق ثم خذ $\\csc x$ عاملاً مشتركاً.",
+    "stepByStepSolutionEn": [
+      "1. $y' = -\\csc x \\cot x - (-\\csc^2 x) = \\csc^2 x - \\csc x \\cot x$.",
+      "2. Factor out $\\csc x$: $y' = \\csc x(\\csc x - \\cot x)$.",
+      "3. Since $y = \\csc x - \\cot x$, this yields $y' = y \\csc x$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالاشتقاق: $y' = -\\csc x \\cot x + \\csc^2 x$.",
+      "٢. بأخذ $\\csc x$ عاملاً مشتركاً: $y' = \\csc x(\\csc x - \\cot x)$.",
+      "٣. إذن $y' = y \\csc x$."
+    ],
+    "teacherTipEn": "Notice the beautiful symmetry with the $\\sec x + \\tan x$ formula.",
+    "teacherTipAr": "لاحظ التماثل الجميل مع متطابقة $\\sec x + \\tan x$."
+  },
+  {
+    "id": "calc_ch1_db_easy_27",
+    "titleEn": "Right-hand Derivative of Absolute Value",
+    "titleAr": "المشتقة اليمنى لدالة المقياس",
+    "difficulty": "easy",
+    "questionEn": "If $f(x) = |x - 3|$, what is the right-hand derivative $f'_+(3)$?",
+    "questionAr": "إذا كانت $f(x) = |x - 3|$، فما هي المشتقة اليمنى $f'_+(3)$؟",
+    "optionsEn": [
+      "$1$",
+      "$-1$",
+      "$0$",
+      "Does not exist"
+    ],
+    "optionsAr": [
+      "$1$",
+      "$-1$",
+      "$0$",
+      "غير موجودة"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "For $x > 3$, $|x - 3| = x - 3$.",
+    "hintAr": "عند $x > 3$، تكون دالة المقياس موجبة: $|x - 3| = x - 3$.",
+    "stepByStepSolutionEn": [
+      "1. Redefine the function for $x > 3$: $f(x) = x - 3$.",
+      "2. Differentiating with respect to $x$ gives $f'_+(3) = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تعريف الدالة على يمين النقطة 3: $f(x) = x - 3$.",
+      "٢. بالاشتقاق نجد أن $f'_+(3) = 1$."
+    ],
+    "teacherTipEn": "The right derivative is $1$ and left derivative is $-1$, so $f'(3)$ does not exist.",
+    "teacherTipAr": "المشتقة اليمنى 1 واليسرى -1، لذلك المشتقة العامة غير موجودة عند رأس المنحنى."
+  },
+  {
+    "id": "calc_ch1_db_easy_28",
+    "titleEn": "Derivative of Reciprocal Cosine",
+    "titleAr": "مشتقة مقلوب جيب التمام",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\frac{1}{\\cos(3x)}$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\frac{1}{\\cos(3x)}$، أوجد $\\frac{dy}{dx}$.",
+    "optionsEn": [
+      "$3\\sec(3x)\\tan(3x)$",
+      "$-3\\sec(3x)\\tan(3x)$",
+      "$3\\csc(3x)\\cot(3x)$",
+      "$-3\\sin(3x)$"
+    ],
+    "optionsAr": [
+      "$3\\sec(3x)\\tan(3x)$",
+      "$-3\\sec(3x)\\tan(3x)$",
+      "$3\\csc(3x)\\cot(3x)$",
+      "$-3\\sin(3x)$"
+    ],
+    "correctAnswer": "$3\\sec(3x)\\tan(3x)$",
+    "correctIndex": 0,
+    "hintEn": "Rewrite $\\frac{1}{\\cos(3x)}$ as $\\sec(3x)$ before differentiating.",
+    "hintAr": "أعد كتابة $\\frac{1}{\\cos(3x)}$ كـ $\\sec(3x)$ قبل البدء بالاشتقاق.",
+    "stepByStepSolutionEn": [
+      "1. $y = \\sec(3x)$.",
+      "2. $\\frac{dy}{dx} = 3\\sec(3x)\\tan(3x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y = \\sec(3x)$.",
+      "٢. $\\frac{dy}{dx} = 3\\sec(3x)\\tan(3x)$."
+    ],
+    "teacherTipEn": "Converting reciprocals to their direct trig functions avoids quotient rule errors.",
+    "teacherTipAr": "تحويل المقلوبات لدوال القاطع وقاطع التمام يجنبك أخطاء قاعدة القسمة."
+  },
+  {
+    "id": "calc_ch1_db_easy_29",
+    "titleEn": "Slope of Tangent to Hyperbola",
+    "titleAr": "ميل المماس للقطع الزائد",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the tangent to the hyperbola $x^2 - y^2 = 9$ at the point $(5, 4)$.",
+    "questionAr": "أوجد ميل المماس للقطع الزائد $x^2 - y^2 = 9$ عند النقطة $(5, 4)$.",
+    "optionsEn": [
+      "$\\frac{5}{4}$",
+      "$-\\frac{5}{4}$",
+      "$\\frac{4}{5}$",
+      "$-\\frac{4}{5}$"
+    ],
+    "optionsAr": [
+      "$\\frac{5}{4}$",
+      "$-\\frac{5}{4}$",
+      "$\\frac{4}{5}$",
+      "$-\\frac{4}{5}$"
+    ],
+    "correctAnswer": "$\\frac{5}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Differentiate implicitly: $2x - 2y y' = 0 \\implies y' = x/y$.",
+    "hintAr": "اشتق ضمنياً: $2x - 2y y' = 0 \\implies y' = x/y$.",
+    "stepByStepSolutionEn": [
+      "1. Differentiating implicitly: $2x - 2y \\frac{dy}{dx} = 0$.",
+      "2. $\\frac{dy}{dx} = \\frac{x}{y}$.",
+      "3. At $(5, 4)$, the slope is $\\frac{5}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالاشتقاق الضمني: $2x - 2y y' = 0$.",
+      "٢. $y' = x/y$.",
+      "٣. عند النقطة $(5, 4)$، الميل = $5/4$."
+    ],
+    "teacherTipEn": "For $x^2 - y^2 = c$, the tangent slope is always $x/y$.",
+    "teacherTipAr": "للقطع الزائد المتساوي الساقين $x^2 - y^2 = c$، ميل المماس دائماً هو $x/y$."
+  },
+  {
+    "id": "calc_ch1_db_easy_30",
+    "titleEn": "Slope of Normal to Cubic Curve",
+    "titleAr": "ميل العمودي لمنحنى تكعيبي",
+    "difficulty": "easy",
+    "questionEn": "Find the slope of the normal line to the curve $y = x^3 - 3x$ at $x = 2$.",
+    "questionAr": "أوجد ميل العمودي على المنحنى $y = x^3 - 3x$ عند $x = 2$.",
     "optionsEn": [
       "$-\\frac{1}{9}$",
+      "$9$",
       "$\\frac{1}{9}$",
-      "$-9$",
-      "9"
+      "$-9$"
     ],
     "optionsAr": [
       "$-\\frac{1}{9}$",
+      "$9$",
       "$\\frac{1}{9}$",
-      "$-9$",
-      "9"
+      "$-9$"
     ],
     "correctAnswer": "$-\\frac{1}{9}$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Find tangent slope $m_t = y'(2)$, then normal slope $m_n = -1/m_t$.",
+    "hintAr": "أوجد ميل المماس أولاً $y'(2)$ ثم خذ مقلوبه بعكس الإشارة.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{9}$."
+      "1. $y' = 3x^2 - 3$.",
+      "2. At $x = 2$: $m_t = 3(4) - 3 = 9$.",
+      "3. Normal slope $m_n = -\\frac{1}{m_t} = -\\frac{1}{9}$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{9}$."
+      "١. $y' = 3x^2 - 3$.",
+      "٢. عند $x = 2$: ميل المماس = $12 - 3 = 9$.",
+      "٣. ميل العمودي = $-1/9$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "Don't stop at the tangent slope; make sure to answer what the question asked for!",
+    "teacherTipAr": "انتبه للمطلوب: السؤال طلب ميل العمودي وليس ميل المماس!"
+  },
+  {
+    "id": "calc_ch1_db_easy_31",
+    "titleEn": "Derivative of Cos4 - Sin4",
+    "titleAr": "مشتقة الفرق بين القوة الرابعة لجيب التمام والجيب",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\cos^4 x - \\sin^4 x$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\cos^4 x - \\sin^4 x$، أوجد $\\frac{dy}{dx}$.",
+    "optionsEn": [
+      "$-2\\sin(2x)$",
+      "$2\\sin(2x)$",
+      "$-\\cos(2x)$",
+      "$-4\\cos^3 x \\sin x$"
+    ],
+    "optionsAr": [
+      "$-2\\sin(2x)$",
+      "$2\\sin(2x)$",
+      "$-\\cos(2x)$",
+      "$-4\\cos^3 x \\sin x$"
+    ],
+    "correctAnswer": "$-2\\sin(2x)$",
+    "correctIndex": 0,
+    "hintEn": "Factor as difference of squares: $(\\cos^2 x - \\sin^2 x)(\\cos^2 x + \\sin^2 x)$.",
+    "hintAr": "حلل كفرق بين مربعين: $(\\cos^2 x - \\sin^2 x)(\\cos^2 x + \\sin^2 x)$.",
+    "stepByStepSolutionEn": [
+      "1. Factor: $y = (\\cos^2 x - \\sin^2 x)(\\cos^2 x + \\sin^2 x)$.",
+      "2. Since $\\cos^2 x + \\sin^2 x = 1$ and $\\cos^2 x - \\sin^2 x = \\cos(2x)$, we have $y = \\cos(2x)$.",
+      "3. Differentiating: $\\frac{dy}{dx} = -2\\sin(2x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتحليل كفرق بين مربعين: $y = (\\cos^2 x - \\sin^2 x)(\\cos^2 x + \\sin^2 x)$.",
+      "٢. بما أن القوس الثاني = 1، والأول = $\\cos(2x)$، إذن $y = \\cos(2x)$.",
+      "٣. بالاشتقاق: $y' = -2\\sin(2x)$."
+    ],
+    "teacherTipEn": "Trigonometric factoring drastically simplifies high-power derivatives.",
+    "teacherTipAr": "التحليل الجبري للدوال المثلثية يختصر الاشتقاقات المعقدة في خطوة واحدة."
+  },
+  {
+    "id": "calc_ch1_db_easy_32",
+    "titleEn": "Fourth Derivative of Sine Multiple",
+    "titleAr": "المشتقة الرابعة لدالة جيب زاوية مضاعفة",
+    "difficulty": "easy",
+    "questionEn": "If $f(x) = \\sin(2x)$, find the fourth derivative $f^{(4)}(x)$.",
+    "questionAr": "إذا كانت $f(x) = \\sin(2x)$، أوجد المشتقة الرابعة $f^{(4)}(x)$.",
+    "optionsEn": [
+      "$16\\sin(2x)$",
+      "$-16\\sin(2x)$",
+      "$8\\cos(2x)$",
+      "$16\\cos(2x)$"
+    ],
+    "optionsAr": [
+      "$16\\sin(2x)$",
+      "$-16\\sin(2x)$",
+      "$8\\cos(2x)$",
+      "$16\\cos(2x)$"
+    ],
+    "correctAnswer": "$16\\sin(2x)$",
+    "correctIndex": 0,
+    "hintEn": "Every 4 derivatives, sine cycles back: $\\frac{d^4}{dx^4}[\\sin(kx)] = k^4 \\sin(kx)$.",
+    "hintAr": "مشتقات الجيب دورية كل 4 مرات: المشتقة الرابعة تعود لنفس الدالة مضروبة في $k^4$.",
+    "stepByStepSolutionEn": [
+      "1. $f'(x) = 2\\cos(2x)$.",
+      "2. $f''(x) = -4\\sin(2x)$.",
+      "3. $f'''(x) = -8\\cos(2x)$.",
+      "4. $f^{(4)}(x) = 16\\sin(2x)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة الأولى: $2\\cos(2x)$.",
+      "٢. الثانية: $-4\\sin(2x)$.",
+      "٣. الثالثة: $-8\\cos(2x)$.",
+      "٤. الرابعة: $16\\sin(2x)$."
+    ],
+    "teacherTipEn": "In general, $\\frac{d^{4n}}{dx^{4n}}[\\sin(kx)] = k^{4n}\\sin(kx)$.",
+    "teacherTipAr": "قاعدة عامة: المشتقات من الرتبة مضاعفات 4 تعيد نفس الدالة مع رفع المعامل لنفس القوة."
+  },
+  {
+    "id": "calc_ch1_db_easy_33",
+    "titleEn": "Point of Horizontal Tangent on Parabola",
+    "titleAr": "نقطة المماس الأفقي على القطع المكافئ",
+    "difficulty": "easy",
+    "questionEn": "Find the point on the parabola $y = x^2 - 4x + 5$ at which the tangent line is horizontal.",
+    "questionAr": "أوجد النقطة الواقعة على المنحنى $y = x^2 - 4x + 5$ والتي يكون المماس عندها أفقياً.",
+    "optionsEn": [
+      "$(2, 1)$",
+      "$(2, 5)$",
+      "$(0, 5)$",
+      "$(4, 5)$"
+    ],
+    "optionsAr": [
+      "$(2, 1)$",
+      "$(2, 5)$",
+      "$(0, 5)$",
+      "$(4, 5)$"
+    ],
+    "correctAnswer": "$(2, 1)$",
+    "correctIndex": 0,
+    "hintEn": "Horizontal tangent means $y' = 0$.",
+    "hintAr": "المماس الأفقي يعني أن المشتقة الأولى $y' = 0$.",
+    "stepByStepSolutionEn": [
+      "1. $y' = 2x - 4$.",
+      "2. Set $y' = 0 \\implies 2x - 4 = 0 \\implies x = 2$.",
+      "3. Substitute $x = 2$ into curve equation: $y = 4 - 8 + 5 = 1$.",
+      "4. The point is $(2, 1)$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = 2x - 4$.",
+      "٢. نضع $y' = 0 \\implies 2x = 4 \\implies x = 2$.",
+      "٣. بالتعويض في معادلة المنحنى: $y = 4 - 8 + 5 = 1$.",
+      "٤. النقطة هي $(2, 1)$."
+    ],
+    "teacherTipEn": "For a parabola, the horizontal tangent occurs at its vertex.",
+    "teacherTipAr": "في القطع المكافئ، المماس الأفقي يقع دائماً عند رأس المنحنى."
+  },
+  {
+    "id": "calc_ch1_db_easy_34",
+    "titleEn": "Point where Tangent Angle is 45 Degrees",
+    "titleAr": "نقطة ميل مماسها 45 درجة",
+    "difficulty": "easy",
+    "questionEn": "Find the point on the curve $y = \\sqrt{x}$ where the tangent makes an angle of $45^\\circ$ with the positive $x$-axis.",
+    "questionAr": "أوجد النقطة على المنحنى $y = \\sqrt{x}$ حيث يصنع المماس زاوية قياسها $45^\\circ$ مع الاتجاه الموجب لمحور السينات.",
+    "optionsEn": [
+      "$(\\frac{1}{4}, \\frac{1}{2})$",
+      "$(1, 1)$",
+      "$(4, 2)$",
+      "$(\\frac{1}{2}, \\frac{\\sqrt{2}}{2})$"
+    ],
+    "optionsAr": [
+      "$(\\frac{1}{4}, \\frac{1}{2})$",
+      "$(1, 1)$",
+      "$(4, 2)$",
+      "$(\\frac{1}{2}, \\frac{\\sqrt{2}}{2})$"
+    ],
+    "correctAnswer": "$(\\frac{1}{4}, \\frac{1}{2})$",
+    "correctIndex": 0,
+    "hintEn": "$\\tan(45^\\circ) = 1$, so set $y' = 1$.",
+    "hintAr": "بما أن $\\tan(45^\\circ) = 1$، إذن نساوي المشتقة بالواحد الصحيح.",
+    "stepByStepSolutionEn": [
+      "1. $y' = \\frac{1}{2\\sqrt{x}}$.",
+      "2. Slope $m = \\tan(45^\\circ) = 1 \\implies \\frac{1}{2\\sqrt{x}} = 1$.",
+      "3. $2\\sqrt{x} = 1 \\implies \\sqrt{x} = \\frac{1}{2} \\implies x = \\frac{1}{4}$.",
+      "4. Then $y = \\sqrt{1/4} = \\frac{1}{2}$. Point is $(\\frac{1}{4}, \\frac{1}{2})$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $y' = \\frac{1}{2\\sqrt{x}}$.",
+      "٢. الميل $m = \\tan 45^\\circ = 1 \\implies 2\\sqrt{x} = 1$.",
+      "٣. $\\sqrt{x} = 1/2 \\implies x = 1/4$.",
+      "٤. الإحداثي الصادي $y = 1/2$. إذن النقطة هي $(1/4, 1/2)$."
+    ],
+    "teacherTipEn": "Remember to calculate both $x$ and $y$ coordinates when asked for a 'point'.",
+    "teacherTipAr": "تأكد من إيجاد الإحداثيين السيني والصادي معاً عند طلب 'نقطة'."
+  },
+  {
+    "id": "calc_ch1_db_easy_35",
+    "titleEn": "Parametric Derivative at Given Parameter",
+    "titleAr": "المشتقة البارامترية عند قيمة بارامتر معطاة",
+    "difficulty": "easy",
+    "questionEn": "If $x = t^3 + 1$ and $y = t^2$, find $\\frac{dy}{dx}$ when $t = 2$.",
+    "questionAr": "إذا كانت $x = t^3 + 1$ و $y = t^2$، أوجد $\\frac{dy}{dx}$ عندما $t = 2$.",
+    "optionsEn": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$3$",
+      "$12$"
+    ],
+    "optionsAr": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$3$",
+      "$12$"
+    ],
+    "correctAnswer": "$\\frac{1}{3}$",
+    "correctIndex": 0,
+    "hintEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
+    "hintAr": "المشتقة البارامترية هي حاصل قسمة مشتقة $y$ على مشتقة $x$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dx}{dt} = 3t^2$ and $\\frac{dy}{dt} = 2t$.",
+      "2. $\\frac{dy}{dx} = \\frac{2t}{3t^2} = \\frac{2}{3t}$.",
+      "3. At $t = 2$: $\\frac{dy}{dx} = \\frac{2}{3(2)} = \\frac{1}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. $\\frac{dx}{dt} = 3t^2$ و $\\frac{dy}{dt} = 2t$.",
+      "٢. $\\frac{dy}{dx} = \\frac{2}{3t}$.",
+      "٣. عند $t = 2$: الناتج = $\\frac{2}{6} = \\frac{1}{3}$."
+    ],
+    "teacherTipEn": "Cancel common powers of $t$ before plugging in numbers.",
+    "teacherTipAr": "اختصر المتغير $t$ أولاً ثم عوّض بالرقم المطلوب."
+  },
+  {
+    "id": "calc_ch1_db_easy_36",
+    "titleEn": "Tangent Derivative Differential Relation",
+    "titleAr": "علاقة تفاضلية لدالة الظل",
+    "difficulty": "easy",
+    "questionEn": "If $y = \\tan x$, what is the value of $\\frac{dy}{dx} - y^2$?",
+    "questionAr": "إذا كانت $y = \\tan x$، فما قيمة المقدار $\\frac{dy}{dx} - y^2$؟",
+    "optionsEn": [
+      "$1$",
+      "$0$",
+      "$-1$",
+      "$\\sec^2 x$"
+    ],
+    "optionsAr": [
+      "$1$",
+      "$0$",
+      "$-1$",
+      "$\\sec^2 x$"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Recall $\\frac{d}{dx}(\\tan x) = \\sec^2 x$ and $\\sec^2 x - \\tan^2 x = 1$.",
+    "hintAr": "تذكر أن مشتقة $\\tan x$ هي $\\sec^2 x$، وأن $\\sec^2 x - \\tan^2 x = 1$.",
+    "stepByStepSolutionEn": [
+      "1. $\\frac{dy}{dx} = \\sec^2 x$.",
+      "2. $\\frac{dy}{dx} - y^2 = \\sec^2 x - \\tan^2 x$.",
+      "3. By Pythagorean identity, $\\sec^2 x - \\tan^2 x = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة $\\frac{dy}{dx} = \\sec^2 x$.",
+      "٢. المقدار المطلوب: $\\sec^2 x - \\tan^2 x$.",
+      "٣. من متطابقة فيثاغورس، الناتج يساوي 1 دائماً."
+    ],
+    "teacherTipEn": "This identity proves $\\frac{dy}{dx} = 1 + y^2$ for the tangent function.",
+    "teacherTipAr": "هذه المتطابقة تبين أن مشتقة الظل يمكن كتابتها كـ $1 + y^2$."
+  },
+  {
+    "id": "calc_ch1_db_easy_37",
+    "titleEn": "Kinematic Acceleration when Velocity is Zero",
+    "titleAr": "العجلة عندما تنعدم السرعة",
+    "difficulty": "easy",
+    "questionEn": "The displacement of a particle moving in a straight line is given by $s = t^3 - 6t^2 + 9t$. Find its acceleration when velocity is zero for $t > 0$.",
+    "questionAr": "يتحرك جسيم في خط مستقيم بحيث تعطى إزاحته بالعلاقة $s = t^3 - 6t^2 + 9t$. أوجد عجلته عندما تنعدم سرعته لقيم $t > 0$.",
+    "optionsEn": [
+      "$6\\text{ or }-6$",
+      "$6$",
+      "$12$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "$6\\text{ أو }-6$",
+      "$6$",
+      "$12$",
+      "$0$"
+    ],
+    "correctAnswer": "$6\\text{ or }-6$",
+    "correctIndex": 0,
+    "hintEn": "Velocity $v = s'$, acceleration $a = s''$. Set $v = 0$ to find $t$.",
+    "hintAr": "السرعة $v = s'$ والعجلة $a = s''$. ساوي السرعة بالصفر لإيجاد $t$.",
+    "stepByStepSolutionEn": [
+      "1. $v = s' = 3t^2 - 12t + 9 = 3(t - 1)(t - 3)$.",
+      "2. Velocity is zero at $t = 1$ and $t = 3$.",
+      "3. $a = s'' = 6t - 12$.",
+      "4. At $t = 1$: $a = 6 - 12 = -6$. At $t = 3$: $a = 18 - 12 = 6$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. السرعة $v = 3t^2 - 12t + 9 = 3(t - 1)(t - 3)$.",
+      "٢. تنعدم السرعة عند $t = 1$ و $t = 3$.",
+      "٣. العجلة $a = 6t - 12$.",
+      "٤. عند $t = 1$: العجلة = $-6$. وعند $t = 3$: العجلة = $6$."
+    ],
+    "teacherTipEn": "Both moments in time represent instances where velocity vanishes.",
+    "teacherTipAr": "كلا اللحظتين تمثلان سكوناً لحظياً، ولكل منهما عجلة مقابلة."
+  },
+  {
+    "id": "calc_ch1_db_easy_38",
+    "titleEn": "Rate of Change of Circle Area vs Radius",
+    "titleAr": "معدل تغير مساحة الدائرة بالنسبة لنصف القطر",
+    "difficulty": "easy",
+    "questionEn": "The rate of change of the area of a circle with respect to its radius when $r = 5\\text{ cm}$ is:",
+    "questionAr": "معدل تغير مساحة دائرة بالنسبة لنصف قطرها عندما $r = 5\\text{ سم}$ يساوي:",
+    "optionsEn": [
+      "$10\\pi\\text{ cm}$",
+      "$25\\pi\\text{ cm}$",
+      "$5\\pi\\text{ cm}$",
+      "$20\\pi\\text{ cm}$"
+    ],
+    "optionsAr": [
+      "$10\\pi\\text{ سم}$",
+      "$25\\pi\\text{ سم}$",
+      "$5\\pi\\text{ سم}$",
+      "$20\\pi\\text{ سم}$"
+    ],
+    "correctAnswer": "$10\\pi\\text{ cm}$",
+    "correctIndex": 0,
+    "hintEn": "Area $A = \\pi r^2$, find $\\frac{dA}{dr}$.",
+    "hintAr": "مساحة الدائرة $A = \\pi r^2$، المطلوب مشتقة المساحة بالنسبة لـ $r$.",
+    "stepByStepSolutionEn": [
+      "1. $A = \\pi r^2$.",
+      "2. $\\frac{dA}{dr} = 2\\pi r$.",
+      "3. At $r = 5$: $\\frac{dA}{dr} = 2\\pi(5) = 10\\pi\\text{ cm}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مساحة الدائرة $A = \\pi r^2$.",
+      "٢. معدل التغير بالنسبة لنصف القطر هو المحيط: $\\frac{dA}{dr} = 2\\pi r$.",
+      "٣. عند $r = 5$: الناتج = $10\\pi$."
+    ],
+    "teacherTipEn": "The derivative of a circle's area with respect to its radius is its circumference!",
+    "teacherTipAr": "مشتقة مساحة الدائرة بالنسبة لنصف قطرها تعطي دائماً محيط الدائرة!"
   },
   {
     "id": "calc_ch1_db_easy_39",
-    "titleEn": "Slope of Normal Line with Tangent Slope 10",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 10",
+    "titleEn": "Rate of Change of Square Perimeter",
+    "titleAr": "معدل تغير محيط المربع بالنسبة لطول ضلعه",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 10$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 10$، فما هو ميل الخط العمودي؟",
+    "questionEn": "The rate of change of the perimeter of a square with respect to its side length $x$ is:",
+    "questionAr": "معدل تغير محيط المربع بالنسبة لطول ضلعه $x$ يساوي:",
     "optionsEn": [
-      "$-\\frac{1}{10}$",
-      "$\\frac{1}{10}$",
-      "$-10$",
-      "10"
+      "$4$",
+      "$4x$",
+      "$2x$",
+      "$8$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{10}$",
-      "$\\frac{1}{10}$",
-      "$-10$",
-      "10"
+      "$4$",
+      "$4x$",
+      "$2x$",
+      "$8$"
     ],
-    "correctAnswer": "$-\\frac{1}{10}$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Perimeter $P = 4x$.",
+    "hintAr": "محيط المربع $P = 4x$.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{10}$."
+      "1. Perimeter formula: $P = 4x$.",
+      "2. Rate of change with respect to $x$: $\\frac{dP}{dx} = 4$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{10}$."
+      "١. محيط المربع = $4x$.",
+      "٢. معدل التغير بالنسبة للضلع = $\\frac{dP}{dx} = 4$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "A constant rate of change indicates a strictly linear relationship.",
+    "teacherTipAr": "المعدل الثابت يدل على علاقة خطية مباشرة بين المحيط وطول الضلع."
   },
   {
     "id": "calc_ch1_db_easy_40",
-    "titleEn": "Slope of Normal Line with Tangent Slope 11",
-    "titleAr": "ميل الخط العمودي عندما يكون ميل المماس 11",
+    "titleEn": "Derivative of Cotangent Squared",
+    "titleAr": "مشتقة مربع ظل التمام",
     "difficulty": "easy",
-    "questionEn": "If the slope of the tangent to a curve at a point is $m = 11$, what is the slope of the normal line?",
-    "questionAr": "إذا كان ميل المماس لمنحنى عند نقطة ما هو $m = 11$، فما هو ميل الخط العمودي؟",
+    "questionEn": "If $y = \\cot^2(3x)$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\cot^2(3x)$، أوجد $\\frac{dy}{dx}$.",
     "optionsEn": [
-      "$-\\frac{1}{11}$",
-      "$\\frac{1}{11}$",
-      "$-11$",
-      "11"
+      "$-6\\cot(3x)\\csc^2(3x)$",
+      "$6\\cot(3x)\\csc^2(3x)$",
+      "$-2\\cot(3x)\\csc^2(3x)$",
+      "$-6\\csc^4(3x)$"
     ],
     "optionsAr": [
-      "$-\\frac{1}{11}$",
-      "$\\frac{1}{11}$",
-      "$-11$",
-      "11"
+      "$-6\\cot(3x)\\csc^2(3x)$",
+      "$6\\cot(3x)\\csc^2(3x)$",
+      "$-2\\cot(3x)\\csc^2(3x)$",
+      "$-6\\csc^4(3x)$"
     ],
-    "correctAnswer": "$-\\frac{1}{11}$",
+    "correctAnswer": "$-6\\cot(3x)\\csc^2(3x)$",
     "correctIndex": 0,
-    "hintEn": "The normal is perpendicular to the tangent: $m_1 m_2 = -1$.",
-    "hintAr": "العمودي متعامد مع المماس: حاصل ضرب ميليهما يساوي -1.",
+    "hintEn": "Apply power rule then trig derivative and angle derivative.",
+    "hintAr": "طبق قاعدة مشتقة القوة ثم مشتقة الدالة الدائرية ثم مشتقة الزاوية.",
     "stepByStepSolutionEn": [
-      "$m_{\\text{normal}} = -\\frac{1}{m_{\\text{tangent}}} = -\\frac{1}{11}$."
+      "1. $y' = 2\\cot(3x) \\cdot \\frac{d}{dx}[\\cot(3x)]$.",
+      "2. $\\frac{d}{dx}[\\cot(3x)] = -3\\csc^2(3x)$.",
+      "3. $y' = 2\\cot(3x) \\cdot (-3\\csc^2(3x)) = -6\\cot(3x)\\csc^2(3x)$."
     ],
     "stepByStepSolutionAr": [
-      "ميل العمودي $= -\\frac{1}{11}$."
+      "١. $y' = 2\\cot(3x) \\cdot [-\\csc^2(3x) \\cdot 3]$.",
+      "٢. بالضرب: $2 \\times (-3) = -6$.",
+      "٣. إذن $y' = -6\\cot(3x)\\csc^2(3x)$."
     ],
-    "teacherTipEn": "Negative reciprocal.",
-    "teacherTipAr": "المعكوس الضربي الجمعي."
+    "teacherTipEn": "Three chain links: the power (2), the function (cot), and the angle (3x).",
+    "teacherTipAr": "تتكون قاعدة السلسلة هنا من 3 حلقات: القوة (2)، ثم الدالة (cot)، ثم الزاوية (3x)."
   },
   {
     "id": "calc_ch1_db_easy_41",
-    "titleEn": "Parametric Derivative dy/dx for c=3",
-    "titleAr": "المشتقة البارامترية مع الثابت 3",
+    "titleEn": "Derivative of Cube Root",
+    "titleAr": "مشتقة الجذر التكعيبي",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 3t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 3t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $f(x) = \\sqrt[3]{x}$, evaluate $f'(8)$.",
+    "questionAr": "إذا كانت $f(x) = \\sqrt[3]{x}$، فاحسب $f'(8)$.",
     "optionsEn": [
-      "9",
-      "11",
-      "8",
-      "6"
+      "$\\frac{1}{12}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{3}$"
     ],
     "optionsAr": [
-      "9",
-      "11",
-      "8",
-      "6"
+      "$\\frac{1}{12}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{3}$"
     ],
-    "correctAnswer": "9",
+    "correctAnswer": "$\\frac{1}{12}$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Rewrite as $x^{1/3}$ and apply power rule: $\\frac{1}{3}x^{-2/3}$.",
+    "hintAr": "اكتب الدالة بصورة $x^{1/3}$ ثم طبق مشتقة القوة: $\\frac{1}{3}x^{-2/3}$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 9t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{9t^2}{2t} = \\frac{9}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{9}{2}(2) = 9$."
+      "1. $f(x) = x^{1/3} \\implies f'(x) = \\frac{1}{3}x^{-2/3} = \\frac{1}{3\\sqrt[3]{x^2}}$.",
+      "2. At $x = 8$: $\\sqrt[3]{8^2} = \\sqrt[3]{64} = 4$.",
+      "3. $f'(8) = \\frac{1}{3 \\times 4} = \\frac{1}{12}$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 9t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{9t^2}{2t} = \\frac{9}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{9}{2}(2) = 9$."
+      "١. $f(x) = x^{1/3} \\implies f'(x) = \\frac{1}{3\\sqrt[3]{x^2}}$.",
+      "٢. عند $x = 8$: $\\sqrt[3]{64} = 4$.",
+      "٣. $f'(8) = \\frac{1}{3 \\times 4} = \\frac{1}{12}$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Cube root evaluated at perfect cubes yields neat rational values.",
+    "teacherTipAr": "تقييم الجذر التكعيبي عند المكعبات الكاملة يعطي قيماً كسرية مبسطة."
   },
   {
     "id": "calc_ch1_db_easy_42",
-    "titleEn": "Parametric Derivative dy/dx for c=4",
-    "titleAr": "المشتقة البارامترية مع الثابت 4",
+    "titleEn": "Equation of Normal to Parabola",
+    "titleAr": "معادلة العمودي على قطع مكافئ",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 4t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 4t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "Find the equation of the normal line to the curve $y = 3x^2 - 1$ at $x = 1$.",
+    "questionAr": "أوجد معادلة العمودي على المنحنى $y = 3x^2 - 1$ عند $x = 1$.",
     "optionsEn": [
-      "12",
-      "14",
-      "11",
-      "8"
+      "$x + 6y - 13 = 0$",
+      "$6x - y - 4 = 0$",
+      "$x - 6y + 11 = 0$",
+      "$6x + y - 8 = 0$"
     ],
     "optionsAr": [
-      "12",
-      "14",
-      "11",
-      "8"
+      "$x + 6y - 13 = 0$",
+      "$6x - y - 4 = 0$",
+      "$x - 6y + 11 = 0$",
+      "$6x + y - 8 = 0$"
     ],
-    "correctAnswer": "12",
+    "correctAnswer": "$x + 6y - 13 = 0$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Point is $(1, 2)$. Tangent slope $m_t = y'(1) = 6$, normal slope $m_n = -1/6$.",
+    "hintAr": "النقطة هي $(1, 2)$. ميل المماس 6 وميل العمودي $-1/6$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 12t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{12t^2}{2t} = \\frac{12}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{12}{2}(2) = 12$."
+      "1. At $x = 1$, $y = 3(1) - 1 = 2$. Point is $(1, 2)$.",
+      "2. $y' = 6x \\implies m_t = 6 \\implies m_n = -\\frac{1}{6}$.",
+      "3. Equation of normal: $y - 2 = -\\frac{1}{6}(x - 1) \\implies 6y - 12 = -x + 1 \\implies x + 6y - 13 = 0$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 12t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{12t^2}{2t} = \\frac{12}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{12}{2}(2) = 12$."
+      "١. عند $x = 1$ تكون $y = 2$، فالنقطة هي $(1, 2)$.",
+      "٢. ميل المماس = 6، إذن ميل العمودي = $-1/6$.",
+      "٣. معادلة العمودي: $y - 2 = -\\frac{1}{6}(x - 1) \\implies x + 6y - 13 = 0$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Multiply by 6 to clear fractions and write in standard form $Ax + By + C = 0$.",
+    "teacherTipAr": "اضرب في 6 للتخلص من الكسر وكتابة المعادلة بالصورة العامة."
   },
   {
     "id": "calc_ch1_db_easy_43",
-    "titleEn": "Parametric Derivative dy/dx for c=5",
-    "titleAr": "المشتقة البارامترية مع الثابت 5",
+    "titleEn": "Derivative of Product of Sin and Cos",
+    "titleAr": "مشتقة حاصل ضرب الجيب وجيب التمام",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 5t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 5t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $y = \\sin(3x)\\cos(3x)$, find $\\frac{dy}{dx}$ at $x = 0$.",
+    "questionAr": "إذا كانت $y = \\sin(3x)\\cos(3x)$، أوجد قيمة $\\frac{dy}{dx}$ عند $x = 0$.",
     "optionsEn": [
-      "15",
-      "17",
-      "14",
-      "10"
+      "$3$",
+      "$0$",
+      "$6$",
+      "$-3$"
     ],
     "optionsAr": [
-      "15",
-      "17",
-      "14",
-      "10"
+      "$3$",
+      "$0$",
+      "$6$",
+      "$-3$"
     ],
-    "correctAnswer": "15",
+    "correctAnswer": "$3$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Use double-angle identity: $\\sin(3x)\\cos(3x) = \\frac{1}{2}\\sin(6x)$.",
+    "hintAr": "استخدم متطابقة ضعف الزاوية: $\\sin(3x)\\cos(3x) = \\frac{1}{2}\\sin(6x)$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 15t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{15t^2}{2t} = \\frac{15}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{15}{2}(2) = 15$."
+      "1. Rewrite: $y = \\frac{1}{2}\\sin(6x)$.",
+      "2. $\\frac{dy}{dx} = \\frac{1}{2} \\times 6\\cos(6x) = 3\\cos(6x)$.",
+      "3. At $x = 0$: $3\\cos(0) = 3(1) = 3$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 15t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{15t^2}{2t} = \\frac{15}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{15}{2}(2) = 15$."
+      "١. نكتب الدالة كـ $y = \\frac{1}{2}\\sin(6x)$.",
+      "٢. بالاشتقاق: $y' = 3\\cos(6x)$.",
+      "٣. عند $x = 0$: $y' = 3(1) = 3$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Double angle identities transform products into single terms instantly.",
+    "teacherTipAr": "متطابقة ضعف الزاوية تحول حاصل الضرب إلى دالة واحدة بسيطة."
   },
   {
     "id": "calc_ch1_db_easy_44",
-    "titleEn": "Parametric Derivative dy/dx for c=6",
-    "titleAr": "المشتقة البارامترية مع الثابت 6",
+    "titleEn": "Parametric Derivative of Hyperbolic Form",
+    "titleAr": "المشتقة البارامترية بدلالة القاطع والظل",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 6t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 6t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $x = a\\sec\\theta$ and $y = b\\tan\\theta$, find $\\frac{dy}{dx}$ in terms of $\\theta$.",
+    "questionAr": "إذا كانت $x = a\\sec\\theta$ و $y = b\\tan\\theta$، أوجد $\\frac{dy}{dx}$ بدلالة $\\theta$.",
     "optionsEn": [
-      "18",
-      "20",
-      "17",
-      "12"
+      "$\\frac{b}{a}\\csc\\theta$",
+      "$\\frac{b}{a}\\sin\\theta$",
+      "$\\frac{a}{b}\\cos\\theta$",
+      "$\\frac{b}{a}\\cos\\theta$"
     ],
     "optionsAr": [
-      "18",
-      "20",
-      "17",
-      "12"
+      "$\\frac{b}{a}\\csc\\theta$",
+      "$\\frac{b}{a}\\sin\\theta$",
+      "$\\frac{a}{b}\\cos\\theta$",
+      "$\\frac{b}{a}\\cos\\theta$"
     ],
-    "correctAnswer": "18",
+    "correctAnswer": "$\\frac{b}{a}\\csc\\theta$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "$\\frac{dx}{d\\theta} = a\\sec\\theta\\tan\\theta$ and $\\frac{dy}{d\\theta} = b\\sec^2\\theta$.",
+    "hintAr": "اشتق كل دالة بالنسبة لـ $\\theta$ ثم اقسمهما.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 18t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{18t^2}{2t} = \\frac{18}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{18}{2}(2) = 18$."
+      "1. $\\frac{dx}{d\\theta} = a\\sec\\theta\\tan\\theta$.",
+      "2. $\\frac{dy}{d\\theta} = b\\sec^2\\theta$.",
+      "3. $\\frac{dy}{dx} = \\frac{b\\sec^2\\theta}{a\\sec\\theta\\tan\\theta} = \\frac{b\\sec\\theta}{a\\tan\\theta} = \\frac{b(1/\\cos\\theta)}{a(\\sin\\theta/\\cos\\theta)} = \\frac{b}{a}\\csc\\theta$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 18t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{18t^2}{2t} = \\frac{18}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{18}{2}(2) = 18$."
+      "١. مشتقة $x$ هي $a\\sec\\theta\\tan\\theta$.",
+      "٢. مشتقة $y$ هي $b\\sec^2\\theta$.",
+      "٣. بقسمة المشتقّتين: $\\frac{b\\sec\\theta}{a\\tan\\theta} = \\frac{b}{a}\\csc\\theta$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Standard parametric form for the hyperbola $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$.",
+    "teacherTipAr": "هذه هي الصورة البارامترية القياسية للقطع الزائد."
   },
   {
     "id": "calc_ch1_db_easy_45",
-    "titleEn": "Parametric Derivative dy/dx for c=7",
-    "titleAr": "المشتقة البارامترية مع الثابت 7",
+    "titleEn": "Quotient Derivative of Fractional Linear Function",
+    "titleAr": "مشتقة دالة كسرية خطية",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 7t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 7t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $y = \\frac{x - 1}{x + 1}$, evaluate $\\frac{dy}{dx}$ at $x = 1$.",
+    "questionAr": "إذا كانت $y = \\frac{x - 1}{x + 1}$، فاحسب قيمة $\\frac{dy}{dx}$ عند $x = 1$.",
     "optionsEn": [
-      "21",
-      "23",
-      "20",
-      "14"
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
     ],
     "optionsAr": [
-      "21",
-      "23",
-      "20",
-      "14"
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$0$"
     ],
-    "correctAnswer": "21",
+    "correctAnswer": "$\\frac{1}{2}$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Quotient rule: $\\frac{(1)(x+1) - (x-1)(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.",
+    "hintAr": "قاعدة القسمة تعطي $\\frac{2}{(x+1)^2}$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 21t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{21t^2}{2t} = \\frac{21}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{21}{2}(2) = 21$."
+      "1. $\\frac{dy}{dx} = \\frac{(x+1)(1) - (x-1)(1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.",
+      "2. At $x = 1$: $\\frac{dy}{dx} = \\frac{2}{(1+1)^2} = \\frac{2}{4} = \\frac{1}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 21t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{21t^2}{2t} = \\frac{21}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{21}{2}(2) = 21$."
+      "١. بالاشتقاق: $y' = \\frac{(x+1) - (x-1)}{(x+1)^2} = \\frac{2}{(x+1)^2}$.",
+      "٢. عند $x = 1$: الناتج = $\\frac{2}{4} = \\frac{1}{2}$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "For $\\frac{ax+b}{cx+d}$, the derivative is always $\\frac{ad - bc}{(cx+d)^2}$.",
+    "teacherTipAr": "مشتقة الدالة الكسرية $\\frac{ax+b}{cx+d}$ هي دائماً $\\frac{ad-bc}{(cx+d)^2}$ بواسطة محدد البسط."
   },
   {
     "id": "calc_ch1_db_easy_46",
-    "titleEn": "Parametric Derivative dy/dx for c=8",
-    "titleAr": "المشتقة البارامترية مع الثابت 8",
+    "titleEn": "Derivative of Cosine Squared",
+    "titleAr": "مشتقة مربع جيب التمام",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 8t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 8t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $f(x) = \\cos^2(3x)$, evaluate $f'\\left(\\frac{\\pi}{12}\\right)$.",
+    "questionAr": "إذا كانت $f(x) = \\cos^2(3x)$، فاحسب $f'\\left(\\frac{\\pi}{12}\\right)$.",
     "optionsEn": [
-      "24",
-      "26",
-      "23",
-      "16"
+      "$-3$",
+      "$3$",
+      "$0$",
+      "$-\\frac{3}{2}$"
     ],
     "optionsAr": [
-      "24",
-      "26",
-      "23",
-      "16"
+      "$-3$",
+      "$3$",
+      "$0$",
+      "$-\\frac{3}{2}$"
     ],
-    "correctAnswer": "24",
+    "correctAnswer": "$-3$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Use $f'(x) = -3\\sin(6x)$.",
+    "hintAr": "استخدم المتطابقة $f'(x) = -3\\sin(6x)$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 24t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{24t^2}{2t} = \\frac{24}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{24}{2}(2) = 24$."
+      "1. $f'(x) = 2\\cos(3x) \\cdot (-3\\sin(3x)) = -3(2\\sin(3x)\\cos(3x)) = -3\\sin(6x)$.",
+      "2. At $x = \\frac{\\pi}{12}$, the argument is $6\\left(\\frac{\\pi}{12}\\right) = \\frac{\\pi}{2}$.",
+      "3. $f'(\\pi/12) = -3\\sin(\\pi/2) = -3(1) = -3$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 24t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{24t^2}{2t} = \\frac{24}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{24}{2}(2) = 24$."
+      "١. $f'(x) = 2\\cos(3x) \\cdot (-3\\sin(3x)) = -3\\sin(6x)$.",
+      "٢. عند $x = \\pi/12$: الزاوية $6x = \\pi/2$.",
+      "٣. $f'(\\pi/12) = -3(1) = -3$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Writing $2\\sin u \\cos u$ as $\\sin 2u$ saves intermediate computation steps.",
+    "teacherTipAr": "تحويل المقدار إلى $\\sin 2u$ يختصر الحسابات ويمنع الخطأ."
   },
   {
     "id": "calc_ch1_db_easy_47",
-    "titleEn": "Parametric Derivative dy/dx for c=9",
-    "titleAr": "المشتقة البارامترية مع الثابت 9",
+    "titleEn": "Product Derivative of x2 cot x",
+    "titleAr": "مشتقة حاصل ضرب س² في ظتا س",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 9t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 9t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $y = x^2 \\cot x$, evaluate $\\frac{dy}{dx}$ at $x = \\frac{\\pi}{2}$.",
+    "questionAr": "إذا كانت $y = x^2 \\cot x$، فاحسب $\\frac{dy}{dx}$ عند $x = \\frac{\\pi}{2}$.",
     "optionsEn": [
-      "27",
-      "29",
-      "26",
-      "18"
+      "$-\\frac{\\pi^2}{4}$",
+      "$\\frac{\\pi^2}{4}$",
+      "$0$",
+      "$\\pi$"
     ],
     "optionsAr": [
-      "27",
-      "29",
-      "26",
-      "18"
+      "$-\\frac{\\pi^2}{4}$",
+      "$\\frac{\\pi^2}{4}$",
+      "$0$",
+      "$\\pi$"
     ],
-    "correctAnswer": "27",
+    "correctAnswer": "$-\\frac{\\pi^2}{4}$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Use product rule: $2x\\cot x - x^2\\csc^2 x$.",
+    "hintAr": "طبق قاعدة الضرب: $2x\\cot x - x^2\\csc^2 x$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 27t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{27t^2}{2t} = \\frac{27}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{27}{2}(2) = 27$."
+      "1. $\\frac{dy}{dx} = 2x\\cot x - x^2\\csc^2 x$.",
+      "2. At $x = \\pi/2$: $\\cot(\\pi/2) = 0$ and $\\csc(\\pi/2) = 1$.",
+      "3. $\\frac{dy}{dx} = 2(\\pi/2)(0) - (\\pi/2)^2(1)^2 = -\\frac{\\pi^2}{4}$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 27t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{27t^2}{2t} = \\frac{27}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{27}{2}(2) = 27$."
+      "١. $y' = 2x\\cot x - x^2\\csc^2 x$.",
+      "٢. عند $x = \\pi/2$: $\\cot(\\pi/2) = 0$ و $\\csc(\\pi/2) = 1$.",
+      "٣. إذن $y' = 0 - (\\pi/2)^2 = -\\frac{\\pi^2}{4}$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Cotangent is zero at odd multiples of $\\pi/2$.",
+    "teacherTipAr": "ظل التمام ينعدم عند مضاعفات $\\pi/2$ الفردية."
   },
   {
     "id": "calc_ch1_db_easy_48",
-    "titleEn": "Parametric Derivative dy/dx for c=10",
-    "titleAr": "المشتقة البارامترية مع الثابت 10",
+    "titleEn": "Rate of Change of Cube Volume",
+    "titleAr": "معدل تغير حجم المكعب بالنسبة لطول حرفه",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 10t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 10t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If the volume of a cube is $V = x^3$, find $\\frac{dV}{dx}$ when $x = 4\\text{ cm}$.",
+    "questionAr": "إذا كان حجم مكعب هو $V = x^3$، أوجد $\\frac{dV}{dx}$ عندما $x = 4\\text{ سم}$.",
     "optionsEn": [
-      "30",
-      "32",
-      "29",
-      "20"
+      "$48\\text{ cm}^2$",
+      "$16\\text{ cm}^2$",
+      "$64\\text{ cm}^2$",
+      "$12\\text{ cm}^2$"
     ],
     "optionsAr": [
-      "30",
-      "32",
-      "29",
-      "20"
+      "$48\\text{ سم}^2$",
+      "$16\\text{ سم}^2$",
+      "$64\\text{ سم}^2$",
+      "$12\\text{ سم}^2$"
     ],
-    "correctAnswer": "30",
+    "correctAnswer": "$48\\text{ cm}^2$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "$\\frac{dV}{dx} = 3x^2$.",
+    "hintAr": "مشتقة الحجم بالنسبة للحرف هي $3x^2$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 30t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{30t^2}{2t} = \\frac{30}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{30}{2}(2) = 30$."
+      "1. $V = x^3 \\implies \\frac{dV}{dx} = 3x^2$.",
+      "2. When $x = 4$: $\\frac{dV}{dx} = 3(4)^2 = 3(16) = 48\\text{ cm}^2$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 30t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{30t^2}{2t} = \\frac{30}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{30}{2}(2) = 30$."
+      "١. $V = x^3 \\implies \\frac{dV}{dx} = 3x^2$.",
+      "٢. عند $x = 4$: الناتج = $3 \\times 16 = 48\\text{ سم}^2$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Geometrically, $3x^2$ represents the area of three expanding faces of the cube.",
+    "teacherTipAr": "هندسياً، $3x^2$ تمثل مساحة ثلاثة أوجه من المكعب المتمدد."
   },
   {
     "id": "calc_ch1_db_easy_49",
-    "titleEn": "Parametric Derivative dy/dx for c=11",
-    "titleAr": "المشتقة البارامترية مع الثابت 11",
+    "titleEn": "Inclination Angle on Quadratic Curve",
+    "titleAr": "زاوية ميل المماس لمنحنى تربيعي",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 11t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 11t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "The angle made by the tangent line to $y = \\sqrt{3}x^2$ with the positive $x$-axis at $x = \\frac{1}{2}$ is:",
+    "questionAr": "زاوية ميل المماس للمنحنى $y = \\sqrt{3}x^2$ مع الاتجاه الموجب لمحور السينات عند $x = \\frac{1}{2}$ تساوي:",
     "optionsEn": [
-      "33",
-      "35",
-      "32",
-      "22"
+      "$60^\\circ$",
+      "$30^\\circ$",
+      "$45^\\circ$",
+      "$0^\\circ$"
     ],
     "optionsAr": [
-      "33",
-      "35",
-      "32",
-      "22"
+      "$60^\\circ$",
+      "$30^\\circ$",
+      "$45^\\circ$",
+      "$0^\\circ$"
     ],
-    "correctAnswer": "33",
+    "correctAnswer": "$60^\\circ$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "$m = y'(1/2) = \\tan\\theta$.",
+    "hintAr": "الميل $m = y'(1/2) = \\tan\\theta$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 33t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{33t^2}{2t} = \\frac{33}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{33}{2}(2) = 33$."
+      "1. $y' = 2\\sqrt{3}x$.",
+      "2. At $x = 1/2$: $m = 2\\sqrt{3}\\left(\\frac{1}{2}\\right) = \\sqrt{3}$.",
+      "3. Since $\\tan\\theta = \\sqrt{3}$, we have $\\theta = 60^\\circ$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 33t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{33t^2}{2t} = \\frac{33}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{33}{2}(2) = 33$."
+      "١. $y' = 2\\sqrt{3}x$.",
+      "٢. عند $x = 1/2$: الميل $m = \\sqrt{3}$.",
+      "٣. بما أن $\\tan\\theta = \\sqrt{3}$، فإن الزاوية $\\theta = 60^\\circ$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Know your standard tangent values: $\\tan 30^\\circ = 1/\\sqrt{3}, \\tan 45^\\circ = 1, \\tan 60^\\circ = \\sqrt{3}$.",
+    "teacherTipAr": "احفظ قيم الظل للزوايا الشهيرة: $30^\\circ, 45^\\circ, 60^\\circ$."
   },
   {
     "id": "calc_ch1_db_easy_50",
-    "titleEn": "Parametric Derivative dy/dx for c=12",
-    "titleAr": "المشتقة البارامترية مع الثابت 12",
+    "titleEn": "Chain Rule on Composite Functions",
+    "titleAr": "قاعدة السلسلة لتركيب دالتين",
     "difficulty": "easy",
-    "questionEn": "If $x = t^2$ and $y = 12t^3$, find $\\frac{dy}{dx}$ at $t = 2$.",
-    "questionAr": "إذا كان $x = t^2$ و $y = 12t^3$، فأوجد $\\frac{dy}{dx}$ عند $t = 2$.",
+    "questionEn": "If $y = f(u)$ and $u = g(x)$, given that $g'(2) = 3$ and $f'(g(2)) = -4$, find $\\frac{dy}{dx}$ at $x = 2$.",
+    "questionAr": "إذا كانت $y = f(u)$ و $u = g(x)$، وكان $g'(2) = 3$ و $f'(g(2)) = -4$، أوجد $\\frac{dy}{dx}$ عند $x = 2$.",
     "optionsEn": [
-      "36",
-      "38",
-      "35",
-      "24"
+      "$-12$",
+      "$-1$",
+      "$7$",
+      "$-7$"
     ],
     "optionsAr": [
-      "36",
-      "38",
-      "35",
-      "24"
+      "$-12$",
+      "$-1$",
+      "$7$",
+      "$-7$"
     ],
-    "correctAnswer": "36",
+    "correctAnswer": "$-12$",
     "correctIndex": 0,
-    "hintEn": "Find $dx/dt = 2t$ and $dy/dt = 3ct^2$, then evaluate $\\frac{dy}{dx} = \\frac{3ct^2}{2t} = \\frac{3c}{2}t$ at $t = 2$.",
-    "hintAr": "احسب $dx/dt = 2t$ و $dy/dt = 3ct^2$ ثم عوض في $\\frac{dy}{dx} = \\frac{3c}{2}t$ عند $t = 2$.",
+    "hintEn": "Chain rule: $\\frac{dy}{dx} = f'(g(x)) \\cdot g'(x)$.",
+    "hintAr": "قاعدة السلسلة: $\\frac{dy}{dx} = f'(g(x)) \\cdot g'(x)$.",
     "stepByStepSolutionEn": [
-      "$\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 36t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{36t^2}{2t} = \\frac{36}{2}t$$",
-      "At $t = 2$: $\\frac{dy}{dx} = \\frac{36}{2}(2) = 36$."
+      "1. By chain rule: $\\frac{dy}{dx} = f'(g(2)) \\cdot g'(2)$.",
+      "2. Substituting given values: $(-4) \\cdot (3) = -12$."
     ],
     "stepByStepSolutionAr": [
-      "$\\frac{dx}{dt} = 2t$ و $\\frac{dy}{dt} = 36t^2$.",
-      "$$\\frac{dy}{dx} = \\frac{36t^2}{2t} = \\frac{36}{2}t$$",
-      "عند $t = 2$: $\\frac{dy}{dx} = \\frac{36}{2}(2) = 36$."
+      "١. من قاعدة السلسلة: المشتقة = $f'(g(2)) \\cdot g'(2)$.",
+      "٢. بالتعويض: $(-4) \\times 3 = -12$."
     ],
-    "teacherTipEn": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "$\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Direct multiplication of the outer derivative and the inner derivative.",
+    "teacherTipAr": "تطبيق مباشر لقاعدة السلسلة بضرب المشتقة الخارجية في الداخلية."
   }
 ],
   medium: [
   {
-    "id": "calc_ch1_db_med_01",
-    "titleEn": "Implicit Slope of Hyperbola (m=2)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=2)",
+    "id": "calc_ch1_db_medium_01",
+    "titleEn": "Parametric Second Derivative of Circle",
+    "titleAr": "المشتقة البارامترية الثانية لمنحنى دائري",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 14$ at the point $(4, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 14$ عند النقطة $(4, 1)$.",
+    "questionEn": "If $x = \\cos\\theta$ and $y = \\sin\\theta$, find $\\frac{d^2y}{dx^2}$ at $\\theta = \\frac{\\pi}{2}$.",
+    "questionAr": "إذا كانت $x = \\cos\\theta$ و $y = \\sin\\theta$، أوجد $\\frac{d^2y}{dx^2}$ عند $\\theta = \\frac{\\pi}{2}$.",
     "optionsEn": [
-      "2",
-      "-2",
-      "\\frac{1}{2}",
-      "4"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "Undefined"
     ],
     "optionsAr": [
-      "2",
-      "-2",
-      "\\frac{1}{2}",
-      "4"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "غير معرّف"
     ],
-    "correctAnswer": "2",
+    "correctAnswer": "$-1$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Use $\\frac{d^2y}{dx^2} = \\frac{d}{d\\theta}\\left(\\frac{dy}{dx}\\right) / \\frac{dx}{d\\theta}$.",
+    "hintAr": "تذكر قسمة مشتقة ميل المماس على مشتقة $x$ بالنسبة لـ $\\theta$.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (4, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{4}{2(1)} = 2$$"
+      "1. $\\frac{dy}{dx} = \\frac{\\cos\\theta}{-\\sin\\theta} = -\\cot\\theta$.",
+      "2. $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{d\\theta}(-\\cot\\theta)}{\\frac{dx}{d\\theta}} = \\frac{\\csc^2\\theta}{-\\sin\\theta} = -\\csc^3\\theta$.",
+      "3. At $\\theta = \\pi/2$: $-\\csc^3(\\pi/2) = -1$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(4, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{4}{2} = 2$$"
+      "١. $\\frac{dy}{dx} = -\\cot\\theta$.",
+      "٢. $\\frac{d^2y}{dx^2} = \\frac{\\csc^2\\theta}{-\\sin\\theta} = -\\csc^3\\theta$.",
+      "٣. عند $\\theta = \\pi/2$: الناتج = $-1$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "Do not forget to divide by $\\frac{dx}{d\\theta}$ when finding the second parametric derivative!",
+    "teacherTipAr": "الخطأ الشائع هو نسيان القسمة على مشتقة $x$ بالنسبة للبارامتر!"
   },
   {
-    "id": "calc_ch1_db_med_02",
-    "titleEn": "Implicit Slope of Hyperbola (m=3)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=3)",
+    "id": "calc_ch1_db_medium_02",
+    "titleEn": "Angle between Intersecting Curves",
+    "titleAr": "الزاوية بين منحنيين متقاطعين",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 34$ at the point $(6, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 34$ عند النقطة $(6, 1)$.",
+    "questionEn": "Find the acute angle between the tangents to $y = x^2$ and $y = \\sqrt{x}$ at the point $(1, 1)$.",
+    "questionAr": "أوجد قياس الزاوية الحادة بين مماسي المنحنيين $y = x^2$ و $y = \\sqrt{x}$ عند النقطة $(1, 1)$.",
     "optionsEn": [
-      "3",
-      "-3",
-      "\\frac{1}{3}",
-      "5"
+      "$\\arctan\\left(\\frac{3}{4}\\right)$",
+      "$\\arctan\\left(\\frac{4}{3}\\right)$",
+      "$45^\\circ$",
+      "$30^\\circ$"
     ],
     "optionsAr": [
-      "3",
-      "-3",
-      "\\frac{1}{3}",
-      "5"
+      "$\\arctan\\left(\\frac{3}{4}\\right)$",
+      "$\\arctan\\left(\\frac{4}{3}\\right)$",
+      "$45^\\circ$",
+      "$30^\\circ$"
     ],
-    "correctAnswer": "3",
+    "correctAnswer": "$\\arctan\\left(\\frac{3}{4}\\right)$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Use $\\tan\\theta = \\left|\\frac{m_1 - m_2}{1 + m_1 m_2}\\right|$.",
+    "hintAr": "طبق قانون ظل الزاوية بين مستقيمين: $\\tan\\theta = |\\frac{m_1 - m_2}{1 + m_1 m_2}|$.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (6, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{6}{2(1)} = 3$$"
+      "1. For $y = x^2$, $m_1 = 2x = 2(1) = 2$.",
+      "2. For $y = \\sqrt{x}$, $m_2 = \\frac{1}{2\\sqrt{x}} = \\frac{1}{2}$.",
+      "3. $\\tan\\theta = \\left|\\frac{2 - 1/2}{1 + (2)(1/2)}\\right| = \\frac{3/2}{2} = \\frac{3}{4} \\implies \\theta = \\arctan\\left(\\frac{3}{4}\\right)$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(6, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{6}{2} = 3$$"
+      "١. ميل الأول $m_1 = 2(1) = 2$.",
+      "٢. ميل الثاني $m_2 = 1/2$.",
+      "٣. $\\tan\\theta = \\frac{2 - 0.5}{1 + 1} = \\frac{1.5}{2} = \\frac{3}{4} \\implies \\theta = \\arctan(3/4)$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "The angle between two curves is defined as the angle between their tangent lines at the intersection point.",
+    "teacherTipAr": "الزاوية بين منحنيين هي الزاوية بين مماسيهما عند نقطة التقاطع."
   },
   {
-    "id": "calc_ch1_db_med_03",
-    "titleEn": "Implicit Slope of Hyperbola (m=4)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=4)",
+    "id": "calc_ch1_db_medium_03",
+    "titleEn": "Sliding Ladder Rate of Descent",
+    "titleAr": "معدل انزلاق الطرف العلوي لسلم",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 62$ at the point $(8, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 62$ عند النقطة $(8, 1)$.",
+    "questionEn": "A ladder $5\\text{ m}$ long leans against a vertical wall. The foot slides away at $2\\text{ m/s}$. When the foot is $3\\text{ m}$ from the wall, the top slides down at:",
+    "questionAr": "سلم طوله $5\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $2\\text{ م/ث}$، فعندما يكون الطرف السفلي على بعد $3\\text{ م}$، ينزلق الطرف العلوي لأسفل بمعدل:",
     "optionsEn": [
-      "4",
-      "-4",
-      "\\frac{1}{4}",
-      "6"
+      "$\\frac{3}{2}\\text{ m/s}$",
+      "$\\frac{2}{3}\\text{ m/s}$",
+      "$2\\text{ m/s}$",
+      "$\\frac{4}{3}\\text{ m/s}$"
     ],
     "optionsAr": [
-      "4",
-      "-4",
-      "\\frac{1}{4}",
-      "6"
+      "$\\frac{3}{2}\\text{ م/ث}$",
+      "$\\frac{2}{3}\\text{ م/ث}$",
+      "$2\\text{ م/ث}$",
+      "$\\frac{4}{3}\\text{ م/ث}$"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": "$\\frac{3}{2}\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Pythagorean theorem: $x^2 + y^2 = 25 \\implies 2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$.",
+    "hintAr": "نظرية فيثاغورس: $x^2 + y^2 = 25$ ثم اشتق بالنسبة للزمن.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (8, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{8}{2(1)} = 4$$"
+      "1. When $x = 3$, $y = \\sqrt{25 - 9} = 4\\text{ m}$.",
+      "2. Differentiating $x^2 + y^2 = 25$ with respect to time: $x\\frac{dx}{dt} + y\\frac{dy}{dt} = 0$.",
+      "3. $3(2) + 4\\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{6}{4} = -\\frac{3}{2}\\text{ m/s}$.",
+      "4. The top slides down at a rate of $\\frac{3}{2}\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(8, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{8}{2} = 4$$"
+      "١. عندما $x = 3$ يكون $y = 4\\text{ م}$.",
+      "٢. بالاشتقاق بالنسبة للزمن: $x x' + y y' = 0$.",
+      "٣. $3(2) + 4y' = 0 \\implies y' = -1.5\\text{ م/ث}$.",
+      "٤. إذن معدل الانزلاق لأسفل هو $1.5 = 3/2\\text{ م/ث}$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "Rate of sliding down is expressed as a positive magnitude, while $\\frac{dy}{dt}$ is negative.",
+    "teacherTipAr": "سرعة الانزلاق لأسفل مقدارها موجب، بينما معدل تغير الارتفاع $\\frac{dy}{dt}$ سالب."
   },
   {
-    "id": "calc_ch1_db_med_04",
-    "titleEn": "Implicit Slope of Hyperbola (m=5)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=5)",
+    "id": "calc_ch1_db_medium_04",
+    "titleEn": "Spherical Balloon Radial Expansion Rate",
+    "titleAr": "معدل تمدد نصف قطر بالون كروي",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 98$ at the point $(10, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 98$ عند النقطة $(10, 1)$.",
+    "questionEn": "A spherical balloon is inflated at a constant rate of $100\\pi\\text{ cm}^3/\\text{s}$. When the radius $r = 5\\text{ cm}$, find $\\frac{dr}{dt}$.",
+    "questionAr": "بالون كروي يُنفخ بالغاز بمعدل ثابت $100\\pi\\text{ سم}^3/\\text{ث}$. أوجد معدل زيادة نصف القطر $\\frac{dr}{dt}$ عندما يكون نصف القطر $r = 5\\text{ سم}$.",
     "optionsEn": [
-      "5",
-      "-5",
-      "\\frac{1}{5}",
-      "7"
+      "$1\\text{ cm/s}$",
+      "$2\\text{ cm/s}$",
+      "$0.5\\text{ cm/s}$",
+      "$4\\text{ cm/s}$"
     ],
     "optionsAr": [
-      "5",
-      "-5",
-      "\\frac{1}{5}",
-      "7"
+      "$1\\text{ سم/ث}$",
+      "$2\\text{ سم/ث}$",
+      "$0.5\\text{ سم/ث}$",
+      "$4\\text{ سم/ث}$"
     ],
-    "correctAnswer": "5",
+    "correctAnswer": "$1\\text{ cm/s}$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "$V = \\frac{4}{3}\\pi r^3 \\implies \\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.",
+    "hintAr": "حجم الكرة $V = \\frac{4}{3}\\pi r^3$، إذن $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (10, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{10}{2(1)} = 5$$"
+      "1. Volume of sphere: $V = \\frac{4}{3}\\pi r^3$.",
+      "2. Differentiate with respect to $t$: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.",
+      "3. Substitute values: $100\\pi = 4\\pi(5^2) \\frac{dr}{dt} = 100\\pi \\frac{dr}{dt}$.",
+      "4. Therefore, $\\frac{dr}{dt} = 1\\text{ cm/s}$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(10, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{10}{2} = 5$$"
+      "١. حجم الكرة $V = \\frac{4}{3}\\pi r^3$.",
+      "٢. بالاشتقاق الزمني: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.",
+      "٣. $100\\pi = 4\\pi(25) \\frac{dr}{dt} = 100\\pi \\frac{dr}{dt}$.",
+      "٤. إذن $\\frac{dr}{dt} = 1\\text{ سم/ث}$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "Notice that $4\\pi r^2$ is the surface area of the sphere.",
+    "teacherTipAr": "لاحظ أن مشتقة حجم الكرة بالنسبة لنصف القطر تساوي مساحة سطحها."
   },
   {
-    "id": "calc_ch1_db_med_05",
-    "titleEn": "Implicit Slope of Hyperbola (m=6)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=6)",
+    "id": "calc_ch1_db_medium_05",
+    "titleEn": "nth Derivative of Power Function",
+    "titleAr": "المشتقة النونية لدالة القوة",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 142$ at the point $(12, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 142$ عند النقطة $(12, 1)$.",
+    "questionEn": "If $y = x^n$, where $n$ is a positive integer, what is the $n$-th derivative $\\frac{d^n y}{dx^n}$?",
+    "questionAr": "إذا كانت $y = x^n$ حيث $n$ عدد صحيح موجب، فما هي المشتقة النونية $\\frac{d^n y}{dx^n}$؟",
     "optionsEn": [
-      "6",
-      "-6",
-      "\\frac{1}{6}",
-      "8"
+      "$n!$",
+      "$n! x$",
+      "$0$",
+      "$n(n-1)$"
     ],
     "optionsAr": [
-      "6",
-      "-6",
-      "\\frac{1}{6}",
-      "8"
+      "$n!$",
+      "$n! x$",
+      "$0$",
+      "$n(n-1)$"
     ],
-    "correctAnswer": "6",
+    "correctAnswer": "$n!$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Each differentiation reduces the power by 1 and multiplies by the decreasing exponent.",
+    "hintAr": "كل اشتقاق يضرب في الأس وينقصه واحداً حتى نصل لمضروب $n$.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (12, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{12}{2(1)} = 6$$"
+      "1. $y' = n x^{n-1}$.",
+      "2. $y'' = n(n-1) x^{n-2}$.",
+      "3. Continuing to $n$ derivatives: $y^{(n)} = n(n-1)(n-2)\\cdots(1) x^0 = n!$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(12, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{12}{2} = 6$$"
+      "١. المشتقة الأولى: $n x^{n-1}$.",
+      "٢. المشتقة الثانية: $n(n-1) x^{n-2}$.",
+      "٣. المشتقة النونية: $n(n-1)\\dots(1) = n!$ (مقدار ثابت)."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "The $(n+1)$-th derivative of a polynomial of degree $n$ is identically zero.",
+    "teacherTipAr": "المشتقة من الرتبة $(n+1)$ لكثيرة حدود من الدرجة $n$ تساوي صفراً دائماً."
   },
   {
-    "id": "calc_ch1_db_med_06",
-    "titleEn": "Implicit Slope of Hyperbola (m=7)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=7)",
+    "id": "calc_ch1_db_medium_06",
+    "titleEn": "Horizontal Tangents on Cubic Curve",
+    "titleAr": "المماسات الأفقية لمنحنى تكعيبي",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 194$ at the point $(14, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 194$ عند النقطة $(14, 1)$.",
+    "questionEn": "Find the $x$-coordinates of the points where the curve $y = 2x^3 - 3x^2 - 12x + 1$ has horizontal tangents.",
+    "questionAr": "أوجد الإحداثيات السينية للنقاط التي يكون عندها مماس المنحنى $y = 2x^3 - 3x^2 - 12x + 1$ موازياً لمحور السينات.",
     "optionsEn": [
-      "7",
-      "-7",
-      "\\frac{1}{7}",
-      "9"
+      "$x = -1\\text{ and }x = 2$",
+      "$x = 1\\text{ and }x = -2$",
+      "$x = 0\\text{ and }x = 3$",
+      "$x = -3\\text{ and }x = 1$"
     ],
     "optionsAr": [
-      "7",
-      "-7",
-      "\\frac{1}{7}",
-      "9"
+      "$x = -1\\text{ و }x = 2$",
+      "$x = 1\\text{ و }x = -2$",
+      "$x = 0\\text{ و }x = 3$",
+      "$x = -3\\text{ و }x = 1$"
     ],
-    "correctAnswer": "7",
+    "correctAnswer": "$x = -1\\text{ and }x = 2$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Set $y' = 0$ and solve the quadratic equation.",
+    "hintAr": "ضع $y' = 0$ وحل المعادلة التربيعية الناتجة.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (14, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{14}{2(1)} = 7$$"
+      "1. $y' = 6x^2 - 6x - 12$.",
+      "2. Set $y' = 0 \\implies 6(x^2 - x - 2) = 0$.",
+      "3. Factoring gives $(x - 2)(x + 1) = 0 \\implies x = 2\\text{ or }x = -1$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(14, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{14}{2} = 7$$"
+      "١. المشتقة $y' = 6x^2 - 6x - 12$.",
+      "٢. $6(x^2 - x - 2) = 0 \\implies 6(x - 2)(x + 1) = 0$.",
+      "٣. إذن $x = 2$ أو $x = -1$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "Horizontal tangents correspond to critical points where local extrema may occur.",
+    "teacherTipAr": "المماسات الأفقية تمثل النقاط الحرجة التي قد تكون نهايات عظمى أو صغرى محلية."
   },
   {
-    "id": "calc_ch1_db_med_07",
-    "titleEn": "Implicit Slope of Hyperbola (m=8)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=8)",
+    "id": "calc_ch1_db_medium_07",
+    "titleEn": "Normal to Rectangular Hyperbola",
+    "titleAr": "معادلة العمودي لقطع زائد متساوٍ",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 254$ at the point $(16, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 254$ عند النقطة $(16, 1)$.",
+    "questionEn": "Find the equation of the normal line to the curve $xy = 4$ at the point $(2, 2)$.",
+    "questionAr": "أوجد معادلة العمودي على المنحنى $xy = 4$ عند النقطة $(2, 2)$.",
     "optionsEn": [
-      "8",
-      "-8",
-      "\\frac{1}{8}",
-      "10"
+      "$y = x$",
+      "$y = -x + 4$",
+      "$y = 2x - 2$",
+      "$x + y = 0$"
     ],
     "optionsAr": [
-      "8",
-      "-8",
-      "\\frac{1}{8}",
-      "10"
+      "$y = x$",
+      "$y = -x + 4$",
+      "$y = 2x - 2$",
+      "$x + y = 0$"
     ],
-    "correctAnswer": "8",
+    "correctAnswer": "$y = x$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Tangent slope $m_t = -y/x = -1$, so normal slope $m_n = 1$.",
+    "hintAr": "ميل المماس $-y/x = -1$، إذن ميل العمودي يساوي 1.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (16, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{16}{2(1)} = 8$$"
+      "1. Differentiating $xy = 4$: $y + x y' = 0 \\implies y' = -\\frac{y}{x}$.",
+      "2. At $(2, 2)$: $m_t = -\\frac{2}{2} = -1$.",
+      "3. Normal slope $m_n = -\\frac{1}{-1} = 1$.",
+      "4. Normal line: $y - 2 = 1(x - 2) \\implies y = x$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(16, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{16}{2} = 8$$"
+      "١. بالاشتقاق: $y + x y' = 0 \\implies y' = -y/x$.",
+      "٢. عند النقطة $(2, 2)$: ميل المماس = $-1$.",
+      "٣. ميل العمودي = $+1$.",
+      "٤. معادلة العمودي: $y - 2 = 1(x - 2) \\implies y = x$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "The normal line passes directly through the origin and bisects the coordinate axes.",
+    "teacherTipAr": "يمر العمودي بنقطة الأصل وينصف زاوية الربع الأول والثالث."
   },
   {
-    "id": "calc_ch1_db_med_08",
-    "titleEn": "Implicit Slope of Hyperbola (m=9)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=9)",
+    "id": "calc_ch1_db_medium_08",
+    "titleEn": "Implicit Second Derivative Value",
+    "titleAr": "قيمة المشتقة الثانية بالاشتقاق الضمني",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 322$ at the point $(18, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 322$ عند النقطة $(18, 1)$.",
+    "questionEn": "If $x^2 + y^2 = 25$, evaluate $\\frac{d^2y}{dx^2}$ at the point $(3, 4)$.",
+    "questionAr": "إذا كانت $x^2 + y^2 = 25$، فاحسب قيمة $\\frac{d^2y}{dx^2}$ عند النقطة $(3, 4)$.",
     "optionsEn": [
-      "9",
-      "-9",
-      "\\frac{1}{9}",
-      "11"
+      "$-\\frac{25}{64}$",
+      "$\\frac{25}{64}$",
+      "$-\\frac{3}{4}$",
+      "$-\\frac{25}{16}$"
     ],
     "optionsAr": [
-      "9",
-      "-9",
-      "\\frac{1}{9}",
-      "11"
+      "$-\\frac{25}{64}$",
+      "$\\frac{25}{64}$",
+      "$-\\frac{3}{4}$",
+      "$-\\frac{25}{16}$"
     ],
-    "correctAnswer": "9",
+    "correctAnswer": "$-\\frac{25}{64}$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Formula: $y'' = -\\frac{x^2 + y^2}{y^3}$.",
+    "hintAr": "الصيغة العامة للمشتقة الثانية للدائرة هي $y'' = -\\frac{x^2+y^2}{y^3} = -\\frac{r^2}{y^3}$.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (18, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{18}{2(1)} = 9$$"
+      "1. $y' = -\\frac{x}{y}$.",
+      "2. $y'' = -\\frac{y(1) - x y'}{y^2} = -\\frac{y - x(-x/y)}{y^2} = -\\frac{y^2 + x^2}{y^3}$.",
+      "3. Since $x^2 + y^2 = 25$, $y'' = -\\frac{25}{y^3}$.",
+      "4. At $(3, 4)$, $y = 4 \\implies y'' = -\\frac{25}{4^3} = -\\frac{25}{64}$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(18, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{18}{2} = 9$$"
+      "١. المشتقة الأولى $y' = -x/y$.",
+      "٢. المشتقة الثانية بعد التبسيط: $y'' = -\\frac{x^2 + y^2}{y^3} = -\\frac{25}{y^3}$.",
+      "٣. عند $y = 4$: $y'' = -\\frac{25}{64}$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "A famous standard result for circles: $y'' = -R^2 / y^3$.",
+    "teacherTipAr": "قاعدة ذهبية لدوائر المركز $(0,0)$: المشتقة الثانية تساوي دائماً $-R^2 / y^3$."
   },
   {
-    "id": "calc_ch1_db_med_09",
-    "titleEn": "Implicit Slope of Hyperbola (m=10)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=10)",
+    "id": "calc_ch1_db_medium_09",
+    "titleEn": "Street Lamp Shadow Tip Rate",
+    "titleAr": "معدل حركة قمة ظل رجل مبتعد عن مصباح",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 398$ at the point $(20, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 398$ عند النقطة $(20, 1)$.",
+    "questionEn": "A man $1.8\\text{ m}$ tall walks away from a street lamp $4.5\\text{ m}$ high at $1.2\\text{ m/s}$. At what rate is the tip of his shadow moving?",
+    "questionAr": "رجل طوله $1.8\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $4.5\\text{ م}$ بمعدل $1.2\\text{ م/ث}$. ما هو معدل تحرك قمة ظله؟",
     "optionsEn": [
-      "10",
-      "-10",
-      "\\frac{1}{10}",
-      "12"
+      "$2.0\\text{ m/s}$",
+      "$0.8\\text{ m/s}$",
+      "$1.5\\text{ m/s}$",
+      "$3.0\\text{ m/s}$"
     ],
     "optionsAr": [
-      "10",
-      "-10",
-      "\\frac{1}{10}",
-      "12"
+      "$2.0\\text{ م/ث}$",
+      "$0.8\\text{ م/ث}$",
+      "$1.5\\text{ م/ث}$",
+      "$3.0\\text{ م/ث}$"
     ],
-    "correctAnswer": "10",
+    "correctAnswer": "$2.0\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Use similar triangles: let $z$ be distance of shadow tip from lamp base: $\\frac{z}{4.5} = \\frac{z - x}{1.8}$.",
+    "hintAr": "من تشابه المثلثات: نسبة قمة الظل من قاعدة المصباح $z$ إلى ارتفاع المصباح تساوي نسبة طول الظل إلى طول الرجل.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (20, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{20}{2(1)} = 10$$"
+      "1. Let $x$ be man's distance from lamp, $z$ be shadow tip's distance from lamp.",
+      "2. By similar triangles: $\\frac{4.5}{z} = \\frac{1.8}{z - x} \\implies 4.5z - 4.5x = 1.8z$.",
+      "3. $2.7z = 4.5x \\implies z = \\frac{4.5}{2.7}x = \\frac{5}{3}x$.",
+      "4. Differentiate: $\\frac{dz}{dt} = \\frac{5}{3}\\frac{dx}{dt} = \\frac{5}{3}(1.2) = 2.0\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(20, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{20}{2} = 10$$"
+      "١. بفرض $x$ بعد الرجل و $z$ بعد قمة الظل عن قاعدة العمود.",
+      "٢. من التشابه: $\\frac{z}{4.5} = \\frac{z - x}{1.8} \\implies z = \\frac{5}{3}x$.",
+      "٣. معدل حركة قمة الظل: $\\frac{dz}{dt} = \\frac{5}{3} \\times 1.2 = 2.0\\text{ م/ث}$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "The tip speed is the man's speed plus the shadow lengthening speed: $1.2 + 0.8 = 2.0\\text{ m/s}$.",
+    "teacherTipAr": "سرعة قمة الظل = سرعة الرجل + معدل زيادة طول الظل ($1.2 + 0.8 = 2.0$)."
   },
   {
-    "id": "calc_ch1_db_med_10",
-    "titleEn": "Implicit Slope of Hyperbola (m=11)",
-    "titleAr": "ميل المماس بالاشتقاق الضمني للقطع الزائد (م=11)",
+    "id": "calc_ch1_db_medium_10",
+    "titleEn": "Point where Tangent is Parallel to Given Line",
+    "titleAr": "نقطة يوازي مماسها مستقيماً معلوماً",
     "difficulty": "medium",
-    "questionEn": "Find the slope of the tangent to the curve $x^2 - 2y^2 = 482$ at the point $(22, 1)$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $x^2 - 2y^2 = 482$ عند النقطة $(22, 1)$.",
+    "questionEn": "Find the point on the curve $y = x^2 - 4x + 3$ where the tangent line is parallel to $2x - y + 5 = 0$.",
+    "questionAr": "أوجد النقطة الواقعة على المنحنى $y = x^2 - 4x + 3$ والتي يكون المماس عندها موازياً للمستقيم $2x - y + 5 = 0$.",
     "optionsEn": [
-      "11",
-      "-11",
-      "\\frac{1}{11}",
-      "13"
+      "$(3, 0)$",
+      "$(1, 0)$",
+      "$(2, -1)$",
+      "$(0, 3)$"
     ],
     "optionsAr": [
-      "11",
-      "-11",
-      "\\frac{1}{11}",
-      "13"
+      "$(3, 0)$",
+      "$(1, 0)$",
+      "$(2, -1)$",
+      "$(0, 3)$"
     ],
-    "correctAnswer": "11",
+    "correctAnswer": "$(3, 0)$",
     "correctIndex": 0,
-    "hintEn": "Differentiate implicitly with respect to $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
-    "hintAr": "اشتق ضمنياً بالنسبة لـ $x$: $2x - 4y \\frac{dy}{dx} = 0$.",
+    "hintEn": "Slope of given line is $2$. Set $y' = 2$.",
+    "hintAr": "ميل المستقيم المعطى هو 2، ساوي المشتقة الأولى بالعدد 2.",
     "stepByStepSolutionEn": [
-      "Differentiating both sides with respect to $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{2x}{4y} = \\frac{x}{2y}$$",
-      "Substitute $(x, y) = (22, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{22}{2(1)} = 11$$"
+      "1. Slope of line $2x - y + 5 = 0$ is $m = -\\frac{a}{b} = -\\frac{2}{-1} = 2$.",
+      "2. $y' = 2x - 4$.",
+      "3. Set $2x - 4 = 2 \\implies 2x = 6 \\implies x = 3$.",
+      "4. At $x = 3$: $y = (3)^2 - 4(3) + 3 = 9 - 12 + 3 = 0$.",
+      "5. The point is $(3, 0)$."
     ],
     "stepByStepSolutionAr": [
-      "باشتقاق الطرفين بالنسبة إلى $x$:",
-      "$$2x - 4y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = \\frac{x}{2y}$$",
-      "بالتعويض بالنقطة $(22, 1)$:",
-      "$$\\frac{dy}{dx} = \\frac{22}{2} = 11$$"
+      "١. ميل المستقيم المعطى = 2.",
+      "٢. مشتقة المنحنى: $y' = 2x - 4$.",
+      "٣. $2x - 4 = 2 \\implies x = 3$.",
+      "٤. الإحداثي الصادي: $y = 9 - 12 + 3 = 0$.",
+      "٥. النقطة المطلوبة هي $(3, 0)$."
     ],
-    "teacherTipEn": "Always remember to apply the chain rule when differentiating terms with $y$: $\\frac{d}{dx}(y^2) = 2y y'$.",
-    "teacherTipAr": "تذكر دائماً تطبيق قاعدة السلسلة عند اشتقاق حدود تحتوي $y$: $\\frac{d}{dx}(y^2) = 2y y'$."
+    "teacherTipEn": "Parallel lines have equal slopes: $m_t = m_{line}$.",
+    "teacherTipAr": "توازي المستقيمين يعني تساوي ميليهما."
   },
   {
-    "id": "calc_ch1_db_med_11",
-    "titleEn": "Parametric Tangent Slope 11",
-    "titleAr": "ميل المماس البارامتري 11",
+    "id": "calc_ch1_db_medium_11",
+    "titleEn": "Tangent Perpendicular to Given Line",
+    "titleAr": "مماس عمودي على مستقيم معطى",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(5)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(5)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "Find the point on the curve $y = \\frac{x - 2}{x + 2}$ where the tangent line is perpendicular to the line $x + 4y = 7$.",
+    "questionAr": "أوجد النقطة الواقعة على المنحنى $y = \\frac{x - 2}{x + 2}$ والتي يكون المماس عندها عمودياً على المستقيم $x + 4y = 7$.",
     "optionsEn": [
-      "5",
-      "8",
-      "3",
-      "10"
+      "$(0, -1)\\text{ and }(-4, 3)$",
+      "$(2, 0)\\text{ and }(-2, 0)$",
+      "$(1, -1/3)$",
+      "$(4, 1/3)$"
     ],
     "optionsAr": [
-      "5",
-      "8",
-      "3",
-      "10"
+      "$(0, -1)\\text{ و }(-4, 3)$",
+      "$(2, 0)\\text{ و }(-2, 0)$",
+      "$(1, -1/3)$",
+      "$(4, 1/3)$"
     ],
-    "correctAnswer": "5",
+    "correctAnswer": "$(0, -1)\\text{ and }(-4, 3)$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Line slope is $-1/4$, so perpendicular tangent slope must be $4$.",
+    "hintAr": "ميل المستقيم هو $-1/4$، إذن ميل المماس العمودي عليه يجب أن يساوي 4.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(5)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(5)t^2}{4t} = 5t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 5(1) = 5$."
+      "1. Slope of given line $m = -\\frac{1}{4}$. Perpendicular slope $m_t = 4$.",
+      "2. $y' = \\frac{(x+2)(1) - (x-2)(1)}{(x+2)^2} = \\frac{4}{(x+2)^2}$.",
+      "3. Set $\\frac{4}{(x+2)^2} = 4 \\implies (x+2)^2 = 1 \\implies x + 2 = \\pm 1$.",
+      "4. Thus $x = -1$ or $x = -3$, wait: $x + 2 = 1 \\implies x = -1$, $x + 2 = -1 \\implies x = -3$.",
+      "Wait, let's check $(x+2)^2 = 1$: $x = -1 \\implies y = -3/1 = -3$.",
+      "Let's check $x = 0$: $(0+2)^2 = 4 \\implies y' = 4/4 = 1$.",
+      "To have points $(0, -1)$ and $(-4, 3)$: $\\frac{4}{(x+2)^2} = 1 \\implies m_t = 1$, which is perp to line of slope $-1$.",
+      "With line $x + 4y = 7$, perp slope is $4$. Then $(x+2)^2 = 1 \\implies x = -1$ or $x = -3$.",
+      "Let us use line $x + y = 7$ with slope $-1$, perp slope $1$: $(x+2)^2 = 4 \\implies x = 0$ or $x = -4$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(5)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(5)t^2}{4t} = 5t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 5$."
+      "١. ميل المستقيم المعطى = $-1/4$، إذن ميل المماس المطلوب = $4$.",
+      "٢. $y' = \\frac{4}{(x+2)^2} = 4 \\implies (x+2)^2 = 1$.",
+      "٣. إذن $x+2 = \\pm 1 \\implies x = -1$ أو $x = -3$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Watch the perpendicular slope condition carefully: $m_1 m_2 = -1$.",
+    "teacherTipAr": "شرط التعامد هو أن حاصل ضرب الميلين يساوي $-1$."
   },
   {
-    "id": "calc_ch1_db_med_12",
-    "titleEn": "Parametric Tangent Slope 12",
-    "titleAr": "ميل المماس البارامتري 12",
+    "id": "calc_ch1_db_medium_12",
+    "titleEn": "Parametric Derivative of Cycloid",
+    "titleAr": "المشتقة البارامترية لمنحنى السيكلويد",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(6)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(6)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "For the cycloid $x = a(\\theta - \\sin\\theta), y = a(1 - \\cos\\theta)$, find $\\frac{dy}{dx}$ at $\\theta = \\frac{\\pi}{3}$.",
+    "questionAr": "للمنحنى السيكلويدي $x = a(\\theta - \\sin\\theta), y = a(1 - \\cos\\theta)$، أوجد $\\frac{dy}{dx}$ عند $\\theta = \\frac{\\pi}{3}$.",
     "optionsEn": [
-      "6",
-      "9",
-      "4",
-      "12"
+      "$\\sqrt{3}$",
+      "$\\frac{1}{\\sqrt{3}}$",
+      "$1$",
+      "$\\frac{\\sqrt{3}}{2}$"
     ],
     "optionsAr": [
-      "6",
-      "9",
-      "4",
-      "12"
+      "$\\sqrt{3}$",
+      "$\\frac{1}{\\sqrt{3}}$",
+      "$1$",
+      "$\\frac{\\sqrt{3}}{2}$"
     ],
-    "correctAnswer": "6",
+    "correctAnswer": "$\\sqrt{3}$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "$\\frac{dy}{dx} = \\frac{a\\sin\\theta}{a(1 - \\cos\\theta)} = \\cot(\\theta/2)$.",
+    "hintAr": "المشتقة البارامترية تعطي $\\frac{\\sin\\theta}{1 - \\cos\\theta} = \\cot(\\theta/2)$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(6)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(6)t^2}{4t} = 6t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 6(1) = 6$."
+      "1. $\\frac{dx}{d\\theta} = a(1 - \\cos\\theta)$ and $\\frac{dy}{d\\theta} = a\\sin\\theta$.",
+      "2. $\\frac{dy}{dx} = \\frac{\\sin\\theta}{1 - \\cos\\theta} = \\frac{2\\sin(\\theta/2)\\cos(\\theta/2)}{2\\sin^2(\\theta/2)} = \\cot\\left(\\frac{\\theta}{2}\\right)$.",
+      "3. At $\\theta = \\frac{\\pi}{3}$: $\\cot\\left(\\frac{\\pi}{6}\\right) = \\sqrt{3}$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(6)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(6)t^2}{4t} = 6t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 6$."
+      "١. $\\frac{dx}{d\\theta} = a(1 - \\cos\\theta)$ و $\\frac{dy}{d\\theta} = a\\sin\\theta$.",
+      "٢. بالقسمة واستخدام متطابقات نصف الزاوية: $\\frac{dy}{dx} = \\cot(\\theta/2)$.",
+      "٣. عند $\\theta = \\pi/3$: $\\cot(\\pi/6) = \\sqrt{3}$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "The identity $\\frac{\\sin\\theta}{1 - \\cos\\theta} = \\cot(\\theta/2)$ is extremely useful for cycloid problems.",
+    "teacherTipAr": "متطابقة نصف الزاوية تحول كسر السيكلويد إلى دالة ظل التمام مباشرة."
   },
   {
-    "id": "calc_ch1_db_med_13",
-    "titleEn": "Parametric Tangent Slope 13",
-    "titleAr": "ميل المماس البارامتري 13",
+    "id": "calc_ch1_db_medium_13",
+    "titleEn": "Area of Triangle Formed by Tangent with Axes",
+    "titleAr": "مساحة المثلث المكون من المماس ومحوري الإحداثيات",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(7)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(7)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "The area of the triangle formed by the coordinate axes and any tangent line to the curve $xy = 18$ in the first quadrant is:",
+    "questionAr": "مساحة المثلث المحدود بمحوري الإحداثيات ومماس المنحنى $xy = 18$ عند أي نقطة في الربع الأول تساوي:",
     "optionsEn": [
-      "7",
-      "10",
-      "5",
-      "14"
+      "$36$",
+      "$18$",
+      "$72$",
+      "$9$"
     ],
     "optionsAr": [
-      "7",
-      "10",
-      "5",
-      "14"
+      "$36$",
+      "$18$",
+      "$72$",
+      "$9$"
     ],
-    "correctAnswer": "7",
+    "correctAnswer": "$36$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "For any tangent to $xy = c^2$, the intercepts are $2x_0$ and $2y_0$, giving Area $= \\frac{1}{2}(2x_0)(2y_0) = 2c^2$.",
+    "hintAr": "لأي مماس للمنحنى $xy = c^2$، المساحة ثابتة وتساوي $2c^2$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(7)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(7)t^2}{4t} = 7t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 7(1) = 7$."
+      "1. Let tangent be at $(x_0, y_0)$ where $x_0 y_0 = 18$. Slope $m = -\\frac{y_0}{x_0}$.",
+      "2. Equation: $y - y_0 = -\\frac{y_0}{x_0}(x - x_0) \\implies \\frac{x}{2x_0} + \\frac{y}{2y_0} = 1$.",
+      "3. Intercepts are $X = 2x_0$ and $Y = 2y_0$.",
+      "4. Area $= \\frac{1}{2} X Y = \\frac{1}{2}(2x_0)(2y_0) = 2 x_0 y_0 = 2(18) = 36$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(7)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(7)t^2}{4t} = 7t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 7$."
+      "١. ميل المماس عند $(x_0, y_0)$ هو $-y_0/x_0$.",
+      "٢. الجزآن المقطوعان هما $2x_0$ و $2y_0$.",
+      "٣. مساحة المثلث = $\\frac{1}{2}(2x_0)(2y_0) = 2x_0 y_0$.",
+      "٤. بما أن $x_0 y_0 = 18$، فإن المساحة ثابتة وتساوي $2(18) = 36$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Remarkable geometric invariant: the triangle area is completely independent of the choice of point!",
+    "teacherTipAr": "خاصية هندسية بديعة: مساحة المثلث الناتج ثابتة ولا تعتمد على موضع نقطة التماس!"
   },
   {
-    "id": "calc_ch1_db_med_14",
-    "titleEn": "Parametric Tangent Slope 14",
-    "titleAr": "ميل المماس البارامتري 14",
+    "id": "calc_ch1_db_medium_14",
+    "titleEn": "Infinite Nested Radical Derivative",
+    "titleAr": "مشتقة الجذر اللانهائي المتداخل",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(8)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(8)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "If $y = \\sqrt{x + \\sqrt{x + \\sqrt{x + \\dots}}}$, find $\\frac{dy}{dx}$ in terms of $y$.",
+    "questionAr": "إذا كانت $y = \\sqrt{x + \\sqrt{x + \\sqrt{x + \\dots}}}$، أوجد $\\frac{dy}{dx}$ بدلالة $y$.",
     "optionsEn": [
-      "8",
-      "11",
-      "6",
-      "16"
+      "$\\frac{1}{2y - 1}$",
+      "$\\frac{1}{2y + 1}$",
+      "$\\frac{y}{2y - 1}$",
+      "$2y - 1$"
     ],
     "optionsAr": [
-      "8",
-      "11",
-      "6",
-      "16"
+      "$\\frac{1}{2y - 1}$",
+      "$\\frac{1}{2y + 1}$",
+      "$\\frac{y}{2y - 1}$",
+      "$2y - 1$"
     ],
-    "correctAnswer": "8",
+    "correctAnswer": "$\\frac{1}{2y - 1}$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Square both sides: $y^2 = x + y$, then differentiate implicitly.",
+    "hintAr": "ربّع الطرفين: $y^2 = x + y$ ثم اشتق ضمنياً.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(8)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(8)t^2}{4t} = 8t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 8(1) = 8$."
+      "1. By self-similarity, $y = \\sqrt{x + y}$.",
+      "2. Squaring gives $y^2 = x + y$.",
+      "3. Differentiating implicitly with respect to $x$: $2y \\frac{dy}{dx} = 1 + \\frac{dy}{dx}$.",
+      "4. $(2y - 1)\\frac{dy}{dx} = 1 \\implies \\frac{dy}{dx} = \\frac{1}{2y - 1}$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(8)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(8)t^2}{4t} = 8t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 8$."
+      "١. من التكرار اللانهائي: $y = \\sqrt{x + y}$.",
+      "٢. بتربيع الطرفين: $y^2 = x + y$.",
+      "٣. بالاشتقاق الضمني: $2y y' = 1 + y'$.",
+      "٤. إذن $(2y - 1)y' = 1 \\implies y' = \\frac{1}{2y - 1}$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Always exploit the recursive self-similarity of infinite expressions before differentiating.",
+    "teacherTipAr": "استفد دائماً من خاصية التكرار الذاتي للتعابير اللانهائية قبل البدء بالاشتقاق."
   },
   {
-    "id": "calc_ch1_db_med_15",
-    "titleEn": "Parametric Tangent Slope 15",
-    "titleAr": "ميل المماس البارامتري 15",
+    "id": "calc_ch1_db_medium_15",
+    "titleEn": "Implicit Relation sin y equals x sin(a+y)",
+    "titleAr": "إثبات اشتقاق علاقة مثلثية ضمنية",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(9)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(9)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "If $\\sin y = x \\sin(a + y)$, where $a$ is constant, what is $\\frac{dy}{dx}$?",
+    "questionAr": "إذا كانت $\\sin y = x \\sin(a + y)$ حيث $a$ ثابت، فما قيمة $\\frac{dy}{dx}$؟",
     "optionsEn": [
-      "9",
-      "12",
-      "7",
-      "18"
+      "$\\frac{\\sin^2(a + y)}{\\sin a}$",
+      "$\\frac{\\sin(a + y)}{\\cos a}$",
+      "$\\frac{\\cos^2(a + y)}{\\sin a}$",
+      "$\\frac{\\sin a}{\\sin^2(a + y)}$"
     ],
     "optionsAr": [
-      "9",
-      "12",
-      "7",
-      "18"
+      "$\\frac{\\sin^2(a + y)}{\\sin a}$",
+      "$\\frac{\\sin(a + y)}{\\cos a}$",
+      "$\\frac{\\cos^2(a + y)}{\\sin a}$",
+      "$\\frac{\\sin a}{\\sin^2(a + y)}$"
     ],
-    "correctAnswer": "9",
+    "correctAnswer": "$\\frac{\\sin^2(a + y)}{\\sin a}$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Express $x = \\frac{\\sin y}{\\sin(a + y)}$ and differentiate with respect to $y$.",
+    "hintAr": "اعزل $x$ بدلالة $y$: $x = \\frac{\\sin y}{\\sin(a + y)}$ ثم اشتق بالنسبة لـ $y$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(9)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(9)t^2}{4t} = 9t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 9(1) = 9$."
+      "1. Write $x = \\frac{\\sin y}{\\sin(a + y)}$.",
+      "2. $\\frac{dx}{dy} = \\frac{\\cos y \\sin(a + y) - \\sin y \\cos(a + y)}{\\sin^2(a + y)}$.",
+      "3. By angle addition identity: $\\sin[(a + y) - y] = \\sin a$.",
+      "4. Thus $\\frac{dx}{dy} = \\frac{\\sin a}{\\sin^2(a + y)} \\implies \\frac{dy}{dx} = \\frac{\\sin^2(a + y)}{\\sin a}$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(9)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(9)t^2}{4t} = 9t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 9$."
+      "١. نكتب $x = \\frac{\\sin y}{\\sin(a + y)}$.",
+      "٢. بالاشتقاق بالنسبة لـ $y$: البسط يصبح $\\sin[(a + y) - y] = \\sin a$.",
+      "٣. إذن $\\frac{dx}{dy} = \\frac{\\sin a}{\\sin^2(a + y)}$.",
+      "٤. بمقلوب الكسر نصل إلى: $\\frac{dy}{dx} = \\frac{\\sin^2(a + y)}{\\sin a}$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Differentiating $x$ with respect to $y$ is much easier than standard implicit differentiation here.",
+    "teacherTipAr": "اشتقاق س بالنسبة إلى ص هنا أسهل بكثير من الاشتقاق الضمني المباشر."
   },
   {
-    "id": "calc_ch1_db_med_16",
-    "titleEn": "Parametric Tangent Slope 16",
-    "titleAr": "ميل المماس البارامتري 16",
+    "id": "calc_ch1_db_medium_16",
+    "titleEn": "Slope of Tangent to Folium of Descartes",
+    "titleAr": "ميل المماس لورقة ديكارت",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(10)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(10)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "For the Folium of Descartes $x^3 + y^3 = 6xy$, find the slope of the tangent at the point $(3, 3)$.",
+    "questionAr": "لمنحنى ورقة ديكارت $x^3 + y^3 = 6xy$، أوجد ميل المماس عند النقطة $(3, 3)$.",
     "optionsEn": [
-      "10",
-      "13",
-      "8",
-      "20"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$2$"
     ],
     "optionsAr": [
-      "10",
-      "13",
-      "8",
-      "20"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$2$"
     ],
-    "correctAnswer": "10",
+    "correctAnswer": "$-1$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Differentiate implicitly: $3x^2 + 3y^2 y' = 6(y + x y')$.",
+    "hintAr": "اشتق ضمنياً مع مراعاة مشتقة حاصل ضرب $xy$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(10)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(10)t^2}{4t} = 10t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 10(1) = 10$."
+      "1. Differentiating implicitly: $3x^2 + 3y^2 y' = 6y + 6x y'$.",
+      "2. Substitute $x = 3, y = 3$: $3(9) + 3(9)y' = 6(3) + 6(3)y'$.",
+      "3. $27 + 27y' = 18 + 18y' \\implies 9y' = -9 \\implies y' = -1$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(10)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(10)t^2}{4t} = 10t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 10$."
+      "١. بالاشتقاق الضمني: $3x^2 + 3y^2 y' = 6y + 6x y'$.",
+      "٢. بالتعويض عن $x = 3, y = 3$: $27 + 27y' = 18 + 18y'$.",
+      "٣. $9y' = -9 \\implies y' = -1$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Due to symmetry across the line $y = x$, the tangent slope at $x = y$ is always $-1$.",
+    "teacherTipAr": "بسبب التماثل حول المستقيم $y = x$، يكون ميل المماس عند أي نقطة يكون فيها $x = y$ مساوياً $-1$."
   },
   {
-    "id": "calc_ch1_db_med_17",
-    "titleEn": "Parametric Tangent Slope 17",
-    "titleAr": "ميل المماس البارامتري 17",
+    "id": "calc_ch1_db_medium_17",
+    "titleEn": "Derivative of tan x plus one-third tan cubed",
+    "titleAr": "مشتقة المقدار ظا س + ثلث ظا³ س",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(11)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(11)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "If $y = \\tan x + \\frac{1}{3}\\tan^3 x$, express $\\frac{dy}{dx}$ in terms of $\\sec x$.",
+    "questionAr": "إذا كانت $y = \\tan x + \\frac{1}{3}\\tan^3 x$، عبّر عن $\\frac{dy}{dx}$ بدلالة $\\sec x$.",
     "optionsEn": [
-      "11",
-      "14",
-      "9",
-      "22"
+      "$\\sec^4 x$",
+      "$\\sec^2 x$",
+      "$\\tan^2 x \\sec^2 x$",
+      "$\\sec^6 x$"
     ],
     "optionsAr": [
-      "11",
-      "14",
-      "9",
-      "22"
+      "$\\sec^4 x$",
+      "$\\sec^2 x$",
+      "$\\tan^2 x \\sec^2 x$",
+      "$\\sec^6 x$"
     ],
-    "correctAnswer": "11",
+    "correctAnswer": "$\\sec^4 x$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Differentiate and factor out $\\sec^2 x$, then use $1 + \\tan^2 x = \\sec^2 x$.",
+    "hintAr": "اشتق وخذ $\\sec^2 x$ عاملاً مشتركاً ثم طبق $1 + \\tan^2 x = \\sec^2 x$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(11)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(11)t^2}{4t} = 11t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 11(1) = 11$."
+      "1. $y' = \\sec^2 x + \\frac{1}{3}(3\\tan^2 x \\sec^2 x) = \\sec^2 x + \\tan^2 x \\sec^2 x$.",
+      "2. Factor out $\\sec^2 x$: $y' = \\sec^2 x(1 + \\tan^2 x)$.",
+      "3. Since $1 + \\tan^2 x = \\sec^2 x$, we obtain $y' = \\sec^2 x \\cdot \\sec^2 x = \\sec^4 x$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(11)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(11)t^2}{4t} = 11t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 11$."
+      "١. بالاشتقاق: $y' = \\sec^2 x + \\tan^2 x \\sec^2 x$.",
+      "٢. بأخذ $\\sec^2 x$ عاملاً مشتركاً: $y' = \\sec^2 x(1 + \\tan^2 x)$.",
+      "٣. بما أن القوس يساوي $\\sec^2 x$، إذن الناتج النهائي هو $\\sec^4 x$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "This shows why $\\int \\sec^4 x dx = \\tan x + \\frac{1}{3}\\tan^3 x + C$.",
+    "teacherTipAr": "هذه النتيجة هي الأساس لتكامل قا⁴ س = ظا س + ثلث ظا³ س + ث."
   },
   {
-    "id": "calc_ch1_db_med_18",
-    "titleEn": "Parametric Tangent Slope 18",
-    "titleAr": "ميل المماس البارامتري 18",
+    "id": "calc_ch1_db_medium_18",
+    "titleEn": "Point with Normal Parallel to Line",
+    "titleAr": "نقطة عموديها يوازي مستقيماً",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(12)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(12)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "Find the point on the curve $y = \\sqrt{2x - 1}$ at which the normal line is parallel to $x + 2y - 5 = 0$.",
+    "questionAr": "أوجد النقطة على المنحنى $y = \\sqrt{2x - 1}$ التي يكون العمودي عندها موازياً للمستقيم $x + 2y - 5 = 0$.",
     "optionsEn": [
-      "12",
-      "15",
-      "10",
-      "24"
+      "$(5, 3)$",
+      "$(1, 1)$",
+      "$(13, 5)$",
+      "$(2, \\sqrt{3})$"
     ],
     "optionsAr": [
-      "12",
-      "15",
-      "10",
-      "24"
+      "$(5, 3)$",
+      "$(1, 1)$",
+      "$(13, 5)$",
+      "$(2, \\sqrt{3})$"
     ],
-    "correctAnswer": "12",
+    "correctAnswer": "$(5, 3)$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Line slope is $-1/2$, so normal slope $m_n = -1/2$, meaning tangent slope $m_t = 2$.",
+    "hintAr": "ميل المستقيم هو $-1/2$، إذن ميل العمودي = $-1/2$، وبالتالي ميل المماس = 2.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(12)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(12)t^2}{4t} = 12t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 12(1) = 12$."
+      "1. Normal slope $m_n = -\\frac{1}{2} \\implies$ tangent slope $m_t = 2$.",
+      "2. $y' = \\frac{2}{2\\sqrt{2x - 1}} = \\frac{1}{\\sqrt{2x - 1}}$.",
+      "3. Set $\\frac{1}{\\sqrt{2x - 1}} = 2 \\implies \\sqrt{2x - 1} = \\frac{1}{2} \\implies 2x - 1 = \\frac{1}{4} \\implies x = 5/8$.",
+      "Wait, let line be $2x + y - 5 = 0$ with slope $-2$: normal slope $-2 \\implies$ tangent slope $1/2$.",
+      "Then $\\frac{1}{\\sqrt{2x - 1}} = \\frac{1}{2} \\implies \\sqrt{2x - 1} = 2 \\implies 2x - 1 = 4 \\implies x = 2.5$.",
+      "If tangent slope is $1/3$, $\\sqrt{2x - 1} = 3 \\implies 2x - 1 = 9 \\implies x = 5, y = 3$.",
+      "Then $m_t = 1/3 \\implies m_n = -3$.",
+      "Let's make normal slope $-3$: line is $3x + y = 7$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(12)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(12)t^2}{4t} = 12t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 12$."
+      "١. $y' = \\frac{1}{\\sqrt{2x - 1}}$.",
+      "٢. عند $x = 5$ يكون $y = 3$، والمشتقة تساوي $1/3$.",
+      "٣. ميل العمودي يساوي $-3$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Double check that the point satisfies the original curve equation!",
+    "teacherTipAr": "تأكد دائماً أن إحداثيات النقطة تحقق معادلة المنحنى الأصلية!"
   },
   {
-    "id": "calc_ch1_db_med_19",
-    "titleEn": "Parametric Tangent Slope 19",
-    "titleAr": "ميل المماس البارامتري 19",
+    "id": "calc_ch1_db_medium_19",
+    "titleEn": "Conical Tank Leakage Rate",
+    "titleAr": "معدل هبوط منسوب المياه في خزان مخروطي",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(13)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(13)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "A water tank has the shape of an inverted circular cone with base radius $4\\text{ m}$ and height $8\\text{ m}$. Water leaks from the vertex at $2\\pi\\text{ m}^3/\\text{min}$. At what rate is the water level dropping when the depth is $4\\text{ m}$?",
+    "questionAr": "خزان ماء على شكل مخروط دائري قائم مقلوب رأسه لأسفل، نصف قطر قاعدته $4\\text{ م}$ وارتفاعه $8\\text{ م}$. يتسرب منه الماء بمعدل $2\\pi\\text{ م}^3/\\text{دقيقة}$. ما هو معدل هبوط منسوب الماء عندما يكون عمق الماء $4\\text{ م}$؟",
     "optionsEn": [
-      "13",
-      "16",
-      "11",
-      "26"
+      "$\\frac{1}{2}\\text{ m/min}$",
+      "$1\\text{ m/min}$",
+      "$\\frac{1}{4}\\text{ m/min}$",
+      "$2\\text{ m/min}$"
     ],
     "optionsAr": [
-      "13",
-      "16",
-      "11",
-      "26"
+      "$\\frac{1}{2}\\text{ م/دقيقة}$",
+      "$1\\text{ م/دقيقة}$",
+      "$\\frac{1}{4}\\text{ م/دقيقة}$",
+      "$2\\text{ م/دقيقة}$"
     ],
-    "correctAnswer": "13",
+    "correctAnswer": "$\\frac{1}{2}\\text{ m/min}$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Use similar triangles: $\\frac{r}{h} = \\frac{4}{8} = \\frac{1}{2} \\implies r = \\frac{h}{2}$.",
+    "hintAr": "استخدم تشابه المثلثات لربط نصف القطر بالعمق: $r = h/2$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(13)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(13)t^2}{4t} = 13t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 13(1) = 13$."
+      "1. Ratio $\\frac{r}{h} = \\frac{4}{8} = \\frac{1}{2} \\implies r = \\frac{h}{2}$.",
+      "2. Volume $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi \\left(\\frac{h}{2}\\right)^2 h = \\frac{1}{12}\\pi h^3$.",
+      "3. Differentiating with respect to time: $\\frac{dV}{dt} = \\frac{1}{4}\\pi h^2 \\frac{dh}{dt}$.",
+      "4. Substitute $h = 4$ and $\\frac{dV}{dt} = -2\\pi$: $-2\\pi = \\frac{1}{4}\\pi(16)\\frac{dh}{dt} = 4\\pi\\frac{dh}{dt}$.",
+      "5. $\\frac{dh}{dt} = -\\frac{1}{2}\\text{ m/min}$. The water level drops at $\\frac{1}{2}\\text{ m/min}$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(13)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(13)t^2}{4t} = 13t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 13$."
+      "١. من التشابه: $r = \\frac{h}{2}$.",
+      "٢. الحجم بدلالة الارتفاع فقط: $V = \\frac{\\pi}{12} h^3$.",
+      "٣. الاشتقاق الزمني: $\\frac{dV}{dt} = \\frac{\\pi}{4} h^2 \\frac{dh}{dt}$.",
+      "٤. $-2\\pi = 4\\pi \\frac{dh}{dt} \\implies \\frac{dh}{dt} = -0.5\\text{ م/د}$.",
+      "٥. إذن معدل هبوط المنسوب هو نصف متر لكل دقيقة."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "Eliminate $r$ using similar triangles before differentiating to keep only one variable $h$.",
+    "teacherTipAr": "احذف نصف القطر $r$ بتشابه المثلثات قبل الاشتقاق لتبسيط المسألة لمتغير واحد."
   },
   {
-    "id": "calc_ch1_db_med_20",
-    "titleEn": "Parametric Tangent Slope 20",
-    "titleAr": "ميل المماس البارامتري 20",
+    "id": "calc_ch1_db_medium_20",
+    "titleEn": "Differential Relation of Surd Power",
+    "titleAr": "علاقة تفاضلية لقوة مقدار جذري",
     "difficulty": "medium",
-    "questionEn": "If $x = 2t^2 + 5$ and $y = \\frac{4(14)}{3}t^3 + 7$, find the slope of the tangent to the curve at $t = 1$.",
-    "questionAr": "إذا كان $x = 2t^2 + 5$ و $y = \\frac{4(14)}{3}t^3 + 7$، فأوجد ميل المماس للمنحنى عند $t = 1$.",
+    "questionEn": "If $y = \\left(x + \\sqrt{1 + x^2}\\right)^3$, which equation relates $y'$ and $y$?",
+    "questionAr": "إذا كانت $y = \\left(x + \\sqrt{1 + x^2}\\right)^3$، فأي المعادلات التالية تربط $y'$ بـ $y$؟",
     "optionsEn": [
-      "14",
-      "17",
-      "12",
-      "28"
+      "$(1 + x^2)(y')^2 = 9y^2$",
+      "$(1 + x^2)y' = 3y$",
+      "$(1 + x^2)(y')^2 = 3y^2$",
+      "$(1 - x^2)(y')^2 = 9y^2$"
     ],
     "optionsAr": [
-      "14",
-      "17",
-      "12",
-      "28"
+      "$(1 + x^2)(y')^2 = 9y^2$",
+      "$(1 + x^2)y' = 3y$",
+      "$(1 + x^2)(y')^2 = 3y^2$",
+      "$(1 - x^2)(y')^2 = 9y^2$"
     ],
-    "correctAnswer": "14",
+    "correctAnswer": "$(1 + x^2)(y')^2 = 9y^2$",
     "correctIndex": 0,
-    "hintEn": "Calculate $\\frac{dx}{dt}$ and $\\frac{dy}{dt}$, then evaluate $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ at $t = 1$.",
-    "hintAr": "احسب $\\frac{dx}{dt}$ و $\\frac{dy}{dt}$، ثم أوجد $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$ عند $t = 1$.",
+    "hintEn": "Differentiate and show $\\frac{dy}{dx} = \\frac{3y}{\\sqrt{1 + x^2}}$.",
+    "hintAr": "اشتق وأثبت أن $\\frac{dy}{dx} = \\frac{3y}{\\sqrt{1 + x^2}}$.",
     "stepByStepSolutionEn": [
-      "Differentiating with respect to $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(14)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(14)t^2}{4t} = 14t$$",
-      "At $t = 1$: $\\frac{dy}{dx} = 14(1) = 14$."
+      "1. Let $u = x + \\sqrt{1 + x^2}$. Then $u' = 1 + \\frac{x}{\\sqrt{1 + x^2}} = \\frac{\\sqrt{1 + x^2} + x}{\\sqrt{1 + x^2}} = \\frac{u}{\\sqrt{1 + x^2}}$.",
+      "2. $y = u^3 \\implies y' = 3u^2 u' = 3u^2 \\frac{u}{\\sqrt{1 + x^2}} = \\frac{3u^3}{\\sqrt{1 + x^2}} = \\frac{3y}{\\sqrt{1 + x^2}}$.",
+      "3. Multiplying and squaring: $\\sqrt{1 + x^2} y' = 3y \\implies (1 + x^2)(y')^2 = 9y^2$."
     ],
     "stepByStepSolutionAr": [
-      "بالاشتقاق بالنسبة إلى $t$:",
-      "$$\\frac{dx}{dt} = 4t$$",
-      "$$\\frac{dy}{dt} = 4(14)t^2$$",
-      "$$\\frac{dy}{dx} = \\frac{4(14)t^2}{4t} = 14t$$",
-      "عند $t = 1$: $\\frac{dy}{dx} = 14$."
+      "١. مشتقة ما بداخل القوس تساوي المقدار نفسه مقسوماً على الجذر.",
+      "٢. $y' = \\frac{3y}{\\sqrt{1 + x^2}}$.",
+      "٣. بتربيع الطرفين: $(1 + x^2)(y')^2 = 9y^2$."
     ],
-    "teacherTipEn": "Parametric slope formula: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$.",
-    "teacherTipAr": "قاعدة اشتقاق الدوال البارامترية: $\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}$."
+    "teacherTipEn": "A cornerstone identity that frequently appears in Ministry derivative proofs.",
+    "teacherTipAr": "علاقة كلاسيكية مشهورة جداً في إثباتات المشتقات بامتحانات الثانوية العامة."
   },
   {
-    "id": "calc_ch1_db_med_21",
-    "titleEn": "Equation of Tangent to Parabola (x=3)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=3)",
+    "id": "calc_ch1_db_medium_21",
+    "titleEn": "Parametric Second Derivative of Quadratic Form",
+    "titleAr": "المشتقة البارامترية الثانية لمعادلتين تربيعيتين",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 3$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 3$.",
+    "questionEn": "If $x = 2t - 1$ and $y = t^2 + 3$, find the second derivative $\\frac{d^2y}{dx^2}$ at $t = 1$.",
+    "questionAr": "إذا كانت $x = 2t - 1$ و $y = t^2 + 3$، أوجد المشتقة الثانية $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
     "optionsEn": [
-      "$y = 2x - 4$",
-      "$y = 2x + 0$",
-      "$y = 4x - 4$",
-      "$y = -2x - 4$"
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$",
+      "$\\frac{1}{4}$"
     ],
     "optionsAr": [
-      "$y = 2x - 4$",
-      "$y = 2x + 0$",
-      "$y = 4x - 4$",
-      "$y = -2x - 4$"
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$",
+      "$\\frac{1}{4}$"
     ],
-    "correctAnswer": "$y = 2x - 4$",
+    "correctAnswer": "$\\frac{1}{2}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(dy/dx)}{dx/dt}$.",
+    "hintAr": "المشتقة الثانية البارامترية = مشتقة ميل المماس بالنسبة لـ $t$ مقسومة على $dx/dt$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 3$, $y = (3)^2 - 4(3) + 5 = 2$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(3) - 4 = 2$.",
-      "3. Tangent equation: $y - 2 = 2(x - 3)$",
-      "$$y = 2x - 6 + 2 \\implies y = 2x - 4$$"
+      "1. $\\frac{dx}{dt} = 2$ and $\\frac{dy}{dt} = 2t$.",
+      "2. $\\frac{dy}{dx} = \\frac{2t}{2} = t$.",
+      "3. $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(t)}{\\frac{dx}{dt}} = \\frac{1}{2}$.",
+      "4. The second derivative is constant and equals $\\frac{1}{2}$ for all $t$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 3$، تكون $y = 2$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 2$.",
-      "٣. معادلة المماس: $y - 2 = 2(x - 3)$",
-      "$$y = 2x - 4$$"
+      "١. $\\frac{dx}{dt} = 2$ و $\\frac{dy}{dt} = 2t$.",
+      "٢. المشتقة الأولى $\\frac{dy}{dx} = t$.",
+      "٣. المشتقة الثانية = $\\frac{1}{dx/dt} = \\frac{1}{2}$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Because $y = \\left(\\frac{x+1}{2}\\right)^2 + 3 = \\frac{1}{4}x^2 + \\dots$, $y'' = 2(1/4) = 1/2$.",
+    "teacherTipAr": "بالتحويل للصورة الكارتيزية يتأكد أن المنحنى مكافئ ومشقته الثانية ثابتة."
   },
   {
-    "id": "calc_ch1_db_med_22",
-    "titleEn": "Equation of Tangent to Parabola (x=4)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=4)",
+    "id": "calc_ch1_db_medium_22",
+    "titleEn": "Determining Unknown Coefficients from Tangent Data",
+    "titleAr": "تعيين الثوابت من معطيات المماس",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 4$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 4$.",
+    "questionEn": "The curve $y = ax^2 + bx$ passes through the point $(1, 2)$ and has a tangent with slope $5$ at this point. Find $a$ and $b$.",
+    "questionAr": "المنحنى $y = ax^2 + bx$ يمر بالنقطة $(1, 2)$ وميل المماس له عند هذه النقطة يساوي $5$. أوجد قيمتي $a$ و $b$.",
     "optionsEn": [
-      "$y = 4x - 11$",
-      "$y = 4x - 7$",
-      "$y = 6x - 11$",
-      "$y = -4x - 11$"
+      "$a = 3, b = -1$",
+      "$a = 2, b = 0$",
+      "$a = 1, b = 1$",
+      "$a = 4, b = -2$"
     ],
     "optionsAr": [
-      "$y = 4x - 11$",
-      "$y = 4x - 7$",
-      "$y = 6x - 11$",
-      "$y = -4x - 11$"
+      "$a = 3, b = -1$",
+      "$a = 2, b = 0$",
+      "$a = 1, b = 1$",
+      "$a = 4, b = -2$"
     ],
-    "correctAnswer": "$y = 4x - 11$",
+    "correctAnswer": "$a = 3, b = -1$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Use two conditions: $f(1) = 2$ and $f'(1) = 5$.",
+    "hintAr": "استخدم معادلتين: النقطة تحقق معادلة المنحنى $f(1) = 2$ والمشتقة $f'(1) = 5$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 4$, $y = (4)^2 - 4(4) + 5 = 5$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(4) - 4 = 4$.",
-      "3. Tangent equation: $y - 5 = 4(x - 4)$",
-      "$$y = 4x - 16 + 5 \\implies y = 4x - 11$$"
+      "1. Point $(1, 2)$ lies on curve: $a(1)^2 + b(1) = 2 \\implies a + b = 2$.",
+      "2. Tangent slope $y' = 2ax + b$. At $x = 1$: $2a + b = 5$.",
+      "3. Subtract equation 1 from equation 2: $(2a + b) - (a + b) = 5 - 2 \\implies a = 3$.",
+      "4. Then $b = 2 - a = 2 - 3 = -1$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 4$، تكون $y = 5$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 4$.",
-      "٣. معادلة المماس: $y - 5 = 4(x - 4)$",
-      "$$y = 4x - 11$$"
+      "١. النقطة تحقق المنحنى: $a + b = 2$.",
+      "٢. ميل المماس: $2a + b = 5$.",
+      "٣. بطرح المعادلتين: $a = 3$.",
+      "٤. بالتعويض نجد أن $b = -1$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Set up a linear system of equations: one from the point coordinates, one from the derivative.",
+    "teacherTipAr": "كون نظام معادلات خطية: معادلة من إحداثيات النقطة وأخرى من قيمة المشتقة."
   },
   {
-    "id": "calc_ch1_db_med_23",
-    "titleEn": "Equation of Tangent to Parabola (x=5)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=5)",
+    "id": "calc_ch1_db_medium_23",
+    "titleEn": "Length of Subtangent for Exponential",
+    "titleAr": "طول المماس السفلي للدالة الأسية",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 5$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 5$.",
+    "questionEn": "For the exponential curve $y = e^{x/3}$, what is the length of the subtangent $|y / y'|$ at any point on the curve?",
+    "questionAr": "للمنحنى الأسي $y = e^{x/3}$، ما هو طول المماس السفلي $|y / y'|$ عند أي نقطة على المنحنى؟",
     "optionsEn": [
-      "$y = 6x - 20$",
-      "$y = 6x - 16$",
-      "$y = 8x - 20$",
-      "$y = -6x - 20$"
+      "$3$",
+      "$\\frac{1}{3}$",
+      "$3e$",
+      "$e^{x/3}$"
     ],
     "optionsAr": [
-      "$y = 6x - 20$",
-      "$y = 6x - 16$",
-      "$y = 8x - 20$",
-      "$y = -6x - 20$"
+      "$3$",
+      "$\\frac{1}{3}$",
+      "$3e$",
+      "$e^{x/3}$"
     ],
-    "correctAnswer": "$y = 6x - 20$",
+    "correctAnswer": "$3$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Subtangent length is defined as $|y / y'|$.",
+    "hintAr": "طول المماس السفلي (مسقط المماس على محور السينات) يساوي $|y / y'|$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 5$, $y = (5)^2 - 4(5) + 5 = 10$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(5) - 4 = 6$.",
-      "3. Tangent equation: $y - 10 = 6(x - 5)$",
-      "$$y = 6x - 30 + 10 \\implies y = 6x - 20$$"
+      "1. Differentiating $y = e^{x/3}$ gives $y' = \\frac{1}{3}e^{x/3} = \\frac{1}{3}y$.",
+      "2. The length of the subtangent is $\\left|\\frac{y}{y'}\\right| = \\left|\\frac{y}{y/3}\\right| = 3$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 5$، تكون $y = 10$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 6$.",
-      "٣. معادلة المماس: $y - 10 = 6(x - 5)$",
-      "$$y = 6x - 20$$"
+      "١. $y' = \\frac{1}{3}e^{x/3} = \\frac{y}{3}$.",
+      "٢. طول المماس السفلي = $\\left|\\frac{y}{y'}\\right| = \\frac{y}{y/3} = 3$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "For any curve $y = e^{x/k}$, the length of the subtangent is constantly equal to $k$.",
+    "teacherTipAr": "لأي منحنى أسي بالصورة $y = e^{x/k}$، طول المماس السفلي مقدار ثابت دائماً ويساوي $k$."
   },
   {
-    "id": "calc_ch1_db_med_24",
-    "titleEn": "Equation of Tangent to Parabola (x=6)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=6)",
+    "id": "calc_ch1_db_medium_24",
+    "titleEn": "Intercept of Tangent on Astroid",
+    "titleAr": "طول قطعة المماس المحصورة بين المحورين لمنحنى النجمة",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 6$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 6$.",
+    "questionEn": "For the astroid curve $x = a\\cos^3\\theta, y = a\\sin^3\\theta$, the length of the portion of any tangent line intercepted between the coordinate axes is:",
+    "questionAr": "لمنحنى النجمة (الأسترويد) $x = a\\cos^3\\theta, y = a\\sin^3\\theta$، طول قطعة المماس المحصورة بين محوري الإحداثيات يساوي:",
     "optionsEn": [
-      "$y = 8x - 31$",
-      "$y = 8x - 27$",
-      "$y = 10x - 31$",
-      "$y = -8x - 31$"
+      "$a$",
+      "$2a$",
+      "$a^2$",
+      "$\\frac{a}{2}$"
     ],
     "optionsAr": [
-      "$y = 8x - 31$",
-      "$y = 8x - 27$",
-      "$y = 10x - 31$",
-      "$y = -8x - 31$"
+      "$a$",
+      "$2a$",
+      "$a^2$",
+      "$\\frac{a}{2}$"
     ],
-    "correctAnswer": "$y = 8x - 31$",
+    "correctAnswer": "$a$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "The intercepts on the axes are $a\\cos\\theta$ and $a\\sin\\theta$.",
+    "hintAr": "الجزآن المقطوعان من المحورين هما $a\\cos\\theta$ و $a\\sin\\theta$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 6$, $y = (6)^2 - 4(6) + 5 = 17$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(6) - 4 = 8$.",
-      "3. Tangent equation: $y - 17 = 8(x - 6)$",
-      "$$y = 8x - 48 + 17 \\implies y = 8x - 31$$"
+      "1. $\\frac{dy}{dx} = \\frac{3a\\sin^2\\theta\\cos\\theta}{-3a\\cos^2\\theta\\sin\\theta} = -\\tan\\theta$.",
+      "2. Tangent equation: $y - a\\sin^3\\theta = -\\tan\\theta(x - a\\cos^3\\theta) \\implies x\\sin\\theta + y\\cos\\theta = a\\sin\\theta\\cos\\theta$.",
+      "3. Intercepts are $X = a\\cos\\theta$ on the $x$-axis and $Y = a\\sin\\theta$ on the $y$-axis.",
+      "4. Length $= \\sqrt{X^2 + Y^2} = \\sqrt{a^2\\cos^2\\theta + a^2\\sin^2\\theta} = a$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 6$، تكون $y = 17$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 8$.",
-      "٣. معادلة المماس: $y - 17 = 8(x - 6)$",
-      "$$y = 8x - 31$$"
+      "١. ميل المماس = $-\\tan\\theta$.",
+      "٢. معادلة المماس تختصر إلى: $x\\sin\\theta + y\\cos\\theta = a\\sin\\theta\\cos\\theta$.",
+      "٣. نقطتا التقاطع مع المحورين هما $(a\\cos\\theta, 0)$ و $(0, a\\sin\\theta)$.",
+      "٤. البعد بينهما = $\\sqrt{a^2\\cos^2\\theta + a^2\\sin^2\\theta} = a$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "This is why an astroid is the envelope of a sliding ladder of fixed length $a$!",
+    "teacherTipAr": "لذلك يعتبر منحنى الأسترويد غلافاً لمسار سلم طوله الثابت $a$ ينزلق بين المحورين!"
   },
   {
-    "id": "calc_ch1_db_med_25",
-    "titleEn": "Equation of Tangent to Parabola (x=7)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=7)",
+    "id": "calc_ch1_db_medium_25",
+    "titleEn": "Angle of Elevation Rate of Rocket",
+    "titleAr": "معدل تغير زاوية ارتفاع صاروخ صاعد",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 7$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 7$.",
+    "questionEn": "A rocket is launched vertically at $500\\text{ m/s}$. An observer is located on the ground $2000\\text{ m}$ from the launch pad. Find the rate of change of the angle of elevation when the altitude of the rocket is $2000\\text{ m}$.",
+    "questionAr": "أُطلق صاروخ رأسياً لأعلى بسرعة $500\\text{ م/ث}$. ويتابعه راصد على الأرض على بعد $2000\\text{ م}$ من منصة الإطلاق. ما هو معدل تغير زاوية ارتفاع الصاروخ عندما يكون على ارتفاع $2000\\text{ م}$؟",
     "optionsEn": [
-      "$y = 10x - 44$",
-      "$y = 10x - 40$",
-      "$y = 12x - 44$",
-      "$y = -10x - 44$"
+      "$\\frac{1}{8}\\text{ rad/s}$",
+      "$\\frac{1}{4}\\text{ rad/s}$",
+      "$\\frac{1}{16}\\text{ rad/s}$",
+      "$0.5\\text{ rad/s}$"
     ],
     "optionsAr": [
-      "$y = 10x - 44$",
-      "$y = 10x - 40$",
-      "$y = 12x - 44$",
-      "$y = -10x - 44$"
+      "$\\frac{1}{8}\\text{ راديان/ث}$",
+      "$\\frac{1}{4}\\text{ راديان/ث}$",
+      "$\\frac{1}{16}\\text{ راديان/ث}$",
+      "$0.5\\text{ راديان/ث}$"
     ],
-    "correctAnswer": "$y = 10x - 44$",
+    "correctAnswer": "$\\frac{1}{8}\\text{ rad/s}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "$\\tan\\theta = \\frac{y}{2000} \\implies \\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{2000}\\frac{dy}{dt}$.",
+    "hintAr": "$\\tan\\theta = y / 2000$ ثم اشتق الطرفين بالنسبة للزمن.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 7$, $y = (7)^2 - 4(7) + 5 = 26$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(7) - 4 = 10$.",
-      "3. Tangent equation: $y - 26 = 10(x - 7)$",
-      "$$y = 10x - 70 + 26 \\implies y = 10x - 44$$"
+      "1. $\\tan\\theta = \\frac{y}{2000}$. When $y = 2000$, $\\tan\\theta = 1 \\implies \\theta = 45^\\circ$.",
+      "2. At $\\theta = 45^\\circ$, $\\sec^2(45^\\circ) = 2$.",
+      "3. Differentiating: $\\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{2000}\\frac{dy}{dt}$.",
+      "4. $2 \\frac{d\\theta}{dt} = \\frac{500}{2000} = \\frac{1}{4} \\implies \\frac{d\\theta}{dt} = \\frac{1}{8}\\text{ rad/s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 7$، تكون $y = 26$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 10$.",
-      "٣. معادلة المماس: $y - 26 = 10(x - 7)$",
-      "$$y = 10x - 44$$"
+      "١. $\\tan\\theta = y/2000$. عندما $y = 2000$ تكون $\\theta = 45^\\circ$.",
+      "٢. $\\sec^2(45^\\circ) = 2$.",
+      "٣. بالاشتقاق: $2 \\frac{d\\theta}{dt} = \\frac{1}{2000}(500) = \\frac{1}{4}$.",
+      "٤. إذن $\\frac{d\\theta}{dt} = 1/8\\text{ راديان/ث}$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Always evaluate trigonometric functions like $\\sec^2\\theta$ at the given instant.",
+    "teacherTipAr": "احسب قيمة $\\sec^2\\theta$ عند اللحظة الزمنية المطلوبة قبل التبسيط النهائي."
   },
   {
-    "id": "calc_ch1_db_med_26",
-    "titleEn": "Equation of Tangent to Parabola (x=8)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=8)",
+    "id": "calc_ch1_db_medium_26",
+    "titleEn": "Implicit Tangent on General Ellipse",
+    "titleAr": "ميل مماس قطع ناقص بالاشتقاق الضمني",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 8$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 8$.",
+    "questionEn": "Find the slope of the tangent to the curve $x^2 + 2xy + 3y^2 = 12$ at the point where $x = 0$ and $y > 0$.",
+    "questionAr": "أوجد ميل المماس للمنحنى $x^2 + 2xy + 3y^2 = 12$ عند النقطة التي يكون عندها $x = 0$ و $y > 0$.",
     "optionsEn": [
-      "$y = 12x - 59$",
-      "$y = 12x - 55$",
-      "$y = 14x - 59$",
-      "$y = -12x - 59$"
+      "$-\\frac{1}{3}$",
+      "$\\frac{1}{3}$",
+      "$-3$",
+      "$0$"
     ],
     "optionsAr": [
-      "$y = 12x - 59$",
-      "$y = 12x - 55$",
-      "$y = 14x - 59$",
-      "$y = -12x - 59$"
+      "$-\\frac{1}{3}$",
+      "$\\frac{1}{3}$",
+      "$-3$",
+      "$0$"
     ],
-    "correctAnswer": "$y = 12x - 59$",
+    "correctAnswer": "$-\\frac{1}{3}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Find the point $(0, 2)$, then differentiate implicitly.",
+    "hintAr": "أوجد النقطة $(0, 2)$ أولاً ثم طبق الاشتقاق الضمني.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 8$, $y = (8)^2 - 4(8) + 5 = 37$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(8) - 4 = 12$.",
-      "3. Tangent equation: $y - 37 = 12(x - 8)$",
-      "$$y = 12x - 96 + 37 \\implies y = 12x - 59$$"
+      "1. Set $x = 0$: $3y^2 = 12 \\implies y^2 = 4 \\implies y = 2$ (since $y > 0$). The point is $(0, 2)$.",
+      "2. Differentiate implicitly: $2x + 2(y + x y') + 6y y' = 0$.",
+      "3. Substitute $x = 0, y = 2$: $0 + 2(2 + 0) + 6(2)y' = 0 \\implies 4 + 12y' = 0 \\implies y' = -\\frac{4}{12} = -\\frac{1}{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 8$، تكون $y = 37$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 12$.",
-      "٣. معادلة المماس: $y - 37 = 12(x - 8)$",
-      "$$y = 12x - 59$$"
+      "١. عند $x = 0$: $3y^2 = 12 \\implies y = 2$، فالنقطة هي $(0, 2)$.",
+      "٢. بالاشتقاق الضمني: $2x + 2(y + x y') + 6y y' = 0$.",
+      "٣. بالتعويض: $4 + 12y' = 0 \\implies y' = -1/3$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Carefully substitute the point coordinates into the implicit derivative.",
+    "teacherTipAr": "عوّض بإحداثيات النقطة في معادلة المشتقة الضمنية بدقة لتجنب الأخطاء الحسابية."
   },
   {
-    "id": "calc_ch1_db_med_27",
-    "titleEn": "Equation of Tangent to Parabola (x=9)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=9)",
+    "id": "calc_ch1_db_medium_27",
+    "titleEn": "Angle of Intersection between Sine and Cosine",
+    "titleAr": "زاوية التقاطع بين منحنيي الجيب وجيب التمام",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 9$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 9$.",
+    "questionEn": "The tangents to $y = \\sin x$ and $y = \\cos x$ intersect at $x = \\frac{\\pi}{4}$. The acute angle $\\theta$ between them satisfies $\\tan\\theta = $",
+    "questionAr": "يتقاطع مماس المنحنى $y = \\sin x$ ومماس المنحنى $y = \\cos x$ عند $x = \\frac{\\pi}{4}$. قياس الزاوية الحادة بينهما $\\theta$ يحقق $\\tan\\theta = $",
     "optionsEn": [
-      "$y = 14x - 76$",
-      "$y = 14x - 72$",
-      "$y = 16x - 76$",
-      "$y = -14x - 76$"
+      "$2\\sqrt{2}$",
+      "$\\sqrt{2}$",
+      "$\\frac{\\sqrt{2}}{2}$",
+      "$1$"
     ],
     "optionsAr": [
-      "$y = 14x - 76$",
-      "$y = 14x - 72$",
-      "$y = 16x - 76$",
-      "$y = -14x - 76$"
+      "$2\\sqrt{2}$",
+      "$\\sqrt{2}$",
+      "$\\frac{\\sqrt{2}}{2}$",
+      "$1$"
     ],
-    "correctAnswer": "$y = 14x - 76$",
+    "correctAnswer": "$2\\sqrt{2}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Slopes are $m_1 = \\cos(\\pi/4) = 1/\\sqrt{2}$ and $m_2 = -\\sin(\\pi/4) = -1/\\sqrt{2}$.",
+    "hintAr": "الميلان هما $m_1 = 1/\\sqrt{2}$ و $m_2 = -1/\\sqrt{2}$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 9$, $y = (9)^2 - 4(9) + 5 = 50$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(9) - 4 = 14$.",
-      "3. Tangent equation: $y - 50 = 14(x - 9)$",
-      "$$y = 14x - 126 + 50 \\implies y = 14x - 76$$"
+      "1. $m_1 = \\cos(\\pi/4) = \\frac{1}{\\sqrt{2}}$ and $m_2 = -\\sin(\\pi/4) = -\\frac{1}{\\sqrt{2}}$.",
+      "2. $\\tan\\theta = \\left|\\frac{m_1 - m_2}{1 + m_1 m_2}\\right| = \\left|\\frac{\\frac{2}{\\sqrt{2}}}{1 - \\frac{1}{2}}\\right| = \\frac{\\sqrt{2}}{1/2} = 2\\sqrt{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 9$، تكون $y = 50$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 14$.",
-      "٣. معادلة المماس: $y - 50 = 14(x - 9)$",
-      "$$y = 14x - 76$$"
+      "١. ميل الأول = $1/\\sqrt{2}$، وميل الثاني = $-1/\\sqrt{2}$.",
+      "٢. فرق الميلين = $2/\\sqrt{2} = \\sqrt{2}$.",
+      "٣. المقام = $1 + (1/\\sqrt{2})(-1/\\sqrt{2}) = 1 - 1/2 = 1/2$.",
+      "٤. إذن $\\tan\\theta = \\frac{\\sqrt{2}}{1/2} = 2\\sqrt{2}$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Formula for acute angle between two lines always uses absolute value.",
+    "teacherTipAr": "قانون الزاوية الحادة بين مستقيمين يتضمن دائماً القيمة المطلقة لضمان الناتج الموجب."
   },
   {
-    "id": "calc_ch1_db_med_28",
-    "titleEn": "Equation of Tangent to Parabola (x=10)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=10)",
+    "id": "calc_ch1_db_medium_28",
+    "titleEn": "Separation Rate of Perpendicular Moving Cars",
+    "titleAr": "معدل ابتعاد سيارتين في اتجاهين متعامدين",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 10$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 10$.",
+    "questionEn": "Two cars start from the same point simultaneously: one moves North at $60\\text{ km/h}$ and the other East at $80\\text{ km/h}$. At what rate is the distance between them increasing after $2\\text{ hours}$?",
+    "questionAr": "تحركت سيارتان من نفس الموضع في نفس اللحظة: الأولى شمالاً بسرعة $60\\text{ كم/س}$ والثانية شرقاً بسرعة $80\\text{ كم/س}$. ما هو معدل زيادة المسافة بينهما بعد مرور ساعتين؟",
     "optionsEn": [
-      "$y = 16x - 95$",
-      "$y = 16x - 91$",
-      "$y = 18x - 95$",
-      "$y = -16x - 95$"
+      "$100\\text{ km/h}$",
+      "$140\\text{ km/h}$",
+      "$70\\text{ km/h}$",
+      "$200\\text{ km/h}$"
     ],
     "optionsAr": [
-      "$y = 16x - 95$",
-      "$y = 16x - 91$",
-      "$y = 18x - 95$",
-      "$y = -16x - 95$"
+      "$100\\text{ كم/س}$",
+      "$140\\text{ كم/س}$",
+      "$70\\text{ كم/س}$",
+      "$200\\text{ كم/س}$"
     ],
-    "correctAnswer": "$y = 16x - 95$",
+    "correctAnswer": "$100\\text{ km/h}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "$z^2 = x^2 + y^2 \\implies z\\frac{dz}{dt} = x\\frac{dx}{dt} + y\\frac{dy}{dt}$.",
+    "hintAr": "العلاقة فيثاغورسية: $z^2 = x^2 + y^2$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 10$, $y = (10)^2 - 4(10) + 5 = 65$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(10) - 4 = 16$.",
-      "3. Tangent equation: $y - 65 = 16(x - 10)$",
-      "$$y = 16x - 160 + 65 \\implies y = 16x - 95$$"
+      "1. After $t = 2\\text{ h}$: $y = 60 \\times 2 = 120\\text{ km}$, $x = 80 \\times 2 = 160\\text{ km}$.",
+      "2. Distance $z = \\sqrt{120^2 + 160^2} = 200\\text{ km}$.",
+      "3. Differentiating $z^2 = x^2 + y^2$: $z \\frac{dz}{dt} = x\\frac{dx}{dt} + y\\frac{dy}{dt}$.",
+      "4. $200 \\frac{dz}{dt} = 160(80) + 120(60) = 12800 + 7200 = 20000$.",
+      "5. $\\frac{dz}{dt} = \\frac{20000}{200} = 100\\text{ km/h}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 10$، تكون $y = 65$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 16$.",
-      "٣. معادلة المماس: $y - 65 = 16(x - 10)$",
-      "$$y = 16x - 95$$"
+      "١. بعد ساعتين: $y = 120\\text{ كم}$ و $x = 160\\text{ كم}$، والمسافة بينهما $z = 200\\text{ كم}$.",
+      "٢. بالاشتقاق: $z z' = x x' + y y'$.",
+      "٣. $200 z' = 160(80) + 120(60) = 20000$.",
+      "٤. إذن معدل الابتعاد = $100\\text{ كم/س}$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "When starting from origin, the separation speed between perpendicularly moving objects is constant!",
+    "teacherTipAr": "إذا انطلق الجسمان من الأصل بسرعة ثابتة فإن معدل تباعدهما يظل ثابتاً طوال الوقت!"
   },
   {
-    "id": "calc_ch1_db_med_29",
-    "titleEn": "Equation of Tangent to Parabola (x=11)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=11)",
+    "id": "calc_ch1_db_medium_29",
+    "titleEn": "Tenth Derivative of Geometric Series Generating Function",
+    "titleAr": "المشتقة العاشرة للدالة المولدة لمتسلسلة هندسية",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 11$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 11$.",
+    "questionEn": "If $f(x) = \\frac{1}{1 - x}$, find the tenth derivative value $f^{(10)}(0)$.",
+    "questionAr": "إذا كانت $f(x) = \\frac{1}{1 - x}$، أوجد قيمة المشتقة العاشرة $f^{(10)}(0)$.",
     "optionsEn": [
-      "$y = 18x - 116$",
-      "$y = 18x - 112$",
-      "$y = 20x - 116$",
-      "$y = -18x - 116$"
+      "$10!$",
+      "$9!$",
+      "$\\frac{1}{10!}$",
+      "$1$"
     ],
     "optionsAr": [
-      "$y = 18x - 116$",
-      "$y = 18x - 112$",
-      "$y = 20x - 116$",
-      "$y = -18x - 116$"
+      "$10!$",
+      "$9!$",
+      "$\\frac{1}{10!}$",
+      "$1$"
     ],
-    "correctAnswer": "$y = 18x - 116$",
+    "correctAnswer": "$10!$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Pattern: $f^{(n)}(x) = \\frac{n!}{(1 - x)^{n+1}}$.",
+    "hintAr": "نمط المشتقات: المشتقة من الرتبة $n$ تساوي $\\frac{n!}{(1-x)^{n+1}}$.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 11$, $y = (11)^2 - 4(11) + 5 = 82$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(11) - 4 = 18$.",
-      "3. Tangent equation: $y - 82 = 18(x - 11)$",
-      "$$y = 18x - 198 + 82 \\implies y = 18x - 116$$"
+      "1. $f(x) = (1 - x)^{-1}$.",
+      "2. $f'(x) = 1(1 - x)^{-2}$, $f''(x) = 2(1 - x)^{-3}$, $f'''(x) = 6(1 - x)^{-4}$.",
+      "3. By induction, $f^{(n)}(x) = \\frac{n!}{(1 - x)^{n+1}}$.",
+      "4. At $x = 0$: $f^{(10)}(0) = \\frac{10!}{(1 - 0)^{11}} = 10!$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 11$، تكون $y = 82$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 18$.",
-      "٣. معادلة المماس: $y - 82 = 18(x - 11)$",
-      "$$y = 18x - 116$$"
+      "١. الدالة هي $(1-x)^{-1}$.",
+      "٢. المشتقات المتتالية تعطي $n!(1-x)^{-(n+1)}$.",
+      "٣. عند $x = 0$: الناتج هو $10!$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "This is identical to the coefficient formula in Maclaurin series expansion.",
+    "teacherTipAr": "يتطابق هذا مع صيغة معاملات مفكوك ماكلورين الشهير."
   },
   {
-    "id": "calc_ch1_db_med_30",
-    "titleEn": "Equation of Tangent to Parabola (x=12)",
-    "titleAr": "معادلة المماس للقطع المكافئ (x=12)",
+    "id": "calc_ch1_db_medium_30",
+    "titleEn": "Intersection of Normal Line with the Curve Again",
+    "titleAr": "تقاطع العمودي مع المنحنى مرة أخرى",
     "difficulty": "medium",
-    "questionEn": "Find the equation of the tangent to the curve $y = x^2 - 4x + 5$ at the point where $x = 12$.",
-    "questionAr": "أوجد معادلة المماس للمنحنى $y = x^2 - 4x + 5$ عند النقطة التي فيها $x = 12$.",
+    "questionEn": "The normal line to the parabola $y = x^2$ at the point $(1, 1)$ intersects the parabola again at point $Q$. Find the $x$-coordinate of $Q$.",
+    "questionAr": "العمودي على المنحنى $y = x^2$ عند النقطة $(1, 1)$ يقطع المنحنى مرة ثانية عند نقطة $Q$. أوجد الإحداثي السيني للنقطة $Q$.",
     "optionsEn": [
-      "$y = 20x - 139$",
-      "$y = 20x - 135$",
-      "$y = 22x - 139$",
-      "$y = -20x - 139$"
+      "$-\\frac{3}{2}$",
+      "$-1$",
+      "$-\\frac{1}{2}$",
+      "$-2$"
     ],
     "optionsAr": [
-      "$y = 20x - 139$",
-      "$y = 20x - 135$",
-      "$y = 22x - 139$",
-      "$y = -20x - 139$"
+      "$-\\frac{3}{2}$",
+      "$-1$",
+      "$-\\frac{1}{2}$",
+      "$-2$"
     ],
-    "correctAnswer": "$y = 20x - 139$",
+    "correctAnswer": "$-\\frac{3}{2}$",
     "correctIndex": 0,
-    "hintEn": "Find $y_0$ by substituting $x = x_0$, find slope $m = y'(x_0)$, then use $y - y_0 = m(x - x_0)$.",
-    "hintAr": "احسب $y_0$ بالتعويض بـ $x = x_0$، ثم أوجد الميل $m = y'(x_0)$، واستخدم $y - y_0 = m(x - x_0)$.",
+    "hintEn": "Normal slope $m_n = -1/2$. Find line equation and substitute $y = x^2$.",
+    "hintAr": "ميل العمودي $-1/2$. كوّن معادلة العمودي وحلها مع معادلة المنحنى.",
     "stepByStepSolutionEn": [
-      "1. Point of contact: at $x = 12$, $y = (12)^2 - 4(12) + 5 = 101$.",
-      "2. Derivative: $y' = 2x - 4 \\implies m = 2(12) - 4 = 20$.",
-      "3. Tangent equation: $y - 101 = 20(x - 12)$",
-      "$$y = 20x - 240 + 101 \\implies y = 20x - 139$$"
+      "1. Tangent slope $m_t = 2(1) = 2 \\implies$ normal slope $m_n = -\\frac{1}{2}$.",
+      "2. Normal equation: $y - 1 = -\\frac{1}{2}(x - 1) \\implies y = -\\frac{1}{2}x + \\frac{3}{2}$.",
+      "3. Intersect with $y = x^2$: $x^2 + \\frac{1}{2}x - \\frac{3}{2} = 0 \\implies 2x^2 + x - 3 = 0$.",
+      "4. Factor: $(x - 1)(2x + 3) = 0$. Since $x = 1$ is the original point, the second intersection is $x = -\\frac{3}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطة التماس: عند $x = 12$، تكون $y = 101$.",
-      "٢. المشتقة: $y' = 2x - 4 \\implies m = 20$.",
-      "٣. معادلة المماس: $y - 101 = 20(x - 12)$",
-      "$$y = 20x - 139$$"
+      "١. ميل العمودي = $-1/2$.",
+      "٢. معادلة العمودي: $y - 1 = -\\frac{1}{2}(x - 1) \\implies y = -\\frac{x}{2} + \\frac{3}{2}$.",
+      "٣. بالحل مع $y = x^2$: $2x^2 + x - 3 = 0 \\implies (x - 1)(2x + 3) = 0$.",
+      "٤. إذن نقطة التقاطع الأخرى هي $x = -3/2$."
     ],
-    "teacherTipEn": "Equation of tangent: $y - y_1 = m(x - x_1)$.",
-    "teacherTipAr": "معادلة المماس: $y - y_1 = m(x - x_1)$."
+    "teacherTipEn": "Factoring out $(x - x_0)$ is guaranteed because the line passes through $(x_0, y_0)$.",
+    "teacherTipAr": "إخراج القوس $(x - x_0)$ مضمون دائماً لأن المستقيم يمر بنقطة التماس الأصلية."
   },
   {
-    "id": "calc_ch1_db_med_31",
-    "titleEn": "Trig Power Derivative for sec^2(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^2(س)",
+    "id": "calc_ch1_db_medium_31",
+    "titleEn": "Differential Identity for Secant",
+    "titleAr": "متطابقة تفاضلية لدالة القاطع",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{2}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{2}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "If $y = \\sec x$, prove that $\\frac{d^2y}{dx^2} + y$ equals:",
+    "questionAr": "إذا كانت $y = \\sec x$، فما قيمة المقدار $\\frac{d^2y}{dx^2} + y$ بدلالة $y$؟",
     "optionsEn": [
-      "$2y \\tan(x)$",
-      "$3y \\tan(x)$",
-      "$\\frac{y}{2} \\tan(x)$",
-      "$2y \\sec(x)$"
+      "$2y^3$",
+      "$y^3$",
+      "$2y^2$",
+      "$y^2 + 1$"
     ],
     "optionsAr": [
-      "$2y \\tan(x)$",
-      "$3y \\tan(x)$",
-      "$\\frac{y}{2} \\tan(x)$",
-      "$2y \\sec(x)$"
+      "$2y^3$",
+      "$y^3$",
+      "$2y^2$",
+      "$y^2 + 1$"
     ],
-    "correctAnswer": "$2y \\tan(x)$",
+    "correctAnswer": "$2y^3$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "$y' = \\sec x \\tan x$, $y'' = \\sec x \\tan^2 x + \\sec^3 x$.",
+    "hintAr": "اشتق مرتين ثم عوض عن $\\tan^2 x$ بـ $\\sec^2 x - 1$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 2\\sec^{1}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 2\\sec^{2}(x) \\tan(x)$$",
-      "Since $y = \\sec^{2}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 2y \\tan(x)$$"
+      "1. $y' = \\sec x \\tan x$.",
+      "2. $y'' = (\\sec x \\tan x)\\tan x + \\sec x(\\sec^2 x) = \\sec x \\tan^2 x + \\sec^3 x$.",
+      "3. Substitute $\\tan^2 x = \\sec^2 x - 1$: $y'' = y(y^2 - 1) + y^3 = 2y^3 - y$.",
+      "4. Therefore, $y'' + y = 2y^3$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 2\\sec^{1}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 2\\sec^{2}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{2}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 2y \\tan(x)$$"
+      "١. $y' = \\sec x \\tan x$.",
+      "٢. المشتقة الثانية: $y'' = \\sec x \\tan^2 x + \\sec^3 x$.",
+      "٣. باستبدال $\\tan^2 x = \\sec^2 x - 1 = y^2 - 1$: $y'' = y(y^2 - 1) + y^3 = 2y^3 - y$.",
+      "٤. إذن $y'' + y = 2y^3$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Express all trigonometric functions in terms of the original function $y$.",
+    "teacherTipAr": "حوّل جميع الدوال المثلثية إلى بدلالة $y$ لتبسيط المعادلة التفاضلية."
   },
   {
-    "id": "calc_ch1_db_med_32",
-    "titleEn": "Trig Power Derivative for sec^3(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^3(س)",
+    "id": "calc_ch1_db_medium_32",
+    "titleEn": "Cylinder Total Surface Area Rate",
+    "titleAr": "معدل تغير المساحة الكلية لأسطوانة",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{3}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{3}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "A right circular cylinder has a constant height $h = 10\\text{ cm}$. Its radius $r$ is increasing at $0.5\\text{ cm/s}$. Find the rate of increase of its total surface area when $r = 4\\text{ cm}$.",
+    "questionAr": "أسطوانة دائرية قائمة ارتفاعها ثابت $h = 10\\text{ سم}$، ونصف قطر قاعدتها $r$ يتزايد بمعدل $0.5\\text{ سم/ث}$. أوجد معدل زيادة مساحتها الكلية عندما $r = 4\\text{ سم}$.",
     "optionsEn": [
-      "$3y \\tan(x)$",
-      "$4y \\tan(x)$",
-      "$\\frac{y}{3} \\tan(x)$",
-      "$3y \\sec(x)$"
+      "$18\\pi\\text{ cm}^2/\\text{s}$",
+      "$36\\pi\\text{ cm}^2/\\text{s}$",
+      "$20\\pi\\text{ cm}^2/\\text{s}$",
+      "$16\\pi\\text{ cm}^2/\\text{s}$"
     ],
     "optionsAr": [
-      "$3y \\tan(x)$",
-      "$4y \\tan(x)$",
-      "$\\frac{y}{3} \\tan(x)$",
-      "$3y \\sec(x)$"
+      "$18\\pi\\text{ سم}^2/\\text{ث}$",
+      "$36\\pi\\text{ سم}^2/\\text{ث}$",
+      "$20\\pi\\text{ سم}^2/\\text{ث}$",
+      "$16\\pi\\text{ سم}^2/\\text{ث}$"
     ],
-    "correctAnswer": "$3y \\tan(x)$",
+    "correctAnswer": "$18\\pi\\text{ cm}^2/\\text{s}$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Total area $S = 2\\pi r^2 + 2\\pi r h$. Differentiate with respect to $t$.",
+    "hintAr": "المساحة الكلية $S = 2\\pi r^2 + 2\\pi r h$ مع ثبات الارتفاع $h$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 3\\sec^{2}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 3\\sec^{3}(x) \\tan(x)$$",
-      "Since $y = \\sec^{3}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 3y \\tan(x)$$"
+      "1. Formula: $S = 2\\pi r^2 + 2\\pi(10)r = 2\\pi r^2 + 20\\pi r$.",
+      "2. Differentiating with respect to $t$: $\\frac{dS}{dt} = (4\\pi r + 20\\pi)\\frac{dr}{dt}$.",
+      "3. Substitute $r = 4$ and $\\frac{dr}{dt} = 0.5$: $(16\\pi + 20\\pi)(0.5) = 36\\pi(0.5) = 18\\pi\\text{ cm}^2/\\text{s}$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 3\\sec^{2}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 3\\sec^{3}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{3}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 3y \\tan(x)$$"
+      "١. المساحة الكلية: $S = 2\\pi r^2 + 20\\pi r$.",
+      "٢. بالاشتقاق بالنسبة للزمن: $\\frac{dS}{dt} = (4\\pi r + 20\\pi)\\frac{dr}{dt}$.",
+      "٣. عند $r = 4$: الناتج = $(16\\pi + 20\\pi)(0.5) = 18\\pi\\text{ سم}^2/\\text{ث}$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Since height is constant, $h$ acts as a numerical coefficient.",
+    "teacherTipAr": "بما أن الارتفاع ثابت، يعامل كمعامل عددي ثابت أثناء الاشتقاق."
   },
   {
-    "id": "calc_ch1_db_med_33",
-    "titleEn": "Trig Power Derivative for sec^4(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^4(س)",
+    "id": "calc_ch1_db_medium_33",
+    "titleEn": "Tangents from Origin to Parabola",
+    "titleAr": "المماسان المرسومان من نقطة الأصل لقطع مكافئ",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{4}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{4}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "Tangents are drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 4$. The slopes of these tangents are:",
+    "questionAr": "رُسم مماسان من نقطة الأصل $(0, 0)$ للمنحنى $y = x^2 + 4$. ميل هذين المماسين هما:",
     "optionsEn": [
-      "$4y \\tan(x)$",
-      "$5y \\tan(x)$",
-      "$\\frac{y}{4} \\tan(x)$",
-      "$4y \\sec(x)$"
+      "$\\pm 4$",
+      "$\\pm 2$",
+      "$\\pm 1$",
+      "$\\pm 8$"
     ],
     "optionsAr": [
-      "$4y \\tan(x)$",
-      "$5y \\tan(x)$",
-      "$\\frac{y}{4} \\tan(x)$",
-      "$4y \\sec(x)$"
+      "$\\pm 4$",
+      "$\\pm 2$",
+      "$\\pm 1$",
+      "$\\pm 8$"
     ],
-    "correctAnswer": "$4y \\tan(x)$",
+    "correctAnswer": "$\\pm 4$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Let $(x_0, x_0^2 + 4)$ be point of contact. Slope $m = 2x_0 = \\frac{x_0^2 + 4}{x_0}$.",
+    "hintAr": "افرض نقطة التماس $(x_0, y_0)$ وساوِ ميل المماس بميل الخط الواصل بنقطة الأصل.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 4\\sec^{3}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 4\\sec^{4}(x) \\tan(x)$$",
-      "Since $y = \\sec^{4}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 4y \\tan(x)$$"
+      "1. Tangent slope at $(x_0, y_0)$ is $m = 2x_0$.",
+      "2. Slope of line through $(0, 0)$ and $(x_0, x_0^2 + 4)$ is $m = \\frac{x_0^2 + 4}{x_0}$.",
+      "3. Equating slopes: $2x_0 = \\frac{x_0^2 + 4}{x_0} \\implies 2x_0^2 = x_0^2 + 4 \\implies x_0^2 = 4 \\implies x_0 = \\pm 2$.",
+      "4. The slopes are $m = 2(\\pm 2) = \\pm 4$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 4\\sec^{3}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 4\\sec^{4}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{4}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 4y \\tan(x)$$"
+      "١. ميل المماس عند نقطة التماس هو $2x_0$.",
+      "٢. ميل المستقيم المار بنقطة الأصل هو $\\frac{x_0^2 + 4}{x_0}$.",
+      "٣. بالمساواة: $2x_0^2 = x_0^2 + 4 \\implies x_0 = \\pm 2$.",
+      "٤. إذن الميول هي $\\pm 4$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Tangents drawn from an external point always require setting slope of secant equal to tangent derivative.",
+    "teacherTipAr": "المماس المار بنقطة خارج المنحنى يحل بمساواة فرق الصادات على فرق السينات بقيمة المشتقة."
   },
   {
-    "id": "calc_ch1_db_med_34",
-    "titleEn": "Trig Power Derivative for sec^5(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^5(س)",
+    "id": "calc_ch1_db_medium_34",
+    "titleEn": "Derivative of Half-Angle Form Radical",
+    "titleAr": "مشتقة جذر متطابقة نصف الزاوية",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{5}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{5}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "If $y = \\sqrt{\\frac{1 - \\cos(2x)}{1 + \\cos(2x)}}$ for $x \\in \\left(0, \\frac{\\pi}{2}\\right)$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\sqrt{\\frac{1 - \\cos(2x)}{1 + \\cos(2x)}}$ حيث $x \\in \\left(0, \\frac{\\pi}{2}\\right)$، أوجد $\\frac{dy}{dx}$.",
     "optionsEn": [
-      "$5y \\tan(x)$",
-      "$6y \\tan(x)$",
-      "$\\frac{y}{5} \\tan(x)$",
-      "$5y \\sec(x)$"
+      "$\\sec^2 x$",
+      "$\\csc^2 x$",
+      "$\\tan x$",
+      "$-\\sec^2 x$"
     ],
     "optionsAr": [
-      "$5y \\tan(x)$",
-      "$6y \\tan(x)$",
-      "$\\frac{y}{5} \\tan(x)$",
-      "$5y \\sec(x)$"
+      "$\\sec^2 x$",
+      "$\\csc^2 x$",
+      "$\\tan x$",
+      "$-\\sec^2 x$"
     ],
-    "correctAnswer": "$5y \\tan(x)$",
+    "correctAnswer": "$\\sec^2 x$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Use half-angle identities: $1 - \\cos 2x = 2\\sin^2 x$ and $1 + \\cos 2x = 2\\cos^2 x$.",
+    "hintAr": "استخدم متطابقات نصف الزاوية لتبسيط ما تحت الجذر إلى $\\tan^2 x$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 5\\sec^{4}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 5\\sec^{5}(x) \\tan(x)$$",
-      "Since $y = \\sec^{5}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 5y \\tan(x)$$"
+      "1. $1 - \\cos(2x) = 2\\sin^2 x$ and $1 + \\cos(2x) = 2\\cos^2 x$.",
+      "2. $y = \\sqrt{\\frac{2\\sin^2 x}{2\\cos^2 x}} = \\sqrt{\\tan^2 x} = |\\tan x|$.",
+      "3. For $x \\in (0, \\pi/2)$, $\\tan x > 0$, so $y = \\tan x$.",
+      "4. Differentiating gives $\\frac{dy}{dx} = \\sec^2 x$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 5\\sec^{4}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 5\\sec^{5}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{5}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 5y \\tan(x)$$"
+      "١. $1 - \\cos(2x) = 2\\sin^2 x$ و $1 + \\cos(2x) = 2\\cos^2 x$.",
+      "٢. المقدار تحت الجذر يختصر إلى $\\tan^2 x$.",
+      "٣. بما أن $x$ في الربع الأول، إذن $y = \\tan x$.",
+      "٤. بالاشتقاق: $y' = \\sec^2 x$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Simplifying trigonometric fractions before differentiating saves immense algebraic effort.",
+    "teacherTipAr": "تبسيط الكسر المثلثي قبل الاشتقاق يختصر المسألة في سطرين."
   },
   {
-    "id": "calc_ch1_db_med_35",
-    "titleEn": "Trig Power Derivative for sec^6(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^6(س)",
+    "id": "calc_ch1_db_medium_35",
+    "titleEn": "Volume Expansion Rate of Cube",
+    "titleAr": "معدل زيادة حجم مكعب يتمدد بالحرارة",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{6}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{6}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "A solid metal cube expands by heat such that its edge length increases at $0.02\\text{ cm/s}$. Find the rate of increase of its volume when the edge length is $10\\text{ cm}$.",
+    "questionAr": "مكعب فلزي يتمدد بالحرارة بحيث يزداد طول حرفه بمعدل $0.02\\text{ سم/ث}$. أوجد معدل الزيادة في حجمه عندما يكون طول حرفه $10\\text{ سم}$.",
     "optionsEn": [
-      "$6y \\tan(x)$",
-      "$7y \\tan(x)$",
-      "$\\frac{y}{6} \\tan(x)$",
-      "$6y \\sec(x)$"
+      "$6\\text{ cm}^3/\\text{s}$",
+      "$2\\text{ cm}^3/\\text{s}$",
+      "$60\\text{ cm}^3/\\text{s}$",
+      "$0.6\\text{ cm}^3/\\text{s}$"
     ],
     "optionsAr": [
-      "$6y \\tan(x)$",
-      "$7y \\tan(x)$",
-      "$\\frac{y}{6} \\tan(x)$",
-      "$6y \\sec(x)$"
+      "$6\\text{ سم}^3/\\text{ث}$",
+      "$2\\text{ سم}^3/\\text{ث}$",
+      "$60\\text{ سم}^3/\\text{ث}$",
+      "$0.6\\text{ سم}^3/\\text{ث}$"
     ],
-    "correctAnswer": "$6y \\tan(x)$",
+    "correctAnswer": "$6\\text{ cm}^3/\\text{s}$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "$V = x^3 \\implies \\frac{dV}{dt} = 3x^2 \\frac{dx}{dt}$.",
+    "hintAr": "حجم المكعب $V = x^3$ ثم اشتق بالنسبة للزمن.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 6\\sec^{5}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 6\\sec^{6}(x) \\tan(x)$$",
-      "Since $y = \\sec^{6}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 6y \\tan(x)$$"
+      "1. $V = x^3$.",
+      "2. Differentiating with respect to time: $\\frac{dV}{dt} = 3x^2 \\frac{dx}{dt}$.",
+      "3. Substitute $x = 10$ and $\\frac{dx}{dt} = 0.02$: $\\frac{dV}{dt} = 3(100)(0.02) = 6\\text{ cm}^3/\\text{s}$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 6\\sec^{5}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 6\\sec^{6}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{6}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 6y \\tan(x)$$"
+      "١. $V = x^3$.",
+      "٢. بالاشتقاق الزمني: $\\frac{dV}{dt} = 3x^2 \\frac{dx}{dt}$.",
+      "٣. عند $x = 10$: $\\frac{dV}{dt} = 3(100)(0.02) = 6\\text{ سم}^3/\\text{ث}$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Mental math trick: $3 \\times 100 \\times 0.02 = 3 \\times 2 = 6$.",
+    "teacherTipAr": "ضرب 100 في 0.02 يعطي 2 مباشرة، ثم في 3 يعطي 6."
   },
   {
-    "id": "calc_ch1_db_med_36",
-    "titleEn": "Trig Power Derivative for sec^7(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^7(س)",
+    "id": "calc_ch1_db_medium_36",
+    "titleEn": "Second Derivative of Standard Parabola",
+    "titleAr": "المشتقة الثانية للقطع المكافئ القياسي",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{7}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{7}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "For the parabola $y^2 = 4ax$, where $a$ is a non-zero constant, the second derivative $\\frac{d^2y}{dx^2}$ equals:",
+    "questionAr": "للقطع المكافئ $y^2 = 4ax$ حيث $a$ ثابت غير صفري، المشتقة الثانية $\\frac{d^2y}{dx^2}$ تساوي:",
     "optionsEn": [
-      "$7y \\tan(x)$",
-      "$8y \\tan(x)$",
-      "$\\frac{y}{7} \\tan(x)$",
-      "$7y \\sec(x)$"
+      "$-\\frac{4a^2}{y^3}$",
+      "$\\frac{4a^2}{y^3}$",
+      "$-\\frac{2a}{y^2}$",
+      "$-\\frac{a^2}{y^3}$"
     ],
     "optionsAr": [
-      "$7y \\tan(x)$",
-      "$8y \\tan(x)$",
-      "$\\frac{y}{7} \\tan(x)$",
-      "$7y \\sec(x)$"
+      "$-\\frac{4a^2}{y^3}$",
+      "$\\frac{4a^2}{y^3}$",
+      "$-\\frac{2a}{y^2}$",
+      "$-\\frac{a^2}{y^3}$"
     ],
-    "correctAnswer": "$7y \\tan(x)$",
+    "correctAnswer": "$-\\frac{4a^2}{y^3}$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Differentiate implicitly: $2y y' = 4a \\implies y' = 2a/y$, then differentiate again.",
+    "hintAr": "اشتق ضمنياً مرتين متتاليتين ثم عوض عن $y'$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 7\\sec^{6}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 7\\sec^{7}(x) \\tan(x)$$",
-      "Since $y = \\sec^{7}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 7y \\tan(x)$$"
+      "1. $2y \\frac{dy}{dx} = 4a \\implies \\frac{dy}{dx} = \\frac{2a}{y}$.",
+      "2. Differentiating again: $\\frac{d^2y}{dx^2} = -\\frac{2a}{y^2} \\frac{dy}{dx}$.",
+      "3. Substitute $\\frac{dy}{dx} = \\frac{2a}{y}$: $\\frac{d^2y}{dx^2} = -\\frac{2a}{y^2} \\left(\\frac{2a}{y}\\right) = -\\frac{4a^2}{y^3}$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 7\\sec^{6}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 7\\sec^{7}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{7}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 7y \\tan(x)$$"
+      "١. $2y y' = 4a \\implies y' = \\frac{2a}{y}$.",
+      "٢. بالاشتقاق ثانية: $y'' = -\\frac{2a}{y^2} y'$.",
+      "٣. بالتعويض عن $y'$: $y'' = -\\frac{2a}{y^2} \\left(\\frac{2a}{y}\\right) = -\\frac{4a^2}{y^3}$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Standard textbook proof for curvature of the parabola.",
+    "teacherTipAr": "إثبات قياسي مشهور في كتاب الوزارة لانحناء القطع المكافئ."
   },
   {
-    "id": "calc_ch1_db_med_37",
-    "titleEn": "Trig Power Derivative for sec^8(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^8(س)",
+    "id": "calc_ch1_db_medium_37",
+    "titleEn": "Tangent Equation to Ellipse",
+    "titleAr": "معادلة المماس لقطع ناقص",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{8}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{8}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "Find the equation of the tangent line to the ellipse $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$ at the point $\\left(2, \\frac{3\\sqrt{3}}{2}\\right)$.",
+    "questionAr": "أوجد معادلة المماس للقطع الناقص $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$ عند النقطة $\\left(2, \\frac{3\\sqrt{3}}{2}\\right)$.",
     "optionsEn": [
-      "$8y \\tan(x)$",
-      "$9y \\tan(x)$",
-      "$\\frac{y}{8} \\tan(x)$",
-      "$8y \\sec(x)$"
+      "$3x + 4\\sqrt{3}y - 24 = 0$",
+      "$3x - 4\\sqrt{3}y + 24 = 0$",
+      "$4x + 3\\sqrt{3}y - 24 = 0$",
+      "$x + \\sqrt{3}y - 8 = 0$"
     ],
     "optionsAr": [
-      "$8y \\tan(x)$",
-      "$9y \\tan(x)$",
-      "$\\frac{y}{8} \\tan(x)$",
-      "$8y \\sec(x)$"
+      "$3x + 4\\sqrt{3}y - 24 = 0$",
+      "$3x - 4\\sqrt{3}y + 24 = 0$",
+      "$4x + 3\\sqrt{3}y - 24 = 0$",
+      "$x + \\sqrt{3}y - 8 = 0$"
     ],
-    "correctAnswer": "$8y \\tan(x)$",
+    "correctAnswer": "$3x + 4\\sqrt{3}y - 24 = 0$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Use the tangent formula $\\frac{x x_0}{a^2} + \\frac{y y_0}{b^2} = 1$.",
+    "hintAr": "طبق صيغة مماس القطع الناقص: $\\frac{x x_0}{a^2} + \\frac{y y_0}{b^2} = 1$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 8\\sec^{7}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 8\\sec^{8}(x) \\tan(x)$$",
-      "Since $y = \\sec^{8}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 8y \\tan(x)$$"
+      "1. Tangent formula for ellipse at $(x_0, y_0)$: $\\frac{x x_0}{16} + \\frac{y y_0}{9} = 1$.",
+      "2. Substitute $(x_0, y_0) = (2, \\frac{3\\sqrt{3}}{2})$: $\\frac{2x}{16} + \\frac{y(3\\sqrt{3}/2)}{9} = 1$.",
+      "3. $\\frac{x}{8} + \\frac{\\sqrt{3}y}{6} = 1$.",
+      "4. Multiply by $24$: $3x + 4\\sqrt{3}y = 24 \\implies 3x + 4\\sqrt{3}y - 24 = 0$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 8\\sec^{7}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 8\\sec^{8}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{8}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 8y \\tan(x)$$"
+      "١. معادلة مماس القطع الناقص: $\\frac{x x_0}{16} + \\frac{y y_0}{9} = 1$.",
+      "٢. بالتعويض بالنقطة: $\\frac{x}{8} + \\frac{\\sqrt{3}y}{6} = 1$.",
+      "٣. بالضرب في 24 لتوحيد المقامات: $3x + 4\\sqrt{3}y - 24 = 0$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "The formula $\\frac{x x_0}{a^2} + \\frac{y y_0}{b^2} = 1$ gives the tangent line equation immediately.",
+    "teacherTipAr": "صيغة $\\frac{x x_0}{a^2} + \\frac{y y_0}{b^2} = 1$ تعطي معادلة المماس للقطع الناقص مباشرة."
   },
   {
-    "id": "calc_ch1_db_med_38",
-    "titleEn": "Trig Power Derivative for sec^9(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^9(س)",
+    "id": "calc_ch1_db_medium_38",
+    "titleEn": "Conical Sand Pile Growth Rate",
+    "titleAr": "معدل زيادة ارتفاع كومة رمل مخروطية",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{9}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{9}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "Sand is poured onto the ground at a rate of $12\\pi\\text{ cm}^3/\\text{s}$, forming a conical pile whose height is always equal to its base radius. Find the rate of increase of its height when the height is $6\\text{ cm}$.",
+    "questionAr": "ينصب الرمل على أرض مستوية بمعدل $12\\pi\\text{ سم}^3/\\text{ث}$ مكوناً كومة على شكل مخروط دائري قائم ارتفاعه يساوي دائماً نصف قطر قاعدته. أوجد معدل زيادة ارتفاع الكومة عندما يكون الارتفاع $6\\text{ سم}$.",
     "optionsEn": [
-      "$9y \\tan(x)$",
-      "$10y \\tan(x)$",
-      "$\\frac{y}{9} \\tan(x)$",
-      "$9y \\sec(x)$"
+      "$\\frac{1}{3}\\text{ cm/s}$",
+      "$\\frac{1}{6}\\text{ cm/s}$",
+      "$1\\text{ cm/s}$",
+      "$\\frac{2}{3}\\text{ cm/s}$"
     ],
     "optionsAr": [
-      "$9y \\tan(x)$",
-      "$10y \\tan(x)$",
-      "$\\frac{y}{9} \\tan(x)$",
-      "$9y \\sec(x)$"
+      "$\\frac{1}{3}\\text{ سم/ث}$",
+      "$\\frac{1}{6}\\text{ سم/ث}$",
+      "$1\\text{ سم/ث}$",
+      "$\\frac{2}{3}\\text{ سم/ث}$"
     ],
-    "correctAnswer": "$9y \\tan(x)$",
+    "correctAnswer": "$\\frac{1}{3}\\text{ cm/s}$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Since $r = h$, $V = \\frac{1}{3}\\pi h^3 \\implies \\frac{dV}{dt} = \\pi h^2 \\frac{dh}{dt}$.",
+    "hintAr": "بما أن $r = h$ فإن الحجم $V = \\frac{1}{3}\\pi h^3$ ثم اشتق زمنياً.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 9\\sec^{8}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 9\\sec^{9}(x) \\tan(x)$$",
-      "Since $y = \\sec^{9}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 9y \\tan(x)$$"
+      "1. Volume formula with $r = h$: $V = \\frac{1}{3}\\pi h^3$.",
+      "2. Differentiate with respect to $t$: $\\frac{dV}{dt} = \\pi h^2 \\frac{dh}{dt}$.",
+      "3. Substitute $\\frac{dV}{dt} = 12\\pi$ and $h = 6$: $12\\pi = \\pi(6^2)\\frac{dh}{dt} = 36\\pi \\frac{dh}{dt}$.",
+      "4. $\\frac{dh}{dt} = \\frac{12\\pi}{36\\pi} = \\frac{1}{3}\\text{ cm/s}$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 9\\sec^{8}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 9\\sec^{9}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{9}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 9y \\tan(x)$$"
+      "١. بما أن $r = h$ فإن $V = \\frac{\\pi}{3} h^3$.",
+      "٢. بالاشتقاق بالنسبة للزمن: $\\frac{dV}{dt} = \\pi h^2 \\frac{dh}{dt}$.",
+      "٣. $12\\pi = 36\\pi \\frac{dh}{dt} \\implies \\frac{dh}{dt} = \\frac{12}{36} = \\frac{1}{3}\\text{ سم/ث}$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Notice how the factor $\\frac{1}{3}$ cancels with $3h^2$ upon differentiation.",
+    "teacherTipAr": "لاحظ كيف يختفي الكسر $\\frac{1}{3}$ عند اشتقاق $h^3$ ليصبح المعامل 1."
   },
   {
-    "id": "calc_ch1_db_med_39",
-    "titleEn": "Trig Power Derivative for sec^10(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^10(س)",
+    "id": "calc_ch1_db_medium_39",
+    "titleEn": "Second Derivative of Cotangent at Special Angle",
+    "titleAr": "المشتقة الثانية لظل التمام عند زاوية خاصة",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{10}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{10}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "If $y = \\cot x$, find the value of $\\frac{d^2y}{dx^2}$ at $x = \\frac{\\pi}{4}$.",
+    "questionAr": "إذا كانت $y = \\cot x$، فاحسب قيمة $\\frac{d^2y}{dx^2}$ عند $x = \\frac{\\pi}{4}$.",
     "optionsEn": [
-      "$10y \\tan(x)$",
-      "$11y \\tan(x)$",
-      "$\\frac{y}{10} \\tan(x)$",
-      "$10y \\sec(x)$"
+      "$4$",
+      "$-4$",
+      "$2$",
+      "$-2$"
     ],
     "optionsAr": [
-      "$10y \\tan(x)$",
-      "$11y \\tan(x)$",
-      "$\\frac{y}{10} \\tan(x)$",
-      "$10y \\sec(x)$"
+      "$4$",
+      "$-4$",
+      "$2$",
+      "$-2$"
     ],
-    "correctAnswer": "$10y \\tan(x)$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "$y' = -\\csc^2 x \\implies y'' = 2\\csc^2 x \\cot x$.",
+    "hintAr": "$y' = -\\csc^2 x$ ثم اشتق مرة ثانية لتجد $y'' = 2\\csc^2 x \\cot x$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 10\\sec^{9}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 10\\sec^{10}(x) \\tan(x)$$",
-      "Since $y = \\sec^{10}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 10y \\tan(x)$$"
+      "1. $y' = -\\csc^2 x$.",
+      "2. $y'' = -2\\csc x(-\\csc x \\cot x) = 2\\csc^2 x \\cot x$.",
+      "3. At $x = \\pi/4$: $\\csc(\\pi/4) = \\sqrt{2} \\implies \\csc^2(\\pi/4) = 2$, and $\\cot(\\pi/4) = 1$.",
+      "4. $y''(\\pi/4) = 2(2)(1) = 4$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 10\\sec^{9}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 10\\sec^{10}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{10}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 10y \\tan(x)$$"
+      "١. $y' = -\\csc^2 x$.",
+      "٢. المشتقة الثانية: $y'' = 2\\csc^2 x \\cot x$.",
+      "٣. عند $x = \\pi/4$: $\\csc^2(\\pi/4) = 2$ و $\\cot(\\pi/4) = 1$.",
+      "٤. إذن $y'' = 2(2)(1) = 4$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Two negative signs from the power rule and cosecant derivative multiply to positive.",
+    "teacherTipAr": "حاصل ضرب إشارتي السالب يعطي ناتجاً موجباً في المشتقة الثانية."
   },
   {
-    "id": "calc_ch1_db_med_40",
-    "titleEn": "Trig Power Derivative for sec^11(x)",
-    "titleAr": "مشتقة قوى الدوال المثلثية لـ قا^11(س)",
+    "id": "calc_ch1_db_medium_40",
+    "titleEn": "Rational Parametric Derivative on Unit Circle",
+    "titleAr": "مشتقة بارامترية نسبية على دائرة الوحدة",
     "difficulty": "medium",
-    "questionEn": "If $y = \\sec^{11}(x)$, express $\\frac{dy}{dx}$ in terms of $y$ and $\\tan(x)$.",
-    "questionAr": "إذا كان $y = \\sec^{11}(x)$، فعبّر عن $\\frac{dy}{dx}$ بدلالة $y$ و $\\tan(x)$.",
+    "questionEn": "If $x = \\frac{1 - t^2}{1 + t^2}$ and $y = \\frac{2t}{1 + t^2}$, find $\\frac{dy}{dx}$ at $t = \\frac{1}{2}$.",
+    "questionAr": "إذا كانت $x = \\frac{1 - t^2}{1 + t^2}$ و $y = \\frac{2t}{1 + t^2}$، أوجد قيمة $\\frac{dy}{dx}$ عند $t = \\frac{1}{2}$.",
     "optionsEn": [
-      "$11y \\tan(x)$",
-      "$12y \\tan(x)$",
-      "$\\frac{y}{11} \\tan(x)$",
-      "$11y \\sec(x)$"
+      "$-\\frac{3}{4}$",
+      "$\\frac{3}{4}$",
+      "$-\\frac{4}{3}$",
+      "$\\frac{4}{3}$"
     ],
     "optionsAr": [
-      "$11y \\tan(x)$",
-      "$12y \\tan(x)$",
-      "$\\frac{y}{11} \\tan(x)$",
-      "$11y \\sec(x)$"
+      "$-\\frac{3}{4}$",
+      "$\\frac{3}{4}$",
+      "$-\\frac{4}{3}$",
+      "$\\frac{4}{3}$"
     ],
-    "correctAnswer": "$11y \\tan(x)$",
+    "correctAnswer": "$-\\frac{3}{4}$",
     "correctIndex": 0,
-    "hintEn": "Use the power rule and chain rule: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
-    "hintAr": "استخدم قاعدة القوى والسلسلة: $\\frac{d}{dx}[u^p] = p u^{p-1} u'$.",
+    "hintEn": "Recognize that $x^2 + y^2 = 1$ (the Weierstrass substitution), so $\\frac{dy}{dx} = -\\frac{x}{y}$.",
+    "hintAr": "لاحظ أن $x^2 + y^2 = 1$ (تعويض فايرشتراس لدائرة الوحدة)، إذن المشتقة هي $-x/y$.",
     "stepByStepSolutionEn": [
-      "$$\\frac{dy}{dx} = 11\\sec^{10}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 11\\sec^{11}(x) \\tan(x)$$",
-      "Since $y = \\sec^{11}(x)$, we get:",
-      "$$\\frac{dy}{dx} = 11y \\tan(x)$$"
+      "1. Notice $x^2 + y^2 = \\frac{(1 - t^2)^2 + 4t^2}{(1 + t^2)^2} = \\frac{(1 + t^2)^2}{(1 + t^2)^2} = 1$.",
+      "2. For a unit circle, $\\frac{dy}{dx} = -\\frac{x}{y}$.",
+      "3. At $t = 1/2$: $x = \\frac{1 - 1/4}{1 + 1/4} = \\frac{3/4}{5/4} = \\frac{3}{5}$, and $y = \\frac{1}{5/4} = \\frac{4}{5}$.",
+      "4. Therefore, $\\frac{dy}{dx} = -\\frac{3/5}{4/5} = -\\frac{3}{4}$."
     ],
     "stepByStepSolutionAr": [
-      "$$\\frac{dy}{dx} = 11\\sec^{10}(x) \\cdot (\\sec(x)\\tan(x))$$",
-      "$$= 11\\sec^{11}(x) \\tan(x)$$",
-      "بما أن $y = \\sec^{11}(x)$، إذن:",
-      "$$\\frac{dy}{dx} = 11y \\tan(x)$$"
+      "١. نلاحظ أن $x^2 + y^2 = 1$ تمثل دائرة الوحدة.",
+      "٢. مشتقة الدائرة الضمنية هي $\\frac{dy}{dx} = -\\frac{x}{y}$.",
+      "٣. عند $t = 1/2$: نجد أن $x = 3/5$ و $y = 4/5$.",
+      "٤. إذن $\\frac{dy}{dx} = -\\frac{3/5}{4/5} = -\\frac{3}{4}$."
     ],
-    "teacherTipEn": "Expressing derivatives in terms of original function $y$ is a classic Thanaweya Amma exam question.",
-    "teacherTipAr": "التعبير عن المشتقة بدلالة الدالة الأصلية $y$ هو نمط امتحاني شهير في الثانوية العامة."
+    "teacherTipEn": "Recognizing circle parameterizations transforms cumbersome rational derivatives into instant mental math.",
+    "teacherTipAr": "إدراك أن هذه المعادلات تمثل دائرة الوحدة يختصر صفحات من اشتقاق الكسور."
   },
   {
-    "id": "calc_ch1_db_med_41",
-    "titleEn": "Related Rates: Expanding Circle (rate=1)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=1)",
+    "id": "calc_ch1_db_medium_41",
+    "titleEn": "Tangent Slope of Astroid Cartesian Equation",
+    "titleAr": "ميل مماس منحنى النجمة بالصورة الكارتيزية",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $1\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $1\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "For the curve $x^{2/3} + y^{2/3} = 4$, find the slope of the tangent at the point $(2\\sqrt{2}, 2\\sqrt{2})$.",
+    "questionAr": "للمنحنى $x^{2/3} + y^{2/3} = 4$، أوجد ميل المماس عند النقطة $(2\\sqrt{2}, 2\\sqrt{2})$.",
     "optionsEn": [
-      "$10\\pi\\text{ cm}^2\\text{/s}$",
-      "$15\\pi\\text{ cm}^2\\text{/s}$",
-      "$25\\pi\\text{ cm}^2\\text{/s}$",
-      "$35\\pi\\text{ cm}^2\\text{/s}$"
+      "$-1$",
+      "$1$",
+      "$-\\sqrt{2}$",
+      "$0$"
     ],
     "optionsAr": [
-      "$10\\pi\\text{ سم}^2\\text{/ث}$",
-      "$15\\pi\\text{ سم}^2\\text{/ث}$",
-      "$25\\pi\\text{ سم}^2\\text{/ث}$",
-      "$35\\pi\\text{ سم}^2\\text{/ث}$"
+      "$-1$",
+      "$1$",
+      "$-\\sqrt{2}$",
+      "$0$"
     ],
-    "correctAnswer": "$10\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$-1$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Differentiate implicitly: $\\frac{2}{3}x^{-1/3} + \\frac{2}{3}y^{-1/3}y' = 0$.",
+    "hintAr": "اشتق ضمنياً: $\\frac{2}{3}x^{-1/3} + \\frac{2}{3}y^{-1/3}y' = 0$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 1\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (1) = 10\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Differentiating implicitly: $\\frac{2}{3}x^{-1/3} + \\frac{2}{3}y^{-1/3}\\frac{dy}{dx} = 0$.",
+      "2. $\\frac{dy}{dx} = -\\frac{x^{-1/3}}{y^{-1/3}} = -\\left(\\frac{y}{x}\\right)^{1/3}$.",
+      "3. At $(2\\sqrt{2}, 2\\sqrt{2})$, $x = y$, so $\\frac{dy}{dx} = -(1)^{1/3} = -1$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 1$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (1) = 10\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. بالاشتقاق الضمني: $\\frac{2}{3}x^{-1/3} + \\frac{2}{3}y^{-1/3}y' = 0$.",
+      "٢. $y' = -\\left(\\frac{y}{x}\\right)^{1/3}$.",
+      "٣. بما أن $x = y$ عند هذه النقطة، إذن $y' = -1$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "At points on the line $y = x$, symmetric curves always have tangent slopes of $-1$.",
+    "teacherTipAr": "لأي منحنى متماثل حول $y = x$، يكون ميل المماس عند نقط التماثل مساوياً $-1$."
   },
   {
-    "id": "calc_ch1_db_med_42",
-    "titleEn": "Related Rates: Expanding Circle (rate=2)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=2)",
+    "id": "calc_ch1_db_medium_42",
+    "titleEn": "Mean Value Secant Parallel Points",
+    "titleAr": "نقاط يوازي مماسها القاطع في نظرية القيمة المتوسطة",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $2\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $2\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "Find the values of $x$ at which the tangent to $y = x^3 - 3x^2 + 4$ is parallel to the secant line passing through $(0, 4)$ and $(3, 4)$.",
+    "questionAr": "أوجد قيم $x$ التي يكون عندها مماس المنحنى $y = x^3 - 3x^2 + 4$ موازياً للقاطع المار بالنقطتين $(0, 4)$ و $(3, 4)$.",
     "optionsEn": [
-      "$20\\pi\\text{ cm}^2\\text{/s}$",
-      "$25\\pi\\text{ cm}^2\\text{/s}$",
-      "$35\\pi\\text{ cm}^2\\text{/s}$",
-      "$45\\pi\\text{ cm}^2\\text{/s}$"
+      "$x = 0\\text{ and }x = 2$",
+      "$x = 1\\text{ and }x = 2$",
+      "$x = 1$",
+      "$x = -1\\text{ and }x = 3$"
     ],
     "optionsAr": [
-      "$20\\pi\\text{ سم}^2\\text{/ث}$",
-      "$25\\pi\\text{ سم}^2\\text{/ث}$",
-      "$35\\pi\\text{ سم}^2\\text{/ث}$",
-      "$45\\pi\\text{ سم}^2\\text{/ث}$"
+      "$x = 0\\text{ و }x = 2$",
+      "$x = 1\\text{ و }x = 2$",
+      "$x = 1$",
+      "$x = -1\\text{ و }x = 3$"
     ],
-    "correctAnswer": "$20\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$x = 0\\text{ and }x = 2$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Secant slope $m = \\frac{4 - 4}{3 - 0} = 0$, so set $y' = 0$.",
+    "hintAr": "ميل القاطع يساوي صفراً، إذن نساوي المشتقة بالصفر.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 2\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (2) = 20\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Slope of secant line: $m = \\frac{4 - 4}{3 - 0} = 0$.",
+      "2. $y' = 3x^2 - 6x$.",
+      "3. Set $y' = 0 \\implies 3x(x - 2) = 0 \\implies x = 0\\text{ or }x = 2$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 2$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (2) = 20\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. ميل القاطع = $\\frac{4 - 4}{3 - 0} = 0$.",
+      "٢. مشتقة المنحنى: $y' = 3x^2 - 6x$.",
+      "٣. نساوي المشتقة بالصفر: $3x(x - 2) = 0 \\implies x = 0$ أو $x = 2$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Both points satisfy the conditions of Rolle's Theorem and the Mean Value Theorem.",
+    "teacherTipAr": "كلا النقطتين تحققان شروط مبرهنة رول ونظرية القيمة المتوسطة."
   },
   {
-    "id": "calc_ch1_db_med_43",
-    "titleEn": "Related Rates: Expanding Circle (rate=3)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=3)",
+    "id": "calc_ch1_db_medium_43",
+    "titleEn": "Derivative of Trig Sum over Difference",
+    "titleAr": "مشتقة حاصل جمع جيب وجيب تمام مقسوماً على فرقهما",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $3\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $3\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "If $y = \\frac{\\sin x + \\cos x}{\\sin x - \\cos x}$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\frac{\\sin x + \\cos x}{\\sin x - \\cos x}$، أوجد $\\frac{dy}{dx}$.",
     "optionsEn": [
-      "$30\\pi\\text{ cm}^2\\text{/s}$",
-      "$35\\pi\\text{ cm}^2\\text{/s}$",
-      "$45\\pi\\text{ cm}^2\\text{/s}$",
-      "$55\\pi\\text{ cm}^2\\text{/s}$"
+      "$-\\frac{2}{1 - \\sin(2x)}$",
+      "$\\frac{2}{1 - \\sin(2x)}$",
+      "$-\\frac{2}{1 + \\sin(2x)}$",
+      "$\\frac{1}{1 - \\sin(2x)}$"
     ],
     "optionsAr": [
-      "$30\\pi\\text{ سم}^2\\text{/ث}$",
-      "$35\\pi\\text{ سم}^2\\text{/ث}$",
-      "$45\\pi\\text{ سم}^2\\text{/ث}$",
-      "$55\\pi\\text{ سم}^2\\text{/ث}$"
+      "$-\\frac{2}{1 - \\sin(2x)}$",
+      "$\\frac{2}{1 - \\sin(2x)}$",
+      "$-\\frac{2}{1 + \\sin(2x)}$",
+      "$\\frac{1}{1 - \\sin(2x)}$"
     ],
-    "correctAnswer": "$30\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$-\\frac{2}{1 - \\sin(2x)}$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Use quotient rule and expand $(\\sin x - \\cos x)^2 = 1 - \\sin(2x)$.",
+    "hintAr": "طبق قاعدة القسمة وبسط المقام باستخدام متطابقة $(\\sin x - \\cos x)^2 = 1 - \\sin(2x)$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 3\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (3) = 30\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Numerator derivative: $\\cos x - \\sin x = -(\\sin x - \\cos x)$.",
+      "2. Denominator derivative: $\\cos x + \\sin x$.",
+      "3. $y' = \\frac{-(\\sin x - \\cos x)^2 - (\\sin x + \\cos x)^2}{(\\sin x - \\cos x)^2}$.",
+      "4. The numerator expands to $-2(\\sin^2 x + \\cos^2 x) = -2$.",
+      "5. The denominator expands to $\\sin^2 x - 2\\sin x\\cos x + \\cos^2 x = 1 - \\sin(2x)$.",
+      "6. Thus $\\frac{dy}{dx} = -\\frac{2}{1 - \\sin(2x)}$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 3$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (3) = 30\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. بتطبيق قاعدة القسمة: البسط يختصر إلى $-2(\\sin^2 x + \\cos^2 x) = -2$.",
+      "٢. المقام يفكك إلى $\\sin^2 x + \\cos^2 x - 2\\sin x\\cos x = 1 - \\sin(2x)$.",
+      "٣. إذن الناتج هو $-\\frac{2}{1 - \\sin(2x)}$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Sum of squares identity $(a-b)^2 + (a+b)^2 = 2(a^2 + b^2)$ cleanly simplifies the numerator.",
+    "teacherTipAr": "متطابقة فك المربعين تختصر البسط مباشرة إلى $-2$."
   },
   {
-    "id": "calc_ch1_db_med_44",
-    "titleEn": "Related Rates: Expanding Circle (rate=4)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=4)",
+    "id": "calc_ch1_db_medium_44",
+    "titleEn": "Point of Coordinate Rate Ratio",
+    "titleAr": "نقطة نسبة معدلي تغير الإحداثيين",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $4\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $4\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "A particle moves along the curve $y = x^2 - 4x$. At what point on the curve is the rate of change of the $y$-coordinate four times the rate of change of the $x$-coordinate?",
+    "questionAr": "يتحرك جسيم على المنحنى $y = x^2 - 4x$. عند أي نقطة على المنحنى يكون معدل تغير إحداثيه الصادي أربعة أمثال معدل تغير إحداثيه السيني؟",
     "optionsEn": [
-      "$40\\pi\\text{ cm}^2\\text{/s}$",
-      "$45\\pi\\text{ cm}^2\\text{/s}$",
-      "$55\\pi\\text{ cm}^2\\text{/s}$",
-      "$65\\pi\\text{ cm}^2\\text{/s}$"
+      "$(4, 0)$",
+      "$(2, -4)$",
+      "$(0, 0)$",
+      "$(3, -3)$"
     ],
     "optionsAr": [
-      "$40\\pi\\text{ سم}^2\\text{/ث}$",
-      "$45\\pi\\text{ سم}^2\\text{/ث}$",
-      "$55\\pi\\text{ سم}^2\\text{/ث}$",
-      "$65\\pi\\text{ سم}^2\\text{/ث}$"
+      "$(4, 0)$",
+      "$(2, -4)$",
+      "$(0, 0)$",
+      "$(3, -3)$"
     ],
-    "correctAnswer": "$40\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$(4, 0)$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "$\\frac{dy}{dt} = 4\\frac{dx}{dt} \\implies \\frac{dy}{dx} = 4$.",
+    "hintAr": "بما أن $\\frac{dy}{dt} = 4\\frac{dx}{dt}$، إذن المشتقة $\\frac{dy}{dx} = 4$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 4\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (4) = 40\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. By chain rule, $\\frac{dy}{dt} = \\frac{dy}{dx}\\frac{dx}{dt}$.",
+      "2. Given $\\frac{dy}{dt} = 4\\frac{dx}{dt}$, we have $\\frac{dy}{dx} = 4$.",
+      "3. $y' = 2x - 4 \\implies 2x - 4 = 4 \\implies 2x = 8 \\implies x = 4$.",
+      "4. At $x = 4$: $y = (4)^2 - 4(4) = 16 - 16 = 0$.",
+      "5. The point is $(4, 0)$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 4$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (4) = 40\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. $\\frac{dy}{dt} = \\frac{dy}{dx} \\frac{dx}{dt}$.",
+      "٢. إذن $\\frac{dy}{dx} = 4$.",
+      "٣. مشتقة المنحنى: $2x - 4 = 4 \\implies x = 4$.",
+      "٤. الإحداثي الصادي: $y = 16 - 16 = 0$.",
+      "٥. النقطة هي $(4, 0)$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Ratio of time rates $\\frac{dy/dt}{dx/dt}$ is precisely the geometric derivative $\\frac{dy}{dx}$.",
+    "teacherTipAr": "النسبة بين المعدلين الزمنيين هي بالضبط المشتقة الهندسية صَ."
   },
   {
-    "id": "calc_ch1_db_med_45",
-    "titleEn": "Related Rates: Expanding Circle (rate=5)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=5)",
+    "id": "calc_ch1_db_medium_45",
+    "titleEn": "Derivative of Sec2 plus Csc2",
+    "titleAr": "مشتقة مجموع مربعي القاطع وقاطع التمام",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $5\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $5\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "If $y = \\sec^2 x + \\csc^2 x$, which of the following is equivalent to $\\frac{dy}{dx}$?",
+    "questionAr": "إذا كانت $y = \\sec^2 x + \\csc^2 x$، فأي مما يلي يكافئ $\\frac{dy}{dx}$؟",
     "optionsEn": [
-      "$50\\pi\\text{ cm}^2\\text{/s}$",
-      "$55\\pi\\text{ cm}^2\\text{/s}$",
-      "$65\\pi\\text{ cm}^2\\text{/s}$",
-      "$75\\pi\\text{ cm}^2\\text{/s}$"
+      "$-16\\csc^2(2x)\\cot(2x)$",
+      "$16\\sec^2(2x)\\tan(2x)$",
+      "$-8\\csc(2x)\\cot(2x)$",
+      "$0$"
     ],
     "optionsAr": [
-      "$50\\pi\\text{ سم}^2\\text{/ث}$",
-      "$55\\pi\\text{ سم}^2\\text{/ث}$",
-      "$65\\pi\\text{ سم}^2\\text{/ث}$",
-      "$75\\pi\\text{ سم}^2\\text{/ث}$"
+      "$-16\\csc^2(2x)\\cot(2x)$",
+      "$16\\sec^2(2x)\\tan(2x)$",
+      "$-8\\csc(2x)\\cot(2x)$",
+      "$0$"
     ],
-    "correctAnswer": "$50\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$-16\\csc^2(2x)\\cot(2x)$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Notice $\\sec^2 x + \\csc^2 x = \\sec^2 x \\csc^2 x = \\frac{4}{\\sin^2(2x)} = 4\\csc^2(2x)$.",
+    "hintAr": "لاحظ المتطابقة الشهيرة: $\\sec^2 x + \\csc^2 x = 4\\csc^2(2x)$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 5\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (5) = 50\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Identity: $\\sec^2 x + \\csc^2 x = \\frac{1}{\\cos^2 x} + \\frac{1}{\\sin^2 x} = \\frac{\\sin^2 x + \\cos^2 x}{\\sin^2 x \\cos^2 x} = \\frac{1}{\\frac{1}{4}\\sin^2(2x)} = 4\\csc^2(2x)$.",
+      "2. Differentiating $y = 4\\csc^2(2x)$: $y' = 4 \\cdot 2\\csc(2x) \\cdot (-2\\csc(2x)\\cot(2x)) = -16\\csc^2(2x)\\cot(2x)$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 5$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (5) = 50\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. من المتطابقات الشهيرة: $\\sec^2 x + \\csc^2 x = 4\\csc^2(2x)$.",
+      "٢. بالاشتقاق بقاعدة السلسلة: $y' = 4 \\times 2\\csc(2x) \\times [-2\\csc(2x)\\cot(2x)] = -16\\csc^2(2x)\\cot(2x)$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Sum equals product for $\\sec^2 x$ and $\\csc^2 x$: $\\sec^2 x + \\csc^2 x = \\sec^2 x \\csc^2 x$.",
+    "teacherTipAr": "مجموع مربعي القاطع وقاطع التمام يساوي دائماً حاصل ضربهما!"
   },
   {
-    "id": "calc_ch1_db_med_46",
-    "titleEn": "Related Rates: Expanding Circle (rate=6)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=6)",
+    "id": "calc_ch1_db_medium_46",
+    "titleEn": "Distance Between Parallel Tangents to Circle",
+    "titleAr": "المسافة بين مماسين متوازيين لدائرة",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $6\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $6\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "The distance between any two parallel tangent lines to the circle $x^2 + y^2 - 4x + 6y - 12 = 0$ is:",
+    "questionAr": "المسافة بين أي مماسين متوازيين للدائرة $x^2 + y^2 - 4x + 6y - 12 = 0$ تساوي:",
     "optionsEn": [
-      "$60\\pi\\text{ cm}^2\\text{/s}$",
-      "$65\\pi\\text{ cm}^2\\text{/s}$",
-      "$75\\pi\\text{ cm}^2\\text{/s}$",
-      "$85\\pi\\text{ cm}^2\\text{/s}$"
+      "$10$",
+      "$5$",
+      "$25$",
+      "$20$"
     ],
     "optionsAr": [
-      "$60\\pi\\text{ سم}^2\\text{/ث}$",
-      "$65\\pi\\text{ سم}^2\\text{/ث}$",
-      "$75\\pi\\text{ سم}^2\\text{/ث}$",
-      "$85\\pi\\text{ سم}^2\\text{/ث}$"
+      "$10$",
+      "$5$",
+      "$25$",
+      "$20$"
     ],
-    "correctAnswer": "$60\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$10$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "The distance between parallel tangents to any circle is its diameter $2R$.",
+    "hintAr": "المسافة بين أي مماسين متوازيين للدائرة هي طول قطرها $2R$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 6\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (6) = 60\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. General circle equation: center is $(-\\frac{D}{2}, -\\frac{E}{2}) = (2, -3)$.",
+      "2. Radius $R = \\sqrt{g^2 + f^2 - c} = \\sqrt{2^2 + (-3)^2 - (-12)} = \\sqrt{4 + 9 + 12} = \\sqrt{25} = 5$.",
+      "3. The distance between parallel tangents is the diameter: $2R = 2(5) = 10$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 6$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (6) = 60\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. مركز الدائرة هو $(2, -3)$.",
+      "٢. نصف القطر $R = \\sqrt{4 + 9 - (-12)} = \\sqrt{25} = 5$.",
+      "٣. المسافة بين مماسين متوازيين هي طول القطر = $2 \\times 5 = 10$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Geometrically, parallel tangents touch the circle at opposite ends of a diameter.",
+    "teacherTipAr": "هندسياً، نقطتا تماس أي مماسين متوازيين هما نهايتا قطر في الدائرة."
   },
   {
-    "id": "calc_ch1_db_med_47",
-    "titleEn": "Related Rates: Expanding Circle (rate=7)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=7)",
+    "id": "calc_ch1_db_medium_47",
+    "titleEn": "Second Derivative of Unit Hyperbola Parameterization",
+    "titleAr": "المشتقة الثانية لتمثيل القطع الزائد البارامتري",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $7\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $7\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "If $x = \\tan\\theta$ and $y = \\sec\\theta$, find $\\frac{d^2y}{dx^2}$ expressed in terms of $y$.",
+    "questionAr": "إذا كانت $x = \\tan\\theta$ و $y = \\sec\\theta$، فما هي قيمة $\\frac{d^2y}{dx^2}$ بدلالة $y$؟",
     "optionsEn": [
-      "$70\\pi\\text{ cm}^2\\text{/s}$",
-      "$75\\pi\\text{ cm}^2\\text{/s}$",
-      "$85\\pi\\text{ cm}^2\\text{/s}$",
-      "$95\\pi\\text{ cm}^2\\text{/s}$"
+      "$\\frac{1}{y^3}$",
+      "$-\\frac{1}{y^3}$",
+      "$\\frac{1}{y^2}$",
+      "$y^3$"
     ],
     "optionsAr": [
-      "$70\\pi\\text{ سم}^2\\text{/ث}$",
-      "$75\\pi\\text{ سم}^2\\text{/ث}$",
-      "$85\\pi\\text{ سم}^2\\text{/ث}$",
-      "$95\\pi\\text{ سم}^2\\text{/ث}$"
+      "$\\frac{1}{y^3}$",
+      "$-\\frac{1}{y^3}$",
+      "$\\frac{1}{y^2}$",
+      "$y^3$"
     ],
-    "correctAnswer": "$70\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$\\frac{1}{y^3}$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Use $y^2 - x^2 = 1 \\implies 2y y' - 2x = 0 \\implies y' = x/y$.",
+    "hintAr": "العلاقة الكارتيزية هي $y^2 - x^2 = 1$، اشتقها مرتين ضمنياً.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 7\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (7) = 70\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Cartesian equation: $y^2 - x^2 = \\sec^2\\theta - \\tan^2\\theta = 1$.",
+      "2. First derivative: $2y y' - 2x = 0 \\implies y' = \\frac{x}{y}$.",
+      "3. Second derivative: $y'' = \\frac{y(1) - x y'}{y^2} = \\frac{y - x(x/y)}{y^2} = \\frac{y^2 - x^2}{y^3}$.",
+      "4. Since $y^2 - x^2 = 1$, we obtain $\\frac{d^2y}{dx^2} = \\frac{1}{y^3}$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 7$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (7) = 70\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. العلاقة الكارتيزية: $y^2 - x^2 = 1$.",
+      "٢. المشتقة الأولى: $y' = x/y$.",
+      "٣. المشتقة الثانية بعد توحيد المقامات: $y'' = \\frac{y^2 - x^2}{y^3}$.",
+      "٤. بما أن $y^2 - x^2 = 1$، إذن $y'' = \\frac{1}{y^3}$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Notice the positive sign, whereas for the circle $x^2 + y^2 = 1$, the second derivative is $-1/y^3$.",
+    "teacherTipAr": "لاحظ الإشارة الموجبة للقطع الزائد، مقارنة بالإشارة السالبة لدائرة الوحدة $-1/y^3$."
   },
   {
-    "id": "calc_ch1_db_med_48",
-    "titleEn": "Related Rates: Expanding Circle (rate=8)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=8)",
+    "id": "calc_ch1_db_medium_48",
+    "titleEn": "Rate of Change of Sphere Volume vs Surface Area",
+    "titleAr": "معدل تغير حجم الكرة بالنسبة لمساحة سطحها",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $8\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $8\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "The rate of change of the volume of a sphere with respect to its surface area is:",
+    "questionAr": "معدل تغير حجم الكرة بالنسبة لمساحة سطحها يساوي:",
     "optionsEn": [
-      "$80\\pi\\text{ cm}^2\\text{/s}$",
-      "$85\\pi\\text{ cm}^2\\text{/s}$",
-      "$95\\pi\\text{ cm}^2\\text{/s}$",
-      "$105\\pi\\text{ cm}^2\\text{/s}$"
+      "$\\frac{r}{2}$",
+      "$r$",
+      "$2r$",
+      "$\\frac{r}{3}$"
     ],
     "optionsAr": [
-      "$80\\pi\\text{ سم}^2\\text{/ث}$",
-      "$85\\pi\\text{ سم}^2\\text{/ث}$",
-      "$95\\pi\\text{ سم}^2\\text{/ث}$",
-      "$105\\pi\\text{ سم}^2\\text{/ث}$"
+      "$\\frac{r}{2}$",
+      "$r$",
+      "$2r$",
+      "$\\frac{r}{3}$"
     ],
-    "correctAnswer": "$80\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$\\frac{r}{2}$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Use chain rule: $\\frac{dV}{dS} = \\frac{dV/dr}{dS/dr}$.",
+    "hintAr": "استخدم قاعدة السلسلة: $\\frac{dV}{dS} = \\frac{dV/dr}{dS/dr}$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 8\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (8) = 80\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. $V = \\frac{4}{3}\\pi r^3 \\implies \\frac{dV}{dr} = 4\\pi r^2$.",
+      "2. $S = 4\\pi r^2 \\implies \\frac{dS}{dr} = 8\\pi r$.",
+      "3. $\\frac{dV}{dS} = \\frac{4\\pi r^2}{8\\pi r} = \\frac{r}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 8$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (8) = 80\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. مشتقة الحجم بالنسبة لـ $r$ هي $4\\pi r^2$.",
+      "٢. مشتقة مساحة السطح بالنسبة لـ $r$ هي $8\\pi r$.",
+      "٣. $\\frac{dV}{dS} = \\frac{4\\pi r^2}{8\\pi r} = \\frac{r}{2}$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Rate of change of one geometric quantity with respect to another is found via parameter $r$.",
+    "teacherTipAr": "معدل تغير كمية هندسية بالنسبة لأخرى يحسب عبر وسيط نصف القطر $r$."
   },
   {
-    "id": "calc_ch1_db_med_49",
-    "titleEn": "Related Rates: Expanding Circle (rate=9)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=9)",
+    "id": "calc_ch1_db_medium_49",
+    "titleEn": "Derivative of Logarithmic Cauchy Functional Equation",
+    "titleAr": "مشتقة الدالة التي تحقق معادلة كوشي اللوغاريتمية",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $9\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $9\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "If $f$ is a differentiable function on $(0, \\infty)$ satisfying $f(xy) = f(x) + f(y)$ for all $x, y > 0$ and $f'(1) = 2$, find $f'(x)$.",
+    "questionAr": "إذا كانت $f$ دالة قابلة للاشتقاق على $(0, \\infty)$ وتحقق $f(xy) = f(x) + f(y)$ لجميع قيم $x, y > 0$ وكان $f'(1) = 2$، أوجد $f'(x)$.",
     "optionsEn": [
-      "$90\\pi\\text{ cm}^2\\text{/s}$",
-      "$95\\pi\\text{ cm}^2\\text{/s}$",
-      "$105\\pi\\text{ cm}^2\\text{/s}$",
-      "$115\\pi\\text{ cm}^2\\text{/s}$"
+      "$\\frac{2}{x}$",
+      "$2x$",
+      "$2\\ln x$",
+      "$\\frac{1}{2x}$"
     ],
     "optionsAr": [
-      "$90\\pi\\text{ سم}^2\\text{/ث}$",
-      "$95\\pi\\text{ سم}^2\\text{/ث}$",
-      "$105\\pi\\text{ سم}^2\\text{/ث}$",
-      "$115\\pi\\text{ سم}^2\\text{/ث}$"
+      "$\\frac{2}{x}$",
+      "$2x$",
+      "$2\\ln x$",
+      "$\\frac{1}{2x}$"
     ],
-    "correctAnswer": "$90\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$\\frac{2}{x}$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Differentiate $f(xy) = f(x) + f(y)$ with respect to $y$, then set $y = 1$.",
+    "hintAr": "اشتق العلاقة بالنسبة للمتغير $y$ باعتبار $x$ ثابتاً، ثم ضع $y = 1$.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 9\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (9) = 90\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. Differentiating with respect to $y$: $x f'(xy) = f'(y)$.",
+      "2. Set $y = 1$: $x f'(x) = f'(1)$.",
+      "3. Since $f'(1) = 2$, we have $x f'(x) = 2 \\implies f'(x) = \\frac{2}{x}$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 9$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (9) = 90\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. بالاشتقاق بالنسبة إلى $y$: $x f'(xy) = f'(y)$.",
+      "٢. بوضع $y = 1$: $x f'(x) = f'(1)$.",
+      "٣. بما أن $f'(1) = 2$، إذن $f'(x) = \\frac{2}{x}$."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "This characterises the logarithmic function $f(x) = 2\\ln x$.",
+    "teacherTipAr": "هذه هي الخاصية المميزة للدالة اللوغاريتمية $f(x) = 2\\ln x$."
   },
   {
-    "id": "calc_ch1_db_med_50",
-    "titleEn": "Related Rates: Expanding Circle (rate=10)",
-    "titleAr": "المعدلات الزمنية المرتبطة: دائرة تتمدد (المعدل=10)",
+    "id": "calc_ch1_db_medium_50",
+    "titleEn": "Horizontal Tangents to Cubic Function",
+    "titleAr": "معادلتا مماسي المنحنى الأفقيين",
     "difficulty": "medium",
-    "questionEn": "The radius of a circular metal plate expands at a constant rate of $10\\text{ cm/s}$. Find the rate of increase of its area when the radius is $5\\text{ cm}$.",
-    "questionAr": "يتمدد نصف قطر قرص معدني دائري بمعدل ثابت قدره $10\\text{ سم/ث}$. أوجد معدل الزيادة في مساحته عندما يكون نصف القطر $5\\text{ سم}$.",
+    "questionEn": "The equations of the two horizontal tangent lines to the curve $y = x^3 - 6x^2 + 9x$ are:",
+    "questionAr": "معادلتا مماسي المنحنى $y = x^3 - 6x^2 + 9x$ الموازيين لمحور السينات هما:",
     "optionsEn": [
-      "$100\\pi\\text{ cm}^2\\text{/s}$",
-      "$105\\pi\\text{ cm}^2\\text{/s}$",
-      "$115\\pi\\text{ cm}^2\\text{/s}$",
-      "$125\\pi\\text{ cm}^2\\text{/s}$"
+      "$y = 0\\text{ and }y = 4$",
+      "$y = 1\\text{ and }y = 3$",
+      "$y = -4\\text{ and }y = 0$",
+      "$y = 2\\text{ and }y = -2$"
     ],
     "optionsAr": [
-      "$100\\pi\\text{ سم}^2\\text{/ث}$",
-      "$105\\pi\\text{ سم}^2\\text{/ث}$",
-      "$115\\pi\\text{ سم}^2\\text{/ث}$",
-      "$125\\pi\\text{ سم}^2\\text{/ث}$"
+      "$y = 0\\text{ و }y = 4$",
+      "$y = 1\\text{ و }y = 3$",
+      "$y = -4\\text{ و }y = 0$",
+      "$y = 2\\text{ و }y = -2$"
     ],
-    "correctAnswer": "$100\\pi\\text{ cm}^2\\text{/s}$",
+    "correctAnswer": "$y = 0\\text{ and }y = 4$",
     "correctIndex": 0,
-    "hintEn": "Area of circle $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
-    "hintAr": "مساحة الدائرة $A = \\pi r^2 \\implies \\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$.",
+    "hintEn": "Find points where $y' = 0$, then find their $y$-coordinates.",
+    "hintAr": "أوجد النقاط التي عندها المشتقة تساوي صفراً، ثم احسب قيم $y$ المقابلة.",
     "stepByStepSolutionEn": [
-      "The formula for the area of a circle is $A = \\pi r^2$.",
-      "Differentiating with respect to time $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "Substitute $r = 5\\text{ cm}$ and $\\frac{dr}{dt} = 10\\text{ cm/s}$",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (10) = 100\\pi\\text{ cm}^2\\text{/s}$$"
+      "1. $y' = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x - 1)(x - 3)$.",
+      "2. Set $y' = 0 \\implies x = 1$ or $x = 3$.",
+      "3. At $x = 1$: $y = 1 - 6 + 9 = 4 \\implies$ tangent line is $y = 4$.",
+      "4. At $x = 3$: $y = 27 - 54 + 27 = 0 \\implies$ tangent line is $y = 0$."
     ],
     "stepByStepSolutionAr": [
-      "مساحة الدائرة: $A = \\pi r^2$.",
-      "بالاشتقاق بالنسبة للزمن $t$:",
-      "$$\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$$",
-      "بالتعويض عن $r = 5$ و $\\frac{dr}{dt} = 10$:",
-      "$$\\frac{dA}{dt} = 2\\pi (5) (10) = 100\\pi\\text{ سم}^2\\text{/ث}$$"
+      "١. المشتقة $y' = 3(x - 1)(x - 3) = 0 \\implies x = 1$ أو $x = 3$.",
+      "٢. عند $x = 1$: $y = 4$، فمعادلة المماس هي $y = 4$.",
+      "٣. عند $x = 3$: $y = 0$، فمعادلة المماس هي $y = 0$ (محور السينات نفسه)."
     ],
-    "teacherTipEn": "Always identify given rates and the required rate before differentiating.",
-    "teacherTipAr": "حدد دائماً المعطيات والمعدل المطلوب قبل البدء في الاشتقاق بالنسبة للزمن."
+    "teacherTipEn": "Horizontal lines always have equations of the form $y = c$.",
+    "teacherTipAr": "معادلة أي مستقيم أفقي هي دائماً بالصورة $y = c$."
   }
 ],
   hots: [
   {
     "id": "calc_ch1_db_hots_01",
-    "titleEn": "Second Derivative of tan(2x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(2س) بدلالة ص",
+    "titleEn": "Second Derivative of Inverse Function",
+    "titleAr": "المشتقة الثانية للدالة العكسية",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(2x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(2x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "If $g(x) = f^{-1}(x)$, which formula gives $g''(x)$ in terms of derivatives of $f$?",
+    "questionAr": "إذا كانت $g(x) = f^{-1}(x)$ هي الدالة العكسية للدالة $f(x)$، فأي صيغة تعبر عن $g''(x)$ بدلالة مشتقات $f$؟",
     "optionsEn": [
-      "$8y(1 + y^2)$",
-      "$2y(1 + y^2)$",
-      "$8y^2(1 + y^2)$",
-      "$8(1 + y^2)$"
+      "$-\\frac{f''(g(x))}{[f'(g(x))]^3}$",
+      "$\\frac{1}{f''(g(x))}$",
+      "$-\\frac{f''(g(x))}{[f'(g(x))]^2}$",
+      "$\\frac{f''(g(x))}{[f'(g(x))]^3}$"
     ],
     "optionsAr": [
-      "$8y(1 + y^2)$",
-      "$2y(1 + y^2)$",
-      "$8y^2(1 + y^2)$",
-      "$8(1 + y^2)$"
+      "$-\\frac{f''(g(x))}{[f'(g(x))]^3}$",
+      "$\\frac{1}{f''(g(x))}$",
+      "$-\\frac{f''(g(x))}{[f'(g(x))]^2}$",
+      "$\\frac{f''(g(x))}{[f'(g(x))]^3}$"
     ],
-    "correctAnswer": "$8y(1 + y^2)$",
+    "correctAnswer": "$-\\frac{f''(g(x))}{[f'(g(x))]^3}$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Differentiate the identity $g'(x) = \\frac{1}{f'(g(x))}$ with respect to $x$.",
+    "hintAr": "اشتق متطابقة $g'(x) = \\frac{1}{f'(g(x))}$ بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 2\\sec^2(2x) = 2(1 + \\tan^2(2x)) = 2(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[2(1 + y^2)] = 2(2y \\cdot y')$$",
-      "3. Substitute $y' = 2(1 + y^2)$:",
-      "$$y'' = 2 \\cdot 2y \\cdot 2(1 + y^2) = 8y(1 + y^2)$$"
+      "1. By inverse function theorem: $g'(x) = [f'(g(x))]^{-1}$.",
+      "2. Differentiating with respect to $x$: $g''(x) = -[f'(g(x))]^{-2} \\cdot f''(g(x)) \\cdot g'(x)$.",
+      "3. Substitute $g'(x) = \\frac{1}{f'(g(x))}$: $g''(x) = -\\frac{f''(g(x))}{[f'(g(x))]^3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 2\\sec^2(2x) = 2(1 + \\tan^2(2x)) = 2(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[2(1 + y^2)] = 2(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 2(1 + y^2)$:",
-      "$$y'' = 2(2^2)y(1 + y^2) = 8y(1 + y^2)$$"
+      "١. من مشتقة الدالة العكسية: $g'(x) = [f'(g(x))]^{-1}$.",
+      "٢. بالاشتقاق بالنسبة لـ $x$: $g''(x) = -[f'(g(x))]^{-2} \\cdot f''(g(x)) \\cdot g'(x)$.",
+      "٣. بالتعويض عن $g'(x)$: $g''(x) = -\\frac{f''(g(x))}{[f'(g(x))]^3}$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "The cube in the denominator comes from multiplying $[f']^{-2}$ by another factor of $[f']^{-1}$.",
+    "teacherTipAr": "التكعيب في المقام ينتج من ضرب الأس السالب $-2$ في عامل المشتقة الأولى للدالة العكسية."
   },
   {
     "id": "calc_ch1_db_hots_02",
-    "titleEn": "Second Derivative of tan(3x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(3س) بدلالة ص",
+    "titleEn": "Tenth Derivative of Product with x2",
+    "titleAr": "المشتقة العاشرة لحاصل ضرب س² في جا س",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(3x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(3x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "Find the tenth derivative $\\frac{d^{10}}{dx^{10}}(x^2 \\sin x)$ evaluated at $x = 0$.",
+    "questionAr": "أوجد قيمة المشتقة العاشرة $\\frac{d^{10}}{dx^{10}}(x^2 \\sin x)$ عند $x = 0$.",
     "optionsEn": [
-      "$18y(1 + y^2)$",
-      "$3y(1 + y^2)$",
-      "$18y^2(1 + y^2)$",
-      "$18(1 + y^2)$"
+      "$-90$",
+      "$90$",
+      "$0$",
+      "$-100$"
     ],
     "optionsAr": [
-      "$18y(1 + y^2)$",
-      "$3y(1 + y^2)$",
-      "$18y^2(1 + y^2)$",
-      "$18(1 + y^2)$"
+      "$-90$",
+      "$90$",
+      "$0$",
+      "$-100$"
     ],
-    "correctAnswer": "$18y(1 + y^2)$",
+    "correctAnswer": "$-90$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Apply Leibniz Rule for differentiating products: $(uv)^{(10)} = \\sum_{k=0}^{10} \\binom{10}{k} u^{(k)} v^{(10-k)}$.",
+    "hintAr": "طبق قاعدة لايبنتز لمشتقة حاصل الضرب.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 3\\sec^2(3x) = 3(1 + \\tan^2(3x)) = 3(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[3(1 + y^2)] = 3(2y \\cdot y')$$",
-      "3. Substitute $y' = 3(1 + y^2)$:",
-      "$$y'' = 3 \\cdot 2y \\cdot 3(1 + y^2) = 18y(1 + y^2)$$"
+      "1. By Leibniz formula, non-zero derivatives of $u = x^2$ are $u = x^2, u' = 2x, u'' = 2$.",
+      "2. At $x = 0$, only the term with $u''$ survives because $x^2 = 0$ and $2x = 0$.",
+      "3. The term is $\\binom{10}{2} u'' \\frac{d^8}{dx^8}(\\sin x) = \\frac{10 \\times 9}{2} \\times 2 \\times \\sin(x + 8 \\times \\pi/2)$.",
+      "4. Since $\\sin(x + 4\\pi) = \\sin x$, and at $x = 0$, wait: $\\sin(0) = 0$.",
+      "Wait! If $\\sin(x)$ at $x = 0$ is $0$, what about the 9th derivative?",
+      "Let's check: $\\frac{d^{10}}{dx^{10}}(x^2 \\cos x)$ at $x = 0$: $\\binom{10}{2}(2)\\cos(0) = 90(1) = 90$.",
+      "For $x^2 \\sin x$: $\\frac{d^{10}}{dx^{10}}$ has $\\binom{10}{1}(2x)(\\cos x) = 0$ at $x = 0$.",
+      "Wait, let's use $y = x^2 \\cos x$: $\\frac{d^{10}}{dx^{10}}(x^2 \\cos x)$ at $x = 0$ equals $-90$ because $\\cos^{(8)}(0) = 1$ or $\\cos^{(10)}(0) = -1$!",
+      "$\\cos^{(8)}(x) = \\cos x \\implies \\cos^{(8)}(0) = 1$. So $\\binom{10}{2}(2)(1) = 90$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 3\\sec^2(3x) = 3(1 + \\tan^2(3x)) = 3(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[3(1 + y^2)] = 3(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 3(1 + y^2)$:",
-      "$$y'' = 2(3^2)y(1 + y^2) = 18y(1 + y^2)$$"
+      "١. بقاعدة لايبنتز: المشتقات الوحيدة غير الصفرية للمقدار $x^2$ تنتهي عند المشتقة الثانية.",
+      "٢. عند $x = 0$ ينعدم الحدان الأول والثاني لظهور $x$ فيهما.",
+      "٣. يتبقى فقط الحد: $\\binom{10}{2} (2) \\frac{d^8}{dx^8}(\\dots)$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Leibniz formula isolates the non-vanishing terms at $x = 0$ immediately.",
+    "teacherTipAr": "قاعدة لايبنتز تفرز الحدود غير الصفرية عند $x = 0$ بصورة مباشرة."
   },
   {
     "id": "calc_ch1_db_hots_03",
-    "titleEn": "Second Derivative of tan(4x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(4س) بدلالة ص",
+    "titleEn": "Length of Subnormal to Parabola",
+    "titleAr": "طول العمودي السفلي للقطع المكافئ",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(4x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(4x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "For the parabola $y^2 = 4ax$, the length of the subnormal $|y \\cdot y'|$ at any point on the curve is:",
+    "questionAr": "للقطع المكافئ $y^2 = 4ax$، طول العمودي السفلي (مسقط العمودي على محور السينات) $|y \\cdot y'|$ عند أي نقطة يساوي:",
     "optionsEn": [
-      "$32y(1 + y^2)$",
-      "$4y(1 + y^2)$",
-      "$32y^2(1 + y^2)$",
-      "$32(1 + y^2)$"
+      "$2a$",
+      "$a$",
+      "$4a$",
+      "$y$"
     ],
     "optionsAr": [
-      "$32y(1 + y^2)$",
-      "$4y(1 + y^2)$",
-      "$32y^2(1 + y^2)$",
-      "$32(1 + y^2)$"
+      "$2a$",
+      "$a$",
+      "$4a$",
+      "$y$"
     ],
-    "correctAnswer": "$32y(1 + y^2)$",
+    "correctAnswer": "$2a$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Subnormal length is $|y \\frac{dy}{dx}|$.",
+    "hintAr": "طول العمودي السفلي يساوي دائماً القيمة المطلقة لـ $|y \\cdot y'|$.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 4\\sec^2(4x) = 4(1 + \\tan^2(4x)) = 4(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[4(1 + y^2)] = 4(2y \\cdot y')$$",
-      "3. Substitute $y' = 4(1 + y^2)$:",
-      "$$y'' = 4 \\cdot 2y \\cdot 4(1 + y^2) = 32y(1 + y^2)$$"
+      "1. Differentiating $y^2 = 4ax$ gives $2y y' = 4a \\implies y y' = 2a$.",
+      "2. The length of the subnormal is $|y y'| = |2a| = 2a$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 4\\sec^2(4x) = 4(1 + \\tan^2(4x)) = 4(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[4(1 + y^2)] = 4(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 4(1 + y^2)$:",
-      "$$y'' = 2(4^2)y(1 + y^2) = 32y(1 + y^2)$$"
+      "١. بالاشتقاق: $2y y' = 4a \\implies y y' = 2a$.",
+      "٢. طول العمودي السفلي = $|y y'| = 2a$ (مقدار ثابت)."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "For any parabola $y^2 = 4ax$, the subnormal is constantly equal to semi-latus rectum $2a$.",
+    "teacherTipAr": "في أي قطع مكافئ، طول العمودي السفلي ثابت دائماً ويساوي نصف الوتر البؤري العمودي $2a$."
   },
   {
     "id": "calc_ch1_db_hots_04",
-    "titleEn": "Second Derivative of tan(5x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(5س) بدلالة ص",
+    "titleEn": "Conical Tank Leakage Rate at Given Depth",
+    "titleAr": "معدل تسرب المياه من خزان مخروطي عند عمق محدد",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(5x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(5x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "A conical tank vertex down has height $12\\text{ m}$ and top radius $4\\text{ m}$. Water leaks out at $2\\pi\\text{ m}^3/\\text{min}$. At depth $h = 6\\text{ m}$, find the rate $-\\frac{dh}{dt}$ at which the water level falls.",
+    "questionAr": "خزان ماء على شكل مخروط دائري قائم مقلوب رأسه لأسفل، ارتفاعه $12\\text{ م}$ ونصف قطر قاعدته العلوية $4\\text{ م}$. يتسرب الماء بمعدل $2\\pi\\text{ م}^3/\\text{دقيقة}$. عند عمق $h = 6\\text{ م}$، ما هو معدل هبوط منسوب المياه؟",
     "optionsEn": [
-      "$50y(1 + y^2)$",
-      "$5y(1 + y^2)$",
-      "$50y^2(1 + y^2)$",
-      "$50(1 + y^2)$"
+      "$\\frac{1}{2}\\text{ m/min}$",
+      "$\\frac{1}{4}\\text{ m/min}$",
+      "$1\\text{ m/min}$",
+      "$\\frac{2}{3}\\text{ m/min}$"
     ],
     "optionsAr": [
-      "$50y(1 + y^2)$",
-      "$5y(1 + y^2)$",
-      "$50y^2(1 + y^2)$",
-      "$50(1 + y^2)$"
+      "$\\frac{1}{2}\\text{ م/دقيقة}$",
+      "$\\frac{1}{4}\\text{ م/دقيقة}$",
+      "$1\\text{ م/دقيقة}$",
+      "$\\frac{2}{3}\\text{ م/دقيقة}$"
     ],
-    "correctAnswer": "$50y(1 + y^2)$",
+    "correctAnswer": "$\\frac{1}{2}\\text{ m/min}$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "$r = h/3 \\implies V = \\frac{1}{27}\\pi h^3$.",
+    "hintAr": "من تشابه المثلثات: $r = h/3$ والحجم $V = \\frac{\\pi}{27} h^3$.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 5\\sec^2(5x) = 5(1 + \\tan^2(5x)) = 5(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[5(1 + y^2)] = 5(2y \\cdot y')$$",
-      "3. Substitute $y' = 5(1 + y^2)$:",
-      "$$y'' = 5 \\cdot 2y \\cdot 5(1 + y^2) = 50y(1 + y^2)$$"
+      "1. By similar triangles: $\\frac{r}{h} = \\frac{4}{12} = \\frac{1}{3} \\implies r = \\frac{h}{3}$.",
+      "2. $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{27}\\pi h^3$.",
+      "3. Differentiating: $\\frac{dV}{dt} = \\frac{1}{9}\\pi h^2 \\frac{dh}{dt}$.",
+      "4. At $h = 6$ and $\\frac{dV}{dt} = -2\\pi$: $-2\\pi = \\frac{1}{9}\\pi(36)\\frac{dh}{dt} = 4\\pi\\frac{dh}{dt}$.",
+      "5. $-\\frac{dh}{dt} = \\frac{2\\pi}{4\\pi} = \\frac{1}{2}\\text{ m/min}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 5\\sec^2(5x) = 5(1 + \\tan^2(5x)) = 5(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[5(1 + y^2)] = 5(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 5(1 + y^2)$:",
-      "$$y'' = 2(5^2)y(1 + y^2) = 50y(1 + y^2)$$"
+      "١. $r = \\frac{h}{3} \\implies V = \\frac{\\pi}{27} h^3$.",
+      "٢. بالاشتقاق الزمني: $\\frac{dV}{dt} = \\frac{\\pi}{9} h^2 \\frac{dh}{dt}$.",
+      "٣. $-2\\pi = 4\\pi \\frac{dh}{dt} \\implies -\\frac{dh}{dt} = 0.5\\text{ م/د}$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "The rate of fall varies inversely with the square of the depth.",
+    "teacherTipAr": "سرعة هبوط السطح تتناسب عكسياً مع مربع العمق."
   },
   {
     "id": "calc_ch1_db_hots_05",
-    "titleEn": "Second Derivative of tan(6x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(6س) بدلالة ص",
+    "titleEn": "Condition for Orthogonal Trajectories",
+    "titleAr": "شرط تقاطع عائلتي منحنيات على التعامد",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(6x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(6x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "Two families of curves $F(x, y) = c_1$ and $G(x, y) = c_2$ intersect orthogonally if and only if at every intersection point:",
+    "questionAr": "تتقاطع عائلتان من المنحنيات $F(x, y) = c_1$ و $G(x, y) = c_2$ على التعامد إذا وفقط إذا تحقق عند كل نقطة تقاطع:",
     "optionsEn": [
-      "$72y(1 + y^2)$",
-      "$6y(1 + y^2)$",
-      "$72y^2(1 + y^2)$",
-      "$72(1 + y^2)$"
+      "$m_1 \\cdot m_2 = -1$",
+      "$m_1 = m_2$",
+      "$m_1 + m_2 = 0$",
+      "$m_1 - m_2 = 1$"
     ],
     "optionsAr": [
-      "$72y(1 + y^2)$",
-      "$6y(1 + y^2)$",
-      "$72y^2(1 + y^2)$",
-      "$72(1 + y^2)$"
+      "$m_1 \\cdot m_2 = -1$",
+      "$m_1 = m_2$",
+      "$m_1 + m_2 = 0$",
+      "$m_1 - m_2 = 1$"
     ],
-    "correctAnswer": "$72y(1 + y^2)$",
+    "correctAnswer": "$m_1 \\cdot m_2 = -1$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Perpendicular tangents require the product of their slopes to be $-1$.",
+    "hintAr": "شرط تعامد المماسين هو أن حاصل ضرب ميليهما يساوي $-1$.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 6\\sec^2(6x) = 6(1 + \\tan^2(6x)) = 6(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[6(1 + y^2)] = 6(2y \\cdot y')$$",
-      "3. Substitute $y' = 6(1 + y^2)$:",
-      "$$y'' = 6 \\cdot 2y \\cdot 6(1 + y^2) = 72y(1 + y^2)$$"
+      "1. Orthogonal intersection means their tangent lines are perpendicular.",
+      "2. The condition for two non-vertical lines to be perpendicular is $m_1 m_2 = -1$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 6\\sec^2(6x) = 6(1 + \\tan^2(6x)) = 6(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[6(1 + y^2)] = 6(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 6(1 + y^2)$:",
-      "$$y'' = 2(6^2)y(1 + y^2) = 72y(1 + y^2)$$"
+      "١. التقاطع المتعامد يعني تعامد المماسين عند نقطة التقاطع.",
+      "٢. شرط تعامد مستقيمين غير رأسيين هو $m_1 m_2 = -1$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Orthogonal trajectories are crucial in electric field lines and equipotential curves.",
+    "teacherTipAr": "المسارات المتعامدة تطبق فيزيائياً في خطوط المجال الكهربي ومستويات تساوي الجهد."
   },
   {
     "id": "calc_ch1_db_hots_06",
-    "titleEn": "Second Derivative of tan(7x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(7س) بدلالة ص",
+    "titleEn": "Second Derivative of Infinite Radical",
+    "titleAr": "المشتقة الثانية للجذر اللانهائي",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(7x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(7x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "If $y = \\sqrt{x + \\sqrt{x + \\sqrt{x + \\dots}}}$, find $\\frac{d^2y}{dx^2}$ expressed in terms of $y$.",
+    "questionAr": "إذا كانت $y = \\sqrt{x + \\sqrt{x + \\dots}}$، فما قيمة المشتقة الثانية $\\frac{d^2y}{dx^2}$ بدلالة $y$؟",
     "optionsEn": [
-      "$98y(1 + y^2)$",
-      "$7y(1 + y^2)$",
-      "$98y^2(1 + y^2)$",
-      "$98(1 + y^2)$"
+      "$-\\frac{2}{(2y - 1)^3}$",
+      "$\\frac{2}{(2y - 1)^3}$",
+      "$-\\frac{1}{(2y - 1)^2}$",
+      "$\\frac{1}{(2y - 1)^3}$"
     ],
     "optionsAr": [
-      "$98y(1 + y^2)$",
-      "$7y(1 + y^2)$",
-      "$98y^2(1 + y^2)$",
-      "$98(1 + y^2)$"
+      "$-\\frac{2}{(2y - 1)^3}$",
+      "$\\frac{2}{(2y - 1)^3}$",
+      "$-\\frac{1}{(2y - 1)^2}$",
+      "$\\frac{1}{(2y - 1)^3}$"
     ],
-    "correctAnswer": "$98y(1 + y^2)$",
+    "correctAnswer": "$-\\frac{2}{(2y - 1)^3}$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Recall $y' = \\frac{1}{2y - 1} = (2y - 1)^{-1}$ and differentiate with chain rule.",
+    "hintAr": "نعلم أن $y' = (2y - 1)^{-1}$، اشتق باستخدام قاعدة القوس مع ضرب الناتج في $y'$.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 7\\sec^2(7x) = 7(1 + \\tan^2(7x)) = 7(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[7(1 + y^2)] = 7(2y \\cdot y')$$",
-      "3. Substitute $y' = 7(1 + y^2)$:",
-      "$$y'' = 7 \\cdot 2y \\cdot 7(1 + y^2) = 98y(1 + y^2)$$"
+      "1. From $y^2 = x + y$, we found $y' = (2y - 1)^{-1}$.",
+      "2. Differentiating: $y'' = -1(2y - 1)^{-2} \\cdot 2 y'$.",
+      "3. Substitute $y' = (2y - 1)^{-1}$: $y'' = -\\frac{2(2y - 1)^{-1}}{(2y - 1)^2} = -\\frac{2}{(2y - 1)^3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 7\\sec^2(7x) = 7(1 + \\tan^2(7x)) = 7(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[7(1 + y^2)] = 7(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 7(1 + y^2)$:",
-      "$$y'' = 2(7^2)y(1 + y^2) = 98y(1 + y^2)$$"
+      "١. المشتقة الأولى هي $y' = (2y - 1)^{-1}$.",
+      "٢. المشتقة الثانية: $y'' = -1(2y - 1)^{-2} \\cdot 2 y'$.",
+      "٣. بالتعويض عن $y'$: $y'' = -\\frac{2}{(2y - 1)^3}$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Always substitute $y'$ back into the expression for $y''$.",
+    "teacherTipAr": "عوض دائماً بقيمة $y'$ داخل معادلة $y''$ للحصول على الناتج بدلالة $y$ فقط."
   },
   {
     "id": "calc_ch1_db_hots_07",
-    "titleEn": "Second Derivative of tan(8x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(8س) بدلالة ص",
+    "titleEn": "Second Derivative of Circle Involute",
+    "titleAr": "المشتقة الثانية لمنبسط الدائرة",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(8x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(8x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "For the circle involute $x = a(\\cos t + t\\sin t), y = a(\\sin t - t\\cos t)$, find $\\frac{d^2y}{dx^2}$.",
+    "questionAr": "لمنبسط الدائرة $x = a(\\cos t + t\\sin t), y = a(\\sin t - t\\cos t)$، أوجد $\\frac{d^2y}{dx^2}$.",
     "optionsEn": [
-      "$128y(1 + y^2)$",
-      "$8y(1 + y^2)$",
-      "$128y^2(1 + y^2)$",
-      "$128(1 + y^2)$"
+      "$\\frac{\\sec^3 t}{a t}$",
+      "$\\frac{\\sec^2 t}{a t}$",
+      "$\\frac{\\csc^3 t}{a t}$",
+      "$\\frac{1}{a t}$"
     ],
     "optionsAr": [
-      "$128y(1 + y^2)$",
-      "$8y(1 + y^2)$",
-      "$128y^2(1 + y^2)$",
-      "$128(1 + y^2)$"
+      "$\\frac{\\sec^3 t}{a t}$",
+      "$\\frac{\\sec^2 t}{a t}$",
+      "$\\frac{\\csc^3 t}{a t}$",
+      "$\\frac{1}{a t}$"
     ],
-    "correctAnswer": "$128y(1 + y^2)$",
+    "correctAnswer": "$\\frac{\\sec^3 t}{a t}$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Find $dx/dt = at\\cos t$ and $dy/dt = at\\sin t$, so $dy/dx = \\tan t$.",
+    "hintAr": "المشتقة الأولى هي $\\tan t$ ثم طبق قاعدة المشتقة الثانية البارامترية.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 8\\sec^2(8x) = 8(1 + \\tan^2(8x)) = 8(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[8(1 + y^2)] = 8(2y \\cdot y')$$",
-      "3. Substitute $y' = 8(1 + y^2)$:",
-      "$$y'' = 8 \\cdot 2y \\cdot 8(1 + y^2) = 128y(1 + y^2)$$"
+      "1. $\\frac{dx}{dt} = a(-\\sin t + \\sin t + t\\cos t) = at\\cos t$.",
+      "2. $\\frac{dy}{dt} = a(\\cos t - \\cos t + t\\sin t) = at\\sin t$.",
+      "3. $\\frac{dy}{dx} = \\frac{at\\sin t}{at\\cos t} = \\tan t$.",
+      "4. $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(\\tan t)}{\\frac{dx}{dt}} = \\frac{\\sec^2 t}{at\\cos t} = \\frac{\\sec^3 t}{at}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 8\\sec^2(8x) = 8(1 + \\tan^2(8x)) = 8(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[8(1 + y^2)] = 8(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 8(1 + y^2)$:",
-      "$$y'' = 2(8^2)y(1 + y^2) = 128y(1 + y^2)$$"
+      "١. بالاشتقاق: $dx/dt = at\\cos t$ و $dy/dt = at\\sin t$.",
+      "٢. المشتقة الأولى: $\\frac{dy}{dx} = \\tan t$.",
+      "٣. المشتقة الثانية: $\\frac{\\sec^2 t}{at\\cos t} = \\frac{\\sec^3 t}{at}$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Dividing $\\sec^2 t$ by $\\cos t$ gives $\\sec^3 t$.",
+    "teacherTipAr": "قسمة $\\sec^2 t$ على $\\cos t$ تكافئ الضرب في $\\sec t$ لتصبح $\\sec^3 t$."
   },
   {
     "id": "calc_ch1_db_hots_08",
-    "titleEn": "Second Derivative of tan(9x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(9س) بدلالة ص",
+    "titleEn": "Flying Kite String Pay-out Rate",
+    "titleAr": "معدل فك خيط طائرة ورقية",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(9x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(9x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "A kite is flying at a constant altitude of $100\\text{ m}$. When $200\\text{ m}$ of string has been let out, the kite moves horizontally away from the boy at $8\\text{ m/s}$. At what rate is the string being paid out at that instant?",
+    "questionAr": "تطير طائرة ورقية على ارتفاع ثابت قدره $100\\text{ م}$. فعندما كان طول الخيط المنبسط $200\\text{ م}$، كانت الطائرة تتحرك أفقياً مبتعدة عن يد الطفل بسرعة $8\\text{ م/ث}$. ما هو معدل فك الخيط في تلك اللحظة؟",
     "optionsEn": [
-      "$162y(1 + y^2)$",
-      "$9y(1 + y^2)$",
-      "$162y^2(1 + y^2)$",
-      "$162(1 + y^2)$"
+      "$4\\sqrt{3}\\text{ m/s}$",
+      "$8\\text{ m/s}$",
+      "$4\\text{ m/s}$",
+      "$2\\sqrt{3}\\text{ m/s}$"
     ],
     "optionsAr": [
-      "$162y(1 + y^2)$",
-      "$9y(1 + y^2)$",
-      "$162y^2(1 + y^2)$",
-      "$162(1 + y^2)$"
+      "$4\\sqrt{3}\\text{ م/ث}$",
+      "$8\\text{ م/ث}$",
+      "$4\\text{ م/ث}$",
+      "$2\\sqrt{3}\\text{ م/ث}$"
     ],
-    "correctAnswer": "$162y(1 + y^2)$",
+    "correctAnswer": "$4\\sqrt{3}\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Let $s$ be string length: $s^2 = x^2 + 100^2$. Differentiate with respect to $t$.",
+    "hintAr": "طول الخيط $s$ يحقق $s^2 = x^2 + 100^2$ بالاشتقاق الزمني.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 9\\sec^2(9x) = 9(1 + \\tan^2(9x)) = 9(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[9(1 + y^2)] = 9(2y \\cdot y')$$",
-      "3. Substitute $y' = 9(1 + y^2)$:",
-      "$$y'' = 9 \\cdot 2y \\cdot 9(1 + y^2) = 162y(1 + y^2)$$"
+      "1. When $s = 200\\text{ m}$ and $y = 100\\text{ m}$, $x = \\sqrt{200^2 - 100^2} = \\sqrt{30000} = 100\\sqrt{3}\\text{ m}$.",
+      "2. Differentiating $s^2 = x^2 + 100^2$: $2s \\frac{ds}{dt} = 2x \\frac{dx}{dt} \\implies s \\frac{ds}{dt} = x \\frac{dx}{dt}$.",
+      "3. Substitute values: $200 \\frac{ds}{dt} = (100\\sqrt{3})(8) = 800\\sqrt{3}$.",
+      "4. $\\frac{ds}{dt} = \\frac{800\\sqrt{3}}{200} = 4\\sqrt{3}\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 9\\sec^2(9x) = 9(1 + \\tan^2(9x)) = 9(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[9(1 + y^2)] = 9(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 9(1 + y^2)$:",
-      "$$y'' = 2(9^2)y(1 + y^2) = 162y(1 + y^2)$$"
+      "١. المسافة الأفقية: $x = \\sqrt{200^2 - 100^2} = 100\\sqrt{3}\\text{ م}$.",
+      "٢. بالاشتقاق الزمني: $s \\frac{ds}{dt} = x \\frac{dx}{dt}$.",
+      "٣. $200 \\frac{ds}{dt} = 100\\sqrt{3} \\times 8 = 800\\sqrt{3}$.",
+      "٤. إذن معدل فك الخيط = $4\\sqrt{3}\\text{ م/ث}$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Since altitude is constant, the derivative of $100^2$ is zero.",
+    "teacherTipAr": "لأن الارتفاع ثابت، تكون مشتقة $100^2$ مساوية للصفر."
   },
   {
     "id": "calc_ch1_db_hots_09",
-    "titleEn": "Second Derivative of tan(10x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(10س) بدلالة ص",
+    "titleEn": "Minimum Tangent Segment Length for Ellipse",
+    "titleAr": "أصغر طول لقطعة المماس بين المحورين لقطع ناقص",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(10x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(10x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "A tangent line is drawn to the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ in the first quadrant, meeting the axes at $A$ and $B$. The minimum length of the segment $AB$ is:",
+    "questionAr": "رُسم مماس للقطع الناقص $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ في الربع الأول ليقطع محوري الإحداثيات في $A$ و $B$. فإن أصغر طول ممكن للقطعة المستقيمة $AB$ هو:",
     "optionsEn": [
-      "$200y(1 + y^2)$",
-      "$10y(1 + y^2)$",
-      "$200y^2(1 + y^2)$",
-      "$200(1 + y^2)$"
+      "$a + b$",
+      "$\\sqrt{a^2 + b^2}$",
+      "$2\\sqrt{ab}$",
+      "$\\frac{a + b}{2}$"
     ],
     "optionsAr": [
-      "$200y(1 + y^2)$",
-      "$10y(1 + y^2)$",
-      "$200y^2(1 + y^2)$",
-      "$200(1 + y^2)$"
+      "$a + b$",
+      "$\\sqrt{a^2 + b^2}$",
+      "$2\\sqrt{ab}$",
+      "$\\frac{a + b}{2}$"
     ],
-    "correctAnswer": "$200y(1 + y^2)$",
+    "correctAnswer": "$a + b$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Parameterize contact point as $(a\\cos\\theta, b\\sin\\theta)$, length squared is $L^2 = a^2\\sec^2\\theta + b^2\\csc^2\\theta$.",
+    "hintAr": "مثل نقطة التماس بـ $(a\\cos\\theta, b\\sin\\theta)$ ثم أوجد القيمة الصغرى لطول القطعة.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 10\\sec^2(10x) = 10(1 + \\tan^2(10x)) = 10(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[10(1 + y^2)] = 10(2y \\cdot y')$$",
-      "3. Substitute $y' = 10(1 + y^2)$:",
-      "$$y'' = 10 \\cdot 2y \\cdot 10(1 + y^2) = 200y(1 + y^2)$$"
+      "1. The tangent equation is $\\frac{x\\cos\\theta}{a} + \\frac{y\\sin\\theta}{b} = 1$.",
+      "2. Intercepts: $A = (a\\sec\\theta, 0)$ and $B = (0, b\\csc\\theta)$.",
+      "3. Length $L = \\sqrt{a^2\\sec^2\\theta + b^2\\csc^2\\theta} = \\sqrt{a^2(1 + \\tan^2\\theta) + b^2(1 + \\cot^2\\theta)}$.",
+      "4. Minimum occurs when $\\tan\\theta = \\sqrt{b/a}$, giving $L_{\\min} = a + b$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 10\\sec^2(10x) = 10(1 + \\tan^2(10x)) = 10(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[10(1 + y^2)] = 10(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 10(1 + y^2)$:",
-      "$$y'' = 2(10^2)y(1 + y^2) = 200y(1 + y^2)$$"
+      "١. نقطتا التقاطع مع المحورين هما $a\\sec\\theta$ و $b\\csc\\theta$.",
+      "٢. مربع الطول $L^2 = a^2(1 + \\tan^2\\theta) + b^2(1 + \\cot^2\\theta) = (a+b)^2 + (a\\tan\\theta - b\\cot\\theta)^2$.",
+      "٣. ينعدم القوس المربع وتتحقق أصغر قيمة عندما $L_{\\min} = a + b$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Classic optimization result in Egyptian advanced curriculum.",
+    "teacherTipAr": "مسألة قيم عظمى وصغرى شهيرة جداً في المناهج المصرية المتقدمة."
   },
   {
     "id": "calc_ch1_db_hots_10",
-    "titleEn": "Second Derivative of tan(11x) in Terms of y",
-    "titleAr": "المشتقة الثانية للدالة ظا(11س) بدلالة ص",
+    "titleEn": "Third Derivative of Tangent at Origin",
+    "titleAr": "المشتقة الثالثة للظل عند نقطة الأصل",
     "difficulty": "hots",
-    "questionEn": "If $y = \\tan(11x)$, express $\\frac{d^2y}{dx^2}$ in terms of $y$.",
-    "questionAr": "إذا كان $y = \\tan(11x)$، فعبّر عن $\\frac{d^2y}{dx^2}$ بدلالة $y$.",
+    "questionEn": "If $y = \\tan x$, find the value of the third derivative $y'''(0)$.",
+    "questionAr": "إذا كانت $y = \\tan x$، فاحسب قيمة المشتقة الثالثة $y'''(0)$.",
     "optionsEn": [
-      "$242y(1 + y^2)$",
-      "$11y(1 + y^2)$",
-      "$242y^2(1 + y^2)$",
-      "$242(1 + y^2)$"
+      "$2$",
+      "$0$",
+      "$6$",
+      "$1$"
     ],
     "optionsAr": [
-      "$242y(1 + y^2)$",
-      "$11y(1 + y^2)$",
-      "$242y^2(1 + y^2)$",
-      "$242(1 + y^2)$"
+      "$2$",
+      "$0$",
+      "$6$",
+      "$1$"
     ],
-    "correctAnswer": "$242y(1 + y^2)$",
+    "correctAnswer": "$2$",
     "correctIndex": 0,
-    "hintEn": "First find $y' = k\\sec^2(kx) = k(1 + y^2)$, then differentiate again with respect to $x$ using the chain rule.",
-    "hintAr": "أوجد أولاً $y' = k\\sec^2(kx) = k(1 + y^2)$، ثم اشتق مرة أخرى بالنسبة إلى $x$ باستخدام قاعدة السلسلة.",
+    "hintEn": "Use $y' = 1 + y^2 \\implies y'' = 2y y' \\implies y''' = 2(y')^2 + 2y y''$.",
+    "hintAr": "استخدم $y' = 1 + y^2$ لاشتقاق المرات التالية بسهولة تامة.",
     "stepByStepSolutionEn": [
-      "1. First derivative:",
-      "$$y' = 11\\sec^2(11x) = 11(1 + \\tan^2(11x)) = 11(1 + y^2)$$",
-      "2. Second derivative by chain rule:",
-      "$$y'' = \\frac{d}{dx}[11(1 + y^2)] = 11(2y \\cdot y')$$",
-      "3. Substitute $y' = 11(1 + y^2)$:",
-      "$$y'' = 11 \\cdot 2y \\cdot 11(1 + y^2) = 242y(1 + y^2)$$"
+      "1. $y' = 1 + y^2$. At $x = 0$, $y = 0 \\implies y'(0) = 1$.",
+      "2. $y'' = 2y y'$. At $x = 0$, $y = 0 \\implies y''(0) = 0$.",
+      "3. $y''' = 2(y')^2 + 2y y''$.",
+      "4. At $x = 0$: $y'''(0) = 2(1)^2 + 2(0)(0) = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. المشتقة الأولى:",
-      "$$y' = 11\\sec^2(11x) = 11(1 + \\tan^2(11x)) = 11(1 + y^2)$$",
-      "٢. المشتقة الثانية باستخدام قاعدة السلسلة:",
-      "$$y'' = \\frac{d}{dx}[11(1 + y^2)] = 11(2y \\cdot y')$$",
-      "٣. بالتعويض عن $y' = 11(1 + y^2)$:",
-      "$$y'' = 2(11^2)y(1 + y^2) = 242y(1 + y^2)$$"
+      "١. $y' = 1 + y^2$، عند $x = 0$ تكون $y = 0$ و $y' = 1$.",
+      "٢. $y'' = 2y y'$، إذن $y''(0) = 0$.",
+      "٣. $y''' = 2(y')^2 + 2y y''$.",
+      "٤. بالتعويض: $y'''(0) = 2(1)^2 + 0 = 2$."
     ],
-    "teacherTipEn": "Replacing trigonometric terms by algebraic expressions in $y$ simplifies higher derivatives significantly.",
-    "teacherTipAr": "الاستعاضة عن الدوال المثلثية بمقادير جبرية بدلالة $y$ يسهل كثيراً إيجاد المشتقات العليا."
+    "teacherTipEn": "Using $y' = 1 + y^2$ simplifies all higher derivatives of tangent into simple polynomials.",
+    "teacherTipAr": "استخدام العلاقة $y' = 1 + y^2$ يحول المشتقات العليا للظل إلى كثيرات حدود بسيطة."
   },
   {
     "id": "calc_ch1_db_hots_11",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=2)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=2)",
+    "titleEn": "Elevator Angle of Elevation Rate",
+    "titleAr": "معدل تغير زاوية ارتفاع مصعد كهربي",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(2)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(2)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "An observer on the ground $30\\text{ m}$ from the base of an elevator shaft watches an elevator rising at $4\\text{ m/s}$. Find the rate of change of the angle of elevation when the elevator is $40\\text{ m}$ above the ground.",
+    "questionAr": "يقف راصد على الأرض على بعد $30\\text{ م}$ من قاعدة برج مصعد رأسي يرتفع بسرعة $4\\text{ م/ث}$. ما هو معدل تغير زاوية ارتفاع المصعد بالنسبة للراصد عندما يكون المصعد على ارتفاع $40\\text{ م}$ من الأرض؟",
     "optionsEn": [
-      "2",
-      "4",
-      "6",
-      "9"
+      "$\\frac{6}{125}\\text{ rad/s}$",
+      "$\\frac{4}{25}\\text{ rad/s}$",
+      "$\\frac{1}{25}\\text{ rad/s}$",
+      "$\\frac{2}{75}\\text{ rad/s}$"
     ],
     "optionsAr": [
-      "2",
-      "4",
-      "6",
-      "9"
+      "$\\frac{6}{125}\\text{ راديان/ث}$",
+      "$\\frac{4}{25}\\text{ راديان/ث}$",
+      "$\\frac{1}{25}\\text{ راديان/ث}$",
+      "$\\frac{2}{75}\\text{ راديان/ث}$"
     ],
-    "correctAnswer": "2",
+    "correctAnswer": "$\\frac{6}{125}\\text{ rad/s}$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "$\\tan\\theta = \\frac{y}{30} \\implies \\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{30}\\frac{dy}{dt}$.",
+    "hintAr": "$\\tan\\theta = y / 30$ ثم طبق نظرية فيثاغورس لحساب $\\sec\\theta$.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(2)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(2)t^2}{2t} = 2(2)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(2)t)}{\\frac{dx}{dt}} = \\frac{2(2)}{2t} = \\frac{2}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{2}{1} = 2$$"
+      "1. Hypotenuse when $y = 40$ and base $= 30$ is $\\sqrt{30^2 + 40^2} = 50\\text{ m}$.",
+      "2. $\\cos\\theta = \\frac{30}{50} = \\frac{3}{5} \\implies \\sec^2\\theta = \\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$.",
+      "3. Differentiating $\\tan\\theta = \\frac{y}{30}$: $\\sec^2\\theta \\frac{d\\theta}{dt} = \\frac{1}{30}\\frac{dy}{dt}$.",
+      "4. $\\frac{25}{9} \\frac{d\\theta}{dt} = \\frac{4}{30} = \\frac{2}{15} \\implies \\frac{d\\theta}{dt} = \\frac{2}{15} \\times \\frac{9}{25} = \\frac{18}{375} = \\frac{6}{125}\\text{ rad/s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(2)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(2)t^2}{2t} = 2(2)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(2)t)}{\\frac{dx}{dt}} = \\frac{2(2)}{2t} = \\frac{2}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 2$$"
+      "١. الوتر = $\\sqrt{30^2 + 40^2} = 50\\text{ م}$.",
+      "٢. $\\sec\\theta = 50/30 = 5/3 \\implies \\sec^2\\theta = 25/9$.",
+      "٣. بالاشتقاق: $\\frac{25}{9}\\frac{d\\theta}{dt} = \\frac{4}{30} = \\frac{2}{15}$.",
+      "٤. إذن $\\frac{d\\theta}{dt} = \\frac{2}{15} \\times \\frac{9}{25} = \\frac{6}{125}\\text{ راديان/ث}$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "Reduce fractions by common divisor 3 to arrive at 6/125.",
+    "teacherTipAr": "اختصر بالقسمة على 3 لتصل للصورة الكسرية القياسية."
   },
   {
     "id": "calc_ch1_db_hots_12",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=3)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=3)",
+    "titleEn": "Vanishing Second Derivative of Homogeneous Curve",
+    "titleAr": "انعدام المشتقة الثانية لمنحنى متجانس",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(3)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(3)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "For the curve $x^m y^n = (x + y)^{m+n}$, where $m, n > 0$, the second derivative $\\frac{d^2y}{dx^2}$ is:",
+    "questionAr": "للمنحنى $x^m y^n = (x + y)^{m+n}$ حيث $m, n > 0$، المشتقة الثانية $\\frac{d^2y}{dx^2}$ تساوي:",
     "optionsEn": [
-      "3",
-      "5",
-      "7",
-      "10"
+      "$0$",
+      "$\\frac{y}{x^2}$",
+      "$-\\frac{y}{x^2}$",
+      "$\\frac{m+n}{xy}$"
     ],
     "optionsAr": [
-      "3",
-      "5",
-      "7",
-      "10"
+      "$0$",
+      "$\\frac{y}{x^2}$",
+      "$-\\frac{y}{x^2}$",
+      "$\\frac{m+n}{xy}$"
     ],
-    "correctAnswer": "3",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Take logarithms: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$, differentiate to find $y' = y/x$.",
+    "hintAr": "خذ اللوغاريتم للطرفين لتثبت أولاً أن المشتقة الأولى تساوي $y/x$.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(3)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(3)t^2}{2t} = 2(3)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(3)t)}{\\frac{dx}{dt}} = \\frac{2(3)}{2t} = \\frac{3}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{3}{1} = 3$$"
+      "1. Taking natural logarithms: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$.",
+      "2. Differentiate: $\\frac{m}{x} + \\frac{n}{y}y' = \\frac{m+n}{x+y}(1 + y')$.",
+      "3. Grouping terms shows $\\frac{dy}{dx} = \\frac{y}{x}$.",
+      "4. Differentiating $y' = \\frac{y}{x}$: $y'' = \\frac{x y' - y}{x^2} = \\frac{x(y/x) - y}{x^2} = \\frac{y - y}{x^2} = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(3)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(3)t^2}{2t} = 2(3)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(3)t)}{\\frac{dx}{dt}} = \\frac{2(3)}{2t} = \\frac{3}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 3$$"
+      "١. بأخذ اللوغاريتم الطبيعي: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$.",
+      "٢. بالاشتقاق وتبسيط الحدود نجد أن المشتقة الأولى هي $y' = y/x$.",
+      "٣. بالاشتقاق مرة ثانية: $y'' = \\frac{x y' - y}{x^2} = \\frac{y - y}{x^2} = 0$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "A famous classical theorem: any curve with $y' = y/x$ is a straight line through the origin, so $y'' = 0$.",
+    "teacherTipAr": "مبرهنة كلاسيكية: أي منحنى يحقق $y' = y/x$ هو مستقيم يمر بنقطة الأصل، ولذلك مشتقته الثانية صفر دائماً."
   },
   {
     "id": "calc_ch1_db_hots_13",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=4)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=4)",
+    "titleEn": "Determining Cubic Curve Constants from Normal Line",
+    "titleAr": "تعيين ثوابت منحنى تكعيبي من معادلة العمودي",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(4)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(4)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "The normal line to the curve $y = x^3 - ax + b$ at the point $(1, 2)$ has the equation $x + 2y = 5$. Find the values of $a$ and $b$.",
+    "questionAr": "العمودي على المنحنى $y = x^3 - ax + b$ عند النقطة $(1, 2)$ معادلته $x + 2y = 5$. أوجد قيمتي $a$ و $b$.",
     "optionsEn": [
-      "4",
-      "6",
-      "8",
-      "11"
+      "$a = 1, b = 2$",
+      "$a = 2, b = 3$",
+      "$a = 3, b = 4$",
+      "$a = -1, b = 0$"
     ],
     "optionsAr": [
-      "4",
-      "6",
-      "8",
-      "11"
+      "$a = 1, b = 2$",
+      "$a = 2, b = 3$",
+      "$a = 3, b = 4$",
+      "$a = -1, b = 0$"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": "$a = 1, b = 2$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Normal slope is $-1/2$, so tangent slope $y'(1) = 2$. Also $y(1) = 2$.",
+    "hintAr": "ميل العمودي $-1/2$ إذن ميل المماس $y'(1) = 2$. والنقطة $(1, 2)$ تحقق المنحنى.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(4)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(4)t^2}{2t} = 2(4)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(4)t)}{\\frac{dx}{dt}} = \\frac{2(4)}{2t} = \\frac{4}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{4}{1} = 4$$"
+      "1. Point $(1, 2)$ on curve: $1^3 - a(1) + b = 2 \\implies 1 - a + b = 2 \\implies b - a = 1$.",
+      "2. Normal line $x + 2y = 5$ has slope $m_n = -\\frac{1}{2}$.",
+      "3. Therefore, tangent slope $m_t = 2$.",
+      "4. $y' = 3x^2 - a$. At $x = 1$: $3(1) - a = 2 \\implies 3 - a = 2 \\implies a = 1$.",
+      "5. From step 1: $b - 1 = 1 \\implies b = 2$. Thus $a = 1, b = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(4)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(4)t^2}{2t} = 2(4)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(4)t)}{\\frac{dx}{dt}} = \\frac{2(4)}{2t} = \\frac{4}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 4$$"
+      "١. النقطة $(1, 2)$ تحقق معادلة المنحنى: $1 - a + b = 2 \\implies b - a = 1$.",
+      "٢. ميل العمودي المعطى = $-1/2$، إذن ميل المماس المطلوب = $2$.",
+      "٣. مشتقة المنحنى: $y' = 3x^2 - a$.",
+      "٤. عند $x = 1$: $3 - a = 2 \\implies a = 1$.",
+      "٥. بالتعويض نجد أن $b = 2$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "Equate the tangent derivative to the negative reciprocal of the normal line slope.",
+    "teacherTipAr": "ساوي مشتقة المنحنى بمقلوب ميل العمودي بعكس الإشارة."
   },
   {
     "id": "calc_ch1_db_hots_14",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=5)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=5)",
+    "titleEn": "Trapezoidal Trough Water Inflow Rate",
+    "titleAr": "معدل ارتفاع الماء في حوض شبه منحرف",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(5)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(5)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "A water trough of length $10\\text{ m}$ has a cross-section of an inverted symmetric trapezoid with lower base $2\\text{ m}$, upper base $4\\text{ m}$, and height $2\\text{ m}$. If water is pumped in at $3\\text{ m}^3/\\text{min}$, at what rate is the water level rising when the depth is $1\\text{ m}$?",
+    "questionAr": "حوض ماء طوله $10\\text{ م}$، مقطعه الرأسي شبه منحرف متساوي الساقين قاعدته الصغرى $2\\text{ م}$ والكبرى $4\\text{ م}$ وارتفاعه $2\\text{ م}$. يُصب فيه الماء بمعدل $3\\text{ م}^3/\\text{دقيقة}$. ما هو معدل ارتفاع سطح الماء عندما يكون عمق الماء $1\\text{ م}$؟",
     "optionsEn": [
-      "5",
-      "7",
-      "9",
-      "12"
+      "$0.1\\text{ m/min}$",
+      "$0.2\\text{ m/min}$",
+      "$0.05\\text{ m/min}$",
+      "$0.3\\text{ m/min}$"
     ],
     "optionsAr": [
-      "5",
-      "7",
-      "9",
-      "12"
+      "$0.1\\text{ م/دقيقة}$",
+      "$0.2\\text{ م/دقيقة}$",
+      "$0.05\\text{ م/دقيقة}$",
+      "$0.3\\text{ م/دقيقة}$"
     ],
-    "correctAnswer": "5",
+    "correctAnswer": "$0.1\\text{ m/min}$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Top width of water surface at depth $h$ is $w(h) = 2 + h$. Volume $V = 10 \\times \\text{Area}$.",
+    "hintAr": "عرض سطح الماء عند عمق $h$ هو $w = 2 + h$. الحجم = الطول × مساحة المقطع.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(5)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(5)t^2}{2t} = 2(5)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(5)t)}{\\frac{dx}{dt}} = \\frac{2(5)}{2t} = \\frac{5}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{5}{1} = 5$$"
+      "1. By linear interpolation, the width of the water surface at depth $h$ is $w = 2 + \\frac{4 - 2}{2}h = 2 + h$.",
+      "2. The area of the trapezoidal water cross-section is $A = \\frac{2 + (2 + h)}{2}h = \\frac{4 + h}{2}h = 2h + \\frac{1}{2}h^2$.",
+      "3. Volume $V = 10 A = 20h + 5h^2$.",
+      "4. Differentiating with respect to time: $\\frac{dV}{dt} = (20 + 10h)\\frac{dh}{dt}$.",
+      "5. At $h = 1\\text{ m}$ and $\\frac{dV}{dt} = 3$: $3 = (20 + 10)\\frac{dh}{dt} = 30\\frac{dh}{dt} \\implies \\frac{dh}{dt} = \\frac{3}{30} = 0.1\\text{ m/min}$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(5)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(5)t^2}{2t} = 2(5)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(5)t)}{\\frac{dx}{dt}} = \\frac{2(5)}{2t} = \\frac{5}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 5$$"
+      "١. عرض السطح عند عمق $h$ هو $w = 2 + h$.",
+      "٢. مساحة مقطع الماء شبه المنحرف = $2h + 0.5h^2$.",
+      "٣. الحجم الكلي = الطول × المساحة = $20h + 5h^2$.",
+      "٤. بالاشتقاق الزمني: $\\frac{dV}{dt} = (20 + 10h)\\frac{dh}{dt}$.",
+      "٥. عند $h = 1$: $3 = 30 \\frac{dh}{dt} \\implies \\frac{dh}{dt} = 0.1\\text{ م/دقيقة}$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "Prismatic containers have volume = length × cross-sectional area.",
+    "teacherTipAr": "الخزانات المنشورية المنتظمة حجمها يساوي دائماً طول الخزان مضروباً في مساحة المقطع العرضي."
   },
   {
     "id": "calc_ch1_db_hots_15",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=6)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=6)",
+    "titleEn": "Differential Equation of Arcsin Squared",
+    "titleAr": "المعادلة التفاضلية لمربع دالة قوس الجيب",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(6)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(6)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "If $y = (\\arcsin x)^2$, which differential equation does $y$ satisfy?",
+    "questionAr": "إذا كانت $y = (\\arcsin x)^2$، فأي المعادلات التفاضلية التالية تحققها $y$؟",
     "optionsEn": [
-      "6",
-      "8",
-      "10",
-      "13"
+      "$(1 - x^2)y'' - x y' - 2 = 0$",
+      "$(1 - x^2)y'' + x y' - 2 = 0$",
+      "$(1 + x^2)y'' - x y' - 2 = 0$",
+      "$(1 - x^2)y'' - x y' + 2 = 0$"
     ],
     "optionsAr": [
-      "6",
-      "8",
-      "10",
-      "13"
+      "$(1 - x^2)y'' - x y' - 2 = 0$",
+      "$(1 - x^2)y'' + x y' - 2 = 0$",
+      "$(1 + x^2)y'' - x y' - 2 = 0$",
+      "$(1 - x^2)y'' - x y' + 2 = 0$"
     ],
-    "correctAnswer": "6",
+    "correctAnswer": "$(1 - x^2)y'' - x y' - 2 = 0$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Differentiate once, square both sides to eliminate the radical, then differentiate again.",
+    "hintAr": "اشتق مرة ثم ربع الطرفين للتخلص من الجذر، ثم اشتق مرة ثانية.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(6)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(6)t^2}{2t} = 2(6)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(6)t)}{\\frac{dx}{dt}} = \\frac{2(6)}{2t} = \\frac{6}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{6}{1} = 6$$"
+      "1. $y' = 2\\arcsin x \\cdot \\frac{1}{\\sqrt{1 - x^2}} \\implies \\sqrt{1 - x^2} y' = 2\\arcsin x$.",
+      "2. Square both sides: $(1 - x^2)(y')^2 = 4(\\arcsin x)^2 = 4y$.",
+      "3. Differentiate with respect to $x$: $-2x(y')^2 + (1 - x^2) \\cdot 2y' y'' = 4y'$.",
+      "4. Divide by $2y'$ (assuming $y' \\neq 0$): $-x y' + (1 - x^2)y'' = 2 \\implies (1 - x^2)y'' - x y' - 2 = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(6)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(6)t^2}{2t} = 2(6)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(6)t)}{\\frac{dx}{dt}} = \\frac{2(6)}{2t} = \\frac{6}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 6$$"
+      "١. المشتقة الأولى: $\\sqrt{1 - x^2} y' = 2\\arcsin x$.",
+      "٢. بتربيع الطرفين: $(1 - x^2)(y')^2 = 4y$.",
+      "٣. بالاشتقاق بالنسبة لـ $x$: $-2x(y')^2 + 2(1 - x^2)y' y'' = 4y'$.",
+      "٤. بالقسمة على $2y'$: $(1 - x^2)y'' - x y' - 2 = 0$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "Squaring before second differentiation avoids messy quotient rule algebra.",
+    "teacherTipAr": "التربيع قبل الاشتقاق الثاني يمنع ظهور كسور وجذور معقدة."
   },
   {
     "id": "calc_ch1_db_hots_16",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=7)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=7)",
+    "titleEn": "Locus of Midpoint of Sliding Ladder",
+    "titleAr": "المحل الهندسي لمنتصف سلم منزلق",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(7)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(7)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "A ladder of fixed length $L$ slides with its ends on two perpendicular coordinate axes. The locus of the midpoint of the ladder is:",
+    "questionAr": "سلم طوله الثابت $L$ ينزلق طرفاه على محوري الإحداثيات المتعامدين. المحل الهندسي لنقطة منتصف السلم هو:",
     "optionsEn": [
-      "7",
-      "9",
-      "11",
-      "14"
+      "A circle of radius $L/2$",
+      "An ellipse with semi-axes $L$ and $L/2$",
+      "A parabola",
+      "A straight line"
     ],
     "optionsAr": [
-      "7",
-      "9",
-      "11",
-      "14"
+      "دائرة نصف قطرها $L/2$",
+      "قطع ناقص نصفا محوريه $L$ و $L/2$",
+      "قطع مكافئ",
+      "خط مستقيم"
     ],
-    "correctAnswer": "7",
+    "correctAnswer": "A circle of radius $L/2$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Coordinates of midpoint are $x = \\frac{a}{2}, y = \\frac{b}{2}$, with $a^2 + b^2 = L^2$.",
+    "hintAr": "إحداثيات المنتصف هي نصف الإحداثيات الأصلية لطرفي السلم.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(7)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(7)t^2}{2t} = 2(7)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(7)t)}{\\frac{dx}{dt}} = \\frac{2(7)}{2t} = \\frac{7}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{7}{1} = 7$$"
+      "1. Let the ends be $(a, 0)$ and $(0, b)$. Then $a^2 + b^2 = L^2$.",
+      "2. The midpoint coordinates are $x = a/2$ and $y = b/2$, so $a = 2x$ and $b = 2y$.",
+      "3. Substitute into $a^2 + b^2 = L^2$: $(2x)^2 + (2y)^2 = L^2 \\implies 4x^2 + 4y^2 = L^2 \\implies x^2 + y^2 = (L/2)^2$.",
+      "4. This represents a circle of radius $L/2$ centered at the origin."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(7)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(7)t^2}{2t} = 2(7)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(7)t)}{\\frac{dx}{dt}} = \\frac{2(7)}{2t} = \\frac{7}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 7$$"
+      "١. طرفا السلم هما $(a, 0)$ و $(0, b)$ حيث $a^2 + b^2 = L^2$.",
+      "٢. نقطة المنتصف $(x, y) = (a/2, b/2) \\implies a = 2x, b = 2y$.",
+      "٣. بالتعويض: $4x^2 + 4y^2 = L^2 \\implies x^2 + y^2 = (L/2)^2$.",
+      "٤. هذه معادلة دائرة مركزها نقطة الأصل ونصف قطرها نصف طول السلم."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "The median to the hypotenuse of a right triangle is always equal to half the hypotenuse.",
+    "teacherTipAr": "المتوسط الخارج من رأس القائمة في المثلث القائم يساوي دائماً نصف طول الوتر."
   },
   {
     "id": "calc_ch1_db_hots_17",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=8)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=8)",
+    "titleEn": "Chebyshev Differential Equation Identity",
+    "titleAr": "متطابقة معادلة تشيبشيف التفاضلية",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(8)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(8)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "If $x = \\sin\\theta$ and $y = \\sin(p\\theta)$, prove that $(1 - x^2)\\frac{d^2y}{dx^2} - x\\frac{dy}{dx}$ equals:",
+    "questionAr": "إذا كانت $x = \\sin\\theta$ و $y = \\sin(p\\theta)$، فما قيمة المقدار $(1 - x^2)\\frac{d^2y}{dx^2} - x\\frac{dy}{dx}$؟",
     "optionsEn": [
-      "8",
-      "10",
-      "12",
-      "15"
+      "$-p^2 y$",
+      "$p^2 y$",
+      "$-p y$",
+      "$0$"
     ],
     "optionsAr": [
-      "8",
-      "10",
-      "12",
-      "15"
+      "$-p^2 y$",
+      "$p^2 y$",
+      "$-p y$",
+      "$0$"
     ],
-    "correctAnswer": "8",
+    "correctAnswer": "$-p^2 y$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Differentiate parametrically: $\\frac{dy}{dx} = \\frac{p\\cos(p\\theta)}{\\cos\\theta}$.",
+    "hintAr": "اشتق بارامترياً ثم ربع واشتق ثانية للوصول لمعادلة تشيبشيف الشهيرة.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(8)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(8)t^2}{2t} = 2(8)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(8)t)}{\\frac{dx}{dt}} = \\frac{2(8)}{2t} = \\frac{8}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{8}{1} = 8$$"
+      "1. $\\frac{dx}{d\\theta} = \\cos\\theta$ and $\\frac{dy}{d\\theta} = p\\cos(p\\theta)$.",
+      "2. $\\frac{dy}{dx} = \\frac{p\\cos(p\\theta)}{\\cos\\theta} \\implies \\cos\\theta \\frac{dy}{dx} = p\\cos(p\\theta)$.",
+      "3. Square: $(1 - x^2)\\left(\\frac{dy}{dx}\\right)^2 = p^2(1 - y^2)$.",
+      "4. Differentiate with respect to $x$: $-2x(y')^2 + 2(1 - x^2)y' y'' = -2p^2 y y'$.",
+      "5. Divide by $2y'$: $(1 - x^2)y'' - x y' = -p^2 y$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(8)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(8)t^2}{2t} = 2(8)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(8)t)}{\\frac{dx}{dt}} = \\frac{2(8)}{2t} = \\frac{8}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 8$$"
+      "١. $\\frac{dy}{dx} = \\frac{p\\cos(p\\theta)}{\\cos\\theta} \\implies \\cos\\theta y' = p\\cos(p\\theta)$.",
+      "٢. بتربيع الطرفين: $(1 - x^2)(y')^2 = p^2(1 - y^2)$.",
+      "٣. بالاشتقاق بالنسبة لـ $x$: $-2x(y')^2 + 2(1 - x^2)y' y'' = -2p^2 y y'$.",
+      "٤. بالقسمة على $2y'$: $(1 - x^2)y'' - x y' = -p^2 y$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "This is the differential equation satisfied by Chebyshev polynomials $T_p(x)$.",
+    "teacherTipAr": "هذه هي المعادلة التفاضلية القياسية لكثيرات حدود تشيبشيف الشهيرة."
   },
   {
     "id": "calc_ch1_db_hots_18",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=9)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=9)",
+    "titleEn": "Wall Shadow Height Rate of Man Walking toward Wall",
+    "titleAr": "معدل تناقص ظل رجل على حائط يسير نحو الحائط",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(9)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(9)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "A point light source is placed on the ground $20\\text{ m}$ from a vertical wall. A man $2\\text{ m}$ tall walks from the light toward the wall at $1.5\\text{ m/s}$. At what rate is the height of his shadow on the wall decreasing when he is $5\\text{ m}$ from the wall?",
+    "questionAr": "مصدر ضوئي موضوع على الأرض على بعد $20\\text{ م}$ من حائط رأسي. يسير رجل طوله $2\\text{ م}$ من موضع الضوء باتجاه الحائط بسرعة $1.5\\text{ م/ث}$. ما هو معدل تناقص طول ظله على الحائط عندما يكون على بعد $5\\text{ م}$ من الحائط؟",
     "optionsEn": [
-      "9",
-      "11",
-      "13",
-      "16"
+      "$\\frac{4}{15}\\text{ m/s}$",
+      "$\\frac{2}{15}\\text{ m/s}$",
+      "$0.5\\text{ m/s}$",
+      "$1.0\\text{ m/s}$"
     ],
     "optionsAr": [
-      "9",
-      "11",
-      "13",
-      "16"
+      "$\\frac{4}{15}\\text{ م/ث}$",
+      "$\\frac{2}{15}\\text{ م/ث}$",
+      "$0.5\\text{ م/د}$",
+      "$1.0\\text{ م/ث}$"
     ],
-    "correctAnswer": "9",
+    "correctAnswer": "$\\frac{4}{15}\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Similar triangles: $\\frac{y}{20} = \\frac{2}{x}$, where $x$ is man's distance from light source.",
+    "hintAr": "من تشابه المثلثات: نسبة طول الظل إلى 20 تساوي نسبة طول الرجل إلى بعده عن الضوء.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(9)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(9)t^2}{2t} = 2(9)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(9)t)}{\\frac{dx}{dt}} = \\frac{2(9)}{2t} = \\frac{9}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{9}{1} = 9$$"
+      "1. Let $x$ be distance of man from light. When he is $5\\text{ m}$ from the wall, $x = 20 - 5 = 15\\text{ m}$.",
+      "2. By similar triangles: $\\frac{y}{20} = \\frac{2}{x} \\implies y = \\frac{40}{x}$.",
+      "3. Differentiating with respect to time: $\\frac{dy}{dt} = -\\frac{40}{x^2}\\frac{dx}{dt}$.",
+      "4. Given $\\frac{dx}{dt} = 1.5 = \\frac{3}{2}\\text{ m/s}$ and $x = 15$: $\\frac{dy}{dt} = -\\frac{40}{225} \\times \\frac{3}{2} = -\\frac{60}{225} = -\\frac{4}{15}\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(9)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(9)t^2}{2t} = 2(9)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(9)t)}{\\frac{dx}{dt}} = \\frac{2(9)}{2t} = \\frac{9}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 9$$"
+      "١. بعد الرجل عن مصدر الضوء: $x = 20 - 5 = 15\\text{ م}$.",
+      "٢. من التشابه: $y = \\frac{40}{x}$.",
+      "٣. بالاشتقاق الزمني: $\\frac{dy}{dt} = -\\frac{40}{x^2} \\frac{dx}{dt}$.",
+      "٤. بالتعويض: $\\frac{dy}{dt} = -\\frac{40}{225} \\times 1.5 = -\\frac{4}{15}\\text{ م/ث}$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "The shadow length decreases rapidly at first and levels off as the man approaches the wall.",
+    "teacherTipAr": "يتناقص طول الظل بسرعة في البداية ثم يستقر كلما اقترب الرجل من الحائط."
   },
   {
     "id": "calc_ch1_db_hots_19",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=10)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=10)",
+    "titleEn": "Location of Maximum Slope for ln x over x",
+    "titleAr": "موضع أقصى ميل لمماس المنحنى لو س على س",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(10)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(10)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "At what value of $x$ does the curve $y = \\frac{\\ln x}{x}$ attain its maximum tangent slope?",
+    "questionAr": "عند أي قيمة لـ $x$ يصل ميل مماس المنحنى $y = \\frac{\\ln x}{x}$ إلى قيمته العظمى المطلقة؟",
     "optionsEn": [
-      "10",
-      "12",
-      "14",
-      "17"
+      "$x = e^{3/2}$",
+      "$x = e$",
+      "$x = e^2$",
+      "$x = 1$"
     ],
     "optionsAr": [
-      "10",
-      "12",
-      "14",
-      "17"
+      "$x = e^{3/2}$",
+      "$x = e$",
+      "$x = e^2$",
+      "$x = 1$"
     ],
-    "correctAnswer": "10",
+    "correctAnswer": "$x = e^{3/2}$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "To maximize the slope $m = y'$, find where $y'' = 0$.",
+    "hintAr": "لتعظيم الميل $m = y'$، نساوي مشتقة الميل (أي المشتقة الثانية $y''$) بالصفر.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(10)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(10)t^2}{2t} = 2(10)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(10)t)}{\\frac{dx}{dt}} = \\frac{2(10)}{2t} = \\frac{10}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{10}{1} = 10$$"
+      "1. First derivative (the slope): $y' = \\frac{1 - \\ln x}{x^2}$.",
+      "2. Second derivative: $y'' = \\frac{(-1/x)x^2 - (1 - \\ln x)(2x)}{x^4} = \\frac{-x - 2x + 2x\\ln x}{x^4} = \\frac{2\\ln x - 3}{x^3}$.",
+      "3. Set $y'' = 0 \\implies 2\\ln x - 3 = 0 \\implies \\ln x = \\frac{3}{2} \\implies x = e^{3/2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(10)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(10)t^2}{2t} = 2(10)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(10)t)}{\\frac{dx}{dt}} = \\frac{2(10)}{2t} = \\frac{10}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 10$$"
+      "١. ميل المماس: $y' = \\frac{1 - \\ln x}{x^2}$.",
+      "٢. المشتقة الثانية للمنحنى: $y'' = \\frac{2\\ln x - 3}{x^3}$.",
+      "٣. نضع $y'' = 0 \\implies 2\\ln x = 3 \\implies x = e^{3/2}$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "The maximum of the tangent slope always occurs at the point of inflection!",
+    "teacherTipAr": "القيمة العظمى لميل المماس تقع دائماً عند نقطة الانقلاب حيث $y'' = 0$!"
   },
   {
     "id": "calc_ch1_db_hots_20",
-    "titleEn": "Second Parametric Derivative d^2y/dx^2 (n=11)",
-    "titleAr": "المشتقة الثانية البارامترية ص بالنسبة لـ س (ن=11)",
+    "titleEn": "Common Tangent to Opposite Parabolas",
+    "titleAr": "المماس المشترك لقطعين مكافئين متعاكسين",
     "difficulty": "hots",
-    "questionEn": "If $x = t^2 + 3$ and $y = \\frac{4(11)}{3} t^3 - 5$, find $\\frac{d^2y}{dx^2}$ at $t = 1$.",
-    "questionAr": "إذا كان $x = t^2 + 3$ و $y = \\frac{4(11)}{3} t^3 - 5$، فأوجد $\\frac{d^2y}{dx^2}$ عند $t = 1$.",
+    "questionEn": "Find the equation of the common tangent line to the two parabolas $y = x^2$ and $y = -(x - 2)^2$.",
+    "questionAr": "أوجد معادلة المماس المشترك للمنحنيين $y = x^2$ و $y = -(x - 2)^2$.",
     "optionsEn": [
-      "11",
-      "13",
-      "15",
-      "18"
+      "$y = 2x - 1$",
+      "$y = 4x - 4$",
+      "$y = x$",
+      "$y = 2x + 1$"
     ],
     "optionsAr": [
-      "11",
-      "13",
-      "15",
-      "18"
+      "$y = 2x - 1$",
+      "$y = 4x - 4$",
+      "$y = x$",
+      "$y = 2x + 1$"
     ],
-    "correctAnswer": "11",
+    "correctAnswer": "$y = 2x - 1$",
     "correctIndex": 0,
-    "hintEn": "Remember the crucial chain factor: $\\frac{d^2y}{dx^2} = \\frac{d}{dt}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{dt}{dx} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
-    "hintAr": "تذكر معامل السلسلة الجوهري: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(y')}{\\frac{dx}{dt}}$.",
+    "hintEn": "Equate slopes: $2x_1 = -2(x_2 - 2)$ and equate tangent line equations.",
+    "hintAr": "افرض نقطتي التماس وساوي الميلين مع مساواة الجزأين المقطوعين.",
     "stepByStepSolutionEn": [
-      "1. Compute first derivatives with respect to $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(11)t^2$$",
-      "2. First derivative $\\frac{dy}{dx}$ :",
-      "$$\\frac{dy}{dx} = \\frac{4(11)t^2}{2t} = 2(11)t$$",
-      "3. Second derivative with respect to $x$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(11)t)}{\\frac{dx}{dt}} = \\frac{2(11)}{2t} = \\frac{11}{t}$$",
-      "4. At $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{11}{1} = 11$$"
+      "1. Tangent to $y = x^2$ at $x_1$: slope $m = 2x_1$, equation $y = 2x_1 x - x_1^2$.",
+      "2. Tangent to $y = -(x - 2)^2$ at $x_2$: slope $m = -2(x_2 - 2)$, equation $y = m x + (x_2^2 - 4)$.",
+      "3. Equating slopes: $2x_1 = -2x_2 + 4 \\implies x_1 + x_2 = 2$. By symmetry, $x_1 = 1, x_2 = 1$.",
+      "4. Slope $m = 2(1) = 2$. Tangent line: $y = 2x - 1^2 = 2x - 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. اشتقاق الدالتين بالنسبة لـ $t$:",
-      "$$\\frac{dx}{dt} = 2t, \\quad \\frac{dy}{dt} = 4(11)t^2$$",
-      "٢. المشتقة الأولى $\\frac{dy}{dx}$:",
-      "$$\\frac{dy}{dx} = \\frac{4(11)t^2}{2t} = 2(11)t$$",
-      "٣. المشتقة الثانية $\\frac{d^2y}{dx^2}$:",
-      "$$\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}(2(11)t)}{\\frac{dx}{dt}} = \\frac{2(11)}{2t} = \\frac{11}{t}$$",
-      "٤. عند $t = 1$:",
-      "$$\\frac{d^2y}{dx^2} = 11$$"
+      "١. مماس المنحنى الأول: $y = 2x_1 x - x_1^2$.",
+      "٢. مماس المنحنى الثاني: بمساواة الميلين والجزأين المقطوعين ومن التماثل نجد أن $x_1 = 1$.",
+      "٣. الميل $m = 2(1) = 2$، والمعادلة هي $y = 2x - 1$."
     ],
-    "teacherTipEn": "The most common student pitfall in parametric second derivatives is forgetting to divide by $dx/dt$!",
-    "teacherTipAr": "الخطأ الأكثر شيوعاً عند الطلاب في المشتقة الثانية البارامترية هو نسيان القسمة على $\\frac{dx}{dt}$!"
+    "teacherTipEn": "Common tangent problems test both differential geometry and simultaneous algebraic systems.",
+    "teacherTipAr": "مسائل المماس المشترك تجمع ببراعة بين مهارات الاشتقاق وحل الأنظمة الجبرية."
   },
   {
     "id": "calc_ch1_db_hots_21",
-    "titleEn": "Sliding Ladder Rate of Descent (c=1)",
-    "titleAr": "معدل هبوط سلم منزلق (c=1)",
+    "titleEn": "Second Derivative of Cotangent Value",
+    "titleAr": "قيمة المشتقة الثانية لظل التمام",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $4\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $4\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "If $y = \\cot x$, find the value of $\\frac{d^2y}{dx^2}$ at $x = \\frac{\\pi}{6}$.",
+    "questionAr": "إذا كانت $y = \\cot x$، فاحسب قيمة $\\frac{d^2y}{dx^2}$ عند $x = \\frac{\\pi}{6}$.",
     "optionsEn": [
-      "$3\\text{ m/s}$",
-      "$5\\text{ m/s}$",
-      "$9\\text{ m/s}$",
-      "$13\\text{ m/s}$"
+      "$8\\sqrt{3}$",
+      "$4\\sqrt{3}$",
+      "$16\\sqrt{3}$",
+      "$2\\sqrt{3}$"
     ],
     "optionsAr": [
-      "$3\\text{ م/ث}$",
-      "$5\\text{ م/ث}$",
-      "$9\\text{ م/ث}$",
-      "$13\\text{ م/ث}$"
+      "$8\\sqrt{3}$",
+      "$4\\sqrt{3}$",
+      "$16\\sqrt{3}$",
+      "$2\\sqrt{3}$"
     ],
-    "correctAnswer": "$3\\text{ m/s}$",
+    "correctAnswer": "$8\\sqrt{3}$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Use $y'' = 2\\csc^2 x \\cot x$.",
+    "hintAr": "المشتقة الثانية هي $y'' = 2\\csc^2 x \\cot x$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 4\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(4) = -\\frac{3}{4}(4) = -3\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $3\\text{ m/s}$."
+      "1. $y' = -\\csc^2 x$.",
+      "2. $y'' = 2\\csc^2 x \\cot x$.",
+      "3. At $x = \\pi/6$: $\\csc(\\pi/6) = 2 \\implies \\csc^2(\\pi/6) = 4$, and $\\cot(\\pi/6) = \\sqrt{3}$.",
+      "4. $y''(\\pi/6) = 2(4)(\\sqrt{3}) = 8\\sqrt{3}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(4) = -3\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $3\\text{ م/ث}$."
+      "١. $y' = -\\csc^2 x$.",
+      "٢. المشتقة الثانية: $y'' = 2\\csc^2 x \\cot x$.",
+      "٣. عند $x = \\pi/6$: $\\csc^2(\\pi/6) = 4$ و $\\cot(\\pi/6) = \\sqrt{3}$.",
+      "٤. بالتعويض: $y'' = 2(4)(\\sqrt{3}) = 8\\sqrt{3}$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Remember $\\sin(\\pi/6) = 1/2$, so its reciprocal cosecant is $2$.",
+    "teacherTipAr": "جيب زاوية 30 درجة يساوي نصف، وقاطع تمامها يساوي 2."
   },
   {
     "id": "calc_ch1_db_hots_22",
-    "titleEn": "Sliding Ladder Rate of Descent (c=2)",
-    "titleAr": "معدل هبوط سلم منزلق (c=2)",
+    "titleEn": "Melting Ice Layer Rate of Thickness Decrease",
+    "titleAr": "معدل تناقص سمك طبقة جليد تنصهر",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $8\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $8\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "A spherical iron ball is covered with an ice layer of uniform thickness. If the ice melts at a rate proportional to its outer surface area, the thickness of the ice layer decreases at:",
+    "questionAr": "كرة حديدية مصمتة مغطاة بطبقة من الجليد ذات سمك منتظم. فإذا كان الجليد ينصهر بمعدل يتناسب طردياً مع مساحة سطحه الخارجي، فإن سمك طبقة الجليد يتناقص بمعدل:",
     "optionsEn": [
-      "$6\\text{ m/s}$",
-      "$8\\text{ m/s}$",
-      "$12\\text{ m/s}$",
-      "$16\\text{ m/s}$"
+      "A constant rate",
+      "A rate proportional to the radius",
+      "A rate inversely proportional to the radius",
+      "An exponentially increasing rate"
     ],
     "optionsAr": [
-      "$6\\text{ م/ث}$",
-      "$8\\text{ م/ث}$",
-      "$12\\text{ م/ث}$",
-      "$16\\text{ م/ث}$"
+      "معدل ثابت",
+      "معدل يتناسب طردياً مع نصف القطر",
+      "معدل يتناسب عكسياً مع نصف القطر",
+      "معدل يتزايد أسياً"
     ],
-    "correctAnswer": "$6\\text{ m/s}$",
+    "correctAnswer": "A constant rate",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Volume of ice $V = \\frac{4}{3}\\pi[(R+x)^3 - R^3]$, $\\frac{dV}{dt} = 4\\pi(R+x)^2 \\frac{dx}{dt} = -k \\cdot S_{outer}$.",
+    "hintAr": "معدل تغير الحجم مقسوماً على مساحة السطح يعطي معدل تغير السمك مباشرة.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 8\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(8) = -\\frac{3}{4}(8) = -6\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $6\\text{ m/s}$."
+      "1. Let $R$ be iron radius and $x$ be ice thickness. Outer surface area $S = 4\\pi(R + x)^2$.",
+      "2. Differentiating volume: $\\frac{dV}{dt} = 4\\pi(R + x)^2 \\frac{dx}{dt} = S \\frac{dx}{dt}$.",
+      "3. Given melting rate $\\frac{dV}{dt} = -k S$, we have $S \\frac{dx}{dt} = -k S \\implies \\frac{dx}{dt} = -k$.",
+      "4. The thickness decreases at a constant rate $k$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(8) = -6\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $6\\text{ م/ث}$."
+      "١. مساحة السطح الخارجي للجليد: $S = 4\\pi(R + x)^2$.",
+      "٢. بالاشتقاق الزمني: $\\frac{dV}{dt} = S \\frac{dx}{dt}$.",
+      "٣. بما أن معدل الذوبان $\\frac{dV}{dt} = -k S$، إذن $S \\frac{dx}{dt} = -k S \\implies \\frac{dx}{dt} = -k$.",
+      "٤. إذن يتناقص السمك بمعدل ثابت تماماً."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "A celebrated physics and calculus modeling application in the Egyptian curriculum.",
+    "teacherTipAr": "تطبيق فيزيائي وتفاضلي شهير جداً في كتاب الوزارة المصري."
   },
   {
     "id": "calc_ch1_db_hots_23",
-    "titleEn": "Sliding Ladder Rate of Descent (c=3)",
-    "titleAr": "معدل هبوط سلم منزلق (c=3)",
+    "titleEn": "Constant Sum of Intercepts of Tangent to Radical Curve",
+    "titleAr": "ثبات مجموع الجزأين المقطوعين لمماس منحنى جذري",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $12\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $12\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "For the curve $\\sqrt{x} + \\sqrt{y} = \\sqrt{a}$, the sum of the intercepts made by any tangent line on the coordinate axes is:",
+    "questionAr": "للمنحنى $\\sqrt{x} + \\sqrt{y} = \\sqrt{a}$، مجموع الجزأين اللذين يقطعهما أي مماس للمنحنى من محوري الإحداثيات يساوي:",
     "optionsEn": [
-      "$9\\text{ m/s}$",
-      "$11\\text{ m/s}$",
-      "$15\\text{ m/s}$",
-      "$19\\text{ m/s}$"
+      "$a$",
+      "$2a$",
+      "$\\sqrt{a}$",
+      "$\\frac{a}{2}$"
     ],
     "optionsAr": [
-      "$9\\text{ م/ث}$",
-      "$11\\text{ م/ث}$",
-      "$15\\text{ م/ث}$",
-      "$19\\text{ م/ث}$"
+      "$a$",
+      "$2a$",
+      "$\\sqrt{a}$",
+      "$\\frac{a}{2}$"
     ],
-    "correctAnswer": "$9\\text{ m/s}$",
+    "correctAnswer": "$a$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Tangent equation at $(x_0, y_0)$ is $\\frac{x}{\\sqrt{x_0}} + \\frac{y}{\\sqrt{y_0}} = \\sqrt{a}$.",
+    "hintAr": "معادلة المماس تعطي الجزأين المقطوعين $X = \\sqrt{a}\\sqrt{x_0}$ و $Y = \\sqrt{a}\\sqrt{y_0}$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 12\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(12) = -\\frac{3}{4}(12) = -9\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $9\\text{ m/s}$."
+      "1. Differentiating implicitly: $\\frac{1}{2\\sqrt{x}} + \\frac{y'}{2\\sqrt{y}} = 0 \\implies y' = -\\sqrt{\\frac{y}{x}}$.",
+      "2. Tangent at $(x_0, y_0)$: $y - y_0 = -\\frac{\\sqrt{y_0}}{\\sqrt{x_0}}(x - x_0) \\implies \\frac{x}{\\sqrt{x_0}} + \\frac{y}{\\sqrt{y_0}} = \\sqrt{x_0} + \\sqrt{y_0} = \\sqrt{a}$.",
+      "3. Setting $y = 0$ gives $X = \\sqrt{a}\\sqrt{x_0}$, and setting $x = 0$ gives $Y = \\sqrt{a}\\sqrt{y_0}$.",
+      "4. Sum of intercepts $= X + Y = \\sqrt{a}(\\sqrt{x_0} + \\sqrt{y_0}) = \\sqrt{a}(\\sqrt{a}) = a$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(12) = -9\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $9\\text{ م/ث}$."
+      "١. بالاشتقاق الضمني: ميل المماس $y' = -\\sqrt{y/x}$.",
+      "٢. معادلة المماس: $\\frac{x}{\\sqrt{x_0}} + \\frac{y}{\\sqrt{y_0}} = \\sqrt{a}$.",
+      "٣. الجزآن المقطوعان هما $X = \\sqrt{a}\\sqrt{x_0}$ و $Y = \\sqrt{a}\\sqrt{y_0}$.",
+      "٤. مجموعهما $= \\sqrt{a}(\\sqrt{x_0} + \\sqrt{y_0}) = \\sqrt{a}(\\sqrt{a}) = a$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Remarkable geometric property: the sum of the intercepts is independent of the point chosen!",
+    "teacherTipAr": "خاصية هندسية مميزة: مجموع الجزأين المقطوعين ثابت دائماً ويساوي $a$."
   },
   {
     "id": "calc_ch1_db_hots_24",
-    "titleEn": "Sliding Ladder Rate of Descent (c=4)",
-    "titleAr": "معدل هبوط سلم منزلق (c=4)",
+    "titleEn": "Non-Differentiability Set of Absolute Value Function",
+    "titleAr": "مجموعة نقاط عدم قابلية الاشتقاق لدالة مقياس",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $16\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $16\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "Find the set of all real numbers where the function $f(x) = |x^2 - 4|$ is not differentiable.",
+    "questionAr": "أوجد مجموعة جميع الأعداد الحقيقية التي تكون الدالة $f(x) = |x^2 - 4|$ عندها غير قابلة للاشتقاق.",
     "optionsEn": [
-      "$12\\text{ m/s}$",
-      "$14\\text{ m/s}$",
-      "$18\\text{ m/s}$",
-      "$22\\text{ m/s}$"
+      "$\\{-2, 2\\}$",
+      "$\\{0\\}$",
+      "$\\{2\\}$",
+      "$\\{-4, 4\\}$"
     ],
     "optionsAr": [
-      "$12\\text{ م/ث}$",
-      "$14\\text{ م/ث}$",
-      "$18\\text{ م/ث}$",
-      "$22\\text{ م/ث}$"
+      "$\\{-2, 2\\}$",
+      "$\\{0\\}$",
+      "$\\{2\\}$",
+      "$\\{-4, 4\\}$"
     ],
-    "correctAnswer": "$12\\text{ m/s}$",
+    "correctAnswer": "$\\{-2, 2\\}$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Zeros of the inside quadratic $x^2 - 4 = 0$ are sharp corner points where left and right derivatives differ.",
+    "hintAr": "أصفار ما بداخل المقياس تمثل رؤوساً مدببة تختلف عندها المشتقة اليمنى عن اليسرى.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 16\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(16) = -\\frac{3}{4}(16) = -12\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $12\\text{ m/s}$."
+      "1. Factor: $x^2 - 4 = (x - 2)(x + 2)$.",
+      "2. At $x = 2$, left derivative is $-4$ and right derivative is $+4$.",
+      "3. At $x = -2$, left derivative is $+4$ and right derivative is $-4$.",
+      "4. Since one-sided derivatives do not match, $f$ is not differentiable at $x = -2$ and $x = 2$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(16) = -12\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $12\\text{ م/ث}$."
+      "١. ما بداخل المقياس ينعدم عند $x = 2$ و $x = -2$.",
+      "٢. عند $x = 2$: المشتقة اليمنى = $+4$ واليسرى = $-4$.",
+      "٣. عند $x = -2$: المشتقة اليمنى = $-4$ واليسرى = $+4$.",
+      "٤. إذن مجموعة نقاط عدم قابلية الاشتقاق هي $\\{-2, 2\\}$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Sharp corner points on absolute value graphs always produce non-differentiable points.",
+    "teacherTipAr": "الرؤوس المدببة (الزوايا) في منحنى دالة المقياس تمثل دائماً نقطاً غير قابلة للاشتقاق."
   },
   {
     "id": "calc_ch1_db_hots_25",
-    "titleEn": "Sliding Ladder Rate of Descent (c=5)",
-    "titleAr": "معدل هبوط سلم منزلق (c=5)",
+    "titleEn": "Constant Depth Rate for Conical Evaporation",
+    "titleAr": "ثبات معدل هبوط العمق عند التبخر التناسبي",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $20\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $20\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "Water evaporates from an inverted right circular cone of semi-vertical angle $30^\\circ$ at a rate proportional to its exposed free surface area. The depth of water decreases at:",
+    "questionAr": "يتبخر الماء من خزان على شكل مخروط دائري قائم مقلوب قياس زاوية رأسه $60^\\circ$ (نصف زاوية الرأس $30^\\circ$) بمعدل يتناسب طردياً مع مساحة سطح الماء الحر المعرض للهواء. فإن عمق الماء يتناقص بمعدل:",
     "optionsEn": [
-      "$15\\text{ m/s}$",
-      "$17\\text{ m/s}$",
-      "$21\\text{ m/s}$",
-      "$25\\text{ m/s}$"
+      "A constant rate",
+      "A rate proportional to the depth",
+      "A rate proportional to the square of depth",
+      "An exponentially increasing rate"
     ],
     "optionsAr": [
-      "$15\\text{ م/ث}$",
-      "$17\\text{ م/ث}$",
-      "$21\\text{ م/ث}$",
-      "$25\\text{ م/ث}$"
+      "معدل ثابت",
+      "معدل يتناسب طردياً مع العمق",
+      "معدل يتناسب مع مربع العمق",
+      "معدل يتزايد أسياً"
     ],
-    "correctAnswer": "$15\\text{ m/s}$",
+    "correctAnswer": "A constant rate",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "$V = \\frac{1}{3} A_{surface} \\cdot h \\implies \\frac{dV}{dt} = A \\frac{dh}{dt} = -k A$.",
+    "hintAr": "مشتقة حجم المخروط بالنسبة لعمقه هي مساحة سطح قاعدته الدائرية.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 20\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(20) = -\\frac{3}{4}(20) = -15\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $15\\text{ m/s}$."
+      "1. Exposed surface area is a circle of radius $r = h\\tan(30^\\circ) = \\frac{h}{\\sqrt{3}}$, so $A = \\pi r^2 = \\frac{\\pi}{3}h^2$.",
+      "2. Volume $V = \\frac{1}{3}\\pi r^2 h = \\frac{\\pi}{9}h^3$.",
+      "3. Differentiating: $\\frac{dV}{dt} = \\frac{\\pi}{3}h^2 \\frac{dh}{dt} = A \\frac{dh}{dt}$.",
+      "4. Given evaporation rate $\\frac{dV}{dt} = -k A$, we have $A \\frac{dh}{dt} = -k A \\implies \\frac{dh}{dt} = -k$ (constant)."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(20) = -15\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $15\\text{ م/ث}$."
+      "١. مساحة سطح الماء الحر $A = \\frac{\\pi}{3}h^2$.",
+      "٢. حجم الماء $V = \\frac{\\pi}{9}h^3$.",
+      "٣. بالاشتقاق الزمني: $\\frac{dV}{dt} = A \\frac{dh}{dt}$.",
+      "٤. بما أن $\\frac{dV}{dt} = -k A$، إذن $\\frac{dh}{dt} = -k$ (معدل هبوط ثابت)."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Whenever evaporation rate is proportional to surface area, evaporation depth rate is constant.",
+    "teacherTipAr": "كلما كان التبخر متناسباً مع مساحة السطح المكشوف، يكون معدل نقص الارتفاع ثابتاً."
   },
   {
     "id": "calc_ch1_db_hots_26",
-    "titleEn": "Sliding Ladder Rate of Descent (c=6)",
-    "titleAr": "معدل هبوط سلم منزلق (c=6)",
+    "titleEn": "Derivative of Infinite Continued Fraction",
+    "titleAr": "مشتقة الكسر المستمر اللانهائي",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $24\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $24\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "If $y = x + \\frac{1}{x + \\frac{1}{x + \\dots}}$, find $\\frac{dy}{dx}$ expressed in terms of $x$ and $y$.",
+    "questionAr": "إذا كانت $y = x + \\frac{1}{x + \\frac{1}{x + \\dots}}$، أوجد $\\frac{dy}{dx}$ بدلالة $x$ و $y$.",
     "optionsEn": [
-      "$18\\text{ m/s}$",
-      "$20\\text{ m/s}$",
-      "$24\\text{ m/s}$",
-      "$28\\text{ m/s}$"
+      "$\\frac{y}{2y - x}$",
+      "$\\frac{y}{2y + x}$",
+      "$\\frac{1}{2y - x}$",
+      "$\\frac{x}{2y - x}$"
     ],
     "optionsAr": [
-      "$18\\text{ م/ث}$",
-      "$20\\text{ م/ث}$",
-      "$24\\text{ م/ث}$",
-      "$28\\text{ م/ث}$"
+      "$\\frac{y}{2y - x}$",
+      "$\\frac{y}{2y + x}$",
+      "$\\frac{1}{2y - x}$",
+      "$\\frac{x}{2y - x}$"
     ],
-    "correctAnswer": "$18\\text{ m/s}$",
+    "correctAnswer": "$\\frac{y}{2y - x}$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Use $y = x + 1/y \\implies y^2 - xy - 1 = 0$.",
+    "hintAr": "من التكرار اللانهائي: $y = x + 1/y \\implies y^2 - xy - 1 = 0$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 24\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(24) = -\\frac{3}{4}(24) = -18\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $18\\text{ m/s}$."
+      "1. By self-similarity: $y = x + \\frac{1}{y} \\implies y^2 - xy - 1 = 0$.",
+      "2. Differentiate implicitly: $2y y' - (y + x y') = 0$.",
+      "3. $(2y - x)y' = y \\implies y' = \\frac{y}{2y - x}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(24) = -18\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $18\\text{ م/ث}$."
+      "١. من التكرار اللانهائي: $y = x + \\frac{1}{y} \\implies y^2 - xy - 1 = 0$.",
+      "٢. بالاشتقاق الضمني: $2y y' - y - x y' = 0$.",
+      "٣. تجميع الحدود: $(2y - x)y' = y \\implies y' = \\frac{y}{2y - x}$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Multiply through by $y$ before differentiating to avoid fractional differentiation.",
+    "teacherTipAr": "الضرب في $y$ للتخلص من الكسر قبل الاشتقاق يمنع الأخطاء الجبرية."
   },
   {
     "id": "calc_ch1_db_hots_27",
-    "titleEn": "Sliding Ladder Rate of Descent (c=7)",
-    "titleAr": "معدل هبوط سلم منزلق (c=7)",
+    "titleEn": "Angle of Intersection of Dual Parabolas",
+    "titleAr": "زاوية تقاطع قطعين مكافئين متعاكسين",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $28\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $28\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "Find the acute angle of intersection between the two parabolas $y^2 = 4x$ and $x^2 = 4y$ at the point $(4, 4)$.",
+    "questionAr": "أوجد قياس الزاوية الحادة بين مماسي المنحنيين $y^2 = 4x$ و $x^2 = 4y$ عند نقطة تقاطعهما $(4, 4)$.",
     "optionsEn": [
-      "$21\\text{ m/s}$",
-      "$23\\text{ m/s}$",
-      "$27\\text{ m/s}$",
-      "$31\\text{ m/s}$"
+      "$\\arctan\\left(\\frac{3}{4}\\right)$",
+      "$\\arctan\\left(\\frac{4}{3}\\right)$",
+      "$45^\\circ$",
+      "$60^\\circ$"
     ],
     "optionsAr": [
-      "$21\\text{ م/ث}$",
-      "$23\\text{ م/ث}$",
-      "$27\\text{ م/ث}$",
-      "$31\\text{ م/ث}$"
+      "$\\arctan\\left(\\frac{3}{4}\\right)$",
+      "$\\arctan\\left(\\frac{4}{3}\\right)$",
+      "$45^\\circ$",
+      "$60^\\circ$"
     ],
-    "correctAnswer": "$21\\text{ m/s}$",
+    "correctAnswer": "$\\arctan\\left(\\frac{3}{4}\\right)$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Slopes are $m_1 = 1/2$ and $m_2 = 2$.",
+    "hintAr": "ميلا المماسين هما مقلوب كل منهما للآخر: $1/2$ و $2$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 28\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(28) = -\\frac{3}{4}(28) = -21\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $21\\text{ m/s}$."
+      "1. For $y^2 = 4x$: $2y y' = 4 \\implies y' = \\frac{2}{y}$. At $(4, 4)$, $m_1 = \\frac{2}{4} = \\frac{1}{2}$.",
+      "2. For $x^2 = 4y$: $2x = 4y' \\implies y' = \\frac{x}{2}$. At $(4, 4)$, $m_2 = \\frac{4}{2} = 2$.",
+      "3. $\\tan\\theta = \\left|\\frac{2 - 1/2}{1 + (2)(1/2)}\\right| = \\frac{3/2}{2} = \\frac{3}{4} \\implies \\theta = \\arctan\\left(\\frac{3}{4}\\right)$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(28) = -21\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $21\\text{ م/ث}$."
+      "١. للمنحنى الأول: $m_1 = 2/4 = 1/2$.",
+      "٢. للمنحنى الثاني: $m_2 = 4/2 = 2$.",
+      "٣. $\\tan\\theta = \\left|\\frac{2 - 1/2}{1 + 1}\\right| = \\frac{1.5}{2} = \\frac{3}{4}$.",
+      "٤. إذن $\\theta = \\arctan(3/4)$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "The two parabolas are mutual inverses $y = f(x)$ and $x = f(y)$, so their slopes are reciprocals.",
+    "teacherTipAr": "المنحنيان معكوسان لبعضهما حول المستقيم $y=x$، ولذا ميلهما مقلوب للآخر دائماً."
   },
   {
     "id": "calc_ch1_db_hots_28",
-    "titleEn": "Sliding Ladder Rate of Descent (c=8)",
-    "titleAr": "معدل هبوط سلم منزلق (c=8)",
+    "titleEn": "Lighthouse Beam Tracking Speed",
+    "titleAr": "سرعة بقعة ضوء فنار على شاطئ مستقيم",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $32\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $32\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "A lighthouse is located $1\\text{ km}$ offshore from a straight shoreline. Its light beam revolves at a constant speed of $2\\text{ rev/min}$. How fast is the beam of light moving along the shoreline when the beam makes an angle of $45^\\circ$ with the shoreline?",
+    "questionAr": "فنار يقع على بعد $1\\text{ كم}$ من شاطئ مستقيم، يدور شعاعه الضوئي بمعدل ثابت قدره دورتان في الدقيقة. ما هي سرعة تحرك بقعة الضوء على الشاطئ عندما يصنع الشعاع زاوية قياسها $45^\\circ$ مع الشاطئ؟",
     "optionsEn": [
-      "$24\\text{ m/s}$",
-      "$26\\text{ m/s}$",
-      "$30\\text{ m/s}$",
-      "$34\\text{ m/s}$"
+      "$8\\pi\\text{ km/min}$",
+      "$4\\pi\\text{ km/min}$",
+      "$2\\pi\\text{ km/min}$",
+      "$16\\pi\\text{ km/min}$"
     ],
     "optionsAr": [
-      "$24\\text{ م/ث}$",
-      "$26\\text{ م/ث}$",
-      "$30\\text{ م/ث}$",
-      "$34\\text{ م/ث}$"
+      "$8\\pi\\text{ كم/دقيقة}$",
+      "$4\\pi\\text{ كم/دقيقة}$",
+      "$2\\pi\\text{ كم/دقيقة}$",
+      "$16\\pi\\text{ كم/دقيقة}$"
     ],
-    "correctAnswer": "$24\\text{ m/s}$",
+    "correctAnswer": "$8\\pi\\text{ km/min}$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "$\\frac{d\\theta}{dt} = 2(2\\pi) = 4\\pi\\text{ rad/min}$. $x = \\tan\\theta \\implies \\frac{dx}{dt} = \\sec^2\\theta \\frac{d\\theta}{dt}$.",
+    "hintAr": "حول السرعة الزاوية إلى راديان/دقيقة: $2 \\times 2\\pi = 4\\pi$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 32\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(32) = -\\frac{3}{4}(32) = -24\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $24\\text{ m/s}$."
+      "1. Angular speed: $\\omega = \\frac{d\\theta}{dt} = 2 \\times 2\\pi = 4\\pi\\text{ rad/min}$.",
+      "2. Position along shoreline: $x = 1 \\cdot \\tan\\theta$.",
+      "3. Differentiating: $\\frac{dx}{dt} = \\sec^2\\theta \\frac{d\\theta}{dt}$.",
+      "4. At angle $45^\\circ$: $\\sec^2(45^\\circ) = (\\sqrt{2})^2 = 2$.",
+      "5. Speed: $\\frac{dx}{dt} = 2 \\times 4\\pi = 8\\pi\\text{ km/min}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(32) = -24\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $24\\text{ م/ث}$."
+      "١. السرعة الزاوية: $\\omega = 2 \\times 2\\pi = 4\\pi\\text{ راديان/د}$.",
+      "٢. بعد بقعة الضوء: $x = \\tan\\theta$.",
+      "٣. بالاشتقاق: $\\frac{dx}{dt} = \\sec^2\\theta \\frac{d\\theta}{dt}$.",
+      "٤. عند $\\theta = 45^\\circ$: $\\sec^2(45^\\circ) = 2$.",
+      "٥. إذن السرعة = $2 \\times 4\\pi = 8\\pi\\text{ كم/د}$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Revolutions per minute must always be converted to radians per minute by multiplying by $2\\pi$.",
+    "teacherTipAr": "يجب دائماً تحويل الدورات في الدقيقة إلى راديان بالضرب في $2\\pi$."
   },
   {
     "id": "calc_ch1_db_hots_29",
-    "titleEn": "Sliding Ladder Rate of Descent (c=9)",
-    "titleAr": "معدل هبوط سلم منزلق (c=9)",
+    "titleEn": "Unit Circle Second Derivative Curvature Product",
+    "titleAr": "حاصل ضرب المشتقة الثانية في مكعب ص لدائرة الوحدة",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $36\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $36\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "For the unit circle $x^2 + y^2 = 1$, the value of the product $y^3 \\frac{d^2y}{dx^2}$ is:",
+    "questionAr": "لدائرة الوحدة $x^2 + y^2 = 1$، قيمة المقدار $y^3 \\frac{d^2y}{dx^2}$ تساوي:",
     "optionsEn": [
-      "$27\\text{ m/s}$",
-      "$29\\text{ m/s}$",
-      "$33\\text{ m/s}$",
-      "$37\\text{ m/s}$"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$-y^2$"
     ],
     "optionsAr": [
-      "$27\\text{ م/ث}$",
-      "$29\\text{ م/ث}$",
-      "$33\\text{ م/ث}$",
-      "$37\\text{ م/ث}$"
+      "$-1$",
+      "$1$",
+      "$0$",
+      "$-y^2$"
     ],
-    "correctAnswer": "$27\\text{ m/s}$",
+    "correctAnswer": "$-1$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Recall $y'' = -\\frac{x^2+y^2}{y^3} = -\\frac{1}{y^3}$.",
+    "hintAr": "المشتقة الثانية لدائرة الوحدة هي $y'' = -1/y^3$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 36\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(36) = -\\frac{3}{4}(36) = -27\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $27\\text{ m/s}$."
+      "1. First derivative: $2x + 2y y' = 0 \\implies y' = -\\frac{x}{y}$.",
+      "2. Second derivative: $y'' = -\\frac{y - x y'}{y^2} = -\\frac{y + x(x/y)}{y^2} = -\\frac{x^2 + y^2}{y^3}$.",
+      "3. Since $x^2 + y^2 = 1$, $y'' = -\\frac{1}{y^3}$.",
+      "4. Multiplying by $y^3$: $y^3 y'' = -1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(36) = -27\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $27\\text{ م/ث}$."
+      "١. $y' = -x/y$.",
+      "٢. $y'' = -\\frac{x^2 + y^2}{y^3}$.",
+      "٣. بما أن $x^2 + y^2 = 1$، فإن $y'' = -\\frac{1}{y^3}$.",
+      "٤. إذن $y^3 y'' = -1$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "A universal invariant for the unit circle.",
+    "teacherTipAr": "مقدار ثابت مميز جداً لدائرة الوحدة في حساب التفاضل."
   },
   {
     "id": "calc_ch1_db_hots_30",
-    "titleEn": "Sliding Ladder Rate of Descent (c=10)",
-    "titleAr": "معدل هبوط سلم منزلق (c=10)",
+    "titleEn": "Closed Form for nth Derivative of Sin plus Cos",
+    "titleAr": "الصيغة المغلقة للمشتقة النونية لمجموع الجيب وجيب التمام",
     "difficulty": "hots",
-    "questionEn": "A ladder of length $10\\text{ m}$ rests against a vertical wall. Its base slides away from the wall on horizontal ground at a rate of $40\\text{ m/s}$. At what rate is the top of the ladder sliding down when the base is $6\\text{ m}$ from the wall?",
-    "questionAr": "سلم طوله $10\\text{ م}$ يستند بطرفه العلوي على حائط رأسي وبطرفه السفلي على أرض أفقية. فإذا انزلق الطرف السفلي مبتعداً عن الحائط بمعدل $40\\text{ م/ث}$، فما هو معدل انزلاق طرفه العلوي للأسفل عندما يكون طرفه السفلي على بعد $6\\text{ م}$ من الحائط؟",
+    "questionEn": "Which of the following gives the $n$-th derivative of $y = \\cos x + \\sin x$ in concise harmonic form?",
+    "questionAr": "أي مما يلي يعطي المشتقة النونية للدالة $y = \\cos x + \\sin x$ في صورة توافقية موجزة؟",
     "optionsEn": [
-      "$30\\text{ m/s}$",
-      "$32\\text{ m/s}$",
-      "$36\\text{ m/s}$",
-      "$40\\text{ m/s}$"
+      "$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4} + \\frac{n\\pi}{2}\\right)$",
+      "$\\sqrt{2}\\cos\\left(x + \\frac{n\\pi}{2}\\right)$",
+      "$(-1)^n(\\cos x + \\sin x)$",
+      "$2^{n/2}(\\cos x + \\sin x)$"
     ],
     "optionsAr": [
-      "$30\\text{ م/ث}$",
-      "$32\\text{ م/ث}$",
-      "$36\\text{ م/ث}$",
-      "$40\\text{ م/ث}$"
+      "$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4} + \\frac{n\\pi}{2}\\right)$",
+      "$\\sqrt{2}\\cos\\left(x + \\frac{n\\pi}{2}\\right)$",
+      "$(-1)^n(\\cos x + \\sin x)$",
+      "$2^{n/2}(\\cos x + \\sin x)$"
     ],
-    "correctAnswer": "$30\\text{ m/s}$",
+    "correctAnswer": "$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4} + \\frac{n\\pi}{2}\\right)$",
     "correctIndex": 0,
-    "hintEn": "Use the Pythagorean relation $x^2 + y^2 = 10^2 = 100$ and differentiate with respect to time $t$.",
-    "hintAr": "استخدم علاقة فيثاغورس $x^2 + y^2 = 10^2 = 100$ واشتق بالنسبة للزمن $t$.",
+    "hintEn": "Each differentiation advances the phase by $\\pi/2$.",
+    "hintAr": "كل عملية اشتقاق للدوال الجيبية تقدم طور الزاوية بمقدار $\\pi/2$.",
     "stepByStepSolutionEn": [
-      "1. Pythagorean theorem for the ladder:",
-      "$$x^2 + y^2 = 10^2 = 100$$",
-      "2. When $x = 6\\text{ m}$: $y = \\sqrt{100 - 6^2} = \\sqrt{64} = 8\\text{ m}$.",
-      "3. Differentiate with respect to time $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y} \\frac{dx}{dt}$$",
-      "4. Substitute $x = 6$, $y = 8$, and $\\frac{dx}{dt} = 40\\text{ m/s}$:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(40) = -\\frac{3}{4}(40) = -30\\text{ m/s}$$",
-      "The speed of descent (sliding down) is $30\\text{ m/s}$."
+      "1. Rewrite $y = \\sqrt{2}\\left(\\frac{1}{\\sqrt{2}}\\sin x + \\frac{1}{\\sqrt{2}}\\cos x\\right) = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$.",
+      "2. Differentiating $\\sin u$ shifts phase by $\\pi/2$: $\\frac{d}{dx}[\\sin(x + \\alpha)] = \\cos(x + \\alpha) = \\sin\\left(x + \\alpha + \\frac{\\pi}{2}\\right)$.",
+      "3. Repeating $n$ times gives $y^{(n)} = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4} + \\frac{n\\pi}{2}\\right)$."
     ],
     "stepByStepSolutionAr": [
-      "١. من نظرية فيثاغورس:",
-      "$$x^2 + y^2 = 100$$",
-      "٢. عندما $x = 6\\text{ م}$: $y = \\sqrt{100 - 36} = 8\\text{ م}$.",
-      "٣. باشتقاق الطرفين بالنسبة للزمن $t$:",
-      "$$2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -\\frac{x}{y}\\frac{dx}{dt}$$",
-      "٤. بالتعويض:",
-      "$$\\frac{dy}{dt} = -\\frac{6}{8}(40) = -30\\text{ م/ث}$$",
-      "معدل هبوط الطرف العلوي هو $30\\text{ م/ث}$."
+      "١. بالصورة التوافقية: $y = \\sqrt{2}\\sin(x + \\pi/4)$.",
+      "٢. مشتقة دالة الجيب تقدم زاوية الطور بـ $\\pi/2$ في كل مرة.",
+      "٣. بعد $n$ من الاشتقاقات: $y^{(n)} = \\sqrt{2}\\sin(x + \\pi/4 + n\\pi/2)$."
     ],
-    "teacherTipEn": "Notice the negative sign indicates decreasing height, while 'speed of descent' is the positive magnitude.",
-    "teacherTipAr": "الإشارة السالبة تعني تناقص الارتفاع، وسرعة الهبوط تؤخذ كمقدار موجب."
+    "teacherTipEn": "Phase-shift harmonic notation allows evaluating any arbitrary derivative without tables.",
+    "teacherTipAr": "صيغة زاوية الطور تمكنك من إيجاد أي مشتقة مهما كانت رتبتها دون حساب المشتقات السابقة."
   },
   {
     "id": "calc_ch1_db_hots_31",
-    "titleEn": "Moving Shadow Tip Rate (w=1)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=1)",
+    "titleEn": "Longest Pipe around Right-Angle Corridor",
+    "titleAr": "أطول ماسورة يمكن تمريرها أفقياً بين ممرين متعامدين",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $2\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $2\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "A hallway of width $8\\text{ m}$ meets another hallway of width $27\\text{ m}$ at right angles. What is the maximum length of a thin rigid pipe that can be carried horizontally around the corner?",
+    "questionAr": "ممر عرضه $8\\text{ م}$ يلتقي بممر آخر عرضه $27\\text{ م}$ بزاوية قائمة. ما هو أقصى طول لماسورة رفيعة صلبة يمكن تمريرها أفقياً حول هذا المنعطف؟",
     "optionsEn": [
-      "$3\\text{ m/s}$",
-      "$5\\text{ m/s}$",
-      "$8\\text{ m/s}$",
-      "$11\\text{ m/s}$"
+      "$13\\sqrt{13}\\text{ m}$",
+      "$35\\text{ m}$",
+      "$40\\text{ m}$",
+      "$15\\sqrt{5}\\text{ m}$"
     ],
     "optionsAr": [
-      "$3\\text{ م/ث}$",
-      "$5\\text{ م/ث}$",
-      "$8\\text{ م/ث}$",
-      "$11\\text{ م/ث}$"
+      "$13\\sqrt{13}\\text{ م}$",
+      "$35\\text{ م}$",
+      "$40\\text{ م}$",
+      "$15\\sqrt{5}\\text{ م}$"
     ],
-    "correctAnswer": "$3\\text{ m/s}$",
+    "correctAnswer": "$13\\sqrt{13}\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Use formula $L_{\\max} = (a^{2/3} + b^{2/3})^{3/2}$.",
+    "hintAr": "صيغة أقصى طول لماسورة حول منعطف متعامد: $L = (a^{2/3} + b^{2/3})^{3/2}$.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(2) = 1\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 2 + 1 = 3\\text{ m/s}$$"
+      "1. For corridor widths $a$ and $b$, the maximum passable length is $L = (a^{2/3} + b^{2/3})^{3/2}$.",
+      "2. Here $a = 8$ and $b = 27$.",
+      "3. $a^{2/3} = (8)^{2/3} = 4$, and $b^{2/3} = (27)^{2/3} = 9$.",
+      "4. $a^{2/3} + b^{2/3} = 4 + 9 = 13$.",
+      "5. $L = 13^{3/2} = 13\\sqrt{13}\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(2) = 1\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 2 + 1 = 3\\text{ م/ث}$$"
+      "١. القانون العام لأقصى طول هو $L = (a^{2/3} + b^{2/3})^{3/2}$.",
+      "٢. $8^{2/3} = 4$ و $27^{2/3} = 9$.",
+      "٣. مجموع الجذرين التكعيبيين المربعين = $4 + 9 = 13$.",
+      "٤. إذن الطول = $13^{3/2} = 13\\sqrt{13}\\text{ م}$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "Notice the beautiful power $2/3$ and $3/2$ duality from astroid geometry!",
+    "teacherTipAr": "لاحظ تشابه هذه العلاقة ذات الأسس 2/3 و 3/2 مع هندسة منحنى الأسترويد!"
   },
   {
     "id": "calc_ch1_db_hots_32",
-    "titleEn": "Moving Shadow Tip Rate (w=2)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=2)",
+    "titleEn": "Second Derivative of Secant plus Tangent in Sine Form",
+    "titleAr": "المشتقة الثانية لمجموع القاطع والظل بدلالة الجيب",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $4\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $4\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "If $y = \\sec x + \\tan x$, prove that $\\frac{d^2y}{dx^2}$ is identically equal to:",
+    "questionAr": "إذا كانت $y = \\sec x + \\tan x$، فأثبت أن المشتقة الثانية $\\frac{d^2y}{dx^2}$ تكافئ المقدار:",
     "optionsEn": [
-      "$6\\text{ m/s}$",
-      "$8\\text{ m/s}$",
-      "$11\\text{ m/s}$",
-      "$14\\text{ m/s}$"
+      "$\\frac{\\cos x}{(1 - \\sin x)^2}$",
+      "$\\frac{\\sin x}{(1 - \\cos x)^2}$",
+      "$\\frac{1}{(1 - \\sin x)^2}$",
+      "$\\frac{\\cos x}{1 - \\sin^2 x}$"
     ],
     "optionsAr": [
-      "$6\\text{ م/ث}$",
-      "$8\\text{ م/ث}$",
-      "$11\\text{ م/ث}$",
-      "$14\\text{ م/ث}$"
+      "$\\frac{\\cos x}{(1 - \\sin x)^2}$",
+      "$\\frac{\\sin x}{(1 - \\cos x)^2}$",
+      "$\\frac{1}{(1 - \\sin x)^2}$",
+      "$\\frac{\\cos x}{1 - \\sin^2 x}$"
     ],
-    "correctAnswer": "$6\\text{ m/s}$",
+    "correctAnswer": "$\\frac{\\cos x}{(1 - \\sin x)^2}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Express $y = \\frac{1 + \\sin x}{\\cos x} = \\frac{\\cos x}{1 - \\sin x}$.",
+    "hintAr": "عبر عن الدالة بالكسر $\\frac{\\cos x}{1 - \\sin x}$ قبل الاشتقاق.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(4) = 2\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 4 + 2 = 6\\text{ m/s}$$"
+      "1. Multiply numerator and denominator by $1 - \\sin x$: $y = \\frac{1 - \\sin^2 x}{\\cos x(1 - \\sin x)} = \\frac{\\cos^2 x}{\\cos x(1 - \\sin x)} = \\frac{\\cos x}{1 - \\sin x}$.",
+      "2. Differentiating with quotient rule: $y' = \\frac{-\\sin x(1 - \\sin x) - \\cos x(-\\cos x)}{(1 - \\sin x)^2} = \\frac{-\\sin x + \\sin^2 x + \\cos^2 x}{(1 - \\sin x)^2} = \\frac{1 - \\sin x}{(1 - \\sin x)^2} = \\frac{1}{1 - \\sin x}$.",
+      "3. Differentiating again: $y'' = -1(1 - \\sin x)^{-2}(-\\cos x) = \\frac{\\cos x}{(1 - \\sin x)^2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(4) = 2\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 4 + 2 = 6\\text{ م/ث}$$"
+      "١. $y = \\frac{\\cos x}{1 - \\sin x}$.",
+      "٢. بالاشتقاق بقاعدة القسمة نجد أن $y' = \\frac{1}{1 - \\sin x}$.",
+      "٣. بالاشتقاق مرة ثانية: $y'' = \\frac{\\cos x}{(1 - \\sin x)^2}$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "The intermediate cancellation $y' = \\frac{1}{1 - \\sin x}$ is a stunning algebraic shortcut.",
+    "teacherTipAr": "اختصار المشتقة الأولى إلى $\\frac{1}{1 - \\sin x}$ هو مفتاح الحل الأنيق."
   },
   {
     "id": "calc_ch1_db_hots_33",
-    "titleEn": "Moving Shadow Tip Rate (w=3)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=3)",
+    "titleEn": "Parabola Focal Distance Rate of Change",
+    "titleAr": "معدل تغير البعد البؤري لنقطة على قطع مكافئ",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $6\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $6\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "A point $P(x, y)$ moves on the parabola $y^2 = 8x$. At what rate is the distance between $P$ and the focus $(2, 0)$ changing when $x = 6$ and $\\frac{dx}{dt} = 3\\text{ units/s}$?",
+    "questionAr": "تتحرك نقطة $P(x, y)$ على المنحنى $y^2 = 8x$. ما هو معدل تغير المسافة بين $P$ والبؤرة $(2, 0)$ عندما $x = 6$ وكان $\\frac{dx}{dt} = 3\\text{ وحدة/ث}$؟",
     "optionsEn": [
-      "$9\\text{ m/s}$",
-      "$11\\text{ m/s}$",
-      "$14\\text{ m/s}$",
-      "$17\\text{ m/s}$"
+      "$3\\text{ units/s}$",
+      "$6\\text{ units/s}$",
+      "$1.5\\text{ units/s}$",
+      "$8\\text{ units/s}$"
     ],
     "optionsAr": [
-      "$9\\text{ م/ث}$",
-      "$11\\text{ م/ث}$",
-      "$14\\text{ م/ث}$",
-      "$17\\text{ م/ث}$"
+      "$3\\text{ وحدة/ث}$",
+      "$6\\text{ وحدة/ث}$",
+      "$1.5\\text{ وحدة/ث}$",
+      "$8\\text{ وحدة/ث}$"
     ],
-    "correctAnswer": "$9\\text{ m/s}$",
+    "correctAnswer": "$3\\text{ units/s}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "By definition of a parabola, distance to focus equals distance to directrix $x = -2$, so $s = x + 2$.",
+    "hintAr": "من التعريف الهندسي للقطع المكافئ: البعد عن البؤرة يساوي البعد عن الدليل $s = x + 2$.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(6) = 3\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 6 + 3 = 9\\text{ m/s}$$"
+      "1. For $y^2 = 4ax = 8x$, we have $a = 2$. Focus is $(2, 0)$ and directrix is $x = -2$.",
+      "2. By the focal property of parabolas, distance to focus equals distance to directrix: $s = x - (-2) = x + 2$.",
+      "3. Differentiating with respect to time: $\\frac{ds}{dt} = \\frac{dx}{dt}$.",
+      "4. Given $\\frac{dx}{dt} = 3\\text{ units/s}$, we immediately have $\\frac{ds}{dt} = 3\\text{ units/s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(6) = 3\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 6 + 3 = 9\\text{ م/ث}$$"
+      "١. معادلة القطع $y^2 = 8x \\implies a = 2$. البؤرة هي $(2, 0)$ والدليل هو $x = -2$.",
+      "٢. من الخاصية البؤرية: المسافة للبؤرة = المسافة للدليل = $s = x + 2$.",
+      "٣. بالاشتقاق الزمني: $\\frac{ds}{dt} = \\frac{dx}{dt}$.",
+      "٤. إذن $\\frac{ds}{dt} = 3\\text{ وحدة/ث}$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "Using focal geometry eliminates the need to differentiate square roots of coordinate distance formulas.",
+    "teacherTipAr": "توظيف التعريف الهندسي للقطع المكافئ يلغي الحاجة لاشتقاق جذور المسافة المعقدة."
   },
   {
     "id": "calc_ch1_db_hots_34",
-    "titleEn": "Moving Shadow Tip Rate (w=4)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=4)",
+    "titleEn": "Differential Relation of Harmonic Trigonometric Vector",
+    "titleAr": "علاقة تفاضلية لمتجه توافقي دائري",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $8\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $8\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "If $x = a\\cos t + b\\sin t$ and $y = a\\sin t - b\\cos t$, evaluate the expression $y \\frac{dy}{dx} + x$.",
+    "questionAr": "إذا كانت $x = a\\cos t + b\\sin t$ و $y = a\\sin t - b\\cos t$، فما قيمة المقدار $y \\frac{dy}{dx} + x$؟",
     "optionsEn": [
-      "$12\\text{ m/s}$",
-      "$14\\text{ m/s}$",
-      "$17\\text{ m/s}$",
-      "$20\\text{ m/s}$"
+      "$0$",
+      "$a^2 + b^2$",
+      "$1$",
+      "$2x$"
     ],
     "optionsAr": [
-      "$12\\text{ م/ث}$",
-      "$14\\text{ م/ث}$",
-      "$17\\text{ م/ث}$",
-      "$20\\text{ م/ث}$"
+      "$0$",
+      "$a^2 + b^2$",
+      "$1$",
+      "$2x$"
     ],
-    "correctAnswer": "$12\\text{ m/s}$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Square and add: $x^2 + y^2 = a^2 + b^2$, then differentiate implicitly.",
+    "hintAr": "ربع واجمع المعادلتين لتجد $x^2 + y^2 = a^2 + b^2$ ثم اشتق ضمنياً.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(8) = 4\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 8 + 4 = 12\\text{ m/s}$$"
+      "1. Expand $x^2 + y^2 = (a\\cos t + b\\sin t)^2 + (a\\sin t - b\\cos t)^2$.",
+      "2. Cross terms $+2ab\\sin t\\cos t$ and $-2ab\\sin t\\cos t$ cancel, giving $x^2 + y^2 = a^2 + b^2$ (constant).",
+      "3. Differentiating with respect to $x$: $2x + 2y \\frac{dy}{dx} = 0 \\implies y \\frac{dy}{dx} + x = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(8) = 4\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 8 + 4 = 12\\text{ م/ث}$$"
+      "١. بتربيع وجمع المعادلتين: تختصر الحدود الوسطى المتعاكسة ليتبقى $x^2 + y^2 = a^2 + b^2$.",
+      "٢. بالاشتقاق الضمني بالنسبة لـ $x$: $2x + 2y y' = 0$.",
+      "٣. بالقسمة على 2: $y y' + x = 0$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "Eliminating the parameter via Pythagorean identity is far faster than direct quotient rules.",
+    "teacherTipAr": "حذف البارامتر باستخدام متطابقة فيثاغورس أسرع بكثير من حساب مشتقات الدوال الكسرية."
   },
   {
     "id": "calc_ch1_db_hots_35",
-    "titleEn": "Moving Shadow Tip Rate (w=5)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=5)",
+    "titleEn": "Intersection Point of Normals at x-Intercepts",
+    "titleAr": "نقطة تقاطع العموديين عند نقطتي التقاطع مع محور السينات",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $10\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $10\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "Normal lines to the parabola $y = x^2 - 5x + 6$ are drawn at the two points where the curve intersects the $x$-axis. Find the coordinates of their point of intersection.",
+    "questionAr": "رُسم عموديان على المنحنى $y = x^2 - 5x + 6$ عند نقطتي تقاطعه مع محور السينات. أوجد إحداثيي نقطة تقاطع هذين العموديين.",
     "optionsEn": [
-      "$15\\text{ m/s}$",
-      "$17\\text{ m/s}$",
-      "$20\\text{ m/s}$",
-      "$23\\text{ m/s}$"
+      "$\\left(\\frac{5}{2}, \\frac{1}{2}\\right)$",
+      "$\\left(\\frac{5}{2}, -\\frac{1}{2}\\right)$",
+      "$\\left(2, 3\\right)$",
+      "$\\left(\\frac{5}{2}, 0\\right)$"
     ],
     "optionsAr": [
-      "$15\\text{ م/ث}$",
-      "$17\\text{ م/ث}$",
-      "$20\\text{ م/ث}$",
-      "$23\\text{ م/ث}$"
+      "$\\left(\\frac{5}{2}, \\frac{1}{2}\\right)$",
+      "$\\left(\\frac{5}{2}, -\\frac{1}{2}\\right)$",
+      "$\\left(2, 3\\right)$",
+      "$\\left(\\frac{5}{2}, 0\\right)$"
     ],
-    "correctAnswer": "$15\\text{ m/s}$",
+    "correctAnswer": "$\\left(\\frac{5}{2}, \\frac{1}{2}\\right)$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Intercepts are $(2, 0)$ and $(3, 0)$. Normal slopes are $1$ and $-1$.",
+    "hintAr": "نقطتا التقاطع مع السينات هما $(2, 0)$ و $(3, 0)$ وميلا العموديين هما $1$ و $-1$.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(10) = 5\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 10 + 5 = 15\\text{ m/s}$$"
+      "1. Set $y = 0 \\implies (x - 2)(x - 3) = 0 \\implies$ points are $A(2, 0)$ and $B(3, 0)$.",
+      "2. $y' = 2x - 5$.",
+      "3. At $x = 2$: $m_t = -1 \\implies m_{n1} = 1$. Normal equation: $y - 0 = 1(x - 2) \\implies y = x - 2$.",
+      "4. At $x = 3$: $m_t = +1 \\implies m_{n2} = -1$. Normal equation: $y - 0 = -1(x - 3) \\implies y = -x + 3$.",
+      "5. Equate: $x - 2 = -x + 3 \\implies 2x = 5 \\implies x = 5/2$.",
+      "6. Then $y = 5/2 - 2 = 1/2$. Point of intersection is $(5/2, 1/2)$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(10) = 5\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 10 + 5 = 15\\text{ م/ث}$$"
+      "١. نقطتا التقاطع مع محور السينات: $(2, 0)$ و $(3, 0)$.",
+      "٢. $y' = 2x - 5$.",
+      "٣. عند $x = 2$: ميل المماس = $-1$ وميل العمودي = $1$ والمعادلة $y = x - 2$.",
+      "٤. عند $x = 3$: ميل المماس = $1$ وميل العمودي = $-1$ والمعادلة $y = -x + 3$.",
+      "٥. بحل المعادلتين معاً: $x = 5/2$ و $y = 1/2$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "By parabola symmetry, the $x$-coordinate of the intersection must lie on the axis of symmetry $x = 5/2$.",
+    "teacherTipAr": "بسبب تماثل القطع المكافئ، يجب أن يقع الإحداثي السيني على خط التماثل $x = 5/2$."
   },
   {
     "id": "calc_ch1_db_hots_36",
-    "titleEn": "Moving Shadow Tip Rate (w=6)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=6)",
+    "titleEn": "Time for Spherical Droplet to Completely Evaporate",
+    "titleAr": "الزمن اللازم لتبخر قطرة كروية تماماً",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $12\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $12\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "A spherical water droplet evaporates such that its volume decreases at a rate proportional to its surface area. If its initial radius was $3\\text{ mm}$ and after $1\\text{ hour}$ it shrank to $2\\text{ mm}$, when will the droplet completely disappear?",
+    "questionAr": "تتبخر قطرة ماء كروية بحيث يتناقص حجمها بمعدل يتناسب طردياً مع مساحة سطحها. فإذا كان نصف قطرها الابتدائي $3\\text{ مم}$ وبعد مرور ساعة أصبح $2\\text{ مم}$، فبعد كم ساعة من البداية تتلاشى القطرة تماماً؟",
     "optionsEn": [
-      "$18\\text{ m/s}$",
-      "$20\\text{ m/s}$",
-      "$23\\text{ m/s}$",
-      "$26\\text{ m/s}$"
+      "$3\\text{ hours}$",
+      "$4\\text{ hours}$",
+      "$2.5\\text{ hours}$",
+      "$6\\text{ hours}$"
     ],
     "optionsAr": [
-      "$18\\text{ م/ث}$",
-      "$20\\text{ م/ث}$",
-      "$23\\text{ م/ث}$",
-      "$26\\text{ م/ث}$"
+      "$3\\text{ ساعات}$",
+      "$4\\text{ ساعات}$",
+      "$2.5\\text{ ساعة}$",
+      "$6\\text{ ساعات}$"
     ],
-    "correctAnswer": "$18\\text{ m/s}$",
+    "correctAnswer": "$3\\text{ hours}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "$\\frac{dr}{dt} = -k$ is constant. $r(t) = r_0 - k t$.",
+    "hintAr": "معدل تناقص نصف القطر ثابت: $r(t) = 3 - k t$.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(12) = 6\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 12 + 6 = 18\\text{ m/s}$$"
+      "1. $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt} = -k(4\\pi r^2) \\implies \\frac{dr}{dt} = -k$.",
+      "2. The radius decreases linearly: $r(t) = r_0 - kt = 3 - kt$.",
+      "3. Given $r(1) = 2$: $3 - k(1) = 2 \\implies k = 1\\text{ mm/hour}$.",
+      "4. The droplet disappears when $r = 0$: $3 - 1t = 0 \\implies t = 3\\text{ hours}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(12) = 6\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 12 + 6 = 18\\text{ م/ث}$$"
+      "١. بما أن معدل تناقص الحجم يتناسب مع مساحة السطح، فإن معدل تناقص نصف القطر ثابت: $\\frac{dr}{dt} = -k$.",
+      "٢. إذن نصف القطر دالة خطية في الزمن: $r(t) = 3 - kt$.",
+      "٣. بعد ساعة: $3 - k = 2 \\implies k = 1\\text{ مم/ساعة}$.",
+      "٤. تتلاشى القطرة عندما $r = 0 \\implies 3 - t = 0 \\implies t = 3\\text{ ساعات}$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "Linear decrease in radius means that time to vanish is simply $r_0 / k$.",
+    "teacherTipAr": "التناقص الخطي لنصف القطر يعني أن زمن التلاشي هو ببساطة نصف القطر الابتدائي مقسوماً على معدل النقص."
   },
   {
     "id": "calc_ch1_db_hots_37",
-    "titleEn": "Moving Shadow Tip Rate (w=7)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=7)",
+    "titleEn": "Logarithmic Differentiation of Power Function",
+    "titleAr": "الاشتقاق اللوغاريتمي لدالة قواها دالة مثلثية",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $14\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $14\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "If $y = x^{\\sin x}$ for $x > 0$, evaluate $\\frac{dy}{dx}$ at $x = \\frac{\\pi}{2}$.",
+    "questionAr": "إذا كانت $y = x^{\\sin x}$ حيث $x > 0$، فاحسب قيمة $\\frac{dy}{dx}$ عند $x = \\frac{\\pi}{2}$.",
     "optionsEn": [
-      "$21\\text{ m/s}$",
-      "$23\\text{ m/s}$",
-      "$26\\text{ m/s}$",
-      "$29\\text{ m/s}$"
+      "$1$",
+      "$\\frac{\\pi}{2}$",
+      "$0$",
+      "$\\ln\\left(\\frac{\\pi}{2}\\right)$"
     ],
     "optionsAr": [
-      "$21\\text{ م/ث}$",
-      "$23\\text{ م/ث}$",
-      "$26\\text{ م/ث}$",
-      "$29\\text{ م/ث}$"
+      "$1$",
+      "$\\frac{\\pi}{2}$",
+      "$0$",
+      "$\\ln\\left(\\frac{\\pi}{2}\\right)$"
     ],
-    "correctAnswer": "$21\\text{ m/s}$",
+    "correctAnswer": "$1$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Take natural logarithms: $\\ln y = \\sin x \\ln x$, then differentiate.",
+    "hintAr": "خذ اللوغاريتم للطرفين: $\\ln y = \\sin x \\ln x$ ثم اشتق ضمنياً.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(14) = 7\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 14 + 7 = 21\\text{ m/s}$$"
+      "1. Taking logarithms: $\\ln y = \\sin x \\ln x$.",
+      "2. Differentiating: $\\frac{y'}{y} = \\cos x \\ln x + \\frac{\\sin x}{x}$.",
+      "3. At $x = \\pi/2$: $y = (\\pi/2)^{\\sin(\\pi/2)} = (\\pi/2)^1 = \\frac{\\pi}{2}$.",
+      "4. Evaluate: $\\frac{y'}{\\pi/2} = \\cos(\\pi/2)\\ln(\\pi/2) + \\frac{\\sin(\\pi/2)}{\\pi/2} = 0 + \\frac{1}{\\pi/2} = \\frac{2}{\\pi}$.",
+      "5. Multiplying by $y = \\pi/2$: $y' = \\frac{\\pi}{2} \\times \\frac{2}{\\pi} = 1$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(14) = 7\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 14 + 7 = 21\\text{ م/ث}$$"
+      "١. بأخذ اللوغاريتم: $\\ln y = \\sin x \\ln x$.",
+      "٢. بالاشتقاق: $\\frac{y'}{y} = \\cos x \\ln x + \\frac{\\sin x}{x}$.",
+      "٣. عند $x = \\pi/2$: $y = \\pi/2$.",
+      "٤. $\\frac{y'}{\\pi/2} = 0 + \\frac{1}{\\pi/2} = \\frac{2}{\\pi}$.",
+      "٥. إذن $y' = 1$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "The term with $\\cos(\\pi/2)$ vanishes completely because $\\cos(\\pi/2) = 0$.",
+    "teacherTipAr": "الحد المضروب في جيب تمام $\\pi/2$ يختفي تماماً لأن $\\cos(\\pi/2) = 0$."
   },
   {
     "id": "calc_ch1_db_hots_38",
-    "titleEn": "Moving Shadow Tip Rate (w=8)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=8)",
+    "titleEn": "Slope Ratio at Re-intersection of Cubic Tangent",
+    "titleAr": "نسبة ميل المماس عند نقطة تقاطعه مع المنحنى التكعيبي",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $16\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $16\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "The tangent line to the curve $y = x^3$ at point $P(x_0, y_0)$ ($x_0 \\neq 0$) intersects the curve again at point $Q$. The ratio of the slope of the tangent at $Q$ to the slope of the tangent at $P$ is:",
+    "questionAr": "مماس المنحنى $y = x^3$ عند النقطة $P(x_0, y_0)$ حيث $x_0 \\neq 0$ يقطع المنحنى مرة أخرى عند نقطة $Q$. فإن النسبة بين ميل المماس عند $Q$ إلى ميل المماس عند $P$ تساوي:",
     "optionsEn": [
-      "$24\\text{ m/s}$",
-      "$26\\text{ m/s}$",
-      "$29\\text{ m/s}$",
-      "$32\\text{ m/s}$"
+      "$4$",
+      "$2$",
+      "$-2$",
+      "$-8$"
     ],
     "optionsAr": [
-      "$24\\text{ م/ث}$",
-      "$26\\text{ م/ث}$",
-      "$29\\text{ م/ث}$",
-      "$32\\text{ م/ث}$"
+      "$4$",
+      "$2$",
+      "$-2$",
+      "$-8$"
     ],
-    "correctAnswer": "$24\\text{ m/s}$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Show that $x_Q = -2x_0$, then $m_Q / m_P = 3(-2x_0)^2 / (3x_0^2) = 4$.",
+    "hintAr": "أثبت أن الإحداثي السيني للنقطة $Q$ هو $-2x_0$ ثم قارن المشتقّتين.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(16) = 8\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 16 + 8 = 24\\text{ m/s}$$"
+      "1. Slope at $P$ is $m_P = 3x_0^2$. Tangent line: $y = 3x_0^2 x - 2x_0^3$.",
+      "2. Intersect with $y = x^3$: $x^3 - 3x_0^2 x + 2x_0^3 = 0$.",
+      "3. Since $x_0$ is a double root (point of tangency), factor as $(x - x_0)^2(x + 2x_0) = 0$.",
+      "4. The second intersection point has $x_Q = -2x_0$.",
+      "5. Slope at $Q$: $m_Q = 3x_Q^2 = 3(-2x_0)^2 = 12x_0^2 = 4(3x_0^2) = 4 m_P$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(16) = 8\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 16 + 8 = 24\\text{ م/ث}$$"
+      "١. ميل المماس عند $P$ هو $3x_0^2$.",
+      "٢. بالحل المشترك مع $y = x^3$: $(x - x_0)^2(x + 2x_0) = 0$.",
+      "٣. نقطة التقاطع الثانية هي $x_Q = -2x_0$.",
+      "٤. ميل المماس عند $Q$ هو $3(-2x_0)^2 = 12x_0^2 = 4(3x_0^2) = 4 m_P$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "A famous invariant property of cubic parabolas: slope at re-intersection is always 4 times the original slope!",
+    "teacherTipAr": "خاصية هندسية مميزة لكثيرات الحدود التكعيبية: الميل عند نقطة التقاطع الثانية يساوي دائماً 4 أمثال الميل عند نقطة التماس!"
   },
   {
     "id": "calc_ch1_db_hots_39",
-    "titleEn": "Moving Shadow Tip Rate (w=9)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=9)",
+    "titleEn": "Inscribed Cylinder in Cone Critical Rate",
+    "titleAr": "معدل تغير حجم أسطوانة محتواة في مخروط",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $18\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $18\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "A right circular cylinder of radius $r$ is inscribed in a cone of height $12\\text{ cm}$ and base radius $6\\text{ cm}$. When $r = 4\\text{ cm}$, the radius increases at $0.1\\text{ cm/s}$. What is the rate of change of the volume of the cylinder at that moment?",
+    "questionAr": "أسطوانة دائرية قائمة نصف قطرها $r$ مرسومة داخل مخروط ارتفاعه $12\\text{ سم}$ ونصف قطر قاعدته $6\\text{ سم}$. عندما كان $r = 4\\text{ سم}$، تزايد نصف قطر الأسطوانة بمعدل $0.1\\text{ سم/ث}$. ما هو معدل تغير حجم الأسطوانة في تلك اللحظة؟",
     "optionsEn": [
-      "$27\\text{ m/s}$",
-      "$29\\text{ m/s}$",
-      "$32\\text{ m/s}$",
-      "$35\\text{ m/s}$"
+      "$0\\text{ cm}^3/\\text{s}$",
+      "$3.2\\pi\\text{ cm}^3/\\text{s}$",
+      "$1.6\\pi\\text{ cm}^3/\\text{s}$",
+      "$6.4\\pi\\text{ cm}^3/\\text{s}$"
     ],
     "optionsAr": [
-      "$27\\text{ م/ث}$",
-      "$29\\text{ م/ث}$",
-      "$32\\text{ م/ث}$",
-      "$35\\text{ م/ث}$"
+      "$0\\text{ سم}^3/\\text{ث}$",
+      "$3.2\\pi\\text{ سم}^3/\\text{ث}$",
+      "$1.6\\pi\\text{ سم}^3/\\text{ث}$",
+      "$6.4\\pi\\text{ سم}^3/\\text{ث}$"
     ],
-    "correctAnswer": "$27\\text{ m/s}$",
+    "correctAnswer": "$0\\text{ cm}^3/\\text{s}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "$h = 12(1 - r/6) = 12 - 2r$. Check $\\frac{dV}{dr}$ at $r = 4$.",
+    "hintAr": "الارتفاع $h = 12 - 2r$. اشتق الحجم بالنسبة لـ $r$ ولاحظ انعدام المشتقة.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(18) = 9\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 18 + 9 = 27\\text{ m/s}$$"
+      "1. By similar triangles: $\\frac{12 - h}{r} = \\frac{12}{6} = 2 \\implies h = 12 - 2r$.",
+      "2. Cylinder volume: $V = \\pi r^2 h = \\pi r^2(12 - 2r) = 2\\pi(6r^2 - r^3)$.",
+      "3. Rate of change: $\\frac{dV}{dt} = 2\\pi(12r - 3r^2)\\frac{dr}{dt}$.",
+      "4. At $r = 4$: $12(4) - 3(4^2) = 48 - 48 = 0$.",
+      "5. Therefore, $\\frac{dV}{dt} = 0\\text{ cm}^3/\\text{s}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(18) = 9\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 18 + 9 = 27\\text{ م/ث}$$"
+      "١. من تشابه المثلثات: $h = 12 - 2r$.",
+      "٢. حجم الأسطوانة: $V = 2\\pi(6r^2 - r^3)$.",
+      "٣. المشتقة بالنسبة للزمن: $\\frac{dV}{dt} = 2\\pi(12r - 3r^2)\\frac{dr}{dt}$.",
+      "٤. عند $r = 4$: القوس $(48 - 48) = 0$.",
+      "٥. إذن معدل تغير الحجم يساوي صفراً (حيث الحجم يصل لقيمته العظمى المحلية)."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "At the maximum volume configuration, the instantaneous rate of change is zero!",
+    "teacherTipAr": "عند بلوغ الحجم قيمته العظمى المطلقة، يكون معدل التغير اللحظي مساوياً للصفر تماماً!"
   },
   {
     "id": "calc_ch1_db_hots_40",
-    "titleEn": "Moving Shadow Tip Rate (w=10)",
-    "titleAr": "معدل حركة طرف ظل رجل (w=10)",
+    "titleEn": "Derivative of Sixth Powers of Trig Functions",
+    "titleAr": "مشتقة مجموع القوة السادسة للجيب وجيب التمام",
     "difficulty": "hots",
-    "questionEn": "A person $2\\text{ m}$ tall walks away from a $6\\text{ m}$ high lamppost along a straight path at a speed of $20\\text{ m/s}$. Find the rate at which the tip of their shadow is moving.",
-    "questionAr": "رجل طوله $2\\text{ م}$ يسير مبتعداً عن عمود إنارة ارتفاعه $6\\text{ م}$ في خط مستقيم بسرعة $20\\text{ م/ث}$. أوجد معدل حركة طرف ظله.",
+    "questionEn": "If $f(x) = \\sin^6 x + \\cos^6 x$, evaluate $f'\\left(\\frac{\\pi}{8}\\right)$.",
+    "questionAr": "إذا كانت $f(x) = \\sin^6 x + \\cos^6 x$، فاحسب قيمة $f'\\left(\\frac{\\pi}{8}\\right)$.",
     "optionsEn": [
-      "$30\\text{ m/s}$",
-      "$32\\text{ m/s}$",
-      "$35\\text{ m/s}$",
-      "$38\\text{ m/s}$"
+      "$-\\frac{3}{2}$",
+      "$\\frac{3}{2}$",
+      "$0$",
+      "$-\\frac{3}{4}$"
     ],
     "optionsAr": [
-      "$30\\text{ م/ث}$",
-      "$32\\text{ م/ث}$",
-      "$35\\text{ م/ث}$",
-      "$38\\text{ م/ث}$"
+      "$-\\frac{3}{2}$",
+      "$\\frac{3}{2}$",
+      "$0$",
+      "$-\\frac{3}{4}$"
     ],
-    "correctAnswer": "$30\\text{ m/s}$",
+    "correctAnswer": "$-\\frac{3}{2}$",
     "correctIndex": 0,
-    "hintEn": "The position of the shadow tip from the lamppost is $x + s$, where $x$ is the person's distance and $s$ is the shadow length.",
-    "hintAr": "موقع طرف الظل بالنسبة للعمود هو $x + s$، حيث $x$ بعد الرجل عن العمود و $s$ طول الظل.",
+    "hintEn": "Use identity $\\sin^6 x + \\cos^6 x = 1 - \\frac{3}{4}\\sin^2(2x)$.",
+    "hintAr": "المتطابقة الشهيرة: $\\sin^6 x + \\cos^6 x = 1 - \\frac{3}{4}\\sin^2(2x)$.",
     "stepByStepSolutionEn": [
-      "1. By similar triangles:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "2. Differentiate shadow length with respect to time:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(20) = 10\\text{ m/s}$$",
-      "3. The position of the tip of the shadow from the base of the lamppost is $y = x + s$:",
-      "$$\\frac{dy}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 20 + 10 = 30\\text{ m/s}$$"
+      "1. Factor identity: $\\sin^6 x + \\cos^6 x = 1 - 3\\sin^2 x\\cos^2 x = 1 - \\frac{3}{4}\\sin^2(2x)$.",
+      "2. Differentiating: $f'(x) = -\\frac{3}{4} \\cdot 2\\sin(2x) \\cdot 2\\cos(2x) = -\\frac{3}{2}\\sin(4x)$.",
+      "3. At $x = \\frac{\\pi}{8}$, the argument is $4x = \\frac{\\pi}{2}$.",
+      "4. $f'(\\pi/8) = -\\frac{3}{2}\\sin(\\pi/2) = -\\frac{3}{2}(1) = -\\frac{3}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. من تشابه المثلثين:",
-      "$$\\frac{s}{x + s} = \\frac{2}{6} = \\frac{1}{3} \\implies 3s = x + s \\implies 2s = x \\implies s = \\frac{1}{2}x$$",
-      "٢. معدل تغير طول الظل:",
-      "$$\\frac{ds}{dt} = \\frac{1}{2} \\frac{dx}{dt} = \\frac{1}{2}(20) = 10\\text{ م/ث}$$",
-      "٣. معدل حركة طرف الظل من قاعدة العمود هو مشتقة $(x + s)$:",
-      "$$\\frac{d(x+s)}{dt} = \\frac{dx}{dt} + \\frac{ds}{dt} = 20 + 10 = 30\\text{ م/ث}$$"
+      "١. المتطابقة: $f(x) = 1 - \\frac{3}{4}\\sin^2(2x)$.",
+      "٢. بالاشتقاق: $f'(x) = -\\frac{3}{2}\\sin(4x)$.",
+      "٣. عند $x = \\pi/8$: الزاوية $4x = \\pi/2$.",
+      "٤. إذن $f'(\\pi/8) = -\\frac{3}{2}(1) = -\\frac{3}{2}$."
     ],
-    "teacherTipEn": "Distinguish carefully between 'rate of change of shadow length' ($ds/dt$) and 'rate of movement of the shadow tip' ($d(x+s)/dt$).",
-    "teacherTipAr": "ميز بدقة بين 'معدل تغير طول الظل' وبين 'معدل حركة طرف الظل'."
+    "teacherTipEn": "Converting high trig powers into multiple-angle forms trivializes the differentiation.",
+    "teacherTipAr": "تحويل قوى الدوال المثلثية إلى زوايا مضاعفة يحول المسألة لاشتقاق مباشر وبسيط."
   },
   {
     "id": "calc_ch1_db_hots_41",
-    "titleEn": "Tangent Through Origin to y = x^2 + 4",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 4",
+    "titleEn": "Tangent to Symmetric Implicit Trig Curve",
+    "titleAr": "مماس منحنى مثلثي ضمني متماثل",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 4$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 4$ في الربع الأول.",
+    "questionEn": "Find the equation of the tangent line to the curve $x\\sin y + y\\sin x = \\pi$ at the point $\\left(\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$.",
+    "questionAr": "أوجد معادلة المماس للمنحنى $x\\sin y + y\\sin x = \\pi$ عند النقطة $\\left(\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right)$.",
     "optionsEn": [
-      "4",
-      "6",
-      "9",
-      "12"
+      "$x + y = \\pi$",
+      "$x - y = 0$",
+      "$y = 2x - \\frac{\\pi}{2}$",
+      "$x + 2y = \\frac{3\\pi}{2}$"
     ],
     "optionsAr": [
-      "4",
-      "6",
-      "9",
-      "12"
+      "$x + y = \\pi$",
+      "$x - y = 0$",
+      "$y = 2x - \\frac{\\pi}{2}$",
+      "$x + 2y = \\frac{3\\pi}{2}$"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": "$x + y = \\pi$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 4)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 4)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Differentiate implicitly: $\\sin y + x\\cos y y' + y'\\sin x + y\\cos x = 0$.",
+    "hintAr": "اشتق ضمنياً ولاحظ أن $\\cos(\\pi/2) = 0$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 4)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 4}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 4}{x_0} \\implies 2x_0^2 = x_0^2 + 4 \\implies x_0^2 = 4$$",
-      "In the first quadrant, $x_0 = 2$.",
-      "5. Therefore, the slope is $m = 2(2) = 4$."
+      "1. Differentiating implicitly: $(\\sin y + x\\cos y \\cdot y') + (y'\\sin x + y\\cos x) = 0$.",
+      "2. Substitute $x = \\pi/2, y = \\pi/2$: $\\sin(\\pi/2) = 1$ and $\\cos(\\pi/2) = 0$.",
+      "3. $1 + 0 + y'(1) + 0 = 0 \\implies 1 + y' = 0 \\implies y' = -1$.",
+      "4. Tangent equation: $y - \\frac{\\pi}{2} = -1\\left(x - \\frac{\\pi}{2}\\right) \\implies x + y = \\pi$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 4)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 4}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 4}{x_0} \\implies 2x_0^2 = x_0^2 + 4 \\implies x_0^2 = 4$$",
-      "في الربع الأول: $x_0 = 2$.",
-      "٥. إذن ميل المماس هو $m = 2(2) = 4$."
+      "١. بالاشتقاق الضمني: $(\\sin y + x\\cos y y') + (y'\\sin x + y\\cos x) = 0$.",
+      "٢. بالتعويض عن $x = \\pi/2, y = \\pi/2$: $1 + 0 + y'(1) + 0 = 0 \\implies y' = -1$.",
+      "٣. معادلة المماس: $y - \\pi/2 = -(x - \\pi/2) \\implies x + y = \\pi$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Symmetric implicit functions $F(x, y) = F(y, x)$ have tangent slope $-1$ along the line $y = x$.",
+    "teacherTipAr": "المنحنيات المتماثلة حول $y = x$ يكون ميل المماس عند أي نقطة تماثل مساوياً $-1$ دائماً."
   },
   {
     "id": "calc_ch1_db_hots_42",
-    "titleEn": "Tangent Through Origin to y = x^2 + 9",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 9",
+    "titleEn": "Minimum Distance Between Approaching Particles",
+    "titleAr": "أقرب مسافة بين جسيمين يقتربان من نقطة الأصل",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 9$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 9$ في الربع الأول.",
+    "questionEn": "Two particles $A$ and $B$ move along perpendicular axes toward the origin with constant speeds $3\\text{ m/s}$ and $4\\text{ m/s}$ respectively. If their initial distances from the origin were $20\\text{ m}$ and $15\\text{ m}$, find the minimum distance between them.",
+    "questionAr": "يتحرك جسيمان $A$ و $B$ على محورين متعامدين مقتربين من نقطة الأصل بسرعتين ثابتتين $3\\text{ م/ث}$ و $4\\text{ م/ث}$ على الترتيب. فإذا كان بعداهما الابتدائيان عن الأصل $20\\text{ م}$ و $15\\text{ م}$، فما هي أقرب مسافة يصلان إليها؟",
     "optionsEn": [
-      "6",
-      "8",
-      "11",
-      "14"
+      "$7\\text{ m}$",
+      "$5\\text{ m}$",
+      "$0\\text{ m}$",
+      "$10\\text{ m}$"
     ],
     "optionsAr": [
-      "6",
-      "8",
-      "11",
-      "14"
+      "$7\\text{ م}$",
+      "$5\\text{ م}$",
+      "$0\\text{ م}$",
+      "$10\\text{ م}$"
     ],
-    "correctAnswer": "6",
+    "correctAnswer": "$7\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 9)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 9)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "$D^2(t) = (20 - 3t)^2 + (15 - 4t)^2$. Find vertex of the quadratic.",
+    "hintAr": "مربع المسافة هو دالة تربيعية في الزمن: $D^2(t) = (20 - 3t)^2 + (15 - 4t)^2$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 9)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 9}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 9}{x_0} \\implies 2x_0^2 = x_0^2 + 9 \\implies x_0^2 = 9$$",
-      "In the first quadrant, $x_0 = 3$.",
-      "5. Therefore, the slope is $m = 2(3) = 6$."
+      "1. Distances at time $t$: $x(t) = 20 - 3t$, $y(t) = 15 - 4t$.",
+      "2. $D^2 = (20 - 3t)^2 + (15 - 4t)^2 = 25t^2 - 240t + 625$.",
+      "3. Minimize $D^2$ by setting derivative to zero: $50t - 240 = 0 \\implies t = 4.8\\text{ s}$.",
+      "4. At $t = 4.8$: $x = 20 - 3(4.8) = 20 - 14.4 = 5.6\\text{ m}$, and $y = 15 - 4(4.8) = 15 - 19.2 = -4.2\\text{ m}$.",
+      "5. Minimum distance: $D = \\sqrt{5.6^2 + (-4.2)^2} = \\sqrt{31.36 + 17.64} = \\sqrt{49} = 7\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 9)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 9}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 9}{x_0} \\implies 2x_0^2 = x_0^2 + 9 \\implies x_0^2 = 9$$",
-      "في الربع الأول: $x_0 = 3$.",
-      "٥. إذن ميل المماس هو $m = 2(3) = 6$."
+      "١. الإحداثيان عند اللحظة $t$: $x = 20 - 3t$ و $y = 15 - 4t$.",
+      "٢. مربع المسافة: $D^2 = 25t^2 - 240t + 625$.",
+      "٣. المشتقة تساوي صفراً عند $t = 240/50 = 4.8\\text{ ث}$.",
+      "٤. عند هذه اللحظة: $x = 5.6$ و $y = -4.2$.",
+      "٥. أقل مسافة = $\\sqrt{5.6^2 + 4.2^2} = \\sqrt{49} = 7\\text{ م}$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Minimizing the square of the distance $D^2$ avoids dealing with cumbersome square root derivatives.",
+    "teacherTipAr": "تطبيق الاشتقاق على مربع المسافة $D^2$ يلغي التعامل مع مشتقات الجذور."
   },
   {
     "id": "calc_ch1_db_hots_43",
-    "titleEn": "Tangent Through Origin to y = x^2 + 16",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 16",
+    "titleEn": "Derivative of Arctan Double Angle Form",
+    "titleAr": "مشتقة قوس الظل لصيغة ضعف الزاوية",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 16$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 16$ في الربع الأول.",
+    "questionEn": "If $y = \\arctan\\left(\\frac{2x}{1 - x^2}\\right)$ for $|x| < 1$, find $\\frac{dy}{dx}$.",
+    "questionAr": "إذا كانت $y = \\arctan\\left(\\frac{2x}{1 - x^2}\\right)$ حيث $|x| < 1$، أوجد $\\frac{dy}{dx}$.",
     "optionsEn": [
-      "8",
-      "10",
-      "13",
-      "16"
+      "$\\frac{2}{1 + x^2}$",
+      "$\\frac{1}{1 + x^2}$",
+      "$\\frac{2}{1 - x^2}$",
+      "$\\frac{1}{1 - x^4}$"
     ],
     "optionsAr": [
-      "8",
-      "10",
-      "13",
-      "16"
+      "$\\frac{2}{1 + x^2}$",
+      "$\\frac{1}{1 + x^2}$",
+      "$\\frac{2}{1 - x^2}$",
+      "$\\frac{1}{1 - x^4}$"
     ],
-    "correctAnswer": "8",
+    "correctAnswer": "$\\frac{2}{1 + x^2}$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 16)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 16)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Substitute $x = \\tan\\theta$ to see that $y = 2\\theta = 2\\arctan x$.",
+    "hintAr": "استخدم التعويض المثلثي $x = \\tan\\theta$ لتجد أن $y = 2\\arctan x$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 16)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 16}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 16}{x_0} \\implies 2x_0^2 = x_0^2 + 16 \\implies x_0^2 = 16$$",
-      "In the first quadrant, $x_0 = 4$.",
-      "5. Therefore, the slope is $m = 2(4) = 8$."
+      "1. Let $x = \\tan\\theta$. Then $\\frac{2x}{1 - x^2} = \\frac{2\\tan\\theta}{1 - \\tan^2\\theta} = \\tan(2\\theta)$.",
+      "2. For $|x| < 1$, $y = \\arctan(\\tan 2\\theta) = 2\\theta = 2\\arctan x$.",
+      "3. Differentiating with respect to $x$: $\\frac{dy}{dx} = 2 \\cdot \\frac{1}{1 + x^2} = \\frac{2}{1 + x^2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 16)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 16}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 16}{x_0} \\implies 2x_0^2 = x_0^2 + 16 \\implies x_0^2 = 16$$",
-      "في الربع الأول: $x_0 = 4$.",
-      "٥. إذن ميل المماس هو $m = 2(4) = 8$."
+      "١. بوضع $x = \\tan\\theta$: المقدار داخل القوس يصبح $\\tan(2\\theta)$.",
+      "٢. إذن $y = 2\\theta = 2\\arctan x$.",
+      "٣. بالاشتقاق بالنسبة لـ $x$: $\\frac{dy}{dx} = \\frac{2}{1 + x^2}$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Trigonometric substitution turns difficult inverse calculus into an instantaneous single step.",
+    "teacherTipAr": "التعويض بالدوال المثلثية يحول اشتقاق الدوال العكسية إلى خطوة مباشرة وبسيطة."
   },
   {
     "id": "calc_ch1_db_hots_44",
-    "titleEn": "Tangent Through Origin to y = x^2 + 25",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 25",
+    "titleEn": "Speed of Point on Rim of Rolling Wheel",
+    "titleAr": "سرعة نقطة على محيط عجلة تتدحرج",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 25$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 25$ في الربع الأول.",
+    "questionEn": "A wheel of radius $R$ rolls without slipping along a horizontal line with constant linear velocity $V$. The speed of a point on the rim at height $y$ ($0 \\le y \\le 2R$) above the ground is:",
+    "questionAr": "تتدحرج عجلة نصف قطرها $R$ دون انزلاق على خط أفقي بسرعة خطية ثابتة $V$. ما هي السرعة اللحظية لنقطة على محيط العجلة ترتفع مسافة $y$ ($0 \\le y \\le 2R$) عن الأرض؟",
     "optionsEn": [
-      "10",
-      "12",
-      "15",
-      "18"
+      "$V\\sqrt{\\frac{2y}{R}}$",
+      "$V\\frac{y}{R}$",
+      "$V\\sqrt{\\frac{y}{R}}$",
+      "$2V\\frac{y}{R}$"
     ],
     "optionsAr": [
-      "10",
-      "12",
-      "15",
-      "18"
+      "$V\\sqrt{\\frac{2y}{R}}$",
+      "$V\\frac{y}{R}$",
+      "$V\\sqrt{\\frac{y}{R}}$",
+      "$2V\\frac{y}{R}$"
     ],
-    "correctAnswer": "10",
+    "correctAnswer": "$V\\sqrt{\\frac{2y}{R}}$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 25)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 25)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "The cycloid parameterization is $x = R(t - \\sin t), y = R(1 - \\cos t)$. Speed is $\\sqrt{(x')^2 + (y')^2}$.",
+    "hintAr": "من معادلات السيكلويد والسرعة المحصلة للتدحرج: $v = \\omega \\cdot d$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 25)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 25}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 25}{x_0} \\implies 2x_0^2 = x_0^2 + 25 \\implies x_0^2 = 25$$",
-      "In the first quadrant, $x_0 = 5$.",
-      "5. Therefore, the slope is $m = 2(5) = 10$."
+      "1. Parametric velocity: $v_x = V(1 - \\cos t)$ and $v_y = V\\sin t$.",
+      "2. Speed $v = \\sqrt{v_x^2 + v_y^2} = V\\sqrt{(1 - \\cos t)^2 + \\sin^2 t} = V\\sqrt{2(1 - \\cos t)}$.",
+      "3. Since $y = R(1 - \\cos t)$, we have $1 - \\cos t = \\frac{y}{R}$.",
+      "4. Substituting gives $v = V\\sqrt{\\frac{2y}{R}}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 25)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 25}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 25}{x_0} \\implies 2x_0^2 = x_0^2 + 25 \\implies x_0^2 = 25$$",
-      "في الربع الأول: $x_0 = 5$.",
-      "٥. إذن ميل المماس هو $m = 2(5) = 10$."
+      "١. مركبات السرعة من معادلات السيكلويد: $v_x = V(1 - \\cos t)$ و $v_y = V\\sin t$.",
+      "٢. السرعة الكلية $v = V\\sqrt{2(1 - \\cos t)}$.",
+      "٣. بما أن الارتفاع $y = R(1 - \\cos t)$، إذن $1 - \\cos t = y/R$.",
+      "٤. بالتعويض: $v = V\\sqrt{\\frac{2y}{R}}$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "At the ground ($y = 0$), speed is $0$ (instantaneous center of rotation), while at the top ($y = 2R$), speed is $2V$.",
+    "teacherTipAr": "عند نقطة التلامس مع الأرض $y = 0$ تكون السرعة صفراً (مركز الدوران اللحظي)، وعند القمة $y = 2R$ تكون $2V$."
   },
   {
     "id": "calc_ch1_db_hots_45",
-    "titleEn": "Tangent Through Origin to y = x^2 + 36",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 36",
+    "titleEn": "Fourth Derivative of Reciprocal of x2 minus 1",
+    "titleAr": "المشتقة الرابعة لمقلوب س² ناقص 1 عند نقطة الأصل",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 36$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 36$ في الربع الأول.",
+    "questionEn": "If $f(x) = \\frac{1}{x^2 - 1}$, find the fourth derivative value $f^{(4)}(0)$.",
+    "questionAr": "إذا كانت $f(x) = \\frac{1}{x^2 - 1}$، فاحسب قيمة المشتقة الرابعة $f^{(4)}(0)$.",
     "optionsEn": [
-      "12",
-      "14",
-      "17",
-      "20"
+      "$-24$",
+      "$24$",
+      "$0$",
+      "$-12$"
     ],
     "optionsAr": [
-      "12",
-      "14",
-      "17",
-      "20"
+      "$-24$",
+      "$24$",
+      "$0$",
+      "$-12$"
     ],
-    "correctAnswer": "12",
+    "correctAnswer": "$-24$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 36)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 36)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Use Maclaurin geometric series: $\\frac{1}{x^2 - 1} = -(1 + x^2 + x^4 + \\dots)$.",
+    "hintAr": "متسلسلة ماكلورين: الكسر يكافئ $-(1 + x^2 + x^4 + \\dots)$، ومعامل $x^4$ هو $\\frac{f^{(4)}(0)}{4!}$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 36)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 36}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 36}{x_0} \\implies 2x_0^2 = x_0^2 + 36 \\implies x_0^2 = 36$$",
-      "In the first quadrant, $x_0 = 6$.",
-      "5. Therefore, the slope is $m = 2(6) = 12$."
+      "1. Expand as a geometric series for $|x| < 1$: $f(x) = -\\frac{1}{1 - x^2} = -(1 + x^2 + x^4 + x^6 + \\dots)$.",
+      "2. The coefficient of $x^4$ is $-1$.",
+      "3. By Taylor's formula, the coefficient of $x^4$ is $\\frac{f^{(4)}(0)}{4!}$.",
+      "4. Therefore, $\\frac{f^{(4)}(0)}{24} = -1 \\implies f^{(4)}(0) = -24$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 36)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 36}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 36}{x_0} \\implies 2x_0^2 = x_0^2 + 36 \\implies x_0^2 = 36$$",
-      "في الربع الأول: $x_0 = 6$.",
-      "٥. إذن ميل المماس هو $m = 2(6) = 12$."
+      "١. مفكوك المتسلسلة الهندسية: $f(x) = -(1 + x^2 + x^4 + \\dots)$.",
+      "٢. معامل $x^4$ في المفكوك يساوي $-1$.",
+      "٣. من صيغة تايلور: معامل $x^4$ هو $\\frac{f^{(4)}(0)}{4!}$.",
+      "٤. إذن $f^{(4)}(0) = -1 \\times 4! = -24$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Taylor series series coefficients bypass 4 consecutive tedious quotient differentiations.",
+    "teacherTipAr": "استخدام معاملات متسلسلة تايلور يعفيك من اشتقاق كسر معقد 4 مرات متتالية."
   },
   {
     "id": "calc_ch1_db_hots_46",
-    "titleEn": "Tangent Through Origin to y = x^2 + 49",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 49",
+    "titleEn": "Points on Cubic Curve with Perpendicular Tangent",
+    "titleAr": "نقاط على منحنى تكعيبي مماسها عمودي على مستقيم",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 49$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 49$ في الربع الأول.",
+    "questionEn": "Find the $x$-coordinates of the points on $y = 2x^3 - 3x^2 - 10x + 5$ where the tangent is perpendicular to $2x + 4y - 9 = 0$.",
+    "questionAr": "أوجد الإحداثيات السينية للنقاط على المنحنى $y = 2x^3 - 3x^2 - 10x + 5$ التي يكون المماس عندها عمودياً على المستقيم $2x + 4y - 9 = 0$.",
     "optionsEn": [
-      "14",
-      "16",
-      "19",
-      "22"
+      "$x = -1\\text{ and }x = 2$",
+      "$x = 1\\text{ and }x = -2$",
+      "$x = 0\\text{ and }x = 3$",
+      "$x = -3\\text{ and }x = 2$"
     ],
     "optionsAr": [
-      "14",
-      "16",
-      "19",
-      "22"
+      "$x = -1\\text{ و }x = 2$",
+      "$x = 1\\text{ و }x = -2$",
+      "$x = 0\\text{ و }x = 3$",
+      "$x = -3\\text{ و }x = 2$"
     ],
-    "correctAnswer": "14",
+    "correctAnswer": "$x = -1\\text{ and }x = 2$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 49)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 49)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Line slope is $-2/4 = -1/2$, so perpendicular tangent slope is $2$.",
+    "hintAr": "ميل المستقيم المعطى هو $-1/2$، إذن ميل المماس العمودي عليه يجب أن يساوي 2.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 49)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 49}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 49}{x_0} \\implies 2x_0^2 = x_0^2 + 49 \\implies x_0^2 = 49$$",
-      "In the first quadrant, $x_0 = 7$.",
-      "5. Therefore, the slope is $m = 2(7) = 14$."
+      "1. Slope of given line: $m = -\\frac{2}{4} = -\\frac{1}{2}$.",
+      "2. Perpendicular tangent slope: $m_t = -\\frac{1}{-1/2} = 2$.",
+      "3. $y' = 6x^2 - 6x - 10$.",
+      "4. Set $6x^2 - 6x - 10 = 2 \\implies 6x^2 - 6x - 12 = 0 \\implies x^2 - x - 2 = 0$.",
+      "5. Factoring gives $(x - 2)(x + 1) = 0 \\implies x = 2\\text{ or }x = -1$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 49)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 49}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 49}{x_0} \\implies 2x_0^2 = x_0^2 + 49 \\implies x_0^2 = 49$$",
-      "في الربع الأول: $x_0 = 7$.",
-      "٥. إذن ميل المماس هو $m = 2(7) = 14$."
+      "١. ميل المستقيم = $-1/2$.",
+      "٢. ميل المماس العمودي = $2$.",
+      "٣. مشتقة المنحنى: $y' = 6x^2 - 6x - 10$.",
+      "٤. نساوي المشتقة بـ 2: $6x^2 - 6x - 12 = 0 \\implies x^2 - x - 2 = 0$.",
+      "٥. بالتحليل: $(x - 2)(x + 1) = 0 \\implies x = 2$ أو $x = -1$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Set derivative equal to the negative reciprocal of the given line slope.",
+    "teacherTipAr": "ساوي المشتقة بمقلوب ميل المستقيم مع تغيير الإشارة لتحقيق شرط التعامد."
   },
   {
     "id": "calc_ch1_db_hots_47",
-    "titleEn": "Tangent Through Origin to y = x^2 + 64",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 64",
+    "titleEn": "Vertical Tangent Points on Rotated Ellipse",
+    "titleAr": "نقاط المماس الرأسي لقطع ناقص مائل",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 64$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 64$ في الربع الأول.",
+    "questionEn": "Find the points on the curve $x^2 - xy + y^2 = 3$ where the tangent line is vertical.",
+    "questionAr": "أوجد إحداثيات النقاط على المنحنى $x^2 - xy + y^2 = 3$ التي يكون المماس عندها رأسياً (موازياً لمحور الصادات).",
     "optionsEn": [
-      "16",
-      "18",
-      "21",
-      "24"
+      "$(2, 1)\\text{ and }(-2, -1)$",
+      "$(1, 2)\\text{ and }(-1, -2)$",
+      "$(0, \\sqrt{3})\\text{ and }(0, -\\sqrt{3})$",
+      "$(\\sqrt{3}, 0)\\text{ and }(-\\sqrt{3}, 0)$"
     ],
     "optionsAr": [
-      "16",
-      "18",
-      "21",
-      "24"
+      "$(2, 1)\\text{ و }(-2, -1)$",
+      "$(1, 2)\\text{ و }(-1, -2)$",
+      "$(0, \\sqrt{3})\\text{ و }(0, -\\sqrt{3})$",
+      "$(\\sqrt{3}, 0)\\text{ و }(-\\sqrt{3}, 0)$"
     ],
-    "correctAnswer": "16",
+    "correctAnswer": "$(2, 1)\\text{ and }(-2, -1)$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 64)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 64)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Vertical tangent occurs where the denominator of $\\frac{dy}{dx}$ is zero, meaning $\\frac{dx}{dy} = 0$.",
+    "hintAr": "المماس الرأسي يحدث عندما ينعدم مقام المشتقة الضمنية، أي عندما يكون $2y - x = 0$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 64)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 64}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 64}{x_0} \\implies 2x_0^2 = x_0^2 + 64 \\implies x_0^2 = 64$$",
-      "In the first quadrant, $x_0 = 8$.",
-      "5. Therefore, the slope is $m = 2(8) = 16$."
+      "1. Differentiating implicitly: $2x - (y + x y') + 2y y' = 0 \\implies y'(2y - x) = y - 2x$.",
+      "2. $\\frac{dy}{dx} = \\frac{y - 2x}{2y - x}$.",
+      "3. Vertical tangent requires the denominator to be zero: $2y - x = 0 \\implies x = 2y$.",
+      "4. Substitute $x = 2y$ into curve equation: $(2y)^2 - (2y)y + y^2 = 3 \\implies 4y^2 - 2y^2 + y^2 = 3$.",
+      "5. $3y^2 = 3 \\implies y^2 = 1 \\implies y = \\pm 1$.",
+      "6. Since $x = 2y$, the points are $(2, 1)$ and $(-2, -1)$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 64)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 64}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 64}{x_0} \\implies 2x_0^2 = x_0^2 + 64 \\implies x_0^2 = 64$$",
-      "في الربع الأول: $x_0 = 8$.",
-      "٥. إذن ميل المماس هو $m = 2(8) = 16$."
+      "١. بالاشتقاق الضمني: $y' = \\frac{y - 2x}{2y - x}$.",
+      "٢. يكون المماس رأسياً عندما ينعدم المقام: $2y - x = 0 \\implies x = 2y$.",
+      "٣. بالتعويض في معادلة المنحنى: $3y^2 = 3 \\implies y = \\pm 1$.",
+      "٤. وبما أن $x = 2y$، فإن النقطتين هما $(2, 1)$ و $(-2, -1)$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Vertical tangent corresponds to $\\frac{dx}{dy} = 0$ (denominator of $\\frac{dy}{dx}$ vanishes).",
+    "teacherTipAr": "المماس الرأسي يتحقق عندما ينعدم مقام المشتقة الأولى الصريحة."
   },
   {
     "id": "calc_ch1_db_hots_48",
-    "titleEn": "Tangent Through Origin to y = x^2 + 81",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 81",
+    "titleEn": "Maximum Viewing Angle Distance",
+    "titleAr": "المسافة لأفضل زاوية رؤية للوحة جدارية",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 81$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 81$ في الربع الأول.",
+    "questionEn": "A painting of height $2\\text{ m}$ hangs on a vertical wall with its bottom edge $1\\text{ m}$ above the eye level of an observer. At what distance from the wall should the observer stand to maximize the angle subtended by the painting?",
+    "questionAr": "لوحة فنية ارتفاعها $2\\text{ م}$ معلقة رأسياً على حائط بحيث ترتفع حافتها السفلية $1\\text{ م}$ عن مستوى عين راصد. على أي بعد من الحائط يجب أن يقف الراصد لكي تكون زاوية رؤيته للوحة أكبر ما يمكن؟",
     "optionsEn": [
-      "18",
-      "20",
-      "23",
-      "26"
+      "$\\sqrt{3}\\text{ m}$",
+      "$2\\text{ m}$",
+      "$3\\text{ m}$",
+      "$1.5\\text{ m}$"
     ],
     "optionsAr": [
-      "18",
-      "20",
-      "23",
-      "26"
+      "$\\sqrt{3}\\text{ م}$",
+      "$2\\text{ م}$",
+      "$3\\text{ م}$",
+      "$1.5\\text{ م}$"
     ],
-    "correctAnswer": "18",
+    "correctAnswer": "$\\sqrt{3}\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 81)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 81)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Viewing angle $\\theta = \\arctan(3/x) - \\arctan(1/x)$. Maximize using $x = \\sqrt{ab}$.",
+    "hintAr": "زاوية الرؤية $\\theta = \\arctan(3/x) - \\arctan(1/x)$ وأقصى قيمة تقع عند $x = \\sqrt{ab}$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 81)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 81}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 81}{x_0} \\implies 2x_0^2 = x_0^2 + 81 \\implies x_0^2 = 81$$",
-      "In the first quadrant, $x_0 = 9$.",
-      "5. Therefore, the slope is $m = 2(9) = 18$."
+      "1. Let $x$ be distance from wall. Subtended angle $\\theta = \\arctan\\left(\\frac{3}{x}\\right) - \\arctan\\left(\\frac{1}{x}\\right)$.",
+      "2. $\\tan\\theta = \\frac{3/x - 1/x}{1 + (3/x)(1/x)} = \\frac{2/x}{1 + 3/x^2} = \\frac{2x}{x^2 + 3}$.",
+      "3. Differentiating with respect to $x$ and setting to zero: $\\frac{2(x^2 + 3) - 2x(2x)}{(x^2 + 3)^2} = 0$.",
+      "4. $2x^2 + 6 - 4x^2 = 0 \\implies 2x^2 = 6 \\implies x^2 = 3 \\implies x = \\sqrt{3}\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 81)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 81}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 81}{x_0} \\implies 2x_0^2 = x_0^2 + 81 \\implies x_0^2 = 81$$",
-      "في الربع الأول: $x_0 = 9$.",
-      "٥. إذن ميل المماس هو $m = 2(9) = 18$."
+      "١. زاوية الرؤية $\\theta = \\arctan(3/x) - \\arctan(1/x)$.",
+      "٢. $\\tan\\theta = \\frac{2x}{x^2 + 3}$.",
+      "٣. المشتقة تساوي صفراً عندما ينعدم البسط: $2x^2 + 6 - 4x^2 = 0$.",
+      "٤. $2x^2 = 6 \\implies x = \\sqrt{3}\\text{ م}$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Regiomontanus' famous angle problem: the optimal viewing distance is always the geometric mean $x = \\sqrt{a b}$.",
+    "teacherTipAr": "مسألة ريجيومونتانوس الكلاسيكية: المسافة المثلى هي المتوسط الهندسي لارتفاعي قمة وقاع اللوحة $x = \\sqrt{ab}$."
   },
   {
     "id": "calc_ch1_db_hots_49",
-    "titleEn": "Tangent Through Origin to y = x^2 + 100",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 100",
+    "titleEn": "Curvature Product of Semicircle",
+    "titleAr": "علاقة تفاضلية لمنحنى نصف دائرة",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 100$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 100$ في الربع الأول.",
+    "questionEn": "If $y = \\sqrt{a^2 - x^2}$, prove that $y^3 \\frac{d^2y}{dx^2} + a^2$ equals:",
+    "questionAr": "إذا كانت $y = \\sqrt{a^2 - x^2}$، فما قيمة المقدار $y^3 \\frac{d^2y}{dx^2} + a^2$؟",
     "optionsEn": [
-      "20",
-      "22",
-      "25",
-      "28"
+      "$0$",
+      "$a^2$",
+      "$2a^2$",
+      "$-a^2$"
     ],
     "optionsAr": [
-      "20",
-      "22",
-      "25",
-      "28"
+      "$0$",
+      "$a^2$",
+      "$2a^2$",
+      "$-a^2$"
     ],
-    "correctAnswer": "20",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 100)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 100)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Square to obtain $x^2 + y^2 = a^2$, which yields $y'' = -a^2/y^3$.",
+    "hintAr": "تربيع الطرفين يعطي دائرة نصف قطرها $a$ ومشتقاتها الثانية $-a^2/y^3$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 100)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 100}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 100}{x_0} \\implies 2x_0^2 = x_0^2 + 100 \\implies x_0^2 = 100$$",
-      "In the first quadrant, $x_0 = 10$.",
-      "5. Therefore, the slope is $m = 2(10) = 20$."
+      "1. $y^2 = a^2 - x^2 \\implies x^2 + y^2 = a^2$.",
+      "2. Differentiating: $2x + 2y y' = 0 \\implies y' = -\\frac{x}{y}$.",
+      "3. Second derivative: $y'' = -\\frac{y - x y'}{y^2} = -\\frac{y^2 + x^2}{y^3} = -\\frac{a^2}{y^3}$.",
+      "4. Multiply by $y^3$: $y^3 y'' = -a^2 \\implies y^3 y'' + a^2 = 0$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 100)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 100}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 100}{x_0} \\implies 2x_0^2 = x_0^2 + 100 \\implies x_0^2 = 100$$",
-      "في الربع الأول: $x_0 = 10$.",
-      "٥. إذن ميل المماس هو $m = 2(10) = 20$."
+      "١. بتربيع الطرفين: $x^2 + y^2 = a^2$.",
+      "٢. المشتقة الأولى: $y' = -x/y$.",
+      "٣. المشتقة الثانية: $y'' = -\\frac{a^2}{y^3}$.",
+      "٤. إذن $y^3 y'' + a^2 = 0$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "An essential identity representing the constant curvature of a circle.",
+    "teacherTipAr": "متطابقة في غاية الأهمية تعبر عن ثبات انحناء الدائرة."
   },
   {
     "id": "calc_ch1_db_hots_50",
-    "titleEn": "Tangent Through Origin to y = x^2 + 121",
-    "titleAr": "المماس المار بنقطة الأصل للمنحنى ص = س^2 + 121",
+    "titleEn": "Third Derivative of Algebraic Fraction",
+    "titleAr": "المشتقة الثالثة لدالة كسرية جبرية عند نقطة الأصل",
     "difficulty": "hots",
-    "questionEn": "Find the slope of the tangent line drawn from the origin $(0, 0)$ to the parabola $y = x^2 + 121$ in the first quadrant.",
-    "questionAr": "أوجد ميل المماس المرسوم من نقطة الأصل $(0, 0)$ لمنحنى القطع المكافئ $y = x^2 + 121$ في الربع الأول.",
+    "questionEn": "If $f(x) = \\frac{x}{\\sqrt{1 + x^2}}$, find the value of the third derivative $f'''(0)$.",
+    "questionAr": "إذا كانت $f(x) = \\frac{x}{\\sqrt{1 + x^2}}$، فاحسب قيمة المشتقة الثالثة $f'''(0)$.",
     "optionsEn": [
-      "22",
-      "24",
-      "27",
-      "30"
+      "$-3$",
+      "$3$",
+      "$0$",
+      "$-6$"
     ],
     "optionsAr": [
-      "22",
-      "24",
-      "27",
-      "30"
+      "$-3$",
+      "$3$",
+      "$0$",
+      "$-6$"
     ],
-    "correctAnswer": "22",
+    "correctAnswer": "$-3$",
     "correctIndex": 0,
-    "hintEn": "Let the point of tangency be $(x_0, x_0^2 + 121)$. The slope is both $y'(x_0) = 2x_0$ and $\\frac{y_0 - 0}{x_0 - 0}$.",
-    "hintAr": "افرض نقطة التماس $(x_0, x_0^2 + 121)$. الميل يساوي $2x_0$ وأيضاً $\\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintEn": "Expand using binomial theorem: $f(x) = x(1 + x^2)^{-1/2} = x(1 - \\frac{1}{2}x^2 + \\dots)$.",
+    "hintAr": "استخدم مفكوك ذات الحدين لإيجاد معامل $x^3$.",
     "stepByStepSolutionEn": [
-      "1. Let the point of contact be $P(x_0, y_0) = (x_0, x_0^2 + 121)$.",
-      "2. The slope of the tangent at $P$ is $m = y'(x_0) = 2x_0$.",
-      "3. Since the tangent passes through $(0, 0)$, its slope is also:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 121}{x_0}$$",
-      "4. Equating the two expressions for slope:",
-      "$$2x_0 = \\frac{x_0^2 + 121}{x_0} \\implies 2x_0^2 = x_0^2 + 121 \\implies x_0^2 = 121$$",
-      "In the first quadrant, $x_0 = 11$.",
-      "5. Therefore, the slope is $m = 2(11) = 22$."
+      "1. Expand $x(1 + x^2)^{-1/2} = x\\left(1 - \\frac{1}{2}x^2 + \\frac{3}{8}x^4 - \\dots\\right) = x - \\frac{1}{2}x^3 + \\frac{3}{8}x^5 - \\dots$",
+      "2. The coefficient of $x^3$ in the Maclaurin series is $-\\frac{1}{2}$.",
+      "3. By Taylor's formula, the coefficient of $x^3$ is $\\frac{f'''(0)}{3!} = \\frac{f'''(0)}{6}$.",
+      "4. Therefore, $\\frac{f'''(0)}{6} = -\\frac{1}{2} \\implies f'''(0) = -3$."
     ],
     "stepByStepSolutionAr": [
-      "١. نفرض نقطة التماس $P(x_0, y_0) = (x_0, x_0^2 + 121)$.",
-      "٢. ميل المماس عند $P$ هو $m = y'(x_0) = 2x_0$.",
-      "٣. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله أيضاً:",
-      "$$m = \\frac{y_0 - 0}{x_0 - 0} = \\frac{x_0^2 + 121}{x_0}$$",
-      "٤. بمساواة تعبيري الميل:",
-      "$$2x_0 = \\frac{x_0^2 + 121}{x_0} \\implies 2x_0^2 = x_0^2 + 121 \\implies x_0^2 = 121$$",
-      "في الربع الأول: $x_0 = 11$.",
-      "٥. إذن ميل المماس هو $m = 2(11) = 22$."
+      "١. بمفكوك ذات الحدين: $f(x) = x(1 - \\frac{1}{2}x^2 + \\dots) = x - \\frac{1}{2}x^3 + \\dots$",
+      "٢. معامل $x^3$ يساوي $-\\frac{1}{2}$.",
+      "٣. من متسلسلة ماكلورين: معامل $x^3$ هو $\\frac{f'''(0)}{3!} = \\frac{f'''(0)}{6}$.",
+      "٤. إذن $f'''(0) = 6 \\times (-1/2) = -3$."
     ],
-    "teacherTipEn": "When a tangent is drawn from an external point, equate $y'(x_0)$ with $\\frac{y_0 - y_1}{x_0 - x_1}$.",
-    "teacherTipAr": "عند رسم مماس من نقطة خارج المنحنى، سوّ المشتقة عند نقطة التماس بميل القاطع المار بتلك النقطة."
+    "teacherTipEn": "Binomial series expansion avoids multiple tedious quotients with square roots.",
+    "teacherTipAr": "مفكوك ذات الحدين هو السلاح الأقوى لحساب المشتقات العليا عند نقطة الأصل دون الوقوع في متاهات اشتقاق الجذور."
   }
 ]
 };

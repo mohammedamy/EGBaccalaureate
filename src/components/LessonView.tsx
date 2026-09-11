@@ -12,7 +12,7 @@ import { InteractiveComplexArgand } from './InteractiveComplexArgand';
 import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -25,6 +25,7 @@ interface Props {
   activeSubTab: string;
   onSubTabChange: (tab: string) => void;
   onSelectLesson?: (branch: Branch, lesson: Lesson, tab?: string) => void;
+  onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
 export const LessonView: React.FC<Props> = ({
@@ -37,6 +38,7 @@ export const LessonView: React.FC<Props> = ({
   activeSubTab,
   onSubTabChange,
   onSelectLesson,
+  onOpenDesmos,
 }) => {
   const isLight = theme === 'light';
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
@@ -110,25 +112,71 @@ export const LessonView: React.FC<Props> = ({
 
   const t = translations[lang];
 
+  const is3D = branch.id === 'algebra_solid' || branch.id === 'egbac_vectors_geometry' || lesson.interactiveWidget.type === '3d_vectors';
+
   const renderInteractiveWidget = () => {
-    switch (lesson.interactiveWidget.type) {
-      case '3d_vectors':
-        return <Interactive3DGeometry lang={lang} theme={theme} />;
-      case 'pascal_binomial':
-        return <InteractivePascalTriangle lang={lang} theme={theme} />;
-      case 'calculus_tangent':
-        return <InteractiveCalculusTangent lang={lang} theme={theme} />;
-      case 'statics_friction':
-        return <InteractiveStaticsFriction lang={lang} theme={theme} />;
-      case 'complex_argand':
-        return <InteractiveComplexArgand lang={lang} theme={theme} />;
-      case 'normal_distribution':
-        return <InteractiveNormalDistribution lang={lang} theme={theme} />;
-      case 'dynamics_motion':
-        return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
-      default:
-        return <Interactive3DGeometry lang={lang} theme={theme} />;
-    }
+    const widgetComponent = (() => {
+      switch (lesson.interactiveWidget.type) {
+        case '3d_vectors':
+          return <Interactive3DGeometry lang={lang} theme={theme} />;
+        case 'pascal_binomial':
+          return <InteractivePascalTriangle lang={lang} theme={theme} />;
+        case 'calculus_tangent':
+          return <InteractiveCalculusTangent lang={lang} theme={theme} />;
+        case 'statics_friction':
+          return <InteractiveStaticsFriction lang={lang} theme={theme} />;
+        case 'complex_argand':
+          return <InteractiveComplexArgand lang={lang} theme={theme} />;
+        case 'normal_distribution':
+          return <InteractiveNormalDistribution lang={lang} theme={theme} />;
+        case 'dynamics_motion':
+          return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
+        default:
+          return <Interactive3DGeometry lang={lang} theme={theme} />;
+      }
+    })();
+
+    return (
+      <div className="space-y-4">
+        {onOpenDesmos && (
+          <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-xl border transition-all ${
+            theme === 'high-contrast'
+              ? 'bg-black border-cyan-400 text-white'
+              : isLight
+              ? 'bg-gradient-to-r from-indigo-50 to-cyan-50 border-indigo-200 text-slate-800'
+              : 'bg-gradient-to-r from-slate-900/90 to-cyan-950/40 border-slate-800 text-slate-200'
+          }`}>
+            <div className="flex items-center gap-2.5">
+              <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400">
+                <Calculator className="w-4 h-4" />
+              </div>
+              <p className="text-xs font-semibold leading-snug">
+                {lang === 'ar'
+                  ? is3D
+                    ? 'استكشف معادلات المستويات والكرات ثلاثية الأبعاد بمرونة كاملة عبر ديسموس 3D'
+                    : 'جرّب رسم المنحنيات ومماسات الدوال والمحاكاة البيانية المتقدمة عبر حاسبة ديسموس'
+                  : is3D
+                  ? 'Explore 3D planes, vectors, and quadric surfaces with full camera rotation in Desmos 3D'
+                  : 'Plot custom curves, tangents, and dynamic calculus functions with Desmos'}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition-all cursor-pointer shrink-0 ${
+                theme === 'high-contrast'
+                  ? 'bg-yellow-400 text-black font-black'
+                  : 'bg-cyan-600 hover:bg-cyan-500 text-white'
+              }`}
+            >
+              <Calculator className="w-3.5 h-3.5" />
+              <span>{lang === 'ar' ? (is3D ? 'فتح في ديسموس 3D' : 'فتح في ديسموس 2D') : (is3D ? 'Open in Desmos 3D' : 'Open in Desmos 2D')}</span>
+            </button>
+          </div>
+        )}
+        {widgetComponent}
+      </div>
+    );
   };
 
   const renderProblemCard = (prob: SolvedProblem, idx: number, badgeText?: string) => {
@@ -275,6 +323,17 @@ export const LessonView: React.FC<Props> = ({
             {isSolOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
             <span>{isSolOpen ? t.hideSolution : t.showSolution}</span>
           </button>
+
+          {onOpenDesmos && (
+            <button
+              onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
+              className="text-xs font-bold text-cyan-700 dark:text-cyan-400 hover:text-cyan-900 dark:hover:text-cyan-200 flex items-center justify-center gap-1.5 bg-cyan-50 dark:bg-slate-900 px-3 py-2 rounded-xl border border-cyan-300 dark:border-slate-800 transition-all shadow-xs flex-1 sm:flex-initial no-print"
+              title={lang === 'ar' ? 'فتح الحاسبة البيانية لديسموس' : 'Open in Desmos'}
+            >
+              <Calculator className="w-3.5 h-3.5 text-cyan-400" />
+              <span>{lang === 'ar' ? 'ديسموس' : 'Desmos'}</span>
+            </button>
+          )}
 
           {isAnswered && (
             <button

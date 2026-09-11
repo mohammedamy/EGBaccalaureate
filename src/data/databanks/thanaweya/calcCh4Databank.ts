@@ -1,5300 +1,5320 @@
 import type { ChapterDatabank } from '../../../types/curriculum';
 
 export const calcCh4Databank: ChapterDatabank = {
-  easy: [
+  "easy": [
   {
     "id": "calc_ch4_db_easy_01",
-    "titleEn": "Linear Power Integration a=2 #1",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=2 رقم 1",
+    "titleEn": "Definite Integral with Identical Limits",
+    "titleAr": "تكامل محدد بحدود تكامل متطابقة",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (2x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (2x + 3)^3 dx$.",
+    "questionEn": "Evaluate $\\int_5^5 (x^3 + 7x - 2) dx$.",
+    "questionAr": "احسب قيمة $\\int_5^5 (x^3 + 7x - 2) dx$.",
     "optionsEn": [
-      "$\\frac{1}{8} (2x + 3)^4 + C$",
-      "$\\frac{1}{12} (2x + 3)^4 + C$",
-      "$\\frac{1}{16} (2x + 3)^4 + C$",
-      "$\\frac{1}{20} (2x + 3)^4 + C$"
+      "$0$",
+      "$5$",
+      "$12$",
+      "Undefined"
     ],
     "optionsAr": [
-      "$\\frac{1}{8} (2x + 3)^4 + C$",
-      "$\\frac{1}{12} (2x + 3)^4 + C$",
-      "$\\frac{1}{16} (2x + 3)^4 + C$",
-      "$\\frac{1}{20} (2x + 3)^4 + C$"
+      "0",
+      "5",
+      "12",
+      "غير معرف"
     ],
-    "correctAnswer": "$\\frac{1}{8} (2x + 3)^4 + C$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
+    "hintEn": "Integral from a to a is always 0.",
+    "hintAr": "تكامل أي دالة من أ إلى أ يساوي صفراً.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 2, n = 3$: $\\frac{(2x + 3)^4}{2 \\times 4} + C = \\frac{1}{8} (2x + 3)^4 + C$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 2$ و $n = 3$: $\\frac{1}{8} (2x + 3)^4 + C$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
     "id": "calc_ch4_db_easy_02",
-    "titleEn": "Linear Power Integration a=3 #2",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=3 رقم 2",
+    "titleEn": "Reversing Limits of Integration",
+    "titleAr": "عكس حدود التكامل المحدد",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (3x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (3x + 3)^3 dx$.",
+    "questionEn": "If $\\int_1^4 f(x) dx = 8$, what is the value of $\\int_4^1 f(x) dx$?",
+    "questionAr": "إذا كان $\\int_1^4 f(x) dx = 8$، فما قيمة $\\int_4^1 f(x) dx$؟",
     "optionsEn": [
-      "$\\frac{1}{12} (3x + 3)^4 + C$",
-      "$\\frac{1}{16} (3x + 3)^4 + C$",
-      "$\\frac{1}{20} (3x + 3)^4 + C$",
-      "$\\frac{1}{24} (3x + 3)^4 + C$"
+      "$-8$",
+      "$8$",
+      "$\\frac{1}{8}$",
+      "$0$"
     ],
     "optionsAr": [
-      "$\\frac{1}{12} (3x + 3)^4 + C$",
-      "$\\frac{1}{16} (3x + 3)^4 + C$",
-      "$\\frac{1}{20} (3x + 3)^4 + C$",
-      "$\\frac{1}{24} (3x + 3)^4 + C$"
+      "-8",
+      "8",
+      "1/8",
+      "0"
     ],
-    "correctAnswer": "$\\frac{1}{12} (3x + 3)^4 + C$",
+    "correctAnswer": "$-8$",
     "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
+    "hintEn": "int_b^a f(x) dx = - int_a^b f(x) dx.",
+    "hintAr": "عكس حدود التكامل يغير إشارة الناتج.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 3, n = 3$: $\\frac{(3x + 3)^4}{3 \\times 4} + C = \\frac{1}{12} (3x + 3)^4 + C$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 3$ و $n = 3$: $\\frac{1}{12} (3x + 3)^4 + C$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
     "id": "calc_ch4_db_easy_03",
-    "titleEn": "Linear Power Integration a=4 #3",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=4 رقم 3",
+    "titleEn": "Interval Additivity Property",
+    "titleAr": "خاصية تجزئة فترات التكامل المحدد",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (4x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (4x + 3)^3 dx$.",
+    "questionEn": "If $\\int_0^3 f(x) dx = 4$ and $\\int_3^7 f(x) dx = 9$, find $\\int_0^7 f(x) dx$.",
+    "questionAr": "إذا كان $\\int_0^3 f(x) dx = 4$ و $\\int_3^7 f(x) dx = 9$، فأوجد $\\int_0^7 f(x) dx$.",
     "optionsEn": [
-      "$\\frac{1}{16} (4x + 3)^4 + C$",
-      "$\\frac{1}{20} (4x + 3)^4 + C$",
-      "$\\frac{1}{24} (4x + 3)^4 + C$",
-      "$\\frac{1}{28} (4x + 3)^4 + C$"
+      "$13$",
+      "$5$",
+      "$-5$",
+      "$36$"
     ],
     "optionsAr": [
-      "$\\frac{1}{16} (4x + 3)^4 + C$",
-      "$\\frac{1}{20} (4x + 3)^4 + C$",
-      "$\\frac{1}{24} (4x + 3)^4 + C$",
-      "$\\frac{1}{28} (4x + 3)^4 + C$"
+      "13",
+      "5",
+      "-5",
+      "36"
     ],
-    "correctAnswer": "$\\frac{1}{16} (4x + 3)^4 + C$",
+    "correctAnswer": "$13$",
     "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
+    "hintEn": "int_0^7 = int_0^3 + int_3^7 = 4 + 9 = 13.",
+    "hintAr": "تكامل من 0 إلى 7 = تكامل من 0 إلى 3 + تكامل من 3 إلى 7 = 13.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 4, n = 3$: $\\frac{(4x + 3)^4}{4 \\times 4} + C = \\frac{1}{16} (4x + 3)^4 + C$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 4$ و $n = 3$: $\\frac{1}{16} (4x + 3)^4 + C$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
     "id": "calc_ch4_db_easy_04",
-    "titleEn": "Linear Power Integration a=5 #4",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=5 رقم 4",
+    "titleEn": "Integral of Odd Function on Symmetric Interval",
+    "titleAr": "تكامل دالة فردية على فترة متماثلة حول الصفر",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (5x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (5x + 3)^3 dx$.",
+    "questionEn": "Evaluate $\\int_{-4}^4 x^5 dx$.",
+    "questionAr": "احسب قيمة $\\int_{-4}^4 x^5 dx$.",
     "optionsEn": [
-      "$\\frac{1}{20} (5x + 3)^4 + C$",
-      "$\\frac{1}{24} (5x + 3)^4 + C$",
-      "$\\frac{1}{28} (5x + 3)^4 + C$",
-      "$\\frac{1}{32} (5x + 3)^4 + C$"
+      "$0$",
+      "$256$",
+      "$512$",
+      "$1024$"
     ],
     "optionsAr": [
-      "$\\frac{1}{20} (5x + 3)^4 + C$",
-      "$\\frac{1}{24} (5x + 3)^4 + C$",
-      "$\\frac{1}{28} (5x + 3)^4 + C$",
-      "$\\frac{1}{32} (5x + 3)^4 + C$"
+      "0",
+      "256",
+      "512",
+      "1024"
     ],
-    "correctAnswer": "$\\frac{1}{20} (5x + 3)^4 + C$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
+    "hintEn": "x^5 is an odd function, so its integral over [-a, a] is 0.",
+    "hintAr": "س⁵ دالة فردية، وتكامل الدالة الفردية على فترة متماثلة حول الصفر يساوي صفراً.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 5, n = 3$: $\\frac{(5x + 3)^4}{5 \\times 4} + C = \\frac{1}{20} (5x + 3)^4 + C$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 5$ و $n = 3$: $\\frac{1}{20} (5x + 3)^4 + C$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
     "id": "calc_ch4_db_easy_05",
-    "titleEn": "Linear Power Integration a=6 #5",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=6 رقم 5",
+    "titleEn": "Integral of Odd Trigonometric Function",
+    "titleAr": "تكامل دالة مثلثية فردية على فترة متماثلة",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (6x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (6x + 3)^3 dx$.",
+    "questionEn": "Evaluate $\\int_{-\\pi/2}^{\\pi/2} \\sin x \\, dx$.",
+    "questionAr": "احسب قيمة $\\int_{-\\pi/2}^{\\pi/2} \\sin x \\, dx$.",
     "optionsEn": [
-      "$\\frac{1}{24} (6x + 3)^4 + C$",
-      "$\\frac{1}{28} (6x + 3)^4 + C$",
-      "$\\frac{1}{32} (6x + 3)^4 + C$",
-      "$\\frac{1}{36} (6x + 3)^4 + C$"
+      "$0$",
+      "$1$",
+      "$2$",
+      "$-2$"
     ],
     "optionsAr": [
-      "$\\frac{1}{24} (6x + 3)^4 + C$",
-      "$\\frac{1}{28} (6x + 3)^4 + C$",
-      "$\\frac{1}{32} (6x + 3)^4 + C$",
-      "$\\frac{1}{36} (6x + 3)^4 + C$"
+      "0",
+      "1",
+      "2",
+      "-2"
     ],
-    "correctAnswer": "$\\frac{1}{24} (6x + 3)^4 + C$",
+    "correctAnswer": "$0$",
     "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
+    "hintEn": "sin x is an odd function, so integral over [-pi/2, pi/2] is 0.",
+    "hintAr": "جا س دالة فردية وتكاملها من -ط/2 إلى ط/2 يساوي صفراً.",
     "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 6, n = 3$: $\\frac{(6x + 3)^4}{6 \\times 4} + C = \\frac{1}{24} (6x + 3)^4 + C$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 6$ و $n = 3$: $\\frac{1}{24} (6x + 3)^4 + C$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
     "id": "calc_ch4_db_easy_06",
-    "titleEn": "Linear Power Integration a=7 #6",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=7 رقم 6",
+    "titleEn": "Integral of Even Function on Symmetric Interval",
+    "titleAr": "تكامل دالة زوجية على فترة متماثلة",
     "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (7x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (7x + 3)^3 dx$.",
-    "optionsEn": [
-      "$\\frac{1}{28} (7x + 3)^4 + C$",
-      "$\\frac{1}{32} (7x + 3)^4 + C$",
-      "$\\frac{1}{36} (7x + 3)^4 + C$",
-      "$\\frac{1}{40} (7x + 3)^4 + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{28} (7x + 3)^4 + C$",
-      "$\\frac{1}{32} (7x + 3)^4 + C$",
-      "$\\frac{1}{36} (7x + 3)^4 + C$",
-      "$\\frac{1}{40} (7x + 3)^4 + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{28} (7x + 3)^4 + C$",
-    "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 7, n = 3$: $\\frac{(7x + 3)^4}{7 \\times 4} + C = \\frac{1}{28} (7x + 3)^4 + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 7$ و $n = 3$: $\\frac{1}{28} (7x + 3)^4 + C$."
-    ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
-  },
-  {
-    "id": "calc_ch4_db_easy_07",
-    "titleEn": "Linear Power Integration a=8 #7",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=8 رقم 7",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (8x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (8x + 3)^3 dx$.",
-    "optionsEn": [
-      "$\\frac{1}{32} (8x + 3)^4 + C$",
-      "$\\frac{1}{36} (8x + 3)^4 + C$",
-      "$\\frac{1}{40} (8x + 3)^4 + C$",
-      "$\\frac{1}{44} (8x + 3)^4 + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{32} (8x + 3)^4 + C$",
-      "$\\frac{1}{36} (8x + 3)^4 + C$",
-      "$\\frac{1}{40} (8x + 3)^4 + C$",
-      "$\\frac{1}{44} (8x + 3)^4 + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{32} (8x + 3)^4 + C$",
-    "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 8, n = 3$: $\\frac{(8x + 3)^4}{8 \\times 4} + C = \\frac{1}{32} (8x + 3)^4 + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 8$ و $n = 3$: $\\frac{1}{32} (8x + 3)^4 + C$."
-    ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
-  },
-  {
-    "id": "calc_ch4_db_easy_08",
-    "titleEn": "Linear Power Integration a=9 #8",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=9 رقم 8",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (9x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (9x + 3)^3 dx$.",
-    "optionsEn": [
-      "$\\frac{1}{36} (9x + 3)^4 + C$",
-      "$\\frac{1}{40} (9x + 3)^4 + C$",
-      "$\\frac{1}{44} (9x + 3)^4 + C$",
-      "$\\frac{1}{48} (9x + 3)^4 + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{36} (9x + 3)^4 + C$",
-      "$\\frac{1}{40} (9x + 3)^4 + C$",
-      "$\\frac{1}{44} (9x + 3)^4 + C$",
-      "$\\frac{1}{48} (9x + 3)^4 + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{36} (9x + 3)^4 + C$",
-    "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 9, n = 3$: $\\frac{(9x + 3)^4}{9 \\times 4} + C = \\frac{1}{36} (9x + 3)^4 + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 9$ و $n = 3$: $\\frac{1}{36} (9x + 3)^4 + C$."
-    ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
-  },
-  {
-    "id": "calc_ch4_db_easy_09",
-    "titleEn": "Linear Power Integration a=10 #9",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=10 رقم 9",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (10x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (10x + 3)^3 dx$.",
-    "optionsEn": [
-      "$\\frac{1}{40} (10x + 3)^4 + C$",
-      "$\\frac{1}{44} (10x + 3)^4 + C$",
-      "$\\frac{1}{48} (10x + 3)^4 + C$",
-      "$\\frac{1}{52} (10x + 3)^4 + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{40} (10x + 3)^4 + C$",
-      "$\\frac{1}{44} (10x + 3)^4 + C$",
-      "$\\frac{1}{48} (10x + 3)^4 + C$",
-      "$\\frac{1}{52} (10x + 3)^4 + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{40} (10x + 3)^4 + C$",
-    "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 10, n = 3$: $\\frac{(10x + 3)^4}{10 \\times 4} + C = \\frac{1}{40} (10x + 3)^4 + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 10$ و $n = 3$: $\\frac{1}{40} (10x + 3)^4 + C$."
-    ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
-  },
-  {
-    "id": "calc_ch4_db_easy_10",
-    "titleEn": "Linear Power Integration a=11 #10",
-    "titleAr": "تكامل قوس خطي مرفوع لأس أ=11 رقم 10",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int (11x + 3)^3 dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int (11x + 3)^3 dx$.",
-    "optionsEn": [
-      "$\\frac{1}{44} (11x + 3)^4 + C$",
-      "$\\frac{1}{48} (11x + 3)^4 + C$",
-      "$\\frac{1}{52} (11x + 3)^4 + C$",
-      "$\\frac{1}{56} (11x + 3)^4 + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{44} (11x + 3)^4 + C$",
-      "$\\frac{1}{48} (11x + 3)^4 + C$",
-      "$\\frac{1}{52} (11x + 3)^4 + C$",
-      "$\\frac{1}{56} (11x + 3)^4 + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{44} (11x + 3)^4 + C$",
-    "correctIndex": 0,
-    "hintEn": "Use the linear substitution rule: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "hintAr": "استخدم قاعدة تكامل القوس الخطي: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Formula: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "2. Here $a = 11, n = 3$: $\\frac{(11x + 3)^4}{11 \\times 4} + C = \\frac{1}{44} (11x + 3)^4 + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$.",
-      "٢. بالتعويض عن $a = 11$ و $n = 3$: $\\frac{1}{44} (11x + 3)^4 + C$."
-    ],
-    "teacherTipEn": "Always divide by the coefficient of x.",
-    "teacherTipAr": "اقسم دائماً على معامل س."
-  },
-  {
-    "id": "calc_ch4_db_easy_11",
-    "titleEn": "Exponential Integration k=2 #11",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=2 رقم 11",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{2x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{2x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{2} e^{2x} + C$",
-      "$2 e^{2x} + C$",
-      "$\\frac{1}{3} e^{2x} + C$",
-      "$\\frac{1}{4} e^{5x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{2} e^{2x} + C$",
-      "$2 e^{2x} + C$",
-      "$\\frac{1}{3} e^{2x} + C$",
-      "$\\frac{1}{4} e^{5x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{2} e^{2x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 2$: $\\frac{1}{2} e^{2x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 2$: $\\frac{1}{2} e^{2x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_12",
-    "titleEn": "Exponential Integration k=3 #12",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=3 رقم 12",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{3x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{3x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{3} e^{3x} + C$",
-      "$3 e^{3x} + C$",
-      "$\\frac{1}{4} e^{3x} + C$",
-      "$\\frac{1}{5} e^{6x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{3} e^{3x} + C$",
-      "$3 e^{3x} + C$",
-      "$\\frac{1}{4} e^{3x} + C$",
-      "$\\frac{1}{5} e^{6x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{3} e^{3x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 3$: $\\frac{1}{3} e^{3x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 3$: $\\frac{1}{3} e^{3x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_13",
-    "titleEn": "Exponential Integration k=4 #13",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=4 رقم 13",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{4x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{4x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{4} e^{4x} + C$",
-      "$4 e^{4x} + C$",
-      "$\\frac{1}{5} e^{4x} + C$",
-      "$\\frac{1}{6} e^{7x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{4} e^{4x} + C$",
-      "$4 e^{4x} + C$",
-      "$\\frac{1}{5} e^{4x} + C$",
-      "$\\frac{1}{6} e^{7x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{4} e^{4x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 4$: $\\frac{1}{4} e^{4x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 4$: $\\frac{1}{4} e^{4x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_14",
-    "titleEn": "Exponential Integration k=5 #14",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=5 رقم 14",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{5x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{5x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{5} e^{5x} + C$",
-      "$5 e^{5x} + C$",
-      "$\\frac{1}{6} e^{5x} + C$",
-      "$\\frac{1}{7} e^{8x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{5} e^{5x} + C$",
-      "$5 e^{5x} + C$",
-      "$\\frac{1}{6} e^{5x} + C$",
-      "$\\frac{1}{7} e^{8x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{5} e^{5x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 5$: $\\frac{1}{5} e^{5x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 5$: $\\frac{1}{5} e^{5x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_15",
-    "titleEn": "Exponential Integration k=6 #15",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=6 رقم 15",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{6x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{6x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{6} e^{6x} + C$",
-      "$6 e^{6x} + C$",
-      "$\\frac{1}{7} e^{6x} + C$",
-      "$\\frac{1}{8} e^{9x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{6} e^{6x} + C$",
-      "$6 e^{6x} + C$",
-      "$\\frac{1}{7} e^{6x} + C$",
-      "$\\frac{1}{8} e^{9x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{6} e^{6x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 6$: $\\frac{1}{6} e^{6x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 6$: $\\frac{1}{6} e^{6x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_16",
-    "titleEn": "Exponential Integration k=7 #16",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=7 رقم 16",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{7x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{7x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{7} e^{7x} + C$",
-      "$7 e^{7x} + C$",
-      "$\\frac{1}{8} e^{7x} + C$",
-      "$\\frac{1}{9} e^{10x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{7} e^{7x} + C$",
-      "$7 e^{7x} + C$",
-      "$\\frac{1}{8} e^{7x} + C$",
-      "$\\frac{1}{9} e^{10x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{7} e^{7x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 7$: $\\frac{1}{7} e^{7x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 7$: $\\frac{1}{7} e^{7x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_17",
-    "titleEn": "Exponential Integration k=8 #17",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=8 رقم 17",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{8x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{8x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{8} e^{8x} + C$",
-      "$8 e^{8x} + C$",
-      "$\\frac{1}{9} e^{8x} + C$",
-      "$\\frac{1}{10} e^{11x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{8} e^{8x} + C$",
-      "$8 e^{8x} + C$",
-      "$\\frac{1}{9} e^{8x} + C$",
-      "$\\frac{1}{10} e^{11x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{8} e^{8x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 8$: $\\frac{1}{8} e^{8x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 8$: $\\frac{1}{8} e^{8x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_18",
-    "titleEn": "Exponential Integration k=9 #18",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=9 رقم 18",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{9x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{9x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{9} e^{9x} + C$",
-      "$9 e^{9x} + C$",
-      "$\\frac{1}{10} e^{9x} + C$",
-      "$\\frac{1}{11} e^{12x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{9} e^{9x} + C$",
-      "$9 e^{9x} + C$",
-      "$\\frac{1}{10} e^{9x} + C$",
-      "$\\frac{1}{11} e^{12x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{9} e^{9x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 9$: $\\frac{1}{9} e^{9x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 9$: $\\frac{1}{9} e^{9x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_19",
-    "titleEn": "Exponential Integration k=10 #19",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=10 رقم 19",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{10x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{10x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{10} e^{10x} + C$",
-      "$10 e^{10x} + C$",
-      "$\\frac{1}{11} e^{10x} + C$",
-      "$\\frac{1}{12} e^{13x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{10} e^{10x} + C$",
-      "$10 e^{10x} + C$",
-      "$\\frac{1}{11} e^{10x} + C$",
-      "$\\frac{1}{12} e^{13x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{10} e^{10x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 10$: $\\frac{1}{10} e^{10x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 10$: $\\frac{1}{10} e^{10x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_20",
-    "titleEn": "Exponential Integration k=11 #20",
-    "titleAr": "تكامل الدالة الأسية الطبيعية ك=11 رقم 20",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int e^{11x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int e^{11x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{11} e^{11x} + C$",
-      "$11 e^{11x} + C$",
-      "$\\frac{1}{12} e^{11x} + C$",
-      "$\\frac{1}{13} e^{14x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{11} e^{11x} + C$",
-      "$11 e^{11x} + C$",
-      "$\\frac{1}{12} e^{11x} + C$",
-      "$\\frac{1}{13} e^{14x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{11} e^{11x} + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "hintAr": "$\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "2. For $k = 11$: $\\frac{1}{11} e^{11x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة القياسية: $\\int e^{kx} dx = \\frac{1}{k} e^{kx} + C$.",
-      "٢. عند $k = 11$: $\\frac{1}{11} e^{11x} + C$."
-    ],
-    "teacherTipEn": "Integration divides by the coefficient in the exponent.",
-    "teacherTipAr": "التكامل يقسم على معامل س الموجود في الأس."
-  },
-  {
-    "id": "calc_ch4_db_easy_21",
-    "titleEn": "Trigonometric Cosine Integration k=2 #21",
-    "titleAr": "تكامل جيب التمام ك=2 رقم 21",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(2x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(2x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{2} \\sin(2x) + C$",
-      "$-\\frac{1}{2} \\sin(2x) + C$",
-      "$\\frac{1}{3} \\sin(2x) + C$",
-      "$2 \\sin(2x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{2} \\sin(2x) + C$",
-      "$-\\frac{1}{2} \\sin(2x) + C$",
-      "$\\frac{1}{3} \\sin(2x) + C$",
-      "$2 \\sin(2x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{2} \\sin(2x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 2$: $\\frac{1}{2} \\sin(2x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 2$: $\\frac{1}{2} \\sin(2x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_22",
-    "titleEn": "Trigonometric Cosine Integration k=3 #22",
-    "titleAr": "تكامل جيب التمام ك=3 رقم 22",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(3x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(3x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{3} \\sin(3x) + C$",
-      "$-\\frac{1}{3} \\sin(3x) + C$",
-      "$\\frac{1}{4} \\sin(3x) + C$",
-      "$3 \\sin(3x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{3} \\sin(3x) + C$",
-      "$-\\frac{1}{3} \\sin(3x) + C$",
-      "$\\frac{1}{4} \\sin(3x) + C$",
-      "$3 \\sin(3x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{3} \\sin(3x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 3$: $\\frac{1}{3} \\sin(3x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 3$: $\\frac{1}{3} \\sin(3x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_23",
-    "titleEn": "Trigonometric Cosine Integration k=4 #23",
-    "titleAr": "تكامل جيب التمام ك=4 رقم 23",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(4x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(4x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{4} \\sin(4x) + C$",
-      "$-\\frac{1}{4} \\sin(4x) + C$",
-      "$\\frac{1}{5} \\sin(4x) + C$",
-      "$4 \\sin(4x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{4} \\sin(4x) + C$",
-      "$-\\frac{1}{4} \\sin(4x) + C$",
-      "$\\frac{1}{5} \\sin(4x) + C$",
-      "$4 \\sin(4x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{4} \\sin(4x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 4$: $\\frac{1}{4} \\sin(4x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 4$: $\\frac{1}{4} \\sin(4x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_24",
-    "titleEn": "Trigonometric Cosine Integration k=5 #24",
-    "titleAr": "تكامل جيب التمام ك=5 رقم 24",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(5x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(5x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{5} \\sin(5x) + C$",
-      "$-\\frac{1}{5} \\sin(5x) + C$",
-      "$\\frac{1}{6} \\sin(5x) + C$",
-      "$5 \\sin(5x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{5} \\sin(5x) + C$",
-      "$-\\frac{1}{5} \\sin(5x) + C$",
-      "$\\frac{1}{6} \\sin(5x) + C$",
-      "$5 \\sin(5x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{5} \\sin(5x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 5$: $\\frac{1}{5} \\sin(5x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 5$: $\\frac{1}{5} \\sin(5x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_25",
-    "titleEn": "Trigonometric Cosine Integration k=6 #25",
-    "titleAr": "تكامل جيب التمام ك=6 رقم 25",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(6x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(6x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{6} \\sin(6x) + C$",
-      "$-\\frac{1}{6} \\sin(6x) + C$",
-      "$\\frac{1}{7} \\sin(6x) + C$",
-      "$6 \\sin(6x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{6} \\sin(6x) + C$",
-      "$-\\frac{1}{6} \\sin(6x) + C$",
-      "$\\frac{1}{7} \\sin(6x) + C$",
-      "$6 \\sin(6x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{6} \\sin(6x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 6$: $\\frac{1}{6} \\sin(6x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 6$: $\\frac{1}{6} \\sin(6x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_26",
-    "titleEn": "Trigonometric Cosine Integration k=7 #26",
-    "titleAr": "تكامل جيب التمام ك=7 رقم 26",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(7x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(7x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{7} \\sin(7x) + C$",
-      "$-\\frac{1}{7} \\sin(7x) + C$",
-      "$\\frac{1}{8} \\sin(7x) + C$",
-      "$7 \\sin(7x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{7} \\sin(7x) + C$",
-      "$-\\frac{1}{7} \\sin(7x) + C$",
-      "$\\frac{1}{8} \\sin(7x) + C$",
-      "$7 \\sin(7x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{7} \\sin(7x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 7$: $\\frac{1}{7} \\sin(7x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 7$: $\\frac{1}{7} \\sin(7x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_27",
-    "titleEn": "Trigonometric Cosine Integration k=8 #27",
-    "titleAr": "تكامل جيب التمام ك=8 رقم 27",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(8x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(8x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{8} \\sin(8x) + C$",
-      "$-\\frac{1}{8} \\sin(8x) + C$",
-      "$\\frac{1}{9} \\sin(8x) + C$",
-      "$8 \\sin(8x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{8} \\sin(8x) + C$",
-      "$-\\frac{1}{8} \\sin(8x) + C$",
-      "$\\frac{1}{9} \\sin(8x) + C$",
-      "$8 \\sin(8x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{8} \\sin(8x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 8$: $\\frac{1}{8} \\sin(8x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 8$: $\\frac{1}{8} \\sin(8x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_28",
-    "titleEn": "Trigonometric Cosine Integration k=9 #28",
-    "titleAr": "تكامل جيب التمام ك=9 رقم 28",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(9x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(9x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{9} \\sin(9x) + C$",
-      "$-\\frac{1}{9} \\sin(9x) + C$",
-      "$\\frac{1}{10} \\sin(9x) + C$",
-      "$9 \\sin(9x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{9} \\sin(9x) + C$",
-      "$-\\frac{1}{9} \\sin(9x) + C$",
-      "$\\frac{1}{10} \\sin(9x) + C$",
-      "$9 \\sin(9x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{9} \\sin(9x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 9$: $\\frac{1}{9} \\sin(9x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 9$: $\\frac{1}{9} \\sin(9x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_29",
-    "titleEn": "Trigonometric Cosine Integration k=10 #29",
-    "titleAr": "تكامل جيب التمام ك=10 رقم 29",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(10x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(10x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{10} \\sin(10x) + C$",
-      "$-\\frac{1}{10} \\sin(10x) + C$",
-      "$\\frac{1}{11} \\sin(10x) + C$",
-      "$10 \\sin(10x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{10} \\sin(10x) + C$",
-      "$-\\frac{1}{10} \\sin(10x) + C$",
-      "$\\frac{1}{11} \\sin(10x) + C$",
-      "$10 \\sin(10x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{10} \\sin(10x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 10$: $\\frac{1}{10} \\sin(10x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 10$: $\\frac{1}{10} \\sin(10x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_30",
-    "titleEn": "Trigonometric Cosine Integration k=11 #30",
-    "titleAr": "تكامل جيب التمام ك=11 رقم 30",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\cos(11x) dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos(11x) dx$.",
-    "optionsEn": [
-      "$\\frac{1}{11} \\sin(11x) + C$",
-      "$-\\frac{1}{11} \\sin(11x) + C$",
-      "$\\frac{1}{12} \\sin(11x) + C$",
-      "$11 \\sin(11x) + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{11} \\sin(11x) + C$",
-      "$-\\frac{1}{11} \\sin(11x) + C$",
-      "$\\frac{1}{12} \\sin(11x) + C$",
-      "$11 \\sin(11x) + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{11} \\sin(11x) + C$",
-    "correctIndex": 0,
-    "hintEn": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "hintAr": "$\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-    "stepByStepSolutionEn": [
-      "1. Standard formula: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "2. For $k = 11$: $\\frac{1}{11} \\sin(11x) + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. القاعدة: $\\int \\cos(kx) dx = \\frac{1}{k} \\sin(kx) + C$.",
-      "٢. عند $k = 11$: $\\frac{1}{11} \\sin(11x) + C$."
-    ],
-    "teacherTipEn": "Notice the positive sign: integral of cos is +sin.",
-    "teacherTipAr": "انتبه للإشارة الموجبة: تكامل جتا هو +جا."
-  },
-  {
-    "id": "calc_ch4_db_easy_31",
-    "titleEn": "Logarithmic Reciprocal Integration c=2 #31",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=2 رقم 31",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 2} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 2} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 2| + C$",
-      "$\\frac{1}{(x + 2)^2} + C$",
-      "$\\ln|x + 3| + C$",
-      "$\\frac{1}{2} \\ln|x + 2| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 2| + C$",
-      "$\\frac{1}{(x + 2)^2} + C$",
-      "$\\ln|x + 3| + C$",
-      "$\\frac{1}{2} \\ln|x + 2| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 2| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 2) = 1$.",
-      "2. $\\int \\frac{1}{x + 2} dx = \\ln|x + 2| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 2| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_32",
-    "titleEn": "Logarithmic Reciprocal Integration c=3 #32",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=3 رقم 32",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 3} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 3} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 3| + C$",
-      "$\\frac{1}{(x + 3)^2} + C$",
-      "$\\ln|x + 4| + C$",
-      "$\\frac{1}{3} \\ln|x + 3| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 3| + C$",
-      "$\\frac{1}{(x + 3)^2} + C$",
-      "$\\ln|x + 4| + C$",
-      "$\\frac{1}{3} \\ln|x + 3| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 3| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 3) = 1$.",
-      "2. $\\int \\frac{1}{x + 3} dx = \\ln|x + 3| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 3| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_33",
-    "titleEn": "Logarithmic Reciprocal Integration c=4 #33",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=4 رقم 33",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 4} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 4} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 4| + C$",
-      "$\\frac{1}{(x + 4)^2} + C$",
-      "$\\ln|x + 5| + C$",
-      "$\\frac{1}{4} \\ln|x + 4| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 4| + C$",
-      "$\\frac{1}{(x + 4)^2} + C$",
-      "$\\ln|x + 5| + C$",
-      "$\\frac{1}{4} \\ln|x + 4| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 4| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 4) = 1$.",
-      "2. $\\int \\frac{1}{x + 4} dx = \\ln|x + 4| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 4| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_34",
-    "titleEn": "Logarithmic Reciprocal Integration c=5 #34",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=5 رقم 34",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 5} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 5} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 5| + C$",
-      "$\\frac{1}{(x + 5)^2} + C$",
-      "$\\ln|x + 6| + C$",
-      "$\\frac{1}{5} \\ln|x + 5| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 5| + C$",
-      "$\\frac{1}{(x + 5)^2} + C$",
-      "$\\ln|x + 6| + C$",
-      "$\\frac{1}{5} \\ln|x + 5| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 5| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 5) = 1$.",
-      "2. $\\int \\frac{1}{x + 5} dx = \\ln|x + 5| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 5| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_35",
-    "titleEn": "Logarithmic Reciprocal Integration c=6 #35",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=6 رقم 35",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 6} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 6} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 6| + C$",
-      "$\\frac{1}{(x + 6)^2} + C$",
-      "$\\ln|x + 7| + C$",
-      "$\\frac{1}{6} \\ln|x + 6| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 6| + C$",
-      "$\\frac{1}{(x + 6)^2} + C$",
-      "$\\ln|x + 7| + C$",
-      "$\\frac{1}{6} \\ln|x + 6| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 6| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 6) = 1$.",
-      "2. $\\int \\frac{1}{x + 6} dx = \\ln|x + 6| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 6| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_36",
-    "titleEn": "Logarithmic Reciprocal Integration c=7 #36",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=7 رقم 36",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 7} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 7} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 7| + C$",
-      "$\\frac{1}{(x + 7)^2} + C$",
-      "$\\ln|x + 8| + C$",
-      "$\\frac{1}{7} \\ln|x + 7| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 7| + C$",
-      "$\\frac{1}{(x + 7)^2} + C$",
-      "$\\ln|x + 8| + C$",
-      "$\\frac{1}{7} \\ln|x + 7| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 7| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 7) = 1$.",
-      "2. $\\int \\frac{1}{x + 7} dx = \\ln|x + 7| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 7| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_37",
-    "titleEn": "Logarithmic Reciprocal Integration c=8 #37",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=8 رقم 37",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 8} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 8} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 8| + C$",
-      "$\\frac{1}{(x + 8)^2} + C$",
-      "$\\ln|x + 9| + C$",
-      "$\\frac{1}{8} \\ln|x + 8| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 8| + C$",
-      "$\\frac{1}{(x + 8)^2} + C$",
-      "$\\ln|x + 9| + C$",
-      "$\\frac{1}{8} \\ln|x + 8| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 8| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 8) = 1$.",
-      "2. $\\int \\frac{1}{x + 8} dx = \\ln|x + 8| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 8| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_38",
-    "titleEn": "Logarithmic Reciprocal Integration c=9 #38",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=9 رقم 38",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 9} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 9} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 9| + C$",
-      "$\\frac{1}{(x + 9)^2} + C$",
-      "$\\ln|x + 10| + C$",
-      "$\\frac{1}{9} \\ln|x + 9| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 9| + C$",
-      "$\\frac{1}{(x + 9)^2} + C$",
-      "$\\ln|x + 10| + C$",
-      "$\\frac{1}{9} \\ln|x + 9| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 9| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 9) = 1$.",
-      "2. $\\int \\frac{1}{x + 9} dx = \\ln|x + 9| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 9| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_39",
-    "titleEn": "Logarithmic Reciprocal Integration c=10 #39",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=10 رقم 39",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 10} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 10} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 10| + C$",
-      "$\\frac{1}{(x + 10)^2} + C$",
-      "$\\ln|x + 11| + C$",
-      "$\\frac{1}{10} \\ln|x + 10| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 10| + C$",
-      "$\\frac{1}{(x + 10)^2} + C$",
-      "$\\ln|x + 11| + C$",
-      "$\\frac{1}{10} \\ln|x + 10| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 10| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 10) = 1$.",
-      "2. $\\int \\frac{1}{x + 10} dx = \\ln|x + 10| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 10| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_40",
-    "titleEn": "Logarithmic Reciprocal Integration c=11 #40",
-    "titleAr": "تكامل الصورة اللوغاريتمية جـ=11 رقم 40",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{1}{x + 11} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{1}{x + 11} dx$.",
-    "optionsEn": [
-      "$\\ln|x + 11| + C$",
-      "$\\frac{1}{(x + 11)^2} + C$",
-      "$\\ln|x + 12| + C$",
-      "$\\frac{1}{11} \\ln|x + 11| + C$"
-    ],
-    "optionsAr": [
-      "$\\ln|x + 11| + C$",
-      "$\\frac{1}{(x + 11)^2} + C$",
-      "$\\ln|x + 12| + C$",
-      "$\\frac{1}{11} \\ln|x + 11| + C$"
-    ],
-    "correctAnswer": "$\\ln|x + 11| + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is 1, which is the exact derivative of $(x + ${c})$.",
-    "hintAr": "البسط هو ١، وهو المشتقة التامة للمقام $(x + ${c})$.",
-    "stepByStepSolutionEn": [
-      "1. $\\frac{d}{dx}(x + 11) = 1$.",
-      "2. $\\int \\frac{1}{x + 11} dx = \\ln|x + 11| + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام هي ١.",
-      "٢. الناتج هو لوغاريتم القيمة المطلقة للمقام: $\\ln|x + 11| + C$."
-    ],
-    "teacherTipEn": "Whenever degree of denominator is 1 and degree of numerator is 0, expect a natural logarithm.",
-    "teacherTipAr": "عندما يكون المقام من الدرجة الأولى والبسط ثابتاً، فإن الناتج لوغاريتم طبيعي."
-  },
-  {
-    "id": "calc_ch4_db_easy_41",
-    "titleEn": "Basic Definite Integral Bound k=2 #41",
-    "titleAr": "تكامل محدد أساسي الحد ك=2 رقم 41",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{2} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{2} x dx$.",
-    "optionsEn": [
-      "$2$",
-      "$4$",
-      "$6$",
-      "$8$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$4$",
-      "$6$",
-      "$8$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{2}$.",
-      "2. Value: $\\frac{2^2}{2} - 0 = \\frac{4}{2} = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{2}$.",
-      "٢. التعويض: $\\frac{2^2}{2} = 2$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_42",
-    "titleEn": "Basic Definite Integral Bound k=3 #42",
-    "titleAr": "تكامل محدد أساسي الحد ك=3 رقم 42",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{3} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{3} x dx$.",
-    "optionsEn": [
-      "$4.5$",
-      "$6.5$",
-      "$8.5$",
-      "$10.5$"
-    ],
-    "optionsAr": [
-      "$4.5$",
-      "$6.5$",
-      "$8.5$",
-      "$10.5$"
-    ],
-    "correctAnswer": "$4.5$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{3}$.",
-      "2. Value: $\\frac{3^2}{2} - 0 = \\frac{9}{2} = 4.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{3}$.",
-      "٢. التعويض: $\\frac{3^2}{2} = 4.5$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_43",
-    "titleEn": "Basic Definite Integral Bound k=4 #43",
-    "titleAr": "تكامل محدد أساسي الحد ك=4 رقم 43",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{4} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{4} x dx$.",
-    "optionsEn": [
-      "$8$",
-      "$10$",
-      "$12$",
-      "$14$"
-    ],
-    "optionsAr": [
-      "$8$",
-      "$10$",
-      "$12$",
-      "$14$"
-    ],
-    "correctAnswer": "$8$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{4}$.",
-      "2. Value: $\\frac{4^2}{2} - 0 = \\frac{16}{2} = 8$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{4}$.",
-      "٢. التعويض: $\\frac{4^2}{2} = 8$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_44",
-    "titleEn": "Basic Definite Integral Bound k=5 #44",
-    "titleAr": "تكامل محدد أساسي الحد ك=5 رقم 44",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{5} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{5} x dx$.",
-    "optionsEn": [
-      "$12.5$",
-      "$14.5$",
-      "$16.5$",
-      "$18.5$"
-    ],
-    "optionsAr": [
-      "$12.5$",
-      "$14.5$",
-      "$16.5$",
-      "$18.5$"
-    ],
-    "correctAnswer": "$12.5$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{5}$.",
-      "2. Value: $\\frac{5^2}{2} - 0 = \\frac{25}{2} = 12.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{5}$.",
-      "٢. التعويض: $\\frac{5^2}{2} = 12.5$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_45",
-    "titleEn": "Basic Definite Integral Bound k=6 #45",
-    "titleAr": "تكامل محدد أساسي الحد ك=6 رقم 45",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{6} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{6} x dx$.",
-    "optionsEn": [
-      "$18$",
-      "$20$",
-      "$22$",
-      "$24$"
-    ],
-    "optionsAr": [
-      "$18$",
-      "$20$",
-      "$22$",
-      "$24$"
-    ],
-    "correctAnswer": "$18$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{6}$.",
-      "2. Value: $\\frac{6^2}{2} - 0 = \\frac{36}{2} = 18$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{6}$.",
-      "٢. التعويض: $\\frac{6^2}{2} = 18$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_46",
-    "titleEn": "Basic Definite Integral Bound k=7 #46",
-    "titleAr": "تكامل محدد أساسي الحد ك=7 رقم 46",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{7} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{7} x dx$.",
-    "optionsEn": [
-      "$24.5$",
-      "$26.5$",
-      "$28.5$",
-      "$30.5$"
-    ],
-    "optionsAr": [
-      "$24.5$",
-      "$26.5$",
-      "$28.5$",
-      "$30.5$"
-    ],
-    "correctAnswer": "$24.5$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{7}$.",
-      "2. Value: $\\frac{7^2}{2} - 0 = \\frac{49}{2} = 24.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{7}$.",
-      "٢. التعويض: $\\frac{7^2}{2} = 24.5$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_47",
-    "titleEn": "Basic Definite Integral Bound k=8 #47",
-    "titleAr": "تكامل محدد أساسي الحد ك=8 رقم 47",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{8} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{8} x dx$.",
-    "optionsEn": [
-      "$32$",
-      "$34$",
-      "$36$",
-      "$38$"
-    ],
-    "optionsAr": [
-      "$32$",
-      "$34$",
-      "$36$",
-      "$38$"
-    ],
-    "correctAnswer": "$32$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{8}$.",
-      "2. Value: $\\frac{8^2}{2} - 0 = \\frac{64}{2} = 32$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{8}$.",
-      "٢. التعويض: $\\frac{8^2}{2} = 32$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_48",
-    "titleEn": "Basic Definite Integral Bound k=9 #48",
-    "titleAr": "تكامل محدد أساسي الحد ك=9 رقم 48",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{9} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{9} x dx$.",
-    "optionsEn": [
-      "$40.5$",
-      "$42.5$",
-      "$44.5$",
-      "$46.5$"
-    ],
-    "optionsAr": [
-      "$40.5$",
-      "$42.5$",
-      "$44.5$",
-      "$46.5$"
-    ],
-    "correctAnswer": "$40.5$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{9}$.",
-      "2. Value: $\\frac{9^2}{2} - 0 = \\frac{81}{2} = 40.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{9}$.",
-      "٢. التعويض: $\\frac{9^2}{2} = 40.5$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_49",
-    "titleEn": "Basic Definite Integral Bound k=10 #49",
-    "titleAr": "تكامل محدد أساسي الحد ك=10 رقم 49",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{10} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{10} x dx$.",
-    "optionsEn": [
-      "$50$",
-      "$52$",
-      "$54$",
-      "$56$"
-    ],
-    "optionsAr": [
-      "$50$",
-      "$52$",
-      "$54$",
-      "$56$"
-    ],
-    "correctAnswer": "$50$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{10}$.",
-      "2. Value: $\\frac{10^2}{2} - 0 = \\frac{100}{2} = 50$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{10}$.",
-      "٢. التعويض: $\\frac{10^2}{2} = 50$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  },
-  {
-    "id": "calc_ch4_db_easy_50",
-    "titleEn": "Basic Definite Integral Bound k=11 #50",
-    "titleAr": "تكامل محدد أساسي الحد ك=11 رقم 50",
-    "difficulty": "easy",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{11} x dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{11} x dx$.",
-    "optionsEn": [
-      "$60.5$",
-      "$62.5$",
-      "$64.5$",
-      "$66.5$"
-    ],
-    "optionsAr": [
-      "$60.5$",
-      "$62.5$",
-      "$64.5$",
-      "$66.5$"
-    ],
-    "correctAnswer": "$60.5$",
-    "correctIndex": 0,
-    "hintEn": "$\\int x dx = \\frac{x^2}{2}$. Evaluate between 0 and ${k}.",
-    "hintAr": "$\\int x dx = \\frac{x^2}{2}$. احسب بين ٠ و ${k}.",
-    "stepByStepSolutionEn": [
-      "1. Antiderivative: $\\left[ \\frac{x^2}{2} \\right]_0^{11}$.",
-      "2. Value: $\\frac{11^2}{2} - 0 = \\frac{121}{2} = 60.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الدالة المقابلة: $\\left[ \\frac{x^2}{2} \\right]_0^{11}$.",
-      "٢. التعويض: $\\frac{11^2}{2} = 60.5$."
-    ],
-    "teacherTipEn": "Geometrically, this is the area of a right triangle with base and height equal to k: (1/2)*k*k.",
-    "teacherTipAr": "هندسياً، يمثل هذا مساحة مثلث قائم متساوي الساقين ضلعه ك: ٠٫٥ × ك²."
-  }
-],
-  medium: [
-  {
-    "id": "calc_ch4_db_medium_01",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=3 #1",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=3 رقم 1",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 3} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 3} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 3) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 3) + C$",
-      "$\\ln(x^2 + 4) + C$",
-      "$\\frac{1}{x^2 + 3} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 3) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 3) + C$",
-      "$\\ln(x^2 + 4) + C$",
-      "$\\frac{1}{x^2 + 3} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 3) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 3) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 3} dx = \\ln(x^2 + 3) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 3)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 3) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_02",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=4 #2",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=4 رقم 2",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 4} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 4} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 4) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 4) + C$",
-      "$\\ln(x^2 + 5) + C$",
-      "$\\frac{1}{x^2 + 4} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 4) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 4) + C$",
-      "$\\ln(x^2 + 5) + C$",
-      "$\\frac{1}{x^2 + 4} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 4) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 4) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 4} dx = \\ln(x^2 + 4) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 4)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 4) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_03",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=5 #3",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=5 رقم 3",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 5} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 5} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 5) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 5) + C$",
-      "$\\ln(x^2 + 6) + C$",
-      "$\\frac{1}{x^2 + 5} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 5) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 5) + C$",
-      "$\\ln(x^2 + 6) + C$",
-      "$\\frac{1}{x^2 + 5} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 5) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 5) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 5} dx = \\ln(x^2 + 5) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 5)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 5) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_04",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=6 #4",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=6 رقم 4",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 6} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 6} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 6) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 6) + C$",
-      "$\\ln(x^2 + 7) + C$",
-      "$\\frac{1}{x^2 + 6} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 6) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 6) + C$",
-      "$\\ln(x^2 + 7) + C$",
-      "$\\frac{1}{x^2 + 6} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 6) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 6) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 6} dx = \\ln(x^2 + 6) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 6)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 6) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_05",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=7 #5",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=7 رقم 5",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 7} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 7} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 7) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 7) + C$",
-      "$\\ln(x^2 + 8) + C$",
-      "$\\frac{1}{x^2 + 7} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 7) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 7) + C$",
-      "$\\ln(x^2 + 8) + C$",
-      "$\\frac{1}{x^2 + 7} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 7) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 7) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 7} dx = \\ln(x^2 + 7) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 7)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 7) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_06",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=8 #6",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=8 رقم 6",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 8} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 8} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 8) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 8) + C$",
-      "$\\ln(x^2 + 9) + C$",
-      "$\\frac{1}{x^2 + 8} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 8) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 8) + C$",
-      "$\\ln(x^2 + 9) + C$",
-      "$\\frac{1}{x^2 + 8} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 8) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 8) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 8} dx = \\ln(x^2 + 8) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 8)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 8) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_07",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=9 #7",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=9 رقم 7",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 9} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 9} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 9) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 9) + C$",
-      "$\\ln(x^2 + 10) + C$",
-      "$\\frac{1}{x^2 + 9} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 9) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 9) + C$",
-      "$\\ln(x^2 + 10) + C$",
-      "$\\frac{1}{x^2 + 9} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 9) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 9) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 9} dx = \\ln(x^2 + 9) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 9)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 9) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_08",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=10 #8",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=10 رقم 8",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 10} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 10} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 10) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 10) + C$",
-      "$\\ln(x^2 + 11) + C$",
-      "$\\frac{1}{x^2 + 10} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 10) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 10) + C$",
-      "$\\ln(x^2 + 11) + C$",
-      "$\\frac{1}{x^2 + 10} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 10) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 10) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 10} dx = \\ln(x^2 + 10) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 10)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 10) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_09",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=11 #9",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=11 رقم 9",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 11} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 11} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 11) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 11) + C$",
-      "$\\ln(x^2 + 12) + C$",
-      "$\\frac{1}{x^2 + 11} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 11) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 11) + C$",
-      "$\\ln(x^2 + 12) + C$",
-      "$\\frac{1}{x^2 + 11} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 11) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 11) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 11} dx = \\ln(x^2 + 11) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 11)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 11) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_10",
-    "titleEn": "Logarithmic Form Quadratic Denominator c=12 #10",
-    "titleAr": "صورة لوغاريتمية لمقام تربيعي جـ=12 رقم 10",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int \\frac{2x}{x^2 + 12} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{2x}{x^2 + 12} dx$.",
-    "optionsEn": [
-      "$\\ln(x^2 + 12) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 12) + C$",
-      "$\\ln(x^2 + 13) + C$",
-      "$\\frac{1}{x^2 + 12} + C$"
-    ],
-    "optionsAr": [
-      "$\\ln(x^2 + 12) + C$",
-      "$\\frac{1}{2} \\ln(x^2 + 12) + C$",
-      "$\\ln(x^2 + 13) + C$",
-      "$\\frac{1}{x^2 + 12} + C$"
-    ],
-    "correctAnswer": "$\\ln(x^2 + 12) + C$",
-    "correctIndex": 0,
-    "hintEn": "The numerator is the exact derivative of the denominator: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "hintAr": "البسط هو المشتقة التامة للمقام: $\\frac{d}{dx}(x^2 + ${c}) = 2x$.",
-    "stepByStepSolutionEn": [
-      "1. Derivative of denominator: $\\frac{d}{dx}(x^2 + 12) = 2x$.",
-      "2. Using $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$:",
-      "$$\\int \\frac{2x}{x^2 + 12} dx = \\ln(x^2 + 12) + C$$"
-    ],
-    "stepByStepSolutionAr": [
-      "١. مشتقة المقام: $(x^2 + 12)' = 2x$.",
-      "٢. بما أن البسط مشتقة للمقام، فالناتج هو لوغاريتم المقام: $\\ln(x^2 + 12) + C$."
-    ],
-    "teacherTipEn": "Notice that since x^2 + c is always positive, absolute value bars are not required.",
-    "teacherTipAr": "بما أن س² + جـ مقدار موجب دائماً، فلا داعي لكتابة علامة القيمة المطلقة."
-  },
-  {
-    "id": "calc_ch4_db_medium_11",
-    "titleEn": "Integration by Parts (x e^{2x}) #11",
-    "titleAr": "التكامل بالتجزيء (س هـ^{2س}) رقم 11",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{2x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{2x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{2} x e^{2x} - \\frac{1}{4} e^{2x} + C$",
-      "$\\frac{1}{2} x e^{2x} + \\frac{1}{4} e^{2x} + C$",
-      "$x e^{2x} - \\frac{1}{2} e^{2x} + C$",
-      "$\\frac{1}{4} x^2 e^{2x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{2} x e^{2x} - \\frac{1}{4} e^{2x} + C$",
-      "$\\frac{1}{2} x e^{2x} + \\frac{1}{4} e^{2x} + C$",
-      "$x e^{2x} - \\frac{1}{2} e^{2x} + C$",
-      "$\\frac{1}{4} x^2 e^{2x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{2} x e^{2x} - \\frac{1}{4} e^{2x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{2x} dx \\implies v = \\frac{1}{2} e^{2x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{2} x e^{2x} - \\frac{1}{2} \\int e^{2x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{2} x e^{2x} - \\frac{1}{4} e^{2x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{2x} dx \\implies v = \\frac{1}{2} e^{2x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{2} x e^{2x} - \\frac{1}{2} \\int e^{2x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{2} x e^{2x} - \\frac{1}{4} e^{2x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_12",
-    "titleEn": "Integration by Parts (x e^{3x}) #12",
-    "titleAr": "التكامل بالتجزيء (س هـ^{3س}) رقم 12",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{3x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{3x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
-      "$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$",
-      "$x e^{3x} - \\frac{1}{3} e^{3x} + C$",
-      "$\\frac{1}{9} x^2 e^{3x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
-      "$\\frac{1}{3} x e^{3x} + \\frac{1}{9} e^{3x} + C$",
-      "$x e^{3x} - \\frac{1}{3} e^{3x} + C$",
-      "$\\frac{1}{9} x^2 e^{3x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{3x} dx \\implies v = \\frac{1}{3} e^{3x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{3} x e^{3x} - \\frac{1}{3} \\int e^{3x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{3x} dx \\implies v = \\frac{1}{3} e^{3x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{3} x e^{3x} - \\frac{1}{3} \\int e^{3x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{3} x e^{3x} - \\frac{1}{9} e^{3x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_13",
-    "titleEn": "Integration by Parts (x e^{4x}) #13",
-    "titleAr": "التكامل بالتجزيء (س هـ^{4س}) رقم 13",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{4x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{4x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{4} x e^{4x} - \\frac{1}{16} e^{4x} + C$",
-      "$\\frac{1}{4} x e^{4x} + \\frac{1}{16} e^{4x} + C$",
-      "$x e^{4x} - \\frac{1}{4} e^{4x} + C$",
-      "$\\frac{1}{16} x^2 e^{4x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{4} x e^{4x} - \\frac{1}{16} e^{4x} + C$",
-      "$\\frac{1}{4} x e^{4x} + \\frac{1}{16} e^{4x} + C$",
-      "$x e^{4x} - \\frac{1}{4} e^{4x} + C$",
-      "$\\frac{1}{16} x^2 e^{4x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{4} x e^{4x} - \\frac{1}{16} e^{4x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{4x} dx \\implies v = \\frac{1}{4} e^{4x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{4} x e^{4x} - \\frac{1}{4} \\int e^{4x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{4} x e^{4x} - \\frac{1}{16} e^{4x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{4x} dx \\implies v = \\frac{1}{4} e^{4x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{4} x e^{4x} - \\frac{1}{4} \\int e^{4x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{4} x e^{4x} - \\frac{1}{16} e^{4x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_14",
-    "titleEn": "Integration by Parts (x e^{5x}) #14",
-    "titleAr": "التكامل بالتجزيء (س هـ^{5س}) رقم 14",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{5x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{5x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{5} x e^{5x} - \\frac{1}{25} e^{5x} + C$",
-      "$\\frac{1}{5} x e^{5x} + \\frac{1}{25} e^{5x} + C$",
-      "$x e^{5x} - \\frac{1}{5} e^{5x} + C$",
-      "$\\frac{1}{25} x^2 e^{5x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{5} x e^{5x} - \\frac{1}{25} e^{5x} + C$",
-      "$\\frac{1}{5} x e^{5x} + \\frac{1}{25} e^{5x} + C$",
-      "$x e^{5x} - \\frac{1}{5} e^{5x} + C$",
-      "$\\frac{1}{25} x^2 e^{5x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{5} x e^{5x} - \\frac{1}{25} e^{5x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{5x} dx \\implies v = \\frac{1}{5} e^{5x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{5} x e^{5x} - \\frac{1}{5} \\int e^{5x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{5} x e^{5x} - \\frac{1}{25} e^{5x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{5x} dx \\implies v = \\frac{1}{5} e^{5x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{5} x e^{5x} - \\frac{1}{5} \\int e^{5x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{5} x e^{5x} - \\frac{1}{25} e^{5x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_15",
-    "titleEn": "Integration by Parts (x e^{6x}) #15",
-    "titleAr": "التكامل بالتجزيء (س هـ^{6س}) رقم 15",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{6x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{6x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{6} x e^{6x} - \\frac{1}{36} e^{6x} + C$",
-      "$\\frac{1}{6} x e^{6x} + \\frac{1}{36} e^{6x} + C$",
-      "$x e^{6x} - \\frac{1}{6} e^{6x} + C$",
-      "$\\frac{1}{36} x^2 e^{6x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{6} x e^{6x} - \\frac{1}{36} e^{6x} + C$",
-      "$\\frac{1}{6} x e^{6x} + \\frac{1}{36} e^{6x} + C$",
-      "$x e^{6x} - \\frac{1}{6} e^{6x} + C$",
-      "$\\frac{1}{36} x^2 e^{6x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{6} x e^{6x} - \\frac{1}{36} e^{6x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{6x} dx \\implies v = \\frac{1}{6} e^{6x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{6} x e^{6x} - \\frac{1}{6} \\int e^{6x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{6} x e^{6x} - \\frac{1}{36} e^{6x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{6x} dx \\implies v = \\frac{1}{6} e^{6x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{6} x e^{6x} - \\frac{1}{6} \\int e^{6x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{6} x e^{6x} - \\frac{1}{36} e^{6x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_16",
-    "titleEn": "Integration by Parts (x e^{7x}) #16",
-    "titleAr": "التكامل بالتجزيء (س هـ^{7س}) رقم 16",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{7x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{7x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{7} x e^{7x} - \\frac{1}{49} e^{7x} + C$",
-      "$\\frac{1}{7} x e^{7x} + \\frac{1}{49} e^{7x} + C$",
-      "$x e^{7x} - \\frac{1}{7} e^{7x} + C$",
-      "$\\frac{1}{49} x^2 e^{7x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{7} x e^{7x} - \\frac{1}{49} e^{7x} + C$",
-      "$\\frac{1}{7} x e^{7x} + \\frac{1}{49} e^{7x} + C$",
-      "$x e^{7x} - \\frac{1}{7} e^{7x} + C$",
-      "$\\frac{1}{49} x^2 e^{7x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{7} x e^{7x} - \\frac{1}{49} e^{7x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{7x} dx \\implies v = \\frac{1}{7} e^{7x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{7} x e^{7x} - \\frac{1}{7} \\int e^{7x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{7} x e^{7x} - \\frac{1}{49} e^{7x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{7x} dx \\implies v = \\frac{1}{7} e^{7x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{7} x e^{7x} - \\frac{1}{7} \\int e^{7x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{7} x e^{7x} - \\frac{1}{49} e^{7x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_17",
-    "titleEn": "Integration by Parts (x e^{8x}) #17",
-    "titleAr": "التكامل بالتجزيء (س هـ^{8س}) رقم 17",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{8x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{8x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{8} x e^{8x} - \\frac{1}{64} e^{8x} + C$",
-      "$\\frac{1}{8} x e^{8x} + \\frac{1}{64} e^{8x} + C$",
-      "$x e^{8x} - \\frac{1}{8} e^{8x} + C$",
-      "$\\frac{1}{64} x^2 e^{8x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{8} x e^{8x} - \\frac{1}{64} e^{8x} + C$",
-      "$\\frac{1}{8} x e^{8x} + \\frac{1}{64} e^{8x} + C$",
-      "$x e^{8x} - \\frac{1}{8} e^{8x} + C$",
-      "$\\frac{1}{64} x^2 e^{8x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{8} x e^{8x} - \\frac{1}{64} e^{8x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{8x} dx \\implies v = \\frac{1}{8} e^{8x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{8} x e^{8x} - \\frac{1}{8} \\int e^{8x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{8} x e^{8x} - \\frac{1}{64} e^{8x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{8x} dx \\implies v = \\frac{1}{8} e^{8x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{8} x e^{8x} - \\frac{1}{8} \\int e^{8x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{8} x e^{8x} - \\frac{1}{64} e^{8x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_18",
-    "titleEn": "Integration by Parts (x e^{9x}) #18",
-    "titleAr": "التكامل بالتجزيء (س هـ^{9س}) رقم 18",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{9x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{9x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{9} x e^{9x} - \\frac{1}{81} e^{9x} + C$",
-      "$\\frac{1}{9} x e^{9x} + \\frac{1}{81} e^{9x} + C$",
-      "$x e^{9x} - \\frac{1}{9} e^{9x} + C$",
-      "$\\frac{1}{81} x^2 e^{9x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{9} x e^{9x} - \\frac{1}{81} e^{9x} + C$",
-      "$\\frac{1}{9} x e^{9x} + \\frac{1}{81} e^{9x} + C$",
-      "$x e^{9x} - \\frac{1}{9} e^{9x} + C$",
-      "$\\frac{1}{81} x^2 e^{9x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{9} x e^{9x} - \\frac{1}{81} e^{9x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{9x} dx \\implies v = \\frac{1}{9} e^{9x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{9} x e^{9x} - \\frac{1}{9} \\int e^{9x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{9} x e^{9x} - \\frac{1}{81} e^{9x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{9x} dx \\implies v = \\frac{1}{9} e^{9x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{9} x e^{9x} - \\frac{1}{9} \\int e^{9x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{9} x e^{9x} - \\frac{1}{81} e^{9x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_19",
-    "titleEn": "Integration by Parts (x e^{10x}) #19",
-    "titleAr": "التكامل بالتجزيء (س هـ^{10س}) رقم 19",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{10x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{10x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{10} x e^{10x} - \\frac{1}{100} e^{10x} + C$",
-      "$\\frac{1}{10} x e^{10x} + \\frac{1}{100} e^{10x} + C$",
-      "$x e^{10x} - \\frac{1}{10} e^{10x} + C$",
-      "$\\frac{1}{100} x^2 e^{10x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{10} x e^{10x} - \\frac{1}{100} e^{10x} + C$",
-      "$\\frac{1}{10} x e^{10x} + \\frac{1}{100} e^{10x} + C$",
-      "$x e^{10x} - \\frac{1}{10} e^{10x} + C$",
-      "$\\frac{1}{100} x^2 e^{10x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{10} x e^{10x} - \\frac{1}{100} e^{10x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{10x} dx \\implies v = \\frac{1}{10} e^{10x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{10} x e^{10x} - \\frac{1}{10} \\int e^{10x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{10} x e^{10x} - \\frac{1}{100} e^{10x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{10x} dx \\implies v = \\frac{1}{10} e^{10x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{10} x e^{10x} - \\frac{1}{10} \\int e^{10x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{10} x e^{10x} - \\frac{1}{100} e^{10x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_20",
-    "titleEn": "Integration by Parts (x e^{11x}) #20",
-    "titleAr": "التكامل بالتجزيء (س هـ^{11س}) رقم 20",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the indefinite integral: $\\int x e^{11x} dx$.",
-    "questionAr": "احسب التكامل غير المحدد: $\\int x e^{11x} dx$.",
-    "optionsEn": [
-      "$\\frac{1}{11} x e^{11x} - \\frac{1}{121} e^{11x} + C$",
-      "$\\frac{1}{11} x e^{11x} + \\frac{1}{121} e^{11x} + C$",
-      "$x e^{11x} - \\frac{1}{11} e^{11x} + C$",
-      "$\\frac{1}{121} x^2 e^{11x} + C$"
-    ],
-    "optionsAr": [
-      "$\\frac{1}{11} x e^{11x} - \\frac{1}{121} e^{11x} + C$",
-      "$\\frac{1}{11} x e^{11x} + \\frac{1}{121} e^{11x} + C$",
-      "$x e^{11x} - \\frac{1}{11} e^{11x} + C$",
-      "$\\frac{1}{121} x^2 e^{11x} + C$"
-    ],
-    "correctAnswer": "$\\frac{1}{11} x e^{11x} - \\frac{1}{121} e^{11x} + C$",
-    "correctIndex": 0,
-    "hintEn": "Let $u = x, dv = e^{${k}x} dx$. Then $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "hintAr": "افرض $u = x, dv = e^{${k}x} dx$. ومنها $du = dx, v = \\frac{1}{${k}} e^{${k}x}$.",
-    "stepByStepSolutionEn": [
-      "1. Integration by parts: $u = x \\implies du = dx$, $dv = e^{11x} dx \\implies v = \\frac{1}{11} e^{11x}$.",
-      "2. $\\int u dv = u v - \\int v du = \\frac{1}{11} x e^{11x} - \\frac{1}{11} \\int e^{11x} dx$.",
-      "3. Evaluate the remaining integral: $\\frac{1}{11} x e^{11x} - \\frac{1}{121} e^{11x} + C$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالتجزيء: $u = x \\implies du = dx$، و $dv = e^{11x} dx \\implies v = \\frac{1}{11} e^{11x}$.",
-      "٢. تطبيق القانون: $\\frac{1}{11} x e^{11x} - \\frac{1}{11} \\int e^{11x} dx$.",
-      "٣. ناتج التكامل: $\\frac{1}{11} x e^{11x} - \\frac{1}{121} e^{11x} + C$."
-    ],
-    "teacherTipEn": "Notice the second term has k^2 in the denominator due to integrating 1/k * e^(kx).",
-    "teacherTipAr": "لاحظ ظهور ك² في مقام الحد الثاني نتيجة تكامل الدالة الأسية مرة ثانية."
-  },
-  {
-    "id": "calc_ch4_db_medium_21",
-    "titleEn": "Definite Integral Interval Additivity #21",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 21",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 6$ and $\\int_3^7 f(x) dx = 10$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 6$ و $\\int_3^7 f(x) dx = 10$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$16$",
-      "$19$",
-      "$22$",
-      "$25$"
-    ],
-    "optionsAr": [
-      "$16$",
-      "$19$",
-      "$22$",
-      "$25$"
-    ],
-    "correctAnswer": "$16$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 6 + 10 = 16$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 6 + 10 = 16."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_22",
-    "titleEn": "Definite Integral Interval Additivity #22",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 22",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 7$ and $\\int_3^7 f(x) dx = 12$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 7$ و $\\int_3^7 f(x) dx = 12$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$19$",
-      "$22$",
-      "$25$",
-      "$28$"
-    ],
-    "optionsAr": [
-      "$19$",
-      "$22$",
-      "$25$",
-      "$28$"
-    ],
-    "correctAnswer": "$19$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 7 + 12 = 19$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 7 + 12 = 19."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_23",
-    "titleEn": "Definite Integral Interval Additivity #23",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 23",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 8$ and $\\int_3^7 f(x) dx = 14$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 8$ و $\\int_3^7 f(x) dx = 14$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$22$",
-      "$25$",
-      "$28$",
-      "$31$"
-    ],
-    "optionsAr": [
-      "$22$",
-      "$25$",
-      "$28$",
-      "$31$"
-    ],
-    "correctAnswer": "$22$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 8 + 14 = 22$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 8 + 14 = 22."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_24",
-    "titleEn": "Definite Integral Interval Additivity #24",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 24",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 9$ and $\\int_3^7 f(x) dx = 16$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 9$ و $\\int_3^7 f(x) dx = 16$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$25$",
-      "$28$",
-      "$31$",
-      "$34$"
-    ],
-    "optionsAr": [
-      "$25$",
-      "$28$",
-      "$31$",
-      "$34$"
-    ],
-    "correctAnswer": "$25$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 9 + 16 = 25$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 9 + 16 = 25."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_25",
-    "titleEn": "Definite Integral Interval Additivity #25",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 25",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 10$ and $\\int_3^7 f(x) dx = 18$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 10$ و $\\int_3^7 f(x) dx = 18$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$28$",
-      "$31$",
-      "$34$",
-      "$37$"
-    ],
-    "optionsAr": [
-      "$28$",
-      "$31$",
-      "$34$",
-      "$37$"
-    ],
-    "correctAnswer": "$28$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 10 + 18 = 28$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 10 + 18 = 28."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_26",
-    "titleEn": "Definite Integral Interval Additivity #26",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 26",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 11$ and $\\int_3^7 f(x) dx = 20$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 11$ و $\\int_3^7 f(x) dx = 20$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$31$",
-      "$34$",
-      "$37$",
-      "$40$"
-    ],
-    "optionsAr": [
-      "$31$",
-      "$34$",
-      "$37$",
-      "$40$"
-    ],
-    "correctAnswer": "$31$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 11 + 20 = 31$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 11 + 20 = 31."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_27",
-    "titleEn": "Definite Integral Interval Additivity #27",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 27",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 12$ and $\\int_3^7 f(x) dx = 22$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 12$ و $\\int_3^7 f(x) dx = 22$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$34$",
-      "$37$",
-      "$40$",
-      "$43$"
-    ],
-    "optionsAr": [
-      "$34$",
-      "$37$",
-      "$40$",
-      "$43$"
-    ],
-    "correctAnswer": "$34$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 12 + 22 = 34$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 12 + 22 = 34."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_28",
-    "titleEn": "Definite Integral Interval Additivity #28",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 28",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 13$ and $\\int_3^7 f(x) dx = 24$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 13$ و $\\int_3^7 f(x) dx = 24$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$37$",
-      "$40$",
-      "$43$",
-      "$46$"
-    ],
-    "optionsAr": [
-      "$37$",
-      "$40$",
-      "$43$",
-      "$46$"
-    ],
-    "correctAnswer": "$37$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 13 + 24 = 37$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 13 + 24 = 37."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_29",
-    "titleEn": "Definite Integral Interval Additivity #29",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 29",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 14$ and $\\int_3^7 f(x) dx = 26$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 14$ و $\\int_3^7 f(x) dx = 26$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$40$",
-      "$43$",
-      "$46$",
-      "$49$"
-    ],
-    "optionsAr": [
-      "$40$",
-      "$43$",
-      "$46$",
-      "$49$"
-    ],
-    "correctAnswer": "$40$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 14 + 26 = 40$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 14 + 26 = 40."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_30",
-    "titleEn": "Definite Integral Interval Additivity #30",
-    "titleAr": "تجزئة فترات التكامل المحدد رقم 30",
-    "difficulty": "medium",
-    "questionEn": "If $\\int_1^3 f(x) dx = 15$ and $\\int_3^7 f(x) dx = 28$, find the value of $\\int_1^7 f(x) dx$.",
-    "questionAr": "إذا كان $\\int_1^3 f(x) dx = 15$ و $\\int_3^7 f(x) dx = 28$، فاحسب قيمة $\\int_1^7 f(x) dx$.",
-    "optionsEn": [
-      "$43$",
-      "$46$",
-      "$49$",
-      "$52$"
-    ],
-    "optionsAr": [
-      "$43$",
-      "$46$",
-      "$49$",
-      "$52$"
-    ],
-    "correctAnswer": "$43$",
-    "correctIndex": 0,
-    "hintEn": "By the interval additivity property: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "hintAr": "بخاصية التجزئة: $\\int_1^7 f(x) dx = \\int_1^3 f(x) dx + \\int_3^7 f(x) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Additivity rule: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "2. Here: $\\int_1^7 f(x) dx = 15 + 28 = 43$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. خاصية التجزئة: $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.",
-      "٢. بالتعويض: 15 + 28 = 43."
-    ],
-    "teacherTipEn": "The intermediate point b does not even need to lie strictly between a and c.",
-    "teacherTipAr": "نقطة التجزئة ب لا يشترط بالضرورة أن تقع بين أ و جـ رياضياً."
-  },
-  {
-    "id": "calc_ch4_db_medium_31",
-    "titleEn": "Area Under Parabola c=2 #31",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=2 رقم 31",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 4 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 4 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{32}{3}\\text{ square units}$",
-      "$\\frac{38}{3}\\text{ square units}$",
-      "$\\frac{44}{3}\\text{ square units}$",
-      "$\\frac{50}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{32}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{38}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{44}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{50}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{32}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $4 - x^2 = 0 \\implies x = -2, 2$.",
-      "2. Use symmetry: $A = 2 \\int_0^{2} (4 - x^2) dx = 2 \\left[ 4x - \\frac{x^3}{3} \\right]_0^{2}$.",
-      "3. Substitute: $2 \\left( 4(2) - \\frac{8}{3} \\right) = 2 \\left( \\frac{2 \\times 8}{3} \\right) = \\frac{32}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 2$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{2} (4 - x^2) dx = 2 \\left[ 4x - \\frac{x^3}{3} \\right]_0^{2}$.",
-      "٣. بالتعويض نجد: $\\frac{32}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_32",
-    "titleEn": "Area Under Parabola c=3 #32",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=3 رقم 32",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 9 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 9 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{108}{3}\\text{ square units}$",
-      "$\\frac{114}{3}\\text{ square units}$",
-      "$\\frac{120}{3}\\text{ square units}$",
-      "$\\frac{126}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{108}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{114}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{120}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{126}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{108}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $9 - x^2 = 0 \\implies x = -3, 3$.",
-      "2. Use symmetry: $A = 2 \\int_0^{3} (9 - x^2) dx = 2 \\left[ 9x - \\frac{x^3}{3} \\right]_0^{3}$.",
-      "3. Substitute: $2 \\left( 9(3) - \\frac{27}{3} \\right) = 2 \\left( \\frac{2 \\times 27}{3} \\right) = \\frac{108}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 3$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{3} (9 - x^2) dx = 2 \\left[ 9x - \\frac{x^3}{3} \\right]_0^{3}$.",
-      "٣. بالتعويض نجد: $\\frac{108}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_33",
-    "titleEn": "Area Under Parabola c=4 #33",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=4 رقم 33",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 16 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 16 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{256}{3}\\text{ square units}$",
-      "$\\frac{262}{3}\\text{ square units}$",
-      "$\\frac{268}{3}\\text{ square units}$",
-      "$\\frac{274}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{256}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{262}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{268}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{274}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{256}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $16 - x^2 = 0 \\implies x = -4, 4$.",
-      "2. Use symmetry: $A = 2 \\int_0^{4} (16 - x^2) dx = 2 \\left[ 16x - \\frac{x^3}{3} \\right]_0^{4}$.",
-      "3. Substitute: $2 \\left( 16(4) - \\frac{64}{3} \\right) = 2 \\left( \\frac{2 \\times 64}{3} \\right) = \\frac{256}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 4$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{4} (16 - x^2) dx = 2 \\left[ 16x - \\frac{x^3}{3} \\right]_0^{4}$.",
-      "٣. بالتعويض نجد: $\\frac{256}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_34",
-    "titleEn": "Area Under Parabola c=5 #34",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=5 رقم 34",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 25 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 25 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{500}{3}\\text{ square units}$",
-      "$\\frac{506}{3}\\text{ square units}$",
-      "$\\frac{512}{3}\\text{ square units}$",
-      "$\\frac{518}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{500}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{506}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{512}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{518}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{500}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $25 - x^2 = 0 \\implies x = -5, 5$.",
-      "2. Use symmetry: $A = 2 \\int_0^{5} (25 - x^2) dx = 2 \\left[ 25x - \\frac{x^3}{3} \\right]_0^{5}$.",
-      "3. Substitute: $2 \\left( 25(5) - \\frac{125}{3} \\right) = 2 \\left( \\frac{2 \\times 125}{3} \\right) = \\frac{500}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 5$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{5} (25 - x^2) dx = 2 \\left[ 25x - \\frac{x^3}{3} \\right]_0^{5}$.",
-      "٣. بالتعويض نجد: $\\frac{500}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_35",
-    "titleEn": "Area Under Parabola c=6 #35",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=6 رقم 35",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 36 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 36 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{864}{3}\\text{ square units}$",
-      "$\\frac{870}{3}\\text{ square units}$",
-      "$\\frac{876}{3}\\text{ square units}$",
-      "$\\frac{882}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{864}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{870}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{876}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{882}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{864}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $36 - x^2 = 0 \\implies x = -6, 6$.",
-      "2. Use symmetry: $A = 2 \\int_0^{6} (36 - x^2) dx = 2 \\left[ 36x - \\frac{x^3}{3} \\right]_0^{6}$.",
-      "3. Substitute: $2 \\left( 36(6) - \\frac{216}{3} \\right) = 2 \\left( \\frac{2 \\times 216}{3} \\right) = \\frac{864}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 6$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{6} (36 - x^2) dx = 2 \\left[ 36x - \\frac{x^3}{3} \\right]_0^{6}$.",
-      "٣. بالتعويض نجد: $\\frac{864}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_36",
-    "titleEn": "Area Under Parabola c=7 #36",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=7 رقم 36",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 49 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 49 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{1372}{3}\\text{ square units}$",
-      "$\\frac{1378}{3}\\text{ square units}$",
-      "$\\frac{1384}{3}\\text{ square units}$",
-      "$\\frac{1390}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{1372}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1378}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1384}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1390}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{1372}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $49 - x^2 = 0 \\implies x = -7, 7$.",
-      "2. Use symmetry: $A = 2 \\int_0^{7} (49 - x^2) dx = 2 \\left[ 49x - \\frac{x^3}{3} \\right]_0^{7}$.",
-      "3. Substitute: $2 \\left( 49(7) - \\frac{343}{3} \\right) = 2 \\left( \\frac{2 \\times 343}{3} \\right) = \\frac{1372}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 7$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{7} (49 - x^2) dx = 2 \\left[ 49x - \\frac{x^3}{3} \\right]_0^{7}$.",
-      "٣. بالتعويض نجد: $\\frac{1372}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_37",
-    "titleEn": "Area Under Parabola c=8 #37",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=8 رقم 37",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 64 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 64 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{2048}{3}\\text{ square units}$",
-      "$\\frac{2054}{3}\\text{ square units}$",
-      "$\\frac{2060}{3}\\text{ square units}$",
-      "$\\frac{2066}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{2048}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2054}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2060}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2066}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{2048}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $64 - x^2 = 0 \\implies x = -8, 8$.",
-      "2. Use symmetry: $A = 2 \\int_0^{8} (64 - x^2) dx = 2 \\left[ 64x - \\frac{x^3}{3} \\right]_0^{8}$.",
-      "3. Substitute: $2 \\left( 64(8) - \\frac{512}{3} \\right) = 2 \\left( \\frac{2 \\times 512}{3} \\right) = \\frac{2048}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 8$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{8} (64 - x^2) dx = 2 \\left[ 64x - \\frac{x^3}{3} \\right]_0^{8}$.",
-      "٣. بالتعويض نجد: $\\frac{2048}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_38",
-    "titleEn": "Area Under Parabola c=9 #38",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=9 رقم 38",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 81 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 81 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{2916}{3}\\text{ square units}$",
-      "$\\frac{2922}{3}\\text{ square units}$",
-      "$\\frac{2928}{3}\\text{ square units}$",
-      "$\\frac{2934}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{2916}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2922}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2928}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2934}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{2916}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $81 - x^2 = 0 \\implies x = -9, 9$.",
-      "2. Use symmetry: $A = 2 \\int_0^{9} (81 - x^2) dx = 2 \\left[ 81x - \\frac{x^3}{3} \\right]_0^{9}$.",
-      "3. Substitute: $2 \\left( 81(9) - \\frac{729}{3} \\right) = 2 \\left( \\frac{2 \\times 729}{3} \\right) = \\frac{2916}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 9$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{9} (81 - x^2) dx = 2 \\left[ 81x - \\frac{x^3}{3} \\right]_0^{9}$.",
-      "٣. بالتعويض نجد: $\\frac{2916}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_39",
-    "titleEn": "Area Under Parabola c=10 #39",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=10 رقم 39",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 100 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 100 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{4000}{3}\\text{ square units}$",
-      "$\\frac{4006}{3}\\text{ square units}$",
-      "$\\frac{4012}{3}\\text{ square units}$",
-      "$\\frac{4018}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{4000}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4006}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4012}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4018}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{4000}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $100 - x^2 = 0 \\implies x = -10, 10$.",
-      "2. Use symmetry: $A = 2 \\int_0^{10} (100 - x^2) dx = 2 \\left[ 100x - \\frac{x^3}{3} \\right]_0^{10}$.",
-      "3. Substitute: $2 \\left( 100(10) - \\frac{1000}{3} \\right) = 2 \\left( \\frac{2 \\times 1000}{3} \\right) = \\frac{4000}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 10$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{10} (100 - x^2) dx = 2 \\left[ 100x - \\frac{x^3}{3} \\right]_0^{10}$.",
-      "٣. بالتعويض نجد: $\\frac{4000}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_40",
-    "titleEn": "Area Under Parabola c=11 #40",
-    "titleAr": "مساحة المنطقة أسفل قطع مكافئ جـ=11 رقم 40",
-    "difficulty": "medium",
-    "questionEn": "Find the area of the region bounded by the parabola $y = 121 - x^2$ and the x-axis.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = 121 - x^2$ ومحور السينات.",
-    "optionsEn": [
-      "$\\frac{5324}{3}\\text{ square units}$",
-      "$\\frac{5330}{3}\\text{ square units}$",
-      "$\\frac{5336}{3}\\text{ square units}$",
-      "$\\frac{5342}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{5324}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5330}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5336}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5342}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{5324}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Roots are $x = \\pm ${c}$. Area $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = 2 \\left[ ${cSq}x - \\frac{x^3}{3} \\right]_0^{${c}} = \\frac{4}{3}(${c})^3$.",
-    "hintAr": "نقاط التقاطع $x = \\pm ${c}$. المساحة $A = 2 \\int_0^{${c}} (${cSq} - x^2) dx = \\frac{4}{3}(${c})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Roots on x-axis: $121 - x^2 = 0 \\implies x = -11, 11$.",
-      "2. Use symmetry: $A = 2 \\int_0^{11} (121 - x^2) dx = 2 \\left[ 121x - \\frac{x^3}{3} \\right]_0^{11}$.",
-      "3. Substitute: $2 \\left( 121(11) - \\frac{1331}{3} \\right) = 2 \\left( \\frac{2 \\times 1331}{3} \\right) = \\frac{5324}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع مع محور السينات: $x = \\pm 11$.",
-      "٢. بالتماثل: $A = 2 \\int_0^{11} (121 - x^2) dx = 2 \\left[ 121x - \\frac{x^3}{3} \\right]_0^{11}$.",
-      "٣. بالتعويض نجد: $\\frac{5324}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "The area bounded by y = a - b x^2 and y = 0 is a standard Archimedes parabolic arch: 2/3 * base * height.",
-    "teacherTipAr": "مساحة القطع المكافئ تساوي ثلثي مساحة المستطيل المحيط به: ٢/٣ × القاعدة × الارتفاع."
-  },
-  {
-    "id": "calc_ch4_db_medium_41",
-    "titleEn": "Sine Half-Period Definite Integral #41",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 41",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_42",
-    "titleEn": "Sine Half-Period Definite Integral #42",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 42",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_43",
-    "titleEn": "Sine Half-Period Definite Integral #43",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 43",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_44",
-    "titleEn": "Sine Half-Period Definite Integral #44",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 44",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_45",
-    "titleEn": "Sine Half-Period Definite Integral #45",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 45",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_46",
-    "titleEn": "Sine Half-Period Definite Integral #46",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 46",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_47",
-    "titleEn": "Sine Half-Period Definite Integral #47",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 47",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_48",
-    "titleEn": "Sine Half-Period Definite Integral #48",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 48",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_49",
-    "titleEn": "Sine Half-Period Definite Integral #49",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 49",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  },
-  {
-    "id": "calc_ch4_db_medium_50",
-    "titleEn": "Sine Half-Period Definite Integral #50",
-    "titleAr": "تكامل محدد لدالة الجيب على نصف دورة رقم 50",
-    "difficulty": "medium",
-    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi} \\sin(x) dx$.",
-    "optionsEn": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "optionsAr": [
-      "$2$",
-      "$0$",
-      "$1$",
-      "$4$"
-    ],
-    "correctAnswer": "$2$",
-    "correctIndex": 0,
-    "hintEn": "Antiderivative of $\\sin(x)$ is $-\\cos(x)$. Compute $[-\\cos(x)]_0^{\\pi} = -(-1) - (-1) = 2$.",
-    "hintAr": "الدالة الأصلية لجيب الزاوية هي $-\\cos(x)$. احسب $[-\\cos(x)]_0^{\\pi} = 2$.",
-    "stepByStepSolutionEn": [
-      "1. $\\int \\sin(x) dx = -\\cos(x)$.",
-      "2. Evaluate at bounds: $[-\\cos(x)]_0^{\\pi} = -\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 1 + 1 = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تكامل جا س هو -جتا س.",
-      "٢. بالتعويض: $-\\cos(\\pi) - (-\\cos 0) = -(-1) + 1 = 2$."
-    ],
-    "teacherTipEn": "The area of each single arch of y = sin(x) or y = cos(x) is always exactly 2 square units.",
-    "teacherTipAr": "مساحة كل قوس مفرد من منحنى جا س أو جتا س تساوي دائماً ٢ وحدة مربعة بالضبط."
-  }
-],
-  hots: [
-  {
-    "id": "calc_ch4_db_hots_01",
-    "titleEn": "Area Between Line y=2x and Parabola #1",
-    "titleAr": "المساحة بين المستقيم ص=2س والقطع المكافئ رقم 1",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 2x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 2x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{8}{6}\\text{ square units}$",
-      "$\\frac{14}{6}\\text{ square units}$",
-      "$\\frac{20}{6}\\text{ square units}$",
-      "$\\frac{26}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{8}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{14}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{20}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{26}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{8}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 2x \\implies x(x - 2) = 0 \\implies x = 0, 2$.",
-      "2. On $[0, 2]$, the line is above the parabola ($ 2x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{2} (2x - x^2) dx = \\left[ \\frac{2x^2}{2} - \\frac{x^3}{3} \\right]_0^{2} = \\frac{2^3}{2} - \\frac{2^3}{3} = \\frac{8}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 2x \\implies x = 0, \\; 2$.",
-      "٢. في الفترة $[0, 2]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{2x^2}{2} - \\frac{x^3}{3} \\right]_0^{2} = \\frac{2^3}{6} = \\frac{8}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_02",
-    "titleEn": "Area Between Line y=3x and Parabola #2",
-    "titleAr": "المساحة بين المستقيم ص=3س والقطع المكافئ رقم 2",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 3x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 3x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{27}{6}\\text{ square units}$",
-      "$\\frac{33}{6}\\text{ square units}$",
-      "$\\frac{39}{6}\\text{ square units}$",
-      "$\\frac{45}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{27}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{33}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{39}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{45}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{27}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 3x \\implies x(x - 3) = 0 \\implies x = 0, 3$.",
-      "2. On $[0, 3]$, the line is above the parabola ($ 3x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{3} (3x - x^2) dx = \\left[ \\frac{3x^2}{2} - \\frac{x^3}{3} \\right]_0^{3} = \\frac{3^3}{2} - \\frac{3^3}{3} = \\frac{27}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 3x \\implies x = 0, \\; 3$.",
-      "٢. في الفترة $[0, 3]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{3x^2}{2} - \\frac{x^3}{3} \\right]_0^{3} = \\frac{3^3}{6} = \\frac{27}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_03",
-    "titleEn": "Area Between Line y=4x and Parabola #3",
-    "titleAr": "المساحة بين المستقيم ص=4س والقطع المكافئ رقم 3",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 4x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 4x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{64}{6}\\text{ square units}$",
-      "$\\frac{70}{6}\\text{ square units}$",
-      "$\\frac{76}{6}\\text{ square units}$",
-      "$\\frac{82}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{64}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{70}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{76}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{82}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{64}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 4x \\implies x(x - 4) = 0 \\implies x = 0, 4$.",
-      "2. On $[0, 4]$, the line is above the parabola ($ 4x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{4} (4x - x^2) dx = \\left[ \\frac{4x^2}{2} - \\frac{x^3}{3} \\right]_0^{4} = \\frac{4^3}{2} - \\frac{4^3}{3} = \\frac{64}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 4x \\implies x = 0, \\; 4$.",
-      "٢. في الفترة $[0, 4]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{4x^2}{2} - \\frac{x^3}{3} \\right]_0^{4} = \\frac{4^3}{6} = \\frac{64}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_04",
-    "titleEn": "Area Between Line y=5x and Parabola #4",
-    "titleAr": "المساحة بين المستقيم ص=5س والقطع المكافئ رقم 4",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 5x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 5x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{125}{6}\\text{ square units}$",
-      "$\\frac{131}{6}\\text{ square units}$",
-      "$\\frac{137}{6}\\text{ square units}$",
-      "$\\frac{143}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{125}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{131}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{137}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{143}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{125}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 5x \\implies x(x - 5) = 0 \\implies x = 0, 5$.",
-      "2. On $[0, 5]$, the line is above the parabola ($ 5x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{5} (5x - x^2) dx = \\left[ \\frac{5x^2}{2} - \\frac{x^3}{3} \\right]_0^{5} = \\frac{5^3}{2} - \\frac{5^3}{3} = \\frac{125}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 5x \\implies x = 0, \\; 5$.",
-      "٢. في الفترة $[0, 5]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{5x^2}{2} - \\frac{x^3}{3} \\right]_0^{5} = \\frac{5^3}{6} = \\frac{125}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_05",
-    "titleEn": "Area Between Line y=6x and Parabola #5",
-    "titleAr": "المساحة بين المستقيم ص=6س والقطع المكافئ رقم 5",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 6x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 6x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{216}{6}\\text{ square units}$",
-      "$\\frac{222}{6}\\text{ square units}$",
-      "$\\frac{228}{6}\\text{ square units}$",
-      "$\\frac{234}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{216}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{222}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{228}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{234}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{216}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 6x \\implies x(x - 6) = 0 \\implies x = 0, 6$.",
-      "2. On $[0, 6]$, the line is above the parabola ($ 6x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{6} (6x - x^2) dx = \\left[ \\frac{6x^2}{2} - \\frac{x^3}{3} \\right]_0^{6} = \\frac{6^3}{2} - \\frac{6^3}{3} = \\frac{216}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 6x \\implies x = 0, \\; 6$.",
-      "٢. في الفترة $[0, 6]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{6x^2}{2} - \\frac{x^3}{3} \\right]_0^{6} = \\frac{6^3}{6} = \\frac{216}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_06",
-    "titleEn": "Area Between Line y=7x and Parabola #6",
-    "titleAr": "المساحة بين المستقيم ص=7س والقطع المكافئ رقم 6",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 7x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 7x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{343}{6}\\text{ square units}$",
-      "$\\frac{349}{6}\\text{ square units}$",
-      "$\\frac{355}{6}\\text{ square units}$",
-      "$\\frac{361}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{343}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{349}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{355}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{361}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{343}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 7x \\implies x(x - 7) = 0 \\implies x = 0, 7$.",
-      "2. On $[0, 7]$, the line is above the parabola ($ 7x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{7} (7x - x^2) dx = \\left[ \\frac{7x^2}{2} - \\frac{x^3}{3} \\right]_0^{7} = \\frac{7^3}{2} - \\frac{7^3}{3} = \\frac{343}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 7x \\implies x = 0, \\; 7$.",
-      "٢. في الفترة $[0, 7]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{7x^2}{2} - \\frac{x^3}{3} \\right]_0^{7} = \\frac{7^3}{6} = \\frac{343}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_07",
-    "titleEn": "Area Between Line y=8x and Parabola #7",
-    "titleAr": "المساحة بين المستقيم ص=8س والقطع المكافئ رقم 7",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 8x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 8x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{512}{6}\\text{ square units}$",
-      "$\\frac{518}{6}\\text{ square units}$",
-      "$\\frac{524}{6}\\text{ square units}$",
-      "$\\frac{530}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{512}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{518}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{524}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{530}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{512}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 8x \\implies x(x - 8) = 0 \\implies x = 0, 8$.",
-      "2. On $[0, 8]$, the line is above the parabola ($ 8x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{8} (8x - x^2) dx = \\left[ \\frac{8x^2}{2} - \\frac{x^3}{3} \\right]_0^{8} = \\frac{8^3}{2} - \\frac{8^3}{3} = \\frac{512}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 8x \\implies x = 0, \\; 8$.",
-      "٢. في الفترة $[0, 8]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{8x^2}{2} - \\frac{x^3}{3} \\right]_0^{8} = \\frac{8^3}{6} = \\frac{512}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_08",
-    "titleEn": "Area Between Line y=9x and Parabola #8",
-    "titleAr": "المساحة بين المستقيم ص=9س والقطع المكافئ رقم 8",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 9x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 9x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{729}{6}\\text{ square units}$",
-      "$\\frac{735}{6}\\text{ square units}$",
-      "$\\frac{741}{6}\\text{ square units}$",
-      "$\\frac{747}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{729}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{735}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{741}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{747}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{729}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 9x \\implies x(x - 9) = 0 \\implies x = 0, 9$.",
-      "2. On $[0, 9]$, the line is above the parabola ($ 9x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{9} (9x - x^2) dx = \\left[ \\frac{9x^2}{2} - \\frac{x^3}{3} \\right]_0^{9} = \\frac{9^3}{2} - \\frac{9^3}{3} = \\frac{729}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 9x \\implies x = 0, \\; 9$.",
-      "٢. في الفترة $[0, 9]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{9x^2}{2} - \\frac{x^3}{3} \\right]_0^{9} = \\frac{9^3}{6} = \\frac{729}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_09",
-    "titleEn": "Area Between Line y=10x and Parabola #9",
-    "titleAr": "المساحة بين المستقيم ص=10س والقطع المكافئ رقم 9",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 10x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 10x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{1000}{6}\\text{ square units}$",
-      "$\\frac{1006}{6}\\text{ square units}$",
-      "$\\frac{1012}{6}\\text{ square units}$",
-      "$\\frac{1018}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{1000}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1006}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1012}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1018}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{1000}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 10x \\implies x(x - 10) = 0 \\implies x = 0, 10$.",
-      "2. On $[0, 10]$, the line is above the parabola ($ 10x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{10} (10x - x^2) dx = \\left[ \\frac{10x^2}{2} - \\frac{x^3}{3} \\right]_0^{10} = \\frac{10^3}{2} - \\frac{10^3}{3} = \\frac{1000}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 10x \\implies x = 0, \\; 10$.",
-      "٢. في الفترة $[0, 10]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{10x^2}{2} - \\frac{x^3}{3} \\right]_0^{10} = \\frac{10^3}{6} = \\frac{1000}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_10",
-    "titleEn": "Area Between Line y=11x and Parabola #10",
-    "titleAr": "المساحة بين المستقيم ص=11س والقطع المكافئ رقم 10",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the straight line $y = 11x$ and the parabola $y = x^2$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المستقيم $y = 11x$ والقطع المكافئ $y = x^2$.",
-    "optionsEn": [
-      "$\\frac{1331}{6}\\text{ square units}$",
-      "$\\frac{1337}{6}\\text{ square units}$",
-      "$\\frac{1343}{6}\\text{ square units}$",
-      "$\\frac{1349}{6}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{1331}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1337}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1343}{6}\\text{ وحدة مربعة}$",
-      "$\\frac{1349}{6}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{1331}{6}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Intersections are $x = 0$ and $x = ${k}$. Compute $A = \\int_0^{${k}} (${k}x - x^2) dx = \\left[ \\frac{${k}x^2}{2} - \\frac{x^3}{3} \\right]_0^{${k}} = \\frac{${k}^3}{6}$.",
-    "hintAr": "نقاط التقاطع $x = 0$ و $x = ${k}$. احسب $A = \\int_0^{${k}} (${k}x - x^2) dx = \\frac{${k}^3}{6}$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersection points: $x^2 = 11x \\implies x(x - 11) = 0 \\implies x = 0, 11$.",
-      "2. On $[0, 11]$, the line is above the parabola ($ 11x \\ge x^2 $).",
-      "3. Area integral: $A = \\int_0^{11} (11x - x^2) dx = \\left[ \\frac{11x^2}{2} - \\frac{x^3}{3} \\right]_0^{11} = \\frac{11^3}{2} - \\frac{11^3}{3} = \\frac{1331}{6}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 11x \\implies x = 0, \\; 11$.",
-      "٢. في الفترة $[0, 11]$ المستقيم أعلى من المنحنى.",
-      "٣. حساب المساحة: $A = \\left[ \\frac{11x^2}{2} - \\frac{x^3}{3} \\right]_0^{11} = \\frac{11^3}{6} = \\frac{1331}{6}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Formula for area between y = mx and y = ax^2: Area = m^3 / (6 a^2).",
-    "teacherTipAr": "قانون سريع لمساحة المنطقة بين المستقيم ص = م س والقطع ص = أ س²: المساحة = م³ / (٦ أ²)."
-  },
-  {
-    "id": "calc_ch4_db_hots_11",
-    "titleEn": "Volume of Revolution About X-Axis k=1 #11",
-    "titleAr": "حجم دوراني حول محور السينات ك=1 رقم 11",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{1x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{1x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$8\\pi\\text{ cubic units}$",
-      "$16\\pi\\text{ cubic units}$",
-      "$24\\pi\\text{ cubic units}$",
-      "$32\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$8\\pi\\text{ وحدة مكعبة}$",
-      "$16\\pi\\text{ وحدة مكعبة}$",
-      "$24\\pi\\text{ وحدة مكعبة}$",
-      "$32\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$8\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{1x})^2 = 1x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 1x dx = \\pi \\left[ \\frac{1x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{1 \\times 16}{2} \\right) = 8\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 1x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 1x dx = \\pi \\left[ \\frac{1x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 1}{2} \\right) = 8\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_12",
-    "titleEn": "Volume of Revolution About X-Axis k=2 #12",
-    "titleAr": "حجم دوراني حول محور السينات ك=2 رقم 12",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{2x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{2x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$16\\pi\\text{ cubic units}$",
-      "$24\\pi\\text{ cubic units}$",
-      "$32\\pi\\text{ cubic units}$",
-      "$40\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$16\\pi\\text{ وحدة مكعبة}$",
-      "$24\\pi\\text{ وحدة مكعبة}$",
-      "$32\\pi\\text{ وحدة مكعبة}$",
-      "$40\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$16\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{2x})^2 = 2x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 2x dx = \\pi \\left[ \\frac{2x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{2 \\times 16}{2} \\right) = 16\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 2x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 2x dx = \\pi \\left[ \\frac{2x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 2}{2} \\right) = 16\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_13",
-    "titleEn": "Volume of Revolution About X-Axis k=3 #13",
-    "titleAr": "حجم دوراني حول محور السينات ك=3 رقم 13",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{3x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{3x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$24\\pi\\text{ cubic units}$",
-      "$32\\pi\\text{ cubic units}$",
-      "$40\\pi\\text{ cubic units}$",
-      "$48\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$24\\pi\\text{ وحدة مكعبة}$",
-      "$32\\pi\\text{ وحدة مكعبة}$",
-      "$40\\pi\\text{ وحدة مكعبة}$",
-      "$48\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$24\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{3x})^2 = 3x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 3x dx = \\pi \\left[ \\frac{3x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{3 \\times 16}{2} \\right) = 24\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 3x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 3x dx = \\pi \\left[ \\frac{3x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 3}{2} \\right) = 24\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_14",
-    "titleEn": "Volume of Revolution About X-Axis k=4 #14",
-    "titleAr": "حجم دوراني حول محور السينات ك=4 رقم 14",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{4x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{4x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$32\\pi\\text{ cubic units}$",
-      "$40\\pi\\text{ cubic units}$",
-      "$48\\pi\\text{ cubic units}$",
-      "$56\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$32\\pi\\text{ وحدة مكعبة}$",
-      "$40\\pi\\text{ وحدة مكعبة}$",
-      "$48\\pi\\text{ وحدة مكعبة}$",
-      "$56\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$32\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{4x})^2 = 4x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 4x dx = \\pi \\left[ \\frac{4x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{4 \\times 16}{2} \\right) = 32\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 4x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 4x dx = \\pi \\left[ \\frac{4x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 4}{2} \\right) = 32\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_15",
-    "titleEn": "Volume of Revolution About X-Axis k=5 #15",
-    "titleAr": "حجم دوراني حول محور السينات ك=5 رقم 15",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{5x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{5x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$40\\pi\\text{ cubic units}$",
-      "$48\\pi\\text{ cubic units}$",
-      "$56\\pi\\text{ cubic units}$",
-      "$64\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$40\\pi\\text{ وحدة مكعبة}$",
-      "$48\\pi\\text{ وحدة مكعبة}$",
-      "$56\\pi\\text{ وحدة مكعبة}$",
-      "$64\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$40\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{5x})^2 = 5x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 5x dx = \\pi \\left[ \\frac{5x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{5 \\times 16}{2} \\right) = 40\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 5x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 5x dx = \\pi \\left[ \\frac{5x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 5}{2} \\right) = 40\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_16",
-    "titleEn": "Volume of Revolution About X-Axis k=6 #16",
-    "titleAr": "حجم دوراني حول محور السينات ك=6 رقم 16",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{6x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{6x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$48\\pi\\text{ cubic units}$",
-      "$56\\pi\\text{ cubic units}$",
-      "$64\\pi\\text{ cubic units}$",
-      "$72\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$48\\pi\\text{ وحدة مكعبة}$",
-      "$56\\pi\\text{ وحدة مكعبة}$",
-      "$64\\pi\\text{ وحدة مكعبة}$",
-      "$72\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$48\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{6x})^2 = 6x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 6x dx = \\pi \\left[ \\frac{6x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{6 \\times 16}{2} \\right) = 48\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 6x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 6x dx = \\pi \\left[ \\frac{6x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 6}{2} \\right) = 48\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_17",
-    "titleEn": "Volume of Revolution About X-Axis k=7 #17",
-    "titleAr": "حجم دوراني حول محور السينات ك=7 رقم 17",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{7x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{7x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$56\\pi\\text{ cubic units}$",
-      "$64\\pi\\text{ cubic units}$",
-      "$72\\pi\\text{ cubic units}$",
-      "$80\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$56\\pi\\text{ وحدة مكعبة}$",
-      "$64\\pi\\text{ وحدة مكعبة}$",
-      "$72\\pi\\text{ وحدة مكعبة}$",
-      "$80\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$56\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{7x})^2 = 7x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 7x dx = \\pi \\left[ \\frac{7x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{7 \\times 16}{2} \\right) = 56\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 7x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 7x dx = \\pi \\left[ \\frac{7x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 7}{2} \\right) = 56\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_18",
-    "titleEn": "Volume of Revolution About X-Axis k=8 #18",
-    "titleAr": "حجم دوراني حول محور السينات ك=8 رقم 18",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{8x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{8x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$64\\pi\\text{ cubic units}$",
-      "$72\\pi\\text{ cubic units}$",
-      "$80\\pi\\text{ cubic units}$",
-      "$88\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$64\\pi\\text{ وحدة مكعبة}$",
-      "$72\\pi\\text{ وحدة مكعبة}$",
-      "$80\\pi\\text{ وحدة مكعبة}$",
-      "$88\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$64\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{8x})^2 = 8x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 8x dx = \\pi \\left[ \\frac{8x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{8 \\times 16}{2} \\right) = 64\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 8x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 8x dx = \\pi \\left[ \\frac{8x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 8}{2} \\right) = 64\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_19",
-    "titleEn": "Volume of Revolution About X-Axis k=9 #19",
-    "titleAr": "حجم دوراني حول محور السينات ك=9 رقم 19",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{9x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{9x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$72\\pi\\text{ cubic units}$",
-      "$80\\pi\\text{ cubic units}$",
-      "$88\\pi\\text{ cubic units}$",
-      "$96\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$72\\pi\\text{ وحدة مكعبة}$",
-      "$80\\pi\\text{ وحدة مكعبة}$",
-      "$88\\pi\\text{ وحدة مكعبة}$",
-      "$96\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$72\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{9x})^2 = 9x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 9x dx = \\pi \\left[ \\frac{9x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{9 \\times 16}{2} \\right) = 72\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 9x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 9x dx = \\pi \\left[ \\frac{9x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 9}{2} \\right) = 72\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_20",
-    "titleEn": "Volume of Revolution About X-Axis k=10 #20",
-    "titleAr": "حجم دوراني حول محور السينات ك=10 رقم 20",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{10x}$, the x-axis, and the line $x = 4$ a complete revolution about the x-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين $y = \\sqrt{10x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
-    "optionsEn": [
-      "$80\\pi\\text{ cubic units}$",
-      "$88\\pi\\text{ cubic units}$",
-      "$96\\pi\\text{ cubic units}$",
-      "$104\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$80\\pi\\text{ وحدة مكعبة}$",
-      "$88\\pi\\text{ وحدة مكعبة}$",
-      "$96\\pi\\text{ وحدة مكعبة}$",
-      "$104\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$80\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about x-axis: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "hintAr": "الحجم حول محور السينات: $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 ${k}x dx$.",
-    "stepByStepSolutionEn": [
-      "1. Square the function: $y^2 = (\\sqrt{10x})^2 = 10x$.",
-      "2. Volume integral: $V = \\pi \\int_0^4 10x dx = \\pi \\left[ \\frac{10x^2}{2} \\right]_0^4$.",
-      "3. Evaluate: $\\pi \\left( \\frac{10 \\times 16}{2} \\right) = 80\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تربيع الدالة: $y^2 = 10x$.",
-      "٢. قانون الحجم: $V = \\pi \\int_0^4 10x dx = \\pi \\left[ \\frac{10x^2}{2} \\right]_0^4$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16 \\times 10}{2} \\right) = 80\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Revolution about x-axis squares y: V = π ∫ y^2 dx.",
-    "teacherTipAr": "الدوران حول محور السينات يربع ص: الحجم = ط × تكامل ص² د س."
-  },
-  {
-    "id": "calc_ch4_db_hots_21",
-    "titleEn": "Volume of Revolution About Y-Axis h=2 #21",
-    "titleAr": "حجم دوراني حول محور الصادات ع=2 رقم 21",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 2$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 2$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$2\\pi\\text{ cubic units}$",
-      "$6\\pi\\text{ cubic units}$",
-      "$10\\pi\\text{ cubic units}$",
-      "$14\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$2\\pi\\text{ وحدة مكعبة}$",
-      "$6\\pi\\text{ وحدة مكعبة}$",
-      "$10\\pi\\text{ وحدة مكعبة}$",
-      "$14\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$2\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{2} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{2}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{2^2}{2} \\right) = \\pi \\left( \\frac{4}{2} \\right) = 2\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{2} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{2}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{2^2}{2} \\right) = 2\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_22",
-    "titleEn": "Volume of Revolution About Y-Axis h=4 #22",
-    "titleAr": "حجم دوراني حول محور الصادات ع=4 رقم 22",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 4$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 4$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$8\\pi\\text{ cubic units}$",
-      "$12\\pi\\text{ cubic units}$",
-      "$16\\pi\\text{ cubic units}$",
-      "$20\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$8\\pi\\text{ وحدة مكعبة}$",
-      "$12\\pi\\text{ وحدة مكعبة}$",
-      "$16\\pi\\text{ وحدة مكعبة}$",
-      "$20\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$8\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{4} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{4}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{4^2}{2} \\right) = \\pi \\left( \\frac{16}{2} \\right) = 8\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{4} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{4}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{4^2}{2} \\right) = 8\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_23",
-    "titleEn": "Volume of Revolution About Y-Axis h=6 #23",
-    "titleAr": "حجم دوراني حول محور الصادات ع=6 رقم 23",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 6$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 6$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$18\\pi\\text{ cubic units}$",
-      "$22\\pi\\text{ cubic units}$",
-      "$26\\pi\\text{ cubic units}$",
-      "$30\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$18\\pi\\text{ وحدة مكعبة}$",
-      "$22\\pi\\text{ وحدة مكعبة}$",
-      "$26\\pi\\text{ وحدة مكعبة}$",
-      "$30\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$18\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{6} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{6}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{6^2}{2} \\right) = \\pi \\left( \\frac{36}{2} \\right) = 18\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{6} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{6}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{6^2}{2} \\right) = 18\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_24",
-    "titleEn": "Volume of Revolution About Y-Axis h=8 #24",
-    "titleAr": "حجم دوراني حول محور الصادات ع=8 رقم 24",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 8$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 8$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$32\\pi\\text{ cubic units}$",
-      "$36\\pi\\text{ cubic units}$",
-      "$40\\pi\\text{ cubic units}$",
-      "$44\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$32\\pi\\text{ وحدة مكعبة}$",
-      "$36\\pi\\text{ وحدة مكعبة}$",
-      "$40\\pi\\text{ وحدة مكعبة}$",
-      "$44\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$32\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{8} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{8}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{8^2}{2} \\right) = \\pi \\left( \\frac{64}{2} \\right) = 32\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{8} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{8}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{8^2}{2} \\right) = 32\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_25",
-    "titleEn": "Volume of Revolution About Y-Axis h=10 #25",
-    "titleAr": "حجم دوراني حول محور الصادات ع=10 رقم 25",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 10$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 10$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$50\\pi\\text{ cubic units}$",
-      "$54\\pi\\text{ cubic units}$",
-      "$58\\pi\\text{ cubic units}$",
-      "$62\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$50\\pi\\text{ وحدة مكعبة}$",
-      "$54\\pi\\text{ وحدة مكعبة}$",
-      "$58\\pi\\text{ وحدة مكعبة}$",
-      "$62\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$50\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{10} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{10}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{10^2}{2} \\right) = \\pi \\left( \\frac{100}{2} \\right) = 50\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{10} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{10}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{10^2}{2} \\right) = 50\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_26",
-    "titleEn": "Volume of Revolution About Y-Axis h=12 #26",
-    "titleAr": "حجم دوراني حول محور الصادات ع=12 رقم 26",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 12$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 12$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$72\\pi\\text{ cubic units}$",
-      "$76\\pi\\text{ cubic units}$",
-      "$80\\pi\\text{ cubic units}$",
-      "$84\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$72\\pi\\text{ وحدة مكعبة}$",
-      "$76\\pi\\text{ وحدة مكعبة}$",
-      "$80\\pi\\text{ وحدة مكعبة}$",
-      "$84\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$72\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{12} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{12}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{12^2}{2} \\right) = \\pi \\left( \\frac{144}{2} \\right) = 72\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{12} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{12}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{12^2}{2} \\right) = 72\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_27",
-    "titleEn": "Volume of Revolution About Y-Axis h=14 #27",
-    "titleAr": "حجم دوراني حول محور الصادات ع=14 رقم 27",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 14$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 14$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$98\\pi\\text{ cubic units}$",
-      "$102\\pi\\text{ cubic units}$",
-      "$106\\pi\\text{ cubic units}$",
-      "$110\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$98\\pi\\text{ وحدة مكعبة}$",
-      "$102\\pi\\text{ وحدة مكعبة}$",
-      "$106\\pi\\text{ وحدة مكعبة}$",
-      "$110\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$98\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{14} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{14}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{14^2}{2} \\right) = \\pi \\left( \\frac{196}{2} \\right) = 98\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{14} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{14}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{14^2}{2} \\right) = 98\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_28",
-    "titleEn": "Volume of Revolution About Y-Axis h=16 #28",
-    "titleAr": "حجم دوراني حول محور الصادات ع=16 رقم 28",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 16$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 16$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$128\\pi\\text{ cubic units}$",
-      "$132\\pi\\text{ cubic units}$",
-      "$136\\pi\\text{ cubic units}$",
-      "$140\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$128\\pi\\text{ وحدة مكعبة}$",
-      "$132\\pi\\text{ وحدة مكعبة}$",
-      "$136\\pi\\text{ وحدة مكعبة}$",
-      "$140\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$128\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{16} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{16}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{16^2}{2} \\right) = \\pi \\left( \\frac{256}{2} \\right) = 128\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{16} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{16}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{16^2}{2} \\right) = 128\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_29",
-    "titleEn": "Volume of Revolution About Y-Axis h=18 #29",
-    "titleAr": "حجم دوراني حول محور الصادات ع=18 رقم 29",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 18$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 18$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$162\\pi\\text{ cubic units}$",
-      "$166\\pi\\text{ cubic units}$",
-      "$170\\pi\\text{ cubic units}$",
-      "$174\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$162\\pi\\text{ وحدة مكعبة}$",
-      "$166\\pi\\text{ وحدة مكعبة}$",
-      "$170\\pi\\text{ وحدة مكعبة}$",
-      "$174\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$162\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{18} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{18}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{18^2}{2} \\right) = \\pi \\left( \\frac{324}{2} \\right) = 162\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{18} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{18}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{18^2}{2} \\right) = 162\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_30",
-    "titleEn": "Volume of Revolution About Y-Axis h=20 #30",
-    "titleAr": "حجم دوراني حول محور الصادات ع=20 رقم 30",
-    "difficulty": "hots",
-    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 20$ in the first quadrant a complete revolution about the y-axis.",
-    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران المنطقة المحصورة بين المنحنى $y = x^2$ ومحور الصادات والمستقيم $y = 20$ في الربع الأول دورة كاملة حول محور الصادات.",
-    "optionsEn": [
-      "$200\\pi\\text{ cubic units}$",
-      "$204\\pi\\text{ cubic units}$",
-      "$208\\pi\\text{ cubic units}$",
-      "$212\\pi\\text{ cubic units}$"
-    ],
-    "optionsAr": [
-      "$200\\pi\\text{ وحدة مكعبة}$",
-      "$204\\pi\\text{ وحدة مكعبة}$",
-      "$208\\pi\\text{ وحدة مكعبة}$",
-      "$212\\pi\\text{ وحدة مكعبة}$"
-    ],
-    "correctAnswer": "$200\\pi\\text{ cubic units}$",
-    "correctIndex": 0,
-    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "hintAr": "الحجم حول محور الصادات: $V = \\pi \\int_0^{${h}} x^2 dy = \\pi \\int_0^{${h}} y dy$.",
-    "stepByStepSolutionEn": [
-      "1. Express $x^2$ in terms of $y$: $x^2 = y$.",
-      "2. Volume integral: $V = \\pi \\int_0^{20} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{20}$.",
-      "3. Evaluate: $\\pi \\left( \\frac{20^2}{2} \\right) = \\pi \\left( \\frac{400}{2} \\right) = 200\\pi\\text{ cubic units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. كتابة $x^2$ بدلالة $y$: $x^2 = y$.",
-      "٢. قانون الحجم حول محور الصادات: $V = \\pi \\int_0^{20} y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^{20}$.",
-      "٣. التعويض: $\\pi \\left( \\frac{20^2}{2} \\right) = 200\\pi\\text{ وحدة مكعبة}$."
-    ],
-    "teacherTipEn": "Paraboloid of revolution volume is exactly half of the enclosing cylinder: V = 1/2 * π * r^2 * h.",
-    "teacherTipAr": "حجم المجسم المكافئ الدوراني يساوي تماماً نصف حجم الأسطوانة المحيطة به: ح = ٠٫٥ ط نق² ع."
-  },
-  {
-    "id": "calc_ch4_db_hots_31",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=2 #31",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=2 رقم 31",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 4 - x^2$ and $y = x^2 - 4$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 4 - x^2$ و $y = x^2 - 4$.",
-    "optionsEn": [
-      "$\\frac{64}{3}\\text{ square units}$",
-      "$\\frac{70}{3}\\text{ square units}$",
-      "$\\frac{76}{3}\\text{ square units}$",
-      "$\\frac{82}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{64}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{70}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{76}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{82}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{64}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(4) \\implies x^2 = 4 \\implies x = -2, 2$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{2} ((4 - x^2) - (x^2 - 4)) dx = 4 \\int_0^{2} (4 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 4x - \\frac{x^3}{3} \\right]_0^{2} = 4 \\left( 8 - \\frac{8}{3} \\right) = 4 \\left( \\frac{2 \\times 8}{3} \\right) = \\frac{64}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 4 \\implies x = \\pm 2$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{2} (4 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{64}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_32",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=3 #32",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=3 رقم 32",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 9 - x^2$ and $y = x^2 - 9$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 9 - x^2$ و $y = x^2 - 9$.",
-    "optionsEn": [
-      "$\\frac{216}{3}\\text{ square units}$",
-      "$\\frac{222}{3}\\text{ square units}$",
-      "$\\frac{228}{3}\\text{ square units}$",
-      "$\\frac{234}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{216}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{222}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{228}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{234}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{216}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(9) \\implies x^2 = 9 \\implies x = -3, 3$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{3} ((9 - x^2) - (x^2 - 9)) dx = 4 \\int_0^{3} (9 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 9x - \\frac{x^3}{3} \\right]_0^{3} = 4 \\left( 27 - \\frac{27}{3} \\right) = 4 \\left( \\frac{2 \\times 27}{3} \\right) = \\frac{216}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 9 \\implies x = \\pm 3$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{3} (9 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{216}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_33",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=4 #33",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=4 رقم 33",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 16 - x^2$ and $y = x^2 - 16$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 16 - x^2$ و $y = x^2 - 16$.",
-    "optionsEn": [
-      "$\\frac{512}{3}\\text{ square units}$",
-      "$\\frac{518}{3}\\text{ square units}$",
-      "$\\frac{524}{3}\\text{ square units}$",
-      "$\\frac{530}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{512}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{518}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{524}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{530}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{512}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(16) \\implies x^2 = 16 \\implies x = -4, 4$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{4} ((16 - x^2) - (x^2 - 16)) dx = 4 \\int_0^{4} (16 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 16x - \\frac{x^3}{3} \\right]_0^{4} = 4 \\left( 64 - \\frac{64}{3} \\right) = 4 \\left( \\frac{2 \\times 64}{3} \\right) = \\frac{512}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 16 \\implies x = \\pm 4$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{4} (16 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{512}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_34",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=5 #34",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=5 رقم 34",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 25 - x^2$ and $y = x^2 - 25$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 25 - x^2$ و $y = x^2 - 25$.",
-    "optionsEn": [
-      "$\\frac{1000}{3}\\text{ square units}$",
-      "$\\frac{1006}{3}\\text{ square units}$",
-      "$\\frac{1012}{3}\\text{ square units}$",
-      "$\\frac{1018}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{1000}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1006}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1012}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1018}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{1000}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(25) \\implies x^2 = 25 \\implies x = -5, 5$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{5} ((25 - x^2) - (x^2 - 25)) dx = 4 \\int_0^{5} (25 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 25x - \\frac{x^3}{3} \\right]_0^{5} = 4 \\left( 125 - \\frac{125}{3} \\right) = 4 \\left( \\frac{2 \\times 125}{3} \\right) = \\frac{1000}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 25 \\implies x = \\pm 5$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{5} (25 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{1000}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_35",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=6 #35",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=6 رقم 35",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 36 - x^2$ and $y = x^2 - 36$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 36 - x^2$ و $y = x^2 - 36$.",
-    "optionsEn": [
-      "$\\frac{1728}{3}\\text{ square units}$",
-      "$\\frac{1734}{3}\\text{ square units}$",
-      "$\\frac{1740}{3}\\text{ square units}$",
-      "$\\frac{1746}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{1728}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1734}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1740}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{1746}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{1728}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(36) \\implies x^2 = 36 \\implies x = -6, 6$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{6} ((36 - x^2) - (x^2 - 36)) dx = 4 \\int_0^{6} (36 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 36x - \\frac{x^3}{3} \\right]_0^{6} = 4 \\left( 216 - \\frac{216}{3} \\right) = 4 \\left( \\frac{2 \\times 216}{3} \\right) = \\frac{1728}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 36 \\implies x = \\pm 6$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{6} (36 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{1728}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_36",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=7 #36",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=7 رقم 36",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 49 - x^2$ and $y = x^2 - 49$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 49 - x^2$ و $y = x^2 - 49$.",
-    "optionsEn": [
-      "$\\frac{2744}{3}\\text{ square units}$",
-      "$\\frac{2750}{3}\\text{ square units}$",
-      "$\\frac{2756}{3}\\text{ square units}$",
-      "$\\frac{2762}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{2744}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2750}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2756}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{2762}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{2744}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(49) \\implies x^2 = 49 \\implies x = -7, 7$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{7} ((49 - x^2) - (x^2 - 49)) dx = 4 \\int_0^{7} (49 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 49x - \\frac{x^3}{3} \\right]_0^{7} = 4 \\left( 343 - \\frac{343}{3} \\right) = 4 \\left( \\frac{2 \\times 343}{3} \\right) = \\frac{2744}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 49 \\implies x = \\pm 7$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{7} (49 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{2744}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_37",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=8 #37",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=8 رقم 37",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 64 - x^2$ and $y = x^2 - 64$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 64 - x^2$ و $y = x^2 - 64$.",
-    "optionsEn": [
-      "$\\frac{4096}{3}\\text{ square units}$",
-      "$\\frac{4102}{3}\\text{ square units}$",
-      "$\\frac{4108}{3}\\text{ square units}$",
-      "$\\frac{4114}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{4096}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4102}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4108}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{4114}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{4096}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(64) \\implies x^2 = 64 \\implies x = -8, 8$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{8} ((64 - x^2) - (x^2 - 64)) dx = 4 \\int_0^{8} (64 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 64x - \\frac{x^3}{3} \\right]_0^{8} = 4 \\left( 512 - \\frac{512}{3} \\right) = 4 \\left( \\frac{2 \\times 512}{3} \\right) = \\frac{4096}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 64 \\implies x = \\pm 8$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{8} (64 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{4096}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_38",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=9 #38",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=9 رقم 38",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 81 - x^2$ and $y = x^2 - 81$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 81 - x^2$ و $y = x^2 - 81$.",
-    "optionsEn": [
-      "$\\frac{5832}{3}\\text{ square units}$",
-      "$\\frac{5838}{3}\\text{ square units}$",
-      "$\\frac{5844}{3}\\text{ square units}$",
-      "$\\frac{5850}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{5832}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5838}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5844}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{5850}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{5832}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(81) \\implies x^2 = 81 \\implies x = -9, 9$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{9} ((81 - x^2) - (x^2 - 81)) dx = 4 \\int_0^{9} (81 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 81x - \\frac{x^3}{3} \\right]_0^{9} = 4 \\left( 729 - \\frac{729}{3} \\right) = 4 \\left( \\frac{2 \\times 729}{3} \\right) = \\frac{5832}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 81 \\implies x = \\pm 9$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{9} (81 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{5832}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_39",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=10 #39",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=10 رقم 39",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 100 - x^2$ and $y = x^2 - 100$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 100 - x^2$ و $y = x^2 - 100$.",
-    "optionsEn": [
-      "$\\frac{8000}{3}\\text{ square units}$",
-      "$\\frac{8006}{3}\\text{ square units}$",
-      "$\\frac{8012}{3}\\text{ square units}$",
-      "$\\frac{8018}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{8000}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{8006}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{8012}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{8018}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{8000}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(100) \\implies x^2 = 100 \\implies x = -10, 10$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{10} ((100 - x^2) - (x^2 - 100)) dx = 4 \\int_0^{10} (100 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 100x - \\frac{x^3}{3} \\right]_0^{10} = 4 \\left( 1000 - \\frac{1000}{3} \\right) = 4 \\left( \\frac{2 \\times 1000}{3} \\right) = \\frac{8000}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 100 \\implies x = \\pm 10$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{10} (100 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{8000}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_40",
-    "titleEn": "Area Between Two Symmetrical Parabolas m=11 #40",
-    "titleAr": "المساحة بين قطعين مكافئين متناظرين م=11 رقم 40",
-    "difficulty": "hots",
-    "questionEn": "Find the area of the region enclosed between the two curves $y = 121 - x^2$ and $y = x^2 - 121$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = 121 - x^2$ و $y = x^2 - 121$.",
-    "optionsEn": [
-      "$\\frac{10648}{3}\\text{ square units}$",
-      "$\\frac{10654}{3}\\text{ square units}$",
-      "$\\frac{10660}{3}\\text{ square units}$",
-      "$\\frac{10666}{3}\\text{ square units}$"
-    ],
-    "optionsAr": [
-      "$\\frac{10648}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{10654}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{10660}{3}\\text{ وحدة مربعة}$",
-      "$\\frac{10666}{3}\\text{ وحدة مربعة}$"
-    ],
-    "correctAnswer": "$\\frac{10648}{3}\\text{ square units}$",
-    "correctIndex": 0,
-    "hintEn": "Set $y_1 = y_2 \\implies ${mSq} - x^2 = x^2 - ${mSq} \\implies x = \\pm ${m}$. Area $= 2 \\int_0^{${m}} 2(${mSq} - x^2) dx = \\frac{8}{3}(${m})^3$.",
-    "hintAr": "بمساواة المنحنيين نجد نقاط التقاطع $x = \\pm ${m}$. المساحة $= \\frac{8}{3}(${m})^3$.",
-    "stepByStepSolutionEn": [
-      "1. Find intersections: $2x^2 = 2(121) \\implies x^2 = 121 \\implies x = -11, 11$.",
-      "2. By symmetry across axes: $A = 2 \\int_0^{11} ((121 - x^2) - (x^2 - 121)) dx = 4 \\int_0^{11} (121 - x^2) dx$.",
-      "3. Evaluate: $4 \\left[ 121x - \\frac{x^3}{3} \\right]_0^{11} = 4 \\left( 1331 - \\frac{1331}{3} \\right) = 4 \\left( \\frac{2 \\times 1331}{3} \\right) = \\frac{10648}{3}\\text{ square units}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. نقاط التقاطع: $x^2 = 121 \\implies x = \\pm 11$.",
-      "٢. بالاستفادة من التماثل حول المحورين: $A = 4 \\int_0^{11} (121 - x^2) dx$.",
-      "٣. بالتعويض نجد: $\\frac{10648}{3}\\text{ وحدة مربعة}$."
-    ],
-    "teacherTipEn": "Take advantage of double symmetry across both coordinate axes.",
-    "teacherTipAr": "استفد دائماً من التماثل المضاعف حول محوري الإحداثيات لتبسيط حدود التكامل."
-  },
-  {
-    "id": "calc_ch4_db_hots_41",
-    "titleEn": "Absolute Value Definite Integral Parameter k=1 #41",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=1 رقم 41",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-1}^{2} |x - 1| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-1}^{2} |x - 1| dx$.",
-    "optionsEn": [
-      "$2.5$",
-      "$5.5$",
-      "$8.5$",
-      "$11.5$"
-    ],
-    "optionsAr": [
-      "$2.5$",
-      "$5.5$",
-      "$8.5$",
-      "$11.5$"
-    ],
-    "correctAnswer": "$2.5$",
-    "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
-    "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 1$):",
-      "$$\\int_{-1}^{2} |x - 1| dx = \\int_{-1}^{1} (1 - x) dx + \\int_{1}^{2} (x - 1) dx$$",
-      "2. First piece: $\\left[ 1x - \\frac{x^2}{2} \\right]_{-1}^{1} = 2(1)^2 = 2$.",
-      "3. Second piece: $\\left[ \\frac{(x - 1)^2}{2} \\right]_{1}^{2} = \\frac{1^2}{2} = 0.5$.",
-      "4. Total: $2 + 0.5 = \\frac{5(1^2)}{2} = 2.5$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 1$):",
-      "$$\\int_{-1}^{2} |x - 1| dx = \\int_{-1}^{1} (1 - x) dx + \\int_{1}^{2} (x - 1) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 2.5$."
-    ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
-  },
-  {
-    "id": "calc_ch4_db_hots_42",
-    "titleEn": "Absolute Value Definite Integral Parameter k=2 #42",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=2 رقم 42",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-2}^{4} |x - 2| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-2}^{4} |x - 2| dx$.",
+    "questionEn": "If $\\int_0^3 f(x) dx = 5$ and $f(x)$ is an even function, find $\\int_{-3}^3 f(x) dx$.",
+    "questionAr": "إذا كان $\\int_0^3 f(x) dx = 5$ وكانت $f(x)$ دالة زوجية، فأوجد $\\int_{-3}^3 f(x) dx$.",
     "optionsEn": [
       "$10$",
-      "$13$",
-      "$16$",
-      "$19$"
+      "$0$",
+      "$5$",
+      "$-10$"
     ],
     "optionsAr": [
-      "$10$",
-      "$13$",
-      "$16$",
-      "$19$"
+      "10",
+      "0",
+      "5",
+      "-10"
     ],
     "correctAnswer": "$10$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "For even functions, int_{-a}^a = 2 int_0^a = 2(5) = 10.",
+    "hintAr": "للدالة الزوجية: التكامل من -أ إلى أ = 2 × التكامل من 0 إلى أ = 10.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 2$):",
-      "$$\\int_{-2}^{4} |x - 2| dx = \\int_{-2}^{2} (2 - x) dx + \\int_{2}^{4} (x - 2) dx$$",
-      "2. First piece: $\\left[ 2x - \\frac{x^2}{2} \\right]_{-2}^{2} = 2(2)^2 = 8$.",
-      "3. Second piece: $\\left[ \\frac{(x - 2)^2}{2} \\right]_{2}^{4} = \\frac{2^2}{2} = 2$.",
-      "4. Total: $8 + 2 = \\frac{5(2^2)}{2} = 10$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 2$):",
-      "$$\\int_{-2}^{4} |x - 2| dx = \\int_{-2}^{2} (2 - x) dx + \\int_{2}^{4} (x - 2) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 10$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
-    "id": "calc_ch4_db_hots_43",
-    "titleEn": "Absolute Value Definite Integral Parameter k=3 #43",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=3 رقم 43",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-3}^{6} |x - 3| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-3}^{6} |x - 3| dx$.",
+    "id": "calc_ch4_db_easy_07",
+    "titleEn": "Linearity of Definite Integral",
+    "titleAr": "خاصية خطية التكامل المحدد",
+    "difficulty": "easy",
+    "questionEn": "If $\\int_1^5 f(x) dx = 6$, find $\\int_1^5 (3f(x) + 2) dx$.",
+    "questionAr": "إذا كان $\\int_1^5 f(x) dx = 6$، فأوجد قيمة $\\int_1^5 (3f(x) + 2) dx$.",
     "optionsEn": [
-      "$22.5$",
-      "$25.5$",
-      "$28.5$",
-      "$31.5$"
+      "$26$",
+      "$20$",
+      "$18$",
+      "$24$"
     ],
     "optionsAr": [
-      "$22.5$",
-      "$25.5$",
-      "$28.5$",
-      "$31.5$"
+      "26",
+      "20",
+      "18",
+      "24"
     ],
-    "correctAnswer": "$22.5$",
+    "correctAnswer": "$26$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "3(6) + 2(5 - 1) = 18 + 8 = 26.",
+    "hintAr": "3 × 6 + 2 × (5 - 1) = 18 + 8 = 26.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 3$):",
-      "$$\\int_{-3}^{6} |x - 3| dx = \\int_{-3}^{3} (3 - x) dx + \\int_{3}^{6} (x - 3) dx$$",
-      "2. First piece: $\\left[ 3x - \\frac{x^2}{2} \\right]_{-3}^{3} = 2(3)^2 = 18$.",
-      "3. Second piece: $\\left[ \\frac{(x - 3)^2}{2} \\right]_{3}^{6} = \\frac{3^2}{2} = 4.5$.",
-      "4. Total: $18 + 4.5 = \\frac{5(3^2)}{2} = 22.5$."
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 3$):",
-      "$$\\int_{-3}^{6} |x - 3| dx = \\int_{-3}^{3} (3 - x) dx + \\int_{3}^{6} (x - 3) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 22.5$."
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
   },
   {
-    "id": "calc_ch4_db_hots_44",
-    "titleEn": "Absolute Value Definite Integral Parameter k=4 #44",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=4 رقم 44",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-4}^{8} |x - 4| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-4}^{8} |x - 4| dx$.",
+    "id": "calc_ch4_db_easy_08",
+    "titleEn": "Integral of Linear Polynomial",
+    "titleAr": "تكامل محدد لكثير حدود من الدرجة الأولى",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^3 (2x + 1) dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^3 (2x + 1) dx$.",
     "optionsEn": [
+      "$12$",
+      "$9$",
+      "$15$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "12",
+      "9",
+      "15",
+      "6"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "[x^2 + x]_0^3 = (9 + 3) - 0 = 12.",
+    "hintAr": "[س² + س] من 0 إلى 3 = 9 + 3 = 12.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_09",
+    "titleEn": "Integral of Monomial x^2",
+    "titleAr": "تكامل محدد للدالة التربيعية س²",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^3 x^2 dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^3 x^2 dx$.",
+    "optionsEn": [
+      "$9$",
+      "$27$",
+      "$18$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "9",
+      "27",
+      "18",
+      "3"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "[x^3 / 3]_0^3 = 27 / 3 = 9.",
+    "hintAr": "[س³/3] من 0 إلى 3 = 27/3 = 9.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_10",
+    "titleEn": "Integral of Cosine over Quarter Period",
+    "titleAr": "تكامل محدد لدالة جيب التمام في الربع الأول",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^{\\pi/2} \\cos x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^{\\pi/2} \\cos x \\, dx$.",
+    "optionsEn": [
+      "$1$",
+      "$0$",
+      "$-1$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "1",
+      "0",
+      "-1",
+      "1/2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "[sin x]_0^{pi/2} = 1 - 0 = 1.",
+    "hintAr": "[جا س] من 0 إلى ط/2 = 1 - 0 = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_11",
+    "titleEn": "Integral of Secant Squared",
+    "titleAr": "تكامل محدد لدالة قا² س",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^{\\pi/4} \\sec^2 x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^{\\pi/4} \\sec^2 x \\, dx$.",
+    "optionsEn": [
+      "$1$",
+      "$\\sqrt{2}$",
+      "$2$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "1",
+      "√2",
+      "2",
+      "0"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "[tan x]_0^{pi/4} = 1 - 0 = 1.",
+    "hintAr": "[ظا س] من 0 إلى ط/4 = 1 - 0 = 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_12",
+    "titleEn": "Integral of Absolute Value of x",
+    "titleAr": "تكامل دالة مقياس س",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_{-1}^2 |x| dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_{-1}^2 |x| dx$.",
+    "optionsEn": [
+      "$\\frac{5}{2}$",
+      "$2$",
+      "$\\frac{3}{2}$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "5/2",
+      "2",
+      "3/2",
+      "3"
+    ],
+    "correctAnswer": "$\\frac{5}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Area of two triangles: (1/2)(1)(1) + (1/2)(2)(2) = 0.5 + 2 = 2.5.",
+    "hintAr": "مساحة مثلثين: 1/2 × 1 × 1 + 1/2 × 2 × 2 = 2.5 = 5/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_13",
+    "titleEn": "Integral of Exponential Function",
+    "titleAr": "تكامل محدد للدالة الأسية هـ^س",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^1 e^x dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^1 e^x dx$.",
+    "optionsEn": [
+      "$e - 1$",
+      "$e$",
+      "$e + 1$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "هـ - 1",
+      "هـ",
+      "هـ + 1",
+      "1"
+    ],
+    "correctAnswer": "$e - 1$",
+    "correctIndex": 0,
+    "hintEn": "[e^x]_0^1 = e^1 - e^0 = e - 1.",
+    "hintAr": "[هـ^س] من 0 إلى 1 = هـ - 1.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_14",
+    "titleEn": "Integral of Reciprocal Function",
+    "titleAr": "تكامل محدد للدالة الكسرية 1/س",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_1^2 \\frac{1}{x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_1^2 \\frac{1}{x} dx$.",
+    "optionsEn": [
+      "$\\ln 2$",
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "لو_هـ 2",
+      "1/2",
+      "1",
+      "2"
+    ],
+    "correctAnswer": "$\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "[ln x]_1^2 = ln 2 - ln 1 = ln 2.",
+    "hintAr": "[لو_هـ س] من 1 إلى 2 = لو_هـ 2.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_15",
+    "titleEn": "Fundamental Theorem of Calculus Derivative",
+    "titleAr": "مشتقة التكامل المحدد بالنسبة للحد العلوي",
+    "difficulty": "easy",
+    "questionEn": "Find $\\frac{d}{dx} \\left[ \\int_2^x \\sqrt{t^3 + 1} \\, dt \\right]$.",
+    "questionAr": "أوجد قيمة $\\frac{d}{dx} \\left[ \\int_2^x \\sqrt{t^3 + 1} \\, dt \\right]$.",
+    "optionsEn": [
+      "$\\sqrt{x^3 + 1}$",
+      "$\\frac{3x^2}{2\\sqrt{x^3+1}}$",
+      "$x^3 + 1$",
+      "$\\sqrt{x^3 + 1} - 3$"
+    ],
+    "optionsAr": [
+      "√(س³ + 1)",
+      "3س² / (2√(س³ + 1))",
+      "س³ + 1",
+      "√(س³ + 1) - 3"
+    ],
+    "correctAnswer": "$\\sqrt{x^3 + 1}$",
+    "correctIndex": 0,
+    "hintEn": "By FTC: d/dx int_a^x f(t) dt = f(x).",
+    "hintAr": "النظرية الأساسية للتفاضل والتكامل: مشتقة التكامل بالنسبة لـ س تساوي الدالة الأصلية د(س).",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_16",
+    "titleEn": "Area Under Triangle Curve y = 2x",
+    "titleAr": "مساحة المنطقة تحت المستقيم ص = 2س",
+    "difficulty": "easy",
+    "questionEn": "Find the area under $y = 2x$ from $x = 0$ to $x = 3$.",
+    "questionAr": "أوجد مساحة المنطقة تحت المستقيم $y = 2x$ ومحور السينات من $x = 0$ إلى $x = 3$.",
+    "optionsEn": [
+      "$9$",
+      "$6$",
+      "$18$",
+      "$12$"
+    ],
+    "optionsAr": [
+      "9",
+      "6",
+      "18",
+      "12"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "Area = int_0^3 2x dx = [x^2]_0^3 = 9.",
+    "hintAr": "المساحة = تكامل 2س د س من 0 إلى 3 = 9 وحدات مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_17",
+    "titleEn": "Area Under Parabola y = x^2",
+    "titleAr": "مساحة المنطقة تحت القطع المكافئ ص = س²",
+    "difficulty": "easy",
+    "questionEn": "Find the area of the region bounded by $y = x^2$, the x-axis, and $x = 3$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = x^2$ ومحور السينات والمستقيم $x = 3$.",
+    "optionsEn": [
+      "$9$",
+      "$27$",
+      "$18$",
+      "$3$"
+    ],
+    "optionsAr": [
+      "9",
+      "27",
+      "18",
+      "3"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "Area = int_0^3 x^2 dx = 9.",
+    "hintAr": "المساحة = [س³/3] من 0 إلى 3 = 9 وحدات مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_18",
+    "titleEn": "Area Under Square Root Curve",
+    "titleAr": "مساحة المنطقة تحت منحنى الجذر التربيعي",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = \\sqrt{x}$, the x-axis, and the lines $x = 0$ and $x = 4$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = \\sqrt{x}$ ومحور السينات والمستقيمين $x = 0$ و $x = 4$.",
+    "optionsEn": [
+      "$\\frac{16}{3}$",
+      "$8$",
+      "$4$",
+      "$\\frac{8}{3}$"
+    ],
+    "optionsAr": [
+      "16/3",
+      "8",
+      "4",
+      "8/3"
+    ],
+    "correctAnswer": "$\\frac{16}{3}$",
+    "correctIndex": 0,
+    "hintEn": "int_0^4 x^(1/2) dx = [(2/3) x^(3/2)]_0^4 = (2/3)(8) = 16/3.",
+    "hintAr": "تكامل س^(1/2) = (2/3) × 8 = 16/3 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_19",
+    "titleEn": "Area Under Single Arch of Sine",
+    "titleAr": "مساحة القوس الأول لمنحنى دالة الجيب",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = \\sin x$ and the x-axis from $x = 0$ to $x = \\pi$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = \\sin x$ ومحور السينات من $x = 0$ إلى $x = \\pi$.",
+    "optionsEn": [
+      "$2$",
+      "$1$",
+      "$\\pi$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "2",
+      "1",
+      "ط",
+      "0"
+    ],
+    "correctAnswer": "$2$",
+    "correctIndex": 0,
+    "hintEn": "int_0^pi sin x dx = [-cos x]_0^pi = 1 - (-1) = 2.",
+    "hintAr": "تكامل جا س من 0 إلى ط = 2 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_20",
+    "titleEn": "Area Under Parabola y = 4 - x^2",
+    "titleAr": "مساحة المنطقة المحصورة بين ص = 4 - س² ومحور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the area of the region bounded by $y = 4 - x^2$ and the x-axis.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = 4 - x^2$ ومحور السينات.",
+    "optionsEn": [
+      "$\\frac{32}{3}$",
+      "$16$",
+      "$\\frac{16}{3}$",
+      "$8$"
+    ],
+    "optionsAr": [
+      "32/3",
+      "16",
+      "16/3",
+      "8"
+    ],
+    "correctAnswer": "$\\frac{32}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Roots at x = +- 2. Area = int_{-2}^2 (4 - x^2) dx = [4x - x^3/3]_{-2}^2 = 32/3.",
+    "hintAr": "نقاط التقاطع مع السينات س = ± 2، والمساحة = 32/3 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_21",
+    "titleEn": "Area of Quarter Circle via Integral",
+    "titleAr": "مساحة ربع دائرة باستخدام التكامل",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_0^3 \\sqrt{9 - x^2} \\, dx$.",
+    "questionAr": "احسب قيمة التكامل $\\int_0^3 \\sqrt{9 - x^2} \\, dx$.",
+    "optionsEn": [
+      "$\\frac{9\\pi}{4}$",
+      "$9\\pi$",
+      "$\\frac{9\\pi}{2}$",
+      "$3\\pi$"
+    ],
+    "optionsAr": [
+      "9ط / 4",
+      "9ط",
+      "9ط / 2",
+      "3ط"
+    ],
+    "correctAnswer": "$\\frac{9\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Area of quarter circle of radius R = 3: (1/4) pi R^2 = 9pi/4.",
+    "hintAr": "يمثل التكامل مساحة ربع دائرة نصف قطرها 3: (1/4) ط نق² = 9ط/4.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_22",
+    "titleEn": "Area Under Semicircle",
+    "titleAr": "مساحة نصف دائرة بالتكامل",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_{-2}^2 \\sqrt{4 - x^2} \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_{-2}^2 \\sqrt{4 - x^2} \\, dx$.",
+    "optionsEn": [
+      "$2\\pi$",
+      "$4\\pi$",
+      "$\\pi$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "2ط",
+      "4ط",
+      "ط",
+      "ط/2"
+    ],
+    "correctAnswer": "$2\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Area of semicircle of radius 2: (1/2) pi (2^2) = 2pi.",
+    "hintAr": "يمثل مساحة نصف دائرة نصف قطرها 2: (1/2) ط (4) = 2ط.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_23",
+    "titleEn": "Total Area with Regions Above and Below X-Axis",
+    "titleAr": "المساحة الكلية مع مناطق فوق وتحت محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the total area bounded by $y = x^3$ and the x-axis from $x = -1$ to $x = 1$.",
+    "questionAr": "أوجد المساحة الكلية المحددة بالمنحنى $y = x^3$ ومحور السينات من $x = -1$ إلى $x = 1$.",
+    "optionsEn": [
+      "$\\frac{1}{2}$",
+      "$0$",
+      "$1$",
+      "$\\frac{1}{4}$"
+    ],
+    "optionsAr": [
+      "1/2",
+      "0",
+      "1",
+      "1/4"
+    ],
+    "correctAnswer": "$\\frac{1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Area = int_{-1}^0 (-x^3)dx + int_0^1 x^3 dx = 1/4 + 1/4 = 1/2.",
+    "hintAr": "المساحة موجبة دائماً: |تكامل من -1 إلى 0| + تكامل من 0 إلى 1 = 1/4 + 1/4 = 1/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_24",
+    "titleEn": "Area Under Exponential between 0 and 2",
+    "titleAr": "مساحة تحت دالة أسية من 0 إلى 2",
+    "difficulty": "easy",
+    "questionEn": "Find the area under $y = e^{2x}$ from $x = 0$ to $x = 1$.",
+    "questionAr": "أوجد مساحة المنطقة تحت المنحنى $y = e^{2x}$ ومحور السينات من $x = 0$ إلى $x = 1$.",
+    "optionsEn": [
+      "$\\frac{e^2 - 1}{2}$",
+      "$e^2 - 1$",
+      "$\\frac{e^2}{2}$",
+      "$e^2$"
+    ],
+    "optionsAr": [
+      "(هـ² - 1)/2",
+      "هـ² - 1",
+      "هـ²/2",
+      "هـ²"
+    ],
+    "correctAnswer": "$\\frac{e^2 - 1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "int_0^1 e^(2x) dx = (1/2)(e^2 - 1).",
+    "hintAr": "تكامل هـ^(2س) من 0 إلى 1 = (هـ² - 1)/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_25",
+    "titleEn": "Area Under 1/x from 1 to 4",
+    "titleAr": "مساحة تحت المنحنى 1/س من 1 إلى 4",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = \\frac{1}{x}$, the x-axis, $x = 1$, and $x = 4$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = \\frac{1}{x}$ ومحور السينات والمستقيمين $x = 1$ و $x = 4$.",
+    "optionsEn": [
+      "$\\ln 4$",
+      "$\\frac{3}{4}$",
+      "$4$",
+      "$\\frac{1}{4}$"
+    ],
+    "optionsAr": [
+      "لو_هـ 4",
+      "3/4",
+      "4",
+      "1/4"
+    ],
+    "correctAnswer": "$\\ln 4$",
+    "correctIndex": 0,
+    "hintEn": "int_1^4 (1/x) dx = ln 4 - ln 1 = ln 4.",
+    "hintAr": "تكامل 1/س من 1 إلى 4 = لو_هـ 4.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_26",
+    "titleEn": "Area of Strip Along Y-Axis",
+    "titleAr": "مساحة منطقة بالتكامل بالنسبة لمحور الصادات",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $x = y^2$, the y-axis, and $y = 2$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $x = y^2$ ومحور الصادات والمستقيم $y = 2$.",
+    "optionsEn": [
+      "$\\frac{8}{3}$",
+      "$4$",
+      "$\\frac{4}{3}$",
+      "$8$"
+    ],
+    "optionsAr": [
+      "8/3",
+      "4",
+      "4/3",
+      "8"
+    ],
+    "correctAnswer": "$\\frac{8}{3}$",
+    "correctIndex": 0,
+    "hintEn": "int_0^2 y^2 dy = [y^3 / 3]_0^2 = 8/3.",
+    "hintAr": "المساحة بالنسبة لمحور الصادات = [ص³/3] من 0 إلى 2 = 8/3.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_27",
+    "titleEn": "Area between Curve and X-Axis for Cubic Root",
+    "titleAr": "مساحة تحت الجذر التكعيبي",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = x^{1/3}$, the x-axis, and $x = 8$.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = x^{1/3}$ ومحور السينات والمستقيم $x = 8$.",
+    "optionsEn": [
+      "$12$",
+      "$16$",
+      "$8$",
+      "$24$"
+    ],
+    "optionsAr": [
+      "12",
+      "16",
+      "8",
+      "24"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "int_0^8 x^(1/3) dx = [(3/4) x^(4/3)]_0^8 = (3/4)(16) = 12.",
+    "hintAr": "تكامل س^(1/3) = (3/4) × 16 = 12 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_28",
+    "titleEn": "Area of Linear Trapezoid",
+    "titleAr": "مساحة شبه منحرف بالتكامل",
+    "difficulty": "easy",
+    "questionEn": "Find the area under $y = x + 2$ from $x = 1$ to $x = 3$.",
+    "questionAr": "أوجد مساحة المنطقة تحت المستقيم $y = x + 2$ ومحور السينات من $x = 1$ إلى $x = 3$.",
+    "optionsEn": [
+      "$8$",
+      "$6$",
+      "$10$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "8",
+      "6",
+      "10",
+      "4"
+    ],
+    "correctAnswer": "$8$",
+    "correctIndex": 0,
+    "hintEn": "[(1/2)x^2 + 2x]_1^3 = (4.5 + 6) - (0.5 + 2) = 10.5 - 2.5 = 8.",
+    "hintAr": "المساحة = (10.5 - 2.5) = 8 وحدات مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_29",
+    "titleEn": "Area Under Parabola in First Quadrant",
+    "titleAr": "مساحة تحت قطع مكافئ في الربع الأول",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = 9 - x^2$ in the first quadrant.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = 9 - x^2$ في الربع الأول.",
+    "optionsEn": [
+      "$18$",
+      "$9$",
+      "$27$",
+      "$36$"
+    ],
+    "optionsAr": [
+      "18",
+      "9",
+      "27",
+      "36"
+    ],
+    "correctAnswer": "$18$",
+    "correctIndex": 0,
+    "hintEn": "int_0^3 (9 - x^2) dx = [9x - x^3/3]_0^3 = 27 - 9 = 18.",
+    "hintAr": "تكامل من 0 إلى 3 للدالة 9 - س² = 27 - 9 = 18.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_30",
+    "titleEn": "Area of Standard Symmetric Parabolic Segment",
+    "titleAr": "مساحة القطعة المكافئة المتماثلة",
+    "difficulty": "easy",
+    "questionEn": "Find the area bounded by $y = 1 - x^2$ and the x-axis.",
+    "questionAr": "أوجد مساحة المنطقة المحددة بالمنحنى $y = 1 - x^2$ ومحور السينات.",
+    "optionsEn": [
+      "$\\frac{4}{3}$",
+      "$2$",
+      "$\\frac{2}{3}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "4/3",
+      "2",
+      "2/3",
+      "1"
+    ],
+    "correctAnswer": "$\\frac{4}{3}$",
+    "correctIndex": 0,
+    "hintEn": "int_{-1}^1 (1 - x^2) dx = 2 [x - x^3/3]_0^1 = 2(2/3) = 4/3.",
+    "hintAr": "المساحة = 2 × (2/3) = 4/3 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_31",
+    "titleEn": "Volume of Cone by Revolving Line y = x",
+    "titleAr": "حجم مخروط بالدوران حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume of the solid generated by revolving $y = x$ about the x-axis from $x = 0$ to $x = 3$.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة المحصورة بين $y = x$ ومحور السينات حول محور السينات من $x = 0$ إلى $x = 3$.",
+    "optionsEn": [
+      "$9\\pi$",
+      "$27\\pi$",
+      "$3\\pi$",
+      "$\\frac{9\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "9ط",
+      "27ط",
+      "3ط",
+      "9ط / 2"
+    ],
+    "correctAnswer": "$9\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^3 x^2 dx = pi [x^3/3]_0^3 = 9pi.",
+    "hintAr": "الحجم = ط × تكامل س² من 0 إلى 3 = 9ط وحدة مكعبة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_32",
+    "titleEn": "Volume of Cylinder by Revolution",
+    "titleAr": "حجم أسطوانة بدوران مستقيم أفقي",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving the line $y = 2$ about the x-axis from $x = 0$ to $x = 5$.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران المستقيم $y = 2$ حول محور السينات من $x = 0$ إلى $x = 5$.",
+    "optionsEn": [
+      "$20\\pi$",
+      "$10\\pi$",
+      "$40\\pi$",
+      "$25\\pi$"
+    ],
+    "optionsAr": [
+      "20ط",
+      "10ط",
+      "40ط",
+      "25ط"
+    ],
+    "correctAnswer": "$20\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^5 2^2 dx = pi (4)(5) = 20pi.",
+    "hintAr": "الحجم = ط × 4 × 5 = 20ط وحدة مكعبة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_33",
+    "titleEn": "Volume of Paraboloid by Revolving y = sqrt(x)",
+    "titleAr": "حجم مجسم مكافئ بدوران جذر س",
+    "difficulty": "easy",
+    "questionEn": "Find the volume of the solid generated by revolving $y = \\sqrt{x}$ about the x-axis from $x = 0$ to $x = 4$.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران $y = \\sqrt{x}$ حول محور السينات من $x = 0$ إلى $x = 4$.",
+    "optionsEn": [
+      "$8\\pi$",
+      "$16\\pi$",
+      "$4\\pi$",
+      "$\\frac{16\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "8ط",
+      "16ط",
+      "4ط",
+      "16ط / 3"
+    ],
+    "correctAnswer": "$8\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^4 (sqrt(x))^2 dx = pi int_0^4 x dx = pi [x^2/2]_0^4 = 8pi.",
+    "hintAr": "الحجم = ط × [س²/2] من 0 إلى 4 = 8ط وحدة مكعبة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_34",
+    "titleEn": "Volume of Revolution of y = x^2 About X-Axis",
+    "titleAr": "حجم دوران القطع المكافئ حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving $y = x^2$ about the x-axis from $x = 0$ to $x = 2$.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران $y = x^2$ حول محور السينات من $x = 0$ إلى $x = 2$.",
+    "optionsEn": [
+      "$\\frac{32\\pi}{5}$",
+      "$\\frac{16\\pi}{5}$",
+      "$8\\pi$",
+      "$\\frac{32\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "32ط / 5",
+      "16ط / 5",
+      "8ط",
+      "32ط / 3"
+    ],
+    "correctAnswer": "$\\frac{32\\pi}{5}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^2 (x^2)^2 dx = pi [x^5/5]_0^2 = 32pi/5.",
+    "hintAr": "الحجم = ط × [س⁵/5] من 0 إلى 2 = 32ط/5.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_35",
+    "titleEn": "Volume of Sphere by Integration",
+    "titleAr": "حجم كرة كاملة بالتكامل المحدد",
+    "difficulty": "easy",
+    "questionEn": "Find the volume of the sphere generated by revolving $y = \\sqrt{9 - x^2}$ about the x-axis from $x = -3$ to $x = 3$.",
+    "questionAr": "أوجد حجم الكرة المتولدة من دوران $y = \\sqrt{9 - x^2}$ حول محور السينات من $x = -3$ إلى $x = 3$.",
+    "optionsEn": [
+      "$36\\pi$",
+      "$18\\pi$",
+      "$72\\pi$",
+      "$27\\pi$"
+    ],
+    "optionsAr": [
+      "36ط",
+      "18ط",
+      "72ط",
+      "27ط"
+    ],
+    "correctAnswer": "$36\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = (4/3) pi R^3 = (4/3) pi (27) = 36pi.",
+    "hintAr": "الحجم = 4/3 ط نق³ = 4/3 ط (27) = 36ط وحدة مكعبة.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_36",
+    "titleEn": "Volume of Revolution of y = x^2 About Y-Axis",
+    "titleAr": "حجم دوران القطع المكافئ حول محور الصادات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 4$ about the y-axis.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة المحصورة بين $y = x^2$ ومحور الصادات والمستقيم $y = 4$ حول محور الصادات.",
+    "optionsEn": [
+      "$8\\pi$",
+      "$16\\pi$",
+      "$4\\pi$",
+      "$\\frac{32\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "8ط",
+      "16ط",
+      "4ط",
+      "32ط / 3"
+    ],
+    "correctAnswer": "$8\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^4 x^2 dy = pi int_0^4 y dy = pi [y^2/2]_0^4 = 8pi.",
+    "hintAr": "الحجم حول محور الصادات = ط × تكامل ص د ص من 0 إلى 4 = 8ط.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_37",
+    "titleEn": "Volume of Cone by Revolving About Y-Axis",
+    "titleAr": "حجم مخروط بالدوران حول محور الصادات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving the line $x = 2y$ about the y-axis from $y = 0$ to $y = 3$.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران المستقيم $x = 2y$ حول محور الصادات من $y = 0$ إلى $y = 3$.",
+    "optionsEn": [
+      "$36\\pi$",
+      "$18\\pi$",
+      "$12\\pi$",
+      "$9\\pi$"
+    ],
+    "optionsAr": [
+      "36ط",
+      "18ط",
+      "12ط",
+      "9ط"
+    ],
+    "correctAnswer": "$36\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^3 (2y)^2 dy = 4 pi [y^3/3]_0^3 = 4 pi (9) = 36pi.",
+    "hintAr": "الحجم = ط × 4 × [ص³/3] من 0 إلى 3 = 36ط.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_38",
+    "titleEn": "Volume of Revolution of Sine Curve",
+    "titleAr": "حجم دوران قوس الجيب حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving $y = \\sin x$ about the x-axis from $x = 0$ to $x = \\pi$.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران $y = \\sin x$ حول محور السينات من $x = 0$ إلى $x = \\pi$.",
+    "optionsEn": [
+      "$\\frac{\\pi^2}{2}$",
+      "$\\pi^2$",
+      "$2\\pi$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "ط² / 2",
+      "ط²",
+      "2ط",
+      "ط / 2"
+    ],
+    "correctAnswer": "$\\frac{\\pi^2}{2}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^pi sin^2 x dx = pi [x/2 - sin(2x)/4]_0^pi = pi^2 / 2.",
+    "hintAr": "الحجم = ط × تكامل جا² س من 0 إلى ط = ط²/2.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_39",
+    "titleEn": "Volume of Revolution of Exponential Function",
+    "titleAr": "حجم دوران دالة أسية حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving $y = e^x$ about the x-axis from $x = 0$ to $x = 1$.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران المنحنى $y = e^x$ حول محور السينات من $x = 0$ إلى $x = 1$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{2}(e^2 - 1)$",
+      "$\\pi(e^2 - 1)$",
+      "$\\frac{\\pi}{2}e^2$",
+      "$\\pi e^2$"
+    ],
+    "optionsAr": [
+      "(ط/2)(هـ² - 1)",
+      "ط(هـ² - 1)",
+      "(ط/2)هـ²",
+      "ط هـ²"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{2}(e^2 - 1)$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^1 (e^x)^2 dx = pi int_0^1 e^(2x) dx = (pi/2)(e^2 - 1).",
+    "hintAr": "الحجم = ط × [(1/2)هـ^(2س)] من 0 إلى 1 = (ط/2)(هـ² - 1).",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_40",
+    "titleEn": "Volume of Revolution of 1/x Curve",
+    "titleAr": "حجم دوران منحنى 1/س حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving $y = \\frac{1}{x}$ about the x-axis from $x = 1$ to $x = 4$.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنحنى $y = \\frac{1}{x}$ حول محور السينات من $x = 1$ إلى $x = 4$.",
+    "optionsEn": [
+      "$\\frac{3\\pi}{4}$",
+      "$\\pi \\ln 4$",
+      "$\\frac{\\pi}{4}$",
+      "$3\\pi$"
+    ],
+    "optionsAr": [
+      "3ط / 4",
+      "ط لو_هـ 4",
+      "ط / 4",
+      "3ط"
+    ],
+    "correctAnswer": "$\\frac{3\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_1^4 (1/x^2) dx = pi [-1/x]_1^4 = pi (1 - 1/4) = 3pi/4.",
+    "hintAr": "الحجم = ط × [-1/س] من 1 إلى 4 = 3ط/4.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_41",
+    "titleEn": "Volume Formula Identification",
+    "titleAr": "تحديد صيغة الحجم الدوراني حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "The volume of the solid generated by revolving $y = f(x)$ from $x = a$ to $x = b$ about the x-axis is given by:",
+    "questionAr": "حجم الجسم الناشئ عن دوران المنطقة المحددة بالمنحنى $y = f(x)$ ومحور السينات حول محور السينات يُعطى بالقانون:",
+    "optionsEn": [
+      "$\\pi \\int_a^b [f(x)]^2 dx$",
+      "$2\\pi \\int_a^b f(x) dx$",
+      "$\\pi \\int_a^b f(x) dx$",
+      "$\\int_a^b [f(x)]^2 dx$"
+    ],
+    "optionsAr": [
+      "ط × تكامل [د(س)]² د س",
+      "2ط × تكامل د(س) د س",
+      "ط × تكامل د(س) د س",
+      "تكامل [د(س)]² د س"
+    ],
+    "correctAnswer": "$\\pi \\int_a^b [f(x)]^2 dx$",
+    "correctIndex": 0,
+    "hintEn": "Standard disk method: V = pi int y^2 dx.",
+    "hintAr": "طريقة الأقراص الدائرية القياسية: الحجم = ط × تكامل ص² د س.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_42",
+    "titleEn": "Volume Formula Identification for Y-Axis",
+    "titleAr": "تحديد صيغة الحجم الدوراني حول محور الصادات",
+    "difficulty": "easy",
+    "questionEn": "The volume of the solid generated by revolving $x = g(y)$ from $y = c$ to $y = d$ about the y-axis is:",
+    "questionAr": "حجم الجسم الناشئ عن دوران المنطقة حول محور الصادات من $y = c$ إلى $y = d$ يُعطى بالقانون:",
+    "optionsEn": [
+      "$\\pi \\int_c^d [g(y)]^2 dy$",
+      "$2\\pi \\int_c^d y g(y) dy$",
+      "$\\pi \\int_c^d g(y) dy$",
+      "$\\int_c^d [g(y)]^2 dy$"
+    ],
+    "optionsAr": [
+      "ط × تكامل [ر(ص)]² د ص",
+      "2ط × تكامل ص ر(ص) د ص",
+      "ط × تكامل ر(ص) د ص",
+      "تكامل [ر(ص)]² د ص"
+    ],
+    "correctAnswer": "$\\pi \\int_c^d [g(y)]^2 dy$",
+    "correctIndex": 0,
+    "hintEn": "Standard disk method around y-axis: V = pi int x^2 dy.",
+    "hintAr": "الحجم بالدوران حول محور الصادات = ط × تكامل س² د ص.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_43",
+    "titleEn": "Volume of Semicircular Solid of Revolution",
+    "titleAr": "حجم نصف كرة بالدوران",
+    "difficulty": "easy",
+    "questionEn": "Find the volume of the hemisphere generated by revolving $y = \\sqrt{4 - x^2}$ from $x = 0$ to $x = 2$ about the x-axis.",
+    "questionAr": "أوجد حجم نصف الكرة المتولد من دوران $y = \\sqrt{4 - x^2}$ من $x = 0$ إلى $x = 2$ حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{16\\pi}{3}$",
+      "$\\frac{32\\pi}{3}$",
+      "$8\\pi$",
+      "$4\\pi$"
+    ],
+    "optionsAr": [
+      "16ط / 3",
+      "32ط / 3",
+      "8ط",
+      "4ط"
+    ],
+    "correctAnswer": "$\\frac{16\\pi}{3}$",
+    "correctIndex": 0,
+    "hintEn": "V = (1/2) (4/3 pi R^3) = (2/3) pi (8) = 16pi/3.",
+    "hintAr": "حجم نصف الكرة = 2/3 ط نق³ = 16ط/3.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_44",
+    "titleEn": "Volume of Revolution of y = 3x",
+    "titleAr": "حجم دوران مستقيم يمر بنقطة الأصل",
+    "difficulty": "easy",
+    "questionEn": "Find the volume of the cone generated by revolving $y = 3x$ from $x = 0$ to $x = 2$ about the x-axis.",
+    "questionAr": "أوجد حجم المخروط المتولد من دوران $y = 3x$ من $x = 0$ إلى $x = 2$ حول محور السينات.",
+    "optionsEn": [
+      "$24\\pi$",
+      "$12\\pi$",
+      "$36\\pi$",
+      "$18\\pi$"
+    ],
+    "optionsAr": [
+      "24ط",
+      "12ط",
+      "36ط",
+      "18ط"
+    ],
+    "correctAnswer": "$24\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^2 9x^2 dx = 9 pi [x^3/3]_0^2 = 9 pi (8/3) = 24pi.",
+    "hintAr": "الحجم = ط × 9 × (8/3) = 24ط.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_45",
+    "titleEn": "Volume of Revolution of y = x^3",
+    "titleAr": "حجم دوران منحنى تكعيبي حول محور السينات",
+    "difficulty": "easy",
+    "questionEn": "Find the volume generated by revolving $y = x^3$ from $x = 0$ to $x = 1$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران $y = x^3$ من $x = 0$ إلى $x = 1$ حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{\\pi}{7}$",
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{5}$",
+      "$\\frac{\\pi}{4}$"
+    ],
+    "optionsAr": [
+      "ط / 7",
+      "ط / 6",
+      "ط / 5",
+      "ط / 4"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{7}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^1 (x^3)^2 dx = pi int_0^1 x^6 dx = pi/7.",
+    "hintAr": "الحجم = ط × تكامل س⁶ من 0 إلى 1 = ط/7.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_46",
+    "titleEn": "Average Value of Quadratic Function",
+    "titleAr": "القيمة المتوسطة لدالة تربيعية",
+    "difficulty": "easy",
+    "questionEn": "Find the average value of $f(x) = x^2$ on the interval $[0, 3]$.",
+    "questionAr": "أوجد القيمة المتوسطة للدالة $f(x) = x^2$ على الفترة $[0, 3]$.",
+    "optionsEn": [
+      "$3$",
+      "$9$",
+      "$1$",
+      "$\\frac{9}{2}$"
+    ],
+    "optionsAr": [
+      "3",
+      "9",
+      "1",
+      "9/2"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "f_avg = (1/(3 - 0)) int_0^3 x^2 dx = (1/3)(9) = 3.",
+    "hintAr": "القيمة المتوسطة = (1 / (3 - 0)) × 9 = 3.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_47",
+    "titleEn": "Average Value of Linear Function",
+    "titleAr": "القيمة المتوسطة لدالة خطية",
+    "difficulty": "easy",
+    "questionEn": "Find the average value of $f(x) = 4x$ on $[0, 2]$.",
+    "questionAr": "أوجد القيمة المتوسطة للدالة $f(x) = 4x$ على الفترة $[0, 2]$.",
+    "optionsEn": [
+      "$4$",
+      "$8$",
+      "$2$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "4",
+      "8",
+      "2",
+      "6"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "f_avg = (1/2) int_0^2 4x dx = (1/2)(8) = 4.",
+    "hintAr": "القيمة المتوسطة = (1/2) × 8 = 4.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_48",
+    "titleEn": "Average Value of Sine on Half Period",
+    "titleAr": "القيمة المتوسطة لدالة الجيب على نصف دورة",
+    "difficulty": "easy",
+    "questionEn": "Find the average value of $f(x) = \\sin x$ on $[0, \\pi]$.",
+    "questionAr": "أوجد القيمة المتوسطة للدالة $f(x) = \\sin x$ على الفترة $[0, \\pi]$.",
+    "optionsEn": [
+      "$\\frac{2}{\\pi}$",
+      "$\\frac{1}{\\pi}$",
+      "$\\frac{\\pi}{2}$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "2 / ط",
+      "1 / ط",
+      "ط / 2",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{2}{\\pi}$",
+    "correctIndex": 0,
+    "hintEn": "f_avg = (1/pi) int_0^pi sin x dx = 2/pi.",
+    "hintAr": "القيمة المتوسطة = (1/ط) × 2 = 2/ط.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_49",
+    "titleEn": "Integral of Derivative of Composite Function",
+    "titleAr": "تكامل مشتقة دالة مركبة",
+    "difficulty": "easy",
+    "questionEn": "Evaluate $\\int_1^3 f'(x) dx$ if $f(1) = 4$ and $f(3) = 11$.",
+    "questionAr": "احسب قيمة التكامل $\\int_1^3 f'(x) dx$ إذا كان $f(1) = 4$ و $f(3) = 11$.",
+    "optionsEn": [
+      "$7$",
+      "$15$",
+      "$-7$",
+      "$44$"
+    ],
+    "optionsAr": [
+      "7",
+      "15",
+      "-7",
+      "44"
+    ],
+    "correctAnswer": "$7$",
+    "correctIndex": 0,
+    "hintEn": "By FTC: int_1^3 f'(x) dx = f(3) - f(1) = 11 - 4 = 7.",
+    "hintAr": "تكامل د'(س) = د(3) - د(1) = 11 - 4 = 7.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_easy_50",
+    "titleEn": "Zero Integral of Constant on Degenerate Interval",
+    "titleAr": "انعدام التكامل عندما يتساوى حدي التكامل",
+    "difficulty": "easy",
+    "questionEn": "What is the value of $\\int_a^a \\cos(x^2 + 1) dx$ for any real number $a$?",
+    "questionAr": "ما قيمة $\\int_a^a \\cos(x^2 + 1) dx$ لأي عدد حقيقي $a$؟",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\cos(a^2 + 1)$",
+      "Cannot be determined"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "جتا(أ² + 1)",
+      "لا يمكن تحديده"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Integral from a to a is identically zero.",
+    "hintAr": "التكامل من أ إلى أ يساوي صفراً دائماً.",
+    "stepByStepSolutionEn": [
+      "1. Apply definite integration theorems.",
+      "2. Evaluate at integration limits."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تطبيق نظريات التكامل المحدد.",
+      "٢. التعويض بحدود التكامل."
+    ],
+    "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
+    "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+  }
+],
+  "medium": [
+  {
+    "id": "calc_ch4_db_med_51",
+    "titleEn": "Area Between y = x^2 and y = x",
+    "titleAr": "المساحة بين المنحنى ص = س² والمستقيم ص = س",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region enclosed between $y = x^2$ and $y = x$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x^2$ والمستقيم $y = x$.",
+    "optionsEn": [
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{12}$"
+    ],
+    "optionsAr": [
+      "1/6",
+      "1/3",
+      "1/2",
+      "1/12"
+    ],
+    "correctAnswer": "$\\frac{1}{6}$",
+    "correctIndex": 0,
+    "hintEn": "Intersection: x^2 = x => x = 0, 1. Area = int_0^1 (x - x^2)dx = 1/2 - 1/3 = 1/6.",
+    "hintAr": "نقاط التقاطع س = 0 و 1. المساحة = [س²/2 - س³/3] من 0 إلى 1 = 1/6 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_52",
+    "titleEn": "Area Between y = x^2 and y = 2x",
+    "titleAr": "المساحة بين المنحنى ص = س² والمستقيم ص = 2س",
+    "difficulty": "medium",
+    "questionEn": "Find the area enclosed between $y = x^2$ and $y = 2x$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين $y = x^2$ و $y = 2x$.",
+    "optionsEn": [
+      "$\\frac{4}{3}$",
+      "$\\frac{2}{3}$",
+      "$2$",
+      "$\\frac{8}{3}$"
+    ],
+    "optionsAr": [
+      "4/3",
+      "2/3",
+      "2",
+      "8/3"
+    ],
+    "correctAnswer": "$\\frac{4}{3}$",
+    "correctIndex": 0,
+    "hintEn": "x^2 = 2x => x = 0, 2. Area = int_0^2 (2x - x^2)dx = [x^2 - x^3/3]_0^2 = 4 - 8/3 = 4/3.",
+    "hintAr": "المساحة = [س² - س³/3] من 0 إلى 2 = 4 - 8/3 = 4/3 وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_53",
+    "titleEn": "Area Between Parabola and Line y = 4",
+    "titleAr": "المساحة المحصورة بين ص = س² والمستقيم ص = 4",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region bounded by $y = x^2$ and the line $y = 4$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x^2$ والمستقيم $y = 4$.",
+    "optionsEn": [
+      "$\\frac{32}{3}$",
+      "$16$",
+      "$\\frac{16}{3}$",
+      "$8$"
+    ],
+    "optionsAr": [
+      "32/3",
+      "16",
+      "16/3",
+      "8"
+    ],
+    "correctAnswer": "$\\frac{32}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Intersection x = +- 2. Area = int_{-2}^2 (4 - x^2) dx = 32/3.",
+    "hintAr": "نقاط التقاطع س = ± 2، والمساحة = 32/3.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_54",
+    "titleEn": "Area Between Two Opposing Parabolas",
+    "titleAr": "المساحة المحصورة بين قطعين مكافئين متقابلين",
+    "difficulty": "medium",
+    "questionEn": "Find the area enclosed between $y = x^2$ and $y = 4x - x^2$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = x^2$ و $y = 4x - x^2$.",
+    "optionsEn": [
+      "$\\frac{8}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{16}{3}$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "8/3",
+      "4/3",
+      "16/3",
+      "4"
+    ],
+    "correctAnswer": "$\\frac{8}{3}$",
+    "correctIndex": 0,
+    "hintEn": "x^2 = 4x - x^2 => 2x^2 - 4x = 0 => x = 0, 2. Area = int_0^2 (4x - 2x^2) dx = [2x^2 - 2x^3/3]_0^2 = 8 - 16/3 = 8/3.",
+    "hintAr": "المساحة = [2س² - 2س³/3] من 0 إلى 2 = 8/3.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_55",
+    "titleEn": "Area Between y = sqrt(x) and y = x^2",
+    "titleAr": "المساحة المحصورة بين ص = جذر س وص = س²",
+    "difficulty": "medium",
+    "questionEn": "Find the area enclosed between $y = \\sqrt{x}$ and $y = x^2$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = \\sqrt{x}$ و $y = x^2$.",
+    "optionsEn": [
+      "$\\frac{1}{3}$",
+      "$\\frac{2}{3}$",
+      "$\\frac{1}{6}$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "1/3",
+      "2/3",
+      "1/6",
+      "1/2"
+    ],
+    "correctAnswer": "$\\frac{1}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Intersection x = 0, 1. Area = int_0^1 (sqrt(x) - x^2) dx = 2/3 - 1/3 = 1/3.",
+    "hintAr": "المساحة = [2/3 س^(3/2) - س³/3] من 0 إلى 1 = 1/3.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_56",
+    "titleEn": "Area Between Cubic and Linear Curve",
+    "titleAr": "المساحة المحصورة بين المنحنى التكعيبي والمستقيم",
+    "difficulty": "medium",
+    "questionEn": "Find the total area of the regions enclosed between $y = x^3$ and $y = x$.",
+    "questionAr": "أوجد المساحة الكلية للمنطقتين المحصورتين بين $y = x^3$ و $y = x$.",
+    "optionsEn": [
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$\\frac{1}{4}$",
+      "$\\frac{3}{4}$"
+    ],
+    "optionsAr": [
+      "1/2",
+      "1",
+      "1/4",
+      "3/4"
+    ],
+    "correctAnswer": "$\\frac{1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "By symmetry: 2 * int_0^1 (x - x^3) dx = 2 * (1/2 - 1/4) = 2 * 1/4 = 1/2.",
+    "hintAr": "بالتماثل: 2 × [س²/2 - س⁴/4] من 0 إلى 1 = 1/2.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_57",
+    "titleEn": "Area Between Sine and Cosine Curves",
+    "titleAr": "المساحة بين منحنى الجيب وجيب التمام",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region bounded by $y = \\sin x$ and $y = \\cos x$ from $x = 0$ to $x = \\frac{\\pi}{4}$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين $y = \\sin x$ و $y = \\cos x$ من $x = 0$ إلى $x = \\frac{\\pi}{4}$.",
+    "optionsEn": [
+      "$\\sqrt{2} - 1$",
+      "$1 - \\frac{\\sqrt{2}}{2}$",
+      "$\\sqrt{2}$",
+      "$\\frac{\\sqrt{2}}{2}$"
+    ],
+    "optionsAr": [
+      "√2 - 1",
+      "1 - √2 / 2",
+      "√2",
+      "√2 / 2"
+    ],
+    "correctAnswer": "$\\sqrt{2} - 1$",
+    "correctIndex": 0,
+    "hintEn": "int_0^{pi/4} (cos x - sin x) dx = [sin x + cos x]_0^{pi/4} = (sqrt(2)/2 + sqrt(2)/2) - (0 + 1) = sqrt(2) - 1.",
+    "hintAr": "المساحة = [جا س + جتا س] من 0 إلى ط/4 = √2 - 1.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_58",
+    "titleEn": "Area Between Parabola and Slanted Line",
+    "titleAr": "المساحة بين قطع مكافئ ومستقيم مائل",
+    "difficulty": "medium",
+    "questionEn": "Find the area enclosed between $y = x^2 - 2x$ and $y = x$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x^2 - 2x$ والمستقيم $y = x$.",
+    "optionsEn": [
+      "$\\frac{9}{2}$",
+      "$9$",
+      "$\\frac{27}{6}$",
+      "$\\frac{7}{2}$"
+    ],
+    "optionsAr": [
+      "9/2",
+      "9",
+      "27/6",
+      "7/2"
+    ],
+    "correctAnswer": "$\\frac{9}{2}$",
+    "correctIndex": 0,
+    "hintEn": "x^2 - 2x = x => x^2 - 3x = 0 => x = 0, 3. Area = int_0^3 (3x - x^2) dx = 27/2 - 9 = 9/2.",
+    "hintAr": "المساحة = [3س²/2 - س³/3] من 0 إلى 3 = 9/2.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_59",
+    "titleEn": "Area Integrating Along Y-Axis for Parabolas",
+    "titleAr": "المساحة بين منحنى بالنسبة لمحور الصادات ومستقيم",
+    "difficulty": "medium",
+    "questionEn": "Find the area enclosed between $x = y^2$ and $x = y + 2$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $x = y^2$ والمستقيم $x = y + 2$.",
+    "optionsEn": [
+      "$\\frac{9}{2}$",
+      "$9$",
+      "$\\frac{7}{2}$",
+      "$\\frac{11}{2}$"
+    ],
+    "optionsAr": [
+      "9/2",
+      "9",
+      "7/2",
+      "11/2"
+    ],
+    "correctAnswer": "$\\frac{9}{2}$",
+    "correctIndex": 0,
+    "hintEn": "y^2 = y + 2 => y^2 - y - 2 = 0 => y = -1, 2. Area = int_{-1}^2 (y + 2 - y^2) dy = 9/2.",
+    "hintAr": "بالتكامل بالنسبة لـ ص من -1 إلى 2 نجد المساحة = 9/2.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_60",
+    "titleEn": "Area Bounded by Absolute Value and Constant Line",
+    "titleAr": "المساحة المحصورة بين دالة المقياس ومستقيم أفقي",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region enclosed between $y = |x|$ and $y = 3$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين $y = |x|$ والمستقيم $y = 3$.",
+    "optionsEn": [
+      "$9$",
+      "$6$",
+      "$18$",
+      "$12$"
+    ],
+    "optionsAr": [
+      "9",
+      "6",
+      "18",
+      "12"
+    ],
+    "correctAnswer": "$9$",
+    "correctIndex": 0,
+    "hintEn": "Triangle with base 6 and height 3: Area = (1/2)(6)(3) = 9.",
+    "hintAr": "مثلث متساوي الساقين قاعدته 6 وارتفاعه 3 ومساحته 9.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_61",
+    "titleEn": "Washer Volume Revolving Between y = x and y = x^2 About X-Axis",
+    "titleAr": "حجم مجسم الدوران بين ص = س وص = س² حول محور السينات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume generated by revolving the region between $y = x$ and $y = x^2$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة المحصورة بين $y = x$ و $y = x^2$ حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{2\\pi}{15}$",
+      "$\\frac{\\pi}{15}$",
+      "$\\frac{4\\pi}{15}$",
+      "$\\frac{\\pi}{6}$"
+    ],
+    "optionsAr": [
+      "2ط / 15",
+      "ط / 15",
+      "4ط / 15",
+      "ط / 6"
+    ],
+    "correctAnswer": "$\\frac{2\\pi}{15}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^1 (x^2 - x^4) dx = pi [x^3/3 - x^5/5]_0^1 = pi (1/3 - 1/5) = 2pi/15.",
+    "hintAr": "طريقة الحلقات (الواشر): ط × (1/3 - 1/5) = 2ط/15.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_62",
+    "titleEn": "Washer Volume Revolving Between y = 2x and y = x^2 About X-Axis",
+    "titleAr": "حجم الدوران بين ص = 2س وص = س² حول محور السينات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume generated by revolving the region between $y = 2x$ and $y = x^2$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة بين $y = 2x$ و $y = x^2$ حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{64\\pi}{15}$",
+      "$\\frac{32\\pi}{15}$",
+      "$\\frac{16\\pi}{5}$",
+      "$\\frac{64\\pi}{5}$"
+    ],
+    "optionsAr": [
+      "64ط / 15",
+      "32ط / 15",
+      "16ط / 5",
+      "64ط / 5"
+    ],
+    "correctAnswer": "$\\frac{64\\pi}{15}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^2 (4x^2 - x^4) dx = pi [4x^3/3 - x^5/5]_0^2 = pi (32/3 - 32/5) = 64pi/15.",
+    "hintAr": "الحجم = ط × (32/3 - 32/5) = 64ط/15.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_63",
+    "titleEn": "Washer Volume Revolving Between sqrt(x) and x^2",
+    "titleAr": "حجم الدوران بين جذر س وس² حول محور السينات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume generated by revolving the region between $y = \\sqrt{x}$ and $y = x^2$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران المنطقة بين $y = \\sqrt{x}$ و $y = x^2$ حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{3\\pi}{10}$",
+      "$\\frac{\\pi}{5}$",
+      "$\\frac{3\\pi}{5}$",
+      "$\\frac{\\pi}{10}$"
+    ],
+    "optionsAr": [
+      "3ط / 10",
+      "ط / 5",
+      "3ط / 5",
+      "ط / 10"
+    ],
+    "correctAnswer": "$\\frac{3\\pi}{10}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_0^1 (x - x^4) dx = pi [x^2/2 - x^5/5]_0^1 = pi (1/2 - 1/5) = 3pi/10.",
+    "hintAr": "الحجم = ط × (1/2 - 1/5) = 3ط/10.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_64",
+    "titleEn": "Volume Revolving Region between y = x and y = x^2 About Y-Axis",
+    "titleAr": "حجم دوران المنطقة بين ص = س وص = س² حول محور الصادات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume generated by revolving the region between $y = x$ and $y = x^2$ about the y-axis.",
+    "questionAr": "أوجد حجم الجسم المتولد من دوران المنطقة بين $y = x$ و $y = x^2$ حول محور الصادات.",
+    "optionsEn": [
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{2\\pi}{15}$",
+      "$\\frac{\\pi}{12}$"
+    ],
+    "optionsAr": [
+      "ط / 6",
+      "ط / 3",
+      "2ط / 15",
+      "ط / 12"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{6}$",
+    "correctIndex": 0,
+    "hintEn": "x_outer = sqrt(y), x_inner = y. V = pi int_0^1 (y - y^2) dy = pi (1/2 - 1/3) = pi/6.",
+    "hintAr": "الحجم حول محور الصادات = ط × تكامل (ص - ص²) د ص = ط/6.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_65",
+    "titleEn": "Definite Integral with Scaled Argument",
+    "titleAr": "تكامل محدد بتغيير المعامل داخل الدالة",
+    "difficulty": "medium",
+    "questionEn": "If $\\int_0^6 f(x) dx = 12$, find $\\int_0^2 f(3x) dx$.",
+    "questionAr": "إذا كان $\\int_0^6 f(x) dx = 12$، فأوجد قيمة $\\int_0^2 f(3x) dx$.",
+    "optionsEn": [
+      "$4$",
+      "$36$",
+      "$12$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "4",
+      "36",
+      "12",
+      "6"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Let u = 3x, du = 3dx => (1/3) int_0^6 f(u) du = 12 / 3 = 4.",
+    "hintAr": "بالتعويض ع = 3س، يكون الناتج = 12 / 3 = 4.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_66",
+    "titleEn": "Linear Transformation of Limits",
+    "titleAr": "تحويل خطي لحدود التكامل المحدد",
+    "difficulty": "medium",
+    "questionEn": "If $\\int_1^4 f(x) dx = 10$, find $\\int_0^3 f(x + 1) dx$.",
+    "questionAr": "إذا كان $\\int_1^4 f(x) dx = 10$، فأوجد $\\int_0^3 f(x + 1) dx$.",
+    "optionsEn": [
+      "$10$",
+      "$9$",
+      "$11$",
+      "$20$"
+    ],
+    "optionsAr": [
+      "10",
+      "9",
+      "11",
+      "20"
+    ],
+    "correctAnswer": "$10$",
+    "correctIndex": 0,
+    "hintEn": "Let u = x + 1. When x goes from 0 to 3, u goes from 1 to 4 => identical value 10.",
+    "hintAr": "بوضع ع = س + 1 تتغير الحدود من 1 إلى 4 وتظل القيمة متطابقة 10.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_67",
+    "titleEn": "Integral with King's Property Transformation",
+    "titleAr": "خاصية جمع الحدود وطرح المتغير",
+    "difficulty": "medium",
+    "questionEn": "Evaluate $\\int_0^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$.",
+    "questionAr": "احسب قيمة التكامل $\\int_0^{\\pi/2} \\frac{\\sin x}{\\sin x + \\cos x} dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "ط / 4",
+      "ط / 2",
+      "1",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Using int_0^a f(x)dx = int_0^a f(a-x)dx: 2I = int_0^{pi/2} 1 dx = pi/2 => I = pi/4.",
+    "hintAr": "باستخدام خاصية التكامل: 2ت = ط/2 إذن ت = ط/4.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_68",
+    "titleEn": "Integration by Parts on Definite Integral with Exponential",
+    "titleAr": "تكامل بالتجزيء لتكامل محدد مع دالة أسية",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral $\\int_0^1 x e^{2x} \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_0^1 x e^{2x} \\, dx$.",
+    "optionsEn": [
+      "$\\frac{e^2 + 1}{4}$",
+      "$\\frac{e^2 - 1}{4}$",
+      "$\\frac{e^2 + 1}{2}$",
+      "$\\frac{e^2}{4}$"
+    ],
+    "optionsAr": [
+      "(هـ² + 1) / 4",
+      "(هـ² - 1) / 4",
+      "(هـ² + 1) / 2",
+      "هـ² / 4"
+    ],
+    "correctAnswer": "$\\frac{e^2 + 1}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Use integration by parts with u = x, dv = e^(2x) dx to get [(x/2 - 1/4)e^(2x)]_0^1.",
+    "hintAr": "استخدم التكامل بالتجزيء مع ع = س، دص = هـ^(2س) د س للوصول إلى [(س/2 - 1/4)هـ^(2س)] من 0 إلى 1.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = x \\implies du = dx$, and $dv = e^{2x}dx \\implies v = \\frac{1}{2}e^{2x}$.",
+      "2. $\\int x e^{2x}dx = \\frac{x}{2}e^{2x} - \\frac{1}{2}\\int e^{2x}dx = \\left(\\frac{x}{2} - \\frac{1}{4}\\right)e^{2x}$.",
+      "3. Evaluate from $0$ to $1$: at $x=1$, $\\left(\\frac{1}{2} - \\frac{1}{4}\\right)e^2 = \\frac{e^2}{4}$; at $x=0$, $\\left(0 - \\frac{1}{4}\\right)e^0 = -\\frac{1}{4}$.",
+      "4. Difference: $\\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض $u = x \\implies du = dx$، و $dv = e^{2x}dx \\implies v = \\frac{1}{2}e^{2x}$.",
+      "٢. بالتجزيء: التكامل غير المحدد هو $\\left(\\frac{x}{2} - \\frac{1}{4}\\right)e^{2x}$.",
+      "٣. التعويض بالحدود: عند $x=1$ نحصل على $\\frac{e^2}{4}$، وعند $x=0$ نحصل على $-\\frac{1}{4}$.",
+      "٤. الناتج النهائي: $\\frac{e^2}{4} - \\left(-\\frac{1}{4}\\right) = \\frac{e^2 + 1}{4}$."
+    ],
+    "teacherTipEn": "Do not forget to evaluate the lower limit when it is 0, since e^0 = 1 is non-zero.",
+    "teacherTipAr": "لا تنس التعويض بالحد السفلي عند الصفر، لأن هـ^0 = 1 قيمة غير صفرية."
+  },
+  {
+    "id": "calc_ch4_db_med_69",
+    "titleEn": "Definite Integral of x^2 ln(x)",
+    "titleAr": "تكامل محدد لحاصل ضرب س² في لوغاريتم س",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral $\\int_1^e x^2 \\ln x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد $\\int_1^e x^2 \\ln x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{2e^3 + 1}{9}$",
+      "$\\frac{2e^3 - 1}{9}$",
+      "$\\frac{e^3 + 1}{9}$",
+      "$\\frac{e^3}{3}$"
+    ],
+    "optionsAr": [
+      "(2هـ³ + 1) / 9",
+      "(2هـ³ - 1) / 9",
+      "(هـ³ + 1) / 9",
+      "هـ³ / 3"
+    ],
+    "correctAnswer": "$\\frac{2e^3 + 1}{9}$",
+    "correctIndex": 0,
+    "hintEn": "Integration by parts: u = ln x, dv = x^2 dx gives [(x^3/3)ln x - x^3/9]_1^e.",
+    "hintAr": "بالتكامل بالتجزيء: ع = لو هـ س، دص = س² د س ينتج [(س³/3)لو س - س³/9] من 1 إلى هـ.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = \\ln x \\implies du = \\frac{1}{x}dx$, and $dv = x^2 dx \\implies v = \\frac{x^3}{3}$.",
+      "2. $\\int x^2 \\ln x \\, dx = \\frac{x^3}{3}\\ln x - \\int \\frac{x^2}{3} dx = \\frac{x^3}{3}\\ln x - \\frac{x^3}{9}$.",
+      "3. Upper limit $x = e$: $\\frac{e^3}{3}(1) - \\frac{e^3}{9} = \\frac{2e^3}{9}$.",
+      "4. Lower limit $x = 1$: $0 - \\frac{1}{9} = -\\frac{1}{9}$.",
+      "5. Value: $\\frac{2e^3}{9} - \\left(-\\frac{1}{9}\\right) = \\frac{2e^3 + 1}{9}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نضع $u = \\ln x \\implies du = \\frac{1}{x}dx$، و $dv = x^2 dx \\implies v = \\frac{x^3}{3}$.",
+      "٢. بالصيغة: $\\frac{x^3}{3}\\ln x - \\int \\frac{x^2}{3}dx = \\frac{x^3}{3}\\ln x - \\frac{x^3}{9}$.",
+      "٣. عند الحد العلوي $x=e$: $\\frac{e^3}{3} - \\frac{e^3}{9} = \\frac{2e^3}{9}$.",
+      "٤. عند الحد السفلي $x=1$: $0 - \\frac{1}{9} = -\\frac{1}{9}$.",
+      "٥. القيمة النهائية: $\\frac{2e^3}{9} - \\left(-\\frac{1}{9}\\right) = \\frac{2e^3 + 1}{9}$."
+    ],
+    "teacherTipEn": "In integration by parts involving logarithmic functions, always pick u = ln(x) since differentiating ln(x) eliminates the logarithm.",
+    "teacherTipAr": "في التكامل بالتجزيء الحاوي على لوغاريتم، اختر دائماً ع = لو(س) لأن اشتقاقها يحولها إلى دالة جبرية بسيطة."
+  },
+  {
+    "id": "calc_ch4_db_med_70",
+    "titleEn": "Average Value of Sqrt(x)",
+    "titleAr": "القيمة المتوسطة لدالة الجذر التربيعي",
+    "difficulty": "medium",
+    "questionEn": "Find the average value of $f(x) = \\sqrt{x}$ on $[0, 4]$.",
+    "questionAr": "أوجد القيمة المتوسطة للدالة $f(x) = \\sqrt{x}$ على الفترة $[0, 4]$.",
+    "optionsEn": [
+      "$\\frac{4}{3}$",
+      "$2$",
+      "$\\frac{8}{3}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "4/3",
+      "2",
+      "8/3",
+      "1"
+    ],
+    "correctAnswer": "$\\frac{4}{3}$",
+    "correctIndex": 0,
+    "hintEn": "f_avg = (1/4) int_0^4 sqrt(x) dx = (1/4)(16/3) = 4/3.",
+    "hintAr": "القيمة المتوسطة = (1/4) × (16/3) = 4/3.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_71",
+    "titleEn": "Integral of Derivative over Quadratic",
+    "titleAr": "تكامل دالة كسرية بسطها مشتقة مقامها المحدد",
+    "difficulty": "medium",
+    "questionEn": "Evaluate $\\int_0^1 \\frac{2x}{x^2 + 1} dx$.",
+    "questionAr": "احسب قيمة $\\int_0^1 \\frac{2x}{x^2 + 1} dx$.",
+    "optionsEn": [
+      "$\\ln 2$",
+      "$\\ln 3$",
+      "$1$",
+      "$\\frac{1}{2}\\ln 2$"
+    ],
+    "optionsAr": [
+      "لو_هـ 2",
+      "لو_هـ 3",
+      "1",
+      "(1/2)لو_هـ 2"
+    ],
+    "correctAnswer": "$\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "[ln(x^2 + 1)]_0^1 = ln 2 - ln 1 = ln 2.",
+    "hintAr": "[لو_هـ(س² + 1)] من 0 إلى 1 = لو_هـ 2.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_72",
+    "titleEn": "Definite Integral with Partial Fractions",
+    "titleAr": "تكامل محدد باستخدام الكسور الجزئية",
+    "difficulty": "medium",
+    "questionEn": "Evaluate $\\int_2^3 \\frac{1}{x^2 - 1} dx$.",
+    "questionAr": "احسب قيمة التكامل $\\int_2^3 \\frac{1}{x^2 - 1} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{2}\\ln\\left(\\frac{3}{2}\\right)$",
+      "$\\ln 2$",
+      "$\\frac{1}{2}\\ln 2$",
+      "$\\ln 3$"
+    ],
+    "optionsAr": [
+      "(1/2)لو_هـ(3/2)",
+      "لو_هـ 2",
+      "(1/2)لو_هـ 2",
+      "لو_هـ 3"
+    ],
+    "correctAnswer": "$\\frac{1}{2}\\ln\\left(\\frac{3}{2}\\right)$",
+    "correctIndex": 0,
+    "hintEn": "(1/2) [ln|(x-1)/(x+1)|]_2^3 = (1/2) [ln(2/4) - ln(1/3)] = (1/2) ln(6/4) = (1/2)ln(3/2).",
+    "hintAr": "بالكسور الجزئية: (1/2) [لو_هـ|(س-1)/(س+1)|] = (1/2) لو_هـ(3/2).",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_73",
+    "titleEn": "Area Enclosed by Closed Ellipse",
+    "titleAr": "مساحة القطع الناقص بالتكامل",
+    "difficulty": "medium",
+    "questionEn": "Find the total area enclosed by the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ with $a = 4, b = 3$.",
+    "questionAr": "أوجد المساحة الكلية لسطح القطع الناقص $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$.",
+    "optionsEn": [
+      "$12\\pi$",
+      "$24\\pi$",
+      "$25\\pi$",
+      "$7\\pi$"
+    ],
+    "optionsAr": [
+      "12ط",
+      "24ط",
+      "25ط",
+      "7ط"
+    ],
+    "correctAnswer": "$12\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Area of ellipse is pi * a * b = pi * 4 * 3 = 12pi.",
+    "hintAr": "مساحة القطع الناقص بالتكامل = ط × أ × ب = 12ط وحدة مربعة.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_74",
+    "titleEn": "Volume of Ellipsoid",
+    "titleAr": "حجم المجسم الإهليلجي المتولد من دوران قطع ناقص",
+    "difficulty": "medium",
+    "questionEn": "The volume generated by revolving the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$ with $a = 3, b = 2$ about the x-axis is:",
+    "questionAr": "حجم المجسم الإهليلجي المتولد من دوران القطع الناقص $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ حول محور السينات هو:",
+    "optionsEn": [
+      "$16\\pi$",
+      "$12\\pi$",
+      "$24\\pi$",
+      "$8\\pi$"
+    ],
+    "optionsAr": [
+      "16ط",
+      "12ط",
+      "24ط",
+      "8ط"
+    ],
+    "correctAnswer": "$16\\pi$",
+    "correctIndex": 0,
+    "hintEn": "V = (4/3) pi a b^2 = (4/3) pi (3)(4) = 16pi.",
+    "hintAr": "الحجم = 4/3 ط أ ب² = 4/3 ط (3)(4) = 16ط.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_75",
+    "titleEn": "Area of Loop of Nodal Cubic Curve",
+    "titleAr": "مساحة عروة منحنى تكعيبي",
+    "difficulty": "medium",
+    "questionEn": "The area enclosed by the loop of $y^2 = x^2(1 - x)$ for $x \\in [0, 1]$ is:",
+    "questionAr": "مساحة المنطقة المحددة بالعروة المغلقة للمنحنى $y^2 = x^2(1 - x)$ حيث $x \\in [0, 1]$ هي:",
+    "optionsEn": [
+      "$\\frac{8}{15}$",
+      "$\\frac{4}{15}$",
+      "$\\frac{2}{15}$",
+      "$\\frac{1}{3}$"
+    ],
+    "optionsAr": [
+      "8/15",
+      "4/15",
+      "2/15",
+      "1/3"
+    ],
+    "correctAnswer": "$\\frac{8}{15}$",
+    "correctIndex": 0,
+    "hintEn": "Area = 2 int_0^1 x sqrt(1-x) dx = 2(4/15) = 8/15.",
+    "hintAr": "المساحة = 2 × تكامل س√(1-س) د س = 8/15.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection points.",
+      "2. Set up definite integral for area or volume."
+    ],
+    "stepByStepSolutionAr": [
+      "١. إيجاد نقاط التقاطع وتحديد المنحنى الأعلى.",
+      "٢. صياغة التكامل المحدد وحسابه بدقة."
+    ],
+    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
+    "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+  },
+  {
+    "id": "calc_ch4_db_med_76",
+    "titleEn": "Integration by Parts of x Cosine x",
+    "titleAr": "تكامل بالتجزيء لحاصل ضرب س في جتا س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int x \\cos x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int x \\cos x \\, dx$.",
+    "optionsEn": [
+      "$x \\sin x + \\cos x + C$",
+      "$x \\sin x - \\cos x + C$",
+      "$-x \\sin x + \\cos x + C$",
+      "$\\frac{x^2}{2} \\sin x + C$"
+    ],
+    "optionsAr": [
+      "س جا س + جتا س + ث",
+      "س جا س - جتا س + ث",
+      "-س جا س + جتا س + ث",
+      "0.5 س² جا س + ث"
+    ],
+    "correctAnswer": "$x \\sin x + \\cos x + C$",
+    "correctIndex": 0,
+    "hintEn": "Use integration by parts: $\\int u dv = u v - \\int v du$ with $u = x$ and $dv = \\cos x dx$.",
+    "hintAr": "استخدم التكامل بالتجزيء: ص = س و د ع = جتا س د س.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = x \\implies du = dx$.",
+      "2. Let $dv = \\cos x dx \\implies v = \\sin x$.",
+      "3. Applying formula: $\\int x \\cos x dx = x \\sin x - \\int \\sin x dx$.",
+      "4. Since $\\int \\sin x dx = -\\cos x$, we get $x \\sin x - (-\\cos x) + C = x \\sin x + \\cos x + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ص = س، فيكون د ص = د س.",
+      "٢. نفرض د ع = جتا س د س، فيكون ع = جا س.",
+      "٣. قانون التجزيء: تكامل س جتا س د س = س جا س - تكامل جا س د س.",
+      "٤. تكامل جا س هو -جتا س، إذن الناتج = س جا س + جتا س + ث."
+    ],
+    "teacherTipEn": "LIATE rule: Algebraic (x) comes before Trigonometric (cos x).",
+    "teacherTipAr": "قاعدة أسبقية التجزيء: الحدود الجبرية تسبق الدوال المثلثية في اختيار ص."
+  },
+  {
+    "id": "calc_ch4_db_med_77",
+    "titleEn": "Integration by Parts of x Sine 2x",
+    "titleAr": "تكامل بالتجزيء لحاصل ضرب س في جا 2س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int x \\sin 2x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int x \\sin 2x \\, dx$.",
+    "optionsEn": [
+      "$-\\frac{x}{2}\\cos 2x + \\frac{1}{4}\\sin 2x + C$",
+      "$\\frac{x}{2}\\cos 2x - \\frac{1}{4}\\sin 2x + C$",
+      "$-\\frac{x}{2}\\cos 2x - \\frac{1}{4}\\sin 2x + C$",
+      "$-x \\cos 2x + \\sin 2x + C$"
+    ],
+    "optionsAr": [
+      "-0.5 س جتا 2س + 0.25 جا 2س + ث",
+      "0.5 س جتا 2س - 0.25 جا 2س + ث",
+      "-0.5 س جتا 2س - 0.25 جا 2س + ث",
+      "-س جتا 2س + جا 2س + ث"
+    ],
+    "correctAnswer": "$-\\frac{x}{2}\\cos 2x + \\frac{1}{4}\\sin 2x + C$",
+    "correctIndex": 0,
+    "hintEn": "Set $u = x$ and $dv = \\sin 2x dx \\implies v = -\\frac{1}{2}\\cos 2x$.",
+    "hintAr": "نفرض ص = س و د ع = جا 2س د س، إذن ع = -0.5 جتا 2س.",
+    "stepByStepSolutionEn": [
+      "1. $u = x \\implies du = dx$.",
+      "2. $dv = \\sin 2x dx \\implies v = -\\frac{1}{2}\\cos 2x$.",
+      "3. $\\int x \\sin 2x dx = -\\frac{x}{2}\\cos 2x - \\int (-\\frac{1}{2}\\cos 2x) dx$.",
+      "4. $-\\frac{x}{2}\\cos 2x + \\frac{1}{2}(\\frac{1}{2}\\sin 2x) + C = -\\frac{x}{2}\\cos 2x + \\frac{1}{4}\\sin 2x + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. ص = س ومنها د ص = د س.",
+      "٢. د ع = جا 2س د س ومنها ع = -0.5 جتا 2س.",
+      "٣. بالتجزيء: -0.5 س جتا 2س + 0.5 تكامل جتا 2س د س.",
+      "٤. الناتج = -0.5 س جتا 2س + 0.25 جا 2س + ث."
+    ],
+    "teacherTipEn": "Remember to divide by the angle coefficient 2 when integrating $\\sin 2x$.",
+    "teacherTipAr": "تذكر دائماً القسمة على معامل الزاوية 2 عند مكاملة جا 2س."
+  },
+  {
+    "id": "calc_ch4_db_med_78",
+    "titleEn": "Definite Integral by Parts of x Sine x",
+    "titleAr": "تكامل محدد بالتجزيء لـ س جا س من صفر إلى ط",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral: $\\int_0^\\pi x \\sin x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^\\pi x \\sin x \\, dx$.",
+    "optionsEn": [
+      "$\\pi$",
+      "$2\\pi$",
+      "$0$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "ط",
+      "2ط",
+      "0",
+      "2"
+    ],
+    "correctAnswer": "$\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Antiderivative is $-x \\cos x + \\sin x$. Evaluate from 0 to $\\pi$.",
+    "hintAr": "الدالة المقابلة بالتجزيء هي -س جتا س + جا س. عوض بحدود التكامل من 0 إلى ط.",
+    "stepByStepSolutionEn": [
+      "1. Integration by parts: $\\int x \\sin x dx = -x \\cos x + \\sin x$.",
+      "2. Evaluate at upper limit $\\pi$: $-\\pi \\cos\\pi + \\sin\\pi = -\\pi(-1) + 0 = \\pi$.",
+      "3. Evaluate at lower limit $0$: $-0 \\cos 0 + \\sin 0 = 0$.",
+      "4. The definite integral equals $\\pi - 0 = \\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتجزيء: تكامل س جا س د س = -س جتا س + جا س.",
+      "٢. عند الحد العلوي ط: -ط جتا ط + جا ط = -ط(-1) + 0 = ط.",
+      "٣. عند الحد السفلي 0: 0 + 0 = 0.",
+      "٤. قيمة التكامل المحدد = ط - 0 = ط."
+    ],
+    "teacherTipEn": "A famous standard definite integral frequently asked in national examinations.",
+    "teacherTipAr": "من أشهر مسائل التكامل المحدد الكلاسيكية في امتحانات الثانوية العامة."
+  },
+  {
+    "id": "calc_ch4_db_med_79",
+    "titleEn": "Integral of Form f prime over Root f",
+    "titleAr": "تكامل دالة كسرية بسطها مشتقة ما تحت الجذر التربيعي في المقام",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int \\frac{x}{\\sqrt{x^2 + 9}} dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\frac{x}{\\sqrt{x^2 + 9}} dx$.",
+    "optionsEn": [
+      "$\\sqrt{x^2 + 9} + C$",
+      "$2\\sqrt{x^2 + 9} + C$",
+      "$\\frac{1}{2}\\sqrt{x^2 + 9} + C$",
+      "$\\ln\\sqrt{x^2 + 9} + C$"
+    ],
+    "optionsAr": [
+      "جذر(س² + 9) + ث",
+      "2 جذر(س² + 9) + ث",
+      "0.5 جذر(س² + 9) + ث",
+      "لوـهـ(جذر(س² + 9)) + ث"
+    ],
+    "correctAnswer": "$\\sqrt{x^2 + 9} + C$",
+    "correctIndex": 0,
+    "hintEn": "Use rule: $\\int \\frac{f'(x)}{2\\sqrt{f(x)}} dx = \\sqrt{f(x)} + C$.",
+    "hintAr": "استخدم قاعدة تكامل مشتقة ما تحت الجذر: تكامل دَ(س) / (2 جذر د(س)) = جذر د(س) + ث.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite as $\\frac{1}{2} \\int \\frac{2x}{\\sqrt{x^2 + 9}} dx$.",
+      "2. Here $f(x) = x^2 + 9$ and $f'(x) = 2x$.",
+      "3. $\\frac{1}{2} \\cdot 2\\sqrt{x^2 + 9} + C = \\sqrt{x^2 + 9} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نضرب ونقسم على 2: 0.5 تكامل [2س / جذر(س² + 9)] د س.",
+      "٢. البسط مشتقة ما تحت الجذر في المقام.",
+      "٣. الناتج = 0.5 × 2 جذر(س² + 9) + ث = جذر(س² + 9) + ث."
+    ],
+    "teacherTipEn": "Recognizing $\\frac{d}{dx}\\sqrt{u} = \\frac{u'}{2\\sqrt{u}}$ solves this in one line.",
+    "teacherTipAr": "تذكر أن مشتقة جذر د(س) هي دَ(س) / (2 جذر د(س)) يحل المسألة في سطر واحد."
+  },
+  {
+    "id": "calc_ch4_db_med_80",
+    "titleEn": "Definite Integral of Even Function Property",
+    "titleAr": "خاصية تكامل دالة زوجية على فترة متناظرة",
+    "difficulty": "medium",
+    "questionEn": "If $f(x)$ is an even continuous function such that $\\int_0^3 f(x) dx = 7$, find $\\int_{-3}^3 f(x) dx$.",
+    "questionAr": "إذا كانت $f(x)$ دالة زوجية متصلة بحيث $\\int_0^3 f(x) dx = 7$، فما قيمة $\\int_{-3}^3 f(x) dx$؟",
+    "optionsEn": [
+      "$14$",
+      "$0$",
+      "$7$",
+      "$-7$"
+    ],
+    "optionsAr": [
+      "14",
+      "0",
+      "7",
+      "-7"
+    ],
+    "correctAnswer": "$14$",
+    "correctIndex": 0,
+    "hintEn": "For an even function: $\\int_{-a}^a f(x) dx = 2\\int_0^a f(x) dx$.",
+    "hintAr": "لأي دالة زوجية: تكامل من -أ إلى أ يساوي ضعف التكامل من 0 إلى أ.",
+    "stepByStepSolutionEn": [
+      "1. For any even function $f(-x) = f(x)$, the graph is symmetric about the y-axis.",
+      "2. $\\int_{-a}^a f(x) dx = 2\\int_0^a f(x) dx$.",
+      "3. $\\int_{-3}^3 f(x) dx = 2 \\times 7 = 14$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. للدالة الزوجية، المنحنى متماثل تماماً حول محور الصادات.",
+      "٢. تكامل د(س) من -3 إلى 3 = 2 × تكامل د(س) من 0 إلى 3.",
+      "٣. الناتج = 2 × 7 = 14."
+    ],
+    "teacherTipEn": "Symmetry property of even functions doubles the integral from 0 to a.",
+    "teacherTipAr": "خاصية تماثل الدالة الزوجية تضاعف قيمة التكامل من صفر إلى أ."
+  },
+  {
+    "id": "calc_ch4_db_med_81",
+    "titleEn": "Definite Integral of Odd Function Property",
+    "titleAr": "خاصية تكامل دالة فردية على فترة متناظرة",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral: $\\int_{-5}^5 \\frac{x^3 + \\sin x}{x^4 + 1} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-5}^5 \\frac{x^3 + \\sin x}{x^4 + 1} dx$.",
+    "optionsEn": [
+      "$0$",
+      "$10$",
+      "$5$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "0",
+      "10",
+      "5",
+      "1"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Check whether the integrand is an odd function.",
+    "hintAr": "تحقق مما إذا كانت الدالة المكاملة دالة فردية.",
+    "stepByStepSolutionEn": [
+      "1. Let $g(x) = \\frac{x^3 + \\sin x}{x^4 + 1}$.",
+      "2. $g(-x) = \\frac{(-x)^3 + \\sin(-x)}{(-x)^4 + 1} = \\frac{-x^3 - \\sin x}{x^4 + 1} = -\\frac{x^3 + \\sin x}{x^4 + 1} = -g(x)$.",
+      "3. Since $g(x)$ is odd and the interval $[-5, 5]$ is symmetric about origin, $\\int_{-5}^5 g(x) dx = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض د(س) = الكسر المعطى داخل التكامل.",
+      "٢. د(-س) = -د(س)، إذن الدالة فردية.",
+      "٣. تكامل أي دالة فردية متصلة على فترة متناظرة حول الصفر [-5، 5] يساوي صفراً مباشرة."
+    ],
+    "teacherTipEn": "For any odd function integrated over $[-a, a]$, the answer is always 0.",
+    "teacherTipAr": "تكامل أي دالة فردية على فترة متماثلة [-أ، أ] يساوي صفراً دوماً دون إجراء التكامل."
+  },
+  {
+    "id": "calc_ch4_db_med_82",
+    "titleEn": "Linear Shift Substitution in Power Integral",
+    "titleAr": "تكامل بالتعويض بإزاحة خطية س (س - 1)⁵",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int x(x - 1)^5 dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int x(x - 1)^5 dx$.",
+    "optionsEn": [
+      "$\\frac{(x - 1)^7}{7} + \\frac{(x - 1)^6}{6} + C$",
+      "$\\frac{(x - 1)^7}{7} - \\frac{(x - 1)^6}{6} + C$",
+      "$\\frac{x^2(x - 1)^6}{12} + C$",
+      "$\\frac{(x - 1)^6}{6} + C$"
+    ],
+    "optionsAr": [
+      "(س - 1)⁷ / 7 + (س - 1)⁶ / 6 + ث",
+      "(س - 1)⁷ / 7 - (س - 1)⁶ / 6 + ث",
+      "س²(س - 1)⁶ / 12 + ث",
+      "(س - 1)⁶ / 6 + ث"
+    ],
+    "correctAnswer": "$\\frac{(x - 1)^7}{7} + \\frac{(x - 1)^6}{6} + C$",
+    "correctIndex": 0,
+    "hintEn": "Substitute $u = x - 1 \\implies x = u + 1$ and $dx = du$.",
+    "hintAr": "استخدم التعويض: ع = س - 1 فتكون س = ع + 1 و د س = د ع.",
+    "stepByStepSolutionEn": [
+      "1. Let $u = x - 1 \\implies x = u + 1$ and $dx = du$.",
+      "2. The integral becomes $\\int (u + 1)u^5 du = \\int (u^6 + u^5) du$.",
+      "3. $\\int (u^6 + u^5) du = \\frac{u^7}{7} + \\frac{u^6}{6} + C$.",
+      "4. Substitute back $u = x - 1$: $\\frac{(x - 1)^7}{7} + \\frac{(x - 1)^6}{6} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ع = س - 1، إذن س = ع + 1، د س = د ع.",
+      "٢. يتحول التكامل إلى تكامل (ع + 1) ع⁵ د ع = تكامل (ع⁶ + ع⁵) د ع.",
+      "٣. ناتج التكامل = ع⁷ / 7 + ع⁶ / 6 + ث.",
+      "٤. بالتعويض عن ع: (س - 1)⁷ / 7 + (س - 1)⁶ / 6 + ث."
+    ],
+    "teacherTipEn": "Linear substitution $u = x - c$ easily distributes powers over binomial terms.",
+    "teacherTipAr": "التعويض الخطي يبسط توزيع القوى الكبيرة دون الحاجة لفك ذي الحدين."
+  },
+  {
+    "id": "calc_ch4_db_med_83",
+    "titleEn": "Definite Integral of Shifted Absolute Value",
+    "titleAr": "تكامل محدد لدالة مقياس مزاحة |س - 2|",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral: $\\int_0^4 |x - 2| \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^4 |x - 2| \\, dx$.",
+    "optionsEn": [
+      "$4$",
+      "$8$",
+      "$2$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "4",
+      "8",
+      "2",
+      "0"
+    ],
+    "correctAnswer": "$4$",
+    "correctIndex": 0,
+    "hintEn": "Split the integral at $x = 2$: $\\int_0^2 (2 - x) dx + \\int_2^4 (x - 2) dx$.",
+    "hintAr": "جزئ التكامل عند صفر المقياس س = 2 إلى تكاملين.",
+    "stepByStepSolutionEn": [
+      "1. Zero of the absolute value is at $x = 2$.",
+      "2. For $0 \\le x \\le 2$, $|x - 2| = 2 - x$. Area of this triangle is $\\frac{1}{2}(2)(2) = 2$.",
+      "3. For $2 \\le x \\le 4$, $|x - 2| = x - 2$. Area of this triangle is $\\frac{1}{2}(2)(2) = 2$.",
+      "4. $\\int_0^4 |x - 2| dx = 2 + 2 = 4$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صفر المقياس هو س = 2.",
+      "٢. في الفترة [0، 2]: |س - 2| = 2 - س، وتكاملها يعطي مساحة مثلث = 2.",
+      "٣. في الفترة [2، 4]: |س - 2| = س - 2، وتكاملها يعطي مساحة مثلث = 2.",
+      "٤. قيمة التكامل الإجمالية = 2 + 2 = 4."
+    ],
+    "teacherTipEn": "Geometrically, this integral represents the sum of the areas of two congruent right triangles.",
+    "teacherTipAr": "هندسياً، يمثل هذا التكامل مجموع مساحتي مثلثين قائمين متطابقين مساحة كل منهما 2."
+  },
+  {
+    "id": "calc_ch4_db_med_84",
+    "titleEn": "Area Enclosed by Horizontal Parabola and Y-Axis",
+    "titleAr": "المساحة المحصورة بين قطع مكافئ أفقي ومحور الصادات",
+    "difficulty": "medium",
+    "questionEn": "Find the area of the region bounded by $x = 4 - y^2$ and the y-axis ($x = 0$).",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين منحنى القطع المكافئ $x = 4 - y^2$ ومحور الصادات ($x = 0$).",
+    "optionsEn": [
+      "$\\frac{32}{3}$",
+      "$\\frac{16}{3}$",
+      "$16$",
+      "$8$"
+    ],
+    "optionsAr": [
+      "32 / 3",
+      "16 / 3",
+      "16",
+      "8"
+    ],
+    "correctAnswer": "$\\frac{32}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate with respect to y from $y = -2$ to $y = 2$: $A = \\int_{-2}^2 (4 - y^2) dy$.",
+    "hintAr": "كامل بالنسبة لـ ص من ص = -2 إلى ص = 2: م = تكامل (4 - ص²) د ص.",
+    "stepByStepSolutionEn": [
+      "1. Find intersection with y-axis: $4 - y^2 = 0 \\implies y = \\pm 2$.",
+      "2. Area formula: $A = \\int_{-2}^2 (4 - y^2) dy = 2\\int_0^2 (4 - y^2) dy$.",
+      "3. $A = 2 \\left[ 4y - \\frac{y^3}{3} \\right]_0^2 = 2 \\left[ 8 - \\frac{8}{3} \\right] = 2 (\\frac{16}{3}) = \\frac{32}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نقاط التقاطع مع محور الصادات: 4 - ص² = 0 ومنها ص = ±2.",
+      "٢. قانون المساحة بالتكامل بالنسبة لـ ص: م = 2 × تكامل (4 - ص²) د ص من 0 إلى 2.",
+      "٣. م = 2 [4ص - ص³/3] من 0 إلى 2 = 2 × (8 - 8/3) = 32 / 3 وحدة مربعة."
+    ],
+    "teacherTipEn": "Integrating with respect to y is natural when curves are given in the form $x = g(y)$.",
+    "teacherTipAr": "التكامل بالنسبة لـ ص هو الخيار الأمثل والمباشر عندما تكون الدالة معطاة بصورة س = د(ص)."
+  },
+  {
+    "id": "calc_ch4_db_med_85",
+    "titleEn": "Volume of Revolution of Square Root Curve",
+    "titleAr": "حجم الجسم الدوراني لـ ص = جذر(س) حول محور السينات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = \\sqrt{x}$, the x-axis, and $x = 4$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = \\sqrt{x}$ ومحور السينات والمستقيم $x = 4$ دورة كاملة حول محور السينات.",
+    "optionsEn": [
+      "$8\\pi$",
+      "$16\\pi$",
+      "$4\\pi$",
+      "$\\frac{16\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "8 ط",
+      "16 ط",
+      "4 ط",
+      "16 ط / 3"
+    ],
+    "correctAnswer": "$8\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Volume $V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x dx$.",
+    "hintAr": "الحجم ح = ط × تكامل ص² د س = ط × تكامل س د س من 0 إلى 4.",
+    "stepByStepSolutionEn": [
+      "1. Volume formula: $V = \\pi \\int_0^4 (\\sqrt{x})^2 dx = \\pi \\int_0^4 x dx$.",
+      "2. $\\int_0^4 x dx = \\left[ \\frac{x^2}{2} \\right]_0^4 = \\frac{16}{2} = 8$.",
+      "3. Volume $V = 8\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الحجم الدوراني حول محور السينات: ح = ط × تكامل (جذر س)² د س من 0 إلى 4.",
+      "٢. تكامل س د س = س² / 2 من 0 إلى 4 = 16 / 2 = 8.",
+      "٣. الحجم = 8 ط وحدة مكعبة."
+    ],
+    "teacherTipEn": "Squaring $\\sqrt{x}$ eliminates the root, turning the volume integral into a simple power.",
+    "teacherTipAr": "تربيع دالة الجذر التربيعي يلغي الجذر ويجعل التكامل بسيطاً ومباشراً للغاية."
+  },
+  {
+    "id": "calc_ch4_db_med_86",
+    "titleEn": "Volume of Revolution of Parabola About Y-Axis",
+    "titleAr": "حجم دوران القطع المكافئ حول محور الصادات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the y-axis, and $y = 4$ about the y-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x^2$ ومحور الصادات والمستقيم $y = 4$ دورة كاملة حول محور الصادات.",
+    "optionsEn": [
+      "$8\\pi$",
+      "$16\\pi$",
+      "$\\frac{32\\pi}{5}$",
+      "$4\\pi$"
+    ],
+    "optionsAr": [
+      "8 ط",
+      "16 ط",
+      "32 ط / 5",
+      "4 ط"
+    ],
+    "correctAnswer": "$8\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Volume about y-axis: $V = \\pi \\int_0^4 x^2 dy = \\pi \\int_0^4 y dy$.",
+    "hintAr": "الحجم حول محور الصادات: ح = ط × تكامل س² د ص = ط × تكامل ص د ص من 0 إلى 4.",
+    "stepByStepSolutionEn": [
+      "1. Revolve about the $y$-axis: $V = \\pi \\int_0^4 x^2 dy$.",
+      "2. From $y = x^2$, we have $x^2 = y$.",
+      "3. $V = \\pi \\int_0^4 y dy = \\pi \\left[ \\frac{y^2}{2} \\right]_0^4 = \\pi (\\frac{16}{2}) = 8\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الدوران حول محور الصادات: ح = ط × تكامل س² د ص.",
+      "٢. من معادلة المنحنى: س² = ص.",
+      "٣. الحجم = ط × تكامل ص د ص من 0 إلى 4 = ط × [ص² / 2] = 8 ط وحدة مكعبة."
+    ],
+    "teacherTipEn": "For revolution about the y-axis, integrate $\\pi x^2$ with respect to y.",
+    "teacherTipAr": "عند الدوران حول محور الصادات، نكامل المقدار ط س² بالنسبة لـ ص."
+  },
+  {
+    "id": "calc_ch4_db_med_87",
+    "titleEn": "Volume of Sphere Derived via Calculus",
+    "titleAr": "اشتقاق حجم الكرة بالتكامل الدوراني",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of a sphere of radius $R = 3$ obtained by revolving the semicircle $y = \\sqrt{9 - x^2}$ about the x-axis.",
+    "questionAr": "أوجد حجم كرة نصف قطرها $R = 3$ ناشئة من دوران نصف الدائرة $y = \\sqrt{9 - x^2}$ دورة كاملة حول محور السينات.",
+    "optionsEn": [
+      "$36\\pi$",
+      "$18\\pi$",
+      "$27\\pi$",
+      "$72\\pi$"
+    ],
+    "optionsAr": [
+      "36 ط",
+      "18 ط",
+      "27 ط",
+      "72 ط"
+    ],
+    "correctAnswer": "$36\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Formula: $V = \\frac{4}{3}\\pi R^3 = \\frac{4}{3}\\pi(3^3)$.",
+    "hintAr": "قانون حجم الكرة: ح = (4/3) ط نق³.",
+    "stepByStepSolutionEn": [
+      "1. Volume integral: $V = \\pi \\int_{-3}^3 (9 - x^2) dx = 2\\pi \\int_0^3 (9 - x^2) dx$.",
+      "2. $V = 2\\pi \\left[ 9x - \\frac{x^3}{3} \\right]_0^3 = 2\\pi [27 - 9] = 2\\pi(18) = 36\\pi$.",
+      "3. This matches the standard sphere volume formula: $\\frac{4}{3}\\pi(3)^3 = 36\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تكامل الحجم الدوراني: ح = 2 ط × تكامل (9 - س²) د س من 0 إلى 3.",
+      "٢. ح = 2 ط × [9س - س³/3] من 0 إلى 3 = 2 ط × (27 - 9) = 36 ط.",
+      "٣. يطابق قانون حجم الكرة الكلاسيكي: (4/3) ط (3)³ = 36 ط."
+    ],
+    "teacherTipEn": "Calculus verifies the Greek geometric formula $V = \\frac{4}{3}\\pi R^3$.",
+    "teacherTipAr": "التفاضل والتكامل يبرهن بدقة قانون حجم الكرة اليوناني القديم."
+  },
+  {
+    "id": "calc_ch4_db_med_88",
+    "titleEn": "Volume of Right Circular Cone via Revolution",
+    "titleAr": "حجم المخروط الدائري القائم بالتكامل الدوراني",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of a right circular cone of base radius $r = 3$ and height $h = 4$ formed by revolving the line $y = \\frac{3}{4}x$ about the x-axis from $x = 0$ to $x = 4$.",
+    "questionAr": "أوجد حجم مخروط دائري قائم نصف قطر قاعدته $r = 3$ وارتفاعه $h = 4$ متكون من دوران المستقيم $y = \\frac{3}{4}x$ حول محور السينات من $x = 0$ إلى $x = 4$.",
+    "optionsEn": [
+      "$12\\pi$",
+      "$36\\pi$",
+      "$24\\pi$",
+      "$16\\pi$"
+    ],
+    "optionsAr": [
+      "12 ط",
+      "36 ط",
+      "24 ط",
+      "16 ط"
+    ],
+    "correctAnswer": "$12\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Formula: $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi (3^2)(4) = 12\\pi$.",
+    "hintAr": "قانون حجم المخروط: ح = (1/3) ط نق² ع = (1/3) ط × 9 × 4 = 12 ط.",
+    "stepByStepSolutionEn": [
+      "1. Revolve line $y = \\frac{3}{4}x$ about $x$-axis from $0$ to $4$:",
+      "   $V = \\pi \\int_0^4 (\\frac{3}{4}x)^2 dx = \\frac{9\\pi}{16} \\int_0^4 x^2 dx$.",
+      "2. $\\int_0^4 x^2 dx = \\left[ \\frac{x^3}{3} \\right]_0^4 = \\frac{64}{3}$.",
+      "3. $V = \\frac{9\\pi}{16} \\times \\frac{64}{3} = 3\\pi \\times 4 = 12\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تكامل الحجم: ح = ط × تكامل (3/4 س)² د س من 0 إلى 4.",
+      "٢. تكامل س² د س من 0 إلى 4 = 64 / 3.",
+      "٣. الحجم = (9 ط / 16) × (64 / 3) = 12 ط."
+    ],
+    "teacherTipEn": "Revolving a right-angled triangle around a leg always produces a right circular cone.",
+    "teacherTipAr": "دوران مثلث قائم حول أحد ضلعي قائمته يولد مخروطاً دائرياً قائماً دائماً."
+  },
+  {
+    "id": "calc_ch4_db_med_89",
+    "titleEn": "Definite Integral of Piecewise Continuous Function",
+    "titleAr": "تكامل محدد لدالة متصلة معرفة بأكثر من قاعدة",
+    "difficulty": "medium",
+    "questionEn": "Evaluate $\\int_0^2 f(x) dx$ for $f(x) = \\begin{cases} 2x & 0 \\le x \\le 1 \\\\ 3x^2 & 1 < x \\le 2 \\end{cases}$.",
+    "questionAr": "احسب قيمة $\\int_0^2 f(x) dx$ للدالة المعرفة بأكثر من قاعدة الموضحة أعلاه.",
+    "optionsEn": [
+      "$8$",
+      "$7$",
+      "$9$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "8",
+      "7",
+      "9",
+      "6"
+    ],
+    "correctAnswer": "$8$",
+    "correctIndex": 0,
+    "hintEn": "Split the definite integral at the boundary $x = 1$.",
+    "hintAr": "قسم التكامل المحدد إلى تكاملين عند نقطة التشعب س = 1.",
+    "stepByStepSolutionEn": [
+      "1. Split integral: $\\int_0^2 f(x) dx = \\int_0^1 2x dx + \\int_1^2 3x^2 dx$.",
+      "2. First part: $\\int_0^1 2x dx = [x^2]_0^1 = 1 - 0 = 1$.",
+      "3. Second part: $\\int_1^2 3x^2 dx = [x^3]_1^2 = 8 - 1 = 7$.",
+      "4. Total integral: $1 + 7 = 8$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تجزئة التكامل: تكامل من 0 إلى 1 + تكامل من 1 إلى 2.",
+      "٢. الجزء الأول: تكامل 2س د س من 0 إلى 1 = 1.",
+      "٣. الجزء الثاني: تكامل 3س² د س من 1 إلى 2 = 8 - 1 = 7.",
+      "٤. المجموع = 1 + 7 = 8."
+    ],
+    "teacherTipEn": "The additivity of definite integrals allows integration across piecewise intervals.",
+    "teacherTipAr": "خاصية إضافة فترات التكامل تسمح بحساب تكامل الدوال متعددة التعريف بسهولة."
+  },
+  {
+    "id": "calc_ch4_db_med_90",
+    "titleEn": "Trigonometric Power Integral Sine Squared",
+    "titleAr": "تكامل جا²(س) بالنسبة لـ س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int \\sin^2 x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\sin^2 x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{x}{2} - \\frac{\\sin 2x}{4} + C$",
+      "$\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$",
+      "$-\\frac{\\cos^3 x}{3} + C$",
+      "$\\frac{\\sin^3 x}{3} + C$"
+    ],
+    "optionsAr": [
+      "س / 2 - 0.25 جا 2س + ث",
+      "س / 2 + 0.25 جا 2س + ث",
+      "-1/3 جتا³ س + ث",
+      "1/3 جا³ س + ث"
+    ],
+    "correctAnswer": "$\\frac{x}{2} - \\frac{\\sin 2x}{4} + C$",
+    "correctIndex": 0,
+    "hintEn": "Use half-angle identity: $\\sin^2 x = \\frac{1 - \\cos 2x}{2}$.",
+    "hintAr": "استخدم متطابقة نصف الزاوية: جا² س = (1 - جتا 2س) / 2.",
+    "stepByStepSolutionEn": [
+      "1. Replace $\\sin^2 x$ with $\\frac{1 - \\cos 2x}{2}$.",
+      "2. $\\int \\frac{1 - \\cos 2x}{2} dx = \\frac{1}{2}\\int 1 dx - \\frac{1}{2}\\int \\cos 2x dx$.",
+      "3. $\\frac{x}{2} - \\frac{1}{2}(\\frac{\\sin 2x}{2}) + C = \\frac{x}{2} - \\frac{\\sin 2x}{4} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض بقانون نصف الزاوية: جا² س = (1 - جتا 2س) / 2.",
+      "٢. تفكيك التكامل: 0.5 تكامل 1 د س - 0.5 تكامل جتا 2س د س.",
+      "٣. الناتج = س / 2 - 0.25 جا 2س + ث."
+    ],
+    "teacherTipEn": "Even powers of sine and cosine are integrated using half-angle reduction formulas.",
+    "teacherTipAr": "القوى الزوجية للجا والجتا تكامل دائماً باستخدام متطابقات نصف الزاوية لتخفيض القوة."
+  },
+  {
+    "id": "calc_ch4_db_med_91",
+    "titleEn": "Trigonometric Power Integral Cosine Squared",
+    "titleAr": "تكامل جتا²(س) بالنسبة لـ س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int \\cos^2 x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\cos^2 x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$",
+      "$\\frac{x}{2} - \\frac{\\sin 2x}{4} + C$",
+      "$\\frac{\\cos^3 x}{3} + C$",
+      "$\\frac{x}{2} + \\frac{\\cos 2x}{4} + C$"
+    ],
+    "optionsAr": [
+      "س / 2 + 0.25 جا 2س + ث",
+      "س / 2 - 0.25 جا 2س + ث",
+      "1/3 جتا³ س + ث",
+      "س / 2 + 0.25 جتا 2س + ث"
+    ],
+    "correctAnswer": "$\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$",
+    "correctIndex": 0,
+    "hintEn": "Use half-angle identity: $\\cos^2 x = \\frac{1 + \\cos 2x}{2}$.",
+    "hintAr": "استخدم متطابقة نصف الزاوية: جتا² س = (1 + جتا 2س) / 2.",
+    "stepByStepSolutionEn": [
+      "1. Replace $\\cos^2 x$ with $\\frac{1 + \\cos 2x}{2}$.",
+      "2. $\\int \\frac{1 + \\cos 2x}{2} dx = \\frac{1}{2}\\int 1 dx + \\frac{1}{2}\\int \\cos 2x dx$.",
+      "3. $\\frac{x}{2} + \\frac{\\sin 2x}{4} + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض بمتطابقة نصف الزاوية: جتا² س = (1 + جتا 2س) / 2.",
+      "٢. تكامل 1 هو س، وتكامل جتا 2س هو 0.5 جا 2س.",
+      "٣. الناتج = س / 2 + 0.25 جا 2س + ث."
+    ],
+    "teacherTipEn": "Cosine squared integral differs from sine squared only by the plus sign.",
+    "teacherTipAr": "تكامل جتا² س يختلف عن تكامل جا² س في الإشارة الموجبة للحد الثاني فقط."
+  },
+  {
+    "id": "calc_ch4_db_med_92",
+    "titleEn": "Definite Integral of Sine Squared on Quarter Period",
+    "titleAr": "تكامل محدد لـ جا²(س) من صفر إلى ط/2",
+    "difficulty": "medium",
+    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi/2} \\sin^2 x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi/2} \\sin^2 x \\, dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "ط / 4",
+      "ط / 2",
+      "1",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Use antiderivative $\\frac{x}{2} - \\frac{\\sin 2x}{4}$ from 0 to $\\pi/2$.",
+    "hintAr": "عوض بحدود التكامل في الدالة المقابلة (س/2 - 0.25 جا 2س).",
+    "stepByStepSolutionEn": [
+      "1. Antiderivative: $F(x) = \\frac{x}{2} - \\frac{\\sin 2x}{4}$.",
+      "2. At $x = \\pi/2$: $F(\\pi/2) = \\frac{\\pi/2}{2} - \\frac{\\sin\\pi}{4} = \\frac{\\pi}{4} - 0 = \\frac{\\pi}{4}$.",
+      "3. At $x = 0$: $F(0) = 0 - 0 = 0$.",
+      "4. Value is $\\frac{\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الدالة المقابلة: ف(س) = س / 2 - 0.25 جا 2س.",
+      "٢. عند الحد العلوي ط/2: ط / 4 - 0 = ط / 4.",
+      "٣. عند الحد السفلي 0: 0.",
+      "٤. قيمة التكامل المحدد = ط / 4."
+    ],
+    "teacherTipEn": "Symmetry: $\\int_0^{\\pi/2} \\sin^2 x dx = \\int_0^{\\pi/2} \\cos^2 x dx = \\frac{1}{2}(\\frac{\\pi}{2}) = \\frac{\\pi}{4}$.",
+    "teacherTipAr": "بالتماثل: تكامل جا² س وتكامل جتا² س متساويان ومجموعهما يساوي تكامل 1 (ط/2)، فكل منهما ط/4."
+  },
+  {
+    "id": "calc_ch4_db_med_93",
+    "titleEn": "Integration of Tangent Squared",
+    "titleAr": "تكامل ظا²(س) بالنسبة لـ س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int \\tan^2 x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\tan^2 x \\, dx$.",
+    "optionsEn": [
+      "$\\tan x - x + C$",
+      "$\\tan x + x + C$",
+      "$\\frac{\\tan^3 x}{3} + C$",
+      "$\\sec^2 x + C$"
+    ],
+    "optionsAr": [
+      "ظا س - س + ث",
+      "ظا س + س + ث",
+      "1/3 ظا³ س + ث",
+      "قا² س + ث"
+    ],
+    "correctAnswer": "$\\tan x - x + C$",
+    "correctIndex": 0,
+    "hintEn": "Use identity $\\tan^2 x = \\sec^2 x - 1$.",
+    "hintAr": "استخدم المتطابقة المثلثية: ظا² س = قا² س - 1.",
+    "stepByStepSolutionEn": [
+      "1. Replace $\\tan^2 x$ with $\\sec^2 x - 1$.",
+      "2. $\\int (\\sec^2 x - 1) dx = \\int \\sec^2 x dx - \\int 1 dx$.",
+      "3. Since $\\frac{d}{dx}[\\tan x] = \\sec^2 x$, we obtain $\\tan x - x + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض بالمتطابقة: ظا² س = قا² س - 1.",
+      "٢. تكامل قا² س هو ظا س، وتكامل 1 هو س.",
+      "٣. الناتج = ظا س - س + ث."
+    ],
+    "teacherTipEn": "Never use substitution for $\\tan^2 x$; always convert to $\\sec^2 x - 1$.",
+    "teacherTipAr": "لا تستخدم التعويض لمكاملة ظا² س؛ حولها فوراً إلى قا² س - 1."
+  },
+  {
+    "id": "calc_ch4_db_med_94",
+    "titleEn": "Integration of Cotangent Squared",
+    "titleAr": "تكامل ظتا²(س) بالنسبة لـ س",
+    "difficulty": "medium",
+    "questionEn": "Find the indefinite integral: $\\int \\cot^2 x \\, dx$.",
+    "questionAr": "احسب التكامل غير المحدد: $\\int \\cot^2 x \\, dx$.",
+    "optionsEn": [
+      "$-\\cot x - x + C$",
+      "$-\\cot x + x + C$",
+      "$\\cot x - x + C$",
+      "$-\\frac{\\cot^3 x}{3} + C$"
+    ],
+    "optionsAr": [
+      "-ظتا س - س + ث",
+      "-ظتا س + س + ث",
+      "ظتا س - س + ث",
+      "-1/3 ظتا³ س + ث"
+    ],
+    "correctAnswer": "$-\\cot x - x + C$",
+    "correctIndex": 0,
+    "hintEn": "Use identity $\\cot^2 x = \\csc^2 x - 1$.",
+    "hintAr": "استخدم المتطابقة المثلثية: ظتا² س = قتا² س - 1.",
+    "stepByStepSolutionEn": [
+      "1. Replace $\\cot^2 x$ with $\\csc^2 x - 1$.",
+      "2. $\\int (\\csc^2 x - 1) dx = \\int \\csc^2 x dx - \\int 1 dx$.",
+      "3. Since $\\frac{d}{dx}[-\\cot x] = \\csc^2 x$, we obtain $-\\cot x - x + C$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتعويض بالمتطابقة: ظتا² س = قتا² س - 1.",
+      "٢. تكامل قتا² س هو -ظتا س، وتكامل 1 هو س.",
+      "٣. الناتج = -ظتا س - س + ث."
+    ],
+    "teacherTipEn": "Analogous to tangent squared: $\\cot^2 x = \\csc^2 x - 1$.",
+    "teacherTipAr": "مطابقة لمسألة الظل: تحول ظتا² س إلى قتا² س - 1."
+  },
+  {
+    "id": "calc_ch4_db_med_95",
+    "titleEn": "Definite Integral Additivity Across Intervals",
+    "titleAr": "خاصية جمع فترات التكامل المحدد",
+    "difficulty": "medium",
+    "questionEn": "If $\\int_1^5 f(x) dx = 10$ and $\\int_1^3 f(x) dx = 4$, find $\\int_3^5 f(x) dx$.",
+    "questionAr": "إذا كان $\\int_1^5 f(x) dx = 10$ و $\\int_1^3 f(x) dx = 4$، فما قيمة $\\int_3^5 f(x) dx$؟",
+    "optionsEn": [
+      "$6$",
+      "$14$",
       "$40$",
-      "$43$",
-      "$46$",
-      "$49$"
+      "$2.5$"
     ],
     "optionsAr": [
-      "$40$",
-      "$43$",
-      "$46$",
-      "$49$"
+      "6",
+      "14",
+      "40",
+      "2.5"
     ],
-    "correctAnswer": "$40$",
+    "correctAnswer": "$6$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Use interval property: $\\int_1^5 f(x) dx = \\int_1^3 f(x) dx + \\int_3^5 f(x) dx$.",
+    "hintAr": "استخدم خاصية تجزئة الفترات: تكامل من 1 إلى 5 = تكامل من 1 إلى 3 + تكامل من 3 إلى 5.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 4$):",
-      "$$\\int_{-4}^{8} |x - 4| dx = \\int_{-4}^{4} (4 - x) dx + \\int_{4}^{8} (x - 4) dx$$",
-      "2. First piece: $\\left[ 4x - \\frac{x^2}{2} \\right]_{-4}^{4} = 2(4)^2 = 32$.",
-      "3. Second piece: $\\left[ \\frac{(x - 4)^2}{2} \\right]_{4}^{8} = \\frac{4^2}{2} = 8$.",
-      "4. Total: $32 + 8 = \\frac{5(4^2)}{2} = 40$."
+      "1. $\\int_1^5 f(x) dx = \\int_1^3 f(x) dx + \\int_3^5 f(x) dx$.",
+      "2. $10 = 4 + \\int_3^5 f(x) dx$.",
+      "3. $\\int_3^5 f(x) dx = 10 - 4 = 6$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 4$):",
-      "$$\\int_{-4}^{8} |x - 4| dx = \\int_{-4}^{4} (4 - x) dx + \\int_{4}^{8} (x - 4) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 40$."
+      "١. علاقة شال لتجزئة فترات التكامل: تكامل(1 إلى 5) = تكامل(1 إلى 3) + تكامل(3 إلى 5).",
+      "٢. 10 = 4 + تكامل(3 إلى 5).",
+      "٣. قيمة التكامل المطلوب = 10 - 4 = 6."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Integration over contiguous intervals is additive.",
+    "teacherTipAr": "التكامل على فترات متصلة متتالية يحقق خاصية الجمع الجبري."
   },
   {
-    "id": "calc_ch4_db_hots_45",
-    "titleEn": "Absolute Value Definite Integral Parameter k=5 #45",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=5 رقم 45",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-5}^{10} |x - 5| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-5}^{10} |x - 5| dx$.",
+    "id": "calc_ch4_db_med_96",
+    "titleEn": "Average Value of Function on Interval",
+    "titleAr": "القيمة المتوسطة لدالة على فترة",
+    "difficulty": "medium",
+    "questionEn": "Find the average value of $f(x) = 3x^2$ on the interval $[0, 2]$.",
+    "questionAr": "أوجد القيمة المتوسطة للدالة $f(x) = 3x^2$ على الفترة $[0، 2]$.",
     "optionsEn": [
-      "$62.5$",
-      "$65.5$",
-      "$68.5$",
-      "$71.5$"
+      "$4$",
+      "$8$",
+      "$6$",
+      "$2$"
     ],
     "optionsAr": [
-      "$62.5$",
-      "$65.5$",
-      "$68.5$",
-      "$71.5$"
+      "4",
+      "8",
+      "6",
+      "2"
     ],
-    "correctAnswer": "$62.5$",
+    "correctAnswer": "$4$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Average value formula: $f_{\\text{avg}} = \\frac{1}{b - a}\\int_a^b f(x) dx$.",
+    "hintAr": "قانون القيمة المتوسطة لدالة: ق = [1 / (ب - أ)] × تكامل د(س) من أ إلى ب.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 5$):",
-      "$$\\int_{-5}^{10} |x - 5| dx = \\int_{-5}^{5} (5 - x) dx + \\int_{5}^{10} (x - 5) dx$$",
-      "2. First piece: $\\left[ 5x - \\frac{x^2}{2} \\right]_{-5}^{5} = 2(5)^2 = 50$.",
-      "3. Second piece: $\\left[ \\frac{(x - 5)^2}{2} \\right]_{5}^{10} = \\frac{5^2}{2} = 12.5$.",
-      "4. Total: $50 + 12.5 = \\frac{5(5^2)}{2} = 62.5$."
+      "1. $f_{\\text{avg}} = \\frac{1}{2 - 0}\\int_0^2 3x^2 dx$.",
+      "2. $\\int_0^2 3x^2 dx = [x^3]_0^2 = 8 - 0 = 8$.",
+      "3. $f_{\\text{avg}} = \\frac{1}{2}(8) = 4$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 5$):",
-      "$$\\int_{-5}^{10} |x - 5| dx = \\int_{-5}^{5} (5 - x) dx + \\int_{5}^{10} (x - 5) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 62.5$."
+      "١. قانون القيمة المتوسطة: ق = 0.5 × تكامل 3س² د س من 0 إلى 2.",
+      "٢. تكامل 3س² هو س³، وقيمته من 0 إلى 2 تساوي 8.",
+      "٣. القيمة المتوسطة = 8 / 2 = 4."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Average value represents the height of a rectangle with the same area over the interval.",
+    "teacherTipAr": "القيمة المتوسطة تمثل هندسياً ارتفاع المستطيل المشترك مع المنحنى في نفس المساحة."
   },
   {
-    "id": "calc_ch4_db_hots_46",
-    "titleEn": "Absolute Value Definite Integral Parameter k=6 #46",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=6 رقم 46",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-6}^{12} |x - 6| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-6}^{12} |x - 6| dx$.",
+    "id": "calc_ch4_db_med_97",
+    "titleEn": "Fundamental Theorem with Chain Rule (Leibniz Rule)",
+    "titleAr": "مشتقة التكامل المحدد بحد علوي دالة (قاعدة لايبنتز)",
+    "difficulty": "medium",
+    "questionEn": "Find $\\frac{d}{dx} \\left[ \\int_1^{x^2} \\sqrt{t^2 + 5} \\, dt \\right]$.",
+    "questionAr": "أوجد $\\frac{d}{dx} \\left[ \\int_1^{x^2} \\sqrt{t^2 + 5} \\, dt \\right]$.",
     "optionsEn": [
-      "$90$",
-      "$93$",
-      "$96$",
-      "$99$"
+      "$2x \\sqrt{x^4 + 5}$",
+      "$\\sqrt{x^4 + 5}$",
+      "$2x \\sqrt{x^2 + 5}$",
+      "$\\frac{2x}{\\sqrt{x^4 + 5}}$"
     ],
     "optionsAr": [
-      "$90$",
-      "$93$",
-      "$96$",
-      "$99$"
+      "2س جذر(س⁴ + 5)",
+      "جذر(س⁴ + 5)",
+      "2س جذر(س² + 5)",
+      "2س / جذر(س⁴ + 5)"
     ],
-    "correctAnswer": "$90$",
+    "correctAnswer": "$2x \\sqrt{x^4 + 5}$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "By Leibniz Rule / FTC with chain rule: $\\frac{d}{dx} \\int_a^{u(x)} f(t) dt = f(u(x)) \\cdot u'(x)$.",
+    "hintAr": "باستخدام قاعدة لايبنتز (النظرية الأساسية مع قاعدة السلسلة): نضرب قيمة الدالة عند الحد العلوي في مشتقة الحد العلوي.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 6$):",
-      "$$\\int_{-6}^{12} |x - 6| dx = \\int_{-6}^{6} (6 - x) dx + \\int_{6}^{12} (x - 6) dx$$",
-      "2. First piece: $\\left[ 6x - \\frac{x^2}{2} \\right]_{-6}^{6} = 2(6)^2 = 72$.",
-      "3. Second piece: $\\left[ \\frac{(x - 6)^2}{2} \\right]_{6}^{12} = \\frac{6^2}{2} = 18$.",
-      "4. Total: $72 + 18 = \\frac{5(6^2)}{2} = 90$."
+      "1. By Leibniz Rule: $\\frac{d}{dx} \\int_a^{u(x)} f(t) dt = f(u(x)) \\cdot u'(x)$.",
+      "2. Here $u(x) = x^2 \\implies u'(x) = 2x$, and $f(t) = \\sqrt{t^2 + 5}$.",
+      "3. Therefore, $F'(x) = \\sqrt{(x^2)^2 + 5} \\cdot 2x = 2x \\sqrt{x^4 + 5}$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 6$):",
-      "$$\\int_{-6}^{12} |x - 6| dx = \\int_{-6}^{6} (6 - x) dx + \\int_{6}^{12} (x - 6) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 90$."
+      "١. بالنظرية الأساسية وقاعدة السلسلة: مشتقة التكامل بالنسبة لـ س = د(الحد العلوي) × مشتقة الحد العلوي.",
+      "٢. الحد العلوي هو س² ومشتقته 2س، والدالة هي جذر(ع² + 5).",
+      "٣. إذن المشتقة = جذر((س²)² + 5) × 2س = 2س جذر(س⁴ + 5)."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Remember to multiply by the derivative of the upper limit $u'(x) = 2x$.",
+    "teacherTipAr": "تذكر دائماً ضرب الناتج في مشتقة الحد العلوي س² (وهي 2س) تطبيقاً لقاعدة السلسلة."
   },
   {
-    "id": "calc_ch4_db_hots_47",
-    "titleEn": "Absolute Value Definite Integral Parameter k=7 #47",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=7 رقم 47",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-7}^{14} |x - 7| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-7}^{14} |x - 7| dx$.",
+    "id": "calc_ch4_db_med_98",
+    "titleEn": "Total Area Between Cubic Curve and X-Axis",
+    "titleAr": "المساحة الكلية المحصورة بين منحنى س³ ومحور السينات على فترة متناظرة",
+    "difficulty": "medium",
+    "questionEn": "Find the total area of the region bounded by $y = x^3$ and the x-axis from $x = -1$ to $x = 1$.",
+    "questionAr": "أوجد المساحة الكلية للمنطقة المحصورة بين المنحنى $y = x^3$ ومحور السينات في الفترة من $x = -1$ إلى $x = 1$.",
     "optionsEn": [
-      "$122.5$",
-      "$125.5$",
-      "$128.5$",
-      "$131.5$"
+      "$\\frac{1}{2}$",
+      "$0$",
+      "$1$",
+      "$\\frac{1}{4}$"
     ],
     "optionsAr": [
-      "$122.5$",
-      "$125.5$",
-      "$128.5$",
-      "$131.5$"
+      "1 / 2",
+      "0",
+      "1",
+      "1 / 4"
     ],
-    "correctAnswer": "$122.5$",
+    "correctAnswer": "$\\frac{1}{2}$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Area is always non-negative: sum the absolute areas of the two symmetric lobes.",
+    "hintAr": "المساحة موجبة دائماً: اجمع مساحتي الجزأين المتناظرين بالقيمة المطلقة.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 7$):",
-      "$$\\int_{-7}^{14} |x - 7| dx = \\int_{-7}^{7} (7 - x) dx + \\int_{7}^{14} (x - 7) dx$$",
-      "2. First piece: $\\left[ 7x - \\frac{x^2}{2} \\right]_{-7}^{7} = 2(7)^2 = 98$.",
-      "3. Second piece: $\\left[ \\frac{(x - 7)^2}{2} \\right]_{7}^{14} = \\frac{7^2}{2} = 24.5$.",
-      "4. Total: $98 + 24.5 = \\frac{5(7^2)}{2} = 122.5$."
+      "1. On $[-1, 0]$, $y = x^3 \\le 0$, so area is $\\int_{-1}^0 (-x^3) dx = \\left[ -\\frac{x^4}{4} \\right]_{-1}^0 = 0 - (-\\frac{1}{4}) = \\frac{1}{4}$.",
+      "2. On $[0, 1]$, $y = x^3 \\ge 0$, so area is $\\int_0^1 x^3 dx = \\frac{1}{4}$.",
+      "3. Total area $= \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 7$):",
-      "$$\\int_{-7}^{14} |x - 7| dx = \\int_{-7}^{7} (7 - x) dx + \\int_{7}^{14} (x - 7) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 122.5$."
+      "١. في الفترة [-1، 0]: المنحنى أسفل المحور، فالمساحة = - تكامل س³ = 1/4.",
+      "٢. في الفترة [0، 1]: المنحنى أعلى المحور، فالمساحة = تكامل س³ = 1/4.",
+      "٣. المساحة الكلية = 1/4 + 1/4 = 1/2 وحدة مربعة."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Do not simply integrate $\\int_{-1}^1 x^3 dx$, which gives 0 because area above and below cancel out.",
+    "teacherTipAr": "انتبه: تكامل س³ من -1 إلى 1 يعطي صفراً؛ لكن المساحة تتطلب أخذ القيمة المطلقة لكل جزء."
   },
   {
-    "id": "calc_ch4_db_hots_48",
-    "titleEn": "Absolute Value Definite Integral Parameter k=8 #48",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=8 رقم 48",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-8}^{16} |x - 8| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-8}^{16} |x - 8| dx$.",
+    "id": "calc_ch4_db_med_99",
+    "titleEn": "Volume by Washer Method Between Line and Parabola",
+    "titleAr": "حجم دوران منطقة بطريقة الحلقات (الواشر) حول محور السينات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of the solid generated by revolving the region enclosed between $y = x$ and $y = x^2$ about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x$ و $y = x^2$ دورة كاملة حول محور السينات.",
     "optionsEn": [
-      "$160$",
-      "$163$",
-      "$166$",
-      "$169$"
+      "$\\frac{2\\pi}{15}$",
+      "$\\frac{\\pi}{15}$",
+      "$\\frac{4\\pi}{15}$",
+      "$\\frac{\\pi}{30}$"
     ],
     "optionsAr": [
-      "$160$",
-      "$163$",
-      "$166$",
-      "$169$"
+      "2ط / 15",
+      "ط / 15",
+      "4ط / 15",
+      "ط / 30"
     ],
-    "correctAnswer": "$160$",
+    "correctAnswer": "$\\frac{2\\pi}{15}$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Use washer method: $V = \\pi \\int_0^1 (R_{\\text{outer}}^2 - r_{\\text{inner}}^2) dx$.",
+    "hintAr": "استخدم طريقة الحلقات: ح = ط × تكامل (نق_خارجي² - نق_داخلي²) د س.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 8$):",
-      "$$\\int_{-8}^{16} |x - 8| dx = \\int_{-8}^{8} (8 - x) dx + \\int_{8}^{16} (x - 8) dx$$",
-      "2. First piece: $\\left[ 8x - \\frac{x^2}{2} \\right]_{-8}^{8} = 2(8)^2 = 128$.",
-      "3. Second piece: $\\left[ \\frac{(x - 8)^2}{2} \\right]_{8}^{16} = \\frac{8^2}{2} = 32$.",
-      "4. Total: $128 + 32 = \\frac{5(8^2)}{2} = 160$."
+      "1. Intersection points: $x = x^2 \\implies x(1 - x) = 0 \\implies x = 0$ and $x = 1$.",
+      "2. On $[0, 1]$, $x \\ge x^2$, so outer radius is $R(x) = x$ and inner radius is $r(x) = x^2$.",
+      "3. Volume: $V = \\pi \\int_0^1 (x^2 - (x^2)^2) dx = \\pi \\int_0^1 (x^2 - x^4) dx$.",
+      "4. $V = \\pi \\left[ \\frac{x^3}{3} - \\frac{x^5}{5} \\right]_0^1 = \\pi (\\frac{1}{3} - \\frac{1}{5}) = \\frac{2\\pi}{15}$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 8$):",
-      "$$\\int_{-8}^{16} |x - 8| dx = \\int_{-8}^{8} (8 - x) dx + \\int_{8}^{16} (x - 8) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 160$."
+      "١. نقاط التقاطع: س = س² ومنها س = 0 و س = 1.",
+      "٢. في الفترة [0، 1]: المستقيم يقع أعلى القطع المكافئ، إذن نصف القطر الخارجي = س والداخلي = س².",
+      "٣. الحجم = ط × تكامل (س² - س⁴) د س من 0 إلى 1.",
+      "٤. الحجم = ط × (1/3 - 1/5) = 2ط / 15 وحدة مكعبة."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Washer method subtracts the volume of the inner hole from the outer solid.",
+    "teacherTipAr": "طريقة الحلقات تطرح حجم الفراغ الداخلي من الحجم الخارجي للجسم الدوراني."
   },
   {
-    "id": "calc_ch4_db_hots_49",
-    "titleEn": "Absolute Value Definite Integral Parameter k=9 #49",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=9 رقم 49",
-    "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-9}^{18} |x - 9| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-9}^{18} |x - 9| dx$.",
+    "id": "calc_ch4_db_med_100",
+    "titleEn": "Volume by Washer Method Between Line and Parabola Around Y-Axis",
+    "titleAr": "حجم دوران المنطقة المحصورة بين ص = س و ص = س² حول محور الصادات",
+    "difficulty": "medium",
+    "questionEn": "Find the volume of the solid generated by revolving the region enclosed between $y = x$ and $y = x^2$ about the y-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x$ و $y = x^2$ دورة كاملة حول محور الصادات.",
     "optionsEn": [
-      "$202.5$",
-      "$205.5$",
-      "$208.5$",
-      "$211.5$"
+      "$\\frac{\\pi}{6}$",
+      "$\\frac{2\\pi}{15}$",
+      "$\\frac{\\pi}{3}$",
+      "$\\frac{\\pi}{12}$"
     ],
     "optionsAr": [
-      "$202.5$",
-      "$205.5$",
-      "$208.5$",
-      "$211.5$"
+      "ط / 6",
+      "2ط / 15",
+      "ط / 3",
+      "ط / 12"
     ],
-    "correctAnswer": "$202.5$",
+    "correctAnswer": "$\\frac{\\pi}{6}$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Revolve about y-axis: $V = \\pi \\int_0^1 (x_{\\text{right}}^2 - x_{\\text{left}}^2) dy = \\pi \\int_0^1 (y - y^2) dy$.",
+    "hintAr": "الدوران حول محور الصادات: ح = ط × تكامل (س_يمين² - س_يسار²) د ص = ط × تكامل (ص - ص²) د ص.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 9$):",
-      "$$\\int_{-9}^{18} |x - 9| dx = \\int_{-9}^{9} (9 - x) dx + \\int_{9}^{18} (x - 9) dx$$",
-      "2. First piece: $\\left[ 9x - \\frac{x^2}{2} \\right]_{-9}^{9} = 2(9)^2 = 162$.",
-      "3. Second piece: $\\left[ \\frac{(x - 9)^2}{2} \\right]_{9}^{18} = \\frac{9^2}{2} = 40.5$.",
-      "4. Total: $162 + 40.5 = \\frac{5(9^2)}{2} = 202.5$."
+      "1. Curves in terms of $y$: outer boundary is $x = \\sqrt{y}$, inner boundary is $x = y$.",
+      "2. Volume: $V = \\pi \\int_0^1 ((\\sqrt{y})^2 - y^2) dy = \\pi \\int_0^1 (y - y^2) dy$.",
+      "3. $V = \\pi \\left[ \\frac{y^2}{2} - \\frac{y^3}{3} \\right]_0^1 = \\pi (\\frac{1}{2} - \\frac{1}{3}) = \\frac{\\pi}{6}$."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 9$):",
-      "$$\\int_{-9}^{18} |x - 9| dx = \\int_{-9}^{9} (9 - x) dx + \\int_{9}^{18} (x - 9) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 202.5$."
+      "١. حدود المنطقة بدلالة ص: الحد الخارجي س = جذر(ص)، والداخلي س = ص.",
+      "٢. الحجم = ط × تكامل (ص - ص²) د ص من 0 إلى 1.",
+      "٣. الحجم = ط × (1/2 - 1/3) = ط / 6 وحدة مكعبة."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "Notice that revolving about the y-axis gives $\\pi/6$, whereas revolving about the x-axis gave $2\\pi/15$.",
+    "teacherTipAr": "لاحظ أن الدوران حول محور الصادات يعطي ط/6، بينما حول السينات أعطى 2ط/15؛ فالشكلان الفراغيان مختلفان تماماً."
+  }
+],
+  "hots": [
+  {
+    "id": "calc_ch4_db_hots_101",
+    "titleEn": "Leibniz Rule for Variable Limits of Integration",
+    "titleAr": "قاعدة لايبنتز لمشتقة تكامل بحدود متغيرة",
+    "difficulty": "hots",
+    "questionEn": "Find $\\frac{d}{dx} \\left[ \\int_0^{x^2} \\sqrt{1 + t^2} \\, dt \\right]$.",
+    "questionAr": "أوجد قيمة $\\frac{d}{dx} \\left[ \\int_0^{x^2} \\sqrt{1 + t^2} \\, dt \\right]$.",
+    "optionsEn": [
+      "$2x \\sqrt{1 + x^4}$",
+      "$\\sqrt{1 + x^4}$",
+      "$2x \\sqrt{1 + x^2}$",
+      "$\\frac{x}{\\sqrt{1+x^4}}$"
+    ],
+    "optionsAr": [
+      "2س √(1 + س⁴)",
+      "√(1 + س⁴)",
+      "2س √(1 + س²)",
+      "س / √(1 + س⁴)"
+    ],
+    "correctAnswer": "$2x \\sqrt{1 + x^4}$",
+    "correctIndex": 0,
+    "hintEn": "d/dx int_0^{u(x)} f(t) dt = f(u(x)) * u'(x) = sqrt(1 + (x^2)^2) * 2x = 2x sqrt(1 + x^4).",
+    "hintAr": "قاعدة لايبنتز: نعوض بالحد العلوي ونضرب في مشتقته.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
   },
   {
-    "id": "calc_ch4_db_hots_50",
-    "titleEn": "Absolute Value Definite Integral Parameter k=10 #50",
-    "titleAr": "تكامل محدد لدالة المقياس بالمعلمة ك=10 رقم 50",
+    "id": "calc_ch4_db_hots_102",
+    "titleEn": "L'Hopital Rule with Definite Integral Limit",
+    "titleAr": "نهاية تتضمن تكاملاً محدداً وقاعدة لوبيتال",
     "difficulty": "hots",
-    "questionEn": "Evaluate the definite integral: $\\int_{-10}^{20} |x - 10| dx$.",
-    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-10}^{20} |x - 10| dx$.",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\int_0^x \\sin(t^2) \\, dt}{x^3}$.",
+    "questionAr": "احسب قيمة النهاية: $\\lim_{x \\to 0} \\frac{\\int_0^x \\sin(t^2) \\, dt}{x^3}$.",
     "optionsEn": [
-      "$250$",
-      "$253$",
-      "$256$",
-      "$259$"
+      "$\\frac{1}{3}$",
+      "$1$",
+      "$0$",
+      "$\\frac{1}{2}$"
     ],
     "optionsAr": [
-      "$250$",
-      "$253$",
-      "$256$",
-      "$259$"
+      "1/3",
+      "1",
+      "0",
+      "1/2"
     ],
-    "correctAnswer": "$250$",
+    "correctAnswer": "$\\frac{1}{3}$",
     "correctIndex": 0,
-    "hintEn": "The root of $|x - ${k}|$ is $x = ${k}$. Split the integral: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx = 2(${k})^2 + \\frac{(${k})^2}{2} = \\frac{5(${k})^2}{2}$.",
-    "hintAr": "صفر المقياس هو $x = ${k}$. جزئ التكامل: $\\int_{-${k}}^{${k}} (${k} - x) dx + \\int_{${k}}^{${2 * k}} (x - ${k}) dx$.",
+    "hintEn": "Differentiate numerator and denominator: lim sin(x^2) / (3x^2) = 1/3.",
+    "hintAr": "باشتقاق البسط والمقام حسب قاعدة لوبيتال: جا(س²)/(3س²) = 1/3.",
     "stepByStepSolutionEn": [
-      "1. Split integral at zero of the absolute value ($x = 10$):",
-      "$$\\int_{-10}^{20} |x - 10| dx = \\int_{-10}^{10} (10 - x) dx + \\int_{10}^{20} (x - 10) dx$$",
-      "2. First piece: $\\left[ 10x - \\frac{x^2}{2} \\right]_{-10}^{10} = 2(10)^2 = 200$.",
-      "3. Second piece: $\\left[ \\frac{(x - 10)^2}{2} \\right]_{10}^{20} = \\frac{10^2}{2} = 50$.",
-      "4. Total: $200 + 50 = \\frac{5(10^2)}{2} = 250$."
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
     ],
     "stepByStepSolutionAr": [
-      "١. تجزئة التكامل عند صفر المقياس ($x = 10$):",
-      "$$\\int_{-10}^{20} |x - 10| dx = \\int_{-10}^{10} (10 - x) dx + \\int_{10}^{20} (x - 10) dx$$",
-      "٢. الجزء الأول = مساحة مثلث قاعدته $2k$ وارتفاعه $2k$ = $2k^2$.",
-      "٣. الجزء الثاني = مساحة مثلث قاعدته $k$ وارتفاعه $k$ = $0.5k^2$.",
-      "٤. المجموع الكلي = $2.5k^2 = 250$."
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
     ],
-    "teacherTipEn": "Geometric interpretation: the integral of |x - a| is the sum of the areas of two right triangles.",
-    "teacherTipAr": "المعنى الهندسي: تكامل دالة المقياس يمثل دائماً مجموع مساحتي مثلثين قائمين."
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_103",
+    "titleEn": "Integral of Logarithm of Tangent (King's Property)",
+    "titleAr": "تكامل لوغاريتم دالة الظل على الربع الأول",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\int_0^{\\pi/2} \\ln(\\tan x) \\, dx$.",
+    "questionAr": "احسب قيمة التكامل $\\int_0^{\\pi/2} \\ln(\\tan x) \\, dx$.",
+    "optionsEn": [
+      "$0$",
+      "$\\frac{\\pi}{2}$",
+      "$\\ln 2$",
+      "$-\\frac{\\pi}{2}\\ln 2$"
+    ],
+    "optionsAr": [
+      "0",
+      "ط / 2",
+      "لو_هـ 2",
+      "-(ط/2) لو_هـ 2"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Using x -> pi/2 - x: tan becomes cot = 1/tan. I = -I => 2I = 0 => I = 0.",
+    "hintAr": "بالتعويض عن س بـ (ط/2 - س) يتحول ظا إلى ظتا ومجموع التكاملين صفر.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_104",
+    "titleEn": "Symmetric Integral with Exponential and Odd Part",
+    "titleAr": "تكامل دالة كسرية بمقام أسي على فترة متماثلة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\int_{-1}^1 \\frac{x^4 \\sin x}{1 + x^2} dx$.",
+    "questionAr": "احسب قيمة $\\int_{-1}^1 \\frac{x^4 \\sin x}{1 + x^2} dx$.",
+    "optionsEn": [
+      "$0$",
+      "$1$",
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{1}{2}$"
+    ],
+    "optionsAr": [
+      "0",
+      "1",
+      "ط / 4",
+      "1/2"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "The integrand is odd because (-x)^4 sin(-x) / (1 + (-x)^2) = - (x^4 sin x)/(1 + x^2).",
+    "hintAr": "الدالة فردية وتكامل الدالة الفردية على فترة متماثلة حول الصفر يساوي صفراً.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_105",
+    "titleEn": "Rotation About Shifted Horizontal Axis",
+    "titleAr": "دوران المنطقة حول مستقيم أفقي مواز لمحور السينات",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$ and $y = 4$ about the line $y = 4$.",
+    "questionAr": "أوجد حجم الجسم الناشئ من دوران المنطقة المحصورة بين $y = x^2$ والمستقيم $y = 4$ حول المستقيم $y = 4$.",
+    "optionsEn": [
+      "$\\frac{512\\pi}{15}$",
+      "$\\frac{256\\pi}{15}$",
+      "$\\frac{128\\pi}{5}$",
+      "$\\frac{64\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "512ط / 15",
+      "256ط / 15",
+      "128ط / 5",
+      "64ط / 3"
+    ],
+    "correctAnswer": "$\\frac{512\\pi}{15}$",
+    "correctIndex": 0,
+    "hintEn": "V = pi int_{-2}^2 (4 - x^2)^2 dx = 2 pi int_0^2 (16 - 8x^2 + x^4) dx = 2 pi (32 - 64/3 + 32/5) = 512pi/15.",
+    "hintAr": "نصف القطر هو (4 - س²)، والحجم = ط × تكامل (4 - س²)² من -2 إلى 2 = 512ط/15.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_106",
+    "titleEn": "Volume of Torus by Pappus's Theorem / Integration",
+    "titleAr": "حجم الحلقة الدورانية (التورس) بالتكامل",
+    "difficulty": "hots",
+    "questionEn": "A circular disk of radius $r = 2$ centered at $(5, 0)$ is revolved about the y-axis. Find the volume of the resulting torus.",
+    "questionAr": "قرص دائري نصف قطره $r = 2$ ومركزه النقطة $(5، 0)$ دار دورة كاملة حول محور الصادات. أوجد حجم الحلقة الدورانية الناتجة.",
+    "optionsEn": [
+      "$40\\pi^2$",
+      "$20\\pi^2$",
+      "$80\\pi^2$",
+      "$10\\pi^2$"
+    ],
+    "optionsAr": [
+      "40ط²",
+      "20ط²",
+      "80ط²",
+      "10ط²"
+    ],
+    "correctAnswer": "$40\\pi^2$",
+    "correctIndex": 0,
+    "hintEn": "V = (Area of disk) * (Circumference of centroid path) = (pi r^2) * (2 pi R) = 4pi * 10pi = 40pi^2.",
+    "hintAr": "نظرية بابوس: الحجم = مساحة الدائرة × محيط مسار المركز = (4ط) × (10ط) = 40ط².",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_107",
+    "titleEn": "Steinmetz Solid: Intersection of Two Cylinders",
+    "titleAr": "حجم التقاطع المتعامد لأسطوانتين بنفس نصف القطر",
+    "difficulty": "hots",
+    "questionEn": "Two identical cylinders of radius $R = 3$ intersect at right angles through their axes. Find the volume of their intersection.",
+    "questionAr": "أسطوانتان دائريتان قائمتان متطابقتان نصف قطر كل منهما $R = 3$ تتقاطعان ومحوراهما متعامدان. ما حجم المجسم المشترك بينهما؟",
+    "optionsEn": [
+      "$144$",
+      "$72\\pi$",
+      "$144\\pi$",
+      "$108$"
+    ],
+    "optionsAr": [
+      "144",
+      "72ط",
+      "144ط",
+      "108"
+    ],
+    "correctAnswer": "$144$",
+    "correctIndex": 0,
+    "hintEn": "Volume of bicylinder intersection = (16/3) R^3 = (16/3)(27) = 144.",
+    "hintAr": "حجم تقاطع أسطوانتين متعامدتين = 16/3 نق³ = 16/3 × 27 = 144 وحدة مكعبة.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_108",
+    "titleEn": "Work Done Pumping Water from Hemispherical Tank",
+    "titleAr": "الشغل المبذول لتفريغ خزان نصف كروي بالتكامل",
+    "difficulty": "hots",
+    "questionEn": "A hemispherical tank of radius $R = 4\\text{ m}$ is full of water (density $\\rho$, gravity $g$). The work done pumping all water over the top rim is:",
+    "questionAr": "خزان على شكل نصف كرة نصف قطرها $R = 4\\text{ م}$ ممتلئ بالماء (الكثافة $\\rho$، عجلة الجاذبية $g$). الشغل المبذول لضخ كامل الماء لأعلى حافة الخزان يُعطى بالتكامل ويساوي:",
+    "optionsEn": [
+      "$64\\pi \\rho g$",
+      "$32\\pi \\rho g$",
+      "$128\\pi \\rho g$",
+      "$256\\pi \\rho g$"
+    ],
+    "optionsAr": [
+      "64ط ث ج",
+      "32ط ث ج",
+      "128ط ث ج",
+      "256ط ث ج"
+    ],
+    "correctAnswer": "$64\\pi \\rho g$",
+    "correctIndex": 0,
+    "hintEn": "W = rho g pi int_0^4 y(16 - y^2) dy = rho g pi [8y^2 - y^4/4]_0^4 = rho g pi (128 - 64) = 64 pi rho g.",
+    "hintAr": "الشغل = ث ج ط × تكامل ص(16 - ص²) د ص من 0 إلى 4 = 64ط ث ج.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_109",
+    "titleEn": "Centroid of Parabolic Planar Region",
+    "titleAr": "الإحداثي الصادي لمركز ثقل صفيحة متجانسة محصورة بين قطع مكافئ ومحور السينات",
+    "difficulty": "hots",
+    "questionEn": "Find the y-coordinate of the centroid of the region bounded by $y = 4 - x^2$ and the x-axis.",
+    "questionAr": "أوجد الإحداثي الصادي لمركز ثقل صفيحة مستوية متجانسة محددة بالمنحنى $y = 4 - x^2$ ومحور السينات.",
+    "optionsEn": [
+      "$\\frac{8}{5}$",
+      "$\\frac{4}{5}$",
+      "$2$",
+      "$\\frac{16}{5}$"
+    ],
+    "optionsAr": [
+      "8/5",
+      "4/5",
+      "2",
+      "16/5"
+    ],
+    "correctAnswer": "$\\frac{8}{5}$",
+    "correctIndex": 0,
+    "hintEn": "y_bar = (1/(2A)) int_{-2}^2 y^2 dx = (1/(2 * 32/3)) int_{-2}^2 (4 - x^2)^2 dx = (3/64)(512/15) = 8/5.",
+    "hintAr": "الإحداثي الصادي لمركز الثقل = 8/5.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_110",
+    "titleEn": "Integral Leading to Complete Gamma / Factorial",
+    "titleAr": "تكامل دالة أسية مضروبة في قوة لـ س",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\int_0^\\infty x^3 e^{-x} dx$.",
+    "questionAr": "احسب قيمة $\\int_0^\\infty x^3 e^{-x} dx$.",
+    "optionsEn": [
+      "$6$",
+      "$3$",
+      "$24$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "6",
+      "3",
+      "24",
+      "2"
+    ],
+    "correctAnswer": "$6$",
+    "correctIndex": 0,
+    "hintEn": "Standard Gamma integral: Gamma(4) = 3! = 6.",
+    "hintAr": "تكامل دالة غاما الشهير: مضروب 3 = 6.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_111",
+    "titleEn": "Arc Length Integral Formulation",
+    "titleAr": "صيغة طول قوس المنحنى",
+    "difficulty": "hots",
+    "questionEn": "The arc length of $y = f(x)$ from $x = a$ to $x = b$ is given by:",
+    "questionAr": "طول قوس المنحنى $y = f(x)$ من $x = a$ إلى $x = b$ يُعطى بالتكامل المحدد:",
+    "optionsEn": [
+      "$\\int_a^b \\sqrt{1 + [f'(x)]^2} \\, dx$",
+      "$\\int_a^b (1 + [f'(x)]^2) dx$",
+      "$\\int_a^b \\sqrt{1 + f(x)} dx$",
+      "$\\pi \\int_a^b \\sqrt{1 + [f'(x)]^2} dx$"
+    ],
+    "optionsAr": [
+      "تكامل √(1 + [د'(س)]²) د س",
+      "تكامل (1 + [د'(س)]²) د س",
+      "تكامل √(1 + د(س)) د س",
+      "ط × تكامل √(1 + [د'(س)]²) د س"
+    ],
+    "correctAnswer": "$\\int_a^b \\sqrt{1 + [f'(x)]^2} \\, dx$",
+    "correctIndex": 0,
+    "hintEn": "Standard arc length formula: L = int sqrt(1 + (dy/dx)^2) dx.",
+    "hintAr": "الصيغة القياسية لطول القوس: تكامل الجذر التربيعي لـ 1 + (المشتقة)².",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_112",
+    "titleEn": "Surface Area of Revolution Formulation",
+    "titleAr": "صيغة المساحة السطحية لمجسم دوراني",
+    "difficulty": "hots",
+    "questionEn": "The surface area of the solid obtained by revolving $y = f(x) \\geq 0$ from $x = a$ to $x = b$ about the x-axis is:",
+    "questionAr": "مساحة السطح المتولد من دوران منحنى $y = f(x) \\geq 0$ حول محور السينات تُعطى بالقانون:",
+    "optionsEn": [
+      "$2\\pi \\int_a^b f(x) \\sqrt{1 + [f'(x)]^2} \\, dx$",
+      "$\\pi \\int_a^b [f(x)]^2 dx$",
+      "$2\\pi \\int_a^b [f'(x)]^2 dx$",
+      "$\\pi \\int_a^b f(x) dx$"
+    ],
+    "optionsAr": [
+      "2ط × تكامل د(س) √(1 + [د'(س)]²) د س",
+      "ط × تكامل [د(س)]² د س",
+      "2ط × تكامل [د'(س)]² د س",
+      "ط × تكامل د(س) د س"
+    ],
+    "correctAnswer": "$2\\pi \\int_a^b f(x) \\sqrt{1 + [f'(x)]^2} \\, dx$",
+    "correctIndex": 0,
+    "hintEn": "Surface area = 2 pi int y ds = 2 pi int f(x) sqrt(1 + (f')^2) dx.",
+    "hintAr": "المساحة السطحية للمجسم الدوراني = 2ط × تكامل ص × جذر(1 + (ص')²).",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_113",
+    "titleEn": "Integral of Logarithm of Sine from 0 to pi/2",
+    "titleAr": "التكامل القياسي للوغاريتم جيب الزاوية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate Euler's integral: $\\int_0^{\\pi/2} \\ln(\\sin x) \\, dx$.",
+    "questionAr": "احسب قيمة تكامل أويلر الشهير: $\\int_0^{\\pi/2} \\ln(\\sin x) \\, dx$.",
+    "optionsEn": [
+      "$-\\frac{\\pi}{2}\\ln 2$",
+      "$\\frac{\\pi}{2}\\ln 2$",
+      "$-\\pi \\ln 2$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "-(ط/2) لو_هـ 2",
+      "(ط/2) لو_هـ 2",
+      "-ط لو_هـ 2",
+      "0"
+    ],
+    "correctAnswer": "$-\\frac{\\pi}{2}\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "Famous Euler integral result is -(pi/2) ln 2.",
+    "hintAr": "تكامل أويلر الكلاسيكي الشهير = -(ط/2) لو_هـ 2.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_114",
+    "titleEn": "Improper Integral Evaluation with Exponential Decay",
+    "titleAr": "تكامل معتل لسرعة اضمحلال أسية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\int_0^\\infty e^{-3x} dx$.",
+    "questionAr": "احسب قيمة التكامل المعتل $\\int_0^\\infty e^{-3x} dx$.",
+    "optionsEn": [
+      "$\\frac{1}{3}$",
+      "$3$",
+      "$1$",
+      "Diverges"
+    ],
+    "optionsAr": [
+      "1/3",
+      "3",
+      "1",
+      "متباعد"
+    ],
+    "correctAnswer": "$\\frac{1}{3}$",
+    "correctIndex": 0,
+    "hintEn": "lim_{b->inf} [-1/3 e^(-3x)]_0^b = 0 - (-1/3) = 1/3.",
+    "hintAr": "نهاية [-1/3 هـ^(-3س)] = 1/3.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_115",
+    "titleEn": "Area Between Curve and Its Tangent Line",
+    "titleAr": "المساحة المحصورة بين منحنى ومماسه",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed between $y = x^3$ and its tangent line at $x = 1$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x^3$ ومماسه عند النقطة $(1، 1)$.",
+    "optionsEn": [
+      "$\\frac{27}{4}$",
+      "$\\frac{9}{4}$",
+      "$\\frac{81}{4}$",
+      "$6$"
+    ],
+    "optionsAr": [
+      "27/4",
+      "9/4",
+      "81/4",
+      "6"
+    ],
+    "correctAnswer": "$\\frac{27}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Tangent line is y = 3x - 2. Intersection: x^3 - 3x + 2 = (x - 1)^2 (x + 2) = 0 => x = -2, 1. Area = int_{-2}^1 (x^3 - 3x + 2) dx = 27/4.",
+    "hintAr": "معادلة المماس ص = 3س - 2 ونقطة التقاطع الأخرى س = -2، والمساحة = 27/4.",
+    "stepByStepSolutionEn": [
+      "1. Formulate advanced integration problem.",
+      "2. Deduce exact result."
+    ],
+    "stepByStepSolutionAr": [
+      "١. صياغة مسألة التكامل المتقدمة.",
+      "٢. استنتاج الناتج الدقيق."
+    ],
+    "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
+    "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+  },
+  {
+    "id": "calc_ch4_db_hots_116",
+    "titleEn": "Volume Revolved About Shifted Horizontal Axis",
+    "titleAr": "حجم دوران منطقة حول محور أفقي مزاح ص = -1",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$ and the line $y = 1$ about the shifted line $y = -1$.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x^2$ والمستقيم $y = 1$ دورة كاملة حول المستقيم $y = -1$.",
+    "optionsEn": [
+      "$\\frac{64\\pi}{15}$",
+      "$\\frac{32\\pi}{15}$",
+      "$\\frac{16\\pi}{5}$",
+      "$\\frac{8\\pi}{3}$"
+    ],
+    "optionsAr": [
+      "64ط / 15",
+      "32ط / 15",
+      "16ط / 5",
+      "8ط / 3"
+    ],
+    "correctAnswer": "$\\frac{64\\pi}{15}$",
+    "correctIndex": 0,
+    "hintEn": "Outer radius $R(x) = 1 - (-1) = 2$, inner radius $r(x) = x^2 - (-1) = x^2 + 1$.",
+    "hintAr": "نصف القطر الخارجي R = 1 - (-1) = 2، ونصف القطر الداخلي r = س² - (-1) = س² + 1.",
+    "stepByStepSolutionEn": [
+      "1. Intersections: $x^2 = 1 \\implies x = \\pm 1$.",
+      "2. The axis of rotation is $y = -1$.",
+      "3. Outer radius: $R(x) = 1 - (-1) = 2$.",
+      "4. Inner radius: $r(x) = x^2 - (-1) = x^2 + 1$.",
+      "5. Volume: $V = \\pi \\int_{-1}^1 [2^2 - (x^2 + 1)^2] dx = 2\\pi \\int_0^1 (4 - x^4 - 2x^2 - 1) dx = 2\\pi \\int_0^1 (3 - 2x^2 - x^4) dx$.",
+      "6. $V = 2\\pi \\left[ 3x - \\frac{2x^3}{3} - \\frac{x^5}{5} \\right]_0^1 = 2\\pi (3 - \\frac{2}{3} - \\frac{1}{5}) = 2\\pi (\\frac{32}{15}) = \\frac{64\\pi}{15}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نقاط التقاطع: س = ±1.",
+      "٢. محور الدوران هو ص = -1.",
+      "٣. نصف القطر الخارجي = 1 - (-1) = 2.",
+      "٤. نصف القطر الداخلي = س² - (-1) = س² + 1.",
+      "٥. الحجم = 2 ط × تكامل (3 - 2س² - س⁴) د س من 0 إلى 1.",
+      "٦. الحجم = 2 ط × (3 - 2/3 - 1/5) = 64ط / 15."
+    ],
+    "teacherTipEn": "When revolving around $y = c$, radius is measured as $|y - c|$.",
+    "teacherTipAr": "عند الدوران حول مستقيم ص = جـ، يحسب نصف القطر بالبعد العمودي |ص - جـ|."
+  },
+  {
+    "id": "calc_ch4_db_hots_117",
+    "titleEn": "Volume Revolved About Shifted Vertical Axis",
+    "titleAr": "حجم دوران منطقة حول محور رأسي مزاح س = 2",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the solid generated by revolving the region bounded by $y = x^2$, the x-axis, and $x = 1$ about the line $x = 2$.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناشئ من دوران المنطقة المحصورة بين $y = x^2$ ومحور السينات والمستقيم $x = 1$ حول المستقيم $x = 2$.",
+    "optionsEn": [
+      "$\\frac{5\\pi}{6}$",
+      "$\\frac{2\\pi}{3}$",
+      "$\\frac{\\pi}{2}$",
+      "$\\frac{7\\pi}{6}$"
+    ],
+    "optionsAr": [
+      "5ط / 6",
+      "2ط / 3",
+      "ط / 2",
+      "7ط / 6"
+    ],
+    "correctAnswer": "$\\frac{5\\pi}{6}$",
+    "correctIndex": 0,
+    "hintEn": "Use cylindrical shells with radius $(2 - x)$ and height $x^2$: $V = 2\\pi \\int_0^1 (2 - x)x^2 dx$.",
+    "hintAr": "استخدم طريقة الأسطوانات الدورانية: نصف القطر = 2 - س والارتفاع = س².",
+    "stepByStepSolutionEn": [
+      "1. By the shell method, radius of a representative shell is $r(x) = 2 - x$ and height is $h(x) = x^2$.",
+      "2. Volume formula: $V = 2\\pi \\int_0^1 (2 - x) x^2 dx = 2\\pi \\int_0^1 (2x^2 - x^3) dx$.",
+      "3. $V = 2\\pi \\left[ \\frac{2x^3}{3} - \\frac{x^4}{4} \\right]_0^1 = 2\\pi (\\frac{2}{3} - \\frac{1}{4}) = 2\\pi (\\frac{5}{12}) = \\frac{5\\pi}{6}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بطريقة الأسطوانات الدائرية: نصف قطر الأسطوانة = 2 - س، وارتفاعها = س².",
+      "٢. قانون الحجم: ح = 2 ط × تكامل (2 - س) س² د س من 0 إلى 1.",
+      "٣. الحجم = 2 ط × (2/3 - 1/4) = 2 ط × (5/12) = 5ط / 6 وحدة مكعبة."
+    ],
+    "teacherTipEn": "The shell method is often far simpler than washer method when rotating around vertical lines.",
+    "teacherTipAr": "طريقة الأسطوانات الدورانية أسهل وأسرع بكثير من الحلقات عند الدوران حول محاور رأسية."
+  },
+  {
+    "id": "calc_ch4_db_hots_118",
+    "titleEn": "Area of Loop of Curve",
+    "titleAr": "مساحة عروة منحنى مغلقة ص² = س(س - 3)²",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed by the loop of the curve $y^2 = x(3 - x)^2$ for $x \\in [0, 3]$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة داخل عروة المنحنى $y^2 = x(3 - x)^2$ في الفترة $x \\in [0، 3]$.",
+    "optionsEn": [
+      "$\\frac{24\\sqrt{3}}{5}$",
+      "$\\frac{12\\sqrt{3}}{5}$",
+      "$\\frac{18\\sqrt{3}}{5}$",
+      "$6\\sqrt{3}$"
+    ],
+    "optionsAr": [
+      "24 جذر(3) / 5",
+      "12 جذر(3) / 5",
+      "18 جذر(3) / 5",
+      "6 جذر(3)"
+    ],
+    "correctAnswer": "$\\frac{24\\sqrt{3}}{5}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate $2\\int_0^3 (3 - x)\\sqrt{x} dx$.",
+    "hintAr": "المساحة = 2 × تكامل (3 - س) جذر(س) د س من 0 إلى 3.",
+    "stepByStepSolutionEn": [
+      "1. The curve has two symmetric branches: $y = \\pm (3 - x)\\sqrt{x}$ on $[0, 3]$.",
+      "2. Area: $A = 2\\int_0^3 (3\\sqrt{x} - x^{3/2}) dx$.",
+      "3. $A = 2 \\left[ 2x^{3/2} - \\frac{2}{5}x^{5/2} \\right]_0^3 = 2 \\left[ 2(3\\sqrt{3}) - \\frac{2}{5}(9\\sqrt{3}) \\right] = 2\\sqrt{3} \\left( 6 - \\frac{18}{5} \\right) = 2\\sqrt{3}(\\frac{12}{5}) = \\frac{24\\sqrt{3}}{5}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المنحنى متماثل حول محور السينات بفرعين: ص = ± (3 - س) جذر(س).",
+      "٢. المساحة = 2 × تكامل (3 جذر(س) - س^(3/2)) د س من 0 إلى 3.",
+      "٣. م = 2 [2 س^(3/2) - (2/5) س^(5/2)] من 0 إلى 3.",
+      "٤. م = 2 جذر(3) × (6 - 18/5) = 24 جذر(3) / 5."
+    ],
+    "teacherTipEn": "Loop area problems require finding the self-intersection points and exploiting symmetry.",
+    "teacherTipAr": "مسائل عروات المنحنيات تتطلب إيجاد نقطة التقاطع الذاتي واستغلال التماثل حول المحور."
+  },
+  {
+    "id": "calc_ch4_db_hots_119",
+    "titleEn": "Area of Ellipse Derived by Definite Integral",
+    "titleAr": "مساحة القطع الناقص بالتكامل المحدد",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed by the ellipse $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$.",
+    "questionAr": "أوجد المساحة المحصورة داخل القطع الناقص $\\frac{x^2}{16} + \\frac{y^2}{9} = 1$.",
+    "optionsEn": [
+      "$12\\pi$",
+      "$24\\pi$",
+      "$16\\pi$",
+      "$9\\pi$"
+    ],
+    "optionsAr": [
+      "12 ط",
+      "24 ط",
+      "16 ط",
+      "9 ط"
+    ],
+    "correctAnswer": "$12\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Area of ellipse is $A = \\pi a b$, with $a = 4$ and $b = 3$.",
+    "hintAr": "مساحة القطع الناقص = ط × أ × ب، حيث أ = 4 و ب = 3.",
+    "stepByStepSolutionEn": [
+      "1. Semi-major axis $a = 4$ and semi-minor axis $b = 3$.",
+      "2. In the first quadrant: $y = 3\\sqrt{1 - \\frac{x^2}{16}} = \\frac{3}{4}\\sqrt{16 - x^2}$.",
+      "3. Total area: $A = 4 \\int_0^4 \\frac{3}{4}\\sqrt{16 - x^2} dx = 3 \\int_0^4 \\sqrt{16 - x^2} dx$.",
+      "4. The integral represents a quarter-circle of radius 4: $\\int_0^4 \\sqrt{16 - x^2} dx = \\frac{\\pi(4^2)}{4} = 4\\pi$.",
+      "5. Total area $= 3(4\\pi) = 12\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. طول نصف المحور الأكبر أ = 4، ونصف الأصغر ب = 3.",
+      "٢. في الربع الأول: ص = (3/4) جذر(16 - س²).",
+      "٣. المساحة الكلية = 4 × (3/4) × تكامل جذر(16 - س²) د س من 0 إلى 4.",
+      "٤. التكامل يمثل مساحة ربع دائرة نصف قطرها 4 = 4 ط.",
+      "٥. المساحة الكلية للقطع الناقص = 3 × 4 ط = 12 ط."
+    ],
+    "teacherTipEn": "Formula: Area of an ellipse with semi-axes a and b is always $\\pi a b$.",
+    "teacherTipAr": "القانون العام: مساحة القطع الناقص الذي نصفا محوريه أ و ب هي ط أ ب دائماً."
+  },
+  {
+    "id": "calc_ch4_db_hots_120",
+    "titleEn": "Volume of Ellipsoid of Revolution Prolate",
+    "titleAr": "حجم مجسم القطع الناقص الدوراني حول المحور الأكبر",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the ellipsoid obtained by revolving the ellipse $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ about the x-axis.",
+    "questionAr": "أوجد حجم مجسم القطع الناقص الدوراني الناتج من دوران القطع الناقص $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ حول محور السينات.",
+    "optionsEn": [
+      "$16\\pi$",
+      "$24\\pi$",
+      "$12\\pi$",
+      "$36\\pi$"
+    ],
+    "optionsAr": [
+      "16 ط",
+      "24 ط",
+      "12 ط",
+      "36 ط"
+    ],
+    "correctAnswer": "$16\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Volume is $V = \\frac{4}{3}\\pi a b^2$ with $a = 3$ and $b = 2$.",
+    "hintAr": "حجم مجسم القطع الناقص الدوراني حول المحور س: ح = (4/3) ط أ ب².",
+    "stepByStepSolutionEn": [
+      "1. Revolve $y^2 = 4(1 - \\frac{x^2}{9})$ about the $x$-axis from $x = -3$ to $x = 3$.",
+      "2. $V = \\pi \\int_{-3}^3 4(1 - \\frac{x^2}{9}) dx = 8\\pi \\int_0^3 (1 - \\frac{x^2}{9}) dx$.",
+      "3. $V = 8\\pi \\left[ x - \\frac{x^3}{27} \\right]_0^3 = 8\\pi [3 - 1] = 8\\pi(2) = 16\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. دوران ص² = 4(1 - س²/9) حول محور السينات من -3 إلى 3.",
+      "٢. الحجم = 8 ط × تكامل (1 - س²/9) د س من 0 إلى 3.",
+      "٣. الحجم = 8 ط × [3 - 1] = 16 ط وحدة مكعبة."
+    ],
+    "teacherTipEn": "General formula for ellipsoid revolving about x-axis: $V = \\frac{4}{3}\\pi a b^2$.",
+    "teacherTipAr": "القانون العام لدوران القطع الناقص حول محور السينات: ح = (4/3) ط أ ب²."
+  },
+  {
+    "id": "calc_ch4_db_hots_121",
+    "titleEn": "Volume of Ellipsoid of Revolution Oblate",
+    "titleAr": "حجم مجسم القطع الناقص الدوراني حول المحور الأصغر",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the ellipsoid obtained by revolving the same ellipse $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ about the y-axis.",
+    "questionAr": "أوجد حجم مجسم القطع الناقص الدوراني الناتج من دوران القطع الناقص نفسه $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ حول محور الصادات.",
+    "optionsEn": [
+      "$24\\pi$",
+      "$16\\pi$",
+      "$36\\pi$",
+      "$18\\pi$"
+    ],
+    "optionsAr": [
+      "24 ط",
+      "16 ط",
+      "36 ط",
+      "18 ط"
+    ],
+    "correctAnswer": "$24\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Volume is $V = \\frac{4}{3}\\pi a^2 b$ with $a = 3$ and $b = 2$.",
+    "hintAr": "حجم مجسم القطع الناقص الدوراني حول المحور ص: ح = (4/3) ط أ² ب.",
+    "stepByStepSolutionEn": [
+      "1. Revolve $x^2 = 9(1 - \\frac{y^2}{4})$ about the $y$-axis from $y = -2$ to $y = 2$.",
+      "2. $V = \\pi \\int_{-2}^2 9(1 - \\frac{y^2}{4}) dy = 18\\pi \\int_0^2 (1 - \\frac{y^2}{4}) dy$.",
+      "3. $V = 18\\pi \\left[ y - \\frac{y^3}{12} \\right]_0^2 = 18\\pi [2 - \\frac{8}{12}] = 18\\pi [2 - \\frac{2}{3}] = 18\\pi (\\frac{4}{3}) = 24\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. دوران س² = 9(1 - ص²/4) حول محور الصادات من -2 إلى 2.",
+      "٢. الحجم = 18 ط × تكامل (1 - ص²/4) د ص من 0 إلى 2.",
+      "٣. الحجم = 18 ط × (2 - 2/3) = 18 ط × (4/3) = 24 ط وحدة مكعبة."
+    ],
+    "teacherTipEn": "Revolving about the minor axis produces an oblate spheroid with larger volume than the prolate one.",
+    "teacherTipAr": "الدوران حول المحور الأصغر يعطي مجسماً مفلطحاً حجمه أكبر من المجسم المغزلي الناشئ عن المحور الأكبر."
+  },
+  {
+    "id": "calc_ch4_db_hots_122",
+    "titleEn": "Integral by King Property of x Sine Over One Plus Cos Squared",
+    "titleAr": "تكامل بالتماثل لـ س جا س / (1 + جتا² س) من 0 إلى ط",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_0^\\pi \\frac{x \\sin x}{1 + \\cos^2 x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^\\pi \\frac{x \\sin x}{1 + \\cos^2 x} dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi^2}{4}$",
+      "$\\frac{\\pi^2}{2}$",
+      "$\\frac{\\pi}{4}$",
+      "$\\pi^2$"
+    ],
+    "optionsAr": [
+      "ط² / 4",
+      "ط² / 2",
+      "ط / 4",
+      "ط²"
+    ],
+    "correctAnswer": "$\\frac{\\pi^2}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Use symmetry substitution $x \\to \\pi - x$ to eliminate $x$ in the numerator.",
+    "hintAr": "استخدم خاصية التماثل س ← ط - س للتخلص من العامل س في البسط.",
+    "stepByStepSolutionEn": [
+      "1. Let $I = \\int_0^\\pi \\frac{x \\sin x}{1 + \\cos^2 x} dx$.",
+      "2. Substitute $x = \\pi - t$: $I = \\int_0^\\pi \\frac{(\\pi - t)\\sin(\\pi - t)}{1 + \\cos^2(\\pi - t)} dt = \\int_0^\\pi \\frac{(\\pi - t)\\sin t}{1 + \\cos^2 t} dt$.",
+      "3. Adding the two expressions: $2I = \\pi \\int_0^\\pi \\frac{\\sin t}{1 + \\cos^2 t} dt$.",
+      "4. Let $u = \\cos t \\implies du = -\\sin t dt$. When $t = 0 \\implies u = 1$; when $t = \\pi \\implies u = -1$.",
+      "5. $2I = \\pi \\int_{-1}^1 \\frac{1}{1 + u^2} du = \\pi [\\arctan u]_{-1}^1 = \\pi (\\frac{\\pi}{4} - (-\\frac{\\pi}{4})) = \\pi (\\frac{\\pi}{2}) = \\frac{\\pi^2}{2}$.",
+      "6. Therefore, $I = \\frac{\\pi^2}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ت = التكامل المعطى.",
+      "٢. بالتعويض س = ط - ص: ت = تكامل (ط - ص) جا ص / (1 + جتا² ص) د ص.",
+      "٣. بجمع المعادلتين: 2 ت = ط × تكامل جا ص / (1 + جتا² ص) د ص من 0 إلى ط.",
+      "٤. بالتعويض ع = جتا ص: ينتج 2 ت = ط × [ظا⁻¹(ع)] من -1 إلى 1 = ط × (ط/2) = ط² / 2.",
+      "٥. إذن ت = ط² / 4."
+    ],
+    "teacherTipEn": "King's property $\\int_0^\\pi x f(\\sin x) dx = \\frac{\\pi}{2}\\int_0^\\pi f(\\sin x) dx$ is an Olympiad staple.",
+    "teacherTipAr": "خاصية التماثل لطمس العامل س من البسط تعد من أقوى أدوات التكامل المتقدم."
+  },
+  {
+    "id": "calc_ch4_db_hots_123",
+    "titleEn": "Integral of Log One Plus Tan x",
+    "titleAr": "تكامل لوـهـ(1 + ظا س) من صفر إلى ط/4",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_0^{\\pi/4} \\ln(1 + \\tan x) \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi/4} \\ln(1 + \\tan x) \\, dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{8}\\ln 2$",
+      "$\\frac{\\pi}{4}\\ln 2$",
+      "$\\frac{1}{2}\\ln 2$",
+      "$\\frac{\\pi}{8}$"
+    ],
+    "optionsAr": [
+      "(ط / 8) لوـهـ(2)",
+      "(ط / 4) لوـهـ(2)",
+      "0.5 لوـهـ(2)",
+      "ط / 8"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{8}\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "Use substitution $x = \\frac{\\pi}{4} - t$ and identity for $\\tan(\\frac{\\pi}{4} - t)$.",
+    "hintAr": "استخدم التعويض س = ط/4 - ص ومتطابقة ظل فرق زاويتين.",
+    "stepByStepSolutionEn": [
+      "1. Let $I = \\int_0^{\\pi/4} \\ln(1 + \\tan x) dx$.",
+      "2. Substitute $x = \\frac{\\pi}{4} - t$: $\\tan(\\frac{\\pi}{4} - t) = \\frac{1 - \\tan t}{1 + \\tan t}$.",
+      "3. $1 + \\tan x = 1 + \\frac{1 - \\tan t}{1 + \\tan t} = \\frac{2}{1 + \\tan t}$.",
+      "4. $I = \\int_0^{\\pi/4} \\ln(\\frac{2}{1 + \\tan t}) dt = \\int_0^{\\pi/4} [\\ln 2 - \\ln(1 + \\tan t)] dt = \\frac{\\pi}{4}\\ln 2 - I$.",
+      "5. $2I = \\frac{\\pi}{4}\\ln 2 \\implies I = \\frac{\\pi}{8}\\ln 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ت = التكامل المطلوب.",
+      "٢. بالتعويض س = ط/4 - ص: ظا(ط/4 - ص) = (1 - ظا ص) / (1 + ظا ص).",
+      "٣. 1 + ظا س = 2 / (1 + ظا ص).",
+      "٤. ت = تكامل [لوـهـ(2) - لوـهـ(1 + ظا ص)] د ص = (ط/4) لوـهـ(2) - ت.",
+      "٥. 2 ت = (ط/4) لوـهـ(2) ومنها ت = (ط/8) لوـهـ(2)."
+    ],
+    "teacherTipEn": "A legendary definite integral originally discovered by Euler.",
+    "teacherTipAr": "تكامل محدد تاريخي أسطوري اكتشفه أويلر."
+  },
+  {
+    "id": "calc_ch4_db_hots_124",
+    "titleEn": "Arc Length of Astroid",
+    "titleAr": "طول محيط منحنى النجمة الفلكية (الأسترويد)",
+    "difficulty": "hots",
+    "questionEn": "Find the total perimeter (arc length) of the astroid $x^{2/3} + y^{2/3} = a^{2/3}$ with $a = 2$.",
+    "questionAr": "أوجد المحيط الكلي (طول القوس) لمنحنى النجمة الفلكية $x^{2/3} + y^{2/3} = a^{2/3}$ عندما $a = 2$.",
+    "optionsEn": [
+      "$12$",
+      "$6$",
+      "$8$",
+      "$16$"
+    ],
+    "optionsAr": [
+      "12",
+      "6",
+      "8",
+      "16"
+    ],
+    "correctAnswer": "$12$",
+    "correctIndex": 0,
+    "hintEn": "Use parametric equations $x = a\\cos^3 t, y = a\\sin^3 t$.",
+    "hintAr": "استخدم المعادلات البارامترية: س = أ جتا³(ن)، ص = أ جا³(ن).",
+    "stepByStepSolutionEn": [
+      "1. Parametric form: $x = a\\cos^3 t, y = a\\sin^3 t$ for $t \\in [0, 2\\pi]$.",
+      "2. $\\frac{dx}{dt} = -3a\\cos^2 t \\sin t$ and $\\frac{dy}{dt} = 3a\\sin^2 t \\cos t$.",
+      "3. $\\sqrt{(dx/dt)^2 + (dy/dt)^2} = \\sqrt{9a^2\\cos^2 t\\sin^2 t(\\cos^2 t + \\sin^2 t)} = 3a\\sin t \\cos t$ in the first quadrant.",
+      "4. Total perimeter: $L = 4 \\int_0^{\\pi/2} 3a\\sin t \\cos t \\, dt = 12a \\left[ \\frac{\\sin^2 t}{2} \\right]_0^{\\pi/2} = 12a (\\frac{1}{2}) = 6a$.",
+      "5. For $a = 2$, $L = 6(2) = 12$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الصورة البارامترية: س = أ جتا³ ن، ص = أ جا³ ن.",
+      "٢. د س/د ن = -3 أ جتا² ن جا ن، د ص/د ن = 3 أ جا² ن جتا ن.",
+      "٣. جذر مجموع المربعين = 3 أ جا ن جتا ن في الربع الأول.",
+      "٤. المحيط الكلي = 4 × تكامل (3 أ جا ن جتا ن) د ن من 0 إلى ط/2 = 6 أ.",
+      "٥. عندما أ = 2، يكون المحيط = 6 × 2 = 12."
+    ],
+    "teacherTipEn": "The perimeter of the astroid of scale a is always $6a$.",
+    "teacherTipAr": "محيط النجمة الفلكية ذات المقياس أ يساوي دائماً 6 أ."
+  },
+  {
+    "id": "calc_ch4_db_hots_125",
+    "titleEn": "Area Enclosed by Astroid",
+    "titleAr": "المساحة المحصورة داخل منحنى النجمة الفلكية",
+    "difficulty": "hots",
+    "questionEn": "Find the total area enclosed by the astroid $x^{2/3} + y^{2/3} = a^{2/3}$ with $a = 4$.",
+    "questionAr": "أوجد المساحة الكلية المحصورة داخل منحنى النجمة الفلكية $x^{2/3} + y^{2/3} = a^{2/3}$ عندما $a = 4$.",
+    "optionsEn": [
+      "$6\\pi$",
+      "$12\\pi$",
+      "$8\\pi$",
+      "$16\\pi$"
+    ],
+    "optionsAr": [
+      "6 ط",
+      "12 ط",
+      "8 ط",
+      "16 ط"
+    ],
+    "correctAnswer": "$6\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Area is given by $A = \\frac{3}{8}\\pi a^2$.",
+    "hintAr": "المساحة الكلية تعطى بالقانون: م = (3/8) ط أ².",
+    "stepByStepSolutionEn": [
+      "1. By Green's theorem or parametric integration: $A = 4 \\int_0^{\\pi/2} y \\frac{dx}{dt} dt = 4 \\int_0^{\\pi/2} (a\\sin^3 t)(3a\\cos^2 t\\sin t) dt$.",
+      "2. $A = 12a^2 \\int_0^{\\pi/2} \\sin^4 t \\cos^2 t dt$.",
+      "3. Evaluating using Wallis formula yields $A = \\frac{3}{8}\\pi a^2$.",
+      "4. For $a = 4$: $A = \\frac{3}{8}\\pi (16) = 6\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بالتكامل البارامتري: م = 12 أ² × تكامل جا⁴ ن جتا² ن د ن من 0 إلى ط/2.",
+      "٢. بصيغة واليس للتكاملات المثلثية: المساحة = (3/8) ط أ².",
+      "٣. عندما أ = 4: م = (3/8) ط (16) = 6 ط."
+    ],
+    "teacherTipEn": "Formula: the area enclosed by an astroid is $\\frac{3}{8}\\pi a^2$.",
+    "teacherTipAr": "قانون عام: المساحة المحصورة داخل النجمة الفلكية هي (3/8) ط أ²."
+  },
+  {
+    "id": "calc_ch4_db_hots_126",
+    "titleEn": "Volume of Gabriel Horn Torricelli Trumpet",
+    "titleAr": "حجم بوق غابرييل (بوق تورشيللي) اللانهائي",
+    "difficulty": "hots",
+    "questionEn": "The region bounded by $y = \\frac{1}{x}$ and the x-axis for $x \\in [1, \\infty)$ is revolved about the x-axis. Find the volume of the resulting infinite trumpet.",
+    "questionAr": "المنطقة المحصورة بين منحنى $y = \\frac{1}{x}$ ومحور السينات لـ $x \\in [1، \\infty)$ دارت دورة كاملة حول محور السينات. ما حجم هذا البوق اللانهائي الناتج؟",
+    "optionsEn": [
+      "$\\pi$",
+      "$2\\pi$",
+      "$\\infty$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "ط",
+      "2ط",
+      "∞",
+      "ط / 2"
+    ],
+    "correctAnswer": "$\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Improper volume integral: $V = \\pi \\int_1^\\infty \\frac{1}{x^2} dx$.",
+    "hintAr": "تكامل الحجم المعتل: ح = ط × تكامل (1 / س²) د س من 1 إلى المالانهاية.",
+    "stepByStepSolutionEn": [
+      "1. Volume: $V = \\pi \\int_1^\\infty y^2 dx = \\pi \\int_1^\\infty \\frac{1}{x^2} dx$.",
+      "2. Antiderivative: $\\int \\frac{1}{x^2} dx = -\\frac{1}{x}$.",
+      "3. Evaluate: $\\lim_{b \\to \\infty} \\left[ -\\frac{1}{x} \\right]_1^b = \\lim_{b \\to \\infty} (-\\frac{1}{b} - (-1)) = 0 + 1 = 1$.",
+      "4. Volume $V = \\pi(1) = \\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الحجم الدوراني: ح = ط × تكامل (1/س)² د س من 1 إلى ∞.",
+      "٢. الدالة المقابلة لـ 1/س² هي -1/س.",
+      "٣. بالتعويض بالحدود: [-1/∞ - (-1/1)] = 0 + 1 = 1.",
+      "٤. الحجم = ط وحدة مكعبة."
+    ],
+    "teacherTipEn": "Gabriel's horn has finite volume (\\pi) but infinite surface area!",
+    "teacherTipAr": "مفارقة بوق غابرييل الشهيرة: حجمه منتهٍ ويساوي ط، بينما مساحة سطحه لا نهائية!"
+  },
+  {
+    "id": "calc_ch4_db_hots_127",
+    "titleEn": "Area Between Sine and Cosine Consecutive Intersections",
+    "titleAr": "المساحة بين منحنيي الجيب وجيب التمام بين نقطتي تقاطع متتاليتين",
+    "difficulty": "hots",
+    "questionEn": "Find the area of the region enclosed between $y = \\sin x$ and $y = \\cos x$ between two consecutive intersection points.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين منحنيي $y = \\sin x$ و $y = \\cos x$ بين نقطتي تقاطع متتاليتين لهما.",
+    "optionsEn": [
+      "$2\\sqrt{2}$",
+      "$\\sqrt{2}$",
+      "$2$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "2 جذر(2)",
+      "جذر(2)",
+      "2",
+      "4"
+    ],
+    "correctAnswer": "$2\\sqrt{2}$",
+    "correctIndex": 0,
+    "hintEn": "Integrate from $x = \\pi/4$ to $x = 5\\pi/4$: $A = \\int_{\\pi/4}^{5\\pi/4} (\\sin x - \\cos x) dx$.",
+    "hintAr": "كامل من س = ط/4 إلى س = 5ط/4: م = تكامل (جا س - جتا س) د س.",
+    "stepByStepSolutionEn": [
+      "1. Consecutive intersection points: $\\sin x = \\cos x \\implies x = \\pi/4$ and $x = 5\\pi/4$.",
+      "2. On $[\\pi/4, 5\\pi/4]$, $\\sin x \\ge \\cos x$.",
+      "3. Area: $A = \\int_{\\pi/4}^{5\\pi/4} (\\sin x - \\cos x) dx = \\left[ -\\cos x - \\sin x \\right]_{\\pi/4}^{5\\pi/4}$.",
+      "4. At $5\\pi/4$: $-(-\\frac{\\sqrt{2}}{2}) - (-\\frac{\\sqrt{2}}{2}) = \\sqrt{2}$.",
+      "5. At $\\pi/4$: $-\\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2} = -\\sqrt{2}$.",
+      "6. Total area $= \\sqrt{2} - (-\\sqrt{2}) = 2\\sqrt{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نقطتا التقاطع المتتاليتان: س = ط/4 و س = 5ط/4.",
+      "٢. في هذه الفترة جا س تقع أعلى جتا س.",
+      "٣. المساحة = تكامل (جا س - جتا س) د س = [-جتا س - جا س].",
+      "٤. بالتعويض: جذر(2) - (-جذر 2) = 2 جذر(2)."
+    ],
+    "teacherTipEn": "Each lobe enclosed between sine and cosine has identical area $2\\sqrt{2}$.",
+    "teacherTipAr": "كل فص محصور بين منحنيي الجيب وجيب التمام مساحته ثابتة وتساوي 2 جذر(2)."
+  },
+  {
+    "id": "calc_ch4_db_hots_128",
+    "titleEn": "Definite Integral of Floor Function",
+    "titleAr": "تكامل محدد لدالة أكبر عدد صحيح (دالة المقياس الأرضي)",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_0^3 \\lfloor x \\rfloor dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد لدالة أكبر عدد صحيح: $\\int_0^3 \\lfloor x \\rfloor dx$.",
+    "optionsEn": [
+      "$3$",
+      "$6$",
+      "$1.5$",
+      "$4$"
+    ],
+    "optionsAr": [
+      "3",
+      "6",
+      "1.5",
+      "4"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "Split the integral into unit intervals where $\\lfloor x \\rfloor$ is constant.",
+    "hintAr": "قسم التكامل على فترات طول كل منها وحدة واحدة حيث تكون قيمة الدالة ثابتة.",
+    "stepByStepSolutionEn": [
+      "1. On $[0, 1)$, $\\lfloor x \\rfloor = 0$. $\\int_0^1 0 dx = 0$.",
+      "2. On $[1, 2)$, $\\lfloor x \\rfloor = 1$. $\\int_1^2 1 dx = 1$.",
+      "3. On $[2, 3)$, $\\lfloor x \\rfloor = 2$. $\\int_2^3 2 dx = 2$.",
+      "4. Sum: $0 + 1 + 2 = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. على الفترة [0، 1): الدالة = 0، وتكاملها = 0.",
+      "٢. على الفترة [1، 2): الدالة = 1، وتكاملها = 1.",
+      "٣. على الفترة [2، 3): الدالة = 2، وتكاملها = 2.",
+      "٤. المجموع = 0 + 1 + 2 = 3."
+    ],
+    "teacherTipEn": "Formula: $\\int_0^n \\lfloor x \\rfloor dx = \\frac{n(n - 1)}{2}$. Here $\\frac{3(2)}{2} = 3$.",
+    "teacherTipAr": "قاعدة عامة: تكامل دالة الصحيح من 0 إلى ن يساوي ن(ن - 1) / 2."
+  },
+  {
+    "id": "calc_ch4_db_hots_129",
+    "titleEn": "Limit of Riemann Sum Linear",
+    "titleAr": "نهاية مجموع ريمان لدالة خطية",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit of the Riemann sum: $\\lim_{n \\to \\infty} \\frac{1}{n^2} \\sum_{k=1}^n k$.",
+    "questionAr": "احسب نهاية مجموع ريمان: $\\lim_{n \\to \\infty} \\frac{1}{n^2} \\sum_{k=1}^n k$.",
+    "optionsEn": [
+      "$\\frac{1}{2}$",
+      "$1$",
+      "$2$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "1 / 2",
+      "1",
+      "2",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{1}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Write as $\\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^n \\frac{k}{n} = \\int_0^1 x dx$.",
+    "hintAr": "أعد كتابة المجموع بصورة ريمان: (1/ن) مجموع (ك/ن) = تكامل س د س من 0 إلى 1.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite: $\\lim_{n \\to \\infty} \\frac{1}{n}\\sum_{k=1}^n (\\frac{k}{n})$.",
+      "2. This is the definition of the Riemann integral of $f(x) = x$ on $[0, 1]$ with $\\Delta x = 1/n$ and $x_k = k/n$.",
+      "3. $\\int_0^1 x dx = \\left[ \\frac{x^2}{2} \\right]_0^1 = \\frac{1}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نعيد كتابة المقدار: نهاية (1/ن) مجموع (ك/ن).",
+      "٢. هذا يمثل تعريف ريمان لتكامل د(س) = س على الفترة [0، 1].",
+      "٣. تكامل س د س من 0 إلى 1 = س² / 2 = 1/2."
+    ],
+    "teacherTipEn": "Connecting limits of sums to definite integrals is the cornerstone of integration theory.",
+    "teacherTipAr": "ربط نهاية المجموع بالتكامل المحدد هو حجر الأساس في نظرية التكامل."
+  },
+  {
+    "id": "calc_ch4_db_hots_130",
+    "titleEn": "Riemann Sum Harmonic Limit",
+    "titleAr": "نهاية مجموع ريمان التوافقي لوـهـ(2)",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the limit: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{1}{n + k}$.",
+    "questionAr": "احسب قيمة النهاية: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{1}{n + k}$.",
+    "optionsEn": [
+      "$\\ln 2$",
+      "$1$",
+      "$\\frac{1}{2}$",
+      "$\\infty$"
+    ],
+    "optionsAr": [
+      "لوـهـ(2)",
+      "1",
+      "1 / 2",
+      "∞"
+    ],
+    "correctAnswer": "$\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "Factor out $1/n$ to recognize $\\int_0^1 \\frac{1}{1 + x} dx$.",
+    "hintAr": "أخرج 1/ن عاملاً مشتركاً لتحويل المجموع إلى تكامل 1 / (1 + س).",
+    "stepByStepSolutionEn": [
+      "1. Rewrite: $\\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + k/n}$.",
+      "2. This is the Riemann sum for $f(x) = \\frac{1}{1 + x}$ on $[0, 1]$.",
+      "3. $\\int_0^1 \\frac{1}{1 + x} dx = [\\ln(1 + x)]_0^1 = \\ln 2 - \\ln 1 = \\ln 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بإخراج 1/ن: نهاية (1/ن) مجموع [1 / (1 + ك/ن)].",
+      "٢. هذا يطابق تكامل ريمان للدالة د(س) = 1 / (1 + س) على [0، 1].",
+      "٣. تكامل 1/(1 + س) = لوـهـ(1 + س) من 0 إلى 1 = لوـهـ(2)."
+    ],
+    "teacherTipEn": "Classic exam problem connecting discrete harmonic sums to continuous logarithmic integrals.",
+    "teacherTipAr": "مسألة امتحانات نموذجية تربط المجاميع التوافقية بالتكامل اللوغاريتمي المتصل."
+  },
+  {
+    "id": "calc_ch4_db_hots_131",
+    "titleEn": "Volume of Sine Arch Revolved Around X-Axis",
+    "titleAr": "حجم دوران قوس دالة الجيب حول محور السينات",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the solid generated by revolving one arch of the sine curve $y = \\sin x$ ($x \\in [0, \\pi]$) about the x-axis.",
+    "questionAr": "أوجد حجم الجسم الدوراني الناتج من دوران قوس واحد لمنحنى الجيب $y = \\sin x$ ($x \\in [0، \\pi]$) دورة كاملة حول محور السينات.",
+    "optionsEn": [
+      "$\\frac{\\pi^2}{2}$",
+      "$\\pi^2$",
+      "$2\\pi$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "ط² / 2",
+      "ط²",
+      "2ط",
+      "ط / 2"
+    ],
+    "correctAnswer": "$\\frac{\\pi^2}{2}$",
+    "correctIndex": 0,
+    "hintEn": "Volume $V = \\pi \\int_0^\\pi \\sin^2 x dx = \\pi(\\frac{\\pi}{2})$.",
+    "hintAr": "الحجم ح = ط × تكامل جا² س د س من 0 إلى ط = ط (ط/2).",
+    "stepByStepSolutionEn": [
+      "1. Volume formula: $V = \\pi \\int_0^\\pi \\sin^2 x dx$.",
+      "2. Using half-angle identity: $\\int_0^\\pi \\sin^2 x dx = \\int_0^\\pi \\frac{1 - \\cos 2x}{2} dx = \\left[ \\frac{x}{2} - \\frac{\\sin 2x}{4} \\right]_0^\\pi = \\frac{\\pi}{2}$.",
+      "3. Therefore, $V = \\pi (\\frac{\\pi}{2}) = \\frac{\\pi^2}{2}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون الحجم: ح = ط × تكامل جا² س د س من 0 إلى ط.",
+      "٢. بقانون نصف الزاوية: تكامل جا² س من 0 إلى ط = ط / 2.",
+      "٣. الحجم = ط × (ط / 2) = ط² / 2."
+    ],
+    "teacherTipEn": "The volume of revolution of one sine arch is $\\pi^2 / 2$.",
+    "teacherTipAr": "حجم دوران قوس كامل لمنحنى الجيب حول محور السينات يساوي ط² / 2 دائماً."
+  },
+  {
+    "id": "calc_ch4_db_hots_132",
+    "titleEn": "Area of Loop of Strophoid Curve",
+    "titleAr": "مساحة عروة منحنى ص² = س² - س⁴",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed by the loop of the curve $y^2 = x^2 - x^4$ for $x \\ge 0$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة داخل عروة المنحنى $y^2 = x^2 - x^4$ لـ $x \\ge 0$.",
+    "optionsEn": [
+      "$\\frac{2}{3}$",
+      "$\\frac{4}{3}$",
+      "$\\frac{1}{3}$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "2 / 3",
+      "4 / 3",
+      "1 / 3",
+      "1"
+    ],
+    "correctAnswer": "$\\frac{2}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Area is $A = 2\\int_0^1 x\\sqrt{1 - x^2} dx$.",
+    "hintAr": "المساحة م = 2 × تكامل س جذر(1 - س²) د س من 0 إلى 1.",
+    "stepByStepSolutionEn": [
+      "1. For $x \\ge 0$, $y = \\pm x\\sqrt{1 - x^2}$ on $[0, 1]$.",
+      "2. Area: $A = 2 \\int_0^1 x\\sqrt{1 - x^2} dx = -\\int_0^1 (-2x)(1 - x^2)^{1/2} dx$.",
+      "3. $A = -\\left[ \\frac{2}{3}(1 - x^2)^{3/2} \\right]_0^1 = -[0 - \\frac{2}{3}] = \\frac{2}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. على الفترة [0، 1]: ص = ± س جذر(1 - س²).",
+      "٢. المساحة = 2 × تكامل س جذر(1 - س²) د س من 0 إلى 1.",
+      "٣. باستخدام قاعدة مشتقة ما بداخل القوس: م = 2/3 وحدة مربعة."
+    ],
+    "teacherTipEn": "The substitution $u = 1 - x^2$ makes this integral completely elementary.",
+    "teacherTipAr": "التعويض ع = 1 - س² يحول التكامل إلى صورة قياسية مباشرة."
+  },
+  {
+    "id": "calc_ch4_db_hots_133",
+    "titleEn": "Archimedes Parabolic Segment Area",
+    "titleAr": "مبرهنة أرخميدس لمساحة القطاع المكافئ",
+    "difficulty": "hots",
+    "questionEn": "Find the area of the region bounded by the parabola $y = x^2$ and the line $y = 2x + 3$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين القطع المكافئ $y = x^2$ والمستقيم $y = 2x + 3$.",
+    "optionsEn": [
+      "$\\frac{32}{3}$",
+      "$\\frac{16}{3}$",
+      "$\\frac{64}{3}$",
+      "$8$"
+    ],
+    "optionsAr": [
+      "32 / 3",
+      "16 / 3",
+      "64 / 3",
+      "8"
+    ],
+    "correctAnswer": "$\\frac{32}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Use Archimedes' formula $A = \\frac{1}{6}(x_2 - x_1)^3$ for a parabola and a line.",
+    "hintAr": "استخدم صيغة أرخميدس: المساحة = (1/6) (س2 - س1)³ حيث س1 و س2 جذور التقاطع.",
+    "stepByStepSolutionEn": [
+      "1. Intersection points: $x^2 = 2x + 3 \\implies x^2 - 2x - 3 = 0 \\implies (x - 3)(x + 1) = 0 \\implies x_1 = -1, x_2 = 3$.",
+      "2. Area: $A = \\int_{-1}^3 (2x + 3 - x^2) dx = \\left[ x^2 + 3x - \\frac{x^3}{3} \\right]_{-1}^3$.",
+      "3. At $x = 3$: $9 + 9 - 9 = 9$.",
+      "4. At $x = -1$: $1 - 3 - (-1/3) = -2 + 1/3 = -5/3$.",
+      "5. $A = 9 - (-5/3) = 9 + 5/3 = \\frac{32}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نقطتا التقاطع: س² - 2س - 3 = 0 ومنها س1 = -1 و س2 = 3.",
+      "٢. دالة المساحة = تكامل (2س + 3 - س²) د س من -1 إلى 3.",
+      "٣. عند س = 3: 9.",
+      "٤. عند س = -1: -5/3.",
+      "٥. المساحة = 9 - (-5/3) = 32 / 3 وحدة مربعة."
+    ],
+    "teacherTipEn": "Archimedes formula shortcut: $\\frac{1}{6}(3 - (-1))^3 = \\frac{4^3}{6} = \\frac{64}{6} = \\frac{32}{3}$.",
+    "teacherTipAr": "قاعدة أرخميدس السريعة: (1/6) (3 - (-1))³ = 64 / 6 = 32 / 3."
+  },
+  {
+    "id": "calc_ch4_db_hots_134",
+    "titleEn": "Centroid of Semicircular Region",
+    "titleAr": "إحداثي ص لمركز ثقل نصف قرص دائري",
+    "difficulty": "hots",
+    "questionEn": "Find the y-coordinate $\\bar{y}$ of the centroid of the semicircular region bounded by $y = \\sqrt{R^2 - x^2}$ and the x-axis.",
+    "questionAr": "أوجد الإحداثي الصادي $\\bar{y}$ لمركز ثقل المنطقة نصف الدائرية المحصورة بين $y = \\sqrt{R^2 - x^2}$ ومحور السينات.",
+    "optionsEn": [
+      "$\\frac{4R}{3\\pi}$",
+      "$\\frac{2R}{3\\pi}$",
+      "$\\frac{3R}{4\\pi}$",
+      "$\\frac{R}{2}$"
+    ],
+    "optionsAr": [
+      "4R / (3ط)",
+      "2R / (3ط)",
+      "3R / (4ط)",
+      "R / 2"
+    ],
+    "correctAnswer": "$\\frac{4R}{3\\pi}$",
+    "correctIndex": 0,
+    "hintEn": "Use centroid formula: $\\bar{y} = \\frac{1}{A}\\int_{-R}^R \\frac{1}{2}y^2 dx$ with $A = \\frac{1}{2}\\pi R^2$.",
+    "hintAr": "قانون مركز الثقل: ص_م = (1 / المساحة) × تكامل (0.5 ص²) د س.",
+    "stepByStepSolutionEn": [
+      "1. Area of semicircle: $A = \\frac{1}{2}\\pi R^2$.",
+      "2. Moment about x-axis: $M_x = \\int_{-R}^R \\frac{1}{2} y^2 dx = \\frac{1}{2}\\int_{-R}^R (R^2 - x^2) dx = \\int_0^R (R^2 - x^2) dx = \\left[ R^2 x - \\frac{x^3}{3} \\right]_0^R = \\frac{2}{3}R^3$.",
+      "3. Centroid coordinate: $\\bar{y} = \\frac{M_x}{A} = \\frac{\\frac{2}{3}R^3}{\\frac{1}{2}\\pi R^2} = \\frac{4R}{3\\pi}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مساحة نصف الدائرة: م = 0.5 ط R².",
+      "٢. عزم المساحة حول محور السينات: ع_س = تكامل (0.5 ص²) د س = (2/3) R³.",
+      "٣. مركز الثقل: ص_م = ع_س / م = (2/3 R³) / (0.5 ط R²) = 4R / (3ط)."
+    ],
+    "teacherTipEn": "A foundational result in calculus and mechanics: centroid of a semicircle is $\\frac{4R}{3\\pi}$.",
+    "teacherTipAr": "نتيجة فيزيائية ورياضية شهيرة: بعد مركز ثقل نصف القرص الدائري عن القطر هو 4R / (3ط)."
+  },
+  {
+    "id": "calc_ch4_db_hots_135",
+    "titleEn": "Symmetric Integral of Exp Fraction Over Symmetric Interval",
+    "titleAr": "تكامل دالة كسرية مع هـ^س على فترة متناظرة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{-3}^3 \\frac{1}{1 + e^x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-3}^3 \\frac{1}{1 + e^x} dx$.",
+    "optionsEn": [
+      "$3$",
+      "$6$",
+      "$0$",
+      "$1$"
+    ],
+    "optionsAr": [
+      "3",
+      "6",
+      "0",
+      "1"
+    ],
+    "correctAnswer": "$3$",
+    "correctIndex": 0,
+    "hintEn": "Use symmetry property: $\\int_{-a}^a \\frac{1}{1 + e^x} dx = a$.",
+    "hintAr": "استخدم خاصية التماثل: تكامل 1 / (1 + هـ^س) من -أ إلى أ يساوي أ دائماً.",
+    "stepByStepSolutionEn": [
+      "1. Let $I = \\int_{-3}^3 \\frac{1}{1 + e^x} dx$.",
+      "2. Substitute $x = -u$: $I = \\int_3^{-3} \\frac{1}{1 + e^{-u}} (-du) = \\int_{-3}^3 \\frac{e^u}{e^u + 1} du$.",
+      "3. Adding the two expressions: $2I = \\int_{-3}^3 \\left( \\frac{1}{1 + e^x} + \\frac{e^x}{1 + e^x} \\right) dx = \\int_{-3}^3 1 dx = 3 - (-3) = 6$.",
+      "4. Therefore, $I = \\frac{6}{2} = 3$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نفرض ت = التكامل المعطى.",
+      "٢. بالتعويض س = -ع: يتحول التكامل إلى تكامل هـ^ع / (1 + هـ^ع) د ع من -3 إلى 3.",
+      "٣. بجمع الصورتين: 2 ت = تكامل (1) د س من -3 إلى 3 = 6.",
+      "٤. إذن ت = 6 / 2 = 3."
+    ],
+    "teacherTipEn": "Theorem: $\\int_{-a}^a \\frac{1}{1 + e^x} dx = a$ for any real number $a$.",
+    "teacherTipAr": "نظرية عامة: تكامل 1 / (1 + هـ^س) من -أ إلى أ يساوي أ دوماً لأي قيمة حقيقية أ."
+  },
+  {
+    "id": "calc_ch4_db_hots_136",
+    "titleEn": "Integral with King Property Cosine Over Exp Plus One",
+    "titleAr": "تكامل جتا س / (هـ^س + 1) على فترة متناظرة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{-\\pi/2}^{\\pi/2} \\frac{\\cos x}{e^x + 1} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-\\pi/2}^{\\pi/2} \\frac{\\cos x}{e^x + 1} dx$.",
+    "optionsEn": [
+      "$1$",
+      "$2$",
+      "$0$",
+      "$\\frac{\\pi}{2}$"
+    ],
+    "optionsAr": [
+      "1",
+      "2",
+      "0",
+      "ط / 2"
+    ],
+    "correctAnswer": "$1$",
+    "correctIndex": 0,
+    "hintEn": "Use $x \\to -x$ symmetry to combine fractions.",
+    "hintAr": "استخدم خاصية التماثل س ← -س لجمع الدالتين والتخلص من هـ^س.",
+    "stepByStepSolutionEn": [
+      "1. Let $I = \\int_{-\\pi/2}^{\\pi/2} \\frac{\\cos x}{e^x + 1} dx$.",
+      "2. By substitution $x = -t$: $I = \\int_{-\\pi/2}^{\\pi/2} \\frac{\\cos(-t)}{e^{-t} + 1} dt = \\int_{-\\pi/2}^{\\pi/2} \\frac{e^t \\cos t}{e^t + 1} dt$.",
+      "3. Adding the two integrals: $2I = \\int_{-\\pi/2}^{\\pi/2} \\cos t \\, dt = [\\sin t]_{-\\pi/2}^{\\pi/2} = 1 - (-1) = 2$.",
+      "4. Therefore, $I = 1$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. بفرض ت = التكامل المعطى.",
+      "٢. بالتعويض س = -ص: يتحول التكامل إلى تكامل (هـ^ص جتا ص) / (هـ^ص + 1) د ص.",
+      "٣. بجمع المعادلتين: 2 ت = تكامل جتا ص د ص من -ط/2 إلى ط/2 = 1 - (-1) = 2.",
+      "٤. إذن ت = 1."
+    ],
+    "teacherTipEn": "The exponential denominator disappears completely when paired with its reflection.",
+    "teacherTipAr": "المقام الأسي يختفي تماماً عند جمعه مع صورته المنعكسة."
+  },
+  {
+    "id": "calc_ch4_db_hots_137",
+    "titleEn": "Second Pappus Theorem for Torus Volume",
+    "titleAr": "نظرية بابوس الثانية لحجم الطارة الدورانية",
+    "difficulty": "hots",
+    "questionEn": "A circular disk of radius $r = 1$ centered at $(4, 0)$ is revolved about the y-axis. Find the volume of the resulting solid torus using Pappus's Centroid Theorem.",
+    "questionAr": "قرص دائري نصف قطره $r = 1$ ومركزه $(4، 0)$ دار دورة كاملة حول محور الصادات. احسب حجم الطارة الناتجة باستخدام نظرية بابوس للمركز الهندسي.",
+    "optionsEn": [
+      "$8\\pi^2$",
+      "$4\\pi^2$",
+      "$16\\pi^2$",
+      "$2\\pi^2$"
+    ],
+    "optionsAr": [
+      "8 ط²",
+      "4 ط²",
+      "16 ط²",
+      "2 ط²"
+    ],
+    "correctAnswer": "$8\\pi^2$",
+    "correctIndex": 0,
+    "hintEn": "Pappus's theorem: $V = 2\\pi \\bar{x} A$.",
+    "hintAr": "نظرية بابوس: الحجم = 2 ط × بعد مركز الثقل × مساحة الشكل المستوي.",
+    "stepByStepSolutionEn": [
+      "1. Area of the circular disk: $A = \\pi r^2 = \\pi(1^2) = \\pi$.",
+      "2. The centroid of the circle is at its center: $\\bar{x} = 4$.",
+      "3. Distance traveled by the centroid during revolution: $d = 2\\pi \\bar{x} = 2\\pi(4) = 8\\pi$.",
+      "4. Volume by Pappus's Theorem: $V = A \\times d = \\pi \\times 8\\pi = 8\\pi^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. مساحة القرص الدائري: م = ط نق² = ط.",
+      "٢. مركز ثقل الدائرة يقع عند مركزها: س_م = 4.",
+      "٣. المسافة التي يقطعها مركز الثقل أثناء الدوران = 2 ط س_م = 8 ط.",
+      "٤. حجم الطارة = المساحة × المسافة المقطوعة = ط × 8 ط = 8 ط²."
+    ],
+    "teacherTipEn": "Pappus's theorem computes complex revolution volumes with simple geometry.",
+    "teacherTipAr": "نظرية بابوس تحسب حجوم الأجسام الدورانية المعقدة بخطوة هندسية واحدة."
+  },
+  {
+    "id": "calc_ch4_db_hots_138",
+    "titleEn": "Area Between Reciprocal and Linear Line",
+    "titleAr": "المساحة المحصورة بين منحنى 1/س ومستقيم",
+    "difficulty": "hots",
+    "questionEn": "Find the area of the region enclosed between $y = \\frac{1}{x}$ and the line $y = \\frac{5}{2} - x$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = \\frac{1}{x}$ والمستقيم $y = \\frac{5}{2} - x$.",
+    "optionsEn": [
+      "$\\frac{15}{8} - 2\\ln 2$",
+      "$\\frac{15}{8} - \\ln 2$",
+      "$\\frac{5}{4} - \\ln 2$",
+      "$\\frac{9}{8} - 2\\ln 2$"
+    ],
+    "optionsAr": [
+      "15/8 - 2 لوـهـ(2)",
+      "15/8 - لوـهـ(2)",
+      "5/4 - لوـهـ(2)",
+      "9/8 - 2 لوـهـ(2)"
+    ],
+    "correctAnswer": "$\\frac{15}{8} - 2\\ln 2$",
+    "correctIndex": 0,
+    "hintEn": "Find intersection points: $x + 1/x = 5/2 \\implies 2x^2 - 5x + 2 = 0$.",
+    "hintAr": "أوجد نقطتي التقاطع بحل المعادلة: 2س² - 5س + 2 = 0.",
+    "stepByStepSolutionEn": [
+      "1. Intersection: $\\frac{5}{2} - x = \\frac{1}{x} \\implies 2x^2 - 5x + 2 = 0 \\implies (2x - 1)(x - 2) = 0 \\implies x = 1/2, 2$.",
+      "2. Area: $A = \\int_{1/2}^2 (\\frac{5}{2} - x - \\frac{1}{x}) dx = \\left[ \\frac{5}{2}x - \\frac{x^2}{2} - \\ln x \\right]_{1/2}^2$.",
+      "3. At $x = 2$: $5 - 2 - \\ln 2 = 3 - \\ln 2$.",
+      "4. At $x = 1/2$: $\\frac{5}{4} - \\frac{1}{8} - \\ln(1/2) = \\frac{9}{8} + \\ln 2$.",
+      "5. $A = (3 - \\ln 2) - (\\frac{9}{8} + \\ln 2) = \\frac{15}{8} - 2\\ln 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. نقطتا التقاطع: 2س² - 5س + 2 = 0 ومنها س = 1/2 و س = 2.",
+      "٢. دالة المساحة = تكامل (5/2 - س - 1/س) د س من 1/2 إلى 2.",
+      "٣. عند س = 2: 3 - لوـهـ(2).",
+      "٤. عند س = 1/2: 9/8 + لوـهـ(2).",
+      "٥. المساحة = 15/8 - 2 لوـهـ(2)."
+    ],
+    "teacherTipEn": "Notice $\\ln(1/2) = -\\ln 2$, so subtracting gives $-2\\ln 2$.",
+    "teacherTipAr": "انتبه إلى أن لوـهـ(1/2) = -لوـهـ(2)، فطرحهما يعطي -2 لوـهـ(2)."
+  },
+  {
+    "id": "calc_ch4_db_hots_139",
+    "titleEn": "Steinmetz Solid Intersection of Two Cylinders Radius 1",
+    "titleAr": "حجم مجسم شتاينمتز الناتج من تقاطع أسطوانتين متعامدتين",
+    "difficulty": "hots",
+    "questionEn": "Find the volume of the intersection of two identical circular cylinders of radius $R = 1$ intersecting at right angles through their axes.",
+    "questionAr": "أوجد حجم مجسم شتاينمتز الناتج من تقاطع أسطوانتين دائريتين متطابقتين نصف قطر كل منهما $R = 1$ ومحوراهما متعامدان.",
+    "optionsEn": [
+      "$\\frac{16}{3}$",
+      "$8$",
+      "$4\\pi$",
+      "$\\frac{8}{3}$"
+    ],
+    "optionsAr": [
+      "16 / 3",
+      "8",
+      "4ط",
+      "8 / 3"
+    ],
+    "correctAnswer": "$\\frac{16}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Cross-sections perpendicular to both axes are squares of side $2\\sqrt{R^2 - z^2}$.",
+    "hintAr": "المقاطع العرضية العمودية على المحورين هي مربعات طول ضلع كل منها 2 جذر(R² - ع²).",
+    "stepByStepSolutionEn": [
+      "1. The solid is bounded by $x^2 + z^2 \\le R^2$ and $y^2 + z^2 \\le R^2$.",
+      "2. For a horizontal slice at height $z$, $-R \\le z \\le R$, the cross-section is a square of side $2\\sqrt{R^2 - z^2}$.",
+      "3. Cross-sectional area: $A(z) = (2\\sqrt{R^2 - z^2})^2 = 4(R^2 - z^2)$.",
+      "4. Volume: $V = \\int_{-R}^R 4(R^2 - z^2) dz = 8\\int_0^R (R^2 - z^2) dz = 8 [R^2 z - \\frac{z^3}{3}]_0^R = \\frac{16}{3}R^3$.",
+      "5. For $R = 1$, $V = \\frac{16}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المجسم محدد بالمعادلتين س² + ع² ≤ 1 و ص² + ع² ≤ 1.",
+      "٢. المقطع الأفقي عند الارتفاع ع هو مربع طول ضلعه 2 جذر(1 - ع²).",
+      "٣. مساحة المقطع المربع: م(ع) = 4(1 - ع²).",
+      "٤. الحجم = 8 × تكامل (1 - ع²) د ع من 0 إلى 1 = 16 / 3."
+    ],
+    "teacherTipEn": "A famous classical result: the volume contains NO $\\pi$, despite being bounded by curved cylinders!",
+    "teacherTipAr": "مفارقة شهيرة: حجم تقاطع الأسطوانتين لا يحوي النسبة التقريبية ط إطلاقاً!"
+  },
+  {
+    "id": "calc_ch4_db_hots_140",
+    "titleEn": "Arc Length of Parabola from Vertex",
+    "titleAr": "طول قوس من منحنى القطع المكافئ",
+    "difficulty": "hots",
+    "questionEn": "The arc length of $y = \\frac{1}{2}x^2$ from $x = 0$ to $x = 1$ is represented by the integral:",
+    "questionAr": "طول قوس المنحنى $y = \\frac{1}{2}x^2$ من $x = 0$ إلى $x = 1$ يمثله التكامل:",
+    "optionsEn": [
+      "$\\int_0^1 \\sqrt{1 + x^2} \\, dx$",
+      "$\\int_0^1 \\sqrt{1 + x^4} \\, dx$",
+      "$\\int_0^1 (1 + x) \\, dx$",
+      "$\\int_0^1 \\sqrt{1 + \\frac{x^2}{4}} \\, dx$"
+    ],
+    "optionsAr": [
+      "تكامل جذر(1 + س²) د س",
+      "تكامل جذر(1 + س⁴) د س",
+      "تكامل (1 + س) د س",
+      "تكامل جذر(1 + س²/4) د س"
+    ],
+    "correctAnswer": "$\\int_0^1 \\sqrt{1 + x^2} \\, dx$",
+    "correctIndex": 0,
+    "hintEn": "Use arc length formula: $L = \\int_a^b \\sqrt{1 + (y')^2} dx$.",
+    "hintAr": "قانون طول القوس: ل = تكامل جذر(1 + (صَ)²) د س.",
+    "stepByStepSolutionEn": [
+      "1. First derivative: $y' = \\frac{d}{dx}(\\frac{1}{2}x^2) = x$.",
+      "2. Square of derivative: $(y')^2 = x^2$.",
+      "3. Arc length integrand: $\\sqrt{1 + (y')^2} = \\sqrt{1 + x^2}$.",
+      "4. The integral is $\\int_0^1 \\sqrt{1 + x^2} dx$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. المشتقة الأولى: صَ = س.",
+      "٢. مربع المشتقة: (صَ)² = س².",
+      "٣. المقدار تحت الجذر: 1 + س².",
+      "٤. التكامل المعبر عن طول القوس هو تكامل جذر(1 + س²) د س من 0 إلى 1."
+    ],
+    "teacherTipEn": "Arc length formula: $L = \\int \\sqrt{1 + f'(x)^2} dx$.",
+    "teacherTipAr": "الصيغة القياسية لطول القوس تعتمد على مربع المشتقة الأولى تحت الجذر التربيعي."
+  },
+  {
+    "id": "calc_ch4_db_hots_141",
+    "titleEn": "Leibniz Rule with Both Variable Limits",
+    "titleAr": "قاعدة لايبنتز لمشتقة تكامل ذي حدين متغيرين",
+    "difficulty": "hots",
+    "questionEn": "Find $\\frac{d}{dx} \\left[ \\int_x^{2x} \\frac{1}{t} dt \\right]$ for $x > 0$.",
+    "questionAr": "أوجد $\\frac{d}{dx} \\left[ \\int_x^{2x} \\frac{1}{t} dt \\right]$ لـ $x > 0$.",
+    "optionsEn": [
+      "$0$",
+      "$\\frac{1}{x}$",
+      "$\\ln 2$",
+      "$\\frac{1}{2x}$"
+    ],
+    "optionsAr": [
+      "0",
+      "1 / س",
+      "لوـهـ(2)",
+      "1 / (2س)"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "Evaluate the integral directly first: $\\int_x^{2x} \\frac{1}{t} dt = \\ln(2x) - \\ln x = \\ln 2$.",
+    "hintAr": "احسب التكامل أولاً: تكامل 1/ع = لوـهـ(2س) - لوـهـ(س) = لوـهـ(2)، ثم اشتق الثابت.",
+    "stepByStepSolutionEn": [
+      "1. Notice that $\\int_x^{2x} \\frac{1}{t} dt = [\\ln t]_x^{2x} = \\ln(2x) - \\ln x = \\ln(\\frac{2x}{x}) = \\ln 2$.",
+      "2. Since $\\ln 2$ is a constant, its derivative with respect to $x$ is $0$.",
+      "3. By Leibniz rule directly: $\\frac{1}{2x} \\cdot 2 - \\frac{1}{x} \\cdot 1 = \\frac{1}{x} - \\frac{1}{x} = 0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قيمة التكامل المباشرة = [لوـهـ ع] من س إلى 2س = لوـهـ(2س / س) = لوـهـ(2).",
+      "٢. بما أن الناتج هو عدد ثابت لوـهـ(2)، فإن مشتقته بالنسبة لـ س تساوي صفراً.",
+      "٣. بقاعدة لايبنتز مباشرة: (1 / 2س) × 2 - (1 / س) × 1 = 1/س - 1/س = 0."
+    ],
+    "teacherTipEn": "A wonderful conceptual problem where the integral is constant independent of x.",
+    "teacherTipAr": "مسألة مفاهيمية رائعة؛ قيمة التكامل ثابتة ولا تعتمد على س، فمشتقته صفر."
+  },
+  {
+    "id": "calc_ch4_db_hots_142",
+    "titleEn": "Definite Integral Symmetry on Sine Tangent",
+    "titleAr": "تكامل دالة فردية مثلثية على فترة متناظرة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{-\\pi/3}^{\\pi/3} x^2 \\sin x \\, dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-\\pi/3}^{\\pi/3} x^2 \\sin x \\, dx$.",
+    "optionsEn": [
+      "$0$",
+      "$\\frac{\\pi}{3}$",
+      "$1$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "0",
+      "ط / 3",
+      "1",
+      "2"
+    ],
+    "correctAnswer": "$0$",
+    "correctIndex": 0,
+    "hintEn": "The integrand is the product of an even function ($x^2$) and an odd function ($\\sin x$), so it is odd.",
+    "hintAr": "الدالة المكاملة هي حاصل ضرب دالة زوجية (س²) في دالة فردية (جا س)، فتكون فردية.",
+    "stepByStepSolutionEn": [
+      "1. Let $f(x) = x^2 \\sin x$.",
+      "2. $f(-x) = (-x)^2 \\sin(-x) = x^2(-\\sin x) = -x^2 \\sin x = -f(x)$.",
+      "3. Since $f(x)$ is an odd function and the limits $[-\\pi/3, \\pi/3]$ are symmetric, the integral is $0$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. د(-س) = (-س)² جا(-س) = -س² جا س = -د(س).",
+      "٢. الدالة فردية والفترة متناظرة حول الصفر.",
+      "٣. قيمة التكامل المحدد تساوي صفراً مباشرة."
+    ],
+    "teacherTipEn": "Even times odd equals odd.",
+    "teacherTipAr": "حاصل ضرب دالة زوجية في دالة فردية يعطي دالة فردية دائماً."
+  },
+  {
+    "id": "calc_ch4_db_hots_143",
+    "titleEn": "Area Between y = e^x and y = e^(-x)",
+    "titleAr": "المساحة المحصورة بين المنحنيين الأسيين هـ^س و هـ^(-س)",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed between $y = e^x$ and $y = e^{-x}$ from $x = 0$ to $x = 1$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنيين $y = e^x$ و $y = e^{-x}$ من $x = 0$ إلى $x = 1$.",
+    "optionsEn": [
+      "$e + \\frac{1}{e} - 2$",
+      "$e - \\frac{1}{e}$",
+      "$e + \\frac{1}{e}$",
+      "$2$"
+    ],
+    "optionsAr": [
+      "هـ + 1/هـ - 2",
+      "هـ - 1/هـ",
+      "هـ + 1/هـ",
+      "2"
+    ],
+    "correctAnswer": "$e + \\frac{1}{e} - 2$",
+    "correctIndex": 0,
+    "hintEn": "Integrate $(e^x - e^{-x})$ from 0 to 1.",
+    "hintAr": "كامل الفرق بين الدالتين: تكامل (هـ^س - هـ^(-س)) د س من 0 إلى 1.",
+    "stepByStepSolutionEn": [
+      "1. On $[0, 1]$, $e^x \\ge e^{-x}$.",
+      "2. Area: $A = \\int_0^1 (e^x - e^{-x}) dx = \\left[ e^x + e^{-x} \\right]_0^1$.",
+      "3. At $x = 1$: $e^1 + e^{-1} = e + \\frac{1}{e}$.",
+      "4. At $x = 0$: $e^0 + e^0 = 1 + 1 = 2$.",
+      "5. Total area $= e + \\frac{1}{e} - 2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. على الفترة [0، 1]: هـ^س ≥ هـ^(-س).",
+      "٢. المساحة = تكامل (هـ^س - هـ^(-س)) د س من 0 إلى 1.",
+      "٣. الدالة المقابلة = هـ^س + هـ^(-س).",
+      "٤. بالتعويض: (هـ + 1/هـ) - (1 + 1) = هـ + 1/هـ - 2."
+    ],
+    "teacherTipEn": "Notice $(e^{1/2} - e^{-1/2})^2 = e + 1/e - 2$, showing the area is strictly positive.",
+    "teacherTipAr": "المساحة موجبة دائماً وتساوي مربع (هـ^(1/2) - هـ^(-1/2))."
+  },
+  {
+    "id": "calc_ch4_db_hots_144",
+    "titleEn": "King Property on Rational Trig Fraction",
+    "titleAr": "تكامل دالة كسرية مثلثية بخاصية الملك",
+    "difficulty": "hots",
+    "questionEn": "Evaluate $\\int_0^{\\pi/2} \\frac{1}{1 + \\tan^3 x} dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_0^{\\pi/2} \\frac{1}{1 + \\tan^3 x} dx$.",
+    "optionsEn": [
+      "$\\frac{\\pi}{4}$",
+      "$\\frac{\\pi}{2}$",
+      "$1$",
+      "$0$"
+    ],
+    "optionsAr": [
+      "ط / 4",
+      "ط / 2",
+      "1",
+      "0"
+    ],
+    "correctAnswer": "$\\frac{\\pi}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Write $\\tan^3 x = \\frac{\\sin^3 x}{\\cos^3 x}$, then apply King's property.",
+    "hintAr": "اكتب ظا³ س بدلالة الجا والجتا ثم طبق خاصية التماثل.",
+    "stepByStepSolutionEn": [
+      "1. Rewrite: $\\frac{1}{1 + \\tan^3 x} = \\frac{\\cos^3 x}{\\cos^3 x + \\sin^3 x}$.",
+      "2. By King's property ($x \\to \\pi/2 - x$), the integral equals $\\int_0^{\\pi/2} \\frac{\\sin^3 x}{\\sin^3 x + \\cos^3 x} dx$.",
+      "3. Adding both copies gives $\\int_0^{\\pi/2} 1 dx = \\frac{\\pi}{2}$.",
+      "4. The integral value is $\\frac{\\pi}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. الكسر يكافئ: جتا³ س / (جتا³ س + جا³ س).",
+      "٢. بخاصية الملك (س ← ط/2 - س): يتحول الكسر إلى جا³ س / (جا³ س + جتا³ س).",
+      "٣. بجمع الصورتين: 2 ت = تكامل 1 د س من 0 إلى ط/2 = ط/2.",
+      "٤. إذن ت = ط / 4."
+    ],
+    "teacherTipEn": "For any power n, $\\int_0^{\\pi/2} \\frac{1}{1 + \\tan^n x} dx = \\frac{\\pi}{4}$.",
+    "teacherTipAr": "لأي قوة ن، قيمة هذا التكامل تساوي دائماً ط / 4."
+  },
+  {
+    "id": "calc_ch4_db_hots_145",
+    "titleEn": "Volume of Solid with Semicircular Base and Square Slices",
+    "titleAr": "حجم مجسم قاعدته نصف دائرية ومقاطعه العرضية مربعات",
+    "difficulty": "hots",
+    "questionEn": "A solid has a semicircular base $x^2 + y^2 \\le 4$ with $y \\ge 0$. Cross-sections perpendicular to the x-axis are squares with one side in the base. Find the volume of the solid.",
+    "questionAr": "مجسم قاعدته نصف الدائرة $x^2 + y^2 \\le 4$ حيث $y \\ge 0$. المقاطع العرضية العمودية على محور السينات هي مربعات تستند إحدى قواعدها على أرضية المجسم. ما حجم هذا المجسم؟",
+    "optionsEn": [
+      "$\\frac{32}{3}$",
+      "$16$",
+      "$\\frac{16}{3}$",
+      "$8\\pi$"
+    ],
+    "optionsAr": [
+      "32 / 3",
+      "16",
+      "16 / 3",
+      "8ط"
+    ],
+    "correctAnswer": "$\\frac{32}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Side of square slice is $y = \\sqrt{4 - x^2}$. Slice area is $A(x) = y^2 = 4 - x^2$.",
+    "hintAr": "ضلع المقطع المربع هو ص = جذر(4 - س²)، فيكون مساحة المقطع م(س) = ص² = 4 - س².",
+    "stepByStepSolutionEn": [
+      "1. For any $x \\in [-2, 2]$, the side length of the square cross-section is $y = \\sqrt{4 - x^2}$.",
+      "2. Area of square cross-section: $A(x) = y^2 = 4 - x^2$.",
+      "3. Volume: $V = \\int_{-2}^2 (4 - x^2) dx = 2\\int_0^2 (4 - x^2) dx = 2 \\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = 2 [8 - \\frac{8}{3}] = \\frac{32}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. طول ضلع المقطع المربع عند أي س هو ص = جذر(4 - س²).",
+      "٢. مساحة المقطع المربع = ص² = 4 - س².",
+      "٣. الحجم = تكامل (4 - س²) د س من -2 إلى 2 = 2 [8 - 8/3] = 32 / 3 وحدة مكعبة."
+    ],
+    "teacherTipEn": "Cavalieri's slicing method integrates cross-sectional area directly: $V = \\int A(x) dx$.",
+    "teacherTipAr": "طريقة الشرائح لكافالييري تكامل مساحات المقاطع العرضية مباشرة."
+  },
+  {
+    "id": "calc_ch4_db_hots_146",
+    "titleEn": "Volume of Solid with Circular Base and Equilateral Triangle Slices",
+    "titleAr": "حجم مجسم قاعدته دائرية ومقاطعه مثلثات متساوية الأضلاع",
+    "difficulty": "hots",
+    "questionEn": "A solid has a circular base $x^2 + y^2 \\le 1$. Cross-sections perpendicular to the x-axis are equilateral triangles. Find the volume of this solid.",
+    "questionAr": "مجسم قاعدته الدائرة $x^2 + y^2 \\le 1$. المقاطع العرضية العمودية على محور السينات هي مثلثات متساوية الأضلاع. أوجد حجم هذا المجسم.",
+    "optionsEn": [
+      "$\\frac{4\\sqrt{3}}{3}$",
+      "$\\frac{2\\sqrt{3}}{3}$",
+      "$\\sqrt{3}$",
+      "$2\\sqrt{3}$"
+    ],
+    "optionsAr": [
+      "4 جذر(3) / 3",
+      "2 جذر(3) / 3",
+      "جذر(3)",
+      "2 جذر(3)"
+    ],
+    "correctAnswer": "$\\frac{4\\sqrt{3}}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Base of triangle is $2y = 2\\sqrt{1 - x^2}$. Area is $\\frac{\\sqrt{3}}{4} s^2$.",
+    "hintAr": "قاعدة المثلث 2ص = 2 جذر(1 - س²). مساحة المثلث المتساوي الأضلاع = (جذر 3 / 4) × طول الضلع².",
+    "stepByStepSolutionEn": [
+      "1. For each $x \\in [-1, 1]$, side length is $s = 2y = 2\\sqrt{1 - x^2}$.",
+      "2. Area of equilateral triangle slice: $A(x) = \\frac{\\sqrt{3}}{4} s^2 = \\frac{\\sqrt{3}}{4} (4(1 - x^2)) = \\sqrt{3}(1 - x^2)$.",
+      "3. Volume: $V = \\int_{-1}^1 \\sqrt{3}(1 - x^2) dx = 2\\sqrt{3} \\int_0^1 (1 - x^2) dx = 2\\sqrt{3} [1 - \\frac{1}{3}] = \\frac{4\\sqrt{3}}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. طول ضلع المثلث عند أي س = 2ص = 2 جذر(1 - س²).",
+      "٢. مساحة المقطع المثلث: م(س) = (جذر 3 / 4) × (2ص)² = جذر(3)(1 - س²).",
+      "٣. الحجم = تكامل م(س) د س من -1 إلى 1 = 2 جذر(3) × (1 - 1/3) = 4 جذر(3) / 3."
+    ],
+    "teacherTipEn": "Equilateral triangle slice formula: $A = \\frac{\\sqrt{3}}{4}\\text{side}^2$.",
+    "teacherTipAr": "مساحة المثلث المتساوي الأضلاع تساوي (جذر 3 / 4) × مربع طول ضلعه."
+  },
+  {
+    "id": "calc_ch4_db_hots_147",
+    "titleEn": "Area Between Cubic and Tangent at Extrema",
+    "titleAr": "المساحة المحصورة بين منحنى تكعيبي ومماسه عند القمة",
+    "difficulty": "hots",
+    "questionEn": "Find the area enclosed between the curve $y = x^3 - 3x^2 + 4$ and its horizontal tangent line $y = 4$ at $x = 0$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين المنحنى $y = x^3 - 3x^2 + 4$ ومماسه الأفقي $y = 4$ عند النقطة $(0، 4)$.",
+    "optionsEn": [
+      "$\\frac{27}{4}$",
+      "$\\frac{9}{4}$",
+      "$\\frac{27}{2}$",
+      "$9$"
+    ],
+    "optionsAr": [
+      "27 / 4",
+      "9 / 4",
+      "27 / 2",
+      "9"
+    ],
+    "correctAnswer": "$\\frac{27}{4}$",
+    "correctIndex": 0,
+    "hintEn": "Find the second intersection point: $x^3 - 3x^2 + 4 = 4 \\implies x^2(x - 3) = 0 \\implies x = 3$.",
+    "hintAr": "أوجد نقطة التقاطع الثانية: س²(س - 3) = 0 ومنها س = 3، ثم كامل الفرق.",
+    "stepByStepSolutionEn": [
+      "1. Curve and tangent intersect at: $x^3 - 3x^2 + 4 = 4 \\implies x^2(x - 3) = 0 \\implies x = 0$ (tangency) and $x = 3$.",
+      "2. On $[0, 3]$, $4 \\ge x^3 - 3x^2 + 4$, so the difference is $4 - (x^3 - 3x^2 + 4) = 3x^2 - x^3$.",
+      "3. Area: $A = \\int_0^3 (3x^2 - x^3) dx = \\left[ x^3 - \\frac{x^4}{4} \\right]_0^3 = 27 - \\frac{81}{4} = \\frac{108 - 81}{4} = \\frac{27}{4}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تقاطع المنحنى مع المماس: س³ - 3س² = 0 ومنها س = 0 (تماس) و س = 3 (تقاطع).",
+      "٢. الفرق بين الدالتين: 4 - (س³ - 3س² + 4) = 3س² - س³.",
+      "٣. المساحة = تكامل (3س² - س³) د س من 0 إلى 3 = [س³ - س⁴/4] = 27 - 81/4 = 27 / 4."
+    ],
+    "teacherTipEn": "For any cubic tangent at an extreme point, the enclosed area is $\\frac{L^4}{12}$. Here $3^4 / 12 = 81/12 = 27/4$.",
+    "teacherTipAr": "قاعدة سريعة لمساحة المنحنى التكعيبي مع مماسه: الطول⁴ / 12 = 81 / 12 = 27 / 4."
+  },
+  {
+    "id": "calc_ch4_db_hots_148",
+    "titleEn": "Volume with Cylindrical Shells Inside Sphere",
+    "titleAr": "حجم ثقب أسطواني محفور في مركز كرة",
+    "difficulty": "hots",
+    "questionEn": "A cylindrical hole of radius $r = 1$ is bored through the center of a sphere of radius $R = 2$. Find the volume of the sphere material REMAINING (the napkin ring problem).",
+    "questionAr": "ثُقب أسطواني نصف قطره $r = 1$ حُفر عبر مركز كرة نصف قطرها $R = 2$. أوجد حجم مادة الكرة المتبقية (مسألة حلقة المناديل).",
+    "optionsEn": [
+      "$4\\sqrt{3}\\pi$",
+      "$2\\sqrt{3}\\pi$",
+      "$\\frac{32\\pi}{3}$",
+      "$8\\pi$"
+    ],
+    "optionsAr": [
+      "4 جذر(3) ط",
+      "2 جذر(3) ط",
+      "32 ط / 3",
+      "8 ط"
+    ],
+    "correctAnswer": "$4\\sqrt{3}\\pi$",
+    "correctIndex": 0,
+    "hintEn": "Height of the ring is $h = 2\\sqrt{R^2 - r^2} = 2\\sqrt{4 - 1} = 2\\sqrt{3}$. Volume is $V = \\frac{\\pi}{6} h^3$.",
+    "hintAr": "ارتفاع الحلقة المتبقية ع = 2 جذر(4 - 1) = 2 جذر(3). حجم الحلقة = (ط / 6) ع³.",
+    "stepByStepSolutionEn": [
+      "1. Height of the napkin ring: $h = 2\\sqrt{R^2 - r^2} = 2\\sqrt{2^2 - 1^2} = 2\\sqrt{3}$.",
+      "2. By the classic Napkin Ring Theorem, the remaining volume depends ONLY on height $h$: $V = \\frac{1}{6}\\pi h^3$.",
+      "3. $V = \\frac{1}{6}\\pi (2\\sqrt{3})^3 = \\frac{1}{6}\\pi (24\\sqrt{3}) = 4\\sqrt{3}\\pi$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. ارتفاع حلقة المناديل المتبقية: ع = 2 جذر(4 - 1) = 2 جذر(3).",
+      "٢. بنظرية حلقة المناديل الشهيرة، يعتمد الحجم المتبقي على الارتفاع ع فقط: الحجم = (1/6) ط ع³.",
+      "٣. الحجم = (1/6) ط × (2 جذر 3)³ = (1/6) ط × 24 جذر(3) = 4 جذر(3) ط."
+    ],
+    "teacherTipEn": "The Napkin Ring Theorem proves the volume depends solely on the ring height h, independent of sphere radius!",
+    "teacherTipAr": "نظرية حلقة المناديل المدهشة تثبت أن الحجم المتبقي يعتمد فقط على ارتفاع الحلقة بصرف النظر عن حجم الكرة الأصلية!"
+  },
+  {
+    "id": "calc_ch4_db_hots_149",
+    "titleEn": "Area Enclosed by Cardioid Curve Polar",
+    "titleAr": "مساحة شكل القلب (الكارديويد) بالتكامل",
+    "difficulty": "hots",
+    "questionEn": "The area enclosed by the cardioid $r = a(1 + \\cos\\theta)$ in polar coordinates is given by:",
+    "questionAr": "المساحة المحصورة داخل منحنى شكل القلب (الكارديويد) $r = a(1 + \\cos\\theta)$ بالإحداثيات القطبية تساوي:",
+    "optionsEn": [
+      "$\\frac{3}{2}\\pi a^2$",
+      "$2\\pi a^2$",
+      "$\\pi a^2$",
+      "$3\\pi a^2$"
+    ],
+    "optionsAr": [
+      "1.5 ط أ²",
+      "2 ط أ²",
+      "ط أ²",
+      "3 ط أ²"
+    ],
+    "correctAnswer": "$\\frac{3}{2}\\pi a^2$",
+    "correctIndex": 0,
+    "hintEn": "Polar area formula: $A = \\frac{1}{2}\\int_0^{2\\pi} r^2 d\\theta$.",
+    "hintAr": "قانون المساحة في الإحداثيات القطبية: م = 0.5 × تكامل نق² د θ من 0 إلى 2ط.",
+    "stepByStepSolutionEn": [
+      "1. Polar area formula: $A = \\frac{1}{2}\\int_0^{2\\pi} a^2(1 + \\cos\\theta)^2 d\\theta = \\frac{a^2}{2}\\int_0^{2\\pi} (1 + 2\\cos\\theta + \\cos^2\\theta) d\\theta$.",
+      "2. $\\int_0^{2\\pi} 1 d\\theta = 2\\pi$.",
+      "3. $\\int_0^{2\\pi} 2\\cos\\theta d\\theta = 0$.",
+      "4. $\\int_0^{2\\pi} \\cos^2\\theta d\\theta = \\pi$.",
+      "5. $A = \\frac{a^2}{2}(2\\pi + 0 + \\pi) = \\frac{3}{2}\\pi a^2$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. قانون المساحة القطبية: م = 0.5 أ² × تكامل (1 + 2 جتا θ + جتا² θ) د θ من 0 إلى 2ط.",
+      "٢. تكامل 1 يعطي 2ط.",
+      "٣. تكامل جتا θ يعطي صفراً على الدورة الكاملة.",
+      "٤. تكامل جتا² θ يعطي ط.",
+      "٥. المساحة = 0.5 أ² (2ط + ط) = 1.5 ط أ²."
+    ],
+    "teacherTipEn": "Cardioid area formula: $A = \\frac{3}{2}\\pi a^2$.",
+    "teacherTipAr": "الصيغة الكلاسيكية لمساحة الكارديويد هي دائماً 1.5 ط أ²."
+  },
+  {
+    "id": "calc_ch4_db_hots_150",
+    "titleEn": "Definite Integral of Symmetrical Odd and Cosine Product",
+    "titleAr": "تكامل دالة مختلطة على فترة متناظرة",
+    "difficulty": "hots",
+    "questionEn": "Evaluate the definite integral: $\\int_{-\\pi}^\\pi (x^5 \\cos x + x^2) dx$.",
+    "questionAr": "احسب قيمة التكامل المحدد: $\\int_{-\\pi}^\\pi (x^5 \\cos x + x^2) dx$.",
+    "optionsEn": [
+      "$\\frac{2\\pi^3}{3}$",
+      "$0$",
+      "$\\frac{\\pi^3}{3}$",
+      "$\\pi^3$"
+    ],
+    "optionsAr": [
+      "2ط³ / 3",
+      "0",
+      "ط³ / 3",
+      "ط³"
+    ],
+    "correctAnswer": "$\\frac{2\\pi^3}{3}$",
+    "correctIndex": 0,
+    "hintEn": "Split into odd part $x^5 \\cos x$ (integrates to 0) and even part $x^2$.",
+    "hintAr": "فصل التكامل إلى جزء فردي س⁵ جتا س (تكاملها صفر) وجزء زوجي س².",
+    "stepByStepSolutionEn": [
+      "1. Split: $\\int_{-\\pi}^\\pi x^5 \\cos x dx + \\int_{-\\pi}^\\pi x^2 dx$.",
+      "2. The function $x^5 \\cos x$ is odd, so $\\int_{-\\pi}^\\pi x^5 \\cos x dx = 0$.",
+      "3. The function $x^2$ is even, so $\\int_{-\\pi}^\\pi x^2 dx = 2\\int_0^\\pi x^2 dx = 2 \\left[ \\frac{x^3}{3} \\right]_0^\\pi = \\frac{2\\pi^3}{3}$.",
+      "4. Total integral is $0 + \\frac{2\\pi^3}{3} = \\frac{2\\pi^3}{3}$."
+    ],
+    "stepByStepSolutionAr": [
+      "١. تجزئة التكامل إلى جزأين: تكامل س⁵ جتا س + تكامل س².",
+      "٢. دالة س⁵ جتا س فردية، فتكاملها على الفترات المتناظرة يساوي صفراً.",
+      "٣. دالة س² زوجية، فتكاملها = 2 × [س³/3] من 0 إلى ط = 2ط³ / 3.",
+      "٤. قيمة التكامل الإجمالية = 2ط³ / 3."
+    ],
+    "teacherTipEn": "Splitting into odd and even parts simplifies complicated definite integrals immediately.",
+    "teacherTipAr": "تفكيك الدوال المعقدة إلى مكونات زوجية وفردية يختصر الحسابات على الفترات المتناظرة فوراً."
   }
 ]
 };

@@ -25,6 +25,7 @@ import {
   Check,
   Sparkles,
   BookOpen,
+  Calculator,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
@@ -32,6 +33,7 @@ interface Props {
   lang: Language;
   currentCurriculum: CurriculumType;
   onOpenFormulaHandbook?: () => void;
+  onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
 interface GeneratedQuestion {
@@ -52,7 +54,7 @@ interface GeneratedQuestion {
   branchTitleAr: string;
 }
 
-export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpenFormulaHandbook }) => {
+export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpenFormulaHandbook, onOpenDesmos }) => {
   const t = translations[lang];
 
   // Filter selections
@@ -677,6 +679,16 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
                     <span>{lang === 'ar' ? 'دستور القوانين والمعادلات' : 'Formula Handbook'}</span>
                   </button>
                 )}
+                {onOpenDesmos && (
+                  <button
+                    type="button"
+                    onClick={() => onOpenDesmos('2d')}
+                    className="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 text-cyan-300 hover:text-white font-bold py-3.5 px-6 rounded-2xl text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <Calculator className="w-4 h-4 text-cyan-400" />
+                    <span>{lang === 'ar' ? 'حاسبة ديسموس (2D/3D)' : 'Desmos Calculator'}</span>
+                  </button>
+                )}
               </div>
             </div>
           ) : (
@@ -737,6 +749,17 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
                       >
                         <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
                         <span className="hidden sm:inline">{lang === 'ar' ? 'ورقة المفاهيم' : 'Formulas'}</span>
+                      </button>
+                    )}
+                    {onOpenDesmos && (
+                      <button
+                        type="button"
+                        onClick={() => onOpenDesmos('2d')}
+                        className="bg-cyan-950/60 hover:bg-cyan-900/80 border border-cyan-500/40 text-cyan-300 hover:text-cyan-200 font-bold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer flex items-center gap-1.5"
+                        title={lang === 'ar' ? 'فتح حاسبة ديسموس (Ctrl+D)' : 'Open Desmos Calculator (Ctrl+D)'}
+                      >
+                        <Calculator className="w-3.5 h-3.5 text-cyan-400" />
+                        <span className="hidden sm:inline">{lang === 'ar' ? 'ديسموس' : 'Desmos'}</span>
                       </button>
                     )}
                     {!isSubmitted ? (
