@@ -348,7 +348,8 @@ export const LessonView: React.FC<Props> = ({
 
         {isHintOpen && (
           <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/30 p-3 rounded-lg text-xs text-amber-950 dark:text-amber-200 print-avoid-break">
-            💡 <strong>{t.showHint}:</strong> {lang === 'ar' ? toHindiDigits(prob.hintAr) : prob.hintEn}
+            <span className="font-bold">💡 {t.showHint}: </span>
+            <MathRenderer math={lang === 'ar' ? prob.hintAr : prob.hintEn} lang={lang} />
           </div>
         )}
 
@@ -371,7 +372,8 @@ export const LessonView: React.FC<Props> = ({
               <div className={`mt-3 pt-3 border-t text-[11px] ${
                 isLight ? 'border-slate-200 text-amber-900' : 'border-slate-800 text-amber-300'
               }`}>
-                🎓 <strong>{t.teacherTips}:</strong> {lang === 'ar' ? toHindiDigits(prob.teacherTipAr) : prob.teacherTipEn}
+                <span className="font-bold">🎓 {t.teacherTips}: </span>
+                <MathRenderer math={lang === 'ar' ? prob.teacherTipAr : prob.teacherTipEn} lang={lang} />
               </div>
             )}
           </div>
@@ -1055,7 +1057,7 @@ export const LessonView: React.FC<Props> = ({
                     }`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-                    <span>{lang === 'ar' ? toHindiDigits(prereq) : prereq}</span>
+                    <span><MathRenderer math={prereq} lang={lang} /></span>
                   </span>
                 ))}
               </div>
@@ -1078,7 +1080,7 @@ export const LessonView: React.FC<Props> = ({
                   }`}
                 >
                   <CheckCircle className={`w-4 h-4 shrink-0 mt-0.5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
-                  <span>{lang === 'ar' ? toHindiDigits(obj) : obj}</span>
+                  <span><MathRenderer math={obj} lang={lang} /></span>
                 </li>
               ))}
             </ul>
@@ -1141,7 +1143,9 @@ export const LessonView: React.FC<Props> = ({
                       {lang === 'ar' ? toHindiDigits(p.duration) : p.duration}
                     </span>
                   </div>
-                  <p className={`pt-1 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{lang === 'ar' ? toHindiDigits(p.activitiesAr) : p.activitiesEn}</p>
+                  <div className={`pt-1 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                    <MathRenderer math={lang === 'ar' ? p.activitiesAr : p.activitiesEn} lang={lang} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -1162,7 +1166,9 @@ export const LessonView: React.FC<Props> = ({
               </h4>
               <ul className={`space-y-2 list-disc list-inside ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                 {(lang === 'ar' ? lesson.lessonPlan.commonMisconceptionsAr : lesson.lessonPlan.commonMisconceptionsEn).map((m, mIdx) => (
-                  <li key={mIdx}>{lang === 'ar' ? toHindiDigits(m) : m}</li>
+                  <li key={mIdx}>
+                    <MathRenderer math={m} lang={lang} />
+                  </li>
                 ))}
               </ul>
             </div>
@@ -1176,11 +1182,11 @@ export const LessonView: React.FC<Props> = ({
               <div className={`space-y-2 ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                 <p>
                   <strong className={isLight ? 'text-amber-800' : 'text-amber-400'}>{lang === 'ar' ? 'للطلاب المحتاجين لدعم:' : 'Struggling Learners:'}</strong>{' '}
-                  {lang === 'ar' ? toHindiDigits(lesson.lessonPlan.differentiationAr.struggling) : lesson.lessonPlan.differentiationEn.struggling}
+                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr.struggling : lesson.lessonPlan.differentiationEn.struggling} lang={lang} />
                 </p>
                 <p>
                   <strong className={isLight ? 'text-emerald-800' : 'text-emerald-400'}>{lang === 'ar' ? 'للطلاب المتميزين:' : 'Advanced Learners:'}</strong>{' '}
-                  {lang === 'ar' ? toHindiDigits(lesson.lessonPlan.differentiationAr.advanced) : lesson.lessonPlan.differentiationEn.advanced}
+                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr.advanced : lesson.lessonPlan.differentiationEn.advanced} lang={lang} />
                 </p>
               </div>
             </div>
@@ -1199,11 +1205,14 @@ export const LessonView: React.FC<Props> = ({
                 <HelpCircle className="w-4 h-4" />
                 <span>{t.formativeAssessment}</span>
               </h4>
-              <p className={`leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
-                {lang === 'ar'
-                  ? toHindiDigits(lesson.lessonPlan.formativeAssessmentAr)
-                  : lesson.lessonPlan.formativeAssessmentEn}
-              </p>
+              <div className={`leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
+                <MathRenderer
+                  math={lang === 'ar'
+                    ? lesson.lessonPlan.formativeAssessmentAr
+                    : lesson.lessonPlan.formativeAssessmentEn}
+                  lang={lang}
+                />
+              </div>
             </div>
           )}
 
@@ -1239,7 +1248,9 @@ export const LessonView: React.FC<Props> = ({
               <h3 className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                 <MathRenderer math={lang === 'ar' ? lesson.worksheet.titleAr : lesson.worksheet.titleEn} lang={lang} />
               </h3>
-              <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>{lang === 'ar' ? toHindiDigits(lesson.worksheet.descriptionAr) : lesson.worksheet.descriptionEn}</p>
+              <div className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                <MathRenderer math={lang === 'ar' ? lesson.worksheet.descriptionAr : lesson.worksheet.descriptionEn} lang={lang} />
+              </div>
             </div>
             <button
               onClick={() => window.print()}

@@ -27,14 +27,19 @@ const normalizeTex = (tex: string): string => {
   s = s
     .replace(/\\f\\frac/g, '\\frac')
     .replace(/\\b\\binom/g, '\\binom')
+    .replace(/\\b\\bar/g, '\\bar')
+    .replace(/\\b\\beta/g, '\\beta')
     .replace(/\\t\\text/g, '\\text')
     .replace(/\x0crac/g, '\\frac')
     .replace(/\x08inom/g, '\\binom')
+    .replace(/\x08ar/g, '\\bar')
+    .replace(/\x08eta/g, '\\beta')
     .replace(/\x09ext/g, '\\text')
     .replace(/\x09imes/g, '\\times')
     .replace(/\x09heta/g, '\\theta')
     .replace(/\x0bec/g, '\\vec')
-    .replace(/\x0dight/g, '\\right');
+    .replace(/\x0dight/g, '\\right')
+    .replace(/\\n/g, ' ');
 
   return s;
 };

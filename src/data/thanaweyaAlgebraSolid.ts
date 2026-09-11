@@ -1122,7 +1122,7 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i \sin\le
                       "2. Apply De Moivre's Theorem for $n = 10$:",
                       '$$(1 + i)^{10} = (\sqrt{2})^{10} \left( \cos\left(10 \times \frac{\pi}{4}\right) + i \sin\left(10 \times \frac{\pi}{4}\right) \right)$$',
                       '$$(\sqrt{2})^{10} = 2^5 = 32$$',
-                      'Angle $= \frac{10\pi}{4} = \frac{5\pi}{2} = 2\pi + \frac{\pi}{2} \equiv \frac{\pi}{2}$$',
+                      '$$\\text{Angle} = \\frac{10\\pi}{4} = \\frac{5\\pi}{2} = 2\\pi + \\frac{\\pi}{2} \\equiv \\frac{\\pi}{2}$$',
                       '3. Evaluate trigonometric values at $\frac{\pi}{2}$:',
                       '$$\cos\frac{\pi}{2} = 0, \quad \sin\frac{\pi}{2} = 1$$',
                       '$$(1 + i)^{10} = 32 (0 + i) = 32i$$'

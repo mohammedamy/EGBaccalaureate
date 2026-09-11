@@ -334,7 +334,7 @@ export const FormulaHandbook: React.FC<Props> = ({
 
                       {/* Formula Title */}
                       <h5 className="text-xs font-bold text-slate-200">
-                        {isArabic ? f.labelAr : f.labelEn}
+                        <MathRenderer math={isArabic ? f.labelAr : f.labelEn} lang={lang} />
                       </h5>
 
                       {/* Formula KaTeX Equation */}

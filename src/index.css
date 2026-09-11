@@ -628,9 +628,12 @@ html.high-contrast .textbook-diagram-card svg text {
   }
 
   /* Reset layout and force crisp white background */
-  html, body {
+  html, html.dark, html.high-contrast, html.light,
+  body, body.dark, .dark, .high-contrast, .light {
     background: #ffffff !important;
-    color: #0f172a !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
     font-size: 11pt !important;
     line-height: 1.5 !important;
     width: 100% !important;
@@ -842,9 +845,26 @@ html.high-contrast .textbook-diagram-card svg text {
   }
 
   .textbook-diagram-card svg text {
-    fill: #0f172a !important;
+    fill: #000000 !important;
+    color: #000000 !important;
     font-size: 9.5pt !important;
-    font-weight: 800 !important;
+    font-weight: 900 !important;
+  }
+
+  .textbook-diagram-card svg line,
+  .textbook-diagram-card svg path:not([fill]),
+  .textbook-diagram-card svg polyline {
+    stroke: #000000 !important;
+  }
+
+  .textbook-diagram-card svg marker path {
+    fill: #000000 !important;
+    stroke: #000000 !important;
+  }
+
+  .textbook-diagram-card svg rect:not([fill*="url"]) {
+    fill: #ffffff !important;
+    stroke: #000000 !important;
   }
 
   /* Print styling for KaTeX badges under the diagram */
@@ -854,9 +874,9 @@ html.high-contrast .textbook-diagram-card svg text {
   .textbook-diagram-card .bg-rose-950\/60,
   .textbook-diagram-card .bg-cyan-950\/60,
   .textbook-diagram-card .bg-slate-800\/80 {
-    background-color: #f8fafc !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #0f172a !important;
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
     padding: 3pt 6pt !important;
     font-size: 9pt !important;
   }
@@ -867,65 +887,176 @@ html.high-contrast .textbook-diagram-card svg text {
   .textbook-diagram-card .bg-rose-950\/60 *,
   .textbook-diagram-card .bg-cyan-950\/60 *,
   .textbook-diagram-card .bg-slate-800\/80 * {
-    color: #0f172a !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
   }
 
   /* -------------------------------------------------------------------------
-     Formula Sheet & KaTeX in Print
+     CRITICAL: PURE BLACK INK FOR KATEX FORMULAS IN ALL THEMES (ESPECIALLY NIGHT)
      ------------------------------------------------------------------------- */
-  .katex {
-    font-size: 1.15em !important;
+  html .katex,
+  html .katex *,
+  html.dark .katex,
+  html.dark .katex *,
+  .dark .katex,
+  .dark .katex *,
+  html.high-contrast .katex,
+  html.high-contrast .katex *,
+  html.light .katex,
+  html.light .katex *,
+  html .katex-display,
+  html.dark .katex-display,
+  html.high-contrast .katex-display,
+  html.light .katex-display,
+  html .katex-math,
+  html.dark .katex-math,
+  html.high-contrast .katex-math,
+  html.light .katex-math,
+  html .math-block-display,
+  html.dark .math-block-display,
+  html.high-contrast .math-block-display,
+  html.light .math-block-display,
+  html .math-inline-display,
+  html.dark .math-inline-display,
+  html.high-contrast .math-inline-display,
+  html.light .math-inline-display,
+  .katex,
+  .katex *,
+  .katex-html,
+  .katex-html * {
     color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
+  /* Crisp black fraction lines, root bars, and math rules */
+  html .katex .frac-line,
+  html.dark .katex .frac-line,
+  html.high-contrast .katex .frac-line,
+  html.light .katex .frac-line,
+  .dark .katex .frac-line,
+  html .katex .rule,
+  html.dark .katex .rule,
+  html.high-contrast .katex .rule,
+  html.light .katex .rule,
+  .dark .katex .rule,
+  .katex .frac-line,
+  .katex .rule {
+    border-color: #000000 !important;
+    border-top-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+    background-color: #000000 !important;
+  }
+
+  /* Root and radical surds in print */
+  html .katex .sqrt,
+  html.dark .katex .sqrt,
+  html .katex .sqrt *,
+  html.dark .katex .sqrt * {
+    color: #000000 !important;
+    border-color: #000000 !important;
+  }
+
+  /* Math Rendered Container Black Ink Override in All Themes */
+  html .math-rendered-container,
+  html .math-rendered-container *,
+  html.dark .math-rendered-container,
+  html.dark .math-rendered-container *,
+  .dark .math-rendered-container,
+  .dark .math-rendered-container *,
+  html.high-contrast .math-rendered-container,
+  html.high-contrast .math-rendered-container *,
+  html.light .math-rendered-container,
+  html.light .math-rendered-container *,
+  html.dark .math-rendered-container strong,
+  html.high-contrast .math-rendered-container strong,
+  html.light .math-rendered-container strong,
+  .dark .math-rendered-container strong {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  /* Compact KaTeX block displays inside question cards */
   .katex-display,
   .math-block-display {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-    margin: 6pt 0 !important;
+    margin: 5pt 0 !important;
+    padding: 2pt 4pt !important;
     color: #000000 !important;
     background: transparent !important;
+    background-color: transparent !important;
     border-color: #cbd5e1 !important;
     box-shadow: none !important;
-  }
-
-  .katex-math {
-    color: #000000 !important;
   }
 
   /* -------------------------------------------------------------------------
      Clean Typography Rescaling for Print (Overrides large screen fonts)
      ------------------------------------------------------------------------- */
-  .text-4xl { font-size: 18pt !important; line-height: 1.25 !important; }
-  .text-3xl { font-size: 15pt !important; line-height: 1.3 !important; }
-  .text-2xl { font-size: 13.5pt !important; line-height: 1.3 !important; }
-  .text-xl  { font-size: 12pt !important; line-height: 1.35 !important; }
-  .text-lg  { font-size: 11.5pt !important; line-height: 1.4 !important; }
-  .text-base{ font-size: 10.5pt !important; line-height: 1.45 !important; }
+  .text-4xl { font-size: 17pt !important; line-height: 1.25 !important; }
+  .text-3xl { font-size: 14.5pt !important; line-height: 1.3 !important; }
+  .text-2xl { font-size: 13pt !important; line-height: 1.3 !important; }
+  .text-xl  { font-size: 11.5pt !important; line-height: 1.35 !important; }
+  .text-lg  { font-size: 11pt !important; line-height: 1.4 !important; }
+  .text-base{ font-size: 10pt !important; line-height: 1.45 !important; }
   .text-sm  { font-size: 9.5pt !important; line-height: 1.4 !important; }
   .text-xs  { font-size: 9pt !important; line-height: 1.35 !important; }
   .text-\[9px\], .text-\[10px\], .text-\[11px\] { font-size: 8.5pt !important; }
 
   /* Neutralize all dark backgrounds and luminous borders to pure ink-saving paper tones */
-  .bg-slate-900,
-  .bg-slate-900\/90,
+  .bg-black,
   .bg-slate-950,
+  .bg-slate-950\/95,
+  .bg-slate-950\/90,
   .bg-slate-950\/80,
+  .bg-slate-950\/70,
   .bg-slate-950\/60,
   .bg-slate-950\/50,
   .bg-slate-950\/40,
+  .bg-slate-900,
+  .bg-slate-900\/95,
+  .bg-slate-900\/90,
   .bg-slate-900\/80,
+  .bg-slate-900\/70,
   .bg-slate-900\/60,
+  .bg-slate-800,
+  .bg-slate-800\/90,
+  .bg-slate-800\/80,
+  .bg-slate-800\/60,
+  .bg-indigo-950,
+  .bg-indigo-950\/80,
+  .bg-indigo-950\/60,
+  .bg-indigo-900,
+  .bg-indigo-900\/60,
+  .bg-amber-950,
+  .bg-amber-950\/70,
+  .bg-amber-950\/60,
+  .bg-emerald-950,
+  .bg-emerald-950\/80,
+  .bg-emerald-950\/60,
+  .bg-cyan-950,
+  .bg-cyan-950\/60,
   .glass-panel,
-  .glass-card {
+  .glass-card,
+  .hero-banner,
+  .print-exam-sheet,
+  .print-worksheet-sheet,
+  .step-by-step-box,
+  .misconception-card,
+  .exit-ticket-card {
+    background: #ffffff !important;
     background-color: #ffffff !important;
-    color: #0f172a !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
     border-color: #cbd5e1 !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
   }
 
   /* Neutralize text colors to dark slate/black for maximum laser printing contrast */
+  .text-white,
+  .text-slate-50,
   .text-slate-100,
   .text-slate-200,
   .text-slate-300,
@@ -934,24 +1065,65 @@ html.high-contrast .textbook-diagram-card svg text {
   .text-slate-600,
   .text-slate-700,
   .text-slate-800,
-  .text-slate-900 {
-    color: #0f172a !important;
+  .text-slate-900,
+  .text-indigo-100,
+  .text-indigo-200,
+  .text-indigo-300,
+  .text-indigo-400,
+  .text-indigo-500,
+  .text-indigo-600,
+  .text-indigo-700,
+  .text-indigo-800,
+  .text-indigo-900,
+  .text-amber-100,
+  .text-amber-200,
+  .text-amber-300,
+  .text-amber-400,
+  .text-amber-500,
+  .text-amber-600,
+  .text-amber-700,
+  .text-amber-800,
+  .text-amber-900,
+  .text-emerald-100,
+  .text-emerald-200,
+  .text-emerald-300,
+  .text-emerald-400,
+  .text-emerald-500,
+  .text-emerald-600,
+  .text-emerald-700,
+  .text-emerald-800,
+  .text-cyan-100,
+  .text-cyan-200,
+  .text-cyan-300,
+  .text-cyan-400,
+  .text-cyan-500,
+  .text-teal-100,
+  .text-teal-200,
+  .text-teal-300,
+  .text-teal-400,
+  .text-rose-200,
+  .text-rose-300,
+  .text-rose-400 {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
   }
 
   /* Distinct print badges for marks and question numbers */
   .bg-indigo-100,
   .bg-indigo-950,
-  .bg-indigo-900\/60 {
-    background-color: #f1f5f9 !important;
-    border: 1px solid #94a3b8 !important;
-    color: #0f172a !important;
-  }
-
+  .bg-indigo-900\/60,
   .bg-amber-100,
   .bg-amber-950,
-  .bg-amber-950\/60 {
-    background-color: #f8fafc !important;
-    border: 1px solid #cbd5e1 !important;
-    color: #0f172a !important;
+  .bg-amber-950\/60,
+  .bg-emerald-100,
+  .bg-emerald-950,
+  .bg-emerald-950\/60,
+  .bg-teal-100,
+  .bg-teal-950,
+  .bg-teal-950\/40 {
+    background-color: #f1f5f9 !important;
+    border: 1px solid #94a3b8 !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
   }
 }
