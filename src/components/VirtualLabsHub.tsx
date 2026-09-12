@@ -7,11 +7,13 @@ import {
   FlaskConical,
   Dna,
   FlaskRound as Flask,
+  FileSpreadsheet,
 } from 'lucide-react';
 import { MathLab } from './labs/MathLab';
 import { PhysicsLab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab } from './labs/BiologyLab';
+import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 
 interface Props {
   lang: Language;
@@ -43,6 +45,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   };
 
   const [activeLab, setActiveLab] = useState<LabId>(getInitialLab);
+  const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
 
   // Sync if selectedSubject prop changes
   useEffect(() => {
@@ -141,8 +144,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="text-right rtl:text-left hidden sm:block">
+          <div className="flex items-center gap-3 shrink-0 flex-wrap">
+            <button
+              onClick={() => setIsGuidedModalOpen(true)}
+              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-500 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-indigo-400/30"
+            >
+              <FileSpreadsheet className="w-4 h-4 text-cyan-300" />
+              <span>{isArabic ? 'دليل التجارب الموجهة' : 'Guided Experiments'}</span>
+            </button>
+
+            <div className="text-right rtl:text-left hidden sm:block border-l rtl:border-r border-slate-700/60 pl-3 rtl:pr-3">
               <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                 {isArabic ? 'المسار الحالي' : 'Active Track'}
               </p>
@@ -231,6 +242,15 @@ export const VirtualLabsHub: React.FC<Props> = ({
         {activeLab === 'chemistry' && <ChemistryLab lang={lang} theme={theme} />}
         {activeLab === 'biology' && <BiologyLab lang={lang} theme={theme} />}
       </div>
+
+      {/* Guided Experiments Modal */}
+      <GuidedExperimentsModal
+        isOpen={isGuidedModalOpen}
+        onClose={() => setIsGuidedModalOpen(false)}
+        lang={lang}
+        theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+        activeLab={activeLab}
+      />
     </div>
   );
 };
