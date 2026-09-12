@@ -13,6 +13,9 @@ import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { InteractiveMatrixLab } from './InteractiveMatrixLab';
 import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
+import { PhysicsLab } from './labs/PhysicsLab';
+import { ChemistryLab } from './labs/ChemistryLab';
+import { BiologyLab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
 import { getOfficialBookByBranch } from '../data/officialBooksData';
@@ -123,6 +126,16 @@ export const LessonView: React.FC<Props> = ({
   const is3D = branch.id === 'algebra_solid' || branch.id === 'egbac_vectors_geometry' || lesson.interactiveWidget.type === '3d_vectors';
 
   const renderInteractiveWidget = () => {
+    if (branch.id === 'thanaweya_physics' || branch.id === 'egbac_physics') {
+      return <PhysicsLab lang={lang} theme={theme} />;
+    }
+    if (branch.id === 'thanaweya_chemistry' || branch.id === 'egbac_chemistry') {
+      return <ChemistryLab lang={lang} theme={theme} />;
+    }
+    if (branch.id === 'thanaweya_biology' || branch.id === 'egbac_biology') {
+      return <BiologyLab lang={lang} theme={theme} />;
+    }
+
     const widgetComponent = (() => {
       switch (lesson.interactiveWidget.type) {
         case '3d_vectors':

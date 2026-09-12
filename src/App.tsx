@@ -18,6 +18,7 @@ import { VisitorCounter } from './components/VisitorCounter';
 import { Search, ShieldCheck, Command, Mail } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
+import { VirtualLabsHub } from './components/VirtualLabsHub';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -376,8 +377,7 @@ export const App: React.FC = () => {
           activeTab === 'exerciseProblems' ||
           activeTab === 'databank' ||
           activeTab === 'lessonPlan' ||
-          activeTab === 'worksheet' ||
-          activeTab === 'interactive') && (
+          activeTab === 'worksheet') && (
           <LessonView
             lang={lang}
             theme={theme}
@@ -393,6 +393,19 @@ export const App: React.FC = () => {
               setIsDesmosOpen(true);
             }}
             onOpenOfficialBooks={handleOpenOfficialBooks}
+          />
+        )}
+
+        {activeTab === 'interactive' && (
+          <VirtualLabsHub
+            lang={lang}
+            theme={theme}
+            currentCurriculum={activeCurriculumData}
+            selectedSubject={selectedSubject}
+            onOpenDesmos={(targetMode = '2d') => {
+              setDesmosMode(targetMode);
+              setIsDesmosOpen(true);
+            }}
           />
         )}
 
