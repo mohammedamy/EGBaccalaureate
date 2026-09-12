@@ -2,7 +2,7 @@ import React from 'react';
 import type { CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download } from 'lucide-react';
+import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 
@@ -75,6 +75,21 @@ export const Navbar: React.FC<Props> = ({
             <span className={`hidden sm:inline truncate ${
               isHighContrast ? 'text-slate-100' : isLight ? 'text-slate-600' : 'text-slate-300'
             }`}>{t.officialMoeRef}</span>
+            <span className={`hidden md:inline ${
+              isHighContrast ? 'text-cyan-600' : isLight ? 'text-slate-300' : 'text-slate-600'
+            }`}>|</span>
+            <a
+              href="https://clipsat.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden md:inline-flex items-center gap-1 font-bold text-[10px] transition-all hover:underline ${
+                isHighContrast ? 'text-cyan-300' : isLight ? 'text-blue-700 hover:text-blue-900' : 'text-cyan-400 hover:text-cyan-300'
+              }`}
+              title={t.sisterSite}
+            >
+              <span>{t.sisterSiteBadge}</span>
+              <ExternalLink className="w-2.5 h-2.5" />
+            </a>
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 flex-wrap sm:flex-nowrap justify-end">
@@ -296,19 +311,25 @@ export const Navbar: React.FC<Props> = ({
         {/* Main Nav Header */}
         <div className="py-2.5 flex items-center justify-between gap-3 sm:gap-6 flex-wrap md:flex-nowrap">
           {/* Logo & Brand Title */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <a
+              href="https://clipsat.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 sm:gap-2 shrink-0 group transition-transform hover:scale-105 active:scale-95"
+              title={t.sisterSite}
+            >
               <img
                 src={clipsatLogo}
                 alt="ClipSAT"
                 className="h-8 sm:h-9 w-auto object-contain shrink-0 drop-shadow-sm"
               />
               <EgyptFlag
-                className="h-5 sm:h-5.5 w-auto rounded-[3px] shadow-xs shrink-0 ring-1 ring-black/15 dark:ring-white/20 transition-transform hover:scale-105"
+                className="h-5 sm:h-5.5 w-auto rounded-[3px] shadow-xs shrink-0 ring-1 ring-black/15 dark:ring-white/20 transition-transform group-hover:rotate-3"
                 title={lang === 'ar' ? 'علم جمهورية مصر العربية' : 'Flag of the Arab Republic of Egypt'}
               />
-            </div>
-            <div className="flex items-center gap-2 shrink-0">
+            </a>
+            <div className="flex items-center gap-2 shrink-0 flex-wrap sm:flex-nowrap">
               <span className={`text-base sm:text-lg font-black tracking-tight whitespace-nowrap ${
                 isLight
                   ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent'
@@ -323,6 +344,22 @@ export const Navbar: React.FC<Props> = ({
               }`}>
                 MoE 2026
               </span>
+              <a
+                href="https://clipsat.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
+                  isHighContrast
+                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                    : isLight
+                    ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 hover:border-blue-300 hover:text-blue-900'
+                    : 'bg-blue-950/70 text-blue-300 border-blue-700/60 hover:bg-blue-900 hover:text-white'
+                }`}
+                title={t.sisterSite}
+              >
+                <span>clipsat.org</span>
+                <ExternalLink className="w-2.5 h-2.5 opacity-80" />
+              </a>
             </div>
           </div>
 

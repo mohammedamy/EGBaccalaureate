@@ -20,6 +20,8 @@ export interface Translations {
   officialMoeRef: string;
   moeBadge: string;
   searchPlaceholder: string;
+  sisterSite: string;
+  sisterSiteBadge: string;
 
   // Tabs & Views
   overviewTab: string;
@@ -159,6 +161,8 @@ export const translations: Record<Language, Translations> = {
     officialMoeRef: 'Official MoE Egyptian Curriculum Reference 2025/2026',
     moeBadge: 'ClipSAT MoE Accredited',
     searchPlaceholder: 'Search formulas, lessons, concepts...',
+    sisterSite: 'Sister Site: clipsat.org',
+    sisterSiteBadge: 'clipsat.org',
 
     overviewTab: 'Curriculum Roadmap',
     theoryTab: 'Lesson & Theory',
@@ -290,6 +294,8 @@ export const translations: Record<Language, Translations> = {
     officialMoeRef: 'المرجع الرسمي لكتب وزارة التربية والتعليم والتعليم الفني 2025/2026',
     moeBadge: 'منصة ClipSAT معتمدة بالوزارة',
     searchPlaceholder: 'ابحث عن القوانين، الدروس، المفاهيم...',
+    sisterSite: 'الموقع الشقيق: clipsat.org',
+    sisterSiteBadge: 'clipsat.org',
 
     overviewTab: 'خريطة المنهج',
     theoryTab: 'الشرح والنظريات',
