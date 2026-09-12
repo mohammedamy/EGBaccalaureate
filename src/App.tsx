@@ -4,6 +4,7 @@ import type { Language, UserRole } from './i18n/translations';
 import { translations } from './i18n/translations';
 import { thanaweyaCurriculum } from './data/thanaweyaData';
 import { egBacCurriculum } from './data/egBacData';
+import { getBranchesForSubject, getSubjectForBranch } from './data/subjects';
 import { Navbar } from './components/Navbar';
 import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
@@ -36,6 +37,10 @@ export const App: React.FC = () => {
     return 'normal';
   });
   const [curriculum, setCurriculum] = useState<CurriculumType>('thanaweya');
+  const [selectedSubject, setSelectedSubject] = useState<string>(() => {
+    const saved = localStorage.getItem('egbac_selected_subject');
+    return saved || 'all';
+  });
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
@@ -53,9 +58,39 @@ export const App: React.FC = () => {
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
-  // Selected Branch & Lesson state (default to Chapter 1 Lesson 1)
-  const [selectedBranch, setSelectedBranch] = useState<Branch>(activeCurriculumData.branches[0]);
-  const [selectedLesson, setSelectedLesson] = useState<Lesson>(activeCurriculumData.branches[0].chapters[0].lessons[0]);
+  // Selected Branch & Lesson state (default to Chapter 1 Lesson 1 or first branch of selected subject)
+  const [selectedBranch, setSelectedBranch] = useState<Branch>(() => {
+    const initialSub = localStorage.getItem('egbac_selected_subject') || 'all';
+    if (initialSub !== 'all') {
+      const branches = getBranchesForSubject(activeCurriculumData, initialSub);
+      if (branches.length > 0) return branches[0];
+    }
+    return activeCurriculumData.branches[0];
+  });
+  const [selectedLesson, setSelectedLesson] = useState<Lesson>(() => {
+    const initialSub = localStorage.getItem('egbac_selected_subject') || 'all';
+    if (initialSub !== 'all') {
+      const branches = getBranchesForSubject(activeCurriculumData, initialSub);
+      if (branches.length > 0 && branches[0].chapters[0]?.lessons[0]) {
+        return branches[0].chapters[0].lessons[0];
+      }
+    }
+    return activeCurriculumData.branches[0].chapters[0].lessons[0];
+  });
+
+  const handleSubjectChange = (subjectId: string) => {
+    setSelectedSubject(subjectId);
+    localStorage.setItem('egbac_selected_subject', subjectId);
+    if (subjectId !== 'all') {
+      const branches = getBranchesForSubject(activeCurriculumData, subjectId);
+      if (branches.length > 0) {
+        setSelectedBranch(branches[0]);
+        if (branches[0].chapters.length > 0 && branches[0].chapters[0].lessons.length > 0) {
+          setSelectedLesson(branches[0].chapters[0].lessons[0]);
+        }
+      }
+    }
+  };
 
   // Sync html dir attribute (RTL / LTR)
   useEffect(() => {
@@ -86,9 +121,19 @@ export const App: React.FC = () => {
   // Sync selected branch when curriculum switches
   useEffect(() => {
     const data = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+    if (selectedSubject !== 'all') {
+      const branches = getBranchesForSubject(data, selectedSubject);
+      if (branches.length > 0) {
+        setSelectedBranch(branches[0]);
+        if (branches[0].chapters.length > 0 && branches[0].chapters[0].lessons.length > 0) {
+          setSelectedLesson(branches[0].chapters[0].lessons[0]);
+        }
+        return;
+      }
+    }
     setSelectedBranch(data.branches[0]);
     setSelectedLesson(data.branches[0].chapters[0].lessons[0]);
-  }, [curriculum]);
+  }, [curriculum, selectedSubject]);
 
   // Global keyboard shortcuts: Cmd+K (Search), Cmd+J (Formula Handbook), Cmd+D (Desmos Suite)
   useEffect(() => {
@@ -138,6 +183,11 @@ export const App: React.FC = () => {
   const handleSelectLesson = (b: Branch, l: Lesson, tab?: string) => {
     setSelectedBranch(b);
     setSelectedLesson(l);
+    const sub = getSubjectForBranch(b.id, curriculum);
+    if (sub && selectedSubject !== 'all' && selectedSubject !== sub.id) {
+      setSelectedSubject(sub.id);
+      localStorage.setItem('egbac_selected_subject', sub.id);
+    }
     if (tab) {
       setActiveTab(tab);
     }
@@ -184,6 +234,9 @@ export const App: React.FC = () => {
         onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
         onOpenDesmos={() => setIsDesmosOpen((prev) => !prev)}
         onOpenOfficialBooks={() => handleOpenOfficialBooks()}
+        selectedSubject={selectedSubject}
+        onSubjectChange={handleSubjectChange}
+        curriculumData={activeCurriculumData}
       />
 
       {/* Main Workspace Body */}
@@ -292,6 +345,8 @@ export const App: React.FC = () => {
             onSelectLesson={handleSelectLesson}
             onNavigateTab={setActiveTab}
             onOpenOfficialBooks={() => handleOpenOfficialBooks()}
+            selectedSubject={selectedSubject}
+            onSelectSubject={handleSubjectChange}
           />
         )}
 
@@ -350,6 +405,7 @@ export const App: React.FC = () => {
               setDesmosMode(targetMode);
               setIsDesmosOpen(true);
             }}
+            initialSubject={selectedSubject}
           />
         )}
       </main>

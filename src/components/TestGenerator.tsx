@@ -28,12 +28,14 @@ import {
   Calculator,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
+import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
 
 interface Props {
   lang: Language;
   currentCurriculum: CurriculumType;
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
+  initialSubject?: string;
 }
 
 interface GeneratedQuestion {
@@ -54,10 +56,17 @@ interface GeneratedQuestion {
   branchTitleAr: string;
 }
 
-export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpenFormulaHandbook, onOpenDesmos }) => {
+export const TestGenerator: React.FC<Props> = ({
+  lang,
+  currentCurriculum,
+  onOpenFormulaHandbook,
+  onOpenDesmos,
+  initialSubject = 'all',
+}) => {
   const t = translations[lang];
 
   // Filter selections
+  const [selectedSubject, setSelectedSubject] = useState<string>(initialSubject);
   const [selectedBranch, setSelectedBranch] = useState<string>('all');
   const [selectedChapter, setSelectedChapter] = useState<string>('all');
   const [difficulty, setDifficulty] = useState<DifficultyLevel | 'all'>('all');
@@ -88,8 +97,9 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
   const generateQuestions = (): GeneratedQuestion[] => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     const pool: GeneratedQuestion[] = [];
+    const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
 
-    activeData.branches.forEach((branch) => {
+    candidateBranches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
 
       branch.chapters.forEach((ch) => {
@@ -520,7 +530,29 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
         </div>
 
         {/* Filters Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5">
+          <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              {lang === 'ar' ? 'المادة الدراسية' : 'Subject Track'}
+            </label>
+            <select
+              value={selectedSubject}
+              onChange={(e) => {
+                setSelectedSubject(e.target.value);
+                setSelectedBranch('all');
+                setSelectedChapter('all');
+              }}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
+            >
+              <option value="all">{lang === 'ar' ? 'جميع المواد (شامل)' : 'All Subjects (Complete)'}</option>
+              {SUBJECTS.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.emoji} {lang === 'ar' ? s.titleAr : s.titleEn}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectBranch}</label>
             <select
@@ -529,10 +561,13 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
                 setSelectedBranch(e.target.value);
                 setSelectedChapter('all');
               }}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
             >
               <option value="all">{lang === 'ar' ? 'جميع الفروع المتاحة' : 'All Branches'}</option>
-              {(currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum).branches.map((b) => (
+              {getBranchesForSubject(
+                currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
+                selectedSubject
+              ).map((b) => (
                 <option key={b.id} value={b.id}>
                   {lang === 'ar' ? b.titleAr : b.titleEn}
                 </option>
@@ -545,10 +580,13 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
             <select
               value={selectedChapter}
               onChange={(e) => setSelectedChapter(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
             >
               <option value="all">{lang === 'ar' ? 'جميع فصول الفرع' : 'All Chapters'}</option>
-              {(currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum).branches
+              {getBranchesForSubject(
+                currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
+                selectedSubject
+              )
                 .filter((b) => selectedBranch === 'all' || b.id === selectedBranch)
                 .flatMap((b) => b.chapters)
                 .map((ch) => (

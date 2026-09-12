@@ -1,10 +1,11 @@
 import React from 'react';
-import type { CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
+import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
+import { SubjectSelector } from './SubjectSelector';
 
 interface Props {
   lang: Language;
@@ -22,6 +23,9 @@ interface Props {
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: () => void;
   onOpenOfficialBooks?: () => void;
+  selectedSubject?: string;
+  onSubjectChange?: (subjectId: string) => void;
+  curriculumData?: Curriculum;
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -40,6 +44,9 @@ export const Navbar: React.FC<Props> = ({
   onOpenFormulaHandbook,
   onOpenDesmos,
   onOpenOfficialBooks,
+  selectedSubject,
+  onSubjectChange,
+  curriculumData,
 }) => {
   const t = translations[lang];
   const isLight = theme === 'light';
@@ -457,48 +464,61 @@ export const Navbar: React.FC<Props> = ({
             </a>
           </div>
 
-          {/* Curriculum Switcher Pills: Full-width Segmented Control on Mobile, Compact on Desktop */}
-          <div className={`w-full md:w-auto grid grid-cols-2 md:flex items-center p-1 rounded-xl border shadow-inner shrink-0 ${
-            isHighContrast
-              ? 'bg-black border-2 border-cyan-400'
-              : isLight
-              ? 'bg-slate-100 border-slate-300'
-              : 'bg-slate-900 dark:bg-slate-950 border-slate-800'
-          }`}>
-            <button
-              onClick={() => onCurriculumChange('thanaweya')}
-              className={`w-full md:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
-                curriculum === 'thanaweya'
-                  ? isHighContrast
-                    ? 'bg-cyan-400 text-black font-black shadow-sm'
-                    : 'bg-indigo-600 text-white shadow-sm font-black'
-                  : isHighContrast
-                    ? 'text-white hover:text-cyan-300'
-                    : isLight
-                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-                    : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <Award className="w-3.5 h-3.5 shrink-0" />
-              <span>{lang === 'ar' ? 'الثانوية العامة' : 'Thanaweya Amma'}</span>
-            </button>
-            <button
-              onClick={() => onCurriculumChange('egbac')}
-              className={`w-full md:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
-                curriculum === 'egbac'
-                  ? isHighContrast
-                    ? 'bg-cyan-400 text-black font-black shadow-sm'
-                    : 'bg-indigo-600 text-white shadow-sm font-black'
-                  : isHighContrast
-                    ? 'text-white hover:text-cyan-300'
-                    : isLight
-                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-                    : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5 shrink-0" />
-              <span>{lang === 'ar' ? 'البكالوريا المصرية' : 'EG-Bac'}</span>
-            </button>
+          {/* Controls: Subject Selector & Curriculum Switcher */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
+            {curriculumData && onSubjectChange && (
+              <SubjectSelector
+                selectedSubject={selectedSubject || 'all'}
+                onSelectSubject={onSubjectChange}
+                curriculum={curriculumData}
+                lang={lang}
+                theme={theme}
+              />
+            )}
+
+            {/* Curriculum Switcher Pills: Full-width Segmented Control on Mobile, Compact on Desktop */}
+            <div className={`w-full sm:w-auto grid grid-cols-2 sm:flex items-center p-1 rounded-xl border shadow-inner shrink-0 ${
+              isHighContrast
+                ? 'bg-black border-2 border-cyan-400'
+                : isLight
+                ? 'bg-slate-100 border-slate-300'
+                : 'bg-slate-900 dark:bg-slate-950 border-slate-800'
+            }`}>
+              <button
+                onClick={() => onCurriculumChange('thanaweya')}
+                className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
+                  curriculum === 'thanaweya'
+                    ? isHighContrast
+                      ? 'bg-cyan-400 text-black font-black shadow-sm'
+                      : 'bg-indigo-600 text-white shadow-sm font-black'
+                    : isHighContrast
+                      ? 'text-white hover:text-cyan-300'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                      : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <Award className="w-3.5 h-3.5 shrink-0" />
+                <span>{lang === 'ar' ? 'الثانوية العامة' : 'Thanaweya Amma'}</span>
+              </button>
+              <button
+                onClick={() => onCurriculumChange('egbac')}
+                className={`w-full sm:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
+                  curriculum === 'egbac'
+                    ? isHighContrast
+                      ? 'bg-cyan-400 text-black font-black shadow-sm'
+                      : 'bg-indigo-600 text-white shadow-sm font-black'
+                    : isHighContrast
+                      ? 'text-white hover:text-cyan-300'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                      : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                <span>{lang === 'ar' ? 'البكالوريا المصرية' : 'EG-Bac'}</span>
+              </button>
+            </div>
           </div>
         </div>
 
