@@ -3813,33 +3813,33 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Distance Between Two Parallel Planes",
     "titleAr": "البعد العمودي بين مستويين متوازيين",
     "difficulty": "medium",
-    "questionEn": "Find the distance between the two parallel planes $2x - y + 2z = 4$ and $2x - y + 2z = 13$.",
-    "questionAr": "أوجد البعد العمودي بين المستويين المتوازيين $2x - y + 2z = 4$ و $2x - y + 2z = 13$.",
+    "questionEn": "Find the distance between the two parallel planes $3x + 4y - 12z = 10$ and $3x + 4y - 12z = -16$.",
+    "questionAr": "أوجد البعد العمودي بين المستويين المتوازيين $3x + 4y - 12z = 10$ و $3x + 4y - 12z = -16$.",
     "optionsEn": [
+      "2 units",
+      "4 units",
       "3 units",
-      "9 units",
-      "1 unit",
-      "$\\frac{9}{5}$ units"
+      "1 unit"
     ],
     "optionsAr": [
+      "2 وحدات طول",
+      "4 وحدات طول",
       "3 وحدات طول",
-      "9 وحدات طول",
-      "1 وحدة طول",
-      "$\\frac{9}{5}$ وحدة طول"
+      "1 وحدة طول"
     ],
-    "correctAnswer": "3 units",
+    "correctAnswer": "2 units",
     "correctIndex": 0,
     "hintEn": "d = |D1 - D2| / sqrt(A^2 + B^2 + C^2).",
     "hintAr": "البعد بين مستويين متوازيين = |د١ - د٢| / معيار المتجه العمودي.",
     "stepByStepSolutionEn": [
-      "1. The two planes have identical coefficients $A = 2, B = -1, C = 2$.",
+      "1. The two planes have normal vector $\\vec{n} = (3, 4, -12)$, with magnitude $\\|\\vec{n}\\| = \\sqrt{3^2 + 4^2 + (-12)^2} = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$.",
       "2. The formula for distance between parallel planes is $d = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}}$.",
-      "3. $d = \\frac{|13 - 4|}{\\sqrt{2^2 + (-1)^2 + 2^2}} = \\frac{9}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$ units."
+      "3. $d = \\frac{|10 - (-16)|}{13} = \\frac{26}{13} = 2$ units."
     ],
     "stepByStepSolutionAr": [
-      "١. المستويان لهما نفس معاملات س، ص، ع: أ = ٢، ب = -١، جـ = ٢.",
+      "١. المتجه العمودي للمستويين هو $\\vec{n} = (3, 4, -12)$، ومعياره $\\|\\vec{n}\\| = \\sqrt{9 + 16 + 144} = \\sqrt{169} = 13$.",
       "٢. قانون البعد بين مستويين متوازيين: $d = \\frac{|D_2 - D_1|}{\\sqrt{A^2 + B^2 + C^2}}$.",
-      "٣. البعد = |١٣ - ٤| / جذر(٤ + ١ + ٤) = ٩ / ٣ = ٣ وحدات طول."
+      "٣. البعد = $|10 - (-16)| / 13 = 26 / 13 = 2$ وحدة طول."
     ],
     "teacherTipEn": "Make sure the coefficients A, B, C are matched before using the formula.",
     "teacherTipAr": "تأكد من توحيد معاملات س، ص، ع في كلا المستويين قبل تطبيق قانون الفرق بين الثوابت."

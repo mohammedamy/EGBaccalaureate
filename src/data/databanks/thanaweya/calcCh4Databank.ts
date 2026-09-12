@@ -5250,40 +5250,36 @@ export const calcCh4Databank: ChapterDatabank = {
     "titleEn": "Archimedes Parabolic Segment Area",
     "titleAr": "مبرهنة أرخميدس لمساحة القطاع المكافئ",
     "difficulty": "hots",
-    "questionEn": "Find the area of the region bounded by the parabola $y = x^2$ and the line $y = 2x + 3$.",
-    "questionAr": "أوجد مساحة المنطقة المحصورة بين القطع المكافئ $y = x^2$ والمستقيم $y = 2x + 3$.",
+    "questionEn": "Find the area of the region bounded by the parabola $y = 4 - x^2$ and the line $y = 2 - x$.",
+    "questionAr": "أوجد مساحة المنطقة المحصورة بين القطع المكافئ $y = 4 - x^2$ والمستقيم $y = 2 - x$.",
     "optionsEn": [
-      "$\\frac{32}{3}$",
-      "$\\frac{16}{3}$",
-      "$\\frac{64}{3}$",
-      "$8$"
+      "$\\frac{9}{2}$",
+      "$\\frac{27}{4}$",
+      "$\\frac{9}{4}$",
+      "$6$"
     ],
     "optionsAr": [
-      "32 / 3",
-      "16 / 3",
-      "64 / 3",
-      "8"
+      "$\\frac{9}{2}$",
+      "$\\frac{27}{4}$",
+      "$\\frac{9}{4}$",
+      "$6$"
     ],
-    "correctAnswer": "$\\frac{32}{3}$",
+    "correctAnswer": "$\\frac{9}{2}$",
     "correctIndex": 0,
-    "hintEn": "Use Archimedes' formula $A = \\frac{1}{6}(x_2 - x_1)^3$ for a parabola and a line.",
+    "hintEn": "Use Archimedes' formula $A = \\frac{1}{6}(x_2 - x_1)^3$ where $x_1, x_2$ are the intersection roots.",
     "hintAr": "استخدم صيغة أرخميدس: المساحة = (1/6) (س2 - س1)³ حيث س1 و س2 جذور التقاطع.",
     "stepByStepSolutionEn": [
-      "1. Intersection points: $x^2 = 2x + 3 \\implies x^2 - 2x - 3 = 0 \\implies (x - 3)(x + 1) = 0 \\implies x_1 = -1, x_2 = 3$.",
-      "2. Area: $A = \\int_{-1}^3 (2x + 3 - x^2) dx = \\left[ x^2 + 3x - \\frac{x^3}{3} \\right]_{-1}^3$.",
-      "3. At $x = 3$: $9 + 9 - 9 = 9$.",
-      "4. At $x = -1$: $1 - 3 - (-1/3) = -2 + 1/3 = -5/3$.",
-      "5. $A = 9 - (-5/3) = 9 + 5/3 = \\frac{32}{3}$."
+      "1. Intersection points: $4 - x^2 = 2 - x \\implies x^2 - x - 2 = 0 \\implies (x - 2)(x + 1) = 0 \\implies x_1 = -1, x_2 = 2$.",
+      "2. Area: $A = \\int_{-1}^2 ((4 - x^2) - (2 - x)) dx = \\int_{-1}^2 (2 + x - x^2) dx$.",
+      "3. Applying Archimedes' parabolic segment theorem: $A = \\frac{1}{6}(x_2 - x_1)^3 = \\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "١. نقطتا التقاطع: س² - 2س - 3 = 0 ومنها س1 = -1 و س2 = 3.",
-      "٢. دالة المساحة = تكامل (2س + 3 - س²) د س من -1 إلى 3.",
-      "٣. عند س = 3: 9.",
-      "٤. عند س = -1: -5/3.",
-      "٥. المساحة = 9 - (-5/3) = 32 / 3 وحدة مربعة."
+      "١. نقاط التقاطع: $4 - x^2 = 2 - x \\implies x^2 - x - 2 = 0 \\implies (x - 2)(x + 1) = 0 \\implies x_1 = -1, x_2 = 2$.",
+      "٢. المساحة: $A = \\int_{-1}^2 ((4 - x^2) - (2 - x)) dx = \\int_{-1}^2 (2 + x - x^2) dx$.",
+      "٣. باستخدام صيغة أرخميدس لمساحة القطاع المكافئ: $A = \\frac{1}{6}(x_2 - x_1)^3 = \\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$."
     ],
-    "teacherTipEn": "Archimedes formula shortcut: $\\frac{1}{6}(3 - (-1))^3 = \\frac{4^3}{6} = \\frac{64}{6} = \\frac{32}{3}$.",
-    "teacherTipAr": "قاعدة أرخميدس السريعة: (1/6) (3 - (-1))³ = 64 / 6 = 32 / 3."
+    "teacherTipEn": "Archimedes formula shortcut: $\\frac{1}{6}(2 - (-1))^3 = \\frac{3^3}{6} = \\frac{27}{6} = \\frac{9}{2}$.",
+    "teacherTipAr": "قاعدة أرخميدس السريعة: $\\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$."
   },
   {
     "id": "calc_ch4_db_hots_134",

@@ -3378,37 +3378,39 @@ export const algCh2Databank: ChapterDatabank = {
   },
   {
     "id": "alg_ch2_db_med_38",
-    "titleEn": "Sixth Power of Difference of Omegas",
-    "titleAr": "القوة السادسة للفرق بين أوميجا ومربعها",
+    "titleEn": "Eighth Power of Difference of Omegas",
+    "titleAr": "القوة الثامنة للفرق بين أوميجا ومربعها",
     "difficulty": "medium",
-    "questionEn": "Calculate $(\\omega - \\omega^2)^6$.",
-    "questionAr": "احسب قيمة المقدار: $(\\omega - \\omega^٢)^٦$.",
+    "questionEn": "Calculate $(\\omega - \\omega^2)^8$.",
+    "questionAr": "احسب قيمة المقدار: $(\\omega - \\omega^2)^8$.",
     "optionsEn": [
-      "-27",
-      "27",
-      "-729",
-      "729"
+      "$81$",
+      "$-81$",
+      "$27$",
+      "$-27$"
     ],
     "optionsAr": [
-      "-٢٧",
-      "٢٧",
-      "-٧٢٩",
-      "٧٢٩"
+      "$81$",
+      "$-81$",
+      "$27$",
+      "$-27$"
     ],
-    "correctAnswer": "-27",
+    "correctAnswer": "$81$",
     "correctIndex": 0,
-    "hintEn": "$[(\\omega - \\omega^2)^2]^3 = (-3)^3$.",
-    "hintAr": "$[(\\omega - \\omega^٢)^٢]^٣ = (-٣)^٣$.",
+    "hintEn": "$[(\\omega - \\omega^2)^2]^4 = (-3)^4 = 81$.",
+    "hintAr": "$[(\\omega - \\omega^2)^2]^4 = (-3)^4 = 81$.",
     "stepByStepSolutionEn": [
-      "Since $(\\omega - \\omega^2)^2 = -3$:",
-      "$$(\\omega - \\omega^2)^6 = \\left[(\\omega - \\omega^2)^2\\right]^3 = (-3)^3 = -27$$"
+      "Recall that $(\\omega - \\omega^2) = \\pm i\\sqrt{3}$.",
+      "Squaring gives $(\\omega - \\omega^2)^2 = (\\pm i\\sqrt{3})^2 = -3$.",
+      "Therefore: $(\\omega - \\omega^2)^8 = [(\\omega - \\omega^2)^2]^4 = (-3)^4 = 81$."
     ],
     "stepByStepSolutionAr": [
-      "بما أن $(\\omega - \\omega^٢)^٢ = -٣$:",
-      "$$(\\omega - \\omega^٢)^٦ = (-٣)^٣ = -٢٧$$"
+      "تذكر أن $(\\omega - \\omega^2) = \\pm i\\sqrt{3}$.",
+      "بتربيع الطرفين: $(\\omega - \\omega^2)^2 = (\\pm i\\sqrt{3})^2 = -3$.",
+      "إذن: $(\\omega - \\omega^2)^8 = [(\\omega - \\omega^2)^2]^4 = (-3)^4 = 81$."
     ],
-    "teacherTipEn": "Don't confuse power 6 with $(-3)^3 = -27$.",
-    "teacherTipAr": "انتبه لأن تكعيب العدد $-٣$ يعطي $-٢٧$ مع بقاء الإشارة السالبة."
+    "teacherTipEn": "An even power of $(\\omega - \\omega^2)$ is always a real number.",
+    "teacherTipAr": "أي قوة زوجية للمقدار $(\\omega - \\omega^2)$ تعطي دائماً عدداً حقيقياً."
   },
   {
     "id": "alg_ch2_db_med_39",

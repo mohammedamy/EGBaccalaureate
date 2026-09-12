@@ -1723,31 +1723,31 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleAr": "محدد مصفوفة مضروبة في عدد ثابت",
     "difficulty": "easy",
     "diagramType": "cartesian_plane",
-    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\det(A) = 4$, find the value of $\\det(2A)$.",
-    "questionAr": "إذا كانت $A$ مصفوفة من الرتبة $3 \\times 3$ وكان $\\det(A) = 4$، فما قيمة $\\det(2A)$؟",
+    "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\det(A) = 5$, find the value of $\\det(3A)$.",
+    "questionAr": "إذا كانت $A$ مصفوفة من الرتبة $3 \\times 3$ وكان $\\det(A) = 5$، فما قيمة $\\det(3A)$؟",
     "optionsEn": [
-      "$32$",
-      "$8$",
-      "$16$",
-      "$24$"
+      "$135$",
+      "$15$",
+      "$45$",
+      "$75$"
     ],
     "optionsAr": [
-      "$32$",
-      "$8$",
-      "$16$",
-      "$24$"
+      "$135$",
+      "$15$",
+      "$45$",
+      "$75$"
     ],
-    "correctAnswer": "$32$",
+    "correctAnswer": "$135$",
     "correctIndex": 0,
     "hintEn": "For an $n \\times n$ matrix, $\\det(k A) = k^n \\det(A)$.",
     "hintAr": "لأي مصفوفة مربعة من الرتبة $n \\times n$، فإن $\\det(k A) = k^n \\det(A)$.",
     "stepByStepSolutionEn": [
-      "Here the matrix dimension is $n = 3$ and the scalar is $k = 2$.",
-      "Apply the property: $\\det(2A) = 2^3 \\cdot \\det(A) = 8 \\times 4 = 32$."
+      "Here the matrix dimension is $n = 3$ and the scalar is $k = 3$.",
+      "Apply the property: $\\det(3A) = 3^3 \\cdot \\det(A) = 27 \\times 5 = 135$."
     ],
     "stepByStepSolutionAr": [
-      "رتبة المصفوفة هي $n = 3$ والثابت هو $k = 2$.",
-      "بتطبيق الخاصية: $\\det(2A) = 2^3 \\times \\det(A) = 8 \\times 4 = 32$."
+      "رتبة المصفوفة هي $n = 3$ والثابت هو $k = 3$.",
+      "بتطبيق الخاصية: $\\det(3A) = 3^3 \\times \\det(A) = 27 \\times 5 = 135$."
     ],
     "teacherTipEn": "A common mistake is forgetting to raise $k$ to the power $n$.",
     "teacherTipAr": "الخطأ الشائع هو ضرب المحدد في $k$ بدلاً من $k^n$."
@@ -1793,35 +1793,35 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleAr": "المعكوس الضربي لمصفوفة 2x2",
     "difficulty": "easy",
     "diagramType": "cartesian_plane",
-    "questionEn": "Find the inverse of the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix}$.",
-    "questionAr": "أوجد المعكوس الضربي للمصفوفة $A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix}$.",
+    "questionEn": "Find the inverse of the matrix $A = \\begin{pmatrix} 4 & 3 \\\\ 1 & 1 \\end{pmatrix}$.",
+    "questionAr": "أوجد المعكوس الضربي للمصفوفة $A = \\begin{pmatrix} 4 & 3 \\\\ 1 & 1 \\end{pmatrix}$.",
     "optionsEn": [
-      "$\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$"
+      "$\\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 3 \\\\ 1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 4 & -3 \\\\ -1 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} -1 & 3 \\\\ 1 & -4 \\end{pmatrix}$"
     ],
     "optionsAr": [
-      "$\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix}$",
-      "$\\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix}$",
-      "$\\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix}$"
+      "$\\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 1 & 3 \\\\ 1 & 4 \\end{pmatrix}$",
+      "$\\begin{pmatrix} 4 & -3 \\\\ -1 & 1 \\end{pmatrix}$",
+      "$\\begin{pmatrix} -1 & 3 \\\\ 1 & -4 \\end{pmatrix}$"
     ],
-    "correctAnswer": "$\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$",
+    "correctAnswer": "$\\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$",
     "correctIndex": 0,
     "hintEn": "Formula: $A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.",
     "hintAr": "القانون: $A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.",
     "stepByStepSolutionEn": [
-      "Compute determinant: $\\det(A) = (2)(3) - (1)(5) = 6 - 5 = 1$.",
+      "Compute determinant: $\\det(A) = (4)(1) - (3)(1) = 4 - 3 = 1$.",
       "Swap diagonal entries and negate off-diagonal entries:",
-      "$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$."
+      "$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix} = \\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$."
     ],
     "stepByStepSolutionAr": [
-      "احسب المحدد: $\\det(A) = 6 - 5 = 1$.",
+      "احسب المحدد: $\\det(A) = (4)(1) - (3)(1) = 4 - 3 = 1$.",
       "بدل عناصر القطر الرئيسي وغير إشارات القطر الفرعي:",
-      "$A^{-1} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$."
+      "$A^{-1} = \\begin{pmatrix} 1 & -3 \\\\ -1 & 4 \\end{pmatrix}$."
     ],
-    "teacherTipEn": "Always check that $A A^{-1} = I$. Here $(2)(3)+(1)(-5)=1$ and $(2)(-1)+(1)(2)=0$.",
+    "teacherTipEn": "Always check that $A A^{-1} = I$. Here $(4)(1)+(3)(-1)=1$ and $(4)(-3)+(3)(4)=0$.",
     "teacherTipAr": "تحقق دائماً من أن حاصل الضرب يعطي مصفوفة الوحدة $I$."
   },
   {

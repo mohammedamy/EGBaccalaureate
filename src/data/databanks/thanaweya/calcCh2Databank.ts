@@ -1707,33 +1707,33 @@ export const calcCh2Databank: ChapterDatabank = {
     "titleEn": "Euler Limit with Reciprocal Argument",
     "titleAr": "نهاية العدد النيبيري بأس مقلوب",
     "difficulty": "easy",
-    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (1 + 3x)^{2/x}$.",
-    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (1 + 3x)^{2/x}$.",
+    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (1 + 4x)^{3/x}$.",
+    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (1 + 4x)^{3/x}$.",
     "optionsEn": [
-      "$e^6$",
-      "$e^5$",
-      "$e^3$",
-      "$e^2$"
+      "$e^{12}$",
+      "$e^7$",
+      "$e^4$",
+      "$e^3$"
     ],
     "optionsAr": [
-      "$e^6$",
-      "$e^5$",
-      "$e^3$",
-      "$e^2$"
+      "$e^{12}$",
+      "$e^7$",
+      "$e^4$",
+      "$e^3$"
     ],
     "correctIndex": 0,
-    "correctAnswer": "$e^6$",
+    "correctAnswer": "$e^{12}$",
     "hintEn": "Use the formula $\\lim_{x \\to 0} (1 + ax)^{b/x} = e^{ab}$.",
     "hintAr": "استخدم القانون $\\lim_{x \\to 0} (1 + ax)^{b/x} = e^{ab}$.",
     "teacherTipEn": "Notice that the product of the coefficient of $x$ inside and the numerator of the power gives the exponent directly.",
     "teacherTipAr": "حاصل ضرب معامل $x$ بالداخل في بسط الأس يعطي أس العدد $e$ مباشرة.",
     "stepByStepSolutionEn": [
-      "Rewrite expression: $[(1 + 3x)^{1/(3x)}]^6$.",
-      "Since $\\lim_{x \\to 0} (1 + 3x)^{1/(3x)} = e$, the limit is $e^6$."
+      "Rewrite expression: $[(1 + 4x)^{1/(4x)}]^{12}$.",
+      "Since $\\lim_{x \\to 0} (1 + 4x)^{1/(4x)} = e$, the limit is $e^{12}$."
     ],
     "stepByStepSolutionAr": [
-      "إعادة كتابة المقدار: $[(1 + 3x)^{1/(3x)}]^6$.",
-      "بما أن $\\lim_{x \\to 0} (1 + 3x)^{1/(3x)} = e$، فإن النهاية تساوي $e^6$."
+      "إعادة كتابة المقدار: $[(1 + 4x)^{1/(4x)}]^{12}$.",
+      "بما أن $\\lim_{x \\to 0} (1 + 4x)^{1/(4x)} = e$، فإن النهاية تساوي $e^{12}$."
     ]
   },
   {

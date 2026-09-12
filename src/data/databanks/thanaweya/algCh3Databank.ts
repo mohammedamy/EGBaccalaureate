@@ -70,35 +70,37 @@ export const algCh3Databank: ChapterDatabank = {
   },
   {
     "id": "alg_ch3_db_easy_03",
-    "titleEn": "Determinant of the Transpose Matrix",
-    "titleAr": "محدد مدور المصفوفة",
+    "titleEn": "Determinant of Matrix Product",
+    "titleAr": "محدد حاصل ضرب مصفوفتين",
     "difficulty": "easy",
-    "questionEn": "If $A$ is a square matrix with $|A| = 7$, what is $|A^T|$?",
-    "questionAr": "إذا كانت $A$ مصفوفة مربعة بحيث $|A| = 7$، فما قيمة $|A^T|$؟",
+    "questionEn": "If $A$ and $B$ are square matrices of the same order such that $|A| = 5$ and $|B| = -3$, find the value of $|A B|$.",
+    "questionAr": "إذا كانت $A$ و $B$ مصفوفتين مربعتين من نفس الرتبة بحيث $|A| = 5$ و $|B| = -3$، فما قيمة محدد حاصل ضربهما $|A B|$؟",
     "optionsEn": [
-      "$7$",
-      "$-7$",
-      "$\\frac{1}{7}$",
-      "$49$"
+      "$-15$",
+      "$15$",
+      "$2$",
+      "$-2$"
     ],
     "optionsAr": [
-      "7",
-      "-7",
-      "1/7",
-      "49"
+      "$-15$",
+      "$15$",
+      "$2$",
+      "$-2$"
     ],
-    "correctAnswer": "$7$",
+    "correctAnswer": "$-15$",
     "correctIndex": 0,
-    "hintEn": "|A^T| = |A|.",
-    "hintAr": "محدد مدور المصفوفة يساوي محدد المصفوفة الأصلية دائماً.",
+    "hintEn": "Use the determinant product theorem: $|A B| = |A| \\cdot |B|$.",
+    "hintAr": "استخدم نظرية محدد حاصل الضرب: $|A B| = |A| \\cdot |B|$.",
     "stepByStepSolutionEn": [
-      "1. By the fundamental property of determinants, $|A^T| = |A| = 7$."
+      "1. By the determinant multiplication theorem, $|A B| = |A| \\cdot |B|$.",
+      "2. Substituting the given values: $|A B| = 5 \\times (-3) = -15$."
     ],
     "stepByStepSolutionAr": [
-      "١. من الخواص الأساسية للمحددات: $|A^T| = |A| = 7$."
+      "١. بتطبيق نظرية ضرب المحددات: $|A B| = |A| \\cdot |B|$.",
+      "٢. بالتعويض بالقيم المعطاة: $|A B| = 5 \\times (-3) = -15$."
     ],
-    "teacherTipEn": "Transposing exchanges rows with columns, leaving the determinant invariant.",
-    "teacherTipAr": "التدوير يبدل الصفوف بالأعمدة مع بقاء قيمة المحدد ثابتة."
+    "teacherTipEn": "The determinant of a product always equals the product of the individual determinants.",
+    "teacherTipAr": "محدد حاصل ضرب مصفوفتين يساوي حاصل ضرب محدديهما دائماً."
   },
   {
     "id": "alg_ch3_db_easy_04",

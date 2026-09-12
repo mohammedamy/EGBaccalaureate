@@ -2825,34 +2825,36 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Distance from Parabola to Point (0, c)",
     "titleAr": "أقصر مسافة من نقطة لقطع مكافئ",
     "difficulty": "medium",
-    "questionEn": "Find the point on the parabola $y = x^2$ closest to the point $(0, 2)$.",
-    "questionAr": "أوجد النقطة على القطع المكافئ $y = x^2$ الأقرب إلى النقطة $(0، 2)$.",
+    "questionEn": "Find the point on the parabola $y = x^2$ closest to the point $(0, 5)$.",
+    "questionAr": "أوجد النقطة على القطع المكافئ $y = x^2$ الأقرب إلى النقطة $(0، 5)$.",
     "optionsEn": [
-      "$(\\pm \\sqrt{3/2}, 3/2)$",
+      "$(\\pm \\sqrt{9/2}, 9/2)$",
       "$(0, 0)$",
-      "$(\\pm 1, 1)$",
-      "$(\\pm 2, 4)$"
+      "$(\\pm 2, 4)$",
+      "$(\\pm \\sqrt{5}, 5)$"
     ],
     "optionsAr": [
-      "(± √(3/2)، 3/2)",
-      "(0، 0)",
-      "(± 1، 1)",
-      "(± 2، 4)"
+      "$(\\pm \\sqrt{9/2}, 9/2)$",
+      "$(0, 0)$",
+      "$(\\pm 2, 4)$",
+      "$(\\pm \\sqrt{5}, 5)$"
     ],
-    "correctAnswer": "$(\\pm \\sqrt{3/2}, 3/2)$",
+    "correctAnswer": "$(\\pm \\sqrt{9/2}, 9/2)$",
     "correctIndex": 0,
-    "hintEn": "D^2 = x^2 + (y - 2)^2 = y + (y - 2)^2 = y^2 - 3y + 4. Min at y = 3/2 => x = +- sqrt(3/2).",
-    "hintAr": "المسافة² = ص + (ص - 2)² = ص² - 3ص + 4، صغرى عند ص = 3/2 وس = ± √(3/2).",
+    "hintEn": "Minimize $D^2 = x^2 + (y - 5)^2 = y + (y - 5)^2 = y^2 - 9y + 25$. Take the derivative with respect to $y$.",
+    "hintAr": "أوجد القيمة الصغرى لمربع المسافة: $D^2 = x^2 + (y - 5)^2 = y + (y - 5)^2 = y^2 - 9y + 25$. اشتق بالنسبة إلى $y$.",
     "stepByStepSolutionEn": [
-      "1. Formulate objective function.",
-      "2. Differentiate and find critical points."
+      "Let $(x, y)$ be a point on $y = x^2$. The squared distance to $(0, 5)$ is $S(y) = x^2 + (y - 5)^2 = y + (y^2 - 10y + 25) = y^2 - 9y + 25$.",
+      "Set $S'(y) = 2y - 9 = 0 \\implies y = 9/2$.",
+      "Substitute back to find $x$: $x^2 = 9/2 \\implies x = \\pm \\sqrt{9/2}$. Thus the points are $(\\pm \\sqrt{9/2}, 9/2)$."
     ],
     "stepByStepSolutionAr": [
-      "١. صياغة دالة الهدف والمتغير التابع.",
-      "٢. الاشتقاق وتعيين النقط الحرجة وتأكيد نوعها."
+      "لتكن $(x, y)$ نقطة على القطع المكافئ $y = x^2$. مربع المسافة إلى $(0, 5)$ هو $S(y) = x^2 + (y - 5)^2 = y + y^2 - 10y + 25 = y^2 - 9y + 25$.",
+      "بمساواة المشتقة بالصفر: $S'(y) = 2y - 9 = 0 \\implies y = 9/2$.",
+      "بالتعويض لإيجاد $x$: $x^2 = 9/2 \\implies x = \\pm \\sqrt{9/2}$، فتكون النقطتان هما $(\\pm \\sqrt{9/2}, 9/2)$."
     ],
-    "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-    "teacherTipAr": "سؤال معتاد في امتحانات شهادة إتمام الثانوية العامة."
+    "teacherTipEn": "Standard Thanaweya Amma optimization problem.",
+    "teacherTipAr": "مسألة قيم عظمى وصغرى تطبيقية قياسية للثانوية العامة."
   },
   {
     "id": "calc_ch3_db_med_76",
