@@ -1065,8 +1065,8 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Equation of XY Coordinate Plane",
     "titleAr": "معادلة المستوى س ص",
     "difficulty": "easy",
-    "questionEn": "What is the Cartesian equation of the $xy$-plane?",
-    "questionAr": "ما هي المعادلة الإحداثية للمستوى $xy$؟",
+    "questionEn": "State the Cartesian equation that defines the xy-plane.",
+    "questionAr": "اكتب المعادلة الكارتيزية التي تمثل المستوى $xy$.",
     "optionsEn": [
       "$z = 0$",
       "$x = 0$",
@@ -1097,8 +1097,8 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Equation of YZ Coordinate Plane",
     "titleAr": "معادلة المستوى ص ع",
     "difficulty": "easy",
-    "questionEn": "What is the Cartesian equation of the $yz$-plane?",
-    "questionAr": "ما هي المعادلة الإحداثية للمستوى $yz$؟",
+    "questionEn": "Determine the Cartesian equation describing the yz-plane in $\mathbb{R}^3$.",
+    "questionAr": "عيّن المعادلة الكارتيزية للمستوى $yz$ في الفراغ ثلاثي الأبعاد.",
     "optionsEn": [
       "$x = 0$",
       "$y = 0$",
@@ -1129,8 +1129,8 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Equation of XZ Coordinate Plane",
     "titleAr": "معادلة المستوى س ع",
     "difficulty": "easy",
-    "questionEn": "What is the Cartesian equation of the $xz$-plane?",
-    "questionAr": "ما هي المعادلة الإحداثية للمستوى $xz$؟",
+    "questionEn": "Identify the algebraic equation representing the xz-plane.",
+    "questionAr": "حدّد المعادلة الجبرية التي تمثل المستوى $xz$.",
     "optionsEn": [
       "$y = 0$",
       "$x = 0$",

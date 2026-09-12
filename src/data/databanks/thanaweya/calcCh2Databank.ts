@@ -1027,8 +1027,8 @@ export const calcCh2Databank: ChapterDatabank = {
     "titleEn": "Slope of Tangent to Exponential at Origin",
     "titleAr": "ميل المماس لمنحنى أسّي عند نقطة الأصل",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to $y = e^{3x}$ at $x = 0$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = e^{3x}$ عند $x = 0$.",
+    "questionEn": "Determine the slope of the tangent line to $y = e^{3x}$ at $x = 0$.",
+    "questionAr": "عيّن ميل خط المماس للمنحنى $y = e^{3x}$ عند $x = 0$.",
     "optionsEn": [
       "$3$",
       "$1$",
@@ -1061,8 +1061,8 @@ export const calcCh2Databank: ChapterDatabank = {
     "titleEn": "Slope of Tangent to Natural Log at Point (1, 0)",
     "titleAr": "ميل المماس للوغاريتم الطبيعي عند (1، 0)",
     "difficulty": "easy",
-    "questionEn": "Find the slope of the tangent to $y = \\ln x$ at $x = 1$.",
-    "questionAr": "أوجد ميل المماس للمنحنى $y = \\ln x$ عند $x = 1$.",
+    "questionEn": "Calculate the gradient of the tangent to $y = \ln x$ at $x = 1$.",
+    "questionAr": "احسب انحدار المماس لمنحنى $y = \ln x$ عند $x = 1$.",
     "optionsEn": [
       "$1$",
       "$0$",
