@@ -258,7 +258,7 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
             type: 'calculus_tangent',
             titleEn: 'Calculus Derivative & Secant-Tangent Visualizer',
             titleAr: 'محاكي خط التماس وميل المشتقة تفاعلياً',
-            descriptionEn: 'Interactive visualizer showing secant slope converging to tangent slope dy/dx = lim h->0 [f(x+h)-f(x)]/h.',
+            descriptionEn: 'Interactive visualizer showing secant slope converging to tangent slope $\\frac{dy}{dx} = \\lim_{h \\to 0} \\frac{f(x+h)-f(x)}{h}$.',
             descriptionAr: 'عرض تفاعلي يبين اقتراب ميل القاطع من ميل المماس عند تناهي h للصفر.'
           }
         }
@@ -280,7 +280,7 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
           id: 'calc_l2',
           titleEn: 'Euler\'s Constant, Limits & Exponential Differentiation',
           titleAr: 'العدد النيبيري، النهايات، واشتقاق الدوال الأسية واللوغاريتمية',
-          summaryEn: 'Understanding the natural constant e = lim (1 + 1/x)^x, essential limits lim (e^x - 1)/x = 1 and lim (a^x - 1)/x = ln a, and differentiation rules for e^(f(x)), a^(f(x)), ln(f(x)), and log_a(f(x)).',
+          summaryEn: 'Understanding the natural constant $e = \\lim_{x \\to \\infty}(1 + \\frac{1}{x})^x$, essential limits $\\lim_{x \\to 0}\\frac{e^x - 1}{x} = 1$ and $\\lim_{x \\to 0}\\frac{a^x - 1}{x} = \\ln a$, and differentiation rules for $e^{f(x)}$, $a^{f(x)}$, $\\ln(f(x))$, and $\\log_a(f(x))$.',
           summaryAr: 'فهم العدد النيبيري $e = \\lim_{x \\to \\infty}(1 + \\frac{1}{x})^x$، والنهايات القياسية $\\lim_{x \\to 0}\\frac{a^x - 1}{x} = \\ln a$، وقواعد اشتقاق $e^{f(x)}$ و $a^{f(x)}$ و $\\ln(f(x))$ و $\\log_a(f(x))$.',
           theoryContentEn: `### 1. The Natural Base $e$ (العدد النيبيري):
 The number $e$ (Euler\'s constant, $e \\approx 2.71828$) is defined by the fundamental limit:
@@ -572,7 +572,7 @@ $$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0
             type: 'calculus_tangent',
             titleEn: 'Exponential Curve & Euler Constant Visualizer',
             titleAr: 'محاكي منحنى الدالة الأسية والعدد النيبيري',
-            descriptionEn: 'Interactive visualizer exploring the exponential growth rate and slope equality dy/dx = y for e^x.',
+            descriptionEn: 'Interactive visualizer exploring the exponential growth rate and slope equality $\\frac{dy}{dx} = y$ for $e^x$.',
             descriptionAr: 'محاكي تفاعلي يوضح نمو الدالة الأسية وخاصية تساوي ميل المماس مع قيمة الدالة نفسها للدالة هـ^س.'
           }
         },
@@ -580,7 +580,7 @@ $$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0
           id: 'calc_l3',
           titleEn: 'Integration of Exponential & Logarithmic Functions',
           titleAr: 'تكامل الدوال الأسية واللوغاريتمية والكسور',
-          summaryEn: 'Integral rules for exponential functions Integral e^(f(x)) f\'(x) dx = e^(f(x)) + C, the fundamental logarithmic quotient rule Integral f\'(x)/f(x) dx = ln|f(x)| + C, and trigonometric integrals via ln.',
+          summaryEn: 'Integral rules for exponential functions $\\int e^{f(x)} f\'(x) \\, dx = e^{f(x)} + C$, the fundamental logarithmic quotient rule $\\int \\frac{f\'(x)}{f(x)} \\, dx = \\ln|f(x)| + C$, and trigonometric integrals via $\\ln$.',
           summaryAr: 'قواعد تكامل الدوال الأسية $\\int e^{f(x)} f\'(x) dx = e^{f(x)} + C$، وقاعدة تكامل بسط مشتقة المقام $\\int \\frac{f\'(x)}{f(x)} dx = \\ln|f(x)| + C$، وتكاملات الدوال المثلثية باللوغاريتم.',
           theoryContentEn: `### 1. Integration of Exponential Functions:
 1. **Natural Exponential Integral:**
@@ -1283,8 +1283,8 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
           id: 'calc_l6',
           titleEn: 'Methods of Integration (Substitution & By Parts)',
           titleAr: 'طرق التكامل (التعويض والتجزيء)',
-          summaryEn: 'Techniques of integration: integration by substitution for composite functions, logarithmic form f\'(x)/f(x), trigonometric half-angle and power reduction identities, and integration by parts u dv = uv - v du.',
-          summaryAr: 'طرق وتكنيكات التكامل: التكامل بالتعويض للدوال المركبة، الصورة اللوغاريتمية (البسط مشتقة المقام)، متطابقات الدوال المثلثية وقوانين ضعف الزاوية، والتكامل بالتجزيء.',
+          summaryEn: 'Techniques of integration: integration by substitution for composite functions, logarithmic form $\\frac{f\'(x)}{f(x)}$, trigonometric half-angle and power reduction identities, and integration by parts $\\int u \\, dv = uv - \\int v \\, du$.',
+          summaryAr: 'طرق وتكنيكات التكامل: التكامل بالتعويض للدوال المركبة، الصورة اللوغاريتمية (البسط مشتقة المقام $\\frac{f\'(x)}{f(x)}$)، متطابقات الدوال المثلثية وقوانين ضعف الزاوية، والتكامل بالتجزيء $\\int u \\, dv = uv - \\int v \\, du$.',
           theoryContentEn: `### 1. Integration by Substitution (التكامل بالتعويض)
 When the integrand contains a composite function multiplied by the derivative of its inner function:
 $$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \\quad (n \\neq -1)$$

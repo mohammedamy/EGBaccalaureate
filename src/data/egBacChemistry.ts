@@ -22,7 +22,7 @@ export const egBacChemistryBranch: Branch = {
           id: 'egbac_chem_l1',
           titleEn: 'Kinetics, Collision Dynamics & Dynamic Equilibrium',
           titleAr: 'حركية التفاعلات وديناميكا التصادم والاتزان الكيميائي',
-          summaryEn: 'Detailed investigation of rate laws r = k[A]^m[B]^n, half-life kinetics, Arrhenius activation barriers, equilibrium quotients Qc vs Kc, Kp = Kc(RT)^dn, Le Chatelier perturbations, and buffer Henderson-Hasselbalch relations.',
+          summaryEn: 'Detailed investigation of rate laws $r = k[A]^m[B]^n$, half-life kinetics, Arrhenius activation barriers, equilibrium quotients $Q_c$ vs $K_c$, $K_p = K_c(RT)^{\\Delta n}$, Le Chatelier perturbations, and buffer Henderson-Hasselbalch relations.',
           summaryAr: 'دراسة متعمقة لقوانين سرعة التفاعل $r = k[A]^m[B]^n$، حركية عمر النصف، حواجز طاقة التنشيط لأرهينيوس، حاصل التفاعل $Q_c$ مقابل $K_c$، العلاقة $K_p = K_c(RT)^{\\Delta n}$، إزاحات لوشاتيليه، ومحاليل البفر المنظمة.',
           theoryContentEn: `### 1. Reaction Rates & Rate Laws
 - **Reaction Rate Definition:** The change in concentration of a reactant or product per unit time:

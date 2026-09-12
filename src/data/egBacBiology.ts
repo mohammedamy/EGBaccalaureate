@@ -22,7 +22,7 @@ export const egBacBiologyBranch: Branch = {
           id: 'egbac_bio_l1',
           titleEn: 'Molecular Architecture of DNA & Central Dogma',
           titleAr: 'التركيب الجزيئي للـ DNA والعقيدة المركزية للبيولوجيا الجزيئية',
-          summaryEn: 'Detailed exploration of DNA as genetic material, antiparallel double helix, phosphodiester bonds, Chargaff stoichiometry %A=%T and %G=%C, DNA replication enzymes (helicase, primase, DNA polymerase III, ligase), mRNA transcription, and ribosomal peptide synthesis.',
+          summaryEn: 'Detailed exploration of DNA as genetic material, antiparallel double helix, phosphodiester bonds, Chargaff stoichiometry $\\%A = \\%T$ and $\\%G = \\%C$, DNA replication enzymes (helicase, primase, DNA polymerase III, ligase), mRNA transcription, and ribosomal peptide synthesis.',
           summaryAr: 'دراسة شاملة لـ DNA كمادة وراثية، اللولب المزدوج المتعاكس، الروابط التساهمية الفوسفاتية ثنائية الإستر، نسب شارجاف، إنزيمات التضاعف (اللولب، بلمرة DNA، الربط)، النسخ إلى mRNA، والترجمة في الريبوسومات.',
           theoryContentEn: `### 1. Proof of DNA as the Genetic Material
 - **Griffith's Experiment (1928):** Bacterial transformation in *Streptococcus pneumoniae*:

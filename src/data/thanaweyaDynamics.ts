@@ -22,15 +22,15 @@ export const thanaweyaDynamicsBranch: Branch = {
       chapterNumber: 1,
       titleEn: 'Differentiation & Integration of Vector Functions',
       titleAr: 'اشتقاق وتكامل الدوال المتجهة',
-      descriptionEn: 'Rectilinear kinematics: position vector r(t), displacement s(t), velocity v(t), acceleration a = dv/dt or a = v(dv/dx), accelerated vs decelerated motion, and integration for total distance.',
-      descriptionAr: 'الحركة المستقيمة: متجه الموضع، الإزاحة، السرعة، العجلة جـ = دع/دن أو جـ = ع(دع/دس)، الحركة المتسارعة والمتباطئة، وتكامل السرعة والعجلة لحساب الإزاحة والمسافة الكلية.',
+      descriptionEn: 'Rectilinear kinematics: position vector $r(t)$, displacement $s(t)$, velocity $v(t)$, acceleration $a = \\frac{dv}{dt}$ or $a = v \\frac{dv}{dx}$, accelerated vs decelerated motion, and integration for total distance.',
+      descriptionAr: 'الحركة المستقيمة: متجه الموضع $r(t)$، الإزاحة $s(t)$، السرعة $v(t)$، العجلة $a = \\frac{dv}{dt}$ أو $a = v \\frac{dv}{dx}$، الحركة المتسارعة والمتباطئة، وتكامل السرعة والعجلة لحساب الإزاحة والمسافة الكلية.',
       isFullyEquipped: true,
       lessons: [
         {
           id: 'dyn_l1',
           titleEn: 'Rectilinear Motion & Vector Differentiation',
           titleAr: 'حركة جسيم في خط مستقيم واشتقاق الدوال المتجهة',
-          summaryEn: 'Kinematics of a particle in a straight line: position r(t), displacement s(t) = r(t) - r(0), velocity v = ds/dt, acceleration a = dv/dt or a = v dv/dx, and accelerated vs decelerated motion condition (v . a > 0 or v . a < 0).',
+          summaryEn: 'Kinematics of a particle in a straight line: position $r(t)$, displacement $s(t) = r(t) - r(0)$, velocity $v = \\frac{ds}{dt}$, acceleration $a = \\frac{dv}{dt}$ or $a = v \\frac{dv}{dx}$, and accelerated vs decelerated motion condition ($v \\cdot a > 0$ or $v \\cdot a < 0$).',
           summaryAr: 'حركة جسيم في خط مستقيم: متجه الموضع $r(t)$، الإزاحة $s(t) = r(t) - r(0)$، السرعة $v = \\frac{ds}{dt}$، العجلة $a = \\frac{dv}{dt}$ أو $a = v \\frac{dv}{dx}$، وبحث نوع الحركة متسارعة أم تقصيرية ($v \\cdot a > 0$ أو $v \\cdot a < 0$).',
           theoryContentEn: `### 1. Vector Kinematics Definitions in a Straight Line
 When a particle moves along a straight line with coordinate axis $x$ and origin $O$:
@@ -179,8 +179,8 @@ When a particle moves along a straight line with coordinate axis $x$ and origin 
             id: 'ws_dyn_l1',
             titleEn: 'Solved Worksheet: Rectilinear Kinematics & Acceleration',
             titleAr: 'ورقة عمل محلولة: كينماتيكا الحركة المستقيمة والعجلة',
-            descriptionEn: 'Past Thanaweya Amma exam problems on straight line motion, a = v(dv/dx), and accelerated motion.',
-            descriptionAr: 'مسائل امتحانات الثانوية العامة على الحركة المستقيمة وقانون جـ = ع (دع/دس) والحركة المتسارعة والتقصيرية.',
+            descriptionEn: 'Past Thanaweya Amma exam problems on straight line motion, $a = v \\frac{dv}{dx}$, and accelerated motion.',
+            descriptionAr: 'مسائل امتحانات الثانوية العامة على الحركة المستقيمة وقانون $a = v \\frac{dv}{dx}$ والحركة المتسارعة والتقصيرية.',
             estimatedTimeMinutes: 45,
             problems: [
               {
@@ -319,7 +319,7 @@ When a particle moves along a straight line with coordinate axis $x$ and origin 
           id: 'dyn_l2',
           titleEn: 'Integration of Vector Functions & Distance vs. Displacement',
           titleAr: 'تكامل الدوال المتجهة وحساب المسافة الكلية والإزاحة',
-          summaryEn: 'Definite integration of vector acceleration and velocity, determining velocity from a(t) or a(x) via v dv = a dx, and distinguishing net displacement from total distance traveled.',
+          summaryEn: 'Definite integration of vector acceleration and velocity, determining velocity from $a(t)$ or $a(x)$ via $v \\, dv = a \\, dx$, and distinguishing net displacement from total distance traveled.',
           summaryAr: 'التكامل المحدد للعجلة والسرعة، حساب السرعة من العجلة كدالة في الزمن أو الموضع عبر $v dv = a dx$، والتمييز الدقيق بين الإزاحة والمسافة الكلية المقطوعة.',
           theoryContentEn: `### 1. Integration with Time-Dependent Acceleration ($a = f(t)$):
 $$\\Delta v = v(t) - v_0 = \\int_0^t a(t) dt \\implies v(t) = v_0 + \\int_0^t a(t) dt$$
@@ -470,7 +470,7 @@ $$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 
             id: 'ws_dyn_l2',
             titleEn: 'Solved Worksheet: Integration of Vector Functions & Distance',
             titleAr: 'ورقة عمل محلولة: تكامل الدوال المتجهة والمسافة',
-            descriptionEn: 'Exam problems on integration of acceleration, v dv = a dx, and computing total distance.',
+            descriptionEn: 'Exam problems on integration of acceleration, $v \\, dv = a \\, dx$, and computing total distance.',
             descriptionAr: 'مسائل امتحانات على تكامل العجلة وحساب المسافة الكلية والإزاحة.',
             estimatedTimeMinutes: 45,
             problems: [
@@ -606,15 +606,15 @@ $$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 
       chapterNumber: 2,
       titleEn: 'Newton\'s Laws of Motion & Momentum',
       titleAr: 'قوانين نيوتن للحركة وكمية الحركة',
-      descriptionEn: 'Linear momentum H = mv, impulse-momentum relation, Newton\'s first law (equilibrium and terminal velocity), Newton\'s second law F = ma, units of force, apparent weight in elevators, and motion of systems on smooth pulleys.',
-      descriptionAr: 'كمية الحركة كـ = ك ع، التغير في كمية الحركة، قانون نيوتن الأول (السرعة المنتظمة وأقصى سرعة)، قانون نيوتن الثاني ق = ك جـ، وحدات القوة والداين والنيوتن، حركة المصاعد والوزن الظاهري، وحركة الأجسام المتصلة ببكرات ملساء.',
+      descriptionEn: 'Linear momentum $H = mv$, impulse-momentum relation, Newton\'s first law (equilibrium and terminal velocity), Newton\'s second law $F = ma$, units of force, apparent weight in elevators, and motion of systems on smooth pulleys.',
+      descriptionAr: 'كمية الحركة $H = mv$، التغير في كمية الحركة، قانون نيوتن الأول (السرعة المنتظمة وأقصى سرعة)، قانون نيوتن الثاني $F = ma$، وحدات القوة والداين والنيوتن، حركة المصاعد والوزن الظاهري، وحركة الأجسام المتصلة ببكرات ملساء.',
       isFullyEquipped: true,
       lessons: [
         {
           id: 'dyn_l3',
           titleEn: 'Linear Momentum & Newton\'s First and Second Laws',
           titleAr: 'كمية الحركة وقانونا نيوتن الأول والثاني',
-          summaryEn: 'Understanding momentum H = mv, impulse-momentum theorem Delta H = m Delta v = Integral F dt, Newton\'s 1st law (uniform speed under balanced forces F = R), and Newton\'s 2nd law F = d(mv)/dt = ma with metric unit conversions.',
+          summaryEn: 'Understanding momentum $H = mv$, impulse-momentum theorem $\\Delta H = m \\Delta v = \\int F \\, dt$, Newton\'s 1st law (uniform speed under balanced forces $F = R$), and Newton\'s 2nd law $F = \\frac{d(mv)}{dt} = ma$ with metric unit conversions.',
           summaryAr: 'فهم كمية الحركة $H = mv$، التغير في كمية الحركة $\\Delta H = m(v_2 - v_1) = \\int F dt$، قانون نيوتن الأول (السرعة المنتظمة وأقصى سرعة $F = R$)، وقانون نيوتن الثاني $F = \\frac{d}{dt}(mv) = ma$ مع تحويل الوحدات.',
           theoryContentEn: `### 1. Linear Momentum ($H$ or $p$):
 The linear momentum of a body of mass $m$ moving with velocity $\\vec{v}$ is:
@@ -911,7 +911,7 @@ $$\\vec{F} = \\frac{d}{dt}(m\\vec{v})$$
             type: 'statics_friction',
             titleEn: 'Newtonian Force & Mass Acceleration Dynamics Lab',
             titleAr: 'مختبر ديناميكا القوى وقوانين نيوتن',
-            descriptionEn: 'Interactive simulator testing net force F - R = ma, mass acceleration, and resistance curves.',
+            descriptionEn: 'Interactive simulator testing net force $F - R = ma$, mass acceleration, and resistance curves.',
             descriptionAr: 'محاكي تفاعلي لاختبار محصلة القوى وحساب العجلة وتغير المقاومة مع السرعة.'
           }
         },
@@ -919,7 +919,7 @@ $$\\vec{F} = \\frac{d}{dt}(m\\vec{v})$$
           id: 'dyn_l4',
           titleEn: 'Newton\'s Third Law, Elevators & Smooth Pulleys',
           titleAr: 'قانون نيوتن الثالث، حركة المصاعد، والبكرات الملساء',
-          summaryEn: 'Analysis of apparent weight in elevators N = m(g ± a) under upward/downward acceleration, spring balance readings, and dynamics of connected bodies over smooth pulleys with rope tension and pressure on pulley.',
+          summaryEn: 'Analysis of apparent weight in elevators $N = m(g \\pm a)$ under upward/downward acceleration, spring balance readings, and dynamics of connected bodies over smooth pulleys with rope tension and pressure on pulley.',
           summaryAr: 'دراسة الوزن الظاهري داخل المصاعد $N = m(g \\pm a)$ عند الحركة بتسارع لأعلى أو لأسفل، قراءة الميزان الزنبركي، وحركة منظومات الأجسام المتصلة بحبال على بكرات ملساء والشد في الخيط والضغط على البكرة.',
           theoryContentEn: `### 1. Motion of Elevators (Apparent Weight $N$ vs. True Weight $mg$):
 When a person of mass $m$ stands on a scale inside an elevator:
@@ -1261,8 +1261,8 @@ When a person of mass $m$ stands on a scale inside an elevator:
           id: 'dyn_l5',
           titleEn: 'Impulse & Change in Linear Momentum',
           titleAr: 'الدفع والتغير في كمية الحركة',
-          summaryEn: 'Concept of impulse as force multiplied by time interval I = F Δt, impulse of variable force I = ∫ F(t) dt, impulse-momentum theorem I = Δp = m(v - v0), and impulsive reactions on floors, walls, and ceilings.',
-          summaryAr: 'مفهوم الدفع كحاصل ضرب القوة في زمن التأثير د = ق × ن، ودفع القوة المتغيرة د = تكامل ق(ن) د ن، ونظرية الدفع وكمية الحركة د = دلتا كـ = ك(ع - ع٠)، والضغط الدفعي على الأرضيات والحوائط والأسقف.',
+          summaryEn: 'Concept of impulse as force multiplied by time interval $I = F \\Delta t$, impulse of variable force $I = \\int F(t) \\, dt$, impulse-momentum theorem $I = \\Delta p = m(v - v_0)$, and impulsive reactions on floors, walls, and ceilings.',
+          summaryAr: 'مفهوم الدفع كحاصل ضرب القوة في زمن التأثير $I = F \\Delta t$، ودفع القوة المتغيرة $I = \\int F(t) \\, dt$، ونظرية الدفع وكمية الحركة $I = \\Delta p = m(v - v_0)$، والضغط الدفعي على الأرضيات والحوائط والأسقف.',
           theoryContentEn: `### 1. Definition of Impulse (الدفع)
 When a constant force $\\vec{F}$ acts on a body for a short time interval $\\Delta t = t_2 - t_1$, the **Impulse** $\\vec{I}$ is defined as:
 $$\\vec{I} = \\vec{F} \\Delta t$$
@@ -1509,8 +1509,8 @@ $$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$
           id: 'dyn_l6',
           titleEn: 'Direct Collision & Law of Conservation of Momentum',
           titleAr: 'التصادم المباشر وقانون بقاء كمية الحركة',
-          summaryEn: 'Principles of direct collision between two spheres, action-reaction impulses during impact, conservation of total linear momentum m1 u1 + m2 u2 = m1 v1\' + m2 v2\', coalescing into a single body, and loss of kinetic energy.',
-          summaryAr: 'مبادئ التصادم المباشر بين كرتين، ودفع الفعل ورد الفعل أثناء التصادم، وقانون بقاء كمية الحركة الكلية ك١ ع١ + ك٢ ع٢ = ك١ ع١\' + ك٢ ع٢\'، والتحام الأجسام في جسم واحد، وحساب الفقد في طاقة الحركة.',
+          summaryEn: 'Principles of direct collision between two spheres, action-reaction impulses during impact, conservation of total linear momentum $m_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'$, coalescing into a single body, and loss of kinetic energy.',
+          summaryAr: 'مبادئ التصادم المباشر بين كرتين، ودفع الفعل ورد الفعل أثناء التصادم، وقانون بقاء كمية الحركة الكلية $m_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'$، والتحام الأجسام في جسم واحد، وحساب الفقد في طاقة الحركة.',
           theoryContentEn: `### 1. Direct Collision of Two Smooth Spheres (التصادم المباشر)
 When two spheres move along the line connecting their centers and impact each other:
 - By **Newton's Third Law**, the impulsive force exerted by the first sphere on the second ($\\vec{F}_{12}$) is equal in magnitude and opposite in direction to that exerted by the second sphere on the first ($\\vec{F}_{21}$):
@@ -1762,8 +1762,8 @@ $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) -
           id: 'dyn_l7',
           titleEn: 'Work, Kinetic Energy & Work-Energy Principle',
           titleAr: 'الشغل، طاقة الحركة ومبدأ الشغل والطاقة',
-          summaryEn: 'Definition of work as W = F . s = F s cos(theta), work by variable force W = ∫ F ds, work from F-s graphs, kinetic energy T = (1/2)mv^2, and the Work-Energy Theorem ΔT = T - T0 = ΣW.',
-          summaryAr: 'تعريف الشغل كحاصل ضرب قياسي ش = ق . ف = ق ف جتا(هـ)، وشغل القوة المتغيرة ش = تكامل ق د ف، والشغل من منحنيات (ق - ف)، وطاقة الحركة ط = نصف ك ع²، ومبدأ الشغل والطاقة دلتا ط = مجموع الشغل المبذول.',
+          summaryEn: 'Definition of work as $W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta$, work by variable force $W = \\int F \\, ds$, work from $F$-$s$ graphs, kinetic energy $T = \\frac{1}{2}mv^2$, and the Work-Energy Theorem $\\Delta T = T - T_0 = \\sum W$.',
+          summaryAr: 'تعريف الشغل كحاصل ضرب قياسي $W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta$، وشغل القوة المتغيرة $W = \\int F \\, ds$، والشغل من منحنيات ($F$-$s$)، وطاقة الحركة $T = \\frac{1}{2}mv^2$، ومبدأ الشغل والطاقة $\\Delta T = \\sum W$.',
           theoryContentEn: `### 1. Definition of Work (الشغل)
 When a constant force $\\vec{F}$ acts on a body and causes a displacement $\\vec{s}$, the work $W$ done by the force is defined as the scalar (dot) product:
 $$W = \\vec{F} \\cdot \\vec{s} = F \\, s \\cos\\theta$$
@@ -2011,16 +2011,16 @@ $$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
             type: 'work_energy',
             titleEn: 'Work-Energy Theorem & Inclined Plane Dynamics Simulator',
             titleAr: 'محاكي نظرية الشغل وطاقة الحركة وحركة الأجسام على المستوى المائل',
-            descriptionEn: 'Interactive mechanics laboratory exploring work done by gravity, friction, and pulling forces, kinetic energy changes, and work-energy theorem W_net = Delta T.',
-            descriptionAr: 'مختبر ميكانيكا تفاعلي لاستكشاف شغل قوى الجاذبية والاحتكاك وقوة السحب، والتغير في طاقة الحركة، ونظرية الشغل والطاقة ش_الكلية = دلتا ط.'
+            descriptionEn: 'Interactive mechanics laboratory exploring work done by gravity, friction, and pulling forces, kinetic energy changes, and work-energy theorem $W_{\\text{net}} = \\Delta T$.',
+            descriptionAr: 'مختبر ميكانيكا تفاعلي لاستكشاف شغل قوى الجاذبية والاحتكاك وقوة السحب، والتغير في طاقة الحركة، ونظرية الشغل والطاقة $W_{\\text{net}} = \\Delta T$.',
           }
         },
         {
           id: 'dyn_l8',
           titleEn: 'Potential Energy, Conservation of Mechanical Energy & Power',
           titleAr: 'طاقة الوضع، قانون بقاء الطاقة الميكانيكية والقدرة',
-          summaryEn: 'Gravitational and elastic potential energy, principle of conservation of mechanical energy T + V = T0 + V0, energy loss in non-conservative systems, and power P = F . v in Watts and Horsepower.',
-          summaryAr: 'طاقة الوضع التثاقلية والمرونية، وقانون بقاء الطاقة الميكانيكية ط + ض = ط٠ + ض٠، وفقد الطاقة في الأوساط المقاومة، والقدرة ق = ق . ع بالواط والحصان.',
+          summaryEn: 'Gravitational and elastic potential energy, principle of conservation of mechanical energy $T + V = T_0 + V_0$, energy loss in non-conservative systems, and power $P = \\vec{F} \\cdot \\vec{v}$ in Watts and Horsepower.',
+          summaryAr: 'طاقة الوضع التثاقلية والمرونية، وقانون بقاء الطاقة الميكانيكية $T + V = T_0 + V_0$، وفقد الطاقة في الأوساط المقاومة، والقدرة $P = \\vec{F} \\cdot \\vec{v}$ بالواط والحصان.',
           theoryContentEn: `### 1. Potential Energy (طاقة الوضع)
 Potential energy $V$ is the energy stored in a body due to its position in a conservative force field:
 1. **Gravitational Potential Energy:**

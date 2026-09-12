@@ -323,7 +323,7 @@ If an action can be performed in $m$ different ways and a second independent act
                 type: 'pascal_binomial',
                 titleEn: 'Interactive Pascal Triangle & Binomial Coefficients',
                 titleAr: 'مستكشف مثلث باسكال ومعاملات ذات الحدين',
-                descriptionEn: 'Explore rows of Pascal Triangle, test Pascal Identity C(n,r)+C(n,r-1)=C(n+1,r), and generate binomial term expansions dynamically.',
+                descriptionEn: 'Explore rows of Pascal Triangle, test Pascal Identity $\\binom{n}{r} + \\binom{n}{r-1} = \\binom{n+1}{r}$, and generate binomial term expansions dynamically.',
                 descriptionAr: 'استكشف صفوف مثلث باسكال، واختبر قانون الجمع، وتوليد مفكوك ذات الحدين تفاعلياً.'
               }
             },
@@ -331,8 +331,8 @@ If an action can be performed in $m$ different ways and a second independent act
               id: 'alg_l2',
               titleEn: 'Binomial Theorem for Positive Integral Exponents',
               titleAr: 'نظرية ذات الحدين بأس صحيح موجب',
-              summaryEn: 'Expansion of (a + b)^n, general term T_(r+1), middle term determination, and coefficient properties.',
-              summaryAr: 'مفكوك (أ + ب)^ن، قانون الحد العام ح(ر+١)، رتبة الحد الأوسط والحدين الأوسطين، وحساب مجموع المعاملات.',
+              summaryEn: 'Expansion of $(a + b)^n$, general term $T_{r+1}$, middle term determination, and coefficient properties.',
+              summaryAr: 'مفكوك $(a + b)^n$، قانون الحد العام $T_{r+1}$، رتبة الحد الأوسط والحدين الأوسطين، وحساب مجموع المعاملات.',
               theoryContentEn: `### 1. Binomial Theorem Expansion
 For any positive integer $n$ and any real numbers $a, b$:
 $(a + b)^n = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\binom{n}{2} a^{n-2} b^2 + \\cdots + \\binom{n}{n} b^n = \\sum_{r=0}^{n} \\binom{n}{r} a^{n-r} b^r$
@@ -601,7 +601,7 @@ $(a + b)^n = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\binom{n}{2} a^{n-2}
               id: 'alg_l3',
               titleEn: 'Trigonometric & Exponential Forms of Complex Numbers',
               titleAr: 'الصورة المثلثية والأسية للعدد المركب',
-              summaryEn: 'Modulus r = |z| = sqrt(x^2 + y^2), principal argument theta in (-pi, pi], trigonometric form z = r(cos theta + i sin theta), Euler exponential form z = r e^(i theta), multiplication, and division.',
+              summaryEn: 'Modulus $r = |z| = \\sqrt{x^2 + y^2}$, principal argument $\\theta \\in (-\\pi, \\pi]$, trigonometric form $z = r(\\cos\\theta + i\\sin\\theta)$, Euler exponential form $z = r e^{i\\theta}$, multiplication, and division.',
               summaryAr: 'المقياس $r = |z| = \\sqrt{x^2 + y^2}$، والسعة الأساسية $\\theta \\in (-\\pi, \\pi]$، الصورة المثلثية $z = r(\\cos\\theta + i\\sin\\theta)$، والصورة الأسية لأويلر $z = r e^{i\\theta}$، وقواعد الضرب والقسمة.',
               theoryContentEn: `### 1. Modulus and Principal Argument of a Complex Number:
 Let $z = x + i y$ be a complex number represented in the Argand plane by point $(x, y)$:
@@ -908,7 +908,7 @@ Let $z_1 = r_1 e^{i \\theta_1}$ and $z_2 = r_2 e^{i \\theta_2}$:
               id: 'alg_l4',
               titleEn: "De Moivre's Theorem & Cube Roots of Unity ($\\omega$)",
               titleAr: 'نظرية ديموافر والجذور التكعيبية للواحد الصحيح (أوميجا)',
-              summaryEn: 'De Moivre\'s theorem for integral and rational exponents, finding the n-th roots of complex numbers, and properties of the cube roots of unity 1, omega, omega^2 with algebraic simplifications.',
+              summaryEn: 'De Moivre\'s theorem for integral and rational exponents, finding the $n$-th roots of complex numbers, and properties of the cube roots of unity $1, \\omega, \\omega^2$ with algebraic simplifications.',
               summaryAr: 'نظرية ديموافر للأسس الصحيحة والنسبية، إيجاد الجذور النونية للعدد المركب، وخواص الجذور التكعيبية للواحد الصحيح $1, \\omega, \\omega^2$ وتبسيط المقادير الجبرية.',
               theoryContentEn: `### 1. De Moivre's Theorem for Integral Exponents:
 For any integer $n$:
@@ -1214,7 +1214,7 @@ $$z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i 
               id: 'alg_l5',
               titleEn: 'Determinants & Their Fundamental Properties',
               titleAr: 'المحددات وخواصها الأساسية',
-              summaryEn: '2x2 and 3x3 determinants, expansion along rows/columns, invariant properties under elementary row/column operations, splitting determinants, and upper/lower triangular forms.',
+              summaryEn: '$2 \\times 2$ and $3 \\times 3$ determinants, expansion along rows/columns, invariant properties under elementary row/column operations, splitting determinants, and upper/lower triangular forms.',
               summaryAr: 'المحددات الثنائية والثلاثية، مفكوك المحدد بدلالة عناصر أي صف أو عمود، خواص المحددات عند إجراء العمليات الأولية، تجزئة المحدد، ومحدد المصفوفة المثلثية.',
               theoryContentEn: `### 1. Definition and Value of Determinants:
 For a $2 \\times 2$ matrix:
@@ -1395,7 +1395,7 @@ $$\\Delta = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$$
               id: 'alg_l6',
               titleEn: 'Matrix Multiplicative Inverses & Linear Systems',
               titleAr: 'المعكوس الضربي للمصفوفة وحل أنظمة المعادلات الخطية',
-              summaryEn: 'Adjugate matrix, formula for A^-1, properties of inverses, matrix rank rank(A), Cramer\'s rule, and Rouché-Capelli theorem on consistency of linear systems.',
+              summaryEn: 'Adjugate matrix, formula for $A^{-1}$, properties of inverses, matrix rank $\\text{rank}(A)$, Cramer\'s rule, and Rouché-Capelli theorem on consistency of linear systems.',
               summaryAr: 'المصفوفة الملحقة، قانون المعكوس الضربي $A^{-1}$، خواص المعكوسات، رتبة المصفوفة والمصفوفة الموسعة، قاعدة كرامر، ونظرية روجيه-كابيلي لبحث حلول الأنظمة الخطية.',
               theoryContentEn: `### 1. Matrix Inverses & Adjugate:
 For an invertible $n \\times n$ matrix $A$ ($|A| \\neq 0$):
@@ -1603,7 +1603,7 @@ $$A^{-1} = \\frac{1}{|A|} \\text{adj}(A)$$
               id: 'solid_l1',
               titleEn: '3D Rectangular Coordinates & The Sphere Equation',
               titleAr: 'النظام الإحداثي المتعامد في الفراغ ومعادلة الكرة',
-              summaryEn: 'Understanding 3D axes (X,Y,Z), coordinate planes (XY, YZ, XZ), distance between points in 3D, and standard & general equations of a sphere.',
+              summaryEn: 'Understanding 3D axes ($X, Y, Z$), coordinate planes ($XY$, $YZ$, $XZ$), distance between points in 3D, and standard & general equations of a sphere.',
               summaryAr: 'فهم محاور الفراغ ثلاثي الأبعاد، مستويات الإحداثيات، قانون البعد بين نقطتين، ومنتصف القطعة، والصورة القياسية والعامة لمعادلة الكرة.',
               theoryContentEn: `### 1. 3D Rectangular Coordinate System
 Points in space are located by coordinates $(x, y, z)$.
@@ -1914,8 +1914,8 @@ Points in space are located by coordinates $(x, y, z)$.
               id: 'solid_l2',
               titleEn: 'Straight Lines in 3D Space & Spatial Angles',
               titleAr: 'معادلة الخط المستقيم في الفراغ والزوايا الفراغية',
-              summaryEn: 'Vector, parametric, and symmetric Cartesian equations of lines, direction cosines cos^2 alpha + cos^2 beta + cos^2 gamma = 1, angle between two lines, parallel and perpendicular conditions, and skew lines.',
-              summaryAr: 'الصور المتجهية والبارامترية والكارتيزية لمعادلة المستقيم، جيوب تمام الاتجاه، قياس الزاوية بين مستقيمين، شرطا التوازي والتعامد، والمستقيمان المتخالفان.',
+              summaryEn: 'Vector, parametric, and symmetric Cartesian equations of lines, direction cosines $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$, angle between two lines, parallel and perpendicular conditions, and skew lines.',
+              summaryAr: 'الصور المتجهية والبارامترية والكارتيزية لمعادلة المستقيم، جيوب تمام الاتجاه $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$، قياس الزاوية بين مستقيمين، شرطا التوازي والتعامد، والمستقيمان المتخالفان.',
               theoryContentEn: `### 1. Direction Vector and Direction Cosines of a Line:
 Let a line pass through point $A(x_0, y_0, z_0)$ with direction vector $\\vec{d} = (a, b, c)$:
 - **Direction Ratios (نسب الاتجاه):** The components $(a, b, c)$ or any non-zero scalar multiple $k(a, b, c)$.
@@ -2211,8 +2211,8 @@ $$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\ve
               id: 'solid_l3',
               titleEn: 'Equations of a Plane in 3D Space & Distance Metrics',
               titleAr: 'معادلة المستوى في الفراغ وحساب الأبعاد',
-              summaryEn: 'General, vector, and intercept forms of a plane equation Ax + By + Cz + D = 0, normal vector n, perpendicular distance from point to plane L = |Ax1 + By1 + Cz1 + D| / sqrt(A^2 + B^2 + C^2), and angle between planes.',
-              summaryAr: 'الصور العامة والمتجهية وصورة الأجزاء المقطوعة لمعادلة المستوى، المتجه العمودي $\\vec{n}$، وطول العمود الساقط من نقطة على مستوى $L$، وقياس الزاوية بين مستويين.',
+              summaryEn: 'General, vector, and intercept forms of a plane equation $Ax + By + Cz + D = 0$, normal vector $\\vec{n}$, perpendicular distance from point to plane $L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$, and angle between planes.',
+              summaryAr: 'الصور العامة والمتجهية وصورة الأجزاء المقطوعة لمعادلة المستوى $Ax + By + Cz + D = 0$، المتجه العمودي $\\vec{n}$، وطول العمود الساقط من نقطة على مستوى $L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$، وقياس الزاوية بين مستويين.',
               theoryContentEn: `### 1. The Normal Vector and Plane Equation Forms:
 Let a plane pass through $A(x_0, y_0, z_0)$ with non-zero perpendicular normal vector $\\vec{n} = (A, B, C)$:
 1. **Vector Form (الصورة المتجهية):**

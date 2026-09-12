@@ -1351,10 +1351,10 @@ export const LessonView: React.FC<Props> = ({
                   <span className="text-xs text-slate-400">• 3 {lang === 'ar' ? 'أنشطة استكشافية متكاملة' : 'Interactive Lab Modes'}</span>
                 </div>
                 <h3 className={`text-xl font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
-                  {lang === 'ar' ? lesson.interactiveWidget.titleAr : lesson.interactiveWidget.titleEn}
+                  <MathRenderer math={lang === 'ar' ? lesson.interactiveWidget.titleAr : lesson.interactiveWidget.titleEn} lang={lang} />
                 </h3>
                 <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-                  {lang === 'ar' ? lesson.interactiveWidget.descriptionAr : lesson.interactiveWidget.descriptionEn}
+                  <MathRenderer math={lang === 'ar' ? lesson.interactiveWidget.descriptionAr : lesson.interactiveWidget.descriptionEn} lang={lang} />
                 </p>
               </div>
 

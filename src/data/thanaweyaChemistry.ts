@@ -22,7 +22,7 @@ export const thanaweyaChemistryBranch: Branch = {
           id: 'th_chem_l1',
           titleEn: 'Transition Metals & Chemical Metallurgy of Iron',
           titleAr: 'العناصر الانتقالية والخواص الكيميائية وتعدين الحديد',
-          summaryEn: 'Analysis of 3d transition metals: [Ar] 4s^2 3d^n, stability of half-filled and completely filled subshells, magnetic moment mu = sqrt(n(n+2)), iron extraction in blast furnace and Midrex, and oxidation conversions among Fe, FeO, Fe3O4, and Fe2O3.',
+          summaryEn: 'Analysis of $3d$ transition metals: $[\\text{Ar}]\\, 4s^2\\, 3d^n$, stability of half-filled and completely filled subshells, magnetic moment $\\mu = \\sqrt{n(n+2)}$, iron extraction in blast furnace and Midrex, and oxidation conversions among $\\text{Fe}$, $\\text{FeO}$, $\\text{Fe}_3\\text{O}_4$, and $\\text{Fe}_2\\text{O}_3$.',
           summaryAr: 'دراسة عناصر السلسلة الانتقالية الأولى $3d$: التوزيع العام $[\\text{Ar}] 4s^2 3d^n$، استقرار المستويات النصف ممتلئة والتامة، العزم المغناطيسي $\\mu = \\sqrt{n(n+2)}$، استخلاص الحديد في الفرن العالي ومدركس، والتحولات الكيميائية بين الحديد وأكاسيده.',
           theoryContentEn: `### 1. Definition and General Electronic Configuration
 - **Transition Element:** An element having incompletely filled $d$ or $f$ subshells in either its elemental state or in any of its oxidation states.

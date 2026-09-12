@@ -22,7 +22,7 @@ export const egBacPhysicsBranch: Branch = {
           id: 'egbac_phys_l1',
           titleEn: 'Quantum Radiation & Matter-Wave Duality',
           titleAr: 'الإشعاع الكمي وازدواجية الموجة والجسيم',
-          summaryEn: 'Quantum foundation: Planck energy packets E = h*nu, Einstein photoelectric emission h*nu = W_0 + KE_max, Compton momentum conservation p = h/lambda, de Broglie wavelength lambda = h/p, and wave optics of electron beams.',
+          summaryEn: 'Quantum foundation: Planck energy packets $E = h\\nu$, Einstein photoelectric emission $h\\nu = W_0 + KE_{\\max}$, Compton momentum conservation $p = \\frac{h}{\\lambda}$, de Broglie wavelength $\\lambda = \\frac{h}{p}$, and wave optics of electron beams.',
           summaryAr: 'أسس فيزياء الكم: كمات الطاقة لبلانك $E = h\\nu$، الانبعاث الكهروضوئي لأينشتاين $h\\nu = W_0 + KE_{\\max}$، تصادم كومتون وحفظ كمية الحركة $p = \\frac{h}{\\lambda}$، وموجات دي برولي المادية $\\lambda = \\frac{h}{mv}$.',
           theoryContentEn: `### 1. Blackbody Radiation & Planck's Quantum Hypothesis
 - **Classical Wave Theory Failure:** Classical electromagnetism predicted that radiation intensity continuously increases as wavelength decreases toward the ultraviolet (the "ultraviolet catastrophe").

@@ -22,8 +22,8 @@ export const thanaweyaPhysicsBranch: Branch = {
           id: 'th_phys_l1',
           titleEn: 'Electric Circuit Analysis & Kirchhoff\'s Laws',
           titleAr: 'تحليل الدوائر الكهربية وقانونا كيرشوف',
-          summaryEn: 'Core principles of electric current I = Q/t, Ohm\'s Law V = IR, conductor resistance R = rho_e * L / A, closed-circuit Ohm\'s Law I = V_B / (R_eq + r), and Kirchhoff\'s junction and loop conservation rules.',
-          summaryAr: 'المبادئ الأساسية لشدة التيار $I = \\frac{Q}{t}$، قانون أوم $V = IR$، مقاومة الموصل $R = \\rho_e \\frac{L}{A}$، قانون أوم للدائرة المغلقة $I = \\frac{V_B}{R_{eq} + r}$، وقانونا كيرشوف لحفظ الشحنة والطاقة.',
+          summaryEn: 'Core principles of electric current $I = \\frac{Q}{t}$, Ohm\'s Law $V = IR$, conductor resistance $R = \\rho_e \\frac{L}{A}$, closed-circuit Ohm\'s Law $I = \\frac{V_B}{R_{\\text{eq}} + r}$, and Kirchhoff\'s junction and loop conservation rules.',
+          summaryAr: 'المبادئ الأساسية لشدة التيار $I = \\frac{Q}{t}$، قانون أوم $V = IR$، مقاومة الموصل $R = \\rho_e \\frac{L}{A}$، قانون أوم للدائرة المغلقة $I = \\frac{V_B}{R_{\\text{eq}} + r}$، وقانونا كيرشوف لحفظ الشحنة والطاقة.',
           theoryContentEn: `### 1. Electric Current & Potential Difference
 - **Current Intensity ($I$):** The rate of flow of electric charges through a conductor cross-section:
   $$I = \\frac{Q}{t} = \\frac{n \\cdot e}{t}$$

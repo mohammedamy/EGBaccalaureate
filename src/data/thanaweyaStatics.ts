@@ -34,7 +34,7 @@ export const thanaweyaStaticsBranch: Branch = {
           id: 'stat_l1',
           titleEn: 'Friction Force & Equilibrium on Rough Planes',
           titleAr: 'قوة الاحتكاك والتوازن على المستويات الخشنة',
-          summaryEn: 'Understanding limiting static friction f_s = mu_s * R, resultant reaction R\' = R sqrt(1 + mu_s^2), and friction angle lambda.',
+          summaryEn: 'Understanding limiting static friction $F_s = \\mu_s R$, resultant reaction $R\' = R\\sqrt{1 + \\mu_s^2} = R\\sec\\lambda$, and friction angle $\\lambda$.',
           summaryAr: 'فهم قوة الاحتكاك السكوني النهائي $F_s = \\mu_s R$، ورد الفعل المحصل $R\' = R\\sqrt{1 + \\mu_s^2} = R\\sec\\lambda$، وزاوية الاحتكاك $\\lambda$.',
           theoryContentEn: `### 1. Limiting Static Friction Force ($F_s$)
 When a body rests on a rough plane under pulling force $P$, a resisting friction force $F$ arises opposing motion:
@@ -277,15 +277,15 @@ $$\\tan(\\lambda) = \\frac{F_s}{R} = \\mu_s$$
       chapterNumber: 2,
       titleEn: 'Moments of Forces in 2D & 3D Vector Systems',
       titleAr: 'عزوم القوى في نظام إحداثي ثنائي وثلاثي الأبعاد',
-      descriptionEn: 'Moments of forces about a point in 2D and 3D, algebraic measure of moment, vector cross product M_O = r x F, Varignon\'s theorem of moments, arm of moment L = ||M_O|| / ||F||, and moments about coordinate axes.',
-      descriptionAr: 'عزم قوة حول نقطة في بعدين وثلاثة أبعاد، القياس الجبري للعزم، الضرب الاتجاهي عزم_و = ر × ق، نظرية فارينون للعزوم، طول ذراع العزم ل = معيار(عزم) / معيار(ق)، ومركبات العزم حول محاور الإحداثيات.',
+      descriptionEn: 'Moments of forces about a point in 2D and 3D, algebraic measure of moment, vector cross product $\\vec{M}_O = \\vec{r} \\times \\vec{F}$, Varignon\'s theorem of moments, arm of moment $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|}$, and moments about coordinate axes.',
+      descriptionAr: 'عزم قوة حول نقطة في بعدين وثلاثة أبعاد، القياس الجبري للعزم، الضرب الاتجاهي $\\vec{M}_O = \\vec{r} \\times \\vec{F}$، نظرية فارينون للعزوم، طول ذراع العزم $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|}$، ومركبات العزم حول محاور الإحداثيات.',
       isFullyEquipped: true,
       lessons: [
         {
           id: 'stat_l2',
           titleEn: 'Moments in 2D Coordinates & Varignon\'s Theorem',
           titleAr: 'عزوم القوى في نظام إحداثي ثنائي الأبعاد ونظرية فارينون',
-          summaryEn: 'Understanding the moment of a force about a point in 2D, vector cross product M_O = r x F = (x Fy - y Fx) k, Varignon\'s theorem (moment of resultant = sum of component moments), and arm of moment L.',
+          summaryEn: 'Understanding the moment of a force about a point in 2D, vector cross product $\\vec{M}_O = \\vec{r} \\times \\vec{F} = (x F_y - y F_x)\\hat{k}$, Varignon\'s theorem (moment of resultant = sum of component moments), and arm of moment $L$.',
           summaryAr: 'فهم عزم قوة حول نقطة في المستوى ثنائي الأبعاد، الضرب الاتجاهي $\\vec{M}_O = \\vec{r} \\times \\vec{F} = (x F_y - y F_x)\\hat{k}$، نظرية فارينون (عزم المحصلة = مجموع عزوم القوى)، وطول ذراع العزم $L$.',
           theoryContentEn: `### 1. Definition of Moment of a Force
 The **moment of a force** measures the rotational effect (turning tendency) produced by the force about a given point (the moment center):
@@ -600,7 +600,7 @@ $$\\vec{M}_O(\\vec{R}) = \\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i)$$
           id: 'stat_l3',
           titleEn: 'Moments of Forces in 3D Space & Perpendicular Arm',
           titleAr: 'عزوم القوى في الفراغ ثلاثي الأبعاد وحساب طول العمود',
-          summaryEn: 'Moments in 3D space using determinant cross product M_O = r x F, finding components Mx, My, Mz about coordinate axes, perpendicular distance L = ||M_O|| / ||F||, and moment about a directed line.',
+          summaryEn: 'Moments in 3D space using determinant cross product $\\vec{M}_O = \\vec{r} \\times \\vec{F}$, finding components $M_x, M_y, M_z$ about coordinate axes, perpendicular distance $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|}$, and moment about a directed line.',
           summaryAr: 'عزوم القوى في الفراغ ثلاثي الأبعاد باستخدام محدد الضرب الاتجاهي $\\vec{M}_O = \\vec{r} \\times \\vec{F}$، إيجاد مركبات العزم $M_x, M_y, M_z$ حول محاور الإحداثيات، وحساب طول العمود الساقط $L$.',
           theoryContentEn: `### 1. Vector Moment in 3D Space:
 Let a force $\\vec{F} = F_x \\hat{i} + F_y \\hat{j} + F_z \\hat{k}$ act at point $A(x, y, z)$. The moment of $\\vec{F}$ about the origin $O(0, 0, 0)$ is:
@@ -1078,7 +1078,7 @@ Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$:
           id: 'stat_l5',
           titleEn: 'Equilibrium of Parallel Coplanar Forces',
           titleAr: 'اتزان القوى المتوازية المستوية',
-          summaryEn: 'Equilibrium conditions sum(F) = 0 and sum(M) = 0, reaction of supports on horizontal beams, uniform and non-uniform rods, and tilting / overturning conditions.',
+          summaryEn: 'Equilibrium conditions $\\sum \\vec{F} = \\vec{0}$ and $\\sum M = 0$, reaction of supports on horizontal beams, uniform and non-uniform rods, and tilting / overturning conditions.',
           summaryAr: 'شروط الاتزان العام لمجموعة قوى متوازية، ردود أفعال الحوامل للقضبان المنتظمة وغير المنتظمة، وحساب أقصى أحمال قبل وشك الانقلاب.',
           theoryContentEn: `### 1. General Conditions for Equilibrium of Coplanar Parallel Forces:
 A system of parallel coplanar forces is in complete static equilibrium if and only if:
@@ -1267,15 +1267,15 @@ When loads are applied or shifted such that a supported beam is on the verge of 
       chapterNumber: 4,
       titleEn: 'General Equilibrium of Rigid Bodies',
       titleAr: 'الاتزان العام للأجسام الجاسئة',
-      descriptionEn: 'Equilibrium of rigid bodies under coplanar forces: ΣX = 0, ΣY = 0, and ΣM = 0. Support reactions for hinges, smooth and rough planes, uniform and non-uniform ladders, and climbers.',
-      descriptionAr: 'اتزان الأجسام الجاسئة تحت تأثير قوى مستوية: س = ٠، ص = ٠، جـ = ٠. ردود أفعال المفصلات، والسطوح الملساء والخشنة، والسلالم المنتظمة وغير المنتظمة ومسائل المتسلقين.',
+      descriptionEn: 'Equilibrium of rigid bodies under coplanar forces: $\\sum X = 0$, $\\sum Y = 0$, and $\\sum M = 0$. Support reactions for hinges, smooth and rough planes, uniform and non-uniform ladders, and climbers.',
+      descriptionAr: 'اتزان الأجسام الجاسئة تحت تأثير قوى مستوية: $\\sum X = 0$، $\\sum Y = 0$، $\\sum M = 0$. ردود أفعال المفصلات، والسطوح الملساء والخشنة، والسلالم المنتظمة وغير المنتظمة ومسائل المتسلقين.',
       isFullyEquipped: true,
       lessons: [
         {
           id: 'stat_l6',
           titleEn: 'Conditions of General Equilibrium & Hinged Rods',
           titleAr: 'شروط الاتزان العام والقضبان المتصلة بمفصلات',
-          summaryEn: 'Equilibrium criteria ΣX = 0, ΣY = 0, ΣM = 0. Resolving hinge reactions into perpendicular components X and Y, and calculating resultant reaction R = sqrt(X^2 + Y^2) and direction tan(theta) = Y/X.',
+          summaryEn: 'Equilibrium criteria $\\sum X = 0$, $\\sum Y = 0$, $\\sum M = 0$. Resolving hinge reactions into perpendicular components $X$ and $Y$, and calculating resultant reaction $R = \\sqrt{X^2 + Y^2}$ and direction $\\tan\\theta = \\frac{Y}{X}$.',
           summaryAr: 'شروط الاتزان العام: س = ٠، ص = ٠، جـ = ٠. تحليل ردود أفعال المفصلات إلى مركبتين متعامدتين س و ص وإيجاد رد الفعل المحصل واتجاهه.',
           theoryContentEn: `### 1. The Necessary and Sufficient Conditions for General Equilibrium
 A rigid body acted upon by a system of coplanar forces is in general static equilibrium if and only if:
@@ -1512,8 +1512,8 @@ If a rigid body is in equilibrium under the action of three non-parallel coplana
           id: 'stat_l7',
           titleEn: 'Ladders & Beams on Rough & Smooth Planes',
           titleAr: 'اتزان السلالم والقضبان على السطوح الخشنة والملساء',
-          summaryEn: 'Equilibrium of ladders on smooth vertical walls and rough floors, limiting friction mu_s = (1/2)cot(theta), climber ascent limits, and equilibrium on two rough surfaces.',
-          summaryAr: 'اتزان السلالم على الحوائط الملساء والأرضيات الخشنة، وشرط وشك الانزلاق م_س = نصف ظتا(هـ)، وأقصى مسافة صعود لمتسلق، والاتزان على سطحين خشنين.',
+          summaryEn: 'Equilibrium of ladders on smooth vertical walls and rough floors, limiting friction $\\mu_s = \\frac{1}{2}\\cot\\theta$, climber ascent limits, and equilibrium on two rough surfaces.',
+          summaryAr: 'اتزان السلالم على الحوائط الملساء والأرضيات الخشنة، وشرط وشك الانزلاق $\\mu_s = \\frac{1}{2}\\cot\\theta$، وأقصى مسافة صعود لمتسلق، والاتزان على سطحين خشنين.',
           theoryContentEn: `### 1. The Classic Ladder Problem
 Consider a uniform ladder $AB$ of length $L$ and weight $W$ resting with:
 - Top end $A$ against a **smooth vertical wall**: reaction $R_A$ is horizontal (perpendicular to wall).
@@ -1762,16 +1762,16 @@ $$\\tan\\theta = \\frac{1}{2 \\mu_s}$$
       chapterNumber: 5,
       titleEn: 'Couples',
       titleAr: 'الازدواجات',
-      descriptionEn: 'Rigid body equilibrium and rotation under couples: definition, moment of a couple (M = F * d), equivalence of couples, equilibrium under multiple couples, vector representation of couples, and the Polygon Theorem (M = 2 * m * Area).',
-      descriptionAr: 'اتزان ودوران الأجسام الجاسئة تحت تأثير الازدواجات: تعريف الازدواج، عزم الازدواج (جـ = ق × ل)، تكافؤ واتزان الازدواجات، الصورة الاتجاهية للازدواج، ونظرية تمثيل القوى بأضلاع مضلع مغلق (جـ = ٢ × م × المساحة).',
+      descriptionEn: 'Rigid body equilibrium and rotation under couples: definition, moment of a couple ($M = F \\cdot d$), equivalence of couples, equilibrium under multiple couples, vector representation of couples, and the Polygon Theorem ($M = 2 m \\cdot \\text{Area}$).',
+      descriptionAr: 'اتزان ودوران الأجسام الجاسئة تحت تأثير الازدواجات: تعريف الازدواج، عزم الازدواج ($M = F \\cdot d$)، تكافؤ واتزان الازدواجات، الصورة الاتجاهية للازدواج، ونظرية تمثيل القوى بأضلاع مضلع مغلق ($M = 2 m \\cdot \\text{Area}$).',
       isFullyEquipped: true,
       lessons: [
         {
           id: 'stat_l8',
           titleEn: 'Definition, Properties & Moment of Couples',
           titleAr: 'تعريف الازدواج وخواصه وحساب عزمه',
-          summaryEn: 'Fundamental concept of a couple: two parallel, equal in magnitude, opposite in direction forces not along the same line. Moment invariance about any point M = F * d, vector form M = r_AB x F, and sense of rotation.',
-          summaryAr: 'المفهوم الأساسي للازدواج: قوتان متوازيتان متساويتان في المقدار ومتضادتان في الاتجاه ولا يجمعهما خط عمل واحد. ثبات عزم الازدواج حول أي نقطة، والصورة الاتجاهية، واتجاه الدوران.',
+          summaryEn: 'Fundamental concept of a couple: two parallel, equal in magnitude, opposite in direction forces not along the same line. Moment invariance about any point $M = F \\cdot d$, vector form $\\vec{M} = \\vec{r}_{AB} \\times \\vec{F}$, and sense of rotation.',
+          summaryAr: 'المفهوم الأساسي للازدواج: قوتان متوازيتان متساويتان في المقدار ومتضادتان في الاتجاه ولا يجمعهما خط عمل واحد. ثبات عزم الازدواج حول أي نقطة $M = F \\cdot d$، والصورة الاتجاهية $\\vec{M} = \\vec{r}_{AB} \\times \\vec{F}$، واتجاه الدوران.',
           theoryContentEn: `### 1. Definition of a Couple (تعريف الازدواج):
 A **couple** is a system consisting of two forces that are:
 1. **Equal in magnitude** ($|\\vec{F}_1| = |\\vec{F}_2| = F$).
@@ -2010,8 +2010,8 @@ $$\\vec{M} = \\vec{r}_{AB} \\times \\vec{F} = (\\vec{r}_B - \\vec{r}_A) \\times 
           id: 'stat_l9',
           titleEn: 'Equivalence, Equilibrium & The Polygon Theorem',
           titleAr: 'تكافؤ واتزان الازدواجات ونظرية المضلع المغلق',
-          summaryEn: 'Equivalence of couples having identical moments, equilibrium of two or more couples (sum of moments = 0), and the Polygon Theorem for coplanar forces represented by sides of a closed polygon: M = 2 * m * Area.',
-          summaryAr: 'تكافؤ الازدواجات المتساوية في العزم، واتزان عدة ازدواجات (مجموع العزوم = صفراً)، ونظرية المضلع المغلق لتمثيل القوى في اتجاه دوري واحد: جـ = ٢ × م × المساحة.',
+          summaryEn: 'Equivalence of couples having identical moments, equilibrium of two or more couples ($\\sum M = 0$), and the Polygon Theorem for coplanar forces represented by sides of a closed polygon: $M = 2 m \\cdot \\text{Area}$.',
+          summaryAr: 'تكافؤ الازدواجات المتساوية في العزم، واتزان عدة ازدواجات ($\\sum M = 0$)، ونظرية المضلع المغلق لتمثيل القوى في اتجاه دوري واحد: $M = 2 m \\cdot \\text{Area}$.',
           theoryContentEn: `### 1. Equivalence of Couples (تكافؤ الازدواجات):
 Two couples in the same plane (or in parallel planes) are said to be **equivalent** ($C_1 \\equiv C_2$) if and only if they have the **same algebraic moment**:
 $$M_1 = M_2$$
@@ -2263,7 +2263,7 @@ $$M_1 = M_2$$
           id: 'stat_l10',
           titleEn: 'Center of Gravity of Discrete Point Masses & Wire Frames',
           titleAr: 'مركز ثقل الكتل النقطية والأطر السلكية',
-          summaryEn: 'Principles of center of gravity (CG): center of mass of discrete coplanar point masses via weighted coordinates X_G = sum(m_i*x_i)/sum(m_i), Y_G = sum(m_i*y_i)/sum(m_i). Center of gravity of uniform wire frames where mass is proportional to length.',
+          summaryEn: 'Principles of center of gravity: center of mass of discrete coplanar point masses via weighted coordinates $X_G = \\frac{\\sum m_i x_i}{\\sum m_i}$, $Y_G = \\frac{\\sum m_i y_i}{\\sum m_i}$. Center of gravity of uniform wire frames where mass is proportional to length.',
           summaryAr: 'مبادئ مركز الثقل: إيجاد مركز ثقل مجموعة من الكتل النقطية المستوية باستخدام الإحداثيات الموزونة، وتعيين مركز ثقل الأطر والأسلاك المنتظمة حيث تتناسب الكتل مع أطوال القطع المستقيمة.',
           theoryContentEn: `### 1. Definition of the Center of Gravity (تعريف مركز الثقل):
 The **center of gravity** ($G$) of a body or system of particles is the unique point through which the resultant gravitational force (total weight $\\vec{W} = \\sum \\vec{w}_i$) acts, regardless of the body's orientation in space.
