@@ -35,6 +35,8 @@ const curricula = [
   { name: 'egbac', data: egBacCurriculum },
 ];
 
+const errorList: string[] = [];
+
 for (const cur of curricula) {
   for (const branch of cur.data.branches) {
     for (const ch of branch.chapters) {
@@ -45,10 +47,10 @@ for (const cur of curricula) {
           if (!f.latex) continue;
           totalFormulasTested++;
           try {
-            katex.renderToString(f.latex, { displayMode: true, throwOnError: true, strict: false });
+            katex.renderToString(f.latex, { displayMode: true, throwOnError: true, strict: 'ignore' });
           } catch (err: any) {
             errorsFound++;
-            console.error(`[${ch.id}] [${lesson.id}] Formula KaTeX Error on "${f.latex}": ${err.message}`);
+            errorList.push(`[${ch.id}] [${lesson.id}] Formula KaTeX Error on "${f.latex}": ${err.message}`);
           }
         }
 
@@ -61,14 +63,15 @@ for (const cur of curricula) {
         ];
         for (const text of proseTexts) {
           if (!text) continue;
-          for (const item of extractMath(text)) {
+          const formulas = extractMath(text);
+          for (const item of formulas) {
             if (!item.math) continue;
             totalFormulasTested++;
             try {
-              katex.renderToString(item.math, { displayMode: item.display, throwOnError: true, strict: false });
+              katex.renderToString(item.math, { displayMode: item.display, throwOnError: true, strict: 'ignore' });
             } catch (err: any) {
               errorsFound++;
-              console.error(`[${ch.id}] [${lesson.id}] Lesson KaTeX Error on "$${item.math}$": ${err.message}`);
+              errorList.push(`[${ch.id}] [${lesson.id}] Prose KaTeX Error on "$${item.math}$": ${err.message}`);
             }
           }
         }
@@ -111,11 +114,11 @@ for (const cur of curricula) {
               katex.renderToString(item.math, {
                 displayMode: item.display,
                 throwOnError: true,
-                strict: false,
+                strict: 'ignore',
               });
             } catch (err: any) {
               errorsFound++;
-              console.error(`[${ch.id}] [${p.id}] Question KaTeX Error on "$${item.math}$": ${err.message}`);
+              errorList.push(`[${ch.id}] [${p.id}] Question KaTeX Error on "$${item.math}$": ${err.message}`);
             }
           }
         }
@@ -130,7 +133,10 @@ console.log(`KaTeX errors found:                   ${errorsFound}`);
 console.log(`======================================================\n`);
 
 if (errorsFound > 0) {
-  console.error(`❌ KaTeX rendering test failed with ${errorsFound} errors!`);
+  console.error(`❌ KaTeX rendering test failed with ${errorsFound} errors:`);
+  for (const msg of errorList) {
+    console.error(msg);
+  }
   process.exit(1);
 } else {
   console.log(`🎉 100% SUCCESS: All ${totalFormulasTested} mathematical and scientific expressions render flawlessly with KaTeX!`);

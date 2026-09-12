@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { egBacPhysCh1Databank } from './databanks/egbac/egBacPhysCh1Databank';
 
 export const egBacPhysicsBranch: Branch = {
   id: 'egbac_physics',
@@ -295,93 +296,7 @@ export const egBacPhysicsBranch: Branch = {
           teacherTipAr: 'المقدار $\\frac{h}{m_e c}$ يُسمى الطول الموجي لكومتون للإلكترون وهو ثابت فيزيائي أساسي.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'egbac_phys_db_easy_01',
-            titleEn: 'Photon Linear Momentum Formula',
-            titleAr: 'كمية حركة الفوتون',
-            difficulty: 'easy',
-            questionEn: 'Which of the following expressions correctly represents the linear momentum $p$ of a photon of wavelength $\\lambda$?',
-            questionAr: 'أي من التعبيرات التالية يمثل بدقة كمية الحركة الخطية $p$ لفوتون طوله الموجي $\\lambda$؟',
-            optionsEn: ['$p = \\frac{h}{\\lambda}$', '$p = h \\cdot \\lambda$', '$p = \\frac{\\lambda}{h}$', '$p = \\frac{h c}{\\lambda}$'],
-            optionsAr: ['$p = \\frac{h}{\\lambda}$', '$p = h \\cdot \\lambda$', '$p = \\frac{\\lambda}{h}$', '$p = \\frac{h c}{\\lambda}$'],
-            correctAnswer: '$p = \\frac{h}{\\lambda}$',
-            correctIndex: 0,
-            hintEn: 'From Planck and Einstein: $p = E / c = (h c / \\lambda) / c = h / \\lambda$.',
-            hintAr: 'من علاقتي بلانك وأينشتاين: $p = \\frac{E}{c} = \\frac{h}{\\lambda}$.',
-            stepByStepSolutionEn: [
-              'Energy of photon is $E = h c / \\lambda$.',
-              'Relativistic momentum: $p = E / c$.',
-              'Substituting gives $p = \\frac{h}{\\lambda}$.'
-            ],
-            stepByStepSolutionAr: [
-              'طاقة الفوتون $E = \\frac{h c}{\\lambda}$.',
-              'كمية حركة الجسيم عديم الكتلة السكونية $p = \\frac{E}{c}$.',
-              'بالتعويض ينتج $p = \\frac{h}{\\lambda}$.'
-            ],
-            teacherTipEn: 'Photons have zero rest mass, but possess finite relativistic momentum proportional to frequency.',
-            teacherTipAr: 'الفوتون لا يمتلك كتلة سكون، ولكن له كمية حركة تتناسب طردياً مع تردده وعكسياً مع طوله الموجي.'
-          }
-        ],
-        medium: [
-          {
-            id: 'egbac_phys_db_med_01',
-            titleEn: 'Photocurrent and Light Intensity',
-            titleAr: 'التيار الكهروضوئي وشدة الإشعاع',
-            difficulty: 'medium',
-            questionEn: 'When the intensity of monochromatic incident light of frequency $\\nu > \\nu_c$ is doubled, how are the saturation photocurrent and the maximum kinetic energy affected?',
-            questionAr: 'عند مضاعفة شدة ضوء أحادي اللون تردده $\\nu > \\nu_c$ ساقط على فلز، كيف تتأثر كل من شدة تيار التشبع وطاقة الحركة العظمى للإلكترونات؟',
-            optionsEn: ['Photocurrent doubles; Maximum kinetic energy remains unchanged', 'Both photocurrent and kinetic energy double', 'Photocurrent remains unchanged; Kinetic energy doubles', 'Both remain completely unchanged'],
-            optionsAr: ['يتضاعف التيار الكهروضوئي؛ وتبقى طاقة الحركة العظمى ثابتة دون تغير', 'يتضاعف كل من شدة التيار وطاقة الحركة العظمى', 'يظل التيار ثابتاً وتتضاعف طاقة الحركة', 'يظل كلاهما ثابتاً دون تغير'],
-            correctAnswer: 'Photocurrent doubles; Maximum kinetic energy remains unchanged',
-            correctIndex: 0,
-            hintEn: 'Intensity = number of photons per second. Frequency determines energy per photon.',
-            hintAr: 'الشدة تعبر عن عدد الفوتونات الساقطة في الثانية، بينما التردد هو الذي يحدد طاقة كل فوتون.',
-            stepByStepSolutionEn: [
-              'Doubling light intensity doubles the number of incident photons per second.',
-              'Since each photon liberates one electron (if $\\nu > \\nu_c$), the number of emitted electrons doubles, so saturation photocurrent doubles.',
-              'However, the energy of each individual photon $E = h\\nu$ is unchanged, so $KE_{\\max} = h\\nu - W_0$ remains strictly unchanged.'
-            ],
-            stepByStepSolutionAr: [
-              'مضاعفة شدة الضوء تضاعف عدد الفوتونات الساقطة في وحدة الزمن.',
-              'بما أن كل فوتون يحرر إلكتروناً واحداً، يتضاعف عدد الإلكترونات المنبعثة ويتضاعف تيار التشبع.',
-              'لكن طاقة الفوتون الواحد $E = h\\nu$ ثابتة لثبوت التردد، وبالتالي تظل طاقة الحركة العظمى $KE_{\\max} = h\\nu - W_0$ ثابتة تماماً.'
-            ],
-            teacherTipEn: 'Remember the golden rule of quantum photoelectric effect: Intensity controls quantity; frequency controls energy.',
-            teacherTipAr: 'تذكر القاعدة الذهبية في الظاهرة الكهروضوئية: الشدة تتحكم في عدد الإلكترونات، والتردد يتحكم في طاقة وسرعة الإلكترون.'
-          }
-        ],
-        hots: [
-          {
-            id: 'egbac_phys_db_hots_01',
-            titleEn: 'Electron Microscope Resolving Criterion',
-            titleAr: 'شرط الرؤية والقدرة التحليلية للمجهر الإلكتروني',
-            difficulty: 'hots',
-            questionEn: 'To clearly image and resolve a spherical macromolecule of diameter $d = 0.2\\text{ nm}$, what physical condition must the de Broglie wavelength $\\lambda$ of the imaging electron beam satisfy?',
-            questionAr: 'لرؤية وتفريق جسم كروي دقيق قطره $d = 0.2\\text{ نانومتر}$ بوضوح، ما الشرط الفيزيائي الذي يجب أن يحققه طول موجة دي برولي $\\lambda$ لشعاع الإلكترونات المستخدم؟',
-            optionsEn: ['$\\lambda \\le 0.2\\text{ nm}$ (wavelength must be smaller than or comparable to object dimensions)', '$\\lambda \\ge 2\\text{ nm}$', '$\\lambda = 20\\text{ nm}$', 'The wavelength must be strictly within the visible spectrum'],
-            optionsAr: ['$\\lambda \\le 0.2\\text{ نانومتر}$ (يجب أن يكون الطول الموجي مساوياً أو أصغر من أبعاد الجسم)', '$\\lambda \\ge 2\\text{ نانومتر}$', '$\\lambda = 20\\text{ نانومتر}$', 'يجب أن يقع الطول الموجي داخل طيف الضوء المرئي'],
-            correctAnswer: '$\\lambda \\le 0.2\\text{ nm}$ (wavelength must be smaller than or comparable to object dimensions)',
-            correctIndex: 0,
-            hintEn: 'Diffraction limits resolution: An object can only be resolved if the imaging wavelength is smaller than or equal to its dimensions.',
-            hintAr: 'شرط الرؤية والتكبير: يجب أن يكون الطول الموجي للإشعاع المستخدم أصغر من أو مساوياً لأبعاد الجسم المراد فحصه لتفادي حيود الموجات.'
-          ,
-            stepByStepSolutionEn: [
-              'Wave optics criterion for resolution: To resolve an object of characteristic dimension $d$, the probe wavelength must satisfy $\\lambda \\le d$.',
-              'If $\\lambda > d$, the waves diffract around the particle and detail is lost.',
-              'Hence, for $d = 0.2\\text{ nm}$, the electron beam must be accelerated to achieve $\\lambda \\le 0.2\\text{ nm}$.'
-            ],
-            stepByStepSolutionAr: [
-              'شرط التكبير البصري: لكي ينفذ الإشعاع ويتفاعل مع تفاصيل الجسم بدلاً من الحيود حوله، يشترط أن يكون $\\lambda \\le d$.',
-              'إذا كان $\\lambda > d$، تحيد الموجات حول الجسم ولا يتكون له خيال واضح.',
-              'إذن للجسم الذي قطره $0.2\\text{ نانومتر}$، يلزم تعجيل الإلكترونات بحيث يكون $\\lambda \\le 0.2\\text{ نانومتر}$.'
-            ],
-            teacherTipEn: 'This principle explains why optical microscopes (wavelengths 400–700 nm) cannot image viruses of size 10–100 nm.',
-            teacherTipAr: 'هذا المبدأ يفسر عجز المجاهر الضوئية (أطوالها 400-700 نانومتر) عن رؤية الفيروسات (أبعادها 10-100 نانومتر).'
-          }
-        ]
-      }
+      databank: egBacPhysCh1Databank
     }
   ]
 };

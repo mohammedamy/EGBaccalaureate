@@ -72,16 +72,16 @@ assert(mathStats.totalProblems > 0, `Mathematics thanaweya problems: ${mathStats
 
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
 assert(allStats.totalChapters === 22, `Total thanaweya chapters: ${allStats.totalChapters}`);
-assert(allStats.totalProblems === 3817, `Total thanaweya problems: ${allStats.totalProblems}`);
+assert(allStats.totalProblems === 4333, `Total thanaweya problems: ${allStats.totalProblems}`);
 
 const egbacAllStats = getSubjectStats(egBacCurriculum, 'all');
 assert(egbacAllStats.totalChapters === 11, `Total egbac chapters: ${egbacAllStats.totalChapters}`);
-assert(egbacAllStats.totalProblems === 1617, `Total egbac problems: ${egbacAllStats.totalProblems}`);
+assert(egbacAllStats.totalProblems === 2133, `Total egbac problems: ${egbacAllStats.totalProblems}`);
 
 const totalPlatformChapters = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalPlatformProblems = allStats.totalProblems + egbacAllStats.totalProblems;
 assert(totalPlatformChapters === 33, `Total platform chapters across both curriculums: ${totalPlatformChapters}`);
-assert(totalPlatformProblems === 5434, `Total platform problems across both curriculums: ${totalPlatformProblems}`);
+assert(totalPlatformProblems === 6466, `Total platform problems across both curriculums: ${totalPlatformProblems}`);
 
 if (failed) {
   console.error('\n❌ Verification failed with errors.');

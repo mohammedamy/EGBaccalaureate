@@ -21,22 +21,13 @@ for (const { cur, b, c } of chapters) {
   const qList = [...easy, ...med, ...hots];
   totalQ += qList.length;
 
-  const isScience = b.includes('physics') || b.includes('chemistry') || b.includes('biology');
-
-  if (!isScience) {
-    if (qList.length !== 175) {
-      console.error(`Chapter ${c.id} has ${qList.length} questions instead of 175!`);
-      errors++;
-    }
-    if (easy.length !== 58 || med.length !== 59 || hots.length !== 58) {
-      console.error(`Chapter ${c.id} distribution error: Easy=${easy.length}, Med=${med.length}, HOTS=${hots.length}`);
-      errors++;
-    }
-  } else {
-    if (easy.length < 1 || med.length < 1 || hots.length < 1) {
-      console.error(`Science review chapter ${c.id} missing tier questions! Easy=${easy.length}, Med=${med.length}, HOTS=${hots.length}`);
-      errors++;
-    }
+  if (qList.length !== 175) {
+    console.error(`Chapter ${c.id} has ${qList.length} questions instead of 175!`);
+    errors++;
+  }
+  if (easy.length !== 58 || med.length !== 59 || hots.length !== 58) {
+    console.error(`Chapter ${c.id} distribution error: Easy=${easy.length}, Med=${med.length}, HOTS=${hots.length}`);
+    errors++;
   }
 
 

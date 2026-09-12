@@ -262,13 +262,13 @@ export const App: React.FC = () => {
               <span className="font-medium text-xs sm:text-sm truncate">
                 <span className="inline sm:hidden">
                   {lang === 'ar'
-                    ? 'البحث الشامل في المسائل والقوانين...'
-                    : 'Universal Search across 4,725 problems...'}
+                    ? 'البحث الشامل في ٦,٤٦٦ مسألة...'
+                    : 'Universal Search across 6,466 problems...'}
                 </span>
                 <span className="hidden sm:inline">
                   {lang === 'ar'
-                    ? 'البحث الشامل في ٤,٧٢٥ مسألة وقانون وفصل... (اضغط للبحث)'
-                    : 'Universal Search across 4,725 problems, theorems & lessons... (Click to search)'}
+                    ? 'البحث الشامل في ٦,٤٦٦ مسألة وقانون وفصل... (اضغط للبحث)'
+                    : 'Universal Search across 6,466 problems, theorems & lessons... (Click to search)'}
                 </span>
               </span>
             </div>

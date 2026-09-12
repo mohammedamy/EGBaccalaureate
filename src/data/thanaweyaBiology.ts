@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { bioCh1Databank } from './databanks/thanaweya/bioCh1Databank';
 
 export const thanaweyaBiologyBranch: Branch = {
   id: 'thanaweya_biology',
@@ -306,92 +307,7 @@ export const thanaweyaBiologyBranch: Branch = {
           teacherTipAr: 'تذكر دائماً: المنطقة الداكنة A طولها ثابت تماماً، بينما يقل طول كل من I و H والقطعة العضلية.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'th_bio_db_easy_01',
-            titleEn: 'Total Bones in Adult Human Skeleton',
-            titleAr: 'عدد عظام الهيكل العظمي في الإنسان البالغ',
-            difficulty: 'easy',
-            questionEn: 'How many bones are present in the adult human skeleton?',
-            questionAr: 'كم يبلغ عدد عظام الهيكل العظمي في الإنسان البالغ؟',
-            optionsEn: ['206 bones', '208 bones', '270 bones', '300 bones'],
-            optionsAr: ['206 عظمة', '208 عظام', '270 عظمة', '300 عظمة'],
-            correctAnswer: '206 bones',
-            correctIndex: 0,
-            hintEn: 'The adult human skeleton comprises 80 axial bones and 126 appendicular bones.',
-            hintAr: 'يتكون الهيكل العظمي في الإنسان البالغ من 80 عظمة في الهيكل المحوري و 126 عظمة في الهيكل الطرفي.',
-            stepByStepSolutionEn: [
-              'Axial skeleton: 80 bones.',
-              'Appendicular skeleton: 126 bones.',
-              'Total count: $80 + 126 = 206$ bones.'
-            ],
-            stepByStepSolutionAr: [
-              'الهيكل المحوري: 80 عظمة.',
-              'الهيكل الطرفي: 126 عظمة.',
-              'المجموع الكلي: $80 + 126 = 206$ عظمة في الإنسان البالغ.'
-            ],
-            teacherTipEn: 'Infants have more bones (~270), which later fuse during development.',
-            teacherTipAr: 'يولد الطفل بعدد أكبر من العظام (~270 عظمة) تلتحم مع النمو لتصبح 206 عظمة في البالغين.'
-          }
-        ],
-        medium: [
-          {
-            id: 'th_bio_db_med_01',
-            titleEn: 'Connective Tissue Joining Muscle to Bone',
-            titleAr: 'النسيج الضام الذي يربط العضلات بالعظام',
-            difficulty: 'medium',
-            questionEn: 'Which fibrous connective tissue structure specifically connects skeletal muscles to bones, such as connecting the calf muscle to the heel bone?',
-            questionAr: 'أي تراكيب الأنسجة الضامة الليفية التالية تربط العضلات الهيكلية بالعظام، مثل ربط العضلة التوأمية بعظمة الكعب؟',
-            optionsEn: ['Tendons (e.g., Achilles tendon)', 'Ligaments', 'Cartilage', 'Synovial membranes'],
-            optionsAr: ['الأوتار (مثل وتر أخيل)', 'الأربطة', 'الغضاريف', 'الأغشية الزلالية'],
-            correctAnswer: 'Tendons (e.g., Achilles tendon)',
-            correctIndex: 0,
-            hintEn: 'Tendons connect muscle to bone; ligaments connect bone to bone.',
-            hintAr: 'الأوتار تربط العضلة بالعظم؛ بينما الأربطة تربط العظم بالعظم عند المفاصل.',
-            stepByStepSolutionEn: [
-              'Tendons are tough, non-elastic bands of dense fibrous connective tissue connecting muscle to bone.',
-              'A prime example is the Achilles tendon, connecting the gastrocnemius (calf muscle) to the calcaneus (heel bone).',
-              'Ligaments connect bone to bone to stabilize joints.'
-            ],
-            stepByStepSolutionAr: [
-              'الأوتار هي حبال ليفية قوية تربط العضلات الهيكلية بالعظام وتنقل قوة الانقباض.',
-              'أشهر مثال في المنهج هو وتر أخيل الذي يربط العضلة التوأمية (بطن الساق) بعظمة الكعب.',
-              'بينما الأربطة تربط العظام بالعظام عند المفاصل لتحديد حركتها.'
-            ],
-            teacherTipEn: 'Rupture of the Achilles tendon can occur due to sudden violent exertion or severe muscle spasms.',
-            teacherTipAr: 'تمزق وتر أخيل يحدث بسبب بذل مجهود عنيف مفاجئ أو تقلص حاد مفاجئ في العضلة التوأمية.'
-          }
-        ],
-        hots: [
-          {
-            id: 'th_bio_db_hots_01',
-            titleEn: 'Biochemical Cause of Muscle Spasms',
-            titleAr: 'السبب الكيميائي الحيوي لحدوث الشد العضلي',
-            difficulty: 'hots',
-            questionEn: 'What is the primary biochemical reason why a skeletal muscle fails to relax and remains in a sustained painful muscle spasm?',
-            questionAr: 'ما السبب الكيميائي الحيوي الرئيسي وراء عدم قدرة العضلة الهيكلية على الانبساط واستمرارها في حالة شد عضلي مؤلم؟',
-            optionsEn: ['Severe deficiency of ATP molecules preventing detachment of cross-bridges', 'Accumulation of excessive glycogen inside the sarcolemma', 'Destruction of all calcium ions inside the muscle fiber', 'Excessive presence of acetylcholinesterase in the synapse'],
-            optionsAr: ['النقص الحاد في جزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين', 'تراكم الجليكوجين الزائد داخل الساركوبلازم', 'انعدام أيونات الكالسيوم داخل الليفة العضلية', 'زيادة نشاط إنزيم الكولين إستريز في شق التشابك'],
-            correctAnswer: 'Severe deficiency of ATP molecules preventing detachment of cross-bridges',
-            correctIndex: 0,
-            hintEn: 'ATP is required not only for contraction but crucially to detach myosin cross-bridges from actin during relaxation.',
-            hintAr: 'جزيئات ATP لازمة ليس فقط للانقباض بل بشكل حاسم لفصل الروابط المستعرضة عن الأكتين عند الانبساط.',
-            stepByStepSolutionEn: [
-              'During contraction, myosin cross-bridges pull actin filaments.',
-              'For relaxation to occur, ATP must bind to the myosin heads to release them from actin.',
-              'When ATP is severely depleted (due to intense prolonged effort without sufficient oxygen), cross-bridges remain locked to actin, resulting in sustained painful muscle spasm.'
-            ],
-            stepByStepSolutionAr: [
-              'أثناء الانقباض ترتبط الروابط المستعرضة بخيوط الأكتين وتسحبها نحو مركز الساركومير.',
-              'لحدوث الانبساط، يجب أن ترتبط جزيئات ATP برؤوس الميوسين لتفصلها عن خيوط الأكتين.',
-              'عند حدوث نقص حاد في جزيئات ATP (نتيجة الإجهاد الشديد وانعدام التنفس الهوائي)، تفشل الروابط في الانفصال فتظل العضلة في حالة انقباض مستمر ومؤلم (الشد العضلي).'
-            ],
-            teacherTipEn: 'Distinguish clearly between muscle fatigue (lactic acid accumulation) and muscle spasm (ATP depletion locking cross-bridges).',
-            teacherTipAr: 'فرّق بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك) والشد العضلي (نقص حاد في ATP يعجز عن فك الروابط المستعرضة).'
-          }
-        ]
-      }
+      databank: bioCh1Databank
     }
   ]
 };

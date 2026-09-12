@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { physCh1Databank } from './databanks/thanaweya/physCh1Databank';
 
 export const thanaweyaPhysicsBranch: Branch = {
   id: 'thanaweya_physics',
@@ -345,92 +346,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipAr: 'قانون كيرشوف الأول يمثل التطبيق الفيزيائي المباشر لمبدأ بقاء الشحنة الكهربية.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'th_phys_db_easy_01',
-            titleEn: 'Electric Current Definition',
-            titleAr: 'حساب شدة التيار الكهربي',
-            difficulty: 'easy',
-            questionEn: 'If an electric charge of $Q = 60\\text{ C}$ passes through a conductor cross-section in $t = 30\\text{ s}$, find the electric current intensity $I$.',
-            questionAr: 'إذا مرت كمية من الشحنة الكهربية مقدارها $Q = 60\\text{ كولوم}$ عبر مقطع موصل خلال زمن قدره $t = 30\\text{ ثانية}$، فما شدة التيار الكهربي $I$؟',
-            optionsEn: ['$2\\text{ A}$', '$0.5\\text{ A}$', '$1800\\text{ A}$', '$30\\text{ A}$'],
-            optionsAr: ['$2\\text{ A}$', '$0.5\\text{ A}$', '$1800\\text{ A}$', '$30\\text{ A}$'],
-            correctAnswer: '$2\\text{ A}$',
-            correctIndex: 0,
-            hintEn: 'Use the fundamental definition $I = Q / t$.',
-            hintAr: 'طبق القانون الأساسي $I = \\frac{Q}{t}$.',
-            stepByStepSolutionEn: [
-              'Given $Q = 60\\text{ C}$ and $t = 30\\text{ s}$.',
-              'Current intensity: $I = \\frac{Q}{t} = \\frac{60}{30} = 2\\text{ A}$.'
-            ],
-            stepByStepSolutionAr: [
-              'المعطيات: $Q = 60\\text{ كولوم}$ و $t = 30\\text{ ثانية}$.',
-              'شدة التيار: $I = \\frac{Q}{t} = \\frac{60}{30} = 2\\text{ أمبير}$.'
-            ],
-            teacherTipEn: 'One Ampere equals one Coulomb per second.',
-            teacherTipAr: 'الأمبير الواحد يكافئ كولوم في الثانية.'
-          }
-        ],
-        medium: [
-          {
-            id: 'th_phys_db_med_01',
-            titleEn: 'Open Circuit Terminal Voltage',
-            titleAr: 'قراءة الفولتميتر في دائرة مفتوحة',
-            difficulty: 'medium',
-            questionEn: 'A battery of EMF $V_B = 18\\text{ V}$ has internal resistance $r = 2\\,\\Omega$. What is the reading of a voltmeter connected across the terminals of this battery when the external switch is open?',
-            questionAr: 'بطارية قوتها الدافعة $V_B = 18\\text{ فولت}$ ومقاومتها الداخلية $r = 2\\,\\Omega$. ما قراءة فولتميتر متصل بين قطبي هذه البطارية عندما يكون المفتاح في الدائرة الخارجية مفتوحاً؟',
-            optionsEn: ['$18\\text{ V}$', '$0\\text{ V}$', '$16\\text{ V}$', '$9\\text{ V}$'],
-            optionsAr: ['$18\\text{ فولت}$', '$0\\text{ فولت}$', '$16\\text{ فولت}$', '$9\\text{ فولت}$'],
-            correctAnswer: '$18\\text{ V}$',
-            correctIndex: 0,
-            hintEn: 'When the circuit is open, current $I = 0$, so the internal voltage drop $Ir = 0$.',
-            hintAr: 'عند فتح الدائرة تكون شدة التيار $I = 0$ فينعدم الهبوط في الجهد $Ir = 0$.',
-            stepByStepSolutionEn: [
-              'Battery terminal voltage equation: $V = V_B - I r$.',
-              'Because the switch is open, the circuit current is zero ($I = 0$).',
-              'Therefore: $V = V_B - (0)(r) = V_B = 18\\text{ V}$.'
-            ],
-            stepByStepSolutionAr: [
-              'معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir$.',
-              'بما أن المفتاح مفتوح فإن شدة التيار تنعدم ($I = 0$).',
-              'إذن قراءة الفولتميتر: $V = V_B - (0)(r) = V_B = 18\\text{ فولت}$.'
-            ],
-            teacherTipEn: 'The voltmeter across an open battery measures the true electromotive force ($V_B$).',
-            teacherTipAr: 'الفولتميتر المتصل بين قطبي بطارية في دائرة مفتوحة يقيس القوة الدافعة الكهربية الحقيقية للمصدر.'
-          }
-        ],
-        hots: [
-          {
-            id: 'th_phys_db_hots_01',
-            titleEn: 'Kirchhoff Loop Voltage Equation',
-            titleAr: 'معادلة مسار كيرشوف المغلق',
-            difficulty: 'hots',
-            questionEn: 'In a closed electrical loop containing two opposing batteries $V_{B1} = 14\\text{ V}$ and $V_{B2} = 6\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ connected to a load resistor $R = 2\\,\\Omega$, calculate the discharging battery terminal voltage.',
-            questionAr: 'في مسار مغلق يحتوي على بطاريتين متضادتين $V_{B1} = 14\\text{ V}$ و $V_{B2} = 6\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ متصلتين بمقاومة حمل $R = 2\\,\\Omega$. احسب فرق الجهد بين قطبي البطارية المفرِغة.',
-            optionsEn: ['$12\\text{ V}$', '$14\\text{ V}$', '$10\\text{ V}$', '$8\\text{ V}$'],
-            optionsAr: ['$12\\text{ فولت}$', '$14\\text{ فولت}$', '$10\\text{ فولت}$', '$8\\text{ فولت}$'],
-            correctAnswer: '$12\\text{ V}$',
-            correctIndex: 0,
-            hintEn: 'The larger battery discharges into the smaller battery (which undergoes charging): $I = \\frac{V_{B1} - V_{B2}}{R + r_1 + r_2}$.',
-            hintAr: 'البطارية الكبرى تفرغ في البطارية الصغرى (التي تكون في حالة شحن): $I = \\frac{V_{B1} - V_{B2}}{R + r_1 + r_2}$.',
-            stepByStepSolutionEn: [
-              'Net electromotive force: $V_{net} = V_{B1} - V_{B2} = 14 - 6 = 8\\text{ V}$.',
-              'Total resistance: $R_{total} = R + r_1 + r_2 = 2 + 1 + 1 = 4\\,\\Omega$.',
-              'Circuit current: $I = \\frac{8}{4} = 2\\text{ A}$.',
-              'Terminal voltage of the discharging battery ($V_{B1}$): $V_1 = V_{B1} - I r_1 = 14 - (2)(1) = 12\\text{ V}$.'
-            ],
-            stepByStepSolutionAr: [
-              'المحصلة للقوى الدافعة: $V_{net} = V_{B1} - V_{B2} = 14 - 6 = 8\\text{ فولت}$.',
-              'المقاومة الكلية للدائرة: $R_{total} = R + r_1 + r_2 = 2 + 1 + 1 = 4\\,\\Omega$.',
-              'شدة التيار المار: $I = \\frac{8}{4} = 2\\text{ أمبير}$.',
-              'فرق الجهد بين قطبي البطارية في حالة التفريغ ($V_{B1}$): $V_1 = V_{B1} - Ir_1 = 14 - (2)(1) = 12\\text{ فولت}$.'
-            ],
-            teacherTipEn: 'Notice that for the charging battery $V_{B2}$, its terminal voltage would be $V_2 = V_{B2} + I r_2 = 6 + (2)(1) = 8\\text{ V}$.',
-            teacherTipAr: 'لاحظ أن البطارية الصغرى في حالة شحن، ويكون فرق الجهد بين قطبيها $V_2 = V_{B2} + Ir_2 = 6 + 2 = 8\\text{ فولت}$.'
-          }
-        ]
-      }
+      databank: physCh1Databank
     }
   ]
 };

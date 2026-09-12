@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { egBacChemCh1Databank } from './databanks/egbac/egBacChemCh1Databank';
 
 export const egBacChemistryBranch: Branch = {
   id: 'egbac_chemistry',
@@ -386,125 +387,7 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
           teacherTipAr: 'قاعدة تقريبية شائعة: تتضاعف سرعة التفاعل تقريباً كلما ارتفعت الحرارة 10 درجات مئوية إذا كانت طاقة التنشيط في حدود 50 كيلوجول/مول.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'egbac_chem_db_easy_01',
-            titleEn: 'Catalytic Effect on Equilibrium Constant',
-            titleAr: 'أثر العامل الحفاز على ثابت الاتزان',
-            difficulty: 'easy',
-            questionEn: 'What is the exact effect of introducing a solid catalyst into a reversible gaseous reaction at dynamic equilibrium?',
-            questionAr: 'ما هو الأثر الدقيق لإضافة عامل حفاز صلب إلى تفاعل غازي انعكاسي في حالة اتزان ديناميكي؟',
-            optionsEn: [
-              'It accelerates both forward and reverse rates equally, leaving the equilibrium position and Kc completely unchanged',
-              'It increases the numerical value of Kc',
-              'It shifts equilibrium exclusively toward the products side',
-              'It decreases the total activation energy and increases the enthalpy change of reaction'
-            ],
-            optionsAr: [
-              'يزيد سرعة التفاعلين الطردي والعكسي بنفس المقدار ويبقى موضع الاتزان وقيمة Kc دون أي تغيير',
-              'يزيد من القيمة العددية لثابت الاتزان Kc',
-              'يزيح موضع الاتزان تماماً نحو جهة النواتج',
-              'يقلل طاقة التنشيط ويزيد من التغير في المحتوى الحراري للتفاعل'
-            ],
-            correctAnswer: 'It accelerates both forward and reverse rates equally, leaving the equilibrium position and Kc completely unchanged',
-            correctIndex: 0,
-            hintEn: 'Catalysts alter kinetic rates by lowering the activation barrier, but do not change thermodynamics or equilibrium constants.',
-            hintAr: 'العامل الحفاز يسرع الوصول للاتزان بخفض طاقة التنشيط، لكنه لا يؤثر على ديناميكا التفاعل أو قيمة ثابت الاتزان.'
-          ,
-            stepByStepSolutionEn: [
-              'A catalyst lowers the activation energy for both the forward and reverse reactions by the exact same amount $\\Delta E_a$.',
-              'Therefore, $k_{\\text{forward}}$ and $k_{\\text{reverse}}$ are multiplied by the same factor.',
-              'Since $K_c = \\frac{k_{\\text{forward}}}{k_{\\text{reverse}}}$, the equilibrium constant remains entirely unchanged.'
-            ],
-            stepByStepSolutionAr: [
-              'يخفض العامل الحفاز طاقة التنشيط لكلا الاتجاهين الطردي والعكسي بنفس المقدار تماماً.',
-              'لذلك يتضاعف ثابتا السرعة $k_{\\text{forward}}$ و $k_{\\text{reverse}}$ بنفس المعامل.',
-              'بما أن $K_c = \\frac{k_{\\text{forward}}}{k_{\\text{reverse}}}$، فإن موضع الاتزان وقيمة $K_c$ لا تتغير مطلقاً.'
-            ],
-            teacherTipEn: 'Always emphasize that only temperature can alter the numerical value of an equilibrium constant K.',
-            teacherTipAr: 'أكد دائماً أن درجة الحرارة هي المتغير الوحيد الذي يغير القيمة العددية لثابت الاتزان K.'
-          }
-        ],
-        medium: [
-          {
-            id: 'egbac_chem_db_med_01',
-            titleEn: 'Equilibrium Constant Expression for Heterogeneous Decomposition',
-            titleAr: 'تعبير ثابت الاتزان لتفكك غير متجانس',
-            difficulty: 'medium',
-            questionEn: 'For the heterogeneous thermal decomposition reaction $CaCO_{3(s)} \\rightleftharpoons CaO_{(s)} + CO_{2(g)}$, which statement accurately represents the equilibrium constant $K_p$ at temperature $T$?',
-            questionAr: 'لتفاعل التفكك الحراري غير المتجانس $CaCO_{3(s)} \\rightleftharpoons CaO_{(s)} + CO_{2(g)}$، أي عبارة تمثل بدقة ثابت الاتزان $K_p$ عند درجة حرارة $T$؟',
-            optionsEn: [
-              '$K_p = P_{CO_2}$ (depends solely on the partial pressure of carbon dioxide gas)',
-              '$K_p = \\frac{P_{CaO} \\cdot P_{CO_2}}{P_{CaCO_3}}$',
-              '$K_p = \\frac{P_{CO_2}}{[CaCO_3]}$',
-              '$K_p = (P_{CO_2})^2$'
-            ],
-            optionsAr: [
-              '$K_p = P_{CO_2}$ (يعتمد حصراً على الضغط الجزئي لغاز ثاني أكسيد الكربون)',
-              '$K_p = \\frac{P_{CaO} \\cdot P_{CO_2}}{P_{CaCO_3}}$',
-              '$K_p = \\frac{P_{CO_2}}{[CaCO_3]}$',
-              '$K_p = (P_{CO_2})^2$'
-            ],
-            correctAnswer: '$K_p = P_{CO_2}$ (depends solely on the partial pressure of carbon dioxide gas)',
-            correctIndex: 0,
-            hintEn: 'Pure solids and liquids have constant concentrations and their thermodynamic activities equal 1.',
-            hintAr: 'المواد الصلبة النقية تكون فعاليتها الكيميائية مساوية للواحد الصحيح وتُحذف من تعبير ثابت الاتزان.'
-          ,
-            stepByStepSolutionEn: [
-              'In heterogeneous equilibria, pure solids ($CaCO_3$ and $CaO$) have an activity of 1 because their densities and concentrations are invariant.',
-              'Therefore, they are excluded from the equilibrium expression.',
-              'The equilibrium constant in terms of partial pressures is simply $K_p = P_{CO_2}$.'
-            ],
-            stepByStepSolutionAr: [
-              'في الاتزان غير المتجانس، المواد الصلبة والسائلة النقية تحذف من قانون فعل الكتلة لأن كثافتها ثابتة ونشاطها يساوي 1.',
-              'لذلك لا يظهر $CaCO_3$ أو $CaO$ في التعبير.',
-              'ويكون ثابت الاتزان ببساطة مساوياً للضغط الجزئي للغاز الناتج: $K_p = P_{CO_2}$.'
-            ],
-            teacherTipEn: 'Adding more solid CaCO3 into the closed vessel will not alter the equilibrium pressure of CO2.',
-            teacherTipAr: 'إضافة المزيد من كربونات الكالسيوم الصلبة إلى الوعاء المغلق لن يغير ضغط غاز ثاني أكسيد الكربون عند الاتزان.'
-          }
-        ],
-        hots: [
-          {
-            id: 'egbac_chem_db_hots_01',
-            titleEn: 'Simultaneous Stress Shifts on Exothermic Haber Synthesis',
-            titleAr: 'تأثير الإجهاد المتزامن على تفاعل تخليق النشادر الطارد للحرارة',
-            difficulty: 'hots',
-            questionEn: 'Consider the Haber equilibrium: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)} + 92.4\\text{ kJ}$. If the volume of the reaction vessel is halved while the temperature is simultaneously increased by $100\\text{ K}$, what is the definitive impact on the equilibrium constant $K_c$ and the yield of $NH_3$?',
-            questionAr: 'لتفاعل هابر المتزن: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)} + 92.4\\text{ kJ}$. إذا قُلِّص حجم الوعاء إلى النصف وفي نفس اللحظة رُفعت درجة الحرارة بمقدار $100\\text{ كلفن}$، ما التأثير الحتمي على ثابت الاتزان $K_c$ ونسبة النواتج؟',
-            optionsEn: [
-              '$K_c$ definitely decreases because the reaction is exothermic; while compression favors $NH_3$ formation, heating drives the reaction in reverse',
-              '$K_c$ increases because compression forces particles closer together',
-              '$K_c$ remains invariant because volume reduction cancels out temperature elevation',
-              'The yield of $NH_3$ must unequivocally increase due to Le Chatelier volume reduction dominance'
-            ],
-            optionsAr: [
-              'ينخفض $K_c$ حتماً لأن التفاعل طارد للحرارة؛ وبينما يشجع تقليص الحجم تكوين $NH_3$، فإن رفع الحرارة يزيح التفاعل عكسياً',
-              'يزداد $K_c$ لأن تقليص الحجم يقارب الجزيئات ويزيد سرعة التفاعل',
-              'يظل $K_c$ ثابتاً لأن نقص الحجم يعوض تماماً زيادة درجة الحرارة',
-              'نسبة الأمونيا تزداد بشكل قاطع وحتمي بسبب غلبة تأثير تقليص الحجم وفق لوشاتيليه'
-            ],
-            correctAnswer: '$K_c$ definitely decreases because the reaction is exothermic; while compression favors $NH_3$ formation, heating drives the reaction in reverse',
-            correctIndex: 0,
-            hintEn: 'Pressure changes never alter Kc; only temperature alters Kc. For exothermic reactions, heating reduces Kc.',
-            hintAr: 'تغير الضغط لا يغير أبداً من قيمة ثابت الاتزان Kc. فقط درجة الحرارة هي التي تغيره، وفي التفاعلات الطاردة رفع الحرارة يقلل Kc.'
-          ,
-            stepByStepSolutionEn: [
-              'Effect on $K_c$: Volume/pressure perturbations do NOT change the equilibrium constant $K_c$. Since the forward reaction is exothermic ($\\Delta H = -92.4\\text{ kJ}$), increasing temperature supplies heat to the product side, driving equilibrium in reverse and strictly **decreasing** $K_c$.',
-              'Effect on directional shift: Halving volume increases total pressure, favoring the forward direction (4 gas moles $\\to$ 2 gas moles). However, heating drives it backward.',
-              'The net yield depends on the relative magnitudes of the two opposing effects, but $K_c$ unambiguously and strictly decreases.'
-            ],
-            stepByStepSolutionAr: [
-              'التأثير على $K_c$: تغير الحجم أو الضغط لا يغير من القيمة العددية لثابت الاتزان أبداً. وبما أن التفاعل طارد للحرارة ($\\Delta H < 0$)، فإن رفع درجة الحرارة يزود النظام بحرارة ناتجة مما يزيح الاتزان عكسياً ويقلل قيمة $K_c$ حتماً.',
-              'التأثير الاتجاهي: تقليل الحجم يزيد الضغط فيشجع الاتجاه الطردي (٤ مولات غاز $\\to$ ٢ مول غاز)، بينما رفع الحرارة يشجع الاتجاه العكسي.',
-              'الناتج النهائي لتركيز $NH_3$ يتنازعه عاملان متعاكسان، ولكن $K_c$ يقل بصورة قاطعة لا لبس فيها.'
-            ],
-            teacherTipEn: 'Industrial Haber plants compromise at 450-500 deg C: higher temperature gives acceptable catalytic reaction rate despite lowering theoretical equilibrium yield.',
-            teacherTipAr: 'تعمل مصانع هابر عند حرارة وسطية (450-500 مئوية) كحل وسط: الحرارة المرتفعة تمنح سرعة تفاعل كافية رغم أنها تقلل نسبة المحصول عند الاتزان.'
-          }
-        ]
-      }
+      databank: egBacChemCh1Databank
     }
   ]
 };

@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { egBacBioCh1Databank } from './databanks/egbac/egBacBioCh1Databank';
 
 export const egBacBiologyBranch: Branch = {
   id: 'egbac_biology',
@@ -380,127 +381,8 @@ $$\\text{إجمالي الروابط الهيدروجينية} = 2 \\times N_{A-
           teacherTipAr: 'في الامتحانات الوزارية تُكتب التتابعات دوماً من الطرف 5 إلى 3 ما لم يُنص على غير ذلك صراحة.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'egbac_bio_db_easy_01',
-            titleEn: 'Identity of Bacteriophage Transforming Factor',
-            titleAr: 'تحديد المادة الوراثية في تجربة هيرشي وتشيس',
-            difficulty: 'easy',
-            questionEn: 'In Hershey and Chase bacteriophage experiments, which chemical element was radioactively labeled to track the viral genetic material inside infected bacterial cells?',
-            questionAr: 'في تجربة هيرشي وتشيس على الفيروسات، ما العنصر الكيميائي المشع الذي استُخدم لتتبع انتقال المادة الوراثية الفيروسية إلى داخل الخلايا البكتيرية؟',
-            optionsEn: [
-              'Radioactive phosphorus ($^{32}\\text{P}$) because phosphorus is present exclusively in DNA nucleotides but absent in viral proteins',
-              'Radioactive sulfur ($^{35}\\text{S}$) because sulfur forms the core of purine bases',
-              'Radioactive carbon ($^{14}\\text{C}$) because it selectively labels ribose sugars',
-              'Radioactive nitrogen ($^{15}\\text{N}$) to distinguish between capsid and tail fibers'
-            ],
-            optionsAr: [
-              'الفوسفور المشع ($^{32}\\text{P}$) لأن الفوسفور يدخل حصراً في تركيب نيوكليوتيدات الـ DNA وينعدم في بروتين الغلاف',
-              'الكبريت المشع ($^{35}\\text{S}$) لأنه يدخل في تركيب القواعد النيتروجينية',
-              'الكربون المشع ($^{14}\\text{C}$) لتمييز سكر الريبوز في الفيروسات',
-              'النيتروجين المشع ($^{15}\\text{N}$) لتمييز رأس الفيروس عن ذيله'
-            ],
-            correctAnswer: 'Radioactive phosphorus ($^{32}\\text{P}$) because phosphorus is present exclusively in DNA nucleotides but absent in viral proteins',
-            correctIndex: 0,
-            hintEn: 'Phosphorus is abundant in nucleic acid backbones (phosphate groups) but absent in standard amino acids.',
-            hintAr: 'الفوسفور مكون أساسي لمجموعات الفوسفات في الأحماض النووية، بينما لا يدخل في تركيب بروتين الغلاف.'
-          ,
-            stepByStepSolutionEn: [
-              'DNA contains abundant phosphorus in its sugar-phosphate backbone, but contains no sulfur.',
-              'Viral proteins contain sulfur in amino acids (cysteine, methionine), but contain no phosphorus.',
-              'Therefore, Hershey and Chase used $^{32}\\text{P}$ to specifically label and track DNA into the host bacterium.'
-            ],
-            stepByStepSolutionAr: [
-              'يحتوي DNA على الفوسفور بكثرة في هيكل السكر والفوسفات، بينما يخلو تماماً من الكبريت.',
-              'يحتوي الغلاف البروتيني للفيروس على الكبريت في بعض الأحماض الأمينية (الميثيونين والسيستين)، بينما يخلو من الفوسفور.',
-              'لذا استخدم هيرشي وتشيس الفوسفور المشع $^{32}\\text{P}$ لتتبع دخول مادة الـ DNA حصراً إلى داخل البكتيريا.'
-            ],
-            teacherTipEn: 'Always link 32P with DNA and 35S with Protein.',
-            teacherTipAr: 'تذكر دائماً الربط الذهني: P-32 مع الـ DNA، و S-35 مع البروتين.'
-          }
-        ],
-        medium: [
-          {
-            id: 'egbac_bio_db_med_01',
-            titleEn: 'Enzymatic Resolution of Lagging Strand Okazaki Fragments',
-            titleAr: 'الدور الإنزيمي في تجميع قطع أوكازاكي على الشريط المتأخر',
-            difficulty: 'medium',
-            questionEn: 'Which enzyme is biologically responsible for creating covalent phosphodiester bonds to join adjacent Okazaki fragments on the lagging strand during DNA replication?',
-            questionAr: 'ما الإنزيم المسؤول بيولوجياً عن تكوين الروابط التساهمية الفوسفاتية لربط قطع أوكازاكي المتجاورة على الشريط المتأخر أثناء تضاعف DNA؟',
-            optionsEn: [
-              'DNA Ligase',
-              'DNA Polymerase III',
-              'DNA Helicase',
-              'RNA Primase'
-            ],
-            optionsAr: [
-              'إنزيم الربط (DNA Ligase)',
-              'إنزيم بلمرة DNA (DNA Polymerase)',
-              'إنزيم اللولب (DNA Helicase)',
-              'إنزيم البادئ (RNA Primase)'
-            ],
-            correctAnswer: 'DNA Ligase',
-            correctIndex: 0,
-            hintEn: 'This enzyme repairs nicks in the sugar-phosphate backbone by forming phosphodiester bonds.',
-            hintAr: 'هذا الإنزيم يصل الفجوات في هيكل السكر والفوسفات بإنشاء روابط تساهمية قوية.'
-          ,
-            stepByStepSolutionEn: [
-              'During lagging strand synthesis, DNA Polymerase synthesizes disconnected Okazaki fragments.',
-              'After RNA primers are removed and replaced with DNA nucleotides, nicks remain in the sugar-phosphate backbone.',
-              'DNA Ligase utilizes ATP/NAD to form phosphodiester bonds between adjacent $3\\prime-\\text{OH}$ and $5\\prime-\\text{phosphate}$ groups, sealing the backbone.'
-            ],
-            stepByStepSolutionAr: [
-              'أثناء تضاعف الشريط المتأخر، يبني إنزيم البلمرة قطعاً منفصلة تُعرف بقطع أوكازاكي.',
-              'بعد استبدال بوادئ الـ RNA بنيوكليوتيدات DNA، تبقى فجوات في هيكل السكر والفوسفات.',
-              'يقوم إنزيم الربط (DNA Ligase) بتكوين روابط فوسفاتية ثنائية الإستر بين طرف الهيدروكسيل 3\' وطرف الفوسفات 5\' ليلتئم الشريط.'
-            ],
-            teacherTipEn: 'DNA Ligase is also widely used in recombinant DNA genetic engineering to insert genes into plasmids.',
-            teacherTipAr: 'إنزيم الربط يُستخدم أيضاً بكثرة في الهندسة الوراثية وتكنولوجيا الحمض النووي معاد الاتحاد لدمج الجينات في البلازميدات.'
-          }
-        ],
-        hots: [
-          {
-            id: 'egbac_bio_db_hots_01',
-            titleEn: 'Point Mutation Classification: Nonsense vs Missense Effects',
-            titleAr: 'تصنيف الطفرات النقطية: الطفرة عديمة المعنى وتأثيرها على البروتين',
-            difficulty: 'hots',
-            questionEn: "A substitution mutation changes a single nucleotide in an exon from codon 5'-U-A-C-3' (coding for Tyrosine) to 5'-U-A-A-3'. What is the precise classification of this mutation and its phenotypic consequence on the resulting protein?",
-            questionAr: "حدثت طفرة استبدال لنيوكليوتيدة واحدة في إكسون مشفر فتحول الكودون من 5'-U-A-C-3' (يشفر التيروزين) إلى 5'-U-A-A-3'. ما التصنيف الدقيق لهذه الطفرة وتأثيرها على بنية البروتين الناتج؟",
-            optionsEn: [
-              'Nonsense mutation causing premature translation termination and producing a truncated, usually nonfunctional polypeptide',
-              'Silent mutation because the degenerate genetic code incorporates another aromatic amino acid',
-              'Missense mutation that replaces Tyrosine with a hydrophobic residue without altering chain length',
-              'Frameshift mutation that scrambles all downstream triplet codons'
-            ],
-            optionsAr: [
-              'طفرة عديمة المعنى (Nonsense mutation) تؤدي إلى وقف مبكر للترجمة وإنتاج بروتين ناقص (مبتور) فاقد للوظيفة غالباً',
-              'طفرة صامتة لأن الشفرة الوراثية تحافظ على نفس الحمض الأميني',
-              'طفرة خاطئة المعنى تستبدل التيروزين بحمض آخر دون التأثير على طول السلسلة',
-              'طفرة إزاحة إطار تُحدث فوضى في قراءة جميع الكودونات التالية'
-            ],
-            correctAnswer: 'Nonsense mutation causing premature translation termination and producing a truncated, usually nonfunctional polypeptide',
-            correctIndex: 0,
-            hintEn: 'UAA is one of the three universal stop codons (along with UAG and UGA).',
-            hintAr: 'الكودون UAA هو أحد كودونات الوقف الثلاثة في الخلية (مع UAG و UGA).'
-          ,
-            stepByStepSolutionEn: [
-              'The nucleotide substitution converts $UAC$ (Tyrosine) to $UAA$.',
-              'Because $UAA$ is a stop (termination) codon, translation halts prematurely when the ribosome encounters it.',
-              'This type of mutation is termed a **nonsense mutation**.',
-              'The synthesized polypeptide chain is truncated (shortened), which typically destroys its tertiary folding and biological activity.'
-            ],
-            stepByStepSolutionAr: [
-              'استبدال النيوكليوتيدة حول الكودون المشفر للتيروزين $UAC$ إلى $UAA$.',
-              'بما أن $UAA$ هو كودون وقف، فإن الريبوسوم يتوقف فوراً عن الترجمة عند وصوله إليه.',
-              'تُسمى هذه الطفرة **طفرة عديمة المعنى (Nonsense mutation)**.',
-              'تؤدي إلى تخليق سلسلة ببتيدية قصيرة ومبتورة تفقد طياتها الفراغية وتفقد نشاطها الحيوي في معظم الحالات.'
-            ],
-            teacherTipEn: 'Contrast this with missense mutations (which change one amino acid to another) and silent mutations (synonymous codons).',
-            teacherTipAr: 'قارن دائماً بين الطفرة عديمة المعنى (تخلق كودون وقف) وطفرة تبديل المعنى (تغير حمضاً بآخر) والطفرة الصامتة (لا تغير الحمض).'
-          }
-        ]
-      }
+      databank: egBacBioCh1Databank
     }
   ]
 };
+

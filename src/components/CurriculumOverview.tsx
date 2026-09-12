@@ -153,8 +153,8 @@ export const CurriculumOverview: React.FC<Props> = ({
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>
                 {isArabic
-                  ? 'منصة ClipSAT: جميع الفصول الـ 27 مجهزة بالكامل (4,725 مسألة وسؤال) بالمعادلات والرسوم ثلاثية الأبعاد وخطط المعلمين'
-                  : 'ClipSAT Platform: All 27 Chapters Fully Equipped (4,725 Problems) with LaTeX, 3D Lab & Teacher Plans'}
+                  ? 'منصة ClipSAT: جميع الفصول الـ 33 مجهزة بالكامل (6,466 مسألة وسؤال) بالمعادلات والمختبرات الافتراضية الأربعة وخطط المعلمين'
+                  : 'ClipSAT Platform: All 33 Chapters Fully Equipped (6,466 Problems) with LaTeX, 4 Virtual Labs & Teacher Plans'}
               </span>
             </div>
 

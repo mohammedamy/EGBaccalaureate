@@ -263,8 +263,8 @@ export const SearchModal: React.FC<Props> = ({
             type="text"
             placeholder={
               lang === 'ar'
-                ? 'ابحث في ٤٧٢٥ مسألة وقانون وفصل... (مثال: بيز، احتكاك، مصفوفة، نيوتن)'
-                : 'Search across 4,725 problems, theorems & lessons... (e.g. Bayes, Friction, Matrix, Newton)'
+                ? 'ابحث في ٦,٤٦٦ مسألة وقانون وفصل... (مثال: بيز، كيرشوف، DNA، نيوتن)'
+                : 'Search across 6,466 problems, theorems & lessons... (e.g. Bayes, Kirchhoff, DNA, Newton)'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -374,16 +374,16 @@ export const SearchModal: React.FC<Props> = ({
               </div>
               <p className="text-sm font-bold text-slate-300">
                 {lang === 'ar'
-                  ? 'البحث الشامل في مناهج الرياضيات المصرية'
-                  : 'Universal Egyptian Math Curriculum Search'}
+                  ? 'البحث الشامل في المناهج المصرية ومسار المتفوقين STEM'
+                  : 'Universal Egyptian National & STEM Curriculum Search'}
               </p>
               <p className="text-xs text-slate-400 max-w-md mx-auto">
                 {lang === 'ar'
-                  ? 'اكتب أي مفهوم، قانون رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٤,٧٢٥ سؤالاً وتدريباً وشرحاً مفصلاً.'
-                  : 'Type any mathematical concept, formula, mathematician, or problem text to instantly locate any of the 4,725 problems across 27 chapters.'}
+                  ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٦,٤٦٦ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٣٣ فصلاً.'
+                  : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 6,466 problems across 33 chapters.'}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-                {['Bayes', 'بيز', 'Friction', 'احتكاك', 'De Moivre', 'ديموافر', 'Matrices', 'مصفوفات', 'Markov', 'ماركوف'].map((suggestion) => (
+                {['Bayes', 'بيز', 'Kirchhoff', 'كيرشوف', 'DNA', 'جينات', 'Electrochemistry', 'كيمياء كهربائية', 'Newton', 'نيوتن', 'Matrices', 'مصفوفات'].map((suggestion) => (
                   <button
                     key={suggestion}
                     onClick={() => setQuery(suggestion)}
@@ -495,8 +495,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
             <span>
               {lang === 'ar'
-                ? 'فهرس فوري لـ ٢٧ فصلاً و ٤,٧٢٥ مسألة'
-                : 'Live index of 27 chapters & 4,725 problems'}
+                ? 'فهرس فوري لـ ٣٣ فصلاً و ٦,٤٦٦ مسألة'
+                : 'Live index of 33 chapters & 6,466 problems'}
             </span>
           </div>
           <div className="flex items-center gap-3">

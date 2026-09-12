@@ -1,4 +1,5 @@
 import type { Branch } from '../types/curriculum';
+import { chemCh1Databank } from './databanks/thanaweya/chemCh1Databank';
 
 export const thanaweyaChemistryBranch: Branch = {
   id: 'thanaweya_chemistry',
@@ -299,92 +300,7 @@ export const thanaweyaChemistryBranch: Branch = {
           teacherTipAr: 'تذكر دائماً: الفرن العالي يعتمد على فحم الكوك لإنتاج CO، بينما فرن مدركس يعتمد على الغاز الطبيعي لإنتاج الغاز المائي.'
         }
       ],
-      databank: {
-        easy: [
-          {
-            id: 'th_chem_db_easy_01',
-            titleEn: 'Highest Oxidation State in 3d Series',
-            titleAr: 'أقصى حالة تأكسد في السلسلة الانتقالية الأولى',
-            difficulty: 'easy',
-            questionEn: 'Which element in the first transition series exhibits the highest oxidation state, and what is its numerical value?',
-            questionAr: 'أي عنصر في السلسلة الانتقالية الأولى يمتلك أعلى حالة تأكسد، وما قيمتها العددية؟',
-            optionsEn: ['Manganese ($+7$)', 'Chromium ($+6$)', 'Iron ($+6$)', 'Vanadium ($+5$)'],
-            optionsAr: ['المنجنيز ($+7$)', 'الكروم ($+6$)', 'الحديد ($+6$)', 'الفانديوم ($+5$)'],
-            correctAnswer: 'Manganese ($+7$)',
-            correctIndex: 0,
-            hintEn: 'Manganese ($Z = 25$) has configuration $[\\text{Ar}]\\, 4s^2\\, 3d^5$, allowing it to lose up to 7 electrons.',
-            hintAr: 'المنجنيز ($Z = 25$) توزيعه $[\\text{Ar}]\\, 4s^2\\, 3d^5$ ويمكّنه خروج جميع إلكترونات $4s$ و $3d$ من بلوغ $+7$.',
-            stepByStepSolutionEn: [
-              'Manganese has 2 electrons in $4s$ and 5 electrons in $3d$.',
-              'Losing all 7 valence electrons gives the stable $[\\text{Ar}]$ configuration, yielding oxidation state $+7$ (as in $\\text{KMnO}_4$).',
-              'This is the highest oxidation state attained in the entire $3d$ series.'
-            ],
-            stepByStepSolutionAr: [
-              'يمتلك المنجنيز إلكترونين في $4s$ وخمسة إلكترونات في $3d$.',
-              'بخروج جميع إلكترونات التكافؤ الـ 7 يستقر على تركيب الآرجون، محققاً حالة التأكسد $+7$ (كما في برمنجنات البوتاسيوم $\\text{KMnO}_4$).',
-              'وهذه أعلى حالة تأكسد يصل إليها أي عنصر في السلسلة الانتقالية الأولى.'
-            ],
-            teacherTipEn: 'After manganese, electrons begin to pair in the 3d orbitals, and oxidation states decrease.',
-            teacherTipAr: 'بعد المنجنيز تبدأ الإلكترونات في الازدواج في أوربيتالات 3d، فتقل حالات التأكسد تدريجياً.'
-          }
-        ],
-        medium: [
-          {
-            id: 'th_chem_db_med_01',
-            titleEn: 'Distinguishing Iron(II) and Iron(III) Hydroxides',
-            titleAr: 'التمييز بين هيدروكسيد الحديد II وهيدروكسيد الحديد III',
-            difficulty: 'medium',
-            questionEn: 'Adding sodium hydroxide solution $\\text{NaOH}$ to an iron salt solution produces a reddish-brown gelatinous precipitate. What is the identity of this precipitate?',
-            questionAr: 'عند إضافة محلول هيدروكسيد الصوديوم $\\text{NaOH}$ إلى محلول أحد أملاح الحديد، تكون راسب جيلاتيني بني محمر. ما صيغة هذا الراسب؟',
-            optionsEn: ['$\\text{Fe(OH)}_3$', '$\\text{Fe(OH)}_2$', '$\\text{Fe}_2\\text{O}_3$', '$\\text{FeO}$'],
-            optionsAr: ['$\\text{Fe(OH)}_3$', '$\\text{Fe(OH)}_2$', '$\\text{Fe}_2\\text{O}_3$', '$\\text{FeO}$'],
-            correctAnswer: '$\\text{Fe(OH)}_3$',
-            correctIndex: 0,
-            hintEn: 'Iron(III) hydroxide is reddish-brown, while iron(II) hydroxide is dirty-white turning greenish-white.',
-            hintAr: 'هيدروكسيد الحديد III راسب بني محمر، بينما هيدروكسيد الحديد II أبيض مخضر.',
-            stepByStepSolutionEn: [
-              'Reaction: $\\text{Fe}^{3+}_{\\text{(aq)}} + 3\\text{OH}^-_{\\text{(aq)}} \\to \\text{Fe(OH)}_{3\\text{(s)}}$.',
-              'The precipitate $\\text{Fe(OH)}_3$ is reddish-brown and dissolves in dilute acids.'
-            ],
-            stepByStepSolutionAr: [
-              'معادلة التفاعل: $\\text{Fe}^{3+}_{\\text{(aq)}} + 3\\text{OH}^-_{\\text{(aq)}} \\to \\text{Fe(OH)}_{3\\text{(s)}}$.',
-              'الراسب $\\text{Fe(OH)}_3$ ذو لون بني محمر جيلاتيني ويذوب في الأحماض المخففة.'
-            ],
-            teacherTipEn: 'Strong heating of $\\text{Fe(OH)}_3$ above $200^\\circ\\text{C}$ dehydrates it into red hematite $\\text{Fe}_2\\text{O}_3$.',
-            teacherTipAr: 'التسخين الشديد لهيدروكسيد الحديد III أعلى من $200^\\circ\\text{C}$ ينزع الماء منه ويحوله إلى أكسيد الحديد III الأحمر.'
-          }
-        ],
-        hots: [
-          {
-            id: 'th_chem_db_hots_01',
-            titleEn: 'Thermal Decomposition of Iron(II) Sulfate',
-            titleAr: 'الانحلال الحراري لكبريتات الحديد II',
-            difficulty: 'hots',
-            questionEn: 'Strong heating of solid iron(II) sulfate crystals $\\text{FeSO}_4$ produces a red solid and two distinct acidic gases. What are the gaseous products?',
-            questionAr: 'عند التسخين الشديد لبلورات كبريتات الحديد II الصلبة $\\text{FeSO}_4$ يتكون راسب صلب أحمر اللون وغازان حمضيان مختلفان. ما هذان الغازان؟',
-            optionsEn: ['$\\text{SO}_2$ and $\\text{SO}_3$', '$\\text{CO}$ and $\\text{CO}_2$', '$\\text{SO}_2$ and $\\text{O}_2$', '$\\text{H}_2\\text{S}$ and $\\text{SO}_2$'],
-            optionsAr: ['$\\text{SO}_2$ و $\\text{SO}_3$', '$\\text{CO}$ و $\\text{CO}_2$', '$\\text{SO}_2$ و $\\text{O}_2$', '$\\text{H}_2\\text{S}$ و $\\text{SO}_2$'],
-            correctAnswer: '$\\text{SO}_2$ and $\\text{SO}_3$',
-            correctIndex: 0,
-            hintEn: 'The reaction is a self-redox decomposition: $2\\text{FeSO}_4 \\xrightarrow{\\Delta} \\text{Fe}_2\\text{O}_3 + \\text{SO}_2 + \\text{SO}_3$.',
-            hintAr: 'التفاعل انحلال بأكسدة واختزال ذاتي: $2\\text{FeSO}_4 \\xrightarrow{\\Delta} \\text{Fe}_2\\text{O}_3 + \\text{SO}_2 + \\text{SO}_3$.',
-            stepByStepSolutionEn: [
-              'Balanced chemical equation: $2\\text{FeSO}_4 \\xrightarrow{\\Delta} \\text{Fe}_2\\text{O}_3 + \\text{SO}_2\\uparrow + \\text{SO}_3\\uparrow$.',
-              'Iron undergoes oxidation from $\\text{Fe}^{2+}$ to $\\text{Fe}^{3+}$ in $\\text{Fe}_2\\text{O}_3$.',
-              'Part of sulfur undergoes reduction from $+6$ to $+4$ in sulfur dioxide $\\text{SO}_2$, while sulfur trioxide $\\text{SO}_3$ retains sulfur at $+6$.',
-              'The gaseous products are sulfur dioxide ($\\text{SO}_2$) and sulfur trioxide ($\\text{SO}_3$).'
-            ],
-            stepByStepSolutionAr: [
-              'معادلة التفاعل المتزنة: $2\\text{FeSO}_4 \\xrightarrow{\\Delta} \\text{Fe}_2\\text{O}_3 + \\text{SO}_2\\uparrow + \\text{SO}_3\\uparrow$.',
-              'يتأكسد الحديد من $+2$ إلى $+3$ في أكسيد الحديد III الأحمر.',
-              'يُختزل جزء من الكبريت من $+6$ إلى $+4$ في ثاني أكسيد الكبريت $\\text{SO}_2$ كعامل مؤكسد ذاتي.',
-              'الغازان الحمضيان الناتجان هما ثاني أكسيد الكبريت ($\\text{SO}_2$) وثالث أكسيد الكبريت ($\\text{SO}_3$).'
-            ],
-            teacherTipEn: 'This reaction is an essential method for preparing iron(III) oxide industrially and laboratory.',
-            teacherTipAr: 'هذا التفاعل من أهم الطرق المعملية والصناعية لتحضير أكسيد الحديد III (الهيماتيت).'
-          }
-        ]
-      }
+      databank: chemCh1Databank
     }
   ]
 };
