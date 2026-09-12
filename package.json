@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "npx tsx scripts/verify_all_databanks.ts && npx tsx scripts/analyze_redundancy.ts && npx tsx scripts/katex_validation.ts"
+
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

@@ -7,10 +7,16 @@ export type BranchId =
   | 'calculus' 
   | 'statics' 
   | 'dynamics'
+  | 'thanaweya_physics'
+  | 'thanaweya_chemistry'
+  | 'thanaweya_biology'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
-  | 'egbac_probability';
+  | 'egbac_probability'
+  | 'egbac_physics'
+  | 'egbac_chemistry'
+  | 'egbac_biology';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 

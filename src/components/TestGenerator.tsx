@@ -252,12 +252,89 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
     return () => clearInterval(interval);
   }, [isExamStarted, isSubmitted, isTimed, isTimerPaused, activeQuestions, userAnswers]);
 
-  // Format time (MM:SS)
+  // Format time (HH:MM:SS if >= 1 hour, otherwise MM:SS)
   const formatTime = (sec: number) => {
-    const m = Math.floor(sec / 60);
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
     const s = sec % 60;
-    const formatted = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    const formatted = h > 0
+      ? `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
+      : `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     return lang === 'ar' ? toHindiDigits(formatted) : formatted;
+  };
+
+  // Launch official 3-Hour Ministerial Exam Simulation (40 Questions / 180 Minutes)
+  const handleStartMinisterialSimulation = () => {
+    setExamMode('online');
+    setSelectedBranch('all');
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setQuestionCount(40);
+    setIsTimed(true);
+    setDurationPreset(180);
+
+    // Generate 40 questions and start
+    const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+    const pool: GeneratedQuestion[] = [];
+
+    activeData.branches.forEach((branch) => {
+      branch.chapters.forEach((ch) => {
+        const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+
+        if (ch.databank) {
+          ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+          ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+          ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+        }
+        if (ch.solvedExamples) {
+          ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
+        }
+        if (ch.exerciseProblems) {
+          ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
+        }
+
+        candidateProblems.forEach(({ prob, source, diff }) => {
+          if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
+          pool.push({
+            id: `${prob.id}_${source}`,
+            questionEn: prob.questionEn,
+            questionAr: prob.questionAr,
+            difficulty: diff,
+            optionsEn: prob.optionsEn,
+            optionsAr: prob.optionsAr,
+            correctIndex: prob.correctIndex,
+            explanationEn: prob.stepByStepSolutionEn,
+            explanationAr: prob.stepByStepSolutionAr,
+            chapterId: ch.id,
+            chapterTitleEn: ch.titleEn,
+            chapterTitleAr: ch.titleAr,
+            branchTitleEn: branch.titleEn,
+            branchTitleAr: branch.titleAr,
+            diagramType: prob.diagramType,
+          });
+        });
+      });
+    });
+
+    const shuffled = [...pool];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    const selectedQs = shuffled.slice(0, Math.min(40, shuffled.length));
+    setActiveQuestions(selectedQs);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setReviewFilter('all');
+
+    const totalSec = 180 * 60; // 3 hours = 10,800 seconds
+    setTotalTimeSeconds(totalSec);
+    setTimeRemaining(totalSec);
+    setIsTimerPaused(false);
+    setTimeTakenSeconds(0);
+    setIsExamStarted(true);
   };
 
   // Toggle flag on question
@@ -411,6 +488,37 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
           </div>
         </div>
 
+        {/* Ministerial 3-Hour Simulation Quick Launch Banner */}
+        <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
+          <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/40 shadow-inner">
+              <Award className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                <h4 className="text-sm sm:text-base font-black text-slate-100">
+                  {lang === 'ar' ? 'محاكاة امتحان الثانوية العامة الرسمي (3 ساعات / 40 سؤالاً)' : 'Official Ministerial 3-Hour Simulation (40 Qs / 180 Mins)'}
+                </h4>
+                <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40">
+                  {lang === 'ar' ? 'نموذج الوزارة المعتمد 2026' : 'Official MoE Spec 2026'}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 mt-1 max-w-xl">
+                {lang === 'ar'
+                  ? 'اختبار شامل يحاكي زمن وضوابط امتحان نهاية العام بوزارة التربية والتعليم: 40 سؤالاً، مؤقت 3 ساعات، لوحة تنقل ومراجعة تفاعلية، وتحليل شامل للدرجات والوقت.'
+                  : 'Full-length mock exam replicating official Grade 12 ministerial exam conditions: 40 questions, 3-hour timer, question palette & detailed performance analytics.'}
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={handleStartMinisterialSimulation}
+            className="w-full md:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+          >
+            <Timer className="w-4 h-4" />
+            <span>{lang === 'ar' ? 'بدء محاكاة الامتحان (3 ساعات)' : 'Launch 3-Hour Simulation'}</span>
+          </button>
+        </div>
+
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
           <div>
@@ -478,6 +586,8 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
               <option value={15}>{lang === 'ar' ? `15 سؤالاً (نصف امتحان)` : `15 Questions (Mid-term)`}</option>
               <option value={20}>{lang === 'ar' ? `20 سؤالاً (امتحان كامل)` : `20 Questions (Full Exam)`}</option>
               <option value={30}>{lang === 'ar' ? `30 سؤالاً (شامل مكثف)` : `30 Questions (Intensive)`}</option>
+              <option value={40}>{lang === 'ar' ? `40 سؤالاً (امتحان الوزارة النهائي الرسمي)` : `40 Questions (Official Ministerial Exam)`}</option>
+              <option value={50}>{lang === 'ar' ? `50 سؤالاً (شامل موسع)` : `50 Questions (Comprehensive Mock)`}</option>
             </select>
           </div>
 
@@ -506,7 +616,9 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
               <option value="30">{lang === 'ar' ? '30 دقيقة' : '30 Minutes'}</option>
               <option value="45">{lang === 'ar' ? '45 دقيقة' : '45 Minutes'}</option>
               <option value="60">{lang === 'ar' ? '60 دقيقة (ساعة)' : '60 Minutes (1 hr)'}</option>
-              <option value="120">{lang === 'ar' ? '120 دقيقة (ساعتان كاملتان)' : '120 Minutes (2 hrs)'}</option>
+              <option value="90">{lang === 'ar' ? '90 دقيقة (ساعة ونصف)' : '90 Minutes (1.5 hrs)'}</option>
+              <option value="120">{lang === 'ar' ? '120 دقيقة (ساعتان)' : '120 Minutes (2 hrs)'}</option>
+              <option value="180">{lang === 'ar' ? '180 دقيقة (3 ساعات - محاكاة الوزارة الرسمية)' : '180 Minutes (3 hrs - Official Simulation)'}</option>
               <option value="untimed">{lang === 'ar' ? 'بدون توقيت (تدريب حر)' : 'Untimed (Self-paced)'}</option>
             </select>
           </div>

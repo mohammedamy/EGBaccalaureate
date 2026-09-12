@@ -17,7 +17,11 @@ import {
   Binary,
   Microscope,
   Calculator,
+  Atom,
+  FlaskConical,
+  Dna,
 } from 'lucide-react';
+
 
 interface Props {
   lang: Language;
@@ -237,7 +241,146 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Direct readiness for College Data Science, Bioengineering, Econometrics, and AI statistical modeling.',
       universityAdvantageAr: 'جاهزية مباشرة لتخصصات علوم البيانات، الهندسة الطبية، الاقتصاد القياسي، ونمذجة الذكاء الاصطناعي الإحصائية.',
     },
+    {
+      id: 'physics_bridge',
+      titleEn: 'Physics: Electromagnetism & Modern Quantum Physics',
+      titleAr: 'الفيزياء: الكهرومغناطيسية والفيزياء الحديثة الكمية',
+      icon: <Atom className="w-5 h-5 text-sky-400" />,
+      thanaweyaBranchId: 'thanaweya_physics',
+      egBacBranchId: 'egbac_physics',
+      thanaweyaTitleEn: 'Electric Current, DC Circuits & Electromagnetism',
+      thanaweyaTitleAr: 'التيار الكهربي وقانون أوم وقوانين كيرشوف والكهرومغناطيسية',
+      thanaweyaTopicsEn: [
+        "Ohm's Law & resistivity temperature dependence",
+        'Series and parallel equivalent resistances & bridge circuits',
+        "Closed-circuit Ohm's Law and EMF internal resistance",
+        "Kirchhoff's First & Second Laws with multiloop mesh analysis",
+        'Magnetic flux, Lorentz force & electromagnetic induction',
+      ],
+      thanaweyaTopicsAr: [
+        'قانون أوم والمقاومة النوعية والتوصيلية الكهربية لفلزات النحاس',
+        'توصيل المقاومات على التوالي والتوازي وحالات إلغاء المقاومة',
+        'قانون أوم للدائرة المغلقة والمقاومة الداخلية لمصادر القوة الدافعة',
+        'قانونا كيرشوف الأول والثاني وتحليل الدوائر الشبكية متعددة الحلقات',
+        'الفيض المغناطيسي وقوة لورنتز وتطبيقات الحث الكهرومغناطيسي',
+      ],
+      egBacTitleEn: 'Quantum Physics, Photons & Wave-Particle Duality',
+      egBacTitleAr: 'ازدواجية الموجة والجسيم وفيزياء الكم وتشتت كومتون',
+      egBacTopicsEn: [
+        'Planck quantum hypothesis & blackbody radiation spectrum',
+        'Einstein photoelectric equation & work function cutoff',
+        'Compton scattering & photon linear momentum conservation',
+        'De Broglie matter waves & electron diffraction',
+        'Electron microscopy resolving criteria and wave optics',
+      ],
+      egBacTopicsAr: [
+        'فرضية بلانك لتكميم الطاقة وإشعاع الجسم الأسود وقانون فين',
+        'معادلة أينشتاين الكهروضوئية ودالة الشغل والتردد الحرج للفلزات',
+        'تشتت كومتون وإثبات كمية حركة الفوتون وحفظ الطاقة الحركية',
+        'موجات دي برولي المادية وحيود حزم الإلكترونات المعجلة',
+        'معايير القدرة التحليلية للمجهر الإلكتروني وبصريات الموجات',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers unrivaled problem depth in multi-loop DC networks and electromagnetic induction. EG-Bac introduces contemporary quantum photonics, matter-wave mechanics, and relativistic collision dynamics foundational to nanotechnology and semiconductor physics.',
+      bridgeInsightAr:
+        'تتفوق الثانوية العامة في تدريبات تحليل شبكات الدوائر المغلقة وقوانين كيرشوف، بينما يقدم مسار البكالوريا فيزياء الكم الحديثة وميكانيكا الفوتونات وتطبيقات أشباه الموصلات والنانوتكنولوجي.',
+      universityAdvantageEn: 'Direct mastery for Electrical & Electronic Engineering, Quantum Computing, and Solid-State Physics.',
+      universityAdvantageAr: 'تأهيل مباشر لكليات الهندسة الكهربية والإلكترونيات وفيزياء الجوامد وهندسة النانوتكنولوجي.',
+    },
+    {
+      id: 'chemistry_bridge',
+      titleEn: 'Chemistry: Transition Metallurgy & Reaction Kinetics',
+      titleAr: 'الكيمياء: العناصر الانتقالية والاتزان وحركية التفاعلات',
+      icon: <FlaskConical className="w-5 h-5 text-emerald-400" />,
+      thanaweyaBranchId: 'thanaweya_chemistry',
+      egBacBranchId: 'egbac_chemistry',
+      thanaweyaTitleEn: 'First Transition Series & Iron Metallurgy',
+      thanaweyaTitleAr: 'عناصر السلسلة الانتقالية الأولى وتعدين واستخلاص الحديد',
+      thanaweyaTopicsEn: [
+        'Electronic configuration & anomalous Cr/Cu 3d subshell filling',
+        'Variable oxidation states, catalytic action & atomic radii trends',
+        'Magnetic properties: paramagnetism vs diamagnetism (Bohr magnetons)',
+        'Transition metal complex ion colors & d-d orbital splitting',
+        'Iron blast furnace reduction, steel converting & oxide transformations',
+      ],
+      thanaweyaTopicsAr: [
+        'التركيب الإلكتروني وشذوذ الكروم والنحاس في امتلاء المستوى الفرعي 3d',
+        'تعدد حالات التأكسد والنشاط الحفزي وتدرج نصف القطر الذري',
+        'الخواص المغناطيسية: البارامغناطيسية والدايامغناطيسية والعزم المغناطيسي',
+        'ألوان أيونات العناصر الانتقالية وتفسيرها بامتصاص فوتونات الضوء المرئي',
+        'تعدين الحديد، أفران الاختزال (اللافح ومدركس)، وتحويلات أكاسيد الحديد',
+      ],
+      egBacTitleEn: 'Chemical Kinetics, Arrhenius Activation & Dynamic Equilibrium',
+      egBacTitleAr: 'الحركية الكيميائية، طاقة تنشيط أرهينيوس، والاتزان الديناميكي',
+      egBacTopicsEn: [
+        'Differential & integrated rate laws (zero, first, and second order)',
+        'Arrhenius activation energy determination via two-temperature kinetics',
+        'Dynamic chemical equilibrium constants Kc and Kp relationships',
+        'Le Chatelier stress shifts under coupled temperature/pressure variation',
+        'Henderson-Hasselbalch ionic buffer equations & solubility products',
+      ],
+      egBacTopicsAr: [
+        'قوانين السرعة التفاضلية والتكاملية وفترات عمر النصف للتفاعلات',
+        'حساب طاقة التنشيط وفق معادلة أرهينيوس الحركية ثنائية الحرارة',
+        'الاتزان الديناميكي والعلاقة بين ثابتي الاتزان Kc و Kp',
+        'إزاحات لوشاتيليه المعقدة تحت التأثير المزدوج للضغط ودرجة الحرارة',
+        'معادلة هندرسون-هاسلبالخ لمحاليل البفر المنظمة وحاصل الإذابة Ksp',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an exhaustive empirical mastery of transition metal inorganic reactions, iron oxidation pathways, and industrial metallurgy. EG-Bac focuses on physical chemistry thermodynamics, reaction kinetics, and quantitative buffer equilibria.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً شاملاً لكيمياء الفلزات الانتقالية ومعادلات تحويلات الحديد وتعدينه، بينما تركز البكالوريا على الديناميكا الحرارية الكيميائية وقوانين سرعة التفاعل وحسابات البفر.',
+      universityAdvantageEn: 'Seamless transition into Chemical Engineering, Materials Science, Pharmacology, and Analytical Chemistry.',
+      universityAdvantageAr: 'انتقال سلس ومباشر لأقسام الهندسة الكيميائية، علوم المواد، كليات الصيدلة، والكيمياء الحيوية والتحليلية.',
+    },
+    {
+      id: 'biology_bridge',
+      titleEn: 'Biology: Structural Biomechanics & Molecular Genetics',
+      titleAr: 'الأحياء: الدعامة والحركة والوراثة الجزيئية',
+      icon: <Dna className="w-5 h-5 text-rose-400" />,
+      thanaweyaBranchId: 'thanaweya_biology',
+      egBacBranchId: 'egbac_biology',
+      thanaweyaTitleEn: 'Support and Movement in Living Organisms',
+      thanaweyaTitleAr: 'الدعامة والحركة في الكائنات الحية (النبات والإنسان)',
+      thanaweyaTopicsEn: [
+        'Physiological vs structural support in plant tissues (turgor & lignin)',
+        'Tropic, nastic, and haptotropic movement in climbing tendrils',
+        'Human axial and appendicular skeleton anatomy & joint articulations',
+        'Sarcomere fine ultrastructure, actin, myosin & sliding filament theory',
+        'Motor units, neuromuscular junction transmission & muscle fatigue/spasm',
+      ],
+      thanaweyaTopicsAr: [
+        'الدعامة الفسيولوجية والتركيبية في النبات (ضغط الامتلاء واللجنين)',
+        'حركات اللمس والشد في المحاليق والانتحاء في النباتات',
+        'الهيكل العظمي المحوري والطرفي والمفاصل والأربطة والأوتار في الإنسان',
+        'التركيب المجهري للقطعة العضلية ونظرية الخيوط المنزلقة لهكسلي',
+        'الوحدة الحركية، التشابك العصبي العضلي، والإجهاد والشد العضلي',
+      ],
+      egBacTitleEn: 'Molecular Genetics, DNA Replication & Central Dogma',
+      egBacTitleAr: 'الوراثة الجزيئية وتضاعف DNA والشفرة الوراثية وتخليق البروتين',
+      egBacTopicsEn: [
+        'Avery, Hershey-Chase experimental proofs of genetic material identity',
+        'Watson-Crick double helix architecture & Chargaff stoichiometry',
+        'Semi-conservative replication enzymology (helicase, pol III, ligase)',
+        'Transcription mechanism & triplet codon genetic dictionary decoding',
+        'Ribosomal translation mechanics, tRNA anticodons & mutation types',
+      ],
+      egBacTopicsAr: [
+        'التجارب الفاصلة لإثبات المادة الوراثية (أفري، هيرشي وتشيس بالعاثيات)',
+        'النموذج الحلزوني لواطسون وكريك وقواعد شارجاف للبيورينات',
+        'إنزيمات التضاعف شبه المحافظ (اللولب، بلمرة DNA، الربط)',
+        'آلية النسخ وفك شفرة الكودونات الثلاثية على شريط mRNA',
+        'الترجمة في الريبوسومات ودور tRNA وتصنيف الطفرات النقطية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an intricate anatomical and physiological breakdown of skeletal-muscular biomechanics. EG-Bac dives deep into the molecular code of life, nucleic acid thermodynamics, and genetic engineering.',
+      bridgeInsightAr:
+        'تتميز الثانوية العامة بالتفصيل التشريحي والفسيولوجي الدقيق للهيكل العظمي والميكانيكا العضلية، بينما تركز البكالوريا على الهندسة الوراثية وشفرة الحياة الجزيئية وتخليق البروتين.',
+      universityAdvantageEn: 'Essential foundation for Medicine, Biomedical Engineering, Biotechnology, and Genomics research.',
+      universityAdvantageAr: 'ركيزة أساسية لا غنى عنها لطلاب كليات الطب البشري، الهندسة الطبية الحيوية، والتقنيات الحيوية والجينوم.',
+    },
   ];
+
 
   const activeBridge = bridges[activeBridgeIndex];
 

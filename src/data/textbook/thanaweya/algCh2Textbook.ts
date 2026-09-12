@@ -1108,8 +1108,8 @@ export const algCh2Exercises: SolvedProblem[] = [
     "hintAr": "في الكسر الأول: اضرب البسط في \\omega^٣ وخذ \\omega عاملاً مشتركاً \\implies \\omega. في الكسر الثاني: اضرب د في \\omega^٣ وخذ \\omega^٢ عاملاً مشتركاً \\implies \\omega^٢. الناتج = \\omega + \\omega^٢ = -١.",
     "stepByStepSolutionEn": [
       "1. First fraction: $\\frac{a + b\\omega}{a\\omega^2 + b}$:",
-      "Multiply numerator by $\\omega^3 = 1$ in the form $a\\omega^3 + b\\omega^4$:",
-      "$$= \\frac{\\omega^2(a\\omega + b\\omega^2)... \\text{or directly: } a = a\\omega^3 \\implies \\frac{a\\omega^3 + b\\omega}{a\\omega^2 + b} = \\frac{\\omega(a\\omega^2 + b)}{a\\omega^2 + b} = \\omega$$",
+      "Multiply numerator by $\\omega^3 = 1$ in the form $a\\omega^3 + b\\omega^4$, or directly replace $a$ with $a\\omega^3$:",
+      "$$\\frac{a\\omega^3 + b\\omega}{a\\omega^2 + b} = \\frac{\\omega(a\\omega^2 + b)}{a\\omega^2 + b} = \\omega$$",
       "2. Second fraction: $\\frac{c\\omega^2 + d}{c + d\\omega}$:",
       "Replace $d$ with $d\\omega^3$ in numerator:",
       "$$\\frac{c\\omega^2 + d\\omega^3}{c + d\\omega} = \\frac{\\omega^2(c + d\\omega)}{c + d\\omega} = \\omega^2$$",

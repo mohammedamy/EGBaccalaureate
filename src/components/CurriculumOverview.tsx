@@ -17,6 +17,9 @@ import {
   TrendingUp,
   Cpu,
   BarChart3,
+  Atom,
+  FlaskConical,
+  Dna,
   Star,
   FileSpreadsheet,
   Download,
@@ -82,13 +85,27 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <Cpu className="w-5 h-5" />;
       case 'BarChart3':
         return <BarChart3 className="w-5 h-5" />;
+      case 'Atom':
+        return <Atom className="w-5 h-5" />;
+      case 'FlaskConical':
+        return <FlaskConical className="w-5 h-5" />;
+      case 'Dna':
+        return <Dna className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }
   };
 
   const totalChapters = curriculum.branches.reduce((acc, b) => acc + b.chapters.length, 0);
-  const totalProblems = totalChapters * 175; // 150 MCQs + 10 Solved + 15 Exercises
+  const totalProblems = curriculum.branches.reduce((acc, b) => {
+    return acc + b.chapters.reduce((cAcc, ch) => {
+      let count = 0;
+      if (ch.databank) count += (ch.databank.easy?.length || 0) + (ch.databank.medium?.length || 0) + (ch.databank.hots?.length || 0);
+      if (ch.solvedExamples) count += ch.solvedExamples.length;
+      if (ch.exerciseProblems) count += ch.exerciseProblems.length;
+      return cAcc + count;
+    }, 0);
+  }, 0);
 
   const displayedBranches = useMemo(() => {
     if (selectedBranchId === 'all') return curriculum.branches;
