@@ -29,13 +29,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 2 \\cdot \\frac{\\sin(2x)}{2x}$.",
       "2. As $x \\to 0$, $u = 2x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 2 \\times 1 = 2$."
+      "4. Therefore, the limit is $2 \\times 1 = 2$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 2 \\cdot \\frac{\\sin(2x)}{2x}$.",
-      "٢. عندما $x \\to 0$ فإن 2x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $2x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 2$."
+      "٤. إذن قيمة النهاية تساوي $2$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -67,13 +67,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 3 \\cdot \\frac{\\sin(3x)}{3x}$.",
       "2. As $x \\to 0$, $u = 3x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 3 \\times 1 = 3$."
+      "4. Therefore, the limit is $3 \\times 1 = 3$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 3 \\cdot \\frac{\\sin(3x)}{3x}$.",
-      "٢. عندما $x \\to 0$ فإن 3x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $3x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 3$."
+      "٤. إذن قيمة النهاية تساوي $3$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -105,13 +105,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 4 \\cdot \\frac{\\sin(4x)}{4x}$.",
       "2. As $x \\to 0$, $u = 4x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 4 \\times 1 = 4$."
+      "4. Therefore, the limit is $4 \\times 1 = 4$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 4 \\cdot \\frac{\\sin(4x)}{4x}$.",
-      "٢. عندما $x \\to 0$ فإن 4x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $4x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 4$."
+      "٤. إذن قيمة النهاية تساوي $4$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -143,13 +143,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 5 \\cdot \\frac{\\sin(5x)}{5x}$.",
       "2. As $x \\to 0$, $u = 5x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 5 \\times 1 = 5$."
+      "4. Therefore, the limit is $5 \\times 1 = 5$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 5 \\cdot \\frac{\\sin(5x)}{5x}$.",
-      "٢. عندما $x \\to 0$ فإن 5x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $5x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 5$."
+      "٤. إذن قيمة النهاية تساوي $5$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -181,13 +181,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 6 \\cdot \\frac{\\sin(6x)}{6x}$.",
       "2. As $x \\to 0$, $u = 6x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 6 \\times 1 = 6$."
+      "4. Therefore, the limit is $6 \\times 1 = 6$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 6 \\cdot \\frac{\\sin(6x)}{6x}$.",
-      "٢. عندما $x \\to 0$ فإن 6x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $6x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 6$."
+      "٤. إذن قيمة النهاية تساوي $6$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -219,13 +219,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 7 \\cdot \\frac{\\sin(7x)}{7x}$.",
       "2. As $x \\to 0$, $u = 7x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 7 \\times 1 = 7$."
+      "4. Therefore, the limit is $7 \\times 1 = 7$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 7 \\cdot \\frac{\\sin(7x)}{7x}$.",
-      "٢. عندما $x \\to 0$ فإن 7x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $7x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 7$."
+      "٤. إذن قيمة النهاية تساوي $7$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -257,13 +257,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 8 \\cdot \\frac{\\sin(8x)}{8x}$.",
       "2. As $x \\to 0$, $u = 8x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 8 \\times 1 = 8$."
+      "4. Therefore, the limit is $8 \\times 1 = 8$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 8 \\cdot \\frac{\\sin(8x)}{8x}$.",
-      "٢. عندما $x \\to 0$ فإن 8x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $8x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 8$."
+      "٤. إذن قيمة النهاية تساوي $8$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -295,13 +295,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 9 \\cdot \\frac{\\sin(9x)}{9x}$.",
       "2. As $x \\to 0$, $u = 9x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 9 \\times 1 = 9$."
+      "4. Therefore, the limit is $9 \\times 1 = 9$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 9 \\cdot \\frac{\\sin(9x)}{9x}$.",
-      "٢. عندما $x \\to 0$ فإن 9x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $9x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 9$."
+      "٤. إذن قيمة النهاية تساوي $9$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -333,13 +333,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 10 \\cdot \\frac{\\sin(10x)}{10x}$.",
       "2. As $x \\to 0$, $u = 10x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 10 \\times 1 = 10$."
+      "4. Therefore, the limit is $10 \\times 1 = 10$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 10 \\cdot \\frac{\\sin(10x)}{10x}$.",
-      "٢. عندما $x \\to 0$ فإن 10x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $10x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 10$."
+      "٤. إذن قيمة النهاية تساوي $10$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -371,13 +371,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 11 \\cdot \\frac{\\sin(11x)}{11x}$.",
       "2. As $x \\to 0$, $u = 11x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 11 \\times 1 = 11$."
+      "4. Therefore, the limit is $11 \\times 1 = 11$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 11 \\cdot \\frac{\\sin(11x)}{11x}$.",
-      "٢. عندما $x \\to 0$ فإن 11x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $11x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 11$."
+      "٤. إذن قيمة النهاية تساوي $11$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -409,13 +409,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 12 \\cdot \\frac{\\sin(12x)}{12x}$.",
       "2. As $x \\to 0$, $u = 12x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 12 \\times 1 = 12$."
+      "4. Therefore, the limit is $12 \\times 1 = 12$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 12 \\cdot \\frac{\\sin(12x)}{12x}$.",
-      "٢. عندما $x \\to 0$ فإن 12x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $12x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 12$."
+      "٤. إذن قيمة النهاية تساوي $12$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -447,13 +447,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 13 \\cdot \\frac{\\sin(13x)}{13x}$.",
       "2. As $x \\to 0$, $u = 13x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 13 \\times 1 = 13$."
+      "4. Therefore, the limit is $13 \\times 1 = 13$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 13 \\cdot \\frac{\\sin(13x)}{13x}$.",
-      "٢. عندما $x \\to 0$ فإن 13x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $13x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 13$."
+      "٤. إذن قيمة النهاية تساوي $13$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -485,13 +485,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 14 \\cdot \\frac{\\sin(14x)}{14x}$.",
       "2. As $x \\to 0$, $u = 14x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 14 \\times 1 = 14$."
+      "4. Therefore, the limit is $14 \\times 1 = 14$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 14 \\cdot \\frac{\\sin(14x)}{14x}$.",
-      "٢. عندما $x \\to 0$ فإن 14x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $14x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 14$."
+      "٤. إذن قيمة النهاية تساوي $14$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -523,13 +523,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 15 \\cdot \\frac{\\sin(15x)}{15x}$.",
       "2. As $x \\to 0$, $u = 15x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 15 \\times 1 = 15$."
+      "4. Therefore, the limit is $15 \\times 1 = 15$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 15 \\cdot \\frac{\\sin(15x)}{15x}$.",
-      "٢. عندما $x \\to 0$ فإن 15x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $15x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 15$."
+      "٤. إذن قيمة النهاية تساوي $15$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -561,13 +561,13 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "1. Rewrite the expression as $\\lim_{x \\to 0} 16 \\cdot \\frac{\\sin(16x)}{16x}$.",
       "2. As $x \\to 0$, $u = 16x \\to 0$.",
       "3. $\\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1$.",
-      "4. Therefore, the limit is 16 \\times 1 = 16$."
+      "4. Therefore, the limit is $16 \\times 1 = 16$."
     ],
     "stepByStepSolutionAr": [
       "١. كتابة المقدار في الصورة: $\\lim_{x \\to 0} 16 \\cdot \\frac{\\sin(16x)}{16x}$.",
-      "٢. عندما $x \\to 0$ فإن 16x \\to 0$.",
+      "٢. عندما $x \\to 0$ فإن $16x \\to 0$.",
       "٣. نهاية $\\frac{\\sin(u)}{u} = 1$.",
-      "٤. إذن قيمة النهاية تساوي 16$."
+      "٤. إذن قيمة النهاية تساوي $16$."
     ],
     "teacherTipEn": "lim (x->0) sin(kx)/x = k is an essential benchmark limit in analysis.",
     "teacherTipAr": "نهاية جا(k س) / س عندما س تؤول للصفر تساوي المعامل k مباشرة."
@@ -1202,7 +1202,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 9$.",
+      "٢. النهاية من اليمين: $9$.",
       "٣. شرط الاتصال: $4 + k = 9 \\implies k = 5$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1238,7 +1238,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 10$.",
+      "٢. النهاية من اليمين: $10$.",
       "٣. شرط الاتصال: $4 + k = 10 \\implies k = 6$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1274,7 +1274,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 11$.",
+      "٢. النهاية من اليمين: $11$.",
       "٣. شرط الاتصال: $4 + k = 11 \\implies k = 7$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1310,7 +1310,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 12$.",
+      "٢. النهاية من اليمين: $12$.",
       "٣. شرط الاتصال: $4 + k = 12 \\implies k = 8$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1346,7 +1346,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 13$.",
+      "٢. النهاية من اليمين: $13$.",
       "٣. شرط الاتصال: $4 + k = 13 \\implies k = 9$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1382,7 +1382,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 14$.",
+      "٢. النهاية من اليمين: $14$.",
       "٣. شرط الاتصال: $4 + k = 14 \\implies k = 10$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1418,7 +1418,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 15$.",
+      "٢. النهاية من اليمين: $15$.",
       "٣. شرط الاتصال: $4 + k = 15 \\implies k = 11$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1454,7 +1454,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 16$.",
+      "٢. النهاية من اليمين: $16$.",
       "٣. شرط الاتصال: $4 + k = 16 \\implies k = 12$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1490,7 +1490,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 17$.",
+      "٢. النهاية من اليمين: $17$.",
       "٣. شرط الاتصال: $4 + k = 17 \\implies k = 13$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1526,7 +1526,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. النهاية من اليسار: $2(2) + k = 4 + k$.",
-      "٢. النهاية من اليمين: 18$.",
+      "٢. النهاية من اليمين: $18$.",
       "٣. شرط الاتصال: $4 + k = 18 \\implies k = 14$."
     ],
     "teacherTipEn": "Equating left-hand and right-hand limits is the primary method for piecewise continuity.",
@@ -1557,12 +1557,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(3x + 7) - (10)| = |3x - 3| = 3|x - 1|$.",
-      "2. We require 3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
+      "2. We require $3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{3}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(3x + 7) - (10)| = 3|x - 1|$.",
-      "٢. بوضع 3|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{3}$.",
+      "٢. بوضع $3|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{3}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{3}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1593,12 +1593,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(4x + 7) - (11)| = |4x - 4| = 4|x - 1|$.",
-      "2. We require 4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
+      "2. We require $4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{4}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(4x + 7) - (11)| = 4|x - 1|$.",
-      "٢. بوضع 4|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{4}$.",
+      "٢. بوضع $4|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{4}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{4}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1629,12 +1629,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(5x + 7) - (12)| = |5x - 5| = 5|x - 1|$.",
-      "2. We require 5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
+      "2. We require $5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{5}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(5x + 7) - (12)| = 5|x - 1|$.",
-      "٢. بوضع 5|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{5}$.",
+      "٢. بوضع $5|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{5}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{5}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1665,12 +1665,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(6x + 7) - (13)| = |6x - 6| = 6|x - 1|$.",
-      "2. We require 6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
+      "2. We require $6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{6}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(6x + 7) - (13)| = 6|x - 1|$.",
-      "٢. بوضع 6|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{6}$.",
+      "٢. بوضع $6|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{6}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{6}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1701,12 +1701,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(7x + 7) - (14)| = |7x - 7| = 7|x - 1|$.",
-      "2. We require 7|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{7}$.",
+      "2. We require $7|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{7}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{7}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(7x + 7) - (14)| = 7|x - 1|$.",
-      "٢. بوضع 7|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{7}$.",
+      "٢. بوضع $7|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{7}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{7}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1737,12 +1737,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(8x + 7) - (15)| = |8x - 8| = 8|x - 1|$.",
-      "2. We require 8|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{8}$.",
+      "2. We require $8|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{8}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{8}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(8x + 7) - (15)| = 8|x - 1|$.",
-      "٢. بوضع 8|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{8}$.",
+      "٢. بوضع $8|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{8}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{8}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1773,12 +1773,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(9x + 7) - (16)| = |9x - 9| = 9|x - 1|$.",
-      "2. We require 9|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{9}$.",
+      "2. We require $9|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{9}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{9}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(9x + 7) - (16)| = 9|x - 1|$.",
-      "٢. بوضع 9|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{9}$.",
+      "٢. بوضع $9|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{9}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{9}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1809,12 +1809,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(10x + 7) - (17)| = |10x - 10| = 10|x - 1|$.",
-      "2. We require 10|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{10}$.",
+      "2. We require $10|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{10}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{10}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(10x + 7) - (17)| = 10|x - 1|$.",
-      "٢. بوضع 10|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{10}$.",
+      "٢. بوضع $10|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{10}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{10}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1845,12 +1845,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(11x + 7) - (18)| = |11x - 11| = 11|x - 1|$.",
-      "2. We require 11|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{11}$.",
+      "2. We require $11|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{11}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{11}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(11x + 7) - (18)| = 11|x - 1|$.",
-      "٢. بوضع 11|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{11}$.",
+      "٢. بوضع $11|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{11}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{11}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -1881,12 +1881,12 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "hintAr": "المقدار |f(x) - L| يساوي الميل مضروباً في |x - c|.",
     "stepByStepSolutionEn": [
       "1. Consider $|f(x) - L| = |(12x + 7) - (19)| = |12x - 12| = 12|x - 1|$.",
-      "2. We require 12|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{12}$.",
+      "2. We require $12|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{12}$.",
       "3. Therefore, choose $\\delta = \\frac{\\epsilon}{12}$."
     ],
     "stepByStepSolutionAr": [
       "١. حساب الفرق: $|(12x + 7) - (19)| = 12|x - 1|$.",
-      "٢. بوضع 12|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{12}$.",
+      "٢. بوضع $12|x - 1| < \\epsilon$ نجد $|x - 1| < \\frac{\\epsilon}{12}$.",
       "٣. إذن نختار $\\delta = \\frac{\\epsilon}{12}$."
     ],
     "teacherTipEn": "For f(x) = ax + b, the delta-epsilon relationship is always delta = epsilon / |a|.",
@@ -2808,7 +2808,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 16x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 14$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 14$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 14$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -2846,7 +2846,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 17x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 15$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 15$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 15$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -2884,7 +2884,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 18x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 16$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 16$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 16$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -2922,7 +2922,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 19x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 17$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 17$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 17$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -2960,7 +2960,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 20x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 18$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 18$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 18$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -2998,7 +2998,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 21x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 19$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 19$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 19$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3036,7 +3036,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 22x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 20$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 20$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 20$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3074,7 +3074,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 23x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 21$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 21$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 21$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3112,7 +3112,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 24x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 22$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 22$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 22$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3150,7 +3150,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 25x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 23$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 23$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 23$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3188,7 +3188,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 26x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 24$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 24$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 24$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3226,7 +3226,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 27x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 25$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 25$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 25$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3264,7 +3264,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 28x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 26$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 26$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 26$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3302,7 +3302,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 29x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 27$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 27$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 27$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -3340,7 +3340,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "١. بالقسمة المطولة لـ $2x^2 + 30x + 1$ على $x + 1$:",
       "   خارج القسمة هو $2x + 28$ وباقي القسمة ثابت.",
       "٢. بما أن حد الباقي يؤول للصفر عند اللانهاية:",
-      "٣. إذن معادلة المقارب المائل هي $y = 2x + 28$.\""
+      "٣. إذن معادلة المقارب المائل هي $y = 2x + 28$."
     ],
     "teacherTipEn": "The quotient in polynomial long division represents the oblique asymptote.",
     "teacherTipAr": "خارج القسمة في القسمة المطولة يمثل مباشرة معادلة الخط المقارب المائل."
@@ -4461,7 +4461,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 2| < 1 \\implies 1 < x < 3$.",
       "3. Add 2$ across the inequality: 3 < x + 2 < 5 \\implies |x + 2| < 5$.",
       "4. Thus $|x^2 - 4| < 5 |x - 2|$.",
-      "5. Setting 5 |x - 2| < \\epsilon \\implies |x - 2| < \\frac{\\epsilon}{5}$.",
+      "5. Setting $5 |x - 2| < \\epsilon \\implies |x - 2| < \\frac{\\epsilon}{5}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{5}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4502,7 +4502,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 3| < 1 \\implies 2 < x < 4$.",
       "3. Add 3$ across the inequality: 5 < x + 3 < 7 \\implies |x + 3| < 7$.",
       "4. Thus $|x^2 - 9| < 7 |x - 3|$.",
-      "5. Setting 7 |x - 3| < \\epsilon \\implies |x - 3| < \\frac{\\epsilon}{7}$.",
+      "5. Setting $7 |x - 3| < \\epsilon \\implies |x - 3| < \\frac{\\epsilon}{7}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{7}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4543,7 +4543,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 4| < 1 \\implies 3 < x < 5$.",
       "3. Add 4$ across the inequality: 7 < x + 4 < 9 \\implies |x + 4| < 9$.",
       "4. Thus $|x^2 - 16| < 9 |x - 4|$.",
-      "5. Setting 9 |x - 4| < \\epsilon \\implies |x - 4| < \\frac{\\epsilon}{9}$.",
+      "5. Setting $9 |x - 4| < \\epsilon \\implies |x - 4| < \\frac{\\epsilon}{9}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{9}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4584,7 +4584,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 5| < 1 \\implies 4 < x < 6$.",
       "3. Add 5$ across the inequality: 9 < x + 5 < 11 \\implies |x + 5| < 11$.",
       "4. Thus $|x^2 - 25| < 11 |x - 5|$.",
-      "5. Setting 11 |x - 5| < \\epsilon \\implies |x - 5| < \\frac{\\epsilon}{11}$.",
+      "5. Setting $11 |x - 5| < \\epsilon \\implies |x - 5| < \\frac{\\epsilon}{11}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{11}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4625,7 +4625,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 6| < 1 \\implies 5 < x < 7$.",
       "3. Add 6$ across the inequality: 11 < x + 6 < 13 \\implies |x + 6| < 13$.",
       "4. Thus $|x^2 - 36| < 13 |x - 6|$.",
-      "5. Setting 13 |x - 6| < \\epsilon \\implies |x - 6| < \\frac{\\epsilon}{13}$.",
+      "5. Setting $13 |x - 6| < \\epsilon \\implies |x - 6| < \\frac{\\epsilon}{13}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{13}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4666,7 +4666,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 7| < 1 \\implies 6 < x < 8$.",
       "3. Add 7$ across the inequality: 13 < x + 7 < 15 \\implies |x + 7| < 15$.",
       "4. Thus $|x^2 - 49| < 15 |x - 7|$.",
-      "5. Setting 15 |x - 7| < \\epsilon \\implies |x - 7| < \\frac{\\epsilon}{15}$.",
+      "5. Setting $15 |x - 7| < \\epsilon \\implies |x - 7| < \\frac{\\epsilon}{15}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{15}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4707,7 +4707,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 8| < 1 \\implies 7 < x < 9$.",
       "3. Add 8$ across the inequality: 15 < x + 8 < 17 \\implies |x + 8| < 17$.",
       "4. Thus $|x^2 - 64| < 17 |x - 8|$.",
-      "5. Setting 17 |x - 8| < \\epsilon \\implies |x - 8| < \\frac{\\epsilon}{17}$.",
+      "5. Setting $17 |x - 8| < \\epsilon \\implies |x - 8| < \\frac{\\epsilon}{17}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{17}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4748,7 +4748,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 9| < 1 \\implies 8 < x < 10$.",
       "3. Add 9$ across the inequality: 17 < x + 9 < 19 \\implies |x + 9| < 19$.",
       "4. Thus $|x^2 - 81| < 19 |x - 9|$.",
-      "5. Setting 19 |x - 9| < \\epsilon \\implies |x - 9| < \\frac{\\epsilon}{19}$.",
+      "5. Setting $19 |x - 9| < \\epsilon \\implies |x - 9| < \\frac{\\epsilon}{19}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{19}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4789,7 +4789,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 10| < 1 \\implies 9 < x < 11$.",
       "3. Add 10$ across the inequality: 19 < x + 10 < 21 \\implies |x + 10| < 21$.",
       "4. Thus $|x^2 - 100| < 21 |x - 10|$.",
-      "5. Setting 21 |x - 10| < \\epsilon \\implies |x - 10| < \\frac{\\epsilon}{21}$.",
+      "5. Setting $21 |x - 10| < \\epsilon \\implies |x - 10| < \\frac{\\epsilon}{21}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{21}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4830,7 +4830,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 11| < 1 \\implies 10 < x < 12$.",
       "3. Add 11$ across the inequality: 21 < x + 11 < 23 \\implies |x + 11| < 23$.",
       "4. Thus $|x^2 - 121| < 23 |x - 11|$.",
-      "5. Setting 23 |x - 11| < \\epsilon \\implies |x - 11| < \\frac{\\epsilon}{23}$.",
+      "5. Setting $23 |x - 11| < \\epsilon \\implies |x - 11| < \\frac{\\epsilon}{23}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{23}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4871,7 +4871,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 12| < 1 \\implies 11 < x < 13$.",
       "3. Add 12$ across the inequality: 23 < x + 12 < 25 \\implies |x + 12| < 25$.",
       "4. Thus $|x^2 - 144| < 25 |x - 12|$.",
-      "5. Setting 25 |x - 12| < \\epsilon \\implies |x - 12| < \\frac{\\epsilon}{25}$.",
+      "5. Setting $25 |x - 12| < \\epsilon \\implies |x - 12| < \\frac{\\epsilon}{25}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{25}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4912,7 +4912,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 13| < 1 \\implies 12 < x < 14$.",
       "3. Add 13$ across the inequality: 25 < x + 13 < 27 \\implies |x + 13| < 27$.",
       "4. Thus $|x^2 - 169| < 27 |x - 13|$.",
-      "5. Setting 27 |x - 13| < \\epsilon \\implies |x - 13| < \\frac{\\epsilon}{27}$.",
+      "5. Setting $27 |x - 13| < \\epsilon \\implies |x - 13| < \\frac{\\epsilon}{27}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{27}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4953,7 +4953,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 14| < 1 \\implies 13 < x < 15$.",
       "3. Add 14$ across the inequality: 27 < x + 14 < 29 \\implies |x + 14| < 29$.",
       "4. Thus $|x^2 - 196| < 29 |x - 14|$.",
-      "5. Setting 29 |x - 14| < \\epsilon \\implies |x - 14| < \\frac{\\epsilon}{29}$.",
+      "5. Setting $29 |x - 14| < \\epsilon \\implies |x - 14| < \\frac{\\epsilon}{29}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{29}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -4994,7 +4994,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 15| < 1 \\implies 14 < x < 16$.",
       "3. Add 15$ across the inequality: 29 < x + 15 < 31 \\implies |x + 15| < 31$.",
       "4. Thus $|x^2 - 225| < 31 |x - 15|$.",
-      "5. Setting 31 |x - 15| < \\epsilon \\implies |x - 15| < \\frac{\\epsilon}{31}$.",
+      "5. Setting $31 |x - 15| < \\epsilon \\implies |x - 15| < \\frac{\\epsilon}{31}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{31}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -5035,7 +5035,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
       "2. Assume $\\delta \\le 1$. Then $|x - 16| < 1 \\implies 15 < x < 17$.",
       "3. Add 16$ across the inequality: 31 < x + 16 < 33 \\implies |x + 16| < 33$.",
       "4. Thus $|x^2 - 256| < 33 |x - 16|$.",
-      "5. Setting 33 |x - 16| < \\epsilon \\implies |x - 16| < \\frac{\\epsilon}{33}$.",
+      "5. Setting $33 |x - 16| < \\epsilon \\implies |x - 16| < \\frac{\\epsilon}{33}$.",
       "6. Therefore, $\\delta = \\min\\left(1, \\frac{\\epsilon}{33}\\right)$."
     ],
     "stepByStepSolutionAr": [
@@ -6011,9 +6011,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 2$: القيمة تساوي $|4 - 1| = 3$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 1$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $1$.",
       "   - عند نقاط الانعدام $x = \\pm 1$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 3$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 3$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6051,9 +6051,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 4$: القيمة تساوي $|16 - 4| = 12$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 4$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $4$.",
       "   - عند نقاط الانعدام $x = \\pm 2$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 12$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 12$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6091,9 +6091,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 6$: القيمة تساوي $|36 - 9| = 27$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 9$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $9$.",
       "   - عند نقاط الانعدام $x = \\pm 3$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 27$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 27$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6131,9 +6131,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 8$: القيمة تساوي $|64 - 16| = 48$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 16$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $16$.",
       "   - عند نقاط الانعدام $x = \\pm 4$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 48$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 48$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6171,9 +6171,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 10$: القيمة تساوي $|100 - 25| = 75$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 25$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $25$.",
       "   - عند نقاط الانعدام $x = \\pm 5$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 75$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 75$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6211,9 +6211,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 12$: القيمة تساوي $|144 - 36| = 108$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 36$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $36$.",
       "   - عند نقاط الانعدام $x = \\pm 6$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 108$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 108$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6251,9 +6251,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 14$: القيمة تساوي $|196 - 49| = 147$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 49$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $49$.",
       "   - عند نقاط الانعدام $x = \\pm 7$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 147$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 147$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6291,9 +6291,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 16$: القيمة تساوي $|256 - 64| = 192$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 64$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $64$.",
       "   - عند نقاط الانعدام $x = \\pm 8$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 192$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 192$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6331,9 +6331,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 18$: القيمة تساوي $|324 - 81| = 243$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 81$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $81$.",
       "   - عند نقاط الانعدام $x = \\pm 9$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 243$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 243$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."
@@ -6371,9 +6371,9 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. مرشحو القيم القصوى على الفترة المغلقة:",
       "   - عند الطرفين $x = \\pm 20$: القيمة تساوي $|400 - 100| = 300$.",
-      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي 100$.",
+      "   - عند النقطة الحرجة $x = 0$: القيمة تساوي $100$.",
       "   - عند نقاط الانعدام $x = \\pm 10$: القيمة تساوي ٠ (صغرى مطلقة).",
-      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 300$.\""
+      "٢. بمقارنة القيم: نجد أن القيمة العظمى المطلقة هي $M = 300$."
     ],
     "teacherTipEn": "Always include non-differentiable points (where derivative does not exist) as critical candidates.",
     "teacherTipAr": "احرص دائماً على تضمين النقاط المدببة التي لا توجد عندها مشتقة ضمن النقاط الحرجة المرشحة."

@@ -1827,8 +1827,8 @@ export const calcCh1Databank: ChapterDatabank = {
     ],
     "correctIndex": 0,
     "correctAnswer": "$-\\frac{4}{7}$",
-    "hintEn": "Differentiate $x^2 y$ using the product rule and factor out $y'.",
-    "hintAr": "اشتق $x^2 y$ كحاصل ضرب دالتين واجمع حدود $y'.",
+    "hintEn": "Differentiate $x^2 y$ using the product rule and factor out $y'$.",
+    "hintAr": "اشتق $x^2 y$ كحاصل ضرب دالتين واجمع حدود $y'$.",
     "teacherTipEn": "Always treat $y$ as a function of $x$, writing $y'$ whenever differentiating any term containing $y$.",
     "teacherTipAr": "عامل $y$ كدالة في $x$ دائماً، وضع $y'$ عند اشتقاق أي حد يحتوي $y$.",
     "stepByStepSolutionEn": [
@@ -6235,13 +6235,13 @@ export const calcCh1Databank: ChapterDatabank = {
     "stepByStepSolutionEn": [
       "First derivative: $\\sqrt{1-x^2} y' = m\\cos(m\\sin^{-1}x)$.",
       "Square both sides: $(1-x^2)(y')^2 = m^2(1 - y^2)$.",
-      "Differentiate: $-2x(y')^2 + 2(1-x^2)y' y'' = -2m^2 y y'.",
+      "Differentiate: $-2x(y')^2 + 2(1-x^2)y' y'' = -2m^2 y y'$.",
       "Divide by $2y'$: $(1-x^2)y'' - x y' + m^2 y = 0$."
     ],
     "stepByStepSolutionAr": [
       "المشتقة الأولى: $\\sqrt{1-x^2} y' = m\\cos(m\\sin^{-1}x)$.",
       "تربيع الطرفين: $(1-x^2)(y')^2 = m^2(1 - y^2)$.",
-      "الاشتقاق بالنسبة لـ $x$: $-2x(y')^2 + 2(1-x^2)y' y'' = -2m^2 y y'.",
+      "الاشتقاق بالنسبة لـ $x$: $-2x(y')^2 + 2(1-x^2)y' y'' = -2m^2 y y'$.",
       "القسمة على $2y'$: نصل مباشرة إلى $(1-x^2)y'' - x y' + m^2 y = 0$."
     ]
   },

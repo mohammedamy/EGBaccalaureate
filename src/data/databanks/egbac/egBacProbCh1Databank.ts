@@ -2011,7 +2011,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.02 = 0.0180$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.0180 + 0.0980 = 0.1160$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0180}{0.1160} = 0.1552$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0180}{0.1160} = 0.1552$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2047,7 +2047,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.04 = 0.0360$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.0360 + 0.0960 = 0.1320$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0360}{0.1320} = 0.2727$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0360}{0.1320} = 0.2727$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2083,7 +2083,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.06 = 0.0540$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.0540 + 0.0940 = 0.1480$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0540}{0.1480} = 0.3649$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0540}{0.1480} = 0.3649$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2119,7 +2119,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.08 = 0.0720$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.0720 + 0.0920 = 0.1640$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0720}{0.1640} = 0.4390$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0720}{0.1640} = 0.4390$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2155,7 +2155,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.1 = 0.0900$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.0900 + 0.0900 = 0.1800$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0900}{0.1800} = 0.5000$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.0900}{0.1800} = 0.5000$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2191,7 +2191,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.12 = 0.1080$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1080 + 0.0880 = 0.1960$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1080}{0.1960} = 0.5510$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1080}{0.1960} = 0.5510$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2227,7 +2227,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.14 = 0.1260$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1260 + 0.0860 = 0.2120$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1260}{0.2120} = 0.5943$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1260}{0.2120} = 0.5943$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2263,7 +2263,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.16 = 0.1440$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1440 + 0.0840 = 0.2280$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1440}{0.2280} = 0.6316$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1440}{0.2280} = 0.6316$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2299,7 +2299,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.18 = 0.1620$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1620 + 0.0820 = 0.2440$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1620}{0.2440} = 0.6639$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1620}{0.2440} = 0.6639$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2335,7 +2335,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.2 = 0.1800$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1800 + 0.0800 = 0.2600$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1800}{0.2600} = 0.6923$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1800}{0.2600} = 0.6923$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2371,7 +2371,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.22 = 0.1980$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.1980 + 0.0780 = 0.2760$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1980}{0.2760} = 0.7174$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.1980}{0.2760} = 0.7174$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2407,7 +2407,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.24 = 0.2160$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.2160 + 0.0760 = 0.2920$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2160}{0.2920} = 0.7397$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2160}{0.2920} = 0.7397$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2443,7 +2443,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.26 = 0.2340$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.2340 + 0.0740 = 0.3080$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2340}{0.3080} = 0.7597$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2340}{0.3080} = 0.7597$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2479,7 +2479,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.28 = 0.2520$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.2520 + 0.0720 = 0.3240$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2520}{0.3240} = 0.7778$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2520}{0.3240} = 0.7778$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2515,7 +2515,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. البسط: $P(E | H) P(H) = 0.90 \\times 0.3 = 0.2700$.",
       "٢. المقام (الاحتمال الكلي للدليل): $P(E) = 0.2700 + 0.0700 = 0.3400$.",
-      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2700}{0.3400} = 0.7941$.\""
+      "٣. الاحتمال البعدي: $P(H | E) = \\frac{0.2700}{0.3400} = 0.7941$."
     ],
     "teacherTipEn": "Bayes' theorem formalizes the scientific method: updating beliefs in light of new experimental evidence.",
     "teacherTipAr": "نظرية بايز هي الصياغة الرياضية للمنهج العلمي: تحديث المعتقدات والفرضيات فور ظهور أدلة رصدية جديدة."
@@ -2551,7 +2551,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 1(2) + 5 = 7$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (1)^2 \\times 3 = 3$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2587,7 +2587,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 2(2) + 5 = 9$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (2)^2 \\times 3 = 12$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2623,7 +2623,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 3(2) + 5 = 11$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (3)^2 \\times 3 = 27$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2659,7 +2659,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 4(2) + 5 = 13$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (4)^2 \\times 3 = 48$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2695,7 +2695,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 5(2) + 5 = 15$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (5)^2 \\times 3 = 75$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2731,7 +2731,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 6(2) + 5 = 17$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (6)^2 \\times 3 = 108$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2767,7 +2767,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 7(2) + 5 = 19$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (7)^2 \\times 3 = 147$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2803,7 +2803,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 8(2) + 5 = 21$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (8)^2 \\times 3 = 192$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2839,7 +2839,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 9(2) + 5 = 23$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (9)^2 \\times 3 = 243$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2875,7 +2875,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 10(2) + 5 = 25$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (10)^2 \\times 3 = 300$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2911,7 +2911,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 11(2) + 5 = 27$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (11)^2 \\times 3 = 363$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2947,7 +2947,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 12(2) + 5 = 29$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (12)^2 \\times 3 = 432$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -2983,7 +2983,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 13(2) + 5 = 31$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (13)^2 \\times 3 = 507$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -3019,7 +3019,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 14(2) + 5 = 33$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (14)^2 \\times 3 = 588$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -3055,7 +3055,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. التوقع الخطي: $\\mathbb{E}[Y] = 15(2) + 5 = 35$.",
       "٢. تباين التحويل الخطي: $\\text{Var}(Y) = (15)^2 \\times 3 = 675$.",
-      "٣. إضافة الثابت 5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
+      "٣. إضافة الثابت $5$ لا تؤثر إطلاقاً على مقدار التشتت (التباين)."
     ],
     "teacherTipEn": "Constants added to a variable shift its location but leave its spread (variance) unchanged.",
     "teacherTipAr": "إضافة ثابت للمتغير تزحزح موضعه فقط دون أي تغيير في مدى تشتت البيانات (التباين)."
@@ -3451,7 +3451,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 2$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{4} = 0.7500$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{4} = 0.7500$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3487,7 +3487,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 3$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{9} = 0.8889$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{9} = 0.8889$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3523,7 +3523,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 4$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{16} = 0.9375$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{16} = 0.9375$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3559,7 +3559,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 5$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{25} = 0.9600$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{25} = 0.9600$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3595,7 +3595,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 6$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{36} = 0.9722$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{36} = 0.9722$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3631,7 +3631,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 7$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{49} = 0.9796$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{49} = 0.9796$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3667,7 +3667,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 8$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{64} = 0.9844$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{64} = 0.9844$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3703,7 +3703,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 9$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{81} = 0.9877$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{81} = 0.9877$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3739,7 +3739,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 10$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{100} = 0.9900$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{100} = 0.9900$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -3775,7 +3775,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. عدد الانحرافات المعيارية: $k = 11$.",
       "٢. متباينة تشيبيشيف: $P(|X - \\mu| < k\\sigma) \\ge 1 - \\frac{1}{k^2}$.",
-      "٣. بالتعويض: $1 - \\frac{1}{121} = 0.9917$.\""
+      "٣. بالتعويض: $1 - \\frac{1}{121} = 0.9917$."
     ],
     "teacherTipEn": "Notice that for k=2, at least 75% of data is guaranteed within 2 sigma, regardless of distribution shape.",
     "teacherTipAr": "لاحظ أنه عند k=2، 75% على الأقل من البيانات تقع بالضرورة داخل انحرافين معياريين لأي توزيع كان."
@@ -4146,7 +4146,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 2 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [2 e^t + (2 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 2 + 4 = 6$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 2 + 4 = 6$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4182,7 +4182,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 4 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [4 e^t + (4 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 4 + 16 = 20$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 4 + 16 = 20$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4218,7 +4218,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 6 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [6 e^t + (6 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 6 + 36 = 42$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 6 + 36 = 42$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4254,7 +4254,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 8 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [8 e^t + (8 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 8 + 64 = 72$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 8 + 64 = 72$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4290,7 +4290,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 10 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [10 e^t + (10 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 10 + 100 = 110$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 10 + 100 = 110$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4326,7 +4326,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 12 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [12 e^t + (12 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 12 + 144 = 156$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 12 + 144 = 156$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4362,7 +4362,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 14 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [14 e^t + (14 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 14 + 196 = 210$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 14 + 196 = 210$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4398,7 +4398,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 16 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [16 e^t + (16 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 16 + 256 = 272$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 16 + 256 = 272$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4434,7 +4434,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 18 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [18 e^t + (18 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 18 + 324 = 342$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 18 + 324 = 342$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4470,7 +4470,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. المشتقة الأولى: $M_X'(t) = 20 e^t M_X(t)$.",
       "٢. المشتقة الثانية بقاعدة الضرب: $M_X''(t) = [20 e^t + (20 e^t)^2] M_X(t)$.",
-      "٣. عند $t = 0$: $M_X''(0) = 20 + 400 = 420$.\""
+      "٣. عند $t = 0$: $M_X''(0) = 20 + 400 = 420$."
     ],
     "teacherTipEn": "E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 verifies this result instantly!",
     "teacherTipAr": "قانون العزم الثاني E[X^2] = Var(X) + (E[X])^2 = lambda + lambda^2 يؤكد صحة الاستنتاج فوراً!"
@@ -4505,8 +4505,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 1$ محاولات: $2^{1} = 2$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{2}{3} \\approx 0.6667$.\""
+      "٢. معامل بايز الكلي لعدد $1$ محاولات: $2^{1} = 2$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{2}{3} \\approx 0.6667$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4541,8 +4541,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 2$ محاولات: $2^{2} = 4$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{4}{5} \\approx 0.8000$.\""
+      "٢. معامل بايز الكلي لعدد $2$ محاولات: $2^{2} = 4$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{4}{5} \\approx 0.8000$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4577,8 +4577,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 3$ محاولات: $2^{3} = 8$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{8}{9} \\approx 0.8889$.\""
+      "٢. معامل بايز الكلي لعدد $3$ محاولات: $2^{3} = 8$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{8}{9} \\approx 0.8889$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4613,8 +4613,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 4$ محاولات: $2^{4} = 16$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{16}{17} \\approx 0.9412$.\""
+      "٢. معامل بايز الكلي لعدد $4$ محاولات: $2^{4} = 16$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{16}{17} \\approx 0.9412$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4649,8 +4649,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 5$ محاولات: $2^{5} = 32$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{32}{33} \\approx 0.9697$.\""
+      "٢. معامل بايز الكلي لعدد $5$ محاولات: $2^{5} = 32$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{32}{33} \\approx 0.9697$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4685,8 +4685,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 6$ محاولات: $2^{6} = 64$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{64}{65} \\approx 0.9846$.\""
+      "٢. معامل بايز الكلي لعدد $6$ محاولات: $2^{6} = 64$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{64}{65} \\approx 0.9846$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4721,8 +4721,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 7$ محاولات: $2^{7} = 128$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{128}{129} \\approx 0.9922$.\""
+      "٢. معامل بايز الكلي لعدد $7$ محاولات: $2^{7} = 128$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{128}{129} \\approx 0.9922$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4757,8 +4757,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 8$ محاولات: $2^{8} = 256$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{256}{257} \\approx 0.9961$.\""
+      "٢. معامل بايز الكلي لعدد $8$ محاولات: $2^{8} = 256$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{256}{257} \\approx 0.9961$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4793,8 +4793,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 9$ محاولات: $2^{9} = 512$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{512}{513} \\approx 0.9980$.\""
+      "٢. معامل بايز الكلي لعدد $9$ محاولات: $2^{9} = 512$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{512}{513} \\approx 0.9980$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4829,8 +4829,8 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. نسبة الإمكان لكل محاولة: $\\frac{0.8}{0.4} = 2$.",
-      "٢. معامل بايز الكلي لعدد 10$ محاولات: $2^{10} = 1024$.",
-      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{1024}{1025} \\approx 0.9990$.\""
+      "٢. معامل بايز الكلي لعدد $10$ محاولات: $2^{10} = 1024$.",
+      "٣. الاحتمال البعدي: $P(H_1 | E_n) = \\frac{1024}{1025} \\approx 0.9990$."
     ],
     "teacherTipEn": "Notice how posterior odds grow exponentially as evidence accumulates.",
     "teacherTipAr": "تنمو أرجحية النموذج الصحيح أسياً مع تراكم الأدلة الرصدية المستقلة."
@@ -4867,7 +4867,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 1 \\times 13 = 13$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 1 \\times 13 = 13$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -4904,7 +4904,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 2 \\times 13 = 26$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 2 \\times 13 = 26$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -4941,7 +4941,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 3 \\times 13 = 39$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 3 \\times 13 = 39$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -4978,7 +4978,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 4 \\times 13 = 52$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 4 \\times 13 = 52$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5015,7 +5015,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 5 \\times 13 = 65$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 5 \\times 13 = 65$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5052,7 +5052,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 6 \\times 13 = 78$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 6 \\times 13 = 78$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5089,7 +5089,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 7 \\times 13 = 91$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 7 \\times 13 = 91$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5126,7 +5126,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 8 \\times 13 = 104$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 8 \\times 13 = 104$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5163,7 +5163,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 9 \\times 13 = 117$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 9 \\times 13 = 117$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5200,7 +5200,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "stepByStepSolutionAr": [
       "١. حساب العزم الثاني للمطالبة: $\\mathbb{E}[X^2] = 4 + 3^2 = 13$.",
       "٢. تطبيق قانون التباين الكلي: $\\text{Var}(S) = \\lambda \\sigma^2 + \\lambda \\mu^2 = \\lambda \\mathbb{E}[X^2]$.",
-      "٣. بالتعويض: $\\text{Var}(S) = 10 \\times 13 = 130$.\""
+      "٣. بالتعويض: $\\text{Var}(S) = 10 \\times 13 = 130$."
     ],
     "teacherTipEn": "This fundamental actuarial formula explains why aggregate risk exceeds the sum of individual variances.",
     "teacherTipAr": "هذا القانون التأميني الأساسي يوضح سبب تجاوز المخاطر الإجمالية لمجرد جمع التباينات الفردية."
@@ -5595,7 +5595,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 6) \\le \\frac{4}{6} \\approx 0.6667$.\""
+      "٢. بالتعويض: $P(X \\ge 6) \\le \\frac{4}{6} \\approx 0.6667$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5630,7 +5630,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 8) \\le \\frac{4}{8} \\approx 0.5000$.\""
+      "٢. بالتعويض: $P(X \\ge 8) \\le \\frac{4}{8} \\approx 0.5000$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5665,7 +5665,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 10) \\le \\frac{4}{10} \\approx 0.4000$.\""
+      "٢. بالتعويض: $P(X \\ge 10) \\le \\frac{4}{10} \\approx 0.4000$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5700,7 +5700,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 12) \\le \\frac{4}{12} \\approx 0.3333$.\""
+      "٢. بالتعويض: $P(X \\ge 12) \\le \\frac{4}{12} \\approx 0.3333$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5735,7 +5735,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 14) \\le \\frac{4}{14} \\approx 0.2857$.\""
+      "٢. بالتعويض: $P(X \\ge 14) \\le \\frac{4}{14} \\approx 0.2857$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5770,7 +5770,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 16) \\le \\frac{4}{16} \\approx 0.2500$.\""
+      "٢. بالتعويض: $P(X \\ge 16) \\le \\frac{4}{16} \\approx 0.2500$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5805,7 +5805,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 18) \\le \\frac{4}{18} \\approx 0.2222$.\""
+      "٢. بالتعويض: $P(X \\ge 18) \\le \\frac{4}{18} \\approx 0.2222$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5840,7 +5840,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 20) \\le \\frac{4}{20} \\approx 0.2000$.\""
+      "٢. بالتعويض: $P(X \\ge 20) \\le \\frac{4}{20} \\approx 0.2000$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5875,7 +5875,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 22) \\le \\frac{4}{22} \\approx 0.1818$.\""
+      "٢. بالتعويض: $P(X \\ge 22) \\le \\frac{4}{22} \\approx 0.1818$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."
@@ -5910,7 +5910,7 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. متباينة ماركوف: $P(X \\ge a) \\le \\frac{\\mathbb{E}[X]}{a}$.",
-      "٢. بالتعويض: $P(X \\ge 24) \\le \\frac{4}{24} \\approx 0.1667$.\""
+      "٢. بالتعويض: $P(X \\ge 24) \\le \\frac{4}{24} \\approx 0.1667$."
     ],
     "teacherTipEn": "Markov's inequality requires only non-negativity and finite mean, making it the foundational ancestor of Chebyshev and Chernoff bounds.",
     "teacherTipAr": "متباينة ماركوف تشترط فقط عدم السالبية ومعرفة المتوسط، وهي الأساس النظري لاشتقاق متباينات تشيبيشيف وتشيرنوف."

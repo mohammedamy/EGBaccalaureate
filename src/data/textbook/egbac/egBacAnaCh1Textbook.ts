@@ -433,12 +433,12 @@ export const egBacAnaCh1Exercises: SolvedProblem[] = [
     "hintAr": "المقدار يساوي المعامل مضروباً في |x - 1| أقل من إبسيلون.",
     "stepByStepSolutionEn": [
       "1. $|(2x + 3) - (5)| = |2x - 2| = 2|x - 1|$.",
-      "2. 2|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{2}$.",
+      "2. $2|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{2}$.",
       "3. Thus $\\delta = \\frac{\\epsilon}{2}$."
     ],
     "stepByStepSolutionAr": [
       "١. $|(2x + 3) - (5)| = 2|x - 1|$.",
-      "٢. 2|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{2}$.",
+      "٢. $2|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{2}$.",
       "٣. إذن $\\delta = \\frac{\\epsilon}{2}$."
     ],
     "teacherTipEn": "Delta equals epsilon divided by the slope.",
@@ -469,12 +469,12 @@ export const egBacAnaCh1Exercises: SolvedProblem[] = [
     "hintAr": "المقدار يساوي المعامل مضروباً في |x - 1| أقل من إبسيلون.",
     "stepByStepSolutionEn": [
       "1. $|(3x + 3) - (6)| = |3x - 3| = 3|x - 1|$.",
-      "2. 3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
+      "2. $3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
       "3. Thus $\\delta = \\frac{\\epsilon}{3}$."
     ],
     "stepByStepSolutionAr": [
       "١. $|(3x + 3) - (6)| = 3|x - 1|$.",
-      "٢. 3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
+      "٢. $3|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{3}$.",
       "٣. إذن $\\delta = \\frac{\\epsilon}{3}$."
     ],
     "teacherTipEn": "Delta equals epsilon divided by the slope.",
@@ -505,12 +505,12 @@ export const egBacAnaCh1Exercises: SolvedProblem[] = [
     "hintAr": "المقدار يساوي المعامل مضروباً في |x - 1| أقل من إبسيلون.",
     "stepByStepSolutionEn": [
       "1. $|(4x + 3) - (7)| = |4x - 4| = 4|x - 1|$.",
-      "2. 4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
+      "2. $4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
       "3. Thus $\\delta = \\frac{\\epsilon}{4}$."
     ],
     "stepByStepSolutionAr": [
       "١. $|(4x + 3) - (7)| = 4|x - 1|$.",
-      "٢. 4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
+      "٢. $4|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{4}$.",
       "٣. إذن $\\delta = \\frac{\\epsilon}{4}$."
     ],
     "teacherTipEn": "Delta equals epsilon divided by the slope.",
@@ -541,12 +541,12 @@ export const egBacAnaCh1Exercises: SolvedProblem[] = [
     "hintAr": "المقدار يساوي المعامل مضروباً في |x - 1| أقل من إبسيلون.",
     "stepByStepSolutionEn": [
       "1. $|(5x + 3) - (8)| = |5x - 5| = 5|x - 1|$.",
-      "2. 5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
+      "2. $5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
       "3. Thus $\\delta = \\frac{\\epsilon}{5}$."
     ],
     "stepByStepSolutionAr": [
       "١. $|(5x + 3) - (8)| = 5|x - 1|$.",
-      "٢. 5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
+      "٢. $5|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{5}$.",
       "٣. إذن $\\delta = \\frac{\\epsilon}{5}$."
     ],
     "teacherTipEn": "Delta equals epsilon divided by the slope.",
@@ -577,12 +577,12 @@ export const egBacAnaCh1Exercises: SolvedProblem[] = [
     "hintAr": "المقدار يساوي المعامل مضروباً في |x - 1| أقل من إبسيلون.",
     "stepByStepSolutionEn": [
       "1. $|(6x + 3) - (9)| = |6x - 6| = 6|x - 1|$.",
-      "2. 6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
+      "2. $6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
       "3. Thus $\\delta = \\frac{\\epsilon}{6}$."
     ],
     "stepByStepSolutionAr": [
       "١. $|(6x + 3) - (9)| = 6|x - 1|$.",
-      "٢. 6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
+      "٢. $6|x - 1| < \\epsilon \\implies |x - 1| < \\frac{\\epsilon}{6}$.",
       "٣. إذن $\\delta = \\frac{\\epsilon}{6}$."
     ],
     "teacherTipEn": "Delta equals epsilon divided by the slope.",

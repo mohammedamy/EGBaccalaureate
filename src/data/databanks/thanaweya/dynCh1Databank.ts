@@ -2775,8 +2775,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$12\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 1) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 1) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 1) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 1) dx$.",
@@ -2812,8 +2812,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$16\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 2) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 2) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 2) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 2) dx$.",
@@ -2849,8 +2849,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$20\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 3) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 3) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 3) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 3) dx$.",
@@ -2886,8 +2886,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$24\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 4) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 4) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 4) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 4) dx$.",
@@ -2923,8 +2923,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$28\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 5) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 5) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 5) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 5) dx$.",
@@ -2960,8 +2960,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$32\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 6) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 6) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 6) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 6) dx$.",
@@ -2997,8 +2997,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$36\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 7) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 7) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 7) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 7) dx$.",
@@ -3034,8 +3034,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$40\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 8) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 8) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 8) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 8) dx$.",
@@ -3071,8 +3071,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$44\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 9) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 9) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 9) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 9) dx$.",
@@ -3108,8 +3108,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$48\\text{ m}^2/\\text{s}^2$",
     "correctIndex": 0,
-    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
-    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + ${factor}) dx$.",
+    "hintEn": "Integrate $\\int_0^v v dv = \\int_0^2 (2x + 10) dx$.",
+    "hintAr": "كامل: $\\int_0^v v dv = \\int_0^2 (2x + 10) dx$.",
     "stepByStepSolutionEn": [
       "1. Formula: $v dv = a dx = (2x + 10) dx$.",
       "2. $\\int_0^v v dv = \\int_0^2 (2x + 10) dx$.",
@@ -3145,8 +3145,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$5\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 1\\text{ s} \\in [0, 3]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 1\\text{ ث} \\in [0, 3]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 2 = 0 \\implies t = 1\\text{ s}$.",
       "2. In $[0, 1]$: $d_1 = |\\int_0^{1} (2t - 2) dt| = |[t^2 - 2t]_0^{1}| = |1 - 2| = |-1| = 1\\text{ m}$.",
@@ -3183,8 +3183,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$8\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 2\\text{ s} \\in [0, 4]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 2\\text{ ث} \\in [0, 4]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 4 = 0 \\implies t = 2\\text{ s}$.",
       "2. In $[0, 2]$: $d_1 = |\\int_0^{2} (2t - 4) dt| = |[t^2 - 4t]_0^{2}| = |4 - 8| = |-4| = 4\\text{ m}$.",
@@ -3221,8 +3221,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$13\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 3\\text{ s} \\in [0, 5]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 3\\text{ ث} \\in [0, 5]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 6 = 0 \\implies t = 3\\text{ s}$.",
       "2. In $[0, 3]$: $d_1 = |\\int_0^{3} (2t - 6) dt| = |[t^2 - 6t]_0^{3}| = |9 - 18| = |-9| = 9\\text{ m}$.",
@@ -3259,8 +3259,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$20\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 4\\text{ s} \\in [0, 6]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 4\\text{ ث} \\in [0, 6]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 8 = 0 \\implies t = 4\\text{ s}$.",
       "2. In $[0, 4]$: $d_1 = |\\int_0^{4} (2t - 8) dt| = |[t^2 - 8t]_0^{4}| = |16 - 32| = |-16| = 16\\text{ m}$.",
@@ -3297,8 +3297,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$29\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 5\\text{ s} \\in [0, 7]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 5\\text{ ث} \\in [0, 7]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 10 = 0 \\implies t = 5\\text{ s}$.",
       "2. In $[0, 5]$: $d_1 = |\\int_0^{5} (2t - 10) dt| = |[t^2 - 10t]_0^{5}| = |25 - 50| = |-25| = 25\\text{ m}$.",
@@ -3335,8 +3335,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$40\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 6\\text{ s} \\in [0, 8]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 6\\text{ ث} \\in [0, 8]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 12 = 0 \\implies t = 6\\text{ s}$.",
       "2. In $[0, 6]$: $d_1 = |\\int_0^{6} (2t - 12) dt| = |[t^2 - 12t]_0^{6}| = |36 - 72| = |-36| = 36\\text{ m}$.",
@@ -3373,8 +3373,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$53\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 7\\text{ s} \\in [0, 9]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 7\\text{ ث} \\in [0, 9]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 14 = 0 \\implies t = 7\\text{ s}$.",
       "2. In $[0, 7]$: $d_1 = |\\int_0^{7} (2t - 14) dt| = |[t^2 - 14t]_0^{7}| = |49 - 98| = |-49| = 49\\text{ m}$.",
@@ -3411,8 +3411,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$68\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 8\\text{ s} \\in [0, 10]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 8\\text{ ث} \\in [0, 10]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 16 = 0 \\implies t = 8\\text{ s}$.",
       "2. In $[0, 8]$: $d_1 = |\\int_0^{8} (2t - 16) dt| = |[t^2 - 16t]_0^{8}| = |64 - 128| = |-64| = 64\\text{ m}$.",
@@ -3449,8 +3449,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$85\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 9\\text{ s} \\in [0, 11]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 9\\text{ ث} \\in [0, 11]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 18 = 0 \\implies t = 9\\text{ s}$.",
       "2. In $[0, 9]$: $d_1 = |\\int_0^{9} (2t - 18) dt| = |[t^2 - 18t]_0^{9}| = |81 - 162| = |-81| = 81\\text{ m}$.",
@@ -3487,8 +3487,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$104\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "The particle comes to rest at $t = ${factor}\\text{ s} \\in [0, ${tEnd}]$. Split the integral of $|v(t)|$.",
-    "hintAr": "يسكن الجسيم لحظياً عند $t = ${factor}\\text{ ث} \\in [0, ${tEnd}]$. جزئ تكامل مقياس السرعة.",
+    "hintEn": "The particle comes to rest at $t = 10\\text{ s} \\in [0, 12]$. Split the integral of $|v(t)|$.",
+    "hintAr": "يسكن الجسيم لحظياً عند $t = 10\\text{ ث} \\in [0, 12]$. جزئ تكامل مقياس السرعة.",
     "stepByStepSolutionEn": [
       "1. Stationary point: $2t - 20 = 0 \\implies t = 10\\text{ s}$.",
       "2. In $[0, 10]$: $d_1 = |\\int_0^{10} (2t - 20) dt| = |[t^2 - 20t]_0^{10}| = |100 - 200| = |-100| = 100\\text{ m}$.",
@@ -5388,8 +5388,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$4\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 1t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 1t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 1(2)^2 = 1(4) = 4\\text{ m}$."
@@ -5422,8 +5422,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$8\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 2t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 2t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 2(2)^2 = 2(4) = 8\\text{ m}$."
@@ -5456,8 +5456,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$12\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 3t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 3t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 3(2)^2 = 3(4) = 12\\text{ m}$."
@@ -5490,8 +5490,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$16\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 4t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 4t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 4(2)^2 = 4(4) = 16\\text{ m}$."
@@ -5524,8 +5524,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$20\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 5t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 5t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 5(2)^2 = 5(4) = 20\\text{ m}$."
@@ -5558,8 +5558,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$24\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 6t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 6t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 6(2)^2 = 6(4) = 24\\text{ m}$."
@@ -5592,8 +5592,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$28\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 7t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 7t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 7(2)^2 = 7(4) = 28\\text{ m}$."
@@ -5626,8 +5626,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$32\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 8t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 8t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 8(2)^2 = 8(4) = 32\\text{ m}$."
@@ -5660,8 +5660,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$36\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 9t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 9t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 9(2)^2 = 9(4) = 36\\text{ m}$."
@@ -5694,8 +5694,8 @@ export const dynCh1Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$40\\text{ m}$",
     "correctIndex": 0,
-    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = ${factor}t^2$.",
-    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = ${factor}t^2$.",
+    "hintEn": "Find time $t$ from $x(t) = 6$, then substitute $t$ into $y(t) = 10t^2$.",
+    "hintAr": "أوجد الزمن $t$ من $x(t) = 6$، ثم عوض به في $y(t) = 10t^2$.",
     "stepByStepSolutionEn": [
       "1. From $x$-component: $3t = 6 \\implies t = 2\\text{ s}$.",
       "2. Substitute into $y$-component: $y(2) = 10(2)^2 = 10(4) = 40\\text{ m}$."

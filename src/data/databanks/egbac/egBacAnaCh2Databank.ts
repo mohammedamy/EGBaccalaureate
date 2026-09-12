@@ -32,7 +32,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 2x$ هي 2$.",
+      "٢. مشتقة الأس $u = 2x$ هي $2$.",
       "٣. إذن $f'(x) = 2e^{2x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -68,7 +68,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 3x$ هي 3$.",
+      "٢. مشتقة الأس $u = 3x$ هي $3$.",
       "٣. إذن $f'(x) = 3e^{3x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -104,7 +104,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 4x$ هي 4$.",
+      "٢. مشتقة الأس $u = 4x$ هي $4$.",
       "٣. إذن $f'(x) = 4e^{4x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -140,7 +140,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 5x$ هي 5$.",
+      "٢. مشتقة الأس $u = 5x$ هي $5$.",
       "٣. إذن $f'(x) = 5e^{5x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -176,7 +176,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 6x$ هي 6$.",
+      "٢. مشتقة الأس $u = 6x$ هي $6$.",
       "٣. إذن $f'(x) = 6e^{6x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -212,7 +212,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 7x$ هي 7$.",
+      "٢. مشتقة الأس $u = 7x$ هي $7$.",
       "٣. إذن $f'(x) = 7e^{7x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -248,7 +248,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 8x$ هي 8$.",
+      "٢. مشتقة الأس $u = 8x$ هي $8$.",
       "٣. إذن $f'(x) = 8e^{8x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -284,7 +284,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 9x$ هي 9$.",
+      "٢. مشتقة الأس $u = 9x$ هي $9$.",
       "٣. إذن $f'(x) = 9e^{9x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -320,7 +320,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 10x$ هي 10$.",
+      "٢. مشتقة الأس $u = 10x$ هي $10$.",
       "٣. إذن $f'(x) = 10e^{10x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -356,7 +356,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 11x$ هي 11$.",
+      "٢. مشتقة الأس $u = 11x$ هي $11$.",
       "٣. إذن $f'(x) = 11e^{11x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -392,7 +392,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 12x$ هي 12$.",
+      "٢. مشتقة الأس $u = 12x$ هي $12$.",
       "٣. إذن $f'(x) = 12e^{12x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -428,7 +428,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 13x$ هي 13$.",
+      "٢. مشتقة الأس $u = 13x$ هي $13$.",
       "٣. إذن $f'(x) = 13e^{13x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -464,7 +464,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 14x$ هي 14$.",
+      "٢. مشتقة الأس $u = 14x$ هي $14$.",
       "٣. إذن $f'(x) = 14e^{14x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -500,7 +500,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 15x$ هي 15$.",
+      "٢. مشتقة الأس $u = 15x$ هي $15$.",
       "٣. إذن $f'(x) = 15e^{15x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",
@@ -536,7 +536,7 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     ],
     "stepByStepSolutionAr": [
       "١. بقاعدة السلسلة: مشتقة الدالة الأسية تساوي الدالة نفسها مضروبة في مشتقة الأس.",
-      "٢. مشتقة الأس $u = 16x$ هي 16$.",
+      "٢. مشتقة الأس $u = 16x$ هي $16$.",
       "٣. إذن $f'(x) = 16e^{16x}$."
     ],
     "teacherTipEn": "d/dx [e^(kx)] = k * e^(kx) is a foundational building block for differential equations.",

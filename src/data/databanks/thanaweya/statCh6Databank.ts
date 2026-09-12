@@ -1115,7 +1115,7 @@ export const statCh6Databank: ChapterDatabank = {
       "Centroid $G(3, 2)$",
       "Centroid $G(1, 4)$",
       "Centroid $G(1, 2)$",
-      "Centroid $G(2, 3)"
+      "Centroid $G(2, 3)$"
     ],
     "optionsAr": [
       "نقطة التلاقي $G(3, 2)$",
@@ -1152,7 +1152,7 @@ export const statCh6Databank: ChapterDatabank = {
     "optionsEn": [
       "Centroid $G(4, 4)$",
       "Centroid $G(2, 6)$",
-      "Centroid $G(3, 5)",
+      "Centroid $G(3, 5)$",
       "Centroid $G(2, 4)$"
     ],
     "optionsAr": [
@@ -5864,7 +5864,7 @@ export const statCh6Databank: ChapterDatabank = {
       "2. Initial $\\sum m_i y_i = 2(0) + 4(0) + 2(10) = 20\\text{ kg}\\cdot\\text{cm}$.",
       "3. With additional mass $m$ at $(0, 10)$:",
       "$$Y_{new} = \\frac{20 + 10m}{8 + m} = 4.0$$",
-      "4. 20 + 10m = 4(8 + m) = 32 + 4m$.",
+      "4. $20 + 10m = 4(8 + m) = 32 + 4m$.",
       "5. $6m = 12 \\implies m = 2\\text{ kg}$."
     ],
     "stepByStepSolutionAr": [
@@ -5906,7 +5906,7 @@ export const statCh6Databank: ChapterDatabank = {
       "2. Initial $\\sum m_i y_i = 4(0) + 8(0) + 4(10) = 40\\text{ kg}\\cdot\\text{cm}$.",
       "3. With additional mass $m$ at $(0, 10)$:",
       "$$Y_{new} = \\frac{40 + 10m}{16 + m} = 4.0$$",
-      "4. 40 + 10m = 4(16 + m) = 64 + 4m$.",
+      "4. $40 + 10m = 4(16 + m) = 64 + 4m$.",
       "5. $6m = 24 \\implies m = 4\\text{ kg}$."
     ],
     "stepByStepSolutionAr": [

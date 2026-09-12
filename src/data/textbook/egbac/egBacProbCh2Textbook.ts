@@ -144,7 +144,7 @@ export const egBacProbCh2SolvedExamples: SolvedProblem[] = [
       "١. خاصية فقدان الذاكرة: $P(T > s + t | T > s) = P(T > t)$.",
       "٢. هنا $s = 800$ و $t = 500$، إذن $s + t = 1300$.",
       "٣. الاحتمال الشرطي يعادل تماماً البقاء لمدة 500 ساعة جديدة كأنه جديد:",
-      "   $$P(T > 500) = e^{-0.001 \\times 500} = e^{-0.5} \\approx 0.6065$."
+      "   $$P(T > 500) = e^{-0.001 \\times 500} = e^{-0.5} \\approx 0.6065$$."
     ],
     "teacherTipEn": "The Exponential distribution is the unique continuous distribution possessing the memoryless property.",
     "teacherTipAr": "التوزيع الأسي هو التوزيع المتصل الوحيد في علم الإحصاء الذي يتصف بخاصية فقدان الذاكرة."
@@ -740,7 +740,7 @@ export const egBacProbCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. جذر حجم العينة: $\\sqrt{4} = 2$.",
-      "٢. الخطأ المعياري: $\\frac{20}{2} = 10$.\""
+      "٢. الخطأ المعياري: $\\frac{20}{2} = 10$."
     ],
     "teacherTipEn": "To halve the standard error, one must quadruple the sample size (the root-n law).",
     "teacherTipAr": "لتنصيف الخطأ المعياري إلى النصف، يجب مضاعفة حجم العينة 4 مرات (قانون جذر n)."
@@ -774,7 +774,7 @@ export const egBacProbCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. جذر حجم العينة: $\\sqrt{16} = 4$.",
-      "٢. الخطأ المعياري: $\\frac{20}{4} = 5$.\""
+      "٢. الخطأ المعياري: $\\frac{20}{4} = 5$."
     ],
     "teacherTipEn": "To halve the standard error, one must quadruple the sample size (the root-n law).",
     "teacherTipAr": "لتنصيف الخطأ المعياري إلى النصف، يجب مضاعفة حجم العينة 4 مرات (قانون جذر n)."
@@ -808,7 +808,7 @@ export const egBacProbCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. جذر حجم العينة: $\\sqrt{36} = 6$.",
-      "٢. الخطأ المعياري: $\\frac{20}{6} = 3.33$.\""
+      "٢. الخطأ المعياري: $\\frac{20}{6} = 3.33$."
     ],
     "teacherTipEn": "To halve the standard error, one must quadruple the sample size (the root-n law).",
     "teacherTipAr": "لتنصيف الخطأ المعياري إلى النصف، يجب مضاعفة حجم العينة 4 مرات (قانون جذر n)."
@@ -842,7 +842,7 @@ export const egBacProbCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. جذر حجم العينة: $\\sqrt{64} = 8$.",
-      "٢. الخطأ المعياري: $\\frac{20}{8} = 2.5$.\""
+      "٢. الخطأ المعياري: $\\frac{20}{8} = 2.5$."
     ],
     "teacherTipEn": "To halve the standard error, one must quadruple the sample size (the root-n law).",
     "teacherTipAr": "لتنصيف الخطأ المعياري إلى النصف، يجب مضاعفة حجم العينة 4 مرات (قانون جذر n)."
@@ -876,7 +876,7 @@ export const egBacProbCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. جذر حجم العينة: $\\sqrt{100} = 10$.",
-      "٢. الخطأ المعياري: $\\frac{20}{10} = 2$.\""
+      "٢. الخطأ المعياري: $\\frac{20}{10} = 2$."
     ],
     "teacherTipEn": "To halve the standard error, one must quadruple the sample size (the root-n law).",
     "teacherTipAr": "لتنصيف الخطأ المعياري إلى النصف، يجب مضاعفة حجم العينة 4 مرات (قانون جذر n)."

@@ -606,7 +606,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. عناصر القطر الرئيسي: 1 و 2 و 3.",
-      "٢. الأثر = مجموعها = 6$."
+      "٢. الأثر = مجموعها = $6$."
     ],
     "teacherTipEn": "Off-diagonal elements do not contribute to the trace.",
     "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في حساب الأثر."
@@ -640,7 +640,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. عناصر القطر الرئيسي: 2 و 4 و 6.",
-      "٢. الأثر = مجموعها = 12$."
+      "٢. الأثر = مجموعها = $12$."
     ],
     "teacherTipEn": "Off-diagonal elements do not contribute to the trace.",
     "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في حساب الأثر."
@@ -674,7 +674,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. عناصر القطر الرئيسي: 3 و 6 و 9.",
-      "٢. الأثر = مجموعها = 18$."
+      "٢. الأثر = مجموعها = $18$."
     ],
     "teacherTipEn": "Off-diagonal elements do not contribute to the trace.",
     "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في حساب الأثر."
@@ -708,7 +708,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. عناصر القطر الرئيسي: 4 و 8 و 12.",
-      "٢. الأثر = مجموعها = 24$."
+      "٢. الأثر = مجموعها = $24$."
     ],
     "teacherTipEn": "Off-diagonal elements do not contribute to the trace.",
     "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في حساب الأثر."
@@ -742,7 +742,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     ],
     "stepByStepSolutionAr": [
       "١. عناصر القطر الرئيسي: 5 و 10 و 15.",
-      "٢. الأثر = مجموعها = 30$."
+      "٢. الأثر = مجموعها = $30$."
     ],
     "teacherTipEn": "Off-diagonal elements do not contribute to the trace.",
     "teacherTipAr": "العناصر خارج القطر الرئيسي لا تؤثر في حساب الأثر."
@@ -772,7 +772,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     "hintAr": "القيم الذاتية للمصفوفة القطرية هي عناصر قطرها الرئيسي نفسها.",
     "stepByStepSolutionEn": [
       "1. For any diagonal matrix, the characteristic equation is $(\\lambda - 1)(\\lambda - 2)(\\lambda - 4) = 0$.",
-      "2. The eigenvalues are 1, 2, 4$.",
+      "2. The eigenvalues are $1, 2, 4$.",
       "3. The maximum eigenvalue is 4."
     ],
     "stepByStepSolutionAr": [
@@ -808,7 +808,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     "hintAr": "القيم الذاتية للمصفوفة القطرية هي عناصر قطرها الرئيسي نفسها.",
     "stepByStepSolutionEn": [
       "1. For any diagonal matrix, the characteristic equation is $(\\lambda - 2)(\\lambda - 4)(\\lambda - 8) = 0$.",
-      "2. The eigenvalues are 2, 4, 8$.",
+      "2. The eigenvalues are $2, 4, 8$.",
       "3. The maximum eigenvalue is 8."
     ],
     "stepByStepSolutionAr": [
@@ -844,7 +844,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     "hintAr": "القيم الذاتية للمصفوفة القطرية هي عناصر قطرها الرئيسي نفسها.",
     "stepByStepSolutionEn": [
       "1. For any diagonal matrix, the characteristic equation is $(\\lambda - 3)(\\lambda - 6)(\\lambda - 12) = 0$.",
-      "2. The eigenvalues are 3, 6, 12$.",
+      "2. The eigenvalues are $3, 6, 12$.",
       "3. The maximum eigenvalue is 12."
     ],
     "stepByStepSolutionAr": [
@@ -880,7 +880,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     "hintAr": "القيم الذاتية للمصفوفة القطرية هي عناصر قطرها الرئيسي نفسها.",
     "stepByStepSolutionEn": [
       "1. For any diagonal matrix, the characteristic equation is $(\\lambda - 4)(\\lambda - 8)(\\lambda - 16) = 0$.",
-      "2. The eigenvalues are 4, 8, 16$.",
+      "2. The eigenvalues are $4, 8, 16$.",
       "3. The maximum eigenvalue is 16."
     ],
     "stepByStepSolutionAr": [
@@ -916,7 +916,7 @@ export const egBacCh2Exercises: SolvedProblem[] = [
     "hintAr": "القيم الذاتية للمصفوفة القطرية هي عناصر قطرها الرئيسي نفسها.",
     "stepByStepSolutionEn": [
       "1. For any diagonal matrix, the characteristic equation is $(\\lambda - 5)(\\lambda - 10)(\\lambda - 20) = 0$.",
-      "2. The eigenvalues are 5, 10, 20$.",
+      "2. The eigenvalues are $5, 10, 20$.",
       "3. The maximum eigenvalue is 20."
     ],
     "stepByStepSolutionAr": [

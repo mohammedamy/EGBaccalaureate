@@ -293,7 +293,7 @@ export const egBacProbCh1SolvedExamples: SolvedProblem[] = [
     "stepByStepSolutionAr": [
       "١. التوقع الرياضي: $\\mathbb{E}[X] = \\frac{1}{0.2} = 5$ رميات.",
       "٢. الحدث $X > 3$ يعني فشل أول 3 رميات متتالية:",
-      "   $$P(X > 3) = (0.8)^3 = 0.512$."
+      "   $$P(X > 3) = (0.8)^3 = 0.512$$."
     ],
     "teacherTipEn": "The Geometric distribution is the only discrete distribution with the memoryless property.",
     "teacherTipAr": "التوزيع الهندسي هو التوزيع الاحتمالي المنفصل الوحيد الذي يتصف بخاصية فقدان الذاكرة."
@@ -331,7 +331,7 @@ export const egBacProbCh1SolvedExamples: SolvedProblem[] = [
       "١. المسافة عن المتوسط: $|X - 50| < 15$.",
       "٢. حساب عدد الانحرافات المعيارية: $k = \\frac{15}{5} = 3$.",
       "٣. متباينة تشيبيشيف:",
-      "   $$P(|X - 50| < 3\\sigma) \\ge 1 - \\frac{1}{3^2} = 1 - \\frac{1}{9} = \\frac{8}{9} \\approx 0.8889$."
+      "   $$P(|X - 50| < 3\\sigma) \\ge 1 - \\frac{1}{3^2} = 1 - \\frac{1}{9} = \\frac{8}{9} \\approx 0.8889$$."
     ],
     "teacherTipEn": "Chebyshev holds for ANY distribution with finite variance, without requiring normality.",
     "teacherTipAr": "متباينة تشيبيشيف تنطبق على أي توزيع احتمالي له تباين محدود دون اشتراط التوزيع الطبيعي."

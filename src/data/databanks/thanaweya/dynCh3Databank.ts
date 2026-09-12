@@ -4989,8 +4989,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 4\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(100)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 100$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 100 = 2\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{2}{0.5} = 4\\text{ m/s}$."
@@ -5023,8 +5023,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 8\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(200)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 200$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 200 = 4\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{4}{0.5} = 8\\text{ m/s}$."
@@ -5057,8 +5057,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 12\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(300)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 300$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 300 = 6\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{6}{0.5} = 12\\text{ m/s}$."
@@ -5091,8 +5091,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 16\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(400)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 400$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 400 = 8\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{8}{0.5} = 16\\text{ m/s}$."
@@ -5125,8 +5125,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 20\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(500)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 500$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 500 = 10\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{10}{0.5} = 20\\text{ m/s}$."
@@ -5159,8 +5159,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 24\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(600)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 600$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 600 = 12\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{12}{0.5} = 24\\text{ m/s}$."
@@ -5193,8 +5193,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 28\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(700)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 700$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 700 = 14\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{14}{0.5} = 28\\text{ m/s}$."
@@ -5227,8 +5227,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 32\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(800)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 800$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 800 = 16\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{16}{0.5} = 32\\text{ m/s}$."
@@ -5261,8 +5261,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 36\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(900)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 900$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 900 = 18\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{18}{0.5} = 36\\text{ m/s}$."
@@ -5295,8 +5295,8 @@ export const dynCh3Databank: ChapterDatabank = {
     ],
     "correctAnswer": "$v = 40\\text{ m/s}$",
     "correctIndex": 0,
-    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(${Fmax})$. Then $v = I / m$.",
-    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times ${Fmax}$. ثم $v = I / m$.",
+    "hintEn": "Impulse is the area under the triangle: $I = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(0.04)(1000)$. Then $v = I / m$.",
+    "hintAr": "الدفع هو مساحة المثلث: $I = \\frac{1}{2} \\times 0.04 \\times 1000$. ثم $v = I / m$.",
     "stepByStepSolutionEn": [
       "1. Calculate impulse as triangular area: $I = \\frac{1}{2} \\times 0.04 \\times 1000 = 20\\text{ N}\\cdot\\text{s}$.",
       "2. Apply impulse-momentum theorem ($v_0 = 0$): $v = \\frac{I}{m} = \\frac{20}{0.5} = 40\\text{ m/s}$."

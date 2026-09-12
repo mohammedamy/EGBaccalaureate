@@ -4179,7 +4179,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 4s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{4s^2}{2} \\implies v^2 = 4s^2 = (2s)^2$.",
       "4. Taking the square root gives $v = 2s$.",
-      "5. At $s = 2\\text{ m}$: $v = 2(2) = 4\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 2(2) = 4\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 4s$.",
@@ -4217,7 +4217,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 9s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{9s^2}{2} \\implies v^2 = 9s^2 = (3s)^2$.",
       "4. Taking the square root gives $v = 3s$.",
-      "5. At $s = 2\\text{ m}$: $v = 3(2) = 6\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 3(2) = 6\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 9s$.",
@@ -4255,7 +4255,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 16s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{16s^2}{2} \\implies v^2 = 16s^2 = (4s)^2$.",
       "4. Taking the square root gives $v = 4s$.",
-      "5. At $s = 2\\text{ m}$: $v = 4(2) = 8\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 4(2) = 8\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 16s$.",
@@ -4293,7 +4293,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 25s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{25s^2}{2} \\implies v^2 = 25s^2 = (5s)^2$.",
       "4. Taking the square root gives $v = 5s$.",
-      "5. At $s = 2\\text{ m}$: $v = 5(2) = 10\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 5(2) = 10\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 25s$.",
@@ -4331,7 +4331,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 36s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{36s^2}{2} \\implies v^2 = 36s^2 = (6s)^2$.",
       "4. Taking the square root gives $v = 6s$.",
-      "5. At $s = 2\\text{ m}$: $v = 6(2) = 12\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 6(2) = 12\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 36s$.",
@@ -4369,7 +4369,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 49s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{49s^2}{2} \\implies v^2 = 49s^2 = (7s)^2$.",
       "4. Taking the square root gives $v = 7s$.",
-      "5. At $s = 2\\text{ m}$: $v = 7(2) = 14\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 7(2) = 14\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 49s$.",
@@ -4407,7 +4407,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 64s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{64s^2}{2} \\implies v^2 = 64s^2 = (8s)^2$.",
       "4. Taking the square root gives $v = 8s$.",
-      "5. At $s = 2\\text{ m}$: $v = 8(2) = 16\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 8(2) = 16\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 64s$.",
@@ -4445,7 +4445,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 81s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{81s^2}{2} \\implies v^2 = 81s^2 = (9s)^2$.",
       "4. Taking the square root gives $v = 9s$.",
-      "5. At $s = 2\\text{ m}$: $v = 9(2) = 18\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 9(2) = 18\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 81s$.",
@@ -4483,7 +4483,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 100s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{100s^2}{2} \\implies v^2 = 100s^2 = (10s)^2$.",
       "4. Taking the square root gives $v = 10s$.",
-      "5. At $s = 2\\text{ m}$: $v = 10(2) = 20\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 10(2) = 20\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 100s$.",
@@ -4521,7 +4521,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 121s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{121s^2}{2} \\implies v^2 = 121s^2 = (11s)^2$.",
       "4. Taking the square root gives $v = 11s$.",
-      "5. At $s = 2\\text{ m}$: $v = 11(2) = 22\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 11(2) = 22\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 121s$.",
@@ -4559,7 +4559,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 144s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{144s^2}{2} \\implies v^2 = 144s^2 = (12s)^2$.",
       "4. Taking the square root gives $v = 12s$.",
-      "5. At $s = 2\\text{ m}$: $v = 12(2) = 24\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 12(2) = 24\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 144s$.",
@@ -4597,7 +4597,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 169s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{169s^2}{2} \\implies v^2 = 169s^2 = (13s)^2$.",
       "4. Taking the square root gives $v = 13s$.",
-      "5. At $s = 2\\text{ m}$: $v = 13(2) = 26\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 13(2) = 26\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 169s$.",
@@ -4635,7 +4635,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 196s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{196s^2}{2} \\implies v^2 = 196s^2 = (14s)^2$.",
       "4. Taking the square root gives $v = 14s$.",
-      "5. At $s = 2\\text{ m}$: $v = 14(2) = 28\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 14(2) = 28\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 196s$.",
@@ -4673,7 +4673,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 225s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{225s^2}{2} \\implies v^2 = 225s^2 = (15s)^2$.",
       "4. Taking the square root gives $v = 15s$.",
-      "5. At $s = 2\\text{ m}$: $v = 15(2) = 30\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 15(2) = 30\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 225s$.",
@@ -4711,7 +4711,7 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Separate variables: $\\int_0^v v \\, dv = \\int_0^s 256s \\, ds$.",
       "3. Evaluate integrals: $\\frac{v^2}{2} = \\frac{256s^2}{2} \\implies v^2 = 256s^2 = (16s)^2$.",
       "4. Taking the square root gives $v = 16s$.",
-      "5. At $s = 2\\text{ m}$: $v = 16(2) = 32\\text{ m/s}$.\""
+      "5. At $s = 2\\text{ m}$: $v = 16(2) = 32\\text{ m/s}$."
     ],
     "stepByStepSolutionAr": [
       "١. العجلة المماسية: $v \\frac{dv}{ds} = 256s$.",
@@ -4749,11 +4749,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{1^2\\sin^2 t + 1^2\\cos^2 t + 1^2} = \\sqrt{2(1^2)} = 1\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-1\\cos t, -1\\sin t, 0)$, with $\\|\\vec{a}\\| = 1$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 1$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(1\\sqrt{2})^2}{1} = \\frac{2(1^2)}{1} = 2\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(1\\sqrt{2})^2}{1} = \\frac{2(1^2)}{1} = 2\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{1^2 + 1^2} = 1\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 1$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $1$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(1^2)}{1} = 2\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4787,11 +4787,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{2^2\\sin^2 t + 2^2\\cos^2 t + 2^2} = \\sqrt{2(2^2)} = 2\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-2\\cos t, -2\\sin t, 0)$, with $\\|\\vec{a}\\| = 2$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 2$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(2\\sqrt{2})^2}{2} = \\frac{2(2^2)}{2} = 4\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(2\\sqrt{2})^2}{2} = \\frac{2(2^2)}{2} = 4\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{2^2 + 2^2} = 2\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 2$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $2$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(2^2)}{2} = 4\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4825,11 +4825,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{3^2\\sin^2 t + 3^2\\cos^2 t + 3^2} = \\sqrt{2(3^2)} = 3\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-3\\cos t, -3\\sin t, 0)$, with $\\|\\vec{a}\\| = 3$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 3$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(3\\sqrt{2})^2}{3} = \\frac{2(3^2)}{3} = 6\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(3\\sqrt{2})^2}{3} = \\frac{2(3^2)}{3} = 6\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{3^2 + 3^2} = 3\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 3$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $3$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(3^2)}{3} = 6\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4863,11 +4863,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{4^2\\sin^2 t + 4^2\\cos^2 t + 4^2} = \\sqrt{2(4^2)} = 4\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-4\\cos t, -4\\sin t, 0)$, with $\\|\\vec{a}\\| = 4$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 4$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(4\\sqrt{2})^2}{4} = \\frac{2(4^2)}{4} = 8\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(4\\sqrt{2})^2}{4} = \\frac{2(4^2)}{4} = 8\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{4^2 + 4^2} = 4\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 4$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $4$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(4^2)}{4} = 8\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4901,11 +4901,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{5^2\\sin^2 t + 5^2\\cos^2 t + 5^2} = \\sqrt{2(5^2)} = 5\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-5\\cos t, -5\\sin t, 0)$, with $\\|\\vec{a}\\| = 5$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 5$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(5\\sqrt{2})^2}{5} = \\frac{2(5^2)}{5} = 10\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(5\\sqrt{2})^2}{5} = \\frac{2(5^2)}{5} = 10\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{5^2 + 5^2} = 5\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 5$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $5$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(5^2)}{5} = 10\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4939,11 +4939,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{6^2\\sin^2 t + 6^2\\cos^2 t + 6^2} = \\sqrt{2(6^2)} = 6\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-6\\cos t, -6\\sin t, 0)$, with $\\|\\vec{a}\\| = 6$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 6$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(6\\sqrt{2})^2}{6} = \\frac{2(6^2)}{6} = 12\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(6\\sqrt{2})^2}{6} = \\frac{2(6^2)}{6} = 12\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{6^2 + 6^2} = 6\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 6$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $6$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(6^2)}{6} = 12\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -4977,11 +4977,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{7^2\\sin^2 t + 7^2\\cos^2 t + 7^2} = \\sqrt{2(7^2)} = 7\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-7\\cos t, -7\\sin t, 0)$, with $\\|\\vec{a}\\| = 7$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 7$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(7\\sqrt{2})^2}{7} = \\frac{2(7^2)}{7} = 14\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(7\\sqrt{2})^2}{7} = \\frac{2(7^2)}{7} = 14\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{7^2 + 7^2} = 7\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 7$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $7$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(7^2)}{7} = 14\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5015,11 +5015,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{8^2\\sin^2 t + 8^2\\cos^2 t + 8^2} = \\sqrt{2(8^2)} = 8\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-8\\cos t, -8\\sin t, 0)$, with $\\|\\vec{a}\\| = 8$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 8$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(8\\sqrt{2})^2}{8} = \\frac{2(8^2)}{8} = 16\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(8\\sqrt{2})^2}{8} = \\frac{2(8^2)}{8} = 16\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{8^2 + 8^2} = 8\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 8$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $8$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(8^2)}{8} = 16\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5053,11 +5053,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{9^2\\sin^2 t + 9^2\\cos^2 t + 9^2} = \\sqrt{2(9^2)} = 9\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-9\\cos t, -9\\sin t, 0)$, with $\\|\\vec{a}\\| = 9$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 9$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(9\\sqrt{2})^2}{9} = \\frac{2(9^2)}{9} = 18\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(9\\sqrt{2})^2}{9} = \\frac{2(9^2)}{9} = 18\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{9^2 + 9^2} = 9\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 9$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $9$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(9^2)}{9} = 18\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5091,11 +5091,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{10^2\\sin^2 t + 10^2\\cos^2 t + 10^2} = \\sqrt{2(10^2)} = 10\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-10\\cos t, -10\\sin t, 0)$, with $\\|\\vec{a}\\| = 10$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 10$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(10\\sqrt{2})^2}{10} = \\frac{2(10^2)}{10} = 20\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(10\\sqrt{2})^2}{10} = \\frac{2(10^2)}{10} = 20\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{10^2 + 10^2} = 10\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 10$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $10$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(10^2)}{10} = 20\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5129,11 +5129,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{11^2\\sin^2 t + 11^2\\cos^2 t + 11^2} = \\sqrt{2(11^2)} = 11\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-11\\cos t, -11\\sin t, 0)$, with $\\|\\vec{a}\\| = 11$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 11$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(11\\sqrt{2})^2}{11} = \\frac{2(11^2)}{11} = 22\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(11\\sqrt{2})^2}{11} = \\frac{2(11^2)}{11} = 22\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{11^2 + 11^2} = 11\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 11$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $11$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(11^2)}{11} = 22\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5167,11 +5167,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{12^2\\sin^2 t + 12^2\\cos^2 t + 12^2} = \\sqrt{2(12^2)} = 12\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-12\\cos t, -12\\sin t, 0)$, with $\\|\\vec{a}\\| = 12$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 12$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(12\\sqrt{2})^2}{12} = \\frac{2(12^2)}{12} = 24\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(12\\sqrt{2})^2}{12} = \\frac{2(12^2)}{12} = 24\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{12^2 + 12^2} = 12\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 12$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $12$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(12^2)}{12} = 24\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5205,11 +5205,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{13^2\\sin^2 t + 13^2\\cos^2 t + 13^2} = \\sqrt{2(13^2)} = 13\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-13\\cos t, -13\\sin t, 0)$, with $\\|\\vec{a}\\| = 13$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 13$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(13\\sqrt{2})^2}{13} = \\frac{2(13^2)}{13} = 26\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(13\\sqrt{2})^2}{13} = \\frac{2(13^2)}{13} = 26\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{13^2 + 13^2} = 13\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 13$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $13$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(13^2)}{13} = 26\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5243,11 +5243,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{14^2\\sin^2 t + 14^2\\cos^2 t + 14^2} = \\sqrt{2(14^2)} = 14\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-14\\cos t, -14\\sin t, 0)$, with $\\|\\vec{a}\\| = 14$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 14$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(14\\sqrt{2})^2}{14} = \\frac{2(14^2)}{14} = 28\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(14\\sqrt{2})^2}{14} = \\frac{2(14^2)}{14} = 28\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{14^2 + 14^2} = 14\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 14$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $14$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(14^2)}{14} = 28\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5281,11 +5281,11 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "2. Speed: $v = \\sqrt{15^2\\sin^2 t + 15^2\\cos^2 t + 15^2} = \\sqrt{2(15^2)} = 15\\sqrt{2}$.",
       "3. Acceleration vector: $\\vec{a}(t) = (-15\\cos t, -15\\sin t, 0)$, with $\\|\\vec{a}\\| = 15$.",
       "4. Normal acceleration equals total acceleration because speed is constant: $a_n = \\|\\vec{a}\\| = 15$.",
-      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(15\\sqrt{2})^2}{15} = \\frac{2(15^2)}{15} = 30\\text{ m}$.\""
+      "5. Curvature radius formula: $\\rho = \\frac{v^2}{a_n} = \\frac{(15\\sqrt{2})^2}{15} = \\frac{2(15^2)}{15} = 30\\text{ m}$."
     ],
     "stepByStepSolutionAr": [
       "١. السرعة: $v = \\sqrt{15^2 + 15^2} = 15\\sqrt{2}$.",
-      "٢. العجلة الكلية: عمودية خالصة معيارها 15$.",
+      "٢. العجلة الكلية: عمودية خالصة معيارها $15$.",
       "٣. نصف قطر الانحناء: $\\rho = \\frac{v^2}{a_n} = \\frac{2(15^2)}{15} = 30\\text{ م}$."
     ],
     "teacherTipEn": "On any circular helix r(t) = (a cos t, a sin t, bt), rho is constant and equals (a^2 + b^2)/a.",
@@ -5318,13 +5318,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{100}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{100} = 4 \\implies 16t^2 = 400 \\implies t^2 = \\frac{400}{16} = \\frac{100}{4} = 25$.",
-      "4. Taking the square root: $t = \\sqrt{25} = 5\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{25} = 5\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{100}$.",
       "٣. بالمساواة: $16t^2 = 4(100) \\implies t^2 = 25$.",
-      "٤. إذن: $t = 5\\text{ ث}$.\""
+      "٤. إذن: $t = 5\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5356,13 +5356,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{400}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{400} = 4 \\implies 16t^2 = 1600 \\implies t^2 = \\frac{1600}{16} = \\frac{400}{4} = 100$.",
-      "4. Taking the square root: $t = \\sqrt{100} = 10\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{100} = 10\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{400}$.",
       "٣. بالمساواة: $16t^2 = 4(400) \\implies t^2 = 100$.",
-      "٤. إذن: $t = 10\\text{ ث}$.\""
+      "٤. إذن: $t = 10\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5394,13 +5394,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{900}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{900} = 4 \\implies 16t^2 = 3600 \\implies t^2 = \\frac{3600}{16} = \\frac{900}{4} = 225$.",
-      "4. Taking the square root: $t = \\sqrt{225} = 15\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{225} = 15\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{900}$.",
       "٣. بالمساواة: $16t^2 = 4(900) \\implies t^2 = 225$.",
-      "٤. إذن: $t = 15\\text{ ث}$.\""
+      "٤. إذن: $t = 15\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5432,13 +5432,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{1600}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{1600} = 4 \\implies 16t^2 = 6400 \\implies t^2 = \\frac{6400}{16} = \\frac{1600}{4} = 400$.",
-      "4. Taking the square root: $t = \\sqrt{400} = 20\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{400} = 20\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{1600}$.",
       "٣. بالمساواة: $16t^2 = 4(1600) \\implies t^2 = 400$.",
-      "٤. إذن: $t = 20\\text{ ث}$.\""
+      "٤. إذن: $t = 20\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5470,13 +5470,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{2500}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{2500} = 4 \\implies 16t^2 = 10000 \\implies t^2 = \\frac{10000}{16} = \\frac{2500}{4} = 625$.",
-      "4. Taking the square root: $t = \\sqrt{625} = 25\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{625} = 25\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{2500}$.",
       "٣. بالمساواة: $16t^2 = 4(2500) \\implies t^2 = 625$.",
-      "٤. إذن: $t = 25\\text{ ث}$.\""
+      "٤. إذن: $t = 25\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5508,13 +5508,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{3600}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{3600} = 4 \\implies 16t^2 = 14400 \\implies t^2 = \\frac{14400}{16} = \\frac{3600}{4} = 900$.",
-      "4. Taking the square root: $t = \\sqrt{900} = 30\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{900} = 30\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{3600}$.",
       "٣. بالمساواة: $16t^2 = 4(3600) \\implies t^2 = 900$.",
-      "٤. إذن: $t = 30\\text{ ث}$.\""
+      "٤. إذن: $t = 30\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5546,13 +5546,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{4900}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{4900} = 4 \\implies 16t^2 = 19600 \\implies t^2 = \\frac{19600}{16} = \\frac{4900}{4} = 1225$.",
-      "4. Taking the square root: $t = \\sqrt{1225} = 35\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{1225} = 35\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{4900}$.",
       "٣. بالمساواة: $16t^2 = 4(4900) \\implies t^2 = 1225$.",
-      "٤. إذن: $t = 35\\text{ ث}$.\""
+      "٤. إذن: $t = 35\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5584,13 +5584,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{6400}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{6400} = 4 \\implies 16t^2 = 25600 \\implies t^2 = \\frac{25600}{16} = \\frac{6400}{4} = 1600$.",
-      "4. Taking the square root: $t = \\sqrt{1600} = 40\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{1600} = 40\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{6400}$.",
       "٣. بالمساواة: $16t^2 = 4(6400) \\implies t^2 = 1600$.",
-      "٤. إذن: $t = 40\\text{ ث}$.\""
+      "٤. إذن: $t = 40\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5622,13 +5622,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{8100}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{8100} = 4 \\implies 16t^2 = 32400 \\implies t^2 = \\frac{32400}{16} = \\frac{8100}{4} = 2025$.",
-      "4. Taking the square root: $t = \\sqrt{2025} = 45\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{2025} = 45\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{8100}$.",
       "٣. بالمساواة: $16t^2 = 4(8100) \\implies t^2 = 2025$.",
-      "٤. إذن: $t = 45\\text{ ث}$.\""
+      "٤. إذن: $t = 45\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."
@@ -5660,13 +5660,13 @@ export const egBacMechCh1Databank: ChapterDatabank = {
       "1. Speed function: $v(t) = a_t t = 4t$.",
       "2. Normal acceleration: $a_n = \\frac{v^2}{R} = \\frac{16t^2}{10000}$.",
       "3. Set $a_n = a_t$: $\\frac{16t^2}{10000} = 4 \\implies 16t^2 = 40000 \\implies t^2 = \\frac{40000}{16} = \\frac{10000}{4} = 2500$.",
-      "4. Taking the square root: $t = \\sqrt{2500} = 50\\text{ s}$.\""
+      "4. Taking the square root: $t = \\sqrt{2500} = 50\\text{ s}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة السرعة: $v(t) = 4t$.",
       "٢. العجلة العمودية: $a_n = \\frac{16t^2}{10000}$.",
       "٣. بالمساواة: $16t^2 = 4(10000) \\implies t^2 = 2500$.",
-      "٤. إذن: $t = 50\\text{ ث}$.\""
+      "٤. إذن: $t = 50\\text{ ث}$."
     ],
     "teacherTipEn": "At this exact time t = sqrt(R/a_t), the total acceleration vector makes a 45-degree angle with the velocity.",
     "teacherTipAr": "عند هذه اللحظة، يصنع متجه العجلة الكلية زاوية ٤٥ درجة مع اتجاه السرعة تماماً."

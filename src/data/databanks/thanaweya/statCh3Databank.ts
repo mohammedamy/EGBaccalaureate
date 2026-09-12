@@ -1438,7 +1438,7 @@ export const statCh3Databank: ChapterDatabank = {
     "hintAr": "ساوِ مجموع القوى لأعلى بمجموع القوى لأسفل.",
     "stepByStepSolutionEn": [
       "1. Condition of vertical equilibrium: $\\sum F_y = 0$.",
-      "2. 60 = 30 + F \\implies F = 60 - 30 = 30\\text{ N}$."
+      "2. $60 = 30 + F \\implies F = 60 - 30 = 30\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. شرط الاتزان الرأسي: مجموع القوى لأعلى = مجموع القوى لأسفل.",
@@ -1472,7 +1472,7 @@ export const statCh3Databank: ChapterDatabank = {
     "hintAr": "ساوِ مجموع القوى لأعلى بمجموع القوى لأسفل.",
     "stepByStepSolutionEn": [
       "1. Condition of vertical equilibrium: $\\sum F_y = 0$.",
-      "2. 70 = 30 + F \\implies F = 70 - 30 = 40\\text{ N}$."
+      "2. $70 = 30 + F \\implies F = 70 - 30 = 40\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. شرط الاتزان الرأسي: مجموع القوى لأعلى = مجموع القوى لأسفل.",
@@ -2093,13 +2093,13 @@ export const statCh3Databank: ChapterDatabank = {
     "hintAr": "$F_1 \\times AC = F_2 \\times (AB - AC)$.",
     "stepByStepSolutionEn": [
       "1. Moment equilibrium about point $C$: $F_1 \\times AC = F_2 \\times BC$.",
-      "2. 10 \\times AC = 10 \\times (20 - AC)$.",
+      "2. $10 \\times AC = 10 \\times (20 - AC)$.",
       "3. Divide by 10: $AC = 1(20 - AC) = 20 - 1 AC$.",
       "4. $(2) AC = 20 = 20 \\implies AC = 10\\text{ cm}$."
     ],
     "stepByStepSolutionAr": [
       "١. قانون العزوم حول نقطة التأثير: $F_1 \\times AC = F_2 \\times BC$.",
-      "٢. 10 \\times AC = 10 (20 - AC)$.",
+      "٢. $10 \\times AC = 10 (20 - AC)$.",
       "٣. بالتبسيط: $(2) AC = 20 \\implies AC = 10\\text{ سم}$."
     ],
     "teacherTipEn": "AC is proportional to F2: AC = [F2 / (F1 + F2)] * AB.",
@@ -2130,13 +2130,13 @@ export const statCh3Databank: ChapterDatabank = {
     "hintAr": "$F_1 \\times AC = F_2 \\times (AB - AC)$.",
     "stepByStepSolutionEn": [
       "1. Moment equilibrium about point $C$: $F_1 \\times AC = F_2 \\times BC$.",
-      "2. 10 \\times AC = 20 \\times (30 - AC)$.",
+      "2. $10 \\times AC = 20 \\times (30 - AC)$.",
       "3. Divide by 10: $AC = 2(30 - AC) = 60 - 2 AC$.",
       "4. $(3) AC = 60 = 60 \\implies AC = 20\\text{ cm}$."
     ],
     "stepByStepSolutionAr": [
       "١. قانون العزوم حول نقطة التأثير: $F_1 \\times AC = F_2 \\times BC$.",
-      "٢. 10 \\times AC = 20 (30 - AC)$.",
+      "٢. $10 \\times AC = 20 (30 - AC)$.",
       "٣. بالتبسيط: $(3) AC = 60 \\implies AC = 20\\text{ سم}$."
     ],
     "teacherTipEn": "AC is proportional to F2: AC = [F2 / (F1 + F2)] * AB.",
@@ -3579,7 +3579,7 @@ export const statCh3Databank: ChapterDatabank = {
       "2. Distance from $D$ to end $B$: $DB = 100 - 80 = 20\\text{ cm}$.",
       "3. When on the verge of overturning about $D$, the beam lifts off $C$, so $R_C = 0$.",
       "4. Taking moments about $D$ ($sum M_D = 0$):",
-      "   20 \\times 30 = W_{\\max} \\times 20 \\implies W_{\\max} = \\frac{600}{20} = 30\\text{ N}$."
+      "   $20 \\times 30 = W_{\\max} \\times 20 \\implies W_{\\max} = \\frac{600}{20} = 30\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. مركز ثقل القضيب يبعد ٥٠ سم من $A$، فالمسافة إلى الحامل $D$ هي $GD = 80 - 50 = 30\\text{ سم}$.",
@@ -3619,7 +3619,7 @@ export const statCh3Databank: ChapterDatabank = {
       "2. Distance from $D$ to end $B$: $DB = 100 - 80 = 20\\text{ cm}$.",
       "3. When on the verge of overturning about $D$, the beam lifts off $C$, so $R_C = 0$.",
       "4. Taking moments about $D$ ($sum M_D = 0$):",
-      "   40 \\times 30 = W_{\\max} \\times 20 \\implies W_{\\max} = \\frac{1200}{20} = 60\\text{ N}$."
+      "   $40 \\times 30 = W_{\\max} \\times 20 \\implies W_{\\max} = \\frac{1200}{20} = 60\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. مركز ثقل القضيب يبعد ٥٠ سم من $A$، فالمسافة إلى الحامل $D$ هي $GD = 80 - 50 = 30\\text{ سم}$.",
@@ -5134,7 +5134,7 @@ export const statCh3Databank: ChapterDatabank = {
     "stepByStepSolutionEn": [
       "1. Take moments about end $B$ with maximum allowable tension $T_A = 65\\text{ N}$ at $A$:",
       "   $T_A(100) = W_{\\text{rod}}(50) + P(100 - x)$.",
-      "2. 65(100) = 40(50) + 100(100 - x) = 2000 + 10000 - 100x = 12000 - 100x$.",
+      "2. $65(100) = 40(50) + 100(100 - x) = 2000 + 10000 - 100x = 12000 - 100x$.",
       "3. Divide by 100: $65 = 120 - x \\implies x = 120 - 65 = 55\\text{ cm}$.",
       "4. Placing the load any closer to $A$ ($x < 55$) would increase $T_A > 65$, breaking the wire."
     ],
@@ -5173,7 +5173,7 @@ export const statCh3Databank: ChapterDatabank = {
     "stepByStepSolutionEn": [
       "1. Take moments about end $B$ with maximum allowable tension $T_A = 70\\text{ N}$ at $A$:",
       "   $T_A(100) = W_{\\text{rod}}(50) + P(100 - x)$.",
-      "2. 70(100) = 40(50) + 100(100 - x) = 2000 + 10000 - 100x = 12000 - 100x$.",
+      "2. $70(100) = 40(50) + 100(100 - x) = 2000 + 10000 - 100x = 12000 - 100x$.",
       "3. Divide by 100: $70 = 120 - x \\implies x = 120 - 70 = 50\\text{ cm}$.",
       "4. Placing the load any closer to $A$ ($x < 50$) would increase $T_A > 70$, breaking the wire."
     ],

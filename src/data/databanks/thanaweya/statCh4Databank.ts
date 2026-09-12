@@ -27,11 +27,11 @@ export const statCh4Databank: ChapterDatabank = {
     "hintAr": "شرط الاتزان الأفقي: $\\sum X = 0 \\implies F_1 - F_2 - P = 0$.",
     "stepByStepSolutionEn": [
       "1. Equilibrium equation: $\\sum X = 0$.",
-      "2. 15 - 5 - P = 0 \\implies P = 15 - 5 = 10\\text{ N}$."
+      "2. $15 - 5 - P = 0 \\implies P = 15 - 5 = 10\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة الاتزان الأفقي: $\\sum X = 0$.",
-      "٢. 15 - 5 - P = 0 \\implies P = 10\\text{ نيوتن}$."
+      "٢. $15 - 5 - P = 0 \\implies P = 10\\text{ نيوتن}$."
     ],
     "teacherTipEn": "Forces acting in opposite directions must balance algebraically to zero.",
     "teacherTipAr": "القوى المتضادة في الاتجاه يجب أن تتوازن جبرياً لينعدم مجموعها."
@@ -61,11 +61,11 @@ export const statCh4Databank: ChapterDatabank = {
     "hintAr": "شرط الاتزان الأفقي: $\\sum X = 0 \\implies F_1 - F_2 - P = 0$.",
     "stepByStepSolutionEn": [
       "1. Equilibrium equation: $\\sum X = 0$.",
-      "2. 30 - 10 - P = 0 \\implies P = 30 - 10 = 20\\text{ N}$."
+      "2. $30 - 10 - P = 0 \\implies P = 30 - 10 = 20\\text{ N}$."
     ],
     "stepByStepSolutionAr": [
       "١. معادلة الاتزان الأفقي: $\\sum X = 0$.",
-      "٢. 30 - 10 - P = 0 \\implies P = 20\\text{ نيوتن}$."
+      "٢. $30 - 10 - P = 0 \\implies P = 20\\text{ نيوتن}$."
     ],
     "teacherTipEn": "Forces acting in opposite directions must balance algebraically to zero.",
     "teacherTipAr": "القوى المتضادة في الاتجاه يجب أن تتوازن جبرياً لينعدم مجموعها."
