@@ -22,6 +22,10 @@ export interface Translations {
   searchPlaceholder: string;
   sisterSite: string;
   sisterSiteBadge: string;
+  visitorCounterTitle: string;
+  visitorCounterTotal: string;
+  visitorCounterToday: string;
+  visitorCounterLive: string;
 
   // Tabs & Views
   overviewTab: string;
@@ -163,6 +167,10 @@ export const translations: Record<Language, Translations> = {
     searchPlaceholder: 'Search formulas, lessons, concepts...',
     sisterSite: 'Sister Site: clipsat.org',
     sisterSiteBadge: 'clipsat.org',
+    visitorCounterTitle: 'Platform Visitors',
+    visitorCounterTotal: 'Total Visits',
+    visitorCounterToday: 'Today',
+    visitorCounterLive: 'Live Online',
 
     overviewTab: 'Curriculum Roadmap',
     theoryTab: 'Lesson & Theory',
@@ -296,6 +304,10 @@ export const translations: Record<Language, Translations> = {
     searchPlaceholder: 'ابحث عن القوانين، الدروس، المفاهيم...',
     sisterSite: 'الموقع الشقيق: clipsat.org',
     sisterSiteBadge: 'clipsat.org',
+    visitorCounterTitle: 'عدد زوار المنصة',
+    visitorCounterTotal: 'إجمالي الزيارات',
+    visitorCounterToday: 'اليوم',
+    visitorCounterLive: 'متصل الآن',
 
     overviewTab: 'خريطة المنهج',
     theoryTab: 'الشرح والنظريات',

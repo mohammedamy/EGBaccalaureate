@@ -13,6 +13,7 @@ import { CurriculumEquivalency } from './components/CurriculumEquivalency';
 import { FormulaHandbook } from './components/FormulaHandbook';
 import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
 import { OfficialBooksModal } from './components/OfficialBooksModal';
+import { VisitorCounter } from './components/VisitorCounter';
 import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -354,37 +355,46 @@ export const App: React.FC = () => {
           ? 'border-slate-200 bg-white text-slate-600'
           : 'border-slate-800 bg-slate-950 text-slate-400'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left rtl:md:text-right">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 shrink-0">
-              <img src={clipsatLogo} alt="ClipSAT Logo" className="h-10 sm:h-11 w-auto object-contain drop-shadow-sm" />
-              <EgyptFlag className="h-5 sm:h-6 w-auto rounded-[3px] shadow-xs ring-1 ring-black/15 dark:ring-white/20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          {/* Visitor Counter - strictly displayed at the footer of the Home Page only */}
+          {activeTab === 'overview' && (
+            <div className="animate-in fade-in duration-300">
+              <VisitorCounter lang={lang} theme={theme} />
             </div>
-            <div className="space-y-1">
-              <p className={`font-bold text-sm flex items-center justify-center md:justify-start gap-1.5 ${
-                theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-slate-900' : 'text-slate-200'
-              }`}>
-                <ShieldCheck className={`w-4.5 h-4.5 ${
-                  theme === 'high-contrast' ? 'text-cyan-400' : theme === 'light' ? 'text-emerald-600' : 'text-emerald-400'
-                }`} />
-                <span>{t.copyright}</span>
-              </p>
-              <p className={`text-xs max-w-2xl ${
-                theme === 'high-contrast' ? 'text-slate-200' : theme === 'light' ? 'text-slate-500' : 'text-slate-400'
-              }`}>{t.moeReferenceNote}</p>
-            </div>
-          </div>
+          )}
 
-          <div className={`flex items-center gap-4 text-xs font-bold ${
-            theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-indigo-600' : 'text-cyan-400'
-          }`}>
-            <span>ClipSAT for Egypt</span>
-            <span>•</span>
-            <span>moe.gov.eg</span>
-            <span>•</span>
-            <span>Thanaweya Amma 2026</span>
-            <span>•</span>
-            <span>EG-Bac STEM</span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left rtl:md:text-right">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 shrink-0">
+                <img src={clipsatLogo} alt="ClipSAT Logo" className="h-10 sm:h-11 w-auto object-contain drop-shadow-sm" />
+                <EgyptFlag className="h-5 sm:h-6 w-auto rounded-[3px] shadow-xs ring-1 ring-black/15 dark:ring-white/20" />
+              </div>
+              <div className="space-y-1">
+                <p className={`font-bold text-sm flex items-center justify-center md:justify-start gap-1.5 ${
+                  theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-slate-900' : 'text-slate-200'
+                }`}>
+                  <ShieldCheck className={`w-4.5 h-4.5 ${
+                    theme === 'high-contrast' ? 'text-cyan-400' : theme === 'light' ? 'text-emerald-600' : 'text-emerald-400'
+                  }`} />
+                  <span>{t.copyright}</span>
+                </p>
+                <p className={`text-xs max-w-2xl ${
+                  theme === 'high-contrast' ? 'text-slate-200' : theme === 'light' ? 'text-slate-500' : 'text-slate-400'
+                }`}>{t.moeReferenceNote}</p>
+              </div>
+            </div>
+
+            <div className={`flex items-center gap-4 text-xs font-bold ${
+              theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-indigo-600' : 'text-cyan-400'
+            }`}>
+              <span>ClipSAT for Egypt</span>
+              <span>•</span>
+              <span>moe.gov.eg</span>
+              <span>•</span>
+              <span>Thanaweya Amma 2026</span>
+              <span>•</span>
+              <span>EG-Bac STEM</span>
+            </div>
           </div>
         </div>
       </footer>
