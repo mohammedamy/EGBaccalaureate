@@ -115,6 +115,26 @@ export interface Translations {
   desmosClose: string;
   desmosShortcutTip: string;
 
+  // Official Books
+  officialBooksTitle: string;
+  officialBooksSubtitle: string;
+  officialBooksNavBtn: string;
+  downloadBookPdf: string;
+  previewBookPdf: string;
+  moePortalLink: string;
+  bookPagesCount: string;
+  bookFileSize: string;
+  bookAcademicYear: string;
+  filterAllBooks: string;
+  filterThanaweyaBooks: string;
+  filterEgBacBooks: string;
+  filterCompendiums: string;
+  searchBooksPlaceholder: string;
+  noBooksFound: string;
+  bookChaptersCount: string;
+  officialMinistryBadge: string;
+  officialCurriculumCode: string;
+
   // Footers & References
   copyright: string;
   moeReferenceNote: string;
@@ -228,6 +248,26 @@ export const translations: Record<Language, Translations> = {
     desmosClose: 'Close',
     desmosShortcutTip: 'Press Ctrl+D or ⌘D anytime to toggle calculator',
 
+    // Official Books
+    officialBooksTitle: 'Official Ministry of Education Textbooks & Compendiums',
+    officialBooksSubtitle: 'Authorized PDFs for General Secondary (Thanaweya Amma) & EG-Baccalaureate 2025/2026',
+    officialBooksNavBtn: 'Ministry Books',
+    downloadBookPdf: 'Download PDF',
+    previewBookPdf: 'Open / Preview',
+    moePortalLink: 'Ministry Portal',
+    bookPagesCount: 'Pages',
+    bookFileSize: 'Size',
+    bookAcademicYear: 'Academic Year',
+    filterAllBooks: 'All Textbooks',
+    filterThanaweyaBooks: 'Thanaweya Amma (4)',
+    filterEgBacBooks: 'EG-Baccalaureate (4)',
+    filterCompendiums: 'Ministry Compendiums (2)',
+    searchBooksPlaceholder: 'Search official books by title, code, branch, or topics...',
+    noBooksFound: 'No official textbooks match your search or filter.',
+    bookChaptersCount: 'Chapters',
+    officialMinistryBadge: 'Authorized by Ministry of Education',
+    officialCurriculumCode: 'Curriculum Code',
+
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
     moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).'
   },
@@ -338,6 +378,26 @@ export const translations: Record<Language, Translations> = {
     desmosMinimize: 'تصغير',
     desmosClose: 'إغلاق',
     desmosShortcutTip: 'اضغط ⌘D أو Ctrl+D في أي وقت لفتح/إغلاق الحاسبة',
+
+    // Official Books
+    officialBooksTitle: 'كتب الوزارة والأدلة الرسمية المعتمدة',
+    officialBooksSubtitle: 'تحميل ملفات PDF الرسمية للثانوية العامة والبكالوريا المصرية للعام الدراسي 2025/2026',
+    officialBooksNavBtn: 'كتب الوزارة',
+    downloadBookPdf: 'تحميل PDF',
+    previewBookPdf: 'فتح / معاينة',
+    moePortalLink: 'بوابة الوزارة',
+    bookPagesCount: 'صفحة',
+    bookFileSize: 'الحجم',
+    bookAcademicYear: 'العام الدراسي',
+    filterAllBooks: 'جميع الكتب والأدلة',
+    filterThanaweyaBooks: 'الثانوية العامة (4)',
+    filterEgBacBooks: 'البكالوريا المصرية (4)',
+    filterCompendiums: 'كتيبات ومفاهيم الوزارة (2)',
+    searchBooksPlaceholder: 'ابحث في كتب الوزارة بالاسم، الكود، الفرع، أو الموضوعات...',
+    noBooksFound: 'لم يتم العثور على كتب تطابق البحث أو الفلتر المختار.',
+    bookChaptersCount: 'فصول دراسية',
+    officialMinistryBadge: 'معتمد رسمياً من وزارة التربية والتعليم',
+    officialCurriculumCode: 'كود المنهج',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
     moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.'

@@ -14,7 +14,8 @@ import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { InteractiveMatrixLab } from './InteractiveMatrixLab';
 import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
+import { getOfficialBookByBranch } from '../data/officialBooksData';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -28,6 +29,7 @@ interface Props {
   onSubTabChange: (tab: string) => void;
   onSelectLesson?: (branch: Branch, lesson: Lesson, tab?: string) => void;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
+  onOpenOfficialBooks?: (bookId?: string) => void;
 }
 
 export const LessonView: React.FC<Props> = ({
@@ -41,8 +43,10 @@ export const LessonView: React.FC<Props> = ({
   onSubTabChange,
   onSelectLesson,
   onOpenDesmos,
+  onOpenOfficialBooks,
 }) => {
   const isLight = theme === 'light';
+  const matchingBook = getOfficialBookByBranch(branch.id);
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
   const [openSolutions, setOpenSolutions] = useState<Record<string, boolean>>({});
   const [databankDifficulty, setDatabankDifficulty] = useState<'easy' | 'medium' | 'hots'>('easy');
@@ -538,14 +542,43 @@ export const LessonView: React.FC<Props> = ({
           </div>
 
           {/* Textbook MoE reference card */}
-          <div className={`p-3 sm:p-3.5 rounded-xl border text-xs space-y-1 shadow-sm w-full sm:w-auto ${
+          <div className={`p-3 sm:p-3.5 rounded-xl border text-xs space-y-2 shadow-sm w-full sm:w-auto ${
             isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
           }`}>
-            <span className={`font-bold block ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>{t.officialMoeRef}</span>
-            <p className={`font-extrabold text-sm ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{lang === 'ar' ? lesson.moeRef.bookTitleAr : lesson.moeRef.bookTitleEn}</p>
-            <p className={`text-xs font-mono font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>
-              {lang === 'ar' ? toHindiDigits(lesson.moeRef.pageRange) : lesson.moeRef.pageRange}
-            </p>
+            <div>
+              <span className={`font-bold block ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>{t.officialMoeRef}</span>
+              <p className={`font-extrabold text-sm ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{lang === 'ar' ? lesson.moeRef.bookTitleAr : lesson.moeRef.bookTitleEn}</p>
+              <p className={`text-xs font-mono font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>
+                {lang === 'ar' ? toHindiDigits(lesson.moeRef.pageRange) : lesson.moeRef.pageRange}
+              </p>
+            </div>
+
+            {matchingBook && (
+              <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80">
+                <a
+                  href={matchingBook.downloadUrl}
+                  download={matchingBook.filename}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition-all active:scale-95"
+                  title={t.downloadBookPdf}
+                >
+                  <Download className="w-3 h-3" />
+                  <span>PDF ({matchingBook.fileSize})</span>
+                </a>
+                {onOpenOfficialBooks && (
+                  <button
+                    onClick={() => onOpenOfficialBooks(matchingBook.id)}
+                    className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-medium border transition-colors ${
+                      isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700 hover:text-white'
+                    }`}
+                  >
+                    <BookOpen className="w-3 h-3" />
+                    <span>{t.previewBookPdf}</span>
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -820,13 +853,26 @@ export const LessonView: React.FC<Props> = ({
                   : `Official unit exercise problems from the Ministry textbook for (${currentChapter.titleEn}) with model answer keys and step-by-step solutions.`}
               </p>
             </div>
-            <button
-              onClick={() => window.print()}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start"
-            >
-              <Printer className="w-4 h-4" />
-              <span>{t.printWorksheet}</span>
-            </button>
+            <div className="flex items-center gap-2 self-start flex-wrap no-print">
+              {matchingBook && (
+                <a
+                  href={matchingBook.downloadUrl}
+                  download={matchingBook.filename}
+                  className="bg-teal-600 hover:bg-teal-500 text-white font-bold py-2 px-3.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all active:scale-95"
+                  title={t.downloadBookPdf}
+                >
+                  <Download className="w-4 h-4" />
+                  <span>{lang === 'ar' ? `كتاب الوزارة (${matchingBook.fileSize})` : `Download Book PDF (${matchingBook.fileSize})`}</span>
+                </a>
+              )}
+              <button
+                onClick={() => window.print()}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg"
+              >
+                <Printer className="w-4 h-4" />
+                <span>{t.printWorksheet}</span>
+              </button>
+            </div>
           </div>
 
           <div className="space-y-6">

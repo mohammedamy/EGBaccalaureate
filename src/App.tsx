@@ -12,6 +12,7 @@ import { SearchModal } from './components/SearchModal';
 import { CurriculumEquivalency } from './components/CurriculumEquivalency';
 import { FormulaHandbook } from './components/FormulaHandbook';
 import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
+import { OfficialBooksModal } from './components/OfficialBooksModal';
 import { Search, ShieldCheck, Command } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -38,9 +39,16 @@ export const App: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
   const [isDesmosOpen, setIsDesmosOpen] = useState<boolean>(false);
+  const [isOfficialBooksOpen, setIsOfficialBooksOpen] = useState<boolean>(false);
+  const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
   const [desmosPresetId, setDesmosPresetId] = useState<string | undefined>(undefined);
+
+  const handleOpenOfficialBooks = (bookId?: string) => {
+    setTargetOfficialBookId(bookId);
+    setIsOfficialBooksOpen(true);
+  };
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
@@ -95,6 +103,10 @@ export const App: React.FC = () => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'd') {
         e.preventDefault();
         setIsDesmosOpen((prev) => !prev);
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'b') {
+        e.preventDefault();
+        setIsOfficialBooksOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -170,6 +182,7 @@ export const App: React.FC = () => {
         onTabChange={setActiveTab}
         onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
         onOpenDesmos={() => setIsDesmosOpen((prev) => !prev)}
+        onOpenOfficialBooks={() => handleOpenOfficialBooks()}
       />
 
       {/* Main Workspace Body */}
@@ -250,6 +263,18 @@ export const App: React.FC = () => {
           onLayoutChange={setDesmosLayout}
         />
 
+        {/* Global Official Ministry PDF Books Modal */}
+        <OfficialBooksModal
+          isOpen={isOfficialBooksOpen}
+          onClose={() => {
+            setIsOfficialBooksOpen(false);
+            setTargetOfficialBookId(undefined);
+          }}
+          lang={lang}
+          theme={theme}
+          initialBookId={targetOfficialBookId}
+        />
+
         {/* Tab View Router */}
         {activeTab === 'overview' && (
           <CurriculumOverview
@@ -258,6 +283,7 @@ export const App: React.FC = () => {
             curriculum={activeCurriculumData}
             onSelectLesson={handleSelectLesson}
             onNavigateTab={setActiveTab}
+            onOpenOfficialBooks={() => handleOpenOfficialBooks()}
           />
         )}
 
@@ -303,6 +329,7 @@ export const App: React.FC = () => {
               setDesmosMode(targetMode);
               setIsDesmosOpen(true);
             }}
+            onOpenOfficialBooks={handleOpenOfficialBooks}
           />
         )}
 

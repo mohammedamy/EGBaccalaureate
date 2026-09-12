@@ -2,7 +2,7 @@ import React from 'react';
 import type { CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator } from 'lucide-react';
+import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 
@@ -21,6 +21,7 @@ interface Props {
   onTabChange: (tab: string) => void;
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: () => void;
+  onOpenOfficialBooks?: () => void;
 }
 
 export const Navbar: React.FC<Props> = ({
@@ -38,6 +39,7 @@ export const Navbar: React.FC<Props> = ({
   onTabChange,
   onOpenFormulaHandbook,
   onOpenDesmos,
+  onOpenOfficialBooks,
 }) => {
   const t = translations[lang];
   const isLight = theme === 'light';
@@ -218,6 +220,25 @@ export const Navbar: React.FC<Props> = ({
                 <BookOpen className="w-3 h-3 text-emerald-400" />
                 <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
                 <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘J</kbd>
+              </button>
+            )}
+
+            {/* Official Ministry Books Trigger */}
+            {onOpenOfficialBooks && (
+              <button
+                onClick={onOpenOfficialBooks}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                  isHighContrast
+                    ? 'bg-black text-amber-300 border-amber-400 hover:bg-amber-950/40'
+                    : isLight
+                    ? 'bg-teal-50 hover:bg-teal-100 text-teal-800 border-teal-300'
+                    : 'bg-teal-950/70 hover:bg-teal-900 text-teal-300 border-teal-700/60'
+                }`}
+                title={lang === 'ar' ? 'كتب الوزارة والأدلة الرسمية PDF (Ctrl+B / ⌘B)' : 'Official Ministry PDF Books (Ctrl+B / ⌘B)'}
+              >
+                <Download className="w-3 h-3 text-teal-400" />
+                <span>{t.officialBooksNavBtn}</span>
+                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘B</kbd>
               </button>
             )}
 

@@ -19,6 +19,7 @@ import {
   BarChart3,
   Star,
   FileSpreadsheet,
+  Download,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
@@ -28,6 +29,7 @@ interface Props {
   curriculum: Curriculum;
   onSelectLesson: (branch: Branch, lesson: Lesson, tab?: string) => void;
   onNavigateTab: (tab: string) => void;
+  onOpenOfficialBooks?: () => void;
 }
 
 export const CurriculumOverview: React.FC<Props> = ({
@@ -36,6 +38,7 @@ export const CurriculumOverview: React.FC<Props> = ({
   curriculum,
   onSelectLesson,
   onNavigateTab,
+  onOpenOfficialBooks,
 }) => {
   const t = translations[lang];
   const isArabic = lang === 'ar';
@@ -161,6 +164,21 @@ export const CurriculumOverview: React.FC<Props> = ({
               >
                 <span>{isArabic ? '⚖️ مقارنة المسارات' : '⚖️ Track Bridge'}</span>
               </button>
+              {onOpenOfficialBooks && (
+                <button
+                  onClick={onOpenOfficialBooks}
+                  className={`font-bold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                    isContrast
+                      ? 'bg-black text-amber-300 border-amber-400 hover:bg-zinc-900'
+                      : isLight
+                      ? 'bg-emerald-600/90 hover:bg-emerald-600 text-white border-emerald-400/40 shadow-emerald-900/20'
+                      : 'bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-200 border-emerald-700/60'
+                  }`}
+                >
+                  <Download className="w-4 h-4 text-emerald-300" />
+                  <span>{isArabic ? '📚 كتب الوزارة PDF' : '📚 Ministry Books PDF'}</span>
+                </button>
+              )}
             </div>
           </div>
 
