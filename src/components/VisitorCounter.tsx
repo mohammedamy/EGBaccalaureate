@@ -117,7 +117,7 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     >
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Left: Title & Subtitle Badge */}
-        <div className="flex items-center gap-3 text-center sm:text-left rtl:sm:text-right">
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 text-center sm:text-left rtl:sm:text-right">
           <div
             className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
               isContrast
@@ -159,17 +159,17 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         </div>
 
         {/* Center: Digital Odometer Digit Flip Cards */}
-        <div className="flex flex-col items-center gap-1.5">
+        <div className="flex flex-col items-center gap-1.5 w-full sm:w-auto">
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {t.visitorCounterTotal}
           </span>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center justify-center gap-0.5 sm:gap-1 flex-nowrap">
             {digitsFormatted.map((digit, idx) => {
               if (digit === ',' || digit === '،') {
                 return (
                   <span
                     key={idx}
-                    className="text-base font-black px-0.5 text-slate-400 dark:text-slate-500"
+                    className="text-base font-black px-0.5 text-slate-400 dark:text-slate-500 shrink-0 select-none"
                   >
                     {digit}
                   </span>
@@ -178,7 +178,7 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               return (
                 <div
                   key={idx}
-                  className={`w-6 h-8 sm:w-7 sm:h-9 rounded-lg flex items-center justify-center font-mono font-black text-sm sm:text-base border shadow-sm transition-transform hover:scale-105 select-none ${
+                  className={`w-5.5 h-7.5 sm:w-7 sm:h-9 rounded-lg flex items-center justify-center font-mono font-black text-xs sm:text-base border shadow-sm transition-transform hover:scale-105 active:scale-95 select-none shrink-0 ${
                     isContrast
                       ? 'bg-black text-cyan-300 border-cyan-400 shadow-cyan-900/30'
                       : isLight
@@ -197,7 +197,7 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         </div>
 
         {/* Right: Today's visits & Engagement metrics */}
-        <div className="flex items-center gap-2 sm:gap-3 text-xs font-semibold text-slate-600 dark:text-slate-300">
+        <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 text-xs font-semibold text-slate-600 dark:text-slate-300 w-full sm:w-auto">
           <div
             className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 ${
               isContrast

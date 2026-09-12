@@ -246,7 +246,10 @@ export const CurriculumOverview: React.FC<Props> = ({
       </div>
 
       {/* Branch Filter Pills */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+      <div
+        className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar -mx-3.5 px-3.5 sm:mx-0 sm:px-0 touch-pan-x"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
         <span className={`text-xs font-bold whitespace-nowrap ${
           isLight ? 'text-slate-700' : 'text-slate-400'
         }`}>
@@ -254,7 +257,7 @@ export const CurriculumOverview: React.FC<Props> = ({
         </span>
         <button
           onClick={() => setSelectedBranchId('all')}
-          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer active:scale-95 ${
             selectedBranchId === 'all'
               ? isContrast
                 ? 'bg-yellow-400 text-black font-black'

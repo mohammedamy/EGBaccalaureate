@@ -92,7 +92,8 @@ export const Navbar: React.FC<Props> = ({
             </a>
           </div>
 
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 flex-wrap sm:flex-nowrap justify-end">
+          {/* Mobile-Friendly Utility Row: Language, Theme & Font Size */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 justify-end">
             {/* Overall Font Size Switcher */}
             <div
               className={`flex items-center p-0.5 rounded-full border shadow-xs transition-all ${
@@ -118,7 +119,7 @@ export const Navbar: React.FC<Props> = ({
                 <button
                   onClick={() => onFontSizeChange('normal')}
                   title={t.fontSizeNormal}
-                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all ${
+                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all active:scale-95 ${
                     fontSize === 'normal'
                       ? isHighContrast
                         ? 'bg-cyan-400 text-black font-black shadow-xs'
@@ -133,7 +134,7 @@ export const Navbar: React.FC<Props> = ({
                 <button
                   onClick={() => onFontSizeChange('large')}
                   title={t.fontSizeLarge}
-                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all ${
+                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all active:scale-95 ${
                     fontSize === 'large'
                       ? isHighContrast
                         ? 'bg-cyan-400 text-black font-black shadow-xs'
@@ -148,7 +149,7 @@ export const Navbar: React.FC<Props> = ({
                 <button
                   onClick={() => onFontSizeChange('xlarge')}
                   title={t.fontSizeXLarge}
-                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all ${
+                  className={`px-1.5 py-0.5 rounded-full text-[10px] font-extrabold transition-all active:scale-95 ${
                     fontSize === 'xlarge'
                       ? isHighContrast
                         ? 'bg-cyan-400 text-black font-black shadow-xs'
@@ -178,7 +179,7 @@ export const Navbar: React.FC<Props> = ({
               <button
                 onClick={() => onThemeChange('light')}
                 title={t.themeDay}
-                className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold transition-all ${
+                className={`flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] font-bold transition-all active:scale-95 ${
                   theme === 'light'
                     ? 'bg-amber-400/40 text-amber-950 font-black shadow-xs border border-amber-300'
                     : isLight
@@ -192,7 +193,7 @@ export const Navbar: React.FC<Props> = ({
               <button
                 onClick={() => onThemeChange('dark')}
                 title={t.themeNight}
-                className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold transition-all ${
+                className={`flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] font-bold transition-all active:scale-95 ${
                   theme === 'dark'
                     ? 'bg-indigo-600 text-white font-black shadow-xs'
                     : isLight
@@ -206,7 +207,7 @@ export const Navbar: React.FC<Props> = ({
               <button
                 onClick={() => onThemeChange('high-contrast')}
                 title={t.themeHighContrast}
-                className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold transition-all ${
+                className={`flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] font-bold transition-all active:scale-95 ${
                   theme === 'high-contrast'
                     ? 'bg-yellow-400 text-black font-black shadow-xs border border-yellow-300'
                     : isLight
@@ -219,82 +220,85 @@ export const Navbar: React.FC<Props> = ({
               </button>
             </div>
 
-            {/* Formula Handbook Trigger */}
-            {onOpenFormulaHandbook && (
-              <button
-                onClick={onOpenFormulaHandbook}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
-                  isHighContrast
-                    ? 'bg-black text-yellow-300 border-yellow-400 hover:bg-yellow-950/40'
-                    : isLight
-                    ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
-                    : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border-emerald-700/60'
-                }`}
-                title={lang === 'ar' ? 'دستور القوانين والمعادلات الرسمية (Ctrl+J / ⌘J)' : 'Formula Sheet Handbook (Ctrl+J / ⌘J)'}
-              >
-                <BookOpen className="w-3 h-3 text-emerald-400" />
-                <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
-                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘J</kbd>
-              </button>
-            )}
+            {/* Desktop Quick Tools */}
+            <div className="hidden sm:flex items-center gap-1.5">
+              {/* Formula Handbook Trigger */}
+              {onOpenFormulaHandbook && (
+                <button
+                  onClick={onOpenFormulaHandbook}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-yellow-300 border-yellow-400 hover:bg-yellow-950/40'
+                      : isLight
+                      ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
+                      : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border-emerald-700/60'
+                  }`}
+                  title={lang === 'ar' ? 'دستور القوانين والمعادلات الرسمية (Ctrl+J / ⌘J)' : 'Formula Sheet Handbook (Ctrl+J / ⌘J)'}
+                >
+                  <BookOpen className="w-3 h-3 text-emerald-400" />
+                  <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
+                  <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘J</kbd>
+                </button>
+              )}
 
-            {/* Official Ministry Books Trigger */}
-            {onOpenOfficialBooks && (
-              <button
-                onClick={onOpenOfficialBooks}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
-                  isHighContrast
-                    ? 'bg-black text-amber-300 border-amber-400 hover:bg-amber-950/40'
-                    : isLight
-                    ? 'bg-teal-50 hover:bg-teal-100 text-teal-800 border-teal-300'
-                    : 'bg-teal-950/70 hover:bg-teal-900 text-teal-300 border-teal-700/60'
-                }`}
-                title={lang === 'ar' ? 'كتب الوزارة والأدلة الرسمية PDF (Ctrl+B / ⌘B)' : 'Official Ministry PDF Books (Ctrl+B / ⌘B)'}
-              >
-                <Download className="w-3 h-3 text-teal-400" />
-                <span>{t.officialBooksNavBtn}</span>
-                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘B</kbd>
-              </button>
-            )}
+              {/* Official Ministry Books Trigger */}
+              {onOpenOfficialBooks && (
+                <button
+                  onClick={onOpenOfficialBooks}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-amber-300 border-amber-400 hover:bg-amber-950/40'
+                      : isLight
+                      ? 'bg-teal-50 hover:bg-teal-100 text-teal-800 border-teal-300'
+                      : 'bg-teal-950/70 hover:bg-teal-900 text-teal-300 border-teal-700/60'
+                  }`}
+                  title={lang === 'ar' ? 'كتب الوزارة والأدلة الرسمية PDF (Ctrl+B / ⌘B)' : 'Official Ministry PDF Books (Ctrl+B / ⌘B)'}
+                >
+                  <Download className="w-3 h-3 text-teal-400" />
+                  <span>{t.officialBooksNavBtn}</span>
+                  <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘B</kbd>
+                </button>
+              )}
 
-            {/* Desmos 2D/3D Calculator Trigger */}
-            {onOpenDesmos && (
-              <button
-                onClick={onOpenDesmos}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
-                  isHighContrast
-                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
-                    : isLight
-                    ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border-indigo-300'
-                    : 'bg-cyan-950/70 hover:bg-cyan-900 text-cyan-300 border-cyan-700/60'
-                }`}
-                title={lang === 'ar' ? 'حاسبة ديسموس البيانية 2D/3D (Ctrl+D / ⌘D)' : 'Desmos 2D/3D Calculator (Ctrl+D / ⌘D)'}
-              >
-                <Calculator className="w-3 h-3 text-cyan-400" />
-                <span>{lang === 'ar' ? 'حاسبة ديسموس' : 'Desmos 2D/3D'}</span>
-                <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘D</kbd>
-              </button>
-            )}
+              {/* Desmos 2D/3D Calculator Trigger */}
+              {onOpenDesmos && (
+                <button
+                  onClick={onOpenDesmos}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                      : isLight
+                      ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border-indigo-300'
+                      : 'bg-cyan-950/70 hover:bg-cyan-900 text-cyan-300 border-cyan-700/60'
+                  }`}
+                  title={lang === 'ar' ? 'حاسبة ديسموس البيانية 2D/3D (Ctrl+D / ⌘D)' : 'Desmos 2D/3D Calculator (Ctrl+D / ⌘D)'}
+                >
+                  <Calculator className="w-3 h-3 text-cyan-400" />
+                  <span>{lang === 'ar' ? 'حاسبة ديسموس' : 'Desmos 2D/3D'}</span>
+                  <kbd className="hidden lg:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘D</kbd>
+                </button>
+              )}
 
-            {/* Role Toggle: Teacher / Student */}
-            <button
-              onClick={onRoleToggle}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs ${
-                isHighContrast
-                  ? 'bg-black text-white border-white/60 hover:border-white'
-                  : isLight
-                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
-                  : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700'
-              }`}
-            >
-              <UserCheck className={`w-3.5 h-3.5 ${isHighContrast ? 'text-yellow-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
-              <span>{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
-            </button>
+              {/* Role Toggle: Teacher / Student */}
+              <button
+                onClick={onRoleToggle}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs ${
+                  isHighContrast
+                    ? 'bg-black text-white border-white/60 hover:border-white'
+                    : isLight
+                    ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                    : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700'
+                }`}
+              >
+                <UserCheck className={`w-3.5 h-3.5 ${isHighContrast ? 'text-yellow-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
+                <span>{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
+              </button>
+            </div>
 
             {/* Language Toggle */}
             <button
               onClick={onLanguageToggle}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full font-extrabold text-[11px] transition-all border shadow-xs ${
+              className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-full font-extrabold text-[11px] transition-all border shadow-xs active:scale-95 ${
                 isHighContrast
                   ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
                   : isLight
@@ -308,63 +312,153 @@ export const Navbar: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Main Nav Header */}
-        <div className="py-2.5 flex items-center justify-between gap-3 sm:gap-6 flex-wrap md:flex-nowrap">
-          {/* Logo & Brand Title */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <a
-              href="https://clipsat.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 sm:gap-2 shrink-0 group transition-transform hover:scale-105 active:scale-95"
-              title={t.sisterSite}
+        {/* Mobile-Only Horizontal Action Toolbar: Quick Tools Carousel */}
+        <div className={`sm:hidden flex items-center gap-1.5 overflow-x-auto py-1.5 border-b no-scrollbar text-[10px] font-bold ${
+          isHighContrast
+            ? 'border-cyan-500/30 bg-black/60'
+            : isLight
+            ? 'border-slate-200/80 bg-slate-50/50'
+            : 'border-slate-800/60 bg-slate-950/50'
+        }`}>
+          {onOpenFormulaHandbook && (
+            <button
+              onClick={onOpenFormulaHandbook}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+                isHighContrast
+                  ? 'bg-black text-yellow-300 border-yellow-400'
+                  : isLight
+                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
+                  : 'bg-emerald-950/70 text-emerald-300 border-emerald-700/60'
+              }`}
             >
-              <img
-                src={clipsatLogo}
-                alt="ClipSAT"
-                className="h-8 sm:h-9 w-auto object-contain shrink-0 drop-shadow-sm"
-              />
-              <EgyptFlag
-                className="h-5 sm:h-5.5 w-auto rounded-[3px] shadow-xs shrink-0 ring-1 ring-black/15 dark:ring-white/20 transition-transform group-hover:rotate-3"
-                title={lang === 'ar' ? 'علم جمهورية مصر العربية' : 'Flag of the Arab Republic of Egypt'}
-              />
-            </a>
-            <div className="flex items-center gap-2 shrink-0 flex-wrap sm:flex-nowrap">
-              <span className={`text-base sm:text-lg font-black tracking-tight whitespace-nowrap ${
-                isLight
-                  ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent'
-                  : 'bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent drop-shadow-sm'
-              }`}>
-                ClipSAT for Egypt
-              </span>
-              <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-md border shrink-0 ${
-                isLight
-                  ? 'bg-amber-100 text-amber-900 border-amber-300'
-                  : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-              }`}>
-                MoE 2026
-              </span>
+              <BookOpen className="w-3 h-3 text-emerald-400" />
+              <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
+            </button>
+          )}
+
+          {onOpenOfficialBooks && (
+            <button
+              onClick={onOpenOfficialBooks}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+                isHighContrast
+                  ? 'bg-black text-amber-300 border-amber-400'
+                  : isLight
+                  ? 'bg-teal-50 text-teal-800 border-teal-300'
+                  : 'bg-teal-950/70 text-teal-300 border-teal-700/60'
+              }`}
+            >
+              <Download className="w-3 h-3 text-teal-400" />
+              <span>{t.officialBooksNavBtn}</span>
+            </button>
+          )}
+
+          {onOpenDesmos && (
+            <button
+              onClick={onOpenDesmos}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+                isHighContrast
+                  ? 'bg-black text-cyan-300 border-cyan-400'
+                  : isLight
+                  ? 'bg-indigo-50 text-indigo-800 border-indigo-300'
+                  : 'bg-cyan-950/70 text-cyan-300 border-cyan-700/60'
+              }`}
+            >
+              <Calculator className="w-3 h-3 text-cyan-400" />
+              <span>{lang === 'ar' ? 'ديسموس 2D/3D' : 'Desmos'}</span>
+            </button>
+          )}
+
+          <button
+            onClick={onRoleToggle}
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+              isHighContrast
+                ? 'bg-black text-white border-white/60'
+                : isLight
+                ? 'bg-slate-100 text-slate-700 border-slate-300'
+                : 'bg-slate-900 text-slate-200 border-slate-700'
+            }`}
+          >
+            <UserCheck className="w-3 h-3 text-indigo-400" />
+            <span>{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
+          </button>
+
+          <a
+            href="https://clipsat.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+              isHighContrast
+                ? 'bg-black text-cyan-300 border-cyan-400'
+                : isLight
+                ? 'bg-blue-50 text-blue-700 border-blue-200'
+                : 'bg-blue-950/70 text-blue-300 border-blue-700/60'
+            }`}
+          >
+            <span>clipsat.org</span>
+            <ExternalLink className="w-2.5 h-2.5" />
+          </a>
+        </div>
+
+        {/* Main Nav Header */}
+        <div className="py-2.5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 sm:gap-4">
+          {/* Logo & Brand Title */}
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <a
                 href="https://clipsat.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
-                  isHighContrast
-                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
-                    : isLight
-                    ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 hover:border-blue-300 hover:text-blue-900'
-                    : 'bg-blue-950/70 text-blue-300 border-blue-700/60 hover:bg-blue-900 hover:text-white'
-                }`}
+                className="flex items-center gap-1.5 shrink-0 group transition-transform hover:scale-105 active:scale-95"
                 title={t.sisterSite}
               >
-                <span>clipsat.org</span>
-                <ExternalLink className="w-2.5 h-2.5 opacity-80" />
+                <img
+                  src={clipsatLogo}
+                  alt="ClipSAT"
+                  className="h-8 sm:h-9 w-auto object-contain shrink-0 drop-shadow-sm"
+                />
+                <EgyptFlag
+                  className="h-5 sm:h-5.5 w-auto rounded-[3px] shadow-xs shrink-0 ring-1 ring-black/15 dark:ring-white/20 transition-transform group-hover:rotate-3"
+                  title={lang === 'ar' ? 'علم جمهورية مصر العربية' : 'Flag of the Arab Republic of Egypt'}
+                />
               </a>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className={`text-sm sm:text-lg font-black tracking-tight whitespace-nowrap ${
+                  isLight
+                    ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent'
+                    : 'bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent drop-shadow-sm'
+                }`}>
+                  ClipSAT for Egypt
+                </span>
+                <span className={`text-[9px] sm:text-[10px] font-black px-1.5 py-0.5 rounded-md border shrink-0 ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                }`}>
+                  2026
+                </span>
+              </div>
             </div>
+
+            <a
+              href="https://clipsat.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
+                isHighContrast
+                  ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                  : isLight
+                  ? 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 hover:border-blue-300 hover:text-blue-900'
+                  : 'bg-blue-950/70 text-blue-300 border-blue-700/60 hover:bg-blue-900 hover:text-white'
+              }`}
+              title={t.sisterSite}
+            >
+              <span>clipsat.org</span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-80" />
+            </a>
           </div>
 
-          {/* Curriculum Switcher Pills */}
-          <div className={`flex items-center p-1 rounded-xl border shadow-inner shrink-0 ms-auto md:ms-0 ${
+          {/* Curriculum Switcher Pills: Full-width Segmented Control on Mobile, Compact on Desktop */}
+          <div className={`w-full md:w-auto grid grid-cols-2 md:flex items-center p-1 rounded-xl border shadow-inner shrink-0 ${
             isHighContrast
               ? 'bg-black border-2 border-cyan-400'
               : isLight
@@ -373,11 +467,11 @@ export const Navbar: React.FC<Props> = ({
           }`}>
             <button
               onClick={() => onCurriculumChange('thanaweya')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap ${
+              className={`w-full md:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
                 curriculum === 'thanaweya'
                   ? isHighContrast
                     ? 'bg-cyan-400 text-black font-black shadow-sm'
-                    : 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-indigo-600 text-white shadow-sm font-black'
                   : isHighContrast
                     ? 'text-white hover:text-cyan-300'
                     : isLight
@@ -390,11 +484,11 @@ export const Navbar: React.FC<Props> = ({
             </button>
             <button
               onClick={() => onCurriculumChange('egbac')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap ${
+              className={`w-full md:w-auto px-3 py-2 sm:py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95 ${
                 curriculum === 'egbac'
                   ? isHighContrast
                     ? 'bg-cyan-400 text-black font-black shadow-sm'
-                    : 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-indigo-600 text-white shadow-sm font-black'
                   : isHighContrast
                     ? 'text-white hover:text-cyan-300'
                     : isLight
@@ -409,13 +503,16 @@ export const Navbar: React.FC<Props> = ({
         </div>
 
         {/* Tab Navigation Menu */}
-        <nav className={`flex items-center gap-1 sm:gap-2 overflow-x-auto py-1.5 border-t no-scrollbar text-xs font-semibold ${
-          isHighContrast
-            ? 'border-cyan-500/40 bg-black/80'
-            : isLight
-            ? 'border-slate-200'
-            : 'border-slate-800/60'
-        }`}>
+        <nav
+          className={`flex items-center gap-1 sm:gap-2 overflow-x-auto py-2 border-t no-scrollbar text-xs font-semibold scroll-smooth touch-pan-x -mx-3 px-3 sm:mx-0 sm:px-0 ${
+            isHighContrast
+              ? 'border-cyan-500/40 bg-black/80'
+              : isLight
+              ? 'border-slate-200'
+              : 'border-slate-800/60'
+          }`}
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           {[
             { id: 'overview', label: t.overviewTab, icon: '🗺️' },
             { id: 'equivalency', label: t.equivalencyTab, icon: '⚖️' },
@@ -433,7 +530,7 @@ export const Navbar: React.FC<Props> = ({
               <button
                 key={tab.id}
                 onClick={() => onTabChange(tab.id)}
-                className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-all shrink-0 ${
+                className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-all shrink-0 active:scale-95 ${
                   isActive
                     ? isHighContrast
                       ? 'bg-yellow-400 text-black font-black shadow-sm border border-yellow-300'

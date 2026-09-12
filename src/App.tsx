@@ -201,14 +201,21 @@ export const App: React.FC = () => {
                 : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-900'
             }`}
           >
-            <div className="flex items-center gap-3">
-              <Search className={`w-4 h-4 transition-colors ${
+            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+              <Search className={`w-4 h-4 shrink-0 transition-colors ${
                 theme === 'high-contrast' ? 'text-yellow-400' : 'text-indigo-500'
               }`} />
-              <span className="font-medium text-xs sm:text-sm">
-                {lang === 'ar'
-                  ? 'البحث الشامل في ٤,٧٢٥ مسألة وقانون وفصل... (اضغط للبحث)'
-                  : 'Universal Search across 4,725 problems, theorems & lessons... (Click to search)'}
+              <span className="font-medium text-xs sm:text-sm truncate">
+                <span className="inline sm:hidden">
+                  {lang === 'ar'
+                    ? 'البحث الشامل في المسائل والقوانين...'
+                    : 'Universal Search across 4,725 problems...'}
+                </span>
+                <span className="hidden sm:inline">
+                  {lang === 'ar'
+                    ? 'البحث الشامل في ٤,٧٢٥ مسألة وقانون وفصل... (اضغط للبحث)'
+                    : 'Universal Search across 4,725 problems, theorems & lessons... (Click to search)'}
+                </span>
               </span>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
@@ -384,15 +391,15 @@ export const App: React.FC = () => {
               </div>
             </div>
 
-            <div className={`flex items-center gap-4 text-xs font-bold ${
+            <div className={`flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3 text-xs font-bold ${
               theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-indigo-600' : 'text-cyan-400'
             }`}>
               <span>ClipSAT for Egypt</span>
-              <span>•</span>
+              <span className="opacity-40">•</span>
               <span>moe.gov.eg</span>
-              <span>•</span>
+              <span className="opacity-40">•</span>
               <span>Thanaweya Amma 2026</span>
-              <span>•</span>
+              <span className="opacity-40">•</span>
               <span>EG-Bac STEM</span>
             </div>
           </div>

@@ -694,7 +694,7 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
           ) : (
             <div className="space-y-6">
               {/* Sticky Exam Control & Palette Bar */}
-              <div className="sticky top-16 z-30 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
+              <div className="sticky top-[100px] sm:top-16 z-30 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-3 sm:p-4 shadow-xl space-y-2.5 sm:space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   {/* Timer & Controls */}
                   <div className="flex items-center gap-3">
@@ -804,11 +804,11 @@ export const TestGenerator: React.FC<Props> = ({ lang, currentCurriculum, onOpen
                 )}
 
                 {/* Interactive Question Palette / Navigator Grid */}
-                <div className="border-t border-slate-800/80 pt-3 flex items-center gap-3 overflow-x-auto pb-1">
-                  <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap">
-                    {lang === 'ar' ? 'لوحة الأسئلة:' : 'Question Grid:'}
+                <div className="border-t border-slate-800/80 pt-2.5 flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar touch-pan-x">
+                  <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap shrink-0">
+                    {lang === 'ar' ? 'الأسئلة:' : 'Questions:'}
                   </span>
-                  <div className="flex items-center gap-1.5 flex-wrap sm:flex-nowrap">
+                  <div className="flex items-center gap-1.5 flex-nowrap">
                     {activeQuestions.map((q, idx) => {
                       const isAnswered = userAnswers[idx] !== undefined;
                       const isFlagged = !!flaggedQuestions[idx];

@@ -410,7 +410,10 @@ export const LessonView: React.FC<Props> = ({
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
+            <div
+              className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               {curriculum.branches.map((b) => {
                 const isSelectedBranch = b.id === branch.id;
                 return (
@@ -421,7 +424,7 @@ export const LessonView: React.FC<Props> = ({
                         onSelectLesson(b, b.chapters[0].lessons[0], activeSubTab);
                       }
                     }}
-                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all ${
+                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all active:scale-95 ${
                       isSelectedBranch
                         ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
                         : isLight
@@ -438,7 +441,10 @@ export const LessonView: React.FC<Props> = ({
 
           {/* Chapter Pills Carousel */}
           <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80">
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <div
+              className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               {branch.chapters.map((ch) => {
                 const isCurrentChapter = ch.lessons.some((l) => l.id === lesson.id);
                 return (
@@ -480,7 +486,10 @@ export const LessonView: React.FC<Props> = ({
 
           {/* Lessons Pill Carousel if Chapter has > 1 Lesson */}
           {currentChapter.lessons.length > 1 && (
-            <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <div
+              className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               <span className="text-[11px] font-bold text-slate-400 shrink-0">
                 {lang === 'ar' ? 'الدروس:' : 'Lessons:'}
               </span>
@@ -490,7 +499,7 @@ export const LessonView: React.FC<Props> = ({
                   <button
                     key={l.id}
                     onClick={() => onSelectLesson(branch, l, activeSubTab)}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${
                       isSelectedLesson
                         ? 'bg-emerald-600 text-white shadow-xs'
                         : isLight
@@ -589,12 +598,15 @@ export const LessonView: React.FC<Props> = ({
         </div>
 
         {/* Sub-tab navigation with smooth horizontal touch scroll on mobile */}
-        <div className={`flex items-center gap-2 pt-2 border-t no-print overflow-x-auto pb-1 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0 ${
-          isLight ? 'border-slate-200' : 'border-slate-800/80'
-        }`}>
+        <div
+          className={`flex items-center gap-2 pt-2 border-t no-print overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-4 px-4 sm:mx-0 sm:px-0 ${
+            isLight ? 'border-slate-200' : 'border-slate-800/80'
+          }`}
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           <button
             onClick={() => onSubTabChange('theory')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 active:scale-95 ${
               activeSubTab === 'theory'
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
                 : isLight

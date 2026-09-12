@@ -45,8 +45,27 @@
   }
 }
 
+/* Mobile Ergonomics, Touch Feedback & Safe Areas */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
-/* Custom Scrollbars */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Hide scrollbars on mobile horizontal carousels with smooth momentum touch scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Scrollbars for desktop */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -102,10 +121,31 @@
 .math-block-display {
   font-size: 1em;
   padding: 0.4rem 0.6rem;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .math-inline-display {
   font-size: 1em;
+}
+
+/* Responsive KaTeX scaling for mobile phones */
+@media (max-width: 640px) {
+  .katex-display {
+    font-size: 0.9em;
+    margin: 0.2em 0;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .katex {
+    font-size: 0.94em !important;
+  }
+  .math-block-display {
+    font-size: 0.9em;
+    padding: 0.35rem 0.5rem;
+  }
 }
 
 /* Compact, proportional math inside formula reference cards */
