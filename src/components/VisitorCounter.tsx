@@ -4,6 +4,7 @@ import { translations } from '../i18n/translations';
 import type { ThemeMode } from '../types/curriculum';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import { Users, Activity, Sparkles } from 'lucide-react';
+import { subscribeToVisitorCount } from '../services/firebase';
 
 interface Props {
   lang: Language;
@@ -61,29 +62,22 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     return baseActive + Math.floor(Math.random() * 8);
   });
 
-  // Count visit on every page load/refresh (always increments on new visit)
+  // Subscribe to real-time global visitor count via Firebase Cloud Firestore
   useEffect(() => {
-    try {
-      const currentVisits = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10) + 1;
-      localStorage.setItem('egbac_user_visits', String(currentVisits));
-      
-      const todayExtra = parseInt(localStorage.getItem('egbac_today_extra') || '0', 10) + 1;
-      localStorage.setItem('egbac_today_extra', String(todayExtra));
+    const unsubscribe = subscribeToVisitorCount(({ totalVisits, todayVisits: firestoreToday }) => {
+      setVisitorCount(totalVisits);
+      setTodayVisits(firestoreToday);
+      try {
+        localStorage.setItem('egbac_highest_count', String(totalVisits));
+      } catch {}
+    });
 
-      setVisitorCount((prev) => {
-        const next = prev + 1;
-        localStorage.setItem('egbac_highest_count', String(next));
-        return next;
-      });
-      setTodayVisits((prev) => prev + 1);
-    } catch {
-      // Storage access blocked or sandbox mode
-    }
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-  // Real-time dynamic simulation:
-  // 1) Live active users fluctuate slightly every 8 seconds
-  // 2) Active concurrent sessions periodically tick total visitor count +1 every 15-25 seconds
+  // Fluctuate active concurrent online learners badge
   useEffect(() => {
     const activeInterval = setInterval(() => {
       setLiveActive((prev) => {
@@ -92,25 +86,8 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       });
     }, 8000);
 
-    const trafficInterval = setInterval(() => {
-      // Periodic live visitor increment simulating platform activity
-      if (Math.random() > 0.4) {
-        setVisitorCount((prev) => {
-          const next = prev + 1;
-          try {
-            localStorage.setItem('egbac_highest_count', String(next));
-            const cur = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10) + 1;
-            localStorage.setItem('egbac_user_visits', String(cur));
-          } catch {}
-          return next;
-        });
-        setTodayVisits((prev) => prev + 1);
-      }
-    }, 18000);
-
     return () => {
       clearInterval(activeInterval);
-      clearInterval(trafficInterval);
     };
   }, []);
 
