@@ -5811,38 +5811,40 @@ export const calcCh2Databank: ChapterDatabank = {
   },
   {
     "id": "calc_ch2_db_hots_151",
-    "titleEn": "Generalized Euler Limit with Trigonometric Argument",
-    "titleAr": "نهاية نيبيرية معممة مع دالة مثلثية",
+    "titleEn": "Tangent Line to Exponential Passing Through Origin",
+    "titleAr": "مماس منحنى الدالة الأسية المار بنقطة الأصل",
     "difficulty": "hots",
-    "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
-    "questionAr": "احسب النهاية: $\\lim_{x \\to 0} (\\cos x)^{1/x^2}$.",
+    "questionEn": "Find the coordinates of the point of tangency on the curve $y = e^{2x}$ whose tangent line passes through the origin $(0, 0)$.",
+    "questionAr": "أوجد إحداثيات نقطة التماس على منحنى الدالة $y = e^{2x}$ التي يمر مماسها بنقطة الأصل $(0, 0)$.",
     "optionsEn": [
-      "$e^{-1/2}$",
-      "$e^{-1}$",
-      "$e^{1/2}$",
-      "$1$"
+      "$\\left(\\frac{1}{2}, e\\right)$",
+      "$(1, e^2)$",
+      "$\\left(\\frac{1}{4}, \\sqrt{e}\\right)$",
+      "$(0, 1)$"
     ],
     "optionsAr": [
-      "$e^{-1/2}$",
-      "$e^{-1}$",
-      "$e^{1/2}$",
-      "$1$"
+      "$\\left(\\frac{1}{2}, e\\right)$",
+      "$(1, e^2)$",
+      "$\\left(\\frac{1}{4}, \\sqrt{e}\\right)$",
+      "$(0, 1)$"
     ],
     "correctIndex": 0,
-    "correctAnswer": "$e^{-1/2}$",
-    "hintEn": "Take $\\ln$ of the limit and evaluate $\\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
-    "hintAr": "خذ $\\ln$ للنهاية واحسب $\\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
-    "teacherTipEn": "Using $\\cos x = 1 - (1 - \\cos x) \\approx 1 - x^2/2$ gives $(1 - x^2/2)^{1/x^2} \\to e^{-1/2}$ in one line!",
-    "teacherTipAr": "استخدام المتطابقة $\\cos x \\approx 1 - x^2/2$ يوصلك لـ $(1 - x^2/2)^{1/x^2} \\to e^{-1/2}$ في سطر واحد!",
+    "correctAnswer": "$\\left(\\frac{1}{2}, e\\right)$",
+    "hintEn": "Let $(x_0, y_0)$ be the point of tangency. The slope is $m = y'(x_0) = \\frac{y_0 - 0}{x_0 - 0}$.",
+    "hintAr": "افرض نقطة التماس $(x_0, y_0)$، وميل المماس هو $m = y'(x_0) = \\frac{y_0 - 0}{x_0 - 0}$.",
+    "teacherTipEn": "For any curve $y = e^{kx}$, the tangent line passing through the origin always has point of tangency $\\left(\\frac{1}{k}, e\\right)$.",
+    "teacherTipAr": "قاعدة عامة: لأي منحنى $y = e^{kx}$، المماس المار بنقطة الأصل تكون نقطة تماسه دائماً $\\left(\\frac{1}{k}, e\\right)$.",
     "stepByStepSolutionEn": [
-      "Take $\\ln$: $\\ln L = \\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
-      "Apply L'Hopital's rule: $\\lim_{x \\to 0} \\frac{-\\tan x}{2x} = -\\frac{1}{2}$.",
-      "Exponentiate: $L = e^{-1/2}$."
+      "1. The slope of the tangent at $(x_0, e^{2x_0})$ is $m = \\frac{dy}{dx}\\Big|_{x_0} = 2e^{2x_0}$.",
+      "2. Since the tangent passes through the origin $(0, 0)$, its slope is also given by $\\frac{e^{2x_0} - 0}{x_0 - 0} = \\frac{e^{2x_0}}{x_0}$.",
+      "3. Equating both expressions for the slope: $2e^{2x_0} = \\frac{e^{2x_0}}{x_0} \\implies 2x_0 = 1 \\implies x_0 = \\frac{1}{2}$.",
+      "4. Finding the $y$-coordinate: $y_0 = e^{2(1/2)} = e$. Thus the point of tangency is $\\left(\\frac{1}{2}, e\\right)$."
     ],
     "stepByStepSolutionAr": [
-      "أخذ اللوغاريتم: $\\ln L = \\lim_{x \\to 0} \\frac{\\ln(\\cos x)}{x^2}$.",
-      "تطبيق لوبيتال: $\\lim_{x \\to 0} \\frac{-\\tan x}{2x} = -\\frac{1}{2}$.",
-      "الناتج النهائي: $L = e^{-1/2}$."
+      "١. ميل المماس للمنحنى عند نقطة التماس $(x_0, e^{2x_0})$ هو $m = 2e^{2x_0}$.",
+      "٢. بما أن المماس يمر بنقطة الأصل $(0, 0)$، فإن ميله يساوي أيضاً $\\frac{e^{2x_0} - 0}{x_0 - 0} = \\frac{e^{2x_0}}{x_0}$.",
+      "٣. بمساواة صيغتي الميل: $2e^{2x_0} = \\frac{e^{2x_0}}{x_0} \\implies 2x_0 = 1 \\implies x_0 = \\frac{1}{2}$.",
+      "٤. إيجاد الإحداثي الصادي: $y_0 = e^{2(1/2)} = e$، فتكون نقطة التماس هي $\\left(\\frac{1}{2}, e\\right)$."
     ]
   },
   {

@@ -1750,37 +1750,39 @@ export const algCh1Databank: ChapterDatabank = {
   },
   {
     "id": "alg_ch1_db_easy_53",
-    "titleEn": "Sum of Coefficients in Binomial Expansion",
-    "titleAr": "مجموع معاملات حدود مفكوك ذات الحدين",
+    "titleEn": "Sum of Odd-Indexed Binomial Coefficients",
+    "titleAr": "مجموع معاملات الحدود الفردية الرتبة في ذات الحدين",
     "difficulty": "easy",
-    "questionEn": "Find the sum of all coefficients in the expansion of $(3x - 2y)^7$.",
-    "questionAr": "أوجد مجموع معاملات حدود مفكوك $(3x - 2y)^7$.",
+    "questionEn": "In the expansion of $(x + y)^8$, what is the sum of the coefficients of the odd-indexed terms ($T_1 + T_3 + T_5 + T_7 + T_9$)?",
+    "questionAr": "في مفكوك $(x + y)^8$، ما هو مجموع معاملات الحدود فردية الرتبة ($T_1 + T_3 + T_5 + T_7 + T_9$)؟",
     "optionsEn": [
-      "1",
-      "$-1$",
-      "$5^7$",
-      "$128$"
+      "$128$",
+      "$256$",
+      "$64$",
+      "$512$"
     ],
     "optionsAr": [
-      "1",
-      "$-1$",
-      "$5^7$",
-      "$128$"
+      "$128$",
+      "$256$",
+      "$64$",
+      "$512$"
     ],
-    "correctAnswer": "1",
+    "correctAnswer": "$128$",
     "correctIndex": 0,
-    "hintEn": "Substitute x = 1 and y = 1 into the polynomial expression.",
-    "hintAr": "ضع س = ١ و ص = ١ في المقدار مباشرة.",
+    "hintEn": "The sum of coefficients of all terms is $2^n$, and odd-indexed terms account for half of the total: $2^{n-1}$.",
+    "hintAr": "مجموع معاملات جميع الحدود هو $2^n$، ومجموع معاملات الحدود فردية الرتبة يمثل النصف: $2^{n-1}$.",
     "stepByStepSolutionEn": [
-      "1. To find the sum of all coefficients of a polynomial expansion, substitute all variables equal to 1.",
-      "2. Setting $x = 1, y = 1$: $(3(1) - 2(1))^7 = (3 - 2)^7 = 1^7 = 1$."
+      "1. Total sum of coefficients is obtained by setting $x = 1, y = 1$: $(1 + 1)^8 = 2^8 = 256$.",
+      "2. By symmetry of binomial coefficients, sum of odd-indexed terms equals sum of even-indexed terms.",
+      "3. Therefore, $S_{\\text{odd}} = \\frac{256}{2} = 2^7 = 128$."
     ],
     "stepByStepSolutionAr": [
-      "١. لإيجاد مجموع معاملات أي مفكوك جبري نضع جميع المتغيرات تساوي ١.",
-      "٢. بالتعويض: $(3(1) - 2(1))^7 = (1)^7 = 1$."
+      "١. مجموع معاملات جميع الحدود بالتعويض $x = 1, y = 1$ هو $(1 + 1)^8 = 2^8 = 256$.",
+      "٢. بتماثل معاملات ذات الحدين، مجموع معاملات الحدود الفردية الرتبة يساوي مجموع معاملات الحدود الزوجية الرتبة.",
+      "٣. إذن مجموع معاملات الحدود فردية الرتبة $= \\frac{256}{2} = 2^7 = 128$."
     ],
-    "teacherTipEn": "Setting variables to 1 is the universal shortcut for polynomial coefficient sums.",
-    "teacherTipAr": "التعويض بالقيمة ١ لكل مجهول هو القاعدة الذهبية لمجموع المعاملات."
+    "teacherTipEn": "Universal identity: $S_{\\text{odd}} = S_{\\text{even}} = 2^{n-1}$ for any standard $(x+y)^n$ expansion.",
+    "teacherTipAr": "قاعدة أساسية: مجموع معاملات الحدود الفردية = مجموع الزوجية = $2^{n-1}$ دائماً في مفكوك $(x+y)^n$."
   },
   {
     "id": "alg_ch1_db_easy_54",
