@@ -16,27 +16,41 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isContrast = theme === 'high-contrast';
   const t = translations[lang];
 
-  // Base anchor: launch start count + daily organic progression + user visits
+  // Base anchor: launch start count + continuous minute progression + user visits
   const [visitorCount, setVisitorCount] = useState<number>(() => {
     try {
       const BASE_COUNT = 58490;
-      // Days since Jan 1, 2026
+      // Continuous seconds since Jan 1, 2026
       const anchorTime = new Date(2026, 0, 1).getTime();
       const now = Date.now();
-      const elapsedDays = Math.max(0, Math.floor((now - anchorTime) / (1000 * 60 * 60 * 24)));
-      const organicDailyGain = elapsedDays * 165;
+      const elapsedSeconds = Math.max(0, (now - anchorTime) / 1000);
+      // Continuous organic progression: ~1 visit every 520 seconds (~166 visits/day)
+      const continuousGain = Math.floor(elapsedSeconds / 520);
 
       const storedUserVisits = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10);
-      return BASE_COUNT + organicDailyGain + storedUserVisits;
+      const computedTotal = BASE_COUNT + continuousGain + storedUserVisits;
+
+      // Ensure monotonically increasing: never lower than the highest recorded count
+      const highestSeen = parseInt(localStorage.getItem('egbac_highest_count') || '0', 10);
+      const finalCount = Math.max(computedTotal, highestSeen);
+      localStorage.setItem('egbac_highest_count', String(finalCount));
+      return finalCount;
     } catch {
       return 58490;
     }
   });
 
-  // Today's visits: calculated based on current time of day + natural curve
-  const [todayVisits] = useState<number>(() => {
+  // Today's visits: dynamic diurnal curve + extra real-time visits
+  const [todayVisits, setTodayVisits] = useState<number>(() => {
     const hour = new Date().getHours();
-    return Math.floor(650 + hour * 48 + (Math.sin(hour) * 30));
+    const minute = new Date().getMinutes();
+    const base = Math.floor(650 + hour * 48 + minute * 0.8 + Math.sin(hour) * 30);
+    try {
+      const storedExtra = parseInt(localStorage.getItem('egbac_today_extra') || '0', 10);
+      return base + storedExtra;
+    } catch {
+      return base;
+    }
   });
 
   // Live active online concurrent visitors (fluctuates naturally)
@@ -47,30 +61,57 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     return baseActive + Math.floor(Math.random() * 8);
   });
 
-  // Track session on mount: increment if first visit in this browser session
+  // Count visit on every page load/refresh (always increments on new visit)
   useEffect(() => {
     try {
-      const sessionCounted = sessionStorage.getItem('egbac_session_counted');
-      if (!sessionCounted) {
-        sessionStorage.setItem('egbac_session_counted', 'true');
-        const currentVisits = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10) + 1;
-        localStorage.setItem('egbac_user_visits', String(currentVisits));
-        setVisitorCount((prev) => prev + 1);
-      }
+      const currentVisits = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10) + 1;
+      localStorage.setItem('egbac_user_visits', String(currentVisits));
+      
+      const todayExtra = parseInt(localStorage.getItem('egbac_today_extra') || '0', 10) + 1;
+      localStorage.setItem('egbac_today_extra', String(todayExtra));
+
+      setVisitorCount((prev) => {
+        const next = prev + 1;
+        localStorage.setItem('egbac_highest_count', String(next));
+        return next;
+      });
+      setTodayVisits((prev) => prev + 1);
     } catch {
       // Storage access blocked or sandbox mode
     }
   }, []);
 
-  // Subtle live active pulse (updates every 8 seconds with small organic delta)
+  // Real-time dynamic simulation:
+  // 1) Live active users fluctuate slightly every 8 seconds
+  // 2) Active concurrent sessions periodically tick total visitor count +1 every 15-25 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
+    const activeInterval = setInterval(() => {
       setLiveActive((prev) => {
         const delta = Math.floor(Math.random() * 5) - 2; // -2, -1, 0, +1, +2
         return Math.max(22, Math.min(85, prev + delta));
       });
     }, 8000);
-    return () => clearInterval(interval);
+
+    const trafficInterval = setInterval(() => {
+      // Periodic live visitor increment simulating platform activity
+      if (Math.random() > 0.4) {
+        setVisitorCount((prev) => {
+          const next = prev + 1;
+          try {
+            localStorage.setItem('egbac_highest_count', String(next));
+            const cur = parseInt(localStorage.getItem('egbac_user_visits') || '0', 10) + 1;
+            localStorage.setItem('egbac_user_visits', String(cur));
+          } catch {}
+          return next;
+        });
+        setTodayVisits((prev) => prev + 1);
+      }
+    }, 18000);
+
+    return () => {
+      clearInterval(activeInterval);
+      clearInterval(trafficInterval);
+    };
   }, []);
 
   // Format total visitor digits into structured array with commas
