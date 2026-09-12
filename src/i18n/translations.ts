@@ -144,6 +144,8 @@ export interface Translations {
   // Footers & References
   copyright: string;
   moeReferenceNote: string;
+  footerContactLabel: string;
+  footerContactPrompt: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -281,7 +283,9 @@ export const translations: Record<Language, Translations> = {
     officialCurriculumCode: 'Curriculum Code',
 
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
-    moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).'
+    moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).',
+    footerContactLabel: 'Error reports & suggestions:',
+    footerContactPrompt: 'Report an error or send suggestions to:'
   },
 
   ar: {
@@ -418,6 +422,8 @@ export const translations: Record<Language, Translations> = {
     officialCurriculumCode: 'كود المنهج',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
-    moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.'
+    moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.',
+    footerContactLabel: 'للإبلاغ عن الأخطاء والمقترحات:',
+    footerContactPrompt: 'للإبلاغ عن الأخطاء وتقديم المقترحات راسلنا على:'
   }
 };

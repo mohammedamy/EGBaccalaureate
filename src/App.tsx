@@ -14,7 +14,7 @@ import { FormulaHandbook } from './components/FormulaHandbook';
 import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
 import { OfficialBooksModal } from './components/OfficialBooksModal';
 import { VisitorCounter } from './components/VisitorCounter';
-import { Search, ShieldCheck, Command } from 'lucide-react';
+import { Search, ShieldCheck, Command, Mail } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
 
@@ -394,6 +394,44 @@ export const App: React.FC = () => {
               <span>Thanaweya Amma 2026</span>
               <span>•</span>
               <span>EG-Bac STEM</span>
+            </div>
+          </div>
+
+          {/* Contact for Error Reports and Suggestions */}
+          <div className={`pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs ${
+            theme === 'high-contrast'
+              ? 'border-cyan-500/30 text-white'
+              : theme === 'light'
+              ? 'border-slate-200 text-slate-600'
+              : 'border-slate-800/80 text-slate-400'
+          }`}>
+            <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+              <span className={`inline-flex items-center gap-1.5 font-medium ${
+                theme === 'high-contrast' ? 'text-cyan-300' : theme === 'light' ? 'text-slate-700' : 'text-slate-300'
+              }`}>
+                <Mail className={`w-3.5 h-3.5 shrink-0 ${
+                  theme === 'high-contrast' ? 'text-yellow-400' : theme === 'light' ? 'text-indigo-600' : 'text-emerald-400'
+                }`} />
+                <span>{t.footerContactPrompt}</span>
+              </span>
+              <a
+                href="mailto:admin@clipsat.org?subject=ClipSAT%20Egypt%20-%20Error%20Report%20%2F%20Suggestion"
+                className={`inline-flex items-center gap-1.5 font-mono font-bold px-2.5 py-1 rounded-md border transition-all hover:scale-[1.02] shadow-xs ${
+                  theme === 'high-contrast'
+                    ? 'border-cyan-400 text-cyan-300 bg-cyan-950/40 hover:bg-cyan-900/60 underline'
+                    : theme === 'light'
+                    ? 'border-indigo-200 text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100 hover:border-indigo-300'
+                    : 'border-emerald-500/30 text-emerald-400 bg-emerald-950/40 hover:bg-emerald-900/50 hover:border-emerald-400/50'
+                }`}
+                title="admin@clipsat.org"
+              >
+                <span>admin@clipsat.org</span>
+                <span className="text-[10px] opacity-75">↗</span>
+              </a>
+            </div>
+
+            <div className="text-[11px] opacity-75">
+              {lang === 'ar' ? 'الاستجابة السريعة للملاحظات والتدقيق الأكاديمي المستمر' : 'Fast academic review & continuous quality updates'}
             </div>
           </div>
         </div>
