@@ -5916,8 +5916,8 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Critical Numbers of Piecewise Function",
     "titleAr": "النقط الحرجة لدالة معرفة بقاعدتين",
     "difficulty": "hots",
-    "questionEn": "Determine the non-differentiable critical point: $f(x) = \begin{cases} 4 - x^2 & x \le 1 \\ 2x + 1 & x > 1 \end{cases}$.",
-    "questionAr": "عيّن النقطة الحرجة التي تكون الدالة غير قابلة للاشتقاق عندها: $f(x) = \begin{cases} 4 - x^2 & x \le 1 \\ 2x + 1 & x > 1 \end{cases}$.",
+    "questionEn": "Determine the non-differentiable critical point: $f(x) = \\begin{cases} 4 - x^2 & x \\le 1 \\ 2x + 1 & x > 1 \\end{cases}$.",
+    "questionAr": "عيّن النقطة الحرجة التي تكون الدالة غير قابلة للاشتقاق عندها: $f(x) = \\begin{cases} 4 - x^2 & x \\le 1 \\ 2x + 1 & x > 1 \\end{cases}$.",
     "optionsEn": [
       "$x = 0$ only",
       "$x = 1$ only",

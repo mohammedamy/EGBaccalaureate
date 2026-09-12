@@ -1097,7 +1097,7 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Equation of YZ Coordinate Plane",
     "titleAr": "معادلة المستوى ص ع",
     "difficulty": "easy",
-    "questionEn": "Determine the Cartesian equation describing the yz-plane in $\mathbb{R}^3$.",
+    "questionEn": "Determine the Cartesian equation describing the yz-plane in $\\mathbb{R}^3$.",
     "questionAr": "عيّن المعادلة الكارتيزية للمستوى $yz$ في الفراغ ثلاثي الأبعاد.",
     "optionsEn": [
       "$x = 0$",

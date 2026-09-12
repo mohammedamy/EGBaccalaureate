@@ -1061,8 +1061,8 @@ export const calcCh2Databank: ChapterDatabank = {
     "titleEn": "Slope of Tangent to Natural Log at Point (1, 0)",
     "titleAr": "ميل المماس للوغاريتم الطبيعي عند (1، 0)",
     "difficulty": "easy",
-    "questionEn": "Calculate the gradient of the tangent to $y = \ln x$ at $x = 1$.",
-    "questionAr": "احسب انحدار المماس لمنحنى $y = \ln x$ عند $x = 1$.",
+    "questionEn": "Calculate the gradient of the tangent to $y = \\ln x$ at $x = 1$.",
+    "questionAr": "احسب انحدار المماس لمنحنى $y = \\ln x$ عند $x = 1$.",
     "optionsEn": [
       "$1$",
       "$0$",
