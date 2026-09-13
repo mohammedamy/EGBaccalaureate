@@ -119,8 +119,28 @@ export interface Worksheet {
   problems: SolvedProblem[];
 }
 
+export type InteractiveWidgetType =
+  | '3d_vectors'
+  | 'pascal_binomial'
+  | 'calculus_tangent'
+  | 'statics_friction'
+  | 'complex_argand'
+  | 'normal_distribution'
+  | 'dynamics_motion'
+  | 'matrix_solver'
+  | 'work_energy'
+  | 'biology_skeleton'
+  | 'biology_sarcomere'
+  | 'biology_plant'
+  | 'biology_endocrine'
+  | 'biology_menstrual'
+  | 'biology_immunity'
+  | 'biology_genetics'
+  | 'biology_dna'
+  | 'biology_bioenergetics';
+
 export interface InteractiveWidgetConfig {
-  type: '3d_vectors' | 'pascal_binomial' | 'calculus_tangent' | 'statics_friction' | 'complex_argand' | 'normal_distribution' | 'dynamics_motion' | 'matrix_solver' | 'work_energy';
+  type: InteractiveWidgetType | string;
   titleEn: string;
   titleAr: string;
   descriptionEn: string;

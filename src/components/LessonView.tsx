@@ -15,7 +15,7 @@ import { InteractiveMatrixLab } from './InteractiveMatrixLab';
 import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
 import { PhysicsLab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
-import { BiologyLab } from './labs/BiologyLab';
+import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
 import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
@@ -133,7 +133,28 @@ export const LessonView: React.FC<Props> = ({
       return <ChemistryLab lang={lang} theme={theme} />;
     }
     if (branch.id === 'thanaweya_biology' || branch.id === 'egbac_biology') {
-      return <BiologyLab lang={lang} theme={theme} />;
+      let initialTab: BioTab = 'skeleton';
+      const wType = lesson.interactiveWidget?.type;
+      if (wType === 'biology_endocrine' || currentChapter?.id === 'th_bio_ch2') {
+        initialTab = 'endocrine';
+      } else if (wType === 'biology_menstrual' || currentChapter?.id === 'th_bio_ch3') {
+        initialTab = 'menstrual';
+      } else if (wType === 'biology_immunity' || currentChapter?.id === 'th_bio_ch4' || currentChapter?.id === 'egbac_bio_ch3') {
+        initialTab = 'immunity';
+      } else if (wType === 'biology_genetics' || currentChapter?.id === 'egbac_bio_ch1' || currentChapter?.id === 'egbac_bio_ch4') {
+        initialTab = 'genetics';
+      } else if (wType === 'biology_bioenergetics' || currentChapter?.id === 'egbac_bio_ch2') {
+        initialTab = 'bioenergetics';
+      } else if (wType === 'biology_dna' || currentChapter?.id === 'th_bio_ch5') {
+        initialTab = 'dna';
+      } else if (wType === 'biology_sarcomere' || lesson.id === 'th_bio_ch1_l2') {
+        initialTab = 'sarcomere';
+      } else if (wType === 'biology_plant') {
+        initialTab = 'plant';
+      } else if (wType === 'biology_skeleton' || lesson.id === 'th_bio_ch1_l1') {
+        initialTab = 'skeleton';
+      }
+      return <BiologyLab lang={lang} theme={theme} initialTab={initialTab} />;
     }
 
     const widgetComponent = (() => {

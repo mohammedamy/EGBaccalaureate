@@ -170,46 +170,118 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "مسائل تطبيقية على ترقيم الفقرات، اتصالات الضلوع، والضغط الأسموزي.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch1_l1_ws_p1",
-                                        "titleEn": "Floating Ribs Vertebral Connections",
-                                        "titleAr": "اتصال الضلوع العائمة بالعمود الفقري",
-                                        "difficulty": "medium",
-                                        "questionEn": "The second pair of floating ribs (rib pair 12) articulates posteriorly with which vertebra of the human vertebral column?",
-                                        "questionAr": "يتصل الزوج الثاني من الضلوع العائمة (زوج الضلوع رقم 12) من الخلف بأي فقرة من فقرات العمود الفقري؟",
-                                        "optionsEn": [
-                                              "Vertebra 19 (Thoracic vertebra 12)",
-                                              "Vertebra 18 (Thoracic vertebra 11)",
-                                              "Vertebra 12 (Thoracic vertebra 5)",
-                                              "Vertebra 20 (Lumbar vertebra 1)"
-                                        ],
-                                        "optionsAr": [
-                                              "الفقرة رقم 19 (الفقرة الظهرية 12)",
-                                              "الفقرة رقم 18 (الفقرة الظهرية 11)",
-                                              "الفقرة رقم 12 (الفقرة الظهرية 5)",
-                                              "الفقرة رقم 20 (الفقرة القطنية 1)"
-                                        ],
-                                        "correctAnswer": "Vertebra 19 (Thoracic vertebra 12)",
-                                        "correctIndex": 0,
-                                        "hintEn": "Add the 7 cervical vertebrae to the thoracic vertebra number: 7 + 12 = 19.",
-                                        "hintAr": "أضف الـ 7 فقرات عنقية إلى رقم الفقرة الظهرية: 7 + 12 = 19.",
-                                        "stepByStepSolutionEn": [
-                                              "The human vertebral column begins with 7 cervical vertebrae (1–7).",
-                                              "Thoracic vertebrae follow from 8 to 19.",
-                                              "Rib pair 12 attaches to thoracic vertebra 12, which is vertebra 7 + 12 = 19."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "يبدأ العمود الفقري بـ 7 فقرات عنقية (من 1 إلى 7).",
-                                              "تليها الفقرات الظهرية من 8 إلى 19.",
-                                              "يتصل زوج الضلوع رقم 12 بالفقرة الظهرية رقم 12، وترتيبها العام 7 + 12 = 19."
-                                        ],
-                                        "teacherTipEn": "Always use Formula: Total Vertebra # = 7 + Rib Pair #.",
-                                        "teacherTipAr": "قاعدة دائمة: رقم الفقرة = 7 (عنقية) + رقم زوج الضلوع."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch1_l1_ws_p1",
+                                                        "titleEn": "Floating Ribs Vertebral Articulation",
+                                                        "titleAr": "اتصال الضلوع العائمة بالعمود الفقري",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "The second pair of floating ribs (rib pair 12) articulates posteriorly with which vertebra of the human vertebral column?",
+                                                        "questionAr": "يتصل الزوج الثاني من الضلوع العائمة (زوج الضلوع رقم 12) من الخلف بأي فقرة من فقرات العمود الفقري؟",
+                                                        "optionsEn": [
+                                                                  "Vertebra 19 (Thoracic vertebra 12)",
+                                                                  "Vertebra 18 (Thoracic vertebra 11)",
+                                                                  "Vertebra 12 (Thoracic vertebra 5)",
+                                                                  "Vertebra 20 (Lumbar vertebra 1)"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الفقرة رقم 19 (الفقرة الظهرية 12)",
+                                                                  "الفقرة رقم 18 (الفقرة الظهرية 11)",
+                                                                  "الفقرة رقم 12 (الفقرة الظهرية 5)",
+                                                                  "الفقرة رقم 20 (الفقرة القطنية 1)"
+                                                        ],
+                                                        "correctAnswer": "Vertebra 19 (Thoracic vertebra 12)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Formula: Vertebral sequence number = 7 cervical + rib pair number.",
+                                                        "hintAr": "القاعدة: رقم الفقرة = 7 فقرات عنقية + رقم زوج الضلوع.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The cervical region contains 7 vertebrae (vertebrae 1 to 7).",
+                                                                  "The thoracic region begins at vertebra 8 and ends at vertebra 19.",
+                                                                  "Rib pair 12 articulates with thoracic vertebra 12, which is vertebra 7 + 12 = 19."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المنطقة العنقية تضم 7 فقرات (من الفقرة 1 إلى 7).",
+                                                                  "المنطقة الظهرية تبدأ من الفقرة 8 وتنتهي عند الفقرة 19.",
+                                                                  "يتصل زوج الضلوع رقم 12 بالفقرة الظهرية 12، وترتيبها العام: 7 + 12 = 19."
+                                                        ],
+                                                        "teacherTipEn": "Always remember: Rib pair n connects to thoracic vertebra n, which is overall vertebra (n + 7).",
+                                                        "teacherTipAr": "تذكر دائماً: زوج الضلوع رقم ن يتصل بالفقرة الظهرية ن ورقمها في العمود الفقري (ن + 7)."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch1_l1_ws_p2",
+                                                        "titleEn": "Physiological Support & Plasmolysis in Plant Tissue",
+                                                        "titleAr": "الدعامة الفسيولوجية والبلزمة في الأنسجة النباتية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "When a fresh potato strip is immersed in a 10% concentrated sucrose solution, what happens to its physiological support and physical weight?",
+                                                        "questionAr": "عند غمر قطعة بطاطس طازجة في محلول سكري مركز بنسبة 10%، ماذا يحدث لدعامتها الفسيولوجية وكتلتها؟",
+                                                        "optionsEn": [
+                                                                  "Loses physiological support and its weight decreases",
+                                                                  "Gains physiological support and its weight increases",
+                                                                  "Retains physiological support with no weight change",
+                                                                  "Converts physiological support into structural support"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تفقد دعامتها الفسيولوجية وتقل كتلتها",
+                                                                  "تكتسب دعامة فسيولوجية وتزداد كتلتها",
+                                                                  "تحتفظ بدعامتها الفسيولوجية دون تغير في الكتلة",
+                                                                  "تتحول دعامتها الفسيولوجية إلى دعامة تركيبية"
+                                                        ],
+                                                        "correctAnswer": "Loses physiological support and its weight decreases",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Water leaves the cell sap vacuole by osmosis towards the hypertonic external solution.",
+                                                        "hintAr": "ينتقل الماء من الفجوة العصارية إلى المحلول الخارجي ذي التركيز الأكبر بالخاصية الأسموزية.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The external 10% sucrose solution is hypertonic relative to the potato cell sap.",
+                                                                  "Water exits the plant cells by osmosis, causing vacuolar shrinkage and loss of turgor pressure.",
+                                                                  "The cell wall relaxes and the tissue loses physiological support, accompanied by a measurable drop in mass."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المحلول السكري 10% أعلى تركيزاً (أعلى ضغطاً أسموزياً) من فجوات خلايا البطاطس.",
+                                                                  "ينتقل الماء من داخل الخلايا للخارج بالأسموزية، فينكمش البروتوبلازم ويزول ضغط الامتلاء.",
+                                                                  "يرتخي الجدار الخلوي وتفقد الخلايا دعامتها الفسيولوجية وتقل كتلتها بفقد الماء."
+                                                        ],
+                                                        "teacherTipEn": "Turgor pressure is purely physiological and reversible depending on environmental water potential.",
+                                                        "teacherTipAr": "ضغط الامتلاء دعامة فسيولوجية مؤقتة وتعتمد كلياً على حركة الماء بالأسموزية."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch1_l1_ws_p3",
+                                                        "titleEn": "Knee Joint Osteology & Cartilage Articulation",
+                                                        "titleAr": "تشريح مفصل الركبة وعدد العظام المشاركة في التمفصل",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How many bones directly articulate to form the human knee joint?",
+                                                        "questionAr": "كم عدد العظام التي تشارك مباشرة في تكوين مفصل الركبة في الإنسان؟",
+                                                        "optionsEn": [
+                                                                  "3 bones (Femur, Tibia, and Patella)",
+                                                                  "4 bones (Femur, Tibia, Fibula, and Patella)",
+                                                                  "2 bones (Femur and Tibia only)",
+                                                                  "5 bones (Femur, Tibia, Fibula, Patella, and Talus)"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "3 عظام (الفخذ، القصبة، والرضفة)",
+                                                                  "4 عظام (الفخذ، القصبة، الشظية، والرضفة)",
+                                                                  "عظمتان (الفخذ والقصبة فقط)",
+                                                                  "5 عظام (الفخذ، القصبة، الشظية، الرضفة، والكاحل)"
+                                                        ],
+                                                        "correctAnswer": "3 bones (Femur, Tibia, and Patella)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The fibula is a lateral shank bone that does not articulate directly within the knee joint cavity.",
+                                                        "hintAr": "عظمة الشظية تتصل بالقصبة من الخارج ولا تشارك في تجويف مفصل الركبة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The knee joint is a synovial hinge joint.",
+                                                                  "It is formed by the lower condyles of the femur, the upper articular surface of the tibia, and the posterior surface of the patella.",
+                                                                  "The fibula articulates proximally with the tibia below the knee joint line, so only 3 bones constitute the knee."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "مفصل الركبة مفصل زلالي محدود الحركة.",
+                                                                  "يتكون من التقاء لقمتي عظمة الفخذ السفلية، والسطح المفصلي العلوي للقصبة، والسطح الخلفي للرضفة.",
+                                                                  "عظمة الشظية تتمفصل جانبياً مع القصبة خارج تجويف المفصل، وبالتالي عدد عظام الركبة = 3 عظام."
+                                                        ],
+                                                        "teacherTipEn": "Key exam distinction: Shank has 2 bones (Tibia and Fibula), but knee joint contains only 3 bones (Femur, Tibia, Patella).",
+                                                        "teacherTipAr": "نقطة امتحانية متكررة: الساق يتكون من عظمتين (قصبة وشظية)، لكن مفصل الركبة يتكون من 3 عظام دون الشظية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_skeleton",
                             "titleEn": "Human Skeleton 3D Explorer",
                             "titleAr": "مستكشف الهيكل العظمي البشري التفاعلي",
                             "descriptionEn": "Interactive osteological viewer detailing 206 bones, axial vs appendicular classifications, and joint articulations.",
@@ -358,46 +430,118 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "مسائل تحليلية على أطوال مناطق القطعة العضلية، دور الكالسيوم، وحسابات الوحدات الحركية.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch1_l2_ws_p1",
-                                        "titleEn": "A-Band Invariant During Muscle Contraction",
-                                        "titleAr": "ثبات طول المنطقة الداكنة A أثناء الانقباض",
-                                        "difficulty": "easy",
-                                        "questionEn": "According to Huxley's sliding filament theory, which of the following regions exhibits zero change in physical length during complete skeletal muscle contraction?",
-                                        "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي، أي من المناطق التالية لا يطرأ على طولها أي تغير على الإطلاق أثناء الانقباض التام للعضلة الهيكلية؟",
-                                        "optionsEn": [
-                                              "The Dark A-Band",
-                                              "The Light I-Band",
-                                              "The Semi-light H-Zone",
-                                              "The distance between two consecutive Z-lines"
-                                        ],
-                                        "optionsAr": [
-                                              "المنطقة الداكنة A",
-                                              "المنطقة المضيئة I",
-                                              "المنطقة شبه المضيئة H",
-                                              "المسافة بين خطي Z المتتاليين"
-                                        ],
-                                        "correctAnswer": "The Dark A-Band",
-                                        "correctIndex": 0,
-                                        "hintEn": "The A-band represents the constant physical length of thick myosin filaments.",
-                                        "hintAr": "المنطقة A تمثل الطول الفعلي لخيوط الميوسين السميكة التي لا تقصر.",
-                                        "stepByStepSolutionEn": [
-                                              "Myosin filaments do not shorten during contraction.",
-                                              "The A-band length corresponds exactly to the length of myosin filaments.",
-                                              "Therefore, Delta L_A = 0."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "خيوط الميوسين لا تنكمش ولا يقصر طولها أثناء الانزلاق.",
-                                              "طول المنطقة الداكنة A يطابق تماماً طول خيوط الميوسين.",
-                                              "وبالتالي يظل طول المنطقة A ثابتاً دون أي تغير."
-                                        ],
-                                        "teacherTipEn": "Only A-band is constant. I, H, and Z-Z distance decrease.",
-                                        "teacherTipAr": "فقط المنطقة A تظل ثابتة، بينما تقل أطوال I و H والمسافة بين خطي Z."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch1_l2_ws_p1",
+                                                        "titleEn": "A-Band Invariant During Muscle Contraction",
+                                                        "titleAr": "ثبات طول المنطقة الداكنة A أثناء الانقباض العضلي",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "According to Huxley's sliding filament theory, which of the following regions exhibits zero change in physical length during complete skeletal muscle contraction?",
+                                                        "questionAr": "طبقاً لنظرية الخيوط المنزلقة لهكسلي، أي المناطق التالية لا يتغير طولها مطلقاً أثناء الانقباض التام للعضلة الهيكلية؟",
+                                                        "optionsEn": [
+                                                                  "The dark band (A-band)",
+                                                                  "The semi-light zone (H-zone)",
+                                                                  "The light band (I-band)",
+                                                                  "The distance between two consecutive Z-lines"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "المنطقة الداكنة (المنطقة A)",
+                                                                  "المنطقة شبه المضيئة (المنطقة H)",
+                                                                  "المنطقة المضيئة (المنطقة I)",
+                                                                  "المسافة بين خطي Z المتتاليين"
+                                                        ],
+                                                        "correctAnswer": "The dark band (A-band)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The A-band length corresponds to the actual physical length of the thick myosin filaments, which do not shorten.",
+                                                        "hintAr": "يمثل طول المنطقة A الطول الحقيقي لخيوط الميوسين السميكة، وهي لا تقصر أثناء الانقباض.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "During contraction, actin filaments slide over thick myosin filaments.",
+                                                                  "The Z-lines are pulled closer together, reducing sarcomere length.",
+                                                                  "The I-band and H-zone shorten (H-zone may vanish completely in full contraction).",
+                                                                  "The A-band remains strictly constant because myosin filament length is unchanged."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "أثناء الانقباض، تنزلق خيوط الأكتين الرفيعة فوق خيوط الميوسين السميكة بواسطة الروابط المستعرضة.",
+                                                                  "يتقارب خطا Z ويقل طول القطعة العضلية بالكامل.",
+                                                                  "يقل طول المنطقة المضيئة I وشبه المضيئة H (وقد تختفي H تماماً في الانقباض التام).",
+                                                                  "المنطقة الداكنة A تظل ثابتة الطول تماماً لأنها تمثل طول خيوط الميوسين التي لا تقصر."
+                                                        ],
+                                                        "teacherTipEn": "Invariant parameter: Length of A-band = Constant in both contraction and relaxation.",
+                                                        "teacherTipAr": "قاعدة ثابتة: طول المنطقة A يظل ثابتاً في كل من الانقباض والانبساط."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch1_l2_ws_p2",
+                                                        "titleEn": "Motor Unit Innervation Ratio Arithmetic",
+                                                        "titleAr": "حسابات الوحدة الحركية ونسب التغذية العصبية العضلية",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "A skeletal muscle consists of 400 muscle fibers. What is the minimum number of motor neurons required to innervate this entire muscle?",
+                                                        "questionAr": "عضلة هيكلية تتكون من 400 ليفة عضلية. ما أقل عدد من الخلايا العصبية الحركية يلزم لتغذية هذه العضلة بالكامل؟",
+                                                        "optionsEn": [
+                                                                  "4 motor neurons (innervating 100 fibers each)",
+                                                                  "80 motor neurons (innervating 5 fibers each)",
+                                                                  "40 motor neurons (innervating 10 fibers each)",
+                                                                  "400 motor neurons (innervating 1 fiber each)"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "4 خلايا عصبية حركية (تغذي كل منها 100 ليفة)",
+                                                                  "80 خلية عصبية حركية (تغذي كل منها 5 ألياف)",
+                                                                  "40 خلية عصبية حركية (تغذي كل منها 10 ألياف)",
+                                                                  "400 خلية عصبية حركية (تغذي كل منها ليفة واحدة)"
+                                                        ],
+                                                        "correctAnswer": "4 motor neurons (innervating 100 fibers each)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Minimum motor units occurs when each motor neuron supplies the maximum permissible fibers (100 fibers per motor unit).",
+                                                        "hintAr": "أقل عدد من الوحدات الحركية يتحقق عندما تغذي كل خلية عصبية أكبر عدد ممكن من الألياف (100 ليفة لكل وحدة حركية).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Each motor neuron innervates between 5 and 100 muscle fibers via terminal branches.",
+                                                                  "To find the minimum number of motor units (neurons): Divide total fibers by maximum capacity:",
+                                                                  "$$\\text{Min Units} = \\frac{400}{100} = 4\\text{ motor neurons}$$"
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "كل ليف عصبي حركي يغذي عدداً من الألياف العضلية يتراوح بين 5 إلى 100 ليفة عبر التفرعات النهائية.",
+                                                                  "للحصول على أقل عدد من الخلايا العصبية، نقسم إجمالي الألياف على السعة القصوى (100):",
+                                                                  "$$\\text{أقل عدد} = \\frac{400}{100} = 4\\text{ خلايا عصبية حركية}$$"
+                                                        ],
+                                                        "teacherTipEn": "Minimum units = Total fibers / 100; Maximum units = Total fibers / 5.",
+                                                        "teacherTipAr": "أقل عدد وحدات = إجمالي الألياف ÷ 100؛ أكبر عدد وحدات = إجمالي الألياف ÷ 5."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch1_l2_ws_p3",
+                                                        "titleEn": "Role of Calcium Ions in Synaptic Transmission & Myofilaments",
+                                                        "titleAr": "الدور المزدوج لأيونات الكالسيوم في التشابك العصبي العضلي وخيوط الانقباض",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "What is the primary dual function of calcium ions ($Ca^{2+}$) in skeletal muscle contraction?",
+                                                        "questionAr": "ما الوظيفة الحيوية المزدوجة لأيونات الكالسيوم ($Ca^{2+}$) في آلية انقباض العضلة الهيكلية؟",
+                                                        "optionsEn": [
+                                                                  "Rupturing synaptic vesicles at axon terminals and forming cross-bridges between actin and myosin",
+                                                                  "Hydrolyzing acetylcholine in the synaptic cleft and expanding the sarcomere",
+                                                                  "Generating action potentials in sensory neurons and relaxing muscle fibers",
+                                                                  "Converting lactic acid into glycogen in liver and muscle tissue"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تفجير الحويصلات المشبكية في النهايات العصبية وتكوين الروابط المستعرضة بين الأكتين والميوسين",
+                                                                  "تحطيم الأسيتيل كولين في شق التشابك وتمديد القطعة العضلية",
+                                                                  "توليد جهد الفعل في الخلايا العصبية الحسية وبسط الألياف العضلية",
+                                                                  "تحويل حمض اللاكتيك إلى جليكوجين في الكبد والعضلات"
+                                                        ],
+                                                        "correctAnswer": "Rupturing synaptic vesicles at axon terminals and forming cross-bridges between actin and myosin",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Calcium acts first at the neuromuscular junction to release acetylcholine, and then within the myofibril to activate cross-bridges.",
+                                                        "hintAr": "يعمل الكالسيوم أولاً في النهاية العصبية لتحرير الأسيتيل كولين، ثم داخل اللييفة لمساعدة الروابط المستعرضة على الشد.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Role 1 (Axon Terminal): Influx of $Ca^{2+}$ through voltage-gated channels triggers exocytosis of acetylcholine vesicles into synaptic cleft.",
+                                                                  "Role 2 (Myofibril): Release of $Ca^{2+}$ from sarcoplasmic reticulum binds troponin, allowing myosin cross-bridge heads to bind actin filaments."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الدور الأول (النهايات العصبية): تدفق $Ca^{2+}$ عبر مضخات الكالسيوم يفجر حويصلات الأسيتيل كولين ليتحرر في شق التشابك.",
+                                                                  "الدور الثاني (اللييفة العضلية): خروج $Ca^{2+}$ من الشبكة الساركوبلازمية يساعد الروابط المستعرضة الممتدة من الميوسين على الالتصاق بخيوط الأكتين وسحبها."
+                                                        ],
+                                                        "teacherTipEn": "Calcium is an indispensable catalyst for excitation-contraction coupling at both synaptic and sarcomeric levels.",
+                                                        "teacherTipAr": "الكالسيوم عامل أساسي مزدوج: لنقل التنبيه العصبي ولتوليد الشد الميكانيكي بالروابط المستعرضة."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_sarcomere",
                             "titleEn": "Sarcomere Sliding Filament Simulator",
                             "titleAr": "محاكي انزلاق خيوط الساركومير",
                             "descriptionEn": "Interactive visualization of cross-bridge cycling and Z-line displacement.",
@@ -1292,46 +1436,116 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ الهرمونات النباتية (الأوكسينات) والغدة النخامية سيدة الغدد الصماء.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch2_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Plant Hormones (Auxins) & Pituitary Master Gland",
-                                        "titleAr": "سؤال قياسي: الهرمونات النباتية (الأوكسينات) والغدة النخامية سيدة الغدد الصماء",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Plant Hormones (Auxins) & Pituitary Master Gland according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ الهرمونات النباتية (الأوكسينات) والغدة النخامية سيدة الغدد الصماء وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch2_l1_ws_p1",
+                                                        "titleEn": "Auxin Distribution in Stem Phototropism",
+                                                        "titleAr": "توزيع الأوكسينات في الانتحاء الضوئي الموجب للساق",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In Went's experiment on unilateral illumination of oat coleoptile tips, what is the percentage distribution of auxins (indole acetic acid) between the illuminated and shaded sides?",
+                                                        "questionAr": "في تجربة فنت على قمة غلاف بادرة الشوفان المعرضة للضوء من جانب واحد، ما النسبة المئوية لتوزيع الأوكسينات بين الجانب المضيء والجانب المظلم؟",
+                                                        "optionsEn": [
+                                                                  "35% on illuminated side, 65% on shaded side",
+                                                                  "50% on illuminated side, 50% on shaded side",
+                                                                  "65% on illuminated side, 35% on shaded side",
+                                                                  "10% on illuminated side, 90% on shaded side"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "35% في الجانب المضيء، 65% في الجانب المظلم",
+                                                                  "50% في الجانب المضيء، 50% في الجانب المظلم",
+                                                                  "65% في الجانب المضيء، 35% في الجانب المظلم",
+                                                                  "10% في الجانب المضيء، 90% في الجانب المظلم"
+                                                        ],
+                                                        "correctAnswer": "35% on illuminated side, 65% on shaded side",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Auxins migrate laterally away from light, accumulating in the dark side to stimulate greater cell elongation.",
+                                                        "hintAr": "تهاجر الأوكسينات بعيداً عن الضوء فتتجمع في الجانب البعيد (المظلم) مما يسبب استطالة خلاياه بمعدل أكبر.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Auxins (principally IAA) are light-sensitive and migrate laterally from the illuminated to the shaded side.",
+                                                                  "Went determined that 65% of auxin accumulates in the shaded flank and 35% remains in the illuminated flank.",
+                                                                  "In stems, higher auxin concentrations promote cell elongation, causing the shaded side to grow faster and curve toward light."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تهاجر الأوكسينات (إندول حمض الخليك) جانبياً من الجانب المعرض للضوء إلى الجانب المظلم.",
+                                                                  "أثبت العالم فنت أن نسبة الأوكسينات تكون 65% في الجانب المظلم مقابل 35% في الجانب المضيء.",
+                                                                  "في الساق، تؤدي زيادة تركيز الأوكسينات إلى زيادة استطالة الخلايا، فينحني الساق باتجاه الضوء."
+                                                        ],
+                                                        "teacherTipEn": "Remember: Auxins stimulate stem growth (positive phototropism) but inhibit root elongation at high concentrations (negative phototropism).",
+                                                        "teacherTipAr": "تذكر: التركيز العالي للأوكسين ينشط استطالة الساق (انتحاء ضوئي موجب) ويثبط استطالة الجذر (انتحاء ضوئي سالب)."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch2_l1_ws_p2",
+                                                        "titleEn": "Growth Hormone Pathologies: Gigantism vs Acromegaly",
+                                                        "titleAr": "اضطرابات هرمون النمو: العملقة والأكروميجالي",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Hypersecretion of Growth Hormone (GH) from the anterior pituitary lobe in adulthood leads to which condition?",
+                                                        "questionAr": "تؤدي زيادة إفراز هرمون النمو (GH) من الفص الأمامي للغدة النخامية في مرحلة البلوغ إلى الإصابة بحالة:",
+                                                        "optionsEn": [
+                                                                  "Acromegaly (elongation of extremities and facial bones)",
+                                                                  "Gigantism (excessive elongation of long bones)",
+                                                                  "Cretinism (mental and physical retardation)",
+                                                                  "Simmonds disease (pituitary cachexia)"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الأكروميجالي (تضخم وتجدد نمو أجزاء العظام البعيدة كالأيدي والأقدام وعظام الوجه)",
+                                                                  "العملقة (النمو الزائد للطول في العظام الطويلة)",
+                                                                  "القماءة (تأخر عقلي وبدني وقصر القامة)",
+                                                                  "مرض سيموندز (ضمور نخامي عام)"
+                                                        ],
+                                                        "correctAnswer": "Acromegaly (elongation of extremities and facial bones)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Long bone epiphyseal growth plates have already ossified in adults, so only terminal flat and facial bones can enlarge.",
+                                                        "hintAr": "أقراص النمو الغضروفية في العظام الطويلة تلتحم بعد البلوغ، فلا يستطيل الجسم بل تتضخم أطراف العظام وعظام الفكين.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "In childhood prior to epiphyseal fusion, GH excess causes uniform long bone elongation, producing Gigantism.",
+                                                                  "In adulthood after growth plates fuse, bones cannot lengthen; instead, periosteal bone deposition thickens extremities (hands, feet, mandible), producing Acromegaly."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "في مرحلة الطفولة قبل التئام غضاريف النمو، يسبب فرط هرمون النمو استطالة العظام الطويلة مما يؤدي للعملقة.",
+                                                                  "في مرحلة البلوغ بعد التئام الغضاريف، لا تزداد العظام طولاً، بل تتجدد أطراف العظام البعيدة كعظام الوجه والفكين والأيدي والأقدام مسببة الأكروميجالي."
+                                                        ],
+                                                        "teacherTipEn": "Childhood GH excess = Gigantism; Adult GH excess = Acromegaly; Childhood GH deficit = Dwarfism.",
+                                                        "teacherTipAr": "زيادة النمو في الطفولة = عملقة؛ زيادة النمو في البلوغ = أكروميجالي؛ نقص النمو في الطفولة = قزامة."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch2_l1_ws_p3",
+                                                        "titleEn": "Antidiuretic Hormone (ADH) Physiological Mechanisms",
+                                                        "titleAr": "الآلية الفسيولوجية لهرمون المضاد لإدرار البول (ADH)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How does the neurohormone ADH (Vasopressin) simultaneously affect blood volume and blood pressure?",
+                                                        "questionAr": "كيف يؤثر الهرمون العصبي المفرز ADH (الفازوبريسين) في نفس الوقت على حجم الدم وضغط الدم؟",
+                                                        "optionsEn": [
+                                                                  "Increases blood volume and elevates arterial blood pressure",
+                                                                  "Decreases blood volume and lowers arterial blood pressure",
+                                                                  "Decreases urine concentration and dilates arterioles",
+                                                                  "Increases blood calcium and accelerates heart rate"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "يزيد من حجم الدم ويرفع ضغط الدم الشرياني",
+                                                                  "يقلل من حجم الدم ويخفض ضغط الدم الشرياني",
+                                                                  "يقلل تركيز البول ويوسع الشرايين الصغيرة",
+                                                                  "يزيد كالسيوم الدم ويسرع ضربات القلب"
+                                                        ],
+                                                        "correctAnswer": "Increases blood volume and elevates arterial blood pressure",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "ADH stimulates water reabsorption from renal tubules and contracts vascular smooth muscle.",
+                                                        "hintAr": "يعمل ADH على إعادة امتصاص الماء من الأنيبيبات الكلوية، كما يقبض العضلات الملساء للأوعية الدموية.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Synthesized by hypothalamic neurosecretory cells and released from the posterior pituitary lobe.",
+                                                                  "Action 1: Inserts aquaporin water channels into nephron collecting ducts, reabsorbing water back into peritubular capillaries, increasing blood volume and concentrating urine.",
+                                                                  "Action 2: Directly constricts arteriolar smooth muscles, raising total peripheral vascular resistance and elevating systemic arterial blood pressure."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يُفرز من الخلايا العصبية المفرزة بالمهاد (تحت المهاد) ويُخزن ويتحرر من الفص الخلفي للغدة النخامية.",
+                                                                  "التأثير الأول: يحفز إعادة امتصاص الماء من القنوات الجامعة في النفرون إلى الدم، فيزداد حجم الدم ويقل حجم البول ويزداد تركيزه.",
+                                                                  "التأثير الثاني: يسبب انقباض الأوعية الدموية (Vasopressin)، مما يرفع ضغط الدم الشرياني مباشرة."
+                                                        ],
+                                                        "teacherTipEn": "ADH is secreted upon severe dehydration, hemorrhage, or high blood osmolarity.",
+                                                        "teacherTipAr": "يُفرز ADH استجابة لارتفاع أسموزية الدم (العطش والجفاف) أو النزيف الشديد لإنقاذ ضغط الدم."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_endocrine",
                             "titleEn": "Interactive Simulation: Plant Hormones (Auxins) & Pituitary Master Gland",
                             "titleAr": "محاكاة تفاعلية: الهرمونات النباتية (الأوكسينات) والغدة النخامية سيدة الغدد الصماء",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Plant Hormones (Auxins) & Pituitary Master Gland.",
@@ -1465,46 +1679,120 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ الغدد الصماء والتوازن الكالسيومي والسكري في الدم.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch2_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Endocrine Glands, Calcium & Glucose Homeostasis",
-                                        "titleAr": "سؤال قياسي: الغدد الصماء والتوازن الكالسيومي والسكري في الدم",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Endocrine Glands, Calcium & Glucose Homeostasis according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ الغدد الصماء والتوازن الكالسيومي والسكري في الدم وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch2_l2_ws_p1",
+                                                        "titleEn": "Calcitonin vs Parathormone Calcium Antagonism",
+                                                        "titleAr": "التضاد الهرموني بين الكالسيتونين والباراثورمون في ضبط كالسيوم الدم",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "When blood calcium concentration drops below its normal physiological setpoint, which endocrine gland responds and which hormone is secreted?",
+                                                        "questionAr": "عندما ينخفض تركيز الكالسيوم في الدم عن المعدل الطبيعي، أي الغدد الصماء تستجيب وأي الهرمونات يُفرز؟",
+                                                        "optionsEn": [
+                                                                  "Parathyroid glands secrete Parathormone",
+                                                                  "Thyroid gland secretes Calcitonin",
+                                                                  "Adrenal medulla secretes Adrenaline",
+                                                                  "Pancreatic beta cells secrete Insulin"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الغدد جارات الدرقية تفرز هرمون الباراثورمون",
+                                                                  "الغدة الدرقية تفرز هرمون الكالسيتونين",
+                                                                  "نخاع الغدة الكظرية يفرز الأدرينالين",
+                                                                  "خلايا بيتا في البنكرياس تفرز الأنسولين"
+                                                        ],
+                                                        "correctAnswer": "Parathyroid glands secrete Parathormone",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Parathormone mobilizes calcium from bones to elevate blood calcium levels.",
+                                                        "hintAr": "يعمل الباراثورمون على سحب الكالسيوم من العظام وإعادة امتصاصه لرفع نسبته في الدم.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Normal blood calcium level is strictly regulated between 9 and 11 mg/dL.",
+                                                                  "Hypocalcemia stimulates the 4 parathyroid glands to release Parathormone (PTH).",
+                                                                  "PTH stimulates bone resorption by osteoclasts, increases renal tubular reabsorption of calcium, and enhances intestinal calcium absorption.",
+                                                                  "Conversely, hypercalcemia stimulates thyroid C-cells to secrete Calcitonin to deposit calcium into bone."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المستوى الطبيعي لكالسيوم الدم يُضبط بدقة بين 9 و 11 مجم/100سم³.",
+                                                                  "هبوط الكالسيوم (نقص كالسيوم الدم) ينبه الغدد جارات الدرقية الأربع لإفراز هرمون الباراثورمون.",
+                                                                  "يعمل الباراثورمون على سحب الكالسيوم من العظام وزيادة امتصاصه من الكلى والأمعاء لرفع تركيزه بالدم.",
+                                                                  "أما عند زيادة الكالسيوم، فتفرز الغدة الدرقية هرمون الكالسيتونين لترسيبه في العظام."
+                                                        ],
+                                                        "teacherTipEn": "Parathormone increases blood Ca2+ (protects nerves/muscles); Calcitonin decreases blood Ca2+ (protects bones).",
+                                                        "teacherTipAr": "الباراثورمون يرفع كالسيوم الدم؛ الكالسيتونين يخفض كالسيوم الدم ويرسبه في العظام."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch2_l2_ws_p2",
+                                                        "titleEn": "Adrenal Aldosterone & Electrolyte Balance",
+                                                        "titleAr": "الألدوستيرون وضبط الاتزان الملحي والأيوني",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "What is the primary physiological action of Aldosterone secreted by the adrenal cortex on nephron tubules?",
+                                                        "questionAr": "ما التأثير الفسيولوجي المباشر لهرمون الألدوستيرون المفرز من قشرة الغدة الكظرية على أنيبيبات النفرون؟",
+                                                        "optionsEn": [
+                                                                  "Reabsorbing sodium ions (Na+) and excreting excess potassium ions (K+)",
+                                                                  "Reabsorbing potassium ions (K+) and excreting sodium ions (Na+)",
+                                                                  "Inhibiting water reabsorption and precipitating calcium in renal pelvis",
+                                                                  "Stimulating glucose excretion in urine"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "إعادة امتصاص أيونات الصوديوم (Na+) والتخلص من أيونات البوتاسيوم الزائدة (K+) بطرحها في البول",
+                                                                  "إعادة امتصاص أيونات البوتاسيوم (K+) وطرح أيونات الصوديوم (Na+)",
+                                                                  "تثبيط امتصاص الماء وترسيب الكالسيوم في حوض الكلية",
+                                                                  "تحفيز إخراج الجلوكوز في البول"
+                                                        ],
+                                                        "correctAnswer": "Reabsorbing sodium ions (Na+) and excreting excess potassium ions (K+)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Aldosterone is a mineralocorticoid that conserves sodium to maintain extracellular osmolarity.",
+                                                        "hintAr": "الألدوستيرون هرمون معدني يحافظ على الصوديوم في الجسم لتنظيم الضغط الأسموزي ويطرد البوتاسيوم.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Aldosterone is secreted by the zona glomerulosa of the adrenal cortex.",
+                                                                  "It acts on nephron distal convoluted tubules and collecting ducts.",
+                                                                  "It actively promotes $Na^+$ reabsorption back into blood capillaries while driving $K^+$ excretion into tubular fluid."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يُفرز الألدوستيرون من قشرة الغدة الكظرية (مجموعة الهرمونات المعدنية).",
+                                                                  "يؤثر مباشرة على الأنيبيبات الملتفة البعيدة والقنوات الجامعة في الكليتين.",
+                                                                  "يعمل على إعادة امتصاص أملاح الصوديوم وإعادتها للدم والتخلص من البوتاسيوم الزائد بإخراجه مع البول."
+                                                        ],
+                                                        "teacherTipEn": "Adrenal cortex: Aldosterone (salt), Cortisone (carbohydrate), Sex corticoids. Adrenal medulla: Adrenaline/Noradrenaline.",
+                                                        "teacherTipAr": "قشرة الكظرية: ألدوستيرون (معادن)، كورتيزون (سكريات)، هرمونات جنسية. نخاع الكظرية: أدرينالين ونورأدرينالين."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch2_l2_ws_p3",
+                                                        "titleEn": "Pancreatic Dual Regulation of Blood Glucose",
+                                                        "titleAr": "التنظيم المزدوج لنسبة السكر بالدم بواسطة هرموني البنكرياس",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why is glucagon incapable of converting muscle glycogen into blood glucose during fasting?",
+                                                        "questionAr": "لماذا يعجز هرمون الجلوكاجون عن تحويل جليكوجين العضلات إلى سكر جلوكوز في الدم أثناء الصيام؟",
+                                                        "optionsEn": [
+                                                                  "Glucagon receptors are located primarily on hepatocytes and muscle cells lack glucose-6-phosphatase",
+                                                                  "Muscle glycogen is chemically insoluble and cannot be broken down by enzymes",
+                                                                  "Insulin permanently blocks glucagon action inside all striated muscles",
+                                                                  "Muscle fibers only store lipids and have zero glycogen content"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "مستقبلات الجلوكاجون توجد بشكل رئيسي على خلايا الكبد وخلايا العضلات تفتقر لإنزيم تحرير الجلوكوز في مجرى الدم",
+                                                                  "جليكوجين العضلات غير قابل للذوبان ولا يمكن تكسيره بواسطة أي إنزيم",
+                                                                  "الأنسولين يمنع عمل الجلوكاجون بشكل دائم داخل العضلات المخططة",
+                                                                  "الألياف العضلية تخزن الدهون فقط ولا تحتوي على جليكوجين"
+                                                        ],
+                                                        "correctAnswer": "Glucagon receptors are located primarily on hepatocytes and muscle cells lack glucose-6-phosphatase",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Glucagon converts liver glycogen into glucose to supply the brain and tissues; adrenaline acts on muscle glycogen.",
+                                                        "hintAr": "يعمل الجلوكاجون على جليكوجين الكبد فقط لإنقاذ جلوكوز الدم؛ بينما الأدرينالين هو من يستنفر جليكوجين العضلات.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Glucagon is secreted by alpha cells of the Islets of Langerhans upon hypoglycemia.",
+                                                                  "Glucagon acts selectively on the liver, hydrolyzing liver glycogen into glucose-6-phosphate and free glucose into systemic circulation.",
+                                                                  "Skeletal muscle glycogen serves solely for intra-muscular ATP generation during contraction and is mobilized by Adrenaline, not Glucagon."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يُفرز الجلوكاجون من خلايا ألفا بجزر لانجرهانز بالبنكرياس عند هبوط الجلوكوز في الدم.",
+                                                                  "يؤثر الجلوكاجون على الكبد فقط محولاً الجليكوجين المخزن به إلى جلوكوز يطلقه في الدورة الدموية.",
+                                                                  "جليكوجين العضلات يستهلك محلياً داخل الليفة العضلية فقط لإنتاج الطاقة، ويستجيب للأدرينالين وليس للجلوكاجون."
+                                                        ],
+                                                        "teacherTipEn": "Glucagon targets LIVER glycogen only. Adrenaline targets BOTH liver and muscle glycogen in emergencies.",
+                                                        "teacherTipAr": "الجلوكاجون يؤثر على جليكوجين الكبد فقط. بينما الأدرينالين يحول جليكوجين الكبد والعضلات معاً في الطوارئ."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_endocrine",
                             "titleEn": "Interactive Simulation: Endocrine Glands, Calcium & Glucose Homeostasis",
                             "titleAr": "محاكاة تفاعلية: الغدد الصماء والتوازن الكالسيومي والسكري في الدم",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Endocrine Glands, Calcium & Glucose Homeostasis.",
@@ -2405,46 +2693,121 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ أنماط التكاثر اللاجنسي والجنسي وتعاقب الأجيال.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch3_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Asexual, Sexual Reproduction & Alternation of Generations",
-                                        "titleAr": "سؤال قياسي: أنماط التكاثر اللاجنسي والجنسي وتعاقب الأجيال",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Asexual, Sexual Reproduction & Alternation of Generations according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ أنماط التكاثر اللاجنسي والجنسي وتعاقب الأجيال وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch3_l1_ws_p1",
+                                                        "titleEn": "Plasmodium Metagenesis & Sporozoite Formation",
+                                                        "titleAr": "تعاقب الأجيال في بلازموديوم الملاريا ومكان تكوين الأسبوروزويتات",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In the life cycle of the malaria parasite (Plasmodium), in which organ does the formation of infective sporozoites take place and by what cell division process?",
+                                                        "questionAr": "في دورة حياة طفيل الملاريا (البلازموديوم)، أين تتكون الأسبوروزويتات المعدية للإنسان وبأي طريقة انقسام؟",
+                                                        "optionsEn": [
+                                                                  "Inside the oocyst on the outer stomach wall of the female Anopheles mosquito by sporogony (mitosis)",
+                                                                  "Inside human liver parenchymal cells by schizogony",
+                                                                  "Inside female mosquito salivary glands by meiosis",
+                                                                  "Inside human erythrocytes by gametogenesis"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "داخل كيس البيض على الجدار الخارجي لمعدة أنثى بعوضة الأنوفيلس بالتجرثم (انقسام ميتوزي)",
+                                                                  "داخل خلايا الكبد في الإنسان بالانقسام الثنائي",
+                                                                  "داخل الغدد اللعابية للبعوضة بالانقسام الميوزي",
+                                                                  "داخل خلايا الدم الحمراء بتكوين الأمشاج"
+                                                        ],
+                                                        "correctAnswer": "Inside the oocyst on the outer stomach wall of the female Anopheles mosquito by sporogony (mitosis)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The ookinete (2n) penetrates the mosquito stomach wall, forms an oocyst (n) after meiosis, which then divides mitotically by sporogony.",
+                                                        "hintAr": "الطور الحركي (2ن) يخترق جدار معدة البعوضة ويتحول لكيس البيض (ن) بعد انقسام ميوزي، ثم ينقسم ميتوزياً بالتجرثم لإنتاج الأسبوروزويتات.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Gametocytes fertilize in the female Anopheles stomach cavity to yield a 2n Zygote.",
+                                                                  "Zygote transforms into a motile ookinete (2n) which penetrates the epithelial lining.",
+                                                                  "Ookinete divides meiotically to form a haploid oocyst (n).",
+                                                                  "Oocyst nucleus divides mitotically by sporogony, releasing thousands of spindly haploid sporozoites (n) that migrate to the salivary glands."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تندمج الأمشاج في تجويف معدة أنثى الأنوفيلس مكونة اللاقحة (2ن).",
+                                                                  "تتحول اللاقحة إلى طور حركي (2ن) يخترق جدار المعدة وينقسم ميوزياً مكوناً كيس البيض (ن).",
+                                                                  "تنقسم نواة كيس البيض ميتوزياً فيما يعرف بالتجرثم، فتنتج أعداداً غفيرة من الأسبوروزويتات (ن) التي تهاجر للغدد اللعابية."
+                                                        ],
+                                                        "teacherTipEn": "Asexual reproduction in Plasmodium occurs in BOTH human (schizogony in liver/RBCs) and mosquito (sporogony in oocyst).",
+                                                        "teacherTipAr": "التكاثر اللاجنسي في البلازموديوم يحدث في الإنسان (بالتقطع في الكبد والدم) وفي البعوضة (بالتجرثم في كيس البيض)."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l1_ws_p2",
+                                                        "titleEn": "Honeybee Drone Parthenogenesis Chromosome Arithmetic",
+                                                        "titleAr": "التوالد البكري في نحل العسل وعدد صبغيات الحيوانات المنوية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How are male honeybee drones (n) produced, and by what cellular mechanism do they produce their spermatozoa?",
+                                                        "questionAr": "كيف تنشأ ذكور نحل العسل (ن)، وبأي نوع من الانقسام الخلوي تُنتج حيواناتها المنوية؟",
+                                                        "optionsEn": [
+                                                                  "From unfertilized haploid eggs by parthenogenesis, and they produce sperm by mitosis",
+                                                                  "From fertilized diploid eggs, and they produce sperm by meiosis",
+                                                                  "From queen diploid somatic cells, and they produce sperm by amitosis",
+                                                                  "From sterile worker eggs by fragmentation"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "من بويضات غير مخصبة (ن) بالتوالد البكري، وتنتج حيواناتها المنوية بالانقسام الميتوزي",
+                                                                  "من بويضات مخصبة (2ن)، وتنتج حيواناتها المنوية بالانقسام الميوزي",
+                                                                  "من خلايا جسدية للملكة، وتنتج حيواناتها المنوية بالانقسام المباشر",
+                                                                  "من بويضات الشغالات العقيمة بالتجدد"
+                                                        ],
+                                                        "correctAnswer": "From unfertilized haploid eggs by parthenogenesis, and they produce sperm by mitosis",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Male drones are haploid (n) in all their somatic cells; hence they cannot undergo reductional meiosis to make sperm.",
+                                                        "hintAr": "ذكور النحل أحادية المجموعة الصبغية (ن) في كل خلاياها، لذا تنتج أمشاجها بالانقسام الميتوزي لتحافظ على نفس العدد (ن).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The queen honeybee (2n) produces haploid eggs (n) via meiosis.",
+                                                                  "Unfertilized eggs develop directly into haploid male drones (n) through natural parthenogenesis.",
+                                                                  "Because drones already possess a single set of chromosomes (n), they generate spermatozoa exclusively via mitosis, yielding haploid sperm (n)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "ملكة النحل (2ن) تنتج بويضات أحادية المجموعة الصبغية (ن) بالانقسام الميوزي.",
+                                                                  "البويضات غير المخصبة تنمو مباشرة بالتوالد البكري الطبيعي إلى ذكور نحل العسل (ن).",
+                                                                  "بما أن الذكر أحادي المجموعة الصبغية (ن)، فإنه ينتج حيواناته المنوية بالانقسام الميتوزي ليكون الحيوان المنوي أيضاً (ن)."
+                                                        ],
+                                                        "teacherTipEn": "Vital exam rule: Drone has no father, but has a grandfather. Drone's sperm are produced by mitosis, not meiosis!",
+                                                        "teacherTipAr": "قاعدة ذهبية: ذكر النحل ليس له أب وله جد. وحيواناته المنوية ناتجة عن انقسام ميتوزي وليس ميوزياً!"
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l1_ws_p3",
+                                                        "titleEn": "Polypodium Fern Alternation of Generations Ploidy",
+                                                        "titleAr": "المجموعات الصبغية في تعاقب أجيال نبات الفوجير (السرخسيات)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Which of the following structures in the life cycle of the fern Polypodium is diploid (2n)?",
+                                                        "questionAr": "أي من التراكيب التالية في دورة حياة نبات الفوجير السرخسي يكون ثنائي المجموعة الصبغية (2ن)؟",
+                                                        "optionsEn": [
+                                                                  "Sorus spore mother cells on the lower leaf surface of the sporophyte",
+                                                                  "Antherozoid flagellated gametes produced inside antheridia",
+                                                                  "The heart-shaped gametophyte thallus",
+                                                                  "Mature spores dispersed by the sporangium"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الخلايا الأمية للأبواغ في البثرات على السطح السفلي لأوراق النبات الجرثومي",
+                                                                  "السوابح المهدبة (الأمشاج المذكرة) المتكونة في الأنثريديا",
+                                                                  "الطور المشيجي القلبي الشكل الساكن على التربة الرطبة",
+                                                                  "الجراثيم الناضجة المتحررة من الحوافظ الجرثومية"
+                                                        ],
+                                                        "correctAnswer": "Sorus spore mother cells on the lower leaf surface of the sporophyte",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The leafy sporophyte plant is 2n; the gametophyte thallus, gametes, and spores are all n.",
+                                                        "hintAr": "النبات الجرثومي المورق ثنائي المجموعة الصبغية (2ن)؛ بينما الطور المشيجي وأمشاجه وجراثيمه أحادية (ن).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The dominant leafy fern is the sporophyte generation, which is diploid (2n).",
+                                                                  "On the lower surface of its fronds lie sori containing sporangia with 2n spore mother cells.",
+                                                                  "These 2n cells undergo meiosis to yield haploid spores (n).",
+                                                                  "Spores germinate into the haploid gametophyte (n), which forms n antherozoids and n ova."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "النبات الجرثومي هو النبات السائد في الفوجير وهو ثنائي المجموعة الصبغية (2ن).",
+                                                                  "توجد على السطح السفلي لأوراقه بثرات تضم حوافظ جرثومية بها خلايا أمية للأبواغ (2ن).",
+                                                                  "تنقسم هذه الخلايا ميوزياً لتعطي جراثيم أحادية المجموعة الصبغية (ن).",
+                                                                  "تنبت الجراثيم معطية الطور المشيجي (ن) الذي يحمل أنثريديا وأرشيجونيا لإنتاج أمشاج (ن)."
+                                                        ],
+                                                        "teacherTipEn": "Fern Gametophyte (n) produces gametes by mitosis; Fern Sporophyte (2n) produces spores by meiosis.",
+                                                        "teacherTipAr": "الطور المشيجي (ن) ينتج أمشاجه بالميتوزي؛ والطور الجرثومي (2ن) ينتج جراثيمه بالميوزي."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_plant",
                             "titleEn": "Interactive Simulation: Asexual, Sexual Reproduction & Alternation of Generations",
                             "titleAr": "محاكاة تفاعلية: أنماط التكاثر اللاجنسي والجنسي وتعاقب الأجيال",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Asexual, Sexual Reproduction & Alternation of Generations.",
@@ -2573,46 +2936,120 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التكاثر في النباتات الزهرية وتكوين البذور والثمار.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch3_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Reproduction in Flowering Plants (Angiosperms)",
-                                        "titleAr": "سؤال قياسي: التكاثر في النباتات الزهرية وتكوين البذور والثمار",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Reproduction in Flowering Plants (Angiosperms) according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التكاثر في النباتات الزهرية وتكوين البذور والثمار وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch3_l2_ws_p1",
+                                                        "titleEn": "Double Fertilization & Endosperm Formation in Angiosperms",
+                                                        "titleAr": "الإخصاب المزدوج وتكوين الإندوسبرم في النباتات الزهرية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "What are the two fusion events that constitute 'Double Fertilization' in flowering plants (angiosperms)?",
+                                                        "questionAr": "ما عمليتا الاندماج اللتان تشكلان ظاهرة 'الإخصاب المزدوج' في النباتات الزهرية؟",
+                                                        "optionsEn": [
+                                                                  "Syngamy (sperm n + egg n = zygote 2n) and Triple Fusion (sperm n + 2 polar nuclei 2n = endosperm 3n)",
+                                                                  "Tube nucleus fusion with synergid and generative nucleus fusion with antipodal cell",
+                                                                  "Pollen grain fusion with stigma and ovule integument fusion with pericarp",
+                                                                  "Two sperm nuclei fusing together to form the cotyledon"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الإخصاب المشيجي (نواة زكرية ن + نواة بيضة ن = زيجوت 2ن) والاندماج الثلاثي (نواة زكرية ن + نواتا الكيس الجنيني 2ن = نواة إندوسبرم 3ن)",
+                                                                  "اندماج النواة الأنبوبية مع خلية مساعدة واندماج النواة المولدة مع خلية سمتية",
+                                                                  "اندماج حبة اللقاح مع الميسم واندماج أغلفة البويضة مع جدار المبيض",
+                                                                  "اندماج نواتين ذكريتين معاً لتكوين الفلقة"
+                                                        ],
+                                                        "correctAnswer": "Syngamy (sperm n + egg n = zygote 2n) and Triple Fusion (sperm n + 2 polar nuclei 2n = endosperm 3n)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "One sperm nucleus fertilizes the egg cell; the second sperm nucleus fuses with the two central polar nuclei.",
+                                                        "hintAr": "نواة ذكرية تخصب نواة البيضة؛ والنواة الذكرية الثانية تندمج مع نواتي الكيس الجنيني.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Pollen tube penetrates micropyle and discharges 2 haploid sperm nuclei into embryo sac.",
+                                                                  "Event 1 (Syngamy): 1st sperm nucleus ($n$) + egg cell nucleus ($n$) $\\to$ diploid zygote ($2n$), which develops into the plant embryo.",
+                                                                  "Event 2 (Triple Fusion): 2nd sperm nucleus ($n$) + 2 polar nuclei ($n + n = 2n$) $\\to$ triploid endosperm nucleus ($3n$), which divides to form nutrient nutritive endosperm tissue."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تخترق أنبوبة اللقاح فتحة النقير وتفرغ نواتين ذكريتين أحاديتي المجموعة الصبغية في الكيس الجنيني.",
+                                                                  "الحدث الأول (الإخصاب الزواجي): نواة ذكرية (ن) + نواة البيضة (ن) $\\to$ زيجوت (2ن) ينمو ليكون الجنين.",
+                                                                  "الحدث الثاني (الاندماج الثلاثي): نواة ذكرية ثانية (ن) + نواتا الكيس الجنيني (2ن) $\\to$ نواة الإندوسبرم (3ن) التي تنقسم لتغذية الجنين."
+                                                        ],
+                                                        "teacherTipEn": "Double Fertilization is unique to Angiosperms. Triploid (3n) endosperm provides embryonic nourishment.",
+                                                        "teacherTipAr": "الإخصاب المزدوج سمة مميزة لمغطاة البذور (النباتات الزهرية). ونسيج الإندوسبرم ثلاثي الصبغيات (3ن)."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l2_ws_p2",
+                                                        "titleEn": "Microspore & Pollen Grain Nuclei Calculations",
+                                                        "titleAr": "حساب عدد حبوب اللقاح والأنوية المتكونة في متك الزهرة",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "An anther contains 4 pollen sacs, each containing 20 microspore mother cells. What is the total number of pollen grains and total generative nuclei produced?",
+                                                        "questionAr": "متك زهرة يحتوي على 4 أكياس لقاح، وبكل كيس 20 خلية أمية للأبواغ. ما العدد الإجمالي لحبوب اللقاح والعدد الإجمالي للأنوية المولدة الناتجة؟",
+                                                        "optionsEn": [
+                                                                  "320 pollen grains and 320 generative nuclei",
+                                                                  "80 pollen grains and 160 generative nuclei",
+                                                                  "160 pollen grains and 320 generative nuclei",
+                                                                  "640 pollen grains and 1280 generative nuclei"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "320 حبة لقاح و 320 نواة مولدة",
+                                                                  "80 حبة لقاح و 160 نواة مولدة",
+                                                                  "160 حبة لقاح و 320 نواة مولدة",
+                                                                  "640 حبة لقاح و 1280 نواة مولدة"
+                                                        ],
+                                                        "correctAnswer": "320 pollen grains and 320 generative nuclei",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Total mother cells = 4 sacs * 20 = 80 cells. Each undergoes meiosis to yield 4 pollen grains.",
+                                                        "hintAr": "إجمالي الخلايا الأمية = 4 أكياس × 20 = 80 خلية. كل خلية تعطي 4 حبوب لقاح بالميوزي.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Total microspore mother cells = $4 \\times 20 = 80\\text{ mother cells}$.",
+                                                                  "Each mother cell undergoes meiosis to yield 4 haploid microspores: $80 \\times 4 = 320\\text{ pollen grains}$.",
+                                                                  "Inside each pollen grain, the nucleus divides mitotically into 1 tube nucleus and 1 generative nucleus.",
+                                                                  "Total generative nuclei = 320."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "إجمالي الخلايا الأمية للأبواغ = 4 أكياس × 20 خلية = 80 خلية أمية.",
+                                                                  "كل خلية أمية تنقسم ميوزياً لتعطي 4 جراثيم صغيرة: 80 × 4 = 320 حبة لقاح.",
+                                                                  "تنقسم نواة كل جرثومة ميتوزياً لتعطي نواة أنبوبية واحدة ونواة مولدة واحدة.",
+                                                                  "إذن عدد الأنوية المولدة = 320 نواة مولدة."
+                                                        ],
+                                                        "teacherTipEn": "Formula: Pollen grains = Mother cells * 4. Each pollen grain contains 1 tube nucleus and 1 generative nucleus.",
+                                                        "teacherTipAr": "القاعدة: عدد حبوب اللقاح = عدد الخلايا الأمية × 4. وكل حبة تحوي نواة أنبوبية ونواة مولدة."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l2_ws_p3",
+                                                        "titleEn": "False Fruit Morphogenesis (Apple Receptacle)",
+                                                        "titleAr": "تكوين الثمار الكاذبة (تشحم التخت في التفاح)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why is the apple biologically classified as a 'false fruit' (ثمرة كاذبة)?",
+                                                        "questionAr": "لماذا يُصنف التفاح بيولوجياً على أنه 'ثمرة كاذبة'؟",
+                                                        "optionsEn": [
+                                                                  "Because its edible fleshy portion develops from the floral receptacle rather than the ovary",
+                                                                  "Because it produces seeds without prior pollination or fertilization",
+                                                                  "Because it lacks pericarp and contains triploid embryonic tissues",
+                                                                  "Because it is formed by vegetative micropropagation in tissue culture"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن الجزء المتشحم القابل للأكل ينمو من التخت الزهري وليس من جدار المبيض",
+                                                                  "لأنه ينتج بذوراً بدون تلقيح أو إخصاب مسبق",
+                                                                  "لأنه يخلو من غلاف الثمرة ويحتوي أنسجة جنينية ثلاثية الصبغيات",
+                                                                  "لأنه ينتج بالزراعة الخلوية في أوساط غذائية صناعية"
+                                                        ],
+                                                        "correctAnswer": "Because its edible fleshy portion develops from the floral receptacle rather than the ovary",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "A true fruit develops exclusively from the thickened ovary wall; when any other floral part thickens with food, it is a false fruit.",
+                                                        "hintAr": "الثمرة الحقيقية تنشأ من تشحم جدار المبيض؛ وإذا تشحم أي جزء زهري آخر كالتخت سميت ثمرة كاذبة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "In typical angiosperms, post-fertilization ovary hypertrophy forms the true fruit.",
+                                                                  "In apples and pears, the floral receptacle (the floral axis tip) stores food and swells to envelop the ovary.",
+                                                                  "Because a floral structure other than the ovary forms the main fleshy fruit, it is termed a false fruit."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "في معظم النباتات الزهرية، يتشحم جدار المبيض فقط بعد الإخصاب ليكون الثمرة الحقيقية.",
+                                                                  "في التفاح والكمثرى، يتشحم التخت الزهري (قاعدة الزهرة) بالغذاء وينمو ليحيط بالمبيض ويشكل الجزء القابل للأكل.",
+                                                                  "بما أن عضواً زهرياً غير المبيض هو الذي تشحم بالغذاء، فإنها تُعرف بالثمرة الكاذبة."
+                                                        ],
+                                                        "teacherTipEn": "True fruit: Ovary swells (peach, olive). False fruit: Receptacle swells (apple). Parthenocarpy: Fruit without seeds (banana).",
+                                                        "teacherTipAr": "ثمرة حقيقية: مبيض متشحم (خوخ، زيتون). ثمرة كاذبة: تخت متشحم (تفاح). إثمار عذري: ثمرة بلا بذور (موز)."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_plant",
                             "titleEn": "Interactive Simulation: Reproduction in Flowering Plants (Angiosperms)",
                             "titleAr": "محاكاة تفاعلية: التكاثر في النباتات الزهرية وتكوين البذور والثمار",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Reproduction in Flowering Plants (Angiosperms).",
@@ -2741,46 +3178,122 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التكاثر في الإنسان وتكوين الأمشاج ودورة الطمث ونمو الجنين.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch3_l3_ws_p1",
-                                        "titleEn": "Core Standard Question: Human Reproduction, Gametogenesis & Embryology",
-                                        "titleAr": "سؤال قياسي: التكاثر في الإنسان وتكوين الأمشاج ودورة الطمث ونمو الجنين",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Human Reproduction, Gametogenesis & Embryology according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التكاثر في الإنسان وتكوين الأمشاج ودورة الطمث ونمو الجنين وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch3_l3_ws_p1",
+                                                        "titleEn": "Menstrual Cycle Day 14 Hormonal Trigger",
+                                                        "titleAr": "التحفيز الهرموني لليوم الرابع عشر من دورة الطمث (التبويض)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "On day 14 of a standard 28-day human menstrual cycle, which hormone surges dramatically to trigger ovulation and the rupture of the Graafian follicle?",
+                                                        "questionAr": "في اليوم الرابع عشر من دورة الطمث القياسية (28 يوماً)، أي الهرمونات يرتفع تركيزه بقمة حادة ليحفز عملية التبويض وتفجير حويصلة جراف؟",
+                                                        "optionsEn": [
+                                                                  "Luteinizing Hormone (LH)",
+                                                                  "Follicle Stimulating Hormone (FSH)",
+                                                                  "Progesterone",
+                                                                  "Oxytocin"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الهرمون المصفر (LH)",
+                                                                  "الهرمون المحوصل (FSH)",
+                                                                  "البروجسترون",
+                                                                  "الأوكسيتوسين"
+                                                        ],
+                                                        "correctAnswer": "Luteinizing Hormone (LH)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The anterior pituitary LH surge causes follicle rupture and transforms its remnants into the corpus luteum.",
+                                                        "hintAr": "ذروة إفراز هرمون LH من الفص الأمامي للنخامية تفجر الحويصلة وتحول بقاياها إلى الجسم الأصفر.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Days 6–13: Pituitary FSH promotes maturation of the Graafian follicle, which secretes Estrogen to proliferate the endometrium.",
+                                                                  "High estrogen triggers positive feedback on the anterior pituitary, generating a massive surge of Luteinizing Hormone (LH) on Day 14.",
+                                                                  "The LH surge ruptures the mature follicle, releasing the secondary oocyte into the fallopian tube (Ovulation).",
+                                                                  "LH then luteinizes the follicular granulosa cells to form the progesterone-secreting Corpus Luteum."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الأيام 6–13: ينشط FSH نمو حويصلة جراف التي تفرز الإستروجين لإنماء بطانة الرحم.",
+                                                                  "وصول الإستروجين لذروته ينبه الغدة النخامية لإفراز طفرة حادة من هرمون LH في اليوم الرابع عشر.",
+                                                                  "تسبب طفرة LH انفجار حويصلة جراف وتحرر الخلية البيضية الثانوية إلى قناة فالوب (التبويض).",
+                                                                  "يحول LH بقايا حويصلة جراف إلى الجسم الأصفر الذي يبدأ فوراً في إفراز البروجسترون."
+                                                        ],
+                                                        "teacherTipEn": "LH surge on Day 14 is the definitive trigger for ovulation and corpus luteum genesis.",
+                                                        "teacherTipAr": "طفرة هرمون LH في اليوم الـ 14 هي الإشارة القاطعة لحدوث التبويض وتكوين الجسم الأصفر."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l3_ws_p2",
+                                                        "titleEn": "Oogenesis vs Spermatogenesis Chromosomal Stages",
+                                                        "titleAr": "مقارنة تكوين البويضات والحيوانات المنوية ومصير الأجسام القطبية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "At which precise biological moment is Meiosis II completed during human oogenesis?",
+                                                        "questionAr": "في أي لحظة بيولوجية دقيقة يكتمل الانقسام الميوزي الثاني أثناء تكوين البويضات في أنثى الإنسان؟",
+                                                        "optionsEn": [
+                                                                  "At the moment of sperm penetration into the secondary oocyte inside the Fallopian tube (conditioned division)",
+                                                                  "During fetal embryonic life in the ovary",
+                                                                  "Immediately inside the Graafian follicle prior to ovulation",
+                                                                  "During blastocyst implantation into the uterine endometrium"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لحظة دخول الحيوان المنوي وإخصاب الخلية البيضية الثانوية في قناة فالوب (انقسام مؤجل أو مشروط)",
+                                                                  "أثناء المرحلة الجنينية في مبيض الجنين الأنثى",
+                                                                  "داخل حويصلة جراف قبيل حدوث التبويض مباشرة",
+                                                                  "أثناء انغراس التوتية في بطانة الرحم"
+                                                        ],
+                                                        "correctAnswer": "At the moment of sperm penetration into the secondary oocyte inside the Fallopian tube (conditioned division)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Meiosis II is an arrested 'delayed' or 'conditioned' division that only completes if fertilization takes place.",
+                                                        "hintAr": "الميوزي الثاني انقسام مؤجل أو مشروط بلحظة الإخصاب، ولا يكتمل أبداً إذا لم يخصب الحيوان المنوي البويضة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Primary oocytes enter Meiosis I in the female fetus and arrest in prophase I until puberty.",
+                                                                  "Upon ovulation, Meiosis I completes, producing a secondary oocyte ($n$) and the first polar body ($n$).",
+                                                                  "The secondary oocyte arrests at metaphase II.",
+                                                                  "Meiosis II only completes when a spermatozoon penetrates the oocyte membrane, releasing the second polar body and yielding the mature ovum."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تبدأ الخلايا البيضية الأولية الميوزي الأول أثناء الحياة الجنينية وتتوقف حتى سن البلوغ.",
+                                                                  "عند البلوغ شهرياً يكتمل الميوزي الأول ليعطي خلية بيضية ثانوية (ن) وجسماً قطبياً أول (ن).",
+                                                                  "تتوقف البيضية الثانوية في الطور الاستوائي للميوزي الثاني.",
+                                                                  "لا يكتمل الميوزي الثاني إلا لحظة اختراق الحيوان المنوي لغلاف البويضة بقناة فالوب لتعطي بويضة ناضجة وجسماً قطبياً ثانياً."
+                                                        ],
+                                                        "teacherTipEn": "Meiosis II in human females is known as the 'Conditional Division' (الانقسام المشروط) because it requires sperm entry.",
+                                                        "teacherTipAr": "يُسمى الميوزي الثاني في أنثى الإنسان بالانقسام المشروط أو المؤجل لأنه مشروط بدخول الحيوان المنوي."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch3_l3_ws_p3",
+                                                        "titleEn": "Contraception Mechanisms: Oral Pills vs IUD",
+                                                        "titleAr": "آليات منع الحمل: مقارنة حبوب منع الحمل واللولب",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How do combined oral contraceptive pills prevent pregnancy compared to an Intrauterine Device (IUD)?",
+                                                        "questionAr": "كيف تمنع أقراص منع الحمل حدوث الحمل بالمقارنة مع وسيلة اللولب؟",
+                                                        "optionsEn": [
+                                                                  "Pills inhibit ovulation completely via synthetic estrogen/progesterone; IUD allows ovulation and fertilization but prevents blastocyst implantation",
+                                                                  "Pills kill spermatozoa in the vagina; IUD blocks the Fallopian tubes surgically",
+                                                                  "Pills prevent implantation; IUD stops the menstrual cycle permanently",
+                                                                  "Pills and IUD both function identically by inhibiting LH release from pituitary"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الأقراص تمنع التبويض تماماً بالهرمونات الصناعية؛ بينما اللولب يسمح بالتبويض والإخصاب ويمنع استقرار البويضة المخصبة بالرحم",
+                                                                  "الأقراص تقتل الحيوانات المنوية في المهبل؛ بينما اللولب يربط قناتي فالوب جراحياً",
+                                                                  "الأقراص تمنع الاستقرار؛ بينما اللولب يوقف دورة الطمث بشكل دائم",
+                                                                  "الأقراص واللولب كلاهما يعملان بنفس الآلية بتثبيط هرمون LH من الغدة النخامية"
+                                                        ],
+                                                        "correctAnswer": "Pills inhibit ovulation completely via synthetic estrogen/progesterone; IUD allows ovulation and fertilization but prevents blastocyst implantation",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Pills mimic pregnancy hormones to suppress pituitary FSH and LH, preventing follicular development.",
+                                                        "hintAr": "الأقراص تحاكي هرمونات الحمل فتثبط إفراز FSH و LH وبالتالي لا تنضج أي بويضة ولا يحدث تبويض.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Oral Contraceptive Pills contain synthetic estrogen and progesterone.",
+                                                                  "They exert negative feedback on the anterior pituitary, blocking FSH and LH release, thereby completely halting follicle maturation and ovulation.",
+                                                                  "An Intrauterine Device (IUD) does not affect hormones or ovulation; fertilization can occur, but the foreign body reaction prevents the blastocyst from implanting in the uterine endometrium."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "أقراص منع الحمل تحتوي على هرمونات صناعية تماثل الإستروجين والبروجسترون.",
+                                                                  "تحدث تغذية راجعة سالبة على الفص الأمامي للنخامية فتمنع إفراز FSH و LH، وبالتالي يتوقف التبويض تماماً.",
+                                                                  "اللولب يستقر داخل الرحم ولا يعطل الهرمونات، فتخرج البويضة وقد تُخصب في قناة فالوب، لكن اللولب يمنع انغراس البويضة المخصبة (التوتية) في بطانة الرحم."
+                                                        ],
+                                                        "teacherTipEn": "Pills = No ovulation, no fertilization. IUD = Ovulation occurs, fertilization possible, no implantation. Condom/Surgical = No fertilization.",
+                                                        "teacherTipAr": "الأقراص = تمنع التبويض والإخصاب. اللولب = يحدث تبويض وقد يحدث إخصاب ولكن يمنع الاستقرار. الواقي والتعقيم = يمنعان الإخصاب."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_menstrual",
                             "titleEn": "Interactive Simulation: Human Reproduction, Gametogenesis & Embryology",
                             "titleAr": "محاكاة تفاعلية: التكاثر في الإنسان وتكوين الأمشاج ودورة الطمث ونمو الجنين",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Human Reproduction, Gametogenesis & Embryology.",
@@ -3680,46 +4193,122 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ المناعة في النبات وأعضاء وخلايا الجهاز اللمفاوي.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch4_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Plant Immunity & Human Lymphoid Architecture",
-                                        "titleAr": "سؤال قياسي: المناعة في النبات وأعضاء وخلايا الجهاز اللمفاوي",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Plant Immunity & Human Lymphoid Architecture according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ المناعة في النبات وأعضاء وخلايا الجهاز اللمفاوي وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch4_l1_ws_p1",
+                                                        "titleEn": "Plant Structural Defenses: Pre-existing vs Induced",
+                                                        "titleAr": "المناعة التركيبية في النبات: الفطرية والمستحدثة",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Which of the following represents an induced structural immune response in plants formed as a result of fungal pathogen invasion into xylem vessels?",
+                                                        "questionAr": "أي من التالي يمثل وسيلة مناعية تركيبية مستحدثة في النبات تتكون نتيجة غزو الكائنات الممرضة لأوعية الخشب؟",
+                                                        "optionsEn": [
+                                                                  "Formation of tyloses (protrusions of parenchyma into xylem vessels)",
+                                                                  "Pre-existing thick epidermal cutin wax layer",
+                                                                  "Epidermal epidermal hairs and spines",
+                                                                  "Synthesis of toxic non-protein canavanine"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تكوين التيلوزات (نمو زائد لخلايا البرنشيميا المجاورة لقصيبات وأوعية الخشب)",
+                                                                  "طبقة الكيوتين الشمعية السميكة المسبقة الوجود على البشرة",
+                                                                  "الأشواك والشعيرات التي تكسو أدمة النبات",
+                                                                  "تخليق الأحماض الأمينية غير البروتينية السامة كالكانافانين"
+                                                        ],
+                                                        "correctAnswer": "Formation of tyloses (protrusions of parenchyma into xylem vessels)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Tyloses are cellular ballooning growths that physically obstruct the vascular highway, preventing systemic pathogen spread.",
+                                                        "hintAr": "التيلوزات نمو برنشيمي ينتفخ داخل أوعية الخشب عبر النقر ليعيق حركة الميكروب ويمنع انتشاره في باقي النبات.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Pre-existing structural barriers include the waxy cuticle, cell wall, and epidermal hairs.",
+                                                                  "When vascular tissues are breached or infected, adjacent xylem parenchyma cells expand through pits into vessel lumens.",
+                                                                  "These balloon-like growths are called Tyloses, which block xylem vessels to restrict the pathogen from spreading upward to foliage."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المناعة التركيبية المسبقة تشمل الأدمة الخارجية وما بها من كيوتين وشعيرات وأشواك، والجدار الخلوي السليلوزي.",
+                                                                  "عند تعرض الجهاز الوعائي (الخشب) للقطع أو غزو ميكروبي، تتمدد خلايا البرنشيميا المجاورة للأوعية عبر النقر.",
+                                                                  "تسمى هذه الزوائد بالتيلوزات، ووظيفتها سد مجرى الأوعية لمنع انتشار الكائن الممرض إلى باقي أجزاء النبات."
+                                                        ],
+                                                        "teacherTipEn": "Tyloses are induced structural responses targeting the vascular transport system (xylem).",
+                                                        "teacherTipAr": "التيلوزات وسيلة مناعية تركيبية ناتجة عن الإصابة وتختص بقطع طريق الانتشار عبر أوعية الخشب."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch4_l1_ws_p2",
+                                                        "titleEn": "Primary vs Secondary Lymphoid Organs & T-Cell Maturation",
+                                                        "titleAr": "الأعضاء اللمفاوية الأولية والثانوية ومكان نضج الخلايا التائية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Where do T-lymphocytes originate, and in which organ do they undergo maturation and differentiation into CD4 and CD8 lineages?",
+                                                        "questionAr": "أين تنشأ الخلايا اللمفاوية التائية (T-cells)، وفي أي عضو تخضع للنضج والتمايز إلى خلاياها المتخصصة؟",
+                                                        "optionsEn": [
+                                                                  "Originate in Red Bone Marrow; mature in the Thymus gland under the hormone Thymosin",
+                                                                  "Originate in the Thymus gland; mature in the Spleen",
+                                                                  "Originate in Lymph nodes; mature in Peyer's patches",
+                                                                  "Originate in the Liver; mature in Red Bone Marrow"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تنشأ في نخاع العظام الأحمر؛ وتنضج وتتمايز في الغدة التيموسية تحت تأثير هرمون التيموسين",
+                                                                  "تنشأ في الغدة التيموسية؛ وتنضج في الطحال",
+                                                                  "تنشأ في العقد اللمفاوية؛ وتنضج في بقع باير",
+                                                                  "تنشأ في الكبد؛ وتنضج في نخاع العظام الأحمر"
+                                                        ],
+                                                        "correctAnswer": "Originate in Red Bone Marrow; mature in the Thymus gland under the hormone Thymosin",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "All blood cells are born in red bone marrow; T-cells specifically migrate to the thymus to differentiate.",
+                                                        "hintAr": "جميع خلايا الدم تنشأ من الخلايا الجذعية في نخاع العظام؛ وتهاجر الخلايا التائية غير الناضجة إلى التيموسية لتنضج.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Origin: All hematopoietic cells, including immature T-progenitors, are generated in Red Bone Marrow.",
+                                                                  "Migration: Immature stem lymphocytes travel via bloodstream to the Thymus gland located behind the sternum above the heart.",
+                                                                  "Maturation: Thymus epithelial cells secrete the peptide hormone Thymosin.",
+                                                                  "Thymosin drives T-cell differentiation into Helper ($T_H$ / CD4), Cytotoxic ($T_C$ / CD8), and Suppressor ($T_S$ / CD8) cells."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المنشأ: تتكون جميع خلايا الدم البيضاء بما فيها الخلايا اللمفاوية الجذعية في نخاع العظام الأحمر.",
+                                                                  "الهجرة: تنتقل الخلايا اللمفاوية غير الناضجة عبر الدم لتستقر في الغدة التيموسية الواقعة خلف القص وأعلى القلب.",
+                                                                  "النضج: تفرز الغدة التيموسية هرمون التيموسين الذي يحفز نضج الخلايا اللمفاوية إلى خلايا تائية (T).",
+                                                                  "التمايز: تتمايز إلى خلايا تائية مساعدة ($T_H$)، وسامة قاتلة ($T_C$)، ومثبطة كابحة ($T_S$)."
+                                                        ],
+                                                        "teacherTipEn": "B-cells: Born and mature in Bone Marrow. T-cells: Born in Bone Marrow, mature in Thymus.",
+                                                        "teacherTipAr": "الخلايا البائية: تنشأ وتنضج في نخاع العظام. الخلايا التائية: تنشأ في نخاع العظام وتنضج في التيموسية."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch4_l1_ws_p3",
+                                                        "titleEn": "Splenic Macrophage Functions & Blood Filtration",
+                                                        "titleAr": "وظيفة الطحال وخلاياه البلعمية الكبيرة في تنقية الدم",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why is the Spleen considered the 'graveyard' of red blood cells and a cornerstone of systemic immunity?",
+                                                        "questionAr": "لماذا يُعتبر الطحال 'مقبرة' خلايا الدم الحمراء وحصناً رئيسياً للمناعة في الجسم؟",
+                                                        "optionsEn": [
+                                                                  "Its resident macrophages engulf aged senescent erythrocytes (120 days old), breaking them into iron and protein metabolites for reuse",
+                                                                  "It synthesizes antibodies directly without assistance from B-lymphocytes",
+                                                                  "It stores all body calcium and regulates calcitonin secretion",
+                                                                  "It generates stem lymphocytes during bacterial infection by binary fission"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "خلاياه البلعمية الكبيرة تلتهم خلايا الدم الحمراء الهرمة والمسنة، وتفكك الهيموجلوبين لمكوناته الأولية (حديد وبروتين) لإعادة استخدامها",
+                                                                  "يصنع الأجسام المضادة مباشرة دون مساعدة الخلايا البائية",
+                                                                  "يخزن جميع كالسيوم الجسم وينظم إفراز الكالسيتونين",
+                                                                  "يولد خلايا لمفاوية جديدة بالانشطار الثنائي أثناء العدوى"
+                                                        ],
+                                                        "correctAnswer": "Its resident macrophages engulf aged senescent erythrocytes (120 days old), breaking them into iron and protein metabolites for reuse",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The spleen contains splenic cords rich in macrophages that filter blood and recycle hemoglobin components.",
+                                                        "hintAr": "يحتوي الطحال على شبكة كثيفة من الخلايا البلعمية الكبيرة تفرز الدم وتلتقط الميكروبات والخلايا المسنة ككرات الدم الحمراء.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The spleen is a secondary lymphoid organ located in the upper left abdomen.",
+                                                                  "Its splenic red pulp contains billions of resident Macrophages that phagocytose worn-out erythrocytes that have exceeded their 120-day lifespan.",
+                                                                  "Hemoglobin is broken down: Iron is recycled to bone marrow for new RBC synthesis, and globin is reused.",
+                                                                  "White pulp contains B and T lymphocytes that respond to blood-borne antigens."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الطحال عضو لمفاوي ثانوي يقع في الجانب العلوي الأيسر من تجويف البطن.",
+                                                                  "يحتوي على عقد لمفاوية غنية بالخلايا البلعمية الكبيرة التي تبتلع كرات الدم الحمراء المسنة (التي جاوز عمرها 120 يوماً).",
+                                                                  "تفكك خلايا الطحال الهيموجلوبين إلى مكوناته الأساسية: فيُعاد إرسال الحديد لنخاع العظام لبناء كرات دم جديدة.",
+                                                                  "كما يحتوي على خلايا لمفاوية بائية وتائية تهاجم أي ميكروب يدخل مجرى الدم."
+                                                        ],
+                                                        "teacherTipEn": "Splenectomy patients have elevated risk of sepsis because the blood-filtering lymphoid organ is lost.",
+                                                        "teacherTipAr": "استئصال الطحال يعرض المريض لضعف المناعة ضد بكتيريا الدم لفقدان مصفاة الدم اللمفاوية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_immunity",
                             "titleEn": "Interactive Simulation: Plant Immunity & Human Lymphoid Architecture",
                             "titleAr": "محاكاة تفاعلية: المناعة في النبات وأعضاء وخلايا الجهاز اللمفاوي",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Plant Immunity & Human Lymphoid Architecture.",
@@ -3853,46 +4442,122 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ خطوط الدفاع والمناعة الخلطية والخلوية والأجسام المضادة.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch4_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Innate & Adaptive Immune Mechanisms (Humoral & Cell-Mediated)",
-                                        "titleAr": "سؤال قياسي: خطوط الدفاع والمناعة الخلطية والخلوية والأجسام المضادة",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Innate & Adaptive Immune Mechanisms (Humoral & Cell-Mediated) according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ خطوط الدفاع والمناعة الخلطية والخلوية والأجسام المضادة وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch4_l2_ws_p1",
+                                                        "titleEn": "Antibody Molecular Architecture & Variable Binding Sites",
+                                                        "titleAr": "التركيب الجزيئي للأجسام المضادة ومواقع الارتباط المتغيرة",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How many antigen-binding sites does a typical monomeric IgG antibody molecule possess, and what establishes their high specificity?",
+                                                        "questionAr": "كم عدد مواقع الارتباط بالأنتيجين في جزيء الجسم المضاد النموذجي (IgG)، وما الذي يحدد تخصصه العالي؟",
+                                                        "optionsEn": [
+                                                                  "2 identical antigen-binding sites formed by the variable domains of one heavy and one light chain (Fab regions)",
+                                                                  "4 different antigen-binding sites formed solely by constant domains",
+                                                                  "1 central antigen-binding site located on the Fc stem region",
+                                                                  "10 variable sites linked exclusively by peptide bridges"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "موقعان متماثلان للارتباط بالأنتيجين يتشكلان من المناطق المتغيرة لكل من السلسلة الثقيلة والسلسلة الخفيفة",
+                                                                  "4 مواقع مختلفة للارتباط تتشكل فقط من المناطق الثابتة",
+                                                                  "موقع مركزي واحد يقع في منطقة الجذع الثابتة",
+                                                                  "10 مواقع متغيرة ترتبط بروابط ببتيدية فقط"
+                                                        ],
+                                                        "correctAnswer": "2 identical antigen-binding sites formed by the variable domains of one heavy and one light chain (Fab regions)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The Y-shaped antibody has two symmetrical arms; each arm tip contains the variable region for a specific epitope.",
+                                                        "hintAr": "للجسم المضاد شكل حرف Y بطرفين متماثلين، وكل طرف يحمل موقعاً متغيراً يطابق أنتيجين محدد كالقفل والمفتاح.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "An IgG monomer comprises 4 polypeptide chains: 2 identical Heavy chains and 2 identical Light chains linked by disulfide bonds.",
+                                                                  "At the tips of the 'Y' arms, the variable region of a heavy chain ($V_H$) pairs with the variable region of a light chain ($V_L$).",
+                                                                  "This forms exactly two identical antigen-binding sites per IgG monomer, providing bivalent binding specificity.",
+                                                                  "The constant region ($F_c$) mediates effector functions like complement activation and macrophage binding."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يتكون جزيء IgG من 4 سلاسل ببتيدية: سلسلتان ثقيلتان وسلسلتان خفيفتان ترتبط بروابط كبريتيدية ثنائية.",
+                                                                  "في طرفي حرف Y، تتطابق المنطقة المتغيرة للسلسلة الثقيلة مع المنطقة المتغيرة للسلسلة الخفيفة لتكوين موقع الارتباط.",
+                                                                  "لذلك يحتوي جزيء IgG على موقعين متماثلين للارتباط بنفس الأنتيجين بدقة تماثل القفل والمفتاح.",
+                                                                  "أما الجزء الثابت (المنطقة الثابتة) فيحدد آلية التفاعل مع الخلايا البلعمية وجزيئات المتمم."
+                                                        ],
+                                                        "teacherTipEn": "IgG, IgA, IgD, IgE are bivalent monomers (2 sites). Secretory IgA is dimer (4 sites). IgM is pentamer (10 sites).",
+                                                        "teacherTipAr": "أجسام IgG و IgD و IgE ثنائية المواقع (موقعان). و IgA الثنائي يحمل 4 مواقع. وجزيء IgM الخماسي يحمل 10 مواقع ارتباط."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch4_l2_ws_p2",
+                                                        "titleEn": "Mechanisms of Antibody Action: Agglutination vs Lysis",
+                                                        "titleAr": "طرق عمل الأجسام المضادة: التلازن والتحلل بواسطة المتممات",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why is IgM considered the most efficient antibody for the agglutination (التلازن / الإلصاق) mechanism against bacterial pathogens?",
+                                                        "questionAr": "لماذا يُعتبر الجسم المضاد IgM هو الأكفأ والأفضل في آلية التلازن (الإلصاق) ضد الميكروبات البكتيرية؟",
+                                                        "optionsEn": [
+                                                                  "Because it is a pentamer with 10 antigen-binding sites, allowing it to cross-link multiple bacteria into large clumps for phagocytosis",
+                                                                  "Because it secretes perforin directly to dissolve bacterial cell walls",
+                                                                  "Because it crosses the placenta into fetal circulation to neutralize viruses",
+                                                                  "Because it dissolves in the lipid membrane and stops cellular respiration"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأنه جزيء خماسي يحتوي على 10 مواقع ارتباط بالأنتيجين، مما يمكنه من ربط ميكروبات متعددة في كتل يسهل التهامها",
+                                                                  "لأنه يفرز إنزيم البيرفورين مباشرة لإذابة الجدار الخلوي البكتيري",
+                                                                  "لأنه يعبر المشيمة إلى الدورة الدموية للجنين لتحييد الفيروسات",
+                                                                  "لأنه يذوب في الغشاء الدهني للميكروب ويوقف تنفسه الخلوي"
+                                                        ],
+                                                        "correctAnswer": "Because it is a pentamer with 10 antigen-binding sites, allowing it to cross-link multiple bacteria into large clumps for phagocytosis",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "More binding sites per molecule mean more bacteria can be bound simultaneously into an immobilized agglutinated clump.",
+                                                        "hintAr": "امتلاك 10 مواقع ارتباط في جزيء واحد يجعله قادراً على تجميع عدة ميكروبات معاً في كتلة واحدة ضعيفة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "IgM exists as a pentameric structure composed of 5 interconnected antibody subunits.",
+                                                                  "It possesses 10 functional antigen-binding sites.",
+                                                                  "In Agglutination, one IgM molecule binds multiple bacterial cells simultaneously, aggregating them into a massive cluster.",
+                                                                  "This clumps the bacteria, stops their movement, and makes them easy targets for engulfment by phagocytic macrophages."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يوجد الجسم المضاد IgM في صورة بوليمر خماسي يتكون من 5 وحدات متصلة ببعضها.",
+                                                                  "يمتلك 10 مواقع ارتباط بالأنتيجين على أطرافه.",
+                                                                  "في آلية التلازن (الإلصاق)، يستطيع جزيء واحد من IgM الارتباط بعدة ميكروبات في آن واحد، فيجمعها في كتلة واحدة.",
+                                                                  "تصبح الميكروبات المتكتلة عاجزة عن الحركة والانتشار، مما يسهل على الخلايا البلعمية الكبيرة التهامها والقضاء عليها."
+                                                        ],
+                                                        "teacherTipEn": "Agglutination = IgM (10 sites). Neutralization = Blocks viral docking. Lysis = Antibody + Complement drilling membrane holes.",
+                                                        "teacherTipAr": "التلازن = IgM (10 مواقع). التعادل = تحييد الفيروسات ومنع دخولها. التحلل = جسم مضاد ينشط المتممات لثقب غشاء الميكروب."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch4_l2_ws_p3",
+                                                        "titleEn": "Cytotoxic T-Cells ($T_C$ / CD8) Killing Cascades: Perforin & Lymphotoxins",
+                                                        "titleAr": "آلية القضاء على الخلايا المصابة بالخلايا التائية السامة: البيرفورين والسموم اللمفاوية",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How do activated Cytotoxic T-lymphocytes ($T_C$ / CD8+) destroy virus-infected host cells and malignant tumors?",
+                                                        "questionAr": "كيف تقضي الخلايا التائية السامة القاتلة ($T_C$) على الخلايا المصابة بالفيروسات والخلايا السرطانية؟",
+                                                        "optionsEn": [
+                                                                  "By secreting Perforin to puncture target cell membranes and Lymphotoxins to activate apoptotic death genes within target nuclei",
+                                                                  "By phagocytosing the cancer cells directly via pseudopodia",
+                                                                  "By secreting histamine to cause systemic vasodilation and fever",
+                                                                  "By producing IgM antibodies to precipitate soluble tumor toxins"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بإفراز بروتين البيرفورين لثقب غشاء الخلية المصابة، والسموم اللمفاوية لتنشيط جينات التدمير الذاتي (الموت المبرمج) داخل نواتها",
+                                                                  "بابتلاع الخلايا السرطانية مباشرة بواسطة الأقدام الكاذبة",
+                                                                  "بإفراز مادة الهستامين المسببة لاتساع الأوعية الدموية والالتهاب",
+                                                                  "بإنتاج أجسام مضادة من نوع IgM لترسيب سموم الأورام"
+                                                        ],
+                                                        "correctAnswer": "By secreting Perforin to puncture target cell membranes and Lymphotoxins to activate apoptotic death genes within target nuclei",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Perforin creates holes in the membrane; Lymphotoxins enter to trigger nuclear DNA fragmentation from within.",
+                                                        "hintAr": "البيرفورين هو البروتين صانع الثقوب؛ والسموم اللمفاوية تفعل جينات الانتحار والموت الذاتي لنواة الخلية المصابة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Cytotoxic T-cells recognize foreign antigens presented on MHC-I of infected or cancer cells via CD8 receptors.",
+                                                                  "Mechanism 1: $T_C$ secretes Perforin, a pore-forming protein that inserts into and perforates the target plasma membrane.",
+                                                                  "Mechanism 2: $T_C$ secretes Lymphotoxins, which penetrate into the target cell to activate dormant endonuclease suicide genes, causing nuclear DNA fragmentation and programmed cell death (apoptosis)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تتعرف الخلايا التائية السامة ($T_C$) بواسطة مستقبلات CD8 على الأنتيجين الغريب المعروض على بروتين MHC-I للخلية المصابة أو السرطانية.",
+                                                                  "السلاح الأول: تفرز بروتين البيرفورين (البروتين صانع الثقوب) الذي يثقب غشاء الخلية الهدف.",
+                                                                  "السلاح الثاني: تفرز السموم اللمفاوية التي تنفذ لداخل الخلية لتنشيط جينات معينة في نواة الخلية المصابة، مما يؤدي لتفتيت الـ DNA وانتحار الخلية ذاتياً (الموت المبرمج)."
+                                                        ],
+                                                        "teacherTipEn": "Perforin punches holes in membrane (outer attack); Lymphotoxin activates nuclear suicide genes (inner attack).",
+                                                        "teacherTipAr": "البيرفورين يثقب الغشاء من الخارج؛ والسموم اللمفاوية تفعل جينات الهلاك في النواة من الداخل."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_immunity",
                             "titleEn": "Interactive Simulation: Innate & Adaptive Immune Mechanisms (Humoral & Cell-Mediated)",
                             "titleAr": "محاكاة تفاعلية: خطوط الدفاع والمناعة الخلطية والخلوية والأجسام المضادة",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Innate & Adaptive Immune Mechanisms (Humoral & Cell-Mediated).",
@@ -4804,46 +5469,132 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ إثبات المادة الوراثية، نموذج واطسون وكريك وتضاعف DNA.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch5_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Discovery of Genetic Material, DNA Architecture & Replication",
-                                        "titleAr": "سؤال قياسي: إثبات المادة الوراثية، نموذج واطسون وكريك وتضاعف DNA",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Discovery of Genetic Material, DNA Architecture & Replication according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ إثبات المادة الوراثية، نموذج واطسون وكريك وتضاعف DNA وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch5_l1_ws_p1",
+                                                        "titleEn": "Hershey-Chase Bacteriophage Experiment Proof of DNA",
+                                                        "titleAr": "تجربة هيرشي وتشيس وإثبات أن DNA هو المادة الوراثية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In the definitive Hershey and Chase experiment using T2 bacteriophages, which radioactive isotopes were used to label phage DNA and protein coats respectively?",
+                                                        "questionAr": "في تجربة هيرشي وتشيس الحاسمة على البكتيريوفاج، أي النظائر المشعة استُخدمت لترقيم حمض DNA وغلاف البروتين على الترتيب؟",
+                                                        "optionsEn": [
+                                                                  "Radioactive Phosphorus-32 (32P) for DNA and Radioactive Sulfur-35 (35S) for protein",
+                                                                  "Radioactive Sulfur-35 (35S) for DNA and Radioactive Phosphorus-32 (32P) for protein",
+                                                                  "Radioactive Nitrogen-15 for DNA and Carbon-14 for protein",
+                                                                  "Radioactive Iodine-131 for DNA and Cobalt-60 for protein"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الفوسفور المشع (32P) لترقيم DNA والكبريت المشع (35S) لترقيم البروتين",
+                                                                  "الكبريت المشع (35S) لترقيم DNA والفوسفور المشع (32P) لترقيم البروتين",
+                                                                  "النيتروجين المشع 15 لترقيم DNA والكربون المشع 14 للبروتين",
+                                                                  "اليود المشع 131 لترقيم DNA والكوبالت 60 للبروتين"
+                                                        ],
+                                                        "correctAnswer": "Radioactive Phosphorus-32 (32P) for DNA and Radioactive Sulfur-35 (35S) for protein",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "DNA contains phosphorus in its sugar-phosphate backbone but zero sulfur; proteins contain sulfur in amino acids (methionine, cysteine) but zero phosphorus.",
+                                                        "hintAr": "يدخل الفوسفور في تركيب نيوكليوتيدات DNA ولا يدخل في البروتين؛ بينما يدخل الكبريت في بعض الأحماض الأمينية ولا يدخل في DNA.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Hershey and Chase grew bacteriophage T2 in media with radioactive $^{32}P$ and $^{35}S$.",
+                                                                  "Phosphorus is exclusive to nucleic acid phosphate backbones; Sulfur is exclusive to protein cysteine/methionine residues.",
+                                                                  "After allowing phages to infect E. coli and shearing coats off in a blender, almost 100% of $^{32}P$ entered bacterial pellets, while $^{35}S$ remained in the supernatant.",
+                                                                  "This irrefutably demonstrated that viral DNA enters the host cell and directs viral replication, proving DNA is the genetic material."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "قام العالمان هيرشي وتشيس بترقيم الفاج بالفوسفور المشع $^{32}P$ والكبريت المشع $^{35}S$.",
+                                                                  "يدخل الفوسفور في تركيب هيكل سكر-فوسفات لـ DNA فقط ولا يوجد في البروتين؛ بينما يدخل الكبريت في الأحماض الأمينية للبروتين فقط ولا يوجد في DNA.",
+                                                                  "بعد إصابة بكتيريا إشيريشيا كولاي واستخدام الخلاط والطرد المركزي، تبين أن كل الفوسفور المشع تقريباً نفذ إلى داخل البكتيريا بينما بقي الكبريت في الخارج.",
+                                                                  "أثبتت هذه التجربة بشكل قاطع أن DNA الفاج هو الذي دخل الخلية ودفعها لبناء فيروسات جديدة، مما يؤكد أن DNA هو المادة الوراثية."
+                                                        ],
+                                                        "teacherTipEn": "Phosphorus = DNA identifier ($^{32}P$). Sulfur = Protein identifier ($^{35}S$).",
+                                                        "teacherTipAr": "الفوسفور المشع علامة مميزة لـ DNA، والكبريت المشع علامة مميزة للبروتين."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch5_l1_ws_p2",
+                                                        "titleEn": "Chargaff Parity & Hydrogen Bond Arithmetic",
+                                                        "titleAr": "قواعد تشارجاف وحساب الروابط الهيدروجينية في جزيء DNA",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "A double-stranded DNA molecule consists of 1,000 base pairs. If Adenine makes up 20% of total nitrogenous bases, what is the total number of hydrogen bonds stabilizing this double helix?",
+                                                        "questionAr": "قطعة من جزيء DNA مزدوج الشريط تتكون من 1,000 زوج من القواعد النيتروجينية. إذا كانت نسبة الأدنين 20% من إجمالي القواعد، فما هو إجمالي عدد الروابط الهيدروجينية التي تثبت هذا اللولب؟",
+                                                        "optionsEn": [
+                                                                  "2,600 hydrogen bonds",
+                                                                  "2,000 hydrogen bonds",
+                                                                  "2,300 hydrogen bonds",
+                                                                  "3,000 hydrogen bonds"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "2,600 رابطة هيدروجينية",
+                                                                  "2,000 رابطة هيدروجينية",
+                                                                  "2,300 رابطة هيدروجينية",
+                                                                  "3,000 رابطة هيدروجينية"
+                                                        ],
+                                                        "correctAnswer": "2,600 hydrogen bonds",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Total bases = 2,000. Adenine = Thymine = 20% (400 each). Guanine = Cytosine = 30% (600 each). A-T pairs have 2 bonds; G-C pairs have 3 bonds.",
+                                                        "hintAr": "إجمالي القواعد = 2,000 قاعدة. الأدنين = الثايمين = 400 قاعدة. الجوانين = السيتوزين = 600 قاعدة. (400 × 2) + (600 × 3).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "1,000 base pairs = 2,000 total nucleotides/bases.",
+                                                                  "Adenine ($A$) = $20\\% \\times 2000 = 400\\text{ bases}$.",
+                                                                  "By Chargaff's rules: Thymine ($T$) = $A = 400\\text{ bases}$. Thus there are 400 A-T pairs.",
+                                                                  "Remaining bases = $2000 - (400 + 400) = 1200\\text{ bases}$.",
+                                                                  "Guanine ($G$) = Cytosine ($C$) = $1200 / 2 = 600\\text{ bases}$. Thus there are 600 G-C pairs.",
+                                                                  "Calculate total hydrogen bonds:",
+                                                                  "$$\\text{Total Bonds} = (400 \\times 2) + (600 \\times 3) = 800 + 1800 = 2600\\text{ hydrogen bonds}$$"
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "1,000 زوج من القواعد = 2,000 نيوكليوتيدة (قاعدة مفردة).",
+                                                                  "عدد قواعد الأدنين ($A$) = $20\\% \\times 2000 = 400\\text{ قاعدة}$.",
+                                                                  "طبقاً لقاعدة تشارجاف: الثايمين ($T$) = $A$ = 400 قاعدة. إذن عدد أزواج A-T = 400 زوج.",
+                                                                  "باقي القواعد = $2000 - 800 = 1200\\text{ قاعدة}$.",
+                                                                  "عدد الجوانين ($G$) = السيتوزين ($C$) = $1200 \\div 2 = 600\\text{ قاعدة}$. إذن عدد أزواج G-C = 600 زوج.",
+                                                                  "حساب عدد الروابط الهيدروجينية:",
+                                                                  "$$\\text{إجمالي الروابط} = (400 \\times 2) + (600 \\times 3) = 800 + 1800 = 2600\\text{ رابطة هيدروجينية}$$"
+                                                        ],
+                                                        "teacherTipEn": "Formula: Total H-bonds = 2*(A-T pairs) + 3*(G-C pairs).",
+                                                        "teacherTipAr": "القاعدة الرياضية: إجمالي الروابط = (2 × عدد أزواج A-T) + (3 × عدد أزواج G-C)."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch5_l1_ws_p3",
+                                                        "titleEn": "Enzymology of Semi-Conservative DNA Replication",
+                                                        "titleAr": "الإنزيمات المشتركة في التضاعف شبه المحافظ لـ DNA",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why is the lagging strand synthesized discontinuously as Okazaki fragments rather than as a continuous strand?",
+                                                        "questionAr": "لماذا يُبنى الشريط المتأخر (التابع) في صورة قطع أوكازاكي غير متصلة بدلاً من بنائه بشكل متصل كالشريط القائد؟",
+                                                        "optionsEn": [
+                                                                  "Because DNA Polymerase can only synthesize in the 5' to 3' direction, requiring backward discontinuous synthesis away from the opening fork",
+                                                                  "Because DNA Ligase functions only at temperatures below 20°C",
+                                                                  "Because helicase unzips DNA only in one direction and destroys the lagging strand",
+                                                                  "Because RNA primers are strictly prohibited on the lagging template strand"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن إنزيم بلمرة DNA يبني أشرطة جديدة فقط في الاتجاه من 5َ إلى 3َ، مما يجبره على البناء المتقطع بعيداً عن اتجاه شوكة التضاعف",
+                                                                  "لأن إنزيم الربط يعمل فقط في درجات حرارة منخفضة جداً",
+                                                                  "لأن إنزيم اللولب يفصل الأشرطة في اتجاه واحد فقط ويدمر الشريط المعاكس",
+                                                                  "لأن بادئات RNA لا تستطيع الارتباط بالشريط القالب المعاكس"
+                                                        ],
+                                                        "correctAnswer": "Because DNA Polymerase can only synthesize in the 5' to 3' direction, requiring backward discontinuous synthesis away from the opening fork",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "DNA polymerase requires a free 3'-OH group to attach each incoming nucleotide; it can never add to a 5' phosphate end.",
+                                                        "hintAr": "إنزيم بلمرة DNA يضيف نيوكليوتيدات جديدة فقط إلى الطرف 3َ الحر؛ ولا يستطيع البناء في الاتجاه المعاكس.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "DNA double strands are antiparallel: one runs 3' to 5' and the other runs 5' to 3'.",
+                                                                  "Helicase unzips the parental strands, moving in one direction along the replication fork.",
+                                                                  "DNA Polymerase works exclusively in the $5' \\to 3'$ direction.",
+                                                                  "On the $3' \\to 5'$ template, synthesis proceeds continuously towards the fork (Leading strand).",
+                                                                  "On the $5' \\to 3'$ template, synthesis must proceed in short segments away from the fork (Lagging strand), yielding Okazaki fragments that are subsequently joined by DNA Ligase."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "شريطا DNA متعاكسان: أحدهما في الاتجاه 3َ إلى 5َ والآخر في الاتجاه 5َ إلى 3َ.",
+                                                                  "يفصل إنزيم اللولب الشريطين بالتحرك للأمام وتكوين شوكة التضاعف.",
+                                                                  "إنزيم بلمرة DNA يمتلك اتجاهاً وحيداً للعمل: فهو يضيف النيوكليوتيدات فقط في الاتجاه من 5َ إلى 3َ للجديد.",
+                                                                  "بالنسبة للقالب 3َ إلى 5َ، يتحرك الإنزيم في نفس اتجاه الشوكة بانسيابية مستمرة (الشريط القائد).",
+                                                                  "بالنسبة للقالب 5َ إلى 3َ، يضطر الإنزيم لبناء قطع صغيرة في الاتجاه المعاكس لشوكة التضاعف (قطع أوكازاكي)، ثم يربطها إنزيم الربط لتكون شريطاً متصلاً."
+                                                        ],
+                                                        "teacherTipEn": "Leading strand = Continuous (5' to 3'). Lagging strand = Discontinuous Okazaki fragments + DNA Ligase.",
+                                                        "teacherTipAr": "الشريط القائد = بناء متصل. الشريط المتأخر = قطع أوكازاكي متباعدة متقطعة يربطها إنزيم الربط."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_dna",
                             "titleEn": "Interactive Simulation: Discovery of Genetic Material, DNA Architecture & Replication",
                             "titleAr": "محاكاة تفاعلية: إثبات المادة الوراثية، نموذج واطسون وكريك وتضاعف DNA",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Discovery of Genetic Material, DNA Architecture & Replication.",
@@ -4977,46 +5728,146 @@ export const thanaweyaBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ تخليق البروتين، الشفرة الوراثية وتكنولوجيا DNA معاد الاتحاد.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "th_bio_ch5_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: RNA Transcription, Genetic Code Translation & Biotechnology",
-                                        "titleAr": "سؤال قياسي: تخليق البروتين، الشفرة الوراثية وتكنولوجيا DNA معاد الاتحاد",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of RNA Transcription, Genetic Code Translation & Biotechnology according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ تخليق البروتين، الشفرة الوراثية وتكنولوجيا DNA معاد الاتحاد وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "th_bio_ch5_l2_ws_p1",
+                                                        "titleEn": "mRNA Transcription Sequence & Polarity",
+                                                        "titleAr": "تحديد تتابع نيوكليوتيدات وقواعد mRNA المنسوخ من شريط القالب",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "If the template strand of a DNA gene reads $3'-\\text{TAC-GGG-TTC-ACT}-5'$, what is the complementary mRNA sequence synthesized by RNA Polymerase?",
+                                                        "questionAr": "إذا كان تتابع شريط DNA القالب هو $3'-\\text{TAC-GGG-TTC-ACT}-5'$، فما هو تتابع mRNA المنسوخ بواسطة إنزيم بلمرة RNA؟",
+                                                        "optionsEn": [
+                                                                  "5'-AUG-CCC-AAG-UGA-3'",
+                                                                  "5'-ATG-CCC-AAG-TGA-3'",
+                                                                  "3'-AUG-CCC-AAG-UGA-5'",
+                                                                  "5'-UAC-GGG-UUC-ACU-3'"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "5'-AUG-CCC-AAG-UGA-3'",
+                                                                  "5'-ATG-CCC-AAG-TGA-3'",
+                                                                  "3'-AUG-CCC-AAG-UGA-5'",
+                                                                  "5'-UAC-GGG-UUC-ACU-3'"
+                                                        ],
+                                                        "correctAnswer": "5'-AUG-CCC-AAG-UGA-3'",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "mRNA is transcribed antiparallel to template DNA (5' to 3'), replacing Thymine with Uracil (T pairs with A, A pairs with U, C pairs with G).",
+                                                        "hintAr": "ينسخ mRNA في الاتجاه المتعاكس من 5َ إلى 3َ، مع وضع اليوراسيل U مكان الثايمين T مقابل الأدنين A.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Template DNA strand is oriented $3' \\to 5'$.",
+                                                                  "RNA Polymerase synthesizes the complementary mRNA strand in the antiparallel $5' \\to 3'$ direction.",
+                                                                  "Base complementary pairing rules for RNA transcription:",
+                                                                  "  - 3'-T $\\to$ 5'-A",
+                                                                  "  - 3'-A $\\to$ 5'-U (Uracil replaces Thymine in RNA)",
+                                                                  "  - 3'-C $\\to$ 5'-G",
+                                                                  "  - 3'-G $\\to$ 5'-C",
+                                                                  "Translating triplet by triplet:",
+                                                                  "  - TAC $\\to$ AUG (Start codon)",
+                                                                  "  - GGG $\\to$ CCC",
+                                                                  "  - TTC $\\to$ AAG",
+                                                                  "  - ACT $\\to$ UGA (Stop codon)",
+                                                                  "Resulting mRNA = $5'-\\text{AUG-CCC-AAG-UGA}-3'$."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "شريط القالب لـ DNA يقرأ في الاتجاه من 3َ إلى 5َ.",
+                                                                  "يبني إنزيم بلمرة RNA الشريط المكمل له في الاتجاه المعاكس من 5َ إلى 3َ.",
+                                                                  "قواعد التكامل أثناء نسخ RNA:",
+                                                                  "  - T في القالب تقابلها A في mRNA",
+                                                                  "  - A في القالب تقابلها U (يوراسيل) في mRNA",
+                                                                  "  - C في القالب تقابلها G في mRNA",
+                                                                  "  - G في القالب تقابلها C في mRNA",
+                                                                  "النسخ ثلاثية بثلاثية:",
+                                                                  "  - TAC $\\to$ AUG (كودون البدء)",
+                                                                  "  - GGG $\\to$ CCC",
+                                                                  "  - TTC $\\to$ AAG",
+                                                                  "  - ACT $\\to$ UGA (كودون الوقف)",
+                                                                  "إذن جزيء mRNA المنسوخ هو: $5'-\\text{AUG-CCC-AAG-UGA}-3'$."
+                                                        ],
+                                                        "teacherTipEn": "Notice: 3'-TAC-5' always yields the 5'-AUG-3' Start Codon for Methionine. 3'-ACT-5' yields the 5'-UGA-3' Stop Codon.",
+                                                        "teacherTipAr": "لاحظ دائماً: التتابع TAC في القالب ينسخ كودون البدء AUG؛ بينما ACT يعطي كودون الوقف UGA."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch5_l2_ws_p2",
+                                                        "titleEn": "Ribosome Translation Termination & Stop Codon Mechanics",
+                                                        "titleAr": "آلية إنهاء الترجمة في الريبوسوم ودور بروتين عامل الإطلاق",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "When a ribosome translocates along an mRNA molecule and encounters one of the three stop codons (UAA, UAG, or UGA), what binds to the ribosomal A-site to terminate translation?",
+                                                        "questionAr": "عندما يتحرك الريبوسوم على mRNA ويصل إلى أحد كودونات الوقف الثلاثة (UAA أو UAG أو UGA)، ما الذي يرتبط بموقع A لإنهاء تخليق البروتين؟",
+                                                        "optionsEn": [
+                                                                  "A Release Factor protein (عامل الإطلاق)",
+                                                                  "A special tRNA carrying no amino acid",
+                                                                  "RNA Polymerase II",
+                                                                  "DNA Ligase"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بروتين عامل الإطلاق (Release Factor)",
+                                                                  "جزيء tRNA خاص لا يحمل أي حمض أميني",
+                                                                  "إنزيم بلمرة RNA الثاني",
+                                                                  "إنزيم الربط"
+                                                        ],
+                                                        "correctAnswer": "A Release Factor protein (عامل الإطلاق)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Stop codons do not code for any amino acid and have zero matching tRNAs; instead, a specific protein factor triggers peptide dissociation.",
+                                                        "hintAr": "كودونات الوقف لا تمثل أي حمض أميني وليس لها أي جزيء tRNA مضاد، بل يرتبط بها بروتين خاص يفكك الريبوسوم.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "There are 64 genetic codons: 61 code for the 20 standard amino acids, and 3 are STOP codons (UAA, UAG, UGA).",
+                                                                  "No tRNA molecules carry anticodons complementary to the three stop codons.",
+                                                                  "When a stop codon occupies the ribosomal A-site (Aminoacyl site), it is recognized by a protein called the Release Factor.",
+                                                                  "The Release Factor catalyzes hydrolysis of the bond between the completed polypeptide chain and the tRNA in the P-site.",
+                                                                  "The newly synthesized protein is released, and the two ribosomal subunits (large and small) dissociate from the mRNA."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الشفرة الوراثية تضم 64 كودوناً: 61 كودوناً تمثل الأحماض الأمينية العشرين، و3 كودونات تمثل إشارات وقف (UAA, UAG, UGA).",
+                                                                  "لا توجد جزيئات tRNA تحمل مضادات كودونات مطابقة لكودونات الوقف.",
+                                                                  "عند وصول كودون الوقف إلى موقع الأمينوأسيل (الموقع A) بالريبوسوم، يرتبط به بروتين خاص يُسمى عامل الإطلاق.",
+                                                                  "يحفز عامل الإطلاق انفصال السلسلة الببتيدية المتكونة عن جزيء tRNA الموجود في موقع الببتيديل (P).",
+                                                                  "يتحرر البروتين الناضج في السيتوبلازم، وتنفصل تحت وحدتي الريبوسوم الكبيرة والصغيرة عن شريط mRNA."
+                                                        ],
+                                                        "teacherTipEn": "Number of sense amino acid codons = 61. Stop codons = 3 (UAA, UAG, UGA). Release factor is a protein, NOT a nucleic acid.",
+                                                        "teacherTipAr": "عدد كودونات الأحماض الأمينية = 61. كودونات الوقف = 3. وعامل الإطلاق هو بروتين وليس حمضاً نووياً."
+                                              },
+                                              {
+                                                        "id": "th_bio_ch5_l2_ws_p3",
+                                                        "titleEn": "Restriction Endonucleases & Palindromic Cleavage Specificity",
+                                                        "titleAr": "إنزيمات القصر وتحديد التتابع المتناوب (موقع التعرف)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Which of the following double-stranded DNA sequences represents a valid palindromic recognition site for a bacterial Type II restriction endonuclease?",
+                                                        "questionAr": "أي من تتابعات DNA مزدوجة الشريط التالية يمثل موقع تعرف متناوب (باليندروم) سليم لإنزيم قصر بكتيري؟",
+                                                        "optionsEn": [
+                                                                  "5'-GAATTC-3' paired with 3'-CTTAAG-5'",
+                                                                  "5'-GATACA-3' paired with 3'-CTATGT-5'",
+                                                                  "5'-AAAAAA-3' paired with 3'-TTTTTT-5'",
+                                                                  "5'-GGGGGG-3' paired with 3'-CCCCCC-5'"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "5'-GAATTC-3' يقابله 3'-CTTAAG-5'",
+                                                                  "5'-GATACA-3' يقابله 3'-CTATGT-5'",
+                                                                  "5'-AAAAAA-3' يقابله 3'-TTTTTT-5'",
+                                                                  "5'-GGGGGG-3' يقابله 3'-CCCCCC-5'"
+                                                        ],
+                                                        "correctAnswer": "5'-GAATTC-3' paired with 3'-CTTAAG-5'",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "A palindromic sequence reads identically on both strands when read in the 5' to 3' direction.",
+                                                        "hintAr": "موقع التعرف الباليندرومي يُقرأ بنفس الترتيب تماماً على كلا الشريطين عند القراءة في الاتجاه من 5َ إلى 3َ.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Bacterial restriction endonucleases recognize specific palindromic sequences usually 4 to 8 base pairs in length.",
+                                                                  "A sequence is palindromic if reading the top strand from 5' to 3' matches reading the bottom strand from 5' to 3':",
+                                                                  "  - Top strand ($5' \\to 3'$): G - A - A - T - T - C",
+                                                                  "  - Bottom strand ($5' \\to 3'$): G - A - A - T - T - C",
+                                                                  "This is the canonical recognition site for EcoRI, which cuts between G and A on both strands, leaving staggered single-stranded 'sticky ends' ideal for molecular cloning."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تتعرف إنزيمات القصر البكتيرية على تتابعات متناظرة خاصة يتراوح طولها من 4 إلى 8 أزواج من القواعد النيتروجينية.",
+                                                                  "يتحقق التناوب (موقع التعرف) إذا كان التتابع يُقرأ بنفس القراءة على كلا الشريطين في الاتجاه من 5َ إلى 3َ:",
+                                                                  "  - الشريط العلوي (من 5َ إلى 3َ): G - A - A - T - T - C",
+                                                                  "  - الشريط السفلي (من 5َ إلى 3َ): G - A - A - T - T - C",
+                                                                  "هذا التتابع هو موقع القطع النموذجي لإنزيم القصر الشهير EcoRI الذي يقطع بين G و A مخلفاً أطرافاً لاصقة مكملة لربط الجينات."
+                                                        ],
+                                                        "teacherTipEn": "Palindromes in DNA: Read 5' to 3' on Strand 1 == Read 5' to 3' on Strand 2. Creates sticky ends for DNA Ligase.",
+                                                        "teacherTipAr": "موقع التعرف: قراءة 5َ إلى 3َ على الشريط الأول تطابق قراءة 5َ إلى 3َ على الشريط الثاني. وينتج عنه أطراف لاصقة تسهل الاستنساخ."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_genetics",
                             "titleEn": "Interactive Simulation: RNA Transcription, Genetic Code Translation & Biotechnology",
                             "titleAr": "محاكاة تفاعلية: تخليق البروتين، الشفرة الوراثية وتكنولوجيا DNA معاد الاتحاد",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in RNA Transcription, Genetic Code Translation & Biotechnology.",

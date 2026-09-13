@@ -33,12 +33,7 @@ import { ImmunityLab } from './ImmunityLab';
 import { GeneticsLab } from './GeneticsLab';
 import { BioenergeticsLab } from './BioenergeticsLab';
 
-interface Props {
-  lang: Language;
-  theme?: ThemeMode;
-}
-
-type BioTab =
+export type BioTab =
   | 'skeleton'
   | 'sarcomere'
   | 'dna'
@@ -48,6 +43,12 @@ type BioTab =
   | 'immunity'
   | 'genetics'
   | 'bioenergetics';
+
+interface Props {
+  lang: Language;
+  theme?: ThemeMode;
+  initialTab?: BioTab;
+}
 
 interface BoneRegion {
   id: string;
@@ -236,12 +237,18 @@ const GENETIC_CODE: Record<string, { aa: string; nameEn: string; nameAr: string 
   GGG: { aa: 'Gly', nameEn: 'Glycine', nameAr: 'جلايسين' },
 };
 
-export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [activeTab, setActiveTab] = useState<BioTab>('skeleton');
+  const [activeTab, setActiveTab] = useState<BioTab>(initialTab || 'skeleton');
+
+  React.useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   // Skeleton state
   const [selectedBone, setSelectedBone] = useState<BoneRegion>(BONE_REGIONS[0]);

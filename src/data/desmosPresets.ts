@@ -232,7 +232,7 @@ export const desmosPresets: DesmosPreset[] = [
     ]
   },
 
-  // --- 4. Scientific Calculator Basics ---
+  // --- 4. Scientific Calculator Basics & Quantitative Biology ---
   {
     id: 'sci_combinatorics',
     category: 'scientific',
@@ -246,6 +246,56 @@ export const desmosPresets: DesmosPreset[] = [
       'nCr(10, 3)',
       'nPr(10, 3)',
       '7!'
+    ]
+  },
+  {
+    id: 'bio_michaelis_menten',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Enzyme Kinetics: Michaelis-Menten Equation',
+    titleAr: 'حركية التفاعلات الإنزيمية: معادلة ميكايليس-مينتن',
+    descEn: 'Substrate concentration [S] vs reaction velocity v showing Vmax saturation and Km.',
+    descAr: 'منحنى سرعة التفاعل الإنزيمي بدلالة تركيز المادة الهدف وتوضيح السرعة القصوى وثابت ميكايليس.',
+    latex: 'v(x) = \\frac{V_{\\max} \\cdot x}{K_m + x}, \\quad V_{\\max} = 100, \\quad K_m = 5',
+    expressions: [
+      'V_{max} = 100',
+      'K_m = 5',
+      'v(x) = \\frac{V_{max} \\cdot x}{K_m + x} \\left\\{x \\ge 0\\right\\}',
+      'y = V_{max}',
+      '(K_m, \\frac{V_{max}}{2})'
+    ]
+  },
+  {
+    id: 'bio_hardy_weinberg',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Population Genetics: Hardy-Weinberg Equilibrium',
+    titleAr: 'علم الوراثة السكانية: اتزان هاردي-واينبرج للجينات',
+    descEn: 'Genotypic frequencies p² (AA), 2pq (Aa), and q² (aa) as allele frequency p varies.',
+    descAr: 'تردد الطرز الجينية للسيادة التامة والهجين والمتنحي بدلالة التردد الأليلي p.',
+    latex: 'p^2 + 2p(1-p) + (1-p)^2 = 1, \\quad p \\in [0, 1]',
+    expressions: [
+      'f_{AA}(p) = p^2 \\left\\{0 \\le p \\le 1\\right\\}',
+      'f_{Aa}(p) = 2p(1 - p) \\left\\{0 \\le p \\le 1\\right\\}',
+      'f_{aa}(p) = (1 - p)^2 \\left\\{0 \\le p \\le 1\\right\\}',
+      '(0.5, 0.5)'
+    ]
+  },
+  {
+    id: 'bio_logistic_growth',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Ecology & Cellular Kinetics: Logistic Population Growth',
+    titleAr: 'النمو السكاني اللوجستي والقدرة الاستيعابية للبيئة',
+    descEn: 'Sigmoidal S-curve of microbial population growth bounded by environmental carrying capacity K.',
+    descAr: 'منحنى النمو البكتيري والسكاني النموذجي على شكل حرف S المقيد بالقدرة الاستيعابية للوسط.',
+    latex: 'N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-r t}}',
+    expressions: [
+      'K = 1000',
+      'N_0 = 50',
+      'r = 0.5',
+      'N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-r \\cdot t}} \\left\\{t \\ge 0\\right\\}',
+      'y = K'
     ]
   }
 ];

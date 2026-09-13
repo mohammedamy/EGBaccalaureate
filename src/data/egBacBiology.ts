@@ -149,46 +149,124 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التركيب الجزيئي للـ DNA والعقيدة المركزية للبيولوجيا الجزيئية.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch1_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Molecular Architecture of DNA & Central Dogma",
-                                        "titleAr": "سؤال قياسي: التركيب الجزيئي للـ DNA والعقيدة المركزية للبيولوجيا الجزيئية",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Molecular Architecture of DNA & Central Dogma according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التركيب الجزيئي للـ DNA والعقيدة المركزية للبيولوجيا الجزيئية وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch1_l1_ws_p1",
+                                                        "titleEn": "DNA Double Helix Pitch, Rise & Helical Turn Calculations",
+                                                        "titleAr": "حسابات خطوة اللولب المزدوج والارتفاع المحوري لـ B-DNA",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In standard B-DNA double helix geometry, if a double-stranded DNA segment measures $102\\text{ nm}$ in physical axial length, how many complete helical turns and how many base pairs does it contain?",
+                                                        "questionAr": "في الهندسة الفراغية القياسية لـ B-DNA، إذا كان طول قطعة مزدوجة من DNA يبلغ $102\\text{ نانومتر}$ على امتداد المحور الطولي، فكم دورة حلزونية كاملة وكم زوجاً من القواعد النيتروجينية تحتويها؟",
+                                                        "optionsEn": [
+                                                                  "30 complete turns and 300 base pairs",
+                                                                  "10 complete turns and 100 base pairs",
+                                                                  "34 complete turns and 340 base pairs",
+                                                                  "25 complete turns and 250 base pairs"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "30 دورة كاملة و 300 زوج من القواعد",
+                                                                  "10 دورات كاملة و 100 زوج من القواعد",
+                                                                  "34 دورة كاملة و 340 زوجاً من القواعد",
+                                                                  "25 دورة كاملة و 250 زوجاً من القواعد"
+                                                        ],
+                                                        "correctAnswer": "30 complete turns and 300 base pairs",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Each helical turn of B-DNA has a pitch of 3.4 nm and contains approximately 10 base pairs (axial rise = 0.34 nm per base pair).",
+                                                        "hintAr": "طول الدورة الواحدة (الخطوة) في B-DNA يساوي 3.4 نانومتر وتحتوي على 10 أزواج من القواعد (الارتفاع المحوري = 0.34 نانومتر لكل زوج).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "In B-DNA, the helical pitch $P = 3.4\\text{ nm}$ per complete turn.",
+                                                                  "Number of complete turns $N_{\\text{turns}} = \\frac{102\\text{ nm}}{3.4\\text{ nm/turn}} = 30\\text{ turns}$.",
+                                                                  "Each turn accommodates 10 base pairs (or $\\frac{102\\text{ nm}}{0.34\\text{ nm/bp}} = 300\\text{ base pairs}$).",
+                                                                  "Therefore, the segment contains exactly 30 turns and 300 base pairs."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "في نموذج B-DNA، خطوة الدورة الحلزونية الكاملة $P = 3.4\\text{ نانومتر}$.",
+                                                                  "عدد الدورات الكاملة = $\\frac{102}{3.4} = 30\\text{ دورة}$.",
+                                                                  "تحتوي كل دورة على 10 أزواج من القواعد (أو $\\frac{102}{0.34} = 300\\text{ زوج من القواعد}$).",
+                                                                  "إذن القطعة تضم 30 دورة حلزونية كاملة و 300 زوج من القواعد."
+                                                        ],
+                                                        "teacherTipEn": "B-DNA parameters: Pitch = 3.4 nm, Rise per bp = 0.34 nm, Diameter = 2.0 nm, 10 bp/turn.",
+                                                        "teacherTipAr": "ثوابت B-DNA: الخطوة = 3.4 نانومتر، الارتفاع لكل زوج = 0.34 نانومتر، القطر = 2.0 نانومتر، 10 أزواج/دورة."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l1_ws_p2",
+                                                        "titleEn": "Thermodynamic Melting Temperature (Tm) & GC Content",
+                                                        "titleAr": "درجة حرارة الانصهار الحراري (Tm) ونسبة القواعد G-C",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why does a DNA duplex with 70% GC content exhibit a significantly higher thermal denaturation melting temperature ($T_m$) than an equal-length duplex with 30% GC content?",
+                                                        "questionAr": "لماذا تظهر قطعة DNA ذات محتوى 70% من أزواج G-C درجة انصهار حراري ($T_m$) أعلى بكثير مقارنة بقطعة مساوية لها في الطول ذات محتوى 30% من G-C؟",
+                                                        "optionsEn": [
+                                                                  "G-C pairs are joined by 3 hydrogen bonds and enhanced base-stacking van der Waals interactions, compared to only 2 bonds in A-T pairs",
+                                                                  "G-C pairs form covalent peptide linkages across antiparallel strands",
+                                                                  "A-T pairs have lower molecular weight and evaporate faster",
+                                                                  "Guanine contains sulfur bridges that resist thermal vibration"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن أزواج G-C ترتبط بـ 3 روابط هيدروجينية وتتميز بتداخلات تراص قواعد (Base Stacking) أقوى مقارنة برابطتين فقط في A-T",
+                                                                  "لأن أزواج G-C تكون روابط تساهمية ببتيدية بين الشريطين المتعاكسين",
+                                                                  "لأن أزواج A-T وزنها الجزيئي أقل وتتطاير بالحرارة",
+                                                                  "لأن الجوانين يحتوي على جسور كبريتيدية تقاوم الاهتزاز الحراري"
+                                                        ],
+                                                        "correctAnswer": "G-C pairs are joined by 3 hydrogen bonds and enhanced base-stacking van der Waals interactions, compared to only 2 bonds in A-T pairs",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "3 hydrogen bonds require higher thermal kinetic energy to disrupt than 2 hydrogen bonds.",
+                                                        "hintAr": "الروابط الهيدروجينية الثلاث بين الجوانين والسيتوزين تتطلب طاقة حركية حرارية أعلى لكسرها مقارنة برابطتين بين الأدنين والثايمين.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Guanine pairs with Cytosine through three inter-strand hydrogen bonds.",
+                                                                  "Adenine pairs with Thymine through only two hydrogen bonds.",
+                                                                  "Higher GC content increases total hydrogen bonding enthalpy and base-stacking $\\pi$-orbital interactions.",
+                                                                  "Consequently, higher kinetic temperature is mandatory to separate the duplex into single strands ($T_m$ increases)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يرتبط الجوانين بالسيتوزين بثلاث روابط هيدروجينية بين الشريطين.",
+                                                                  "يرتبط الأدنين بالثايمين برابطتين هيدروجينيتين فقط.",
+                                                                  "زيادة نسبة G-C تزيد من إجمالي الروابط الهيدروجينية وقوى التراص الفراغي بين حلقات القواعد المتتالية.",
+                                                                  "لذا يلزم رفع درجة الحرارة بدرجة أكبر لفك الشريطين وانصهار اللولب المزدوج."
+                                                        ],
+                                                        "teacherTipEn": "Empirical rule: $T_m \\approx 69.3 + 0.41 \\times (\\%GC)$. GC-rich primers ensure higher annealing stability in PCR.",
+                                                        "teacherTipAr": "علاقة طردية مؤكدة: كلما زادت نسبة G-C ارتفعت درجة حرارة الانصهار $T_m$ وثبات اللولب المزدوج."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l1_ws_p3",
+                                                        "titleEn": "Central Dogma Directionality & Information Transfer",
+                                                        "titleAr": "اتجاهية العقيدة المركزية وتدفق المعلومات البيولوجية",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Which cellular process directly violates the strict unidirectional flow of the classical Central Dogma ($DNA \\to RNA \\to Protein$)?",
+                                                        "questionAr": "أي العمليات الخلوية التالية تشكل استثناءً صريحاً للتدفق أحادي الاتجاه للعقيدة المركزية الكلاسيكية ($DNA \\to RNA \\to \\text{بروتين}$)؟",
+                                                        "optionsEn": [
+                                                                  "Reverse Transcription catalyzed by Retroviral Reverse Transcriptase ($RNA \\to cDNA$)",
+                                                                  "Alternative splicing of pre-mRNA in eukaryotic spliceosomes",
+                                                                  "Post-translational phosphorylation of serine residues in ribosomal proteins",
+                                                                  "Semi-conservative DNA replication in the replisome"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "النسخ العكسي المحفز بإنزيم النسخ العكسي في الفيروسات القهقرية ($RNA \\to cDNA$)",
+                                                                  "الربط والتشذيب البديل لـ pre-mRNA في الجسيمات التضفيرية",
+                                                                  "الفسفرة بعد الترجمة لأحماض السيرين في البروتينات الريبوسومية",
+                                                                  "تضاعف DNA شبه المحافظ بواسطة معقد التضاعف"
+                                                        ],
+                                                        "correctAnswer": "Reverse Transcription catalyzed by Retroviral Reverse Transcriptase ($RNA \\to cDNA$)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Enzyme discovered by Temin and Baltimore allows RNA viruses (e.g., HIV) to synthesize DNA from an RNA genome.",
+                                                        "hintAr": "اكتشفه العالمان تيمين وبالتيمور في الفيروسات ذات المحتوى الوراثي RNA كفيروس الإيدز لبناء شريط DNA من قالب RNA.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Crick's original Central Dogma postulated unidirectional sequence transmission: $DNA \\to RNA \\to Protein$.",
+                                                                  "Retroviruses possess an RNA genome and encode Reverse Transcriptase (RNA-dependent DNA polymerase).",
+                                                                  "Reverse Transcriptase synthesizes a complementary DNA strand ($cDNA$) using viral RNA as a template, directly reversing information flow ($RNA \\to DNA$).",
+                                                                  "The resulting cDNA integrates into host genomic DNA as a provirus."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "افترض كريك في العقيدة المركزية الكلاسيكية أن المعلومات تنتقل في اتجاه واحد: من DNA إلى RNA إلى بروتين.",
+                                                                  "الفيروسات القهقرية (مثل فيروس الإيدز) محتواها الوراثي RNA وتحمل إنزيم النسخ العكسي.",
+                                                                  "يقوم إنزيم النسخ العكسي ببناء شريط DNA مكمل لقالب RNA الفيروسي، عاكساً اتجاه تدفق المعلومات الوراثية ($RNA \\to DNA$).",
+                                                                  "يندمج DNA الناتج مع الجينوم البشري للخلية العائلة كجينوم فيروسي دائم."
+                                                        ],
+                                                        "teacherTipEn": "Reverse transcription ($RNA \\to DNA$) and Prion conformational templating are key modern expansions of the Central Dogma.",
+                                                        "teacherTipAr": "النسخ العكسي هو الاستثناء الأبرز للعقيدة المركزية الكلاسيكية ويستخدم على نطاق واسع في RT-PCR والتقنية الحيوية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_dna",
                             "titleEn": "Interactive Simulation: Molecular Architecture of DNA & Central Dogma",
                             "titleAr": "محاكاة تفاعلية: التركيب الجزيئي للـ DNA والعقيدة المركزية للبيولوجيا الجزيئية",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Molecular Architecture of DNA & Central Dogma.",
@@ -322,46 +400,128 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ تضاعف DNA شبه المحافظ، التدقيق الإنزيمي ونهايات التيلومير.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch1_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Semi-Conservative Replication, Proofreading & Telomeres",
-                                        "titleAr": "سؤال قياسي: تضاعف DNA شبه المحافظ، التدقيق الإنزيمي ونهايات التيلومير",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Semi-Conservative Replication, Proofreading & Telomeres according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ تضاعف DNA شبه المحافظ، التدقيق الإنزيمي ونهايات التيلومير وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch1_l2_ws_p1",
+                                                        "titleEn": "Meselson-Stahl Centrifugation & Semi-Conservative Bands",
+                                                        "titleAr": "تجربة ميسلسون وشتال ونطاقات الطرد المركزي للتضاعف شبه المحافظ",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In the Meselson-Stahl experiment, E. coli cells cultured for generations in $^{15}N$ heavy isotope medium were shifted to $^{14}N$ light medium for exactly TWO replication cycles. What are the expected density gradient band percentages?",
+                                                        "questionAr": "في تجربة ميسلسون وشتال، نُقلت خلايا بكتيرية نمت لأجيال في وسط نيتروجين ثقيل $^{15}N$ إلى وسط نيتروجين خفيف $^{14}N$ لدورتي تضاعف كاملتين. ما النسب المتوقعة لنطاقات الكثافة في أنبوبة الطرد المركزي؟",
+                                                        "optionsEn": [
+                                                                  "50% Intermediate Hybrid ($^{15}N-^{14}N$) and 50% Light ($^{14}N-^{14}N$)",
+                                                                  "100% Intermediate Hybrid ($^{15}N-^{14}N$)",
+                                                                  "25% Heavy ($^{15}N-^{15}N$) and 75% Light ($^{14}N-^{14}N$)",
+                                                                  "75% Intermediate Hybrid and 25% Heavy"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "50% شريط هجين متوسط الكثافة ($^{15}N-^{14}N$) و 50% شريط خفيف الكثافة ($^{14}N-^{14}N$)",
+                                                                  "100% شريط هجين متوسط الكثافة ($^{15}N-^{14}N$)",
+                                                                  "25% شريط ثقيل الكثافة و 75% شريط خفيف الكثافة",
+                                                                  "75% شريط هجين و 25% شريط ثقيل"
+                                                        ],
+                                                        "correctAnswer": "50% Intermediate Hybrid ($^{15}N-^{14}N$) and 50% Light ($^{14}N-^{14}N$)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Generation 1 yields 100% hybrid (15N-14N). In generation 2, each duplex replicates in 14N medium to yield 2 hybrids and 2 purely light duplexes.",
+                                                        "hintAr": "الجيل الأول يعطي 100% هجين. وفي الجيل الثاني يتضاعف الهجين في وسط خفيف ليعطي جزأين هجينين وجزأين خفيفين تماماً.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Initial: All DNA is heavy $^{15}N-^{15}N$ (Generation 0).",
+                                                                  "Generation 1 in $^{14}N$: Each $^{15}N$ strand templates a new $^{14}N$ strand $\\to 100\\%$ hybrid $^{15}N-^{14}N$ (1 intermediate band).",
+                                                                  "Generation 2 in $^{14}N$: The two hybrid duplexes yield 4 duplexes:",
+                                                                  "  - Two duplexes retain one original $^{15}N$ strand + new $^{14}N$ strand $\\to 2\\text{ Hybrid } (^{15}N-^{14}N) = 50\\%$.",
+                                                                  "  - Two duplexes have two $^{14}N$ strands $\\to 2\\text{ Light } (^{14}N-^{14}N) = 50\\%$.",
+                                                                  "Result: Exactly 50% hybrid and 50% light bands."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الحالة الابتدائية: كل DNA ثقيل $^{15}N-^{15}N$ (الجيل صفر).",
+                                                                  "الجيل الأول في $^{14}N$: كل شريط ثقيل يبني قالباً خفيفاً $\\to$ 100% هجين $^{15}N-^{14}N$ (نطاق وسطي واحد).",
+                                                                  "الجيل الثاني في $^{14}N$: ينتج 4 جزيئات DNA من الجزيئين الهجينين:",
+                                                                  "  - جزيئان يحتفظان بشريط ثقيل وبجانبه شريط خفيف جديد $\\to$ 50% هجين.",
+                                                                  "  - جزيئان يتكونان من شريطين خفيفين كلاهما $^{14}N$ $\\to$ 50% خفيف.",
+                                                                  "النتيجة: 50% هجين و 50% خفيف."
+                                                        ],
+                                                        "teacherTipEn": "Gen 0: 100% Heavy. Gen 1: 100% Hybrid. Gen 2: 50% Hybrid, 50% Light. Gen 3: 25% Hybrid, 75% Light.",
+                                                        "teacherTipAr": "الجيل 0: 100% ثقيل. الجيل 1: 100% هجين. الجيل 2: 50% هجين و50% خفيف. الجيل 3: 25% هجين و75% خفيف."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l2_ws_p2",
+                                                        "titleEn": "DNA Polymerase Proofreading 3' to 5' Exonuclease Fidelity",
+                                                        "titleAr": "التدقيق اللغوي لإنزيم بلمرة DNA ونشاط الإكسونيوكليز 3َ إلى 5َ",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How does the catalytic proofreading mechanism of DNA Polymerase delta/epsilon correct mismatched nucleotides during replication?",
+                                                        "questionAr": "كيف تصحح آلية التدقيق اللغوي لإنزيم بلمرة DNA النيوكليوتيدات الخاطئة أثناء التضاعف؟",
+                                                        "optionsEn": [
+                                                                  "Via an intrinsic 3' to 5' exonuclease active site that excises the terminal mismatched base before resuming 5' to 3' synthesis",
+                                                                  "By recruiting DNA ligase to dissolve the entire newly synthesized strand",
+                                                                  "By mutating the parental template strand to match the incorrect base",
+                                                                  "By transcribing a short RNA oligonucleotide over the mismatch"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "عبر موقع تحفيزي لنشاط إنزيم إكسونيوكليز في الاتجاه 3َ إلى 5َ يقص النيوكليوتيدة الخاطئة فوراً قبل استئناف البلمرة",
+                                                                  "باستدعاء إنزيم الربط لتفكيك الشريط الجديد بالكامل وإعادة بنائه",
+                                                                  "بتعديل شريط القالب الأصلي ليتطابق مع النيوكليوتيدة الخاطئة",
+                                                                  "بنسخ قطعة RNA قصيرة فوق موضع الخطأ لتغطيته"
+                                                        ],
+                                                        "correctAnswer": "Via an intrinsic 3' to 5' exonuclease active site that excises the terminal mismatched base before resuming 5' to 3' synthesis",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "When a mismatched base is added, distortion stalls polymerisation and shifts the 3' end into the backward-cutting exonuclease pocket.",
+                                                        "hintAr": "عند إدخال قاعدة خاطئة، يتشوه شكل اللولب ويتوقف الإنزيم، فينحرف الطرف 3َ إلى جيب القص الإنزيمي الخلفي لاقتلاعها.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "DNA Polymerase synthesizes DNA in the forward $5' \\to 3'$ direction.",
+                                                                  "If an erroneous non-Watson-Crick base is incorporated (error rate $\\sim 10^{-5}$), the mispaired terminal disrupts correct geometric hydrogen bonding.",
+                                                                  "The stalling allows the terminal nucleotide to swivel into the enzyme's distinct $3' \\to 5'$ exonuclease catalytic pocket.",
+                                                                  "The mismatched nucleotide is hydrolyzed and excised, allowing the polymerase active site to re-engage and insert the correct base, boosting fidelity to 1 error in $10^7$ bp."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يبني إنزيم بلمرة DNA الشريط في الاتجاه $5' \\to 3'$.",
+                                                                  "إذا أُضيفت نيوكليوتيدة خاطئة لا تحقق تكامل واطسون-كريك، فإن عدم التطابق يشوه هندسة اللولب ويعطل حركة الإنزيم.",
+                                                                  "يسمح هذا التوقف للطرف 3َ بالدخول إلى جيب إنزيمي خاص بالقص الخلفي في الاتجاه $3' \\to 5'$ (Exonuclease).",
+                                                                  "تُقتلع القاعدة الخاطئة وتُزال بالتحلل المائي، ثم يستأنف الموقع التحفيزي الأصلي إضافة النيوكليوتيدة الصحيحة بدقة تصل لخطأ واحد في 10 ملايين قاعدة."
+                                                        ],
+                                                        "teacherTipEn": "Synthesis is 5' to 3'. Proofreading exonuclease is 3' to 5' (backward excision).",
+                                                        "teacherTipAr": "البلمرة للأمام 5َ إلى 3َ؛ والتدقيق القصّي للخلف 3َ إلى 5َ."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l2_ws_p3",
+                                                        "titleEn": "Telomere Shortening & Telomerase Reverse Transcriptase (TERT)",
+                                                        "titleAr": "قصر التيلوميرات والإنزيم العكسي تيلوميريز في الشيخوخة والسرطان",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why do linear eukaryotic chromosomes undergo progressive end-shortening with each replication cycle, and how does Telomerase overcome this in germ cells and cancer?",
+                                                        "questionAr": "لماذا تقصر أطراف الصبغيات الخطية في حقيقيات النوى تدريجياً مع كل دورة تضاعف، وكيف يتغلب إنزيم التيلوميريز على ذلك في الخلايا الجرثومية والسرطانية؟",
+                                                        "optionsEn": [
+                                                                  "Removal of the terminal RNA primer leaves an unfillable 3'-overhang; Telomerase carries an intrinsic RNA template to elongate 3' telomeric repeats",
+                                                                  "DNA helicase cuts off 50 base pairs at the beginning of each cycle",
+                                                                  "Okazaki fragments cannot bind to phosphate groups at chromosome ends",
+                                                                  "Linear chromosomes lack histones at their termini, causing nucleosome erosion"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن إزالة بادئ RNA الأخير من الشريط المتأخر يترك طرفاً لا يمكن بلمرته؛ ويحمل التيلوميريز قالب RNA داخلي لتمديد تكرارات التيلومير",
+                                                                  "لأن إنزيم اللولب يقطع 50 زوجاً من القواعد عند بداية كل شوكة تضاعف",
+                                                                  "لأن قطع أوكازاكي تعجز عن الارتباط بمجموعات الفوسفات عند الأطراف",
+                                                                  "لأن أطراف الصبغيات تخلو من الهستونات مما يعرضها للتفتت الإنزيمي"
+                                                        ],
+                                                        "correctAnswer": "Removal of the terminal RNA primer leaves an unfillable 3'-overhang; Telomerase carries an intrinsic RNA template to elongate 3' telomeric repeats",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The end-replication problem stems from DNA polymerase requiring a 3'-OH primer; removal of the terminal primer leaves a gap that cannot be primed.",
+                                                        "hintAr": "مشكلة نهاية التضاعف تنشأ من حاجة إنزيم البلمرة لبادئ؛ وحذف بادئ RNA النهائي يترك فجوة طرفية تعجز البلمرة العادية عن تعويضها.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "At the extreme 5' end of the lagging strand, RNA primers are excised by ribonucleases.",
+                                                                  "Because DNA polymerase requires a pre-existing 3'-OH to initiate synthesis, the gap vacated by the terminal primer cannot be filled, causing telomere erosion (End-Replication Problem).",
+                                                                  "Telomerase is a ribonucleoprotein complex (TERT + TERC) carrying an internal RNA template (e.g., 3'-CAAUCCCAAUC-5').",
+                                                                  "It acts as a reverse transcriptase to synthesize tandem repetitive non-coding telomere repeats (TTAGGG in humans), protecting vital coding genes from erosion and conferring replicative immortality in stem and cancer cells."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "عند الطرف 5َ النهائي للشريط المتأخر، تُزال بادئات RNA بواسطة إنزيمات التحلل.",
+                                                                  "بما أن إنزيم بلمرة DNA يحتاج إلى طرف 3َ حر لإضافة النيوكليوتيدات، فإن الفجوة الطرفية تعجز عن التضاعف مما يسبب تآكل التيلومير مع كل انقسام (معضلة نهاية التضاعف).",
+                                                                  "يحمل إنزيم التيلوميريز قالباً داخلياً من RNA ويكتسب نشاط النسخ العكسي (TERT).",
+                                                                  "يقوم بتمديد الطرف المتدلي بإضافة تكرارات تيلوميرية سداسية (TTAGGG في الإنسان)، مما يحمي الجينات الحيوية ويمنح الخلايا الجذعية والسرطانية خلوداً انقسامياً."
+                                                        ],
+                                                        "teacherTipEn": "Telomerase = Reverse Transcriptase (protein TERT) + RNA guide template (TERC). Inactive in normal somatic cells (causes cellular senescence).",
+                                                        "teacherTipAr": "التيلوميريز = إنزيم نسخ عكسي + قالب RNA داخلي. خامل في الخلايا الجسدية (مسبباً هرم الخلايا) ونشط في الخلايا السرطانية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_dna",
                             "titleEn": "Interactive Simulation: Semi-Conservative Replication, Proofreading & Telomeres",
                             "titleAr": "محاكاة تفاعلية: تضاعف DNA شبه المحافظ، التدقيق الإنزيمي ونهايات التيلومير",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Semi-Conservative Replication, Proofreading & Telomeres.",
@@ -495,46 +655,131 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ آليات النسخ ومعالجة الـ mRNA والترجمة الريبوسومية.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch1_l3_ws_p1",
-                                        "titleEn": "Core Standard Question: Transcription Mechanics, mRNA Splicing & Translation",
-                                        "titleAr": "سؤال قياسي: آليات النسخ ومعالجة الـ mRNA والترجمة الريبوسومية",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Transcription Mechanics, mRNA Splicing & Translation according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ آليات النسخ ومعالجة الـ mRNA والترجمة الريبوسومية وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch1_l3_ws_p1",
+                                                        "titleEn": "Spliceosome Architecture & Alternative Splicing Diversity",
+                                                        "titleAr": "تركيب الجسيم التضفيري والربط والتشذيب البديل لإنتاج بروتينات متعددة",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How does alternative pre-mRNA splicing enable the human genome (approx. 20,000 protein-coding genes) to encode hundreds of thousands of distinct functional protein isoforms?",
+                                                        "questionAr": "كيف يمكن لآلية التشذيب البديل (Alternative Splicing) أن تمكّن الجينوم البشري (حوالي 20 ألف جين) من تشفير مئات الآلاف من البروتينات الوظيفية المتنوعة؟",
+                                                        "optionsEn": [
+                                                                  "By differentially including or excluding specific exons from the pre-mRNA transcript to generate variant mRNA isoforms from a single gene",
+                                                                  "By randomly substituting amino acids during ribosome translocation",
+                                                                  "By transcribing introns into functional ribosomes and destroying exons",
+                                                                  "By duplicating chromosomes during anaphase"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بالدمج أو الاستبعاد التفاضلي لإكسونات معينة من نسخة pre-mRNA لإنتاج جزيئات mRNA متنوعة تشفر أشكالاً بروتينية مختلفة من جين واحد",
+                                                                  "بالاستبدال العشوائي للأحماض الأمينية أثناء حركة الريبوسوم",
+                                                                  "بترجمة الإنترونات إلى ريبوسومات وظيفية وتدمير الإكسونات",
+                                                                  "بمضاعفة الصبغيات أثناء الطور الانفصالي"
+                                                        ],
+                                                        "correctAnswer": "By differentially including or excluding specific exons from the pre-mRNA transcript to generate variant mRNA isoforms from a single gene",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Exons can be spliced together in different combinatorial permutations; introns are excised as lariat loops.",
+                                                        "hintAr": "يمكن تجميع الإكسونات في تباديل وتوافيق مختلفة مع إزالة الإنترونات على هيئة حلقات أنشوطية (Lariat).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Primary pre-mRNA contains coding Exons interspersed with non-coding Introns.",
+                                                                  "Spliceosome complexes composed of snRNPs (U1, U2, U4, U5, U6) recognize 5' splice donor (GU) and 3' splice acceptor (AG) sites, looping out introns as lariats.",
+                                                                  "In alternative splicing, specific exons can be retained or skipped, or alternative splice sites chosen.",
+                                                                  "A single gene locus can thus produce multiple distinct mature mRNA transcripts, each translating into a unique functional protein isoform with tissue-specific properties."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تحتوي النسخة الأولية pre-mRNA على إكسونات معبرة تتخللها إنترونات غير مشفرة.",
+                                                                  "تتعرف معقدات الجسيم التضفيري (snRNPs) على مواقع الربط عند بدايات ونهايات الإنترونات، وتقتطعها في صورة حلقات أنشوطية.",
+                                                                  "في التشذيب البديل، قد تُدرج إكسونات معينة أو تُستبعد وفق إشارات خلوية منظمة.",
+                                                                  "هذا يتيح للجين الواحد إنتاج عدة أشكال ناضجة من mRNA، يُترجم كل منها إلى بروتين ذي خصائص متمايزة في أنسجة مختلفة."
+                                                        ],
+                                                        "teacherTipEn": "Exons = Expressed sequences (retained in mature mRNA). Introns = Intervening sequences (excised by spliceosome).",
+                                                        "teacherTipAr": "الإكسونات = الأجزاء المشفرة التي تبقى في mRNA الناضج. الإنترونات = الأجزاء الدخيلة التي يزيلها الجسيم التضفيري."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l3_ws_p2",
+                                                        "titleEn": "5' Capping & 3' Polyadenylation Roles in Eukaryotes",
+                                                        "titleAr": "أهمية القبعة 5َ وذيل عديد الأدنين 3َ في حقيقيات النوى",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "What are the essential physiological roles of the 7-methylguanosine (m7G) cap at the 5' end and the poly-A tail at the 3' end of mature eukaryotic mRNA?",
+                                                        "questionAr": "ما الأدوار الفسيولوجية الأساسية لقبعة 7-ميثيل جوانوسين (m7G) عند الطرف 5َ وذيل عديد الأدنين عند الطرف 3َ في mRNA لحقيقيات النوى؟",
+                                                        "optionsEn": [
+                                                                  "Preventing exonuclease enzymatic degradation, facilitating nuclear export, and recruiting translation initiation factors (eIF4E)",
+                                                                  "Catalyzing peptide bond formation in the mitochondria",
+                                                                  "Binding to histones to form condensed heterochromatin",
+                                                                  "Inhibiting all tRNA binding during transcription"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "حماية mRNA من التحلل بواسطة إنزيمات الإكسونيوكليز، وتسهيل خروجه من النواة، وتوجيه ارتباط عوامل بدء الترجمة والريبوسوم",
+                                                                  "تحفيز تكوين الروابط الببتيدية داخل الميتوكوندريا",
+                                                                  "الارتباط ببروتينات الهستون لتكثيف الكروماتين",
+                                                                  "تثبيط ارتباط جزيئات tRNA أثناء عملية النسخ"
+                                                        ],
+                                                        "correctAnswer": "Preventing exonuclease enzymatic degradation, facilitating nuclear export, and recruiting translation initiation factors (eIF4E)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Both terminal modifications protect the transcript from cytoplasmic degradation and signal that the mRNA is intact and ready for translation.",
+                                                        "hintAr": "كلا التعديلين الطرفيين يحميان النسخة من التآكل بالإنزيمات السيتوبلازمية ويساعدان الريبوسوم على التعرف على جزيء mRNA السليم.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "5' Cap (7-methylguanosine attached via unusual 5'-to-5' triphosphate bridge):",
+                                                                  "  - Protects 5' end from 5'-to-3' exoribonucleases.",
+                                                                  "  - Recognized by Cap-Binding Complex (CBC) for nuclear pore export.",
+                                                                  "  - Binds eIF4E to recruit the 40S small ribosomal subunit for translation initiation.",
+                                                                  "3' Poly-A Tail (150–250 adenine residues added by poly-A polymerase):",
+                                                                  "  - Protects 3' end from 3'-to-5' degradation.",
+                                                                  "  - Binds Poly-A Binding Protein (PABP), which interacts with eIF4G to circularize the mRNA, dramatically enhancing translation re-initiation efficiency."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "قبعة الطرف 5َ (7-ميثيل جوانوسين برابطة 5َ إلى 5َ ثلاثية الفوسفات):",
+                                                                  "  - تحمي الطرف 5َ من التحلل بإنزيمات الإكسوريبونيوكليز.",
+                                                                  "  - يتعرف عليها معقد النقل النووي لتمرير mRNA عبر ثقوب الغشاء النووي للسيتوبلازم.",
+                                                                  "  - يرتبط بها عامل بدء الترجمة eIF4E لتوجيه تحت وحدة الريبوسوم الصغيرة 40S للبدء.",
+                                                                  "ذيل عديد الأدنين عند الطرف 3َ (150 إلى 250 نيوكليوتيدة أدينين):",
+                                                                  "  - يحمي الطرف 3َ من التآكل في السيتوبلازم، ويساعد في استقرار جزيء mRNA وحلقيته أثناء الترجمة."
+                                                        ],
+                                                        "teacherTipEn": "Eukaryotic mRNA is circularized during active translation through 5'-cap (eIF4E) and 3'-polyA (PABP) bridging.",
+                                                        "teacherTipAr": "يرتبط طرفا mRNA (القبعة والذيل) معاً أثناء الترجمة النشطة لتسهيل إعادة تدوير الريبوسومات وتسريع الإنتاج."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch1_l3_ws_p3",
+                                                        "titleEn": "Wobble Hypothesis & Non-Standard Base Pairing at Codon Position 3",
+                                                        "titleAr": "فرضية التذبذب (Wobble) والاقتران غير القياسي في الموضع الثالث للكودون",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "According to Francis Crick's Wobble Hypothesis, why can a cell translate all 61 sense codons into 20 amino acids using significantly fewer than 61 distinct tRNA species (typically ~31 to 45)?",
+                                                        "questionAr": "طبقاً لفرضية التذبذب (Wobble Hypothesis) لفرانسيس كريك، كيف تستطيع الخلية ترجمة جميع كودونات الأحماض الأمينية الـ 61 باستخدام عدد أقل بكثير من جزيئات tRNA (حوالي 31 إلى 45 نوعاً فقط)؟",
+                                                        "optionsEn": [
+                                                                  "Non-standard, relaxed hydrogen bonding occurs between the 3rd base of the codon (3' end) and the 1st base of the tRNA anticodon (5' end), including inosine pairing",
+                                                                  "Ribosomes synthesize missing amino acids directly without tRNA templates",
+                                                                  "The first two bases of all codons are completely ignored by the ribosome",
+                                                                  "tRNA anticodons mutate dynamically inside the ribosomal peptidyl transferase center"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بسبب المرونة الفراغية وضعف القيود الهندسية للروابط الهيدروجينية عند القاعدة الثالثة للكودون (الطرف 3َ) مع القاعدة الأولى لمضاد الكودون (الطرف 5َ)، بما في ذلك قواعد الإينوزين",
+                                                                  "لأن الريبوسومات تبني الأحماض الأمينية الناقصة مباشرة دون الحاجة لـ tRNA",
+                                                                  "لأن الريبوسوم يتجاهل أول قاعدتين في كل كودون تماماً",
+                                                                  "لأن مضادات الكودونات تتغير وتتحول أثناء الترجمة داخل مركز ببتيديل ترانسفيراز"
+                                                        ],
+                                                        "correctAnswer": "Non-standard, relaxed hydrogen bonding occurs between the 3rd base of the codon (3' end) and the 1st base of the tRNA anticodon (5' end), including inosine pairing",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The third nucleotide of the codon has spatial freedom to form non-canonical base pairs (e.g., G-U, or Inosine pairing with A, U, or C).",
+                                                        "hintAr": "الموضع الثالث من الكودون يتمتع بحرية فراغية تسمح له بتكوين روابط غير قياسية (مثل ارتباط G مع U، أو قاعدة الإينوزين I مع U أو C أو A).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Base pairing at the first two positions of the codon follows strict Watson-Crick rules (A-U and G-C).",
+                                                                  "At the 3rd position of the mRNA codon (pairing with the 5' nucleotide of the tRNA anticodon), conformational steric constraints are relaxed ('wobble').",
+                                                                  "For example, Guanine at the anticodon 5' position can pair with either Cytosine or Uracil in the codon.",
+                                                                  "Inosine (a deaminated adenine derivative found in tRNA) at the wobble position can pair with U, C, or A.",
+                                                                  "Consequently, one tRNA can recognize multiple degenerate synonymous codons, reducing the minimum required tRNA pool."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الارتباط في أول موضعين من الكودون يتبع بدقة قواعد واطسون-كريك الصارمة.",
+                                                                  "في الموضع الثالث لـ mRNA (المقابل للطرف 5َ في مضاد الكودون)، تكون القيود الفراغية أقل صرامة ويحدث تذبذب (Wobble).",
+                                                                  "على سبيل المثال، يمكن لقاعدة الجوانين في مضاد الكودون أن ترتبط مع السيتوزين أو اليوراسيل في الكودون.",
+                                                                  "وقاعدة الإينوزين (I) المشتقة من الأدنين يمكنها الارتباط مع ثلاث قواعد مختلفة (U و C و A).",
+                                                                  "وبالتالي يستطيع جزيء tRNA واحد التعرف على عدة كودونات مرادفة لنفس الحمض الأميني، مما يقلل عدد أنواع tRNA المطلوبة."
+                                                        ],
+                                                        "teacherTipEn": "Wobble occurs at: 3rd base of codon (3' end) = 1st base of anticodon (5' end). Explains genetic code degeneracy.",
+                                                        "teacherTipAr": "يحدث التذبذب عند: القاعدة الثالثة للكودون (3َ) = القاعدة الأولى لمضاد الكودون (5َ). ويفسر وفرة وترادف الشفرة الجينية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_dna",
                             "titleEn": "Interactive Simulation: Transcription Mechanics, mRNA Splicing & Translation",
                             "titleAr": "محاكاة تفاعلية: آليات النسخ ومعالجة الـ mRNA والترجمة الريبوسومية",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Transcription Mechanics, mRNA Splicing & Translation.",
@@ -1436,46 +1681,136 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التحلل السكري وحلقة كريبس في الميتوكوندريا.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch2_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Glycolysis & Mitochondrial Tricarboxylic Acid (Krebs) Cycle",
-                                        "titleAr": "سؤال قياسي: التحلل السكري وحلقة كريبس في الميتوكوندريا",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Glycolysis & Mitochondrial Tricarboxylic Acid (Krebs) Cycle according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التحلل السكري وحلقة كريبس في الميتوكوندريا وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch2_l1_ws_p1",
+                                                        "titleEn": "Phosphofructokinase-1 (PFK-1) Rate-Limiting Glycolytic Allostery",
+                                                        "titleAr": "التنظيم الإنزيمي الفراغي لمحدد سرعة التحلل السكري (PFK-1)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why is Phosphofructokinase-1 (PFK-1) designated as the committed rate-limiting pacemaker of glycolysis, and how is it allosterically regulated by ATP and AMP?",
+                                                        "questionAr": "لماذا يُعتبر إنزيم فوسفوفركتوكينيز-1 (PFK-1) الإنزيم المحدد لمعدل وسرعة التحلل السكري، وكيف يُنظم فراغياً بواسطة ATP و AMP؟",
+                                                        "optionsEn": [
+                                                                  "It catalyzes the irreversible phosphorylation of Fructose-6-Phosphate to Fructose-1,6-Bisphosphate; allosterically inhibited by high ATP and activated by AMP",
+                                                                  "It generates 4 moles of CO2 directly in the cytoplasm",
+                                                                  "It converts pyruvate into lactate without consuming NADH",
+                                                                  "It synthesizes glycogen directly from triose phosphates"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأنه يحفز الفسفرة غير العكسية لفركتوز-6-فوسفات إلى فركتوز-1،6-ثنائي الفوسفات؛ ويُثبط فراغياً بزيادة ATP ويُنشط بزيادة AMP",
+                                                                  "لأنه يطلق 4 مولات من غاز ثاني أكسيد الكربون مباشرة في السيتوبلازم",
+                                                                  "لأنه يحول البيروفات إلى لاكتات دون استهلاك NADH",
+                                                                  "لأنه يبني الجليكوجين مباشرة من السكريات الثلاثية"
+                                                        ],
+                                                        "correctAnswer": "It catalyzes the irreversible phosphorylation of Fructose-6-Phosphate to Fructose-1,6-Bisphosphate; allosterically inhibited by high ATP and activated by AMP",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "When cellular energy charge is high (abundant ATP), glycolysis is down-regulated; when energy is depleted (high AMP), PFK-1 is disinhibited.",
+                                                        "hintAr": "عندما تفيض طاقة الخلية (وفرة ATP)، يُكبح التحلل السكري؛ وعندما تنفد الطاقة وترتفع نسبة AMP، ينشط الإنزيم لتسريع الحرق.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Step 3 of glycolysis: $\\text{Fructose-6-P} + \\text{ATP} \\xrightarrow{\\text{PFK-1}} \\text{Fructose-1,6-bisP} + \\text{ADP}$.",
+                                                                  "This is the first committed irreversible step exclusive to glycolysis.",
+                                                                  "ATP serves dual roles: It is a substrate at the catalytic site, but at elevated concentrations it binds to a separate allosteric inhibitory site, lowering enzyme affinity.",
+                                                                  "AMP and Fructose-2,6-bisphosphate relieve ATP inhibition, acting as potent allosteric activators when cellular energy drops."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الخطوة 3 في التحلل السكري: فركتوز-6-فوسفات + ATP $\\to$ فركتوز-1،6-ثنائي الفوسفات + ADP بواسطة PFK-1.",
+                                                                  "هذه الخطوة هي أول تفاعل إلزامي غير عكسي مخصص كلياً لمسار هدم الجلوكوز.",
+                                                                  "يلعب ATP دوراً مزدوجاً: فهو مادة تفاعل في الموقع النشط، لكن عند تراكمه بتركيز عالٍ يرتبط بموقع فراغي مثبط ليقلل نشاط الإنزيم.",
+                                                                  "وعلى العكس، يعمل AMP كمنشط فراغي قوي يحرر الإنزيم من التثبيط لإنتاج طاقة عاجلة عند نقص مخزون الخلية."
+                                                        ],
+                                                        "teacherTipEn": "PFK-1 inhibitors: ATP, Citrate. PFK-1 activators: AMP, ADP, Fructose-2,6-bisphosphate.",
+                                                        "teacherTipAr": "مثبطات PFK-1: الـ ATP والسترات. منشطات PFK-1: الـ AMP وفركتوز-2،6-ثنائي الفوسفات."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l1_ws_p2",
+                                                        "titleEn": "Tricarboxylic Acid (Krebs) Cycle Stoichiometry per Glucose Mole",
+                                                        "titleAr": "حسابات نواتج دورة كريبس وحمض الستريك لكل مول جلوكوز",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "For one mole of glucose fully oxidized through the link reaction and the Krebs cycle, how many moles of NADH, FADH2, GTP/ATP, and CO2 are generated by the mitochondrial matrix reactions alone?",
+                                                        "questionAr": "عند أكسدة مول واحد من الجلوكوز بالكامل عبر التفاعل الرابط ودورة كريبس، كم مولاً من NADH و FADH2 و GTP/ATP و CO2 ينتج داخل حشوة الميتوكوندريا وحدها؟",
+                                                        "optionsEn": [
+                                                                  "8 NADH, 2 FADH2, 2 GTP/ATP, and 6 CO2",
+                                                                  "4 NADH, 1 FADH2, 1 ATP, and 3 CO2",
+                                                                  "10 NADH, 2 FADH2, 4 ATP, and 2 CO2",
+                                                                  "6 NADH, 4 FADH2, 2 ATP, and 4 CO2"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "8 NADH و 2 FADH2 و 2 GTP/ATP و 6 CO2",
+                                                                  "4 NADH و 1 FADH2 و 1 ATP و 3 CO2",
+                                                                  "10 NADH و 2 FADH2 و 4 ATP و 2 CO2",
+                                                                  "6 NADH و 4 FADH2 و 2 ATP و 4 CO2"
+                                                        ],
+                                                        "correctAnswer": "8 NADH, 2 FADH2, 2 GTP/ATP, and 6 CO2",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "1 glucose yields 2 pyruvates. Link reaction generates 2 NADH + 2 CO2. Two turns of Krebs cycle generate 6 NADH + 2 FADH2 + 2 GTP + 4 CO2.",
+                                                        "hintAr": "مول الجلوكوز ينتج جزأين بيروفات. تفاعل الربط يعطي 2 NADH و 2 CO2. ودورتا كريبس تعطيان 6 NADH و 2 FADH2 و 2 GTP و 4 CO2.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "1 mole Glucose $\\to$ 2 moles Pyruvate in cytoplasm.",
+                                                                  "Link Reaction (Pyruvate Dehydrogenase in matrix):",
+                                                                  "  - $2\\text{ Pyruvate} + 2\\text{ CoA} + 2\\text{ NAD}^+ \\to 2\\text{ Acetyl-CoA} + 2\\text{ NADH} + 2\\text{ CO}_2$.",
+                                                                  "Krebs Cycle (2 turns per glucose in matrix):",
+                                                                  "  - $2\\text{ Acetyl-CoA} \\to 4\\text{ CO}_2 + 6\\text{ NADH} + 2\\text{ FADH}_2 + 2\\text{ GTP}$.",
+                                                                  "Sum of Mitochondrial Matrix Reactions:",
+                                                                  "  - $\\text{Total NADH} = 2 + 6 = 8\\text{ moles}$.",
+                                                                  "  - $\\text{Total FADH}_2 = 2\\text{ moles}$.",
+                                                                  "  - $\\text{Total ATP/GTP} = 2\\text{ moles}$.",
+                                                                  "  - $\\text{Total CO}_2 = 2 + 4 = 6\\text{ moles}$ (complete decarboxylation of the 6-carbon glucose)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "مول واحد من الجلوكوز يعطي 2 مول بيروفات في السيتوسول.",
+                                                                  "التفاعل الرابط (أكسدة البيروفات بواسطة ديهيدروجينيز في الحشوة):",
+                                                                  "  - 2 بيروفات $\\to$ 2 أسيتيل مرافق الإنزيم-أ + 2 NADH + 2 CO2.",
+                                                                  "دورة كريبس (دورتان لكل جزيء جلوكوز في الحشوة):",
+                                                                  "  - 2 أسيتيل مرافق الإنزيم-أ $\\to$ 4 CO2 + 6 NADH + 2 FADH2 + 2 GTP.",
+                                                                  "إجمالي نواتج حشوة الميتوكوندريا:",
+                                                                  "  - إجمالي NADH = 2 + 6 = 8 مولات.",
+                                                                  "  - إجمالي FADH2 = 2 مول.",
+                                                                  "  - إجمالي GTP/ATP = 2 مول.",
+                                                                  "  - إجمالي CO2 = 2 + 4 = 6 مولات (خروج كل كربون الجلوكوز الست في صورة غاز)."
+                                                        ],
+                                                        "teacherTipEn": "Combined with cytoplasmic glycolysis (2 NADH + 2 ATP), total coenzyme yield per glucose = 10 NADH + 2 FADH2 + 4 ATP/GTP.",
+                                                        "teacherTipAr": "بإضافة التحلل السكري (2 NADH + 2 ATP)، يكون الناتج الكلي للجلوكوز = 10 NADH + 2 FADH2 + 4 ATP."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l1_ws_p3",
+                                                        "titleEn": "Anaerobic Glycolytic Flux & Lactate Dehydrogenase (LDH) Regeneration",
+                                                        "titleAr": "إعادة تدوير NAD+ بواسطة إنزيم لاكتات ديهيدروجينيز في الظروف اللاهوائية",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Under anaerobic conditions (e.g., intense muscle sprint), why is the reduction of pyruvate to lactate by Lactate Dehydrogenase (LDH) essential to sustain ongoing ATP generation?",
+                                                        "questionAr": "تحت الظروف اللاهوائية (أثناء الإجهاد العضلي العنيف)، لماذا يُعد اختزال البيروفات إلى لاكتات بإنزيم لاكتات ديهيدروجينيز (LDH) ضرورياً لاستمرار إنتاج ATP؟",
+                                                        "optionsEn": [
+                                                                  "It oxidizes NADH back to NAD+, replenishing the essential oxidized cofactor required by Glyceraldehyde-3-Phosphate Dehydrogenase in glycolysis",
+                                                                  "It generates 36 moles of ATP directly by oxidative phosphorylation",
+                                                                  "Lactate acts as an allosteric activator of mitochondrial complex IV",
+                                                                  "It neutralizes muscle intracellular pH and prevents cramping"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأنه يعيد أكسدة NADH إلى NAD+، مما يوفر مرافق الإنزيم المؤكسد الضروري لاستمرار خطوة جليسرالدهيد-3-فوسفات ديهيدروجينيز في التحلل السكري",
+                                                                  "لأنه ينتج 36 مولاً من ATP مباشرة بالفسفرة التأكسدية",
+                                                                  "لأن اللاكتات يعمل كمنشط فراغي لمعقد السيتوكروم الرابع في الميتوكوندريا",
+                                                                  "لأنه يعادل حموضة العضلة ويمنع التقلص العضلي"
+                                                        ],
+                                                        "correctAnswer": "It oxidizes NADH back to NAD+, replenishing the essential oxidized cofactor required by Glyceraldehyde-3-Phosphate Dehydrogenase in glycolysis",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Without oxygen, electron transport stops and NADH cannot unload electrons to Complex I; glycolysis would freeze without available NAD+.",
+                                                        "hintAr": "في غياب الأكسجين، تتوقف سلسلة نقل الإلكترون؛ وإذا لم يُعد تدوير NADH إلى NAD+ فإن التحلل السكري يتوقف تماماً لموت الخلية.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "In glycolysis, step 6 catalyzed by Glyceraldehyde-3-Phosphate Dehydrogenase (GAPDH) requires oxidized $\\text{NAD}^+$ to accept electrons.",
+                                                                  "Under hypoxia or anoxia, the mitochondrial electron transport chain is blocked because oxygen is absent as the terminal acceptor.",
+                                                                  "Cytoplasmic $\\text{NAD}^+$ pools would rapidly become completely reduced to NADH, halting all glycolytic ATP synthesis.",
+                                                                  "Lactate Dehydrogenase resolves this by transferring electrons from $\\text{NADH} + \\text{H}^+$ to Pyruvate, yielding Lactate and regenerating free $\\text{NAD}^+$, allowing continuous anaerobic substrate-level ATP generation (2 ATP/glucose)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "في التحلل السكري، تحتاج الخطوة 6 (أكسدة جليسرالدهيد-3-فوسفات) إلى $\\text{NAD}^+$ مؤكسد لاستقبال الإلكترونات.",
+                                                                  "في غياب الأكسجين، تتوقف سلسلة نقل الإلكترون بالميتوكوندريا لغياب المستقبل النهائي للإلكترونات.",
+                                                                  "تتحول كل جزيئات $\\text{NAD}^+$ في السيتوسول سريعاً إلى NADH، مما يهدد بتوقف التحلل السكري وموت الخلية لنفاد الطاقة.",
+                                                                  "يتدخل إنزيم LDH لنقل الهيدروجين من $\\text{NADH}$ إلى البيروفات محولاً إياه إلى حمض اللاكتيك، معيداً إنتاج $\\text{NAD}^+$ الحر ليستمر التحلل السكري في إنتاج 2 ATP."
+                                                        ],
+                                                        "teacherTipEn": "Fermentation produces zero extra ATP; its sole metabolic purpose is NAD+ regeneration to keep glycolysis alive.",
+                                                        "teacherTipAr": "التخمر لا ينتج أي طاقة ATP جديدة بذاته؛ هدفه الأيضي الوحيد هو إعادة تدوير NAD+ لإنقاذ مسار التحلل السكري."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_bioenergetics",
                             "titleEn": "Interactive Simulation: Glycolysis & Mitochondrial Tricarboxylic Acid (Krebs) Cycle",
                             "titleAr": "محاكاة تفاعلية: التحلل السكري وحلقة كريبس في الميتوكوندريا",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Glycolysis & Mitochondrial Tricarboxylic Acid (Krebs) Cycle.",
@@ -1609,46 +1944,140 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ الفسفرة التأكسدية وتخليق ATP بالقوة المحركة للبروتونات.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch2_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Oxidative Phosphorylation & Chemiosmotic ATP Synthase",
-                                        "titleAr": "سؤال قياسي: الفسفرة التأكسدية وتخليق ATP بالقوة المحركة للبروتونات",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Oxidative Phosphorylation & Chemiosmotic ATP Synthase according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ الفسفرة التأكسدية وتخليق ATP بالقوة المحركة للبروتونات وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch2_l2_ws_p1",
+                                                        "titleEn": "Chemiosmotic Proton Motive Force (pmf) & Membrane Potential",
+                                                        "titleAr": "القوة الدافعة للبروتونات (pmf) والجهد الغشائي وفق نظرية ميتشل",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "According to Peter Mitchell's Nobel-winning chemiosmotic hypothesis, what two thermodynamic components constitute the mitochondrial Proton Motive Force ($\\Delta p$)?",
+                                                        "questionAr": "وفقاً لفرضية التناضح الكيميائي لبيتر ميتشل، ما المكونان الديناميكيان الحراريان اللذان يشكلان القوة الدافعة للبروتونات ($\\Delta p$) عبر الغشاء الميتوكوندري الداخلي؟",
+                                                        "optionsEn": [
+                                                                  "The electrical membrane potential ($\\Delta \\Psi$) and the chemical proton concentration gradient ($\\Delta \\text{pH}$)",
+                                                                  "The mechanical rotor torque and covalent ATP hydrolysis enthalpy",
+                                                                  "The partial pressure of oxygen and nitrogen gas solubility",
+                                                                  "The ionic flux of sodium and potassium via Na+/K+ ATPase"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الجهد الغشائي الكهربي ($\\Delta \\Psi$) وتدرج التركيز الكيميائي للبروتونات ($\\Delta \\text{pH}$)",
+                                                                  "عزم الدوران الميكانيكي للمحرك وحرارة التحلل المائي للـ ATP",
+                                                                  "الضغط الجزئي للأكسجين وذائبية غاز النيتروجين",
+                                                                  "تدفق أيونات الصوديوم والبوتاسيوم عبر مضخة صوديوم/بوتاسيوم"
+                                                        ],
+                                                        "correctAnswer": "The electrical membrane potential ($\\Delta \\Psi$) and the chemical proton concentration gradient ($\\Delta \\text{pH}$)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Proton pumping creates an electrochemical gradient: positive outside and negative inside, combined with acidic intermembrane space and basic matrix.",
+                                                        "hintAr": "ضخ البروتونات يولد تدرجاً كهروكيميائياً: شحنات موجبة بالخارج وسالبة بالداخل، مع وسط حامضي بين الغشائين وقاعدي بالحشوة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "As electrons flow through Complexes I, III, and IV, protons ($H^+$) are pumped from the matrix to the intermembrane space.",
+                                                                  "This establishes an electrochemical potential difference across the inner mitochondrial membrane:",
+                                                                  "$$\\Delta p = \\Delta \\Psi - \\frac{2.303 RT}{F} \\Delta \\text{pH}$$",
+                                                                  "1. $\\Delta \\Psi$ (Electrical potential): Matrix is negative (approx. $-160\\text{ to } -180\\text{ mV}$) relative to positive intermembrane space.",
+                                                                  "2. $\\Delta \\text{pH}$ (Chemical gradient): Intermembrane space is approx. 0.75 to 1.0 pH units more acidic than the matrix.",
+                                                                  "This free energy drives $H^+$ back through ATP synthase to forge ATP."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "أثناء مرور الإلكترونات عبر المعقدات I و III و IV، تُضخ البروتونات ($H^+$) من الحشوة إلى الحيز بين الغشائين.",
+                                                                  "يولد هذا الضخ تدرجاً كهروكيميائياً هائلاً عبر الغشاء الداخلي يُعبر عنه بالمعادلة:",
+                                                                  "$$\\Delta p = \\Delta \\Psi - 60 \\Delta \\text{pH}$$",
+                                                                  "1. فرق الجهد الكهربي ($\\Delta \\Psi$): الحشوة سالبة الشحنة (حوالي -160 إلى -180 مللي فولت) مقارنة بالخارج الموجب.",
+                                                                  "2. فرق التركيز الكيميائي للأس الهيدروجيني ($\\Delta \\text{pH}$): الحيز بين الغشائين أكثر حامضية بنحو 1 وحدة pH عن الحشوة.",
+                                                                  "طاقة هذا التدرج تدفع البروتونات للتدفق عائدة عبر إنزيم بناء ATP لتوليد الطاقة."
+                                                        ],
+                                                        "teacherTipEn": "Proton Motive Force = Electrical gradient (~80%) + Chemical pH gradient (~20%).",
+                                                        "teacherTipAr": "القوة الدافعة للبروتونات = تدرج كهربي (حوالي 80%) + تدرج كيميائي لـ pH (حوالي 20%)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l2_ws_p2",
+                                                        "titleEn": "Electron Transport Chain Complexes & Stoichiometric P/O Ratios",
+                                                        "titleAr": "معقدات سلسلة نقل الإلكترون وحساب نسبة الفسفرة P/O للـ NADH و FADH2",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why does oxidation of one mole of NADH yield approximately 2.5 moles of ATP, whereas one mole of FADH2 yields only approximately 1.5 moles of ATP?",
+                                                        "questionAr": "لماذا ينتج عن أكسدة مول واحد من NADH حوالي 2.5 مول من ATP، بينما ينتج مول FADH2 حوالي 1.5 مول فقط من ATP؟",
+                                                        "optionsEn": [
+                                                                  "NADH donates electrons to Complex I pumping 10 total protons, whereas FADH2 enters at Complex II bypassing Complex I and pumping only 6 protons",
+                                                                  "FADH2 cannot pass through the inner mitochondrial membrane",
+                                                                  "NADH contains double the molecular mass of FADH2",
+                                                                  "Complex II hydrolyzes ATP instead of synthesizing it"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن NADH يمنح إلكتروناته للمعقد الأول ضاخاً 10 بروتونات، بينما يدخل FADH2 عبر المعقد الثاني متجاوزاً المعقد الأول فيضخ 6 بروتونات فقط",
+                                                                  "لأن FADH2 عاجز عن اختراق الغشاء الميتوكوندري الداخلي",
+                                                                  "لأن NADH كتلته الجزيئية ضعف كتلة FADH2",
+                                                                  "لأن المعقد الثاني يستهلك ATP بدلاً من بنائه"
+                                                        ],
+                                                        "correctAnswer": "NADH donates electrons to Complex I pumping 10 total protons, whereas FADH2 enters at Complex II bypassing Complex I and pumping only 6 protons",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Complex I pumps 4 H+, Complex III pumps 4 H+, Complex IV pumps 2 H+. Bypassing Complex I forfeits 4 pumped protons.",
+                                                        "hintAr": "المعقد الأول يضخ 4 بروتونات، والثالث 4، والرابع 2. تجاوز المعقد الأول يحرم FADH2 من 4 بروتونات مضخوخة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Electrons from NADH enter at Complex I (NADH dehydrogenase):",
+                                                                  "  - Complex I pumps $4\\,H^+$, Complex III pumps $4\\,H^+$, Complex IV pumps $2\\,H^+$.",
+                                                                  "  - Total protons pumped per pair of electrons from $\\text{NADH} = 4 + 4 + 2 = 10\\,H^+$.",
+                                                                  "Electrons from FADH2 enter at Complex II (Succinate dehydrogenase):",
+                                                                  "  - Complex II has lower redox potential and pumps $0\\,H^+$.",
+                                                                  "  - Electrons pass to CoQ, Complex III ($4\\,H^+$), and Complex IV ($2\\,H^+$).",
+                                                                  "  - Total protons pumped per pair of electrons from $\\text{FADH}_2 = 4 + 2 = 6\\,H^+$.",
+                                                                  "ATP Synthase requires $\\approx 4\\,H^+$ per ATP synthesized (3 for catalytic rotation + 1 for Pi symport):",
+                                                                  "  - P/O ratio for NADH = $10 / 4 = 2.5\\text{ ATP}$.",
+                                                                  "  - P/O ratio for FADH2 = $6 / 4 = 1.5\\text{ ATP}$."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "إلكترونات NADH تدخل عند المعقد الأول (ديهيدروجينيز NADH):",
+                                                                  "  - المعقد الأول يضخ $4\\,H^+$، والمعقد الثالث $4\\,H^+$، والمعقد الرابع $2\\,H^+$.",
+                                                                  "  - إجمالي البروتونات المضخوخة لكل زوج إلكترونات من NADH = 10 بروتونات.",
+                                                                  "إلكترونات FADH2 تدخل عند المعقد الثاني (ديهيدروجينيز السكسينات):",
+                                                                  "  - المعقد الثاني لا يضخ أي بروتونات ($0\\,H^+$).",
+                                                                  "  - تنتقل الإلكترونات إلى يوبيكوينون ثم المعقد الثالث ($4\\,H^+$) والرابع ($2\\,H^+$).",
+                                                                  "  - إجمالي البروتونات المضخوخة من FADH2 = 6 بروتونات فقط.",
+                                                                  "يحتاج إنزيم بناء ATP إلى حوالي 4 بروتونات لبناء جزيء ATP واحد:",
+                                                                  "  - نسبة الفسفرة لـ NADH = $10 \\div 4 = 2.5\\text{ ATP}$.",
+                                                                  "  - نسبة الفسفرة لـ FADH2 = $6 \\div 4 = 1.5\\text{ ATP}$."
+                                                        ],
+                                                        "teacherTipEn": "Modern consensus stoichiometry: 1 NADH = 2.5 ATP; 1 FADH2 = 1.5 ATP (yielding 30-32 total ATP per glucose).",
+                                                        "teacherTipAr": "الحسابات الحديثة المعتمدة: كل NADH يعطي 2.5 ATP وكل FADH2 يعطي 1.5 ATP (المجموع 30 إلى 32 ATP لكل جلوكوز)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l2_ws_p3",
+                                                        "titleEn": "Uncoupling Proteins (UCP-1 / Thermogenin) & Thermogenesis",
+                                                        "titleAr": "بروتينات فك الاقتران (UCP-1 / ثيرموجينين) وتوليد الحرارة في النسيج الدهني البني",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "What is the biochemical consequence when chemical uncouplers (e.g., 2,4-DNP) or physiological Uncoupling Protein-1 (UCP-1 / Thermogenin) dissipate the mitochondrial proton gradient in brown adipose tissue?",
+                                                        "questionAr": "ما النتيجة الكيميائية الحيوية المباشرة عندما تقوم بروتينات فك الاقتران الفسيولوجية (UCP-1 / ثيرموجينين) بتبديد تدرج البروتونات في النسيج الدهني البني؟",
+                                                        "optionsEn": [
+                                                                  "Electron transport accelerates with high oxygen consumption, but free energy is released entirely as heat rather than trapped as ATP",
+                                                                  "Electron transport is permanently paralyzed and lactic acid accumulates",
+                                                                  "ATP synthesis increases tenfold while body temperature drops to hypothermia",
+                                                                  "Protons are pumped out through the cell membrane into the extracellular fluid"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تتسارع سلسلة نقل الإلكترون مع استهلاك هائل للأكسجين، لكن الطاقة الحرة تتحرر كلياً في صورة حرارة دون تصنيع ATP",
+                                                                  "تتوقف سلسلة نقل الإلكترون تماماً ويتراكم حمض اللاكتيك",
+                                                                  "يتضاعف إنتاج ATP عشر مرات مع هبوط شديد في حرارة الجسم",
+                                                                  "تُضخ البروتونات خارج الخلية تماماً إلى السائل بين الخلوي"
+                                                        ],
+                                                        "correctAnswer": "Electron transport accelerates with high oxygen consumption, but free energy is released entirely as heat rather than trapped as ATP",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Uncouplers provide an alternative leak pathway for protons across the inner membrane, bypassing ATP synthase.",
+                                                        "hintAr": "بروتينات فك الاقتران تفتح مساراً تسربياً بديلاً لعودة البروتونات دون المرور عبر محرك ATP سينثيز، فتتحول الطاقة لحرارة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Under normal coupled conditions, proton return to the matrix is obligatorily coupled to the catalytic rotor of $F_0F_1$-ATP Synthase.",
+                                                                  "Uncoupling Protein-1 (UCP-1 / Thermogenin) forms a proton conductance channel in the inner membrane of brown adipocytes.",
+                                                                  "Protons flow down their electrochemical gradient back into the matrix through UCP-1, bypassing ATP Synthase.",
+                                                                  "Because the respiratory chain is relieved of proton back-pressure, respiration (oxygen consumption) and fuel oxidation surge to maximum rates, and the dissipated electrochemical free energy is converted 100% into heat for non-shivering thermogenesis (crucial for hibernators and human neonates)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "في الحالة الطبيعية المقترنة، تكون عودة البروتونات للحشوة مشروطة ومقترنة بالمرور عبر محرك إنزيم بناء ATP.",
+                                                                  "يقوم بروتين فك الاقتران UCP-1 (ثيرموجينين) بفتح قنوات تسريب خاصة للبروتونات عبر الغشاء الميتوكوندري الداخلي للنسيج الدهني البني.",
+                                                                  "تندفع البروتونات عائدة للحشوة عبر UCP-1 متجاوزة إنزيم بناء ATP تماماً.",
+                                                                  "تتسارع أكسدة الوقود وسلسلة نقل الإلكترون واستهلاك الأكسجين إلى الحد الأقصى، وتتحول كل طاقة التدرج الكهروكيميائي إلى حرارة نقية لتدفئة الجسم (التوليد الحراري غير الارتعاشي لحديثي الولادة)."
+                                                        ],
+                                                        "teacherTipEn": "Uncouplers decouple oxidation from phosphorylation: O2 consumption goes UP, ATP synthesis goes DOWN, Heat goes UP.",
+                                                        "teacherTipAr": "فك الاقتران: استهلاك الأكسجين يرتفع، وبناء ATP ينخفض، والحرارة تنطلق بكثافة."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_bioenergetics",
                             "titleEn": "Interactive Simulation: Oxidative Phosphorylation & Chemiosmotic ATP Synthase",
                             "titleAr": "محاكاة تفاعلية: الفسفرة التأكسدية وتخليق ATP بالقوة المحركة للبروتونات",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Oxidative Phosphorylation & Chemiosmotic ATP Synthase.",
@@ -1782,46 +2211,134 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ الأنظمة الضوئية والفسفرة الضوئية وتثبيت الكربون في حلقة كالفن.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch2_l3_ws_p1",
-                                        "titleEn": "Core Standard Question: Photosystem I & II Photophosphorylation & Calvin Cycle",
-                                        "titleAr": "سؤال قياسي: الأنظمة الضوئية والفسفرة الضوئية وتثبيت الكربون في حلقة كالفن",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Photosystem I & II Photophosphorylation & Calvin Cycle according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ الأنظمة الضوئية والفسفرة الضوئية وتثبيت الكربون في حلقة كالفن وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch2_l3_ws_p1",
+                                                        "titleEn": "Z-Scheme Photolysis & Water-Splitting Mn4CaO5 Cluster",
+                                                        "titleAr": "مخطط Z والتحلل الضوئي للماء بمعقد المنجنيز والكالسيوم في PSII",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In the light-dependent reactions of photosynthesis, at which specific site does the photolysis (splitting) of water occur, and what are its direct chemical products?",
+                                                        "questionAr": "في التفاعلات الضوئية للبناء الضوئي، في أي موقع محدد يحدث التحلل الضوئي للماء، وما هي نواتجه الكيميائية المباشرة؟",
+                                                        "optionsEn": [
+                                                                  "At the Oxygen-Evolving Complex (Mn4CaO5 cluster) on the luminal side of Photosystem II, yielding 4 H+, 4 e-, and O2 gas per 2 H2O",
+                                                                  "Inside the chloroplast stroma by the enzyme RuBisCO, yielding glucose and ATP",
+                                                                  "At the stromal surface of Photosystem I, yielding NADPH and ozone",
+                                                                  "Inside the mitochondrial matrix, yielding carbon dioxide and water"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "عند معقد إطلاق الأكسجين (معقد Mn4CaO5) على الجانب اللمعي لغشاء الثايلاكويد في النظام الضوئي الثاني، منتجاً 4 بروتونات و 4 إلكترونات وغاز الأكسجين O2 لكل جزيئي ماء",
+                                                                  "داخل حشوة الستروما بواسطة إنزيم روبيسكو، منتجاً الجلوكوز و ATP",
+                                                                  "على السطح الخارجي للنظام الضوئي الأول، منتجاً NADPH والأوزون",
+                                                                  "داخل حشوة الميتوكوندريا، منتجاً غاز ثاني أكسيد الكربون والماء"
+                                                        ],
+                                                        "correctAnswer": "At the Oxygen-Evolving Complex (Mn4CaO5 cluster) on the luminal side of Photosystem II, yielding 4 H+, 4 e-, and O2 gas per 2 H2O",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "The reaction center P680+ is the strongest biological oxidizing agent known; it extracts electrons from water at the inner thylakoid lumen.",
+                                                        "hintAr": "مركز التفاعل P680+ يمتلك أقوى جهد أكسدة بيولوجي معروف فينتزع إلكترونات الماء في تجويف الثايلاكويد ليحرر الأكسجين.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Photosystem II contains the reaction center chlorophyll $P_{680}$.",
+                                                                  "Upon excitation and electron transfer to pheophytin, $P_{680}$ is oxidized to $P_{680}^+$ ($E^\\circ \\approx +1.25\\text{ V}$).",
+                                                                  "To refill this electron hole, the Oxygen-Evolving Complex (OEC) containing a $\\text{Mn}_4\\text{CaO}_5$ catalytic cluster oxidizes water:",
+                                                                  "$$2\\text{H}_2\\text{O} \\to 4\\text{H}^+_{\\text{lumen}} + 4e^- + \\text{O}_2\\uparrow$$",
+                                                                  "Electrons flow to $P_{680}^+$, protons accumulate in the thylakoid lumen driving ATP synthesis, and $O_2$ is released as a vital byproduct."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يحتوي النظام الضوئي الثاني (PSII) على كلوروفيل مركز التفاعل $P_{680}$.",
+                                                                  "عند امتصاص الفوتونات يفقد $P_{680}$ إلكترونات ويتحول لمؤكسد فائق القوة $P_{680}^+$ (بجهد اختزال +1.25 فولت).",
+                                                                  "لتعويض هذا العجز، يقوم معقد تحرير الأكسجين المحتوي على 4 ذرات منجنيز وذرة كالسيوم بشطر جزيئات الماء:",
+                                                                  "$$2\\text{H}_2\\text{O} \\to 4\\text{H}^+_{\\text{تجويف}} + 4e^- + \\text{O}_2\\uparrow$$",
+                                                                  "تعوض الإلكترونات مركز التفاعل، وتتراكم البروتونات في تجويف الثايلاكويد لبناء ATP، ويتحرر غاز الأكسجين."
+                                                        ],
+                                                        "teacherTipEn": "Water photolysis occurs on the LUMINAL face of PSII, contributing directly to the thylakoid proton gradient (high H+ in lumen).",
+                                                        "teacherTipAr": "يحدث شطر الماء داخل تجويف الثايلاكويد (Lumen)، مما يرفع تركيز البروتونات بالداخل ويدعم بناء ATP."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l3_ws_p2",
+                                                        "titleEn": "RuBisCO Carboxylation vs Oxygenation (Photorespiration Loss)",
+                                                        "titleAr": "نشاط إنزيم روبيسكو المزدوج (الكربكسلة مقابل الأكسجة والتنفس الضوئي)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why is the enzyme RuBisCO considered catalytically inefficient, and what occurs during its oxygenase activity in C3 plants?",
+                                                        "questionAr": "لماذا يُعتبر إنزيم روبيسكو (RuBisCO) غير كفء من الناحية التحفيزية، وماذا ينتج عن نشاطه الأكسيجيني في نباتات C3؟",
+                                                        "optionsEn": [
+                                                                  "It confuses O2 for CO2 at high temperatures, fixing oxygen to RuBP to form 2-phosphoglycolate, which triggers wasteful photorespiration that burns energy and loses carbon",
+                                                                  "It converts CO2 directly into methane instead of sugars",
+                                                                  "It only functions in total darkness and destroys chloroplast membranes",
+                                                                  "It hydrolyzes ATP without binding ribulose-1,5-bisphosphate"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأنه يخلط بين O2 و CO2 عند ارتفاع الحرارة، فيثبت الأكسجين على RuBP مكوناً 2-فوسفوكلايكولات مما يطلق مسار التنفس الضوئي المهدر للطاقة والكربون",
+                                                                  "لأنه يحول غاز ثاني أكسيد الكربون إلى غاز الميثان بدلاً من السكريات",
+                                                                  "لأنه يعمل فقط في الظلام الدامس ويدمر أغشية البلاستيدة",
+                                                                  "لأنه يستهلك جزيئات ATP دون الارتباط بالريبولوز ثنائي الفوسفات"
+                                                        ],
+                                                        "correctAnswer": "It confuses O2 for CO2 at high temperatures, fixing oxygen to RuBP to form 2-phosphoglycolate, which triggers wasteful photorespiration that burns energy and loses carbon",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "RuBisCO stands for Ribulose-1,5-bisphosphate Carboxylase-Oxygenase. When stomata close in hot weather, rising internal O2 drives photorespiration.",
+                                                        "hintAr": "روبيسكو إنزيم مزدوج (كربوكسيليز وأكسيجيناز). عند ارتفاع الحرارة وغلق الثغور، يرتفع الأكسجين الداخلي فيثبته الإنزيم مهدراً 25% من الطاقة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "RuBisCO catalyzes the primary carbon-fixing step of the Calvin Cycle: $\\text{RuBP} + \\text{CO}_2 \\to 2\\times \\text{3-PGA}$.",
+                                                                  "However, its active site cannot completely discriminate between $\\text{CO}_2$ and $\\text{O}_2$.",
+                                                                  "When $\\text{O}_2$ binds instead of $\\text{CO}_2$ (Oxygenase activity):",
+                                                                  "$$\\text{RuBP} + \\text{O}_2 \\to \\text{3-PGA} + \\text{2-Phosphoglycolate}$$",
+                                                                  "Phosphoglycolate is toxic and must be salvaged through a multi-organelle pathway (chloroplast, peroxisome, mitochondrion), consuming ATP and releasing previously fixed $\\text{CO}_2$ with zero ATP or NADPH gain (Photorespiration)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يحفز روبيسكو خطوة تثبيت الكربون الأساسية في حلقة كالفن: ريبولوز ثنائي الفوسفات (RuBP) + CO2 $\\to$ جزيئين من 3-PGA.",
+                                                                  "لكن موقعه النشط يعجز عن التمييز الكامل بين CO2 و O2.",
+                                                                  "عندما يرتبط الأكسجين بدلاً من ثاني أكسيد الكربون (نشاط الأكسيجيناز):",
+                                                                  "ينتج جزيء واحد من 3-PGA وجزيء من 2-فوسفوكلايكولات.",
+                                                                  "فوسفوكلايكولات مركب سام تضطر الخلية لإعادة تدويره عبر مسار معقد يستهلك ATP ويطلق ثاني أكسيد الكربون دون إنتاج أي طاقة، مهدرةً حتى 25% من المحصول (التنفس الضوئي)."
+                                                        ],
+                                                        "teacherTipEn": "C4 and CAM plants evolved specialized spatial or temporal CO2-concentrating mechanisms to suppress RuBisCO oxygenation.",
+                                                        "teacherTipAr": "نباتات C4 ونباتات الأيض العصاري (CAM) طورت آليات خاصة لتركيز CO2 حول روبيسكو لمنع التنفس الضوئي."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch2_l3_ws_p3",
+                                                        "titleEn": "Calvin Cycle Stoichiometry: Triose Phosphate to Glucose Synthesis",
+                                                        "titleAr": "حسابات الطاقة وحلقة كالفن لتخليق جزيء جلوكوز كامل",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "To synthesize exactly ONE mole of net Glucose (C6H12O6) in the stroma, how many moles of CO2, ATP, and NADPH must be consumed by the Calvin Cycle?",
+                                                        "questionAr": "لتخليق صافي مول واحد من سكر الجلوكوز (C6H12O6) في الستروما، كم مولاً من CO2 و ATP و NADPH يجب أن تستهلكها حلقة كالفن؟",
+                                                        "optionsEn": [
+                                                                  "6 CO2, 18 ATP, and 12 NADPH",
+                                                                  "3 CO2, 9 ATP, and 6 NADPH",
+                                                                  "6 CO2, 12 ATP, and 12 NADPH",
+                                                                  "12 CO2, 36 ATP, and 24 NADPH"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "6 CO2 و 18 ATP و 12 NADPH",
+                                                                  "3 CO2 و 9 ATP و 6 NADPH",
+                                                                  "6 CO2 و 12 ATP و 12 NADPH",
+                                                                  "12 CO2 و 36 ATP و 24 NADPH"
+                                                        ],
+                                                        "correctAnswer": "6 CO2, 18 ATP, and 12 NADPH",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "1 turn fixes 1 CO2. Exporting 1 net triose phosphate (G3P / 3 carbons) requires 3 CO2, 9 ATP, and 6 NADPH. Glucose has 6 carbons.",
+                                                        "hintAr": "تثبيت 3 جزيئات CO2 يخرج جزيء فوسفوكليسرالدهيد ثلاثي الكربون (G3P) باستهلاك 9 ATP و 6 NADPH. والجلوكوز يتطلب ضعف ذلك.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Synthesis of 1 triose phosphate (G3P / GAP, a 3-carbon sugar) exported from the cycle requires 3 turns:",
+                                                                  "  - $3\\text{ CO}_2 + 9\\text{ ATP} + 6\\text{ NADPH} \\to 1\\text{ G3P} + 9\\text{ ADP} + 6\\text{ NADP}^+ + 8\\text{ P}_i$.",
+                                                                  "Glucose is a 6-carbon hexose ($C_6H_{12}O_6$), requiring the condensation of TWO net G3P molecules:",
+                                                                  "  - $2\\times (3\\text{ CO}_2) = 6\\text{ moles CO}_2$.",
+                                                                  "  - $2\\times (9\\text{ ATP}) = 18\\text{ moles ATP}$ (12 for 3-PGA reduction + 6 for RuBP regeneration).",
+                                                                  "  - $2\\times (6\\text{ NADPH}) = 12\\text{ moles NADPH}$ (for reduction of 1,3-bisphosphoglycerate).",
+                                                                  "Total requirement: $6\\text{ CO}_2 + 18\\text{ ATP} + 12\\text{ NADPH} \\to 1\\text{ Glucose}$."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "لتصنيع وتصدير جزيء ثلاثي الكربون واحد صافي (G3P) يلزم 3 دورات من حلقة كالفن:",
+                                                                  "  - استهلاك 3 CO2 + 9 ATP + 6 NADPH لإنتاج 1 جزيء فوسفوكليسرالدهيد (G3P).",
+                                                                  "سكر الجلوكوز مركب سداسي الكربون ($C_6H_{12}O_6$)، ويتطلب تكثيف جزيئين من G3P:",
+                                                                  "  - $2 \\times 3 = 6\\text{ مولات من } CO_2$.",
+                                                                  "  - $2 \\times 9 = 18\\text{ مولاً من } ATP$ (12 في مرحلة الاختزال و 6 في مرحلة تجديد RuBP).",
+                                                                  "  - $2 \\times 6 = 12\\text{ مولاً من } NADPH$ (لاختزال 1،3-ثنائي فوسفوكليسرين).",
+                                                                  "إذن المعادلة الكلية: 6 CO2 + 18 ATP + 12 NADPH لإنتاج جزيء جلوكوز واحد."
+                                                        ],
+                                                        "teacherTipEn": "Key ratio for Calvin cycle per CO2: 1 CO2 costs 3 ATP + 2 NADPH. For 1 Glucose (6 carbons): 18 ATP + 12 NADPH.",
+                                                        "teacherTipAr": "النسبة الذهبية لحلقة كالفن: كل CO2 يتطلب 3 ATP و 2 NADPH. ولكل جلوكوز (6 كربون) يلزم 18 ATP و 12 NADPH."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_bioenergetics",
                             "titleEn": "Interactive Simulation: Photosystem I & II Photophosphorylation & Calvin Cycle",
                             "titleAr": "محاكاة تفاعلية: الأنظمة الضوئية والفسفرة الضوئية وتثبيت الكربون في حلقة كالفن",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Photosystem I & II Photophosphorylation & Calvin Cycle.",
@@ -2739,46 +3256,140 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التعرف على الأنماط الجزيئية والمعالجة المستضدية عبر معقد MHC.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch3_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Pattern Recognition & Antigen Presentation (MHC I/II)",
-                                        "titleAr": "سؤال قياسي: التعرف على الأنماط الجزيئية والمعالجة المستضدية عبر معقد MHC",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Pattern Recognition & Antigen Presentation (MHC I/II) according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التعرف على الأنماط الجزيئية والمعالجة المستضدية عبر معقد MHC وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch3_l1_ws_p1",
+                                                        "titleEn": "MHC Class I vs Class II Antigen Processing Pathways",
+                                                        "titleAr": "مسارات معالجة الأنتيجينات: معقد التوافق النسيجي الأول والثاني (MHC I vs MHC II)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "What fundamentally distinguishes the antigen presentation pathways of MHC Class I versus MHC Class II molecules?",
+                                                        "questionAr": "ما الفارق البيولوجي الجوهري بين مساري عرض الأنتيجين عبر جزيئات MHC Class I و MHC Class II؟",
+                                                        "optionsEn": [
+                                                                  "MHC Class I presents endogenous cytosolic peptides (e.g., viral/tumor) to CD8+ cytotoxic T-cells; MHC Class II presents exogenous engulfed peptides to CD4+ helper T-cells",
+                                                                  "MHC Class I is only found on red blood cells; MHC Class II is exclusive to neurons",
+                                                                  "MHC Class I binds intact whole bacteria; MHC Class II only binds viral capsids",
+                                                                  "MHC Class I requires no proteasome or invariant chain processing"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "MHC Class I يعرض ببتيدات داخلية المنشأ (فيروسية أو سرطانية) للخلايا التائية السامة CD8+؛ بينما MHC Class II يعرض ببتيدات خارجية مبتلعة للخلايا التائية المساعدة CD4+",
+                                                                  "MHC Class I يوجد فقط على كرات الدم الحمراء؛ بينما MHC Class II يقتصر على الخلايا العصبية",
+                                                                  "MHC Class I يربط البكتيريا كاملة بدون تكسير؛ بينما MHC Class II يربط أغلفة الفيروسات فقط",
+                                                                  "MHC Class I لا يحتاج لأي معالجة بالبروتيازوم أو السلسلة الثابتة"
+                                                        ],
+                                                        "correctAnswer": "MHC Class I presents endogenous cytosolic peptides (e.g., viral/tumor) to CD8+ cytotoxic T-cells; MHC Class II presents exogenous engulfed peptides to CD4+ helper T-cells",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Rule of 8: MHC-I * CD8 = 8. MHC-II * CD4 = 8. MHC-I is on all nucleated cells; MHC-II is on professional APCs.",
+                                                        "hintAr": "قاعدة حاصل الضرب 8: MHC-I مع CD8 = 8. و MHC-II مع CD4 = 8. الأول على جميع الخلايا ذات النواة؛ والثاني على الخلايا العارضة المتخصصة (APCs).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "MHC Class I Pathway (Endogenous antigens):",
+                                                                  "  - Expressed on all nucleated host cells.",
+                                                                  "  - Cytosolic proteins (viral or mutated tumor proteins) are degraded by the Proteasome.",
+                                                                  "  - Peptides (8–10 amino acids) are transported into the ER by TAP (Transporter associated with Antigen Processing).",
+                                                                  "  - Bound to MHC-I and transported to cell surface for inspection by $CD8^+$ Cytotoxic T-cells.",
+                                                                  "MHC Class II Pathway (Exogenous antigens):",
+                                                                  "  - Expressed exclusively on Professional Antigen Presenting Cells (Dendritic cells, Macrophages, B-cells).",
+                                                                  "  - Extracellular pathogens are endocytosed and digested inside acidic lysosomes.",
+                                                                  "  - Invariant chain is cleaved in lysosomes, allowing 13–18 residue peptides to bind MHC-II.",
+                                                                  "  - Presented on cell surface to $CD4^+$ Helper T-cells."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "مسار MHC Class I (أنتيجينات داخلية المنشأ):",
+                                                                  "  - يوجد على سطح جميع الخلايا الجسدية ذات الأنوية.",
+                                                                  "  - تُكسر البروتينات الفيروسية أو السرطانية السيتوبلازمية بواسطة معقد البروتيازوم.",
+                                                                  "  - تُنقل الببتيدات (8-10 أحماض أمينية) للشبكة الإندوبلازمية وتُحمل على MHC-I.",
+                                                                  "  - تُعرض على السطح لتفحصها الخلايا التائية السامة القاتلة $CD8^+$.",
+                                                                  "مسار MHC Class II (أنتيجينات خارجية المنشأ):",
+                                                                  "  - يقتصر على الخلايا العارضة للأنتيجين المحترفة (الخلايا البلعمية، التغصنية، والبائية).",
+                                                                  "  - تُبتلع الميكروبات من الخارج وتُهضم داخل الليسوسومات وتُحمل على MHC-II.",
+                                                                  "  - تُعرض على السطح لتنشيط الخلايا التائية المساعدة $CD4^+$."
+                                                        ],
+                                                        "teacherTipEn": "MHC-I interacts with CD8 (cytotoxic killer assay). MHC-II interacts with CD4 (helper orchestration assay).",
+                                                        "teacherTipAr": "MHC-I يتفاعل مع CD8 (قتل مباشر). MHC-II يتفاعل مع CD4 (تنشيط وتوجيه المناعة بالكامل)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l1_ws_p2",
+                                                        "titleEn": "Toll-Like Receptors (TLRs) & PAMP Recognition Cascades",
+                                                        "titleAr": "مستقبلات الشبه-تول (TLRs) والتعرف على الأنماط الجزيئية المرتبطة بمسببات الأمراض (PAMPs)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How do Toll-Like Receptors (e.g., TLR4) on innate macrophages trigger rapid antibacterial inflammatory gene expression upon recognizing Lipopolysaccharide (LPS)?",
+                                                        "questionAr": "كيف تطلق مستقبلات الشبه-تول (مثل TLR4) على الخلايا البلعمية استجابة التهابية جينية سريعة عند التعرف على عديد السكاريد الشحمي (LPS) لبكتيريا سالبة الجرام؟",
+                                                        "optionsEn": [
+                                                                  "By recruiting the adaptor protein MyD88, triggering an IKK kinase phosphorylation cascade that releases NF-kappa-B to enter the nucleus and transcribe inflammatory cytokines (TNF-alpha, IL-1)",
+                                                                  "By directly phosphorylating bacterial ribosomes to inhibit bacterial protein synthesis",
+                                                                  "By opening nuclear pores to leak genomic DNA into the cytosol",
+                                                                  "By hydrolyzing extracellular ATP into cAMP to paralyze bacterial flagella"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "باستدعاء البروتين التكيفي MyD88، مما يطلق سلسلة فسفرة إنزيمية تحرر عامل النسخ NF-kappa-B ليدخل النواة ويحفز نسخ السيتوكينات الالتهابية (TNF-alpha و IL-1)",
+                                                                  "بفسفرة ريبوسومات البكتيريا مباشرة لوقف نموها",
+                                                                  "بفتح ثقوب الغشاء النووي لتسريب DNA إلى السيتوبلازم",
+                                                                  "بالتحلل المائي للـ ATP الخارجي لشل حركة الأسواط البكتيرية"
+                                                        ],
+                                                        "correctAnswer": "By recruiting the adaptor protein MyD88, triggering an IKK kinase phosphorylation cascade that releases NF-kappa-B to enter the nucleus and transcribe inflammatory cytokines (TNF-alpha, IL-1)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "PAMP binding to TLR initiates an intracellular signal transduction cascade via MyD88 that activates the master inflammatory transcription factor NF-kB.",
+                                                        "hintAr": "ارتباط الأنتيجين بمستقبل TLR يطلق نقل إشارة داخلي عبر MyD88 يفعل عامل النسخ الرئيسي للالتهاب NF-kB في النواة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "TLR4 on macrophage surfaces recognizes Lipopolysaccharide (LPS), a canonical Pathogen-Associated Molecular Pattern (PAMP) on Gram-negative bacteria.",
+                                                                  "Ligand binding drives TLR dimerization and recruitment of intracellular TIR domain adaptor MyD88.",
+                                                                  "MyD88 recruits IRAK kinases, activating the IkappaB kinase (IKK) complex.",
+                                                                  "IKK phosphorylates I-kappa-B, targeting it for proteasomal degradation.",
+                                                                  "Liberated Nuclear Factor kappa B (NF-$\\kappa$B) translocates into the nucleus, binding promoters of pro-inflammatory genes: TNF-$\\alpha$, IL-1$\\beta$, IL-6, and iNOS, mounting rapid innate host defense."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يتعرف مستقبل TLR4 على جدار بكتيريا سالبة الجرام (عديد السكاريد الشحمي LPS)، وهو نمط جزيئي ميكروبي مميز (PAMP).",
+                                                                  "يؤدي الارتباط إلى تقارب جزيئي لمستقبلين وتجنيد بروتين التأشير MyD88 داخل الخلية.",
+                                                                  "ينشط MyD88 سلسلة إنزيمات كاينيز، مما يؤدي إلى تحلل البروتين الكابح I-kappa-B.",
+                                                                  "يتحرر عامل النسخ النووي الشهير (NF-$\\kappa$B) ويدخل إلى النواة مباشرة.",
+                                                                  "يرتبط بالمحفزات الجينية ليبدأ فوراً نسخ جينات السيتوكينات الالتهابية العاجلة (TNF-$\\alpha$ و IL-1) لمقاومة العدوى."
+                                                        ],
+                                                        "teacherTipEn": "TLR signaling bridges innate recognition to transcriptional activation via the MyD88-NF-kB canonical cascade.",
+                                                        "teacherTipAr": "مستقبلات TLR هي حلقة الوصل بين التعرف المناعي الفطري السريع وتنشيط الجينات الالتهابية عبر مسار NF-kB."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l1_ws_p3",
+                                                        "titleEn": "Dendritic Cell Migration & Cross-Presentation to CD8+ T-Cells",
+                                                        "titleAr": "هجرة الخلايا التغصنية وظاهرة العرض التبادلي (Cross-Presentation) للخلايا التائية القاتلة",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "What is 'Cross-Presentation' in dendritic cell immunology, and why is it essential to initiate CD8+ cytotoxic T-cell immunity against viruses that do not directly infect antigen-presenting cells?",
+                                                        "questionAr": "ما المقصود بظاهرة 'العرض التبادلي' (Cross-Presentation) في الخلايا التغصنية، ولماذا تُعد حاسمة لتنشيط الخلايا التائية القاتلة CD8+ ضد فيروسات لا تصيب الخلايا العارضة نفسها؟",
+                                                        "optionsEn": [
+                                                                  "The specialized capacity of dendritic cells to divert engulfed exogenous viral antigens into the MHC Class I cytosolic pathway to prime CD8+ cytotoxic T-cells",
+                                                                  "The transfer of antibodies from mother to fetus across the placental barrier",
+                                                                  "The conversion of B-lymphocytes into macrophages inside lymph nodes",
+                                                                  "The exchange of mitochondria between adjoining lymphocytes through gap junctions"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "قدرة استثنائية للخلايا التغصنية على تحويل الأنتيجينات الفيروسية الخارجية المبتلعة إلى مسار MHC Class I لتنشيط خلايا CD8+ القاتلة رغم عدم إصابة الخلية التغصنية بالفيروس",
+                                                                  "انتقال الأجسام المضادة من الأم إلى الجنين عبر المشيمة",
+                                                                  "تحول الخلايا اللمفاوية البائية إلى خلايا بلعمية داخل العقد",
+                                                                  "تبادل الميتوكوندريا بين الخلايا اللمفاوية المتجاورة عبر القنوات الفجوية"
+                                                        ],
+                                                        "correctAnswer": "The specialized capacity of dendritic cells to divert engulfed exogenous viral antigens into the MHC Class I cytosolic pathway to prime CD8+ cytotoxic T-cells",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Normally exogenous antigens go to MHC-II (CD4). In cross-presentation, dendritic cells funnel external viral debris into MHC-I (CD8).",
+                                                        "hintAr": "في العادة تُعرض الأنتيجينات الخارجية على MHC-II للخلايا CD4. لكن الخلايا التغصنية تكسر القاعدة وتمرر فتات الفيروس الخارجي لـ MHC-I لتنشيط القاتلة CD8.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Normally, MHC Class I displays only endogenous proteins synthesized within the host cell's own cytoplasm.",
+                                                                  "However, many viruses infect non-immune tissues (e.g., hepatocytes, lung pneumocytes) without infecting Professional Antigen Presenting Cells (Dendritic Cells).",
+                                                                  "To mount a killer $CD8^+$ response, Dendritic Cells phagocytose apoptotic dead infected cell debris.",
+                                                                  "Instead of keeping the debris solely in lysosomes for MHC-II, specialized retro-translocation channels export the viral peptides into the DC cytosol.",
+                                                                  "The viral peptides are processed by the DC proteasome and loaded onto MHC Class I molecules.",
+                                                                  "This 'Cross-Presentation' licenses naive $CD8^+$ T-cells to proliferate into cytotoxic effectors that track down and eliminate infected cells throughout the body."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "المسار المعتاد لـ MHC Class I يقتصر على عرض البروتينات التي صُنعت داخل سيتوبلازم الخلية المصابة ذاتها.",
+                                                                  "لكن العديد من الفيروسات (مثل فيروسات الكبد) تصيب خلايا الأنسجة فقط ولا تصيب الخلايا المناعية التغصنية إطلاقاً.",
+                                                                  "لتنشيط جيش الخلايا التائية القاتلة $CD8^+$، تبتلع الخلايا التغصنية بقايا الخلايا الميتة المصابة بالفيروس.",
+                                                                  "عبر قنوات متخصصة، تهرب الببتيدات الفيروسية من الحويصلات إلى سيتوبلازم الخلية التغصنية، فتُعامل كأنتيجين داخلي وتُحمل على MHC Class I.",
+                                                                  "تسمى هذه الظاهرة بـ 'العرض التبادلي'، وبفضلها تتنبه الخلايا التائية القاتلة وتهاجم النسيج المصاب بدقة متناهية."
+                                                        ],
+                                                        "teacherTipEn": "Cross-presentation is uniquely executed by BATF3-dependent conventional dendritic cells (cDC1). Essential for viral vaccines and cancer immunotherapy.",
+                                                        "teacherTipAr": "العرض التبادلي وظيفة حصرية للخلايا التغصنية المتخصصة (cDC1)، وهو الركيزة الأساسية للقاحات الفيروسية وعلاج الأورام بالخلايا التائية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_immunity",
                             "titleEn": "Interactive Simulation: Pattern Recognition & Antigen Presentation (MHC I/II)",
                             "titleAr": "محاكاة تفاعلية: التعرف على الأنماط الجزيئية والمعالجة المستضدية عبر معقد MHC",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Pattern Recognition & Antigen Presentation (MHC I/II).",
@@ -2907,46 +3518,132 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ تنشيط الخلايا اللمفاوية ونقل الإشارات والتأشيب الجيني V(D)J.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch3_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: Lymphocyte Activation, Signaling & V(D)J Recombination",
-                                        "titleAr": "سؤال قياسي: تنشيط الخلايا اللمفاوية ونقل الإشارات والتأشيب الجيني V(D)J",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Lymphocyte Activation, Signaling & V(D)J Recombination according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ تنشيط الخلايا اللمفاوية ونقل الإشارات والتأشيب الجيني V(D)J وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch3_l2_ws_p1",
+                                                        "titleEn": "V(D)J Recombinase (RAG-1/RAG-2) & Immunological Diversity",
+                                                        "titleAr": "التأشيب الجيني V(D)J وإنزيمات RAG-1 و RAG-2 وتوليد التنوع المناعي الهائل",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How does somatic V(D)J recombination generate an estimated $10^{11}$ to $10^{14}$ unique antigen receptor specificities in developing B and T lymphocytes from a limited number of germline gene segments?",
+                                                        "questionAr": "كيف تُولد آلية التأشيب الجسدي V(D)J ما بين $10^{11}$ إلى $10^{14}$ من مستقبلات الأنتيجين الفريدة في الخلايا البائية والتائية من عدد محدود من القطع الجينية في السلالة الجرثومية؟",
+                                                        "optionsEn": [
+                                                                  "RAG-1 and RAG-2 endonucleases mediate combinatorial splicing of Variable (V), Diversity (D), and Joining (J) gene cassettes with TdT nucleotide additions at junctions",
+                                                                  "Ribosomes randomly mutate codons during heavy chain translation",
+                                                                  "Immature lymphocytes incorporate bacterial plasmids into their genomes",
+                                                                  "Alternative splicing of histones in the bone marrow"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تقوم إنزيمات القصر RAG-1 و RAG-2 بالقص والربط التوافقي لقطع جينات المتغير (V) والتنوع (D) والوصل (J) مع إضافة نيوكليوتيدات عشوائية بإنزيم TdT",
+                                                                  "تقوم الريبوسومات بتبديل الكودونات عشوائياً أثناء ترجمة السلاسل الثقيلة",
+                                                                  "تدمج الخلايا اللمفاوية بلازميدات بكتيرية في جينومها الخاص",
+                                                                  "بواسطة التشذيب البديل لبروتينات الهستون في نخاع العظام"
+                                                        ],
+                                                        "correctAnswer": "RAG-1 and RAG-2 endonucleases mediate combinatorial splicing of Variable (V), Diversity (D), and Joining (J) gene cassettes with TdT nucleotide additions at junctions",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Combinatorial diversity (mixing V, D, J segments) multiplied by junctional diversity (random N-nucleotide insertion by TdT) yields astronomical permutations.",
+                                                        "hintAr": "التنوع التوافقي (خلط قطع V و D و J) متبوعاً بالتنوع الوصلي (إضافة نيوكليوتيدات عشوائية بإنزيم TdT) يعطي مليارات التوافيق الفريدة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Germline immunoglobulin and TCR loci consist of separate arrays of gene segments: Variable ($V$), Diversity ($D$, heavy/beta chain only), and Joining ($J$).",
+                                                                  "Recombination Activating Genes 1 and 2 (RAG-1 / RAG-2) bind Recombination Signal Sequences (RSS), cleaving DNA between coding segments and flanking signals.",
+                                                                  "Combinatorial diversity: Choosing 1 of $\\sim 40\\,V$, 1 of $25\\,D$, and 1 of $6\\,J$ segments creates thousands of combinations.",
+                                                                  "Junctional diversity: Hairpin cleavage is followed by Terminal deoxynucleotidyl Transferase (TdT) adding untemplated N-nucleotides, creating astronomical sequence variation at CDR3.",
+                                                                  "Heavy and light chain pairing further multiplies total diversity to $> 10^{12}$ unique antibodies."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تحتوي الجينات المشفرة لمستقبلات الخلايا اللمفاوية على مصفوفات منفصلة: قطع جينات المتغير (V)، والتنوع (D)، والوصل (J).",
+                                                                  "تتعرف إنزيمات RAG-1 و RAG-2 على إشارات التأشيب وتقطع شريطي DNA بدقة عند أطراف القطع المختارة.",
+                                                                  "التنوع التوافقي: اختيار قطعة واحدة من V، وقطعة من D، وقطعة من J يولد آلاف التباديل.",
+                                                                  "التنوع الوصلي: يقوم إنزيم TdT بإضافة نيوكليوتيدات عشوائية عند نقاط الالتحام، مما يجعل التتابع النهائي فريداً تماماً في منطقة CDR3 الأكثر حساسية.",
+                                                                  "الارتباط العشوائي بين السلاسل الثقيلة والخفيفة يرفع التنوع الكلي لأكثر من تريليون جسم مضاد مختلف."
+                                                        ],
+                                                        "teacherTipEn": "RAG deficiency prevents V(D)J rearrangement, causing total lack of mature B and T cells (Severe Combined Immunodeficiency / SCID).",
+                                                        "teacherTipAr": "غياب أو طفرة جينات RAG يمنع إعادة الترتيب تماماً، مسبباً الفقد الكلي للمناعة التكيفية (مرض SCID الوراثي)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l2_ws_p2",
+                                                        "titleEn": "T-Cell Activation Two-Signal Hypothesis: TCR & CD28 Costimulation",
+                                                        "titleAr": "فرضية الإشارتين لتنشيط الخلايا التائية: مستقبل TCR والإشارة المشتركة عبر CD28",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "According to the Two-Signal hypothesis of naive T-cell activation, what happens if a naive T-cell binds an antigen on MHC (Signal 1) in the absence of CD28 costimulation by B7/CD80/CD86 (Signal 2)?",
+                                                        "questionAr": "طبقاً لفرضية الإشارتين لتنشيط الخلايا التائية البكر، ماذا يحدث إذا ارتبطت الخلية التائية بالأنتيجين على MHC (الإشارة 1) دون تلقي الإشارة التحفيزية المشتركة عبر CD28 مع جزيء B7 (الإشارة 2)؟",
+                                                        "optionsEn": [
+                                                                  "The T-cell enters a state of permanent functional unresponsiveness termed Anergy (anergy/tolerance)",
+                                                                  "The T-cell immediately differentiates into a memory B-cell",
+                                                                  "The T-cell secretes massive amounts of perforin and destroys the APC",
+                                                                  "The T-cell undergoes spontaneous meiosis and forms four spores"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "تدخل الخلية التائية في حالة خمول دائم وفقدان للاستجابة الوظيفية تُعرف بـ 'التحمل / الخمول المناعي' (Anergy)",
+                                                                  "تتمايز الخلية التائية فوراً إلى خلية ذاكرة بائية",
+                                                                  "تفرز الخلية التائية كميات هائلة من البيرفورين وتدمر الخلية العارضة",
+                                                                  "تنقسم الخلية التائية ميوزياً لتكوين 4 أبواغ مناعية"
+                                                        ],
+                                                        "correctAnswer": "The T-cell enters a state of permanent functional unresponsiveness termed Anergy (anergy/tolerance)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Signal 1 alone (antigen without inflammation) signals that the antigen is harmless self, inducing anergy to prevent autoimmunity.",
+                                                        "hintAr": "الإشارة 1 وحدها تعني أن الأنتيجين قد يكون بروتيناً ذاتياً للجسم لا يستدعي حرباً، فتدخل الخلية في خمول دائم (Anergy) لمنع أمراض المناعة الذاتية.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Naive T-cell activation strictly requires TWO distinct signals from an Antigen Presenting Cell (APC):",
+                                                                  "  - Signal 1 (Specificity): T-cell Receptor (TCR) + CD4/CD8 binds Peptide-MHC complex.",
+                                                                  "  - Signal 2 (Costimulation / Danger): CD28 on T-cell binds B7.1 (CD80) or B7.2 (CD86) expressed on activated APCs.",
+                                                                  "Signal 1 + Signal 2 triggers IL-2 transcription, autocrine survival, and massive clonal expansion.",
+                                                                  "If Signal 1 occurs WITHOUT Signal 2 (e.g., self-antigen presented on resting non-activated APCs), intracellular signaling blocks IL-2 and induces Anergy (a state of permanent tolerance preventing autoimmune destruction)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يتطلب تنشيط الخلايا التائية البكر شرطين متزامنين من الخلية العارضة للأنتيجين (APC):",
+                                                                  "  - الإشارة الأولى (التخصص): ارتباط مستقبل TCR مع معقد الببتيد-MHC.",
+                                                                  "  - الإشارة الثانية (إشارة الخطر المشتركة): ارتباط مستقبل CD28 على الخلية التائية مع جزيئات B7 (CD80/CD86) على الخلية العارضة.",
+                                                                  "اجتماع الإشارتين معاً يحفز إفراز إنترلوكين-2 (IL-2) والانقسام والتكاثر التمايزي.",
+                                                                  "إذا ارتبطت الخلية بالإشارة الأولى وحدها دون إشارة الخطر الثانية، تفترض الخلية المناعية أن هذا أنتيجين ذاتي سليم، فتدخل في خمول مناعي دائم (Anergy) لمنع مهاجمة خلايا الجسم السليمة."
+                                                        ],
+                                                        "teacherTipEn": "Signal 1 = What is it? (Antigen specificity). Signal 2 = Is it dangerous? (B7 costimulation). No Signal 2 = Anergy.",
+                                                        "teacherTipAr": "الإشارة 1 = ما هو هذا الدخيل؟ الإشارة 2 = هل هو خطر حقيقي؟ إذا غابت الإشارة 2 يحدث خمول مناعي دائم (Anergy)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l2_ws_p3",
+                                                        "titleEn": "Calcineurin-NFAT Signaling Pathway & Immunosuppressive Drug Targets",
+                                                        "titleAr": "مسار كالسينيورين-NFAT لنقل الإشارات والهدف الدوائي لمثبطات المناعة (السيكلوسبورين)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How does the immunosuppressive drug Cyclosporine A prevent organ transplant rejection at the molecular level of T-cell signaling cascades?",
+                                                        "questionAr": "كيف يمنع عقار السيكلوسبورين أ (Cyclosporine A) رفض الأعضاء المزروعة على المستوى الجزيئي لمسارات إشارات الخلايا التائية؟",
+                                                        "optionsEn": [
+                                                                  "It binds cyclophilin to inhibit the phosphatase Calcineurin, preventing dephosphorylation and nuclear translocation of NFAT, thereby blocking IL-2 transcription",
+                                                                  "It binds to ribosomes and prevents the transcription of mRNA into tRNA",
+                                                                  "It dissolves the cell wall of kidney transplant epithelial cells",
+                                                                  "It neutralizes circulating antibodies by competitive cleavage of disulfide bonds"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "يرتبط ببروتين السيكلوفيلين ويثبط إنزيم فوسفاتيز الكالسينيورين، مما يمنع نزع الفوسفات وانتقال عامل النسخ NFAT للنواة ويوقف إنتاج إنترلوكين-2",
+                                                                  "يرتبط بالريبوسومات ويمنع نسخ mRNA إلى tRNA",
+                                                                  "يذيب الجدر الخلوية لأنسجة الكلية المزروعة",
+                                                                  "يبطل مفعول الأجسام المضادة بكسر روابطها الكبريتيدية التنافسية"
+                                                        ],
+                                                        "correctAnswer": "It binds cyclophilin to inhibit the phosphatase Calcineurin, preventing dephosphorylation and nuclear translocation of NFAT, thereby blocking IL-2 transcription",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "TCR signaling increases intracellular Ca2+, which activates Calcineurin. Calcineurin removes phosphate from NFAT so it can enter the nucleus to turn on IL-2.",
+                                                        "hintAr": "تنشيط TCR يرفع الكالسيوم الذي يفعل إنزيم الكالسينيورين؛ ينزع الكالسينيورين الفوسفات من NFAT ليدخل النواة ويطلق IL-2، وتثبيطه يوقف المناعة تماماً.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Upon TCR engagement, Phospholipase C-gamma ($PLC\\gamma$) hydrolyzes $PIP_2$ into $IP_3$ and DAG.",
+                                                                  "$IP_3$ triggers massive $Ca^{2+}$ release from the endoplasmic reticulum into the cytoplasm.",
+                                                                  "Elevated intracellular $Ca^{2+}$ binds Calmodulin, which binds and activates the serine/threonine phosphatase Calcineurin.",
+                                                                  "Active Calcineurin dephosphorylates Nuclear Factor of Activated T-cells (NFAT).",
+                                                                  "Dephosphorylated NFAT unmasks its nuclear localization signal, translocating into the nucleus to drive robust transcription of the Interleukin-2 ($IL-2$) gene, the principal T-cell autocrine growth factor.",
+                                                                  "Cyclosporine A forms a drug-protein complex with Cyclophilin, which directly binds and blocks Calcineurin's active site, halting IL-2 expression and stopping all graft rejection cascades."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "عند ارتباط مستقبل الخلية التائية TCR، ينشط إنزيم فوسفوليباز C ليولد مركب $IP_3$ من غشاء الخلية.",
+                                                                  "يطلق $IP_3$ أيونات الكالسيوم بكثافة من مخازن الشبكة الإندوبلازمية إلى السيتوسول.",
+                                                                  "يرتبط الكالسيوم ببروتين الكالموديولين، منشطاً إنزيم فوسفاتيز الكالسينيورين (Calcineurin).",
+                                                                  "يقوم الكالسينيورين بنزع مجموعات الفوسفات من عامل النسخ NFAT.",
+                                                                  "عند نزع الفوسفات، ينفذ NFAT إلى داخل النواة ليحفز بقوة نسخ جين إنترلوكين-2 (IL-2)، وهو الوقود الرئيسي لانقسام ونمو الخلايا التائية المهاجمة.",
+                                                                  "يرتبط عقار السيكلوسبورين ببروتين السيكلوفيلين مكوناً معقداً يسد الموقع النشط لإنزيم الكالسينيورين، فيحرم الخلايا التائية من إفراز IL-2 ويمنع رفض العضو المزروع."
+                                                        ],
+                                                        "teacherTipEn": "Immunopharmacology milestone: Cyclosporine A and Tacrolimus (FK506) are both Calcineurin inhibitors targeting the NFAT-IL-2 axis.",
+                                                        "teacherTipAr": "ركيزة علم الأدوية المناعية: السيكلوسبورين والتاكروليموس كلاهما مثبطات للكالسينيورين لمنع إنتاج هرمون النمو المناعي IL-2."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_immunity",
                             "titleEn": "Interactive Simulation: Lymphocyte Activation, Signaling & V(D)J Recombination",
                             "titleAr": "محاكاة تفاعلية: تنشيط الخلايا اللمفاوية ونقل الإشارات والتأشيب الجيني V(D)J",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Lymphocyte Activation, Signaling & V(D)J Recombination.",
@@ -3075,46 +3772,140 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ العلاج المناعي، الأجسام المضادة وحيدة النسيلة وهندسة الخلايا التائية.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch3_l3_ws_p1",
-                                        "titleEn": "Core Standard Question: Immunotherapy, Monoclonal Antibodies & Molecular Oncology",
-                                        "titleAr": "سؤال قياسي: العلاج المناعي، الأجسام المضادة وحيدة النسيلة وهندسة الخلايا التائية",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Immunotherapy, Monoclonal Antibodies & Molecular Oncology according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ العلاج المناعي، الأجسام المضادة وحيدة النسيلة وهندسة الخلايا التائية وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch3_l3_ws_p1",
+                                                        "titleEn": "Köhler-Milstein Hybridoma Technology for Monoclonal Antibodies",
+                                                        "titleAr": "تقنية الورم الهجين (الهايبريدوما) لكولر وميلشتاين لإنتاج الأجسام المضادة وحيدة النسيلة",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In the Nobel prize-winning Köhler and Milstein hybridoma technique, how are immortalized cells that produce a single uniform epitope-specific monoclonal antibody generated?",
+                                                        "questionAr": "في تقنية الهايبريدوما (الورم الهجين) الحائزة على نوبل لكولر وميلشتاين، كيف تُنتج خلايا مخلدة تصنع نوعاً نقياً واحداً من الأجسام المضادة وحيدة النسيلة؟",
+                                                        "optionsEn": [
+                                                                  "By fusing antibody-producing primary spleen B-lymphocytes with immortal cancerous myeloma cells using Polyethylene Glycol (PEG), followed by HAT medium selection",
+                                                                  "By injecting human insulin genes directly into bacterial plasmids",
+                                                                  "By irradiating helper T-cells with high-intensity ultraviolet light",
+                                                                  "By isolating stem cells from umbilical cord blood and exposing them to penicillin"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بدمج خلايا لمفاوية بائية من طحال فأر مُمنع مع خلايا ورم نقوي سرطانية مخلدة (Myeloma) باستخدام بولي إيثيلين جليكول (PEG)، ثم الانتخاب في وسط HAT",
+                                                                  "بحقن جينات الأنسولين البشري في بلازميدات بكتيرية",
+                                                                  "بتشعيع الخلايا التائية المساعدة بأشعة فوق بنفسجية مكثفة",
+                                                                  "بعزل خلايا جذعية من الحبل السري وتعريضها للمضادات الحيوية"
+                                                        ],
+                                                        "correctAnswer": "By fusing antibody-producing primary spleen B-lymphocytes with immortal cancerous myeloma cells using Polyethylene Glycol (PEG), followed by HAT medium selection",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Spleen B-cells provide antibody specificity (but die in culture); Myeloma cells provide indefinite replication (immortality). HAT medium kills unfused myeloma cells.",
+                                                        "hintAr": "خلايا الطحال البائية تمنح تخصص إفراز الجسم المضاد (لكنها تموت سريعاً)؛ وخلايا المايلوما السرطانية تمنح الخلود والانقسام المستمر. ووسط HAT يقتل الخلايا السرطانية غير المندمجة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Step 1: Immunize a mouse with the target antigen, stimulating specific B-lymphocytes in the spleen.",
+                                                                  "Step 2: Harvest spleen B-cells ($HGPRT^+$ but finite lifespan) and mix with myeloma tumor cells ($HGPRT^-$ mutant, immortal).",
+                                                                  "Step 3: Polyethylene Glycol (PEG) induces plasma membrane fusion, creating hybrid cells (Hybridomas).",
+                                                                  "Step 4: Culturing in HAT medium (Hypoxanthine-Aminopterin-Thymidine):",
+                                                                  "  - Aminopterin blocks de novo nucleotide synthesis.",
+                                                                  "  - Unfused myeloma cells ($HGPRT^-$) die because they cannot use the salvage pathway.",
+                                                                  "  - Unfused spleen B-cells die naturally due to limited mortal lifespan.",
+                                                                  "  - Only fused Hybridomas survive, possessing both the B-cell salvage enzyme ($HGPRT^+$) and the myeloma's immortal growth.",
+                                                                  "Step 5: Single-cell cloning and ELISA screening yields pure monoclonal antibodies (mAbs) recognizing a single epitope."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الخطوة 1: حقن فأر بالأنتيجين المستهدف لتنشيط وتكاثر الخلايا البائية المتخصصة في طحاله.",
+                                                                  "الخطوة 2: عزل خلايا الطحال البائية (تمتلك إنزيم HGPRT لكنها تموت بعد أيام)، وخلطها مع خلايا مايلوما سرطانية (تفتقر لإنزيم HGPRT لكنها مخلدة الانقسام).",
+                                                                  "الخطوة 3: إضافة مادة PEG لتحفيز اندماج أغشية الخلايا وتكوين خلايا هجينة (هايبريدوما).",
+                                                                  "الخطوة 4: وضع الخليط في وسط انتخابي خاص يُسمى HAT:",
+                                                                  "  - مركب الأمينوبتيرين يغلق مسار التصنيع الحيوي للنيوكليوتيدات.",
+                                                                  "  - تموت خلايا المايلوما غير المندمجة لأنها تفتقر لإنزيم المسار البديل (HGPRT).",
+                                                                  "  - تموت خلايا الطحال غير المندمجة تلقائياً لانتهاء دورة حياتها القصيرة.",
+                                                                  "  - تنجو فقط خلايا الهايبريدوما المندمجة، فتجمع بين ميزة إنتاج الجسم المضاد النوعي وخلود الانقسام السرطاني اللانهائي.",
+                                                                  "الخطوة 5: استنساخ الخلايا الفردية لإنتاج أجسام مضادة وحيدة النسيلة (mAbs) بالغة النقاء."
+                                                        ],
+                                                        "teacherTipEn": "Monoclonal = 1 single B-cell clone producing identical antibodies against 1 single epitope. Foundation of modern targeted therapeutics (Trastuzumab, Rituximab).",
+                                                        "teacherTipAr": "الأجسام وحيدة النسيلة: ناتجة عن نسيلة خلوية واحدة وتستهدف موقعاً أنتيجينياً واحداً بدقة متناهية، وهي أساس أدوية الأورام والمناعة الحديثة."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l3_ws_p2",
+                                                        "titleEn": "Immune Checkpoint Blockade: Anti-PD-1 & Anti-CTLA-4 Mechanisms",
+                                                        "titleAr": "مثبطات نقاط التفتيش المناعية: آلية عمل مضادات PD-1 و CTLA-4 في علاج الأورام",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "How do therapeutic monoclonal antibodies targeting immune checkpoints (e.g., Pembrolizumab against PD-1) unleash the patient's own immune system to destroy malignant tumors?",
+                                                        "questionAr": "كيف تنجح الأجسام المضادة العلاجية التي تستهدف نقاط التفتيش المناعية (مثل بيمبروليزوماب ضد PD-1) في إطلاق العنان للمناعة الذاتية لتدمير الأورام السرطانية؟",
+                                                        "optionsEn": [
+                                                                  "By blocking the inhibitory PD-1/PD-L1 axis, preventing tumor cells from sending 'exhaustion/off' signals to tumor-infiltrating cytotoxic T-cells",
+                                                                  "By killing all T-lymphocytes in the patient's bloodstream",
+                                                                  "By delivering radioactive iodine into healthy pancreatic cells",
+                                                                  "By inhibiting mitochondrial ATP synthase inside tumor blood vessels"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بإغلاق محور الارتباط المثبط بين مستقبل PD-1 وجزيء PD-L1، مما يمنع الخلايا السرطانية من إرسال إشارات إخماد وشلل للخلايا التائية القاتلة المهاجمة للورم",
+                                                                  "بقتل جميع الخلايا اللمفاوية التائية في الدورة الدموية للمريض",
+                                                                  "بتوصيل اليود المشع إلى خلايا البنكرياس السليمة",
+                                                                  "بتثبيط إنزيم بناء ATP داخل الأوعية الدموية المغذية للورم"
+                                                        ],
+                                                        "correctAnswer": "By blocking the inhibitory PD-1/PD-L1 axis, preventing tumor cells from sending 'exhaustion/off' signals to tumor-infiltrating cytotoxic T-cells",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Tumor cells hijack normal safety brakes (PD-L1) to put T-cells to sleep. Checkpoint inhibitor antibodies remove the brakes.",
+                                                        "hintAr": "تستغل الخلايا السرطانية مكابح الأمان الطبيعية (PD-L1) لشل الخلايا التائية، وتقوم الأجسام المضادة بحجب هذه المكابح لتحرير هجوم المناعة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Malignant tumor cells evade cytotoxic T-cell destruction by expressing high levels of Programmed Death-Ligand 1 (PD-L1).",
+                                                                  "When tumor PD-L1 binds to the Programmed Cell Death protein-1 (PD-1) receptor on cytotoxic T-cells, it recruits SHP-2 phosphatase, dephosphorylating CD28 and TCR signaling molecules.",
+                                                                  "This sends a profound inhibitory signal, inducing T-cell exhaustion, proliferative arrest, and tolerance.",
+                                                                  "Immune checkpoint inhibitor monoclonal antibodies (e.g., anti-PD-1 or anti-PD-L1) bind competitively with high affinity to the receptor or ligand.",
+                                                                  "This physically prevents the inhibitory handshake, releasing the 'molecular brakes' and re-invigorating exhausted tumor-infiltrating lymphocytes (TILs) to actively lyse cancer cells."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تتهرب الأورام السرطانية الخبيثة من هجوم الخلايا التائية القاتلة بإظهار جزيئات مثبطة على سطحها تُعرف بـ PD-L1.",
+                                                                  "عندما يرتبط PD-L1 للورم بمستقبل PD-1 على سطح الخلية التائية القاتلة، تنطلق إشارات تثبيط داخلية تعطل مسارات التنشيط.",
+                                                                  "يؤدي هذا إلى إنهاك الخلية التائية (T-cell exhaustion) وشلها عن مهاجمة الورم تماماً.",
+                                                                  "الأجسام المضادة لمثبطات نقاط التفتيش (مثل مضاد PD-1 أو مضاد PD-L1) ترتبط بالمستقبل أو الربيطة وتغلق موقع الاتصال كيميائياً.",
+                                                                  "يمنع هذا الدواء وصول إشارة التهدئة الكاذبة، مما يرفع المكابح عن الخلايا التائية المهاجمة للورم ويطلق قوتها الكاملة لإبادة الخلايا السرطانية."
+                                                        ],
+                                                        "teacherTipEn": "Nobel Prize in Medicine 2018 (Allison & Honjo) for discovery of cancer therapy by inhibition of negative immune regulation (CTLA-4 and PD-1).",
+                                                        "teacherTipAr": "نوبل للطب 2018 (أليسون وهونجو) لاكتشاف علاج السرطان برفع المكابح المناعية السلبية (CTLA-4 و PD-1)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch3_l3_ws_p3",
+                                                        "titleEn": "Chimeric Antigen Receptor (CAR) T-Cell Genetic Engineering",
+                                                        "titleAr": "الهندسة الوراثية للخلايا التائية ذات المستقبلات المستضدية الوهمية (CAR-T Cell Therapy)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How do Chimeric Antigen Receptor (CAR) T-cells circumvent the major tumor immune escape mechanism of MHC Class I downregulation?",
+                                                        "questionAr": "كيف تتغلب خلايا CAR-T المهندسة وراثياً على الحيلة الأبرز للأورام في الهروب المناعي والمتمثلة في اختفاء وخفض جزيئات MHC Class I من سطح الخلايا السرطانية؟",
+                                                        "optionsEn": [
+                                                                  "By engineering a synthetic receptor that combines an antibody single-chain variable fragment (scFv) recognizing intact surface antigens directly, without requiring MHC presentation",
+                                                                  "By transcribing bacterial toxins into the cell wall of circulating neutrophils",
+                                                                  "By using plant chlorophyll to photosynthesize glucose inside tumors",
+                                                                  "By replacing the patient's entire bone marrow with synthetic plastic beads"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "بهندسة مستقبل تركيبي يجمع بين شظية متغيرة لجسم مضاد وحيد النسيلة (scFv) تتعرف مباشرة على أنتيجين سطح الورم دون الحاجة إطلاقاً لوجود معقد MHC",
+                                                                  "بنسخ سموم بكتيرية داخل الجدار الخلوي لخلايا الدم البيضاء المتعادلة",
+                                                                  "باستخدام كلوروفيل نباتي لإجراء البناء الضوئي داخل النسيج الورمي",
+                                                                  "باستبدال نخاع عظام المريض بالكامل بكرات بلاستيكية صناعية"
+                                                        ],
+                                                        "correctAnswer": "By engineering a synthetic receptor that combines an antibody single-chain variable fragment (scFv) recognizing intact surface antigens directly, without requiring MHC presentation",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "CARs graft an antibody's direct targeting onto a T-cell's killing and proliferation machinery (CD3-zeta + 4-1BB/CD28 signaling domains).",
+                                                        "hintAr": "المستقبل الوهمي CAR يدمج طرف جسم مضاد للتعرف المباشر على سطح الورم مع محرك الإشارات القاتلة للخلية التائية (CD3-zeta و 4-1BB).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "A universal mechanism of cancer immune evasion is the loss or mutational downregulation of HLA/MHC Class I, making tumor cells invisible to natural TCRs.",
+                                                                  "CAR-T engineering extracts patient autologous T-cells and transduces them with a viral vector carrying a synthetic chimeric gene.",
+                                                                  "Extracellular Domain: A Single-Chain Variable Fragment (scFv) derived from a monoclonal antibody (e.g., targeting CD19 on B-cell lymphomas). This domain binds native surface tumor antigens independently of MHC.",
+                                                                  "Transmembrane Domain: Anchors the receptor into the lymphocyte membrane.",
+                                                                  "Intracellular Signaling Endodomain: Fuses the CD3-zeta chain (Signal 1) with costimulatory domains such as 4-1BB (CD137) or CD28 (Signal 2).",
+                                                                  "When infused back into the patient, CAR-T cells recognize CD19+ cancer cells directly, triggering robust cytotoxic granule release and sustained in vivo clonal proliferation without needing professional APCs or MHC."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "الحيلة الأكثر انتشاراً بين الخلايا السرطانية للتهرب من المناعة هي التخلص من جزيئات MHC-I، فتصبح غير مرئية للخلايا التائية الطبيعية.",
+                                                                  "في علاج CAR-T، تُعزل خلايا المريض التائية ويُدخل إليها جين تركيبي هجين بواسطة ناقل فيروسي.",
+                                                                  "النطاق الخارجي: يتكون من شظية متغيرة لجسم مضاد (scFv) ترتبط مباشرة بأنتيجين محدد على سطح الورم (مثل CD19 في أورام الدم) دون الحاجة لـ MHC نهائياً.",
+                                                                  "النطاق الغشائي: يثبت المستقبل الوهمي في غشاء الخلية التائية.",
+                                                                  "النطاق الداخلي المنشط: يدمج سلسلة CD3-zeta (الإشارة 1) مع جزيئات تحفيزية فائقة القوة مثل 4-1BB أو CD28 (الإشارة 2).",
+                                                                  "عند إعادة حقن الخلايا للمريض، تهاجم خلايا CAR-T الأورام السرطانية وتفرز حبيبات البيرفورين القاتلة وتتكاثر بالملايين لتبيد المرض حتى لو كانت الخلايا السرطانية قد أخفت جزيئات MHC بالكامل."
+                                                        ],
+                                                        "teacherTipEn": "CAR-T combines antibody specificity (MHC-independent) with T-cell cytotoxic killing power and long-term memory.",
+                                                        "teacherTipAr": "تدمج تقنية CAR-T دقة الجسم المضاد (المستقلة عن MHC) مع القوة التدميرية والتكاثرية والذاكرة للخلية التائية."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_immunity",
                             "titleEn": "Interactive Simulation: Immunotherapy, Monoclonal Antibodies & Molecular Oncology",
                             "titleAr": "محاكاة تفاعلية: العلاج المناعي، الأجسام المضادة وحيدة النسيلة وهندسة الخلايا التائية",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Immunotherapy, Monoclonal Antibodies & Molecular Oncology.",
@@ -4049,46 +4840,130 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ إنزيمات القصر، النواقل البلازميدية والاستنساخ الجزيئي.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch4_l1_ws_p1",
-                                        "titleEn": "Core Standard Question: Restriction Endonucleases, Vectors & Molecular Cloning",
-                                        "titleAr": "سؤال قياسي: إنزيمات القصر، النواقل البلازميدية والاستنساخ الجزيئي",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of Restriction Endonucleases, Vectors & Molecular Cloning according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ إنزيمات القصر، النواقل البلازميدية والاستنساخ الجزيئي وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch4_l1_ws_p1",
+                                                        "titleEn": "Type II Restriction Endonucleases & Molecular Cleavage Specificity",
+                                                        "titleAr": "إنزيمات القصر من النوع الثاني وخصوصية القطع المتناوب في الهندسة الوراثية",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why are bacterial Type II Restriction Endonucleases (e.g., EcoRI, BamHI, HindIII) universally preferred over Type I and Type III enzymes in recombinant DNA molecular cloning?",
+                                                        "questionAr": "لماذا يُفضل علماء الهندسة الوراثية استخدام إنزيمات القصر من النوع الثاني (مثل EcoRI و BamHI) حصرياً في استنساخ وتعديل الحمض النووي بدلاً من النوعين الأول والثالث؟",
+                                                        "optionsEn": [
+                                                                  "They cleave DNA at precise, fixed nucleotide positions within or immediately adjacent to their specific palindromic recognition sequence without requiring ATP",
+                                                                  "They degrade all cellular RNA and leave DNA completely untouched",
+                                                                  "They join blunt DNA fragments without requiring DNA ligase",
+                                                                  "They operate exclusively at boiling temperatures above 100°C"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأنها تقطع شريطي DNA عند مواقع نيوكليوتيدات محددة وثابتة بدقة داخل أو بجوار موقع التعرف المتناوب دون الحاجة لاستهلاك طاقة ATP",
+                                                                  "لأنها تحلل كل جزيئات RNA في الخلية وتبقي DNA سليماً",
+                                                                  "لأنها تلحم نهايات DNA غير اللاصقة دون الحاجة لإنزيم ربط",
+                                                                  "لأنها تعمل فقط عند درجات حرارة الغليان فوق 100 درجة مئوية"
+                                                        ],
+                                                        "correctAnswer": "They cleave DNA at precise, fixed nucleotide positions within or immediately adjacent to their specific palindromic recognition sequence without requiring ATP",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Type I and III enzymes cut at variable, unpredictable distances hundreds of base pairs away from recognition sites and consume ATP.",
+                                                        "hintAr": "النوعان الأول والثالث يقطعان على مسافات عشوائية متباعدة تبعد مئات النيوكليوتيدات عن موقع التعرف ويستهلكان طاقة ATP، مما يجعلهما غير صالحين للاستنساخ الدقيق.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Type I Restriction Enzymes bind to specific recognition sites but translocate randomly along DNA, cleaving at variable distances (>1,000 bp away) while consuming ATP.",
+                                                                  "Type III Enzymes cleave at fixed distances 20–30 bp outside their sites and also require ATP.",
+                                                                  "Type II Restriction Endonucleases recognize short palindromic sequences (4–8 bp), require only $Mg^{2+}$ as a cofactor (no ATP), and cleave phosphodiester bonds at strictly invariant, predictable positions within the recognition sequence.",
+                                                                  "This produces reproducible fragments with defined blunt or cohesive ('sticky') single-stranded overhangs, making them indispensable for restriction mapping and gene insertion."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "إنزيمات النوع الأول ترتبط بموقع التعرف لكنها تتحرك وتقطع عشوائياً على مسافة تزيد عن 1000 زوج من القواعد مع استهلاك طاقة ATP.",
+                                                                  "إنزيمات النوع الثالث تقطع على مسافات تبعد 20 إلى 30 قاعدة خارج الموقع وتستهلك أيضاً طاقة ATP.",
+                                                                  "إنزيمات القصر من النوع الثاني (Type II) تتعرف على تتابعات متناوبة محددة وتتطلب فقط أيونات المغنيسيوم $Mg^{2+}$، وتقطع شريطي DNA بدقة متناهية في مواضع ثابتة داخل موقع التعرف.",
+                                                                  "ينتج عن ذلك قطع ذات أطراف محددة (إما أطراف لاصقة متدلية أو أطراف ملساء متطابقة)، مما يتيح للباحثين تصميم وإعادة ربط الجينات بيقين تام."
+                                                        ],
+                                                        "teacherTipEn": "Type II restriction enzymes = Cleave INSIDE or immediately AT recognition site, require Mg2+ only, predictable cuts.",
+                                                        "teacherTipAr": "إنزيمات النوع الثاني: القطع داخل موقع التعرف مباشرة، لا تستهلك ATP، ونواتجها متوقعة وقابلة لإعادة الربط تماماً."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l1_ws_p2",
+                                                        "titleEn": "Plasmid Vector Anatomy & Blue-White Colony Screening (LacZ)",
+                                                        "titleAr": "تشريح ناقل البلازميد والاستيلاد الانتقائي الأبيض والأزرق عبر جين LacZ",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "In blue-white colony screening using plasmid pUC19, why do bacterial colonies transformed with a successfully cloned recombinant plasmid appear WHITE on X-gal/IPTG agar plates?",
+                                                        "questionAr": "في تقنية فرز المستعمرات بالأزرق والأبيض باستخدام بلازميد pUC19، لماذا تظهر المستعمرات البكتيرية الحاملة للبلازميد المعاد تركيبه بنجاح بلون أبيض على أطباق آجار X-gal و IPTG؟",
+                                                        "optionsEn": [
+                                                                  "Insertion of the foreign gene into the Multiple Cloning Site (MCS) disrupts the coding frame of the LacZ-alpha gene (insertional inactivation), preventing synthesis of functional beta-galactosidase",
+                                                                  "The foreign gene secretes white pigment that bleaches the bacterial cell wall",
+                                                                  "Recombinant plasmids kill all bacteria that produce blue dyes",
+                                                                  "Beta-galactosidase overproduction turns the cells opaque white"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن إدخال الجين الغريب في موقع الاستنساخ المتعدد (MCS) يعطل الإطار المشفر لجين LacZ (التعطيل بالإدخال)، مما يمنع تكوين إنزيم بيتا-جالاكتوسيديز الوظيفي",
+                                                                  "لأن الجين الغريب يفرز صبغة بيضاء تبيض جدار الخلية البكتيرية",
+                                                                  "لأن البلازميدات المعاد تركيبها تقتل كل البكتيريا المفرزة للون الأزرق",
+                                                                  "لأن الزيادة المفرطة في إنزيم بيتا-جالاكتوسيديز تحول الخلايا للون الأبيض"
+                                                        ],
+                                                        "correctAnswer": "Insertion of the foreign gene into the Multiple Cloning Site (MCS) disrupts the coding frame of the LacZ-alpha gene (insertional inactivation), preventing synthesis of functional beta-galactosidase",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Functional beta-galactosidase cleaves colorless X-gal into an insoluble blue compound. Disruption of the gene means no cleavage -> white colony.",
+                                                        "hintAr": "إنزيم بيتا-جالاكتوسيديز النشط يحلل مادة X-gal عديمة اللون إلى مركب أزرق. وتعطيل الجين بالقطع والإدخال يمنع تحلل المادة فتبقى المستعمرة بيضاء.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "A standard cloning vector (e.g., pUC19) contains an Origin of Replication ($ori$), an antibiotic marker ($amp^R$), and a Multiple Cloning Site (MCS) situated inside the $lacZ\\alpha$ gene.",
+                                                                  "The $lacZ\\alpha$ gene encodes the alpha-peptide of $\\beta$-galactosidase.",
+                                                                  "Non-recombinant plasmids (empty vector): $lacZ\\alpha$ is intact. Functional enzyme cleaves chromogenic substrate X-gal, forming 5-bromo-4-chloro-indigo, a vibrant BLUE precipitate.",
+                                                                  "Recombinant plasmids (gene inserted): The inserted foreign DNA disrupts the open reading frame of $lacZ\\alpha$ (Insertional Inactivation).",
+                                                                  "No functional $\\beta$-galactosidase is produced; X-gal is not cleaved, and the resulting recombinant colonies remain WHITE."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يحتوي بلازميد الاستنساخ القياسي (مثل pUC19) على أصل التضاعف ($ori$)، وجين مقاومة المضاد الحيوي ($amp^R$)، وموقع استنساخ متعدد (MCS) يقع داخل جين $lacZ\\alpha$.",
+                                                                  "يشفر جين $lacZ\\alpha$ جزءاً أساسياً من إنزيم بيتا-جالاكتوسيديز.",
+                                                                  "البلازميد الأصلي غير المعاد تركيبه (الخالي): جين $lacZ$ سليم، فيتكون إنزيم نشط يحلل مادة X-gal وينتج لوناً أزرق داكناً (مستعمرات زرقاء).",
+                                                                  "البلازميد المعاد تركيبه بنجاح: يؤدي إقحام الجين الغريب في موقع MCS إلى شطر وتعطيل جين $lacZ$ (التعطيل بالإدخال - Insertional Inactivation).",
+                                                                  "يفقد البلازميد القدرة على إنتاج الإنزيم النشط، فلا تتحلل مادة X-gal وتنمو المستعمرات بلونها الأبيض الطبيعي (مستعمرات بيضاء مرغوبة)."
+                                                        ],
+                                                        "teacherTipEn": "Blue colonies = Empty vector (unwanted). White colonies = Recombinant plasmid with foreign gene insert (desired clone).",
+                                                        "teacherTipAr": "المستعمرات الزرقاء = بلازميد فارغ غير مرغوب. المستعمرات البيضاء = بلازميد يحمل الجين المستهدف بنجاح."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l1_ws_p3",
+                                                        "titleEn": "Cloning Vector Capacity: Plasmids, Bacteriophages, Cosmids & BACs",
+                                                        "titleAr": "السعة الاستيعابية لنواقل الاستنساخ: البلازميدات، الفاجات، الكوزميدات، والكروموسومات الاصطناعية (BACs)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "When constructing a comprehensive human genomic library requiring inserts of $150\\text{ to } 300\\text{ kilobases (kb)}$, which cloning vector system is required?",
+                                                        "questionAr": "عند بناء مكتبة جينومية بشرية شاملة تتطلب استيعاب قطع DNA عملاقة يتراوح طولها بين 150 إلى 300 ألف زوج من القواعد (كيلوبيز kb)، أي أنظمة النواقل التالية يُعد هو الأنسب والأكفأ؟",
+                                                        "optionsEn": [
+                                                                  "Bacterial Artificial Chromosomes (BACs based on the single-copy F-factor plasmid)",
+                                                                  "Standard bacterial plasmids (pBR322 / pUC19)",
+                                                                  "Bacteriophage lambda insertion vectors",
+                                                                  "Retroviral expression vectors"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الكروموسومات الاصطناعية البكتيرية (BACs المبنية على بلازميد عامل الخصوبة F أحادي النسخة)",
+                                                                  "البلازميدات البكتيرية القياسية (pBR322 و pUC19)",
+                                                                  "نواقل بكتيريوفاج لامدا الإقحامية",
+                                                                  "نواقل التعبير الفيروسية القهقرية"
+                                                        ],
+                                                        "correctAnswer": "Bacterial Artificial Chromosomes (BACs based on the single-copy F-factor plasmid)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Plasmids accept up to ~10 kb; Lambda phages ~20 kb; Cosmids ~45 kb; BACs accept 100–300 kb stable inserts.",
+                                                        "hintAr": "البلازميد يستوعب حتى 10 كيلوبيز، وفاج لامدا 20، والكوزميد 45، بينما الكروموسوم البكتيري BAC يستوعب حتى 300 كيلوبيز بثبات تام.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Cloning vectors possess strict physical limits on maximum foreign DNA insert size:",
+                                                                  "  - Standard Plasmids: Optimal for $0.1\\text{ to } 10\\text{ kb}$ (larger inserts cause structural instability and low transformation efficiency).",
+                                                                  "  - Bacteriophage $\\lambda$: Carries $10\\text{ to } 23\\text{ kb}$ (constrained by viral capsid headful packaging capacity).",
+                                                                  "  - Cosmids (plasmid + cos sites): Accommodates $30\\text{ to } 45\\text{ kb}$.",
+                                                                  "  - Bacterial Artificial Chromosomes (BACs): Derived from the E. coli fertility plasmid (F-factor). They replicate at strict low-copy number (1–2 copies per cell), which prevents recombination rearrangements and accommodates stable inserts of $100\\text{ to } 350\\text{ kb}$.",
+                                                                  "BACs formed the physical mapping backbone of the Human Genome Project."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تمتلك نواقل الاستنساخ سعات استيعابية قصوى محددة بدقة:",
+                                                                  "  - البلازميدات العادية: تستوعب من 0.1 إلى 10 كيلوبيز (القطع الأكبر تسبب عدم استقرار وضعف كفاءة التحول).",
+                                                                  "  - فاج لامدا: يستوعب من 10 إلى 23 كيلوبيز (مقيد بحجم المحفظة البروتينية للفيروس).",
+                                                                  "  - الكوزميد (بلازميد به مواقع cos): يستوعب من 30 إلى 45 كيلوبيز.",
+                                                                  "  - الكروموسومات الاصطناعية البكتيرية (BACs): مشتقة من بلازميد الخصوبة F، وتتضاعف بنسخة واحدة أو اثنتين في كل خلية مما يمنع تفكك القطع الكبيرة ويسمح باستيعاب قطع عملاقة من 100 إلى 350 كيلوبيز بثبات فائق.",
+                                                                  "شكلت نواقل BACs العمود الفقري لمشروع الجينوم البشري الدولي."
+                                                        ],
+                                                        "teacherTipEn": "Insert capacities: Plasmids (<10 kb) < Phage (<25 kb) < Cosmids (~45 kb) < BACs (~300 kb) < YACs (>1000 kb).",
+                                                        "teacherTipAr": "تدرج السعة: بلازميدات (<10 kb) < فاج (<25 kb) < كوزميدات (~45 kb) < BACs (~300 kb) < YACs الخميرة (>1000 kb)."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_genetics",
                             "titleEn": "Interactive Simulation: Restriction Endonucleases, Vectors & Molecular Cloning",
                             "titleAr": "محاكاة تفاعلية: إنزيمات القصر، النواقل البلازميدية والاستنساخ الجزيئي",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in Restriction Endonucleases, Vectors & Molecular Cloning.",
@@ -4217,46 +5092,132 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ حركية تفاعل PCR، التفريد الكهربي، وتقنيات تسلسل الحمض النووي.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch4_l2_ws_p1",
-                                        "titleEn": "Core Standard Question: PCR Kinetics, Gel Electrophoresis & DNA Sequencing",
-                                        "titleAr": "سؤال قياسي: حركية تفاعل PCR، التفريد الكهربي، وتقنيات تسلسل الحمض النووي",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of PCR Kinetics, Gel Electrophoresis & DNA Sequencing according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ حركية تفاعل PCR، التفريد الكهربي، وتقنيات تسلسل الحمض النووي وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch4_l2_ws_p1",
+                                                        "titleEn": "PCR Exponential Amplification Kinetics: 2^n Calculations",
+                                                        "titleAr": "حسابات التضاعف الأسي لحركية تفاعل البلمرة المتسلسل (2^n)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Starting with 50 double-stranded template DNA molecules, how many theoretical target DNA duplexes are generated after 30 cycles of standard PCR (assuming 100% amplification efficiency)?",
+                                                        "questionAr": "بدءاً من 50 جزيء DNA مزدوج الشريط، كم عدد جزيئات DNA المستهدفة المتولدة نظرياً بعد 30 دورة من تفاعل PCR القياسي (بافتراض كفاءة تضاعف 100%)؟",
+                                                        "optionsEn": [
+                                                                  "50 * 2^30 (approx. 5.37 * 10^10 molecules)",
+                                                                  "50 * 30 (1500 molecules)",
+                                                                  "30 * 2^50 molecules",
+                                                                  "50 * 10^30 molecules"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "50 × 2^30 (حوالي 5.37 × 10^10 جزيء)",
+                                                                  "50 × 30 (1500 جزيء)",
+                                                                  "30 × 2^50 جزيء",
+                                                                  "50 × 10^30 جزيء"
+                                                        ],
+                                                        "correctAnswer": "50 * 2^30 (approx. 5.37 * 10^10 molecules)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "PCR doubles the target sequence in each cycle: N = N0 * 2^n, where n is the number of thermal cycles.",
+                                                        "hintAr": "يتضاعف عدد النسخ مرتين في كل دورة حرارية وفق الدالة الأسية: N = N0 × 2^n حيث n عدد الدورات.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "The mathematical kinetics of PCR amplification follows exponential expansion:",
+                                                                  "$$N = N_0 \\times (1 + E)^n$$",
+                                                                  "Where $N_0$ is initial template copy number ($50$), $E$ is efficiency ($1.00 = 100\\%$), and $n$ is cycle number ($30$).",
+                                                                  "$$N = 50 \\times 2^{30}$$",
+                                                                  "Since $2^{30} \\approx 1.0737 \\times 10^9$:",
+                                                                  "$$N = 50 \\times (1.0737 \\times 10^9) \\approx 5.3687 \\times 10^{10}\\text{ DNA duplexes}$$",
+                                                                  "This demonstrates the staggering billion-fold amplification power of PCR."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "تخضع حركية التضاعف في جهاز PCR للدالة الأسية:",
+                                                                  "$$N = N_0 \\times 2^n$$",
+                                                                  "حيث $N_0$ عدد الجزيئات الابتدائية (50 جزيء)، و $n$ عدد الدورات الحرارية (30 دورة).",
+                                                                  "$$N = 50 \\times 2^{30}$$",
+                                                                  "بما أن $2^{30} \\approx 1.0737 \\times 10^9$ (أكثر من مليار ضعف):",
+                                                                  "$$N = 50 \\times 1.0737 \\times 10^9 \\approx 5.37 \\times 10^{10}\\text{ جزيء DNA}$$",
+                                                                  "وهذا يوضح قدرة PCR الخارقة على توليد أكثر من 50 مليار نسخة نقية من عينة مجهرية متناهية الصغر."
+                                                        ],
+                                                        "teacherTipEn": "Formula: N = N0 * 2^n. After 20 cycles: ~1 million fold. After 30 cycles: ~1 billion fold.",
+                                                        "teacherTipAr": "القاعدة: N = N0 × 2^n. بعد 20 دورة: تضاعف بمقدار مليون ضعف. بعد 30 دورة: تضاعف بمقدار مليار ضعف."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l2_ws_p2",
+                                                        "titleEn": "Agarose Gel Electrophoresis Mobility vs Log(Base Pairs)",
+                                                        "titleAr": "الهجرة الكهربائية في هلام الأجاروز والعلاقة العكسية مع لوغاريتم الحجم الجزيئي",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "During horizontal agarose gel electrophoresis at alkaline pH (8.0), what dictates the migration direction and speed of linear DNA fragments towards the electrodes?",
+                                                        "questionAr": "أثناء التفريد الكهربي في هلام الأجاروز عند درجة أس هيدروجيني قلوية (8.0)، ما الذي يحدد اتجاه وسرعة هجرة قطع DNA بين القطبين؟",
+                                                        "optionsEn": [
+                                                                  "DNA is uniformly negatively charged due to its phosphate backbone and migrates toward the positive anode; migration velocity is inversely proportional to log(molecular size)",
+                                                                  "DNA is positively charged and migrates toward the negative cathode; larger fragments travel fastest",
+                                                                  "DNA carries zero charge and moves solely by capillary action and gravity",
+                                                                  "DNA fragments separate based entirely on GC percentage rather than length"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "يحمل DNA شحنة سالبة منتظمة بسبب هيكل السكر-فوسفات فيهجر نحو القطب الموجب (المصعد Anode)؛ وتتناسب سرعة الهجرة عكسياً مع لوغاريتم الحجم الجزيئي",
+                                                                  "يحمل DNA شحنة موجبة فيهجر نحو القطب السالب (المهبط)؛ والقطع الكبيرة تتحرك أسرع",
+                                                                  "جزيء DNA متعادل الشحنة ويتحرك بالخاصية الشعرية والجاذبية الأرضية",
+                                                                  "تنفصل قطع DNA بناءً على نسبة G-C فقط ولا علاقة لطول القطعة بهجرتها"
+                                                        ],
+                                                        "correctAnswer": "DNA is uniformly negatively charged due to its phosphate backbone and migrates toward the positive anode; migration velocity is inversely proportional to log(molecular size)",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Phosphates ($PO_4^{3-}$) confer a constant negative charge-to-mass ratio. Smaller fragments navigate the porous agarose sieve faster.",
+                                                        "hintAr": "مجموعات الفوسفات تعطي DNA شحنة سالبة ثابتة فيهجر للقطب الموجب؛ والقطع الصغيرة تخترق ثقوب الهلام أسرع من القطع الكبيرة.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "1. Charge: Every nucleotide bears a deprotonated phosphate ($PO_4^-$) at pH 8.0, conferring a strictly constant charge-to-mass ratio.",
+                                                                  "2. Direction: Because DNA is negative, it migrates away from the negative cathode towards the positive anode ('Run to the Red').",
+                                                                  "3. Sieving Matrix: Agarose forms a 3D cross-linked microscopic meshwork.",
+                                                                  "4. Velocity: Smaller DNA fragments maneuver through pores with minimal friction, whereas large fragments are impeded. Migration distance ($D$) is inversely proportional to the logarithm of base pair length: $D \\propto \\frac{1}{\\log_{10}(\\text{bp})}$."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "1. الشحنة: تحتوي كل نيوكليوتيدة على مجموعة فوسفات سالبة الشحنة عند درجة pH القلوية، مما يمنح الحمض شحنة سالبة منتظمة.",
+                                                                  "2. اتجاه الهجرة: ينجذب DNA المشحون سالباً نحو القطب الموجب (المصعد/الأنود).",
+                                                                  "3. طبيعة الهلام: يشكل هلام الأجاروز مصفوفة غربالية ثلاثية الأبعاد تحتوي على مسام مجهرية.",
+                                                                  "4. سرعة الهجرة: القطع الصغيرة تمر بسهولة وسرعة عبر المسام وتقطع مسافة أكبر، بينما تتعرقل القطع الطويلة الكبيرة وتبقى بالقرب من آبار التحميل (علاقة عكسية مع لوغاريتم الحجم الجزيئي)."
+                                                        ],
+                                                        "teacherTipEn": "Electrophoresis rule: Small fragments move furthest; large fragments stay near the wells. Ethidium bromide or GelRed visualizes bands under UV.",
+                                                        "teacherTipAr": "قاعدة الهجرة: القطع الأصغر تهاجر أبعد نحو القطب الموجب، والقطع الأطول تبقى بالأعلى قرب الآبار."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l2_ws_p3",
+                                                        "titleEn": "Sanger Dideoxy Chain-Termination Sequencing Mechanism",
+                                                        "titleAr": "آلية تسلسل سانجر وإنهاء السلسلة بالنيوكليوتيدات منقوصة الأكسجين المزدوجة (ddNTPs)",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "Why does the incorporation of a 2',3'-dideoxynucleotide triphosphate (ddNTP) by DNA polymerase irreversibly terminate growing chain elongation in Sanger sequencing?",
+                                                        "questionAr": "لماذا يؤدي إدخال نيوكليوتيدة منقوصة الأكسجين مزدوجة (ddNTP) بواسطة إنزيم بلمرة DNA إلى إيقاف وإنهاء نمو السلسلة فوراً في تقنية تسلسل سانجر؟",
+                                                        "optionsEn": [
+                                                                  "ddNTPs lack the essential 3'-OH hydroxyl group required to form the next phosphodiester bond with incoming nucleotides",
+                                                                  "ddNTPs contain radioactive toxins that destroy the DNA polymerase active site",
+                                                                  "ddNTPs cannot form hydrogen bonds with the template strand",
+                                                                  "ddNTPs flip the double helix from right-handed B-DNA to left-handed Z-DNA"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن جزيئات ddNTP تفتقر إلى مجموعة الهيدروكسيل 3'-OH الحرة الضرورية لتكوين الرابطة الفوسفاتية التالية مع النيوكليوتيدة القادمة",
+                                                                  "لأن ddNTPs تحتوي على سموم مشعة تدمر الموقع التحفيزي للإنزيم",
+                                                                  "لأن ddNTPs تعجز عن تكوين روابط هيدروجينية مع شريط القالب",
+                                                                  "لأن ddNTPs تقلب اتجاه التفاف اللولب المزدوج من اليمين إلى اليسار"
+                                                        ],
+                                                        "correctAnswer": "ddNTPs lack the essential 3'-OH hydroxyl group required to form the next phosphodiester bond with incoming nucleotides",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Standard dNTPs have a 3'-OH; ddNTPs have only a hydrogen at both 2' and 3' carbons (dideoxy = no OH on carbon 3).",
+                                                        "hintAr": "النيوكليوتيدة الطبيعية تحمل هيدروكسيل OH على الكربون رقم 3 لبناء الرابطة التالية؛ بينما ddNTP منزوعة الأكسجين في الموضعين 2 و 3 فلا يمكن ربط أي نيوكليوتيدة بعدها.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "During DNA synthesis, the 3'-OH of the growing primer attacks the alpha-phosphate of incoming dNTP, releasing pyrophosphate and forming a phosphodiester bond.",
+                                                                  "Dideoxynucleotides (ddNTPs: ddATP, ddTTP, ddGTP, ddCTP) are chemically modified: Both the 2' and 3' positions on the ribose ring lack hydroxyl groups (having $-H$ instead of $-OH$).",
+                                                                  "DNA polymerase can incorporate a fluorescently labeled ddNTP complementary to the template.",
+                                                                  "However, once incorporated, the absence of a 3'-OH nucleophile makes it chemically impossible to form another 5'-to-3' phosphodiester bond.",
+                                                                  "Chain elongation halts abruptly at that exact base. Capillary electrophoresis separates the resulting terminated fragments by single-nucleotide resolution to read the sequence."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "أثناء بلمرة DNA الطبيعية، تهاجم مجموعة 3'-OH الحرة في طرف السلسلة الفوسفات ألفا للنيوكليوتيدة الجديدة لتكوين الرابطة الفوسفاتية ثنائية الإستر.",
+                                                                  "النيوكليوتيدات منقوصة الأكسجين المزدوجة (ddNTPs) خضعت لتعديل كيميائي: أُزيلت ذرة الأكسجين من الكربونة رقم 2 والكربونة رقم 3 في حلقة السكر.",
+                                                                  "يستطيع إنزيم بلمرة DNA إدخال جزيء ddNTP الملون بصبغة فلورية مكملة للقالب.",
+                                                                  "لكن بمجرد إدخاله، يتعذر كيميائياً إضافة أي نيوكليوتيدة لاحقة لغياب مجموعة 3'-OH، فتتوقف السلسلة فوراً عند تلك النيوكليوتيدة المحددة.",
+                                                                  "بفصل هذه القطع المتوقفة بالتفريد الشعيري وتمريرها على شعاع ليزر، يُقرأ تتابع الجين حرفاً بحرف بدقة مطلقة."
+                                                        ],
+                                                        "teacherTipEn": "dNTP = Extends synthesis (has 3'-OH). ddNTP = Terminates synthesis (lacks 3'-OH). Nobel Prize in Chemistry (Fred Sanger).",
+                                                        "teacherTipAr": "dNTP = يستمر في البناء (يحمل 3'-OH). ddNTP = ينهي البلمرة فوراً (يفتقر لـ 3'-OH). حاز سانجر نوبل لتطوير هذا الابتكار العبقري."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_genetics",
                             "titleEn": "Interactive Simulation: PCR Kinetics, Gel Electrophoresis & DNA Sequencing",
                             "titleAr": "محاكاة تفاعلية: حركية تفاعل PCR، التفريد الكهربي، وتقنيات تسلسل الحمض النووي",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in PCR Kinetics, Gel Electrophoresis & DNA Sequencing.",
@@ -4385,46 +5346,134 @@ export const egBacBiologyBranch: Branch = {
                             "descriptionAr": "ورقة تدريبية شاملة لترسيخ المفاهيم وأنماط الأسئلة الامتحانية لـ التحرير الجيني الدقيق بـ CRISPR-Cas9 والوراثة اللاجينية والعلاج الجيني.",
                             "estimatedTimeMinutes": 45,
                             "problems": [
-                                  {
-                                        "id": "egbac_bio_ch4_l3_ws_p1",
-                                        "titleEn": "Core Standard Question: CRISPR-Cas9 Precision Editing, Epigenetics & Gene Therapy",
-                                        "titleAr": "سؤال قياسي: التحرير الجيني الدقيق بـ CRISPR-Cas9 والوراثة اللاجينية والعلاج الجيني",
-                                        "difficulty": "medium",
-                                        "questionEn": "Which statement best characterizes the official biological mechanism of CRISPR-Cas9 Precision Editing, Epigenetics & Gene Therapy according to national curriculum standards?",
-                                        "questionAr": "أي العبارات التالية تصف بدقة الآلية البيولوجية لـ التحرير الجيني الدقيق بـ CRISPR-Cas9 والوراثة اللاجينية والعلاج الجيني وفقاً لمعايير المنهج الوزاري المعتمد؟",
-                                        "optionsEn": [
-                                              "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                              "Spontaneous non-enzymatic decay lacking cellular or genetic control",
-                                              "Static unchanging equilibrium that does not respond to environmental stimuli",
-                                              "Complete cellular shutdown during normal physiological homeostasis"
-                                        ],
-                                        "optionsAr": [
-                                              "تفاعلات جزيئية متخصصة خاضعة للتنظيم عبر المستقبلات والمسارات الإنزيمية الدقيقة",
-                                              "تحلل عشوائي تلقائي بدون أي تحكم خلوي أو وراثي",
-                                              "اتزان استاتيكي جامد لا يستجيب لأي مؤثرات بيئية أو هرمونية",
-                                              "توقف كامل للنشاط الخلوي أثناء الأداء الفسيولوجي الطبيعي"
-                                        ],
-                                        "correctAnswer": "Specific molecular interactions mediated by regulated receptor and enzymatic pathways",
-                                        "correctIndex": 0,
-                                        "hintEn": "Focus on the regulated, highly specific nature of physiological and genetic mechanisms.",
-                                        "hintAr": "ركز على الطبيعة المنظمة وعالية التخصص للآليات الفسيولوجية والوراثية.",
-                                        "stepByStepSolutionEn": [
-                                              "Analyze the biological process described in the curriculum.",
-                                              "Biological mechanisms operate through specific receptor, enzymatic, or structural cascades.",
-                                              "This statement correctly represents the verified scientific curriculum standard."
-                                        ],
-                                        "stepByStepSolutionAr": [
-                                              "تحليل الآلية الحيوية المحددة في المنهج.",
-                                              "تعمل الآليات البيولوجية من خلال تسلسلات متخصصة من المستقبلات والإنزيمات.",
-                                              "هذه الإجابة تمثل بدقة المفهوم العلمي المعتمد في كتاب الوزارة."
-                                        ],
-                                        "teacherTipEn": "Remind students that biological control is always dynamic, specific, and regulated.",
-                                        "teacherTipAr": "تذكير الطلاب بأن التحكم البيولوجي يتسم دائماً بالدقة والتخصص والتنظيم الفسيولوجي."
-                                  }
-                            ]
+                                              {
+                                                        "id": "egbac_bio_ch4_l3_ws_p1",
+                                                        "titleEn": "CRISPR-Cas9 Precision Mechanics & PAM Motif Requirement",
+                                                        "titleAr": "آلية التحرير الجيني الدقيق بنظام كريسبر كاس9 وضرورة تتابع PAM",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Why is the presence of a Protospacer Adjacent Motif (PAM sequence: 5'-NGG-3' for SpCas9) strictly mandatory for Cas9 endonuclease double-strand cleavage?",
+                                                        "questionAr": "لماذا يُعد وجود تتابع PAM المجاور (تتابع 5'-NGG-3' لإنزيم SpCas9) شرطاً إجبارياً صارماً لقيام إنزيم القطع Cas9 بإحداث كسر مزدوج في DNA الهدف؟",
+                                                        "optionsEn": [
+                                                                  "Cas9 must physically interrogate and bind the PAM motif before unwinding the DNA duplex to allow RNA-DNA guide matching; absence of PAM prevents cleavage and protects the bacterial CRISPR locus from self-destruction",
+                                                                  "The PAM sequence provides metabolic ATP energy to power the Cas9 rotor",
+                                                                  "The PAM sequence transcribes single-guide RNA directly inside the nucleus",
+                                                                  "Cas9 cuts only the PAM sequence and never touches target DNA"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "لأن إنزيم Cas9 يجب أن يرتبط بتتابع PAM أولاً لفك التفاف اللولب المزدوج والسماح لمرشد sgRNA بمطابقة الهدف؛ وغياب PAM يمنع القطع ويحمي جينوم البكتيريا من تدمير نفسه",
+                                                                  "لأن تتابع PAM يوفر طاقة ATP اللازمة لحركة إنزيم Cas9",
+                                                                  "لأن تتابع PAM يقوم بنسخ RNA المرشد بنفسه داخل النواة",
+                                                                  "لأن إنزيم Cas9 يقطع تتابع PAM فقط ولا يمس بقية الجين المستهدف"
+                                                        ],
+                                                        "correctAnswer": "Cas9 must physically interrogate and bind the PAM motif before unwinding the DNA duplex to allow RNA-DNA guide matching; absence of PAM prevents cleavage and protects the bacterial CRISPR locus from self-destruction",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "Cas9 first scans for the PAM (5'-NGG-3'). Only if PAM is present does it unzip DNA to check if the 20-nt guide RNA matches the protospacer.",
+                                                        "hintAr": "يبحث إنزيم Cas9 أولاً عن تتابع PAM (NGG). فإذا وجده يفك التفاف اللولب ليفحص تطابق الـ 20 نيوكليوتيدة للمرشد sgRNA، ثم يقطع على بعد 3 قواعد.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Streptococcus pyogenes Cas9 is guided by a single-guide RNA (sgRNA) containing a 20-nucleotide target-matching sequence.",
+                                                                  "However, Cas9 does NOT initiate target search by matching the RNA guide.",
+                                                                  "Instead, the Cas9 protein PAM-interacting domain first scans genomic DNA for the specific Protospacer Adjacent Motif ($5'-\\text{NGG}-3'$).",
+                                                                  "Upon binding PAM, Cas9 locally destabilizes and melts the DNA double helix adjacent to the PAM.",
+                                                                  "The sgRNA then base-pairs with the target DNA strand, forming an R-loop.",
+                                                                  "Its two catalytic nuclease domains (HNH cleaving the target strand and RuvC cleaving the non-target strand) generate a precise blunt double-strand break (DSB) exactly 3 base pairs upstream of the PAM.",
+                                                                  "In bacteria, the CRISPR array contains protospacers without PAM motifs, preventing self-cleavage."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يوجه إنزيم Cas9 جزيء RNA مرشد (sgRNA) يحمل 20 نيوكليوتيدة مطابقة للجين المستهدف.",
+                                                                  "لكن إنزيم Cas9 لا يبدأ بالبحث عن تطابق RNA مباشرة.",
+                                                                  "بل يقوم النطاق البروتيني لـ Cas9 أولاً بمسح جزيء DNA للبحث عن تتابع مجاور محدد يُسمى PAM (وهو 5'-NGG-3').",
+                                                                  "بمجرد عثور الإنزيم على PAM، يقوم بفك التفاف شريطي DNA موضعياً في هذا المكان.",
+                                                                  "يقترن مرشد sgRNA مع شريط القالب مكوناً حلقة R-loop متطابقة.",
+                                                                  "يقطع نطاقا النيوكليز في الإنزيم (HNH و RuvC) شريطي DNA معاً بدقة متناهية على بعد 3 أزواج من القواعد قبل تتابع PAM مسبباً كسراً مزدوجاً (DSB).",
+                                                                  "في البكتيريا، تحتوي مصفوفة كريسبر على تتابعات الفيروس دون تتابع PAM، مما يحمي البكتيريا من قطع وتدمير جينومها ذاتياً."
+                                                        ],
+                                                        "teacherTipEn": "SpCas9 targets: 20-nt guide + 5'-NGG-3' PAM. Cuts 3 bp upstream of PAM. Nobel Prize in Chemistry 2020 (Charpentier & Doudna).",
+                                                        "teacherTipAr": "نظام كريسبر SpCas9: مرشد 20 نيوكليوتيدة + تتابع PAM (NGG). يحدث القطع قبل PAM بـ 3 قواعد. نوبل للكيمياء 2020 (شاربنتييه ودودنا)."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l3_ws_p2",
+                                                        "titleEn": "DNA Double-Strand Break Repair: NHEJ vs HDR Outcomes",
+                                                        "titleAr": "مسارات إصلاح كسر DNA المزدوج: الوصل غير المتماثل (NHEJ) مقابل الإصلاح الموجه بالتماثل (HDR)",
+                                                        "difficulty": "medium",
+                                                        "questionEn": "Following a targeted double-strand break created by Cas9, what cellular DNA repair pathway is harnessed to accomplish precise gene correction or insertion rather than gene knockout?",
+                                                        "questionAr": "عقب إحداث كسر مزدوج مستهدف بواسطة كريسبر Cas9، أي مسارات الإصلاح الخلوية يُستغل لإجراء تعديل جيني دقيق أو إدخال جين سليم بدلاً من مجرد تعطيل الجين؟",
+                                                        "optionsEn": [
+                                                                  "Homology-Directed Repair (HDR) using an exogenous donor repair DNA template",
+                                                                  "Non-Homologous End Joining (NHEJ) which introduces random insertions/deletions (indels)",
+                                                                  "Nucleotide Excision Repair (NER) targeting UV thymine dimers",
+                                                                  "Mismatch Repair (MMR) during DNA replication"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "الإصلاح الموجه بالتماثل (HDR) باستخدام شريط DNA مانح يحمل التسلسل السليم كقالب للإصلاح",
+                                                                  "الوصل النهائي غير المتماثل (NHEJ) الذي يُحدث طفرات إقحام أو حذف عشوائية (Indels)",
+                                                                  "إصلاح استئصال النيوكليوتيدات المخصص لطفرات الأشعة فوق البنفسجية",
+                                                                  "إصلاح عدم التطابق أثناء تضاعف الحمض النووي"
+                                                        ],
+                                                        "correctAnswer": "Homology-Directed Repair (HDR) using an exogenous donor repair DNA template",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "NHEJ is error-prone and causes frameshifts (knockout). HDR uses a supplied homologous donor template for high-fidelity gene editing (knock-in).",
+                                                        "hintAr": "مسار NHEJ سريع ومعرض للأخطاء فيسبب طفرات إزاحة وتعطيل الجين (Knockout). بينما HDR ينسخ من قالب مانح بدقة تامة لإصلاح الجين المعطوب.",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Following Cas9-induced double-strand break (DSB), the cell has two major repair pathways: Non-Homologous End Joining (NHEJ) and Homology-Directed Repair (HDR).",
+                                                                  "NHEJ directly ligates broken DNA ends without a template. This process is inherently error-prone, frequently introducing insertions or deletions (indels) that shift the reading frame and knock out gene function.",
+                                                                  "In contrast, Homology-Directed Repair (HDR) occurs when an exogenous donor DNA repair template with homology arms flanking the cut site is co-delivered with Cas9 and sgRNA.",
+                                                                  "The high-fidelity homologous recombination machinery copies the desired sequence from the donor template into the broken genomic site, achieving precise point mutation correction or targeted gene insertion (knock-in)."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "عقب إحداث كسر مزدوج (DSB) في DNA بواسطة Cas9، تمتلك الخلية مسارين رئيسيين للإصلاح: مسار NHEJ ومسار HDR.",
+                                                                  "يقوم مسار NHEJ بلحم أطراف الكسر مباشرة دون الاعتماد على قالب، وهي آلية سريعة ولكنها معرضة للأخطاء، مما يُدخل طفرات إقحام أو حذف (indels) تُغير إطار القراءة وتعطل عمل الجين (Gene Knockout).",
+                                                                  "على النقيض من ذلك، ينشط مسار الإصلاح الموجه بالتماثل (HDR) عند تزويد الخلية بقطعة DNA مانحة تحتوي على التسلسل السليم محاطاً بأذرع متماثلة.",
+                                                                  "تستخدم آليات العبور وإعادة التركيب الخلوية هذا القالب المانح بدقة فائقة لنسخ التسلسل الصحيح مكان الكسر، مما يحقق تعديلاً جينياً فائق الدقة أو إدخال جين جديد (Gene Knock-in)."
+                                                        ],
+                                                        "teacherTipEn": "NHEJ is active in all cell cycle phases and creates knockouts. HDR is active mainly in S/G2 phases and enables precise knock-ins with a donor template.",
+                                                        "teacherTipAr": "مسار NHEJ ينشط في جميع أطوار الخلية ويسبب تعطيل الجين (Knockout)، بينما HDR ينشط أساساً في طوري S و G2 ويتطلب قالباً مانحاً لتعديل الجين بدقة."
+                                              },
+                                              {
+                                                        "id": "egbac_bio_ch4_l3_ws_p3",
+                                                        "titleEn": "Epigenetic Regulation: DNA Methylation vs Histone Acetylation",
+                                                        "titleAr": "التنظيم فوق الجيني (الإبيجينوم): مثيلة DNA مقابل أسيلة بروتينات الهستون",
+                                                        "difficulty": "hots",
+                                                        "questionEn": "How do DNA methylation at CpG islands and histone post-translational modifications coordinately silence tumor suppressor genes in cancer epigenetics?",
+                                                        "questionAr": "كيف يؤدي التنسيق بين مثيلة DNA عند جزر CpG والتعديلات اللاحقة لبروتينات الهستون إلى كتم وتعطيل الجينات الكابحة للأورام في فوق جينات السرطان؟",
+                                                        "optionsEn": [
+                                                                  "Hypermethylation of promoter CpG islands recruits Methyl-CpG-binding proteins (MeCP2) that recruit Histone Deacetylases (HDACs), condensing chromatin into transcriptionally silent heterochromatin",
+                                                                  "Methylation cuts DNA into restriction fragments and expels histones from the nucleus",
+                                                                  "Histone acetylation permanently locks RNA Polymerase onto promoters and stops transcription",
+                                                                  "DNA methylation mutates all guanine bases into thymine residues"
+                                                        ],
+                                                        "optionsAr": [
+                                                                  "فرط مثيلة جزر CpG في محفز الجين يجذب بروتينات الربط (MeCP2) التي تستدعي إنزيمات نزع الأسيتيل (HDACs)، مما يؤدي لتكثيف الكروماتين إلى كروماتين مغلق عديم النشاط (Heterochromatin)",
+                                                                  "تتسبب المثيلة في تقطيع DNA إلى أجزاء صغيرة وطرد الهستونات خارج النواة",
+                                                                  "تؤدي أسيلة الهستونات إلى حبس إنزيم بلمرة RNA على المحفز ومنعه من التحرك",
+                                                                  "تحول مثيلة DNA جميع قواعد الجوانين إلى ثايمين"
+                                                        ],
+                                                        "correctAnswer": "Hypermethylation of promoter CpG islands recruits Methyl-CpG-binding proteins (MeCP2) that recruit Histone Deacetylases (HDACs), condensing chromatin into transcriptionally silent heterochromatin",
+                                                        "correctIndex": 0,
+                                                        "hintEn": "DNA methylation + Histone de-acetylation = Compact, closed heterochromatin (Gene OFF). Histone acetylation = Open euchromatin (Gene ON).",
+                                                        "hintAr": "مثيلة DNA + نزع الأسيتيل = كروماتين متكثف ومغلق بإحكام (إيقاف تشغيل الجين OFF). أسيلة الهستونات = كروماتين مفتوح ومتاح للنسخ (تشغيل الجين ON).",
+                                                        "stepByStepSolutionEn": [
+                                                                  "Epigenetic silencing of tumor suppressor genes in cancer involves coordinated chromatin modifications without altering the primary DNA sequence.",
+                                                                  "DNA methyltransferases (DNMTs) catalyze the addition of a methyl group to cytosine bases in CpG islands located within gene promoter regions, generating 5-methylcytosine ($5\\text{-mC}$).",
+                                                                  "Methylated CpG islands serve as specific binding sites for Methyl-CpG-binding domain proteins such as MeCP2.",
+                                                                  "MeCP2 recruits co-repressor complexes containing Histone Deacetylases (HDACs).",
+                                                                  "HDACs remove acetyl groups from lysine residues on histone tails, restoring positive charges on histones and increasing their electrostatic affinity for the negatively charged phosphate backbone of DNA.",
+                                                                  "This causes nucleosomes to tightly pack together into transcriptionally inaccessible heterochromatin, sterically blocking RNA polymerase II and transcription factors, thereby silencing the tumor suppressor gene."
+                                                        ],
+                                                        "stepByStepSolutionAr": [
+                                                                  "يتضمن الكتم فوق الجيني (الإبيجينومي) للجينات الكابحة للأورام تعديلات متناسقة في بنية الكروماتين دون أي تغيير في تسلسل القواعد النيتروجينية لـ DNA.",
+                                                                  "تقوم إنزيمات مثيلة DNA (DNMTs) بإضافة مجموعة ميثيل إلى قواعد السيتوزين في جزر CpG الواقعة في منطقة المحفز، مما يُنتج 5-ميثيل سيتوزين ($5\\text{-mC}$).",
+                                                                  "تعمل جزر CpG الممَثيلة كمواقع ارتباط خاصة لبروتينات الربط مثل MeCP2.",
+                                                                  "يقوم بروتين MeCP2 باستدعاء معقدات كابحة تضم إنزيمات نزع الأسيتيل من الهستون (HDACs).",
+                                                                  "تنزع إنزيمات HDAC مجموعات الأسيتيل من ذيول الهستونات، مما يعيد شحنتها الموجبة ويزيد من تجاذبها الإلكتروستاتيكي القوي مع الهيكل الفوسفاتي السالب لجزيء DNA.",
+                                                                  "يؤدي ذلك إلى انكماش النيوكليوسومات وتكثف الكروماتين إلى كروماتين مغلق غير نشط (Heterochromatin)، مما يحجب إنزيم بلمرة RNA وعوامل النسخ تماماً ويكتم الجين الكابح للورم."
+                                                        ],
+                                                        "teacherTipEn": "Epigenetic rule: DNA hypermethylation + Histone deacetylation = Heterochromatin (Gene SILENCED). Reversible by DNMT inhibitors (e.g. 5-azacytidine) and HDAC inhibitors.",
+                                                        "teacherTipAr": "قاعدة الإبيجينوم: فرط مثيلة DNA + نزع أسيتيل الهستونات = كروماتين مغلق (كتم الجين). يمكن عكسه بمثبطات DNMT ومثبطات HDAC."
+                                              }
+                                    ]
                       },
                       "interactiveWidget": {
-                            "type": "statics_friction",
+                            "type": "biology_genetics",
                             "titleEn": "Interactive Simulation: CRISPR-Cas9 Precision Editing, Epigenetics & Gene Therapy",
                             "titleAr": "محاكاة تفاعلية: التحرير الجيني الدقيق بـ CRISPR-Cas9 والوراثة اللاجينية والعلاج الجيني",
                             "descriptionEn": "Interactive virtual laboratory exploring dynamic variables in CRISPR-Cas9 Precision Editing, Epigenetics & Gene Therapy.",
