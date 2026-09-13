@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
+import type { OfficialBook } from '../data/officialBooksData';
 import { officialBooksList, getBookDownloadUrl } from '../data/officialBooksData';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import {
@@ -16,6 +17,7 @@ import {
   ChevronUp,
   CheckCircle2,
   ShieldCheck,
+  ShieldAlert,
   Globe,
   ExternalLink,
 } from 'lucide-react';
@@ -44,6 +46,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
   const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology'>('all');
   const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
+  const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -587,11 +590,10 @@ export const OfficialBooksModal: React.FC<Props> = ({
                             <span>{t.previewBookPdf}</span>
                           </button>
 
-                          <a
-                            href={book.officialPortalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all shrink-0 inline-flex items-center gap-1.5 ${
+                          <button
+                            type="button"
+                            onClick={() => setShowWafModal(book)}
+                            className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all shrink-0 inline-flex items-center gap-1.5 cursor-pointer ${
                               isLight
                                 ? 'bg-slate-50 hover:bg-slate-100 text-slate-600 border-slate-300'
                                 : 'bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border-slate-700'
@@ -601,7 +603,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                             <Globe className="w-3.5 h-3.5 text-amber-500 opacity-80" />
                             <span className="hidden sm:inline">{t.moePortalLink}</span>
                             <ExternalLink className="w-3 h-3 opacity-60" />
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -637,6 +639,81 @@ export const OfficialBooksModal: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* WAF 403 Educational Advisory Dialog */}
+      {showWafModal && (
+        <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-fadeIn">
+          <div
+            className={`w-full max-w-md p-6 rounded-2xl shadow-2xl border text-sm space-y-4 relative ${
+              isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900 border-slate-700 text-slate-100'
+            }`}
+          >
+            <button
+              onClick={() => setShowWafModal(null)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-200"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-start gap-3">
+              <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shrink-0">
+                <ShieldAlert className="w-6 h-6" />
+              </div>
+              <div className="pr-6">
+                <h4 className="font-bold text-base text-amber-500">
+                  {isArabic ? 'تنبيه جدار حماية الوزارة (Error 403)' : 'Ministry Server WAF Notice (Error 403)'}
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
+                  moe.gov.eg • Azure App Gateway
+                </p>
+              </div>
+            </div>
+
+            <div
+              className={`p-3.5 rounded-xl border text-xs leading-relaxed space-y-2.5 ${
+                isLight ? 'bg-amber-50/70 border-amber-200 text-amber-950' : 'bg-amber-950/20 border-amber-800/40 text-amber-200'
+              }`}
+            >
+              <p>
+                {isArabic
+                  ? 'بوابة التعليم الإلكتروني الرسمية لوزارة التربية والتعليم (moe.gov.eg) تطبق جدار حماية سحابي (Microsoft Azure WAF) يقوم بحجب الاتصالات المباشرة من خارج مصر وشبكات المحمول الدولية ويُظهر خطأ 403 Forbidden.'
+                  : 'The external Ministry of Education portal (moe.gov.eg) is protected by a Microsoft Azure Cloud Firewall that frequently rejects connections with HTTP 403 Forbidden for international networks, VPNs, and mobile devices.'}
+              </p>
+              <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-semibold flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>
+                  {isArabic
+                    ? 'التحميل المباشر متاح فوراً! لقد قمنا بدمج النسخ الرقمية الرسمية المعتمدة بصيغة PDF داخل المنصة للتحميل المباشر السريع بدون أي حجب.'
+                    : 'Direct Download Available! We have bundled certified digital PDF textbooks directly on this platform for instant, unrestricted download.'}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
+              <a
+                href={getBookDownloadUrl(showWafModal)}
+                download={showWafModal.filename}
+                onClick={() => setShowWafModal(null)}
+                className="w-full sm:flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                <span>{isArabic ? 'تحميل الكتاب المعتمد (PDF مباشر)' : 'Download Direct PDF Now'}</span>
+              </a>
+
+              <a
+                href={showWafModal.officialPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowWafModal(null)}
+                className="w-full sm:w-auto py-2.5 px-3 rounded-xl text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-1.5"
+              >
+                <span>{isArabic ? 'فتح moe.gov.eg رغم ذلك' : 'Open moe.gov.eg anyway'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
