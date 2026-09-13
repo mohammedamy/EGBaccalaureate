@@ -1747,7 +1747,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of a Constant Force",
     "titleAr": "دفع قوة ثابتة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A constant force $F = 40\\text{ N}$ acts on a body for a duration $\\Delta t = 0.25\\text{ seconds}$. What is the magnitude of the impulse imparted to the body?",
     "questionAr": "أثرت قوة ثابتة $F = 40\\text{ ن}$ على جسم لمدة زمنية $\\Delta t = 0.25\\text{ ثانية}$. ما مقدار الدفع المؤثر على الجسم؟",
     "optionsEn": [
@@ -1780,7 +1779,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Change in Momentum Caused by an Impulse",
     "titleAr": "التغير في كمية الحركة الناتج عن الدفع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball of mass $m = 0.5\\text{ kg}$ moving at $12\\text{ m/s}$ is struck by an impulse in the opposite direction, reversing its speed to $8\\text{ m/s}$. Find the magnitude of the impulse.",
     "questionAr": "كرة كتلتها $m = 0.5\\text{ كجم}$ تتحرك بسرعة $12\\text{ م/ث}$ تلقت دفعاً في الاتجاه المضاد فارتدت بسرعة $8\\text{ م/ث}$. أوجد مقدار الدفع.",
     "optionsEn": [
@@ -1819,7 +1817,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse from a Triangular Force-Time Graph",
     "titleAr": "الدفع من منحنى (القوة - الزمن) المثلثي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force acts on a body over an interval from $t = 0$ to $t = 4\\text{ s}$. The force-time graph is a triangle of base $4\\text{ s}$ and peak force $F_{\\max} = 60\\text{ N}$. Find the impulse of this force.",
     "questionAr": "أثرت قوة على جسم خلال الفترة من $t = 0$ إلى $t = 4\\text{ ث}$. وكان منحنى (القوة - الزمن) مثلثاً قاعدته $4\\text{ ث}$ وقمتها $F_{\\max} = 60\\text{ ن}$. أوجد دفع هذه القوة.",
     "optionsEn": [
@@ -1854,7 +1851,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Average Impulsive Force During an Impact",
     "titleAr": "متوسط القوة الدفعية خلال التصادم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A tennis racket delivers an impulse of $24\\text{ N}\\cdot\\text{s}$ to a tennis ball during a contact duration of $\\Delta t = 0.008\\text{ seconds}$. What is the average impulsive force exerted on the ball?",
     "questionAr": "مضرب تنس يؤثر بدفع مقداره $24\\text{ ن}\\cdot\\text{ث}$ على كرة تنس خلال زمن تلامس $\\Delta t = 0.008\\text{ ثانية}$. ما متوسط القوة الدفعية المؤثرة على الكرة؟",
     "optionsEn": [
@@ -1887,7 +1883,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Conservation of Momentum in a Direct Inelastic Collision",
     "titleAr": "حفظ كمية الحركة في تصادم غير مرن ملتحم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body of mass $m_1 = 3\\text{ kg}$ moving at $8\\text{ m/s}$ collides directly with a stationary body of mass $m_2 = 5\\text{ kg}$. The two bodies coalesce and move together as a single body. What is their common speed $V$ after the collision?",
     "questionAr": "جسم كتلته $m_1 = 3\\text{ كجم}$ يتحرك بسرعة $8\\text{ م/ث}$ اصطدم تصادماً مباشراً بجسم ساكن كتلته $m_2 = 5\\text{ كجم}$ والتحما معاً كجسم واحد. ما سرعتهما المشتركة $V$ بعد التصادم مباشرة؟",
     "optionsEn": [
@@ -1924,7 +1919,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of a Vector Force",
     "titleAr": "دفع قوة متجهة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $\\vec{F} = (2t + 1)\\hat{i} + 3t^2\\hat{j}\\text{ N}$ acts on a body from $t = 0$ to $t = 2\\text{ s}$. Find the vector impulse $\\vec{I}$.",
     "questionAr": "أثرت قوة $\\vec{F} = (2t + 1)\\hat{i} + 3t^2\\hat{j}\\text{ ن}$ على جسم من $t = 0$ إلى $t = 2\\text{ ث}$. أوجد متجه الدفع $\\vec{I}$.",
     "optionsEn": [
@@ -1962,7 +1956,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Recoil Velocity of a Rifle",
     "titleAr": "سرعة ارتداد بندقية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rifle of mass $M = 4\\text{ kg}$ fires a bullet of mass $m = 20\\text{ g}$ with a muzzle velocity of $v_b = 600\\text{ m/s}$. Find the initial recoil speed of the rifle.",
     "questionAr": "بندقية كتلتها $M = 4\\text{ كجم}$ أطلقت رصاصة كتلتها $m = 20\\text{ جم}$ بسرعة خروج $v_b = 600\\text{ م/ث}$. أوجد سرعة ارتداد البندقية.",
     "optionsEn": [
@@ -2001,7 +1994,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Coefficient of Restitution Definition",
     "titleAr": "تعريف معامل الارتداد في التصادم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a direct central collision between two smooth bodies, the coefficient of restitution $e$ is defined as the ratio of:",
     "questionAr": "في التصادم المركزي المباشر بين جسمين أملسين، يُعرّف معامل الارتداد $e$ بأنه النسبة بين:",
     "optionsEn": [
@@ -3881,7 +3873,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Rebound Height of a Bouncing Ball",
     "titleAr": "ارتفاع ارتداد كرة تسقط على أرضية أفقية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball is dropped from a height $h_1 = 16\\text{ m}$ onto a smooth horizontal floor. If the coefficient of restitution is $e = 0.75$, to what height $h_2$ does the ball rise on its first rebound?",
     "questionAr": "سقطت كرة من ارتفاع $h_1 = 16\\text{ م}$ على أرضية أفقية ملساء. إذا كان معامل الارتداد $e = 0.75 = \\frac{3}{4}$، فما الارتفاع $h_2$ الذي تصعد إليه الكرة بعد ارتدادها الأول؟",
     "optionsEn": [
@@ -3921,7 +3912,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Loss of Kinetic Energy in an Inelastic Collision",
     "titleAr": "الفقد في طاقة الحركة نتيجة تصادم التحامي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A mass $m_1 = 2\\text{ kg}$ moving with speed $6\\text{ m/s}$ collides with a stationary mass $m_2 = 4\\text{ kg}$ and sticks to it. Find the loss of kinetic energy $\\Delta T_{\\text{loss}}$ caused by the impact.",
     "questionAr": "كتلة $m_1 = 2\\text{ كجم}$ تتحرك بسرعة $6\\text{ م/ث}$ اصطدمت بكتلة ساكنة $m_2 = 4\\text{ كجم}$ والتصقت بها. احسب مقدار الفقد في طاقة الحركة $\\Delta T_{\\text{loss}}$ نتيجة هذا التصادم.",
     "optionsEn": [
@@ -3960,7 +3950,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of Force on a Ball Striking an Inclined Plane",
     "titleAr": "دفع حائط مائل على كرة تصطدم به",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball of mass $m = 0.2\\text{ kg}$ hits a wall at an angle of incidence $60^\\circ$ to the normal with speed $v = 20\\text{ m/s}$ and bounces off symmetrically with the same speed and angle of reflection $60^\\circ$. Find the magnitude of the impulse exerted by the wall.",
     "questionAr": "كرة كتلتها $m = 0.2\\text{ كجم}$ تصطدم بجدار بزاوية سقوط $60^\\circ$ على العمودي بسرعة $v = 20\\text{ م/ث}$ وارتدت ارتداداً متماثلاً بنفس السرعة وبزاوية انعكاس $60^\\circ$. أوجد مقدار الدفع الذي يؤثر به الجدار على الكرة.",
     "optionsEn": [
@@ -4001,7 +3990,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impact of Falling Sand on a Moving Conveyor Belt",
     "titleAr": "تأثير سقوط رمل بمعدل منتظم على حزام ناقل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Sand falls vertically at a constant rate of $\\frac{dm}{dt} = 5\\text{ kg/s}$ onto a conveyor belt moving horizontally at a constant speed of $v = 2\\text{ m/s}$. What extra horizontal force $F$ must the motor apply to keep the belt moving at the same constant speed?",
     "questionAr": "يسقط رمل رأسياً بمعدل ثابت $\\frac{dm}{dt} = 5\\text{ كجم/ث}$ على سير ناقل يتحرك أفقياً بسرعة منتظمة $v = 2\\text{ م/ث}$. ما القوة الأفقية الإضافية $F$ التي يجب أن يبذلها المحرك للمحافظة على سرعة السير المنتظمة؟",
     "optionsEn": [
@@ -4039,7 +4027,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Direct Central Collision with Given Coefficient of Restitution",
     "titleAr": "تصادم مركزي مباشر بمعلومية معامل الارتداد",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A sphere $A$ of mass $m_1 = 2\\text{ kg}$ moving at $u_1 = 10\\text{ m/s}$ collides directly with sphere $B$ of mass $m_2 = 3\\text{ kg}$ initially at rest ($u_2 = 0$). If $e = 0.5$, find the velocity $v_2$ of sphere $B$ after the collision.",
     "questionAr": "كرة $A$ كتلته $m_1 = 2\\text{ كجم}$ تتحرك بسرعة $u_1 = 10\\text{ م/ث}$ تصادمت تصادماً مباشراً مع كرة $B$ كتلته $m_2 = 3\\text{ كجم}$ ساكنة ($u_2 = 0$). إذا كان معامل الارتداد $e = 0.5$، فأوجد سرعة الكرة $B$ بعد التصادم ($v_2$).",
     "optionsEn": [
@@ -4079,7 +4066,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse Experienced by Each Sphere in Collision",
     "titleAr": "الدفع المتبادل بين كرتين أثناء التصادم",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the collision of the previous problem ($m_1 = 2\\text{ kg}$, $u_1 = 10\\text{ m/s}$, $v_1 = 1\\text{ m/s}$, $m_2 = 3\\text{ kg}$, $u_2 = 0$, $v_2 = 6\\text{ m/s}$), find the magnitude of the impulse exchanged between the spheres.",
     "questionAr": "في مسألة التصادم السابقة ($m_1 = 2\\text{ كجم}$، $u_1 = 10\\text{ م/ث}$، $v_1 = 1\\text{ م/ث}$، $m_2 = 3\\text{ كجم}$، $u_2 = 0$، $v_2 = 6\\text{ م/ث}$)، أوجد مقدار الدفع المتبادل بين الكرتين.",
     "optionsEn": [
@@ -4115,7 +4101,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of an Exponential Force",
     "titleAr": "دفع قوة تتلاشى أسياً مع الزمن",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F(t) = 50 e^{-5t}\\text{ N}$ acts on a body from $t = 0$ to $t \\to \\infty$. Find the total impulse $I_{\\infty}$ delivered to the body.",
     "questionAr": "أثرت قوة $F(t) = 50 e^{-5t}\\text{ ن}$ على جسم من $t = 0$ إلى $t \\to \\infty$. أوجد الدفع الكلي $I_{\\infty}$ المؤثر على الجسم.",
     "optionsEn": [
@@ -4153,7 +4138,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Rebound Angle from a Rough Floor",
     "titleAr": "زاوية ارتداد كرة عند اصطدامها بأرضية ملساء",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A sphere strikes a smooth horizontal floor at angle of incidence $\\theta = 45^\\circ$ to the vertical. If the coefficient of restitution is $e = \\frac{1}{3}$, what is the angle of rebound $\\phi$ with the vertical?",
     "questionAr": "اصطدمت كرة بأرضية أفقية ملساء بزاوية ميل $\\theta = 45^\\circ$ على الرأسي. إذا كان معامل الارتداد $e = \\frac{1}{3}$، فما زاوية الارتداد $\\phi$ مع الرأسي؟",
     "optionsEn": [
@@ -4192,7 +4176,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Successive Rebounds of a Ball",
     "titleAr": "الزمن الكلي لحركة كرة ترتد ارتدادات متتالية حتى تسكن",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball dropped from height $h$ bounces indefinitely with coefficient of restitution $e < 1$. The time for the first drop is $t_0 = \\sqrt{\\frac{2h}{g}}$. What is the total time $T_{\\text{total}}$ until the ball finishes all rebounds and comes to rest?",
     "questionAr": "سقطت كرة من ارتفاع $h$ وأخذت ترتد ارتدادات متتالية بمعامل ارتداد $e < 1$. زمن السقوط الأول هو $t_0 = \\sqrt{\\frac{2h}{g}}$. ما الزمن الكلي $T_{\\text{total}}$ حتى تتوقف الكرة عن الارتداد تماماً وتسكن؟",
     "optionsEn": [
@@ -6033,7 +6016,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Head-On Elastic Collision Between Two Identical Masses",
     "titleAr": "تبادل السرعات في تصادم مرن تماماً لكتلتين متساويتين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two identical smooth spheres of equal mass $m$ collide directly. Before impact, sphere $A$ has velocity $u_1 = 5\\text{ m/s}$ and sphere $B$ has velocity $u_2 = -3\\text{ m/s}$. If the collision is perfectly elastic ($e = 1$), what are their velocities $v_1$ and $v_2$ after the collision?",
     "questionAr": "كرتان متطابقتان متساويتان في الكتلة $m$ تصادمتا تصادماً مرناً تماماً ($e = 1$) في خط مستقيم. قبل التصادم كانت سرعة الأولى $u_1 = 5\\text{ م/ث}$ وسرعة الثانية $u_2 = -3\\text{ م/ث}$. ما سرعتاهما $v_1$ و $v_2$ بعد التصادم مباشرة؟",
     "optionsEn": [
@@ -6074,7 +6056,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Fraction of Energy Transferred in Elastic Collision with Stationary Target",
     "titleAr": "نسبة الطاقة المنقولة في تصادم مرن مع هدف ساكن",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile of mass $m_1$ moving with kinetic energy $E_0$ strikes a stationary target of mass $m_2$ head-on elastically ($e = 1$). For what mass ratio $\\frac{m_1}{m_2}$ is $100\\%$ of the projectile's kinetic energy transferred to the target?",
     "questionAr": "جسيم كتلته $m_1$ وطاقته الحركية $E_0$ يصطدم بجسم ساكن كتلته $m_2$ تصادماً مرناً مباشراً ($e = 1$). ما النسبة بين الكتلتين $\\frac{m_1}{m_2}$ التي تجعل $100\\%$ من طاقة حركة الجسيم تنتقل بالكامل إلى الهدف؟",
     "optionsEn": [
@@ -6113,7 +6094,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Three Colliding Spheres in a Line",
     "titleAr": "تصادم ثلاث كرات متتالية في خط مستقيم",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three identical spheres $A, B, C$ of mass $m$ rest in a line on a smooth table. Sphere $A$ is projected with speed $v$ towards $B$. All collisions are perfectly elastic ($e = 1$). What are the final velocities of the three spheres after all collisions are complete?",
     "questionAr": "ثلاث كرات متطابقة ملساء $A, B, C$ كتلة كل منها $m$ مستقرة في خط مستقيم على منضدة. قذفت الكرة $A$ بسرعة $v$ نحو $B$. كل التصادمات مرنة تماماً ($e = 1$). ما هي السرعات النهائية للكرات الثلاث بعد انتهاء جميع التصادمات؟",
     "optionsEn": [
@@ -6153,7 +6133,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulsive Tension in a Jerked Slack String",
     "titleAr": "الشد الدفعي عند شد خيط مرتخٍ فجأة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two particles $A$ and $B$ of masses $m_1 = 2\\text{ kg}$ and $m_2 = 3\\text{ kg}$ lie on a smooth horizontal table connected by a slack light string of length $L$. Particle $B$ is projected directly away from $A$ with velocity $v_0 = 10\\text{ m/s}$. When the string tautens abruptly, what is the common speed of both particles, and what is the impulsive tension in the string?",
     "questionAr": "جسيمان $A$ و $B$ كتلتاهما $m_1 = 2\\text{ كجم}$ و $m_2 = 3\\text{ كجم}$ موضوعان على نضد أفقي أملس ومتصلان بخيط خفيف مرتخٍ طوله $L$. قذف الجسيم $B$ مبتعداً عن $A$ بسرعة $v_0 = 10\\text{ م/ث}$. عندما يصبح الخيط مشدوداً فجأة، ما السرعة المشتركة للجسيمين وما مقدار الشد الدفعي في الخيط؟",
     "optionsEn": [
@@ -6192,7 +6171,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of Force Given as a Function of Position",
     "titleAr": "دفع قوة معطاة كدالة في الموضع",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F(x) = 6x\\text{ N}$ acts on a particle of mass $m = 2\\text{ kg}$ starting from rest at $x = 0$. What is the impulse $I$ delivered to the particle as it moves from $x = 0$ to $x = 3\\text{ m}$?",
     "questionAr": "أثرت قوة $F(x) = 6x\\text{ ن}$ على جسيم كتلته $m = 2\\text{ كجم}$ بدأ حركته من السكون عند $x = 0$. ما مقدار الدفع $I$ المؤثر على الجسيم أثناء حركته من $x = 0$ إلى $x = 3\\text{ م}$؟",
     "optionsEn": [
@@ -6230,7 +6208,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulse of Reaction from a Peg on a Falling Rod",
     "titleAr": "دفع رد فعل وتد على قضيب يسقط عليه",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of length $L = 1.2\\text{ m}$ and mass $m = 3\\text{ kg}$ falls horizontally with speed $v = 4\\text{ m/s}$ when its midpoint $G$ strikes a fixed horizontal peg. The rod comes to a complete halt without bouncing ($e = 0$). What is the magnitude of the impulse exerted by the peg on the rod?",
     "questionAr": "قضيب منتظم $AB$ طوله $L = 1.2\\text{ م}$ وكتلته $m = 3\\text{ كجم}$ يسقط أفقياً بسرعة $v = 4\\text{ م/ث}$ عندما اصطدم منتصفه $G$ بوتد أفقي ثابت فتوقف القضيب تماماً عن الحركة دون ارتداد ($e = 0$). ما مقدار الدفع الذي أثر به الوتد على القضيب؟",
     "optionsEn": [
@@ -6268,7 +6245,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Maximum Compression of a Spring During Inelastic Impact",
     "titleAr": "أقصى انضغاط لزنبرك متصل بكتلة بعد اصطدام رصاصة بها",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A bullet of mass $m = 0.05\\text{ kg}$ is fired horizontally at $200\\text{ m/s}$ into a stationary block of mass $M = 4.95\\text{ kg}$ resting on a smooth horizontal table and attached to a spring of stiffness $k = 400\\text{ N/m}$. The bullet embeds in the block. What is the maximum compression $x_{\\max}$ of the spring?",
     "questionAr": "أطلقت رصاصة كتلتها $m = 0.05\\text{ كجم}$ أفقياً بسرعة $200\\text{ م/ث}$ نحو كتلة ساكنة $M = 4.95\\text{ كجم}$ على نضد أملس متصلة بزنبرك ثابت صلابته $k = 400\\text{ ن/م}$. استقرت الرصاصة داخل الكتلة. ما أقصى انضغاط $x_{\\max}$ للزنبرك؟",
     "optionsEn": [
@@ -6310,7 +6286,6 @@ export const dynCh3Databank: ChapterDatabank = {
     "titleEn": "Impulsive Tension in a System of Two Masses Connected by a Rope Dropped from Height",
     "titleAr": "الشد الدفعي في حبل يربط كتلتين عند وصول إحداهما لأقصى امتداد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two masses $m_1 = 3\\text{ kg}$ and $m_2 = 2\\text{ kg}$ are connected by a light cord of length $L = 5\\text{ m}$. Mass $m_1$ is dropped from a platform while $m_2$ rests on the platform. At the instant the cord becomes taut, $m_1$ has fallen $5\\text{ m}$ freely under gravity. What is the common downward velocity of both masses immediately after the jerk? (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "كتلتان $m_1 = 3\\text{ كجم}$ و $m_2 = 2\\text{ كجم}$ متصلتان بحبل خفيف طوله $L = 5\\text{ م}$. سقطت الكتلة $m_1$ من حافة منصة بينما استقرت $m_2$ على المنصة. لحظة انشداد الحبل، كانت $m_1$ قد سقطت مسافة $5\\text{ م}$ سقوطاً حراً. ما السرعة المشتركة للكتلتين لأسفل بعد الشد الدفعي مباشرة؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [

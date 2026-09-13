@@ -1795,7 +1795,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Moment of a Standard Planar Couple",
     "titleAr": "عزم ازدواج مستوٍ بسيط",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two forces each of magnitude $25\\text{ N}$ form a couple. The perpendicular distance between their lines of action is $12\\text{ cm}$. Find the magnitude of the moment of this couple.",
     "questionAr": "قوتان مقدار كل منهما $25\\text{ ن}$ تكوّنان ازدواجاً. البعد العمودي بين خطي عملهما هو $12\\text{ سم}$. أوجد معيار عزم هذا الازدواج.",
     "optionsEn": [
@@ -1830,7 +1829,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of Two Opposing Couples",
     "titleAr": "اتزان ازدواجين متضادين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A couple of moment $M_1 = 48\\text{ N}\\cdot\\text{m}$ acts counterclockwise on a body. A second couple formed by two forces of magnitude $F$ separated by an arm of $0.6\\text{ m}$ balances it. Find $F$.",
     "questionAr": "ازدواج عزمه $M_1 = 48\\text{ ن}\\cdot\\text{م}$ يؤثر في عكس اتجاه عقارب الساعة على جسم. يتزن معه ازدواج ثانٍ مكوّن من قوتين مقدار كل منهما $F$ وطول ذراعه $0.6\\text{ م}$. أوجد قيمة $F$.",
     "optionsEn": [
@@ -1867,7 +1865,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Couple Formed by Opposite Corner Forces on a Square",
     "titleAr": "ازدواج ناتج عن قوتين متضادتين عند رأسي مربع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a square $ABCD$ of side length $20\\text{ cm}$, two parallel forces each of magnitude $10\\text{ N}$ act along $\\vec{AB}$ and $\\vec{CD}$ respectively. What is the moment of this couple?",
     "questionAr": "في المربع $ABCD$ الذي طول ضلعه $20\\text{ سم}$، تؤثر قوتان متوازيتان مقدار كل منهما $10\\text{ ن}$ على امتداد $\\vec{AB}$ و $\\vec{CD}$ على الترتيب. ما عزم هذا الازدواج؟",
     "optionsEn": [
@@ -1906,7 +1903,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equivalence of Couples",
     "titleAr": "تكافؤ الازدواجات",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two couples are said to be equivalent if and only if:",
     "questionAr": "يقال إن ازدواجين متكافئان إذا وفقط إذا:",
     "optionsEn": [
@@ -1941,7 +1937,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Resultant Moment of Two Coplanar Couples",
     "titleAr": "محصلة عزم ازدواجين في نفس المستوى",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two couples act in the same plane on a thin plate. The first has moment $M_1 = +35\\text{ N}\\cdot\\text{m}$ and the second has moment $M_2 = -15\\text{ N}\\cdot\\text{m}$. What is the moment of the resultant couple?",
     "questionAr": "ازدواجان يؤثران في نفس المستوى على صفيحة رقيقة. عزم الأول $M_1 = +35\\text{ ن}\\cdot\\text{م}$ وعزم الثاني $M_2 = -15\\text{ ن}\\cdot\\text{م}$. ما عزم الازدواج المحصل؟",
     "optionsEn": [
@@ -1976,7 +1971,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Arm of a Couple from Force and Moment",
     "titleAr": "طول ذراع الازدواج بدلالة القوة والعزم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A couple has a moment of magnitude $45\\text{ N}\\cdot\\text{m}$. If each force has magnitude $75\\text{ N}$, find the arm of the couple.",
     "questionAr": "ازدواج معيار عزمه $45\\text{ ن}\\cdot\\text{م}$. إذا كان مقدار كل من قوتيه $75\\text{ ن}$، فأوجد طول ذراع الازدواج.",
     "optionsEn": [
@@ -2011,7 +2005,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Vector Moment of a Couple in the Cartesian Plane",
     "titleAr": "متجه عزم ازدواج في المستوى الديكارتي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two forces $\\vec{F}_1 = 4\\hat{i} - 3\\hat{j}\\text{ N}$ and $\\vec{F}_2 = -4\\hat{i} + 3\\hat{j}\\text{ N}$ act at points $A(1, 2)$ and $B(3, -1)$ respectively. Find the vector moment of the couple $\\vec{M}$.",
     "questionAr": "قوتان $\\vec{F}_1 = 4\\hat{i} - 3\\hat{j}\\text{ ن}$ و $\\vec{F}_2 = -4\\hat{i} + 3\\hat{j}\\text{ ن}$ تؤثران عند النقطتين $A(1, 2)$ و $B(3, -1)$ على الترتيب. أوجد متجه عزم الازدواج $\\vec{M}$.",
     "optionsEn": [
@@ -2055,7 +2048,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Polygon of Forces Forming a Couple",
     "titleAr": "مضلع قوى ممثل تمثيلاً تاماً يكوّن ازدواجاً",
     "difficulty": "easy",
-    "diagramType": "triangle",
     "questionEn": "Three forces act along the sides of triangle $ABC$ taken in the cyclic order $A \\to B \\to C \\to A$. If the forces are proportional to the side lengths such that $\\frac{F_1}{AB} = \\frac{F_2}{BC} = \\frac{F_3}{CA} = m$, the system reduces to a couple whose moment is:",
     "questionAr": "ثلاث قوى تؤثر في أضلاع المثلث $ABC$ مأخوذة في ترتيب دوري واحد $A \\to B \\to C \\to A$. إذا كانت القوى متناسبة مع أطوال الأضلاع بحيث $\\frac{F_1}{AB} = \\frac{F_2}{BC} = \\frac{F_3}{CA} = m$، فإن المنظومة تكافئ ازدواجاً معيار عزمه:",
     "optionsEn": [
@@ -3930,7 +3922,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of Forces Acting along Sides of an Equilateral Triangle",
     "titleAr": "اتزان قوى تؤثر في أضلاع مثلث متساوي الأضلاع",
     "difficulty": "medium",
-    "diagramType": "triangle",
     "questionEn": "Three forces of magnitudes $F_1 = 30\\text{ N}$, $F_2 = 30\\text{ N}$, and $F_3 = 30\\text{ N}$ act along the sides $\\vec{AB}$, $\\vec{BC}$, and $\\vec{CA}$ of an equilateral triangle $ABC$ of side $40\\text{ cm}$. Find the magnitude of the couple moment.",
     "questionAr": "ثلاث قوى متساوية في المقدار $F_1 = 30\\text{ ن}$، $F_2 = 30\\text{ ن}$، و $F_3 = 30\\text{ ن}$ تؤثر في أضلاع المثلث متساوي الأضلاع $ABC$ في الاتجاهات $\\vec{AB}$ و $\\vec{BC}$ و $\\vec{CA}$، وطول ضلعه $40\\text{ سم}$. أوجد معيار عزم هذا الازدواج.",
     "optionsEn": [
@@ -3969,7 +3960,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Forces along Sides of a Rectangle Forming a Couple",
     "titleAr": "قوى في أضلاع مستطيل تكوّن ازدواجاً",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a rectangle $ABCD$, $AB = 8\\text{ cm}$ and $BC = 6\\text{ cm}$. Forces of magnitudes $16\\text{ N}$, $12\\text{ N}$, $16\\text{ N}$, and $12\\text{ N}$ act along $\\vec{AB}$, $\\vec{BC}$, $\\vec{CD}$, and $\\vec{DA}$ respectively. Find the moment of the equivalent couple.",
     "questionAr": "في المستطيل $ABCD$، $AB = 8\\text{ سم}$ و $BC = 6\\text{ سم}$. أثرت قوى مقاديرها $16\\text{ ن}$، $12\\text{ ن}$، $16\\text{ ن}$، و $12\\text{ ن}$ في الاتجاهات $\\vec{AB}$ و $\\vec{BC}$ و $\\vec{CD}$ و $\\vec{DA}$ على الترتيب. أوجد عزم الازدواج المكافئ.",
     "optionsEn": [
@@ -4008,7 +3998,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Balancing a Couple by Two Forces at Specific Points",
     "titleAr": "موازنة ازدواج بقوتين عند نقطتين محددتين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A lamina is subject to a couple of moment $M = 120\\text{ N}\\cdot\\text{cm}$ counterclockwise. To restore equilibrium, two forces are applied at points $E$ and $F$ separated by $15\\text{ cm}$. If the forces act perpendicular to the line segment $EF$, find their magnitude.",
     "questionAr": "صفيحة مستوية واقعة تحت تأثير ازدواج عزمه $M = 120\\text{ ن}\\cdot\\text{سم}$ عكس عقارب الساعة. لإعادة الاتزان، أثرت قوتان عند نقطتين $E$ و $F$ البعد بينهما $15\\text{ سم}$. إذا كانت القوتان عموديتين على القطعة المستقيمة $EF$، فأوجد مقدار كل منهما.",
     "optionsEn": [
@@ -4045,7 +4034,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Rod under a Couple and Two Reactions",
     "titleAr": "اتزان ساق تحت تأثير ازدواج وردي فعل ركيزتين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 40\\text{ N}$ and length $1\\text{ m}$ rests horizontally on two supports at $A$ and $B$. A couple of moment $M = 30\\text{ N}\\cdot\\text{m}$ acts in the vertical plane of the rod. Find the reaction at support $A$.",
     "questionAr": "قضيب منتظم $AB$ وزنه $W = 40\\text{ ن}$ وطوله $1\\text{ م}$ يستند أفقياً على ركيزتين عند طرفيه $A$ و $B$. أثر على القضيب ازدواج عزمه $M = 30\\text{ ن}\\cdot\\text{م}$ (عكس عقارب الساعة) في المستوى الرأسي. أوجد رد فعل الركيزة عند $A$.",
     "optionsEn": [
@@ -4090,7 +4078,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Reduction of Four Coplanar Forces to a Couple",
     "titleAr": "اختصار أربع قوى مستوية إلى ازدواج",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A system of forces has components $\\sum F_x = 0$ and $\\sum F_y = 0$. The sum of moments about the origin is $M_O = 50\\text{ N}\\cdot\\text{m}$. What is the sum of moments of this system about the point $P(3, 4)$?",
     "questionAr": "منظومة قوى مستوية مركباتها $\\sum F_x = 0$ و $\\sum F_y = 0$. ومجموع العزوم حول نقطة الأصل هو $M_O = 50\\text{ ن}\\cdot\\text{م}$. ما مجموع عزوم هذه المنظومة حول النقطة $P(3, 4)$؟",
     "optionsEn": [
@@ -4127,7 +4114,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Suspended Lamina under Gravity and a Couple",
     "titleAr": "اتزان صفيحة معلقة تحت تأثير الجاذبية وازدواج",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rectangular lamina $ABCD$ of weight $W = 20\\text{ N}$ and dimensions $AB = 60\\text{ cm}$, $BC = 80\\text{ cm}$ is freely pivoted at corner $A$. A couple of moment $M$ holds the diagonal $AC$ horizontal. Find the required couple moment $M$.",
     "questionAr": "صفيحة مستطيلة منتظمة $ABCD$ وزنها $W = 20\\text{ ن}$ وأبعادها $AB = 60\\text{ سم}$ و $BC = 80\\text{ سم}$ معلقة من مفصل حر عند الرأس $A$. أثر عليها ازدواج عزمه $M$ فجعل القطر $AC$ أفقياً. أوجد مقدار عزم الازدواج $M$.",
     "optionsEn": [
@@ -4168,7 +4154,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Hexagon under Cyclic Forces",
     "titleAr": "اتزان قوى في أضلاع سداسي منتظم",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a regular hexagon $ABCDEF$ of side $a = 10\\text{ cm}$, forces of magnitudes $F$ act along $\\vec{AB}, \\vec{BC}, \\vec{CD}, \\vec{DE}, \\vec{EF}, \\vec{FA}$ respectively. If the system reduces to a couple of moment magnitude $15\\sqrt{3}\\text{ N}\\cdot\\text{m}$, find $F$.",
     "questionAr": "في سداسي منتظم $ABCDEF$ طول ضلعه $a = 10\\text{ سم}$، تؤثر قوى متساوية مقدار كل منها $F$ في أضلاعه في الاتجاهات $\\vec{AB}, \\vec{BC}, \\vec{CD}, \\vec{DE}, \\vec{EF}, \\vec{FA}$ على الترتيب. إذا كانت المنظومة تكافئ ازدواجاً معيار عزمه $15\\sqrt{3}\\text{ ن}\\cdot\\text{م}$، فما مقدار القوة $F$؟",
     "optionsEn": [
@@ -4209,7 +4194,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Finding the Arm and Angle of an Inclined Couple",
     "titleAr": "إيجاد ذراع الازدواج وزاوية ميل القوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two forces each of magnitude $40\\text{ N}$ act at points $A(0, 0)$ and $B(60\\text{ cm}, 0)$. Both forces make an angle of $30^\\circ$ with the line segment $AB$ in opposite directions. Find the magnitude of the couple moment.",
     "questionAr": "قوتان مقدار كل منهما $40\\text{ ن}$ تؤثران عند النقطتين $A(0, 0)$ و $B(60\\text{ سم}, 0)$. تصنع كل من القوتين زاوية $30^\\circ$ مع القطعة المستقيمة $AB$ في اتجاهين متضادين. أوجد معيار عزم هذا الازدواج.",
     "optionsEn": [
@@ -4244,7 +4228,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Rhombus under Diagonal and Boundary Couples",
     "titleAr": "اتزان معين تحت تأثير ازدواجين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a rhombus $ABCD$, side length is $10\\text{ cm}$ and $m(\\angle A) = 60^\\circ$. Two forces each of magnitude $F$ act along $\\vec{AB}$ and $\\vec{CD}$ forming a couple. Two other forces each of magnitude $P = 15\\text{ N}$ act along $\\vec{BC}$ and $\\vec{DA}$ forming a second couple. For equilibrium, find $F$.",
     "questionAr": "في المعين $ABCD$، طول ضلعه $10\\text{ سم}$ وقياس زاوية $A$ يساوي $60^\\circ$. أثرت قوتان مقدار كل منهما $F$ في اتجاهي $\\vec{AB}$ و $\\vec{CD}$ لتكوّنا ازدواجاً. وأثرت قوتان أخريان مقدار كل منهما $P = 15\\text{ ن}$ في اتجاهي $\\vec{BC}$ و $\\vec{DA}$ لتكوّنا ازدواجاً ثانياً. إذا اتزنت المجموعة، فما قيمة $F$؟",
     "optionsEn": [
@@ -6161,7 +6144,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Decomposition of a Force into a Force and a Couple at Another Point",
     "titleAr": "نقل قوة إلى نقطة أخرى مع ازدواج مكافئ",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $\\vec{F} = 30\\hat{i} + 40\\hat{j}\\text{ N}$ acts at point $A(2, 5)\\text{ m}$. If the force is shifted to act at point $B(6, 1)\\text{ m}$, what is the moment vector $\\vec{M}$ of the accompanying couple that must be added to maintain static equivalence?",
     "questionAr": "قوة $\\vec{F} = 30\\hat{i} + 40\\hat{j}\\text{ ن}$ تؤثر عند النقطة $A(2, 5)\\text{ م}$. إذا نُقلت القوة لتؤثر عند النقطة $B(6, 1)\\text{ م}$، فما متجه عزم الازدواج المصاحب $\\vec{M}$ الذي يجب إضافته للمحافظة على التكافؤ الاستاتيكي التام؟",
     "optionsEn": [
@@ -6200,7 +6182,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of Four Couples on a Trapezoid",
     "titleAr": "اتزان قوى تؤثر في أضلاع شبه منحرف",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A right trapezoid $ABCD$ has $AB \\perp AD$, with parallel sides $AD = 6\\text{ cm}$, $BC = 14\\text{ cm}$, and $AB = 6\\text{ cm}$. The oblique side $CD = 10\\text{ cm}$. Forces $F_1, F_2, F_3, F_4$ act in cyclic order along $\\vec{AB}, \\vec{BC}, \\vec{CD}, \\vec{DA}$. If the system reduces to a couple and $F_1 = 18\\text{ N}$, find the moment of the couple.",
     "questionAr": "شبه منحرف قائم الزاوية $ABCD$ فيه $AB \\perp AD$، والضلعان المتوازيان $AD = 6\\text{ سم}$ و $BC = 14\\text{ سم}$، والارتفاع $AB = 6\\text{ سم}$، وطول الضلع المائل $CD = 10\\text{ سم}$. أثرت قوى $F_1, F_2, F_3, F_4$ في اتجاه دوري واحد في الأضلاع $\\vec{AB}, \\vec{BC}, \\vec{CD}, \\vec{DA}$. إذا اختزلت المجموعة إلى ازدواج وكانت $F_1 = 18\\text{ ن}$، فما معيار عزم هذا الازدواج؟",
     "optionsEn": [
@@ -6239,7 +6220,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Suspended Equilateral Triangle",
     "titleAr": "اتزان صفيحة مثلثة معلقة تحت تأثير ازدواج",
     "difficulty": "hots",
-    "diagramType": "triangle",
     "questionEn": "A uniform equilateral triangular lamina $ABC$ of weight $W = 60\\text{ N}$ and side $a = 40\\text{ cm}$ is pivoted at vertex $A$. A couple of moment $M$ acts in the plane of the lamina such that side $AB$ is held strictly vertical. Find the magnitude of $M$.",
     "questionAr": "صفيحة منتظمة على شكل مثلث متساوي الأضلاع $ABC$ وزنها $W = 60\\text{ ن}$ وطول ضلعها $a = 40\\text{ سم}$ مثبتة بمفصل عند الرأس $A$. أثر عليها ازدواج في مستواها عزمه $M$ فاتزنت وأصبح الضلع $AB$ رأسياً تماماً. أوجد معيار العزم $M$.",
     "optionsEn": [
@@ -6282,7 +6262,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Condition for Three Non-Parallel Couples in 3D",
     "titleAr": "شرط اتزان ثلاثة ازدواجات غير مستوية في الفراغ",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three couples have vector moments $\\vec{M}_1 = 2\\hat{i} - 5\\hat{j} + c\\hat{k}$, $\\vec{M}_2 = a\\hat{i} + 3\\hat{j} - 4\\hat{k}$, and $\\vec{M}_3 = -7\\hat{i} + b\\hat{j} + 9\\hat{k}$. If the body is in static equilibrium under these couples, find the ordered triple $(a, b, c)$.",
     "questionAr": "ثلاثة ازدواجات متجهات عزومها $\\vec{M}_1 = 2\\hat{i} - 5\\hat{j} + c\\hat{k}$، و $\\vec{M}_2 = a\\hat{i} + 3\\hat{j} - 4\\hat{k}$، و $\\vec{M}_3 = -7\\hat{i} + b\\hat{j} + 9\\hat{k}$. إذا كان الجسم متزناً تماماً تحت تأثير هذه الازدواجات، فأوجد الثلاثي المرتب $(a, b, c)$.",
     "optionsEn": [
@@ -6323,7 +6302,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Equating Moments about Three Collinear Points",
     "titleAr": "تساوي العزوم حول ثلاث نقاط على استقامة واحدة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For a system of coplanar forces, the algebraic sums of moments about three distinct collinear points $A$, $B$, and $C$ are equal to the same non-zero value $K$. What does this system reduce to?",
     "questionAr": "لمنظومة قوى مستوية، تساوى المجموع الجبري للعزوم حول ثلاث نقاط متمايزة $A$ و $B$ و $C$ تقع جميعها على استقامة واحدة، وكان هذا المجموع مساوياً لقيمة غير صفرية $K$. إلى ماذا تختزل هذه المنظومة؟",
     "optionsEn": [
@@ -6364,7 +6342,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Couple on a Rod Supported by Two Pegs",
     "titleAr": "اتزان ساق ترتكز على وتدين أملسين تحت تأثير ازدواج",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 50\\text{ N}$ and length $120\\text{ cm}$ rests in equilibrium inclined at angle $\\theta = 30^\\circ$ to the horizontal between two smooth horizontal pegs $P$ and $Q$ at distance $d = 20\\text{ cm}$ apart along the rod. Find the couple moment formed by the reactions of the pegs.",
     "questionAr": "ساق منتظمة $AB$ وزنها $W = 50\\text{ ن}$ وطولها $120\\text{ سم}$ ترتكز في حالة اتزان مائلة بزاوية $\\theta = 30^\\circ$ على الأفقي بين وتدين أملسين $P$ و $Q$ المسافة بينهما $d = 20\\text{ سم}$ على طول الساق. أوجد معيار عزم الازدواج المتكون من ردي فعلي الوتدين.",
     "optionsEn": [
@@ -6402,7 +6379,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "System Equivalent to a Couple in General Polygon",
     "titleAr": "منظومة قوى متزنة مع ازدواج في مضلع خماسي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a regular pentagon $ABCDE$ of side $a = 20\\text{ cm}$ and area $688\\text{ cm}^2$, five forces act along the sides in cyclic order such that $\\frac{F_i}{a} = 50\\text{ N/m}$. What is the magnitude of the moment of this couple?",
     "questionAr": "في خماسي منتظم $ABCDE$ طول ضلعه $a = 20\\text{ سم}$ ومساحته $688\\text{ سم}^2$، تؤثر خمس قوى في اتجاه دوري واحد في أضلاعه بحيث $\\frac{F_i}{a} = 50\\text{ ن/م}$. ما معيار عزم هذا الازدواج؟",
     "optionsEn": [
@@ -6439,7 +6415,6 @@ export const statCh4Databank: ChapterDatabank = {
     "titleEn": "Invariant Direction of Resultant under Superposed Couples",
     "titleAr": "تأثير تراكب ازدواج على خط عمل القوة المحصلة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rigid body is acted upon by a force system that reduces to a single resultant force $\\vec{R} = 15\\hat{i} + 20\\hat{j}\\text{ N}$ passing through the origin. If a couple of moment $M = +50\\text{ N}\\cdot\\text{m}$ is now added to the system, how does the line of action of the resultant change?",
     "questionAr": "جسم جاسئ تؤثر عليه منظومة قوى تختزل إلى قوة محصلة وحيدة $\\vec{R} = 15\\hat{i} + 20\\hat{j}\\text{ ن}$ تمر بنقطة الأصل. إذا أُضيف إلى المنظومة ازدواج عزمه $M = +50\\text{ ن}\\cdot\\text{م}$، فكيف يتغير خط عمل القوة المحصلة؟",
     "optionsEn": [

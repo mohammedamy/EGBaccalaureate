@@ -1837,7 +1837,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Second Derivative of a Polynomial",
     "titleAr": "المشتقة الثانية لدالة كثيرة حدود",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the second derivative $f''(x)$ of the function $f(x) = x^4 - 2x^3 + 5x - 7$.",
     "questionAr": "أوجد المشتقة الثانية $f''(x)$ للدالة $f(x) = x^4 - 2x^3 + 5x - 7$.",
     "optionsEn": [
@@ -1872,7 +1871,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Inflection Point of a Cubic Polynomial",
     "titleAr": "نقطة انقلاب لمنحنى دالة تكعيبية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the $x$-coordinate of the inflection point of the curve $f(x) = x^3 - 6x^2 + 9x + 1$.",
     "questionAr": "أوجد الإحداثي السيني $x$ لنقطة الانقلاب لمنحنى الدالة $f(x) = x^3 - 6x^2 + 9x + 1$.",
     "optionsEn": [
@@ -1911,7 +1909,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "First-Order Separable Differential Equation",
     "titleAr": "معادلة تفاضلية من الرتبة الأولى قابلة للفصل",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the general solution of the differential equation $\\frac{dy}{dx} = 3y$ for $y > 0$.",
     "questionAr": "أوجد الحل العام للمعادلة التفاضلية $\\frac{dy}{dx} = 3y$ حيث $y > 0$.",
     "optionsEn": [
@@ -1948,7 +1945,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Rolle's Theorem Intermediate Point",
     "titleAr": "إيجاد نقطة مبرهنة رول",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the value of $c \\in (1, 3)$ guaranteed by Rolle's Theorem for the function $f(x) = x^2 - 4x + 3$ on the interval $[1, 3]$.",
     "questionAr": "أوجد قيمة $c \\in (1, 3)$ التي تضمنها مبرهنة رول للدالة $f(x) = x^2 - 4x + 3$ على الفترة $[1, 3]$.",
     "optionsEn": [
@@ -1987,7 +1983,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Maclaurin Polynomial of Cosine",
     "titleAr": "كثير حدود ماكلورين لدالة جيب التمام",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the Maclaurin polynomial of degree 2 for the function $f(x) = \\cos(x)$?",
     "questionAr": "ما هو كثير حدود ماكلورين من الدرجة الثانية للدالة $f(x) = \\cos(x)$؟",
     "optionsEn": [
@@ -2026,7 +2021,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Local Extrema via First Derivative Test",
     "titleAr": "القيم القصوى المحلية باختبار المشتقة الأولى",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the location of the local minimum for the cubic polynomial $f(x) = 2x^3 - 3x^2 - 12x + 5$.",
     "questionAr": "أوجد موضع القيمة الصغرى المحلية للدالة التكعيبية $f(x) = 2x^3 - 3x^2 - 12x + 5$.",
     "optionsEn": [
@@ -2066,7 +2060,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Tangent Line to an Exponential Curve",
     "titleAr": "معادلة مماس لمنحنى دالة أسية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the tangent line to the curve $y = e^{2x}$ at the point where $x = 0$.",
     "questionAr": "أوجد معادلة خط المماس لمنحنى الدالة $y = e^{2x}$ عند النقطة التي فيها $x = 0$.",
     "optionsEn": [
@@ -2105,7 +2098,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Concavity Intervals of a Quartic Function",
     "titleAr": "فترات التحدب لدالة من الدرجة الرابعة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "On which intervals is the curve $f(x) = x^4 - 6x^2$ concave upward ($f''(x) > 0$)?",
     "questionAr": "على أي الفترات يكون منحنى الدالة $f(x) = x^4 - 6x^2$ محدباً لأسفل (مقعراً لأعلى $f''(x) > 0$)؟",
     "optionsEn": [
@@ -4041,7 +4033,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Lagrange Mean Value Theorem Point",
     "titleAr": "إيجاد نقطة مبرهنة القيمة المتوسطة للاجرانج",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the value of $c \\in (1, 4)$ that satisfies the Lagrange Mean Value Theorem for $f(x) = \\sqrt{x}$ on $[1, 4]$.",
     "questionAr": "أوجد قيمة $c \\in (1, 4)$ التي تحقق مبرهنة القيمة المتوسطة للاجرانج للدالة $f(x) = \\sqrt{x}$ على الفترة $[1, 4]$.",
     "optionsEn": [
@@ -4080,7 +4071,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "First-Order Linear ODE with Integrating Factor",
     "titleAr": "حل معادلة خطية من الرتبة الأولى بعامل التكامل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Solve the initial value problem: $y' + 2xy = 4x$ with $y(0) = 5$.",
     "questionAr": "حل مسألة القيمة الابتدائية: $y' + 2xy = 4x$ مع الشرط الابتدائي $y(0) = 5$.",
     "optionsEn": [
@@ -4122,7 +4112,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Second-Order Homogeneous ODE with Real Roots",
     "titleAr": "معادلة تفاضلية متجانسة من الرتبة الثانية بجذور حقيقية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the general solution to the second-order differential equation $y'' - 5y' + 6y = 0$.",
     "questionAr": "أوجد الحل العام للمعادلة التفاضلية من الرتبة الثانية $y'' - 5y' + 6y = 0$.",
     "optionsEn": [
@@ -4159,7 +4148,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Taylor Polynomial of Degree 3 for ln(1+x)",
     "titleAr": "كثير حدود تايلور من الدرجة الثالثة لـ ln(1+x)",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the Taylor polynomial of degree 3 centered at $x = 0$ for $f(x) = \\ln(1 + x)$.",
     "questionAr": "أوجد كثير حدود تايلور من الدرجة الثالثة المتمركز حول $x = 0$ للدالة $f(x) = \\ln(1 + x)$.",
     "optionsEn": [
@@ -4201,7 +4189,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Maximum Area of a Rectangle with Fixed Perimeter",
     "titleAr": "أكبر مساحة لمستطيل محيطه ثابت",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rectangle has a fixed perimeter of $40\\text{ cm}$. Find the dimensions that maximize its area, and the maximum area.",
     "questionAr": "مستطيل محيطه ثابت ويساوي $40\\text{ سم}$. أوجد أبعاده التي تجعل مساحته أكبر ما يمكن، وقيمة هذه المساحة.",
     "optionsEn": [
@@ -4242,7 +4229,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Cauchy Mean Value Theorem Point",
     "titleAr": "نقطة مبرهنة كوشي للقيمة المتوسطة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Apply Cauchy's Mean Value Theorem to $f(x) = x^2$ and $g(x) = x^3$ on the interval $[1, 2]$. Find the value of $c \\in (1, 2)$ such that $\\frac{f'(c)}{g'(c)} = \\frac{f(2) - f(1)}{g(2) - g(1)}$.",
     "questionAr": "طبق مبرهنة كوشي للقيمة المتوسطة للدالتين $f(x) = x^2$ و $g(x) = x^3$ على الفترة $[1, 2]$. أوجد قيمة $c \\in (1, 2)$ التي تحقق $\\frac{f'(c)}{g'(c)} = \\frac{f(2) - f(1)}{g(2) - g(1)}$.",
     "optionsEn": [
@@ -4282,7 +4268,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Arc Length of a Planar Curve",
     "titleAr": "طول قوس منحنى مستوٍ",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the arc length of the curve $y = \\frac{2}{3} x^{3/2}$ from $x = 0$ to $x = 3$.",
     "questionAr": "أوجد طول قوس المنحنى $y = \\frac{2}{3} x^{3/2}$ من $x = 0$ إلى $x = 3$.",
     "optionsEn": [
@@ -4321,7 +4306,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Second-Order ODE with Repeated Roots",
     "titleAr": "معادلة تفاضلية من الرتبة الثانية بجذر مكرر",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the general solution to $y'' - 4y' + 4y = 0$.",
     "questionAr": "أوجد الحل العام للمعادلة التفاضلية $y'' - 4y' + 4y = 0$.",
     "optionsEn": [
@@ -4359,7 +4343,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Integration by Parts of Product Function",
     "titleAr": "التكامل بالتجزيء لحاصل ضرب دالتين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Evaluate the indefinite integral: $\\int x e^{3x} dx$.",
     "questionAr": "احسب التكامل غير المحدد: $\\int x e^{3x} dx$.",
     "optionsEn": [
@@ -6282,7 +6265,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Taylor Remainder Error Bound (Lagrange Remainder)",
     "titleAr": "تقدير خطأ باق تايلور (صيغة لاجرانج للباقي)",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $\\sin(0.1)$ is approximated by the Maclaurin polynomial $P_3(x) = x - \\frac{x^3}{6}$, what is the strict upper bound on the absolute error $|R_4(0.1)|$ given by the Lagrange remainder?",
     "questionAr": "إذا قُربت قيمة $\\sin(0.1)$ بكثير حدود ماكلورين $P_3(x) = x - \\frac{x^3}{6}$، فما هو الحد الأقصى الدقيق للخطأ المطلق $|R_4(0.1)|$ وفق صيغة لاجرانج للباقي؟",
     "optionsEn": [
@@ -6321,7 +6303,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Resonance in Non-Homogeneous Second-Order ODE",
     "titleAr": "الرنين في معادلة تفاضلية من الرتبة الثانية غير متجانسة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find a particular solution $y_p(x)$ to the differential equation $y'' + 4y = 8\\cos(2x)$.",
     "questionAr": "أوجد حلاً خاصاً $y_p(x)$ للمعادلة التفاضلية $y'' + 4y = 8\\cos(2x)$.",
     "optionsEn": [
@@ -6365,7 +6346,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Second-Order ODE with Complex Conjugate Roots",
     "titleAr": "معادلة تفاضلية من الرتبة الثانية بجذور مركبة مترافقة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the general solution to the damped oscillator equation $y'' + 2y' + 5y = 0$.",
     "questionAr": "أوجد الحل العام لمعادلة المتذبذب المخمد $y'' + 2y' + 5y = 0$.",
     "optionsEn": [
@@ -6404,7 +6384,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Orthogonal Trajectories to a Family of Parabolas",
     "titleAr": "المسارات المتعامدة لعائلة من القطوع المكافئة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the orthogonal trajectories to the family of parabolas $y = k x^2$ (where $k \\neq 0$).",
     "questionAr": "أوجد المسارات المتعامدة لعائلة القطوع المكافئة $y = k x^2$ (حيث $k \\neq 0$).",
     "optionsEn": [
@@ -6445,7 +6424,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Leibniz Product Rule for n-th Derivative",
     "titleAr": "قاعدة لايبنتز للمشتقة النونية لحاصل ضرب دالتين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Using the Leibniz formula for higher derivatives, find the $n$-th derivative $\\frac{d^n}{dx^n} [x^2 e^x]$.",
     "questionAr": "باستخدام صيغة لايبنتز للمشتقات العليا، أوجد المشتقة النونية $\\frac{d^n}{dx^n} [x^2 e^x]$.",
     "optionsEn": [
@@ -6488,7 +6466,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Jensen's Inequality and Concavity of ln(x)",
     "titleAr": "متراجحة ينسن وتحدب دالة اللوغاريتم الطبيعي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Because $f(x) = \\ln(x)$ is strictly concave downward on $(0, \\infty)$ ($f''(x) = -\\frac{1}{x^2} < 0$), Jensen's Inequality states that for all $a, b > 0$ and $\\lambda = 0.5$:",
     "questionAr": "بما أن دالة اللوغاريتم الطبيعي $f(x) = \\ln(x)$ مقعرة لأسفل بدقة على $(0, \\infty)$ ($f''(x) = -\\frac{1}{x^2} < 0$)، فما هي النتيجة الناتجة عن متراجحة ينسن لقيم $a, b > 0$ و $\\lambda = 0.5$؟",
     "optionsEn": [
@@ -6529,7 +6506,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Clairaut's Differential Equation Singular Solution",
     "titleAr": "الحل الشاذ لمعادلة كليرو التفاضلية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the singular solution (envelope) of Clairaut's differential equation $y = x y' + (y')^2$.",
     "questionAr": "أوجد الحل الشاذ (الغلاف) لمعادلة كليرو التفاضلية $y = x y' + (y')^2$.",
     "optionsEn": [
@@ -6573,7 +6549,6 @@ export const egBacAnaCh2Databank: ChapterDatabank = {
     "titleEn": "Snell's Law via Fermat's Principle of Least Time",
     "titleAr": "استنتاج قانون سنل من مبدأ فيرما لأقصر زمن",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Light travels from point $A(0, h_1)$ in medium 1 (speed $v_1$) to $B(d, -h_2)$ in medium 2 (speed $v_2$), refracting at point $P(x, 0)$ on the interface. Minimizing total time $T(x) = \\frac{\\sqrt{x^2 + h_1^2}}{v_1} + \\frac{\\sqrt{(d-x)^2 + h_2^2}}{v_2}$ by setting $T'(x) = 0$ yields which fundamental law of optics?",
     "questionAr": "ينتقل الضوء من النقطة $A(0, h_1)$ في الوسط الأول (السرعة $v_1$) إلى $B(d, -h_2)$ في الوسط الثاني (السرعة $v_2$) منكسراً عند النقطة $P(x, 0)$ على السطح الفاصل. إن تصغير الزمن الكلي $T(x)$ بمساواة $T'(x) = 0$ يثبت أي قانون بصري أساسي؟",
     "optionsEn": [

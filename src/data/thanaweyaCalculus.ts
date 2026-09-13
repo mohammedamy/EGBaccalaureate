@@ -145,7 +145,6 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
                 titleEn: 'Trig Derivative Problem (Higher Order & Chain Rule)',
                 titleAr: 'مسألة اشتقاق مثلثي (قاعدة السلسلة)',
                 difficulty: 'exam_standard',
-                diagramType: 'trig_derivative_tangent',
                 questionEn: 'If $y = \\csc(2x) - \\cot(2x)$, find the derivative $\\frac{dy}{dx}$ expressed in terms of $y$ and $x$.',
                 questionAr: 'إذا كان $y = \\csc(2x) - \\cot(2x)$، فأوجد المشتقة الأولى $\\frac{dy}{dx}$ بدلالة $y$ و $x$.',
                 optionsEn: ['y \\csc(2x)', '2y \\csc(2x)', '-2y \\cot(2x)', '2y \\sec(2x)'],
@@ -179,7 +178,6 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
                 titleEn: 'Foundation Problem: Standard Secant Derivative',
                 titleAr: 'مسألة تأسيسية: اشتقاق دالة القاطع (قا)',
                 difficulty: 'easy',
-                diagramType: 'secant_derivative_graph',
                 questionEn: 'Find the first derivative of the function $f(x) = \\sec(3x)$.',
                 questionAr: 'أوجد المشتقة الأولى للدالة $f(x) = \\sec(3x)$.',
                 optionsEn: [
@@ -218,7 +216,6 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
                 titleEn: 'HOTS Problem: Second Derivative of Cotangent Function',
                 titleAr: 'مسألة مهارات عليا: المشتقة الثانية لدالة ظتا',
                 difficulty: 'hots',
-                diagramType: 'cotangent_curvature_graph',
                 questionEn: 'If $y = \\cot(\\pi x)$, find the value of the second derivative $\\frac{d^2 y}{dx^2}$ at $x = \\frac{1}{4}$.',
                 questionAr: 'إذا كانت $y = \\cot(\\pi x)$، فاحسب قيمة المشتقة الثانية $\\frac{d^2 y}{dx^2}$ عند $x = \\frac{1}{4}$.',
                 optionsEn: ['2\\pi^2', '-4\\pi^2', '4\\pi^2', '8\\pi^2'],

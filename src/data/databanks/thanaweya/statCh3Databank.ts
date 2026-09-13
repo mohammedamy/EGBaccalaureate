@@ -1779,7 +1779,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Resultant of Oppositely Directed Parallel Forces",
     "titleAr": "محصلة قوتين متوازيتين متضادتين في الاتجاه",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two parallel forces $F_1 = 30\\text{ N}$ and $F_2 = 50\\text{ N}$ act in opposite directions at points $A$ and $B$ where $AB = 40\\text{ cm}$. Find the magnitude of their resultant $R$ and its direction.",
     "questionAr": "قوتان متوازيتان $F_1 = 30\\text{ ن}$ و $F_2 = 50\\text{ ن}$ تعملان في اتجاهين متضادين عند النقطتين $A$ و $B$ حيث $AB = 40\\text{ سم}$. أوجد مقدار المحصلة $R$ واتجاهها.",
     "optionsEn": [
@@ -1814,7 +1813,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Line of Action of Unlike Parallel Forces",
     "titleAr": "خط عمل محصلة قوتين متوازيتين متضادتين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two unlike parallel forces $F_1 = 12\\text{ N}$ at $A$ and $F_2 = 18\\text{ N}$ at $B$ act such that $AB = 30\\text{ cm}$. Find the distance from $B$ to the point of application $C$ of the resultant.",
     "questionAr": "قوتان متوازيتان متضادتان $F_1 = 12\\text{ ن}$ عند $A$ و $F_2 = 18\\text{ ن}$ عند $B$ حيث $AB = 30\\text{ سم}$. أوجد بُعد نقطة تأثير المحصلة $C$ عن النقطة $B$.",
     "optionsEn": [
@@ -1851,7 +1849,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Reactions on a Light Rod under Symmetrical Loading",
     "titleAr": "ردود الأفعال على قضيب خفيف تحت تحميل متماثل",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A light rod $AB$ of length $120\\text{ cm}$ rests horizontally on two supports at $A$ and $B$. A load of $90\\text{ N}$ is placed at the midpoint $M$. Find the support reaction at $A$.",
     "questionAr": "قضيب خفيف $AB$ طوله $120\\text{ سم}$ يستند أفقياً على ركيزتين عند طرفيه $A$ و $B$. عُلق ثقل مقداره $90\\text{ ن}$ في منتصفه $M$. أوجد رد فعل الركيزة عند $A$.",
     "optionsEn": [
@@ -1888,7 +1885,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Reactions on a Rod with Symmetrically Inset Supports",
     "titleAr": "ردود الأفعال على قضيب بركائز غير طرفية متماثلة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of length $100\\text{ cm}$ and weight $40\\text{ N}$ rests on two supports at $C$ and $D$, each $20\\text{ cm}$ from the nearest end. Find the reaction at $C$.",
     "questionAr": "قضيب منتظم $AB$ طوله $100\\text{ سم}$ ووزنه $40\\text{ ن}$ يستند على ركيزتين عند $C$ و $D$ على بُعد $20\\text{ سم}$ من كل طرف. أوجد رد الفعل عند $C$.",
     "optionsEn": [
@@ -1927,7 +1923,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Resultant of Three Parallel Like Forces",
     "titleAr": "محصلة ثلاث قوى متوازية متحدة الاتجاه",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three parallel forces $F_1 = 10\\text{ N}$, $F_2 = 25\\text{ N}$, and $F_3 = 15\\text{ N}$ act vertically downwards at points $x_1 = 0$, $x_2 = 2\\text{ m}$, and $x_3 = 6\\text{ m}$. Find the position $x_R$ of the resultant.",
     "questionAr": "ثلاث قوى متوازية $F_1 = 10\\text{ ن}$، $F_2 = 25\\text{ ن}$، و $F_3 = 15\\text{ ن}$ تؤثر رأسياً لأسفل عند النقاط $x_1 = 0$، $x_2 = 2\\text{ م}$، و $x_3 = 6\\text{ م}$. أوجد موضع المحصلة $x_R$.",
     "optionsEn": [
@@ -1964,7 +1959,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Zero Resultant of Unlike Parallel Forces",
     "titleAr": "محصلة منعدمة لقوتين متوازيتين متضادتين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two parallel forces of equal magnitude $40\\text{ N}$ act in opposite directions along different lines of action separated by $15\\text{ cm}$. What is the net resultant force $R$?",
     "questionAr": "قوتان متوازيتان متساويتان في المقدار $40\\text{ ن}$ تؤثران في اتجاهين متضادين على خطي عمل مختلفين البعد بينهما $15\\text{ سم}$. ما مقدار القوة المحصلة $R$؟",
     "optionsEn": [
@@ -1999,7 +1993,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Determining an Unknown Force in Parallel Equilibrium",
     "titleAr": "تحديد قوة مجهولة في اتزان قوى متوازية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A horizontal beam of negligible weight is in equilibrium under three downward vertical loads of $20\\text{ N}$, $F$, and $30\\text{ N}$, balanced by a single upward reaction of $100\\text{ N}$. What is the value of $F$?",
     "questionAr": "عارضة أفقية مهملة الوزن متزنة تحت تأثير ثلاثة أحمال رأسية لأسفل هي $20\\text{ ن}$، $F$، و $30\\text{ ن}$، متزنة مع رد فعل وحيد لأعلى مقداره $100\\text{ ن}$. ما قيمة $F$؟",
     "optionsEn": [
@@ -2036,7 +2029,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Ratio of Resultant Distances for Like Forces",
     "titleAr": "نسبة أبعاد المحصلة لقوتين متوازيتين متحدتي الاتجاه",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two like parallel forces $F_1 = 15\\text{ N}$ and $F_2 = 45\\text{ N}$ act at points $A$ and $B$. If $C$ is the point of application of their resultant, find the ratio $\\frac{AC}{CB}$.",
     "questionAr": "قوتان متوازيتان متحدتا الاتجاه $F_1 = 15\\text{ ن}$ و $F_2 = 45\\text{ ن}$ تؤثران عند $A$ و $B$. إذا كانت $C$ نقطة تأثير محصلتهما، فأوجد النسبة $\\frac{AC}{CB}$.",
     "optionsEn": [
@@ -3931,7 +3923,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Maximum Load on an Overhanging Rod Without Tipping",
     "titleAr": "أكبر ثقل يمكن تعليقه على قضيب ذي بروز دون أن ينقلب",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform plank $AB$ of length $6\\text{ m}$ and weight $300\\text{ N}$ rests on two supports: one at $A$ and the other at $C$ where $AC = 4\\text{ m}$. What is the maximum load $W$ that can be suspended from end $B$ without tipping the plank?",
     "questionAr": "لوح خشب منتظم $AB$ طوله $6\\text{ م}$ ووزنه $300\\text{ ن}$ يستند على ركيزتين: الأولى عند $A$ والثانية عند $C$ حيث $AC = 4\\text{ م}$. ما أكبر ثقل $W$ يمكن تعليقه من الطرف $B$ دون أن يختل اتزان اللوح وينقلب؟",
     "optionsEn": [
@@ -3972,7 +3963,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Suspension by Two Parallel Vertical Strings",
     "titleAr": "تعليق قضيب بواسطة خيطين رأسيين متوازيين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $60\\text{ N}$ and length $100\\text{ cm}$ is suspended horizontally by two vertical strings attached at $A$ and a point $D$ where $AD = 75\\text{ cm}$. A weight of $40\\text{ N}$ is hung at a point $C$ where $AC = 25\\text{ cm}$. Find the tension $T_D$ in the string at $D$.",
     "questionAr": "قضيب منتظم $AB$ وزنه $60\\text{ ن}$ وطوله $100\\text{ سم}$ معلق أفقياً بواسطة خيطين رأسيين مثبتين عند $A$ وعند نقطة $D$ حيث $AD = 75\\text{ سم}$. عُلق ثقل $40\\text{ ن}$ عند نقطة $C$ حيث $AC = 25\\text{ سم}$. أوجد الشد $T_D$ في الخيط عند $D$.",
     "optionsEn": [
@@ -4015,7 +4005,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Shift in Point of Application of the Resultant",
     "titleAr": "إزاحة نقطة تأثير المحصلة عند تغير موضع إحدى القوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two like parallel forces $F_1 = 20\\text{ N}$ and $F_2 = 30\\text{ N}$ act at $A$ and $B$ where $AB = 50\\text{ cm}$. If $F_1$ is shifted $10\\text{ cm}$ along the line $AB$ towards $B$, by what distance does the resultant shift?",
     "questionAr": "قوتان متوازيتان متحدتا الاتجاه $F_1 = 20\\text{ ن}$ و $F_2 = 30\\text{ ن}$ تؤثران عند $A$ و $B$ حيث $AB = 50\\text{ سم}$. إذا أزيحت القوة $F_1$ مسافة $10\\text{ سم}$ على الخط $AB$ نحو $B$، فما مقدار المسافة التي تنزاح بها المحصلة؟",
     "optionsEn": [
@@ -4056,7 +4045,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Reversal of One Force in an Unlike System",
     "titleAr": "عكس اتجاه إحدى القوتين في منظومة قوى متوازية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two unlike parallel forces $P$ and $Q$ ($P > Q$) act at $A$ and $B$ separated by $d$. Their resultant acts at distance $x$ from $A$. If the direction of $Q$ is reversed so they become like forces, the new resultant acts at distance $y$ from $A$. What is the relation between $x$, $y$, and $d$?",
     "questionAr": "قوتان متوازيتان متضادتان في الاتجاه $P$ و $Q$ ($P > Q$) تؤثران عند $A$ و $B$ والمسافة بينهما $d$. تؤثر محصلتهما على بُعد $x$ من $A$. إذا عُكس اتجاه $Q$ لتصبحا متحدتي الاتجاه، أثرت المحصلة الجديدة على بُعد $y$ من $A$. ما العلاقة التي تربط بين $x$ و $y$ و $d$؟",
     "optionsEn": [
@@ -4095,7 +4083,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Load Distribution on a Walking Person Carrying a Beam",
     "titleAr": "توزيع الأحمال على شخصين يحملان عارضة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two men carry a uniform beam of length $4\\text{ m}$ and weight $800\\text{ N}$. The first man holds the beam at one end $A$, while the second man holds it at a point $C$, $1\\text{ m}$ from the other end $B$. If a weight of $200\\text{ N}$ is placed at $B$, find the weight supported by the second man.",
     "questionAr": "رجلان يحملان عارضة منتظمة طولها $4\\text{ م}$ ووزنها $800\\text{ ن}$. يحملها الأول عند الطرف $A$، بينما يحملها الثاني عند نقطة $C$ تبعد $1\\text{ م}$ عن الطرف الآخر $B$. إذا وُضع ثقل $200\\text{ ن}$ عند $B$، فما مقدار الحمل الذي يحمله الرجل الثاني؟",
     "optionsEn": [
@@ -4140,7 +4127,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Condition for Equal Reactions",
     "titleAr": "شرط تساوي ردود الأفعال لعارضة غير متماثلة التحميل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W$ and length $L$ rests horizontally on two supports at its ends $A$ and $B$. Where should an additional weight of $2W$ be placed on the rod so that the reaction at support $A$ is equal to twice the reaction at support $B$?",
     "questionAr": "قضيب منتظم $AB$ وزنه $W$ وطوله $L$ يستند أفقياً على ركيزتين عند طرفيه $A$ و $B$. أين يجب وضع ثقل إضافي مقداره $2W$ على القضيب لكي يصبح رد الفعل عند الركيزة $A$ ضعف رد الفعل عند الركيزة $B$؟",
     "optionsEn": [
@@ -4183,7 +4169,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "System of Multiple Parallel Forces in Plane",
     "titleAr": "منظومة قوى متوازية متعددة في المستوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Four parallel forces act perpendicular to a straight line at distances $x = 1, 2, 4, 5\\text{ m}$: $F_1 = 10\\text{ N}$ (up), $F_2 = 20\\text{ N}$ (down), $F_3 = 30\\text{ N}$ (down), and $F_4 = 40\\text{ N}$ (up). Find the magnitude and position $x_R$ of the resultant.",
     "questionAr": "أربع قوى متوازية عمودية على خط مستقيم عند المسافات $x = 1, 2, 4, 5\\text{ م}$: $F_1 = 10\\text{ ن}$ (لأعلى)، $F_2 = 20\\text{ ن}$ (لأسفل)، $F_3 = 30\\text{ ن}$ (لأسفل)، و $F_4 = 40\\text{ ن}$ (لأعلى). أوجد مقدار المحصلة وموضع تأثيرها $x_R$.",
     "optionsEn": [
@@ -4224,7 +4209,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Distance of Point of Application from Two Unlike Forces",
     "titleAr": "بُعد نقطة تأثير المحصلة عن القوة الأصغر",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two unlike parallel forces $F_1 = 8\\text{ N}$ and $F_2 = 14\\text{ N}$ act at points $A$ and $B$ where $AB = 18\\text{ cm}$. What is the distance between the point of application of the resultant and point $A$ (the point of application of $F_1$)?",
     "questionAr": "قوتان متوازيتان متضادتان في الاتجاه $F_1 = 8\\text{ ن}$ و $F_2 = 14\\text{ ن}$ تؤثران عند النقطتين $A$ و $B$ حيث $AB = 18\\text{ سم}$. ما المسافة بين نقطة تأثير المحصلة والنقطة $A$ (نقطة تأثير $F_1$)؟",
     "optionsEn": [
@@ -4265,7 +4249,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Reactions on a Stepped Cross-Section Rod",
     "titleAr": "ردود الأفعال على عارضة ذات مقطع متغير",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A non-uniform rod $AB$ of length $120\\text{ cm}$ rests on two supports at $A$ and $B$. When a weight of $10\\text{ N}$ is hung at $A$, the reaction at $B$ is zero. When the weight is moved to $B$, the reaction at $A$ is $15\\text{ N}$. Find the weight of the rod.",
     "questionAr": "قضيب غير منتظم $AB$ طوله $120\\text{ سم}$ يستند على ركيزتين عند طرفيه $A$ و $B$. عند تعليق ثقل $10\\text{ ن}$ عند $A$ ينعدم رد الفعل عند $B$. وعند نقل الثقل إلى $B$ يصبح رد الفعل عند $A$ مساوياً $15\\text{ ن}$. أوجد وزن القضيب.",
     "optionsEn": [
@@ -6310,7 +6293,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Safe Walking Range on an Overhanging Scaffold Plank",
     "titleAr": "المدى الآمن لحركة عامل على سقالة ذات بروزين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform plank $AB$ of length $8\\text{ m}$ and weight $400\\text{ N}$ rests horizontally on two trestles at $C$ and $D$, where $AC = 1.5\\text{ m}$ and $DB = 1.5\\text{ m}$. A painter weighing $700\\text{ N}$ walks along the plank. What is the maximum distance $x$ from end $B$ the painter can safely walk towards $B$ without the plank overturning?",
     "questionAr": "لوح خشبي منتظم $AB$ طوله $8\\text{ م}$ ووزنه $400\\text{ ن}$ يستند أفقياً على حاملين عند $C$ و $D$ حيث $AC = 1.5\\text{ م}$ و $DB = 1.5\\text{ م}$. عامل دهان وزنه $700\\text{ ن}$ يتحرك على اللوح. ما أقصى مسافة $x$ من الطرف $B$ يمكن للعامل أن يصل إليها باتجاه $B$ دون أن ينقلب اللوح؟",
     "optionsEn": [
@@ -6355,7 +6337,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Invariant Resultant under Symmetrical Scaling",
     "titleAr": "ثبات موضع المحصلة عند الضرب القياسي المتناظر",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two like parallel forces $F_1$ and $F_2$ act at $A$ and $B$. If both forces are multiplied by the same positive constant $k > 0$, and each force is increased by an additive constant $c > 0$, under what condition does the position of the resultant remain strictly unchanged?",
     "questionAr": "قوتان متوازيتان متحدتا الاتجاه $F_1$ و $F_2$ تؤثران عند $A$ و $B$. إذا ضُربت القوتان في نفس الثابت الموجب $k > 0$، وأُضيفت إلى كل منهما كمية ثابتة $c > 0$، فما الشرط اللازم لكي يظل موضع المحصلة ثابتاً دون أي تغير؟",
     "optionsEn": [
@@ -6396,7 +6377,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Three Supports with Redundant Constraint",
     "titleAr": "عارضة مستندة على ثلاث ركائز",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform heavy beam of weight $W$ and length $2a$ rests horizontally on three equidistant supports at distances $0$, $a$, and $2a$ from one end. Assuming the beam remains perfectly rigid and level, if the reactions are in arithmetic progression $R_1, R_2, R_3$, find $R_2$.",
     "questionAr": "عارضة منتظمة ثقيلة وزنها $W$ وطولها $2a$ تستند أفقياً على ثلاث ركائز على أبعاد متساوية $0$ و $a$ و $2a$ من أحد الطرفين. إذا ظلت العارضة جاسئة وأفقية تماماً وكانت ردود الأفعال تشكل متتابعة حسابية $R_1, R_2, R_3$، فما قيمة $R_2$؟",
     "optionsEn": [
@@ -6435,7 +6415,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Trapezoidal Distributed Load Equivalent Resultant",
     "titleAr": "محصلة حمل موزع شبه منحرف على عارضة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A distributed load on a beam of length $6\\text{ m}$ varies linearly from $w_1 = 100\\text{ N/m}$ at $x = 0$ to $w_2 = 400\\text{ N/m}$ at $x = 6\\text{ m}$. Find the position $x_R$ of the concentrated equivalent resultant force.",
     "questionAr": "حمل موزع على عارضة طولها $6\\text{ م}$ يتغير خطياً من $w_1 = 100\\text{ ن/م}$ عند $x = 0$ إلى $w_2 = 400\\text{ ن/م}$ عند $x = 6\\text{ م}$. أوجد موضع تأثير المحصلة المكافئة $x_R$.",
     "optionsEn": [
@@ -6478,7 +6457,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Optimal Support Placement for Minimum Bending Deflection",
     "titleAr": "الموضع الأمثل للركائز لتساوي ردود الأفعال للأحمال المعلقة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod of length $L$ and weight $W$ has two equal weights $W$ attached to its two free ends. If the rod rests on two symmetric supports located at distance $x$ from each end, find $x$ such that each support carries an equal load and the bending moment at the midpoint of the rod is zero.",
     "questionAr": "قضيب منتظم طوله $L$ ووزنه $W$ عُلق عند طرفيه ثقلان متساويان مقدار كل منهما $W$. إذا استند القضيب على ركيزتين متماثلتين على بُعد مسافة $x$ من كل طرف، فأوجد قيمة $x$ التي تجعل عزم الانحناء عند منتصف القضيب منعدماً.",
     "optionsEn": [
@@ -6524,7 +6502,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "System of Unequal Parallel Forces with Shifting Pivot",
     "titleAr": "منظومة قوى متوازية غير متساوية مع نقطة ارتكاز متحركة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A light rod of length $100\\text{ cm}$ carries three loads: $10\\text{ N}$ at $x = 0$, $20\\text{ N}$ at $x = 40\\text{ cm}$, and $30\\text{ N}$ at $x = 100\\text{ cm}$. A movable support provides an upward reaction $R = 60\\text{ N}$. At what position $x$ must the support be placed, and what additional vertical force $P$ must be applied at $x = 60\\text{ cm}$ to shift the required support position to $x = 55\\text{ cm}$ while keeping $R = 60 + P$?",
     "questionAr": "قضيب خفيف طوله $100\\text{ سم}$ يحمل ثلاثة أثقال: $10\\text{ ن}$ عند $x = 0$، و $20\\text{ ن}$ عند $x = 40\\text{ سم}$، و $30\\text{ ن}$ عند $x = 100\\text{ سم}$. ركيزة متحركة توفر رد فعل لأعلى $R = 60\\text{ ن}$. عند أي موضع $x$ يجب وضع الركيزة؟ وما القوة الإضافية $P$ التي يجب تطبيقها عند $x = 60\\text{ سم}$ لإزاحة موضع الركيزة إلى $x = 55\\text{ سم}$ مع بقاء رد الفعل $R = 60 + P$؟",
     "optionsEn": [
@@ -6565,7 +6542,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Under Two Couples and a Force Pair",
     "titleAr": "اتزان عارضة تحت تأثير زوج قوى وازدواجين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of length $2\\text{ m}$ and weight $50\\text{ N}$ is acted upon by two vertical parallel forces $F_1 = 30\\text{ N}$ at $A$ (upwards) and $F_2 = 30\\text{ N}$ at $B$ (downwards). A counterclockwise couple of moment $M_c = 40\\text{ N}\\cdot\\text{m}$ also acts on the rod. What single additional vertical force $F_3$ must be applied at the midpoint to prevent any angular rotation and maintain equilibrium?",
     "questionAr": "قضيب منتظم $AB$ طوله $2\\text{ م}$ ووزنه $50\\text{ ن}$ تؤثر عليه قوتان رأسيتان متوازيتان $F_1 = 30\\text{ ن}$ عند $A$ (لأعلى) و $F_2 = 30\\text{ ن}$ عند $B$ (لأسفل). كما يؤثر على القضيب ازدواج في عكس عقارب الساعة عزمه $M_c = 40\\text{ ن}\\cdot\\text{م}$. هل يمكن لقوة رأسية وحيدة إضافية $F_3$ تؤثر عند المنتصف أن تعيد الاتزان التام للقضيب؟",
     "optionsEn": [
@@ -6604,7 +6580,6 @@ export const statCh3Databank: ChapterDatabank = {
     "titleEn": "Indeterminate Parallel Forces on an Elastic Foundation",
     "titleAr": "اتزان عارضة متماثلة تحت تأثير ردود أفعال زنبركية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rigid light horizontal beam of length $2L$ is supported at its ends and midpoint by three identical vertical springs each with stiffness $k$. A central load $P$ is placed directly above the middle spring. If the beam remains horizontal and deflections are $\\delta_1, \\delta_2, \\delta_3$, by rigid body leveling $\\delta_1 = \\delta_2 = \\delta_3 = \\delta$. What fraction of the total load $P$ is carried by each spring?",
     "questionAr": "عارضة أفقية خفيفة جاسئة طولها $2L$ ترتكز عند طرفيها ومنتصفها على ثلاثة زنبركات رأسية متطابقة ثابت صلابة كل منها $k$. وُضع حمل مركزي $P$ مباشرة فوق الزنبرك الأوسط. إذا ظل القضيب أفقياً تماماً وكانت الإزاحات $\\delta_1 = \\delta_2 = \\delta_3 = \\delta$، فما الكسر من الحمل الكلي $P$ الذي يحمله كل زنبرك؟",
     "optionsEn": [

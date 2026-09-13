@@ -1775,7 +1775,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Resultant Reaction on Horizontal Plane",
     "titleAr": "رد الفعل المحصل على مستوى أفقي خشن",
     "difficulty": "easy",
-    "diagramType": "statics_horizontal_simple_friction",
     "questionEn": "A body of weight $30\\text{ N}$ rests on a rough horizontal plane. If the coefficient of static friction is $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the magnitude of the resultant reaction $R'$ when the body is on the verge of motion.",
     "questionAr": "جسم وزنه $30\\text{ نيوتن}$ موضوع على مستوى أفقي خشن. إذا كان معامل الاحتكاك السكوني $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد مقدار رد الفعل المحصل $R'$ عندما يكون الجسم على وشك الحركة.",
     "optionsEn": [
@@ -1812,7 +1811,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Angle on Rough Inclined Plane",
     "titleAr": "زاوية الاتزان على مستوى مائل خشن تحت تأثير الوزن فقط",
     "difficulty": "easy",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body placed on a rough plane inclined at an angle $\\theta$ to the horizontal is on the verge of sliding down under the action of its weight alone. If the coefficient of static friction is $\\mu_s = 0.75$, find $\\sin\\theta$.",
     "questionAr": "جسم موضوع على مستوى مائل خشن يميل على الأفقي بزاوية $\\theta$، وكان على وشك الانزلاق لأسفل المستوى تحت تأثير وزنه فقط. إذا كان معامل الاحتكاك السكوني $\\mu_s = 0.75$، فأوجد $\\sin\\theta$.",
     "optionsEn": [
@@ -1849,7 +1847,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Horizontal Pulling Force for Motion",
     "titleAr": "القوة الأفقية اللازمة لجعل الجسم على وشك الحركة",
     "difficulty": "easy",
-    "diagramType": "statics_horizontal_friction",
     "questionEn": "A body of weight $50\\text{ N}$ is placed on a rough horizontal plane. If the coefficient of static friction is $\\mu_s = 0.4$, find the horizontal force $P$ required to make the body on the verge of motion.",
     "questionAr": "جسم وزنه $50\\text{ نيوتن}$ موضوع على مستوى أفقي خشن. إذا كان معامل الاحتكاك السكوني $\\mu_s = 0.4$، فأوجد القوة الأفقية $P$ اللازمة لجعل الجسم على وشك الحركة.",
     "optionsEn": [
@@ -1886,7 +1883,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Upward Force along Rough Incline",
     "titleAr": "قوة موازية لخط أكبر ميل تجعل الجسم على وشك الحركة لأعلى",
     "difficulty": "easy",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $W = 20\\text{ N}$ rests on a rough plane inclined at $30^\\circ$ to the horizontal. If $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the magnitude of the force acting along the line of greatest slope directed upwards that makes the body on the verge of moving up the plane.",
     "questionAr": "جسم وزنه $W = 20\\text{ نيوتن}$ موضوع على مستوى خشن يميل على الأفقي بزاوية $30^\\circ$. إذا كان $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد مقدار القوة الموازية لخط أكبر ميل والموجهة لأعلى التي تجعل الجسم على وشك الحركة لأعلى المستوى.",
     "optionsEn": [
@@ -1925,7 +1921,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Inclined Pulling Force on Horizontal Plane",
     "titleAr": "قوة شد تميل بزاوية على الأفقي",
     "difficulty": "easy",
-    "diagramType": "statics_horizontal_friction",
     "questionEn": "A body of weight $40\\text{ N}$ rests on a rough horizontal plane ($\\mu_s = 0.5$). A pulling force $P$ acts on the body at an angle of $30^\\circ$ above the horizontal. If the body is on the verge of motion, find the normal reaction $R$ in terms of $P$.",
     "questionAr": "جسم وزنه $40\\text{ نيوتن}$ موضوع على مستوى أفقي خشن ($\\mu_s = 0.5$). أثرت عليه قوة شد $P$ تميل بزاوية $30^\\circ$ لأعلى الأفقي. إذا كان الجسم على وشك الحركة، فاكتب معادلة رد الفعل العمودي $R$ بدلالة $P$.",
     "optionsEn": [
@@ -1960,7 +1955,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Ratio of Minimum to Maximum Holding Force",
     "titleAr": "أقل قوة تمنع الجسم من الانزلاق لأسفل مستوى مائل",
     "difficulty": "easy",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $W = 12\\text{ N}$ rests on a rough inclined plane of inclination $30^\\circ$. If the coefficient of static friction is $\\mu_s = \\frac{\\sqrt{3}}{6}$, find the minimum force $P$ acting along the line of greatest slope upwards required to prevent the body from sliding down.",
     "questionAr": "جسم وزنه $W = 12\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ على الأفقي. إذا كان معامل الاحتكاك السكوني $\\mu_s = \\frac{\\sqrt{3}}{6}$، فأوجد أقل قوة $P$ موازية لخط أكبر ميل وموجهة لأعلى تكفي لمنع الجسم من الانزلاق لأسفل.",
     "optionsEn": [
@@ -1999,7 +1993,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Relation Between Friction Angle and Limiting Friction",
     "titleAr": "العلاقة بين زاوية الاحتكاك وزاوية ميل رد الفعل المحصل",
     "difficulty": "easy",
-    "diagramType": "statics_horizontal_simple_friction",
     "questionEn": "If the angle of friction between a body and a rough plane is $\\lambda$, what is the angle between the normal reaction $R$ and the resultant reaction $R'$ when the friction is limiting?",
     "questionAr": "إذا كانت زاوية الاحتكاك بين جسم ومستوى خشن هي $\\lambda$، فما هو قياس الزاوية بين رد الفعل العمودي $R$ ورد الفعل المحصل $R'$ عندما يكون الاحتكاك نهائياً؟",
     "optionsEn": [
@@ -3900,7 +3893,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Minimum Force to Drag Body on Horizontal Plane",
     "titleAr": "أقل قوة كافية لتحريك جسم على مستوى أفقي خشن",
     "difficulty": "medium",
-    "diagramType": "statics_horizontal_friction",
     "questionEn": "A body of weight $W = 60\\text{ N}$ rests on a rough horizontal plane with coefficient of static friction $\\mu_s = \\frac{3}{4}$. Find the minimum pulling force $P_{\\min}$ capable of making the body on the verge of motion.",
     "questionAr": "جسم وزنه $W = 60\\text{ نيوتن}$ موضوع على مستوى أفقي خشن معامل احتكاكه السكوني $\\mu_s = \\frac{3}{4}$. أوجد أقل قوة شد $P_{\\min}$ كافية لجعل الجسم على وشك الحركة.",
     "optionsEn": [
@@ -3940,7 +3932,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Horizontal Push on Inclined Plane",
     "titleAr": "قوة أفقية تجعل الجسم على وشك الحركة لأعلى مستوى مائل",
     "difficulty": "medium",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $30\\text{ N}$ rests on a rough plane inclined at $45^\\circ$ to the horizontal. A horizontal force $P$ pushes the body towards the incline so that it is on the verge of moving up. If $\\mu_s = \\frac{1}{3}$, find $P$.",
     "questionAr": "جسم وزنه $30\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $45^\\circ$ على الأفقي. أثرت عليه قوة أفقية $P$ تدفعه نحو المستوى لتجعله على وشك الحركة لأعلى. إذا كان $\\mu_s = \\frac{1}{3}$، فأوجد $P$.",
     "optionsEn": [
@@ -4016,7 +4007,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Range of Equilibrium Forces on an Incline",
     "titleAr": "مدى القوة التي تحفظ اتزان جسم على مستوى مائل خشن",
     "difficulty": "medium",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $W = 100\\text{ N}$ rests on a rough plane inclined at $30^\\circ$ to the horizontal ($\\mu_s = \\frac{\\sqrt{3}}{5}$). A force $P$ acts parallel to the plane upwards. Find the range of values of $P$ that keep the body in equilibrium.",
     "questionAr": "جسم وزنه $W = 100\\text{ نيوتن}$ موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ على الأفقي (معامل احتكاكه $\\mu_s = \\frac{\\sqrt{3}}{5}$). تؤثر عليه قوة $P$ موازية لخط أكبر ميل لأعلى. أوجد الفترة التي تنتمي إليها $P$ لحفظ اتزان الجسم.",
     "optionsEn": [
@@ -4058,7 +4048,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Friction Angle and Normal Reaction Ratio",
     "titleAr": "النسبة بين رد الفعل العمودي وقوة الاحتكاك",
     "difficulty": "medium",
-    "diagramType": "statics_horizontal_simple_friction",
     "questionEn": "In limiting equilibrium on a rough horizontal plane, the resultant reaction $R'$ makes an angle of $25^\\circ$ with the horizontal plane. What is the coefficient of static friction $\\mu_s$?",
     "questionAr": "في حالة اتزان نهائي على مستوى أفقي خشن، يصنع رد الفعل المحصل $R'$ زاوية قياسها $25^\\circ$ مع المستوى الأفقي. ما هي قيمة معامل الاحتكاك السكوني $\\mu_s$؟",
     "optionsEn": [
@@ -4097,7 +4086,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Pulling Force Inclined at Angle of Friction",
     "titleAr": "قوة شد تميل بزاوية الاحتكاك لأعلى الأفقي",
     "difficulty": "medium",
-    "diagramType": "statics_horizontal_friction",
     "questionEn": "A body of weight $W$ rests on a rough horizontal plane. A force $P$ pulls the body at an angle $\\lambda$ (the angle of friction) above the horizontal so that the body is on the verge of motion. Find the ratio $\\frac{P}{W}$.",
     "questionAr": "جسم وزنه $W$ موضوع على مستوى أفقي خشن. شدت قوة $P$ الجسم بزاوية ميل $\\lambda$ (زاوية الاحتكاك) لأعلى الأفقي فجعلته على وشك الحركة. أوجد النسبة $\\frac{P}{W}$.",
     "optionsEn": [
@@ -4137,7 +4125,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Double Incline Friction Comparison",
     "titleAr": "مقارنة قوى الاحتكاك على مستويين مختلفي الميل",
     "difficulty": "medium",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body placed on a rough plane inclined at $30^\\circ$ requires a minimum force $F_1$ along the line of greatest slope upwards to move it up. When the inclination is increased to $60^\\circ$, the required force is $F_2$. If $\\mu_s = \\frac{1}{\\sqrt{3}}$, find the ratio $\\frac{F_2}{F_1}$.",
     "questionAr": "جسم موضوع على مستوى مائل خشن يميل بزاوية $30^\\circ$ يحتاج لقوة $F_1$ في اتجاه خط أكبر ميل لأعلى ليوشك على الحركة لأعلى. وعند زيادة ميل المستوى إلى $60^\\circ$ أصبحت القوة $F_2$. إذا كان $\\mu_s = \\frac{1}{\\sqrt{3}}$، فأوجد النسبة $\\frac{F_2}{F_1}$.",
     "optionsEn": [
@@ -4212,7 +4199,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Inclined Plane with Motion Downhill Under Force",
     "titleAr": "قوة تدفع جسماً لأسفل مستوى مائل خشن ليوشك على الحركة",
     "difficulty": "medium",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $W = 50\\text{ N}$ is on a rough plane inclined at $30^\\circ$ to horizontal ($\\mu_s = 0.8$). A force $P$ acts down along the line of greatest slope. Find the magnitude of $P$ required to make the body on the verge of moving down the plane.",
     "questionAr": "جسم وزنه $W = 50\\text{ نيوتن}$ على مستوى خشن يميل بزاوية $30^\\circ$ على الأفقي (معامل احتكاكه $\\mu_s = 0.8$). أثرت قوة $P$ موازية لخط أكبر ميل وموجهة لأسفل. أوجد مقدار $P$ اللازم لجعل الجسم على وشك الحركة لأسفل المستوى.",
     "optionsEn": [
@@ -6147,7 +6133,6 @@ export const statCh1Databank: ChapterDatabank = {
     "titleEn": "Minimum Force at Optimal Angle on an Incline",
     "titleAr": "أقل قوة لحفظ اتزان جسم على وشك الحركة لأعلى مستوى مائل",
     "difficulty": "hots",
-    "diagramType": "statics_inclined_friction",
     "questionEn": "A body of weight $W$ rests on a rough plane inclined at angle $\\theta$ to the horizontal (friction angle $\\lambda$). What is the least pulling force $P$ capable of dragging the body up the plane?",
     "questionAr": "جسم وزنه $W$ موضوع على مستوى مائل خشن يميل بزاوية $\\theta$ على الأفقي (زاوية احتكاكه $\\lambda$). ما هي أقل قوة شد $P$ كافية لجعل الجسم على وشك الحركة لأعلى المستوى؟",
     "optionsEn": [

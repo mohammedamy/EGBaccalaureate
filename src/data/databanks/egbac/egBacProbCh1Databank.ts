@@ -1707,7 +1707,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Complementary Event Probability",
     "titleAr": "احتمال الحدث المتمم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If the probability of event $A$ occurring is $P(A) = 0.35$, what is the probability of its complement $P(A')$?",
     "questionAr": "إذا كان احتمال وقوع الحدث $A$ هو $P(A) = 0.35$، فما احتمال وقوع متممته $P(A')$؟",
     "optionsEn": [
@@ -1742,7 +1741,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Multiplication Rule for Independent Events",
     "titleAr": "قاعدة الضرب للأحداث المستقلة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $A$ and $B$ be two independent events with $P(A) = 0.40$ and $P(B) = 0.50$. Find $P(A \\cap B)$.",
     "questionAr": "ليكن $A$ و $B$ حدثين مستقلين حيث $P(A) = 0.40$ و $P(B) = 0.50$. أوجد $P(A \\cap B)$.",
     "optionsEn": [
@@ -1777,7 +1775,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Union of Mutually Exclusive Events",
     "titleAr": "اتحاد الأحداث المتنافية (المتباعدة)",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $A$ and $B$ are mutually exclusive (disjoint) events with $P(A) = 0.25$ and $P(B) = 0.40$, find $P(A \\cup B)$.",
     "questionAr": "إذا كان $A$ و $B$ حدثين متنافيين (متباعدين) حيث $P(A) = 0.25$ و $P(B) = 0.40$، فأوجد $P(A \\cup B)$.",
     "optionsEn": [
@@ -1812,7 +1809,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Conditional Probability Calculation",
     "titleAr": "حساب الاحتمال الشرطي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Given $P(A \\cap B) = 0.12$ and $P(B) = 0.30$, find the conditional probability $P(A \\mid B)$.",
     "questionAr": "إذا كان $P(A \\cap B) = 0.12$ و $P(B) = 0.30$، فأوجد الاحتمال الشرطي $P(A \\mid B)$.",
     "optionsEn": [
@@ -1847,7 +1843,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Expected Value of a Binomial Distribution",
     "titleAr": "القيمة المتوقعة لتوزيع ذي الحدين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A random variable $X$ follows a binomial distribution $B(n, p)$ with $n = 50$ trials and success probability $p = 0.20$. Find the expected value $E[X]$.",
     "questionAr": "متغير عشوائي $X$ يتبع توزيع ذي الحدين $B(n, p)$ بعدد محاولات $n = 50$ واحتمال نجاح $p = 0.20$. أوجد القيمة المتوقعة (المتوسط) $E[X]$.",
     "optionsEn": [
@@ -1882,7 +1877,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Variance of a Binomial Distribution",
     "titleAr": "تباين توزيع ذي الحدين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the variance $\\text{Var}(X)$ for a binomial variable $X \\sim B(40, 0.25)$.",
     "questionAr": "أوجد التباين $\\text{Var}(X)$ لمتغير عشوائي يتبع توزيع ذي الحدين $X \\sim B(40, 0.25)$.",
     "optionsEn": [
@@ -1917,7 +1911,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Permutations of Distinct Items",
     "titleAr": "تباديل عناصر متمايزة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In how many distinct orders can 5 different books be arranged side-by-side on a shelf?",
     "questionAr": "بكم طريقة مختلفة يمكن ترتيب 5 كتب متمايزة جنباً إلى جنب على رف؟",
     "optionsEn": [
@@ -1950,7 +1943,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Combinations Selection Formula",
     "titleAr": "حساب التوافيق لاختيار لجنة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "How many different committees of 3 members can be selected from a group of 7 candidates?",
     "questionAr": "كم لجنة مختلفة مكونة من 3 أعضاء يمكن اختيارها من بين 7 مرشحين؟",
     "optionsEn": [
@@ -3785,7 +3777,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "General Addition Rule for Probability",
     "titleAr": "قاعدة الجمع العامة للاحتمالات",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $P(A) = 0.60$, $P(B) = 0.50$, and $P(A \\cup B) = 0.80$, find $P(A \\cap B)$.",
     "questionAr": "إذا كان $P(A) = 0.60$ و $P(B) = 0.50$ و $P(A \\cup B) = 0.80$، فأوجد $P(A \\cap B)$.",
     "optionsEn": [
@@ -3822,7 +3813,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Probability of B Without A",
     "titleAr": "احتمال وقوع الحدث B دون وقوع A",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $P(A \\mid B) = 0.60$ and $P(B) = 0.40$, find the probability $P(A' \\cap B)$ that $B$ occurs but $A$ does not occur.",
     "questionAr": "إذا كان $P(A \\mid B) = 0.60$ و $P(B) = 0.40$، فأوجد احتمال $P(A' \\cap B)$ لوقوع الحدث $B$ دون وقوع $A$.",
     "optionsEn": [
@@ -3857,7 +3847,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Law of Total Probability",
     "titleAr": "قانون الاحتمال الكلي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Factory Machine 1 produces 60% of daily output with a 2% defect rate. Machine 2 produces 40% with a 5% defect rate. What is the overall probability $P(D)$ that a randomly chosen item is defective?",
     "questionAr": "تنتج الآلة الأولى بمصنع 60% من الإنتاج اليومي بنسبة معيب 2%. وتنتج الآلة الثانية 40% بنسبة معيب 5%. ما هو الاحتمال الكلي $P(D)$ لأن تكون قطعة مختارة عشوائياً معيبة؟",
     "optionsEn": [
@@ -3894,7 +3883,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Bayes' Theorem Posterior Probability",
     "titleAr": "حساب الاحتمال البعدي باستخدام مبرهنة بايز",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the factory above, an item selected at random is found to be defective ($D$). What is the probability $P(M_2 \\mid D)$ that it was produced by Machine 2?",
     "questionAr": "في المصنع السابق، اختيرت قطعة عشوائياً ووُجدت معيبة ($D$). ما احتمال $P(M_2 \\mid D)$ أن تكون هذه القطعة من إنتاج الآلة الثانية؟",
     "optionsEn": [
@@ -3931,7 +3919,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Geometric Distribution First Success Probability",
     "titleAr": "احتمال أول نجاح في التوزيع الهندسي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A biased coin lands heads with probability $p = 0.20$. What is the probability that the first head occurs on the 3rd toss?",
     "questionAr": "قطعة نقود غير متزنة يظهر وجهها (صورة) باحتمال $p = 0.20$. ما احتمال أن يظهر أول وجه في الرمية الثالثة؟",
     "optionsEn": [
@@ -3968,7 +3955,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Binomial Probability of Exactly Three Heads",
     "titleAr": "احتمال الحصول على 3 صور بالضبط في توزيع ذي الحدين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A fair coin is tossed 4 times. What is the probability of obtaining exactly 3 heads?",
     "questionAr": "أُلقيت قطعة نقود متزنة 4 مرات. ما احتمال الحصول على 3 صور بالضبط؟",
     "optionsEn": [
@@ -4003,7 +3989,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Hypergeometric Sampling Without Replacement",
     "titleAr": "السحب بدون إحلال (التوزيع فوق الهندسي)",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A bag contains 4 red balls and 6 blue balls. If 2 balls are drawn at random without replacement, what is the probability that both balls are red?",
     "questionAr": "كيس يحتوي على 4 كرات حمراء و 6 كرات زرقاء. إذا سُحبت كرتان عشوائياً دون إحلال، فما احتمال أن تكون الكرتان حمراوين؟",
     "optionsEn": [
@@ -4040,7 +4025,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Shared Birth-Month Problem (Complement Counting)",
     "titleAr": "مسألة شهور الميلاد المشتركة بالعد المتمم",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three people are chosen at random. Assuming all 12 birth months are equally likely, what is the probability that at least two of them share the same birth month?",
     "questionAr": "اختير 3 أشخاص عشوائياً. بافتراض أن شهور الميلاد الـ 12 متساوية الاحتمال، ما احتمال أن يشترك اثنان منهم على الأقل في نفس شهر الميلاد؟",
     "optionsEn": [
@@ -4079,7 +4063,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Independence vs Mutual Exclusivity",
     "titleAr": "المقارنة بين الاستقلال والتنافي في الاحتمالات",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $A$ and $B$ be two events with $P(A) > 0$ and $P(B) > 0$. If $A$ and $B$ are mutually exclusive, can they ever be independent?",
     "questionAr": "ليكن $A$ و $B$ حدثين حيث $P(A) > 0$ و $P(B) > 0$. إذا كان $A$ و $B$ متنافيين، فهل يمكن أن يكونا مستقلين؟",
     "optionsEn": [
@@ -5920,7 +5903,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "False Positive Paradox in Medical Screening",
     "titleAr": "مفارقة الإيجابية الكاذبة في الفحص الطبي (مبرهنة بايز)",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rare disease has a prevalence of $0.1\\%$ ($P(D) = 0.001$). A diagnostic test has $99\\%$ sensitivity ($P(+ \\mid D) = 0.99$) and $95\\%$ specificity ($P(- \\mid D') = 0.95$, so false positive rate is $5\\%$). If a randomly selected person tests positive, what is the probability $P(D \\mid +)$ that they actually have the disease?",
     "questionAr": "مرض نادر تبلغ نسبة انتشاره $0.1\\%$ ($P(D) = 0.001$). اختبار طبي حساسيته $99\\%$ ونوعيته $95\\%$ (أي نسبة الإيجابية الكاذبة $5\\%$). إذا أظهر فحص شخص مختار عشوائياً نتيجة إيجابية، فما احتمال $P(D \\mid +)$ أن يكون مصاباً بالمرض فعلاً؟",
     "optionsEn": [
@@ -5959,7 +5941,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Generalized Monty Hall Problem with 4 Doors",
     "titleAr": "مسألة مونتي هول المعممة بأربعة أبواب",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a game show with 4 doors (1 car, 3 goats), you pick Door 1. The host, who knows what is behind each door, opens TWO other doors that reveal goats. Should you switch to the remaining closed door, and what is your probability of winning by switching?",
     "questionAr": "في برنامج مسابقات به 4 أبواب (سيارة واحدة، و 3 ماعز)، اخترت الباب 1. قام المقدم الذي يعرف ما وراء الأبواب بفتح بابين آخرين كلاهما به ماعز. هل يجب أن تبدل إلى الباب المغلق المتبقي، وما احتمال فوزك بالسيارة عند التبديل؟",
     "optionsEn": [
@@ -5999,7 +5980,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Gambler's Ruin Probability in a Fair Game",
     "titleAr": "احتمال إفلاس المقامر في لعبة عادلة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A gambler starts with an initial fortune of 20 units and plays a fair game ($p = 0.5$ of winning 1 unit, $0.5$ of losing 1 unit) until either reaching 100 units or going broke (ruin at $0$). What is the probability of eventual ruin?",
     "questionAr": "مقامر يبدأ برصيد 20 وحدة ويلعب لعبة عادلة (احتمال ربح وحدة واحدة هو $0.5$ وخسارة وحدة هو $0.5$) حتى يصل إلى 100 وحدة أو يفلس (رصيد $0$). ما احتمال إفلاسه في نهاية المطاف؟",
     "optionsEn": [
@@ -6037,7 +6017,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Coupon Collector's Problem Expected Time",
     "titleAr": "القيمة المتوقعة لمسألة جامع القسائم",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A cereal box contains one of $n = 5$ distinct collectible toy coupons uniformly at random. What is the expected total number of boxes $E[T]$ you need to buy to collect all 5 distinct coupons?",
     "questionAr": "تحتوي علبة حبوب على واحدة من $n = 5$ قسائم مختلفة باحتمال متساوٍ. ما هو العدد المتوقع من العلب $E[T]$ التي يجب شراؤها لجمع كل القسائم الـ 5 المختلفة؟",
     "optionsEn": [
@@ -6076,7 +6055,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Poisson Approximation to Rare Binomial Events",
     "titleAr": "تقريب بواسون للأحداث النادرة في ذات الحدين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A textbook of $n = 1000$ pages has a typing error probability $p = 0.002$ per page. Using the Poisson approximation with $\\lambda = n p = 2$, what is the probability that a randomly chosen book has ZERO errors?",
     "questionAr": "كتاب مدرسي به $n = 1000$ صفحة، احتمال وجود خطأ مطبعي في الصفحة هو $p = 0.002$. باستخدام تقريب بواسون بمتوسط $\\lambda = np = 2$، ما احتمال خلو الكتاب تماماً من الأخطاء المطبعية؟",
     "optionsEn": [
@@ -6112,7 +6090,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Memoryless Property of the Geometric Distribution",
     "titleAr": "خاصية فقدان الذاكرة للتوزيع الهندسي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $X$ follow a geometric distribution measuring the trial number of the first success. Which mathematical property defines the memoryless property of $X$?",
     "questionAr": "ليكن $X$ متغيراً يتبع توزيعاً هندسياً يمثل رقم محاولة أول نجاح. أي علاقة رياضية تعبر عن خاصية 'فقدان الذاكرة' للمتغير $X$؟",
     "optionsEn": [
@@ -6149,7 +6126,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Number of Derangements of Four Items (Subfactorial)",
     "titleAr": "عدد التباديل اللانقطية (شبه المضروب) لأربعة عناصر",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Four guests leave their hats at a cloakroom. In how many ways can the hats be returned so that NO guest receives their own hat (a complete derangement $!4$)?",
     "questionAr": "ترك 4 ضيوف قبعاتهم في الأمانات. بكم طريقة يمكن إعادة القبعات بحيث لا يستلم أي ضيف قبعته الأصلية إطلاقاً (تبديل لانقطي كامل $!4$)؟",
     "optionsEn": [
@@ -6185,7 +6161,6 @@ export const egBacProbCh1Databank: ChapterDatabank = {
     "titleEn": "Simpson's Paradox in Statistical Association",
     "titleAr": "مفارقة سيمبسون في الترابط الإحصائي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Which statistical phenomenon occurs when a trend or association that appears in several distinct groups reverses or disappears when the groups are combined?",
     "questionAr": "أي ظاهرة إحصائية تصف الحالة التي يظهر فيها اتجاه أو ترابط داخل عدة مجموعات منفصلة، ثم ينعكس أو يختفي تماماً عند دمج هذه المجموعات معاً؟",
     "optionsEn": [

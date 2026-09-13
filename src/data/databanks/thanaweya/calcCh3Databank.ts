@@ -1779,7 +1779,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Inflection Point of Cubic Polynomial",
     "titleAr": "نقطة انقلاب لكثيرة حدود تكعيبية",
     "difficulty": "easy",
-    "diagramType": "cotangent_curvature_graph",
     "questionEn": "Find the x-coordinate of the inflection point of the curve $y = x^3 - 6x^2 + 9x + 2$.",
     "questionAr": "أوجد الإحداثي السيني لنقطة الانقلاب للمنحنى $y = x^3 - 6x^2 + 9x + 2$.",
     "optionsEn": [
@@ -1894,7 +1893,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Interval of Concavity Downwards",
     "titleAr": "فترة التحدب لأعلى",
     "difficulty": "easy",
-    "diagramType": "cotangent_curvature_graph",
     "questionEn": "On what interval is the curve $y = 12x^2 - x^4$ concave downwards (convex up)?",
     "questionAr": "في أي فترة يكون المنحنى $y = 12x^2 - x^4$ محدباً لأعلى (مقعراً لأسفل)؟",
     "optionsEn": [
@@ -3886,7 +3884,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Inflection Points of Quartic Curve",
     "titleAr": "نقاط الانقلاب لمنحنى من الدرجة الرابعة",
     "difficulty": "medium",
-    "diagramType": "cotangent_curvature_graph",
     "questionEn": "Find the distance between the two inflection points of the curve $y = x^4 - 2x^3 - 12x^2 + 5$.",
     "questionAr": "أوجد المسافة بين الإحداثيين السينيين لنقطتي الانقلاب للمنحنى $y = x^4 - 2x^3 - 12x^2 + 5$.",
     "optionsEn": [
@@ -3999,7 +3996,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Tangent with Minimum Slope to Cubic Curve",
     "titleAr": "المماس ذو الميل الأصغر لمنحنى تكعيبي",
     "difficulty": "medium",
-    "diagramType": "trig_derivative_tangent",
     "questionEn": "Find the minimum slope of any tangent line to the cubic curve $y = x^3 - 6x^2 + 15x - 7$.",
     "questionAr": "أوجد أقل ميل ممكن لمماس مرسوم للمنحنى التكعيبي $y = x^3 - 6x^2 + 15x - 7$.",
     "optionsEn": [
@@ -6111,7 +6107,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Curvature and Collinearity of Three Inflection Points",
     "titleAr": "استقامة نقاط الانقلاب الثلاث لمنحنى من الدرجة الخامسة التناظرية",
     "difficulty": "hots",
-    "diagramType": "cotangent_curvature_graph",
     "questionEn": "If the curve $y = x^5 - 5x^3 + 4x$ has three points of inflection, find the slope of the straight line passing through all three inflection points.",
     "questionAr": "إذا كان للمنحنى $y = x^5 - 5x^3 + 4x$ ثلاث نقاط انقلاب، فأوجد ميل الخط المستقيم المار بجميع نقاط الانقلاب الثلاث.",
     "optionsEn": [
@@ -6306,7 +6301,6 @@ export const calcCh3Databank: ChapterDatabank = {
     "titleEn": "Tangent Intersection with Inflection Point Slope",
     "titleAr": "تقاطع المماس عند نقطة الانقلاب مع المنحنى",
     "difficulty": "hots",
-    "diagramType": "trig_derivative_tangent",
     "questionEn": "The tangent to the cubic curve $y = x^3 - 3x^2$ at its point of inflection intersects the curve again at a point $Q$. Find the x-coordinate of $Q$.",
     "questionAr": "المماس للمنحنى التكعيبي $y = x^3 - 3x^2$ عند نقطة انقلابه يقطع المنحنى مرة أخرى في نقطة $Q$. ما هو الإحداثي السيني للنقطة $Q$؟",
     "optionsEn": [

@@ -1897,7 +1897,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Rational Function Limit at Infinity",
     "titleAr": "نهاية دالة كسرية عند اللانهاية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Evaluate the limit: $\\lim_{x \\to \\infty} \\frac{5x^3 - 2x + 7}{2x^3 + 4x^2 - 1}$.",
     "questionAr": "احسب النهاية: $\\lim_{x \\to \\infty} \\frac{5x^3 - 2x + 7}{2x^3 + 4x^2 - 1}$.",
     "optionsEn": [
@@ -1934,7 +1933,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Trigonometric Limit Ratio",
     "titleAr": "نهاية مثلثية قياسية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\sin(3x)}{\\tan(5x)}$.",
     "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{\\sin(3x)}{\\tan(5x)}$.",
     "optionsEn": [
@@ -1970,7 +1968,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Continuity of a Piecewise Function",
     "titleAr": "اتصال دالة مجزأة المجال",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the value of $k$ that makes $f(x) = \\begin{cases} x^2 - 1 & x \\le 3 \\\\ 2x + k & x > 3 \\end{cases}$ continuous at $x = 3$.",
     "questionAr": "أوجد قيمة $k$ التي تجعل الدالة $f(x) = \\begin{cases} x^2 - 1 & x \\le 3 \\\\ 2x + k & x > 3 \\end{cases}$ متصلة عند $x = 3$.",
     "optionsEn": [
@@ -2007,7 +2004,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Vertical Asymptotes of a Rational Function",
     "titleAr": "خطوط التقارب الرأسية لدالة كسرية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the vertical asymptotes of the function $f(x) = \\frac{x + 1}{x^2 - 9}$.",
     "questionAr": "أوجد خطوط التقارب الرأسية للدالة $f(x) = \\frac{x + 1}{x^2 - 9}$.",
     "optionsEn": [
@@ -2044,7 +2040,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Horizontal Asymptote of an Exponential Function",
     "titleAr": "خط التقارب الأفقي لدالة أسية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the horizontal asymptote of $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ as $x \\to -\\infty$.",
     "questionAr": "أوجد خط التقارب الأفقي للدالة $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ عندما $x \\to -\\infty$.",
     "optionsEn": [
@@ -2081,7 +2076,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Squeeze Theorem Limit",
     "titleAr": "مبرهنة الإحاطة (الحصر)",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In mathematical analysis, evaluate the limit: $\\lim_{x \\to 0} x^4 \\cos\\left(\\frac{2}{x}\\right)$.",
     "questionAr": "في التحليل الرياضي، احسب النهاية: $\\lim_{x \\to 0} x^4 \\cos\\left(\\frac{2}{x}\\right)$.",
     "optionsEn": [
@@ -2119,7 +2113,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Standard Natural Logarithm Limit",
     "titleAr": "النهاية القياسية للوغاريتم الطبيعي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Suppose that evaluate the limit: $\\lim_{x \\to 0} \\frac{\\ln(1 + 7x)}{x}$.",
     "questionAr": "افترض أن احسب النهاية: $\\lim_{x \\to 0} \\frac{\\ln(1 + 7x)}{x}$.",
     "optionsEn": [
@@ -2156,7 +2149,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Intermediate Value Theorem Application",
     "titleAr": "تطبيق مبرهنة القيم المتوسطة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Given $f(x) = x^3 - 4x + 1$, which theorem guarantees that $f(x) = 0$ has at least one real root in the interval $(0, 1)$?",
     "questionAr": "معطى $f(x) = x^3 - 4x + 1$، أي مبرهنة تضمن أن المعادلة $f(x) = 0$ تمتلك جذراً حقيقياً واحداً على الأقل في الفترة $(0, 1)$؟",
     "optionsEn": [
@@ -4090,7 +4082,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Indeterminate Form 1 to the Infinity",
     "titleAr": "نهاية الصيغة غير المعينة 1 أس لانهاية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "For the described mathematical model, evaluate the limit: $\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^{3x}$.",
     "questionAr": "للنموذج الرياضي الموصوف، احسب النهاية: $\\lim_{x \\to \\infty} \\left(1 + \\frac{4}{x}\\right)^{3x}$.",
     "optionsEn": [
@@ -4125,7 +4116,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Slant (Oblique) Asymptote of a Rational Function",
     "titleAr": "خط التقارب المائل لدالة كسرية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the oblique asymptote of $f(x) = \\frac{3x^2 + 5x - 2}{x + 2}$.",
     "questionAr": "أوجد معادلة خط التقارب المائل للدالة $f(x) = \\frac{3x^2 + 5x - 2}{x + 2}$.",
     "optionsEn": [
@@ -4165,7 +4155,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Infinity Minus Infinity Conjugate Limit",
     "titleAr": "نهاية الفرق بين جذرين بالضرب في المرافق",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Compute the indeterminate limit: $\\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + 8x} - x\\right)$.",
     "questionAr": "احسب النهاية: $\\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + 8x} - x\\right)$.",
     "optionsEn": [
@@ -4204,7 +4193,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "L'Hopital's Rule for Mixed Exponential and Linear",
     "titleAr": "قاعدة لوبيتال لدالة أسية وخطية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Determine the value of the limit: $\\lim_{x \\to 0} \\frac{e^{2x} - 1 - 2x}{x^2}$.",
     "questionAr": "احسب النهاية: $\\lim_{x \\to 0} \\frac{e^{2x} - 1 - 2x}{x^2}$.",
     "optionsEn": [
@@ -4243,7 +4231,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Differentiability and Continuity Parameter Matching",
     "titleAr": "قابلية الاشتقاق والاتصال وتعيين المجاهيل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find values of $a$ and $b$ so that $f(x) = \\begin{cases} ax^2 + 1 & x \\le 1 \\\\ 2x + b & x > 1 \\end{cases}$ is differentiable at $x = 1$.",
     "questionAr": "أوجد قيمتي $a$ و $b$ اللتين تجعلان الدالة $f(x) = \\begin{cases} ax^2 + 1 & x \\le 1 \\\\ 2x + b & x > 1 \\end{cases}$ قابلة للاشتقاق عند $x = 1$.",
     "optionsEn": [
@@ -4281,7 +4268,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Inverse Trigonometric Limit",
     "titleAr": "نهاية الدالة العكسية للمماس",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In mathematical analysis, evaluate the limit: $\\lim_{x \\to 0} \\frac{\\arctan(4x)}{x}$.",
     "questionAr": "في التحليل الرياضي، احسب النهاية: $\\lim_{x \\to 0} \\frac{\\arctan(4x)}{x}$.",
     "optionsEn": [
@@ -4317,7 +4303,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Absolute Extrema on a Closed Interval",
     "titleAr": "القيم القصوى المطلقة على فترة مغلقة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the absolute maximum value of $f(x) = -x^2 + 4x + 5$ on the closed interval $[0, 5]$.",
     "questionAr": "أوجد القيمة العظمى المطلقة للدالة $f(x) = -x^2 + 4x + 5$ على الفترة المغلقة $[0, 5]$.",
     "optionsEn": [
@@ -4361,7 +4346,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Zero Times Infinity Logarithmic Indeterminate Form",
     "titleAr": "نهاية الصيغة غير المعينة صفر في لانهاية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Suppose that evaluate the limit: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
     "questionAr": "افترض أن احسب النهاية: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
     "optionsEn": [
@@ -4397,7 +4381,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Factorial Sequence Limit via Squeeze Theorem",
     "titleAr": "نهاية متتالية المضروب بمبرهنة الإحاطة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Evaluate the sequence limit: $\\lim_{n \\to \\infty} \\frac{n!}{n^n}$.",
     "questionAr": "احسب نهاية المتتالية: $\\lim_{n \\to \\infty} \\frac{n!}{n^n}$.",
     "optionsEn": [
@@ -6383,7 +6366,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Higher-Order Asymptotic Limit via Taylor Series",
     "titleAr": "نهاية عالية الرتبة باستخدام متسلسلة تايلور",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For the given functional relationship, evaluate the limit: $\\lim_{x \\to 0} \\frac{\\sin x - x + \\frac{x^3}{6}}{x^5}$.",
     "questionAr": "للعلاقة الدالية المعطاة، احسب النهاية: $\\lim_{x \\to 0} \\frac{\\sin x - x + \\frac{x^3}{6}}{x^5}$.",
     "optionsEn": [
@@ -6422,7 +6404,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Trigonometric Form 1 to Infinity Limit",
     "titleAr": "نهاية مثلثية على صورة 1 أس لانهاية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Consider the real-valued case where evaluate the limit: $\\lim_{x \\to 0} (\\cos 2x)^{1/x^2}$.",
     "questionAr": "بالنظر إلى الحالة الحقيقية حيث احسب النهاية: $\\lim_{x \\to 0} (\\cos 2x)^{1/x^2}$.",
     "optionsEn": [
@@ -6463,7 +6444,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Limit of a Recursive Sequence with Radicals",
     "titleAr": "نهاية متتالية تراجعية تحتوي على جذور",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A sequence is defined by $u_0 = 1$ and $u_{n+1} = \\sqrt{6 + u_n}$ for all $n \\ge 0$. Assuming the sequence converges, find its limit $L$.",
     "questionAr": "متتالية معرفة بالحد $u_0 = 1$ وعلاقة تراجعية $u_{n+1} = \\sqrt{6 + u_n}$ لجميع $n \\ge 0$. بافتراض أن المتتالية متقاربة، أوجد نهايتها $L$.",
     "optionsEn": [
@@ -6501,7 +6481,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Riemann Sum Limit Conversion to Definite Integral",
     "titleAr": "تحويل نهاية مجموع ريمان إلى تكامل محدد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "From calculus principles, evaluate the limit: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
     "questionAr": "من قواعد التفاضل والتكامل، احسب النهاية: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
     "optionsEn": [
@@ -6538,7 +6517,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Parameter Condition for Finite Limit Existence",
     "titleAr": "شرط المعامل لوجود نهاية منتهية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For what relation between $a$ and $b$ does the limit $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ exist and equal a finite real number?",
     "questionAr": "ما العلاقة بين $a$ و $b$ التي تجعل النهاية $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ موجودة وتساوي عدداً حقيقياً منتهياً؟",
     "optionsEn": [
@@ -6579,7 +6557,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Cauchy Functional Equation Characterization",
     "titleAr": "معادلة كوشي الدالية للدالة الأسية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $f: \\mathbb{R} \\to (0, \\infty)$ be a continuous function satisfying $f(x + y) = f(x) f(y)$ for all $x, y \\in \\mathbb{R}$. If $f(1) = 3$, what is $f(x)$?",
     "questionAr": "لتكن $f: \\mathbb{R} \\to (0, \\infty)$ دالة متصلة تحقق $f(x + y) = f(x) f(y)$ لجميع $x, y \\in \\mathbb{R}$. إذا كان $f(1) = 3$، فما هي قاعدة الدالة $f(x)$؟",
     "optionsEn": [
@@ -6619,7 +6596,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Uniform Continuity Criterion on R",
     "titleAr": "معيار الاتصال المنتظم على خط الأعداد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Which of the following functions is uniformly continuous on the entire real line $\\mathbb{R}$?",
     "questionAr": "أي من الدوال الآتية متصلة بانتظام (uniformly continuous) على كامل خط الأعداد الحقيقية $\\mathbb{R}$؟",
     "optionsEn": [
@@ -6656,7 +6632,6 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "titleEn": "Fixed Point Theorem for Contraction Mapping",
     "titleAr": "مبرهنة النقطة الصامدة للتطبيق الانكماشي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $f(x) = \\frac{1}{3}\\cos(x) + 1$. Why does $f(x)$ have a unique fixed point $x^* \\in \\mathbb{R}$ such that $f(x^*) = x^*$?",
     "questionAr": "لتكن $f(x) = \\frac{1}{3}\\cos(x) + 1$. لماذا تمتلك الدالة $f(x)$ نقطة صامدة وحيدة $x^* \\in \\mathbb{R}$ بحيث $f(x^*) = x^*$؟",
     "optionsEn": [

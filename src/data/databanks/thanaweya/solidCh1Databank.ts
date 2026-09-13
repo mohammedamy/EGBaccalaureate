@@ -1653,7 +1653,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Perpendicular Distance from Point to Coordinate Plane",
     "titleAr": "البعد العمودي لنقطة في الفراغ عن مستوى إحداثي",
     "difficulty": "easy",
-    "diagramType": "distance_3d_box",
     "questionEn": "Find the perpendicular distance from the point $P(3, -4, 5)$ to the $xy$-plane.",
     "questionAr": "أوجد البعد العمودي للنقطة $P(3, -4, 5)$ عن المستوى الإحداثي $xy$.",
     "optionsEn": [
@@ -1722,7 +1721,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Standard Sphere Center and Radius Identification",
     "titleAr": "تحديد مركز ونصف قطر الكرة من الصورة القياسية",
     "difficulty": "easy",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "Find the center and radius of the sphere with equation $(x - 1)^2 + (y + 3)^2 + (z - 5)^2 = 49$.",
     "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها $(x - 1)^2 + (y + 3)^2 + (z - 5)^2 = 49$.",
     "optionsEn": [
@@ -3680,7 +3678,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "General Sphere Center and Radius Conversion",
     "titleAr": "إيجاد مركز ونصف قطر الكرة من الصورة العامة",
     "difficulty": "medium",
-    "diagramType": "sphere_general_center_radius",
     "questionEn": "Find the center and radius of the sphere given by: $x^2 + y^2 + z^2 - 4x + 6y - 8z - 7 = 0$.",
     "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها: $x^2 + y^2 + z^2 - 4x + 6y - 8z - 7 = 0$.",
     "optionsEn": [
@@ -3756,7 +3753,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Coplanar Vectors Condition via Scalar Triple Product",
     "titleAr": "شرط وقوع ثلاثة متجهات في مستوى واحد (الضرب الثلاثي القياسي)",
     "difficulty": "medium",
-    "diagramType": "coplanar_vectors_3d",
     "questionEn": "Find the value of $k$ for which the vectors $\\vec{A} = (1, 2, 3)$, $\\vec{B} = (2, -1, 1)$, and $\\vec{C} = (3, 1, k)$ are coplanar.",
     "questionAr": "أوجد قيمة $k$ التي تجعل المتجهات $\\vec{A} = (1, 2, 3)$ و $\\vec{B} = (2, -1, 1)$ و $\\vec{C} = (3, 1, k)$ تقع في مستوى واحد.",
     "optionsEn": [
@@ -3869,7 +3865,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Sphere Tangent to All Three Coordinate Planes",
     "titleAr": "معادلة كرة تمس مستويات الإحداثيات الثلاثة",
     "difficulty": "medium",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "Find the equation of a sphere in the first octant ($x, y, z > 0$) with radius $r = 4$ that is tangent to all three coordinate planes.",
     "questionAr": "أوجد معادلة الكرة الواقعة في الثمن الأول ($x, y, z > 0$) بنصف قطر $r = 4$ وتمس مستويات الإحداثيات الثلاثة.",
     "optionsEn": [
@@ -3983,7 +3978,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Radius of Circular Section of Intersected Sphere",
     "titleAr": "نصف قطر المقطع الدائري الناتج من قطع كرة بمستوى",
     "difficulty": "medium",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "Find the radius of the circle formed by the intersection of the sphere $x^2 + y^2 + z^2 = 25$ with the horizontal plane $z = 3$.",
     "questionAr": "أوجد نصف قطر الدائرة الناتجة من تقاطع الكرة $x^2 + y^2 + z^2 = 25$ مع المستوى الأفقي $z = 3$.",
     "optionsEn": [
@@ -6171,7 +6165,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "External Tangency Condition for Two Spheres",
     "titleAr": "شرط التماس الخارجي بين كرتين في الفراغ",
     "difficulty": "hots",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "Two spheres have equations $(x - 1)^2 + y^2 + z^2 = 9$ and $(x - 5)^2 + (y - 3)^2 + z^2 = r^2$. If the spheres touch externally, find $r$.",
     "questionAr": "كرتان معادلتاهما $(x - 1)^2 + y^2 + z^2 = 9$ و $(x - 5)^2 + (y - 3)^2 + z^2 = r^2$. إذا كانت الكرتان متماستين من الخارج، فأوجد قيمة $r$.",
     "optionsEn": [
@@ -6249,7 +6242,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Sphere Through Origin and Three Coordinate Intercepts",
     "titleAr": "معادلة كرة تمر بنقطة الأصل ونقاط التقاطع مع المحاور",
     "difficulty": "hots",
-    "diagramType": "sphere_general_center_radius",
     "questionEn": "Find the diameter of the sphere passing through the origin $(0, 0, 0)$ and the three points $(6, 0, 0)$, $(0, 8, 0)$, and $(0, 0, 0)$ wait, $(0, 0, 24)$.",
     "questionAr": "أوجد طول قطر الكرة التي تمر بنقطة الأصل $(0, 0, 0)$ والنقاط الثلاث $(6, 0, 0)$ و $(0, 8, 0)$ و $(0, 0, 24)$.",
     "optionsEn": [
@@ -6323,7 +6315,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Shortest Distance from Point to Sphere Surface",
     "titleAr": "أقصر مسافة من نقطة خارج الكرة إلى سطحها",
     "difficulty": "hots",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "Find the shortest distance from the point $P(5, 7, -6)$ to the surface of the sphere $(x - 2)^2 + (y - 3)^2 + (z + 6)^2 = 9$.",
     "questionAr": "أوجد أقصر بعد من النقطة $P(5, 7, -6)$ إلى سطح الكرة $(x - 2)^2 + (y - 3)^2 + (z + 6)^2 = 9$.",
     "optionsEn": [
@@ -6361,7 +6352,6 @@ export const solidCh1Databank: ChapterDatabank = {
     "titleEn": "Distance Invariant to Vertices of a Cube",
     "titleAr": "المحل الهندسي لنقطة مجموع مربعات أبعادها عن رؤوس مكعب",
     "difficulty": "hots",
-    "diagramType": "distance_3d_box",
     "questionEn": "In a cube of side length $a$, the sum of the squares of the distances from any point $P$ on the circumscribed sphere to all 8 vertices of the cube is:",
     "questionAr": "في مكعب طول ضلعه $a$، مجموع مربعات المسافات من أي نقطة $P$ على سطح الكرة المحيطة بالمكعب إلى رؤوسه الثمانية يساوي:",
     "optionsEn": [

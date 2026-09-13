@@ -1727,7 +1727,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Normalization Condition for a Continuous PDF",
     "titleAr": "شرط معايرة دالة الكثافة الاحتمالية المتصلة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A continuous random variable $X$ has probability density function $f(x) = c x$ for $0 \\le x \\le 2$, and $f(x) = 0$ elsewhere. Find the constant $c$.",
     "questionAr": "متغير عشوائي متصل $X$ دالة كثافته الاحتمالية $f(x) = c x$ على الفترة $[0, 2]$ وتساوي صفراً في غير ذلك. أوجد قيمة الثابت $c$.",
     "optionsEn": [
@@ -1764,7 +1763,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Mean of a Continuous Uniform Distribution",
     "titleAr": "متوسط التوزيع المنتظم المتصل",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A continuous random variable $X$ is uniformly distributed on the interval $[4, 10]$, denoted $X \\sim U(4, 10)$. Find its mean $\\mu = E[X]$.",
     "questionAr": "متغير عشوائي متصل $X$ موزع بانتظام على الفترة $[4, 10]$، أي $X \\sim U(4, 10)$. أوجد وسطه الحسابي $\\mu = E[X]$.",
     "optionsEn": [
@@ -1799,7 +1797,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Mean of an Exponential Distribution",
     "titleAr": "متوسط التوزيع الأسي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A continuous random variable $X$ follows an exponential distribution with rate parameter $\\lambda = 0.5$. Find its expected value $E[X]$.",
     "questionAr": "متغير عشوائي متصل $X$ يتبع توزيعاً أسياً بمعامل معدل $\\lambda = 0.5$. أوجد قيمته المتوقعة $E[X]$.",
     "optionsEn": [
@@ -1834,7 +1831,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Standard Normal Z-Score Calculation",
     "titleAr": "حساب الدرجة المعيارية Z للتوزيع الطبيعي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A normal variable $X$ has mean $\\mu = 50$ and variance $\\sigma^2 = 16$. Convert the raw score $x = 58$ to a standard normal $Z$-score.",
     "questionAr": "متغير طبيعي $X$ متوسطه $\\mu = 50$ وتباينه $\\sigma^2 = 16$. حول القيمة الأصلية $x = 58$ إلى درجة معيارية $Z$.",
     "optionsEn": [
@@ -1869,7 +1865,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Relationship Between CDF and PDF",
     "titleAr": "العلاقة بين دالة التوزيع التراكمي ودالة الكثافة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $F(x)$ is the cumulative distribution function (CDF) of a continuous random variable $X$, how is the probability density function $f(x)$ related to $F(x)$?",
     "questionAr": "إذا كانت $F(x)$ هي دالة التوزيع التراكمي (CDF) لمتغير عشوائي متصل $X$، فما هي علاقة دالة الكثافة $f(x)$ بها؟",
     "optionsEn": [
@@ -1904,7 +1899,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Variance of a Continuous Uniform Distribution",
     "titleAr": "تباين التوزيع المنتظم المتصل",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the variance $\\text{Var}(X)$ for a continuous random variable uniformly distributed on $[0, 12]$.",
     "questionAr": "أوجد التباين $\\text{Var}(X)$ لمتغير عشوائي متصل موزع بانتظام على الفترة $[0, 12]$.",
     "optionsEn": [
@@ -1940,7 +1934,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Symmetry Property of the Standard Normal Distribution",
     "titleAr": "خاصية التماثل للتوزيع الطبيعي المعياري",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $Z \\sim N(0, 1)$ be standard normal. If $\\Phi(z) = P(Z \\le z)$, which of the following identities correctly expresses $P(Z > 1.5)$?",
     "questionAr": "ليكن $Z \\sim N(0, 1)$ متغيراً طبيعياً معيارياً. إذا كانت $\\Phi(z) = P(Z \\le z)$، فأي العلاقات الآتية تعبر بصورة صحيحة عن $P(Z > 1.5)$؟",
     "optionsEn": [
@@ -1976,7 +1969,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Empirical Rule (68-95-99.7 Rule) for Normal Distribution",
     "titleAr": "القاعدة التجريبية (68-95-99.7) للتوزيع الطبيعي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "For any normal distribution $X \\sim N(\\mu, \\sigma^2)$, approximately what percentage of observations lie within one standard deviation of the mean, $[\\mu - \\sigma, \\mu + \\sigma]$?",
     "questionAr": "لأي توزيع طبيعي $X \\sim N(\\mu, \\sigma^2)$، ما هي النسبة المئوية التقريبية للبيانات التي تقع ضمن انحراف معياري واحد عن المتوسط $[\\mu - \\sigma, \\mu + \\sigma]$؟",
     "optionsEn": [
@@ -3835,7 +3827,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Expected Value Calculation for a Continuous PDF",
     "titleAr": "حساب القيمة المتوقعة لدالة كثافة متصلة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A continuous random variable has PDF $f(x) = 3x^2$ for $0 \\le x \\le 1$, and $0$ elsewhere. Calculate the expected value $E[X]$.",
     "questionAr": "متغير عشوائي متصل دالة كثافته $f(x) = 3x^2$ على الفترة $[0, 1]$ وصفر في غير ذلك. احسب القيمة المتوقعة $E[X]$.",
     "optionsEn": [
@@ -3870,7 +3861,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Cumulative Probability of an Exponential Variable",
     "titleAr": "الاحتمال التراكمي لمتغير أسي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A component's lifetime follows an exponential distribution with rate $\\lambda = 2\\text{ years}^{-1}$ ($f(x) = 2e^{-2x}$ for $x \\ge 0$). What is the probability that the component fails within the first year ($P(X \\le 1)$)?",
     "questionAr": "عمر افتراضي لقطعة إلكترونية يتبع توزيعاً أسياً بمعدل $\\lambda = 2$ سنة$^{-1}$ ($f(x) = 2e^{-2x}$ حيث $x \\ge 0$). ما احتمال تعطل القطعة خلال السنة الأولى ($P(X \\le 1)$)؟",
     "optionsEn": [
@@ -3905,7 +3895,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Standard Error of the Mean (Central Limit Theorem)",
     "titleAr": "الخطأ المعياري للمتوسط (مبرهنة النهاية المركزية)",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A population has mean $\\mu = 80$ and standard deviation $\\sigma = 20$. A random sample of size $n = 100$ is drawn. What is the standard error of the sample mean $\\sigma_{\\bar{X}}$?",
     "questionAr": "مجتمع إحصائي متوسطه $\\mu = 80$ وانحرافه المعياري $\\sigma = 20$. سُحبت عينة عشوائية حجمها $n = 100$. ما هو الخطأ المعياري لمتوسط العينة $\\sigma_{\\bar{X}}$؟",
     "optionsEn": [
@@ -3940,7 +3929,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Probability Within Two Standard Deviations in Normal",
     "titleAr": "احتمال الوقوع ضمن انحرافين معياريين في التوزيع الطبيعي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $X \\sim N(100, 25)$ (so $\\mu = 100, \\sigma = 5$). What is the probability $P(90 \\le X \\le 110)$?",
     "questionAr": "ليكن $X \\sim N(100, 25)$ (أي $\\mu = 100, \\sigma = 5$). ما هو الاحتمال $P(90 \\le X \\le 110)$؟",
     "optionsEn": [
@@ -3978,7 +3966,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Median of an Exponential Distribution",
     "titleAr": "وسيط التوزيع الأسي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the median $m$ of an exponential distribution with rate parameter $\\lambda$.",
     "questionAr": "أوجد وسيط التوزيع الأسي $m$ بدلالة معامل المعدل $\\lambda$.",
     "optionsEn": [
@@ -4016,7 +4003,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Linear Transformation of a Normal Random Variable",
     "titleAr": "التحويل الخطي لمتغير عشوائي طبيعي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $X \\sim N(10, 4)$ (mean 10, variance 4). If $Y = 3X + 5$, what is the distribution of $Y$?",
     "questionAr": "ليكن $X \\sim N(10, 4)$ (المتوسط 10 والتباين 4). إذا كان $Y = 3X + 5$، فما هو توزيع $Y$؟",
     "optionsEn": [
@@ -4055,7 +4041,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "95% Confidence Interval for Population Mean",
     "titleAr": "فترة الثقة 95% لمتوسط المجتمع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A sample of size $n = 64$ has sample mean $\\bar{x} = 50$. The population standard deviation is known to be $\\sigma = 8$. Construct the $95\\%$ confidence interval for the population mean $\\mu$ (using $z^* = 1.96$).",
     "questionAr": "عينة حجمها $n = 64$ متوسطها الحسابي $\\bar{x} = 50$. الانحراف المعياري للمجتمع معلوم ويساوي $\\sigma = 8$. أنشئ فترة الثقة $95\\%$ لمتوسط المجتمع $\\mu$ (باستخدام $z^* = 1.96$).",
     "optionsEn": [
@@ -4092,7 +4077,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Pearson Correlation Coefficient from Covariance",
     "titleAr": "معامل ارتباط بيرسون بدلالة التغاير",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two random variables $X$ and $Y$ have covariance $\\text{Cov}(X, Y) = 12$, with standard deviations $\\sigma_X = 4$ and $\\sigma_Y = 5$. Compute their Pearson correlation coefficient $\\rho_{X,Y}$.",
     "questionAr": "متغيران عشوائيان $X$ و $Y$ تغايرهما $\\text{Cov}(X, Y) = 12$ وانحرافاهما المعياريان $\\sigma_X = 4$ و $\\sigma_Y = 5$. احسب معامل ارتباط بيرسون $\\rho_{X,Y}$.",
     "optionsEn": [
@@ -4127,7 +4111,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Definition of Type I Error in Hypothesis Testing",
     "titleAr": "تعريف الخطأ من النوع الأول في اختبار الفروض",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In statistical hypothesis testing, what constitutes a Type I error ($\\alpha$)?",
     "questionAr": "في اختبار الفروض الإحصائية، ماذا يمثل الخطأ من النوع الأول ($\\alpha$)؟",
     "optionsEn": [
@@ -6022,7 +6005,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Maximum Likelihood Estimator for Exponential Distribution",
     "titleAr": "مقدر الإمكان الأكبر (MLE) للتوزيع الأسي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Given an i.i.d. sample $x_1, x_2, \\dots, x_n$ from an exponential distribution with density $f(x; \\lambda) = \\lambda e^{-\\lambda x}$, what is the Maximum Likelihood Estimator (MLE) $\\hat{\\lambda}$?",
     "questionAr": "معطى عينة مستقلة ومتطابقة التوزيع $x_1, x_2, \\dots, x_n$ من توزيع أسي بدالة كثافة $f(x; \\lambda) = \\lambda e^{-\\lambda x}$. ما هو مقدر الإمكان الأكبر $\\hat{\\lambda}$؟",
     "optionsEn": [
@@ -6061,7 +6043,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Chebyshev's Inequality Upper Bound",
     "titleAr": "الحد الأعلى لمتباينة تشيبيشيف",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For ANY probability distribution with finite mean $\\mu$ and standard deviation $\\sigma$, what is the MAXIMUM possible probability that a random observation deviates from the mean by at least $3\\sigma$ ($P(|X - \\mu| \\ge 3\\sigma)$)?",
     "questionAr": "لأي توزيع احتمالي له متوسط منتهٍ $\\mu$ وانحراف معياري $\\sigma$، ما هو الحد الأقصى لاحتمال أن تنحرف مشاهدة عن المتوسط بمقدار 3 انحرافات معيارية على الأقل ($P(|X - \\mu| \\ge 3\\sigma)$)؟",
     "optionsEn": [
@@ -6098,7 +6079,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Moment Generating Function of a Normal Distribution",
     "titleAr": "الدالة المولدة للعزوم للتوزيع الطبيعي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the Moment Generating Function (MGF) $M_X(t) = E[e^{tX}]$ for a normal random variable $X \\sim N(\\mu, \\sigma^2)$?",
     "questionAr": "ما هي الدالة المولدة للعزوم (MGF) $M_X(t) = E[e^{tX}]$ لمتغير عشوائي طبيعي $X \\sim N(\\mu, \\sigma^2)$؟",
     "optionsEn": [
@@ -6136,7 +6116,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Difference of Two Independent Normal Variables",
     "titleAr": "الفرق بين متغيرين طبيعيين مستقلين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $X_1 \\sim N(\\mu_1, \\sigma_1^2)$ and $X_2 \\sim N(\\mu_2, \\sigma_2^2)$ be independent normal random variables. What is the distribution of their difference $D = X_1 - X_2$?",
     "questionAr": "ليكن $X_1 \\sim N(\\mu_1, \\sigma_1^2)$ و $X_2 \\sim N(\\mu_2, \\sigma_2^2)$ متغيرين طبيعيين مستقلين. ما هو توزيع الفرق بينهما $D = X_1 - X_2$؟",
     "optionsEn": [
@@ -6175,7 +6154,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Chi-Square Distribution as Sum of Squared Standard Normals",
     "titleAr": "توزيع كاي-تربيع كمجموع مربعات متغيرات طبيعية معيارية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $Z_1, Z_2, \\dots, Z_k$ be independent standard normal random variables ($Z_i \\sim N(0, 1)$). The sum of their squares $Q = \\sum_{i=1}^k Z_i^2$ follows a chi-square distribution with $k$ degrees of freedom. What is the variance $\\text{Var}(Q)$?",
     "questionAr": "لتكن $Z_1, Z_2, \\dots, Z_k$ متغيرات طبيعية معيارية مستقلة. مجموع مربعاتها $Q = \\sum_{i=1}^k Z_i^2$ يتبع توزيع كاي-تربيع بـ $k$ درجات حرية. ما هو تباين هذا المجموع $\\text{Var}(Q)$؟",
     "optionsEn": [
@@ -6214,7 +6192,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Inverse Transform Sampling for Exponential Distribution",
     "titleAr": "طريقة التحويل العكسي لتوليد التوزيع الأسي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $U \\sim \\text{Uniform}(0, 1)$, what transformation $X = g(U)$ produces a continuous random variable following an exponential distribution with parameter $\\lambda$?",
     "questionAr": "إذا كان $U \\sim \\text{Uniform}(0, 1)$ متغيراً منتظماً على $[0, 1]$، فما هو التحويل $X = g(U)$ الذي يولد متغيراً يتبع توزيعاً أسياً بمعامل $\\lambda$؟",
     "optionsEn": [
@@ -6252,7 +6229,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Rigorous Interpretation of the p-value",
     "titleAr": "التفسير الإحصائي الدقيق للقيمة الاحتمالية p-value",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the precise definition of the p-value in a statistical hypothesis test?",
     "questionAr": "ما هو التعريف الدقيق للقيمة الاحتمالية (p-value) في اختبار الفروض الإحصائية؟",
     "optionsEn": [
@@ -6289,7 +6265,6 @@ export const egBacProbCh2Databank: ChapterDatabank = {
     "titleEn": "Weak vs Strong Law of Large Numbers",
     "titleAr": "قانون الأعداد الكبيرة الضعيف والقوي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the theoretical distinction between the Weak Law of Large Numbers (WLLN) and the Strong Law of Large Numbers (SLLN)?",
     "questionAr": "ما هو الفارق النظري الأساسي بين قانون الأعداد الكبيرة الضعيف (WLLN) وقانون الأعداد الكبيرة القوي (SLLN)؟",
     "optionsEn": [

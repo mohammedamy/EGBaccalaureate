@@ -1885,7 +1885,6 @@ export const calcCh1Databank: ChapterDatabank = {
     "titleEn": "Related Rates: Spherical Balloon Inflation",
     "titleAr": "معدلات زمنية مرتبطة: انتفاخ بالون كروي",
     "difficulty": "easy",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "A spherical balloon is being inflated such that its volume increases at a constant rate of $36\\pi\\text{ cm}^3/\\text{s}$. Find the rate of increase of its radius when the radius is $3\\text{ cm}$.",
     "questionAr": "ينتفخ بالون كروي بحيث يتزايد حجمه بمعدل ثابت قدره $36\\pi\\text{ سم}^3/\\text{ث}$. أوجد معدل زيادة نصف قطره عندما يكون نصف القطر $3\\text{ سم}$.",
     "optionsEn": [
@@ -1922,7 +1921,6 @@ export const calcCh1Databank: ChapterDatabank = {
     "titleEn": "Equation of the Normal to Secant Curve",
     "titleAr": "معادلة العمودي لمنحنى القاطع",
     "difficulty": "easy",
-    "diagramType": "secant_derivative_graph",
     "questionEn": "Find the slope of the normal to the curve $y = \\sec(2x)$ at the point where $x = \\frac{\\pi}{6}$.",
     "questionAr": "أوجد ميل العمودي على المنحنى $y = \\sec(2x)$ عند النقطة التي إحداثيها السيني $x = \\frac{\\pi}{6}$.",
     "optionsEn": [
@@ -3975,7 +3973,6 @@ export const calcCh1Databank: ChapterDatabank = {
     "titleEn": "Tangent Parallel to Secant Chord",
     "titleAr": "مماس موازٍ لوتر قاطع",
     "difficulty": "medium",
-    "diagramType": "trig_derivative_tangent",
     "questionEn": "Find the positive x-coordinate of the point on the curve $y = x^3 - 3x$ where the tangent is parallel to the secant line passing through $(1, -2)$ and $(3, 18)$.",
     "questionAr": "أوجد الإحداثي السيني الموجب للنقطة على المنحنى $y = x^3 - 3x$ التي يكون عندها المماس موازياً للقاطع المار بالنقطتين $(1, -2)$ و $(3, 18)$.",
     "optionsEn": [

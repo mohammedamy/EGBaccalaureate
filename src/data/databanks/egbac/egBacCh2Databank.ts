@@ -1687,7 +1687,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Determinant of a Diagonal Matrix",
     "titleAr": "محدد مصفوفة قطرية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Compute the determinant of the $3 \\times 3$ diagonal matrix $D = \\begin{pmatrix} 3 & 0 & 0 \\\\ 0 & -2 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
     "questionAr": "احسب محدد مصفوفة قطرية $3 \\times 3$: $D = \\begin{pmatrix} 3 & 0 & 0 \\\\ 0 & -2 & 0 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
     "optionsEn": [
@@ -1722,7 +1721,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Determinant of a Scaled Matrix",
     "titleAr": "محدد مصفوفة مضروبة في عدد ثابت",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $A$ is a $3 \\times 3$ matrix with $\\det(A) = 5$, find the value of $\\det(3A)$.",
     "questionAr": "إذا كانت $A$ مصفوفة من الرتبة $3 \\times 3$ وكان $\\det(A) = 5$، فما قيمة $\\det(3A)$؟",
     "optionsEn": [
@@ -1757,7 +1755,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Trace of a Square Matrix",
     "titleAr": "أثر مصفوفة مربعة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the trace $\\text{tr}(A)$ of the matrix $A = \\begin{pmatrix} 4 & 1 & -2 \\\\ 3 & -7 & 5 \\\\ 0 & 2 & 9 \\end{pmatrix}$.",
     "questionAr": "أوجد أثر المصفوفة $\\text{tr}(A)$ للمصفوفة $A = \\begin{pmatrix} 4 & 1 & -2 \\\\ 3 & -7 & 5 \\\\ 0 & 2 & 9 \\end{pmatrix}$.",
     "optionsEn": [
@@ -1792,7 +1789,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Inverse of a 2x2 Matrix",
     "titleAr": "المعكوس الضربي لمصفوفة 2x2",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the inverse of the matrix $A = \\begin{pmatrix} 4 & 3 \\\\ 1 & 1 \\end{pmatrix}$.",
     "questionAr": "أوجد المعكوس الضربي للمصفوفة $A = \\begin{pmatrix} 4 & 3 \\\\ 1 & 1 \\end{pmatrix}$.",
     "optionsEn": [
@@ -1829,7 +1825,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Determinant of Transpose Matrix",
     "titleAr": "محدد مدور المصفوفة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $M$ is a square matrix such that $\\det(M) = -7$, what is $\\det(M^T)$?",
     "questionAr": "إذا كانت $M$ مصفوفة مربعة حيث $\\det(M) = -7$، فما قيمة $\\det(M^T)$؟",
     "optionsEn": [
@@ -1864,7 +1859,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Rank of an Outer Product Matrix",
     "titleAr": "رتبة مصفوفة ناتجة عن ضرب خارجي لمتجهين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $\\vec{u} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ and $\\vec{v} = \\begin{pmatrix} 4 & 5 & 6 \\end{pmatrix}$. What is the rank of the $3 \\times 3$ matrix $A = \\vec{u} \\vec{v}$?",
     "questionAr": "إذا كان $\\vec{u} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ و $\\vec{v} = \\begin{pmatrix} 4 & 5 & 6 \\end{pmatrix}$، فما رتبة المصفوفة $3 \\times 3$ الناتجة $A = \\vec{u} \\vec{v}$؟",
     "optionsEn": [
@@ -1901,7 +1895,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Solving a Triangular Linear System",
     "titleAr": "حل نظام خطي مثلثي بالتعويض الخلفي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Solve for $x$ in the triangular system: $\\begin{cases} x - 2y + 3z = 11 \\\\ y + 2z = 8 \\\\ 3z = 9 \\end{cases}$.",
     "questionAr": "أوجد قيمة $x$ في النظام الخطي المثلثي: $\\begin{cases} x - 2y + 3z = 11 \\\\ y + 2z = 8 \\\\ 3z = 9 \\end{cases}$.",
     "optionsEn": [
@@ -1938,7 +1931,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Nilpotent Matrix Property",
     "titleAr": "خاصية المصفوفة متلاشية القوى",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $A$ is a square matrix satisfying $A^2 = 0$, what is the inverse of $(I - A)$?",
     "questionAr": "إذا كانت $A$ مصفوفة مربعة تحقق $A^2 = 0$، فما هو المعكوس الضربي للمصفوفة $(I - A)$؟",
     "optionsEn": [
@@ -3656,7 +3648,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Cramer's Rule for a 3x3 Linear System",
     "titleAr": "قاعدة كرامر لنظام خطي 3x3",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a $3 \\times 3$ linear system, the coefficient determinant is $\\Delta = 5$. If the determinant formed by replacing the second column with the constant vector is $\\Delta_y = -35$, find the value of $y$.",
     "questionAr": "في نظام خطي $3 \\times 3$، محدد المعاملات هو $\\Delta = 5$. إذا كان المحدد الناتج عن استبدال عمود $y$ بحدود الثوابت هو $\\Delta_y = -35$، فأوجد قيمة $y$.",
     "optionsEn": [
@@ -3691,7 +3682,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Singularity Condition with a Parameter",
     "titleAr": "شرط انعدام المحدد ووجود مصفوفة شاذة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "For what values of $k$ is the matrix $A = \\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & k & 3 \\\\ 2 & 1 & 0 \\end{pmatrix}$ singular (not invertible)?",
     "questionAr": "ما قيم $k$ التي تجعل المصفوفة $A = \\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & k & 3 \\\\ 2 & 1 & 0 \\end{pmatrix}$ مصفوفة شاذة (غير قابلة للعكس)؟",
     "optionsEn": [
@@ -3735,7 +3725,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Rouché-Capelli Consistency Theorem",
     "titleAr": "مبرهنة روشي-كابيلي لتوافق النظم الخطية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A linear system with 3 variables has coefficient matrix $A$ and augmented matrix $[A|B]$. If $\\text{rank}(A) = 2$ and $\\text{rank}([A|B]) = 2$, how many solutions does the system possess?",
     "questionAr": "نظام معادلات خطية في 3 مجاهيل، مصفوفة معاملاته $A$ والمصفوفة الموسعة $[A|B]$. إذا كان $\\text{rank}(A) = 2$ و $\\text{rank}([A|B]) = 2$، فما هو عدد حلول النظام؟",
     "optionsEn": [
@@ -3773,7 +3762,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Determinant of the Adjugate Matrix",
     "titleAr": "محدد المصفوفة الملحقة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $A$ is an invertible $3 \\times 3$ matrix with $\\det(A) = 3$, find the determinant of its adjugate matrix, $\\det(\\text{adj}(A))$.",
     "questionAr": "إذا كانت $A$ مصفوفة قابلة للعكس من الرتبة $3 \\times 3$ وكان $\\det(A) = 3$، فما هو محدد مصفوفتها الملحقة $\\det(\\text{adj}(A))$؟",
     "optionsEn": [
@@ -3812,7 +3800,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Eigenvalues of a Triangular Matrix",
     "titleAr": "القيم الذاتية لمصفوفة مثلثية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the eigenvalues of the upper triangular matrix $A = \\begin{pmatrix} 2 & 4 & -1 \\\\ 0 & -3 & 6 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
     "questionAr": "أوجد القيم الذاتية (eigenvalues) للمصفوفة المثلثية العلوية $A = \\begin{pmatrix} 2 & 4 & -1 \\\\ 0 & -3 & 6 \\\\ 0 & 0 & 5 \\end{pmatrix}$.",
     "optionsEn": [
@@ -3851,7 +3838,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Rank-Nullity Theorem Application",
     "titleAr": "تطبيق مبرهنة الرتبة والبعد الصفري",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$ be a linear transformation represented by a $3 \\times 3$ matrix $A$ of rank $2$. What is the dimension of the null space (kernel) of $A$?",
     "questionAr": "ليكن $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$ تحويلاً خطياً تمثله مصفوفة $A$ من الرتبة $2$. ما هو بعد فضاء النواة (null space) للمصفوفة $A$؟",
     "optionsEn": [
@@ -3888,7 +3874,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Solving Matrix Equation AX = B",
     "titleAr": "حل المعادلة المصفوفية AX = B",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $A X = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$, what is the entry in the first row and first column of $X$?",
     "questionAr": "إذا كانت $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ و $A X = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$، فما هو العنصر $x_{11}$ في المصفوفة $X$؟",
     "optionsEn": [
@@ -3928,7 +3913,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Characteristic Equation of a 2x2 Matrix",
     "titleAr": "المعادلة المميزة لمصفوفة 2x2",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the characteristic polynomial of the matrix $A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 4 \\end{pmatrix}$.",
     "questionAr": "أوجد كثير الحدود المميز للمصفوفة $A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 4 \\end{pmatrix}$.",
     "optionsEn": [
@@ -3965,7 +3949,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Linear Dependence of Three Vectors in R^3",
     "titleAr": "الارتباط الخطي لثلاثة متجهات في R^3",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Determine the value of $m$ for which the vectors $\\vec{v}_1 = (1, 2, 3)$, $\\vec{v}_2 = (0, 1, 2)$, and $\\vec{v}_3 = (2, 3, m)$ are linearly dependent in $\\mathbb{R}^3$.",
     "questionAr": "حدد قيمة $m$ التي تجعل المتجهات $\\vec{v}_1 = (1, 2, 3)$ و $\\vec{v}_2 = (0, 1, 2)$ و $\\vec{v}_3 = (2, 3, m)$ مرتبطة خطياً في $\\mathbb{R}^3$.",
     "optionsEn": [
@@ -5804,7 +5787,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Cayley-Hamilton Theorem for Matrix Inverse",
     "titleAr": "مبرهنة كايلي-هاميلتون لحساب معكوس مصفوفة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A $2 \\times 2$ matrix $A$ satisfies its characteristic equation $A^2 - 5A + 2I = 0$. Express the inverse matrix $A^{-1}$ in terms of $A$ and $I$.",
     "questionAr": "مصفوفة مربعة $A$ من الرتبة $2 \\times 2$ تحقق معادلتها المميزة $A^2 - 5A + 2I = 0$. عبر عن المعكوس الضربي $A^{-1}$ بدلالة $A$ و $I$.",
     "optionsEn": [
@@ -5842,7 +5824,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Geometric Prism Configuration of Three Planes",
     "titleAr": "التكوين الهندسي للمنشور المثلثي لثلاثة مستويات",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Consider the system of 3 planes in $\\mathbb{R}^3$: $\\pi_1: x + y = 1$, $\\pi_2: y + z = 1$, $\\pi_3: x - z = 2$. What is their geometric configuration?",
     "questionAr": "تأمل نظام المستويات الثلاثة في $\\mathbb{R}^3$: $\\pi_1: x + y = 1$ و $\\pi_2: y + z = 1$ و $\\pi_3: x - z = 2$. ما هو الوضع الهندسي النسبي لها؟",
     "optionsEn": [
@@ -5882,7 +5863,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Idempotent Matrix Properties (Projection Matrix)",
     "titleAr": "خواص مصفوفة الإسقاط (المصفوفة متساوية القوى)",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Let $P$ be an idempotent $3 \\times 3$ projection matrix, meaning $P^2 = P$. What are the only possible eigenvalues of $P$?",
     "questionAr": "لتكن $P$ مصفوفة إسقاط من الرتبة $3 \\times 3$ تحقق $P^2 = P$. ما هي القيم الذاتية الممكنة فقط للمصفوفة $P$؟",
     "optionsEn": [
@@ -5921,7 +5901,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Vandermonde Determinant Evaluation",
     "titleAr": "حساب محدد فاندرموند",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Evaluate the determinant: $V = \\begin{vmatrix} 1 & 2 & 4 \\\\ 1 & 3 & 9 \\\\ 1 & 5 & 25 \\end{vmatrix}$.",
     "questionAr": "احسب قيمة المحدد: $V = \\begin{vmatrix} 1 & 2 & 4 \\\\ 1 & 3 & 9 \\\\ 1 & 5 & 25 \\end{vmatrix}$.",
     "optionsEn": [
@@ -5958,7 +5937,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Orthogonal Matrix Determinant Property",
     "titleAr": "محدد مصفوفة متعامدة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "If $Q$ is an orthogonal $3 \\times 3$ real matrix (satisfying $Q^T Q = I$), which of the following statements must be true?",
     "questionAr": "إذا كانت $Q$ مصفوفة متعامدة حقيقية من الرتبة $3 \\times 3$ (تحقق $Q^T Q = I$)، فأي العبارات الآتية صحيحة بالضرورة؟",
     "optionsEn": [
@@ -5997,7 +5975,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Homogeneous System with Non-Trivial Solutions",
     "titleAr": "نظام متجانس له حلول غير صفرية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For what value of $a$ does the homogeneous system $\\begin{cases} ax + y + z = 0 \\\\ x + ay + z = 0 \\\\ x + y + az = 0 \\end{cases}$ have non-trivial solutions in addition to the zero solution?",
     "questionAr": "ما قيم $a$ التي تجعل النظام المتجانس $\\begin{cases} ax + y + z = 0 \\\\ x + ay + z = 0 \\\\ x + y + az = 0 \\end{cases}$ يمتلك حلولاً غير صفرية إلى جانب الحل الصفري؟",
     "optionsEn": [
@@ -6036,7 +6013,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Markov Transition Matrix Equilibrium Distribution",
     "titleAr": "التوزيع المستقر لمصفوفة انتقال ماركوف",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A 2-state Markov chain has transition matrix $P = \\begin{pmatrix} 0.8 & 0.2 \\\\ 0.3 & 0.7 \\end{pmatrix}$. Find the stationary probability vector $\\vec{\\pi} = (\\pi_1, \\pi_2)$ satisfying $\\vec{\\pi} P = \\vec{\\pi}$ and $\\pi_1 + \\pi_2 = 1$.",
     "questionAr": "سلسلة ماركوف بحالتين مصفوفة انتقالها $P = \\begin{pmatrix} 0.8 & 0.2 \\\\ 0.3 & 0.7 \\end{pmatrix}$. أوجد متجه الاحتمال المستقر $\\vec{\\pi} = (\\pi_1, \\pi_2)$ الذي يحقق $\\vec{\\pi} P = \\vec{\\pi}$ و $\\pi_1 + \\pi_2 = 1$.",
     "optionsEn": [
@@ -6075,7 +6051,6 @@ export const egBacCh2Databank: ChapterDatabank = {
     "titleEn": "Determinant of Block Triangular Matrix",
     "titleAr": "محدد مصفوفة مثلثية كتلية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the determinant of the $4 \\times 4$ block matrix $M = \\begin{pmatrix} A & B \\\\ 0 & C \\end{pmatrix}$, where $A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$, $C = \\begin{pmatrix} 4 & 5 \\\\ 1 & 2 \\end{pmatrix}$, and $B$ is any $2 \\times 2$ matrix.",
     "questionAr": "أوجد محدد مصفوفة كتلية من الرتبة $4 \\times 4$: $M = \\begin{pmatrix} A & B \\\\ 0 & C \\end{pmatrix}$ حيث $A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$ و $C = \\begin{pmatrix} 4 & 5 \\\\ 1 & 2 \\end{pmatrix}$ و $B$ أي مصفوفة $2 \\times 2$.",
     "optionsEn": [

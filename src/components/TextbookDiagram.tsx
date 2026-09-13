@@ -560,14 +560,14 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
               <MathRenderer math="W = 40\\text{ N}" lang={lang} />
             </span>
-            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="R = 40\\text{ N}" lang={lang} />
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\\mu_s = 0.25" lang={lang} />
             </span>
-            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="P = 10\\text{ N}" lang={lang} />
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="R = W" lang={lang} />
             </span>
             <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="F_s = 10\\text{ N}" lang={lang} />
+              <MathRenderer math="F_s = \\mu_s R" lang={lang} />
             </span>
           </>
         )}
@@ -580,11 +580,11 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
               <MathRenderer math="W = 20\\text{ N}" lang={lang} />
             </span>
-            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="P = 25\\text{ N}" lang={lang} />
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="\\mu_s = \\frac{\\sqrt{3}}{2}" lang={lang} />
             </span>
             <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="F_s \\text{ (لأسفل)}" lang={lang} />
+              <MathRenderer math={isAr ? "F_s \\text{ (لأسفل)}" : "F_s \\text{ (Down plane)}"} lang={lang} />
             </span>
           </>
         )}
@@ -631,10 +631,10 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'polygon_diagonals' && (
           <>
             <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math={isAr ? "\\text{عدد الأضلاع: } n = 11" : "\\text{Sides: } n = 11"} lang={lang} />
+              <MathRenderer math={isAr ? "\\text{مضلع محدب ذو } n \\text{ رأساً}" : "\\text{Convex polygon with } n \\text{ vertices}"} lang={lang} />
             </span>
             <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\text{الأقطار: } \\binom{n}{2} - n = 44" lang={lang} />
+              <MathRenderer math={isAr ? "\\text{عدد الأقطار: } \\binom{n}{2} - n = 44" : "\\text{Diagonals: } \\binom{n}{2} - n = 44"} lang={lang} />
             </span>
           </>
         )}
@@ -642,10 +642,10 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'trig_derivative_tangent' && (
           <>
             <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="y = \\csc(2x) - \\cot(2x)" lang={lang} />
+              <MathRenderer math="y = \tan(x)" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\text{ميل المماس: } \\frac{dy}{dx} = 2y\\csc(2x)" lang={lang} />
+              <MathRenderer math="\frac{dy}{dx} = \sec^2(x)" lang={lang} />
             </span>
           </>
         )}
@@ -653,13 +653,10 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'secant_derivative_graph' && (
           <>
             <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
-              <MathRenderer math="f(x) = \\sec(3x)" lang={lang} />
+              <MathRenderer math="y = \sec(x)" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
-              <MathRenderer math="\\text{المماس: } f'(x) = 3\\sec(3x)\\tan(3x)" lang={lang} />
-            </span>
-            <span className="bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="P(x_0, y_0)" lang={lang} />
+              <MathRenderer math="\frac{dy}{dx} = \sec(x)\tan(x)" lang={lang} />
             </span>
           </>
         )}
@@ -667,10 +664,10 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'cotangent_curvature_graph' && (
           <>
             <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="y = \\cot(\\pi x)" lang={lang} />
+              <MathRenderer math="y = \cot(x)" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="y''\\left(\\frac{1}{4}\\right) = 4\\pi^2" lang={lang} />
+              <MathRenderer math="\frac{dy}{dx} = -\csc^2(x)" lang={lang} />
             </span>
           </>
         )}
@@ -678,13 +675,13 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'plane_intercepts_3d' && (
           <>
             <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\frac{x}{1} + \\frac{y}{2} + \\frac{z}{3} = 1" lang={lang} />
+              <MathRenderer math="A(1, 0, 0), B(0, 2, 0), C(0, 0, 3)" lang={lang} />
             </span>
             <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\vec{n} = (6, 3, 2)" lang={lang} />
+              <MathRenderer math="\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1" lang={lang} />
             </span>
             <span className="bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="6x + 3y + 2z - 6 = 0" lang={lang} />
+              <MathRenderer math="\vec{n} = (6, 3, 2)" lang={lang} />
             </span>
           </>
         )}
@@ -692,13 +689,13 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'coplanar_vectors_3d' && (
           <>
             <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\vec{u} = (1, 2, 3)" lang={lang} />
-            </span>
-            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\vec{v} = (0, 1, 2)" lang={lang} />
+              <MathRenderer math="\vec{u} = (1, 2, 3), \vec{v} = (0, 1, 2)" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\vec{w} = (1, 0, -1)" lang={lang} />
+              <MathRenderer math="\vec{w} = (1, 0, k)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
+              <MathRenderer math="[\vec{u}, \vec{v}, \vec{w}] = 0" lang={lang} />
             </span>
           </>
         )}
@@ -706,13 +703,10 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'line_plane_angle_3d' && (
           <>
             <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="y + z - 5 = 0" lang={lang} />
-            </span>
-            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\vec{n} = (0, 1, 1)" lang={lang} />
+              <MathRenderer math="\vec{d} = (1, 0, 1), \quad \vec{n} = (0, 1, 1)" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg">
-              <MathRenderer math="\\sin\\theta = \\frac{1}{2} \\implies \\theta = 30^\\circ" lang={lang} />
+              <MathRenderer math="\sin\theta = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}" lang={lang} />
             </span>
           </>
         )}

@@ -1810,7 +1810,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Necessary and Sufficient Conditions for Coplanar Equilibrium",
     "titleAr": "شروط الاتزان العام لمنظومة قوى مستوية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rigid body is in equilibrium under the action of a system of coplanar forces. What are the general equilibrium conditions?",
     "questionAr": "جسم جاسئ في حالة اتزان عام تحت تأثير مجموعة من القوى المستوية. ما هي شروط الاتزان العام؟",
     "optionsEn": [
@@ -1847,7 +1846,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Reaction of a Smooth Vertical Wall on a Leaning Ladder",
     "titleAr": "رد فعل حائط رأسي أملس على سلم مستند عليه",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ladder leans with its upper end against a smooth vertical wall. In which direction does the reaction force of the wall act?",
     "questionAr": "سلم يستند بطرفه العلوي على حائط رأسي أملس. في أي اتجاه يؤثر رد فعل الحائط؟",
     "optionsEn": [
@@ -1884,7 +1882,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Vertical Equilibrium of a Ladder on a Rough Horizontal Floor",
     "titleAr": "الاتزان الرأسي لسلم على أرضية أفقية خشنة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform ladder of weight $W = 200\\text{ N}$ rests with its lower end on a rough horizontal floor and its upper end against a smooth vertical wall. What is the normal reaction $R_f$ of the floor on the ladder?",
     "questionAr": "سلم منتظم وزنه $W = 200\\text{ ن}$ يستند بطرفه السفلي على أرضية أفقية خشنة وبطرفه العلوي على حائط رأسي أملس. ما مقدار رد الفعل العمودي $R_f$ للأرضية على السلم؟",
     "optionsEn": [
@@ -1921,7 +1918,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Reaction Components at a Smooth Hinge",
     "titleAr": "مركبتا رد الفعل عند مفصل أملس",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rod is freely hinged at a wall at point $A$. If the horizontal and vertical components of the hinge reaction are $X = 30\\text{ N}$ and $Y = 40\\text{ N}$, find the magnitude of the total hinge reaction $R$.",
     "questionAr": "قضيب متصل بمفصل أملس في حائط عند النقطة $A$. إذا كانت المركبتان الأفقية والرأسية لرد فعل المفصل هما $X = 30\\text{ ن}$ و $Y = 40\\text{ ن}$، فما مقدار رد الفعل الكلي للمفصل $R$؟",
     "optionsEn": [
@@ -1956,7 +1952,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Tension in a Horizontal Tie-Cable Supporting a Hinged Rod",
     "titleAr": "الشد في سلك أفقي يحمل قضيباً مفصلياً",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 60\\text{ N}$ and length $2\\text{ m}$ is hinged at $A$ to a vertical wall and maintained horizontal by a vertical string attached to end $B$. Find the tension $T$ in the string.",
     "questionAr": "قضيب منتظم $AB$ وزنه $W = 60\\text{ ن}$ وطوله $2\\text{ م}$ متصل بمفصل عند $A$ في حائط رأسي ومحفوظ أفقياً بواسطة خيط رأسي مربوط عند الطرف $B$. أوجد الشد $T$ في الخيط.",
     "optionsEn": [
@@ -1993,7 +1988,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Friction Direction at the Base of a Ladder Leaning on a Wall",
     "titleAr": "اتجاه قوة الاحتكاك عند قاعدة سلم مستند على حائط",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ladder leans against a wall with its base on a rough horizontal floor. As the ladder tends to slip, in which direction does the friction force at the floor act?",
     "questionAr": "سلم يستند على حائط وقاعدته على أرضية أفقية خشنة. عندما يوشك السلم على الانزلاق، في أي اتجاه تؤثر قوة الاحتكاك عند الأرضية؟",
     "optionsEn": [
@@ -2028,7 +2022,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Reaction Direction of a Smooth Cylinder or Peg",
     "titleAr": "اتجاه رد فعل وتد أملس أو أسطوانة ملساء",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod rests in equilibrium against a smooth horizontal cylindrical peg. The reaction of the peg on the rod is:",
     "questionAr": "قضيب منتظم يرتكز في حالة اتزان على وتد أسطواني أفقي أملس. رد فعل الوتد على القضيب يكون:",
     "optionsEn": [
@@ -2063,7 +2056,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of Three Non-Parallel Coplanar Forces",
     "titleAr": "اتزان ثلاث قوى مستوية غير متوازية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If a rigid body is in equilibrium under the action of three non-parallel coplanar forces, their lines of action must:",
     "questionAr": "إذا اتزن جسم جاسئ تحت تأثير ثلاث قوى مستوية غير متوازية، فإن خطوط عملها يجب أن:",
     "optionsEn": [
@@ -3984,7 +3976,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Limiting Friction for a Ladder Leaning at an Angle",
     "titleAr": "معامل الاحتكاك الحرج لسلم مائل على وشك الانزلاق",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform ladder rests with its upper end against a smooth vertical wall and its lower end on a rough horizontal floor. If the ladder is on the verge of slipping when inclined at an angle $\\theta = 45^\\circ$ to the horizontal, find the coefficient of static friction $\\mu$ between the ladder and the floor.",
     "questionAr": "سلم منتظم يستند بطرفه العلوي على حائط رأسي أملس وبطرفه السفلي على أرضية أفقية خشنة. إذا كان السلم على وشك الانزلاق عندما يميل بزاوية $\\theta = 45^\\circ$ على الأفقي، فأوجد معامل الاحتكاك السكوني $\\mu$ بين السلم والأرضية.",
     "optionsEn": [
@@ -4030,7 +4021,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Inclination of a Hinge-Supported Rod Held by an Inclined Cable",
     "titleAr": "ميل قضيب مفصلي مربوط بخيط مائل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 80\\text{ N}$ and length $1\\text{ m}$ is hinged at $A$ to a vertical wall. A light string connects end $B$ to a point $C$ on the wall vertically above $A$ such that $AC = AB = 1\\text{ m}$. If the rod is in equilibrium horizontally, find the tension $T$ in the string.",
     "questionAr": "قضيب منتظم $AB$ وزنه $W = 80\\text{ ن}$ وطوله $1\\text{ م}$ متصل بمفصل عند $A$ في حائط رأسي. رُبط خيط خفيف طرفه $B$ بنقطة $C$ على الحائط تقع رأسياً أعلى $A$ بحيث $AC = AB = 1\\text{ م}$. إذا اتزن القضيب أفقياً، فأوجد الشد $T$ في الخيط.",
     "optionsEn": [
@@ -4071,7 +4061,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Hinge Reaction Direction for a Cable-Supported Rod",
     "titleAr": "اتجاه رد فعل المفصل لقضيب محمول بكابل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the previous problem (horizontal rod $AB$, $AC = AB = 1\\text{ m}$, $W = 80\\text{ N}$, $T = 40\\sqrt{2}\\text{ N}$), find the direction of the hinge reaction $\\vec{R}_A$ (angle $\\alpha$ with the positive horizontal axis $\\vec{AB}$).",
     "questionAr": "في المسألة السابقة (قضيب أفقي $AB$، $AC = AB = 1\\text{ م}$، $W = 80\\text{ ن}$، $T = 40\\sqrt{2}\\text{ ن}$)، أوجد اتجاه رد فعل المفصل $\\vec{R}_A$ (الزاوية $\\alpha$ مع المحور الأفقي الموجب $\\vec{AB}$).",
     "optionsEn": [
@@ -4114,7 +4103,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "How High a Man Can Climb a Ladder Before Slipping",
     "titleAr": "أقصى مسافة يصعدها رجل على سلم قبل أن ينزلق",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform ladder of length $5\\text{ m}$ and weight $200\\text{ N}$ rests against a smooth vertical wall with its foot on a rough floor ($d = 3\\text{ m}$ from wall, height $h = 4\\text{ m}$). The coefficient of friction at the floor is $\\mu = 0.4$. A man of weight $600\\text{ N}$ climbs the ladder. How far along the ladder $s$ from the foot can he climb before it begins to slip?",
     "questionAr": "سلم منتظم طوله $5\\text{ م}$ ووزنه $200\\text{ ن}$ يستند على حائط رأسي أملس وقاعدته على أرضية خشنة (على بُعد $3\\text{ م}$ من الحائط وبارتفاع $4\\text{ م}$). معامل الاحتكاك عند الأرض هو $\\mu = 0.4$. صعد رجل وزنه $600\\text{ ن}$ على السلم. ما أقصى مسافة $s$ على السلم يقيسها من القاعدة يستطيع الرجل صعودها قبل أن يبدأ السلم في الانزلاق؟",
     "optionsEn": [
@@ -4161,7 +4149,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Rod Resting on a Peg and a Vertical Wall",
     "titleAr": "اتزان قضيب يستند على وتد أملس وحائط رأسي أملس",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod of length $2L$ rests with one end against a smooth vertical wall and rests over a smooth horizontal peg at distance $d$ from the wall. If the rod is inclined at angle $\\theta$ to the horizontal, find the relation between $d, L$, and $\\theta$.",
     "questionAr": "قضيب منتظم طوله $2L$ يستند بأحد طرفيه على حائط رأسي أملس ويمر فوق وتد أفقي أملس يبعد مسافة $d$ عن الحائط. إذا كان القضيب متزناً ومائلاً بزاوية $\\theta$ على الأفقي، فما العلاقة بين $d$ و $L$ و $\\theta$؟",
     "optionsEn": [
@@ -4207,7 +4194,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium on Both Rough Wall and Rough Floor",
     "titleAr": "اتزان سلم يستند على حائط خشن وأرضية خشنة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform ladder is on the verge of slipping on both a rough vertical wall (friction coefficient $\\mu_w$) and a rough horizontal floor (friction coefficient $\\mu_f$). If the angle of inclination with the horizontal is $\\theta$, the equilibrium relation is:",
     "questionAr": "سلم منتظم على وشك الانزلاق على كل من حائط رأسي خشن (معامل احتكاكه $\\mu_w$) وأرضية أفقية خشنة (معامل احتكاكها $\\mu_f$). إذا كانت زاوية ميل السلم على الأفقي $\\theta$، فإن علاقة الاتزان هي:",
     "optionsEn": [
@@ -4255,7 +4241,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Heavy Sphere Suspended by a Wire against a Smooth Wall",
     "titleAr": "اتزان كرة ثقيلة معلقة بسلك ومستندة على حائط أملس",
     "difficulty": "medium",
-    "diagramType": "circle",
     "questionEn": "A uniform sphere of weight $W = 100\\text{ N}$ and radius $r = 15\\text{ cm}$ is suspended by a string of length $l = 10\\text{ cm}$ attached to a point on its surface and to a point on a smooth vertical wall. Find the tension $T$ in the string.",
     "questionAr": "كرة منتظمة وزنها $W = 100\\text{ ن}$ ونصف قطرها $r = 15\\text{ سم}$ معلقة بخيط طوله $l = 10\\text{ سم}$ مثبت بنقطة على سطحها وبنقطة على حائط رأسي أملس. أوجد قوة الشد $T$ في الخيط.",
     "optionsEn": [
@@ -4299,7 +4284,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Rod Supported by Two Smooth Pegs at Different Heights",
     "titleAr": "اتزان قضيب يستند على وتدين أملسين بارتفاعين مختلفين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 50\\text{ N}$ rests on two smooth pegs $C$ and $D$ at distance $40\\text{ cm}$ apart. The peg $C$ is under the rod and peg $D$ is over the rod. If the rod is horizontal and its center of gravity is at distance $x = 60\\text{ cm}$ from peg $C$ (with $D$ between $C$ and the center of gravity), find the reaction $R_D$.",
     "questionAr": "قضيب منتظم $AB$ وزنه $W = 50\\text{ ن}$ يستند على وتدين أملسين $C$ و $D$ المسافة بينهما $40\\text{ سم}$. الوتد $C$ أسفل القضيب والوتد $D$ يعلو القضيب. إذا كان القضيب أفقياً ومركز ثقله يبعد $60\\text{ سم}$ عن $C$ (حيث $D$ يقع بين $C$ ومركز الثقل)، فأوجد رد فعل الوتد $D$.",
     "optionsEn": [
@@ -4341,7 +4325,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Tension in a Guy Wire Supporting a Crane Boom",
     "titleAr": "الشد في كابل تثبيت ذراع رافعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A crane boom $AB$ of length $6\\text{ m}$ and weight $1200\\text{ N}$ is pivoted at base $A$ and inclined at $30^\\circ$ to the horizontal. A horizontal cable is attached to the tip $B$ and anchored to a vertical mast. A load of $2400\\text{ N}$ is suspended from $B$. Find the tension $T$ in the horizontal cable.",
     "questionAr": "ذراع رافعة $AB$ طوله $6\\text{ م}$ ووزنه $1200\\text{ ن}$ مثبت بمفصل عند قاعدته $A$ ويميل بزاوية $30^\\circ$ على الأفقي. يتصل بالطرف $B$ كابل أفقي مثبت بصاري رأسي. عُلق ثقل مقداره $2400\\text{ ن}$ من الطرف $B$. أوجد قوة الشد $T$ في الكابل الأفقي.",
     "optionsEn": [
@@ -6349,7 +6332,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Minimum Coefficient of Friction for a Symmetrically Loaded Step Ladder",
     "titleAr": "الحد الأدنى لمعامل الاحتكاك لسلم مزدوج متماثل",
     "difficulty": "hots",
-    "diagramType": "triangle",
     "questionEn": "A step-ladder consists of two identical uniform legs $AB$ and $AC$, each of length $2L$ and weight $W$, hinged at top $A$. The legs are connected at their midpoints by a horizontal light tie-rope of length $d = L$. If the ladder rests on a smooth floor and a man of weight $2W$ stands at the apex $A$, what is the tension $T$ in the horizontal tie-rope?",
     "questionAr": "سلم مزدوج يتكون من ساقين متطابقتين منتظمتين $AB$ و $AC$ طول كل منهما $2L$ ووزن كل منهما $W$، متصلتين بمفصل عند القمة $A$. رُبط منتصفا الساقين بحبل أفقي خفيف طوله $d = L$. إذا استند السلم على أرضية ملساء ووقف رجل وزنه $2W$ عند القمة $A$، فما مقدار الشد $T$ في الحبل الأفقي؟",
     "optionsEn": [
@@ -6399,7 +6381,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Heavy Non-Uniform Rod on Rough Incline and Peg",
     "titleAr": "اتزان قضيب غير منتظم يستند على مستوى مائل ووتد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A heavy rod of length $L$ and weight $W$ has its center of gravity at distance $\\frac{L}{3}$ from end $A$. It rests horizontally with end $A$ on a rough vertical wall (friction coefficient $\\mu$) and passes over a smooth peg at distance $d = \\frac{L}{2}$ from $A$. What is the minimum friction coefficient $\\mu$ at the wall to maintain equilibrium?",
     "questionAr": "قضيب ثقيل طوله $L$ ووزنه $W$ يقع مركز ثقله على بُعد $\\frac{L}{3}$ من الطرف $A$. يستند القضيب أفقياً بحيث يكون طرفه $A$ على حائط رأسي خشن (معامل احتكاكه $\\mu$) ويمر فوق وتد أملس يبعد مسافة $d = \\frac{L}{2}$ عن $A$. ما أقل قيمة لمعامل الاحتكاك $\\mu$ عند الحائط تضمن استمرار الاتزان؟",
     "optionsEn": [
@@ -6442,7 +6423,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Heavy Hinge-Supported Rod with Minimum Tension",
     "titleAr": "الشد الأدنى لكابل يحمل قضيباً مفصلياً",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W$ and length $L$ is hinged at $A$ to a vertical wall and held horizontal by a cable attached to end $B$ and anchored to the wall. At what angle $\\theta$ between the cable and the rod is the required tension $T$ minimized?",
     "questionAr": "قضيب منتظم $AB$ وزنه $W$ وطوله $L$ متصل بمفصل عند $A$ في حائط رأسي ومحفوظ في وضع أفقي بواسطة كابل مربوط عند الطرف $B$ ومثبت بالحائط. عند أي زاوية $\\theta$ بين الكابل والقضيب تكون قوة الشد $T$ في الكابل أقل ما يمكن؟",
     "optionsEn": [
@@ -6485,7 +6465,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Limiting Equilibrium of a Cylinder on an Inclined Plane Supported by a String",
     "titleAr": "اتزان أسطوانة على مستوى مائل مربوطة بخيط مماس",
     "difficulty": "hots",
-    "diagramType": "circle",
     "questionEn": "A uniform solid cylinder of weight $W$ and radius $r$ rests on a rough inclined plane of inclination $\\alpha = 30^\\circ$. A light string wrapped around the cylinder is pulled parallel to the inclined plane from the top of the cylinder. If the cylinder is in equilibrium, find the tension $T$ in the string and the friction force $F_f$.",
     "questionAr": "أسطوانة مصمتة منتظمة وزنها $W$ ونصف قطرها $r$ ترتكز على مستوى مائل خشن يميل بزاوية $\\alpha = 30^\\circ$ على الأفقي. خيط خفيف ملفوف حول الأسطوانة يُشد موازياً للمستوى لأعلى من قمة الأسطوانة. إذا اتزنت الأسطوانة، فأوجد الشد $T$ في الخيط وقوة الاحتكاك $F_f$.",
     "optionsEn": [
@@ -6530,7 +6509,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium of a Heavy Beam Suspended by Two Inextensible Ropes",
     "titleAr": "اتزان عارضة ثقيلة معلقة بحبلين مائلين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform horizontal beam $AB$ of weight $W = 120\\text{ N}$ and length $4\\text{ m}$ is suspended by two ropes attached to its ends $A$ and $B$. The rope at $A$ makes an angle of $30^\\circ$ with the vertical, while the rope at $B$ makes an angle of $60^\\circ$ with the vertical. Can the beam remain strictly horizontal in equilibrium under gravity and these two ropes alone?",
     "questionAr": "عارضة أفقية منتظمة $AB$ وزنها $W = 120\\text{ ن}$ وطولها $4\\text{ م}$ معلقة بحبلين متصلين بطرفيها $A$ و $B$. الحبل عند $A$ يميل بزاوية $30^\\circ$ على الرأسي، بينما الحبل عند $B$ يميل بزاوية $60^\\circ$ على الرأسي. هل يمكن للعارضة أن تتزن في وضع أفقي تحت تأثير الجاذبية وهذين الحبلين فقط؟",
     "optionsEn": [
@@ -6574,7 +6552,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Reactions on a Trapezoidal Truss Under Inclined Wind Loading",
     "titleAr": "ردود أفعال جمالون تحت تأثير حمل رياح مائل",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rigid structure rests on a pinned support at $A(0, 0)$ and a roller support at $B(4\\text{ m}, 0)$. An inclined force $\\vec{F} = 30\\hat{i} - 40\\hat{j}\\text{ kN}$ acts at apex $C(2\\text{ m}, 3\\text{ m})$. Find the vertical reaction at the roller support $B$.",
     "questionAr": "هيكل جاسئ يرتكز على ركيزة مفصلية عند $A(0, 0)$ وركيزة دحروجية أفقية عند $B(4\\text{ م}, 0)$. أثرت قوة مائلة $\\vec{F} = 30\\hat{i} - 40\\hat{j}\\text{ ك.ن}$ عند القمة $C(2\\text{ م}, 3\\text{ م})$. أوجد رد الفعل الرأسي عند الركيزة الدحروجية $B$.",
     "optionsEn": [
@@ -6618,7 +6595,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Angle of a Rod Pivoted Inside a Smooth Spherical Bowl",
     "titleAr": "زاوية اتزان قضيب يرتكز داخل وعاء كروي أملس",
     "difficulty": "hots",
-    "diagramType": "circle",
     "questionEn": "A uniform rod $AB$ of length $2L$ rests in equilibrium inside a smooth hemispherical bowl of radius $R$ ($2L < 2R$). The rod rests with end $A$ inside the bowl and a point $C$ on the rod resting on the smooth rim of the bowl. The reaction at $A$ passes through:",
     "questionAr": "قضيب منتظم $AB$ طوله $2L$ يستند في حالة اتزان داخل وعاء نصف كروي أملس نصف قطره $R$ ($2L < 2R$). يستند الطرف $A$ داخل الوعاء بينما تستند نقطة $C$ من القضيب على حافة الوعاء الملساء. رد الفعل عند النقطة $A$ يمر بـ:",
     "optionsEn": [
@@ -6657,7 +6633,6 @@ export const statCh5Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Under Sliding Block on an Incline with Elastic Tether",
     "titleAr": "اتزان كتلة على مستوى مائل مربوطة بزمبرك على وشك الحركة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of weight $W = 100\\text{ N}$ rests on an incline of angle $\\theta = 30^\\circ$ with friction coefficient $\\mu = 0.2$. A spring of stiffness $k = 200\\text{ N/m}$ parallel to the incline is attached to the block. What is the maximum elongation $\\Delta x$ of the spring such that the block remains at rest (on the verge of moving up the incline)?",
     "questionAr": "كتلة وزنها $W = 100\\text{ ن}$ ترتكز على مستوى مائل بزاوية $\\theta = 30^\\circ$ ومعامل احتكاكه $\\mu = 0.2$. يتصل بالكتلة زمبرك ثابت صلابته $k = 200\\text{ ن/م}$ موازٍ للمستوى. ما أقصى استطالة $\\Delta x$ للزمبرك بحيث يظل الجسم متزناً (على وشك الحركة لأعلى المستوى)؟",
     "optionsEn": [

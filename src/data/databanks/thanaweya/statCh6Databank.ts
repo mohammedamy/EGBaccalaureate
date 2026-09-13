@@ -1890,7 +1890,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of Two Point Masses",
     "titleAr": "مركز ثقل كتلتين نقطيتين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two masses $m_1 = 3\\text{ kg}$ and $m_2 = 5\\text{ kg}$ are located at positions $x_1 = 2\\text{ m}$ and $x_2 = 10\\text{ m}$ along the $x$-axis. Find the position $x_G$ of their center of gravity.",
     "questionAr": "كتلتان $m_1 = 3\\text{ كجم}$ و $m_2 = 5\\text{ كجم}$ موضوعتان عند الموضعين $x_1 = 2\\text{ م}$ و $x_2 = 10\\text{ م}$ على محور $x$. أوجد موضع مركز ثقلهما $x_G$.",
     "optionsEn": [
@@ -1927,7 +1926,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Uniform Triangular Lamina",
     "titleAr": "مركز ثقل صفيحة مثلثة منتظمة",
     "difficulty": "easy",
-    "diagramType": "triangle",
     "questionEn": "The center of gravity of a uniform triangular lamina lies at:",
     "questionAr": "يقع مركز ثقل صفيحة رقيقة منتظمة على شكل مثلث عند:",
     "optionsEn": [
@@ -1962,7 +1960,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Centroid of Three Vertices of a Triangle",
     "titleAr": "إحداثيات مركز ثقل مثلث بمعلومية رؤوسه",
     "difficulty": "easy",
-    "diagramType": "triangle",
     "questionEn": "A uniform triangular plate has vertices at $A(1, 2)$, $B(4, 7)$, and $C(7, 3)$. Find the coordinates of its center of gravity $G$.",
     "questionAr": "صفيحة مثلثة منتظمة رؤوسها $A(1, 2)$ و $B(4, 7)$ و $C(7, 3)$. أوجد إحداثيي مركز ثقلها $G$.",
     "optionsEn": [
@@ -1999,7 +1996,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Suspension from a Point and the Vertical Line of Action",
     "titleAr": "التعليق الحر من نقطة والخط الرأسي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "When a body is freely suspended from a point $P$, the vertical line through $P$ must:",
     "questionAr": "عندما يُعلق جسم تعليقاً حراً من نقطة $P$، فإن الخط الرأسي المار بـ $P$ يجب أن:",
     "optionsEn": [
@@ -2040,7 +2036,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of an L-Shaped Uniform Wire",
     "titleAr": "مركز ثقل سلك منتظم على شكل حرف L",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform wire is bent into an right-angled L-shape with legs along the positive coordinate axes: leg $OA$ of length $6\\text{ cm}$ along the $x$-axis, and leg $OB$ of length $4\\text{ cm}$ along the $y$-axis. Find the coordinates of its center of gravity.",
     "questionAr": "سلك منتظم رُفيع ثُني على شكل زاوية قائمة $L$، ضلعه $OA$ طوله $6\\text{ سم}$ منطبق على محور $x$ الموجب، وضلعه $OB$ طوله $4\\text{ سم}$ منطبق على محور $y$ الموجب. أوجد إحداثيي مركز ثقله.",
     "optionsEn": [
@@ -2083,7 +2078,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Symmetrical Solid",
     "titleAr": "مركز ثقل جسم ذي محور تماثل",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If a uniform rigid body possesses an axis of geometric symmetry, where does its center of gravity lie?",
     "questionAr": "إذا كان لجسم جاسئ منتظم محور تماثل هندسي، فأين يقع مركز ثقله؟",
     "optionsEn": [
@@ -2122,7 +2116,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Mass of Particles on a Coordinate Plane",
     "titleAr": "مركز ثقل جسيمات في المستوى الإحداثي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three particles of masses $1\\text{ kg}$, $2\\text{ kg}$, and $3\\text{ kg}$ are placed at points $(0, 0)$, $(3, 0)$, and $(0, 4)$ respectively. Find the coordinates of their center of mass.",
     "questionAr": "ثلاث كتل مقاديرها $1\\text{ كجم}$ و $2\\text{ كجم}$ و $3\\text{ كجم}$ وضعت عند النقاط $(0, 0)$ و $(3, 0)$ و $(0, 4)$ على الترتيب. أوجد إحداثيي مركز ثقل المجموعة.",
     "optionsEn": [
@@ -2161,7 +2154,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Shift of Center of Gravity When a Mass is Added",
     "titleAr": "إزاحة مركز الثقل عند إضافة كتلة جديدة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod of mass $4\\text{ kg}$ and length $100\\text{ cm}$ has its center of gravity at $x = 50\\text{ cm}$. A point mass of $1\\text{ kg}$ is attached to end $B$ ($x = 100\\text{ cm}$). By what distance does the center of gravity shift towards $B$?",
     "questionAr": "ساق منتظمة كتلتها $4\\text{ كجم}$ وطولها $100\\text{ سم}$ يقع مركز ثقلها عند $x = 50\\text{ سم}$. أُضيفت كتلة نقطية مقدارها $1\\text{ كجم}$ عند الطرف $B$ ($x = 100\\text{ سم}$). ما مقدار المسافة التي ينزاح بها مركز الثقل نحو $B$؟",
     "optionsEn": [
@@ -4223,7 +4215,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Negative Mass Method for a Plate with a Circular Cutout",
     "titleAr": "طريقة الكتلة السالبة لصفيحة بها تجويف دائري",
     "difficulty": "medium",
-    "diagramType": "circle",
     "questionEn": "A uniform square lamina $ABCD$ of side $a = 12\\text{ cm}$ has its center at $(6, 6)$. A circular hole of radius $r = 2\\text{ cm}$ is punched out with its center at $(3, 6)$. Find the $x$-coordinate of the center of gravity of the remaining lamina.",
     "questionAr": "صفيحة مربعة منتظمة $ABCD$ طول ضلعها $a = 12\\text{ سم}$ ومركزها عند $(6, 6)$. قُطع منها قرص دائري نصف قطره $r = 2\\text{ سم}$ مركزه عند $(3, 6)$. أوجد الإحداثي السيني $x_G$ لمركز ثقل الجزء المتبقي.",
     "optionsEn": [
@@ -4263,7 +4254,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Angle of Inclination of a Suspended Rectangular Plate with a Cutout",
     "titleAr": "زاوية ميل صفيحة مستطيلة مقطوعة عند التعليق الحر",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform lamina has its center of gravity at $G(4, 6)$ when corner $A$ is placed at the origin $(0, 0)$ and side $AB$ lies along the positive $x$-axis. If the lamina is freely suspended from corner $A$, find the tangent of the angle $\\theta$ that side $AB$ makes with the vertical.",
     "questionAr": "صفيحة منتظمة مركز ثقلها عند $G(4, 6)$ عندما يكون رأسها $A$ عند نقطة الأصل $(0, 0)$ والضلع $AB$ منطبقاً على محور $x$ الموجب. إذا عُلقت الصفيحة تعليقاً حراً من الرأس $A$، فما ظل زاوية ميل الضلع $AB$ على الرأسي ($\\tan\\theta$)؟",
     "optionsEn": [
@@ -4305,7 +4295,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Triangular Lamina with Folded Corner",
     "titleAr": "مركز ثقل صفيحة مثلثة بعد ثني أحد رؤوسها",
     "difficulty": "medium",
-    "diagramType": "triangle",
     "questionEn": "An equilateral triangular lamina $ABC$ of mass $M$ and altitude $h$ has its top vertex $A$ folded over about the line connecting the midpoints of $AB$ and $AC$ so that $A$ lies on the base $BC$. Find the distance of the new center of gravity from the base $BC$.",
     "questionAr": "صفيحة منتظمة على شكل مثلث متساوي الأضلاع $ABC$ كتلتها $M$ وارتفاعها $h$. ثُني الرأس $A$ حول المستقيم الواصل بين منتصفي $AB$ و $AC$ بحيث استقر الرأس $A$ على القاعدة $BC$. أوجد بُعد مركز الثقل الجديد عن القاعدة $BC$.",
     "optionsEn": [
@@ -4352,7 +4341,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Composite T-Shaped Lamina",
     "titleAr": "مركز ثقل صفيحة منتظمة على شكل حرف T",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform T-shaped lamina consists of a horizontal flange of dimensions $20\\text{ cm} \\times 4\\text{ cm}$ centered symmetrically atop a vertical web of dimensions $4\\text{ cm} \\times 16\\text{ cm}$. Find the distance of the center of gravity from the bottom edge of the vertical web.",
     "questionAr": "صفيحة منتظمة على شكل حرف T تتكون من شفة أفقية أبعادها $20\\text{ سم} \\times 4\\text{ سم}$ ترتكز بتماثل فوق ساق رأسية أبعادها $4\\text{ سم} \\times 16\\text{ سم}$. أوجد بُعد مركز ثقل الصفيحة عن الحافة السفلية للساق الرأسية.",
     "optionsEn": [
@@ -4393,7 +4381,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Wire Formed by Three Sides of a Square",
     "titleAr": "مركز ثقل سلك يشكل ثلاثة أضلاع من مربع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform wire of total length $3a$ is bent to form three sides of a square: side $AB$ along the $y$-axis from $(0, 0)$ to $(0, a)$, side $BC$ along $y = a$ from $(0, a)$ to $(a, a)$, and side $CD$ along $x = a$ from $(a, a)$ to $(a, 0)$. Find the coordinates of its center of gravity.",
     "questionAr": "سلك منتظم طوله الكلي $3a$ ثُني ليشكل ثلاثة أضلاع من مربع: الضلع $AB$ على محور $y$ من $(0, 0)$ إلى $(0, a)$، والضلع $BC$ من $(0, a)$ إلى $(a, a)$، والضلع $CD$ من $(a, a)$ إلى $(a, 0)$. أوجد إحداثيي مركز ثقله.",
     "optionsEn": [
@@ -4437,7 +4424,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Angle with Vertical for a Three-Sided Wire Suspended from a Corner",
     "titleAr": "زاوية ميل سلك ثلاثي الأضلاع معلق من أحد طرفيه",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the previous problem (three sides of a square, $G = (\\frac{a}{2}, \\frac{2a}{3})$), the wire frame is suspended freely from corner $A(0, 0)$. Find the tangent of the angle $\\theta$ that side $AB$ makes with the vertical.",
     "questionAr": "في المسألة السابقة (إطار سلكي من ثلاثة أضلاع، $G = (\\frac{a}{2}, \\frac{2a}{3})$)، عُلق الإطار تعليقاً حراً من الطرف $A(0, 0)$. أوجد ظل الزاوية $\\theta$ التي يصنعها الضلع $AB$ مع الرأسي.",
     "optionsEn": [
@@ -4476,7 +4462,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Condition for Equal Moments of Masses on a Cross",
     "titleAr": "اتزان صليب سلكي بإضافة أثقال عند أطرافه",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A light cross is formed by two perpendicular light rods $AB$ of length $60\\text{ cm}$ and $CD$ of length $40\\text{ cm}$ bisecting each other perpendicularly at $O$. Masses of $2\\text{ kg}$, $3\\text{ kg}$, $4\\text{ kg}$, and $m$ are attached at $A(30, 0)$, $B(-30, 0)$, $C(0, 20)$, and $D(0, -20)$ respectively. What value of $m$ ensures that the center of gravity lies on the $x$-axis?",
     "questionAr": "صليب خفيف يتكون من قضيبين خفيفين متعامدين $AB$ طوله $60\\text{ سم}$ و $CD$ طوله $40\\text{ سم}$ ينصف كل منهما الآخر عند $O$. عُلقت كتل $2\\text{ كجم}$ و $3\\text{ كجم}$ و $4\\text{ كجم}$ و $m$ عند $A(30, 0)$ و $B(-30, 0)$ و $C(0, 20)$ و $D(0, -20)$ على الترتيب. ما قيمة $m$ التي تجعل مركز ثقل المجموعة يقع على محور $x$؟",
     "optionsEn": [
@@ -4515,7 +4500,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Semicircular Lamina",
     "titleAr": "مركز ثقل صفيحة رقيقة على شكل نصف قرص دائري",
     "difficulty": "medium",
-    "diagramType": "circle",
     "questionEn": "A uniform lamina is in the shape of a semicircle of radius $r$. The distance of its center of gravity from the straight bounding diameter is:",
     "questionAr": "صفيحة منتظمة على شكل نصف قرص دائري نصف قطره $r$. بُعد مركز ثقلها عن القطر المستقيم المحدد لها يساوي:",
     "optionsEn": [
@@ -4554,7 +4538,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Angle of Tilt for a Semicircular Plate Suspended from an End of its Diameter",
     "titleAr": "زاوية ميل نصف قرص عند تعليقه من أحد طرفي قطره",
     "difficulty": "medium",
-    "diagramType": "circle",
     "questionEn": "A uniform semicircular lamina of radius $r$ is suspended freely from one end $A$ of its bounding diameter $AB$. What angle $\\theta$ does the diameter $AB$ make with the vertical in equilibrium?",
     "questionAr": "صفيحة منتظمة على شكل نصف قرص دائري نصف قطره $r$ عُلقت تعليقاً حراً من أحد طرفي قطرها $A$. ما ظل زاوية ميل القطر $AB$ على الرأسي في وضع الاتزان؟",
     "optionsEn": [
@@ -6666,7 +6649,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Plate with Multiple Circular Cutouts",
     "titleAr": "مركز ثقل صفيحة مربعة بها ثقبان دائريان متماثلان",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform square plate of side $20\\text{ cm}$ has its center at $(10, 10)$. Two equal circular holes each of radius $r = 2\\text{ cm}$ are cut out with centers at $(6, 10)$ and $(14, 10)$. Where is the center of gravity of the resulting plate?",
     "questionAr": "صفيحة مربعة منتظمة طول ضلعها $20\\text{ سم}$ ومركزها عند $(10, 10)$. قُطع منها قرصان دائريان متطابقان نصف قطر كل منهما $r = 2\\text{ سم}$ ومركزهما عند $(6, 10)$ و $(14, 10)$. أين يقع مركز ثقل الصفيحة الناتجة؟",
     "optionsEn": [
@@ -6705,7 +6687,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Critical Tipping Angle of a Hollow Cone",
     "titleAr": "أقصى زاوية ميل لمستوى يرتكز عليه مخروط دون أن ينقلب",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform solid right circular cone of base radius $R$ and height $h$ rests with its flat base on a rough inclined plane. If the plane is gradually tilted, what is the critical angle of inclination $\\alpha$ at which the cone is on the verge of toppling (assuming it does not slip)?",
     "questionAr": "مخروط دائري قائم مصمت منتظم نصف قطر قاعدته $R$ وارتفاعه $h$ يستند بقاعدته الدائرية على مستوى مائل خشن. إذا أميل المستوى تدريجياً، فما زاوية الميل الحرجة $\\alpha$ التي يكون عندها المخروط على وشك الانقلاب (بفرض عدم حدوث انزلاق)؟",
     "optionsEn": [
@@ -6744,7 +6725,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Suspension of a Trapezoid to Keep Parallel Edges Horizontal",
     "titleAr": "تعليق شبه منحرف لكي تظل قاعدتاه أفقيتين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform lamina is in the shape of an isosceles trapezoid with parallel bases $a = 12\\text{ cm}$ and $b = 6\\text{ cm}$, and height $h = 9\\text{ cm}$. At what distance $y_G$ from the longer base does its center of gravity lie?",
     "questionAr": "صفيحة منتظمة على شكل شبه منحرف متساوي الساقين طول قاعدتيه المتوازيتين $a = 12\\text{ سم}$ و $b = 6\\text{ سم}$ وارتفاعه $h = 9\\text{ سم}$. على أي بُعد $y_G$ من القاعدة الكبرى يقع مركز ثقل الصفيحة؟",
     "optionsEn": [
@@ -6783,7 +6763,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Loaded Uniform Rod Pivoted on an Incline",
     "titleAr": "اتزان قضيب معلق بأوزان إضافية تجعل خطه أفقياً",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform rod $AB$ of weight $W = 30\\text{ N}$ and length $60\\text{ cm}$ is freely suspended from a point $C$ on the rod where $AC = 20\\text{ cm}$. What mass $m$ (weight $w$) must be attached at end $A$ so that the rod balances horizontally?",
     "questionAr": "قضيب منتظم $AB$ وزنه $W = 30\\text{ ن}$ وطوله $60\\text{ سم}$ عُلق تعليقاً حراً من نقطة $C$ عليه حيث $AC = 20\\text{ سم}$. ما الثقل $w$ الذي يجب تعليقه عند الطرف $A$ لكي يتزن القضيب في وضع أفقي؟",
     "optionsEn": [
@@ -6825,7 +6804,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of a Wire Frame Comprising a Circle and a Diameter",
     "titleAr": "مركز ثقل إطار سلكي مكوّن من دائرة وقطر فيها",
     "difficulty": "hots",
-    "diagramType": "circle",
     "questionEn": "A uniform wire of linear density $\\lambda$ is fashioned into a circular hoop of radius $r$ and a straight diameter $AB$. Find the center of gravity of the combined wire frame.",
     "questionAr": "سلك منتظم صُنع منه إطار يتكون من طوق دائري نصف قطره $r$ وقطر مستقيم فيه $AB$. أين يقع مركز ثقل هذا الإطار السلكي؟",
     "optionsEn": [
@@ -6862,7 +6840,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Maximum Overhang of Identical Stapped Domino Blocks",
     "titleAr": "أقصى بروز لقطع متطابقة موضوعة فوق بعضها",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Three identical uniform rectangular blocks each of length $L = 12\\text{ cm}$ are stacked one on top of another over the edge of a table. What is the maximum total horizontal overhang $d$ the topmost block can extend past the edge of the table without toppling?",
     "questionAr": "ثلاث قوالب مستطيلة منتظمة متطابقة طول كل منها $L = 12\\text{ سم}$ وُضعت فوق بعضها عند حافة طاولة. ما أقصى بروز أفقي كلي $d$ يمكن أن يمتد به القالب العلوي متجاوزاً حافة الطاولة دون أن تسقط المجموعة؟",
     "optionsEn": [
@@ -6903,7 +6880,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Center of Gravity of an L-Shaped Wire with Variable Linear Density",
     "titleAr": "مركز ثقل سلكين متعامدين بكثافتين طوليتين مختلفتين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two rods $OA$ and $OB$ are joined at right angles at $O(0, 0)$. Rod $OA$ has length $30\\text{ cm}$ and weight $60\\text{ N}$ along the $x$-axis. Rod $OB$ has length $40\\text{ cm}$ and weight $40\\text{ N}$ along the $y$-axis. Find the coordinates of the center of gravity of the combined system.",
     "questionAr": "قضيبان $OA$ و $OB$ لحما معاً عند $O(0, 0)$ بزاوية قائمة. القضيب $OA$ طوله $30\\text{ سم}$ ووزنه $60\\text{ ن}$ منطبق على محور $x$. والقضيب $OB$ طوله $40\\text{ سم}$ ووزنه $40\\text{ ن}$ منطبق على محور $y$. أوجد إحداثيي مركز ثقل المنظومة.",
     "optionsEn": [
@@ -6946,7 +6922,6 @@ export const statCh6Databank: ChapterDatabank = {
     "titleEn": "Invariant Center of Gravity of a Regular Polygon with Symmetrically Altered Vertices",
     "titleAr": "ثبات مركز ثقل صفيحة سداسية منتظمة عند قطع مثلثات متماثلة من أركانها",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A uniform regular hexagon lamina of side $a$ and center at the origin $O(0, 0)$ has six identical equilateral triangles each of side $s < \\frac{a}{2}$ cut out from each of its six vertices symmetrically. What are the coordinates of the center of gravity of the remaining lamina?",
     "questionAr": "صفيحة منتظمة على شكل سداسي منتظم طول ضلعه $a$ ومركزها عند نقطة الأصل $O(0, 0)$. قُطعت ستة مثلثات متساوية الأضلاع متطابقة طول ضلع كل منها $s < \\frac{a}{2}$ من رؤوسه الستة بتماثل تام. ما إحداثيا مركز ثقل الصفيحة المتبقية؟",
     "optionsEn": [

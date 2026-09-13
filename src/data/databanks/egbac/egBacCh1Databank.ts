@@ -1737,7 +1737,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Orthogonal Projection of a Vector",
     "titleAr": "المسقط المتعامد لمتجه",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the vector orthogonal projection of $\\vec{u} = (3, 4, 0)$ onto $\\vec{v} = (1, 0, 0)$ in $\\mathbb{R}^3$.",
     "questionAr": "أوجد المسقط المتعامد للمتجه $\\vec{u} = (3, 4, 0)$ على المتجه $\\vec{v} = (1, 0, 0)$ في $\\mathbb{R}^3$.",
     "optionsEn": [
@@ -1774,7 +1773,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Scalar Component of a Vector Along Another",
     "titleAr": "المركبة الجبرية لمتجه في اتجاه آخر",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the scalar projection (algebraic component) of $\\vec{a} = (4, -2, 4)$ along the direction of $\\vec{b} = (1, 2, 2)$.",
     "questionAr": "أوجد المركبة الجبرية للمتجه $\\vec{a} = (4, -2, 4)$ في اتجاه المتجه $\\vec{b} = (1, 2, 2)$.",
     "optionsEn": [
@@ -1811,7 +1809,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Parametric Line Equations in 3D",
     "titleAr": "المعادلات البارامترية لخط مستقيم في الفراغ",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Which of the following represents the parametric equations of the straight line passing through point $A(1, -2, 3)$ with direction vector $\\vec{d} = (3, 0, -4)$?",
     "questionAr": "أي مما يلي يمثل المعادلات البارامترية للمستقيم المار بالنقطة $A(1, -2, 3)$ ومتجه اتجاهه $\\vec{d} = (3, 0, -4)$؟",
     "optionsEn": [
@@ -1846,7 +1843,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Distance from a Point to a Coordinate Plane",
     "titleAr": "بعد نقطة عن مستوى إحداثي",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the perpendicular distance from the point $P(2, -5, 7)$ to the $xy$-coordinate plane ($z = 0$)?",
     "questionAr": "ما هو البعد العمودي للنقطة $P(2, -5, 7)$ عن المستوى الإحداثي $xy$ ($z = 0$)؟",
     "optionsEn": [
@@ -1881,7 +1877,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Center and Radius of a Sphere",
     "titleAr": "مركز ونصف قطر كرة في الفراغ",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the center and radius of the sphere whose equation is $x^2 + y^2 + z^2 - 4x + 6y - 2z - 10 = 0$.",
     "questionAr": "أوجد مركز ونصف قطر الكرة التي معادلتها $x^2 + y^2 + z^2 - 4x + 6y - 2z - 10 = 0$.",
     "optionsEn": [
@@ -1918,7 +1913,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Orthogonality Condition for Two Planes",
     "titleAr": "شرط تعامد مستويين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "For what value of $k$ are the two planes $\\pi_1: 2x - y + 3z = 4$ and $\\pi_2: kx + 4y + 2z = 9$ perpendicular?",
     "questionAr": "ما قيمة $k$ التي تجعل المستويين $\\pi_1: 2x - y + 3z = 4$ و $\\pi_2: kx + 4y + 2z = 9$ متعامدين؟",
     "optionsEn": [
@@ -1955,7 +1949,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Direction Angle with the Z-axis",
     "titleAr": "زاوية الاتجاه مع محور ع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the direction angle $\\gamma$ that the vector $\\vec{v} = (1, 1, \\sqrt{2})$ makes with the positive $z$-axis.",
     "questionAr": "أوجد زاوية الاتجاه $\\gamma$ التي يصنعها المتجه $\\vec{v} = (1, 1, \\sqrt{2})$ مع الاتجاه الموجب لمحور $z$.",
     "optionsEn": [
@@ -1992,7 +1985,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Area of a 3D Triangle Spanned by Two Vectors",
     "titleAr": "مساحة مثلث في الفراغ محدد بمتجهين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the area of the triangle in $\\mathbb{R}^3$ determined by vertices $A(0, 0, 0)$, $B(2, 0, 0)$, and $C(0, 3, 0)$.",
     "questionAr": "أوجد مساحة المثلث في $\\mathbb{R}^3$ المحدد بالرؤوس $A(0, 0, 0)$ و $B(2, 0, 0)$ و $C(0, 3, 0)$.",
     "optionsEn": [
@@ -3812,7 +3804,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Volume of a Parallelepiped via Scalar Triple Product",
     "titleAr": "حجم متوازي السطوح بالضرب الثلاثي القياسي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Calculate the volume of the parallelepiped determined by the three coterminous vectors $\\vec{u} = (2, 1, -1)$, $\\vec{v} = (1, -1, 3)$, and $\\vec{w} = (3, 2, 1)$.",
     "questionAr": "احسب حجم متوازي السطوح المحدد بالمتجهات الثلاثة غير المستوية $\\vec{u} = (2, 1, -1)$ و $\\vec{v} = (1, -1, 3)$ و $\\vec{w} = (3, 2, 1)$.",
     "optionsEn": [
@@ -3851,7 +3842,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Distance Between Two Parallel Planes",
     "titleAr": "البعد بين مستويين متوازيين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the distance between the two parallel planes $\\pi_1: 2x - y + 2z - 5 = 0$ and $\\pi_2: 2x - y + 2z + 13 = 0$.",
     "questionAr": "أوجد البعد بين المستويين المتوازيين $\\pi_1: 2x - y + 2z - 5 = 0$ و $\\pi_2: 2x - y + 2z + 13 = 0$.",
     "optionsEn": [
@@ -3890,7 +3880,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Plane Perpendicular to a Line Through a Point",
     "titleAr": "معادلة مستوى عمودي على مستقيم ويمر بنقطة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the plane passing through $P(1, 1, 2)$ and perpendicular to the line $\\frac{x - 2}{3} = \\frac{y + 1}{-2} = \\frac{z - 4}{5}$.",
     "questionAr": "أوجد معادلة المستوى المار بالنقطة $P(1, 1, 2)$ والعمودي على المستقيم $\\frac{x - 2}{3} = \\frac{y + 1}{-2} = \\frac{z - 4}{5}$.",
     "optionsEn": [
@@ -3927,7 +3916,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Intersection of a Line and a Plane",
     "titleAr": "نقطة تقاطع مستقيم مع مستوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the intersection point of the line $\\vec{r}(t) = (1 + 2t, -1 + t, 3 - t)$ with the plane $2x + 3y - z + 4 = 0$.",
     "questionAr": "أوجد نقطة تقاطع المستقيم $\\vec{r}(t) = (1 + 2t, -1 + t, 3 - t)$ مع المستوى $2x + 3y - z + 4 = 0$.",
     "optionsEn": [
@@ -3969,7 +3957,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Direction Vector of Intersection Line of Two Planes",
     "titleAr": "متجه اتجاه خط تقاطع مستويين",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the direction vector $\\vec{d}$ of the line formed by the intersection of the two planes $\\pi_1: x + y - z = 1$ and $\\pi_2: 2x - y + z = 2$.",
     "questionAr": "أوجد متجه الاتجاه $\\vec{d}$ لخط تقاطع المستويين $\\pi_1: x + y - z = 1$ و $\\pi_2: 2x - y + z = 2$.",
     "optionsEn": [
@@ -4007,7 +3994,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Shortest Distance from a Point to a 3D Line",
     "titleAr": "أقصر بعد من نقطة إلى خط مستقيم في الفراغ",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the distance from the point $P(1, 0, 1)$ to the line $\\vec{r}(t) = t(0, 1, 0)$ ($y$-axis).",
     "questionAr": "أوجد بعد النقطة $P(1, 0, 1)$ عن المستقيم $\\vec{r}(t) = t(0, 1, 0)$ (محور الصادات).",
     "optionsEn": [
@@ -4042,7 +4028,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Sphere with Diameter Given by Two Endpoints",
     "titleAr": "معادلة كرة بمعلومية نهايتي قطر فيها",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the sphere having the line segment connecting $A(1, -2, 3)$ and $B(3, 4, -1)$ as a diameter.",
     "questionAr": "أوجد معادلة الكرة التي يمثل القطعة المستقيمة الواصلة بين $A(1, -2, 3)$ و $B(3, 4, -1)$ قطراً فيها.",
     "optionsEn": [
@@ -4079,7 +4064,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Angle Between a Line and a Plane",
     "titleAr": "الزاوية بين مستقيم ومستوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the sine of the angle $\\theta$ between the line with direction vector $\\vec{d} = (1, 2, 2)$ and the plane with normal vector $\\vec{n} = (2, -1, 2)$.",
     "questionAr": "أوجد جيب الزاوية $\\theta$ المحصورة بين المستقيم الذي متجه اتجاهه $\\vec{d} = (1, 2, 2)$ والمستوى الذي متجه العمودي عليه $\\vec{n} = (2, -1, 2)$.",
     "optionsEn": [
@@ -4116,7 +4100,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Reflection of a Point Across a Plane",
     "titleAr": "انعكاس نقطة بالنسبة لمستوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the coordinates of the reflection $P'$ of the point $P(1, 2, 3)$ across the plane $x = 0$ ($yz$-coordinate plane).",
     "questionAr": "أوجد إحداثيات صورة النقطة $P(1, 2, 3)$ بالانعكاس في المستوى $x = 0$ (المستوى الإحداثي $yz$).",
     "optionsEn": [
@@ -5933,7 +5916,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Shortest Distance Between Skew Lines",
     "titleAr": "أقصر مسافة بين مستقيمين متخالفين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the shortest distance between the two skew lines $L_1: \\vec{r}_1(t) = (1, 0, -1) + t(1, 2, 0)$ and $L_2: \\vec{r}_2(s) = (2, 1, 1) + s(0, 1, 1)$.",
     "questionAr": "أوجد أقصر مسافة بين المستقيمين المتخالفين $L_1: \\vec{r}_1(t) = (1, 0, -1) + t(1, 2, 0)$ و $L_2: \\vec{r}_2(s) = (2, 1, 1) + s(0, 1, 1)$.",
     "optionsEn": [
@@ -5974,7 +5956,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Pencil of Planes Through Line of Intersection",
     "titleAr": "حزمة المستويات المارة بخط التقاطع",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the plane passing through the line of intersection of $\\pi_1: x + y + z - 1 = 0$ and $\\pi_2: 2x + 3y - z + 2 = 0$, and passing through the origin $(0, 0, 0)$.",
     "questionAr": "أوجد معادلة المستوى المار بخط تقاطع المستويين $\\pi_1: x + y + z - 1 = 0$ و $\\pi_2: 2x + 3y - z + 2 = 0$ ويمر بنقطة الأصل $(0, 0, 0)$.",
     "optionsEn": [
@@ -6014,7 +5995,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Sphere Tangent to a Plane",
     "titleAr": "كرة تمس مستوى معلوماً",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the equation of the sphere with center $C(2, -1, 3)$ that is tangent to the plane $2x - 2y + z + 7 = 0$.",
     "questionAr": "أوجد معادلة الكرة التي مركزها $C(2, -1, 3)$ وتمس المستوى $2x - 2y + z + 7 = 0$.",
     "optionsEn": [
@@ -6053,7 +6033,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Intersection Circle of a Sphere and a Plane",
     "titleAr": "دائرة تقاطع كرة مع مستوى",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A sphere is given by $x^2 + y^2 + z^2 = 25$. A plane $z = 3$ intersects the sphere in a circle. Find the radius $\\rho$ of this intersection circle.",
     "questionAr": "كرة معادلتها $x^2 + y^2 + z^2 = 25$. يقطعها المستوى $z = 3$ في دائرة. ما هو نصف قطر دائرة التقاطع $\\rho$؟",
     "optionsEn": [
@@ -6090,7 +6069,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Volume of a Tetrahedron with Coordinate Planes",
     "titleAr": "حجم رباعي السطوح المتكون مع المستويات الإحداثية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the volume of the tetrahedron bounded by the coordinate planes ($x=0, y=0, z=0$) and the plane $\\frac{x}{3} + \\frac{y}{4} + \\frac{z}{6} = 1$.",
     "questionAr": "أوجد حجم رباعي السطوح المحصور بين المستويات الإحداثية ($x=0, y=0, z=0$) والمستوى $\\frac{x}{3} + \\frac{y}{4} + \\frac{z}{6} = 1$.",
     "optionsEn": [
@@ -6127,7 +6105,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Linear Dependence and Coplanarity of Four Points",
     "titleAr": "الارتباط الخطي ووقوع أربع نقاط في مستوى واحد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For what value of $k$ are the four points $A(1, 2, -1)$, $B(0, 1, 5)$, $C(-1, 2, 1)$, and $D(k, 1, 3)$ coplanar in $\\mathbb{R}^3$?",
     "questionAr": "ما قيمة $k$ التي تجعل النقاط الأربع $A(1, 2, -1)$ و $B(0, 1, 5)$ و $C(-1, 2, 1)$ و $D(k, 1, 3)$ تقع في مستوى واحد في $\\mathbb{R}^3$؟",
     "optionsEn": [
@@ -6165,7 +6142,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Orthogonal Projection of a Line onto a Plane",
     "titleAr": "المسقط المتعامد لمستقيم على مستوى",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "What is the projection of the line $\\vec{r}(t) = (2, 3, 1 + t)$ onto the $xy$-plane ($z = 0$)?",
     "questionAr": "ما هو مسقط المستقيم $\\vec{r}(t) = (2, 3, 1 + t)$ على المستوى الإحداثي $xy$ ($z = 0$)؟",
     "optionsEn": [
@@ -6202,7 +6178,6 @@ export const egBacCh1Databank: ChapterDatabank = {
     "titleEn": "Distance Between Point and Skew Line Geometry",
     "titleAr": "أقصر مسافة ونقطة التماس على كرة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Find the minimum distance from the external point $P(6, 8, 0)$ to any point on the sphere $x^2 + y^2 + z^2 = 25$.",
     "questionAr": "أوجد أقصر مسافة من النقطة الخارجية $P(6, 8, 0)$ إلى أي نقطة تقع على سطح الكرة $x^2 + y^2 + z^2 = 25$.",
     "optionsEn": [

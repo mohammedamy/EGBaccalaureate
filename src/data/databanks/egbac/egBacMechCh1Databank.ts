@@ -1707,7 +1707,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Magnitude of Velocity in Planar Motion",
     "titleAr": "معيار متجه السرعة في حركة مستوية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in the $xy$-plane with position vector $\\vec{r}(t) = (3t, 4t, 0)\\text{ m}$. Find the magnitude of its velocity (speed) at any time $t$.",
     "questionAr": "يتحرك جسيم في المستوى $xy$ بمتجه موضع $\\vec{r}(t) = (3t, 4t, 0)\\text{ م}$. أوجد معيار سرعته (السرعة القياسية) عند أي لحظة $t$.",
     "optionsEn": [
@@ -1742,7 +1741,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Tangential Acceleration in Uniform Circular Motion",
     "titleAr": "العجلة المماسية في الحركة الدائرية المنتظمة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body moves along a circular path of radius $R = 10\\text{ m}$ at a constant speed of $v = 4\\text{ m/s}$. What is its tangential acceleration $a_t$?",
     "questionAr": "يتحرك جسم على مسار دائري نصف قطره $R = 10\\text{ م}$ بسرعة قياسية ثابتة $v = 4\\text{ م/ث}$. ما مقدار عجلته المماسية $a_t$؟",
     "optionsEn": [
@@ -1779,7 +1777,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Centripetal (Normal) Acceleration",
     "titleAr": "العجلة العمودية (المركزية)",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A vehicle rounds a curve of radius $R = 25\\text{ m}$ at a speed of $v = 10\\text{ m/s}$. Find its normal (centripetal) acceleration $a_n$.",
     "questionAr": "تنعطف سيارة على منحنى نصف قطره $R = 25\\text{ م}$ بسرعة $v = 10\\text{ م/ث}$. أوجد عجلتها العمودية (المركزية) $a_n$.",
     "optionsEn": [
@@ -1814,7 +1811,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Linear Speed from Angular Velocity",
     "titleAr": "السرعة الخطية بمعلومية السرعة الزاوية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A disk rotates at a constant angular velocity $\\omega = 5\\text{ rad/s}$. What is the linear speed of a point on the rim at distance $r = 0.4\\text{ m}$ from the axis?",
     "questionAr": "يدور قرص بسرعة زاوية منتظمة $\\omega = 5\\text{ راد/ث}$. ما هي السرعة الخطية لنقطة على حافته تبعد مسافة $r = 0.4\\text{ م}$ عن محور الدوران؟",
     "optionsEn": [
@@ -1849,7 +1845,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Total Acceleration from Tangential and Normal Components",
     "titleAr": "العجلة الكلية من المركبتين المماسية والعمودية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle in curvilinear motion has tangential acceleration $a_t = 6\\text{ m/s}^2$ and normal acceleration $a_n = 8\\text{ m/s}^2$. Find the magnitude of its total acceleration $a$.",
     "questionAr": "جسيم يتحرك في مسار منحنٍ، عجلته المماسية $a_t = 6\\text{ م/ث}^2$ وعجلته العمودية $a_n = 8\\text{ م/ث}^2$. أوجد مقدار عجلته الكلية $a$.",
     "optionsEn": [
@@ -1884,7 +1879,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Maximum Height of a Projectile",
     "titleAr": "أقصى ارتفاع لقذيفة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile is launched from ground level with speed $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 30^\\circ$ above the horizontal. Taking $g = 10\\text{ m/s}^2$, find its maximum height $H$.",
     "questionAr": "أُطلقت قذيفة من مستوى الأرض بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 30^\\circ$ مع الأفقي. باعتبار $g = 10\\text{ م/ث}^2$، أوجد أقصى ارتفاع $H$ تبلغه القذيفة.",
     "optionsEn": [
@@ -1919,7 +1913,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Radial Velocity in Polar Coordinates",
     "titleAr": "السرعة القطرية في الإحداثيات القطبية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in polar coordinates with radial distance $r(t) = 3t^2 + 1\\text{ m}$. Find its radial velocity component $v_r = \\dot{r}$ at time $t = 2\\text{ s}$.",
     "questionAr": "يتحرك جسيم بالإحداثيات القطبية بنصف قطر موضعي $r(t) = 3t^2 + 1\\text{ م}$. أوجد مركبة السرعة القطرية $v_r = \\dot{r}$ عند اللحظة $t = 2\\text{ ثانية}$.",
     "optionsEn": [
@@ -1954,7 +1947,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Time of Flight of a Horizontal Projectile",
     "titleAr": "زمن هبوط قذيفة أُطلقت أفقياً",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball is thrown horizontally from a cliff of height $h = 45\\text{ m}$ with initial speed $v_0 = 15\\text{ m/s}$. Taking $g = 10\\text{ m/s}^2$, how long does it take to hit the ground?",
     "questionAr": "أُلقيت كرة أفقياً من قمة جرف ارتفاعه $h = 45\\text{ م}$ بسرعة ابتدائية $v_0 = 15\\text{ م/ث}$. باعتبار $g = 10\\text{ م/ث}^2$، ما هو الزمن اللازم لتصل إلى الأرض؟",
     "optionsEn": [
@@ -3821,7 +3813,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Radius of Curvature at the Vertex of a Parabola",
     "titleAr": "نصف قطر انحناء قطع مكافئ عند رأسه",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves along the parabolic path $y = x^2$. Find the radius of curvature $\\rho$ at the vertex $(0, 0)$.",
     "questionAr": "يتحرك جسيم على مسار قطع مكافئ $y = x^2$. أوجد نصف قطر الانحناء $\\rho$ عند رأس القطع $(0, 0)$.",
     "optionsEn": [
@@ -3858,7 +3849,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Transverse Acceleration (Coriolis Term)",
     "titleAr": "العجلة المستعرضة ومصطلح كوريوليس",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In polar coordinates, a particle has $r = 4\\text{ m}$, $\\dot{r} = 3\\text{ m/s}$, $\\dot{\\theta} = 2\\text{ rad/s}$, and $\\ddot{\\theta} = 0$. Compute the transverse acceleration $a_\\theta$.",
     "questionAr": "في الإحداثيات القطبية، لجسيم $r = 4\\text{ م}$، $\\dot{r} = 3\\text{ م/ث}$، $\\dot{\\theta} = 2\\text{ راد/ث}$، و $\\ddot{\\theta} = 0$. احسب العجلة المستعرضة $a_\\theta$.",
     "optionsEn": [
@@ -3893,7 +3883,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Horizontal Range of a Projectile",
     "titleAr": "المدى الأفقي لقذيفة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile is launched with speed $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 45^\\circ$ over horizontal ground. Taking $g = 10\\text{ m/s}^2$, find its horizontal range $R$.",
     "questionAr": "أُطلقت قذيفة بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 45^\\circ$ على أرض أفقية. باعتبار $g = 10\\text{ م/ث}^2$، أوجد المدى الأفقي $R$.",
     "optionsEn": [
@@ -3930,7 +3919,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Tangential Acceleration from Velocity as a Function of Distance",
     "titleAr": "العجلة المماسية بدلالة المسافة المقطوعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle travels along a curved path such that its speed is given by $v(s) = \\sqrt{20s}\\text{ m/s}$, where $s$ is the arc length distance. Find its tangential acceleration $a_t$.",
     "questionAr": "يتحرك جسيم على مسار منحنٍ بحيث سرعته تعطى بالعلاقة $v(s) = \\sqrt{20s}\\text{ م/ث}$ حيث $s$ طول القوس المقطوع. أوجد عجلته المماسية $a_t$.",
     "optionsEn": [
@@ -3967,7 +3955,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Normal Acceleration at Projectile Peak",
     "titleAr": "العجلة العمودية ونصف قطر الانحناء عند ذروة القذيفة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile is fired at $v_0 = 20\\text{ m/s}$ at an angle $\\theta = 60^\\circ$. At the highest point of its trajectory, what is its normal acceleration $a_n$?",
     "questionAr": "أُطلقت قذيفة بسرعة $v_0 = 20\\text{ م/ث}$ وبزاوية $\\theta = 60^\\circ$. عند أعلى نقطة في مسارها، ما مقدار عجلتها العمودية $a_n$؟",
     "optionsEn": [
@@ -4004,7 +3991,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Angle Between Acceleration and Velocity Vectors",
     "titleAr": "الزاوية بين متجهي السرعة والعجلة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "At a certain instant, a car speeding up along a circular track has tangential acceleration equal to its normal acceleration ($a_t = a_n$). What is the angle $\\phi$ between its total acceleration vector and velocity vector?",
     "questionAr": "في لحظة معينة، تتسارع سيارة على مسار دائري بحيث تساوت عجلتها المماسية مع عجلتها العمودية ($a_t = a_n$). ما هي الزاوية $\\phi$ بين متجه العجلة الكلية ومتجه السرعة؟",
     "optionsEn": [
@@ -4043,7 +4029,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Rate of Change of Direction Angle along a Curve",
     "titleAr": "معدل تغير زاوية اتجاه المماس على المسار",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle travels with constant speed $v = 15\\text{ m/s}$ along a curve whose radius of curvature is $\\rho = 75\\text{ m}$. What is the time rate of change of the inclination angle of the velocity vector, $\\dot{\\phi} = \\frac{d\\phi}{dt}$?",
     "questionAr": "يتحرك جسيم بسرعة ثابتة $v = 15\\text{ م/ث}$ على مسار نصف قطر انحنائه $\\rho = 75\\text{ م}$. ما معدل تغير زاوية ميل متجه السرعة مع الزمن $\\dot{\\phi} = \\frac{d\\phi}{dt}$؟",
     "optionsEn": [
@@ -4080,7 +4065,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Radial Acceleration in Uniform Circular Motion",
     "titleAr": "العجلة القطرية في الحركة الدائرية المنتظمة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves along a circle of fixed radius $r = R$ at constant angular speed $\\dot{\\theta} = \\omega$. What is its radial acceleration component $a_r = \\ddot{r} - r\\dot{\\theta}^2$?",
     "questionAr": "يتحرك جسيم على دائرة نصف قطرها ثابت $r = R$ بسرعة زاوية منتظمة $\\dot{\\theta} = \\omega$. ما هي مركبة عجلته القطرية $a_r = \\ddot{r} - r\\dot{\\theta}^2$؟",
     "optionsEn": [
@@ -4117,7 +4101,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Cartesian Trajectory Equation from Parametric Projectile Motion",
     "titleAr": "معادلة المسار الكارتيزية لحركة المقذوف",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile has parametric equations $x(t) = 10t$ and $y(t) = 20t - 5t^2$ (in meters). What is the Cartesian equation of its trajectory $y(x)$?",
     "questionAr": "قذيفة معادلاتها البارامترية $x(t) = 10t$ و $y(t) = 20t - 5t^2$ (بالأمتار). ما هي المعادلة الكارتيزية لمسارها $y(x)$؟",
     "optionsEn": [
@@ -6056,7 +6039,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Radius of Curvature of a 3D Circular Helix",
     "titleAr": "نصف قطر انحناء لولب دائري ثلاثي الأبعاد",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves along a circular helix $\\vec{r}(t) = (R\\cos\\omega t, R\\sin\\omega t, c t)$ where $R, \\omega, c$ are positive constants. Find its radius of curvature $\\rho$.",
     "questionAr": "يتحرك جسيم على مسار لولب دائري $\\vec{r}(t) = (R\\cos\\omega t, R\\sin\\omega t, c t)$ حيث $R, \\omega, c$ ثوابت موجبة. أوجد نصف قطر انحنائه $\\rho$.",
     "optionsEn": [
@@ -6098,7 +6080,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Speed of Point on Rim of a Rolling Wheel (Cycloid)",
     "titleAr": "سرعة نقطة على محيط عجلة متدحرجة (حركة دحروجية)",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A wheel of radius $R$ rolls without slipping on a horizontal floor at constant center speed $v_c$. What is the linear speed $v_{\\text{top}}$ of the point at the very top of the wheel?",
     "questionAr": "عجلة نصف قطرها $R$ تتدحرج دون انزلاق على أرض أفقية بسرعة مركز ثابتة $v_c$. ما هي السرعة الخطية $v_{\\text{top}}$ للنقطة الواقعة في أعلى نقطة على محيط العجلة؟",
     "optionsEn": [
@@ -6137,7 +6118,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Conservation of Areal Velocity in a Central Force Field",
     "titleAr": "حفظ السرعة المساحية في مجال قوة مركزية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "For a particle under the influence of any central force field $\\vec{F} = F(r) \\hat{r}$, why is the areal velocity $\\frac{dA}{dt} = \\frac{1}{2} r^2 \\dot{\\theta}$ strictly constant in time?",
     "questionAr": "لجسيم يتحرك تحت تأثير أي مجال قوة مركزية $\\vec{F} = F(r) \\hat{r}$، لماذا تكون السرعة المساحية $\\frac{dA}{dt} = \\frac{1}{2} r^2 \\dot{\\theta}$ ثابتة تماماً مع الزمن؟",
     "optionsEn": [
@@ -6176,7 +6156,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Particle Sliding on a Vertical Smooth Circular Track",
     "titleAr": "انزلاق جسيم على مسار دائري رأسي أملس",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A small bead of mass $m$ slides from rest at the very top (angle $\\theta = 0$) of a smooth vertical circular hoop of radius $R$. At what angle $\\theta$ from the vertical does the bead lose contact with the hoop (normal force $N = 0$)?",
     "questionAr": "خرزة كتلتها $m$ تنزلق من السكون من قمة طوق دائري رأسي أملس نصف قطره $R$ (عند $\\theta = 0$). عند أي زاوية $\\theta$ مع الرأسي ينعدم رد الفعل العمودي $N = 0$ وتفارق الخرزة السطح؟",
     "optionsEn": [
@@ -6215,7 +6194,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Terminal Velocity under Linear Air Drag",
     "titleAr": "السرعة الحدية تحت تأثير مقاومة هواء خطية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body of mass $m$ falls from rest under gravity subject to a linear air resistance force $\\vec{F}_d = -k\\vec{v}$. What is its asymptotic terminal velocity $v_{\\text{term}}$?",
     "questionAr": "يسقط جسم كتلته $m$ من السكون تحت تأثير الجاذبية ومقاومة هواء خطية $\\vec{F}_d = -k\\vec{v}$. ما هي سرعته الحدية النهائية $v_{\\text{term}}$؟",
     "optionsEn": [
@@ -6252,7 +6230,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Brachistochrone Curve Property",
     "titleAr": "خاصية منحنى أسرع هبوط (البراكستوكرون)",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Under the action of uniform gravity without friction, what curve connects two points at different heights such that a particle slides between them in the minimum possible time?",
     "questionAr": "تحت تأثير الجاذبية المنتظمة وبدون احتكاك، ما هو المنحنى الواصل بين نقطتين على ارتفاعين مختلفين بحيث ينزلق الجسيم بينهما في أقل زمن ممكن؟",
     "optionsEn": [
@@ -6289,7 +6266,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Binet's Equation for Central Force Orbits",
     "titleAr": "معادلة بينيه للمدارات في مجال القوى المركزية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In Binet's equation $\\frac{d^2 u}{d\\theta^2} + u = -\\frac{F(1/u)}{m h^2 u^2}$ with $u = \\frac{1}{r}$, an inverse-square attractive central force $F(r) = -\\frac{k}{r^2}$ leads to which type of trajectories?",
     "questionAr": "في معادلة بينيه $\\frac{d^2 u}{d\\theta^2} + u = -\\frac{F(1/u)}{m h^2 u^2}$ حيث $u = \\frac{1}{r}$، فإن قوة جذب مركزية تتناسب عكسياً مع مربع المسافة $F(r) = -\\frac{k}{r^2}$ تنتج أي نوع من المسارات؟",
     "optionsEn": [
@@ -6327,7 +6303,6 @@ export const egBacMechCh1Databank: ChapterDatabank = {
     "titleEn": "Parabola of Safety (Projectile Enveloping Surface)",
     "titleAr": "غلاف الأمان (قطع الأمان المكافئ) للمقذوفات",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A cannon at the origin can fire shells with a fixed muzzle speed $v_0$ in any direction in the vertical plane. What is the boundary equation (parabola of safety) enclosing all reachable points?",
     "questionAr": "مدفع عند نقطة الأصل يمكنه إطلاق قذائف بسرعة فوهة ثابتة $v_0$ في أي اتجاه في المستوى الرأسي. ما هي معادلة الغلاف الخارجي (قطع الأمان المكافئ) الذي يحيط بجميع النقاط التي يمكن إصابتها؟",
     "optionsEn": [

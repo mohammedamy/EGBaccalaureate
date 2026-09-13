@@ -1727,7 +1727,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Instantaneous Velocity from Displacement Function",
     "titleAr": "السرعة اللحظية من دالة الإزاحة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a straight line such that its displacement $s$ (in meters) at time $t$ (in seconds) is given by $s(t) = 3t^2 - 12t + 5$. At what time $t$ does the particle momentarily come to rest?",
     "questionAr": "يتحرك جسيم في خط مستقيم بحيث تعطى إزاحته $s$ (بالمتر) عند اللحظة $t$ (بالثانية) بالعلاقة $s(t) = 3t^2 - 12t + 5$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
     "optionsEn": [
@@ -1762,7 +1761,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Acceleration from Velocity as a Function of Position",
     "titleAr": "العجلة من دالة السرعة بدلالة الموضع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a straight line such that its velocity $v$ (in m/s) is given in terms of position $x$ (in meters) by $v = 4x + 3$. Find the acceleration $a$ of the particle when $x = 2\\text{ m}$.",
     "questionAr": "يتحرك جسيم في خط مستقيم بحيث تعطى سرعته $v$ (بالمتر/ثانية) بدلالة الموضع $x$ (بالمتر) بالعلاقة $v = 4x + 3$. أوجد عجلة الجسيم $a$ عندما $x = 2\\text{ م}$.",
     "optionsEn": [
@@ -1799,7 +1797,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Displacement from Velocity-Time Integration",
     "titleAr": "الإزاحة من تكامل منحنى السرعة مع الزمن",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body moves in a straight line with velocity $v(t) = 6t - 4\\text{ m/s}$. Find its displacement $\\Delta s$ during the time interval from $t = 1\\text{ s}$ to $t = 3\\text{ s}$.",
     "questionAr": "يتحرك جسم في خط مستقيم بسرعة $v(t) = 6t - 4\\text{ م/ث}$. أوجد إزاحته $\\Delta s$ خلال الفترة الزمنية من $t = 1\\text{ ث}$ إلى $t = 3\\text{ ث}$.",
     "optionsEn": [
@@ -1838,7 +1835,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Accelerated vs Decelerated Motion Condition",
     "titleAr": "شرط الحركة المتسارعة والمتباطئة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rectilinear motion is described as accelerated (speed increasing) if and only if:",
     "questionAr": "تُوصف الحركة المستقيمة بأنها حركة متسارعة إذا وفقط إذا كان:",
     "optionsEn": [
@@ -1875,7 +1871,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Position from Acceleration Initial Value Problem",
     "titleAr": "تحديد الموضع من العجلة والشروط الابتدائية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle starts from rest from the point $x_0 = 3\\text{ m}$ with constant acceleration $a = 4\\text{ m/s}^2$. Find its position $x$ at $t = 5\\text{ s}$.",
     "questionAr": "بدأ جسيم حركته من السكون من النقطة $x_0 = 3\\text{ م}$ بعجلة منتظمة $a = 4\\text{ م/ث}^2$. أوجد موضع الجسيم $x$ عند $t = 5\\text{ ث}$.",
     "optionsEn": [
@@ -1912,7 +1907,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Slope of the Velocity-Time Graph",
     "titleAr": "ميل المماس لمنحنى السرعة مع الزمن",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In a rectilinear motion graph of velocity $v$ versus time $t$, what physical quantity is represented by the slope of the tangent to the curve at any instant?",
     "questionAr": "في الرسم البياني للعلاقة بين السرعة $v$ والزمن $t$ لحركة مستقيمة، ما الكمية الفيزيائية التي يمثلها ميل المماس للمنحنى عند أي لحظة؟",
     "optionsEn": [
@@ -1949,7 +1943,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Velocity Integral with Respect to Position",
     "titleAr": "تكامل العجلة بالنسبة للموضع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "If acceleration $a$ is given as a function of position $x$, the fundamental integral relation connecting velocity and acceleration between positions $x_1$ and $x_2$ is:",
     "questionAr": "إذا كانت العجلة $a$ معطاة كدالة في الموضع $x$، فإن العلاقة التكاملية الأساسية التي تربط بين السرعة والعجلة بين الموضعين $x_1$ و $x_2$ هي:",
     "optionsEn": [
@@ -1988,7 +1981,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Maximum Velocity from Acceleration Zero-Crossing",
     "titleAr": "السرعة القصوى عند انعدام العجلة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves such that its velocity $v(t) = -t^2 + 6t + 7\\text{ m/s}$ for $t \\ge 0$. Find the maximum velocity reached by the particle.",
     "questionAr": "يتحرك جسيم بحيث تعطى سرعته بالعلاقة $v(t) = -t^2 + 6t + 7\\text{ م/ث}$ لـ $t \\ge 0$. أوجد أقصى سرعة يصل إليها الجسيم.",
     "optionsEn": [
@@ -3889,7 +3881,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Total Distance vs Displacement with Direction Reversal",
     "titleAr": "المسافة الكلية مقابل الإزاحة عند انعكاس اتجاه الحركة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body moves in a straight line with velocity $v(t) = 3t^2 - 12\\text{ m/s}$. Find the total distance covered by the body in the first $3$ seconds ($0 \\le t \\le 3$).",
     "questionAr": "يتحرك جسم في خط مستقيم بسرعة $v(t) = 3t^2 - 12\\text{ م/ث}$. أوجد المسافة الكلية التي يقطعها الجسم خلال الثواني الثلاث الأولى ($0 \\le t \\le 3$).",
     "optionsEn": [
@@ -3928,7 +3919,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Acceleration of an Exponential Position Function",
     "titleAr": "عجلة حركة موضعها دالة أسية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "The position of a particle is given by $x(t) = 5 e^{-2t} + 3\\text{ m}$. What is the acceleration $a$ of the particle expressed in terms of its position $x$?",
     "questionAr": "موضع جسيم يُعطى بالعلاقة $x(t) = 5 e^{-2t} + 3\\text{ م}$. ما عجلة الجسيم $a$ معبراً عنها بدلالة موضعه $x$؟",
     "optionsEn": [
@@ -3967,7 +3957,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Separation of Variables with Velocity-Dependent Acceleration",
     "titleAr": "فصل المتغيرات لعجلة تعتمد على السرعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a straight line with acceleration $a = -2v^2\\text{ m/s}^2$, where $v$ is velocity in m/s. If the initial velocity at $t = 0$ is $v_0 = 10\\text{ m/s}$, find the velocity $v$ at time $t = 2\\text{ s}$.",
     "questionAr": "يتحرك جسيم في خط مستقيم بعجلة $a = -2v^2\\text{ م/ث}^2$، حيث $v$ هي السرعة. إذا كانت السرعة الابتدائية عند $t = 0$ هي $v_0 = 10\\text{ م/ث}$، فأوجد السرعة $v$ عند اللحظة $t = 2\\text{ ث}$.",
     "optionsEn": [
@@ -4009,7 +3998,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Relation Between Velocity Squared and Position",
     "titleAr": "العلاقة بين مربع السرعة والموضع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves such that $v^2 = 16 - 4x^2$, where $v$ is velocity and $x$ is position. What is the acceleration $a$ of the particle in terms of $x$?",
     "questionAr": "يتحرك جسيم بحيث $v^2 = 16 - 4x^2$، حيث $v$ السرعة و $x$ الموضع. ما عجلة الجسيم $a$ بدلالة $x$؟",
     "optionsEn": [
@@ -4048,7 +4036,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Motion Described by Trigonometric Function",
     "titleAr": "حركة توافقية بدوال مثلثية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "The position of a particle is given by $x(t) = 6 \\sin(2t) + 8 \\cos(2t)\\text{ m}$. Find the maximum speed $|v|_{\\max}$ of the particle.",
     "questionAr": "موضع جسيم يُعطى بالعلاقة $x(t) = 6 \\sin(2t) + 8 \\cos(2t)\\text{ م}$. أوجد أقصى مقدار لسرعة الجسيم $|v|_{\\max}$.",
     "optionsEn": [
@@ -4086,7 +4073,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Time for Velocity to Double under Linear Acceleration",
     "titleAr": "الزمن اللازم لتضاعف السرعة في حركة ذات عجلة خطية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves with acceleration $a(t) = 2t + 1\\text{ m/s}^2$. If its initial velocity is $v(0) = 4\\text{ m/s}$, at what positive time $t$ will its velocity become $16\\text{ m/s}$?",
     "questionAr": "يتحرك جسيم بعجلة $a(t) = 2t + 1\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 4\\text{ م/ث}$، ففي أي لحظة زمنية موجبة $t$ تصبح سرعته $16\\text{ م/ث}$؟",
     "optionsEn": [
@@ -4125,7 +4111,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Position at Instant of Minimum Speed",
     "titleAr": "الموضع عند لحظة أدنى سرعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a straight line such that $s(t) = t^3 - 6t^2 + 12t$. Find the acceleration of the particle at the instant when its speed reaches its minimum value.",
     "questionAr": "يتحرك جسيم في خط مستقيم بحيث $s(t) = t^3 - 6t^2 + 12t$. أوجد عجلة الجسيم عند اللحظة التي تبلغ فيها سرعته قيمتها الصغرى.",
     "optionsEn": [
@@ -4165,7 +4150,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Area Under Acceleration-Time Graph",
     "titleAr": "المساحة تحت منحنى العجلة مع الزمن",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle starts from rest ($v(0) = 0$). In the acceleration-time graph, the area between the curve and the time axis from $t = 0$ to $t = 6\\text{ s}$ consists of a triangle of base $6\\text{ s}$ and height $8\\text{ m/s}^2$. What is the velocity of the particle at $t = 6\\text{ s}$?",
     "questionAr": "بدأ جسيم حركته من السكون ($v(0) = 0$). في منحنى (العجلة - الزمن)، كانت المساحة المحصورة بين المنحنى ومحور الزمن من $t = 0$ إلى $t = 6\\text{ ث}$ على شكل مثلث قاعدته $6\\text{ ث}$ وارتفاعه $8\\text{ م/ث}^2$. ما سرعة الجسيم عند $t = 6\\text{ ث}$؟",
     "optionsEn": [
@@ -4202,7 +4186,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Position-Dependent Acceleration Integrating to Velocity",
     "titleAr": "تكامل عجلة دالية في الموضع لإيجاد السرعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves along the $x$-axis with acceleration $a(x) = 2x + 3\\text{ m/s}^2$. If it starts from the origin ($x = 0$) with velocity $v_0 = 2\\text{ m/s}$, find its velocity $v$ when it reaches $x = 4\\text{ m}$.",
     "questionAr": "يتحرك جسيم على محور $x$ بعجلة $a(x) = 2x + 3\\text{ م/ث}^2$. إذا بدأ حركته من نقطة الأصل ($x = 0$) بسرعة $v_0 = 2\\text{ م/ث}$، فأوجد سرعته $v$ عندما يصل إلى $x = 4\\text{ م}$.",
     "optionsEn": [
@@ -6092,7 +6075,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Terminal Velocity under Resistance Proportional to Velocity",
     "titleAr": "السرعة القصوى لجسم تحت مقاومة تتناسب طردياً مع السرعة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body falling vertically under gravity experiences air resistance giving net acceleration $a = g - k v$, where $k > 0$ is a constant. If the body starts from rest at $t = 0$, what is the terminal velocity $v_{\\text{term}}$ as $t \\to \\infty$, and what is the velocity at $t = \\frac{1}{k}$?",
     "questionAr": "جسم يسقط رأسياً تحت تأثير الجاذبية الأرضية ومقاومة هواء تجعل عجلته $a = g - k v$، حيث $k > 0$ ثابت. إذا بدأ الجسم حركته من السكون عند $t = 0$، فما هي السرعة الحدية $v_{\\text{term}}$ عندما $t \\to \\infty$، وما سرعته عند $t = \\frac{1}{k}$؟",
     "optionsEn": [
@@ -6131,7 +6113,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Deducing Acceleration from a Parabolic v-x Graph",
     "titleAr": "استنتاج العجلة من منحنى سرعة وموضع مكافئ",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "The velocity-position graph of a particle is a parabola given by $v(x) = k \\sqrt{x}$, where $k$ is a positive constant and $x > 0$. What is the nature of the particle's acceleration?",
     "questionAr": "المنحنى البياني للعلاقة بين السرعة والموضع لجسيم هو $v(x) = k \\sqrt{x}$، حيث $k$ ثابت موجب و $x > 0$. ما طبيعة عجلة حركة هذا الجسيم؟",
     "optionsEn": [
@@ -6170,7 +6151,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Distance Traveled to Rest under Fractional Power Resistance",
     "titleAr": "المسافة المقطوعة حتى السكون تحت مقاومة ذات قوى كسرية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves with deceleration $a = -k \\sqrt{v}$, where $k > 0$ and $v$ is velocity. If its initial velocity at $x = 0$ is $v_0$, what is the total distance $x_{\\text{stop}}$ traveled until the particle comes to rest?",
     "questionAr": "يتحرك جسيم بتقصير $a = -k \\sqrt{v}$، حيث $k > 0$ و $v$ السرعة. إذا كانت سرعته الابتدائية عند $x = 0$ هي $v_0$، فما المسافة الكلية $x_{\\text{stop}}$ المقطوعة حتى يسكن الجسيم؟",
     "optionsEn": [
@@ -6211,7 +6191,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Position Vector with Curvilinear Tangential Velocity",
     "titleAr": "متجه الموضع وسرعة الحركة في بعدين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in the $xy$-plane such that its position vector is $\\vec{r}(t) = (3t^2 - 2)\\hat{i} + (4t^2 + 1)\\hat{j}\\text{ m}$. What is the path of the particle and its acceleration magnitude?",
     "questionAr": "يتحرك جسيم في المستوى $xy$ بحيث متجه موضعه $\\vec{r}(t) = (3t^2 - 2)\\hat{i} + (4t^2 + 1)\\hat{j}\\text{ م}$. ما معادلة مسار الجسيم وما مقدار عجلته؟",
     "optionsEn": [
@@ -6251,7 +6230,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Third Derivative of Displacement: The Jerk",
     "titleAr": "المشتقة الثالثة للإزاحة وانعدام التغير في العجلة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A high-speed train starts from rest with displacement given by $s(t) = \\frac{1}{12} t^4 - \\frac{1}{3} t^3 + 2t^2$. At what non-zero time $t$ is the acceleration constant momentarily (i.e., jerk $j = \\frac{da}{dt} = 0$)?",
     "questionAr": "قطار فائق السرعة يبدأ حركته من السكون وإزاحته تعطى بالعلاقة $s(t) = \\frac{1}{12} t^4 - \\frac{1}{3} t^3 + 2t^2$. عند أي لحظة زمنية غير صفرية $t$ يثبت معدل تغير العجلة لحظياً (أي ينعدم معدل التغير في العجلة $j = \\frac{da}{dt} = 0$)؟",
     "optionsEn": [
@@ -6290,7 +6268,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Reconstruction of Displacement from a Non-Linear v-x Graph",
     "titleAr": "تحديد الزمن المستغرق من علاقة السرعة والموضع",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves such that its velocity is $v = \\frac{1}{x + 1}\\text{ m/s}$ for $x \\ge 0$. If $x = 0$ at $t = 0$, find the time $t$ required for the particle to reach $x = 3\\text{ m}$.",
     "questionAr": "يتحرك جسيم بحيث سرعته $v = \\frac{1}{x + 1}\\text{ م/ث}$ لـ $x \\ge 0$. إذا كان $x = 0$ عند $t = 0$، فأوجد الزمن $t$ اللازم لكي يصل الجسيم إلى الموضع $x = 3\\text{ م}$.",
     "optionsEn": [
@@ -6327,7 +6304,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Invariant Acceleration for Relativistic-Form Kinematic Law",
     "titleAr": "تسارع حركة متغيرة النمط",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves such that $x(t) = \\sqrt{t^2 + 16}$. Find the acceleration $a(t)$ of the particle as a function of its position $x$.",
     "questionAr": "يتحرك جسيم بحيث $x(t) = \\sqrt{t^2 + 16}$. أوجد عجلة الجسيم $a(t)$ كدالة في موضعه $x$.",
     "optionsEn": [
@@ -6368,7 +6344,6 @@ export const dynCh1Databank: ChapterDatabank = {
     "titleEn": "Inflection Points in Displacement Graphs and Zero Acceleration",
     "titleAr": "نقاط الانقلاب في منحنى الإزاحة وانعدام العجلة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the displacement-time graph $s(t)$ of a particle moving along a straight line, an inflection point occurs at $t = t_0$. What does this physically imply about the particle's motion at $t_0$?",
     "questionAr": "في منحنى (الإزاحة - الزمن) $s(t)$ لجسيم يتحرك في خط مستقيم، حدثت نقطة انقلاب عند $t = t_0$. ما التفسير الفيزيائي لهذه النقطة في حركة الجسيم؟",
     "optionsEn": [

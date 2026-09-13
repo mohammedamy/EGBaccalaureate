@@ -1707,7 +1707,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work Done by a Constant Force at an Angle",
     "titleAr": "شغل قوة ثابتة تميل بزاوية على اتجاه الإزاحة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F = 50\\text{ N}$ pulls a sled across a horizontal surface through a displacement $s = 10\\text{ m}$. The pulling rope makes an angle of $60^\\circ$ with the horizontal. What is the work done by the force?",
     "questionAr": "قوة $F = 50\\text{ ن}$ تسحب مزلاجة على سطح أفقي بإزاحة $s = 10\\text{ م}$. حبل السحب يميل بزاوية $60^\\circ$ على الأفقي. ما مقدار الشغل المبذول بواسطة هذه القوة؟",
     "optionsEn": [
@@ -1740,7 +1739,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work Done by Gravity on a Descending Mass",
     "titleAr": "شغل قوة الجاذبية على جسم هابط",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A crate of mass $m = 25\\text{ kg}$ is lowered vertically through a height of $h = 8\\text{ m}$. What is the work done by gravity on the crate? (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "صندوق كتلته $m = 25\\text{ كجم}$ هبط رأسياً لمسافة $h = 8\\text{ م}$. ما الشغل المبذول بواسطة قوة الجاذبية على الصندوق؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -1775,7 +1773,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Kinetic Energy Calculation",
     "titleAr": "حساب طاقة الحركة لسيارة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A car of mass $m = 1200\\text{ kg}$ is traveling at a speed of $v = 20\\text{ m/s}$ ($72\\text{ km/h}$). Find its kinetic energy.",
     "questionAr": "سيارة كتلتها $m = 1200\\text{ كجم}$ تسير بسرعة $v = 20\\text{ م/ث}$ ($72\\text{ كم/س}$). احسب طاقة حركتها.",
     "optionsEn": [
@@ -1808,7 +1805,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Instantaneous Power from Force and Velocity",
     "titleAr": "القدرة اللحظية من القوة والسرعة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "An engine exerts a forward driving force of $F = 4500\\text{ N}$ on a truck moving at a constant speed of $v = 16\\text{ m/s}$. What is the power developed by the engine in kilowatts?",
     "questionAr": "محرك يبذل قوة جر للأمام $F = 4500\\text{ ن}$ على شاحنة تتحرك بسرعة منتظمة $v = 16\\text{ م/ث}$. ما القدرة التي يولدها المحرك بوحدة الكيلووات؟",
     "optionsEn": [
@@ -1843,7 +1839,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work Done by a Vector Force over a Vector Displacement",
     "titleAr": "شغل قوة متجهة عبر إزاحة متجهة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $\\vec{F} = 8\\hat{i} - 5\\hat{j}\\text{ N}$ moves a particle from point $A(1, 2)$ to point $B(4, 6)$. Find the work done by the force in Joules.",
     "questionAr": "قوة $\\vec{F} = 8\\hat{i} - 5\\hat{j}\\text{ ن}$ حركت جسيماً من النقطة $A(1, 2)$ إلى النقطة $B(4, 6)$. احسب الشغل المبذول بواسطة القوة بالجول.",
     "optionsEn": [
@@ -1878,7 +1873,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Potential Energy of an Ideal Compressed Spring",
     "titleAr": "طاقة وضع زنبرك مرن مضغوط",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A spring with spring constant $k = 500\\text{ N/m}$ is compressed by $x = 0.2\\text{ m}$ from its natural equilibrium length. What is the elastic potential energy stored in the spring?",
     "questionAr": "زنبرك ثابت مرونته $k = 500\\text{ ن/م}$ ضُغط بمقدار $x = 0.2\\text{ م}$ عن وضعه الطبيعي. ما طاقة الوضع المرنة المختزنة في الزنبرك؟",
     "optionsEn": [
@@ -1911,7 +1905,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work Done by Friction on a Sliding Body",
     "titleAr": "شغل قوة الاحتكاك لجسم ينزلق على مستوى خشن",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of mass $m = 4\\text{ kg}$ slides a distance of $s = 5\\text{ m}$ along a rough horizontal floor with kinetic friction coefficient $\\mu_k = 0.3$. Taking $g = 9.8\\text{ m/s}^2$, find the work done by friction.",
     "questionAr": "كتلة مقدارها $m = 4\\text{ كجم}$ تنزلق مسافة $s = 5\\text{ م}$ على أرضية أفقية خشنة معامل احتكاكها الحركي $\\mu_k = 0.3$. باعتبار $g = 9.8\\text{ م/ث}^2$، احسب الشغل المبذول بواسطة قوة الاحتكاك.",
     "optionsEn": [
@@ -1948,7 +1941,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work Done by a Variable Force F(x)",
     "titleAr": "شغل قوة متغيرة مع الموضع",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F(x) = 3x^2 + 4\\text{ N}$ acts on a particle moving along the $x$-axis from $x = 1\\text{ m}$ to $x = 3\\text{ m}$. Find the work done by the force.",
     "questionAr": "أثرت قوة $F(x) = 3x^2 + 4\\text{ ن}$ على جسيم يتحرك على محور $x$ من $x = 1\\text{ م}$ إلى $x = 3\\text{ م}$. أوجد الشغل المبذول بواسطة القوة.",
     "optionsEn": [
@@ -3719,7 +3711,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Maximum Velocity of a Car Climbing an Incline",
     "titleAr": "أقصى سرعة لسيارة تصعد مستوى مائلاً",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A car of mass $2\\text{ tonnes}$ has an engine of maximum power $P = 60\\text{ kW}$. The road resistance is $400\\text{ N}$. If the car climbs an incline of slope $\\sin\\theta = \\frac{1}{20}$, find the maximum uniform speed $v_{\\max}$ it can sustain up the incline. (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "سيارة كتلتها $2\\text{ طن}$ قدرة محركها القصوى $P = 60\\text{ ك.وات}$. ومقاومة الطريق $400\\text{ ن}$. إذا صعدت السيارة طريقاً يميل بزاوية جيبها $\\sin\\theta = \\frac{1}{20}$، فأوجد أقصى سرعة منتظمة $v_{\\max}$ يمكن أن تصعد بها. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3759,7 +3750,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work-Energy Theorem with Friction on an Inclined Plane",
     "titleAr": "مبدأ الشغل وطاقة الحركة على مستوى مائل خشن",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of mass $m = 5\\text{ kg}$ is released from rest at the top of a rough inclined plane of length $s = 10\\text{ m}$ and height $h = 6\\text{ m}$ ($\\sin\\theta = 0.6$, $\\cos\\theta = 0.8$). The friction coefficient is $\\mu_k = 0.25$. Find the kinetic energy of the block at the bottom of the incline. (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "كتلة مقدارها $m = 5\\text{ كجم}$ تركت من السكون عند قمة مستوى مائل خشن طوله $s = 10\\text{ م}$ وارتفاعه $h = 6\\text{ م}$ ($\\sin\\theta = 0.6$ و $\\cos\\theta = 0.8$). معامل الاحتكاك الحركي $\\mu_k = 0.25$. احسب طاقة حركة الكتلة عند قاعدة المستوى. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3799,7 +3789,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Speed of a Roller Coaster Loop-the-Loop",
     "titleAr": "أدنى سرعة لإكمال مسار دائري رأسي",
     "difficulty": "medium",
-    "diagramType": "circle",
     "questionEn": "A roller coaster car of mass $m$ enters a vertical circular loop of radius $R = 10\\text{ m}$. What is the minimum speed $v_{\\text{top}}$ at the very top of the loop required for the car not to fall off the track? (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "عربة قطار ملاهٍ كتلتها $m$ تدخل مساراً دائرياً رأسياً نصف قطره $R = 10\\text{ م}$. ما أدنى سرعة $v_{\\text{top}}$ عند أعلى نقطة في المسار تضمن عدم سقوط العربة عن القضبان؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3838,7 +3827,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Power Consumed by Electric Pump Lifting Water",
     "titleAr": "قدرة مضخة مياه ترفع الماء إلى خزان مرتفع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "An electric pump raises water from a well of depth $h = 15\\text{ m}$ at a volume flow rate of $1200\\text{ liters per minute}$. Neglecting kinetic energy at the exit, what is the useful output power of the pump? (Density of water $= 1000\\text{ kg/m}^3$, $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "مضخة كهربائية ترفع الماء من بئر عمقها $h = 15\\text{ م}$ بمعدل تدفق $1200\\text{ لتر في الدقيقة}$. بإهمال طاقة الحركة عند المخرج، ما القدرة النافعة للمضخة؟ (كثافة الماء $= 1000\\text{ كجم/م}^3$، $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3876,7 +3864,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Equating Kinetic Energy to Momentum",
     "titleAr": "العلاقة بين كمية الحركة وطاقة الحركة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If the linear momentum of a particle of mass $m$ is increased by $50\\%$, by what percentage does its kinetic energy increase?",
     "questionAr": "إذا زادت كمية حركة جسيم كتلته $m$ بنسبة $50\\%$، فبأي نسبة مئوية تزداد طاقة حركته؟",
     "optionsEn": [
@@ -3915,7 +3902,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work of a Variable Central Force Field",
     "titleAr": "شغل قوة جذب مركزية متغيرة عكسياً مع مربع المسافة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves away from the origin under a repulsive radial force $F(r) = \\frac{C}{r^2}$, where $C = 120\\text{ N}\\cdot\\text{m}^2$. Find the work done by this force as the particle moves from $r_1 = 2\\text{ m}$ to $r_2 = 6\\text{ m}$.",
     "questionAr": "يتحرك جسيم مبتعداً عن نقطة الأصل تحت تأثير قوة تنافر مركزية $F(r) = \\frac{C}{r^2}$، حيث $C = 120\\text{ ن}\\cdot\\text{م}^2$. احسب الشغل المبذول بواسطة هذه القوة أثناء تحرك الجسيم من $r_1 = 2\\text{ م}$ إلى $r_2 = 6\\text{ م}$.",
     "optionsEn": [
@@ -3950,7 +3936,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Deceleration Work in Braking a High-Speed Train",
     "titleAr": "شغل الفرامل اللازم لإيقاف قطار",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A train of mass $m = 300\\text{ tonnes}$ traveling at $v = 30\\text{ m/s}$ ($108\\text{ km/h}$) is brought to rest by its brakes over a stopping distance of $s = 450\\text{ m}$. Find the average braking force exerted by the brakes.",
     "questionAr": "قطار كتلته $m = 300\\text{ طن}$ يسير بسرعة $v = 30\\text{ م/ث}$ ($108\\text{ كم/س}$) أوقفته الفرامل بعد مسافة توقف $s = 450\\text{ م}$. أوجد متوسط قوة الفرملة المؤثرة.",
     "optionsEn": [
@@ -3989,7 +3974,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Mechanical Efficiency of a Motor Lifting a Load",
     "titleAr": "الكفاءة الميكانيكية لمحرك يرفع حملاً",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "An electric hoist with an electrical input power of $P_{\\text{in}} = 5\\text{ kW}$ lifts a load of mass $m = 300\\text{ kg}$ at a steady speed of $v = 1.2\\text{ m/s}$. What is the mechanical efficiency $\\eta$ of the hoist? (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "ونش كهربائي قدرته الكهربائية المستهلكة $P_{\\text{in}} = 5\\text{ ك.وات}$ يرفع حملاً كتلته $m = 300\\text{ كجم}$ بسرعة منتظمة $v = 1.2\\text{ م/ث}$. ما الكفاءة الميكانيكية $\\eta$ للونش؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -4026,7 +4010,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Potential Energy Curve and Equilibrium Positions",
     "titleAr": "منحنى طاقة الوضع ومواضع الاتزان المستقر",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a 1D potential energy field given by $V(x) = x^3 - 6x^2 + 9x\\text{ Joules}$. At which point does the particle have a stable equilibrium position?",
     "questionAr": "يتحرك جسيم في مجال طاقة وضع أحادي البعد يُعطى بالعلاقة $V(x) = x^3 - 6x^2 + 9x\\text{ جول}$. عند أي نقطة يكون للجسيم موضع اتزان مستقر؟",
     "optionsEn": [
@@ -6031,7 +6014,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Maximum Velocity on a Curved Highway Under Variable Power",
     "titleAr": "القدرة المتغيرة وأقصى سرعة لقطار على منحدر",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A locomotive of mass $M$ moves up an incline of angle $\\theta$ at its maximum constant power $P$. The air resistance is $R(v) = k v^2$. What is the implicit equation for the terminal speed $v_t$ of the locomotive?",
     "questionAr": "قاطرة كتلتها $M$ تصعد منحparamاً بزاوية $\\theta$ بأقصى قدرة ثابتة لها $P$. وكانت مقاومة الهواء $R(v) = k v^2$. ما هي المعادلة التي تحدد السرعة القصوى $v_t$ للقاطرة؟",
     "optionsEn": [
@@ -6071,7 +6053,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Escape Velocity from Earth Surface Derived by Work-Energy",
     "titleAr": "سرعة الهروب من سطح الأرض بمبدأ الشغل وطاقة الحركة",
     "difficulty": "hots",
-    "diagramType": "circle",
     "questionEn": "Using the work-energy theorem with Newton's universal law of gravitation $F(r) = -\\frac{G M_E m}{r^2}$, what is the escape velocity $v_{\\text{esc}}$ required for a projectile of mass $m$ to escape to infinity from the surface of Earth (radius $R_E$, surface gravity $g = \\frac{G M_E}{R_E^2}$)?",
     "questionAr": "باستخدام مبدأ الشغل وطاقة الحركة وقانون الجذب العام لنيوتن $F(r) = -\\frac{G M_E m}{r^2}$، ما هي سرعة الهروب $v_{\\text{esc}}$ اللازمة لقذيفة كتلتها $m$ لكي تفلت إلى اللانهاية من سطح الأرض (نصف قطرها $R_E$ وعجلة الجاذبية $g = \\frac{G M_E}{R_E^2}$)؟",
     "optionsEn": [
@@ -6111,7 +6092,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Compression of a Non-Linear Hardening Spring",
     "titleAr": "انضغاط زنبرك ذي مرونة لاخطية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A bumper uses a non-linear spring with restoring force $F(x) = k_1 x + k_2 x^3$, where $k_1 = 200\\text{ N/m}$ and $k_2 = 800\\text{ N/m}^3$. A mass $m = 10\\text{ kg}$ moving at $v_0 = 2\\text{ m/s}$ hits the bumper and compresses it. What is the maximum compression $x_{\\max}$?",
     "questionAr": "مصد سيارات يستخدم زنبركاً لاخطياً قوة إرجاعه $F(x) = k_1 x + k_2 x^3$ حيث $k_1 = 200\\text{ ن/م}$ و $k_2 = 800\\text{ ن/م}^3$. اصطدمت به كتلة $m = 10\\text{ كجم}$ تتحرك بسرعة $v_0 = 2\\text{ م/ث}$. ما أقصى انضغاط $x_{\\max}$ للزنبرك؟",
     "optionsEn": [
@@ -6155,7 +6135,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Mechanical Energy Conservation for Pendulum Loop",
     "titleAr": "أدنى ارتفاع لسقوط كتلة لإكمال مسار دائري رأسي أملس",
     "difficulty": "hots",
-    "diagramType": "circle",
     "questionEn": "A small bead slides frictionlessly along a track that loops into a vertical circle of radius $R$. The bead is released from rest at height $h$ above the lowest point of the loop. What is the minimum release height $h_{\\min}$ for the bead to complete the circular loop without leaving the track?",
     "questionAr": "خرزة صغيرة تنزلق بدون احتكاك على مسار ينتهي بدورة دائرية رأسية نصف قطرها $R$. تركت الخرزة من السكون عند ارتفاع $h$ فوق أخفض نقطة في المسار الدائري. ما أقل ارتفاع للبدء $h_{\\min}$ يضمن إكمال الخرزة للدورة الدائرية دون أن تسقط؟",
     "optionsEn": [
@@ -6196,7 +6175,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work in Stretching a Wire via Young's Modulus Analogy",
     "titleAr": "شغل شد سلك مرن",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A steel cable of length $L = 20\\text{ m}$ and cross-sectional area $A = 10^{-4}\\text{ m}^2$ behaves elastically as a spring of stiffness $k = \\frac{Y A}{L}$, where Young's modulus $Y = 2 \\times 10^{11}\\text{ N/m}^2$. What is the work done to stretch the cable by $\\Delta L = 4\\text{ mm}$ ($0.004\\text{ m}$)?",
     "questionAr": "كابل فولاذي طوله $L = 20\\text{ م}$ ومساحة مقطعه $A = 10^{-4}\\text{ م}^2$ يتصرف كزنبرك مرن ثابت صلابته $k = \\frac{Y A}{L}$ حيث معامل ينج $Y = 2 \\times 10^{11}\\text{ ن/م}^2$. ما الشغل المبذول لاستطالة الكابل بمقدار $\\Delta L = 4\\text{ مم}$ ($0.004\\text{ م}$)?",
     "optionsEn": [
@@ -6232,7 +6210,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Instantaneous vs Average Power in Constant Acceleration Motion",
     "titleAr": "القدرة اللحظية مقابل متوسط القدرة لحركة بعجلة منتظمة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A car of mass $m$ starts from rest and accelerates with constant acceleration $a$ for time $t_1$. What is the ratio of the instantaneous power at $t = t_1$ to the average power over the interval $[0, t_1]$?",
     "questionAr": "سيارة كتلتها $m$ بدأت حركتها من السكون وتسارعت بعجلة منتظمة $a$ لمدة زمنية $t_1$. ما نسبة القدرة اللحظية عند اللحظة $t = t_1$ إلى متوسط القدرة خلال الفترة الزمنية $[0, t_1]$؟",
     "optionsEn": [
@@ -6273,7 +6250,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Conservative Force Field and Path Independence",
     "titleAr": "مجال القوى المحافظة واستقلال الشغل عن المسار",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force field in the plane is given by $\\vec{F} = (2x y + y^2)\\hat{i} + (x^2 + 2x y)\\hat{j}\\text{ N}$. Is this force field conservative, and what is the work done moving a particle around any closed loop?",
     "questionAr": "مجال قوى في المستوى يُعطى بالعلاقة $\\vec{F} = (2x y + y^2)\\hat{i} + (x^2 + 2x y)\\hat{j}\\text{ ن}$. هل هذا المجال محافظ، وما الشغل المبذول لنقل جسيم في أي مسار مغلق؟",
     "optionsEn": [
@@ -6312,7 +6288,6 @@ export const dynCh4Databank: ChapterDatabank = {
     "titleEn": "Work of Variable Pulling Force Overcoming Friction and Gravity",
     "titleAr": "شغل قوة متغيرة لسحب صندوق على منحدر خشن",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of mass $m = 10\\text{ kg}$ is pulled up a rough incline of angle $\\theta = 30^\\circ$ and length $s = 6\\text{ m}$ by a variable pulling force $F(x) = 80 + 10x\\text{ N}$, where $x$ is the distance along the incline from the base. The friction coefficient is $\\mu_k = \\frac{1}{\\sqrt{3}}$. If the block starts from rest at the base, find its kinetic energy $T$ at the top of the incline. (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "كتلة مقدارها $m = 10\\text{ كجم}$ تُسحب لأعلى مستوى مائل خشن يميل بزاوية $\\theta = 30^\\circ$ وطوله $s = 6\\text{ م}$ بواسطة قوة متغيرة $F(x) = 80 + 10x\\text{ ن}$، حيث $x$ المسافة المقاسة على طول المستوى من القاعدة. معامل الاحتكاك $\\mu_k = \\frac{1}{\\sqrt{3}}$. إذا بدأت الكتلة من السكون، فما طاقة حركتها $T$ عند قمة المستوى؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [

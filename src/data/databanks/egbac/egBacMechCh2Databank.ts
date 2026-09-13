@@ -1607,7 +1607,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Work Done by a Constant Vector Force",
     "titleAr": "شغل قوة متجهة ثابتة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A constant force $\\vec{F} = (4, 3)\\text{ N}$ displaces an object by $\\Delta\\vec{r} = (5, 2)\\text{ m}$. Find the work done by the force.",
     "questionAr": "قوة ثابتة $\\vec{F} = (4, 3)\\text{ ن}$ أزاحت جسيماً إزاحة $\\Delta\\vec{r} = (5, 2)\\text{ م}$. أوجد الشغل المبذول بواسطة القوة.",
     "optionsEn": [
@@ -1640,7 +1639,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Kinetic Energy of a Moving Body",
     "titleAr": "طاقة الحركة لجسم متحرك",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body of mass $m = 2\\text{ kg}$ moves with speed $v = 6\\text{ m/s}$. Find its kinetic energy $T$.",
     "questionAr": "جسم كتلته $m = 2\\text{ كجم}$ يتحرك بسرعة $v = 6\\text{ م/ث}$. أوجد طاقة حركته $T$.",
     "optionsEn": [
@@ -1673,7 +1671,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Work-Energy Theorem Application",
     "titleAr": "تطبيق مبرهنة الشغل وطاقة الحركة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle has initial kinetic energy $T_1 = 20\\text{ J}$. If the total net work done on the particle is $W_{\\text{net}} = 30\\text{ J}$, what is its final kinetic energy $T_2$?",
     "questionAr": "جسيم طاقة حركته الابتدائية $T_1 = 20\\text{ جول}$. إذا كان الشغل الكلي المبذول عليه $W_{\\text{net}} = 30\\text{ جول}$، فما هي طاقة حركته النهائية $T_2$؟",
     "optionsEn": [
@@ -1708,7 +1705,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Elastic Potential Energy of a Spring",
     "titleAr": "طاقة الوضع المرونية لزنبرك",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A spring with stiffness $k = 200\\text{ N/m}$ is stretched by $x = 0.1\\text{ m}$ from its natural length. Find the elastic potential energy $U_s$ stored in the spring.",
     "questionAr": "زنبرك ثابت مرونته $k = 200\\text{ ن/م}$ استطال بمقدار $x = 0.1\\text{ م}$ عن طوله الطبيعي. أوجد طاقة الوضع المرونية $U_s$ المختزنة في الزنبرك.",
     "optionsEn": [
@@ -1741,7 +1737,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Gravitational Potential Energy Near Earth's Surface",
     "titleAr": "طاقة الوضع التثاقلية بالقرب من سطح الأرض",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A mass $m = 5\\text{ kg}$ is lifted to a height $h = 4\\text{ m}$ above the floor. Taking $g = 9.8\\text{ m/s}^2$, find its gravitational potential energy relative to the floor.",
     "questionAr": "رُفعت كتلة $m = 5\\text{ كجم}$ إلى ارتفاع $h = 4\\text{ م}$ فوق سطح الأرض. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد طاقة وضعها التثاقلية بالنسبة لسطح الأرض.",
     "optionsEn": [
@@ -1774,7 +1769,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Stable Equilibrium Condition in 1D Potential",
     "titleAr": "شرط الاتزان المستقر في مجال طاقة وضع أحادي البعد",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "For a particle moving in a potential energy field $U(x)$, what conditions on $U(x)$ characterize a point of STABLE equilibrium at $x_0$?",
     "questionAr": "لجسيم يتحرك في مجال طاقة وضع $U(x)$، ما هي الشروط على $U(x)$ التي تميز نقطة اتزان مستقر عند $x_0$؟",
     "optionsEn": [
@@ -1812,7 +1806,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Power Delivered by a Force Vector",
     "titleAr": "القدرة اللحظية لقوة متجهة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $\\vec{F} = (10, -5)\\text{ N}$ acts on a body moving with instantaneous velocity $\\vec{v} = (3, 2)\\text{ m/s}$. What is the instantaneous power $P$ delivered to the body?",
     "questionAr": "تؤثر قوة $\\vec{F} = (10, -5)\\text{ ن}$ على جسم يتحرك بسرعة لحظية $\\vec{v} = (3, 2)\\text{ م/ث}$. ما هي القدرة اللحظية $P$ المبذولة على الجسم؟",
     "optionsEn": [
@@ -1845,7 +1838,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Free Fall Speed via Conservation of Energy",
     "titleAr": "سرعة السقوط الحر من حفظ الطاقة الميكانيكية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rock of mass $m$ is released from rest from a height $h = 20\\text{ m}$. Using conservation of mechanical energy with $g = 10\\text{ m/s}^2$, find its speed $v$ just before striking the ground.",
     "questionAr": "تُركت صخرة كتلتها $m$ لتسقط من السكون من ارتفاع $h = 20\\text{ م}$. باستخدام حفظ الطاقة الميكانيكية وباعتبار $g = 10\\text{ م/ث}^2$، أوجد سرعتها $v$ لحظة ملامسة الأرض.",
     "optionsEn": [
@@ -3622,7 +3614,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Force from a 1D Potential Energy Function",
     "titleAr": "استنتاج القوة من دالة طاقة الوضع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a 1D potential energy field $U(x) = 4x^3 - 6x^2 + 5\\text{ J}$. Find the force $F(x)$ acting on the particle at position $x = 2\\text{ m}$.",
     "questionAr": "يتحرك جسيم في مجال طاقة وضع أحادي البعد $U(x) = 4x^3 - 6x^2 + 5\\text{ جول}$. أوجد القوة $F(x)$ المؤثرة على الجسيم عند الموضع $x = 2\\text{ م}$.",
     "optionsEn": [
@@ -3659,7 +3650,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Work Done by a Position-Dependent Force",
     "titleAr": "شغل قوة متغيرة مع الموضع",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F(x) = 3x^2 + 2x\\text{ N}$ acts on a particle moving along the $x$-axis from $x = 1\\text{ m}$ to $x = 3\\text{ m}$. Calculate the work done by the force.",
     "questionAr": "تؤثر قوة $F(x) = 3x^2 + 2x\\text{ ن}$ على جسيم يتحرك على محور السينات من $x = 1\\text{ م}$ إلى $x = 3\\text{ م}$. احسب الشغل المبذول بواسطة هذه القوة.",
     "optionsEn": [
@@ -3696,7 +3686,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Testing if a 2D Force Field is Conservative",
     "titleAr": "اختبار هل مجال القوة ثنائي الأبعاد مجال محافظ",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Consider the force field $\\vec{F}(x, y) = (2xy, x^2 + 3y^2)\\text{ N}$. Is $\\vec{F}$ conservative?",
     "questionAr": "تأمل مجال القوة $\\vec{F}(x, y) = (2xy, x^2 + 3y^2)\\text{ ن}$. هل هذا المجال محافظ؟",
     "optionsEn": [
@@ -3735,7 +3724,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Escape Velocity Scaling with Mass and Radius",
     "titleAr": "تناسب سرعة الإفلات مع الكتلة ونصف القطر",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "The escape velocity from a planet is given by $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$. If planet B has 4 times the mass and 2 times the radius of planet A ($M_B = 4M_A, R_B = 2R_A$), what is the ratio of their escape velocities $\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}}$?",
     "questionAr": "تعطى سرعة الإفلات من كوكب بالعلاقة $v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}$. إذا كان للكوكب B كتلة تعادل 4 أمثال كتلة الكوكب A ونصف قطر يعادل ضعفي نصف قطر A، فما نسبة سرعتي إفلاتهما $\\frac{v_{\\text{esc}, B}}{v_{\\text{esc}, A}}$؟",
     "optionsEn": [
@@ -3770,7 +3758,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Potential Energy from Conservative Force Components",
     "titleAr": "إيجاد دالة طاقة الوضع من مركبات القوة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Given the conservative force field $\\vec{F} = (-2x, -4y)\\text{ N}$, find its potential energy function $U(x, y)$ such that $U(0, 0) = 0$.",
     "questionAr": "معطى مجال القوة المحافظ $\\vec{F} = (-2x, -4y)\\text{ ن}$. أوجد دالة طاقة الوضع $U(x, y)$ بحيث $U(0, 0) = 0$.",
     "optionsEn": [
@@ -3810,7 +3797,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Points and Stability of a Quartic Potential",
     "titleAr": "نقاط الاتزان واستقرارها لطاقة وضع من الدرجة الرابعة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle moves in a potential $U(x) = x^4 - 2x^2\\text{ J}$. What is the nature of the equilibrium point at $x = 0$?",
     "questionAr": "يتحرك جسيم في مجال طاقة وضع $U(x) = x^4 - 2x^2\\text{ جول}$. ما هي طبيعة نقطة الاتزان عند $x = 0$؟",
     "optionsEn": [
@@ -3850,7 +3836,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Work Done by Friction on an Incline",
     "titleAr": "الشغل المبذول بواسطة قوة الاحتكاك على مستوى مائل",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of mass $m = 4\\text{ kg}$ slides a distance $L = 5\\text{ m}$ down an inclined plane of angle $\\theta = 30^\\circ$. If the coefficient of kinetic friction is $\\mu_k = 0.2$ and $g = 9.8\\text{ m/s}^2$, what is the work done by friction?",
     "questionAr": "كتلة $m = 4\\text{ كجم}$ تنزلق مسافة $L = 5\\text{ م}$ إلى أسفل مستوى مائل بزاوية $\\theta = 30^\\circ$. إذا كان معامل الاحتكاك الحركي $\\mu_k = 0.2$ و $g = 9.8\\text{ م/ث}^2$، فما الشغل المبذول بواسطة قوة الاحتكاك؟",
     "optionsEn": [
@@ -3887,7 +3872,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Spring Launcher Maximum Height on Incline",
     "titleAr": "أقصى ارتفاع تبلغه كتلة مقذوفة بزنبرك على مستوى",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A spring ($k = 800\\text{ N/m}$) is compressed by $x = 0.2\\text{ m}$ and releases a block of mass $m = 2\\text{ kg}$ up a frictionless ramp. Taking $g = 10\\text{ m/s}^2$, what is the maximum vertical height $h$ the block reaches?",
     "questionAr": "زنبرك ($k = 800\\text{ ن/م}$) ضُغط بمقدار $x = 0.2\\text{ م}$ وأطلق كتلة $m = 2\\text{ كجم}$ إلى أعلى منحدر أملس. باعتبار $g = 10\\text{ م/ث}^2$، ما هو أقصى ارتفاع رأسي $h$ تبلغه الكتلة؟",
     "optionsEn": [
@@ -3924,7 +3908,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Engine Power Needed to Maintain Constant Speed",
     "titleAr": "قدرة المحرك المطلوبة للحفاظ على سرعة ثابتة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A truck travels at a constant speed $v = 20\\text{ m/s}$ up an incline where the opposing forces (gravity component plus resistance) total $F_{\\text{opp}} = 2500\\text{ N}$. What is the mechanical power output of the truck's engine?",
     "questionAr": "شاحنة تسير بسرعة منتظمة $v = 20\\text{ م/ث}$ صاعدة طريقاً مائلاً حيث مجموع القوى المقاومة (مركبة الوزن والمقاومات) يساوي $F_{\\text{opp}} = 2500\\text{ ن}$. ما هي القدرة الميكانيكية التي يبذلها محرك الشاحنة؟",
     "optionsEn": [
@@ -5801,7 +5784,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Effective Potential and Stable Circular Orbit Radius",
     "titleAr": "الجهد الفعال ونصف قطر المدار الدائري المستقر",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In central force motion with gravitational potential $U(r) = -\\frac{k}{r}$, the effective potential is $U_{\\text{eff}}(r) = -\\frac{k}{r} + \\frac{L^2}{2mr^2}$. What is the radius $r_0$ of the circular orbit that minimizes $U_{\\text{eff}}$?",
     "questionAr": "في حركة القوى المركزية مع طاقة وضع تجاذبية $U(r) = -\\frac{k}{r}$، فإن الجهد الفعال هو $U_{\\text{eff}}(r) = -\\frac{k}{r} + \\frac{L^2}{2mr^2}$. ما هو نصف قطر المدار الدائري $r_0$ الذي يجعل $U_{\\text{eff}}$ أصغر ما يمكن؟",
     "optionsEn": [
@@ -5839,7 +5821,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Frequency of Small Oscillations About Stable Equilibrium",
     "titleAr": "تردد الاهتزازات الصغيرة حول موضع الاتزان المستقر",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A particle of mass $m$ moves in a potential $U(x)$ with a stable equilibrium point at $x_0$. For small displacements, the particle undergoes simple harmonic motion. What is its angular frequency $\\omega$?",
     "questionAr": "جسيم كتلته $m$ يتحرك في مجال طاقة وضع $U(x)$ وله موضع اتزان مستقر عند $x_0$. في حالة الإزاحات الصغيرة، يتحرك الجسيم حركة توافقية بسيطة. ما هو تردده الزاوي $\\omega$؟",
     "optionsEn": [
@@ -5880,7 +5861,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Line Integral Work of a Non-Conservative Force on Closed Loop",
     "titleAr": "شغل قوة غير محافظة عبر مسار دائري مغلق",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Calculate the work done by the non-conservative force $\\vec{F}(x, y) = (-y, x)\\text{ N}$ along the counterclockwise unit circle $C: x^2 + y^2 = 1$.",
     "questionAr": "احسب الشغل المبذول بواسطة القوة غير المحافظة $\\vec{F}(x, y) = (-y, x)\\text{ ن}$ على طول مسار دائرة الوحدة $C: x^2 + y^2 = 1$ في عكس اتجاه عقارب الساعة.",
     "optionsEn": [
@@ -5917,7 +5897,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Separation in Lennard-Jones Potential",
     "titleAr": "المسافة التوازنية في جهد لينارد-جونز الجزيئي",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "The Lennard-Jones intermolecular potential is $U(r) = 4\\epsilon \\left[ \\left(\\frac{\\sigma}{r}\\right)^{12} - \\left(\\frac{\\sigma}{r}\\right)^6 \\right]$. What is the equilibrium separation distance $r_{\\min}$ that minimizes the potential?",
     "questionAr": "جهد لينارد-جونز بين الجزيئات هو $U(r) = 4\\epsilon \\left[ \\left(\\frac{\\sigma}{r}\\right)^{12} - \\left(\\frac{\\sigma}{r}\\right)^6 \\right]$. ما هي المسافة التوازنية $r_{\\min}$ التي تجعل طاقة الوضع أصغر ما يمكن؟",
     "optionsEn": [
@@ -5955,7 +5934,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Total Mechanical Energy of Orbit Types",
     "titleAr": "الطاقة الميكانيكية الكلية وتصنيف أنواع المدارات",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the gravitational Kepler two-body problem with $U(r) = -\\frac{GMm}{r} < 0$, what value of the total mechanical energy $E = T + U$ corresponds to a parabolic escape orbit?",
     "questionAr": "في مسألة كبلر للجاذبية مع طاقة الوضع $U(r) = -\\frac{GMm}{r}$، ما قيمة الطاقة الميكانيكية الكلية $E = T + U$ التي تقابل مدار إفلات مكافئاً؟",
     "optionsEn": [
@@ -5992,7 +5970,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "The Virial Theorem for Gravitational Bound Systems",
     "titleAr": "مبرهنة فيريال للأنظمة التجاذبية المقيدة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "According to the Virial Theorem, for any stable bound system of particles interacting via an inverse-square gravitational force, what is the exact relationship between the time-averaged kinetic energy $\\langle T \\rangle$ and time-averaged potential energy $\\langle U \\rangle$?",
     "questionAr": "وفقاً لمبرهنة فيريال، لأي نظام جسيمات مقيد ومستقر يتفاعل بقوى جاذبية تتناسب عكسياً مع مربع المسافة، ما هي العلاقة الدقيقة بين متوسط طاقة الحركة مع الزمن $\\langle T \\rangle$ ومتوسط طاقة الوضع $\\langle U \\rangle$؟",
     "optionsEn": [
@@ -6029,7 +6006,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Total Mechanical Energy of a Satellite in Circular Orbit",
     "titleAr": "الطاقة الميكانيكية الكلية لقمر صناعي في مدار دائري",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A satellite of mass $m$ orbits the Earth (mass $M$) in a stable circular orbit of radius $r$. What is its total mechanical energy $E = T + U$?",
     "questionAr": "قمر صناعي كتلته $m$ يدور حول الأرض (كتلتها $M$) في مدار دائري نصف قطره $r$. ما هي طاقته الميكانيكية الكلية $E = T + U$؟",
     "optionsEn": [
@@ -6069,7 +6045,6 @@ export const egBacMechCh2Databank: ChapterDatabank = {
     "titleEn": "Relativistic Kinetic Energy Low-Velocity Correction",
     "titleAr": "تصحيح طاقة الحركة النسبية عند السرعات المنخفضة",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "The relativistic kinetic energy is $T = (\\gamma - 1) m c^2$ where $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$. Expanding $\\gamma$ in powers of $\\frac{v^2}{c^2}$ for $v \\ll c$, what is the first relativistic correction term beyond classical kinetic energy $\\frac{1}{2}mv^2$?",
     "questionAr": "طاقة الحركة في النسبية الخاصة هي $T = (\\gamma - 1) m c^2$ حيث $\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$. بمفكوك $\\gamma$ لقوى $\\frac{v^2}{c^2}$ عند السرعات المنخفضة $v \\ll c$، ما هو حد التصحيح النسبي الأول المضاف إلى طاقة الحركة الكلاسيكية $\\frac{1}{2}mv^2$؟",
     "optionsEn": [

@@ -1767,7 +1767,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Newton's First Law Condition for Constant Velocity",
     "titleAr": "شرط القانون الأول لنيوتن للحركة بسرعة منتظمة",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body of mass $m = 10\\text{ kg}$ moves with a constant velocity $\\vec{v} = 5\\hat{i} - 2\\hat{j}\\text{ m/s}$ under the action of three forces $\\vec{F}_1 = 4\\hat{i} + 6\\hat{j}\\text{ N}$, $\\vec{F}_2 = -7\\hat{i} + 2\\hat{j}\\text{ N}$, and $\\vec{F}_3$. Find $\\vec{F}_3$.",
     "questionAr": "جسم كتلته $m = 10\\text{ كجم}$ يتحرك بسرعة منتظمة $\\vec{v} = 5\\hat{i} - 2\\hat{j}\\text{ م/ث}$ تحت تأثير ثلاث قوى $\\vec{F}_1 = 4\\hat{i} + 6\\hat{j}\\text{ ن}$ و $\\vec{F}_2 = -7\\hat{i} + 2\\hat{j}\\text{ ن}$ و $\\vec{F}_3$. أوجد $\\vec{F}_3$.",
     "optionsEn": [
@@ -1805,7 +1804,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Newton's Second Law with Constant Force and Mass",
     "titleAr": "القانون الثاني لنيوتن بقوة وكتلة ثابتتين",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A force $F = 35\\text{ N}$ acts on a body of mass $m = 5\\text{ kg}$ resting on a smooth horizontal plane. What is the acceleration produced?",
     "questionAr": "أثرت قوة $F = 35\\text{ ن}$ على جسم كتلته $m = 5\\text{ كجم}$ موضوع على مستوى أفقي أملس. ما مقدار العجلة الناشئة؟",
     "optionsEn": [
@@ -1840,7 +1838,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Apparent Weight of a Man in an Upward Accelerating Elevator",
     "titleAr": "الوزن الظاهري لشخص داخل مصعد يتسارع لأعلى",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A man of mass $m = 70\\text{ kg}$ stands on a spring balance inside an elevator accelerating vertically upwards at $a = 2\\text{ m/s}^2$. Taking $g = 9.8\\text{ m/s}^2$, what is the reading of the balance in Newtons?",
     "questionAr": "رجل كتلته $m = 70\\text{ كجم}$ يقف على ميزان ضغط داخل مصعد يتحرك رأسياً لأعلى بعجلة $a = 2\\text{ م/ث}^2$. باعتبار $g = 9.8\\text{ م/ث}^2$، ما قراءة الميزان بالنيوتن؟",
     "optionsEn": [
@@ -1877,7 +1874,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Acceleration of an Atwood Machine (Simple Vertical Pulley)",
     "titleAr": "عجلة حركة آلة آتوود (بكرة ملساء بسيطة)",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two bodies of masses $m_1 = 5\\text{ kg}$ and $m_2 = 3\\text{ kg}$ are connected by a light inextensible string passing over a smooth fixed pulley. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
     "questionAr": "جسمان كتلتاهما $m_1 = 5\\text{ كجم}$ و $m_2 = 3\\text{ كجم}$ متصلان بخيط خفيف غير مرن يمر فوق بكرة صغيرة ملساء. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
     "optionsEn": [
@@ -1912,7 +1908,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Tension in the String of an Atwood Machine",
     "titleAr": "الشد في خيط آلة آتوود",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the previous problem ($m_1 = 5\\text{ kg}$, $m_2 = 3\\text{ kg}$, $a = 2.45\\text{ m/s}^2$, $g = 9.8\\text{ m/s}^2$), find the tension $T$ in the string.",
     "questionAr": "في المسألة السابقة ($m_1 = 5\\text{ كجم}$، $m_2 = 3\\text{ كجم}$، $a = 2.45\\text{ م/ث}^2$، $g = 9.8\\text{ م/ث}^2$)، أوجد مقدار قوة الشد $T$ في الخيط.",
     "optionsEn": [
@@ -1951,7 +1946,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Pressure on the Axis of a Smooth Vertical Pulley",
     "titleAr": "الضغط على محور بكرة رأسية ملساء",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "When two bodies hang vertically from a string passing over a smooth pulley, the tension in the string is $T = 40\\text{ N}$. What is the pressure $P$ on the axis of the pulley?",
     "questionAr": "عندما يتدلى جسمان رأسياً بواسطة خيط يمر على بكرة ملساء، كان الشد في الخيط $T = 40\\text{ ن}$. ما مقدار الضغط $P$ الواقع على محور البكرة؟",
     "optionsEn": [
@@ -1988,7 +1982,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Motion of a Body on a Smooth Inclined Plane under Gravity",
     "titleAr": "حركة جسم على مستوى مائل أملس تحت تأثير الجاذبية",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body is released from rest at the top of a smooth plane inclined at $30^\\circ$ to the horizontal. Taking $g = 9.8\\text{ m/s}^2$, what is the acceleration of the body down the plane?",
     "questionAr": "تُرك جسم من السكون عند قمة مستوى أملس يميل بزاوية $30^\\circ$ على الأفقي. باعتبار $g = 9.8\\text{ م/ث}^2$، ما عجلة حركة الجسم لأسفل المستوى؟",
     "optionsEn": [
@@ -2025,7 +2018,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Linear Momentum of a Particle",
     "titleAr": "كمية الحركة لجسيم",
     "difficulty": "easy",
-    "diagramType": "cartesian_plane",
     "questionEn": "A projectile of mass $m = 200\\text{ g}$ has velocity $\\vec{v} = 30\\hat{i} - 40\\hat{j}\\text{ m/s}$. What is the magnitude of its linear momentum in $\\text{kg}\\cdot\\text{m/s}$?",
     "questionAr": "قذيفة كتلتها $m = 200\\text{ جم}$ سرعتها $\\vec{v} = 30\\hat{i} - 40\\hat{j}\\text{ م/ث}$. ما مقدار كمية حركتها بوحدة $\\text{كجم}\\cdot\\text{م/ث}$؟",
     "optionsEn": [
@@ -3784,7 +3776,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Newton's Second Law with Variable Mass",
     "titleAr": "القانون الثاني لنيوتن لكتلة متغيرة مع الزمن",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A rocket moves in a straight line such that its mass decreases due to fuel consumption according to $m(t) = 1000 - 20t\\text{ kg}$. If its velocity is $v(t) = 2t^2 + 50\\text{ m/s}$, find the net force $F$ acting on the rocket at $t = 10\\text{ s}$.",
     "questionAr": "صاروخ يتحرك في خط مستقيم بحيث تتناقص كتلته لاحتراق الوقود وفق العلاقة $m(t) = 1000 - 20t\\text{ كجم}$. إذا كانت سرعته $v(t) = 2t^2 + 50\\text{ م/ث}$، فأوجد القوة المحصلة $F$ المؤثرة على الصاروخ عند $t = 10\\text{ ث}$.",
     "optionsEn": [
@@ -3826,7 +3817,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Connected Bodies on a Horizontal Table and Hanging Mass",
     "titleAr": "جسمان متصلان: أحدهما على منضدة أفقية والآخر معلق",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A mass $m_1 = 4\\text{ kg}$ rests on a rough horizontal table (friction coefficient $\\mu = 0.25$). It is connected by a light string over a smooth pulley at the edge of the table to a hanging mass $m_2 = 6\\text{ kg}$. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
     "questionAr": "كتلة $m_1 = 4\\text{ كجم}$ موضوعة على نضد أفقي خشن (معامل احتكاكه $\\mu = 0.25$). تتصل بخيط خفيف يمر فوق بكرة ملساء عند حافة النضد بكتلة معلقة $m_2 = 6\\text{ كجم}$. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
     "optionsEn": [
@@ -3867,7 +3857,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Pressure on Pulley for Horizontal Table System",
     "titleAr": "الضغط على محور البكرة لمنظومة نضد أفقي",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In the table-pulley system of the previous question ($T = m_1(a + \\mu g) = 4(4.9 + 2.45) = 29.4\\text{ N}$), the two segments of string are perpendicular (one horizontal, one vertical). What is the magnitude of the pressure $P$ on the pulley axis?",
     "questionAr": "في منظومة النضد والبكرة في المسألة السابقة حيث الشد $T = 29.4\\text{ ن}$، وفرعا الخيط متعامدان (أحدهما أفقي والآخر رأسي). ما مقدار الضغط $P$ الواقع على محور البكرة؟",
     "optionsEn": [
@@ -3905,7 +3894,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Motion of a Train Resisted by Friction Proportional to Mass",
     "titleAr": "حركة قطار ضد مقاومة تتناسب طردياً مع الكتلة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A train of mass $200\\text{ tonnes}$ moves on a straight level track. Its engine exerts a constant pulling force of $4\\text{ tonnes-weight}$. The track resistance is $10\\text{ kg-wt per tonne}$ of mass. Find the acceleration of the train in $\\text{m/s}^2$. (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "قطار كتلته $200\\text{ طن}$ يتحرك على خط مستقيم أفقي. تجره قاطرة بقوة ثابتة $4\\text{ طن-وزن}$. ومقاومة الحركة تعادل $10\\text{ ث.كجم لكل طن}$ من الكتلة. أوجد عجلة حركة القطار بوحدة $\\text{م/ث}^2$. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3946,7 +3934,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Distance Traveled After String is Cut in a Pulley System",
     "titleAr": "المسافة المقطوعة بعد قطع الخيط في منظومة بكرات",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "In an Atwood machine, two masses of $5\\text{ kg}$ and $3\\text{ kg}$ start from rest. After moving for $2\\text{ seconds}$ with acceleration $a = 2.45\\text{ m/s}^2$, the string is suddenly cut. How much higher does the lighter ascending $3\\text{ kg}$ mass rise before coming to rest?",
     "questionAr": "في آلة آتوود، تحركت كتلتان $5\\text{ كجم}$ و $3\\text{ كجم}$ من السكون. وبعد مرور ثانيتين ($t = 2\\text{ ث}$) بعجلة $a = 2.45\\text{ م/ث}^2$ قُطع الخيط فجأة. كم مسافة إضافية تصعدها الكتلة الأخف $3\\text{ كجم}$ لأعلى قبل أن تسكن لحظياً؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -3986,7 +3973,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Inclined Plane Connected to Hanging Mass",
     "titleAr": "حركة كتلة على مستوى مائل متصلة بكتلة معلقة",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A body of mass $m_1 = 6\\text{ kg}$ on a smooth plane inclined at $30^\\circ$ to the horizontal is connected by a string over a pulley at the top of the incline to a vertically hanging mass $m_2 = 5\\text{ kg}$. Find the acceleration $a$ of the system. (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "جسم كتلته $m_1 = 6\\text{ كجم}$ موضوع على مستوى أملس يميل بزاوية $30^\\circ$ على الأفقي متصل بخيط يمر فوق بكرة عند قمة المستوى بكتلة تتدلى رأسياً $m_2 = 5\\text{ كجم}$. أوجد عجلة حركة المجموعة $a$. (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -4027,7 +4013,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Free Fall in a Severed Elevator Cable",
     "titleAr": "انعدام الوزن الظاهري عند انقطاع حبل المصعد",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "If the cable supporting an elevator snaps and the elevator falls freely under gravity ($a = g$), what is the apparent weight reading of a person of mass $80\\text{ kg}$ standing on a scale inside?",
     "questionAr": "إذا انقطع كابل مصعد وهبط المصعد هبوطاً حراً تحت تأثير الجاذبية ($a = g$)، فما قراءة الميزان لشخص كتلته $80\\text{ كجم}$ يقف داخله؟",
     "optionsEn": [
@@ -4066,7 +4051,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Relative Acceleration in an Elevator",
     "titleAr": "العجلة النسبية لجسم يسقط داخل مصعد متحرك",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "A ball is dropped from the ceiling of an elevator of height $h = 2.4\\text{ m}$. If the elevator is ascending with constant acceleration $a_e = 2.2\\text{ m/s}^2$ and $g = 9.8\\text{ m/s}^2$, how long does it take for the ball to hit the elevator floor?",
     "questionAr": "سقطت كرة من سقف مصعد ارتفاعه $h = 2.4\\text{ م}$. إذا كان المصعد يصعد بعجلة منتظمة $a_e = 2.2\\text{ م/ث}^2$ و $g = 9.8\\text{ م/ث}^2$، فكم ثانية تستغرق الكرة حتى تصطدم بأرضية المصعد؟",
     "optionsEn": [
@@ -4103,7 +4087,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Newton's Second Law for Two Blocks Pushed in Contact",
     "titleAr": "القوة المتبادلة بين كتلتين متلاصقتين تحت تأثير قوة أفقية",
     "difficulty": "medium",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two blocks $A$ and $B$ of masses $m_A = 3\\text{ kg}$ and $m_B = 2\\text{ kg}$ are in contact on a smooth horizontal surface. A horizontal pushing force $F = 20\\text{ N}$ is applied to block $A$, driving both blocks forward. What is the contact force exerted by block $A$ on block $B$?",
     "questionAr": "كتلتان $A$ و $B$ مقدارهما $m_A = 3\\text{ كجم}$ و $m_B = 2\\text{ كجم}$ متلامستان على سطح أفقي أملس. أثرت قوة دفع أفقية $F = 20\\text{ ن}$ على الكتلة $A$ لتحريك الكتلتين معاً. ما مقدار قوة التلامس التي تؤثر بها الكتلة $A$ على الكتلة $B$؟",
     "optionsEn": [
@@ -5964,7 +5947,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "System of Two Inclines with a Pulley at the Ridge",
     "titleAr": "حركة كتلتين على مستويين مائلين متقابلين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two smooth inclined planes have inclinations $\\alpha = 30^\\circ$ and $\\beta = 60^\\circ$ back to back. Masses $m_1 = 4\\text{ kg}$ on the $30^\\circ$ plane and $m_2 = 2\\text{ kg}$ on the $60^\\circ$ plane are connected by a string passing over a smooth pulley at the apex. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
     "questionAr": "مستويان مائلان أملسان متعاكسان زاويتا ميلهما $\\alpha = 30^\\circ$ و $\\beta = 60^\\circ$. وضعت كتلة $m_1 = 4\\text{ كجم}$ على المستوى الأول وكتلة $m_2 = 2\\text{ كجم}$ على المستوى الثاني، ووصلتا بخيط يمر على بكرة ملساء عند القمة. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
     "optionsEn": [
@@ -6005,7 +5987,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Movable Pulley with Doubled Mechanical Advantage",
     "titleAr": "بكرة متحركة بضعف الفائدة الميكانيكية",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A block of mass $m_1 = 6\\text{ kg}$ rests on a smooth horizontal table. It is attached to a string that passes around a smooth movable pulley of mass $M = 2\\text{ kg}$, with the other end fixed to a wall. A second body of mass $m_2 = 4\\text{ kg}$ hangs from the axis of the movable pulley. What is the relation between the acceleration $a_1$ of the block on the table and the vertical acceleration $a_2$ of the hanging pulley?",
     "questionAr": "كتلة $m_1 = 6\\text{ كجم}$ موضوعة على نضد أفقي أملس مربوطة بخيط يمر حول بكرة ملساء متحركة كتلتها $M = 2\\text{ كجم}$، وطرف الخيط الآخر مثبت بحائط. عُلقت كتلة ثانية $m_2 = 4\\text{ كجم}$ من محور البكرة المتحركة. ما العلاقة بين عجلة الكتلة على النضد $a_1$ وعجلة البكرة المتحركة الرأسية $a_2$؟",
     "optionsEn": [
@@ -6043,7 +6024,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Newton's Third Law and Thrust of a Water Jet",
     "titleAr": "رد فعل اندفاع نافورة مياه على جدار",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A horizontal jet of water of cross-sectional area $A = 0.01\\text{ m}^2$ strikes a vertical wall normally with speed $v = 15\\text{ m/s}$ and drops vertically to the floor without splashing back. Taking the density of water $\\rho = 1000\\text{ kg/m}^3$, find the average force exerted on the wall.",
     "questionAr": "خرطوم يطلق تياراً أفقياً من الماء مساحة مقطعه $A = 0.01\\text{ م}^2$ يصطدم عمودياً بجدار رأسي بسرعة $v = 15\\text{ م/ث}$ ويسقط رأسياً دون ارتداد. باعتبار كثافة الماء $\\rho = 1000\\text{ كجم/م}^3$، أوجد القوة التي يؤثر بها الماء على الجدار.",
     "optionsEn": [
@@ -6080,7 +6060,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Terminal Equilibrium of a Dust Particle Accumulating Mass",
     "titleAr": "حركة قطرة مطر تجمع كتلة بمعدل ثابت",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A spherical raindrop of initial mass $m_0 = 0.5\\text{ g}$ falls from rest under gravity while accumulating vapor such that its mass increases linearly with time: $m(t) = m_0 + k t$, where $k = 0.1\\text{ g/s}$. Neglecting air drag, what is the net gravitational momentum $p(t)$ at $t = 10\\text{ s}$? (Take $g = 980\\text{ cm/s}^2$)",
     "questionAr": "قطرة مطر كروية كتلتها الابتدائية $m_0 = 0.5\\text{ جم}$ تسقط من السكون تحت الجاذبية وتتراكم عليها قطرات بخار ماء بحيث تزداد كتلتها خطياً مع الزمن: $m(t) = m_0 + k t$ حيث $k = 0.1\\text{ جم/ث}$. بإهمال مقاومة الهواء، ما كمية حركة القطرة $p(t)$ عند $t = 10\\text{ ث}$؟ (اعتبر $g = 980\\text{ سم/ث}^2$)",
     "optionsEn": [
@@ -6119,7 +6098,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Three Unequal Masses Connected by Two Pulleys",
     "titleAr": "ثلاث كتل متصلة بخيطين وبكرتين ملساوين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A mass $m_2 = 4\\text{ kg}$ on a smooth horizontal table is connected by two strings to two hanging masses: $m_1 = 5\\text{ kg}$ hanging off the left edge, and $m_3 = 2\\text{ kg}$ hanging off the right edge. Taking $g = 9.8\\text{ m/s}^2$, find the acceleration $a$ of the system.",
     "questionAr": "كتلة $m_2 = 4\\text{ كجم}$ موضوعة على نضد أفقي أملس متصلة بخيطين يمران فوق بكرتين ملساوين بكتلتين متدليتين: $m_1 = 5\\text{ كجم}$ تتدلى من الحافة اليسرى، و $m_3 = 2\\text{ كجم}$ تتدلى من الحافة اليمنى. باعتبار $g = 9.8\\text{ م/ث}^2$، أوجد عجلة حركة المجموعة $a$.",
     "optionsEn": [
@@ -6156,7 +6134,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Maximum Acceleration of a Truck Without Sliding Its Cargo",
     "titleAr": "أقصى عجلة لشاحنة دون انزلاق الحمولة في الصندوق",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A crate rests on the flat bed of a truck with coefficient of static friction $\\mu_s = 0.35$. What is the maximum acceleration $a_{\\max}$ the truck can have on a level road without the crate sliding backwards? (Take $g = 9.8\\text{ m/s}^2$)",
     "questionAr": "صندوق يستند على أرضية شاحنة مسطحة معامل الاحتكاك السكوني بينهما $\\mu_s = 0.35$. ما أقصى عجلة $a_{\\max}$ يمكن أن تتحرك بها الشاحنة على طريق أفقي دون أن ينزلق الصندوق للخلف؟ (اعتبر $g = 9.8\\text{ م/ث}^2$)",
     "optionsEn": [
@@ -6197,7 +6174,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Equilibrium on a Double Incline with Friction",
     "titleAr": "شرط عدم الانزلاق لكتلتين على مستويين مائلين خشنين",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "Two identical masses $m$ are on two symmetrical rough inclined planes of angle $\\theta = 30^\\circ$ connected by a string over a smooth apex pulley. If the friction coefficient on both inclines is $\\mu = 0.4$, can the system begin to move from rest on its own?",
     "questionAr": "كتلتان متطابقتان $m$ على مستويين مائلين متماثلين خشنين زاوية ميل كل منهما $\\theta = 30^\\circ$ متصلتان بخيط يمر على بكرة ملساء عند القمة. إذا كان معامل الاحتكاك على المستويين $\\mu = 0.4$، فهل يمكن للمجموعة أن تبدأ الحركة تلقائياً من السكون؟",
     "optionsEn": [
@@ -6236,7 +6212,6 @@ export const dynCh2Databank: ChapterDatabank = {
     "titleEn": "Deceleration Distance of a Bullet Penetrating a Wooden Barrier",
     "titleAr": "المسافة التي تقطعها رصاصة داخل حاجز خشبي قبل أن تسكن",
     "difficulty": "hots",
-    "diagramType": "cartesian_plane",
     "questionEn": "A bullet of mass $m = 20\\text{ g}$ enters a wooden target with speed $v_0 = 400\\text{ m/s}$. The wood exerts a constant resistive force of $F_R = 8000\\text{ N}$. How far $s$ does the bullet penetrate into the wood before coming to rest?",
     "questionAr": "رصاصة كتلتها $m = 20\\text{ جم}$ اخترقت حاجزاً خشبياً بسرعة $v_0 = 400\\text{ م/ث}$. لاقت الرصاصة مقاومة ثابتة من الخشب مقدارها $F_R = 8000\\text{ ن}$. ما المسافة $s$ التي تخترقها الرصاصة داخل الخشب حتى تسكن؟",
     "optionsEn": [

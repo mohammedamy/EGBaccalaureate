@@ -1645,7 +1645,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Normal Vector of a Plane from Cartesian Equation",
     "titleAr": "متجه الاتجاه العمودي للمستوى من المعادلة الكارتيزية",
     "difficulty": "easy",
-    "diagramType": "plane_intercepts_3d",
     "questionEn": "Find the normal vector $\\vec{n}$ to the plane with equation $3x - 2y + 5z = 12$.",
     "questionAr": "أوجد متجه الاتجاه العمودي $\\vec{n}$ للمستوى الذي معادلته $3x - 2y + 5z = 12$.",
     "optionsEn": [
@@ -1682,7 +1681,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Intercepts Form of Plane on Coordinate Axes",
     "titleAr": "معادلة المستوى بدلالة الأجزاء المقطوعة من المحاور",
     "difficulty": "easy",
-    "diagramType": "plane_intercepts_3d",
     "questionEn": "Find the lengths of the intercepts made by the plane $\\frac{x}{2} + \\frac{y}{3} + \\frac{z}{4} = 1$ on the $x$, $y$, and $z$ axes respectively.",
     "questionAr": "أوجد أطوال الأجزاء المقطوعة من محاور الإحداثيات $x, y, z$ بواسطة المستوى $\\frac{x}{2} + \\frac{y}{3} + \\frac{z}{4} = 1$.",
     "optionsEn": [
@@ -1794,7 +1792,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Condition for Straight Line Parallel to Plane",
     "titleAr": "شرط موازاة خط مستقيم لمستوى في الفراغ",
     "difficulty": "easy",
-    "diagramType": "line_plane_angle_3d",
     "questionEn": "A line with direction vector $\\vec{d}$ is parallel to a plane with normal vector $\\vec{n}$ if and only if which condition holds?",
     "questionAr": "يكون الخط المستقيم ذو متجه الاتجاه $\\vec{d}$ موازياً للمستوى ذي المتجه العمودي $\\vec{n}$ إذا وفقط إذا كان:",
     "optionsEn": [
@@ -3774,7 +3771,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Angle Between Line and Plane Formula",
     "titleAr": "قياس الزاوية بين مستقيم ومستوى",
     "difficulty": "medium",
-    "diagramType": "line_plane_angle_3d",
     "questionEn": "Find $\\sin\\theta$ where $\\theta$ is the angle between the line with direction $\\vec{d} = (1, 2, 2)$ and the plane with normal $\\vec{n} = (2, -1, 2)$.",
     "questionAr": "أوجد قيمة $\\sin\\theta$ حيث $\\theta$ هي الزاوية المحصورة بين المستقيم ذي الاتجاه $\\vec{d} = (1, 2, 2)$ والمستوى ذي العمودي $\\vec{n} = (2, -1, 2)$.",
     "optionsEn": [
@@ -3849,7 +3845,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Plane Equation Passing Through Three Non-Collinear Points",
     "titleAr": "معادلة المستوى المار بثلاث نقاط ليست على استقامة واحدة",
     "difficulty": "medium",
-    "diagramType": "plane_intercepts_3d",
     "questionEn": "Find the Cartesian equation of the plane passing through $A(1, 0, 0)$, $B(0, 1, 0)$, and $C(0, 0, 1)$.",
     "questionAr": "أوجد المعادلة الكارتيزية للمستوى المار بالنقاط $A(1, 0, 0)$ و $B(0, 1, 0)$ و $C(0, 0, 1)$.",
     "optionsEn": [
@@ -6193,7 +6188,6 @@ export const solidCh2Databank: ChapterDatabank = {
     "titleEn": "Tangency Condition Between Sphere and Plane",
     "titleAr": "شرط مماسّة كرة لمستوى في الفراغ",
     "difficulty": "hots",
-    "diagramType": "solid_geometry_sphere",
     "questionEn": "For what positive value of $k$ is the plane $2x - 2y + z + k = 0$ tangent to the sphere $x^2 + y^2 + z^2 = 9$?",
     "questionAr": "لأي قيمة موجبة لـ $k$ يكون المستوى $2x - 2y + z + k = 0$ مماساً للكرة $x^2 + y^2 + z^2 = 9$؟",
     "optionsEn": [
