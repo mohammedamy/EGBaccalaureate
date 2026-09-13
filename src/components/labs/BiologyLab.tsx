@@ -18,6 +18,7 @@ import {
   Calendar,
   ShieldCheck,
   Grid,
+  Zap,
 } from 'lucide-react';
 
 // High-resolution scientific photos
@@ -30,6 +31,7 @@ import { EndocrineLab } from './EndocrineLab';
 import { MenstrualCycleLab } from './MenstrualCycleLab';
 import { ImmunityLab } from './ImmunityLab';
 import { GeneticsLab } from './GeneticsLab';
+import { BioenergeticsLab } from './BioenergeticsLab';
 
 interface Props {
   lang: Language;
@@ -44,7 +46,8 @@ type BioTab =
   | 'endocrine'
   | 'menstrual'
   | 'immunity'
-  | 'genetics';
+  | 'genetics'
+  | 'bioenergetics';
 
 interface BoneRegion {
   id: string;
@@ -506,6 +509,22 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           >
             <Grid className="w-3.5 h-3.5 text-emerald-400" />
             <span>{isArabic ? 'مربع بانيت وفصائل الدم' : 'Genetics & ABO'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('bioenergetics')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'bioenergetics'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
+            <span>{isArabic ? 'الطاقة الحيوية والتمثيل الغذائي' : 'Bioenergetics & ATP'}</span>
           </button>
         </div>
       </div>
@@ -1522,6 +1541,13 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       {activeTab === 'genetics' && (
         <div className="mt-6">
           <GeneticsLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 9: BIOENERGETICS & CELLULAR METABOLISM */}
+      {activeTab === 'bioenergetics' && (
+        <div className="mt-6">
+          <BioenergeticsLab lang={lang} theme={theme} />
         </div>
       )}
     </div>

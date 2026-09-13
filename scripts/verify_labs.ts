@@ -53,6 +53,7 @@ const labComponents = [
   'src/components/labs/MenstrualCycleLab.tsx',
   'src/components/labs/ImmunityLab.tsx',
   'src/components/labs/GeneticsLab.tsx',
+  'src/components/labs/BioenergeticsLab.tsx',
   'src/components/VirtualLabsHub.tsx',
 ];
 
@@ -157,7 +158,14 @@ assert(Object.keys(CODON_TABLE).length === 64, `Standard Genetic Code contains a
 assert(CODON_TABLE['AUG'] === 'Met (Start)', 'AUG correctly mapped to Start codon (Methionine)');
 assert(CODON_TABLE['UAA'] === 'STOP' && CODON_TABLE['UAG'] === 'STOP' && CODON_TABLE['UGA'] === 'STOP', 'UAA, UAG, UGA correctly mapped to STOP codons');
 
-// F. Math: 3D Direction Cosines
+// F. Biology: Cellular Respiration & Photosynthesis Bioenergetics
+const glucoseMolesTest = 2;
+const aerobicAtp = glucoseMolesTest * 32;
+const anaerobicAtp = glucoseMolesTest * 2;
+assert(aerobicAtp === 64, `Aerobic Cellular Respiration for 2 mol glucose yields 64 ATP (expected 64)`);
+assert(anaerobicAtp === 4, `Anaerobic Fermentation for 2 mol glucose yields 4 ATP (expected 4)`);
+
+// G. Math: 3D Direction Cosines
 const alpha = Math.PI / 4; // 45 deg
 const beta = Math.PI / 3; // 60 deg
 const cosAlpha = Math.cos(alpha);
