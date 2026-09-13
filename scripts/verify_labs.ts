@@ -54,6 +54,9 @@ const labComponents = [
   'src/components/labs/ImmunityLab.tsx',
   'src/components/labs/GeneticsLab.tsx',
   'src/components/labs/BioenergeticsLab.tsx',
+  'src/components/labs/DynamoInductionLab.tsx',
+  'src/components/labs/RLCResonanceLab.tsx',
+  'src/components/labs/ElectrochemistryLab.tsx',
   'src/components/VirtualLabsHub.tsx',
 ];
 
@@ -96,7 +99,28 @@ const E_photon_eV = E_photon / e;
 const KE_max_eV = E_photon_eV - workFunction_Cs_eV;
 assert(KE_max_eV > 0, `Photoelectric emission occurs at 350 nm: KE_max = ${KE_max_eV.toFixed(2)} eV`);
 
-// C. Chemistry: 3d Transition Series & Magnetic Moments
+// C. Physics: AC Dynamo Induction (Faraday's Law)
+const N_dynamo = 200;
+const B_dynamo = 0.5; // T
+const A_dynamo = 0.04; // m^2
+const f_dynamo = 50; // Hz
+const omega_dynamo = 2 * Math.PI * f_dynamo;
+const emf_max_dynamo = N_dynamo * B_dynamo * A_dynamo * omega_dynamo;
+const emf_eff_dynamo = emf_max_dynamo / Math.SQRT2;
+assert(Math.abs(emf_max_dynamo - 1256.64) < 1.0, `Dynamo Peak EMF: E_max = ${emf_max_dynamo.toFixed(2)} V (expected ~1256.64 V)`);
+assert(Math.abs(emf_eff_dynamo - 888.58) < 1.0, `Dynamo RMS Effective EMF: E_eff = ${emf_eff_dynamo.toFixed(2)} V (expected ~888.58 V)`);
+
+// D. Physics: RLC Circuit Resonant Frequency & Maximum Current
+const L_rlc = 0.1; // H (100 mH)
+const C_rlc = 20e-6; // F (20 uF)
+const R_rlc = 50; // Ohms
+const V_rlc = 100; // V
+const f0_rlc = 1 / (2 * Math.PI * Math.sqrt(L_rlc * C_rlc));
+const I_res_rlc = V_rlc / R_rlc;
+assert(Math.abs(f0_rlc - 112.54) < 0.2, `RLC Resonant Frequency: f0 = ${f0_rlc.toFixed(2)} Hz (expected ~112.54 Hz)`);
+assert(Math.abs(I_res_rlc - 2.0) < 1e-6, `RLC Peak Current at Resonance: I_max = ${I_res_rlc} A (expected 2.0 A)`);
+
+// E. Chemistry: 3d Transition Series & Magnetic Moments
 // Magnetic moment formula: mu = sqrt(n * (n + 2)) BM
 function calcMagneticMoment(unpairedElectrons: number): number {
   return Math.sqrt(unpairedElectrons * (unpairedElectrons + 2));
@@ -114,7 +138,15 @@ assert(Math.abs(mu_Fe3 - 5.92) < 0.05, `Fe3+ magnetic moment: ${mu_Fe3.toFixed(2
 const mu_Zn2 = calcMagneticMoment(0);
 assert(mu_Zn2 === 0, `Zn2+ magnetic moment: ${mu_Zn2} BM (diamagnetic)`);
 
-// D. Biology: Human Skeleton Counts
+// F. Chemistry: Daniell Cell Standard Potential & Spontaneity
+const E0_cathode_Cu = 0.34; // V
+const E0_anode_Zn = -0.76; // V
+const E0_cell_daniell = E0_cathode_Cu - E0_anode_Zn;
+const deltaG0_kJ = (-2 * 96485 * E0_cell_daniell) / 1000;
+assert(Math.abs(E0_cell_daniell - 1.10) < 1e-6, `Daniell Cell Standard EMF: E°_cell = ${E0_cell_daniell.toFixed(2)} V (expected 1.10 V)`);
+assert(deltaG0_kJ < 0, `Daniell Cell Spontaneity: ΔG° = ${deltaG0_kJ.toFixed(1)} kJ/mol (< 0, spontaneous)`);
+
+// G. Biology: Human Skeleton Counts
 const axialBones = 80;
 const appendicularBones = 126;
 const totalBones = axialBones + appendicularBones;
@@ -183,6 +215,10 @@ const labKeyFormulas = [
   'E = h\\nu = \\frac{hc}{\\lambda}',
   'eV_s = KE_{\\max} = h\\nu - \\Phi',
   '\\Phi = h\\nu_0 = \\frac{hc}{\\lambda_0}',
+  '\\mathcal{E} = -N \\frac{\\Delta \\Phi_m}{\\Delta t} = N B A \\omega \\sin(\\omega t)',
+  '\\mathcal{E}_{\\text{eff}} = \\frac{\\mathcal{E}_{\\max}}{\\sqrt{2}}',
+  'f_0 = \\frac{1}{2\\pi\\sqrt{LC}}',
+  'Z = \\sqrt{R^2 + (X_L - X_C)^2}',
   // Chemistry Lab
   '2\\text{NO}_2\\text{(g)} \\rightleftharpoons \\text{N}_2\\text{O}_4\\text{(g)}',
   '\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3',
@@ -190,6 +226,8 @@ const labKeyFormulas = [
   '\\mu = \\sqrt{n(n+2)}\\,\\text{BM}',
   '\\text{pH} = \\text{p}K_a + \\log\\frac{[A^-]}{[HA]}',
   '\\text{Fe}_2\\text{O}_3 + 3\\text{CO} \\xrightarrow{>700^\\circ\\text{C}} 2\\text{Fe} + 3\\text{CO}_2',
+  'E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{RT}{nF} \\ln Q',
+  '\\Delta G^\\circ = -nFE^\\circ',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',

@@ -9,14 +9,17 @@ import {
   Activity,
   Sparkles,
   Info,
+  Radio,
 } from 'lucide-react';
+import { DynamoInductionLab } from './DynamoInductionLab';
+import { RLCResonanceLab } from './RLCResonanceLab';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
 }
 
-type PhysicsTab = 'circuits' | 'photoelectric';
+type PhysicsTab = 'circuits' | 'photoelectric' | 'dynamo' | 'resonance';
 
 interface Metal {
   id: string;
@@ -240,6 +243,38 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           >
             <Sun className="w-3.5 h-3.5" />
             <span>{isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('dynamo')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'dynamo'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('resonance')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'resonance'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Radio className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}</span>
           </button>
         </div>
       </div>
@@ -881,6 +916,20 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB 3: AC DYNAMO & INDUCTION */}
+      {activeTab === 'dynamo' && (
+        <div className="mt-6">
+          <DynamoInductionLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 4: RLC RESONANCE & AC CIRCUITS */}
+      {activeTab === 'resonance' && (
+        <div className="mt-6">
+          <RLCResonanceLab lang={lang} theme={theme} />
         </div>
       )}
     </div>

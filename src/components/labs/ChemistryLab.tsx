@@ -8,14 +8,16 @@ import {
   Info,
   Droplets,
   Layers,
+  Battery,
 } from 'lucide-react';
+import { ElectrochemistryLab } from './ElectrochemistryLab';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
 }
 
-type ChemTab = 'equilibrium' | 'transition' | 'titration';
+type ChemTab = 'equilibrium' | 'transition' | 'titration' | 'electrochemistry';
 
 interface TransitionElement {
   z: number;
@@ -370,6 +372,22 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           >
             <Droplets className="w-3.5 h-3.5" />
             <span>{isArabic ? 'الرقم الهيدروجيني والمعايرة' : 'pH & Titration'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('electrochemistry')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'electrochemistry'
+                ? isContrast
+                  ? 'bg-emerald-400 text-black font-black'
+                  : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Battery className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'الكيمياء الكهربية وخلايا الجلفانية' : 'Electrochemistry & Galvanic'}</span>
           </button>
         </div>
       </div>
@@ -910,6 +928,13 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB 4: ELECTROCHEMISTRY & GALVANIC CELLS */}
+      {activeTab === 'electrochemistry' && (
+        <div className="mt-6">
+          <ElectrochemistryLab lang={lang} theme={theme} />
         </div>
       )}
     </div>
