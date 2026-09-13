@@ -17,6 +17,7 @@ import {
   CheckCircle2,
   ShieldCheck,
   Globe,
+  ExternalLink,
 } from 'lucide-react';
 
 interface Props {
@@ -336,7 +337,29 @@ export const OfficialBooksModal: React.FC<Props> = ({
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+          {/* Dual-Access Ministry Advisory Banner */}
+          <div
+            className={`p-4 rounded-xl border text-xs flex items-start gap-3.5 shadow-xs ${
+              isLight
+                ? 'bg-emerald-50/90 border-emerald-200 text-emerald-950'
+                : isContrast
+                ? 'bg-black border-yellow-400 text-yellow-300'
+                : 'bg-emerald-950/30 border-emerald-700/40 text-emerald-200'
+            }`}
+          >
+            <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+            <div className="flex-1 space-y-1">
+              <div className="flex items-center gap-2 font-bold text-sm">
+                <span>{isArabic ? 'بوابة الكتب والمناهج الرسمية المعتمدة لوزارة التربية والتعليم' : 'Official Ministry of Education Textbooks & Curricular Gateways'}</span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/20 text-emerald-400 font-mono">2025/2026</span>
+              </div>
+              <p className={`leading-relaxed text-xs ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
+                {t.moePortalNotice}
+              </p>
+            </div>
+          </div>
+
           {filteredBooks.length === 0 ? (
             <div className="text-center py-16">
               <BookOpen className="w-12 h-12 mx-auto text-slate-400 mb-3 opacity-50" />
@@ -431,13 +454,27 @@ export const OfficialBooksModal: React.FC<Props> = ({
                           </p>
                         </div>
 
-                        {/* File Size & Page Pill */}
+                        {/* Dual Spec Pill: Full Book vs In-App Compendium */}
                         <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                          <span className="text-xs font-semibold px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600">
-                            {pageCountDisplay}
+                          <span
+                            className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${
+                              isLight
+                                ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                                : 'bg-emerald-950/80 text-emerald-300 border-emerald-700/60'
+                            }`}
+                            title={isArabic ? 'حجم وصفحات الكتاب المدرسي ببوابة الوزارة' : 'Full textbook pages & size on Ministry portal'}
+                          >
+                            {isArabic
+                              ? `${toHindiDigits(book.fullTextbookPages)} صفحة • ${book.fullTextbookSize}`
+                              : `${book.fullTextbookPages} Pages • ${book.fullTextbookSize}`}
                           </span>
-                          <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                            {book.fileSize}
+                          <span
+                            className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                            title={isArabic ? 'كتيب المفاهيم المعتمد' : 'In-App Concept Compendium'}
+                          >
+                            {isArabic
+                              ? `الكتيب: ${toHindiDigits(book.pagesCount)} ص (${book.fileSize})`
+                              : `Compendium: ${book.pagesCount}p (${book.fileSize})`}
                           </span>
                         </div>
                       </div>
@@ -511,48 +548,58 @@ export const OfficialBooksModal: React.FC<Props> = ({
                       </div>
 
                       {/* Action Download & Preview Buttons */}
-                      <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex items-center gap-2 flex-wrap">
-                        {/* Direct Download PDF Button */}
-                        <a
-                          href={book.downloadUrl}
-                          download={book.filename}
-                          className="flex-1 min-w-[130px] inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.98]"
-                          style={{
-                            background: `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
-                          }}
-                        >
-                          <Download className="w-4 h-4" />
-                          <span>{t.downloadBookPdf}</span>
-                        </a>
-
-                        {/* Preview / Open in Tab */}
-                        <button
-                          onClick={() => window.open(book.downloadUrl, '_blank')}
-                          className={`inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-semibold border transition-all ${
-                            isLight
-                              ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
-                              : 'bg-slate-700/60 hover:bg-slate-700 text-slate-200 border-slate-600'
-                          }`}
-                          title={t.previewBookPdf}
-                        >
-                          <FileText className="w-3.5 h-3.5" />
-                          <span>{t.previewBookPdf}</span>
-                        </button>
-
-                        {/* Ministry E-Learning Portal Link */}
+                      <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-2">
+                        {/* 1. Primary Full Ministry Textbook Gateway Button */}
                         <a
                           href={book.officialPortalUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`p-2.5 rounded-xl text-xs font-medium border transition-colors ${
-                            isLight
-                              ? 'bg-slate-50 hover:bg-slate-100 text-slate-500 border-slate-300'
-                              : 'bg-slate-800/80 hover:bg-slate-700 text-slate-400 border-slate-700 hover:text-white'
-                          }`}
-                          title={t.moePortalLink}
+                          className="w-full inline-flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.99] group"
+                          style={{
+                            background: `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
+                          }}
+                          title={t.downloadFullTextbook}
                         >
-                          <Globe className="w-4 h-4" />
+                          <div className="flex items-center gap-2">
+                            <Globe className="w-4 h-4" />
+                            <span>{t.downloadFullTextbook}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-[11px] font-mono opacity-90">
+                            <span>{isArabic ? `${toHindiDigits(book.fullTextbookPages)} ص • ${book.fullTextbookSize}` : `${book.fullTextbookPages}p • ${book.fullTextbookSize}`}</span>
+                            <ExternalLink className="w-3.5 h-3.5 opacity-80 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </a>
+
+                        {/* 2. Secondary Local Concept & Formula Compendium (PDF) & Preview */}
+                        <div className="flex items-center gap-2">
+                          <a
+                            href={book.downloadUrl}
+                            download={book.filename}
+                            className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                              isLight
+                                ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
+                                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 hover:border-slate-600'
+                            }`}
+                            title={t.downloadConceptCompendium}
+                          >
+                            <Download className="w-3.5 h-3.5 text-emerald-500" />
+                            <span className="truncate">{t.downloadConceptCompendium}</span>
+                            <span className="text-[10px] font-mono opacity-70">({book.fileSize})</span>
+                          </a>
+
+                          <button
+                            onClick={() => window.open(book.downloadUrl, '_blank')}
+                            className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all shrink-0 ${
+                              isLight
+                                ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-300'
+                                : 'bg-slate-800/80 hover:bg-slate-700 text-slate-300 border-slate-700 hover:text-white'
+                            }`}
+                            title={t.previewBookPdf}
+                          >
+                            <FileText className="w-3.5 h-3.5" />
+                            <span>{t.previewBookPdf}</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

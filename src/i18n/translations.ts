@@ -140,6 +140,13 @@ export interface Translations {
   bookChaptersCount: string;
   officialMinistryBadge: string;
   officialCurriculumCode: string;
+  downloadFullTextbook: string;
+  downloadConceptCompendium: string;
+  moePortalNotice: string;
+  conceptCompendiumLabel: string;
+  fullTextbookLabel: string;
+  moePortalElearning: string;
+  inAppCompendiumSubtitle: string;
 
   // Footers & References
   copyright: string;
@@ -281,6 +288,13 @@ export const translations: Record<Language, Translations> = {
     bookChaptersCount: 'Chapters',
     officialMinistryBadge: 'Authorized by Ministry of Education',
     officialCurriculumCode: 'Curriculum Code',
+    downloadFullTextbook: 'Download Full Textbook (Ministry Portal)',
+    downloadConceptCompendium: 'Download Concept Compendium (PDF)',
+    moePortalNotice: 'Complete official textbooks (200–300 pages) are published and authorized by the Egyptian Ministry of Education & Technical Education, accessible directly through the official E-Learning Portal.',
+    conceptCompendiumLabel: 'Official Concept Compendium',
+    fullTextbookLabel: 'Full Ministerial Textbook',
+    moePortalElearning: 'Ministry E-Learning Portal',
+    inAppCompendiumSubtitle: 'Certified Exam Formula & Concept Sheet',
 
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
     moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).',
@@ -420,6 +434,13 @@ export const translations: Record<Language, Translations> = {
     bookChaptersCount: 'فصول دراسية',
     officialMinistryBadge: 'معتمد رسمياً من وزارة التربية والتعليم',
     officialCurriculumCode: 'كود المنهج',
+    downloadFullTextbook: 'تحميل الكتاب الكامل من بوابة الوزارة',
+    downloadConceptCompendium: 'تحميل كتيب المفاهيم والقوانين (PDF)',
+    moePortalNotice: 'الكتب المدرسية الرسمية الكاملة (200-300 صفحة) صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني ومتاحة للتحميل المباشر والمجاني عبر بوابة التعليم الإلكتروني الرسمية.',
+    conceptCompendiumLabel: 'كتيب المفاهيم المعتمد',
+    fullTextbookLabel: 'الكتاب المدرسي الوزاري الكامل',
+    moePortalElearning: 'بوابة التعليم الإلكتروني للوزارة',
+    inAppCompendiumSubtitle: 'كتيب القوانين والمفاهيم المركزة للامتحانات',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
     moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.',
