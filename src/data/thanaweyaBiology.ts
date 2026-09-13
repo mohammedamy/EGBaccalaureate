@@ -778,6 +778,7 @@ export const thanaweyaBiologyBranch: Branch = {
           "exerciseProblems": [
                 {
                       "id": "th_bio_ex_01",
+                      "diagramType": "bio_sarcomere_ultrastructure",
                       "titleEn": "Exercise 1: Sarcomere Bands During Contraction",
                       "titleAr": "تمرين ١: أطوال مناطق القطعة العضلية أثناء الانقباض",
                       "difficulty": "easy",
@@ -3304,6 +3305,7 @@ export const thanaweyaBiologyBranch: Branch = {
           "solvedExamples": [
                 {
                       "id": "th_bio_ch3_se_01",
+                      "diagramType": "bio_flower_whorls",
                       "titleEn": "Example 1: Pollen and Nuclei Numerical Yields",
                       "titleAr": "مثال محلول ١: حسابات نواتج حبوب اللقاح والأنوية الزهرية",
                       "difficulty": "medium",
@@ -4604,6 +4606,7 @@ export const thanaweyaBiologyBranch: Branch = {
                 },
                 {
                       "id": "th_bio_ch4_se_02",
+                      "diagramType": "bio_antibody_structure",
                       "titleEn": "Example 2: Molecular Architecture and Bonds of Antibodies",
                       "titleAr": "مثال محلول ٢: التركيب الجزيئي والروابط في الجسم المضاد",
                       "difficulty": "medium",
@@ -5878,6 +5881,7 @@ export const thanaweyaBiologyBranch: Branch = {
           "solvedExamples": [
                 {
                       "id": "th_bio_ch5_se_01",
+                      "diagramType": "bio_dna_replication_fork",
                       "titleEn": "Example 1: DNA Stoichiometry & Hydrogen Bond Calculation",
                       "titleAr": "مثال محلول ١: حسابات أعداد القواعد واللفات والروابط الهيدروجينية في DNA",
                       "difficulty": "medium",

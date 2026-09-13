@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import type { CurriculumType, DifficultyLevel, DiagramType, SolvedProblem } from '../types/curriculum';
+import type { CurriculumType, DifficultyLevel, DiagramType, SolvedProblem, Chapter } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { thanaweyaCurriculum } from '../data/thanaweyaData';
@@ -26,6 +26,7 @@ import {
   Sparkles,
   BookOpen,
   Calculator,
+  Dna,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -347,6 +348,125 @@ export const TestGenerator: React.FC<Props> = ({
     setIsExamStarted(true);
   };
 
+  // Launch official Biology Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
+  const handleStartBiologyMinisterialExam = () => {
+    setSelectedSubject('biology');
+    const isThanaweya = currentCurriculum === 'thanaweya';
+    const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
+    const targetBranchId = isThanaweya ? 'biology' : 'egbac_biology';
+    const bioBranch = activeData.branches.find((b) => b.id === targetBranchId);
+
+    if (!bioBranch) return;
+
+    setExamMode('online');
+    setSelectedBranch(targetBranchId);
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setIsTimed(true);
+
+    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
+      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+      if (ch.databank) {
+        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+      }
+      if (ch.solvedExamples) {
+        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
+      }
+      if (ch.exerciseProblems) {
+        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
+      }
+
+      const res: GeneratedQuestion[] = [];
+      candidateProblems.forEach(({ prob, source, diff }) => {
+        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
+        res.push({
+          id: `${prob.id}_${source}`,
+          questionEn: prob.questionEn,
+          questionAr: prob.questionAr,
+          difficulty: diff,
+          optionsEn: prob.optionsEn,
+          optionsAr: prob.optionsAr,
+          correctIndex: prob.correctIndex,
+          explanationEn: prob.stepByStepSolutionEn,
+          explanationAr: prob.stepByStepSolutionAr,
+          chapterId: ch.id,
+          chapterTitleEn: ch.titleEn,
+          chapterTitleAr: ch.titleAr,
+          branchTitleEn: bioBranch.titleEn,
+          branchTitleAr: bioBranch.titleAr,
+          diagramType: prob.diagramType,
+        });
+      });
+      return res;
+    };
+
+    const shuffle = <T,>(arr: T[]): T[] => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    };
+
+    let selectedQs: GeneratedQuestion[] = [];
+    let examTimeMinutes = 180;
+
+    if (isThanaweya) {
+      // Official MoE Thanaweya Blueprint (50 Questions):
+      // Ch 1 (th_bio_ch1 - Support & Movement): 10 Qs
+      // Ch 2 (th_bio_ch2 - Hormonal Coordination): 8 Qs
+      // Ch 3 (th_bio_ch3 - Reproduction): 16 Qs
+      // Ch 4 (th_bio_ch4 - Immunity): 8 Qs
+      // Ch 5 (th_bio_ch5 - Molecular Biology): 8 Qs
+      const blueprint: Record<string, number> = {
+        th_bio_ch1: 10,
+        th_bio_ch2: 8,
+        th_bio_ch3: 16,
+        th_bio_ch4: 8,
+        th_bio_ch5: 8,
+      };
+
+      bioBranch.chapters.forEach((ch) => {
+        const targetCount = blueprint[ch.id] ?? 10;
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch));
+        selectedQs.push(...chQuestions.slice(0, targetCount));
+      });
+
+      examTimeMinutes = 180;
+      setQuestionCount(50);
+      setDurationPreset(180);
+    } else {
+      // EG-Bac STEM Blueprint (40 Questions):
+      // 10 Qs per chapter across all 4 chapters
+      bioBranch.chapters.forEach((ch) => {
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch));
+        selectedQs.push(...chQuestions.slice(0, 10));
+      });
+
+      examTimeMinutes = 150;
+      setQuestionCount(40);
+      setDurationPreset(150);
+    }
+
+    selectedQs = shuffle(selectedQs);
+
+    setActiveQuestions(selectedQs);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setReviewFilter('all');
+
+    const totalSec = examTimeMinutes * 60;
+    setTotalTimeSeconds(totalSec);
+    setTimeRemaining(totalSec);
+    setIsTimerPaused(false);
+    setTimeTakenSeconds(0);
+    setIsExamStarted(true);
+  };
+
   // Toggle flag on question
   const toggleFlag = (idx: number) => {
     setFlaggedQuestions((prev) => ({
@@ -498,36 +618,91 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Ministerial 3-Hour Simulation Quick Launch Banner */}
-        <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
-          <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/40 shadow-inner">
-              <Award className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                <h4 className="text-sm sm:text-base font-black text-slate-100">
-                  {lang === 'ar' ? 'محاكاة امتحان الثانوية العامة الرسمي (3 ساعات / 40 سؤالاً)' : 'Official Ministerial 3-Hour Simulation (40 Qs / 180 Mins)'}
-                </h4>
-                <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40">
-                  {lang === 'ar' ? 'نموذج الوزارة المعتمد 2026' : 'Official MoE Spec 2026'}
-                </span>
+        {/* Ministerial Simulation Quick Launch Banner */}
+        {selectedSubject === 'biology' ? (
+          <div className="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-emerald-950/30">
+            <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40 shadow-inner">
+                <Dna className="w-6 h-6 animate-pulse" />
               </div>
-              <p className="text-xs text-slate-400 mt-1 max-w-xl">
-                {lang === 'ar'
-                  ? 'اختبار شامل يحاكي زمن وضوابط امتحان نهاية العام بوزارة التربية والتعليم: 40 سؤالاً، مؤقت 3 ساعات، لوحة تنقل ومراجعة تفاعلية، وتحليل شامل للدرجات والوقت.'
-                  : 'Full-length mock exam replicating official Grade 12 ministerial exam conditions: 40 questions, 3-hour timer, question palette & detailed performance analytics.'}
-              </p>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-sm sm:text-base font-black text-emerald-100">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'امتحان الأحياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الأحياء الشامل لمدارس STEM (40 سؤالاً / 150 دقيقة)')
+                      : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Biology Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Biology Exam (40 Qs / 150 Mins)')}
+                  </h4>
+                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
+                      : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya'
+                        ? 'نموذج محاكاة مطابق لضوابط الوزارة: 10 أسئلة للدعامة والحركة، 8 للتنسيق الهرموني، 16 للتكاثر، 8 للمناعة، و8 للبيولوجيا الجزيئية. مؤقت 3 ساعات وتحليل فوري شامل.'
+                        : 'اختبار تخصصي متكامل مقسم بالتساوي عبر فصول المنهج الأربعة (10 أسئلة لكل محور) بزمن 150 دقيقة.')
+                    : (currentCurriculum === 'thanaweya'
+                        ? 'Strictly aligned with official ministerial blueprint: 10 Qs Support & Movement, 8 Qs Hormones, 16 Qs Reproduction, 8 Qs Immunity, 8 Qs Molecular Biology (180 mins).'
+                        : 'Comprehensive exam evenly distributed across all 4 chapters (10 Qs each) with a 150-minute timer.')}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartBiologyMinisterialExam}
+                className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+              >
+                <Dna className="w-4 h-4" />
+                <span>
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya' ? 'بدء امتحان الأحياء الوزاري (50 سؤالاً)' : 'بدء امتحان الأحياء STEM (40 سؤالاً)')
+                    : (currentCurriculum === 'thanaweya' ? 'Launch Biology Exam (50 Qs)' : 'Launch STEM Biology (40 Qs)')}
+                </span>
+              </button>
             </div>
           </div>
-          <button
-            onClick={handleStartMinisterialSimulation}
-            className="w-full md:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
-          >
-            <Timer className="w-4 h-4" />
-            <span>{lang === 'ar' ? 'بدء محاكاة الامتحان (3 ساعات)' : 'Launch 3-Hour Simulation'}</span>
-          </button>
-        </div>
+        ) : (
+          <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
+            <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/40 shadow-inner">
+                <Award className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-sm sm:text-base font-black text-slate-100">
+                    {lang === 'ar' ? 'محاكاة امتحان الثانوية العامة الرسمي (3 ساعات / 40 سؤالاً)' : 'Official Ministerial 3-Hour Simulation (40 Qs / 180 Mins)'}
+                  </h4>
+                  <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40">
+                    {lang === 'ar' ? 'نموذج الوزارة المعتمد 2026' : 'Official MoE Spec 2026'}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400 mt-1 max-w-xl">
+                  {lang === 'ar'
+                    ? 'اختبار شامل يحاكي زمن وضوابط امتحان نهاية العام بوزارة التربية والتعليم: 40 سؤالاً، مؤقت 3 ساعات، لوحة تنقل ومراجعة تفاعلية، وتحليل شامل للدرجات والوقت.'
+                    : 'Full-length mock exam replicating official Grade 12 ministerial exam conditions: 40 questions, 3-hour timer, question palette & detailed performance analytics.'}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartBiologyMinisterialExam}
+                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer hover:scale-105 shadow-sm"
+              >
+                <Dna className="w-3.5 h-3.5 text-emerald-400" />
+                <span>{lang === 'ar' ? 'امتحان الأحياء (50 سؤالاً)' : 'Biology Exam (50 Qs)'}</span>
+              </button>
+              <button
+                onClick={handleStartMinisterialSimulation}
+                className="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 transition-all cursor-pointer hover:scale-105"
+              >
+                <Timer className="w-4 h-4" />
+                <span>{lang === 'ar' ? 'بدء محاكاة الامتحان (3 ساعات)' : 'Launch 3-Hour Simulation'}</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5">

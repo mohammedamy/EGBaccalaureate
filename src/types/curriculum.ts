@@ -87,7 +87,12 @@ export type DiagramType =
   | 'line_plane_angle_3d'
   | 'cartesian_plane'
   | 'triangle'
-  | 'circle';
+  | 'circle'
+  | 'bio_antibody_structure'
+  | 'bio_sarcomere_ultrastructure'
+  | 'bio_dna_replication_fork'
+  | 'bio_flower_whorls'
+  | 'bio_nephron_filtration';
 
 export interface SolvedProblem {
   id: string;
@@ -96,17 +101,37 @@ export interface SolvedProblem {
   difficulty: DifficultyLevel;
   questionEn: string;
   questionAr: string;
-  diagramType?: DiagramType;
   optionsEn?: string[];
   optionsAr?: string[];
   correctAnswer?: string;
   correctIndex?: number;
-  hintEn: string;
-  hintAr: string;
+  hintEn?: string;
+  hintAr?: string;
   stepByStepSolutionEn: string[];
   stepByStepSolutionAr: string[];
   teacherTipEn?: string;
   teacherTipAr?: string;
+  diagramType?: DiagramType;
+}
+
+export interface ExerciseProblem {
+  id: string;
+  titleEn: string;
+  titleAr: string;
+  difficulty?: DifficultyLevel;
+  questionEn: string;
+  questionAr: string;
+  optionsEn?: string[];
+  optionsAr?: string[];
+  correctAnswer?: string;
+  correctIndex?: number;
+  hintEn?: string;
+  hintAr?: string;
+  stepByStepSolutionEn?: string[];
+  stepByStepSolutionAr?: string[];
+  teacherTipEn?: string;
+  teacherTipAr?: string;
+  diagramType?: DiagramType;
 }
 
 export interface Worksheet {
@@ -137,7 +162,8 @@ export type InteractiveWidgetType =
   | 'biology_immunity'
   | 'biology_genetics'
   | 'biology_dna'
-  | 'biology_bioenergetics';
+  | 'biology_bioenergetics'
+  | 'biology_flashcards';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

@@ -32,6 +32,7 @@ import { MenstrualCycleLab } from './MenstrualCycleLab';
 import { ImmunityLab } from './ImmunityLab';
 import { GeneticsLab } from './GeneticsLab';
 import { BioenergeticsLab } from './BioenergeticsLab';
+import { BiologyFlashcards } from './BiologyFlashcards';
 
 export type BioTab =
   | 'skeleton'
@@ -42,7 +43,8 @@ export type BioTab =
   | 'menstrual'
   | 'immunity'
   | 'genetics'
-  | 'bioenergetics';
+  | 'bioenergetics'
+  | 'flashcards';
 
 interface Props {
   lang: Language;
@@ -532,6 +534,22 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
           >
             <Zap className="w-3.5 h-3.5 text-amber-400" />
             <span>{isArabic ? 'الطاقة الحيوية والتمثيل الغذائي' : 'Bioenergetics & ATP'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('flashcards')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'flashcards'
+                ? isContrast
+                  ? 'bg-amber-400 text-black font-black'
+                  : 'bg-gradient-to-r from-amber-600 to-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+            <span>{isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}</span>
           </button>
         </div>
       </div>
@@ -1555,6 +1573,13 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
       {activeTab === 'bioenergetics' && (
         <div className="mt-6">
           <BioenergeticsLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 10: ACTIVE RECALL FLASHCARDS & SPACED REPETITION */}
+      {activeTab === 'flashcards' && (
+        <div className="mt-6">
+          <BiologyFlashcards lang={lang} theme={theme} />
         </div>
       )}
     </div>

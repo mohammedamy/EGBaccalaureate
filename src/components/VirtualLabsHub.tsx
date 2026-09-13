@@ -12,7 +12,7 @@ import {
 import { MathLab } from './labs/MathLab';
 import { PhysicsLab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
-import { BiologyLab } from './labs/BiologyLab';
+import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 
 interface Props {
@@ -45,6 +45,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   };
 
   const [activeLab, setActiveLab] = useState<LabId>(getInitialLab);
+  const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
 
   // Sync if selectedSubject prop changes
@@ -240,7 +241,51 @@ export const VirtualLabsHub: React.FC<Props> = ({
         {activeLab === 'math' && <MathLab lang={lang} theme={theme} onOpenDesmos={onOpenDesmos} />}
         {activeLab === 'physics' && <PhysicsLab lang={lang} theme={theme} />}
         {activeLab === 'chemistry' && <ChemistryLab lang={lang} theme={theme} />}
-        {activeLab === 'biology' && <BiologyLab lang={lang} theme={theme} />}
+        {activeLab === 'biology' && (
+          <div className="space-y-4">
+            {/* Quick-Access Biology Sub-Laboratory Launch Strip */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex items-center gap-2 overflow-x-auto scrollbar-none">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-2">
+                <Dna className="w-4 h-4 text-rose-400" />
+                <span>{isArabic ? 'المعامل المتخصصة:' : 'Sub-Labs:'}</span>
+              </span>
+              {[
+                { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Skeleton (206)', labelAr: 'الهيكل العظمي (206)' },
+                { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere', labelAr: 'انقباض الساركومير' },
+                { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio', labelAr: 'استوديو DNA' },
+                { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Stem', labelAr: 'دعامة النبات' },
+                { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine', labelAr: 'التنسيق الهرموني' },
+                { id: 'menstrual' as BioTab, emoji: '🌸', labelEn: 'Menstrual Cycle', labelAr: 'دورة الطمث' },
+                { id: 'immunity' as BioTab, emoji: '🛡️', labelEn: 'Immunology', labelAr: 'المناعة والأجسام المضادة' },
+                { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Genetics & CRISPR', labelAr: 'الوراثة وكريسبر' },
+                { id: 'bioenergetics' as BioTab, emoji: '⚡', labelEn: 'Bioenergetics', labelAr: 'التنفس الخلوي' },
+                { id: 'flashcards' as BioTab, emoji: '🗂️', labelEn: 'Flashcards', labelAr: 'بطاقات الاستذكار' },
+              ].map((tab) => {
+                const isCurrent = activeBioTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveBioTab(tab.id)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer ${
+                      isCurrent
+                        ? isContrast
+                          ? 'bg-yellow-400 text-black font-black'
+                          : 'bg-rose-600 text-white shadow-md shadow-rose-600/30 scale-105'
+                        : isLight
+                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
+                    }`}
+                  >
+                    <span>{tab.emoji}</span>
+                    <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
