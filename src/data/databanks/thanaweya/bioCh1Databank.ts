@@ -4,6087 +4,5607 @@ export const bioCh1Databank: ChapterDatabank = {
   easy: [
   {
     "id": "bio_ch1_db_easy_01",
-    "titleEn": "Physiological Support & Osmosis #1",
-    "titleAr": "الدعامة الفسيولوجية والخاصية الأسموزية #1",
+    "titleEn": "Physiological Support Mechanism in Plant Cells",
+    "titleAr": "آلية الدعامة الفسيولوجية في الخلية النباتية",
     "difficulty": "easy",
-    "questionEn": "Physiological support in plant cells is primarily acquired by:",
-    "questionAr": "تكتسب الخلية النباتية الدعامة الفسيولوجية بصورة أساسية عن طريق:",
+    "questionEn": "Physiological support in plant cells is primarily established when:",
+    "questionAr": "تكتسب الخلية النباتية دعامتها الفسيولوجية بصورة أساسية عندما:",
     "optionsEn": [
-      "Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall",
-      "Permanent deposition of lignin on cell walls",
-      "Active transport of mineral ions out of the cytoplasm",
-      "Cellular division in meristematic tissues"
+      "Water enters the vacuole by osmosis, causing turgor pressure against the cell wall",
+      "Lignin is permanently deposited within the cell wall matrix",
+      "Active transport expels all mineral salts outside the cytoplasm",
+      "The nucleus divides by mitosis during vegetative reproduction"
     ],
     "optionsAr": [
-      "دخول الماء بالخاصية الأسموزية إلى الفجوة العصارية فتنتفخ وتضغط على الجدار الخلوي",
-      "ترسيب مادة اللجنين الصلبة على الجدار",
-      "النقل النشط للأيونات خارج السيتوبلازم",
-      "الانقسام الخلوي في الأنسجة الإنشائية"
+      "يدخل الماء إلى الفجوة العصارية بالخاصية الأسموزية مسبباً ضغط امتلاء يضغط على الجدار الخلوي",
+      "يترسب اللجنين بصفة دائمة داخل جدران الخلايا",
+      "يطرد النقل النشط جميع الأملاح المعدنية خارج السيتوبلازم",
+      "تنقسم النواة ميتوزياً أثناء التكاثر الخضري"
     ],
-    "correctAnswer": "Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall",
+    "correctAnswer": "Water enters the vacuole by osmosis, causing turgor pressure against the cell wall",
     "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Water enters the vacuole by osmosis, causing turgor pressure against the cell wall."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: دخول الماء بالخاصية الأسموزية إلى الفجوة العصارية فتنتفخ وتضغط على الجدار الخلوي.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: يدخل الماء إلى الفجوة العصارية بالخاصية الأسموزية مسبباً ضغط امتلاء يضغط على الجدار الخلوي."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_02",
-    "titleEn": "Reversibility of Physiological Support #2",
-    "titleAr": "الدعامة الفسيولوجية دعامة مؤقتة #2",
+    "titleEn": "Temporary Nature of Physiological Support",
+    "titleAr": "طبيعة الدعامة الفسيولوجية المؤقتة",
     "difficulty": "easy",
-    "questionEn": "Why is physiological support considered a temporary phenomenon?",
-    "questionAr": "لماذا تعتبر الدعامة الفسيولوجية دعامة مؤقتة وليست دائمة؟",
+    "questionEn": "Why is physiological support classified scientifically as a temporary form of support?",
+    "questionAr": "لماذا تصنف الدعامة الفسيولوجية علمياً بأنها دعامة مؤقتة وليست دائمة؟",
     "optionsEn": [
-      "Because it depends entirely on the presence and loss of water within the cell",
-      "Because cell wall cellulose degrades every season",
-      "Because vascular bundles change position",
-      "Because root hairs disappear in winter"
+      "Because plant cell walls disintegrate every winter season",
+      "Because it depends strictly on the presence of water and is lost upon wilting",
+      "Because stomata permanently seal after several days of sunshine",
+      "Because chloroplasts relocate to stem tissues during darkness"
     ],
     "optionsAr": [
+      "لأن جدران الخلايا تتحلل فصلياً كل شتاء",
       "لأنها ترتبط بوجود الماء وتزول تماماً عند فقد النبات للماء وحدوث الذبول",
-      "لأن السليلوز يتحلل فصلياً",
-      "لأن الحزم الوعائية تغير موضعها",
-      "لأن الشعيرات الجذرية تختفي شتاءً"
+      "لأن الثغور تغلق نهائياً بعد عدة أيام مشمسة",
+      "لأن البلاستيدات تنتقل إلى أنسجة الساق في الظلام"
     ],
-    "correctAnswer": "Because it depends entirely on the presence and loss of water within the cell",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Because it depends strictly on the presence of water and is lost upon wilting",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Because it depends entirely on the presence and loss of water within the cell.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Because it depends strictly on the presence of water and is lost upon wilting."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: لأنها ترتبط بوجود الماء وتزول تماماً عند فقد النبات للماء وحدوث الذبول.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: لأنها ترتبط بوجود الماء وتزول تماماً عند فقد النبات للماء وحدوث الذبول."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_03",
-    "titleEn": "Suberin Deposition in Cork #3",
-    "titleAr": "ترسيب مادة السوبرين في الفلين #3",
+    "titleEn": "Cutin Deposition Location in Plant Leaves",
+    "titleAr": "موضع ترسب مادة الكيوتين في أوراق النبات",
     "difficulty": "easy",
-    "questionEn": "Which substance is deposited in the cell walls of cork tissue to prevent water loss and provide structural support?",
-    "questionAr": "ما هي المادة التي تترسب في جدر خلايا الفلين لمنع نفاذ الماء وتوفير الدعامة التركيبية؟",
+    "questionEn": "Cutin is a waterproof waxy substance predominantly deposited upon:",
+    "questionAr": "مادة الكيوتين مادة شمعية غير منفذة للماء تترسب أساساً على:",
     "optionsEn": [
-      "Suberin",
-      "Cellulose only",
-      "Starch",
-      "Chlorophyll"
+      "The inner walls of phloem sieve tube elements",
+      "The root hair membranes facing the soil solution",
+      "The outer cell walls of leaf and herbaceous stem epidermal cells",
+      "The nuclear membranes of plant meristematic cells"
     ],
     "optionsAr": [
-      "السوبرين",
-      "السليلوز فقط",
-      "النشا",
-      "الكلوروفيل"
+      "الجدر الداخلية للأنابيب الغربالية في اللحاء",
+      "أغشية الشعيرات الجذرية المواجهة لمحلول التربة",
+      "الجدر الخارجية لخلايا بشرة الأوراق والسيقان العشبية",
+      "الأغشية النووية للخلايا الإنشائية في القمم النامية"
     ],
-    "correctAnswer": "Suberin",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "The outer cell walls of leaf and herbaceous stem epidermal cells",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Suberin.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: The outer cell walls of leaf and herbaceous stem epidermal cells."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: السوبرين.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: الجدر الخارجية لخلايا بشرة الأوراق والسيقان العشبية."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_04",
-    "titleEn": "Lignin in Xylem Vessels #4",
-    "titleAr": "ترسيب مادة اللجنين في أوعية الخشب #4",
+    "titleEn": "Suberin Function in Cork Tissues",
+    "titleAr": "وظيفة مادة السوبرين في خلايا الفلين",
     "difficulty": "easy",
-    "questionEn": "Lignin deposition in xylem vessels and sclerenchyma fibers provides:",
-    "questionAr": "ترسيب اللجنين في أوعية الخشب والألياف الإسكلرنشيمية يكسب النبات:",
+    "questionEn": "In woody stems, suberin is deposited within the walls of cork cells primarily to:",
+    "questionAr": "في السيقان الخشبية، تترسب مادة السوبرين في جدر خلايا الفلين بهدف:",
     "optionsEn": [
-      "Hardness, rigidity, and mechanical strength to withstand sap suction pressure",
-      "High elasticity and water absorption",
-      "Nutrient synthesis via photosynthesis",
-      "Immediate reversible turgor changes"
+      "Accelerate the rate of transpiration during mid-day heat",
+      "Assist root nodules in fixing atmospheric gaseous nitrogen",
+      "Absorb sunlight energy directly for photosynthetic phosphorylation",
+      "Form an impermeable protective barrier preventing internal water evaporation"
     ],
     "optionsAr": [
-      "الصلابة والقوة الميكانيكية لتحمل قوى الشد والضغط",
-      "المرونة العالية وامتصاص الماء",
-      "تخليق الغذاء بالبناء الضوئي",
-      "تغيرات امتلاء سريعة قابلة للانعكاس"
+      "تسريع معدل النتح أثناء الظهيرة المشمسة",
+      "مساعدة العقد الجذرية على تثبيت النيتروجين الجوي",
+      "امتصاص الطاقة الضوئية لعملية الفسفرة الضوئية",
+      "تكوين طبقة واقية غير منفذة تمنع فقد الماء الداخلي بالتبخر وتحمي الأنسجة"
     ],
-    "correctAnswer": "Hardness, rigidity, and mechanical strength to withstand sap suction pressure",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Form an impermeable protective barrier preventing internal water evaporation",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Hardness, rigidity, and mechanical strength to withstand sap suction pressure.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Form an impermeable protective barrier preventing internal water evaporation."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: الصلابة والقوة الميكانيكية لتحمل قوى الشد والضغط.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: تكوين طبقة واقية غير منفذة تمنع فقد الماء الداخلي بالتبخر وتحمي الأنسجة."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_05",
-    "titleEn": "Cutin Layer on Epidermis #5",
-    "titleAr": "طبقة الكيوتين على بشرة النبات #5",
+    "titleEn": "Lignin Role in Sclerenchyma Tissue",
+    "titleAr": "دور اللجنين في الأنسجة الإسكلرنشيمية",
     "difficulty": "easy",
-    "questionEn": "Cutin is an impermeable waxy substance deposited on:",
-    "questionAr": "الكيوتين مادة شمعية غير منفذة للماء تترسب أساساً على:",
+    "questionEn": "The deposition of lignin within stone cells and sclerenchymatous fibers provides the plant with:",
+    "questionAr": "ترسيب مادة اللجنين في الخلايا الحجرية والألياف الإسكلرنشيمية يكسب النبات:",
     "optionsEn": [
-      "The outer walls of epidermal cells to reduce transpiration",
-      "The inner xylem vessel lining",
-      "The cambium ring",
-      "The guard cells of stomata exclusively"
+      "Solid mechanical strength, rigidity, and impermeability to fluids",
+      "High elasticity allowing infinite stretching without breaking",
+      "The capacity to absorb soil solutes against concentration gradients",
+      "Rapid cytoplasmic streaming across adjoining protoplasts"
     ],
     "optionsAr": [
-      "الجدر الخارجية لخلايا البشرة لتقليل فقد الماء في عملية النتح",
-      "الجدر الداخلية لأوعية الخشب",
-      "حلقة الكامبيوم",
-      "الخلايا الحارسة للثغور فقط"
+      "صلابة وقوة ميكانيكية فائقة وعدم نفاذية للسوائل",
+      "مرونة عالية تسمح بالاستطالة اللانهائية دون كسر",
+      "القدرة على امتصاص أملاح التربة ضد تدرج التركيز",
+      "انسياباً سيتوبلازمياً سريعاً بين البروتوبلاست المتجاور"
     ],
-    "correctAnswer": "The outer walls of epidermal cells to reduce transpiration",
+    "correctAnswer": "Solid mechanical strength, rigidity, and impermeability to fluids",
     "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: The outer walls of epidermal cells to reduce transpiration.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Solid mechanical strength, rigidity, and impermeability to fluids."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: الجدر الخارجية لخلايا البشرة لتقليل فقد الماء في عملية النتح.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: صلابة وقوة ميكانيكية فائقة وعدم نفاذية للسوائل."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_06",
-    "titleEn": "Collenchyma Tissue Support #6",
-    "titleAr": "دعامة النسيج الكولنشيمي #6",
+    "titleEn": "Collenchyma Wall Thickening Composition",
+    "titleAr": "طبيعة تغلظ جدران النسيج الكولنشيمي",
     "difficulty": "easy",
-    "questionEn": "Collenchyma tissue possesses thickened cell walls due to the deposition of:",
-    "questionAr": "يتميز النسيج الكولنشيمي بتغلظ جدرانه بفضل ترسب مادة:",
+    "questionEn": "Collenchyma tissue cell walls are characterized by irregular thickening consisting of:",
+    "questionAr": "تتميز جدران خلايا النسيج الكولنشيمي بتغلظ غير منتظم يتكون من ترسب:",
     "optionsEn": [
-      "Cellulose, providing both tensile strength and flexibility",
-      "Lignin exclusively",
-      "Pectin exclusively",
-      "Suberin"
+      "Pure cutin completely halting gas exchange",
+      "Cellulose providing both mechanical support and tissue flexibility",
+      "Pure suberin completely waterproofing the cortex",
+      "Heavy silica deposits forming brittle plates"
     ],
     "optionsAr": [
-      "السليلوز، مما يكسبه القوة والمرونة معاً",
-      "اللجنين فقط",
-      "البكتين فقط",
-      "السوبرين"
+      "الكيوتين النقي الذي يمنع تبادل الغازات كلياً",
+      "السليلوز الذي يكسب النبات دعامة ومرونة وليونة ميكانيكية",
+      "السوبرين النقي الذي يعزل القشرة تماماً",
+      "ترسبات السيليكا الثقيلة المكونة لصفائح هشة"
     ],
-    "correctAnswer": "Cellulose, providing both tensile strength and flexibility",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Cellulose providing both mechanical support and tissue flexibility",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Cellulose, providing both tensile strength and flexibility.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Cellulose providing both mechanical support and tissue flexibility."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: السليلوز، مما يكسبه القوة والمرونة معاً.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: السليلوز الذي يكسب النبات دعامة ومرونة وليونة ميكانيكية."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_07",
-    "titleEn": "Physiological Support & Osmosis #7",
-    "titleAr": "الدعامة الفسيولوجية والخاصية الأسموزية #7",
+    "titleEn": "Parenchyma Tissue Physiological Response",
+    "titleAr": "استجابة النسيج البارنشيمي للأسموزية",
     "difficulty": "easy",
-    "questionEn": "Physiological support in plant cells is primarily acquired by:",
-    "questionAr": "تكتسب الخلية النباتية الدعامة الفسيولوجية بصورة أساسية عن طريق:",
+    "questionEn": "Parenchyma cells possessing thin, unlignified primary walls exhibit:",
+    "questionAr": "تتميز خلايا النسيج البارنشيمي ذات الجدر السليلوزية الرقيقة غير المغلظة بـ:",
     "optionsEn": [
-      "Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall",
-      "Permanent deposition of lignin on cell walls",
-      "Active transport of mineral ions out of the cytoplasm",
-      "Cellular division in meristematic tissues"
+      "Structural support only, being completely dead at functional maturity",
+      "Neither physiological nor structural support under any conditions",
+      "Physiological support only, lacking permanent structural wall thickenings",
+      "Permanent suberin encrustation across their whole surface"
     ],
     "optionsAr": [
-      "دخول الماء بالخاصية الأسموزية إلى الفجوة العصارية فتنتفخ وتضغط على الجدار الخلوي",
-      "ترسيب مادة اللجنين الصلبة على الجدار",
-      "النقل النشط للأيونات خارج السيتوبلازم",
-      "الانقسام الخلوي في الأنسجة الإنشائية"
+      "دعامة تركيبية فقط لكونها ميتة عند النضج الوظيفي",
+      "انعدام الدعامتين الفسيولوجية والتركيبية في كافة الظروف",
+      "دعامة فسيولوجية فقط وتفتقر للدعامة التركيبية الدائمة",
+      "تغطية كاملة من السوبرين عبر كامل أسطحها"
     ],
-    "correctAnswer": "Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Physiological support only, lacking permanent structural wall thickenings",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Entry of water into the vacuole by osmosis, creating turgor pressure on the cell wall.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Physiological support only, lacking permanent structural wall thickenings."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: دخول الماء بالخاصية الأسموزية إلى الفجوة العصارية فتنتفخ وتضغط على الجدار الخلوي.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: دعامة فسيولوجية فقط وتفتقر للدعامة التركيبية الدائمة."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_08",
-    "titleEn": "Reversibility of Physiological Support #8",
-    "titleAr": "الدعامة الفسيولوجية دعامة مؤقتة #8",
+    "titleEn": "Xylem Vessels Structural Reinforcement",
+    "titleAr": "التدعيم التركيبي لأوعية الخشب في النبات",
     "difficulty": "easy",
-    "questionEn": "Why is physiological support considered a temporary phenomenon?",
-    "questionAr": "لماذا تعتبر الدعامة الفسيولوجية دعامة مؤقتة وليست دائمة؟",
+    "questionEn": "Xylem vessels maintain an open lumen despite high negative sap pressure because:",
+    "questionAr": "تحافظ أوعية الخشب على تجويفها مفتوحاً رغم قوى الشد والضغط السالب لأن:",
     "optionsEn": [
-      "Because it depends entirely on the presence and loss of water within the cell",
-      "Because cell wall cellulose degrades every season",
-      "Because vascular bundles change position",
-      "Because root hairs disappear in winter"
+      "They are pressurized internally by active cytoplasmic pumping",
+      "They are lined exclusively with flexible living collenchyma cells",
+      "Their outer boundary is enclosed by a fatty myelin sheath",
+      "Their secondary cell walls are heavily reinforced with spiral or annular lignin"
     ],
     "optionsAr": [
-      "لأنها ترتبط بوجود الماء وتزول تماماً عند فقد النبات للماء وحدوث الذبول",
-      "لأن السليلوز يتحلل فصلياً",
-      "لأن الحزم الوعائية تغير موضعها",
-      "لأن الشعيرات الجذرية تختفي شتاءً"
+      "البروتوبلازم الحي يضخ فيها الماء بضغط موجب مستمر",
+      "تبطنها طبقة من خلايا الكولنشيما الحية المرنة",
+      "تحاط بغمد نخاعيني دهني يمنع انطباقها",
+      "جدرها الثانوية مدعمة بلجنين مرسب في شكل حلزوني أو حلقي"
     ],
-    "correctAnswer": "Because it depends entirely on the presence and loss of water within the cell",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Their secondary cell walls are heavily reinforced with spiral or annular lignin",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Because it depends entirely on the presence and loss of water within the cell.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Their secondary cell walls are heavily reinforced with spiral or annular lignin."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: لأنها ترتبط بوجود الماء وتزول تماماً عند فقد النبات للماء وحدوث الذبول.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: جدرها الثانوية مدعمة بلجنين مرسب في شكل حلزوني أو حلقي."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_09",
-    "titleEn": "Suberin Deposition in Cork #9",
-    "titleAr": "ترسيب مادة السوبرين في الفلين #9",
+    "titleEn": "Loss of Turgidity Leading to Wilting",
+    "titleAr": "فقد الامتلاء وحدوث الذبول الظاهري",
     "difficulty": "easy",
-    "questionEn": "Which substance is deposited in the cell walls of cork tissue to prevent water loss and provide structural support?",
-    "questionAr": "ما هي المادة التي تترسب في جدر خلايا الفلين لمنع نفاذ الماء وتوفير الدعامة التركيبية؟",
+    "questionEn": "When an herbaceous plant loses water through transpiration faster than roots absorb it:",
+    "questionAr": "عندما يفقد النبات العشبي الماء بالنتح بمعدل أسرع من امتصاص الجذور له:",
     "optionsEn": [
-      "Suberin",
-      "Cellulose only",
-      "Starch",
-      "Chlorophyll"
+      "Vacuolar turgor pressure drops, cell walls relax, and soft stems wilt",
+      "Cellulose fibers hydrolyze instantly into soluble glucose monomers",
+      "The root hairs break off and degenerate immediately",
+      "The plant converts all vascular tissue into cork within minutes"
     ],
     "optionsAr": [
-      "السوبرين",
-      "السليلوز فقط",
-      "النشا",
-      "الكلوروفيل"
+      "يهبط ضغط الامتلاء في الفجوات وترتخي الجدر الخلوية فترتخي الساق وتذبل",
+      "تتحلل ألياف السليلوز فورياً إلى جلوكوز ذائب",
+      "تنفصل الشعيرات الجذرية وتتحلل لحظياً",
+      "يتحول النسيج الوعائي إلى فلين في دقائق معدودة"
     ],
-    "correctAnswer": "Suberin",
+    "correctAnswer": "Vacuolar turgor pressure drops, cell walls relax, and soft stems wilt",
     "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Suberin.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Vacuolar turgor pressure drops, cell walls relax, and soft stems wilt."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: السوبرين.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: يهبط ضغط الامتلاء في الفجوات وترتخي الجدر الخلوية فترتخي الساق وتذبل."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_10",
-    "titleEn": "Lignin in Xylem Vessels #10",
-    "titleAr": "ترسيب مادة اللجنين في أوعية الخشب #10",
+    "titleEn": "Permanent Structural Support Immobility",
+    "titleAr": "ثبات واستمرارية الدعامة التركيبية",
     "difficulty": "easy",
-    "questionEn": "Lignin deposition in xylem vessels and sclerenchyma fibers provides:",
-    "questionAr": "ترسيب اللجنين في أوعية الخشب والألياف الإسكلرنشيمية يكسب النبات:",
+    "questionEn": "Structural support is described as a permanent adaptation because:",
+    "questionAr": "توصف الدعامة التركيبية بأنها تكيف دائم في النبات لأنها:",
     "optionsEn": [
-      "Hardness, rigidity, and mechanical strength to withstand sap suction pressure",
-      "High elasticity and water absorption",
-      "Nutrient synthesis via photosynthesis",
-      "Immediate reversible turgor changes"
+      "It disappears completely as soon as the plant is watered after drought",
+      "It relies on physical depositions of stable chemical compounds on or in the walls",
+      "It is restricted solely to unicellular microscopic green algae",
+      "It requires daily expenditure of mitochondrial ATP to maintain its integrity"
     ],
     "optionsAr": [
-      "الصلابة والقوة الميكانيكية لتحمل قوى الشد والضغط",
-      "المرونة العالية وامتصاص الماء",
-      "تخليق الغذاء بالبناء الضوئي",
-      "تغيرات امتلاء سريعة قابلة للانعكاس"
+      "تزول تماماً بمجرد ري النبات بعد فترة جفاف",
+      "تعتمد على ترسيب مواد كيميائية صلبة وثابتة على الجدران الخلوية أو بداخلها",
+      "تقتصر حصرياً على الطحالب الخضراء وحيدة الخلية",
+      "تتطلب استهلاكاً يومياً للـ ATP من الميتوكوندريا لبقائها"
     ],
-    "correctAnswer": "Hardness, rigidity, and mechanical strength to withstand sap suction pressure",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "It relies on physical depositions of stable chemical compounds on or in the walls",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Hardness, rigidity, and mechanical strength to withstand sap suction pressure.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: It relies on physical depositions of stable chemical compounds on or in the walls."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: الصلابة والقوة الميكانيكية لتحمل قوى الشد والضغط.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: تعتمد على ترسيب مواد كيميائية صلبة وثابتة على الجدران الخلوية أو بداخلها."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_11",
-    "titleEn": "Cutin Layer on Epidermis #11",
-    "titleAr": "طبقة الكيوتين على بشرة النبات #11",
+    "titleEn": "Role of Cuticle in Conserving Physiological Support",
+    "titleAr": "دور الكيوتين في الحفاظ على الدعامة الفسيولوجية",
     "difficulty": "easy",
-    "questionEn": "Cutin is an impermeable waxy substance deposited on:",
-    "questionAr": "الكيوتين مادة شمعية غير منفذة للماء تترسب أساساً على:",
+    "questionEn": "How does the structural deposition of cutin indirectly support physiological support?",
+    "questionAr": "كيف يسهم الترسيب التركيبي للكيوتين في الحفاظ على الدعامة الفسيولوجية؟",
     "optionsEn": [
-      "The outer walls of epidermal cells to reduce transpiration",
-      "The inner xylem vessel lining",
-      "The cambium ring",
-      "The guard cells of stomata exclusively"
+      "By actively absorbing carbon dioxide from subterranean soil pockets",
+      "By directly pumping sugars from chloroplasts into the xylem stream",
+      "By reducing epidermal water loss via transpiration, preserving cellular turgor",
+      "By splitting water molecules photolytically in the darkness"
     ],
     "optionsAr": [
-      "الجدر الخارجية لخلايا البشرة لتقليل فقد الماء في عملية النتح",
-      "الجدر الداخلية لأوعية الخشب",
-      "حلقة الكامبيوم",
-      "الخلايا الحارسة للثغور فقط"
+      "بامتصاص ثاني أكسيد الكربون من جيوب التربة السفلية",
+      "بضخ السكريات مباشرة من البلاستيدات لأوعية الخشب",
+      "بتقليل فقد الماء بالنتح عبر البشرة مما يحافظ على امتلاء الخلايا بالماء",
+      "بشطر جزيئات الماء ضوئياً في غياب الضوء"
     ],
-    "correctAnswer": "The outer walls of epidermal cells to reduce transpiration",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "By reducing epidermal water loss via transpiration, preserving cellular turgor",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: The outer walls of epidermal cells to reduce transpiration.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: By reducing epidermal water loss via transpiration, preserving cellular turgor."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: الجدر الخارجية لخلايا البشرة لتقليل فقد الماء في عملية النتح.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: بتقليل فقد الماء بالنتح عبر البشرة مما يحافظ على امتلاء الخلايا بالماء."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_12",
-    "titleEn": "Collenchyma Tissue Support #12",
-    "titleAr": "دعامة النسيج الكولنشيمي #12",
+    "titleEn": "Stone Cells in Pear Fruits",
+    "titleAr": "الخلايا الحجرية في ثمار الكمثرى",
     "difficulty": "easy",
-    "questionEn": "Collenchyma tissue possesses thickened cell walls due to the deposition of:",
-    "questionAr": "يتميز النسيج الكولنشيمي بتغلظ جدرانه بفضل ترسب مادة:",
+    "questionEn": "The gritty texture experienced when chewing pear fruit pulp is attributable to:",
+    "questionAr": "يرجع الملمس الحبيبي الصلب المميز للب ثمار الكمثرى إلى وجود:",
     "optionsEn": [
-      "Cellulose, providing both tensile strength and flexibility",
-      "Lignin exclusively",
-      "Pectin exclusively",
-      "Suberin"
+      "Excessive accumulation of turgid parenchyma cells containing pure water",
+      "Living collenchyma strands containing high concentrations of starch",
+      "Calcified bone-like osteocytes distributed in the mesocarp",
+      "Sclereids (stone cells) with heavily lignified, rigid cell walls"
     ],
     "optionsAr": [
-      "السليلوز، مما يكسبه القوة والمرونة معاً",
-      "اللجنين فقط",
-      "البكتين فقط",
-      "السوبرين"
+      "تراكم خلايا بارنشيمية ممتلئة بالماء النقي",
+      "ألياف كولنشيمية حية تحتوي على تركيزات عالية من النشا",
+      "خلايا عظمية متكلسة موزعة في نسيج الثمرة المتوسط",
+      "الخلايا الحجرية (إسكلرنشيمية) ذات الجدر المغلظة جداً باللجنين"
     ],
-    "correctAnswer": "Cellulose, providing both tensile strength and flexibility",
-    "correctIndex": 0,
-    "hintEn": "Physiological support involves water and vacuoles (temporary), while structural support involves permanent depositions like cellulose, lignin, suberin, and cutin.",
-    "hintAr": "الدعامة الفسيولوجية تتعلق بالماء والفجوة العصارية (مؤقتة)، بينما التركيبية تعتمد على ترسيب مواد صلبة مثل السليلوز واللجنين والسوبرين والكيوتين (دائمة).",
+    "correctAnswer": "Sclereids (stone cells) with heavily lignified, rigid cell walls",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Biological mechanism: Cellulose, providing both tensile strength and flexibility.",
-      "This is a fundamental pillar of plant support in the Egyptian curriculum."
+      "Scientific fact: Sclereids (stone cells) with heavily lignified, rigid cell walls."
     ],
     "stepByStepSolutionAr": [
-      "الآلية البيولوجية: السليلوز، مما يكسبه القوة والمرونة معاً.",
-      "تعد هذه الخاصية ركيزة أساسية في منهج الأحياء للثانوية العامة."
+      "الحقيقة العلمية المعتمدة: الخلايا الحجرية (إسكلرنشيمية) ذات الجدر المغلظة جداً باللجنين."
     ],
-    "teacherTipEn": "Remember that physiological support is a whole-cell physical phenomenon, whereas structural support is a localized chemical wall deposition.",
-    "teacherTipAr": "تذكر أن الدعامة الفسيولوجية ظاهرة فيزيائية تشمل الخلية ككل، بينما الدعامة التركيبية ترسيب كيميائي على جدر معينة."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_13",
-    "titleEn": "Total Bones in Adult Human Skeleton #1",
-    "titleAr": "عدد عظام الهيكل العظمي البشري #1",
+    "titleEn": "Seed Coat Hardness due to Structural Support",
+    "titleAr": "صلابة أغطية البذور بفضل الدعامة التركيبية",
     "difficulty": "easy",
-    "questionEn": "How many distinct bones make up the adult human skeleton?",
-    "questionAr": "كم يبلغ عدد عظام الهيكل العظمي في الإنسان البالغ؟",
+    "questionEn": "The tough, protective outer coats of walnut and hazelnut shells are composed of:",
+    "questionAr": "تتكون الأغلفة الخارجية الصلبة الواقية لقشور الجوز والبندق أساساً من:",
     "optionsEn": [
-      "206 bones (80 axial + 126 appendicular)",
-      "300 bones",
-      "180 bones",
-      "250 bones"
+      "Dead sclerenchyma tissue densely encrusted with lignin",
+      "Unthickened parenchyma cells storing abundant glycogen",
+      "A single layer of living epidermal cells covered in liquid nectar",
+      "Elastic ligaments composed of collagen fibers"
     ],
     "optionsAr": [
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)",
-      "300 عظمة",
-      "180 عظمة",
-      "250 عظمة"
+      "نسيج إسكلرنشيمي ميت مغلظ بكثافة بمادة اللجنين",
+      "خلايا بارنشيمية رقيقة تخزن الجليكوجين بكثرة",
+      "طبقة وحيدة من خلايا البشرة الحية المغطاة بالرحيق",
+      "أربطة مرنة تتكون من ألياف الكولاجين الحيوانية"
     ],
-    "correctAnswer": "206 bones (80 axial + 126 appendicular)",
+    "correctAnswer": "Dead sclerenchyma tissue densely encrusted with lignin",
     "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "206 bones (80 axial + 126 appendicular)."
+      "Scientific fact: Dead sclerenchyma tissue densely encrusted with lignin."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)."
+      "الحقيقة العلمية المعتمدة: نسيج إسكلرنشيمي ميت مغلظ بكثافة بمادة اللجنين."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_14",
-    "titleEn": "Vertebral Column Total Bones #2",
-    "titleAr": "عدد عظام العمود الفقري #2",
+    "titleEn": "Primary Cell Wall Universal Polymer",
+    "titleAr": "المكون البوليمري الأساسي للجدار الخلوي الابتدائي",
     "difficulty": "easy",
-    "questionEn": "The adult human vertebral column contains 33 vertebrae. How many distinct bones does it represent?",
-    "questionAr": "يتكون العمود الفقري في الإنسان من 33 فقرة. كم يبلغ عدد عظام العمود الفقري فعلياً بعد التحام الفقرات العجزية والعصعصية؟",
+    "questionEn": "The universal structural polysaccharide constituting the framework of all plant cell walls is:",
+    "questionAr": "البوليمر السكري التركيبي الأساسي الذي يشكل الهيكل العام لكافة جدر الخلايا النباتية هو:",
     "optionsEn": [
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-      "33 bones",
-      "30 bones",
-      "20 bones"
+      "Glycogen",
+      "Cellulose",
+      "Chitin",
+      "Hemoglobin"
     ],
     "optionsAr": [
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)",
-      "33 عظمة",
-      "30 عظمة",
-      "20 عظمة"
+      "الجليكوجين",
+      "السليلوز",
+      "الكايتين",
+      "الهيموجلوبين"
     ],
-    "correctAnswer": "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "Cellulose",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)."
+      "Scientific fact: Cellulose."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)."
+      "الحقيقة العلمية المعتمدة: السليلوز."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_15",
-    "titleEn": "Lumbar Vertebrae Characteristics #3",
-    "titleAr": "خصائص الفقرات القطنية #3",
+    "titleEn": "Osmotic Pressure Gradient for Water Influx",
+    "titleAr": "تدرج الضغط الأسموزي لدخول الماء",
     "difficulty": "easy",
-    "questionEn": "Which vertebrae are the largest articulated vertebrae in the vertebral column, facing the abdominal cavity?",
-    "questionAr": "أي الفقرات هي الأكبر حجماً بين الفقرات المتمفصلة وتواجه التجويف البطني؟",
+    "questionEn": "For water to enter a plant root cell vacuole via osmosis, the solute concentration in the cell sap must be:",
+    "questionAr": "لكي ينتقل الماء إلى داخل الفجوة العصارية لخلية الجذر بالأسموزية، يجب أن يكون تركيز الذائبات في العصير الخلوي:",
     "optionsEn": [
-      "Lumbar vertebrae (5 vertebrae)",
-      "Cervical vertebrae",
-      "Thoracic vertebrae",
-      "Sacral vertebrae"
+      "Lower than the solute concentration in the surrounding soil solution",
+      "Strictly zero with no dissolved solutes whatsoever",
+      "Higher than the solute concentration in the surrounding soil solution",
+      "Equal to atmospheric air pressure at sea level"
     ],
     "optionsAr": [
-      "الفقرات القطنية (5 فقرات)",
-      "الفقرات العنقية",
-      "الفقرات الظهرية",
-      "الفقرات العجزية"
+      "أقل من تركيز الذائبات في محلول التربة المحيط",
+      "صفراً تاماً دون أي ذائبات على الإطلاق",
+      "أعلى من تركيز الذائبات في محلول التربة المحيط",
+      "مساوياً للضغط الجوي عند مستوى سطح البحر"
     ],
-    "correctAnswer": "Lumbar vertebrae (5 vertebrae)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "Higher than the solute concentration in the surrounding soil solution",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "Lumbar vertebrae (5 vertebrae)."
+      "Scientific fact: Higher than the solute concentration in the surrounding soil solution."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "الفقرات القطنية (5 فقرات)."
+      "الحقيقة العلمية المعتمدة: أعلى من تركيز الذائبات في محلول التربة المحيط."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_16",
-    "titleEn": "Floating Ribs in Thoracic Cage #4",
-    "titleAr": "الضلوع العائمة في القفص الصدري #4",
+    "titleEn": "Adult Human Skeleton Total Bone Count",
+    "titleAr": "العدد الإجمالي لعظام الهيكل العظمي للبالغ",
     "difficulty": "easy",
-    "questionEn": "How many pairs of ribs are known as \"floating ribs\" because they do not connect to the sternum?",
-    "questionAr": "كم عدد أزواج الضلوع التي تُعرف باسم \"الضلوع العائمة\" لعدم اتصالها بعظمة القص من الأمام؟",
+    "questionEn": "The total number of distinct bones in the fully developed adult human skeleton is:",
+    "questionAr": "يبلغ العدد الكلي لعظام الهيكل العظمي في الإنسان البالغ مكتمل النمو:",
     "optionsEn": [
-      "2 pairs (the 11th and 12th pairs)",
-      "7 pairs",
-      "3 pairs",
-      "1 pair"
+      "300 bones",
+      "150 bones",
+      "270 bones",
+      "206 bones"
     ],
     "optionsAr": [
-      "زوجان (الزوج الحادي عشر والثاني عشر)",
-      "7 أزواج",
-      "3 أزواج",
-      "زوج واحد"
+      "300 عظمة",
+      "150 عظمة",
+      "270 عظمة",
+      "206 عظمة"
     ],
-    "correctAnswer": "2 pairs (the 11th and 12th pairs)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "206 bones",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "2 pairs (the 11th and 12th pairs)."
+      "Scientific fact: 206 bones."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "زوجان (الزوج الحادي عشر والثاني عشر)."
+      "الحقيقة العلمية المعتمدة: 206 عظمة."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_17",
-    "titleEn": "Skull Cranial Bones #5",
-    "titleAr": "عدد عظام الجزء المخي للجمجمة #5",
+    "titleEn": "Axial Skeleton Total Bone Count",
+    "titleAr": "عدد عظام الهيكل المحوري في الإنسان",
     "difficulty": "easy",
-    "questionEn": "The posterior (cranial) portion of the human skull consists of how many fused bones?",
-    "questionAr": "يتكون الجزء الخلفي (المخي) لجمجمة الإنسان من كم عظمة ملتحمة معاً عند أطرافها المسننة؟",
+    "questionEn": "The axial skeleton of an adult human comprises how many bones in total?",
+    "questionAr": "يتكون الهيكل المحوري في الإنسان البالغ من كم عظمة في المجمل؟",
     "optionsEn": [
-      "8 bones",
-      "14 bones",
-      "22 bones",
-      "4 bones"
+      "80 bones",
+      "126 bones",
+      "64 bones",
+      "62 bones"
     ],
     "optionsAr": [
-      "8 عظام",
-      "14 عظمة",
-      "22 عظمة",
-      "4 عظام"
+      "80 عظمة",
+      "126 عظمة",
+      "64 عظمة",
+      "62 عظمة"
     ],
-    "correctAnswer": "8 bones",
+    "correctAnswer": "80 bones",
     "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "8 bones."
+      "Scientific fact: 80 bones."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "8 عظام."
+      "الحقيقة العلمية المعتمدة: 80 عظمة."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_18",
-    "titleEn": "Total Bones in Adult Human Skeleton #6",
-    "titleAr": "عدد عظام الهيكل العظمي البشري #6",
+    "titleEn": "Appendicular Skeleton Total Bone Count",
+    "titleAr": "عدد عظام الهيكل الطرفي في الإنسان",
     "difficulty": "easy",
-    "questionEn": "How many distinct bones make up the adult human skeleton?",
-    "questionAr": "كم يبلغ عدد عظام الهيكل العظمي في الإنسان البالغ؟",
+    "questionEn": "The appendicular skeleton of an adult human is formed by how many bones?",
+    "questionAr": "يتكون الهيكل الطرفي في الإنسان البالغ من كم عظمة؟",
     "optionsEn": [
-      "206 bones (80 axial + 126 appendicular)",
-      "300 bones",
-      "180 bones",
-      "250 bones"
+      "80 bones",
+      "126 bones",
+      "100 bones",
+      "150 bones"
     ],
     "optionsAr": [
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)",
-      "300 عظمة",
-      "180 عظمة",
-      "250 عظمة"
+      "80 عظمة",
+      "126 عظمة",
+      "100 عظمة",
+      "150 عظمة"
     ],
-    "correctAnswer": "206 bones (80 axial + 126 appendicular)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "126 bones",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "206 bones (80 axial + 126 appendicular)."
+      "Scientific fact: 126 bones."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)."
+      "الحقيقة العلمية المعتمدة: 126 عظمة."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_19",
-    "titleEn": "Vertebral Column Total Bones #7",
-    "titleAr": "عدد عظام العمود الفقري #7",
+    "titleEn": "Human Vertebral Column Number of Vertebrae",
+    "titleAr": "عدد فقرات العمود الفقري في الإنسان",
     "difficulty": "easy",
-    "questionEn": "The adult human vertebral column contains 33 vertebrae. How many distinct bones does it represent?",
-    "questionAr": "يتكون العمود الفقري في الإنسان من 33 فقرة. كم يبلغ عدد عظام العمود الفقري فعلياً بعد التحام الفقرات العجزية والعصعصية؟",
+    "questionEn": "How many individual vertebrae constitute the human vertebral column?",
+    "questionAr": "كم يبلغ عدد الفقرات المكونة للعمود الفقري في الإنسان؟",
     "optionsEn": [
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-      "33 bones",
-      "30 bones",
-      "20 bones"
+      "26 vertebrae",
+      "30 vertebrae",
+      "33 vertebrae",
+      "24 vertebrae"
     ],
     "optionsAr": [
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)",
-      "33 عظمة",
-      "30 عظمة",
-      "20 عظمة"
+      "26 فقرة",
+      "30 فقرة",
+      "33 فقرة",
+      "24 فقرة"
     ],
-    "correctAnswer": "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "33 vertebrae",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)."
+      "Scientific fact: 33 vertebrae."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)."
+      "الحقيقة العلمية المعتمدة: 33 فقرة."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_20",
-    "titleEn": "Lumbar Vertebrae Characteristics #8",
-    "titleAr": "خصائص الفقرات القطنية #8",
+    "titleEn": "Human Vertebral Column Number of Distinct Bones",
+    "titleAr": "عدد عظام العمود الفقري فعلياً في البالغ",
     "difficulty": "easy",
-    "questionEn": "Which vertebrae are the largest articulated vertebrae in the vertebral column, facing the abdominal cavity?",
-    "questionAr": "أي الفقرات هي الأكبر حجماً بين الفقرات المتمفصلة وتواجه التجويف البطني؟",
+    "questionEn": "In an adult human, due to fusion of sacral and coccygeal vertebrae, the vertebral column counts as:",
+    "questionAr": "في الإنسان البالغ، ونتيجة التحام الفقرات العجزية والعصعصية، يحسب العمود الفقري كـ:",
     "optionsEn": [
-      "Lumbar vertebrae (5 vertebrae)",
-      "Cervical vertebrae",
-      "Thoracic vertebrae",
-      "Sacral vertebrae"
+      "33 distinct bones",
+      "24 distinct bones",
+      "20 distinct bones",
+      "26 distinct bones (7 cervical + 12 thoracic + 5 lumbar + 1 sacrum + 1 coccyx)"
     ],
     "optionsAr": [
-      "الفقرات القطنية (5 فقرات)",
-      "الفقرات العنقية",
-      "الفقرات الظهرية",
-      "الفقرات العجزية"
+      "33 عظمة",
+      "24 عظمة",
+      "20 عظمة",
+      "26 عظمة (7 عنقية + 12 ظهرية + 5 قطنية + 1 عجز + 1 عصعص)"
     ],
-    "correctAnswer": "Lumbar vertebrae (5 vertebrae)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "26 distinct bones (7 cervical + 12 thoracic + 5 lumbar + 1 sacrum + 1 coccyx)",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "Lumbar vertebrae (5 vertebrae)."
+      "Scientific fact: 26 distinct bones (7 cervical + 12 thoracic + 5 lumbar + 1 sacrum + 1 coccyx)."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "الفقرات القطنية (5 فقرات)."
+      "الحقيقة العلمية المعتمدة: 26 عظمة (7 عنقية + 12 ظهرية + 5 قطنية + 1 عجز + 1 عصعص)."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_21",
-    "titleEn": "Floating Ribs in Thoracic Cage #9",
-    "titleAr": "الضلوع العائمة في القفص الصدري #9",
+    "titleEn": "Cervical Vertebrae Count and Nature",
+    "titleAr": "عدد وطبيعة الفقرات العنقية",
     "difficulty": "easy",
-    "questionEn": "How many pairs of ribs are known as \"floating ribs\" because they do not connect to the sternum?",
-    "questionAr": "كم عدد أزواج الضلوع التي تُعرف باسم \"الضلوع العائمة\" لعدم اتصالها بعظمة القص من الأمام؟",
+    "questionEn": "The cervical region of the human vertebral column consists of:",
+    "questionAr": "تتكون المنطقة العنقية في العمود الفقري للإنسان من:",
     "optionsEn": [
-      "2 pairs (the 11th and 12th pairs)",
-      "7 pairs",
-      "3 pairs",
-      "1 pair"
+      "7 articulated vertebrae of medium size",
+      "12 fused vertebrae",
+      "5 large weight-bearing fused plates",
+      "4 rudimentary fused bones"
     ],
     "optionsAr": [
-      "زوجان (الزوج الحادي عشر والثاني عشر)",
-      "7 أزواج",
-      "3 أزواج",
-      "زوج واحد"
+      "7 فقرات متمفصلة متوسطة الحجم",
+      "12 فقرة ملتحمة",
+      "5 فقرات كبيرة ملتحمة حاملة للوزن",
+      "4 فقرات ضامرة ملتحمة"
     ],
-    "correctAnswer": "2 pairs (the 11th and 12th pairs)",
+    "correctAnswer": "7 articulated vertebrae of medium size",
     "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "2 pairs (the 11th and 12th pairs)."
+      "Scientific fact: 7 articulated vertebrae of medium size."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "زوجان (الزوج الحادي عشر والثاني عشر)."
+      "الحقيقة العلمية المعتمدة: 7 فقرات متمفصلة متوسطة الحجم."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_22",
-    "titleEn": "Skull Cranial Bones #10",
-    "titleAr": "عدد عظام الجزء المخي للجمجمة #10",
+    "titleEn": "Thoracic Vertebrae Count and Rib Articulation",
+    "titleAr": "عدد الفقرات الظهرية واتصالها بالضلوع",
     "difficulty": "easy",
-    "questionEn": "The posterior (cranial) portion of the human skull consists of how many fused bones?",
-    "questionAr": "يتكون الجزء الخلفي (المخي) لجمجمة الإنسان من كم عظمة ملتحمة معاً عند أطرافها المسننة؟",
+    "questionEn": "The thoracic (dorsal) region contains how many articulated vertebrae connecting with ribs?",
+    "questionAr": "تحتوي المنطقة الصدرية (الظهرية) على كم فقرة متمفصلة تتصل بأزواج الضلوع؟",
     "optionsEn": [
-      "8 bones",
-      "14 bones",
-      "22 bones",
-      "4 bones"
+      "7 vertebrae",
+      "12 vertebrae (numbers 8 through 19)",
+      "5 vertebrae",
+      "10 vertebrae"
     ],
     "optionsAr": [
-      "8 عظام",
-      "14 عظمة",
-      "22 عظمة",
-      "4 عظام"
+      "7 فقرات",
+      "12 فقرة (من الفقرة رقم 8 إلى رقم 19)",
+      "5 فقرات",
+      "10 فقرات"
     ],
-    "correctAnswer": "8 bones",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "12 vertebrae (numbers 8 through 19)",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "8 bones."
+      "Scientific fact: 12 vertebrae (numbers 8 through 19)."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "8 عظام."
+      "الحقيقة العلمية المعتمدة: 12 فقرة (من الفقرة رقم 8 إلى رقم 19)."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_23",
-    "titleEn": "Total Bones in Adult Human Skeleton #11",
-    "titleAr": "عدد عظام الهيكل العظمي البشري #11",
+    "titleEn": "Lumbar Vertebrae Size and Position",
+    "titleAr": "موضع وحجم الفقرات القطنية",
     "difficulty": "easy",
-    "questionEn": "How many distinct bones make up the adult human skeleton?",
-    "questionAr": "كم يبلغ عدد عظام الهيكل العظمي في الإنسان البالغ؟",
+    "questionEn": "The lumbar vertebrae are characterized anatomically as being:",
+    "questionAr": "تتميز الفقرات القطنية تشريحياً في العمود الفقري بأنها:",
     "optionsEn": [
-      "206 bones (80 axial + 126 appendicular)",
-      "300 bones",
-      "180 bones",
-      "250 bones"
+      "7 small vertebrae supporting the cranial cavity",
+      "12 vertebrae fused into a rigid dorsal box",
+      "5 large articulated vertebrae facing the abdominal cavity",
+      "4 tiny vestigial fused segments below the pelvis"
     ],
     "optionsAr": [
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)",
-      "300 عظمة",
-      "180 عظمة",
-      "250 عظمة"
+      "7 فقرات صغيرة تدعم تجويف الجمجمة",
+      "12 فقرة ملتحمة تكون صندوقاً ظهرياً مصمتاً",
+      "5 فقرات متمفصلة وهي الأكبر حجماً وتواجه التجويف البطني",
+      "4 قطع أثرية ضامرة ملتحمة أسفل الحوض"
     ],
-    "correctAnswer": "206 bones (80 axial + 126 appendicular)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "5 large articulated vertebrae facing the abdominal cavity",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "206 bones (80 axial + 126 appendicular)."
+      "Scientific fact: 5 large articulated vertebrae facing the abdominal cavity."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)."
+      "الحقيقة العلمية المعتمدة: 5 فقرات متمفصلة وهي الأكبر حجماً وتواجه التجويف البطني."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_24",
-    "titleEn": "Vertebral Column Total Bones #12",
-    "titleAr": "عدد عظام العمود الفقري #12",
+    "titleEn": "Sacral Vertebrae Structure",
+    "titleAr": "تركيب الفقرات العجزية في الإنسان",
     "difficulty": "easy",
-    "questionEn": "The adult human vertebral column contains 33 vertebrae. How many distinct bones does it represent?",
-    "questionAr": "يتكون العمود الفقري في الإنسان من 33 فقرة. كم يبلغ عدد عظام العمود الفقري فعلياً بعد التحام الفقرات العجزية والعصعصية؟",
+    "questionEn": "The sacral vertebrae in the human vertebral column are:",
+    "questionAr": "الفقرات العجزية في العمود الفقري للإنسان تتميز بأنها:",
     "optionsEn": [
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-      "33 bones",
-      "30 bones",
-      "20 bones"
+      "5 freely articulated vertebrae separated by thick discs",
+      "12 small circular rings lacking neural spines",
+      "3 rudimentary bones articulating with the femur",
+      "5 fused, broad, and flat vertebrae forming a single triangular bone (sacrum)"
     ],
     "optionsAr": [
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)",
-      "33 عظمة",
-      "30 عظمة",
-      "20 عظمة"
+      "5 فقرات متمفصلة حرة الحركة يفصلها غضاريف سميكة",
+      "12 حلقة دائرية صغيرة خالية من النتوءات الشوكية",
+      "3 عظام ضامرة تتمفصل مع عظم الفخذ",
+      "5 فقرات ملتحمة وعريضة ومفلطحة تلتحم كعظمة واحدة (عظم العجز)"
     ],
-    "correctAnswer": "26 bones (24 articulated + 1 sacrum + 1 coccyx)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "5 fused, broad, and flat vertebrae forming a single triangular bone (sacrum)",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "26 bones (24 articulated + 1 sacrum + 1 coccyx)."
+      "Scientific fact: 5 fused, broad, and flat vertebrae forming a single triangular bone (sacrum)."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "26 عظمة (24 فقرة متمفصلة + عظمة العجز + عظمة العصعص)."
+      "الحقيقة العلمية المعتمدة: 5 فقرات ملتحمة وعريضة ومفلطحة تلتحم كعظمة واحدة (عظم العجز)."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_25",
-    "titleEn": "Lumbar Vertebrae Characteristics #13",
-    "titleAr": "خصائص الفقرات القطنية #13",
+    "titleEn": "Coccygeal Vertebrae Characteristics",
+    "titleAr": "خصائص الفقرات العصعصية",
     "difficulty": "easy",
-    "questionEn": "Which vertebrae are the largest articulated vertebrae in the vertebral column, facing the abdominal cavity?",
-    "questionAr": "أي الفقرات هي الأكبر حجماً بين الفقرات المتمفصلة وتواجه التجويف البطني؟",
+    "questionEn": "The coccygeal vertebrae are anatomically described as:",
+    "questionAr": "توصف الفقرات العصعصية في نهاية العمود الفقري بأنها:",
     "optionsEn": [
-      "Lumbar vertebrae (5 vertebrae)",
-      "Cervical vertebrae",
-      "Thoracic vertebrae",
-      "Sacral vertebrae"
+      "4 small fused rudimentary vertebrae forming the coccyx bone",
+      "7 large movable segments allowing tail wagging",
+      "5 hollow segments carrying the main urinary canal",
+      "12 weight-bearing dorsal bones"
     ],
     "optionsAr": [
-      "الفقرات القطنية (5 فقرات)",
-      "الفقرات العنقية",
-      "الفقرات الظهرية",
-      "الفقرات العجزية"
+      "4 فقرات صغيرة ضامرة ملتحمة معاً وتكون عظمة العصعص",
+      "7 فقرات متحركة كبيرة تسمح بتحريك الذيل",
+      "5 فقرات مجوفة تحمل القناة البولية الرئيسية",
+      "12 عظمة ظهرية حاملة للوزن"
     ],
-    "correctAnswer": "Lumbar vertebrae (5 vertebrae)",
+    "correctAnswer": "4 small fused rudimentary vertebrae forming the coccyx bone",
     "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "Lumbar vertebrae (5 vertebrae)."
+      "Scientific fact: 4 small fused rudimentary vertebrae forming the coccyx bone."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "الفقرات القطنية (5 فقرات)."
+      "الحقيقة العلمية المعتمدة: 4 فقرات صغيرة ضامرة ملتحمة معاً وتكون عظمة العصعص."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_26",
-    "titleEn": "Floating Ribs in Thoracic Cage #14",
-    "titleAr": "الضلوع العائمة في القفص الصدري #14",
+    "titleEn": "Foramen Magnum Position and Purpose",
+    "titleAr": "موقع ووظيفة الثقب الكبير في الجمجمة",
     "difficulty": "easy",
-    "questionEn": "How many pairs of ribs are known as \"floating ribs\" because they do not connect to the sternum?",
-    "questionAr": "كم عدد أزواج الضلوع التي تُعرف باسم \"الضلوع العائمة\" لعدم اتصالها بعظمة القص من الأمام؟",
+    "questionEn": "The foramen magnum is a large aperture located at the base of the skull cerebral part serving to:",
+    "questionAr": "الثقب الكبير فتحة متسعة تقع في قاع الجزء المخي للجمجمة وتعمل على:",
     "optionsEn": [
-      "2 pairs (the 11th and 12th pairs)",
-      "7 pairs",
-      "3 pairs",
-      "1 pair"
+      "Permit the entry of food into the digestive esophagus",
+      "Connect the brain stem with the spinal cord passing into the vertebral neural canal",
+      "Equalize atmospheric air pressure across the eardrum",
+      "Anchor the clavicles firmly to the occipital bone"
     ],
     "optionsAr": [
-      "زوجان (الزوج الحادي عشر والثاني عشر)",
-      "7 أزواج",
-      "3 أزواج",
-      "زوج واحد"
+      "السماح بمرور بلعات الطعام إلى المريء",
+      "توصيل المخ بالحبل الشوكي المار داخل القناة العصبية للعمود الفقري",
+      "معادلة الضغط الجوي على جانبي غشاء طبلة الأذن",
+      "تثبيت الترقوة بإحكام في العظم القذالي"
     ],
-    "correctAnswer": "2 pairs (the 11th and 12th pairs)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "Connect the brain stem with the spinal cord passing into the vertebral neural canal",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "2 pairs (the 11th and 12th pairs)."
+      "Scientific fact: Connect the brain stem with the spinal cord passing into the vertebral neural canal."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "زوجان (الزوج الحادي عشر والثاني عشر)."
+      "الحقيقة العلمية المعتمدة: توصيل المخ بالحبل الشوكي المار داخل القناة العصبية للعمود الفقري."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_27",
-    "titleEn": "Skull Cranial Bones #15",
-    "titleAr": "عدد عظام الجزء المخي للجمجمة #15",
+    "titleEn": "Human Rib Pairs and Floating Ribs",
+    "titleAr": "أزواج الضلوع والضلوع العائمة في القفص الصدري",
     "difficulty": "easy",
-    "questionEn": "The posterior (cranial) portion of the human skull consists of how many fused bones?",
-    "questionAr": "يتكون الجزء الخلفي (المخي) لجمجمة الإنسان من كم عظمة ملتحمة معاً عند أطرافها المسننة؟",
+    "questionEn": "The human rib cage contains 12 pairs of ribs. The last two pairs (pairs 11 and 12) are termed:",
+    "questionAr": "يحتوي القفص الصدري للإنسان على 12 زوجاً من الضلوع. يطلق على الزوجين الأخيرين (11 و 12) اسم:",
     "optionsEn": [
-      "8 bones",
-      "14 bones",
-      "22 bones",
-      "4 bones"
+      "True ribs, because they join directly to the clavicle",
+      "Cervical ribs, because they sprout from the neck vertebrae",
+      "Floating ribs, because they are short and do not attach anteriorly to the sternum",
+      "Pelvic ribs, because they fuse to the hip bones"
     ],
     "optionsAr": [
-      "8 عظام",
-      "14 عظمة",
-      "22 عظمة",
-      "4 عظام"
+      "الضلوع الحقيقية، لاتصالها المباشر بالترقوة",
+      "الضلوع العنقية، لخروجها من فقرات الرقبة",
+      "الضلوع العائمة، لقصرها وعدم اتصالها من الأمام بعظمة القص",
+      "الضلوع الحوضية، لالتصاقها بعظام الحوض"
     ],
-    "correctAnswer": "8 bones",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "Floating ribs, because they are short and do not attach anteriorly to the sternum",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "8 bones."
+      "Scientific fact: Floating ribs, because they are short and do not attach anteriorly to the sternum."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "8 عظام."
+      "الحقيقة العلمية المعتمدة: الضلوع العائمة، لقصرها وعدم اتصالها من الأمام بعظمة القص."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_28",
-    "titleEn": "Total Bones in Adult Human Skeleton #16",
-    "titleAr": "عدد عظام الهيكل العظمي البشري #16",
+    "titleEn": "Sternum Bone Anatomy and Cartilaginous Tip",
+    "titleAr": "تشريح عظمة القص وطرفها الغضروفي",
     "difficulty": "easy",
-    "questionEn": "How many distinct bones make up the adult human skeleton?",
-    "questionAr": "كم يبلغ عدد عظام الهيكل العظمي في الإنسان البالغ؟",
+    "questionEn": "The human sternum is a flat bone situated anteriorly in the chest, featuring a lower tip that is:",
+    "questionAr": "عظمة القص عظمة مفلطحة تقع في منتصف الصدر من الأمام، ويتميز طرفها السفلي بأنه:",
     "optionsEn": [
-      "206 bones (80 axial + 126 appendicular)",
-      "300 bones",
-      "180 bones",
-      "250 bones"
+      "Formed of dense spongy marrow containing teeth",
+      "Freely articulated with the head of the femur",
+      "Completely absent in females",
+      "Cartilaginous, which gradually calcifies with advancing age"
     ],
     "optionsAr": [
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)",
-      "300 عظمة",
-      "180 عظمة",
-      "250 عظمة"
+      "مكون من نسيج إسفنجي رخو يحتوي على أسنان",
+      "متمفصل بحرية مع رأس عظمة الفخذ",
+      "غائب تماماً في الإناث",
+      "مدبب وغضروفي، يتكلس تدريجياً مع تقدم العمر"
     ],
-    "correctAnswer": "206 bones (80 axial + 126 appendicular)",
-    "correctIndex": 0,
-    "hintEn": "Count the 24 articulating vertebrae separately and treat the 5 fused sacral vertebrae as 1 bone and 4 fused coccygeal vertebrae as 1 bone.",
-    "hintAr": "احسب الفقرات المتمفصلة الـ 24 منفردة، واعتبر الفقرات العجزية الـ 5 الملحمة كعظمة واحدة، والـ 4 العصعصية الملتحمة كعظمة واحدة.",
+    "correctAnswer": "Cartilaginous, which gradually calcifies with advancing age",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Anatomical distribution:",
-      "206 bones (80 axial + 126 appendicular)."
+      "Scientific fact: Cartilaginous, which gradually calcifies with advancing age."
     ],
     "stepByStepSolutionAr": [
-      "التوزيع التشريحي:",
-      "206 عظمة (80 في الهيكل المحوري + 126 في الهيكل الطرفي)."
+      "الحقيقة العلمية المعتمدة: مدبب وغضروفي، يتكلس تدريجياً مع تقدم العمر."
     ],
-    "teacherTipEn": "Watch out for questions distinguishing between \"number of vertebrae\" (33) and \"number of bones in the vertebral column\" (26).",
-    "teacherTipAr": "انتبه للفرق بين \"عدد فقرات العمود الفقري\" (33 فقرة) و\"عدد عظام العمود الفقري\" (26 عظمة)."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_29",
-    "titleEn": "Ligaments vs Tendons #1",
-    "titleAr": "الأربطة والأوتار #1",
+    "titleEn": "Pectoral Girdle Composition",
+    "titleAr": "مكونات الحزام الصدري في الإنسان",
     "difficulty": "easy",
-    "questionEn": "What is the key functional difference between ligaments and tendons?",
-    "questionAr": "ما هو الفارق الوظيفي الأساسي بين الأربطة والأوتار؟",
+    "questionEn": "The human pectoral (shoulder) girdle consists on each half of:",
+    "questionAr": "يتكون الحزام الصدري في الإنسان في كل نصف من نصفي الجسم من:",
     "optionsEn": [
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
-      "Ligaments connect muscles together; tendons connect nerves",
-      "Ligaments secrete synovial fluid; tendons do not",
-      "Ligaments are made of bone marrow"
+      "A triangular scapula and a slender anterior clavicle",
+      "An ilium, ischium, and pubis",
+      "A femur, patella, and tibia",
+      "A sternum, xiphoid process, and rib"
     ],
     "optionsAr": [
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام",
-      "الأربطة تصل العضلات ببعضها والأوتار تصل الأعصاب",
-      "الأربطة تفرز السائل الزلالي والأوتار لا تفرز",
-      "الأربطة تتكون من نخاع العظام"
+      "عظمة لوح الكتف المثلثية وعظمة الترقوة الرفيعة الباطنية",
+      "عظمة الحرقفة والورك والعانة",
+      "عظمة الفخذ والرضفة والقصبة",
+      "عظمة القص والنتوء الخنجري وضلع"
     ],
-    "correctAnswer": "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
+    "correctAnswer": "A triangular scapula and a slender anterior clavicle",
     "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones."
+      "Scientific fact: A triangular scapula and a slender anterior clavicle."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام."
+      "الحقيقة العلمية المعتمدة: عظمة لوح الكتف المثلثية وعظمة الترقوة الرفيعة الباطنية."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_30",
-    "titleEn": "Achilles Tendon Connection #2",
-    "titleAr": "اتصال وتر أخيل #2",
+    "titleEn": "Glenoid Cavity and Shoulder Joint",
+    "titleAr": "التجويف الأروحي ومفصل الكتف",
     "difficulty": "easy",
-    "questionEn": "The Achilles tendon connects the gastrocnemius (calf) muscle to which bone?",
-    "questionAr": "يصل وتر أخيل العضلة التوأمية (عضلة بطن الساق) بأي عظمة في الهيكل الطرفي؟",
+    "questionEn": "The glenoid cavity is situated at the lateral angle of the scapula to receive:",
+    "questionAr": "يوجد التجويف الأروحي عند الطرف الخارجي لعظمة لوح الكتف ليستقر فيه:",
     "optionsEn": [
-      "Calcaneus (Heel bone)",
-      "Tibia",
-      "Femur",
-      "Patella"
+      "The head of the femur, forming the ball-and-socket hip joint",
+      "The head of the humerus, forming the wide-range shoulder joint",
+      "The upper extremity of the radius bone",
+      "The distal end of the fibula"
     ],
     "optionsAr": [
-      "عظمة الكعب (الرسغ الخلفي للقدم)",
-      "القصبة",
-      "الفخذ",
-      "الرضفة"
+      "رأس عظمة الفخذ مكوناً مفصل الفخذ واسع الحركة",
+      "رأس عظمة العضد مكوناً مفصل الكتف واسع الحركة",
+      "الطرف العلوي لعظمة الكعبرة",
+      "الطرف السفلي لعظمة الشظية"
     ],
-    "correctAnswer": "Calcaneus (Heel bone)",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "The head of the humerus, forming the wide-range shoulder joint",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Calcaneus (Heel bone)."
+      "Scientific fact: The head of the humerus, forming the wide-range shoulder joint."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "عظمة الكعب (الرسغ الخلفي للقدم)."
+      "الحقيقة العلمية المعتمدة: رأس عظمة العضد مكوناً مفصل الكتف واسع الحركة."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_31",
-    "titleEn": "Synovial Fluid Function #3",
-    "titleAr": "وظيفة السائل الزلالي #3",
+    "titleEn": "Forearm Bones: Radius and Ulna",
+    "titleAr": "عظام الساعد: الكعبرة والزند",
     "difficulty": "easy",
-    "questionEn": "What is the vital role of synovial fluid in movable joints?",
-    "questionAr": "ما الدور الحيوي للسائل الزلالي (المصلي) في المفاصل الزلالية؟",
+    "questionEn": "The human forearm consists of two bones, where the radius is anatomically recognized by:",
+    "questionAr": "يتكون الساعد في الإنسان من عظمتين، وتتميز الكعبرة تشريحياً بأنها:",
     "optionsEn": [
-      "Facilitates smooth sliding of articular cartilages and prevents friction",
-      "Stimulating action potentials",
-      "Storing calcium for muscle contraction",
-      "Producing red blood cells"
+      "Being the longest and thickest bone in the entire human body",
+      "Containing the large cavity that articulates with the lower end of the humerus",
+      "Moving in a semi-rotational manner around the fixed, inner ulna",
+      "Directly fusing with the cervical vertebrae of the neck"
     ],
     "optionsAr": [
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام",
-      "تحفيز السيالات العصبية",
-      "تخزين الكالسيوم لانقباض العضلات",
-      "إنتاج كرات الدم الحمراء"
+      "أطول وأسمك عظمة في جسم الإنسان بأكمله",
+      "تحتوي على التجويف الذي يستقر فيه النتوء الداخلي للعضد",
+      "تتحرك حركة نصف دائرية حول عظمة الزند الثابتة للداخل",
+      "تلتحم مباشرة مع الفقرات العنقية في الرقبة"
     ],
-    "correctAnswer": "Facilitates smooth sliding of articular cartilages and prevents friction",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "Moving in a semi-rotational manner around the fixed, inner ulna",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Facilitates smooth sliding of articular cartilages and prevents friction."
+      "Scientific fact: Moving in a semi-rotational manner around the fixed, inner ulna."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام."
+      "الحقيقة العلمية المعتمدة: تتحرك حركة نصف دائرية حول عظمة الزند الثابتة للداخل."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_32",
-    "titleEn": "Cartilage Nutrition Mechanism #4",
-    "titleAr": "تغذية الغضاريف بالانتشار #4",
+    "titleEn": "Acetabulum Cavity and Hip Joint",
+    "titleAr": "التجويف الحقي ومفصل الفخذ",
     "difficulty": "easy",
-    "questionEn": "Cartilages lack blood vessels. How do cartilage cells receive oxygen and nutrients?",
-    "questionAr": "تخلو الغضاريف من الأوعية الدموية. كيف تحصل خلايا الغضاريف على الغذاء والأكسجين؟",
+    "questionEn": "The deep acetabular cavity is situated at the junction of the three hip pelvic bones to receive:",
+    "questionAr": "يوجد التجويف الحقي العميق عند موضع اتصال عظام الحرقفة والورك والعانة ليستقر فيه:",
     "optionsEn": [
-      "By diffusion from the blood vessels of adjacent bone tissues",
-      "Direct absorption from air",
-      "Via lymphatic capillaries inside the cartilage matrix",
-      "Through active secretory vesicles"
+      "The distal trochlea of the humerus",
+      "The calcaneus bone of the ankle",
+      "The floating 12th rib tip",
+      "The head of the femur, forming the stable hip joint"
     ],
     "optionsAr": [
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها",
-      "بالامتصاص المباشر من الهواء",
-      "عبر أوعية ليمفاوية داخل الغضروف",
-      "عبر حويصلات إفرازية نشطة"
+      "النتوء الداخلي لعظمة العضد",
+      "عظمة الكعب من عظام رسغ القدم",
+      "الطرف المدبب للضلع العائم الثاني عشر",
+      "رأس عظمة الفخذ مكوناً مفصل الفخذ واسع الحركة والمستقر"
     ],
-    "correctAnswer": "By diffusion from the blood vessels of adjacent bone tissues",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "The head of the femur, forming the stable hip joint",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "By diffusion from the blood vessels of adjacent bone tissues."
+      "Scientific fact: The head of the femur, forming the stable hip joint."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها."
+      "الحقيقة العلمية المعتمدة: رأس عظمة الفخذ مكوناً مفصل الفخذ واسع الحركة والمستقر."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_33",
-    "titleEn": "Ligaments vs Tendons #5",
-    "titleAr": "الأربطة والأوتار #5",
+    "titleEn": "Human Wrist Bones: Carpals",
+    "titleAr": "عظام رسغ اليد في الإنسان",
     "difficulty": "easy",
-    "questionEn": "What is the key functional difference between ligaments and tendons?",
-    "questionAr": "ما هو الفارق الوظيفي الأساسي بين الأربطة والأوتار؟",
+    "questionEn": "The human wrist (carpus) is composed of how many bones organized in two rows?",
+    "questionAr": "يتكون رسغ اليد في الإنسان من كم عظمة تنتظم في صفين متوازيين؟",
     "optionsEn": [
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
-      "Ligaments connect muscles together; tendons connect nerves",
-      "Ligaments secrete synovial fluid; tendons do not",
-      "Ligaments are made of bone marrow"
+      "8 small bones",
+      "7 irregular bones",
+      "5 elongated cylindrical bones",
+      "14 delicate phalanges"
     ],
     "optionsAr": [
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام",
-      "الأربطة تصل العضلات ببعضها والأوتار تصل الأعصاب",
-      "الأربطة تفرز السائل الزلالي والأوتار لا تفرز",
-      "الأربطة تتكون من نخاع العظام"
+      "8 عظام صغيرة",
+      "7 عظام غير منتظمة",
+      "5 عظام أسطوانية مستطيلة",
+      "14 سلامية دقيقة"
     ],
-    "correctAnswer": "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
+    "correctAnswer": "8 small bones",
     "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones."
+      "Scientific fact: 8 small bones."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام."
+      "الحقيقة العلمية المعتمدة: 8 عظام صغيرة."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_34",
-    "titleEn": "Achilles Tendon Connection #6",
-    "titleAr": "اتصال وتر أخيل #6",
+    "titleEn": "Human Ankle Bones: Tarsals and Calcaneus",
+    "titleAr": "عظام رسغ القدم وعظمة الكعب",
     "difficulty": "easy",
-    "questionEn": "The Achilles tendon connects the gastrocnemius (calf) muscle to which bone?",
-    "questionAr": "يصل وتر أخيل العضلة التوأمية (عضلة بطن الساق) بأي عظمة في الهيكل الطرفي؟",
+    "questionEn": "The human ankle (tarsus) is formed of how many bones, with the largest forming the heel?",
+    "questionAr": "يتكون رسغ القدم (العرقوب) في الإنسان من كم عظمة، أكبرها عظمة الكعب الخلفية؟",
     "optionsEn": [
-      "Calcaneus (Heel bone)",
-      "Tibia",
-      "Femur",
-      "Patella"
+      "8 bones",
+      "7 bones",
+      "5 bones",
+      "10 bones"
     ],
     "optionsAr": [
-      "عظمة الكعب (الرسغ الخلفي للقدم)",
-      "القصبة",
-      "الفخذ",
-      "الرضفة"
+      "8 عظام",
+      "7 عظام",
+      "5 عظام",
+      "10 عظام"
     ],
-    "correctAnswer": "Calcaneus (Heel bone)",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "7 bones",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Calcaneus (Heel bone)."
+      "Scientific fact: 7 bones."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "عظمة الكعب (الرسغ الخلفي للقدم)."
+      "الحقيقة العلمية المعتمدة: 7 عظام."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_35",
-    "titleEn": "Synovial Fluid Function #7",
-    "titleAr": "وظيفة السائل الزلالي #7",
+    "titleEn": "Total Number of Hand and Foot Phalanges",
+    "titleAr": "عدد سلاميات اليد والقدم في الإنسان",
     "difficulty": "easy",
-    "questionEn": "What is the vital role of synovial fluid in movable joints?",
-    "questionAr": "ما الدور الحيوي للسائل الزلالي (المصلي) في المفاصل الزلالية؟",
+    "questionEn": "In each human hand or foot, how many phalanges exist across the five digits?",
+    "questionAr": "في كل يد أو قدم بشرية، كم يبلغ عدد السلاميات الإجمالي في الأصابع الخمسة؟",
     "optionsEn": [
-      "Facilitates smooth sliding of articular cartilages and prevents friction",
-      "Stimulating action potentials",
-      "Storing calcium for muscle contraction",
-      "Producing red blood cells"
+      "15 phalanges (3 in every digit equally)",
+      "10 phalanges",
+      "14 phalanges (2 in thumb/great toe, 3 in each remaining digit)",
+      "12 phalanges"
     ],
     "optionsAr": [
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام",
-      "تحفيز السيالات العصبية",
-      "تخزين الكالسيوم لانقباض العضلات",
-      "إنتاج كرات الدم الحمراء"
+      "15 سلامية (ثلاث سلاميات في كل إصبع بالتساوي)",
+      "10 سلاميات",
+      "14 سلامية (سلاميتان في الإبهام وثلاث في كل إصبع من باقي الأصابع)",
+      "12 سلامية"
     ],
-    "correctAnswer": "Facilitates smooth sliding of articular cartilages and prevents friction",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "14 phalanges (2 in thumb/great toe, 3 in each remaining digit)",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Facilitates smooth sliding of articular cartilages and prevents friction."
+      "Scientific fact: 14 phalanges (2 in thumb/great toe, 3 in each remaining digit)."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام."
+      "الحقيقة العلمية المعتمدة: 14 سلامية (سلاميتان في الإبهام وثلاث في كل إصبع من باقي الأصابع)."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_36",
-    "titleEn": "Cartilage Nutrition Mechanism #8",
-    "titleAr": "تغذية الغضاريف بالانتشار #8",
+    "titleEn": "Fibrous Joints in the Human Skull",
+    "titleAr": "المفاصل الليفية في جمجمة الإنسان",
     "difficulty": "easy",
-    "questionEn": "Cartilages lack blood vessels. How do cartilage cells receive oxygen and nutrients?",
-    "questionAr": "تخلو الغضاريف من الأوعية الدموية. كيف تحصل خلايا الغضاريف على الغذاء والأكسجين؟",
+    "questionEn": "The serrated margins between the cranial bones of an adult skull represent:",
+    "questionAr": "تمثل الحواف المسننة المتداخلة بين عظام الجزء المخي لجمجمة البالغ:",
     "optionsEn": [
-      "By diffusion from the blood vessels of adjacent bone tissues",
-      "Direct absorption from air",
-      "Via lymphatic capillaries inside the cartilage matrix",
-      "Through active secretory vesicles"
+      "Freely movable synovial joints containing abundant synovial lubricant",
+      "Cartilaginous joints allowing lateral rotating flexion",
+      "Elastic ligaments stretching during verbal speech",
+      "Fibrous joints that turn into rigid bone tissue with advancing age"
     ],
     "optionsAr": [
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها",
-      "بالامتصاص المباشر من الهواء",
-      "عبر أوعية ليمفاوية داخل الغضروف",
-      "عبر حويصلات إفرازية نشطة"
+      "مفاصل زلالية واسعة الحركة تحتوي على سائل زلالي وفير",
+      "مفاصل غضروفية تسمح بحركة التواء جانبية مستمرة",
+      "أربطة مرنة تستطيل أثناء التحدث والكلام",
+      "مفاصل ليفية تتحول مع تقدم العمر تدريجياً إلى نسيج عظمي صلب"
     ],
-    "correctAnswer": "By diffusion from the blood vessels of adjacent bone tissues",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "Fibrous joints that turn into rigid bone tissue with advancing age",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "By diffusion from the blood vessels of adjacent bone tissues."
+      "Scientific fact: Fibrous joints that turn into rigid bone tissue with advancing age."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها."
+      "الحقيقة العلمية المعتمدة: مفاصل ليفية تتحول مع تقدم العمر تدريجياً إلى نسيج عظمي صلب."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_37",
-    "titleEn": "Ligaments vs Tendons #9",
-    "titleAr": "الأربطة والأوتار #9",
+    "titleEn": "Synovial Joints Characteristics",
+    "titleAr": "خصائص ومميزات المفاصل الزلالية",
     "difficulty": "easy",
-    "questionEn": "What is the key functional difference between ligaments and tendons?",
-    "questionAr": "ما هو الفارق الوظيفي الأساسي بين الأربطة والأوتار؟",
+    "questionEn": "Synovial joints are the most abundant joints in the human body, characterized by:",
+    "questionAr": "المفاصل الزلالية هي أكثر المفاصل انتشاراً في جسم الإنسان وتتميز بـ:",
     "optionsEn": [
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
-      "Ligaments connect muscles together; tendons connect nerves",
-      "Ligaments secrete synovial fluid; tendons do not",
-      "Ligaments are made of bone marrow"
+      "Bones coated with slick hyaline cartilage and separated by lubricating synovial fluid",
+      "Direct fusion of opposing bone shafts without any intervening space",
+      "Complete absence of surrounding fibrous connective tissue capsules",
+      "Restricting movement to strictly zero degrees in all planes"
     ],
     "optionsAr": [
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام",
-      "الأربطة تصل العضلات ببعضها والأوتار تصل الأعصاب",
-      "الأربطة تفرز السائل الزلالي والأوتار لا تفرز",
-      "الأربطة تتكون من نخاع العظام"
+      "تغطية أطراف العظام بغضروف مفصلي أملس ووجود سائل زلالي يسهل الانزلاق",
+      "التحام مباشر لكتل العظام دون وجود أي فراغ بينها",
+      "انعدام الأربطة والمحافظ الليفية المحيطة بها تماماً",
+      "انعدام الحركة تماماً في جميع الاتجاهات والزوايا"
     ],
-    "correctAnswer": "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
+    "correctAnswer": "Bones coated with slick hyaline cartilage and separated by lubricating synovial fluid",
     "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones."
+      "Scientific fact: Bones coated with slick hyaline cartilage and separated by lubricating synovial fluid."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام."
+      "الحقيقة العلمية المعتمدة: تغطية أطراف العظام بغضروف مفصلي أملس ووجود سائل زلالي يسهل الانزلاق."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_38",
-    "titleEn": "Achilles Tendon Connection #10",
-    "titleAr": "اتصال وتر أخيل #10",
+    "titleEn": "Cruciate Ligaments of the Knee Joint",
+    "titleAr": "الأربطة الصليبية في مفصل الركبة",
     "difficulty": "easy",
-    "questionEn": "The Achilles tendon connects the gastrocnemius (calf) muscle to which bone?",
-    "questionAr": "يصل وتر أخيل العضلة التوأمية (عضلة بطن الساق) بأي عظمة في الهيكل الطرفي؟",
+    "questionEn": "Within the human knee joint, how many cruciate ligaments exist connecting femur to tibia?",
+    "questionAr": "داخل مفصل الركبة في الإنسان، كم يبلغ عدد الأربطة الصليبية الواصلة بين الفخذ والقصبة؟",
     "optionsEn": [
-      "Calcaneus (Heel bone)",
-      "Tibia",
-      "Femur",
-      "Patella"
+      "4 cruciate ligaments",
+      "2 cruciate ligaments (anterior cruciate and posterior cruciate)",
+      "1 cruciate ligament only",
+      "3 cruciate ligaments"
     ],
     "optionsAr": [
-      "عظمة الكعب (الرسغ الخلفي للقدم)",
-      "القصبة",
-      "الفخذ",
-      "الرضفة"
+      "4 أربطة صليبية",
+      "رباطان صليبيان (رباط صليبي أمامي ورباط صليبي خلفي)",
+      "رباط صليبي واحد فقط",
+      "3 أربطة صليبية"
     ],
-    "correctAnswer": "Calcaneus (Heel bone)",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "2 cruciate ligaments (anterior cruciate and posterior cruciate)",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Calcaneus (Heel bone)."
+      "Scientific fact: 2 cruciate ligaments (anterior cruciate and posterior cruciate)."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "عظمة الكعب (الرسغ الخلفي للقدم)."
+      "الحقيقة العلمية المعتمدة: رباطان صليبيان (رباط صليبي أمامي ورباط صليبي خلفي)."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_39",
-    "titleEn": "Synovial Fluid Function #11",
-    "titleAr": "وظيفة السائل الزلالي #11",
+    "titleEn": "Total Number of Ligaments in the Knee Joint",
+    "titleAr": "العدد الكلي للأربطة في مفصل الركبة",
     "difficulty": "easy",
-    "questionEn": "What is the vital role of synovial fluid in movable joints?",
-    "questionAr": "ما الدور الحيوي للسائل الزلالي (المصلي) في المفاصل الزلالية؟",
+    "questionEn": "The total number of supportive ligaments stabilizing the human knee joint is:",
+    "questionAr": "كم يبلغ العدد الكلي للأربطة الداعمة والمثبتة لمفصل الركبة في الإنسان؟",
     "optionsEn": [
-      "Facilitates smooth sliding of articular cartilages and prevents friction",
-      "Stimulating action potentials",
-      "Storing calcium for muscle contraction",
-      "Producing red blood cells"
+      "2 ligaments",
+      "6 ligaments",
+      "4 ligaments (anterior cruciate, posterior cruciate, tibial collateral, fibular collateral)",
+      "8 ligaments"
     ],
     "optionsAr": [
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام",
-      "تحفيز السيالات العصبية",
-      "تخزين الكالسيوم لانقباض العضلات",
-      "إنتاج كرات الدم الحمراء"
+      "رباطان فقط",
+      "6 أربطة",
+      "4 أربطة (صليبي أمامي، صليبي خلفي، وسطي يربط القصبة، وجانبي يربط الشظية)",
+      "8 أربطة"
     ],
-    "correctAnswer": "Facilitates smooth sliding of articular cartilages and prevents friction",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "4 ligaments (anterior cruciate, posterior cruciate, tibial collateral, fibular collateral)",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Facilitates smooth sliding of articular cartilages and prevents friction."
+      "Scientific fact: 4 ligaments (anterior cruciate, posterior cruciate, tibial collateral, fibular collateral)."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام."
+      "الحقيقة العلمية المعتمدة: 4 أربطة (صليبي أمامي، صليبي خلفي، وسطي يربط القصبة، وجانبي يربط الشظية)."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_40",
-    "titleEn": "Cartilage Nutrition Mechanism #12",
-    "titleAr": "تغذية الغضاريف بالانتشار #12",
+    "titleEn": "Functional Difference: Ligaments versus Tendons",
+    "titleAr": "الفرق الوظيفي والتركيبي بين الأربطة والأوتار",
     "difficulty": "easy",
-    "questionEn": "Cartilages lack blood vessels. How do cartilage cells receive oxygen and nutrients?",
-    "questionAr": "تخلو الغضاريف من الأوعية الدموية. كيف تحصل خلايا الغضاريف على الغذاء والأكسجين؟",
+    "questionEn": "What is the principal anatomical distinction between ligaments and tendons?",
+    "questionAr": "ما الفارق التشريحي والوظيفي الجوهري بين الأربطة والأوتار في الجهاز الهيكلي؟",
     "optionsEn": [
-      "By diffusion from the blood vessels of adjacent bone tissues",
-      "Direct absorption from air",
-      "Via lymphatic capillaries inside the cartilage matrix",
-      "Through active secretory vesicles"
+      "Ligaments pull muscles; tendons store mineral calcium ions",
+      "Ligaments are dead fibrous bands; tendons are living contractile muscle fibers",
+      "Ligaments only exist in skulls; tendons only exist in toes",
+      "Ligaments connect bone to bone and possess elasticity; tendons connect muscle to bone and are non-elastic"
     ],
     "optionsAr": [
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها",
-      "بالامتصاص المباشر من الهواء",
-      "عبر أوعية ليمفاوية داخل الغضروف",
-      "عبر حويصلات إفرازية نشطة"
+      "الأربطة تسحب العضلات، بينما الأوتار تخزن الكالسيوم",
+      "الأربطة نسيج ميت، بينما الأوتار خلايا عضلية حية منقبضة",
+      "الأربطة في الجمجمة فقط، بينما الأوتار في أصابع القدم فقط",
+      "الأربطة تربط العظام بالعظام وتتميز بالمرونة؛ بينما الأوتار تربط العضلات بالعظام وقوية غير مرنة"
     ],
-    "correctAnswer": "By diffusion from the blood vessels of adjacent bone tissues",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "Ligaments connect bone to bone and possess elasticity; tendons connect muscle to bone and are non-elastic",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "By diffusion from the blood vessels of adjacent bone tissues."
+      "Scientific fact: Ligaments connect bone to bone and possess elasticity; tendons connect muscle to bone and are non-elastic."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها."
+      "الحقيقة العلمية المعتمدة: الأربطة تربط العظام بالعظام وتتميز بالمرونة؛ بينما الأوتار تربط العضلات بالعظام وقوية غير مرنة."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_41",
-    "titleEn": "Ligaments vs Tendons #13",
-    "titleAr": "الأربطة والأوتار #13",
+    "titleEn": "Achilles Tendon Attachment and Role",
+    "titleAr": "موضع اتصال ودور وتر أخيل",
     "difficulty": "easy",
-    "questionEn": "What is the key functional difference between ligaments and tendons?",
-    "questionAr": "ما هو الفارق الوظيفي الأساسي بين الأربطة والأوتار؟",
+    "questionEn": "The Achilles tendon functionally connects which muscle to which bone?",
+    "questionAr": "يقوم وتر أخيل (Achilles tendon) وظيفياً بربط أي عضلة بأي عظمة في الطرف السفلي؟",
     "optionsEn": [
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
-      "Ligaments connect muscles together; tendons connect nerves",
-      "Ligaments secrete synovial fluid; tendons do not",
-      "Ligaments are made of bone marrow"
+      "Connects the gastrocnemius (calf) muscle to the heel calcaneus bone",
+      "Connects the quadriceps muscle to the patella bone",
+      "Connects the biceps brachii muscle to the radius bone",
+      "Connects the diaphragm muscle to the floating ribs"
     ],
     "optionsAr": [
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام",
-      "الأربطة تصل العضلات ببعضها والأوتار تصل الأعصاب",
-      "الأربطة تفرز السائل الزلالي والأوتار لا تفرز",
-      "الأربطة تتكون من نخاع العظام"
+      "يربط عضلة بطن الساق (التوأمية) بعظمة الكعب في رسغ القدم",
+      "يربط العضلة رباعية الرؤوس بعظمة الرضفة",
+      "يربط العضلة ذات الرأسين العضدية بعظمة الكعبرة",
+      "يربط عضلة الحجاب الحاجز بالضلوع العائمة"
     ],
-    "correctAnswer": "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones",
+    "correctAnswer": "Connects the gastrocnemius (calf) muscle to the heel calcaneus bone",
     "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Ligaments connect bone to bone at joints; tendons connect skeletal muscles to bones."
+      "Scientific fact: Connects the gastrocnemius (calf) muscle to the heel calcaneus bone."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "الأربطة تصل العظام بالعظام عند المفاصل؛ والأوتار تصل العضلات بالعظام."
+      "الحقيقة العلمية المعتمدة: يربط عضلة بطن الساق (التوأمية) بعظمة الكعب في رسغ القدم."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_42",
-    "titleEn": "Achilles Tendon Connection #14",
-    "titleAr": "اتصال وتر أخيل #14",
+    "titleEn": "Cause of Achilles Tendon Rupture",
+    "titleAr": "أسباب تمزق وتر أخيل في الرياضيين",
     "difficulty": "easy",
-    "questionEn": "The Achilles tendon connects the gastrocnemius (calf) muscle to which bone?",
-    "questionAr": "يصل وتر أخيل العضلة التوأمية (عضلة بطن الساق) بأي عظمة في الهيكل الطرفي؟",
+    "questionEn": "Rupture of the Achilles tendon can be medically triggered by:",
+    "questionAr": "يمكن أن يحدث تمزق وتر أخيل طبياً نتيجة أي من العوامل التالية:",
     "optionsEn": [
-      "Calcaneus (Heel bone)",
-      "Tibia",
-      "Femur",
-      "Patella"
+      "Drinking excessive amounts of distilled pure water",
+      "Exertion of excessive sudden muscular effort, loss of muscle elasticity, or severe cramp",
+      "Sitting quietly for ten minutes in a ventilated room",
+      "Inhaling high concentrations of atmospheric oxygen"
     ],
     "optionsAr": [
-      "عظمة الكعب (الرسغ الخلفي للقدم)",
-      "القصبة",
-      "الفخذ",
-      "الرضفة"
+      "شرب كميات وفيرة من الماء النقي",
+      "بذل مجهود عضلي عنيف ومفاجئ، أو انعدام مرونة العضلة، أو حدوث تقلص مفاجئ",
+      "الجلوس بهدوء لمدة عشر دقائق في غرفة جيدة التهوية",
+      "استنشاق هواء غني بالأكسجين النقي"
     ],
-    "correctAnswer": "Calcaneus (Heel bone)",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "Exertion of excessive sudden muscular effort, loss of muscle elasticity, or severe cramp",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Calcaneus (Heel bone)."
+      "Scientific fact: Exertion of excessive sudden muscular effort, loss of muscle elasticity, or severe cramp."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "عظمة الكعب (الرسغ الخلفي للقدم)."
+      "الحقيقة العلمية المعتمدة: بذل مجهود عضلي عنيف ومفاجئ، أو انعدام مرونة العضلة، أو حدوث تقلص مفاجئ."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_43",
-    "titleEn": "Synovial Fluid Function #15",
-    "titleAr": "وظيفة السائل الزلالي #15",
+    "titleEn": "Avascular Nature of Cartilaginous Tissue",
+    "titleAr": "خلو النسيج الغضروفي من الأوعية الدموية",
     "difficulty": "easy",
-    "questionEn": "What is the vital role of synovial fluid in movable joints?",
-    "questionAr": "ما الدور الحيوي للسائل الزلالي (المصلي) في المفاصل الزلالية؟",
+    "questionEn": "Because cartilages lack blood vessels, chondrocytes obtain their nutrients and oxygen by:",
+    "questionAr": "نظراً لخلو النسيج الغضروفي من الأوعية الدموية، فإن خلاياه تحصل على الغذاء والأكسجين عن طريق:",
     "optionsEn": [
-      "Facilitates smooth sliding of articular cartilages and prevents friction",
-      "Stimulating action potentials",
-      "Storing calcium for muscle contraction",
-      "Producing red blood cells"
+      "Direct active phagocytosis of red blood cells",
+      "Photosynthetic carbon fixation inside joint capsules",
+      "Diffusion from the capillaries of surrounding bone tissue",
+      "Filtering air directly through joint skin pores"
     ],
     "optionsAr": [
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام",
-      "تحفيز السيالات العصبية",
-      "تخزين الكالسيوم لانقباض العضلات",
-      "إنتاج كرات الدم الحمراء"
+      "البلعمة النشطة المباشرة لكرات الدم الحمراء",
+      "تثبيت الكربون ضوئياً داخل محفظة المفصل",
+      "خاصية الانتشار من الأوعية الدموية الموجودة في العظام المجاورة",
+      "امتصاص الهواء مباشرة عبر مسام الجلد المحيطة بالمفصل"
     ],
-    "correctAnswer": "Facilitates smooth sliding of articular cartilages and prevents friction",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "Diffusion from the capillaries of surrounding bone tissue",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "Facilitates smooth sliding of articular cartilages and prevents friction."
+      "Scientific fact: Diffusion from the capillaries of surrounding bone tissue."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "تسهيل انزلاق الغضاريف المفصلية ومنع احتكاك وتآكل العظام."
+      "الحقيقة العلمية المعتمدة: خاصية الانتشار من الأوعية الدموية الموجودة في العظام المجاورة."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_44",
-    "titleEn": "Cartilage Nutrition Mechanism #16",
-    "titleAr": "تغذية الغضاريف بالانتشار #16",
+    "titleEn": "Knee versus Shoulder Joint Motion Range",
+    "titleAr": "مقارنة مدى الحركة بين مفصل الركبة ومفصل الكتف",
     "difficulty": "easy",
-    "questionEn": "Cartilages lack blood vessels. How do cartilage cells receive oxygen and nutrients?",
-    "questionAr": "تخلو الغضاريف من الأوعية الدموية. كيف تحصل خلايا الغضاريف على الغذاء والأكسجين؟",
+    "questionEn": "Why is the knee joint classified as limited-movement while the shoulder joint is wide-movement?",
+    "questionAr": "لماذا يصنف مفصل الركبة بأنه محدود الحركة بينما يصنف مفصل الكتف بأنه واسع الحركة؟",
     "optionsEn": [
-      "By diffusion from the blood vessels of adjacent bone tissues",
-      "Direct absorption from air",
-      "Via lymphatic capillaries inside the cartilage matrix",
-      "Through active secretory vesicles"
+      "The knee has no synovial fluid; the shoulder has abundant fluid",
+      "The knee is made of cartilage only; the shoulder has true bones",
+      "The knee has no tendons connecting to it",
+      "The knee moves in a single plane (flexion/extension); the shoulder moves in multiple angular planes"
     ],
     "optionsAr": [
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها",
-      "بالامتصاص المباشر من الهواء",
-      "عبر أوعية ليمفاوية داخل الغضروف",
-      "عبر حويصلات إفرازية نشطة"
+      "لأن الركبة تخلو من السائل الزلالي، بينما الكتف به سائل وفير",
+      "لأن الركبة غضاريف فقط بينما الكتف عظام حقيقية",
+      "لأن الركبة لا تتصل بها أي أوتار عضلية",
+      "لأن الركبة تتحرك في مستوى واحد (ثني وبسط)، بينما يتحرك الكتف بحرية في اتجاهات ومستويات متعددة"
     ],
-    "correctAnswer": "By diffusion from the blood vessels of adjacent bone tissues",
-    "correctIndex": 0,
-    "hintEn": "Remember: Ligaments have elasticity to allow joint movement, whereas tendons are strong and inelastic to transmit muscular contraction force.",
-    "hintAr": "تذكر: الأربطة تتميز بمرونة تسمح بحركة المفاصل، بينما الأوتار قوية غير مرنة لنقل قوة انقباض العضلة إلى العظم.",
+    "correctAnswer": "The knee moves in a single plane (flexion/extension); the shoulder moves in multiple angular planes",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Core anatomical principle:",
-      "By diffusion from the blood vessels of adjacent bone tissues."
+      "Scientific fact: The knee moves in a single plane (flexion/extension); the shoulder moves in multiple angular planes."
     ],
     "stepByStepSolutionAr": [
-      "المبدأ التشريحي المعتمد:",
-      "بالانتشار من الأوعية الدموية الموجودة في العظام المجاورة لها."
+      "الحقيقة العلمية المعتمدة: لأن الركبة تتحرك في مستوى واحد (ثني وبسط)، بينما يتحرك الكتف بحرية في اتجاهات ومستويات متعددة."
     ],
-    "teacherTipEn": "Because cartilages receive nutrients solely by slow diffusion, healing of damaged cartilages takes significantly longer than bone fractures.",
-    "teacherTipAr": "نظراً لأن الغضاريف تتغذى بالانتشار البطيء من العظام لخلوها من الأوعية الدموية، فإن التئام إصابات الغضاريف يستغرق وقتاً أطول بكثير من العظام."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_45",
-    "titleEn": "Continuous Protoplasmic Streaming #1",
-    "titleAr": "الحركة الدائبة (السيتوبلازمية) #1",
+    "titleEn": "Patella Bone Position and Protection",
+    "titleAr": "موقع ووظيفة عظمة الرضفة",
     "difficulty": "easy",
-    "questionEn": "The continuous circular streaming of cytoplasm observed inside plant cells (e.g., Elodea) is classified as:",
-    "questionAr": "دوران السيتوبلازم المستمر داخل خلايا النبات (مثل نبات الإيلوديا) يُصنف كنوع من الحركة:",
+    "questionEn": "The patella (kneecap) is a small, rounded bone located anteriorly to protect which major joint?",
+    "questionAr": "عظمة الرضفة عظمة صغيرة مستديرة تقع أمام أي مفصل رئيسي لحمايته وتحسين حركة أوتاره؟",
     "optionsEn": [
-      "Continuous movement (حركة دائبة)",
-      "Locomotive movement",
-      "Positional movement",
-      "Reflex movement"
+      "The knee joint",
+      "The elbow joint",
+      "The wrist joint",
+      "The ankle joint"
     ],
     "optionsAr": [
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة انعكاسية"
+      "مفصل الركبة",
+      "مفصل الكوع",
+      "مفصل الرسغ",
+      "مفصل الكاحل"
     ],
-    "correctAnswer": "Continuous movement (حركة دائبة)",
+    "correctAnswer": "The knee joint",
     "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Continuous movement (حركة دائبة)."
+      "Scientific fact: The knee joint."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة دائبة."
+      "الحقيقة العلمية المعتمدة: مفصل الركبة."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_46",
-    "titleEn": "Peristalsis in the Digestive Canal #2",
-    "titleAr": "الحركة الدودية في الأمعاء #2",
+    "titleEn": "Cytoplasmic Streaming Observation in Elodea",
+    "titleAr": "ملاحظة الانسياب السيتوبلازمي في نبات الإيلوديا",
     "difficulty": "easy",
-    "questionEn": "Peristaltic contractions of the human digestive tract represent:",
-    "questionAr": "الحركة الدودية في القناة الهضمية للإنسان تُعد مثالاً على:",
+    "questionEn": "Cytoplasmic streaming in living plant cells is experimentally verified in Elodea leaves by observing:",
+    "questionAr": "يستدل على الانسياب السيتوبلازمي في خلايا نبات الإيلوديا المائية مجهرياً بملاحظة:",
     "optionsEn": [
-      "Positional movement (حركة موضعية)",
-      "Continuous movement",
-      "Total locomotion",
-      "Voluntary muscular movement"
+      "The sudden explosion of vacuolar sap into intercellular air spaces",
+      "The continuous unidirectional circulation of green chloroplasts suspended in the cytoplasm",
+      "The mechanical contraction of cell wall cellulose microfibrils",
+      "The rapid oscillation of the cell nucleus between adjacent cells"
     ],
     "optionsAr": [
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة إرادية"
+      "انفجار الفجوة العصارية في المسافات البينية فجأة",
+      "الدوران المستمر للبلاستيدات الخضراء المحمولة في تيار السيتوبلازم في اتجاه واحد",
+      "انقباض ألياف السليلوز في الجدار الخلوي ميكانيكياً",
+      "تذبذب النواة بسرعة وانتقالها بين الخلايا المتجاورة"
     ],
-    "correctAnswer": "Positional movement (حركة موضعية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "The continuous unidirectional circulation of green chloroplasts suspended in the cytoplasm",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Positional movement (حركة موضعية)."
+      "Scientific fact: The continuous unidirectional circulation of green chloroplasts suspended in the cytoplasm."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة موضعية."
+      "الحقيقة العلمية المعتمدة: الدوران المستمر للبلاستيدات الخضراء المحمولة في تيار السيتوبلازم في اتجاه واحد."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_47",
-    "titleEn": "Locomotive Movement in Animals #3",
-    "titleAr": "الحركة الكلية في الحيوان #3",
+    "titleEn": "Haptotropism Tendril Coiling Mechanism",
+    "titleAr": "آلية حركة الشد بالمحاليق في نبات البازلاء",
     "difficulty": "easy",
-    "questionEn": "The movement of an animal from one location to another in search of food or mate is termed:",
-    "questionAr": "انتقال الحيوان من مكان لآخر بحثاً عن الغذاء أو التزاوج يُسمى:",
+    "questionEn": "When a climbing tendril contacts a solid support, it coils around it because:",
+    "questionAr": "عندما يلامس محلاق نبات متسلق دعامة صلبة، فإنه يلتف حولها بسبب:",
     "optionsEn": [
-      "Total locomotion (حركة كلية)",
-      "Positional movement",
-      "Continuous movement",
-      "Hydrotropic movement"
+      "The tendril digests the solid support via hydrolytic enzymes",
+      "Both sides of the tendril instantly halt cell division entirely",
+      "Auxins migrate away from the contact side, slowing its growth while accelerating opposite side growth",
+      "The solid support pumps water into the touching cells"
     ],
     "optionsAr": [
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة انتحاء مائي"
+      "إفراز إنزيمات تحلل الدعامة الخشبية الصلبة",
+      "توقف انقسام الخلايا على جانبي المحلاق معاً في الحال",
+      "هجرة الأوكسينات بعيداً عن جانب الملامسة، مما يبطئ نموه ويسرع نمو الجانب البعيد غير الملامس",
+      "ضخ الدعامة الصلبة للماء داخل خلايا المحلاق الملامسة"
     ],
-    "correctAnswer": "Total locomotion (حركة كلية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Auxins migrate away from the contact side, slowing its growth while accelerating opposite side growth",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Total locomotion (حركة كلية)."
+      "Scientific fact: Auxins migrate away from the contact side, slowing its growth while accelerating opposite side growth."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة كلية."
+      "الحقيقة العلمية المعتمدة: هجرة الأوكسينات بعيداً عن جانب الملامسة، مما يبطئ نموه ويسرع نمو الجانب البعيد غير الملامس."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_48",
-    "titleEn": "Continuous Protoplasmic Streaming #4",
-    "titleAr": "الحركة الدائبة (السيتوبلازمية) #4",
+    "titleEn": "Failure of Tendril to Find Support",
+    "titleAr": "مصير المحلاق في حال عدم العثور على دعامة",
     "difficulty": "easy",
-    "questionEn": "The continuous circular streaming of cytoplasm observed inside plant cells (e.g., Elodea) is classified as:",
-    "questionAr": "دوران السيتوبلازم المستمر داخل خلايا النبات (مثل نبات الإيلوديا) يُصنف كنوع من الحركة:",
+    "questionEn": "If an emerging climbing tendril fails to encounter a solid support during its aerial circling:",
+    "questionAr": "إذا لم يجد المحلاق أثناء حركته الدورانية في الهواء أي دعامة صلبة يلتف حولها فإنه:",
     "optionsEn": [
-      "Continuous movement (حركة دائبة)",
-      "Locomotive movement",
-      "Positional movement",
-      "Reflex movement"
+      "It transforms into a woody root descending into the soil",
+      "It swells into a fleshy fruit capable of self-pollination",
+      "It branches into 50 new green photosynthetic leaves",
+      "It withers, dies, and falls off the parent climbing plant"
     ],
     "optionsAr": [
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة انعكاسية"
+      "يتحول إلى جذر خشبي وتدي يخترق باطن التربة",
+      "ينتفخ مكوناً ثمرة لحمية قادرة على الإخصاب الذاتي",
+      "يتفرع إلى 50 ورقة خضراء تقوم بالبناء الضوئي",
+      "يذبل ويموت ويسقط بعد فترة وجيزة"
     ],
-    "correctAnswer": "Continuous movement (حركة دائبة)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "It withers, dies, and falls off the parent climbing plant",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Continuous movement (حركة دائبة)."
+      "Scientific fact: It withers, dies, and falls off the parent climbing plant."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة دائبة."
+      "الحقيقة العلمية المعتمدة: يذبل ويموت ويسقط بعد فترة وجيزة."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_49",
-    "titleEn": "Peristalsis in the Digestive Canal #5",
-    "titleAr": "الحركة الدودية في الأمعاء #5",
+    "titleEn": "Contractile Roots Function in Corms and Bulbs",
+    "titleAr": "أهمية الجذور الشادة في الكورمات والأبصال",
     "difficulty": "easy",
-    "questionEn": "Peristaltic contractions of the human digestive tract represent:",
-    "questionAr": "الحركة الدودية في القناة الهضمية للإنسان تُعد مثالاً على:",
+    "questionEn": "What is the vital physiological function of contractile roots in underground corms and bulbs?",
+    "questionAr": "ما الوظيفة البيولوجية الحيوية للجذور الشادة في الكورمات والأبصال تحت الأرض؟",
     "optionsEn": [
-      "Positional movement (حركة موضعية)",
-      "Continuous movement",
-      "Total locomotion",
-      "Voluntary muscular movement"
+      "They contract downward to pull the subterranean stem to an optimal protective soil depth",
+      "They absorb gaseous atmospheric nitrogen directly from surface breezes",
+      "They lift the underground bulb high above ground into direct sunlight",
+      "They digest subterranean rocks into calcium phosphate fertilizer"
     ],
     "optionsAr": [
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة إرادية"
+      "تتقلص وتتقلص لأسفل لتسحب الساق الأرضية لمستوى ملائم من التربة لحمايتها ودعمها ضد الرياح",
+      "تمتص غاز النيتروجين الجوي مباشرة من الهواء السطحي",
+      "ترفع البصلة فوق سطح التربة لتعريضها لضوء الشمس المباشر",
+      "تهضم الصخور التحتية وتحولها لسماد فوسفاتي"
     ],
-    "correctAnswer": "Positional movement (حركة موضعية)",
+    "correctAnswer": "They contract downward to pull the subterranean stem to an optimal protective soil depth",
     "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Positional movement (حركة موضعية)."
+      "Scientific fact: They contract downward to pull the subterranean stem to an optimal protective soil depth."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة موضعية."
+      "الحقيقة العلمية المعتمدة: تتقلص وتتقلص لأسفل لتسحب الساق الأرضية لمستوى ملائم من التربة لحمايتها ودعمها ضد الرياح."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_50",
-    "titleEn": "Locomotive Movement in Animals #6",
-    "titleAr": "الحركة الكلية في الحيوان #6",
+    "titleEn": "Peristalsis as Positional Movement",
+    "titleAr": "الحركة الدودية كنموذج للحركة الموضعية",
     "difficulty": "easy",
-    "questionEn": "The movement of an animal from one location to another in search of food or mate is termed:",
-    "questionAr": "انتقال الحيوان من مكان لآخر بحثاً عن الغذاء أو التزاوج يُسمى:",
+    "questionEn": "The rhythmic muscular waves (peristalsis) propelling food along the alimentary canal represent:",
+    "questionAr": "تمثل الانقباضات العضلية الإيقاعية (الحركة الدودية) الدافعة للطعام في القناة الهضمية نموذجاً لـ:",
     "optionsEn": [
-      "Total locomotion (حركة كلية)",
-      "Positional movement",
-      "Continuous movement",
-      "Hydrotropic movement"
+      "Locational (total) movement of the whole human body across space",
+      "Positional movement occurring in a localized internal organ of the organism",
+      "Continuous cyclosis movement inside a single cell nucleus",
+      "A passive gravitational fall of food boluses without muscle action"
     ],
     "optionsAr": [
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة انتحاء مائي"
+      "حركة كلية ينتقل بها الكائن الحي من مكان لآخر",
+      "حركة موضعية تحدث في عضو معين من أعضاء الكائن الحي",
+      "حركة دائبة تدور داخل نواة الخلية فقط",
+      "سقوط حر بالجاذبية الأرضية للطعام دون تدخل العضلات"
     ],
-    "correctAnswer": "Total locomotion (حركة كلية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Positional movement occurring in a localized internal organ of the organism",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Total locomotion (حركة كلية)."
+      "Scientific fact: Positional movement occurring in a localized internal organ of the organism."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة كلية."
+      "الحقيقة العلمية المعتمدة: حركة موضعية تحدث في عضو معين من أعضاء الكائن الحي."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_51",
-    "titleEn": "Continuous Protoplasmic Streaming #7",
-    "titleAr": "الحركة الدائبة (السيتوبلازمية) #7",
+    "titleEn": "Locomotion (Total Movement) Evolutionary Purpose",
+    "titleAr": "الهدف البيولوجي للحركة الكلية (الانتقالية)",
     "difficulty": "easy",
-    "questionEn": "The continuous circular streaming of cytoplasm observed inside plant cells (e.g., Elodea) is classified as:",
-    "questionAr": "دوران السيتوبلازم المستمر داخل خلايا النبات (مثل نبات الإيلوديا) يُصنف كنوع من الحركة:",
+    "questionEn": "Total movement (locomotion) allows an animal to move its whole body from place to place primarily to:",
+    "questionAr": "تمكن الحركة الكلية (الانتقالية) الحيوان من نقل كامل جسمه من موضع لآخر أساساً بهدف:",
     "optionsEn": [
-      "Continuous movement (حركة دائبة)",
-      "Locomotive movement",
-      "Positional movement",
-      "Reflex movement"
+      "Equalize the gravitational pull across its internal organs",
+      "Halt cellular respiration during sleep periods",
+      "Search for food, seek a mate for reproduction, or escape environmental danger",
+      "Increase bone density without any muscular work"
     ],
     "optionsAr": [
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة انعكاسية"
+      "معادلة قوى الجاذبية الأرضية المؤثرة على أحشائه",
+      "إيقاف التنفس الخلوي في فترات النوم",
+      "البحث عن الغذاء، أو السعي وراء الشريك للتكاثر، أو الهروب من المخاطر والأعداء",
+      "زيادة كثافة العظام دون أي نشاط عضلي"
     ],
-    "correctAnswer": "Continuous movement (حركة دائبة)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Search for food, seek a mate for reproduction, or escape environmental danger",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Continuous movement (حركة دائبة)."
+      "Scientific fact: Search for food, seek a mate for reproduction, or escape environmental danger."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة دائبة."
+      "الحقيقة العلمية المعتمدة: البحث عن الغذاء، أو السعي وراء الشريك للتكاثر، أو الهروب من المخاطر والأعداء."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_52",
-    "titleEn": "Peristalsis in the Digestive Canal #8",
-    "titleAr": "الحركة الدودية في الأمعاء #8",
+    "titleEn": "Sarcomere Definition and Boundary Lines",
+    "titleAr": "تعريف القطعة العضلية وحدودها التشريحية",
     "difficulty": "easy",
-    "questionEn": "Peristaltic contractions of the human digestive tract represent:",
-    "questionAr": "الحركة الدودية في القناة الهضمية للإنسان تُعد مثالاً على:",
+    "questionEn": "In skeletal muscle myofibrils, a single contractile sarcomere is defined as the distance between:",
+    "questionAr": "في لييفات العضلات الهيكلية، تعرف القطعة العضلية (الساركومير) تشريحياً بالمسافة المحصورة بين:",
     "optionsEn": [
-      "Positional movement (حركة موضعية)",
-      "Continuous movement",
-      "Total locomotion",
-      "Voluntary muscular movement"
+      "Two successive M-lines",
+      "Two adjacent H-zones",
+      "Two full A-bands",
+      "Two successive Z-lines"
     ],
     "optionsAr": [
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة إرادية"
+      "خطي M متتاليين",
+      "منطقتين شبه مضيئتين متجاورتين",
+      "حزمتين داكنتين كاملتين",
+      "خطي Z متتاليين"
     ],
-    "correctAnswer": "Positional movement (حركة موضعية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Two successive Z-lines",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Positional movement (حركة موضعية)."
+      "Scientific fact: Two successive Z-lines."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة موضعية."
+      "الحقيقة العلمية المعتمدة: خطي Z متتاليين."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_53",
-    "titleEn": "Locomotive Movement in Animals #9",
-    "titleAr": "الحركة الكلية في الحيوان #9",
+    "titleEn": "Actin versus Myosin Protein Filaments",
+    "titleAr": "طبيعة خيوط الأكتين والمايوسين في اللييفة",
     "difficulty": "easy",
-    "questionEn": "The movement of an animal from one location to another in search of food or mate is termed:",
-    "questionAr": "انتقال الحيوان من مكان لآخر بحثاً عن الغذاء أو التزاوج يُسمى:",
+    "questionEn": "Within the sarcomere, actin filaments are structurally thin and light, whereas myosin filaments are:",
+    "questionAr": "داخل القطعة العضلية، تتميز خيوط الأكتين بأنها رفيعة وبروتينية، بينما تتميز خيوط المايوسين بأنها:",
     "optionsEn": [
-      "Total locomotion (حركة كلية)",
-      "Positional movement",
-      "Continuous movement",
-      "Hydrotropic movement"
+      "Thick protein filaments equipped with projecting globular cross-bridges",
+      "Hollow lipid tubules transporting acetylcholine molecules",
+      "Rigid calcium phosphate crystalline needles",
+      "Flexible polysaccharide chains storing glycogen"
     ],
     "optionsAr": [
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة انتحاء مائي"
+      "خيوط بروتينية سميكة تمتد منها روابط مستعرضة تشبه الخطافات",
+      "أنابيب دهنية مجوفة تنقل الأستيل كولين",
+      "إبر بلورية صلبة من فوسفات الكالسيوم",
+      "سلاسل سكرية مرنة تخزن الجليكوجين"
     ],
-    "correctAnswer": "Total locomotion (حركة كلية)",
+    "correctAnswer": "Thick protein filaments equipped with projecting globular cross-bridges",
     "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Total locomotion (حركة كلية)."
+      "Scientific fact: Thick protein filaments equipped with projecting globular cross-bridges."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة كلية."
+      "الحقيقة العلمية المعتمدة: خيوط بروتينية سميكة تمتد منها روابط مستعرضة تشبه الخطافات."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_54",
-    "titleEn": "Continuous Protoplasmic Streaming #10",
-    "titleAr": "الحركة الدائبة (السيتوبلازمية) #10",
+    "titleEn": "Light I-Band Structural Composition",
+    "titleAr": "التركيب البروتيني للمنطقة المضيئة I",
     "difficulty": "easy",
-    "questionEn": "The continuous circular streaming of cytoplasm observed inside plant cells (e.g., Elodea) is classified as:",
-    "questionAr": "دوران السيتوبلازم المستمر داخل خلايا النبات (مثل نبات الإيلوديا) يُصنف كنوع من الحركة:",
+    "questionEn": "In a relaxed sarcomere, the light (I) band is composed exclusively of:",
+    "questionAr": "في القطعة العضلية المنبسطة، تتكون المنطقة المضيئة (I) حصرياً من:",
     "optionsEn": [
-      "Continuous movement (حركة دائبة)",
-      "Locomotive movement",
-      "Positional movement",
-      "Reflex movement"
+      "Thick myosin filaments only, bisected by the M-line",
+      "Thin actin filaments only, bisected by the dark Z-line",
+      "Overlapping bundles of actin and myosin together",
+      "Phospholipid bilayers lacking any protein"
     ],
     "optionsAr": [
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة انعكاسية"
+      "خيوط المايوسين السميكة فقط، وينصفها خط M",
+      "خيوط الأكتين الرفيعة فقط، وينصفها خط داكن يسمى خط Z",
+      "تداخل خيوط الأكتين والمايوسين معاً بكثافة متساوية",
+      "طبقات فسفوليبيدات دهنية خالية من أي بروتين"
     ],
-    "correctAnswer": "Continuous movement (حركة دائبة)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Thin actin filaments only, bisected by the dark Z-line",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Continuous movement (حركة دائبة)."
+      "Scientific fact: Thin actin filaments only, bisected by the dark Z-line."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة دائبة."
+      "الحقيقة العلمية المعتمدة: خيوط الأكتين الرفيعة فقط، وينصفها خط داكن يسمى خط Z."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_55",
-    "titleEn": "Peristalsis in the Digestive Canal #11",
-    "titleAr": "الحركة الدودية في الأمعاء #11",
+    "titleEn": "Dark A-Band Length Invariance During Contraction",
+    "titleAr": "ثبات طول المنطقة الداكنة A أثناء الانقباض",
     "difficulty": "easy",
-    "questionEn": "Peristaltic contractions of the human digestive tract represent:",
-    "questionAr": "الحركة الدودية في القناة الهضمية للإنسان تُعد مثالاً على:",
+    "questionEn": "During physiological contraction of a skeletal muscle fiber, the length of the dark (A) band:",
+    "questionAr": "أثناء الانقباض العضلي الفسيولوجي للييفة العضلية، فإن طول المنطقة الداكنة (A):",
     "optionsEn": [
-      "Positional movement (حركة موضعية)",
-      "Continuous movement",
-      "Total locomotion",
-      "Voluntary muscular movement"
+      "Shortens until it disappears completely",
+      "Doubles in length due to actin synthesis",
+      "Remains completely constant, matching the fixed length of the myosin filaments",
+      "Splits into four separate light fragments"
     ],
     "optionsAr": [
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة إرادية"
+      "يقصر تدريجياً حتى ينعدم تماماً",
+      "يتضاعف طوله نتيجة تصنيع أكتين جديد",
+      "يظل ثابتاً تماماً لا يتغير، لكونه يمثل الطول الثابت لخيوط المايوسين",
+      "ينفصل إلى أربع قطع مضيئة متباعدة"
     ],
-    "correctAnswer": "Positional movement (حركة موضعية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Remains completely constant, matching the fixed length of the myosin filaments",
+    "correctIndex": 2,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Positional movement (حركة موضعية)."
+      "Scientific fact: Remains completely constant, matching the fixed length of the myosin filaments."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة موضعية."
+      "الحقيقة العلمية المعتمدة: يظل ثابتاً تماماً لا يتغير، لكونه يمثل الطول الثابت لخيوط المايوسين."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_56",
-    "titleEn": "Locomotive Movement in Animals #12",
-    "titleAr": "الحركة الكلية في الحيوان #12",
+    "titleEn": "Neurotransmitter of the Neuromuscular Junction",
+    "titleAr": "الناقل العصبي في الوصلة العصبية العضلية",
     "difficulty": "easy",
-    "questionEn": "The movement of an animal from one location to another in search of food or mate is termed:",
-    "questionAr": "انتقال الحيوان من مكان لآخر بحثاً عن الغذاء أو التزاوج يُسمى:",
+    "questionEn": "The primary chemical neurotransmitter released from motor nerve endings into the synaptic cleft is:",
+    "questionAr": "الناقل العصبي الكيميائي الأساسي الذي يتحرر من نهايات الأعصاب الحركية في شق التشابك هو:",
     "optionsEn": [
-      "Total locomotion (حركة كلية)",
-      "Positional movement",
-      "Continuous movement",
-      "Hydrotropic movement"
+      "Adrenaline",
+      "Insulin",
+      "Thyroxine",
+      "Acetylcholine"
     ],
     "optionsAr": [
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة انتحاء مائي"
+      "الأدرينالين",
+      "الإنسولين",
+      "الثيروكسين",
+      "الأستيل كولين"
     ],
-    "correctAnswer": "Total locomotion (حركة كلية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Acetylcholine",
+    "correctIndex": 3,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Total locomotion (حركة كلية)."
+      "Scientific fact: Acetylcholine."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة كلية."
+      "الحقيقة العلمية المعتمدة: الأستيل كولين."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_57",
-    "titleEn": "Continuous Protoplasmic Streaming #13",
-    "titleAr": "الحركة الدائبة (السيتوبلازمية) #13",
+    "titleEn": "Enzyme Degrading Acetylcholine for Relaxation",
+    "titleAr": "الإنزيم المحلل للأستيل كولين لإحداث الانبساط",
     "difficulty": "easy",
-    "questionEn": "The continuous circular streaming of cytoplasm observed inside plant cells (e.g., Elodea) is classified as:",
-    "questionAr": "دوران السيتوبلازم المستمر داخل خلايا النبات (مثل نبات الإيلوديا) يُصنف كنوع من الحركة:",
+    "questionEn": "Following muscle contraction, which enzyme hydrolyzes acetylcholine into choline and acetic acid?",
+    "questionAr": "عقب إتمام الانقباض العضلي، ما الإنزيم الذي يحطم الأستيل كولين إلى كولين وحمض خليك لإعادة الاستقطاب؟",
     "optionsEn": [
-      "Continuous movement (حركة دائبة)",
-      "Locomotive movement",
-      "Positional movement",
-      "Reflex movement"
+      "Cholinesterase (acetylcholinesterase)",
+      "DNA polymerase",
+      "Pepsin",
+      "Amylase"
     ],
     "optionsAr": [
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة موضعية",
-      "حركة انعكاسية"
+      "كولين إستريز (الأسيتيل كولين إستريز)",
+      "إنزيم بلمرة الـ DNA",
+      "إنزيم الببسين",
+      "إنزيم الأميليز"
     ],
-    "correctAnswer": "Continuous movement (حركة دائبة)",
+    "correctAnswer": "Cholinesterase (acetylcholinesterase)",
     "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Continuous movement (حركة دائبة)."
+      "Scientific fact: Cholinesterase (acetylcholinesterase)."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة دائبة."
+      "الحقيقة العلمية المعتمدة: كولين إستريز (الأسيتيل كولين إستريز)."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   },
   {
     "id": "bio_ch1_db_easy_58",
-    "titleEn": "Peristalsis in the Digestive Canal #14",
-    "titleAr": "الحركة الدودية في الأمعاء #14",
+    "titleEn": "Calcium Ion Role in Muscle Contraction",
+    "titleAr": "الدور الجوهري لأيونات الكالسيوم في الانقباض العضلي",
     "difficulty": "easy",
-    "questionEn": "Peristaltic contractions of the human digestive tract represent:",
-    "questionAr": "الحركة الدودية في القناة الهضمية للإنسان تُعد مثالاً على:",
+    "questionEn": "During excitation-contraction coupling, calcium ions released from sarcoplasmic reticulum serve to:",
+    "questionAr": "أثناء الانقباض العضلي، تلعب أيونات الكالسيوم المنطلقة من الشبكة الساركوبلازمية دوراً جوهرياً في:",
     "optionsEn": [
-      "Positional movement (حركة موضعية)",
-      "Continuous movement",
-      "Total locomotion",
-      "Voluntary muscular movement"
+      "Neutralize all cellular glycogen into carbon dioxide",
+      "Form cross-bridges extending from myosin filaments to bind onto actin filaments",
+      "Dissolve the sarcolemma membrane permanently",
+      "Prevent the entrance of any sodium ions into the fiber"
     ],
     "optionsAr": [
-      "حركة موضعية",
-      "حركة دائبة",
-      "حركة كلية",
-      "حركة إرادية"
+      "أكسدة كل الجليكوجين المخزن فورياً إلى ثاني أكسيد كربون",
+      "تكوين وتنشيط الروابط المستعرضة الممتدة من المايوسين لتتصل بخيوط الأكتين",
+      "إذابة غشاء الساركوليما كلياً وبشكل دائم",
+      "منع دخول أي أيونات صوديوم إلى داخل الليفة"
     ],
-    "correctAnswer": "Positional movement (حركة موضعية)",
-    "correctIndex": 0,
-    "hintEn": "There are 3 main types of movements: continuous (within cells), positional (part of body moves), and total (whole organism changes place).",
-    "hintAr": "تنقسم الحركة إلى 3 أنواع: دائبة (داخل كل خلية كالسيتوبلازم)، موضعية (كحركة الأمعاء)، وكلية (انتقال الكائن بالكامل).",
+    "correctAnswer": "Form cross-bridges extending from myosin filaments to bind onto actin filaments",
+    "correctIndex": 1,
+    "hintEn": "Recall fundamental facts regarding plant cell walls, skeletal bones, joints, and muscular filaments.",
+    "hintAr": "تذكر الحقائق الأساسية حول الجدر الخلوية، عظام الهيكل العظمي، المفاصل، وخيوط الانقباض العضلي.",
     "stepByStepSolutionEn": [
-      "Classification: Positional movement (حركة موضعية)."
+      "Scientific fact: Form cross-bridges extending from myosin filaments to bind onto actin filaments."
     ],
     "stepByStepSolutionAr": [
-      "التصنيف البيولوجي: حركة موضعية."
+      "الحقيقة العلمية المعتمدة: تكوين وتنشيط الروابط المستعرضة الممتدة من المايوسين لتتصل بخيوط الأكتين."
     ],
-    "teacherTipEn": "Cytoplasmic streaming in Elodea cells can be inferred under a microscope by watching chloroplasts carried by the stream.",
-    "teacherTipAr": "يُستدل على الحركة الدورانية السيتوبلازمية في نبات الإيلوديا بمراقبة حركة البلاستيدات الخضراء المحمولة في التيار."
+    "teacherTipEn": "Remember that physiological support is whole-cell and temporary, whereas structural support is permanent localized wall thickening.",
+    "teacherTipAr": "تذكر دائماً أن الدعامة الفسيولوجية كلية ومؤقتة، بينما الدعامة التركيبية دائمة وتعتمد على ترسيب مواد في الجدر الخلوية."
   }
 ],
   medium: [
   {
     "id": "bio_ch1_db_med_01",
-    "titleEn": "Sarcomere Dynamics: A-band (Dark Band) #1",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة الداكنة A #1",
+    "titleEn": "Plant Cell Placed in Pure Distilled Water",
+    "titleAr": "وضع خلية نباتية في ماء مقطر نقي",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **A-band (Dark Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة الداكنة A**؟",
+    "questionEn": "When a flaccid plant cell with $5\\%$ internal vacuolar sap is immersed in pure distilled water, what physiological change occurs?",
+    "questionAr": "عند غمر خلية نباتية ذابلة عصيرها الخلوي بتركيز $5\\%$ في كأس به ماء مقطر نقي، ما التغير الفسيولوجي الذي يطرأ عليها؟",
     "optionsEn": [
-      "Its length remains constant during muscular contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Water exits by osmosis, causing total plasmolysis and cellular shrinkage",
+      "Water enters by osmosis, expanding the vacuole, pushing protoplasm against the wall, and increasing turgor pressure",
+      "The cell wall dissolves completely due to osmotic pressure shock",
+      "The cell bursts rapidly because plant cells lack a cell wall"
     ],
     "optionsAr": [
-      "يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "يخرج الماء بالأسموزية مسبباً انكماش الخلية وبلزمتها كلياً",
+      "يدخل الماء بالخاصية الأسموزية فتنتفخ الفجوة ويضغط البروتوبلازم على الجدار ويزداد ضغط الامتلاء",
+      "يتحلل الجدار الخلوي تماماً لصدمة الضغط الأسموزي",
+      "تنفجر الخلية بسرعة لعدم وجود جدار خلوي يحميها"
     ],
-    "correctAnswer": "Its length remains constant during muscular contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Water enters by osmosis, expanding the vacuole, pushing protoplasm against the wall, and increasing turgor pressure",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains both thick myosin filaments and overlapping thin actin filaments.",
-      "During contraction: Its length remains constant during muscular contraction."
+      "Detailed biological mechanism: Water enters by osmosis, expanding the vacuole, pushing protoplasm against the wall, and increasing turgor pressure."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط الميوسين السميكة متداخلة مع خيوط الأكتين الرفيعة.",
-      "أثناء الانقباض: يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها."
+      "الآلية البيولوجية التفصيلية: يدخل الماء بالخاصية الأسموزية فتنتفخ الفجوة ويضغط البروتوبلازم على الجدار ويزداد ضغط الامتلاء."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_02",
-    "titleEn": "Sarcomere Dynamics: I-band (Light Band) #2",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة المضيئة I #2",
+    "titleEn": "Plant Cell Placed in Concentrated Hypertonic Solution",
+    "titleAr": "وضع خلية نباتية في محلول سكري مركز",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **I-band (Light Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة المضيئة I**؟",
+    "questionEn": "When a turgid plant cell is transferred into a concentrated $20\\%$ sucrose solution, it will:",
+    "questionAr": "عند نقل خلية نباتية منتفخة إلى محلول سكروز مركز تركيزه $20\\%$، فإنها سوف:",
     "optionsEn": [
-      "Its length shortens significantly during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Absorb sucrose molecules actively through the cellulose pores",
+      "Increase its internal turgor pressure to triple its initial value",
+      "Lose water by osmosis, causing vacuolar shrinkage and loss of physiological support",
+      "Synthesize abundant lignin immediately to prevent water loss"
     ],
     "optionsAr": [
-      "يقل طولها أثناء انقباض اللييفة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "تمتص جزيئات السكروز بنشاط عبر مسام السليلوز",
+      "يزداد ضغط امتلائها الداخلي إلى ثلاثة أمثال قيمته",
+      "تفقد الماء بالخاصية الأسموزية فتنكمش فجوتها العصارية وتفقد دعامتها الفسيولوجية",
+      "تصنع كميات وفيرة من اللجنين فوراً لمنع خروج الماء"
     ],
-    "correctAnswer": "Its length shortens significantly during contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Lose water by osmosis, causing vacuolar shrinkage and loss of physiological support",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains thin actin filaments only and is bisected by the dark Z-line.",
-      "During contraction: Its length shortens significantly during contraction."
+      "Detailed biological mechanism: Lose water by osmosis, causing vacuolar shrinkage and loss of physiological support."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط أكتين رفيعة فقط وينصفها خط داكن Z.",
-      "أثناء الانقباض: يقل طولها أثناء انقباض اللييفة العضلية."
+      "الآلية البيولوجية التفصيلية: تفقد الماء بالخاصية الأسموزية فتنكمش فجوتها العصارية وتفقد دعامتها الفسيولوجية."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_03",
-    "titleEn": "Sarcomere Dynamics: H-zone (Semi-light Zone) #3",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة شبه المضيئة H #3",
+    "titleEn": "Collenchyma Stems Mechanical Flexibility",
+    "titleAr": "المرونة الميكانيكية لسيقان النبات الكولنشيمية",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **H-zone (Semi-light Zone)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة شبه المضيئة H**؟",
+    "questionEn": "Why can herbaceous plant stems such as parsley bend under strong winds without snapping?",
+    "questionAr": "لماذا تنحني سيقان النباتات العشبية كالبقدونس مع هبوب الرياح القوية دون أن تنكسر؟",
     "optionsEn": [
-      "Shortens during moderate contraction and disappears completely during maximal contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Because they are composed entirely of dead, brittle stone cells",
+      "Because cutin is deposited inside the phloem companion cells",
+      "Because all root hairs contract simultaneously during windstorms",
+      "Due to abundant living collenchyma tissue with flexible, cellulose-thickened primary walls"
     ],
     "optionsAr": [
-      "يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "لأنها تتكون بالكامل من خلايا حجرية ميتة هشة",
+      "لترسب الكيوتين داخل الخلايا المرافقة للحاء",
+      "لانقباض جميع الشعيرات الجذرية معاً أثناء العواصف",
+      "لوجود نسيج كولنشيمي حي مغلظ الجدر بمادة السليلوز التي تكسبه ليونة ومرونة ميكانيكية"
     ],
-    "correctAnswer": "Shortens during moderate contraction and disappears completely during maximal contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Due to abundant living collenchyma tissue with flexible, cellulose-thickened primary walls",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Located at the center of the A-band and contains thick myosin filaments only.",
-      "During contraction: Shortens during moderate contraction and disappears completely during maximal contraction."
+      "Detailed biological mechanism: Due to abundant living collenchyma tissue with flexible, cellulose-thickened primary walls."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتوسط المنطقة الداكنة A وتتكون من خيوط ميوسين سميكة فقط.",
-      "أثناء الانقباض: يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام."
+      "الآلية البيولوجية التفصيلية: لوجود نسيج كولنشيمي حي مغلظ الجدر بمادة السليلوز التي تكسبه ليونة ومرونة ميكانيكية."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_04",
-    "titleEn": "Sarcomere Dynamics: Z-lines Distance (Sarcomere Length) #4",
-    "titleAr": "ديناميكية القطعة العضلية: المسافة بين خطي Z (طول القطعة العضلية) #4",
+    "titleEn": "Suberin Deposition in Stems of Woody Trees",
+    "titleAr": "ترسب السوبرين في سيقان الأشجار الخشبية",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **Z-lines Distance (Sarcomere Length)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المسافة بين خطي Z (طول القطعة العضلية)**؟",
+    "questionEn": "In old woody tree trunks, which anatomical layer becomes suberized to shield internal living tissues?",
+    "questionAr": "في سيقان الأشجار الخشبية المسنة، أي طبقة تشريحية تترسب فيها مادة السوبرين لحماية الأنسجة الحية الداخلية؟",
     "optionsEn": [
-      "Decreases as Z-lines are pulled toward each other during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "The outer cork tissue layer formed during secondary growth",
+      "The inner parenchyma of the central pith",
+      "The sieve plates of functional phloem tubes",
+      "The apical meristem of the shoot apex"
     ],
     "optionsAr": [
-      "تقترب خطوط Z من بعضها فيقل طول القطعة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "طبقة نسيج الفلين الخارجية المتكونة أثناء النمو الثانوي",
+      "خلايا النخاع البارنشيمية المركزية",
+      "الصفائح الغربالية للأنابيب اللحائية الوظيفية",
+      "القمة النامية الإنشائية للبراعم الطرفية"
     ],
-    "correctAnswer": "Decreases as Z-lines are pulled toward each other during contraction",
+    "correctAnswer": "The outer cork tissue layer formed during secondary growth",
     "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "The distance between two successive Z-lines defines one sarcomere.",
-      "During contraction: Decreases as Z-lines are pulled toward each other during contraction."
+      "Detailed biological mechanism: The outer cork tissue layer formed during secondary growth."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "المسافة بين خطين متتاليين Z تمثل وحدة التركيب العضلي (القطعة العضلية).",
-      "أثناء الانقباض: تقترب خطوط Z من بعضها فيقل طول القطعة العضلية."
+      "الآلية البيولوجية التفصيلية: طبقة نسيج الفلين الخارجية المتكونة أثناء النمو الثانوي."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_05",
-    "titleEn": "Sarcomere Dynamics: A-band (Dark Band) #5",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة الداكنة A #5",
+    "titleEn": "Xerophytic Adaptations in Desert Plants",
+    "titleAr": "التكيفات التركيبية لنباتات البيئة الصحراوية",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **A-band (Dark Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة الداكنة A**؟",
+    "questionEn": "Desert xerophytes like the prickly pear cactus maintain hydration in arid soils by developing:",
+    "questionAr": "تحافظ النباتات الصحراوية كالتين الشوكي على مائها في التربة الجافة بفضل امتلاكها:",
     "optionsEn": [
-      "Its length remains constant during muscular contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Extremely wide open stomata active throughout scorching daylight",
+      "An exceptionally thick cutin layer across the aerial epidermis to suppress transpiration",
+      "Absence of root systems to avoid absorbing soil salts",
+      "Cell walls made exclusively of water-soluble starch granules"
     ],
     "optionsAr": [
-      "يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "ثغوراً واسعة جداً تظل مفتوحة طوال النهار الحار",
+      "طبقة كيوتين سميكة جداً تغطي خلايا البشرة الهوائية لتقليل فقد الماء بالنتح",
+      "انعدام المجموع الجذري لتجنب امتصاص أملاح التربة",
+      "جدران خلوية مكونة من حبيبات نشا ذائبة في الماء"
     ],
-    "correctAnswer": "Its length remains constant during muscular contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "An exceptionally thick cutin layer across the aerial epidermis to suppress transpiration",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains both thick myosin filaments and overlapping thin actin filaments.",
-      "During contraction: Its length remains constant during muscular contraction."
+      "Detailed biological mechanism: An exceptionally thick cutin layer across the aerial epidermis to suppress transpiration."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط الميوسين السميكة متداخلة مع خيوط الأكتين الرفيعة.",
-      "أثناء الانقباض: يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها."
+      "الآلية البيولوجية التفصيلية: طبقة كيوتين سميكة جداً تغطي خلايا البشرة الهوائية لتقليل فقد الماء بالنتح."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_06",
-    "titleEn": "Sarcomere Dynamics: I-band (Light Band) #6",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة المضيئة I #6",
+    "titleEn": "Distinction between Parenchyma and Sclerenchyma Vitality",
+    "titleAr": "مقارنة حيوية النسيج البارنشيمي والنسيج الإسكلرنشيمي",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **I-band (Light Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة المضيئة I**؟",
+    "questionEn": "Histologically, how does mature sclerenchyma tissue fundamentally differ from mature parenchyma tissue?",
+    "questionAr": "نسيجياً، ما الفارق الجوهري في الحيوية بين النسيج الإسكلرنشيمي الناضج والنسيج البارنشيمي الناضج؟",
     "optionsEn": [
-      "Its length shortens significantly during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Sclerenchyma cells actively divide by mitosis; parenchyma cells never divide",
+      "Sclerenchyma possesses physiological support only; parenchyma possesses structural support only",
+      "Sclerenchyma cells are dead and lack protoplasts; parenchyma cells are living with active protoplasts",
+      "Sclerenchyma cells contain green chloroplasts; parenchyma cells contain red hemoglobin"
     ],
     "optionsAr": [
-      "يقل طولها أثناء انقباض اللييفة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "خلايا الإسكلرنشيما تنقسم ميتوزياً بنشاط، بينما البارنشيما لا تنقسم",
+      "الإسكلرنشيما لها دعامة فسيولوجية فقط، والبارنشيما لها تركيبية فقط",
+      "خلايا الإسكلرنشيما ميتة خالية من البروتوبلازم، بينما خلايا البارنشيما حية ذات بروتوبلازم نشط",
+      "الإسكلرنشيما بها بلاستيدات خضراء، والبارنشيما بها هيموجلوبين"
     ],
-    "correctAnswer": "Its length shortens significantly during contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Sclerenchyma cells are dead and lack protoplasts; parenchyma cells are living with active protoplasts",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains thin actin filaments only and is bisected by the dark Z-line.",
-      "During contraction: Its length shortens significantly during contraction."
+      "Detailed biological mechanism: Sclerenchyma cells are dead and lack protoplasts; parenchyma cells are living with active protoplasts."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط أكتين رفيعة فقط وينصفها خط داكن Z.",
-      "أثناء الانقباض: يقل طولها أثناء انقباض اللييفة العضلية."
+      "الآلية البيولوجية التفصيلية: خلايا الإسكلرنشيما ميتة خالية من البروتوبلازم، بينما خلايا البارنشيما حية ذات بروتوبلازم نشط."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_07",
-    "titleEn": "Sarcomere Dynamics: H-zone (Semi-light Zone) #7",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة شبه المضيئة H #7",
+    "titleEn": "Turgor Pressure versus Osmotic Pressure Gradient",
+    "titleAr": "العلاقة بين ضغط الامتلاء والضغط الأسموزي للخلية",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **H-zone (Semi-light Zone)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة شبه المضيئة H**؟",
+    "questionEn": "As a plant cell absorbs water by osmosis and its vacuolar volume expands:",
+    "questionAr": "مع استمرار امتصاص الخلية النباتية للماء بالأسموزية وتمدد حجم فجوتها العصارية:",
     "optionsEn": [
-      "Shortens during moderate contraction and disappears completely during maximal contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Both turgor pressure and osmotic pressure drop strictly to zero instantly",
+      "Turgor pressure decreases while osmotic pressure rises exponentially",
+      "Cell wall cellulose degrades into liquid sucrose",
+      "Internal turgor pressure increases while the osmotic pressure of the cell sap decreases"
     ],
     "optionsAr": [
-      "يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "يهبط ضغط الامتلاء والضغط الأسموزي معاً إلى الصفر فوراً",
+      "يهبط ضغط الامتلاء بينما يرتفع الضغط الأسموزي أسياً",
+      "يتحلل سليلوز الجدار الخلوي إلى سكروز سائل",
+      "يزداد ضغط الامتلاء تدريجياً بينما ينخفض الضغط الأسموزي للعصير الخلوي لتخففه"
     ],
-    "correctAnswer": "Shortens during moderate contraction and disappears completely during maximal contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Internal turgor pressure increases while the osmotic pressure of the cell sap decreases",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Located at the center of the A-band and contains thick myosin filaments only.",
-      "During contraction: Shortens during moderate contraction and disappears completely during maximal contraction."
+      "Detailed biological mechanism: Internal turgor pressure increases while the osmotic pressure of the cell sap decreases."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتوسط المنطقة الداكنة A وتتكون من خيوط ميوسين سميكة فقط.",
-      "أثناء الانقباض: يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام."
+      "الآلية البيولوجية التفصيلية: يزداد ضغط الامتلاء تدريجياً بينما ينخفض الضغط الأسموزي للعصير الخلوي لتخففه."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_08",
-    "titleEn": "Sarcomere Dynamics: Z-lines Distance (Sarcomere Length) #8",
-    "titleAr": "ديناميكية القطعة العضلية: المسافة بين خطي Z (طول القطعة العضلية) #8",
+    "titleEn": "Boiling Water Destructive Effect on Physiological Support",
+    "titleAr": "أثر الغليان في الماء على الدعامة الفسيولوجية للخلية",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **Z-lines Distance (Sarcomere Length)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المسافة بين خطي Z (طول القطعة العضلية)**؟",
+    "questionEn": "If a living plant tissue is immersed in boiling water for ten minutes and then placed in pure water, it fails to gain physiological support because:",
+    "questionAr": "إذا غُلي نسيج نباتي حي في الماء لعشر دقائق ثم وُضع في ماء نقي، فإنه يعجز عن اكتساب الدعامة الفسيولوجية لأن:",
     "optionsEn": [
-      "Decreases as Z-lines are pulled toward each other during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "High temperature denatured cellular membranes, destroying the semi-permeability required for osmosis",
+      "Boiling converts all atmospheric oxygen into heavy solid suberin",
+      "Cellulose microfibrils multiplied ten-fold, sealing all cell entrances",
+      "The water molecules lost their hydrogen bonding permanently"
     ],
     "optionsAr": [
-      "تقترب خطوط Z من بعضها فيقل طول القطعة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الحرارة العالية دمرت الأغشية الخلوية وفقدت النفاذية الاختيارية اللازمة للخاصية الأسموزية",
+      "الغليان حول الأكسجين الجوي إلى سوبرين صلب",
+      "ألياف السليلوز تضاعفت عشر مرات وسدت مسام الخلية",
+      "جزيئات الماء فقدت روابطها الهيدروجينية نهائياً"
     ],
-    "correctAnswer": "Decreases as Z-lines are pulled toward each other during contraction",
+    "correctAnswer": "High temperature denatured cellular membranes, destroying the semi-permeability required for osmosis",
     "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "The distance between two successive Z-lines defines one sarcomere.",
-      "During contraction: Decreases as Z-lines are pulled toward each other during contraction."
+      "Detailed biological mechanism: High temperature denatured cellular membranes, destroying the semi-permeability required for osmosis."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "المسافة بين خطين متتاليين Z تمثل وحدة التركيب العضلي (القطعة العضلية).",
-      "أثناء الانقباض: تقترب خطوط Z من بعضها فيقل طول القطعة العضلية."
+      "الآلية البيولوجية التفصيلية: الحرارة العالية دمرت الأغشية الخلوية وفقدت النفاذية الاختيارية اللازمة للخاصية الأسموزية."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_09",
-    "titleEn": "Sarcomere Dynamics: A-band (Dark Band) #9",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة الداكنة A #9",
+    "titleEn": "Cutin Impermeability to Water Vapor",
+    "titleAr": "عدم نفاذية الكيوتين لبخار الماء والسوائل",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **A-band (Dark Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة الداكنة A**؟",
+    "questionEn": "Leaves of terrestrial plants do not wilt rapidly on dry sunny mornings because:",
+    "questionAr": "لا تذبل أوراق النباتات الأرضية سريعاً في الصباحات المشمسة الجافة بسبب:",
     "optionsEn": [
-      "Its length remains constant during muscular contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Atmospheric carbon dioxide condenses into liquid water inside the xylem",
+      "The waxy cutin cuticle covering leaf epidermis limits non-stomatal water evaporation",
+      "The roots cease all metabolism during daylight hours",
+      "The upper epidermis is lined with calcified bony plates"
     ],
     "optionsAr": [
-      "يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "تكثف ثاني أكسيد الكربون الجوي إلى ماء سائل داخل الخشب",
+      "طبقة الكيوتين الشمعية التي تغطي بشرة الأوراق وتحد من تبخر الماء في غير أوقات فتح الثغور",
+      "توقف الجذور عن كافة العمليات الحيوية نهاراً",
+      "تبطين البشرة العليا بصفائح عظمية متكلسة"
     ],
-    "correctAnswer": "Its length remains constant during muscular contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "The waxy cutin cuticle covering leaf epidermis limits non-stomatal water evaporation",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains both thick myosin filaments and overlapping thin actin filaments.",
-      "During contraction: Its length remains constant during muscular contraction."
+      "Detailed biological mechanism: The waxy cutin cuticle covering leaf epidermis limits non-stomatal water evaporation."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط الميوسين السميكة متداخلة مع خيوط الأكتين الرفيعة.",
-      "أثناء الانقباض: يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها."
+      "الآلية البيولوجية التفصيلية: طبقة الكيوتين الشمعية التي تغطي بشرة الأوراق وتحد من تبخر الماء في غير أوقات فتح الثغور."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_10",
-    "titleEn": "Sarcomere Dynamics: I-band (Light Band) #10",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة المضيئة I #10",
+    "titleEn": "Role of Vacuole Solute Concentration in Drought",
+    "titleAr": "تركيز عصير الفجوة النباتية في البيئات الجافة",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **I-band (Light Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة المضيئة I**؟",
+    "questionEn": "Desert plants can absorb moisture from dry soils because their root cell vacuoles maintain:",
+    "questionAr": "تتمكن النباتات الصحراوية من امتصاص الرطوبة من التربة شديدة الجفاف لأن فجوات خلايا جذورها تتميز بـ:",
     "optionsEn": [
-      "Its length shortens significantly during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Pure distilled water with zero dissolved inorganic salts",
+      "High concentrations of gaseous nitrogen bubbles",
+      "A very high solute concentration generating a powerful osmotic suction force",
+      "Enzymes that synthesize liquid water from atmospheric hydrogen"
     ],
     "optionsAr": [
-      "يقل طولها أثناء انقباض اللييفة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "ماء مقطر نقي خالٍ تماماً من الأملاح الذائبة",
+      "فقاعات غازية من النيتروجين النقي",
+      "تركيز مرتفع جداً من الذائبات يولد قوة سحب وضغطاً أسموزياً هائلاً للماء",
+      "إنزيمات تصنع الماء السائل من الهيدروجين الجوي"
     ],
-    "correctAnswer": "Its length shortens significantly during contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "A very high solute concentration generating a powerful osmotic suction force",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains thin actin filaments only and is bisected by the dark Z-line.",
-      "During contraction: Its length shortens significantly during contraction."
+      "Detailed biological mechanism: A very high solute concentration generating a powerful osmotic suction force."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط أكتين رفيعة فقط وينصفها خط داكن Z.",
-      "أثناء الانقباض: يقل طولها أثناء انقباض اللييفة العضلية."
+      "الآلية البيولوجية التفصيلية: تركيز مرتفع جداً من الذائبات يولد قوة سحب وضغطاً أسموزياً هائلاً للماء."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_11",
-    "titleEn": "Sarcomere Dynamics: H-zone (Semi-light Zone) #11",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة شبه المضيئة H #11",
+    "titleEn": "Typical Vertebra Anatomy: Neural Canal and Spinal Cord",
+    "titleAr": "تشريح الفقرة النموذجية: القناة العصبية والحبل الشوكي",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **H-zone (Semi-light Zone)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة شبه المضيئة H**؟",
+    "questionEn": "In a typical human vertebra, the neural canal (vertebral foramen) forms a continuous conduit designed to:",
+    "questionAr": "في الفقرة العظمية النموذجية للإنسان، تشكل القناة العصبية ممراً أنبوبياً مستمراً وظيفته الأساسية:",
     "optionsEn": [
-      "Shortens during moderate contraction and disappears completely during maximal contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Transport oxygenated arterial blood from the liver to the heart",
+      "Store digestive bile secreted by the gallbladder",
+      "Anchor the floating ribs directly to the skull bones",
+      "House and protect the delicate spinal cord of the central nervous system"
     ],
     "optionsAr": [
-      "يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "نقل الدم الشرياني المؤكسج من الكبد إلى القلب",
+      "تخزين العصارة الصفراوية المفرزة من المرارة",
+      "تثبيت الضلوع العائمة مباشرة في عظام الجمجمة",
+      "حماية الحبل الشوكي التابع للجهاز العصبي المركزي وتوفير مسار آمن له"
     ],
-    "correctAnswer": "Shortens during moderate contraction and disappears completely during maximal contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "House and protect the delicate spinal cord of the central nervous system",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Located at the center of the A-band and contains thick myosin filaments only.",
-      "During contraction: Shortens during moderate contraction and disappears completely during maximal contraction."
+      "Detailed biological mechanism: House and protect the delicate spinal cord of the central nervous system."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتوسط المنطقة الداكنة A وتتكون من خيوط ميوسين سميكة فقط.",
-      "أثناء الانقباض: يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام."
+      "الآلية البيولوجية التفصيلية: حماية الحبل الشوكي التابع للجهاز العصبي المركزي وتوفير مسار آمن له."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_12",
-    "titleEn": "Sarcomere Dynamics: Z-lines Distance (Sarcomere Length) #12",
-    "titleAr": "ديناميكية القطعة العضلية: المسافة بين خطي Z (طول القطعة العضلية) #12",
+    "titleEn": "Typical Vertebra Articular Processes Functions",
+    "titleAr": "وظيفة النتوءات المفصلية الأمامية والخلفية للفقرة",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **Z-lines Distance (Sarcomere Length)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المسافة بين خطي Z (طول القطعة العضلية)**؟",
+    "questionEn": "How does the 15th thoracic vertebra articulate with the preceding 14th and succeeding 16th vertebrae?",
+    "questionAr": "كيف تتمفصل الفقرة الظهرية رقم 15 مع الفقرة رقم 14 التي تسبقها ورقم 16 التي تليها؟",
     "optionsEn": [
-      "Decreases as Z-lines are pulled toward each other during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Via its two anterior articular processes with the 14th, and its two posterior articular processes with the 16th",
+      "Via its transverse processes directly with the neural spine of both vertebrae",
+      "Through complete bony fusion without any intervening cartilage",
+      "By wrapping an elastic muscle around their combined bodies"
     ],
     "optionsAr": [
-      "تقترب خطوط Z من بعضها فيقل طول القطعة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "بنتوئيها المفصليين الأماميين مع الفقرة 14، وبنتوئيها المفصليين الخلفيين مع الفقرة 16",
+      "بنتوءيها المستعرضين مع النتوء الشوكي للفقرتين مباشرة",
+      "بالتحام عظمي مصمت دون أي وسائد غضروفية بينها",
+      "بلف عضلة مرنة حول أجساد الفقرات الثلاث معاً"
     ],
-    "correctAnswer": "Decreases as Z-lines are pulled toward each other during contraction",
+    "correctAnswer": "Via its two anterior articular processes with the 14th, and its two posterior articular processes with the 16th",
     "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "The distance between two successive Z-lines defines one sarcomere.",
-      "During contraction: Decreases as Z-lines are pulled toward each other during contraction."
+      "Detailed biological mechanism: Via its two anterior articular processes with the 14th, and its two posterior articular processes with the 16th."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "المسافة بين خطين متتاليين Z تمثل وحدة التركيب العضلي (القطعة العضلية).",
-      "أثناء الانقباض: تقترب خطوط Z من بعضها فيقل طول القطعة العضلية."
+      "الآلية البيولوجية التفصيلية: بنتوئيها المفصليين الأماميين مع الفقرة 14، وبنتوئيها المفصليين الخلفيين مع الفقرة 16."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_13",
-    "titleEn": "Sarcomere Dynamics: A-band (Dark Band) #13",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة الداكنة A #13",
+    "titleEn": "Numbering of the Vertebra Connecting to the 10th Rib Pair",
+    "titleAr": "تحديد رقم الفقرة المتصلة بزوج الضلوع العاشر",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **A-band (Dark Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة الداكنة A**؟",
+    "questionEn": "Which vertebra in the human vertebral column connects laterally with the 10th pair of ribs?",
+    "questionAr": "أي فقرة من فقرات العمود الفقري للإنسان تتصل جانبياً بزوج الضلوع العاشر؟",
     "optionsEn": [
-      "Its length remains constant during muscular contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "The 10th vertebra",
+      "The 17th vertebra (7 cervical + 10 thoracic = 17)",
+      "The 12th vertebra",
+      "The 20th vertebra"
     ],
     "optionsAr": [
-      "يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الفقرة رقم 10",
+      "الفقرة رقم 17 (7 عنقية + 10 ظهرية = الفقرة 17)",
+      "الفقرة رقم 12",
+      "الفقرة رقم 20"
     ],
-    "correctAnswer": "Its length remains constant during muscular contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "The 17th vertebra (7 cervical + 10 thoracic = 17)",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains both thick myosin filaments and overlapping thin actin filaments.",
-      "During contraction: Its length remains constant during muscular contraction."
+      "Detailed biological mechanism: The 17th vertebra (7 cervical + 10 thoracic = 17)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط الميوسين السميكة متداخلة مع خيوط الأكتين الرفيعة.",
-      "أثناء الانقباض: يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها."
+      "الآلية البيولوجية التفصيلية: الفقرة رقم 17 (7 عنقية + 10 ظهرية = الفقرة 17)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_14",
-    "titleEn": "Sarcomere Dynamics: I-band (Light Band) #14",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة المضيئة I #14",
+    "titleEn": "Numbering of the First Lumbar Vertebra",
+    "titleAr": "تحديد رقم الفقرة القطنية الأولى في العمود الفقري",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **I-band (Light Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة المضيئة I**؟",
+    "questionEn": "In the continuous numbering of the vertebral column, the first lumbar vertebra corresponds to:",
+    "questionAr": "في الترقيم المتسلسل لفقرات العمود الفقري من أعلى لأسفل، تقابل الفقرة القطنية الأولى الفقرة رقم:",
     "optionsEn": [
-      "Its length shortens significantly during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Vertebra number 19",
+      "Vertebra number 25",
+      "Vertebra number 20 (7 cervical + 12 thoracic + 1 = 20)",
+      "Vertebra number 13"
     ],
     "optionsAr": [
-      "يقل طولها أثناء انقباض اللييفة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الفقرة رقم 19",
+      "الفقرة رقم 25",
+      "الفقرة رقم 20 (7 عنقية + 12 ظهرية + 1 = 20)",
+      "الفقرة رقم 13"
     ],
-    "correctAnswer": "Its length shortens significantly during contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Vertebra number 20 (7 cervical + 12 thoracic + 1 = 20)",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains thin actin filaments only and is bisected by the dark Z-line.",
-      "During contraction: Its length shortens significantly during contraction."
+      "Detailed biological mechanism: Vertebra number 20 (7 cervical + 12 thoracic + 1 = 20)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط أكتين رفيعة فقط وينصفها خط داكن Z.",
-      "أثناء الانقباض: يقل طولها أثناء انقباض اللييفة العضلية."
+      "الآلية البيولوجية التفصيلية: الفقرة رقم 20 (7 عنقية + 12 ظهرية + 1 = 20)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_15",
-    "titleEn": "Sarcomere Dynamics: H-zone (Semi-light Zone) #15",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة شبه المضيئة H #15",
+    "titleEn": "Largest Articulated Vertebra in the Human Body",
+    "titleAr": "أكبر الفقرات المتمفصلة حجماً في جسم الإنسان",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **H-zone (Semi-light Zone)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة شبه المضيئة H**؟",
+    "questionEn": "The largest articulated, movable vertebra in the entire human vertebral column, carrying maximum upper body weight, is:",
+    "questionAr": "أكبر فقرة عظمية متمفصلة ومتحركة في العمود الفقري للإنسان، وتتحمل أكبر عبء من وزن الجسم، هي:",
     "optionsEn": [
-      "Shortens during moderate contraction and disappears completely during maximal contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "The 1st cervical vertebra (Atlas)",
+      "The 12th thoracic vertebra",
+      "The 33rd coccygeal vertebra",
+      "The 24th vertebra (last lumbar vertebra)"
     ],
     "optionsAr": [
-      "يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الفقرة العنقية الأولى (أطلس)",
+      "الفقرة الظهرية الثانية عشرة",
+      "الفقرة العصعصية الثالثة والثلاثون",
+      "الفقرة رقم 24 (الفقرة القطنية الأخيرة)"
     ],
-    "correctAnswer": "Shortens during moderate contraction and disappears completely during maximal contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "The 24th vertebra (last lumbar vertebra)",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Located at the center of the A-band and contains thick myosin filaments only.",
-      "During contraction: Shortens during moderate contraction and disappears completely during maximal contraction."
+      "Detailed biological mechanism: The 24th vertebra (last lumbar vertebra)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتوسط المنطقة الداكنة A وتتكون من خيوط ميوسين سميكة فقط.",
-      "أثناء الانقباض: يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام."
+      "الآلية البيولوجية التفصيلية: الفقرة رقم 24 (الفقرة القطنية الأخيرة)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_16",
-    "titleEn": "Sarcomere Dynamics: Z-lines Distance (Sarcomere Length) #16",
-    "titleAr": "ديناميكية القطعة العضلية: المسافة بين خطي Z (طول القطعة العضلية) #16",
+    "titleEn": "Vertebra Bisecting the Articulated Vertebrae",
+    "titleAr": "الفقرة التي تنصف الفقرات المتمفصلة",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **Z-lines Distance (Sarcomere Length)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المسافة بين خطي Z (طول القطعة العضلية)**؟",
+    "questionEn": "There are 24 articulated vertebrae in the human spine. Which vertebra occupies the exact median position?",
+    "questionAr": "يحتوي العمود الفقري على 24 فقرة متمفصلة. أي فقرة تحتل الموضع الأوسط تماماً بينها وتواجه تجويف الصدر؟",
     "optionsEn": [
-      "Decreases as Z-lines are pulled toward each other during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "The 12th vertebra (5th thoracic vertebra)",
+      "The 7th cervical vertebra",
+      "The 17th thoracic vertebra",
+      "The 20th lumbar vertebra"
     ],
     "optionsAr": [
-      "تقترب خطوط Z من بعضها فيقل طول القطعة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الفقرة رقم 12 (الفقرة الظهرية الخامسة)",
+      "الفقرة العنقية السابعة",
+      "الفقرة الظهرية العاشرة",
+      "الفقرة القطنية الأولى"
     ],
-    "correctAnswer": "Decreases as Z-lines are pulled toward each other during contraction",
+    "correctAnswer": "The 12th vertebra (5th thoracic vertebra)",
     "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "The distance between two successive Z-lines defines one sarcomere.",
-      "During contraction: Decreases as Z-lines are pulled toward each other during contraction."
+      "Detailed biological mechanism: The 12th vertebra (5th thoracic vertebra)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "المسافة بين خطين متتاليين Z تمثل وحدة التركيب العضلي (القطعة العضلية).",
-      "أثناء الانقباض: تقترب خطوط Z من بعضها فيقل طول القطعة العضلية."
+      "الآلية البيولوجية التفصيلية: الفقرة رقم 12 (الفقرة الظهرية الخامسة)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_17",
-    "titleEn": "Sarcomere Dynamics: A-band (Dark Band) #17",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة الداكنة A #17",
+    "titleEn": "Cervical Vertebra Morphological Diversity",
+    "titleAr": "التنوع الشكلي للفقرات العنقية في الإنسان",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **A-band (Dark Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة الداكنة A**؟",
+    "questionEn": "The 7 cervical vertebrae exhibit three distinct anatomical shapes. Where are these variations situated?",
+    "questionAr": "تتميز الفقرات العنقية السبع بوجود 3 أشكال تشريحية مختلفة بينها. كيف تتوزع هذه الأشكال؟",
     "optionsEn": [
-      "Its length remains constant during muscular contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "All 7 vertebrae have identical shapes without any variations",
+      "1st vertebra (Atlas) has one shape, 2nd (Axis) has a second shape, and vertebrae 3-7 share a third shape",
+      "Each individual vertebra among the seven has a unique shape",
+      "The first four are fused and the last three are hollow"
     ],
     "optionsAr": [
-      "يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "الفقرات السبع كلها متماثلة في الشكل تماماً بلا أدنى اختلاف",
+      "الفقرة الأولى (أطلس) لها شكل، والثانية (المحور) لها شكل ثانٍ، والفقرات من 3 إلى 7 لها شكل ثالث",
+      "كل فقرة من السبع لها شكل فريد يختلف عن البقية",
+      "الفقرات الأربع الأولى ملتحمة والثلاث الأخيرة مجوفة"
     ],
-    "correctAnswer": "Its length remains constant during muscular contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "1st vertebra (Atlas) has one shape, 2nd (Axis) has a second shape, and vertebrae 3-7 share a third shape",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains both thick myosin filaments and overlapping thin actin filaments.",
-      "During contraction: Its length remains constant during muscular contraction."
+      "Detailed biological mechanism: 1st vertebra (Atlas) has one shape, 2nd (Axis) has a second shape, and vertebrae 3-7 share a third shape."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط الميوسين السميكة متداخلة مع خيوط الأكتين الرفيعة.",
-      "أثناء الانقباض: يظل طولها ثابتاً أثناء انقباض العضلة وانبساطها."
+      "الآلية البيولوجية التفصيلية: الفقرة الأولى (أطلس) لها شكل، والثانية (المحور) لها شكل ثانٍ، والفقرات من 3 إلى 7 لها شكل ثالث."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_18",
-    "titleEn": "Sarcomere Dynamics: I-band (Light Band) #18",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة المضيئة I #18",
+    "titleEn": "Cartilaginous Discs Between Vertebrae Function",
+    "titleAr": "وظيفة الأقراص الغضروفية بين فقرات العمود الفقري",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **I-band (Light Band)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة المضيئة I**؟",
+    "questionEn": "The thick fibrocartilaginous discs situated between adjacent articulated vertebral bodies serve to:",
+    "questionAr": "تعمل الأقراص الغضروفية الليفية السميكة الموجودة بين أجسام الفقرات المتمفصلة المتجاورة على:",
     "optionsEn": [
-      "Its length shortens significantly during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "Generate red blood cells via continuous mitotic division",
+      "Electrically insulate the sympathetic nervous chain",
+      "Absorb mechanical shocks, reduce bone friction, and permit limited flexible movement",
+      "Lock the vertebrae immovably like cranial skull sutures"
     ],
     "optionsAr": [
-      "يقل طولها أثناء انقباض اللييفة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "توليد كرات الدم الحمراء بالانقسام الميتوزي المستمر",
+      "عزل السلسلة العصبية السمبثاوية كهربياً",
+      "امتصاص الصدمات الميكانيكية، ومنع تآكل العظام بالاحتكاك، والسماح بحركة انحناء محدودة",
+      "تثبيت الفقرات بحيث تصبح عديمة الحركة كعظام الجمجمة"
     ],
-    "correctAnswer": "Its length shortens significantly during contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "Absorb mechanical shocks, reduce bone friction, and permit limited flexible movement",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Contains thin actin filaments only and is bisected by the dark Z-line.",
-      "During contraction: Its length shortens significantly during contraction."
+      "Detailed biological mechanism: Absorb mechanical shocks, reduce bone friction, and permit limited flexible movement."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتكون من خيوط أكتين رفيعة فقط وينصفها خط داكن Z.",
-      "أثناء الانقباض: يقل طولها أثناء انقباض اللييفة العضلية."
+      "الآلية البيولوجية التفصيلية: امتصاص الصدمات الميكانيكية، ومنع تآكل العظام بالاحتكاك، والسماح بحركة انحناء محدودة."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_19",
-    "titleEn": "Sarcomere Dynamics: H-zone (Semi-light Zone) #19",
-    "titleAr": "ديناميكية القطعة العضلية: المنطقة شبه المضيئة H #19",
+    "titleEn": "Thoracic Cage Total Bone Count Calculation",
+    "titleAr": "حساب عدد عظام القفص الصدري الإجمالي",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **H-zone (Semi-light Zone)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المنطقة شبه المضيئة H**؟",
+    "questionEn": "The total number of bones forming the thoracic cage in an adult human is calculated as:",
+    "questionAr": "يبلغ العدد الكلي للعظام المكونة للقفص الصدري في الإنسان البالغ والمحسوبة بدقة:",
     "optionsEn": [
-      "Shortens during moderate contraction and disappears completely during maximal contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "25 bones (24 ribs + 1 sternum only)",
+      "12 bones",
+      "48 bones",
+      "37 bones (24 ribs + 1 sternum + 12 thoracic vertebrae)"
     ],
     "optionsAr": [
-      "يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "25 عظمة (24 ضلعاً + عظمة القص فقط)",
+      "12 عظمة",
+      "48 عظمة",
+      "37 عظمة (24 ضلعاً + عظمة القص + 12 فقرة ظهرية)"
     ],
-    "correctAnswer": "Shortens during moderate contraction and disappears completely during maximal contraction",
-    "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "correctAnswer": "37 bones (24 ribs + 1 sternum + 12 thoracic vertebrae)",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "Located at the center of the A-band and contains thick myosin filaments only.",
-      "During contraction: Shortens during moderate contraction and disappears completely during maximal contraction."
+      "Detailed biological mechanism: 37 bones (24 ribs + 1 sternum + 12 thoracic vertebrae)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "تتوسط المنطقة الداكنة A وتتكون من خيوط ميوسين سميكة فقط.",
-      "أثناء الانقباض: يقل طولها أثناء الانقباض وتختفي تماماً في الانقباض التام."
+      "الآلية البيولوجية التفصيلية: 37 عظمة (24 ضلعاً + عظمة القص + 12 فقرة ظهرية)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_20",
-    "titleEn": "Sarcomere Dynamics: Z-lines Distance (Sarcomere Length) #20",
-    "titleAr": "ديناميكية القطعة العضلية: المسافة بين خطي Z (طول القطعة العضلية) #20",
+    "titleEn": "Bones Connecting Directly to the Sternum",
+    "titleAr": "عدد العظام المتصلة مباشرة بعظمة القص",
     "difficulty": "medium",
-    "questionEn": "According to Huxley's sliding filament model of skeletal muscle contraction, what happens to the **Z-lines Distance (Sarcomere Length)**?",
-    "questionAr": "وفقاً لنظرية الخيوط المنزلقة لهكسلي في انقباض العضلة الهيكلية، ماذا يحدث لـ **المسافة بين خطي Z (طول القطعة العضلية)**؟",
+    "questionEn": "How many total bones articulate directly with the human sternum?",
+    "questionAr": "كم يبلغ إجمالي عدد العظام التي تتمفصل مباشرة وبصورة مستقلة مع عظمة القص؟",
     "optionsEn": [
-      "Decreases as Z-lines are pulled toward each other during contraction",
-      "It lengthens by 50% during contraction",
-      "Myosin filaments dissolve into the sarcoplasm",
-      "Z-lines move away from each other"
+      "16 bones (2 clavicles + 14 ribs representing the first 7 pairs)",
+      "24 bones (all twelve pairs of ribs)",
+      "2 bones (the two clavicles only)",
+      "10 bones"
     ],
     "optionsAr": [
-      "تقترب خطوط Z من بعضها فيقل طول القطعة العضلية",
-      "يزداد طولها بنسبة 50% أثناء الانقباض",
-      "تذوب خيوط الميوسين في الساركوبلازم",
-      "تتباعد خطوط Z عن بعضها البعض"
+      "16 عظمة (عظمتا الترقوة + 14 ضلعاً تمثل أزواج الضلوع السبعة الأولى)",
+      "24 عظمة (جميع أزواج الضلوع الاثني عشر)",
+      "عظمتان فقط (الترقوتان فقط)",
+      "10 عظام"
     ],
-    "correctAnswer": "Decreases as Z-lines are pulled toward each other during contraction",
+    "correctAnswer": "16 bones (2 clavicles + 14 ribs representing the first 7 pairs)",
     "correctIndex": 0,
-    "hintEn": "Remember that thick myosin filaments do not shorten; cross-bridges pull actin filaments past them, keeping the A-band constant while I and H bands shrink.",
-    "hintAr": "تذكر أن خيوط الميوسين لا يقصر طولها، وإنما تسحب الروابط المستعرضة خيوط الأكتين نحو بعضها، مما يحافظ على ثبات طول المنطقة A بينما تقصر المنطقتان I و H.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Under Huxley's sliding filament theory:",
-      "The distance between two successive Z-lines defines one sarcomere.",
-      "During contraction: Decreases as Z-lines are pulled toward each other during contraction."
+      "Detailed biological mechanism: 16 bones (2 clavicles + 14 ribs representing the first 7 pairs)."
     ],
     "stepByStepSolutionAr": [
-      "وفق نظرية الخيوط المنزلقة لهكسلي:",
-      "المسافة بين خطين متتاليين Z تمثل وحدة التركيب العضلي (القطعة العضلية).",
-      "أثناء الانقباض: تقترب خطوط Z من بعضها فيقل طول القطعة العضلية."
+      "الآلية البيولوجية التفصيلية: 16 عظمة (عظمتا الترقوة + 14 ضلعاً تمثل أزواج الضلوع السبعة الأولى)."
     ],
-    "teacherTipEn": "The A-band length NEVER changes during contraction because it matches the fixed length of the thick myosin filaments.",
-    "teacherTipAr": "طول المنطقة الداكنة A لا يتغير إطلاقاً أثناء الانقباض أو الانبساط لأنه مساوٍ لطول خيوط الميوسين الثابت."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_21",
-    "titleEn": "Role of Calcium Ions (Ca2+) at Synapse #1",
-    "titleAr": "دور أيونات الكالسيوم عند التشابك العصبي العضلي #1",
+    "titleEn": "Cranial Bones Serrated Joints Development",
+    "titleAr": "تطور المفاصل المسننة لعظام الجمجمة",
     "difficulty": "medium",
-    "questionEn": "What is the vital role of Calcium ions ($\\text{Ca}^{2+}$) when a nerve impulse arrives at the axon terminal of a motor neuron?",
-    "questionAr": "ما هو الدور الحيوي لأيونات الكالسيوم ($\\text{Ca}^{2+}$) عند وصول السيال العصبي إلى النهاية العصبية؟",
+    "questionEn": "In a newborn infant, the cranial sutures are flexible fibrous membranes. In adults, these become:",
+    "questionAr": "في الجنين والوليد، تكون حواف عظام الجمجمة ليفية مرنة. في البالغين، تتحول هذه المفاصل إلى:",
     "optionsEn": [
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-      "They hydrolyze ATP in the mitochondria",
-      "They hyperpolarize the sarcolemma",
-      "They bind directly to troponin in blood"
+      "Wide synovial ball-and-socket joints",
+      "Dense, solid bone tissue cementing the cranium into a protective case for the brain",
+      "Elastic ligaments allowing voluntary expansion of head size",
+      "Completely open gaps without any cellular connections"
     ],
     "optionsAr": [
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي",
-      "تقوم بتحلل ATP في الميتوكوندريا",
-      "تزيد من استقطاب غشاء الليفة العضلية",
-      "ترتبط بالتروبونين في بلازما الدم"
+      "مفاصل زلالية واسعة الحركة تشبه مفصل الفخذ",
+      "نسيج عظمي مصمت ومتداخل يلحم عظام القحف في صندوق واقٍ صلب للمخ",
+      "أربطة مرنة تسمح بزيادة حجم الرأس إرادياً",
+      "فجوات مفتوحة تماماً دون أي اتصال خلوي"
     ],
-    "correctAnswer": "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Dense, solid bone tissue cementing the cranium into a protective case for the brain",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft."
+      "Detailed biological mechanism: Dense, solid bone tissue cementing the cranium into a protective case for the brain."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي."
+      "الآلية البيولوجية التفصيلية: نسيج عظمي مصمت ومتداخل يلحم عظام القحف في صندوق واقٍ صلب للمخ."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_22",
-    "titleEn": "Role of Sodium Ions (Na+) in Depolarization #2",
-    "titleAr": "دور أيونات الصوديوم في إزالة الاستقطاب #2",
+    "titleEn": "Pelvic Girdle Number of Bones in Adult",
+    "titleAr": "عدد عظام الحزام الحوضي في الإنسان البالغ",
     "difficulty": "medium",
-    "questionEn": "When acetylcholine binds to receptors on the muscle sarcolemma, what ion movement causes depolarization?",
-    "questionAr": "عند ارتباط الأستيل كولين بمستقبلاته على غشاء الليفة العضلية، ما حركة الأيونات التي تسبب إزالة الاستقطاب وتوليد جهد الفعل؟",
+    "questionEn": "In an adult human, the pelvic girdle consists of how many distinct anatomical bones?",
+    "questionAr": "في الإنسان البالغ، يتكون الحزام الحوضي فعلياً من كم عظمة تشريحية متميزة؟",
     "optionsEn": [
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-      "Efflux of Potassium ions out of the cell",
-      "Influx of Chloride ions",
-      "Exocytosis of glycogen granules"
+      "6 separate movable bones",
+      "4 bones including the two patellae",
+      "2 hip bones (each half consisting of fused ilium, ischium, and pubis)",
+      "1 single ring bone without any seams"
     ],
     "optionsAr": [
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً",
-      "خروج أيونات البوتاسيوم خارج الخلية",
-      "دخول أيونات الكلوريد",
-      "خروج حبيبات الجليكوجين"
+      "6 عظام منفصلة ومتحركة",
+      "4 عظام من بينها الرضفتان",
+      "عظمتان (نصفا الحوض، كل نصف يمثل التحام عظام الحرقفة والورك والعانة)",
+      "عظمة حلقية واحدة مصمتة بلا دروز"
     ],
-    "correctAnswer": "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "2 hip bones (each half consisting of fused ilium, ischium, and pubis)",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive."
+      "Detailed biological mechanism: 2 hip bones (each half consisting of fused ilium, ischium, and pubis)."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً."
+      "الآلية البيولوجية التفصيلية: عظمتان (نصفا الحوض، كل نصف يمثل التحام عظام الحرقفة والورك والعانة)."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_23",
-    "titleEn": "Role of Acetylcholinesterase Enzyme #3",
-    "titleAr": "دور إنزيم الكولين إستريز #3",
+    "titleEn": "Acetabulum Cavity Bones Participation",
+    "titleAr": "العظام المشاركة في تكوين التجويف الحقي",
     "difficulty": "medium",
-    "questionEn": "What is the physiological role of the enzyme acetylcholinesterase located at the neuromuscular junction?",
-    "questionAr": "ما الدور الفسيولوجي لإنزيم الكولين إستريز المتواجد في نقاط التشابك العصبي العضلي؟",
+    "questionEn": "Which bones fuse together to formulate the deep, hemispherical acetabular cavity of the pelvis?",
+    "questionAr": "أي العظام تلتحم معاً لتشارك في تكوين التجويف الحقي نصف الكروي العميق بالحوض؟",
     "optionsEn": [
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-      "Phosphorylates ADP into ATP",
-      "Synthesizes new acetylcholine",
-      "Stimulates continuous tetanic contraction"
+      "The sacrum, the coccyx, and the lumbar vertebra",
+      "The femur, the patella, and the tibia",
+      "The scapula and the clavicle",
+      "The ilium, the ischium, and the pubis"
     ],
     "optionsAr": [
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة",
-      "يفسفر ADP إلى ATP",
-      "يصنع أستيل كولين جديداً",
-      "يحفز انقباضاً عضلياً مستمراً"
+      "عظم العجز، والعصعص، والفقرة القطنية",
+      "عظم الفخذ، والرضفة، والقصبة",
+      "لوح الكتف والترقوة",
+      "الحرقفة الظهرية، والورك، والعانة الباطنية"
     ],
-    "correctAnswer": "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "The ilium, the ischium, and the pubis",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax."
+      "Detailed biological mechanism: The ilium, the ischium, and the pubis."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة."
+      "الآلية البيولوجية التفصيلية: الحرقفة الظهرية، والورك، والعانة الباطنية."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_24",
-    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation #4",
-    "titleAr": "الدور المزدوج لـ ATP في الانقباض والانبساط #4",
+    "titleEn": "Ulna Cavity Articulation with Humerus",
+    "titleAr": "تمفصل تجويف الزند مع عظمة العضد",
     "difficulty": "medium",
-    "questionEn": "ATP is required during BOTH contraction and relaxation because:",
-    "questionAr": "جزيئات ATP ضرورية في عمليتي الانقباض والانبساط معاً لأن:",
+    "questionEn": "At the human elbow joint, the upper end of the ulna bone possesses a prominent cavity that articulates with:",
+    "questionAr": "عند مفصل الكوع في الإنسان، يحتوي الطرف العلوي لعظمة الزند على تجويف بارز يستقر فيه:",
     "optionsEn": [
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
-      "It builds actin protein chains",
-      "It converts glucose into glycogen",
-      "It acts as an electrical conductor"
+      "The distal trochlear projection of the humerus, forming a limited hinge joint",
+      "The spherical head of the femur bone",
+      "The acromion process of the scapula",
+      "The lateral condyle of the tibia"
     ],
     "optionsAr": [
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط",
-      "يبني سلاسل بروتين الأكتين",
-      "يحول الجلوكوز إلى جليكوجين",
-      "يعمل كموصل كهربي للسيال"
+      "النتوء الداخلي للطرف السفلي لعظمة العضد مكوناً مفصلاً محدود الحركة",
+      "الرأس الكروي لعظمة الفخذ",
+      "النتوء الأخرمي لعظمة لوح الكتف",
+      "اللقمة الجانبية لعظمة القصبة"
     ],
-    "correctAnswer": "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
+    "correctAnswer": "The distal trochlear projection of the humerus, forming a limited hinge joint",
     "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation."
+      "Detailed biological mechanism: The distal trochlear projection of the humerus, forming a limited hinge joint."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط."
+      "الآلية البيولوجية التفصيلية: النتوء الداخلي للطرف السفلي لعظمة العضد مكوناً مفصلاً محدود الحركة."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_25",
-    "titleEn": "Role of Calcium Ions (Ca2+) at Synapse #5",
-    "titleAr": "دور أيونات الكالسيوم عند التشابك العصبي العضلي #5",
+    "titleEn": "Comparison of Wrist Carpals vs Ankle Tarsals Counts",
+    "titleAr": "مقارنة عدد عظام رسغ اليد وعظام رسغ القدم",
     "difficulty": "medium",
-    "questionEn": "What is the vital role of Calcium ions ($\\text{Ca}^{2+}$) when a nerve impulse arrives at the axon terminal of a motor neuron?",
-    "questionAr": "ما هو الدور الحيوي لأيونات الكالسيوم ($\\text{Ca}^{2+}$) عند وصول السيال العصبي إلى النهاية العصبية؟",
+    "questionEn": "Why does the human upper limb have 30 bones and the lower limb have 30 bones, despite the ankle having 7 tarsals while the wrist has 8 carpals?",
+    "questionAr": "لماذا يبلغ عدد عظام الطرف العلوي 30 عظمة والسفلي 30 عظمة، رغم أن رسغ القدم 7 عظام بينما رسغ اليد 8 عظام؟",
     "optionsEn": [
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-      "They hydrolyze ATP in the mitochondria",
-      "They hyperpolarize the sarcolemma",
-      "They bind directly to troponin in blood"
+      "Because the foot contains 15 phalanges while the hand contains 14",
+      "Because the lower limb includes the patella (kneecap), compensating for the missing tarsal bone",
+      "Because the pelvic girdle possesses two extra humerus bones",
+      "Because the tibia counts as two separate bones in adults"
     ],
     "optionsAr": [
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي",
-      "تقوم بتحلل ATP في الميتوكوندريا",
-      "تزيد من استقطاب غشاء الليفة العضلية",
-      "ترتبط بالتروبونين في بلازما الدم"
+      "لأن القدم بها 15 سلامية بينما اليد بها 14",
+      "لأن الطرف السفلي يحتوي على عظمة الرضفة عند مفصل الركبة فتعوض النقص في عظام رسغ القدم",
+      "لأن الحزام الحوضي به عظمتان إضافيتان",
+      "لأن القصبة تحسب كعظمتين منفصلتين في البالغ"
     ],
-    "correctAnswer": "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Because the lower limb includes the patella (kneecap), compensating for the missing tarsal bone",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft."
+      "Detailed biological mechanism: Because the lower limb includes the patella (kneecap), compensating for the missing tarsal bone."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي."
+      "الآلية البيولوجية التفصيلية: لأن الطرف السفلي يحتوي على عظمة الرضفة عند مفصل الركبة فتعوض النقص في عظام رسغ القدم."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_26",
-    "titleEn": "Role of Sodium Ions (Na+) in Depolarization #6",
-    "titleAr": "دور أيونات الصوديوم في إزالة الاستقطاب #6",
+    "titleEn": "Anterior Cruciate Ligament (ACL) Function in Knee",
+    "titleAr": "وظيفة الرباط الصليبي الأمامي في مفصل الركبة",
     "difficulty": "medium",
-    "questionEn": "When acetylcholine binds to receptors on the muscle sarcolemma, what ion movement causes depolarization?",
-    "questionAr": "عند ارتباط الأستيل كولين بمستقبلاته على غشاء الليفة العضلية، ما حركة الأيونات التي تسبب إزالة الاستقطاب وتوليد جهد الفعل؟",
+    "questionEn": "The anterior cruciate ligament (ACL) within the human knee joint primarily functions to:",
+    "questionAr": "يقوم الرباط الصليبي الأمامي (ACL) داخل مفصل الركبة في الإنسان وظيفياً بـ:",
     "optionsEn": [
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-      "Efflux of Potassium ions out of the cell",
-      "Influx of Chloride ions",
-      "Exocytosis of glycogen granules"
+      "Pump lubricating synovial fluid into the popliteal artery",
+      "Connect the quadriceps muscle tendon directly to the heel",
+      "Prevent excessive anterior sliding of the tibia relative to the femur",
+      "Facilitate lateral rotation of the patella by 360 degrees"
     ],
     "optionsAr": [
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً",
-      "خروج أيونات البوتاسيوم خارج الخلية",
-      "دخول أيونات الكلوريد",
-      "خروج حبيبات الجليكوجين"
+      "ضخ السائل الزلالي داخل الشريان المأبضي",
+      "توصيل وتر العضلة الفخذية مباشرة بكعب القدم",
+      "منع الانزلاق الأمامي المفرط لعظمة القصبة بالنسبة لعظمة الفخذ وتثبيت المفصل",
+      "تسهيل دوران الرضفة 360 درجة حول محورها"
     ],
-    "correctAnswer": "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Prevent excessive anterior sliding of the tibia relative to the femur",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive."
+      "Detailed biological mechanism: Prevent excessive anterior sliding of the tibia relative to the femur."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً."
+      "الآلية البيولوجية التفصيلية: منع الانزلاق الأمامي المفرط لعظمة القصبة بالنسبة لعظمة الفخذ وتثبيت المفصل."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_27",
-    "titleEn": "Role of Acetylcholinesterase Enzyme #7",
-    "titleAr": "دور إنزيم الكولين إستريز #7",
+    "titleEn": "Tibial Collateral Ligament Connection",
+    "titleAr": "موضع اتصال الرباط الوسطي في الركبة",
     "difficulty": "medium",
-    "questionEn": "What is the physiological role of the enzyme acetylcholinesterase located at the neuromuscular junction?",
-    "questionAr": "ما الدور الفسيولوجي لإنزيم الكولين إستريز المتواجد في نقاط التشابك العصبي العضلي؟",
+    "questionEn": "In the knee joint, the medial (tibial) collateral ligament connects:",
+    "questionAr": "في مفصل الركبة، يربط الرباط الجانبي الوسطي بين عظمة:",
     "optionsEn": [
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-      "Phosphorylates ADP into ATP",
-      "Synthesizes new acetylcholine",
-      "Stimulates continuous tetanic contraction"
+      "The femur bone and the lateral fibula bone",
+      "The patella and the calcaneus bone",
+      "The two hip pelvic bones across the pubic symphysis",
+      "The femur bone and the tibia bone on the medial side"
     ],
     "optionsAr": [
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة",
-      "يفسفر ADP إلى ATP",
-      "يصنع أستيل كولين جديداً",
-      "يحفز انقباضاً عضلياً مستمراً"
+      "عظمة الفخذ وعظمة الشظية من الناحية الخارجية",
+      "عظمة الرضفة وعظمة الكعب",
+      "عظمتي الحوض عند موضع الارتفاق العاني",
+      "عظمة الفخذ وعظمة القصبة من الناحية الداخلية (الوسطية)"
     ],
-    "correctAnswer": "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "The femur bone and the tibia bone on the medial side",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax."
+      "Detailed biological mechanism: The femur bone and the tibia bone on the medial side."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة."
+      "الآلية البيولوجية التفصيلية: عظمة الفخذ وعظمة القصبة من الناحية الداخلية (الوسطية)."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_28",
-    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation #8",
-    "titleAr": "الدور المزدوج لـ ATP في الانقباض والانبساط #8",
+    "titleEn": "Fibular Collateral Ligament Connection",
+    "titleAr": "موضع اتصال الرباط الجانبي الخارجي في الركبة",
     "difficulty": "medium",
-    "questionEn": "ATP is required during BOTH contraction and relaxation because:",
-    "questionAr": "جزيئات ATP ضرورية في عمليتي الانقباض والانبساط معاً لأن:",
+    "questionEn": "The lateral (fibular) collateral ligament in the knee specifically connects:",
+    "questionAr": "يربط الرباط الجانبي الخارجي في مفصل الركبة تحديداً بين عظمة:",
     "optionsEn": [
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
-      "It builds actin protein chains",
-      "It converts glucose into glycogen",
-      "It acts as an electrical conductor"
+      "The femur bone and the lateral fibula bone",
+      "The femur bone and the medial tibia bone",
+      "The patella and the ulna bone",
+      "The clavicle and the scapula"
     ],
     "optionsAr": [
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط",
-      "يبني سلاسل بروتين الأكتين",
-      "يحول الجلوكوز إلى جليكوجين",
-      "يعمل كموصل كهربي للسيال"
+      "عظمة الفخذ وعظمة الشظية من الناحية الخارجية",
+      "عظمة الفخذ وعظمة القصبة من الناحية الداخلية",
+      "عظمة الرضفة وعظمة الزند",
+      "عظمة الترقوة وعظمة لوح الكتف"
     ],
-    "correctAnswer": "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
+    "correctAnswer": "The femur bone and the lateral fibula bone",
     "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation."
+      "Detailed biological mechanism: The femur bone and the lateral fibula bone."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط."
+      "الآلية البيولوجية التفصيلية: عظمة الفخذ وعظمة الشظية من الناحية الخارجية."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_29",
-    "titleEn": "Role of Calcium Ions (Ca2+) at Synapse #9",
-    "titleAr": "دور أيونات الكالسيوم عند التشابك العصبي العضلي #9",
+    "titleEn": "Tendon Rupture Medical Symptoms",
+    "titleAr": "الأعراض السريرية لتمزق وتر أخيل",
     "difficulty": "medium",
-    "questionEn": "What is the vital role of Calcium ions ($\\text{Ca}^{2+}$) when a nerve impulse arrives at the axon terminal of a motor neuron?",
-    "questionAr": "ما هو الدور الحيوي لأيونات الكالسيوم ($\\text{Ca}^{2+}$) عند وصول السيال العصبي إلى النهاية العصبية؟",
+    "questionEn": "A soccer player suffering complete rupture of the Achilles tendon exhibits which immediate symptoms?",
+    "questionAr": "اللاعب الرياضي الذي يتعرض لتمزق كامل في وتر أخيل تظهر عليه الأعراض التالية مباشرة:",
     "optionsEn": [
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-      "They hydrolyze ATP in the mitochondria",
-      "They hyperpolarize the sarcolemma",
-      "They bind directly to troponin in blood"
+      "Spontaneous elongation of the leg bones by several centimeters",
+      "Inability to walk, severe acute pain, and heavy dragging in the foot movement",
+      "Total loss of vision and hearing reflex",
+      "Disappearance of all red blood cells in the limb"
     ],
     "optionsAr": [
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي",
-      "تقوم بتحلل ATP في الميتوكوندريا",
-      "تزيد من استقطاب غشاء الليفة العضلية",
-      "ترتبط بالتروبونين في بلازما الدم"
+      "استطالة مفاجئة في عظام الساق لعدة سنتيمترات",
+      "عدم القدرة على المشي، آلام حادة شديدة، وثقل وصعوبة في حركة القدم",
+      "فقدان كلي للرؤية والسمع الانعكاسي",
+      "اختفاء كرات الدم الحمراء تماماً من الساق"
     ],
-    "correctAnswer": "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Inability to walk, severe acute pain, and heavy dragging in the foot movement",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft."
+      "Detailed biological mechanism: Inability to walk, severe acute pain, and heavy dragging in the foot movement."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي."
+      "الآلية البيولوجية التفصيلية: عدم القدرة على المشي، آلام حادة شديدة، وثقل وصعوبة في حركة القدم."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_30",
-    "titleEn": "Role of Sodium Ions (Na+) in Depolarization #10",
-    "titleAr": "دور أيونات الصوديوم في إزالة الاستقطاب #10",
+    "titleEn": "Treatment of Achilles Tendon Rupture",
+    "titleAr": "البروتوكول العلاجي لتمزق وتر أخيل",
     "difficulty": "medium",
-    "questionEn": "When acetylcholine binds to receptors on the muscle sarcolemma, what ion movement causes depolarization?",
-    "questionAr": "عند ارتباط الأستيل كولين بمستقبلاته على غشاء الليفة العضلية، ما حركة الأيونات التي تسبب إزالة الاستقطاب وتوليد جهد الفعل؟",
+    "questionEn": "Medically, an incomplete partial tear in Achilles tendon is managed by anti-inflammatory drugs and medical splints, whereas a complete rupture requires:",
+    "questionAr": "طبياً، يعالج التمزق الجزئي لوتر أخيل بمضادات الالتهاب والجبيرة الطبية، بينما يتطلب التمزق الكامل:",
     "optionsEn": [
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-      "Efflux of Potassium ions out of the cell",
-      "Influx of Chloride ions",
-      "Exocytosis of glycogen granules"
+      "Drinking ten liters of concentrated saline solution",
+      "Complete removal of the femur and tibia bones",
+      "Immediate surgical intervention to re-stitch the severed tendon ends",
+      "Applying electric shocks directly to the heart"
     ],
     "optionsAr": [
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً",
-      "خروج أيونات البوتاسيوم خارج الخلية",
-      "دخول أيونات الكلوريد",
-      "خروج حبيبات الجليكوجين"
+      "شرب عشرة لترات من محلول ملحي مركز",
+      "استئصال عظام الفخذ والقصبة كلياً",
+      "تدخلاً جراحياً عاجلاً لخياطة وإعادة وصل طرفي الوتر المقطوع",
+      "تطبيق صدمات كهربائية مباشرة لعضلة القلب"
     ],
-    "correctAnswer": "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Immediate surgical intervention to re-stitch the severed tendon ends",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive."
+      "Detailed biological mechanism: Immediate surgical intervention to re-stitch the severed tendon ends."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً."
+      "الآلية البيولوجية التفصيلية: تدخلاً جراحياً عاجلاً لخياطة وإعادة وصل طرفي الوتر المقطوع."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_31",
-    "titleEn": "Role of Acetylcholinesterase Enzyme #11",
-    "titleAr": "دور إنزيم الكولين إستريز #11",
+    "titleEn": "Slow Regeneration of Cartilage Tissue",
+    "titleAr": "بطء التئام الغضاريف عند الإصابة",
     "difficulty": "medium",
-    "questionEn": "What is the physiological role of the enzyme acetylcholinesterase located at the neuromuscular junction?",
-    "questionAr": "ما الدور الفسيولوجي لإنزيم الكولين إستريز المتواجد في نقاط التشابك العصبي العضلي؟",
+    "questionEn": "Why do injured cartilages in human joints heal substantially slower than fractured bones?",
+    "questionAr": "لماذا تلتئم الغضاريف المصابة في المفاصل بمعدل أبطأ بكثير مقارنة بالعظام المكسورة؟",
     "optionsEn": [
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-      "Phosphorylates ADP into ATP",
-      "Synthesizes new acetylcholine",
-      "Stimulates continuous tetanic contraction"
+      "Because cartilage cells undergo meiosis instead of mitosis",
+      "Because cartilage is covered by an impenetrable impermeable cutin coating",
+      "Because chondrocytes actively destroy all incoming amino acids",
+      "Because cartilage tissue lacks blood vessels and receives nutrients slowly via diffusion from adjacent bones"
     ],
     "optionsAr": [
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة",
-      "يفسفر ADP إلى ATP",
-      "يصنع أستيل كولين جديداً",
-      "يحفز انقباضاً عضلياً مستمراً"
+      "لأن خلايا الغضاريف تنقسم ميوزياً بدلاً من الميتوزي",
+      "لأن الغضاريف مغطاة بطبقة كيوتين غير منفذة للغذاء",
+      "لأن الخلايا الغضروفية تكسر الأحماض الأمينية الواردة",
+      "لأن النسيج الغضروفي يخلو من الأوعية الدموية ويحصل على غذائه ببطء بالانتشار من العظام المجاورة"
     ],
-    "correctAnswer": "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Because cartilage tissue lacks blood vessels and receives nutrients slowly via diffusion from adjacent bones",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax."
+      "Detailed biological mechanism: Because cartilage tissue lacks blood vessels and receives nutrients slowly via diffusion from adjacent bones."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة."
+      "الآلية البيولوجية التفصيلية: لأن النسيج الغضروفي يخلو من الأوعية الدموية ويحصل على غذائه ببطء بالانتشار من العظام المجاورة."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_32",
-    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation #12",
-    "titleAr": "الدور المزدوج لـ ATP في الانقباض والانبساط #12",
+    "titleEn": "Pubic Symphysis Cartilaginous Joint Mobility",
+    "titleAr": "طبيعة مفصل الارتفاق العاني أثناء الولادة",
     "difficulty": "medium",
-    "questionEn": "ATP is required during BOTH contraction and relaxation because:",
-    "questionAr": "جزيئات ATP ضرورية في عمليتي الانقباض والانبساط معاً لأن:",
+    "questionEn": "The pubic symphysis connecting the two halves of the pelvic girdle is a cartilaginous joint that:",
+    "questionAr": "يمثل الارتفاق العاني الواصل بين نصفي عظام الحوض مفصلاً غضروفياً يتميز بأنه:",
     "optionsEn": [
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
-      "It builds actin protein chains",
-      "It converts glucose into glycogen",
-      "It acts as an electrical conductor"
+      "Permits slight yielding, which increases during parturition under relaxin hormone influence",
+      "Allows full 360 degree rotational movement at all times",
+      "Is completely absent in adult females",
+      "Is anchored by six thick metal-like cruciate ligaments"
     ],
     "optionsAr": [
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط",
-      "يبني سلاسل بروتين الأكتين",
-      "يحول الجلوكوز إلى جليكوجين",
-      "يعمل كموصل كهربي للسيال"
+      "يسمح بحركة محدودة جداً، وتزداد مرونته واتساعه عند الولادة بتأثير هرمون الريلاكسين",
+      "يسمح بدوران كامل 360 درجة في جميع الأوقات",
+      "غائب تماماً في إناث الثدييات البالغات",
+      "مثبت بستة أربطة صليبية حديدية"
     ],
-    "correctAnswer": "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
+    "correctAnswer": "Permits slight yielding, which increases during parturition under relaxin hormone influence",
     "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation."
+      "Detailed biological mechanism: Permits slight yielding, which increases during parturition under relaxin hormone influence."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط."
+      "الآلية البيولوجية التفصيلية: يسمح بحركة محدودة جداً، وتزداد مرونته واتساعه عند الولادة بتأثير هرمون الريلاكسين."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_33",
-    "titleEn": "Role of Calcium Ions (Ca2+) at Synapse #13",
-    "titleAr": "دور أيونات الكالسيوم عند التشابك العصبي العضلي #13",
+    "titleEn": "Haptotropism Differential Growth Rate",
+    "titleAr": "معدل نمو خلايا المحلاق عند الملامسة",
     "difficulty": "medium",
-    "questionEn": "What is the vital role of Calcium ions ($\\text{Ca}^{2+}$) when a nerve impulse arrives at the axon terminal of a motor neuron?",
-    "questionAr": "ما هو الدور الحيوي لأيونات الكالسيوم ($\\text{Ca}^{2+}$) عند وصول السيال العصبي إلى النهاية العصبية؟",
+    "questionEn": "In climbing plants, contact between a tendril and a rough support triggers differential auxin distribution causing:",
+    "questionAr": "في النباتات المتسلقة، يسبب تلامس المحلاق مع دعامة توزيعاً متبايناً للأوكسينات يؤدي إلى:",
     "optionsEn": [
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-      "They hydrolyze ATP in the mitochondria",
-      "They hyperpolarize the sarcolemma",
-      "They bind directly to troponin in blood"
+      "Accelerated growth in the contact region and immediate death of the outer region",
+      "Slower growth in the contact region and faster elongation in the opposite non-contact region",
+      "Equal cell elongation across both sides simultaneously",
+      "Conversion of all epidermal cells into xylem vessels within seconds"
     ],
     "optionsAr": [
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي",
-      "تقوم بتحلل ATP في الميتوكوندريا",
-      "تزيد من استقطاب غشاء الليفة العضلية",
-      "ترتبط بالتروبونين في بلازما الدم"
+      "سرعة نمو المنطقة الملامسة وموت المنطقة البعيدة",
+      "بطء نمو المنطقة الملامسة للدعامة وسرعة استطالة ونمو المنطقة البعيدة غير الملامسة",
+      "استطالة متساوية تماماً لجميع الخلايا على الجانبين معاً",
+      "تحول خلايا البشرة إلى أوعية خشب في ثوانٍ"
     ],
-    "correctAnswer": "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Slower growth in the contact region and faster elongation in the opposite non-contact region",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft."
+      "Detailed biological mechanism: Slower growth in the contact region and faster elongation in the opposite non-contact region."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي."
+      "الآلية البيولوجية التفصيلية: بطء نمو المنطقة الملامسة للدعامة وسرعة استطالة ونمو المنطقة البعيدة غير الملامسة."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_34",
-    "titleEn": "Role of Sodium Ions (Na+) in Depolarization #14",
-    "titleAr": "دور أيونات الصوديوم في إزالة الاستقطاب #14",
+    "titleEn": "Lignification of Tendril after Coiling",
+    "titleAr": "تغلظ المحلاق باللجنين عقب استقراره على الدعامة",
     "difficulty": "medium",
-    "questionEn": "When acetylcholine binds to receptors on the muscle sarcolemma, what ion movement causes depolarization?",
-    "questionAr": "عند ارتباط الأستيل كولين بمستقبلاته على غشاء الليفة العضلية، ما حركة الأيونات التي تسبب إزالة الاستقطاب وتوليد جهد الفعل؟",
+    "questionEn": "After a tendril successfully coils around a firm support and straightens the plant stem, it:",
+    "questionAr": "بعد أن يلتف المحلاق بإحكام حول الدعامة الصلبة ويستقيم ساق النبات رأسياً، فإنه:",
     "optionsEn": [
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-      "Efflux of Potassium ions out of the cell",
-      "Influx of Chloride ions",
-      "Exocytosis of glycogen granules"
+      "Loses all cell walls and transforms into liquid sap",
+      "Detaches from the stem and floats into the surrounding soil",
+      "Becomes thickened and reinforced with mechanical tissues (lignin) gaining strength and firmness",
+      "Ceases all protein synthesis and undergoes spontaneous necrosis"
     ],
     "optionsAr": [
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً",
-      "خروج أيونات البوتاسيوم خارج الخلية",
-      "دخول أيونات الكلوريد",
-      "خروج حبيبات الجليكوجين"
+      "يفقد كافة جدرانه الخلوية ويتحول لعصير سائل",
+      "ينفصل عن الساق ويسقط في التربة المجاورة",
+      "يتغلظ وتترسب فيه أنسجة دعامية صلبة (اللجنين) فيقوى ويشتد عوده لدعم النبات",
+      "يتوقف عن بناء البروتين ويموت تلقائياً"
     ],
-    "correctAnswer": "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Becomes thickened and reinforced with mechanical tissues (lignin) gaining strength and firmness",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive."
+      "Detailed biological mechanism: Becomes thickened and reinforced with mechanical tissues (lignin) gaining strength and firmness."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً."
+      "الآلية البيولوجية التفصيلية: يتغلظ وتترسب فيه أنسجة دعامية صلبة (اللجنين) فيقوى ويشتد عوده لدعم النبات."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_35",
-    "titleEn": "Role of Acetylcholinesterase Enzyme #15",
-    "titleAr": "دور إنزيم الكولين إستريز #15",
+    "titleEn": "Contractile Roots Maintenance of Corms",
+    "titleAr": "حماية البراعم الهوائية بواسطة الجذور الشادة",
     "difficulty": "medium",
-    "questionEn": "What is the physiological role of the enzyme acetylcholinesterase located at the neuromuscular junction?",
-    "questionAr": "ما الدور الفسيولوجي لإنزيم الكولين إستريز المتواجد في نقاط التشابك العصبي العضلي؟",
+    "questionEn": "Contractile roots of corms (e.g. Colocasia) pull the subterranean stem downward to ensure that:",
+    "questionAr": "تعمل الجذور الشادة في كورمات القلقاس على سحب الساق الأرضية لأسفل لضمان:",
     "optionsEn": [
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-      "Phosphorylates ADP into ATP",
-      "Synthesizes new acetylcholine",
-      "Stimulates continuous tetanic contraction"
+      "The corm climbs high into the canopy of surrounding trees",
+      "Root hairs absorb sunlight directly from subterranean rock fissures",
+      "The plant drops all its chromosomes to accelerate mitosis",
+      "Its aerial shoots and storage organs remain at a safe, constant subterranean depth protected from wind and grazing"
     ],
     "optionsAr": [
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة",
-      "يفسفر ADP إلى ATP",
-      "يصنع أستيل كولين جديداً",
-      "يحفز انقباضاً عضلياً مستمراً"
+      "تسلق الكورمة عالياً بين فروع الأشجار المجاورة",
+      "امتصاص الشعيرات الجذرية للضوء من الشقوق الصخرية",
+      "تخلص النبات من كروموسوماته لتسريع الانقسام",
+      "بقاء أجزائها الهوائية وبراعمها وساقها المخزنة على بعد مناسب من سطح التربة لحمايتها من الرياح والجفاف"
     ],
-    "correctAnswer": "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Its aerial shoots and storage organs remain at a safe, constant subterranean depth protected from wind and grazing",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax."
+      "Detailed biological mechanism: Its aerial shoots and storage organs remain at a safe, constant subterranean depth protected from wind and grazing."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة."
+      "الآلية البيولوجية التفصيلية: بقاء أجزائها الهوائية وبراعمها وساقها المخزنة على بعد مناسب من سطح التربة لحمايتها من الرياح والجفاف."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_36",
-    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation #16",
-    "titleAr": "الدور المزدوج لـ ATP في الانقباض والانبساط #16",
+    "titleEn": "Myofibril Organization and Sarcomere Number Relation",
+    "titleAr": "العلاقة العددية بين القطع العضلية وخطوط Z",
     "difficulty": "medium",
-    "questionEn": "ATP is required during BOTH contraction and relaxation because:",
-    "questionAr": "جزيئات ATP ضرورية في عمليتي الانقباض والانبساط معاً لأن:",
+    "questionEn": "If a single myofibril contains 10 consecutive sarcomeres, how many transverse Z-lines boundary markers exist?",
+    "questionAr": "إذا كانت لييفة عضلية تحتوي على 10 قطع عضلية (ساركوميرات) متتالية، فكم يبلغ عدد خطوط Z الفاصلة بينها؟",
     "optionsEn": [
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
-      "It builds actin protein chains",
-      "It converts glucose into glycogen",
-      "It acts as an electrical conductor"
+      "11 Z-lines ($n + 1$ where $n$ is the number of sarcomeres)",
+      "10 Z-lines",
+      "9 Z-lines",
+      "20 Z-lines"
     ],
     "optionsAr": [
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط",
-      "يبني سلاسل بروتين الأكتين",
-      "يحول الجلوكوز إلى جليكوجين",
-      "يعمل كموصل كهربي للسيال"
+      "11 خط Z (العدد $+ 1$ حيث تمثل المسافة بين كل خطين متتاليين قطعة عضلية)",
+      "10 خطوط Z",
+      "9 خطوط Z",
+      "20 خط Z"
     ],
-    "correctAnswer": "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
+    "correctAnswer": "11 Z-lines ($n + 1$ where $n$ is the number of sarcomeres)",
     "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation."
+      "Detailed biological mechanism: 11 Z-lines ($n + 1$ where $n$ is the number of sarcomeres)."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط."
+      "الآلية البيولوجية التفصيلية: 11 خط Z (العدد $+ 1$ حيث تمثل المسافة بين كل خطين متتاليين قطعة عضلية)."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_37",
-    "titleEn": "Role of Calcium Ions (Ca2+) at Synapse #17",
-    "titleAr": "دور أيونات الكالسيوم عند التشابك العصبي العضلي #17",
+    "titleEn": "H-Zone Behavior During Maximal Contraction",
+    "titleAr": "سلوك المنطقة شبه المضيئة H أثناء الانقباض التام",
     "difficulty": "medium",
-    "questionEn": "What is the vital role of Calcium ions ($\\text{Ca}^{2+}$) when a nerve impulse arrives at the axon terminal of a motor neuron?",
-    "questionAr": "ما هو الدور الحيوي لأيونات الكالسيوم ($\\text{Ca}^{2+}$) عند وصول السيال العصبي إلى النهاية العصبية؟",
+    "questionEn": "During maximal, powerful contraction of a skeletal muscle sarcomere, the central semi-light (H) zone:",
+    "questionAr": "أثناء الانقباض العضلي التام والقوي للقطعة العضلية في اللييفة الهيكلية، فإن المنطقة شبه المضيئة (H):",
     "optionsEn": [
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-      "They hydrolyze ATP in the mitochondria",
-      "They hyperpolarize the sarcolemma",
-      "They bind directly to troponin in blood"
+      "Expands to twice its resting width",
+      "Completely disappears as opposing thin actin filaments slide past each other meeting in the center",
+      "Remains completely unchanged in dimension",
+      "Transforms into a dense calcium carbonate crystal"
     ],
     "optionsAr": [
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي",
-      "تقوم بتحلل ATP في الميتوكوندريا",
-      "تزيد من استقطاب غشاء الليفة العضلية",
-      "ترتبط بالتروبونين في بلازما الدم"
+      "تتسع لضعف عرضها في حالة الراحة",
+      "تنعدم وتختفي تماماً نتيجة تلاقي وتداخل خيوط الأكتين الرفيعة في منتصف القطعة",
+      "تظل ثابتة تماماً في أبعادها",
+      "تتحول إلى بلورة صلبة من كربونات الكالسيوم"
     ],
-    "correctAnswer": "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Completely disappears as opposing thin actin filaments slide past each other meeting in the center",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "They enter the terminal and cause synaptic vesicles to rupture, releasing acetylcholine into the synaptic cleft."
+      "Detailed biological mechanism: Completely disappears as opposing thin actin filaments slide past each other meeting in the center."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "تدخل إلى النهاية العصبية وتفجر حويصلات التشابك لتحرير الأستيل كولين في الشق التشابكي."
+      "الآلية البيولوجية التفصيلية: تنعدم وتختفي تماماً نتيجة تلاقي وتداخل خيوط الأكتين الرفيعة في منتصف القطعة."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_38",
-    "titleEn": "Role of Sodium Ions (Na+) in Depolarization #18",
-    "titleAr": "دور أيونات الصوديوم في إزالة الاستقطاب #18",
+    "titleEn": "I-Band Shortening Mechanics During Contraction",
+    "titleAr": "آلية قصر المنطقة المضيئة I أثناء الانقباض",
     "difficulty": "medium",
-    "questionEn": "When acetylcholine binds to receptors on the muscle sarcolemma, what ion movement causes depolarization?",
-    "questionAr": "عند ارتباط الأستيل كولين بمستقبلاته على غشاء الليفة العضلية، ما حركة الأيونات التي تسبب إزالة الاستقطاب وتوليد جهد الفعل؟",
+    "questionEn": "During muscle contraction, why does the light (I) band become visibly narrower?",
+    "questionAr": "أثناء الانقباض العضلي، لماذا يقصر طول المنطقة المضيئة (I) بشكل ملحوظ؟",
     "optionsEn": [
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-      "Efflux of Potassium ions out of the cell",
-      "Influx of Chloride ions",
-      "Exocytosis of glycogen granules"
+      "Because actin protein chains are enzymatically degraded into free amino acids",
+      "Because Z-lines move away from each other toward muscle ends",
+      "Because thin actin filaments are drawn inward toward the sarcomere center between myosin filaments",
+      "Because myosin filaments shrink in absolute molecular length"
     ],
     "optionsAr": [
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً",
-      "خروج أيونات البوتاسيوم خارج الخلية",
-      "دخول أيونات الكلوريد",
-      "خروج حبيبات الجليكوجين"
+      "لأن سلاسل الأكتين تتحلل إنزيمياً إلى أحماض أمينية حرة",
+      "لأن خطوط Z تتباعد عن بعضها نحو أطراف العضلة",
+      "لأن خيوط الأكتين الرفيعة تُسحب نحو مركز القطعة العضلية متداخلة بين خيوط المايوسين",
+      "لأن خيوط المايوسين تنكمش في طولها الجزيئي الحقيقي"
     ],
-    "correctAnswer": "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Because thin actin filaments are drawn inward toward the sarcomere center between myosin filaments",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Rapid influx of Sodium ions ($\\text{Na}^+$) into the sarcoplasm, making the inside positive."
+      "Detailed biological mechanism: Because thin actin filaments are drawn inward toward the sarcomere center between myosin filaments."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "دخول سريع لأيونات الصوديوم ($\\text{Na}^+$) داخل الليفة العضلية فيصبح الداخل موجباً."
+      "الآلية البيولوجية التفصيلية: لأن خيوط الأكتين الرفيعة تُسحب نحو مركز القطعة العضلية متداخلة بين خيوط المايوسين."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_39",
-    "titleEn": "Role of Acetylcholinesterase Enzyme #19",
-    "titleAr": "دور إنزيم الكولين إستريز #19",
+    "titleEn": "Myosin Filaments Absolute Length Invariance",
+    "titleAr": "ثبات الطول الفعلي لخيوط الأكتين والمايوسين",
     "difficulty": "medium",
-    "questionEn": "What is the physiological role of the enzyme acetylcholinesterase located at the neuromuscular junction?",
-    "questionAr": "ما الدور الفسيولوجي لإنزيم الكولين إستريز المتواجد في نقاط التشابك العصبي العضلي؟",
+    "questionEn": "According to Huxley's sliding filament hypothesis, during muscle contraction and relaxation, the absolute physical length of individual myosin and actin filaments:",
+    "questionAr": "وفقاً لفرضية الخيوط المنزلقة لهكسلي، أثناء الانقباض والانبساط العضلي فإن الطول الفيزيائي الفعلي لكل من خيوط المايوسين والأكتين المفردة:",
     "optionsEn": [
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-      "Phosphorylates ADP into ATP",
-      "Synthesizes new acetylcholine",
-      "Stimulates continuous tetanic contraction"
+      "Shortens by $50\\%$ during contraction and stretches by $200\\%$ in relaxation",
+      "Doubles due to rapid peptide synthesis",
+      "Degrades into soluble urea molecules",
+      "Remains constant; movement is entirely due to mutual sliding without filament shortening"
     ],
     "optionsAr": [
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة",
-      "يفسفر ADP إلى ATP",
-      "يصنع أستيل كولين جديداً",
-      "يحفز انقباضاً عضلياً مستمراً"
+      "يقصر بنسبة $50\\%$ في الانقباض ويستطيل بنسبة $200\\%$ في الانبساط",
+      "يتضاعف نتيجة البناء الببتيدي السريع",
+      "يتحلل إلى جزيئات يوريا ذائبة",
+      "يظل ثابتاً تماماً دون أي تغير؛ وتعتمد الحركة كلياً على انزلاق الخيوط فوق بعضها البعض"
     ],
-    "correctAnswer": "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax",
-    "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "correctAnswer": "Remains constant; movement is entirely due to mutual sliding without filament shortening",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "Hydrolyzes acetylcholine into choline and acetic acid, allowing the muscle to repolarize and relax."
+      "Detailed biological mechanism: Remains constant; movement is entirely due to mutual sliding without filament shortening."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "يحطم الأستيل كولين مائياً إلى كولين وحمض خليك، مما يتيح عودة الاستقطاب وانبساط العضلة."
+      "الآلية البيولوجية التفصيلية: يظل ثابتاً تماماً دون أي تغير؛ وتعتمد الحركة كلياً على انزلاق الخيوط فوق بعضها البعض."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_40",
-    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation #20",
-    "titleAr": "الدور المزدوج لـ ATP في الانقباض والانبساط #20",
+    "titleEn": "Neuromuscular Junction: Sodium Influx and Depolarization",
+    "titleAr": "تدفق أيونات الصوديوم وإزالة الاستقطاب في غشاء اللييفة",
     "difficulty": "medium",
-    "questionEn": "ATP is required during BOTH contraction and relaxation because:",
-    "questionAr": "جزيئات ATP ضرورية في عمليتي الانقباض والانبساط معاً لأن:",
+    "questionEn": "Binding of acetylcholine molecules to receptors on the muscle fiber motor end plate triggers:",
+    "questionAr": "يؤدي ارتباط جزيئات الأستيل كولين بمستقبلاتها على غشاء صفيحة النهاية العضلية الحركية إلى:",
     "optionsEn": [
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
-      "It builds actin protein chains",
-      "It converts glucose into glycogen",
-      "It acts as an electrical conductor"
+      "A rapid increase in sarcolemma permeability to sodium ions ($Na^+$), causing depolarization",
+      "The immediate crystallization of intracellular glycogen stores",
+      "An enormous outflow of potassium ions stopping all membrane potentials",
+      "Complete detachment of all tendons from surrounding bones"
     ],
     "optionsAr": [
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط",
-      "يبني سلاسل بروتين الأكتين",
-      "يحول الجلوكوز إلى جليكوجين",
-      "يعمل كموصل كهربي للسيال"
+      "زيادة سريعة في نفاذية غشاء الساركوليما لأيونات الصوديوم ($Na^+$) وتدفقها للداخل مسببة إزالة الاستقطاب",
+      "تبلور مخزون الجليكوجين داخل الخلية فوراً",
+      "خروج هائل لأيونات البوتاسيوم يوقف جهد الغشاء تماماً",
+      "انفصال كافة الأوتار عن العظام المجاورة"
     ],
-    "correctAnswer": "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation",
+    "correctAnswer": "A rapid increase in sarcolemma permeability to sodium ions ($Na^+$), causing depolarization",
     "correctIndex": 0,
-    "hintEn": "Recall the sequence: Nerve impulse $\\to \\text{Ca}^{2+}$ entry $\\to$ Acetylcholine release $\\to \\text{Na}^+$ entry $\\to$ Depolarization $\\to$ Contraction $\\to$ Acetylcholinesterase destruction $\\to$ Relaxation.",
-    "hintAr": "تذكر التسلسل: وصول السيال $\\to$ دخول $\\text{Ca}^{2+} \\to$ تحرر الأستيل كولين $\\to$ تدفق $\\text{Na}^+ \\to$ زوال الاستقطاب والانقباض $\\to$ تكسير الإنزيم للأستيل كولين $\\to$ عودة الاستقطاب والانبساط.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Physiological sequence:",
-      "It powers cross-bridge pulling during contraction and is needed to detach cross-bridges during relaxation."
+      "Detailed biological mechanism: A rapid increase in sarcolemma permeability to sodium ions ($Na^+$), causing depolarization."
     ],
     "stepByStepSolutionAr": [
-      "التسلسل الفسيولوجي المعتمد:",
-      "طاقته تسحب الروابط المستعرضة أثناء الانقباض، وتلزم لفصل الروابط المستعرضة عن الأكتين عند الانبساط."
+      "الآلية البيولوجية التفصيلية: زيادة سريعة في نفاذية غشاء الساركوليما لأيونات الصوديوم ($Na^+$) وتدفقها للداخل مسببة إزالة الاستقطاب."
     ],
-    "teacherTipEn": "Without ATP, cross-bridges cannot detach from actin filaments, causing permanent muscle spasm (Rigor Mortis).",
-    "teacherTipAr": "عند نفاد جزيئات ATP تماماً، تعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين، مما يسبب الشد العضلي المؤلم (تيبس العضلات)."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_41",
-    "titleEn": "Motor Unit Composition & Fiber Count #1",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #1",
+    "titleEn": "Sarcoplasmic Reticulum Calcium Storage and Release",
+    "titleAr": "تخزين وإطلاق الكالسيوم من الشبكة الساركوبلازمية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The action potential spreading across the sarcolemma and down the transverse T-tubules stimulates:",
+    "questionAr": "تؤدي موجة إزالة الاستقطاب المنتشرة عبر غشاء الساركوليما والأنبيبات المستعرضة (T) إلى تحفيز:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "The mitochondria to stop producing ATP immediately",
+      "The sarcoplasmic reticulum to release stored calcium ions into the sarcoplasm surrounding myofibrils",
+      "The cell nucleus to disintegrate by programmed apoptosis",
+      "The red blood cells in capillaries to absorb lactic acid"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "الميتوكوندريا للتوقف عن إنتاج الـ ATP فوراً",
+      "الشبكة الساركوبلازمية لإطلاق أيونات الكالسيوم المخزنة فيها إلى الساركوبلازم المحيط باللييفات",
+      "النواة للتحلل الذاتي المبرمج",
+      "كرات الدم الحمراء لامتصاص حمض اللاكتيك"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "The sarcoplasmic reticulum to release stored calcium ions into the sarcoplasm surrounding myofibrils",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: The sarcoplasmic reticulum to release stored calcium ions into the sarcoplasm surrounding myofibrils."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: الشبكة الساركوبلازمية لإطلاق أيونات الكالسيوم المخزنة فيها إلى الساركوبلازم المحيط باللييفات."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_42",
-    "titleEn": "Motor Unit Composition & Fiber Count #2",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #2",
+    "titleEn": "Dual Role of ATP in Muscle Contraction and Relaxation",
+    "titleAr": "الدور المزدوج لجزيئات ATP في الانقباض والانبساط معاً",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "Muscle physiology dictates that ATP hydrolysis energy is essentially required for:",
+    "questionAr": "تؤكد فسيولوجيا العضلات أن طاقة جزيئات الـ ATP مطلوبة بصورة حيوية لكل من:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Contraction only, whereas relaxation is a completely passive non-energetic process",
+      "Relaxation only, whereas contraction is driven by electrostatic repulsion alone",
+      "Both pulling actin filaments during contraction and detaching cross-bridges during relaxation",
+      "Converting skeletal muscles into smooth visceral muscles"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "الانقباض فقط، بينما الانبساط عملية تلقائية خاملة بلا طاقة",
+      "الانبساط فقط، بينما الانقباض يتم بالتنافر الكهربي المجرد",
+      "سحب خيوط الأكتين أثناء الانقباض وفصل الروابط المستعرضة وإعادة ضخ الكالسيوم أثناء الانانبساط",
+      "تحويل العضلات الهيكلية إلى عضلات ملساء لاإرادية"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Both pulling actin filaments during contraction and detaching cross-bridges during relaxation",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Both pulling actin filaments during contraction and detaching cross-bridges during relaxation."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: سحب خيوط الأكتين أثناء الانقباض وفصل الروابط المستعرضة وإعادة ضخ الكالسيوم أثناء الانانبساط."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_43",
-    "titleEn": "Motor Unit Composition & Fiber Count #3",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #3",
+    "titleEn": "Muscle Fatigue Cause: Lactic Acid Accumulation",
+    "titleAr": "سبب الإجهاد العضلي: تراكم حمض اللاكتيك",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "Muscle fatigue developing during prolonged, vigorous athletic exertion is biochemically caused by:",
+    "questionAr": "يرجع الإجهاد العضلي الناشئ أثناء المجهود الرياضي العنيف والمستمر بيوكيميائياً إلى:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Excessive accumulation of carbon dioxide gas bubbles inside bone marrow",
+      "Total loss of all cell nuclei from muscle fibers",
+      "Absorption of excessive water causing muscle fiber rupture",
+      "Insufficient oxygen delivery forcing anaerobic glycolysis and the accumulation of lactic acid"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "تراكم فقاعات غاز ثاني أكسيد الكربون في نخاع العظام",
+      "فقدان جميع الأنوية الخلوية من داخل الألياف العضلية",
+      "امتصاص كميات هائلة من الماء مسببة انفجار الألياف",
+      "نقص الأكسجين الواصل للعضلة مما يدفعها للتنفس اللاهوائي وتراكم حمض اللاكتيك المسبب للتعب"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Insufficient oxygen delivery forcing anaerobic glycolysis and the accumulation of lactic acid",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Insufficient oxygen delivery forcing anaerobic glycolysis and the accumulation of lactic acid."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: نقص الأكسجين الواصل للعضلة مما يدفعها للتنفس اللاهوائي وتراكم حمض اللاكتيك المسبب للتعب."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_44",
-    "titleEn": "Motor Unit Composition & Fiber Count #4",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #4",
+    "titleEn": "Muscle Cramp Cause: ATP Depletion",
+    "titleAr": "السبب البيولوجي للشد العضلي المؤلم: نفاد ATP",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "A severe, painful muscle spasm (cramp) occurs when an overworked muscle suffers from:",
+    "questionAr": "يحدث الشد العضلي المؤلم والمستمر عندما تعاني العضلة المجهدة من:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Severe depletion of ATP, preventing cross-bridges from detaching from actin filaments",
+      "A massive surplus of mitochondrial ATP pushing actin out of the cell",
+      "The complete disappearance of myosin filaments from the sarcoplasm",
+      "Excessive accumulation of calcium ions inside the stomach cavity"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "نقص حاد في جزيئات ATP، مما يعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين",
+      "فائض هائل من ATP يدفع الأكتين خارج الخلية",
+      "اختفاء خيوط المايوسين تماماً من الساركوبلازم",
+      "تراكم أيونات الكالسيوم داخل تجويف المعدة"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
+    "correctAnswer": "Severe depletion of ATP, preventing cross-bridges from detaching from actin filaments",
     "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Severe depletion of ATP, preventing cross-bridges from detaching from actin filaments."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: نقص حاد في جزيئات ATP، مما يعجز الروابط المستعرضة عن الانفصال عن خيوط الأكتين."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_45",
-    "titleEn": "Motor Unit Composition & Fiber Count #5",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #5",
+    "titleEn": "Motor Unit Definition and Fiber Range",
+    "titleAr": "مفهوم الوحدة الحركية ومدى الألياف التي تغذيها",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "A motor unit is anatomically defined as a single motor neuron together with:",
+    "questionAr": "تعرف الوحدة الحركية تشريحياً بأنها خلية عصبية حركية واحدة بالإضافة إلى:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "All the bones of the appendicular skeleton",
+      "The group of muscle fibers it supplies, ranging between 5 and 100 muscle fibers",
+      "Exactly one million sensory receptor cells in the skin",
+      "The spinal cord and brain stem combined"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "كافة عظام الهيكل الطرفي المرتبطة بها",
+      "مجموعة الألياف العضلية التي تغذيها نهاياتها العصبية، والتي يتراوح عددها بين 5 و 100 ليفة",
+      "مليون خلية حسية مستقبلة في الجلد تماماً",
+      "الحبل الشوكي وجذع المخ مجتمعين"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "The group of muscle fibers it supplies, ranging between 5 and 100 muscle fibers",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: The group of muscle fibers it supplies, ranging between 5 and 100 muscle fibers."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: مجموعة الألياف العضلية التي تغذيها نهاياتها العصبية، والتي يتراوح عددها بين 5 و 100 ليفة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_46",
-    "titleEn": "Motor Unit Composition & Fiber Count #6",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #6",
+    "titleEn": "Motor End Plate Anatomical Site",
+    "titleAr": "الموقع التشريحي لصفيحة النهاية الحركية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The motor end plate represents a specialized, folded region located on the:",
+    "questionAr": "تمثل صفيحة النهاية الحركية (Motor end plate) جزءاً متخصصاً غنياً بالثنيات يقع على:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Outer periosteum surface of the tibia bone",
+      "Synovial cartilage capsule of the shoulder joint",
+      "Sarcolemma membrane of the muscle fiber facing the nerve axon terminal",
+      "Inner nuclear envelope of the motor neuron soma"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "الغشاء الخارجي السمحاقي لعظمة القصبة",
+      "المحفظة الغضروفية الزلالية لمفصل الكتف",
+      "غشاء الليفة العضلية (الساركوليما) المقابل للتفرعات النهائية للخلية العصبية الحركية",
+      "الغلاف النووي الداخلي لجسم الخلية العصبية الحركية"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Sarcolemma membrane of the muscle fiber facing the nerve axon terminal",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Sarcolemma membrane of the muscle fiber facing the nerve axon terminal."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: غشاء الليفة العضلية (الساركوليما) المقابل للتفرعات النهائية للخلية العصبية الحركية."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_47",
-    "titleEn": "Motor Unit Composition & Fiber Count #7",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #7",
+    "titleEn": "Number of Motor End Plates in a Motor Unit",
+    "titleAr": "عدد الصفائح النهائية الحركية في وحدة حركية معينة",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "In a motor unit supplying 60 muscle fibers, how many motor end plates are present?",
+    "questionAr": "في وحدة حركية تغذي 60 ليفة عضلية، كم يبلغ عدد الصفائح النهائية الحركية في هذه الوحدة؟",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "1 motor end plate for all 60 fibers combined",
+      "120 motor end plates",
+      "300 motor end plates",
+      "60 motor end plates (one motor end plate per muscle fiber)"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "صفيحة واحدة فقط لكافة الألياف الستين معاً",
+      "120 صفيحة نهائية حركية",
+      "300 صفيحة نهائية حركية",
+      "60 صفيحة نهائية حركية (صفيحة واحدة لكل ليفة عضلية)"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "60 motor end plates (one motor end plate per muscle fiber)",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: 60 motor end plates (one motor end plate per muscle fiber)."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: 60 صفيحة نهائية حركية (صفيحة واحدة لكل ليفة عضلية)."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_48",
-    "titleEn": "Motor Unit Composition & Fiber Count #8",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #8",
+    "titleEn": "All-or-None Law in Muscle Fiber Twitches",
+    "titleAr": "قانون الكل أو اللاشيء في انقباض الليفة العضلية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The All-or-None Law in muscle physiology establishes that an individual skeletal muscle fiber:",
+    "questionAr": "ينص قانون الكل أو اللاشيء (All-or-None Law) في فسيولوجيا العضلات على أن الليفة العضلية الواحدة:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Contracts maximally if the nervous stimulus reaches threshold, and fails to contract if subthreshold",
+      "Increases its contraction strength linearly with stimulus voltage indefinitely",
+      "Contracts only when the environmental temperature exceeds $50^\\circ\\text{C}$",
+      "Fuses permanently with adjoining motor neurons upon excitation"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "تنقبض بأقصى قوة لها إذا كان المؤثر العصبي كافياً، ولا تنقبض إطلاقاً إذا كان المؤثر دون عتبة الإثارة",
+      "تزيد قوة انقباضها خطياً مع زيادة الجهد بلا حدود",
+      "تنقبض فقط إذا تجاوزت حرارة البيئة 50 درجة مئوية",
+      "تلتحم نهائياً بالخلايا العصبية المجاورة عند إثارتها"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
+    "correctAnswer": "Contracts maximally if the nervous stimulus reaches threshold, and fails to contract if subthreshold",
     "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Contracts maximally if the nervous stimulus reaches threshold, and fails to contract if subthreshold."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: تنقبض بأقصى قوة لها إذا كان المؤثر العصبي كافياً، ولا تنقبض إطلاقاً إذا كان المؤثر دون عتبة الإثارة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_49",
-    "titleEn": "Motor Unit Composition & Fiber Count #9",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #9",
+    "titleEn": "Cartilage in Respiratory Tract: Tracheal Rings",
+    "titleAr": "الغضاريف في الجهاز التنفسي: حلقات القصبة الهوائية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The human trachea is maintained permanently open for respiration by possessing:",
+    "questionAr": "تظل القصبة الهوائية في الإنسان مفتوحة بصفة دائمة للتنفس بفضل احتوائها على:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Dense calcium bone plates locking it immovably to the sternum",
+      "C-shaped cartilaginous rings that prevent its collapse during pressure changes",
+      "Thick layers of impermeable waxy cutin on the outside",
+      "Continuous bands of striated voluntary skeletal muscle fibers"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "صفائح عظمية متكلسة صلبة تثبتها في عظمة القص",
+      "حلقات غضروفية غير كاملة الاستدارة (على شكل حرف C) تمنع انطباقها أثناء تغيرات الضغط",
+      "طبقات سميكة من الكيوتين الشمعي غير المنفذ",
+      "حزم مستمرة من ألياف عضلية هيكلية إرادية مخططة"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "C-shaped cartilaginous rings that prevent its collapse during pressure changes",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: C-shaped cartilaginous rings that prevent its collapse during pressure changes."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: حلقات غضروفية غير كاملة الاستدارة (على شكل حرف C) تمنع انطباقها أثناء تغيرات الضغط."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_50",
-    "titleEn": "Motor Unit Composition & Fiber Count #10",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #10",
+    "titleEn": "Scapula Bone Anatomical Topography",
+    "titleAr": "التشريح الطبوغرافي لعظمة لوح الكتف",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The scapula (shoulder blade) is anatomically characterized as a:",
+    "questionAr": "تتميز عظمة لوح الكتف في الهيكل العظمي للإنسان تشريحياً بأنها:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Slender cylindrical bone running horizontally across the anterior chest",
+      "Curved rib connecting directly to the thoracic vertebrae and sternum",
+      "Triangular flat bone located dorsally, with its broad base directed inward and pointed apex outward",
+      "Small rounded bone protecting the anterior aspect of the knee"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "عظمة أسطوانية رفيعة تمتد أفقياً في مقدمة الصدر",
+      "ضلع مقوس يتصل مباشرة بالفقرات الظهرية والقص",
+      "عظمة ظهرية مفلطحة مثلثة الشكل، قاعدتها العريضة للداخل وطرفها المدبب للخارج",
+      "عظمة مستديرة صغيرة تحمي مقدمة مفصل الركبة"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Triangular flat bone located dorsally, with its broad base directed inward and pointed apex outward",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Triangular flat bone located dorsally, with its broad base directed inward and pointed apex outward."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: عظمة ظهرية مفلطحة مثلثة الشكل، قاعدتها العريضة للداخل وطرفها المدبب للخارج."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_51",
-    "titleEn": "Motor Unit Composition & Fiber Count #11",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #11",
+    "titleEn": "Fibrous Skull Joint versus Cartilaginous Joint Mobility",
+    "titleAr": "مقارنة حركة المفصل الليفي والمفصل الغضروفي",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "A fibrous joint in an adult skull differs from an intervertebral cartilaginous joint in that:",
+    "questionAr": "يختلف المفصل الليفي في جمجمة البالغ عن المفصل الغضروفي بين الفقرات في أن المفصل الليفي:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Contains large volumes of fluid; cartilaginous joints are dry",
+      "Possesses four cruciate ligaments; cartilaginous joints have none",
+      "Is voluntary and contracts when stimulated by motor nerves",
+      "Allows strictly zero movement (immovable), whereas the cartilaginous joint permits limited movement"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "يحتوي على كميات وفيرة من السائل، بينما الغضروفي جاف",
+      "يحتوي على أربعة أربطة صليبية، بينما الغضروفي يخلو منها",
+      "إرادي وينقبض عند تنبيهه بالأعصاب الحركية",
+      "عديم الحركة تماماً، بينما يسمح المفصل الغضروفي بحركة محدودة جداً بين العظام المتجاورة"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Allows strictly zero movement (immovable), whereas the cartilaginous joint permits limited movement",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Allows strictly zero movement (immovable), whereas the cartilaginous joint permits limited movement."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: عديم الحركة تماماً، بينما يسمح المفصل الغضروفي بحركة محدودة جداً بين العظام المتجاورة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_52",
-    "titleEn": "Motor Unit Composition & Fiber Count #12",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #12",
+    "titleEn": "Synovial Cartilage Frictionless Interface",
+    "titleAr": "انعدام الاحتكاك في غضاريف المفاصل الزلالية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "Articular hyaline cartilage covering bone ends in synovial joints prevents wear because:",
+    "questionAr": "يمنع الغضروف الزلالي الأملس الشفاف المغطي لأطراف العظام تآكلها عند الحركة بفضل:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "It provides an ultra-smooth, glassy, resilient surface with a friction coefficient lower than ice on ice",
+      "It is as hard as diamond and cannot be abraded under any force",
+      "It is permanently replaced by cutin every ten seconds",
+      "It contains millions of tiny electric motors pushing bones apart"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "توفير سطح غضروفي أملس ومرن وشفاف يبلغ معامل احتكاكه قيماً أقل بكثير من انزلاق الجليد",
+      "كونه صلداً كالألماس لا يتأثر بأي قوى احتكاك",
+      "استبداله بطبقة كيوتين جديدة كل عشر ثوانٍ",
+      "احتوائه على محركات كهربية مجهرية تدفع العظام بعيداً"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
+    "correctAnswer": "It provides an ultra-smooth, glassy, resilient surface with a friction coefficient lower than ice on ice",
     "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: It provides an ultra-smooth, glassy, resilient surface with a friction coefficient lower than ice on ice."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: توفير سطح غضروفي أملس ومرن وشفاف يبلغ معامل احتكاكه قيماً أقل بكثير من انزلاق الجليد."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_53",
-    "titleEn": "Motor Unit Composition & Fiber Count #13",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #13",
+    "titleEn": "Sarcomere H-Zone Molecular Composition",
+    "titleAr": "التركيب الجزيئي للمنطقة شبه المضيئة H",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "In an electron micrograph of a relaxed skeletal sarcomere, the central H-zone is occupied exclusively by:",
+    "questionAr": "في صورة مجهرية إلكترونية لقطعة عضلية منبسطة، تتكون المنطقة شبه المضيئة (H) في المنتصف حصرياً من:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Thin actin filaments only, bisected by the Z-line",
+      "Thick myosin filaments only, without any overlapping thin actin filaments",
+      "Pure acetylcholine neurotransmitter vesicles",
+      "Dense calcium phosphate crystals"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "خيوط الأكتين الرفيعة فقط، وينصفها خط Z",
+      "خيوط المايوسين السميكة فقط، دون أي تداخل مع خيوط الأكتين الرفيعة",
+      "حويصلات نقية من الناقل العصبي أستيل كولين",
+      "بلورات كثيفة من فوسفات الكالسيوم"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Thick myosin filaments only, without any overlapping thin actin filaments",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Thick myosin filaments only, without any overlapping thin actin filaments."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: خيوط المايوسين السميكة فقط، دون أي تداخل مع خيوط الأكتين الرفيعة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_54",
-    "titleEn": "Motor Unit Composition & Fiber Count #14",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #14",
+    "titleEn": "Sarcomere A-Band Overlap Architecture",
+    "titleAr": "التنظيم البروتيني للمنطقة الداكنة A",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "The dark (A) band of a skeletal sarcomere possesses a higher optical density because it contains:",
+    "questionAr": "تتميز المنطقة الداكنة (A) في القطعة العضلية بكثافة بصرية عالية وظلامية تحت المجهر لاحتوائها على:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Phospholipid bilayers identical to the plasma membrane",
+      "Pure glycogen granules lacking any structural protein",
+      "Thick myosin filaments overlapping with thin actin filaments along its peripheral zones",
+      "Hollow air tubules running through the muscle"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "طبقات فسفوليبيدات دهنية مماثلة لغشاء الخلية",
+      "حبيبات جليكوجين نقية خالية من البروتينات",
+      "خيوط المايوسين السميكة متداخلة مع خيوط الأكتين الرفيعة على جانبيها",
+      "أنابيب هوائية مجوفة تخترق اللييفة"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Thick myosin filaments overlapping with thin actin filaments along its peripheral zones",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Thick myosin filaments overlapping with thin actin filaments along its peripheral zones."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: خيوط المايوسين السميكة متداخلة مع خيوط الأكتين الرفيعة على جانبيها."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_55",
-    "titleEn": "Motor Unit Composition & Fiber Count #15",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #15",
+    "titleEn": "Transverse T-Tubules Action Potential Propagation",
+    "titleAr": "دور الأنبيبات المستعرضة T في نقل جهد العمل",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "Transverse (T) tubules are invaginations of the sarcolemma that functionally ensure:",
+    "questionAr": "تمثل الأنبيبات المستعرضة (T) انغمادات عميقة لغشاء الساركوليما تعمل وظيفياً على:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Direct excretion of solid urea crystals outside the body",
+      "Continuous absorption of light waves for photosynthesis",
+      "Direct synthesis of new bones inside the sarcoplasm",
+      "Rapid conduction of the action potential deep into the fiber interior to trigger synchronous Ca2+ release"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "الإخراج المباشر لليوريا الصلبة خارج الجسم",
+      "الامتصاص المستمر للموجات الضوئية للبناء الضوئي",
+      "بناء عظام جديدة مباشرة داخل الساركوبلازم",
+      "نقل جهد العمل العصبي بسرعة إلى عمق اللييفة لتحفيز خروج الكالسيوم من كافة أجزاء الشبكة الساركوبلازمية معاً"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Rapid conduction of the action potential deep into the fiber interior to trigger synchronous Ca2+ release",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Rapid conduction of the action potential deep into the fiber interior to trigger synchronous Ca2+ release."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: نقل جهد العمل العصبي بسرعة إلى عمق اللييفة لتحفيز خروج الكالسيوم من كافة أجزاء الشبكة الساركوبلازمية معاً."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_56",
-    "titleEn": "Motor Unit Composition & Fiber Count #16",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #16",
+    "titleEn": "Postural Back Muscles Motor Unit Innervation Ratio",
+    "titleAr": "نسبة تعصيب الوحدات الحركية في عضلات الجذع والظهر",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "In large postural muscles of the human back and legs maintaining erect posture, motor units are typically:",
+    "questionAr": "في العضلات الكبيرة الحافظة لوضع وانتصاب الجسم في الظهر والساق، تتميز الوحدات الحركية بأنها:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Large, with one motor neuron supplying 80 to 100 muscle fibers to produce sustained, powerful tension",
+      "Tiny, with one neuron supplying only half a fiber",
+      "Completely absent, functioning without any nerves",
+      "Composed entirely of sensory neurons only"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "كبيرة الحجم، حيث يغذي العصب الحركي الواحد من 80 إلى 100 ليفة عضلية لتوليد قوة ودعامة مستمرة",
+      "دقيقة جداً حيث يغذي العصب نصف ليفة عضلية",
+      "غائبة تماماً، وتعمل العضلة دون أي أعصاب",
+      "مكونة حصرياً من خلايا عصبية حسية فقط"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
+    "correctAnswer": "Large, with one motor neuron supplying 80 to 100 muscle fibers to produce sustained, powerful tension",
     "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Large, with one motor neuron supplying 80 to 100 muscle fibers to produce sustained, powerful tension."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: كبيرة الحجم، حيث يغذي العصب الحركي الواحد من 80 إلى 100 ليفة عضلية لتوليد قوة ودعامة مستمرة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_57",
-    "titleEn": "Motor Unit Composition & Fiber Count #17",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #17",
+    "titleEn": "Mechanical Tearing of Muscle Fibers During Violent Cramp",
+    "titleAr": "التمزق العضلي والنزيف عند الشد العضلي العنيف",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "When an agonizing muscle cramp occurs and a person forces joint movement against the locked muscle, what serious injury ensues?",
+    "questionAr": "عند حدوث شد عضلي حاد ومؤلم مع إجبار المفصل على الحركة بالقوة ضد العضلة المتشنجة، ما الإصابة الخطيرة الناتجة؟",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Immediate transformation of the muscle into bone within five seconds",
+      "Mechanical tearing of muscle fibers accompanied by internal intramuscular hemorrhage and severe pain",
+      "Spontaneous ejection of the femur bone through the skin",
+      "Dissolution of the brain tissue completely"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "تحول فوري للعضلة إلى عظم مصمت في خمس ثوانٍ",
+      "تمزق ميكانيكي للألياف العضلية مصحوب بنزيف دموي داخلي وآلام بالغة الشدة",
+      "خروج عظمة الفخذ تلقائياً عبر الجلد",
+      "ذوبان نسيج المخ تماماً"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Mechanical tearing of muscle fibers accompanied by internal intramuscular hemorrhage and severe pain",
+    "correctIndex": 1,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Mechanical tearing of muscle fibers accompanied by internal intramuscular hemorrhage and severe pain."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: تمزق ميكانيكي للألياف العضلية مصحوب بنزيف دموي داخلي وآلام بالغة الشدة."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_58",
-    "titleEn": "Motor Unit Composition & Fiber Count #18",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #18",
+    "titleEn": "Lactate Dehydrogenase and Cori Cycle in the Liver",
+    "titleAr": "إنزيم نازع هيدروجين اللاكتات ودورة كوري الكبدية",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "In the Cori cycle, lactate transported from fatigued skeletal muscles is converted into pyruvate in liver cells by the enzyme:",
+    "questionAr": "في دورة كوري الكبدية، يتحول حمض اللاكتيك المنقول من العضلات المجهدة إلى حمض بيروفيك داخل خلايا الكبد بواسطة إنزيم:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Amylase, which breaks down starch inside blood plasma",
+      "Pepsin, which digests gastric mucosal proteins",
+      "Lactate dehydrogenase (LDH), regenerating glucose via gluconeogenesis to replenish muscle glycogen",
+      "DNA ligase, which joins Okazaki fragments"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "الأميليز، الذي يحلل النشا في بلازما الدم",
+      "الببسين، الذي يهضم بروتينات المعدة",
+      "نازع هيدروجين اللاكتات (LDH)، ليعاد تخليق الجلوكوز وتجديد مخزون الجليكوجين العضلي",
+      "إنزيم الربط، الذي يصل قطع أوكازاكي"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "Lactate dehydrogenase (LDH), regenerating glucose via gluconeogenesis to replenish muscle glycogen",
+    "correctIndex": 2,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: Lactate dehydrogenase (LDH), regenerating glucose via gluconeogenesis to replenish muscle glycogen."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: نازع هيدروجين اللاكتات (LDH)، ليعاد تخليق الجلوكوز وتجديد مخزون الجليكوجين العضلي."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   },
   {
     "id": "bio_ch1_db_med_59",
-    "titleEn": "Motor Unit Composition & Fiber Count #19",
-    "titleAr": "تركيب الوحدة الحركية وعدد الألياف العضلية #19",
+    "titleEn": "Sarcolemma Depolarization: Reversal of Membrane Polarity",
+    "titleAr": "إزالة استقطاب الساركوليما وانعكاس قطبية الغشاء",
     "difficulty": "medium",
-    "questionEn": "A motor unit contains 1 somatic motor neuron supplying a group of skeletal muscle fibers. According to Egyptian curriculum specifications, a single motor nerve fiber supplies between:",
-    "questionAr": "تحتوي الوحدة الحركية على خلية عصبية حركية واحدة تغذي مجموعة من الألياف العضلية الهيكلية. وفقاً للمنهج المصري، يغذي الليف العصبي الحركي الواحد عدداً من الألياف العضلية يتراوح بين:",
+    "questionEn": "During the arrival of an action potential at a muscle fiber, the electrical charge across the sarcolemma alters such that:",
+    "questionAr": "أثناء وصول جهد العمل وإثارة اللييفة العضلية، تتغير الشحنات الكهربية على جانبي غشاء الساركوليما بحيث:",
     "optionsEn": [
-      "$5$ to $100$ muscle fibers via terminal motor arborizations",
-      "$1$ to $4$ muscle fibers only",
-      "$200$ to $500$ muscle fibers",
-      "$1000$ to $5000$ muscle fibers"
+      "Both surfaces become permanently neutral with zero charge",
+      "The inside surface becomes negatively charged at $-70\\text{ mV}$",
+      "The membrane charges invert spontaneously into alternating current",
+      "The outside surface becomes negatively charged and the inside surface becomes positively charged due to massive sodium influx"
     ],
     "optionsAr": [
-      "من ٥ إلى ١٠٠ ليفة عضلية عبر التفرعات النهائية",
-      "من ١ إلى ٤ ألياف عضلية فقط",
-      "من ٢٠٠ إلى ٥٠٠ ليفة عضلية",
-      "من ١٠٠٠ إلى ٥٠٠٠ ليفة عضلية"
+      "يصبح كلا السطحين متعادلين تماماً دون أي شحنة",
+      "يصبح السطح الداخلي سالباً بفرق جهد $-70\\text{ mV}$",
+      "تتحول شحنات الغشاء إلى تيار متردد متذبذب",
+      "يصبح السطح الخارجي سالب الشحنة والداخلي موجب الشحنة نتيجة التدفق الهائل لأيونات الصوديوم للداخل"
     ],
-    "correctAnswer": "$5$ to $100$ muscle fibers via terminal motor arborizations",
-    "correctIndex": 0,
-    "hintEn": "The definition of the motor unit in the textbook states that each motor axon branches to innervate between 5 and 100 muscle fibers.",
-    "hintAr": "تعريف الوحدة الحركية في الكتاب المدرسي ينص على أن الليف العصبي الحركي يتفرع لتغذية عدد من 5 إلى 100 ليفة عضلية.",
+    "correctAnswer": "The outside surface becomes negatively charged and the inside surface becomes positively charged due to massive sodium influx",
+    "correctIndex": 3,
+    "hintEn": "Analyze relationships between structural wall depositions, vertebral numbering, synovial articulation, and sarcomere mechanics.",
+    "hintAr": "حلل العلاقات بين الترسيبات التركيبية، ترقيم فقرات العمود الفقري، تمفصل المفاصل الزلالية، وميكانيكية القطعة العضلية.",
     "stepByStepSolutionEn": [
-      "Definition of Motor Unit: The structural and functional unit of skeletal muscle.",
-      "It consists of one motor neuron and all the muscle fibers it innervates ($5$ to $100$ fibers).",
-      "Each terminal branch forms a neuromuscular junction (motor end plate) with one muscle fiber."
+      "Detailed biological mechanism: The outside surface becomes negatively charged and the inside surface becomes positively charged due to massive sodium influx."
     ],
     "stepByStepSolutionAr": [
-      "تعريف الوحدة الحركية: هي الوحدة الوظيفية للعضلة الهيكلية.",
-      "تتكون من خلية عصبية حركية واحدة وتغذي ما بين 5 إلى 100 ليفة عضلية.",
-      "يتصل كل فرع نهائي بصفيحة عضلية نهائية لليفة مكوناً تشابكاً عصبياً عضلياً."
+      "الآلية البيولوجية التفصيلية: يصبح السطح الخارجي سالب الشحنة والداخلي موجب الشحنة نتيجة التدفق الهائل لأيونات الصوديوم للداخل."
     ],
-    "teacherTipEn": "The total number of neuromuscular junctions in a motor unit is ALWAYS equal to the number of muscle fibers in that unit.",
-    "teacherTipAr": "عدد الوصلات العصبية العضلية في الوحدة الحركية يساوي دائماً عدد الألياف العضلية التي تغذيها تلك الوحدة."
+    "teacherTipEn": "Pay careful attention to the difference between the total number of vertebrae (33) and the number of distinct bones (26).",
+    "teacherTipAr": "انتبه دائماً للفارق بين عدد فقرات العمود الفقري (33 فقرة) وعدد عظام العمود الفقري فعلياً في البالغ (26 عظمة)."
   }
 ],
   hots: [
   {
     "id": "bio_ch1_db_hots_01",
-    "titleEn": "Quantitative Motor Units Calculation (100 fibers) #1",
-    "titleAr": "حسابات الوحدات الحركية (100 ليفة عضلية) #1",
+    "titleEn": "Sarcomere Arithmetic: Z-Lines to Sarcomeres",
+    "titleAr": "حسابات الساركومير: العلاقة بين خطوط Z والقطع العضلية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 100$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 100$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "A single myofibril examined under an electron microscope reveals exactly 10 transverse Z-lines. How many complete sarcomeres does this segment contain?",
+    "questionAr": "فُحصت لييفة عضلية مجهرياً ووُجد أنها تحتوي على 10 خطوط Z داكنة متتالية. كم يبلغ عدد القطع العضلية (الساركوميرات) الكاملة في هذا الجزء؟",
     "optionsEn": [
-      "1 motor units",
-      "20 motor units",
-      "100 motor units",
-      "2 motor units"
+      "10 sarcomeres",
+      "11 sarcomeres",
+      "9 sarcomeres ($n - 1$ where $n$ is the number of Z-lines)",
+      "20 sarcomeres"
     ],
     "optionsAr": [
-      "1 وحدة حركية",
-      "20 وحدة حركية",
-      "100 وحدة حركية",
-      "2 وحدة حركية"
+      "10 قطع عضلية",
+      "11 قطعة عضلية",
+      "9 قطع عضلية (العدد $- 1$ حيث تمثل كل مسافة بين خطين متتاليين قطعة عضلية)",
+      "20 قطعة عضلية"
     ],
-    "correctAnswer": "1 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{100}{100}$.",
+    "correctAnswer": "9 sarcomeres ($n - 1$ where $n$ is the number of Z-lines)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 100$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{100}{100} = 1\\text{ units}$$"
+      "Step-by-step biological derivation: 9 sarcomeres ($n - 1$ where $n$ is the number of Z-lines)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $100$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{100}{100} = 1\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 9 قطع عضلية (العدد $- 1$ حيث تمثل كل مسافة بين خطين متتاليين قطعة عضلية)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 100 / 5 = 20 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 20 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_02",
-    "titleEn": "Quantitative Motor Units Calculation (200 fibers) #2",
-    "titleAr": "حسابات الوحدات الحركية (200 ليفة عضلية) #2",
+    "titleEn": "Sarcomere Arithmetic: Dark A-Bands Count",
+    "titleAr": "حسابات الساركومير: عدد المناطق الداكنة A",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 200$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 200$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "In the same myofibril containing 10 consecutive Z-lines (9 sarcomeres), how many dark (A) bands are present?",
+    "questionAr": "في نفس اللييفة العضلية السابقة التي تحتوي على 10 خطوط Z (أي 9 قطع عضلية)، كم يبلغ عدد المناطق الداكنة (A)؟",
     "optionsEn": [
-      "2 motor units",
-      "40 motor units",
-      "200 motor units",
-      "4 motor units"
+      "10 dark A-bands",
+      "8 dark A-bands",
+      "18 dark A-bands",
+      "9 dark A-bands (each sarcomere contains exactly one central A-band)"
     ],
     "optionsAr": [
-      "2 وحدة حركية",
-      "40 وحدة حركية",
-      "200 وحدة حركية",
-      "4 وحدة حركية"
+      "10 مناطق داكنة",
+      "8 مناطق داكنة",
+      "18 منطقة داكنة",
+      "9 مناطق داكنة A (تحتوي كل قطعة عضلية على منطقة داكنة مركزية واحدة)"
     ],
-    "correctAnswer": "2 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{200}{100}$.",
+    "correctAnswer": "9 dark A-bands (each sarcomere contains exactly one central A-band)",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 200$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{200}{100} = 2\\text{ units}$$"
+      "Step-by-step biological derivation: 9 dark A-bands (each sarcomere contains exactly one central A-band)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $200$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{200}{100} = 2\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 9 مناطق داكنة A (تحتوي كل قطعة عضلية على منطقة داكنة مركزية واحدة)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 200 / 5 = 40 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 40 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_03",
-    "titleEn": "Quantitative Motor Units Calculation (300 fibers) #3",
-    "titleAr": "حسابات الوحدات الحركية (300 ليفة عضلية) #3",
+    "titleEn": "Sarcomere Arithmetic: Complete versus Incomplete I-Bands",
+    "titleAr": "حسابات الساركومير: المناطق المضيئة الكاملة وغير الكاملة",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 300$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 300$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "For a myofibril segment bounded by 10 Z-lines, what is the number of complete light (I) bands versus incomplete terminal light bands?",
+    "questionAr": "لقطعة من لييفة عضلية يحدها 10 خطوط Z، كم يبلغ عدد المناطق المضيئة (I) الكاملة مقارنة بغير الكاملة الطرفية؟",
     "optionsEn": [
-      "3 motor units",
-      "60 motor units",
-      "300 motor units",
-      "6 motor units"
+      "8 complete I-bands and 2 incomplete terminal half-bands",
+      "10 complete I-bands and 0 incomplete bands",
+      "9 complete I-bands and 1 incomplete band",
+      "5 complete I-bands and 5 incomplete bands"
     ],
     "optionsAr": [
-      "3 وحدة حركية",
-      "60 وحدة حركية",
-      "300 وحدة حركية",
-      "6 وحدة حركية"
+      "8 مناطق مضيئة كاملة ومنطقتان طرفيتان غير كاملتين",
+      "10 مناطق مضيئة كاملة ولا توجد مناطق غير كاملة",
+      "9 مناطق مضيئة كاملة ومنطقة واحدة غير كاملة",
+      "5 مناطق كاملة و5 مناطق غير كاملة"
     ],
-    "correctAnswer": "3 motor units",
+    "correctAnswer": "8 complete I-bands and 2 incomplete terminal half-bands",
     "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{300}{100}$.",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 300$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{300}{100} = 3\\text{ units}$$"
+      "Step-by-step biological derivation: 8 complete I-bands and 2 incomplete terminal half-bands."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $300$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{300}{100} = 3\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 8 مناطق مضيئة كاملة ومنطقتان طرفيتان غير كاملتين."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 300 / 5 = 60 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 60 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_04",
-    "titleEn": "Quantitative Motor Units Calculation (400 fibers) #4",
-    "titleAr": "حسابات الوحدات الحركية (400 ليفة عضلية) #4",
+    "titleEn": "Sarcomere Arithmetic: H-Zones in Relaxed vs Contracted State",
+    "titleAr": "حسابات الساركومير: المناطق شبه المضيئة في الراحة والانقباض",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 400$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 400$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "In a relaxed myofibril containing 15 sarcomeres, the number of semi-light (H) zones is 15. What will be the number of visible H-zones during full, maximal contraction?",
+    "questionAr": "في لييفة عضلية في حالة انبساط تحتوي على 15 قطعة عضلية، يكون عدد المناطق شبه المضيئة (H) مساوياً 15. كم يصبح عددها أثناء الانقباض التام القوي؟",
     "optionsEn": [
-      "4 motor units",
-      "80 motor units",
-      "400 motor units",
-      "8 motor units"
+      "15 (H-zones double in brightness)",
+      "0 (H-zones completely disappear as actin filaments slide into the center)",
+      "30",
+      "7"
     ],
     "optionsAr": [
-      "4 وحدة حركية",
-      "80 وحدة حركية",
-      "400 وحدة حركية",
-      "8 وحدة حركية"
+      "15 (تتضاعف إضاءتها)",
+      "صفر (تختفي المناطق شبه المضيئة تماماً لتلاقي خيوط الأكتين في المنتصف)",
+      "30",
+      "7"
     ],
-    "correctAnswer": "4 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{400}{100}$.",
+    "correctAnswer": "0 (H-zones completely disappear as actin filaments slide into the center)",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 400$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{400}{100} = 4\\text{ units}$$"
+      "Step-by-step biological derivation: 0 (H-zones completely disappear as actin filaments slide into the center)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $400$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{400}{100} = 4\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: صفر (تختفي المناطق شبه المضيئة تماماً لتلاقي خيوط الأكتين في المنتصف)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 400 / 5 = 80 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 80 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_05",
-    "titleEn": "Quantitative Motor Units Calculation (500 fibers) #5",
-    "titleAr": "حسابات الوحدات الحركية (500 ليفة عضلية) #5",
+    "titleEn": "Motor Unit Calculations: Fiber Distribution across Fascicles",
+    "titleAr": "حسابات الوحدة الحركية: توزيع الألياف في الحزم",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 500$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 500$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "A skeletal muscle consists of 5 muscle fascicles, each containing 40 muscle fibers. What is the total number of muscle fibers in this entire muscle?",
+    "questionAr": "تتكون عضلة هيكلية من 5 حزم عضلية، وتحتوي كل حزمة على 40 ليفة عضلية. ما العدد الإجمالي للألياف العضلية في هذه العضلة بأكملها؟",
     "optionsEn": [
-      "5 motor units",
-      "100 motor units",
-      "500 motor units",
-      "10 motor units"
+      "45 muscle fibers",
+      "2000 muscle fibers",
+      "200 muscle fibers ($5 \\times 40 = 200$)",
+      "8 muscle fibers"
     ],
     "optionsAr": [
-      "5 وحدة حركية",
-      "100 وحدة حركية",
-      "500 وحدة حركية",
-      "10 وحدة حركية"
+      "45 ليفة عضلية",
+      "2000 ليفة عضلية",
+      "200 ليفة عضلية ($5 \\times 40 = 200$)",
+      "8 ألياف عضلية"
     ],
-    "correctAnswer": "5 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{500}{100}$.",
+    "correctAnswer": "200 muscle fibers ($5 \\times 40 = 200$)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 500$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{500}{100} = 5\\text{ units}$$"
+      "Step-by-step biological derivation: 200 muscle fibers ($5 \\times 40 = 200$)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $500$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{500}{100} = 5\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 200 ليفة عضلية ($5 \\times 40 = 200$)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 500 / 5 = 100 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 100 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_06",
-    "titleEn": "Quantitative Motor Units Calculation (600 fibers) #6",
-    "titleAr": "حسابات الوحدات الحركية (600 ليفة عضلية) #6",
+    "titleEn": "Motor Unit Calculations: Minimum Number of Motor Units",
+    "titleAr": "حسابات الوحدة الحركية: أقل عدد من الوحدات الحركية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 600$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 600$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "For the muscle containing 200 muscle fibers, knowing that a single motor neuron supplies between 5 and 100 fibers, what is the theoretical minimum number of motor units needed?",
+    "questionAr": "للعضلة السابقة التي تحتوي على 200 ليفة عضلية، وبمعرفة أن العصب الحركي يغذي من 5 إلى 100 ليفة، ما أقل عدد نظري من الوحدات الحركية يلزم لتغذيتها؟",
     "optionsEn": [
-      "6 motor units",
-      "120 motor units",
-      "600 motor units",
-      "12 motor units"
+      "40 motor units",
+      "5 motor units",
+      "1 motor unit",
+      "2 motor units ($200 / 100 = 2$ units, assuming maximal innervation capacity)"
     ],
     "optionsAr": [
-      "6 وحدة حركية",
-      "120 وحدة حركية",
-      "600 وحدة حركية",
-      "12 وحدة حركية"
+      "40 وحدة حركية",
+      "5 وحدات حركية",
+      "وحدة حركية واحدة",
+      "وحدتان حركيتان ($200 / 100 = 2$، بافتراض أقصى سعة تغذية وهي 100 ليفة لكل وحدة)"
     ],
-    "correctAnswer": "6 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{600}{100}$.",
+    "correctAnswer": "2 motor units ($200 / 100 = 2$ units, assuming maximal innervation capacity)",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 600$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{600}{100} = 6\\text{ units}$$"
+      "Step-by-step biological derivation: 2 motor units ($200 / 100 = 2$ units, assuming maximal innervation capacity)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $600$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{600}{100} = 6\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: وحدتان حركيتان ($200 / 100 = 2$، بافتراض أقصى سعة تغذية وهي 100 ليفة لكل وحدة)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 600 / 5 = 120 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 120 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_07",
-    "titleEn": "Quantitative Motor Units Calculation (700 fibers) #7",
-    "titleAr": "حسابات الوحدات الحركية (700 ليفة عضلية) #7",
+    "titleEn": "Motor Unit Calculations: Maximum Number of Motor Units",
+    "titleAr": "حسابات الوحدة الحركية: أكبر عدد من الوحدات الحركية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 700$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 700$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "For the same muscle of 200 muscle fibers, what is the theoretical maximum number of motor units that could innervate it for fine motor control?",
+    "questionAr": "لنفس العضلة المكونة من 200 ليفة عضلية، ما أكبر عدد نظري من الوحدات الحركية يمكن أن يغذيها لتحقيق دقة تحكم فائقة؟",
     "optionsEn": [
-      "7 motor units",
-      "140 motor units",
-      "700 motor units",
-      "14 motor units"
+      "40 motor units ($200 / 5 = 40$ units, assuming minimal innervation of 5 fibers per unit)",
+      "2 motor units",
+      "100 motor units",
+      "10 motor units"
     ],
     "optionsAr": [
-      "7 وحدة حركية",
-      "140 وحدة حركية",
-      "700 وحدة حركية",
-      "14 وحدة حركية"
+      "40 وحدة حركية ($200 / 5 = 40$، بافتراض أدنى تغذية وهي 5 ألياف لكل وحدة)",
+      "وحدتان حركيتان",
+      "100 وحدة حركية",
+      "10 وحدات حركية"
     ],
-    "correctAnswer": "7 motor units",
+    "correctAnswer": "40 motor units ($200 / 5 = 40$ units, assuming minimal innervation of 5 fibers per unit)",
     "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{700}{100}$.",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 700$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{700}{100} = 7\\text{ units}$$"
+      "Step-by-step biological derivation: 40 motor units ($200 / 5 = 40$ units, assuming minimal innervation of 5 fibers per unit)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $700$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{700}{100} = 7\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 40 وحدة حركية ($200 / 5 = 40$، بافتراض أدنى تغذية وهي 5 ألياف لكل وحدة)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 700 / 5 = 140 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 140 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_08",
-    "titleEn": "Quantitative Motor Units Calculation (800 fibers) #8",
-    "titleAr": "حسابات الوحدات الحركية (800 ليفة عضلية) #8",
+    "titleEn": "Motor Unit Calculations: Motor End Plates Count",
+    "titleAr": "حسابات الوحدة الحركية: إجمالي عدد الصفائح النهائية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 800$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 800$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "In the muscle containing 200 muscle fibers, how many motor end plates are formed across all its neuromuscular junctions?",
+    "questionAr": "في نفس العضلة التي تحتوي على 200 ليفة عضلية، كم يبلغ العدد الإجمالي للصفائح النهائية الحركية في كافة وصلاتها؟",
     "optionsEn": [
-      "8 motor units",
-      "160 motor units",
-      "800 motor units",
-      "16 motor units"
+      "2 motor end plates",
+      "200 motor end plates (exactly 1 motor end plate per individual muscle fiber)",
+      "40 motor end plates",
+      "1000 motor end plates"
     ],
     "optionsAr": [
-      "8 وحدة حركية",
-      "160 وحدة حركية",
-      "800 وحدة حركية",
-      "16 وحدة حركية"
+      "صفيحتان نهائيتان",
+      "200 صفيحة نهائية حركية (صفيحة واحدة لكل ليفة عضلية)",
+      "40 صفيحة نهائية",
+      "1000 صفيحة نهائية"
     ],
-    "correctAnswer": "8 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{800}{100}$.",
+    "correctAnswer": "200 motor end plates (exactly 1 motor end plate per individual muscle fiber)",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 800$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{800}{100} = 8\\text{ units}$$"
+      "Step-by-step biological derivation: 200 motor end plates (exactly 1 motor end plate per individual muscle fiber)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $800$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{800}{100} = 8\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 200 صفيحة نهائية حركية (صفيحة واحدة لكل ليفة عضلية)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 800 / 5 = 160 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 160 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_09",
-    "titleEn": "Quantitative Motor Units Calculation (900 fibers) #9",
-    "titleAr": "حسابات الوحدات الحركية (900 ليفة عضلية) #9",
+    "titleEn": "Myofibril Arithmetic: Total Myofibrils in Muscle",
+    "titleAr": "حسابات اللييفات: العدد الكلي للييفات في العضلة",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 900$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 900$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "If each muscle fiber in the 200-fiber muscle contains an average of 1500 myofibrils, what is the total number of myofibrils in the muscle?",
+    "questionAr": "إذا كانت كل ليفة عضلية من ألياف العضلة البالغ عددها 200 تحتوي في المتوسط على 1500 لييفة عضلية، فما العدد الكلي للييفات في العضلة؟",
     "optionsEn": [
-      "9 motor units",
-      "180 motor units",
-      "900 motor units",
-      "18 motor units"
+      "150,000 myofibrils",
+      "30,000 myofibrils",
+      "300,000 myofibrils ($200 \\times 1500 = 300{,}000$)",
+      "1,500,000 myofibrils"
     ],
     "optionsAr": [
-      "9 وحدة حركية",
-      "180 وحدة حركية",
-      "900 وحدة حركية",
-      "18 وحدة حركية"
+      "150,000 لييفة عضلية",
+      "30,000 لييفة عضلية",
+      "300,000 لييفة عضلية ($200 \\times 1500 = 300{,}000$)",
+      "1,500,000 لييفة عضلية"
     ],
-    "correctAnswer": "9 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{900}{100}$.",
+    "correctAnswer": "300,000 myofibrils ($200 \\times 1500 = 300{,}000$)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 900$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{900}{100} = 9\\text{ units}$$"
+      "Step-by-step biological derivation: 300,000 myofibrils ($200 \\times 1500 = 300{,}000$)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $900$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{900}{100} = 9\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: 300,000 لييفة عضلية ($200 \\times 1500 = 300{,}000$)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 900 / 5 = 180 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 180 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_10",
-    "titleEn": "Quantitative Motor Units Calculation (1000 fibers) #10",
-    "titleAr": "حسابات الوحدات الحركية (1000 ليفة عضلية) #10",
+    "titleEn": "Myofibril Organization: Ratio of Z-lines to Sarcomeres",
+    "titleAr": "حسابات اللييفات: النسبة بين خطوط Z والقطع العضلية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1000$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1000$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "In any continuous myofibril segment containing $N$ sarcomeres, the ratio of the number of Z-lines to the number of sarcomeres is strictly:",
+    "questionAr": "في أي جزء متصل من لييفة عضلية يحتوي على $N$ من القطع العضلية، فإن النسبة بين عدد خطوط Z إلى عدد القطع العضلية هي دائماً:",
     "optionsEn": [
-      "10 motor units",
-      "200 motor units",
-      "1000 motor units",
-      "20 motor units"
+      "$N : (N + 1)$",
+      "$N : N$",
+      "$2N : N$",
+      "$(N + 1) : N$"
     ],
     "optionsAr": [
-      "10 وحدة حركية",
-      "200 وحدة حركية",
-      "1000 وحدة حركية",
-      "20 وحدة حركية"
+      "$N : (N + 1)$",
+      "$N : N$",
+      "$2N : N$",
+      "$(N + 1) : N$"
     ],
-    "correctAnswer": "10 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1000}{100}$.",
+    "correctAnswer": "$(N + 1) : N$",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1000$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1000}{100} = 10\\text{ units}$$"
+      "Step-by-step biological derivation: $(N + 1) : N$."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1000$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1000}{100} = 10\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: $(N + 1) : N$."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1000 / 5 = 200 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 200 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_11",
-    "titleEn": "Quantitative Motor Units Calculation (1100 fibers) #11",
-    "titleAr": "حسابات الوحدات الحركية (1100 ليفة عضلية) #11",
+    "titleEn": "Botulinum Toxin Flaccid Paralysis Mechanism",
+    "titleAr": "آلية شلل البوتولينوم الارتخائي لسم البوتوكس",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1100$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1100$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Botulinum neurotoxin (Botox) cleaves SNARE proteins in motor axon terminals, blocking acetylcholine exocytosis. The immediate physiological result is:",
+    "questionAr": "يقوم سم البوتولينوم (البوتوكس) بتحطيم بروتينات الالتحام في النهايات العصبية مانعاً تحرر الأستيل كولين. تكون النتيجة الفسيولوجية المباشرة:",
     "optionsEn": [
-      "11 motor units",
-      "220 motor units",
-      "1100 motor units",
-      "22 motor units"
+      "Flaccid muscle paralysis; muscles are completely unable to depolarize or contract",
+      "Violent spastic convulsions with permanent contraction",
+      "Instantaneous tearing of all knee ligaments",
+      "Rapid calcification of the sarcolemma into bone"
     ],
     "optionsAr": [
-      "11 وحدة حركية",
-      "220 وحدة حركية",
-      "1100 وحدة حركية",
-      "22 وحدة حركية"
+      "شلل ارتخائي تام؛ حيث تعجز العضلات تماماً عن إزالة الاستقطاب أو إحداث أي انقباض",
+      "تشنجات عضلية انقباضية عنيفة ومستمرة",
+      "تمزق فوري لكافة أربطة الركبة",
+      "تكلس سريع لغشاء الساركوليما وتحوله لعظم"
     ],
-    "correctAnswer": "11 motor units",
+    "correctAnswer": "Flaccid muscle paralysis; muscles are completely unable to depolarize or contract",
     "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1100}{100}$.",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1100$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1100}{100} = 11\\text{ units}$$"
+      "Step-by-step biological derivation: Flaccid muscle paralysis; muscles are completely unable to depolarize or contract."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1100$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1100}{100} = 11\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: شلل ارتخائي تام؛ حيث تعجز العضلات تماماً عن إزالة الاستقطاب أو إحداث أي انقباض."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1100 / 5 = 220 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 220 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_12",
-    "titleEn": "Quantitative Motor Units Calculation (1200 fibers) #12",
-    "titleAr": "حسابات الوحدات الحركية (1200 ليفة عضلية) #12",
+    "titleEn": "Curare Poison Receptor Blockade Mechanism",
+    "titleAr": "آلية عمل سم الكورار وغلق مستقبلات الأستيل كولين",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1200$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1200$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "The indigenous arrow poison curare binds competitively to nicotinic acetylcholine receptors on the motor end plate without activating them. This causes:",
+    "questionAr": "يرتبط سم الكورار تنافسياً بمستقبلات الأستيل كولين على صفيحة النهاية الحركية دون أن ينشطها. يؤدي ذلك إلى:",
     "optionsEn": [
-      "12 motor units",
-      "240 motor units",
-      "1200 motor units",
-      "24 motor units"
+      "Continuous firing of action potentials down T-tubules",
+      "Flaccid muscle paralysis because released acetylcholine cannot bind to open sodium channels",
+      "Spontaneous synthesis of enormous quantities of ATP",
+      "Explosive contraction of all facial muscles simultaneously"
     ],
     "optionsAr": [
-      "12 وحدة حركية",
-      "240 وحدة حركية",
-      "1200 وحدة حركية",
-      "24 وحدة حركية"
+      "توليد مستمر لجهود العمل عبر الأنبيبات المستعرضة",
+      "شلل عضلي ارتخائي لأن الأستيل كولين المتحرر يعجز عن الارتباط لفتح قنوات الصوديوم",
+      "تخليق تلقائي لكميات هائلة من جزيئات ATP",
+      "انقباض انفجاري لجميع عضلات الوجه معاً"
     ],
-    "correctAnswer": "12 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1200}{100}$.",
+    "correctAnswer": "Flaccid muscle paralysis because released acetylcholine cannot bind to open sodium channels",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1200$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1200}{100} = 12\\text{ units}$$"
+      "Step-by-step biological derivation: Flaccid muscle paralysis because released acetylcholine cannot bind to open sodium channels."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1200$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1200}{100} = 12\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: شلل عضلي ارتخائي لأن الأستيل كولين المتحرر يعجز عن الارتباط لفتح قنوات الصوديوم."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1200 / 5 = 240 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 240 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_13",
-    "titleEn": "Quantitative Motor Units Calculation (1300 fibers) #13",
-    "titleAr": "حسابات الوحدات الحركية (1300 ليفة عضلية) #13",
+    "titleEn": "Organophosphate Pesticides Acetylcholinesterase Inhibition",
+    "titleAr": "تأثير المبيدات الفسفورية وتثبيط إنزيم كولين إستريز",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1300$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1300$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Organophosphate insecticides irrevocably inactivate the enzyme acetylcholinesterase in the synaptic cleft. This leads pathologically to:",
+    "questionAr": "تؤدي المبيدات الحشرية الفسفورية العضوية إلى تثبيط دائم لإنزيم كولين إستريز في شق التشابك. يقود ذلك مرضياً إلى:",
     "optionsEn": [
-      "13 motor units",
-      "260 motor units",
-      "1300 motor units",
-      "26 motor units"
+      "Immediate flaccid muscle relaxation within one millisecond",
+      "Permanent loss of all calcium from the sarcoplasmic reticulum",
+      "Severe spastic paralysis and continuous tetanic contractions because acetylcholine cannot be degraded",
+      "Dissolution of the femur bone into soft cartilage"
     ],
     "optionsAr": [
-      "13 وحدة حركية",
-      "260 وحدة حركية",
-      "1300 وحدة حركية",
-      "26 وحدة حركية"
+      "ارتخاء عضلي فوري في جزء من الألف من الثانية",
+      "فقدان دائم للكالسيوم من الشبكة الساركوبلازمية",
+      "شلل تشنجي حاد وتقلصات عضلية مستمرة ومؤلمة لعجز الخلية عن تحطيم الأستيل كولين",
+      "ذوبان عظمة الفخذ وتحولها لغضروف رخو"
     ],
-    "correctAnswer": "13 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1300}{100}$.",
+    "correctAnswer": "Severe spastic paralysis and continuous tetanic contractions because acetylcholine cannot be degraded",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1300$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1300}{100} = 13\\text{ units}$$"
+      "Step-by-step biological derivation: Severe spastic paralysis and continuous tetanic contractions because acetylcholine cannot be degraded."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1300$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1300}{100} = 13\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: شلل تشنجي حاد وتقلصات عضلية مستمرة ومؤلمة لعجز الخلية عن تحطيم الأستيل كولين."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1300 / 5 = 260 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 260 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_14",
-    "titleEn": "Quantitative Motor Units Calculation (1400 fibers) #14",
-    "titleAr": "حسابات الوحدات الحركية (1400 ليفة عضلية) #14",
+    "titleEn": "Severe Hypocalcemia Effect on Neuromuscular Excitability",
+    "titleAr": "أثر النقص الحاد في كالسيوم الدم على التشنجات العضلية",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1400$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1400$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Severe clinical hypocalcemia (low extracellular blood $Ca^{2+}$) paradoxically causes tetanic muscle spasms because:",
+    "questionAr": "يؤدي النقص الحاد في كالسيوم الدم (Hypocalcemia) إلى حدوث تشنجات وتقلصات عضلية حادة لأن:",
     "optionsEn": [
-      "14 motor units",
-      "280 motor units",
-      "1400 motor units",
-      "28 motor units"
+      "Calcium ions directly synthesize lactic acid in the blood",
+      "It causes immediate complete rupture of the Achilles tendon",
+      "Muscles lose all their mitochondria in one minute",
+      "Decreased extracellular calcium lowers the threshold of voltage-gated sodium channels, causing spontaneous nerve depolarization"
     ],
     "optionsAr": [
-      "14 وحدة حركية",
-      "280 وحدة حركية",
-      "1400 وحدة حركية",
-      "28 وحدة حركية"
+      "أيونات الكالسيوم تصنع حمض اللاكتيك في الدم مباشرة",
+      "يسبب تمزقاً كاملاً فورياً لوتر أخيل",
+      "تفقد العضلات ميتوكوندرياتها في دقيقة واحدة",
+      "نقص الكالسيوم في السائل خارج الخلوي يخفض عتبة إثارة قنوات الصوديوم فيولد إشارات عصبية تلقائية متكررة"
     ],
-    "correctAnswer": "14 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1400}{100}$.",
+    "correctAnswer": "Decreased extracellular calcium lowers the threshold of voltage-gated sodium channels, causing spontaneous nerve depolarization",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1400$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1400}{100} = 14\\text{ units}$$"
+      "Step-by-step biological derivation: Decreased extracellular calcium lowers the threshold of voltage-gated sodium channels, causing spontaneous nerve depolarization."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1400$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1400}{100} = 14\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: نقص الكالسيوم في السائل خارج الخلوي يخفض عتبة إثارة قنوات الصوديوم فيولد إشارات عصبية تلقائية متكررة."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1400 / 5 = 280 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 280 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_15",
-    "titleEn": "Quantitative Motor Units Calculation (1500 fibers) #15",
-    "titleAr": "حسابات الوحدات الحركية (1500 ليفة عضلية) #15",
+    "titleEn": "Rigor Mortis Post-Mortem Rigidity Biochemistry",
+    "titleAr": "البيوكيمياء المرضية لظاهرة تيبس الموتى",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1500$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1500$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Several hours following clinical death, skeletal muscles become stiff and locked (rigor mortis) because:",
+    "questionAr": "بعد الوفاة بعدة ساعات، تتصلب العضلات الهيكلية وتتخشب في حالة تعرف بـ (تيبس الموتى) لأن:",
     "optionsEn": [
-      "15 motor units",
-      "300 motor units",
-      "1500 motor units",
-      "30 motor units"
+      "Mitochondrial ATP production stops, preventing cross-bridge detachment from actin filaments while calcium leaks into the sarcoplasm",
+      "The brain continues to send voluntary motor commands to the muscles",
+      "All bones absorb the surrounding skeletal muscles completely",
+      "Muscle cells multiply by rapid meiosis"
     ],
     "optionsAr": [
-      "15 وحدة حركية",
-      "300 وحدة حركية",
-      "1500 وحدة حركية",
-      "30 وحدة حركية"
+      "توقف إنتاج ATP يمنع انفصال الروابط المستعرضة عن الأكتين مع تسرب الكالسيوم إلى الساركوبلازم",
+      "المخ يستمر في إرسال أوامر حركية إرادية للعضلات",
+      "العظام تمتص العضلات المحيطة بها كلياً",
+      "الخلايا العضلية تتكاثر بالانقسام الميوزي السريع"
     ],
-    "correctAnswer": "15 motor units",
+    "correctAnswer": "Mitochondrial ATP production stops, preventing cross-bridge detachment from actin filaments while calcium leaks into the sarcoplasm",
     "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1500}{100}$.",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1500$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1500}{100} = 15\\text{ units}$$"
+      "Step-by-step biological derivation: Mitochondrial ATP production stops, preventing cross-bridge detachment from actin filaments while calcium leaks into the sarcoplasm."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1500$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1500}{100} = 15\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: توقف إنتاج ATP يمنع انفصال الروابط المستعرضة عن الأكتين مع تسرب الكالسيوم إلى الساركوبلازم."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1500 / 5 = 300 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 300 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_16",
-    "titleEn": "Quantitative Motor Units Calculation (1600 fibers) #16",
-    "titleAr": "حسابات الوحدات الحركية (1600 ليفة عضلية) #16",
+    "titleEn": "Cyanide Toxicity Halting ATP Regeneration",
+    "titleAr": "سمية السيانيد وتوقف تجديد ATP في العضلات",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1600$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1600$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Cyanide poisoning inhibits cytochrome c oxidase in the mitochondrial electron transport chain. In skeletal muscle, this rapidly precipitates:",
+    "questionAr": "يثبط التسمم بالسيانيد إنزيم سيتوكروم سي أكسيداز في سلسلة نقل الإلكترون بالميتوكوندريا، مما يؤدي في العضلات سريعاً إلى:",
     "optionsEn": [
-      "16 motor units",
-      "320 motor units",
-      "1600 motor units",
-      "32 motor units"
+      "A rapid ten-fold increase in muscle contractile strength",
+      "Catastrophic ATP depletion leading to severe irreversible muscle cramp and respiratory arrest",
+      "Immediate transformation of actin into fibrous collagen",
+      "Complete absence of lactic acid throughout the entire body"
     ],
     "optionsAr": [
-      "16 وحدة حركية",
-      "320 وحدة حركية",
-      "1600 وحدة حركية",
-      "32 وحدة حركية"
+      "زيادة قوة الانقباض العضلي لعشرة أضعاف",
+      "نفاد كارثي لجزيئات ATP مسبباً شداً عضلياً حاداً وتوقفاً لعضلات التنفس والوفاة",
+      "تحول فوري لخيوط الأكتين إلى كولاجين ليفي",
+      "انعدام تام لحمض اللاكتيك في كافة أنحاء الجسم"
     ],
-    "correctAnswer": "16 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1600}{100}$.",
+    "correctAnswer": "Catastrophic ATP depletion leading to severe irreversible muscle cramp and respiratory arrest",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1600$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1600}{100} = 16\\text{ units}$$"
+      "Step-by-step biological derivation: Catastrophic ATP depletion leading to severe irreversible muscle cramp and respiratory arrest."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1600$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1600}{100} = 16\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: نفاد كارثي لجزيئات ATP مسبباً شداً عضلياً حاداً وتوقفاً لعضلات التنفس والوفاة."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1600 / 5 = 320 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 320 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_17",
-    "titleEn": "Quantitative Motor Units Calculation (1700 fibers) #17",
-    "titleAr": "حسابات الوحدات الحركية (1700 ليفة عضلية) #17",
+    "titleEn": "Myasthenia Gravis Autoimmune Pathophysiology",
+    "titleAr": "الفسيولوجيا المرضية للوهن العضلي الوبيل",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1700$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1700$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Myasthenia gravis is an autoimmune disorder where autoantibodies destroy acetylcholine receptors at the motor end plate. Patients present with:",
+    "questionAr": "الوهن العضلي الوبيل مرض مناعي ذاتي تهاجم فيه الأجسام المضادة مستقبلات الأستيل كولين، ويتميز المريض بـ:",
     "optionsEn": [
-      "17 motor units",
-      "340 motor units",
-      "1700 motor units",
-      "34 motor units"
+      "Spontaneous growth of extra ribs in the neck region",
+      "Permanent locking of the knee joint at 90 degrees",
+      "Progressive muscle weakness and rapid fatigue with repeated physical effort, improving after rest",
+      "Excessive bone elongation exceeding 3 meters height"
     ],
     "optionsAr": [
-      "17 وحدة حركية",
-      "340 وحدة حركية",
-      "1700 وحدة حركية",
-      "34 وحدة حركية"
+      "نمو تلقائي لضلوع إضافية في منطقة الرقبة",
+      "تثبيت دائم لمفصل الركبة بزاوية 90 درجة",
+      "ضعف عضلي تصاعدي وإجهاد سريع مع المجهود البدني المتكرر ويتحسن تدريجياً بالراحة",
+      "استطالة مفرطة في العظام تتجاوز 3 أمتار"
     ],
-    "correctAnswer": "17 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1700}{100}$.",
+    "correctAnswer": "Progressive muscle weakness and rapid fatigue with repeated physical effort, improving after rest",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1700$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1700}{100} = 17\\text{ units}$$"
+      "Step-by-step biological derivation: Progressive muscle weakness and rapid fatigue with repeated physical effort, improving after rest."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1700$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1700}{100} = 17\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: ضعف عضلي تصاعدي وإجهاد سريع مع المجهود البدني المتكرر ويتحسن تدريجياً بالراحة."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1700 / 5 = 340 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 340 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_18",
-    "titleEn": "Quantitative Motor Units Calculation (1800 fibers) #18",
-    "titleAr": "حسابات الوحدات الحركية (1800 ليفة عضلية) #18",
+    "titleEn": "Tetanus Toxin Mechanism in Lockjaw",
+    "titleAr": "آلية عمل سم الكزاز (التيتانوس) والتشنج القفلي",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1800$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1800$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Tetanospasmin toxin produced by Clostridium tetani blocks the release of inhibitory neurotransmitters (glycine and GABA) in the spinal cord, causing:",
+    "questionAr": "يقوم سم التيتانوس بتعطيل إفراز النواقل العصبية المهدئة المثبطة (GABA والجليسين) في الحبل الشوكي مسبباً:",
     "optionsEn": [
-      "18 motor units",
-      "360 motor units",
-      "1800 motor units",
-      "36 motor units"
+      "Total loss of all muscle tone resulting in complete limpness",
+      "Dissolution of the sternum bone within hours",
+      "Proliferation of chloroplasts inside muscle sarcoplasm",
+      "Uncontrolled, painful spastic contractions of both agonist and antagonist muscles simultaneously (e.g. lockjaw)"
     ],
     "optionsAr": [
-      "18 وحدة حركية",
-      "360 وحدة حركية",
-      "1800 وحدة حركية",
-      "36 وحدة حركية"
+      "فقدان كلي لتوتر العضلات وارتخاء تام للأطراف",
+      "تحلل عظمة القص في غضون ساعات معدودة",
+      "تكاثر البلاستيدات الخضراء داخل ساركوبلازم العضلات",
+      "انقباضات تشنجية مؤلمة ومتزامنة للعضلات المتضادة معاً كعضلات الفك وعضلات الظهر"
     ],
-    "correctAnswer": "18 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1800}{100}$.",
+    "correctAnswer": "Uncontrolled, painful spastic contractions of both agonist and antagonist muscles simultaneously (e.g. lockjaw)",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1800$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1800}{100} = 18\\text{ units}$$"
+      "Step-by-step biological derivation: Uncontrolled, painful spastic contractions of both agonist and antagonist muscles simultaneously (e.g. lockjaw)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1800$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1800}{100} = 18\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: انقباضات تشنجية مؤلمة ومتزامنة للعضلات المتضادة معاً كعضلات الفك وعضلات الظهر."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1800 / 5 = 360 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 360 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_19",
-    "titleEn": "Quantitative Motor Units Calculation (1900 fibers) #19",
-    "titleAr": "حسابات الوحدات الحركية (1900 ليفة عضلية) #19",
+    "titleEn": "Lactic Acid Clearance via the Cori Cycle",
+    "titleAr": "التخلص من حمض اللاكتيك ودورة كوري في الكبد",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 1900$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 1900$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "Following exhaustive exercise, accumulated lactic acid is cleared from fatigued muscle fibers primarily by:",
+    "questionAr": "عقب المجهود العنيف، يتم التخلص من حمض اللاكتيك المتراكم في الألياف العضلية المجهدة أساساً عن طريق:",
     "optionsEn": [
-      "19 motor units",
-      "380 motor units",
-      "1900 motor units",
-      "38 motor units"
+      "Diffusion into the bloodstream to the liver, where it is converted back into glucose or pyruvate (Cori cycle)",
+      "Direct exhalation through the pulmonary alveoli as gaseous acid",
+      "Precipitation inside the synovial cavity as solid kidney stones",
+      "Permanent incorporation into the myelin sheath of motor nerves"
     ],
     "optionsAr": [
-      "19 وحدة حركية",
-      "380 وحدة حركية",
-      "1900 وحدة حركية",
-      "38 وحدة حركية"
+      "انتقاله عبر تيار الدم إلى الكبد، حيث يعاد تحويله إلى جلوكوز أو حمض بيروفيك (دورة كوري)",
+      "طرده مع هواء الزفير كغاز حمضي عبر الحويصلات الهوائية",
+      "ترسيبه داخل التجويف الزلالي كحصوات صلبة",
+      "دمجه الدائم في الغمد النخاعيني للأعصاب الحركية"
     ],
-    "correctAnswer": "19 motor units",
+    "correctAnswer": "Diffusion into the bloodstream to the liver, where it is converted back into glucose or pyruvate (Cori cycle)",
     "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{1900}{100}$.",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 1900$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{1900}{100} = 19\\text{ units}$$"
+      "Step-by-step biological derivation: Diffusion into the bloodstream to the liver, where it is converted back into glucose or pyruvate (Cori cycle)."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $1900$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{1900}{100} = 19\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: انتقاله عبر تيار الدم إلى الكبد، حيث يعاد تحويله إلى جلوكوز أو حمض بيروفيك (دورة كوري)."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 1900 / 5 = 380 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 380 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_20",
-    "titleEn": "Quantitative Motor Units Calculation (2000 fibers) #20",
-    "titleAr": "حسابات الوحدات الحركية (2000 ليفة عضلية) #20",
+    "titleEn": "Action Potential Refractory Period Significance",
+    "titleAr": "الأهمية الفسيولوجية لفترة الجموح في اللييفة",
     "difficulty": "hots",
-    "questionEn": "A skeletal muscle is composed of exactly $N = 2000$ muscle fibers. Calculate the **minimum** number of motor units required to innervate this entire muscle.",
-    "questionAr": "عضلة هيكلية تتكون من $N = 2000$ ليفة عضلية. احسب **أقل عدد** من الوحدات الحركية اللازمة لتغذية هذه العضلة بالكامل.",
+    "questionEn": "During the absolute refractory period of the muscle fiber sarcolemma:",
+    "questionAr": "أثناء فترة الجموح المطلق (Refractory period) لغشاء الساركوليما في اللييفة العضلية:",
     "optionsEn": [
-      "20 motor units",
-      "400 motor units",
-      "2000 motor units",
-      "40 motor units"
+      "The muscle fiber contracts with infinite mechanical power",
+      "Voltage-gated sodium channels are inactivated, preventing any new action potential regardless of stimulus strength",
+      "All ATP molecules are converted into glucose polymers",
+      "The cell releases all its DNA into the synaptic cleft"
     ],
     "optionsAr": [
-      "20 وحدة حركية",
-      "400 وحدة حركية",
-      "2000 وحدة حركية",
-      "40 وحدة حركية"
+      "تنقبض اللييفة العضلية بقوة ميكانيكية لا نهائية",
+      "تكون قنوات الصوديوم غير نشطة تماماً، مما يمنع نشوء أي جهد عمل جديد مهما بلغت شدة المؤثر",
+      "تتحول كافة جزيئات ATP إلى بوليمرات جلوكوز",
+      "تطرد الخلية كامل حمضها النووي DNA في شق التشابك"
     ],
-    "correctAnswer": "20 motor units",
-    "correctIndex": 0,
-    "hintEn": "To find the MINIMUM number of motor units, assume each motor unit supplies the MAXIMUM possible number of muscle fibers ($100$ fibers): $\\text{Min Units} = \\frac{\\text{Total Fibers}}{100}$.",
-    "hintAr": "لإيجاد أقل عدد من الوحدات الحركية، نقسم عدد الألياف الكلي على أقصى عدد تغذيه الوحدة الواحدة وهو 100 ليفة: $\\text{أقل عدد} = \\frac{2000}{100}$.",
+    "correctAnswer": "Voltage-gated sodium channels are inactivated, preventing any new action potential regardless of stimulus strength",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Total number of muscle fibers: $N = 2000$.",
-      "Each motor neuron supplies between $5$ (min) and $100$ (max) muscle fibers.",
-      "For the minimum number of motor units, each unit must supply the maximum ($100$):",
-      "$$\\text{Min Units} = \\frac{2000}{100} = 20\\text{ units}$$"
+      "Step-by-step biological derivation: Voltage-gated sodium channels are inactivated, preventing any new action potential regardless of stimulus strength."
     ],
     "stepByStepSolutionAr": [
-      "عدد الألياف العضلية الكلي = $2000$.",
-      "الليفة العصبية الحركية الواحدة تغذي من 5 إلى 100 ليفة عضلية.",
-      "للحصول على أقل عدد وحدات حركية، نفرض أن كل وحدة تغذي الحد الأقصى (100 ليفة):",
-      "$$\\text{أقل عدد} = \\frac{2000}{100} = 20\\text{ وحدة حركية}$$"
+      "خطوات التحليل العلمي والاستنتاج: تكون قنوات الصوديوم غير نشطة تماماً، مما يمنع نشوء أي جهد عمل جديد مهما بلغت شدة المؤثر."
     ],
-    "teacherTipEn": "Notice that if the question asked for MAXIMUM motor units, you would divide by the minimum (5): 2000 / 5 = 400 units!",
-    "teacherTipAr": "لاحظ أنه إذا طلب السؤال \"أكبر عدد من الوحدات الحركية\"، نقسم على 5 (الحد الأدنى للوحدة) فيكون الناتج 400 وحدة!"
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_21",
-    "titleEn": "Muscle Fatigue Etiology #1",
-    "titleAr": "أسباب الإجهاد العضلي #1",
+    "titleEn": "Numbering of the Vertebra Connecting to the 7th Rib Pair",
+    "titleAr": "ترقيم الفقرة المتصلة بزوج الضلوع السابع",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "Which vertebra in the human vertebral column articulates with the 7th pair of ribs (last true ribs connecting directly to sternum)?",
+    "questionAr": "أي فقرة في العمود الفقري للإنسان تتمفصل مع زوج الضلوع السابع (آخر زوج من الضلوع الحقيقية المتصلة بالقص)؟",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "The 7th vertebra",
+      "The 12th vertebra",
+      "The 14th vertebra (7 cervical + 7 thoracic = 14)",
+      "The 21st vertebra"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "الفقرة رقم 7",
+      "الفقرة رقم 12",
+      "الفقرة رقم 14 (7 عنقية + 7 ظهرية = الفقرة 14)",
+      "الفقرة رقم 21"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "The 14th vertebra (7 cervical + 7 thoracic = 14)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The 14th vertebra (7 cervical + 7 thoracic = 14)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: الفقرة رقم 14 (7 عنقية + 7 ظهرية = الفقرة 14)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_22",
-    "titleEn": "Severe Muscle Spasm Mechanism #2",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #2",
+    "titleEn": "Numbering of the Vertebra Connecting to First Floating Rib",
+    "titleAr": "ترقيم الفقرة المتصلة بالزوج الأول من الضلوع العائمة",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "The first pair of floating ribs (11th rib pair) articulates dorsally with which numbered vertebra in the human column?",
+    "questionAr": "يتصل الزوج الأول من الضلوع العائمة (زوج الضلوع الحادي عشر) من الخلف بأي فقرة في العمود الفقري للإنسان؟",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "The 11th vertebra",
+      "The 19th vertebra",
+      "The 25th vertebra",
+      "The 18th vertebra (7 cervical + 11 thoracic = 18)"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "الفقرة رقم 11",
+      "الفقرة رقم 19",
+      "الفقرة رقم 25",
+      "الفقرة رقم 18 (7 عنقية + 11 ظهرية = الفقرة 18)"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "The 18th vertebra (7 cervical + 11 thoracic = 18)",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The 18th vertebra (7 cervical + 11 thoracic = 18)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: الفقرة رقم 18 (7 عنقية + 11 ظهرية = الفقرة 18)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_23",
-    "titleEn": "Neurological Origin of Muscle Spasm #3",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #3",
+    "titleEn": "Numbering of the Vertebra Connecting to Second Floating Rib",
+    "titleAr": "ترقيم الفقرة المتصلة بالزوج الثاني من الضلوع العائمة",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "The second pair of floating ribs (12th rib pair) articulates with which numbered vertebra?",
+    "questionAr": "يتصل الزوج الثاني من الضلوع العائمة (زوج الضلوع الثاني عشر) بأي فقرة في العمود الفقري؟",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "The 19th vertebra (last thoracic vertebra)",
+      "The 12th vertebra",
+      "The 20th vertebra",
+      "The 24th vertebra"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "الفقرة رقم 19 (آخر الفقرات الظهرية)",
+      "الفقرة رقم 12",
+      "الفقرة رقم 20",
+      "الفقرة رقم 24"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
+    "correctAnswer": "The 19th vertebra (last thoracic vertebra)",
     "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The 19th vertebra (last thoracic vertebra)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: الفقرة رقم 19 (آخر الفقرات الظهرية)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_24",
-    "titleEn": "Muscle Fatigue Etiology #4",
-    "titleAr": "أسباب الإجهاد العضلي #4",
+    "titleEn": "Ratio of Articulated to Fused Vertebrae in Humans",
+    "titleAr": "النسبة بين الفقرات المتمفصلة والملتحمة في العمود الفقري",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "In the human vertebral column, what is the exact numerical ratio of articulated movable vertebrae to fused non-movable vertebrae?",
+    "questionAr": "في العمود الفقري للإنسان، ما النسبة العددية الدقيقة بين الفقرات المتمفصلة المتحركة إلى الفقرات الملتحمة غير المتحركة؟",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "$26 : 7$",
+      "$24 : 9 = 8 : 3$",
+      "$20 : 13$",
+      "$12 : 12 = 1 : 1$"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "$26 : 7$",
+      "$24 : 9 = 8 : 3$",
+      "$20 : 13$",
+      "$12 : 12 = 1 : 1$"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "$24 : 9 = 8 : 3$",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: $24 : 9 = 8 : 3$."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: $24 : 9 = 8 : 3$."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_25",
-    "titleEn": "Severe Muscle Spasm Mechanism #5",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #5",
+    "titleEn": "Axial Skeleton Bone Count Verification",
+    "titleAr": "التحقق الحسابي الدقيق لعدد عظام الهيكل المحوري",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "The axial skeleton contains 80 bones. Which summation correctly accounts for every single bone in this category?",
+    "questionAr": "يتكون الهيكل المحوري من 80 عظمة. أي التجميعات الحسابية التالية تمثل بدقة كافة عظام هذا الهيكل؟",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "22 skull + 33 vertebrae + 25 ribs = 80",
+      "8 cranial + 14 facial + 26 vertebrae + 32 ribs = 80",
+      "29 skull & associated bones + 26 vertebral column bones + 25 thoracic cage bones (24 ribs + 1 sternum) = 80",
+      "10 skull + 20 vertebrae + 50 limbs = 80"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "22 جمجمة + 33 فقرة + 25 ضلعاً = 80",
+      "8 قحفية + 14 وجهية + 26 فقرة + 32 ضلعاً = 80",
+      "29 عظام الجمجمة وملحقاتها + 26 عظام العمود الفقري + 25 عظام القفص الصدري (24 ضلعاً + عظمة القص) = 80",
+      "10 جمجمة + 20 فقرة + 50 أطراف = 80"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "29 skull & associated bones + 26 vertebral column bones + 25 thoracic cage bones (24 ribs + 1 sternum) = 80",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: 29 skull & associated bones + 26 vertebral column bones + 25 thoracic cage bones (24 ribs + 1 sternum) = 80."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: 29 عظام الجمجمة وملحقاتها + 26 عظام العمود الفقري + 25 عظام القفص الصدري (24 ضلعاً + عظمة القص) = 80."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_26",
-    "titleEn": "Neurological Origin of Muscle Spasm #6",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #6",
+    "titleEn": "Appendicular Skeleton Bone Count Verification",
+    "titleAr": "التحقق الحسابي لعدد عظام الهيكل الطرفي",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "The appendicular skeleton comprises 126 bones. What is the exact anatomical distribution across the body parts?",
+    "questionAr": "يتكون الهيكل الطرفي من 126 عظمة. ما التوزيع التشريحي الدقيق لهذه العظام عبر أجزاء الجسم؟",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "2 pectoral girdle + 62 upper limbs + 4 pelvic girdle + 58 lower limbs = 126",
+      "6 girdles + 120 limbs = 126",
+      "10 girdles + 116 limbs = 126",
+      "4 pectoral girdle + 60 upper limbs + 2 pelvic girdle + 60 lower limbs = 126"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "2 حزام صدري + 62 طرف علوي + 4 حزام حوضي + 58 طرف سفلي = 126",
+      "6 أحزمة + 120 أطراف = 126",
+      "10 أحزمة + 116 أطراف = 126",
+      "4 الحزام الصدري + 60 الطرفان العلويان + 2 الحزام الحوضي + 60 الطرفان السفليان = 126"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "4 pectoral girdle + 60 upper limbs + 2 pelvic girdle + 60 lower limbs = 126",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: 4 pectoral girdle + 60 upper limbs + 2 pelvic girdle + 60 lower limbs = 126."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: 4 الحزام الصدري + 60 الطرفان العلويان + 2 الحزام الحوضي + 60 الطرفان السفليان = 126."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_27",
-    "titleEn": "Muscle Fatigue Etiology #7",
-    "titleAr": "أسباب الإجهاد العضلي #7",
+    "titleEn": "Comparison of Total Hand Bones vs Total Foot Bones",
+    "titleAr": "مقارنة عدد عظام اليد الواحدة بعدد عظام القدم الواحدة",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "A single human hand contains 27 bones, while a single human foot contains 26 bones. What accounts for this difference?",
+    "questionAr": "تحتوي اليد البشرية الواحدة على 27 عظمة، بينما تحتوي القدم الواحدة على 26 عظمة. ما سبب هذا الفارق العددي؟",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "The wrist possesses 8 carpal bones, whereas the ankle possesses only 7 tarsal bones",
+      "The hand has 5 fingers while the foot has only 4 toes",
+      "The hand has 15 phalanges while the foot has 14 phalanges",
+      "The foot lacks metatarsal bones completely"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "يحتوي رسغ اليد على 8 عظام (رسغية)، بينما يحتوي رسغ القدم على 7 عظام (عرقوبية) فقط",
+      "اليد بها 5 أصابع بينما القدم بها 4 أصابع فقط",
+      "اليد بها 15 سلامية بينما القدم بها 14 سلامية",
+      "القدم تخلو من عظام المشط تماماً"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
+    "correctAnswer": "The wrist possesses 8 carpal bones, whereas the ankle possesses only 7 tarsal bones",
     "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The wrist possesses 8 carpal bones, whereas the ankle possesses only 7 tarsal bones."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: يحتوي رسغ اليد على 8 عظام (رسغية)، بينما يحتوي رسغ القدم على 7 عظام (عرقوبية) فقط."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_28",
-    "titleEn": "Severe Muscle Spasm Mechanism #8",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #8",
+    "titleEn": "Total Bones in Both Hands Combined",
+    "titleAr": "العدد الإجمالي لعظام اليدين معاً في الإنسان",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "How many total bones are present in both human hands combined (carpals, metacarpals, and phalanges)?",
+    "questionAr": "كم يبلغ العدد الكلي للعظام الموجودة في كلتا اليدين معاً في الإنسان (الرسغ والأمشاط والسلاميات)؟",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "52 bones",
+      "54 bones ($27 \\times 2 = 54$)",
+      "60 bones",
+      "28 bones"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "52 عظمة",
+      "54 عظمة ($27 \\times 2 = 54$)",
+      "60 عظمة",
+      "28 عظمة"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "54 bones ($27 \\times 2 = 54$)",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: 54 bones ($27 \\times 2 = 54$)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: 54 عظمة ($27 \\times 2 = 54$)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_29",
-    "titleEn": "Neurological Origin of Muscle Spasm #9",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #9",
+    "titleEn": "Total Bones in Both Feet Combined",
+    "titleAr": "العدد الإجمالي لعظام القدمين معاً في الإنسان",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "How many total bones are present in both human feet combined (tarsals, metatarsals, and phalanges)?",
+    "questionAr": "كم يبلغ العدد الكلي للعظام الموجودة في كلتا القدمين معاً في الإنسان (العرقوب والأمشاط والسلاميات)؟",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "54 bones",
+      "60 bones",
+      "52 bones ($26 \\times 2 = 52$)",
+      "28 bones"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "54 عظمة",
+      "60 عظمة",
+      "52 عظمة ($26 \\times 2 = 52$)",
+      "28 عظمة"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "52 bones ($26 \\times 2 = 52$)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: 52 bones ($26 \\times 2 = 52$)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: 52 عظمة ($26 \\times 2 = 52$)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_30",
-    "titleEn": "Muscle Fatigue Etiology #10",
-    "titleAr": "أسباب الإجهاد العضلي #10",
+    "titleEn": "Thoracic Vertebra Distinguishing Features",
+    "titleAr": "العلامات التشريحية الفارقة للفقرة الظهرية",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "A forensic anatomist identifies a human vertebra as thoracic rather than cervical or lumbar by observing:",
+    "questionAr": "يميز عالم التشريح الجنائي فقرة عظمية بأنها فقرة ظهرية (صدرية) وليست عنقية أو قطنية بملاحظة وجود:",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "Transverse foramina piercing both transverse processes for vertebral arteries",
+      "A massive kidney-shaped centrum without any articular facets",
+      "Complete absence of any neural arch or spine",
+      "Articular costal facets on the centrum and transverse processes for rib articulation"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "ثقوب عصبية في النتوءين المستعرضين لمرور الشرايين الفقرية",
+      "جسم فقرة كلوي ضخم جداً خالٍ من أي أسطح مفصلية للضلوع",
+      "انعدام القوس الشوكي والنتوء الشوكي تماماً",
+      "أسطح مفصلية مخصصة للاتصال بالضلوع على جسم الفقرة والنتوءين المستعرضين"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "Articular costal facets on the centrum and transverse processes for rib articulation",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: Articular costal facets on the centrum and transverse processes for rib articulation."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: أسطح مفصلية مخصصة للاتصال بالضلوع على جسم الفقرة والنتوءين المستعرضين."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_31",
-    "titleEn": "Severe Muscle Spasm Mechanism #11",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #11",
+    "titleEn": "Atlas Vertebra Anatomy and Head Nodding",
+    "titleAr": "تشريح فقرة أطلس وحركة إيماء الرأس بنعم",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "The first cervical vertebra (Atlas) lacks a centrum and neural spine; its superior articular facets articulate with:",
+    "questionAr": "تفتقر الفقرة العنقية الأولى (أطلس) لجسم الفقرة والنتوء الشوكي، وتتمفصل أسطحها العلوية المقعرة مع:",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "The occipital condyles of the skull, permitting head nodding movements ('yes')",
+      "The clavicle bones on both sides of the neck",
+      "The first pair of thoracic ribs",
+      "The spine of the scapula bone"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "لقمتي العظم القذالي في قاع الجمجمة، مما يسمح بحركة إيماء الرأس للأمام والخلف ('نعم')",
+      "عظمتا الترقوة على جانبي الرقبة",
+      "الزوج الأول من الضلوع الصدرية",
+      "شوكة عظمة لوح الكتف"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
+    "correctAnswer": "The occipital condyles of the skull, permitting head nodding movements ('yes')",
     "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The occipital condyles of the skull, permitting head nodding movements ('yes')."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: لقمتي العظم القذالي في قاع الجمجمة، مما يسمح بحركة إيماء الرأس للأمام والخلف ('نعم')."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_32",
-    "titleEn": "Neurological Origin of Muscle Spasm #12",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #12",
+    "titleEn": "Axis Vertebra Odontoid Peg and Head Shaking",
+    "titleAr": "نتوء فقرة المحور السنية وحركة نفي الرأس بلا",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "The second cervical vertebra (Axis) features a prominent upward bony peg (the dens/odontoid process) serving to:",
+    "questionAr": "تتميز الفقرة العنقية الثانية (المحور) بوجود نتوء عظمي بارز للأعلى (النتوء السني) وظيفته:",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "Lock the skull permanently into a rigid downward gaze",
+      "Act as a pivot around which the Atlas rotates, enabling side-to-side head shaking ('no')",
+      "Generate red blood cells directly for the brain",
+      "Anchor the Achilles tendon in the cervical region"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "تثبيت الجمجمة نهائياً في اتجاه النظر لأسفل",
+      "العمل كمحور ارتكاز تدور حوله فقرة أطلس مما يسمح بحركة نفي الرأس يميناً ويساراً ('لا')",
+      "توليد كرات الدم الحمراء مباشرة لتغذية المخ",
+      "تثبيت وتر أخيل في منطقة الرقبة"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "Act as a pivot around which the Atlas rotates, enabling side-to-side head shaking ('no')",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: Act as a pivot around which the Atlas rotates, enabling side-to-side head shaking ('no')."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: العمل كمحور ارتكاز تدور حوله فقرة أطلس مما يسمح بحركة نفي الرأس يميناً ويساراً ('لا')."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_33",
-    "titleEn": "Muscle Fatigue Etiology #13",
-    "titleAr": "أسباب الإجهاد العضلي #13",
+    "titleEn": "Pelvic Sexual Dimorphism Adaptations",
+    "titleAr": "التكيفات التشريحية لحوض الأنثى لتسهيل الولادة",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "Compared to the male pelvis, the adult female pelvis is anatomically adapted for parturition by exhibiting:",
+    "questionAr": "مقارنة بحوض الذكر، يتميز حوض أنثى الإنسان بتكيفات تشريحية لتسهيل الحمل والولادة تتمثل في:",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "A narrower, funnel-shaped cavity with a heart-shaped inlet",
+      "Complete absence of the two pubic symphysis cartilages",
+      "A wider, shallower cavity, broader pubic arch angle ($> 90^\\circ$), and more movable coccyx",
+      "Fusion of both femur heads into the sacrum"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "تجويف ضيق قمعي الشكل بمدخل قلبي ضيق",
+      "غياب غضروف الارتفاق العاني تماماً",
+      "تجويف أكثر اتساعاً وأقل عمقاً، وزاوية عانية منفرجة ($> 90^\\circ$)، وعصعص أكثر قابلية للحركة للخلف",
+      "التحام رأسي عظمتي الفخذ في عظم العجز"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "A wider, shallower cavity, broader pubic arch angle ($> 90^\\circ$), and more movable coccyx",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: A wider, shallower cavity, broader pubic arch angle ($> 90^\\circ$), and more movable coccyx."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: تجويف أكثر اتساعاً وأقل عمقاً، وزاوية عانية منفرجة ($> 90^\\circ$)، وعصعص أكثر قابلية للحركة للخلف."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_34",
-    "titleEn": "Severe Muscle Spasm Mechanism #14",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #14",
+    "titleEn": "Intervertebral Disc Herniation Biomechanics",
+    "titleAr": "الميكانيكا الحيوية لفتق الأقراص الغضروفية (عرق النسا)",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "In lumbar intervertebral disc herniation, protrusion of the internal gelatinous nucleus pulposus leads to severe leg pain because:",
+    "questionAr": "في حالة الانزلاق الغضروفي القطني، يؤدي بروز النواة اللبية الجيلاتينية للخلف إلى آلام حادة بالساق لأنها:",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "Punctures the femoral artery, causing massive internal hemorrhage",
+      "Dissolves all the myelin sheaths throughout the cranial nerves",
+      "Pulls the gastrocnemius muscle directly into the abdominal cavity",
+      "Compresses the spinal nerve roots exiting the spinal cord inside the neural canal (e.g. sciatic nerve)"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "تثقب الشريان الفخذي مسببة نزيفاً داخلياً حاداً",
+      "تذيب الغمد النخاعيني لكافة الأعصاب القحفية",
+      "تسحب عضلة بطن الساق داخل تجويف البطن",
+      "تضغط على جذور الأعصاب الشوكية الخارجة من القناة العصبية (مثل العصب الوركي / عرق النسا)"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "Compresses the spinal nerve roots exiting the spinal cord inside the neural canal (e.g. sciatic nerve)",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: Compresses the spinal nerve roots exiting the spinal cord inside the neural canal (e.g. sciatic nerve)."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: تضغط على جذور الأعصاب الشوكية الخارجة من القناة العصبية (مثل العصب الوركي / عرق النسا)."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_35",
-    "titleEn": "Neurological Origin of Muscle Spasm #15",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #15",
+    "titleEn": "Unhappy Triad Knee Injury in Sports Trauma",
+    "titleAr": "الثالوث المشؤوم لإصابات الركبة الرياضية العنيفة",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "A football player sustaining a severe lateral blow to a planted, flexed knee suffers the 'unhappy triad', which involves simultaneous tearing of:",
+    "questionAr": "لاعب كرة قدم يتعرض لضربة جانبية عنيفة لركبته المثبتة على الأرض يعاني من 'الثالوث المشؤوم'، الذي يشمل تمزقاً متزامناً في:",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "The anterior cruciate ligament (ACL), medial collateral ligament (MCL), and medial meniscus",
+      "The femur, patella, and tibia bones completely in half",
+      "All 12 pairs of ribs from the sternum",
+      "The optic nerve, olfactory nerve, and auditory nerve"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "الرباط الصليبي الأمامي (ACL)، والرباط الجانبي الوسطي (MCL)، والغضروف الهلالي الداخلي",
+      "عظام الفخذ والرضفة والقصبة وانشطارها لنصفين",
+      "جميع أزواج الضلوع الاثني عشر وانفصالها عن القص",
+      "العصب البصري والشمي والسمعي معاً"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
+    "correctAnswer": "The anterior cruciate ligament (ACL), medial collateral ligament (MCL), and medial meniscus",
     "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The anterior cruciate ligament (ACL), medial collateral ligament (MCL), and medial meniscus."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: الرباط الصليبي الأمامي (ACL)، والرباط الجانبي الوسطي (MCL)، والغضروف الهلالي الداخلي."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_36",
-    "titleEn": "Muscle Fatigue Etiology #16",
-    "titleAr": "أسباب الإجهاد العضلي #16",
+    "titleEn": "Plant Cell Distilled Water versus RBC Lysis",
+    "titleAr": "مقارنة خلية نباتية وكرية دم حمراء في ماء مقطر",
     "difficulty": "hots",
-    "questionEn": "Continuous, intense muscular exertion with insufficient oxygen delivery causes:",
-    "questionAr": "بذل مجهود عضلي عنيف مستمر مع عدم كفاية الأكسجين الواصل للعضلة يؤدي إلى:",
+    "questionEn": "When placed in pure distilled water, a human red blood cell rapidly swells and bursts (hemolysis), while a plant leaf cell becomes turgid without bursting because:",
+    "questionAr": "عند وضع كرية دم حمراء وخلية نباتية في ماء مقطر نقي، تنتفخ كرية الدم وتنفجر بينما تنتفخ الخلية النباتية دون أن تنفجر لأن:",
     "optionsEn": [
-      "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-      "Immediate rupture of all muscle fibers",
-      "Complete cessation of acetylcholine synthesis",
-      "Hypertrophy of bone cartilages"
+      "The plant cell has no vacuole and cannot absorb water",
+      "The plant cell possesses a rigid, elastic cellulose cell wall that exerts opposing wall pressure halting further water intake",
+      "The red blood cell possesses ten layers of lignin",
+      "Distilled water is toxic only to mammalian cells"
     ],
     "optionsAr": [
-      "تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك",
-      "تمزق فوري في جميع الألياف العضلية",
-      "توقف كامل في تصنيع الأستيل كولين",
-      "تضخم الغضاريف العظمية"
+      "الخلية النباتية خالية من الفجوات ولا تمتص الماء إطلاقاً",
+      "الخلية النباتية تمتلك جداراً خلوياً سليلوزياً صلباً ومرناً يولد ضغط جدار معاكساً يمنع دخول المزيد من الماء",
+      "كرية الدم الحمراء بها عشر طبقات من اللجنين",
+      "الماء المقطر سام لخلايا الثدييات فقط دون النبات"
     ],
-    "correctAnswer": "Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "The plant cell possesses a rigid, elastic cellulose cell wall that exerts opposing wall pressure halting further water intake",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Conversion of glycogen to glucose metabolized anaerobically, accumulating lactic acid.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The plant cell possesses a rigid, elastic cellulose cell wall that exerts opposing wall pressure halting further water intake."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: تحول الجليكوجين إلى جلوكوز يتأكسد بالتنفس اللاهوائي مما يسبب تراكم حمض اللاكتيك.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: الخلية النباتية تمتلك جداراً خلوياً سليلوزياً صلباً ومرناً يولد ضغط جدار معاكساً يمنع دخول المزيد من الماء."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_37",
-    "titleEn": "Severe Muscle Spasm Mechanism #17",
-    "titleAr": "آلية حدوث الشد العضلي المؤلم #17",
+    "titleEn": "Plasmolysis Space Contents in Hypertonic Solution",
+    "titleAr": "طبيعة السائل المالئ للفراغ في الخلية المنبلزمة",
     "difficulty": "hots",
-    "questionEn": "A sudden, severe and painful involuntary muscle spasm that persists without relaxation is caused by:",
-    "questionAr": "الشد العضلي المؤلم والمفاجئ الذي يستمر دون قدرة العضلة على الانبساط يرجع سببه الفسيولوجي المباشر إلى:",
+    "questionEn": "When a plant cell undergoes severe plasmolysis in concentrated $10\\%$ saltwater, what substance fills the physical space between the retracted cell membrane and the outer cell wall?",
+    "questionAr": "عندما تتعرض خلية نباتية لبلزمة شديدة في محلول ملحي مركز تركيزه $10\\%$، ما الذي يملأ الفراغ الفاصل بين الغشاء المنكمش والجدار الخلوي الخارجي؟",
     "optionsEn": [
-      "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-      "Excessive calcium excretion in urine",
-      "Accumulation of acetic acid in the blood",
-      "Inhibition of sensory nerve fibers"
+      "Pure atmospheric air completely devoid of water molecules",
+      "Concentrated chlorophyll pigment extracted from chloroplasts",
+      "The external concentrated saltwater solution, which freely permeates through the porous cellulose wall",
+      "Pure solid suberin crystals precipitated instantly"
     ],
     "optionsAr": [
-      "التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين",
-      "زيادة إفراز الكالسيوم في البول",
-      "تراكم حمض الخليك في الدم",
-      "تثبيط الألياف العصبية الحسية"
+      "هواء جوي نقي خالٍ تماماً من جزيئات الماء",
+      "صبغة كلوروفيل مركزة خرجت من البلاستيدات",
+      "المحلول الملحي الخارجي المركز ذاته، حيث ينفذ بحرية عبر مسام الجدار السليلوزي المنفذ",
+      "بلورات سوبرين صلبة نقية ترسبت لحظياً"
     ],
-    "correctAnswer": "Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "The external concentrated saltwater solution, which freely permeates through the porous cellulose wall",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Complete depletion of ATP preventing the detachment of myosin cross-bridges from actin.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: The external concentrated saltwater solution, which freely permeates through the porous cellulose wall."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: التناقص الحاد والنفاد التام لجزيئات ATP مما يمنع انفصال الروابط المستعرضة عن الأكتين.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: المحلول الملحي الخارجي المركز ذاته، حيث ينفذ بحرية عبر مسام الجدار السليلوزي المنفذ."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_38",
-    "titleEn": "Neurological Origin of Muscle Spasm #18",
-    "titleAr": "الشد العضلي الناتج عن خلل عصبي #18",
+    "titleEn": "Halophyte Osmotic Adjustments in Saline Soil",
+    "titleAr": "التكيف الأسموزي لنباتات البيئة الملحية",
     "difficulty": "hots",
-    "questionEn": "Severe muscle spasms can occasionally occur even when ATP and oxygen levels in the muscle are normal. What causes this?",
-    "questionAr": "قد يحدث الشد العضلي أحياناً على الرغم من توفر جزيئات ATP والأكسجين بنسب طبيعية في العضلة. ما سبب ذلك؟",
+    "questionEn": "Halophytic marsh plants thrive in highly saline soils where soil osmotic pressure is high ($> 20\\text{ atm}$) because their root cells:",
+    "questionAr": "تنمو نباتات السبخات الملحية بنجاح في تربة ذات ضغط أسموزي مرتفع جداً ($> 20\\text{ atm}$) لأن خلايا جذورها تتميز بـ:",
     "optionsEn": [
-      "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-      "Lack of vitamin C in diet",
-      "Degeneration of joint synovial fluid",
-      "Failure of parathyroid hormone"
+      "Have completely open holes allowing seawater to rush freely into leaves",
+      "Stop all cellular respiration and photosynthesize at night only",
+      "Convert their entire root system into dead sclerenchyma fibers",
+      "Accumulate very high concentrations of organic solutes, maintaining an internal osmotic pressure higher than the soil"
     ],
     "optionsAr": [
-      "وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها",
-      "نقص فيتامين C في الغذاء",
-      "تآكل السائل الزلالي للمفصل",
-      "خلل هرمون الباراثورمون فقط"
+      "بها ثقوب مفتوحة تسمح بدخول ماء البحر بحرية للأوراق",
+      "توقف التنفس الخلوي تماماً وتقوم بالبناء الضوئي ليلاً فقط",
+      "تحول كامل مجموعها الجذري لألياف إسكلرنشيمية ميتة",
+      "تراكم تركيزات عالية جداً من الذائبات العضوية مما يجعل ضغطها الأسموزي الداخلي أعلى من ضغط محلول التربة"
     ],
-    "correctAnswer": "Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase",
-    "correctIndex": 0,
-    "hintEn": "Differentiate between muscle fatigue (mild, lactic acid accumulation) and muscle spasm (severe, zero ATP or incorrect neurological impulses).",
-    "hintAr": "ميز بدقة بين الإجهاد العضلي (تراكم حمض اللاكتيك بالتنفس اللاهوائي) والشد العضلي (نفاد ATP أو وصول إشارات عصبية خاطئة).",
+    "correctAnswer": "Accumulate very high concentrations of organic solutes, maintaining an internal osmotic pressure higher than the soil",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Clinical cause: Arrival of incorrect, conflicting nerve impulses from the brain during muscle resting phase.",
-      "This distinction is a regular highlight in Thanaweya examinations."
+      "Step-by-step biological derivation: Accumulate very high concentrations of organic solutes, maintaining an internal osmotic pressure higher than the soil."
     ],
     "stepByStepSolutionAr": [
-      "التشخيص الفسيولوجي: وصول نبضات عصبية غير صحيحة ومتعارضة من المخ إلى العضلة أثناء انبساطها.",
-      "هذا التمييز من أهم النقاط المتكررة في امتحانات الثانوية العامة."
+      "خطوات التحليل العلمي والاستنتاج: تراكم تركيزات عالية جداً من الذائبات العضوية مما يجعل ضغطها الأسموزي الداخلي أعلى من ضغط محلول التربة."
     ],
-    "teacherTipEn": "Severe muscle spasm can lead to bleeding and muscle tearing if the muscle is forcefully stretched during the spasm.",
-    "teacherTipAr": "قد يؤدي الشد العضلي الزائد عن الحد إلى تمزق العضلة وحدوث نزيف دموي داخلي."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_39",
-    "titleEn": "Neuromuscular Pharmacology: Curare Plant Poison #1",
-    "titleAr": "تأثير العقاقير والسموم: سم الكورار #1",
+    "titleEn": "Seismonasty Mechanism in Mimosa Pudica",
+    "titleAr": "آلية الانتحاء اللمسي السريع في نبات المستحية",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Curare Plant Poison** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم الكورار** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Upon tactile contact, the leaflets of Mimosa pudica droop within seconds. The underlying biophysical mechanism involves:",
+    "questionAr": "عند لمس وريقات نبات المستحية فإنها تدلى وتنطبق في ثوانٍ معدودة. وتعتمد الآلية البيوفيزيائية وراء ذلك على:",
     "optionsEn": [
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Rapid potassium and chloride ion efflux from motor cells in the lower half of leaf pulvini, causing sudden osmotic water loss",
+      "Instantaneous enzymatic cleavage of all petiole cellulose fibers",
+      "Rapid muscular contraction driven by skeletal myosin cross-bridges",
+      "Immediate boiling of cell sap inside leaf vacuoles"
     ],
     "optionsAr": [
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "خروج سريع لأيونات البوتاسيوم والكلور من خلايا النصف السفلي للانتفاخات مسبباً فقدها المفاجئ للماء بالأسموزية",
+      "التحلل الإنزيمي الفوري لألياف السليلوز في عنق الورقة",
+      "انقباض عضلي سريع تحركه روابط المايوسين الهيكلية",
+      "غليان فوري للعصير الخلوي داخل فجوات الورقة"
     ],
-    "correctAnswer": "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
+    "correctAnswer": "Rapid potassium and chloride ion efflux from motor cells in the lower half of leaf pulvini, causing sudden osmotic water loss",
     "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Curare Plant Poison:",
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis."
+      "Step-by-step biological derivation: Rapid potassium and chloride ion efflux from motor cells in the lower half of leaf pulvini, causing sudden osmotic water loss."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم الكورار:",
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام."
+      "خطوات التحليل العلمي والاستنتاج: خروج سريع لأيونات البوتاسيوم والكلور من خلايا النصف السفلي للانتفاخات مسبباً فقدها المفاجئ للماء بالأسموزية."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_40",
-    "titleEn": "Neuromuscular Pharmacology: Botulinum Toxin (Botox) #2",
-    "titleAr": "تأثير العقاقير والسموم: سم البوتولينوم #2",
+    "titleEn": "Nyctinasty (Sleep Movements) in Legumes",
+    "titleAr": "حركة النوم واليقظة في أوراق النباتات البقولية",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Botulinum Toxin (Botox)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم البوتولينوم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "In legume plants (e.g. beans, peas), the rhythmic nocturnal folding and diurnal opening of leaflets represents:",
+    "questionAr": "في النباتات البقولية (كالفول والبسلة)، يمثل الانطباق الليلي الدوري للوريقات وانبساطها نهاراً نموذجاً لـ:",
     "optionsEn": [
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Total locomotion of the root system across the farm soil",
+      "Turgor-driven movement in pulvini coordinated by circadian rhythms and light changes",
+      "Structural deposition of cutin on stems every evening",
+      "Permanent loss of all physiological support until spring"
     ],
     "optionsAr": [
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "حركة كلية ينتقل بها المجموع الجذري في تربة الحقل",
+      "حركة موضعية تعتمد على تغير ضغط الامتلاء في خلايا الانتفاخات بتأثير الضوء والساعة البيولوجية",
+      "ترسيب تركيبي للكيوتين على الساق كل مساء",
+      "فقدان دائم لكافة الدعامة الفسيولوجية حتى الربيع"
     ],
-    "correctAnswer": "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Turgor-driven movement in pulvini coordinated by circadian rhythms and light changes",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Botulinum Toxin (Botox):",
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal."
+      "Step-by-step biological derivation: Turgor-driven movement in pulvini coordinated by circadian rhythms and light changes."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم البوتولينوم:",
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية."
+      "خطوات التحليل العلمي والاستنتاج: حركة موضعية تعتمد على تغير ضغط الامتلاء في خلايا الانتفاخات بتأثير الضوء والساعة البيولوجية."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_41",
-    "titleEn": "Neuromuscular Pharmacology: Nerve Gas / Organophosphates #3",
-    "titleAr": "تأثير العقاقير والسموم: غازات الأعصاب والمبيدات الحشرية #3",
+    "titleEn": "Cytoplasmic Streaming Dependence on Cellular ATP",
+    "titleAr": "اعتماد الانسياب السيتوبلازمي على جزيئات ATP",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Nerve Gas / Organophosphates** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **غازات الأعصاب والمبيدات الحشرية** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "When living Elodea leaf cells are treated with a metabolic inhibitor like dinitrophenol (which uncouples ATP synthesis), cytoplasmic streaming halts because:",
+    "questionAr": "عند معالجة خلايا أوراق نبات الإيلوديا بمثبط أيضي مثل ثنائي نتروفينول (يوقف إنتاج ATP)، يتوقف الانسياب السيتوبلازمي لأن:",
     "optionsEn": [
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Chloroplasts permanently fuse to the outer cellulose cell wall",
+      "The cell sap freezes into solid ice at room temperature",
+      "Cyclosis is an active intracellular movement powered by actin-myosin microfilament interactions utilizing ATP energy",
+      "The cell nucleus converts into a giant stone cell"
     ],
     "optionsAr": [
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "البلاستيدات الخضراء تلتحم نهائياً بالجدار السليلوزي",
+      "العصير الخلوي يتجمد إلى ثلج صلب في درجة حرارة الغرفة",
+      "الانسياب السيتوبلازمي حركة حيوية نشطة تدفعها خيوط الأكتين والمايوسين الدقيقة وتتطلب طاقة ATP",
+      "نواة الخلية تتحول إلى خلية حجرية عملاقة"
     ],
-    "correctAnswer": "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Cyclosis is an active intracellular movement powered by actin-myosin microfilament interactions utilizing ATP energy",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Nerve Gas / Organophosphates:",
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms."
+      "Step-by-step biological derivation: Cyclosis is an active intracellular movement powered by actin-myosin microfilament interactions utilizing ATP energy."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير غازات الأعصاب والمبيدات الحشرية:",
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة."
+      "خطوات التحليل العلمي والاستنتاج: الانسياب السيتوبلازمي حركة حيوية نشطة تدفعها خيوط الأكتين والمايوسين الدقيقة وتتطلب طاقة ATP."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_42",
-    "titleEn": "Neuromuscular Pharmacology: Hypocalcemia (Low blood Ca2+) #4",
-    "titleAr": "تأثير العقاقير والسموم: نقص نسبة الكالسيوم في الدم #4",
+    "titleEn": "Tendril Auxin Efflux Triggered by Mechanical Contact",
+    "titleAr": "هجرة الأوكسينات في المحلاق بتأثير التلامس الميكانيكي",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Hypocalcemia (Low blood Ca2+)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **نقص نسبة الكالسيوم في الدم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "In climbing tendrils, mechanical pressure from contacting a support triggers a lateral transport of auxins toward:",
+    "questionAr": "في محاليق النباتات المتسلقة، يؤدي الضغط الميكانيكي الناتج عن ملامسة الدعامة إلى تحفيز النقل الجانبي للأوكسينات نحو:",
     "optionsEn": [
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "The root cap exclusively, stopping all aerial growth",
+      "The solid wooden support, causing it to photosynthesize",
+      "The atmosphere as a volatile aerosol mist",
+      "The convex (outer, non-contact) side, stimulating its rapid cellular elongation relative to the contact side"
     ],
     "optionsAr": [
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "القمة النامية للجذر حصراً مما يوقف النمو الهوائي",
+      "الدعامة الخشبية الصلبة مما يجعلها تقوم بالبناء الضوئي",
+      "الغلاف الجوي في صورة رذاذ متطاير",
+      "الجانب المحدب (الخارجي البعيد عن الدعامة)، مما يحفز استطالة خلاياه بمعدل أسرع من الجانب الملامس"
     ],
-    "correctAnswer": "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "The convex (outer, non-contact) side, stimulating its rapid cellular elongation relative to the contact side",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Hypocalcemia (Low blood Ca2+):",
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency."
+      "Step-by-step biological derivation: The convex (outer, non-contact) side, stimulating its rapid cellular elongation relative to the contact side."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير نقص نسبة الكالسيوم في الدم:",
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون."
+      "خطوات التحليل العلمي والاستنتاج: الجانب المحدب (الخارجي البعيد عن الدعامة)، مما يحفز استطالة خلاياه بمعدل أسرع من الجانب الملامس."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_43",
-    "titleEn": "Neuromuscular Pharmacology: Curare Plant Poison #5",
-    "titleAr": "تأثير العقاقير والسموم: سم الكورار #5",
+    "titleEn": "Contractile Roots Cortical Cell Morphological Shift",
+    "titleAr": "التحول الشكلي لخلايا قشرة الجذور الشادة أثناء الشد",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Curare Plant Poison** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم الكورار** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Histological examination of contractile roots during bulb downward pulling demonstrates that cortical parenchyma cells undergo:",
+    "questionAr": "يُظهر الفحص النسيجي للجذور الشادة أثناء سحب البصلة لأسفل أن خلايا القشرة البارنشيمية تخضع لـ:",
     "optionsEn": [
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Radial expansion combined with longitudinal shortening, pulling the stem downward",
+      "Conversion into hollow, dead xylem tracheids without water",
+      "Uncontrolled mitotic division producing millions of leaves",
+      "Complete calcification into rigid bone tissue"
     ],
     "optionsAr": [
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "تمدد واتساع قطري جانبي مصحوب بقصر وانكماش طولي يسحب الساق لأسفل",
+      "تحولها إلى قصيبات خشب ميتة مجوفة خالية من الماء",
+      "انقسام ميتوزي عشوائي ينتج ملايين الأوراق",
+      "تكلس تام وتحولها لنسيج عظمي صلب"
     ],
-    "correctAnswer": "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
+    "correctAnswer": "Radial expansion combined with longitudinal shortening, pulling the stem downward",
     "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Curare Plant Poison:",
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis."
+      "Step-by-step biological derivation: Radial expansion combined with longitudinal shortening, pulling the stem downward."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم الكورار:",
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام."
+      "خطوات التحليل العلمي والاستنتاج: تمدد واتساع قطري جانبي مصحوب بقصر وانكماش طولي يسحب الساق لأسفل."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_44",
-    "titleEn": "Neuromuscular Pharmacology: Botulinum Toxin (Botox) #6",
-    "titleAr": "تأثير العقاقير والسموم: سم البوتولينوم #6",
+    "titleEn": "Sclereids versus Fibers Morphological Differentiation",
+    "titleAr": "التمييز المورفولوجي بين الخلايا الحجرية والألياف",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Botulinum Toxin (Botox)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم البوتولينوم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "While sclerenchyma fibers are characterized by elongated, slender shapes with tapering ends, sclereids (stone cells) are characterized by:",
+    "questionAr": "بينما تتميز الألياف الإسكلرنشيمية بأنها خلايا مستطيلة مدببة الأطراف، تتميز الخلايا الحجرية بأنها:",
     "optionsEn": [
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Living, flexible cells filled with contractile muscle actin",
+      "Short, isodiametric or branched shapes with heavily lignified, pitted secondary walls",
+      "Thin unthickened walls storing large quantities of water",
+      "Being restricted exclusively to the roots of desert cacti"
     ],
     "optionsAr": [
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "خلايا حية مرنة ممتلئة بأكتين عضلي منقبض",
+      "خلايا قصيرة مستديرة أو متفرعة ذات جدر ثانوية شديدة التغلظ باللجنين وغنية بالنقر",
+      "جدر رقيقة غير مغلظة تخزن كميات هائلة من الماء",
+      "اقتصار وجودها حصراً على جذور نبات الصبار"
     ],
-    "correctAnswer": "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Short, isodiametric or branched shapes with heavily lignified, pitted secondary walls",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Botulinum Toxin (Botox):",
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal."
+      "Step-by-step biological derivation: Short, isodiametric or branched shapes with heavily lignified, pitted secondary walls."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم البوتولينوم:",
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية."
+      "خطوات التحليل العلمي والاستنتاج: خلايا قصيرة مستديرة أو متفرعة ذات جدر ثانوية شديدة التغلظ باللجنين وغنية بالنقر."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_45",
-    "titleEn": "Neuromuscular Pharmacology: Nerve Gas / Organophosphates #7",
-    "titleAr": "تأثير العقاقير والسموم: غازات الأعصاب والمبيدات الحشرية #7",
+    "titleEn": "Endurance Athlete versus Sprinter Muscle Fibers",
+    "titleAr": "مقارنة ألياف عداء المسافات الطويلة وعداء السرعة",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Nerve Gas / Organophosphates** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **غازات الأعصاب والمبيدات الحشرية** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Marathon runners possess a high percentage of slow-twitch (Type I) muscle fibers, which are histologically adapted for endurance by having:",
+    "questionAr": "يمتلك عداؤو الماراثون نسبة عالية من الألياف العضلية بطيئة الانقباض (النوع الأول) المتكيفة لتحمل الإجهاد بامتلاكها:",
     "optionsEn": [
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Zero mitochondria and complete reliance on lactic acid fermentation",
+      "Bony calcified plates replacing flexible sarcomeres",
+      "Abundant myoglobin, dense capillary networks, and plentiful mitochondria for aerobic ATP generation",
+      "An absence of all motor neurons and nerve endings"
     ],
     "optionsAr": [
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "انعدام الميتوكوندريا والاعتماد الكلي على تخمر حمض اللاكتيك",
+      "صفائح عظمية متكلسة تحل محل الساركوميرات المرنة",
+      "مخزوناً وفيراً من الميوجلوبين، وشبكة شعيرات دموية كثيفة، وميتوكوندريا وفيرة لإنتاج ATP هوائياً",
+      "غياب كافة الخلايا العصبية الحركية والنهايات العصبية"
     ],
-    "correctAnswer": "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Abundant myoglobin, dense capillary networks, and plentiful mitochondria for aerobic ATP generation",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Nerve Gas / Organophosphates:",
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms."
+      "Step-by-step biological derivation: Abundant myoglobin, dense capillary networks, and plentiful mitochondria for aerobic ATP generation."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير غازات الأعصاب والمبيدات الحشرية:",
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة."
+      "خطوات التحليل العلمي والاستنتاج: مخزوناً وفيراً من الميوجلوبين، وشبكة شعيرات دموية كثيفة، وميتوكوندريا وفيرة لإنتاج ATP هوائياً."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_46",
-    "titleEn": "Neuromuscular Pharmacology: Hypocalcemia (Low blood Ca2+) #8",
-    "titleAr": "تأثير العقاقير والسموم: نقص نسبة الكالسيوم في الدم #8",
+    "titleEn": "Comprehensive Marathoner Muscle Cramp Synthesis",
+    "titleAr": "التحليل التركيبي لإجهاد وتقلص عضلات عداء الماراثون",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Hypocalcemia (Low blood Ca2+)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **نقص نسبة الكالسيوم في الدم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "At kilometer 38 of a marathon, a runner suffers a sudden agonizing calf cramp that locks the gastrocnemius muscle. The exact biochemical sequence was:",
+    "questionAr": "عند الكيلومتر 38 من سباق الماراثون، عانى متسابق من شد عضلي مفاجئ شل حركة عضلة الساق التوأمية. ما التسلسل البيوكيميائي الدقيق لحدوث ذلك؟",
     "optionsEn": [
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Sudden conversion of all calf bones into pure cartilage within seconds",
+      "Excessive accumulation of hemoglobin inside the synaptic cleft",
+      "The knee joint rotating 180 degrees backward spontaneously",
+      "Glycogen depletion $\\to$ inadequate aerobic ATP $\\to$ lactic acidosis $\\to$ total ATP exhaustion $\\to$ cross-bridges fail to detach from actin"
     ],
     "optionsAr": [
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "تحول عظام الساق إلى غضاريف نقية فجأة في ثوانٍ",
+      "تراكم مفرط للهيموجلوبين داخل شق التشابك العصبي العضلي",
+      "دوران مفصل الركبة 180 درجة للخلف تلقائياً",
+      "استهلاك الجليكوجين $\\to$ نقص إنتاج ATP الهوائي $\\to$ تراكم اللاكتيك $\\to$ نفاد ATP $\\to$ عجز الروابط المستعرضة عن الانفصال عن الأكتين"
     ],
-    "correctAnswer": "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Glycogen depletion $\\to$ inadequate aerobic ATP $\\to$ lactic acidosis $\\to$ total ATP exhaustion $\\to$ cross-bridges fail to detach from actin",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Hypocalcemia (Low blood Ca2+):",
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency."
+      "Step-by-step biological derivation: Glycogen depletion $\\to$ inadequate aerobic ATP $\\to$ lactic acidosis $\\to$ total ATP exhaustion $\\to$ cross-bridges fail to detach from actin."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير نقص نسبة الكالسيوم في الدم:",
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون."
+      "خطوات التحليل العلمي والاستنتاج: استهلاك الجليكوجين $\\to$ نقص إنتاج ATP الهوائي $\\to$ تراكم اللاكتيك $\\to$ نفاد ATP $\\to$ عجز الروابط المستعرضة عن الانفصال عن الأكتين."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_47",
-    "titleEn": "Neuromuscular Pharmacology: Curare Plant Poison #9",
-    "titleAr": "تأثير العقاقير والسموم: سم الكورار #9",
+    "titleEn": "Quantitative Problem: Sarcomeres in 100 Myofibrils",
+    "titleAr": "مسألة كمية: حساب عدد الساركوميرات في حزمة لييفات",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Curare Plant Poison** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم الكورار** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "A muscle fiber contains 100 parallel myofibrils. Each myofibril has 20 sarcomeres. What is the total number of Z-lines in this single muscle fiber?",
+    "questionAr": "تحتوي ليفة عضلية على 100 لييفة عضلية متوازية. تحتوي كل لييفة على 20 قطعة عضلية. ما إجمالي عدد خطوط Z في كل هذه اللييفات مجتمعة؟",
     "optionsEn": [
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "2100 Z-lines ($100 \\times (20 + 1) = 2100$)",
+      "2000 Z-lines",
+      "1900 Z-lines",
+      "4000 Z-lines"
     ],
     "optionsAr": [
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "2100 خط Z ($100 \\times (20 + 1) = 2100$)",
+      "2000 خط Z",
+      "1900 خط Z",
+      "4000 خط Z"
     ],
-    "correctAnswer": "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
+    "correctAnswer": "2100 Z-lines ($100 \\times (20 + 1) = 2100$)",
     "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Curare Plant Poison:",
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis."
+      "Step-by-step biological derivation: 2100 Z-lines ($100 \\times (20 + 1) = 2100$)."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم الكورار:",
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام."
+      "خطوات التحليل العلمي والاستنتاج: 2100 خط Z ($100 \\times (20 + 1) = 2100$)."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_48",
-    "titleEn": "Neuromuscular Pharmacology: Botulinum Toxin (Botox) #10",
-    "titleAr": "تأثير العقاقير والسموم: سم البوتولينوم #10",
+    "titleEn": "Quantitative Problem: Muscle Fascicle Motor Unit Sizing",
+    "titleAr": "مسألة كمية: تحديد حجم الوحدة الحركية في عضلة العين",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Botulinum Toxin (Botox)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم البوتولينوم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "In the extraocular muscles of the human eye controlling micro-saccadic eye tracking, motor units are small, containing approximately:",
+    "questionAr": "في العضلات الخارجية المحركة لكنة العين والتي تتحكم في حركات التتبع البصري الدقيقة، تكون الوحدات الحركية صغيرة وتغذي تقريباً:",
     "optionsEn": [
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "1000 to 5000 muscle fibers per unit to generate crushing force",
+      "5 to 10 muscle fibers per motor neuron, providing extremely fine motor resolution",
+      "Zero muscle fibers; eye muscles contract by electromagnetic waves",
+      "One million fibers per neuron"
     ],
     "optionsAr": [
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "من 1000 إلى 5000 ليفة عضلية لتوليد قوة ساحقة",
+      "من 5 إلى 10 ألياف عضلية لكل عصب حركي، مما يوفر دقة تحكم حركي متناهية الصغر",
+      "صفر من الألياف، وتتحرك العين بالموجات الكهرومغناطيسية",
+      "مليون ليفة لكل خلية عصبية"
     ],
-    "correctAnswer": "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "5 to 10 muscle fibers per motor neuron, providing extremely fine motor resolution",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Botulinum Toxin (Botox):",
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal."
+      "Step-by-step biological derivation: 5 to 10 muscle fibers per motor neuron, providing extremely fine motor resolution."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم البوتولينوم:",
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية."
+      "خطوات التحليل العلمي والاستنتاج: من 5 إلى 10 ألياف عضلية لكل عصب حركي، مما يوفر دقة تحكم حركي متناهية الصغر."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_49",
-    "titleEn": "Neuromuscular Pharmacology: Nerve Gas / Organophosphates #11",
-    "titleAr": "تأثير العقاقير والسموم: غازات الأعصاب والمبيدات الحشرية #11",
+    "titleEn": "Quantitative Problem: Vertebra Facing Abdominal Cavity Median",
+    "titleAr": "مسألة كمية: الفقرة المنصفة للفقرات القطنية",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Nerve Gas / Organophosphates** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **غازات الأعصاب والمبيدات الحشرية** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "The lumbar vertebrae face the abdominal cavity. Which vertebra represents the exact middle lumbar vertebra?",
+    "questionAr": "تواجه الفقرات القطنية التجويف البطني. أي فقرة تمثل الفقرة القطنية المتوسطة (الثالثة قطنياً) في العمود الفقري؟",
     "optionsEn": [
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Vertebra number 20",
+      "Vertebra number 24",
+      "Vertebra number 22 (7 cervical + 12 thoracic + 3 lumbar = 22)",
+      "Vertebra number 15"
     ],
     "optionsAr": [
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "الفقرة رقم 20",
+      "الفقرة رقم 24",
+      "الفقرة رقم 22 (7 عنقية + 12 ظهرية + 3 قطنية = الفقرة 22)",
+      "الفقرة رقم 15"
     ],
-    "correctAnswer": "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Vertebra number 22 (7 cervical + 12 thoracic + 3 lumbar = 22)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Nerve Gas / Organophosphates:",
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms."
+      "Step-by-step biological derivation: Vertebra number 22 (7 cervical + 12 thoracic + 3 lumbar = 22)."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير غازات الأعصاب والمبيدات الحشرية:",
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة."
+      "خطوات التحليل العلمي والاستنتاج: الفقرة رقم 22 (7 عنقية + 12 ظهرية + 3 قطنية = الفقرة 22)."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_50",
-    "titleEn": "Neuromuscular Pharmacology: Hypocalcemia (Low blood Ca2+) #12",
-    "titleAr": "تأثير العقاقير والسموم: نقص نسبة الكالسيوم في الدم #12",
+    "titleEn": "Comparative Mechanics: Shoulder vs Hip Joint Stability",
+    "titleAr": "مقارنة ميكانيكية: ثبات مفصل الكتف ومفصل الفخذ",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Hypocalcemia (Low blood Ca2+)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **نقص نسبة الكالسيوم في الدم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Although both shoulder and hip are synovial ball-and-socket joints, the hip joint is significantly more stable and less prone to dislocation because:",
+    "questionAr": "رغم أن كلاً من مفصل الكتف ومفصل الفخذ مفصلان زلاليان حران وواسعا الحركة، إلا أن مفصل الفخذ أكثر ثباتاً وأقل عرضة للخلع لأن:",
     "optionsEn": [
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "The femur bone has no head and fuses directly to the pelvis",
+      "The shoulder joint contains no synovial fluid whatsoever",
+      "The hip joint is made entirely of fibrous skull sutures",
+      "The acetabulum is much deeper than the shallow glenoid cavity and is reinforced by heavier ligaments and muscles"
     ],
     "optionsAr": [
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "عظم الفخذ ليس له رأس ويلتحم مباشرة بالحوض",
+      "مفصل الكتف يخلو تماماً من أي سائل زلالي",
+      "مفصل الفخذ يتكون من مفاصل ليفية عديمة الحركة",
+      "التجويف الحقي أكثر عمقاً بكثير من التجويف الأروحي الضحل ومدعم بأربطة وعضلات أثقل وأقوى"
     ],
-    "correctAnswer": "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "The acetabulum is much deeper than the shallow glenoid cavity and is reinforced by heavier ligaments and muscles",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Hypocalcemia (Low blood Ca2+):",
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency."
+      "Step-by-step biological derivation: The acetabulum is much deeper than the shallow glenoid cavity and is reinforced by heavier ligaments and muscles."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير نقص نسبة الكالسيوم في الدم:",
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون."
+      "خطوات التحليل العلمي والاستنتاج: التجويف الحقي أكثر عمقاً بكثير من التجويف الأروحي الضحل ومدعم بأربطة وعضلات أثقل وأقوى."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_51",
-    "titleEn": "Neuromuscular Pharmacology: Curare Plant Poison #13",
-    "titleAr": "تأثير العقاقير والسموم: سم الكورار #13",
+    "titleEn": "Ligament Flexibility vs Tendon Inelasticity Adaptation",
+    "titleAr": "التكيف الوظيفي لمرونة الأربطة وعدم مرونة الأوتار",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Curare Plant Poison** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم الكورار** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Why must ligaments possess high elasticity while tendons must be virtually non-elastic?",
+    "questionAr": "لماذا يجب أن تتمتع الأربطة بمرونة واستطالة محسوبة بينما يجب أن تكون الأوتار غير مرنة وقوية؟",
     "optionsEn": [
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Elastic ligaments permit joint movement and resist dislocation during twisting; non-elastic tendons transmit muscular pull instantly without force loss",
+      "Ligaments pull blood into bones; tendons store excess urine",
+      "Tendons must stretch like rubber to make bones longer during walking",
+      "Ligaments are composed of dead cutin; tendons are living brain tissue"
     ],
     "optionsAr": [
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "مرونة الأربطة تسمح بحركة المفصل دون تمزق عند الالتواء؛ بينما عدم مرونة الأوتار ينقل قوة الشد العضلي إلى العظام فوراً دون ضياع الطاقة",
+      "الأربطة تضخ الدم للعظام؛ والأوتار تخزن البول الزائد",
+      "الأوتار يجب أن تستطيل كالمطاط لإطالة العظام أثناء المشي",
+      "الأربطة تتكون من كيوتين ميت؛ والأوتار أنسجة مخية حية"
     ],
-    "correctAnswer": "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
+    "correctAnswer": "Elastic ligaments permit joint movement and resist dislocation during twisting; non-elastic tendons transmit muscular pull instantly without force loss",
     "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Curare Plant Poison:",
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis."
+      "Step-by-step biological derivation: Elastic ligaments permit joint movement and resist dislocation during twisting; non-elastic tendons transmit muscular pull instantly without force loss."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم الكورار:",
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام."
+      "خطوات التحليل العلمي والاستنتاج: مرونة الأربطة تسمح بحركة المفصل دون تمزق عند الالتواء؛ بينما عدم مرونة الأوتار ينقل قوة الشد العضلي إلى العظام فوراً دون ضياع الطاقة."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_52",
-    "titleEn": "Neuromuscular Pharmacology: Botulinum Toxin (Botox) #14",
-    "titleAr": "تأثير العقاقير والسموم: سم البوتولينوم #14",
+    "titleEn": "Plant Tissue Staining: Phloroglucinol-HCl Test for Lignin",
+    "titleAr": "الكشف المجهري عن اللجنين في أنسجة النبات",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Botulinum Toxin (Botox)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم البوتولينوم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "When a transverse section of an angiosperm stem is treated with phloroglucinol and hydrochloric acid, lignified tissues stain bright cherry-red. Which tissues turn red?",
+    "questionAr": "عند معاملة قطاع عرضي لساق نبات بمحلول الفلوروجلوسينول وحمض الهيدروكلوريك، تصطبغ الأنسجة الملجننة بلون أحمر قرمزي فاقع. أي الأنسجة تصطبغ بالأحمر؟",
     "optionsEn": [
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Parenchyma cortex and phloem sieve tubes exclusively",
+      "Xylem vessels, tracheids, and sclerenchyma fibers",
+      "Epidermal guard cells and root hair tips",
+      "The mucilage sheath covering water lily leaves"
     ],
     "optionsAr": [
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "خلايا القشرة البارنشيمية والأنابيب الغربالية حصراً",
+      "أوعية وقصيبات الخشب والألياف الإسكلرنشيمية والخلايا الحجرية",
+      "الخلايا الحارسة للبشرة وأطراف الشعيرات الجذرية",
+      "الغمد المخاطي المغطي لأوراق زنبق الماء"
     ],
-    "correctAnswer": "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Xylem vessels, tracheids, and sclerenchyma fibers",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Botulinum Toxin (Botox):",
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal."
+      "Step-by-step biological derivation: Xylem vessels, tracheids, and sclerenchyma fibers."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم البوتولينوم:",
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية."
+      "خطوات التحليل العلمي والاستنتاج: أوعية وقصيبات الخشب والألياف الإسكلرنشيمية والخلايا الحجرية."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_53",
-    "titleEn": "Neuromuscular Pharmacology: Nerve Gas / Organophosphates #15",
-    "titleAr": "تأثير العقاقير والسموم: غازات الأعصاب والمبيدات الحشرية #15",
+    "titleEn": "Physiological Support in Guard Cells Regulating Stomata",
+    "titleAr": "دور الدعامة الفسيولوجية في الخلايا الحارسة لفتح الثغور",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Nerve Gas / Organophosphates** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **غازات الأعصاب والمبيدات الحشرية** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "The opening and closing of leaf stomata is regulated by physiological support changes in guard cells: stomata open when:",
+    "questionAr": "تتحكم الدعامة الفسيولوجية في الخلايا الحارسة في فتح وغلق الثغور: حيث تفتح الثغور نهاراً عندما:",
     "optionsEn": [
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Guard cells lose all internal water and shrink completely",
+      "Lignin is synthesized in the stomatal pore sealing it",
+      "Guard cells absorb water by osmosis, increasing turgidity and bowing apart due to differential inner/outer wall thickness",
+      "The plant drops all its leaves simultaneously at noon"
     ],
     "optionsAr": [
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "تفقد الخلايا الحارسة ماءها وتنكمش كلياً",
+      "يترسب اللجنين في فتحة الثغر فيسدها تماماً",
+      "تمتص الخلايا الحارسة الماء بالأسموزية فيزداد ضغط امتلائها وتتقوس متباعدة لتباين سمك جداريها الداخلي والخارجي",
+      "يسقط النبات كافة أوراقه ظهراً في نفس اللحظة"
     ],
-    "correctAnswer": "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Guard cells absorb water by osmosis, increasing turgidity and bowing apart due to differential inner/outer wall thickness",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Nerve Gas / Organophosphates:",
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms."
+      "Step-by-step biological derivation: Guard cells absorb water by osmosis, increasing turgidity and bowing apart due to differential inner/outer wall thickness."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير غازات الأعصاب والمبيدات الحشرية:",
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة."
+      "خطوات التحليل العلمي والاستنتاج: تمتص الخلايا الحارسة الماء بالأسموزية فيزداد ضغط امتلائها وتتقوس متباعدة لتباين سمك جداريها الداخلي والخارجي."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_54",
-    "titleEn": "Neuromuscular Pharmacology: Hypocalcemia (Low blood Ca2+) #16",
-    "titleAr": "تأثير العقاقير والسموم: نقص نسبة الكالسيوم في الدم #16",
+    "titleEn": "Tetanic Contraction versus Muscle Twitch Summation",
+    "titleAr": "الانقباض الكزازي وتراكب نفضات العضلة",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Hypocalcemia (Low blood Ca2+)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **نقص نسبة الكالسيوم في الدم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "If a motor nerve is stimulated with a train of rapid electrical impulses before the muscle fiber can relax, the twitches fuse into:",
+    "questionAr": "إذا نُبه العصب الحركي بتيار نبضات كهربائية متتالية وسريعة قبل أن تتمكن اللييفة من الانبساط، فإن النفضات تندمج في:",
     "optionsEn": [
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Immediate rupture of all cross-bridges into amino acids",
+      "Permanent conversion of the muscle into yellow adipose fat",
+      "Spontaneous ejection of the patella from the knee",
+      "A sustained, smooth maximal contraction known as physiological tetanus"
     ],
     "optionsAr": [
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "تمزق فوري لكافة الروابط المستعرضة إلى أحماض أمينية",
+      "تحول العضلة نهائياً إلى نسيج دهني أصفر",
+      "طرد عظمة الرضفة خارج مفصل الركبة تلقائياً",
+      "انقباض مستمر أملس وأقصى يعرف بالكزاز الفسيولوجي (Tetanus)"
     ],
-    "correctAnswer": "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "A sustained, smooth maximal contraction known as physiological tetanus",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Hypocalcemia (Low blood Ca2+):",
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency."
+      "Step-by-step biological derivation: A sustained, smooth maximal contraction known as physiological tetanus."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير نقص نسبة الكالسيوم في الدم:",
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون."
+      "خطوات التحليل العلمي والاستنتاج: انقباض مستمر أملس وأقصى يعرف بالكزاز الفسيولوجي (Tetanus)."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_55",
-    "titleEn": "Neuromuscular Pharmacology: Curare Plant Poison #17",
-    "titleAr": "تأثير العقاقير والسموم: سم الكورار #17",
+    "titleEn": "Forearm Pronation and Supination Kinematics",
+    "titleAr": "حركية انبطاح واستلقاء الساعد بواسطة الكعبرة",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Curare Plant Poison** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم الكورار** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "When an individual rotates their palm downward (pronation) and then upward (supination), this motion is kinematically achieved by:",
+    "questionAr": "عندما يدير الإنسان كف يده لأسفل (انبطاح) ثم لأعلى (استلقاء)، فإن هذه الحركة تتحقق حركياً من خلال:",
     "optionsEn": [
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "The head of the radius rotating around the relatively stationary, fixed ulna at the proximal and distal radio-ulnar joints",
+      "The humerus rotating 360 degrees inside the spinal cord",
+      "The wrist bones fusing permanently with the collarbone",
+      "The clavicle sliding beneath the floating 12th rib"
     ],
     "optionsAr": [
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "دوران رأس عظمة الكعبرة حركة نصف دائرية حول عظمة الزند الثابتة عند مفصلي الساعد العلوي والسفلي",
+      "دوران عظمة العضد 360 درجة داخل الحبل الشوكي",
+      "التحام عظام الرسغ نهائياً بعظمة الترقوة",
+      "انزلاق عظمة الترقوة أسفل الضلع العائم الثاني عشر"
     ],
-    "correctAnswer": "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis",
+    "correctAnswer": "The head of the radius rotating around the relatively stationary, fixed ulna at the proximal and distal radio-ulnar joints",
     "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Curare Plant Poison:",
-      "Competitively blocks acetylcholine receptors on the sarcolemma, preventing depolarization and causing flaccid paralysis."
+      "Step-by-step biological derivation: The head of the radius rotating around the relatively stationary, fixed ulna at the proximal and distal radio-ulnar joints."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم الكورار:",
-      "يرتبط بمستقبلات الأستيل كولين على غشاء الليفة مانعاً إزالة الاستقطاب فيحدث شلل ارتخائي تام."
+      "خطوات التحليل العلمي والاستنتاج: دوران رأس عظمة الكعبرة حركة نصف دائرية حول عظمة الزند الثابتة عند مفصلي الساعد العلوي والسفلي."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_56",
-    "titleEn": "Neuromuscular Pharmacology: Botulinum Toxin (Botox) #18",
-    "titleAr": "تأثير العقاقير والسموم: سم البوتولينوم #18",
+    "titleEn": "Synovial Fluid Hyaluronic Acid Rheology",
+    "titleAr": "ريولوجيا حمض الهيالورونيك في السائل الزلالي للمفصل",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Botulinum Toxin (Botox)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **سم البوتولينوم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "The unique shear-thinning lubricative efficiency of synovial fluid in human joints is chemically provided by:",
+    "questionAr": "ترجع الكفاءة التزييتية الفريدة للسائل الزلالي وقدرته على تقليل الاحتكاك لدرجة شبه منعدمة كيميائياً إلى وجود:",
     "optionsEn": [
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Concentrated hydrochloric acid secreted by osteoclasts",
+      "Hyaluronic acid and lubricin glycoproteins dissolved in an interstitial fluid dialysate",
+      "Pure vegetable olive oil stored inside cartilage lacunae",
+      "Solid diamond nanoparticles suspended in distilled water"
     ],
     "optionsAr": [
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "حمض الهيدروكلوريك المركز المفرز من الخلايا الآكلة للعظام",
+      "حمض الهيالورونيك وبروتينات اللوبريسين السكرية الذائبة في راشح بلازمي مفصلي لزج",
+      "زيت زيتون نقي مخزن داخل فجوات الغضاريف",
+      "حبيبات ألماس نانوية صلبة معلقة في ماء مقطر"
     ],
-    "correctAnswer": "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Hyaluronic acid and lubricin glycoproteins dissolved in an interstitial fluid dialysate",
+    "correctIndex": 1,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Botulinum Toxin (Botox):",
-      "Prevents the exocytosis and release of acetylcholine vesicles from the motor axon terminal."
+      "Step-by-step biological derivation: Hyaluronic acid and lubricin glycoproteins dissolved in an interstitial fluid dialysate."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير سم البوتولينوم:",
-      "يمنع تفجير حويصلات التشابك وانطلاق الأستيل كولين من النهايات العصبية."
+      "خطوات التحليل العلمي والاستنتاج: حمض الهيالورونيك وبروتينات اللوبريسين السكرية الذائبة في راشح بلازمي مفصلي لزج."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_57",
-    "titleEn": "Neuromuscular Pharmacology: Nerve Gas / Organophosphates #19",
-    "titleAr": "تأثير العقاقير والسموم: غازات الأعصاب والمبيدات الحشرية #19",
+    "titleEn": "Final Synthesis: Integrated Biomechanics of Locomotion",
+    "titleAr": "التكامل الوظيفي بين الأجهزة العصبية والعضلية والهيكلية في الحركة",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Nerve Gas / Organophosphates** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **غازات الأعصاب والمبيدات الحشرية** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "Voluntary human locomotion (e.g. running) represents an integrated harmonious cooperation among which three body systems?",
+    "questionAr": "تمثل الحركة الكلية الإرادية للإنسان (مثل الجري) تكاملاً وتعاوناً وظيفياً متناغماً بين أي ثلاثة أجهزة حيوية بالجسم؟",
     "optionsEn": [
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "The digestive system, respiratory system, and urinary system exclusively",
+      "The lymphatic system, endocrine system, and reproductive system",
+      "The nervous system (initiating impulses), muscular system (contracting), and skeletal system (acting as levers and joint pivots)",
+      "The skin dermis, fingernails, and scalp hair follicles"
     ],
     "optionsAr": [
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "الجهاز الهضمي والتنفسي والبولي حصراً دون تدخل الأعصاب",
+      "الجهاز اللمفاوي والصماوي والتناسلي فقط",
+      "الجهاز العصبي (إصدار الأوامر)، والجهاز العضلي (الانقباض وتوليد القوة)، والجهاز الهيكلي (دعامات وروافع ومحاور حركة)",
+      "أدمة الجلد والأظافر وبصيلات شعر الرأس"
     ],
-    "correctAnswer": "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "The nervous system (initiating impulses), muscular system (contracting), and skeletal system (acting as levers and joint pivots)",
+    "correctIndex": 2,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Nerve Gas / Organophosphates:",
-      "Irreversibly inhibits acetylcholinesterase, leading to continuous stimulation and violent spasms."
+      "Step-by-step biological derivation: The nervous system (initiating impulses), muscular system (contracting), and skeletal system (acting as levers and joint pivots)."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير غازات الأعصاب والمبيدات الحشرية:",
-      "يوقف عمل إنزيم الكولين إستريز تماماً مما يسبب استمرار إثارة العضلة وحدوث تشنجات مستمرة."
+      "خطوات التحليل العلمي والاستنتاج: الجهاز العصبي (إصدار الأوامر)، والجهاز العضلي (الانقباض وتوليد القوة)، والجهاز الهيكلي (دعامات وروافع ومحاور حركة)."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   },
   {
     "id": "bio_ch1_db_hots_58",
-    "titleEn": "Neuromuscular Pharmacology: Hypocalcemia (Low blood Ca2+) #20",
-    "titleAr": "تأثير العقاقير والسموم: نقص نسبة الكالسيوم في الدم #20",
+    "titleEn": "Bone Vascularity vs Cartilage Avascularity Healing Rates",
+    "titleAr": "معدل التئام كسور العظام مقارنة بإصابات الغضاريف",
     "difficulty": "hots",
-    "questionEn": "What is the physiological consequence of exposure to **Hypocalcemia (Low blood Ca2+)** at the neuromuscular junction?",
-    "questionAr": "ما هو الأثر الفسيولوجي المترتب على التعرض لـ **نقص نسبة الكالسيوم في الدم** عند منطقة التشابك العصبي العضلي؟",
+    "questionEn": "A fractured fibula bone heals and unites within six weeks, whereas a torn knee meniscus cartilage fails to repair on its own. The fundamental histological explanation is:",
+    "questionAr": "يلتئم كسر عظمة الشظية ويلتحم في ستة أسابيع، بينما يعجز غضروف الركبة الممزق عن الالتئام بمفرده. التفسير النسيجي الجوهري لذلك هو:",
     "optionsEn": [
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-      "Instantaneous stimulation of cellular mitosis",
-      "Conversion of collagen to elastin in articular cartilage",
-      "Direct degradation of thick myosin filaments"
+      "Bone cells multiply by meiosis; cartilage cells do not divide",
+      "Cartilage is covered by impermeable waxy cutin",
+      "Bones are composed of pure living chlorophyll",
+      "Bone tissue is richly vascularized with Haversian and Volkmann canals providing continuous nutrients, while cartilage is completely avascular and relies on slow diffusion"
     ],
     "optionsAr": [
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون",
-      "تحفيز فوري للانقسام الميتوزي",
-      "تحول الكولاجين إلى إيلاستين في الغضاريف",
-      "تحلل فوري لخيوط الميوسين السميكة"
+      "خلايا العظام تنقسم ميوزياً بينما خلايا الغضاريف لا تنقسم",
+      "الغضروف مغطى بطبقة كيوتين شمعية غير منفذة",
+      "العظام تتكون من كلوروفيل حي نقي",
+      "النسيج العظمي غني جداً بالأوعية الدموية وقنوات هافرس وفولكمان التي تمد الخلايا بالغذاء، بينما الغضروف نسيج وعائي عديم الأوعية يعتمد على الانتشار البطيء"
     ],
-    "correctAnswer": "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency",
-    "correctIndex": 0,
-    "hintEn": "Analyze whether the agent acts on acetylcholine release, acetylcholine receptors, or acetylcholinesterase enzyme destruction.",
-    "hintAr": "حلل موضع التأثير: هل يؤثر على تحرر الأستيل كولين، أم على المستقبلات، أم على إنزيم الكولين إستريز؟",
+    "correctAnswer": "Bone tissue is richly vascularized with Haversian and Volkmann canals providing continuous nutrients, while cartilage is completely avascular and relies on slow diffusion",
+    "correctIndex": 3,
+    "hintEn": "Synthesize multi-step biological scenarios involving toxicological blockade, quantitative sarcomere and motor unit arithmetic, and comparative vertebrate biomechanics.",
+    "hintAr": "طبق مهارات التحليل والاستنتاج وحسابات الساركوميرات والوحدات الحركية والتأثيرات السمية للسموم والناقلات العصبية.",
     "stepByStepSolutionEn": [
-      "Target site of Hypocalcemia (Low blood Ca2+):",
-      "Causes painful muscle spasms and increased neuromuscular irritability due to parathyroid deficiency."
+      "Step-by-step biological derivation: Bone tissue is richly vascularized with Haversian and Volkmann canals providing continuous nutrients, while cartilage is completely avascular and relies on slow diffusion."
     ],
     "stepByStepSolutionAr": [
-      "موضع تأثير نقص نسبة الكالسيوم في الدم:",
-      "يسبب تشنجات عضلية مؤلمة لزيادة استثارة الأعصاب الناتجة عن نقص إفراز الباراثورمون."
+      "خطوات التحليل العلمي والاستنتاج: النسيج العظمي غني جداً بالأوعية الدموية وقنوات هافرس وفولكمان التي تمد الخلايا بالغذاء، بينما الغضروف نسيج وعائي عديم الأوعية يعتمد على الانتشار البطيء."
     ],
-    "teacherTipEn": "Understanding how synaptic blockers work reinforces mastery of normal neuromuscular transmission steps.",
-    "teacherTipAr": "فهم آلية عمل مثبطات التشابك العصبي العضلي يعزز الفهم العميق لخطوات نقل السيال العصبي الطبيعية."
+    "teacherTipEn": "In sarcomere calculations, remember that complete I-bands = (Z-lines - 2), while total I-bands including incomplete terminal halves = Z-lines.",
+    "teacherTipAr": "في حسابات القطع العضلية، تذكر أن عدد المناطق المضيئة الكاملة = (عدد خطوط Z - 2)، بينما عدد المناطق المضيئة الكلية = عدد خطوط Z."
   }
 ]
 };

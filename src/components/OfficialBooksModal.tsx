@@ -357,6 +357,12 @@ export const OfficialBooksModal: React.FC<Props> = ({
               <p className={`leading-relaxed text-xs ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                 {t.moePortalNotice}
               </p>
+              <div className="flex items-center gap-2 pt-1 text-[11px] text-amber-600 dark:text-amber-400 font-medium">
+                <span className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-[10px] font-mono uppercase">
+                  WAF 403 Notice
+                </span>
+                <span>{t.moeWafNotice}</span>
+              </div>
             </div>
           </div>
 
@@ -546,56 +552,56 @@ export const OfficialBooksModal: React.FC<Props> = ({
 
                       {/* Action Download & Preview Buttons */}
                       <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-2">
-                        {/* 1. Primary Full Ministry Textbook Gateway Button */}
+                        {/* 1. Primary Direct Official Textbook PDF Download */}
                         <a
-                          href={book.officialPortalUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href={book.downloadUrl}
+                          download={book.filename}
                           className="w-full inline-flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.99] group"
                           style={{
                             background: `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
                           }}
-                          title={t.downloadFullTextbook}
+                          title={t.downloadOfficialTextbook}
                         >
                           <div className="flex items-center gap-2">
-                            <Globe className="w-4 h-4" />
-                            <span>{t.downloadFullTextbook}</span>
+                            <Download className="w-4 h-4 animate-bounce" />
+                            <span>{t.downloadOfficialTextbook}</span>
                           </div>
                           <div className="flex items-center gap-1.5 text-[11px] font-mono opacity-90">
-                            <span>{isArabic ? `${toHindiDigits(book.fullTextbookPages)} ص • ${book.fullTextbookSize}` : `${book.fullTextbookPages}p • ${book.fullTextbookSize}`}</span>
-                            <ExternalLink className="w-3.5 h-3.5 opacity-80 group-hover:translate-x-0.5 transition-transform" />
+                            <span>{isArabic ? `${toHindiDigits(book.pagesCount)} ص • ${book.fileSize}` : `${book.pagesCount}p • ${book.fileSize}`}</span>
+                            <FileText className="w-3.5 h-3.5 opacity-80" />
                           </div>
                         </a>
 
-                        {/* 2. Secondary Local Concept & Formula Compendium (PDF) & Preview */}
+                        {/* 2. Secondary Row: In-App Preview & External Ministry Portal */}
                         <div className="flex items-center gap-2">
-                          <a
-                            href={book.downloadUrl}
-                            download={book.filename}
+                          <button
+                            onClick={() => window.open(book.downloadUrl, '_blank')}
                             className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
                               isLight
                                 ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
                                 : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 hover:border-slate-600'
                             }`}
-                            title={t.downloadConceptCompendium}
-                          >
-                            <Download className="w-3.5 h-3.5 text-emerald-500" />
-                            <span className="truncate">{t.downloadConceptCompendium}</span>
-                            <span className="text-[10px] font-mono opacity-70">({book.fileSize})</span>
-                          </a>
-
-                          <button
-                            onClick={() => window.open(book.downloadUrl, '_blank')}
-                            className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all shrink-0 ${
-                              isLight
-                                ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-300'
-                                : 'bg-slate-800/80 hover:bg-slate-700 text-slate-300 border-slate-700 hover:text-white'
-                            }`}
                             title={t.previewBookPdf}
                           >
-                            <FileText className="w-3.5 h-3.5" />
+                            <FileText className="w-3.5 h-3.5 text-blue-500" />
                             <span>{t.previewBookPdf}</span>
                           </button>
+
+                          <a
+                            href={book.officialPortalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all shrink-0 inline-flex items-center gap-1.5 ${
+                              isLight
+                                ? 'bg-slate-50 hover:bg-slate-100 text-slate-600 border-slate-300'
+                                : 'bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border-slate-700'
+                            }`}
+                            title={`${t.moePortalLink} - ${t.moeWafNotice}`}
+                          >
+                            <Globe className="w-3.5 h-3.5 text-amber-500 opacity-80" />
+                            <span className="hidden sm:inline">{t.moePortalLink}</span>
+                            <ExternalLink className="w-3 h-3 opacity-60" />
+                          </a>
                         </div>
                       </div>
                     </div>

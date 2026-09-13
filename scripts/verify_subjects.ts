@@ -70,18 +70,26 @@ const mathStats = getSubjectStats(thanaweyaCurriculum, 'mathematics');
 assert(mathStats.totalChapters > 0, `Mathematics thanaweya chapters: ${mathStats.totalChapters}`);
 assert(mathStats.totalProblems > 0, `Mathematics thanaweya problems: ${mathStats.totalProblems}`);
 
+const bioStats = getSubjectStats(thanaweyaCurriculum, 'biology');
+assert(bioStats.totalChapters === 5, `Biology thanaweya chapters: ${bioStats.totalChapters} (expected 5)`);
+assert(bioStats.totalProblems === 1000, `Biology thanaweya problems: ${bioStats.totalProblems} (expected 1000)`);
+
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
-assert(allStats.totalChapters === 22, `Total thanaweya chapters: ${allStats.totalChapters}`);
-assert(allStats.totalProblems === 4333, `Total thanaweya problems: ${allStats.totalProblems}`);
+assert(allStats.totalChapters === 26, `Total thanaweya chapters: ${allStats.totalChapters}`);
+assert(allStats.totalProblems === 5156, `Total thanaweya problems: ${allStats.totalProblems}`);
+
+const egbacBioStats = getSubjectStats(egBacCurriculum, 'biology');
+assert(egbacBioStats.totalChapters === 4, `Biology egbac chapters: ${egbacBioStats.totalChapters} (expected 4)`);
+assert(egbacBioStats.totalProblems === 800, `Biology egbac problems: ${egbacBioStats.totalProblems} (expected 800)`);
 
 const egbacAllStats = getSubjectStats(egBacCurriculum, 'all');
-assert(egbacAllStats.totalChapters === 11, `Total egbac chapters: ${egbacAllStats.totalChapters}`);
-assert(egbacAllStats.totalProblems === 2133, `Total egbac problems: ${egbacAllStats.totalProblems}`);
+assert(egbacAllStats.totalChapters === 14, `Total egbac chapters: ${egbacAllStats.totalChapters}`);
+assert(egbacAllStats.totalProblems === 2755, `Total egbac problems: ${egbacAllStats.totalProblems}`);
 
 const totalPlatformChapters = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalPlatformProblems = allStats.totalProblems + egbacAllStats.totalProblems;
-assert(totalPlatformChapters === 33, `Total platform chapters across both curriculums: ${totalPlatformChapters}`);
-assert(totalPlatformProblems === 6466, `Total platform problems across both curriculums: ${totalPlatformProblems}`);
+assert(totalPlatformChapters === 40, `Total platform chapters across both curriculums: ${totalPlatformChapters}`);
+assert(totalPlatformProblems === 7911, `Total platform problems across both curriculums: ${totalPlatformProblems}`);
 
 if (failed) {
   console.error('\n❌ Verification failed with errors.');

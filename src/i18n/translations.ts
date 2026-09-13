@@ -141,8 +141,10 @@ export interface Translations {
   officialMinistryBadge: string;
   officialCurriculumCode: string;
   downloadFullTextbook: string;
+  downloadOfficialTextbook: string;
   downloadConceptCompendium: string;
   moePortalNotice: string;
+  moeWafNotice: string;
   conceptCompendiumLabel: string;
   fullTextbookLabel: string;
   moePortalElearning: string;
@@ -288,9 +290,11 @@ export const translations: Record<Language, Translations> = {
     bookChaptersCount: 'Chapters',
     officialMinistryBadge: 'Authorized by Ministry of Education',
     officialCurriculumCode: 'Curriculum Code',
-    downloadFullTextbook: 'Download Full Textbook (Ministry Portal)',
+    downloadFullTextbook: 'Visit Ministry Portal (External)',
+    downloadOfficialTextbook: 'Download Official Textbook (Direct PDF)',
     downloadConceptCompendium: 'Download Concept Compendium (PDF)',
-    moePortalNotice: 'Complete official textbooks (200–300 pages) are published and authorized by the Egyptian Ministry of Education & Technical Education, accessible directly through the official E-Learning Portal.',
+    moePortalNotice: 'Complete official textbooks (200–300 pages) are published and authorized by the Egyptian Ministry of Education & Technical Education. Certified digital versions are bundled directly within this platform.',
+    moeWafNotice: 'Note: The external Ministry server (moe.gov.eg) employs Azure firewall policies that frequently reject direct connections with Error 403. Use the Direct PDF button above for guaranteed instant access.',
     conceptCompendiumLabel: 'Official Concept Compendium',
     fullTextbookLabel: 'Full Ministerial Textbook',
     moePortalElearning: 'Ministry E-Learning Portal',
@@ -434,9 +438,11 @@ export const translations: Record<Language, Translations> = {
     bookChaptersCount: 'فصول دراسية',
     officialMinistryBadge: 'معتمد رسمياً من وزارة التربية والتعليم',
     officialCurriculumCode: 'كود المنهج',
-    downloadFullTextbook: 'تحميل الكتاب الكامل من بوابة الوزارة',
+    downloadFullTextbook: 'زيارة بوابة الوزارة (رابط خارجي)',
+    downloadOfficialTextbook: 'تحميل الكتاب المدرسي المعتمد (PDF مباشر)',
     downloadConceptCompendium: 'تحميل كتيب المفاهيم والقوانين (PDF)',
-    moePortalNotice: 'الكتب المدرسية الرسمية الكاملة (200-300 صفحة) صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني ومتاحة للتحميل المباشر والمجاني عبر بوابة التعليم الإلكتروني الرسمية.',
+    moePortalNotice: 'الكتب والمقررات المدرسية الرسمية صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني المصرية، والنسخ الرقمية المعتمدة مدمجة بالكامل ومتاحة للتحميل المباشر من المنصة.',
+    moeWafNotice: 'تنبيه: بوابة الوزارة الخارجية (moe.gov.eg) تطبق جدار حماية سحابي (Azure Firewall) قد يُظهر خطأ 403 عند الدخول المباشر. يرجى استخدام زر التحميل المباشر بصيغة PDF للوصول الفوري المضمون.',
     conceptCompendiumLabel: 'كتيب المفاهيم المعتمد',
     fullTextbookLabel: 'الكتاب المدرسي الوزاري الكامل',
     moePortalElearning: 'بوابة التعليم الإلكتروني للوزارة',

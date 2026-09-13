@@ -4,6449 +4,5607 @@ export const physCh1Databank: ChapterDatabank = {
   easy: [
   {
     "id": "phys_ch1_db_easy_01",
-    "titleEn": "Current & Charge Transfer #1",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #1",
+    "titleEn": "Electric Current Intensity Definition",
+    "titleAr": "تعريف شدة التيار الكهربي",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 1.5\\text{ A}$ flows through a conductor for a duration of $t = 2\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 1.5\\text{ A}$ في موصل خلال زمن قدره $t = 2\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "Electric current intensity ($I$) through a conductor cross-section is defined as:",
+    "questionAr": "تعرف شدة التيار الكهربي ($I$) المار في مقطع من موصل بأنها:",
     "optionsEn": [
-      "$Q = 3.0\\text{ C}$",
-      "$Q = 6.0\\text{ C}$",
-      "$Q = 1.5\\text{ C}$",
-      "$Q = 13.0\\text{ C}$"
+      "The quantity of electric charge passing through the cross-section per unit time ($I = Q/t$)",
+      "The total kinetic energy of drifting positive nuclei",
+      "The electric potential difference per unit length",
+      "The resistance offered by the battery internal electrolyte"
     ],
     "optionsAr": [
-      "$Q = 3.0\\text{ C}$",
-      "$Q = 6.0\\text{ C}$",
-      "$Q = 1.5\\text{ C}$",
-      "$Q = 13.0\\text{ C}$"
+      "كمية الشحنة الكهربية التي تمر عبر مقطع من الموصل في الثانية الواحدة ($I = Q/t$)",
+      "مجموع طاقة حركة الأنوية الموجبة المتحركة",
+      "فرق الجهد الكهربي لكل وحدة أطوال",
+      "المقاومة التي يلقاها الإلكتروليت داخل البطارية"
     ],
-    "correctAnswer": "$Q = 3.0\\text{ C}$",
+    "correctAnswer": "The quantity of electric charge passing through the cross-section per unit time ($I = Q/t$)",
     "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (1.5\\text{ A}) \\times (2\\text{ s}) = 3.0\\text{ C}$."
+      "Physical concept and governing rule: The quantity of electric charge passing through the cross-section per unit time ($I = Q/t$)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (1.5) \\times (2) = 3.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: كمية الشحنة الكهربية التي تمر عبر مقطع من الموصل في الثانية الواحدة ($I = Q/t$)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_02",
-    "titleEn": "Current & Charge Transfer #2",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #2",
+    "titleEn": "Electric Potential Difference Definition",
+    "titleAr": "تعريف فرق الجهد الكهربي",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 2.0\\text{ A}$ flows through a conductor for a duration of $t = 4\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 2.0\\text{ A}$ في موصل خلال زمن قدره $t = 4\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "The electric potential difference ($V$) between two points is physically expressed by:",
+    "questionAr": "يعبر فيزيائياً عن فرق الجهد الكهربي ($V$) بين نقطتين بأنه:",
     "optionsEn": [
-      "$Q = 8.0\\text{ C}$",
-      "$Q = 16.0\\text{ C}$",
-      "$Q = 4.0\\text{ C}$",
-      "$Q = 18.0\\text{ C}$"
+      "The rate of flow of magnetic flux lines",
+      "The work done to transfer a unit positive charge ($1\\text{ C}$) between the two points ($V = W/Q$)",
+      "The total electrostatic repulsion between electron shells",
+      "The electrical power dissipated as heat in one hour"
     ],
     "optionsAr": [
-      "$Q = 8.0\\text{ C}$",
-      "$Q = 16.0\\text{ C}$",
-      "$Q = 4.0\\text{ C}$",
-      "$Q = 18.0\\text{ C}$"
+      "معدل تدفق خطوط الفيض المغناطيسي",
+      "مقدار الشغل المبذول لنقل شحنة كهربية موجبة مقدارها واحد كولوم بين هاتين النقطتين ($V = W/Q$)",
+      "محصلة قوى التنافر الكهروستاتيكي بين الأغلفة",
+      "القدرة الكهربية المستنفذة في صورة حرارة في ساعة"
     ],
-    "correctAnswer": "$Q = 8.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "The work done to transfer a unit positive charge ($1\\text{ C}$) between the two points ($V = W/Q$)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (2.0\\text{ A}) \\times (4\\text{ s}) = 8.0\\text{ C}$."
+      "Physical concept and governing rule: The work done to transfer a unit positive charge ($1\\text{ C}$) between the two points ($V = W/Q$)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (2.0) \\times (4) = 8.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: مقدار الشغل المبذول لنقل شحنة كهربية موجبة مقدارها واحد كولوم بين هاتين النقطتين ($V = W/Q$)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_03",
-    "titleEn": "Current & Charge Transfer #3",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #3",
+    "titleEn": "Electromotive Force (EMF) Meaning",
+    "titleAr": "مفهوم القوة الدافعة الكهربية للمصدر",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 2.5\\text{ A}$ flows through a conductor for a duration of $t = 6\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 2.5\\text{ A}$ في موصل خلال زمن قدره $t = 6\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "The electromotive force ($\\text{EMF}$, $V_B$) of an electric cell is defined as:",
+    "questionAr": "تعرف القوة الدافعة الكهربية ($\\text{EMF}$, $V_B$) لعمود كهربي بأنها:",
     "optionsEn": [
-      "$Q = 15.0\\text{ C}$",
-      "$Q = 30.0\\text{ C}$",
-      "$Q = 7.5\\text{ C}$",
-      "$Q = 25.0\\text{ C}$"
+      "The potential drop across the external circuit exclusively",
+      "The magnetic force exerted on moving charge carriers",
+      "The total work done by the source to transfer a unit charge through the entire circuit (inside and outside)",
+      "The electric current delivered under short-circuit conditions"
     ],
     "optionsAr": [
-      "$Q = 15.0\\text{ C}$",
-      "$Q = 30.0\\text{ C}$",
-      "$Q = 7.5\\text{ C}$",
-      "$Q = 25.0\\text{ C}$"
+      "فرق الجهد الخارجي عبر المقاومات الخارجية فقط",
+      "القوة المغناطيسية المؤثرة على الشحنات المتحركة",
+      "الشغل الكلي المبذول بواسطة المصدر لنقل شحنة مقدارها واحد كولوم في الدائرة كاملة (داخل المصدر وخارجه)",
+      "شدة تيار الدائرة عند حدوث قفلة كهربية"
     ],
-    "correctAnswer": "$Q = 15.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "The total work done by the source to transfer a unit charge through the entire circuit (inside and outside)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (2.5\\text{ A}) \\times (6\\text{ s}) = 15.0\\text{ C}$."
+      "Physical concept and governing rule: The total work done by the source to transfer a unit charge through the entire circuit (inside and outside)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (2.5) \\times (6) = 15.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: الشغل الكلي المبذول بواسطة المصدر لنقل شحنة مقدارها واحد كولوم في الدائرة كاملة (داخل المصدر وخارجه)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_04",
-    "titleEn": "Current & Charge Transfer #4",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #4",
+    "titleEn": "Ohmic Conductor Behavior",
+    "titleAr": "سلوك الموصل الأومي وقانون أوم",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 3.0\\text{ A}$ flows through a conductor for a duration of $t = 8\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 3.0\\text{ A}$ في موصل خلال زمن قدره $t = 8\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "According to Ohm's law, for a metallic conductor kept at a constant temperature:",
+    "questionAr": "وفقاً لقانون أوم، عند ثبوت درجة حرارة موصل معدني فإن:",
     "optionsEn": [
-      "$Q = 24.0\\text{ C}$",
-      "$Q = 48.0\\text{ C}$",
-      "$Q = 12.0\\text{ C}$",
-      "$Q = 34.0\\text{ C}$"
+      "Resistance increases inversely with potential difference",
+      "Current intensity is inversely proportional to cross-sectional area",
+      "Potential difference is constant regardless of current",
+      "The current intensity is directly proportional to the potential difference across its terminals"
     ],
     "optionsAr": [
-      "$Q = 24.0\\text{ C}$",
-      "$Q = 48.0\\text{ C}$",
-      "$Q = 12.0\\text{ C}$",
-      "$Q = 34.0\\text{ C}$"
+      "تتناسب مقاومته عكسياً مع فرق الجهد",
+      "تتناسب شدة التيار عكسياً مع مساحة المقطع",
+      "يظل فرق الجهد ثابتاً مهما تغير التيار",
+      "تتناسب شدة التيار الكهربي المار فيه طردياً مع فرق الجهد بين طرفيه"
     ],
-    "correctAnswer": "$Q = 24.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "The current intensity is directly proportional to the potential difference across its terminals",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (3.0\\text{ A}) \\times (8\\text{ s}) = 24.0\\text{ C}$."
+      "Physical concept and governing rule: The current intensity is directly proportional to the potential difference across its terminals."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (3.0) \\times (8) = 24.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: تتناسب شدة التيار الكهربي المار فيه طردياً مع فرق الجهد بين طرفيه."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_05",
-    "titleEn": "Current & Charge Transfer #5",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #5",
+    "titleEn": "Electrical Resistivity Factors",
+    "titleAr": "العوامل المؤثرة على المقاومة النوعية",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 3.5\\text{ A}$ flows through a conductor for a duration of $t = 10\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 3.5\\text{ A}$ في موصل خلال زمن قدره $t = 10\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "The electrical resistivity ($\\rho_e$) of a metallic conductor depends strictly on:",
+    "questionAr": "تتوقف المقاومة النوعية ($\\rho_e$) لموصل معدني حصرياً على:",
     "optionsEn": [
-      "$Q = 35.0\\text{ C}$",
-      "$Q = 70.0\\text{ C}$",
-      "$Q = 17.5\\text{ C}$",
-      "$Q = 45.0\\text{ C}$"
+      "The type of material and temperature",
+      "The length and cross-sectional area of the conductor",
+      "The applied electric potential difference across the circuit",
+      "The intensity of current passing through it"
     ],
     "optionsAr": [
-      "$Q = 35.0\\text{ C}$",
-      "$Q = 70.0\\text{ C}$",
-      "$Q = 17.5\\text{ C}$",
-      "$Q = 45.0\\text{ C}$"
+      "نوع مادة الموصل ودرجة حرارته",
+      "طول الموصل ومساحة مقطعه",
+      "فرق الجهد المطبق على الدائرة",
+      "شدة التيار المار فيه"
     ],
-    "correctAnswer": "$Q = 35.0\\text{ C}$",
+    "correctAnswer": "The type of material and temperature",
     "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (3.5\\text{ A}) \\times (10\\text{ s}) = 35.0\\text{ C}$."
+      "Physical concept and governing rule: The type of material and temperature."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (3.5) \\times (10) = 35.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: نوع مادة الموصل ودرجة حرارته."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_06",
-    "titleEn": "Current & Charge Transfer #6",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #6",
+    "titleEn": "Electrical Conductivity Definition",
+    "titleAr": "تعريف التوصيلية الكهربية للمادة",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 4.0\\text{ A}$ flows through a conductor for a duration of $t = 12\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 4.0\\text{ A}$ في موصل خلال زمن قدره $t = 12\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "Electrical conductivity ($\\sigma$) is related to electrical resistivity ($\\rho_e$) by:",
+    "questionAr": "ترتبط التوصيلية الكهربية ($\\sigma$) بالمقاومة النوعية ($\\rho_e$) بالعلاقة:",
     "optionsEn": [
-      "$Q = 48.0\\text{ C}$",
-      "$Q = 96.0\\text{ C}$",
-      "$Q = 24.0\\text{ C}$",
-      "$Q = 58.0\\text{ C}$"
+      "$\\sigma = \\rho_e^2$",
+      "$\\sigma = \\frac{1}{\\rho_e}$ (the reciprocal of resistivity)",
+      "$\\sigma = \\rho_e \\cdot L \\cdot A$",
+      "$\\sigma = \\frac{\\rho_e}{T}$"
     ],
     "optionsAr": [
-      "$Q = 48.0\\text{ C}$",
-      "$Q = 96.0\\text{ C}$",
-      "$Q = 24.0\\text{ C}$",
-      "$Q = 58.0\\text{ C}$"
+      "$\\sigma = \\rho_e^2$",
+      "$\\sigma = \\frac{1}{\\rho_e}$ (مقلوب المقاومة النوعية)",
+      "$\\sigma = \\rho_e \\cdot L \\cdot A$",
+      "$\\sigma = \\frac{\\rho_e}{T}$"
     ],
-    "correctAnswer": "$Q = 48.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "$\\sigma = \\frac{1}{\\rho_e}$ (the reciprocal of resistivity)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (4.0\\text{ A}) \\times (12\\text{ s}) = 48.0\\text{ C}$."
+      "Physical concept and governing rule: $\\sigma = \\frac{1}{\\rho_e}$ (the reciprocal of resistivity)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (4.0) \\times (12) = 48.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: $\\sigma = \\frac{1}{\\rho_e}$ (مقلوب المقاومة النوعية)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_07",
-    "titleEn": "Current & Charge Transfer #7",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #7",
+    "titleEn": "Units: Electrical Resistivity",
+    "titleAr": "وحدة قياس المقاومة النوعية",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 4.5\\text{ A}$ flows through a conductor for a duration of $t = 14\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 4.5\\text{ A}$ في موصل خلال زمن قدره $t = 14\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "What is the standard SI unit of electrical resistivity ($\\rho_e$)?",
+    "questionAr": "ما هي وحدة قياس المقاومة النوعية ($\\rho_e$) في النظام الدولي للوحدات؟",
     "optionsEn": [
-      "$Q = 63.0\\text{ C}$",
-      "$Q = 126.0\\text{ C}$",
-      "$Q = 31.5\\text{ C}$",
-      "$Q = 73.0\\text{ C}$"
+      "$\\Omega / \\text{m}$",
+      "$\\Omega^{-1} \\cdot \\text{m}^{-1}$ (Siemens/m)",
+      "$\\Omega \\cdot \\text{m}$ (Ohm-meter)",
+      "$\\text{Volt} / \\text{Ampere}$"
     ],
     "optionsAr": [
-      "$Q = 63.0\\text{ C}$",
-      "$Q = 126.0\\text{ C}$",
-      "$Q = 31.5\\text{ C}$",
-      "$Q = 73.0\\text{ C}$"
+      "$\\Omega / \\text{m}$",
+      "$\\Omega^{-1} \\cdot \\text{m}^{-1}$",
+      "$\\Omega \\cdot \\text{m}$ (أوم · متر)",
+      "$\\text{فولت / أمبير}$"
     ],
-    "correctAnswer": "$Q = 63.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "$\\Omega \\cdot \\text{m}$ (Ohm-meter)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (4.5\\text{ A}) \\times (14\\text{ s}) = 63.0\\text{ C}$."
+      "Physical concept and governing rule: $\\Omega \\cdot \\text{m}$ (Ohm-meter)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (4.5) \\times (14) = 63.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: $\\Omega \\cdot \\text{m}$ (أوم · متر)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_08",
-    "titleEn": "Current & Charge Transfer #8",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #8",
+    "titleEn": "Units: Electrical Conductivity",
+    "titleAr": "وحدة قياس التوصيلية الكهربية",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 5.0\\text{ A}$ flows through a conductor for a duration of $t = 16\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 5.0\\text{ A}$ في موصل خلال زمن قدره $t = 16\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "What is the SI unit of electrical conductivity ($\\sigma$)?",
+    "questionAr": "ما هي وحدة قياس التوصيلية الكهربية ($\\sigma$) في النظام الدولي؟",
     "optionsEn": [
-      "$Q = 80.0\\text{ C}$",
-      "$Q = 160.0\\text{ C}$",
-      "$Q = 40.0\\text{ C}$",
-      "$Q = 90.0\\text{ C}$"
+      "$\\Omega \\cdot \\text{m}$",
+      "$\\text{J} / \\text{C}$",
+      "$\\text{Watt} \\cdot \\text{s}$",
+      "$\\Omega^{-1} \\cdot \\text{m}^{-1}$ (or $\\text{S} \\cdot \\text{m}^{-1}$)"
     ],
     "optionsAr": [
-      "$Q = 80.0\\text{ C}$",
-      "$Q = 160.0\\text{ C}$",
-      "$Q = 40.0\\text{ C}$",
-      "$Q = 90.0\\text{ C}$"
+      "$\\Omega \\cdot \\text{m}$",
+      "$\\text{J} / \\text{C}$",
+      "$\\text{Watt} \\cdot \\text{s}$",
+      "$\\Omega^{-1} \\cdot \\text{m}^{-1}$ (أو $\\text{أوم}^{-1} \\cdot \\text{متر}^{-1}$)"
     ],
-    "correctAnswer": "$Q = 80.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "$\\Omega^{-1} \\cdot \\text{m}^{-1}$ (or $\\text{S} \\cdot \\text{m}^{-1}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (5.0\\text{ A}) \\times (16\\text{ s}) = 80.0\\text{ C}$."
+      "Physical concept and governing rule: $\\Omega^{-1} \\cdot \\text{m}^{-1}$ (or $\\text{S} \\cdot \\text{m}^{-1}$)."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (5.0) \\times (16) = 80.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: $\\Omega^{-1} \\cdot \\text{m}^{-1}$ (أو $\\text{أوم}^{-1} \\cdot \\text{متر}^{-1}$)."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_09",
-    "titleEn": "Current & Charge Transfer #9",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #9",
+    "titleEn": "Effect of Temperature on Metallic Conductor Resistance",
+    "titleAr": "تأثير درجة الحرارة على مقاومة الفلزات",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 5.5\\text{ A}$ flows through a conductor for a duration of $t = 18\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 5.5\\text{ A}$ في موصل خلال زمن قدره $t = 18\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "Heating a copper wire causes its electrical resistance to increase because:",
+    "questionAr": "يؤدي تسخين سلك نحاسي إلى زيادة مقاومته الكهربية بسبب:",
     "optionsEn": [
-      "$Q = 99.0\\text{ C}$",
-      "$Q = 198.0\\text{ C}$",
-      "$Q = 49.5\\text{ C}$",
-      "$Q = 109.0\\text{ C}$"
+      "The amplitude and velocity of thermal vibration of metal atoms increase, raising collision frequency with electrons",
+      "Free conduction electrons are converted into positive ions",
+      "The length of the wire decreases by contraction",
+      "Atmospheric pressure compresses the metallic lattice"
     ],
     "optionsAr": [
-      "$Q = 99.0\\text{ C}$",
-      "$Q = 198.0\\text{ C}$",
-      "$Q = 49.5\\text{ C}$",
-      "$Q = 109.0\\text{ C}$"
+      "زيادة سعة وسرعة اهتزاز ذرات الفلز مما يرفع من معدل تصادمها مع الإلكترونات الحرة",
+      "تحول الإلكترونات الحرة إلى أيونات موجبة",
+      "انكماش طول السلك ونقصان أبعاده",
+      "ضغط الهواء المحيط يضغط الشبكة البلورية"
     ],
-    "correctAnswer": "$Q = 99.0\\text{ C}$",
+    "correctAnswer": "The amplitude and velocity of thermal vibration of metal atoms increase, raising collision frequency with electrons",
     "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (5.5\\text{ A}) \\times (18\\text{ s}) = 99.0\\text{ C}$."
+      "Physical concept and governing rule: The amplitude and velocity of thermal vibration of metal atoms increase, raising collision frequency with electrons."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (5.5) \\times (18) = 99.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: زيادة سعة وسرعة اهتزاز ذرات الفلز مما يرفع من معدل تصادمها مع الإلكترونات الحرة."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_10",
-    "titleEn": "Current & Charge Transfer #10",
-    "titleAr": "شدة التيار وكمية الشحنة الكهربية #10",
+    "titleEn": "Direction of Conventional Electric Current",
+    "titleAr": "الاتجاه التقليدي للتيار الكهربي",
     "difficulty": "easy",
-    "questionEn": "An electric current of intensity $I = 6.0\\text{ A}$ flows through a conductor for a duration of $t = 20\\text{ s}$. Calculate the total electric charge $Q$ passing through the conductor cross-section.",
-    "questionAr": "يمر تيار كهربي شدته $I = 6.0\\text{ A}$ في موصل خلال زمن قدره $t = 20\\text{ s}$. احسب كمية الشحنة الكهربية $Q$ المارة عبر مقطع الموصل.",
+    "questionEn": "In an external electrical circuit, conventional current is directed from:",
+    "questionAr": "في الدائرة الكهربية الخارجية، يكون الاتجاه الاصطلاحي (التقليدي) للتيار من:",
     "optionsEn": [
-      "$Q = 120.0\\text{ C}$",
-      "$Q = 240.0\\text{ C}$",
-      "$Q = 60.0\\text{ C}$",
-      "$Q = 130.0\\text{ C}$"
+      "The negative terminal to the positive terminal outside the source",
+      "The positive terminal to the negative terminal outside the source",
+      "Random directions oscillating without net drift",
+      "Earth ground into the battery plates directly"
     ],
     "optionsAr": [
-      "$Q = 120.0\\text{ C}$",
-      "$Q = 240.0\\text{ C}$",
-      "$Q = 60.0\\text{ C}$",
-      "$Q = 130.0\\text{ C}$"
+      "القطب السالب إلى القطب الموجب خارج المصدر",
+      "القطب الموجب إلى القطب السالب خارج المصدر",
+      "اتجاهات عشوائية متذبذبة دون محصلة",
+      "الأرض إلى ألواح البطارية مباشرة"
     ],
-    "correctAnswer": "$Q = 120.0\\text{ C}$",
-    "correctIndex": 0,
-    "hintEn": "Recall the fundamental relationship between current, charge, and time: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
-    "hintAr": "تذكر القانون الأساسي لشدة التيار: $I = \\frac{Q}{t} \\implies Q = I \\cdot t$.",
+    "correctAnswer": "The positive terminal to the negative terminal outside the source",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "From the definition of current intensity: $I = \\frac{Q}{t}$.",
-      "Rearrange to solve for charge: $Q = I \\cdot t$.",
-      "Substitute the given values: $Q = (6.0\\text{ A}) \\times (20\\text{ s}) = 120.0\\text{ C}$."
+      "Physical concept and governing rule: The positive terminal to the negative terminal outside the source."
     ],
     "stepByStepSolutionAr": [
-      "من تعريف شدة التيار الكهربي: $I = \\frac{Q}{t}$.",
-      "إذن كمية الشحنة: $Q = I \\cdot t$.",
-      "بالتعويض عن المعطيات: $Q = (6.0) \\times (20) = 120.0\\text{ كولوم}$."
+      "المبدأ الفيزيائي والقانون الحاكم: القطب الموجب إلى القطب السالب خارج المصدر."
     ],
-    "teacherTipEn": "Always ensure that time is expressed in seconds when computing charge in Coulombs ($1\\text{ A} = 1\\text{ C/s}$).",
-    "teacherTipAr": "تأكد دائماً من تحويل الزمن إلى الثواني للحصول على الشحنة بالكولوم ($1\\text{ A} = 1\\text{ C/s}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_11",
-    "titleEn": "Work Done & Potential Difference #1",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #1",
+    "titleEn": "Direction of Electronic (Real) Current",
+    "titleAr": "الاتجاه الفعلي (الإلكتروني) للتيار",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 3\\text{ C}$ between two points, a work of $W = 36\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 3\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 36\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "The actual flow of conduction electrons in a metal wire is directed from:",
+    "questionAr": "يكون التدفق الفعلي للإلكترونات الحرة في سلك معدني متحركاً من:",
     "optionsEn": [
-      "$V = 12\\text{ V}$",
-      "$V = 24\\text{ V}$",
-      "$V = 6\\text{ V}$",
-      "$V = 17\\text{ V}$"
+      "The positive terminal to the negative terminal outside the supply",
+      "The north magnetic pole to the south magnetic pole",
+      "The negative terminal to the positive terminal outside the power supply",
+      "The neutral wire into the ground wire"
     ],
     "optionsAr": [
-      "$V = 12\\text{ V}$",
-      "$V = 24\\text{ V}$",
-      "$V = 6\\text{ V}$",
-      "$V = 17\\text{ V}$"
+      "القطب الموجب إلى القطب السالب خارج المصدر",
+      "القطب الشمالي المغناطيسي إلى الجنوبي",
+      "القطب السالب إلى القطب الموجب خارج مصدر التيار",
+      "السلك المتعادل إلى الأرضي"
     ],
-    "correctAnswer": "$V = 12\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "The negative terminal to the positive terminal outside the power supply",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 36\\text{ J}$ and $Q = 3\\text{ C}$:",
-      "$$V = \\frac{36}{3} = 12\\text{ V}$$"
+      "Physical concept and governing rule: The negative terminal to the positive terminal outside the power supply."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 36\\text{ جول}$ و $Q = 3\\text{ كولوم}$:",
-      "$$V = \\frac{36}{3} = 12\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: القطب السالب إلى القطب الموجب خارج مصدر التيار."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_12",
-    "titleEn": "Work Done & Potential Difference #2",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #2",
+    "titleEn": "Ohmic Law for Closed Circuit Formula",
+    "titleAr": "صيغة قانون أوم للدائرة المغلقة",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 6\\text{ C}$ between two points, a work of $W = 84\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 6\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 84\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Which formula accurately expresses Ohm's law for a closed circuit containing internal resistance $r$?",
+    "questionAr": "أي صيغة رياضية تعبر بدقة عن قانون أوم للدائرة المغلقة ذات مقاومة داخلية $r$؟",
     "optionsEn": [
-      "$V = 14\\text{ V}$",
-      "$V = 28\\text{ V}$",
-      "$V = 7\\text{ V}$",
-      "$V = 19\\text{ V}$"
+      "$I = \\frac{V_B}{R_{eq} - r}$",
+      "$I = V_B \\cdot (R_{eq} + r)$",
+      "$I = \\frac{R_{eq} + r}{V_B}$",
+      "$I = \\frac{V_B}{R_{eq} + r}$"
     ],
     "optionsAr": [
-      "$V = 14\\text{ V}$",
-      "$V = 28\\text{ V}$",
-      "$V = 7\\text{ V}$",
-      "$V = 19\\text{ V}$"
+      "$I = \\frac{V_B}{R_{eq} - r}$",
+      "$I = V_B \\cdot (R_{eq} + r)$",
+      "$I = \\frac{R_{eq} + r}{V_B}$",
+      "$I = \\frac{V_B}{R_{eq} + r}$"
     ],
-    "correctAnswer": "$V = 14\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "$I = \\frac{V_B}{R_{eq} + r}$",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 84\\text{ J}$ and $Q = 6\\text{ C}$:",
-      "$$V = \\frac{84}{6} = 14\\text{ V}$$"
+      "Physical concept and governing rule: $I = \\frac{V_B}{R_{eq} + r}$."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 84\\text{ جول}$ و $Q = 6\\text{ كولوم}$:",
-      "$$V = \\frac{84}{6} = 14\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $I = \\frac{V_B}{R_{eq} + r}$."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_13",
-    "titleEn": "Work Done & Potential Difference #3",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #3",
+    "titleEn": "Terminal Voltage on Discharge",
+    "titleAr": "فرق الجهد بين طرفي بطارية في حالة تفريغ",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 9\\text{ C}$ between two points, a work of $W = 144\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 9\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 144\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "When a battery of EMF $V_B$ and internal resistance $r$ discharges a steady current $I$ into an external load, its terminal voltage $V$ is:",
+    "questionAr": "عندما تفرغ بطارية قوتها الدافعة $V_B$ ومقاومتها الداخلية $r$ تياراً شدته $I$، فإن فرق الجهد بين طرفيها $V$ يساوي:",
     "optionsEn": [
-      "$V = 16\\text{ V}$",
-      "$V = 32\\text{ V}$",
-      "$V = 8\\text{ V}$",
-      "$V = 21\\text{ V}$"
+      "$V = V_B - I \\cdot r$ (less than $V_B$)",
+      "$V = V_B + I \\cdot r$",
+      "$V = I \\cdot r$ exclusively",
+      "$V = V_B / r$"
     ],
     "optionsAr": [
-      "$V = 16\\text{ V}$",
-      "$V = 32\\text{ V}$",
-      "$V = 8\\text{ V}$",
-      "$V = 21\\text{ V}$"
+      "$V = V_B - I \\cdot r$ (أقل من $V_B$)",
+      "$V = V_B + I \\cdot r$",
+      "$V = I \\cdot r$ فقط",
+      "$V = V_B / r$"
     ],
-    "correctAnswer": "$V = 16\\text{ V}$",
+    "correctAnswer": "$V = V_B - I \\cdot r$ (less than $V_B$)",
     "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 144\\text{ J}$ and $Q = 9\\text{ C}$:",
-      "$$V = \\frac{144}{9} = 16\\text{ V}$$"
+      "Physical concept and governing rule: $V = V_B - I \\cdot r$ (less than $V_B$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 144\\text{ جول}$ و $Q = 9\\text{ كولوم}$:",
-      "$$V = \\frac{144}{9} = 16\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $V = V_B - I \\cdot r$ (أقل من $V_B$)."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_14",
-    "titleEn": "Work Done & Potential Difference #4",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #4",
+    "titleEn": "Terminal Voltage on Open Circuit",
+    "titleAr": "فرق الجهد بين طرفي بطارية ودائرتها مفتوحة",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 12\\text{ C}$ between two points, a work of $W = 216\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 12\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 216\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Under what condition does the terminal voltage of a non-ideal battery become strictly equal to its EMF ($V = V_B$)?",
+    "questionAr": "متى يتساوى فرق الجهد بين قطبي عمود كهربي له مقاومة داخلية مع قوته الدافعة الكهربية ($V = V_B$) تماماً؟",
     "optionsEn": [
-      "$V = 18\\text{ V}$",
-      "$V = 36\\text{ V}$",
-      "$V = 9\\text{ V}$",
-      "$V = 23\\text{ V}$"
+      "When the external resistance is zero (short circuit)",
+      "When the circuit is open so that no current flows ($I = 0$)",
+      "When current reaches its maximum possible value",
+      "When the battery is completely exhausted"
     ],
     "optionsAr": [
-      "$V = 18\\text{ V}$",
-      "$V = 36\\text{ V}$",
-      "$V = 9\\text{ V}$",
-      "$V = 23\\text{ V}$"
+      "عندما تنعدم المقاومة الخارجية تماماً",
+      "عندما تكون الدائرة مفتوحة ولا يمر تيار كهربي ($I = 0$)",
+      "عندما يبلغ التيار أقصى قيمة ممكنة",
+      "عندما تنفد طاقة البطارية كلياً"
     ],
-    "correctAnswer": "$V = 18\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "When the circuit is open so that no current flows ($I = 0$)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 216\\text{ J}$ and $Q = 12\\text{ C}$:",
-      "$$V = \\frac{216}{12} = 18\\text{ V}$$"
+      "Physical concept and governing rule: When the circuit is open so that no current flows ($I = 0$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 216\\text{ جول}$ و $Q = 12\\text{ كولوم}$:",
-      "$$V = \\frac{216}{12} = 18\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: عندما تكون الدائرة مفتوحة ولا يمر تيار كهربي ($I = 0$)."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_15",
-    "titleEn": "Work Done & Potential Difference #5",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #5",
+    "titleEn": "Charging Battery Terminal Voltage",
+    "titleAr": "فرق الجهد بين طرفي بطارية في حالة شحن",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 15\\text{ C}$ between two points, a work of $W = 300\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 15\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 300\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "When a secondary rechargeable battery is being charged by an external higher voltage source, its terminal voltage is:",
+    "questionAr": "عند توصيل بطارية قابلة لإعادة الشحن بمصدر كهربي خارجي أعلى منها جهداً لشحنها، فإن فرق الجهد بين طرفيها:",
     "optionsEn": [
-      "$V = 20\\text{ V}$",
-      "$V = 40\\text{ V}$",
-      "$V = 10\\text{ V}$",
-      "$V = 25\\text{ V}$"
+      "$V = V_B - I \\cdot r$ (less than $V_B$)",
+      "$V = 0\\text{ V}$",
+      "$V = V_B + I \\cdot r$ (greater than $V_B$)",
+      "$V = -V_B$"
     ],
     "optionsAr": [
-      "$V = 20\\text{ V}$",
-      "$V = 40\\text{ V}$",
-      "$V = 10\\text{ V}$",
-      "$V = 25\\text{ V}$"
+      "$V = V_B - I \\cdot r$ (أقل من $V_B$)",
+      "$V = 0\\text{ V}$",
+      "$V = V_B + I \\cdot r$ (أكبر من $V_B$)",
+      "$V = -V_B$"
     ],
-    "correctAnswer": "$V = 20\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "$V = V_B + I \\cdot r$ (greater than $V_B$)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 300\\text{ J}$ and $Q = 15\\text{ C}$:",
-      "$$V = \\frac{300}{15} = 20\\text{ V}$$"
+      "Physical concept and governing rule: $V = V_B + I \\cdot r$ (greater than $V_B$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 300\\text{ جول}$ و $Q = 15\\text{ كولوم}$:",
-      "$$V = \\frac{300}{15} = 20\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $V = V_B + I \\cdot r$ (أكبر من $V_B$)."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_16",
-    "titleEn": "Work Done & Potential Difference #6",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #6",
+    "titleEn": "Kirchhoff's First Law Conservation Basis",
+    "titleAr": "الأساس العلمي لقانون كيرشوف الأول",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 18\\text{ C}$ between two points, a work of $W = 396\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 18\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 396\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Kirchhoff's First Law (junction rule: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$) is an expression of which fundamental conservation law?",
+    "questionAr": "يعتبر قانون كيرشوف الأول (قانون العقدة: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$) تطبيقاً لمبدأ حفظ:",
     "optionsEn": [
-      "$V = 22\\text{ V}$",
-      "$V = 44\\text{ V}$",
-      "$V = 11\\text{ V}$",
-      "$V = 27\\text{ V}$"
+      "Conservation of mechanical momentum",
+      "Conservation of mass alone",
+      "Conservation of magnetic flux",
+      "Conservation of electric charge"
     ],
     "optionsAr": [
-      "$V = 22\\text{ V}$",
-      "$V = 44\\text{ V}$",
-      "$V = 11\\text{ V}$",
-      "$V = 27\\text{ V}$"
+      "حفظ كمية الحركة الميكانيكية",
+      "حفظ الكتلة فقط",
+      "حفظ الفيض المغناطيسي",
+      "بقاء (حفظ) الشحنة الكهربية"
     ],
-    "correctAnswer": "$V = 22\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "Conservation of electric charge",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 396\\text{ J}$ and $Q = 18\\text{ C}$:",
-      "$$V = \\frac{396}{18} = 22\\text{ V}$$"
+      "Physical concept and governing rule: Conservation of electric charge."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 396\\text{ جول}$ و $Q = 18\\text{ كولوم}$:",
-      "$$V = \\frac{396}{18} = 22\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: بقاء (حفظ) الشحنة الكهربية."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_17",
-    "titleEn": "Work Done & Potential Difference #7",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #7",
+    "titleEn": "Kirchhoff's Second Law Conservation Basis",
+    "titleAr": "الأساس العلمي لقانون كيرشوف الثاني",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 21\\text{ C}$ between two points, a work of $W = 504\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 21\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 504\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Kirchhoff's Second Law (loop rule: $\\sum V_B = \\sum I R$) is directly derived from which conservation principle?",
+    "questionAr": "يعد قانون كيرشوف الثاني (قانون المسار المغلق: $\\sum V_B = \\sum I R$) تطبيقاً لمبدأ حفظ:",
     "optionsEn": [
-      "$V = 24\\text{ V}$",
-      "$V = 48\\text{ V}$",
-      "$V = 12\\text{ V}$",
-      "$V = 29\\text{ V}$"
+      "Conservation of electric energy",
+      "Conservation of electric current intensity",
+      "Conservation of electrostatic capacitance",
+      "Conservation of magnetic permeability"
     ],
     "optionsAr": [
-      "$V = 24\\text{ V}$",
-      "$V = 48\\text{ V}$",
-      "$V = 12\\text{ V}$",
-      "$V = 29\\text{ V}$"
+      "بقاء (حفظ) الطاقة",
+      "حفظ شدة التيار",
+      "حفظ السعة الكهربية",
+      "حفظ النفاذية المغناطيسية"
     ],
-    "correctAnswer": "$V = 24\\text{ V}$",
+    "correctAnswer": "Conservation of electric energy",
     "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 504\\text{ J}$ and $Q = 21\\text{ C}$:",
-      "$$V = \\frac{504}{21} = 24\\text{ V}$$"
+      "Physical concept and governing rule: Conservation of electric energy."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 504\\text{ جول}$ و $Q = 21\\text{ كولوم}$:",
-      "$$V = \\frac{504}{21} = 24\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: بقاء (حفظ) الطاقة."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_18",
-    "titleEn": "Work Done & Potential Difference #8",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #8",
+    "titleEn": "Equivalent Resistance: Series Connection",
+    "titleAr": "المقاومة المكافئة في التوصيل على التوالي",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 24\\text{ C}$ between two points, a work of $W = 624\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 24\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 624\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Why are electrical appliances in modern households NEVER connected in series?",
+    "questionAr": "علل: لا توصل الأجهزة الكهربية في المنازل على التوالي؟",
     "optionsEn": [
-      "$V = 26\\text{ V}$",
-      "$V = 52\\text{ V}$",
-      "$V = 13\\text{ V}$",
-      "$V = 31\\text{ V}$"
+      "Because voltage across each appliance would multiply tenfold",
+      "Because turning off or breaking one appliance opens the entire circuit, and equivalent resistance becomes too large",
+      "Because series connection consumes no electric power",
+      "Because electricity would reverse direction every second"
     ],
     "optionsAr": [
-      "$V = 26\\text{ V}$",
-      "$V = 52\\text{ V}$",
-      "$V = 13\\text{ V}$",
-      "$V = 31\\text{ V}$"
+      "لأن الجهد يتضاعف عشر مرات",
+      "لأنه إذا انطفأ أو تلف جهاز ينقطع التيار عن باقي الأجهزة وتزداد المقاومة الكلية فتقل شدة التيار",
+      "لأن التوصيل على التوالي لا يستهلك طاقة",
+      "لأن اتجاه التيار ينعكس كل ثانية"
     ],
-    "correctAnswer": "$V = 26\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "Because turning off or breaking one appliance opens the entire circuit, and equivalent resistance becomes too large",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 624\\text{ J}$ and $Q = 24\\text{ C}$:",
-      "$$V = \\frac{624}{24} = 26\\text{ V}$$"
+      "Physical concept and governing rule: Because turning off or breaking one appliance opens the entire circuit, and equivalent resistance becomes too large."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 624\\text{ جول}$ و $Q = 24\\text{ كولوم}$:",
-      "$$V = \\frac{624}{24} = 26\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: لأنه إذا انطفأ أو تلف جهاز ينقطع التيار عن باقي الأجهزة وتزداد المقاومة الكلية فتقل شدة التيار."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_19",
-    "titleEn": "Work Done & Potential Difference #9",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #9",
+    "titleEn": "Equivalent Resistance: Parallel Connection",
+    "titleAr": "المقاومة المكافئة في التوصيل على التوازي",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 27\\text{ C}$ between two points, a work of $W = 756\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 27\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 756\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "Connecting electrical appliances in parallel inside houses ensures that:",
+    "questionAr": "توصيل الأجهزة المنزلية على التوازي يضمن أن:",
     "optionsEn": [
-      "$V = 28\\text{ V}$",
-      "$V = 56\\text{ V}$",
-      "$V = 14\\text{ V}$",
-      "$V = 33\\text{ V}$"
+      "Current flows only when all appliances are switched on simultaneously",
+      "All devices share one single electric charge per day",
+      "Each device operates across the full mains voltage ($220\\text{ V}$) independently, and total resistance decreases",
+      "Electric power drops to zero"
     ],
     "optionsAr": [
-      "$V = 28\\text{ V}$",
-      "$V = 56\\text{ V}$",
-      "$V = 14\\text{ V}$",
-      "$V = 33\\text{ V}$"
+      "يمر التيار فقط عند تشغيل كل الأجهزة معاً",
+      "تشترك الأجهزة في شحنة واحدة يومياً",
+      "يعمل كل جهاز على نفس فرق جهد المصدر ($220\\text{ V}$) مستقلاً، وتقل المقاومة الكلية للدائرة",
+      "تنعدم القدرة المستهلكة في المنزل"
     ],
-    "correctAnswer": "$V = 28\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "Each device operates across the full mains voltage ($220\\text{ V}$) independently, and total resistance decreases",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 756\\text{ J}$ and $Q = 27\\text{ C}$:",
-      "$$V = \\frac{756}{27} = 28\\text{ V}$$"
+      "Physical concept and governing rule: Each device operates across the full mains voltage ($220\\text{ V}$) independently, and total resistance decreases."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 756\\text{ جول}$ و $Q = 27\\text{ كولوم}$:",
-      "$$V = \\frac{756}{27} = 28\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: يعمل كل جهاز على نفس فرق جهد المصدر ($220\\text{ V}$) مستقلاً، وتقل المقاومة الكلية للدائرة."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_20",
-    "titleEn": "Work Done & Potential Difference #10",
-    "titleAr": "الشغل المبذول وفرق الجهد الكهربي #10",
+    "titleEn": "Ammeter Connection in Circuit",
+    "titleAr": "طريقة توصيل الأميتر في الدائرة الكهربية",
     "difficulty": "easy",
-    "questionEn": "To transfer a quantity of electric charge $Q = 30\\text{ C}$ between two points, a work of $W = 900\\text{ J}$ is expended. What is the potential difference $V$ between these two points?",
-    "questionAr": "لنقل كمية من الشحنة الكهربية مقدارها $Q = 30\\text{ C}$ بين نقطتين، يُبذل شغل مقداره $W = 900\\text{ J}$. ما فرق الجهد الكهربي $V$ بين هاتين النقطتين؟",
+    "questionEn": "How is an ammeter connected to measure current in an electrical branch, and what is its ideal resistance?",
+    "questionAr": "كيف يوصل جهاز الأميتر لقياس شدة التيار في فرع كهربي، وما مقاومته المثالية؟",
     "optionsEn": [
-      "$V = 30\\text{ V}$",
-      "$V = 60\\text{ V}$",
-      "$V = 15\\text{ V}$",
-      "$V = 35\\text{ V}$"
+      "Connected in parallel, with infinite resistance ($R_A \\to \\infty$)",
+      "Connected across the battery terminals directly in parallel",
+      "Connected to earth ground only",
+      "Connected in series, with ideal resistance approaching zero ($R_A \\to 0$)"
     ],
     "optionsAr": [
-      "$V = 30\\text{ V}$",
-      "$V = 60\\text{ V}$",
-      "$V = 15\\text{ V}$",
-      "$V = 35\\text{ V}$"
+      "يوصل على التوازي بمقاومة لانهائية",
+      "يوصل بين قطبي البطارية مباشرة على التوازي",
+      "يوصل بالأرض فقط",
+      "يوصل على التوالي، وتكون مقاومته المثالية منعدمة تقريباً ($R_A \\to 0$)"
     ],
-    "correctAnswer": "$V = 30\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "The potential difference is defined as the work done per unit charge: $V = \\frac{W}{Q}$.",
-    "hintAr": "فرق الجهد هو الشغل المبذول لنقل وحدة الشحنات: $V = \\frac{W}{Q}$.",
+    "correctAnswer": "Connected in series, with ideal resistance approaching zero ($R_A \\to 0$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Use the formula for potential difference: $V = \\frac{W}{Q}$.",
-      "Substitute $W = 900\\text{ J}$ and $Q = 30\\text{ C}$:",
-      "$$V = \\frac{900}{30} = 30\\text{ V}$$"
+      "Physical concept and governing rule: Connected in series, with ideal resistance approaching zero ($R_A \\to 0$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون فرق الجهد: $V = \\frac{W}{Q}$.",
-      "بالتعويض عن $W = 900\\text{ جول}$ و $Q = 30\\text{ كولوم}$:",
-      "$$V = \\frac{900}{30} = 30\\text{ فولت}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: يوصل على التوالي، وتكون مقاومته المثالية منعدمة تقريباً ($R_A \\to 0$)."
     ],
-    "teacherTipEn": "One Volt is equivalent to one Joule per Coulomb ($1\\text{ V} = 1\\text{ J/C}$).",
-    "teacherTipAr": "الفولت الواحد يكافئ جول لكل كولوم ($1\\text{ V} = 1\\text{ J/C}$)."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_21",
-    "titleEn": "Conductor Resistance & Dimensions #1",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #1",
+    "titleEn": "Voltmeter Connection in Circuit",
+    "titleAr": "طريقة توصيل الفولتميتر في الدائرة الكهربية",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 10\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 10\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "How is a voltmeter connected to measure the potential difference between two nodes, and what is its ideal resistance?",
+    "questionAr": "كيف يوصل الفولتميتر لقياس فرق الجهد بين نقطتين، وما مقدار مقاومته المثالية؟",
     "optionsEn": [
-      "$R = 0.085\\,\\Omega$",
-      "$R = 0.17\\,\\Omega$",
-      "$R = 0.043\\,\\Omega$",
-      "$R = 0.255\\,\\Omega$"
+      "Connected in parallel across the two points, with ideal resistance approaching infinity ($R_V \\to \\infty$)",
+      "Connected in series, with resistance zero ($R_V = 0$)",
+      "Wrapped around the wire insulator",
+      "Submerged into the electrolyte solution"
     ],
     "optionsAr": [
-      "$R = 0.085\\,\\Omega$",
-      "$R = 0.17\\,\\Omega$",
-      "$R = 0.043\\,\\Omega$",
-      "$R = 0.255\\,\\Omega$"
+      "يوصل على التوازي بين النقطتين، وتكون مقاومته المثالية لانهائية ($R_V \\to \\infty$)",
+      "يوصل على التوالي بمقاومة صفرية",
+      "يلف حول المادة العازلة للسلك",
+      "يغمر داخل المحلول الإلكتروليتي"
     ],
-    "correctAnswer": "$R = 0.085\\,\\Omega$",
+    "correctAnswer": "Connected in parallel across the two points, with ideal resistance approaching infinity ($R_V \\to \\infty$)",
     "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{10}{2 \\times 10^{-6}} = 0.085\\,\\Omega$$"
+      "Physical concept and governing rule: Connected in parallel across the two points, with ideal resistance approaching infinity ($R_V \\to \\infty$)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{10}{2 \\times 10^{-6}} = 0.085\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: يوصل على التوازي بين النقطتين، وتكون مقاومته المثالية لانهائية ($R_V \\to \\infty$)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_22",
-    "titleEn": "Conductor Resistance & Dimensions #2",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #2",
+    "titleEn": "Electric Power Formula Relations",
+    "titleAr": "علاقات القدرة الكهربية المستنفذة",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 20\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 20\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "Which expression correctly gives the electrical power ($P_w$) dissipated across an ohmic resistor $R$?",
+    "questionAr": "أي من العلاقات التالية تعبر بشكل صحيح عن القدرة الكهربية ($P_w$) المستنفذة في مقاومة أومية $R$؟",
     "optionsEn": [
-      "$R = 0.17\\,\\Omega$",
-      "$R = 0.34\\,\\Omega$",
-      "$R = 0.085\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$"
+      "$P_w = \\frac{V \\cdot R}{I}$",
+      "$P_w = V \\cdot I = I^2 \\cdot R = \\frac{V^2}{R}$",
+      "$P_w = I^2 \\cdot t$",
+      "$P_w = V^2 \\cdot I$"
     ],
     "optionsAr": [
-      "$R = 0.17\\,\\Omega$",
-      "$R = 0.34\\,\\Omega$",
-      "$R = 0.085\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$"
+      "$P_w = \\frac{V \\cdot R}{I}$",
+      "$P_w = V \\cdot I = I^2 \\cdot R = \\frac{V^2}{R}$",
+      "$P_w = I^2 \\cdot t$",
+      "$P_w = V^2 \\cdot I$"
     ],
-    "correctAnswer": "$R = 0.17\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$P_w = V \\cdot I = I^2 \\cdot R = \\frac{V^2}{R}$",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{20}{2 \\times 10^{-6}} = 0.17\\,\\Omega$$"
+      "Physical concept and governing rule: $P_w = V \\cdot I = I^2 \\cdot R = \\frac{V^2}{R}$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{20}{2 \\times 10^{-6}} = 0.17\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $P_w = V \\cdot I = I^2 \\cdot R = \\frac{V^2}{R}$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_23",
-    "titleEn": "Conductor Resistance & Dimensions #3",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #3",
+    "titleEn": "Electric Energy Consumption Formula",
+    "titleAr": "علاقة الطاقة الكهربية المستهلكة",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 30\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 30\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "The electrical energy ($W$) transformed into heat in a resistor $R$ over duration $t$ is expressed by:",
+    "questionAr": "يعبر عن الطاقة الكهربية ($W$) المستهلكة في مقاومة $R$ خلال زمن $t$ بالعلاقة:",
     "optionsEn": [
-      "$R = 0.255\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$",
-      "$R = 0.128\\,\\Omega$",
-      "$R = 0.765\\,\\Omega$"
+      "$W = \\frac{P_w}{t}$",
+      "$W = \\frac{I^2 R}{t}$",
+      "$W = P_w \\cdot t = I^2 \\cdot R \\cdot t$",
+      "$W = V \\cdot I / t$"
     ],
     "optionsAr": [
-      "$R = 0.255\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$",
-      "$R = 0.128\\,\\Omega$",
-      "$R = 0.765\\,\\Omega$"
+      "$W = \\frac{P_w}{t}$",
+      "$W = \\frac{I^2 R}{t}$",
+      "$W = P_w \\cdot t = I^2 \\cdot R \\cdot t$",
+      "$W = V \\cdot I / t$"
     ],
-    "correctAnswer": "$R = 0.255\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$W = P_w \\cdot t = I^2 \\cdot R \\cdot t$",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{30}{2 \\times 10^{-6}} = 0.255\\,\\Omega$$"
+      "Physical concept and governing rule: $W = P_w \\cdot t = I^2 \\cdot R \\cdot t$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{30}{2 \\times 10^{-6}} = 0.255\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $W = P_w \\cdot t = I^2 \\cdot R \\cdot t$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_24",
-    "titleEn": "Conductor Resistance & Dimensions #4",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #4",
+    "titleEn": "Unit of Electrical Energy: Kilowatt-hour",
+    "titleAr": "الكيلووات ساعة كوحدة طاقة",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 40\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 40\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "The commercial unit of electrical energy consumption 'kilowatt-hour' ($\\text{kWh}$) equals how many Joules?",
+    "questionAr": "الوحدة التجارية لقياس استهلاك الطاقة الكهربية 'كيلووات · ساعة' ($\\text{kWh}$) تكافئ كم جول؟",
     "optionsEn": [
-      "$R = 0.34\\,\\Omega$",
-      "$R = 0.68\\,\\Omega$",
-      "$R = 0.17\\,\\Omega$",
-      "$R = 1.02\\,\\Omega$"
+      "$1000\\,\\text{J}$",
+      "$3600\\,\\text{J}$",
+      "$60\\,\\text{J}$",
+      "$3.6 \\times 10^6\\,\\text{J}$ (or $3.6\\,\\text{MJ}$)"
     ],
     "optionsAr": [
-      "$R = 0.34\\,\\Omega$",
-      "$R = 0.68\\,\\Omega$",
-      "$R = 0.17\\,\\Omega$",
-      "$R = 1.02\\,\\Omega$"
+      "$1000\\,\\text{J}$",
+      "$3600\\,\\text{J}$",
+      "$60\\,\\text{J}$",
+      "$3.6 \\times 10^6\\,\\text{J}$ (أو $3.6\\,\\text{ميغاجول}$)"
     ],
-    "correctAnswer": "$R = 0.34\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$3.6 \\times 10^6\\,\\text{J}$ (or $3.6\\,\\text{MJ}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{40}{2 \\times 10^{-6}} = 0.34\\,\\Omega$$"
+      "Physical concept and governing rule: $3.6 \\times 10^6\\,\\text{J}$ (or $3.6\\,\\text{MJ}$)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{40}{2 \\times 10^{-6}} = 0.34\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $3.6 \\times 10^6\\,\\text{J}$ (أو $3.6\\,\\text{ميغاجول}$)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_25",
-    "titleEn": "Conductor Resistance & Dimensions #5",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #5",
+    "titleEn": "Stretching a Wire: Volume Invariance",
+    "titleAr": "سحب وتمديد سلك مع ثبوت الحجم",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 50\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 50\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "When a uniform metallic wire is stretched such that its length doubles ($L_2 = 2L_1$) while its volume remains constant, its cross-sectional area becomes:",
+    "questionAr": "عند سحب سلك معدني بانتظام ليتضاعف طوله ($L_2 = 2L_1$) مع ثبوت حجمه، فإن مساحة مقطعه تصبح:",
     "optionsEn": [
-      "$R = 0.425\\,\\Omega$",
-      "$R = 0.85\\,\\Omega$",
-      "$R = 0.212\\,\\Omega$",
-      "$R = 1.275\\,\\Omega$"
+      "Halved ($A_2 = \\frac{A_1}{2}$)",
+      "Doubled ($A_2 = 2A_1$)",
+      "Unchanged ($A_2 = A_1$)",
+      "Quartered ($A_2 = \\frac{A_1}{4}$)"
     ],
     "optionsAr": [
-      "$R = 0.425\\,\\Omega$",
-      "$R = 0.85\\,\\Omega$",
-      "$R = 0.212\\,\\Omega$",
-      "$R = 1.275\\,\\Omega$"
+      "نصف قيمتها الأصلية ($A_2 = \\frac{A_1}{2}$)",
+      "ضعف قيمتها الأصلية",
+      "ثابتة دون تغير",
+      "ربع قيمتها الأصلية"
     ],
-    "correctAnswer": "$R = 0.425\\,\\Omega$",
+    "correctAnswer": "Halved ($A_2 = \\frac{A_1}{2}$)",
     "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{50}{2 \\times 10^{-6}} = 0.425\\,\\Omega$$"
+      "Physical concept and governing rule: Halved ($A_2 = \\frac{A_1}{2}$)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{50}{2 \\times 10^{-6}} = 0.425\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: نصف قيمتها الأصلية ($A_2 = \\frac{A_1}{2}$)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_26",
-    "titleEn": "Conductor Resistance & Dimensions #6",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #6",
+    "titleEn": "Stretching a Wire: Resistance Quadrupling",
+    "titleAr": "مقاومة سلك عند مضاعفة طوله بالسحب",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 60\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 60\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "When a wire of resistance $R$ is reshaped by uniform stretching until its length is doubled, what is its new resistance?",
+    "questionAr": "إذا سُحب سلك مقاومته $R$ بانتظام حتى زاد طوله للضعف، فكم تصبح مقاومته الجديدة؟",
     "optionsEn": [
-      "$R = 0.51\\,\\Omega$",
-      "$R = 1.02\\,\\Omega$",
-      "$R = 0.255\\,\\Omega$",
-      "$R = 1.53\\,\\Omega$"
+      "$2R$ (doubled)",
+      "$4R$ (quadrupled)",
+      "$\\frac{R}{2}$",
+      "$\\frac{R}{4}$"
     ],
     "optionsAr": [
-      "$R = 0.51\\,\\Omega$",
-      "$R = 1.02\\,\\Omega$",
-      "$R = 0.255\\,\\Omega$",
-      "$R = 1.53\\,\\Omega$"
+      "$2R$ (تتضاعف فقط)",
+      "$4R$ (تزداد إلى أربعة أمثالها)",
+      "$\\frac{R}{2}$",
+      "$\\frac{R}{4}$"
     ],
-    "correctAnswer": "$R = 0.51\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$4R$ (quadrupled)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{60}{2 \\times 10^{-6}} = 0.51\\,\\Omega$$"
+      "Physical concept and governing rule: $4R$ (quadrupled)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{60}{2 \\times 10^{-6}} = 0.51\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $4R$ (تزداد إلى أربعة أمثالها)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_27",
-    "titleEn": "Conductor Resistance & Dimensions #7",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #7",
+    "titleEn": "Compressing a Wire: Resistance Quartering",
+    "titleAr": "مقاومة سلك عند ثنيه أو ضغطه",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 70\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 70\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "A wire of resistance $R$ is compressed uniformly so its length becomes half of its original value. Its new resistance is:",
+    "questionAr": "سلك مقاومته $R$ قُلص طوله بانتظام ليصبح نصف طوله الأصلي. فكم تصبح مقاومته الكهربية؟",
     "optionsEn": [
-      "$R = 0.595\\,\\Omega$",
-      "$R = 1.19\\,\\Omega$",
-      "$R = 0.297\\,\\Omega$",
-      "$R = 1.785\\,\\Omega$"
+      "$\\frac{R}{2}$ (one half)",
+      "$2R$",
+      "$\\frac{R}{4}$ (one fourth)",
+      "$4R$"
     ],
     "optionsAr": [
-      "$R = 0.595\\,\\Omega$",
-      "$R = 1.19\\,\\Omega$",
-      "$R = 0.297\\,\\Omega$",
-      "$R = 1.785\\,\\Omega$"
+      "$\\frac{R}{2}$ (تقل للنصف)",
+      "$2R$",
+      "$\\frac{R}{4}$ (تقل للربع)",
+      "$4R$"
     ],
-    "correctAnswer": "$R = 0.595\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$\\frac{R}{4}$ (one fourth)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{70}{2 \\times 10^{-6}} = 0.595\\,\\Omega$$"
+      "Physical concept and governing rule: $\\frac{R}{4}$ (one fourth)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{70}{2 \\times 10^{-6}} = 0.595\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $\\frac{R}{4}$ (تقل للربع)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_28",
-    "titleEn": "Conductor Resistance & Dimensions #8",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #8",
+    "titleEn": "Two Identical Resistors in Parallel",
+    "titleAr": "مقاومتان متساويتان على التوازي",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 80\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 80\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "Connecting two identical resistors of value $R$ in parallel yields an equivalent resistance of:",
+    "questionAr": "توصيل مقاومتين متماثلتين قيمة كل منهما $R$ على التوازي يعطي مقاومة مكافئة قدرها:",
     "optionsEn": [
-      "$R = 0.68\\,\\Omega$",
-      "$R = 1.36\\,\\Omega$",
-      "$R = 0.34\\,\\Omega$",
-      "$R = 2.04\\,\\Omega$"
+      "$R_{\\text{eq}} = 2R$",
+      "$R_{\\text{eq}} = R$",
+      "$R_{\\text{eq}} = R^2$",
+      "$R_{\\text{eq}} = \\frac{R}{2}$"
     ],
     "optionsAr": [
-      "$R = 0.68\\,\\Omega$",
-      "$R = 1.36\\,\\Omega$",
-      "$R = 0.34\\,\\Omega$",
-      "$R = 2.04\\,\\Omega$"
+      "$R_{\\text{eq}} = 2R$",
+      "$R_{\\text{eq}} = R$",
+      "$R_{\\text{eq}} = R^2$",
+      "$R_{\\text{eq}} = \\frac{R}{2}$"
     ],
-    "correctAnswer": "$R = 0.68\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$R_{\\text{eq}} = \\frac{R}{2}$",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{80}{2 \\times 10^{-6}} = 0.68\\,\\Omega$$"
+      "Physical concept and governing rule: $R_{\\text{eq}} = \\frac{R}{2}$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{80}{2 \\times 10^{-6}} = 0.68\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $R_{\\text{eq}} = \\frac{R}{2}$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_29",
-    "titleEn": "Conductor Resistance & Dimensions #9",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #9",
+    "titleEn": "N Identical Resistors in Series",
+    "titleAr": "عدد N من المقاومات المتماثلة على التوالي",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 90\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 90\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "When $N$ identical resistors of resistance $R$ are connected in series, the total resistance is:",
+    "questionAr": "عند توصيل عدد $N$ من المقاومات المتماثلة قيمة كل منها $R$ على التوالي، فإن المقاومة الكلية تساوي:",
     "optionsEn": [
-      "$R = 0.765\\,\\Omega$",
-      "$R = 1.53\\,\\Omega$",
-      "$R = 0.383\\,\\Omega$",
-      "$R = 2.295\\,\\Omega$"
+      "$R_{\\text{eq}} = N \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{R}{N}$",
+      "$R_{\\text{eq}} = \\frac{N}{R}$",
+      "$R_{\\text{eq}} = R^N$"
     ],
     "optionsAr": [
-      "$R = 0.765\\,\\Omega$",
-      "$R = 1.53\\,\\Omega$",
-      "$R = 0.383\\,\\Omega$",
-      "$R = 2.295\\,\\Omega$"
+      "$R_{\\text{eq}} = N \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{R}{N}$",
+      "$R_{\\text{eq}} = \\frac{N}{R}$",
+      "$R_{\\text{eq}} = R^N$"
     ],
-    "correctAnswer": "$R = 0.765\\,\\Omega$",
+    "correctAnswer": "$R_{\\text{eq}} = N \\cdot R$",
     "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{90}{2 \\times 10^{-6}} = 0.765\\,\\Omega$$"
+      "Physical concept and governing rule: $R_{\\text{eq}} = N \\cdot R$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{90}{2 \\times 10^{-6}} = 0.765\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $R_{\\text{eq}} = N \\cdot R$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_30",
-    "titleEn": "Conductor Resistance & Dimensions #10",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #10",
+    "titleEn": "N Identical Resistors in Parallel",
+    "titleAr": "عدد N من المقاومات المتماثلة على التوازي",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 100\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 100\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "When $N$ identical resistors each of value $R$ are connected in parallel, the equivalent resistance is:",
+    "questionAr": "عند توصيل عدد $N$ من المقاومات المتماثلة قيمة كل منها $R$ على التوازي، فإن المقاومة المكافئة تساوي:",
     "optionsEn": [
-      "$R = 0.85\\,\\Omega$",
-      "$R = 1.7\\,\\Omega$",
-      "$R = 0.425\\,\\Omega$",
-      "$R = 2.55\\,\\Omega$"
+      "$R_{\\text{eq}} = N \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{R}{N}$",
+      "$R_{\\text{eq}} = N^2 \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{N^2}{R}$"
     ],
     "optionsAr": [
-      "$R = 0.85\\,\\Omega$",
-      "$R = 1.7\\,\\Omega$",
-      "$R = 0.425\\,\\Omega$",
-      "$R = 2.55\\,\\Omega$"
+      "$R_{\\text{eq}} = N \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{R}{N}$",
+      "$R_{\\text{eq}} = N^2 \\cdot R$",
+      "$R_{\\text{eq}} = \\frac{N^2}{R}$"
     ],
-    "correctAnswer": "$R = 0.85\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$R_{\\text{eq}} = \\frac{R}{N}$",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{100}{2 \\times 10^{-6}} = 0.85\\,\\Omega$$"
+      "Physical concept and governing rule: $R_{\\text{eq}} = \\frac{R}{N}$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{100}{2 \\times 10^{-6}} = 0.85\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $R_{\\text{eq}} = \\frac{R}{N}$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_31",
-    "titleEn": "Conductor Resistance & Dimensions #11",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #11",
+    "titleEn": "Ratio of Resistances for Doubled Diameter",
+    "titleAr": "نسبة المقاومة عند مضاعفة القطر",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 110\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 110\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "If the diameter of a cylindrical copper wire is doubled while keeping its length constant, its resistance:",
+    "questionAr": "إذا تضاعف قطر سلك نحاسي دائري المقطع مع ثبوت طوله، فإن مقاومته الكهربية:",
     "optionsEn": [
-      "$R = 0.935\\,\\Omega$",
-      "$R = 1.87\\,\\Omega$",
-      "$R = 0.468\\,\\Omega$",
-      "$R = 2.805\\,\\Omega$"
+      "Decreases to one half",
+      "Doubles",
+      "Decreases to one fourth of its initial value ($R_2 = \\frac{R_1}{4}$)",
+      "Quadruples"
     ],
     "optionsAr": [
-      "$R = 0.935\\,\\Omega$",
-      "$R = 1.87\\,\\Omega$",
-      "$R = 0.468\\,\\Omega$",
-      "$R = 2.805\\,\\Omega$"
+      "تقل إلى النصف",
+      "تتضاعف مرتين",
+      "تقل إلى ربع قيمتها الأصلية ($R_2 = \\frac{R_1}{4}$)",
+      "تزداد إلى أربعة أمثالها"
     ],
-    "correctAnswer": "$R = 0.935\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "Decreases to one fourth of its initial value ($R_2 = \\frac{R_1}{4}$)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{110}{2 \\times 10^{-6}} = 0.935\\,\\Omega$$"
+      "Physical concept and governing rule: Decreases to one fourth of its initial value ($R_2 = \\frac{R_1}{4}$)."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{110}{2 \\times 10^{-6}} = 0.935\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: تقل إلى ربع قيمتها الأصلية ($R_2 = \\frac{R_1}{4}$)."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_32",
-    "titleEn": "Conductor Resistance & Dimensions #12",
-    "titleAr": "مقاومة موصل وأبعاده الهندسية #12",
+    "titleEn": "Ratio of Resistances for Tripled Length",
+    "titleAr": "مقاومة سلك عند زيادة طوله لثلاثة أمثاله",
     "difficulty": "easy",
-    "questionEn": "A copper conductor of length $L = 120\\text{ m}$ has a cross-sectional area $A = 2 \\times 10^{-6}\\text{ m}^2$. If the resistivity of copper is $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$, determine the resistance $R$ of the conductor.",
-    "questionAr": "موصل نحاسي طوله $L = 120\\text{ m}$ ومساحة مقطعه $A = 2 \\times 10^{-6}\\text{ m}^2$. إذا كانت المقاومة النوعية للنحاس $\\rho_e = 1.7 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$، فما مقاومة الموصل $R$؟",
+    "questionEn": "A conductor of resistance $12\\,\\Omega$ is replaced by another wire of the same material and cross-section but three times longer. What is the new resistance?",
+    "questionAr": "موصل مقاومته $12\\,\\Omega$ استبدل بسلك آخر من نفس المادة ومساحة المقطع ولكن طوله ثلاثة أمثال الأول. فكم تصبح مقاومته؟",
     "optionsEn": [
-      "$R = 1.02\\,\\Omega$",
-      "$R = 2.04\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$",
-      "$R = 3.06\\,\\Omega$"
+      "$4\\,\\Omega$",
+      "$12\\,\\Omega$",
+      "$108\\,\\Omega$",
+      "$36\\,\\Omega$"
     ],
     "optionsAr": [
-      "$R = 1.02\\,\\Omega$",
-      "$R = 2.04\\,\\Omega$",
-      "$R = 0.51\\,\\Omega$",
-      "$R = 3.06\\,\\Omega$"
+      "$4\\,\\Omega$",
+      "$12\\,\\Omega$",
+      "$108\\,\\Omega$",
+      "$36\\,\\Omega$"
     ],
-    "correctAnswer": "$R = 1.02\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Apply the resistance formula: $R = \\rho_e \\frac{L}{A}$.",
-    "hintAr": "طبق قانون المقاومة الكهربية: $R = \\rho_e \\frac{L}{A}$.",
+    "correctAnswer": "$36\\,\\Omega$",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Formula: $R = \\rho_e \\frac{L}{A}$.",
-      "Substitute values:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{120}{2 \\times 10^{-6}} = 1.02\\,\\Omega$$"
+      "Physical concept and governing rule: $36\\,\\Omega$."
     ],
     "stepByStepSolutionAr": [
-      "القانون: $R = \\rho_e \\frac{L}{A}$.",
-      "بالتعويض:",
-      "$$R = (1.7 \\times 10^{-8}) \\times \\frac{120}{2 \\times 10^{-6}} = 1.02\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $36\\,\\Omega$."
     ],
-    "teacherTipEn": "Resistivity $\\rho_e$ depends only on the material type and temperature, not on length or cross-sectional area.",
-    "teacherTipAr": "المقاومة النوعية $\\rho_e$ خاصية فيزيائية مميزة للمادة تتوقف فقط على نوع المادة ودرجة الحرارة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_33",
-    "titleEn": "Series Resistor Combination #1",
-    "titleAr": "توصيل المقاومات على التوالي #1",
+    "titleEn": "Current through 6 Ohm and 3 Ohm in Parallel",
+    "titleAr": "تيار مقاومتين 6 و 3 أوم على التوازي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 2\\,\\Omega$, $R_2 = 3\\,\\Omega$, and $R_3 = 5\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 2\\,\\Omega$ و $R_2 = 3\\,\\Omega$ و $R_3 = 5\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "Two resistors of $6\\,\\Omega$ and $3\\,\\Omega$ are connected in parallel across a $12\\text{ V}$ battery. What is the total current leaving the battery?",
+    "questionAr": "وصلت مقاومتان $6\\,\\Omega$ و $3\\,\\Omega$ على التوازي مع بطارية $12\\text{ V}$ مهملة المقاومة الداخلية. ما شدة التيار الكلي المار في الدائرة؟",
     "optionsEn": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 15\\,\\Omega$",
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 20\\,\\Omega$"
+      "$6\\text{ A}$ (equivalent resistance is $2\\,\\Omega$)",
+      "$2\\text{ A}$",
+      "$4\\text{ A}$",
+      "$1.33\\text{ A}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 15\\,\\Omega$",
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 20\\,\\Omega$"
+      "$6\\text{ A}$ (المقاومة المكافئة هي $2\\,\\Omega$)",
+      "$2\\text{ A}$",
+      "$4\\text{ A}$",
+      "$1.33\\text{ A}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 10\\,\\Omega$",
+    "correctAnswer": "$6\\text{ A}$ (equivalent resistance is $2\\,\\Omega$)",
     "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 2 + 3 + 5 = 10\\,\\Omega$$"
+      "Physical concept and governing rule: $6\\text{ A}$ (equivalent resistance is $2\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 2 + 3 + 5 = 10\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $6\\text{ A}$ (المقاومة المكافئة هي $2\\,\\Omega$)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_34",
-    "titleEn": "Series Resistor Combination #2",
-    "titleAr": "توصيل المقاومات على التوالي #2",
+    "titleEn": "Short Circuit Current across Battery",
+    "titleAr": "تيار القفلة الكهربية للعمود",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 4\\,\\Omega$, $R_2 = 6\\,\\Omega$, and $R_3 = 10\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 4\\,\\Omega$ و $R_2 = 6\\,\\Omega$ و $R_3 = 10\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "When the terminals of a real battery ($V_B, r$) are connected directly by a zero-resistance wire, the maximum current flowing is:",
+    "questionAr": "عند غلق طرفي عمود كهربي ($V_B, r$) بسلك عديم المقاومة مباشرة (دائرة قصر)، فإن شدة التيار المار تساوي:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 25\\,\\Omega$",
-      "$R_{\\text{eq}} = 18\\,\\Omega$",
-      "$R_{\\text{eq}} = 40\\,\\Omega$"
+      "$I_{\\text{sc}} = 0$",
+      "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+      "$I_{\\text{sc}} = V_B \\cdot r$",
+      "$I_{\\text{sc}} = \\infty$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 25\\,\\Omega$",
-      "$R_{\\text{eq}} = 18\\,\\Omega$",
-      "$R_{\\text{eq}} = 40\\,\\Omega$"
+      "$I_{\\text{sc}} = 0$",
+      "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+      "$I_{\\text{sc}} = V_B \\cdot r$",
+      "$I_{\\text{sc}} = \\infty$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 20\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 4 + 6 + 10 = 20\\,\\Omega$$"
+      "Physical concept and governing rule: $I_{\\text{sc}} = \\frac{V_B}{r}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 4 + 6 + 10 = 20\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $I_{\\text{sc}} = \\frac{V_B}{r}$."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_35",
-    "titleEn": "Series Resistor Combination #3",
-    "titleAr": "توصيل المقاومات على التوالي #3",
+    "titleEn": "Internal Resistance Graph Slope",
+    "titleAr": "ميل الخط البياني لفرق الجهد والتيار لبطارية",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 6\\,\\Omega$, $R_2 = 9\\,\\Omega$, and $R_3 = 15\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 6\\,\\Omega$ و $R_2 = 9\\,\\Omega$ و $R_3 = 15\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "In a graph plotting terminal voltage $V$ on the vertical axis versus current $I$ on the horizontal axis for a discharging battery, the slope represents:",
+    "questionAr": "في الرسم البياني لفرق الجهد بين قطبي بطارية مفرغة $V$ على المحور الرأسي وشحنة التيار $I$ على الأفقي، يعبر الميل عن:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 30\\,\\Omega$",
-      "$R_{\\text{eq}} = 35\\,\\Omega$",
-      "$R_{\\text{eq}} = 28\\,\\Omega$",
-      "$R_{\\text{eq}} = 60\\,\\Omega$"
+      "The electromotive force $V_B$",
+      "The external equivalent resistance",
+      "The negative internal resistance ($\\text{Slope} = -r$)",
+      "The total electric power"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 30\\,\\Omega$",
-      "$R_{\\text{eq}} = 35\\,\\Omega$",
-      "$R_{\\text{eq}} = 28\\,\\Omega$",
-      "$R_{\\text{eq}} = 60\\,\\Omega$"
+      "القوة الدافعة الكهربية $V_B$",
+      "المقاومة الخارجية المكافئة",
+      "سالب المقاومة الداخلية للبطارية ($\\text{Slope} = -r$)",
+      "القدرة الكهربية الكلية"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 30\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "The negative internal resistance ($\\text{Slope} = -r$)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 6 + 9 + 15 = 30\\,\\Omega$$"
+      "Physical concept and governing rule: The negative internal resistance ($\\text{Slope} = -r$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 6 + 9 + 15 = 30\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: سالب المقاومة الداخلية للبطارية ($\\text{Slope} = -r$)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_36",
-    "titleEn": "Series Resistor Combination #4",
-    "titleAr": "توصيل المقاومات على التوالي #4",
+    "titleEn": "Y-Intercept of Battery V-I Graph",
+    "titleAr": "نقطة تقاطع منحنى V-I للبطارية مع المحور الرأسي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 8\\,\\Omega$, $R_2 = 12\\,\\Omega$, and $R_3 = 20\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 8\\,\\Omega$ و $R_2 = 12\\,\\Omega$ و $R_3 = 20\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "In the terminal voltage vs current graph ($V$ vs $I$) of an operating battery, the vertical intercept at $I = 0$ represents:",
+    "questionAr": "في منحنى فرق الجهد والتيار للبطارية، تمثل نقطة التقاطع مع المحور الرأسي عند انعدام التيار ($I = 0$):",
     "optionsEn": [
-      "$R_{\\text{eq}} = 40\\,\\Omega$",
-      "$R_{\\text{eq}} = 45\\,\\Omega$",
-      "$R_{\\text{eq}} = 38\\,\\Omega$",
-      "$R_{\\text{eq}} = 80\\,\\Omega$"
+      "Zero voltage",
+      "The internal resistance $r$",
+      "The maximum load resistance",
+      "The battery's electromotive force ($V_B$)"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 40\\,\\Omega$",
-      "$R_{\\text{eq}} = 45\\,\\Omega$",
-      "$R_{\\text{eq}} = 38\\,\\Omega$",
-      "$R_{\\text{eq}} = 80\\,\\Omega$"
+      "الجهد الصفري",
+      "المقاومة الداخلية $r$",
+      "المقاومة العظمى للحمل",
+      "القوة الدافعة الكهربية للعمود ($V_B$)"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 40\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "The battery's electromotive force ($V_B$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 8 + 12 + 20 = 40\\,\\Omega$$"
+      "Physical concept and governing rule: The battery's electromotive force ($V_B$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 8 + 12 + 20 = 40\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: القوة الدافعة الكهربية للعمود ($V_B$)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_37",
-    "titleEn": "Series Resistor Combination #5",
-    "titleAr": "توصيل المقاومات على التوالي #5",
+    "titleEn": "Ohmic Resistor V-I Graph Slope",
+    "titleAr": "ميل خط الجهد والتيار لمقاوم أومي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 10\\,\\Omega$, $R_2 = 15\\,\\Omega$, and $R_3 = 25\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 10\\,\\Omega$ و $R_2 = 15\\,\\Omega$ و $R_3 = 25\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "For a metallic conductor obeying Ohm's law, the slope of the $V$ versus $I$ straight-line graph through the origin is:",
+    "questionAr": "لموصل معدني يخضع لقانون أوم، يمثل ميل الخط المستقيم المار بنقطة الأصل في منحنى $V$ مع $I$:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 50\\,\\Omega$",
-      "$R_{\\text{eq}} = 55\\,\\Omega$",
-      "$R_{\\text{eq}} = 48\\,\\Omega$",
-      "$R_{\\text{eq}} = 100\\,\\Omega$"
+      "The electrical resistance of the conductor ($R = \\frac{\\Delta V}{\\Delta I}$)",
+      "The electrical conductivity $\\sigma$",
+      "The electric charge of one electron",
+      "The magnetic flux density"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 50\\,\\Omega$",
-      "$R_{\\text{eq}} = 55\\,\\Omega$",
-      "$R_{\\text{eq}} = 48\\,\\Omega$",
-      "$R_{\\text{eq}} = 100\\,\\Omega$"
+      "المقاومة الكهربية للموصل ($R = \\frac{\\Delta V}{\\Delta I}$)",
+      "التوصيلية الكهربية للموصل $\\sigma$",
+      "شحنة الإلكترون الواحد",
+      "كثافة الفيض المغناطيسي"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 50\\,\\Omega$",
+    "correctAnswer": "The electrical resistance of the conductor ($R = \\frac{\\Delta V}{\\Delta I}$)",
     "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 10 + 15 + 25 = 50\\,\\Omega$$"
+      "Physical concept and governing rule: The electrical resistance of the conductor ($R = \\frac{\\Delta V}{\\Delta I}$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 10 + 15 + 25 = 50\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: المقاومة الكهربية للموصل ($R = \\frac{\\Delta V}{\\Delta I}$)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_38",
-    "titleEn": "Series Resistor Combination #6",
-    "titleAr": "توصيل المقاومات على التوالي #6",
+    "titleEn": "Current Division between Two Unequal Resistors",
+    "titleAr": "توزيع التيار بين مقاومتين غير متساويتين",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 12\\,\\Omega$, $R_2 = 18\\,\\Omega$, and $R_3 = 30\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 12\\,\\Omega$ و $R_2 = 18\\,\\Omega$ و $R_3 = 30\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "When current $I$ divides between parallel resistors $R_1$ and $R_2$, the current $I_1$ in branch 1 is given by:",
+    "questionAr": "عند تجزئة تيار كلي $I$ بين مقاومتين على التوازي $R_1$ و $R_2$، يعطى تيار الفرع الأول $I_1$ بالعلاقة:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 60\\,\\Omega$",
-      "$R_{\\text{eq}} = 65\\,\\Omega$",
-      "$R_{\\text{eq}} = 58\\,\\Omega$",
-      "$R_{\\text{eq}} = 120\\,\\Omega$"
+      "$I_1 = I \\cdot \\frac{R_1}{R_1 + R_2}$",
+      "$I_1 = I \\cdot \\frac{R_2}{R_1 + R_2}$",
+      "$I_1 = I \\cdot \\frac{R_1 + R_2}{R_2}$",
+      "$I_1 = I \\cdot \\frac{R_1}{R_2}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 60\\,\\Omega$",
-      "$R_{\\text{eq}} = 65\\,\\Omega$",
-      "$R_{\\text{eq}} = 58\\,\\Omega$",
-      "$R_{\\text{eq}} = 120\\,\\Omega$"
+      "$I_1 = I \\cdot \\frac{R_1}{R_1 + R_2}$",
+      "$I_1 = I \\cdot \\frac{R_2}{R_1 + R_2}$",
+      "$I_1 = I \\cdot \\frac{R_1 + R_2}{R_2}$",
+      "$I_1 = I \\cdot \\frac{R_1}{R_2}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 60\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "$I_1 = I \\cdot \\frac{R_2}{R_1 + R_2}$",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 12 + 18 + 30 = 60\\,\\Omega$$"
+      "Physical concept and governing rule: $I_1 = I \\cdot \\frac{R_2}{R_1 + R_2}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 12 + 18 + 30 = 60\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $I_1 = I \\cdot \\frac{R_2}{R_1 + R_2}$."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_39",
-    "titleEn": "Series Resistor Combination #7",
-    "titleAr": "توصيل المقاومات على التوالي #7",
+    "titleEn": "Voltage Division in Series Circuit",
+    "titleAr": "توزيع الجهد عبر مقاومتين على التوالي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 14\\,\\Omega$, $R_2 = 21\\,\\Omega$, and $R_3 = 35\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 14\\,\\Omega$ و $R_2 = 21\\,\\Omega$ و $R_3 = 35\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "Across two series resistors $R_1$ and $R_2$ connected to total voltage $V$, the voltage drop $V_1$ across $R_1$ is:",
+    "questionAr": "عبر مقاومتين على التوالي $R_1$ و $R_2$ متصلتين بجهد كلي $V$، يكون فرق الجهد $V_1$ عبر $R_1$ مساوياً:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 70\\,\\Omega$",
-      "$R_{\\text{eq}} = 75\\,\\Omega$",
-      "$R_{\\text{eq}} = 68\\,\\Omega$",
-      "$R_{\\text{eq}} = 140\\,\\Omega$"
+      "$V_1 = V \\cdot \\frac{R_2}{R_1 + R_2}$",
+      "$V_1 = V \\cdot \\frac{R_1 + R_2}{R_1}$",
+      "$V_1 = V \\cdot \\frac{R_1}{R_1 + R_2}$",
+      "$V_1 = V \\cdot R_1 \\cdot R_2$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 70\\,\\Omega$",
-      "$R_{\\text{eq}} = 75\\,\\Omega$",
-      "$R_{\\text{eq}} = 68\\,\\Omega$",
-      "$R_{\\text{eq}} = 140\\,\\Omega$"
+      "$V_1 = V \\cdot \\frac{R_2}{R_1 + R_2}$",
+      "$V_1 = V \\cdot \\frac{R_1 + R_2}{R_1}$",
+      "$V_1 = V \\cdot \\frac{R_1}{R_1 + R_2}$",
+      "$V_1 = V \\cdot R_1 \\cdot R_2$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 70\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "$V_1 = V \\cdot \\frac{R_1}{R_1 + R_2}$",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 14 + 21 + 35 = 70\\,\\Omega$$"
+      "Physical concept and governing rule: $V_1 = V \\cdot \\frac{R_1}{R_1 + R_2}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 14 + 21 + 35 = 70\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $V_1 = V \\cdot \\frac{R_1}{R_1 + R_2}$."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_40",
-    "titleEn": "Series Resistor Combination #8",
-    "titleAr": "توصيل المقاومات على التوالي #8",
+    "titleEn": "Charge Carried by Avogadro Number of Electrons",
+    "titleAr": "كمية الشحنة لمول من الإلكترونات",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 16\\,\\Omega$, $R_2 = 24\\,\\Omega$, and $R_3 = 40\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 16\\,\\Omega$ و $R_2 = 24\\,\\Omega$ و $R_3 = 40\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "What is the total electric charge carried by one mole of electrons (Faraday constant, $F = N_A \\cdot e$)?",
+    "questionAr": "كم تبلغ الشحنة الكهربية الكلية التي يحملها مول واحد من الإلكترونات (ثابت فاراداي)؟",
     "optionsEn": [
-      "$R_{\\text{eq}} = 80\\,\\Omega$",
-      "$R_{\\text{eq}} = 85\\,\\Omega$",
-      "$R_{\\text{eq}} = 78\\,\\Omega$",
-      "$R_{\\text{eq}} = 160\\,\\Omega$"
+      "$1.6 \\times 10^{-19}\\text{ C}$",
+      "$1\\text{ C}$ exactly",
+      "$3.0 \\times 10^8\\text{ C}$",
+      "Approximately $96500\\text{ C}$ (or $96485\\text{ C}$)"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 80\\,\\Omega$",
-      "$R_{\\text{eq}} = 85\\,\\Omega$",
-      "$R_{\\text{eq}} = 78\\,\\Omega$",
-      "$R_{\\text{eq}} = 160\\,\\Omega$"
+      "$1.6 \\times 10^{-19}\\text{ C}$",
+      "$1\\text{ C}$ بالضبط",
+      "$3.0 \\times 10^8\\text{ C}$",
+      "حوالي $96500\\text{ C}$ (أو $96485\\text{ كولوم}$)"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 80\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "Approximately $96500\\text{ C}$ (or $96485\\text{ C}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 16 + 24 + 40 = 80\\,\\Omega$$"
+      "Physical concept and governing rule: Approximately $96500\\text{ C}$ (or $96485\\text{ C}$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 16 + 24 + 40 = 80\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: حوالي $96500\\text{ C}$ (أو $96485\\text{ كولوم}$)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_41",
-    "titleEn": "Series Resistor Combination #9",
-    "titleAr": "توصيل المقاومات على التوالي #9",
+    "titleEn": "Power Ratio for Series Resistors",
+    "titleAr": "نسبة القدرة المستهلكة في مقاومتين على التوالي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 18\\,\\Omega$, $R_2 = 27\\,\\Omega$, and $R_3 = 45\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 18\\,\\Omega$ و $R_2 = 27\\,\\Omega$ و $R_3 = 45\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "When two resistors $R_1 = 10\\,\\Omega$ and $R_2 = 20\\,\\Omega$ are connected in series, the ratio of power consumed $P_1 : P_2$ is:",
+    "questionAr": "عند توصيل مقاومتين $R_1 = 10\\,\\Omega$ و $R_2 = 20\\,\\Omega$ على التوالي، فإن نسبة القدرة المستهلكة $P_1 : P_2$ تساوي:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 90\\,\\Omega$",
-      "$R_{\\text{eq}} = 95\\,\\Omega$",
-      "$R_{\\text{eq}} = 88\\,\\Omega$",
-      "$R_{\\text{eq}} = 180\\,\\Omega$"
+      "$1 : 2$ (proportional to resistance since current is identical, $P = I^2 R$)",
+      "$2 : 1$",
+      "$1 : 4$",
+      "$4 : 1$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 90\\,\\Omega$",
-      "$R_{\\text{eq}} = 95\\,\\Omega$",
-      "$R_{\\text{eq}} = 88\\,\\Omega$",
-      "$R_{\\text{eq}} = 180\\,\\Omega$"
+      "$1 : 2$ (طردية مع المقاومة لثبوت التيار)",
+      "$2 : 1$",
+      "$1 : 4$",
+      "$4 : 1$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 90\\,\\Omega$",
+    "correctAnswer": "$1 : 2$ (proportional to resistance since current is identical, $P = I^2 R$)",
     "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 18 + 27 + 45 = 90\\,\\Omega$$"
+      "Physical concept and governing rule: $1 : 2$ (proportional to resistance since current is identical, $P = I^2 R$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 18 + 27 + 45 = 90\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $1 : 2$ (طردية مع المقاومة لثبوت التيار)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_42",
-    "titleEn": "Series Resistor Combination #10",
-    "titleAr": "توصيل المقاومات على التوالي #10",
+    "titleEn": "Power Ratio for Parallel Resistors",
+    "titleAr": "نسبة القدرة المستهلكة في مقاومتين على التوازي",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 20\\,\\Omega$, $R_2 = 30\\,\\Omega$, and $R_3 = 50\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 20\\,\\Omega$ و $R_2 = 30\\,\\Omega$ و $R_3 = 50\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "When resistors $R_1 = 10\\,\\Omega$ and $R_2 = 20\\,\\Omega$ are connected in parallel, the ratio of power dissipated $P_1 : P_2$ is:",
+    "questionAr": "عند توصيل مقاومتين $R_1 = 10\\,\\Omega$ و $R_2 = 20\\,\\Omega$ على التوازي، فإن نسبة القدرة المستهلكة $P_1 : P_2$ تساوي:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 100\\,\\Omega$",
-      "$R_{\\text{eq}} = 105\\,\\Omega$",
-      "$R_{\\text{eq}} = 98\\,\\Omega$",
-      "$R_{\\text{eq}} = 200\\,\\Omega$"
+      "$1 : 2$",
+      "$2 : 1$ (inversely proportional to resistance since voltage is identical, $P = V^2 / R$)",
+      "$1 : 4$",
+      "$4 : 1$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 100\\,\\Omega$",
-      "$R_{\\text{eq}} = 105\\,\\Omega$",
-      "$R_{\\text{eq}} = 98\\,\\Omega$",
-      "$R_{\\text{eq}} = 200\\,\\Omega$"
+      "$1 : 2$",
+      "$2 : 1$ (عكسية مع المقاومة لثبوت فرق الجهد)",
+      "$1 : 4$",
+      "$4 : 1$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 100\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "$2 : 1$ (inversely proportional to resistance since voltage is identical, $P = V^2 / R$)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 20 + 30 + 50 = 100\\,\\Omega$$"
+      "Physical concept and governing rule: $2 : 1$ (inversely proportional to resistance since voltage is identical, $P = V^2 / R$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 20 + 30 + 50 = 100\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $2 : 1$ (عكسية مع المقاومة لثبوت فرق الجهد)."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_43",
-    "titleEn": "Series Resistor Combination #11",
-    "titleAr": "توصيل المقاومات على التوالي #11",
+    "titleEn": "Effect of Connecting Resistors on Total Resistance",
+    "titleAr": "تأثير التوصيل على المقاومة المكافئة",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 22\\,\\Omega$, $R_2 = 33\\,\\Omega$, and $R_3 = 55\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 22\\,\\Omega$ و $R_2 = 33\\,\\Omega$ و $R_3 = 55\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "The primary engineering objective of connecting electrical resistors in parallel is to:",
+    "questionAr": "الهدف الهندسي الأساسي من توصيل المقاومات الكهربية على التوازي هو:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 110\\,\\Omega$",
-      "$R_{\\text{eq}} = 115\\,\\Omega$",
-      "$R_{\\text{eq}} = 108\\,\\Omega$",
-      "$R_{\\text{eq}} = 220\\,\\Omega$"
+      "Multiply electrical resistance to stop current flow",
+      "Increase the voltage delivered by the battery",
+      "Obtain a small equivalent resistance from a group of larger resistors to draw greater current",
+      "Prevent heat generation completely"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 110\\,\\Omega$",
-      "$R_{\\text{eq}} = 115\\,\\Omega$",
-      "$R_{\\text{eq}} = 108\\,\\Omega$",
-      "$R_{\\text{eq}} = 220\\,\\Omega$"
+      "مضاعفة المقاومة لمنع تدفق التيار",
+      "زيادة القوة الدافعة للبطارية",
+      "الحصول على مقاومة مكافئة صغيرة من مجموعة مقاومات كبيرة للحصول على شدة تيار أكبر",
+      "منع تولد الحرارة تماماً"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 110\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "Obtain a small equivalent resistance from a group of larger resistors to draw greater current",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 22 + 33 + 55 = 110\\,\\Omega$$"
+      "Physical concept and governing rule: Obtain a small equivalent resistance from a group of larger resistors to draw greater current."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 22 + 33 + 55 = 110\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: الحصول على مقاومة مكافئة صغيرة من مجموعة مقاومات كبيرة للحصول على شدة تيار أكبر."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_44",
-    "titleEn": "Series Resistor Combination #12",
-    "titleAr": "توصيل المقاومات على التوالي #12",
+    "titleEn": "Product Over Sum Rule for Parallel Resistors",
+    "titleAr": "قاعدة حاصل الضرب على المجموع",
     "difficulty": "easy",
-    "questionEn": "Three resistors of values $R_1 = 24\\,\\Omega$, $R_2 = 36\\,\\Omega$, and $R_3 = 60\\,\\Omega$ are connected in series across an ideal electric source. Find the equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت ثلاث مقاومات قيمها $R_1 = 24\\,\\Omega$ و $R_2 = 36\\,\\Omega$ و $R_3 = 60\\,\\Omega$ على التوالي مع مصدر كهربي. احسب المقاومة المكافئة $R_{\\text{eq}}$.",
+    "questionEn": "The equivalent resistance of two parallel resistors $R_1$ and $R_2$ is represented by:",
+    "questionAr": "تعطى المقاومة المكافئة لمقاومتين متصلتين على التوازي بالقانون المختصر:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 120\\,\\Omega$",
-      "$R_{\\text{eq}} = 125\\,\\Omega$",
-      "$R_{\\text{eq}} = 118\\,\\Omega$",
-      "$R_{\\text{eq}} = 240\\,\\Omega$"
+      "$R_{\\text{eq}} = \\frac{R_1 + R_2}{R_1 \\cdot R_2}$",
+      "$R_{\\text{eq}} = R_1 + R_2$",
+      "$R_{\\text{eq}} = \\sqrt{R_1 \\cdot R_2}$",
+      "$R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 120\\,\\Omega$",
-      "$R_{\\text{eq}} = 125\\,\\Omega$",
-      "$R_{\\text{eq}} = 118\\,\\Omega$",
-      "$R_{\\text{eq}} = 240\\,\\Omega$"
+      "$R_{\\text{eq}} = \\frac{R_1 + R_2}{R_1 \\cdot R_2}$",
+      "$R_{\\text{eq}} = R_1 + R_2$",
+      "$R_{\\text{eq}} = \\sqrt{R_1 \\cdot R_2}$",
+      "$R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 120\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For series connection, the equivalent resistance is the algebraic sum: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-    "hintAr": "في التوصيل على التوالي، المقاومة المكافئة تساوي المجموع الجبري للمقاومات: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
+    "correctAnswer": "$R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Series addition formula: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 24 + 36 + 60 = 120\\,\\Omega$$"
+      "Physical concept and governing rule: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوالي: $R_{\\text{eq}} = R_1 + R_2 + R_3$.",
-      "$$R_{\\text{eq}} = 24 + 36 + 60 = 120\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$."
     ],
-    "teacherTipEn": "In series connection, the electric current passing through each resistor is identical, while voltage divides proportionally to resistance.",
-    "teacherTipAr": "في التوصيل على التوالي، تكون شدة التيار المارة في كل مقاومة متساوية، بينما يتجزأ فرق الجهد بنسبة طردية مع المقاومة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_45",
-    "titleEn": "Parallel Resistor Combination #1",
-    "titleAr": "توصيل المقاومات على التوازي #1",
+    "titleEn": "Wheatstone Bridge Balance Condition",
+    "titleAr": "شرط اتزان قنطرة ويتستون وإلغاء المقاومة",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 6\\,\\Omega$ and $R_2 = 3\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 6\\,\\Omega$ و $R_2 = 3\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "In a bridge circuit with four branch resistors $R_1, R_2, R_3, R_4$ and a central bridge resistor $R_5$, no current flows through $R_5$ if:",
+    "questionAr": "في دائرة قنطرة تتكون من أربع مقاومات في الأفرع ومقاومة خامسة $R_5$ بالمنتصف، ينعدم التيار في $R_5$ وتلغى إذا تحقق الشرط:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 2\\,\\Omega$",
-      "$R_{\\text{eq}} = 9\\,\\Omega$",
-      "$R_{\\text{eq}} = 4\\,\\Omega$",
-      "$R_{\\text{eq}} = 5\\,\\Omega$"
+      "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ (equal potential across bridge nodes)",
+      "$R_1 + R_2 = R_3 + R_4$",
+      "$R_1 \\cdot R_2 = R_3 \\cdot R_4$",
+      "$R_5 = 0$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 2\\,\\Omega$",
-      "$R_{\\text{eq}} = 9\\,\\Omega$",
-      "$R_{\\text{eq}} = 4\\,\\Omega$",
-      "$R_{\\text{eq}} = 5\\,\\Omega$"
+      "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ (تساوي الجهد بين طرفي المقاومة الخامسة)",
+      "$R_1 + R_2 = R_3 + R_4$",
+      "$R_1 \\cdot R_2 = R_3 \\cdot R_4$",
+      "$R_5 = 0$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 2\\,\\Omega$",
+    "correctAnswer": "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ (equal potential across bridge nodes)",
     "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{6 \\times 3}{6 + 3} = \\frac{18}{9} = 2\\,\\Omega$$"
+      "Physical concept and governing rule: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ (equal potential across bridge nodes)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{6 \\times 3}{6 + 3} = \\frac{18}{9} = 2\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$ (تساوي الجهد بين طرفي المقاومة الخامسة)."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_46",
-    "titleEn": "Parallel Resistor Combination #2",
-    "titleAr": "توصيل المقاومات على التوازي #2",
+    "titleEn": "Bulb Brightness in Series Circuit",
+    "titleAr": "إضاءة المصابيح عند التوصيل على التوالي",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 12\\,\\Omega$ and $R_2 = 6\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 12\\,\\Omega$ و $R_2 = 6\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "Three identical incandescent bulbs are connected in series. If one bulb burns out (filament breaks), what happens to the other two?",
+    "questionAr": "ثلاثة مصابيح متماثلة متصلة على التوالي بمصدر كهربي. إذا احترق فتيل أحد المصابيح، ماذا يحدث للمصباحين الآخرين؟",
     "optionsEn": [
-      "$R_{\\text{eq}} = 4\\,\\Omega$",
-      "$R_{\\text{eq}} = 18\\,\\Omega$",
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 7\\,\\Omega$"
+      "Both become twice as bright",
+      "Both turn off immediately because the series circuit becomes open",
+      "They continue glowing with unchanged intensity",
+      "They explode within three seconds"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 4\\,\\Omega$",
-      "$R_{\\text{eq}} = 18\\,\\Omega$",
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 7\\,\\Omega$"
+      "تزداد إضاءتهما للضعف",
+      "ينطفئ كلا المصباحين فوراً لفتح الدائرة الكهربية",
+      "يظلان مضيئين بنفس الشدة",
+      "ينفجران خلال ثوانٍ معدودة"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 4\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "Both turn off immediately because the series circuit becomes open",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{12 \\times 6}{12 + 6} = \\frac{72}{18} = 4\\,\\Omega$$"
+      "Physical concept and governing rule: Both turn off immediately because the series circuit becomes open."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{12 \\times 6}{12 + 6} = \\frac{72}{18} = 4\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: ينطفئ كلا المصباحين فوراً لفتح الدائرة الكهربية."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_47",
-    "titleEn": "Parallel Resistor Combination #3",
-    "titleAr": "توصيل المقاومات على التوازي #3",
+    "titleEn": "Bulb Brightness in Parallel Circuit",
+    "titleAr": "إضاءة المصابيح عند التوصيل على التوازي",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 18\\,\\Omega$ and $R_2 = 9\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 18\\,\\Omega$ و $R_2 = 9\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "Three identical incandescent bulbs are connected in parallel across a battery with zero internal resistance. If one bulb burns out, what happens to the brightness of the remaining two?",
+    "questionAr": "ثلاثة مصابيح متماثلة متصلة على التوازي مع بطارية مهملة المقاومة الداخلية. إذا احترق أحد المصابيح، ماذا يحدث لإضاءة المصباحين الآخرين؟",
     "optionsEn": [
-      "$R_{\\text{eq}} = 6\\,\\Omega$",
-      "$R_{\\text{eq}} = 27\\,\\Omega$",
-      "$R_{\\text{eq}} = 12\\,\\Omega$",
-      "$R_{\\text{eq}} = 9\\,\\Omega$"
+      "Both turn off instantly",
+      "Their brightness is reduced by one third",
+      "Remains unchanged because the voltage across each parallel branch stays equal to $V_B$",
+      "Their brightness doubles"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 6\\,\\Omega$",
-      "$R_{\\text{eq}} = 27\\,\\Omega$",
-      "$R_{\\text{eq}} = 12\\,\\Omega$",
-      "$R_{\\text{eq}} = 9\\,\\Omega$"
+      "ينطفئ كلا المصباحين فوراً",
+      "تقل إضاءتهما بمقدار الثلث",
+      "تظل ثابتة دون تغير لثبوت فرق الجهد عبر كل فرع مساوياً للقوة الدافعة $V_B$",
+      "تتضاعف إضاءتهما مرتين"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 6\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "Remains unchanged because the voltage across each parallel branch stays equal to $V_B$",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{18 \\times 9}{18 + 9} = \\frac{162}{27} = 6\\,\\Omega$$"
+      "Physical concept and governing rule: Remains unchanged because the voltage across each parallel branch stays equal to $V_B$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{18 \\times 9}{18 + 9} = \\frac{162}{27} = 6\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: تظل ثابتة دون تغير لثبوت فرق الجهد عبر كل فرع مساوياً للقوة الدافعة $V_B$."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_48",
-    "titleEn": "Parallel Resistor Combination #4",
-    "titleAr": "توصيل المقاومات على التوازي #4",
+    "titleEn": "Kirchhoff Current Sum Sign Convention",
+    "titleAr": "إشارات التيارات في قانون كيرشوف الأول",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 24\\,\\Omega$ and $R_2 = 12\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 24\\,\\Omega$ و $R_2 = 12\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "At a circuit junction where currents $I_1$ and $I_2$ enter while currents $I_3, I_4, I_5$ leave, the algebraic relation is:",
+    "questionAr": "عند عقدة كهربية يدخل إليها التياران $I_1$ و $I_2$ ويخرج منها التيارات $I_3, I_4, I_5$، تكون المعادلة الجبرية الصحيحة:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 36\\,\\Omega$",
-      "$R_{\\text{eq}} = 16\\,\\Omega$",
-      "$R_{\\text{eq}} = 11\\,\\Omega$"
+      "$I_1 + I_2 + I_3 + I_4 + I_5 = 1$",
+      "$I_1 - I_2 = I_3 - I_4 - I_5$",
+      "$I_1 \\cdot I_2 = I_3 \\cdot I_4 \\cdot I_5$",
+      "$I_1 + I_2 = I_3 + I_4 + I_5$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 8\\,\\Omega$",
-      "$R_{\\text{eq}} = 36\\,\\Omega$",
-      "$R_{\\text{eq}} = 16\\,\\Omega$",
-      "$R_{\\text{eq}} = 11\\,\\Omega$"
+      "$I_1 + I_2 + I_3 + I_4 + I_5 = 1$",
+      "$I_1 - I_2 = I_3 - I_4 - I_5$",
+      "$I_1 \\cdot I_2 = I_3 \\cdot I_4 \\cdot I_5$",
+      "$I_1 + I_2 = I_3 + I_4 + I_5$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 8\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "$I_1 + I_2 = I_3 + I_4 + I_5$",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{24 \\times 12}{24 + 12} = \\frac{288}{36} = 8\\,\\Omega$$"
+      "Physical concept and governing rule: $I_1 + I_2 = I_3 + I_4 + I_5$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{24 \\times 12}{24 + 12} = \\frac{288}{36} = 8\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $I_1 + I_2 = I_3 + I_4 + I_5$."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_49",
-    "titleEn": "Parallel Resistor Combination #5",
-    "titleAr": "توصيل المقاومات على التوازي #5",
+    "titleEn": "Voltmeter across Ideal Battery",
+    "titleAr": "قراءة فولتميتر متصل ببطارية مثالية",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 30\\,\\Omega$ and $R_2 = 15\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 30\\,\\Omega$ و $R_2 = 15\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "If a battery has strictly zero internal resistance ($r = 0$), its terminal potential difference as load current increases:",
+    "questionAr": "إذا كانت البطارية مثالية تماماً بمقاومة داخلية منعدمة ($r = 0$)، فإن فرق الجهد بين قطبيها عند زيادة تيار الحمل:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 45\\,\\Omega$",
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 13\\,\\Omega$"
+      "Remains strictly constant and equal to $V_B$",
+      "Decreases linearly towards zero",
+      "Increases exponentially",
+      "Fluctuates unpredictably"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 45\\,\\Omega$",
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 13\\,\\Omega$"
+      "يظل ثابتاً تماماً ومساوياً لـ $V_B$",
+      "يقل خطياً نحو الصفر",
+      "يزداد أضعافاً مضاعفة",
+      "يتذبذب عشوائياً"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 10\\,\\Omega$",
+    "correctAnswer": "Remains strictly constant and equal to $V_B$",
     "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{30 \\times 15}{30 + 15} = \\frac{450}{45} = 10\\,\\Omega$$"
+      "Physical concept and governing rule: Remains strictly constant and equal to $V_B$."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{30 \\times 15}{30 + 15} = \\frac{450}{45} = 10\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: يظل ثابتاً تماماً ومساوياً لـ $V_B$."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_50",
-    "titleEn": "Parallel Resistor Combination #6",
-    "titleAr": "توصيل المقاومات على التوازي #6",
+    "titleEn": "Resistance of Infinite Grid Unit",
+    "titleAr": "مفهوم المقاومة المكافئة",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 36\\,\\Omega$ and $R_2 = 18\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 36\\,\\Omega$ و $R_2 = 18\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "When evaluating equivalent resistance between two terminals, a short-circuit plain wire connected across any resistor:",
+    "questionAr": "عند حساب المقاومة المكافئة بين نقطتين، فإن وجود سلك عديم المقاومة موصل على التوازي بين طرفي أي مقاومة يؤدي إلى:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 12\\,\\Omega$",
-      "$R_{\\text{eq}} = 54\\,\\Omega$",
-      "$R_{\\text{eq}} = 24\\,\\Omega$",
-      "$R_{\\text{eq}} = 15\\,\\Omega$"
+      "Doubles its resistance value",
+      "Cancels (eliminates) that resistor because current completely bypasses it ($V = 0$)",
+      "Causes the resistor to catch fire",
+      "Forces half current through the resistor"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 12\\,\\Omega$",
-      "$R_{\\text{eq}} = 54\\,\\Omega$",
-      "$R_{\\text{eq}} = 24\\,\\Omega$",
-      "$R_{\\text{eq}} = 15\\,\\Omega$"
+      "مضاعفة قيمة المقاومة",
+      "إلغاء المقاومة تماماً وتخطي التيار لها لتساوي الجهد بين طرفيها ($V = 0$)",
+      "احتراق المقاومة فوراً",
+      "مرور نصف التيار في المقاومة"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 12\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "Cancels (eliminates) that resistor because current completely bypasses it ($V = 0$)",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{36 \\times 18}{36 + 18} = \\frac{648}{54} = 12\\,\\Omega$$"
+      "Physical concept and governing rule: Cancels (eliminates) that resistor because current completely bypasses it ($V = 0$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{36 \\times 18}{36 + 18} = \\frac{648}{54} = 12\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: إلغاء المقاومة تماماً وتخطي التيار لها لتساوي الجهد بين طرفيها ($V = 0$)."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_51",
-    "titleEn": "Parallel Resistor Combination #7",
-    "titleAr": "توصيل المقاومات على التوازي #7",
+    "titleEn": "Relation of Resistivity to Conductor Dimensions",
+    "titleAr": "عدم اعتماد المقاومة النوعية على الأبعاد",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 42\\,\\Omega$ and $R_2 = 21\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 42\\,\\Omega$ و $R_2 = 21\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "If the length of a copper conductor is doubled and its cross-sectional area is doubled, its electrical resistivity $\\rho_e$:",
+    "questionAr": "إذا زاد طول موصل نحاسي للضعف وتضاعفت مساحة مقطعه للضعف أيضاً، فإن مقاومته النوعية $\\rho_e$:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 14\\,\\Omega$",
-      "$R_{\\text{eq}} = 63\\,\\Omega$",
-      "$R_{\\text{eq}} = 28\\,\\Omega$",
-      "$R_{\\text{eq}} = 17\\,\\Omega$"
+      "Doubles",
+      "Quadruples",
+      "Remains completely unchanged because it is an intrinsic material property",
+      "Decreases to one fourth"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 14\\,\\Omega$",
-      "$R_{\\text{eq}} = 63\\,\\Omega$",
-      "$R_{\\text{eq}} = 28\\,\\Omega$",
-      "$R_{\\text{eq}} = 17\\,\\Omega$"
+      "تتضاعف مرتين",
+      "تزداد إلى أربعة أمثالها",
+      "تظل ثابتة دون أي تغيير لأنها خاصية فيزيائية مميزة للمادة",
+      "تقل إلى الربع"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 14\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "Remains completely unchanged because it is an intrinsic material property",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{42 \\times 21}{42 + 21} = \\frac{882}{63} = 14\\,\\Omega$$"
+      "Physical concept and governing rule: Remains completely unchanged because it is an intrinsic material property."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{42 \\times 21}{42 + 21} = \\frac{882}{63} = 14\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: تظل ثابتة دون أي تغيير لأنها خاصية فيزيائية مميزة للمادة."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_52",
-    "titleEn": "Parallel Resistor Combination #8",
-    "titleAr": "توصيل المقاومات على التوازي #8",
+    "titleEn": "Current Density Definition",
+    "titleAr": "تعريف كثافة التيار الكهربي",
     "difficulty": "easy",
-    "questionEn": "Two resistors $R_1 = 48\\,\\Omega$ and $R_2 = 24\\,\\Omega$ are connected in parallel. Calculate their equivalent resistance $R_{\\text{eq}}$.",
-    "questionAr": "وصلت مقاومتان $R_1 = 48\\,\\Omega$ و $R_2 = 24\\,\\Omega$ على التوازي. احسب المقاومة المكافئة لهما $R_{\\text{eq}}$.",
+    "questionEn": "Current density ($J$) flowing through a uniform conductor of cross-section $A$ carrying current $I$ is expressed as:",
+    "questionAr": "تعرف كثافة التيار الكهربي ($J$) المار في موصل مساحة مقطعه $A$ ويحمل تياراً $I$ بأنها:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 16\\,\\Omega$",
-      "$R_{\\text{eq}} = 72\\,\\Omega$",
-      "$R_{\\text{eq}} = 32\\,\\Omega$",
-      "$R_{\\text{eq}} = 19\\,\\Omega$"
+      "$J = I \\cdot A$",
+      "$J = \\frac{A}{I}$",
+      "$J = I^2 A$",
+      "$J = \\frac{I}{A}$ (unit: $\\text{A/m}^2$)"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 16\\,\\Omega$",
-      "$R_{\\text{eq}} = 72\\,\\Omega$",
-      "$R_{\\text{eq}} = 32\\,\\Omega$",
-      "$R_{\\text{eq}} = 19\\,\\Omega$"
+      "$J = I \\cdot A$",
+      "$J = \\frac{A}{I}$",
+      "$J = I^2 A$",
+      "$J = \\frac{I}{A}$ (بوحدة $\\text{A/m}^2$)"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 16\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "For two parallel resistors: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
-    "hintAr": "لحساب مقاومتين متصلتين على التوازي: $R_{\\text{eq}} = \\frac{R_1 R_2}{R_1 + R_2}$.",
+    "correctAnswer": "$J = \\frac{I}{A}$ (unit: $\\text{A/m}^2$)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Parallel equivalent formula: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "Substitute:",
-      "$$R_{\\text{eq}} = \\frac{48 \\times 24}{48 + 24} = \\frac{1152}{72} = 16\\,\\Omega$$"
+      "Physical concept and governing rule: $J = \\frac{I}{A}$ (unit: $\\text{A/m}^2$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون التوازي لمقاومتين: $R_{\\text{eq}} = \\frac{R_1 \\cdot R_2}{R_1 + R_2}$.",
-      "بالتعويض:",
-      "$$R_{\\text{eq}} = \\frac{48 \\times 24}{48 + 24} = \\frac{1152}{72} = 16\\,\\Omega$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $J = \\frac{I}{A}$ (بوحدة $\\text{A/m}^2$)."
     ],
-    "teacherTipEn": "The equivalent resistance of parallel resistors is always smaller than the smallest individual resistance.",
-    "teacherTipAr": "المقاومة المكافئة لمجموعة مقاومات على التوازي تكون دائماً أصغر من أصغر مقاومة في المجموعة."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_53",
-    "titleEn": "Closed Circuit Current & Terminal EMF #1",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #1",
+    "titleEn": "Drift Velocity and Current Relation",
+    "titleAr": "علاقة سرعة الانجراف بشدة التيار",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 20\\text{ V}$ and internal resistance $r = 1\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 9\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 20\\text{ V}$ ومقاومتها الداخلية $r = 1\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 9\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "The electric current $I$ in terms of free electron density $n$, electron charge $e$, area $A$, and drift velocity $v_d$ is:",
+    "questionAr": "ترتبط شدة التيار $I$ بعدد الإلكترونات الحرة في وحدة الحجوم $n$ وسرعة الانجراف $v_d$ بالعلاقة:",
     "optionsEn": [
-      "$I = 2\\text{ A}$",
-      "$I = 4\\text{ A}$",
-      "$I = 1.0\\text{ A}$",
-      "$I = 6\\text{ A}$"
+      "$I = n \\cdot e \\cdot A \\cdot v_d$",
+      "$I = \\frac{n \\cdot e}{A \\cdot v_d}$",
+      "$I = \\frac{v_d}{n \\cdot e \\cdot A}$",
+      "$I = n \\cdot e \\cdot A / v_d^2$"
     ],
     "optionsAr": [
-      "$I = 2\\text{ A}$",
-      "$I = 4\\text{ A}$",
-      "$I = 1.0\\text{ A}$",
-      "$I = 6\\text{ A}$"
+      "$I = n \\cdot e \\cdot A \\cdot v_d$",
+      "$I = \\frac{n \\cdot e}{A \\cdot v_d}$",
+      "$I = \\frac{v_d}{n \\cdot e \\cdot A}$",
+      "$I = n \\cdot e \\cdot A / v_d^2$"
     ],
-    "correctAnswer": "$I = 2\\text{ A}$",
+    "correctAnswer": "$I = n \\cdot e \\cdot A \\cdot v_d$",
     "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{20}{9 + 1} = \\frac{20}{10} = 2\\text{ A}$$"
+      "Physical concept and governing rule: $I = n \\cdot e \\cdot A \\cdot v_d$."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{20}{9 + 1} = \\frac{20}{10} = 2\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $I = n \\cdot e \\cdot A \\cdot v_d$."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_54",
-    "titleEn": "Closed Circuit Current & Terminal EMF #2",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #2",
+    "titleEn": "Internal Battery Resistance Physical Cause",
+    "titleAr": "السبب الفيزيائي للمقاومة الداخلية للعمود",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 40\\text{ V}$ and internal resistance $r = 2\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 8\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 40\\text{ V}$ ومقاومتها الداخلية $r = 2\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 8\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "The internal resistance ($r$) of an electric chemical cell arises physically from:",
+    "questionAr": "تنشأ المقاومة الداخلية ($r$) لخلية كيميائية كهربية فيزيائياً عن:",
     "optionsEn": [
-      "$I = 4\\text{ A}$",
-      "$I = 8\\text{ A}$",
-      "$I = 2.0\\text{ A}$",
-      "$I = 16\\text{ A}$"
+      "The magnetic field of the earth",
+      "The friction and collisions encountered by ions moving through the electrolyte between electrodes",
+      "The air surrounding the glass casing",
+      "The speed of light in vacuum"
     ],
     "optionsAr": [
-      "$I = 4\\text{ A}$",
-      "$I = 8\\text{ A}$",
-      "$I = 2.0\\text{ A}$",
-      "$I = 16\\text{ A}$"
+      "المجال المغناطيسي لكوكب الأرض",
+      "مقاومة واحتكاك الأيونات أثناء حركتها داخل المحلول الإلكتروليتي بين القطبين",
+      "الهواء المحيط بالبطارية",
+      "سرعة الضوء في الفراغ"
     ],
-    "correctAnswer": "$I = 4\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "correctAnswer": "The friction and collisions encountered by ions moving through the electrolyte between electrodes",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{40}{8 + 2} = \\frac{40}{10} = 4\\text{ A}$$"
+      "Physical concept and governing rule: The friction and collisions encountered by ions moving through the electrolyte between electrodes."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{40}{8 + 2} = \\frac{40}{10} = 4\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: مقاومة واحتكاك الأيونات أثناء حركتها داخل المحلول الإلكتروليتي بين القطبين."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_55",
-    "titleEn": "Closed Circuit Current & Terminal EMF #3",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #3",
+    "titleEn": "Energy Conservation in Resistors: Joule Heating",
+    "titleAr": "التأثير الحراري لجول",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 60\\text{ V}$ and internal resistance $r = 3\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 7\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 60\\text{ V}$ ومقاومتها الداخلية $r = 3\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 7\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "The transformation of electrical energy into thermal energy in an ohmic wire is fundamentally known as:",
+    "questionAr": "تسمى ظاهرة تحول الطاقة الكهربية إلى طاقة حرارية في سلك أومي فيزيائياً بـ:",
     "optionsEn": [
-      "$I = 6\\text{ A}$",
-      "$I = 12\\text{ A}$",
-      "$I = 3.0\\text{ A}$",
-      "$I = 10\\text{ A}$"
+      "The Doppler frequency shift",
+      "The photoelectric work effect",
+      "Joule heating effect ($W = I^2 R t$)",
+      "The Compton scattering effect"
     ],
     "optionsAr": [
-      "$I = 6\\text{ A}$",
-      "$I = 12\\text{ A}$",
-      "$I = 3.0\\text{ A}$",
-      "$I = 10\\text{ A}$"
+      "تأثير دوبلر الترددي",
+      "التأثير الكهروضوئي",
+      "تأثير جول الحراري ($W = I^2 R t$)",
+      "ظاهرة كومتون"
     ],
-    "correctAnswer": "$I = 6\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "correctAnswer": "Joule heating effect ($W = I^2 R t$)",
+    "correctIndex": 2,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{60}{7 + 3} = \\frac{60}{10} = 6\\text{ A}$$"
+      "Physical concept and governing rule: Joule heating effect ($W = I^2 R t$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{60}{7 + 3} = \\frac{60}{10} = 6\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: تأثير جول الحراري ($W = I^2 R t$)."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_56",
-    "titleEn": "Closed Circuit Current & Terminal EMF #4",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #4",
+    "titleEn": "Condition for Maximum Power Transfer",
+    "titleAr": "شرط الحصول على أقصى قدرة كهربية في الحمل",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 80\\text{ V}$ and internal resistance $r = 4\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 6\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 80\\text{ V}$ ومقاومتها الداخلية $r = 4\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 6\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "A real battery with EMF $V_B$ and internal resistance $r$ delivers maximum power to an external resistor $R_{\\text{ext}}$ when:",
+    "questionAr": "تنتقل أقصى قدرة كهربية من عمود كهربي قوته $V_B$ ومقاومته $r$ إلى مقاومة خارجية $R_{\\text{ext}}$ عندما يكون:",
     "optionsEn": [
-      "$I = 8\\text{ A}$",
-      "$I = 16\\text{ A}$",
-      "$I = 4.0\\text{ A}$",
-      "$I = 12\\text{ A}$"
+      "$R_{\\text{ext}} = 0$",
+      "$R_{\\text{ext}} \\to \\infty$",
+      "$R_{\\text{ext}} = 100r$",
+      "$R_{\\text{ext}} = r$ (load resistance matches internal resistance)"
     ],
     "optionsAr": [
-      "$I = 8\\text{ A}$",
-      "$I = 16\\text{ A}$",
-      "$I = 4.0\\text{ A}$",
-      "$I = 12\\text{ A}$"
+      "$R_{\\text{ext}} = 0$",
+      "$R_{\\text{ext}} \\to \\infty$",
+      "$R_{\\text{ext}} = 100r$",
+      "$R_{\\text{ext}} = r$ (تساوي مقاومة الحمل مع المقاومة الداخلية للمصدر)"
     ],
-    "correctAnswer": "$I = 8\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "correctAnswer": "$R_{\\text{ext}} = r$ (load resistance matches internal resistance)",
+    "correctIndex": 3,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{80}{6 + 4} = \\frac{80}{10} = 8\\text{ A}$$"
+      "Physical concept and governing rule: $R_{\\text{ext}} = r$ (load resistance matches internal resistance)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{80}{6 + 4} = \\frac{80}{10} = 8\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $R_{\\text{ext}} = r$ (تساوي مقاومة الحمل مع المقاومة الداخلية للمصدر)."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_57",
-    "titleEn": "Closed Circuit Current & Terminal EMF #5",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #5",
+    "titleEn": "Rheostat Function in Circuits",
+    "titleAr": "وظيفة الريوستات المنزلق في الدائرة",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 100\\text{ V}$ and internal resistance $r = 5\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 5\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 100\\text{ V}$ ومقاومتها الداخلية $r = 5\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 5\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "A variable resistor (rheostat) is inserted in a circuit primarily to:",
+    "questionAr": "توصل المقاومة المتغيرة (الريوستات) في الدائرة الكهربية للتحكم في:",
     "optionsEn": [
-      "$I = 10\\text{ A}$",
-      "$I = 20\\text{ A}$",
-      "$I = 5.0\\text{ A}$",
-      "$I = 14\\text{ A}$"
+      "Control the intensity of current flowing in the circuit by varying resistance length",
+      "Increase the battery EMF indefinitely",
+      "Convert alternating current into direct current",
+      "Measure temperature of the laboratory"
     ],
     "optionsAr": [
-      "$I = 10\\text{ A}$",
-      "$I = 20\\text{ A}$",
-      "$I = 5.0\\text{ A}$",
-      "$I = 14\\text{ A}$"
+      "شدة التيار المار في الدائرة وفرق الجهد بتغيير طول السلك المدمج",
+      "زيادة القوة الدافعة للبطارية",
+      "تحويل التيار المتردد لمستمر",
+      "قياس درجة حرارة المعمل"
     ],
-    "correctAnswer": "$I = 10\\text{ A}$",
+    "correctAnswer": "Control the intensity of current flowing in the circuit by varying resistance length",
     "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{100}{5 + 5} = \\frac{100}{10} = 10\\text{ A}$$"
+      "Physical concept and governing rule: Control the intensity of current flowing in the circuit by varying resistance length."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{100}{5 + 5} = \\frac{100}{10} = 10\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: شدة التيار المار في الدائرة وفرق الجهد بتغيير طول السلك المدمج."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   },
   {
     "id": "phys_ch1_db_easy_58",
-    "titleEn": "Closed Circuit Current & Terminal EMF #6",
-    "titleAr": "شدة تيار الدائرة المغلقة والجهد الطرفي #6",
+    "titleEn": "Unit Equivalence: Volt",
+    "titleAr": "الوحدات المكافئة للفولت",
     "difficulty": "easy",
-    "questionEn": "A battery of electromotive force $V_B = 120\\text{ V}$ and internal resistance $r = 6\\,\\Omega$ is connected to an external resistance $R_{\\text{ext}} = 4\\,\\Omega$. Calculate the total current $I$ in the circuit.",
-    "questionAr": "بطارية قوتها الدافعة الكهربية $V_B = 120\\text{ V}$ ومقاومتها الداخلية $r = 6\\,\\Omega$ متصلة بمقاومة خارجية $R_{\\text{ext}} = 4\\,\\Omega$. احسب شدة التيار الكلي $I$ المار بالدائرة.",
+    "questionEn": "One Volt ($1\\text{ V}$) is dimensionally equivalent to which combination of SI units?",
+    "questionAr": "يكافئ الفولت الواحد ($1\\text{ V}$) أي من الوحدات المشتقة التالية في النظام الدولي؟",
     "optionsEn": [
-      "$I = 12\\text{ A}$",
-      "$I = 24\\text{ A}$",
-      "$I = 6.0\\text{ A}$",
-      "$I = 16\\text{ A}$"
+      "$1\\text{ C/s}$",
+      "$1\\text{ J/C} = 1\\text{ N}\\cdot\\text{m/C} = 1\\text{ W/A}$",
+      "$1\\text{ A}\\cdot\\Omega^2$",
+      "$1\\text{ J}\\cdot\\text{s}$"
     ],
     "optionsAr": [
-      "$I = 12\\text{ A}$",
-      "$I = 24\\text{ A}$",
-      "$I = 6.0\\text{ A}$",
-      "$I = 16\\text{ A}$"
+      "$1\\text{ C/s}$",
+      "$1\\text{ J/C} = 1\\text{ N}\\cdot\\text{m/C} = 1\\text{ W/A}$",
+      "$1\\text{ A}\\cdot\\Omega^2$",
+      "$1\\text{ J}\\cdot\\text{s}$"
     ],
-    "correctAnswer": "$I = 12\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Ohm's Law for a closed circuit states: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-    "hintAr": "قانون أوم للدائرة المغلقة ينص على: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
+    "correctAnswer": "$1\\text{ J/C} = 1\\text{ N}\\cdot\\text{m/C} = 1\\text{ W/A}$",
+    "correctIndex": 1,
+    "hintEn": "Apply standard Grade 12 physics principles regarding electric current, Ohm's law, resistance factors, and circuit rules.",
+    "hintAr": "تذكر القوانين الأساسية لشدة التيار، قانون أوم، العوامل المؤثرة على المقاومة، وتوصيل الدوائر.",
     "stepByStepSolutionEn": [
-      "Apply closed-circuit Ohm's Law: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "Substitute values:",
-      "$$I = \\frac{120}{4 + 6} = \\frac{120}{10} = 12\\text{ A}$$"
+      "Physical concept and governing rule: $1\\text{ J/C} = 1\\text{ N}\\cdot\\text{m/C} = 1\\text{ W/A}$."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R_{\\text{ext}} + r}$.",
-      "بالتعويض:",
-      "$$I = \\frac{120}{4 + 6} = \\frac{120}{10} = 12\\text{ أمبير}$$"
+      "المبدأ الفيزيائي والقانون الحاكم: $1\\text{ J/C} = 1\\text{ N}\\cdot\\text{m/C} = 1\\text{ W/A}$."
     ],
-    "teacherTipEn": "Do not forget to add internal resistance $r$ to external resistance $R_{\\text{ext}}$ when computing the denominator.",
-    "teacherTipAr": "لا تنس إضافة المقاومة الداخلية للبطارية $r$ إلى المقاومة الخارجية للدائرة عند حساب شدة التيار الكلي."
+    "teacherTipEn": "Remember that resistivity depends only on material and temperature, not on conductor dimensions.",
+    "teacherTipAr": "تذكر دائماً أن المقاومة النوعية والتوصيلية تعتمدان فقط على نوع المادة ودرجة الحرارة ولا تتغيران بتغير الأبعاد."
   }
 ],
   medium: [
   {
     "id": "phys_ch1_db_med_01",
-    "titleEn": "Wire Stretching Resistance Ratio #1",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #1",
+    "titleEn": "Resistivity Calculation from Dimensions",
+    "titleAr": "حساب المقاومة النوعية من أبعاد الموصل",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 4\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 4\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "A uniform wire of length $L = 20\\text{ m}$ and cross-sectional area $A = 0.5\\text{ mm}^2$ has resistance $R = 1.6\\,\\Omega$. What is the resistivity of its material?",
+    "questionAr": "سلك منتظم المقطع طوله $20\\text{ m}$ ومساحة مقطعه $0.5\\text{ mm}^2$ ومقاومته $1.6\\,\\Omega$. كم تبلغ المقاومة النوعية لمادته؟",
     "optionsEn": [
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 2\\,\\Omega$",
-      "$R_2 = 28\\,\\Omega$"
+      "$1.6 \\times 10^{-7}\\,\\Omega\\cdot\\text{m}$",
+      "$4.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$",
+      "$8.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$",
+      "$2.5 \\times 10^{-6}\\,\\Omega\\cdot\\text{m}$"
     ],
     "optionsAr": [
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 2\\,\\Omega$",
-      "$R_2 = 28\\,\\Omega$"
+      "$1.6 \\times 10^{-7}\\,\\Omega\\cdot\\text{m}$",
+      "$4.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$",
+      "$8.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$",
+      "$2.5 \\times 10^{-6}\\,\\Omega\\cdot\\text{m}$"
     ],
-    "correctAnswer": "$R_2 = 16\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$4.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 4 = 16\\,\\Omega$$"
+      "Step-by-step physical derivation: $4.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 4 = 16\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $4.0 \\times 10^{-8}\\,\\Omega\\cdot\\text{m}$."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_02",
-    "titleEn": "Wire Stretching Resistance Ratio #2",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #2",
+    "titleEn": "Resistance Ratio when Dimensions Change Simultaneously",
+    "titleAr": "نسبة المقاومتين عند تغير الطول والقطر معاً",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 8\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 8\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "If the length of a cylindrical copper conductor is doubled while its diameter is halved, by what factor does its resistance increase?",
+    "questionAr": "إذا تضاعف طول موصل أسطواني من النحاس وقل قطره إلى النصف، فبأي معامل تزداد مقاومته الكهربية؟",
     "optionsEn": [
-      "$R_2 = 32\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 4\\,\\Omega$",
-      "$R_2 = 44\\,\\Omega$"
+      "4 times",
+      "2 times",
+      "8 times ($R_2 = 8 R_1$)",
+      "16 times"
     ],
     "optionsAr": [
-      "$R_2 = 32\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 4\\,\\Omega$",
-      "$R_2 = 44\\,\\Omega$"
+      "4 أمثال",
+      "ضعف قيمتها",
+      "8 أمثال قيمتها الأصلية ($R_2 = 8 R_1$)",
+      "16 مثلاً"
     ],
-    "correctAnswer": "$R_2 = 32\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "8 times ($R_2 = 8 R_1$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 8 = 32\\,\\Omega$$"
+      "Step-by-step physical derivation: 8 times ($R_2 = 8 R_1$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 8 = 32\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: 8 أمثال قيمتها الأصلية ($R_2 = 8 R_1$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_03",
-    "titleEn": "Wire Stretching Resistance Ratio #3",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #3",
+    "titleEn": "Mass and Density Formula for Resistance",
+    "titleAr": "صيغة المقاومة بدلالة الكتلة وكثافة المادة",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 12\\,\\Omega$ was stretched uniformly until its length increased to $n = 3$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 12\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 3$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "Two wires of the same metal have equal lengths, but the mass of the first is twice that of the second ($m_1 = 2m_2$). The ratio of their resistances $R_1 : R_2$ is:",
+    "questionAr": "سلكان من نفس المعدن لهما نفس الطول، وكتلة الأول ضعف كتلة الثاني ($m_1 = 2m_2$). فإن النسبة بين مقاومتيهما $R_1 : R_2$ تكون:",
     "optionsEn": [
-      "$R_2 = 108\\,\\Omega$",
-      "$R_2 = 36\\,\\Omega$",
-      "$R_2 = 4\\,\\Omega$",
-      "$R_2 = 120\\,\\Omega$"
+      "$2 : 1$",
+      "$1 : 4$",
+      "$4 : 1$",
+      "$1 : 2$ ($R \\propto 1/m$ at constant length)"
     ],
     "optionsAr": [
-      "$R_2 = 108\\,\\Omega$",
-      "$R_2 = 36\\,\\Omega$",
-      "$R_2 = 4\\,\\Omega$",
-      "$R_2 = 120\\,\\Omega$"
+      "$2 : 1$",
+      "$1 : 4$",
+      "$4 : 1$",
+      "$1 : 2$ (لأن المقاومة تتناسب عكسياً مع الكتلة عند ثبوت الطول)"
     ],
-    "correctAnswer": "$R_2 = 108\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$1 : 2$ ($R \\propto 1/m$ at constant length)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 3 L_1$, thus $A_2 = \\frac{A_1}{3}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (3) \\times (3) = 9$.",
-      "$$R_2 = 9 \\times 12 = 108\\,\\Omega$$"
+      "Step-by-step physical derivation: $1 : 2$ ($R \\propto 1/m$ at constant length)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 3 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{3}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (3)^2 = 9$.",
-      "$$R_2 = 9 \\times 12 = 108\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $1 : 2$ (لأن المقاومة تتناسب عكسياً مع الكتلة عند ثبوت الطول)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_04",
-    "titleEn": "Wire Stretching Resistance Ratio #4",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #4",
+    "titleEn": "Equal Resistance Condition for Different Metals",
+    "titleAr": "تساوي مقاومتي سلكين من معدنين مختلفين",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 16\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 16\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "An aluminum wire and a copper wire of identical lengths have identical resistances. If $\\rho_{\\text{Al}} > \\rho_{\\text{Cu}}$, what must be true of their cross-sectional areas?",
+    "questionAr": "سلكان من الألومنيوم والنحاس متساويان في الطول والمقاومة. إذا علمت أن $\\rho_{\\text{Al}} > \\rho_{\\text{Cu}}$، فما العلاقة بين مساحتي مقطعيهما؟",
     "optionsEn": [
-      "$R_2 = 64\\,\\Omega$",
-      "$R_2 = 32\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 76\\,\\Omega$"
+      "$A_{\\text{Al}} > A_{\\text{Cu}}$ (aluminum requires larger area to compensate for higher resistivity)",
+      "$A_{\\text{Al}} < A_{\\text{Cu}}$",
+      "$A_{\\text{Al}} = A_{\\text{Cu}}$",
+      "Cannot be determined without knowing masses"
     ],
     "optionsAr": [
-      "$R_2 = 64\\,\\Omega$",
-      "$R_2 = 32\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 76\\,\\Omega$"
+      "$A_{\\text{Al}} > A_{\\text{Cu}}$ (يلزم مقطع أكبر للألومنيوم لتعويض كبر مقاومته النوعية)",
+      "$A_{\\text{Al}} < A_{\\text{Cu}}$",
+      "$A_{\\text{Al}} = A_{\\text{Cu}}$",
+      "لا يمكن التحديد دون معرفة الكتلة"
     ],
-    "correctAnswer": "$R_2 = 64\\,\\Omega$",
+    "correctAnswer": "$A_{\\text{Al}} > A_{\\text{Cu}}$ (aluminum requires larger area to compensate for higher resistivity)",
     "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 16 = 64\\,\\Omega$$"
+      "Step-by-step physical derivation: $A_{\\text{Al}} > A_{\\text{Cu}}$ (aluminum requires larger area to compensate for higher resistivity)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 16 = 64\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $A_{\\text{Al}} > A_{\\text{Cu}}$ (يلزم مقطع أكبر للألومنيوم لتعويض كبر مقاومته النوعية)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_05",
-    "titleEn": "Wire Stretching Resistance Ratio #5",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #5",
+    "titleEn": "Resistance of a Wire Formed into a Ring",
+    "titleAr": "مقاومة سلك مشكل في هيئة حلقة دائرية",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 20\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 20\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "A uniform wire of resistance $R = 24\\,\\Omega$ is bent into a circle. What is the equivalent resistance between two diametrically opposite points on the circle?",
+    "questionAr": "سلك منتظم المقطع مقاومته $24\\,\\Omega$ شُكّل على هيئة حلقة دائرية. ما المقاومة المكافئة بين نقطتين متقابلتين قطرياً على الحلقة؟",
     "optionsEn": [
-      "$R_2 = 80\\,\\Omega$",
-      "$R_2 = 40\\,\\Omega$",
-      "$R_2 = 10\\,\\Omega$",
-      "$R_2 = 92\\,\\Omega$"
+      "$12.0\\,\\Omega$",
+      "$6.0\\,\\Omega$ (two semicircles of $12\\,\\Omega$ each in parallel)",
+      "$24.0\\,\\Omega$",
+      "$3.0\\,\\Omega$"
     ],
     "optionsAr": [
-      "$R_2 = 80\\,\\Omega$",
-      "$R_2 = 40\\,\\Omega$",
-      "$R_2 = 10\\,\\Omega$",
-      "$R_2 = 92\\,\\Omega$"
+      "$12.0\\,\\Omega$",
+      "$6.0\\,\\Omega$ (نصفا حلقة كل منهما $12\\,\\Omega$ متصلان على التوازي)",
+      "$24.0\\,\\Omega$",
+      "$3.0\\,\\Omega$"
     ],
-    "correctAnswer": "$R_2 = 80\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$6.0\\,\\Omega$ (two semicircles of $12\\,\\Omega$ each in parallel)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 20 = 80\\,\\Omega$$"
+      "Step-by-step physical derivation: $6.0\\,\\Omega$ (two semicircles of $12\\,\\Omega$ each in parallel)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 20 = 80\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $6.0\\,\\Omega$ (نصفا حلقة كل منهما $12\\,\\Omega$ متصلان على التوازي)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_06",
-    "titleEn": "Wire Stretching Resistance Ratio #6",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #6",
+    "titleEn": "Equivalent Resistance of Symmetric Bridge Network",
+    "titleAr": "المقاومة المكافئة لشبكة قنطرة متزنة",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 24\\,\\Omega$ was stretched uniformly until its length increased to $n = 3$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 24\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 3$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "Five resistors each of value $10\\,\\Omega$ are arranged in a bridge network. What is the equivalent resistance between the input and output terminals?",
+    "questionAr": "خمس مقاومات قيمة كل منها $10\\,\\Omega$ موصلة في قنطرة متزنة. ما المقاومة المكافئة بين المدخل والمخرج؟",
     "optionsEn": [
-      "$R_2 = 216\\,\\Omega$",
-      "$R_2 = 72\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 228\\,\\Omega$"
+      "$50.0\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$10.0\\,\\Omega$ (the central resistor is cancelled due to equal potential)",
+      "$25.0\\,\\Omega$"
     ],
     "optionsAr": [
-      "$R_2 = 216\\,\\Omega$",
-      "$R_2 = 72\\,\\Omega$",
-      "$R_2 = 8\\,\\Omega$",
-      "$R_2 = 228\\,\\Omega$"
+      "$50.0\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$10.0\\,\\Omega$ (تلغى المقاومة المركزية لتساوي الجهد عند طرفيها)",
+      "$25.0\\,\\Omega$"
     ],
-    "correctAnswer": "$R_2 = 216\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$10.0\\,\\Omega$ (the central resistor is cancelled due to equal potential)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 3 L_1$, thus $A_2 = \\frac{A_1}{3}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (3) \\times (3) = 9$.",
-      "$$R_2 = 9 \\times 24 = 216\\,\\Omega$$"
+      "Step-by-step physical derivation: $10.0\\,\\Omega$ (the central resistor is cancelled due to equal potential)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 3 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{3}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (3)^2 = 9$.",
-      "$$R_2 = 9 \\times 24 = 216\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $10.0\\,\\Omega$ (تلغى المقاومة المركزية لتساوي الجهد عند طرفيها)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_07",
-    "titleEn": "Wire Stretching Resistance Ratio #7",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #7",
+    "titleEn": "Resistors in Triangle Configuration",
+    "titleAr": "مقاومات موصلة في شكل مثلث",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 28\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 28\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "Three identical resistors of $6\\,\\Omega$ each form an equilateral triangle. What is the equivalent resistance between any two vertices?",
+    "questionAr": "ثلاث مقاومات متماثلة قيمة كل منها $6\\,\\Omega$ تكون أضلاع مثلث. ما المقاومة المكافئة بين أي رأسين من رؤوس المثلث؟",
     "optionsEn": [
-      "$R_2 = 112\\,\\Omega$",
-      "$R_2 = 56\\,\\Omega$",
-      "$R_2 = 14\\,\\Omega$",
-      "$R_2 = 124\\,\\Omega$"
+      "$6.0\\,\\Omega$",
+      "$18.0\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$4.0\\,\\Omega$ (two in series $12\\,\\Omega$ in parallel with $6\\,\\Omega$)"
     ],
     "optionsAr": [
-      "$R_2 = 112\\,\\Omega$",
-      "$R_2 = 56\\,\\Omega$",
-      "$R_2 = 14\\,\\Omega$",
-      "$R_2 = 124\\,\\Omega$"
+      "$6.0\\,\\Omega$",
+      "$18.0\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$4.0\\,\\Omega$ (مقاومتان توالي $12\\,\\Omega$ توازي مع $6\\,\\Omega$)"
     ],
-    "correctAnswer": "$R_2 = 112\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$4.0\\,\\Omega$ (two in series $12\\,\\Omega$ in parallel with $6\\,\\Omega$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 28 = 112\\,\\Omega$$"
+      "Step-by-step physical derivation: $4.0\\,\\Omega$ (two in series $12\\,\\Omega$ in parallel with $6\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 28 = 112\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $4.0\\,\\Omega$ (مقاومتان توالي $12\\,\\Omega$ توازي مع $6\\,\\Omega$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_08",
-    "titleEn": "Wire Stretching Resistance Ratio #8",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #8",
+    "titleEn": "Current Division Between Two Parallel Resistors",
+    "titleAr": "تجزئة التيار بين فرعين على التوازي",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 32\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 32\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "A main current of $I_{\\text{tot}} = 6\\text{ A}$ enters a parallel combination of $R_1 = 4\\,\\Omega$ and $R_2 = 12\\,\\Omega$. What is the current flowing through $R_2$?",
+    "questionAr": "يدخل تيار كلي مقداره $6\\text{ A}$ إلى مجموعة توازي تتكون من $R_1 = 4\\,\\Omega$ و $R_2 = 12\\,\\Omega$. ما شدة التيار المار في المقاومة $R_2$؟",
     "optionsEn": [
-      "$R_2 = 128\\,\\Omega$",
-      "$R_2 = 64\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 140\\,\\Omega$"
+      "$1.5\\text{ A}$ ($I_2 = I_{\\text{tot}} \\frac{R_1}{R_1 + R_2} = 6 \\times \\frac{4}{16}$)",
+      "$4.5\\text{ A}$",
+      "$3.0\\text{ A}$",
+      "$2.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$R_2 = 128\\,\\Omega$",
-      "$R_2 = 64\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 140\\,\\Omega$"
+      "$1.5\\text{ A}$ ($I_2 = I_{\\text{tot}} \\frac{R_1}{R_1 + R_2} = 6 \\times \\frac{4}{16}$)",
+      "$4.5\\text{ A}$",
+      "$3.0\\text{ A}$",
+      "$2.0\\text{ A}$"
     ],
-    "correctAnswer": "$R_2 = 128\\,\\Omega$",
+    "correctAnswer": "$1.5\\text{ A}$ ($I_2 = I_{\\text{tot}} \\frac{R_1}{R_1 + R_2} = 6 \\times \\frac{4}{16}$)",
     "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 32 = 128\\,\\Omega$$"
+      "Step-by-step physical derivation: $1.5\\text{ A}$ ($I_2 = I_{\\text{tot}} \\frac{R_1}{R_1 + R_2} = 6 \\times \\frac{4}{16}$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 32 = 128\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $1.5\\text{ A}$ ($I_2 = I_{\\text{tot}} \\frac{R_1}{R_1 + R_2} = 6 \\times \\frac{4}{16}$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_09",
-    "titleEn": "Wire Stretching Resistance Ratio #9",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #9",
+    "titleEn": "Short-Circuit Bypass of a Resistor",
+    "titleAr": "إلغاء مقاومة بسلك عديم المقاومة على التوازي",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 36\\,\\Omega$ was stretched uniformly until its length increased to $n = 3$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 36\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 3$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "In a circuit, a resistor $R = 8\\,\\Omega$ is connected in series with a lamp. If a zero-resistance switch connected in parallel with the $8\\,\\Omega$ resistor is closed, what happens to the lamp brightness?",
+    "questionAr": "في دائرة كهربية، تتصل مقاومة $R = 8\\,\\Omega$ على التوالي مع مصباح. إذا أُغلق مفتاح عديم المقاومة موصل على التوازي مع المقاومة $8\\,\\Omega$، فماذا يحدث لإضاءة المصباح؟",
     "optionsEn": [
-      "$R_2 = 324\\,\\Omega$",
-      "$R_2 = 108\\,\\Omega$",
-      "$R_2 = 12\\,\\Omega$",
-      "$R_2 = 336\\,\\Omega$"
+      "Decreases, because current avoids the lamp",
+      "Increases, because total circuit resistance decreases and circuit current rises",
+      "Remains completely unchanged",
+      "The lamp burns out immediately due to reverse voltage"
     ],
     "optionsAr": [
-      "$R_2 = 324\\,\\Omega$",
-      "$R_2 = 108\\,\\Omega$",
-      "$R_2 = 12\\,\\Omega$",
-      "$R_2 = 336\\,\\Omega$"
+      "تقل، لأن التيار يبتعد عن المصباح",
+      "تزداد، لأن المقاومة الكلية للدائرة تقل فيزداد التيار الكلي",
+      "تظل ثابتة لا تتغير",
+      "يحترق المصباح فوراً لجهد عكسي"
     ],
-    "correctAnswer": "$R_2 = 324\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "Increases, because total circuit resistance decreases and circuit current rises",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 3 L_1$, thus $A_2 = \\frac{A_1}{3}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (3) \\times (3) = 9$.",
-      "$$R_2 = 9 \\times 36 = 324\\,\\Omega$$"
+      "Step-by-step physical derivation: Increases, because total circuit resistance decreases and circuit current rises."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 3 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{3}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (3)^2 = 9$.",
-      "$$R_2 = 9 \\times 36 = 324\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: تزداد، لأن المقاومة الكلية للدائرة تقل فيزداد التيار الكلي."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_10",
-    "titleEn": "Wire Stretching Resistance Ratio #10",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #10",
+    "titleEn": "Terminal Voltage vs Load Resistance",
+    "titleAr": "فرق الجهد بين قطبي البطارية وتغير تيار الحمل",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 40\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 40\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "A battery has an EMF $V_B = 12\\text{ V}$ and internal resistance $r = 1\\,\\Omega$. When an external resistor of $R_{\\text{ext}} = 5\\,\\Omega$ is connected, what is the terminal voltage $V$?",
+    "questionAr": "بطارية قوتها الدافعة $V_B = 12\\text{ V}$ ومقاومتها الداخلية $r = 1\\,\\Omega$. عند توصيل مقاومة خارجية $R_{\\text{ext}} = 5\\,\\Omega$، كم يكون فرق الجهد بين قطبيها؟",
     "optionsEn": [
-      "$R_2 = 160\\,\\Omega$",
-      "$R_2 = 80\\,\\Omega$",
-      "$R_2 = 20\\,\\Omega$",
-      "$R_2 = 172\\,\\Omega$"
+      "$12.0\\text{ V}$",
+      "$8.0\\text{ V}$",
+      "$10.0\\text{ V}$ ($I = 12/6 = 2\\text{ A} \\implies V = 12 - 2(1) = 10\\text{ V}$)",
+      "$2.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$R_2 = 160\\,\\Omega$",
-      "$R_2 = 80\\,\\Omega$",
-      "$R_2 = 20\\,\\Omega$",
-      "$R_2 = 172\\,\\Omega$"
+      "$12.0\\text{ V}$",
+      "$8.0\\text{ V}$",
+      "$10.0\\text{ V}$ ($I = 12/6 = 2\\text{ A} \\implies V = 12 - 2(1) = 10\\text{ V}$)",
+      "$2.0\\text{ V}$"
     ],
-    "correctAnswer": "$R_2 = 160\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$10.0\\text{ V}$ ($I = 12/6 = 2\\text{ A} \\implies V = 12 - 2(1) = 10\\text{ V}$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 40 = 160\\,\\Omega$$"
+      "Step-by-step physical derivation: $10.0\\text{ V}$ ($I = 12/6 = 2\\text{ A} \\implies V = 12 - 2(1) = 10\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 40 = 160\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $10.0\\text{ V}$ ($I = 12/6 = 2\\text{ A} \\implies V = 12 - 2(1) = 10\\text{ V}$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_11",
-    "titleEn": "Wire Stretching Resistance Ratio #11",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #11",
+    "titleEn": "Determining Internal Resistance from Two Current States",
+    "titleAr": "استنتاج المقاومة الداخلية من حالتين للتيار",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 44\\,\\Omega$ was stretched uniformly until its length increased to $n = 2$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 44\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 2$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "When connected to a $4\\,\\Omega$ load, a battery produces a terminal voltage of $8\\text{ V}$. When connected to a $9\\,\\Omega$ load, its terminal voltage becomes $9\\text{ V}$. What is the internal resistance $r$?",
+    "questionAr": "عند توصيل بطارية بمقاومة $4\\,\\Omega$ يكون فرق الجهد $8\\text{ V}$، وعند توصيلها بمقاومة $9\\,\\Omega$ يصبح فرق الجهد $9\\text{ V}$. ما المقاومة الداخلية $r$ للبطارية؟",
     "optionsEn": [
-      "$R_2 = 176\\,\\Omega$",
-      "$R_2 = 88\\,\\Omega$",
-      "$R_2 = 22\\,\\Omega$",
-      "$R_2 = 188\\,\\Omega$"
+      "$0.5\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$1.5\\,\\Omega$",
+      "$1.0\\,\\Omega$ ($V_B = 8 + 2r = 9 + 1r \\implies r = 1\\,\\Omega$)"
     ],
     "optionsAr": [
-      "$R_2 = 176\\,\\Omega$",
-      "$R_2 = 88\\,\\Omega$",
-      "$R_2 = 22\\,\\Omega$",
-      "$R_2 = 188\\,\\Omega$"
+      "$0.5\\,\\Omega$",
+      "$2.0\\,\\Omega$",
+      "$1.5\\,\\Omega$",
+      "$1.0\\,\\Omega$ ($V_B = 8 + 2r = 9 + 1r \\implies r = 1\\,\\Omega$)"
     ],
-    "correctAnswer": "$R_2 = 176\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "correctAnswer": "$1.0\\,\\Omega$ ($V_B = 8 + 2r = 9 + 1r \\implies r = 1\\,\\Omega$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 2 L_1$, thus $A_2 = \\frac{A_1}{2}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (2) \\times (2) = 4$.",
-      "$$R_2 = 4 \\times 44 = 176\\,\\Omega$$"
+      "Step-by-step physical derivation: $1.0\\,\\Omega$ ($V_B = 8 + 2r = 9 + 1r \\implies r = 1\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 2 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{2}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (2)^2 = 4$.",
-      "$$R_2 = 4 \\times 44 = 176\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $1.0\\,\\Omega$ ($V_B = 8 + 2r = 9 + 1r \\implies r = 1\\,\\Omega$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_12",
-    "titleEn": "Wire Stretching Resistance Ratio #12",
-    "titleAr": "إعادة تشكيل وسحب السلك وتغير المقاومة #12",
+    "titleEn": "Two Cells in Series Opposing: Terminal Potential Comparison",
+    "titleAr": "عمودان في حالة تضاد: مقارنة جهدي القطبين",
     "difficulty": "medium",
-    "questionEn": "A metallic wire of resistance $R_1 = 48\\,\\Omega$ was stretched uniformly until its length increased to $n = 3$ times its original length. Find the new resistance $R_2$ of the wire.",
-    "questionAr": "سلك معدني مقاومته $R_1 = 48\\,\\Omega$ سُحب بانتظام حتى أصبح طوله $n = 3$ أمثال طوله الأصلي. احسب المقاومة الجديدة $R_2$ للسلك.",
+    "questionEn": "Two batteries with $V_{B1} = 18\\text{ V}, r_1 = 1\\,\\Omega$ and $V_{B2} = 6\\text{ V}, r_2 = 1\\,\\Omega$ are connected in series opposing across an external resistor $R = 4\\,\\Omega$. What is the terminal voltage across the second battery $V_2$?",
+    "questionAr": "بطاريتان $V_{B1} = 18\\text{ V}, r_1 = 1\\,\\Omega$ و $V_{B2} = 6\\text{ V}, r_2 = 1\\,\\Omega$ متصلتان على التضاد مع مقاومة $R = 4\\,\\Omega$. ما قراءة الفولتميتر بين قطبي البطارية الثانية؟",
     "optionsEn": [
-      "$R_2 = 432\\,\\Omega$",
-      "$R_2 = 144\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 444\\,\\Omega$"
+      "$8.0\\text{ V}$ ($I = \\frac{18-6}{6} = 2\\text{ A} \\implies V_2 = V_{B2} + I r_2 = 6 + 2(1) = 8\\text{ V}$)",
+      "$4.0\\text{ V}$",
+      "$6.0\\text{ V}$",
+      "$12.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$R_2 = 432\\,\\Omega$",
-      "$R_2 = 144\\,\\Omega$",
-      "$R_2 = 16\\,\\Omega$",
-      "$R_2 = 444\\,\\Omega$"
+      "$8.0\\text{ V}$ ($I = \\frac{18-6}{6} = 2\\text{ A} \\implies V_2 = V_{B2} + I r_2 = 6 + 2(1) = 8\\text{ V}$)",
+      "$4.0\\text{ V}$",
+      "$6.0\\text{ V}$",
+      "$12.0\\text{ V}$"
     ],
-    "correctAnswer": "$R_2 = 432\\,\\Omega$",
+    "correctAnswer": "$8.0\\text{ V}$ ($I = \\frac{18-6}{6} = 2\\text{ A} \\implies V_2 = V_{B2} + I r_2 = 6 + 2(1) = 8\\text{ V}$)",
     "correctIndex": 0,
-    "hintEn": "During uniform stretching, volume remains constant ($\\text{Vol} = A \\cdot L = \\text{const}$). If length increases by $n$, cross-sectional area decreases to $\\frac{A}{n}$, so $R_2 = n^2 R_1$.",
-    "hintAr": "عند سحب السلك يظل الحجم ثابتاً ($\\text{Vol} = A \\cdot L$). إذا زاد الطول بمقدار $n$ تقل المساحة إلى $\\frac{A}{n}$، فتصبح المقاومة $R_2 = n^2 R_1$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Since volume is conserved: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "Given $L_2 = 3 L_1$, thus $A_2 = \\frac{A_1}{3}$.",
-      "The ratio of resistances: $\\frac{R_2}{R_1} = \\frac{L_2}{L_1} \\times \\frac{A_1}{A_2} = (3) \\times (3) = 9$.",
-      "$$R_2 = 9 \\times 48 = 432\\,\\Omega$$"
+      "Step-by-step physical derivation: $8.0\\text{ V}$ ($I = \\frac{18-6}{6} = 2\\text{ A} \\implies V_2 = V_{B2} + I r_2 = 6 + 2(1) = 8\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "بثبوت حجم مادة السلك: $\\text{Vol}_1 = \\text{Vol}_2 \\implies A_1 L_1 = A_2 L_2$.",
-      "بما أن $L_2 = 3 L_1$، فإن المساحة تصبح $A_2 = \\frac{A_1}{3}$.",
-      "نسبة المقاومتين: $\\frac{R_2}{R_1} = \\left(\\frac{L_2}{L_1}\\right)^2 = (3)^2 = 9$.",
-      "$$R_2 = 9 \\times 48 = 432\\,\\Omega$$"
+      "خطوات الحل الفيزيائي: $8.0\\text{ V}$ ($I = \\frac{18-6}{6} = 2\\text{ A} \\implies V_2 = V_{B2} + I r_2 = 6 + 2(1) = 8\\text{ V}$)."
     ],
-    "teacherTipEn": "Always remember: when a wire is stretched or reshaped, resistance is proportional to the square of its length ($R \\propto L^2$).",
-    "teacherTipAr": "تذكر دائماً: عند سحب أو إعادة تشكيل سلك بانتظام، تتناسب المقاومة طردياً مع مربع الطول ($R \\propto L^2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_13",
-    "titleEn": "Parallel Current Division #1",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #1",
+    "titleEn": "Terminal Voltage Graph Slope Interpretation",
+    "titleAr": "تفسير ميل الرسم البياني لفرق الجهد مع شدة التيار",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 6\\text{ A}$ enters a parallel combination of two resistors $R_1 = 2\\,\\Omega$ and $R_2 = 4\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 6\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 2\\,\\Omega$ و $R_2 = 4\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "In the graph plotting terminal voltage $V$ on the vertical axis against current intensity $I$ on the horizontal axis for a discharging battery, the slope of the line equals:",
+    "questionAr": "في الرسم البياني المعبر عن تغير فرق الجهد بين قطبي عمود مفرغ $V$ رأسياً مع شدة التيار $I$ أفقياً، يمثل ميل الخط المستقيم:",
     "optionsEn": [
-      "$I_1 = 4\\text{ A}$",
-      "$I_1 = 2\\text{ A}$",
-      "$I_1 = 3\\text{ A}$",
-      "$I_1 = 6\\text{ A}$"
+      "$+V_B$",
+      "$-r$ (the negative of the cell internal resistance)",
+      "$+r$",
+      "$-1/r$"
     ],
     "optionsAr": [
-      "$I_1 = 4\\text{ A}$",
-      "$I_1 = 2\\text{ A}$",
-      "$I_1 = 3\\text{ A}$",
-      "$I_1 = 6\\text{ A}$"
+      "$+V_B$",
+      "$-r$ (سالب المقاومة الداخلية للمصدر)",
+      "$+r$",
+      "$-1/r$"
     ],
-    "correctAnswer": "$I_1 = 4\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$-r$ (the negative of the cell internal resistance)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 6 \\times \\frac{4}{2 + 4} = 6 \\times \\frac{4}{6} = 4\\text{ A}$$"
+      "Step-by-step physical derivation: $-r$ (the negative of the cell internal resistance)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 6 \\times \\frac{4}{2 + 4} = 4\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $-r$ (سالب المقاومة الداخلية للمصدر)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_14",
-    "titleEn": "Parallel Current Division #2",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #2",
+    "titleEn": "Kirchhoff Junction Rule with Five Conductors",
+    "titleAr": "قانون كيرشوف الأول عند نقطة تفرع خماسية",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 12\\text{ A}$ enters a parallel combination of two resistors $R_1 = 4\\,\\Omega$ and $R_2 = 8\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 12\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 4\\,\\Omega$ و $R_2 = 8\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "At an electric junction, four currents enter: $I_1 = 3\\text{ A}, I_2 = 4\\text{ A}, I_3 = 2\\text{ A}, I_4 = 1\\text{ A}$. What must be the current in the fifth conductor leaving the junction?",
+    "questionAr": "عند نقطة تفرع، تدور 4 تيارات داخلة: $3\\text{ A}, 4\\text{ A}, 2\\text{ A}, 1\\text{ A}$. كم يجب أن تكون شدة التيار في الموصل الخامس الخارج من النقطة؟",
     "optionsEn": [
-      "$I_1 = 8\\text{ A}$",
-      "$I_1 = 4\\text{ A}$",
-      "$I_1 = 6\\text{ A}$",
-      "$I_1 = 10\\text{ A}$"
+      "$5.0\\text{ A}$",
+      "$0.0\\text{ A}$",
+      "$10.0\\text{ A}$ leaving the junction",
+      "$2.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$I_1 = 8\\text{ A}$",
-      "$I_1 = 4\\text{ A}$",
-      "$I_1 = 6\\text{ A}$",
-      "$I_1 = 10\\text{ A}$"
+      "$5.0\\text{ A}$",
+      "$0.0\\text{ A}$",
+      "$10.0\\text{ A}$ وتكون خارجة من النقطة",
+      "$2.0\\text{ A}$"
     ],
-    "correctAnswer": "$I_1 = 8\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$10.0\\text{ A}$ leaving the junction",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 12 \\times \\frac{8}{4 + 8} = 12 \\times \\frac{8}{12} = 8\\text{ A}$$"
+      "Step-by-step physical derivation: $10.0\\text{ A}$ leaving the junction."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 12 \\times \\frac{8}{4 + 8} = 8\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $10.0\\text{ A}$ وتكون خارجة من النقطة."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_15",
-    "titleEn": "Parallel Current Division #3",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #3",
+    "titleEn": "Kirchhoff Loop Rule for Finding Unknown EMF",
+    "titleAr": "قانون كيرشوف الثاني لحساب قوة دافعة مجهولة",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 18\\text{ A}$ enters a parallel combination of two resistors $R_1 = 6\\,\\Omega$ and $R_2 = 12\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 18\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 6\\,\\Omega$ و $R_2 = 12\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "In a single closed loop traversed clockwise, two batteries have $V_{B1} = 20\\text{ V}$ and an unknown $V_{B2}$ opposing it. The loop contains a total resistance of $5\\,\\Omega$ and carries a clockwise current of $2\\text{ A}$. What is $V_{B2}$?",
+    "questionAr": "في مسار مغلق يدور في اتجاه عقارب الساعة، توجد بطاريتان: $V_{B1} = 20\\text{ V}$ وأخرى معاكسة $V_{B2}$. المقاومة الكلية للمسار $5\\,\\Omega$ ويمر تيار $2\\text{ A}$ مع عقارب الساعة. ما قيمة $V_{B2}$؟",
     "optionsEn": [
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 6\\text{ A}$",
-      "$I_1 = 9\\text{ A}$",
-      "$I_1 = 14\\text{ A}$"
+      "$30.0\\text{ V}$",
+      "$5.0\\text{ V}$",
+      "$15.0\\text{ V}$",
+      "$10.0\\text{ V}$ ($20 - V_{B2} = 2 \\times 5 \\implies V_{B2} = 10\\text{ V}$)"
     ],
     "optionsAr": [
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 6\\text{ A}$",
-      "$I_1 = 9\\text{ A}$",
-      "$I_1 = 14\\text{ A}$"
+      "$30.0\\text{ V}$",
+      "$5.0\\text{ V}$",
+      "$15.0\\text{ V}$",
+      "$10.0\\text{ V}$ ($20 - V_{B2} = 2 \\times 5 \\implies V_{B2} = 10\\text{ V}$)"
     ],
-    "correctAnswer": "$I_1 = 12\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$10.0\\text{ V}$ ($20 - V_{B2} = 2 \\times 5 \\implies V_{B2} = 10\\text{ V}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 18 \\times \\frac{12}{6 + 12} = 18 \\times \\frac{12}{18} = 12\\text{ A}$$"
+      "Step-by-step physical derivation: $10.0\\text{ V}$ ($20 - V_{B2} = 2 \\times 5 \\implies V_{B2} = 10\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 18 \\times \\frac{12}{6 + 12} = 12\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $10.0\\text{ V}$ ($20 - V_{B2} = 2 \\times 5 \\implies V_{B2} = 10\\text{ V}$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_16",
-    "titleEn": "Parallel Current Division #4",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #4",
+    "titleEn": "Electric Energy Consumed in Kilowatt-Hours",
+    "titleAr": "حساب الطاقة الكهربية بوحدة الكيلووات-ساعة",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 24\\text{ A}$ enters a parallel combination of two resistors $R_1 = 8\\,\\Omega$ and $R_2 = 16\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 24\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 8\\,\\Omega$ و $R_2 = 16\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "An electric heater rated at $2.2\\,\\text{kW}$ is operated continuously for $5\\text{ hours}$ every day for $30\\text{ days}$. What is the total electrical energy consumed in $\\text{kWh}$?",
+    "questionAr": "سخان كهربي قدرته $2.2\\,\\text{kW}$ يعمل بمعدل $5\\text{ ساعات}$ يومياً لمدة $30\\text{ يوماً}$. ما إجمالي الطاقة الكهربية المستهلكة بوحدة الكيلووات-ساعة؟",
     "optionsEn": [
-      "$I_1 = 16\\text{ A}$",
-      "$I_1 = 8\\text{ A}$",
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 18\\text{ A}$"
+      "$330.0\\,\\text{kWh}$ ($2.2\\,\\text{kW} \\times 150\\text{ h} = 330\\,\\text{kWh}$)",
+      "$150.0\\,\\text{kWh}$",
+      "$66.0\\,\\text{kWh}$",
+      "$110.0\\,\\text{kWh}$"
     ],
     "optionsAr": [
-      "$I_1 = 16\\text{ A}$",
-      "$I_1 = 8\\text{ A}$",
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 18\\text{ A}$"
+      "$330.0\\,\\text{kWh}$ ($2.2\\,\\text{kW} \\times 150\\text{ h} = 330\\,\\text{kWh}$)",
+      "$150.0\\,\\text{kWh}$",
+      "$66.0\\,\\text{kWh}$",
+      "$110.0\\,\\text{kWh}$"
     ],
-    "correctAnswer": "$I_1 = 16\\text{ A}$",
+    "correctAnswer": "$330.0\\,\\text{kWh}$ ($2.2\\,\\text{kW} \\times 150\\text{ h} = 330\\,\\text{kWh}$)",
     "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 24 \\times \\frac{16}{8 + 16} = 24 \\times \\frac{16}{24} = 16\\text{ A}$$"
+      "Step-by-step physical derivation: $330.0\\,\\text{kWh}$ ($2.2\\,\\text{kW} \\times 150\\text{ h} = 330\\,\\text{kWh}$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 24 \\times \\frac{16}{8 + 16} = 16\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $330.0\\,\\text{kWh}$ ($2.2\\,\\text{kW} \\times 150\\text{ h} = 330\\,\\text{kWh}$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_17",
-    "titleEn": "Parallel Current Division #5",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #5",
+    "titleEn": "Power Ratio in Series vs Parallel for Two Lamps",
+    "titleAr": "نسبة القدرة المستنفذة توالي إلى توازي لمصباحين",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 30\\text{ A}$ enters a parallel combination of two resistors $R_1 = 10\\,\\Omega$ and $R_2 = 20\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 30\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 10\\,\\Omega$ و $R_2 = 20\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "Two identical light bulbs of resistance $R$ each are connected to a constant DC source with zero internal resistance. What is the ratio of total power dissipated in series to that in parallel ($P_{\\text{series}} / P_{\\text{parallel}}$)?",
+    "questionAr": "مصباحان متماثلان مقاومة كل منهما $R$ وصلا مع نفس المصدر المستمر عديم المقاومة الداخلية. ما نسبة القدرة الكلية المستنفذة في حالة التوالي إلى حالة التوازي؟",
     "optionsEn": [
-      "$I_1 = 20\\text{ A}$",
-      "$I_1 = 10\\text{ A}$",
-      "$I_1 = 15\\text{ A}$",
-      "$I_1 = 22\\text{ A}$"
+      "$4 : 1$",
+      "$1 : 4$ ($P_s = \\frac{V^2}{2R}, P_p = \\frac{2V^2}{R} \\implies P_s/P_p = 1/4$)",
+      "$1 : 2$",
+      "$1 : 1$"
     ],
     "optionsAr": [
-      "$I_1 = 20\\text{ A}$",
-      "$I_1 = 10\\text{ A}$",
-      "$I_1 = 15\\text{ A}$",
-      "$I_1 = 22\\text{ A}$"
+      "$4 : 1$",
+      "$1 : 4$ ($P_s = \\frac{V^2}{2R}, P_p = \\frac{2V^2}{R} \\implies P_s/P_p = 1/4$)",
+      "$1 : 2$",
+      "$1 : 1$"
     ],
-    "correctAnswer": "$I_1 = 20\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$1 : 4$ ($P_s = \\frac{V^2}{2R}, P_p = \\frac{2V^2}{R} \\implies P_s/P_p = 1/4$)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 30 \\times \\frac{20}{10 + 20} = 30 \\times \\frac{20}{30} = 20\\text{ A}$$"
+      "Step-by-step physical derivation: $1 : 4$ ($P_s = \\frac{V^2}{2R}, P_p = \\frac{2V^2}{R} \\implies P_s/P_p = 1/4$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 30 \\times \\frac{20}{10 + 20} = 20\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $1 : 4$ ($P_s = \\frac{V^2}{2R}, P_p = \\frac{2V^2}{R} \\implies P_s/P_p = 1/4$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_18",
-    "titleEn": "Parallel Current Division #6",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #6",
+    "titleEn": "Electric Potential of an Earth Grounded Node",
+    "titleAr": "الجهد الكهربي لنقطة في دائرة متصلة بالأرضي",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 36\\text{ A}$ enters a parallel combination of two resistors $R_1 = 12\\,\\Omega$ and $R_2 = 24\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 36\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 12\\,\\Omega$ و $R_2 = 24\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "In a circuit loop, point $B$ is connected to the ground ($V_B = 0\\text{ V}$). If traveling from $B$ to $A$ moves in the direction of a $2\\text{ A}$ current through a $3\\,\\Omega$ resistor, what is the electric potential at $A$?",
+    "questionAr": "في دائرة كهربية، النقطة $B$ متصلة بالأرض ($V_B = 0\\text{ V}$). إذا تحركنا من $B$ إلى $A$ في اتجاه تيار شدته $2\\text{ A}$ يعبر مقاومة $3\\,\\Omega$، فكم يبلغ جهد النقطة $A$؟",
     "optionsEn": [
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 18\\text{ A}$",
-      "$I_1 = 26\\text{ A}$"
+      "$+6.0\\text{ V}$",
+      "$0.0\\text{ V}$",
+      "$-6.0\\text{ V}$ ($V_A - V_B = -IR = -6\\text{ V} \\implies V_A = -6\\text{ V}$)",
+      "$+12.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 12\\text{ A}$",
-      "$I_1 = 18\\text{ A}$",
-      "$I_1 = 26\\text{ A}$"
+      "$+6.0\\text{ V}$",
+      "$0.0\\text{ V}$",
+      "$-6.0\\text{ V}$ ($V_A - V_B = -IR = -6\\text{ V} \\implies V_A = -6\\text{ V}$)",
+      "$+12.0\\text{ V}$"
     ],
-    "correctAnswer": "$I_1 = 24\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$-6.0\\text{ V}$ ($V_A - V_B = -IR = -6\\text{ V} \\implies V_A = -6\\text{ V}$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 36 \\times \\frac{24}{12 + 24} = 36 \\times \\frac{24}{36} = 24\\text{ A}$$"
+      "Step-by-step physical derivation: $-6.0\\text{ V}$ ($V_A - V_B = -IR = -6\\text{ V} \\implies V_A = -6\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 36 \\times \\frac{24}{12 + 24} = 24\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $-6.0\\text{ V}$ ($V_A - V_B = -IR = -6\\text{ V} \\implies V_A = -6\\text{ V}$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_19",
-    "titleEn": "Parallel Current Division #7",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #7",
+    "titleEn": "Voltmeter Connected Across an Open Circuit Switch",
+    "titleAr": "قراءة فولتميتر متصل بين طرفي مفتاح مفتوح",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 42\\text{ A}$ enters a parallel combination of two resistors $R_1 = 14\\,\\Omega$ and $R_2 = 28\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 42\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 14\\,\\Omega$ و $R_2 = 28\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "A circuit has a battery with $V_B = 24\\text{ V}, r = 1\\,\\Omega$, a resistor $R = 11\\,\\Omega$, and an open switch $K$ in series. A voltmeter connected directly across the open terminals of switch $K$ reads:",
+    "questionAr": "دائرة كهربية تحتوي على بطارية $V_B = 24\\text{ V}, r = 1\\,\\Omega$ ومقاومة $R = 11\\,\\Omega$ ومفتاح مفتوح $K$ على التوالي. فإن قراءة فولتميتر موصل بين طرفي المفتاح المفتوح $K$ تساوي:",
     "optionsEn": [
-      "$I_1 = 28\\text{ A}$",
-      "$I_1 = 14\\text{ A}$",
-      "$I_1 = 21\\text{ A}$",
-      "$I_1 = 30\\text{ A}$"
+      "$0.0\\text{ V}$",
+      "$22.0\\text{ V}$",
+      "$12.0\\text{ V}$",
+      "$24.0\\text{ V}$ (full EMF appears across the open gap since $I = 0$)"
     ],
     "optionsAr": [
-      "$I_1 = 28\\text{ A}$",
-      "$I_1 = 14\\text{ A}$",
-      "$I_1 = 21\\text{ A}$",
-      "$I_1 = 30\\text{ A}$"
+      "$0.0\\text{ V}$",
+      "$22.0\\text{ V}$",
+      "$12.0\\text{ V}$",
+      "$24.0\\text{ V}$ (يظهر فرق الجهد الكامل للمصدر بين طرفي المفتاح لعدم مرور تيار في المقاومات)"
     ],
-    "correctAnswer": "$I_1 = 28\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$24.0\\text{ V}$ (full EMF appears across the open gap since $I = 0$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 42 \\times \\frac{28}{14 + 28} = 42 \\times \\frac{28}{42} = 28\\text{ A}$$"
+      "Step-by-step physical derivation: $24.0\\text{ V}$ (full EMF appears across the open gap since $I = 0$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 42 \\times \\frac{28}{14 + 28} = 28\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $24.0\\text{ V}$ (يظهر فرق الجهد الكامل للمصدر بين طرفي المفتاح لعدم مرور تيار في المقاومات)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_20",
-    "titleEn": "Parallel Current Division #8",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #8",
+    "titleEn": "Ammeter Shunt Resistance Calculation",
+    "titleAr": "حساب مقاومة مجزئ التيار لتحويل الجلفانومتر",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 48\\text{ A}$ enters a parallel combination of two resistors $R_1 = 16\\,\\Omega$ and $R_2 = 32\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 48\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 16\\,\\Omega$ و $R_2 = 32\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "A galvanometer has an internal coil resistance $R_g = 50\\,\\Omega$ and shows full scale deflection for a current of $I_g = 10\\text{ mA}$. To convert it into an ammeter measuring up to $I = 1\\text{ A}$, the required shunt resistor $R_s$ is:",
+    "questionAr": "جلفانومتر مقاومة ملفه $R_g = 50\\,\\Omega$ ينحرف مؤشره لنهاية التدريج بتيار $I_g = 10\\text{ mA}$. لتحويله إلى أميتر يقيس حتى $1\\text{ A}$، يلزم توصيل مجزئ تيار $R_s$ قيمته:",
     "optionsEn": [
-      "$I_1 = 32\\text{ A}$",
-      "$I_1 = 16\\text{ A}$",
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 34\\text{ A}$"
+      "$0.505\\,\\Omega$ ($R_s = \\frac{I_g R_g}{I - I_g} = \\frac{0.5}{0.99}$)",
+      "$5.0\\,\\Omega$",
+      "$50.0\\,\\Omega$",
+      "$0.05\\,\\Omega$"
     ],
     "optionsAr": [
-      "$I_1 = 32\\text{ A}$",
-      "$I_1 = 16\\text{ A}$",
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 34\\text{ A}$"
+      "$0.505\\,\\Omega$ ($R_s = \\frac{I_g R_g}{I - I_g} = \\frac{0.5}{0.99}$)",
+      "$5.0\\,\\Omega$",
+      "$50.0\\,\\Omega$",
+      "$0.05\\,\\Omega$"
     ],
-    "correctAnswer": "$I_1 = 32\\text{ A}$",
+    "correctAnswer": "$0.505\\,\\Omega$ ($R_s = \\frac{I_g R_g}{I - I_g} = \\frac{0.5}{0.99}$)",
     "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 48 \\times \\frac{32}{16 + 32} = 48 \\times \\frac{32}{48} = 32\\text{ A}$$"
+      "Step-by-step physical derivation: $0.505\\,\\Omega$ ($R_s = \\frac{I_g R_g}{I - I_g} = \\frac{0.5}{0.99}$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 48 \\times \\frac{32}{16 + 32} = 32\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $0.505\\,\\Omega$ ($R_s = \\frac{I_g R_g}{I - I_g} = \\frac{0.5}{0.99}$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_21",
-    "titleEn": "Parallel Current Division #9",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #9",
+    "titleEn": "Voltmeter Multiplier Resistance Calculation",
+    "titleAr": "حساب مقاومة مضاعف الجهد لتحويل الجلفانومتر",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 54\\text{ A}$ enters a parallel combination of two resistors $R_1 = 18\\,\\Omega$ and $R_2 = 36\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 54\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 18\\,\\Omega$ و $R_2 = 36\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "A galvanometer with $R_g = 20\\,\\Omega$ and $I_g = 5\\text{ mA}$ is to be converted into a voltmeter capable of reading up to $V = 10\\text{ V}$. What series multiplier resistance $R_m$ is required?",
+    "questionAr": "جلفانومتر مقاومة ملفه $R_g = 20\\,\\Omega$ وأقصى تيار يتحمله $I_g = 5\\text{ mA}$. يراد تحويله إلى فولتميتر يقيس حتى $10\\text{ V}$. ما قيمة مضاعف الجهد $R_m$ المطلوب توصيله على التوالي؟",
     "optionsEn": [
-      "$I_1 = 36\\text{ A}$",
-      "$I_1 = 18\\text{ A}$",
-      "$I_1 = 27\\text{ A}$",
-      "$I_1 = 38\\text{ A}$"
+      "$2020\\,\\Omega$",
+      "$1980\\,\\Omega$ ($R_m = \\frac{V}{I_g} - R_g = \\frac{10}{0.005} - 20 = 2000 - 20$)",
+      "$2000\\,\\Omega$",
+      "$500\\,\\Omega$"
     ],
     "optionsAr": [
-      "$I_1 = 36\\text{ A}$",
-      "$I_1 = 18\\text{ A}$",
-      "$I_1 = 27\\text{ A}$",
-      "$I_1 = 38\\text{ A}$"
+      "$2020\\,\\Omega$",
+      "$1980\\,\\Omega$ ($R_m = \\frac{V}{I_g} - R_g = \\frac{10}{0.005} - 20 = 2000 - 20$)",
+      "$2000\\,\\Omega$",
+      "$500\\,\\Omega$"
     ],
-    "correctAnswer": "$I_1 = 36\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$1980\\,\\Omega$ ($R_m = \\frac{V}{I_g} - R_g = \\frac{10}{0.005} - 20 = 2000 - 20$)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 54 \\times \\frac{36}{18 + 36} = 54 \\times \\frac{36}{54} = 36\\text{ A}$$"
+      "Step-by-step physical derivation: $1980\\,\\Omega$ ($R_m = \\frac{V}{I_g} - R_g = \\frac{10}{0.005} - 20 = 2000 - 20$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 54 \\times \\frac{36}{18 + 36} = 36\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $1980\\,\\Omega$ ($R_m = \\frac{V}{I_g} - R_g = \\frac{10}{0.005} - 20 = 2000 - 20$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_22",
-    "titleEn": "Parallel Current Division #10",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #10",
+    "titleEn": "Ohmic Conductor Electron Drift Speed Relation",
+    "titleAr": "سرعة الانجراف للإلكترونات في موصل متدرج السمك",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 60\\text{ A}$ enters a parallel combination of two resistors $R_1 = 20\\,\\Omega$ and $R_2 = 40\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 60\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 20\\,\\Omega$ و $R_2 = 40\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "A non-uniform copper wire has a diameter $d_1 = 2\\text{ mm}$ at one end and narrows to $d_2 = 1\\text{ mm}$ at the other end. If current $I$ is constant throughout, what is the ratio of drift speeds $v_2 / v_1$?",
+    "questionAr": "سلك نحاسي غير منتظم المقطع قطره $2\\text{ mm}$ عند أحد طرفيه ويضيق إلى $1\\text{ mm}$ عند الطرف الآخر. إذا مر به تيار مستمر $I$، فما نسبة سرعة انجراف الإلكترونات $v_2 / v_1$؟",
     "optionsEn": [
-      "$I_1 = 40\\text{ A}$",
-      "$I_1 = 20\\text{ A}$",
-      "$I_1 = 30\\text{ A}$",
-      "$I_1 = 42\\text{ A}$"
+      "$2 : 1$",
+      "$1 : 2$",
+      "$4 : 1$ ($v_d \\propto 1/A \\propto 1/d^2$)",
+      "$1 : 4$"
     ],
     "optionsAr": [
-      "$I_1 = 40\\text{ A}$",
-      "$I_1 = 20\\text{ A}$",
-      "$I_1 = 30\\text{ A}$",
-      "$I_1 = 42\\text{ A}$"
+      "$2 : 1$",
+      "$1 : 2$",
+      "$4 : 1$ (لأن سرعة الانجراف تتناسب عكسياً مع مساحة المقطع ومربع القطر)",
+      "$1 : 4$"
     ],
-    "correctAnswer": "$I_1 = 40\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$4 : 1$ ($v_d \\propto 1/A \\propto 1/d^2$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 60 \\times \\frac{40}{20 + 40} = 60 \\times \\frac{40}{60} = 40\\text{ A}$$"
+      "Step-by-step physical derivation: $4 : 1$ ($v_d \\propto 1/A \\propto 1/d^2$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 60 \\times \\frac{40}{20 + 40} = 40\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $4 : 1$ (لأن سرعة الانجراف تتناسب عكسياً مع مساحة المقطع ومربع القطر)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_23",
-    "titleEn": "Parallel Current Division #11",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #11",
+    "titleEn": "Thermal Effect of Electric Current in Minutes",
+    "titleAr": "كمية الحرارة المتولدة في مقاومة بالدقائق",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 66\\text{ A}$ enters a parallel combination of two resistors $R_1 = 22\\,\\Omega$ and $R_2 = 44\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 66\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 22\\,\\Omega$ و $R_2 = 44\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "A current of $I = 3\\text{ A}$ passes through a resistor $R = 20\\,\\Omega$ for $t = 2\\text{ minutes}$. What is the total heat energy dissipated in Joules?",
+    "questionAr": "يمر تيار شدته $3\\text{ A}$ في مقاومة $20\\,\\Omega$ لمدة دقيقتين ($2\\text{ minutes}$). ما كمية الطاقة الحرارية المتولدة بوحدة الجول؟",
     "optionsEn": [
-      "$I_1 = 44\\text{ A}$",
-      "$I_1 = 22\\text{ A}$",
-      "$I_1 = 33\\text{ A}$",
-      "$I_1 = 46\\text{ A}$"
+      "$360\\text{ J}$",
+      "$1800\\text{ J}$",
+      "$7200\\text{ J}$",
+      "$21600\\text{ J}$ ($H = I^2 R t = 9 \\times 20 \\times 120$)"
     ],
     "optionsAr": [
-      "$I_1 = 44\\text{ A}$",
-      "$I_1 = 22\\text{ A}$",
-      "$I_1 = 33\\text{ A}$",
-      "$I_1 = 46\\text{ A}$"
+      "$360\\text{ J}$",
+      "$1800\\text{ J}$",
+      "$7200\\text{ J}$",
+      "$21600\\text{ J}$ ($H = I^2 R t = 9 \\times 20 \\times 120$)"
     ],
-    "correctAnswer": "$I_1 = 44\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "correctAnswer": "$21600\\text{ J}$ ($H = I^2 R t = 9 \\times 20 \\times 120$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 66 \\times \\frac{44}{22 + 44} = 66 \\times \\frac{44}{66} = 44\\text{ A}$$"
+      "Step-by-step physical derivation: $21600\\text{ J}$ ($H = I^2 R t = 9 \\times 20 \\times 120$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 66 \\times \\frac{44}{22 + 44} = 44\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $21600\\text{ J}$ ($H = I^2 R t = 9 \\times 20 \\times 120$)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_24",
-    "titleEn": "Parallel Current Division #12",
-    "titleAr": "تجزئة شدة التيار في فروع التوازي #12",
+    "titleEn": "Resistor Network with Equipotential Nodes",
+    "titleAr": "تساوي الجهد بين نقطتين في شبكة مقاومات متماثلة",
     "difficulty": "medium",
-    "questionEn": "A total current of $I_{\\text{total}} = 72\\text{ A}$ enters a parallel combination of two resistors $R_1 = 24\\,\\Omega$ and $R_2 = 48\\,\\Omega$. Calculate the current $I_1$ flowing through resistor $R_1$.",
-    "questionAr": "يدخل تيار كلي مقداره $I_{\\text{total}} = 72\\text{ A}$ إلى مجموعة توازي مكونة من مقاومتين $R_1 = 24\\,\\Omega$ و $R_2 = 48\\,\\Omega$. احسب شدة التيار $I_1$ المار في المقاومة $R_1$.",
+    "questionEn": "Four identical resistors of $R = 8\\,\\Omega$ each form a square $ABCD$. If a current enters at vertex $A$ and leaves at the diagonally opposite vertex $C$, what is the potential difference between vertices $B$ and $D$?",
+    "questionAr": "أربع مقاومات متماثلة قيمة كل منها $8\\,\\Omega$ تكون مربعاً $ABCD$. إذا دخل التيار من الرأس $A$ وخرج من الرأس المقابل قطرياً $C$، فما فرق الجهد بين الرأسين $B$ و $D$؟",
     "optionsEn": [
-      "$I_1 = 48\\text{ A}$",
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 36\\text{ A}$",
-      "$I_1 = 50\\text{ A}$"
+      "$0.0\\text{ V}$ (due to exact electrical symmetry, $V_B = V_D$)",
+      "$8.0\\text{ V}$",
+      "$4.0\\text{ V}$",
+      "$16.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$I_1 = 48\\text{ A}$",
-      "$I_1 = 24\\text{ A}$",
-      "$I_1 = 36\\text{ A}$",
-      "$I_1 = 50\\text{ A}$"
+      "$0.0\\text{ V}$ (لتساوي الجهد عند النقطتين $B$ و $D$ بسبب التماثل الكهربي التام)",
+      "$8.0\\text{ V}$",
+      "$4.0\\text{ V}$",
+      "$16.0\\text{ V}$"
     ],
-    "correctAnswer": "$I_1 = 48\\text{ A}$",
+    "correctAnswer": "$0.0\\text{ V}$ (due to exact electrical symmetry, $V_B = V_D$)",
     "correctIndex": 0,
-    "hintEn": "Current divides inversely proportional to resistance: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
-    "hintAr": "يتجزأ التيار بنسبة عكسية مع المقاومات: $I_1 = I_{\\text{total}} \\left(\\frac{R_2}{R_1 + R_2}\\right)$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Apply the current divider formula:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 72 \\times \\frac{48}{24 + 48} = 72 \\times \\frac{48}{72} = 48\\text{ A}$$"
+      "Step-by-step physical derivation: $0.0\\text{ V}$ (due to exact electrical symmetry, $V_B = V_D$)."
     ],
     "stepByStepSolutionAr": [
-      "نطبق قانون مجزئ التيار:",
-      "$$I_1 = I_{\\text{total}} \\times \\frac{R_2}{R_1 + R_2}$$",
-      "$$I_1 = 72 \\times \\frac{48}{24 + 48} = 48\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $0.0\\text{ V}$ (لتساوي الجهد عند النقطتين $B$ و $D$ بسبب التماثل الكهربي التام)."
     ],
-    "teacherTipEn": "Notice that the smaller resistance carries the larger fraction of current ($R_1 < R_2 \\implies I_1 > I_2$).",
-    "teacherTipAr": "لاحظ أن المقاومة الأصغر يمر بها النصيب الأكبر من شدة التيار الكلي ($R_1 < R_2 \\implies I_1 > I_2$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_25",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #1",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #1",
+    "titleEn": "Voltmeter Loading Error on High Resistance Load",
+    "titleAr": "تأثير مقاومة الفولتميتر غير المثالي على القياس",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 14\\text{ V}$ and internal resistance $r = 0.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.11\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 14\\text{ V}$ ومقاومته الداخلية $r = 0.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.11\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "A non-ideal voltmeter of resistance $R_v = 1000\\,\\Omega$ is used to measure the voltage across a $1000\\,\\Omega$ resistor connected in series with an identical $1000\\,\\Omega$ resistor across a $12\\text{ V}$ ideal supply. The voltmeter reads:",
+    "questionAr": "فولتميتر غير مثالي مقاومته $1000\\,\\Omega$ استُخدم لقياس فرق الجهد عبر مقاومة $1000\\,\\Omega$ متصلة توالي مع مقاومة أخرى $1000\\,\\Omega$ مع مصدر $12\\text{ V}$ مثالي. يقرأ الفولتميتر:",
     "optionsEn": [
-      "$V = 12.45\\text{ V}$",
-      "$V = 15.55\\text{ V}$",
-      "$V = 14\\text{ V}$",
-      "$V = 10.45\\text{ V}$"
+      "$6.0\\text{ V}$",
+      "$4.0\\text{ V}$ (parallel combination is $500\\,\\Omega$, giving $12 \\times \\frac{500}{1500} = 4\\text{ V}$)",
+      "$8.0\\text{ V}$",
+      "$12.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$V = 12.45\\text{ V}$",
-      "$V = 15.55\\text{ V}$",
-      "$V = 14\\text{ V}$",
-      "$V = 10.45\\text{ V}$"
+      "$6.0\\text{ V}$",
+      "$4.0\\text{ V}$ (توازي المقاومتين يعطي $500\\,\\Omega$ فيصبح الجهد المقاس $12 \\times \\frac{500}{1500} = 4\\text{ V}$)",
+      "$8.0\\text{ V}$",
+      "$12.0\\text{ V}$"
     ],
-    "correctAnswer": "$V = 12.45\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$4.0\\text{ V}$ (parallel combination is $500\\,\\Omega$, giving $12 \\times \\frac{500}{1500} = 4\\text{ V}$)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.11 \\times 0.5 = 1.55\\text{ V}$.",
-      "$$V = 14 - 1.55 = 12.45\\text{ V}$$"
+      "Step-by-step physical derivation: $4.0\\text{ V}$ (parallel combination is $500\\,\\Omega$, giving $12 \\times \\frac{500}{1500} = 4\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.11 \\times 0.5 = 1.55\\text{ V}$.",
-      "$$V = 14 - 1.55 = 12.45\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $4.0\\text{ V}$ (توازي المقاومتين يعطي $500\\,\\Omega$ فيصبح الجهد المقاس $12 \\times \\frac{500}{1500} = 4\\text{ V}$)."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_26",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #2",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #2",
+    "titleEn": "Change in Lamp Brightness when Identical Lamp Added in Parallel",
+    "titleAr": "إضاءة المصابيح عند إضافة مصباح جديد على التوازي",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 16\\text{ V}$ and internal resistance $r = 1\\,\\Omega$ supplies an external circuit causing a current $I = 3.2\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 16\\text{ V}$ ومقاومته الداخلية $r = 1\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.2\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "A circuit consists of an ideal battery ($r = 0$) connected across a single lamp $L_1$. If an identical lamp $L_2$ is connected in parallel with $L_1$, what happens to the illumination of $L_1$?",
+    "questionAr": "دائرة كهربية تحتوي على بطارية مهملة المقاومة الداخلية ($r = 0$) متصلة بمصباح $L_1$. إذا وصل مصباح متماثل $L_2$ على التوازي مع $L_1$، ماذا يحدث لإضاءة المصباح $L_1$؟",
     "optionsEn": [
-      "$V = 12.8\\text{ V}$",
-      "$V = 19.2\\text{ V}$",
-      "$V = 16\\text{ V}$",
-      "$V = 10.8\\text{ V}$"
+      "Decreases by half",
+      "Doubles",
+      "Remains unchanged, because the voltage across $L_1$ remains constant ($V = V_B$)",
+      "Extinguishes completely"
     ],
     "optionsAr": [
-      "$V = 12.8\\text{ V}$",
-      "$V = 19.2\\text{ V}$",
-      "$V = 16\\text{ V}$",
-      "$V = 10.8\\text{ V}$"
+      "تقل إلى النصف",
+      "تتضاعف",
+      "تظل ثابتة لا تتغير، لأن فرق الجهد بين طرفي المصباح $L_1$ يظل ثابتاً ومساوياً $V_B$",
+      "تنطفئ تماماً"
     ],
-    "correctAnswer": "$V = 12.8\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "Remains unchanged, because the voltage across $L_1$ remains constant ($V = V_B$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.2 \\times 1 = 3.20\\text{ V}$.",
-      "$$V = 16 - 3.20 = 12.8\\text{ V}$$"
+      "Step-by-step physical derivation: Remains unchanged, because the voltage across $L_1$ remains constant ($V = V_B$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.2 \\times 1 = 3.20\\text{ V}$.",
-      "$$V = 16 - 3.20 = 12.8\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: تظل ثابتة لا تتغير، لأن فرق الجهد بين طرفي المصباح $L_1$ يظل ثابتاً ومساوياً $V_B$."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_27",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #3",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #3",
+    "titleEn": "Lamp Brightness with Real Battery Having Internal Resistance",
+    "titleAr": "إضاءة المصابيح عند إضافة مصباح توازي بوجود مقاومة داخلية",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 18\\text{ V}$ and internal resistance $r = 1.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.27\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 18\\text{ V}$ ومقاومته الداخلية $r = 1.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.27\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "In the previous setup, if the battery possesses a significant internal resistance ($r > 0$), adding lamp $L_2$ in parallel causes the brightness of $L_1$ to:",
+    "questionAr": "في نفس التجربة السابقة، ولكن بوجود مقاومة داخلية للبطارية ($r > 0$)، فإن توصيل المصباح $L_2$ على التوازي يجعل إضاءة $L_1$:",
     "optionsEn": [
-      "$V = 13.09\\text{ V}$",
-      "$V = 22.91\\text{ V}$",
-      "$V = 18\\text{ V}$",
-      "$V = 11.09\\text{ V}$"
+      "Increase significantly",
+      "Remain exactly the same",
+      "Double instantly",
+      "Decrease slightly, because higher total current increases internal drop $Ir$, reducing terminal voltage $V$"
     ],
     "optionsAr": [
-      "$V = 13.09\\text{ V}$",
-      "$V = 22.91\\text{ V}$",
-      "$V = 18\\text{ V}$",
-      "$V = 11.09\\text{ V}$"
+      "تزداد بشكل ملحوظ",
+      "تظل ثابتة تماماً",
+      "تتضاعف فوراً",
+      "تقل قليلاً، لزيادة التيار الكلي مما يرفع الهبوط في الجهد $Ir$ ويقلل الجهد الخارجي"
     ],
-    "correctAnswer": "$V = 13.09\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "Decrease slightly, because higher total current increases internal drop $Ir$, reducing terminal voltage $V$",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.27 \\times 1.5 = 4.91\\text{ V}$.",
-      "$$V = 18 - 4.91 = 13.09\\text{ V}$$"
+      "Step-by-step physical derivation: Decrease slightly, because higher total current increases internal drop $Ir$, reducing terminal voltage $V$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.27 \\times 1.5 = 4.91\\text{ V}$.",
-      "$$V = 18 - 4.91 = 13.09\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: تقل قليلاً، لزيادة التيار الكلي مما يرفع الهبوط في الجهد $Ir$ ويقلل الجهد الخارجي."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_28",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #4",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #4",
+    "titleEn": "Number of Turns and Resistance in a Coil",
+    "titleAr": "علاقة مقاومة ملف بعدد لفاته وسلكه",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 20\\text{ V}$ and internal resistance $r = 2\\,\\Omega$ supplies an external circuit causing a current $I = 3.33\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 20\\text{ V}$ ومقاومته الداخلية $r = 2\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.33\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "A wire of fixed length and radius is wound into a single-layer circular coil of 50 turns. If the wire is unwound, stretched to twice its initial length, and wound into a new coil, its electrical resistance is:",
+    "questionAr": "سلك ذو طول ونصف قطر محددين لُف في شكل ملف دائري. إذا فُك السلك وسُحب بانتظام حتى أصبح طوله ضعف طوله الأصلي، فإن مقاومته الكهربية تصبح:",
     "optionsEn": [
-      "$V = 13.34\\text{ V}$",
-      "$V = 26.66\\text{ V}$",
-      "$V = 20\\text{ V}$",
-      "$V = 11.34\\text{ V}$"
+      "4 times its original resistance ($R_2 = 4 R_1$)",
+      "2 times original resistance",
+      "8 times original resistance",
+      "Half original resistance"
     ],
     "optionsAr": [
-      "$V = 13.34\\text{ V}$",
-      "$V = 26.66\\text{ V}$",
-      "$V = 20\\text{ V}$",
-      "$V = 11.34\\text{ V}$"
+      "4 أمثال مقاومته الأصلية ($R_2 = 4 R_1$)",
+      "ضعف مقاومته الأصلية",
+      "8 أمثال مقاومته الأصلية",
+      "نصف مقاومته الأصلية"
     ],
-    "correctAnswer": "$V = 13.34\\text{ V}$",
+    "correctAnswer": "4 times its original resistance ($R_2 = 4 R_1$)",
     "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.33 \\times 2 = 6.66\\text{ V}$.",
-      "$$V = 20 - 6.66 = 13.34\\text{ V}$$"
+      "Step-by-step physical derivation: 4 times its original resistance ($R_2 = 4 R_1$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.33 \\times 2 = 6.66\\text{ V}$.",
-      "$$V = 20 - 6.66 = 13.34\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: 4 أمثال مقاومته الأصلية ($R_2 = 4 R_1$)."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_29",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #5",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #5",
+    "titleEn": "Maximum Electric Power Transfer Formula",
+    "titleAr": "صيغة القدرة العظمى المنقولة للحمل",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 22\\text{ V}$ and internal resistance $r = 2.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.38\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 22\\text{ V}$ ومقاومته الداخلية $r = 2.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.38\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "When an external load resistance equals the internal resistance of the supplying cell ($R = r$), the power dissipated in the load is expressed by:",
+    "questionAr": "عندما تتساوى مقاومة الحمل الخارجية مع المقاومة الداخلية لعمود كهربي ($R = r$)، فإن أقصى قدرة مستنفذة في الحمل تعطى بالعلاقة:",
     "optionsEn": [
-      "$V = 13.55\\text{ V}$",
-      "$V = 30.45\\text{ V}$",
-      "$V = 22\\text{ V}$",
-      "$V = 11.55\\text{ V}$"
+      "$P_{\\max} = \\frac{V_B^2}{2r}$",
+      "$P_{\\max} = \\frac{V_B^2}{4r}$",
+      "$P_{\\max} = \\frac{V_B^2}{r}$",
+      "$P_{\\max} = \\frac{2V_B^2}{r}$"
     ],
     "optionsAr": [
-      "$V = 13.55\\text{ V}$",
-      "$V = 30.45\\text{ V}$",
-      "$V = 22\\text{ V}$",
-      "$V = 11.55\\text{ V}$"
+      "$P_{\\max} = \\frac{V_B^2}{2r}$",
+      "$P_{\\max} = \\frac{V_B^2}{4r}$",
+      "$P_{\\max} = \\frac{V_B^2}{r}$",
+      "$P_{\\max} = \\frac{2V_B^2}{r}$"
     ],
-    "correctAnswer": "$V = 13.55\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$P_{\\max} = \\frac{V_B^2}{4r}$",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.38 \\times 2.5 = 8.45\\text{ V}$.",
-      "$$V = 22 - 8.45 = 13.55\\text{ V}$$"
+      "Step-by-step physical derivation: $P_{\\max} = \\frac{V_B^2}{4r}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.38 \\times 2.5 = 8.45\\text{ V}$.",
-      "$$V = 22 - 8.45 = 13.55\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $P_{\\max} = \\frac{V_B^2}{4r}$."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_30",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #6",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #6",
+    "titleEn": "Efficiency of Battery Supplying Load",
+    "titleAr": "حساب كفاءة البطارية بدلالة المقاومات",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 24\\text{ V}$ and internal resistance $r = 3\\,\\Omega$ supplies an external circuit causing a current $I = 3.43\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 24\\text{ V}$ ومقاومته الداخلية $r = 3\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.43\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "The electrical efficiency of a battery operating in a simple circuit with external load $R$ and internal resistance $r$ is represented by:",
+    "questionAr": "تمثل الكفاءة الكهربية لبطارية تعمل في دائرة بسيطة بمقاومة خارجية $R$ ومقاومة داخلية $r$ بالنسبة المئوية بـ:",
     "optionsEn": [
-      "$V = 13.71\\text{ V}$",
-      "$V = 34.29\\text{ V}$",
-      "$V = 24\\text{ V}$",
-      "$V = 11.71\\text{ V}$"
+      "$\\eta = \\frac{r}{R + r} \\times 100\\%$",
+      "$\\eta = \\frac{R}{r} \\times 100\\%$",
+      "$\\eta = \\frac{R}{R + r} \\times 100\\%$",
+      "$\\eta = \\frac{V_B - Ir}{V_B + Ir} \\times 100\\%$"
     ],
     "optionsAr": [
-      "$V = 13.71\\text{ V}$",
-      "$V = 34.29\\text{ V}$",
-      "$V = 24\\text{ V}$",
-      "$V = 11.71\\text{ V}$"
+      "$\\eta = \\frac{r}{R + r} \\times 100\\%$",
+      "$\\eta = \\frac{R}{r} \\times 100\\%$",
+      "$\\eta = \\frac{R}{R + r} \\times 100\\%$",
+      "$\\eta = \\frac{V_B - Ir}{V_B + Ir} \\times 100\\%$"
     ],
-    "correctAnswer": "$V = 13.71\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$\\eta = \\frac{R}{R + r} \\times 100\\%$",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.43 \\times 3 = 10.29\\text{ V}$.",
-      "$$V = 24 - 10.29 = 13.71\\text{ V}$$"
+      "Step-by-step physical derivation: $\\eta = \\frac{R}{R + r} \\times 100\\%$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.43 \\times 3 = 10.29\\text{ V}$.",
-      "$$V = 24 - 10.29 = 13.71\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $\\eta = \\frac{R}{R + r} \\times 100\\%$."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_31",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #7",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #7",
+    "titleEn": "Wye-Delta Transformation Concept for Three Resistors",
+    "titleAr": "التحويل بين توصيلتي النجمة والدلتا",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 26\\text{ V}$ and internal resistance $r = 3.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.47\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 26\\text{ V}$ ومقاومته الداخلية $r = 3.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.47\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "Three identical resistors of resistance $R$ connected in Delta ($\\Delta$) configuration between three nodes have an equivalent Wye ($Y$) resistance per arm of:",
+    "questionAr": "ثلاث مقاومات متماثلة قيمة كل منها $R$ موصلة على شكل دلتا ($\\Delta$) بين ثلاث نقاط، تكون قيمة مقاومة كل ذراع في توصيلة النجمة المكافئة ($Y$) مساوية:",
     "optionsEn": [
-      "$V = 13.85\\text{ V}$",
-      "$V = 38.15\\text{ V}$",
-      "$V = 26\\text{ V}$",
-      "$V = 11.85\\text{ V}$"
+      "$R_Y = 3 R$",
+      "$R_Y = R / 9$",
+      "$R_Y = R$",
+      "$R_Y = R / 3$"
     ],
     "optionsAr": [
-      "$V = 13.85\\text{ V}$",
-      "$V = 38.15\\text{ V}$",
-      "$V = 26\\text{ V}$",
-      "$V = 11.85\\text{ V}$"
+      "$R_Y = 3 R$",
+      "$R_Y = R / 9$",
+      "$R_Y = R$",
+      "$R_Y = R / 3$"
     ],
-    "correctAnswer": "$V = 13.85\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$R_Y = R / 3$",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.47 \\times 3.5 = 12.15\\text{ V}$.",
-      "$$V = 26 - 12.15 = 13.85\\text{ V}$$"
+      "Step-by-step physical derivation: $R_Y = R / 3$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.47 \\times 3.5 = 12.15\\text{ V}$.",
-      "$$V = 26 - 12.15 = 13.85\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $R_Y = R / 3$."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_32",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #8",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #8",
+    "titleEn": "Capacitor in DC Steady State Circuit Branch",
+    "titleAr": "سلوك المكثف في فرع دائرة تيار مستمر في الحالة المستقرة",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 28\\text{ V}$ and internal resistance $r = 4\\,\\Omega$ supplies an external circuit causing a current $I = 3.5\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 28\\text{ V}$ ومقاومته الداخلية $r = 4\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.5\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "In a DC circuit, a branch contains a capacitor in series with a $10\\,\\Omega$ resistor. In the steady state after full charging, the current through this branch is:",
+    "questionAr": "في دائرة تيار مستمر، يحتوي فرع على مكثف موصل على التوالي مع مقاومة $10\\,\\Omega$. في الحالة المستقرة بعد تمام شحن المكثف، تكون شدة التيار في هذا الفرع:",
     "optionsEn": [
-      "$V = 14\\text{ V}$",
-      "$V = 42\\text{ V}$",
-      "$V = 28\\text{ V}$",
-      "$V = 12\\text{ V}$"
+      "$0.0\\text{ A}$ (the fully charged capacitor blocks direct current)",
+      "Infinite",
+      "Equal to $V_B / 10$",
+      "Oscillating periodically"
     ],
     "optionsAr": [
-      "$V = 14\\text{ V}$",
-      "$V = 42\\text{ V}$",
-      "$V = 28\\text{ V}$",
-      "$V = 12\\text{ V}$"
+      "$0.0\\text{ A}$ (لأن المكثف مشحون تماماً ويعمل كدائرة مفتوحة تمنع مرور التيار المستمر)",
+      "قيمة لا نهائية",
+      "مساوية $V_B / 10$",
+      "تتذبذب دورياً"
     ],
-    "correctAnswer": "$V = 14\\text{ V}$",
+    "correctAnswer": "$0.0\\text{ A}$ (the fully charged capacitor blocks direct current)",
     "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.5 \\times 4 = 14.00\\text{ V}$.",
-      "$$V = 28 - 14.00 = 14\\text{ V}$$"
+      "Step-by-step physical derivation: $0.0\\text{ A}$ (the fully charged capacitor blocks direct current)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.5 \\times 4 = 14.00\\text{ V}$.",
-      "$$V = 28 - 14.00 = 14\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $0.0\\text{ A}$ (لأن المكثف مشحون تماماً ويعمل كدائرة مفتوحة تمنع مرور التيار المستمر)."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_33",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #9",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #9",
+    "titleEn": "Conductivity and Temperature in Pure Semiconductors",
+    "titleAr": "التوصيلية الكهربية لبلورة شبه موصل نقية مع الحرارة",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 30\\text{ V}$ and internal resistance $r = 4.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.53\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 30\\text{ V}$ ومقاومته الداخلية $r = 4.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.53\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "Unlike metallic conductors, raising the temperature of an intrinsic semiconductor silicon crystal causes its electrical resistance to:",
+    "questionAr": "على عكس الموصلات الفلزية، فإن رفع درجة حرارة بلورة شبه موصل نقي مثل السيليكون يؤدي إلى:",
     "optionsEn": [
-      "$V = 14.12\\text{ V}$",
-      "$V = 45.88\\text{ V}$",
-      "$V = 30\\text{ V}$",
-      "$V = 12.12\\text{ V}$"
+      "Increase linearly",
+      "Decrease, because thermal energy breaks covalent bonds liberating free electrons and holes",
+      "Remain strictly constant",
+      "Drop instantly to absolute zero"
     ],
     "optionsAr": [
-      "$V = 14.12\\text{ V}$",
-      "$V = 45.88\\text{ V}$",
-      "$V = 30\\text{ V}$",
-      "$V = 12.12\\text{ V}$"
+      "زيادة مقاومتها خطياً",
+      "نقصان مقاومتها الكهربية، لأن الطاقة الحرارية تكسر الروابط التساهمية وتحرر إلكترونات وفجوات",
+      "ثبات مقاومتها تماماً",
+      "هبوط مقاومتها للصفر المطلق"
     ],
-    "correctAnswer": "$V = 14.12\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "Decrease, because thermal energy breaks covalent bonds liberating free electrons and holes",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.53 \\times 4.5 = 15.88\\text{ V}$.",
-      "$$V = 30 - 15.88 = 14.12\\text{ V}$$"
+      "Step-by-step physical derivation: Decrease, because thermal energy breaks covalent bonds liberating free electrons and holes."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.53 \\times 4.5 = 15.88\\text{ V}$.",
-      "$$V = 30 - 15.88 = 14.12\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: نقصان مقاومتها الكهربية، لأن الطاقة الحرارية تكسر الروابط التساهمية وتحرر إلكترونات وفجوات."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_34",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #10",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #10",
+    "titleEn": "Three Cells in Parallel: Equivalent EMF",
+    "titleAr": "القوة الدافعة المكافئة لثلاثة أعمدة متماثلة على التوازي",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 32\\text{ V}$ and internal resistance $r = 5\\,\\Omega$ supplies an external circuit causing a current $I = 3.56\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 32\\text{ V}$ ومقاومته الداخلية $r = 5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.56\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "Three identical batteries, each having an EMF of $V_B = 6\\text{ V}$ and internal resistance $r = 1.5\\,\\Omega$, are connected in parallel. What is the equivalent EMF of this battery bank?",
+    "questionAr": "ثلاثة أعمدة كهربية متماثلة، القوة الدافعة لكل منها $V_B = 6\\text{ V}$ ومقاومتها الداخلية $r = 1.5\\,\\Omega$، وصلت معاً على التوازي. كم تبلغ القوة الدافعة المكافئة للمجموعة؟",
     "optionsEn": [
-      "$V = 14.2\\text{ V}$",
-      "$V = 49.8\\text{ V}$",
-      "$V = 32\\text{ V}$",
-      "$V = 12.2\\text{ V}$"
+      "$18.0\\text{ V}$",
+      "$2.0\\text{ V}$",
+      "$6.0\\text{ V}$ (parallel connection maintains the same EMF while reducing equivalent internal resistance to $r/3$)",
+      "$9.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$V = 14.2\\text{ V}$",
-      "$V = 49.8\\text{ V}$",
-      "$V = 32\\text{ V}$",
-      "$V = 12.2\\text{ V}$"
+      "$18.0\\text{ V}$",
+      "$2.0\\text{ V}$",
+      "$6.0\\text{ V}$ (التوصيل على التوازي يحافظ على نفس القوة الدافعة مع تقليل المقاومة الداخلية الكلية إلى $r/3$)",
+      "$9.0\\text{ V}$"
     ],
-    "correctAnswer": "$V = 14.2\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$6.0\\text{ V}$ (parallel connection maintains the same EMF while reducing equivalent internal resistance to $r/3$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.56 \\times 5 = 17.80\\text{ V}$.",
-      "$$V = 32 - 17.80 = 14.2\\text{ V}$$"
+      "Step-by-step physical derivation: $6.0\\text{ V}$ (parallel connection maintains the same EMF while reducing equivalent internal resistance to $r/3$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.56 \\times 5 = 17.80\\text{ V}$.",
-      "$$V = 32 - 17.80 = 14.2\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $6.0\\text{ V}$ (التوصيل على التوازي يحافظ على نفس القوة الدافعة مع تقليل المقاومة الداخلية الكلية إلى $r/3$)."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_35",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #11",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #11",
+    "titleEn": "Equivalent Internal Resistance of Parallel Cells",
+    "titleAr": "المقاومة الداخلية المكافئة لأعمدة متماثلة توازي",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 34\\text{ V}$ and internal resistance $r = 5.5\\,\\Omega$ supplies an external circuit causing a current $I = 3.58\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 34\\text{ V}$ ومقاومته الداخلية $r = 5.5\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.58\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "For the three parallel cells in the previous question, the total equivalent internal resistance $r_{\\text{eq}}$ is:",
+    "questionAr": "للأعمدة الثلاثة المتماثلة السابقة الموصلة على التوازي ($r = 1.5\\,\\Omega$)، تبلغ المقاومة الداخلية المكافئة $r_{\\text{eq}}$:",
     "optionsEn": [
-      "$V = 14.31\\text{ V}$",
-      "$V = 53.69\\text{ V}$",
-      "$V = 34\\text{ V}$",
-      "$V = 12.31\\text{ V}$"
+      "$4.5\\,\\Omega$",
+      "$1.5\\,\\Omega$",
+      "$0.75\\,\\Omega$",
+      "$0.5\\,\\Omega$ ($r_{\\text{eq}} = 1.5 / 3 = 0.5\\,\\Omega$)"
     ],
     "optionsAr": [
-      "$V = 14.31\\text{ V}$",
-      "$V = 53.69\\text{ V}$",
-      "$V = 34\\text{ V}$",
-      "$V = 12.31\\text{ V}$"
+      "$4.5\\,\\Omega$",
+      "$1.5\\,\\Omega$",
+      "$0.75\\,\\Omega$",
+      "$0.5\\,\\Omega$ ($r_{\\text{eq}} = 1.5 / 3 = 0.5\\,\\Omega$)"
     ],
-    "correctAnswer": "$V = 14.31\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "correctAnswer": "$0.5\\,\\Omega$ ($r_{\\text{eq}} = 1.5 / 3 = 0.5\\,\\Omega$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.58 \\times 5.5 = 19.69\\text{ V}$.",
-      "$$V = 34 - 19.69 = 14.31\\text{ V}$$"
+      "Step-by-step physical derivation: $0.5\\,\\Omega$ ($r_{\\text{eq}} = 1.5 / 3 = 0.5\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.58 \\times 5.5 = 19.69\\text{ V}$.",
-      "$$V = 34 - 19.69 = 14.31\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: $0.5\\,\\Omega$ ($r_{\\text{eq}} = 1.5 / 3 = 0.5\\,\\Omega$)."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_36",
-    "titleEn": "Discharging Terminal Voltage & Internal Drop #12",
-    "titleAr": "فرق الجهد الطرفي لعمود مفرغ والهبوط في الجهد #12",
+    "titleEn": "Household Parallel Circuit Rationale",
+    "titleAr": "السبب الفيزيائي لتوصيل الأجهزة المنزلية على التوازي",
     "difficulty": "medium",
-    "questionEn": "A real battery with EMF $V_B = 36\\text{ V}$ and internal resistance $r = 6\\,\\Omega$ supplies an external circuit causing a current $I = 3.6\\text{ A}$ to flow. What is the terminal voltage $V$ across the battery?",
-    "questionAr": "عمود كهربي قوته الدافعة $V_B = 36\\text{ V}$ ومقاومته الداخلية $r = 6\\,\\Omega$ يغذي دائرة خارجية فيمر تيار شدته $I = 3.6\\text{ A}$. ما فرق الجهد $V$ بين قطبي العمود؟",
+    "questionEn": "Household electric appliances are wired in parallel rather than in series primarily because:",
+    "questionAr": "توصل الأجهزة الكهربية المنزلية على التوازي وليس على التوالي أساساً لأن:",
     "optionsEn": [
-      "$V = 14.4\\text{ V}$",
-      "$V = 57.6\\text{ V}$",
-      "$V = 36\\text{ V}$",
-      "$V = 12.4\\text{ V}$"
+      "Each appliance operates under the full mains potential difference and independently of whether other appliances are switched on or off",
+      "Parallel connection increases the total resistance of the house",
+      "Parallel wiring minimizes the total household current drawn",
+      "Parallel wiring eliminates electrical fuses entirely"
     ],
     "optionsAr": [
-      "$V = 14.4\\text{ V}$",
-      "$V = 57.6\\text{ V}$",
-      "$V = 36\\text{ V}$",
-      "$V = 12.4\\text{ V}$"
+      "يعمل كل جهاز على نفس فرق جهد المصدر الكامل وبشكل مستقل دون أن يتأثر بتشغيل أو إيقاف الأجهزة الأخرى",
+      "التوصيل توازي يزيد المقاومة الكلية للمنزل",
+      "التوصيل توازي يقلل شدة التيار الكلي للمنزل",
+      "التوصيل توازي يلغي الحاجة للمصهرات"
     ],
-    "correctAnswer": "$V = 14.4\\text{ V}$",
+    "correctAnswer": "Each appliance operates under the full mains potential difference and independently of whether other appliances are switched on or off",
     "correctIndex": 0,
-    "hintEn": "For a discharging battery, the terminal voltage is less than the EMF by the internal drop $Ir$: $V = V_B - Ir$.",
-    "hintAr": "في حالة تفريغ البطارية، يكون فرق الجهد بين القطبين أقل من القوة الدافعة بمقدار الهبوط الداخلي: $V = V_B - Ir$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Equation of terminal potential: $V = V_B - I \\cdot r$.",
-      "Internal drop: $I \\cdot r = 3.6 \\times 6 = 21.60\\text{ V}$.",
-      "$$V = 36 - 21.60 = 14.4\\text{ V}$$"
+      "Step-by-step physical derivation: Each appliance operates under the full mains potential difference and independently of whether other appliances are switched on or off."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "الهبوط في الجهد عبر المقاومة الداخلية: $Ir = 3.6 \\times 6 = 21.60\\text{ V}$.",
-      "$$V = 36 - 21.60 = 14.4\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي: يعمل كل جهاز على نفس فرق جهد المصدر الكامل وبشكل مستقل دون أن يتأثر بتشغيل أو إيقاف الأجهزة الأخرى."
     ],
-    "teacherTipEn": "The slope of the $V$ vs $I$ graph for a battery is $-r$, and the y-intercept is $V_B$.",
-    "teacherTipAr": "ميل الخط البياني للعلاقة بين $V$ و $I$ لبطارية مفرغة يساوي $-r$، والمقطوع من محور الصادات هو $V_B$."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_37",
-    "titleEn": "Electric Power Dissipation #1",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #1",
+    "titleEn": "Fuse Wire Material Properties",
+    "titleAr": "الخصائص الفيزيائية لسلك المصهر الكهربي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 1\\text{ A}$ passes through a heating element of resistance $R = 5\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 1\\text{ A}$ في عنصر تسخين مقاومته $R = 5\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "An effective electric safety fuse wire should possess:",
+    "questionAr": "يجب أن يتميز سلك المنصهر الكهربي (الفيوز) المناسب بـ:",
     "optionsEn": [
-      "$P = 5\\text{ W}$",
-      "$P = 10\\text{ W}$",
-      "$P = 2.5\\text{ W}$",
-      "$P = 20\\text{ W}$"
+      "Extremely high melting point like tungsten",
+      "A relatively low melting point and appropriate electrical resistance so it melts quickly upon excessive current",
+      "Zero electrical resistance at all temperatures",
+      "Infinite thermal capacity"
     ],
     "optionsAr": [
-      "$P = 5\\text{ W}$",
-      "$P = 10\\text{ W}$",
-      "$P = 2.5\\text{ W}$",
-      "$P = 20\\text{ W}$"
+      "درجة انصهار عالية جداً مثل التنجستن",
+      "درجة انصهار منخفضة نسبياً ومقاومة نوعية مناسبة لينصهر ويقطع الدائرة بسرعة عند زيادة التيار",
+      "مقاومة كهربية تساوي صفراً دائماً",
+      "سعة حرارية لا نهائية"
     ],
-    "correctAnswer": "$P = 5\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "A relatively low melting point and appropriate electrical resistance so it melts quickly upon excessive current",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 1\\text{ A}$ and $R = 5\\,\\Omega$:",
-      "$$P = (1)^2 \\times 5 = 1 \\times 5 = 5\\text{ W}$$"
+      "Step-by-step physical derivation: A relatively low melting point and appropriate electrical resistance so it melts quickly upon excessive current."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 1\\text{ A}$ و $R = 5\\,\\Omega$:",
-      "$$P = (1)^2 \\times 5 = 5\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: درجة انصهار منخفضة نسبياً ومقاومة نوعية مناسبة لينصهر ويقطع الدائرة بسرعة عند زيادة التيار."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_38",
-    "titleEn": "Electric Power Dissipation #2",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #2",
+    "titleEn": "Current Division with Three Unequal Resistors in Parallel",
+    "titleAr": "توزيع التيار بين ثلاثة فروع متوازية غير متساوية",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 2\\text{ A}$ passes through a heating element of resistance $R = 10\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 2\\text{ A}$ في عنصر تسخين مقاومته $R = 10\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "Three resistors of values $6\\,\\Omega, 3\\,\\Omega$, and $2\\,\\Omega$ are in parallel across a $12\\text{ V}$ ideal supply. What is the total current leaving the supply?",
+    "questionAr": "ثلاث مقاومات قيمها $6\\,\\Omega, 3\\,\\Omega, 2\\,\\Omega$ موصلة على التوازي مع بطارية مثالية $12\\text{ V}$. كم تبلغ شدة التيار الكلي الخارج من البطارية؟",
     "optionsEn": [
-      "$P = 40\\text{ W}$",
-      "$P = 80\\text{ W}$",
-      "$P = 20\\text{ W}$",
-      "$P = 55\\text{ W}$"
+      "$6.0\\text{ A}$",
+      "$1.0\\text{ A}$",
+      "$12.0\\text{ A}$ ($I = \\frac{12}{6} + \\frac{12}{3} + \\frac{12}{2} = 2 + 4 + 6 = 12\\text{ A}$)",
+      "$18.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$P = 40\\text{ W}$",
-      "$P = 80\\text{ W}$",
-      "$P = 20\\text{ W}$",
-      "$P = 55\\text{ W}$"
+      "$6.0\\text{ A}$",
+      "$1.0\\text{ A}$",
+      "$12.0\\text{ A}$ ($I = \\frac{12}{6} + \\frac{12}{3} + \\frac{12}{2} = 2 + 4 + 6 = 12\\text{ A}$)",
+      "$18.0\\text{ A}$"
     ],
-    "correctAnswer": "$P = 40\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$12.0\\text{ A}$ ($I = \\frac{12}{6} + \\frac{12}{3} + \\frac{12}{2} = 2 + 4 + 6 = 12\\text{ A}$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 2\\text{ A}$ and $R = 10\\,\\Omega$:",
-      "$$P = (2)^2 \\times 10 = 4 \\times 10 = 40\\text{ W}$$"
+      "Step-by-step physical derivation: $12.0\\text{ A}$ ($I = \\frac{12}{6} + \\frac{12}{3} + \\frac{12}{2} = 2 + 4 + 6 = 12\\text{ A}$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 2\\text{ A}$ و $R = 10\\,\\Omega$:",
-      "$$P = (2)^2 \\times 10 = 40\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $12.0\\text{ A}$ ($I = \\frac{12}{6} + \\frac{12}{3} + \\frac{12}{2} = 2 + 4 + 6 = 12\\text{ A}$)."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_39",
-    "titleEn": "Electric Power Dissipation #3",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #3",
+    "titleEn": "Voltmeter Reading Shift when Resistor Burns Out",
+    "titleAr": "تغير قراءة الفولتميتر عند احتراق إحدى المقاومات التوازي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 3\\text{ A}$ passes through a heating element of resistance $R = 15\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 3\\text{ A}$ في عنصر تسخين مقاومته $R = 15\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "A battery with $r > 0$ powers two parallel resistors $R_1$ and $R_2$. If $R_2$ burns out (breaks open), the reading of a voltmeter across the battery terminals will:",
+    "questionAr": "بطارية لها مقاومة داخلية $r > 0$ تغذي مقاومتين على التوازي $R_1$ و $R_2$. إذا احترقت المقاومة $R_2$ (فُتح مسارها)، فإن قراءة فولتميتر بين قطبي البطارية:",
     "optionsEn": [
-      "$P = 135\\text{ W}$",
-      "$P = 270\\text{ W}$",
-      "$P = 67.5\\text{ W}$",
-      "$P = 150\\text{ W}$"
+      "Decrease to zero",
+      "Remain strictly unchanged",
+      "Oscillate between extremes",
+      "Increase, because total external resistance increases, reducing total circuit current and lowering the internal voltage drop $Ir$"
     ],
     "optionsAr": [
-      "$P = 135\\text{ W}$",
-      "$P = 270\\text{ W}$",
-      "$P = 67.5\\text{ W}$",
-      "$P = 150\\text{ W}$"
+      "تهبط إلى الصفر",
+      "تظل ثابتة تماماً",
+      "تتذبذب بين قيمتين",
+      "تزداد، لأن المقاومة الكلية للدائرة تزداد فيقل التيار الكلي ويقل الهبوط في الجهد $Ir$"
     ],
-    "correctAnswer": "$P = 135\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "Increase, because total external resistance increases, reducing total circuit current and lowering the internal voltage drop $Ir$",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 3\\text{ A}$ and $R = 15\\,\\Omega$:",
-      "$$P = (3)^2 \\times 15 = 9 \\times 15 = 135\\text{ W}$$"
+      "Step-by-step physical derivation: Increase, because total external resistance increases, reducing total circuit current and lowering the internal voltage drop $Ir$."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 3\\text{ A}$ و $R = 15\\,\\Omega$:",
-      "$$P = (3)^2 \\times 15 = 135\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: تزداد، لأن المقاومة الكلية للدائرة تزداد فيقل التيار الكلي ويقل الهبوط في الجهد $Ir$."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_40",
-    "titleEn": "Electric Power Dissipation #4",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #4",
+    "titleEn": "Ammeter Reading Shift when Resistor Burns Out",
+    "titleAr": "تغير قراءة الأميتر الكلي عند احتراق مقاومة توازي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 4\\text{ A}$ passes through a heating element of resistance $R = 20\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 4\\text{ A}$ في عنصر تسخين مقاومته $R = 20\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "In the setup described in the previous question, the reading of an ammeter measuring the total main current will:",
+    "questionAr": "في التجربة السابقة ذاتها، فإن قراءة أميتر يقيس التيار الكلي الخارج من البطارية:",
     "optionsEn": [
-      "$P = 320\\text{ W}$",
-      "$P = 640\\text{ W}$",
-      "$P = 160\\text{ W}$",
-      "$P = 335\\text{ W}$"
+      "Decrease, because total circuit resistance has increased",
+      "Increase, because the remaining resistor draws more current",
+      "Remain constant",
+      "Double"
     ],
     "optionsAr": [
-      "$P = 320\\text{ W}$",
-      "$P = 640\\text{ W}$",
-      "$P = 160\\text{ W}$",
-      "$P = 335\\text{ W}$"
+      "تقل، لأن المقاومة الكلية للدائرة قد زادت",
+      "تزداد، لأن المقاومة المتبقية تسحب تياراً أكبر",
+      "تظل ثابتة",
+      "تتضاعف"
     ],
-    "correctAnswer": "$P = 320\\text{ W}$",
+    "correctAnswer": "Decrease, because total circuit resistance has increased",
     "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 4\\text{ A}$ and $R = 20\\,\\Omega$:",
-      "$$P = (4)^2 \\times 20 = 16 \\times 20 = 320\\text{ W}$$"
+      "Step-by-step physical derivation: Decrease, because total circuit resistance has increased."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 4\\text{ A}$ و $R = 20\\,\\Omega$:",
-      "$$P = (4)^2 \\times 20 = 320\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: تقل، لأن المقاومة الكلية للدائرة قد زادت."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_41",
-    "titleEn": "Electric Power Dissipation #5",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #5",
+    "titleEn": "Wheatstone Bridge Balancing Condition",
+    "titleAr": "شرط اتزان قنطرة وتستون",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 5\\text{ A}$ passes through a heating element of resistance $R = 25\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 5\\text{ A}$ في عنصر تسخين مقاومته $R = 25\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "In a bridge network with arms $R_1, R_2, R_3, R_4$ and a galvanometer in the bridge branch, the condition for zero galvanometer deflection is:",
+    "questionAr": "في شبكة قنطرة تتكون من أذرع $R_1, R_2, R_3, R_4$ وجلفانومتر في فرع القنطرة، يتحقق انعدام تيار الجلفانومتر عند شرط:",
     "optionsEn": [
-      "$P = 625\\text{ W}$",
-      "$P = 1250\\text{ W}$",
-      "$P = 312.5\\text{ W}$",
-      "$P = 640\\text{ W}$"
+      "$R_1 + R_2 = R_3 + R_4$",
+      "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$",
+      "$R_1 R_2 = R_3 R_4$",
+      "$R_1 - R_2 = R_3 - R_4$"
     ],
     "optionsAr": [
-      "$P = 625\\text{ W}$",
-      "$P = 1250\\text{ W}$",
-      "$P = 312.5\\text{ W}$",
-      "$P = 640\\text{ W}$"
+      "$R_1 + R_2 = R_3 + R_4$",
+      "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$",
+      "$R_1 R_2 = R_3 R_4$",
+      "$R_1 - R_2 = R_3 - R_4$"
     ],
-    "correctAnswer": "$P = 625\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 5\\text{ A}$ and $R = 25\\,\\Omega$:",
-      "$$P = (5)^2 \\times 25 = 25 \\times 25 = 625\\text{ W}$$"
+      "Step-by-step physical derivation: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 5\\text{ A}$ و $R = 25\\,\\Omega$:",
-      "$$P = (5)^2 \\times 25 = 625\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_42",
-    "titleEn": "Electric Power Dissipation #6",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #6",
+    "titleEn": "Effect of Internal Resistance on Short Circuit Current",
+    "titleAr": "أقصى تيار يمكن الحصول عليه من بطارية",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 6\\text{ A}$ passes through a heating element of resistance $R = 30\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 6\\text{ A}$ في عنصر تسخين مقاومته $R = 30\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "The maximum possible current that a battery of EMF $V_B$ and internal resistance $r$ can deliver under short-circuit conditions ($R_{\\text{ext}} = 0$) is:",
+    "questionAr": "أقصى تيار كهربي يمكن أن يعطيه عمود كهربي قوته $V_B$ ومقاومته الداخلية $r$ عند حدوث قفلة كهربية ($R_{\\text{ext}} = 0$) هو:",
     "optionsEn": [
-      "$P = 1080\\text{ W}$",
-      "$P = 2160\\text{ W}$",
-      "$P = 540\\text{ W}$",
-      "$P = 1095\\text{ W}$"
+      "$I_{\\text{sc}} = \\infty$",
+      "$I_{\\text{sc}} = 0$",
+      "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+      "$I_{\\text{sc}} = \\frac{V_B}{2r}$"
     ],
     "optionsAr": [
-      "$P = 1080\\text{ W}$",
-      "$P = 2160\\text{ W}$",
-      "$P = 540\\text{ W}$",
-      "$P = 1095\\text{ W}$"
+      "$I_{\\text{sc}} = \\infty$",
+      "$I_{\\text{sc}} = 0$",
+      "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+      "$I_{\\text{sc}} = \\frac{V_B}{2r}$"
     ],
-    "correctAnswer": "$P = 1080\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$I_{\\text{sc}} = \\frac{V_B}{r}$",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 6\\text{ A}$ and $R = 30\\,\\Omega$:",
-      "$$P = (6)^2 \\times 30 = 36 \\times 30 = 1080\\text{ W}$$"
+      "Step-by-step physical derivation: $I_{\\text{sc}} = \\frac{V_B}{r}$."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 6\\text{ A}$ و $R = 30\\,\\Omega$:",
-      "$$P = (6)^2 \\times 30 = 1080\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $I_{\\text{sc}} = \\frac{V_B}{r}$."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_43",
-    "titleEn": "Electric Power Dissipation #7",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #7",
+    "titleEn": "Terminal Voltage of a Short-Circuited Cell",
+    "titleAr": "فرق الجهد بين قطبي عمود في حالة قفلة",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 7\\text{ A}$ passes through a heating element of resistance $R = 35\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 7\\text{ A}$ في عنصر تسخين مقاومته $R = 35\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "When the terminals of a battery with $V_B = 12\\text{ V}$ and $r = 2\\,\\Omega$ are directly connected with a thick wire of zero resistance, its terminal voltage is:",
+    "questionAr": "عند توصيل قطبي بطارية قوتها $V_B = 12\\text{ V}$ ومقاومتها الداخلية $r = 2\\,\\Omega$ بسلك سميك عديم المقاومة مباشرة، فإن فرق الجهد بين قطبيها يصبح:",
     "optionsEn": [
-      "$P = 1715\\text{ W}$",
-      "$P = 3430\\text{ W}$",
-      "$P = 857.5\\text{ W}$",
-      "$P = 1730\\text{ W}$"
+      "$12.0\\text{ V}$",
+      "$6.0\\text{ V}$",
+      "$-12.0\\text{ V}$",
+      "$0.0\\text{ V}$ ($V = V_B - I_{\\text{sc}} r = 12 - 6(2) = 0\\text{ V}$)"
     ],
     "optionsAr": [
-      "$P = 1715\\text{ W}$",
-      "$P = 3430\\text{ W}$",
-      "$P = 857.5\\text{ W}$",
-      "$P = 1730\\text{ W}$"
+      "$12.0\\text{ V}$",
+      "$6.0\\text{ V}$",
+      "$-12.0\\text{ V}$",
+      "$0.0\\text{ V}$ ($V = V_B - I_{\\text{sc}} r = 12 - 6(2) = 0\\text{ V}$)"
     ],
-    "correctAnswer": "$P = 1715\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$0.0\\text{ V}$ ($V = V_B - I_{\\text{sc}} r = 12 - 6(2) = 0\\text{ V}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 7\\text{ A}$ and $R = 35\\,\\Omega$:",
-      "$$P = (7)^2 \\times 35 = 49 \\times 35 = 1715\\text{ W}$$"
+      "Step-by-step physical derivation: $0.0\\text{ V}$ ($V = V_B - I_{\\text{sc}} r = 12 - 6(2) = 0\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 7\\text{ A}$ و $R = 35\\,\\Omega$:",
-      "$$P = (7)^2 \\times 35 = 1715\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $0.0\\text{ V}$ ($V = V_B - I_{\\text{sc}} r = 12 - 6(2) = 0\\text{ V}$)."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_44",
-    "titleEn": "Electric Power Dissipation #8",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #8",
+    "titleEn": "Resistance of an Annular Disk Conductor",
+    "titleAr": "مقاومة موصل على شكل قرص دائري مجوف",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 8\\text{ A}$ passes through a heating element of resistance $R = 40\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 8\\text{ A}$ في عنصر تسخين مقاومته $R = 40\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "Current flows radially outwards between the inner radius $a$ and outer radius $b$ of a flat conducting ring of thickness $t$ and resistivity $\\rho$. The resistance is proportional to:",
+    "questionAr": "يسري تيار كهربي قطرياً من المحيط الداخلي بنصف قطر $a$ إلى المحيط الخارجي بنصف قطر $b$ لقرص موصل سمكه $t$ ومقاومته النوعية $\\rho$. تتناسب المقاومة طردياً مع:",
     "optionsEn": [
-      "$P = 2560\\text{ W}$",
-      "$P = 5120\\text{ W}$",
-      "$P = 1280\\text{ W}$",
-      "$P = 2575\\text{ W}$"
+      "$\\ln(b/a)$",
+      "$(b - a)^2$",
+      "$b^2 - a^2$",
+      "$1/(b - a)$"
     ],
     "optionsAr": [
-      "$P = 2560\\text{ W}$",
-      "$P = 5120\\text{ W}$",
-      "$P = 1280\\text{ W}$",
-      "$P = 2575\\text{ W}$"
+      "$\\ln(b/a)$",
+      "$(b - a)^2$",
+      "$b^2 - a^2$",
+      "$1/(b - a)$"
     ],
-    "correctAnswer": "$P = 2560\\text{ W}$",
+    "correctAnswer": "$\\ln(b/a)$",
     "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 8\\text{ A}$ and $R = 40\\,\\Omega$:",
-      "$$P = (8)^2 \\times 40 = 64 \\times 40 = 2560\\text{ W}$$"
+      "Step-by-step physical derivation: $\\ln(b/a)$."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 8\\text{ A}$ و $R = 40\\,\\Omega$:",
-      "$$P = (8)^2 \\times 40 = 2560\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $\\ln(b/a)$."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_45",
-    "titleEn": "Electric Power Dissipation #9",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #9",
+    "titleEn": "Potentiometer Balance Length Ratio",
+    "titleAr": "نسبة طولي الاتزان في جهاز مجزئ الجهد",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 9\\text{ A}$ passes through a heating element of resistance $R = 45\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 9\\text{ A}$ في عنصر تسخين مقاومته $R = 45\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "In a potentiometer experiment, a standard cell of EMF $V_{B1} = 1.5\\text{ V}$ is balanced at a length $L_1 = 60\\text{ cm}$. An unknown cell balances at $L_2 = 80\\text{ cm}$. What is the EMF of the unknown cell?",
+    "questionAr": "في تجربة سلك مجزئ الجهد (البوتنشيوميتر)، اتزن عمود قياسي قوته $1.5\\text{ V}$ عند طول $60\\text{ cm}$، بينما اتزن عمود مجهول عند طول $80\\text{ cm}$. ما القوة الدافعة للعمود المجهول؟",
     "optionsEn": [
-      "$P = 3645\\text{ W}$",
-      "$P = 7290\\text{ W}$",
-      "$P = 1822.5\\text{ W}$",
-      "$P = 3660\\text{ W}$"
+      "$1.8\\text{ V}$",
+      "$2.0\\text{ V}$ ($V_{B2} = V_{B1} \\frac{L_2}{L_1} = 1.5 \\times \\frac{80}{60} = 2.0\\text{ V}$)",
+      "$2.5\\text{ V}$",
+      "$1.2\\text{ V}$"
     ],
     "optionsAr": [
-      "$P = 3645\\text{ W}$",
-      "$P = 7290\\text{ W}$",
-      "$P = 1822.5\\text{ W}$",
-      "$P = 3660\\text{ W}$"
+      "$1.8\\text{ V}$",
+      "$2.0\\text{ V}$ ($V_{B2} = V_{B1} \\frac{L_2}{L_1} = 1.5 \\times \\frac{80}{60} = 2.0\\text{ V}$)",
+      "$2.5\\text{ V}$",
+      "$1.2\\text{ V}$"
     ],
-    "correctAnswer": "$P = 3645\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$2.0\\text{ V}$ ($V_{B2} = V_{B1} \\frac{L_2}{L_1} = 1.5 \\times \\frac{80}{60} = 2.0\\text{ V}$)",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 9\\text{ A}$ and $R = 45\\,\\Omega$:",
-      "$$P = (9)^2 \\times 45 = 81 \\times 45 = 3645\\text{ W}$$"
+      "Step-by-step physical derivation: $2.0\\text{ V}$ ($V_{B2} = V_{B1} \\frac{L_2}{L_1} = 1.5 \\times \\frac{80}{60} = 2.0\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 9\\text{ A}$ و $R = 45\\,\\Omega$:",
-      "$$P = (9)^2 \\times 45 = 3645\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $2.0\\text{ V}$ ($V_{B2} = V_{B1} \\frac{L_2}{L_1} = 1.5 \\times \\frac{80}{60} = 2.0\\text{ V}$)."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_46",
-    "titleEn": "Electric Power Dissipation #10",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #10",
+    "titleEn": "Resistance of Two Resistors in Parallel Ratio",
+    "titleAr": "نسبة المقاومتين بدلالة تياريهما عند التوازي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 10\\text{ A}$ passes through a heating element of resistance $R = 50\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 10\\text{ A}$ في عنصر تسخين مقاومته $R = 50\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "Two resistors $R_A$ and $R_B$ are connected in parallel. If the current through $R_A$ is three times the current through $R_B$ ($I_A = 3 I_B$), what is the ratio $R_A / R_B$?",
+    "questionAr": "مقاومتان $R_A$ و $R_B$ موصلتان على التوازي. إذا كانت شدة التيار المار في $R_A$ ثلاثة أمثال شدة التيار المار في $R_B$ ($I_A = 3 I_B$)، فما نسبة $R_A / R_B$؟",
     "optionsEn": [
-      "$P = 5000\\text{ W}$",
-      "$P = 10000\\text{ W}$",
-      "$P = 2500\\text{ W}$",
-      "$P = 5015\\text{ W}$"
+      "$3 : 1$",
+      "$1 : 9$",
+      "$1 : 3$",
+      "$9 : 1$"
     ],
     "optionsAr": [
-      "$P = 5000\\text{ W}$",
-      "$P = 10000\\text{ W}$",
-      "$P = 2500\\text{ W}$",
-      "$P = 5015\\text{ W}$"
+      "$3 : 1$",
+      "$1 : 9$",
+      "$1 : 3$",
+      "$9 : 1$"
     ],
-    "correctAnswer": "$P = 5000\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$1 : 3$",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 10\\text{ A}$ and $R = 50\\,\\Omega$:",
-      "$$P = (10)^2 \\times 50 = 100 \\times 50 = 5000\\text{ W}$$"
+      "Step-by-step physical derivation: $1 : 3$."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 10\\text{ A}$ و $R = 50\\,\\Omega$:",
-      "$$P = (10)^2 \\times 50 = 5000\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $1 : 3$."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_47",
-    "titleEn": "Electric Power Dissipation #11",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #11",
+    "titleEn": "Power Ratio for Two Resistors in Series",
+    "titleAr": "نسبة القدرة المستنفذة في مقاومتين موصلتين على التوالي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 11\\text{ A}$ passes through a heating element of resistance $R = 55\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 11\\text{ A}$ في عنصر تسخين مقاومته $R = 55\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "Two resistors $R_1 = 10\\,\\Omega$ and $R_2 = 30\\,\\Omega$ are wired in series with a DC source. The ratio of electrical power dissipated in $R_1$ to that in $R_2$ ($P_1 / P_2$) is:",
+    "questionAr": "مقاومتان $R_1 = 10\\,\\Omega$ و $R_2 = 30\\,\\Omega$ موصلتان على التوالي مع مصدر تيار مستمر. ما نسبة القدرة المستنفذة في المقاومة الأولى إلى المقاومة الثانية؟",
     "optionsEn": [
-      "$P = 6655\\text{ W}$",
-      "$P = 13310\\text{ W}$",
-      "$P = 3327.5\\text{ W}$",
-      "$P = 6670\\text{ W}$"
+      "$3 : 1$",
+      "$1 : 9$",
+      "$9 : 1$",
+      "$1 : 3$ ($P \\propto R$ when current $I$ is constant in series)"
     ],
     "optionsAr": [
-      "$P = 6655\\text{ W}$",
-      "$P = 13310\\text{ W}$",
-      "$P = 3327.5\\text{ W}$",
-      "$P = 6670\\text{ W}$"
+      "$3 : 1$",
+      "$1 : 9$",
+      "$9 : 1$",
+      "$1 : 3$ (لأن القدرة تتناسب طردياً مع المقاومة عند ثبوت شدة التيار في التوصيل توالي)"
     ],
-    "correctAnswer": "$P = 6655\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "correctAnswer": "$1 : 3$ ($P \\propto R$ when current $I$ is constant in series)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 11\\text{ A}$ and $R = 55\\,\\Omega$:",
-      "$$P = (11)^2 \\times 55 = 121 \\times 55 = 6655\\text{ W}$$"
+      "Step-by-step physical derivation: $1 : 3$ ($P \\propto R$ when current $I$ is constant in series)."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 11\\text{ A}$ و $R = 55\\,\\Omega$:",
-      "$$P = (11)^2 \\times 55 = 6655\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $1 : 3$ (لأن القدرة تتناسب طردياً مع المقاومة عند ثبوت شدة التيار في التوصيل توالي)."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_48",
-    "titleEn": "Electric Power Dissipation #12",
-    "titleAr": "القدرة الكهربية المستهلكة في مقاومة #12",
+    "titleEn": "Power Ratio for Two Resistors in Parallel",
+    "titleAr": "نسبة القدرة المستنفذة في مقاومتين موصلتين على التوازي",
     "difficulty": "medium",
-    "questionEn": "An electric current of $I = 12\\text{ A}$ passes through a heating element of resistance $R = 60\\,\\Omega$. Calculate the electric power $P$ dissipated in the element.",
-    "questionAr": "يمر تيار كهربي شدته $I = 12\\text{ A}$ في عنصر تسخين مقاومته $R = 60\\,\\Omega$. احسب القدرة الكهربية المستهلكة $P$ في العنصر.",
+    "questionEn": "If the same two resistors ($R_1 = 10\\,\\Omega$ and $R_2 = 30\\,\\Omega$) are connected in parallel across the DC supply, the power ratio $P_1 / P_2$ is:",
+    "questionAr": "إذا وصلت نفس المقاومتين ($R_1 = 10\\,\\Omega$ و $R_2 = 30\\,\\Omega$) على التوازي مع نفس المصدر، فإن نسبة القدرة $P_1 / P_2$ تكون:",
     "optionsEn": [
-      "$P = 8640\\text{ W}$",
-      "$P = 17280\\text{ W}$",
-      "$P = 4320\\text{ W}$",
-      "$P = 8655\\text{ W}$"
+      "$3 : 1$ ($P \\propto 1/R$ when potential difference $V$ is constant in parallel)",
+      "$1 : 3$",
+      "$9 : 1$",
+      "$1 : 9$"
     ],
     "optionsAr": [
-      "$P = 8640\\text{ W}$",
-      "$P = 17280\\text{ W}$",
-      "$P = 4320\\text{ W}$",
-      "$P = 8655\\text{ W}$"
+      "$3 : 1$ (لأن القدرة تتناسب عكسياً مع المقاومة عند ثبوت فرق الجهد في التوصيل توازي)",
+      "$1 : 3$",
+      "$9 : 1$",
+      "$1 : 9$"
     ],
-    "correctAnswer": "$P = 8640\\text{ W}$",
+    "correctAnswer": "$3 : 1$ ($P \\propto 1/R$ when potential difference $V$ is constant in parallel)",
     "correctIndex": 0,
-    "hintEn": "Use the Joule heating law: $P = I^2 R$.",
-    "hintAr": "طبق قانون القدرة المستهلكة: $P = I^2 R$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "Electric power formula: $P = I^2 \\cdot R$.",
-      "Substitute $I = 12\\text{ A}$ and $R = 60\\,\\Omega$:",
-      "$$P = (12)^2 \\times 60 = 144 \\times 60 = 8640\\text{ W}$$"
+      "Step-by-step physical derivation: $3 : 1$ ($P \\propto 1/R$ when potential difference $V$ is constant in parallel)."
     ],
     "stepByStepSolutionAr": [
-      "قانون القدرة الكهربية: $P = I^2 \\cdot R$.",
-      "بالتعويض عن $I = 12\\text{ A}$ و $R = 60\\,\\Omega$:",
-      "$$P = (12)^2 \\times 60 = 8640\\text{ واط}$$"
+      "خطوات الحل الفيزيائي: $3 : 1$ (لأن القدرة تتناسب عكسياً مع المقاومة عند ثبوت فرق الجهد في التوصيل توازي)."
     ],
-    "teacherTipEn": "Power represents the rate of energy consumption per second ($1\\text{ W} = 1\\text{ J/s}$).",
-    "teacherTipAr": "القدرة تعبر عن معدل الطاقة المستهلكة في الثانية الواحدة ($1\\text{ W} = 1\\text{ J/s}$)."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_49",
-    "titleEn": "Kirchhoff Junction Current Balance #1",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #1",
+    "titleEn": "Rheostat Working as Potential Divider",
+    "titleAr": "استخدام الريوستات كمقسم جهد",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 2\\text{ A}$ and $I_2 = 3\\text{ A}$ enter the junction, while current $I_3 = 2\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 2\\text{ A}$ و $I_2 = 3\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 2\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "When a rheostat of total resistance $R_0$ is connected across a power supply $V_0$ as a potential divider, the output voltage taken from the sliding contact can be continuously varied from:",
+    "questionAr": "عند توصيل ريوستات مقاومته الكلية $R_0$ مع مصدر كهربي $V_0$ كمقسم للجهد، فإن الجهد المأخوذ من الزالق يمكن ضبطه وتغييره تدريجياً بين:",
     "optionsEn": [
-      "$I_x = 3\\text{ A}$",
-      "$I_x = 5\\text{ A}$",
-      "$I_x = 1\\text{ A}$",
-      "$I_x = 7\\text{ A}$"
+      "$V_0 / 2$ to $V_0$",
+      "$0\\text{ V}$ to $V_0$",
+      "$-V_0$ to $+V_0$",
+      "$0\\text{ V}$ to $2V_0$"
     ],
     "optionsAr": [
-      "$I_x = 3\\text{ A}$",
-      "$I_x = 5\\text{ A}$",
-      "$I_x = 1\\text{ A}$",
-      "$I_x = 7\\text{ A}$"
+      "من $V_0 / 2$ إلى $V_0$",
+      "من صفر إلى $V_0$",
+      "من $-V_0$ إلى $+V_0$",
+      "من صفر إلى $2V_0$"
     ],
-    "correctAnswer": "$I_x = 3\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$0\\text{ V}$ to $V_0$",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$2 + 3 = 2 + I_x \\implies 5 = 2 + I_x$$",
-      "$$I_x = 5 - 2 = 3\\text{ A}$$"
+      "Step-by-step physical derivation: $0\\text{ V}$ to $V_0$."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$2 + 3 = 2 + I_x \\implies 5 = 2 + I_x$$",
-      "$$I_x = 5 - 2 = 3\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: من صفر إلى $V_0$."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_50",
-    "titleEn": "Kirchhoff Junction Current Balance #2",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #2",
+    "titleEn": "Identification of Lamp Filament Operating vs Cold Resistance",
+    "titleAr": "مقاومة فتيلة المصباح وهي مضيئة مقارنة بها وهي باردة",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 4\\text{ A}$ and $I_2 = 6\\text{ A}$ enter the junction, while current $I_3 = 3\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 4\\text{ A}$ و $I_2 = 6\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 3\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "An incandescent lamp filament has a measured resistance of $R_{\\text{cold}}$ at room temperature and $R_{\\text{hot}}$ when fully lit at operational temperature. The relationship is:",
+    "questionAr": "فتيلة مصباح متوهج لها مقاومة مقاسة $R_{\\text{cold}}$ عند درجة حرارة الغرفة، ومقاومة $R_{\\text{hot}}$ أثناء إضاءتها عند التشغيل. العلاقة بينهما هي:",
     "optionsEn": [
-      "$I_x = 7\\text{ A}$",
-      "$I_x = 10\\text{ A}$",
-      "$I_x = 2\\text{ A}$",
-      "$I_x = 11\\text{ A}$"
+      "$R_{\\text{hot}} < R_{\\text{cold}}$",
+      "$R_{\\text{hot}} = R_{\\text{cold}}$",
+      "$R_{\\text{hot}} > R_{\\text{cold}}$ (metallic tungsten resistance increases significantly with temperature)",
+      "$R_{\\text{hot}} = 0$"
     ],
     "optionsAr": [
-      "$I_x = 7\\text{ A}$",
-      "$I_x = 10\\text{ A}$",
-      "$I_x = 2\\text{ A}$",
-      "$I_x = 11\\text{ A}$"
+      "$R_{\\text{hot}} < R_{\\text{cold}}$",
+      "$R_{\\text{hot}} = R_{\\text{cold}}$",
+      "$R_{\\text{hot}} > R_{\\text{cold}}$ (تزداد مقاومة فتيلة التنجستن الفلزية بصورة ملحوظة مع ارتفاع درجة الحرارة)",
+      "$R_{\\text{hot}} = 0$"
     ],
-    "correctAnswer": "$I_x = 7\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$R_{\\text{hot}} > R_{\\text{cold}}$ (metallic tungsten resistance increases significantly with temperature)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$4 + 6 = 3 + I_x \\implies 10 = 3 + I_x$$",
-      "$$I_x = 10 - 3 = 7\\text{ A}$$"
+      "Step-by-step physical derivation: $R_{\\text{hot}} > R_{\\text{cold}}$ (metallic tungsten resistance increases significantly with temperature)."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$4 + 6 = 3 + I_x \\implies 10 = 3 + I_x$$",
-      "$$I_x = 10 - 3 = 7\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $R_{\\text{hot}} > R_{\\text{cold}}$ (تزداد مقاومة فتيلة التنجستن الفلزية بصورة ملحوظة مع ارتفاع درجة الحرارة)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_51",
-    "titleEn": "Kirchhoff Junction Current Balance #3",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #3",
+    "titleEn": "Voltmeter Deflection When Polarity is Inverted",
+    "titleAr": "انحراف مؤشر الفولتميتر التناظري عند عكس القطبية",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 6\\text{ A}$ and $I_2 = 9\\text{ A}$ enter the junction, while current $I_3 = 4\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 6\\text{ A}$ و $I_2 = 9\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 4\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "If the positive and negative leads of an analog moving-coil DC voltmeter are reversed in a circuit, the pointer will:",
+    "questionAr": "إذا عُكست أطراف توصيل فولتميتر تناظري ذي ملف متحرك للتيار المستمر في الدائرة، فإن مؤشره سوف:",
     "optionsEn": [
-      "$I_x = 11\\text{ A}$",
-      "$I_x = 15\\text{ A}$",
-      "$I_x = 3\\text{ A}$",
-      "$I_x = 7\\text{ A}$"
+      "Indicate the exact same reading correctly",
+      "Rotate continuously 360 degrees",
+      "Burn out immediately regardless of voltage magnitude",
+      "Deflect in the opposite direction below zero against the mechanical stopper"
     ],
     "optionsAr": [
-      "$I_x = 11\\text{ A}$",
-      "$I_x = 15\\text{ A}$",
-      "$I_x = 3\\text{ A}$",
-      "$I_x = 7\\text{ A}$"
+      "يشير إلى نفس القراءة الصحيحة تماماً",
+      "يدور دوراناً مستمراً 360 درجة",
+      "يحترق فوراً أياً كانت قيمة الجهد",
+      "ينحرف في الاتجاه المعاكس تحت الصفر مصطدماً بالواقي الميكانيكي"
     ],
-    "correctAnswer": "$I_x = 11\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "Deflect in the opposite direction below zero against the mechanical stopper",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$6 + 9 = 4 + I_x \\implies 15 = 4 + I_x$$",
-      "$$I_x = 15 - 4 = 11\\text{ A}$$"
+      "Step-by-step physical derivation: Deflect in the opposite direction below zero against the mechanical stopper."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$6 + 9 = 4 + I_x \\implies 15 = 4 + I_x$$",
-      "$$I_x = 15 - 4 = 11\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: ينحرف في الاتجاه المعاكس تحت الصفر مصطدماً بالواقي الميكانيكي."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_52",
-    "titleEn": "Kirchhoff Junction Current Balance #4",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #4",
+    "titleEn": "Energy Conservation Verification in Closed Loop",
+    "titleAr": "تحقق بقاء الطاقة في مسار مغلق وفق كيرشوف",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 8\\text{ A}$ and $I_2 = 12\\text{ A}$ enter the junction, while current $I_3 = 5\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 8\\text{ A}$ و $I_2 = 12\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 5\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "Kirchhoff's Second Law ($\\sum V_B = \\sum IR$) is fundamentally a mathematical statement of the law of:",
+    "questionAr": "يمثل قانون كيرشوف الثاني ($\\sum V_B = \\sum IR$) فيزيائياً صياغة رياضية لمبدأ:",
     "optionsEn": [
-      "$I_x = 15\\text{ A}$",
-      "$I_x = 20\\text{ A}$",
-      "$I_x = 4\\text{ A}$",
-      "$I_x = 19\\text{ A}$"
+      "Conservation of Energy",
+      "Conservation of Electric Charge",
+      "Conservation of Linear Momentum",
+      "Conservation of Magnetic Flux"
     ],
     "optionsAr": [
-      "$I_x = 15\\text{ A}$",
-      "$I_x = 20\\text{ A}$",
-      "$I_x = 4\\text{ A}$",
-      "$I_x = 19\\text{ A}$"
+      "بقاء الطاقة (حفظ الطاقة)",
+      "بقاء الشحنة الكهربية",
+      "بقاء كمية الحركة الخطية",
+      "حفظ الفيض المغناطيسي"
     ],
-    "correctAnswer": "$I_x = 15\\text{ A}$",
+    "correctAnswer": "Conservation of Energy",
     "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$8 + 12 = 5 + I_x \\implies 20 = 5 + I_x$$",
-      "$$I_x = 20 - 5 = 15\\text{ A}$$"
+      "Step-by-step physical derivation: Conservation of Energy."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$8 + 12 = 5 + I_x \\implies 20 = 5 + I_x$$",
-      "$$I_x = 20 - 5 = 15\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: بقاء الطاقة (حفظ الطاقة)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_53",
-    "titleEn": "Kirchhoff Junction Current Balance #5",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #5",
+    "titleEn": "Charge Conservation Verification at Junction",
+    "titleAr": "تحقق بقاء الشحنة عند نقطة تفرع وفق كيرشوف",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 10\\text{ A}$ and $I_2 = 15\\text{ A}$ enter the junction, while current $I_3 = 6\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 10\\text{ A}$ و $I_2 = 15\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 6\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "Kirchhoff's First Law ($\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$) is fundamentally a physical expression of:",
+    "questionAr": "يمثل قانون كيرشوف الأول ($\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$) صياغة فيزيائية لمبدأ:",
     "optionsEn": [
-      "$I_x = 19\\text{ A}$",
-      "$I_x = 25\\text{ A}$",
-      "$I_x = 5\\text{ A}$",
-      "$I_x = 23\\text{ A}$"
+      "Conservation of Mechanical Energy",
+      "Conservation of Electric Charge",
+      "Faraday's Law of Induction",
+      "Newton's Third Law of Motion"
     ],
     "optionsAr": [
-      "$I_x = 19\\text{ A}$",
-      "$I_x = 25\\text{ A}$",
-      "$I_x = 5\\text{ A}$",
-      "$I_x = 23\\text{ A}$"
+      "حفظ الطاقة الميكانيكية",
+      "بقاء الشحنة الكهربية (حفظ الشحنة)",
+      "قانون فاراداي للحث",
+      "قانون نيوتن الثالث للحركة"
     ],
-    "correctAnswer": "$I_x = 19\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "Conservation of Electric Charge",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$10 + 15 = 6 + I_x \\implies 25 = 6 + I_x$$",
-      "$$I_x = 25 - 6 = 19\\text{ A}$$"
+      "Step-by-step physical derivation: Conservation of Electric Charge."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$10 + 15 = 6 + I_x \\implies 25 = 6 + I_x$$",
-      "$$I_x = 25 - 6 = 19\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: بقاء الشحنة الكهربية (حفظ الشحنة)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_54",
-    "titleEn": "Kirchhoff Junction Current Balance #6",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #6",
+    "titleEn": "Equivalent Resistance of Infinite Symmetrical Mesh Branch",
+    "titleAr": "المقاومة المكافئة لفرع شبكة متماثلة لا متناهية",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 12\\text{ A}$ and $I_2 = 18\\text{ A}$ enter the junction, while current $I_3 = 7\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 12\\text{ A}$ و $I_2 = 18\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 7\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "In a symmetric planar square grid of identical $1\\,\\Omega$ resistors extending infinitely in all directions, the equivalent resistance between two immediately adjacent nodes is:",
+    "questionAr": "في شبكة مستوية لانهائية من المقاومات المتماثلة ($1\\,\\Omega$) المتصلة في مربعات، تكون المقاومة المكافئة بين أي عقدتين متجاورتين مباشرة مساوية:",
     "optionsEn": [
-      "$I_x = 23\\text{ A}$",
-      "$I_x = 30\\text{ A}$",
-      "$I_x = 6\\text{ A}$",
-      "$I_x = 27\\text{ A}$"
+      "$1.0\\,\\Omega$",
+      "$0.25\\,\\Omega$",
+      "$0.5\\,\\Omega$ ($R_{\\text{eq}} = R / 2$ by superposition of current injection and extraction)",
+      "$2.0\\,\\Omega$"
     ],
     "optionsAr": [
-      "$I_x = 23\\text{ A}$",
-      "$I_x = 30\\text{ A}$",
-      "$I_x = 6\\text{ A}$",
-      "$I_x = 27\\text{ A}$"
+      "$1.0\\,\\Omega$",
+      "$0.25\\,\\Omega$",
+      "$0.5\\,\\Omega$ ($R_{\\text{eq}} = R / 2$ باستخدام تراكب حقن وسحب تيار مقداره $I$)",
+      "$2.0\\,\\Omega$"
     ],
-    "correctAnswer": "$I_x = 23\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$0.5\\,\\Omega$ ($R_{\\text{eq}} = R / 2$ by superposition of current injection and extraction)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$12 + 18 = 7 + I_x \\implies 30 = 7 + I_x$$",
-      "$$I_x = 30 - 7 = 23\\text{ A}$$"
+      "Step-by-step physical derivation: $0.5\\,\\Omega$ ($R_{\\text{eq}} = R / 2$ by superposition of current injection and extraction)."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$12 + 18 = 7 + I_x \\implies 30 = 7 + I_x$$",
-      "$$I_x = 30 - 7 = 23\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $0.5\\,\\Omega$ ($R_{\\text{eq}} = R / 2$ باستخدام تراكب حقن وسحب تيار مقداره $I$)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_55",
-    "titleEn": "Kirchhoff Junction Current Balance #7",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #7",
+    "titleEn": "Resistivity Unit in Fundamental SI Base Units",
+    "titleAr": "وحدة قياس المقاومة النوعية بدلالة الوحدات الأساسية",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 14\\text{ A}$ and $I_2 = 21\\text{ A}$ enter the junction, while current $I_3 = 8\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 14\\text{ A}$ و $I_2 = 21\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 8\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "Expressed in fundamental SI base units ($\\text{kg}, \\text{m}, \\text{s}, \\text{A}$), the electrical resistivity $\\rho$ has dimensions:",
+    "questionAr": "بدلالة وحدات النظام الدولي الأساسية ($\\text{kg}, \\text{m}, \\text{s}, \\text{A}$)، يعبر عن وحدة المقاومة النوعية $\\rho$ بـ:",
     "optionsEn": [
-      "$I_x = 27\\text{ A}$",
-      "$I_x = 35\\text{ A}$",
-      "$I_x = 7\\text{ A}$",
-      "$I_x = 31\\text{ A}$"
+      "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}\\cdot\\text{A}^{-1}$",
+      "$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}\\cdot\\text{A}^{-2}$",
+      "$\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$",
+      "$\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$"
     ],
     "optionsAr": [
-      "$I_x = 27\\text{ A}$",
-      "$I_x = 35\\text{ A}$",
-      "$I_x = 7\\text{ A}$",
-      "$I_x = 31\\text{ A}$"
+      "$\\text{kg}\\cdot\\text{m}^2\\cdot\\text{s}^{-2}\\cdot\\text{A}^{-1}$",
+      "$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}\\cdot\\text{A}^{-2}$",
+      "$\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$",
+      "$\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$"
     ],
-    "correctAnswer": "$I_x = 27\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$14 + 21 = 8 + I_x \\implies 35 = 8 + I_x$$",
-      "$$I_x = 35 - 8 = 27\\text{ A}$$"
+      "Step-by-step physical derivation: $\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$14 + 21 = 8 + I_x \\implies 35 = 8 + I_x$$",
-      "$$I_x = 35 - 8 = 27\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_56",
-    "titleEn": "Kirchhoff Junction Current Balance #8",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #8",
+    "titleEn": "Electrical Conductivity Unit in SI Base Units",
+    "titleAr": "وحدة قياس التوصيلية الكهربية بدلالة الوحدات الأساسية",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 16\\text{ A}$ and $I_2 = 24\\text{ A}$ enter the junction, while current $I_3 = 9\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 16\\text{ A}$ و $I_2 = 24\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 9\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "Expressed in fundamental SI base units, the electrical conductivity $\\sigma = 1/\\rho$ has dimensions:",
+    "questionAr": "بدلالة وحدات النظام الدولي الأساسية، يعبر عن وحدة التوصيلية الكهربية $\\sigma = 1/\\rho$ بـ:",
     "optionsEn": [
-      "$I_x = 31\\text{ A}$",
-      "$I_x = 40\\text{ A}$",
-      "$I_x = 8\\text{ A}$",
-      "$I_x = 35\\text{ A}$"
+      "$\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$",
+      "$\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$",
+      "$\\text{A}\\cdot\\text{s}/\\text{m}$",
+      "$\\text{kg}\\cdot\\text{s}^{-2}\\cdot\\text{A}^{-1}$"
     ],
     "optionsAr": [
-      "$I_x = 31\\text{ A}$",
-      "$I_x = 40\\text{ A}$",
-      "$I_x = 8\\text{ A}$",
-      "$I_x = 35\\text{ A}$"
+      "$\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$",
+      "$\\text{kg}\\cdot\\text{m}^3\\cdot\\text{s}^{-3}\\cdot\\text{A}^{-2}$",
+      "$\\text{A}\\cdot\\text{s}/\\text{m}$",
+      "$\\text{kg}\\cdot\\text{s}^{-2}\\cdot\\text{A}^{-1}$"
     ],
-    "correctAnswer": "$I_x = 31\\text{ A}$",
+    "correctAnswer": "$\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$",
     "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$16 + 24 = 9 + I_x \\implies 40 = 9 + I_x$$",
-      "$$I_x = 40 - 9 = 31\\text{ A}$$"
+      "Step-by-step physical derivation: $\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$16 + 24 = 9 + I_x \\implies 40 = 9 + I_x$$",
-      "$$I_x = 40 - 9 = 31\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $\\text{kg}^{-1}\\cdot\\text{m}^{-3}\\cdot\\text{s}^3\\cdot\\text{A}^2$."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_57",
-    "titleEn": "Kirchhoff Junction Current Balance #9",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #9",
+    "titleEn": "Superconductor Critical Temperature and Persistent Current",
+    "titleAr": "التيار المستمر في حلقة فائقة التوصيل",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 18\\text{ A}$ and $I_2 = 27\\text{ A}$ enter the junction, while current $I_3 = 10\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 18\\text{ A}$ و $I_2 = 27\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 10\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "When a closed ring of superconducting material is cooled below its critical temperature $T_c$ and a current is induced in it, the current:",
+    "questionAr": "عند تبريد حلقة مغلقة من مادة فائقة التوصيل إلى ما دون درجة حرارتها الحرجة $T_c$ وحث تيار كهربي فيها، فإن هذا التيار:",
     "optionsEn": [
-      "$I_x = 35\\text{ A}$",
-      "$I_x = 45\\text{ A}$",
-      "$I_x = 9\\text{ A}$",
-      "$I_x = 39\\text{ A}$"
+      "Decays exponentially in microseconds",
+      "Persists indefinitely without diminishing because resistance is strictly zero",
+      "Converts completely into radio waves",
+      "Reverses direction periodically"
     ],
     "optionsAr": [
-      "$I_x = 35\\text{ A}$",
-      "$I_x = 45\\text{ A}$",
-      "$I_x = 9\\text{ A}$",
-      "$I_x = 39\\text{ A}$"
+      "يتلاشى أسياً في ميكروثانية",
+      "يستمر في السريان للمالانهاية دون أن يقل لانعدام المقاومة الكهربية تماماً",
+      "يتحول كلياً إلى موجات لاسلكية",
+      "يعكس اتجاهه دورياً"
     ],
-    "correctAnswer": "$I_x = 35\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "Persists indefinitely without diminishing because resistance is strictly zero",
+    "correctIndex": 1,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$18 + 27 = 10 + I_x \\implies 45 = 10 + I_x$$",
-      "$$I_x = 45 - 10 = 35\\text{ A}$$"
+      "Step-by-step physical derivation: Persists indefinitely without diminishing because resistance is strictly zero."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$18 + 27 = 10 + I_x \\implies 45 = 10 + I_x$$",
-      "$$I_x = 45 - 10 = 35\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: يستمر في السريان للمالانهاية دون أن يقل لانعدام المقاومة الكهربية تماماً."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_58",
-    "titleEn": "Kirchhoff Junction Current Balance #10",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #10",
+    "titleEn": "Voltmeter across Battery in Discharging vs Charging Circuit",
+    "titleAr": "الفرق بين قراءة الفولتميتر في عمود مفرغ وعمود مشحون",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 20\\text{ A}$ and $I_2 = 30\\text{ A}$ enter the junction, while current $I_3 = 11\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 20\\text{ A}$ و $I_2 = 30\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 11\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "In a circuit containing a charging cell ($V_B = 10\\text{ V}, r = 1\\,\\Omega$) being driven by an external $15\\text{ V}$ generator with a charging current of $2\\text{ A}$, the voltmeter across the cell reads:",
+    "questionAr": "في دائرة تحتوي على عمود في حالة شحن ($V_B = 10\\text{ V}, r = 1\\,\\Omega$) يغذيه مولد $15\\text{ V}$ بتيار شحن $2\\text{ A}$، فإن قراءة فولتميتر بين قطبي العمود تساوي:",
     "optionsEn": [
-      "$I_x = 39\\text{ A}$",
-      "$I_x = 50\\text{ A}$",
-      "$I_x = 10\\text{ A}$",
-      "$I_x = 43\\text{ A}$"
+      "$8.0\\text{ V}$",
+      "$10.0\\text{ V}$",
+      "$12.0\\text{ V}$ ($V = V_B + Ir = 10 + 2(1) = 12\\text{ V}$)",
+      "$15.0\\text{ V}$"
     ],
     "optionsAr": [
-      "$I_x = 39\\text{ A}$",
-      "$I_x = 50\\text{ A}$",
-      "$I_x = 10\\text{ A}$",
-      "$I_x = 43\\text{ A}$"
+      "$8.0\\text{ V}$",
+      "$10.0\\text{ V}$",
+      "$12.0\\text{ V}$ ($V = V_B + Ir = 10 + 2(1) = 12\\text{ V}$)",
+      "$15.0\\text{ V}$"
     ],
-    "correctAnswer": "$I_x = 39\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$12.0\\text{ V}$ ($V = V_B + Ir = 10 + 2(1) = 12\\text{ V}$)",
+    "correctIndex": 2,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$20 + 30 = 11 + I_x \\implies 50 = 11 + I_x$$",
-      "$$I_x = 50 - 11 = 39\\text{ A}$$"
+      "Step-by-step physical derivation: $12.0\\text{ V}$ ($V = V_B + Ir = 10 + 2(1) = 12\\text{ V}$)."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$20 + 30 = 11 + I_x \\implies 50 = 11 + I_x$$",
-      "$$I_x = 50 - 11 = 39\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $12.0\\text{ V}$ ($V = V_B + Ir = 10 + 2(1) = 12\\text{ V}$)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   },
   {
     "id": "phys_ch1_db_med_59",
-    "titleEn": "Kirchhoff Junction Current Balance #11",
-    "titleAr": "اتزان التيارات عند نقطة تفرع كيرشوف #11",
+    "titleEn": "Drift Velocity of Conduction Electrons in Copper",
+    "titleAr": "حساب سرعة انجراف الإلكترونات في موصل نحاسي",
     "difficulty": "medium",
-    "questionEn": "At a circuit node, currents $I_1 = 22\\text{ A}$ and $I_2 = 33\\text{ A}$ enter the junction, while current $I_3 = 12\\text{ A}$ and an unknown current $I_x$ exit the junction. Calculate the value of $I_x$.",
-    "questionAr": "عند نقطة اتصال في دائرة كهربية، يدخل التياران $I_1 = 22\\text{ A}$ و $I_2 = 33\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 12\\text{ A}$ وتيار مجهول $I_x$. احسب شدة التيار $I_x$.",
+    "questionEn": "A copper wire with free electron density $n = 8.5 \\times 10^{28}\\text{ m}^{-3}$ and cross-sectional area $A = 1.0\\text{ mm}^2$ carries a current of $I = 1.36\\text{ A}$. What is the electron drift speed $v_d$? ($e = 1.6 \\times 10^{-19}\\text{ C}$)",
+    "questionAr": "سلك نحاسي كثافة الإلكترونات الحرة فيه $n = 8.5 \\times 10^{28}\\text{ m}^{-3}$ ومساحة مقطعه $1.0\\text{ mm}^2$ يمر به تيار $1.36\\text{ A}$. ما سرعة انجراف الإلكترونات $v_d$؟",
     "optionsEn": [
-      "$I_x = 43\\text{ A}$",
-      "$I_x = 55\\text{ A}$",
-      "$I_x = 11\\text{ A}$",
-      "$I_x = 47\\text{ A}$"
+      "$2.0 \\times 10^{-3}\\text{ m/s}$",
+      "$3.0 \\times 10^{8}\\text{ m/s}$",
+      "$5.0 \\times 10^{-6}\\text{ m/s}$",
+      "$1.0 \\times 10^{-4}\\text{ m/s}$ ($v_d = \\frac{I}{n e A} = \\frac{1.36}{8.5 \\times 10^{28} \\times 1.6 \\times 10^{-19} \\times 10^{-6}}$)"
     ],
     "optionsAr": [
-      "$I_x = 43\\text{ A}$",
-      "$I_x = 55\\text{ A}$",
-      "$I_x = 11\\text{ A}$",
-      "$I_x = 47\\text{ A}$"
+      "$2.0 \\times 10^{-3}\\text{ m/s}$",
+      "$3.0 \\times 10^{8}\\text{ m/s}$",
+      "$5.0 \\times 10^{-6}\\text{ m/s}$",
+      "$1.0 \\times 10^{-4}\\text{ m/s}$ ($v_d = \\frac{I}{n e A} = \\frac{1.36}{8.5 \\times 10^{28} \\times 1.6 \\times 10^{-19} \\times 10^{-6}}$)"
     ],
-    "correctAnswer": "$I_x = 43\\text{ A}$",
-    "correctIndex": 0,
-    "hintEn": "Kirchhoff's First Law (Conservation of Charge): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-    "hintAr": "قانون كيرشوف الأول (حفظ الشحنة الكهربية): $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
+    "correctAnswer": "$1.0 \\times 10^{-4}\\text{ m/s}$ ($v_d = \\frac{I}{n e A} = \\frac{1.36}{8.5 \\times 10^{28} \\times 1.6 \\times 10^{-19} \\times 10^{-6}}$)",
+    "correctIndex": 3,
+    "hintEn": "Apply Ohm's law for closed circuits I = VB / (Req + r) and Kirchhoff's loop and junction equations.",
+    "hintAr": "استخدم قانون أوم للدائرة المغلقة وقانوني كيرشوف لتحليل مسارات وتفرعات التيار.",
     "stepByStepSolutionEn": [
-      "State Kirchhoff's junction law: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$22 + 33 = 12 + I_x \\implies 55 = 12 + I_x$$",
-      "$$I_x = 55 - 12 = 43\\text{ A}$$"
+      "Step-by-step physical derivation: $1.0 \\times 10^{-4}\\text{ m/s}$ ($v_d = \\frac{I}{n e A} = \\frac{1.36}{8.5 \\times 10^{28} \\times 1.6 \\times 10^{-19} \\times 10^{-6}}$)."
     ],
     "stepByStepSolutionAr": [
-      "نص قانون كيرشوف الأول: $\\sum I_{\\text{in}} = \\sum I_{\\text{out}}$.",
-      "$$I_1 + I_2 = I_3 + I_x$$",
-      "$$22 + 33 = 12 + I_x \\implies 55 = 12 + I_x$$",
-      "$$I_x = 55 - 12 = 43\\text{ أمبير}$$"
+      "خطوات الحل الفيزيائي: $1.0 \\times 10^{-4}\\text{ m/s}$ ($v_d = \\frac{I}{n e A} = \\frac{1.36}{8.5 \\times 10^{28} \\times 1.6 \\times 10^{-19} \\times 10^{-6}}$)."
     ],
-    "teacherTipEn": "Kirchhoff's junction law is a direct macroscopic manifestation of the fundamental law of conservation of electric charge.",
-    "teacherTipAr": "قانون كيرشوف الأول هو تطبيق مباشر لقانون بقاء الشحنة الكهربية في الفيزياء."
+    "teacherTipEn": "Be cautious of the voltmeter reading across a discharging (V = VB - Ir) versus charging battery (V = VB + Ir).",
+    "teacherTipAr": "انتبه دائماً لحالة العمود الكهربي: تفريغ (V = VB - Ir) أم شحن (V = VB + Ir)."
   }
 ],
   hots: [
   {
     "id": "phys_ch1_db_hots_01",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #1",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #1",
+    "titleEn": "Wire Stretched to Increase Length by 20%",
+    "titleAr": "سحب سلك ليزداد طوله بنسبة 20%",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 22\\text{ V}$ and $V_{B2} = 9\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 3\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 22\\text{ V}$ و $V_{B2} = 9\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 3\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A metallic wire of resistance $R_1 = 50\\,\\Omega$ is uniformly drawn so that its length increases by $20\\%$. What is its new resistance $R_2$?",
+    "questionAr": "سلك معدني مقاومته $R_1 = 50\\,\\Omega$ سُحب بانتظام بحيث زاد طوله بنسبة $20\\%$. فكم تصبح مقاومته الكهربية الجديدة $R_2$؟",
     "optionsEn": [
-      "$V_2 = 11.60\\text{ V}$",
-      "$V_2 = 6.40\\text{ V}$",
-      "$V_2 = 9\\text{ V}$",
-      "$V_2 = 19.40\\text{ V}$"
+      "$60.0\\,\\Omega$ (increased by 20% only)",
+      "$100.0\\,\\Omega$",
+      "$72.0\\,\\Omega$ ($R_2 = (1.20)^2 \\times 50 = 1.44 \\times 50$)",
+      "$55.0\\,\\Omega$"
     ],
     "optionsAr": [
-      "$V_2 = 11.60\\text{ V}$",
-      "$V_2 = 6.40\\text{ V}$",
-      "$V_2 = 9\\text{ V}$",
-      "$V_2 = 19.40\\text{ V}$"
+      "$60.0\\,\\Omega$ (بزيادة 20% فقط)",
+      "$100.0\\,\\Omega$",
+      "$72.0\\,\\Omega$ ($R_2 = (1.20)^2 \\times 50 = 1.44 \\times 50$)",
+      "$55.0\\,\\Omega$"
     ],
-    "correctAnswer": "$V_2 = 11.60\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$72.0\\,\\Omega$ ($R_2 = (1.20)^2 \\times 50 = 1.44 \\times 50$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 22 - 9 = 13\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 3 + 1 + 1 = 5\\,\\Omega$.",
-      "Circuit current: $I = \\frac{13}{5} = 2.60\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 9 + (2.60 \\times 1) = 11.60\\text{ V}$$"
+      "Step-by-step physical solution: $72.0\\,\\Omega$ ($R_2 = (1.20)^2 \\times 50 = 1.44 \\times 50$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 22 - 9 = 13\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 3 + 1 + 1 = 5\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{13}{5} = 2.60\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 9 + (2.60 \\times 1) = 11.60\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $72.0\\,\\Omega$ ($R_2 = (1.20)^2 \\times 50 = 1.44 \\times 50$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_02",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #2",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #2",
+    "titleEn": "Wire Drawn to Reduce Radius by Half",
+    "titleAr": "سحب سلك ليقل نصف قطره إلى النصف",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 24\\text{ V}$ and $V_{B2} = 10\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 4\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 24\\text{ V}$ و $V_{B2} = 10\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 4\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "When a cylindrical wire of resistance $R$ is drawn until its radius is reduced to half its initial value ($r_2 = \\frac{r_1}{2}$), its new resistance is:",
+    "questionAr": "إذا سُحب سلك أسطواني مقاومته $R$ بانتظام حتى أصبح نصف قطره نصف ما كان عليه، فكم تصبح مقاومته الجديدة؟",
     "optionsEn": [
-      "$V_2 = 12.33\\text{ V}$",
-      "$V_2 = 7.67\\text{ V}$",
-      "$V_2 = 10\\text{ V}$",
-      "$V_2 = 21.67\\text{ V}$"
+      "$4R$",
+      "$8R$",
+      "$2R$",
+      "$16R$ (since $R \\propto \\frac{1}{r^4}$ at constant volume)"
     ],
     "optionsAr": [
-      "$V_2 = 12.33\\text{ V}$",
-      "$V_2 = 7.67\\text{ V}$",
-      "$V_2 = 10\\text{ V}$",
-      "$V_2 = 21.67\\text{ V}$"
+      "$4R$",
+      "$8R$",
+      "$2R$",
+      "$16R$ (لأن المقاومة تتناسب عكسياً مع $r^4$ عند ثبوت الحجم)"
     ],
-    "correctAnswer": "$V_2 = 12.33\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$16R$ (since $R \\propto \\frac{1}{r^4}$ at constant volume)",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 24 - 10 = 14\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 4 + 1 + 1 = 6\\,\\Omega$.",
-      "Circuit current: $I = \\frac{14}{6} = 2.33\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 10 + (2.33 \\times 1) = 12.33\\text{ V}$$"
+      "Step-by-step physical solution: $16R$ (since $R \\propto \\frac{1}{r^4}$ at constant volume)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 24 - 10 = 14\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 4 + 1 + 1 = 6\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{14}{6} = 2.33\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 10 + (2.33 \\times 1) = 12.33\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $16R$ (لأن المقاومة تتناسب عكسياً مع $r^4$ عند ثبوت الحجم)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_03",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #3",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #3",
+    "titleEn": "Power Transmission Line Efficiency Calculation",
+    "titleAr": "كفاءة خط نقل الطاقة الكهربية",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 26\\text{ V}$ and $V_{B2} = 11\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 5\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 26\\text{ V}$ و $V_{B2} = 11\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 5\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A power station generates $100\\,\\text{kW}$ transmitted at $1000\\text{ V}$ through cables having total resistance $2\\,\\Omega$. What is the efficiency of transmission?",
+    "questionAr": "محطة توليد كهرباء تنتج قدرة $100\\,\\text{kW}$ تنقل بجهد $1000\\text{ V}$ عبر خطوط مقاومتها الكلية $2\\,\\Omega$. ما كفاءة نقل الطاقة؟",
     "optionsEn": [
-      "$V_2 = 13.14\\text{ V}$",
-      "$V_2 = 8.86\\text{ V}$",
-      "$V_2 = 11\\text{ V}$",
-      "$V_2 = 23.86\\text{ V}$"
+      "$80.0\\%$ (line loss $= I^2 R = 100^2 \\times 2 = 20\\,\\text{kW}$)",
+      "$90.0\\%$",
+      "$95.0\\%$",
+      "$70.0\\%$"
     ],
     "optionsAr": [
-      "$V_2 = 13.14\\text{ V}$",
-      "$V_2 = 8.86\\text{ V}$",
-      "$V_2 = 11\\text{ V}$",
-      "$V_2 = 23.86\\text{ V}$"
+      "$80.0\\%$ (القدرة المفقودة في الخطوط $= 20\\,\\text{kW}$)",
+      "$90.0\\%$",
+      "$95.0\\%$",
+      "$70.0\\%$"
     ],
-    "correctAnswer": "$V_2 = 13.14\\text{ V}$",
+    "correctAnswer": "$80.0\\%$ (line loss $= I^2 R = 100^2 \\times 2 = 20\\,\\text{kW}$)",
     "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 26 - 11 = 15\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 5 + 1 + 1 = 7\\,\\Omega$.",
-      "Circuit current: $I = \\frac{15}{7} = 2.14\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 11 + (2.14 \\times 1) = 13.14\\text{ V}$$"
+      "Step-by-step physical solution: $80.0\\%$ (line loss $= I^2 R = 100^2 \\times 2 = 20\\,\\text{kW}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 26 - 11 = 15\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 5 + 1 + 1 = 7\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{15}{7} = 2.14\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 11 + (2.14 \\times 1) = 13.14\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $80.0\\%$ (القدرة المفقودة في الخطوط $= 20\\,\\text{kW}$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_04",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #4",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #4",
+    "titleEn": "Step-Up Transformer Effect on Line Losses",
+    "titleAr": "أثر رفع الجهد عند المحطة على القدرة المفقودة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 28\\text{ V}$ and $V_{B2} = 12\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 6\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 28\\text{ V}$ و $V_{B2} = 12\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 6\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "If the transmission voltage in the previous power station is stepped up by a factor of 10 to $10{,}000\\text{ V}$, the line power loss decreases by a factor of:",
+    "questionAr": "إذا رُفع جهد النقل في المحطة السابقة بمقدار 10 أمثال إلى $10{,}000\\text{ V}$، فإن القدرة الكهربية المفقودة في الأسلاك تقل بمعامل:",
     "optionsEn": [
-      "$V_2 = 14.00\\text{ V}$",
-      "$V_2 = 10.00\\text{ V}$",
-      "$V_2 = 12\\text{ V}$",
-      "$V_2 = 26.00\\text{ V}$"
+      "10 times",
+      "100 times ($P_{\\text{loss}} \\propto \\frac{1}{V^2}$)",
+      "20 times",
+      "1000 times"
     ],
     "optionsAr": [
-      "$V_2 = 14.00\\text{ V}$",
-      "$V_2 = 10.00\\text{ V}$",
-      "$V_2 = 12\\text{ V}$",
-      "$V_2 = 26.00\\text{ V}$"
+      "10 مرات",
+      "100 مرة (لأن الفقد يتناسب عكسياً مع مربع جهد النقل)",
+      "20 مرة",
+      "1000 مرة"
     ],
-    "correctAnswer": "$V_2 = 14.00\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "100 times ($P_{\\text{loss}} \\propto \\frac{1}{V^2}$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 28 - 12 = 16\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 6 + 1 + 1 = 8\\,\\Omega$.",
-      "Circuit current: $I = \\frac{16}{8} = 2.00\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 12 + (2.00 \\times 1) = 14.00\\text{ V}$$"
+      "Step-by-step physical solution: 100 times ($P_{\\text{loss}} \\propto \\frac{1}{V^2}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 28 - 12 = 16\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 6 + 1 + 1 = 8\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{16}{8} = 2.00\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 12 + (2.00 \\times 1) = 14.00\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: 100 مرة (لأن الفقد يتناسب عكسياً مع مربع جهد النقل)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_05",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #5",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #5",
+    "titleEn": "Resistive Cube Network: Opposite Diagonal Terminals",
+    "titleAr": "المقاومة المكافئة لمكعب من 12 مقاومة متماثلة بين رأسين متقابلين",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 30\\text{ V}$ and $V_{B2} = 13\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 7\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 30\\text{ V}$ و $V_{B2} = 13\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 7\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "Twelve identical resistors, each of value $R$, form the edges of a cube. What is the equivalent resistance between two diagonally opposite vertices across the body of the cube?",
+    "questionAr": "اثنتا عشرة مقاومة متماثلة قيمة كل منها $R$ تشكل أضلاع مكعب. ما المقاومة المكافئة للمكعب بين رأسين متقابلين قطرياً عبر الفراغ؟",
     "optionsEn": [
-      "$V_2 = 14.89\\text{ V}$",
-      "$V_2 = 11.11\\text{ V}$",
-      "$V_2 = 13\\text{ V}$",
-      "$V_2 = 28.11\\text{ V}$"
+      "$\\frac{7}{12} R$",
+      "$\\frac{3}{4} R$",
+      "$\\frac{5}{6} R$ (current branches into $3$, then $6$, then $3$ symmetrical paths)",
+      "$\\frac{1}{2} R$"
     ],
     "optionsAr": [
-      "$V_2 = 14.89\\text{ V}$",
-      "$V_2 = 11.11\\text{ V}$",
-      "$V_2 = 13\\text{ V}$",
-      "$V_2 = 28.11\\text{ V}$"
+      "$\\frac{7}{12} R$",
+      "$\\frac{3}{4} R$",
+      "$\\frac{5}{6} R$ (يتفرع التيار إلى 3 ثم 6 ثم 3 فروع متماثلة)",
+      "$\\frac{1}{2} R$"
     ],
-    "correctAnswer": "$V_2 = 14.89\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$\\frac{5}{6} R$ (current branches into $3$, then $6$, then $3$ symmetrical paths)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 30 - 13 = 17\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 7 + 1 + 1 = 9\\,\\Omega$.",
-      "Circuit current: $I = \\frac{17}{9} = 1.89\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 13 + (1.89 \\times 1) = 14.89\\text{ V}$$"
+      "Step-by-step physical solution: $\\frac{5}{6} R$ (current branches into $3$, then $6$, then $3$ symmetrical paths)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 30 - 13 = 17\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 7 + 1 + 1 = 9\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{17}{9} = 1.89\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 13 + (1.89 \\times 1) = 14.89\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $\\frac{5}{6} R$ (يتفرع التيار إلى 3 ثم 6 ثم 3 فروع متماثلة)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_06",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #6",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #6",
+    "titleEn": "Resistive Cube Network: Face Diagonal Terminals",
+    "titleAr": "المقاومة المكافئة لمكعب بين رأسين متقابلين في نفس الوجه",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 32\\text{ V}$ and $V_{B2} = 14\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 8\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 32\\text{ V}$ و $V_{B2} = 14\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 8\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "For the same cube of twelve identical resistors $R$, what is the equivalent resistance between two vertices diagonally opposite across one face of the cube?",
+    "questionAr": "لنفس مكعب المقاومات الاثنتي عشرة المتماثلة $R$، كم تبلغ المقاومة المكافئة بين رأسين متقابلين قطرياً على نفس الوجه؟",
     "optionsEn": [
-      "$V_2 = 15.80\\text{ V}$",
-      "$V_2 = 12.20\\text{ V}$",
-      "$V_2 = 14\\text{ V}$",
-      "$V_2 = 30.20\\text{ V}$"
+      "$\\frac{5}{6} R$",
+      "$\\frac{7}{12} R$",
+      "$1 R$",
+      "$\\frac{3}{4} R$"
     ],
     "optionsAr": [
-      "$V_2 = 15.80\\text{ V}$",
-      "$V_2 = 12.20\\text{ V}$",
-      "$V_2 = 14\\text{ V}$",
-      "$V_2 = 30.20\\text{ V}$"
+      "$\\frac{5}{6} R$",
+      "$\\frac{7}{12} R$",
+      "$1 R$",
+      "$\\frac{3}{4} R$"
     ],
-    "correctAnswer": "$V_2 = 15.80\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$\\frac{3}{4} R$",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 32 - 14 = 18\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 8 + 1 + 1 = 10\\,\\Omega$.",
-      "Circuit current: $I = \\frac{18}{10} = 1.80\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 14 + (1.80 \\times 1) = 15.80\\text{ V}$$"
+      "Step-by-step physical solution: $\\frac{3}{4} R$."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 32 - 14 = 18\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 8 + 1 + 1 = 10\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{18}{10} = 1.80\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 14 + (1.80 \\times 1) = 15.80\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $\\frac{3}{4} R$."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_07",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #7",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #7",
+    "titleEn": "Resistive Cube Network: Adjacent Vertex Terminals",
+    "titleAr": "المقاومة المكافئة لمكعب بين رأسين متجاورين",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 34\\text{ V}$ and $V_{B2} = 15\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 9\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 34\\text{ V}$ و $V_{B2} = 15\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 9\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "For the same cube of twelve identical resistors $R$, the equivalent resistance between two immediately adjacent vertices along one edge is:",
+    "questionAr": "لنفس مكعب المقاومات الاثنتي عشرة المتماثلة $R$، تبلغ المقاومة المكافئة بين رأسين متجاورين على نفس الضلع:",
     "optionsEn": [
-      "$V_2 = 16.73\\text{ V}$",
-      "$V_2 = 13.27\\text{ V}$",
-      "$V_2 = 15\\text{ V}$",
-      "$V_2 = 32.27\\text{ V}$"
+      "$\\frac{7}{12} R$",
+      "$\\frac{5}{6} R$",
+      "$\\frac{3}{4} R$",
+      "$\\frac{11}{12} R$"
     ],
     "optionsAr": [
-      "$V_2 = 16.73\\text{ V}$",
-      "$V_2 = 13.27\\text{ V}$",
-      "$V_2 = 15\\text{ V}$",
-      "$V_2 = 32.27\\text{ V}$"
+      "$\\frac{7}{12} R$",
+      "$\\frac{5}{6} R$",
+      "$\\frac{3}{4} R$",
+      "$\\frac{11}{12} R$"
     ],
-    "correctAnswer": "$V_2 = 16.73\\text{ V}$",
+    "correctAnswer": "$\\frac{7}{12} R$",
     "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 34 - 15 = 19\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 9 + 1 + 1 = 11\\,\\Omega$.",
-      "Circuit current: $I = \\frac{19}{11} = 1.73\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 15 + (1.73 \\times 1) = 16.73\\text{ V}$$"
+      "Step-by-step physical solution: $\\frac{7}{12} R$."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 34 - 15 = 19\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 9 + 1 + 1 = 11\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{19}{11} = 1.73\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 15 + (1.73 \\times 1) = 16.73\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $\\frac{7}{12} R$."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_08",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #8",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #8",
+    "titleEn": "Infinite Ladder Network Equivalent Resistance",
+    "titleAr": "المقاومة المكافئة لشبكة سلمية لا نهائية",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 36\\text{ V}$ and $V_{B2} = 16\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 10\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 36\\text{ V}$ و $V_{B2} = 16\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 10\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "An infinite ladder of resistors consists of series resistors $R_1 = 1\\,\\Omega$ and shunt resistors $R_2 = 2\\,\\Omega$ repeating infinitely. What is the total input resistance $R_{\\text{in}}$?",
+    "questionAr": "شبكة سلمية لا نهائية من المقاومات تتكون من مقاومة توالي $1\\,\\Omega$ ومقاومة تفرع $2\\,\\Omega$ تتكرر للمالانهاية. ما المقاومة المكافئة الكلية للشبكة؟",
     "optionsEn": [
-      "$V_2 = 17.67\\text{ V}$",
-      "$V_2 = 14.33\\text{ V}$",
-      "$V_2 = 16\\text{ V}$",
-      "$V_2 = 34.33\\text{ V}$"
+      "$1.0\\,\\Omega$",
+      "$2.0\\,\\Omega$ ($R_{\\text{in}} = 1 + \\frac{2 R_{\\text{in}}}{2 + R_{\\text{in}}} \\implies R_{\\text{in}} = 2\\,\\Omega$)",
+      "$3.0\\,\\Omega$",
+      "$\\infty$"
     ],
     "optionsAr": [
-      "$V_2 = 17.67\\text{ V}$",
-      "$V_2 = 14.33\\text{ V}$",
-      "$V_2 = 16\\text{ V}$",
-      "$V_2 = 34.33\\text{ V}$"
+      "$1.0\\,\\Omega$",
+      "$2.0\\,\\Omega$ ($R_{\\text{in}} = 1 + \\frac{2 R_{\\text{in}}}{2 + R_{\\text{in}}} \\implies R_{\\text{in}} = 2\\,\\Omega$)",
+      "$3.0\\,\\Omega$",
+      "$\\infty$"
     ],
-    "correctAnswer": "$V_2 = 17.67\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$2.0\\,\\Omega$ ($R_{\\text{in}} = 1 + \\frac{2 R_{\\text{in}}}{2 + R_{\\text{in}}} \\implies R_{\\text{in}} = 2\\,\\Omega$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 36 - 16 = 20\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 10 + 1 + 1 = 12\\,\\Omega$.",
-      "Circuit current: $I = \\frac{20}{12} = 1.67\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 16 + (1.67 \\times 1) = 17.67\\text{ V}$$"
+      "Step-by-step physical solution: $2.0\\,\\Omega$ ($R_{\\text{in}} = 1 + \\frac{2 R_{\\text{in}}}{2 + R_{\\text{in}}} \\implies R_{\\text{in}} = 2\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 36 - 16 = 20\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 10 + 1 + 1 = 12\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{20}{12} = 1.67\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 16 + (1.67 \\times 1) = 17.67\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $2.0\\,\\Omega$ ($R_{\\text{in}} = 1 + \\frac{2 R_{\\text{in}}}{2 + R_{\\text{in}}} \\implies R_{\\text{in}} = 2\\,\\Omega$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_09",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #9",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #9",
+    "titleEn": "Efficiency of Battery at Maximum Power Transfer",
+    "titleAr": "كفاءة البطارية عند أقصى نقل للقدرة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 38\\text{ V}$ and $V_{B2} = 17\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 11\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 38\\text{ V}$ و $V_{B2} = 17\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 11\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "When an electric source is delivering maximum power to an external matched load ($R_{\\text{ext}} = r$), what is the electrical efficiency of the source?",
+    "questionAr": "عندما يعطي المصدر الكهربي أقصى قدرة لحمل متطابق معه ($R_{\\text{ext}} = r$)، كم تبلغ كفاءة المصدر الكهربية؟",
     "optionsEn": [
-      "$V_2 = 18.62\\text{ V}$",
-      "$V_2 = 15.38\\text{ V}$",
-      "$V_2 = 17\\text{ V}$",
-      "$V_2 = 36.38\\text{ V}$"
+      "$100.0\\%$",
+      "$75.0\\%$",
+      "$50.0\\%$ (half the power is lost in internal resistance $r$)",
+      "$25.0\\%$"
     ],
     "optionsAr": [
-      "$V_2 = 18.62\\text{ V}$",
-      "$V_2 = 15.38\\text{ V}$",
-      "$V_2 = 17\\text{ V}$",
-      "$V_2 = 36.38\\text{ V}$"
+      "$100.0\\%$",
+      "$75.0\\%$",
+      "$50.0\\%$ (يستنفذ نصف القدرة في المقاومة الداخلية للمصدر)",
+      "$25.0\\%$"
     ],
-    "correctAnswer": "$V_2 = 18.62\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$50.0\\%$ (half the power is lost in internal resistance $r$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 38 - 17 = 21\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 11 + 1 + 1 = 13\\,\\Omega$.",
-      "Circuit current: $I = \\frac{21}{13} = 1.62\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 17 + (1.62 \\times 1) = 18.62\\text{ V}$$"
+      "Step-by-step physical solution: $50.0\\%$ (half the power is lost in internal resistance $r$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 38 - 17 = 21\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 11 + 1 + 1 = 13\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{21}{13} = 1.62\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 17 + (1.62 \\times 1) = 18.62\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $50.0\\%$ (يستنفذ نصف القدرة في المقاومة الداخلية للمصدر)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_10",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #10",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #10",
+    "titleEn": "Maximum Power Delivered by Real Battery",
+    "titleAr": "القدرة العظمى التي يمكن سحبها من بطارية معينة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 40\\text{ V}$ and $V_{B2} = 18\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 12\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 40\\text{ V}$ و $V_{B2} = 18\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 12\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A car battery has $V_B = 24\\text{ V}$ and internal resistance $r = 3\\,\\Omega$. What is the absolute maximum power that can ever be transferred to any external resistive load?",
+    "questionAr": "بطارية سيارة قوتها $V_B = 24\\text{ V}$ ومقاومتها الداخلية $r = 3\\,\\Omega$. ما أقصى قدرة كهربية مطلقة يمكن نقلها إلى أي حمل خارجي؟",
     "optionsEn": [
-      "$V_2 = 19.57\\text{ V}$",
-      "$V_2 = 16.43\\text{ V}$",
-      "$V_2 = 18\\text{ V}$",
-      "$V_2 = 38.43\\text{ V}$"
+      "$96.0\\text{ W}$",
+      "$24.0\\text{ W}$",
+      "$192.0\\text{ W}$",
+      "$48.0\\text{ W}$ ($P_{\\max} = \\frac{V_B^2}{4r} = \\frac{576}{12}$)"
     ],
     "optionsAr": [
-      "$V_2 = 19.57\\text{ V}$",
-      "$V_2 = 16.43\\text{ V}$",
-      "$V_2 = 18\\text{ V}$",
-      "$V_2 = 38.43\\text{ V}$"
+      "$96.0\\text{ W}$",
+      "$24.0\\text{ W}$",
+      "$192.0\\text{ W}$",
+      "$48.0\\text{ W}$ ($P_{\\max} = \\frac{V_B^2}{4r} = \\frac{576}{12}$)"
     ],
-    "correctAnswer": "$V_2 = 19.57\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$48.0\\text{ W}$ ($P_{\\max} = \\frac{V_B^2}{4r} = \\frac{576}{12}$)",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 40 - 18 = 22\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 12 + 1 + 1 = 14\\,\\Omega$.",
-      "Circuit current: $I = \\frac{22}{14} = 1.57\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 18 + (1.57 \\times 1) = 19.57\\text{ V}$$"
+      "Step-by-step physical solution: $48.0\\text{ W}$ ($P_{\\max} = \\frac{V_B^2}{4r} = \\frac{576}{12}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 40 - 18 = 22\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 12 + 1 + 1 = 14\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{22}{14} = 1.57\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 18 + (1.57 \\times 1) = 19.57\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $48.0\\text{ W}$ ($P_{\\max} = \\frac{V_B^2}{4r} = \\frac{576}{12}$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_11",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #11",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #11",
+    "titleEn": "Temperature Coefficient of Resistance Application",
+    "titleAr": "تطبيق المعامل الحراري للمقاومة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 42\\text{ V}$ and $V_{B2} = 19\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 13\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 42\\text{ V}$ و $V_{B2} = 19\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 13\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A platinum resistance thermometer has a resistance of $10.0\\,\\Omega$ at $0^\\circ\\text{C}$ and $13.9\\,\\Omega$ at $100^\\circ\\text{C}$. What is its temperature coefficient of resistance $\\alpha$?",
+    "questionAr": "ترمومتر مقاومة بلاتيني تبلغ مقاومته $10.0\\,\\Omega$ عند $0^\\circ\\text{C}$ و $13.9\\,\\Omega$ عند $100^\\circ\\text{C}$. ما المعامل الحراري لمقاومة البلاتين $\\alpha$؟",
     "optionsEn": [
-      "$V_2 = 20.53\\text{ V}$",
-      "$V_2 = 17.47\\text{ V}$",
-      "$V_2 = 19\\text{ V}$",
-      "$V_2 = 40.47\\text{ V}$"
+      "$3.9 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$ ($\\alpha = \\frac{R_t - R_0}{R_0 \\Delta T}$)",
+      "$1.39 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$",
+      "$3.9 \\times 10^{-2}\\text{ }^\\circ\\text{C}^{-1}$",
+      "$1.0 \\times 10^{-4}\\text{ }^\\circ\\text{C}^{-1}$"
     ],
     "optionsAr": [
-      "$V_2 = 20.53\\text{ V}$",
-      "$V_2 = 17.47\\text{ V}$",
-      "$V_2 = 19\\text{ V}$",
-      "$V_2 = 40.47\\text{ V}$"
+      "$3.9 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$ ($\\alpha = \\frac{R_t - R_0}{R_0 \\Delta T}$)",
+      "$1.39 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$",
+      "$3.9 \\times 10^{-2}\\text{ }^\\circ\\text{C}^{-1}$",
+      "$1.0 \\times 10^{-4}\\text{ }^\\circ\\text{C}^{-1}$"
     ],
-    "correctAnswer": "$V_2 = 20.53\\text{ V}$",
+    "correctAnswer": "$3.9 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$ ($\\alpha = \\frac{R_t - R_0}{R_0 \\Delta T}$)",
     "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 42 - 19 = 23\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 13 + 1 + 1 = 15\\,\\Omega$.",
-      "Circuit current: $I = \\frac{23}{15} = 1.53\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 19 + (1.53 \\times 1) = 20.53\\text{ V}$$"
+      "Step-by-step physical solution: $3.9 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$ ($\\alpha = \\frac{R_t - R_0}{R_0 \\Delta T}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 42 - 19 = 23\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 13 + 1 + 1 = 15\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{23}{15} = 1.53\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 19 + (1.53 \\times 1) = 20.53\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $3.9 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$ ($\\alpha = \\frac{R_t - R_0}{R_0 \\Delta T}$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_12",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #12",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #12",
+    "titleEn": "Non-Linear Resistor I-V Characteristic Calculation",
+    "titleAr": "حساب تيار عنصر غير خطي في دائرة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 44\\text{ V}$ and $V_{B2} = 20\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 14\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 44\\text{ V}$ و $V_{B2} = 20\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 14\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A non-linear element has current-voltage relation $I = 0.5 V^2$. It is connected in series with a linear resistor $R = 2\\,\\Omega$ across a $V_B = 10\\text{ V}$ ideal DC supply. What is the circuit current?",
+    "questionAr": "عنصر كهربي غير خطي يخضع للمعادلة $I = 0.5 V^2$. وُصل على التوالي مع مقاومة أومية $R = 2\\,\\Omega$ ومصدر مثالي $10\\text{ V}$. ما شدة تيار الدائرة؟",
     "optionsEn": [
-      "$V_2 = 21.50\\text{ V}$",
-      "$V_2 = 18.50\\text{ V}$",
-      "$V_2 = 20\\text{ V}$",
-      "$V_2 = 42.50\\text{ V}$"
+      "$1.0\\text{ A}$",
+      "$2.0\\text{ A}$ ($V_{\\text{nl}} = 2\\text{ V} \\implies 2 + (2)(4) = 10\\text{ V}$, or $I = 0.5(4) = 2\\text{ A}$)",
+      "$3.5\\text{ A}$",
+      "$5.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$V_2 = 21.50\\text{ V}$",
-      "$V_2 = 18.50\\text{ V}$",
-      "$V_2 = 20\\text{ V}$",
-      "$V_2 = 42.50\\text{ V}$"
+      "$1.0\\text{ A}$",
+      "$2.0\\text{ A}$ ($V_{\\text{nl}} = 2\\text{ V} \\implies 2 + 2(4) = 10\\text{ V}$, $I = 0.5(4) = 2\\text{ A}$)",
+      "$3.5\\text{ A}$",
+      "$5.0\\text{ A}$"
     ],
-    "correctAnswer": "$V_2 = 21.50\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$2.0\\text{ A}$ ($V_{\\text{nl}} = 2\\text{ V} \\implies 2 + (2)(4) = 10\\text{ V}$, or $I = 0.5(4) = 2\\text{ A}$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 44 - 20 = 24\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 14 + 1 + 1 = 16\\,\\Omega$.",
-      "Circuit current: $I = \\frac{24}{16} = 1.50\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 20 + (1.50 \\times 1) = 21.50\\text{ V}$$"
+      "Step-by-step physical solution: $2.0\\text{ A}$ ($V_{\\text{nl}} = 2\\text{ V} \\implies 2 + (2)(4) = 10\\text{ V}$, or $I = 0.5(4) = 2\\text{ A}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 44 - 20 = 24\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 14 + 1 + 1 = 16\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{24}{16} = 1.50\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 20 + (1.50 \\times 1) = 21.50\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $2.0\\text{ A}$ ($V_{\\text{nl}} = 2\\text{ V} \\implies 2 + 2(4) = 10\\text{ V}$, $I = 0.5(4) = 2\\text{ A}$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_13",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #13",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #13",
+    "titleEn": "Preece Law for Fusing Current of Copper Wire",
+    "titleAr": "قانون بريس لتيار انصهار سلك نحاسي",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 46\\text{ V}$ and $V_{B2} = 21\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 15\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 46\\text{ V}$ و $V_{B2} = 21\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 15\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "The current $I_f$ required to fuse a cylindrical wire of diameter $d$ scales as $I_f = k d^{1.5}$. If a $0.2\\text{ mm}$ wire fuses at $5\\text{ A}$, at what current will a $0.8\\text{ mm}$ wire of the same metal fuse?",
+    "questionAr": "يتناسب تيار انصهار سلك أسطواني مع قطره وفق $I_f = k d^{1.5}$. إذا انصهر سلك قطره $0.2\\text{ mm}$ بتيار $5\\text{ A}$، فكم يبلغ تيار انصهار سلك من نفس المعدن قطره $0.8\\text{ mm}$؟",
     "optionsEn": [
-      "$V_2 = 22.47\\text{ V}$",
-      "$V_2 = 19.53\\text{ V}$",
-      "$V_2 = 21\\text{ V}$",
-      "$V_2 = 44.53\\text{ V}$"
+      "$20.0\\text{ A}$",
+      "$80.0\\text{ A}$",
+      "$40.0\\text{ A}$ ($I_f \\propto (4)^{1.5} = 8 \\times 5 = 40\\text{ A}$)",
+      "$10.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$V_2 = 22.47\\text{ V}$",
-      "$V_2 = 19.53\\text{ V}$",
-      "$V_2 = 21\\text{ V}$",
-      "$V_2 = 44.53\\text{ V}$"
+      "$20.0\\text{ A}$",
+      "$80.0\\text{ A}$",
+      "$40.0\\text{ A}$ ($I_f \\propto (4)^{1.5} = 8 \\times 5 = 40\\text{ A}$)",
+      "$10.0\\text{ A}$"
     ],
-    "correctAnswer": "$V_2 = 22.47\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$40.0\\text{ A}$ ($I_f \\propto (4)^{1.5} = 8 \\times 5 = 40\\text{ A}$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 46 - 21 = 25\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 15 + 1 + 1 = 17\\,\\Omega$.",
-      "Circuit current: $I = \\frac{25}{17} = 1.47\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 21 + (1.47 \\times 1) = 22.47\\text{ V}$$"
+      "Step-by-step physical solution: $40.0\\text{ A}$ ($I_f \\propto (4)^{1.5} = 8 \\times 5 = 40\\text{ A}$)."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 46 - 21 = 25\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 15 + 1 + 1 = 17\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{25}{17} = 1.47\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 21 + (1.47 \\times 1) = 22.47\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $40.0\\text{ A}$ ($I_f \\propto (4)^{1.5} = 8 \\times 5 = 40\\text{ A}$)."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_14",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #14",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #14",
+    "titleEn": "Resistance of Truncated Circular Cone Conductor",
+    "titleAr": "مقاومة موصل على هيئة مخروط دائري ناقص",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 48\\text{ V}$ and $V_{B2} = 22\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 16\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 48\\text{ V}$ و $V_{B2} = 22\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 16\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "A truncated cone of length $L$, resistivity $\\rho$, and circular end radii $a$ and $b$ carries longitudinal current. Its total electrical resistance is given by:",
+    "questionAr": "موصل على شكل مخروط ناقص طوله $L$ ومقاومته النوعية $\\rho$ ونصفا قطري قاعدتيه $a$ و $b$. تكون مقاومته الكهربية الطولية مساوية:",
     "optionsEn": [
-      "$V_2 = 23.44\\text{ V}$",
-      "$V_2 = 20.56\\text{ V}$",
-      "$V_2 = 22\\text{ V}$",
-      "$V_2 = 46.56\\text{ V}$"
+      "$R = \\frac{\\rho L}{\\pi (a+b)^2}$",
+      "$R = \\frac{\\rho L}{\\pi (b-a)^2}$",
+      "$R = \\frac{2\\rho L}{\\pi (a^2 + b^2)}$",
+      "$R = \\frac{\\rho L}{\\pi a b}$"
     ],
     "optionsAr": [
-      "$V_2 = 23.44\\text{ V}$",
-      "$V_2 = 20.56\\text{ V}$",
-      "$V_2 = 22\\text{ V}$",
-      "$V_2 = 46.56\\text{ V}$"
+      "$R = \\frac{\\rho L}{\\pi (a+b)^2}$",
+      "$R = \\frac{\\rho L}{\\pi (b-a)^2}$",
+      "$R = \\frac{2\\rho L}{\\pi (a^2 + b^2)}$",
+      "$R = \\frac{\\rho L}{\\pi a b}$"
     ],
-    "correctAnswer": "$V_2 = 23.44\\text{ V}$",
-    "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "correctAnswer": "$R = \\frac{\\rho L}{\\pi a b}$",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 48 - 22 = 26\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 16 + 1 + 1 = 18\\,\\Omega$.",
-      "Circuit current: $I = \\frac{26}{18} = 1.44\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 22 + (1.44 \\times 1) = 23.44\\text{ V}$$"
+      "Step-by-step physical solution: $R = \\frac{\\rho L}{\\pi a b}$."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 48 - 22 = 26\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 16 + 1 + 1 = 18\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{26}{18} = 1.44\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 22 + (1.44 \\times 1) = 23.44\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $R = \\frac{\\rho L}{\\pi a b}$."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_15",
-    "titleEn": "Opposing Batteries Loop & Charging Terminal Voltage #15",
-    "titleAr": "دائرة البطاريتين المتضادتين وجهد الشحن والتفريغ #15",
+    "titleEn": "Radial Resistance of Hollow Spherical Shell Conductor",
+    "titleAr": "المقاومة الكهربية القطرية لقشرة كروية موصلة",
     "difficulty": "hots",
-    "questionEn": "Two batteries of EMFs $V_{B1} = 50\\text{ V}$ and $V_{B2} = 23\\text{ V}$ with internal resistances $r_1 = 1\\,\\Omega$ and $r_2 = 1\\,\\Omega$ are connected in opposition across a load resistor $R = 17\\,\\Omega$. Calculate the terminal voltage $V_2$ across the charging battery ($V_{B2}$).",
-    "questionAr": "وصلت بطاريتان قوتاهما الدافعتان $V_{B1} = 50\\text{ V}$ و $V_{B2} = 23\\text{ V}$ بمقاومتين داخليتين $r_1 = 1\\,\\Omega$ و $r_2 = 1\\,\\Omega$ في وضع تضاد مع مقاومة خارجية $R = 17\\,\\Omega$. احسب فرق الجهد الطرفي $V_2$ بين قطبي البطارية التي في حالة شحن ($V_{B2}$).",
+    "questionEn": "Current flows radially outwards from inner radius $r_1$ to outer radius $r_2$ of a conducting spherical shell of resistivity $\\rho$. The resistance is:",
+    "questionAr": "يسري تيار كهربي قطرياً للخارج من نصف القطر الداخلي $r_1$ إلى الخارجي $r_2$ لقشرة كروية موصلة مقاومتها النوعية $\\rho$. تكون المقاومة مساوية:",
     "optionsEn": [
-      "$V_2 = 24.42\\text{ V}$",
-      "$V_2 = 21.58\\text{ V}$",
-      "$V_2 = 23\\text{ V}$",
-      "$V_2 = 48.58\\text{ V}$"
+      "$R = \\frac{\\rho}{4\\pi} \\left( \\frac{1}{r_1} - \\frac{1}{r_2} \\right)$",
+      "$R = \\frac{\\rho (r_2 - r_1)}{4\\pi r_1 r_2^2}$",
+      "$R = \\frac{4\\pi \\rho}{r_2 - r_1}$",
+      "$R = \\frac{\\rho (r_2^2 - r_1^2)}{4\\pi}$"
     ],
     "optionsAr": [
-      "$V_2 = 24.42\\text{ V}$",
-      "$V_2 = 21.58\\text{ V}$",
-      "$V_2 = 23\\text{ V}$",
-      "$V_2 = 48.58\\text{ V}$"
+      "$R = \\frac{\\rho}{4\\pi} \\left( \\frac{1}{r_1} - \\frac{1}{r_2} \\right)$",
+      "$R = \\frac{\\rho (r_2 - r_1)}{4\\pi r_1 r_2^2}$",
+      "$R = \\frac{4\\pi \\rho}{r_2 - r_1}$",
+      "$R = \\frac{\\rho (r_2^2 - r_1^2)}{4\\pi}$"
     ],
-    "correctAnswer": "$V_2 = 24.42\\text{ V}$",
+    "correctAnswer": "$R = \\frac{\\rho}{4\\pi} \\left( \\frac{1}{r_1} - \\frac{1}{r_2} \\right)$",
     "correctIndex": 0,
-    "hintEn": "Because $V_{B1} > V_{B2}$, battery 1 discharges while battery 2 is charged! For the charging battery: $V_2 = V_{B2} + I r_2$.",
-    "hintAr": "بما أن $V_{B1} > V_{B2}$، فإن البطارية الأولى تفرغ بينما البطارية الثانية تُشحن! ومعادلة البطارية المشحونة هي: $V_2 = V_{B2} + Ir_2$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Net electromotive force: $V_{\\text{net}} = V_{B1} - V_{B2} = 50 - 23 = 27\\text{ V}$.",
-      "Total resistance: $R_{\\text{total}} = R + r_1 + r_2 = 17 + 1 + 1 = 19\\,\\Omega$.",
-      "Circuit current: $I = \\frac{27}{19} = 1.42\\text{ A}$.",
-      "Since battery 2 receives current (charging state):",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 23 + (1.42 \\times 1) = 24.42\\text{ V}$$"
+      "Step-by-step physical solution: $R = \\frac{\\rho}{4\\pi} \\left( \\frac{1}{r_1} - \\frac{1}{r_2} \\right)$."
     ],
     "stepByStepSolutionAr": [
-      "محصلة القوة الدافعة الكهربية: $V_{\\text{net}} = V_{B1} - V_{B2} = 50 - 23 = 27\\text{ فولت}$.",
-      "المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 17 + 1 + 1 = 19\\,\\Omega$.",
-      "شدة تيار الدائرة: $I = \\frac{27}{19} = 1.42\\text{ أمبير}$.",
-      "بما أن البطارية الصغرى في حالة شحن فإن:",
-      "$$V_2 = V_{B2} + I \\cdot r_2 = 23 + (1.42 \\times 1) = 24.42\\text{ فولت}$$"
+      "خطوات الحل الفيزيائي والرياضي: $R = \\frac{\\rho}{4\\pi} \\left( \\frac{1}{r_1} - \\frac{1}{r_2} \\right)$."
     ],
-    "teacherTipEn": "Notice that for a charging battery, the terminal voltage is STRICTLY GREATER than its nominal EMF ($V > V_B$).",
-    "teacherTipAr": "لاحظ جيداً: في حالة البطارية التي تُشحن، يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$)."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_16",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #1",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #1",
+    "titleEn": "Radial Resistance of Coaxial Cylindrical Cable",
+    "titleAr": "المقاومة القطرية لكابل أسطواني متحد المحور",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 2\\,\\Omega$, $R_2 = 4\\,\\Omega$, $R_3 = 3\\,\\Omega$, and $R_4 = 6\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 55\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 2\\,\\Omega$ و $R_2 = 4\\,\\Omega$ و $R_3 = 3\\,\\Omega$ و $R_4 = 6\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 55\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "The insulation between two coaxial metal cylinders of radii $a$ and $b$ ($b > a$) and length $L$ has resistivity $\\rho$. The leakage resistance between cylinders is:",
+    "questionAr": "العازل بين أسطوانتين فلزيتين متحدتي المحور بنصفي قطري $a$ و $b$ ($b > a$) وطول $L$ له مقاومة نوعية $\\rho$. تكون مقاومة التسريب القطرية مساوية:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 3.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 58.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 6.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 15.00\\,\\Omega$"
+      "$R = \\frac{\\rho L}{2\\pi (b-a)}$",
+      "$R = \\frac{\\rho}{2\\pi L} \\ln\\left(\\frac{b}{a}\\right)$",
+      "$R = \\frac{\\rho (b^2 - a^2)}{2\\pi L}$",
+      "$R = \\frac{2\\pi L \\rho}{\\ln(b/a)}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 3.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 58.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 6.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 15.00\\,\\Omega$"
+      "$R = \\frac{\\rho L}{2\\pi (b-a)}$",
+      "$R = \\frac{\\rho}{2\\pi L} \\ln\\left(\\frac{b}{a}\\right)$",
+      "$R = \\frac{\\rho (b^2 - a^2)}{2\\pi L}$",
+      "$R = \\frac{2\\pi L \\rho}{\\ln(b/a)}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 3.33\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "$R = \\frac{\\rho}{2\\pi L} \\ln\\left(\\frac{b}{a}\\right)$",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{2}{4} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{3}{6} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 55\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 2 + 3 = 5\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 4 + 6 = 10\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{5 \\times 10}{5 + 10} = 3.33\\,\\Omega$."
+      "Step-by-step physical solution: $R = \\frac{\\rho}{2\\pi L} \\ln\\left(\\frac{b}{a}\\right)$."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{2}{4} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{3}{6} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 2 + 3 = 5\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 4 + 6 = 10\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{5 \\times 10}{5 + 10} = 3.33\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $R = \\frac{\\rho}{2\\pi L} \\ln\\left(\\frac{b}{a}\\right)$."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_17",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #2",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #2",
+    "titleEn": "Thevenin Resistance of Loaded Bridge",
+    "titleAr": "مقاومة ثيفنين لقنطرة غير متزنة",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 4\\,\\Omega$, $R_2 = 8\\,\\Omega$, $R_3 = 6\\,\\Omega$, and $R_4 = 12\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 60\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 4\\,\\Omega$ و $R_2 = 8\\,\\Omega$ و $R_3 = 6\\,\\Omega$ و $R_4 = 12\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 60\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "In a bridge network, arms are $R_1 = 2\\,\\Omega, R_2 = 4\\,\\Omega, R_3 = 6\\,\\Omega, R_4 = 12\\,\\Omega$ powered by a zero-resistance battery. The Thevenin equivalent resistance seen by the central detector branch is:",
+    "questionAr": "في شبكة قنطرة تتكون من أذرع $2\\,\\Omega, 4\\,\\Omega, 6\\,\\Omega, 12\\,\\Omega$ مع مصدر عديم المقاومة الداخلية، تكون مقاومة ثيفنين المكافئة بين طرفي فرع الكاشف الأوسط:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 6.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 66.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 13.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 30.00\\,\\Omega$"
+      "$8.0\\,\\Omega$",
+      "$24.0\\,\\Omega$",
+      "$5.33\\,\\Omega$ ($(2 \\parallel 4) + (6 \\parallel 12) = 1.33 + 4.0 = 5.33\\,\\Omega$)",
+      "$1.5\\,\\Omega$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 6.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 66.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 13.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 30.00\\,\\Omega$"
+      "$8.0\\,\\Omega$",
+      "$24.0\\,\\Omega$",
+      "$5.33\\,\\Omega$ ($(2 \\parallel 4) + (6 \\parallel 12) = 1.33 + 4.0 = 5.33\\,\\Omega$)",
+      "$1.5\\,\\Omega$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 6.67\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "$5.33\\,\\Omega$ ($(2 \\parallel 4) + (6 \\parallel 12) = 1.33 + 4.0 = 5.33\\,\\Omega$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{4}{8} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{6}{12} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 60\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 4 + 6 = 10\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 8 + 12 = 20\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{10 \\times 20}{10 + 20} = 6.67\\,\\Omega$."
+      "Step-by-step physical solution: $5.33\\,\\Omega$ ($(2 \\parallel 4) + (6 \\parallel 12) = 1.33 + 4.0 = 5.33\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{4}{8} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{6}{12} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 4 + 6 = 10\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 8 + 12 = 20\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{10 \\times 20}{10 + 20} = 6.67\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $5.33\\,\\Omega$ ($(2 \\parallel 4) + (6 \\parallel 12) = 1.33 + 4.0 = 5.33\\,\\Omega$)."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_18",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #3",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #3",
+    "titleEn": "Peltier Effect Heat Generation vs Absorption at Junction",
+    "titleAr": "تأثير بلتير الحراري عند نقطة اتصال معدنين",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 6\\,\\Omega$, $R_2 = 12\\,\\Omega$, $R_3 = 9\\,\\Omega$, and $R_4 = 18\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 65\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 6\\,\\Omega$ و $R_2 = 12\\,\\Omega$ و $R_3 = 9\\,\\Omega$ و $R_4 = 18\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 65\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "When an electric current passes across a junction between two dissimilar metals (e.g. bismuth and antimony), heat is either liberated or absorbed depending on:",
+    "questionAr": "عند مرور تيار كهربي عبر نقطة اتصال بين معدنين مختلفين، تتولد أو تمتص حرارة اعتماداً على:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 75.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 20.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 45.00\\,\\Omega$"
+      "Only the square of current intensity regardless of direction",
+      "Atmospheric pressure alone",
+      "The color of the connecting wires",
+      "The direction of the electric current across the junction"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 10\\,\\Omega$",
-      "$R_{\\text{eq}} = 75.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 20.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 45.00\\,\\Omega$"
+      "مربع شدة التيار فقط بغض النظر عن اتجاهه",
+      "الضغط الجوي فقط",
+      "لون الأسلاك الموصلة",
+      "اتجاه سريان التيار الكهربي عبر نقطة الاتصال"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 10\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "The direction of the electric current across the junction",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{6}{12} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{9}{18} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 65\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 6 + 9 = 15\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 12 + 18 = 30\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{15 \\times 30}{15 + 30} = 10\\,\\Omega$."
+      "Step-by-step physical solution: The direction of the electric current across the junction."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{6}{12} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{9}{18} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 6 + 9 = 15\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 12 + 18 = 30\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{15 \\times 30}{15 + 30} = 10\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: اتجاه سريان التيار الكهربي عبر نقطة الاتصال."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_19",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #4",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #4",
+    "titleEn": "Seebeck Thermoelectric Voltage Proportionality",
+    "titleAr": "القوة الدافعة الكهروحرارية في تأثير زيبك",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 8\\,\\Omega$, $R_2 = 16\\,\\Omega$, $R_3 = 12\\,\\Omega$, and $R_4 = 24\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 70\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 8\\,\\Omega$ و $R_2 = 16\\,\\Omega$ و $R_3 = 12\\,\\Omega$ و $R_4 = 24\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 70\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "In a thermocouple made of copper and constantan with one junction at $0^\\circ\\text{C}$ and the other at $T^\\circ\\text{C}$, the thermoelectric EMF produced is primarily proportional to:",
+    "questionAr": "في مزدوجة حرارية من النحاس والكونستانتان مع إبقاء إحدى الوصلتين عند $0^\\circ\\text{C}$ والأخرى عند $T^\\circ\\text{C}$، تتناسب القوة الدافعة الكهروحرارية المتولدة أساساً مع:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 13.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 83.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 26.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 60.00\\,\\Omega$"
+      "The temperature difference between the hot and cold junctions ($\\Delta T$)",
+      "The cube of total mass of the wires",
+      "The resistance of the voltmeter coil inversely",
+      "The ambient humidity in the laboratory"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 13.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 83.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 26.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 60.00\\,\\Omega$"
+      "الفرق في درجة الحرارة بين الوصلتين الساخنة والباردة ($\\Delta T$)",
+      "مكعب كتلة الأسلاك",
+      "عكسياً مع مقاومة ملف الفولتميتر",
+      "الرطوبة النسبية في المعمل"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 13.33\\,\\Omega$",
+    "correctAnswer": "The temperature difference between the hot and cold junctions ($\\Delta T$)",
     "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{8}{16} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{12}{24} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 70\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 8 + 12 = 20\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 16 + 24 = 40\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{20 \\times 40}{20 + 40} = 13.33\\,\\Omega$."
+      "Step-by-step physical solution: The temperature difference between the hot and cold junctions ($\\Delta T$)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{8}{16} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{12}{24} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 8 + 12 = 20\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 16 + 24 = 40\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{20 \\times 40}{20 + 40} = 13.33\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: الفرق في درجة الحرارة بين الوصلتين الساخنة والباردة ($\\Delta T$)."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_20",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #5",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #5",
+    "titleEn": "Microscopic Ohm Law Derivation: Relaxation Time",
+    "titleAr": "الصياغة المجهرية لقانون أوم وزمن الاسترخاء",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 10\\,\\Omega$, $R_2 = 20\\,\\Omega$, $R_3 = 15\\,\\Omega$, and $R_4 = 30\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 75\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 10\\,\\Omega$ و $R_2 = 20\\,\\Omega$ و $R_3 = 15\\,\\Omega$ و $R_4 = 30\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 75\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "In the Drude model of metallic conduction, electrical conductivity $\\sigma$ is expressed in terms of electron mass $m$, charge $e$, number density $n$, and relaxation time $\\tau$ as:",
+    "questionAr": "في نموذج درود للتوصيل الفلزي، يعبر عن التوصيلية الكهربية $\\sigma$ بدلالة كتلة الإلكترون $m$ وشحنته $e$ وكثافته العددية $n$ وزمن الاسترخاء $\\tau$ بـ:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 16.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 91.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 33.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 75.00\\,\\Omega$"
+      "$\\sigma = \\frac{n e \\tau}{2m}$",
+      "$\\sigma = \\frac{n e^2 \\tau}{m}$",
+      "$\\sigma = \\frac{m \\tau}{n e^2}$",
+      "$\\sigma = \\frac{n^2 e \\tau}{m^2}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 16.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 91.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 33.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 75.00\\,\\Omega$"
+      "$\\sigma = \\frac{n e \\tau}{2m}$",
+      "$\\sigma = \\frac{n e^2 \\tau}{m}$",
+      "$\\sigma = \\frac{m \\tau}{n e^2}$",
+      "$\\sigma = \\frac{n^2 e \\tau}{m^2}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 16.67\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "$\\sigma = \\frac{n e^2 \\tau}{m}$",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{10}{20} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{15}{30} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 75\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 10 + 15 = 25\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 20 + 30 = 50\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{25 \\times 50}{25 + 50} = 16.67\\,\\Omega$."
+      "Step-by-step physical solution: $\\sigma = \\frac{n e^2 \\tau}{m}$."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{10}{20} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{15}{30} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 10 + 15 = 25\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 20 + 30 = 50\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{25 \\times 50}{25 + 50} = 16.67\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $\\sigma = \\frac{n e^2 \\tau}{m}$."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_21",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #6",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #6",
+    "titleEn": "Hall Effect: Transverse Voltage Sign",
+    "titleAr": "تأثير هول: تحديد إشارة فرق الجهد المستعرض",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 12\\,\\Omega$, $R_2 = 24\\,\\Omega$, $R_3 = 18\\,\\Omega$, and $R_4 = 36\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 80\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 12\\,\\Omega$ و $R_2 = 24\\,\\Omega$ و $R_3 = 18\\,\\Omega$ و $R_4 = 36\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 80\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "When a magnetic field $B$ is applied perpendicularly to a current-carrying semiconductor strip, a transverse Hall voltage $V_H$ develops. The sign of $V_H$ reveals:",
+    "questionAr": "عند تطبيق مجال مغناطيسي $B$ عمودياً على شريحة شبه موصل يمر بها تيار، ينشأ جهد هول المستعرض $V_H$. تكشف إشارة هذا الجهد عن:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 100.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 40.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 90.00\\,\\Omega$"
+      "The gravitational acceleration at the surface",
+      "The melting point of the semiconductor material",
+      "The sign of the majority charge carriers (electrons versus holes)",
+      "The speed of light in vacuum"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 20\\,\\Omega$",
-      "$R_{\\text{eq}} = 100.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 40.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 90.00\\,\\Omega$"
+      "عجلة الجاذبية الأرضية بدقة",
+      "درجة انصهار مادة شبه الموصل",
+      "نوع وإشارة حاملات الشحنة السائدة (إلكترونات سالبة أم فجوات موجبة)",
+      "سرعة الضوء في الفراغ"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 20\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "The sign of the majority charge carriers (electrons versus holes)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{12}{24} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{18}{36} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 80\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 12 + 18 = 30\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 24 + 36 = 60\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{30 \\times 60}{30 + 60} = 20\\,\\Omega$."
+      "Step-by-step physical solution: The sign of the majority charge carriers (electrons versus holes)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{12}{24} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{18}{36} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 12 + 18 = 30\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 24 + 36 = 60\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{30 \\times 60}{30 + 60} = 20\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: نوع وإشارة حاملات الشحنة السائدة (إلكترونات سالبة أم فجوات موجبة)."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_22",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #7",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #7",
+    "titleEn": "Hall Coefficient Formula",
+    "titleAr": "معامل هول وكثافة حاملات الشحنة",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 14\\,\\Omega$, $R_2 = 28\\,\\Omega$, $R_3 = 21\\,\\Omega$, and $R_4 = 42\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 85\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 14\\,\\Omega$ و $R_2 = 28\\,\\Omega$ و $R_3 = 21\\,\\Omega$ و $R_4 = 42\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 85\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "The Hall coefficient $R_H$ of a conductor with carrier density $n$ and carrier charge $q$ is defined as:",
+    "questionAr": "يعرف معامل هول $R_H$ لموصل كثافة شحناته $n$ وشحنة الحامل $q$ بالعلاقة:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 23.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 108.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 46.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 105.00\\,\\Omega$"
+      "$R_H = n q^2$",
+      "$R_H = \\frac{n}{q}$",
+      "$R_H = \\frac{q^2}{n}$",
+      "$R_H = \\frac{1}{n q}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 23.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 108.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 46.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 105.00\\,\\Omega$"
+      "$R_H = n q^2$",
+      "$R_H = \\frac{n}{q}$",
+      "$R_H = \\frac{q^2}{n}$",
+      "$R_H = \\frac{1}{n q}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 23.33\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "$R_H = \\frac{1}{n q}$",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{14}{28} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{21}{42} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 85\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 14 + 21 = 35\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 28 + 42 = 70\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{35 \\times 70}{35 + 70} = 23.33\\,\\Omega$."
+      "Step-by-step physical solution: $R_H = \\frac{1}{n q}$."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{14}{28} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{21}{42} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 14 + 21 = 35\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 28 + 42 = 70\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{35 \\times 70}{35 + 70} = 23.33\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $R_H = \\frac{1}{n q}$."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_23",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #8",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #8",
+    "titleEn": "Surface Charges on Current-Carrying Wires",
+    "titleAr": "الشحنات السطحية على أسلاك يمر بها تيار كهربي مستمر",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 16\\,\\Omega$, $R_2 = 32\\,\\Omega$, $R_3 = 24\\,\\Omega$, and $R_4 = 48\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 90\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 16\\,\\Omega$ و $R_2 = 32\\,\\Omega$ و $R_3 = 24\\,\\Omega$ و $R_4 = 48\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 90\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "To maintain a steady electric field $\\vec{E}$ along a bending current-carrying wire, what electrostatic feature must exist?",
+    "questionAr": "للحفاظ على مجال كهربي مستمر $\\vec{E}$ يوجه سريان الإلكترونات داخل سلك منحني يمر به تيار، ما الذي يتكون فيزيائياً؟",
     "optionsEn": [
-      "$R_{\\text{eq}} = 26.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 116.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 53.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 120.00\\,\\Omega$"
+      "A non-uniform static surface charge distribution along the wire surface",
+      "A net positive charge uniformly filling the bulk core",
+      "A continuous accumulation of magnetic monopoles at bends",
+      "Complete absence of any electrostatic charge anywhere"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 26.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 116.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 53.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 120.00\\,\\Omega$"
+      "توزيع ثابت غير منتظم من الشحنات السطحية على طول السطح الخارجي للسلك",
+      "شحنة موجبة كلية متجانسة تملأ قلب السلك",
+      "تراكم مستمر لأقطاب مغناطيسية منفردة عند المنحنيات",
+      "انعدام تام لأي شحنات كهروستاتيكية في أي موضع"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 26.67\\,\\Omega$",
+    "correctAnswer": "A non-uniform static surface charge distribution along the wire surface",
     "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{16}{32} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{24}{48} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 90\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 16 + 24 = 40\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 32 + 48 = 80\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{40 \\times 80}{40 + 80} = 26.67\\,\\Omega$."
+      "Step-by-step physical solution: A non-uniform static surface charge distribution along the wire surface."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{16}{32} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{24}{48} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 16 + 24 = 40\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 32 + 48 = 80\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{40 \\times 80}{40 + 80} = 26.67\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: توزيع ثابت غير منتظم من الشحنات السطحية على طول السطح الخارجي للسلك."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_24",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #9",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #9",
+    "titleEn": "Poynting Vector Energy Inflow into Resistor",
+    "titleAr": "متجه بوينتنج وتدفق الطاقة الكهرومغناطيسية إلى مقاومة",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 18\\,\\Omega$, $R_2 = 36\\,\\Omega$, $R_3 = 27\\,\\Omega$, and $R_4 = 54\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 95\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 18\\,\\Omega$ و $R_2 = 36\\,\\Omega$ و $R_3 = 27\\,\\Omega$ و $R_4 = 54\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 95\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "For a cylindrical resistor carrying steady DC current, the Poynting vector $\\vec{S} = \\frac{1}{\\mu_0} (\\vec{E} \\times \\vec{B})$ at its surface points:",
+    "questionAr": "لمقاومة أسطوانية يمر بها تيار مستمر، يشير متجه بوينتنج $\\vec{S} = \\frac{1}{\\mu_0} (\\vec{E} \\times \\vec{B})$ عند سطحها الخارجي إلى:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 30\\,\\Omega$",
-      "$R_{\\text{eq}} = 125.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 60.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 135.00\\,\\Omega$"
+      "Directly outward radiating radio waves to space",
+      "Radially inward into the resistor, representing energy entering from the surrounding field to be dissipated as heat",
+      "Parallel to current along the wire axis exclusively",
+      "In circles around the wire circumference"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 30\\,\\Omega$",
-      "$R_{\\text{eq}} = 125.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 60.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 135.00\\,\\Omega$"
+      "عمودياً نحو الخارج مشعاً موجات لاسلكية",
+      "عمودياً نحو الداخل قطرياً، معبراً عن دخول الطاقة من المجال الكهرومغناطيسي المحيط لتتحول إلى حرارة",
+      "موازياً للتيار على طول محور السلك فقط",
+      "في دوائر مغلقة تحيط بالسلك"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 30\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "Radially inward into the resistor, representing energy entering from the surrounding field to be dissipated as heat",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{18}{36} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{27}{54} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 95\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 18 + 27 = 45\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 36 + 54 = 90\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{45 \\times 90}{45 + 90} = 30\\,\\Omega$."
+      "Step-by-step physical solution: Radially inward into the resistor, representing energy entering from the surrounding field to be dissipated as heat."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{18}{36} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{27}{54} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 18 + 27 = 45\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 36 + 54 = 90\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{45 \\times 90}{45 + 90} = 30\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: عمودياً نحو الداخل قطرياً، معبراً عن دخول الطاقة من المجال الكهرومغناطيسي المحيط لتتحول إلى حرارة."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_25",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #10",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #10",
+    "titleEn": "Two-Wire Transmission Line Capacitance Leakage",
+    "titleAr": "تسريب تيار العازل بين سلكي نقل طاقة",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 20\\,\\Omega$, $R_2 = 40\\,\\Omega$, $R_3 = 30\\,\\Omega$, and $R_4 = 60\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 100\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 20\\,\\Omega$ و $R_2 = 40\\,\\Omega$ و $R_3 = 30\\,\\Omega$ و $R_4 = 60\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 100\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "In high-voltage DC lines, conductance per unit length $G'$ causes leakage current between conductors. If $G' = 10^{-8}\\text{ S/m}$ along $100\\text{ km}$ under $400\\text{ kV}$, total leakage is:",
+    "questionAr": "في خط نقل مستمر عالي الجهد، تسرب الموصلية لكل وحدة أطوال $G' = 10^{-8}\\text{ S/m}$ تياراً عبر العازل. لطول $100\\text{ km}$ بجهد $400\\text{ kV}$، يبلغ تيار التسريب:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 33.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 133.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 66.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 150.00\\,\\Omega$"
+      "$4.0\\text{ A}$",
+      "$0.04\\text{ A}$",
+      "$0.40\\text{ A}$ ($I_{\\text{leak}} = G' \\times L \\times V = 10^{-8} \\times 10^5 \\times 4 \\times 10^5$)",
+      "$40.0\\text{ A}$"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 33.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 133.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 66.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 150.00\\,\\Omega$"
+      "$4.0\\text{ A}$",
+      "$0.04\\text{ A}$",
+      "$0.40\\text{ A}$ ($I_{\\text{leak}} = G' \\times L \\times V = 10^{-8} \\times 10^5 \\times 4 \\times 10^5$)",
+      "$40.0\\text{ A}$"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 33.33\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "$0.40\\text{ A}$ ($I_{\\text{leak}} = G' \\times L \\times V = 10^{-8} \\times 10^5 \\times 4 \\times 10^5$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{20}{40} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{30}{60} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 100\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 20 + 30 = 50\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 40 + 60 = 100\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{50 \\times 100}{50 + 100} = 33.33\\,\\Omega$."
+      "Step-by-step physical solution: $0.40\\text{ A}$ ($I_{\\text{leak}} = G' \\times L \\times V = 10^{-8} \\times 10^5 \\times 4 \\times 10^5$)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{20}{40} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{30}{60} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 20 + 30 = 50\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 40 + 60 = 100\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{50 \\times 100}{50 + 100} = 33.33\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $0.40\\text{ A}$ ($I_{\\text{leak}} = G' \\times L \\times V = 10^{-8} \\times 10^5 \\times 4 \\times 10^5$)."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_26",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #11",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #11",
+    "titleEn": "Thermal Runaway Condition in Carbon Resistor",
+    "titleAr": "ظاهرة الانفلات الحراري في المقاومات ذات المعامل السالب",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 22\\,\\Omega$, $R_2 = 44\\,\\Omega$, $R_3 = 33\\,\\Omega$, and $R_4 = 66\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 105\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 22\\,\\Omega$ و $R_2 = 44\\,\\Omega$ و $R_3 = 33\\,\\Omega$ و $R_4 = 66\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 105\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "Carbon has a negative temperature coefficient of resistance ($\\alpha < 0$). Connected across a constant voltage supply without cooling, it may experience:",
+    "questionAr": "يتميز الكربون بمعامل حراري سالب للمقاومة ($\\alpha < 0$). عند توصيله بمصدر جهد ثابت دون تبريد كافٍ، قد يتعرض لـ:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 36.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 141.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 73.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 165.00\\,\\Omega$"
+      "Immediate superconductivity at room temperature",
+      "Permanent loss of all valence electrons",
+      "Spontaneous freezing below $0\\,\\text{K}$",
+      "Thermal runaway, where heating lowers resistance, increasing current and dissipation destructively"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 36.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 141.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 73.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 165.00\\,\\Omega$"
+      "توصيل فائق فوري عند درجة حرارة الغرفة",
+      "فقدان دائم لكافة إلكترونات التكافؤ",
+      "تجمد تلقائي تحت الصفر المطلق",
+      "انفلات حراري، حيث يؤدي ارتفاع الحرارة لنقص المقاومة وزيادة التيار ومزيد من السخونة حتى التلف"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 36.67\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "Thermal runaway, where heating lowers resistance, increasing current and dissipation destructively",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{22}{44} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{33}{66} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 105\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 22 + 33 = 55\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 44 + 66 = 110\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{55 \\times 110}{55 + 110} = 36.67\\,\\Omega$."
+      "Step-by-step physical solution: Thermal runaway, where heating lowers resistance, increasing current and dissipation destructively."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{22}{44} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{33}{66} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 22 + 33 = 55\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 44 + 66 = 110\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{55 \\times 110}{55 + 110} = 36.67\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: انفلات حراري، حيث يؤدي ارتفاع الحرارة لنقص المقاومة وزيادة التيار ومزيد من السخونة حتى التلف."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_27",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #12",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #12",
+    "titleEn": "Wheatstone Bridge Sensitivity Maximization",
+    "titleAr": "تحسين حساسية قنطرة وتستون",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 24\\,\\Omega$, $R_2 = 48\\,\\Omega$, $R_3 = 36\\,\\Omega$, and $R_4 = 72\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 110\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 24\\,\\Omega$ و $R_2 = 48\\,\\Omega$ و $R_3 = 36\\,\\Omega$ و $R_4 = 72\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 110\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "A Wheatstone bridge achieves its maximum measurement sensitivity to small fractional resistance changes $\\Delta R / R$ when:",
+    "questionAr": "تحقق قنطرة وتستون أقصى حساسية قياس للتغيرات النسبية الدقيقة في المقاومة $\\Delta R / R$ عندما تكون:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 40\\,\\Omega$",
-      "$R_{\\text{eq}} = 150.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 80.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 180.00\\,\\Omega$"
+      "All four arms have roughly equal resistance values ($R_1 \\approx R_2 \\approx R_3 \\approx R_4$)",
+      "One arm is $10^6$ times larger than all others",
+      "The battery voltage approaches zero",
+      "The galvanometer is replaced by an open circuit"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 40\\,\\Omega$",
-      "$R_{\\text{eq}} = 150.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 80.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 180.00\\,\\Omega$"
+      "المقاومات الأربع في أذرع القنطرة متقاربة ومتساوية تقريباً في القيمة",
+      "إحدى المقاومات أكبر بمليون مرة من الباقي",
+      "جهد البطارية يقترب من الصفر",
+      "يستبدل الجلفانومتر بدائرة مفتوحة"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 40\\,\\Omega$",
+    "correctAnswer": "All four arms have roughly equal resistance values ($R_1 \\approx R_2 \\approx R_3 \\approx R_4$)",
     "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{24}{48} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{36}{72} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 110\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 24 + 36 = 60\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 48 + 72 = 120\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{60 \\times 120}{60 + 120} = 40\\,\\Omega$."
+      "Step-by-step physical solution: All four arms have roughly equal resistance values ($R_1 \\approx R_2 \\approx R_3 \\approx R_4$)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{24}{48} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{36}{72} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 24 + 36 = 60\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 48 + 72 = 120\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{60 \\times 120}{60 + 120} = 40\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: المقاومات الأربع في أذرع القنطرة متقاربة ومتساوية تقريباً في القيمة."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_28",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #13",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #13",
+    "titleEn": "Kelvin Double Bridge for Low Resistance Measurement",
+    "titleAr": "قنطرة كلفن المزدوجة لقياس المقاومات الصغيرة جداً",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 26\\,\\Omega$, $R_2 = 52\\,\\Omega$, $R_3 = 39\\,\\Omega$, and $R_4 = 78\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 115\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 26\\,\\Omega$ و $R_2 = 52\\,\\Omega$ و $R_3 = 39\\,\\Omega$ و $R_4 = 78\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 115\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "The Kelvin double bridge is specifically designed to eliminate measurement errors caused by:",
+    "questionAr": "صُممت قنطرة كلفن المزدوجة خصيصاً للتغلب على أخطاء القياس الناتجة عن:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 43.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 158.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 86.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 195.00\\,\\Omega$"
+      "High atmospheric pressure",
+      "Lead wire resistances and contact resistances when measuring very small resistances ($< 1\\,\\Omega$)",
+      "Geomagnetic field distortion of galvanometer coils",
+      "Thermal expansion of wooden meter scales"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 43.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 158.33\\,\\Omega$",
-      "$R_{\\text{eq}} = 86.66\\,\\Omega$",
-      "$R_{\\text{eq}} = 195.00\\,\\Omega$"
+      "الضغط الجوي المرتفع في المعمل",
+      "مقاومة أسلاك التوصيل ومقاومة نقاط التلامس عند قياس مقاومات صغيرة جداً أقل من $1\\,\\Omega$",
+      "انحراف الجلفانومتر بالمجال الأرضي",
+      "التمدد الحراري للمساطر الخشبية"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 43.33\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "Lead wire resistances and contact resistances when measuring very small resistances ($< 1\\,\\Omega$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{26}{52} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{39}{78} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 115\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 26 + 39 = 65\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 52 + 78 = 130\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{65 \\times 130}{65 + 130} = 43.33\\,\\Omega$."
+      "Step-by-step physical solution: Lead wire resistances and contact resistances when measuring very small resistances ($< 1\\,\\Omega$)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{26}{52} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{39}{78} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 26 + 39 = 65\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 52 + 78 = 130\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{65 \\times 130}{65 + 130} = 43.33\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: مقاومة أسلاك التوصيل ومقاومة نقاط التلامس عند قياس مقاومات صغيرة جداً أقل من $1\\,\\Omega$."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_29",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #14",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #14",
+    "titleEn": "Superposition Theorem Requirement: Linearity",
+    "titleAr": "شرط تطبيق نظرية التراكب في الدوائر الكهربية",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 28\\,\\Omega$, $R_2 = 56\\,\\Omega$, $R_3 = 42\\,\\Omega$, and $R_4 = 84\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 120\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 28\\,\\Omega$ و $R_2 = 56\\,\\Omega$ و $R_3 = 42\\,\\Omega$ و $R_4 = 84\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 120\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "The Superposition Theorem can only be applied to electrical networks where all circuit components are:",
+    "questionAr": "لا يمكن تطبيق نظرية التراكب (Superposition) لحل الدوائر الكهربية إلا إذا كانت جميع عناصر الدائرة:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 46.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 166.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 93.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 210.00\\,\\Omega$"
+      "Non-linear semiconductor devices exclusively",
+      "Made entirely of superconductors",
+      "Linear and bilateral (satisfying Ohm's law with constant parameters)",
+      "Operating exclusively at absolute zero"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 46.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 166.67\\,\\Omega$",
-      "$R_{\\text{eq}} = 93.34\\,\\Omega$",
-      "$R_{\\text{eq}} = 210.00\\,\\Omega$"
+      "عناصر غير خطية كأشباه الموصلات حصراً",
+      "مصنوعة بالكامل من مواد فائقة التوصيل",
+      "عناصر خطية وثنائية الاتجاه تخضع لقانون أوم بمعاملات ثابتة",
+      "تعمل حصراً عند الصفر المطلق"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 46.67\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "Linear and bilateral (satisfying Ohm's law with constant parameters)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{28}{56} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{42}{84} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 120\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 28 + 42 = 70\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 56 + 84 = 140\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{70 \\times 140}{70 + 140} = 46.67\\,\\Omega$."
+      "Step-by-step physical solution: Linear and bilateral (satisfying Ohm's law with constant parameters)."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{28}{56} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{42}{84} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 28 + 42 = 70\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 56 + 84 = 140\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{70 \\times 140}{70 + 140} = 46.67\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: عناصر خطية وثنائية الاتجاه تخضع لقانون أوم بمعاملات ثابتة."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_30",
-    "titleEn": "Wheatstone Bridge Bridge-Resistor Nulling #15",
-    "titleAr": "إلغاء المقاومة في قنطرة ويتستون المتزنة #15",
+    "titleEn": "Norton Equivalent Current Calculation",
+    "titleAr": "حساب تيار نورتون المكافئ لشبكة خطية",
     "difficulty": "hots",
-    "questionEn": "In a bridge network, four resistors $R_1 = 30\\,\\Omega$, $R_2 = 60\\,\\Omega$, $R_3 = 45\\,\\Omega$, and $R_4 = 90\\,\\Omega$ are arranged such that $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. A fifth resistor $R_5 = 125\\,\\Omega$ connects the two intermediate nodes. Determine the equivalent resistance $R_{\\text{eq}}$ of the entire network.",
-    "questionAr": "في شبكة قنطرة، رُتبت أربع مقاومات $R_1 = 30\\,\\Omega$ و $R_2 = 60\\,\\Omega$ و $R_3 = 45\\,\\Omega$ و $R_4 = 90\\,\\Omega$ بحيث $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. وصلت مقاومة خامسة $R_5 = 125\\,\\Omega$ بين العقدتين المتوسطتين. احسب المقاومة المكافئة $R_{\\text{eq}}$ للشبكة بأكملها.",
+    "questionEn": "The Norton equivalent current $I_N$ of a two-terminal linear active network is defined as:",
+    "questionAr": "يعرف تيار نورتون المكافئ $I_N$ لشبكة كهربية فعالة ذات طرفين بأنه:",
     "optionsEn": [
-      "$R_{\\text{eq}} = 50\\,\\Omega$",
-      "$R_{\\text{eq}} = 175.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 100.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 225.00\\,\\Omega$"
+      "The open-circuit terminal voltage divided by infinity",
+      "The average current of all battery branches",
+      "Zero under all physical circumstances",
+      "The current flowing between the two terminals when they are short-circuited together"
     ],
     "optionsAr": [
-      "$R_{\\text{eq}} = 50\\,\\Omega$",
-      "$R_{\\text{eq}} = 175.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 100.00\\,\\Omega$",
-      "$R_{\\text{eq}} = 225.00\\,\\Omega$"
+      "جهد الدائرة المفتوحة مقسوماً على مالانهاية",
+      "متوسط تيار كافة أفرع البطاريات",
+      "صفراً في جميع الظروف الفيزيائية",
+      "شدة التيار المار بين طرفي الشبكة عند حدوث قفلة (توصيل مباشر عديم المقاومة) بينهما"
     ],
-    "correctAnswer": "$R_{\\text{eq}} = 50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Check the bridge balance condition: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. When balanced, the potential difference across $R_5$ is zero, so no current flows through it and it can be removed.",
-    "hintAr": "تحقق من شرط اتزان القنطرة: $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$. عند الاتزان يتساوى الجهد عند طرفي المقاومة $R_5$ فينعدم التيار المار بها وتُلغى من الحسابات.",
+    "correctAnswer": "The current flowing between the two terminals when they are short-circuited together",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Ratio check: $\\frac{R_1}{R_2} = \\frac{30}{60} = 0.5$ and $\\frac{R_3}{R_4} = \\frac{45}{90} = 0.5$.",
-      "Since the bridge is balanced, $V_A = V_B$, and resistor $R_5 = 125\\,\\Omega$ carries zero current and is eliminated.",
-      "Top branch resistance: $R_{\\text{top}} = R_1 + R_3 = 30 + 45 = 75\\,\\Omega$.",
-      "Bottom branch resistance: $R_{\\text{bottom}} = R_2 + R_4 = 60 + 90 = 150\\,\\Omega$.",
-      "Equivalent resistance: $R_{\\text{eq}} = \\frac{75 \\times 150}{75 + 150} = 50\\,\\Omega$."
+      "Step-by-step physical solution: The current flowing between the two terminals when they are short-circuited together."
     ],
     "stepByStepSolutionAr": [
-      "التحقق من النسب: $\\frac{R_1}{R_2} = \\frac{30}{60} = 0.5$ و $\\frac{R_3}{R_4} = \\frac{45}{90} = 0.5$.",
-      "بما أن القنطرة متزنة، يتساوى جهد طرفي المقاومة $R_5$ وتُلغى تماماً لعدم مرور تيار بها.",
-      "مقاومة الفرع العلوي: $R_{\\text{top}} = 30 + 45 = 75\\,\\Omega$.",
-      "مقاومة الفرع السفلي: $R_{\\text{bottom}} = 60 + 90 = 150\\,\\Omega$.",
-      "المقاومة المكافئة للتوازي: $R_{\\text{eq}} = \\frac{75 \\times 150}{75 + 150} = 50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: شدة التيار المار بين طرفي الشبكة عند حدوث قفلة (توصيل مباشر عديم المقاومة) بينهما."
     ],
-    "teacherTipEn": "Eliminating a resistor in Thanaweya exams only happens when both ends are at the exact same potential or when short-circuited by an ideal wire.",
-    "teacherTipAr": "إلغاء مقاومة في امتحانات الثانوية العامة يحدث فقط إذا تساوى الجهد عند طرفيها (قنطرة متزنة) أو إذا اتصلت على التوازي بسلك عديم المقاومة."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_31",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #1",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #1",
+    "titleEn": "Thevenin-Norton Source Transformation Relation",
+    "titleAr": "علاقة التحويل بين مصدري ثيفنين ونورتون",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 1\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 1\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 1\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 1\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "The relationship between Thevenin voltage $V_{\\text{th}}$, Norton current $I_N$, and internal resistance $R_{\\text{th}}$ is:",
+    "questionAr": "العلاقة الرياضية التي تربط بين جهد ثيفنين $V_{\\text{th}}$ وتيار نورتون $I_N$ ومقاومة الدائرة $R_{\\text{th}}$ هي:",
     "optionsEn": [
-      "$r = 1.00\\,\\Omega$",
-      "$r = 2.00\\,\\Omega$",
-      "$r = 0.50\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$"
+      "$V_{\\text{th}} = I_N \\times R_{\\text{th}}$",
+      "$V_{\\text{th}} = I_N / R_{\\text{th}}$",
+      "$V_{\\text{th}} = I_N^2 R_{\\text{th}}$",
+      "$V_{\\text{th}} = \\sqrt{I_N R_{\\text{th}}}$"
     ],
     "optionsAr": [
-      "$r = 1.00\\,\\Omega$",
-      "$r = 2.00\\,\\Omega$",
-      "$r = 0.50\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$"
+      "$V_{\\text{th}} = I_N \\times R_{\\text{th}}$",
+      "$V_{\\text{th}} = I_N / R_{\\text{th}}$",
+      "$V_{\\text{th}} = I_N^2 R_{\\text{th}}$",
+      "$V_{\\text{th}} = \\sqrt{I_N R_{\\text{th}}}$"
     ],
-    "correctAnswer": "$r = 1.00\\,\\Omega$",
+    "correctAnswer": "$V_{\\text{th}} = I_N \\times R_{\\text{th}}$",
     "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{1}{1} = 1.00\\,\\Omega$."
+      "Step-by-step physical solution: $V_{\\text{th}} = I_N \\times R_{\\text{th}}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{1}{1} = 1.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $V_{\\text{th}} = I_N \\times R_{\\text{th}}$."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_32",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #2",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #2",
+    "titleEn": "Maximum Power Transfer in AC vs DC Networks",
+    "titleAr": "أقصى نقل للقدرة عند وجود معاوقة عقدية",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 2\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 3\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 2\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 3\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "In generalized circuit theory, maximum power is delivered to a load impedance $Z_L = R_L + jX_L$ from a source of internal impedance $Z_s = R_s + jX_s$ when:",
+    "questionAr": "في نظرية الدوائر العامة، تنتقل أقصى قدرة لحمل معاوقته $Z_L = R_L + jX_L$ من مصدر معاوقته $Z_s = R_s + jX_s$ عندما يتحقق الشرط:",
     "optionsEn": [
-      "$r = 1.50\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$",
-      "$r = 0.75\\,\\Omega$",
-      "$r = 2.50\\,\\Omega$"
+      "$Z_L = Z_s$",
+      "$Z_L = Z_s^*$ (load impedance is the complex conjugate of source impedance)",
+      "$Z_L = 0$",
+      "$Z_L = -Z_s$"
     ],
     "optionsAr": [
-      "$r = 1.50\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$",
-      "$r = 0.75\\,\\Omega$",
-      "$r = 2.50\\,\\Omega$"
+      "$Z_L = Z_s$",
+      "$Z_L = Z_s^*$ (معاوقة الحمل هي المرافق العقدي لمعاوقة المصدر)",
+      "$Z_L = 0$",
+      "$Z_L = -Z_s$"
     ],
-    "correctAnswer": "$r = 1.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "$Z_L = Z_s^*$ (load impedance is the complex conjugate of source impedance)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{3}{2} = 1.50\\,\\Omega$."
+      "Step-by-step physical solution: $Z_L = Z_s^*$ (load impedance is the complex conjugate of source impedance)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{3}{2} = 1.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $Z_L = Z_s^*$ (معاوقة الحمل هي المرافق العقدي لمعاوقة المصدر)."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_33",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #3",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #3",
+    "titleEn": "Current Crowding Effect in Planar Integrated Resistors",
+    "titleAr": "ظاهرة تزاحم التيار عند نقاط الاتصال في الدوائر المتكاملة",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 3\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 6\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 3\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 6\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "In microelectronic thin-film planar resistors, current entering from a metallic contact terminal experiences:",
+    "questionAr": "في المقاومات الغشائية الدقيقة بالدوائر المتكاملة، تعاني خطوط التيار الداخلة من نقطة اتصال فلزية من:",
     "optionsEn": [
-      "$r = 2.00\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$",
-      "$r = 1.00\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$"
+      "Perfect spatial uniformity across the entire silicon die",
+      "Repulsion away from all conductor surfaces into air",
+      "Current crowding, where current density peaks sharply near the leading contact edge",
+      "Zero resistance regardless of material resistivity"
     ],
     "optionsAr": [
-      "$r = 2.00\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$",
-      "$r = 1.00\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$"
+      "انتظام فراغي مثالي عبر كامل الشريحة",
+      "تنافر كامل بعيداً عن السطح في الهواء",
+      "تزاحم التيار، حيث ترتفع كثافة التيار بشدة عند الحافة الأولى لنقطة الاتصال",
+      "مقاومة صفرية بصرف النظر عن مادة الغشاء"
     ],
-    "correctAnswer": "$r = 2.00\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "Current crowding, where current density peaks sharply near the leading contact edge",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{6}{3} = 2.00\\,\\Omega$."
+      "Step-by-step physical solution: Current crowding, where current density peaks sharply near the leading contact edge."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{6}{3} = 2.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: تزاحم التيار، حيث ترتفع كثافة التيار بشدة عند الحافة الأولى لنقطة الاتصال."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_34",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #4",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #4",
+    "titleEn": "Thomson Heat Effect along a Single Conductor",
+    "titleAr": "تأثير طومسون الحراري على طول موصل واحد",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 4\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 10\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 4\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 10\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "When current passes along an unequally heated homogeneous metallic rod, absorption or evolution of heat along the rod length is known as:",
+    "questionAr": "عند سريان تيار كهربي على طول ساق فلزية متجانسة ذات تدرج في درجة الحرارة، يسمى التبادل الحراري الناتج على طول الساق بـ:",
     "optionsEn": [
-      "$r = 2.50\\,\\Omega$",
-      "$r = 5.00\\,\\Omega$",
-      "$r = 1.25\\,\\Omega$",
-      "$r = 3.50\\,\\Omega$"
+      "The Zeeman spectral splitting",
+      "The Stark electro-optic effect",
+      "The Meissner levitation effect",
+      "The Thomson effect"
     ],
     "optionsAr": [
-      "$r = 2.50\\,\\Omega$",
-      "$r = 5.00\\,\\Omega$",
-      "$r = 1.25\\,\\Omega$",
-      "$r = 3.50\\,\\Omega$"
+      "تأثير زيمان الطيفي",
+      "تأثير شتارك الكهروضوئي",
+      "تأثير مايسنر للمغناطيسية الفائقة",
+      "تأثير طومسون الحراري"
     ],
-    "correctAnswer": "$r = 2.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "The Thomson effect",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{10}{4} = 2.50\\,\\Omega$."
+      "Step-by-step physical solution: The Thomson effect."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{10}{4} = 2.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: تأثير طومسون الحراري."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_35",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #5",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #5",
+    "titleEn": "Four-Point Probe Resistivity Measurement Method",
+    "titleAr": "طريقة المجسات الأربعة لقياس المقاومة النوعية للرقائق",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 5\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 15\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 5\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 15\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "In the collinear four-point probe method, current is passed between outer probes 1 and 4, while voltage is measured between inner probes 2 and 3. This eliminates:",
+    "questionAr": "في طريقة المجسات الأربعة الخطية، يمر التيار بين المسبارين الخارجيين 1 و 4، ويقاس فرق الجهد بين الداخليين 2 و 3 للتخلص من:",
     "optionsEn": [
-      "$r = 3.00\\,\\Omega$",
-      "$r = 6.00\\,\\Omega$",
-      "$r = 1.50\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$"
+      "Contact resistance errors and probe wire resistance errors completely",
+      "The electric charge of electrons",
+      "The effect of temperature changes",
+      "The gravitational attraction of the probes"
     ],
     "optionsAr": [
-      "$r = 3.00\\,\\Omega$",
-      "$r = 6.00\\,\\Omega$",
-      "$r = 1.50\\,\\Omega$",
-      "$r = 4.00\\,\\Omega$"
+      "أخطاء مقاومة التلامس ومقاومة أسلاك التوصيل تماماً",
+      "شحنة الإلكترونات الأساسية",
+      "تأثير تغير درجات الحرارة كلياً",
+      "قوى الجاذبية الأرضية بين المجسات"
     ],
-    "correctAnswer": "$r = 3.00\\,\\Omega$",
+    "correctAnswer": "Contact resistance errors and probe wire resistance errors completely",
     "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{15}{5} = 3.00\\,\\Omega$."
+      "Step-by-step physical solution: Contact resistance errors and probe wire resistance errors completely."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{15}{5} = 3.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: أخطاء مقاومة التلامس ومقاومة أسلاك التوصيل تماماً."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_36",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #6",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #6",
+    "titleEn": "Sheet Resistance Concept for Thin Films",
+    "titleAr": "مفهوم مقاومة الشريحة للأغشية الرقيقة",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 6\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 21\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 6\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 21\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "The sheet resistance $R_s$ of a conducting film of thickness $t$ and resistivity $\\rho$ is given by $R_s = \\rho / t$ with units of:",
+    "questionAr": "تعبر مقاومة الشريحة $R_s$ لغشاء موصل سمكه $t$ ومقاومته النوعية $\\rho$ بالعلاقة $R_s = \\rho / t$ وتقاس بوحدة:",
     "optionsEn": [
-      "$r = 3.50\\,\\Omega$",
-      "$r = 7.00\\,\\Omega$",
-      "$r = 1.75\\,\\Omega$",
-      "$r = 4.50\\,\\Omega$"
+      "$\\Omega\\cdot\\text{m}^2$",
+      "$\\Omega/\\square$ (Ohms per square)",
+      "$\\text{Siemens/meter}$",
+      "$\\text{Farads/meter}$"
     ],
     "optionsAr": [
-      "$r = 3.50\\,\\Omega$",
-      "$r = 7.00\\,\\Omega$",
-      "$r = 1.75\\,\\Omega$",
-      "$r = 4.50\\,\\Omega$"
+      "$\\Omega\\cdot\\text{m}^2$",
+      "$\\Omega/\\square$ (أوم لكل مربع)",
+      "$\\text{Siemens/meter}$",
+      "$\\text{Farads/meter}$"
     ],
-    "correctAnswer": "$r = 3.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "$\\Omega/\\square$ (Ohms per square)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{21}{6} = 3.50\\,\\Omega$."
+      "Step-by-step physical solution: $\\Omega/\\square$ (Ohms per square)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{21}{6} = 3.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $\\Omega/\\square$ (أوم لكل مربع)."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_37",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #7",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #7",
+    "titleEn": "Battery State of Charge and Internal Resistance Trend",
+    "titleAr": "تغير المقاومة الداخلية للبطارية مع استهلاك شحنتها",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 7\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 28\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 7\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 28\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "As a lead-acid or lithium-ion electrochemical cell discharges from $100\\%$ to $0\\%$ State of Charge (SoC), its internal resistance typically:",
+    "questionAr": "مع تفريغ مركم الرصاص الحامضي أو بطارية الليثيوم من شحنة $100\\%$ إلى $0\\%$، فإن مقاومتها الداخلية عموماً:",
     "optionsEn": [
-      "$r = 4.00\\,\\Omega$",
-      "$r = 8.00\\,\\Omega$",
-      "$r = 2.00\\,\\Omega$",
-      "$r = 5.00\\,\\Omega$"
+      "Decreases linearly to zero",
+      "Remains exactly constant to within 10 decimal places",
+      "Increases, due to depletion of active ions and formation of resistive compounds at the electrodes",
+      "Oscillates sinusoidally at 50 Hz"
     ],
     "optionsAr": [
-      "$r = 4.00\\,\\Omega$",
-      "$r = 8.00\\,\\Omega$",
-      "$r = 2.00\\,\\Omega$",
-      "$r = 5.00\\,\\Omega$"
+      "تقل خطياً حتى تنعدم",
+      "تظل ثابتة بدقة متناهية",
+      "تزداد، بسبب استهلاك الأيونات النشطة في الإلكتروليت وتكون مركبات مقاومة على الأقطاب",
+      "تتذبذب جيبياً بتردد 50 هرتز"
     ],
-    "correctAnswer": "$r = 4.00\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "Increases, due to depletion of active ions and formation of resistive compounds at the electrodes",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{28}{7} = 4.00\\,\\Omega$."
+      "Step-by-step physical solution: Increases, due to depletion of active ions and formation of resistive compounds at the electrodes."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{28}{7} = 4.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: تزداد، بسبب استهلاك الأيونات النشطة في الإلكتروليت وتكون مركبات مقاومة على الأقطاب."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_38",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #8",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #8",
+    "titleEn": "Battery Peukert Law for High Discharge Rates",
+    "titleAr": "قانون بيوكيرت لسعة البطارية عند تيارات التفريغ العالية",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 8\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 36\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 8\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 36\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "According to Peukert's empirical law ($C_p = I^k t$), drawing an exceptionally high discharge current from a battery results in:",
+    "questionAr": "وفقاً لقانون بيوكيرت ($C_p = I^k t$)، فإن سحب تيارات تفريغ عالية جداً من البطارية يؤدي إلى:",
     "optionsEn": [
-      "$r = 4.50\\,\\Omega$",
-      "$r = 9.00\\,\\Omega$",
-      "$r = 2.25\\,\\Omega$",
-      "$r = 5.50\\,\\Omega$"
+      "An infinite increase in total battery stored energy",
+      "Spontaneous reversal of terminal voltage polarity",
+      "Permanent destruction of Coulomb's constant",
+      "A reduction in the effective deliverable Ampere-hour capacity of the battery"
     ],
     "optionsAr": [
-      "$r = 4.50\\,\\Omega$",
-      "$r = 9.00\\,\\Omega$",
-      "$r = 2.25\\,\\Omega$",
-      "$r = 5.50\\,\\Omega$"
+      "زيادة لا نهائية في طاقة البطارية المخزنة",
+      "انعكاس تلقائي لقطبية البطارية",
+      "تدمير دائم لثابت كولوم",
+      "نقصان السعة الفعلية المتاحة للبطارية بوحدة أمبير-ساعة"
     ],
-    "correctAnswer": "$r = 4.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "A reduction in the effective deliverable Ampere-hour capacity of the battery",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{36}{8} = 4.50\\,\\Omega$."
+      "Step-by-step physical solution: A reduction in the effective deliverable Ampere-hour capacity of the battery."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{36}{8} = 4.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: نقصان السعة الفعلية المتاحة للبطارية بوحدة أمبير-ساعة."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_39",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #9",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #9",
+    "titleEn": "Ground Fault Circuit Interrupter Operating Mechanism",
+    "titleAr": "آلية عمل قاطع الدائرة التفاضلي للحماية من التسريب الأرضي",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 9\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 45\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 9\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 45\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "A Ground Fault Circuit Interrupter (GFCI/RCD) detects hazardous electrical shock hazards by sensing:",
+    "questionAr": "يكتشف قاطع التسريب الأرضي (GFCI) خطر الصعق الكهربي من خلال استشعار:",
     "optionsEn": [
-      "$r = 5.00\\,\\Omega$",
-      "$r = 10.00\\,\\Omega$",
-      "$r = 2.50\\,\\Omega$",
-      "$r = 6.00\\,\\Omega$"
+      "Any difference between the live wire current and the neutral wire current ($I_{\\text{live}} - I_{\\text{neutral}} \\neq 0$)",
+      "The atmospheric ozone concentration near the socket",
+      "The total energy bill accumulated over the month",
+      "The temperature of the earth outside the building"
     ],
     "optionsAr": [
-      "$r = 5.00\\,\\Omega$",
-      "$r = 10.00\\,\\Omega$",
-      "$r = 2.50\\,\\Omega$",
-      "$r = 6.00\\,\\Omega$"
+      "أي فرق بين شدة التيار المار في السلك الحي وتيار السلك المتعادل ($I_{\\text{live}} - I_{\\text{neutral}} \\neq 0$)",
+      "تركيز غاز الأوزون في هواء الغرفة",
+      "قيمة الفاتورة التراكمية المستهلكة",
+      "درجة حرارة التربة خارج المبنى"
     ],
-    "correctAnswer": "$r = 5.00\\,\\Omega$",
+    "correctAnswer": "Any difference between the live wire current and the neutral wire current ($I_{\\text{live}} - I_{\\text{neutral}} \\neq 0$)",
     "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{45}{9} = 5.00\\,\\Omega$."
+      "Step-by-step physical solution: Any difference between the live wire current and the neutral wire current ($I_{\\text{live}} - I_{\\text{neutral}} \\neq 0$)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{45}{9} = 5.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: أي فرق بين شدة التيار المار في السلك الحي وتيار السلك المتعادل ($I_{\\text{live}} - I_{\\text{neutral}} \\neq 0$)."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_40",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #10",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #10",
+    "titleEn": "Current Distribution along a Ring Fed at Two Points",
+    "titleAr": "توزيع الجهد والتيار في حلقة دائرية مغذاة من نقطتين",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 10\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 55\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 10\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 55\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "A uniform circular ring of resistance $R$ is connected to a battery across two points separated by an angle $\\theta$ (in radians). The equivalent resistance between these terminals is:",
+    "questionAr": "حلقة دائرية منتظمة المقطع مقاومتها الكلية $R$ تتصل ببطارية عبر نقطتين تفصل بينهما زاوية مركزية $\\theta$ بالتقدير الدائري. تبلغ المقاومة المكافئة:",
     "optionsEn": [
-      "$r = 5.50\\,\\Omega$",
-      "$r = 11.00\\,\\Omega$",
-      "$r = 2.75\\,\\Omega$",
-      "$r = 6.50\\,\\Omega$"
+      "$R_{\\text{eq}} = R \\frac{\\theta}{2\\pi}$",
+      "$R_{\\text{eq}} = R \\frac{\\theta (2\\pi - \\theta)}{4\\pi^2}$",
+      "$R_{\\text{eq}} = R \\frac{2\\pi}{\\theta}$",
+      "$R_{\\text{eq}} = R \\sin^2(\\theta/2)$"
     ],
     "optionsAr": [
-      "$r = 5.50\\,\\Omega$",
-      "$r = 11.00\\,\\Omega$",
-      "$r = 2.75\\,\\Omega$",
-      "$r = 6.50\\,\\Omega$"
+      "$R_{\\text{eq}} = R \\frac{\\theta}{2\\pi}$",
+      "$R_{\\text{eq}} = R \\frac{\\theta (2\\pi - \\theta)}{4\\pi^2}$",
+      "$R_{\\text{eq}} = R \\frac{2\\pi}{\\theta}$",
+      "$R_{\\text{eq}} = R \\sin^2(\\theta/2)$"
     ],
-    "correctAnswer": "$r = 5.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "$R_{\\text{eq}} = R \\frac{\\theta (2\\pi - \\theta)}{4\\pi^2}$",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{55}{10} = 5.50\\,\\Omega$."
+      "Step-by-step physical solution: $R_{\\text{eq}} = R \\frac{\\theta (2\\pi - \\theta)}{4\\pi^2}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{55}{10} = 5.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $R_{\\text{eq}} = R \\frac{\\theta (2\\pi - \\theta)}{4\\pi^2}$."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_41",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #11",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #11",
+    "titleEn": "Maximum Ring Resistance Angle",
+    "titleAr": "الزاوية المركزية التي تعطي أقصى مقاومة مكافئة للحلقة",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 11\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 66\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 11\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 66\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "For the circular ring in the previous question, at what angle $\\theta$ is the equivalent resistance between the two terminals a maximum?",
+    "questionAr": "للحلقة السابقة، عند أي زاوية مركزية $\\theta$ بين طرفي التوصيل تكون المقاومة المكافئة أكبر ما يمكن؟",
     "optionsEn": [
-      "$r = 6.00\\,\\Omega$",
-      "$r = 12.00\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$",
-      "$r = 7.00\\,\\Omega$"
+      "$\\theta = \\pi/2\\text{ rad} = 90^\\circ$",
+      "$\\theta = 2\\pi\\text{ rad} = 360^\\circ$",
+      "$\\theta = \\pi\\text{ rad} = 180^\\circ$ (diametrically opposite terminals)",
+      "$\\theta = \\pi/4\\text{ rad} = 45^\\circ$"
     ],
     "optionsAr": [
-      "$r = 6.00\\,\\Omega$",
-      "$r = 12.00\\,\\Omega$",
-      "$r = 3.00\\,\\Omega$",
-      "$r = 7.00\\,\\Omega$"
+      "$\\theta = \\pi/2\\text{ rad} = 90^\\circ$",
+      "$\\theta = 2\\pi\\text{ rad} = 360^\\circ$",
+      "$\\theta = \\pi\\text{ rad} = 180^\\circ$ (عند نقطتين متقابلتين قطرياً)",
+      "$\\theta = \\pi/4\\text{ rad} = 45^\\circ$"
     ],
-    "correctAnswer": "$r = 6.00\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "$\\theta = \\pi\\text{ rad} = 180^\\circ$ (diametrically opposite terminals)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{66}{11} = 6.00\\,\\Omega$."
+      "Step-by-step physical solution: $\\theta = \\pi\\text{ rad} = 180^\\circ$ (diametrically opposite terminals)."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{66}{11} = 6.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $\\theta = \\pi\\text{ rad} = 180^\\circ$ (عند نقطتين متقابلتين قطرياً)."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_42",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #12",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #12",
+    "titleEn": "Electric Field Inside a Current-Carrying Conductor",
+    "titleAr": "المجال الكهربي داخل موصل يسري فيه تيار كهربي",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 12\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 78\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 12\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 78\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "While the electrostatic field inside an isolated static conductor is strictly zero, inside a conductor carrying a steady DC current $I$:",
+    "questionAr": "بينما ينعدم المجال الكهربي الاستاتيكي داخل موصل معزول متزن، فإن المجال الكهربي داخل موصل يسري فيه تيار مستمر $I$:",
     "optionsEn": [
-      "$r = 6.50\\,\\Omega$",
-      "$r = 13.00\\,\\Omega$",
-      "$r = 3.25\\,\\Omega$",
-      "$r = 7.50\\,\\Omega$"
+      "Is strictly infinite",
+      "Points radially outward perpendicular to the wire surface",
+      "Remains zero because charges move without forces",
+      "Is non-zero and points along the wire direction with magnitude $E = J / \\sigma = \\rho I / A$"
     ],
     "optionsAr": [
-      "$r = 6.50\\,\\Omega$",
-      "$r = 13.00\\,\\Omega$",
-      "$r = 3.25\\,\\Omega$",
-      "$r = 7.50\\,\\Omega$"
+      "يكون لا نهائياً في كل النقاط",
+      "يشير قطرياً للخارج عمودياً على السطح",
+      "يظل صفراً لأن الشحنات تتحرك بلا قوى",
+      "لا يساوي صفراً ويكون في اتجاه محور السلك وقيمته $E = J / \\sigma = \\rho I / A$"
     ],
-    "correctAnswer": "$r = 6.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "Is non-zero and points along the wire direction with magnitude $E = J / \\sigma = \\rho I / A$",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{78}{12} = 6.50\\,\\Omega$."
+      "Step-by-step physical solution: Is non-zero and points along the wire direction with magnitude $E = J / \\sigma = \\rho I / A$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{78}{12} = 6.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: لا يساوي صفراً ويكون في اتجاه محور السلك وقيمته $E = J / \\sigma = \\rho I / A$."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_43",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #13",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #13",
+    "titleEn": "Rate of Joule Heating per Unit Volume",
+    "titleAr": "معدل التبديد الحراري لوحدة الحجوم من الموصل",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 13\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 91\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 13\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 91\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "The rate of electrical energy dissipated as thermal heat per unit volume ($u_p = dP/dV$) inside a conductor is given locally by:",
+    "questionAr": "يعبر عن معدل الطاقة الكهربية المستنفذة كحرارة في وحدة الحجوم ($u_p = dP/dV$) داخل موصل موضعياً بـ:",
     "optionsEn": [
-      "$r = 7.00\\,\\Omega$",
-      "$r = 14.00\\,\\Omega$",
-      "$r = 3.50\\,\\Omega$",
-      "$r = 8.00\\,\\Omega$"
+      "$u_p = \\vec{J} \\cdot \\vec{E} = \\sigma E^2 = \\rho J^2$",
+      "$u_p = \\frac{E}{J}$",
+      "$u_p = \\frac{\\sigma}{E^2}$",
+      "$u_p = \\vec{J} \\times \\vec{E}$"
     ],
     "optionsAr": [
-      "$r = 7.00\\,\\Omega$",
-      "$r = 14.00\\,\\Omega$",
-      "$r = 3.50\\,\\Omega$",
-      "$r = 8.00\\,\\Omega$"
+      "$u_p = \\vec{J} \\cdot \\vec{E} = \\sigma E^2 = \\rho J^2$",
+      "$u_p = \\frac{E}{J}$",
+      "$u_p = \\frac{\\sigma}{E^2}$",
+      "$u_p = \\vec{J} \\times \\vec{E}$"
     ],
-    "correctAnswer": "$r = 7.00\\,\\Omega$",
+    "correctAnswer": "$u_p = \\vec{J} \\cdot \\vec{E} = \\sigma E^2 = \\rho J^2$",
     "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{91}{13} = 7.00\\,\\Omega$."
+      "Step-by-step physical solution: $u_p = \\vec{J} \\cdot \\vec{E} = \\sigma E^2 = \\rho J^2$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{91}{13} = 7.00\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: $u_p = \\vec{J} \\cdot \\vec{E} = \\sigma E^2 = \\rho J^2$."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_44",
-    "titleEn": "Rheostat Adjustment & Voltmeter Dynamics #14",
-    "titleAr": "تغير مقاومة الريوستات وديناميكية قراءة الفولتميتر #14",
+    "titleEn": "Linear Network Reciprocity Theorem Statement",
+    "titleAr": "نص نظرية التبادلية في الشبكات الكهربية الخطية",
     "difficulty": "hots",
-    "questionEn": "When the slider of a rheostat in a closed circuit is adjusted, the electric current increases by $\\Delta I = 14\\text{ A}$, causing the terminal voltmeter reading across the battery to drop by $\\Delta V = 105\\text{ V}$. Find the internal resistance $r$ of the battery.",
-    "questionAr": "عند تحريك زالق الريوستات في دائرة مغلقة، زادت شدة التيار بمقدار $\\Delta I = 14\\text{ A}$، مما أدى إلى انخفاض قراءة الفولتميتر المتصل بين قطبي البطارية بمقدار $\\Delta V = 105\\text{ V}$. احسب المقاومة الداخلية $r$ للبطارية.",
+    "questionEn": "The Reciprocity Theorem states that in a linear passive bilateral network, if an ideal voltage source in branch 1 produces current $I$ in branch 2:",
+    "questionAr": "تنص نظرية التبادلية على أنه في شبكة خطية غير فعالة، إذا وضع مصدر جهد في الفرع 1 وسبب تياراً $I$ في الفرع 2، فإن:",
     "optionsEn": [
-      "$r = 7.50\\,\\Omega$",
-      "$r = 15.00\\,\\Omega$",
-      "$r = 3.75\\,\\Omega$",
-      "$r = 8.50\\,\\Omega$"
+      "The network will burst into self-oscillation",
+      "Moving that same voltage source to branch 2 will produce the exact same current $I$ in branch 1",
+      "The total resistance of the circuit will automatically double",
+      "All node voltages become zero"
     ],
     "optionsAr": [
-      "$r = 7.50\\,\\Omega$",
-      "$r = 15.00\\,\\Omega$",
-      "$r = 3.75\\,\\Omega$",
-      "$r = 8.50\\,\\Omega$"
+      "الشبكة ستدخل في حالة تذبذب ذاتي",
+      "نقل نفس مصدر الجهد إلى الفرع 2 يسبب نفس شدة التيار $I$ في الفرع 1",
+      "مقاومة الدائرة ستتضاعف تلقائياً",
+      "تصبح جميع فروق الجهد صفراً"
     ],
-    "correctAnswer": "$r = 7.50\\,\\Omega$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate the battery terminal voltage equation: $V = V_B - Ir \\implies \\frac{\\Delta V}{\\Delta I} = -r$.",
-    "hintAr": "من معادلة فرق الجهد بين قطبي العمود: $V = V_B - Ir \\implies |\\frac{\\Delta V}{\\Delta I}| = r$.",
+    "correctAnswer": "Moving that same voltage source to branch 2 will produce the exact same current $I$ in branch 1",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "Terminal voltage equation: $V = V_B - I \\cdot r$.",
-      "For a change in current $\\Delta I$: $\\Delta V = -\\Delta I \\cdot r$.",
-      "Magnitude of internal resistance: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{105}{14} = 7.50\\,\\Omega$."
+      "Step-by-step physical solution: Moving that same voltage source to branch 2 will produce the exact same current $I$ in branch 1."
     ],
     "stepByStepSolutionAr": [
-      "معادلة فرق الجهد الطرفي: $V = V_B - Ir$.",
-      "التغير في الجهد بدلالة تغير التيار: $\\Delta V = -\\Delta I \\cdot r$.",
-      "المقاومة الداخلية: $r = \\frac{|\\Delta V|}{\\Delta I} = \\frac{105}{14} = 7.50\\,\\Omega$."
+      "خطوات الحل الفيزيائي والرياضي: نقل نفس مصدر الجهد إلى الفرع 2 يسبب نفس شدة التيار $I$ في الفرع 1."
     ],
-    "teacherTipEn": "The negative sign represents the decrease in terminal voltage as current output increases due to the internal potential drop $Ir$.",
-    "teacherTipAr": "الإشارة السالبة تعبر عن نقصان فرق الجهد الطرفي مع زيادة شدة التيار المار في الدائرة بسبب زيادة الهبوط في الجهد الداخلي $Ir$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_45",
-    "titleEn": "Maximum Power Transfer Condition #1",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #1",
+    "titleEn": "Minimum Power Dissipation Principle in Resistors",
+    "titleAr": "مبدأ أقل تشتت للطاقة وتوزيع التيارات",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 12\\text{ V}$ and internal resistance $r = 2\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 12\\text{ V}$ ومقاومته الداخلية $r = 2\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "According to Jeans-Maxwell minimum dissipation theorem, the distribution of direct currents in a resistive network adjusts so that:",
+    "questionAr": "وفقاً لنظرية أقل تشتت لطاقة التيار المستمر، فإن التيارات تتوزع بين فروع شبكة مقاومات بحيث:",
     "optionsEn": [
-      "$P_{\\max} = 18\\text{ W}$",
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 9\\text{ W}$",
-      "$P_{\\max} = 43\\text{ W}$"
+      "Total current is concentrated in the highest resistance branch",
+      "Every resistor consumes exactly identical power regardless of resistance",
+      "The total rate of heat generation in the network is a minimum compatible with Kirchhoff's first law",
+      "Battery internal resistance is completely nullified"
     ],
     "optionsAr": [
-      "$P_{\\max} = 18\\text{ W}$",
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 9\\text{ W}$",
-      "$P_{\\max} = 43\\text{ W}$"
+      "يتركز التيار في الفرع الأعلى مقاومة",
+      "تستهلك كل مقاومة نفس القدرة بالتساوي",
+      "يكون معدل تولد الحرارة الكلي في الشبكة أقل ما يمكن متوافقاً مع قانون كيرشوف الأول",
+      "تنعدم المقاومة الداخلية للمصدر تماماً"
     ],
-    "correctAnswer": "$P_{\\max} = 18\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "The total rate of heat generation in the network is a minimum compatible with Kirchhoff's first law",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 2\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{12}{4} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{12^2}{4 \\times 2} = 18\\text{ W}$$"
+      "Step-by-step physical solution: The total rate of heat generation in the network is a minimum compatible with Kirchhoff's first law."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 2\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{12}{4} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{12^2}{4 \\times 2} = 18\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: يكون معدل تولد الحرارة الكلي في الشبكة أقل ما يمكن متوافقاً مع قانون كيرشوف الأول."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_46",
-    "titleEn": "Maximum Power Transfer Condition #2",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #2",
+    "titleEn": "Grounding Resistance of Hemispherical Earth Electrode",
+    "titleAr": "مقاومة التأريض لقطب نصف كروي في تربة متجانسة",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 24\\text{ V}$ and internal resistance $r = 4\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 24\\text{ V}$ ومقاومته الداخلية $r = 4\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "A hemispherical metallic grounding electrode of radius $a$ is buried flush with the surface of soil having uniform resistivity $\\rho$. Its resistance to distant earth is:",
+    "questionAr": "قطب تأريض معدني نصف كروي نصف قطره $a$ مغمور في تربة متجانسة مقاومتها النوعية $\\rho$. تكون مقاومة التأريض للأرض البعيدة مساوية:",
     "optionsEn": [
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 18\\text{ W}$",
-      "$P_{\\max} = 61\\text{ W}$"
+      "$R_{\\text{ground}} = \\frac{\\rho}{4\\pi a^2}$",
+      "$R_{\\text{ground}} = \\frac{2\\pi a}{\\rho}$",
+      "$R_{\\text{ground}} = \\frac{\\rho a^2}{2\\pi}$",
+      "$R_{\\text{ground}} = \\frac{\\rho}{2\\pi a}$"
     ],
     "optionsAr": [
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 18\\text{ W}$",
-      "$P_{\\max} = 61\\text{ W}$"
+      "$R_{\\text{ground}} = \\frac{\\rho}{4\\pi a^2}$",
+      "$R_{\\text{ground}} = \\frac{2\\pi a}{\\rho}$",
+      "$R_{\\text{ground}} = \\frac{\\rho a^2}{2\\pi}$",
+      "$R_{\\text{ground}} = \\frac{\\rho}{2\\pi a}$"
     ],
-    "correctAnswer": "$P_{\\max} = 36\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$R_{\\text{ground}} = \\frac{\\rho}{2\\pi a}$",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 4\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{24}{8} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{24^2}{4 \\times 4} = 36\\text{ W}$$"
+      "Step-by-step physical solution: $R_{\\text{ground}} = \\frac{\\rho}{2\\pi a}$."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 4\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{24}{8} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{24^2}{4 \\times 4} = 36\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $R_{\\text{ground}} = \\frac{\\rho}{2\\pi a}$."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_47",
-    "titleEn": "Maximum Power Transfer Condition #3",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #3",
+    "titleEn": "Two-Terminal Potentiometer Loading Linearity Error",
+    "titleAr": "خطأ تحميل مجزئ الجهد بمقاومة حمل محدودة",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 36\\text{ V}$ and internal resistance $r = 6\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 36\\text{ V}$ ومقاومته الداخلية $r = 6\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "When a potentiometer of resistance $R_0$ set at fractional tap position $x$ ($0 \\le x \\le 1$) is loaded by a meter of finite resistance $R_L$, output voltage $V_{\\text{out}}$ departs from ideal linearity $x V_0$ because:",
+    "questionAr": "عند تحميل مجزئ جهد مقاومته $R_0$ عند النسبة $x$ بحمل مقاومته $R_L$، ينحرف الجهد المقاس عن العلاقة الخطية المثالية $x V_0$ لأن:",
     "optionsEn": [
-      "$P_{\\max} = 54\\text{ W}$",
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 27\\text{ W}$",
-      "$P_{\\max} = 79\\text{ W}$"
+      "The parallel combination of the tapped section $x R_0$ with $R_L$ reduces the equivalent lower resistance",
+      "The battery voltage automatically increases to maintain current",
+      "The slider develops an internal counter-EMF",
+      "Electrons lose their charge due to friction with the slider"
     ],
     "optionsAr": [
-      "$P_{\\max} = 54\\text{ W}$",
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 27\\text{ W}$",
-      "$P_{\\max} = 79\\text{ W}$"
+      "توصيل الجزء المأخوذ $x R_0$ على التوازي مع $R_L$ يقلل المقاومة المكافئة للجزء السفلي",
+      "جهد البطارية يرتفع تلقائياً لتعويض التيار",
+      "المنزلق يولد قوة دافعة كهربية عكسية",
+      "الإلكترونات تفقد شحنتها بالاحتكاك مع الزالق"
     ],
-    "correctAnswer": "$P_{\\max} = 54\\text{ W}$",
+    "correctAnswer": "The parallel combination of the tapped section $x R_0$ with $R_L$ reduces the equivalent lower resistance",
     "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 6\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{36}{12} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{36^2}{4 \\times 6} = 54\\text{ W}$$"
+      "Step-by-step physical solution: The parallel combination of the tapped section $x R_0$ with $R_L$ reduces the equivalent lower resistance."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 6\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{36}{12} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{36^2}{4 \\times 6} = 54\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: توصيل الجزء المأخوذ $x R_0$ على التوازي مع $R_L$ يقلل المقاومة المكافئة للجزء السفلي."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_48",
-    "titleEn": "Maximum Power Transfer Condition #4",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #4",
+    "titleEn": "Temperature of Filament at White Incandescence",
+    "titleAr": "تقدير درجة حرارة فتيلة مصباح متوهج من مقاومتها",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 48\\text{ V}$ and internal resistance $r = 8\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 48\\text{ V}$ ومقاومته الداخلية $r = 8\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "A tungsten lamp filament has resistance $R_0 = 20\\,\\Omega$ at $20^\\circ\\text{C}$ and $R = 260\\,\\Omega$ when lit. If $\\alpha = 4.5 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$, the operating filament temperature is approximately:",
+    "questionAr": "فتيلة مصباح تنجستن مقاومتها $20\\,\\Omega$ عند $20^\\circ\\text{C}$ وتصبح $260\\,\\Omega$ أثناء التوهج. إذا كان $\\alpha = 4.5 \\times 10^{-3}\\text{ }^\\circ\\text{C}^{-1}$، فإن درجة حرارة التشغيل تقارب:",
     "optionsEn": [
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 144\\text{ W}$",
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 97\\text{ W}$"
+      "$1000^\\circ\\text{C}$",
+      "$2686^\\circ\\text{C}$ ($\\Delta T = \\frac{R - R_0}{R_0 \\alpha} = \\frac{240}{20 \\times 0.0045} = 2667^\\circ\\text{C}$)",
+      "$500^\\circ\\text{C}$",
+      "$4500^\\circ\\text{C}$"
     ],
     "optionsAr": [
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 144\\text{ W}$",
-      "$P_{\\max} = 36\\text{ W}$",
-      "$P_{\\max} = 97\\text{ W}$"
+      "$1000^\\circ\\text{C}$",
+      "$2686^\\circ\\text{C}$ ($\\Delta T = \\frac{R - R_0}{R_0 \\alpha} = \\frac{240}{20 \\times 0.0045} = 2667^\\circ\\text{C}$)",
+      "$500^\\circ\\text{C}$",
+      "$4500^\\circ\\text{C}$"
     ],
-    "correctAnswer": "$P_{\\max} = 72\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$2686^\\circ\\text{C}$ ($\\Delta T = \\frac{R - R_0}{R_0 \\alpha} = \\frac{240}{20 \\times 0.0045} = 2667^\\circ\\text{C}$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 8\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{48}{16} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{48^2}{4 \\times 8} = 72\\text{ W}$$"
+      "Step-by-step physical solution: $2686^\\circ\\text{C}$ ($\\Delta T = \\frac{R - R_0}{R_0 \\alpha} = \\frac{240}{20 \\times 0.0045} = 2667^\\circ\\text{C}$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 8\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{48}{16} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{48^2}{4 \\times 8} = 72\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $2686^\\circ\\text{C}$ ($\\Delta T = \\frac{R - R_0}{R_0 \\alpha} = \\frac{240}{20 \\times 0.0045} = 2667^\\circ\\text{C}$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_49",
-    "titleEn": "Maximum Power Transfer Condition #5",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #5",
+    "titleEn": "Uniform Conductor with Radial Resistivity Profile",
+    "titleAr": "موصل أسطواني ذو مقاومة نوعية متغيرة نصف قطرياً",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 60\\text{ V}$ and internal resistance $r = 10\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 60\\text{ V}$ ومقاومته الداخلية $r = 10\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "A solid cylinder of radius $R$ and length $L$ has resistivity varying radially as $\\rho(r) = \\rho_0 (r/R)$. The total longitudinal resistance is:",
+    "questionAr": "أسطوانة مصمتة نصف قطرها $R$ وطولها $L$ تتغير مقاومتها النوعية قطرياً وفق $\\rho(r) = \\rho_0 (r/R)$. تكون مقاومتها الكهربية الكلية على امتداد محورها:",
     "optionsEn": [
-      "$P_{\\max} = 90\\text{ W}$",
-      "$P_{\\max} = 180\\text{ W}$",
-      "$P_{\\max} = 45\\text{ W}$",
-      "$P_{\\max} = 115\\text{ W}$"
+      "$R_{\\text{tot}} = \\frac{\\rho_0 L}{\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{2\\rho_0 L}{\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{3\\rho_0 L}{2\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{\\rho_0 L}{3\\pi R^2}$"
     ],
     "optionsAr": [
-      "$P_{\\max} = 90\\text{ W}$",
-      "$P_{\\max} = 180\\text{ W}$",
-      "$P_{\\max} = 45\\text{ W}$",
-      "$P_{\\max} = 115\\text{ W}$"
+      "$R_{\\text{tot}} = \\frac{\\rho_0 L}{\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{2\\rho_0 L}{\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{3\\rho_0 L}{2\\pi R^2}$",
+      "$R_{\\text{tot}} = \\frac{\\rho_0 L}{3\\pi R^2}$"
     ],
-    "correctAnswer": "$P_{\\max} = 90\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$R_{\\text{tot}} = \\frac{3\\rho_0 L}{2\\pi R^2}$",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 10\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{60}{20} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{60^2}{4 \\times 10} = 90\\text{ W}$$"
+      "Step-by-step physical solution: $R_{\\text{tot}} = \\frac{3\\rho_0 L}{2\\pi R^2}$."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 10\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{60}{20} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{60^2}{4 \\times 10} = 90\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $R_{\\text{tot}} = \\frac{3\\rho_0 L}{2\\pi R^2}$."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_50",
-    "titleEn": "Maximum Power Transfer Condition #6",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #6",
+    "titleEn": "Capacitor Transient in DC RC Circuit Initial Current",
+    "titleAr": "التيار اللحظي عند إغلاق دائرة مكثف ومقاومة",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 72\\text{ V}$ and internal resistance $r = 12\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 72\\text{ V}$ ومقاومته الداخلية $r = 12\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "When an uncharged capacitor $C$ in series with resistor $R$ is connected to battery $V_B$ at $t = 0$, the instantaneous initial current $I(0^+)$ is:",
+    "questionAr": "عند توصيل مكثف غير مشحون $C$ على التوالي مع مقاومة $R$ بمصدر $V_B$ في اللحظة $t = 0$، تكون شدة التيار اللحظية الابتدائية $I(0^+)$:",
     "optionsEn": [
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 216\\text{ W}$",
-      "$P_{\\max} = 54\\text{ W}$",
-      "$P_{\\max} = 133\\text{ W}$"
+      "$I(0^+) = 0$",
+      "$I(0^+) = \\infty$",
+      "$I(0^+) = \\frac{V_B}{2R}$",
+      "$I(0^+) = \\frac{V_B}{R}$ (uncharged capacitor behaves instantaneously as a short circuit)"
     ],
     "optionsAr": [
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 216\\text{ W}$",
-      "$P_{\\max} = 54\\text{ W}$",
-      "$P_{\\max} = 133\\text{ W}$"
+      "$I(0^+) = 0$",
+      "$I(0^+) = \\infty$",
+      "$I(0^+) = \\frac{V_B}{2R}$",
+      "$I(0^+) = \\frac{V_B}{R}$ (يعمل المكثف غير المشحون في اللحظة الأولى كدائرة قصر)"
     ],
-    "correctAnswer": "$P_{\\max} = 108\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$I(0^+) = \\frac{V_B}{R}$ (uncharged capacitor behaves instantaneously as a short circuit)",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 12\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{72}{24} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{72^2}{4 \\times 12} = 108\\text{ W}$$"
+      "Step-by-step physical solution: $I(0^+) = \\frac{V_B}{R}$ (uncharged capacitor behaves instantaneously as a short circuit)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 12\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{72}{24} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{72^2}{4 \\times 12} = 108\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $I(0^+) = \\frac{V_B}{R}$ (يعمل المكثف غير المشحون في اللحظة الأولى كدائرة قصر)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_51",
-    "titleEn": "Maximum Power Transfer Condition #7",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #7",
+    "titleEn": "Capacitor Transient Time Constant Physical Meaning",
+    "titleAr": "المعنى الفيزيائي لثابت الوقت في دائرة المقاومة والمكثف",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 84\\text{ V}$ and internal resistance $r = 14\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 84\\text{ V}$ ومقاومته الداخلية $r = 14\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "The time constant $\\tau = RC$ of a series $RC$ circuit represents the time required for charging current to decrease to:",
+    "questionAr": "يمثل الثابت الزمني $\\tau = RC$ لدائرة مقاومة ومكثف على التوالي الزمن اللازم لهبوط تيار الشحن إلى:",
     "optionsEn": [
-      "$P_{\\max} = 126\\text{ W}$",
-      "$P_{\\max} = 252\\text{ W}$",
-      "$P_{\\max} = 63\\text{ W}$",
-      "$P_{\\max} = 151\\text{ W}$"
+      "$36.8\\%$ ($1/e$) of its initial maximum value",
+      "$50.0\\%$ of its initial value",
+      "$63.2\\%$ of its initial value",
+      "$0.0\\%$ exactly"
     ],
     "optionsAr": [
-      "$P_{\\max} = 126\\text{ W}$",
-      "$P_{\\max} = 252\\text{ W}$",
-      "$P_{\\max} = 63\\text{ W}$",
-      "$P_{\\max} = 151\\text{ W}$"
+      "$36.8\\%$ ($1/e$) من قيمته الابتدائية العظمى",
+      "$50.0\\%$ من قيمته الابتدائية",
+      "$63.2\\%$ من قيمته الابتدائية",
+      "صفر تماماً"
     ],
-    "correctAnswer": "$P_{\\max} = 126\\text{ W}$",
+    "correctAnswer": "$36.8\\%$ ($1/e$) of its initial maximum value",
     "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 14\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{84}{28} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{84^2}{4 \\times 14} = 126\\text{ W}$$"
+      "Step-by-step physical solution: $36.8\\%$ ($1/e$) of its initial maximum value."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 14\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{84}{28} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{84^2}{4 \\times 14} = 126\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $36.8\\%$ ($1/e$) من قيمته الابتدائية العظمى."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_52",
-    "titleEn": "Maximum Power Transfer Condition #8",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #8",
+    "titleEn": "Energy Efficiency of Charging a Capacitor Through Resistor",
+    "titleAr": "كفاءة الطاقة عند شحن مكثف عبر مقاومة أومية",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 96\\text{ V}$ and internal resistance $r = 16\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 96\\text{ V}$ ومقاومته الداخلية $r = 16\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "When an ideal voltage source $V_B$ fully charges an initially uncharged capacitor $C$ through any resistor $R$, the fraction of energy delivered by the battery that is dissipated as heat in $R$ is strictly:",
+    "questionAr": "عند شحن مكثف $C$ بالكامل من مصدر $V_B$ عبر مقاومة أومية $R$، فإن النسبة المئوية لطاقة المصدر المفقودة كحرارة في المقاومة تكون دائماً:",
     "optionsEn": [
-      "$P_{\\max} = 144\\text{ W}$",
-      "$P_{\\max} = 288\\text{ W}$",
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 169\\text{ W}$"
+      "$0.0\\%$ (ideal charging)",
+      "$50.0\\%$ (regardless of the value of $R$)",
+      "$100.0\\%$",
+      "$25.0\\%$"
     ],
     "optionsAr": [
-      "$P_{\\max} = 144\\text{ W}$",
-      "$P_{\\max} = 288\\text{ W}$",
-      "$P_{\\max} = 72\\text{ W}$",
-      "$P_{\\max} = 169\\text{ W}$"
+      "$0.0\\%$ (شحن مثالي)",
+      "$50.0\\%$ (دائماً نصف طاقة المصدر تفقد كحرارة بغض النظر عن قيمة المقاومة $R$)",
+      "$100.0\\%$",
+      "$25.0\\%$"
     ],
-    "correctAnswer": "$P_{\\max} = 144\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$50.0\\%$ (regardless of the value of $R$)",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 16\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{96}{32} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{96^2}{4 \\times 16} = 144\\text{ W}$$"
+      "Step-by-step physical solution: $50.0\\%$ (regardless of the value of $R$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 16\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{96}{32} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{96^2}{4 \\times 16} = 144\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $50.0\\%$ (دائماً نصف طاقة المصدر تفقد كحرارة بغض النظر عن قيمة المقاومة $R$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_53",
-    "titleEn": "Maximum Power Transfer Condition #9",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #9",
+    "titleEn": "Non-Ideal Ammeter Shunt Temperature Drift Error",
+    "titleAr": "تأثير تباين الحرارة بين مجزئ التيار وملف الأميتر",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 108\\text{ V}$ and internal resistance $r = 18\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 108\\text{ V}$ ومقاومته الداخلية $r = 18\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "To prevent temperature-induced calibration drift in a moving-coil ammeter, the shunt resistor is manufactured from Manganin or Constantan because:",
+    "questionAr": "لمنع خطأ قراءة الأميتر ذي الملف المتحرك الناتج عن تغير درجة الحرارة، يصنع مجزئ التيار من سبيكة المنجانين لأن:",
     "optionsEn": [
-      "$P_{\\max} = 162\\text{ W}$",
-      "$P_{\\max} = 324\\text{ W}$",
-      "$P_{\\max} = 81\\text{ W}$",
-      "$P_{\\max} = 187\\text{ W}$"
+      "It has extreme mechanical ductility",
+      "It emits visible fluorescence under current",
+      "It has a near-zero temperature coefficient of resistance ($\\alpha \\approx 0$)",
+      "Its resistance drops to zero at room temperature"
     ],
     "optionsAr": [
-      "$P_{\\max} = 162\\text{ W}$",
-      "$P_{\\max} = 324\\text{ W}$",
-      "$P_{\\max} = 81\\text{ W}$",
-      "$P_{\\max} = 187\\text{ W}$"
+      "لها مرونة ميكانيكية فائقة",
+      "تشع وميضاً فسفورياً عند مرور التيار",
+      "معاملها الحراري للمقاومة يكاد ينعدم ($\\alpha \\approx 0$)",
+      "مقاومتها تنعدم عند حرارة الغرفة"
     ],
-    "correctAnswer": "$P_{\\max} = 162\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "It has a near-zero temperature coefficient of resistance ($\\alpha \\approx 0$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 18\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{108}{36} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{108^2}{4 \\times 18} = 162\\text{ W}$$"
+      "Step-by-step physical solution: It has a near-zero temperature coefficient of resistance ($\\alpha \\approx 0$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 18\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{108}{36} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{108^2}{4 \\times 18} = 162\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: معاملها الحراري للمقاومة يكاد ينعدم ($\\alpha \\approx 0$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_54",
-    "titleEn": "Maximum Power Transfer Condition #10",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #10",
+    "titleEn": "Thermoelectric Neutral Temperature in Thermocouple",
+    "titleAr": "درجة الحرارة المتعادلة في المزدوجة الحرارية",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 120\\text{ V}$ and internal resistance $r = 20\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 120\\text{ V}$ ومقاومته الداخلية $r = 20\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "In a thermoelectric circuit where thermo-EMF varies parabolically as $E = a T + b T^2$ ($b < 0$), the neutral temperature $T_n$ is the temperature where:",
+    "questionAr": "في دائرة كهروحرارية تتغير فيها القوة الدافعة وفق $E = a T + b T^2$ ($b < 0$)، تعرف درجة الحرارة المتعادلة $T_n$ بأنها الدرجة التي عندها:",
     "optionsEn": [
-      "$P_{\\max} = 180\\text{ W}$",
-      "$P_{\\max} = 360\\text{ W}$",
-      "$P_{\\max} = 90\\text{ W}$",
-      "$P_{\\max} = 205\\text{ W}$"
+      "The wires melt completely",
+      "Current inverts to alternating current",
+      "Resistance of the junction becomes infinite",
+      "Thermoelectric power $dE/dT = 0$ and thermo-EMF reaches its maximum value"
     ],
     "optionsAr": [
-      "$P_{\\max} = 180\\text{ W}$",
-      "$P_{\\max} = 360\\text{ W}$",
-      "$P_{\\max} = 90\\text{ W}$",
-      "$P_{\\max} = 205\\text{ W}$"
+      "تنصهر الأسلاك تماماً",
+      "ينقلب التيار إلى تيار متردد",
+      "تصبح مقاومة نقطة التلامس لا نهائية",
+      "تنعدم القدرة الكهروحرارية $dE/dT = 0$ وتصل القوة الدافعة لأقصى قيمة"
     ],
-    "correctAnswer": "$P_{\\max} = 180\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "Thermoelectric power $dE/dT = 0$ and thermo-EMF reaches its maximum value",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 20\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{120}{40} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{120^2}{4 \\times 20} = 180\\text{ W}$$"
+      "Step-by-step physical solution: Thermoelectric power $dE/dT = 0$ and thermo-EMF reaches its maximum value."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 20\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{120}{40} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{120^2}{4 \\times 20} = 180\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: تنعدم القدرة الكهروحرارية $dE/dT = 0$ وتصل القوة الدافعة لأقصى قيمة."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_55",
-    "titleEn": "Maximum Power Transfer Condition #11",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #11",
+    "titleEn": "Thermoelectric Inversion Temperature",
+    "titleAr": "درجة حرارة الانقلاب في المزدوجة الحرارية",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 132\\text{ V}$ and internal resistance $r = 22\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 132\\text{ V}$ ومقاومته الداخلية $r = 22\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "Beyond the neutral temperature $T_n$, further heating the hot junction of a thermocouple causes the thermo-EMF to decrease until it reaches zero and reverses sign at the:",
+    "questionAr": "بعد تجاوز درجة الحرارة المتعادلة $T_n$، يؤدي الاستمرار في تسخين الوصلة الساخنة إلى هبوط القوة الدافعة وانعدامها ثم عكس اتجاهها عند:",
     "optionsEn": [
-      "$P_{\\max} = 198\\text{ W}$",
-      "$P_{\\max} = 396\\text{ W}$",
-      "$P_{\\max} = 99\\text{ W}$",
-      "$P_{\\max} = 223\\text{ W}$"
+      "Inversion temperature ($T_i = 2 T_n - T_c$)",
+      "Absolute zero temperature",
+      "Curie point",
+      "Boiling point of liquid nitrogen"
     ],
     "optionsAr": [
-      "$P_{\\max} = 198\\text{ W}$",
-      "$P_{\\max} = 396\\text{ W}$",
-      "$P_{\\max} = 99\\text{ W}$",
-      "$P_{\\max} = 223\\text{ W}$"
+      "درجة حرارة الانقلاب ($T_i = 2 T_n - T_c$)",
+      "درجة حرارة الصفر المطلق",
+      "نقطة كوري المغناطيسية",
+      "درجة غليان النيتروجين السائل"
     ],
-    "correctAnswer": "$P_{\\max} = 198\\text{ W}$",
+    "correctAnswer": "Inversion temperature ($T_i = 2 T_n - T_c$)",
     "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 22\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{132}{44} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{132^2}{4 \\times 22} = 198\\text{ W}$$"
+      "Step-by-step physical solution: Inversion temperature ($T_i = 2 T_n - T_c$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 22\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{132}{44} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{132^2}{4 \\times 22} = 198\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: درجة حرارة الانقلاب ($T_i = 2 T_n - T_c$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_56",
-    "titleEn": "Maximum Power Transfer Condition #12",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #12",
+    "titleEn": "Johnson-Nyquist Thermal Noise in Resistor",
+    "titleAr": "ضوضاء جونسون الحرارية في المقاومات",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 144\\text{ V}$ and internal resistance $r = 24\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 144\\text{ V}$ ومقاومته الداخلية $r = 24\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "Thermal agitation of electrons inside any ohmic resistor $R$ at temperature $T$ creates a spontaneous mean-square noise voltage across its open terminals given by:",
+    "questionAr": "تؤدي الحركة الحرارية العشوائية للإلكترونات في مقاومة أومية $R$ عند حرارة $T$ إلى توليد جهد ضوضاء حراري عبر طرفيها يعطى بالعلاقة:",
     "optionsEn": [
-      "$P_{\\max} = 216\\text{ W}$",
-      "$P_{\\max} = 432\\text{ W}$",
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 241\\text{ W}$"
+      "$\\overline{v_n^2} = \\frac{k_B T}{R \\Delta f}$",
+      "$\\overline{v_n^2} = 4 k_B T R \\Delta f$",
+      "$\\overline{v_n^2} = 2 k_B T^2 R^2$",
+      "$\\overline{v_n^2} = \\frac{4 R}{k_B T}$"
     ],
     "optionsAr": [
-      "$P_{\\max} = 216\\text{ W}$",
-      "$P_{\\max} = 432\\text{ W}$",
-      "$P_{\\max} = 108\\text{ W}$",
-      "$P_{\\max} = 241\\text{ W}$"
+      "$\\overline{v_n^2} = \\frac{k_B T}{R \\Delta f}$",
+      "$\\overline{v_n^2} = 4 k_B T R \\Delta f$",
+      "$\\overline{v_n^2} = 2 k_B T^2 R^2$",
+      "$\\overline{v_n^2} = \\frac{4 R}{k_B T}$"
     ],
-    "correctAnswer": "$P_{\\max} = 216\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "$\\overline{v_n^2} = 4 k_B T R \\Delta f$",
+    "correctIndex": 1,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 24\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{144}{48} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{144^2}{4 \\times 24} = 216\\text{ W}$$"
+      "Step-by-step physical solution: $\\overline{v_n^2} = 4 k_B T R \\Delta f$."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 24\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{144}{48} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{144^2}{4 \\times 24} = 216\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: $\\overline{v_n^2} = 4 k_B T R \\Delta f$."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_57",
-    "titleEn": "Maximum Power Transfer Condition #13",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #13",
+    "titleEn": "Superconductor London Penetration Depth",
+    "titleAr": "عمق اختراق لندن في الموصلات الفائقة",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 156\\text{ V}$ and internal resistance $r = 26\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 156\\text{ V}$ ومقاومته الداخلية $r = 26\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "In a superconductor, screening surface currents exclude magnetic fields (Meissner effect) within a characteristic surface layer thickness known as:",
+    "questionAr": "في المادة فائقة التوصيل، تمنع التيارات السطحية المجال المغناطيسي من اختراق الجسم (تأثير مايسنر) فيما عدا طبقة سطحية دقيقة تعرف بـ:",
     "optionsEn": [
-      "$P_{\\max} = 234\\text{ W}$",
-      "$P_{\\max} = 468\\text{ W}$",
-      "$P_{\\max} = 117\\text{ W}$",
-      "$P_{\\max} = 259\\text{ W}$"
+      "Debye screening length",
+      "Compton wavelength",
+      "London penetration depth ($\\lambda_L$)",
+      "Bohr radius"
     ],
     "optionsAr": [
-      "$P_{\\max} = 234\\text{ W}$",
-      "$P_{\\max} = 468\\text{ W}$",
-      "$P_{\\max} = 117\\text{ W}$",
-      "$P_{\\max} = 259\\text{ W}$"
+      "طول ديباي للحجب",
+      "طول موجة كومتون",
+      "عمق اختراق لندن ($\\lambda_L$)",
+      "نصف قطر بور"
     ],
-    "correctAnswer": "$P_{\\max} = 234\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "London penetration depth ($\\lambda_L$)",
+    "correctIndex": 2,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 26\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{156}{52} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{156^2}{4 \\times 26} = 234\\text{ W}$$"
+      "Step-by-step physical solution: London penetration depth ($\\lambda_L$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 26\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{156}{52} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{156^2}{4 \\times 26} = 234\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: عمق اختراق لندن ($\\lambda_L$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   },
   {
     "id": "phys_ch1_db_hots_58",
-    "titleEn": "Maximum Power Transfer Condition #14",
-    "titleAr": "شرط انتقال أقصى قدرة كهربية للحمل #14",
+    "titleEn": "Synthesis: Multi-Mesh High-Precision DC Bridge Optimization",
+    "titleAr": "مسألة تركيبية: معايرة شبكة كيرشوف الدقيقة متعددة الحلقات",
     "difficulty": "hots",
-    "questionEn": "A DC voltage source of EMF $V_B = 168\\text{ V}$ and internal resistance $r = 28\\,\\Omega$ is connected to a variable external resistor $R_L$. What is the maximum electric power $P_{\\max}$ that can be transferred to the external load?",
-    "questionAr": "مصدر كهربي مستمر قوته الدافعة $V_B = 168\\text{ V}$ ومقاومته الداخلية $r = 28\\,\\Omega$ متصل بمقاومة حمل خارجية متغيرة $R_L$. ما أقصى قدرة كهربية $P_{\\max}$ يمكن نقلها إلى مقاومة الحمل؟",
+    "questionEn": "A complex industrial measurement network contains three batteries and five precision branches. When balanced, the current in the central galvanometer is zero. What fundamental physical condition ensures this state?",
+    "questionAr": "شبكة قياس صناعية معقدة تحتوي على 3 بطاريات و5 فروع دقيقة. عند اتزانها ينعدم التيار في الجلفانومتر الأوسط. ما الشرط الفيزيائي الجوهري لثبوت هذه الحالة؟",
     "optionsEn": [
-      "$P_{\\max} = 252\\text{ W}$",
-      "$P_{\\max} = 504\\text{ W}$",
-      "$P_{\\max} = 126\\text{ W}$",
-      "$P_{\\max} = 277\\text{ W}$"
+      "Total current of the entire plant becoming zero",
+      "Internal resistance of all batteries becoming infinite",
+      "Galvanometer coil burning open",
+      "Equality of potentials at the two nodes bridging the galvanometer ($V_A = V_B$)"
     ],
     "optionsAr": [
-      "$P_{\\max} = 252\\text{ W}$",
-      "$P_{\\max} = 504\\text{ W}$",
-      "$P_{\\max} = 126\\text{ W}$",
-      "$P_{\\max} = 277\\text{ W}$"
+      "انعدام التيار الكلي الخارج من كافة المولدات",
+      "تحول المقاومة الداخلية لجميع البطاريات لمالانهاية",
+      "احتراق ملف الجلفانومتر وانقطاعه",
+      "تساوي الجهد الكهربي تماماً عند طرفي توصيل الجلفانومتر ($V_A = V_B$)"
     ],
-    "correctAnswer": "$P_{\\max} = 252\\text{ W}$",
-    "correctIndex": 0,
-    "hintEn": "Maximum power transfer occurs when load resistance equals internal resistance ($R_L = r$), yielding $P_{\\max} = \\frac{V_B^2}{4r}$.",
-    "hintAr": "تنتقل أقصى قدرة للحمل الخارجي عندما تتساوى مقاومة الحمل مع المقاومة الداخلية ($R_L = r$)، وتعطى بالعلاقة $P_{\\max} = \\frac{V_B^2}{4r}$.",
+    "correctAnswer": "Equality of potentials at the two nodes bridging the galvanometer ($V_A = V_B$)",
+    "correctIndex": 3,
+    "hintEn": "Analyze non-trivial circuit configurations using volume conservation (R proportional to L^2/V), maximum power transfer, or Kirchhoff multi-mesh systems.",
+    "hintAr": "استخدم مبادئ ثبوت الحجم عند سحب الأسلاك، نظرية أقصى نقل للقدرة، وقوانين كيرشوف للشبكات المعقدة.",
     "stepByStepSolutionEn": [
-      "According to the Maximum Power Transfer Theorem, $P$ is maximized when $R_L = r = 28\\,\\Omega$.",
-      "Circuit current at maximum power: $I = \\frac{V_B}{R_L + r} = \\frac{V_B}{2r} = \\frac{168}{56} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = I^2 R_L = \\left(\\frac{V_B}{2r}\\right)^2 r = \\frac{V_B^2}{4r} = \\frac{168^2}{4 \\times 28} = 252\\text{ W}$$"
+      "Step-by-step physical solution: Equality of potentials at the two nodes bridging the galvanometer ($V_A = V_B$)."
     ],
     "stepByStepSolutionAr": [
-      "وفقاً لنظرية أقصى انتقال للقدرة، تتحقق أقصى قدرة عندما تكون $R_L = r = 28\\,\\Omega$.",
-      "شدة التيار عند أقصى قدرة: $I = \\frac{V_B}{2r} = \\frac{168}{56} = 3.00\\text{ A}$.",
-      "$$P_{\\max} = \\frac{V_B^2}{4r} = \\frac{168^2}{4 \\times 28} = 252\\text{ واط}$$"
+      "خطوات الحل الفيزيائي والرياضي: تساوي الجهد الكهربي تماماً عند طرفي توصيل الجلفانومتر ($V_A = V_B$)."
     ],
-    "teacherTipEn": "At maximum power transfer, the electrical efficiency of the source is exactly $50\\%$ because half the power is dissipated in internal resistance $r$.",
-    "teacherTipAr": "عند انتقال أقصى قدرة، تكون الكفاءة الكهربية للمصدر $50\\%$ بالضبط لأن نصف القدرة الكلية يُفقد داخل المقاومة الداخلية $r$."
+    "teacherTipEn": "When length increases by p%, resistance increases by approximately 2p% for small changes, and exactly by (1 + p/100)^2.",
+    "teacherTipAr": "عند زيادة الطول بنسبة p%، فإن المقاومة تتضاعف بمعامل (1 + p/100)^2 نتيجة نقص المساحة المرافق."
   }
 ]
 };
