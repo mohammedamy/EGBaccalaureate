@@ -576,6 +576,7 @@ export const LessonView: React.FC<Props> = ({
             </div>
 
             {matchingBook && (
+              <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80">
                 <a
                   href={matchingBook.downloadUrl}
                   download={matchingBook.filename}
@@ -583,7 +584,7 @@ export const LessonView: React.FC<Props> = ({
                   title={t.downloadConceptCompendium}
                 >
                   <Download className="w-3 h-3" />
-                  <span>{isArabic ? 'كتيب المفاهيم' : 'Compendium'} ({matchingBook.fileSize})</span>
+                  <span>{lang === 'ar' ? 'كتيب المفاهيم' : 'Compendium'} ({matchingBook.fileSize})</span>
                 </a>
                 {onOpenOfficialBooks && (
                   <button

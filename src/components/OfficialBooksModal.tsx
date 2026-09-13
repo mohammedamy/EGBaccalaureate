@@ -378,9 +378,6 @@ export const OfficialBooksModal: React.FC<Props> = ({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {filteredBooks.map((book) => {
                 const isExpanded = expandedChaptersBookId === book.id;
-                const pageCountDisplay = isArabic
-                  ? `${toHindiDigits(book.pagesCount)} ${t.bookPagesCount}`
-                  : `${book.pagesCount} ${t.bookPagesCount}`;
 
                 return (
                   <div
