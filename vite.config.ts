@@ -35,6 +35,9 @@ export default defineConfig({
             if (id.includes('egBacProb')) return 'databank-egbac-probability';
             return 'databank-egbac';
           }
+          if (id.includes('/src/components/labs/') || id.includes('VirtualLabsHub')) return 'virtual-labs';
+          if (id.includes('/src/components/DesmosSuite')) return 'desmos-suite';
+          if (id.includes('/src/components/OfficialBooksModal') || id.includes('/src/data/officialBooksData')) return 'official-books';
           if (id.includes('/src/data/textbook/thanaweya/')) return 'textbook-thanaweya';
           if (id.includes('/src/data/textbook/egbac/')) return 'textbook-egbac';
         },
