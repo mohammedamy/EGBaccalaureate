@@ -234,6 +234,918 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             descriptionEn: 'Interactive multiloop solver displaying node currents, loop electromotive forces, and branch voltage drops.',
             descriptionAr: 'أداة تفاعلية لحساب تيارات العقد وفروق الجهد ومحصلة القوى الدافعة في الدوائر المغلقة.'
           }
+        },
+        {
+          "id": "th_phys_l2",
+          "titleEn": "Magnetic Effect of Electric Current & Analog Measuring Instruments",
+          "titleAr": "التأثير المغناطيسي للتيار الكهربي وأجهزة القياس التناظرية",
+          "summaryEn": "Magnetic flux density around straight wires, circular coils, and solenoids; magnetic force on current-carrying conductors ($F = BIL\\sin\\theta$); magnetic torque on coils ($\\tau = BIAN\\sin\\theta$); and galvanometer conversion to ammeters, voltmeters, and ohmmeters.",
+          "summaryAr": "كثافة الفيض المغناطيسي لسلك مستقيم، ملف دائري، وملف لولبي؛ القوة المغناطيسية على سلك يمر به تيار؛ عزم الازدواج المغناطيسي المؤثر على ملف؛ وتحويل الجلفانومتر ذي الملف المتحرك إلى أميتر، فولتميتر، وأوميتر.",
+          "theoryContentEn": "### 1. Magnetic Flux Density Produced by Currents\n- **Straight Wire (Ampere's Circuital Law):**\n  $B = \\frac{\\mu I}{2\\pi d}$\n  where $\\mu_0 = 4\\pi \\times 10^{-7}\\,\\text{T}\\cdot\\text{m/A}$. Right-hand grip rule gives field direction (concentric circular lines).\n- **Circular Coil:**\n  $B = \\frac{\\mu N I}{2r}$\n  Field at the center is perpendicular to the coil plane.\n- **Solenoid (Helical Coil):**\n  $B = \\frac{\\mu N I}{L} = \\mu n I$\n  where $n = N/L$ is turns per unit length. Field inside is uniform and parallel to axis.\n\n### 2. Magnetic Force and Magnetic Torque\n- **Magnetic Force on a Current-Carrying Wire:**\n  $F = B I L \\sin\\theta$\n  Direction given by **Fleming's Left-Hand Rule**. Force between two parallel wires of length $L$:\n  $F = \\frac{\\mu I_1 I_2 L}{2\\pi d} \\quad (\\text{Attraction if same direction, Repulsion if opposite})$\n- **Magnetic Torque on a Coil:**\n  $\\tau = B I A N \\sin\\theta' = B I A N \\cos\\theta$\n  where $\\theta'$ is angle between magnetic field and normal to the coil plane.\n- **Magnetic Dipole Moment ($m_d$):**\n  $|\\vec{m}_d| = I A N = \\frac{\\tau_{\\max}}{B}$\n\n### 3. Analog Measuring Instruments (Moving-Coil Galvanometer)\n- **Moving-Coil Galvanometer:**\n  - Operates on magnetic torque in a radial magnetic field (cylindrical iron core + concave poles).\n  - Sensitivity: $S = \\frac{\\theta}{I}$.\n- **DC Ammeter (Shunt Resistor $R_s$ in parallel):**\n  $R_s = \\frac{I_g R_g}{I - I_g}$\n- **DC Voltmeter (Multiplier Resistor $R_m$ in series):**\n  $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$\n- **Ohmmeter:**\n  $I = \\frac{V_B}{R_{\\text{in}} + R_x}, \\quad \\text{where } R_{\\text{in}} = R_g + R_c + R_v + r$\n  $R_x = \\left(\\frac{I_g}{I} - 1\\right) R_{\\text{in}}$",
+          "theoryContentAr": "### ١. كثافة الفيض المغناطيسي للتيار الكهربي\n- **سلك مستقيم (قانون أمبير الدائري):**\n  $B = \\frac{\\mu I}{2\\pi d}$\n  حيث $\\mu_0 = 4\\pi \\times 10^{-7}\\,\\text{T}\\cdot\\text{m/A}$. خطوط الفيض دوائر متحدة المركز يتحدد اتجاهها بقاعدة اليد اليمنى لأمبير.\n- **ملف دائري (عند المركز):**\n  $B = \\frac{\\mu N I}{2r}$\n- **ملف لولبي (حلزوني):**\n  $B = \\frac{\\mu N I}{L} = \\mu n I$\n  حيث $n = N/L$ عدد اللفات لوحدة الأطوال.\n\n### ٢. القوة المغناطيسية وعزم الازدواج\n- **القوة المؤثرة على سلك مستقيم:**\n  $F = B I L \\sin\\theta$\n  يتحدد اتجاهها بقاعدة **فلمنج لليد اليسرى**. القوة المتبادلة بين سلكين متوازيين:\n  $F = \\frac{\\mu I_1 I_2 L}{2\\pi d} \\quad (\\text{تجاذب للتيارين المتماثلين، تنافر للمتضادين})$\n- **عزم الازدواج المغناطيسي على ملف:**\n  $\\tau = B I A N \\sin\\theta'$\n  حيث $\\theta'$ هي الزاوية بين العمودي على مستوى الملف وخطوط الفيض.\n- **عزم ثنائي القطب المغناطيسي:**\n  $m_d = I A N = \\frac{\\tau_{\\max}}{B}$\n\n### ٣. أجهزة القياس التناظرية (الجلفانومتر الحساس)\n- **مجزئ التيار في الأميتر ($R_s$ على التوازي):**\n  $R_s = \\frac{I_g R_g}{I - I_g}$\n- **مضاعف الجهد في الفولتميتر ($R_m$ على التوالي):**\n  $R_m = \\frac{V - V_g}{I_g}$\n- **الأوميتر (لقياس المقاومات المجهولة $R_x$):**\n  $I = \\frac{V_B}{R_{\\text{in}} + R_x}$\n  حيث $R_{\\text{in}}$ المقاومة الداخلية الكلية للأوميتر.",
+          "formulas": [
+            {
+              "labelEn": "Magnetic Force on Current Conductor",
+              "labelAr": "القوة المغناطيسية على سلك مستقيم",
+              "latex": "F = BIL\\sin\\theta"
+            },
+            {
+              "labelEn": "Ammeter Shunt Resistance",
+              "labelAr": "مقاومة مجزئ التيار للأميتر",
+              "latex": "R_s = \\frac{I_g R_g}{I - I_g}"
+            },
+            {
+              "labelEn": "Voltmeter Multiplier Resistance",
+              "labelAr": "مقاومة مضاعف الجهد للفولتميتر",
+              "latex": "R_m = \\frac{V - I_g R_g}{I_g}"
+            }
+          ],
+          "moeRef": {
+            "bookTitleEn": "Ministry Physics Textbook Grade 12",
+            "bookTitleAr": "كتاب الفيزياء للصف الثالث الثانوي - وزارة التربية والتعليم",
+            "grade": "Grade 12",
+            "term": "Full Year",
+            "officialCode": "MOE-SEC3-PHYS-CH2-L1",
+            "pageRange": "pp. 49 - 102"
+          },
+          "lessonPlan": {
+            "titleEn": "Lesson Plan: Magnetic Flux, Torque & Analog Meters",
+            "titleAr": "خطة درس: التأثير المغناطيسي وأجهزة القياس",
+            "gradeLevel": "Grade 12 Secondary",
+            "durationMinutes": 90,
+            "moeCode": "MOE-SEC3-PHYS-CH2-L1",
+            "bloomsObjectivesEn": [
+              "Calculate magnetic flux density at points around combinations of straight wires, circular loops, and solenoids.",
+              "Derive shunt and multiplier resistances required to modify galvanometer measurement ranges.",
+              "Analyze the non-linear reciprocal scale of an ohmmeter."
+            ],
+            "bloomsObjectivesAr": [
+              "حساب محصلة كثافة الفيض المغناطيسي لسلكين متوازيين ونقاط التعادل.",
+              "استنتاج قيمتي مجزئ التيار ومضاعف الجهد لتوسيع مدى قياس الجلفانومتر.",
+              "تفسير عدم انتظام تدريج الأوميتر وتناسب شدة التيار عكسياً مع المقاومة الكلية."
+            ],
+            "prerequisitesEn": [
+              "Ohm's law",
+              "Vector addition",
+              "Right-hand rule"
+            ],
+            "prerequisitesAr": [
+              "قانون أوم",
+              "جمع المتجهات",
+              "قاعدة اليد اليمنى"
+            ],
+            "keyVocabularyEn": [
+              {
+                "term": "Neutral Point",
+                "definition": "A point in a magnetic field where the resultant magnetic flux density is exactly zero."
+              },
+              {
+                "term": "Shunt Resistor",
+                "definition": "A very small resistor connected in parallel with a galvanometer to convert it into an ammeter."
+              }
+            ],
+            "keyVocabularyAr": [
+              {
+                "term": "نقطة التعادل",
+                "definition": "نقطة ينعدم عندها الفيض المغناطيسي المحصل لانعدام القوة المغناطيسية."
+              },
+              {
+                "term": "مجزئ التيار",
+                "definition": "مقاومة صغيرة جداً توصل على التوازي مع ملف الجلفانومتر لإنقاص حساسيته وزيادة مدى قياسه للتيار."
+              }
+            ],
+            "teachingPacing": [
+              {
+                "phaseEn": "Magnetic Fields of Straight Wires & Coils",
+                "phaseAr": "المجال المغناطيسي للأسلاك والملفات",
+                "duration": "30 mins",
+                "activitiesEn": "Deriving B fields and locating neutral points between opposite currents.",
+                "activitiesAr": "استنتاج كثافة الفيض وتحديد موضع نقطة التعادل."
+              },
+              {
+                "phaseEn": "Magnetic Force & Torque",
+                "phaseAr": "القوة المغناطيسية وعزم الازدواج",
+                "duration": "30 mins",
+                "activitiesEn": "Applying Fleming's left hand rule and calculating torque on inclined coils.",
+                "activitiesAr": "تطبيق قاعدة اليد اليسرى لفلمنج وحساب عزم ثنائي القطب."
+              },
+              {
+                "phaseEn": "Galvanometer Conversion & Ohmmeter",
+                "phaseAr": "تحويلات الجلفانومتر والأوميتر",
+                "duration": "30 mins",
+                "activitiesEn": "Circuit analysis of ammeters, voltmeters, and ohmmeter non-linear scales.",
+                "activitiesAr": "حل مسائل مجزئ التيار ومضاعف الجهد والأوميتر."
+              }
+            ],
+            "commonMisconceptionsEn": [
+              "Confusing coil angle in torque formula (angle is between field and normal to the coil, not the coil itself).",
+              "Thinking ohmmeter scale is linear (current is inversely proportional to R_in + R_x, not R_x alone)."
+            ],
+            "commonMisconceptionsAr": [
+              "الخطأ في زاوية عزم الازدواج (الزاوية بين العمودي على الملف والمجال وليست مع مستوى الملف).",
+              "الظن بأن تدريج الأوميتر منتظم (التيار يتناسب عكسياً مع المقاومة الكلية وليس المجهولة فقط)."
+            ],
+            "differentiationEn": {
+              "struggling": "Provide a formula card with side-by-side diagrams of Rs (parallel) and Rm (series).",
+              "advanced": "Calculate the mutual force between two non-parallel conducting wires."
+            },
+            "differentiationAr": {
+              "struggling": "استخدام بطاقات مقارنة تلخص Rs على التوازي و Rm على التوالي مع الجلفانومتر.",
+              "advanced": "حساب نقطة التعادل لسلكين يحملان تيارين متعامدين."
+            },
+            "formativeAssessmentEn": "Why is the scale of a galvanometer uniform while the scale of an ohmmeter is non-uniform?",
+            "formativeAssessmentAr": "علل: تدريج الجلفانومتر منتظم بينما تدريج الأوميتر غير منتظم؟",
+            "exitTicketQuestion": {
+              "questionEn": "A galvanometer of resistance 50 ohms gives full-scale deflection with a current of 2 mA. What shunt resistance is needed to convert it to an ammeter reading up to 1 A?",
+              "questionAr": "جلفانومتر مقاومة ملفه ٥٠ أوم ينحرف مؤشره لنهاية التدريج بتيار ٢ مللي أمبير. احسب مقاومة مجزئ التيار لتحويله لأميتر يقيس تياراً أقصاه ١ أمبير.",
+              "solutionEn": "$R_s = \\frac{I_g R_g}{I - I_g} = \\frac{(0.002)(50)}{1 - 0.002} = \\frac{0.1}{0.998} \\approx 0.1002\\,\\Omega$.",
+              "solutionAr": "$R_s = \\frac{I_g R_g}{I - I_g} = \\frac{(٠,٠٠٢)(٥٠)}{١ - ٠,٠٠٢} = \\frac{٠,١}{٠,٩٩٨} \\approx ٠,١٠٠٢\\,\\Omega$."
+            }
+          },
+          "worksheet": {
+            "id": "th_phys_ws_2",
+            "titleEn": "Worksheet: Magnetic Fields, Force & Meter Modifications",
+            "titleAr": "ورقة عمل: التأثير المغناطيسي وتحويلات أجهزة القياس",
+            "descriptionEn": "Rigorous quantitative problems on magnetic fields, force pairs, and moving coil conversions.",
+            "descriptionAr": "مسائل رياضية دقيقة على كثافة الفيض والقوة المغناطيسية ومجزئ التيار ومضاعف الجهد.",
+            "estimatedTimeMinutes": 45,
+            "problems": [
+              {
+                "id": "th_phys_ws_p2_1",
+                "titleEn": "Neutral Point Location for Two Parallel Wires",
+                "titleAr": "تحديد موضع نقطة التعادل لسلكين متوازيين",
+                "difficulty": "medium",
+                "questionEn": "Two long parallel wires in vacuum are separated by 20 cm. Wire 1 carries a current of 2 A and Wire 2 carries a current of 6 A in opposite directions. At what distance from Wire 1 is the neutral point located?",
+                "questionAr": "سلكان مستقيمان متوازيان في الهواء المسافة بينهما ٢٠ سم. يمر بالأول تيار ٢ أمبير وبالثاني ٦ أمبير في اتجاهين متضادين. على أي مسافة من السلك الأول تقع نقطة التعادل؟",
+                "optionsEn": [
+                  "10 cm outside the wires",
+                  "5 cm between the wires",
+                  "15 cm outside the wires",
+                  "20 cm outside the wires"
+                ],
+                "optionsAr": [
+                  "١٠ سم خارج السلكين بالقرب من السلك الأول",
+                  "٥ سم بين السلكين",
+                  "١٥ سم خارج السلكين",
+                  "٢٠ سم خارج السلكين"
+                ],
+                "correctAnswer": "10 cm outside the wires",
+                "correctIndex": 0,
+                "hintEn": "Since currents are opposite, the neutral point lies outside the two wires, closer to the weaker current: $I_1 / d_1 = I_2 / (D + d_1)$.",
+                "hintAr": "التياران متضادان، إذن نقطة التعادل تقع خارج السلكين بالقرب من التيار الأضعف: $I_1 / d = I_2 / (20 + d)$.",
+                "stepByStepSolutionEn": [
+                  "Opposite currents: neutral point is outside the region between the wires, near the weaker wire (Wire 1).",
+                  "Condition: $\\frac{I_1}{d} = \\frac{I_2}{D + d}$.",
+                  "$\\frac{2}{d} = \\frac{6}{20 + d} \\implies 6d = 40 + 2d \\implies 4d = 40 \\implies d = 10\\text{ cm}$.",
+                  "The neutral point is located 10 cm outside Wire 1."
+                ],
+                "stepByStepSolutionAr": [
+                  "بما أن التيارين في اتجاهين متضادين، فإن نقطة التعادل تقع خارج السلكين بجوار التيار الأقل (السلك الأول).",
+                  "شرط التعادل: $\\frac{I_1}{d} = \\frac{I_2}{D + d}$.",
+                  "$\\frac{٢}{d} = \\frac{٦}{٢٠ + d} \\implies ٦d = ٤٠ + ٢d \\implies ٤d = ٤٠ \\implies d = ١٠\\text{ سم}$.",
+                  "تقع نقطة التعادل على بعد ١٠ سم خارج السلك الأول."
+                ],
+                "teacherTipEn": "Remember: if currents are in opposite directions, neutral point is always OUTSIDE the region between the wires.",
+                "teacherTipAr": "قاعدة ثابتة: إذا كان التياران في اتجاهين متضادين تقع نقطة التعادل خارج السلكين بجوار التيار الأضعف."
+              }
+            ]
+          },
+          "interactiveWidget": {
+            "type": "statics_friction",
+            "titleEn": "Magnetic Field & Galvanometer Converter Simulator",
+            "titleAr": "محاكي المجال المغناطيسي وتحويلات الجلفانومتر",
+            "descriptionEn": "Interactive simulation calculating magnetic flux density vectors and galvanometer shunt/multiplier resistances.",
+            "descriptionAr": "محاكاة تفاعلية لحساب كثافة الفيض المغناطيسي وتعديل الجلفانومتر إلى أميتر وفولتميتر."
+          }
+        },
+        {
+          "id": "th_phys_l3",
+          "titleEn": "Electromagnetic Induction, Faraday's Law & AC Dynamo",
+          "titleAr": "الحث الكهرومغناطيسي، قانون فاراداي ومولد التيار المتردد (الدينامو)",
+          "summaryEn": "Faraday's law of induction, Lenz's directional rule, induced EMF in straight moving conductors ($BLv\\sin\\theta$), mutual and self-induction, AC electric generator (dynamo), and step-up / step-down electric transformers.",
+          "summaryAr": "قانون فاراداي في الحث، قاعدة لنز، القوة الدافعة المستحثة في سلك مستقيم، الحث المتبادل والحث الذاتي، مولد التيار المتردد (الدينامو)، والمحولات الرافعة والخافضة للجهد.",
+          "theoryContentEn": "### 1. Faraday's Law and Lenz's Law\n- **Faraday's Law of Electromagnetic Induction:**\n  $\\text{EMF} = -N \\frac{\\Delta\\Phi_m}{\\Delta t}$\n  where $\\Phi_m = B A \\cos\\theta$.\n- **Lenz's Law:** The induced current always flows in such a direction that its magnetic effect opposes the change in magnetic flux producing it (indicated by the negative sign in Faraday's equation).\n- **EMF Induced in a Moving Straight Conductor:**\n  $\\text{EMF} = -B L v \\sin\\theta$\n  Direction determined by **Fleming's Right-Hand Rule**.\n\n### 2. Mutual and Self-Induction\n- **Mutual Induction between Two Coils:**\n  $\\text{EMF}_2 = -M \\frac{\\Delta I_1}{\\Delta t} = -N_2 \\frac{\\Delta\\Phi_{m2}}{\\Delta t}$\n  where $M$ is the coefficient of mutual induction (measured in Henry, $\\text{H} = \\text{V}\\cdot\\text{s/A} = \\Omega\\cdot\\text{s}$).\n- **Self-Induction in a Single Coil:**\n  $\\text{EMF} = -L \\frac{\\Delta I}{\\Delta t}, \\quad L = \\frac{\\mu N^2 A}{\\ell}$\n  Opposes current rise upon switch closure (back EMF) and current collapse upon switch opening (forward high voltage spark).\n\n### 3. AC Electric Generator (Dynamo)\n- Rectangular coil rotating with angular velocity $\\omega = 2\\pi f$ in a uniform magnetic field $B$:\n  $\\text{EMF}_{\\text{inst}} = N B A \\omega \\sin\\theta = \\text{EMF}_{\\max} \\sin(2\\pi f t)$\n- **Effective (RMS) Values:**\n  $\\text{EMF}_{\\text{eff}} = \\frac{\\text{EMF}_{\\max}}{\\sqrt{2}} \\approx 0.707\\,\\text{EMF}_{\\max}$\n  $I_{\\text{eff}} = \\frac{I_{\\max}}{\\sqrt{2}} \\approx 0.707\\,I_{\\max}$\n  $\\text{Average EMF over half cycle from zero} = \\frac{2}{\\pi}\\text{EMF}_{\\max} = \\frac{4 N B A}{\\tau}$\n\n### 4. Electric Transformers\n- Ideal transformer (100% efficiency):\n  $\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}$\n- Real transformer efficiency:\n  $\\eta = \\frac{P_s}{P_p} \\times 100\\% = \\frac{V_s I_s}{V_p I_p} \\times 100\\%$",
+          "theoryContentAr": "### ١. قانون فاراداي وقاعدة لنز\n- **قانون فاراداي للحث الكهرومغناطيسي:**\n  $\\text{EMF} = -N \\frac{\\Delta\\Phi_m}{\\Delta t}$\n- **قاعدة لنز:** يكون اتجاه التيار الكهربي المستحث بحيث يعاكس التغير في الفيض المغناطيسي المسبب له.\n- **القوة الدافعة المستحثة في سلك مستقيم متحرك:**\n  $\\text{EMF} = -B L v \\sin\\theta$\n  يتحدد اتجاه التيار بقاعدة **فلمنج لليد اليمنى**.\n\n### ٢. الحث المتبادل والحث الذاتي\n- **معامل الحث المتبادل ($M$) والحث الذاتي ($L$):**\n  $\\text{EMF} = -L \\frac{\\Delta I}{\\Delta t}$\n  يقاس بالهنري ($\\text{Henry} = \\text{V}\\cdot\\text{s/A} = \\Omega\\cdot\\text{s}$).\n  قيمة معامل الحث الذاتي لملف لولبي: $L = \\frac{\\mu N^2 A}{\\ell}$.\n\n### ٣. مولد التيار المتردد (الدينامو)\n- دوران ملف بسرعة زاوية $\\omega = 2\\pi f$ في مجال مغناطيسي منتظم:\n  $\\text{EMF}_{\\text{inst}} = N B A \\omega \\sin\\theta = \\text{EMF}_{\\max} \\sin(2\\pi f t)$\n- **القيم الفعالة (RMS):**\n  $\\text{EMF}_{\\text{eff}} = \\frac{\\text{EMF}_{\\max}}{\\sqrt{2}} = 0.707\\,\\text{EMF}_{\\max}$\n- **متوسط القوة الدافعة خلال ربع أو نصف دورة من الوضع العمودي:**\n  $\\text{EMF}_{\\text{avg}} = \\frac{4 N B A}{T} = \\frac{2}{\\pi}\\text{EMF}_{\\max}$\n\n### ٤. المحول الكهربي\n- المحول المثالي (كفاءة ١٠٠٪):\n  $\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}$\n- كفاءة المحول غير المثالي:\n  $\\eta = \\frac{V_s I_s}{V_p I_p} \\times 100\\%$",
+          "formulas": [
+            {
+              "labelEn": "Faraday Law of Induction",
+              "labelAr": "قانون فاراداي للحث الكهرومغناطيسي",
+              "latex": "\\text{EMF} = -N\\frac{\\Delta\\Phi_m}{\\Delta t}"
+            },
+            {
+              "labelEn": "Dynamo Instantaneous EMF",
+              "labelAr": "القوة الدافعة اللحظية للدينامو",
+              "latex": "\\text{EMF}_{\\text{inst}} = NBA\\omega\\sin(2\\pi f t)"
+            },
+            {
+              "labelEn": "Ideal Transformer Ratio",
+              "labelAr": "معادلة المحول الكهربي المثالي",
+              "latex": "\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}"
+            }
+          ],
+          "moeRef": {
+            "bookTitleEn": "Ministry Physics Textbook Grade 12",
+            "bookTitleAr": "كتاب الفيزياء للصف الثالث الثانوي - وزارة التربية والتعليم",
+            "grade": "Grade 12",
+            "term": "Full Year",
+            "officialCode": "MOE-SEC3-PHYS-CH3-L1",
+            "pageRange": "pp. 103 - 160"
+          },
+          "lessonPlan": {
+            "titleEn": "Lesson Plan: Electromagnetic Induction & AC Generators",
+            "titleAr": "خطة درس: الحث الكهرومغناطيسي ومولدات التيار المتردد",
+            "gradeLevel": "Grade 12 Secondary",
+            "durationMinutes": 90,
+            "moeCode": "MOE-SEC3-PHYS-CH3-L1",
+            "bloomsObjectivesEn": [
+              "Calculate instantaneous, maximum, effective, and average EMF values generated by an AC dynamo.",
+              "Explain how Lenz's law embodies the law of conservation of energy.",
+              "Solve transformer efficiency and transmission line power loss problems."
+            ],
+            "bloomsObjectivesAr": [
+              "حساب القيم اللحظية والعظمى والفعالة والمتوسطة للقوة الدافعة المتولدة في ملف الدينامو.",
+              "تفسير قاعدة لنز كصيغة من صيغ قانون بقاء الطاقة.",
+              "حل مسائل كفاءة المحول الكهربي وفقد القدرة في خطوط النقل."
+            ],
+            "prerequisitesEn": [
+              "Magnetic flux",
+              "Circular motion",
+              "Sinusoidal functions"
+            ],
+            "prerequisitesAr": [
+              "الفيض المغناطيسي",
+              "الحركة الدائرية",
+              "الدوال الجيبية"
+            ],
+            "keyVocabularyEn": [
+              {
+                "term": "Effective Value of AC",
+                "definition": "The value of direct current that generates thermal energy in a resistor at the same rate as the alternating current."
+              },
+              {
+                "term": "Eddy Currents",
+                "definition": "Induced circulating electric currents generated in solid metal cores subject to changing magnetic flux."
+              }
+            ],
+            "keyVocabularyAr": [
+              {
+                "term": "القيمة الفعالة للتيار المتردد",
+                "definition": "شدة التيار المستمر الذي يولد نفس كمية الحرارة في مقاومة في نفس الزمن."
+              },
+              {
+                "term": "التيارات الدوامية",
+                "definition": "تيارات كهربية مستحثة تسري في القطع المعدنية المصمتة المعرضة لفيض متغير وتسبب فقداً حرارياً."
+              }
+            ],
+            "teachingPacing": [
+              {
+                "phaseEn": "Faraday & Lenz Law Experiments",
+                "phaseAr": "تجارب فاراداي وقاعدة لنز",
+                "duration": "30 mins",
+                "activitiesEn": "Demonstrating magnet plunging into coils and checking induced current directions.",
+                "activitiesAr": "تطبيق قاعدة لنز على حركة المغناطيس داخل ملف."
+              },
+              {
+                "phaseEn": "Dynamo AC Waveform Analysis",
+                "phaseAr": "تحليل موجة الدينامو الجيبية",
+                "duration": "30 mins",
+                "activitiesEn": "Calculating instantaneous and RMS values from angular positions.",
+                "activitiesAr": "حساب القيم الفعالة واللحظية وزوايا الدوران."
+              },
+              {
+                "phaseEn": "Transformers & Power Transmission",
+                "phaseAr": "المحولات ونقل القدرة الكهربية",
+                "duration": "30 mins",
+                "activitiesEn": "Solving power loss P = I^2 R in transmission lines using step-up transformers.",
+                "activitiesAr": "حساب الهبوط في الجهد والقدرة المفقودة في أسلاك النقل."
+              }
+            ],
+            "commonMisconceptionsEn": [
+              "Thinking average EMF over a full dynamo cycle is non-zero (it is exactly zero because halves cancel out).",
+              "Confusing theta in dynamo equation (theta is the angle between the normal to the coil and magnetic field, so theta = 0 when coil is perpendicular to field)."
+            ],
+            "commonMisconceptionsAr": [
+              "الاعتقاد بأن متوسط القوة الدافعة لدورة كاملة لا يساوي صفراً (يساوي صفراً لأن النصفين يتلاشيان).",
+              "الخلط في زاوية الدينامو (تكون سيتا = صفر عندما يكون مستوى الملف عمودياً على خطوط الفيض)."
+            ],
+            "differentiationEn": {
+              "struggling": "Use hand rotation mechanical dynamo model with LED to illustrate direction reversals.",
+              "advanced": "Calculate total energy stored in a superconducting solenoid magnetic field ($E = \\frac{1}{2} L I^2$)."
+            },
+            "differentiationAr": {
+              "struggling": "استخدام نموذج يدوي للدينامو مع لمبة LED لتوضيح انعكاس اتجاه التيار.",
+              "advanced": "حساب الطاقة الكهرومغناطيسية المخزونة في المجال المغناطيسي لملف حث ($E = \\frac{1}{2} L I^2$)."
+            },
+            "formativeAssessmentEn": "Why are electric transformer cores constructed from laminated soft iron sheets insulated with varnish?",
+            "formativeAssessmentAr": "علل: يصنع قلب المحول الكهربي من شرائح رقيقة من الحديد المطاوع السيليكوني معزولة عن بعضها؟",
+            "exitTicketQuestion": {
+              "questionEn": "If the maximum EMF of an AC dynamo is 200 V, what is the effective (RMS) EMF?",
+              "questionAr": "إذا كانت القوة الدافعة الكهربية العظمى لدينامو تيار متردد تساوي ٢٠٠ فولت، فما القيمة الفعالة لها؟",
+              "solutionEn": "$\\text{EMF}_{\\text{eff}} = 200 \\times 0.707 = 141.4\\text{ V}$.",
+              "solutionAr": "$\\text{EMF}_{\\text{eff}} = ٢٠٠ \\times ٠,٧٠٧ = ١٤١,٤\\text{ فولت}$."
+            }
+          },
+          "worksheet": {
+            "id": "th_phys_ws_3",
+            "titleEn": "Worksheet: Induction, Dynamo & Transformer Calculations",
+            "titleAr": "ورقة عمل: الحث الكهرومغناطيسي والدينامو والمحولات",
+            "descriptionEn": "Rigorous problems on instantaneous and average EMF, self-induction, and transformer efficiency.",
+            "descriptionAr": "مسائل علمية دقيقة على متوسط القوة الدافعة المستحثة ومعامل الحث وكفاءة المحول الكهربي.",
+            "estimatedTimeMinutes": 45,
+            "problems": [
+              {
+                "id": "th_phys_ws_p3_1",
+                "titleEn": "Average Dynamo EMF Calculation Over Quarter Cycle",
+                "titleAr": "حساب متوسط القوة الدافعة للدينامو خلال ربع دورة",
+                "difficulty": "medium",
+                "questionEn": "An AC dynamo coil generates a maximum EMF of 100 V. What is the average induced EMF during a quarter of a cycle starting from the perpendicular position?",
+                "questionAr": "ملف دينامو يولد قوة دافعة كهربية عظمى مقدارها ١٠٠ فولت. ما قيمة متوسط القوة الدافعة الكهربية المستحثة خلال ربع دورة بدءاً من الوضع العمودي؟",
+                "optionsEn": [
+                  "63.7 V",
+                  "70.7 V",
+                  "50.0 V",
+                  "100 V"
+                ],
+                "optionsAr": [
+                  "٦٣,٧ فولت",
+                  "٧٠,٧ فولت",
+                  "٥٠,٠ فولت",
+                  "١٠٠ فولت"
+                ],
+                "correctAnswer": "63.7 V",
+                "correctIndex": 0,
+                "hintEn": "Average EMF over a quarter cycle from the vertical position equals $\\frac{2}{\\pi} \\text{EMF}_{\\max}$.",
+                "hintAr": "متوسط القوة الدافعة خلال ربع دورة من الوضع العمودي يساوي $\\frac{2}{\\pi} \\times \\text{EMF}_{\\max}$.",
+                "stepByStepSolutionEn": [
+                  "$\\text{EMF}_{\\max} = N B A \\omega = N B A (2\\pi f)$.",
+                  "$\\text{EMF}_{\\text{avg}} = \\frac{N B A}{\\Delta t} = \\frac{N B A}{T/4} = 4 N B A f$.",
+                  "Ratio: $\\frac{\\text{EMF}_{\\text{avg}}}{\\text{EMF}_{\\max}} = \\frac{4 N B A f}{2\\pi N B A f} = \\frac{2}{\\pi}$.",
+                  "$\\text{EMF}_{\\text{avg}} = \\frac{2}{\\pi} (100\\text{ V}) = \\frac{200}{3.1416} \\approx 63.66\\text{ V} \\approx 63.7\\text{ V}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "$\\text{EMF}_{\\max} = N B A \\omega = N B A (٢\\pi f)$.",
+                  "متوسط القوة الدافعة خلال ربع دورة: $\\text{EMF}_{\\text{avg}} = ٤ N B A f$.",
+                  "النسبة: $\\frac{\\text{EMF}_{\\text{avg}}}{\\text{EMF}_{\\max}} = \\frac{٢}{\\pi}$.",
+                  "$\\text{EMF}_{\\text{avg}} = \\frac{٢}{\\pi} \\times ١٠٠ = \\frac{٢٠٠}{٣,١٤١٦} \\approx ٦٣,٧\\text{ فولت}$."
+                ],
+                "teacherTipEn": "Average EMF over a quarter cycle from perpendicular equals average EMF over a half cycle from perpendicular ($\frac{2}{pi} \\text{EMF}_{\\max}$).",
+                "teacherTipAr": "متوسط القوة الدافعة خلال ربع دورة يساوي متوسطها خلال نصف دورة بدءاً من الوضع العمودي."
+              }
+            ]
+          },
+          "interactiveWidget": {
+            "type": "statics_friction",
+            "titleEn": "Faraday Induction & AC Dynamo Simulator",
+            "titleAr": "محاكي الحث الكهرومغناطيسي والدينامو الجيبي",
+            "descriptionEn": "Interactive coil rotation in magnetic field graphing sinusoidal instantaneous EMF curves and transformer primary/secondary ratios.",
+            "descriptionAr": "محاكاة تفاعلية لدوران ملف الدينامو ورسم منحنى الجهد المتردد ونسب المحول الكهربي."
+          }
+        },
+        {
+          "id": "th_phys_l4",
+          "titleEn": "Alternating Current Circuits, Impedance & Resonance",
+          "titleAr": "دوائر التيار المتردد والمعاوقة الكهربية وحالة الرنين",
+          "summaryEn": "AC behaviors in pure resistors, inductors, and capacitors; inductive reactance ($X_L$), capacitive reactance ($X_C$), impedance ($Z$) in series RLC circuits, phase angle, power consumption, electrical resonance ($f_0$), and tuning circuits.",
+          "summaryAr": "سلوك التيار المتردد في المقاومة الأومية، ملف الحث، والمكثف؛ المفاعلة الحثية والمفاعلة السعوية، المعاوقة الكلية لدائرة RLC، زاوية الطور، القدرة المستهلكة، وحالة الرنين وتردد الرنين.",
+          "theoryContentEn": "### 1. Pure AC Circuit Elements\n1. **Ohmic Resistor ($R$):** Current and potential difference are in the same phase ($\\Delta\\phi = 0$). Power consumed: $P = I_{\\text{eff}}^2 R$.\n2. **Pure Inductor ($L$):** Voltage leads current by a phase angle of $90^\\circ$ ($\\pi/2$).\n   - Inductive Reactance:\n     $X_L = 2\\pi f L = \\omega L$\n   - Consumes zero average electrical energy (stores energy in magnetic field).\n3. **Pure Capacitor ($C$):** Current leads voltage by a phase angle of $90^\\circ$ ($\\pi/2$).\n   - Capacitive Reactance:\n     $X_C = \\frac{1}{2\\pi f C} = \\frac{1}{\\omega C}$\n   - Consumes zero average electrical energy (stores energy in electric field).\n\n### 2. Series RLC Circuits\n- **Total Impedance ($Z$):**\n  $Z = \\sqrt{R^2 + (X_L - X_C)^2}$\n- **Total Voltage ($V$):**\n  $V = \\sqrt{V_R^2 + (V_L - V_C)^2}$\n- **Phase Angle ($\\theta$):**\n  $\\tan\\theta = \\frac{X_L - X_C}{R} = \\frac{V_L - V_C}{V_R}$\n  - If $X_L > X_C$: Inductive circuit (voltage leads current, $\\theta > 0$).\n  - If $X_L < X_C$: Capacitive circuit (current leads voltage, $\\theta < 0$).\n  - If $X_L = X_C$: Resistive circuit in resonance ($\\theta = 0$).\n\n### 3. Electrical Resonance ($X_L = X_C$)\n- At resonance:\n  1. Impedance is at its absolute minimum: $Z = R$.\n  2. Current reaches its absolute maximum: $I_{\\max} = V/R$.\n  3. Voltage and current are in phase ($\\tan\\theta = 0$).\n  4. **Resonance Frequency Formula:**\n     $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$\n- **Applications:** Radio and wireless tuning receiver circuits, oscillatory circuits.",
+          "theoryContentAr": "### ١. عناصر دوائر التيار المتردد النقية\n١. **المقاومة الأومية ($R$):** الجهد والتيار متفقان في الطور ($\\theta = 0$). تستهلك طاقة كهربية في صورة حرارة ($P = I_{\\text{eff}}^2 R$).\n٢. **ملف الحث النقي ($L$):** الجهد يسبق التيار بربع دورة ($90^\\circ$).\n   - المفاعلة الحثية:\n     $X_L = 2\\pi f L$\n   - لا يستهلك طاقة كهربية؛ بل يخزنها في صورة مجال مغناطيسي.\n٣. **المكثف النقي ($C$):** التيار يسبق الجهد بربع دورة ($90^\\circ$).\n   - المفاعلة السعوية:\n     $X_C = \\frac{1}{2\\pi f C}$\n   - يخزن الطاقة في صورة مجال كهربي.\n\n### ٢. دائرة المعاوقة المتوالية (R-L-C)\n- **المعاوقة الكلية ($Z$):**\n  $Z = \\sqrt{R^2 + (X_L - X_C)^2}$\n- **فرق الجهد الكلي:**\n  $V = \\sqrt{V_R^2 + (V_L - V_C)^2}$\n- **زاوية الطور ($\\theta$):**\n  $\\tan\\theta = \\frac{X_L - X_C}{R}$\n\n### ٣. حالة الرنين الكهربي ($X_L = X_C$)\n- شروط وخصائص الرنين:\n  ١. المعاوقة تكون عند أقل قيمة لها ($Z = R$).\n  ٢. شدة التيار تصل لقيمتها العظمى ($I = V/R$).\n  ٣. الجهد والتيار متفقان في الطور (دائرة ذات خواص أومية نقية).\n  ٤. **قانون تردد الرنين:**\n     $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$\n- تستخدم في دوائر الاستقبال اللاسلكي وأجهزة الراديو لاختيار المحطة المطلوبة.",
+          "formulas": [
+            {
+              "labelEn": "Series RLC Circuit Impedance",
+              "labelAr": "معاوقة دائرة RLC المتوالية",
+              "latex": "Z = \\sqrt{R^2 + (X_L - X_C)^2}"
+            },
+            {
+              "labelEn": "Electrical Resonance Frequency",
+              "labelAr": "تردد الرنين في دائرة RLC",
+              "latex": "f_0 = \\frac{1}{2\\pi\\sqrt{LC}}"
+            },
+            {
+              "labelEn": "Phase Angle Tangent",
+              "labelAr": "ظل زاوية الطور بين الجهد والتيار",
+              "latex": "\\tan\\theta = \\frac{X_L - X_C}{R}"
+            }
+          ],
+          "moeRef": {
+            "bookTitleEn": "Ministry Physics Textbook Grade 12",
+            "bookTitleAr": "كتاب الفيزياء للصف الثالث الثانوي - وزارة التربية والتعليم",
+            "grade": "Grade 12",
+            "term": "Full Year",
+            "officialCode": "MOE-SEC3-PHYS-CH4-L1",
+            "pageRange": "pp. 161 - 210"
+          },
+          "lessonPlan": {
+            "titleEn": "Lesson Plan: AC Reactance, Impedance & Resonance",
+            "titleAr": "خطة درس: المفاعلات والمعاوقة والرنين الكهربي",
+            "gradeLevel": "Grade 12 Secondary",
+            "durationMinutes": 90,
+            "moeCode": "MOE-SEC3-PHYS-CH4-L1",
+            "bloomsObjectivesEn": [
+              "Contrast phase relationships between voltage and current across resistors, inductors, and capacitors.",
+              "Calculate series RLC impedance, current, phase angle, and individual component voltages.",
+              "Derive and calculate the resonant frequency of radio receiver tuning circuits."
+            ],
+            "bloomsObjectivesAr": [
+              "المقارنة بين العلاقات الطورية بين الجهد والتيار في المقاومة والملف والمكثف.",
+              "حساب المعاوقة الكلية وتيار الدائرة وزاوية الطور وفروق الجهد الجزئية في دائرة RLC.",
+              "استنتاج وحساب تردد الرنين لدوائر التوليف في أجهزة الاستقبال الإذاعي."
+            ],
+            "prerequisitesEn": [
+              "AC generator fundamentals",
+              "Vector trigonometry",
+              "Pythagorean theorem"
+            ],
+            "prerequisitesAr": [
+              "أساسيات مولد التيار المتردد",
+              "حساب المثلثات المتجهية",
+              "نظرية فيثاغورس"
+            ],
+            "keyVocabularyEn": [
+              {
+                "term": "Impedance",
+                "definition": "The total opposition offered by resistors, inductors, and capacitors combined to the flow of alternating current."
+              },
+              {
+                "term": "Resonance",
+                "definition": "The state in an AC circuit where inductive reactance equals capacitive reactance, resulting in minimum impedance and maximum current."
+              }
+            ],
+            "keyVocabularyAr": [
+              {
+                "term": "المعاوقة الكهربية",
+                "definition": "مكافئ المقاومة الأومية والمفاعلة الحثية والسعوية معاً في دائرة التيار المتردد."
+              },
+              {
+                "term": "حالة الرنين",
+                "definition": "حالة تتساوى فيها المفاعلة الحثية مع السعوية وتصبح المعاوقة أقل ما يمكن والتيار نهاية عظمى."
+              }
+            ],
+            "teachingPacing": [
+              {
+                "phaseEn": "Reactance Calculations",
+                "phaseAr": "حسابات المفاعلة الحثية والسعوية",
+                "duration": "30 mins",
+                "activitiesEn": "Plotting XL vs f and XC vs f curves.",
+                "activitiesAr": "رسم المنحنيات البيانية لتغير XL و XC مع التردد."
+              },
+              {
+                "phaseEn": "RLC Impedance & Vector Diagrams",
+                "phaseAr": "معاوقة RLC ومتجهات الطور",
+                "duration": "30 mins",
+                "activitiesEn": "Vector triangle representation of voltages and impedance.",
+                "activitiesAr": "تمثيل فروق الجهد بالمتجهات الطورية وحساب المحصلة."
+              },
+              {
+                "phaseEn": "Resonance & Tuning Circuits",
+                "phaseAr": "الرنين ودوائر التوليف اللاسلكي",
+                "duration": "30 mins",
+                "activitiesEn": "Tuning variable capacitors to match broadcasting frequencies.",
+                "activitiesAr": "محاكاة توليف تردد محطة إذاعية بتغيير سعة المكثف."
+              }
+            ],
+            "commonMisconceptionsEn": [
+              "Adding AC component voltages arithmetically instead of vectorially (e.g. V != V_R + V_L, but V = sqrt(V_R^2 + V_L^2)).",
+              "Thinking inductors and capacitors consume electrical energy as heat (only pure resistance dissipates electrical energy)."
+            ],
+            "commonMisconceptionsAr": [
+              "جمع فروق الجهد في التيار المتردد جمعاً جبرياً (يجب الجمع اتجاهياً بالجذر التربيعي).",
+              "الظن بأن الملف والمكثف يستهلكان طاقة كهربية في صورة حرارة (المقاومة الأومية فقط هي التي تستهلك طاقة)."
+            ],
+            "differentiationEn": {
+              "struggling": "Use phasor vector clock diagrams to visually display leads (+90) and lags (-90).",
+              "advanced": "Calculate the quality factor Q-factor ($Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}}$) of an RLC circuit."
+            },
+            "differentiationAr": {
+              "struggling": "استخدام متجهات أفقية ورأسية لتوضيح تقدم الجهد في الملف وتأخره في المكثف.",
+              "advanced": "حساب معامل الجودة لمعامل الرنين ($Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}}$)."
+            },
+            "formativeAssessmentEn": "Why does doubling the frequency of an AC source multiply the inductive reactance by 2 but divide the capacitive reactance by 2?",
+            "formativeAssessmentAr": "فسر: عند مضاعفة تردد المصدر المتردد، تزداد المفاعلة الحثية للضعف بينما تقل المفاعلة السعوية للنصف؟",
+            "exitTicketQuestion": {
+              "questionEn": "In a series RLC circuit, $R = 30\\,\\Omega$, $X_L = 80\\,\\Omega$, and $X_C = 40\\,\\Omega$. What is the total impedance $Z$?",
+              "questionAr": "في دائرة RLC متوالية: $R = 30\\,\\Omega$ و $X_L = 80\\,\\Omega$ و $X_C = 40\\,\\Omega$. احسب المعاوقة الكلية $Z$.",
+              "solutionEn": "$Z = \\sqrt{R^2 + (X_L - X_C)^2} = \\sqrt{30^2 + (80 - 40)^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\,\\Omega$.",
+              "solutionAr": "$Z = \\sqrt{٣٠^٢ + (٨٠ - ٤٠)^٢} = \\sqrt{٩٠٠ + ١٦٠٠} = \\sqrt{٢٥٠٠} = ٥٠\\,\\Omega$."
+            }
+          },
+          "worksheet": {
+            "id": "th_phys_ws_4",
+            "titleEn": "Worksheet: AC Reactance, Vector Impedance & Resonance",
+            "titleAr": "ورقة عمل: حسابات دوائر التيار المتردد والرنين",
+            "descriptionEn": "Rigorous problems on RLC impedance, phase angle, and resonance tuning frequencies.",
+            "descriptionAr": "مسائل رياضية دقيقة على المعاوقة الكلية وزاوية الطور وتعيين تردد الرنين.",
+            "estimatedTimeMinutes": 45,
+            "problems": [
+              {
+                "id": "th_phys_ws_p4_1",
+                "titleEn": "Resonant Frequency Calculation for Tuning Circuit",
+                "titleAr": "حساب تردد الرنين لدائرة توليف لاسلكية",
+                "difficulty": "medium",
+                "questionEn": "A series resonance circuit has an inductor of self-inductance $L = 7\\,\\mu\\text{H}$ and a capacitor of capacitance $C = 70\\,\\text{pF}$. What is the resonant frequency of this circuit?",
+                "questionAr": "دائرة رنين تتكون من ملف حثه الذاتي $L = ٧\\,\\mu\\text{H}$ ومكثف سعته $C = ٧٠\\,\\text{pF}$. احسب تردد الرنين لهذه الدائرة.",
+                "optionsEn": [
+                  "7.20 MHz",
+                  "5.50 MHz",
+                  "10.1 MHz",
+                  "1.25 MHz"
+                ],
+                "optionsAr": [
+                  "٧,٢٠ ميجاهرتز",
+                  "٥,٥٠ ميجاهرتز",
+                  "١٠,١ ميجاهرتز",
+                  "١,٢٥ ميجاهرتز"
+                ],
+                "correctAnswer": "7.20 MHz",
+                "correctIndex": 0,
+                "hintEn": "Use the resonance frequency equation: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. Ensure units are converted to Henry and Farad.",
+                "hintAr": "طبق قانون تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. حول الميكرو إلى $10^{-6}$ والبيكو إلى $10^{-12}$.",
+                "stepByStepSolutionEn": [
+                  "$L = 7 \\times 10^{-6}\\text{ H}$, $C = 70 \\times 10^{-12}\\text{ F}$.",
+                  "$L \\times C = (7 \\times 10^{-6}) \\times (70 \\times 10^{-12}) = 4.9 \\times 10^{-16}\\text{ s}^2$.",
+                  "$\\sqrt{LC} = \\sqrt{49 \\times 10^{-17}} = 2.2136 \\times 10^{-8}\\text{ s}$.",
+                  "$f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2 \\times 3.1416 \\times 2.2136 \\times 10^{-8}} \\approx 7.19 \\times 10^6\\text{ Hz} = 7.20\\text{ MHz}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "$L = ٧ \\times ١٠^{-٦}\\text{ H}$ و $C = ٧٠ \\times ١٠^{-١٢}\\text{ F}$.",
+                  "$LC = ٤,٩ \\times ١٠^{-١٦}\\text{ s}^٢ \\implies \\sqrt{LC} \\approx ٢,٢١٤ \\times ١٠^{-٨}\\text{ s}$.",
+                  "$f_0 = \\frac{١}{٢\\pi \\sqrt{LC}} = \\frac{١}{٢ \\times ٣,١٤١٦ \\times ٢,٢١٤ \\times ١٠^{-٨}} \\approx ٧,٢٠ \\times ١٠^٦\\text{ Hz} = ٧,٢٠\\text{ MHz}$."
+                ],
+                "teacherTipEn": "At resonance, impedance equals pure resistance and current amplitude reaches its absolute maximum.",
+                "teacherTipAr": "في حالة الرنين تكون المعاوقة مساوية للمقاومة الأومية والتيار في قيمته العظمى."
+              }
+            ]
+          },
+          "interactiveWidget": {
+            "type": "statics_friction",
+            "titleEn": "RLC Impedance & Resonance Curve Simulator",
+            "titleAr": "محاكي معاوقة دوائر التيار المتردد ومنحنى الرنين",
+            "descriptionEn": "Interactive RLC circuit explorer plotting impedance and current vs frequency to illustrate the resonance peak.",
+            "descriptionAr": "محاكاة تفاعلية لتغير المعاوقة والتيار مع التردد وتحديد قمة الرنين الكهربي."
+          }
+        },
+        {
+          "id": "th_phys_l5",
+          "titleEn": "Wave-Particle Duality, Quantum Photons & Compton Effect",
+          "titleAr": "ازدواجية الموجة والجسيم، فوتونات الكم وظاهرة كومتون",
+          "summaryEn": "Blackbody radiation curves, Planck's quantum hypothesis ($E = h\\nu$), Einstein's photoelectric equation and work function, photon linear momentum ($p = h/\\lambda$), Compton scattering, de Broglie matter waves, and the transmission electron microscope.",
+          "summaryAr": "منحنيات إشعاع الجسم الأسود، فرض بلانك لتكميم الطاقة، الظاهرة الكهروضوئية ودالة الشغل لأينشتاين، كمية تحرك الفوتون، ظاهرة كومتون، موجات دي برولي المادية، والمجهر الإلكتروني.",
+          "theoryContentEn": "### 1. Blackbody Radiation and Planck's Quantum Theory\n- **Classical Physics Failure:** Rayleigh-Jeans law predicted radiation intensity goes to infinity at short wavelengths (Ultraviolet Catastrophe).\n- **Planck's Quantum Postulate (1900):** Energy is emitted or absorbed in discrete packets called **quanta** or **photons**:\n  $E = h\\nu = \\frac{hc}{\\lambda}$\n  where $h = 6.626 \\times 10^{-34}\\,\\text{J}\\cdot\\text{s}$.\n- **Wien's Displacement Law:** The wavelength corresponding to maximum radiation intensity is inversely proportional to absolute temperature:\n  $\\lambda_{\\max} \\propto \\frac{1}{T} \\implies \\lambda_{\\max} T = \\text{constant}$\n\n### 2. Einstein's Photoelectric Effect (1905)\n- Electrons are emitted from a metal surface when irradiated with light of frequency equal to or greater than the **threshold frequency** ($\\nu_c$):\n  $E_{\\text{photon}} = W_0 + KE_{\\max}$\n  $h\\nu = h\\nu_c + \\frac{1}{2}m_e v_{\\max}^2 = W_0 + e V_{\\text{stop}}$\n- **Key Principles:**\n  - If $\\nu < \\nu_c$: No emission occurs regardless of intensity or exposure duration.\n  - If $\\nu \\ge \\nu_c$: Number of emitted electrons is proportional to light intensity; kinetic energy depends strictly on light frequency.\n\n### 3. Photon Momentum and the Compton Effect (1923)\n- **Photon Physical Properties:**\n  - Relativistic mass: $m = \\frac{E}{c^2} = \\frac{h\\nu}{c^2} = \\frac{h}{c\\lambda}$.\n  - Linear momentum: $p = mc = \\frac{h}{\\lambda} = \\frac{E}{c}$.\n  - Force exerted by a photon beam of power $P$:\n    $F = \\frac{2P}{c} \\quad (\\text{upon complete reflection})$\n- **The Compton Scattering Effect:**\n  - An X-ray or gamma photon collides with a stationary free electron.\n  - Scattered photon has lower frequency and longer wavelength ($\\lambda' > \\lambda$).\n  - Conservation of total relativistic energy and linear momentum proves photons behave as particles.\n\n### 4. De Broglie Matter Waves and Electron Microscope\n- **De Broglie Hypothesis (1924):** Any moving particle of mass $m$ and velocity $v$ is accompanied by a matter wave:\n  $\\lambda = \\frac{h}{p} = \\frac{h}{mv} = \\frac{h}{\\sqrt{2 m e V}}$\n- **Transmission Electron Microscope (TEM):**\n  - High accelerating voltage $V$ imparts high velocity to electrons, shrinking their de Broglie wavelength to fractions of an Angstrom ($\\lambda \\ll \\lambda_{\\text{light}}$).\n  - Resolving power is dramatically superior to optical microscopes, allowing imaging of viruses and macromolecular structures.",
+          "theoryContentAr": "### ١. إشعاع الجسم الأسود وفرض بلانك\n- **قصور الفيزياء الكلاسيكية:** توقعت أن شدة الإشعاع تزداد كلما قل الطول الموجي مقتربة من المالانهاية (كارثة الأشعة فوق البنفسجية).\n- **فرض ماكس بلانك (١٩٠٠):** الإشعاع يتكون من كمات أو دفقات صغيرة من الطاقة تسمى **فوتونات**:\n  $E = h\\nu = \\frac{hc}{\\lambda}$\n  حيث $h = 6.626 \\times 10^{-34}\\,\\text{J}\\cdot\\text{s}$.\n- **قانون فين للإزاحة:** الطول الموجي المصاحب لأقصى شدة إشعاع يتناسب عكسياً مع درجة الحرارة المطلقة:\n  $\\lambda_{\\max} T = \\text{ثابت}$\n\n### ٢. التأثير الكهروضوئي لأينشتاين (١٩٠٥)\n- انبعاث إلكترونات من سطح معدن عند سقوط ضوء تردده أكبر من أو يساوي **التردد الحرج** ($\\nu_c$):\n  $h\\nu = W_0 + KE_{\\max}$\n  حيث $W_0 = h\\nu_c$ هي دالة الشغل لسطح المعدن.\n- **قواعد الظاهرة الكهروضوئية:**\n  - إذا كان تردد الضوء الساقط أقل من التردد الحرج لا تنبعث إلكترونات مهما زادت شدة الضوء أو زمن التعرض.\n  - طاقة حركة الإلكترونات المتحررة تعتمد حصراً على تردد الضوء الساقط، بينما شدة التيار الكهروضوئي تتناسب طردياً مع شدة الضوء.\n\n### ٣. كمية تحرك الفوتون وظاهرة كومتون (١٩٢٣)\n- **خصائص الفوتون:**\n  - كتلة الفوتون أثناء حركته: $m = \\frac{h\\nu}{c^2}$.\n  - كمية تحرك الفوتون: $p = \\frac{h}{\\lambda}$.\n  - القوة التي يؤثر بها شعاع ضوئي قدرته $P$ عند انعكاسه: $F = \\frac{2P}{c}$.\n- **ظاهرة كومتون:**\n  - اصطدام فوتون أشعة إكس بإلكترون حر؛ يقل تردد الفوتون ويزداد طوله الموجي وتزداد سرعة الإلكترون، مما يثبت الصفة الجسيمية للضوء وتطبيق قانوني بقاء الطاقة وكمية التحرك.\n\n### ٤. موجات دي برولي والمجهر الإلكتروني\n- **طول موجة دي برولي المصاحبة لحركة الجسيمات:**\n  $\\lambda = \\frac{h}{mv} = \\frac{h}{\\sqrt{2 m e V}}$\n- **المجهر الإلكتروني:**\n  - تعجيل الإلكترونات بفرق جهد كهربي عالٍ يقلل طول موجة دي برولي لدرجة أصغر بكثير من أبعاد الفيروسات، مما يوفر قدرة تكبيرية وتفريقية فائقة.",
+          "formulas": [
+            {
+              "labelEn": "Einstein Photoelectric Equation",
+              "labelAr": "معادلة أينشتاين للظاهرة الكهروضوئية",
+              "latex": "h\\nu = W_0 + \\frac{1}{2}m_e v_{\\max}^2"
+            },
+            {
+              "labelEn": "De Broglie Matter Wavelength",
+              "labelAr": "طول موجة دي برولي المادية",
+              "latex": "\\lambda = \\frac{h}{mv} = \\frac{h}{\\sqrt{2m_e eV}}"
+            },
+            {
+              "labelEn": "Photon Linear Momentum",
+              "labelAr": "كمية تحرك الفوتون",
+              "latex": "p = \\frac{h}{\\lambda} = \\frac{h\\nu}{c}"
+            }
+          ],
+          "moeRef": {
+            "bookTitleEn": "Ministry Physics Textbook Grade 12",
+            "bookTitleAr": "كتاب الفيزياء للصف الثالث الثانوي - وزارة التربية والتعليم",
+            "grade": "Grade 12",
+            "term": "Full Year",
+            "officialCode": "MOE-SEC3-PHYS-CH5-L1",
+            "pageRange": "pp. 211 - 248"
+          },
+          "lessonPlan": {
+            "titleEn": "Lesson Plan: Quantum Duality, Photons & Matter Waves",
+            "titleAr": "خطة درس: ازدواجية الموجة والجسيم وظاهرة كومتون",
+            "gradeLevel": "Grade 12 Secondary",
+            "durationMinutes": 90,
+            "moeCode": "MOE-SEC3-PHYS-CH5-L1",
+            "bloomsObjectivesEn": [
+              "Apply Einstein's photoelectric equation to calculate threshold frequency, work function, and stopping potential.",
+              "Explain how the Compton effect provides conclusive experimental proof of photon particle nature.",
+              "Calculate de Broglie wavelengths of accelerated electrons and explain TEM resolving power."
+            ],
+            "bloomsObjectivesAr": [
+              "تطبيق معادلة أينشتاين الكهروضوئية لحساب دالة الشغل وجهد الإيقاف وسرعة الإلكترونات المتحررة.",
+              "تفسير ظاهرة كومتون كدليل قاطع على السلوك الجسيمي للفوتونات.",
+              "حساب طول موجة دي برولي للإلكترونات المعجلة وتفسير القدرة التحليلية للمجهر الإلكتروني."
+            ],
+            "prerequisitesEn": [
+              "Wave theory of light",
+              "Conservation of energy",
+              "Conservation of momentum"
+            ],
+            "prerequisitesAr": [
+              "النظرية الموجية للضوء",
+              "قانون بقاء الطاقة",
+              "قانون بقاء كمية التحرك"
+            ],
+            "keyVocabularyEn": [
+              {
+                "term": "Work Function",
+                "definition": "The minimum energy required to liberate an electron from a metal surface without imparting kinetic energy."
+              },
+              {
+                "term": "Compton Scattering",
+                "definition": "The collision between a high-energy photon and a free electron demonstrating conservation of momentum."
+              }
+            ],
+            "keyVocabularyAr": [
+              {
+                "term": "دالة الشغل لسطح المعدن",
+                "definition": "أقل طاقة تلزم لتحرير إلكترون من سطح المعدن دون إكسابه طاقة حركة."
+              },
+              {
+                "term": "ظاهرة كومتون",
+                "definition": "اصطدام فوتون عالي الطاقة بإلكترون حر يثبت الطبيعة الجسيمية للضوء."
+              }
+            ],
+            "teachingPacing": [
+              {
+                "phaseEn": "Blackbody Curves & Planck Postulate",
+                "phaseAr": "إشعاع الجسم الأسود وفرض بلانك",
+                "duration": "25 mins",
+                "activitiesEn": "Analyzing spectral distribution curves and Wien displacement law.",
+                "activitiesAr": "تحليل منحنيات بلانك وتطبيق قانون فين للإزاحة."
+              },
+              {
+                "phaseEn": "Photoelectric Effect & Stopping Potential",
+                "phaseAr": "الظاهرة الكهروضوئية وجهد الإيقاف",
+                "duration": "35 mins",
+                "activitiesEn": "Plotting KE_max vs frequency and finding h from slope.",
+                "activitiesAr": "رسم العلاقة البيانية بين طاقة الحركة وتردد الضوء وإيجاد ثابت بلانك."
+              },
+              {
+                "phaseEn": "Compton Effect & De Broglie Waves",
+                "phaseAr": "ظاهرة كومتون وموجات دي برولي",
+                "duration": "30 mins",
+                "activitiesEn": "Solving photon-electron collision momentum vectors.",
+                "activitiesAr": "حساب التغير في الطول الموجي وطول موجة دي برولي للإلكترون."
+              }
+            ],
+            "commonMisconceptionsEn": [
+              "Believing bright red light can emit electrons if dim blue light does (emission depends strictly on frequency exceeding threshold, not light brightness).",
+              "Confusing de Broglie matter waves with electromagnetic waves (matter waves are quantum probability waves, not electromagnetic)."
+            ],
+            "commonMisconceptionsAr": [
+              "الاعتقاد بأن الضوء الأحمر الشديد يمكنه تحرير إلكترونات إذا حررها ضوء أزرق خافت (التحرير يعتمد على التردد فقط وليس الشدة).",
+              "الخلط بين موجات دي برولي والموجات الكهرومغناطيسية (موجات دي برولي موجات مادية مرافقة لحركة الجسيم وليست كهرومغناطيسية)."
+            ],
+            "differentiationEn": {
+              "struggling": "Use energy diagram steps: Photon Energy = Work Function (step 1 to escape) + KE (speed to run).",
+              "advanced": "Derive the relativistic Compton shift formula $\\Delta\\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)$."
+            },
+            "differentiationAr": {
+              "struggling": "استخدام تشبيه بطاقة العبور: طاقة الفوتون = ثمن التذكرة (دالة الشغل) + باقي النقود (طاقة الحركة).",
+              "advanced": "استنتاج معادلة كومتون النسبية لحساب الزيادة في الطول الموجي بدلالة زاوية التشتت."
+            },
+            "formativeAssessmentEn": "Why does the slope of the kinetic energy versus frequency graph remain constant regardless of the target metal?",
+            "formativeAssessmentAr": "علل: ميل الخط المستقيم في العلاقة البيانية بين طاقة الحركة وتردد الضوء الساقط يظل ثابتاً لجميع المعادن؟",
+            "exitTicketQuestion": {
+              "questionEn": "If a metal has a work function of 2.0 eV, what is the maximum kinetic energy of electrons emitted when illuminated by photons of energy 3.5 eV?",
+              "questionAr": "إذا كانت دالة الشغل لسطح معدن تساوي ٢,٠ إلكترون فولت، فما أقصى طاقة حركة للإلكترونات المنبعثة عند سقوط فوتونات طاقتها ٣,٥ إلكترون فولت؟",
+              "solutionEn": "$KE_{\\max} = E - W_0 = 3.5\\text{ eV} - 2.0\\text{ eV} = 1.5\\text{ eV} = 2.40 \\times 10^{-19}\\text{ J}$.",
+              "solutionAr": "$KE_{\\max} = ٣,٥ - ٢,٠ = ١,٥\\text{ إلكترون فولت} = ٢,٤ \\times ١٠^{-١٩}\\text{ جول}$."
+            }
+          },
+          "worksheet": {
+            "id": "th_phys_ws_5",
+            "titleEn": "Worksheet: Photoelectric Kinetics & Quantum Momentum",
+            "titleAr": "ورقة عمل: حسابات الظاهرة الكهروضوئية وموجات دي برولي",
+            "descriptionEn": "Rigorous problems on work function, stopping potential, photon collision momentum, and de Broglie wavelengths.",
+            "descriptionAr": "مسائل علمية دقيقة على التردد الحرج وجهد الإيقاف وطول موجة دي برولي المرافقة للإلكترون.",
+            "estimatedTimeMinutes": 45,
+            "problems": [
+              {
+                "id": "th_phys_ws_p5_1",
+                "titleEn": "De Broglie Wavelength of an Accelerated Electron",
+                "titleAr": "حساب طول موجة دي برولي لإلكترون معجل بفرق جهد",
+                "difficulty": "medium",
+                "questionEn": "An electron is accelerated from rest through a potential difference of 100 V. What is the de Broglie wavelength associated with the accelerated electron? ($h = 6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$, $m_e = 9.1 \\times 10^{-31}\\text{ kg}$, $e = 1.6 \\times 10^{-19}\\text{ C}$)",
+                "questionAr": "عُجل إلكترون من السكون عبر فرق جهد قدره ١٠٠ فولت. احسب طول موجة دي برولي المصاحبة لحركة هذا الإلكترون.",
+                "optionsEn": [
+                  "0.123 nm",
+                  "1.23 nm",
+                  "0.012 nm",
+                  "12.3 nm"
+                ],
+                "optionsAr": [
+                  "٠,١٢٣ نانومتر",
+                  "١,٢٣ نانومتر",
+                  "٠,٠١٢ نانومتر",
+                  "١٢,٣ نانومتر"
+                ],
+                "correctAnswer": "0.123 nm",
+                "correctIndex": 0,
+                "hintEn": "$KE = e V = \\frac{1}{2} m v^2 \\implies p = \\sqrt{2 m e V}$, then $\\lambda = h/p$.",
+                "hintAr": "طاقة الحركة $KE = eV = \\frac{1}{2}mv^2 \\implies p = \\sqrt{2meV}$، ثم احسب الطول الموجي $\\lambda = h/p$.",
+                "stepByStepSolutionEn": [
+                  "Kinetic energy: $KE = e V = (1.6 \\times 10^{-19})(100) = 1.6 \\times 10^{-17}\\text{ J}$.",
+                  "Linear momentum: $p = \\sqrt{2 m_e KE} = \\sqrt{2 (9.1 \\times 10^{-31})(1.6 \\times 10^{-17})} = \\sqrt{2.912 \\times 10^{-47}} \\approx 5.396 \\times 10^{-24}\\text{ kg}\\cdot\\text{m/s}$.",
+                  "De Broglie wavelength: $\\lambda = \\frac{h}{p} = \\frac{6.626 \\times 10^{-34}}{5.396 \\times 10^{-24}} \\approx 1.228 \\times 10^{-10}\\text{ m} = 0.123\\text{ nm}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "طاقة الحركة: $KE = eV = (١,٦ \\times ١٠^{-١٩})(١٠٠) = ١,٦ \\times ١٠^{-١٧}\\text{ جول}$.",
+                  "كمية التحرك: $p = \\sqrt{٢ m_e KE} = \\sqrt{٢(٩,١ \\times ١٠^{-٣١})(١,٦ \\times ١٠^{-١٧})} \\approx ٥,٣٩٦ \\times ١٠^{-٢٤}\\text{ kg}\\cdot\\text{m/s}$.",
+                  "طول موجة دي برولي: $\\lambda = \\frac{h}{p} = \\frac{٦,٦٢٦ \\times ١٠^{-٣٤}}{٥,٣٩٦ \\times ١٠^{-٢٤}} \\approx ٠,١٢٣\\text{ نانومتر}$."
+                ],
+                "teacherTipEn": "Notice that 0.123 nm is roughly atomic dimension size, explaining why electron diffraction occurs with crystal lattices.",
+                "teacherTipAr": "لاحظ أن ٠,١٢٣ نانومتر يقارب المسافات البينية في بلورات المعادن مما يفسر حدوث حيود للإلكترونات."
+              }
+            ]
+          },
+          "interactiveWidget": {
+            "type": "statics_friction",
+            "titleEn": "Photoelectric Effect & Stopping Voltage Simulator",
+            "titleAr": "محاكي التأثير الكهروضوئي وجهد الإيقاف",
+            "descriptionEn": "Interactive photocell simulation testing work functions, photon energy wavelengths, and stopping potentials.",
+            "descriptionAr": "محاكاة تفاعلية للخلية الكهروضوئية لاختبار دالة الشغل وتأثير تردد وشدة الضوء وحساب جهد الإيقاف."
+          }
+        },
+        {
+          "id": "th_phys_l6",
+          "titleEn": "Atomic Spectra, Lasers & Solid-State Electronics",
+          "titleAr": "الأطياف الذرية، الليزر والإلكترونيات الحديثة وأشباه الموصلات",
+          "summaryEn": "Bohr hydrogen atom model, spectral series (Lyman to Pfund), X-ray continuous vs characteristic spectra, Laser principles (population inversion, optical pumping, stimulated emission, Helium-Neon laser), semiconductors, p-n diodes, and logic gates.",
+          "summaryAr": "نموذج بور لذرة الهيدروجين، المتسلسلات الطيفية (ليمان وبالمار وباشن وبراكت وفوند)، الأشعة السينية، شروط الليزر الأربعة، ليزر الهيليوم-نيون، أشباه الموصلات، الوصلة الثنائية، والبوابات المنطقية.",
+          "theoryContentEn": "### 1. Bohr's Atomic Model and Hydrogen Spectra\n- **Bohr Postulates (1913):**\n  - Electrons revolve in discrete non-radiating orbits where angular momentum is quantized:\n    $m v r = n \\frac{h}{2\\pi}$\n  - Energy of level $n$ in hydrogen atom:\n    $E_n = -\\frac{13.6}{n^2}\\,\\text{eV}$\n- **Hydrogen Spectral Series (Photon emission $\\Delta E = E_{\\text{upper}} - E_{\\text{lower}} = h\\nu$):**\n  1. **Lyman Series ($n \\to 1$):** Ultraviolet region (highest energy, shortest wavelength).\n  2. **Balmer Series ($n \\to 2$):** Visible light region (only visible series).\n  3. **Paschen Series ($n \\to 3$):** Infrared region.\n  4. **Brackett Series ($n \\to 4$):** Far infrared region.\n  5. **Pfund Series ($n \\to 5$):** Extreme far infrared region.\n\n### 2. X-Rays (Coolidge Tube)\n- High-energy electromagnetic radiation ($\\lambda \\approx 10^{-13} - 10^{-8}\\text{ m}$) generated in a Coolidge tube:\n  1. **Continuous Spectrum (Bremsstrahlung / Braking Radiation):** High-speed electrons decelerate near target heavy nuclei. Minimum wavelength:\n     $\\lambda_{\\min} = \\frac{hc}{e V}$\n     (depends strictly on accelerating voltage $V$).\n  2. **Characteristic Spectrum (Line Spectrum):** Projectile electron knocks out an inner shell electron ($K$ or $L$), and an electron from a higher shell drops down. Wavelength depends strictly on target element atomic number $Z$ (Moseley's law).\n\n### 3. Laser Physics (Light Amplification by Stimulated Emission of Radiation)\n- **Four Cardinal Laser Conditions:**\n  1. **Optical Pumping:** Excitation energy source (electrical discharge, optical flash).\n  2. **Metastable State:** Energy level with prolonged lifetime ($\\approx 10^{-3}\\text{ s}$ compared to $10^{-8}\\text{ s}$).\n  3. **Population Inversion (الانعكاس الإسكاني):** Number of excited atoms in metastable state exceeds those in the ground state.\n  4. **Resonant Optical Cavity:** Pair of parallel mirrors (one 100% reflective, one 98% partially reflective) providing optical feedback and amplification.\n- **Helium-Neon Laser:** Helium atoms excited by discharge collide inelastically with Neon atoms, pumping Neon to its metastable state ($20.66\\text{ eV} \\approx 20.61\\text{ eV}$), emitting coherent red laser light ($\\lambda = 632.8\\text{ nm}$).\n\n### 4. Modern Solid-State Electronics\n- **Semiconductors (Silicon / Germanium):**\n  - Pure crystal: Electrical conduction by thermal electron-hole pairs.\n  - Doped crystals: n-type (pentavalent donor e.g. Phosphorus) and p-type (trivalent acceptor e.g. Boron).\n- **p-n Junction Diode:** Forward bias conducts ($V > V_{\\text{barrier}}$); reverse bias blocks current. Used in rectification.\n- **Logic Gates:** NOT, AND, OR gates performing binary digital boolean algebra operations.",
+          "theoryContentAr": "### ١. نموذج بور والأطياف الذرية للهيدروجين\n- **فروض نموذج بور:**\n  - تدور الإلكترونات في مستويات طاقة محددة دون إشعاع طاقة، وكمية التحرك الزاوي مكممة:\n    $m v r = n \\frac{h}{2\\pi}$\n  - طاقة المستوى $n$ في ذرة الهيدروجين:\n    $E_n = -\\frac{13.6}{n^2}\\,\\text{eV}$\n- **متسلسلات طيف ذرة الهيدروجين:**\n  ١. **ليمان ($n \\to 1$):** في منطقة الأشعة فوق البنفسجية (أعلى طاقة وتردد).\n  ٢. **بالمار ($n \\to 2$):** في منطقة الضوء المرئي (المتسلسلة المرئية الوحيدة).\n  ٣. **باشن ($n \\to 3$):** في منطقة الأشعة تحت الحمراء.\n  ٤. **براكت ($n \\to 4$):** في الأشعة تحت الحمراء البعيدة.\n  ٥. **فوند ($n \\to 5$):** في أقصى الأشعة تحت الحمراء.\n\n### ٢. الأشعة السينية (أنبوبة كوليدج)\n- **الطيف المستمر (أشعة الكابح أو الفرملة):** ينتج عن تباطؤ الإلكترونات السريعة عند اقترابها من ذرات مادة الهدف.\n  $\\lambda_{\\min} = \\frac{hc}{eV}$\n  يتوقف حصراً على فرق الجهد المطبق $V$.\n- **الطيف الخطي المميز:** ينتج عند اصطدام إلكترون سريع بإلكترون في المستويات الداخلية لمادة الهدف وإخراجه، ثم هبوط إلكترون من مستوى أعلى ليحل محله. يتوقف على العدد الذري لمادة الهدف.\n\n### ٣. فيزياء الليزر وشروطه الأربعة\n- **شروط إنتاج الليزر:**\n  ١. مصدر إثارة خارجي (الضخ الضوئي أو الكهربي).\n  ٢. وجود مستوى شبه مستقر ذي فترة عمر طويلة نسبياً (نحو $10^{-3}\\text{ s}$).\n  ٣. **الانعكاس الإسكاني:** وصول نسبة الذرات المثارة في المستوى شبه المستقر لتفوق عدد الذرات في المستوى الأدنى.\n  ٤. **التجويف الرنيني:** مرآتان متوازيتان (واحدة عاكسة تماماً والأخرى شبه منفذة بنسبة ٩٨٪) لتكبير وتضخيم الإشعاع بالانبعاث المستحث.\n- **ليزر الهيليوم-نيون:** ينبعث ضوء أحمر نقي بطول موجي $632.8\\text{ nm}$.\n\n### ٤. الإلكترونيات الحديثة وأشباه الموصلات\n- **البلورة شبه الموصلة من النوع n والنوع p:** التوصيل بواسطة الإلكترونات الحرة والفجوات الموجبة.\n- **الوصلة الثنائية (p-n Diode):** تسمح بمرور التيار في التوصيل الأمامي وتمنعه في التوصيل العكسي؛ تستخدم في تقويم التيار المتردد.\n- **البوابات المنطقية (Logic Gates):** بوابات NOT و AND و OR في الدوائر الرقمية.",
+          "formulas": [
+            {
+              "labelEn": "Bohr Hydrogen Energy Levels",
+              "labelAr": "طاقة مستويات ذرة الهيدروجين",
+              "latex": "E_n = -\\frac{13.6}{n^2}\\,\\text{eV}"
+            },
+            {
+              "labelEn": "Minimum X-ray Wavelength (Coolidge Tube)",
+              "labelAr": "أقصر طول موجي للأشعة السينية",
+              "latex": "\\lambda_{\\min} = \\frac{hc}{eV}"
+            },
+            {
+              "labelEn": "Helium-Neon Laser Wavelength",
+              "labelAr": "الطول الموجي لليزر الهيليوم-نيون",
+              "latex": "\\lambda = 632.8\\,\\text{nm}"
+            }
+          ],
+          "moeRef": {
+            "bookTitleEn": "Ministry Physics Textbook Grade 12",
+            "bookTitleAr": "كتاب الفيزياء للصف الثالث الثانوي - وزارة التربية والتعليم",
+            "grade": "Grade 12",
+            "term": "Full Year",
+            "officialCode": "MOE-SEC3-PHYS-CH6-L1",
+            "pageRange": "pp. 249 - 288"
+          },
+          "lessonPlan": {
+            "titleEn": "Lesson Plan: Hydrogen Spectra, X-Rays, Lasers & Logic Gates",
+            "titleAr": "خطة درس: الأطياف الذرية والأشعة السينية والليزر والمنطق الرقمي",
+            "gradeLevel": "Grade 12 Secondary",
+            "durationMinutes": 90,
+            "moeCode": "MOE-SEC3-PHYS-CH6-L1",
+            "bloomsObjectivesEn": [
+              "Calculate photon energy and wavelength for transitions within the 5 hydrogen spectral series.",
+              "Differentiate between continuous Bremsstrahlung and characteristic X-ray line spectra on spectra plots.",
+              "Explain the mechanism of population inversion and stimulated emission in the He-Ne laser."
+            ],
+            "bloomsObjectivesAr": [
+              "حساب طاقة وطول موجة الفوتونات المنبعثة في متسلسلات ذرة الهيدروجين الخمسة.",
+              "التمييز بين الطيف المستمر والطيف الخطي المميز في منحنيات الأشعة السينية.",
+              "شرح آلية حدوث الانعكاس الإسكاني والانبعاث المستحث في ليزر الهيليوم-نيون."
+            ],
+            "prerequisitesEn": [
+              "Atomic structure",
+              "Electromagnetic spectrum",
+              "Photons"
+            ],
+            "prerequisitesAr": [
+              "التركيب الذري",
+              "الطيف الكهرومغناطيسي",
+              "الفوتونات"
+            ],
+            "keyVocabularyEn": [
+              {
+                "term": "Population Inversion",
+                "definition": "The non-equilibrium condition where the number of atoms in an excited metastable state exceeds the number in ground states."
+              },
+              {
+                "term": "Stimulated Emission",
+                "definition": "The process whereby an incident photon triggers an excited atom to drop to a lower state, emitting an identical twin photon."
+              }
+            ],
+            "keyVocabularyAr": [
+              {
+                "term": "الانعكاس الإسكاني",
+                "definition": "حالة تكون فيها نسبة الذرات في مستويات الإثارة شبه المستقرة أكبر من نسبتها في المستويات الأدنى."
+              },
+              {
+                "term": "الانبعاث المستحث",
+                "definition": "انبعاث فوتون من ذرة مثارة نتيجة تصادمها بفوتون طاقته مساوية لطاقة الإثارة قبل انقضاء فترة العمر."
+              }
+            ],
+            "teachingPacing": [
+              {
+                "phaseEn": "Bohr Model & Hydrogen Series",
+                "phaseAr": "نموذج بور ومتسلسلات الهيدروجين",
+                "duration": "30 mins",
+                "activitiesEn": "Calculating transitions to Lyman, Balmer, and Paschen levels.",
+                "activitiesAr": "حساب أطوال موجات خطوط طيف الهيدروجين."
+              },
+              {
+                "phaseEn": "Coolidge Tube X-Ray Spectra",
+                "phaseAr": "طيف أنبوبة كوليدج للأشعة السينية",
+                "duration": "30 mins",
+                "activitiesEn": "Analyzing how accelerating voltage V and target atomic number Z shift spectra.",
+                "activitiesAr": "تحليل أثر زيادة فرق الجهد واستبدال مادة الهدف."
+              },
+              {
+                "phaseEn": "Laser Principles & Logic Gates",
+                "phaseAr": "أسس الليزر والبوابات المنطقية",
+                "duration": "30 mins",
+                "activitiesEn": "Interactive simulation of He-Ne resonant cavity amplification and truth tables.",
+                "activitiesAr": "محاكاة التجويف الرنيني لليزر وجداول التحقيق للبوابات."
+              }
+            ],
+            "commonMisconceptionsEn": [
+              "Assuming Balmer series lines are in the ultraviolet (Balmer series is visible light; Lyman is ultraviolet).",
+              "Thinking characteristic X-ray wavelength changes when accelerating voltage is increased (characteristic spectrum depends strictly on target atomic number)."
+            ],
+            "commonMisconceptionsAr": [
+              "الاعتقاد بأن متسلسلة بالمار في الأشعة فوق البنفسجية (بالمار تقع حصراً في منطقة الضوء المرئي).",
+              "الظن بأن الطول الموجي للطيف الخطي للأشعة السينية يتغير بتغير فرق الجهد (يتغير فقط بنوع مادة الهدف وعدده الذري)."
+            ],
+            "differentiationEn": {
+              "struggling": "Use ladder rung analogies for discrete Bohr energy levels.",
+              "advanced": "Calculate the minimum accelerating voltage required to excite the K-alpha line of a Tungsten target."
+            },
+            "differentiationAr": {
+              "struggling": "تمثيل مستويات طاقة بور بدرجات السلم التي لا يمكن الوقوف بينها.",
+              "advanced": "حساب أقل فرق جهد يلزم لتوليد الخط الطيفي K-alpha لمادة تنجستين."
+            },
+            "formativeAssessmentEn": "Why is Helium gas mixed with Neon gas in a 10:1 ratio in the He-Ne laser tube?",
+            "formativeAssessmentAr": "علل: يخلط غاز الهيليوم بغاز النيون بنسبة ١٠ إلى ١ في أنبوبة ليزر الهيليوم-نيون؟",
+            "exitTicketQuestion": {
+              "questionEn": "What is the shortest wavelength in the Balmer series of the hydrogen atom spectrum? ($E_1 = -13.6\\text{ eV}$)",
+              "questionAr": "ما أقصر طول موجي في متسلسلة بالمار لطيف ذرة الهيدروجين؟",
+              "solutionEn": "Transition from $n = \\infty$ to $n = 2$: $\\Delta E = 0 - (-13.6 / 4) = 3.4\\text{ eV} = 5.44 \\times 10^{-19}\\text{ J}$. $\\lambda = \\frac{hc}{\\Delta E} = \\frac{6.626 \\times 10^{-34} \\times 3 \\times 10^8}{5.44 \\times 10^{-19}} \\approx 365\\text{ nm}$.",
+              "solutionAr": "الانتقال من المالانهاية إلى المستوى الثاني: $\\Delta E = ٣,٤\\text{ eV} = ٥,٤٤ \\times ١٠^{-١٩}\\text{ جول}$. الطول الموجي $\\lambda = \\frac{hc}{\\Delta E} \\approx ٣٦٥\\text{ نانومتر}$."
+            }
+          },
+          "worksheet": {
+            "id": "th_phys_ws_6",
+            "titleEn": "Worksheet: Atomic Spectra, X-Rays & Laser Transitions",
+            "titleAr": "ورقة عمل: أطياف الهيدروجين والأشعة السينية والليزر",
+            "descriptionEn": "Rigorous problems on Bohr energy transitions, Bremsstrahlung X-ray cutoffs, and He-Ne laser kinetics.",
+            "descriptionAr": "مسائل علمية دقيقة على انتقالات مستويات الطاقة وحساب أقصر طول موجي للأشعة السينية ومواصفات شعاع الليزر.",
+            "estimatedTimeMinutes": 45,
+            "problems": [
+              {
+                "id": "th_phys_ws_p6_1",
+                "titleEn": "Coolidge Tube Minimum X-Ray Wavelength Calculation",
+                "titleAr": "حساب أقصر طول موجي للأشعة السينية في أنبوبة كوليدج",
+                "difficulty": "medium",
+                "questionEn": "A Coolidge tube operates at an accelerating potential difference of 50,000 V (50 kV). What is the minimum wavelength of the continuous X-ray spectrum produced?",
+                "questionAr": "تعمل أنبوبة كوليدج لتوليد الأشعة السينية بفرق جهد قدره ٥٠,٠٠٠ فولت (٥٠ كيلو فولت). احسب أقصر طول موجي للطيف المستمر للأشعة السينية الناتجة.",
+                "optionsEn": [
+                  "0.0248 nm",
+                  "0.248 nm",
+                  "0.0025 nm",
+                  "2.48 nm"
+                ],
+                "optionsAr": [
+                  "٠,٠٢٤٨ نانومتر",
+                  "٠,٢٤٨ نانومتر",
+                  "٠,٠٠٢٥ نانومتر",
+                  "٢,٤٨ نانومتر"
+                ],
+                "correctAnswer": "0.0248 nm",
+                "correctIndex": 0,
+                "hintEn": "$\\lambda_{\\min} = \\frac{hc}{e V}$. Convert to nanometers ($1\\text{ nm} = 10^{-9}\\text{ m}$).",
+                "hintAr": "طبق معادلة الطيف المستمر: $\\lambda_{\\min} = \\frac{hc}{eV}$. حول الناتج للنانومتر.",
+                "stepByStepSolutionEn": [
+                  "$\\lambda_{\\min} = \\frac{hc}{e V}$.",
+                  "Numerator $hc = (6.626 \\times 10^{-34})(3.0 \\times 10^8) = 1.988 \\times 10^{-25}\\text{ J}\\cdot\\text{m}$.",
+                  "Denominator $e V = (1.602 \\times 10^{-19})(50000) = 8.01 \\times 10^{-15}\\text{ J}$.",
+                  "$\\lambda_{\\min} = \\frac{1.988 \\times 10^{-25}}{8.01 \\times 10^{-15}} \\approx 2.482 \\times 10^{-11}\\text{ m} = 0.0248\\text{ nm}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "أقصر طول موجي مستمر: $\\lambda_{\\min} = \\frac{hc}{eV}$.",
+                  "البسط: $hc = (٦,٦٢٦ \\times ١٠^{-٣٤})(٣ \\times ١٠^٨) = ١,٩٨٨ \\times ١٠^{-٢٥}$.",
+                  "المقام: $eV = (١,٦٠٢ \\times ١٠^{-١٩})(٥٠٠٠٠) = ٨,٠١ \\times ١٠^{-١٥}$.",
+                  "$\\lambda_{\\min} = \\frac{١,٩٨٨ \\times ١٠^{-٢٥}}{٨,٠١ \\times ١٠^{-١٥}} \\approx ٠,٠٢٤٨\\text{ نانومتر}$."
+                ],
+                "teacherTipEn": "Remember that minimum wavelength depends solely on the potential difference V and is independent of target material.",
+                "teacherTipAr": "أقصر طول موجي يعتمد حصراً على فرق الجهد المطبق بين الفتيلة والهدف ولا يتغير بنوع الهدف."
+              }
+            ]
+          },
+          "interactiveWidget": {
+            "type": "statics_friction",
+            "titleEn": "Hydrogen Spectrum & Laser Resonator Simulator",
+            "titleAr": "محاكي أطياف الهيدروجين والتجويف الرنيني لليزر",
+            "descriptionEn": "Interactive Bohr level transition energy calculator and He-Ne laser optical pumping simulation.",
+            "descriptionAr": "محاكاة تفاعلية لانتقالات مستويات طاقة بور وانبعاث خطوط الطيف والتجويف الرنيني لليزر."
+          }
         }
       ],
       solvedExamples: [
