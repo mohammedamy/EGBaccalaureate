@@ -198,6 +198,18 @@ export const CurriculumOverview: React.FC<Props> = ({
               >
                 <span>{isArabic ? '⚖️ مقارنة المسارات' : '⚖️ Track Bridge'}</span>
               </button>
+              <button
+                onClick={() => onNavigateTab('interactive')}
+                className={`hero-btn-labs font-bold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                  isContrast
+                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-zinc-900'
+                    : isLight
+                    ? 'bg-purple-600/90 hover:bg-purple-600 text-white border-purple-400/40 shadow-purple-900/20'
+                    : 'bg-purple-900/60 hover:bg-purple-800/80 text-purple-200 border-purple-700/60'
+                }`}
+              >
+                <span>{isArabic ? '🔬 المختبرات الافتراضية الأربعة' : '🔬 4 Virtual Labs'}</span>
+              </button>
               {onOpenOfficialBooks && (
                 <button
                   onClick={onOpenOfficialBooks}
