@@ -18,7 +18,7 @@ import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
-import { getOfficialBookByBranch } from '../data/officialBooksData';
+import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -578,7 +578,7 @@ export const LessonView: React.FC<Props> = ({
             {matchingBook && (
               <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80">
                 <a
-                  href={matchingBook.downloadUrl}
+                  href={getBookDownloadUrl(matchingBook)}
                   download={matchingBook.filename}
                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition-all active:scale-95"
                   title={t.downloadConceptCompendium}
@@ -881,7 +881,7 @@ export const LessonView: React.FC<Props> = ({
             <div className="flex items-center gap-2 self-start flex-wrap no-print">
               {matchingBook && (
                 <a
-                  href={matchingBook.downloadUrl}
+                  href={getBookDownloadUrl(matchingBook)}
                   download={matchingBook.filename}
                   className="bg-teal-600 hover:bg-teal-500 text-white font-bold py-2 px-3.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all active:scale-95"
                   title={t.downloadBookPdf}

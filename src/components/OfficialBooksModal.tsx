@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { officialBooksList } from '../data/officialBooksData';
+import { officialBooksList, getBookDownloadUrl } from '../data/officialBooksData';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import {
   X,
@@ -554,7 +554,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                       <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-2">
                         {/* 1. Primary Direct Official Textbook PDF Download */}
                         <a
-                          href={book.downloadUrl}
+                          href={getBookDownloadUrl(book)}
                           download={book.filename}
                           className="w-full inline-flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.99] group"
                           style={{
@@ -575,7 +575,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                         {/* 2. Secondary Row: In-App Preview & External Ministry Portal */}
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => window.open(book.downloadUrl, '_blank')}
+                            onClick={() => window.open(getBookDownloadUrl(book), '_blank')}
                             className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
                               isLight
                                 ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
