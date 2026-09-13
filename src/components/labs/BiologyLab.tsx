@@ -14,6 +14,10 @@ import {
   Info,
   CheckCircle2,
   AlertTriangle,
+  HeartPulse,
+  Calendar,
+  ShieldCheck,
+  Grid,
 } from 'lucide-react';
 
 // High-resolution scientific photos
@@ -22,12 +26,25 @@ import sarcomereImg from '../../assets/biology/sarcomere_ultrastructure.jpg';
 import dnaImg from '../../assets/biology/dna_double_helix.jpg';
 import plantImg from '../../assets/biology/plant_stem_histology.jpg';
 
+import { EndocrineLab } from './EndocrineLab';
+import { MenstrualCycleLab } from './MenstrualCycleLab';
+import { ImmunityLab } from './ImmunityLab';
+import { GeneticsLab } from './GeneticsLab';
+
 interface Props {
   lang: Language;
   theme?: ThemeMode;
 }
 
-type BioTab = 'skeleton' | 'sarcomere' | 'dna' | 'plant';
+type BioTab =
+  | 'skeleton'
+  | 'sarcomere'
+  | 'dna'
+  | 'plant'
+  | 'endocrine'
+  | 'menstrual'
+  | 'immunity'
+  | 'genetics';
 
 interface BoneRegion {
   id: string;
@@ -141,9 +158,9 @@ const BONE_REGIONS: BoneRegion[] = [
   },
 ];
 
-// Codon Translation Table
+// Complete Standard Genetic Code Table (All 64 Codons)
 const GENETIC_CODE: Record<string, { aa: string; nameEn: string; nameAr: string }> = {
-  AUG: { aa: 'Met', nameEn: 'Methionine (Start)', nameAr: 'ميثيونين (بدء)' },
+  // U row (16 codons)
   UUU: { aa: 'Phe', nameEn: 'Phenylalanine', nameAr: 'فينيل ألانين' },
   UUC: { aa: 'Phe', nameEn: 'Phenylalanine', nameAr: 'فينيل ألانين' },
   UUA: { aa: 'Leu', nameEn: 'Leucine', nameAr: 'ليوسين' },
@@ -152,20 +169,68 @@ const GENETIC_CODE: Record<string, { aa: string; nameEn: string; nameAr: string 
   UCC: { aa: 'Ser', nameEn: 'Serine', nameAr: 'سيرين' },
   UCA: { aa: 'Ser', nameEn: 'Serine', nameAr: 'سيرين' },
   UCG: { aa: 'Ser', nameEn: 'Serine', nameAr: 'سيرين' },
+  UAU: { aa: 'Tyr', nameEn: 'Tyrosine', nameAr: 'تيروسين' },
+  UAC: { aa: 'Tyr', nameEn: 'Tyrosine', nameAr: 'تيروسين' },
+  UAA: { aa: 'STOP', nameEn: 'Stop Codon (Ochre)', nameAr: 'كودون وقف' },
+  UAG: { aa: 'STOP', nameEn: 'Stop Codon (Amber)', nameAr: 'كودون وقف' },
+  UGU: { aa: 'Cys', nameEn: 'Cysteine', nameAr: 'سيستئين' },
+  UGC: { aa: 'Cys', nameEn: 'Cysteine', nameAr: 'سيستئين' },
+  UGA: { aa: 'STOP', nameEn: 'Stop Codon (Opal)', nameAr: 'كودون وقف' },
+  UGG: { aa: 'Trp', nameEn: 'Tryptophan', nameAr: 'تريبتوفان' },
+
+  // C row (16 codons)
+  CUU: { aa: 'Leu', nameEn: 'Leucine', nameAr: 'ليوسين' },
+  CUC: { aa: 'Leu', nameEn: 'Leucine', nameAr: 'ليوسين' },
+  CUA: { aa: 'Leu', nameEn: 'Leucine', nameAr: 'ليوسين' },
+  CUG: { aa: 'Leu', nameEn: 'Leucine', nameAr: 'ليوسين' },
+  CCU: { aa: 'Pro', nameEn: 'Proline', nameAr: 'برولين' },
+  CCC: { aa: 'Pro', nameEn: 'Proline', nameAr: 'برولين' },
+  CCA: { aa: 'Pro', nameEn: 'Proline', nameAr: 'برولين' },
+  CCG: { aa: 'Pro', nameEn: 'Proline', nameAr: 'برولين' },
+  CAU: { aa: 'His', nameEn: 'Histidine', nameAr: 'هيستيدين' },
+  CAC: { aa: 'His', nameEn: 'Histidine', nameAr: 'هيستيدين' },
+  CAA: { aa: 'Gln', nameEn: 'Glutamine', nameAr: 'جلوتامين' },
+  CAG: { aa: 'Gln', nameEn: 'Glutamine', nameAr: 'جلوتامين' },
+  CGU: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+  CGC: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+  CGA: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+  CGG: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+
+  // A row (16 codons)
+  AUU: { aa: 'Ile', nameEn: 'Isoleucine', nameAr: 'أيزوليوسين' },
+  AUC: { aa: 'Ile', nameEn: 'Isoleucine', nameAr: 'أيزوليوسين' },
+  AUA: { aa: 'Ile', nameEn: 'Isoleucine', nameAr: 'أيزوليوسين' },
+  AUG: { aa: 'Met', nameEn: 'Methionine (Start)', nameAr: 'ميثيونين (بدء)' },
+  ACU: { aa: 'Thr', nameEn: 'Threonine', nameAr: 'ثريونين' },
+  ACC: { aa: 'Thr', nameEn: 'Threonine', nameAr: 'ثريونين' },
+  ACA: { aa: 'Thr', nameEn: 'Threonine', nameAr: 'ثريونين' },
+  ACG: { aa: 'Thr', nameEn: 'Threonine', nameAr: 'ثريونين' },
+  AAU: { aa: 'Asn', nameEn: 'Asparagine', nameAr: 'أسباراجين' },
+  AAC: { aa: 'Asn', nameEn: 'Asparagine', nameAr: 'أسباراجين' },
+  AAA: { aa: 'Lys', nameEn: 'Lysine', nameAr: 'ليسين' },
+  AAG: { aa: 'Lys', nameEn: 'Lysine', nameAr: 'ليسين' },
+  AGU: { aa: 'Ser', nameEn: 'Serine', nameAr: 'سيرين' },
+  AGC: { aa: 'Ser', nameEn: 'Serine', nameAr: 'سيرين' },
+  AGA: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+  AGG: { aa: 'Arg', nameEn: 'Arginine', nameAr: 'أرجينين' },
+
+  // G row (16 codons)
+  GUU: { aa: 'Val', nameEn: 'Valine', nameAr: 'فالين' },
+  GUC: { aa: 'Val', nameEn: 'Valine', nameAr: 'فالين' },
+  GUA: { aa: 'Val', nameEn: 'Valine', nameAr: 'فالين' },
+  GUG: { aa: 'Val', nameEn: 'Valine', nameAr: 'فالين' },
   GCU: { aa: 'Ala', nameEn: 'Alanine', nameAr: 'ألانين' },
   GCC: { aa: 'Ala', nameEn: 'Alanine', nameAr: 'ألانين' },
   GCA: { aa: 'Ala', nameEn: 'Alanine', nameAr: 'ألانين' },
   GCG: { aa: 'Ala', nameEn: 'Alanine', nameAr: 'ألانين' },
-  AAA: { aa: 'Lys', nameEn: 'Lysine', nameAr: 'ليسين' },
-  AAG: { aa: 'Lys', nameEn: 'Lysine', nameAr: 'ليسين' },
   GAU: { aa: 'Asp', nameEn: 'Aspartate', nameAr: 'حمض الأسبارتيك' },
   GAC: { aa: 'Asp', nameEn: 'Aspartate', nameAr: 'حمض الأسبارتيك' },
   GAA: { aa: 'Glu', nameEn: 'Glutamate', nameAr: 'حمض الجلوتاميك' },
   GAG: { aa: 'Glu', nameEn: 'Glutamate', nameAr: 'حمض الجلوتاميك' },
-  UGG: { aa: 'Trp', nameEn: 'Tryptophan', nameAr: 'تريبتوفان' },
-  UAA: { aa: 'STOP', nameEn: 'Stop Codon (Ochre)', nameAr: 'كودون وقف' },
-  UAG: { aa: 'STOP', nameEn: 'Stop Codon (Amber)', nameAr: 'كودون وقف' },
-  UGA: { aa: 'STOP', nameEn: 'Stop Codon (Opal)', nameAr: 'كودون وقف' },
+  GGU: { aa: 'Gly', nameEn: 'Glycine', nameAr: 'جلايسين' },
+  GGC: { aa: 'Gly', nameEn: 'Glycine', nameAr: 'جلايسين' },
+  GGA: { aa: 'Gly', nameEn: 'Glycine', nameAr: 'جلايسين' },
+  GGG: { aa: 'Gly', nameEn: 'Glycine', nameAr: 'جلايسين' },
 };
 
 export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
@@ -377,6 +442,70 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           >
             <Leaf className="w-3.5 h-3.5" />
             <span>{isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('endocrine')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'endocrine'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <HeartPulse className="w-3.5 h-3.5 text-rose-400" />
+            <span>{isArabic ? 'الغدد الصماء والاتزان' : 'Endocrine System'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('menstrual')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'menstrual'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Calendar className="w-3.5 h-3.5 text-pink-400" />
+            <span>{isArabic ? 'دورة الطمث (٢٨ يوماً)' : 'Menstrual Cycle'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('immunity')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'immunity'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+            <span>{isArabic ? 'الأجسام المضادة والمناعة' : 'Immunology & IgG'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('genetics')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'genetics'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Grid className="w-3.5 h-3.5 text-emerald-400" />
+            <span>{isArabic ? 'مربع بانيت وفصائل الدم' : 'Genetics & ABO'}</span>
           </button>
         </div>
       </div>
@@ -1365,6 +1494,34 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB 5: ENDOCRINE SYSTEM & HORMONAL FEEDBACK */}
+      {activeTab === 'endocrine' && (
+        <div className="mt-6">
+          <EndocrineLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 6: 28-DAY MENSTRUAL & OVARIAN CYCLE */}
+      {activeTab === 'menstrual' && (
+        <div className="mt-6">
+          <MenstrualCycleLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 7: IMMUNOLOGY & IGG ANTIBODY ARCHITECTURE */}
+      {activeTab === 'immunity' && (
+        <div className="mt-6">
+          <ImmunityLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 8: PUNNETT SQUARES & ABO BLOOD GROUPS */}
+      {activeTab === 'genetics' && (
+        <div className="mt-6">
+          <GeneticsLab lang={lang} theme={theme} />
         </div>
       )}
     </div>

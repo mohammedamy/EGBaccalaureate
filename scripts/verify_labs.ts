@@ -25,6 +25,8 @@ const bioAssets = [
   { file: 'sarcomere_ultrastructure.jpg', minSize: 500 * 1024, label: 'Sarcomere Ultrastructure 3D Microscopy' },
   { file: 'dna_double_helix.jpg', minSize: 500 * 1024, label: 'DNA Molecular Double Helix' },
   { file: 'plant_stem_histology.jpg', minSize: 500 * 1024, label: 'Plant Stem Cross-Section Histology (400x)' },
+  { file: 'antibody_igg_structure.jpg', minSize: 500 * 1024, label: 'IgG Antibody 3D Molecular Architecture' },
+  { file: 'endocrine_system_anatomy.jpg', minSize: 500 * 1024, label: 'Human Endocrine System Anatomy' },
 ];
 
 const biologyAssetDir = path.resolve(__dirname, '../src/assets/biology');
@@ -47,6 +49,10 @@ const labComponents = [
   'src/components/labs/PhysicsLab.tsx',
   'src/components/labs/ChemistryLab.tsx',
   'src/components/labs/BiologyLab.tsx',
+  'src/components/labs/EndocrineLab.tsx',
+  'src/components/labs/MenstrualCycleLab.tsx',
+  'src/components/labs/ImmunityLab.tsx',
+  'src/components/labs/GeneticsLab.tsx',
   'src/components/VirtualLabsHub.tsx',
 ];
 
