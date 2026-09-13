@@ -297,5 +297,63 @@ export const desmosPresets: DesmosPreset[] = [
       'N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-r \\cdot t}} \\left\\{t \\ge 0\\right\\}',
       'y = K'
     ]
+  },
+  {
+    id: 'phys_photoelectric_effect',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Einstein Photoelectric Effect: KE vs. Frequency',
+    titleAr: 'الظاهرة الكهروضوئية: طاقة الحركة العظمى بدلالة التردد',
+    descEn: 'Plot maximum kinetic energy of photoelectrons vs incident frequency ν, showing work function and threshold frequency νc.',
+    descAr: 'تمثيل طاقة الحركة العظمى للإلكترونات المتحررة بدلالة تردد الضوء الساقط وتوضيح التردد الحرج ودالة الشغل.',
+    latex: 'KE_{\\max}(\\nu) = h \\cdot (\\nu - \\nu_c) = h\\nu - W_0',
+    expressions: [
+      'h = 6.626',
+      '\\nu_c = 4.5',
+      'W_0 = h \\cdot \\nu_c',
+      'KE(x) = h \\cdot (x - \\nu_c) \\left\\{x \\ge \\nu_c\\right\\}',
+      '(\\nu_c, 0)',
+      '(0, -W_0)'
+    ]
+  },
+  {
+    id: 'phys_rlc_resonance',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'AC RLC Circuit: Impedance & Current Resonance',
+    titleAr: 'دوائر التيار المتردد: المعاوقة ورنين التيار بدلالة التردد',
+    descEn: 'Frequency response of series RLC circuit showing impedance minimum Z = R and current maximum at resonance f0.',
+    descAr: 'استجابة دائرة RLC للتردد وتوضيح القيمة الصغرى للمعاوقة Z = R وأقصى شدة تيار عند تردد الرنين f0.',
+    latex: 'Z(f) = \\sqrt{R^2 + (2\\pi f L - \\frac{1}{2\\pi f C})^2},\\quad I(f) = \\frac{V_0}{Z(f)}',
+    expressions: [
+      'R = 10',
+      'L = 0.05',
+      'C = 0.00002',
+      'V_0 = 100',
+      'f_0 = \\frac{1}{2\\pi\\sqrt{L \\cdot C}}',
+      'X_L(x) = 2\\pi \\cdot x \\cdot L',
+      'X_C(x) = \\frac{1}{2\\pi \\cdot x \\cdot C}',
+      'Z(x) = \\sqrt{R^2 + (X_L(x) - X_C(x))^2}',
+      'I(x) = \\frac{V_0}{Z(x)} \\left\\{x > 0\\right\\}',
+      '(f_0, \\frac{V_0}{R})'
+    ]
+  },
+  {
+    id: 'phys_terminal_voltage',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Ohm Closed Circuit: Terminal Voltage Load Line',
+    titleAr: 'قانون أوم للدائرة المغلقة: خط هبوط جهد أطراف البطارية',
+    descEn: 'Battery terminal voltage V vs current I during discharge V = VB - Ir and charging V = VB + Ir.',
+    descAr: 'فرق الجهد بين قطبي المصدر بدلالة شدة التيار في حالتي التفريغ والشحن وتوضيح الهبوط في الجهد Ir.',
+    latex: 'V(I) = V_B - I \\cdot r,\\quad I_{\\text{sc}} = \\frac{V_B}{r}',
+    expressions: [
+      'V_B = 12',
+      'r = 1.5',
+      'V_{dis}(x) = V_B - x \\cdot r \\left\\{0 \\le x \\le \\frac{V_B}{r}\\right\\}',
+      'V_{chg}(x) = V_B + x \\cdot r \\left\\{x \\ge 0\\right\\}',
+      '(0, V_B)',
+      '(\\frac{V_B}{r}, 0)'
+    ]
   }
 ];

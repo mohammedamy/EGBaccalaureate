@@ -224,11 +224,83 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 teacherTipEn: 'Remember that resistance scales inversely with the 4th power of radius when volume is constant: $R \\propto 1/r^4$.',
                 teacherTipAr: 'تذكر دائماً أنه عند سحب سلك مع ثبوت حجمه، تتناسب المقاومة عكسياً مع الأس الرابع لنصف القطر: $R \\propto \\frac{1}{r^4}$.'
+              },
+              {
+                id: 'th_phys_ws_p2',
+                titleEn: 'Balanced Wheatstone Bridge & Null Galvanometer',
+                titleAr: 'قنطرة ويتستون المتزنة وانعدام تيار الجلفانومتر',
+                difficulty: 'hots',
+                diagramType: 'phys_wheatstone_bridge',
+                questionEn: 'In a Wheatstone bridge network with four arms $R_1 = 6\\,\\Omega$, $R_2 = 12\\,\\Omega$, $R_3 = 3\\,\\Omega$, and $R_4 = 6\\,\\Omega$, a central galvanometer of resistance $R_G = 15\\,\\Omega$ is connected across the bridge. Calculate the equivalent resistance $R_{eq}$ between the input terminals.',
+                questionAr: 'في شبكة قنطرة ويتستون مكونة من أربعة أفرع: $R_1 = 6\\,\\Omega$ و $R_2 = 12\\,\\Omega$ و $R_3 = 3\\,\\Omega$ و $R_4 = 6\\,\\Omega$، وُصل جلفانومتر مقاومته $R_G = 15\\,\\Omega$ بين نقطتي الاتصال المركزيتين. احسب المقاومة المكافئة $R_{eq}$ بين طرفي توصيل المصدر.',
+                optionsEn: ['$6\\,\\Omega$', '$9\\,\\Omega$', '$12\\,\\Omega$', '$4.5\\,\\Omega$'],
+                optionsAr: ['$6\\,\\Omega$', '$9\\,\\Omega$', '$12\\,\\Omega$', '$4.5\\,\\Omega$'],
+                correctAnswer: '$6\\,\\Omega$',
+                correctIndex: 0,
+                hintEn: 'Check the balance condition: $R_1 / R_2 = R_3 / R_4$. If satisfied, the galvanometer branch carries zero current and can be eliminated.',
+                hintAr: 'تحقق من شرط اتزان القنطرة: $R_1 / R_2 = R_3 / R_4$. إذا تحقق ينعدم فرق الجهد بين طرفي الجلفانومتر وتُلغى مقاومته.',
+                stepByStepSolutionEn: [
+                  'Ratio test: $\\frac{R_1}{R_2} = \\frac{6}{12} = \\frac{1}{2}$, and $\\frac{R_3}{R_4} = \\frac{3}{6} = \\frac{1}{2}$.',
+                  'Since $\\frac{R_1}{R_2} = \\frac{R_3}{R_4}$, the bridge is perfectly balanced ($V_C = V_D$).',
+                  'No current passes through the central galvanometer branch ($I_G = 0$), so $R_G$ is removed.',
+                  'Top branch resistance: $R_{\\text{top}} = R_1 + R_2 = 6 + 12 = 18\\,\\Omega$.',
+                  'Bottom branch resistance: $R_{\\text{bottom}} = R_3 + R_4 = 3 + 6 = 9\\,\\Omega$.',
+                  'Equivalent resistance: $R_{eq} = \\frac{R_{\\text{top}} R_{\\text{bottom}}}{R_{\\text{top}} + R_{\\text{bottom}}} = \\frac{18 \\times 9}{18 + 9} = \\frac{162}{27} = 6\\,\\Omega$.'
+                ],
+                stepByStepSolutionAr: [
+                  'اختبار نسب المقاومات: $\\frac{R_1}{R_2} = \\frac{6}{12} = \\frac{1}{2}$، وكذلك $\\frac{R_3}{R_4} = \\frac{3}{6} = \\frac{1}{2}$.',
+                  'بما أن النسبتين متساويتان، فإن القنطرة متزنة تماماً ($V_C = V_D$).',
+                  'لا يمر تيار في فرع الجلفانومتر ($I_G = 0$)، وبالتالي تُحذف مقاومته من الحسابات.',
+                  'مقاومة الفرع العلوي: $R_{\\text{top}} = 6 + 12 = 18\\,\\Omega$.',
+                  'مقاومة الفرع السفلي: $R_{\\text{bottom}} = 3 + 6 = 9\\,\\Omega$.',
+                  'المقاومة المكافئة للفرعين على التوازي: $R_{eq} = \\frac{18 \\times 9}{18 + 9} = \\frac{162}{27} = 6\\,\\Omega$.'
+                ],
+                teacherTipEn: 'Whenever you see a bridge or cross-connection, always test the ratio of adjacent or opposite arms first before applying Kirchhoff loops.',
+                teacherTipAr: 'في أي مسألة تحتوي على مقاومة مشتركة بين مسارين، اختبر نسبة ذراعي القنطرة أولاً؛ فإذا تساوت النسب يُحذف فرع التوصيل وتتحول المسألة لتوالي وتوازي بسيط.'
+              },
+              {
+                id: 'th_phys_ws_p3',
+                titleEn: 'Opposing Batteries: Charging & Discharging Terminal Voltages',
+                titleAr: 'بطاريتان في حالة تضاد: جهد التفريغ وجهد الشحن',
+                difficulty: 'medium',
+                questionEn: 'Two batteries are connected in series opposition: Battery 1 has $V_{B1} = 18\\text{ V}$ with internal resistance $r_1 = 1\\,\\Omega$, and Battery 2 has $V_{B2} = 6\\text{ V}$ with $r_2 = 1\\,\\Omega$. The external circuit has resistance $R = 4\\,\\Omega$. What are the circuit current $I$ and the terminal voltmeter reading across Battery 2 ($V_2$)?',
+                questionAr: 'وُصلت بطاريتان على التضاد في دائرة مغلقة: الأولى قوتها الدافعة $V_{B1} = 18\\text{ فولت}$ ومقاومتها الداخلية $r_1 = 1\\,\\Omega$، والثانية $V_{B2} = 6\\text{ فولت}$ ومقاومتها $r_2 = 1\\,\\Omega$. مقاومة الدائرة الخارجية $R = 4\\,\\Omega$. احسب شدة تيار الدائرة $I$ وقراءة الفولتميتر بين قطبي البطارية الثانية ($V_2$).',
+                optionsEn: [
+                  '$I = 2\\text{ A},\\, V_2 = 8\\text{ V}$',
+                  '$I = 2\\text{ A},\\, V_2 = 4\\text{ V}$',
+                  '$I = 4\\text{ A},\\, V_2 = 6\\text{ V}$',
+                  '$I = 1.5\\text{ A},\\, V_2 = 7.5\\text{ V}$'
+                ],
+                optionsAr: [
+                  '$I = 2\\text{ أمبير},\\, V_2 = 8\\text{ فولت}$',
+                  '$I = 2\\text{ أمبير},\\, V_2 = 4\\text{ فولت}$',
+                  '$I = 4\\text{ أمبير},\\, V_2 = 6\\text{ فولت}$',
+                  '$I = 1.5\\text{ أمبير},\\, V_2 = 7.5\\text{ فولت}$'
+                ],
+                correctAnswer: '$I = 2\\text{ A},\\, V_2 = 8\\text{ V}$',
+                correctIndex: 0,
+                hintEn: 'Because $V_{B1} > V_{B2}$, Battery 1 discharges ($V_1 = V_{B1} - Ir_1$) while Battery 2 undergoes charging ($V_2 = V_{B2} + Ir_2$).',
+                hintAr: 'نظراً لأن $V_{B1} > V_{B2}$، فإن البطارية الأولى في حالة تفريغ ($V_1 = V_{B1} - Ir_1$) بينما الثانية في حالة شحن ($V_2 = V_{B2} + Ir_2$).',
+                stepByStepSolutionEn: [
+                  'Net electromotive force: $V_{B,\\text{net}} = V_{B1} - V_{B2} = 18 - 6 = 12\\text{ V}$.',
+                  'Total equivalent resistance: $R_{\\text{total}} = R + r_1 + r_2 = 4 + 1 + 1 = 6\\,\\Omega$.',
+                  'Circuit current: $I = \\frac{V_{B,\\text{net}}}{R_{\\text{total}}} = \\frac{12}{6} = 2\\text{ A}$.',
+                  'Battery 2 is in charging mode (current enters its positive terminal), so: $V_2 = V_{B2} + I \\cdot r_2 = 6 + (2 \\times 1) = 8\\text{ V}$.',
+                  '(For verification, Battery 1 discharges: $V_1 = V_{B1} - I r_1 = 18 - 2 = 16\\text{ V}$, and $V_{\\text{external}} = I R = 2 \\times 4 = 8\\text{ V} = V_1 - V_2$).'
+                ],
+                stepByStepSolutionAr: [
+                  'القوة الدافعة المحصلة: $V_{B,\\text{net}} = V_{B1} - V_{B2} = 18 - 6 = 12\\text{ فولت}$.',
+                  'المقاومة الكلية للدائرة: $R_{\\text{total}} = R + r_1 + r_2 = 4 + 1 + 1 = 6\\,\\Omega$.',
+                  'شدة التيار المار: $I = \\frac{12}{6} = 2\\text{ أمبير}$.',
+                  'البطارية الثانية في حالة شحن (التيار يدخل قطبها الموجب)، وبالتالي: $V_2 = V_{B2} + I \\cdot r_2 = 6 + (2 \\times 1) = 8\\text{ فولت}$.'
+                ],
+                teacherTipEn: 'Pay close attention: when a battery is charged, its terminal potential difference exceeds its EMF ($V > V_B$) due to the internal voltage drop addition.',
+                teacherTipAr: 'انتبه جيداً: عند شحن بطارية يكون فرق الجهد بين قطبيها أكبر من قوتها الدافعة الكهربية ($V > V_B$) لأن تيار الشحن يدخل للقطب الموجب.'
               }
             ]
           },
           interactiveWidget: {
-            type: 'statics_friction',
+            type: 'physics_circuits',
             titleEn: 'Electric Circuit & Kirchhoff Simulation',
             titleAr: 'محاكاة الدوائر الكهربية وشبكات كيرشوف',
             descriptionEn: 'Interactive multiloop solver displaying node currents, loop electromotive forces, and branch voltage drops.',
@@ -391,8 +463,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 "correctAnswer": "10 cm outside the wires",
                 "correctIndex": 0,
-                "hintEn": "Since currents are opposite, the neutral point lies outside the two wires, closer to the weaker current: $I_1 / d_1 = I_2 / (D + d_1)$.",
-                "hintAr": "التياران متضادان، إذن نقطة التعادل تقع خارج السلكين بالقرب من التيار الأضعف: $I_1 / d = I_2 / (20 + d)$.",
+                hintEn: "Since currents are opposite, the neutral point lies outside the two wires, closer to the weaker current: $I_1 / d_1 = I_2 / (D + d_1)$.",
+                hintAr: "التياران متضادان، إذن نقطة التعادل تقع خارج السلكين بالقرب من التيار الأضعف: $I_1 / d = I_2 / (20 + d)$.",
                 "stepByStepSolutionEn": [
                   "Opposite currents: neutral point is outside the region between the wires, near the weaker wire (Wire 1).",
                   "Condition: $\\frac{I_1}{d} = \\frac{I_2}{D + d}$.",
@@ -407,11 +479,92 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 "teacherTipEn": "Remember: if currents are in opposite directions, neutral point is always OUTSIDE the region between the wires.",
                 "teacherTipAr": "قاعدة ثابتة: إذا كان التياران في اتجاهين متضادين تقع نقطة التعادل خارج السلكين بجوار التيار الأضعف."
+              },
+              {
+                "id": "th_phys_ws_p2_2",
+                "titleEn": "Solenoid Core Permeability & Axial Flux Density",
+                "titleAr": "كثافة الفيض على محور ملف لولبي ونفاذية القلب الحديدي",
+                "difficulty": "hots",
+                "diagramType": "phys_solenoid_magnetic_field",
+                "questionEn": "A solenoid of length $L = 20\\text{ cm}$ has $N = 500\\text{ turns}$ and carries a steady current $I = 2\\text{ A}$. If a cylindrical soft iron core of magnetic permeability $\\mu = 2 \\times 10^{-3}\\text{ T}\\cdot\\text{m/A}$ is inserted inside the core, what is the magnetic flux density along the internal axis of the solenoid?",
+                "questionAr": "ملف لولبي طوله $L = 20\\text{ سم}$ يحتوي على $N = 500\\text{ لفة}$ ويمر به تيار مستمر $I = 2\\text{ أمبير}$. إذا وُضع بداخله ساق من الحديد المطاوع معامل نفاذيته المغناطيسية $\\mu = 2 \\times 10^{-3}\\text{ تسلا}\\cdot\\text{متر/أمبير}$، فما قيمة كثافة الفيض المغناطيسي عند نقطة على محوره في منتصف طوله؟",
+                "optionsEn": [
+                  "10.0 T",
+                  "5.0 T",
+                  "2.5 T",
+                  "0.0126 T"
+                ],
+                "optionsAr": [
+                  "١٠,٠ تسلا",
+                  "٥,٠ تسلا",
+                  "٢,٥ تسلا",
+                  "٠,٠١٢٦ تسلا"
+                ],
+                "correctAnswer": "10.0 T",
+                "correctIndex": 0,
+                "hintEn": "Apply the solenoid formula $B = \\frac{\\mu N I}{L}$ substituting length in meters ($L = 0.2\\text{ m}$).",
+                "hintAr": "طبق قانون كثافة الفيض للملف اللولبي: $B = \\frac{\\mu N I}{L}$ مع تحويل الطول إلى أمتار ($0.2\\text{ م}$).",
+                "stepByStepSolutionEn": [
+                  "Identify parameters: $L = 20\\text{ cm} = 0.20\\text{ m}$, $N = 500\\text{ turns}$, $I = 2\\text{ A}$.",
+                  "Permeability of soft iron: $\\mu = 2 \\times 10^{-3}\\text{ T}\\cdot\\text{m/A}$.",
+                  "Formula for solenoid axial flux density: $B = \\frac{\\mu N I}{L}$.",
+                  "Substitute values: $B = \\frac{(2 \\times 10^{-3})(500)(2)}{0.20} = \\frac{2}{0.20} = 10.0\\text{ T}$.",
+                  "Notice that without the iron core (in air with $\\mu_0 = 4\\pi \\times 10^{-7}$), $B$ would be only $\\approx 0.0063\\text{ T}$, demonstrating iron's massive flux concentration effect."
+                ],
+                "stepByStepSolutionAr": [
+                  "المعطيات: الطول $L = 0.20\\text{ م}$، عدد اللفات $N = 500$، شدة التيار $I = 2\\text{ أمبير}$.",
+                  "معامل نفاذية الحديد المطاوع: $\\mu = 2 \\times 10^{-3}\\text{ تسلا}\\cdot\\text{م/أمبير}$.",
+                  "قانون كثافة الفيض لملف لولبي: $B = \\frac{\\mu N I}{L}$.",
+                  "التعويض: $B = \\frac{(2 \\times 10^{-3}) \\times 500 \\times 2}{0.20} = \\frac{2}{0.20} = 10.0\\text{ تسلا}$.",
+                  "لاحظ أن وجود قلب الحديد المطاوع ركز خطوط الفيض وضاعف شدة المجال آلاف المرات مقارنة بالهواء."
+                ],
+                "teacherTipEn": "Soft iron concentrates magnetic field lines because its permeability is thousands of times greater than air, which is fundamental to electromagnets and transformers.",
+                "teacherTipAr": "يعمل الحديد المطاوع على تركيز خطوط الفيض المغناطيسي لأن معامل نفاذيته المغناطيسية أكبر بكثير من الهواء، وهو أساس عمل المغناطيس الكهربي والمحولات."
+              },
+              {
+                "id": "th_phys_ws_p2_3",
+                "titleEn": "Ohmmeter Quarter-Scale Deflection & External Resistor",
+                "titleAr": "انحراف مؤشر الأوميتر إلى ربع التدريج والمقاومة المجهولة",
+                "difficulty": "medium",
+                "questionEn": "An ohmmeter has total internal resistance $R_{\\text{in}} = 3000\\,\\Omega$. When an external resistor $R_x$ is connected between its terminals, its pointer deflects to $\\frac{1}{4}$ of its full-scale current ($I = \\frac{1}{4} I_g$). What is the value of $R_x$?",
+                "questionAr": "أوميتر مقاومته الداخلية الكلية $R_{\\text{in}} = 3000\\,\\Omega$. عند توصيل مقاومة مجهولة $R_x$ بين طرفيه، انحرف مؤشره إلى ربع تدريج التيار ($I = \\frac{1}{4} I_g$). احسب قيمة المقاومة المجهولة $R_x$.",
+                "optionsEn": [
+                  "$9000\\,\\Omega$",
+                  "$12000\\,\\Omega$",
+                  "$6000\\,\\Omega$",
+                  "$3000\\,\\Omega$"
+                ],
+                "optionsAr": [
+                  "$9000\\,\\Omega$",
+                  "$12000\\,\\Omega$",
+                  "$6000\\,\\Omega$",
+                  "$3000\\,\\Omega$"
+                ],
+                "correctAnswer": "$9000\\,\\Omega$",
+                "correctIndex": 0,
+                "hintEn": "Use the golden ohmmeter relation: if $I = \\frac{1}{n} I_g$, then $R_x = (n - 1) R_{\\text{in}}$.",
+                "hintAr": "طبق العلاقة الذهبية للأوميتر: إذا انحرف المؤشر إلى $\\frac{1}{n}$ التدريج، فإن $R_x = (n - 1) R_{\\text{in}}$.",
+                "stepByStepSolutionEn": [
+                  "Full-scale current: $I_g = \\frac{V_B}{R_{\\text{in}}}$.",
+                  "Reduced current with external resistor: $I = \\frac{V_B}{R_{\\text{in}} + R_x}$.",
+                  "Given $I = \\frac{1}{4} I_g \\implies \\frac{V_B}{R_{\\text{in}} + R_x} = \\frac{1}{4} \\frac{V_B}{R_{\\text{in}}}$.",
+                  "Cross-multiplying gives: $R_{\\text{in}} + R_x = 4 R_{\\text{in}} \\implies R_x = 3 R_{\\text{in}}$.",
+                  "Substitute $R_{\\text{in}} = 3000\\,\\Omega$: $R_x = 3 \\times 3000 = 9000\\,\\Omega$."
+                ],
+                "stepByStepSolutionAr": [
+                  "تيار نهاية التدريج: $I_g = \\frac{V_B}{R_{\\text{in}}}$.",
+                  "التيار عند توصيل المقاومة $R_x$: $I = \\frac{V_B}{R_{\\text{in}} + R_x}$.",
+                  "بما أن $I = \\frac{1}{4} I_g$، إذن المقاومة الكلية للدائرة أصبحت 4 أمثال ما كانت عليه: $R_{\\text{in}} + R_x = 4 R_{\\text{in}}$.",
+                  "إذن: $R_x = 4 R_{\\text{in}} - R_{\\text{in}} = 3 R_{\\text{in}}$.",
+                  "قيمة المقاومة المجهولة: $R_x = 3 \\times 3000 = 9000\\,\\Omega$."
+                ],
+                "teacherTipEn": "The ohmmeter scale is non-linear and inverted: zero current corresponds to infinite resistance ($R_x = \\infty$), and full-scale current corresponds to $R_x = 0$.",
+                "teacherTipAr": "تدريج الأوميتر غير منتظم وأقسامه غير متساوية لأن شدة التيار تتناسب عكسياً مع المقاومة الكلية للدائرة ($R_{\\text{in}} + R_x$) وليس مع $R_x$ وحدها."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_circuits",
             "titleEn": "Magnetic Field & Galvanometer Converter Simulator",
             "titleAr": "محاكي المجال المغناطيسي وتحويلات الجلفانومتر",
             "descriptionEn": "Interactive simulation calculating magnetic flux density vectors and galvanometer shunt/multiplier resistances.",
@@ -588,13 +741,88 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                   "النسبة: $\\frac{\\text{EMF}_{\\text{avg}}}{\\text{EMF}_{\\max}} = \\frac{٢}{\\pi}$.",
                   "$\\text{EMF}_{\\text{avg}} = \\frac{٢}{\\pi} \\times ١٠٠ = \\frac{٢٠٠}{٣,١٤١٦} \\approx ٦٣,٧\\text{ فولت}$."
                 ],
-                "teacherTipEn": "Average EMF over a quarter cycle from perpendicular equals average EMF over a half cycle from perpendicular ($\frac{2}{pi} \\text{EMF}_{\\max}$).",
+                "teacherTipEn": "Average EMF over a quarter cycle from perpendicular equals average EMF over a half cycle from perpendicular ($\\frac{2}{\\pi} \\text{EMF}_{\\max}$).",
                 "teacherTipAr": "متوسط القوة الدافعة خلال ربع دورة يساوي متوسطها خلال نصف دورة بدءاً من الوضع العمودي."
+              },
+              {
+                "id": "th_phys_ws_p3_2",
+                "titleEn": "AC Dynamo Armature Instantaneous & Effective EMF",
+                "titleAr": "القوة الدافعة اللحظية والفعالة لمولد التيار المتردد",
+                "difficulty": "hots",
+                "diagramType": "phys_dynamo_generator",
+                "questionEn": "An AC dynamo armature coil has $N = 100\\text{ turns}$, plane area $A = 0.04\\text{ m}^2$, and rotates in a uniform magnetic field $B = 0.5\\text{ T}$ at frequency $f = 50\\text{ Hz}$. What is the instantaneous EMF generated at $t = \\frac{1}{600}\\text{ s}$ after passing the perpendicular (zero-flux-change) position?",
+                "questionAr": "ملف دينامو تيار متردد يتكون من $N = 100\\text{ لفة}$ ومساحة مقطعه $A = 0.04\\text{ م}^2$ يدور في مجال مغناطيسي منتظم $B = 0.5\\text{ تسلا}$ بتردد $f = 50\\text{ هرتز}$. احسب القوة الدافعة الكهربية المستحثة اللحظية بعد زمن $t = \\frac{1}{600}\\text{ ثانية}$ من لحظة مروره بالوضع العمودي على المجال.",
+                "optionsEn": [
+                  "314.2 V",
+                  "628.3 V",
+                  "444.3 V",
+                  "157.1 V"
+                ],
+                "optionsAr": [
+                  "٣١٤,٢ فولت",
+                  "٦٢٨,٣ فولت",
+                  "٤٤٤,٣ فولت",
+                  "١٥٧,١ فولت"
+                ],
+                "correctAnswer": "314.2 V",
+                "correctIndex": 0,
+                "hintEn": "Calculate maximum EMF first: $\\text{EMF}_{\\max} = 2\\pi f N B A$, then rotation angle $\\theta = 2\\pi f t = 360 \\times 50 \\times t$.",
+                "hintAr": "احسب القيمة العظمى أولاً: $\\text{EMF}_{\\max} = 2\\pi f N B A$ ثم زاوية الدوران $\\theta = 360 \\times 50 \\times t$.",
+                "stepByStepSolutionEn": [
+                  "Maximum electromotive force: $\\text{EMF}_{\\max} = N B A \\omega = N B A (2\\pi f) = 100 \\times 0.5 \\times 0.04 \\times (2 \\times 3.1416 \\times 50) = 2 \\times 314.16 = 628.32\\text{ V}$.",
+                  "Angle of rotation from the perpendicular position: $\\theta = 360^\\circ \\times f \\times t = 360^\\circ \\times 50 \\times \\frac{1}{600} = \\frac{18000^\\circ}{600} = 30^\\circ$.",
+                  "Instantaneous EMF: $\\text{EMF}_{\\text{inst}} = \\text{EMF}_{\\max} \\sin\\theta = 628.32 \\times \\sin 30^\\circ = 628.32 \\times 0.5 = 314.16\\text{ V} \\approx 314.2\\text{ V}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "القوة الدافعة الكهربية العظمى: $\\text{EMF}_{\\max} = NBA(2\\pi f) = 100 \\times 0.5 \\times 0.04 \\times (2\\pi \\times 50) = 200\\pi \\approx 628.32\\text{ فولت}$.",
+                  "زاوية الدوران من الوضع العمودي: $\\theta = 360 \\times 50 \\times \\frac{1}{600} = 30^\\circ$.",
+                  "القوة الدافعة اللحظية: $\\text{EMF}_{\\text{inst}} = \\text{EMF}_{\\max} \\sin 30^\\circ = 628.32 \\times 0.5 = 314.16\\text{ فولت}$."
+                ],
+                "teacherTipEn": "Angle theta in the dynamo EMF equation is measured between the normal to the coil and the magnetic field lines, which is identical to the angle rotated from the zero (perpendicular) position.",
+                "teacherTipAr": "زاوية $\\theta$ في قانون الدينامو هي الزاوية بين العمودي على مستوى الملف واتجاه المجال المغناطيسي، وهي نفسها الزاوية التي دار بها الملف بدءاً من الوضع العمودي."
+              },
+              {
+                "id": "th_phys_ws_p3_3",
+                "titleEn": "Non-Ideal Step-Down Transformer Primary Current",
+                "titleAr": "كفاءة المحول الخافض للجهد وحساب تيار الملف الابتدائي",
+                "difficulty": "medium",
+                "questionEn": "An electric step-down transformer has an efficiency of $\\eta = 80\\%$. It operates on an alternating source of primary voltage $V_p = 220\\text{ V}$ to deliver power to a lamp rated at $11\\text{ V}$ and $44\\text{ W}$. What is the current flowing in the primary coil?",
+                "questionAr": "محول كهربي خافض للجهد كفاءته $80\\%$. يعمل على مصدر متردد جهده الابتدائي $V_p = 220\\text{ فولت}$ لتشغيل مصباح كهربي قدرته $44\\text{ وات}$ ويعمل على جهد $11\\text{ فولت}$. احسب شدة التيار المار في الملف الابتدائي.",
+                "optionsEn": [
+                  "0.25 A",
+                  "0.20 A",
+                  "0.50 A",
+                  "4.00 A"
+                ],
+                "optionsAr": [
+                  "٠,٢٥ أمبير",
+                  "٠,٢٠ أمبير",
+                  "٠,٥٠ أمبير",
+                  "٤,٠٠ أمبير"
+                ],
+                "correctAnswer": "0.25 A",
+                "correctIndex": 0,
+                "hintEn": "Use transformer efficiency formula: $\\eta = \\frac{P_s}{P_p} = \\frac{P_s}{V_p I_p}$.",
+                "hintAr": "طبق قانون كفاءة المحول الكهربي: $\\eta = \\frac{P_s}{P_p} = \\frac{P_s}{V_p I_p}$.",
+                "stepByStepSolutionEn": [
+                  "Given: secondary power $P_s = 44\\text{ W}$, efficiency $\\eta = 0.80$, primary voltage $V_p = 220\\text{ V}$.",
+                  "Efficiency definition: $\\eta = \\frac{P_s}{P_p} = \\frac{P_s}{V_p I_p}$.",
+                  "Rearrange for primary current: $I_p = \\frac{P_s}{\\eta \\cdot V_p} = \\frac{44}{0.80 \\times 220} = \\frac{44}{176} = 0.25\\text{ A}$.",
+                  "(Note: Secondary current is $I_s = \\frac{P_s}{V_s} = \\frac{44}{11} = 4\\text{ A}$, so current was stepped up while voltage was stepped down)."
+                ],
+                "stepByStepSolutionAr": [
+                  "المعطيات: قدرة الملف الثانوي $P_s = 44\\text{ وات}$، الكفاءة $\\eta = 80\\% = 0.80$، الجهد الابتدائي $V_p = 220\\text{ فولت}$.",
+                  "قانون الكفاءة: $\\eta = \\frac{P_s}{V_p I_p}$.",
+                  "حساب تيار الابتدائي: $I_p = \\frac{P_s}{\\eta \\cdot V_p} = \\frac{44}{0.80 \\times 220} = \\frac{44}{176} = 0.25\\text{ أمبير}$.",
+                  "(للمقارنة: تيار الثانوي $I_s = \\frac{44}{11} = 4\\text{ أمبير}$، فالمحول الخافض للجهد رافع لشدة التيار)."
+                ],
+                "teacherTipEn": "A step-down voltage transformer is always a step-up current transformer. Energy losses occur mainly as heat in coils ($I^2 R$) and hysteresis in the iron core.",
+                "teacherTipAr": "المحول الخافض للجهد يكون دائماً رافعاً لشدة التيار. وتحدث الفواقد أساساً على شكل حرارة في الأسلاك وتيارات دوامية في القلب الحديدي."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_dynamo",
             "titleEn": "Faraday Induction & AC Dynamo Simulator",
             "titleAr": "محاكي الحث الكهرومغناطيسي والدينامو الجيبي",
             "descriptionEn": "Interactive coil rotation in magnetic field graphing sinusoidal instantaneous EMF curves and transformer primary/secondary ratios.",
@@ -772,11 +1000,90 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 "teacherTipEn": "At resonance, impedance equals pure resistance and current amplitude reaches its absolute maximum.",
                 "teacherTipAr": "في حالة الرنين تكون المعاوقة مساوية للمقاومة الأومية والتيار في قيمته العظمى."
+              },
+              {
+                "id": "th_phys_ws_p4_2",
+                "titleEn": "RLC Series Circuit Phasor Analysis & Impedance",
+                "titleAr": "تحليل متجهات الطور وحساب معاوقة دائرة RLC متوالية",
+                "difficulty": "hots",
+                "diagramType": "phys_rlc_resonance_phasor",
+                "questionEn": "A series RLC circuit connected to an alternating source of $V = 200\\text{ V}$ has resistance $R = 40\\,\\Omega$, inductive reactance $X_L = 100\\,\\Omega$, and capacitive reactance $X_C = 70\\,\\Omega$. What are the total impedance $Z$ and the phase angle $\\theta$ between total voltage and current?",
+                "questionAr": "دائرة تيار متردد متوالية تحتوي على مقاومة أومية $R = 40\\,\\Omega$ وملف حث مفاعلته $X_L = 100\\,\\Omega$ ومكثف مفاعلته $X_C = 70\\,\\Omega$ متصلة بمصدر جهده $V = 200\\text{ فولت}$. احسب المعاوقة الكلية للدائرة $Z$ وزاوية الطور $\\theta$ بين الجهد الكلي والتيار.",
+                "optionsEn": [
+                  "$Z = 50\\,\\Omega,\\, \\theta \\approx 36.87^\\circ$ (voltage leads)",
+                  "$Z = 50\\,\\Omega,\\, \\theta \\approx 36.87^\\circ$ (current leads)",
+                  "$Z = 70\\,\\Omega,\\, \\theta \\approx 45.0^\\circ$ (voltage leads)",
+                  "$Z = 40\\,\\Omega,\\, \\theta = 0^\\circ$ (in phase)"
+                ],
+                "optionsAr": [
+                  "$Z = 50\\,\\Omega,\\, \\theta \\approx 36.87^\\circ$ (الجهد يتقدم)",
+                  "$Z = 50\\,\\Omega,\\, \\theta \\approx 36.87^\\circ$ (التيار يتقدم)",
+                  "$Z = 70\\,\\Omega,\\, \\theta \\approx 45.0^\\circ$ (الجهد يتقدم)",
+                  "$Z = 40\\,\\Omega,\\, \\theta = 0^\\circ$ (متفقان في الطور)"
+                ],
+                "correctAnswer": "$Z = 50\\,\\Omega,\\, \\theta \\approx 36.87^\\circ$ (voltage leads)",
+                "correctIndex": 0,
+                "hintEn": "Calculate net reactance $X = X_L - X_C$, then $Z = \\sqrt{R^2 + X^2}$ and $\\tan\\theta = \\frac{X_L - X_C}{R}$.",
+                "hintAr": "احسب المفاعلة المحصلة $X = X_L - X_C$ ثم المعاوقة $Z = \\sqrt{R^2 + X^2}$ وزاوية الطور $\\tan\\theta = \\frac{X_L - X_C}{R}$.",
+                "stepByStepSolutionEn": [
+                  "Net reactive component: $X = X_L - X_C = 100 - 70 = 30\\,\\Omega$.",
+                  "Total circuit impedance: $Z = \\sqrt{R^2 + (X_L - X_C)^2} = \\sqrt{40^2 + 30^2} = \\sqrt{1600 + 900} = \\sqrt{2500} = 50\\,\\Omega$.",
+                  "Phase angle tangent: $\\tan\\theta = \\frac{X_L - X_C}{R} = \\frac{30}{40} = 0.75$.",
+                  "Phase angle: $\\theta = \\arctan(0.75) \\approx 36.87^\\circ$.",
+                  "Because $X_L > X_C$, the circuit has inductive characteristics and the voltage vector leads the current vector by $36.87^\\circ$."
+                ],
+                "stepByStepSolutionAr": [
+                  "المفاعلة المحصلة: $X = X_L - X_C = 100 - 70 = 30\\,\\Omega$.",
+                  "المعاوقة الكلية: $Z = \\sqrt{R^2 + (X_L - X_C)^2} = \\sqrt{40^2 + 30^2} = \\sqrt{1600 + 900} = \\sqrt{2500} = 50\\,\\Omega$.",
+                  "ظل زاوية الطور: $\\tan\\theta = \\frac{X_L - X_C}{R} = \\frac{30}{40} = 0.75$.",
+                  "إذن زاوية الطور $\\theta \\approx 36.87^\\circ$.",
+                  "بما أن $X_L > X_C$، فإن للدائرة خواصاً حثية ويكون الجهد الكلي متقدماً في الطور على التيار."
+                ],
+                "teacherTipEn": "Phasor diagrams represent voltages on a complex coordinate system where $V_R$ is real (along I), $V_L$ leads by $+90^\\circ$ (positive imaginary), and $V_C$ lags by $-90^\\circ$ (negative imaginary).",
+                "teacherTipAr": "مخطط الطور يمثل فروق الجهد: جهد المقاومة يتفق مع التيار، جهد الملف يتقدم بربع دورة، وجهد المكثف يتأخر بربع دورة."
+              },
+              {
+                "id": "th_phys_ws_p4_3",
+                "titleEn": "Frequency Scaling of Inductive & Capacitive Reactances",
+                "titleAr": "تأثير مضاعفة التردد على المفاعلتين الحثية والسعوية",
+                "difficulty": "medium",
+                "questionEn": "An alternating circuit contains an inductor and a capacitor. If the frequency of the AC generator is doubled while voltage is held constant, what happens to the inductive reactance $X_L$ and capacitive reactance $X_C$?",
+                "questionAr": "دائرة كهربية تحتوي على ملف حث ومكثف متصلين بمصدر متردد. إذا تضاعف تردد دوران المولد مع ثبوت الجهد، فماذا يحدث لقيمة كل من المفاعلة الحثية $X_L$ والمفاعلة السعوية $X_C$؟",
+                "optionsEn": [
+                  "$X_L$ doubles ($2 X_L$), and $X_C$ is halved ($0.5 X_C$)",
+                  "$X_L$ is halved ($0.5 X_L$), and $X_C$ doubles ($2 X_C$)",
+                  "Both $X_L$ and $X_C$ double",
+                  "Both $X_L$ and $X_C$ remain constant"
+                ],
+                "optionsAr": [
+                  "تتضاعف $X_L$ وتنتصف $X_C$",
+                  "تنتصف $X_L$ وتتضاعف $X_C$",
+                  "تتضاعف كلتاهما",
+                  "تظل كلتاهما ثابتة"
+                ],
+                "correctAnswer": "$X_L$ doubles ($2 X_L$), and $X_C$ is halved ($0.5 X_C$)",
+                "correctIndex": 0,
+                "hintEn": "Inductive reactance is directly proportional to frequency ($X_L = 2\\pi f L$), while capacitive reactance is inversely proportional ($X_C = \\frac{1}{2\\pi f C}$).",
+                "hintAr": "المفاعلة الحثية طردية مع التردد ($X_L = 2\\pi f L$) بينما المفاعلة السعوية عكسية مع التردد ($X_C = \\frac{1}{2\\pi f C}$).",
+                "stepByStepSolutionEn": [
+                  "Formula for inductive reactance: $X_L = 2\\pi f L \\implies X_L \\propto f$.",
+                  "When frequency doubles ($f' = 2f$), new inductive reactance: $X_L' = 2 X_L$.",
+                  "Formula for capacitive reactance: $X_C = \\frac{1}{2\\pi f C} \\implies X_C \\propto \\frac{1}{f}$.",
+                  "When frequency doubles ($f' = 2f$), new capacitive reactance: $X_C' = \\frac{1}{2} X_C = 0.5 X_C$."
+                ],
+                "stepByStepSolutionAr": [
+                  "قانون المفاعلة الحثية: $X_L = 2\\pi f L \\implies X_L \\propto f$ (علاقة طردية).",
+                  "عند مضاعفة التردد: تتضاعف المفاعلة الحثية $X_L' = 2 X_L$.",
+                  "قانون المفاعلة السعوية: $X_C = \\frac{1}{2\\pi f C} \\implies X_C \\propto \\frac{1}{f}$ (علاقة عكسية).",
+                  "عند مضاعفة التردد: تقل المفاعلة السعوية إلى النصف $X_C' = \\frac{1}{2} X_C$."
+                ],
+                "teacherTipEn": "At very high frequencies, an inductor behaves like an open circuit ($X_L \\to \\infty$), while a capacitor behaves like a short circuit ($X_C \\to 0$).",
+                "teacherTipAr": "عند الترددات العالية جداً يعمل الملف كدائرة مفتوحة لممانعته الكبيرة، بينما يعمل المكثف كسلك عديم المقاومة لانعدام مفاعلته."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_resonance",
             "titleEn": "RLC Impedance & Resonance Curve Simulator",
             "titleAr": "محاكي معاوقة دوائر التيار المتردد ومنحنى الرنين",
             "descriptionEn": "Interactive RLC circuit explorer plotting impedance and current vs frequency to illustrate the resonance peak.",
@@ -953,11 +1260,90 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 "teacherTipEn": "Notice that 0.123 nm is roughly atomic dimension size, explaining why electron diffraction occurs with crystal lattices.",
                 "teacherTipAr": "لاحظ أن ٠,١٢٣ نانومتر يقارب المسافات البينية في بلورات المعادن مما يفسر حدوث حيود للإلكترونات."
+              },
+              {
+                "id": "th_phys_ws_p5_2",
+                "titleEn": "Photoelectric Effect & Stopping Potential Circuit",
+                "titleAr": "دائرة الظاهرة الكهروضوئية وتعيين جهد الإيقاف",
+                "difficulty": "hots",
+                "diagramType": "phys_photoelectric_circuit",
+                "questionEn": "Monochromatic ultraviolet light of wavelength $\\lambda = 250\\text{ nm}$ illuminates a metal cathode whose work function is $W_0 = 2.14\\text{ eV}$. What is the stopping potential $V_{\\text{stop}}$ required to completely halt the photoelectric current?",
+                "questionAr": "سقط ضوء أحادي اللون فوق بنفسجي طوله الموجي $\\lambda = 250\\text{ نانومتر}$ على مهبط معدني دالة شغله $W_0 = 2.14\\text{ إلكترون فولت}$. احسب قيمة جهد الإيقاف $V_{\\text{stop}}$ اللازم لقطع التيار الكهروضوئي تماماً.",
+                "optionsEn": [
+                  "2.82 V",
+                  "4.96 V",
+                  "2.14 V",
+                  "1.41 V"
+                ],
+                "optionsAr": [
+                  "٢,٨٢ فولت",
+                  "٤,٩٦ فولت",
+                  "٢,١٤ فولت",
+                  "١,٤١ فولت"
+                ],
+                "correctAnswer": "2.82 V",
+                "correctIndex": 0,
+                "hintEn": "Calculate incident photon energy in eV: $E = \\frac{hc}{\\lambda} = \\frac{1240\\text{ eV}\\cdot\\text{nm}}{\\lambda\\text{ (nm)}}$, then $e V_{\\text{stop}} = KE_{\\max} = E - W_0$.",
+                "hintAr": "احسب طاقة الفوتون الساقط بالإلكترون فولت: $E = \\frac{hc}{\\lambda} = \\frac{1240}{250} = 4.96\\text{ eV}$، ثم $e V_{\\text{stop}} = E - W_0$.",
+                "stepByStepSolutionEn": [
+                  "Energy of incident photon: $E = \\frac{hc}{\\lambda} = \\frac{(6.626 \\times 10^{-34})(3.0 \\times 10^8)}{250 \\times 10^{-9}} = 7.951 \\times 10^{-19}\\text{ J}$.",
+                  "Convert photon energy to electron-volts: $E = \\frac{7.951 \\times 10^{-19}}{1.602 \\times 10^{-19}} \\approx 4.963\\text{ eV}$.",
+                  "Maximum kinetic energy of emitted photoelectrons: $KE_{\\max} = E - W_0 = 4.963 - 2.14 = 2.823\\text{ eV}$.",
+                  "Since $KE_{\\max} = e V_{\\text{stop}}$, the stopping voltage is $V_{\\text{stop}} = \\frac{KE_{\\max}}{e} = 2.82\\text{ V}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "طاقة الفوتون الساقط: $E = \\frac{hc}{\\lambda} = \\frac{6.626 \\times 10^{-34} \\times 3 \\times 10^8}{250 \\times 10^{-9}} = 7.951 \\times 10^{-19}\\text{ جول}$.",
+                  "التحويل إلى إلكترون فولت: $E = \\frac{7.951 \\times 10^{-19}}{1.602 \\times 10^{-19}} \\approx 4.96\\text{ eV}$.",
+                  "أقصى طاقة حركة للإلكترونات المنبعثة: $KE_{\\max} = E - W_0 = 4.96 - 2.14 = 2.82\\text{ eV}$.",
+                  "بما أن $KE_{\\max} = e V_{\\text{stop}}$، فإن جهد الإيقاف يساوي عددياً طاقة الحركة بوحدة الإلكترون فولت: $V_{\\text{stop}} = 2.82\\text{ فولت}$."
+                ],
+                "teacherTipEn": "Stopping potential depends solely on the frequency of incident light and cathode material work function; increasing light intensity increases the saturation current but does NOT alter stopping voltage.",
+                "teacherTipAr": "جهد الإيقاف يعتمد فقط على تردد الضوء الساقط ونوع مادة المهبط؛ وزيادة شدة الضوء تزيد تيار التشبع ولا تؤثر إطلاقاً على قيمة جهد الإيقاف."
+              },
+              {
+                "id": "th_phys_ws_p5_3",
+                "titleEn": "Compton Scattering Conservation Principles",
+                "titleAr": "قوانين البقاء في ظاهرة كومتون وخصائص الفوتون المتشتت",
+                "difficulty": "medium",
+                "questionEn": "In a Compton scattering experiment, an X-ray photon collides with a stationary free electron. Which of the following correctly describes the properties of the scattered photon compared to the incident photon?",
+                "questionAr": "في ظاهرة كومتون، اصطدم فوتون من أشعة إكس بإلكترون حر ساكن. أي من الخيارات التالية يصف بدقة التغير في خصائص الفوتون المتشتت مقارنة بالفوتون الساقط؟",
+                "optionsEn": [
+                  "Longer wavelength, lower frequency, and unchanged speed $c$",
+                  "Shorter wavelength, higher frequency, and lower speed",
+                  "Longer wavelength, lower frequency, and lower speed",
+                  "Unchanged wavelength, unchanged frequency, and lower speed"
+                ],
+                "optionsAr": [
+                  "طول موجي أكبر، تردد أقل، وسرعة ثابتة $c$",
+                  "طول موجي أقل، تردد أكبر، وسرعة أقل",
+                  "طول موجي أكبر، تردد أقل، وسرعة أقل",
+                  "طول موجي ثابت، تردد ثابت، وسرعة أقل"
+                ],
+                "correctAnswer": "Longer wavelength, lower frequency, and unchanged speed $c$",
+                "correctIndex": 0,
+                "hintEn": "The photon transfers part of its energy to the electron. Since $E = h\\nu = hc/\\lambda$, lower energy means lower frequency and longer wavelength. The speed of any electromagnetic wave in vacuum is always $c$.",
+                "hintAr": "يفقد الفوتون جزءاً من طاقته لصالح الإلكترون. وبما أن $E = h\\nu = hc/\\lambda$، فإن نقص الطاقة يعني نقص التردد وزيادة الطول الموجي مع ثبوت سرعة الضوء $c$ في الفراغ.",
+                "stepByStepSolutionEn": [
+                  "By conservation of relativistic energy: $E_{\\text{photon}} + m_e c^2 = E'_{\\text{photon}} + E_{\\text{electron}}$.",
+                  "The electron gains kinetic energy, so the scattered photon loses energy: $E' < E$.",
+                  "Because $E = h\\nu$, the frequency decreases: $\\nu' < \\nu$.",
+                  "Because $\\lambda = \\frac{c}{\\nu}$, the wavelength increases: $\\lambda' > \\lambda$ (Compton wavelength shift $\\Delta\\lambda > 0$).",
+                  "Being an electromagnetic photon traveling in vacuum, its speed remains strictly constant at $c = 3.0 \\times 10^8\\text{ m/s}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "وفقاً لقانون بقاء الطاقة: طاقة الفوتون الساقط + طاقة سكون الإلكترون = طاقة الفوتون المتشتت + الطاقة الكلية للإلكترون.",
+                  "يكتسب الإلكترون طاقة حركة، وبالتالي تقل طاقة الفوتون المتشتت: $E' < E$.",
+                  "بما أن الطاقة طردية مع التردد: يقل تردد الفوتون المتشتت ($\\nu' < \\nu$).",
+                  "بما أن التردد عكسي مع الطول الموجي: يزداد الطول الموجي للفوتون المتشتت ($\\lambda' > \\lambda$).",
+                  "سرعة الفوتون في الفراغ تظل ثابتة دائماً وتساوي سرعة الضوء $c = 3 \\times 10^8\\text{ م/ث}$."
+                ],
+                "teacherTipEn": "Compton scattering provides definitive experimental proof of the particle nature of light and the validity of momentum conservation for electromagnetic radiation ($p = h/\\lambda$).",
+                "teacherTipAr": "ظاهرة كومتون أثبتت بما لا يدع مجالاً للشك الصفة الجسيمية للإشعاع الكهرومغناطيسي وخضوعه لقانوني بقاء الطاقة وبقاء كمية التحرك الخطي."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_photoelectric",
             "titleEn": "Photoelectric Effect & Stopping Voltage Simulator",
             "titleAr": "محاكي التأثير الكهروضوئي وجهد الإيقاف",
             "descriptionEn": "Interactive photocell simulation testing work functions, photon energy wavelengths, and stopping potentials.",
@@ -1136,11 +1522,87 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 ],
                 "teacherTipEn": "Remember that minimum wavelength depends solely on the potential difference V and is independent of target material.",
                 "teacherTipAr": "أقصر طول موجي يعتمد حصراً على فرق الجهد المطبق بين الفتيلة والهدف ولا يتغير بنوع الهدف."
+              },
+              {
+                "id": "th_phys_ws_p6_2",
+                "titleEn": "Hydrogen Spectrum Balmer Series Transition Wavelength",
+                "titleAr": "حساب الطول الموجي لخط طيفي في متسلسلة بالمار للهيدروجين",
+                "difficulty": "medium",
+                "questionEn": "In a hydrogen atom, an excited electron drops from energy level $n = 4$ ($E_4 = -0.85\\text{ eV}$) to level $n = 2$ ($E_2 = -3.40\\text{ eV}$). What is the wavelength of the emitted spectral line? ($h = 6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$, $c = 3.0 \\times 10^8\\text{ m/s}$, $1\\text{ eV} = 1.602 \\times 10^{-19}\\text{ J}$)",
+                "questionAr": "في ذرة هيدروجين مثارة، هبط إلكترون من مستوى الطاقة الرابع ($E_4 = -0.85\\text{ إلكترون فولت}$) إلى المستوى الثاني ($E_2 = -3.40\\text{ إلكترون فولت}$). احسب الطول الموجي للفوتون المنبعث من هذا الانتقال.",
+                "optionsEn": [
+                  "486.5 nm (visible blue-green)",
+                  "656.3 nm (visible red)",
+                  "434.1 nm (visible indigo)",
+                  "121.6 nm (ultraviolet)"
+                ],
+                "optionsAr": [
+                  "٤٨٦,٥ نانومتر (أزرق مخضر مرئي)",
+                  "٦٥٦,٣ نانومتر (أحمر مرئي)",
+                  "٤٣٤,١ نانومتر (نيلي مرئي)",
+                  "١٢١,٦ نانومتر (فوق بنفسجي)"
+                ],
+                "correctAnswer": "486.5 nm (visible blue-green)",
+                "correctIndex": 0,
+                "hintEn": "Energy difference $\\Delta E = E_4 - E_2$. Convert $\\Delta E$ to Joules, then $\\lambda = \\frac{hc}{\\Delta E}$.",
+                "hintAr": "فرق الطاقة $\\Delta E = E_4 - E_2$. حول الطاقة إلى جول ثم طبق $\\lambda = \\frac{hc}{\\Delta E}$.",
+                "stepByStepSolutionEn": [
+                  "Transition energy: $\\Delta E = E_4 - E_2 = -0.85\\text{ eV} - (-3.40\\text{ eV}) = 2.55\\text{ eV}$.",
+                  "Convert to Joules: $\\Delta E = 2.55 \\times 1.602 \\times 10^{-19}\\text{ J} = 4.085 \\times 10^{-19}\\text{ J}$.",
+                  "Wavelength of emitted photon: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{(6.626 \\times 10^{-34})(3.0 \\times 10^8)}{4.085 \\times 10^{-19}} = \\frac{1.988 \\times 10^{-25}}{4.085 \\times 10^{-19}} \\approx 4.866 \\times 10^{-7}\\text{ m} = 486.6\\text{ nm}$.",
+                  "This corresponds to the second line of the Balmer series ($H_\\beta$), situated in the visible blue-green spectral region."
+                ],
+                "stepByStepSolutionAr": [
+                  "فرق الطاقة بين المستويين: $\\Delta E = E_4 - E_2 = -0.85 - (-3.40) = 2.55\\text{ إلكترون فولت}$.",
+                  "التحويل إلى جول: $\\Delta E = 2.55 \\times 1.602 \\times 10^{-19} = 4.085 \\times 10^{-19}\\text{ جول}$.",
+                  "حساب الطول الموجي: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{6.626 \\times 10^{-34} \\times 3 \\times 10^8}{4.085 \\times 10^{-19}} \\approx 4.866 \\times 10^{-7}\\text{ م} = 486.6\\text{ نانومتر}$.",
+                  "وهذا هو الخط الثاني في متسلسلة بالمار ($H_\\beta$) ويقع في نطاق الضوء المرئي الأزرق المخضر."
+                ],
+                "teacherTipEn": "All transitions terminating on level n = 2 form the Balmer series and produce spectral lines in the visible light spectrum.",
+                "teacherTipAr": "جميع الانتقالات التي تهبط إلى المستوى الثاني (n = 2) تشكل متسلسلة بالمار وتقع خطوطها في نطاق الضوء المرئي."
+              },
+              {
+                "id": "th_phys_ws_p6_3",
+                "titleEn": "Transistor Common Emitter Amplification & Current Gain",
+                "titleAr": "معامل تكبير التيار وثابت التوزيع للترانزستور في دائرة الباعث المشترك",
+                "difficulty": "hots",
+                "questionEn": "In an npn bipolar junction transistor connected in common-emitter configuration, the base current is $I_b = 50\\,\\mu\\text{A}$ and the collector current is $I_c = 4.95\\text{ mA}$. What are the current gain factor $\\beta_e$ and the current transfer ratio $\\alpha_e$?",
+                "questionAr": "في ترانزستور npn متصل بطريقة الباعث المشترك، كانت شدة تيار القاعدة $I_b = 50\\,\\mu\\text{A}$ وشدة تيار المجمع $I_c = 4.95\\text{ mA}$. احسب كلاً من معامل تكبير التيار $\\beta_e$ وثابت التوزيع $\\alpha_e$.",
+                "optionsEn": [
+                  "$\\beta_e = 99,\\, \\alpha_e = 0.99$",
+                  "$\\beta_e = 100,\\, \\alpha_e = 0.95$",
+                  "$\\beta_e = 9.9,\\, \\alpha_e = 0.90$",
+                  "$\\beta_e = 50,\\, \\alpha_e = 0.98$"
+                ],
+                "optionsAr": [
+                  "$\\beta_e = 99,\\, \\alpha_e = 0.99$",
+                  "$\\beta_e = 100,\\, \\alpha_e = 0.95$",
+                  "$\\beta_e = 9.9,\\, \\alpha_e = 0.90$",
+                  "$\\beta_e = 50,\\, \\alpha_e = 0.98$"
+                ],
+                "correctAnswer": "$\\beta_e = 99,\\, \\alpha_e = 0.99$",
+                "correctIndex": 0,
+                "hintEn": "Use definitions: $\\beta_e = \\frac{I_c}{I_b}$ and $\\alpha_e = \\frac{I_c}{I_e} = \\frac{\\beta_e}{1 + \\beta_e}$. Ensure units match ($1\\text{ mA} = 1000\\,\\mu\\text{A}$).",
+                "hintAr": "طبق القوانين: $\\beta_e = \\frac{I_c}{I_b}$ و $\\alpha_e = \\frac{\\beta_e}{1 + \\beta_e}$ مع توحيد الوحدات ($1\\text{ mA} = 1000\\,\\mu\\text{A}$).",
+                "stepByStepSolutionEn": [
+                  "Match units: $I_c = 4.95\\text{ mA} = 4950\\,\\mu\\text{A}$, and $I_b = 50\\,\\mu\\text{A}$.",
+                  "Current gain (amplification factor): $\\beta_e = \\frac{I_c}{I_b} = \\frac{4950}{50} = 99$.",
+                  "Emitter current: $I_e = I_b + I_c = 50 + 4950 = 5000\\,\\mu\\text{A} = 5.0\\text{ mA}$.",
+                  "Current transfer ratio (alpha): $\\alpha_e = \\frac{I_c}{I_e} = \\frac{4950}{5000} = 0.99$ (or $\\alpha_e = \\frac{\\beta_e}{1 + \\beta_e} = \\frac{99}{100} = 0.99$)."
+                ],
+                "stepByStepSolutionAr": [
+                  "توحيد الوحدات: تيار المجمع $I_c = 4.95\\text{ mA} = 4950\\,\\mu\\text{A}$، وتيار القاعدة $I_b = 50\\,\\mu\\text{A}$.",
+                  "معامل التكبير: $\\beta_e = \\frac{I_c}{I_b} = \\frac{4950}{50} = 99$.",
+                  "تيار الباعث: $I_e = I_b + I_c = 50 + 4950 = 5000\\,\\mu\\text{A} = 5\\text{ mA}$.",
+                  "ثابت التوزيع: $\\alpha_e = \\frac{I_c}{I_e} = \\frac{4950}{5000} = 0.99$ (أو $\\alpha_e = \\frac{\\beta_e}{1 + \\beta_e} = \\frac{99}{100} = 0.99$)."
+                ],
+                "teacherTipEn": "Alpha is always slightly less than 1 (typically 0.95 - 0.99) because a small fraction of charge carriers recombine in the thin base layer.",
+                "teacherTipAr": "ثابت التوزيع دائماً أقل قليلاً من الواحد الصحيح (بين 0.95 و 0.99) لأن نسبة ضئيلة جداً من الشحنات تقتنصها القاعدة الرقيقة."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_flashcards",
             "titleEn": "Hydrogen Spectrum & Laser Resonator Simulator",
             "titleAr": "محاكي أطياف الهيدروجين والتجويف الرنيني لليزر",
             "descriptionEn": "Interactive Bohr level transition energy calculator and He-Ne laser optical pumping simulation.",

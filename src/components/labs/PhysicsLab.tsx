@@ -13,13 +13,15 @@ import {
 } from 'lucide-react';
 import { DynamoInductionLab } from './DynamoInductionLab';
 import { RLCResonanceLab } from './RLCResonanceLab';
+import { PhysicsFlashcards } from './PhysicsFlashcards';
+
+export type PhysicsTab = 'circuits' | 'photoelectric' | 'dynamo' | 'resonance' | 'flashcards';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
+  initialTab?: PhysicsTab;
 }
-
-type PhysicsTab = 'circuits' | 'photoelectric' | 'dynamo' | 'resonance';
 
 interface Metal {
   id: string;
@@ -37,12 +39,18 @@ const METALS: Metal[] = [
   { id: 'pt', nameEn: 'Platinum (Pt)', nameAr: 'البلاتين (Pt)', workFunctionEV: 6.35, symbol: 'Pt' },
 ];
 
-export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab = 'circuits' }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [activeTab, setActiveTab] = useState<PhysicsTab>('circuits');
+  const [activeTab, setActiveTab] = useState<PhysicsTab>(initialTab);
+
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   // DC Circuit State
   const [vb, setVb] = useState<number>(12); // Battery EMF in Volts
@@ -275,6 +283,22 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           >
             <Radio className="w-3.5 h-3.5" />
             <span>{isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('flashcards')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'flashcards'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <span>🗂️</span>
+            <span>{isArabic ? 'بطاقات الاستذكار' : 'Flashcards'}</span>
           </button>
         </div>
       </div>
@@ -930,6 +954,13 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       {activeTab === 'resonance' && (
         <div className="mt-6">
           <RLCResonanceLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 5: ACTIVE RECALL FLASHCARDS */}
+      {activeTab === 'flashcards' && (
+        <div className="mt-6">
+          <PhysicsFlashcards lang={lang} theme={theme} />
         </div>
       )}
     </div>

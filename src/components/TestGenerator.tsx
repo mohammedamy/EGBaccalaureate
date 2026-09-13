@@ -27,6 +27,7 @@ import {
   BookOpen,
   Calculator,
   Dna,
+  Zap,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -467,6 +468,139 @@ export const TestGenerator: React.FC<Props> = ({
     setIsExamStarted(true);
   };
 
+  // Launch official Physics Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
+  const handleStartPhysicsMinisterialExam = () => {
+    setSelectedSubject('physics');
+    const isThanaweya = currentCurriculum === 'thanaweya';
+    const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
+    const targetBranchId = isThanaweya ? 'thanaweya_physics' : 'egbac_physics';
+    const physBranch = activeData.branches.find((b) => b.id === targetBranchId);
+
+    if (!physBranch) return;
+
+    setExamMode('online');
+    setSelectedBranch(targetBranchId);
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setIsTimed(true);
+
+    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
+      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+      if (ch.databank) {
+        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+      }
+      if (ch.solvedExamples) {
+        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
+      }
+      if (ch.exerciseProblems) {
+        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
+      }
+      ch.lessons?.forEach((l) => {
+        if (l.worksheet?.problems) {
+          l.worksheet.problems.forEach((p) => candidateProblems.push({ prob: p, source: 'worksheet', diff: p.difficulty || 'medium' }));
+        }
+      });
+
+      const res: GeneratedQuestion[] = [];
+      candidateProblems.forEach(({ prob, source, diff }) => {
+        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
+        res.push({
+          id: `${prob.id}_${source}`,
+          questionEn: prob.questionEn,
+          questionAr: prob.questionAr,
+          difficulty: diff,
+          optionsEn: prob.optionsEn,
+          optionsAr: prob.optionsAr,
+          correctIndex: prob.correctIndex,
+          explanationEn: prob.stepByStepSolutionEn,
+          explanationAr: prob.stepByStepSolutionAr,
+          chapterId: ch.id,
+          chapterTitleEn: ch.titleEn,
+          chapterTitleAr: ch.titleAr,
+          branchTitleEn: physBranch.titleEn,
+          branchTitleAr: physBranch.titleAr,
+          diagramType: prob.diagramType,
+        });
+      });
+      return res;
+    };
+
+    const shuffle = <T,>(arr: T[]): T[] => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    };
+
+    let selectedQs: GeneratedQuestion[] = [];
+    let examTimeMinutes = 180;
+
+    if (isThanaweya) {
+      // Official MoE Thanaweya Blueprint for Physics (50 Questions / 180 Mins):
+      const allQs = helperExtractChapterQuestions(physBranch.chapters[0]);
+      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
+      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
+      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
+
+      // 15 Easy, 20 Medium, 15 HOTS = 50 Questions total
+      selectedQs = [
+        ...easyQs.slice(0, 15),
+        ...medQs.slice(0, 20),
+        ...hotsQs.slice(0, 15),
+      ];
+
+      if (selectedQs.length < 50) {
+        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
+        selectedQs.push(...remaining.slice(0, 50 - selectedQs.length));
+      }
+
+      examTimeMinutes = 180;
+      setQuestionCount(50);
+      setDurationPreset(180);
+    } else {
+      // EG-Bac STEM Blueprint for Physics (40 Questions / 150 Mins):
+      const allQs = helperExtractChapterQuestions(physBranch.chapters[0]);
+      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
+      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
+      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
+
+      // 10 Easy, 18 Medium, 12 HOTS = 40 Questions total
+      selectedQs = [
+        ...easyQs.slice(0, 10),
+        ...medQs.slice(0, 18),
+        ...hotsQs.slice(0, 12),
+      ];
+
+      if (selectedQs.length < 40) {
+        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
+        selectedQs.push(...remaining.slice(0, 40 - selectedQs.length));
+      }
+
+      examTimeMinutes = 150;
+      setQuestionCount(40);
+      setDurationPreset(150);
+    }
+
+    selectedQs = shuffle(selectedQs);
+
+    setActiveQuestions(selectedQs);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setReviewFilter('all');
+
+    const totalSec = examTimeMinutes * 60;
+    setTotalTimeSeconds(totalSec);
+    setTimeRemaining(totalSec);
+    setIsTimerPaused(false);
+    setTimeTakenSeconds(0);
+    setIsExamStarted(true);
+  };
+
   // Toggle flag on question
   const toggleFlag = (idx: number) => {
     setFlaggedQuestions((prev) => ({
@@ -619,7 +753,51 @@ export const TestGenerator: React.FC<Props> = ({
         </div>
 
         {/* Ministerial Simulation Quick Launch Banner */}
-        {selectedSubject === 'biology' ? (
+        {selectedSubject === 'physics' ? (
+          <div className="bg-gradient-to-r from-sky-950/50 via-slate-900 to-indigo-950/50 border border-cyan-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-cyan-950/30">
+            <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/40 shadow-inner">
+                <Zap className="w-6 h-6 animate-pulse text-cyan-400" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-sm sm:text-base font-black text-cyan-100">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'امتحان الفيزياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الفيزياء المتقدمة لمدارس STEM (40 سؤالاً / 150 دقيقة)')
+                      : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Physics Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Physics Exam (40 Qs / 150 Mins)')}
+                  </h4>
+                  <span className="text-[10px] bg-cyan-500/20 text-cyan-300 font-bold px-2.5 py-0.5 rounded-full border border-cyan-500/40">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
+                      : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya'
+                        ? 'نموذج محاكاة مطابق لضوابط الوزارة: الدوائر الكهربية، التأثير المغناطيسي وأجهزة القياس، الحث والدينامو، دوائر التيار المتردد والرنين، وفيزياء الكم والحديثة (50 سؤالاً / 3 ساعات).'
+                        : 'اختبار فيزياء متقدم لمدارس المتفوقين STEM يشمل ميكانيكا الكم، البصريات المتماسكة، إلكترونيات الحالة الصلبة، والميكانيكا النسبية والنووية (40 سؤالاً / 150 دقيقة).')
+                    : (currentCurriculum === 'thanaweya'
+                        ? 'Strictly aligned with official ministerial blueprint: DC Circuits, Electromagnetism, AC Induction & Dynamo, RLC Resonance, and Modern Quantum Physics (50 Qs / 180 mins).'
+                        : 'Advanced STEM Physics comprehensive examination covering Quantum Mechanics, Coherent Laser Optics, Solid-State Electronics, and Relativistic Nuclear Physics (40 Qs / 150 mins).')}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartPhysicsMinisterialExam}
+                className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+              >
+                <Zap className="w-4 h-4 fill-current" />
+                <span>
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya' ? 'بدء امتحان الفيزياء الوزاري (50 سؤالاً)' : 'بدء امتحان الفيزياء STEM (40 سؤالاً)')
+                    : (currentCurriculum === 'thanaweya' ? 'Launch Physics Exam (50 Qs)' : 'Launch STEM Physics (40 Qs)')}
+                </span>
+              </button>
+            </div>
+          </div>
+        ) : selectedSubject === 'biology' ? (
           <div className="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-emerald-950/30">
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40 shadow-inner">
@@ -687,8 +865,15 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
               <button
+                onClick={handleStartPhysicsMinisterialExam}
+                className="w-full sm:w-auto bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+              >
+                <Zap className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{lang === 'ar' ? 'امتحان الفيزياء (50 سؤالاً)' : 'Physics Exam (50 Qs)'}</span>
+              </button>
+              <button
                 onClick={handleStartBiologyMinisterialExam}
-                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
               >
                 <Dna className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{lang === 'ar' ? 'امتحان الأحياء (50 سؤالاً)' : 'Biology Exam (50 Qs)'}</span>

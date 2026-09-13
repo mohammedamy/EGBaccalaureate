@@ -92,7 +92,12 @@ export type DiagramType =
   | 'bio_sarcomere_ultrastructure'
   | 'bio_dna_replication_fork'
   | 'bio_flower_whorls'
-  | 'bio_nephron_filtration';
+  | 'bio_nephron_filtration'
+  | 'phys_wheatstone_bridge'
+  | 'phys_solenoid_magnetic_field'
+  | 'phys_dynamo_generator'
+  | 'phys_rlc_resonance_phasor'
+  | 'phys_photoelectric_circuit';
 
 export interface SolvedProblem {
   id: string;
@@ -163,7 +168,12 @@ export type InteractiveWidgetType =
   | 'biology_genetics'
   | 'biology_dna'
   | 'biology_bioenergetics'
-  | 'biology_flashcards';
+  | 'biology_flashcards'
+  | 'physics_circuits'
+  | 'physics_photoelectric'
+  | 'physics_dynamo'
+  | 'physics_resonance'
+  | 'physics_flashcards';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

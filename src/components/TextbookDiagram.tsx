@@ -853,6 +853,292 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             <text x="120" y="45" textAnchor="middle" className="text-[11px] font-black fill-amber-400">{isAr ? 'محفظة بومان والكبيبة' : 'Bowman\'s Capsule & Glomerulus'}</text>
           </svg>
         )}
+
+        {/* 11. Physics: Wheatstone Bridge Circuit */}
+        {type === 'phys_wheatstone_bridge' && (
+          <svg viewBox="0 0 500 280" className="w-full max-w-[480px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrPhy1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-cyan-400" />
+              </marker>
+              <marker id="arrPhyRed" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-rose-500" />
+              </marker>
+            </defs>
+
+            {/* Bridge Diamond Conductors */}
+            {/* Top A(250, 40), Left B(130, 140), Right C(370, 140), Bottom D(250, 240) */}
+            <line x1="250" y1="40" x2="130" y2="140" stroke="#64748b" strokeWidth="2.5" />
+            <line x1="250" y1="40" x2="370" y2="140" stroke="#64748b" strokeWidth="2.5" />
+            <line x1="130" y1="140" x2="250" y2="240" stroke="#64748b" strokeWidth="2.5" />
+            <line x1="370" y1="140" x2="250" y2="240" stroke="#64748b" strokeWidth="2.5" />
+
+            {/* Galvanometer Central Branch B-C */}
+            <line x1="130" y1="140" x2="210" y2="140" stroke="#38bdf8" strokeWidth="2.5" />
+            <circle cx="250" cy="140" r="26" className="fill-slate-800 stroke-cyan-400" strokeWidth="2.5" />
+            <text x="250" y="146" textAnchor="middle" className="text-[16px] font-black fill-cyan-300 font-mono">G</text>
+            <line x1="250" y1="140" x2="250" y2="120" stroke="#ef4444" strokeWidth="2" markerEnd="url(#arrPhyRed)" />
+            <circle cx="250" cy="140" r="3" className="fill-white" />
+            <line x1="290" y1="140" x2="370" y2="140" stroke="#38bdf8" strokeWidth="2.5" />
+
+            {/* Resistor R1 on AB */}
+            <rect x="170" y="75" width="40" height="20" rx="3" transform="rotate(-40 190 85)" className="fill-cyan-950 stroke-cyan-400" strokeWidth="2" />
+            <text x="160" y="65" textAnchor="middle" className="text-[12px] font-black fill-cyan-300">R₁</text>
+
+            {/* Resistor R2 on AC */}
+            <rect x="290" y="75" width="40" height="20" rx="3" transform="rotate(40 310 85)" className="fill-indigo-950 stroke-indigo-400" strokeWidth="2" />
+            <text x="340" y="65" textAnchor="middle" className="text-[12px] font-black fill-indigo-300">R₂</text>
+
+            {/* Resistor R3 on BD */}
+            <rect x="170" y="180" width="40" height="20" rx="3" transform="rotate(40 190 190)" className="fill-emerald-950 stroke-emerald-400" strokeWidth="2" />
+            <text x="160" y="215" textAnchor="middle" className="text-[12px] font-black fill-emerald-300">R₃</text>
+
+            {/* Resistor R4 on CD */}
+            <rect x="290" y="180" width="40" height="20" rx="3" transform="rotate(-40 310 190)" className="fill-amber-950 stroke-amber-400" strokeWidth="2" />
+            <text x="340" y="215" textAnchor="middle" className="text-[12px] font-black fill-amber-300">R₄</text>
+
+            {/* Nodes */}
+            <circle cx="250" cy="40" r="5" className="fill-cyan-400" />
+            <text x="250" y="25" textAnchor="middle" className="text-[11px] font-extrabold fill-slate-200">A (+)</text>
+
+            <circle cx="130" cy="140" r="5" className="fill-cyan-400" />
+            <text x="105" y="145" textAnchor="middle" className="text-[11px] font-extrabold fill-slate-200">B</text>
+
+            <circle cx="370" cy="140" r="5" className="fill-cyan-400" />
+            <text x="395" y="145" textAnchor="middle" className="text-[11px] font-extrabold fill-slate-200">C</text>
+
+            <circle cx="250" cy="240" r="5" className="fill-cyan-400" />
+            <text x="250" y="260" textAnchor="middle" className="text-[11px] font-extrabold fill-slate-200">D (-)</text>
+
+            {/* Battery DC source leads */}
+            <path d="M 250 40 L 50 40 L 50 240 L 250 240" fill="none" stroke="#475569" strokeWidth="2" strokeDasharray="5,4" />
+            <rect x="30" y="125" width="40" height="30" rx="4" className="fill-slate-800 stroke-amber-400" strokeWidth="2" />
+            <text x="50" y="145" textAnchor="middle" className="text-[10px] font-black fill-amber-300">V_B</text>
+          </svg>
+        )}
+
+        {/* 12. Physics: Solenoid Magnetic Field */}
+        {type === 'phys_solenoid_magnetic_field' && (
+          <svg viewBox="0 0 520 260" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrMagBlue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-sky-400" />
+              </marker>
+              <marker id="arrMagGreen" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-400" />
+              </marker>
+            </defs>
+
+            {/* Magnetic Field Lines through Solenoid */}
+            {/* Top outside return lines */}
+            <path d="M 440 120 C 470 50, 350 25, 260 25 C 170 25, 50 50, 80 120" fill="none" stroke="#38bdf8" strokeWidth="1.8" strokeDasharray="6,4" markerEnd="url(#arrMagBlue)" />
+            <path d="M 430 130 C 490 10, 350 -10, 260 -10 C 170 -10, 30 10, 90 130" fill="none" stroke="#38bdf8" strokeWidth="1.8" strokeDasharray="6,4" markerEnd="url(#arrMagBlue)" />
+
+            {/* Central uniform B lines inside */}
+            <line x1="90" y1="120" x2="430" y2="120" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrMagBlue)" />
+            <line x1="90" y1="135" x2="430" y2="135" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrMagBlue)" />
+            <line x1="90" y1="150" x2="430" y2="150" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrMagBlue)" />
+
+            {/* Bottom outside return lines */}
+            <path d="M 440 150 C 470 220, 350 245, 260 245 C 170 245, 50 220, 80 150" fill="none" stroke="#38bdf8" strokeWidth="1.8" strokeDasharray="6,4" markerEnd="url(#arrMagBlue)" />
+
+            {/* Soft Iron Core */}
+            <rect x="110" y="110" width="300" height="50" rx="6" className="fill-slate-800/90 stroke-slate-600" strokeWidth="2" />
+            <text x="260" y="138" textAnchor="middle" className="text-[11px] font-extrabold fill-slate-400 select-none">
+              {isAr ? 'قلب من الحديد المطاوع (μ كبير)' : 'Soft Iron Core (High μ)'}
+            </text>
+
+            {/* Solenoid Helical Wire Coils */}
+            {[130, 170, 210, 250, 290, 330, 370].map((x, i) => (
+              <g key={i}>
+                <ellipse cx={x} cy="135" rx="16" ry="38" fill="none" stroke="#f59e0b" strokeWidth="4" />
+                <line x1={x - 6} y1="97" x2={x + 6} y2="97" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrMagGreen)" />
+              </g>
+            ))}
+
+            {/* Poles */}
+            <rect x="70" y="110" width="35" height="50" rx="4" className="fill-blue-900/80 stroke-blue-400" strokeWidth="2" />
+            <text x="87" y="140" textAnchor="middle" className="text-[14px] font-black fill-blue-200">S</text>
+
+            <rect x="415" y="110" width="35" height="50" rx="4" className="fill-rose-900/80 stroke-rose-400" strokeWidth="2" />
+            <text x="432" y="140" textAnchor="middle" className="text-[14px] font-black fill-rose-200">N</text>
+
+            {/* Labels */}
+            <text x="260" y="185" textAnchor="middle" className="text-[11px] font-black fill-cyan-300">
+              {isAr ? 'مجال مغناطيسي منتظم داخل الملف B = μ·n·I' : 'Uniform Magnetic Field inside Solenoid B = μ·n·I'}
+            </text>
+          </svg>
+        )}
+
+        {/* 13. Physics: AC Dynamo Electric Generator */}
+        {type === 'phys_dynamo_generator' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <linearGradient id="gPoleN" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#ef4444" />
+                <stop offset="100%" stopColor="#b91c1c" />
+              </linearGradient>
+              <linearGradient id="gPoleS" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#1d4ed8" />
+                <stop offset="100%" stopColor="#3b82f6" />
+              </linearGradient>
+            </defs>
+
+            {/* North Magnetic Pole */}
+            <path d="M 40 60 L 120 60 C 135 100, 135 160, 120 200 L 40 200 Z" fill="url(#gPoleN)" stroke="#f87171" strokeWidth="2" />
+            <text x="80" y="138" textAnchor="middle" className="text-[22px] font-black fill-white">N</text>
+
+            {/* South Magnetic Pole */}
+            <path d="M 480 60 L 400 60 C 385 100, 385 160, 400 200 L 480 200 Z" fill="url(#gPoleS)" stroke="#60a5fa" strokeWidth="2" />
+            <text x="440" y="138" textAnchor="middle" className="text-[22px] font-black fill-white">S</text>
+
+            {/* Magnetic Field Lines N to S */}
+            <line x1="135" y1="90" x2="385" y2="90" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4,4" />
+            <line x1="138" y1="130" x2="382" y2="130" stroke="#38bdf8" strokeWidth="2.5" />
+            <line x1="135" y1="170" x2="385" y2="170" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4,4" />
+            <text x="260" y="80" textAnchor="middle" className="text-[10px] font-bold fill-sky-300">{isAr ? 'خطوط الفيض المغناطيسي B' : 'Magnetic Flux Lines B'}</text>
+
+            {/* Rotating Armature Coil (isometric projection) */}
+            <polygon points="200,90 320,110 300,180 180,160" className="fill-amber-500/20 stroke-amber-400" strokeWidth="3.5" />
+            <text x="195" y="85" className="text-[10px] font-bold fill-amber-300">A</text>
+            <text x="325" y="105" className="text-[10px] font-bold fill-amber-300">B</text>
+            <text x="310" y="195" className="text-[10px] font-bold fill-amber-300">C</text>
+            <text x="170" y="175" className="text-[10px] font-bold fill-amber-300">D</text>
+
+            {/* Rotation Axis and Curved Arrow */}
+            <line x1="250" y1="50" x2="250" y2="220" stroke="#94a3b8" strokeWidth="2" strokeDasharray="4,3" />
+            <path d="M 235 65 A 15 15 0 0 1 265 65" fill="none" stroke="#22c55e" strokeWidth="3" markerEnd="url(#arrInd1)" />
+            <text x="280" y="65" className="text-[12px] font-black fill-emerald-400">ω</text>
+
+            {/* Slip Rings at base */}
+            <ellipse cx="250" cy="210" rx="14" ry="5" className="fill-amber-600 stroke-amber-300" strokeWidth="2" />
+            <ellipse cx="250" cy="225" rx="14" ry="5" className="fill-amber-600 stroke-amber-300" strokeWidth="2" />
+
+            {/* Carbon Brushes & Output Load */}
+            <rect x="230" y="206" width="6" height="8" className="fill-slate-900 stroke-slate-400" />
+            <rect x="264" y="221" width="6" height="8" className="fill-slate-900 stroke-slate-400" />
+            <path d="M 230 210 L 200 210 L 200 260 L 300 260 L 300 225 L 270 225" fill="none" stroke="#94a3b8" strokeWidth="2" />
+            <rect x="235" y="252" width="30" height="16" rx="2" className="fill-slate-950 stroke-cyan-400" strokeWidth="2" />
+            <text x="250" y="264" textAnchor="middle" className="text-[9px] font-black fill-cyan-300">{isAr ? 'حمل R' : 'Load R'}</text>
+          </svg>
+        )}
+
+        {/* 14. Physics: AC RLC Resonance Phasor & Response */}
+        {type === 'phys_rlc_resonance_phasor' && (
+          <svg viewBox="0 0 500 260" className="w-full max-w-[480px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrPhasorL" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-indigo-400" />
+              </marker>
+              <marker id="arrPhasorC" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-cyan-400" />
+              </marker>
+              <marker id="arrPhasorR" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-400" />
+              </marker>
+            </defs>
+
+            {/* Left: Phasor Vector Diagram */}
+            <circle cx="140" cy="130" r="85" className="fill-slate-900/60 stroke-slate-800" strokeWidth="1.5" />
+            <line x1="50" y1="130" x2="230" y2="130" stroke="#475569" strokeWidth="1.5" strokeDasharray="3,3" />
+            <line x1="140" y1="40" x2="140" y2="220" stroke="#475569" strokeWidth="1.5" strokeDasharray="3,3" />
+
+            {/* VL vector (upwards, +90 deg) */}
+            <line x1="140" y1="130" x2="140" y2="55" stroke="#818cf8" strokeWidth="3.5" markerEnd="url(#arrPhasorL)" />
+            <text x="155" y="65" className="text-[12px] font-black fill-indigo-300">V_L</text>
+
+            {/* VC vector (downwards, -90 deg) */}
+            <line x1="140" y1="130" x2="140" y2="205" stroke="#38bdf8" strokeWidth="3.5" markerEnd="url(#arrPhasorC)" />
+            <text x="155" y="205" className="text-[12px] font-black fill-sky-300">V_C</text>
+
+            {/* VR and I vectors (horizontal, in-phase) */}
+            <line x1="140" y1="130" x2="215" y2="130" stroke="#10b981" strokeWidth="3.5" markerEnd="url(#arrPhasorR)" />
+            <text x="215" y="120" className="text-[12px] font-black fill-emerald-300">V_R (I)</text>
+
+            <text x="140" y="245" textAnchor="middle" className="text-[10px] font-extrabold fill-slate-300">
+              {isAr ? 'مخطط المتجهات الطورية عند الرنين (V_L = V_C)' : 'Resonance Phasors: V_L = V_C'}
+            </text>
+
+            {/* Right: Resonance Curve (Impedance Z & Current I) */}
+            <line x1="280" y1="210" x2="470" y2="210" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrInd1)" />
+            <line x1="280" y1="210" x2="280" y2="40" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrInd1)" />
+            <text x="460" y="228" className="text-[11px] font-bold fill-slate-400">f</text>
+            <text x="265" y="50" className="text-[11px] font-bold fill-slate-400">Z, I</text>
+
+            {/* Current Resonance Peak (Bell Curve) */}
+            <path d="M 290 200 C 340 200, 360 70, 375 70 C 390 70, 410 200, 460 200" fill="none" stroke="#22c55e" strokeWidth="3" />
+            <text x="375" y="60" textAnchor="middle" className="text-[11px] font-black fill-emerald-400">I_max = V/R</text>
+
+            {/* Impedance Dip Curve */}
+            <path d="M 290 80 C 340 80, 360 170, 375 170 C 390 170, 410 80, 460 80" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeDasharray="4,3" />
+            <text x="375" y="188" textAnchor="middle" className="text-[10px] font-black fill-rose-400">Z_min = R</text>
+
+            {/* f0 resonance frequency marker */}
+            <line x1="375" y1="70" x2="375" y2="210" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="3,3" />
+            <text x="375" y="226" textAnchor="middle" className="text-[11px] font-black fill-amber-400">f₀</text>
+          </svg>
+        )}
+
+        {/* 15. Physics: Photoelectric Effect Quartz Tube */}
+        {type === 'phys_photoelectric_circuit' && (
+          <svg viewBox="0 0 520 270" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrPhoton" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-violet-400" />
+              </marker>
+              <marker id="arrElectron" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-amber-400" />
+              </marker>
+            </defs>
+
+            {/* Evacuated Glass Tube Body */}
+            <rect x="100" y="50" width="320" height="120" rx="30" className="fill-slate-900/80 stroke-slate-500" strokeWidth="2.5" />
+            <text x="260" y="40" textAnchor="middle" className="text-[10px] font-extrabold fill-slate-400">
+              {isAr ? 'أنبوبة كوارتز مفرغة من الهواء (تسمح بنفاذ الأشعة فوق البنفسجية UV)' : 'Evacuated Quartz Chamber (Transmits UV)'}
+            </text>
+
+            {/* Photocathode (Emitter C, curved) */}
+            <path d="M 160 70 A 40 50 0 0 0 160 150" fill="none" stroke="#38bdf8" strokeWidth="6" strokeLinecap="round" />
+            <text x="140" y="115" textAnchor="middle" className="text-[12px] font-black fill-sky-300">C</text>
+            <text x="140" y="130" textAnchor="middle" className="text-[9px] font-bold fill-sky-400">(-)</text>
+
+            {/* Anode (Collector A, thin cylinder) */}
+            <line x1="360" y1="75" x2="360" y2="145" stroke="#f43f5e" strokeWidth="5" strokeLinecap="round" />
+            <text x="380" y="115" textAnchor="middle" className="text-[12px] font-black fill-rose-300">A</text>
+            <text x="380" y="130" textAnchor="middle" className="text-[9px] font-bold fill-rose-400">(+)</text>
+
+            {/* Incident Light Quanta (Photons h*nu) */}
+            <path d="M 90 20 Q 110 35 130 50 T 155 85" fill="none" stroke="#a855f7" strokeWidth="2.5" markerEnd="url(#arrPhoton)" />
+            <path d="M 110 15 Q 130 30 150 50 T 155 110" fill="none" stroke="#a855f7" strokeWidth="2.5" markerEnd="url(#arrPhoton)" />
+            <text x="90" y="15" className="text-[11px] font-black fill-purple-300">h·ν ≥ W₀</text>
+
+            {/* Emitted Photoelectrons (e-) travelling to Anode */}
+            {[85, 100, 115, 130].map((y, i) => (
+              <g key={i}>
+                <line x1="170" y1={y} x2="340" y2={y + (i % 2 === 0 ? 5 : -5)} stroke="#fbbf24" strokeWidth="2" strokeDasharray="5,4" markerEnd="url(#arrElectron)" />
+                <circle cx="210 + i*30" cy={y} r="3" className="fill-amber-300" />
+              </g>
+            ))}
+            <text x="260" y="105" textAnchor="middle" className="text-[10px] font-bold fill-amber-300">e⁻ (KE_max)</text>
+
+            {/* External Circuit with Microammeter and Variable Voltage */}
+            <path d="M 155 150 L 155 210 L 230 210" fill="none" stroke="#64748b" strokeWidth="2" />
+            <path d="M 360 145 L 360 210 L 290 210" fill="none" stroke="#64748b" strokeWidth="2" />
+
+            {/* Microammeter (μA) */}
+            <circle cx="260" cy="210" r="18" className="fill-slate-800 stroke-cyan-400" strokeWidth="2" />
+            <text x="260" y="215" textAnchor="middle" className="text-[11px] font-black fill-cyan-300">μA</text>
+
+            {/* Variable DC Power Supply below */}
+            <path d="M 210 210 L 210 245 L 310 245 L 310 210" fill="none" stroke="#64748b" strokeWidth="2" />
+            <line x1="250" y1="237" x2="250" y2="253" stroke="#38bdf8" strokeWidth="3" />
+            <line x1="260" y1="232" x2="260" y2="258" stroke="#f43f5e" strokeWidth="3" />
+            <line x1="240" y1="255" x2="275" y2="235" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrElectron)" />
+            <text x="260" y="265" textAnchor="middle" className="text-[9px] font-bold fill-slate-300">
+              {isAr ? 'جهد إيقاف متغير V_stop' : 'Variable Retarding Voltage V_stop'}
+            </text>
+          </svg>
+        )}
       </div>
 
       {/* DEDICATED LATEX MATH LEGEND & FORMULA CALLOUTS (Rendered with 100% genuine KaTeX) */}
@@ -1129,6 +1415,76 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </span>
             <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
               <MathRenderer math={isAr ? "\\text{شريان وارد متسع } > \\text{ شريان صادر ضيق}" : "\\text{Afferent Lumen } > \\text{ Efferent Lumen}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_wheatstone_bridge' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\text{شرط اتزان القنطرة: } R_1 R_4 = R_2 R_3" : "\\text{Bridge Balance: } R_1 R_4 = R_2 R_3"} lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "V_B = V_C \\implies I_G = 0 \\quad (\\text{انعدام تيار الجلفانومتر})" : "V_B = V_C \\implies I_G = 0"} lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="R_{eq} = \\frac{(R_1 + R_3)(R_2 + R_4)}{R_1 + R_2 + R_3 + R_4}" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_solenoid_magnetic_field' && (
+          <>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="B = \\frac{\\mu N I}{L} = \\mu n I" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\text{قاعدة أمبير لليد اليمنى (الإبهام يشير للقطب الشمالي N)}" : "\\text{Right-Hand Grip Rule: Thumb points to N-pole}"} lang={lang} />
+            </span>
+            <span className="bg-slate-800 border border-slate-600 text-slate-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\mu_{\\text{iron}} \\gg \\mu_{\\text{air}}" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_dynamo_generator' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E_{\\text{inst}} = N B A \\omega \\sin\\theta = E_{\\max} \\sin(2\\pi f t)" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E_{\\text{eff}} = \\frac{E_{\\max}}{\\sqrt{2}} \\approx 0.707 E_{\\max}" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\theta \\text{ الزاوية بين العمودي على مستوى الملف وخطوط الفيض}" : "\\theta \\text{ between normal to coil plane and } \\vec{B}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_rlc_resonance_phasor' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="f_0 = \\frac{1}{2\\pi\\sqrt{LC}}" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="X_L = X_C \\implies Z_{\\min} = R, \\quad \\tan\\phi = 0" lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="I_{\\max} = \\frac{V}{R} \\quad (\\text{خواص أومية نقية})" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_photoelectric_circuit' && (
+          <>
+            <span className="bg-purple-950/60 border border-purple-500/40 text-purple-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E = h\\nu = W_0 + KE_{\\max} = h\\nu_c + \\frac{1}{2}m_e v_{\\max}^2" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="KE_{\\max} = e \\cdot V_{\\text{stop}}" lang={lang} />
+            </span>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\nu \\ge \\nu_c \\implies \\text{انبعاث فوري لحظي } (< 10^{-9}\\text{ s})" : "\\nu \\ge \\nu_c \\implies \\text{Instantaneous emission } (< 10^{-9}\\text{ s})"} lang={lang} />
             </span>
           </>
         )}

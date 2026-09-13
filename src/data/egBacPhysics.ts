@@ -228,11 +228,86 @@ export const egBacPhysicsBranch: Branch = {
                 ],
                 teacherTipEn: 'Notice that $0.123\\text{ nm}$ is comparable to atomic spacing in crystals, allowing electron diffraction.',
                 teacherTipAr: 'لاحظ أن الطول الموجي $0.123\\text{ نانومتر}$ يقارب المسافات البينية لذرات البلورات مما يتيح حيود الإلكترونات.'
+              },
+              {
+                id: 'egbac_phys_ws_p2',
+                titleEn: 'Photoelectric Threshold & Quantum Stopping Potential',
+                titleAr: 'التردد الحرج وجهد الإيقاف الكمي في الخلية الكهروضوئية',
+                difficulty: 'hots',
+                diagramType: 'phys_photoelectric_circuit',
+                questionEn: 'A potassium photocathode has work function $W_0 = 2.25\\text{ eV}$. It is illuminated with monochromatic light of frequency $\\nu = 1.20 \\times 10^{15}\\text{ Hz}$. What is the stopping potential $V_{\\text{stop}}$ required to reduce the photocurrent to zero? ($h = 4.136 \\times 10^{-15}\\text{ eV}\\cdot\\text{s}$)',
+                questionAr: 'مهبط خلية كهروضوئية من البوتاسيوم دالة شغله $W_0 = 2.25\\text{ eV}$. أُضيء بضوء أحادي اللون تردده $\\nu = 1.20 \\times 10^{15}\\text{ هرتز}$. احسب قيمة جهد الإيقاف $V_{\\text{stop}}$ اللازم لقطع التيار الكهروضوئي تماماً.',
+                optionsEn: [
+                  '2.71 V',
+                  '4.96 V',
+                  '1.85 V',
+                  '0.85 V'
+                ],
+                optionsAr: [
+                  '٢,٧١ فولت',
+                  '٤,٩٦ فولت',
+                  '١,٨٥ فولت',
+                  '٠,٨٥ فولت'
+                ],
+                correctAnswer: '2.71 V',
+                correctIndex: 0,
+                hintEn: 'Find photon energy $E = h\\nu$ in eV, then $e V_{\\text{stop}} = KE_{\\max} = E - W_0$.',
+                hintAr: 'احسب طاقة الفوتون $E = h\\nu$ بالإلكترون فولت، ثم $e V_{\\text{stop}} = E - W_0$.',
+                stepByStepSolutionEn: [
+                  'Photon energy: $E = h\\nu = (4.136 \\times 10^{-15}\\text{ eV}\\cdot\\text{s}) \\times (1.20 \\times 10^{15}\\text{ s}^{-1}) = 4.963\\text{ eV}$.',
+                  'Maximum kinetic energy of photoelectrons: $KE_{\\max} = E - W_0 = 4.963\\text{ eV} - 2.250\\text{ eV} = 2.713\\text{ eV}$.',
+                  'Stopping voltage: $V_{\\text{stop}} = \\frac{KE_{\\max}}{e} = 2.713\\text{ V} \\approx 2.71\\text{ V}$.'
+                ],
+                stepByStepSolutionAr: [
+                  'طاقة الفوتون الساقط: $E = h\\nu = 4.136 \\times 10^{-15} \\times 1.20 \\times 10^{15} = 4.963\\text{ إلكترون فولت}$.',
+                  'أقصى طاقة حركة للإلكترونات: $KE_{\\max} = E - W_0 = 4.963 - 2.25 = 2.713\\text{ إلكترون فولت}$.',
+                  'جهد الإيقاف: $V_{\\text{stop}} = 2.71\\text{ فولت}$.'
+                ],
+                teacherTipEn: 'The stopping potential is independent of the incident photon flux (light intensity); doubling intensity doubles current but leaves stopping voltage unchanged.',
+                teacherTipAr: 'جهد الإيقاف لا يعتمد إطلاقاً على شدة الضوء الساقط، فمضاعفة الشدة تضاعف عدد الإلكترونات المنبعثة لكنها لا تغير جهد الإيقاف.'
+              },
+              {
+                id: 'egbac_phys_ws_p3',
+                titleEn: 'Compton Scattering Maximum Fractional Wavelength Shift',
+                titleAr: 'أقصى انزياح نسبي في الطول الموجي بتشتت كومتون',
+                difficulty: 'hots',
+                questionEn: 'An incident X-ray photon has wavelength $\\lambda = 0.0243\\text{ nm}$ (matching the Compton wavelength $\\lambda_C = \\frac{h}{m_e c}$). What is the wavelength of the photon after being scattered directly backwards through $\\theta = 180^\\circ$?',
+                questionAr: 'فوتون أشعة سينية طوله الموجي $\\lambda = 0.0243\\text{ nm}$ (يساوي طول موجة كومتون $\\lambda_C = \\frac{h}{m_e c}$). ما الطول الموجي للفوتون بعد تشتته في الاتجاه المعاكس مباشرة بزاوية $\\theta = 180^\\circ$؟',
+                optionsEn: [
+                  '0.0729 nm (3 times initial)',
+                  '0.0486 nm (2 times initial)',
+                  '0.0243 nm (unchanged)',
+                  '0.0121 nm (half initial)'
+                ],
+                optionsAr: [
+                  '٠,٠٧٢٩ نانومتر (ثلاثة أمثال الابتدائي)',
+                  '٠,٠٤٨٦ نانومتر (ضعف الابتدائي)',
+                  '٠,٠٢٤٣ نانومتر (دون تغيير)',
+                  '٠,٠١٢١ نانومتر (نصف الابتدائي)'
+                ],
+                correctAnswer: '0.0729 nm (3 times initial)',
+                correctIndex: 0,
+                hintEn: 'Use Compton formula: $\\Delta\\lambda = \\lambda^\\prime - \\lambda = \\lambda_C (1 - \\cos\\theta)$ where $\\cos 180^\\circ = -1$.',
+                hintAr: 'طبق معادلة كومتون: $\\Delta\\lambda = \\lambda_C (1 - \\cos\\theta)$ حيث $\\cos 180^\\circ = -1$.',
+                stepByStepSolutionEn: [
+                  'Compton shift equation: $\\Delta\\lambda = \\lambda^\\prime - \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta) = \\lambda_C (1 - \\cos\\theta)$.',
+                  'For backscattering $\\theta = 180^\\circ$, $1 - \\cos 180^\\circ = 1 - (-1) = 2$.',
+                  'Therefore: $\\Delta\\lambda = 2 \\lambda_C = 2 \\times 0.0243\\text{ nm} = 0.0486\\text{ nm}$.',
+                  'New wavelength: $\\lambda^\\prime = \\lambda + \\Delta\\lambda = 0.0243\\text{ nm} + 0.0486\\text{ nm} = 0.0729\\text{ nm} = 3\\lambda$.'
+                ],
+                stepByStepSolutionAr: [
+                  'معادلة كومتون: $\\Delta\\lambda = \\lambda^\\prime - \\lambda = \\lambda_C (1 - \\cos\\theta)$.',
+                  'عند التشتت في الاتجاه المعاكس $\\theta = 180^\\circ$: $1 - \\cos 180^\\circ = 1 - (-1) = 2$.',
+                  'مقدار الزيادة في الطول الموجي: $\\Delta\\lambda = 2 \\lambda_C = 2 \\times 0.0243 = 0.0486\\text{ نانومتر}$.',
+                  'الطول الموجي الجديد: $\\lambda^\\prime = 0.0243 + 0.0486 = 0.0729\\text{ نانومتر} = 3\\lambda$.'
+                ],
+                teacherTipEn: 'Maximum wavelength shift in Compton scattering always occurs at 180 degrees backscatter and is exactly $2\\lambda_C \\approx 0.0485\\text{ nm}$.',
+                teacherTipAr: 'أقصى تغير في الطول الموجي لظاهرة كومتون يحدث دائماً عند زاوية 180 درجة (ارتداد كلي) ويساوي ضعف طول موجة كومتون.'
               }
             ]
           },
           interactiveWidget: {
-            type: 'statics_friction',
+            type: 'physics_photoelectric',
             titleEn: 'Photoelectric Quantum Simulator',
             titleAr: 'محاكي الظاهرة الكهروضوئية الكمية',
             descriptionEn: 'Interactive photocell experiment testing threshold frequencies, stopping potentials, and photon intensity effects.',
@@ -445,11 +520,49 @@ export const egBacPhysicsBranch: Branch = {
                 ],
                 "teacherTipEn": "A useful shortcut for Duane-Hunt calculations is $V \\approx \\frac{1240\\,\\text{V}\\cdot\\text{nm}}{\\lambda_{\\min}(\\text{nm})}$.",
                 "teacherTipAr": "يمكن استخدام العلاقة السريعة: $V \\approx \\frac{1240}{\\lambda_{\\min}\\,(\\text{nm})} = \\frac{1240}{0.031} = 40,000\\,\\text{V}$."
+              },
+              {
+                "id": "egbac_phys_ws_p2_3",
+                "titleEn": "Bohr Orbit Quantization for Hydrogen-Like Helium Ion",
+                "titleAr": "تكميم مدارات بور لأيون الهيليوم أحادي الإلكترون",
+                "difficulty": "hots",
+                "questionEn": "For a singly-ionized helium ion $\\text{He}^+$ ($Z = 2$), an electron is excited to the second orbit ($n = 2$). What is the binding energy (ionization energy) required to remove this electron completely to infinity? (Ground state hydrogen energy $E_1 = -13.6\\text{ eV}$)",
+                "questionAr": "لأيون هيليوم أحادي التأين $\\text{He}^+$ ($Z = 2$)، أُثير الإلكترون إلى المدار الثاني ($n = 2$). ما هي طاقة التأين (طاقة الربط) اللازمة لتحرير هذا الإلكترون تماماً إلى اللانهاية؟ (طاقة المستوى الأرضي للهيدروجين $E_1 = -13.6\\text{ eV}$)",
+                "optionsEn": [
+                  "13.6 eV",
+                  "54.4 eV",
+                  "3.4 eV",
+                  "27.2 eV"
+                ],
+                "optionsAr": [
+                  "١٣,٦ إلكترون فولت",
+                  "٥٤,٤ إلكترون فولت",
+                  "٣,٤ إلكترون فولت",
+                  "٢٧,٢ إلكترون فولت"
+                ],
+                "correctAnswer": "13.6 eV",
+                "correctIndex": 0,
+                "hintEn": "For hydrogen-like ions with atomic number $Z$, energy levels scale as $E_n = -13.6 \\frac{Z^2}{n^2}\\text{ eV}$.",
+                "hintAr": "للأيونات شبيهة الهيدروجين ذات العدد الذري $Z$، طاقة المستوى هي $E_n = -13.6 \\frac{Z^2}{n^2}\\text{ eV}$.",
+                "stepByStepSolutionEn": [
+                  "Formula for energy of hydrogen-like ion: $E_n = -13.6 \\frac{Z^2}{n^2}\\text{ eV}$.",
+                  "Here $Z = 2$ for Helium and $n = 2$ for the second orbit.",
+                  "$E_2 = -13.6 \\times \\frac{2^2}{2^2} = -13.6 \\times \\frac{4}{4} = -13.6\\text{ eV}$.",
+                  "Ionization energy required to remove the electron to $n = \\infty$ ($E_\\infty = 0$): $E_{\\text{ion}} = 0 - (-13.6\\text{ eV}) = 13.6\\text{ eV}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "قانون طاقة المستويات للأيونات الهيدروجينية: $E_n = -13.6 \\frac{Z^2}{n^2}\\text{ eV}$.",
+                  "العدد الذري للهيليوم $Z = 2$ ورقم المدار $n = 2$.",
+                  "$E_2 = -13.6 \\times \\frac{2^2}{2^2} = -13.6\\text{ eV}$.",
+                  "طاقة التأين اللازمة لنقل الإلكترون للمالانهاية: $E_{\\text{ion}} = 0 - (-13.6) = 13.6\\text{ إلكترون فولت}$."
+                ],
+                "teacherTipEn": "Notice that because $Z=2$ and $n=2$, the factors cancel and the $n=2$ state of He+ has exactly the same energy (-13.6 eV) as the ground state of hydrogen.",
+                "teacherTipAr": "لاحظ أنه بتساوي $Z=2$ مع $n=2$ تختصر النسبة وتكون طاقة المدار الثاني للهيليوم مساوية تماماً لطاقة المستوى الأرضي للهيدروجين."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_flashcards",
             "titleEn": "Hydrogen Orbit & X-Ray Spectrum Simulator",
             "titleAr": "محاكي مدارات الهيدروجين وطيف الأشعة السينية",
             "descriptionEn": "Interactive atomic visualizer calculating Bohr transitions and continuous vs characteristic X-ray emission lines.",
@@ -661,12 +774,50 @@ export const egBacPhysicsBranch: Branch = {
                   "الخطوة ٣: بالتعويض: $D = 2000 \\times (0.50 \\times 10^{-3}) = 1.0\\,\\text{m}$."
                 ],
                 "teacherTipEn": "Notice how remarkably small this divergence is: ordinary flashlights would expand to hundreds of meters over this distance.",
-                "teacherTipAr": "لاحظ قلة تشتت وانفراج الليزر: ضوء المصباح العادي يتسع لمئات الأمتار على نفس هذه المسافة."
+                "teacherTipAr": "لاحظ قلة تشتت وانفراج الليزر: ضوء المصباح العادي يتسع لمئات الأمتار على نفس هذه مسافة."
+              },
+              {
+                "id": "egbac_phys_ws_p3_3",
+                "titleEn": "Optical Gain & Critical Threshold Population Inversion",
+                "titleAr": "معامل الكسب الضوئي وشرط عتبة الانعكاس الإسكاني الحرج",
+                "difficulty": "hots",
+                "questionEn": "In a Helium-Neon laser cavity of length $L = 0.30\\text{ m}$, the two end mirrors have reflectivities $R_1 = 1.0$ (100% full reflection) and $R_2 = 0.98$ (98% partial output transmission). If internal non-resonant scattering loss is negligible, what is the minimum threshold gain coefficient $\\gamma_{\\text{th}}$ per unit length required for sustained laser oscillation?",
+                "questionAr": "في تجويف ليزر هيليوم-نيون طوله $L = 0.30\\text{ m}$، المرآتان الطرفيتان لهما معاملا انعكاس $R_1 = 1.0$ (انعكاس كلي) و $R_2 = 0.98$ (انعكاس جزئي بنفاذية 2%). بافتراض إهمال فواقد التشتت، احسب أقل معامل كسب حرج $\\gamma_{\\text{th}}$ لوحدة الأطوال لبدء واستمرار توليد الليزر.",
+                "optionsEn": [
+                  "$0.0337\\text{ m}^{-1}$",
+                  "$0.0674\\text{ m}^{-1}$",
+                  "$0.0168\\text{ m}^{-1}$",
+                  "$0.337\\text{ m}^{-1}$"
+                ],
+                "optionsAr": [
+                  "$0.0337\\text{ م}^{-1}$",
+                  "$0.0674\\text{ م}^{-1}$",
+                  "$0.0168\\text{ م}^{-1}$",
+                  "$0.337\\text{ م}^{-1}$"
+                ],
+                "correctAnswer": "$0.0337\\text{ m}^{-1}$",
+                "correctIndex": 0,
+                "hintEn": "Threshold condition for round-trip loop gain: $R_1 R_2 e^{2\\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.",
+                "hintAr": "شرط عتبة الليزر لدورة كاملة: $R_1 R_2 e^{2\\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.",
+                "stepByStepSolutionEn": [
+                  "For continuous laser oscillation, round-trip amplification must balance mirror transmission loss: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.",
+                  "Rearrange: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{R_1 R_2}\\right) = -\\ln(R_1 R_2)$.",
+                  "Substitute $R_1 = 1.0$ and $R_2 = 0.98$: $\\ln\\left(\\frac{1}{0.98}\\right) = \\ln(1.0204) \\approx 0.02020$.",
+                  "Solve for gain: $\\gamma_{\\text{th}} = \\frac{0.02020}{2 \\times 0.30\\text{ m}} = \\frac{0.02020}{0.60} \\approx 0.03367\\text{ m}^{-1} \\approx 0.0337\\text{ m}^{-1}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "شرط استمرار انبعاث الليزر: التكبير خلال دورة كاملة ذهاباً وإياباً يعوض فقد المرايا: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.",
+                  "إذن: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.",
+                  "حساب اللوغاريتم: $\\ln\\left(\\frac{1}{0.98}\\right) \\approx 0.0202$.",
+                  "معامل الكسب الحرج: $\\gamma_{\\text{th}} = \\frac{0.0202}{2 \\times 0.30} = 0.0337\\text{ م}^{-1}$."
+                ],
+                "teacherTipEn": "Notice how low this gain requirement is: He-Ne lasers operate with low single-pass gain because the resonant cavity allows hundreds of round-trip passes.",
+                "teacherTipAr": "لاحظ أن معامل الكسب المطلوب ضئيل جداً لأن التجويف الرنيني يسمح للشعاع بالانعكاس مئات المرات مما يضاعف التكبير."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_circuits",
             "titleEn": "Laser Pumping & Resonator Mode Simulator",
             "titleAr": "محاكي ضخ الليزر وأنماط التجويف الرنيني",
             "descriptionEn": "Interactive simulator visualizing population inversion, He-Ne energy transfer, and resonant cavity standing waves.",
@@ -879,11 +1030,50 @@ export const egBacPhysicsBranch: Branch = {
                 ],
                 "teacherTipEn": "When base current increases, collector current increases, which drives Vce down; this demonstrates phase inversion.",
                 "teacherTipAr": "زيادة تيار القاعدة تؤدي لزيادة تيار المجمع وانخفاض جهد Vce، وهذا يفسر كون الترانزستور عاكساً لطور الإشارة."
+              },
+              {
+                "id": "egbac_phys_ws_p4_3",
+                "titleEn": "Series RLC Resonance & Quality Factor in Tuned Sensor Circuit",
+                "titleAr": "رنين دائرة RLC ومعامل الجودة لمستشعر إلكتروني عالي الانتقائية",
+                "difficulty": "hots",
+                "diagramType": "phys_rlc_resonance_phasor",
+                "questionEn": "A tuned detection circuit consists of a resistor $R = 10\\,\\Omega$, an inductor $L = 2.0\\,\\text{mH}$, and a capacitor $C = 50\\,\\text{nF}$ in series. Calculate the circuit resonance frequency $f_0$ and its quality factor $Q$.",
+                "questionAr": "دائرة استشعار وتوليف إلكترونية تتكون من مقاومة أومية $R = 10\\,\\Omega$ وملف حث $L = 2.0\\,\\text{mH}$ ومكثف سعته $C = 50\\,\\text{nF}$ متصلة على التوالي. احسب تردد الرنين $f_0$ ومعامل جودة الرنين $Q$ لهذه الدائرة.",
+                "optionsEn": [
+                  "$f_0 \\approx 15.92\\,\\text{kHz},\\, Q = 20.0$",
+                  "$f_0 \\approx 31.83\\,\\text{kHz},\\, Q = 10.0$",
+                  "$f_0 \\approx 7.96\\,\\text{kHz},\\, Q = 40.0$",
+                  "$f_0 \\approx 15.92\\,\\text{kHz},\\, Q = 2.0$"
+                ],
+                "optionsAr": [
+                  "$f_0 \\approx 15.92\\,\\text{kHz},\\, Q = 20.0$",
+                  "$f_0 \\approx 31.83\\,\\text{kHz},\\, Q = 10.0$",
+                  "$f_0 \\approx 7.96\\,\\text{kHz},\\, Q = 40.0$",
+                  "$f_0 \\approx 15.92\\,\\text{kHz},\\, Q = 2.0$"
+                ],
+                "correctAnswer": "$f_0 \\approx 15.92\\,\\text{kHz},\\, Q = 20.0$",
+                "correctIndex": 0,
+                "hintEn": "Use $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$ and quality factor $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{\\omega_0 L}{R}$.",
+                "hintAr": "طبق $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$ ومعامل الجودة $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}}$.",
+                "stepByStepSolutionEn": [
+                  "Step 1: Calculate $LC = (2.0 \\times 10^{-3}\\text{ H}) \\times (50 \\times 10^{-9}\\text{ F}) = 1.0 \\times 10^{-10}\\text{ s}^2$.",
+                  "Step 2: $\\sqrt{LC} = 1.0 \\times 10^{-5}\\text{ s}$.",
+                  "Step 3: Resonant frequency: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2 \\times 3.1416 \\times 10^{-5}} \\approx 15915\\,\\text{Hz} \\approx 15.92\\,\\text{kHz}$.",
+                  "Step 4: Quality factor: $Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{1}{10}\\sqrt{\\frac{2.0 \\times 10^{-3}}{50 \\times 10^{-9}}} = \\frac{1}{10}\\sqrt{40000} = \\frac{200}{10} = 20.0$."
+                ],
+                "stepByStepSolutionAr": [
+                  "الخطوة ١: حساب حاصل ضرب $LC = (2.0 \\times 10^{-3}) \\times (50 \\times 10^{-9}) = 1.0 \\times 10^{-10}\\text{ s}^2$.",
+                  "الخطوة ٢: الجذر التربيعي: $\\sqrt{LC} = 10^{-5}\\text{ s}$.",
+                  "الخطوة ٣: تردد الرنين: $f_0 = \\frac{1}{2\\pi \\times 10^{-5}} \\approx 15.92\\,\\text{kHz}$.",
+                  "الخطوة ٤: معامل الجودة: $Q = \\frac{1}{10}\\sqrt{\\frac{2 \\times 10^{-3}}{50 \\times 10^{-9}}} = \\frac{1}{10}\\sqrt{40000} = \\frac{200}{10} = 20.0$."
+                ],
+                "teacherTipEn": "Higher Q means a sharper resonance curve and higher frequency selectivity, essential for communications filters.",
+                "teacherTipAr": "كلما زاد معامل الجودة Q زادت حدة قمة منحنى الرنين وزادت قدرة الدائرة على فرز وتوليف الإشارات بدقة عالية."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_resonance",
             "titleEn": "Semiconductor Band Gap & Transistor Simulator",
             "titleAr": "محاكي فجوة طاقة أشباه الموصلات والترانزستور",
             "descriptionEn": "Interactive solid-state visualizer for mass action dopant equilibria, diode IV curves, and BJT signal amplification.",
@@ -1100,11 +1290,49 @@ export const egBacPhysicsBranch: Branch = {
                 ],
                 "teacherTipEn": "To appreciate this scale: 82 billion Joules is equivalent to burning over 2.5 metric tons of premium coal.",
                 "teacherTipAr": "لإدراك هذه الطاقة الهائلة: انشطار جرام واحد من اليورانيوم يكافئ حرق أكثر من ٢,٥ طن من الفحم الحجري الممتاز."
+              },
+              {
+                "id": "egbac_phys_ws_p5_3",
+                "titleEn": "Thermonuclear D-T Fusion Energy Yield & Mass Defect",
+                "titleAr": "الطاقة المحررة ونقص الكتلة في تفاعل الاندماج النووي (ديوتيريوم - تريتيوم)",
+                "difficulty": "hots",
+                "questionEn": "In the thermonuclear fusion reaction: $^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} + ^1_0\\text{n} + Q$, the isotopic masses are $m(^2\\text{H}) = 2.0141\\,\\text{u}$, $m(^3\\text{H}) = 3.0160\\,\\text{u}$, $m(^4\\text{He}) = 4.0026\\,\\text{u}$, and $m(^1\\text{n}) = 1.0087\\,\\text{u}$. Calculate the mass defect $\\Delta m$ and the energy $Q$ released per reaction in MeV.",
+                "questionAr": "في تفاعل الاندماج الحراري النووي: $^2_1\\text{H} + ^3_1\\text{H} \\to ^4_2\\text{He} + ^1_0\\text{n} + Q$، إذا كانت الكتل الذرية هي: $m(^2\\text{H}) = 2.0141\\,\\text{u}$ و $m(^3\\text{H}) = 3.0160\\,\\text{u}$ و $m(^4\\text{He}) = 4.0026\\,\\text{u}$ و $m(^1\\text{n}) = 1.0087\\,\\text{u}$. احسب نقص الكتلة $\\Delta m$ ومقدار الطاقة $Q$ المحررة عن كل تفاعل بالميجا إلكترون فولت.",
+                "optionsEn": [
+                  "$\\Delta m = 0.0188\\,\\text{u},\\, Q \\approx 17.51\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0376\\,\\text{u},\\, Q \\approx 35.02\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0094\\,\\text{u},\\, Q \\approx 8.76\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0188\\,\\text{u},\\, Q \\approx 200.0\\,\\text{MeV}$"
+                ],
+                "optionsAr": [
+                  "$\\Delta m = 0.0188\\,\\text{u},\\, Q \\approx 17.51\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0376\\,\\text{u},\\, Q \\approx 35.02\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0094\\,\\text{u},\\, Q \\approx 8.76\\,\\text{MeV}$",
+                  "$\\Delta m = 0.0188\\,\\text{u},\\, Q \\approx 200.0\\,\\text{MeV}$"
+                ],
+                "correctAnswer": "$\\Delta m = 0.0188\\,\\text{u},\\, Q \\approx 17.51\\,\\text{MeV}$",
+                "correctIndex": 0,
+                "hintEn": "Mass defect $\\Delta m = (m(^2\\text{H}) + m(^3\\text{H})) - (m(^4\\text{He}) + m(^1\\text{n}))$. Multiply by $931.5\\,\\text{MeV/u}$.",
+                "hintAr": "نقص الكتلة $\\Delta m = (m_D + m_T) - (m_\\alpha + m_n)$. اضرب في $931.5\\,\\text{MeV}$.",
+                "stepByStepSolutionEn": [
+                  "Step 1: Total initial reactant mass: $M_{\\text{reactants}} = 2.0141 + 3.0160 = 5.0301\\,\\text{u}$.",
+                  "Step 2: Total final product mass: $M_{\\text{products}} = 4.0026 + 1.0087 = 5.0113\\,\\text{u}$.",
+                  "Step 3: Mass defect: $\\Delta m = 5.0301 - 5.0113 = 0.0188\\,\\text{u}$.",
+                  "Step 4: Energy released: $Q = \\Delta m \\times 931.5\\,\\text{MeV/u} = 0.0188 \\times 931.5 \\approx 17.512\\,\\text{MeV}$."
+                ],
+                "stepByStepSolutionAr": [
+                  "الخطوة ١: مجموع كتل المتفاعلات: $M_{\\text{reactants}} = 2.0141 + 3.0160 = 5.0301\\,\\text{u}$.",
+                  "الخطوة ٢: مجموع كتل النواتج: $M_{\\text{products}} = 4.0026 + 1.0087 = 5.0113\\,\\text{u}$.",
+                  "الخطوة ٣: نقص الكتلة: $\\Delta m = 5.0301 - 5.0113 = 0.0188\\,\\text{u}$.",
+                  "الخطوة ٤: الطاقة المحررة: $Q = 0.0188 \\times 931.5 \\approx 17.51\\,\\text{MeV}$."
+                ],
+                "teacherTipEn": "Notice that per nucleon, fusion yields $\\approx 17.5 / 5 = 3.5\\,\\text{MeV/nucleon}$, nearly 4 times the energy density of Uranium fission ($\approx 200 / 235 = 0.85\\,\\text{MeV/nucleon}$).",
+                "teacherTipAr": "لكل نيوكلون: يحرر الاندماج 3.5 ميجا إلكترون فولت/نيوكلون مقارنة بـ 0.85 ميجا إلكترون فولت/نيوكلون للانشطار، فالاندماج أعلى كفاءة بنحو 4 أضعاف."
               }
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
+            "type": "physics_flashcards",
             "titleEn": "Nuclear Binding Energy & Fission Chain Reactor",
             "titleAr": "محاكي طاقة الترابط النووي وتفاعل الانشطار المتسلسل",
             "descriptionEn": "Interactive simulator modeling nuclear mass defect, binding energy curves, and critical mass chain reaction dynamics.",

@@ -13,7 +13,7 @@ import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { InteractiveMatrixLab } from './InteractiveMatrixLab';
 import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
-import { PhysicsLab } from './labs/PhysicsLab';
+import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
@@ -127,7 +127,32 @@ export const LessonView: React.FC<Props> = ({
 
   const renderInteractiveWidget = () => {
     if (branch.id === 'thanaweya_physics' || branch.id === 'egbac_physics') {
-      return <PhysicsLab lang={lang} theme={theme} />;
+      let initialTab: PhysicsTab = 'circuits';
+      const wType = lesson.interactiveWidget?.type;
+      if (wType === 'physics_circuits') {
+        initialTab = 'circuits';
+      } else if (wType === 'physics_photoelectric') {
+        initialTab = 'photoelectric';
+      } else if (wType === 'physics_dynamo') {
+        initialTab = 'dynamo';
+      } else if (wType === 'physics_resonance') {
+        initialTab = 'resonance';
+      } else if (wType === 'physics_flashcards') {
+        initialTab = 'flashcards';
+      } else {
+        if (lesson.id === 'th_phys_l1' || lesson.id === 'th_phys_l2' || lesson.id === 'egbac_phys_l3') {
+          initialTab = 'circuits';
+        } else if (lesson.id === 'th_phys_l3') {
+          initialTab = 'dynamo';
+        } else if (lesson.id === 'th_phys_l4' || lesson.id === 'egbac_phys_l4') {
+          initialTab = 'resonance';
+        } else if (lesson.id === 'th_phys_l5' || lesson.id === 'egbac_phys_l1') {
+          initialTab = 'photoelectric';
+        } else if (lesson.id === 'th_phys_l6' || lesson.id === 'egbac_phys_l2' || lesson.id === 'egbac_phys_l5') {
+          initialTab = 'flashcards';
+        }
+      }
+      return <PhysicsLab lang={lang} theme={theme} initialTab={initialTab} />;
     }
     if (branch.id === 'thanaweya_chemistry' || branch.id === 'egbac_chemistry') {
       return <ChemistryLab lang={lang} theme={theme} />;
