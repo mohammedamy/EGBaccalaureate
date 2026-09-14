@@ -427,6 +427,20 @@ const dnaConcentration = dnaA260 * 50; // ng/uL
 assert(Math.abs(purityRatio - 1.80) < 0.02, `NanoDrop UV Purity Ratio A260/A280 = ${purityRatio.toFixed(2)} (pure dsDNA benchmark ~1.80)`);
 assert(Math.abs(dnaConcentration - 25.0) < 1e-6, `dsDNA Concentration from Beer-Lambert: ${dnaConcentration} ng/uL`);
 
+// J. Biology: Immunology, Dual Cascades & Kinetics (Chapter 4)
+const primaryPeakTiter = 125; // AU at day 8
+const secondaryPeakTiter = 8000; // AU at day 24
+const memorySurgeRatio = secondaryPeakTiter / primaryPeakTiter;
+assert(memorySurgeRatio >= 10, `Secondary immunological memory titer surge is >10x primary (found: ${memorySurgeRatio.toFixed(1)}x)`);
+
+const iggBindingSites = 2;
+const igmBindingSites = 10;
+assert(igmBindingSites === 5 * iggBindingSites, `Pentameric IgM has 10 antigen-binding sites (5x monomeric IgG valence 2)`);
+
+const complementActiveLysisRate = 94.5;
+const complementInactiveLysisRate = 4.2;
+assert(complementActiveLysisRate > 90 && complementInactiveLysisRate < 10, `Heat inactivation at 56°C abolishes complement lysis (<10% vs >90% active)`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -499,6 +513,13 @@ const labKeyFormulas = [
   '\\text{UAA}, \\; \\text{UAG}, \\; \\text{UGA}',
   '[\\text{dsDNA}] = A_{260} \\times 50\\,\\mu\\text{g/mL}',
   '\\frac{A_{260}}{A_{280}} = 1.80',
+  // Immunology Lab (Chapter 4)
+  '\\text{Bacteria} + \\text{Antibody} + \\text{Complements} \\to \\text{MAC Pores} \\implies \\text{Lysis}',
+  '\\text{OD}_{450} = \\epsilon \\cdot c \\cdot l \\propto [\\text{Antibody}]',
+  '[\\text{Ab}]_{\\text{secondary}} \\gg 10 \\times [\\text{Ab}]_{\\text{primary}}, \\quad \\Delta t_{\\text{lag}} \\to 0',
+  '\\text{IgM} \\implies 5 \\times 2 = 10 \\text{ Antigen-Binding Sites}',
+  '\\text{CD4}^+ \\, \\text{T}_H \\xrightarrow{\\text{Interleukins}} \\text{Plasma B} \\to \\text{Antibodies}',
+  '\\text{CD8}^+ \\, \\text{T}_C \\xrightarrow{\\text{Perforin} + \\text{Lymphotoxins}} \\text{Apoptosis}',
   // Math Lab
   '\\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}',
   '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1',
