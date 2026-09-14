@@ -58,6 +58,7 @@ const labComponents = [
   'src/components/labs/DynamoInductionLab.tsx',
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
+  'src/components/labs/TitrationLab.tsx',
   'src/components/labs/OrganicChemistryLab.tsx',
   'src/components/labs/QualitativeAnalysisLab.tsx',
   'src/components/labs/ChemistryFlashcards.tsx',
@@ -164,6 +165,17 @@ const propeneCarbons = [1, 2]; // C1 has 2 hydrogens, C2 has 1 hydrogen
 const majorBrPosition = 2; // H+ adds to C1 (richer in H), Br- adds to C2
 assert(majorBrPosition === 2, `Markovnikov rule addition of HBr to Propene yields 2-bromopropane as major product`);
 
+// F4. Chemistry: Acid-Base Titration Stoichiometric Equivalence & Glass pH Electrode
+const Ma_titr = 0.1; // M
+const Va_titr = 25.0; // mL
+const Mb_titr = 0.1; // M
+const Veq_titr = (Ma_titr * Va_titr) / Mb_titr;
+assert(Math.abs(Veq_titr - 25.0) < 1e-6, `Titration Equivalence Volume: V_eq = ${Veq_titr} mL (expected 25.0 mL)`);
+// Glass pH electrode potential: E = 0.414 - 0.05916 * pH
+const pH_test = 7.0;
+const E_glass_V = 0.414 - 0.05916 * pH_test;
+assert(Math.abs(E_glass_V - (-0.00012)) < 1e-3, `Glass pH Electrode Nernst Potential at pH 7.0: E = ${E_glass_V.toFixed(4)} V`);
+
 // G. Biology: Human Skeleton Counts
 const axialBones = 80;
 const appendicularBones = 126;
@@ -251,6 +263,8 @@ const labKeyFormulas = [
   '\\text{[Fe(H}_2\\text{O)}_5\\text{(NO)]SO}_4',
   '\\text{pH} + \\text{pOH} = 14.00',
   'K_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{A}^-]}{[\\text{HA}]}',
+  'M_A V_A = M_B V_B',
+  'E = 0.414 - 0.05916 \\times \\text{pH}',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',

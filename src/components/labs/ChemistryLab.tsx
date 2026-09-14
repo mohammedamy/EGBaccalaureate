@@ -16,15 +16,9 @@ import {
 import { ElectrochemistryLab } from './ElectrochemistryLab';
 import { OrganicChemistryLab } from './OrganicChemistryLab';
 import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
+import { TitrationLab } from './TitrationLab';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
-import {
-  calculateTitrationPH,
-  getIndicatorColor,
-  COMMON_INDICATORS,
-  type TitrationSystem,
-} from '../../core/simulation/EquilibriumEngine';
-import { LabNotebook } from '../../core/pedagogy/LabNotebook';
 
 export type ChemTab =
   | 'equilibrium'
@@ -215,10 +209,6 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
   const [selectedMetal, setSelectedMetal] = useState<TransitionElement>(TRANSITION_METALS[5]); // Iron
   const [furnaceTemp, setFurnaceTemp] = useState<number>(650); // °C
 
-  // Titration State
-  const [titrantVolumeMl, setTitrantVolumeMl] = useState<number>(25.0); // 0 to 50 mL
-  const [titrationType, setTitrationType] = useState<TitrationSystem['type']>('strong_acid_strong_base');
-  const [chosenIndicator, setChosenIndicator] = useState<string>('phenolphthalein');
 
   // Calculations for Equilibrium
   // For 2NO2 (brown) <=> N2O4 (colorless) + Heat (exothermic)
@@ -280,20 +270,6 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
     productFormed = 'Molten Pig Iron (Fe) + Slag';
   }
 
-  // Titration pH Calculation with EquilibriumEngine
-  const titrationResult = calculateTitrationPH(
-    {
-      type: titrationType,
-      analyteVolumeMl: 25.0,
-      analyteConcentrationM: 0.1,
-      titrantConcentrationM: 0.1,
-      Ka1: 1.8e-5,
-      Kb: 1.8e-5,
-    },
-    titrantVolumeMl
-  );
-  const currentPh = titrationResult.pH;
-  const indicatorColor = getIndicatorColor(chosenIndicator, currentPh);
 
   return (
     <div
@@ -893,181 +869,11 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
 
       {/* TAB 3: TITRATION & PH */}
       {activeTab === 'titration' && (
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left: Interactive Buret & Titration Curve */}
-          <div className="lg:col-span-8 space-y-4">
-            <div
-              className={`p-5 rounded-2xl border ${
-                isContrast
-                  ? 'bg-black border-emerald-400'
-                  : isLight
-                  ? 'bg-slate-50 border-slate-300'
-                  : 'bg-slate-900/80 border-slate-800'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-xs font-black flex items-center gap-2 text-emerald-400">
-                  <Droplets className="w-4 h-4" />
-                  <span>{isArabic ? 'محاكاة السحاحة والدورق المخروطي ومنحنى المعايرة:' : 'Buret Titration & Dynamic pH Curve:'}</span>
-                </h4>
-                <span className="text-xs font-mono font-black text-cyan-400">
-                  V(NaOH) = {titrantVolumeMl.toFixed(1)} mL
-                </span>
-              </div>
-
-              {/* System & Indicator Selectors */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
-                <div>
-                  <label className="text-slate-400 font-semibold block mb-1">
-                    {isArabic ? 'نظام المعايرة:' : 'Titration Reaction System:'}
-                  </label>
-                  <select
-                    value={titrationType}
-                    onChange={(e) => setTitrationType(e.target.value as TitrationSystem['type'])}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
-                  >
-                    <option value="strong_acid_strong_base">HCl + NaOH (Strong / Strong)</option>
-                    <option value="weak_acid_strong_base">CH₃COOH + NaOH (Weak Acid / Strong Base)</option>
-                    <option value="strong_acid_weak_base">HCl + NH₃ (Strong Acid / Weak Base)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-slate-400 font-semibold block mb-1">
-                    {isArabic ? 'الدليل الكيميائي:' : 'Chemical Indicator:'}
-                  </label>
-                  <select
-                    value={chosenIndicator}
-                    onChange={(e) => setChosenIndicator(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
-                  >
-                    {Object.entries(COMMON_INDICATORS).map(([id, ind]) => (
-                      <option key={id} value={id}>
-                        {isArabic ? ind.nameAr : ind.name} (pKa {ind.pKa})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Titration Apparatus SVG */}
-              <div className="w-full bg-slate-950 rounded-xl p-3 border border-slate-800 shadow-inner flex items-center justify-center">
-                <svg viewBox="0 0 540 220" className="w-full max-w-[520px] h-48 sm:h-56">
-                  {/* Buret Tube */}
-                  <rect x="250" y="20" width="20" height="110" rx="3" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
-                  <rect
-                    x="252"
-                    y={20 + (titrantVolumeMl / 50) * 90}
-                    width="16"
-                    height={90 - (titrantVolumeMl / 50) * 90}
-                    fill="#38bdf8"
-                    fillOpacity="0.6"
-                  />
-                  {/* Stopcock */}
-                  <circle cx="260" cy="135" r="4" fill="#94a3b8" />
-
-                  {/* Falling Drop */}
-                  <circle cx="260" cy="148" r="2.5" fill="#38bdf8" className="animate-bounce" />
-
-                  {/* Conical Flask */}
-                  <path
-                    d="M 245 155 L 275 155 L 305 200 L 215 200 Z"
-                    fill={indicatorColor}
-                    fillOpacity="0.4"
-                    stroke="#10b981"
-                    strokeWidth="2"
-                  />
-
-                  {/* pH Indicator Display */}
-                  <rect x="360" y="70" width="120" height="70" rx="8" fill="#020617" stroke="#10b981" strokeWidth="1.5" />
-                  <text x="420" y="92" textAnchor="middle" fill="#94a3b8" fontSize="10" fontWeight="bold">
-                    pH METER
-                  </text>
-                  <text x="420" y="122" textAnchor="middle" fill={indicatorColor} fontSize="22" fontWeight="black" fontFamily="monospace">
-                    {currentPh.toFixed(2)}
-                  </text>
-                </svg>
-              </div>
-
-              {/* Titrant Slider */}
-              <div className="mt-4 pt-3 border-t border-slate-800">
-                <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">
-                    {isArabic ? 'حجم القاعدة المضاف من السحاحة (mL):' : 'Titrant Added from Buret (mL):'}
-                  </span>
-                  <span className="font-mono font-black text-cyan-400">{titrantVolumeMl.toFixed(1)} / 50.0 mL</span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="50"
-                  step="0.5"
-                  value={titrantVolumeMl}
-                  onChange={(e) => setTitrantVolumeMl(parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right: pH Status Card */}
-          <div className="lg:col-span-4 space-y-4">
-            <div
-              className={`p-4 rounded-2xl border ${
-                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
-              }`}
-            >
-              <h4 className="text-xs font-black text-emerald-400 mb-3 flex items-center gap-1.5">
-                <Info className="w-4 h-4" />
-                <span>{isArabic ? 'نقطة التكافؤ ومحاليل المنظم (بفر):' : 'Equivalence Point & Buffer Action:'}</span>
-              </h4>
-
-              <div className="space-y-2 text-xs">
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'الرقم الهيدروجيني الحالي (pH):' : 'Current pH:'}</span>
-                  <span className="font-mono font-black text-base" style={{ color: indicatorColor }}>
-                    {currentPh.toFixed(2)}
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'حالة الوسط:' : 'Medium Status:'}</span>
-                  <span className="font-bold text-slate-200">
-                    {currentPh < 6.8
-                      ? isArabic ? 'حمضي (أحمر / برتقالي)' : 'Acidic'
-                      : currentPh > 7.2
-                      ? isArabic ? 'قاعدي (وردي)' : 'Basic'
-                      : isArabic ? 'نقطة التكافؤ (متعادل pH = 7)' : 'Equivalence Point (pH 7)'}
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-4 p-3 rounded-xl bg-emerald-950/20 border border-emerald-800/40 text-xs text-slate-300 space-y-1">
-                <p className="font-bold text-emerald-300">
-                  {isArabic ? 'معادلة هندرسون-هاسلبالخ لمحاليل المنظم:' : 'Henderson-Hasselbalch Buffer Equation:'}
-                </p>
-                <p className="font-mono text-[11px] text-cyan-300">pH = pKa + log([A⁻] / [HA])</p>
-                <p className="text-[10px] text-slate-400">
-                  {isArabic ? 'يقاوم المحلول المنظم التغير المفاجئ في الرقم الهيدروجيني عند إضافة كميات قليلة من حمض أو قاعدة.' : 'Buffers resist sudden pH shifts upon minor addition of acids or bases.'}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Integrated Lab Notebook for Titration Curve Recording */}
-          <div className="lg:col-span-12">
-            <LabNotebook
-              lang={lang}
-              xLabel={isArabic ? 'حجم القاعدة المضاف V' : 'Titrant Volume V'}
-              xUnit="mL"
-              yLabel="pH"
-              yUnit="units"
-              currentXValue={titrantVolumeMl}
-              currentYValue={currentPh}
-            />
-          </div>
+        <div className="mt-6">
+          <TitrationLab lang={lang} theme={theme} />
         </div>
       )}
+
 
       {/* TAB 4: ELECTROCHEMISTRY & GALVANIC CELLS */}
       {activeTab === 'electrochemistry' && (
