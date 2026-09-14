@@ -1,7 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
-import { Edit3, Copy, Check, Trash2, Calculator, PenTool } from 'lucide-react';
+import {
+  Edit3,
+  Copy,
+  Check,
+  Trash2,
+  Calculator,
+  PenTool,
+  Eraser,
+  Download,
+  Grid,
+} from 'lucide-react';
 
 interface MathScratchpadProps {
   lang?: 'en' | 'ar';
@@ -9,10 +19,24 @@ interface MathScratchpadProps {
   onInsertLatex?: (latex: string) => void;
 }
 
+const PEN_COLORS = [
+  { id: 'cyan', labelEn: 'Cyan', labelAr: 'سماوي', value: '#38bdf8' },
+  { id: 'yellow', labelEn: 'Yellow', labelAr: 'أصفر', value: '#fbbf24' },
+  { id: 'emerald', labelEn: 'Emerald', labelAr: 'أخضر', value: '#34d399' },
+  { id: 'rose', labelEn: 'Rose', labelAr: 'وردي', value: '#fb7185' },
+  { id: 'white', labelEn: 'White', labelAr: 'أبيض', value: '#ffffff' },
+];
+
+const PEN_WIDTHS = [
+  { id: 'fine', size: 2, labelEn: 'Fine', labelAr: 'رفيع' },
+  { id: 'medium', size: 4, labelEn: 'Medium', labelAr: 'متوسط' },
+  { id: 'bold', size: 8, labelEn: 'Bold', labelAr: 'عريض' },
+];
+
 export const MathScratchpad: React.FC<MathScratchpadProps> = ({
   lang = 'en',
   initialLatex = 'E = h \\cdot \\nu = \\frac{h \\cdot c}{\\lambda}',
-  onInsertLatex
+  onInsertLatex,
 }) => {
   const isAr = lang === 'ar';
   const [latexInput, setLatexInput] = useState<string>(initialLatex);
@@ -20,9 +44,14 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
   const [activeTab, setActiveTab] = useState<'latex' | 'draw'>('latex');
   const previewRef = useRef<HTMLDivElement | null>(null);
 
-  // Freehand Canvas Ref
+  // Freehand Canvas State & Settings
   const drawCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
+  const [activeTool, setActiveTool] = useState<'pen' | 'eraser'>('pen');
+  const [selectedColor, setSelectedColor] = useState<string>('#38bdf8');
+  const [selectedWidth, setSelectedWidth] = useState<number>(3);
+  const [showGrid, setShowGrid] = useState<boolean>(true);
+  const lastPointRef = useRef<{ x: number; y: number } | null>(null);
 
   // Render KaTeX Preview safely
   useEffect(() => {
@@ -30,7 +59,7 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
     try {
       katex.render(latexInput || '\\text{ }', previewRef.current, {
         throwOnError: false,
-        displayMode: true
+        displayMode: true,
       });
     } catch {
       // ignore parsing glitch
@@ -46,7 +75,7 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
   // Helper to insert snippet at cursor
   const insertSnippet = (snippet: string) => {
-    setLatexInput(prev => {
+    setLatexInput((prev) => {
       const next = prev + ' ' + snippet;
       if (onInsertLatex) onInsertLatex(next);
       return next;
@@ -55,12 +84,26 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
   // Quick STEM Formula Presets for Egyptian Curriculum
   const stemPresets = [
-    { label: "Ohm's Law", snippet: "V = I \\cdot R" },
-    { label: "Faraday's Induction", snippet: "\\mathcal{E} = -N \\frac{\\Delta \\Phi_m}{\\Delta t}" },
-    { label: "Photoelectric", snippet: "K_{\\max} = h\\nu - W_a = h\\left(\\nu - \\nu_c\\right)" },
-    { label: "De Broglie", snippet: "\\lambda = \\frac{h}{p} = \\frac{h}{m \\cdot v}" },
-    { label: "Henderson-Hasselbalch", snippet: "\\text{pH} = \\text{pK}_a + \\log_{10}\\left(\\frac{[A^-]}{[HA]}\\right)" },
-    { label: "Hardy-Weinberg", snippet: "p^2 + 2pq + q^2 = 1" }
+    { label: "Ohm's Law", snippet: 'V = I \\cdot R' },
+    {
+      label: "Faraday's Induction",
+      snippet: '\\mathcal{E} = -N \\frac{\\Delta \\Phi_m}{\\Delta t}',
+    },
+    {
+      label: 'Photoelectric',
+      snippet:
+        'K_{\\max} = h\\nu - W_a = h\\left(\\nu - \\nu_c\\right)',
+    },
+    {
+      label: 'De Broglie',
+      snippet: '\\lambda = \\frac{h}{p} = \\frac{h}{m \\cdot v}',
+    },
+    {
+      label: 'Henderson-Hasselbalch',
+      snippet:
+        '\\text{pH} = \\text{pK}_a + \\log_{10}\\left(\\frac{[A^-]}{[HA]}\\right)',
+    },
+    { label: 'Hardy-Weinberg', snippet: 'p^2 + 2pq + q^2 = 1' },
   ];
 
   // Keypad Symbols
@@ -84,45 +127,163 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
     { label: '±', val: '\\pm' },
     { label: '≈', val: '\\approx' },
     { label: '≠', val: '\\neq' },
-    { label: '∞', val: '\\infty' }
+    { label: '∞', val: '\\infty' },
   ];
 
-  // Canvas Drawing Handlers
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+  // Calibrate canvas resolution to element display rect and device pixel ratio (DPR)
+  const calibrateCanvas = useCallback(() => {
     const canvas = drawCanvasRef.current;
     if (!canvas) return;
+    const container = canvas.parentElement;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+
+    const dpr = Math.max(window.devicePixelRatio || 1, 1);
+    const targetWidth = Math.round(rect.width * dpr);
+    const targetHeight = Math.round(rect.height * dpr);
+
+    if (canvas.width === targetWidth && canvas.height === targetHeight) return;
+
+    // Preserve existing sketch content during resize
+    let tempCanvas: HTMLCanvasElement | null = null;
+    if (canvas.width > 0 && canvas.height > 0) {
+      tempCanvas = document.createElement('canvas');
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
+      const tempCtx = tempCanvas.getContext('2d');
+      if (tempCtx) {
+        tempCtx.drawImage(canvas, 0, 0);
+      }
+    }
+
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (ctx) {
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (tempCanvas && tempCanvas.width > 0 && tempCanvas.height > 0) {
+        ctx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height);
+      }
+    }
+  }, []);
+
+  // Listen for activeTab switch and window resize events
+  useEffect(() => {
+    if (activeTab === 'draw') {
+      const timer = setTimeout(calibrateCanvas, 30);
+      window.addEventListener('resize', calibrateCanvas);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('resize', calibrateCanvas);
+      };
+    }
+  }, [activeTab, calibrateCanvas]);
+
+  // Exact millimeter-calibrated mapping from PointerEvent to Canvas internal buffer coordinates
+  const getCanvasCoordinates = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const canvas = drawCanvasRef.current;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return null;
+
+    // Absolute scale calibration factor between CSS display pixels and internal buffer
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
+    };
+  };
+
+  // Pointer Event Handlers (Supports Mouse, Touch screen, Apple Pencil, & Smartboard stylus)
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    // Only accept primary pointer (left click or touch contact)
+    if (e.button !== 0 && e.pointerType === 'mouse') return;
+    const canvas = drawCanvasRef.current;
+    if (!canvas) return;
+
+    try {
+      canvas.setPointerCapture(e.pointerId);
+    } catch {}
+
+    const coords = getCanvasCoordinates(e);
+    if (!coords) return;
 
     setIsDrawing(true);
-    const rect = canvas.getBoundingClientRect();
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+    lastPointRef.current = coords;
 
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const dpr = Math.max(window.devicePixelRatio || 1, 1);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    if (activeTool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.lineWidth = selectedWidth * 8 * dpr;
+      ctx.fillStyle = 'rgba(0,0,0,1)';
+    } else {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = selectedColor;
+      ctx.fillStyle = selectedColor;
+      ctx.lineWidth = selectedWidth * dpr;
+    }
+
+    // Draw single dot on click/tap
     ctx.beginPath();
-    ctx.moveTo(clientX - rect.left, clientY - rect.top);
+    ctx.arc(coords.x, coords.y, ctx.lineWidth / 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(coords.x, coords.y);
   };
 
-  const drawMove = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDrawing) return;
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isDrawing || !lastPointRef.current) return;
     const canvas = drawCanvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+    const coords = getCanvasCoordinates(e);
+    if (!coords) return;
 
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2.5;
+    const dpr = Math.max(window.devicePixelRatio || 1, 1);
     ctx.lineCap = 'round';
-    ctx.lineTo(clientX - rect.left, clientY - rect.top);
+    ctx.lineJoin = 'round';
+
+    if (activeTool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.lineWidth = selectedWidth * 8 * dpr;
+    } else {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = selectedColor;
+      ctx.lineWidth = selectedWidth * dpr;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(lastPointRef.current.x, lastPointRef.current.y);
+    ctx.lineTo(coords.x, coords.y);
     ctx.stroke();
+
+    lastPointRef.current = coords;
   };
 
-  const stopDrawing = () => {
+  const handlePointerUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isDrawing) return;
+    const canvas = drawCanvasRef.current;
+    if (canvas) {
+      try {
+        canvas.releasePointerCapture(e.pointerId);
+      } catch {}
+    }
     setIsDrawing(false);
+    lastPointRef.current = null;
   };
 
   const clearCanvas = () => {
@@ -133,20 +294,36 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
+  const downloadSketch = () => {
+    const canvas = drawCanvasRef.current;
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = `egbac_math_sketch_${Date.now()}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  };
+
   return (
-    <div className="bg-slate-900 border border-slate-700/80 rounded-3xl p-5 shadow-2xl text-slate-100 font-sans backdrop-blur-md" dir={isAr ? 'rtl' : 'ltr'}>
+    <div
+      className="bg-slate-900 border border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 font-sans backdrop-blur-md w-full"
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl border border-indigo-500/30">
             <Calculator className="w-5 h-5" />
           </div>
           <div>
             <h4 className="text-sm font-bold text-slate-100 flex items-center gap-2">
-              {isAr ? 'المسودة الرياضية التفاعلية (KaTeX Scratchpad)' : 'Interactive KaTeX & STEM Scratchpad'}
+              {isAr
+                ? 'المسودة الرياضية والمعملية التفاعلية'
+                : 'Interactive KaTeX & STEM Scratchpad'}
             </h4>
             <p className="text-xs text-slate-400">
-              {isAr ? 'صياغة المعادلات العلمية، رموز يونانية، ومسودة رسم المتجهات' : 'Live LaTeX typesetting, math keypad, and freehand vector sketchpad'}
+              {isAr
+                ? 'صياغة المعادلات العلمية، رموز يونانية، ومسودة رسم المتجهات المعايرة'
+                : 'Live LaTeX typesetting, math keypad, and calibrated vector sketchpad'}
             </p>
           </div>
         </div>
@@ -156,35 +333,41 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
             <button
               onClick={() => setActiveTab('latex')}
-              className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'latex'
                   ? 'bg-indigo-600 text-white font-bold shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <Edit3 className="w-3.5 h-3.5" />
-              {isAr ? 'محرر المعادلات' : 'LaTeX Typesetter'}
+              <span>{isAr ? 'محرر المعادلات' : 'LaTeX Typesetter'}</span>
             </button>
             <button
               onClick={() => setActiveTab('draw')}
-              className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'draw'
                   ? 'bg-indigo-600 text-white font-bold shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               <PenTool className="w-3.5 h-3.5" />
-              {isAr ? 'لوحة الرسم الحر' : 'Freehand Canvas'}
+              <span>{isAr ? 'لوحة الرسم الحر' : 'Freehand Canvas'}</span>
             </button>
           </div>
 
-          <button
-            onClick={handleCopy}
-            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all cursor-pointer"
-            title={isAr ? 'نسخ كود LaTeX' : 'Copy LaTeX code'}
-          >
-            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-          </button>
+          {activeTab === 'latex' && (
+            <button
+              onClick={handleCopy}
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all cursor-pointer"
+              title={isAr ? 'نسخ كود LaTeX' : 'Copy LaTeX code'}
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-emerald-400" />
+              ) : (
+                <Copy className="w-4 h-4" />
+              )}
+            </button>
+          )}
         </div>
       </div>
 
@@ -198,7 +381,9 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           {/* Virtual Math Keypad */}
           <div className="space-y-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-              {isAr ? 'لوحة الرموز والعمليات الرياضية:' : 'STEM Symbols & Operators Keypad:'}
+              {isAr
+                ? 'لوحة الرموز والعمليات الرياضية:'
+                : 'STEM Symbols & Operators Keypad:'}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {symbols.map((sym, idx) => (
@@ -216,7 +401,9 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           {/* Egyptian Curriculum Presets */}
           <div className="space-y-2">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-              {isAr ? 'قوانين ونماذج الثانوية العامة الجاهزة:' : 'Thanaweya Amma Formula Templates:'}
+              {isAr
+                ? 'قوانين ونماذج الثانوية العامة الجاهزة:'
+                : 'Thanaweya Amma Formula Templates:'}
             </span>
             <div className="flex flex-wrap gap-2">
               {stemPresets.map((p, idx) => (
@@ -235,7 +422,7 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           <div>
             <textarea
               value={latexInput}
-              onChange={e => setLatexInput(e.target.value)}
+              onChange={(e) => setLatexInput(e.target.value)}
               rows={3}
               placeholder="Type or edit LaTeX: e.g. \frac{a}{b}"
               className="w-full bg-slate-950 border border-slate-700 rounded-2xl p-3 text-xs font-mono text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
@@ -243,29 +430,159 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           </div>
         </div>
       ) : (
-        /* Freehand Drawing Whiteboard */
+        /* Freehand Drawing Whiteboard (Calibrated Precision Mode) */
         <div className="mt-4 space-y-3">
-          <div className="w-full h-72 bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden relative touch-none">
+          {/* Drawing Toolbar (Colors, Stroke Widths, Tools, Grid & Actions) */}
+          <div className="flex flex-wrap items-center justify-between gap-2.5 bg-slate-950/80 p-2.5 rounded-2xl border border-slate-800 text-xs">
+            {/* Tool & Colors */}
+            <div className="flex items-center gap-2 flex-wrap">
+              {/* Pen / Eraser Toggle */}
+              <div className="flex items-center bg-slate-900 rounded-xl p-0.5 border border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => setActiveTool('pen')}
+                  className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all cursor-pointer ${
+                    activeTool === 'pen'
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                  title={isAr ? 'قلم الرسم' : 'Drawing Pen'}
+                >
+                  <PenTool className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">
+                    {isAr ? 'قلم' : 'Pen'}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTool('eraser')}
+                  className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all cursor-pointer ${
+                    activeTool === 'eraser'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                  title={isAr ? 'ممحاة' : 'Eraser'}
+                >
+                  <Eraser className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">
+                    {isAr ? 'ممحاة' : 'Eraser'}
+                  </span>
+                </button>
+              </div>
+
+              {/* Color Swatches (Only when pen is active) */}
+              {activeTool === 'pen' && (
+                <div className="flex items-center gap-1.5 bg-slate-900/90 px-2 py-1 rounded-xl border border-slate-800">
+                  {PEN_COLORS.map((c) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => setSelectedColor(c.value)}
+                      className={`w-5 h-5 rounded-full transition-transform cursor-pointer flex items-center justify-center ${
+                        selectedColor === c.value
+                          ? 'scale-125 ring-2 ring-white/90 shadow-md'
+                          : 'opacity-70 hover:opacity-100 hover:scale-110'
+                      }`}
+                      style={{ backgroundColor: c.value }}
+                      title={isAr ? c.labelAr : c.labelEn}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Stroke Width Selector */}
+              <div className="flex items-center gap-1 bg-slate-900/90 px-2 py-1 rounded-xl border border-slate-800">
+                {PEN_WIDTHS.map((w) => (
+                  <button
+                    key={w.id}
+                    type="button"
+                    onClick={() => setSelectedWidth(w.size)}
+                    className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
+                      selectedWidth === w.size
+                        ? 'bg-indigo-500/30 text-indigo-300 border border-indigo-500/40'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {isAr ? w.labelAr : w.labelEn}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Actions (Grid, Clear, Download) */}
+            <div className="flex items-center gap-1.5">
+              {/* Grid Toggle */}
+              <button
+                type="button"
+                onClick={() => setShowGrid((prev) => !prev)}
+                className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
+                  showGrid
+                    ? 'bg-cyan-950/60 text-cyan-300 border-cyan-500/40'
+                    : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+                }`}
+                title={
+                  isAr
+                    ? 'تبديل الشبكة الرياضية الخلفية'
+                    : 'Toggle Math Coordinate Grid'
+                }
+              >
+                <Grid className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Download PNG */}
+              <button
+                type="button"
+                onClick={downloadSketch}
+                className="p-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all cursor-pointer"
+                title={isAr ? 'تصدير الرسم كصورة PNG' : 'Export sketch as PNG'}
+              >
+                <Download className="w-3.5 h-3.5" />
+              </button>
+
+              {/* Clear Canvas */}
+              <button
+                type="button"
+                onClick={clearCanvas}
+                className="px-2.5 py-1 rounded-xl bg-rose-950/50 hover:bg-rose-900/60 text-rose-300 border border-rose-500/30 transition-all flex items-center gap-1 cursor-pointer"
+                title={isAr ? 'مسح اللوحة بالكامل' : 'Clear Canvas'}
+              >
+                <Trash2 className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">
+                  {isAr ? 'مسح' : 'Clear'}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Calibrated Canvas Viewport */}
+          <div
+            className="w-full h-80 sm:h-96 bg-slate-950 rounded-2xl border border-slate-800/90 overflow-hidden relative touch-none shadow-inner select-none"
+            style={{
+              backgroundImage: showGrid
+                ? 'radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px)'
+                : 'none',
+              backgroundSize: '24px 24px, 24px 24px, 24px 24px',
+            }}
+          >
             <canvas
               ref={drawCanvasRef}
-              width={640}
-              height={288}
-              onMouseDown={startDrawing}
-              onMouseMove={drawMove}
-              onMouseUp={stopDrawing}
-              onMouseLeave={stopDrawing}
-              onTouchStart={startDrawing}
-              onTouchMove={drawMove}
-              onTouchEnd={stopDrawing}
-              className="w-full h-full block cursor-crosshair"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerLeave={handlePointerUp}
+              onPointerCancel={handlePointerUp}
+              className="w-full h-full block cursor-crosshair touch-none"
             />
-            <button
-              onClick={clearCanvas}
-              className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-rose-400 border border-slate-700 text-xs flex items-center gap-1.5 shadow-lg backdrop-blur-sm cursor-pointer"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-              {isAr ? 'مسح اللوحة' : 'Clear Canvas'}
-            </button>
+
+            {/* Subdued Calibration Status Badge */}
+            <div className="absolute bottom-2 left-2 text-[10px] text-slate-500/70 font-mono pointer-events-none select-none flex items-center gap-1.5 bg-black/40 px-2 py-0.5 rounded-md border border-white/5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              <span>
+                {isAr
+                  ? 'معايرة النقطة والصفر: نشطة (دقة مطلقة)'
+                  : 'Zero-drift pointer calibration: active'}
+              </span>
+            </div>
           </div>
         </div>
       )}
