@@ -101,7 +101,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className={`w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border ${
+        className={`w-full sm:w-auto max-w-full sm:max-w-[280px] md:max-w-[340px] flex items-center justify-between sm:justify-start gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border min-w-0 ${
           compact ? 'px-2.5 py-1.5' : 'px-3 sm:px-3.5 py-2'
         } ${
           isContrast
@@ -112,13 +112,13 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         }`}
       >
         {activeSubject ? (
-          <div className="flex items-center gap-2 truncate">
+          <div className="flex items-center gap-2 truncate min-w-0 flex-1">
             <span className="text-sm shrink-0 leading-none">{activeSubject.emoji}</span>
-            <span className="truncate font-extrabold">
+            <span className="truncate font-extrabold min-w-0">
               {isArabic ? activeSubject.titleAr : activeSubject.titleEn}
             </span>
             <span
-              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
+              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md shrink-0 ${
                 isContrast
                   ? 'bg-yellow-400 text-black font-black'
                   : isLight
@@ -133,13 +133,13 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
             </span>
           </div>
         ) : (
-          <div className="flex items-center gap-2 truncate">
+          <div className="flex items-center gap-2 truncate min-w-0 flex-1">
             <Layers className={`w-4 h-4 shrink-0 ${isContrast ? 'text-yellow-400' : 'text-indigo-400'}`} />
-            <span className="truncate font-extrabold">
+            <span className="truncate font-extrabold min-w-0">
               {isArabic ? 'جميع المواد' : 'All Subjects'}
             </span>
             <span
-              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
+              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md shrink-0 ${
                 isContrast
                   ? 'bg-cyan-400 text-black font-black'
                   : isLight

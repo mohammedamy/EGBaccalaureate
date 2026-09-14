@@ -98,7 +98,7 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className={`w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border ${
+        className={`w-full sm:w-auto max-w-full sm:max-w-[240px] md:max-w-[300px] flex items-center justify-between sm:justify-start gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border min-w-0 ${
           compact ? 'px-2.5 py-1.5' : 'px-3 sm:px-3.5 py-2'
         } ${
           isContrast
@@ -108,13 +108,13 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
             : 'bg-slate-900 border-slate-700/80 text-slate-100 hover:border-indigo-500/70 hover:bg-slate-800/90'
         }`}
       >
-        <div className="flex items-center gap-2 truncate">
+        <div className="flex items-center gap-2 truncate min-w-0 flex-1">
           <ActiveIcon className={`w-3.5 h-3.5 shrink-0 ${activeTrack.iconColor}`} />
-          <span className="truncate font-extrabold">
+          <span className="truncate font-extrabold min-w-0">
             {isArabic ? activeTrack.titleAr : activeTrack.titleEn}
           </span>
           <span
-            className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
+            className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md shrink-0 ${
               isContrast
                 ? 'bg-cyan-400 text-black font-black'
                 : isLight

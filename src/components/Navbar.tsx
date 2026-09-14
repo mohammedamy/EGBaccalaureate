@@ -58,13 +58,17 @@ export const Navbar: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isHighContrast = theme === 'high-contrast';
 
+  const isLargeOrXLarge = fontSize === 'large' || fontSize === 'xlarge';
+
   // Dropdown menus state
   const [isThemeOpen, setIsThemeOpen] = useState(false);
   const [isFontOpen, setIsFontOpen] = useState(false);
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isTabMenuOpen, setIsTabMenuOpen] = useState(false);
 
   const themeRef = useRef<HTMLDivElement>(null);
   const fontRef = useRef<HTMLDivElement>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
   const tabMenuRef = useRef<HTMLDivElement>(null);
 
   // Close dropdowns on outside click
@@ -76,6 +80,9 @@ export const Navbar: React.FC<Props> = ({
       }
       if (fontRef.current && !fontRef.current.contains(target)) {
         setIsFontOpen(false);
+      }
+      if (toolsRef.current && !toolsRef.current.contains(target)) {
+        setIsToolsOpen(false);
       }
       if (tabMenuRef.current && !tabMenuRef.current.contains(target)) {
         setIsTabMenuOpen(false);
@@ -91,6 +98,7 @@ export const Navbar: React.FC<Props> = ({
       if (e.key === 'Escape') {
         setIsThemeOpen(false);
         setIsFontOpen(false);
+        setIsToolsOpen(false);
         setIsTabMenuOpen(false);
       }
     };
@@ -113,6 +121,89 @@ export const Navbar: React.FC<Props> = ({
 
   const activeTabObj = navTabs.find((tab) => tab.id === activeTab) || navTabs[0];
 
+  const quickTools = [
+    onOpenFormulaHandbook && {
+      id: 'formulas',
+      label: isArabic ? 'دستور القوانين والمعادلات' : 'Formula Sheet Handbook',
+      desc: isArabic ? 'مرجع شامل لجميع قوانين الثانوية والبكالوريا' : 'Comprehensive formula reference',
+      shortcut: '⌘J',
+      icon: BookOpen,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenFormulaHandbook();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenMathScratchpad && {
+      id: 'scratchpad',
+      label: isArabic ? 'المسودة الرياضية التفاعلية' : 'Interactive Math Scratchpad',
+      desc: isArabic ? 'لوحة رسم ومعادلات KaTeX بدقة متناهية' : 'Precision math drawing canvas',
+      shortcut: null,
+      icon: Edit3,
+      color: 'text-purple-400',
+      onClick: () => {
+        onOpenMathScratchpad();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenOfficialBooks && {
+      id: 'books',
+      label: isArabic ? 'كتب الوزارة والأدلة الرسمية PDF' : 'Official Ministry PDF Books',
+      desc: isArabic ? 'تحميل وقراءة الكتب المدرسية المعتمدة' : 'Approved ministry textbooks',
+      shortcut: '⌘B',
+      icon: Download,
+      color: 'text-teal-400',
+      onClick: () => {
+        onOpenOfficialBooks();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenDesmos && {
+      id: 'desmos',
+      label: isArabic ? 'حاسبة ديسموس البيانية 2D/3D' : 'Desmos Graphing Calculator',
+      desc: isArabic ? 'تمثيل الدوال والمنحنيات رياضياً' : '2D/3D curve and function graphing',
+      shortcut: '⌘D',
+      icon: Calculator,
+      color: 'text-cyan-400',
+      onClick: () => {
+        onOpenDesmos();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenTutorial && {
+      id: 'tutorial',
+      label: isArabic ? 'دليل استخدام المنصة وجولة سريعة' : 'How to Navigate (Quick Tour)',
+      desc: isArabic ? 'شرح تفاعلي لكافة أقسام المنصة' : 'Interactive platform tutorial',
+      shortcut: '?',
+      icon: Compass,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenTutorial();
+        setIsToolsOpen(false);
+      },
+    },
+    {
+      id: 'role',
+      label: role === 'student' ? (isArabic ? 'التحويل لوضع المعلم' : 'Switch to Teacher Mode') : (isArabic ? 'التحويل لوضع الطالب' : 'Switch to Student Mode'),
+      desc: role === 'student' ? (isArabic ? 'الحالي: وضع الطالب' : 'Current: Student') : (isArabic ? 'الحالي: وضع المعلم' : 'Current: Teacher'),
+      shortcut: null,
+      icon: UserCheck,
+      color: 'text-indigo-400',
+      onClick: () => {
+        onRoleToggle();
+        setIsToolsOpen(false);
+      },
+    },
+  ].filter(Boolean) as Array<{
+    id: string;
+    label: string;
+    desc: string;
+    shortcut: string | null;
+    icon: typeof BookOpen;
+    color: string;
+    onClick: () => void;
+  }>;
+
   return (
     <header className={`sticky top-0 z-50 transition-colors duration-300 border-b backdrop-blur-md no-print ${
       isHighContrast
@@ -121,26 +212,33 @@ export const Navbar: React.FC<Props> = ({
         ? 'bg-white/95 text-slate-800 border-slate-200 shadow-sm'
         : 'bg-slate-950/95 text-slate-100 border-slate-800 shadow-xl'
     }`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 w-full">
         {/* Top Announcement Bar */}
-        <div className={`py-1.5 border-b flex items-center justify-between gap-2 text-[11px] transition-colors ${
+        <div className={`py-1.5 border-b flex items-center justify-between gap-1.5 sm:gap-2 text-[11px] transition-colors min-w-0 ${
           isHighContrast
             ? 'border-cyan-500/40 text-slate-200'
             : isLight
             ? 'border-slate-200 text-slate-500'
             : 'border-slate-800/60 text-slate-400'
         }`}>
-          <div className="flex items-center gap-2 truncate">
+          {/* Left Column: Official MOE Reference */}
+          <div className="flex items-center gap-1.5 sm:gap-2 truncate min-w-0 shrink">
             <span className={`inline-block w-2 h-2 rounded-full shrink-0 animate-pulse ${
               isHighContrast ? 'bg-cyan-400' : 'bg-emerald-500'
             }`}></span>
-            <span className={`font-semibold shrink-0 ${
+            <span className={`font-semibold shrink-0 text-[10px] sm:text-[11px] ${
               isHighContrast ? 'text-cyan-300 font-black' : isLight ? 'text-emerald-700' : 'text-emerald-400'
             }`}>{t.moeBadge}</span>
-            <span className={`hidden sm:inline ${
+            <span className={`hidden lg:inline ${
               isHighContrast ? 'text-cyan-600' : isLight ? 'text-slate-300' : 'text-slate-600'
             }`}>|</span>
-            <span className={`hidden sm:inline truncate max-w-[140px] md:max-w-[200px] lg:max-w-none ${
+            <span className={`hidden lg:inline font-bold shrink-0 ${
+              isHighContrast ? 'text-slate-200' : isLight ? 'text-slate-700' : 'text-slate-200'
+            }`}>{t.officialMinistryBadge}</span>
+            <span className={`hidden xl:inline ${
+              isHighContrast ? 'text-cyan-600' : isLight ? 'text-slate-300' : 'text-slate-600'
+            }`}>|</span>
+            <span className={`hidden xl:inline truncate max-w-[140px] 2xl:max-w-none ${
               isHighContrast ? 'text-slate-100' : isLight ? 'text-slate-600' : 'text-slate-300'
             }`}>{t.officialMoeRef}</span>
             <span className={`hidden 2xl:inline ${
@@ -150,7 +248,7 @@ export const Navbar: React.FC<Props> = ({
               href="https://clipsat.org"
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden 2xl:inline-flex items-center gap-1 font-bold text-[10px] transition-all hover:underline ${
+              className={`hidden 2xl:inline-flex items-center gap-1 font-bold text-[10px] transition-all hover:underline shrink-0 ${
                 isHighContrast ? 'text-cyan-300' : isLight ? 'text-blue-700 hover:text-blue-900' : 'text-cyan-400 hover:text-cyan-300'
               }`}
               title={t.sisterSite}
@@ -160,8 +258,8 @@ export const Navbar: React.FC<Props> = ({
             </a>
           </div>
 
-          {/* Mobile-Friendly Utility Row: Dropdown Menus for Font Size & Theme */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 justify-end">
+          {/* Right Column: Responsive Dropdown Menus & Quick Tools */}
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 justify-end min-w-0">
             {/* Font Size Dropdown Menu */}
             <div ref={fontRef} className="relative inline-block text-left">
               <button
@@ -169,6 +267,7 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => {
                   setIsFontOpen((prev) => !prev);
                   setIsThemeOpen(false);
+                  setIsToolsOpen(false);
                 }}
                 aria-haspopup="true"
                 aria-expanded={isFontOpen}
@@ -248,10 +347,11 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => {
                   setIsThemeOpen((prev) => !prev);
                   setIsFontOpen(false);
+                  setIsToolsOpen(false);
                 }}
                 aria-haspopup="true"
                 aria-expanded={isThemeOpen}
-                className={`flex items-center gap-1.5 px-2 py-1 rounded-full border text-[11px] font-bold shadow-xs active:scale-95 transition-all cursor-pointer ${
+                className={`flex items-center gap-1 px-2 py-1 rounded-full border text-[11px] font-bold shadow-xs active:scale-95 transition-all cursor-pointer ${
                   isHighContrast
                     ? 'bg-black border-yellow-400 text-yellow-300 hover:bg-zinc-950'
                     : isLight
@@ -330,8 +430,98 @@ export const Navbar: React.FC<Props> = ({
               )}
             </div>
 
-            {/* Desktop Quick Tools */}
-            <div className="hidden md:flex items-center gap-1 xl:gap-1.5">
+            {/* Quick Tools Dropdown (Shows on < xl screens normally, or < 2xl when large/xlarge font size is in use) */}
+            <div ref={toolsRef} className={`relative inline-block text-left ${isLargeOrXLarge ? '2xl:hidden' : 'xl:hidden'}`}>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsToolsOpen((prev) => !prev);
+                  setIsFontOpen(false);
+                  setIsThemeOpen(false);
+                }}
+                aria-haspopup="true"
+                aria-expanded={isToolsOpen}
+                className={`flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-full border text-[11px] font-bold shadow-xs active:scale-95 transition-all cursor-pointer ${
+                  isHighContrast
+                    ? 'bg-black border-cyan-400 text-cyan-300 hover:bg-zinc-950'
+                    : isLight
+                    ? 'bg-indigo-50/90 border-indigo-200 text-indigo-900 hover:bg-indigo-100'
+                    : 'bg-slate-900 border-slate-700 text-slate-200 hover:bg-slate-800'
+                }`}
+                title={isArabic ? 'الأدوات والمراجع السريعة' : 'Quick Tools & References'}
+              >
+                <Compass className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>{isArabic ? 'الأدوات' : 'Tools'}</span>
+                <span className={`text-[9px] font-mono px-1 py-0.2 rounded-full shrink-0 ${
+                  isHighContrast
+                    ? 'bg-cyan-900 text-cyan-200'
+                    : isLight
+                    ? 'bg-indigo-200/70 text-indigo-800'
+                    : 'bg-indigo-900/60 text-indigo-300'
+                }`}>
+                  {isArabic ? '٦' : '6'}
+                </span>
+                <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isToolsOpen && (
+                <div
+                  role="menu"
+                  className={`absolute ${isArabic ? 'left-0' : 'right-0'} mt-1.5 w-64 rounded-xl p-1.5 shadow-xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-[80vh] overflow-y-auto ${
+                    isHighContrast
+                      ? 'bg-black border-2 border-cyan-400 text-white'
+                      : isLight
+                      ? 'bg-white/98 border-slate-200 text-slate-900 shadow-slate-200/60'
+                      : 'bg-slate-950/95 border-slate-800 text-slate-100 shadow-black/80'
+                  }`}
+                >
+                  <div className="px-2.5 py-1 text-[10px] font-bold text-slate-400 border-b border-slate-200 dark:border-slate-800 mb-1 flex items-center justify-between">
+                    <span>{isArabic ? 'الأدوات والمراجع التفاعلية' : 'Tools & Quick References'}</span>
+                    <span className="text-[9px] font-mono opacity-70">{quickTools.length} {isArabic ? 'أدوات' : 'tools'}</span>
+                  </div>
+                  <div className="space-y-0.5">
+                    {quickTools.map((tool) => {
+                      if (!tool) return null;
+                      const ToolIcon = tool.icon;
+                      return (
+                        <button
+                          key={tool.id}
+                          type="button"
+                          onClick={tool.onClick}
+                          className={`w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer text-left rtl:text-right ${
+                            isHighContrast
+                              ? 'hover:bg-cyan-950 text-cyan-200'
+                              : isLight
+                              ? 'hover:bg-slate-100 text-slate-800'
+                              : 'hover:bg-slate-900 text-slate-200'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <div className={`p-1.5 rounded-md ${
+                              isHighContrast ? 'bg-zinc-900' : isLight ? 'bg-slate-100' : 'bg-slate-900'
+                            }`}>
+                              <ToolIcon className={`w-3.5 h-3.5 ${tool.color}`} />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="font-bold truncate text-xs">{tool.label}</p>
+                              <p className="text-[10px] text-slate-400 truncate">{tool.desc}</p>
+                            </div>
+                          </div>
+                          {tool.shortcut && (
+                            <kbd className="hidden sm:inline-block text-[9px] font-mono px-1 py-0.5 bg-black/20 dark:bg-white/10 rounded border border-white/15 shrink-0 ml-1.5 rtl:ml-0 rtl:mr-1.5">
+                              {tool.shortcut}
+                            </kbd>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Desktop Individual Quick Tools (Shown on wide screens: xl+ normally, 2xl+ when large/xlarge font) */}
+            <div className={`items-center gap-1 xl:gap-1.5 ${isLargeOrXLarge ? 'hidden 2xl:flex' : 'hidden xl:flex'}`}>
               {/* Formula Handbook Trigger */}
               {onOpenFormulaHandbook && (
                 <button
@@ -460,130 +650,10 @@ export const Navbar: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Mobile-Only Horizontal Action Toolbar: Quick Tools Carousel */}
-        <div className={`md:hidden flex items-center gap-1.5 overflow-x-auto py-1.5 border-b no-scrollbar text-[10px] font-bold overscroll-x-contain ${
-          isHighContrast
-            ? 'border-cyan-500/30 bg-black/60'
-            : isLight
-            ? 'border-slate-200/80 bg-slate-50/50'
-            : 'border-slate-800/60 bg-slate-950/50'
-        }`}>
-          {/* Mobile How To Tour */}
-          {onOpenTutorial && (
-            <button
-              onClick={onOpenTutorial}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-                isHighContrast
-                  ? 'bg-cyan-950 text-cyan-300 border-cyan-400'
-                  : isLight
-                  ? 'bg-amber-50 text-amber-900 border-amber-300'
-                  : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
-              }`}
-            >
-              <Compass className="w-3 h-3 text-amber-400" />
-              <span>{t.howToShort}</span>
-            </button>
-          )}
-
-          {onOpenFormulaHandbook && (
-            <button
-              onClick={onOpenFormulaHandbook}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-                isHighContrast
-                  ? 'bg-black text-yellow-300 border-yellow-400'
-                  : isLight
-                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
-                  : 'bg-emerald-950/70 text-emerald-300 border-emerald-700/60'
-              }`}
-            >
-              <BookOpen className="w-3 h-3 text-emerald-400" />
-              <span>{isArabic ? 'دستور القوانين' : 'Formula Sheet'}</span>
-            </button>
-          )}
-
-          {onOpenMathScratchpad && (
-            <button
-              onClick={onOpenMathScratchpad}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-                isHighContrast
-                  ? 'bg-black text-purple-300 border-purple-400'
-                  : isLight
-                  ? 'bg-purple-50 text-purple-800 border-purple-300'
-                  : 'bg-purple-950/70 text-purple-300 border-purple-700/60'
-              }`}
-            >
-              <Edit3 className="w-3 h-3 text-purple-400" />
-              <span>{isArabic ? 'المسودة' : 'Scratchpad'}</span>
-            </button>
-          )}
-
-          {onOpenOfficialBooks && (
-            <button
-              onClick={onOpenOfficialBooks}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-                isHighContrast
-                  ? 'bg-black text-amber-300 border-amber-400'
-                  : isLight
-                  ? 'bg-teal-50 text-teal-800 border-teal-300'
-                  : 'bg-teal-950/70 text-teal-300 border-teal-700/60'
-              }`}
-            >
-              <Download className="w-3 h-3 text-teal-400" />
-              <span>{t.officialBooksNavBtn}</span>
-            </button>
-          )}
-
-          {onOpenDesmos && (
-            <button
-              onClick={onOpenDesmos}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-                isHighContrast
-                  ? 'bg-black text-cyan-300 border-cyan-400'
-                  : isLight
-                  ? 'bg-indigo-50 text-indigo-800 border-indigo-300'
-                  : 'bg-cyan-950/70 text-cyan-300 border-cyan-700/60'
-              }`}
-            >
-              <Calculator className="w-3 h-3 text-cyan-400" />
-              <span>{isArabic ? 'ديسموس 2D/3D' : 'Desmos'}</span>
-            </button>
-          )}
-
-          <button
-            onClick={onRoleToggle}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-              isHighContrast
-                ? 'bg-black text-white border-white/60'
-                : isLight
-                ? 'bg-slate-100 text-slate-700 border-slate-300'
-                : 'bg-slate-900 text-slate-200 border-slate-700'
-            }`}
-          >
-            <UserCheck className="w-3 h-3 text-indigo-400" />
-            <span>{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
-          </button>
-
-          <a
-            href="https://clipsat.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
-              isHighContrast
-                ? 'bg-black text-cyan-300 border-cyan-400'
-                : isLight
-                ? 'bg-blue-50 text-blue-700 border-blue-200'
-                : 'bg-blue-950/70 text-blue-300 border-blue-700/60'
-            }`}
-          >
-            <span>clipsat.org</span>
-            <ExternalLink className="w-2.5 h-2.5" />
-          </a>
-        </div>
-
         {/* Main Nav Header */}
-        <div className="py-2.5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2.5 sm:gap-4 w-full">
+        <div className={`py-2.5 flex flex-col ${isLargeOrXLarge ? '2xl:flex-row' : 'xl:flex-row'} items-stretch ${isLargeOrXLarge ? '2xl:items-center' : 'xl:items-center'} justify-between gap-2.5 sm:gap-4 w-full`}>
           {/* Logo & Brand Title */}
-          <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 shrink-0 min-w-0">
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <a
                 href="https://clipsat.org"
@@ -602,8 +672,8 @@ export const Navbar: React.FC<Props> = ({
                   title={isArabic ? 'علم جمهورية مصر العربية' : 'Flag of the Arab Republic of Egypt'}
                 />
               </a>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className={`text-sm sm:text-lg font-black tracking-tight whitespace-nowrap ${
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                <span className={`text-sm sm:text-base xl:text-lg font-black tracking-tight whitespace-nowrap ${
                   isLight
                     ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent'
                     : 'bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent drop-shadow-sm'
@@ -624,7 +694,7 @@ export const Navbar: React.FC<Props> = ({
               href="https://clipsat.org"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex lg:hidden xl:inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
+              className={`inline-flex lg:hidden 2xl:inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
                 isHighContrast
                   ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
                   : isLight
@@ -639,7 +709,7 @@ export const Navbar: React.FC<Props> = ({
           </div>
 
           {/* Controls: Subject Selector & Curriculum Switcher - Both as Dropdown Menus */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 shrink-0 w-full lg:w-auto">
+          <div className={`flex flex-wrap sm:flex-nowrap items-stretch sm:items-center justify-end gap-2 shrink-0 w-full ${isLargeOrXLarge ? '2xl:w-auto' : 'xl:w-auto'} min-w-0`}>
             {curriculumData && onSubjectChange && (
               <SubjectSelector
                 selectedSubject={selectedSubject || 'all'}
@@ -647,7 +717,7 @@ export const Navbar: React.FC<Props> = ({
                 curriculum={curriculumData}
                 lang={lang}
                 theme={theme}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto flex-1 sm:flex-none min-w-0"
               />
             )}
 
@@ -657,15 +727,15 @@ export const Navbar: React.FC<Props> = ({
               onCurriculumChange={onCurriculumChange}
               lang={lang}
               theme={theme}
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto flex-1 sm:flex-none min-w-0"
             />
           </div>
         </div>
 
-        {/* Tab Navigation Section: Responsive Dropdown Menu on Mobile/Tablet, Clean Row on Desktop */}
+        {/* Tab Navigation Section: Responsive Dropdown Menu on Mobile/Tablet/A++, Clean Row on Wide Screens */}
         <div className="py-2 border-t border-slate-200/50 dark:border-slate-800/80">
-          {/* Mobile & Tablet Tab Dropdown Menu (lg:hidden) */}
-          <div ref={tabMenuRef} className="relative lg:hidden">
+          {/* Tab Dropdown Menu: Active on screens below 2xl when large/xlarge font size is used, or below xl normally */}
+          <div ref={tabMenuRef} className={`relative ${isLargeOrXLarge ? '2xl:hidden' : 'xl:hidden'}`}>
             <button
               type="button"
               onClick={() => setIsTabMenuOpen((prev) => !prev)}
@@ -762,9 +832,11 @@ export const Navbar: React.FC<Props> = ({
             )}
           </div>
 
-          {/* Desktop Tab Navigation (hidden on mobile/tablet, clean row on desktop) */}
+          {/* Desktop Tab Navigation (Visible on xl+ normally, 2xl+ when large font, with flex-wrap safeguard) */}
           <nav
-            className="hidden lg:flex items-center gap-1.5 xl:gap-2 overflow-x-auto no-scrollbar text-xs font-semibold scroll-smooth"
+            className={`items-center gap-1 xl:gap-1.5 flex-wrap text-xs font-semibold ${
+              isLargeOrXLarge ? 'hidden 2xl:flex' : 'hidden xl:flex'
+            }`}
           >
             {navTabs.map((tab) => {
               const isActive = activeTab === tab.id;
