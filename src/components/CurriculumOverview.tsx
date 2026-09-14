@@ -24,6 +24,7 @@ import {
   FileSpreadsheet,
   Download,
   Check,
+  ChevronDown,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import {
@@ -495,53 +496,39 @@ export const CurriculumOverview: React.FC<Props> = ({
         )}
       </div>
 
-        {/* Sub-Branch Filter Pills (shown when multiple branches exist for current view) */}
+        {/* Sub-Branch Filter Dropdown */}
         {subjectBranches.length > 1 && (
-          <div
-            className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar -mx-3.5 px-3.5 sm:mx-0 sm:px-0 touch-pan-x"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
+          <div className="flex items-center gap-2.5 flex-wrap">
             <span className={`text-xs font-bold whitespace-nowrap ${
               isLight ? 'text-slate-700' : 'text-slate-400'
             }`}>
-              {isArabic ? 'تصفية الفروع:' : 'Sub-Branches:'}
+              {isArabic ? 'تصفية الفروع:' : 'Filter Branch:'}
             </span>
-            <button
-              onClick={() => setSelectedBranchId('all')}
-              className={`px-3 py-1 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer active:scale-95 ${
-                selectedBranchId === 'all'
-                  ? isContrast
-                    ? 'bg-yellow-400 text-black font-black'
-                    : 'bg-indigo-600 text-white shadow-xs font-extrabold'
-                  : isContrast
-                  ? 'bg-black border border-cyan-400 text-white'
-                  : isLight
-                  ? 'bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 shadow-2xs'
-                  : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              {isArabic ? `جميع الفروع (${toHindiDigits(subjectBranches.length)})` : `All Branches (${subjectBranches.length})`}
-            </button>
-            {subjectBranches.map((b) => (
-              <button
-                key={b.id}
-                onClick={() => setSelectedBranchId(b.id)}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
-                  selectedBranchId === b.id
-                    ? isContrast
-                      ? 'bg-yellow-400 text-black font-black'
-                      : 'bg-indigo-600 text-white shadow-xs font-extrabold'
-                    : isContrast
-                    ? 'bg-black border border-cyan-400 text-white'
+            <div className="relative min-w-[200px] sm:min-w-[240px]">
+              <select
+                value={selectedBranchId}
+                onChange={(e) => setSelectedBranchId(e.target.value)}
+                className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                  isContrast
+                    ? 'bg-black text-white border-yellow-400'
                     : isLight
-                    ? 'bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-100 shadow-2xs'
-                    : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-white border-slate-300 text-slate-800'
+                    : 'bg-slate-900 border-slate-700 text-slate-200'
                 }`}
               >
-                {getBranchIcon(b.iconName)}
-                <span>{isArabic ? b.titleAr : b.titleEn}</span>
-              </button>
-            ))}
+                <option value="all" className="bg-slate-900 text-white">
+                  {isArabic ? `جميع الفروع (${toHindiDigits(subjectBranches.length)})` : `All Branches (${subjectBranches.length})`}
+                </option>
+                {subjectBranches.map((b) => (
+                  <option key={b.id} value={b.id} className="bg-slate-900 text-white">
+                    {isArabic ? b.titleAr : b.titleEn}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown className="w-3.5 h-3.5" />
+              </div>
+            </div>
           </div>
         )}
 

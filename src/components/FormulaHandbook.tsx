@@ -226,47 +226,20 @@ export const FormulaHandbook: React.FC<Props> = ({
               )}
             </div>
 
-            {/* Curriculum Track Filter */}
-            <div className="flex items-center gap-1.5 p-1 bg-slate-950 rounded-xl border border-slate-800 shrink-0 w-full sm:w-auto justify-center">
-              <button
-                onClick={() => {
-                  setSelectedCurriculum('all');
+            {/* Curriculum Track Filter Dropdown */}
+            <div className="w-full sm:w-48 shrink-0">
+              <select
+                value={selectedCurriculum}
+                onChange={(e) => {
+                  setSelectedCurriculum(e.target.value as any);
                   setSelectedBranchId('all');
                 }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  selectedCurriculum === 'all'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 outline-none cursor-pointer font-bold"
               >
-                {isArabic ? 'جميع المناهج' : 'All Tracks'}
-              </button>
-              <button
-                onClick={() => {
-                  setSelectedCurriculum('thanaweya');
-                  setSelectedBranchId('all');
-                }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  selectedCurriculum === 'thanaweya'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {isArabic ? 'الثانوية العامة' : 'Thanaweya'}
-              </button>
-              <button
-                onClick={() => {
-                  setSelectedCurriculum('egbac');
-                  setSelectedBranchId('all');
-                }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  selectedCurriculum === 'egbac'
-                    ? 'bg-teal-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {isArabic ? 'البكالوريا' : 'EG-Bac'}
-              </button>
+                <option value="all">{isArabic ? '⚖️ جميع المناهج' : '⚖️ All Tracks'}</option>
+                <option value="thanaweya">{isArabic ? '🏅 الثانوية العامة (وزاري)' : '🏅 Thanaweya Amma'}</option>
+                <option value="egbac">{isArabic ? '📘 البكالوريا المصرية (STEM)' : '📘 EG-Baccalaureate'}</option>
+              </select>
             </div>
 
             {/* Branch Filter Dropdown */}

@@ -5,14 +5,11 @@ import { PhotoelectricLab } from './PhotoelectricLab';
 import {
   Zap,
   Gauge,
-  Sun,
   Activity,
   Sparkles,
   Info,
-  Radio,
-  Compass,
-  Atom,
   BookOpen,
+  ChevronDown,
 } from 'lucide-react';
 import { DynamoInductionLab } from './DynamoInductionLab';
 import { RLCResonanceLab } from './RLCResonanceLab';
@@ -172,147 +169,53 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
           </div>
         </div>
 
-        {/* Subtabs */}
-        <div
-          className={`flex items-center p-1 rounded-xl border self-stretch md:self-auto overflow-x-auto ${
-            isContrast
-              ? 'bg-black border-cyan-400'
-              : isLight
-              ? 'bg-slate-100 border-slate-300'
-              : 'bg-slate-900 border-slate-800'
-          }`}
-        >
-          <button
-            onClick={() => setActiveTab('circuits')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'circuits'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Gauge className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('optics')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'optics'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Sun className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'البصريات وتجربة ينج' : 'Optics & Ray-Tracing'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('magnetism')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'magnetism'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Compass className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('dynamo')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'dynamo'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('resonance')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'resonance'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Radio className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('photoelectric')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'photoelectric'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Sun className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('atomic_lasers')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'atomic_lasers'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Atom className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('flashcards')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'flashcards'
-                ? isContrast
-                  ? 'bg-cyan-400 text-black font-black'
-                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <span>🗂️</span>
-            <span>{isArabic ? 'بطاقات الاستذكار' : 'Flashcards'}</span>
-          </button>
+        {/* Subtabs Dropdown & Constants Button */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <div className="relative min-w-[240px] sm:min-w-[280px]">
+            <select
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value as PhysicsTab)}
+              className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
+                isContrast
+                  ? 'bg-black text-white border-cyan-400'
+                  : isLight
+                  ? 'bg-slate-100 border-slate-300 text-slate-800'
+                  : 'bg-slate-900 border-slate-800 text-slate-200'
+              }`}
+            >
+              <option value="circuits" className="bg-slate-900 text-white">
+                ⚡ {isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}
+              </option>
+              <option value="optics" className="bg-slate-900 text-white">
+                🔬 {isArabic ? 'البصريات وتجربة ينج' : 'Optics & Ray-Tracing'}
+              </option>
+              <option value="magnetism" className="bg-slate-900 text-white">
+                🧭 {isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}
+              </option>
+              <option value="dynamo" className="bg-slate-900 text-white">
+                🔄 {isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}
+              </option>
+              <option value="resonance" className="bg-slate-900 text-white">
+                〰️ {isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}
+              </option>
+              <option value="photoelectric" className="bg-slate-900 text-white">
+                ☀️ {isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}
+              </option>
+              <option value="atomic_lasers" className="bg-slate-900 text-white">
+                ⚛️ {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
+              </option>
+              <option value="flashcards" className="bg-slate-900 text-white">
+                🗂️ {isArabic ? 'بطاقات الاستذكار' : 'Physics Flashcards'}
+              </option>
+            </select>
+            <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <ChevronDown className="w-4 h-4" />
+            </div>
+          </div>
 
           <button
             onClick={() => setShowConstants(!showConstants)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer border ${
+            className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer border ${
               showConstants
                 ? isContrast
                   ? 'bg-amber-400 text-black border-amber-300 font-black'

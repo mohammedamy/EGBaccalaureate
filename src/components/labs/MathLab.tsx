@@ -3,12 +3,9 @@ import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
   Calculator,
-  Compass,
-  Boxes,
-  Activity,
-  Layers,
   Sparkles,
   ExternalLink,
+  ChevronDown,
 } from 'lucide-react';
 import { InteractiveCalculusTangent } from '../InteractiveCalculusTangent';
 import { Interactive3DGeometry } from '../Interactive3DGeometry';
@@ -77,79 +74,35 @@ export const MathLab: React.FC<Props> = ({ lang, theme = 'dark', onOpenDesmos })
           </div>
         </div>
 
-        {/* Subtabs */}
-        <div
-          className={`flex items-center p-1 rounded-xl border self-stretch md:self-auto overflow-x-auto ${
-            isContrast
-              ? 'bg-black border-indigo-400'
-              : isLight
-              ? 'bg-slate-100 border-slate-300'
-              : 'bg-slate-900 border-slate-800'
-          }`}
-        >
-          <button
-            onClick={() => setActiveTab('calculus')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'calculus'
-                ? isContrast
-                  ? 'bg-indigo-400 text-black font-black'
-                  : 'bg-indigo-600 text-white font-extrabold shadow-sm'
+        {/* Subtabs Dropdown */}
+        <div className="relative min-w-[240px] sm:min-w-[280px]">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value as MathTab)}
+            className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+              isContrast
+                ? 'bg-black text-white border-indigo-400'
                 : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-slate-100 border-slate-300 text-slate-800'
+                : 'bg-slate-900 border-slate-800 text-slate-200'
             }`}
           >
-            <Compass className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'التفاضل والمماسات' : 'Calculus & Tangents'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('geometry3d')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'geometry3d'
-                ? isContrast
-                  ? 'bg-indigo-400 text-black font-black'
-                  : 'bg-indigo-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Boxes className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الهندسة الفراغية 3D' : '3D Vectors & Planes'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('mechanics')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'mechanics'
-                ? isContrast
-                  ? 'bg-indigo-400 text-black font-black'
-                  : 'bg-indigo-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Activity className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الميكانيكا والاحتكاك' : 'Mechanics & Friction'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('matrix')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'matrix'
-                ? isContrast
-                  ? 'bg-indigo-400 text-black font-black'
-                  : 'bg-indigo-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'المصفوفات والمعادلات' : 'Matrix Algebra'}</span>
-          </button>
+            <option value="calculus" className="bg-slate-900 text-white">
+              🧭 {isArabic ? 'التفاضل والمماسات الديناميكية' : 'Calculus & Tangents'}
+            </option>
+            <option value="geometry3d" className="bg-slate-900 text-white">
+              📦 {isArabic ? 'الهندسة الفراغية 3D والمتجهات' : '3D Vectors & Planes'}
+            </option>
+            <option value="mechanics" className="bg-slate-900 text-white">
+              ⚙️ {isArabic ? 'الميكانيكا والاحتكاك على مستوى مائل' : 'Mechanics & Friction'}
+            </option>
+            <option value="matrix" className="bg-slate-900 text-white">
+              🔢 {isArabic ? 'جبر المصفوفات ومحدد كرامر' : 'Matrix Algebra Solver'}
+            </option>
+          </select>
+          <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+            <ChevronDown className="w-4 h-4" />
+          </div>
         </div>
       </div>
 

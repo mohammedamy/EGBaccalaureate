@@ -17,7 +17,7 @@ import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles } from 'lucide-react';
 import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
 import { SUBJECTS } from '../data/subjects';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -50,6 +50,7 @@ export const LessonView: React.FC<Props> = ({
   onOpenOfficialBooks,
 }) => {
   const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const matchingBook = getOfficialBookByBranch(branch.id);
   const [openHints, setOpenHints] = useState<Record<string, boolean>>({});
   const [openSolutions, setOpenSolutions] = useState<Record<string, boolean>>({});
@@ -469,179 +470,167 @@ export const LessonView: React.FC<Props> = ({
         <div className={`p-3 sm:p-4 rounded-2xl border space-y-3 no-print shadow-sm transition-all ${
           isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
         }`}>
-          {/* Quick Subject Track Jump Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
-            <span className="text-[11px] font-bold text-slate-400 shrink-0">
-              {lang === 'ar' ? 'المادة:' : 'Subject:'}
-            </span>
-            {SUBJECTS.map((s) => {
-              const subBranch = curriculum.branches.find((b) => s.branchIds[curriculum.id]?.includes(b.id as any));
-              const isCurrentSubject = subBranch && s.branchIds[curriculum.id]?.includes(branch.id as any);
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => {
-                    if (subBranch && !isCurrentSubject) {
-                      onSelectLesson(subBranch, subBranch.chapters[0].lessons[0], activeSubTab);
+          {/* Dropdown Navigation Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {/* 1. Branch / Subject Selector Dropdown */}
+            <div className="space-y-1">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                <span>{lang === 'ar' ? 'المادة / الفرع:' : 'Subject / Branch:'}</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={branch.id}
+                  onChange={(e) => {
+                    const selectedBranch = curriculum.branches.find((b) => b.id === e.target.value);
+                    if (selectedBranch && selectedBranch.id !== branch.id) {
+                      onSelectLesson(selectedBranch, selectedBranch.chapters[0].lessons[0], activeSubTab);
                     }
                   }}
-                  className={`px-2.5 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer active:scale-95 flex items-center gap-1 border ${
-                    isCurrentSubject
-                      ? s.id === 'physics'
-                        ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 border-cyan-500 font-extrabold'
-                        : s.id === 'chemistry'
-                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 border-emerald-500 font-extrabold'
-                        : s.id === 'biology'
-                        ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30 border-rose-500 font-extrabold'
-                        : 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500 font-extrabold'
+                  className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
                       : isLight
-                      ? 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
-                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                      ? 'bg-slate-50 border-slate-300 text-slate-800 hover:bg-slate-100'
+                      : 'bg-slate-950 border-slate-700 text-slate-200 hover:border-slate-600'
                   }`}
                 >
-                  <span>{s.emoji}</span>
-                  <span>{lang === 'ar' ? s.titleAr : s.titleEn}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Branch Selector Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-1.5 border-t border-slate-200/50 dark:border-slate-800/80">
-            <div className="flex items-center gap-2 shrink-0">
-              <Layers className="w-4 h-4 text-indigo-500" />
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                {lang === 'ar' ? 'فروع المنهج الدراسي:' : 'Curriculum Branches:'}
-              </span>
+                  {curriculum.branches.map((b) => {
+                    const isPhys = b.id === 'thanaweya_physics' || b.id === 'egbac_physics';
+                    const isChem = b.id === 'thanaweya_chemistry' || b.id === 'egbac_chemistry';
+                    const isBio = b.id === 'thanaweya_biology' || b.id === 'egbac_biology';
+                    const emoji = isPhys ? '⚡' : isChem ? '🧪' : isBio ? '🧬' : '📐';
+                    return (
+                      <option key={b.id} value={b.id} className="bg-slate-900 text-white">
+                        {emoji} {lang === 'ar' ? b.titleAr : b.titleEn} ({b.chapters.length} {lang === 'ar' ? 'فصول' : 'Chs'})
+                      </option>
+                    );
+                  })}
+                </select>
+                <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
             </div>
 
-            <div
-              className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
-              style={{ WebkitOverflowScrolling: 'touch' }}
-            >
-              {curriculum.branches.map((b) => {
-                const isSelectedBranch = b.id === branch.id;
-                const isPhys = b.id === 'thanaweya_physics' || b.id === 'egbac_physics';
-                const isChem = b.id === 'thanaweya_chemistry' || b.id === 'egbac_chemistry';
-                const isBio = b.id === 'thanaweya_biology' || b.id === 'egbac_biology';
+            {/* 2. Chapter Selector Dropdown */}
+            <div className="space-y-1">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                <span>{lang === 'ar' ? 'الفصل الدراسي:' : 'Chapter:'}</span>
+              </label>
+              <div className="relative">
+                <select
+                  value={currentChapter.id}
+                  onChange={(e) => {
+                    const ch = branch.chapters.find((c) => c.id === e.target.value);
+                    if (ch) {
+                      onSelectLesson(branch, ch.lessons[0], activeSubTab);
+                    }
+                  }}
+                  className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
+                      : isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-800 hover:bg-slate-100'
+                      : 'bg-slate-950 border-slate-700 text-slate-200 hover:border-slate-600'
+                  }`}
+                >
+                  {branch.chapters.map((ch) => {
+                    const chNumStr = lang === 'ar' ? `فصل ${toHindiDigits(ch.chapterNumber)}` : `Ch ${ch.chapterNumber}`;
+                    const rawTitle = (lang === 'ar' ? ch.titleAr : ch.titleEn).replace(/\$/g, '');
+                    const qCount = ch.databank ? (lang === 'ar' ? ' [١٥٠ سؤال معتمد]' : ' [150 Q Databank]') : '';
+                    return (
+                      <option key={ch.id} value={ch.id} className="bg-slate-900 text-white">
+                        {chNumStr}: {rawTitle}{qCount}
+                      </option>
+                    );
+                  })}
+                </select>
+                <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
 
-                return (
-                  <button
-                    key={b.id}
-                    onClick={() => {
-                      if (!isSelectedBranch) {
-                        onSelectLesson(b, b.chapters[0].lessons[0], activeSubTab);
+            {/* 3. Lesson Selector Dropdown (or Subject Track Quick Jump if 1 lesson) */}
+            {currentChapter.lessons.length > 1 ? (
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                  <Bookmark className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>{lang === 'ar' ? 'الدرس:' : 'Lesson:'}</span>
+                </label>
+                <div className="relative">
+                  <select
+                    value={lesson.id}
+                    onChange={(e) => {
+                      const l = currentChapter.lessons.find((item) => item.id === e.target.value);
+                      if (l) {
+                        onSelectLesson(branch, l, activeSubTab);
                       }
                     }}
-                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all active:scale-95 flex items-center gap-1 border ${
-                      isSelectedBranch
-                        ? isPhys
-                          ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 border-cyan-400'
-                          : isChem
-                          ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 border-emerald-400'
-                          : isBio
-                          ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30 border-rose-400'
-                          : 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 border-indigo-400'
-                        : isPhys
-                        ? isLight
-                          ? 'bg-cyan-50 text-cyan-800 border-cyan-300 hover:bg-cyan-100'
-                          : 'bg-cyan-950/40 text-cyan-300 border-cyan-800/60 hover:bg-cyan-900/60 hover:text-white'
-                        : isChem
-                        ? isLight
-                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100'
-                          : 'bg-emerald-950/40 text-emerald-300 border-emerald-800/60 hover:bg-emerald-900/60 hover:text-white'
-                        : isBio
-                        ? isLight
-                          ? 'bg-rose-50 text-rose-800 border-rose-300 hover:bg-rose-100'
-                          : 'bg-rose-950/40 text-rose-300 border-rose-800/60 hover:bg-rose-900/60 hover:text-white'
+                    className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
+                      isContrast
+                        ? 'bg-black text-white border-yellow-400'
                         : isLight
-                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border-slate-200'
-                        : 'bg-slate-950 text-slate-400 hover:text-white border-slate-800'
+                        ? 'bg-slate-50 border-slate-300 text-slate-800 hover:bg-slate-100'
+                        : 'bg-slate-950 border-slate-700 text-slate-200 hover:border-slate-600'
                     }`}
                   >
-                    <span>{isPhys ? '⚡' : isChem ? '🧪' : isBio ? '🧬' : '📐'}</span>
-                    <span>{lang === 'ar' ? b.titleAr : b.titleEn}</span>
-                  </button>
-                );
-              })}
-            </div>
+                    {currentChapter.lessons.map((l, lIdx) => {
+                      const lNumStr = lang === 'ar' ? `درس ${toHindiDigits(lIdx + 1)}` : `Lesson ${lIdx + 1}`;
+                      const rawTitle = (lang === 'ar' ? l.titleAr : l.titleEn).replace(/\$/g, '');
+                      return (
+                        <option key={l.id} value={l.id} className="bg-slate-900 text-white">
+                          {lNumStr}: {rawTitle}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{lang === 'ar' ? 'المادة العامة:' : 'Subject Track:'}</span>
+                </label>
+                <div className="relative">
+                  <select
+                    value={SUBJECTS.find((s) => s.branchIds[curriculum.id]?.includes(branch.id as any))?.id || ''}
+                    onChange={(e) => {
+                      const s = SUBJECTS.find((sub) => sub.id === e.target.value);
+                      if (s) {
+                        const subBranch = curriculum.branches.find((b) => s.branchIds[curriculum.id]?.includes(b.id as any));
+                        if (subBranch) {
+                          onSelectLesson(subBranch, subBranch.chapters[0].lessons[0], activeSubTab);
+                        }
+                      }
+                    }}
+                    className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-amber-500 ${
+                      isContrast
+                        ? 'bg-black text-white border-yellow-400'
+                        : isLight
+                        ? 'bg-slate-50 border-slate-300 text-slate-800 hover:bg-slate-100'
+                        : 'bg-slate-950 border-slate-700 text-slate-200 hover:border-slate-600'
+                    }`}
+                  >
+                    {SUBJECTS.map((s) => (
+                      <option key={s.id} value={s.id} className="bg-slate-900 text-white">
+                        {s.emoji} {lang === 'ar' ? s.titleAr : s.titleEn}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-
-          {/* Chapter Pills Carousel */}
-          <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80">
-            <div
-              className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
-              style={{ WebkitOverflowScrolling: 'touch' }}
-            >
-              {branch.chapters.map((ch) => {
-                const isCurrentChapter = ch.lessons.some((l) => l.id === lesson.id);
-                return (
-                  <button
-                    key={ch.id}
-                    onClick={() => onSelectLesson(branch, ch.lessons[0], activeSubTab)}
-                    className={`px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-2 shrink-0 ${
-                      isCurrentChapter
-                        ? isLight
-                          ? 'bg-indigo-100 border-2 border-indigo-600 text-indigo-950 shadow-sm'
-                          : 'bg-indigo-950/80 border-2 border-indigo-500 text-indigo-200 shadow-md'
-                        : isLight
-                        ? 'bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100'
-                        : 'bg-slate-950/80 border border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'
-                    }`}
-                  >
-                    <span className={`px-1.5 py-0.5 rounded text-[10px] font-black ${
-                      isCurrentChapter
-                        ? 'bg-indigo-600 text-white'
-                        : isLight
-                        ? 'bg-slate-200 text-slate-700'
-                        : 'bg-slate-800 text-slate-400'
-                    }`}>
-                      {lang === 'ar' ? `فصل ${toHindiDigits(ch.chapterNumber)}` : `Ch ${ch.chapterNumber}`}
-                    </span>
-                    <span className="truncate max-w-[200px] sm:max-w-[280px]">
-                      <MathRenderer math={lang === 'ar' ? ch.titleAr : ch.titleEn} lang={lang} />
-                    </span>
-                    {ch.databank && (
-                      <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 font-extrabold border border-emerald-500/30">
-                        175 Q
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Lessons Pill Carousel if Chapter has > 1 Lesson */}
-          {currentChapter.lessons.length > 1 && (
-            <div
-              className="pt-2 border-t border-slate-200/50 dark:border-slate-800/80 flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0"
-              style={{ WebkitOverflowScrolling: 'touch' }}
-            >
-              <span className="text-[11px] font-bold text-slate-400 shrink-0">
-                {lang === 'ar' ? 'الدروس:' : 'Lessons:'}
-              </span>
-              {currentChapter.lessons.map((l, lIdx) => {
-                const isSelectedLesson = l.id === lesson.id;
-                return (
-                  <button
-                    key={l.id}
-                    onClick={() => onSelectLesson(branch, l, activeSubTab)}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${
-                      isSelectedLesson
-                        ? 'bg-emerald-600 text-white shadow-xs'
-                        : isLight
-                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900'
-                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
-                    }`}
-                  >
-                    {lang === 'ar' ? `درس ${toHindiDigits(lIdx + 1)}: ` : `Lesson ${lIdx + 1}: `}
-                    <MathRenderer math={lang === 'ar' ? l.titleAr : l.titleEn} lang={lang} />
-                  </button>
-                );
-              })}
-            </div>
-          )}
         </div>
       )}
 
@@ -725,118 +714,157 @@ export const LessonView: React.FC<Props> = ({
           <MathRenderer math={lang === 'ar' ? lesson.summaryAr : lesson.summaryEn} lang={lang} />
         </div>
 
-        {/* Sub-tab navigation with smooth horizontal touch scroll on mobile */}
-        <div
-          className={`flex items-center gap-2 pt-2 border-t no-print overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-4 px-4 sm:mx-0 sm:px-0 ${
-            isLight ? 'border-slate-200' : 'border-slate-800/80'
-          }`}
-          style={{ WebkitOverflowScrolling: 'touch' }}
-        >
-          <button
-            onClick={() => onSubTabChange('theory')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 active:scale-95 ${
-              activeSubTab === 'theory'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            📖 {t.theoryTab}
-          </button>
+        {/* Sub-tab navigation: Dropdown menu on mobile/tablet, wrapped tabs on desktop */}
+        <div className={`pt-2 border-t no-print ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
+          {/* Mobile / Tablet Dropdown Menu */}
+          <div className="md:hidden">
+            <label className="text-[11px] font-bold text-slate-400 block mb-1">
+              {lang === 'ar' ? 'القسم المعروض:' : 'Active Section:'}
+            </label>
+            <div className="relative">
+              <select
+                value={activeSubTab}
+                onChange={(e) => onSubTabChange(e.target.value)}
+                className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                  isContrast
+                    ? 'bg-black text-white border-yellow-400'
+                    : isLight
+                    ? 'bg-slate-50 border-slate-300 text-slate-800'
+                    : 'bg-slate-950 border-slate-700 text-slate-200'
+                }`}
+              >
+                <option value="theory" className="bg-slate-900 text-white">📖 {t.theoryTab}</option>
+                <option value="solvedExamples" className="bg-slate-900 text-white">
+                  💡 {t.solvedExamplesTab} ({chapterSolvedExamples.length})
+                </option>
+                <option value="exerciseProblems" className="bg-slate-900 text-white">
+                  📚 {t.exerciseProblemsTab} ({chapterExerciseProblems.length})
+                </option>
+                {chapterDatabank && (
+                  <option value="databank" className="bg-slate-900 text-white">
+                    🗄️ {t.databankTab} ({chapterDatabank.easy.length + chapterDatabank.medium.length + chapterDatabank.hots.length})
+                  </option>
+                )}
+                <option value="worksheet" className="bg-slate-900 text-white">✏️ {t.worksheetTab}</option>
+                <option value="interactive" className="bg-slate-900 text-white">🎮 {t.interactiveTab}</option>
+                <option value="lessonPlan" className="bg-slate-900 text-white">
+                  📋 {t.lessonPlanTab} {role === 'teacher' ? '(Teacher)' : ''}
+                </option>
+              </select>
+              <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
 
-          <button
-            onClick={() => onSubTabChange('solvedExamples')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
-              activeSubTab === 'solvedExamples'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            💡 {t.solvedExamplesTab}
-            {chapterSolvedExamples.length > 0 && (
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
-                {chapterSolvedExamples.length}
-              </span>
-            )}
-          </button>
-
-          <button
-            onClick={() => onSubTabChange('exerciseProblems')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
-              activeSubTab === 'exerciseProblems'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            📚 {t.exerciseProblemsTab}
-            {chapterExerciseProblems.length > 0 && (
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
-                {chapterExerciseProblems.length}
-              </span>
-            )}
-          </button>
-
-          {chapterDatabank && (
+          {/* Desktop Wrapped Buttons */}
+          <div className="hidden md:flex items-center gap-2 flex-wrap">
             <button
-              onClick={() => onSubTabChange('databank')}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
-                activeSubTab === 'databank'
+              onClick={() => onSubTabChange('theory')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 active:scale-95 cursor-pointer ${
+                activeSubTab === 'theory'
                   ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
                   : isLight
                     ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
                     : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
               }`}
             >
-              🗄️ {t.databankTab}
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-extrabold">
-                {chapterDatabank.easy.length + chapterDatabank.medium.length + chapterDatabank.hots.length}
-              </span>
+              📖 {t.theoryTab}
             </button>
-          )}
 
-          <button
-            onClick={() => onSubTabChange('worksheet')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-              activeSubTab === 'worksheet'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            ✏️ {t.worksheetTab}
-          </button>
+            <button
+              onClick={() => onSubTabChange('solvedExamples')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                activeSubTab === 'solvedExamples'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              💡 {t.solvedExamplesTab}
+              {chapterSolvedExamples.length > 0 && (
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
+                  {chapterSolvedExamples.length}
+                </span>
+              )}
+            </button>
 
-          <button
-            onClick={() => onSubTabChange('interactive')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-              activeSubTab === 'interactive'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            🎮 {t.interactiveTab}
-          </button>
+            <button
+              onClick={() => onSubTabChange('exerciseProblems')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                activeSubTab === 'exerciseProblems'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              📚 {t.exerciseProblemsTab}
+              {chapterExerciseProblems.length > 0 && (
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-extrabold">
+                  {chapterExerciseProblems.length}
+                </span>
+              )}
+            </button>
 
-          <button
-            onClick={() => onSubTabChange('lessonPlan')}
-            className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-              activeSubTab === 'lessonPlan'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                  ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
-            }`}
-          >
-            📋 {t.lessonPlanTab} {role === 'teacher' && <span className="bg-amber-400 text-slate-950 text-[10px] px-1.5 py-0.5 rounded font-extrabold ml-1">Teacher</span>}
-          </button>
+            {chapterDatabank && (
+              <button
+                onClick={() => onSubTabChange('databank')}
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
+                  activeSubTab === 'databank'
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                    : isLight
+                      ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                      : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+                }`}
+              >
+                🗄️ {t.databankTab}
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-extrabold">
+                  {chapterDatabank.easy.length + chapterDatabank.medium.length + chapterDatabank.hots.length}
+                </span>
+              </button>
+            )}
+
+            <button
+              onClick={() => onSubTabChange('worksheet')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                activeSubTab === 'worksheet'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              ✏️ {t.worksheetTab}
+            </button>
+
+            <button
+              onClick={() => onSubTabChange('interactive')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                activeSubTab === 'interactive'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              🎮 {t.interactiveTab}
+            </button>
+
+            <button
+              onClick={() => onSubTabChange('lessonPlan')}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                activeSubTab === 'lessonPlan'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                    ? 'bg-slate-100 text-slate-700 hover:text-slate-950 border border-slate-200'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-transparent'
+              }`}
+            >
+              📋 {t.lessonPlanTab} {role === 'teacher' && <span className="bg-amber-400 text-slate-950 text-[10px] px-1.5 py-0.5 rounded font-extrabold ml-1">Teacher</span>}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -1057,47 +1085,43 @@ export const LessonView: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* Difficulty sub-filter buttons */}
-            <div className="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 no-print flex-wrap">
-              <button
-                onClick={() => setDatabankDifficulty('easy')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  databankDifficulty === 'easy'
-                    ? 'bg-emerald-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {lang === 'ar' ? 'سهل تأسيسي (٥٠)' : 'Easy (50)'}
-              </button>
-              <button
-                onClick={() => setDatabankDifficulty('medium')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  databankDifficulty === 'medium'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {lang === 'ar' ? 'متوسط وزاري (٥٠)' : 'Medium (50)'}
-              </button>
-              <button
-                onClick={() => setDatabankDifficulty('hots')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  databankDifficulty === 'hots'
-                    ? 'bg-amber-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {lang === 'ar' ? 'تفكير عليا (٥٠)' : 'HOTS (50)'}
-              </button>
-
-              <div className="h-4 w-px bg-slate-800 mx-1 hidden sm:block" />
+            {/* Difficulty Dropdown & Filter Controls */}
+            <div className="flex items-center gap-2 no-print flex-wrap">
+              <div className="relative">
+                <select
+                  value={databankDifficulty}
+                  onChange={(e) => setDatabankDifficulty(e.target.value as 'easy' | 'medium' | 'hots')}
+                  className={`appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                    databankDifficulty === 'easy'
+                      ? 'bg-emerald-950/80 text-emerald-200 border-emerald-600 shadow-xs'
+                      : databankDifficulty === 'medium'
+                      ? 'bg-indigo-950/80 text-indigo-200 border-indigo-600 shadow-xs'
+                      : 'bg-amber-950/80 text-amber-200 border-amber-600 shadow-xs'
+                  }`}
+                >
+                  <option value="easy" className="bg-slate-900 text-white">
+                    {lang === 'ar' ? '🟢 مستوى سهل تأسيسي (٥٠)' : '🟢 Level: Easy (50)'}
+                  </option>
+                  <option value="medium" className="bg-slate-900 text-white">
+                    {lang === 'ar' ? '🔵 مستوى متوسط وزاري (٥٠)' : '🔵 Level: Medium (50)'}
+                  </option>
+                  <option value="hots" className="bg-slate-900 text-white">
+                    {lang === 'ar' ? '🟠 مهارات تفكير عليا (٥٠)' : '🟠 Level: HOTS (50)'}
+                  </option>
+                </select>
+                <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </div>
+              </div>
 
               <button
                 onClick={() => setFilterBookmarkedOnly((prev) => !prev)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
                   filterBookmarkedOnly
-                    ? 'bg-amber-500 text-black shadow-md ring-2 ring-amber-400/50'
-                    : 'text-slate-400 hover:text-amber-400'
+                    ? 'bg-amber-500 text-black border-amber-400 shadow-md ring-2 ring-amber-400/50'
+                    : isLight
+                    ? 'bg-slate-100 border-slate-300 text-slate-700 hover:text-slate-950'
+                    : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-amber-400'
                 }`}
               >
                 <Star className={`w-3.5 h-3.5 ${filterBookmarkedOnly ? 'fill-black' : ''}`} />

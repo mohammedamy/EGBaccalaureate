@@ -5,15 +5,12 @@ import {
   X,
   FileSpreadsheet,
   CheckCircle,
-  Calculator,
-  Atom,
-  FlaskConical,
-  Dna,
   Printer,
   Sparkles,
   Award,
   RotateCcw,
   BookOpen,
+  ChevronDown,
 } from 'lucide-react';
 
 interface Props {
@@ -607,40 +604,46 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Experiment Navigation Tabs */}
+        {/* Experiment Navigation Dropdown */}
         <div
-          className={`px-4 sm:px-6 py-2.5 border-b overflow-x-auto flex items-center gap-2 scrollbar-none ${
+          className={`px-4 sm:px-6 py-3 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 ${
             isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-900/60 border-slate-800'
           }`}
         >
-          {EXPERIMENTS.map((exp) => {
-            const isSelected = exp.id === activeExp.id;
-            const Icon =
-              exp.lab === 'math'
-                ? Calculator
-                : exp.lab === 'physics'
-                ? Atom
-                : exp.lab === 'chemistry'
-                ? FlaskConical
-                : Dna;
-
-            return (
-              <button
-                key={exp.id}
-                onClick={() => setSelectedExpId(exp.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer ${
-                  isSelected
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : isLight
-                    ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{isArabic ? exp.titleAr.slice(0, 35) + '...' : exp.titleEn.slice(0, 35) + '...'}</span>
-              </button>
-            );
-          })}
+          <label className="text-xs font-bold text-slate-400 flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-indigo-400" />
+            <span>{isArabic ? 'اختر التجربة العملية الموجهة:' : 'Select Guided Laboratory Experiment:'}</span>
+          </label>
+          <div className="relative flex-1 sm:max-w-md">
+            <select
+              value={activeExp.id}
+              onChange={(e) => setSelectedExpId(e.target.value)}
+              className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                isLight
+                  ? 'bg-white border-slate-300 text-slate-800'
+                  : 'bg-slate-950 border-slate-700 text-slate-200'
+              }`}
+            >
+              {EXPERIMENTS.map((exp) => {
+                const labBadge =
+                  exp.lab === 'math'
+                    ? '📐 Math'
+                    : exp.lab === 'physics'
+                    ? '⚡ Physics'
+                    : exp.lab === 'chemistry'
+                    ? '🧪 Chemistry'
+                    : '🧬 Biology';
+                return (
+                  <option key={exp.id} value={exp.id} className="bg-slate-900 text-white">
+                    [{labBadge}] {isArabic ? exp.titleAr : exp.titleEn}
+                  </option>
+                );
+              })}
+            </select>
+            <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <ChevronDown className="w-4 h-4" />
+            </div>
+          </div>
         </div>
 
         {/* Body Content */}

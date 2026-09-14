@@ -4,18 +4,13 @@ import type { Language } from '../../i18n/translations';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import {
   Dna,
-  Bone,
   Activity,
   Leaf,
   ZoomIn,
   Sparkles,
   Info,
   CheckCircle2,
-  HeartPulse,
-  Calendar,
-  ShieldCheck,
-  Grid,
-  Zap,
+  ChevronDown,
 } from 'lucide-react';
 
 // High-resolution scientific photos
@@ -351,191 +346,56 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
           </div>
         </div>
 
-        {/* Lab Subtabs */}
-        <div
-          className={`flex items-center p-1 rounded-xl border self-stretch md:self-auto overflow-x-auto ${
-            isContrast
-              ? 'bg-black border-rose-400'
-              : isLight
-              ? 'bg-slate-100 border-slate-300'
-              : 'bg-slate-900 border-slate-800'
-          }`}
-        >
-          <button
-            onClick={() => setActiveTab('skeleton')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'skeleton'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+        {/* Subtabs Dropdown */}
+        <div className="relative min-w-[240px] sm:min-w-[280px]">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value as BioTab)}
+            className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-rose-500 ${
+              isContrast
+                ? 'bg-black text-white border-rose-400'
                 : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-slate-100 border-slate-300 text-slate-800'
+                : 'bg-slate-900 border-slate-800 text-slate-200'
             }`}
           >
-            <Bone className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الهيكل العظمي (٢٠٦)' : 'Human Skeleton (206)'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('sarcomere')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'sarcomere'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Activity className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'انزلاق الساركومير' : 'Sarcomere Contraction'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('dna')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'dna'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Dna className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'استوديو اللولب المزدوج DNA' : 'DNA & Genetic Code'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('plant')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'plant'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Leaf className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('microscope')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'microscope'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <ZoomIn className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'المجهر الضوئي الافتراضي' : 'Virtual Microscope'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('endocrine')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'endocrine'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <HeartPulse className="w-3.5 h-3.5 text-rose-400" />
-            <span>{isArabic ? 'الغدد الصماء والاتزان' : 'Endocrine System'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('menstrual')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'menstrual'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Calendar className="w-3.5 h-3.5 text-pink-400" />
-            <span>{isArabic ? 'دورة الطمث (٢٨ يوماً)' : 'Menstrual Cycle'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('immunity')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'immunity'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-            <span>{isArabic ? 'الأجسام المضادة والمناعة' : 'Immunology & IgG'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('genetics')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'genetics'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Grid className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{isArabic ? 'مربع بانيت وفصائل الدم' : 'Genetics & ABO'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('bioenergetics')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'bioenergetics'
-                ? isContrast
-                  ? 'bg-rose-400 text-black font-black'
-                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5 text-amber-400" />
-            <span>{isArabic ? 'الطاقة الحيوية والتمثيل الغذائي' : 'Bioenergetics & ATP'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('flashcards')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'flashcards'
-                ? isContrast
-                  ? 'bg-amber-400 text-black font-black'
-                  : 'bg-gradient-to-r from-amber-600 to-rose-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
-            <span>{isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}</span>
-          </button>
+            <option value="skeleton" className="bg-slate-900 text-white">
+              🦴 {isArabic ? 'الهيكل العظمي البشري (٢٠٦ عظمة)' : 'Human Skeleton (206 Bones)'}
+            </option>
+            <option value="sarcomere" className="bg-slate-900 text-white">
+              💪 {isArabic ? 'انزلاق الخيوط وانقباض الساركومير' : 'Sarcomere Contraction'}
+            </option>
+            <option value="dna" className="bg-slate-900 text-white">
+              🧬 {isArabic ? 'استوديو اللولب المزدوج وتضاعف DNA' : 'DNA Studio & Replication'}
+            </option>
+            <option value="plant" className="bg-slate-900 text-white">
+              🌿 {isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology & Support'}
+            </option>
+            <option value="microscope" className="bg-slate-900 text-white">
+              🔬 {isArabic ? 'المجهر الضوئي الافتراضي للشرائح' : 'Virtual Optical Microscope'}
+            </option>
+            <option value="endocrine" className="bg-slate-900 text-white">
+              💉 {isArabic ? 'جهاز الغدد الصماء والاتزان الهرموني' : 'Endocrine System & Hormones'}
+            </option>
+            <option value="menstrual" className="bg-slate-900 text-white">
+              🌸 {isArabic ? 'دورة الطمث ومراحل التبويض (٢٨ يوماً)' : 'Menstrual Cycle Simulation'}
+            </option>
+            <option value="immunity" className="bg-slate-900 text-white">
+              🛡️ {isArabic ? 'الأجسام المضادة والمناعة التكيفية' : 'Immunology & IgG Antibodies'}
+            </option>
+            <option value="genetics" className="bg-slate-900 text-white">
+              ✂️ {isArabic ? 'الوراثة ومربع بانيت وكريسبر' : 'Genetics & CRISPR Studio'}
+            </option>
+            <option value="bioenergetics" className="bg-slate-900 text-white">
+              ⚡ {isArabic ? 'الطاقة الحيوية والتمثيل الغذائي وتكوين ATP' : 'Bioenergetics & ATP'}
+            </option>
+            <option value="flashcards" className="bg-slate-900 text-white">
+              🗂️ {isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}
+            </option>
+          </select>
+          <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+            <ChevronDown className="w-4 h-4" />
+          </div>
         </div>
       </div>
 

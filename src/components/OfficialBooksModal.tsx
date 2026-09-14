@@ -205,103 +205,38 @@ export const OfficialBooksModal: React.FC<Props> = ({
           }`}
         >
           {/* Filters: Subject Track & Curriculum */}
-          <div className="flex flex-col gap-2.5">
-            {/* Subject Track Chips */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-              <span className={`text-xs font-semibold px-1 shrink-0 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                {isArabic ? 'المادة:' : 'Subject:'}
-              </span>
-              {[
-                { id: 'all' as const, labelEn: 'All Subjects', labelAr: 'جميع المواد', icon: '🌟' },
-                { id: 'mathematics' as const, labelEn: 'Math', labelAr: 'الرياضيات', icon: '📐' },
-                { id: 'physics' as const, labelEn: 'Physics', labelAr: 'الفيزياء', icon: '⚡' },
-                { id: 'chemistry' as const, labelEn: 'Chemistry', labelAr: 'الكيمياء', icon: '🧪' },
-                { id: 'biology' as const, labelEn: 'Biology', labelAr: 'الأحياء', icon: '🧬' },
-              ].map((sub) => {
-                const count = sub.id === 'all'
-                  ? officialBooksList.length
-                  : officialBooksList.filter((b) => b.subjectId === sub.id).length;
-                const isSelected = filterSubject === sub.id;
-                return (
-                  <button
-                    key={sub.id}
-                    onClick={() => setFilterSubject(sub.id)}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
-                      isSelected
-                        ? isContrast
-                          ? 'bg-yellow-400 text-black font-bold'
-                          : 'bg-emerald-600 text-white shadow-sm'
-                        : isLight
-                        ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
-                    }`}
-                  >
-                    <span>{sub.icon}</span>
-                    <span>{isArabic ? sub.labelAr : sub.labelEn}</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/20' : isLight ? 'bg-slate-100 text-slate-600' : 'bg-slate-900 text-slate-400'}`}>
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+            {/* Subject Filter Dropdown */}
+            <div className="w-full sm:w-44 shrink-0">
+              <select
+                value={filterSubject}
+                onChange={(e) => setFilterSubject(e.target.value as any)}
+                className={`w-full p-2 rounded-xl text-xs font-bold border transition-all cursor-pointer outline-none ${
+                  isLight ? 'bg-white border-slate-300 text-slate-800' : 'bg-slate-900 border-slate-700 text-slate-200'
+                }`}
+              >
+                <option value="all">{isArabic ? '🌟 جميع المواد' : '🌟 All Subjects'} ({officialBooksList.length})</option>
+                <option value="mathematics">{isArabic ? '📐 الرياضيات' : '📐 Mathematics'} ({officialBooksList.filter(b => b.subjectId === 'mathematics').length})</option>
+                <option value="physics">{isArabic ? '⚡ الفيزياء' : '⚡ Physics'} ({officialBooksList.filter(b => b.subjectId === 'physics').length})</option>
+                <option value="chemistry">{isArabic ? '🧪 الكيمياء' : '🧪 Chemistry'} ({officialBooksList.filter(b => b.subjectId === 'chemistry').length})</option>
+                <option value="biology">{isArabic ? '🧬 الأحياء' : '🧬 Biology'} ({officialBooksList.filter(b => b.subjectId === 'biology').length})</option>
+              </select>
             </div>
 
-            {/* Curriculum Filter Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-              <span className={`text-xs font-semibold px-1 shrink-0 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                {isArabic ? 'المسار:' : 'Track:'}
-              </span>
-              <button
-                onClick={() => setFilterCurriculum('all')}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  filterCurriculum === 'all'
-                    ? 'bg-slate-700 text-white shadow-sm'
-                    : isLight
-                    ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
+            {/* Curriculum Track Filter Dropdown */}
+            <div className="w-full sm:w-44 shrink-0">
+              <select
+                value={filterCurriculum}
+                onChange={(e) => setFilterCurriculum(e.target.value as any)}
+                className={`w-full p-2 rounded-xl text-xs font-bold border transition-all cursor-pointer outline-none ${
+                  isLight ? 'bg-white border-slate-300 text-slate-800' : 'bg-slate-900 border-slate-700 text-slate-200'
                 }`}
               >
-                {t.filterAllBooks}
-              </button>
-
-              <button
-                onClick={() => setFilterCurriculum('thanaweya')}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  filterCurriculum === 'thanaweya'
-                    ? 'bg-teal-600 text-white shadow-sm'
-                    : isLight
-                    ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
-                }`}
-              >
-                {t.filterThanaweyaBooks}
-              </button>
-
-              <button
-                onClick={() => setFilterCurriculum('egbac')}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  filterCurriculum === 'egbac'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : isLight
-                    ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
-                }`}
-              >
-                {t.filterEgBacBooks}
-              </button>
-
-              <button
-                onClick={() => setFilterCurriculum('compendium')}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  filterCurriculum === 'compendium'
-                    ? 'bg-amber-600 text-white shadow-sm'
-                    : isLight
-                    ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
-                }`}
-              >
-                {t.filterCompendiums}
-              </button>
+                <option value="all">{t.filterAllBooks}</option>
+                <option value="thanaweya">{t.filterThanaweyaBooks}</option>
+                <option value="egbac">{t.filterEgBacBooks}</option>
+                <option value="compendium">{t.filterCompendiums}</option>
+              </select>
             </div>
           </div>
 

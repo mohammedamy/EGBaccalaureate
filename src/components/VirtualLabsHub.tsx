@@ -8,6 +8,7 @@ import {
   Dna,
   FlaskRound as Flask,
   FileSpreadsheet,
+  ChevronDown,
 } from 'lucide-react';
 import { MathLab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -243,42 +244,43 @@ export const VirtualLabsHub: React.FC<Props> = ({
         {activeLab === 'math' && <MathLab lang={lang} theme={theme} onOpenDesmos={onOpenDesmos} />}
         {activeLab === 'physics' && (
           <div className="space-y-4">
-            {/* Quick-Access Physics Sub-Laboratory Launch Strip */}
-            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex items-center gap-2 overflow-x-auto scrollbar-none">
-              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-2">
+            {/* Quick-Access Physics Sub-Laboratory Dropdown */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
                 <Atom className="w-4 h-4 text-cyan-400" />
-                <span>{isArabic ? 'المعامل المتخصصة:' : 'Sub-Labs:'}</span>
+                <span>{isArabic ? 'المعمل المتخصص:' : 'Specialized Sub-Lab:'}</span>
               </span>
-              {[
-                { id: 'circuits' as PhysicsTab, emoji: '⚡', labelEn: 'DC Circuits', labelAr: 'دوائر أوم وكيرشوف' },
-                { id: 'optics' as PhysicsTab, emoji: '🔬', labelEn: 'Optics & Young', labelAr: 'البصريات وتجربة ينج' },
-                { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Force', labelAr: 'المغناطيسية ولورنتز' },
-                { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo', labelAr: 'الدينامو والحث' },
-                { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance', labelAr: 'دوائر الرنين RLC' },
-                { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric', labelAr: 'الظاهرة الكهروضوئية' },
-                { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr & Lasers', labelAr: 'طيف بور والليزر' },
-                { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Flashcards', labelAr: 'بطاقات الاستذكار' },
-              ].map((tab) => {
-                const isCurrent = activePhysTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActivePhysTab(tab.id)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer ${
-                      isCurrent
-                        ? isContrast
-                          ? 'bg-yellow-400 text-black font-black'
-                          : 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 scale-105'
-                        : isLight
-                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
-                    }`}
-                  >
-                    <span>{tab.emoji}</span>
-                    <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
-                  </button>
-                );
-              })}
+              <div className="relative min-w-[240px] sm:min-w-[280px]">
+                <select
+                  value={activePhysTab}
+                  onChange={(e) => setActivePhysTab(e.target.value as PhysicsTab)}
+                  className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-900 border-slate-700 text-slate-200'
+                  }`}
+                >
+                  {[
+                    { id: 'circuits' as PhysicsTab, emoji: '⚡', labelEn: 'DC Circuits & Kirchhoff', labelAr: 'دوائر أوم وكيرشوف' },
+                    { id: 'optics' as PhysicsTab, emoji: '🔬', labelEn: 'Optics & Young Interference', labelAr: 'البصريات وتجربة ينج' },
+                    { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Lorentz Force', labelAr: 'المغناطيسية ولورنتز' },
+                    { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo & Induction', labelAr: 'الدينامو والحث' },
+                    { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance Circuit', labelAr: 'دوائر الرنين RLC' },
+                    { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric Effect', labelAr: 'الظاهرة الكهروضوئية' },
+                    { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr Spectra & Lasers', labelAr: 'طيف بور والليزر' },
+                    { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Physics Flashcards', labelAr: 'بطاقات الاستذكار' },
+                  ].map((tab) => (
+                    <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
+                      {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
             </div>
 
             <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} />
@@ -286,41 +288,42 @@ export const VirtualLabsHub: React.FC<Props> = ({
         )}
         {activeLab === 'chemistry' && (
           <div className="space-y-4">
-            {/* Quick-Access Chemistry Sub-Laboratory Launch Strip */}
-            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex items-center gap-2 overflow-x-auto scrollbar-none">
-              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-2">
+            {/* Quick-Access Chemistry Sub-Laboratory Dropdown */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
                 <FlaskConical className="w-4 h-4 text-emerald-400" />
-                <span>{isArabic ? 'المعامل المتخصصة:' : 'Sub-Labs:'}</span>
+                <span>{isArabic ? 'المعمل المتخصص:' : 'Specialized Sub-Lab:'}</span>
               </span>
-              {[
-                { id: 'equilibrium' as ChemTab, emoji: '⚖️', labelEn: 'Equilibrium', labelAr: 'الاتزان ولوشاتيليه' },
-                { id: 'transition' as ChemTab, emoji: '🔥', labelEn: 'Transition & Iron', labelAr: 'العناصر الانتقالية والحديد' },
-                { id: 'qualitative' as ChemTab, emoji: '🧪', labelEn: 'Qualitative Analysis', labelAr: 'التحليل الوصفي والكواشف' },
-                { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'pH & Titration', labelAr: 'المعايرة و pH' },
-                { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry', labelAr: 'الكيمياء الكهربية والخلايا' },
-                { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
-                { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
-              ].map((tab) => {
-                const isCurrent = activeChemTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveChemTab(tab.id)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer ${
-                      isCurrent
-                        ? isContrast
-                          ? 'bg-yellow-400 text-black font-black'
-                          : 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 scale-105'
-                        : isLight
-                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
-                    }`}
-                  >
-                    <span>{tab.emoji}</span>
-                    <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
-                  </button>
-                );
-              })}
+              <div className="relative min-w-[240px] sm:min-w-[280px]">
+                <select
+                  value={activeChemTab}
+                  onChange={(e) => setActiveChemTab(e.target.value as ChemTab)}
+                  className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-900 border-slate-700 text-slate-200'
+                  }`}
+                >
+                  {[
+                    { id: 'equilibrium' as ChemTab, emoji: '⚖️', labelEn: 'Equilibrium & Le Chatelier', labelAr: 'الاتزان ولوشاتيليه' },
+                    { id: 'transition' as ChemTab, emoji: '🔥', labelEn: 'Transition Elements & Iron', labelAr: 'العناصر الانتقالية والحديد' },
+                    { id: 'qualitative' as ChemTab, emoji: '🧪', labelEn: 'Qualitative Analysis', labelAr: 'التحليل الوصفي والكواشف' },
+                    { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'pH & Acid-Base Titration', labelAr: 'المعايرة و pH' },
+                    { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry & Cells', labelAr: 'الكيمياء الكهربية والخلايا' },
+                    { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Synthetic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
+                    { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
+                  ].map((tab) => (
+                    <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
+                      {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
             </div>
 
             <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} />
@@ -328,45 +331,46 @@ export const VirtualLabsHub: React.FC<Props> = ({
         )}
         {activeLab === 'biology' && (
           <div className="space-y-4">
-            {/* Quick-Access Biology Sub-Laboratory Launch Strip */}
-            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex items-center gap-2 overflow-x-auto scrollbar-none">
-              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-2">
+            {/* Quick-Access Biology Sub-Laboratory Dropdown */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
                 <Dna className="w-4 h-4 text-rose-400" />
-                <span>{isArabic ? 'المعامل المتخصصة:' : 'Sub-Labs:'}</span>
+                <span>{isArabic ? 'المعمل المتخصص:' : 'Specialized Sub-Lab:'}</span>
               </span>
-              {[
-                { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Skeleton (206)', labelAr: 'الهيكل العظمي (206)' },
-                { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere', labelAr: 'انقباض الساركومير' },
-                { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio', labelAr: 'استوديو DNA' },
-                { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Stem', labelAr: 'دعامة النبات' },
-                { id: 'microscope' as BioTab, emoji: '🔬', labelEn: 'Virtual Microscope', labelAr: 'المجهر الضوئي' },
-                { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine', labelAr: 'التنسيق الهرموني' },
-                { id: 'menstrual' as BioTab, emoji: '🌸', labelEn: 'Menstrual Cycle', labelAr: 'دورة الطمث' },
-                { id: 'immunity' as BioTab, emoji: '🛡️', labelEn: 'Immunology', labelAr: 'المناعة والأجسام المضادة' },
-                { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Genetics & CRISPR', labelAr: 'الوراثة وكريسبر' },
-                { id: 'bioenergetics' as BioTab, emoji: '⚡', labelEn: 'Bioenergetics', labelAr: 'التنفس الخلوي' },
-                { id: 'flashcards' as BioTab, emoji: '🗂️', labelEn: 'Flashcards', labelAr: 'بطاقات الاستذكار' },
-              ].map((tab) => {
-                const isCurrent = activeBioTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveBioTab(tab.id)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer ${
-                      isCurrent
-                        ? isContrast
-                          ? 'bg-yellow-400 text-black font-black'
-                          : 'bg-rose-600 text-white shadow-md shadow-rose-600/30 scale-105'
-                        : isLight
-                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
-                    }`}
-                  >
-                    <span>{tab.emoji}</span>
-                    <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
-                  </button>
-                );
-              })}
+              <div className="relative min-w-[240px] sm:min-w-[280px]">
+                <select
+                  value={activeBioTab}
+                  onChange={(e) => setActiveBioTab(e.target.value as BioTab)}
+                  className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-rose-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-900 border-slate-700 text-slate-200'
+                  }`}
+                >
+                  {[
+                    { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Human Skeleton (206 Bones)', labelAr: 'الهيكل العظمي (206)' },
+                    { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere Contraction', labelAr: 'انقباض الساركومير' },
+                    { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio & Replication', labelAr: 'استوديو DNA' },
+                    { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Stem Support', labelAr: 'دعامة النبات' },
+                    { id: 'microscope' as BioTab, emoji: '🔬', labelEn: 'Virtual Optical Microscope', labelAr: 'المجهر الضوئي' },
+                    { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine Coordination', labelAr: 'التنسيق الهرموني' },
+                    { id: 'menstrual' as BioTab, emoji: '🌸', labelEn: 'Menstrual Cycle & Hormones', labelAr: 'دورة الطمث' },
+                    { id: 'immunity' as BioTab, emoji: '🛡️', labelEn: 'Immunology & Antibodies', labelAr: 'المناعة والأجسام المضادة' },
+                    { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Genetics & CRISPR Studio', labelAr: 'الوراثة وكريسبر' },
+                    { id: 'bioenergetics' as BioTab, emoji: '⚡', labelEn: 'Cellular Bioenergetics', labelAr: 'التنفس الخلوي' },
+                    { id: 'flashcards' as BioTab, emoji: '🗂️', labelEn: 'Biology Flashcards', labelAr: 'بطاقات الاستذكار' },
+                  ].map((tab) => (
+                    <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
+                      {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
             </div>
 
             <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} />
