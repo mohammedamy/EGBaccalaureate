@@ -54,6 +54,7 @@ const labComponents = [
   'src/components/labs/ImmunityLab.tsx',
   'src/components/labs/GeneticsLab.tsx',
   'src/components/labs/BioenergeticsLab.tsx',
+  'src/components/labs/SarcomereZoomLab.tsx',
   'src/components/labs/DynamoInductionLab.tsx',
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
