@@ -441,6 +441,21 @@ const complementActiveLysisRate = 94.5;
 const complementInactiveLysisRate = 4.2;
 assert(complementActiveLysisRate > 90 && complementInactiveLysisRate < 10, `Heat inactivation at 56°C abolishes complement lysis (<10% vs >90% active)`);
 
+// K. Biology: Endocrine Coordination & Feedback Loops (Chapter 2)
+const fastingGlucoseMin = 80;
+const fastingGlucoseMax = 120;
+assert(fastingGlucoseMin === 80 && fastingGlucoseMax === 120, `Fasting blood glucose normal physiological range is strictly 80 - 120 mg/dL`);
+
+const serumCalciumMin = 9.0;
+const serumCalciumMax = 11.0;
+assert(serumCalciumMin === 9.0 && serumCalciumMax === 11.0, `Serum calcium normal physiological range is strictly 9.0 - 11.0 mg/dL`);
+
+const baselineThyroxine = 8.5; // ug/dL
+const baselineTSH = 1.8; // mIU/L
+const hyperThyroxine = 24.5; // ug/dL
+const suppressedTSH = 0.05; // mIU/L
+assert(hyperThyroxine > baselineThyroxine && suppressedTSH < baselineTSH, `Thyroid negative feedback loop: Thyroxine elevation suppresses pituitary TSH secretion`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -520,6 +535,13 @@ const labKeyFormulas = [
   '\\text{IgM} \\implies 5 \\times 2 = 10 \\text{ Antigen-Binding Sites}',
   '\\text{CD4}^+ \\, \\text{T}_H \\xrightarrow{\\text{Interleukins}} \\text{Plasma B} \\to \\text{Antibodies}',
   '\\text{CD8}^+ \\, \\text{T}_C \\xrightarrow{\\text{Perforin} + \\text{Lymphotoxins}} \\text{Apoptosis}',
+  // Endocrine Lab (Chapter 2)
+  '[\\text{Thyroxine}] \\uparrow \\implies [\\text{TSH}]_{\\text{pituitary}} \\downarrow',
+  '9.0 \\le [\\text{Ca}^{2+}]_{\\text{serum}} \\le 11.0 \\,\\text{mg/dL}',
+  '80 \\le [\\text{Glucose}]_{\\text{fasting}} \\le 120 \\,\\text{mg/dL}',
+  '\\text{Insulin} \\xrightarrow{\\text{Glycogenesis}} \\text{Blood Glucose} \\downarrow',
+  '\\text{PTH} \\xrightarrow{\\text{Bone Resorption}} \\text{Serum } \\text{Ca}^{2+} \\uparrow',
+  '\\text{Calcitonin} \\xrightarrow{\\text{Bone Deposition}} \\text{Serum } \\text{Ca}^{2+} \\downarrow',
   // Math Lab
   '\\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}',
   '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1',
