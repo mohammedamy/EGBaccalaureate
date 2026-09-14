@@ -410,5 +410,73 @@ export const desmosPresets: DesmosPreset[] = [
       '(V_{CC}, 0)',
       '(7.5, 2.5)'
     ]
+  },
+  // --- 5. Chemistry & Chemical Equilibrium (Scientific 2D) ---
+  {
+    id: 'chem_acid_base_titration_curve',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Acid-Base Neutralization Titration Curve',
+    titleAr: 'منحنى المعايرة والتعادل بين حمض وقاعدة',
+    descEn: 'Sigmoidal pH titration curve for 25 mL of 0.1 M strong acid with 0.1 M NaOH, featuring sharp equivalence inflection at pH = 7.0.',
+    descAr: 'المنحنى السيجمويدي لتغير الأس الهيدروجيني pH بدلالة حجم هيدروكسيد الصوديوم المضاف وتوضيح نقطة التكافؤ والتعادل عند pH = 7.',
+    latex: '\\text{pH}(V) = 7 + \\frac{14}{\\pi} \\arctan\\left(\\frac{V - V_{eq}}{2}\\right)',
+    expressions: [
+      'V_{eq} = 25',
+      'f(x) = 7 + \\frac{14}{\\pi} \\cdot \\arctan(\\frac{x - V_{eq}}{1.2}) \\left\\{0 \\le x \\le 50\\right\\}',
+      '(V_{eq}, 7)',
+      '(0, 1)',
+      '(50, 13)'
+    ]
+  },
+  {
+    id: 'chem_arrhenius_activation_energy',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Arrhenius Equation: Activation Energy Linear Plot',
+    titleAr: 'معادلة أرهينيوس: رسم طاقة التنشيط وثابت سرعة التفاعل',
+    descEn: 'Linearized Arrhenius plot ln(k) vs 1/T with slope = -Ea/R and y-intercept = ln(A), revealing temperature dependence of reaction rate.',
+    descAr: 'التمثيل البياني الخطي لمعادلة أرهينيوس بين لوغاريتم ثابت السرعة ln(k) ومقلوب درجة الحرارة المطلقة 1/T لتحديد طاقة التنشيط.',
+    latex: '\\ln k = -\\frac{E_a}{R}\\left(\\frac{1}{T}\\right) + \\ln A',
+    expressions: [
+      'E_a = 52000',
+      'R = 8.314',
+      'A = 10^7',
+      'y = -\\frac{E_a}{R} \\cdot x + \\ln(A) \\left\\{0.0025 \\le x \\le 0.0035\\right\\}',
+      '(0.003, -\\frac{E_a}{R} \\cdot 0.003 + \\ln(A))'
+    ]
+  },
+  {
+    id: 'chem_nernst_potential_ratio',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Nernst Equation: Galvanic Cell EMF vs. Reaction Quotient Q',
+    titleAr: 'معادلة نيرنست: القوة الدافعة الكهربية للخلية وحاصل التفاعل',
+    descEn: 'Daniell cell EMF E vs log10(Q) demonstrating cell voltage degradation as ionic quotient Q increases towards equilibrium.',
+    descAr: 'تغير القوة الدافعة الكهربية لخلية دانيال بانخفاض الجهد مع زيادة حاصل التفاعل Q وصولاً لحالة الاتزان.',
+    latex: 'E_{\\text{cell}} = E^\\circ - \\frac{0.0592}{n} \\log_{10} Q',
+    expressions: [
+      'E^\\circ = 1.10',
+      'n = 2',
+      'E(x) = E^\\circ - \\frac{0.0592}{n} \\cdot x \\left\\{-4 \\le x \\le 35\\right\\}',
+      '(0, E^\\circ)',
+      '(\\frac{E^\\circ \\cdot n}{0.0592}, 0)'
+    ]
+  },
+  {
+    id: 'chem_ostwald_dilution_law',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Ostwald Dilution Law: Degree of Dissociation vs. Concentration',
+    titleAr: 'قانون أوستفالد للتخفيف: درجة التأين ألفا وتركيز المحلول',
+    descEn: 'Degree of ionization alpha of weak electrolyte acetic acid (Ka = 1.8e-5) increasing monotonically with dilution (decreasing C).',
+    descAr: 'تغير درجة التفكك والتأين ألفا لحمض الأسيتيك الضعيف وتناسبها العكسي مع تركيز المحلول وطردياً مع التخفيف.',
+    latex: '\\alpha = \\sqrt{\\frac{K_a}{C}}',
+    expressions: [
+      'K_a = 1.8 \\times 10^{-5}',
+      '\\alpha(x) = \\sqrt{\\frac{K_a}{x}} \\left\\{0.001 \\le x \\le 1.0\\right\\}',
+      '(0.1, \\sqrt{\\frac{K_a}{0.1}})',
+      '(0.01, \\sqrt{\\frac{K_a}{0.01}})'
+    ]
   }
 ];

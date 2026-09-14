@@ -102,7 +102,17 @@ export type DiagramType =
   | 'phys_galvanometer_multiplier'
   | 'phys_bohr_atom_series'
   | 'phys_coolidge_xray_tube'
-  | 'phys_pn_junction_transistor';
+  | 'phys_pn_junction_transistor'
+  | 'chem_blast_furnace'
+  | 'chem_daniell_galvanic_cell'
+  | 'chem_standard_hydrogen_electrode'
+  | 'chem_lead_acid_accumulator'
+  | 'chem_dry_cell_laclanche'
+  | 'chem_haber_bosch_equilibrium'
+  | 'chem_methane_laboratory_preparation'
+  | 'chem_ethylene_preparation'
+  | 'chem_acetylene_preparation'
+  | 'chem_organic_reflux_esterification';
 
 export interface SolvedProblem {
   id: string;

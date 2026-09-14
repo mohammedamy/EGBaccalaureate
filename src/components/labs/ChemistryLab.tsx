@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
@@ -9,15 +9,30 @@ import {
   Droplets,
   Layers,
   Battery,
+  TestTube,
+  BookOpen,
+  BookMarked,
 } from 'lucide-react';
 import { ElectrochemistryLab } from './ElectrochemistryLab';
+import { OrganicChemistryLab } from './OrganicChemistryLab';
+import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
+import { ChemistryFlashcards } from './ChemistryFlashcards';
+import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
+
+export type ChemTab =
+  | 'equilibrium'
+  | 'transition'
+  | 'qualitative'
+  | 'titration'
+  | 'electrochemistry'
+  | 'organic'
+  | 'flashcards';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
+  initialTab?: ChemTab;
 }
-
-type ChemTab = 'equilibrium' | 'transition' | 'titration' | 'electrochemistry';
 
 interface TransitionElement {
   z: number;
@@ -169,12 +184,19 @@ const TRANSITION_METALS: TransitionElement[] = [
   },
 ];
 
-export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [activeTab, setActiveTab] = useState<ChemTab>('equilibrium');
+  const [activeTab, setActiveTab] = useState<ChemTab>(initialTab || 'equilibrium');
+  const [isConstantsOpen, setIsConstantsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   // Equilibrium State
   const [reactionType, setReactionType] = useState<'no2' | 'haber' | 'iron_thiocyanate'>('no2');
@@ -316,79 +338,143 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           </div>
         </div>
 
-        {/* Subtabs */}
-        <div
-          className={`flex items-center p-1 rounded-xl border self-stretch md:self-auto overflow-x-auto ${
-            isContrast
-              ? 'bg-black border-emerald-400'
-              : isLight
-              ? 'bg-slate-100 border-slate-300'
-              : 'bg-slate-900 border-slate-800'
-          }`}
-        >
+        {/* Action Controls: Constants Button + Subtabs */}
+        <div className="flex flex-wrap items-center gap-2 self-stretch md:self-auto">
           <button
-            onClick={() => setActiveTab('equilibrium')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'equilibrium'
-                ? isContrast
-                  ? 'bg-emerald-400 text-black font-black'
-                  : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+            onClick={() => setIsConstantsOpen(true)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm ${
+              isContrast
+                ? 'bg-black border-cyan-400 text-cyan-400 hover:bg-cyan-950'
                 : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-cyan-50 border-cyan-300 text-cyan-800 hover:bg-cyan-100'
+                : 'bg-cyan-950/40 border-cyan-700/60 text-cyan-300 hover:bg-cyan-900/60'
             }`}
           >
-            <Scale className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الاتزان وقاعدة لوشاتيليه' : 'Le Chatelier Equilibrium'}</span>
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'ثوابت وقوانين الكيمياء' : 'Constants & Calculators'}</span>
           </button>
 
-          <button
-            onClick={() => setActiveTab('transition')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'transition'
-                ? isContrast
-                  ? 'bg-emerald-400 text-black font-black'
-                  : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+          <div
+            className={`flex items-center p-1 rounded-xl border overflow-x-auto max-w-full ${
+              isContrast
+                ? 'bg-black border-emerald-400'
                 : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-slate-100 border-slate-300'
+                : 'bg-slate-900 border-slate-800'
             }`}
           >
-            <Flame className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'العناصر الانتقالية وتعدين الحديد' : 'Transition Metals & Iron'}</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('equilibrium')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'equilibrium'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Scale className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'الاتزان ولوشاتيليه' : 'Equilibrium'}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('titration')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'titration'
-                ? isContrast
-                  ? 'bg-emerald-400 text-black font-black'
-                  : 'bg-emerald-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Droplets className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الرقم الهيدروجيني والمعايرة' : 'pH & Titration'}</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('transition')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'transition'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Flame className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'العناصر الانتقالية والحديد' : 'Transition & Iron'}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('electrochemistry')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'electrochemistry'
-                ? isContrast
-                  ? 'bg-emerald-400 text-black font-black'
-                  : 'bg-emerald-600 text-white font-extrabold shadow-sm'
-                : isLight
-                ? 'text-slate-700 hover:text-slate-900'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Battery className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الكيمياء الكهربية وخلايا الجلفانية' : 'Electrochemistry & Galvanic'}</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('qualitative')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'qualitative'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <TestTube className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'التحليل الوصفي والكواشف' : 'Qualitative Analysis'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('titration')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'titration'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Droplets className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'المعايرة و pH' : 'pH & Titration'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('electrochemistry')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'electrochemistry'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Battery className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'الكيمياء الكهربية والخلايا' : 'Electrochemistry'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('organic')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'organic'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <FlaskConical className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'العضوية ومسارات التخليق' : 'Organic Roadmaps'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('flashcards')}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+                activeTab === 'flashcards'
+                  ? isContrast
+                    ? 'bg-emerald-400 text-black font-black'
+                    : 'bg-emerald-600 text-white font-extrabold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <BookMarked className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'كروت المراجعة والكواشف' : 'Review & Flashcards'}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -937,6 +1023,35 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           <ElectrochemistryLab lang={lang} theme={theme} />
         </div>
       )}
+
+      {/* TAB 5: QUALITATIVE ANALYSIS & CHEMICAL DETECTION */}
+      {activeTab === 'qualitative' && (
+        <div className="mt-6">
+          <QualitativeAnalysisLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 6: ORGANIC CHEMISTRY ROADMAPS & MECHANISMS */}
+      {activeTab === 'organic' && (
+        <div className="mt-6">
+          <OrganicChemistryLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 7: CHEMISTRY FLASHCARDS & REAGENT CHALLENGE */}
+      {activeTab === 'flashcards' && (
+        <div className="mt-6">
+          <ChemistryFlashcards lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* Slide-over Chemistry Constants & Live Calculators Drawer */}
+      <ChemistryConstantsDrawer
+        isOpen={isConstantsOpen}
+        onClose={() => setIsConstantsOpen(false)}
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

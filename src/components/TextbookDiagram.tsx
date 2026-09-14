@@ -1506,6 +1506,487 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </g>
           </svg>
         )}
+
+        {/* 27. CHEMISTRY: Blast Furnace for Iron Extraction */}
+        {type === 'chem_blast_furnace' && (
+          <svg viewBox="0 0 460 250" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Furnace Shell */}
+            <path
+              d="M 175 35 L 285 35 L 315 90 L 305 180 L 275 220 L 185 220 L 155 180 L 145 90 Z"
+              className="fill-slate-800 stroke-slate-400"
+              strokeWidth="2.5"
+              {...nonScaling}
+            />
+            {/* Double Bell Charging Top */}
+            <rect x="205" y="15" width="50" height="20" className="fill-slate-700 stroke-slate-400" strokeWidth="1.5" />
+            <polygon points="215,35 245,35 230,48" className="fill-amber-500 stroke-amber-300" strokeWidth="1" />
+            <text x="230" y="10" textAnchor="middle" className="text-[9px] font-bold fill-amber-300">
+              {isAr ? 'شحنة الخام: هيماتيت + كوك + حجر جيري' : 'Charge: Ore + Coke + Limestone'}
+            </text>
+
+            {/* Zone 1: Upper Stack (230-300 C) */}
+            <line x1="150" y1="90" x2="310" y2="90" stroke="#64748b" strokeDasharray="3,3" strokeWidth="1.5" />
+            <text x="230" y="70" textAnchor="middle" className="text-[9px] font-black fill-sky-300">
+              {isAr ? 'أعلى الفرن (٢٣٠-٣٠٠°س): 3Fe₂O₃ + CO → 2Fe₃O₄ + CO₂' : 'Upper (230-300°C): 3Fe₂O₃ + CO → 2Fe₃O₄ + CO₂'}
+            </text>
+
+            {/* Zone 2: Middle Stack (400-700 C) */}
+            <line x1="155" y1="140" x2="305" y2="140" stroke="#64748b" strokeDasharray="3,3" strokeWidth="1.5" />
+            <text x="230" y="118" textAnchor="middle" className="text-[9px] font-black fill-amber-300">
+              {isAr ? 'وسط الفرن (٤٠٠-٧٠٠°س): Fe₃O₄ + CO → 3FeO + CO₂' : 'Middle (400-700°C): Fe₃O₄ + CO → 3FeO + CO₂'}
+            </text>
+
+            {/* Zone 3: Lower Hearth (>700 C) */}
+            <text x="230" y="165" textAnchor="middle" className="text-[9px] font-black fill-rose-400">
+              {isAr ? 'قاع الفرن (>٧٠٠°س): FeO + CO → Fe + CO₂' : 'Hearth (>700°C): FeO + CO → Fe + CO₂'}
+            </text>
+
+            {/* Hot Air Blast Tuyères */}
+            <line x1="105" y1="180" x2="155" y2="180" stroke="#f97316" strokeWidth="3.5" markerEnd="url(#arrOrg1)" />
+            <text x="95" y="175" textAnchor="end" className="text-[9px] font-bold fill-orange-400">
+              {isAr ? 'هواء ساخن' : 'Hot Air'}
+            </text>
+            <line x1="355" y1="180" x2="305" y2="180" stroke="#f97316" strokeWidth="3.5" markerEnd="url(#arrOrg1)" />
+            <text x="365" y="175" textAnchor="start" className="text-[9px] font-bold fill-orange-400">
+              {isAr ? 'هواء ساخن' : 'Hot Air'}
+            </text>
+
+            {/* Molten Layers at Base */}
+            {/* Slag Layer (CaSiO3) */}
+            <rect x="185" y="195" width="90" height="12" className="fill-amber-900/80 stroke-amber-500/50" strokeWidth="1" />
+            <line x1="275" y1="200" x2="330" y2="200" stroke="#f59e0b" strokeWidth="2" />
+            <text x="335" y="204" textAnchor="start" className="text-[8px] font-bold fill-amber-300">
+              {isAr ? 'خَبَث CaSiO₃ (يطفو)' : 'Slag (CaSiO₃)'}
+            </text>
+
+            {/* Molten Iron Layer (Fe) */}
+            <rect x="188" y="207" width="84" height="13" className="fill-rose-900/90 stroke-rose-500/60" strokeWidth="1" />
+            <line x1="272" y1="214" x2="330" y2="225" stroke="#f43f5e" strokeWidth="2" />
+            <text x="335" y="228" textAnchor="start" className="text-[8px] font-bold fill-rose-300">
+              {isAr ? 'حديد منصهر Fe (أثقل)' : 'Molten Iron (Fe)'}
+            </text>
+          </svg>
+        )}
+
+        {/* 28. CHEMISTRY: Galvanic Daniell Cell with Salt Bridge */}
+        {type === 'chem_daniell_galvanic_cell' && (
+          <svg viewBox="0 0 460 240" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Beaker Left: Zinc Half-Cell */}
+            <rect x="50" y="80" width="130" height="130" rx="6" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="52" y="120" width="126" height="88" rx="4" className="fill-cyan-950/40" />
+            <rect x="75" y="60" width="22" height="130" rx="2" className="fill-slate-400 stroke-slate-200" strokeWidth="1.5" />
+            <text x="86" y="52" textAnchor="middle" className="text-[9px] font-bold fill-slate-200">Zn (-)</text>
+            <text x="115" y="175" textAnchor="middle" className="text-[9px] font-bold fill-cyan-300">ZnSO₄ (1 M)</text>
+            <text x="115" y="195" textAnchor="middle" className="text-[8px] font-bold fill-rose-300">
+              {isAr ? 'مصعد (أنود): تأكسد' : 'Anode: Oxidation'}
+            </text>
+
+            {/* Beaker Right: Copper Half-Cell */}
+            <rect x="280" y="80" width="130" height="130" rx="6" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="282" y="120" width="126" height="88" rx="4" className="fill-blue-950/60" />
+            <rect x="363" y="60" width="22" height="130" rx="2" className="fill-amber-600 stroke-amber-400" strokeWidth="1.5" />
+            <text x="374" y="52" textAnchor="middle" className="text-[9px] font-bold fill-amber-300">Cu (+)</text>
+            <text x="325" y="175" textAnchor="middle" className="text-[9px] font-bold fill-blue-300">CuSO₄ (1 M)</text>
+            <text x="325" y="195" textAnchor="middle" className="text-[8px] font-bold fill-emerald-300">
+              {isAr ? 'مهبط (كاثود): اختزال' : 'Cathode: Reduction'}
+            </text>
+
+            {/* U-Tube Salt Bridge */}
+            <path
+              d="M 145 155 L 145 95 Q 145 75 165 75 L 295 75 Q 315 75 315 95 L 315 155"
+              fill="none"
+              stroke="#cbd5e1"
+              strokeWidth="14"
+              strokeLinecap="round"
+            />
+            <path
+              d="M 145 155 L 145 95 Q 145 75 165 75 L 295 75 Q 315 75 315 95 L 315 155"
+              fill="none"
+              stroke="#f59e0b"
+              strokeWidth="10"
+              strokeLinecap="round"
+            />
+            <text x="230" y="70" textAnchor="middle" className="text-[9px] font-black fill-amber-300">
+              {isAr ? 'قنطرة ملحية KNO₃' : 'KNO₃ Salt Bridge'}
+            </text>
+
+            {/* Wire & Voltmeter */}
+            <line x1="86" y1="60" x2="86" y2="25" stroke="#38bdf8" strokeWidth="2" />
+            <line x1="86" y1="25" x2="200" y2="25" stroke="#38bdf8" strokeWidth="2" />
+            {/* Electron Flow Arrow */}
+            <polygon points="140,22 150,25 140,28" className="fill-cyan-300" />
+            <text x="145" y="18" textAnchor="middle" className="text-[8px] font-mono fill-cyan-300">e⁻ →</text>
+
+            <line x1="260" y1="25" x2="374" y2="25" stroke="#38bdf8" strokeWidth="2" />
+            <line x1="374" y1="25" x2="374" y2="60" stroke="#38bdf8" strokeWidth="2" />
+
+            {/* Voltmeter Dial */}
+            <circle cx="230" cy="25" r="18" className="fill-slate-900 stroke-emerald-400" strokeWidth="2" />
+            <text x="230" y="22" textAnchor="middle" className="text-[9px] font-black fill-emerald-400">1.10 V</text>
+            <text x="230" y="34" textAnchor="middle" className="text-[7px] font-bold fill-slate-300">E°cell</text>
+          </svg>
+        )}
+
+        {/* 29. CHEMISTRY: Standard Hydrogen Electrode (SHE) */}
+        {type === 'chem_standard_hydrogen_electrode' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Beaker with HCl */}
+            <rect x="140" y="50" width="180" height="160" rx="8" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="142" y="90" width="176" height="118" rx="4" className="fill-sky-950/40" />
+            <text x="230" y="195" textAnchor="middle" className="text-[10px] font-bold fill-sky-300">
+              HCl (1.0 mol/L, [H⁺] = 1 M, pH = 0)
+            </text>
+
+            {/* Inverted Glass Tube */}
+            <rect x="195" y="40" width="70" height="130" rx="4" className="fill-slate-700/50 stroke-slate-400" strokeWidth="1.5" />
+            {/* Hydrogen Gas Inlet */}
+            <line x1="120" y1="65" x2="195" y2="65" stroke="#38bdf8" strokeWidth="4" />
+            <polygon points="160,61 170,65 160,69" className="fill-sky-300" />
+            <text x="110" y="62" textAnchor="end" className="text-[9px] font-bold fill-sky-300">
+              H₂ (1 atm, 25°C)
+            </text>
+
+            {/* Platinum Wire & Platinized Platinum Foil */}
+            <line x1="230" y1="20" x2="230" y2="140" stroke="#e2e8f0" strokeWidth="2" />
+            <circle cx="230" cy="18" r="3" className="fill-amber-400" />
+            <text x="230" y="12" textAnchor="middle" className="text-[8px] font-bold fill-amber-300">
+              {isAr ? 'سلك بلاتين Pt' : 'Pt Wire'}
+            </text>
+
+            {/* Platinum Foil Plate */}
+            <rect x="215" y="140" width="30" height="20" rx="1" className="fill-slate-900 stroke-slate-300" strokeWidth="1.5" />
+            <text x="230" y="153" textAnchor="middle" className="text-[7px] font-black fill-slate-200">Pt black</text>
+
+            {/* Gas Bubbles */}
+            <circle cx="210" cy="148" r="2.5" className="fill-sky-400/80" />
+            <circle cx="206" cy="138" r="3" className="fill-sky-400/80" />
+            <circle cx="250" cy="146" r="2.5" className="fill-sky-400/80" />
+            <circle cx="254" cy="135" r="3" className="fill-sky-400/80" />
+
+            {/* Potential Tag */}
+            <rect x="335" y="80" width="110" height="40" rx="6" className="fill-emerald-950/80 border border-emerald-500/60 stroke-emerald-500" strokeWidth="1.5" />
+            <text x="390" y="98" textAnchor="middle" className="text-[11px] font-black fill-emerald-300">E° = 0.00 V</text>
+            <text x="390" y="112" textAnchor="middle" className="text-[8px] font-bold fill-slate-300">
+              {isAr ? 'قطب الهيدروجين القياسي' : 'Standard Hydrogen'}
+            </text>
+          </svg>
+        )}
+
+        {/* 30. CHEMISTRY: Lead-Acid Car Accumulator Battery */}
+        {type === 'chem_lead_acid_accumulator' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Battery Outer Box */}
+            <rect x="90" y="45" width="280" height="165" rx="8" className="fill-slate-800 stroke-slate-500" strokeWidth="2.5" />
+            <rect x="92" y="75" width="276" height="133" rx="4" className="fill-amber-950/20" />
+
+            {/* Electrolyte Label */}
+            <text x="230" y="195" textAnchor="middle" className="text-[9px] font-bold fill-amber-300">
+              {isAr ? 'إلكتروليت: حمض كبريتيك مخفف H₂SO₄ (كثافة ١٫٢٨ - ١٫٣٠ جم/سم³)' : 'Electrolyte: Dilute H₂SO₄ (Density 1.28 - 1.30 g/cm³)'}
+            </text>
+
+            {/* Anode Plates (Spongy Lead Pb) */}
+            <g>
+              <rect x="130" y="65" width="14" height="105" rx="2" className="fill-slate-500 stroke-slate-300" strokeWidth="1" />
+              <rect x="180" y="65" width="14" height="105" rx="2" className="fill-slate-500 stroke-slate-300" strokeWidth="1" />
+              <rect x="230" y="65" width="14" height="105" rx="2" className="fill-slate-500 stroke-slate-300" strokeWidth="1" />
+              {/* Busbar Anode (-) */}
+              <line x1="125" y1="65" x2="240" y2="65" stroke="#94a3b8" strokeWidth="4" />
+              <line x1="125" y1="65" x2="125" y2="30" stroke="#94a3b8" strokeWidth="4" />
+              <circle cx="125" cy="30" r="7" className="fill-rose-600 stroke-slate-200" strokeWidth="1.5" />
+              <text x="125" y="34" textAnchor="middle" className="text-[10px] font-black fill-white">-</text>
+              <text x="125" y="18" textAnchor="middle" className="text-[8px] font-bold fill-slate-300">Pb (Anode)</text>
+            </g>
+
+            {/* Cathode Plates (Lead Dioxide PbO2) */}
+            <g>
+              <rect x="205" y="65" width="14" height="105" rx="2" className="fill-amber-800 stroke-amber-500" strokeWidth="1" />
+              <rect x="255" y="65" width="14" height="105" rx="2" className="fill-amber-800 stroke-amber-500" strokeWidth="1" />
+              <rect x="305" y="65" width="14" height="105" rx="2" className="fill-amber-800 stroke-amber-500" strokeWidth="1" />
+              {/* Busbar Cathode (+) */}
+              <line x1="200" y1="60" x2="315" y2="60" stroke="#d97706" strokeWidth="4" />
+              <line x1="315" y1="60" x2="315" y2="30" stroke="#d97706" strokeWidth="4" />
+              <circle cx="315" cy="30" r="7" className="fill-emerald-600 stroke-slate-200" strokeWidth="1.5" />
+              <text x="315" y="34" textAnchor="middle" className="text-[10px] font-black fill-white">+</text>
+              <text x="315" y="18" textAnchor="middle" className="text-[8px] font-bold fill-amber-300">PbO₂ (Cathode)</text>
+            </g>
+
+            {/* Voltage Badge */}
+            <text x="230" y="110" textAnchor="middle" className="text-[11px] font-black fill-emerald-400">
+              E_cell ≈ 2.05 V (12 V total for 6 cells)
+            </text>
+          </svg>
+        )}
+
+        {/* 31. CHEMISTRY: Laclanche Dry Cell */}
+        {type === 'chem_dry_cell_laclanche' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Outer Zinc Canister (Anode -) */}
+            <rect x="150" y="40" width="160" height="170" rx="8" className="fill-slate-800 stroke-slate-400" strokeWidth="3" />
+            <text x="110" y="125" textAnchor="end" className="text-[9px] font-bold fill-slate-300">
+              {isAr ? 'غلاف الخارصين Zn (أنود -)' : 'Zinc Can (Anode -)'}
+            </text>
+            <line x1="115" y1="125" x2="150" y2="125" stroke="#94a3b8" strokeWidth="1.5" />
+
+            {/* Electrolyte Paste Layer (NH4Cl + ZnCl2) */}
+            <rect x="165" y="52" width="130" height="148" rx="4" className="fill-slate-700/60 stroke-slate-600" strokeWidth="1" />
+            <text x="350" y="80" textAnchor="start" className="text-[8px] font-bold fill-cyan-300">
+              {isAr ? 'عجينة رطبة NH₄Cl + ZnCl₂' : 'Paste NH₄Cl + ZnCl₂'}
+            </text>
+            <line x1="345" y1="80" x2="295" y2="90" stroke="#38bdf8" strokeWidth="1.5" />
+
+            {/* Depolarizer Paste (MnO2 + Carbon Black) */}
+            <rect x="185" y="58" width="90" height="138" rx="2" className="fill-amber-950/80 stroke-amber-700" strokeWidth="1" />
+            <text x="350" y="135" textAnchor="start" className="text-[8px] font-bold fill-amber-300">
+              {isAr ? 'خليط MnO₂ + كربون مجزأ' : 'MnO₂ + Carbon black'}
+            </text>
+            <line x1="345" y1="135" x2="275" y2="135" stroke="#f59e0b" strokeWidth="1.5" />
+
+            {/* Central Graphite Rod (Cathode +) */}
+            <rect x="218" y="25" width="24" height="165" rx="3" className="fill-slate-950 stroke-slate-300" strokeWidth="2" />
+            {/* Metal Cap */}
+            <rect x="222" y="18" width="16" height="10" rx="2" className="fill-amber-400 stroke-amber-200" strokeWidth="1" />
+            <text x="230" y="12" textAnchor="middle" className="text-[9px] font-black fill-amber-400">
+              {isAr ? 'ساق كربون C (كاثود +)' : 'Carbon Rod (Cathode +)'}
+            </text>
+
+            {/* Voltage Label */}
+            <text x="230" y="222" textAnchor="middle" className="text-[11px] font-black fill-emerald-400">
+              E_cell = 1.50 V (Irreversible Primary Cell)
+            </text>
+          </svg>
+        )}
+
+        {/* 32. CHEMISTRY: Haber-Bosch Ammonia Synthesis Equilibrium Loop */}
+        {type === 'chem_haber_bosch_equilibrium' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Feed Inlet */}
+            <line x1="30" y1="70" x2="80" y2="70" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrInd1)" />
+            <text x="30" y="60" className="text-[9px] font-black fill-sky-300">N₂ + 3H₂ (1 : 3)</text>
+
+            {/* Compressor */}
+            <polygon points="80,50 120,60 120,80 80,90" className="fill-slate-800 stroke-slate-400" strokeWidth="2" />
+            <text x="100" y="105" textAnchor="middle" className="text-[8px] font-bold fill-slate-300">
+              {isAr ? 'ضاغط (٢٠٠ ض.ج)' : 'Compressor (200 atm)'}
+            </text>
+
+            {/* Catalyst Chamber */}
+            <rect x="170" y="40" width="110" height="90" rx="6" className="fill-rose-950/60 stroke-rose-400" strokeWidth="2" />
+            <line x1="120" y1="70" x2="170" y2="70" stroke="#38bdf8" strokeWidth="2.5" />
+            <text x="225" y="65" textAnchor="middle" className="text-[9px] font-black fill-rose-300">
+              {isAr ? 'غرفة الحافز (حديد مجزأ Fe)' : 'Catalyst Chamber (Fe)'}
+            </text>
+            <text x="225" y="82" textAnchor="middle" className="text-[8px] font-bold fill-amber-300">
+              T = 500°C, P = 200 atm
+            </text>
+            <text x="225" y="100" textAnchor="middle" className="text-[8px] font-mono fill-emerald-300">
+              N₂ + 3H₂ ⇌ 2NH₃ + 92 kJ
+            </text>
+
+            {/* Condenser / Cooler */}
+            <rect x="330" y="40" width="80" height="90" rx="6" className="fill-cyan-950/60 stroke-cyan-400" strokeWidth="2" />
+            <line x1="280" y1="70" x2="330" y2="70" stroke="#38bdf8" strokeWidth="2.5" />
+            <text x="370" y="65" textAnchor="middle" className="text-[8px] font-black fill-cyan-300">
+              {isAr ? 'مكثف تبريد' : 'Condenser'}
+            </text>
+
+            {/* Liquid Ammonia Outlet */}
+            <line x1="370" y1="130" x2="370" y2="180" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrInd1)" />
+            <text x="370" y="200" textAnchor="middle" className="text-[9px] font-black fill-emerald-300">
+              {isAr ? 'نشادر مسال NH₃ (سائل)' : 'Liquid NH₃'}
+            </text>
+
+            {/* Recycle Loop */}
+            <path
+              d="M 370 40 L 370 20 L 100 20 L 100 50"
+              fill="none"
+              stroke="#a855f7"
+              strokeWidth="2"
+              strokeDasharray="4,4"
+            />
+            <text x="235" y="15" textAnchor="middle" className="text-[8px] font-bold fill-purple-300">
+              {isAr ? 'إعادة تدوير الغازات غير المتفاعلة' : 'Recycle unreacted N₂ + H₂'}
+            </text>
+          </svg>
+        )}
+
+        {/* 33. CHEMISTRY: Methane Gas Laboratory Preparation */}
+        {type === 'chem_methane_laboratory_preparation' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Bunsen Burner */}
+            <rect x="75" y="170" width="20" height="40" className="fill-slate-600 stroke-slate-400" strokeWidth="1.5" />
+            <polygon points="78,170 92,170 85,145" className="fill-amber-400 stroke-amber-200" strokeWidth="1" />
+            <polygon points="81,170 89,170 85,152" className="fill-sky-400" />
+
+            {/* Hard Glass Test Tube with Mixture */}
+            <rect x="60" y="105" width="130" height="24" rx="12" transform="rotate(-15 60 105)" className="fill-slate-800/80 stroke-slate-400" strokeWidth="2" />
+            <text x="90" y="90" textAnchor="middle" className="text-[8px] font-black fill-amber-300">
+              CH₃COONa + (NaOH + CaO)
+            </text>
+            <text x="90" y="100" textAnchor="middle" className="text-[7px] font-bold fill-slate-300">
+              {isAr ? 'أسيتات صوديوم + جير صودي' : 'Sodium acetate + Soda lime'}
+            </text>
+
+            {/* Delivery Tube */}
+            <path
+              d="M 175 75 L 250 75 L 280 150 L 320 150"
+              fill="none"
+              stroke="#94a3b8"
+              strokeWidth="3.5"
+            />
+
+            {/* Water Trough */}
+            <rect x="290" y="130" width="140" height="70" rx="4" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="292" y="145" width="136" height="53" rx="2" className="fill-sky-950/40" />
+            <text x="360" y="195" textAnchor="middle" className="text-[8px] font-bold fill-sky-300">
+              {isAr ? 'حوض به ماء' : 'Water Trough'}
+            </text>
+
+            {/* Inverted Gas Jar collecting Methane */}
+            <rect x="330" y="80" width="60" height="85" rx="4" className="fill-slate-700/40 stroke-slate-300" strokeWidth="1.5" />
+            <text x="360" y="105" textAnchor="middle" className="text-[10px] font-black fill-emerald-300">CH₄ (g)</text>
+            <text x="360" y="118" textAnchor="middle" className="text-[7px] font-bold fill-slate-200">
+              {isAr ? 'إزاحة الماء لأسفل' : 'Displaces water'}
+            </text>
+
+            {/* Chemical Equation */}
+            <text x="230" y="222" textAnchor="middle" className="text-[9px] font-black fill-cyan-300">
+              {'CH₃COONa + NaOH ──(CaO, Δ)──> CH₄↑ + Na₂CO₃'}
+            </text>
+          </svg>
+        )}
+
+        {/* 34. CHEMISTRY: Ethylene Gas Laboratory Preparation */}
+        {type === 'chem_ethylene_preparation' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Heating Flask (Ethanol + H2SO4 at 180 C) */}
+            <circle cx="90" cy="140" r="35" className="fill-slate-800/80 stroke-slate-400" strokeWidth="2" />
+            <rect x="83" y="85" width="14" height="25" className="fill-slate-800 stroke-slate-400" strokeWidth="2" />
+            {/* Thermometer */}
+            <line x1="88" y1="65" x2="88" y2="135" stroke="#ef4444" strokeWidth="2" />
+            <text x="75" y="60" textAnchor="end" className="text-[8px] font-black fill-rose-400">180°C</text>
+            <text x="90" y="145" textAnchor="middle" className="text-[7px] font-black fill-amber-300">
+              C₂H₅OH + H₂SO₄
+            </text>
+
+            {/* Tube to Wash Bottle */}
+            <path d="M 94 95 L 170 95 L 170 145" fill="none" stroke="#94a3b8" strokeWidth="3" />
+
+            {/* Wash Bottle with NaOH Solution */}
+            <rect x="155" y="125" width="55" height="75" rx="4" className="fill-slate-800/80 stroke-slate-500" strokeWidth="1.5" />
+            <rect x="157" y="145" width="51" height="53" rx="2" className="fill-purple-950/40" />
+            <text x="182" y="170" textAnchor="middle" className="text-[8px] font-black fill-purple-300">NaOH (aq)</text>
+            <text x="182" y="185" textAnchor="middle" className="text-[6px] font-bold fill-slate-300">
+              {isAr ? 'لإزالة SO₂ و CO₂' : 'Removes SO₂'}
+            </text>
+
+            {/* Tube from Wash Bottle to Water Trough */}
+            <path d="M 195 130 L 260 130 L 290 170" fill="none" stroke="#94a3b8" strokeWidth="3" />
+
+            {/* Inverted Cylinder over Water */}
+            <rect x="270" y="145" width="150" height="60" rx="4" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="320" y="85" width="60" height="85" rx="4" className="fill-slate-700/40 stroke-slate-300" strokeWidth="1.5" />
+            <text x="350" y="115" textAnchor="middle" className="text-[10px] font-black fill-emerald-300">C₂H₄ (g)</text>
+            <text x="350" y="130" textAnchor="middle" className="text-[7px] font-bold fill-slate-200">
+              {isAr ? 'غاز الإيثيلين' : 'Ethylene Gas'}
+            </text>
+
+            {/* Equation */}
+            <text x="230" y="222" textAnchor="middle" className="text-[9px] font-black fill-cyan-300">
+              {'C₂H₅OH ──(conc. H₂SO₄, 180°C)──> C₂H₄↑ + H₂O'}
+            </text>
+          </svg>
+        )}
+
+        {/* 35. CHEMISTRY: Acetylene (Ethyne) Laboratory Preparation */}
+        {type === 'chem_acetylene_preparation' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Conical Flask with Dropping Funnel */}
+            <polygon points="60,190 120,190 100,120 80,120" className="fill-slate-800/80 stroke-slate-400" strokeWidth="2" />
+            {/* Lumps of CaC2 */}
+            <circle cx="85" cy="180" r="5" className="fill-slate-400" />
+            <circle cx="95" cy="183" r="6" className="fill-slate-400" />
+            <circle cx="90" cy="173" r="5" className="fill-slate-500" />
+            <text x="90" y="165" textAnchor="middle" className="text-[8px] font-black fill-amber-300">CaC₂</text>
+
+            {/* Dropping Funnel with Water */}
+            <line x1="90" y1="120" x2="90" y2="70" stroke="#94a3b8" strokeWidth="2.5" />
+            <polygon points="75,70 105,70 90,85" className="fill-sky-800 stroke-sky-400" strokeWidth="1.5" />
+            <text x="90" y="60" textAnchor="middle" className="text-[8px] font-bold fill-sky-300">
+              {isAr ? 'ماء مقطر تنقيطاً' : 'H₂O (drops)'}
+            </text>
+
+            {/* Tube to Wash Bottle (CuSO4 in dilute H2SO4) */}
+            <path d="M 95 125 L 165 125 L 165 155" fill="none" stroke="#94a3b8" strokeWidth="3" />
+            <rect x="150" y="135" width="55" height="65" rx="4" className="fill-slate-800/80 stroke-slate-500" strokeWidth="1.5" />
+            <rect x="152" y="155" width="51" height="43" rx="2" className="fill-blue-950/50" />
+            <text x="177" y="175" textAnchor="middle" className="text-[7px] font-black fill-blue-300">CuSO₄ / H₂SO₄</text>
+            <text x="177" y="188" textAnchor="middle" className="text-[6px] font-bold fill-slate-300">
+              {isAr ? 'لإزالة PH₃ و H₂S' : 'Removes PH₃ & H₂S'}
+            </text>
+
+            {/* Delivery Tube to Collection Jar */}
+            <path d="M 190 140 L 260 140 L 290 170" fill="none" stroke="#94a3b8" strokeWidth="3" />
+            <rect x="270" y="145" width="150" height="60" rx="4" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2" />
+            <rect x="320" y="85" width="60" height="85" rx="4" className="fill-slate-700/40 stroke-slate-300" strokeWidth="1.5" />
+            <text x="350" y="115" textAnchor="middle" className="text-[10px] font-black fill-emerald-300">C₂H₂ (g)</text>
+            <text x="350" y="130" textAnchor="middle" className="text-[7px] font-bold fill-slate-200">
+              {isAr ? 'غاز الإيثاين (الأسيتيلين)' : 'Ethyne (Acetylene)'}
+            </text>
+
+            {/* Equation */}
+            <text x="230" y="222" textAnchor="middle" className="text-[9px] font-black fill-cyan-300">
+              CaC₂ + 2H₂O → C₂H₂↑ + Ca(OH)₂
+            </text>
+          </svg>
+        )}
+
+        {/* 36. CHEMISTRY: Organic Esterification Distillation / Reflux Assembly */}
+        {type === 'chem_organic_reflux_esterification' && (
+          <svg viewBox="0 0 460 230" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            {/* Reaction Flask with Reactants */}
+            <circle cx="80" cy="145" r="30" className="fill-slate-800/80 stroke-slate-400" strokeWidth="2" />
+            <rect x="74" y="95" width="12" height="25" className="fill-slate-800 stroke-slate-400" strokeWidth="2" />
+            <text x="80" y="142" textAnchor="middle" className="text-[7px] font-black fill-amber-300">
+              R-COOH + R'-OH
+            </text>
+            <text x="80" y="153" textAnchor="middle" className="text-[6px] font-bold fill-rose-300">
+              + conc. H₂SO₄
+            </text>
+
+            {/* Distillation Head & Thermometer */}
+            <path d="M 80 95 L 80 75 L 120 90" fill="none" stroke="#94a3b8" strokeWidth="3" />
+            <line x1="80" y1="50" x2="80" y2="90" stroke="#ef4444" strokeWidth="2" />
+            <text x="75" y="48" textAnchor="end" className="text-[8px] font-bold fill-rose-400">T (°C)</text>
+
+            {/* Liebig Condenser (Water-Cooled) */}
+            <line x1="120" y1="90" x2="270" y2="160" stroke="#38bdf8" strokeWidth="18" strokeLinecap="round" className="opacity-40" />
+            <line x1="120" y1="90" x2="270" y2="160" stroke="#cbd5e1" strokeWidth="4" />
+            <text x="195" y="115" textAnchor="middle" transform="rotate(25 195 115)" className="text-[8px] font-black fill-cyan-300">
+              {isAr ? 'مكثف ليبيج (ماء تبريد)' : 'Liebig Condenser'}
+            </text>
+            {/* Water in / Water out */}
+            <text x="280" y="180" className="text-[7px] font-bold fill-sky-300">
+              {isAr ? 'دخول ماء بارد ↑' : 'Water In ↑'}
+            </text>
+            <text x="135" y="75" className="text-[7px] font-bold fill-sky-300">
+              {isAr ? 'خروج ماء ↑' : 'Water Out ↑'}
+            </text>
+
+            {/* Receiving Flask for Ester */}
+            <polygon points="290,195 330,195 315,160 305,160" className="fill-slate-800/80 stroke-slate-400" strokeWidth="2" />
+            <text x="310" y="185" textAnchor="middle" className="text-[8px] font-black fill-emerald-300">
+              R-COO-R'
+            </text>
+            <text x="310" y="210" textAnchor="middle" className="text-[8px] font-bold fill-emerald-400">
+              {isAr ? 'إستر نقي ذو رائحة زكية' : 'Ester Product'}
+            </text>
+
+            {/* Equation */}
+            <text x="230" y="224" textAnchor="middle" className="text-[9px] font-black fill-cyan-300">
+              CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O
+            </text>
+          </svg>
+        )}
       </div>
 
       {/* DEDICATED LATEX MATH LEGEND & FORMULA CALLOUTS (Rendered with 100% genuine KaTeX) */}
@@ -1915,13 +2396,153 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
         {type === 'phys_pn_junction_transistor' && (
           <>
             <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
-              <MathRenderer math="\\beta = \\frac{I_c}{I_b} = \\frac{\\alpha}{1 - \\alpha}" lang={lang} />
+              <MathRenderer math="\beta = \frac{I_c}{I_b} = \frac{\alpha}{1 - \alpha}" lang={lang} />
             </span>
             <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
               <MathRenderer math="I_e = I_b + I_c" lang={lang} />
             </span>
             <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
-              <MathRenderer math="V_{ce} = V_{cc} - I_c R_c \\quad (\\text{عاكس NOT gate})" lang={lang} />
+              <MathRenderer math="V_{ce} = V_{cc} - I_c R_c \quad (\text{عاكس NOT gate})" lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_blast_furnace' && (
+          <>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{Fe}_2\text{O}_3 + 3\text{CO} \xrightarrow{> 700^\circ\text{C}} 2\text{Fe} + 3\text{CO}_2" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{الخَبَث (يطفو)}: \text{CaO} + \text{SiO}_2 \to \text{CaSiO}_3" : "\text{Slag}: \text{CaO} + \text{SiO}_2 \to \text{CaSiO}_3"} lang={lang} />
+            </span>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{درجات الحرارة}: \text{القاع } > 700^\circ\text{C}, \text{ القمة } 230-300^\circ\text{C}" : "\text{Temp}: \text{Hearth } > 700^\circ\text{C}, \text{ Top } 230-300^\circ\text{C}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_daniell_galvanic_cell' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E^\circ_{\text{cell}} = E^\circ_{\text{red}}(\text{cathode}) - E^\circ_{\text{red}}(\text{anode}) = +1.10\,\text{V}" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{Zn} + \text{Cu}^{2+} \to \text{Zn}^{2+} + \text{Cu}, \quad \Delta G^\circ = -nFE^\circ < 0" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{القنطرة الملحية: معادلة الأيونات الزائدة في نصفي الخلية}" : "\text{Salt Bridge: Neutralizes excess ions}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_standard_hydrogen_electrode' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E^\circ(\text{SHE}) = 0.00\,\text{V} \quad (P_{\text{H}_2} = 1\,\text{atm}, [\text{H}^+] = 1\,\text{M})" lang={lang} />
+            </span>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{H}_2 \rightleftharpoons 2\text{H}^+ + 2e^-" lang={lang} />
+            </span>
+            <span className="bg-purple-950/60 border border-purple-500/40 text-purple-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{يتغير جهده عن الصفر إذا تغير الضغط أو تركيز } [\text{H}^+]" : "\text{Potential shifts from 0.00 V if } P \text{ or } [\text{H}^+] \text{ changes}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_lead_acid_accumulator' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{Pb} + \text{PbO}_2 + 2\text{H}_2\text{SO}_4 \rightleftharpoons 2\text{PbSO}_4 + 2\text{H}_2\text{O}" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E_{\text{cell}} \approx 2.05\,\text{V} \quad (\times 6 = 12.3\,\text{V})" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{كثافة الحمض المشحون: } 1.28 - 1.30\,\text{g/cm}^3 \quad (\text{هيدرومتر})" : "\text{Density Charged: } 1.28 - 1.30\,\text{g/cm}^3"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_dry_cell_laclanche' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E_{\text{cell}} = 1.50\,\text{V} \quad (\text{خلية جافة أولية})" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{Zn} + 2\text{MnO}_2 + 2\text{NH}_4^+ \to \text{Zn}^{2+} + \text{Mn}_2\text{O}_3 + 2\text{NH}_3 + \text{H}_2\text{O}" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{MnO}_2 \text{ مهدئ استقطاب مؤكسد لمنع تراكم غاز } \text{H}_2" : "\text{MnO}_2 \text{ acts as depolarizer}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_haber_bosch_equilibrium' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{N}_2(g) + 3\text{H}_2(g) \rightleftharpoons 2\text{NH}_3(g) + 92\,\text{kJ}" lang={lang} />
+            </span>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="K_c = \frac{[\text{NH}_3]^2}{[\text{N}_2][\text{H}_2]^3}, \quad K_p = K_c(RT)^{-2}" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{لوشاتيليه: زيادة الضغط (٤ مول } \to \text{ ٢ مول) تزيد الناتج}" : "\text{Higher pressure shifts equilibrium towards fewer moles}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_methane_laboratory_preparation' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{CH}_3\text{COONa} + \text{NaOH} \xrightarrow[\Delta]{\text{CaO}} \text{CH}_4\uparrow + \text{Na}_2\text{CO}_3" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{الجير الصودي } (\text{NaOH} + \text{CaO}): \text{ خفض درجة انصهار الخليط}" : "\text{Soda Lime } (\text{NaOH} + \text{CaO}): \text{ Lowers melting point}"} lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{يجمع بإزاحة الماء لأسفل لأنه شحيح الذوبان في الماء وأخف من الهواء}" : "\text{Collected by downward displacement of water}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_ethylene_preparation' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{C}_2\text{H}_5\text{OH} \xrightarrow[180^\circ\text{C}]{\text{conc. } \text{H}_2\text{SO}_4} \text{C}_2\text{H}_4\uparrow + \text{H}_2\text{O}" lang={lang} />
+            </span>
+            <span className="bg-purple-950/60 border border-purple-500/40 text-purple-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{محلول } \text{NaOH}: \text{ امتصاص أبخرة حمض الكبريتيك والغازات الحمضية } \text{SO}_2" : "\text{NaOH}: \text{ Absorbs acidic } \text{SO}_2 \text{ vapors}"} lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{نزع ماء على مرحلتين: كبريتات إيثيل هيدروجينية عند } 80^\circ\text{C}" : "\text{Ethyl hydrogen sulfate intermediate at } 80^\circ\text{C}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_acetylene_preparation' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{CaC}_2 + 2\text{H}_2\text{O} \to \text{C}_2\text{H}_2\uparrow + \text{Ca(OH)}_2" lang={lang} />
+            </span>
+            <span className="bg-blue-950/60 border border-blue-500/40 text-blue-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{محلول } \text{CuSO}_4 \text{ في } \text{H}_2\text{SO}_4: \text{ إزالة شوائب غازي } \text{PH}_3 \text{ و } \text{H}_2\text{S}" : "\text{CuSO}_4 / \text{H}_2\text{SO}_4: \text{ Removes } \text{PH}_3 \text{ & } \text{H}_2\text{S} \text{ impurities}"} lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{ألكاين به رابطة ثلاثية (واحدة } \sigma \text{ واثنتان } \pi \text{ ضعيفتان)}" : "\text{Alkyne with 1 } \sigma \text{ and 2 } \pi \text{ bonds}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'chem_organic_reflux_esterification' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\text{CH}_3\text{COOH} + \text{C}_2\text{H}_5\text{OH} \xrightleftharpoons{\text{conc. } \text{H}_2\text{SO}_4} \text{CH}_3\text{COOC}_2\text{H}_5 + \text{H}_2\text{O}" lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{حمض الكبريتيك المركز: نازع للماء لمنع التفاعل العكسي}" : "\text{conc. } \text{H}_2\text{SO}_4: \text{ Dehydrating agent shifts forward}"} lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{أكسجين الماء الناتج مصدره كحول الإيثانول (تجربة نظير } ^{18}\text{O})" : "\text{Water oxygen originates from alcohol via } ^{18}\text{O} \text{ tracer}"} lang={lang} />
             </span>
           </>
         )}

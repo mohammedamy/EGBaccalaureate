@@ -28,6 +28,7 @@ import {
   Calculator,
   Dna,
   Zap,
+  FlaskConical,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -601,6 +602,142 @@ export const TestGenerator: React.FC<Props> = ({
     setIsExamStarted(true);
   };
 
+  // Launch official Chemistry Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
+  const handleStartChemistryMinisterialExam = () => {
+    setSelectedSubject('chemistry');
+    const isThanaweya = currentCurriculum === 'thanaweya';
+    const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
+    const targetBranchId = isThanaweya ? 'thanaweya_chemistry' : 'egbac_chemistry';
+    const chemBranch = activeData.branches.find((b) => b.id === targetBranchId);
+
+    if (!chemBranch) return;
+
+    setExamMode('online');
+    setSelectedBranch(targetBranchId);
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setIsTimed(true);
+
+    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
+      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+      if (ch.databank) {
+        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+      }
+      if (ch.solvedExamples) {
+        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
+      }
+      if (ch.exerciseProblems) {
+        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
+      }
+      ch.lessons?.forEach((l) => {
+        if (l.worksheet?.problems) {
+          l.worksheet.problems.forEach((p) => candidateProblems.push({ prob: p, source: 'worksheet', diff: p.difficulty || 'medium' }));
+        }
+      });
+
+      const res: GeneratedQuestion[] = [];
+      candidateProblems.forEach(({ prob, source, diff }) => {
+        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
+        res.push({
+          id: `${prob.id}_${source}`,
+          questionEn: prob.questionEn,
+          questionAr: prob.questionAr,
+          difficulty: diff,
+          optionsEn: prob.optionsEn,
+          optionsAr: prob.optionsAr,
+          correctIndex: prob.correctIndex,
+          explanationEn: prob.stepByStepSolutionEn,
+          explanationAr: prob.stepByStepSolutionAr,
+          chapterId: ch.id,
+          chapterTitleEn: ch.titleEn,
+          chapterTitleAr: ch.titleAr,
+          branchTitleEn: chemBranch.titleEn,
+          branchTitleAr: chemBranch.titleAr,
+          diagramType: prob.diagramType,
+        });
+      });
+      return res;
+    };
+
+    const shuffle = <T,>(arr: T[]): T[] => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    };
+
+    const allQs: GeneratedQuestion[] = [];
+    chemBranch.chapters.forEach((ch) => {
+      allQs.push(...helperExtractChapterQuestions(ch));
+    });
+
+    let selectedQs: GeneratedQuestion[] = [];
+    let examTimeMinutes = 180;
+
+    if (isThanaweya) {
+      // Official MoE Thanaweya Blueprint for Chemistry (50 Questions / 180 Mins):
+      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
+      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
+      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
+
+      // 15 Easy, 20 Medium, 15 HOTS = 50 Questions total
+      selectedQs = [
+        ...easyQs.slice(0, 15),
+        ...medQs.slice(0, 20),
+        ...hotsQs.slice(0, 15),
+      ];
+
+      if (selectedQs.length < 50) {
+        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
+        selectedQs.push(...remaining.slice(0, 50 - selectedQs.length));
+      }
+
+      examTimeMinutes = 180;
+      setQuestionCount(50);
+      setDurationPreset(180);
+    } else {
+      // EG-Bac STEM Blueprint for Chemistry (40 Questions / 150 Mins):
+      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
+      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
+      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
+
+      // 10 Easy, 18 Medium, 12 HOTS = 40 Questions total
+      selectedQs = [
+        ...easyQs.slice(0, 10),
+        ...medQs.slice(0, 18),
+        ...hotsQs.slice(0, 12),
+      ];
+
+      if (selectedQs.length < 40) {
+        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
+        selectedQs.push(...remaining.slice(0, 40 - selectedQs.length));
+      }
+
+      examTimeMinutes = 150;
+      setQuestionCount(40);
+      setDurationPreset(150);
+    }
+
+    selectedQs = shuffle(selectedQs);
+
+    setActiveQuestions(selectedQs);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setReviewFilter('all');
+
+    const totalSec = examTimeMinutes * 60;
+    setTotalTimeSeconds(totalSec);
+    setTimeRemaining(totalSec);
+    setIsTimerPaused(false);
+    setTimeTakenSeconds(0);
+    setIsExamStarted(true);
+  };
+
   // Toggle flag on question
   const toggleFlag = (idx: number) => {
     setFlaggedQuestions((prev) => ({
@@ -841,6 +978,50 @@ export const TestGenerator: React.FC<Props> = ({
               </button>
             </div>
           </div>
+        ) : selectedSubject === 'chemistry' ? (
+          <div className="bg-gradient-to-r from-teal-950/50 via-slate-900 to-emerald-950/50 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-emerald-950/30">
+            <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40 shadow-inner">
+                <FlaskConical className="w-6 h-6 animate-pulse text-emerald-400" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-sm sm:text-base font-black text-emerald-100">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'امتحان الكيمياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الكيمياء الشامل لمدارس STEM (40 سؤالاً / 150 دقيقة)')
+                      : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Chemistry Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Chemistry Exam (40 Qs / 150 Mins)')}
+                  </h4>
+                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
+                      : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya'
+                        ? 'نموذج محاكاة مطابق لضوابط الوزارة: العناصر الانتقالية، التحليل الكيميائي الوصفي والكمي، الاتزان ولوساتيليه، الكيمياء الكهربية، والكيمياء العضوية ومسارات التخليق (50 سؤالاً / 3 ساعات).'
+                        : 'اختبار كيمياء شامل لمدارس STEM يغطي الحركية الكيميائية، الديناميكا الحرارية، التركيب الذري، والخلايا الكهروكيميائية (40 سؤالاً / 150 دقيقة).')
+                    : (currentCurriculum === 'thanaweya'
+                        ? 'Strictly aligned with official ministerial blueprint: Transition Elements, Qualitative/Quantitative Analysis, Equilibrium, Electrochemistry, and Organic Synthesis (50 Qs / 180 mins).'
+                        : 'Advanced STEM Chemistry comprehensive examination covering Atomic Structure, Chemical Kinetics, Thermodynamics, and Electrochemical Cells (40 Qs / 150 mins).')}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartChemistryMinisterialExam}
+                className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+              >
+                <FlaskConical className="w-4 h-4 fill-current" />
+                <span>
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya' ? 'بدء امتحان الكيمياء الوزاري (50 سؤالاً)' : 'بدء امتحان الكيمياء STEM (40 سؤالاً)')
+                    : (currentCurriculum === 'thanaweya' ? 'Launch Chemistry Exam (50 Qs)' : 'Launch STEM Chemistry (40 Qs)')}
+                </span>
+              </button>
+            </div>
+          </div>
         ) : (
           <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
@@ -870,6 +1051,13 @@ export const TestGenerator: React.FC<Props> = ({
               >
                 <Zap className="w-3.5 h-3.5 text-cyan-400" />
                 <span>{lang === 'ar' ? 'امتحان الفيزياء (50 سؤالاً)' : 'Physics Exam (50 Qs)'}</span>
+              </button>
+              <button
+                onClick={handleStartChemistryMinisterialExam}
+                className="w-full sm:w-auto bg-teal-950/40 hover:bg-teal-900/50 text-teal-300 border border-teal-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+              >
+                <FlaskConical className="w-3.5 h-3.5 text-teal-400" />
+                <span>{lang === 'ar' ? 'امتحان الكيمياء (50 سؤالاً)' : 'Chemistry Exam (50 Qs)'}</span>
               </button>
               <button
                 onClick={handleStartBiologyMinisterialExam}

@@ -1126,6 +1126,82 @@ export const thanaweyaChemistryBranch: Branch = {
           ],
           teacherTipEn: 'Electrons are always removed from the outermost $4s$ subshell before the $3d$ subshell.',
           teacherTipAr: 'تُفقد الإلكترونات دائماً من المستوى الفرعي الأبعد $4s$ أولاً ثم من المستوى الفرعي $3d$.'
+        },
+        {
+          id: 'th_chem_se_02',
+          titleEn: 'MoE Example 2: Blast Furnace Slag Formation & Flux Chemistry',
+          titleAr: 'مثال الوزارة ٢: تكوين الخبث والتخلص من شوائب السيليكا في الفرن العالي',
+          difficulty: 'medium',
+          diagramType: 'chem_blast_furnace',
+          questionEn: 'Limestone ($\\text{CaCO}_3$) is added into the blast furnace charge during iron smelting. What is its chemical role and what is the chemical formula of the resulting molten slag that floats above molten iron?',
+          questionAr: 'يُضاف الحجر الجيري ($\\text{CaCO}_3$) مع شحنة الفرن العالي أثناء صهر الحديد. ما دوره الكيميائي وما الصيغة الكيميائية لخبث الصهر الناتج الذي يطفو فوق الحديد المنصهر؟',
+          optionsEn: [
+            'Decomposes to $\\text{CaO}$ which neutralizes acidic sand impurities to form calcium silicate slag ($\\text{CaSiO}_3$)',
+            'Directly reduces hematite into metallic iron without producing carbon dioxide',
+            'Combines with molten iron to form low-melting ferrosilicon alloy',
+            'Acts as a cooling flux to decrease the tuyere blast temperature below $500^\\circ\\text{C}$'
+          ],
+          optionsAr: [
+            'ينحل بالحرارة إلى $\\text{CaO}$ الذي يتعادل مع شوائب الرمل الحامضية مكوناً خبث سيليكات الكالسيوم ($\\text{CaSiO}_3$)',
+            'يختزل الهيماتيت اختزالاً مباشراً إلى حديد فلزي دون انطلاق غاز ثاني أكسيد الكربون',
+            'يتحد مع الحديد المنصهر لإنتاج سبيكة الفيروسليكون منخفضة الانصهار',
+            'يعمل كمهدئ حراري لخفض درجة حرارة نفخ الهواء الساخن دون $500^\\circ\\text{C}$'
+          ],
+          correctAnswer: 'Decomposes to $\\text{CaO}$ which neutralizes acidic sand impurities to form calcium silicate slag ($\\text{CaSiO}_3$)',
+          correctIndex: 0,
+          hintEn: 'Limestone is a flux: $\\text{CaCO}_3 \\xrightarrow{\\Delta} \\text{CaO} + \\text{CO}_2$, then basic oxide $\\text{CaO}$ reacts with acidic $\\text{SiO}_2$.',
+          hintAr: 'الحجر الجيري مادة صهارة: ينحل حرارياً ليعطي أكسيد كالسيوم قاعدي يتفاعل مع أكسيد السيليكون الحامضي.',
+          stepByStepSolutionEn: [
+            '1. Thermal decomposition of limestone: $\\text{CaCO}_3 \\xrightarrow{\\Delta} \\text{CaO} + \\text{CO}_2$.',
+            '2. Flux neutralization: Basic calcium oxide reacts with acidic silica sand impurities: $\\text{CaO} + \\text{SiO}_2 \\to \\text{CaSiO}_3$ (molten slag).',
+            '3. Separation: Molten slag has a lower density than molten iron, so it floats on top and prevents oxidation of the molten iron while enabling easy drainage.'
+          ],
+          stepByStepSolutionAr: [
+            '١. انحلال الحجر الجيري حرارياً: $\\text{CaCO}_3 \\xrightarrow{\\Delta} \\text{CaO} + \\text{CO}_2$.',
+            '٢. معادلة الشوائب: يتفاعل أكسيد الكالسيوم القاعدي مع رمل السيليكا الحامضي: $\\text{CaO} + \\text{SiO}_2 \\to \\text{CaSiO}_3$ (خبث سيليكات الكالسيوم المنصهر).',
+            '٣. الفصل: كثافة الخبث أقل من كثافة الحديد المنصهر، فيطفو على سطحه ويحميه من التأكسد بواسطة الهواء الساخن ويسهل سحبه من فتحة الخبث العلوية.'
+          ],
+          teacherTipEn: 'Slag ($\text{CaSiO}_3$) is an invaluable industrial byproduct utilized in road paving and cement manufacture.',
+          teacherTipAr: 'الخبث الناتج يُعد منتجاً ثانوياً ذا قيمة صناعية ويُستخدم في رصف الطرق وصناعة الأسمنت.'
+        },
+        {
+          id: 'th_chem_se_03',
+          titleEn: 'MoE Example 3: Daniell Galvanic Cell EMF & Salt Bridge Ion Migration',
+          titleAr: 'مثال الوزارة ٣: حساب القوة الدافعة لخلية دانيال وهجرة أيونات القنطرة الملحية',
+          difficulty: 'hots',
+          diagramType: 'chem_daniell_galvanic_cell',
+          questionEn: 'In a standard Daniell cell, $E^\\circ(\\text{Zn}^{2+}/\\text{Zn}) = -0.76\\,\\text{V}$ and $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) = +0.34\\,\\text{V}$. What is the standard electromotive force ($E^\\circ_{\\text{cell}}$) and which direction do the sulfate anions ($\\text{SO}_4^{2-}$) migrate through the salt bridge?',
+          questionAr: 'في خلية دانيال القياسية، إذا كانت جهود الاختزال القياسية $E^\\circ(\\text{Zn}^{2+}/\\text{Zn}) = -0.76\\,\\text{V}$ و $E^\\circ(\\text{Cu}^{2+}/\\text{Cu}) = +0.34\\,\\text{V}$، فما قيمة القوة الدافعة الكهربية القياسية ($E^\\circ_{\\text{cell}}$) وإلى أي نصف خلية تهاجر أنيونات الكبريتات ($\\text{SO}_4^{2-}$) عبر القنطرة الملحية؟',
+          optionsEn: [
+            '$E^\\circ_{\\text{cell}} = +1.10\\,\\text{V}$; Anions migrate toward the zinc anode half-cell',
+            '$E^\\circ_{\\text{cell}} = +0.42\\,\\text{V}$; Anions migrate toward the copper cathode half-cell',
+            '$E^\\circ_{\\text{cell}} = -1.10\\,\\text{V}$; Anions migrate toward the copper cathode half-cell',
+            '$E^\\circ_{\\text{cell}} = +1.10\\,\\text{V}$; Anions migrate toward the copper cathode half-cell'
+          ],
+          optionsAr: [
+            '$E^\\circ_{\\text{cell}} = +1.10\\,\\text{V}$؛ تهاجر الأنيونات نحو نصف خلية مصعد الخارصين (الأنود)',
+            '$E^\\circ_{\\text{cell}} = +0.42\\,\\text{V}$؛ تهاجر الأنيونات نحو نصف خلية مهبط النحاس (الكاثود)',
+            '$E^\\circ_{\\text{cell}} = -1.10\\,\\text{V}$؛ تهاجر الأنيونات نحو نصف خلية مهبط النحاس (الكاثود)',
+            '$E^\\circ_{\\text{cell}} = +1.10\\,\\text{V}$؛ تهاجر الأنيونات نحو نصف خلية مهبط النحاس (الكاثود)'
+          ],
+          correctAnswer: '$E^\\circ_{\\text{cell}} = +1.10\\,\\text{V}$; Anions migrate toward the zinc anode half-cell',
+          correctIndex: 0,
+          hintEn: 'Remember: Anions migrate to the Anode to neutralize excess positive charge generated by oxidation.',
+          hintAr: 'قاعدة ذهبية: الأنيونات (السالبة) تهاجر دائماً نحو الأنود (المصعد) لمعادلة الزيادة في الشحنات الموجبة.',
+          stepByStepSolutionEn: [
+            '1. Zinc has lower reduction potential ($-0.76\\,\\text{V}$), so it acts as the anode (oxidation): $\\text{Zn} \\to \\text{Zn}^{2+} + 2e^-$.',
+            '2. Copper has higher reduction potential ($+0.34\\,\\text{V}$), so it acts as the cathode (reduction): $\\text{Cu}^{2+} + 2e^- \\to \\text{Cu}$.',
+            '3. $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = 0.34 - (-0.76) = +1.10\\,\\text{V}$.',
+            '4. In the anode compartment, oxidation produces excess $\\text{Zn}^{2+}$ cations. Negative anions ($\\text{SO}_4^{2-}$ or $\\text{NO}_3^-$) migrate through the salt bridge toward the anode to maintain electrical neutrality.'
+          ],
+          stepByStepSolutionAr: [
+            '١. الخارصين أقل جهداً في الاختزال ($-0.76\\,\\text{V}$) فيحدث له أكسدة ويعمل كمصعد (أنود): $\\text{Zn} \\to \\text{Zn}^{2+} + 2e^-$.',
+            '٢. النحاس أعلى جهداً في الاختزال ($+0.34\\,\\text{V}$) فيحدث لأيوناته اختزال وتعمل كمهبط (كاثود): $\\text{Cu}^{2+} + 2e^- \\to \\text{Cu}$.',
+            '٣. حساب القوة الدافعة: $E^\\circ_{\\text{cell}} = E^\\circ_{\\text{cathode}} - E^\\circ_{\\text{anode}} = 0.34 - (-0.76) = +1.10\\,\\text{V}$.',
+            '٤. في نصف خلية الأنود تتراكم أيونات $\\text{Zn}^{2+}$ الموجبة، لذا تهاجر الأنيونات السالبة ($\\text{SO}_4^{2-}$) من القنطرة الملحية نحوه لمعادلة الزيادة في الشحنات الموجبة.'
+          ],
+          teacherTipEn: 'Memory rule: Anions $\\to$ Anode; Cations $\\to$ Cathode.',
+          teacherTipAr: 'قاعدة الحفظ الوزارية: الأنيونات إلى الأنود، والكاتيونات إلى الكاثود.'
         }
       ],
       exerciseProblems: [
@@ -1154,6 +1230,80 @@ export const thanaweyaChemistryBranch: Branch = {
           ],
           teacherTipEn: 'Remember: Blast furnace uses coke to make CO; Midrex uses natural gas to make water gas.',
           teacherTipAr: 'تذكر دائماً: الفرن العالي يعتمد على فحم الكوك لإنتاج CO، بينما فرن مدركس يعتمد على الغاز الطبيعي لإنتاج الغاز المائي.'
+        },
+        {
+          id: 'th_chem_ex_02',
+          titleEn: 'Exercise 2: Le Chatelier Pressure & Temperature Shifts in Haber-Bosch Equilibrium',
+          titleAr: 'تمرين ٢: انزياح الاتزان وقاعدة لوشاتيليه في تخليق النشادر بطريقة هابر-بوش',
+          difficulty: 'medium',
+          diagramType: 'chem_haber_bosch_equilibrium',
+          questionEn: 'For the Haber-Bosch ammonia synthesis equilibrium: $\\text{N}_2\\text{(g)} + 3\\text{H}_2\\text{(g)} \\rightleftharpoons 2\\text{NH}_3\\text{(g)} + 92\\,\\text{kJ}$, which set of conditions theoretically shifts equilibrium to maximize the yield of ammonia ($\\text{NH}_3$)?',
+          questionAr: 'في التفاعل المتزن لتحضير غاز النشادر بطريقة هابر-بوش: $\\text{N}_2\\text{(g)} + 3\\text{H}_2\\text{(g)} \\rightleftharpoons 2\\text{NH}_3\\text{(g)} + 92\\,\\text{kJ}$، أي من الشروط التالية يعمل نظرياً على زيادة كمية النشادر المنتجة عند الاتزان وفق قاعدة لوشاتيليه؟',
+          optionsEn: [
+            'Increasing total pressure and cooling the reaction mixture',
+            'Decreasing total pressure and heating the reaction mixture',
+            'Increasing temperature while maintaining constant low pressure',
+            'Adding an inert gas at constant total volume'
+          ],
+          optionsAr: [
+            'زيادة الضغط الكلي وتبريد خليط التفاعل (خفض درجة الحرارة)',
+            'خفض الضغط الكلي وتسخين خليط التفاعل (رفع درجة الحرارة)',
+            'رفع درجة الحرارة مع الحفاظ على ضغط منخفض ثابت',
+            'إضافة غاز خامل عند ثبوت الحجم الكلي لوعاء التفاعل'
+          ],
+          correctAnswer: 'Increasing total pressure and cooling the reaction mixture',
+          correctIndex: 0,
+          hintEn: 'Count gaseous moles on both sides: 4 moles reactants vs 2 moles products. The forward reaction is exothermic.',
+          hintAr: 'عد المولات الغازية: ٤ مول متفاعلات مقابل ٢ مول نواتج، والتفاعل طارد للحرارة.',
+          stepByStepSolutionEn: [
+            '1. Pressure effect: 4 gaseous reactant moles ($1\\,\\text{N}_2 + 3\\,\\text{H}_2$) yield 2 gaseous product moles ($2\\,\\text{NH}_3$). Increasing pressure shifts equilibrium toward fewer moles (forward direction).',
+            '2. Temperature effect: The reaction is exothermic ($\\Delta H = -92\\,\\text{kJ/mol}$). Decreasing temperature shifts equilibrium forward in the heat-producing direction.',
+            '3. Therefore, high pressure and cooling favor maximum ammonia yield.'
+          ],
+          stepByStepSolutionAr: [
+            '١. تأثير الضغط: عدد مولات المتفاعلات الغازية = ٤ مول، وعدد مولات النواتج الغازية = ٢ مول. زيادة الضغط تزيح التفاعل في اتجاه الحجم الأقل (الاتجاه الطردي).',
+            '٢. تأثير درجة الحرارة: التفاعل طارد للحرارة ($\\Delta H$ سالبة). تبريد التفاعل يزيح الاتزان في الاتجاه الطردي لتعويض النقص في الحرارة.',
+            '٣. إذن الشروط المثالية نظرياً هي: زيادة الضغط وخفض درجة الحرارة.'
+          ],
+          teacherTipEn: 'In industrial practice, a compromise temperature (~450-500°C) with iron catalyst is used to ensure acceptable reaction rate.',
+          teacherTipAr: 'في الصناعة يُستخدم حل وسط حراري (نحو 450-500°C) بوجود عامل حفاز من الحديد لضمان معدل تفاعل اقتصادي مناسب.'
+        },
+        {
+          id: 'th_chem_ex_03',
+          titleEn: 'Exercise 3: Soda Lime Function in Dry Distillation of Methane',
+          titleAr: 'تمرين ٣: دور الجير الصودي في تحضير غاز الميثان بالتقطير الجاف معملياً',
+          difficulty: 'hots',
+          diagramType: 'chem_methane_laboratory_preparation',
+          questionEn: 'In the laboratory preparation of methane gas by dry distillation of anhydrous sodium acetate ($\\text{CH}_3\\text{COONa}$), why is soda lime ($\\text{NaOH} + \\text{CaO}$) used instead of caustic soda ($\\text{NaOH}$) alone?',
+          questionAr: 'عند تحضير غاز الميثان معملياً بالتقطير الجاف لأسيتات الصوديوم اللامائية ($\\text{CH}_3\\text{COONa}$)، لماذا يُفضل استخدام الجير الصودي (خليط من $\\text{NaOH} + \\text{CaO}$) بدلاً من الصودا الكاوية بمفردها؟',
+          optionsEn: [
+            'Quicklime ($\\text{CaO}$) lowers the melting point of the reaction mixture and prevents glass tube fusion',
+            'Quicklime acts as an oxidizing agent that oxidizes hydrogen to water',
+            'Quicklime absorbs methane and prevents it from escaping into air',
+            'Quicklime reacts directly with acetate ions to produce acetylene gas'
+          ],
+          optionsAr: [
+            'أكسيد الكالسيوم (الجير الحي) مادة صهارة تخفض درجة انصهار الخليط وتمنع انصهار أنبوبة الاختبار الزجاجية',
+            'أكسيد الكالسيوم عامل مؤكسد يؤكسد الهيدروجين إلى بخار ماء',
+            'أكسيد الكالسيوم يمتص غاز الميثان ويمنع تسربه في الهواء',
+            'أكسيد الكالسيوم يتفاعل مباشرة مع الأسيتات لإنتاج غاز الأسيتيلين'
+          ],
+          correctAnswer: 'Quicklime ($\\text{CaO}$) lowers the melting point of the reaction mixture and prevents glass tube fusion',
+          correctIndex: 0,
+          hintEn: 'CaO does not participate in the net chemical reaction: $\\text{CH}_3\\text{COONa} + \\text{NaOH} \\xrightarrow{\\text{CaO}, \\Delta} \\text{CH}_4 \\uparrow + \\text{Na}_2\\text{CO}_3$.',
+          hintAr: 'الجير الحي لا يدخل في المعادلة الكيميائية، بل يعمل كمادة صهارة واقية للزجاج.',
+          stepByStepSolutionEn: [
+            '1. The chemical reaction is: $\\text{CH}_3\\text{COONa} + \\text{NaOH} \\xrightarrow{\\text{CaO},\\,\\Delta} \\text{CH}_4\\text{(g)} + \\text{Na}_2\\text{CO}_3$.',
+            '2. Pure sodium hydroxide ($\text{NaOH}$) melts at $318^\\circ\\text{C}$ and severely attacks and dissolves hot Pyrex/borosilicate glass, causing apparatus fracture.',
+            '3. Soda lime contains quicklime ($\text{CaO}$), which acts as a flux that lowers the melting point of the mixture and prevents corrosive fusion with the hard glass reaction tube.'
+          ],
+          stepByStepSolutionAr: [
+            '١. معادلة التفاعل: $\\text{CH}_3\\text{COONa} + \\text{NaOH} \\xrightarrow{\\text{CaO},\\,\\Delta} \\text{CH}_4\\text{(g)} + \\text{Na}_2\\text{CO}_3$.',
+            '٢. الصودا الكاوية بمفردها مادة متميعة كاوية تنصهر عند $318^\\circ\\text{C}$ وتؤدي إلى تآكل وتلف الزجاج المعملي.',
+            '٣. إضافة أكسيد الكالسيوم (الجير الحي) يعمل كمادة صهارة تخفض درجة انصهار الخليط وتحمي أنبوبة الاختبار الصلبة من التلف والانصهار.'
+          ],
+          teacherTipEn: 'Methane is collected by downward displacement of water because it is insoluble in water and less dense than air.',
+          teacherTipAr: 'يُجمع غاز الميثان بإزاحة الماء لأسفل لأنه شحيح الذوبان في الماء وأخف من الهواء.'
         }
       ],
       databank: chemCh1Databank

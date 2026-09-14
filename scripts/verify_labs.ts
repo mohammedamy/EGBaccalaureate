@@ -57,6 +57,10 @@ const labComponents = [
   'src/components/labs/DynamoInductionLab.tsx',
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
+  'src/components/labs/OrganicChemistryLab.tsx',
+  'src/components/labs/QualitativeAnalysisLab.tsx',
+  'src/components/labs/ChemistryFlashcards.tsx',
+  'src/components/labs/ChemistryConstantsDrawer.tsx',
   'src/components/VirtualLabsHub.tsx',
 ];
 
@@ -146,6 +150,19 @@ const deltaG0_kJ = (-2 * 96485 * E0_cell_daniell) / 1000;
 assert(Math.abs(E0_cell_daniell - 1.10) < 1e-6, `Daniell Cell Standard EMF: E°_cell = ${E0_cell_daniell.toFixed(2)} V (expected 1.10 V)`);
 assert(deltaG0_kJ < 0, `Daniell Cell Spontaneity: ΔG° = ${deltaG0_kJ.toFixed(1)} kJ/mol (< 0, spontaneous)`);
 
+// F2. Chemistry: Water Ion-Product (Kw) & pH/pOH Dual Relation at 25°C
+const Kw = 1.0e-14;
+const H3O_conc = 1.0e-4; // 10^-4 M
+const OH_conc = Kw / H3O_conc; // 10^-10 M
+const pH = -Math.log10(H3O_conc);
+const pOH = -Math.log10(OH_conc);
+assert(Math.abs(pH + pOH - 14.0) < 1e-6, `Water ionization relation: pH (${pH}) + pOH (${pOH}) = 14.00 at 25°C`);
+
+// F3. Chemistry: Markovnikov Regioselectivity (Asymmetric Alkene Addition)
+const propeneCarbons = [1, 2]; // C1 has 2 hydrogens, C2 has 1 hydrogen
+const majorBrPosition = 2; // H+ adds to C1 (richer in H), Br- adds to C2
+assert(majorBrPosition === 2, `Markovnikov rule addition of HBr to Propene yields 2-bromopropane as major product`);
+
 // G. Biology: Human Skeleton Counts
 const axialBones = 80;
 const appendicularBones = 126;
@@ -228,6 +245,11 @@ const labKeyFormulas = [
   '\\text{Fe}_2\\text{O}_3 + 3\\text{CO} \\xrightarrow{>700^\\circ\\text{C}} 2\\text{Fe} + 3\\text{CO}_2',
   'E_{\\text{cell}} = E^\\circ_{\\text{cell}} - \\frac{RT}{nF} \\ln Q',
   '\\Delta G^\\circ = -nFE^\\circ',
+  '\\text{CH}_3\\text{CH}=\\text{CH}_2 + \\text{HBr} \\to \\text{CH}_3\\text{CH(Br)CH}_3',
+  '\\text{Ba}^{2+} + \\text{SO}_4^{2-} \\to \\text{BaSO}_4\\downarrow',
+  '\\text{[Fe(H}_2\\text{O)}_5\\text{(NO)]SO}_4',
+  '\\text{pH} + \\text{pOH} = 14.00',
+  'K_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{A}^-]}{[\\text{HA}]}',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',

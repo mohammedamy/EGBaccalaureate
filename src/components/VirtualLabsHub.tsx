@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { MathLab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
-import { ChemistryLab } from './labs/ChemistryLab';
+import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 
@@ -46,6 +46,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
 
   const [activeLab, setActiveLab] = useState<LabId>(getInitialLab);
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
+  const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
 
@@ -282,7 +283,48 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} />
           </div>
         )}
-        {activeLab === 'chemistry' && <ChemistryLab lang={lang} theme={theme} />}
+        {activeLab === 'chemistry' && (
+          <div className="space-y-4">
+            {/* Quick-Access Chemistry Sub-Laboratory Launch Strip */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex items-center gap-2 overflow-x-auto scrollbar-none">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-2">
+                <FlaskConical className="w-4 h-4 text-emerald-400" />
+                <span>{isArabic ? 'المعامل المتخصصة:' : 'Sub-Labs:'}</span>
+              </span>
+              {[
+                { id: 'equilibrium' as ChemTab, emoji: '⚖️', labelEn: 'Equilibrium', labelAr: 'الاتزان ولوشاتيليه' },
+                { id: 'transition' as ChemTab, emoji: '🔥', labelEn: 'Transition & Iron', labelAr: 'العناصر الانتقالية والحديد' },
+                { id: 'qualitative' as ChemTab, emoji: '🧪', labelEn: 'Qualitative Analysis', labelAr: 'التحليل الوصفي والكواشف' },
+                { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'pH & Titration', labelAr: 'المعايرة و pH' },
+                { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry', labelAr: 'الكيمياء الكهربية والخلايا' },
+                { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
+                { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
+              ].map((tab) => {
+                const isCurrent = activeChemTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveChemTab(tab.id)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 cursor-pointer ${
+                      isCurrent
+                        ? isContrast
+                          ? 'bg-yellow-400 text-black font-black'
+                          : 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 scale-105'
+                        : isLight
+                        ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                        : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
+                    }`}
+                  >
+                    <span>{tab.emoji}</span>
+                    <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} />
+          </div>
+        )}
         {activeLab === 'biology' && (
           <div className="space-y-4">
             {/* Quick-Access Biology Sub-Laboratory Launch Strip */}
