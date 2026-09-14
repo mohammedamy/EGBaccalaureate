@@ -574,6 +574,7 @@ const MAGNETISM_POE_PROMPTS: POEPrompt[] = [
 
 export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
   const animPhaseRef = useRef<number>(0);
   const pointerAngleRef = useRef<number>(0);
 
@@ -907,7 +908,7 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       ctx.clearRect(0, 0, width, height);
 
       // Background Grid
-      ctx.strokeStyle = theme === 'high-contrast' ? '#222' : 'rgba(255, 255, 255, 0.04)';
+      ctx.strokeStyle = theme === 'high-contrast' ? '#222' : isLight ? 'rgba(0, 0, 0, 0.06)' : 'rgba(255, 255, 255, 0.04)';
       ctx.lineWidth = 1;
       const gridSize = 35;
       for (let x = 0; x < width; x += gridSize) {
@@ -1528,8 +1529,12 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       renderCustomControls={() => (
         <div className="space-y-4">
           {/* Mode Selector Card */}
-          <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-            <label className="text-[11px] font-black uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+          <div className={`p-3 rounded-2xl border space-y-2 ${
+            isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-900/90 border border-slate-800'
+          }`}>
+            <label className={`text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
+              isLight ? 'text-cyan-700' : 'text-cyan-400'
+            }`}>
               <Compass className="w-3.5 h-3.5" />
               <span>{isArabic ? 'النظام الكهرومغناطيسي النشط' : 'Active Physical Magnetism Regime'}</span>
             </label>
@@ -1540,6 +1545,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.magnetismMode === 'field_sources'
                     ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
@@ -1553,6 +1560,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.magnetismMode === 'lorentz_force'
                     ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
@@ -1566,6 +1575,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.magnetismMode === 'galvanometer'
                     ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
@@ -1577,9 +1588,13 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
           {/* Sub-selector for Mode A Conductors */}
           {params.magnetismMode === 'field_sources' && (
-            <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-              <label className="text-[11px] font-black uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5 text-cyan-400" />
+            <div className={`p-3 rounded-2xl border space-y-2 ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-900/90 border border-slate-800'
+            }`}>
+              <label className={`text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                isLight ? 'text-slate-700' : 'text-slate-300'
+              }`}>
+                <Sliders className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
                 <span>{isArabic ? 'نوع الموصل الهندسي' : 'Geometric Conductor Configuration'}</span>
               </label>
               <div className="grid grid-cols-2 gap-1.5">
@@ -1589,6 +1604,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                   className={`py-1.5 px-2 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                     params.conductorType === 'straight_wire'
                       ? 'bg-cyan-600 text-white font-black'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                       : 'bg-slate-950 text-slate-400 border border-slate-800'
                   }`}
                 >
@@ -1601,6 +1618,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                   className={`py-1.5 px-2 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                     params.conductorType === 'dual_wires'
                       ? 'bg-cyan-600 text-white font-black'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                       : 'bg-slate-950 text-slate-400 border border-slate-800'
                   }`}
                 >
@@ -1613,6 +1632,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                   className={`py-1.5 px-2 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                     params.conductorType === 'circular_loop'
                       ? 'bg-cyan-600 text-white font-black'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                       : 'bg-slate-950 text-slate-400 border border-slate-800'
                   }`}
                 >
@@ -1625,6 +1646,8 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                   className={`py-1.5 px-2 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                     params.conductorType === 'solenoid'
                       ? 'bg-cyan-600 text-white font-black'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-xs'
                       : 'bg-slate-950 text-slate-400 border border-slate-800'
                   }`}
                 >
@@ -1634,8 +1657,10 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
               {/* Toggles for Sub-modes */}
               {params.conductorType === 'straight_wire' && (
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-300">
+                <div className={`pt-2 border-t flex items-center justify-between ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                     {isArabic ? 'اتجاه التيار بالنسبة للمستوى:' : 'Current Direction:'}
                   </span>
                   <div className="flex gap-1">
@@ -1644,7 +1669,9 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                       onClick={() => lab.updateParam('wireCurrentDir', 'out')}
                       className={`px-2.5 py-1 rounded-lg text-xs font-black cursor-pointer transition-all ${
                         params.wireCurrentDir === 'out'
-                          ? 'bg-amber-500 text-slate-950'
+                          ? 'bg-amber-500 text-slate-950 shadow-xs'
+                          : isLight
+                          ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                           : 'bg-slate-950 text-slate-400 border border-slate-800'
                       }`}
                     >
@@ -1655,7 +1682,9 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                       onClick={() => lab.updateParam('wireCurrentDir', 'in')}
                       className={`px-2.5 py-1 rounded-lg text-xs font-black cursor-pointer transition-all ${
                         params.wireCurrentDir === 'in'
-                          ? 'bg-amber-500 text-slate-950'
+                          ? 'bg-amber-500 text-slate-950 shadow-xs'
+                          : isLight
+                          ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                           : 'bg-slate-950 text-slate-400 border border-slate-800'
                       }`}
                     >
@@ -1666,8 +1695,10 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
               )}
 
               {params.conductorType === 'dual_wires' && (
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-300">
+                <div className={`pt-2 border-t flex items-center justify-between ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                     {isArabic ? 'اتجاها التيارين في السلكين:' : 'Current Vectors:'}
                   </span>
                   <div className="flex gap-1">
@@ -1676,7 +1707,9 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                       onClick={() => lab.updateParam('dualWiresCurrentDirs', 'same')}
                       className={`px-2.5 py-1 rounded-lg text-xs font-black cursor-pointer transition-all ${
                         params.dualWiresCurrentDirs === 'same'
-                          ? 'bg-emerald-500 text-slate-950'
+                          ? 'bg-emerald-500 text-slate-950 shadow-xs'
+                          : isLight
+                          ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                           : 'bg-slate-950 text-slate-400 border border-slate-800'
                       }`}
                     >
@@ -1687,7 +1720,9 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                       onClick={() => lab.updateParam('dualWiresCurrentDirs', 'opposite')}
                       className={`px-2.5 py-1 rounded-lg text-xs font-black cursor-pointer transition-all ${
                         params.dualWiresCurrentDirs === 'opposite'
-                          ? 'bg-rose-500 text-slate-950'
+                          ? 'bg-rose-500 text-slate-950 shadow-xs'
+                          : isLight
+                          ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                           : 'bg-slate-950 text-slate-400 border border-slate-800'
                       }`}
                     >
@@ -1698,15 +1733,21 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
               )}
 
               {params.conductorType === 'solenoid' && (
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-300">
+                <div className={`pt-2 border-t flex items-center justify-between ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                     {isArabic ? 'مادة القلب الداخلي للملف:' : 'Core Material:'}
                   </span>
                   <button
                     type="button"
                     onClick={() => lab.updateParam('hasIronCore', !params.hasIronCore)}
                     className={`px-3 py-1 rounded-lg text-xs font-black cursor-pointer transition-all ${
-                      params.hasIronCore ? 'bg-emerald-500 text-slate-950' : 'bg-slate-800 text-slate-300'
+                      params.hasIronCore
+                        ? 'bg-emerald-500 text-slate-950 shadow-xs'
+                        : isLight
+                        ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                        : 'bg-slate-800 text-slate-300'
                     }`}
                   >
                     {params.hasIronCore
@@ -1724,12 +1765,14 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
           {/* Galvanometer Pole Shape Toggle */}
           {params.magnetismMode === 'galvanometer' && (
-            <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+            <div className={`p-3 rounded-2xl border flex items-center justify-between ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-900/90 border border-slate-800'
+            }`}>
               <div>
-                <p className="text-xs font-bold text-slate-200">
+                <p className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
                   {isArabic ? 'شكل قطبي المغناطيس والأسطوانة:' : 'Poles & Core Geometry:'}
                 </p>
-                <p className="text-[11px] text-slate-400">
+                <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   {params.isRadialField
                     ? isArabic
                       ? 'أقطاب مقعرة + قلب حديد (مجال نصف قطري)'
@@ -1743,7 +1786,11 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 type="button"
                 onClick={() => lab.updateParam('isRadialField', !params.isRadialField)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-black cursor-pointer transition-all ${
-                  params.isRadialField ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-300'
+                  params.isRadialField
+                    ? 'bg-amber-500 text-slate-950 shadow-xs'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                    : 'bg-slate-800 text-slate-300'
                 }`}
               >
                 {params.isRadialField ? (isArabic ? 'نصف قطري (منتظم)' : 'Radial') : (isArabic ? 'مستوٍ' : 'Flat')}

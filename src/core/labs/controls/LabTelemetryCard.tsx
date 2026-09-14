@@ -2,6 +2,7 @@ import React from 'react';
 import { MathRenderer } from '../../../components/MathRenderer';
 import { toHindiDigits } from '../../../utils/arabicNumerals';
 import type { TelemetryStatus } from '../types';
+import type { ThemeMode } from '../../../types/curriculum';
 
 interface LabTelemetryCardProps {
   id: string;
@@ -15,6 +16,7 @@ interface LabTelemetryCardProps {
   status?: TelemetryStatus;
   precision?: number;
   lang: 'en' | 'ar';
+  theme?: ThemeMode;
 }
 
 export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
@@ -28,8 +30,10 @@ export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
   status = 'normal',
   precision = 2,
   lang,
+  theme = 'dark',
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
 
   let formattedValue: string;
   let percent: number | null = null;
@@ -46,32 +50,32 @@ export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
   // Color schemas based on telemetry status
   const statusStyles = {
     normal: {
-      border: 'border-slate-800',
-      bg: 'bg-slate-900/80',
-      text: 'text-cyan-400',
-      gauge: 'bg-cyan-500',
-      badge: 'bg-slate-800 text-slate-300',
+      border: isLight ? 'border-slate-200' : 'border-slate-800',
+      bg: isLight ? 'bg-slate-50/90' : 'bg-slate-900/80',
+      text: isLight ? 'text-cyan-800' : 'text-cyan-400',
+      gauge: isLight ? 'bg-cyan-600' : 'bg-cyan-500',
+      badge: isLight ? 'bg-slate-200 text-slate-700' : 'bg-slate-800 text-slate-300',
     },
     optimal: {
-      border: 'border-emerald-500/30',
-      bg: 'bg-emerald-950/20',
-      text: 'text-emerald-400',
-      gauge: 'bg-emerald-500',
-      badge: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
+      border: isLight ? 'border-emerald-300' : 'border-emerald-500/30',
+      bg: isLight ? 'bg-emerald-50/90' : 'bg-emerald-950/20',
+      text: isLight ? 'text-emerald-700' : 'text-emerald-400',
+      gauge: isLight ? 'bg-emerald-600' : 'bg-emerald-500',
+      badge: isLight ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30',
     },
     warning: {
-      border: 'border-amber-500/40',
-      bg: 'bg-amber-950/20',
-      text: 'text-amber-400',
-      gauge: 'bg-amber-500',
-      badge: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
+      border: isLight ? 'border-amber-300' : 'border-amber-500/40',
+      bg: isLight ? 'bg-amber-50/90' : 'bg-amber-950/20',
+      text: isLight ? 'text-amber-800' : 'text-amber-400',
+      gauge: isLight ? 'bg-amber-600' : 'bg-amber-500',
+      badge: isLight ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
     },
     alert: {
-      border: 'border-rose-500/50',
-      bg: 'bg-rose-950/30',
-      text: 'text-rose-400',
-      gauge: 'bg-rose-500',
-      badge: 'bg-rose-500/20 text-rose-300 border border-rose-500/30 animate-pulse',
+      border: isLight ? 'border-rose-300' : 'border-rose-500/50',
+      bg: isLight ? 'bg-rose-50/90' : 'bg-rose-950/30',
+      text: isLight ? 'text-rose-700' : 'text-rose-400',
+      gauge: isLight ? 'bg-rose-600' : 'bg-rose-500',
+      badge: isLight ? 'bg-rose-100 text-rose-800 border border-rose-300 animate-pulse' : 'bg-rose-500/20 text-rose-300 border border-rose-500/30 animate-pulse',
     },
   };
 
@@ -79,17 +83,17 @@ export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
 
   return (
     <div
-      className={`p-3 rounded-xl border ${currentStyle.border} ${currentStyle.bg} backdrop-blur-sm transition-all shadow-sm flex flex-col justify-between`}
+      className={`p-3 rounded-xl border ${currentStyle.border} ${currentStyle.bg} backdrop-blur-sm transition-all shadow-xs flex flex-col justify-between`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       <div className="flex items-center justify-between gap-1 mb-1.5">
         <div className="flex items-center gap-1.5 min-w-0">
           {symbolTex && (
-            <span className="text-slate-300 text-xs font-mono inline-flex items-center">
+            <span className={`text-xs font-mono inline-flex items-center ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
               <MathRenderer math={symbolTex} inline />
             </span>
           )}
-          <span className="text-xs font-medium text-slate-400 truncate">
+          <span className={`text-xs font-medium truncate ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'}`}>
             {isAr ? labelAr : labelEn}
           </span>
         </div>
@@ -108,14 +112,14 @@ export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
           {formattedValue}
         </span>
         {unit && (
-          <span className="text-xs font-semibold text-slate-400 font-sans">
+          <span className={`text-xs font-semibold font-sans ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
             {unit}
           </span>
         )}
       </div>
 
       {percent !== null && (
-        <div className="mt-2 w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+        <div className={`mt-2 w-full h-1 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
           <div
             className={`h-full ${currentStyle.gauge} transition-all duration-300 rounded-full`}
             style={{ width: `${percent}%` }}

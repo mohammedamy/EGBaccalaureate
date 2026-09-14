@@ -82,28 +82,44 @@ export const VirtualLabShell = <
   // Subject gradient styling
   const subjectThemes = {
     physics: {
-      badge: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
-      gradient: 'from-cyan-500/10 via-sky-500/5 to-transparent',
-      border: 'border-cyan-500/30',
-      accent: 'text-cyan-400',
+      badge: isLight
+        ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
+        : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+      gradient: isLight
+        ? 'from-cyan-50/90 via-sky-50/60 to-white'
+        : 'from-cyan-500/10 via-sky-500/5 to-transparent',
+      border: isLight ? 'border-cyan-200' : 'border-cyan-500/30',
+      accent: isLight ? 'text-cyan-700' : 'text-cyan-400',
     },
     chemistry: {
-      badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-      gradient: 'from-emerald-500/10 via-teal-500/5 to-transparent',
-      border: 'border-emerald-500/30',
-      accent: 'text-emerald-400',
+      badge: isLight
+        ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+        : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      gradient: isLight
+        ? 'from-emerald-50/90 via-teal-50/60 to-white'
+        : 'from-emerald-500/10 via-teal-500/5 to-transparent',
+      border: isLight ? 'border-emerald-200' : 'border-emerald-500/30',
+      accent: isLight ? 'text-emerald-700' : 'text-emerald-400',
     },
     biology: {
-      badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-      gradient: 'from-rose-500/10 via-pink-500/5 to-transparent',
-      border: 'border-rose-500/30',
-      accent: 'text-rose-400',
+      badge: isLight
+        ? 'bg-rose-100 text-rose-800 border-rose-300'
+        : 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+      gradient: isLight
+        ? 'from-rose-50/90 via-pink-50/60 to-white'
+        : 'from-rose-500/10 via-pink-500/5 to-transparent',
+      border: isLight ? 'border-rose-200' : 'border-rose-500/30',
+      accent: isLight ? 'text-rose-700' : 'text-rose-400',
     },
     mathematics: {
-      badge: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
-      gradient: 'from-indigo-500/10 via-violet-500/5 to-transparent',
-      border: 'border-indigo-500/30',
-      accent: 'text-indigo-400',
+      badge: isLight
+        ? 'bg-indigo-100 text-indigo-800 border-indigo-300'
+        : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
+      gradient: isLight
+        ? 'from-indigo-50/90 via-violet-50/60 to-white'
+        : 'from-indigo-500/10 via-violet-500/5 to-transparent',
+      border: isLight ? 'border-indigo-200' : 'border-indigo-500/30',
+      accent: isLight ? 'text-indigo-700' : 'text-indigo-400',
     },
   };
 
@@ -128,20 +144,22 @@ export const VirtualLabShell = <
         isContrast
           ? 'bg-black border-2 border-yellow-400 text-white'
           : isLight
-          ? 'bg-slate-900 text-slate-100 border-slate-700'
+          ? 'bg-white text-slate-900 border-slate-200 shadow-md'
           : 'bg-slate-950/90 text-slate-100 border-slate-800'
       }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* 1. Standardized Lab Header */}
-      <div className={`p-4 sm:p-5 rounded-2xl border ${st.border} bg-gradient-to-r ${st.gradient} flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-lg backdrop-blur-md`}>
+      <div className={`p-4 sm:p-5 rounded-2xl border ${st.border} bg-gradient-to-r ${st.gradient} flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm backdrop-blur-md`}>
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap">
             <span className={`px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider border ${st.badge}`}>
               {definition.subject}
             </span>
             {definition.chapterRef && (
-              <span className="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
+              <span className={`px-2 py-0.5 rounded-full text-xs font-mono font-bold border ${
+                isLight ? 'bg-white text-slate-700 border-slate-200 shadow-xs' : 'bg-slate-800 text-slate-300 border-slate-700'
+              }`}>
                 {definition.chapterRef}
               </span>
             )}
@@ -157,10 +175,14 @@ export const VirtualLabShell = <
             )}
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
+          <h2 className={`text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2 ${
+            isLight ? 'text-slate-900' : 'text-white'
+          }`}>
             <span>{isAr ? definition.titleAr : definition.titleEn}</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-2xl">
+          <p className={`text-xs sm:text-sm max-w-2xl ${
+            isLight ? 'text-slate-600' : 'text-slate-400'
+          }`}>
             {isAr ? definition.subtitleAr : definition.subtitleEn}
           </p>
         </div>
@@ -170,9 +192,13 @@ export const VirtualLabShell = <
           <button
             type="button"
             onClick={() => setShowObjectivesModal(true)}
-            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-700 flex items-center gap-1.5 shadow-sm transition-all"
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold border flex items-center gap-1.5 shadow-sm transition-all ${
+              isLight
+                ? 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
+                : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-700'
+            }`}
           >
-            <Award className="w-3.5 h-3.5 text-amber-400" />
+            <Award className="w-3.5 h-3.5 text-amber-500" />
             <span>{isAr ? 'أهداف التعلم' : 'Learning Goals'}</span>
           </button>
 
@@ -181,7 +207,11 @@ export const VirtualLabShell = <
             onClick={() => setSoundEnabled(!soundEnabled)}
             className={`p-2 rounded-xl border text-xs transition-all ${
               soundEnabled
-                ? 'bg-slate-900/80 text-cyan-300 border-slate-700'
+                ? isLight
+                  ? 'bg-cyan-50 text-cyan-800 border-cyan-200'
+                  : 'bg-slate-900/80 text-cyan-300 border-slate-700'
+                : isLight
+                ? 'bg-white text-slate-400 border-slate-200'
                 : 'bg-slate-900/40 text-slate-500 border-slate-800'
             }`}
             title={soundEnabled ? 'Mute audio effects' : 'Enable audio effects'}
@@ -197,7 +227,11 @@ export const VirtualLabShell = <
       )}
 
       {/* 3. Standardized Simulation Action Bar */}
-      <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-wrap items-center justify-between gap-3 shadow-md">
+      <div className={`p-3 rounded-2xl border flex flex-wrap items-center justify-between gap-3 shadow-sm ${
+        isLight
+          ? 'bg-white border-slate-200 text-slate-800'
+          : 'bg-slate-900/90 border-slate-800 text-slate-100'
+      }`}>
         {/* Left: Clock & Simulation Controls */}
         <div className="flex items-center gap-2 flex-wrap">
           {/* Play / Pause */}
@@ -228,7 +262,11 @@ export const VirtualLabShell = <
             type="button"
             onClick={() => lab.stepOnce(0.016)}
             disabled={lab.clock.isPlaying}
-            className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-30 text-slate-300 border border-slate-700 transition-all"
+            className={`p-2 rounded-xl disabled:opacity-30 border transition-all ${
+              isLight
+                ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+            }`}
             title={isAr ? 'خطوة زمنية واحدة (dt)' : 'Step Forward (dt)'}
           >
             <FastForward className="w-4 h-4" />
@@ -239,7 +277,11 @@ export const VirtualLabShell = <
             type="button"
             onClick={handleReset}
             disabled={!lab.isDirty}
-            className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-300 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition-all"
+            className={`px-3 py-2 rounded-xl disabled:opacity-40 border text-xs font-bold flex items-center gap-1.5 transition-all ${
+              isLight
+                ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+            }`}
             title={isAr ? 'إعادة تعيين المعطيات للوضع الافتراضي' : 'Reset all parameters to default'}
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -247,7 +289,11 @@ export const VirtualLabShell = <
           </button>
 
           {/* Speed Multipliers */}
-          <div className="flex items-center gap-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 text-xs font-mono">
+          <div className={`flex items-center gap-1 p-1 rounded-xl border text-xs font-mono ${
+            isLight
+              ? 'bg-slate-100 border-slate-200'
+              : 'bg-slate-950/80 border-slate-800'
+          }`}>
             {[0.25, 0.5, 1.0, 2.0].map((spd) => (
               <button
                 key={spd}
@@ -255,7 +301,9 @@ export const VirtualLabShell = <
                 onClick={() => lab.setSpeedMultiplier(spd)}
                 className={`px-2 py-1 rounded-lg transition-all ${
                   lab.clock.speedMultiplier === spd
-                    ? 'bg-cyan-500 text-slate-950 font-black'
+                    ? 'bg-cyan-500 text-slate-950 font-black shadow-xs'
+                    : isLight
+                    ? 'text-slate-600 hover:text-slate-900'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -265,10 +313,14 @@ export const VirtualLabShell = <
           </div>
 
           {/* Clock & Performance FPS Badge */}
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-400 px-2 py-1 bg-slate-950/60 rounded-xl border border-slate-800/80">
+          <div className={`flex items-center gap-2 text-xs font-mono px-2.5 py-1 rounded-xl border ${
+            isLight
+              ? 'bg-slate-100 border-slate-200 text-slate-600'
+              : 'bg-slate-950/60 border-slate-800/80 text-slate-400'
+          }`}>
             <span>t = {formatSeconds(lab.clock.timeElapsed)}s</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-cyan-400 font-bold">{lab.clock.fps} FPS</span>
+            <span className={isLight ? 'text-slate-300' : 'text-slate-600'}>•</span>
+            <span className={isLight ? 'text-cyan-700 font-bold' : 'text-cyan-400 font-bold'}>{lab.clock.fps} FPS</span>
           </div>
         </div>
 
@@ -282,6 +334,8 @@ export const VirtualLabShell = <
               className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
                 lab.poeState.isDrawerOpen
                   ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-500/20'
+                  : isLight
+                  ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
                   : 'bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
               }`}
             >
@@ -300,13 +354,17 @@ export const VirtualLabShell = <
             className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
               lab.notebookState.isOpen
                 ? 'bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-500/20'
+                : isLight
+                ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200'
                 : 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
             }`}
           >
             <FileSpreadsheet className="w-3.5 h-3.5" />
             <span>{isAr ? 'دفتر المعمل والبيانات' : 'Lab Notebook'}</span>
             {lab.notebookState.points.length > 0 && (
-              <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-emerald-400/30 text-white">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+                isLight ? 'bg-emerald-200 text-emerald-800 font-bold' : 'bg-emerald-400/30 text-white'
+              }`}>
                 {lab.notebookState.points.length}
               </span>
             )}
@@ -320,6 +378,7 @@ export const VirtualLabShell = <
           <POEController
             prompt={lab.poeState.activePrompt}
             lang={lang}
+            theme={theme}
             isUnlocked={lab.poeState.isUnlocked}
             onUnlockLab={lab.poeState.unlockLab}
             onComplete={() => {}}
@@ -357,22 +416,31 @@ export const VirtualLabShell = <
         <div className="lg:col-span-4 space-y-4">
           {/* Preset Picker */}
           {definition.presets && definition.presets.length > 0 && (
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md">
+            <div className={`p-4 rounded-2xl border shadow-sm ${
+              isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800 shadow-md'
+            }`}>
               <LabPresetPicker
                 presets={definition.presets}
                 activePresetId={lab.activePresetId}
                 lang={lang}
+                theme={theme}
                 onSelectPreset={lab.loadPreset}
               />
             </div>
           )}
 
           {/* Tunable Parameters Card */}
-          <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div className={`p-4 rounded-2xl border shadow-sm space-y-3 ${
+            isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800 shadow-md'
+          }`}>
+            <div className={`flex items-center justify-between border-b pb-2 ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
+            }`}>
               <div className="flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-300">
+                <Sliders className={`w-4 h-4 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
+                <h3 className={`text-xs font-black uppercase tracking-wider ${
+                  isLight ? 'text-slate-700' : 'text-slate-300'
+                }`}>
                   {isAr ? 'معايير التجربة والمدخلات' : 'Experimental Parameters'}
                 </h3>
               </div>
@@ -380,7 +448,9 @@ export const VirtualLabShell = <
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="text-[11px] text-cyan-400 hover:text-cyan-300 font-bold"
+                  className={`text-[11px] font-bold ${
+                    isLight ? 'text-cyan-700 hover:text-cyan-800' : 'text-cyan-400 hover:text-cyan-300'
+                  }`}
                 >
                   {isAr ? 'استعادة الافتراضي' : 'Reset All'}
                 </button>
@@ -409,6 +479,7 @@ export const VirtualLabShell = <
                       precision={schema.precision ?? 2}
                       defaultValue={schema.defaultValue}
                       lang={lang}
+                      theme={theme}
                       disabled={!lab.poeState.isUnlocked}
                       onChange={(newVal) => lab.updateParam(key as keyof TParams, newVal as any)}
                       onReset={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
@@ -422,7 +493,7 @@ export const VirtualLabShell = <
 
             {/* Custom controls slot (e.g. glassware, lenses, reagents) */}
             {renderCustomControls && (
-              <div className="pt-2 border-t border-slate-800">
+              <div className={`pt-2 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
                 {renderCustomControls()}
               </div>
             )}
@@ -430,10 +501,16 @@ export const VirtualLabShell = <
 
           {/* Live Telemetry Card Grid */}
           {telemetry && telemetry.length > 0 && (
-            <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md space-y-3">
-              <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
-                <Activity className="w-4 h-4 text-emerald-400" />
-                <h3 className="text-xs font-black uppercase tracking-wider text-slate-300">
+            <div className={`p-4 rounded-2xl border shadow-sm space-y-3 ${
+              isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800 shadow-md'
+            }`}>
+              <div className={`flex items-center gap-2 border-b pb-2 ${
+                isLight ? 'border-slate-200' : 'border-slate-800'
+              }`}>
+                <Activity className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
+                <h3 className={`text-xs font-black uppercase tracking-wider ${
+                  isLight ? 'text-slate-700' : 'text-slate-300'
+                }`}>
                   {isAr ? 'القياسات الفيزيائية اللحظية' : 'Real-Time Telemetry'}
                 </h3>
               </div>
@@ -453,6 +530,7 @@ export const VirtualLabShell = <
                     status={metric.status}
                     precision={metric.precision}
                     lang={lang}
+                    theme={theme}
                   />
                 ))}
               </div>
@@ -463,18 +541,26 @@ export const VirtualLabShell = <
 
       {/* 6. Digital Lab Notebook Drawer */}
       {lab.notebookState.isOpen && (
-        <div className="p-4 rounded-2xl bg-slate-950 border border-emerald-500/40 shadow-2xl animate-fadeIn">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+        <div className={`p-4 rounded-2xl border shadow-2xl animate-fadeIn ${
+          isLight
+            ? 'bg-white border-emerald-300 text-slate-900'
+            : 'bg-slate-950 border-emerald-500/40 text-slate-100'
+        }`}>
+          <div className={`flex items-center justify-between border-b pb-2 mb-3 ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
             <div className="flex items-center gap-2">
-              <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
-              <h3 className="text-xs font-black uppercase tracking-wider text-emerald-300">
+              <FileSpreadsheet className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
+              <h3 className={`text-xs font-black uppercase tracking-wider ${
+                isLight ? 'text-emerald-800' : 'text-emerald-300'
+              }`}>
                 {isAr ? 'دفتر المعمل الرقمي والتحليل الإحصائي' : 'Digital Lab Notebook & Linear Regression'}
               </h3>
             </div>
             <button
               type="button"
               onClick={lab.notebookState.close}
-              className="p-1 rounded text-slate-400 hover:text-slate-200"
+              className={`p-1 rounded ${isLight ? 'text-slate-400 hover:text-slate-700' : 'text-slate-400 hover:text-slate-200'}`}
             >
               <X className="w-4 h-4" />
             </button>
@@ -498,12 +584,16 @@ export const VirtualLabShell = <
       {showObjectivesModal && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div
-            className="w-full max-w-lg bg-slate-900 border border-cyan-500/40 rounded-3xl p-6 shadow-2xl text-slate-100 space-y-4"
+            className={`w-full max-w-lg border rounded-3xl p-6 shadow-2xl space-y-4 ${
+              isLight ? 'bg-white border-cyan-300 text-slate-900' : 'bg-slate-900 border-cyan-500/40 text-slate-100'
+            }`}
             dir={isAr ? 'rtl' : 'ltr'}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className={`flex items-center justify-between border-b pb-3 ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
+            }`}>
               <div className="flex items-center gap-2.5">
-                <Award className="w-5 h-5 text-amber-400" />
+                <Award className="w-5 h-5 text-amber-500" />
                 <h3 className="text-lg font-bold">
                   {isAr ? 'مخرجات التعلم المستهدفة' : 'Target Learning Objectives'}
                 </h3>
@@ -511,9 +601,9 @@ export const VirtualLabShell = <
               <button
                 type="button"
                 onClick={() => setShowObjectivesModal(false)}
-                className="p-1 rounded text-slate-400 hover:text-slate-200"
+                className={`p-1 rounded ${isLight ? 'text-slate-400 hover:text-slate-700' : 'text-slate-400 hover:text-slate-200'}`}
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
@@ -521,12 +611,16 @@ export const VirtualLabShell = <
               {definition.objectives.map((obj, idx) => (
                 <div
                   key={obj.id || idx}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80"
+                  className={`flex items-start gap-3 p-3 rounded-xl border ${
+                    isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800/80'
+                  }`}
                 >
-                  <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  <span className={`w-5 h-5 rounded-full font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 ${
+                    isLight ? 'bg-cyan-100 text-cyan-800' : 'bg-cyan-500/20 text-cyan-400'
+                  }`}>
                     {idx + 1}
                   </span>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className={`text-xs sm:text-sm leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                     {isAr ? obj.textAr : obj.textEn}
                   </p>
                 </div>
@@ -537,7 +631,7 @@ export const VirtualLabShell = <
               <button
                 type="button"
                 onClick={() => setShowObjectivesModal(false)}
-                className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs"
+                className="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs cursor-pointer"
               >
                 {isAr ? 'حسناً، فهمت' : 'Got it'}
               </button>
@@ -550,11 +644,15 @@ export const VirtualLabShell = <
       {showSafetyModal && definition.safetyWarnings && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div
-            className="w-full max-w-lg bg-slate-900 border border-amber-500/40 rounded-3xl p-6 shadow-2xl text-slate-100 space-y-4"
+            className={`w-full max-w-lg border rounded-3xl p-6 shadow-2xl space-y-4 ${
+              isLight ? 'bg-white border-amber-300 text-slate-900' : 'bg-slate-900 border-amber-500/40 text-slate-100'
+            }`}
             dir={isAr ? 'rtl' : 'ltr'}
           >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div className="flex items-center gap-2.5 text-amber-400">
+            <div className={`flex items-center justify-between border-b pb-3 ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
+            }`}>
+              <div className="flex items-center gap-2.5 text-amber-500">
                 <AlertTriangle className="w-5 h-5" />
                 <h3 className="text-lg font-bold">
                   {isAr ? 'إرشادات السلامة المعملية' : 'Laboratory Safety Rules'}
@@ -563,9 +661,9 @@ export const VirtualLabShell = <
               <button
                 type="button"
                 onClick={() => setShowSafetyModal(false)}
-                className="p-1 rounded text-slate-400 hover:text-slate-200"
+                className={`p-1 rounded ${isLight ? 'text-slate-400 hover:text-slate-700' : 'text-slate-400 hover:text-slate-200'}`}
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
@@ -573,12 +671,14 @@ export const VirtualLabShell = <
               {definition.safetyWarnings.map((warn) => (
                 <div
                   key={warn.id}
-                  className="p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 text-xs sm:text-sm space-y-1"
+                  className={`p-3.5 rounded-xl border text-xs sm:text-sm space-y-1 ${
+                    isLight ? 'bg-amber-50/90 border-amber-200' : 'bg-amber-950/20 border-amber-500/30'
+                  }`}
                 >
-                  <h4 className="font-bold text-amber-300">
+                  <h4 className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>
                     {isAr ? warn.titleAr : warn.titleEn}
                   </h4>
-                  <p className="text-slate-300">
+                  <p className={isLight ? 'text-slate-700' : 'text-slate-300'}>
                     {isAr ? warn.messageAr : warn.messageEn}
                   </p>
                 </div>
@@ -589,7 +689,7 @@ export const VirtualLabShell = <
               <button
                 type="button"
                 onClick={() => setShowSafetyModal(false)}
-                className="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs"
+                className="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs cursor-pointer"
               >
                 {isAr ? 'موافق' : 'Acknowledge'}
               </button>

@@ -973,7 +973,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       const startX = centerX - boxW / 2;
       const startY = centerY - boxH / 2 + 15;
 
-      ctx.strokeStyle = params.isSwitchClosed ? '#38bdf8' : '#64748b';
+      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#0284c7' : '#38bdf8') : '#64748b';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.roundRect(startX, startY, boxW, boxH, [16]);
@@ -984,7 +984,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         const perimeter = 2 * (boxW + boxH);
         const numElectrons = 20;
 
-        ctx.fillStyle = '#facc15';
+        ctx.fillStyle = isLight ? '#d97706' : '#facc15';
         for (let i = 0; i < numElectrons; i++) {
           const d = (i * (perimeter / numElectrons) + electronOffset * (simState.iTotal * 4)) % perimeter;
           let ex = startX;
@@ -1056,12 +1056,12 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.fillText(`r=${params.rInternal1}Ω`, batX, batY + 26);
 
       // Battery label
-      ctx.fillStyle = '#ef4444';
+      ctx.fillStyle = isLight ? '#b91c1c' : '#ef4444';
       ctx.font = 'bold 11px font-mono';
       ctx.fillText(`VB1=${params.vb1}V`, batX, batY - 30);
 
       // Voltmeter across battery terminals
-      ctx.strokeStyle = '#a855f7';
+      ctx.strokeStyle = isLight ? '#7e22ce' : '#a855f7';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
@@ -1072,7 +1072,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = '#a855f7';
+      ctx.fillStyle = isLight ? '#7e22ce' : '#a855f7';
       ctx.beginPath();
       ctx.arc(batX - 50, batY + 8, 16, 0, Math.PI * 2);
       ctx.fill();
@@ -1080,7 +1080,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.font = 'bold 11px sans-serif';
       ctx.fillText('V', batX - 50, batY + 12);
 
-      ctx.fillStyle = '#c084fc';
+      ctx.fillStyle = isLight ? '#6b21a8' : '#c084fc';
       ctx.font = 'bold 10px font-mono';
       ctx.fillText(`${simState.vTerminal1}V`, batX - 50, batY + 38);
 
@@ -1092,7 +1092,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.fillRect(topCenterX - 60, topY - 20, 120, 40);
 
       // Resistor Zigzag
-      ctx.strokeStyle = '#f59e0b';
+      ctx.strokeStyle = isLight ? '#d97706' : '#f59e0b';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(topCenterX - 45, topY);
@@ -1104,7 +1104,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.lineTo(topCenterX + 45, topY);
       ctx.stroke();
 
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
       ctx.font = 'bold 11px font-mono';
       ctx.fillText(
         mod === 'closed_ohm' ? `Rv = ${params.rheostatR} Ω` : `R1 = ${params.r1} Ω`,
@@ -1120,14 +1120,14 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.fillRect(rightX - 30, rightY - 30, 60, 60);
 
       // Switch contacts
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
       ctx.beginPath();
       ctx.arc(rightX, rightY - 16, 4, 0, Math.PI * 2);
       ctx.arc(rightX, rightY + 16, 4, 0, Math.PI * 2);
       ctx.fill();
 
       // Switch blade
-      ctx.strokeStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
+      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#059669' : '#10b981') : (isLight ? '#dc2626' : '#ef4444');
       ctx.lineWidth = 3.5;
       ctx.beginPath();
       ctx.moveTo(rightX, rightY + 16);
@@ -1138,7 +1138,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       }
       ctx.stroke();
 
-      ctx.fillStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
+      ctx.fillStyle = params.isSwitchClosed ? (isLight ? '#047857' : '#10b981') : (isLight ? '#b91c1c' : '#ef4444');
       ctx.font = 'bold 10px sans-serif';
       ctx.fillText(
         params.isSwitchClosed ? (isArabic ? 'مفتاح K مغلق' : 'K Closed') : (isArabic ? 'مفتاح K مفتوح' : 'K Open'),
@@ -1153,11 +1153,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.fillStyle = isLight ? '#f8fafc' : '#090d16';
       ctx.fillRect(botCenterX - 30, botY - 25, 60, 50);
 
-      ctx.fillStyle = '#0284c7';
+      ctx.fillStyle = isLight ? '#0369a1' : '#0284c7';
       ctx.beginPath();
       ctx.arc(botCenterX, botY, 18, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
       ctx.lineWidth = 2;
       ctx.stroke();
 
@@ -1165,13 +1165,13 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.font = 'bold 12px sans-serif';
       ctx.fillText('A', botCenterX, botY + 4);
 
-      ctx.fillStyle = '#38bdf8';
+      ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
       ctx.font = 'bold 11px font-mono';
       ctx.fillText(`${simState.iTotal} A`, botCenterX, botY + 32);
 
       // 5. Central Live Metrics Banner in Canvas Center
-      ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.9)' : 'rgba(15, 23, 42, 0.85)';
-      ctx.strokeStyle = '#334155';
+      ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.85)';
+      ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.roundRect(centerX - 130, centerY - 45, 260, 90, [12]);
@@ -1182,7 +1182,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.font = 'bold 11px sans-serif';
       ctx.fillText(isArabic ? 'حالة الدائرة الحالية:' : 'Active Circuit Telemetry:', centerX, centerY - 25);
 
-      ctx.fillStyle = '#10b981';
+      ctx.fillStyle = isLight ? '#047857' : '#10b981';
       ctx.font = 'bold 12px font-mono';
       ctx.fillText(
         isArabic
@@ -1192,7 +1192,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         centerY - 5
       );
 
-      ctx.fillStyle = '#38bdf8';
+      ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
       ctx.font = 'bold 12px font-mono';
       ctx.fillText(
         isArabic
@@ -1202,7 +1202,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         centerY + 15
       );
 
-      ctx.fillStyle = '#f59e0b';
+      ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
       ctx.font = 'bold 11px font-mono';
       ctx.fillText(
         isArabic
@@ -1231,9 +1231,13 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       renderCustomControls={() => (
         <div className="space-y-4">
           {/* Module Selector */}
-          <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
-            <label className="text-xs font-bold text-slate-400 block flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+          <div className={`p-3 rounded-2xl border space-y-2 ${
+            isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-950 border border-slate-800'
+          }`}>
+            <label className={`text-xs font-bold block flex items-center gap-1.5 ${
+              isLight ? 'text-slate-700' : 'text-slate-400'
+            }`}>
+              <Layers className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
               <span>{isArabic ? 'وحدة الاستكشاف:' : 'Lab Module:'}</span>
             </label>
             <div className="relative">
@@ -1241,7 +1245,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                 aria-label={isArabic ? 'وحدة الاستكشاف' : 'Lab Module'}
                 value={params.module}
                 onChange={(e) => updateParam('module', e.target.value as CircuitModule)}
-                className="w-full appearance-none p-2.5 pr-8 pl-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-slate-100 focus:outline-none focus:border-cyan-500 cursor-pointer"
+                className={`w-full appearance-none p-2.5 pr-8 pl-3 rounded-xl border text-xs font-bold focus:outline-none cursor-pointer ${
+                  isLight
+                    ? 'bg-white border-slate-300 text-slate-800 focus:border-cyan-600 shadow-xs'
+                    : 'bg-slate-900 border-slate-700 text-slate-100 focus:border-cyan-500'
+                }`}
               >
                 <option value="closed_ohm">
                   {isArabic ? 'قانون أوم للدائرة المغلقة (V = VB - Ir)' : "Ohm's Law Closed Circuit"}
@@ -1261,9 +1269,13 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           </div>
 
           {/* Switch K Toggle Button */}
-          <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-300 flex items-center gap-2">
-              <Power className={`w-4 h-4 ${params.isSwitchClosed ? 'text-emerald-400' : 'text-red-400'}`} />
+          <div className={`p-3 rounded-2xl border flex items-center justify-between ${
+            isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-950 border border-slate-800'
+          }`}>
+            <span className={`text-xs font-bold flex items-center gap-2 ${
+              isLight ? 'text-slate-800' : 'text-slate-300'
+            }`}>
+              <Power className={`w-4 h-4 ${params.isSwitchClosed ? (isLight ? 'text-emerald-600' : 'text-emerald-400') : (isLight ? 'text-red-600' : 'text-red-400')}`} />
               <span>{isArabic ? 'مفتاح الدائرة (K):' : 'Circuit Switch (K):'}</span>
             </span>
             <button
@@ -1280,11 +1292,13 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
           {/* Controls for Closed Ohm Mode */}
           {params.module === 'closed_ohm' && (
-            <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div className={`p-3 rounded-2xl border space-y-3 ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-950 border border-slate-800'
+            }`}>
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">{isArabic ? 'مقاومة الروستات (Rv):' : 'Rheostat Load (Rv):'}</span>
-                  <span className="font-mono text-cyan-400">{params.rheostatR} Ω</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>{isArabic ? 'مقاومة الروستات (Rv):' : 'Rheostat Load (Rv):'}</span>
+                  <span className={`font-mono ${isLight ? 'text-cyan-700 font-black' : 'text-cyan-400'}`}>{params.rheostatR} Ω</span>
                 </div>
                 <input
                   aria-label={isArabic ? 'مقاومة الروستات' : 'Rheostat Resistance'}
@@ -1300,8 +1314,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">{isArabic ? 'المقاومة الداخلية (r):' : 'Internal Resistance (r):'}</span>
-                  <span className="font-mono text-amber-400">{params.rInternal1} Ω</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>{isArabic ? 'المقاومة الداخلية (r):' : 'Internal Resistance (r):'}</span>
+                  <span className={`font-mono ${isLight ? 'text-amber-700 font-black' : 'text-amber-400'}`}>{params.rInternal1} Ω</span>
                 </div>
                 <input
                   aria-label={isArabic ? 'المقاومة الداخلية' : 'Internal Resistance'}
@@ -1317,8 +1331,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">{isArabic ? 'القوة الدافعة (VB):' : 'Battery EMF (VB):'}</span>
-                  <span className="font-mono text-rose-400">{params.vb1} V</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>{isArabic ? 'القوة الدافعة (VB):' : 'Battery EMF (VB):'}</span>
+                  <span className={`font-mono ${isLight ? 'text-rose-700 font-black' : 'text-rose-400'}`}>{params.vb1} V</span>
                 </div>
                 <input
                   aria-label={isArabic ? 'القوة الدافعة' : 'Battery EMF'}
@@ -1336,9 +1350,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
           {/* Controls for Resistor Networks Mode */}
           {params.module === 'resistor_networks' && (
-            <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div className={`p-3 rounded-2xl border space-y-3 ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-950 border border-slate-800'
+            }`}>
               <div>
-                <label className="text-xs font-bold text-slate-400 block mb-1">
+                <label className={`text-xs font-bold block mb-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   {isArabic ? 'طريقة التوصيل:' : 'Network Type:'}
                 </label>
                 <div className="relative">
@@ -1346,7 +1362,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                     aria-label={isArabic ? 'طريقة التوصيل' : 'Network Type'}
                     value={params.networkType}
                     onChange={(e) => updateParam('networkType', e.target.value as ResistorNetworkType)}
-                    className="w-full appearance-none p-2 pr-8 pl-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-slate-100 focus:outline-none cursor-pointer"
+                    className={`w-full appearance-none p-2 pr-8 pl-3 rounded-xl border text-xs font-bold focus:outline-none cursor-pointer ${
+                      isLight
+                        ? 'bg-white border-slate-300 text-slate-800 focus:border-cyan-600 shadow-xs'
+                        : 'bg-slate-900 border-slate-700 text-slate-100 focus:border-cyan-500'
+                    }`}
                   >
                     <option value="series">{isArabic ? 'توصيل توالي (ثبات I)' : 'Series (Equal Current)'}</option>
                     <option value="parallel">{isArabic ? 'توصيل توازي (ثبات V)' : 'Parallel (Equal Voltage)'}</option>
@@ -1358,8 +1378,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">R1:</span>
-                  <span className="font-mono text-cyan-400">{params.r1} Ω</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>R1:</span>
+                  <span className={`font-mono ${isLight ? 'text-cyan-700 font-black' : 'text-cyan-400'}`}>{params.r1} Ω</span>
                 </div>
                 <input
                   aria-label="R1"
@@ -1375,8 +1395,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">R2:</span>
-                  <span className="font-mono text-amber-400">{params.r2} Ω</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>R2:</span>
+                  <span className={`font-mono ${isLight ? 'text-amber-700 font-black' : 'text-amber-400'}`}>{params.r2} Ω</span>
                 </div>
                 <input
                   aria-label="R2"
@@ -1394,9 +1414,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
           {/* Controls for Kirchhoff Mode */}
           {params.module === 'kirchhoff' && (
-            <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <div className={`p-3 rounded-2xl border space-y-3 ${
+              isLight ? 'bg-slate-50 border-slate-200 text-slate-800' : 'bg-slate-950 border border-slate-800'
+            }`}>
               <div>
-                <label className="text-xs font-bold text-slate-400 block mb-1">
+                <label className={`text-xs font-bold block mb-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   {isArabic ? 'قطبية المصدرين:' : 'Batteries Alignment:'}
                 </label>
                 <div className="relative">
@@ -1404,7 +1426,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                     aria-label={isArabic ? 'قطبية المصدرين' : 'Batteries Alignment'}
                     value={params.battery2Polarity}
                     onChange={(e) => updateParam('battery2Polarity', e.target.value as 'same' | 'opposing')}
-                    className="w-full appearance-none p-2 pr-8 pl-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-slate-100 focus:outline-none cursor-pointer"
+                    className={`w-full appearance-none p-2 pr-8 pl-3 rounded-xl border text-xs font-bold focus:outline-none cursor-pointer ${
+                      isLight
+                        ? 'bg-white border-slate-300 text-slate-800 focus:border-cyan-600 shadow-xs'
+                        : 'bg-slate-900 border-slate-700 text-slate-100 focus:border-cyan-500'
+                    }`}
                   >
                     <option value="opposing">
                       {isArabic ? 'متعاكستان (تفريغ وشحن V = VB + Ir)' : 'Opposing (Charging State)'}
@@ -1418,13 +1444,17 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 block">VB1:</span>
-                  <span className="font-mono font-bold text-rose-400">{params.vb1} V</span>
+                <div className={`p-2 rounded-lg border ${
+                  isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border border-slate-800'
+                }`}>
+                  <span className={`text-[10px] block ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>VB1:</span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-rose-700' : 'text-rose-400'}`}>{params.vb1} V</span>
                 </div>
-                <div className="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-[10px] text-slate-400 block">VB2:</span>
-                  <span className="font-mono font-bold text-cyan-400">{params.vb2} V</span>
+                <div className={`p-2 rounded-lg border ${
+                  isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border border-slate-800'
+                }`}>
+                  <span className={`text-[10px] block ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>VB2:</span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`}>{params.vb2} V</span>
                 </div>
               </div>
             </div>
@@ -1434,14 +1464,20 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
     >
       <div className="space-y-4">
         {/* Main Canvas Viewport */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
+        <div className={`relative rounded-2xl overflow-hidden border ${
+          isLight ? 'border-slate-200 bg-white shadow-xs' : 'border-slate-800 bg-slate-950'
+        }`}>
           <CanvasSimulationViewport
             id="circuits-canvas-viewport"
             lang={lang ?? 'ar'}
             minHeight={460}
             onRender={handleRenderCanvas}
           >
-            <div className="absolute top-3 right-3 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-slate-700/60 text-xs font-bold text-slate-200 flex items-center gap-2">
+            <div className={`absolute top-3 right-3 px-3 py-1.5 rounded-xl backdrop-blur-md border text-xs font-bold flex items-center gap-2 ${
+              isLight
+                ? 'bg-white/95 border-slate-300 text-slate-800 shadow-sm'
+                : 'bg-slate-950/85 border-slate-700/60 text-slate-200'
+            }`}>
               <span className={`w-2 h-2 rounded-full ${params.isSwitchClosed ? 'bg-emerald-400 animate-ping' : 'bg-red-400'}`} />
               <span>
                 {params.isSwitchClosed
@@ -1459,39 +1495,47 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         {/* Phase Summary Status Banner */}
         <div
           className={`p-4 rounded-2xl border ${
-            isLight ? 'bg-white border-slate-300 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+            isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
           }`}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs">
-            <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-[10px] text-slate-400 block mb-0.5">
+            <div className={`p-2.5 rounded-xl border ${
+              isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border border-slate-800'
+            }`}>
+              <span className={`text-[10px] block mb-0.5 ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>
                 {isArabic ? 'فرق جهد البطارية ١' : 'Battery 1 Voltage'}
               </span>
-              <span className="font-mono font-bold text-cyan-400 text-sm">
+              <span className={`font-mono font-bold text-sm ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>
                 {simState.vTerminal1} V
               </span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-[10px] text-slate-400 block mb-0.5">
+            <div className={`p-2.5 rounded-xl border ${
+              isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border border-slate-800'
+            }`}>
+              <span className={`text-[10px] block mb-0.5 ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>
                 {isArabic ? 'حالة البطارية ١' : 'Battery 1 State'}
               </span>
-              <span className="font-bold text-emerald-400 text-xs line-clamp-1">
+              <span className={`font-bold text-xs line-clamp-1 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>
                 {isArabic ? simState.battery1StateAr : simState.battery1StateEn}
               </span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-[10px] text-slate-400 block mb-0.5">
+            <div className={`p-2.5 rounded-xl border ${
+              isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border border-slate-800'
+            }`}>
+              <span className={`text-[10px] block mb-0.5 ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>
                 {isArabic ? 'المقاومة المكافئة' : 'Equivalent Req'}
               </span>
-              <span className="font-mono font-bold text-amber-400 text-sm">
+              <span className={`font-mono font-bold text-sm ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                 {simState.rEquivalent} Ω
               </span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-[10px] text-slate-400 block mb-0.5">
+            <div className={`p-2.5 rounded-xl border ${
+              isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border border-slate-800'
+            }`}>
+              <span className={`text-[10px] block mb-0.5 ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>
                 {isArabic ? 'القدرة المستهلكة' : 'Power Dissipated'}
               </span>
-              <span className="font-mono font-bold text-rose-400 text-sm">
+              <span className={`font-mono font-bold text-sm ${isLight ? 'text-rose-800' : 'text-rose-400'}`}>
                 {simState.pLoad} W
               </span>
             </div>

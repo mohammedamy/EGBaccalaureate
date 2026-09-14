@@ -222,6 +222,20 @@ html.light .katex .rule {
   border-color: #0f172a !important;
 }
 
+/* Base Light Mode KaTeX White Text Preservation */
+html.light .text-white .katex,
+html.light .text-white .katex *,
+html.light [class*="text-white"] .katex,
+html.light [class*="text-white"] .katex * {
+  color: #ffffff !important;
+}
+html.light .text-white .katex .frac-line,
+html.light .text-white .katex .rule,
+html.light [class*="text-white"] .katex .frac-line,
+html.light [class*="text-white"] .katex .rule {
+  border-color: #ffffff !important;
+}
+
 /* MATH RENDERED CONTAINER CONTRAST GUARANTEE */
 .dark .math-rendered-container,
 .dark .math-rendered-container *,
@@ -248,6 +262,57 @@ html.light .math-rendered-container span {
 
 html.light .math-rendered-container strong {
   color: #020617 !important;
+}
+
+/* Light Mode White/Colored Button & Badge KaTeX and Math Preservation */
+html.light .text-white .math-rendered-container,
+html.light .text-white .math-rendered-container *,
+html.light .text-white .katex,
+html.light .text-white .katex *,
+html.light [class*="text-white"] .math-rendered-container,
+html.light [class*="text-white"] .math-rendered-container *,
+html.light [class*="text-white"] .katex,
+html.light [class*="text-white"] .katex *,
+html.light .bg-indigo-600 .math-rendered-container,
+html.light .bg-indigo-600 .math-rendered-container *,
+html.light .bg-indigo-600 .katex,
+html.light .bg-indigo-600 .katex *,
+html.light .bg-blue-600 .math-rendered-container,
+html.light .bg-blue-600 .math-rendered-container *,
+html.light .bg-blue-600 .katex,
+html.light .bg-blue-600 .katex *,
+html.light .bg-emerald-600 .math-rendered-container,
+html.light .bg-emerald-600 .math-rendered-container *,
+html.light .bg-emerald-600 .katex,
+html.light .bg-emerald-600 .katex *,
+html.light .bg-cyan-500 .math-rendered-container,
+html.light .bg-cyan-500 .math-rendered-container *,
+html.light .bg-cyan-500 .katex,
+html.light .bg-cyan-500 .katex *,
+html.light .bg-amber-500 .math-rendered-container,
+html.light .bg-amber-500 .math-rendered-container *,
+html.light .bg-amber-500 .katex,
+html.light .bg-amber-500 .katex *,
+html.light .bg-rose-600 .math-rendered-container,
+html.light .bg-rose-600 .math-rendered-container *,
+html.light .bg-rose-600 .katex,
+html.light .bg-rose-600 .katex * {
+  color: #ffffff !important;
+}
+
+html.light .text-white .katex .frac-line,
+html.light .text-white .katex .rule,
+html.light [class*="text-white"] .katex .frac-line,
+html.light [class*="text-white"] .katex .rule,
+html.light .bg-indigo-600 .katex .frac-line,
+html.light .bg-indigo-600 .katex .rule,
+html.light .bg-blue-600 .katex .frac-line,
+html.light .bg-blue-600 .katex .rule,
+html.light .bg-emerald-600 .katex .frac-line,
+html.light .bg-emerald-600 .katex .rule,
+html.light .bg-rose-600 .katex .frac-line,
+html.light .bg-rose-600 .katex .rule {
+  border-color: #ffffff !important;
 }
 
 
@@ -326,9 +391,12 @@ html.light .bg-slate-900,
 html.light .bg-slate-900\/95,
 html.light .bg-slate-900\/90,
 html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/60,
 html.light .bg-slate-950,
 html.light .bg-slate-950\/95,
 html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/85,
 html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/60,
@@ -346,19 +414,30 @@ html.light .hero-banner .bg-slate-950 {
 
 /* NESTED ACCENT BOXES IN LIGHT MODE */
 html.light .bg-slate-800,
+html.light .bg-slate-800\/90,
 html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/70,
 html.light .bg-slate-800\/60,
-html.light .bg-slate-900\/60 {
+html.light .bg-slate-800\/50 {
   background-color: #f8fafc !important;
   color: #0f172a !important;
+}
+
+/* BADGES & CIRCLE INDICATORS IN LIGHT MODE */
+html.light .bg-slate-700 {
+  background-color: #e2e8f0 !important;
+  color: #1e293b !important;
 }
 
 /* BORDERS IN LIGHT MODE */
 html.light .border-slate-800,
 html.light .border-slate-800\/90,
 html.light .border-slate-800\/80,
+html.light .border-slate-800\/70,
 html.light .border-slate-800\/60,
-html.light .border-slate-700 {
+html.light .border-slate-700,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/60 {
   border-color: #cbd5e1 !important;
 }
 
@@ -377,57 +456,161 @@ html.light .text-slate-500 {
   color: #475569 !important;
 }
 
-/* ACCENTS IN LIGHT MODE - High contrast rich tones */
+/* ACCENTS IN LIGHT MODE - High contrast rich tones for Day View */
+html.light .text-indigo-100,
+html.light .text-indigo-200,
 html.light .text-indigo-300,
 html.light .text-indigo-400 {
   color: #4338ca !important;
 }
 
+html.light .text-amber-100,
+html.light .text-amber-200,
 html.light .text-amber-300,
 html.light .text-amber-400 {
   color: #92400e !important;
 }
 
+html.light .text-emerald-100,
+html.light .text-emerald-200,
 html.light .text-emerald-300,
 html.light .text-emerald-400 {
   color: #065f46 !important;
 }
 
+html.light .text-cyan-100,
+html.light .text-cyan-200,
 html.light .text-cyan-300,
 html.light .text-cyan-400 {
   color: #0369a1 !important;
 }
 
-/* PILL BADGES IN LIGHT MODE */
-html.light .bg-indigo-950 {
+html.light .text-sky-100,
+html.light .text-sky-200,
+html.light .text-sky-300,
+html.light .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+html.light .text-rose-100,
+html.light .text-rose-200,
+html.light .text-rose-300,
+html.light .text-rose-400 {
+  color: #be123c !important;
+}
+
+html.light .text-purple-100,
+html.light .text-purple-200,
+html.light .text-purple-300,
+html.light .text-purple-400 {
+  color: #6b21a8 !important;
+}
+
+html.light .text-teal-100,
+html.light .text-teal-200,
+html.light .text-teal-300,
+html.light .text-teal-400 {
+  color: #0f766e !important;
+}
+
+/* PILL BADGES & TINTED BOXES IN LIGHT MODE */
+html.light .bg-indigo-950,
+html.light .bg-indigo-950\/60,
+html.light .bg-indigo-950\/40,
+html.light .bg-indigo-950\/30,
+html.light .bg-indigo-950\/20 {
   background-color: #e0e7ff !important;
   color: #3730a3 !important;
   border-color: #c7d2fe !important;
 }
 
 html.light .bg-amber-950,
+html.light .bg-amber-950\/60,
 html.light .bg-amber-950\/40,
-html.light .bg-amber-950\/30 {
+html.light .bg-amber-950\/30,
+html.light .bg-amber-950\/20 {
   background-color: #fef3c7 !important;
   color: #92400e !important;
   border-color: #fde68a !important;
 }
 
 html.light .bg-emerald-950,
+html.light .bg-emerald-950\/60,
 html.light .bg-emerald-950\/40,
+html.light .bg-emerald-950\/30,
 html.light .bg-emerald-950\/20 {
   background-color: #d1fae5 !important;
   color: #065f46 !important;
   border-color: #a7f3d0 !important;
 }
 
-/* KATEX MATH FORMULAS IN LIGHT MODE */
+html.light .bg-cyan-950,
+html.light .bg-cyan-950\/60,
+html.light .bg-cyan-950\/40,
+html.light .bg-cyan-950\/30,
+html.light .bg-cyan-950\/20 {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+
+html.light .bg-rose-950,
+html.light .bg-rose-950\/60,
+html.light .bg-rose-950\/40,
+html.light .bg-rose-950\/30,
+html.light .bg-rose-950\/20 {
+  background-color: #ffe4e6 !important;
+  color: #9f1239 !important;
+  border-color: #fecdd3 !important;
+}
+
+html.light .bg-purple-950,
+html.light .bg-purple-950\/60,
+html.light .bg-purple-950\/40,
+html.light .bg-purple-950\/30,
+html.light .bg-purple-950\/20 {
+  background-color: #f3e8ff !important;
+  color: #6b21a8 !important;
+  border-color: #e9d5ff !important;
+}
+
+/* KATEX MATH FORMULAS IN LIGHT MODE - Pure crisp black text by default */
 html.light .katex,
+html.light .katex *,
 html.light .katex-display,
 html.light .katex-math,
 html.light .math-block-display,
 html.light .math-inline-display {
   color: #0f172a !important;
+}
+
+/* PRESERVE WHITE TEXT IN KATEX ON SOLID BUTTONS & HIGHLIGHTS */
+html.light .text-white .katex,
+html.light .text-white .katex *,
+html.light .text-white .katex-display,
+html.light .text-white .katex-math,
+html.light [class*="text-white"] .katex,
+html.light [class*="text-white"] .katex *,
+html.light .bg-indigo-600 .katex,
+html.light .bg-indigo-600 .katex *,
+html.light .bg-indigo-700 .katex,
+html.light .bg-indigo-700 .katex *,
+html.light .bg-blue-600 .katex,
+html.light .bg-blue-600 .katex *,
+html.light .bg-cyan-600 .katex,
+html.light .bg-cyan-600 .katex *,
+html.light .bg-emerald-600 .katex,
+html.light .bg-emerald-600 .katex *,
+html.light .bg-rose-600 .katex,
+html.light .bg-rose-600 .katex * {
+  color: #ffffff !important;
+}
+
+html.light .text-white .katex .frac-line,
+html.light .text-white .katex .rule,
+html.light [class*="text-white"] .katex .frac-line,
+html.light [class*="text-white"] .katex .rule {
+  border-color: #ffffff !important;
 }
 
 html.light .math-block-display:not(.no-box):not(.bg-transparent):not(.border-0) {
