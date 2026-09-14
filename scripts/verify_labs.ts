@@ -58,6 +58,7 @@ const labComponents = [
   'src/components/labs/DynamoInductionLab.tsx',
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/PhotoelectricLab.tsx',
+  'src/components/labs/AtomicLaserLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
   'src/components/labs/TitrationLab.tsx',
   'src/components/labs/OrganicChemistryLab.tsx',
@@ -132,6 +133,27 @@ const f0_rlc = 1 / (2 * Math.PI * Math.sqrt(L_rlc * C_rlc));
 const I_res_rlc = V_rlc / R_rlc;
 assert(Math.abs(f0_rlc - 112.54) < 0.2, `RLC Resonant Frequency: f0 = ${f0_rlc.toFixed(2)} Hz (expected ~112.54 Hz)`);
 assert(Math.abs(I_res_rlc - 2.0) < 1e-6, `RLC Peak Current at Resonance: I_max = ${I_res_rlc} A (expected 2.0 A)`);
+
+// D2. Physics: Bohr Hydrogen Atom & Rydberg Constant (Balmer H-alpha)
+const n1_balmer = 2;
+const n2_balmer = 3;
+const dE_balmer_eV = 13.6 * (1 / (n1_balmer * n1_balmer) - 1 / (n2_balmer * n2_balmer));
+const lambda_balmer_nm = 1239.84193 / dE_balmer_eV;
+const wavenumber_balmer_m = 1 / (lambda_balmer_nm * 1e-9);
+const term_diff_balmer = 1 / (n1_balmer * n1_balmer) - 1 / (n2_balmer * n2_balmer);
+const rydberg_calc = wavenumber_balmer_m / term_diff_balmer;
+assert(Math.abs(lambda_balmer_nm - 656.3) < 0.5, `Balmer H-alpha Wavelength: ${lambda_balmer_nm.toFixed(1)} nm (expected ~656.3 nm)`);
+assert(Math.abs(rydberg_calc - 1.097e7) < 5e4, `Rydberg Constant: R_H = ${rydberg_calc.toExponential(3)} m^-1 (expected ~1.097e7 m^-1)`);
+
+// D3. Physics: He-Ne Laser 4-Level Resonant Transfer & Stimulated Emission
+const E_He_metastable = 20.61; // eV
+const E_Ne_3s = 20.66; // eV
+const E_Ne_2p = 18.70; // eV
+const resonant_gap = Math.abs(E_Ne_3s - E_He_metastable);
+const laser_dE_eV = E_Ne_3s - E_Ne_2p;
+const laser_lambda_nm = 1239.84193 / laser_dE_eV;
+assert(resonant_gap <= 0.05 + 1e-5, `He-Ne Resonant Energy Gap: ${resonant_gap.toFixed(2)} eV (<= 0.05 eV, thermal resonance)`);
+assert(Math.abs(laser_lambda_nm - 632.6) < 0.5, `He-Ne Laser Output Wavelength: ${laser_lambda_nm.toFixed(1)} nm (expected 632.8 nm red)`);
 
 // E. Chemistry: 3d Transition Series & Magnetic Moments
 // Magnetic moment formula: mu = sqrt(n * (n + 2)) BM
@@ -257,6 +279,10 @@ const labKeyFormulas = [
   '\\mathcal{E}_{\\text{eff}} = \\frac{\\mathcal{E}_{\\max}}{\\sqrt{2}}',
   'f_0 = \\frac{1}{2\\pi\\sqrt{LC}}',
   'Z = \\sqrt{R^2 + (X_L - X_C)^2}',
+  'E_n = -\\frac{13.6}{n^2}\\,\\text{eV}',
+  '\\bar{\\nu} = \\frac{1}{\\lambda} = R_H\\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)',
+  'N_2 > N_1',
+  'L = m\\,\\frac{\\lambda}{2}',
   // Chemistry Lab
   '2\\text{NO}_2\\text{(g)} \\rightleftharpoons \\text{N}_2\\text{O}_4\\text{(g)}',
   '\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3',
