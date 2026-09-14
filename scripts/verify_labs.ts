@@ -60,6 +60,7 @@ const labComponents = [
   'src/components/labs/PhotoelectricLab.tsx',
   'src/components/labs/AtomicLaserLab.tsx',
   'src/components/labs/OpticsBenchLab.tsx',
+  'src/components/labs/MagnetismLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
   'src/components/labs/TitrationLab.tsx',
   'src/components/labs/OrganicChemistryLab.tsx',
@@ -194,6 +195,45 @@ const D_screen_m = 1.5; // 1.5 m screen distance
 const d_slit_m = 0.25e-3; // 0.25 mm slit spacing
 const delta_y_mm = ((lambda_young_m * D_screen_m) / d_slit_m) * 1000;
 assert(Math.abs(delta_y_mm - 3.80) < 0.05, `Young's double slit fringe width: Δy = ${delta_y_mm.toFixed(2)} mm (expected ~3.80 mm)`);
+
+// D5. Physics: Electromagnetism, Lorentz Force & Galvanometer (Egyptian Curriculum Ch 2)
+// 1. Straight Wire Magnetic Flux Density: B = (mu0 * I) / (2 * pi * d) = (2e-7 * I) / d
+const I_wire = 10; // A
+const d_wire_m = 0.05; // 5 cm
+const B_wire_Tesla = (2e-7 * I_wire) / d_wire_m;
+const B_wire_uT = B_wire_Tesla * 1e6;
+assert(Math.abs(B_wire_uT - 40.0) < 1e-6, `Straight wire magnetic field at 5 cm: B = ${B_wire_uT.toFixed(1)} µT (expected 40.0 µT)`);
+
+// 2. Circular Coil Center Field: B = (mu0 * N * I) / (2 * r)
+const N_coil = 10;
+const I_coil = 5; // A
+const r_coil_m = 0.08; // 8 cm
+const B_coil_Tesla = (4 * Math.PI * 1e-7 * N_coil * I_coil) / (2 * r_coil_m);
+assert(Math.abs(B_coil_Tesla * 1e3 - 0.3927) < 0.01, `Circular coil center field: B = ${(B_coil_Tesla * 1e3).toFixed(3)} mT (expected ~0.393 mT)`);
+
+// 3. Solenoid with Soft Iron Core: B = mu_iron * (N / L) * I
+const N_sol = 200;
+const L_sol_m = 0.2; // 20 cm
+const I_sol = 4; // A
+const mu_iron = 1500 * (4 * Math.PI * 1e-7);
+const B_sol_Tesla = (mu_iron * N_sol * I_sol) / L_sol_m;
+assert(Math.abs(B_sol_Tesla - 7.54) < 0.05, `Solenoid with soft iron core field: B = ${B_sol_Tesla.toFixed(2)} T (expected ~7.54 T)`);
+
+// 4. Lorentz Force on Straight Conductor: F = B * I * L * sin(theta)
+const B_ext = 0.8; // T
+const I_force = 5; // A
+const L_force = 0.4; // m
+const theta_force = Math.PI / 2; // 90°
+const F_lorentz = B_ext * I_force * L_force * Math.sin(theta_force);
+assert(Math.abs(F_lorentz - 1.60) < 1e-6, `Lorentz force at 90°: F = ${F_lorentz.toFixed(2)} N (expected 1.60 N)`);
+
+// 5. Galvanometer Radial Deflecting Torque: tau = B * I * A * N (always max in radial gap)
+const B_galv = 0.8; // T
+const I_galv = 2.5e-3; // 2.5 mA
+const A_galv = 0.03 * 0.05; // 3 cm x 5 cm = 1.5e-3 m²
+const N_galv = 200;
+const tau_galv = B_galv * I_galv * A_galv * N_galv;
+assert(Math.abs(tau_galv * 1e6 - 600.0) < 1e-6, `Galvanometer radial torque: tau = ${(tau_galv * 1e6).toFixed(1)} µN·m (expected 600.0 µN·m)`);
 
 // E. Chemistry: 3d Transition Series & Magnetic Moments
 // Magnetic moment formula: mu = sqrt(n * (n + 2)) BM

@@ -567,12 +567,12 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
   const dmmReading: DMMReading = {
     voltageDC:
       params.opticsMode === 'refraction'
-        ? (isTIR ? 0.0 : 4.81)
+        ? (state.isTIR ? 0.0 : 4.81)
         : params.opticsMode === 'thin_lens'
-        ? Math.min(10.0, 5.0 / ((Math.abs(lens.magnification) || 1.0) * (Math.abs(lens.magnification) || 1.0)))
+        ? Math.min(10.0, 5.0 / ((Math.abs(state.magnification) || 1.0) * (Math.abs(state.magnification) || 1.0)))
         : 5.0,
     voltageAC: 0.0,
-    currentDC: params.opticsMode === 'double_slit' ? photodiodeMa / 1000 : 0.001,
+    currentDC: params.opticsMode === 'double_slit' ? state.photodiodeCurrentMa / 1000 : 0.001,
     resistance: 1000,
     continuityBeep: false,
   };
@@ -586,7 +586,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
   };
 
   const oscCh2: WaveformSignal = {
-    amplitude: params.opticsMode === 'refraction' ? (isTIR ? 0.0 : 2.5 * (params.n1 / params.n2)) : params.opticsMode === 'thin_lens' ? 2.0 : 3.5,
+    amplitude: params.opticsMode === 'refraction' ? (state.isTIR ? 0.0 : 2.5 * (params.n1 / params.n2)) : params.opticsMode === 'thin_lens' ? 2.0 : 3.5,
     frequency: params.opticsMode === 'double_slit' ? 1250 : 1000,
     phaseDeg: 90,
     type: 'sine',
