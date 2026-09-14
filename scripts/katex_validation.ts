@@ -127,6 +127,38 @@ for (const cur of curricula) {
   }
 }
 
+// 3. Regression test specifically for MathRenderer multi-segment options (e.g. Question 11)
+console.log('Testing MathRenderer option parsing and KaTeX regression cases...');
+const regressionCases = [
+  { name: 'Phys Q11 Opt A', input: '$V_0 / 2$ to $V_0$' },
+  { name: 'Phys Q11 Opt B', input: '$0\\text{ V}$ to $V_0$' },
+  { name: 'Phys Q11 Opt C', input: '$-V_0$ to $+V_0$' },
+  { name: 'Phys Q11 Opt D', input: '$0\\text{ V}$ to $2V_0$' },
+  { name: 'Phys Q11 Stem', input: 'When a rheostat of total resistance $R_0$ is connected across a power supply $V_0$ as a potential divider, the output voltage taken from the sliding contact can be continuously varied from:' },
+  { name: 'Bio Beta cells', input: 'Beta ($\\beta$) cells' },
+  { name: 'Pure fraction', input: '\\frac{1}{2}' },
+  { name: 'Force unit', input: '10\\text{ N}' },
+  { name: 'Photon energy', input: 'E = h \\nu' },
+  { name: 'Prose only', input: 'Increases uniformly' },
+];
+
+for (const rc of regressionCases) {
+  const formulas = extractMath(rc.input);
+  for (const f of formulas) {
+    totalFormulasTested++;
+    try {
+      katex.renderToString(f.math, {
+        displayMode: f.display,
+        throwOnError: true,
+        strict: 'ignore',
+      });
+    } catch (err: any) {
+      errorsFound++;
+      errorList.push(`[Regression] [${rc.name}] KaTeX Error on "${f.math}": ${err.message}`);
+    }
+  }
+}
+
 console.log(`\n======================================================`);
 console.log(`Total math/science expressions tested: ${totalFormulasTested}`);
 console.log(`KaTeX errors found:                   ${errorsFound}`);

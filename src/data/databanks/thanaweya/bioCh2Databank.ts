@@ -1555,8 +1555,8 @@ export const bioCh2Databank: ChapterDatabank = {
     "titleEn": "Islets of Langerhans Beta Cells",
     "titleAr": "خلايا بيتا في جزر لانجرهانس ووظيفتها",
     "difficulty": "easy",
-    "questionEn": "Beta (\\beta$) cells, representing the predominant cell population in the Islets of Langerhans, secrete:",
-    "questionAr": "تقوم خلايا بيتا (\\beta$) التي تمثل غالبية خلايا جزر لانجرهانس بإفراز هرمون:",
+    "questionEn": "Beta ($\\beta$) cells, representing the predominant cell population in the Islets of Langerhans, secrete:",
+    "questionAr": "تقوم خلايا بيتا ($\\beta$) التي تمثل غالبية خلايا جزر لانجرهانس بإفراز هرمون:",
     "optionsEn": [
       "Secretin, which stimulates the release of pancreatic bicarbonate",
       "Aldosterone, which increases potassium retention",

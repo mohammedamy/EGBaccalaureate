@@ -6131,7 +6131,7 @@ export const bioCh4Databank: ChapterDatabank = {
         "titleEn": "Regulatory T-Cells (Treg) in Autoimmune Prevention",
         "titleAr": "الخلايا التائية المنظمة Treg والوقاية من المناعة الذاتية",
         "difficulty": "hots",
-        "questionEn": "Mice with a genetic knockout of the FoxP3 transcription factor fail to develop regulatory T cells (^+ CD25^+$). What fatal phenotype do these mice demonstrate?",
+        "questionEn": "Mice with a genetic knockout of the FoxP3 transcription factor fail to develop regulatory T cells ($\\text{CD4}^+ \\text{CD25}^+$). What fatal phenotype do these mice demonstrate?",
         "questionAr": "فئران تجارب حدثت بها طفرة عطلت تكوين الخلايا التائية المنظمة Treg. ما الخلل المرضي القاتل الذي يظهر عليها؟",
         "optionsEn": [
             "Instantaneous conversion of skeletal muscle fibers into plant collenchyma",

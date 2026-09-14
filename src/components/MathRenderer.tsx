@@ -66,7 +66,9 @@ const normalizeTex = (tex: string): string => {
 };
 
 /**
- * Accurately determines if a string is a Pure Math expression rather than Markdown or prose text.
+ * Accurately determines if a string is a standalone Pure Math expression
+ * (e.g. single formula, equation, matrix, symbol) that should be rendered directly by KaTeX,
+ * rather than mixed prose/markdown text.
  */
 const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
   const s = str.trim();
@@ -82,50 +84,84 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     return false;
   }
 
-  // 2. If it contains math delimiters, it is ONLY a pure math expression if wrapped from beginning to end
+  // 2. If it contains math delimiters ($ or \( or \[)
   if (s.includes('$') || s.includes('\\(') || s.includes('\\[')) {
-    const isFullyWrapped =
-      (s.startsWith('$$') && s.endsWith('$$') && s.length >= 4) ||
-      (s.startsWith('$') && s.endsWith('$') && s.length >= 2) ||
-      (s.startsWith('\\[') && s.endsWith('\\]') && s.length >= 4) ||
-      (s.startsWith('\\(') && s.endsWith('\\)') && s.length >= 4);
-    if (!isFullyWrapped) {
-      return false;
+    // Only pure math if wrapped by EXACTLY one matching pair of delimiters from start to end
+    if (s.startsWith('$$') && s.endsWith('$$') && s.length >= 4) {
+      const inner = s.slice(2, -2);
+      return !inner.includes('$$') && !inner.includes('$');
     }
-    return true;
+    if (s.startsWith('\\[') && s.endsWith('\\]') && s.length >= 4) {
+      const inner = s.slice(2, -2);
+      return !inner.includes('\\[') && !inner.includes('\\]') && !inner.includes('$');
+    }
+    if (s.startsWith('\\(') && s.endsWith('\\)') && s.length >= 4) {
+      const inner = s.slice(2, -2);
+      return !inner.includes('\\(') && !inner.includes('\\)') && !inner.includes('$');
+    }
+    if (s.startsWith('$') && s.endsWith('$') && s.length >= 2) {
+      const inner = s.slice(1, -1);
+      // Must NOT contain internal unescaped $ (e.g. "$V_0 / 2$ to $V_0$" has internal $)
+      const hasInnerDollar = /(^|[^\\])\$/.test(inner);
+      return !hasInnerDollar;
+    }
+    // Has delimiters but not fully wrapped in a single delimiter pair -> mixed text with math!
+    return false;
   }
 
-  // 3. If it contains any LaTeX commands (e.g. \circ, \frac, \sqrt, \vec, \binom, \pm, \theta, etc.)
-  if (/\\[a-zA-Z]+/.test(s)) {
-    // Check if it is a full prose sentence with an accidental backslash
-    const arabicWords = s.replace(/\\text\{[^}]*\}/g, '').match(/[\u0621-\u064A\u0671-\u06D3]{3,}/g);
-    if (!arabicWords || arabicWords.length <= 1) {
-      return true;
-    }
-  }
-
-  // 4. If it contains Arabic letters (excluding numerals ٠-٩), it's Arabic prose/text with possible embedded math
+  // 3. If it contains Arabic letters (excluding numerals ٠-٩), it's Arabic prose
   if (/[\u0621-\u064A\u0671-\u06D3]/.test(s)) {
     return false;
   }
 
-  // 5. Count regular English prose words (words of 3+ letters not in LaTeX commands or standard math functions)
+  // 4. Check for English prose words
+  const englishStopWords = new Set([
+    'to', 'is', 'on', 'in', 'at', 'by', 'as', 'of', 'or', 'an', 'if', 'no', 'so', 'up', 'do',
+    'and', 'the', 'for', 'but', 'not', 'with', 'from', 'into', 'than', 'then', 'when', 'that',
+    'this', 'all', 'any', 'are', 'was', 'were', 'has', 'have', 'had', 'been', 'which', 'where',
+    'who', 'whom', 'whose', 'what', 'why', 'how', 'each', 'every', 'both', 'either', 'neither',
+    'only', 'same', 'such', 'more', 'most', 'other', 'some', 'between', 'through', 'during',
+    'before', 'after', 'above', 'below', 'under', 'again', 'further', 'once', 'here', 'there',
+    'constant', 'remains', 'increases', 'decreases', 'zero', 'none', 'cannot', 'determine',
+    'varies', 'divided', 'connected', 'parallel', 'series', 'circuit', 'current', 'voltage'
+  ]);
+
+  const mathFunctions = new Set([
+    'sin', 'cos', 'tan', 'cot', 'sec', 'csc', 'log', 'ln', 'exp', 'lim', 'min', 'max',
+    'det', 'deg', 'mod', 'var', 'cov', 'dim', 'ker', 'gcd', 'lcm', 'arcsin', 'arccos', 'arctan'
+  ]);
+
+  // Check if \text{...} contains multi-word prose
+  const textMatches = s.match(/\\text\{([^}]*)\}/g) || [];
+  for (const tm of textMatches) {
+    const inside = tm.slice(6, -1).trim();
+    const words = inside.match(/[a-zA-Z]+/g) || [];
+    if (words.length >= 2) {
+      return false; // Multi-word text is prose
+    }
+  }
+
   const cleaned = s
     .replace(/\\text\{[^}]*\}/g, '')
     .replace(/\\[a-zA-Z]+/g, '')
-    .replace(/\b(sin|cos|tan|cot|sec|csc|log|ln|lim|det|min|max|exp|deg|mod)\b/gi, '');
+    .replace(/[^a-zA-Z]/g, ' ');
 
-  const proseWords = cleaned.match(/[a-zA-Z]{3,}/g);
-  if (proseWords && proseWords.length >= 1) {
+  const words = cleaned.split(/\s+/).filter(Boolean);
+  const proseWords = words.filter(w => {
+    const lower = w.toLowerCase();
+    return englishStopWords.has(lower) || (w.length >= 3 && !mathFunctions.has(lower));
+  });
+
+  if (proseWords.length >= 1) {
     return false;
   }
 
-  // 6. Mathematical equations, operations, coordinates, or numbers (including Arabic-Indic numerals)
-  if (/[=+\-*/^_{}()|]/.test(s) || /^[\d٠-٩]+$/.test(s)) {
+  // 5. Mathematical equations, operations, coordinates, Greek letters, or numbers
+  if (/[=+\-*/^_{}()|\\[\]]/.test(s) || /^[\d٠-٩.]+$/.test(s) || /\\[a-zA-Z]+/.test(s)) {
     return true;
   }
 
-  if (isBlock && (!proseWords || proseWords.length === 0)) {
+  if (isBlock && proseWords.length === 0) {
     return true;
   }
 
@@ -147,13 +183,21 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
     let s = tex.trim();
     while (true) {
       if (s.startsWith('$$') && s.endsWith('$$') && s.length >= 4) {
-        s = s.slice(2, -2).trim();
+        const inner = s.slice(2, -2);
+        if (inner.includes('$$') || inner.includes('$')) break;
+        s = inner.trim();
       } else if (s.startsWith('\\[') && s.endsWith('\\]') && s.length >= 4) {
-        s = s.slice(2, -2).trim();
+        const inner = s.slice(2, -2);
+        if (inner.includes('\\[') || inner.includes('\\]')) break;
+        s = inner.trim();
       } else if (s.startsWith('\\(') && s.endsWith('\\)') && s.length >= 4) {
-        s = s.slice(2, -2).trim();
+        const inner = s.slice(2, -2);
+        if (inner.includes('\\(') || inner.includes('\\)')) break;
+        s = inner.trim();
       } else if (s.startsWith('$') && s.endsWith('$') && s.length >= 2) {
-        s = s.slice(1, -1).trim();
+        const inner = s.slice(1, -1);
+        if (/(^|[^\\])\$/.test(inner)) break;
+        s = inner.trim();
       } else {
         break;
       }
@@ -164,13 +208,35 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   const renderKaTeX = (tex: string, displayMode: boolean): string => {
     const cleanTex = normalizeTex(stripMathDelimiters(tex));
     try {
-      return katex.renderToString(cleanTex, {
+      const html = katex.renderToString(cleanTex, {
         displayMode,
         throwOnError: false,
         errorColor: '#38bdf8', // High-contrast sky-blue badge instead of dark red
         output: 'htmlAndMathml',
         strict: false,
       });
+
+      // If KaTeX produced an internal ParseError span:
+      if (html.includes('katex-error')) {
+        // If cleanTex had stray unescaped $, try stripping them and re-rendering
+        if (cleanTex.includes('$')) {
+          const strippedDollars = cleanTex.replace(/(^|[^\\])\$/g, '$1');
+          try {
+            const retryHtml = katex.renderToString(strippedDollars, {
+              displayMode,
+              throwOnError: false,
+              output: 'htmlAndMathml',
+              strict: false,
+            });
+            if (!retryHtml.includes('katex-error')) {
+              return retryHtml;
+            }
+          } catch {
+            // ignore
+          }
+        }
+      }
+      return html;
     } catch (e) {
       return `<span class="text-sky-300 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-500/40 font-mono">${cleanTex}</span>`;
     }
@@ -182,13 +248,9 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   };
 
   // SCENARIO 1: The entire input is a Pure Math Expression (e.g. formula, equation, coordinate, pure TeX)
-  const isExplicitMath = Boolean(math) && !rawContent.includes('\n\n') && !/^#{1,6}\s/m.test(rawContent) && !/^[\*\-•]\s/m.test(rawContent);
-  const arabicSentenceMatch = rawContent.match(/[\u0621-\u064A\u0671-\u06D3]{3,}/g);
-  const hasMultipleArabicWords = arabicSentenceMatch && arabicSentenceMatch.length > 2;
-
   const effectiveBlock = inline ? false : block;
 
-  if ((isExplicitMath && !hasMultipleArabicWords) || isPureMathExpression(rawContent, effectiveBlock)) {
+  if (isPureMathExpression(rawContent, effectiveBlock)) {
     const isDisplayMode = !inline && (block || rawContent.startsWith('$$') || rawContent.startsWith('\\['));
     const html = renderKaTeX(rawContent, isDisplayMode);
 
@@ -224,8 +286,15 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
   // SCENARIO 2: Mixed Prose / Markdown Content (Headings, bullet points, text with embedded math)
   const renderMathAndText = (str: string): React.ReactNode => {
-    // Split by all standard math delimiters: $$...$$, $...$, \[...\], \(...\)
-    const parts = str.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
+    // 1. Pre-repair: fix common malformed delimiters in strings
+    // e.g. orphaned \beta$ -> $\beta$
+    const repairedStr = str.replace(
+      /(^|[^\$])(\\[a-zA-Z]+(?:\^\{[^{}]*\}|_[^{}]*\}|\^[0-9a-zA-Z]+|_[0-9a-zA-Z]+)?)\$/g,
+      (_m, p1, p2) => `${p1}$${p2}$`
+    );
+
+    // 2. Split by all standard math delimiters: $$...$$, $...$, \[...\], \(...\)
+    const parts = repairedStr.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
 
     return parts.map((part, pIdx) => {
       const isBlockMath =
@@ -278,6 +347,34 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
                 </code>
               );
             }
+
+            // Check if this plain prose segment contains un-delimited LaTeX macros
+            // e.g. \sqrt{...}, \frac{...}{...}, \alpha, \beta, \omega, ^\circ, etc.
+            const latexRegex = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)?(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+)?|\^\\circ)/g;
+            if (latexRegex.test(cp)) {
+              const subParts = cp.split(latexRegex);
+              return (
+                <React.Fragment key={`latex_embed_${pIdx}_${cpIdx}`}>
+                  {subParts.map((sp, spIdx) => {
+                    if (!sp) return null;
+                    if (latexRegex.test(sp)) {
+                      const html = renderKaTeX(sp, false);
+                      return (
+                        <span
+                          key={`sub_math_${spIdx}`}
+                          dir="ltr"
+                          style={{ unicodeBidi: 'isolate', display: 'inline' }}
+                          className="px-0.5 font-medium"
+                          dangerouslySetInnerHTML={{ __html: html }}
+                        />
+                      );
+                    }
+                    return processPlainText(sp);
+                  })}
+                </React.Fragment>
+              );
+            }
+
             return processPlainText(cp);
           })}
         </React.Fragment>

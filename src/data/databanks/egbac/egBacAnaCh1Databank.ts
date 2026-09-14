@@ -5639,7 +5639,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch1_db_hots_32",
-    "titleEn": "Uniform Continuity of f(x) = \\frac{1}{x} #2",
+    "titleEn": "Uniform Continuity of $f(x) = \\frac{1}{x}$ #2",
     "titleAr": "الاتصال المنتظم للدالة رقم 2",
     "difficulty": "hots",
     "questionEn": "Determine whether the function $f(x) = \\frac{1}{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #2).",
@@ -5711,7 +5711,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch1_db_hots_34",
-    "titleEn": "Uniform Continuity of f(x) = \\sqrt{x} #4",
+    "titleEn": "Uniform Continuity of $f(x) = \\sqrt{x}$ #4",
     "titleAr": "الاتصال المنتظم للدالة رقم 4",
     "difficulty": "hots",
     "questionEn": "Suppose that determine whether the function $f(x) = \\sqrt{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #4).",
@@ -5891,7 +5891,7 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
   },
   {
     "id": "egbac_ana_ch1_db_hots_39",
-    "titleEn": "Uniform Continuity of f(x) = \\frac{\\sin x}{x} #9",
+    "titleEn": "Uniform Continuity of $f(x) = \\frac{\\sin x}{x}$ #9",
     "titleAr": "الاتصال المنتظم للدالة رقم 9",
     "difficulty": "hots",
     "questionEn": "In a standard analysis problem, determine whether the function $f(x) = \\frac{\\sin x}{x}$ is UNIFORMLY continuous on the bounded open interval $(0, 1)$ (problem #9).",
