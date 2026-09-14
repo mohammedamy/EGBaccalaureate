@@ -2,7 +2,7 @@ import React from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3 } from 'lucide-react';
+import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -24,6 +24,7 @@ interface Props {
   onOpenDesmos?: () => void;
   onOpenOfficialBooks?: () => void;
   onOpenMathScratchpad?: () => void;
+  onOpenTutorial?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -46,6 +47,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenDesmos,
   onOpenOfficialBooks,
   onOpenMathScratchpad,
+  onOpenTutorial,
   selectedSubject,
   onSubjectChange,
   curriculumData,
@@ -306,6 +308,25 @@ export const Navbar: React.FC<Props> = ({
                 </button>
               )}
 
+              {/* Site Tutorial / How To Trigger */}
+              {onOpenTutorial && (
+                <button
+                  onClick={onOpenTutorial}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-black text-[11px] transition-all border shadow-xs cursor-pointer active:scale-95 ${
+                    isHighContrast
+                      ? 'bg-cyan-950 text-cyan-300 border-cyan-400 hover:bg-cyan-900'
+                      : isLight
+                      ? 'bg-amber-50 hover:bg-amber-100 text-amber-900 border-amber-300'
+                      : 'bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/40'
+                  }`}
+                  title={lang === 'ar' ? 'دليل استخدام المنصة وجولة تعريفية سريعة' : 'How to navigate the platform (Quick Tour)'}
+                >
+                  <Compass className="w-3.5 h-3.5 text-amber-400" />
+                  <span>{t.howToShort}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                </button>
+              )}
+
               {/* Role Toggle: Teacher / Student */}
               <button
                 onClick={onRoleToggle}
@@ -347,6 +368,23 @@ export const Navbar: React.FC<Props> = ({
             ? 'border-slate-200/80 bg-slate-50/50'
             : 'border-slate-800/60 bg-slate-950/50'
         }`}>
+          {/* Mobile How To Tour */}
+          {onOpenTutorial && (
+            <button
+              onClick={onOpenTutorial}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+                isHighContrast
+                  ? 'bg-cyan-950 text-cyan-300 border-cyan-400'
+                  : isLight
+                  ? 'bg-amber-50 text-amber-900 border-amber-300'
+                  : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+              }`}
+            >
+              <Compass className="w-3 h-3 text-amber-400" />
+              <span>{t.howToShort}</span>
+            </button>
+          )}
+
           {onOpenFormulaHandbook && (
             <button
               onClick={onOpenFormulaHandbook}

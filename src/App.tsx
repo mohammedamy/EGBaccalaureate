@@ -15,6 +15,7 @@ import { FormulaHandbook } from './components/FormulaHandbook';
 import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
 import { OfficialBooksModal } from './components/OfficialBooksModal';
 import { VisitorCounter } from './components/VisitorCounter';
+import { SiteTutorialModal } from './components/SiteTutorialModal';
 import { Search, ShieldCheck, Command, Mail, X } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
@@ -83,6 +84,7 @@ export const App: React.FC = () => {
   const [isDesmosOpen, setIsDesmosOpen] = useState<boolean>(false);
   const [isMathScratchpadOpen, setIsMathScratchpadOpen] = useState<boolean>(false);
   const [isOfficialBooksOpen, setIsOfficialBooksOpen] = useState<boolean>(false);
+  const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
   const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
@@ -98,6 +100,19 @@ export const App: React.FC = () => {
   // Register Service Worker for PWA offline resilience
   useEffect(() => {
     registerServiceWorker();
+  }, []);
+
+  // Auto-launch interactive navigation tour for first-time visitors
+  useEffect(() => {
+    try {
+      const hasCompletedTutorial = localStorage.getItem('egbac_tutorial_completed');
+      if (!hasCompletedTutorial) {
+        const timer = setTimeout(() => {
+          setIsTutorialOpen(true);
+        }, 900);
+        return () => clearTimeout(timer);
+      }
+    } catch {}
   }, []);
 
   // Set Document Title & Direction based on Language
@@ -233,9 +248,24 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsOfficialBooksOpen((prev) => !prev);
       }
+      if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        const target = e.target as HTMLElement | null;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+          return;
+        }
+        e.preventDefault();
+        setIsTutorialOpen((prev) => !prev);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Event listener for opening Site Navigation Tutorial from anywhere in the app
+  useEffect(() => {
+    const handleOpenTutorial = () => setIsTutorialOpen(true);
+    window.addEventListener('open-tutorial', handleOpenTutorial);
+    return () => window.removeEventListener('open-tutorial', handleOpenTutorial);
   }, []);
 
   // Event listener for opening Desmos with mode/preset from anywhere in the app
@@ -314,6 +344,7 @@ export const App: React.FC = () => {
         onOpenDesmos={() => setIsDesmosOpen((prev) => !prev)}
         onOpenOfficialBooks={() => handleOpenOfficialBooks()}
         onOpenMathScratchpad={() => setIsMathScratchpadOpen(true)}
+        onOpenTutorial={() => setIsTutorialOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -414,6 +445,38 @@ export const App: React.FC = () => {
           lang={lang}
           theme={theme}
           initialBookId={targetOfficialBookId}
+        />
+
+        {/* Interactive Site Navigation Tutorial Modal (PCs, Mobiles, Tablets, Smartboards) */}
+        <SiteTutorialModal
+          isOpen={isTutorialOpen}
+          onClose={() => setIsTutorialOpen(false)}
+          lang={lang}
+          theme={theme}
+          onNavigateTab={(tab) => {
+            setActiveTab(tab);
+            setIsTutorialOpen(false);
+          }}
+          onSelectSubject={(subjectId) => {
+            handleSubjectChange(subjectId);
+            setIsTutorialOpen(false);
+          }}
+          onOpenSearch={() => {
+            setIsTutorialOpen(false);
+            setIsSearchOpen(true);
+          }}
+          onOpenFormulaHandbook={() => {
+            setIsTutorialOpen(false);
+            setIsFormulaHandbookOpen(true);
+          }}
+          onOpenDesmos={() => {
+            setIsTutorialOpen(false);
+            setIsDesmosOpen(true);
+          }}
+          onOpenOfficialBooks={() => {
+            setIsTutorialOpen(false);
+            handleOpenOfficialBooks();
+          }}
         />
 
         {/* Global Math & KaTeX Scratchpad Modal */}

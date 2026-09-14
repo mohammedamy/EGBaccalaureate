@@ -26,6 +26,8 @@ export interface Translations {
   visitorCounterTotal: string;
   visitorCounterToday: string;
   visitorCounterLive: string;
+  howToNavBtn: string;
+  howToShort: string;
 
   // Tabs & Views
   overviewTab: string;
@@ -182,6 +184,8 @@ export const translations: Record<Language, Translations> = {
     visitorCounterTotal: 'Total Visits',
     visitorCounterToday: 'Today',
     visitorCounterLive: 'Live Online',
+    howToNavBtn: 'How to Use / Tour',
+    howToShort: 'How To',
 
     overviewTab: 'Curriculum Roadmap',
     theoryTab: 'Lesson & Theory',
@@ -330,6 +334,8 @@ export const translations: Record<Language, Translations> = {
     visitorCounterTotal: 'إجمالي الزيارات',
     visitorCounterToday: 'اليوم',
     visitorCounterLive: 'متصل الآن',
+    howToNavBtn: 'دليل الاستخدام / جولة سريعة',
+    howToShort: 'دليل الاستخدام',
 
     overviewTab: 'خريطة المنهج',
     theoryTab: 'الشرح والنظريات',
