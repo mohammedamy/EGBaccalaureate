@@ -57,6 +57,7 @@ const labComponents = [
   'src/components/labs/SarcomereZoomLab.tsx',
   'src/components/labs/DynamoInductionLab.tsx',
   'src/components/labs/RLCResonanceLab.tsx',
+  'src/components/labs/PhotoelectricLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
   'src/components/labs/TitrationLab.tsx',
   'src/components/labs/OrganicChemistryLab.tsx',
@@ -104,6 +105,12 @@ const E_photon = (h * c) / lambda_test;
 const E_photon_eV = E_photon / e;
 const KE_max_eV = E_photon_eV - workFunction_Cs_eV;
 assert(KE_max_eV > 0, `Photoelectric emission occurs at 350 nm: KE_max = ${KE_max_eV.toFixed(2)} eV`);
+
+// Millikan linear relation slope: slope = h / e
+const millikan_slope = h / e;
+const V0_350 = KE_max_eV; // in Volts
+assert(Math.abs(V0_350 - 1.41) < 0.05, `Stopping potential at 350 nm for Cesium: V0 = ${V0_350.toFixed(2)} V`);
+assert(Math.abs(millikan_slope - 4.136e-15) < 1e-17, `Millikan linear relation slope h/e = ${millikan_slope.toExponential(3)} V·s`);
 
 // C. Physics: AC Dynamo Induction (Faraday's Law)
 const N_dynamo = 200;
@@ -244,6 +251,7 @@ const labKeyFormulas = [
   'V = V_B - Ir',
   'E = h\\nu = \\frac{hc}{\\lambda}',
   'eV_s = KE_{\\max} = h\\nu - \\Phi',
+  'eV_0 = \\text{KE}_{\\max} = h\\nu - \\Phi \\implies V_0 = \\frac{h}{e}\\nu - \\frac{\\Phi}{e}',
   '\\Phi = h\\nu_0 = \\frac{hc}{\\lambda_0}',
   '\\mathcal{E} = -N \\frac{\\Delta \\Phi_m}{\\Delta t} = N B A \\omega \\sin(\\omega t)',
   '\\mathcal{E}_{\\text{eff}} = \\frac{\\mathcal{E}_{\\max}}{\\sqrt{2}}',

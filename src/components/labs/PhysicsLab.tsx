@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
-import { toHindiDigits } from '../../utils/arabicNumerals';
+import { PhotoelectricLab } from './PhotoelectricLab';
 import {
   Zap,
   Gauge,
@@ -31,21 +31,6 @@ interface Props {
   initialTab?: PhysicsTab;
 }
 
-interface Metal {
-  id: string;
-  nameEn: string;
-  nameAr: string;
-  workFunctionEV: number; // eV
-  symbol: string;
-}
-
-const METALS: Metal[] = [
-  { id: 'cs', nameEn: 'Cesium (Cs)', nameAr: 'السيزيوم (Cs)', workFunctionEV: 2.14, symbol: 'Cs' },
-  { id: 'k', nameEn: 'Potassium (K)', nameAr: 'البوتاسيوم (K)', workFunctionEV: 2.30, symbol: 'K' },
-  { id: 'na', nameEn: 'Sodium (Na)', nameAr: 'الصوديوم (Na)', workFunctionEV: 2.75, symbol: 'Na' },
-  { id: 'zn', nameEn: 'Zinc (Zn)', nameAr: 'الخارصين (Zn)', workFunctionEV: 4.31, symbol: 'Zn' },
-  { id: 'pt', nameEn: 'Platinum (Pt)', nameAr: 'البلاتين (Pt)', workFunctionEV: 6.35, symbol: 'Pt' },
-];
 
 export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab = 'circuits' }) => {
   const isArabic = lang === 'ar';
@@ -71,11 +56,6 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
   const [multimeterProbe, setMultimeterProbe] = useState<'battery' | 'r1' | 'r2' | 'total'>('battery');
   const [electronAnimOffset, setElectronAnimOffset] = useState<number>(0);
 
-  // Photoelectric Effect State
-  const [selectedMetal, setSelectedMetal] = useState<Metal>(METALS[0]);
-  const [wavelengthNm, setWavelengthNm] = useState<number>(450); // Wavelength in nm (blue)
-  const [lightIntensity, setLightIntensity] = useState<number>(80); // %
-  const [retardingVoltage, setRetardingVoltage] = useState<number>(0.0); // Volts
 
   // Electron Flow Animation for Circuit
   useEffect(() => {
@@ -144,34 +124,6 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
     }
   }
 
-  // Photoelectric Calculations
-  // h*c in eV*nm = 1239.84
-  const photonEnergyEV = 1239.84 / wavelengthNm;
-  const thresholdWavelengthNm = 1239.84 / selectedMetal.workFunctionEV;
-  const thresholdFreqHz = (selectedMetal.workFunctionEV * 1.602e-19) / 6.626e-34;
-  const photonFreqHz = (3e8 / (wavelengthNm * 1e-9));
-  const isEmission = photonEnergyEV > selectedMetal.workFunctionEV;
-  const maxKineticEnergyEV = isEmission ? photonEnergyEV - selectedMetal.workFunctionEV : 0;
-  const stoppingPotentialV = maxKineticEnergyEV; // in Volts
-  // Net effective current taking into account retarding voltage:
-  const isStopped = retardingVoltage >= stoppingPotentialV;
-  const measuredPhotocurrentUA = isEmission && !isStopped
-    ? parseFloat(((lightIntensity * 1.2) * (1 - retardingVoltage / (stoppingPotentialV || 1))).toFixed(1))
-    : 0;
-  const electronSpeedKms = isEmission
-    ? Math.sqrt((2 * maxKineticEnergyEV * 1.602e-19) / 9.109e-31) / 1000
-    : 0;
-
-  // Photon color by wavelength
-  const getWavelengthColor = (nm: number) => {
-    if (nm < 380) return '#a855f7'; // UV / violet
-    if (nm < 440) return '#8b5cf6'; // Indigo
-    if (nm < 490) return '#3b82f6'; // Blue
-    if (nm < 560) return '#10b981'; // Green
-    if (nm < 590) return '#facc15'; // Yellow
-    if (nm < 650) return '#f97316'; // Orange
-    return '#ef4444'; // Red
-  };
 
   return (
     <div
@@ -760,290 +712,11 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
 
       {/* TAB 2: PHOTOELECTRIC EFFECT */}
       {activeTab === 'photoelectric' && (
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: Photoelectric Chamber Animation */}
-          <div className="lg:col-span-8 space-y-4">
-            <div
-              className={`p-5 rounded-2xl border ${
-                isContrast
-                  ? 'bg-black border-cyan-400'
-                  : isLight
-                  ? 'bg-slate-50 border-slate-300'
-                  : 'bg-slate-900/80 border-slate-800'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-xs font-black flex items-center gap-2 text-cyan-400">
-                  <Sun className="w-4 h-4" />
-                  <span>{isArabic ? 'أنبوبة الظاهرة الكهروضوئية المفرغة وانبعاث الإلكترونات:' : 'Vacuum Phototube & Photoelectron Emission Plane:'}</span>
-                </h4>
-                <span
-                  className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${
-                    isEmission && !isStopped
-                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                      : 'bg-red-500/20 text-red-300 border-red-500/40'
-                  }`}
-                >
-                  {isEmission
-                    ? isStopped
-                      ? isArabic
-                        ? 'انبعاث متوقف بجهد الإيقاف'
-                        : 'Stopped by Retarding Bias'
-                      : isArabic
-                      ? 'انبعاث كهروضوئي نشط'
-                      : 'Active Photoemission'
-                    : isArabic
-                    ? 'طاقة الضوء أقل من دالة الشغل (لا انبعاث)'
-                    : 'E < Work Function (No Emission)'}
-                </span>
-              </div>
-
-              {/* Phototube Visualizer SVG */}
-              <div className="w-full bg-slate-950 rounded-xl p-3 border border-slate-800 shadow-inner flex items-center justify-center">
-                <svg viewBox="0 0 540 220" className="w-full max-w-[520px] h-48 sm:h-56">
-                  {/* Glass Bulb Chamber */}
-                  <rect
-                    x="80"
-                    y="30"
-                    width="380"
-                    height="160"
-                    rx="80"
-                    fill="#0f172a"
-                    stroke="#38bdf8"
-                    strokeWidth="1.5"
-                    strokeDasharray="6 3"
-                  />
-
-                  {/* Incident Monochromatic Light Rays */}
-                  <g>
-                    {[-30, -10, 10, 30].map((dy) => (
-                      <line
-                        key={`ray-${dy}`}
-                        x1="30"
-                        y1={60 + dy}
-                        x2="150"
-                        y2={110 + dy}
-                        stroke={getWavelengthColor(wavelengthNm)}
-                        strokeWidth="3.5"
-                        strokeDasharray="8 4"
-                        strokeLinecap="round"
-                        className="animate-pulse"
-                      />
-                    ))}
-                    <text x="50" y="45" fill={getWavelengthColor(wavelengthNm)} fontSize="11" fontWeight="bold">
-                      λ = {wavelengthNm} nm
-                    </text>
-                  </g>
-
-                  {/* Cathode Plate (Metal) */}
-                  <rect x="150" y="60" width="16" height="100" rx="4" fill="#64748b" stroke="#cbd5e1" strokeWidth="2" />
-                  <text x="145" y="175" textAnchor="middle" fill="#cbd5e1" fontSize="10" fontWeight="bold">
-                    Cathode ({selectedMetal.symbol})
-                  </text>
-
-                  {/* Anode Plate (Collector) */}
-                  <rect x="380" y="60" width="16" height="100" rx="4" fill="#475569" stroke="#cbd5e1" strokeWidth="2" />
-                  <text x="390" y="175" textAnchor="middle" fill="#cbd5e1" fontSize="10" fontWeight="bold">
-                    Anode
-                  </text>
-
-                  {/* Emitted Flying Photoelectrons */}
-                  {isEmission && !isStopped && (
-                    <g>
-                      {[0, 1, 2, 3, 4, 5, 6].map((i) => {
-                        const px = 180 + (i * 28);
-                        const py = 75 + (i * 12);
-                        return (
-                          <g key={`pe-${i}`}>
-                            <circle cx={px} cy={py} r="4" fill="#38bdf8" className="animate-ping" />
-                            <circle cx={px} cy={py} r="3" fill="#67e8f9" />
-                          </g>
-                        );
-                      })}
-                    </g>
-                  )}
-
-                  {/* Center Digital Ammeter */}
-                  <rect x="230" y="80" width="90" height="45" rx="6" fill="#020617" stroke="#38bdf8" strokeWidth="1" />
-                  <text x="275" y="96" textAnchor="middle" fill="#94a3b8" fontSize="9" fontWeight="bold">
-                    PHOTOCURRENT
-                  </text>
-                  <text x="275" y="115" textAnchor="middle" fill="#38bdf8" fontSize="14" fontWeight="black" fontFamily="monospace">
-                    {measuredPhotocurrentUA} µA
-                  </text>
-                </svg>
-              </div>
-
-              {/* Controls Grid */}
-              <div className="mt-4 pt-3 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Wavelength Slider */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'الطول الموجي λ:' : 'Wavelength (λ):'}</span>
-                    <span className="font-mono font-black" style={{ color: getWavelengthColor(wavelengthNm) }}>
-                      {wavelengthNm} nm
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min="200"
-                    max="750"
-                    step="5"
-                    value={wavelengthNm}
-                    onChange={(e) => setWavelengthNm(parseInt(e.target.value))}
-                    className="w-full accent-cyan-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {wavelengthNm < 380 ? 'UV (فوق بنفسجي)' : wavelengthNm > 700 ? 'IR (تحت حمراء)' : 'Visible (ضوء مرئي)'}
-                  </p>
-                </div>
-
-                {/* Intensity Slider */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'شدة الإضاءة:' : 'Light Intensity:'}</span>
-                    <span className="font-mono font-black text-amber-400">{lightIntensity}%</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    step="5"
-                    value={lightIntensity}
-                    onChange={(e) => setLightIntensity(parseInt(e.target.value))}
-                    className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {isArabic ? 'تحدد عدد الفوتونات والتيار' : 'Controls photon count & current'}
-                  </p>
-                </div>
-
-                {/* Retarding Potential Vs */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'جهد الإيقاف العكسي:' : 'Stopping Bias (Vs):'}</span>
-                    <span className="font-mono font-black text-rose-400">{retardingVoltage.toFixed(2)} V</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="4"
-                    step="0.05"
-                    value={retardingVoltage}
-                    onChange={(e) => setRetardingVoltage(parseFloat(e.target.value))}
-                    className="w-full accent-rose-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {retardingVoltage >= stoppingPotentialV && isEmission ? 'انعدم التيار (eVs = KEmax)' : 'Reverse electric field'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Target Metal Selector */}
-              <div className="mt-4 pt-3 border-t border-slate-800 flex flex-wrap items-center gap-2">
-                <span className="text-xs font-bold text-slate-300 mr-2">
-                  {isArabic ? 'معدن المهبط (الكاثود):' : 'Cathode Metal:'}
-                </span>
-                {METALS.map((metal) => (
-                  <button
-                    key={metal.id}
-                    onClick={() => setSelectedMetal(metal)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                      selectedMetal.id === metal.id
-                        ? 'bg-cyan-600 text-white border-cyan-500 font-extrabold shadow-sm'
-                        : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
-                    }`}
-                  >
-                    {isArabic ? metal.nameAr : metal.nameEn} ({metal.workFunctionEV} eV)
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Quantitative Einstein Analysis */}
-          <div className="lg:col-span-4 space-y-4">
-            <div
-              className={`p-4 rounded-2xl border ${
-                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
-              }`}
-            >
-              <h4 className="text-xs font-black text-cyan-400 mb-2 flex items-center gap-1.5">
-                <Info className="w-4 h-4" />
-                <span>{isArabic ? 'معادلة آينشتاين الكهروضوئية:' : 'Einstein Photoelectric Equation:'}</span>
-              </h4>
-
-              <div className="mb-3 p-2 rounded-xl bg-slate-950/70 border border-slate-800 text-center overflow-x-auto">
-                <MathRenderer math="E = h\nu = W_0 + \text{KE}_{\max} = W_0 + e V_s" lang={lang} block={true} />
-              </div>
-
-              <div className="space-y-2.5 text-xs">
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'طاقة الفوتون الساقط (E):' : 'Photon Energy (E):'}</span>
-                  <span className="font-mono font-black text-cyan-400">{photonEnergyEV.toFixed(2)} eV</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'دالة الشغل للمعدن (W₀ / Φ):' : 'Work Function (Φ):'}</span>
-                  <span className="font-mono font-black text-amber-400">{selectedMetal.workFunctionEV.toFixed(2)} eV</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'طاقة الحركة العظمى (KEmax):' : 'Max Kinetic Energy:'}</span>
-                  <span className={`font-mono font-black ${isEmission ? 'text-emerald-400' : 'text-slate-500'}`}>
-                    {maxKineticEnergyEV.toFixed(2)} eV
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'جهد الإيقاف النظري (Vs):' : 'Stopping Potential (Vs):'}</span>
-                  <span className="font-mono font-black text-rose-400">{stoppingPotentialV.toFixed(2)} V</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'سرعة أسرع إلكترون منبعث:' : 'Max Electron Velocity:'}</span>
-                  <span className="font-mono font-black text-purple-400">
-                    {isEmission ? `${toHindiDigits(Math.round(electronSpeedKms))} km/s` : '0 km/s'}
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'الطول الموجي الحرج للمعدن (λ₀):' : 'Threshold Wavelength (λ₀):'}</span>
-                  <span className="font-mono font-black text-cyan-400">{thresholdWavelengthNm.toFixed(1)} nm</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'التردد الحرج (ν₀):' : 'Threshold Frequency (ν₀):'}</span>
-                  <span className="font-mono font-black text-indigo-400">{(thresholdFreqHz / 1e14).toFixed(2)} × 10¹⁴ Hz</span>
-                </div>
-
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <span className="text-slate-300 font-bold">{isArabic ? 'تردد الفوتون الساقط (ν):' : 'Incident Frequency (ν):'}</span>
-                  <span className="font-mono font-black text-amber-400">{(photonFreqHz / 1e14).toFixed(2)} × 10¹⁴ Hz</span>
-                </div>
-              </div>
-
-              {/* Ministerial Distinction Alert */}
-              <div className="mt-4 p-3 rounded-xl bg-cyan-950/30 border border-cyan-800/40 text-xs space-y-1.5 text-cyan-200">
-                <p className="font-black flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>{isArabic ? 'فروق الفيزياء الكلاسيكية والحديثة:' : 'Classical vs Quantum Differences:'}</span>
-                </p>
-                <div className="text-[11px] leading-relaxed text-slate-300">
-                  <MathRenderer
-                    text={
-                      isArabic
-                        ? 'وفق الفيزياء الكلاسيكية: انبعاث الإلكترون يعتمد على شدة الضوء وليس تردده! بينما وفق فيزياء الكم: انبعاث الإلكترون يعتمد كلياً على التردد ($E \\ge \\Phi$ أو $\\nu \\ge \\nu_0$)، وزيادة الشدة تزيد عدد الإلكترونات المنبعثة فقط دون زيادة طاقتها الحركية.'
-                        : 'Classical physics incorrectly predicted emission depends on intensity. Quantum physics proves emission requires frequency $\\nu \\ge \\nu_0$ ($E \\ge \\Phi$), while intensity only affects photoelectron count.'
-                    }
-                    lang={lang}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="mt-6">
+          <PhotoelectricLab lang={lang} theme={theme} />
         </div>
       )}
+
 
       {/* TAB: OPTICS & RAY TRACING */}
       {activeTab === 'optics' && (
