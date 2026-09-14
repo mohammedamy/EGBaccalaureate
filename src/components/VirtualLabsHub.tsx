@@ -251,6 +251,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </span>
               {[
                 { id: 'circuits' as PhysicsTab, emoji: '⚡', labelEn: 'DC Circuits', labelAr: 'دوائر أوم وكيرشوف' },
+                { id: 'optics' as PhysicsTab, emoji: '🔬', labelEn: 'Optics & Young', labelAr: 'البصريات وتجربة ينج' },
                 { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Force', labelAr: 'المغناطيسية ولورنتز' },
                 { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo', labelAr: 'الدينامو والحث' },
                 { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance', labelAr: 'دوائر الرنين RLC' },
@@ -338,6 +339,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere', labelAr: 'انقباض الساركومير' },
                 { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio', labelAr: 'استوديو DNA' },
                 { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Stem', labelAr: 'دعامة النبات' },
+                { id: 'microscope' as BioTab, emoji: '🔬', labelEn: 'Virtual Microscope', labelAr: 'المجهر الضوئي' },
                 { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine', labelAr: 'التنسيق الهرموني' },
                 { id: 'menstrual' as BioTab, emoji: '🌸', labelEn: 'Menstrual Cycle', labelAr: 'دورة الطمث' },
                 { id: 'immunity' as BioTab, emoji: '🛡️', labelEn: 'Immunology', labelAr: 'المناعة والأجسام المضادة' },

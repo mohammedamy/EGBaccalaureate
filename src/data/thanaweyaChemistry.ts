@@ -1,5 +1,9 @@
 import type { Branch } from '../types/curriculum';
 import { chemCh1Databank } from './databanks/thanaweya/chemCh1Databank';
+import { chemCh2Databank } from './databanks/thanaweya/chemCh2Databank';
+import { chemCh3Databank } from './databanks/thanaweya/chemCh3Databank';
+import { chemCh4Databank } from './databanks/thanaweya/chemCh4Databank';
+import { chemCh5Databank } from './databanks/thanaweya/chemCh5Databank';
 
 export const thanaweyaChemistryBranch: Branch = {
   id: 'thanaweya_chemistry',
@@ -567,7 +571,8 @@ export const thanaweyaChemistryBranch: Branch = {
             "descriptionAr": "محاكاة تفاعلية لتفاعلات الترسيب وكشف الشقوق الحامضية ومنحنيات المعايرة الحجمية بالسحاحة."
           }
         },
-      ]
+      ],
+      databank: chemCh2Databank
     },
     {
       id: 'th_chem_ch3',
@@ -830,7 +835,8 @@ export const thanaweyaChemistryBranch: Branch = {
           teacherTipEn: 'In industrial practice, a compromise temperature (~450-500°C) with iron catalyst is used to ensure acceptable reaction rate.',
           teacherTipAr: 'في الصناعة يُستخدم حل وسط حراري (نحو 450-500°C) بوجود عامل حفاز من الحديد لضمان معدل تفاعل اقتصادي مناسب.'
         },
-      ]
+      ],
+      databank: chemCh3Databank
     },
     {
       id: 'th_chem_ch4',
@@ -1094,7 +1100,8 @@ export const thanaweyaChemistryBranch: Branch = {
           teacherTipEn: 'Memory rule: Anions $\\to$ Anode; Cations $\\to$ Cathode.',
           teacherTipAr: 'قاعدة الحفظ الوزارية: الأنيونات إلى الأنود، والكاتيونات إلى الكاثود.'
         }
-      ]
+      ],
+      databank: chemCh4Databank
     },
     {
       id: 'th_chem_ch5',
@@ -1356,7 +1363,8 @@ export const thanaweyaChemistryBranch: Branch = {
           teacherTipEn: 'Methane is collected by downward displacement of water because it is insoluble in water and less dense than air.',
           teacherTipAr: 'يُجمع غاز الميثان بإزاحة الماء لأسفل لأنه شحيح الذوبان في الماء وأخف من الهواء.'
         }
-      ]
+      ],
+      databank: chemCh5Databank
     }
   ]
 };

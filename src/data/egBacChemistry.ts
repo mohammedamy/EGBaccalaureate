@@ -1,5 +1,9 @@
 import type { Branch } from '../types/curriculum';
 import { egBacChemCh1Databank } from './databanks/egbac/egBacChemCh1Databank';
+import { egBacChemCh2Databank } from './databanks/egbac/egBacChemCh2Databank';
+import { egBacChemCh3Databank } from './databanks/egbac/egBacChemCh3Databank';
+import { egBacChemCh4Databank } from './databanks/egbac/egBacChemCh4Databank';
+import { egBacChemCh5Databank } from './databanks/egbac/egBacChemCh5Databank';
 
 export const egBacChemistryBranch: Branch = {
   id: 'egbac_chemistry',
@@ -653,7 +657,8 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
           teacherTipEn: 'Notice that heating at $140^\\circ\\text{C}$ with excess ethanol yields diethyl ether instead: $2\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{140^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OC}_2\\text{H}_5 + \\text{H}_2\\text{O}$.',
           teacherTipAr: 'لاحظ الفرق الهام: عند $140^\\circ\\text{C}$ مع وفرة من الكحول يتكون إيثر ثنائي الإيثيل بدلاً من الإيثيلين.'
         }
-      ]
+      ],
+      databank: egBacChemCh2Databank
     },
     {
       id: 'egbac_chem_ch3',
@@ -960,7 +965,8 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
           teacherTipEn: 'Ethyne is collected over water due to its low solubility, just like ethene and methane.',
           teacherTipAr: 'يُجمع الإيثاين أيضاً بإزاحة الماء لأسفل لضعف ذوبانه في الماء.'
         }
-      ]
+      ],
+      databank: egBacChemCh3Databank
     },
     {
       id: 'egbac_chem_ch4',
@@ -1232,7 +1238,8 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
           teacherTipAr: 'يُستخدم الهيدروميتر (مقياس الكثافة النوعية) في ورش صيانة السيارات لفحص حالة شحن المركم بدقة وسرعة.'
         }
       ],
-      exerciseProblems: []
+      exerciseProblems: [],
+      databank: egBacChemCh4Databank
     },
     {
       id: 'egbac_chem_ch5',
@@ -1459,7 +1466,8 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
         }
       ],
       solvedExamples: [],
-      exerciseProblems: []
+      exerciseProblems: [],
+      databank: egBacChemCh5Databank
     }
   ]
 };

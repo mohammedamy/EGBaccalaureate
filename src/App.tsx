@@ -15,10 +15,12 @@ import { FormulaHandbook } from './components/FormulaHandbook';
 import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
 import { OfficialBooksModal } from './components/OfficialBooksModal';
 import { VisitorCounter } from './components/VisitorCounter';
-import { Search, ShieldCheck, Command, Mail } from 'lucide-react';
+import { Search, ShieldCheck, Command, Mail, X } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
 import { VirtualLabsHub } from './components/VirtualLabsHub';
+import { MathScratchpad } from './core/math/MathScratchpad';
+import { registerServiceWorker } from './core/pwa/pwaManager';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -79,6 +81,7 @@ export const App: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
   const [isDesmosOpen, setIsDesmosOpen] = useState<boolean>(false);
+  const [isMathScratchpadOpen, setIsMathScratchpadOpen] = useState<boolean>(false);
   const [isOfficialBooksOpen, setIsOfficialBooksOpen] = useState<boolean>(false);
   const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
@@ -91,6 +94,16 @@ export const App: React.FC = () => {
   };
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+
+  // Register Service Worker for PWA offline resilience
+  useEffect(() => {
+    registerServiceWorker();
+  }, []);
+
+  // Set Document Title & Direction based on Language
+  useEffect(() => {
+    document.title = lang === 'ar' ? 'منصة التعليم المصري - ثانوية وبكالوريا' : 'Egyptian Curriculum Platform - Thanaweya & Bac';
+  }, [lang]);
 
   // Selected Branch & Lesson state (default to Chapter 1 Lesson 1 or first branch of selected subject)
   const [selectedBranch, setSelectedBranch] = useState<Branch>(() => {
@@ -300,6 +313,7 @@ export const App: React.FC = () => {
         onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
         onOpenDesmos={() => setIsDesmosOpen((prev) => !prev)}
         onOpenOfficialBooks={() => handleOpenOfficialBooks()}
+        onOpenMathScratchpad={() => setIsMathScratchpadOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -401,6 +415,21 @@ export const App: React.FC = () => {
           theme={theme}
           initialBookId={targetOfficialBookId}
         />
+
+        {/* Global Math & KaTeX Scratchpad Modal */}
+        {isMathScratchpadOpen && (
+          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="relative w-full max-w-3xl">
+              <button
+                onClick={() => setIsMathScratchpadOpen(false)}
+                className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shadow-xl cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <MathScratchpad lang={lang} />
+            </div>
+          </div>
+        )}
 
         {/* Tab View Router */}
         {activeTab === 'overview' && (

@@ -1,5 +1,9 @@
 import type { Branch } from '../types/curriculum';
 import { egBacPhysCh1Databank } from './databanks/egbac/egBacPhysCh1Databank';
+import { egBacPhysCh2Databank } from './databanks/egbac/egBacPhysCh2Databank';
+import { egBacPhysCh3Databank } from './databanks/egbac/egBacPhysCh3Databank';
+import { egBacPhysCh4Databank } from './databanks/egbac/egBacPhysCh4Databank';
+import { egBacPhysCh5Databank } from './databanks/egbac/egBacPhysCh5Databank';
 
 export const egBacPhysicsBranch: Branch = {
   id: 'egbac_physics',
@@ -697,7 +701,8 @@ export const egBacPhysicsBranch: Branch = {
           teacherTipEn: 'Higher accelerating voltage produces more penetrating (hard) X-rays needed for deep tissue bone imaging.',
           teacherTipAr: 'فرق الجهد العالي يولد أشعة سينية صلبة ذات تردد عالٍ ونفاذية فائقة تلزم لتصوير العظام العميقة.'
         }
-      ]
+      ],
+      databank: egBacPhysCh2Databank
     },
     {
       id: 'egbac_phys_ch3',
@@ -1019,7 +1024,8 @@ export const egBacPhysicsBranch: Branch = {
           teacherTipEn: 'Only cavity modes that fall within the neon transition Doppler gain curve (approx 1.5 GHz width) will actually oscillate and be amplified.',
           teacherTipAr: 'الأنماط التي تقع فقط ضمن منحنى دوبلر لغاز النيون (عرضه نحو 1.5 جيجاهرتز) هي التي تتذبذب ويتم تكبيرها.'
         }
-      ]
+      ],
+      databank: egBacPhysCh3Databank
     },
     {
       id: 'egbac_phys_ch4',
@@ -1342,7 +1348,8 @@ export const egBacPhysicsBranch: Branch = {
           teacherTipEn: 'Doping with donors dramatically boosts electron count while suppressing hole count due to increased recombination rate.',
           teacherTipAr: 'التطعيم بذرات مانحة يرفع تركيز الإلكترونات ويخفض تركيز الفجوات بشدة لزيادة معدل إعادة الاتحاد.'
         }
-      ]
+      ],
+      databank: egBacPhysCh4Databank
     },
     {
       id: 'egbac_phys_ch5',
@@ -1672,7 +1679,8 @@ export const egBacPhysicsBranch: Branch = {
           teacherTipEn: 'Because 0.1 nm is comparable to interatomic distances in crystals, electrons can undergo crystal diffraction and resolve atomic structures.',
           teacherTipAr: 'بما أن الطول الموجي (0.1 نانومتر) يماثل المسافات البينية في البلورات، يمكن للإلكترونات أن تحيد وتكشف البنية الذرية للمواد.'
         }
-      ]
+      ],
+      databank: egBacPhysCh5Databank
     }
   ]
 };

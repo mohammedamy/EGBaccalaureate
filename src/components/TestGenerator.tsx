@@ -29,9 +29,13 @@ import {
   Dna,
   Zap,
   FlaskConical,
+  Edit3,
+  X,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
+import { BubbleSheetSimulator } from '../core/exam/BubbleSheetSimulator';
+import { MathScratchpad } from '../core/math/MathScratchpad';
 
 interface Props {
   lang: Language;
@@ -74,7 +78,8 @@ export const TestGenerator: React.FC<Props> = ({
   const [selectedChapter, setSelectedChapter] = useState<string>('all');
   const [difficulty, setDifficulty] = useState<DifficultyLevel | 'all'>('all');
   const [questionCount, setQuestionCount] = useState<number>(10);
-  const [examMode, setExamMode] = useState<'online' | 'printable'>('online');
+  const [examMode, setExamMode] = useState<'online' | 'printable' | 'bubble_sheet'>('online');
+  const [isScratchpadOpen, setIsScratchpadOpen] = useState<boolean>(false);
 
   // Timed exam settings
   const [isTimed, setIsTimed] = useState<boolean>(true);
@@ -96,6 +101,57 @@ export const TestGenerator: React.FC<Props> = ({
   // Post-exam review filter
   const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'flagged'>('all');
 
+  // Reset branch and chapter when curriculum changes
+  useEffect(() => {
+    setSelectedBranch('all');
+    setSelectedChapter('all');
+  }, [currentCurriculum]);
+
+  // Sync initialSubject when prop updates
+  useEffect(() => {
+    if (initialSubject) {
+      setSelectedSubject(initialSubject);
+      setSelectedBranch('all');
+      setSelectedChapter('all');
+    }
+  }, [initialSubject]);
+
+  // Real-time calculation of available questions matching user filters
+  const availablePoolCount = useMemo(() => {
+    const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+    let count = 0;
+    const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
+
+    candidateBranches.forEach((branch) => {
+      if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
+
+      branch.chapters.forEach((ch) => {
+        if (selectedChapter !== 'all' && ch.id !== selectedChapter) return;
+
+        if (ch.databank) {
+          if (difficulty === 'all' || difficulty === 'easy') count += ch.databank.easy.length;
+          if (difficulty === 'all' || difficulty === 'medium' || difficulty === 'exam_standard') count += ch.databank.medium.length;
+          if (difficulty === 'all' || difficulty === 'hots') count += ch.databank.hots.length;
+        }
+        if (ch.solvedExamples) {
+          count += ch.solvedExamples.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+        }
+        if (ch.exerciseProblems) {
+          count += ch.exerciseProblems.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+        }
+        if (ch.lessons) {
+          ch.lessons.forEach((l) => {
+            if (l.worksheet?.problems) {
+              count += l.worksheet.problems.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+            }
+          });
+        }
+      });
+    });
+
+    return count;
+  }, [currentCurriculum, selectedSubject, selectedBranch, selectedChapter, difficulty]);
+
   // Generate question pool from active curriculum
   const generateQuestions = (): GeneratedQuestion[] => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
@@ -110,7 +166,7 @@ export const TestGenerator: React.FC<Props> = ({
 
         const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
 
-        // 1. Chapter Databank (50 Easy, 50 Medium, 50 HOTS)
+        // 1. Chapter Databank (Easy, Medium, HOTS)
         if (ch.databank) {
           if (difficulty === 'all' || difficulty === 'easy') {
             ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
@@ -142,8 +198,8 @@ export const TestGenerator: React.FC<Props> = ({
         }
 
         // 4. Lesson Worksheets
-        ch.lessons.forEach((l) => {
-          l.worksheet.problems.forEach((prob) => {
+        ch.lessons?.forEach((l) => {
+          l.worksheet?.problems?.forEach((prob) => {
             if (difficulty === 'all' || prob.difficulty === difficulty) {
               candidateProblems.push({ prob, source: 'worksheet', diff: prob.difficulty || 'medium' });
             }
@@ -197,6 +253,8 @@ export const TestGenerator: React.FC<Props> = ({
   // Start exam
   const handleStartExam = () => {
     const qList = generateQuestions();
+    if (qList.length === 0) return;
+
     setActiveQuestions(qList);
     setUserAnswers({});
     setFlaggedQuestions({});
@@ -276,7 +334,73 @@ export const TestGenerator: React.FC<Props> = ({
     return lang === 'ar' ? toHindiDigits(formatted) : formatted;
   };
 
-  // Launch official 3-Hour Ministerial Exam Simulation (40 Questions / 180 Minutes)
+  // Helper to extract valid questions from a chapter
+  const helperExtractChapterQuestions = (ch: Chapter, branch: { titleEn: string; titleAr: string }): GeneratedQuestion[] => {
+    const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+    if (ch.databank) {
+      ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+      ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+      ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+    }
+    if (ch.solvedExamples) {
+      ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
+    }
+    if (ch.exerciseProblems) {
+      ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
+    }
+    ch.lessons?.forEach((l) => {
+      l.worksheet?.problems?.forEach((p) => candidateProblems.push({ prob: p, source: 'worksheet', diff: p.difficulty || 'medium' }));
+    });
+
+    const res: GeneratedQuestion[] = [];
+    candidateProblems.forEach(({ prob, source, diff }) => {
+      if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
+      res.push({
+        id: `${prob.id}_${source}`,
+        questionEn: prob.questionEn,
+        questionAr: prob.questionAr,
+        difficulty: diff,
+        optionsEn: prob.optionsEn,
+        optionsAr: prob.optionsAr,
+        correctIndex: prob.correctIndex,
+        explanationEn: prob.stepByStepSolutionEn,
+        explanationAr: prob.stepByStepSolutionAr,
+        chapterId: ch.id,
+        chapterTitleEn: ch.titleEn,
+        chapterTitleAr: ch.titleAr,
+        branchTitleEn: branch.titleEn,
+        branchTitleAr: branch.titleAr,
+        diagramType: prob.diagramType,
+      });
+    });
+    return res;
+  };
+
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  };
+
+  const launchExamSession = (questions: GeneratedQuestion[], durationMinutes: number) => {
+    setActiveQuestions(questions);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setReviewFilter('all');
+
+    const totalSec = durationMinutes * 60;
+    setTotalTimeSeconds(totalSec);
+    setTimeRemaining(totalSec);
+    setIsTimerPaused(false);
+    setTimeTakenSeconds(0);
+    setIsExamStarted(true);
+  };
+
+  // Launch official 3-Hour Ministerial Exam Simulation (40 Questions / 180 Minutes across all branches)
   const handleStartMinisterialSimulation = () => {
     setExamMode('online');
     setSelectedBranch('all');
@@ -286,68 +410,18 @@ export const TestGenerator: React.FC<Props> = ({
     setIsTimed(true);
     setDurationPreset(180);
 
-    // Generate 40 questions and start
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     const pool: GeneratedQuestion[] = [];
 
     activeData.branches.forEach((branch) => {
       branch.chapters.forEach((ch) => {
-        const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
-
-        if (ch.databank) {
-          ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
-          ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
-          ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
-        }
-        if (ch.solvedExamples) {
-          ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
-        }
-        if (ch.exerciseProblems) {
-          ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
-        }
-
-        candidateProblems.forEach(({ prob, source, diff }) => {
-          if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
-          pool.push({
-            id: `${prob.id}_${source}`,
-            questionEn: prob.questionEn,
-            questionAr: prob.questionAr,
-            difficulty: diff,
-            optionsEn: prob.optionsEn,
-            optionsAr: prob.optionsAr,
-            correctIndex: prob.correctIndex,
-            explanationEn: prob.stepByStepSolutionEn,
-            explanationAr: prob.stepByStepSolutionAr,
-            chapterId: ch.id,
-            chapterTitleEn: ch.titleEn,
-            chapterTitleAr: ch.titleAr,
-            branchTitleEn: branch.titleEn,
-            branchTitleAr: branch.titleAr,
-            diagramType: prob.diagramType,
-          });
-        });
+        pool.push(...helperExtractChapterQuestions(ch, branch));
       });
     });
 
-    const shuffled = [...pool];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
+    const shuffled = shuffle(pool);
     const selectedQs = shuffled.slice(0, Math.min(40, shuffled.length));
-    setActiveQuestions(selectedQs);
-    setUserAnswers({});
-    setFlaggedQuestions({});
-    setIsSubmitted(false);
-    setReviewFilter('all');
-
-    const totalSec = 180 * 60; // 3 hours = 10,800 seconds
-    setTotalTimeSeconds(totalSec);
-    setTimeRemaining(totalSec);
-    setIsTimerPaused(false);
-    setTimeTakenSeconds(0);
-    setIsExamStarted(true);
+    launchExamSession(selectedQs, 180);
   };
 
   // Launch official Biology Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
@@ -355,7 +429,7 @@ export const TestGenerator: React.FC<Props> = ({
     setSelectedSubject('biology');
     const isThanaweya = currentCurriculum === 'thanaweya';
     const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
-    const targetBranchId = isThanaweya ? 'biology' : 'egbac_biology';
+    const targetBranchId = isThanaweya ? 'thanaweya_biology' : 'egbac_biology';
     const bioBranch = activeData.branches.find((b) => b.id === targetBranchId);
 
     if (!bioBranch) return;
@@ -366,63 +440,16 @@ export const TestGenerator: React.FC<Props> = ({
     setDifficulty('all');
     setIsTimed(true);
 
-    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
-      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
-      if (ch.databank) {
-        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
-        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
-        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
-      }
-      if (ch.solvedExamples) {
-        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
-      }
-      if (ch.exerciseProblems) {
-        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
-      }
-
-      const res: GeneratedQuestion[] = [];
-      candidateProblems.forEach(({ prob, source, diff }) => {
-        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
-        res.push({
-          id: `${prob.id}_${source}`,
-          questionEn: prob.questionEn,
-          questionAr: prob.questionAr,
-          difficulty: diff,
-          optionsEn: prob.optionsEn,
-          optionsAr: prob.optionsAr,
-          correctIndex: prob.correctIndex,
-          explanationEn: prob.stepByStepSolutionEn,
-          explanationAr: prob.stepByStepSolutionAr,
-          chapterId: ch.id,
-          chapterTitleEn: ch.titleEn,
-          chapterTitleAr: ch.titleAr,
-          branchTitleEn: bioBranch.titleEn,
-          branchTitleAr: bioBranch.titleAr,
-          diagramType: prob.diagramType,
-        });
-      });
-      return res;
-    };
-
-    const shuffle = <T,>(arr: T[]): T[] => {
-      const copy = [...arr];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
-    };
-
     let selectedQs: GeneratedQuestion[] = [];
     let examTimeMinutes = 180;
 
     if (isThanaweya) {
-      // Official MoE Thanaweya Blueprint (50 Questions):
-      // Ch 1 (th_bio_ch1 - Support & Movement): 10 Qs
-      // Ch 2 (th_bio_ch2 - Hormonal Coordination): 8 Qs
-      // Ch 3 (th_bio_ch3 - Reproduction): 16 Qs
-      // Ch 4 (th_bio_ch4 - Immunity): 8 Qs
-      // Ch 5 (th_bio_ch5 - Molecular Biology): 8 Qs
+      // Official MoE Thanaweya Blueprint (50 Questions / 180 Mins):
+      // Ch 1 (Support & Movement): 10 Qs
+      // Ch 2 (Hormonal Coordination): 8 Qs
+      // Ch 3 (Reproduction): 16 Qs
+      // Ch 4 (Immunity): 8 Qs
+      // Ch 5 (Molecular Biology): 8 Qs
       const blueprint: Record<string, number> = {
         th_bio_ch1: 10,
         th_bio_ch2: 8,
@@ -433,7 +460,7 @@ export const TestGenerator: React.FC<Props> = ({
 
       bioBranch.chapters.forEach((ch) => {
         const targetCount = blueprint[ch.id] ?? 10;
-        const chQuestions = shuffle(helperExtractChapterQuestions(ch));
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, bioBranch));
         selectedQs.push(...chQuestions.slice(0, targetCount));
       });
 
@@ -441,10 +468,10 @@ export const TestGenerator: React.FC<Props> = ({
       setQuestionCount(50);
       setDurationPreset(180);
     } else {
-      // EG-Bac STEM Blueprint (40 Questions):
+      // EG-Bac STEM Blueprint (40 Questions / 150 Mins):
       // 10 Qs per chapter across all 4 chapters
       bioBranch.chapters.forEach((ch) => {
-        const chQuestions = shuffle(helperExtractChapterQuestions(ch));
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, bioBranch));
         selectedQs.push(...chQuestions.slice(0, 10));
       });
 
@@ -454,19 +481,7 @@ export const TestGenerator: React.FC<Props> = ({
     }
 
     selectedQs = shuffle(selectedQs);
-
-    setActiveQuestions(selectedQs);
-    setUserAnswers({});
-    setFlaggedQuestions({});
-    setIsSubmitted(false);
-    setReviewFilter('all');
-
-    const totalSec = examTimeMinutes * 60;
-    setTotalTimeSeconds(totalSec);
-    setTimeRemaining(totalSec);
-    setIsTimerPaused(false);
-    setTimeTakenSeconds(0);
-    setIsExamStarted(true);
+    launchExamSession(selectedQs, examTimeMinutes);
   };
 
   // Launch official Physics Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
@@ -485,101 +500,42 @@ export const TestGenerator: React.FC<Props> = ({
     setDifficulty('all');
     setIsTimed(true);
 
-    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
-      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
-      if (ch.databank) {
-        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
-        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
-        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
-      }
-      if (ch.solvedExamples) {
-        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
-      }
-      if (ch.exerciseProblems) {
-        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
-      }
-      ch.lessons?.forEach((l) => {
-        if (l.worksheet?.problems) {
-          l.worksheet.problems.forEach((p) => candidateProblems.push({ prob: p, source: 'worksheet', diff: p.difficulty || 'medium' }));
-        }
-      });
-
-      const res: GeneratedQuestion[] = [];
-      candidateProblems.forEach(({ prob, source, diff }) => {
-        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
-        res.push({
-          id: `${prob.id}_${source}`,
-          questionEn: prob.questionEn,
-          questionAr: prob.questionAr,
-          difficulty: diff,
-          optionsEn: prob.optionsEn,
-          optionsAr: prob.optionsAr,
-          correctIndex: prob.correctIndex,
-          explanationEn: prob.stepByStepSolutionEn,
-          explanationAr: prob.stepByStepSolutionAr,
-          chapterId: ch.id,
-          chapterTitleEn: ch.titleEn,
-          chapterTitleAr: ch.titleAr,
-          branchTitleEn: physBranch.titleEn,
-          branchTitleAr: physBranch.titleAr,
-          diagramType: prob.diagramType,
-        });
-      });
-      return res;
-    };
-
-    const shuffle = <T,>(arr: T[]): T[] => {
-      const copy = [...arr];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
-    };
-
     let selectedQs: GeneratedQuestion[] = [];
     let examTimeMinutes = 180;
 
     if (isThanaweya) {
-      // Official MoE Thanaweya Blueprint for Physics (50 Questions / 180 Mins):
-      const allQs = helperExtractChapterQuestions(physBranch.chapters[0]);
-      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
-      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
-      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
+      // Official MoE Thanaweya Blueprint for Physics (50 Questions / 180 Mins across 6 units):
+      // Ch 1 (Current & Ohm's Laws): 9 Qs
+      // Ch 2 (Magnetic Effect & Measuring Instruments): 9 Qs
+      // Ch 3 (Electromagnetic Induction & Generators): 10 Qs
+      // Ch 4 (AC Circuits & Oscillators): 8 Qs
+      // Ch 5 (Dual Nature of Radiation & Matter): 7 Qs
+      // Ch 6 (Spectra, Lasers & Modern Electronics): 7 Qs
+      const blueprint: Record<string, number> = {
+        th_phys_ch1: 9,
+        th_phys_ch2: 9,
+        th_phys_ch3: 10,
+        th_phys_ch4: 8,
+        th_phys_ch5: 7,
+        th_phys_ch6: 7,
+      };
 
-      // 15 Easy, 20 Medium, 15 HOTS = 50 Questions total
-      selectedQs = [
-        ...easyQs.slice(0, 15),
-        ...medQs.slice(0, 20),
-        ...hotsQs.slice(0, 15),
-      ];
-
-      if (selectedQs.length < 50) {
-        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
-        selectedQs.push(...remaining.slice(0, 50 - selectedQs.length));
-      }
+      physBranch.chapters.forEach((ch) => {
+        const targetCount = blueprint[ch.id] ?? 8;
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, physBranch));
+        selectedQs.push(...chQuestions.slice(0, targetCount));
+      });
 
       examTimeMinutes = 180;
       setQuestionCount(50);
       setDurationPreset(180);
     } else {
-      // EG-Bac STEM Blueprint for Physics (40 Questions / 150 Mins):
-      const allQs = helperExtractChapterQuestions(physBranch.chapters[0]);
-      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
-      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
-      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
-
-      // 10 Easy, 18 Medium, 12 HOTS = 40 Questions total
-      selectedQs = [
-        ...easyQs.slice(0, 10),
-        ...medQs.slice(0, 18),
-        ...hotsQs.slice(0, 12),
-      ];
-
-      if (selectedQs.length < 40) {
-        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
-        selectedQs.push(...remaining.slice(0, 40 - selectedQs.length));
-      }
+      // EG-Bac STEM Blueprint for Physics (40 Questions / 150 Mins across 5 units):
+      // 8 Qs per chapter across all 5 chapters (5 * 8 = 40)
+      physBranch.chapters.forEach((ch) => {
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, physBranch));
+        selectedQs.push(...chQuestions.slice(0, 8));
+      });
 
       examTimeMinutes = 150;
       setQuestionCount(40);
@@ -587,19 +543,7 @@ export const TestGenerator: React.FC<Props> = ({
     }
 
     selectedQs = shuffle(selectedQs);
-
-    setActiveQuestions(selectedQs);
-    setUserAnswers({});
-    setFlaggedQuestions({});
-    setIsSubmitted(false);
-    setReviewFilter('all');
-
-    const totalSec = examTimeMinutes * 60;
-    setTotalTimeSeconds(totalSec);
-    setTimeRemaining(totalSec);
-    setIsTimerPaused(false);
-    setTimeTakenSeconds(0);
-    setIsExamStarted(true);
+    launchExamSession(selectedQs, examTimeMinutes);
   };
 
   // Launch official Chemistry Ministerial Exam (50 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
@@ -618,103 +562,85 @@ export const TestGenerator: React.FC<Props> = ({
     setDifficulty('all');
     setIsTimed(true);
 
-    const helperExtractChapterQuestions = (ch: Chapter): GeneratedQuestion[] => {
-      const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
-      if (ch.databank) {
-        ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
-        ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
-        ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
-      }
-      if (ch.solvedExamples) {
-        ch.solvedExamples.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' }));
-      }
-      if (ch.exerciseProblems) {
-        ch.exerciseProblems.forEach((p) => candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' }));
-      }
-      ch.lessons?.forEach((l) => {
-        if (l.worksheet?.problems) {
-          l.worksheet.problems.forEach((p) => candidateProblems.push({ prob: p, source: 'worksheet', diff: p.difficulty || 'medium' }));
-        }
-      });
-
-      const res: GeneratedQuestion[] = [];
-      candidateProblems.forEach(({ prob, source, diff }) => {
-        if (!prob.optionsEn || prob.optionsEn.length !== 4 || !prob.optionsAr || prob.optionsAr.length !== 4 || prob.correctIndex === undefined) return;
-        res.push({
-          id: `${prob.id}_${source}`,
-          questionEn: prob.questionEn,
-          questionAr: prob.questionAr,
-          difficulty: diff,
-          optionsEn: prob.optionsEn,
-          optionsAr: prob.optionsAr,
-          correctIndex: prob.correctIndex,
-          explanationEn: prob.stepByStepSolutionEn,
-          explanationAr: prob.stepByStepSolutionAr,
-          chapterId: ch.id,
-          chapterTitleEn: ch.titleEn,
-          chapterTitleAr: ch.titleAr,
-          branchTitleEn: chemBranch.titleEn,
-          branchTitleAr: chemBranch.titleAr,
-          diagramType: prob.diagramType,
-        });
-      });
-      return res;
-    };
-
-    const shuffle = <T,>(arr: T[]): T[] => {
-      const copy = [...arr];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
-    };
-
-    const allQs: GeneratedQuestion[] = [];
-    chemBranch.chapters.forEach((ch) => {
-      allQs.push(...helperExtractChapterQuestions(ch));
-    });
-
     let selectedQs: GeneratedQuestion[] = [];
     let examTimeMinutes = 180;
 
     if (isThanaweya) {
-      // Official MoE Thanaweya Blueprint for Chemistry (50 Questions / 180 Mins):
-      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
-      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
-      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
-
-      // 15 Easy, 20 Medium, 15 HOTS = 50 Questions total
-      selectedQs = [
-        ...easyQs.slice(0, 15),
-        ...medQs.slice(0, 20),
-        ...hotsQs.slice(0, 15),
-      ];
-
-      if (selectedQs.length < 50) {
-        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
-        selectedQs.push(...remaining.slice(0, 50 - selectedQs.length));
-      }
+      // Official MoE Thanaweya Blueprint for Chemistry (50 Questions / 180 Mins across 5 units):
+      // 10 Qs per chapter across all 5 chapters (5 * 10 = 50)
+      chemBranch.chapters.forEach((ch) => {
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, chemBranch));
+        selectedQs.push(...chQuestions.slice(0, 10));
+      });
 
       examTimeMinutes = 180;
       setQuestionCount(50);
       setDurationPreset(180);
     } else {
-      // EG-Bac STEM Blueprint for Chemistry (40 Questions / 150 Mins):
-      const medQs = shuffle(allQs.filter((q) => q.difficulty === 'medium'));
-      const hotsQs = shuffle(allQs.filter((q) => q.difficulty === 'hots'));
-      const easyQs = shuffle(allQs.filter((q) => q.difficulty === 'easy'));
+      // EG-Bac STEM Blueprint for Chemistry (40 Questions / 150 Mins across 5 units):
+      // 8 Qs per chapter across all 5 chapters (5 * 8 = 40)
+      chemBranch.chapters.forEach((ch) => {
+        const chQuestions = shuffle(helperExtractChapterQuestions(ch, chemBranch));
+        selectedQs.push(...chQuestions.slice(0, 8));
+      });
 
-      // 10 Easy, 18 Medium, 12 HOTS = 40 Questions total
-      selectedQs = [
-        ...easyQs.slice(0, 10),
-        ...medQs.slice(0, 18),
-        ...hotsQs.slice(0, 12),
-      ];
+      examTimeMinutes = 150;
+      setQuestionCount(40);
+      setDurationPreset(150);
+    }
 
-      if (selectedQs.length < 40) {
-        const remaining = shuffle(allQs.filter((q) => !selectedQs.some((s) => s.id === q.id)));
-        selectedQs.push(...remaining.slice(0, 40 - selectedQs.length));
+    selectedQs = shuffle(selectedQs);
+    launchExamSession(selectedQs, examTimeMinutes);
+  };
+
+  // Launch official Pure Mathematics Ministerial Exam (40 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
+  const handleStartPureMathMinisterialExam = () => {
+    setSelectedSubject('mathematics');
+    const isThanaweya = currentCurriculum === 'thanaweya';
+    const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
+
+    setExamMode('online');
+    setSelectedBranch('all');
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setIsTimed(true);
+
+    let selectedQs: GeneratedQuestion[] = [];
+    let examTimeMinutes = 180;
+
+    if (isThanaweya) {
+      // Thanaweya Pure Math: 20 Qs Algebra & Solid Geometry + 20 Qs Calculus
+      const algBranch = activeData.branches.find((b) => b.id === 'algebra_solid');
+      const calcBranch = activeData.branches.find((b) => b.id === 'calculus');
+
+      if (algBranch) {
+        const algQs: GeneratedQuestion[] = [];
+        algBranch.chapters.forEach((ch) => algQs.push(...helperExtractChapterQuestions(ch, algBranch)));
+        selectedQs.push(...shuffle(algQs).slice(0, 20));
+      }
+      if (calcBranch) {
+        const calcQs: GeneratedQuestion[] = [];
+        calcBranch.chapters.forEach((ch) => calcQs.push(...helperExtractChapterQuestions(ch, calcBranch)));
+        selectedQs.push(...shuffle(calcQs).slice(0, 20));
+      }
+
+      examTimeMinutes = 180;
+      setQuestionCount(40);
+      setDurationPreset(180);
+    } else {
+      // EG-Bac STEM Pure Math: 20 Qs Vectors & Geometry + 20 Qs Analysis & Calculus
+      const vecBranch = activeData.branches.find((b) => b.id === 'egbac_vectors_geometry');
+      const anaBranch = activeData.branches.find((b) => b.id === 'egbac_analysis');
+
+      if (vecBranch) {
+        const vecQs: GeneratedQuestion[] = [];
+        vecBranch.chapters.forEach((ch) => vecQs.push(...helperExtractChapterQuestions(ch, vecBranch)));
+        selectedQs.push(...shuffle(vecQs).slice(0, 20));
+      }
+      if (anaBranch) {
+        const anaQs: GeneratedQuestion[] = [];
+        anaBranch.chapters.forEach((ch) => anaQs.push(...helperExtractChapterQuestions(ch, anaBranch)));
+        selectedQs.push(...shuffle(anaQs).slice(0, 20));
       }
 
       examTimeMinutes = 150;
@@ -723,19 +649,66 @@ export const TestGenerator: React.FC<Props> = ({
     }
 
     selectedQs = shuffle(selectedQs);
+    launchExamSession(selectedQs, examTimeMinutes);
+  };
 
-    setActiveQuestions(selectedQs);
-    setUserAnswers({});
-    setFlaggedQuestions({});
-    setIsSubmitted(false);
-    setReviewFilter('all');
+  // Launch official Applied Mathematics Ministerial Exam (40 Qs / 180 Mins for Thanaweya; 40 Qs / 150 Mins for EG-Bac)
+  const handleStartAppliedMathMinisterialExam = () => {
+    setSelectedSubject('mathematics');
+    const isThanaweya = currentCurriculum === 'thanaweya';
+    const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
 
-    const totalSec = examTimeMinutes * 60;
-    setTotalTimeSeconds(totalSec);
-    setTimeRemaining(totalSec);
-    setIsTimerPaused(false);
-    setTimeTakenSeconds(0);
-    setIsExamStarted(true);
+    setExamMode('online');
+    setSelectedBranch('all');
+    setSelectedChapter('all');
+    setDifficulty('all');
+    setIsTimed(true);
+
+    let selectedQs: GeneratedQuestion[] = [];
+    let examTimeMinutes = 180;
+
+    if (isThanaweya) {
+      // Thanaweya Applied Math: 20 Qs Statics + 20 Qs Dynamics
+      const statBranch = activeData.branches.find((b) => b.id === 'statics');
+      const dynBranch = activeData.branches.find((b) => b.id === 'dynamics');
+
+      if (statBranch) {
+        const statQs: GeneratedQuestion[] = [];
+        statBranch.chapters.forEach((ch) => statQs.push(...helperExtractChapterQuestions(ch, statBranch)));
+        selectedQs.push(...shuffle(statQs).slice(0, 20));
+      }
+      if (dynBranch) {
+        const dynQs: GeneratedQuestion[] = [];
+        dynBranch.chapters.forEach((ch) => dynQs.push(...helperExtractChapterQuestions(ch, dynBranch)));
+        selectedQs.push(...shuffle(dynQs).slice(0, 20));
+      }
+
+      examTimeMinutes = 180;
+      setQuestionCount(40);
+      setDurationPreset(180);
+    } else {
+      // EG-Bac STEM Applied Math: 20 Qs Mechanics + 20 Qs Probability & Statistics
+      const mechBranch = activeData.branches.find((b) => b.id === 'egbac_mechanics');
+      const probBranch = activeData.branches.find((b) => b.id === 'egbac_probability');
+
+      if (mechBranch) {
+        const mechQs: GeneratedQuestion[] = [];
+        mechBranch.chapters.forEach((ch) => mechQs.push(...helperExtractChapterQuestions(ch, mechBranch)));
+        selectedQs.push(...shuffle(mechQs).slice(0, 20));
+      }
+      if (probBranch) {
+        const probQs: GeneratedQuestion[] = [];
+        probBranch.chapters.forEach((ch) => probQs.push(...helperExtractChapterQuestions(ch, probBranch)));
+        selectedQs.push(...shuffle(probQs).slice(0, 20));
+      }
+
+      examTimeMinutes = 150;
+      setQuestionCount(40);
+      setDurationPreset(150);
+    }
+
+    selectedQs = shuffle(selectedQs);
+    launchExamSession(selectedQs, examTimeMinutes);
   };
 
   // Toggle flag on question
@@ -886,6 +859,17 @@ export const TestGenerator: React.FC<Props> = ({
               <Printer className="w-3.5 h-3.5" />
               <span>{t.modePrintable}</span>
             </button>
+            <button
+              onClick={() => setExamMode('bubble_sheet')}
+              className={`flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                examMode === 'bubble_sheet'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5" />
+              <span>{lang === 'ar' ? 'بابل شيت رسمي (OMR)' : 'OMR Bubble Sheet'}</span>
+            </button>
           </div>
         </div>
 
@@ -1022,6 +1006,61 @@ export const TestGenerator: React.FC<Props> = ({
               </button>
             </div>
           </div>
+        ) : selectedSubject === 'mathematics' ? (
+          <div className="bg-gradient-to-r from-blue-950/50 via-slate-900 to-indigo-950/50 border border-blue-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-blue-950/30">
+            <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/40 shadow-inner">
+                <Calculator className="w-6 h-6 animate-pulse text-blue-400" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                  <h4 className="text-sm sm:text-base font-black text-blue-100">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'امتحانات الرياضيات الوزارية الرسمية (بحتة وتطبيقية)' : 'امتحانات الرياضيات المتقدمة لمدارس STEM')
+                      : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Mathematics Exams (Pure & Applied)' : 'Official STEM Advanced Mathematics Exams')}
+                  </h4>
+                  <span className="text-[10px] bg-blue-500/20 text-blue-300 font-bold px-2.5 py-0.5 rounded-full border border-blue-500/40">
+                    {lang === 'ar'
+                      ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
+                      : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya'
+                        ? 'نماذج محاكاة رسمية مطابقة لضوابط الوزارة: الرياضيات البحتة (جبر وفراغية وتفاضل وتكامل) والرياضيات التطبيقية (استاتيكا وديناميكا) بزمن 3 ساعات لكل امتحان.'
+                        : 'اختبارات رياضيات تخصصية لمدارس STEM تشمل الهندسة المتجهية والتحليل المتقدم، والميكانيكا والاحتمال والإحصاء بزمن 150 دقيقة لكل امتحان.')
+                    : (currentCurriculum === 'thanaweya'
+                        ? 'Official simulations strictly aligned with MoE blueprints: Pure Math (Algebra, Solid Geometry & Calculus) and Applied Math (Statics & Dynamics) with a 3-hour timer.'
+                        : 'Advanced STEM Mathematics exams covering Vectors & Analysis, and Mechanics & Probability with a 150-minute timer.')}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartPureMathMinisterialExam}
+                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+              >
+                <Calculator className="w-4 h-4" />
+                <span>
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya' ? 'بدء امتحان الرياضيات البحتة (40 سؤالاً)' : 'بدء امتحان التحليل والهندسة (40 سؤالاً)')
+                    : (currentCurriculum === 'thanaweya' ? 'Pure Math Exam (40 Qs)' : 'Analysis & Vectors (40 Qs)')}
+                </span>
+              </button>
+              <button
+                onClick={handleStartAppliedMathMinisterialExam}
+                className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+              >
+                <Sparkles className="w-4 h-4" />
+                <span>
+                  {lang === 'ar'
+                    ? (currentCurriculum === 'thanaweya' ? 'بدء امتحان الرياضيات التطبيقية (40 سؤالاً)' : 'بدء امتحان الميكانيكا والاحتمال (40 سؤالاً)')
+                    : (currentCurriculum === 'thanaweya' ? 'Applied Math Exam (40 Qs)' : 'Mechanics & Probability (40 Qs)')}
+                </span>
+              </button>
+            </div>
+          </div>
         ) : (
           <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
@@ -1031,51 +1070,101 @@ export const TestGenerator: React.FC<Props> = ({
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                   <h4 className="text-sm sm:text-base font-black text-slate-100">
-                    {lang === 'ar' ? 'محاكاة امتحان الثانوية العامة الرسمي (3 ساعات / 40 سؤالاً)' : 'Official Ministerial 3-Hour Simulation (40 Qs / 180 Mins)'}
+                    {lang === 'ar' ? 'محاكاة امتحانات الوزارة الرسمية 2026' : 'Official Ministerial Exam Simulations 2026'}
                   </h4>
                   <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40">
-                    {lang === 'ar' ? 'نموذج الوزارة المعتمد 2026' : 'Official MoE Spec 2026'}
+                    {lang === 'ar' ? 'نماذج مطابقة 100%' : '100% Aligned Specs'}
                   </span>
                 </div>
                 <p className="text-xs text-slate-400 mt-1 max-w-xl">
                   {lang === 'ar'
-                    ? 'اختبار شامل يحاكي زمن وضوابط امتحان نهاية العام بوزارة التربية والتعليم: 40 سؤالاً، مؤقت 3 ساعات، لوحة تنقل ومراجعة تفاعلية، وتحليل شامل للدرجات والوقت.'
-                    : 'Full-length mock exam replicating official Grade 12 ministerial exam conditions: 40 questions, 3-hour timer, question palette & detailed performance analytics.'}
+                    ? 'نماذج امتحانات شاملة تحاكي زمن وضوابط اختبارات نهاية العام بوزارة التربية والتعليم لكافة التخصصات مع مؤقت رسمي ولوحة تنقل وتصحيح تفاعلي فوري.'
+                    : 'Full-length mock exams replicating official Grade 12 ministerial exam conditions across all subjects with official timers, question palettes, and immediate analytics.'}
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full md:w-auto shrink-0">
+              <button
+                onClick={handleStartPureMathMinisterialExam}
+                className="w-full sm:w-auto bg-blue-950/40 hover:bg-blue-900/50 text-blue-300 border border-blue-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+              >
+                <Calculator className="w-3.5 h-3.5 text-blue-400" />
+                <span>{lang === 'ar' ? 'بحتة' : 'Pure Math'}</span>
+              </button>
+              <button
+                onClick={handleStartAppliedMathMinisterialExam}
+                className="w-full sm:w-auto bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <span>{lang === 'ar' ? 'تطبيقية' : 'Applied Math'}</span>
+              </button>
               <button
                 onClick={handleStartPhysicsMinisterialExam}
-                className="w-full sm:w-auto bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className="w-full sm:w-auto bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
               >
                 <Zap className="w-3.5 h-3.5 text-cyan-400" />
-                <span>{lang === 'ar' ? 'امتحان الفيزياء (50 سؤالاً)' : 'Physics Exam (50 Qs)'}</span>
+                <span>{lang === 'ar' ? 'فيزياء' : 'Physics'}</span>
               </button>
               <button
                 onClick={handleStartChemistryMinisterialExam}
-                className="w-full sm:w-auto bg-teal-950/40 hover:bg-teal-900/50 text-teal-300 border border-teal-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className="w-full sm:w-auto bg-teal-950/40 hover:bg-teal-900/50 text-teal-300 border border-teal-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
               >
                 <FlaskConical className="w-3.5 h-3.5 text-teal-400" />
-                <span>{lang === 'ar' ? 'امتحان الكيمياء (50 سؤالاً)' : 'Chemistry Exam (50 Qs)'}</span>
+                <span>{lang === 'ar' ? 'كيمياء' : 'Chemistry'}</span>
               </button>
               <button
                 onClick={handleStartBiologyMinisterialExam}
-                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2.5 px-3.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
               >
                 <Dna className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{lang === 'ar' ? 'امتحان الأحياء (50 سؤالاً)' : 'Biology Exam (50 Qs)'}</span>
+                <span>{lang === 'ar' ? 'أحياء' : 'Biology'}</span>
               </button>
               <button
                 onClick={handleStartMinisterialSimulation}
-                className="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/30 transition-all cursor-pointer hover:scale-105"
+                className="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 transition-all cursor-pointer hover:scale-105"
               >
-                <Timer className="w-4 h-4" />
-                <span>{lang === 'ar' ? 'بدء محاكاة الامتحان (3 ساعات)' : 'Launch 3-Hour Simulation'}</span>
+                <Timer className="w-3.5 h-3.5" />
+                <span>{lang === 'ar' ? 'محاكاة شاملة (3 س)' : 'Full Mock (3h)'}</span>
               </button>
             </div>
           </div>
         )}
+
+        {/* Real-time Pool Indicator & Status */}
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 shadow-sm">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-indigo-400" />
+            <span className="text-xs text-slate-300 font-medium">
+              {lang === 'ar' ? 'الأسئلة المتاحة في بنك الأسئلة وفقاً للفلاتر الحالية:' : 'Available Questions in Filtered Pool:'}
+            </span>
+            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+              {lang === 'ar' ? toHindiDigits(availablePoolCount.toString()) : availablePoolCount.toLocaleString()} {lang === 'ar' ? 'سؤالاً' : 'questions'}
+            </span>
+          </div>
+
+          {availablePoolCount === 0 ? (
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-amber-400 font-semibold">
+                {lang === 'ar' ? 'لا توجد أسئلة تطابق هذه التوليفة من الفلاتر' : 'No questions match this combination'}
+              </span>
+              <button
+                onClick={() => {
+                  setSelectedSubject('all');
+                  setSelectedBranch('all');
+                  setSelectedChapter('all');
+                  setDifficulty('all');
+                }}
+                className="text-xs bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-2.5 py-1 rounded-lg font-bold cursor-pointer transition-all"
+              >
+                {lang === 'ar' ? 'إعادة ضبط الفلاتر' : 'Reset Filters'}
+              </button>
+            </div>
+          ) : (
+            <span className="text-[11px] text-slate-400">
+              {lang === 'ar' ? 'جاهز لتوليد الاختبار المخصص' : 'Ready to generate customized test'}
+            </span>
+          )}
+        </div>
 
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5">
@@ -1212,7 +1301,12 @@ export const TestGenerator: React.FC<Props> = ({
           <div className="flex items-end">
             <button
               onClick={handleStartExam}
-              className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 transition-all cursor-pointer"
+              disabled={availablePoolCount === 0}
+              className={`w-full font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all ${
+                availablePoolCount === 0
+                  ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700'
+                  : 'bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-600/30 cursor-pointer'
+              }`}
             >
               <RefreshCw className="w-4 h-4" />
               <span>{t.generateTest}</span>
@@ -1460,6 +1554,15 @@ export const TestGenerator: React.FC<Props> = ({
                         <span className="hidden sm:inline">{lang === 'ar' ? 'ديسموس' : 'Desmos'}</span>
                       </button>
                     )}
+                    <button
+                      type="button"
+                      onClick={() => setIsScratchpadOpen(true)}
+                      className="bg-purple-950/60 hover:bg-purple-900/80 border border-purple-500/40 text-purple-300 hover:text-purple-200 font-bold py-2 px-3 rounded-xl text-xs transition-all cursor-pointer flex items-center gap-1.5"
+                      title={lang === 'ar' ? 'المسودة الرياضية التفاعلية' : 'Interactive Math Scratchpad'}
+                    >
+                      <Edit3 className="w-3.5 h-3.5 text-purple-400" />
+                      <span className="hidden sm:inline">{lang === 'ar' ? 'المسودة' : 'Scratchpad'}</span>
+                    </button>
                     {!isSubmitted ? (
                       <button
                         onClick={handleSubmitExam}
@@ -1936,6 +2039,41 @@ export const TestGenerator: React.FC<Props> = ({
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Official MoE Bubble Sheet Simulator Mode */}
+      {examMode === 'bubble_sheet' && (
+        <div className="space-y-6">
+          <BubbleSheetSimulator
+            totalQuestions={activeQuestions.length > 0 ? activeQuestions.length : questionCount}
+            answerKey={activeQuestions.map((q, idx) => ({
+              questionIndex: idx + 1,
+              correctOption: (['A', 'B', 'C', 'D'][q.correctIndex] || 'A') as 'A' | 'B' | 'C' | 'D',
+              subject: q.chapterTitleEn,
+            }))}
+            timeLimitMinutes={durationPreset === 'auto' ? Math.max(20, questionCount * 2) : durationPreset}
+            lang={lang}
+            onExamSubmitted={(scr) => {
+              setScore(scr);
+              setIsSubmitted(true);
+            }}
+          />
+        </div>
+      )}
+
+      {/* Interactive Math Scratchpad Modal */}
+      {isScratchpadOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="relative w-full max-w-3xl">
+            <button
+              onClick={() => setIsScratchpadOpen(false)}
+              className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shadow-xl cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <MathScratchpad lang={lang} />
+          </div>
         </div>
       )}
     </div>

@@ -18,6 +18,13 @@ import { OrganicChemistryLab } from './OrganicChemistryLab';
 import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
+import {
+  calculateTitrationPH,
+  getIndicatorColor,
+  COMMON_INDICATORS,
+  type TitrationSystem,
+} from '../../core/simulation/EquilibriumEngine';
+import { LabNotebook } from '../../core/pedagogy/LabNotebook';
 
 export type ChemTab =
   | 'equilibrium'
@@ -210,6 +217,8 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
 
   // Titration State
   const [titrantVolumeMl, setTitrantVolumeMl] = useState<number>(25.0); // 0 to 50 mL
+  const [titrationType, setTitrationType] = useState<TitrationSystem['type']>('strong_acid_strong_base');
+  const [chosenIndicator, setChosenIndicator] = useState<string>('phenolphthalein');
 
   // Calculations for Equilibrium
   // For 2NO2 (brown) <=> N2O4 (colorless) + Heat (exothermic)
@@ -271,25 +280,20 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
     productFormed = 'Molten Pig Iron (Fe) + Slag';
   }
 
-  // Titration pH Calculation (Strong Acid HCl 0.1M, 25mL titrated with NaOH 0.1M)
-  // Equivalence point at 25mL
-  let currentPh = 7.0;
-  let indicatorColor = '#22c55e'; // Green at neutral
-  if (titrantVolumeMl < 24.9) {
-    // Acidic
-    const excessH = (25 - titrantVolumeMl) * 0.1 / (25 + titrantVolumeMl);
-    currentPh = Math.max(1.0, -Math.log10(excessH));
-    indicatorColor = '#ef4444'; // Red/Pink (Methyl orange / Acid)
-  } else if (titrantVolumeMl > 25.1) {
-    // Basic
-    const excessOH = (titrantVolumeMl - 25) * 0.1 / (25 + titrantVolumeMl);
-    const pOH = -Math.log10(excessOH);
-    currentPh = Math.min(13.0, 14 - pOH);
-    indicatorColor = '#ec4899'; // Phenolphthalein pink
-  } else {
-    currentPh = 7.0;
-    indicatorColor = '#22c55e';
-  }
+  // Titration pH Calculation with EquilibriumEngine
+  const titrationResult = calculateTitrationPH(
+    {
+      type: titrationType,
+      analyteVolumeMl: 25.0,
+      analyteConcentrationM: 0.1,
+      titrantConcentrationM: 0.1,
+      Ka1: 1.8e-5,
+      Kb: 1.8e-5,
+    },
+    titrantVolumeMl
+  );
+  const currentPh = titrationResult.pH;
+  const indicatorColor = getIndicatorColor(chosenIndicator, currentPh);
 
   return (
     <div
@@ -911,6 +915,41 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
                 </span>
               </div>
 
+              {/* System & Indicator Selectors */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3 text-xs">
+                <div>
+                  <label className="text-slate-400 font-semibold block mb-1">
+                    {isArabic ? 'نظام المعايرة:' : 'Titration Reaction System:'}
+                  </label>
+                  <select
+                    value={titrationType}
+                    onChange={(e) => setTitrationType(e.target.value as TitrationSystem['type'])}
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+                  >
+                    <option value="strong_acid_strong_base">HCl + NaOH (Strong / Strong)</option>
+                    <option value="weak_acid_strong_base">CH₃COOH + NaOH (Weak Acid / Strong Base)</option>
+                    <option value="strong_acid_weak_base">HCl + NH₃ (Strong Acid / Weak Base)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-slate-400 font-semibold block mb-1">
+                    {isArabic ? 'الدليل الكيميائي:' : 'Chemical Indicator:'}
+                  </label>
+                  <select
+                    value={chosenIndicator}
+                    onChange={(e) => setChosenIndicator(e.target.value)}
+                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+                  >
+                    {Object.entries(COMMON_INDICATORS).map(([id, ind]) => (
+                      <option key={id} value={id}>
+                        {isArabic ? ind.nameAr : ind.name} (pKa {ind.pKa})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               {/* Titration Apparatus SVG */}
               <div className="w-full bg-slate-950 rounded-xl p-3 border border-slate-800 shadow-inner flex items-center justify-center">
                 <svg viewBox="0 0 540 220" className="w-full max-w-[520px] h-48 sm:h-56">
@@ -1013,6 +1052,19 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Integrated Lab Notebook for Titration Curve Recording */}
+          <div className="lg:col-span-12">
+            <LabNotebook
+              lang={lang}
+              xLabel={isArabic ? 'حجم القاعدة المضاف V' : 'Titrant Volume V'}
+              xUnit="mL"
+              yLabel="pH"
+              yUnit="units"
+              currentXValue={titrantVolumeMl}
+              currentYValue={currentPh}
+            />
           </div>
         </div>
       )}

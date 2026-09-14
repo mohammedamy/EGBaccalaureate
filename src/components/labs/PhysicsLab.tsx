@@ -19,10 +19,11 @@ import { RLCResonanceLab } from './RLCResonanceLab';
 import { PhysicsFlashcards } from './PhysicsFlashcards';
 import { MagnetismLab } from './MagnetismLab';
 import { AtomicLaserLab } from './AtomicLaserLab';
+import { OpticsBenchLab } from './OpticsBenchLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
 import { MathRenderer } from '../MathRenderer';
 
-export type PhysicsTab = 'circuits' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
+export type PhysicsTab = 'circuits' | 'optics' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
 
 interface Props {
   lang: Language;
@@ -243,6 +244,22 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
           >
             <Gauge className="w-3.5 h-3.5" />
             <span>{isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('optics')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'optics'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Sun className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'البصريات وتجربة ينج' : 'Optics & Ray-Tracing'}</span>
           </button>
 
           <button
@@ -1025,6 +1042,13 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB: OPTICS & RAY TRACING */}
+      {activeTab === 'optics' && (
+        <div className="mt-6">
+          <OpticsBenchLab lang={lang} />
         </div>
       )}
 

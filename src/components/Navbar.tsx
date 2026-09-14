@@ -2,7 +2,7 @@ import React from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink } from 'lucide-react';
+import { Globe, UserCheck, Award, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -23,6 +23,7 @@ interface Props {
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: () => void;
   onOpenOfficialBooks?: () => void;
+  onOpenMathScratchpad?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -44,6 +45,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenFormulaHandbook,
   onOpenDesmos,
   onOpenOfficialBooks,
+  onOpenMathScratchpad,
   selectedSubject,
   onSubjectChange,
   curriculumData,
@@ -248,6 +250,24 @@ export const Navbar: React.FC<Props> = ({
                 </button>
               )}
 
+              {/* Math Scratchpad Trigger */}
+              {onOpenMathScratchpad && (
+                <button
+                  onClick={onOpenMathScratchpad}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-purple-300 border-purple-400 hover:bg-purple-950/40'
+                      : isLight
+                      ? 'bg-purple-50 hover:bg-purple-100 text-purple-800 border-purple-300'
+                      : 'bg-purple-950/70 hover:bg-purple-900 text-purple-300 border-purple-700/60'
+                  }`}
+                  title={lang === 'ar' ? 'المسودة الرياضية التفاعلية (KaTeX)' : 'Interactive Math Scratchpad'}
+                >
+                  <Edit3 className="w-3 h-3 text-purple-400" />
+                  <span>{lang === 'ar' ? 'المسودة الرياضية' : 'Scratchpad'}</span>
+                </button>
+              )}
+
               {/* Official Ministry Books Trigger */}
               {onOpenOfficialBooks && (
                 <button
@@ -340,6 +360,22 @@ export const Navbar: React.FC<Props> = ({
             >
               <BookOpen className="w-3 h-3 text-emerald-400" />
               <span>{lang === 'ar' ? 'دستور القوانين' : 'Formula Sheet'}</span>
+            </button>
+          )}
+
+          {onOpenMathScratchpad && (
+            <button
+              onClick={onOpenMathScratchpad}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-full border shrink-0 transition-all active:scale-95 ${
+                isHighContrast
+                  ? 'bg-black text-purple-300 border-purple-400'
+                  : isLight
+                  ? 'bg-purple-50 text-purple-800 border-purple-300'
+                  : 'bg-purple-950/70 text-purple-300 border-purple-700/60'
+              }`}
+            >
+              <Edit3 className="w-3 h-3 text-purple-400" />
+              <span>{lang === 'ar' ? 'المسودة' : 'Scratchpad'}</span>
             </button>
           )}
 

@@ -1,5 +1,10 @@
 import type { Branch } from '../types/curriculum';
 import { physCh1Databank } from './databanks/thanaweya/physCh1Databank';
+import { physCh2Databank } from './databanks/thanaweya/physCh2Databank';
+import { physCh3Databank } from './databanks/thanaweya/physCh3Databank';
+import { physCh4Databank } from './databanks/thanaweya/physCh4Databank';
+import { physCh5Databank } from './databanks/thanaweya/physCh5Databank';
+import { physCh6Databank } from './databanks/thanaweya/physCh6Databank';
 
 export const thanaweyaPhysicsBranch: Branch = {
   id: 'thanaweya_physics',
@@ -698,7 +703,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'Kirchhoff\'s junction rule is an explicit expression of the law of conservation of electric charge.',
           teacherTipAr: 'قانون كيرشوف الأول يمثل التطبيق الفيزيائي المباشر لمبدأ بقاء الشحنة الكهربية.'
         }
-      ]
+      ],
+      databank: physCh2Databank
     },
     {
       id: 'th_phys_ch3',
@@ -1025,7 +1031,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'Remember that when theta is 30 degrees, the force is exactly half of the maximum possible force (BIL).',
           teacherTipAr: 'تذكر دائماً أنه عند زاوية 30 درجة مع المجال تكون القوة نصف قيمتها العظمى مباشرة.'
         }
-      ]
+      ],
+      databank: physCh3Databank
     },
     {
       id: 'th_phys_ch4',
@@ -1357,7 +1364,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'Always be alert: the angle in the dynamo EMF formula is between the NORMAL to the coil and the field lines, not the plane of the coil.',
           teacherTipAr: 'انتبه بشدة: الزاوية في قانون الدينامو هي الزاوية بين العمودي على مستوى الملف وخطوط المجال وليست مع مستوى الملف نفسه.'
         }
-      ]
+      ],
+      databank: physCh4Databank
     },
     {
       id: 'th_phys_ch5',
@@ -1688,7 +1696,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'The H-alpha line at 656.3 nm is the prominent red glow seen in hydrogen discharge tubes and emission nebulae.',
           teacherTipAr: 'خط H-alpha بطول موجي 656.3 نانومتر يمنح أنبوبة تفريغ الهيدروجين وسديم الفضاء وهجها الأحمر المميز.'
         }
-      ]
+      ],
+      databank: physCh5Databank
     },
     {
       id: 'th_phys_ch6',
@@ -2021,7 +2030,8 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'Notice that increasing the accelerating voltage shifts lambda_min toward shorter wavelengths and higher penetration powers.',
           teacherTipAr: 'زيادة فرق الجهد المعجل في أنبوبة كوليدج تزيح أدنى طول موجي نحو أطوال أقصر وترددات أعلى ذات قدرة نفاذ أكبر.'
         }
-      ]
+      ],
+      databank: physCh6Databank
     }
   ]
 };

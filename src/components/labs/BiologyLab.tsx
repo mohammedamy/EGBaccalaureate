@@ -33,12 +33,14 @@ import { ImmunityLab } from './ImmunityLab';
 import { GeneticsLab } from './GeneticsLab';
 import { BioenergeticsLab } from './BioenergeticsLab';
 import { BiologyFlashcards } from './BiologyFlashcards';
+import { VirtualMicroscope } from '../../core/instruments/VirtualMicroscope';
 
 export type BioTab =
   | 'skeleton'
   | 'sarcomere'
   | 'dna'
   | 'plant'
+  | 'microscope'
   | 'endocrine'
   | 'menstrual'
   | 'immunity'
@@ -454,6 +456,22 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
           >
             <Leaf className="w-3.5 h-3.5" />
             <span>{isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('microscope')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'microscope'
+                ? isContrast
+                  ? 'bg-rose-400 text-black font-black'
+                  : 'bg-rose-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <ZoomIn className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'المجهر الضوئي الافتراضي' : 'Virtual Microscope'}</span>
           </button>
 
           <button
@@ -1538,6 +1556,13 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB: VIRTUAL COMPOUND MICROSCOPE */}
+      {activeTab === 'microscope' && (
+        <div className="mt-6">
+          <VirtualMicroscope lang={lang} />
         </div>
       )}
 
