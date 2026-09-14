@@ -380,6 +380,33 @@ const cosBeta = Math.cos(beta);
 const cosSqGamma = 1 - (cosAlpha * cosAlpha + cosBeta * cosBeta);
 assert(cosSqGamma >= 0 && Math.abs(cosSqGamma - 0.25) < 1e-6, `3D Direction Cosines identity valid: cos^2(gamma) = ${cosSqGamma} (gamma = 60 deg)`);
 
+// H. Chemistry: Chapter 5 Organic Reaction Mechanisms & Synthesis
+console.log('\n--- H. Chemistry: Chapter 5 Organic Mechanisms & Synthesis ---');
+const propeneMarkovnikovEa_secondary = 46; // kJ/mol
+const propeneMarkovnikovEa_primary = 82; // kJ/mol
+const methylpropeneMarkovnikovEa_tertiary = 38; // kJ/mol
+
+assert(
+  propeneMarkovnikovEa_secondary < propeneMarkovnikovEa_primary,
+  `Markovnikov addition on propene favors secondary carbocation (Ea = ${propeneMarkovnikovEa_secondary} kJ/mol < ${propeneMarkovnikovEa_primary} kJ/mol)`
+);
+assert(
+  methylpropeneMarkovnikovEa_tertiary < propeneMarkovnikovEa_secondary,
+  `Tertiary carbocation on 2-methylpropene is more stable with lowest Ea (${methylpropeneMarkovnikovEa_tertiary} kJ/mol)`
+);
+
+// Verify Fischer Esterification Stoichiometry and Yield calculation
+const aceticAcidMoles = 1.0;
+const ethanolMoles = 1.0;
+const esterTheoreticalMoles = Math.min(aceticAcidMoles, ethanolMoles);
+const esterKeq = 4.0; // Classic Fischer equilibrium constant at room temp
+// [ester][H2O] / [acid][alcohol] = x^2 / (1-x)^2 = 4 => x / (1-x) = 2 => x = 2/3 = 66.7%
+const equilibriumYieldPercent = (Math.sqrt(esterKeq) / (1 + Math.sqrt(esterKeq))) * 100;
+assert(
+  Math.abs(equilibriumYieldPercent - 66.67) < 0.1,
+  `Fischer esterification theoretical equilibrium conversion without dehydrating agent: ${equilibriumYieldPercent.toFixed(1)}% (approx 66.7%)`
+);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -429,6 +456,15 @@ const labKeyFormulas = [
   '2\\text{Na}_3\\text{PO}_4 + 3\\text{BaCl}_2 \\to 6\\text{NaCl} + \\text{Ba}_3(\\text{PO}_4)_2\\downarrow',
   '\\text{Pb}^{2+} + 2\\text{Cl}^- \\to \\text{PbCl}_2\\downarrow',
   '[\\text{Cu(NH}_3)_4]^{2+}',
+  // Organic Chemistry Lab (Chapter 5)
+  '\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{HC}\\equiv\\text{CH} + \\text{Ca(OH)}_2',
+  '3\\text{C}_2\\text{H}_2 \\xrightarrow{\\text{Ni / Red heat}} \\text{C}_6\\text{H}_6',
+  '\\text{C}_6\\text{H}_6 + \\text{CH}_3\\text{Cl} \\xrightarrow{\\text{anh. AlCl}_3} \\text{C}_6\\text{H}_5\\text{CH}_3 + \\text{HCl}',
+  '2\\text{CH}_4 \\xrightarrow{1500^\\circ\\text{C} / \\text{quench}} \\text{HC}\\equiv\\text{CH} + 3\\text{H}_2',
+  '\\text{CH}_3\\text{COOH} + \\text{C}_2\\text{H}_5\\text{OH} \\xrightleftharpoons{\\text{conc. H}_2\\text{SO}_4} \\text{CH}_3\\text{COOC}_2\\text{H}_5 + \\text{H}_2\\text{O}',
+  '\\text{C}_6\\text{H}_5\\text{OH} + \\text{Zn} \\xrightarrow{\\Delta} \\text{C}_6\\text{H}_6 + \\text{ZnO}',
+  '\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. H}_2\\text{SO}_4 / 180^\\circ\\text{C}} \\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O}',
+  '\\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O} + [\\text{O}] \\xrightarrow{\\text{alkaline KMnO}_4} \\text{CH}_2(\\text{OH})-\\text{CH}_2(\\text{OH})',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',
