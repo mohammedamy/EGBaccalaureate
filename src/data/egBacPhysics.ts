@@ -3,20 +3,20 @@ import { egBacPhysCh1Databank } from './databanks/egbac/egBacPhysCh1Databank';
 
 export const egBacPhysicsBranch: Branch = {
   id: 'egbac_physics',
-  titleEn: 'Advanced Physics (STEM Track)',
-  titleAr: 'الفيزياء المتقدمة (مسار العلوم والهندسة STEM)',
-  categoryEn: 'Advanced Sciences',
-  categoryAr: 'العلوم المتقدمة',
-  iconName: 'Atom',
-  colorGradient: 'from-sky-600 to-indigo-800',
+  titleEn: 'Physics (Natural Sciences)',
+  titleAr: 'الفيزياء (العلوم الطبيعية)',
+  categoryEn: 'Natural Sciences',
+  categoryAr: 'العلوم الطبيعية',
+  iconName: 'Zap',
+  colorGradient: 'from-amber-500 to-orange-700',
   chapters: [
     {
       id: 'egbac_phys_ch1',
       chapterNumber: 1,
-      titleEn: 'Wave-Particle Duality, Photons & Quantum Physics',
-      titleAr: 'ازدواجية الموجة والجسيم والفوتونات والفيزياء الكمية',
-      descriptionEn: 'Blackbody radiation curves, Planck quantum hypothesis, Einstein photoelectric equation, Compton scattering, photon linear momentum, de Broglie matter wave hypothesis, and electron microscope resolving power.',
-      descriptionAr: 'منحنيات إشعاع الجسم الأسود، فرضية بلانك لتكميم الطاقة، معادلة أينشتاين للظاهرة الكهروضوئية، ظاهرة كومتون وكمية حركة الفوتون، فرضية دي برولي للموجات المادية، والقدرة التحليلية للمجهر الإلكتروني.',
+      titleEn: 'Quantum Radiation & Matter-Wave Duality',
+      titleAr: 'الإشعاع الكمي وازدواجية الموجة والجسيم',
+      descriptionEn: "Blackbody radiation, Planck's quantum theory, photoelectric effect, work function, Compton scattering, photon momentum, and de Broglie matter waves.",
+      descriptionAr: 'إشعاع الجسم الأسود، نظرية بلانك للكم، التأثير الكهروضوئي، دالة الشغل، ظاهرة كومتون، كمية تحرك الفوتون، وموجات دي برولي المادية.',
       isFullyEquipped: true,
       lessons: [
         {
@@ -314,6 +314,74 @@ export const egBacPhysicsBranch: Branch = {
             descriptionAr: 'تجربة افتراضية للخلية الكهروضوئية لقياس التردد الحرج وجهد الإيقاف وطاقة فوتونات الضوء.'
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_phys_se_01',
+          titleEn: 'Advanced Example 1: Photoelectric Stopping Potential',
+          titleAr: 'مثال متقدم ١: حساب جهد الإيقاف في الخلية الكهروضوئية',
+          difficulty: 'easy',
+          questionEn: 'Light of wavelength $\\lambda = 300\\text{ nm}$ strikes a metal surface with work function $W_0 = 2.4\\text{ eV}$. Given $h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$, calculate the stopping potential $V_{\\text{stop}}$.',
+          questionAr: 'سقط ضوء طوله الموجي $\\lambda = 300\\text{ نانومتر}$ على سطح فلز دالة شغله $W_0 = 2.4\\text{ إلكترون فولت}$. بمعلومية $h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$، احسب جهد الإيقاف $V_{\\text{stop}}$.',
+          optionsEn: ['$1.73\\text{ V}$', '$2.40\\text{ V}$', '$4.13\\text{ V}$', '$0.85\\text{ V}$'],
+          optionsAr: ['$1.73\\text{ فولت}$', '$2.40\\text{ فولت}$', '$4.13\\text{ فولت}$', '$0.85\\text{ فولت}$'],
+          correctAnswer: '$1.73\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Photon energy $E = \\frac{hc}{\\lambda} = \\frac{1240}{300}\\text{ eV}$, then $e V_{\\text{stop}} = E - W_0$.',
+          hintAr: 'طاقة الفوتون $E = \\frac{hc}{\\lambda} = \\frac{1240}{300}\\text{ eV}$، ثم $e V_{\\text{stop}} = E - W_0$.',
+          stepByStepSolutionEn: [
+            'Photon energy: $E = \\frac{1240}{300} = 4.133\\text{ eV}$.',
+            'Maximum kinetic energy: $KE_{\\max} = E - W_0 = 4.133 - 2.40 = 1.733\\text{ eV}$.',
+            'Stopping potential: Since $KE_{\\max} = e V_{\\text{stop}}$, $V_{\\text{stop}} = 1.733\\text{ V}$.'
+          ],
+          stepByStepSolutionAr: [
+            'طاقة الفوتون الساقط: $E = \\frac{1240}{300} = 4.133\\text{ إلكترون فولت}$.',
+            'طاقة الحركة العظمى: $KE_{\\max} = E - W_0 = 4.133 - 2.40 = 1.733\\text{ إلكترون فولت}$.',
+            'جهد الإيقاف: بما أن $KE_{\\max} = e V_{\\text{stop}}$، إذن $V_{\\text{stop}} = 1.733\\text{ فولت}$.'
+          ],
+          teacherTipEn: 'Stopping potential depends only on photon frequency and the metal work function, not on light intensity.',
+          teacherTipAr: 'جهد الإيقاف يعتمد حصرياً على تردد الضوء ودالة شغل الفلز ولا يتأثر إطلاقاً بشدة الضوء.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_phys_ex_01',
+          titleEn: 'Exercise 1: Compton Scattering Wavelength Shift',
+          titleAr: 'تمرين ١: مقدار التغير في الطول الموجي في ظاهرة كومتون',
+          difficulty: 'easy',
+          questionEn: 'In a Compton scattering experiment, an X-ray photon is scattered by an angle $\\theta = 90^\\circ$. What is the increase in wavelength $\\Delta \\lambda$?',
+          questionAr: 'في تجربة كومتون، تشتت فوتون أشعة سينية بزاوية $\\theta = 90^\\circ$. ما مقدار الزيادة في الطول الموجي للفوتون $\\Delta \\lambda$؟',
+          optionsEn: ['$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ m}$', '$0$', '$\\frac{2h}{m_e c}$', '$\\frac{h}{2 m_e c}$'],
+          optionsAr: ['$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ م}$', '$0$', '$\\frac{2h}{m_e c}$', '$\\frac{h}{2 m_e c}$'],
+          correctAnswer: '$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ m}$',
+          correctIndex: 0,
+          hintEn: 'Use Compton formula: $\\Delta \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)$ with $\\cos(90^\\circ) = 0$.',
+          hintAr: 'طبق قانون كومتون: $\\Delta \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)$ حيث $\\cos(90^\\circ) = 0$.',
+          stepByStepSolutionEn: [
+            'Compton wavelength shift: $\\Delta \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta)$.',
+            'For $\\theta = 90^\\circ$, $\\cos(90^\\circ) = 0$.',
+            'Therefore, $\\Delta \\lambda = \\frac{h}{m_e c} = \\lambda_c \\approx 2.426 \\times 10^{-12}\\text{ m} = 0.00243\\text{ nm}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون إزاحة كومتون: $\\Delta \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta)$.',
+            'عند زاوية تشتت $\\theta = 90^\\circ$ يكون $\\cos(90^\\circ) = 0$.',
+            'إذن التغير في الطول الموجي $\\Delta \\lambda = \\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ م}$.'
+          ],
+          teacherTipEn: 'The quantity $h / (m_e c)$ is known as the Compton wavelength of the electron.',
+          teacherTipAr: 'المقدار $\\frac{h}{m_e c}$ يُسمى الطول الموجي لكومتون للإلكترون وهو ثابت فيزيائي أساسي.'
+        }
+      ],
+      databank: egBacPhysCh1Databank
+    },
+    {
+      id: 'egbac_phys_ch2',
+      chapterNumber: 2,
+      titleEn: 'Quantum Atomic Physics: Bohr Postulates & Characteristic X-Rays',
+      titleAr: 'الفيزياء الذرية الكمية: فروض بور وأشعة إكس المميزة',
+      descriptionEn: 'Bohr atomic model, electronic transitions, Rydberg constant, hydrogen emission spectral series (Lyman, Balmer, Paschen), and Coolidge tube continuous vs characteristic X-ray spectra.',
+      descriptionAr: 'نموذج بور الذري، الانتقالات الإلكترونية، ثابت ريدبرج، متسلسلات طيف انبعاث الهيدروجين، وأنبوبة كولدج وطيف الأشعة السينية المستمر والمميز.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_phys_l2",
           "titleEn": "Quantum Atomic Physics: Bohr Postulates, Spectral Series & Characteristic X-Rays",
@@ -571,6 +639,75 @@ export const egBacPhysicsBranch: Branch = {
             "descriptionAr": "محاكاة تفاعلية لانتقالات مستويات بور وحساب خطوط طيف الأشعة السينية المستمر والمميز."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_phys_se_02',
+          titleEn: 'Advanced Example 2: Lyman vs Balmer Series Limit Wavelength Ratio',
+          titleAr: 'مثال متقدم ٢: النسبة بين أدنى طول موجي في متسلسلتي ليمان وبالمر',
+          difficulty: 'medium',
+          diagramType: 'phys_bohr_atom_series',
+          questionEn: 'What is the ratio of the shortest wavelength emitted in the Lyman series ($\lambda_{\min, L}$) to the shortest wavelength emitted in the Balmer series ($\lambda_{\min, B}$) for atomic hydrogen?',
+          questionAr: 'ما هي النسبة بين أقصر طول موجي منبعث في مجموعة ليمان ($\lambda_{\min, L}$) إلى أقصر طول موجي منبعث في مجموعة بالمر ($\lambda_{\min, B}$) لذرة الهيدروجين؟',
+          optionsEn: ['$1 : 4$', '$1 : 2$', '$4 : 1$', '$1 : 9$'],
+          optionsAr: ['$1 : 4$', '$1 : 2$', '$4 : 1$', '$1 : 9$'],
+          correctAnswer: '$1 : 4$',
+          correctIndex: 0,
+          hintEn: 'Shortest wavelength in series terminating at $n_1$ corresponds to $n_2 = \\infty$: $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
+          hintAr: 'أقصر طول موجي في أي متسلسلة تنتهي عند $n_1$ يقابل الانتقال من $n_2 = \\infty$: $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
+          stepByStepSolutionEn: [
+            'By Rydberg equation for series limit: $\\frac{1}{\\lambda_{\\min}} = R_H \\left(\\frac{1}{n_1^2} - 0\\right) = \\frac{R_H}{n_1^2} \\implies \\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
+            'For Lyman series ($n_1 = 1$): $\\lambda_{\\min, L} = \\frac{1^2}{R_H} = \\frac{1}{R_H}$.',
+            'For Balmer series ($n_1 = 2$): $\\lambda_{\\min, B} = \\frac{2^2}{R_H} = \\frac{4}{R_H}$.',
+            'Ratio: $\\frac{\\lambda_{\\min, L}}{\\lambda_{\\min, B}} = \\frac{1 / R_H}{4 / R_H} = \\frac{1}{4}$.'
+          ],
+          stepByStepSolutionAr: [
+            'من معادلة ريدبرج لحد المتسلسلة ($n_2 = \\infty$): $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
+            'لمجموعة ليمان ($n_1 = 1$): $\\lambda_{\\min, L} = \\frac{1}{R_H}$.',
+            'لمجموعة بالمر ($n_1 = 2$): $\\lambda_{\\min, B} = \\frac{4}{R_H}$.',
+            'النسبة بينهما: $\\frac{\\lambda_{\\min, L}}{\\lambda_{\\min, B}} = \\frac{1}{4}$.'
+          ],
+          teacherTipEn: 'The Lyman series limit is 91.2 nm (deep ultraviolet) while the Balmer series limit is 364.6 nm (near UV), exactly 4 times longer.',
+          teacherTipAr: 'حد ليمان هو 91.2 نانومتر بينما حد بالمر هو 364.6 نانومتر، أي أربعة أمثال طول موجة ليمان بالضبط.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_phys_ex_02',
+          titleEn: 'Exercise 2: Duane-Hunt Potential for Hard X-Rays',
+          titleAr: 'تمرين ٢: فرق الجهد المعجل في أنبوبة كوليدج لأشعة سينية صلبة',
+          difficulty: 'medium',
+          diagramType: 'phys_coolidge_xray_tube',
+          questionEn: 'A medical radiologist requires X-rays with a minimum cutoff wavelength of $\\lambda_{\\min} = 0.025\\text{ nm}$. What accelerating potential difference must be applied across the Coolidge tube? ($h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$)',
+          questionAr: 'تتطلب أشعة تشخيصية طبية حزمة أشعة سينية لا يقل طولها الموجي عن $\\lambda_{\\min} = 0.025\\text{ nm}$. ما هو فرق الجهد المعجل الواجب تطبيقه بين قطبي أنبوبة كوليدج؟',
+          optionsEn: ['$49.6\\text{ kV}$', '$24.8\\text{ kV}$', '$99.2\\text{ kV}$', '$12.4\\text{ kV}$'],
+          optionsAr: ['$49.6\\text{ kV}$', '$24.8\\text{ kV}$', '$99.2\\text{ kV}$', '$12.4\\text{ kV}$'],
+          correctAnswer: '$49.6\\text{ kV}$',
+          correctIndex: 0,
+          hintEn: 'Use Duane-Hunt shortcut: $V = \\frac{1240\\text{ V}\\cdot\\text{nm}}{\\lambda_{\\min}(\\text{nm})}$.',
+          hintAr: 'طبق علاقة ديوان-هنت السريعة: $V = \\frac{1240}{\\lambda_{\\min}\\,(\\text{nm})}$.',
+          stepByStepSolutionEn: [
+            'Duane-Hunt cutoff relation: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+            'Substitute $hc = 1240\\text{ eV}\\cdot\\text{nm}$: $V = \\frac{1240\\text{ V}\\cdot\\text{nm}}{0.025\\text{ nm}} = 49,600\\text{ V} = 49.6\\text{ kV}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون ديوان-هنت لأقصر طول موجي: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+            'بالتعويض: $V = \\frac{1240}{0.025} = 49,600\\text{ فولت} = 49.6\\text{ كيلو فولت}$.'
+          ],
+          teacherTipEn: 'Higher accelerating voltage produces more penetrating (hard) X-rays needed for deep tissue bone imaging.',
+          teacherTipAr: 'فرق الجهد العالي يولد أشعة سينية صلبة ذات تردد عالٍ ونفاذية فائقة تلزم لتصوير العظام العميقة.'
+        }
+      ]
+    },
+    {
+      id: 'egbac_phys_ch3',
+      chapterNumber: 3,
+      titleEn: 'Lasers & Coherent Optics: Population Inversion & Resonators',
+      titleAr: 'الليزر والبصريات المترابطة: الإسكان المعكوس والتجاويف الرنينية',
+      descriptionEn: 'Stimulated emission, metastable states, population inversion, optical resonators, Fabry-Pérot cavities, laser threshold condition, and Helium-Neon laser systems.',
+      descriptionAr: 'الانبعاث المستحث، الحالات شبه المستقرة، الإسكان المعكوس، التجاويف الرنينية، شرط عتبة الليزر، ومنظومة ليزر الهيليوم-نيون.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_phys_l3",
           "titleEn": "Lasers & Coherent Optics: Population Inversion, Resonators & Holography",
@@ -826,6 +963,73 @@ export const egBacPhysicsBranch: Branch = {
             "descriptionAr": "محاكاة تفاعلية للإسكان المعكوس وضخ ذرات الهيليوم نيون والموجات الموقوفة بالتجويف الرنيني."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_phys_se_03',
+          titleEn: 'Advanced Example 3: Laser Threshold Gain in Optical Resonator',
+          titleAr: 'مثال متقدم ٣: معامل الكسب الحرج للتجويف الرنيني في الليزر',
+          difficulty: 'hots',
+          questionEn: 'A gas laser cavity of length $L = 0.50\\text{ m}$ is bounded by two planar mirrors of reflectivities $R_1 = 1.00$ and $R_2 = 0.90$. If other distributed cavity losses are negligible, what is the threshold gain coefficient $\\gamma_{\\text{th}}$ required to sustain laser oscillations?',
+          questionAr: 'تجويف رنيني لليزر غازي طوله $L = 0.50\\text{ m}$ محاط بمرآتين مستويتين معاملا انعكاسهما $R_1 = 1.00$ و $R_2 = 0.90$. بافتراض إهمال أي فواقد أخرى في التجويف، احسب معامل الكسب الحرج $\\gamma_{\\text{th}}$ اللازم لبدء واستمرار الانبعاث المستحث.',
+          optionsEn: ['$0.105\\text{ m}^{-1}$', '$0.211\\text{ m}^{-1}$', '$0.053\\text{ m}^{-1}$', '$1.054\\text{ m}^{-1}$'],
+          optionsAr: ['$0.105\\text{ m}^{-1}$', '$0.211\\text{ m}^{-1}$', '$0.053\\text{ m}^{-1}$', '$1.054\\text{ m}^{-1}$'],
+          correctAnswer: '$0.105\\text{ m}^{-1}$',
+          correctIndex: 0,
+          hintEn: 'Round-trip oscillation condition: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.',
+          hintAr: 'شرط الدورة الكاملة لاستمرار الليزر: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.',
+          stepByStepSolutionEn: [
+            'Round-trip gain must balance mirror transmission losses: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.',
+            'Rearrange: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{R_1 R_2}\\right) = \\ln\\left(\\frac{1}{1.00 \\times 0.90}\\right) = \\ln(1.1111) \\approx 0.10536$.',
+            'Solve for threshold gain: $\\gamma_{\\text{th}} = \\frac{0.10536}{2 \\times 0.50\\text{ m}} = 0.1054\\text{ m}^{-1} \\approx 0.105\\text{ m}^{-1}$.'
+          ],
+          stepByStepSolutionAr: [
+            'شرط اتزان الكسب مع فواقد الانعكاس: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.',
+            'أخذ اللوغاريتم الطبيعي: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{0.90}\\right) = \\ln(1.1111) \\approx 0.10536$.',
+            'حساب معامل الكسب الحرج: $\\gamma_{\\text{th}} = \\frac{0.10536}{2 \\times 0.50} = 0.1054\\text{ م}^{-1}$.'
+          ],
+          teacherTipEn: 'Low threshold gain is the defining advantage of Fabry-Perot cavities: multi-pass amplification allows lasers to operate even with modest active medium gains.',
+          teacherTipAr: 'انخفاض معامل الكسب المطلوب هو الميزة الكبرى للتجويف الرنيني الذي يضاعف مسار الفوتونات مئات المرات.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_phys_ex_05',
+          titleEn: 'Exercise 5: He-Ne Laser Longitudinal Cavity Mode Spacing',
+          titleAr: 'تمرين ٥: الفاصل الترددي بين الأنماط الطولية لتجويف ليزر الهيليوم-نيون',
+          difficulty: 'hots',
+          questionEn: 'A continuous-wave Helium-Neon laser has a resonant cavity length of $L = 30\\text{ cm}$. What is the frequency separation $\\Delta\\nu$ between two adjacent longitudinal modes of the cavity? ($c = 3.0 \\times 10^8\\text{ m/s}$)',
+          questionAr: 'ليزر هيليوم-نيون مستمر طول تجويفه الرنيني $L = 30\\text{ cm}$. ما هو الفارق في التردد $\\Delta\\nu$ بين نمطين طوليين متتاليين للتجويف؟',
+          optionsEn: ['$500\\text{ MHz}$', '$250\\text{ MHz}$', '$1000\\text{ MHz}$', '$100\\text{ MHz}$'],
+          optionsAr: ['$500\\text{ MHz}$', '$250\\text{ MHz}$', '$1000\\text{ MHz}$', '$100\\text{ MHz}$'],
+          correctAnswer: '$500\\text{ MHz}$',
+          correctIndex: 0,
+          hintEn: 'Longitudinal cavity modes satisfy $L = m \\frac{\\lambda}{2} \\implies \\nu_m = m \\frac{c}{2L}$. Spacing is $\\Delta\\nu = \\frac{c}{2L}$.',
+          hintAr: 'أنماط التجويف الرنيني تحقق $L = m \\frac{\\lambda}{2} \\implies \\nu_m = m \\frac{c}{2L}$. والفاصل الترددي هو $\\Delta\\nu = \\frac{c}{2L}$.',
+          stepByStepSolutionEn: [
+            'Condition for standing waves between mirrors: $L = m \\frac{\\lambda_m}{2} = m \\frac{c}{2 \\nu_m}$.',
+            'Mode frequency: $\\nu_m = m \\frac{c}{2L}$.',
+            'Frequency separation between adjacent modes ($m+1$ and $m$): $\\Delta\\nu = \\frac{c}{2L} = \\frac{3.0 \\times 10^8\\text{ m/s}}{2 \\times 0.30\\text{ m}} = \\frac{3.0 \\times 10^8}{0.60} = 5.0 \\times 10^8\\text{ Hz} = 500\\text{ MHz}$.'
+          ],
+          stepByStepSolutionAr: [
+            'شرط تكون موجات موقوفة بين مرآتي التجويف: $L = m \\frac{\\lambda}{2}$.',
+            'تردد النمط الطولي: $\\nu_m = m \\frac{c}{2L}$.',
+            'الفاصل الترددي بين نمطين متعاقبين: $\\Delta\\nu = \\frac{c}{2L} = \\frac{3.0 \\times 10^8}{2 \\times 0.30} = 500\\text{ ميجاهرتز}$.'
+          ],
+          teacherTipEn: 'Only cavity modes that fall within the neon transition Doppler gain curve (approx 1.5 GHz width) will actually oscillate and be amplified.',
+          teacherTipAr: 'الأنماط التي تقع فقط ضمن منحنى دوبلر لغاز النيون (عرضه نحو 1.5 جيجاهرتز) هي التي تتذبذب ويتم تكبيرها.'
+        }
+      ]
+    },
+    {
+      id: 'egbac_phys_ch4',
+      chapterNumber: 4,
+      titleEn: 'Solid-State Quantum Electronics: Semiconductor Physics & Transistors',
+      titleAr: 'الإلكترونيات الكمية للحالة الصلبة: أشباه الموصلات والترانزستور',
+      descriptionEn: 'Intrinsic and extrinsic semiconductors, law of mass action, p-n junction diode barrier and rectifying behavior, bipolar junction transistors (BJT), and logic gate networks.',
+      descriptionAr: 'أشباه الموصلات النقية وغير النقية، قانون فعل الكتلة، الوصلة الثنائية وحاجز الجهد والتقويم، ترانزستور ثنائي القطبية، وشبكات البوابات المنطقية.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_phys_l4",
           "titleEn": "Solid-State Quantum Electronics: Semiconductor Energy Bands, p-n Junction & Transistors",
@@ -1083,6 +1287,72 @@ export const egBacPhysicsBranch: Branch = {
             "descriptionAr": "محاكاة تفاعلية لتوزيع حزم الطاقة ومنحنى خواص الدايود وتكبير الإشارات بدوائر الترانزستور."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_phys_se_04',
+          titleEn: 'Advanced Example 4: BJT Common-Emitter Transistor Operating Point',
+          titleAr: 'مثال متقدم ٤: نقطة التشغيل وخط الحمل للترانزستور كمكبر',
+          difficulty: 'medium',
+          diagramType: 'phys_pn_junction_transistor',
+          questionEn: 'In a common-emitter npn transistor amplifier, $V_{cc} = 10\\text{ V}$, collector load resistor is $R_c = 2.0\\,\\text{k}\\Omega$, and base current is $I_b = 25\\,\\mu\\text{A}$. If current gain is $\\beta = 120$, determine the collector current $I_c$ and the output collector-emitter voltage $V_{ce}$.',
+          questionAr: 'في دائرة مكبر باعث مشترك لترانزستور npn، جهد التغذية $V_{cc} = 10\\text{ V}$ ومقاومة المجمع $R_c = 2.0\\,\\text{k}\\Omega$ وتيار القاعدة $I_b = 25\\,\\mu\\text{A}$. إذا كان معامل تكبير التيار $\\beta = 120$، فاحسب شدة تيار المجمع $I_c$ وجهد الخرج $V_{ce}$.',
+          optionsEn: ['$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$', '$I_c = 2.5\\text{ mA},\\, V_{ce} = 5.0\\text{ V}$', '$I_c = 3.0\\text{ mA},\\, V_{ce} = 6.0\\text{ V}$', '$I_c = 4.0\\text{ mA},\\, V_{ce} = 2.0\\text{ V}$'],
+          optionsAr: ['$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$', '$I_c = 2.5\\text{ mA},\\, V_{ce} = 5.0\\text{ V}$', '$I_c = 3.0\\text{ mA},\\, V_{ce} = 6.0\\text{ V}$', '$I_c = 4.0\\text{ mA},\\, V_{ce} = 2.0\\text{ V}$'],
+          correctAnswer: '$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Calculate $I_c = \\beta I_b$, then use Kirchhoff output loop equation: $V_{ce} = V_{cc} - I_c R_c$.',
+          hintAr: 'احسب $I_c = \\beta I_b$ ثم طبق معادلة خرج كيرشوف: $V_{ce} = V_{cc} - I_c R_c$.',
+          stepByStepSolutionEn: [
+            'Collector current: $I_c = \\beta I_b = 120 \\times (25 \\times 10^{-6}\\,\\text{A}) = 3.0 \\times 10^{-3}\\,\\text{A} = 3.0\\text{ mA}$.',
+            'Voltage drop across collector resistor: $V_{R_c} = I_c R_c = (3.0 \\times 10^{-3}\\,\\text{A})(2000\\,\\Omega) = 6.0\\text{ V}$.',
+            'Output voltage: $V_{ce} = V_{cc} - I_c R_c = 10.0\\text{ V} - 6.0\\text{ V} = 4.0\\text{ V}$.'
+          ],
+          stepByStepSolutionAr: [
+            'تيار المجمع: $I_c = \\beta I_b = 120 \\times 25\\,\\mu\\text{A} = 3.0\\text{ mA}$.',
+            'هبوط الجهد على مقاومة المجمع: $V_{R_c} = I_c R_c = 3.0\\text{ mA} \\times 2.0\\text{ k}\\Omega = 6.0\\text{ V}$.',
+            'جهد الخرج بين المجمع والباعث: $V_{ce} = V_{cc} - I_c R_c = 10.0 - 6.0 = 4.0\\text{ V}$.'
+          ],
+          teacherTipEn: 'The operating point Q is (4.0 V, 3.0 mA), located well within the active linear amplification region on the DC load line.',
+          teacherTipAr: 'نقطة التشغيل Q تقع في منتصف المنطقة الفعالة لخط الحمل مما يضمن تكبيراً خطياً دون تشويه للإشارة.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_phys_ex_03',
+          titleEn: 'Exercise 3: Semiconductor Mass Action Law & Hole Suppression',
+          titleAr: 'تمرين ٣: قانون فعل الكتلة وتثبيط الفجوات في أشباه الموصلات',
+          difficulty: 'medium',
+          questionEn: 'In pure silicon at room temperature, intrinsic carrier concentration is $n_i = 1.5 \\times 10^{10}\\,\\text{cm}^{-3}$. If the crystal is doped with donor atoms such that electron concentration is $n = 3.0 \\times 10^{16}\\,\\text{cm}^{-3}$, what is the minority hole concentration $p$?',
+          questionAr: 'في بلورة سيليكون نقية عند درجة حرارة الغرفة، تركيز الحاملات الذاتي $n_i = 1.5 \\times 10^{10}\\,\\text{cm}^{-3}$. إذا تم تطعيمها بذرات مانحة حتى أصبح تركيز الإلكترونات $n = 3.0 \\times 10^{16}\\,\\text{cm}^{-3}$، فما هو تركيز الفجوات الموجبة الأقلية $p$؟',
+          optionsEn: ['$7.5 \\times 10^3\\,\\text{cm}^{-3}$', '$1.5 \\times 10^4\\,\\text{cm}^{-3}$', '$2.25 \\times 10^6\\,\\text{cm}^{-3}$', '$4.5 \\times 10^3\\,\\text{cm}^{-3}$'],
+          optionsAr: ['$7.5 \\times 10^3\\,\\text{cm}^{-3}$', '$1.5 \\times 10^4\\,\\text{cm}^{-3}$', '$2.25 \\times 10^6\\,\\text{cm}^{-3}$', '$4.5 \\times 10^3\\,\\text{cm}^{-3}$'],
+          correctAnswer: '$7.5 \\times 10^3\\,\\text{cm}^{-3}$',
+          correctIndex: 0,
+          hintEn: 'Apply mass action law: $n \\cdot p = n_i^2 \\implies p = \\frac{n_i^2}{n}$.',
+          hintAr: 'طبق قانون فعل الكتلة: $n \\cdot p = n_i^2 \\implies p = \\frac{n_i^2}{n}$.',
+          stepByStepSolutionEn: [
+            'Law of Mass Action states $n \\cdot p = n_i^2$ at constant temperature.',
+            'Calculate hole concentration: $p = \\frac{n_i^2}{n} = \\frac{(1.5 \\times 10^{10})^2}{3.0 \\times 10^{16}} = \\frac{2.25 \\times 10^{20}}{3.0 \\times 10^{16}} = 7.5 \\times 10^3\\,\\text{cm}^{-3}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون فعل الكتلة: $n \\cdot p = n_i^2$ عند ثبوت درجة الحرارة.',
+            'حساب تركيز الفجوات الأقلية: $p = \\frac{(1.5 \\times 10^{10})^2}{3.0 \\times 10^{16}} = \\frac{2.25 \\times 10^{20}}{3.0 \\times 10^{16}} = 7.5 \\times 10^3\\,\\text{cm}^{-3}$.'
+          ],
+          teacherTipEn: 'Doping with donors dramatically boosts electron count while suppressing hole count due to increased recombination rate.',
+          teacherTipAr: 'التطعيم بذرات مانحة يرفع تركيز الإلكترونات ويخفض تركيز الفجوات بشدة لزيادة معدل إعادة الاتحاد.'
+        }
+      ]
+    },
+    {
+      id: 'egbac_phys_ch5',
+      chapterNumber: 5,
+      titleEn: 'Relativistic Mechanics & Nuclear Quantum Physics',
+      titleAr: 'الميكانيكا النسبية وفيزياء النواة الكمية',
+      descriptionEn: "Einstein's mass-energy equivalence, mass defect, nuclear binding energy per nucleon, liquid drop vs shell models, nuclear fission, fusion, and radioactive decay kinetics.",
+      descriptionAr: 'معادلة أينشتاين لتكافؤ الكتلة والطاقة، النقص في الكتلة، طاقة الترابط النووي لكل نيوكلون، الانشطار والاندماج النووي، وحركية التحلل الإشعاعي.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_phys_l5",
           "titleEn": "Relativistic Mechanics & Nuclear Quantum Physics: Mass Defect, Binding Energy & Reactions",
@@ -1345,114 +1615,6 @@ export const egBacPhysicsBranch: Branch = {
       ],
       solvedExamples: [
         {
-          id: 'egbac_phys_se_01',
-          titleEn: 'Advanced Example 1: Photoelectric Stopping Potential',
-          titleAr: 'مثال متقدم ١: حساب جهد الإيقاف في الخلية الكهروضوئية',
-          difficulty: 'easy',
-          questionEn: 'Light of wavelength $\\lambda = 300\\text{ nm}$ strikes a metal surface with work function $W_0 = 2.4\\text{ eV}$. Given $h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$, calculate the stopping potential $V_{\\text{stop}}$.',
-          questionAr: 'سقط ضوء طوله الموجي $\\lambda = 300\\text{ نانومتر}$ على سطح فلز دالة شغله $W_0 = 2.4\\text{ إلكترون فولت}$. بمعلومية $h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$، احسب جهد الإيقاف $V_{\\text{stop}}$.',
-          optionsEn: ['$1.73\\text{ V}$', '$2.40\\text{ V}$', '$4.13\\text{ V}$', '$0.85\\text{ V}$'],
-          optionsAr: ['$1.73\\text{ فولت}$', '$2.40\\text{ فولت}$', '$4.13\\text{ فولت}$', '$0.85\\text{ فولت}$'],
-          correctAnswer: '$1.73\\text{ V}$',
-          correctIndex: 0,
-          hintEn: 'Photon energy $E = \\frac{hc}{\\lambda} = \\frac{1240}{300}\\text{ eV}$, then $e V_{\\text{stop}} = E - W_0$.',
-          hintAr: 'طاقة الفوتون $E = \\frac{hc}{\\lambda} = \\frac{1240}{300}\\text{ eV}$، ثم $e V_{\\text{stop}} = E - W_0$.',
-          stepByStepSolutionEn: [
-            'Photon energy: $E = \\frac{1240}{300} = 4.133\\text{ eV}$.',
-            'Maximum kinetic energy: $KE_{\\max} = E - W_0 = 4.133 - 2.40 = 1.733\\text{ eV}$.',
-            'Stopping potential: Since $KE_{\\max} = e V_{\\text{stop}}$, $V_{\\text{stop}} = 1.733\\text{ V}$.'
-          ],
-          stepByStepSolutionAr: [
-            'طاقة الفوتون الساقط: $E = \\frac{1240}{300} = 4.133\\text{ إلكترون فولت}$.',
-            'طاقة الحركة العظمى: $KE_{\\max} = E - W_0 = 4.133 - 2.40 = 1.733\\text{ إلكترون فولت}$.',
-            'جهد الإيقاف: بما أن $KE_{\\max} = e V_{\\text{stop}}$، إذن $V_{\\text{stop}} = 1.733\\text{ فولت}$.'
-          ],
-          teacherTipEn: 'Stopping potential depends only on photon frequency and the metal work function, not on light intensity.',
-          teacherTipAr: 'جهد الإيقاف يعتمد حصرياً على تردد الضوء ودالة شغل الفلز ولا يتأثر إطلاقاً بشدة الضوء.'
-        },
-        {
-          id: 'egbac_phys_se_02',
-          titleEn: 'Advanced Example 2: Lyman vs Balmer Series Limit Wavelength Ratio',
-          titleAr: 'مثال متقدم ٢: النسبة بين أدنى طول موجي في متسلسلتي ليمان وبالمر',
-          difficulty: 'medium',
-          diagramType: 'phys_bohr_atom_series',
-          questionEn: 'What is the ratio of the shortest wavelength emitted in the Lyman series ($\lambda_{\min, L}$) to the shortest wavelength emitted in the Balmer series ($\lambda_{\min, B}$) for atomic hydrogen?',
-          questionAr: 'ما هي النسبة بين أقصر طول موجي منبعث في مجموعة ليمان ($\lambda_{\min, L}$) إلى أقصر طول موجي منبعث في مجموعة بالمر ($\lambda_{\min, B}$) لذرة الهيدروجين؟',
-          optionsEn: ['$1 : 4$', '$1 : 2$', '$4 : 1$', '$1 : 9$'],
-          optionsAr: ['$1 : 4$', '$1 : 2$', '$4 : 1$', '$1 : 9$'],
-          correctAnswer: '$1 : 4$',
-          correctIndex: 0,
-          hintEn: 'Shortest wavelength in series terminating at $n_1$ corresponds to $n_2 = \\infty$: $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
-          hintAr: 'أقصر طول موجي في أي متسلسلة تنتهي عند $n_1$ يقابل الانتقال من $n_2 = \\infty$: $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
-          stepByStepSolutionEn: [
-            'By Rydberg equation for series limit: $\\frac{1}{\\lambda_{\\min}} = R_H \\left(\\frac{1}{n_1^2} - 0\\right) = \\frac{R_H}{n_1^2} \\implies \\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
-            'For Lyman series ($n_1 = 1$): $\\lambda_{\\min, L} = \\frac{1^2}{R_H} = \\frac{1}{R_H}$.',
-            'For Balmer series ($n_1 = 2$): $\\lambda_{\\min, B} = \\frac{2^2}{R_H} = \\frac{4}{R_H}$.',
-            'Ratio: $\\frac{\\lambda_{\\min, L}}{\\lambda_{\\min, B}} = \\frac{1 / R_H}{4 / R_H} = \\frac{1}{4}$.'
-          ],
-          stepByStepSolutionAr: [
-            'من معادلة ريدبرج لحد المتسلسلة ($n_2 = \\infty$): $\\lambda_{\\min} = \\frac{n_1^2}{R_H}$.',
-            'لمجموعة ليمان ($n_1 = 1$): $\\lambda_{\\min, L} = \\frac{1}{R_H}$.',
-            'لمجموعة بالمر ($n_1 = 2$): $\\lambda_{\\min, B} = \\frac{4}{R_H}$.',
-            'النسبة بينهما: $\\frac{\\lambda_{\\min, L}}{\\lambda_{\\min, B}} = \\frac{1}{4}$.'
-          ],
-          teacherTipEn: 'The Lyman series limit is 91.2 nm (deep ultraviolet) while the Balmer series limit is 364.6 nm (near UV), exactly 4 times longer.',
-          teacherTipAr: 'حد ليمان هو 91.2 نانومتر بينما حد بالمر هو 364.6 نانومتر، أي أربعة أمثال طول موجة ليمان بالضبط.'
-        },
-        {
-          id: 'egbac_phys_se_03',
-          titleEn: 'Advanced Example 3: Laser Threshold Gain in Optical Resonator',
-          titleAr: 'مثال متقدم ٣: معامل الكسب الحرج للتجويف الرنيني في الليزر',
-          difficulty: 'hots',
-          questionEn: 'A gas laser cavity of length $L = 0.50\\text{ m}$ is bounded by two planar mirrors of reflectivities $R_1 = 1.00$ and $R_2 = 0.90$. If other distributed cavity losses are negligible, what is the threshold gain coefficient $\\gamma_{\\text{th}}$ required to sustain laser oscillations?',
-          questionAr: 'تجويف رنيني لليزر غازي طوله $L = 0.50\\text{ m}$ محاط بمرآتين مستويتين معاملا انعكاسهما $R_1 = 1.00$ و $R_2 = 0.90$. بافتراض إهمال أي فواقد أخرى في التجويف، احسب معامل الكسب الحرج $\\gamma_{\\text{th}}$ اللازم لبدء واستمرار الانبعاث المستحث.',
-          optionsEn: ['$0.105\\text{ m}^{-1}$', '$0.211\\text{ m}^{-1}$', '$0.053\\text{ m}^{-1}$', '$1.054\\text{ m}^{-1}$'],
-          optionsAr: ['$0.105\\text{ m}^{-1}$', '$0.211\\text{ m}^{-1}$', '$0.053\\text{ m}^{-1}$', '$1.054\\text{ m}^{-1}$'],
-          correctAnswer: '$0.105\\text{ m}^{-1}$',
-          correctIndex: 0,
-          hintEn: 'Round-trip oscillation condition: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.',
-          hintAr: 'شرط الدورة الكاملة لاستمرار الليزر: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1 \\implies \\gamma_{\\text{th}} = \\frac{1}{2L} \\ln\\left(\\frac{1}{R_1 R_2}\\right)$.',
-          stepByStepSolutionEn: [
-            'Round-trip gain must balance mirror transmission losses: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.',
-            'Rearrange: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{R_1 R_2}\\right) = \\ln\\left(\\frac{1}{1.00 \\times 0.90}\\right) = \\ln(1.1111) \\approx 0.10536$.',
-            'Solve for threshold gain: $\\gamma_{\\text{th}} = \\frac{0.10536}{2 \\times 0.50\\text{ m}} = 0.1054\\text{ m}^{-1} \\approx 0.105\\text{ m}^{-1}$.'
-          ],
-          stepByStepSolutionAr: [
-            'شرط اتزان الكسب مع فواقد الانعكاس: $R_1 R_2 e^{2 \\gamma_{\\text{th}} L} = 1$.',
-            'أخذ اللوغاريتم الطبيعي: $2 \\gamma_{\\text{th}} L = \\ln\\left(\\frac{1}{0.90}\\right) = \\ln(1.1111) \\approx 0.10536$.',
-            'حساب معامل الكسب الحرج: $\\gamma_{\\text{th}} = \\frac{0.10536}{2 \\times 0.50} = 0.1054\\text{ م}^{-1}$.'
-          ],
-          teacherTipEn: 'Low threshold gain is the defining advantage of Fabry-Perot cavities: multi-pass amplification allows lasers to operate even with modest active medium gains.',
-          teacherTipAr: 'انخفاض معامل الكسب المطلوب هو الميزة الكبرى للتجويف الرنيني الذي يضاعف مسار الفوتونات مئات المرات.'
-        },
-        {
-          id: 'egbac_phys_se_04',
-          titleEn: 'Advanced Example 4: BJT Common-Emitter Transistor Operating Point',
-          titleAr: 'مثال متقدم ٤: نقطة التشغيل وخط الحمل للترانزستور كمكبر',
-          difficulty: 'medium',
-          diagramType: 'phys_pn_junction_transistor',
-          questionEn: 'In a common-emitter npn transistor amplifier, $V_{cc} = 10\\text{ V}$, collector load resistor is $R_c = 2.0\\,\\text{k}\\Omega$, and base current is $I_b = 25\\,\\mu\\text{A}$. If current gain is $\\beta = 120$, determine the collector current $I_c$ and the output collector-emitter voltage $V_{ce}$.',
-          questionAr: 'في دائرة مكبر باعث مشترك لترانزستور npn، جهد التغذية $V_{cc} = 10\\text{ V}$ ومقاومة المجمع $R_c = 2.0\\,\\text{k}\\Omega$ وتيار القاعدة $I_b = 25\\,\\mu\\text{A}$. إذا كان معامل تكبير التيار $\\beta = 120$، فاحسب شدة تيار المجمع $I_c$ وجهد الخرج $V_{ce}$.',
-          optionsEn: ['$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$', '$I_c = 2.5\\text{ mA},\\, V_{ce} = 5.0\\text{ V}$', '$I_c = 3.0\\text{ mA},\\, V_{ce} = 6.0\\text{ V}$', '$I_c = 4.0\\text{ mA},\\, V_{ce} = 2.0\\text{ V}$'],
-          optionsAr: ['$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$', '$I_c = 2.5\\text{ mA},\\, V_{ce} = 5.0\\text{ V}$', '$I_c = 3.0\\text{ mA},\\, V_{ce} = 6.0\\text{ V}$', '$I_c = 4.0\\text{ mA},\\, V_{ce} = 2.0\\text{ V}$'],
-          correctAnswer: '$I_c = 3.0\\text{ mA},\\, V_{ce} = 4.0\\text{ V}$',
-          correctIndex: 0,
-          hintEn: 'Calculate $I_c = \\beta I_b$, then use Kirchhoff output loop equation: $V_{ce} = V_{cc} - I_c R_c$.',
-          hintAr: 'احسب $I_c = \\beta I_b$ ثم طبق معادلة خرج كيرشوف: $V_{ce} = V_{cc} - I_c R_c$.',
-          stepByStepSolutionEn: [
-            'Collector current: $I_c = \\beta I_b = 120 \\times (25 \\times 10^{-6}\\,\\text{A}) = 3.0 \\times 10^{-3}\\,\\text{A} = 3.0\\text{ mA}$.',
-            'Voltage drop across collector resistor: $V_{R_c} = I_c R_c = (3.0 \\times 10^{-3}\\,\\text{A})(2000\\,\\Omega) = 6.0\\text{ V}$.',
-            'Output voltage: $V_{ce} = V_{cc} - I_c R_c = 10.0\\text{ V} - 6.0\\text{ V} = 4.0\\text{ V}$.'
-          ],
-          stepByStepSolutionAr: [
-            'تيار المجمع: $I_c = \\beta I_b = 120 \\times 25\\,\\mu\\text{A} = 3.0\\text{ mA}$.',
-            'هبوط الجهد على مقاومة المجمع: $V_{R_c} = I_c R_c = 3.0\\text{ mA} \\times 2.0\\text{ k}\\Omega = 6.0\\text{ V}$.',
-            'جهد الخرج بين المجمع والباعث: $V_{ce} = V_{cc} - I_c R_c = 10.0 - 6.0 = 4.0\\text{ V}$.'
-          ],
-          teacherTipEn: 'The operating point Q is (4.0 V, 3.0 mA), located well within the active linear amplification region on the DC load line.',
-          teacherTipAr: 'نقطة التشغيل Q تقع في منتصف المنطقة الفعالة لخط الحمل مما يضمن تكبيراً خطياً دون تشويه للإشارة.'
-        },
-        {
           id: 'egbac_phys_se_05',
           titleEn: 'Advanced Example 5: Nuclear Binding Energy Per Nucleon in Helium-4',
           titleAr: 'مثال متقدم ٥: طاقة الترابط النووي لكل نيوكليون في نواة الهيليوم',
@@ -1485,81 +1647,6 @@ export const egBacPhysicsBranch: Branch = {
       ],
       exerciseProblems: [
         {
-          id: 'egbac_phys_ex_01',
-          titleEn: 'Exercise 1: Compton Scattering Wavelength Shift',
-          titleAr: 'تمرين ١: مقدار التغير في الطول الموجي في ظاهرة كومتون',
-          difficulty: 'easy',
-          questionEn: 'In a Compton scattering experiment, an X-ray photon is scattered by an angle $\\theta = 90^\\circ$. What is the increase in wavelength $\\Delta \\lambda$?',
-          questionAr: 'في تجربة كومتون، تشتت فوتون أشعة سينية بزاوية $\\theta = 90^\\circ$. ما مقدار الزيادة في الطول الموجي للفوتون $\\Delta \\lambda$؟',
-          optionsEn: ['$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ m}$', '$0$', '$\\frac{2h}{m_e c}$', '$\\frac{h}{2 m_e c}$'],
-          optionsAr: ['$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ م}$', '$0$', '$\\frac{2h}{m_e c}$', '$\\frac{h}{2 m_e c}$'],
-          correctAnswer: '$\\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ m}$',
-          correctIndex: 0,
-          hintEn: 'Use Compton formula: $\\Delta \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)$ with $\\cos(90^\\circ) = 0$.',
-          hintAr: 'طبق قانون كومتون: $\\Delta \\lambda = \\frac{h}{m_e c}(1 - \\cos\\theta)$ حيث $\\cos(90^\\circ) = 0$.',
-          stepByStepSolutionEn: [
-            'Compton wavelength shift: $\\Delta \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta)$.',
-            'For $\\theta = 90^\\circ$, $\\cos(90^\\circ) = 0$.',
-            'Therefore, $\\Delta \\lambda = \\frac{h}{m_e c} = \\lambda_c \\approx 2.426 \\times 10^{-12}\\text{ m} = 0.00243\\text{ nm}$.'
-          ],
-          stepByStepSolutionAr: [
-            'قانون إزاحة كومتون: $\\Delta \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta)$.',
-            'عند زاوية تشتت $\\theta = 90^\\circ$ يكون $\\cos(90^\\circ) = 0$.',
-            'إذن التغير في الطول الموجي $\\Delta \\lambda = \\frac{h}{m_e c} \\approx 2.43 \\times 10^{-12}\\text{ م}$.'
-          ],
-          teacherTipEn: 'The quantity $h / (m_e c)$ is known as the Compton wavelength of the electron.',
-          teacherTipAr: 'المقدار $\\frac{h}{m_e c}$ يُسمى الطول الموجي لكومتون للإلكترون وهو ثابت فيزيائي أساسي.'
-        },
-        {
-          id: 'egbac_phys_ex_02',
-          titleEn: 'Exercise 2: Duane-Hunt Potential for Hard X-Rays',
-          titleAr: 'تمرين ٢: فرق الجهد المعجل في أنبوبة كوليدج لأشعة سينية صلبة',
-          difficulty: 'medium',
-          diagramType: 'phys_coolidge_xray_tube',
-          questionEn: 'A medical radiologist requires X-rays with a minimum cutoff wavelength of $\\lambda_{\\min} = 0.025\\text{ nm}$. What accelerating potential difference must be applied across the Coolidge tube? ($h c \\approx 1240\\text{ eV}\\cdot\\text{nm}$)',
-          questionAr: 'تتطلب أشعة تشخيصية طبية حزمة أشعة سينية لا يقل طولها الموجي عن $\\lambda_{\\min} = 0.025\\text{ nm}$. ما هو فرق الجهد المعجل الواجب تطبيقه بين قطبي أنبوبة كوليدج؟',
-          optionsEn: ['$49.6\\text{ kV}$', '$24.8\\text{ kV}$', '$99.2\\text{ kV}$', '$12.4\\text{ kV}$'],
-          optionsAr: ['$49.6\\text{ kV}$', '$24.8\\text{ kV}$', '$99.2\\text{ kV}$', '$12.4\\text{ kV}$'],
-          correctAnswer: '$49.6\\text{ kV}$',
-          correctIndex: 0,
-          hintEn: 'Use Duane-Hunt shortcut: $V = \\frac{1240\\text{ V}\\cdot\\text{nm}}{\\lambda_{\\min}(\\text{nm})}$.',
-          hintAr: 'طبق علاقة ديوان-هنت السريعة: $V = \\frac{1240}{\\lambda_{\\min}\\,(\\text{nm})}$.',
-          stepByStepSolutionEn: [
-            'Duane-Hunt cutoff relation: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
-            'Substitute $hc = 1240\\text{ eV}\\cdot\\text{nm}$: $V = \\frac{1240\\text{ V}\\cdot\\text{nm}}{0.025\\text{ nm}} = 49,600\\text{ V} = 49.6\\text{ kV}$.'
-          ],
-          stepByStepSolutionAr: [
-            'قانون ديوان-هنت لأقصر طول موجي: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
-            'بالتعويض: $V = \\frac{1240}{0.025} = 49,600\\text{ فولت} = 49.6\\text{ كيلو فولت}$.'
-          ],
-          teacherTipEn: 'Higher accelerating voltage produces more penetrating (hard) X-rays needed for deep tissue bone imaging.',
-          teacherTipAr: 'فرق الجهد العالي يولد أشعة سينية صلبة ذات تردد عالٍ ونفاذية فائقة تلزم لتصوير العظام العميقة.'
-        },
-        {
-          id: 'egbac_phys_ex_03',
-          titleEn: 'Exercise 3: Semiconductor Mass Action Law & Hole Suppression',
-          titleAr: 'تمرين ٣: قانون فعل الكتلة وتثبيط الفجوات في أشباه الموصلات',
-          difficulty: 'medium',
-          questionEn: 'In pure silicon at room temperature, intrinsic carrier concentration is $n_i = 1.5 \\times 10^{10}\\,\\text{cm}^{-3}$. If the crystal is doped with donor atoms such that electron concentration is $n = 3.0 \\times 10^{16}\\,\\text{cm}^{-3}$, what is the minority hole concentration $p$?',
-          questionAr: 'في بلورة سيليكون نقية عند درجة حرارة الغرفة، تركيز الحاملات الذاتي $n_i = 1.5 \\times 10^{10}\\,\\text{cm}^{-3}$. إذا تم تطعيمها بذرات مانحة حتى أصبح تركيز الإلكترونات $n = 3.0 \\times 10^{16}\\,\\text{cm}^{-3}$، فما هو تركيز الفجوات الموجبة الأقلية $p$؟',
-          optionsEn: ['$7.5 \\times 10^3\\,\\text{cm}^{-3}$', '$1.5 \\times 10^4\\,\\text{cm}^{-3}$', '$2.25 \\times 10^6\\,\\text{cm}^{-3}$', '$4.5 \\times 10^3\\,\\text{cm}^{-3}$'],
-          optionsAr: ['$7.5 \\times 10^3\\,\\text{cm}^{-3}$', '$1.5 \\times 10^4\\,\\text{cm}^{-3}$', '$2.25 \\times 10^6\\,\\text{cm}^{-3}$', '$4.5 \\times 10^3\\,\\text{cm}^{-3}$'],
-          correctAnswer: '$7.5 \\times 10^3\\,\\text{cm}^{-3}$',
-          correctIndex: 0,
-          hintEn: 'Apply mass action law: $n \\cdot p = n_i^2 \\implies p = \\frac{n_i^2}{n}$.',
-          hintAr: 'طبق قانون فعل الكتلة: $n \\cdot p = n_i^2 \\implies p = \\frac{n_i^2}{n}$.',
-          stepByStepSolutionEn: [
-            'Law of Mass Action states $n \\cdot p = n_i^2$ at constant temperature.',
-            'Calculate hole concentration: $p = \\frac{n_i^2}{n} = \\frac{(1.5 \\times 10^{10})^2}{3.0 \\times 10^{16}} = \\frac{2.25 \\times 10^{20}}{3.0 \\times 10^{16}} = 7.5 \\times 10^3\\,\\text{cm}^{-3}$.'
-          ],
-          stepByStepSolutionAr: [
-            'قانون فعل الكتلة: $n \\cdot p = n_i^2$ عند ثبوت درجة الحرارة.',
-            'حساب تركيز الفجوات الأقلية: $p = \\frac{(1.5 \\times 10^{10})^2}{3.0 \\times 10^{16}} = \\frac{2.25 \\times 10^{20}}{3.0 \\times 10^{16}} = 7.5 \\times 10^3\\,\\text{cm}^{-3}$.'
-          ],
-          teacherTipEn: 'Doping with donors dramatically boosts electron count while suppressing hole count due to increased recombination rate.',
-          teacherTipAr: 'التطعيم بذرات مانحة يرفع تركيز الإلكترونات ويخفض تركيز الفجوات بشدة لزيادة معدل إعادة الاتحاد.'
-        },
-        {
           id: 'egbac_phys_ex_04',
           titleEn: 'Exercise 4: De Broglie Wavelength of Electron Microscope Beam',
           titleAr: 'تمرين ٤: طول موجة دي برولي لحزمة الإلكترونات في المجهر الإلكتروني',
@@ -1584,35 +1671,8 @@ export const egBacPhysicsBranch: Branch = {
           ],
           teacherTipEn: 'Because 0.1 nm is comparable to interatomic distances in crystals, electrons can undergo crystal diffraction and resolve atomic structures.',
           teacherTipAr: 'بما أن الطول الموجي (0.1 نانومتر) يماثل المسافات البينية في البلورات، يمكن للإلكترونات أن تحيد وتكشف البنية الذرية للمواد.'
-        },
-        {
-          id: 'egbac_phys_ex_05',
-          titleEn: 'Exercise 5: He-Ne Laser Longitudinal Cavity Mode Spacing',
-          titleAr: 'تمرين ٥: الفاصل الترددي بين الأنماط الطولية لتجويف ليزر الهيليوم-نيون',
-          difficulty: 'hots',
-          questionEn: 'A continuous-wave Helium-Neon laser has a resonant cavity length of $L = 30\\text{ cm}$. What is the frequency separation $\\Delta\\nu$ between two adjacent longitudinal modes of the cavity? ($c = 3.0 \\times 10^8\\text{ m/s}$)',
-          questionAr: 'ليزر هيليوم-نيون مستمر طول تجويفه الرنيني $L = 30\\text{ cm}$. ما هو الفارق في التردد $\\Delta\\nu$ بين نمطين طوليين متتاليين للتجويف؟',
-          optionsEn: ['$500\\text{ MHz}$', '$250\\text{ MHz}$', '$1000\\text{ MHz}$', '$100\\text{ MHz}$'],
-          optionsAr: ['$500\\text{ MHz}$', '$250\\text{ MHz}$', '$1000\\text{ MHz}$', '$100\\text{ MHz}$'],
-          correctAnswer: '$500\\text{ MHz}$',
-          correctIndex: 0,
-          hintEn: 'Longitudinal cavity modes satisfy $L = m \\frac{\\lambda}{2} \\implies \\nu_m = m \\frac{c}{2L}$. Spacing is $\\Delta\\nu = \\frac{c}{2L}$.',
-          hintAr: 'أنماط التجويف الرنيني تحقق $L = m \\frac{\\lambda}{2} \\implies \\nu_m = m \\frac{c}{2L}$. والفاصل الترددي هو $\\Delta\\nu = \\frac{c}{2L}$.',
-          stepByStepSolutionEn: [
-            'Condition for standing waves between mirrors: $L = m \\frac{\\lambda_m}{2} = m \\frac{c}{2 \\nu_m}$.',
-            'Mode frequency: $\\nu_m = m \\frac{c}{2L}$.',
-            'Frequency separation between adjacent modes ($m+1$ and $m$): $\\Delta\\nu = \\frac{c}{2L} = \\frac{3.0 \\times 10^8\\text{ m/s}}{2 \\times 0.30\\text{ m}} = \\frac{3.0 \\times 10^8}{0.60} = 5.0 \\times 10^8\\text{ Hz} = 500\\text{ MHz}$.'
-          ],
-          stepByStepSolutionAr: [
-            'شرط تكون موجات موقوفة بين مرآتي التجويف: $L = m \\frac{\\lambda}{2}$.',
-            'تردد النمط الطولي: $\\nu_m = m \\frac{c}{2L}$.',
-            'الفاصل الترددي بين نمطين متعاقبين: $\\Delta\\nu = \\frac{c}{2L} = \\frac{3.0 \\times 10^8}{2 \\times 0.30} = 500\\text{ ميجاهرتز}$.'
-          ],
-          teacherTipEn: 'Only cavity modes that fall within the neon transition Doppler gain curve (approx 1.5 GHz width) will actually oscillate and be amplified.',
-          teacherTipAr: 'الأنماط التي تقع فقط ضمن منحنى دوبلر لغاز النيون (عرضه نحو 1.5 جيجاهرتز) هي التي تتذبذب ويتم تكبيرها.'
         }
-      ],
-      databank: egBacPhysCh1Databank
+      ]
     }
   ]
 };

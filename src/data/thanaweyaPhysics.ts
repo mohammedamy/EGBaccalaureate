@@ -7,16 +7,16 @@ export const thanaweyaPhysicsBranch: Branch = {
   titleAr: 'الفيزياء (العلوم الطبيعية)',
   categoryEn: 'Natural Sciences',
   categoryAr: 'العلوم الطبيعية',
-  iconName: 'Atom',
-  colorGradient: 'from-blue-600 to-cyan-800',
+  iconName: 'Zap',
+  colorGradient: 'from-amber-500 to-orange-700',
   chapters: [
     {
       id: 'th_phys_ch1',
       chapterNumber: 1,
-      titleEn: 'Electric Current, Ohm\'s Law & Kirchhoff\'s Laws',
+      titleEn: "Electric Current, Ohm's Law & Kirchhoff's Laws",
       titleAr: 'التيار الكهربي وقانون أوم وقانونا كيرشوف',
-      descriptionEn: 'Fundamentals of current intensity, potential difference, electric resistance, resistivity, series and parallel resistor combinations, electromotive force, Ohm\'s Law for closed circuits, and Kirchhoff\'s first and second circuit laws.',
-      descriptionAr: 'أساسيات شدة التيار الكهربي، فرق الجهد، المقاومة الكهربية والمقاومة النوعية والتوصيلية الكهربية، توصيل المقاومات على التوالي والتوازي، قانون أوم للدوائر المغلقة، وقانونا كيرشوف الأول والثاني.',
+      descriptionEn: "Electric current intensity, potential difference, Ohm's law for closed circuits, series and parallel resistance connections, electrical energy and power, and Kirchhoff's first and second laws for complex multi-loop circuits.",
+      descriptionAr: 'شدة التيار الكهربي، فرق الجهد، قانون أوم للدوائر المغلقة، توصيل المقاومات على التوالي والتوازي، الطاقة والقدرة الكهربية، وقانونا كيرشوف للدوائر المعقدة.',
       isFullyEquipped: true,
       lessons: [
         {
@@ -307,6 +307,74 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             descriptionAr: 'أداة تفاعلية لحساب تيارات العقد وفروق الجهد ومحصلة القوى الدافعة في الدوائر المغلقة.'
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'th_phys_se_01',
+          titleEn: 'MoE Example 1: Closed Circuit Terminal Voltage & Internal Resistance',
+          titleAr: 'مثال الوزارة ١: قراءة الفولتميتر والمقاومة الداخلية للدائرة المغلقة',
+          difficulty: 'easy',
+          questionEn: 'A battery of electromotive force $V_B = 12\\text{ V}$ and internal resistance $r = 1\\,\\Omega$ is connected to an external resistor $R = 5\\,\\Omega$. Find the circuit current $I$ and the terminal potential difference across the battery $V$.',
+          questionAr: 'بطارية قوتها الدافعة الكهربية $V_B = 12\\text{ فولت}$ ومقاومتها الداخلية $r = 1\\,\\Omega$ وُصلت بمقاومة خارجية $R = 5\\,\\Omega$. احسب شدة التيار المار في الدائرة $I$ وفرق الجهد بين طرفي البطارية $V$.',
+          optionsEn: ['$I = 2\\text{ A},\\, V = 10\\text{ V}$', '$I = 2.4\\text{ A},\\, V = 12\\text{ V}$', '$I = 1.5\\text{ A},\\, V = 9\\text{ V}$', '$I = 3\\text{ A},\\, V = 8\\text{ V}$'],
+          optionsAr: ['$I = 2\\text{ A},\\, V = 10\\text{ V}$', '$I = 2.4\\text{ A},\\, V = 12\\text{ V}$', '$I = 1.5\\text{ A},\\, V = 9\\text{ V}$', '$I = 3\\text{ A},\\, V = 8\\text{ V}$'],
+          correctAnswer: '$I = 2\\text{ A},\\, V = 10\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Use Ohm\'s law for a closed circuit: $I = \\frac{V_B}{R + r}$, then $V = V_B - I r$.',
+          hintAr: 'طبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R + r}$، ثم احسب $V = V_B - Ir$.',
+          stepByStepSolutionEn: [
+            'Total resistance of the circuit: $R_{total} = R + r = 5 + 1 = 6\\,\\Omega$.',
+            'Circuit current: $I = \\frac{V_B}{R + r} = \\frac{12}{6} = 2\\text{ A}$.',
+            'Terminal voltage of the battery: $V = V_B - I r = 12 - (2)(1) = 10\\text{ V}$ (or $V = I R = 2 \\times 5 = 10\\text{ V}$).'
+          ],
+          stepByStepSolutionAr: [
+            'المقاومة الكلية للدائرة: $R_{total} = R + r = 5 + 1 = 6\\,\\Omega$.',
+            'شدة تيار الدائرة: $I = \\frac{V_B}{R + r} = \\frac{12}{6} = 2\\text{ أمبير}$.',
+            'فرق الجهد بين قطبي البطارية: $V = V_B - Ir = 12 - (2)(1) = 10\\text{ فولت}$ (أو $V = IR = 2 \\times 5 = 10\\text{ فولت}$).'
+          ],
+          teacherTipEn: 'The voltage drop inside the battery is $I r = 2\\text{ V}$, representing lost voltage.',
+          teacherTipAr: 'الهبوط في الجهد داخل العمود يساوي $Ir = 2\\text{ فولت}$ ويمثل الجهد المفقود داخل المصدر.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'th_phys_ex_01',
+          titleEn: 'Exercise 1: Conductor Resistance Ratio',
+          titleAr: 'تمرين ١: النسبة بين مقاومتي موصلين',
+          difficulty: 'easy',
+          questionEn: 'Two copper wires $A$ and $B$: wire $A$ has length $L$ and diameter $d$, while wire $B$ has length $2L$ and diameter $2d$. What is the ratio of their resistances $R_A / R_B$?',
+          questionAr: 'سلكان من النحاس $A$ و $B$: طول السلك $A$ هو $L$ وقطره $d$، بينما طول السلك $B$ هو $2L$ وقطره $2d$. ما النسبة بين مقاومتيهما $R_A / R_B$؟',
+          optionsEn: ['$2 : 1$', '$1 : 2$', '$4 : 1$', '$1 : 1$'],
+          optionsAr: ['$2 : 1$', '$1 : 2$', '$4 : 1$', '$1 : 1$'],
+          correctAnswer: '$2 : 1$',
+          correctIndex: 0,
+          hintEn: 'Resistance is proportional to length and inversely proportional to diameter squared: $R \\propto L/d^2$.',
+          hintAr: 'المقاومة تتناسب طردياً مع الطول وعكسياً مع مربع القطر: $R \\propto \\frac{L}{d^2}$.',
+          stepByStepSolutionEn: [
+            'Since both are copper, resistivity $\\rho_e$ is identical.',
+            'Ratio formula: $\\frac{R_A}{R_B} = \\frac{L_A}{L_B} \\times \\left(\\frac{d_B}{d_A}\\right)^2$.',
+            'Substitute values: $\\frac{R_A}{R_B} = \\frac{L}{2L} \\times \\left(\\frac{2d}{d}\\right)^2 = \\frac{1}{2} \\times 4 = 2$.'
+          ],
+          stepByStepSolutionAr: [
+            'كلا السلكين من النحاس، إذن المقاومة النوعية $\\rho_e$ متطابقة.',
+            'قانون النسبة: $\\frac{R_A}{R_B} = \\frac{L_A}{L_B} \\times \\left(\\frac{d_B}{d_A}\\right)^2$.',
+            'بالتعويض: $\\frac{R_A}{R_B} = \\frac{L}{2L} \\times \\left(\\frac{2d}{d}\\right)^2 = \\frac{1}{2} \\times 4 = 2$.'
+          ],
+          teacherTipEn: 'When the diameter doubles, cross-sectional area quadruples ($A \\propto d^2$).',
+          teacherTipAr: 'عند مضاعفة القطر تزداد المساحة أربعة أمثال لأن $A = \\frac{\\pi d^2}{4}$.'
+        }
+      ],
+      databank: physCh1Databank
+    },
+    {
+      id: 'th_phys_ch2',
+      chapterNumber: 2,
+      titleEn: 'Magnetic Effect of Electric Current & Measuring Instruments',
+      titleAr: 'التأثير المغناطيسي للتيار الكهربي وأجهزة القياس',
+      descriptionEn: 'Magnetic flux density around straight wires, circular coils, and solenoids; magnetic force on current-carrying conductors; magnetic torque on current loops; and DC measuring instruments (moving-coil galvanometer, ammeter shunt, voltmeter multiplier, and ohmmeter).',
+      descriptionAr: 'كثافة الفيض المغناطيسي لسلك مستقيم وملف دائري وملف لولبي، القوة المغناطيسية المؤثرة على سلك، عزم الازدواج المغناطيسي، وأجهزة القياس التناظرية (الجلفانومتر، الأميتر، الفولتميتر، والأوميتر).',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "th_phys_l2",
           "titleEn": "Magnetic Effect of Electric Current & Analog Measuring Instruments",
@@ -572,6 +640,75 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             "descriptionAr": "محاكاة تفاعلية لحساب كثافة الفيض المغناطيسي وتعديل الجلفانومتر إلى أميتر وفولتميتر."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'th_phys_se_02',
+          titleEn: 'MoE Example 2: Parallel Resistors Current Division',
+          titleAr: 'مثال الوزارة ٢: تجزئة التيار في التوصيل على التوازي',
+          difficulty: 'medium',
+          questionEn: 'Two resistors of $6\\,\\Omega$ and $12\\,\\Omega$ are connected in parallel across an ideal source of EMF $V_B = 24\\text{ V}$ ($r = 0$). Find the current through the $6\\,\\Omega$ resistor and the total circuit current.',
+          questionAr: 'مقاومتان $6\\,\\Omega$ و $12\\,\\Omega$ متصلتان على التوازي مع مصدر كهربي مهمل المقاومة الداخلية قوته الدافعة $V_B = 24\\text{ فولت}$. احسب شدة التيار المار في المقاومة $6\\,\\Omega$ وشدة التيار الكلي للدائرة.',
+          optionsEn: ['$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 2\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 3\\text{ A},\\, I_{total} = 4\\text{ A}$', '$I_1 = 4\\text{ A},\\, I_{total} = 8\\text{ A}$'],
+          optionsAr: ['$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 2\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 3\\text{ A},\\, I_{total} = 4\\text{ A}$', '$I_1 = 4\\text{ A},\\, I_{total} = 8\\text{ A}$'],
+          correctAnswer: '$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$',
+          correctIndex: 0,
+          hintEn: 'In parallel connection, voltage is constant across both branches: $V_1 = V_2 = 24\\text{ V}$.',
+          hintAr: 'في التوصيل على التوازي، فرق الجهد متساوٍ على الفرعين: $V_1 = V_2 = 24\\text{ فولت}$.',
+          stepByStepSolutionEn: [
+            'Equivalent resistance: $R_{eq} = \\frac{6 \\times 12}{6 + 12} = \\frac{72}{18} = 4\\,\\Omega$.',
+            'Current through $6\\,\\Omega$ resistor: $I_1 = \\frac{V}{R_1} = \\frac{24}{6} = 4\\text{ A}$.',
+            'Current through $12\\,\\Omega$ resistor: $I_2 = \\frac{V}{R_2} = \\frac{24}{12} = 2\\text{ A}$.',
+            'Total current: $I_{total} = I_1 + I_2 = 4 + 2 = 6\\text{ A}$.'
+          ],
+          stepByStepSolutionAr: [
+            'المقاومة المكافئة للتوازي: $R_{eq} = \\frac{6 \\times 12}{6 + 12} = \\frac{72}{18} = 4\\,\\Omega$.',
+            'التيار المار في المقاومة الأولى: $I_1 = \\frac{V}{R_1} = \\frac{24}{6} = 4\\text{ أمبير}$.',
+            'التيار المار في المقاومة الثانية: $I_2 = \\frac{V}{R_2} = \\frac{24}{12} = 2\\text{ أمبير}$.',
+            'التيار الكلي للدائرة: $I_{total} = I_1 + I_2 = 4 + 2 = 6\\text{ أمبير}$.'
+          ],
+          teacherTipEn: 'Notice that the smaller resistance carries the larger fraction of total current.',
+          teacherTipAr: 'لاحظ أن المقاومة الأصغر يمر بها التيار الأكبر بنسبة عكسية مع قيم المقاومات.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'th_phys_ex_02',
+          titleEn: 'Exercise 2: Kirchhoff Junction Conservation',
+          titleAr: 'تمرين ٢: تطبيق قانون كيرشوف الأول عند نقطة اتصال',
+          difficulty: 'medium',
+          questionEn: 'At an electrical circuit junction, currents $I_1 = 3\\text{ A}$ and $I_2 = 5\\text{ A}$ flow into the node, while currents $I_3 = 2\\text{ A}$ and an unknown current $I_4$ flow out. Find the value and direction of $I_4$.',
+          questionAr: 'عند نقطة تفرع في دائرة كهربية، يدخل التياران $I_1 = 3\\text{ A}$ و $I_2 = 5\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 2\\text{ A}$ وتيار مجهول $I_4$. احسب شدة واتجاه التيار $I_4$.',
+          optionsEn: ['$I_4 = 6\\text{ A}$ exiting the node', '$I_4 = 10\\text{ A}$ entering the node', '$I_4 = 4\\text{ A}$ exiting the node', '$I_4 = 8\\text{ A}$ entering the node'],
+          optionsAr: ['$I_4 = 6\\text{ A}$ خارجاً من النقطة', '$I_4 = 10\\text{ A}$ داخلاً للنقطة', '$I_4 = 4\\text{ A}$ خارجاً من النقطة', '$I_4 = 8\\text{ A}$ داخلاً للنقطة'],
+          correctAnswer: '$I_4 = 6\\text{ A}$ exiting the node',
+          correctIndex: 0,
+          hintEn: 'Kirchhoff\'s first law states: $\\sum I_{in} = \\sum I_{out}$.',
+          hintAr: 'قانون كيرشوف الأول ينص على: $\\sum I_{in} = \\sum I_{out}$.',
+          stepByStepSolutionEn: [
+            'Total incoming current: $\\sum I_{in} = I_1 + I_2 = 3 + 5 = 8\\text{ A}$.',
+            'Total outgoing current: $\\sum I_{out} = I_3 + I_4 = 2 + I_4$.',
+            'Equating: $8 = 2 + I_4 \\implies I_4 = 6\\text{ A}$ (exiting the junction).'
+          ],
+          stepByStepSolutionAr: [
+            'مجموع التيارات الداخلة: $\\sum I_{in} = I_1 + I_2 = 3 + 5 = 8\\text{ أمبير}$.',
+            'مجموع التيارات الخارجة: $\\sum I_{out} = I_3 + I_4 = 2 + I_4$.',
+            'بالمساواة: $8 = 2 + I_4 \\implies I_4 = 6\\text{ أمبير}$ في اتجاه الخروج من النقطة.'
+          ],
+          teacherTipEn: 'Kirchhoff\'s junction rule is an explicit expression of the law of conservation of electric charge.',
+          teacherTipAr: 'قانون كيرشوف الأول يمثل التطبيق الفيزيائي المباشر لمبدأ بقاء الشحنة الكهربية.'
+        }
+      ]
+    },
+    {
+      id: 'th_phys_ch3',
+      chapterNumber: 3,
+      titleEn: 'Electromagnetic Induction, AC Dynamo & Transformers',
+      titleAr: 'الحث الكهرومغناطيسي، الدينامو والمحولات الكهربية',
+      descriptionEn: "Faraday's law of induction, Lenz's law, induced EMF in moving conductors, mutual and self-induction (RL circuits and back EMF), AC dynamo generator principles, electric transformer step-up and step-down efficiency, and DC electric motors.",
+      descriptionAr: 'قانون فاراداي للحث، قاعدة لنز، القوة الدافعة المستحثة في سلك مستقيم، الحث المتبادل والحث الذاتي، مولد التيار المتردد (الدينامو)، المحول الكهربي الخافض والرافع، والمحرك الكهربي (الموتور).',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "th_phys_l3",
           "titleEn": "Electromagnetic Induction, Faraday's Law & AC Dynamo",
@@ -831,6 +968,74 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             "descriptionAr": "محاكاة تفاعلية لدوران ملف الدينامو ورسم منحنى الجهد المتردد ونسب المحول الكهربي."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'th_phys_se_03',
+          titleEn: 'MoE Example 3: Galvanometer Multiplier for DC Voltmeter Conversion',
+          titleAr: 'مثال الوزارة ٣: حساب مضاعف الجهد لتحويل الجلفانومتر إلى فولتميتر',
+          difficulty: 'medium',
+          diagramType: 'phys_galvanometer_multiplier',
+          questionEn: 'A moving-coil galvanometer has a coil resistance of $R_g = 50\\,\\Omega$ and gives full-scale deflection with a current of $I_g = 10\\text{ mA}$. What series multiplier resistance $R_m$ is required to convert it into a voltmeter capable of measuring up to $V = 10\\text{ V}$?',
+          questionAr: 'جلفانومتر ذو ملف متحرك مقاومة ملفه $R_g = 50\\,\\Omega$ وينحرف مؤشره إلى نهاية التدريج عند مرور تيار $I_g = 10\\text{ mA}$. احسب قيمة مقاومة مضاعف الجهد $R_m$ اللازم توصيلها على التوالي معه ليقيس فرق جهد أقصاه $V = 10\\text{ V}$.',
+          optionsEn: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
+          optionsAr: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
+          correctAnswer: '$R_m = 950\\,\\Omega$',
+          correctIndex: 0,
+          hintEn: 'Use multiplier formula: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
+          hintAr: 'طبق قانون مضاعف الجهد: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
+          stepByStepSolutionEn: [
+            'Maximum galvanometer voltage: $V_g = I_g R_g = 0.010\\text{ A} \\times 50\\,\\Omega = 0.5\\text{ V}$.',
+            'Voltage drop across multiplier resistor: $V_m = V - V_g = 10\\text{ V} - 0.5\\text{ V} = 9.5\\text{ V}$.',
+            'Multiplier resistance: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
+          ],
+          stepByStepSolutionAr: [
+            'أقصى فرق جهد يتحمله الجلفانومتر: $V_g = I_g R_g = 0.010 \\times 50 = 0.5\\text{ V}$.',
+            'فرق الجهد المطلوب امتصاصه بمضاعف الجهد: $V_m = V - V_g = 10 - 0.5 = 9.5\\text{ V}$.',
+            'قيمة مضاعف الجهد: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
+          ],
+          teacherTipEn: 'Connecting Rm in series increases the total voltmeter resistance ($R_v = R_g + R_m = 1000\\,\\Omega$), minimizing current drawn from the tested circuit.',
+          teacherTipAr: 'توصيل مضاعف الجهد على التوالي يزيد المقاومة الكلية للفولتميتر، فلا يسحب تياراً مؤثراً من الدائرة المراد قياس جهدها.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'th_phys_ex_03',
+          titleEn: 'Exercise 3: Magnetic Force on Inclined Conductor',
+          titleAr: 'تمرين ٣: القوة المغناطيسية المؤثرة على سلك مائل',
+          difficulty: 'medium',
+          questionEn: 'A straight wire of length $L = 0.5\\text{ m}$ carries a current of $I = 4\\text{ A}$ placed in a uniform magnetic field of flux density $B = 0.2\\text{ T}$. If the wire makes an angle of $30^\\circ$ with the magnetic field lines, calculate the magnetic force acting on the wire.',
+          questionAr: 'سلك مستقيم طوله $0.5\\text{ m}$ يمر به تيار شدته $4\\text{ A}$ موضوع في مجال مغناطيسي منتظم كثافة فيضه $0.2\\text{ T}$. إذا كان السلك يصنع زاوية $30^\\circ$ مع اتجاه خطوط المجال، فاحسب مقدار القوة المغناطيسية المؤثرة عليه.',
+          optionsEn: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
+          optionsAr: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
+          correctAnswer: '$0.20\\text{ N}$',
+          correctIndex: 0,
+          hintEn: 'Apply $F = BIL\\sin\\theta$, with $\\theta = 30^\\circ$ (so $\\sin 30^\\circ = 0.5$).',
+          hintAr: 'طبق القانون $F = BIL\\sin\\theta$ مع التعويض عن $\\theta = 30^\\circ$ (حيث $\\sin 30^\\circ = 0.5$).',
+          stepByStepSolutionEn: [
+            'Magnetic force formula: $F = B I L \\sin\\theta$.',
+            'Substitute values: $F = (0.2\\text{ T}) \\times (4\\text{ A}) \\times (0.5\\text{ m}) \\times \\sin 30^\\circ$.',
+            'Calculate: $F = 0.40 \\times 0.5 = 0.20\\text{ N}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون القوة المغناطيسية: $F = BIL\\sin\\theta$.',
+            'التعويض بالمعطيات: $F = 0.2 \\times 4 \\times 0.5 \\times \\sin 30^\\circ$.',
+            'الناتج: $F = 0.40 \\times 0.5 = 0.20\\text{ نيوتن}$.'
+          ],
+          teacherTipEn: 'Remember that when theta is 30 degrees, the force is exactly half of the maximum possible force (BIL).',
+          teacherTipAr: 'تذكر دائماً أنه عند زاوية 30 درجة مع المجال تكون القوة نصف قيمتها العظمى مباشرة.'
+        }
+      ]
+    },
+    {
+      id: 'th_phys_ch4',
+      chapterNumber: 4,
+      titleEn: 'Alternating Current Circuits & RLC Resonance',
+      titleAr: 'دوائر التيار المتردد والرنين الكهربي',
+      descriptionEn: 'Hot-wire ammeter operation and calibration; pure resistive, inductive, and capacitive AC circuits; inductive reactance XL and capacitive reactance XC; series RLC impedance vectors, phase angle, and power; and resonant and oscillating tank circuits.',
+      descriptionAr: 'الأميتر الحراري ومعايرته، دوائر المقاومة الأومية ومحث الحث والمكثف، المفاعلة الحثية والمفاعلة السعوية، المعاوقة الكلية وزاوية الطور في دوائر RLC، والدائرة المهتزة ودائرة الرنين.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "th_phys_l4",
           "titleEn": "Alternating Current Circuits, Impedance & Resonance",
@@ -1092,6 +1297,77 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             "descriptionAr": "محاكاة تفاعلية لتغير المعاوقة والتيار مع التردد وتحديد قمة الرنين الكهربي."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'th_phys_se_04',
+          titleEn: 'MoE Example 4: Step-Up Transformer & Transmission Line Efficiency',
+          titleAr: 'مثال الوزارة ٤: المحول الرافع للجهد وتقليل الفاقد في خطوط النقل',
+          difficulty: 'medium',
+          diagramType: 'phys_transformer',
+          questionEn: 'An electric generating station produces $P = 200\\text{ kW}$ at a voltage of $V_p = 1000\\text{ V}$. A step-up transformer with turns ratio $N_s / N_p = 10$ and $100\\%$ efficiency steps up the voltage before transmission through lines of total resistance $R_{\\text{line}} = 5\\,\\Omega$. Calculate the power lost as heat in the transmission lines.',
+          questionAr: 'محطة لتوليد الطاقة الكهربية تنتج قدرة $200\\text{ kW}$ بجهد $1000\\text{ V}$. استُخدم محول رافع للجهد كفاءته $100\\%$ بنسبة لفات $N_s / N_p = 10$ لرفع الجهد قبل نقله عبر خطوط نقل مقاومتها $5\\,\\Omega$. احسب القدرة الكهربية المفقودة على شكل حرارة في أسلاك النقل.',
+          optionsEn: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
+          optionsAr: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
+          correctAnswer: '$2\\text{ kW}$',
+          correctIndex: 0,
+          hintEn: 'Find stepped-up secondary voltage $V_s = V_p \\times (N_s/N_p)$, then transmission line current $I_s = P / V_s$, then $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
+          hintAr: 'احسب جهد الثانوي $V_s = V_p \\times (N_s/N_p)$ ثم تيار خط النقل $I_s = P / V_s$، وأخيراً القدرة المفقودة $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
+          stepByStepSolutionEn: [
+            'Secondary voltage: $V_s = V_p \\left(\\frac{N_s}{N_p}\\right) = 1000 \\times 10 = 10,000\\text{ V}$.',
+            'Transmission line current: $I_s = \\frac{P}{V_s} = \\frac{200,000\\text{ W}}{10,000\\text{ V}} = 20\\text{ A}$.',
+            'Power lost as Joule heating in lines: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ W} = 2\\text{ kW}$.',
+            '(Notice without the step-up transformer, transmission current would be $200\\text{ A}$, leading to catastrophic power loss of $200\\text{ kW}$!).'
+          ],
+          stepByStepSolutionAr: [
+            'الجهد الثانوي بعد الرفع: $V_s = V_p \\times 10 = 10,000\\text{ فولت}$.',
+            'شدة تيار خط النقل: $I_s = \\frac{P}{V_s} = \\frac{200,000}{10,000} = 20\\text{ أمبير}$.',
+            'القدرة المفقودة في أسلاك النقل: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ وات} = 2\\text{ كيلووات}$.',
+            '(للمقارنة: بدون المحول كان التيار سيكون $200\\text{ أمبير}$ مما يفقد كامل طاقة المحطة $200\\text{ كيلووات}$ في الأسلاك!).'
+          ],
+          teacherTipEn: 'Step-up transformers are essential at generating power plants because stepping up voltage by 10 decreases power loss by a factor of 100 ($P_{\\text{loss}} \\propto 1/V^2$).',
+          teacherTipAr: 'المحولات الرافعة لا غنى عنها عند محطات التوليد لأن مضاعفة الجهد 10 أمثال تخفض الفاقد الحراري بمقدار 100 ضعف.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'th_phys_ex_04',
+          titleEn: 'Exercise 4: AC Dynamo Effective and Instantaneous EMF',
+          titleAr: 'تمرين ٤: القيمة الفعالة واللحظية للقوة الدافعة لدينامو',
+          difficulty: 'hots',
+          diagramType: 'phys_dynamo_generator',
+          questionEn: 'If the effective electromotive force produced by an alternating current dynamo is $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$, what is the instantaneous EMF when the plane of the coil is inclined at $30^\\circ$ to the magnetic field lines?',
+          questionAr: 'إذا كانت القيمة الفعالة للقوة الدافعة الكهربية المتولدة من دينامو تيار متردد هي $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$، فما هي القوة الدافعة اللحظية عندما يكون مستوى الملف مائلاً بزاوية $30^\\circ$ على خطوط الفيض؟',
+          optionsEn: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
+          optionsAr: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
+          correctAnswer: '$244.9\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Maximum EMF is $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. The angle between normal and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+          hintAr: 'القيمة العظمى $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. الزاوية مع العمودي على الملف هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+          stepByStepSolutionEn: [
+            'Maximum EMF: $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2} = 200 \\times 1.4142 \\approx 282.84\\text{ V}$.',
+            'Coil inclination angle to field lines is $30^\\circ$, so angle between the normal to the coil and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+            'Instantaneous EMF: $\\text{EMF}_{\\text{inst}} = \\text{EMF}_{\\max} \\sin 60^\\circ = 282.84 \\times \\frac{\\sqrt{3}}{2} \\approx 244.95\\text{ V}$.'
+          ],
+          stepByStepSolutionAr: [
+            'القيمة العظمى للقوة الدافعة: $\\text{EMF}_{\\max} = 200\\sqrt{2} \\approx 282.84\\text{ فولت}$.',
+            'زاوية الملف مع المجال $30^\\circ$ إذن الزاوية مع العمودي هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+            'القيمة اللحظية: $\\text{EMF}_{\\text{inst}} = 282.84 \\times \\sin 60^\\circ = 282.84 \\times 0.866 \\approx 244.9\\text{ فولت}$.'
+          ],
+          teacherTipEn: 'Always be alert: the angle in the dynamo EMF formula is between the NORMAL to the coil and the field lines, not the plane of the coil.',
+          teacherTipAr: 'انتبه بشدة: الزاوية في قانون الدينامو هي الزاوية بين العمودي على مستوى الملف وخطوط المجال وليست مع مستوى الملف نفسه.'
+        }
+      ]
+    },
+    {
+      id: 'th_phys_ch5',
+      chapterNumber: 5,
+      titleEn: 'Modern Physics: Dual Nature of Wave and Particle',
+      titleAr: 'الفيزياء الحديثة: ازدواجية الموجة والجسيم',
+      descriptionEn: "Blackbody radiation spectrum and Planck's quantum hypothesis; photoelectric effect, work function, and Einstein's photoelectric equation; Compton scattering effect demonstrating photon momentum; and de Broglie matter wavelength with electron microscopy.",
+      descriptionAr: 'إشعاع الجسم الأسود ومنحنيات بلانك، الانبعاث الكهروضوئي ودالة الشغل ومعادلة أينشتاين، ظاهرة كومتون وإثبات الصفة الجسيمية للفوتون، وفرضية دي براولي للموجات المادية والمجهر الإلكتروني.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "th_phys_l5",
           "titleEn": "Wave-Particle Duality, Quantum Photons & Compton Effect",
@@ -1352,6 +1628,77 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             "descriptionAr": "محاكاة تفاعلية للخلية الكهروضوئية لاختبار دالة الشغل وتأثير تردد وشدة الضوء وحساب جهد الإيقاف."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'th_phys_se_05',
+          titleEn: 'MoE Example 5: Series RLC Circuit Resonant Frequency & Impedance',
+          titleAr: 'مثال الوزارة ٥: تردد الرنين والمعاوقة لدائرة تيار متردد RLC',
+          difficulty: 'medium',
+          diagramType: 'phys_rlc_resonance_phasor',
+          questionEn: 'An AC series circuit contains a resistor $R = 25\\,\\Omega$, an inductor of inductance $L = \\frac{1}{\\pi}\\text{ H}$, and a capacitor of capacitance $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. Find the resonant frequency $f_0$ of the circuit and its impedance $Z$ at resonance.',
+          questionAr: 'دائرة تيار متردد متوالية تتكون من مقاومة أومية $R = 25\\,\\Omega$ وملف حث معامل حثه الذاتي $L = \\frac{1}{\\pi}\\text{ H}$ ومكثف سعته $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. احسب تردد الرنين $f_0$ للدائرة ومعاوقتها $Z$ عند حالة الرنين.',
+          optionsEn: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
+          optionsAr: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
+          correctAnswer: '$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$',
+          correctIndex: 0,
+          hintEn: 'Use resonance formula: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. At resonance, $X_L = X_C$, so $Z = R$.',
+          hintAr: 'طبق قانون تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. وعند الرنين $X_L = X_C$ فتكون المعاوقة $Z = R$.',
+          stepByStepSolutionEn: [
+            'Product $LC = \\left(\\frac{1}{\\pi}\\right) \\times \\left(\\frac{25 \\times 10^{-6}}{\\pi}\\right) = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
+            'Square root: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
+            'Resonant frequency: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ Hz}$.',
+            'At resonance, inductive and capacitive reactances cancel exactly ($X_L = X_C$), so total impedance is minimum: $Z = R = 25\\,\\Omega$.'
+          ],
+          stepByStepSolutionAr: [
+            'حاصل ضرب $LC = \\frac{1}{\\pi} \\times \\frac{25 \\times 10^{-6}}{\\pi} = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
+            'الجذر التربيعي: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
+            'تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ هرتز}$.',
+            'عند الرنين تتساوى المفاعلة الحثية مع السعوية ($X_L = X_C$)، وتصل المعاوقة لأقل قيمة ممكنة وتساوي المقاومة الأومية: $Z = R = 25\\,\\Omega$.'
+          ],
+          teacherTipEn: 'At resonance, current is in phase with voltage (phase angle phi = 0), and power factor is unity (cos phi = 1).',
+          teacherTipAr: 'في حالة الرنين يتفق الجهد الكلي مع التيار في الطور (زاوية الطور صفر) ومعامل القدرة يساوي الواحد الصحيح.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'th_phys_ex_05',
+          titleEn: 'Exercise 5: Hydrogen Balmer Series First Spectral Line',
+          titleAr: 'تمرين ٥: الطول الموجي لخط بالمر الأول (H-alpha) في طيف الهيدروجين',
+          difficulty: 'medium',
+          diagramType: 'phys_bohr_atom_series',
+          questionEn: 'In the hydrogen atom spectrum, the first line of the Balmer series ($H_\\alpha$) results from an electron transition from level $n = 3$ ($E_3 = -1.51\\text{ eV}$) to level $n = 2$ ($E_2 = -3.40\\text{ eV}$). What is the wavelength of this visible spectral line?',
+          questionAr: 'في طيف ذرة الهيدروجين، ينتج الخط الأول لمتسلسلة بالمر ($H_\\alpha$) عن انتقال إلكترون من المستوى الثالث ($E_3 = -1.51\\text{ eV}$) إلى المستوى الثاني ($E_2 = -3.40\\text{ eV}$). احسب الطول الموجي لهذا الخط الطيفي المرئي.',
+          optionsEn: ['$656.3\\text{ nm}$ (red)', '$486.1\\text{ nm}$ (cyan)', '$121.6\\text{ nm}$ (ultraviolet)', '$434.0\\text{ nm}$ (blue)'],
+          optionsAr: ['$656.3\\text{ nm}$ (أحمر)', '$486.1\\text{ nm}$ (أزرق مخضر)', '$121.6\\text{ nm}$ (فوق بنفسجي)', '$434.0\\text{ nm}$ (نيلي)'],
+          correctAnswer: '$656.3\\text{ nm}$ (red)',
+          correctIndex: 0,
+          hintEn: 'Calculate energy difference $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$, then $\\lambda = \\frac{hc}{\\Delta E}$.',
+          hintAr: 'احسب فرق الطاقة $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$ ثم طبق $\\lambda = \\frac{hc}{\\Delta E}$.',
+          stepByStepSolutionEn: [
+            'Transition energy: $\\Delta E = E_3 - E_2 = -1.51\\text{ eV} - (-3.40\\text{ eV}) = 1.89\\text{ eV}$.',
+            'Convert to Joules: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19}\\text{ J} = 3.028 \\times 10^{-19}\\text{ J}$.',
+            'Wavelength: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{(6.626 \\times 10^{-34})(3.0 \\times 10^8)}{3.028 \\times 10^{-19}} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 6.565 \\times 10^{-7}\\text{ m} = 656.5\\text{ nm}$ (visible red $H_\\alpha$).'
+          ],
+          stepByStepSolutionAr: [
+            'فرق الطاقة: $\\Delta E = -1.51 - (-3.40) = 1.89\\text{ إلكترون فولت}$.',
+            'التحويل إلى جول: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19} = 3.028 \\times 10^{-19}\\text{ جول}$.',
+            'الطول الموجي: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 656.3\\text{ نانومتر}$ (ضوء أحمر مرئي $H_\\alpha$).'
+          ],
+          teacherTipEn: 'The H-alpha line at 656.3 nm is the prominent red glow seen in hydrogen discharge tubes and emission nebulae.',
+          teacherTipAr: 'خط H-alpha بطول موجي 656.3 نانومتر يمنح أنبوبة تفريغ الهيدروجين وسديم الفضاء وهجها الأحمر المميز.'
+        }
+      ]
+    },
+    {
+      id: 'th_phys_ch6',
+      chapterNumber: 6,
+      titleEn: 'Modern Physics: Atomic Spectra, Lasers & Electronics',
+      titleAr: 'الفيزياء الحديثة: الأطياف الذرية، الليزر والإلكترونيات الحديثة',
+      descriptionEn: 'Bohr hydrogen atom postulates and spectral series (Lyman, Balmer, Paschen); X-ray generation, continuous Bremsstrahlung, and characteristic line spectra; laser production principles, population inversion, optical pumping, and He-Ne lasers; and semiconductor physics, p-n junctions, transistors, and digital logic gates.',
+      descriptionAr: 'نموذج بور لذرة الهيدروجين ومتسلسلات الطيف (ليمان، بالمر، باشن)، الأشعة السينية (أشعة إكس) وطيفها المستمر والخطي، نظرية إنتاج الليزر والإسكان المعكوس وليزر الهيليوم-نيون، وفيزياء أشباه الموصلات والوصلة الثنائية والترانزستور والبوابات المنطقية.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "th_phys_l6",
           "titleEn": "Atomic Spectra, Lasers & Solid-State Electronics",
@@ -1617,145 +1964,6 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
       ],
       solvedExamples: [
         {
-          id: 'th_phys_se_01',
-          titleEn: 'MoE Example 1: Closed Circuit Terminal Voltage & Internal Resistance',
-          titleAr: 'مثال الوزارة ١: قراءة الفولتميتر والمقاومة الداخلية للدائرة المغلقة',
-          difficulty: 'easy',
-          questionEn: 'A battery of electromotive force $V_B = 12\\text{ V}$ and internal resistance $r = 1\\,\\Omega$ is connected to an external resistor $R = 5\\,\\Omega$. Find the circuit current $I$ and the terminal potential difference across the battery $V$.',
-          questionAr: 'بطارية قوتها الدافعة الكهربية $V_B = 12\\text{ فولت}$ ومقاومتها الداخلية $r = 1\\,\\Omega$ وُصلت بمقاومة خارجية $R = 5\\,\\Omega$. احسب شدة التيار المار في الدائرة $I$ وفرق الجهد بين طرفي البطارية $V$.',
-          optionsEn: ['$I = 2\\text{ A},\\, V = 10\\text{ V}$', '$I = 2.4\\text{ A},\\, V = 12\\text{ V}$', '$I = 1.5\\text{ A},\\, V = 9\\text{ V}$', '$I = 3\\text{ A},\\, V = 8\\text{ V}$'],
-          optionsAr: ['$I = 2\\text{ A},\\, V = 10\\text{ V}$', '$I = 2.4\\text{ A},\\, V = 12\\text{ V}$', '$I = 1.5\\text{ A},\\, V = 9\\text{ V}$', '$I = 3\\text{ A},\\, V = 8\\text{ V}$'],
-          correctAnswer: '$I = 2\\text{ A},\\, V = 10\\text{ V}$',
-          correctIndex: 0,
-          hintEn: 'Use Ohm\'s law for a closed circuit: $I = \\frac{V_B}{R + r}$, then $V = V_B - I r$.',
-          hintAr: 'طبق قانون أوم للدائرة المغلقة: $I = \\frac{V_B}{R + r}$، ثم احسب $V = V_B - Ir$.',
-          stepByStepSolutionEn: [
-            'Total resistance of the circuit: $R_{total} = R + r = 5 + 1 = 6\\,\\Omega$.',
-            'Circuit current: $I = \\frac{V_B}{R + r} = \\frac{12}{6} = 2\\text{ A}$.',
-            'Terminal voltage of the battery: $V = V_B - I r = 12 - (2)(1) = 10\\text{ V}$ (or $V = I R = 2 \\times 5 = 10\\text{ V}$).'
-          ],
-          stepByStepSolutionAr: [
-            'المقاومة الكلية للدائرة: $R_{total} = R + r = 5 + 1 = 6\\,\\Omega$.',
-            'شدة تيار الدائرة: $I = \\frac{V_B}{R + r} = \\frac{12}{6} = 2\\text{ أمبير}$.',
-            'فرق الجهد بين قطبي البطارية: $V = V_B - Ir = 12 - (2)(1) = 10\\text{ فولت}$ (أو $V = IR = 2 \\times 5 = 10\\text{ فولت}$).'
-          ],
-          teacherTipEn: 'The voltage drop inside the battery is $I r = 2\\text{ V}$, representing lost voltage.',
-          teacherTipAr: 'الهبوط في الجهد داخل العمود يساوي $Ir = 2\\text{ فولت}$ ويمثل الجهد المفقود داخل المصدر.'
-        },
-        {
-          id: 'th_phys_se_02',
-          titleEn: 'MoE Example 2: Parallel Resistors Current Division',
-          titleAr: 'مثال الوزارة ٢: تجزئة التيار في التوصيل على التوازي',
-          difficulty: 'medium',
-          questionEn: 'Two resistors of $6\\,\\Omega$ and $12\\,\\Omega$ are connected in parallel across an ideal source of EMF $V_B = 24\\text{ V}$ ($r = 0$). Find the current through the $6\\,\\Omega$ resistor and the total circuit current.',
-          questionAr: 'مقاومتان $6\\,\\Omega$ و $12\\,\\Omega$ متصلتان على التوازي مع مصدر كهربي مهمل المقاومة الداخلية قوته الدافعة $V_B = 24\\text{ فولت}$. احسب شدة التيار المار في المقاومة $6\\,\\Omega$ وشدة التيار الكلي للدائرة.',
-          optionsEn: ['$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 2\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 3\\text{ A},\\, I_{total} = 4\\text{ A}$', '$I_1 = 4\\text{ A},\\, I_{total} = 8\\text{ A}$'],
-          optionsAr: ['$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 2\\text{ A},\\, I_{total} = 6\\text{ A}$', '$I_1 = 3\\text{ A},\\, I_{total} = 4\\text{ A}$', '$I_1 = 4\\text{ A},\\, I_{total} = 8\\text{ A}$'],
-          correctAnswer: '$I_1 = 4\\text{ A},\\, I_{total} = 6\\text{ A}$',
-          correctIndex: 0,
-          hintEn: 'In parallel connection, voltage is constant across both branches: $V_1 = V_2 = 24\\text{ V}$.',
-          hintAr: 'في التوصيل على التوازي، فرق الجهد متساوٍ على الفرعين: $V_1 = V_2 = 24\\text{ فولت}$.',
-          stepByStepSolutionEn: [
-            'Equivalent resistance: $R_{eq} = \\frac{6 \\times 12}{6 + 12} = \\frac{72}{18} = 4\\,\\Omega$.',
-            'Current through $6\\,\\Omega$ resistor: $I_1 = \\frac{V}{R_1} = \\frac{24}{6} = 4\\text{ A}$.',
-            'Current through $12\\,\\Omega$ resistor: $I_2 = \\frac{V}{R_2} = \\frac{24}{12} = 2\\text{ A}$.',
-            'Total current: $I_{total} = I_1 + I_2 = 4 + 2 = 6\\text{ A}$.'
-          ],
-          stepByStepSolutionAr: [
-            'المقاومة المكافئة للتوازي: $R_{eq} = \\frac{6 \\times 12}{6 + 12} = \\frac{72}{18} = 4\\,\\Omega$.',
-            'التيار المار في المقاومة الأولى: $I_1 = \\frac{V}{R_1} = \\frac{24}{6} = 4\\text{ أمبير}$.',
-            'التيار المار في المقاومة الثانية: $I_2 = \\frac{V}{R_2} = \\frac{24}{12} = 2\\text{ أمبير}$.',
-            'التيار الكلي للدائرة: $I_{total} = I_1 + I_2 = 4 + 2 = 6\\text{ أمبير}$.'
-          ],
-          teacherTipEn: 'Notice that the smaller resistance carries the larger fraction of total current.',
-          teacherTipAr: 'لاحظ أن المقاومة الأصغر يمر بها التيار الأكبر بنسبة عكسية مع قيم المقاومات.'
-        },
-        {
-          id: 'th_phys_se_03',
-          titleEn: 'MoE Example 3: Galvanometer Multiplier for DC Voltmeter Conversion',
-          titleAr: 'مثال الوزارة ٣: حساب مضاعف الجهد لتحويل الجلفانومتر إلى فولتميتر',
-          difficulty: 'medium',
-          diagramType: 'phys_galvanometer_multiplier',
-          questionEn: 'A moving-coil galvanometer has a coil resistance of $R_g = 50\\,\\Omega$ and gives full-scale deflection with a current of $I_g = 10\\text{ mA}$. What series multiplier resistance $R_m$ is required to convert it into a voltmeter capable of measuring up to $V = 10\\text{ V}$?',
-          questionAr: 'جلفانومتر ذو ملف متحرك مقاومة ملفه $R_g = 50\\,\\Omega$ وينحرف مؤشره إلى نهاية التدريج عند مرور تيار $I_g = 10\\text{ mA}$. احسب قيمة مقاومة مضاعف الجهد $R_m$ اللازم توصيلها على التوالي معه ليقيس فرق جهد أقصاه $V = 10\\text{ V}$.',
-          optionsEn: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
-          optionsAr: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
-          correctAnswer: '$R_m = 950\\,\\Omega$',
-          correctIndex: 0,
-          hintEn: 'Use multiplier formula: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
-          hintAr: 'طبق قانون مضاعف الجهد: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
-          stepByStepSolutionEn: [
-            'Maximum galvanometer voltage: $V_g = I_g R_g = 0.010\\text{ A} \\times 50\\,\\Omega = 0.5\\text{ V}$.',
-            'Voltage drop across multiplier resistor: $V_m = V - V_g = 10\\text{ V} - 0.5\\text{ V} = 9.5\\text{ V}$.',
-            'Multiplier resistance: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
-          ],
-          stepByStepSolutionAr: [
-            'أقصى فرق جهد يتحمله الجلفانومتر: $V_g = I_g R_g = 0.010 \\times 50 = 0.5\\text{ V}$.',
-            'فرق الجهد المطلوب امتصاصه بمضاعف الجهد: $V_m = V - V_g = 10 - 0.5 = 9.5\\text{ V}$.',
-            'قيمة مضاعف الجهد: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
-          ],
-          teacherTipEn: 'Connecting Rm in series increases the total voltmeter resistance ($R_v = R_g + R_m = 1000\\,\\Omega$), minimizing current drawn from the tested circuit.',
-          teacherTipAr: 'توصيل مضاعف الجهد على التوالي يزيد المقاومة الكلية للفولتميتر، فلا يسحب تياراً مؤثراً من الدائرة المراد قياس جهدها.'
-        },
-        {
-          id: 'th_phys_se_04',
-          titleEn: 'MoE Example 4: Step-Up Transformer & Transmission Line Efficiency',
-          titleAr: 'مثال الوزارة ٤: المحول الرافع للجهد وتقليل الفاقد في خطوط النقل',
-          difficulty: 'medium',
-          diagramType: 'phys_transformer',
-          questionEn: 'An electric generating station produces $P = 200\\text{ kW}$ at a voltage of $V_p = 1000\\text{ V}$. A step-up transformer with turns ratio $N_s / N_p = 10$ and $100\\%$ efficiency steps up the voltage before transmission through lines of total resistance $R_{\\text{line}} = 5\\,\\Omega$. Calculate the power lost as heat in the transmission lines.',
-          questionAr: 'محطة لتوليد الطاقة الكهربية تنتج قدرة $200\\text{ kW}$ بجهد $1000\\text{ V}$. استُخدم محول رافع للجهد كفاءته $100\\%$ بنسبة لفات $N_s / N_p = 10$ لرفع الجهد قبل نقله عبر خطوط نقل مقاومتها $5\\,\\Omega$. احسب القدرة الكهربية المفقودة على شكل حرارة في أسلاك النقل.',
-          optionsEn: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
-          optionsAr: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
-          correctAnswer: '$2\\text{ kW}$',
-          correctIndex: 0,
-          hintEn: 'Find stepped-up secondary voltage $V_s = V_p \\times (N_s/N_p)$, then transmission line current $I_s = P / V_s$, then $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
-          hintAr: 'احسب جهد الثانوي $V_s = V_p \\times (N_s/N_p)$ ثم تيار خط النقل $I_s = P / V_s$، وأخيراً القدرة المفقودة $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
-          stepByStepSolutionEn: [
-            'Secondary voltage: $V_s = V_p \\left(\\frac{N_s}{N_p}\\right) = 1000 \\times 10 = 10,000\\text{ V}$.',
-            'Transmission line current: $I_s = \\frac{P}{V_s} = \\frac{200,000\\text{ W}}{10,000\\text{ V}} = 20\\text{ A}$.',
-            'Power lost as Joule heating in lines: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ W} = 2\\text{ kW}$.',
-            '(Notice without the step-up transformer, transmission current would be $200\\text{ A}$, leading to catastrophic power loss of $200\\text{ kW}$!).'
-          ],
-          stepByStepSolutionAr: [
-            'الجهد الثانوي بعد الرفع: $V_s = V_p \\times 10 = 10,000\\text{ فولت}$.',
-            'شدة تيار خط النقل: $I_s = \\frac{P}{V_s} = \\frac{200,000}{10,000} = 20\\text{ أمبير}$.',
-            'القدرة المفقودة في أسلاك النقل: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ وات} = 2\\text{ كيلووات}$.',
-            '(للمقارنة: بدون المحول كان التيار سيكون $200\\text{ أمبير}$ مما يفقد كامل طاقة المحطة $200\\text{ كيلووات}$ في الأسلاك!).'
-          ],
-          teacherTipEn: 'Step-up transformers are essential at generating power plants because stepping up voltage by 10 decreases power loss by a factor of 100 ($P_{\\text{loss}} \\propto 1/V^2$).',
-          teacherTipAr: 'المحولات الرافعة لا غنى عنها عند محطات التوليد لأن مضاعفة الجهد 10 أمثال تخفض الفاقد الحراري بمقدار 100 ضعف.'
-        },
-        {
-          id: 'th_phys_se_05',
-          titleEn: 'MoE Example 5: Series RLC Circuit Resonant Frequency & Impedance',
-          titleAr: 'مثال الوزارة ٥: تردد الرنين والمعاوقة لدائرة تيار متردد RLC',
-          difficulty: 'medium',
-          diagramType: 'phys_rlc_resonance_phasor',
-          questionEn: 'An AC series circuit contains a resistor $R = 25\\,\\Omega$, an inductor of inductance $L = \\frac{1}{\\pi}\\text{ H}$, and a capacitor of capacitance $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. Find the resonant frequency $f_0$ of the circuit and its impedance $Z$ at resonance.',
-          questionAr: 'دائرة تيار متردد متوالية تتكون من مقاومة أومية $R = 25\\,\\Omega$ وملف حث معامل حثه الذاتي $L = \\frac{1}{\\pi}\\text{ H}$ ومكثف سعته $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. احسب تردد الرنين $f_0$ للدائرة ومعاوقتها $Z$ عند حالة الرنين.',
-          optionsEn: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
-          optionsAr: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
-          correctAnswer: '$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$',
-          correctIndex: 0,
-          hintEn: 'Use resonance formula: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. At resonance, $X_L = X_C$, so $Z = R$.',
-          hintAr: 'طبق قانون تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. وعند الرنين $X_L = X_C$ فتكون المعاوقة $Z = R$.',
-          stepByStepSolutionEn: [
-            'Product $LC = \\left(\\frac{1}{\\pi}\\right) \\times \\left(\\frac{25 \\times 10^{-6}}{\\pi}\\right) = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
-            'Square root: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
-            'Resonant frequency: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ Hz}$.',
-            'At resonance, inductive and capacitive reactances cancel exactly ($X_L = X_C$), so total impedance is minimum: $Z = R = 25\\,\\Omega$.'
-          ],
-          stepByStepSolutionAr: [
-            'حاصل ضرب $LC = \\frac{1}{\\pi} \\times \\frac{25 \\times 10^{-6}}{\\pi} = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
-            'الجذر التربيعي: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
-            'تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ هرتز}$.',
-            'عند الرنين تتساوى المفاعلة الحثية مع السعوية ($X_L = X_C$)، وتصل المعاوقة لأقل قيمة ممكنة وتساوي المقاومة الأومية: $Z = R = 25\\,\\Omega$.'
-          ],
-          teacherTipEn: 'At resonance, current is in phase with voltage (phase angle phi = 0), and power factor is unity (cos phi = 1).',
-          teacherTipAr: 'في حالة الرنين يتفق الجهد الكلي مع التيار في الطور (زاوية الطور صفر) ومعامل القدرة يساوي الواحد الصحيح.'
-        },
-        {
           id: 'th_phys_se_06',
           titleEn: 'MoE Example 6: Photoelectric Work Function & Stopping Voltage',
           titleAr: 'مثال الوزارة ٦: طاقة الحركة العظمى للإلكترونات وجهد الإيقاف',
@@ -1785,138 +1993,6 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
       ],
       exerciseProblems: [
         {
-          id: 'th_phys_ex_01',
-          titleEn: 'Exercise 1: Conductor Resistance Ratio',
-          titleAr: 'تمرين ١: النسبة بين مقاومتي موصلين',
-          difficulty: 'easy',
-          questionEn: 'Two copper wires $A$ and $B$: wire $A$ has length $L$ and diameter $d$, while wire $B$ has length $2L$ and diameter $2d$. What is the ratio of their resistances $R_A / R_B$?',
-          questionAr: 'سلكان من النحاس $A$ و $B$: طول السلك $A$ هو $L$ وقطره $d$، بينما طول السلك $B$ هو $2L$ وقطره $2d$. ما النسبة بين مقاومتيهما $R_A / R_B$؟',
-          optionsEn: ['$2 : 1$', '$1 : 2$', '$4 : 1$', '$1 : 1$'],
-          optionsAr: ['$2 : 1$', '$1 : 2$', '$4 : 1$', '$1 : 1$'],
-          correctAnswer: '$2 : 1$',
-          correctIndex: 0,
-          hintEn: 'Resistance is proportional to length and inversely proportional to diameter squared: $R \\propto L/d^2$.',
-          hintAr: 'المقاومة تتناسب طردياً مع الطول وعكسياً مع مربع القطر: $R \\propto \\frac{L}{d^2}$.',
-          stepByStepSolutionEn: [
-            'Since both are copper, resistivity $\\rho_e$ is identical.',
-            'Ratio formula: $\\frac{R_A}{R_B} = \\frac{L_A}{L_B} \\times \\left(\\frac{d_B}{d_A}\\right)^2$.',
-            'Substitute values: $\\frac{R_A}{R_B} = \\frac{L}{2L} \\times \\left(\\frac{2d}{d}\\right)^2 = \\frac{1}{2} \\times 4 = 2$.'
-          ],
-          stepByStepSolutionAr: [
-            'كلا السلكين من النحاس، إذن المقاومة النوعية $\\rho_e$ متطابقة.',
-            'قانون النسبة: $\\frac{R_A}{R_B} = \\frac{L_A}{L_B} \\times \\left(\\frac{d_B}{d_A}\\right)^2$.',
-            'بالتعويض: $\\frac{R_A}{R_B} = \\frac{L}{2L} \\times \\left(\\frac{2d}{d}\\right)^2 = \\frac{1}{2} \\times 4 = 2$.'
-          ],
-          teacherTipEn: 'When the diameter doubles, cross-sectional area quadruples ($A \\propto d^2$).',
-          teacherTipAr: 'عند مضاعفة القطر تزداد المساحة أربعة أمثال لأن $A = \\frac{\\pi d^2}{4}$.'
-        },
-        {
-          id: 'th_phys_ex_02',
-          titleEn: 'Exercise 2: Kirchhoff Junction Conservation',
-          titleAr: 'تمرين ٢: تطبيق قانون كيرشوف الأول عند نقطة اتصال',
-          difficulty: 'medium',
-          questionEn: 'At an electrical circuit junction, currents $I_1 = 3\\text{ A}$ and $I_2 = 5\\text{ A}$ flow into the node, while currents $I_3 = 2\\text{ A}$ and an unknown current $I_4$ flow out. Find the value and direction of $I_4$.',
-          questionAr: 'عند نقطة تفرع في دائرة كهربية، يدخل التياران $I_1 = 3\\text{ A}$ و $I_2 = 5\\text{ A}$ إلى النقطة، بينما يخرج تيار $I_3 = 2\\text{ A}$ وتيار مجهول $I_4$. احسب شدة واتجاه التيار $I_4$.',
-          optionsEn: ['$I_4 = 6\\text{ A}$ exiting the node', '$I_4 = 10\\text{ A}$ entering the node', '$I_4 = 4\\text{ A}$ exiting the node', '$I_4 = 8\\text{ A}$ entering the node'],
-          optionsAr: ['$I_4 = 6\\text{ A}$ خارجاً من النقطة', '$I_4 = 10\\text{ A}$ داخلاً للنقطة', '$I_4 = 4\\text{ A}$ خارجاً من النقطة', '$I_4 = 8\\text{ A}$ داخلاً للنقطة'],
-          correctAnswer: '$I_4 = 6\\text{ A}$ exiting the node',
-          correctIndex: 0,
-          hintEn: 'Kirchhoff\'s first law states: $\\sum I_{in} = \\sum I_{out}$.',
-          hintAr: 'قانون كيرشوف الأول ينص على: $\\sum I_{in} = \\sum I_{out}$.',
-          stepByStepSolutionEn: [
-            'Total incoming current: $\\sum I_{in} = I_1 + I_2 = 3 + 5 = 8\\text{ A}$.',
-            'Total outgoing current: $\\sum I_{out} = I_3 + I_4 = 2 + I_4$.',
-            'Equating: $8 = 2 + I_4 \\implies I_4 = 6\\text{ A}$ (exiting the junction).'
-          ],
-          stepByStepSolutionAr: [
-            'مجموع التيارات الداخلة: $\\sum I_{in} = I_1 + I_2 = 3 + 5 = 8\\text{ أمبير}$.',
-            'مجموع التيارات الخارجة: $\\sum I_{out} = I_3 + I_4 = 2 + I_4$.',
-            'بالمساواة: $8 = 2 + I_4 \\implies I_4 = 6\\text{ أمبير}$ في اتجاه الخروج من النقطة.'
-          ],
-          teacherTipEn: 'Kirchhoff\'s junction rule is an explicit expression of the law of conservation of electric charge.',
-          teacherTipAr: 'قانون كيرشوف الأول يمثل التطبيق الفيزيائي المباشر لمبدأ بقاء الشحنة الكهربية.'
-        },
-        {
-          id: 'th_phys_ex_03',
-          titleEn: 'Exercise 3: Magnetic Force on Inclined Conductor',
-          titleAr: 'تمرين ٣: القوة المغناطيسية المؤثرة على سلك مائل',
-          difficulty: 'medium',
-          questionEn: 'A straight wire of length $L = 0.5\\text{ m}$ carries a current of $I = 4\\text{ A}$ placed in a uniform magnetic field of flux density $B = 0.2\\text{ T}$. If the wire makes an angle of $30^\\circ$ with the magnetic field lines, calculate the magnetic force acting on the wire.',
-          questionAr: 'سلك مستقيم طوله $0.5\\text{ m}$ يمر به تيار شدته $4\\text{ A}$ موضوع في مجال مغناطيسي منتظم كثافة فيضه $0.2\\text{ T}$. إذا كان السلك يصنع زاوية $30^\\circ$ مع اتجاه خطوط المجال، فاحسب مقدار القوة المغناطيسية المؤثرة عليه.',
-          optionsEn: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
-          optionsAr: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
-          correctAnswer: '$0.20\\text{ N}$',
-          correctIndex: 0,
-          hintEn: 'Apply $F = BIL\\sin\\theta$, with $\\theta = 30^\\circ$ (so $\\sin 30^\\circ = 0.5$).',
-          hintAr: 'طبق القانون $F = BIL\\sin\\theta$ مع التعويض عن $\\theta = 30^\\circ$ (حيث $\\sin 30^\\circ = 0.5$).',
-          stepByStepSolutionEn: [
-            'Magnetic force formula: $F = B I L \\sin\\theta$.',
-            'Substitute values: $F = (0.2\\text{ T}) \\times (4\\text{ A}) \\times (0.5\\text{ m}) \\times \\sin 30^\\circ$.',
-            'Calculate: $F = 0.40 \\times 0.5 = 0.20\\text{ N}$.'
-          ],
-          stepByStepSolutionAr: [
-            'قانون القوة المغناطيسية: $F = BIL\\sin\\theta$.',
-            'التعويض بالمعطيات: $F = 0.2 \\times 4 \\times 0.5 \\times \\sin 30^\\circ$.',
-            'الناتج: $F = 0.40 \\times 0.5 = 0.20\\text{ نيوتن}$.'
-          ],
-          teacherTipEn: 'Remember that when theta is 30 degrees, the force is exactly half of the maximum possible force (BIL).',
-          teacherTipAr: 'تذكر دائماً أنه عند زاوية 30 درجة مع المجال تكون القوة نصف قيمتها العظمى مباشرة.'
-        },
-        {
-          id: 'th_phys_ex_04',
-          titleEn: 'Exercise 4: AC Dynamo Effective and Instantaneous EMF',
-          titleAr: 'تمرين ٤: القيمة الفعالة واللحظية للقوة الدافعة لدينامو',
-          difficulty: 'hots',
-          diagramType: 'phys_dynamo_generator',
-          questionEn: 'If the effective electromotive force produced by an alternating current dynamo is $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$, what is the instantaneous EMF when the plane of the coil is inclined at $30^\\circ$ to the magnetic field lines?',
-          questionAr: 'إذا كانت القيمة الفعالة للقوة الدافعة الكهربية المتولدة من دينامو تيار متردد هي $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$، فما هي القوة الدافعة اللحظية عندما يكون مستوى الملف مائلاً بزاوية $30^\\circ$ على خطوط الفيض؟',
-          optionsEn: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
-          optionsAr: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
-          correctAnswer: '$244.9\\text{ V}$',
-          correctIndex: 0,
-          hintEn: 'Maximum EMF is $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. The angle between normal and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
-          hintAr: 'القيمة العظمى $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. الزاوية مع العمودي على الملف هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
-          stepByStepSolutionEn: [
-            'Maximum EMF: $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2} = 200 \\times 1.4142 \\approx 282.84\\text{ V}$.',
-            'Coil inclination angle to field lines is $30^\\circ$, so angle between the normal to the coil and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
-            'Instantaneous EMF: $\\text{EMF}_{\\text{inst}} = \\text{EMF}_{\\max} \\sin 60^\\circ = 282.84 \\times \\frac{\\sqrt{3}}{2} \\approx 244.95\\text{ V}$.'
-          ],
-          stepByStepSolutionAr: [
-            'القيمة العظمى للقوة الدافعة: $\\text{EMF}_{\\max} = 200\\sqrt{2} \\approx 282.84\\text{ فولت}$.',
-            'زاوية الملف مع المجال $30^\\circ$ إذن الزاوية مع العمودي هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
-            'القيمة اللحظية: $\\text{EMF}_{\\text{inst}} = 282.84 \\times \\sin 60^\\circ = 282.84 \\times 0.866 \\approx 244.9\\text{ فولت}$.'
-          ],
-          teacherTipEn: 'Always be alert: the angle in the dynamo EMF formula is between the NORMAL to the coil and the field lines, not the plane of the coil.',
-          teacherTipAr: 'انتبه بشدة: الزاوية في قانون الدينامو هي الزاوية بين العمودي على مستوى الملف وخطوط المجال وليست مع مستوى الملف نفسه.'
-        },
-        {
-          id: 'th_phys_ex_05',
-          titleEn: 'Exercise 5: Hydrogen Balmer Series First Spectral Line',
-          titleAr: 'تمرين ٥: الطول الموجي لخط بالمر الأول (H-alpha) في طيف الهيدروجين',
-          difficulty: 'medium',
-          diagramType: 'phys_bohr_atom_series',
-          questionEn: 'In the hydrogen atom spectrum, the first line of the Balmer series ($H_\\alpha$) results from an electron transition from level $n = 3$ ($E_3 = -1.51\\text{ eV}$) to level $n = 2$ ($E_2 = -3.40\\text{ eV}$). What is the wavelength of this visible spectral line?',
-          questionAr: 'في طيف ذرة الهيدروجين، ينتج الخط الأول لمتسلسلة بالمر ($H_\\alpha$) عن انتقال إلكترون من المستوى الثالث ($E_3 = -1.51\\text{ eV}$) إلى المستوى الثاني ($E_2 = -3.40\\text{ eV}$). احسب الطول الموجي لهذا الخط الطيفي المرئي.',
-          optionsEn: ['$656.3\\text{ nm}$ (red)', '$486.1\\text{ nm}$ (cyan)', '$121.6\\text{ nm}$ (ultraviolet)', '$434.0\\text{ nm}$ (blue)'],
-          optionsAr: ['$656.3\\text{ nm}$ (أحمر)', '$486.1\\text{ nm}$ (أزرق مخضر)', '$121.6\\text{ nm}$ (فوق بنفسجي)', '$434.0\\text{ nm}$ (نيلي)'],
-          correctAnswer: '$656.3\\text{ nm}$ (red)',
-          correctIndex: 0,
-          hintEn: 'Calculate energy difference $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$, then $\\lambda = \\frac{hc}{\\Delta E}$.',
-          hintAr: 'احسب فرق الطاقة $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$ ثم طبق $\\lambda = \\frac{hc}{\\Delta E}$.',
-          stepByStepSolutionEn: [
-            'Transition energy: $\\Delta E = E_3 - E_2 = -1.51\\text{ eV} - (-3.40\\text{ eV}) = 1.89\\text{ eV}$.',
-            'Convert to Joules: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19}\\text{ J} = 3.028 \\times 10^{-19}\\text{ J}$.',
-            'Wavelength: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{(6.626 \\times 10^{-34})(3.0 \\times 10^8)}{3.028 \\times 10^{-19}} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 6.565 \\times 10^{-7}\\text{ m} = 656.5\\text{ nm}$ (visible red $H_\\alpha$).'
-          ],
-          stepByStepSolutionAr: [
-            'فرق الطاقة: $\\Delta E = -1.51 - (-3.40) = 1.89\\text{ إلكترون فولت}$.',
-            'التحويل إلى جول: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19} = 3.028 \\times 10^{-19}\\text{ جول}$.',
-            'الطول الموجي: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 656.3\\text{ نانومتر}$ (ضوء أحمر مرئي $H_\\alpha$).'
-          ],
-          teacherTipEn: 'The H-alpha line at 656.3 nm is the prominent red glow seen in hydrogen discharge tubes and emission nebulae.',
-          teacherTipAr: 'خط H-alpha بطول موجي 656.3 نانومتر يمنح أنبوبة تفريغ الهيدروجين وسديم الفضاء وهجها الأحمر المميز.'
-        },
-        {
           id: 'th_phys_ex_06',
           titleEn: 'Exercise 6: Coolidge Tube Bremsstrahlung Wavelength Cutoff',
           titleAr: 'تمرين ٦: حساب أدنى طول موجي مستمر لأشعة إكس في أنبوبة كوليدج',
@@ -1945,8 +2021,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           teacherTipEn: 'Notice that increasing the accelerating voltage shifts lambda_min toward shorter wavelengths and higher penetration powers.',
           teacherTipAr: 'زيادة فرق الجهد المعجل في أنبوبة كوليدج تزيح أدنى طول موجي نحو أطوال أقصر وترددات أعلى ذات قدرة نفاذ أكبر.'
         }
-      ],
-      databank: physCh1Databank
+      ]
     }
   ]
 };

@@ -3,20 +3,20 @@ import { egBacChemCh1Databank } from './databanks/egbac/egBacChemCh1Databank';
 
 export const egBacChemistryBranch: Branch = {
   id: 'egbac_chemistry',
-  titleEn: 'Advanced Chemistry (Physical & Analytical)',
-  titleAr: 'الكيمياء المتقدمة (الفيزيائية والتحليلية STEM)',
-  categoryEn: 'Advanced Sciences',
-  categoryAr: 'العلوم المتقدمة',
+  titleEn: 'Chemistry (Natural Sciences)',
+  titleAr: 'الكيمياء (العلوم الطبيعية)',
+  categoryEn: 'Natural Sciences',
+  categoryAr: 'العلوم الطبيعية',
   iconName: 'FlaskConical',
-  colorGradient: 'from-emerald-600 to-teal-800',
+  colorGradient: 'from-emerald-500 to-teal-700',
   chapters: [
     {
       id: 'egbac_chem_ch1',
       chapterNumber: 1,
-      titleEn: 'Chemical Kinetics, Reaction Rates & Chemical Equilibrium',
-      titleAr: 'الحركية الكيميائية وسرعة التفاعلات والاتزان الكيميائي',
-      descriptionEn: 'Reaction rate laws, differential and integrated rate equations, collision theory, activation energy, Arrhenius equation, dynamic equilibrium, equilibrium constants Kc and Kp, Le Chatelier principle, ionic equilibria, and buffer solutions.',
-      descriptionAr: 'قوانين سرعة التفاعل، معادلات السرعة التفاضلية والتكاملية، نظرية التصادم، طاقة التنشيط ومعادلة أرهينيوس، الاتزان الكيميائي الديناميكي، ثوابت الاتزان Kc و Kp، قاعدة لوشاتيليه، الاتزان الأيوني، والمحاليل المنظمة (البفر).',
+      titleEn: 'Chemical Kinetics, Reaction Rates & Collision Dynamics',
+      titleAr: 'الحركية الكيميائية ومعدلات التفاعل وديناميكا التصادم',
+      descriptionEn: 'Reaction rate laws, rate constants, reaction orders, Arrhenius equation, activation energy, Maxwell-Boltzmann molecular distributions, and catalyst mechanisms.',
+      descriptionAr: 'قوانين سرعة التفاعل الكيميائي، ثابت السرعة، رتب التفاعل، معادلة أرينيوس وطاقة التنشيط، توزيعات ماكسويل-بولتزمان، وآليات عمل الحفازات.',
       isFullyEquipped: true,
       lessons: [
         {
@@ -304,6 +304,74 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
             descriptionAr: 'محاكاة تفاعلية لاختبار تغيرات الحرارة والضغط والتركيز على الأنظمة الكيميائية المتزنة.'
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_chem_se_01',
+          titleEn: 'Example 1: Converting Kc to Kp for Haber-Bosch Ammonia Synthesis',
+          titleAr: 'مثال ١: تحويل ثابت التركيز Kc إلى ثابت الضغط Kp لتخليق النشادر',
+          difficulty: 'medium',
+          questionEn: 'For the synthesis of ammonia: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)}$ at $500\\text{ K}$, $K_c = 0.50\\text{ L}^2/\\text{mol}^2$. Calculate $K_p$ at this temperature (use $R = 0.0821\\text{ L}\\cdot\\text{atm}/(\\text{mol}\\cdot\\text{K})$).',
+          questionAr: 'لتفاعل تخليق غاز النشادر: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)}$ عند درجة $500\\text{ كلفن}$، كانت قيمة $K_c = 0.50$. احسب قيمة $K_p$ عند نفس درجة الحرارة (استخدم $R = 0.0821\\text{ L}\\cdot\\text{atm}/(\\text{mol}\\cdot\\text{K})$).',
+          optionsEn: ['$2.96 \\times 10^{-4}\\text{ atm}^{-2}$', '$8.41 \\times 10^{-2}\\text{ atm}^{-2}$', '$845\\text{ atm}^{-2}$', '$1.22 \\times 10^{-5}\\text{ atm}^{-2}$'],
+          optionsAr: ['$2.96 \\times 10^{-4}\\text{ atm}^{-2}$', '$8.41 \\times 10^{-2}\\text{ atm}^{-2}$', '$845\\text{ atm}^{-2}$', '$1.22 \\times 10^{-5}\\text{ atm}^{-2}$'],
+          correctAnswer: '$2.96 \\times 10^{-4}\\text{ atm}^{-2}$',
+          correctIndex: 0,
+          hintEn: 'Use $K_p = K_c (R T)^{\\Delta n_g}$ where $\\Delta n_g = 2 - (1 + 3) = -2$.',
+          hintAr: 'طبق القانون $K_p = K_c (R T)^{\\Delta n_g}$ حيث $\\Delta n_g = 2 - (1 + 3) = -2$.',
+          stepByStepSolutionEn: [
+            'Change in gas moles: $\\Delta n_g = n_{\\text{products}} - n_{\\text{reactants}} = 2 - (1 + 3) = -2$.',
+            'Compute $R T = 0.0821 \\times 500 = 41.05\\text{ L}\\cdot\\text{atm}/\\text{mol}$.',
+            'Calculate $K_p = K_c \\cdot (R T)^{-2} = \\frac{0.50}{(41.05)^2} = \\frac{0.50}{1685.1} \\approx 2.967 \\times 10^{-4}\\text{ atm}^{-2}$.'
+          ],
+          stepByStepSolutionAr: [
+            'فرق عدد مولات الغاز: $\\Delta n_g = 2 - (1 + 3) = -2$.',
+            'حساب المقدار $R T = 0.0821 \\times 500 = 41.05$.',
+            'تطبيق العلاقة: $K_p = K_c \\cdot (R T)^{-2} = \\frac{0.50}{(41.05)^2} = \\frac{0.50}{1685.1} \\approx 2.967 \\times 10^{-4}$.'
+          ],
+          teacherTipEn: 'When Delta n_g is negative, Kp is numerically much smaller than Kc, which is why industrial synthesis requires high pressures (200 atm).',
+          teacherTipAr: 'عندما تكون دلتا n سالبة، تكون Kp أصغر بكثير من Kc، ولهذا يجرى تصنيع الأمونيا صناعياً تحت ضغوط مرتفعة جداً (حوالي 200 ضغط جوي).'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_chem_ue_01',
+          titleEn: 'Arrhenius Activation Energy from Two Rate Constants',
+          titleAr: 'حساب طاقة التنشيط من ثابتي سرعة عند درجتي حرارة مختلفتين',
+          difficulty: 'medium',
+          questionEn: 'The rate constant of a reaction is $k_1 = 0.020\\text{ s}^{-1}$ at $300\\text{ K}$ and $k_2 = 0.080\\text{ s}^{-1}$ at $320\\text{ K}$. Calculate the activation energy $E_a$ in $\\text{kJ/mol}$ ($R = 8.314\\text{ J}/(\\text{mol}\\cdot\\text{K})$).',
+          questionAr: 'بلغ ثابت سرعة تفاعل $k_1 = 0.020\\text{ ث}^{-1}$ عند درجة $300\\text{ كلفن}$ وارتفع إلى $k_2 = 0.080\\text{ ث}^{-1}$ عند $320\\text{ كلفن}$. احسب طاقة التنشيط $E_a$ بوحدة $\\text{kJ/mol}$ (علماً بأن $R = 8.314\\text{ J}/(\\text{mol}\\cdot\\text{K})$).',
+          optionsEn: ['$55.3\\text{ kJ/mol}$', '$27.8\\text{ kJ/mol}$', '$110.6\\text{ kJ/mol}$', '$14.2\\text{ kJ/mol}$'],
+          optionsAr: ['$55.3\\text{ كيلوجول/مول}$', '$27.8\\text{ كيلوجول/مول}$', '$110.6\\text{ كيلوجول/مول}$', '$14.2\\text{ كيلوجول/مول}$'],
+          correctAnswer: '$55.3\\text{ kJ/mol}$',
+          correctIndex: 0,
+          hintEn: 'Use $\\ln\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$.',
+          hintAr: 'طبق صيغة أرهينيوس: $\\ln\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$.',
+          stepByStepSolutionEn: [
+            'Calculate $\\ln(k_2 / k_1) = \\ln(0.080 / 0.020) = \\ln(4) \\approx 1.3863$.',
+            'Temperature difference term: $\\frac{1}{T_1} - \\frac{1}{T_2} = \\frac{320 - 300}{300 \\times 320} = \\frac{20}{96000} = 2.0833 \\times 10^{-4}\\text{ K}^{-1}$.',
+            'Solve for $E_a$: $E_a = \\frac{R \\cdot \\ln(k_2/k_1)}{2.0833 \\times 10^{-4}} = \\frac{8.314 \\times 1.3863}{2.0833 \\times 10^{-4}} \\approx 55322\\text{ J/mol} = 55.3\\text{ kJ/mol}$.'
+          ],
+          stepByStepSolutionAr: [
+            'حساب النسبة: $\\ln(k_2 / k_1) = \\ln(4) \\approx 1.3863$.',
+            'فرق مقلوب درجتي الحرارة: $\\frac{1}{300} - \\frac{1}{320} = \\frac{20}{96000} = 2.0833 \\times 10^{-4}\\text{ كلفن}^{-1}$.',
+            'حساب طاقة التنشيط: $E_a = \\frac{8.314 \\times 1.3863}{2.0833 \\times 10^{-4}} \\approx 55322\\text{ جول/مول} = 55.3\\text{ كيلوجول/مول}$.'
+          ],
+          teacherTipEn: 'A general rule of thumb in general chemistry is that reaction rates double approximately every 10 K rise for Ea around 50 kJ/mol.',
+          teacherTipAr: 'قاعدة تقريبية شائعة: تتضاعف سرعة التفاعل تقريباً كلما ارتفعت الحرارة 10 درجات مئوية إذا كانت طاقة التنشيط في حدود 50 كيلوجول/مول.'
+        }
+      ],
+      databank: egBacChemCh1Databank
+    },
+    {
+      id: 'egbac_chem_ch2',
+      chapterNumber: 2,
+      titleEn: "Advanced Dynamic Equilibrium, Le Chatelier Shifts & van 't Hoff Relation",
+      titleAr: 'الاتزان الديناميكي المتقدم وتغيرات لوشاتيليه ومعادلة فانت هوف',
+      descriptionEn: "Homogeneous and heterogeneous equilibria, equilibrium constants (Kc, Kp), reaction quotient Q, Le Chatelier's principle under pressure/temperature shifts, and van 't Hoff equation.",
+      descriptionAr: 'الاتزان المتجانس وغير المتجانس، ثوابت الاتزان، حاصل التفاعل، قاعدة لوشاتيليه عند تغير الضغط ودرجة الحرارة، ومعادلة فانت هوف.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_chem_l2",
           "titleEn": "Advanced Dynamic Equilibrium: Le Chatelier Shifts, Reaction Quotient Q & van 't Hoff Relation",
@@ -518,6 +586,84 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
             "descriptionAr": "محاكاة تفاعلية لمقارنة حاصل التفاعل وديناميكا فانت هوف لتغير ثابت الاتزان مع درجات الحرارة."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_chem_se_02',
+          titleEn: 'Example 2: Henderson-Hasselbalch Buffer pH Calculation',
+          titleAr: 'مثال ٢: حساب الرقم الهيدروجيني لمحلول منظم حمضي',
+          difficulty: 'easy',
+          questionEn: 'A buffer solution contains $0.20\\text{ M } CH_3COOH$ ($K_a = 1.8 \\times 10^{-5}$, $\\text{p}K_a = 4.74$) and $0.30\\text{ M } CH_3COONa$. Calculate the pH of the buffer solution.',
+          questionAr: 'محلول منظم يحتوي على حمض الأسيتيك $CH_3COOH$ بتركيز $0.20\\text{ مولار}$ ($\text{p}K_a = 4.74$) وأسيتات الصوديوم $CH_3COONa$ بتركيز $0.30\\text{ مولار}$. احسب الرقم الهيدروجيني $\\text{pH}$ للمحلول.',
+          optionsEn: ['$\\text{pH} = 4.92$', '$\\text{pH} = 4.56$', '$\\text{pH} = 5.20$', '$\\text{pH} = 4.74$'],
+          optionsAr: ['$\\text{pH} = 4.92$', '$\\text{pH} = 4.56$', '$\\text{pH} = 5.20$', '$\\text{pH} = 4.74$'],
+          correctAnswer: '$\\text{pH} = 4.92$',
+          correctIndex: 0,
+          hintEn: 'Apply $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[\\text{Salt}]}{[\\text{Acid}]}\\right)$.',
+          hintAr: 'طبق معادلة هندرسون-هاسلبالخ: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[\\text{الملح}]}{[\\text{الحمض}]}\\right)$.',
+          stepByStepSolutionEn: [
+            'Henderson-Hasselbalch equation: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[CH_3COO^-]}{[CH_3COOH]}\\right)$.',
+            'Substitute values: $\\text{pH} = 4.74 + \\log\\left(\\frac{0.30}{0.20}\\right) = 4.74 + \\log(1.5)$.',
+            'Since $\\log(1.5) \\approx 0.176$, $\\text{pH} = 4.74 + 0.176 = 4.916 \\approx 4.92$.'
+          ],
+          stepByStepSolutionAr: [
+            'معادلة هندرسون-هاسلبالخ: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[CH_3COO^-]}{[CH_3COOH]}\\right)$.',
+            'التعويض بالقيم: $\\text{pH} = 4.74 + \\log\\left(\\frac{0.30}{0.20}\\right) = 4.74 + \\log(1.5)$.',
+            'بما أن $\\log(1.5) \\approx 0.176$، إذن $\\text{pH} = 4.74 + 0.176 = 4.916 \\approx 4.92$.'
+          ],
+          teacherTipEn: 'Because conjugate base concentration exceeds acid concentration, the pH is slightly higher than pKa.',
+          teacherTipAr: 'نظراً لأن تركيز القاعدة المرافقة (الملح) أعلى من تركيز الحمض الضعيف، فإن pH يكون أعلى قليلاً من pKa.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_chem_ue_02',
+          titleEn: 'Exercise 2: Ethanol Catalytic Dehydration & Thermal Cleavage to Ethene',
+          titleAr: 'تمرين ٢: نزع الماء من الكحول الإيثيلي والانحلال الحراري لكبريتات الإيثيل الهيدروجينية',
+          difficulty: 'medium',
+          diagramType: 'chem_ethylene_preparation',
+          questionEn: 'In the laboratory synthesis of ethylene ($\\text{C}_2\\text{H}_4$) from ethanol and concentrated $\\text{H}_2\\text{SO}_4$, at what specific temperature does the intermediate ethyl hydrogen sulfate ($\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H}$) undergo thermal decomposition to liberate gaseous ethene?',
+          questionAr: 'أثناء تحضير غاز الإيثيلين ($\\text{C}_2\\text{H}_4$) معملياً بنزع الماء من الكحول الإيثيلي بواسطة حمض الكبريتيك المركز، عند أي درجة حرارة محددة يحدث الانحلال الحراري لمركب كبريتات الإيثيل الهيدروجينية الوسيط لتحرير غاز الإيثيلين؟',
+          optionsEn: [
+            'At $180^\\circ\\text{C}$',
+            'At $140^\\circ\\text{C}$ (yielding diethyl ether instead)',
+            'At $80^\\circ\\text{C}$ (formation of the intermediate ester)',
+            'At $100^\\circ\\text{C}$ (boiling of water)'
+          ],
+          optionsAr: [
+            'عند درجة حرارة $180^\\circ\\text{C}$',
+            'عند درجة حرارة $140^\\circ\\text{C}$ (حيث يتكون إيثر ثنائي الإيثيل)',
+            'عند درجة حرارة $80^\\circ\\text{C}$ (حيث يتكون المركب الوسيط)',
+            'عند درجة حرارة $100^\\circ\\text{C}$ (حيث يغلي الماء)'
+          ],
+          correctAnswer: 'At $180^\\circ\\text{C}$',
+          correctIndex: 0,
+          hintEn: 'Step 1 at $80^\\circ\\text{C}$: esterification to ethyl hydrogen sulfate. Step 2 at $180^\\circ\\text{C}$: thermal cleavage.',
+          hintAr: 'الخطوة الأولى عند $80^\\circ\\text{C}$ تكون كبريتات الإيثيل الهيدروجينية، ثم تنحل حرارياً عند $180^\\circ\\text{C}$.',
+          stepByStepSolutionEn: [
+            '1. At $80^\\circ\\text{C}$: $\\text{C}_2\\text{H}_5\\text{OH} + \\text{H}_2\\text{SO}_4 \\xrightarrow{80^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} + \\text{H}_2\\text{O}$.',
+            '2. At $180^\\circ\\text{C}$: $\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} \\xrightarrow{180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{SO}_4$.',
+            '3. Overall reaction: $\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. }\\text{H}_2\\text{SO}_4,\\,180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{O}$.'
+          ],
+          stepByStepSolutionAr: [
+            '١. عند $80^\\circ\\text{C}$: يتفاعل الكحول مع الحمض مكوناً كبريتات الإيثيل الهيدروجينية: $\\text{C}_2\\text{H}_5\\text{OH} + \\text{H}_2\\text{SO}_4 \\xrightarrow{80^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} + \\text{H}_2\\text{O}$.',
+            '٢. عند $180^\\circ\\text{C}$: يحدث انحلال حراري لكبريتات الإيثيل الهيدروجينية وينطلق الإيثيلين: $\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} \\xrightarrow{180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{SO}_4$.',
+            '٣. المعادلة الكلية: $\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. }\\text{H}_2\\text{SO}_4,\\,180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{O}$.'
+          ],
+          teacherTipEn: 'Notice that heating at $140^\\circ\\text{C}$ with excess ethanol yields diethyl ether instead: $2\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{140^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OC}_2\\text{H}_5 + \\text{H}_2\\text{O}$.',
+          teacherTipAr: 'لاحظ الفرق الهام: عند $140^\\circ\\text{C}$ مع وفرة من الكحول يتكون إيثر ثنائي الإيثيل بدلاً من الإيثيلين.'
+        }
+      ]
+    },
+    {
+      id: 'egbac_chem_ch3',
+      chapterNumber: 3,
+      titleEn: 'Acid-Base Equilibria, Buffer Systems & Complex Ion Equilibria',
+      titleAr: 'اتزان الأحماض والقواعد والمحاليل المنظمة والأيونات المعقدة',
+      descriptionEn: 'Brønsted-Lowry & Lewis acid-base theories, autoionization of water, pH & pOH scale, weak acid/base ionization constants (Ka, Kb), salt hydrolysis, and Henderson-Hasselbalch buffer calculations.',
+      descriptionAr: 'نظريات برونشتد-لوري ولويس للأحماض والقواعد، التأين الذاتي للماء، مقياس الرقم الهيدروجيني، ثوابت تأين الأحماض والقواعد الضعيفة، تميؤ الأملاح، وحسابات المحاليل المنظمة.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_chem_l3",
           "titleEn": "Acid-Base Equilibria, Buffer Systems, Henderson-Hasselbalch & Complex Ion Equilibria",
@@ -734,6 +880,97 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
             "descriptionAr": "محاكاة تفاعلية لمنحنيات معايرة المحاليل المنظمة وتغيرات نسبة الحمض والقاعدة المقترنة وثوابت تكوين المعقدات."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_chem_se_03',
+          titleEn: 'STEM Example 3: Standard Hydrogen Electrode (SHE) Conditions & Nernst Dependence',
+          titleAr: 'مثال ستيم ٣: معايير قطب الهيدروجين القياسي ومعادلة نيرنست للجهد',
+          difficulty: 'hots',
+          diagramType: 'chem_standard_hydrogen_electrode',
+          questionEn: 'The Standard Hydrogen Electrode (SHE) has an internationally defined standard reduction potential of $E^\\circ = 0.00\\,\\text{V}$. Under which specific conditions does this potential hold strictly, and how does the half-cell potential change if the hydronium ion concentration is increased to $[\text{H}^+] = 2.0\\,\\text{M}$ at $298\\,\\text{K}$ with $P_{\\text{H}_2} = 1.0\\,\\text{atm}$?',
+          questionAr: 'تم اصطلاح جهد قطب الهيدروجين القياسي (SHE) ليكون مساوياً للصفر $E^\\circ = 0.00\\,\\text{V}$. تحت أي شروط محددة يتحقق ذلك بدقة، وكيف يتغير جهد نصف الخلية وفق معادلة نيرنست إذا زاد تركيز أيونات الهيدرونيوم إلى $[\text{H}^+] = 2.0\\,\\text{M}$ عند $298\\,\\text{K}$ وضغط هيدروجين $1.0\\,\\text{atm}$؟',
+          optionsEn: [
+            '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 1.0\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential shifts positive ($E > 0.00\\,\\text{V}$)',
+            '$[\text{H}^+] = 0.1\\,\\text{M}$, $P_{\\text{H}_2} = 10.0\\,\\text{atm}$, $T = 373\\,\\text{K}$; potential shifts negative ($E < 0.00\\,\\text{V}$)',
+            '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 2.0\\,\\text{atm}$, $T = 273\\,\\text{K}$; potential remains strictly zero regardless of concentration',
+            '$[\text{H}^+] = 0.0\\,\\text{M}$, $P_{\\text{H}_2} = 0.5\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential becomes undefined'
+          ],
+          optionsAr: [
+            '$[\text{H}^+] = 1.0\\,\\text{M}$ و $P_{\\text{H}_2} = 1.0\\,\\text{atm}$ عند $298\\,\\text{K}$؛ وينزاح الجهد إلى قيمة موجبة ($E > 0.00\\,\\text{V}$)',
+            '$[\text{H}^+] = 0.1\\,\\text{M}$ و $P_{\\text{H}_2} = 10.0\\,\\text{atm}$ عند $373\\,\\text{K}$؛ وينزاح الجهد إلى قيمة سالبة ($E < 0.00\\,\\text{V}$)',
+            '$[\text{H}^+] = 1.0\\,\\text{M}$ و $P_{\\text{H}_2} = 2.0\\,\\text{atm}$ عند $273\\,\\text{K}$؛ ويبقى الجهد صفراً ثابتاً مهما تغير التركيز',
+            '$[\text{H}^+] = 0.0\\,\\text{M}$ و $P_{\\text{H}_2} = 0.5\\,\\text{atm}$ عند $298\\,\\text{K}$؛ ويصبح الجهد غير معرف'
+          ],
+          correctAnswer: '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 1.0\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential shifts positive ($E > 0.00\\,\\text{V}$)',
+          correctIndex: 0,
+          hintEn: 'Nernst equation for $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2$: $E = E^\\circ - \\frac{0.0592}{2} \\log\\frac{P_{\\text{H}_2}}{[\\text{H}^+]^2}$. Increasing $[\text{H}^+]$ increases reduction driving force.',
+          hintAr: 'معادلة نيرنست لاختزال الهيدروجين: زيادة تركيز أيونات الهيدروجين تزيد من ميل التفاعل نحو الاختزال فيصبح الجهد موجباً.',
+          stepByStepSolutionEn: [
+            '1. Standard conditions: Pure $\\text{H}_2$ gas bubbling at $1.0\\,\\text{atm}$ over platinized platinum foil immersed in $1.0\\,\\text{M}$ strong monoprotic acid solution at $298\\,\\text{K}$ ($25^\\circ\\text{C}$).',
+            '2. Reduction half-reaction: $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2\\text{(g)}$.',
+            '3. Nernst equation: $E = 0.00 - \\frac{0.05916}{2} \\log\\left(\\frac{1.0}{(2.0)^2}\\right) = -0.02958 \\log(0.25) = -0.02958(-0.602) \\approx +0.0178\\,\\text{V}$.',
+            '4. Thus, increasing $[\text{H}^+]$ above $1.0\\,\\text{M}$ causes the half-cell potential to become positive ($+17.8\\,\\text{mV}$).'
+          ],
+          stepByStepSolutionAr: [
+            '١. الشروط القياسية: غاز هيدروجين نقي يتدفق تحت ضغط $1.0\\,\\text{atm}$ على صفيحة بلاتين مغطاة ببلاتين مجزأ (أسود البلاتين) مغمورة في حمض قوي تركيزه $1.0\\,\\text{M}$ عند $298\\,\\text{K}$ ($25^\\circ\\text{C}$).',
+            '٢. نصف تفاعل الاختزال: $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2\\text{(g)}$.',
+            '٣. بتطبيق معادلة نيرنست: $E = 0.00 - \\frac{0.05916}{2} \\log\\left(\\frac{1.0}{(2.0)^2}\\right) = -0.02958 \\log(0.25) \\approx +0.0178\\,\\text{V}$.',
+            '٤. إذن زيادة تركيز أيونات الهيدرونيوم تجعل الجهد ينزاح إلى قيمة موجبة أكبر من الصفر بمقدار $+17.8\\,\\text{mV}$.'
+          ],
+          teacherTipEn: 'The platinized platinum sheet provides an immense micro-rough surface area to adsorb hydrogen gas and catalyze equilibrium.',
+          teacherTipAr: 'صفيحة البلاتين المجزأ توفر مساحة سطح هائلة لامتزاز غاز الهيدروجين وتسريع الوصول لحالة الاتزان الديناميكي.'
+        }
+      ],
+      exerciseProblems: [
+        {
+          id: 'egbac_chem_ue_03',
+          titleEn: 'Exercise 3: Ethyne Laboratory Preparation & Acidified Copper Sulfate Scrubber',
+          titleAr: 'تمرين ٣: تحضير غاز الإيثاين ودور محلول كبريتات النحاس المحمض في تنقية الغاز',
+          difficulty: 'hots',
+          diagramType: 'chem_acetylene_preparation',
+          questionEn: 'When preparing ethyne (acetylene, $\\text{C}_2\\text{H}_2$) in the laboratory by dropping water onto calcium carbide ($\\text{CaC}_2$), why is the evolving gas stream passed through a wash bottle containing copper(II) sulfate dissolved in dilute sulfuric acid before collection?',
+          questionAr: 'عند تحضير غاز الإيثاين (الأسيتيلين $\\text{C}_2\\text{H}_2$) معملياً بتنقيط الماء على كربيد الكالسيوم ($\\text{CaC}_2$)، لماذا يُمرر الغاز المتصاعد أولاً على قارورة غسيل تحتوي على كبريتات النحاس الثنائية في حمض كبريتيك مخفف قبل جمعه؟',
+          optionsEn: [
+            'To remove phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$) gases resulting from impurities in industrial calcium carbide',
+            'To dehydrate the acetylene gas and remove water vapor carried over from the dropping funnel',
+            'To catalyze the polymerization of acetylene into benzene before it enters the gas collection trough',
+            'To neutralize carbon dioxide and sulfur dioxide gases formed during carbide decomposition'
+          ],
+          optionsAr: [
+            'للتخلص من غازي الفوسفين ($\\text{PH}_3$) وكبريتيد الهيدروجين ($\\text{H}_2\\text{S}$) الناتجة عن الشوائب في كربيد الكالسيوم الصناعي',
+            'لتجفيف غاز الأسيتيلين والتخلص من بخار الماء المتصاعد من قمع التنقيط',
+            'لتحفيز بلمرة الأسيتيلين إلى بنزين عطري قبل وصوله إلى حوض جمع الغاز',
+            'لمعادلة غازي ثاني أكسيد الكربون وثاني أكسيد الكبريت الناتجة عن تفكك الكربيد'
+          ],
+          correctAnswer: 'To remove phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$) gases resulting from impurities in industrial calcium carbide',
+          correctIndex: 0,
+          hintEn: 'Technical calcium carbide contains traces of calcium phosphide and calcium sulfide which generate foul-smelling toxic gases $\\text{PH}_3$ and $\\text{H}_2\\text{S}$.',
+          hintAr: 'يحتوي كربيد الكالسيوم التجاري على شوائب فوسفيد وكبريتيد الكالسيوم التي تنتج غازي الفوسفين وكبريتيد الهيدروجين.',
+          stepByStepSolutionEn: [
+            '1. Reaction of calcium carbide with water: $\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{C}_2\\text{H}_2\\text{(g)} + \\text{Ca(OH)}_2$.',
+            '2. Impurities: Industrial calcium carbide contains traces of calcium phosphide ($\\text{Ca}_3\\text{P}_2$) and calcium sulfide ($\\text{CaS}$), which react with water to release phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$).',
+            '3. Purification scrubber: Acidified $\\text{CuSO}_4$ absorbs $\\text{H}_2\\text{S}$ (forming insoluble black $\\text{CuS}$ precipitate) and oxidizes/absorbs $\\text{PH}_3$, yielding pure ethyne gas.'
+          ],
+          stepByStepSolutionAr: [
+            '١. معادلة تحضير الإيثاين: $\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{C}_2\\text{H}_2\\text{(g)} + \\text{Ca(OH)}_2$.',
+            '٢. الشوائب المصاحبة: يحتوي كربيد الكالسيوم التجاري على شوائب من فوسفيد الكالسيوم ($\\text{Ca}_3\\text{P}_2$) وكبريتيد الكالسيوم ($\\text{CaS}$)، والتي تتفاعل مع الماء منتجة غازي الفوسفين ($\\text{PH}_3$) وكبريتيد الهيدروجين ($\\text{H}_2\\text{S}$) السامين كريهي الرائحة.',
+            '٣. دور قارورة التنقية: محلول كبريتات النحاس في حمض الكبريتيك المخفف يمتص كبريتيد الهيدروجين مرسباً إياه على هيئة كبريتيد نحاس أسود ($\\text{CuS}\\downarrow$) ويتخلص من الفوسفين، فيخرج غاز الإيثاين نقياً.'
+          ],
+          teacherTipEn: 'Ethyne is collected over water due to its low solubility, just like ethene and methane.',
+          teacherTipAr: 'يُجمع الإيثاين أيضاً بإزاحة الماء لأسفل لضعف ذوبانه في الماء.'
+        }
+      ]
+    },
+    {
+      id: 'egbac_chem_ch4',
+      chapterNumber: 4,
+      titleEn: 'Chemical Thermodynamics, Gibbs Free Energy & Nernst Electrochemistry',
+      titleAr: 'الديناميكا الحرارية الكيميائية وطاقة جيبس وكيمياء نيرنست الكهربية',
+      descriptionEn: 'First and second laws of thermodynamics, enthalpy, standard entropy changes, Gibbs free energy spontaneity criteria, Galvanic cell potentials, and Nernst equation non-standard EMF calculations.',
+      descriptionAr: 'القانون الأول والثاني للديناميكا الحرارية، الإنثالبي، التغير في الإنتروبيا القياسية، طاقة جيبس الحرة والتلقائية، جهد الخلايا الجلفانية، ومعادلة نيرنست.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_chem_l4",
           "titleEn": "Chemical Thermodynamics: Gibbs Free Energy, Entropy & Nernst Electrochemistry",
@@ -953,6 +1190,59 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
             "descriptionAr": "محاكاة تفاعلية لحسابات طاقة جيبس الحرة وتغيرات التلقائية مع درجات الحرارة وجهود الخلايا الكهروكيميائية."
           }
         },
+      ],
+      solvedExamples: [
+        {
+          id: 'egbac_chem_se_04',
+          titleEn: 'STEM Example 4: Secondary Lead-Acid Battery Chemistry & Hydrometer Density Test',
+          titleAr: 'مثال ستيم ٤: كيمياء مركم الرصاص الحامضي واختبار كثافة الإلكتروليت بالهيدروميتر',
+          difficulty: 'medium',
+          diagramType: 'chem_lead_acid_accumulator',
+          questionEn: 'During prolonged discharge of a 12V automotive lead-acid storage battery, what chemical transformations occur at both the sponge lead anode and lead(IV) dioxide cathode, and how is the state of charge monitored by electrolyte density?',
+          questionAr: 'أثناء تفريغ شحنة بطارية مركم الرصاص الحامضية (12 فولت)، ما التحولات الكيميائية التي تطرأ على كل من مصعد الرصاص الإسفنجي ومهبط ثاني أكسيد الرصاص، وكيف يُستدل على حالة شحن البطارية بقياس كثافة المحلول الإلكتروليتي؟',
+          optionsEn: [
+            'Both electrodes convert into solid lead(II) sulfate ($\\text{PbSO}_4$) and sulfuric acid density drops below $1.28\\,\\text{g/cm}^3$',
+            'The anode oxidizes to lead nitrate while the cathode reduces to metallic copper with increased acid density',
+            'Both electrodes dissolve completely into soluble lead ions without forming any solid precipitate',
+            'Sulfuric acid decomposes exclusively into oxygen and sulfur trioxide while density increases above $1.50\\,\\text{g/cm}^3$'
+          ],
+          optionsAr: [
+            'تتحول مادتا كلا القطبين إلى كبريتات رصاص ثنائية صلبة ($\\text{PbSO}_4$) وتقل كثافة حمض الكبريتيك عن $1.28\\,\\text{g/cm}^3$',
+            'يتأكسد الأنود إلى نترات رصاص ويختزل الكاثود إلى نحاس فلزي مع زيادة كثافة الحمض',
+            'تذوب مادتا القطبين تماماً وتتحولان إلى أيونات رصاص ذائبة دون تكوّن أي راسب صلب',
+            'ينحل حمض الكبريتيك تماماً إلى أكسجين وثالث أكسيد الكبريت مع ارتفاع الكثافة فوق $1.50\\,\\text{g/cm}^3$'
+          ],
+          correctAnswer: 'Both electrodes convert into solid lead(II) sulfate ($\\text{PbSO}_4$) and sulfuric acid density drops below $1.28\\,\\text{g/cm}^3$',
+          correctIndex: 0,
+          hintEn: 'Overall discharge: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$. Water generation dilutes the acid.',
+          hintAr: 'التفاعل الكلي للتفريغ: تكوّن كبريتات الرصاص الثنائية على كلا القطبين وإنتاج الماء الذي يخفف المحلول الحامضي.',
+          stepByStepSolutionEn: [
+            '1. Anode oxidation: $\\text{Pb}\\text{(s)} + \\text{SO}_4^{2-} \\to \\text{PbSO}_4\\text{(s)} + 2e^-$.',
+            '2. Cathode reduction: $\\text{PbO}_2\\text{(s)} + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4\\text{(s)} + 2\\text{H}_2\\text{O}$.',
+            '3. Overall discharge: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$.',
+            '4. Fully charged density is $1.28\\text{ to }1.30\\,\\text{g/cm}^3$. As sulfuric acid is consumed and water is produced during discharge, density drops below $1.20\\,\\text{g/cm}^3$, signaling required recharging.'
+          ],
+          stepByStepSolutionAr: [
+            '١. تفاعل الأكسدة عند الأنود: $\\text{Pb}\\text{(s)} + \\text{SO}_4^{2-} \\to \\text{PbSO}_4\\text{(s)} + 2e^-$.',
+            '٢. تفاعل الاختزال عند الكاثود: $\\text{PbO}_2\\text{(s)} + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4\\text{(s)} + 2\\text{H}_2\\text{O}$.',
+            '٣. المعادلة الكلية للتفريغ: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$.',
+            '٤. تكون كثافة الحمض في البطارية كاملة الشحن بين $1.28$ و $1.30\\,\\text{g/cm}^3$. وباستهلاك الحمض وتكوّن الماء تنخفض الكثافة إلى أقل من $1.20\\,\\text{g/cm}^3$ كدلالة على ضرورة إعادة الشحن.'
+          ],
+          teacherTipEn: 'A hydrometer is used in automotive service to measure battery specific gravity directly.',
+          teacherTipAr: 'يُستخدم الهيدروميتر (مقياس الكثافة النوعية) في ورش صيانة السيارات لفحص حالة شحن المركم بدقة وسرعة.'
+        }
+      ],
+      exerciseProblems: []
+    },
+    {
+      id: 'egbac_chem_ch5',
+      chapterNumber: 5,
+      titleEn: 'Transition Metal Coordination Chemistry & Crystal Field Splitting',
+      titleAr: 'كيمياء التناسق للعناصر الانتقالية وانفصام المجال البلوري',
+      descriptionEn: 'Transition metal electronic configurations, variable oxidation states, coordination complexes, ligand field splitting of d-orbitals, spectrochemical series, magnetic susceptibility, and catalytic action.',
+      descriptionAr: 'التوزيع الإلكتروني للعناصر الانتقالية، حالات التأكسد المتعددة، متراكبات التناسق، انفصام أوربيتالات d في المجال البلوري، المتسلسلة الطيفية الكيميائية، والخواص المغناطيسية والتحفيزية.',
+      isFullyEquipped: true,
+      lessons: [
         {
           "id": "egbac_chem_l5",
           "titleEn": "Transition Metal Coordination Chemistry: Crystal Field Splitting & Catalytic Mechanisms",
@@ -1168,241 +1458,8 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
           }
         }
       ],
-      solvedExamples: [
-        {
-          id: 'egbac_chem_se_01',
-          titleEn: 'Example 1: Converting Kc to Kp for Haber-Bosch Ammonia Synthesis',
-          titleAr: 'مثال ١: تحويل ثابت التركيز Kc إلى ثابت الضغط Kp لتخليق النشادر',
-          difficulty: 'medium',
-          questionEn: 'For the synthesis of ammonia: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)}$ at $500\\text{ K}$, $K_c = 0.50\\text{ L}^2/\\text{mol}^2$. Calculate $K_p$ at this temperature (use $R = 0.0821\\text{ L}\\cdot\\text{atm}/(\\text{mol}\\cdot\\text{K})$).',
-          questionAr: 'لتفاعل تخليق غاز النشادر: $N_{2(g)} + 3 H_{2(g)} \\rightleftharpoons 2 NH_{3(g)}$ عند درجة $500\\text{ كلفن}$، كانت قيمة $K_c = 0.50$. احسب قيمة $K_p$ عند نفس درجة الحرارة (استخدم $R = 0.0821\\text{ L}\\cdot\\text{atm}/(\\text{mol}\\cdot\\text{K})$).',
-          optionsEn: ['$2.96 \\times 10^{-4}\\text{ atm}^{-2}$', '$8.41 \\times 10^{-2}\\text{ atm}^{-2}$', '$845\\text{ atm}^{-2}$', '$1.22 \\times 10^{-5}\\text{ atm}^{-2}$'],
-          optionsAr: ['$2.96 \\times 10^{-4}\\text{ atm}^{-2}$', '$8.41 \\times 10^{-2}\\text{ atm}^{-2}$', '$845\\text{ atm}^{-2}$', '$1.22 \\times 10^{-5}\\text{ atm}^{-2}$'],
-          correctAnswer: '$2.96 \\times 10^{-4}\\text{ atm}^{-2}$',
-          correctIndex: 0,
-          hintEn: 'Use $K_p = K_c (R T)^{\\Delta n_g}$ where $\\Delta n_g = 2 - (1 + 3) = -2$.',
-          hintAr: 'طبق القانون $K_p = K_c (R T)^{\\Delta n_g}$ حيث $\\Delta n_g = 2 - (1 + 3) = -2$.',
-          stepByStepSolutionEn: [
-            'Change in gas moles: $\\Delta n_g = n_{\\text{products}} - n_{\\text{reactants}} = 2 - (1 + 3) = -2$.',
-            'Compute $R T = 0.0821 \\times 500 = 41.05\\text{ L}\\cdot\\text{atm}/\\text{mol}$.',
-            'Calculate $K_p = K_c \\cdot (R T)^{-2} = \\frac{0.50}{(41.05)^2} = \\frac{0.50}{1685.1} \\approx 2.967 \\times 10^{-4}\\text{ atm}^{-2}$.'
-          ],
-          stepByStepSolutionAr: [
-            'فرق عدد مولات الغاز: $\\Delta n_g = 2 - (1 + 3) = -2$.',
-            'حساب المقدار $R T = 0.0821 \\times 500 = 41.05$.',
-            'تطبيق العلاقة: $K_p = K_c \\cdot (R T)^{-2} = \\frac{0.50}{(41.05)^2} = \\frac{0.50}{1685.1} \\approx 2.967 \\times 10^{-4}$.'
-          ],
-          teacherTipEn: 'When Delta n_g is negative, Kp is numerically much smaller than Kc, which is why industrial synthesis requires high pressures (200 atm).',
-          teacherTipAr: 'عندما تكون دلتا n سالبة، تكون Kp أصغر بكثير من Kc، ولهذا يجرى تصنيع الأمونيا صناعياً تحت ضغوط مرتفعة جداً (حوالي 200 ضغط جوي).'
-        },
-        {
-          id: 'egbac_chem_se_02',
-          titleEn: 'Example 2: Henderson-Hasselbalch Buffer pH Calculation',
-          titleAr: 'مثال ٢: حساب الرقم الهيدروجيني لمحلول منظم حمضي',
-          difficulty: 'easy',
-          questionEn: 'A buffer solution contains $0.20\\text{ M } CH_3COOH$ ($K_a = 1.8 \\times 10^{-5}$, $\\text{p}K_a = 4.74$) and $0.30\\text{ M } CH_3COONa$. Calculate the pH of the buffer solution.',
-          questionAr: 'محلول منظم يحتوي على حمض الأسيتيك $CH_3COOH$ بتركيز $0.20\\text{ مولار}$ ($\text{p}K_a = 4.74$) وأسيتات الصوديوم $CH_3COONa$ بتركيز $0.30\\text{ مولار}$. احسب الرقم الهيدروجيني $\\text{pH}$ للمحلول.',
-          optionsEn: ['$\\text{pH} = 4.92$', '$\\text{pH} = 4.56$', '$\\text{pH} = 5.20$', '$\\text{pH} = 4.74$'],
-          optionsAr: ['$\\text{pH} = 4.92$', '$\\text{pH} = 4.56$', '$\\text{pH} = 5.20$', '$\\text{pH} = 4.74$'],
-          correctAnswer: '$\\text{pH} = 4.92$',
-          correctIndex: 0,
-          hintEn: 'Apply $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[\\text{Salt}]}{[\\text{Acid}]}\\right)$.',
-          hintAr: 'طبق معادلة هندرسون-هاسلبالخ: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[\\text{الملح}]}{[\\text{الحمض}]}\\right)$.',
-          stepByStepSolutionEn: [
-            'Henderson-Hasselbalch equation: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[CH_3COO^-]}{[CH_3COOH]}\\right)$.',
-            'Substitute values: $\\text{pH} = 4.74 + \\log\\left(\\frac{0.30}{0.20}\\right) = 4.74 + \\log(1.5)$.',
-            'Since $\\log(1.5) \\approx 0.176$, $\\text{pH} = 4.74 + 0.176 = 4.916 \\approx 4.92$.'
-          ],
-          stepByStepSolutionAr: [
-            'معادلة هندرسون-هاسلبالخ: $\\text{pH} = \\text{p}K_a + \\log\\left(\\frac{[CH_3COO^-]}{[CH_3COOH]}\\right)$.',
-            'التعويض بالقيم: $\\text{pH} = 4.74 + \\log\\left(\\frac{0.30}{0.20}\\right) = 4.74 + \\log(1.5)$.',
-            'بما أن $\\log(1.5) \\approx 0.176$، إذن $\\text{pH} = 4.74 + 0.176 = 4.916 \\approx 4.92$.'
-          ],
-          teacherTipEn: 'Because conjugate base concentration exceeds acid concentration, the pH is slightly higher than pKa.',
-          teacherTipAr: 'نظراً لأن تركيز القاعدة المرافقة (الملح) أعلى من تركيز الحمض الضعيف، فإن pH يكون أعلى قليلاً من pKa.'
-        },
-        {
-          id: 'egbac_chem_se_03',
-          titleEn: 'STEM Example 3: Standard Hydrogen Electrode (SHE) Conditions & Nernst Dependence',
-          titleAr: 'مثال ستيم ٣: معايير قطب الهيدروجين القياسي ومعادلة نيرنست للجهد',
-          difficulty: 'hots',
-          diagramType: 'chem_standard_hydrogen_electrode',
-          questionEn: 'The Standard Hydrogen Electrode (SHE) has an internationally defined standard reduction potential of $E^\\circ = 0.00\\,\\text{V}$. Under which specific conditions does this potential hold strictly, and how does the half-cell potential change if the hydronium ion concentration is increased to $[\text{H}^+] = 2.0\\,\\text{M}$ at $298\\,\\text{K}$ with $P_{\\text{H}_2} = 1.0\\,\\text{atm}$?',
-          questionAr: 'تم اصطلاح جهد قطب الهيدروجين القياسي (SHE) ليكون مساوياً للصفر $E^\\circ = 0.00\\,\\text{V}$. تحت أي شروط محددة يتحقق ذلك بدقة، وكيف يتغير جهد نصف الخلية وفق معادلة نيرنست إذا زاد تركيز أيونات الهيدرونيوم إلى $[\text{H}^+] = 2.0\\,\\text{M}$ عند $298\\,\\text{K}$ وضغط هيدروجين $1.0\\,\\text{atm}$؟',
-          optionsEn: [
-            '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 1.0\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential shifts positive ($E > 0.00\\,\\text{V}$)',
-            '$[\text{H}^+] = 0.1\\,\\text{M}$, $P_{\\text{H}_2} = 10.0\\,\\text{atm}$, $T = 373\\,\\text{K}$; potential shifts negative ($E < 0.00\\,\\text{V}$)',
-            '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 2.0\\,\\text{atm}$, $T = 273\\,\\text{K}$; potential remains strictly zero regardless of concentration',
-            '$[\text{H}^+] = 0.0\\,\\text{M}$, $P_{\\text{H}_2} = 0.5\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential becomes undefined'
-          ],
-          optionsAr: [
-            '$[\text{H}^+] = 1.0\\,\\text{M}$ و $P_{\\text{H}_2} = 1.0\\,\\text{atm}$ عند $298\\,\\text{K}$؛ وينزاح الجهد إلى قيمة موجبة ($E > 0.00\\,\\text{V}$)',
-            '$[\text{H}^+] = 0.1\\,\\text{M}$ و $P_{\\text{H}_2} = 10.0\\,\\text{atm}$ عند $373\\,\\text{K}$؛ وينزاح الجهد إلى قيمة سالبة ($E < 0.00\\,\\text{V}$)',
-            '$[\text{H}^+] = 1.0\\,\\text{M}$ و $P_{\\text{H}_2} = 2.0\\,\\text{atm}$ عند $273\\,\\text{K}$؛ ويبقى الجهد صفراً ثابتاً مهما تغير التركيز',
-            '$[\text{H}^+] = 0.0\\,\\text{M}$ و $P_{\\text{H}_2} = 0.5\\,\\text{atm}$ عند $298\\,\\text{K}$؛ ويصبح الجهد غير معرف'
-          ],
-          correctAnswer: '$[\text{H}^+] = 1.0\\,\\text{M}$, $P_{\\text{H}_2} = 1.0\\,\\text{atm}$, $T = 298\\,\\text{K}$; potential shifts positive ($E > 0.00\\,\\text{V}$)',
-          correctIndex: 0,
-          hintEn: 'Nernst equation for $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2$: $E = E^\\circ - \\frac{0.0592}{2} \\log\\frac{P_{\\text{H}_2}}{[\\text{H}^+]^2}$. Increasing $[\text{H}^+]$ increases reduction driving force.',
-          hintAr: 'معادلة نيرنست لاختزال الهيدروجين: زيادة تركيز أيونات الهيدروجين تزيد من ميل التفاعل نحو الاختزال فيصبح الجهد موجباً.',
-          stepByStepSolutionEn: [
-            '1. Standard conditions: Pure $\\text{H}_2$ gas bubbling at $1.0\\,\\text{atm}$ over platinized platinum foil immersed in $1.0\\,\\text{M}$ strong monoprotic acid solution at $298\\,\\text{K}$ ($25^\\circ\\text{C}$).',
-            '2. Reduction half-reaction: $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2\\text{(g)}$.',
-            '3. Nernst equation: $E = 0.00 - \\frac{0.05916}{2} \\log\\left(\\frac{1.0}{(2.0)^2}\\right) = -0.02958 \\log(0.25) = -0.02958(-0.602) \\approx +0.0178\\,\\text{V}$.',
-            '4. Thus, increasing $[\text{H}^+]$ above $1.0\\,\\text{M}$ causes the half-cell potential to become positive ($+17.8\\,\\text{mV}$).'
-          ],
-          stepByStepSolutionAr: [
-            '١. الشروط القياسية: غاز هيدروجين نقي يتدفق تحت ضغط $1.0\\,\\text{atm}$ على صفيحة بلاتين مغطاة ببلاتين مجزأ (أسود البلاتين) مغمورة في حمض قوي تركيزه $1.0\\,\\text{M}$ عند $298\\,\\text{K}$ ($25^\\circ\\text{C}$).',
-            '٢. نصف تفاعل الاختزال: $2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2\\text{(g)}$.',
-            '٣. بتطبيق معادلة نيرنست: $E = 0.00 - \\frac{0.05916}{2} \\log\\left(\\frac{1.0}{(2.0)^2}\\right) = -0.02958 \\log(0.25) \\approx +0.0178\\,\\text{V}$.',
-            '٤. إذن زيادة تركيز أيونات الهيدرونيوم تجعل الجهد ينزاح إلى قيمة موجبة أكبر من الصفر بمقدار $+17.8\\,\\text{mV}$.'
-          ],
-          teacherTipEn: 'The platinized platinum sheet provides an immense micro-rough surface area to adsorb hydrogen gas and catalyze equilibrium.',
-          teacherTipAr: 'صفيحة البلاتين المجزأ توفر مساحة سطح هائلة لامتزاز غاز الهيدروجين وتسريع الوصول لحالة الاتزان الديناميكي.'
-        },
-        {
-          id: 'egbac_chem_se_04',
-          titleEn: 'STEM Example 4: Secondary Lead-Acid Battery Chemistry & Hydrometer Density Test',
-          titleAr: 'مثال ستيم ٤: كيمياء مركم الرصاص الحامضي واختبار كثافة الإلكتروليت بالهيدروميتر',
-          difficulty: 'medium',
-          diagramType: 'chem_lead_acid_accumulator',
-          questionEn: 'During prolonged discharge of a 12V automotive lead-acid storage battery, what chemical transformations occur at both the sponge lead anode and lead(IV) dioxide cathode, and how is the state of charge monitored by electrolyte density?',
-          questionAr: 'أثناء تفريغ شحنة بطارية مركم الرصاص الحامضية (12 فولت)، ما التحولات الكيميائية التي تطرأ على كل من مصعد الرصاص الإسفنجي ومهبط ثاني أكسيد الرصاص، وكيف يُستدل على حالة شحن البطارية بقياس كثافة المحلول الإلكتروليتي؟',
-          optionsEn: [
-            'Both electrodes convert into solid lead(II) sulfate ($\\text{PbSO}_4$) and sulfuric acid density drops below $1.28\\,\\text{g/cm}^3$',
-            'The anode oxidizes to lead nitrate while the cathode reduces to metallic copper with increased acid density',
-            'Both electrodes dissolve completely into soluble lead ions without forming any solid precipitate',
-            'Sulfuric acid decomposes exclusively into oxygen and sulfur trioxide while density increases above $1.50\\,\\text{g/cm}^3$'
-          ],
-          optionsAr: [
-            'تتحول مادتا كلا القطبين إلى كبريتات رصاص ثنائية صلبة ($\\text{PbSO}_4$) وتقل كثافة حمض الكبريتيك عن $1.28\\,\\text{g/cm}^3$',
-            'يتأكسد الأنود إلى نترات رصاص ويختزل الكاثود إلى نحاس فلزي مع زيادة كثافة الحمض',
-            'تذوب مادتا القطبين تماماً وتتحولان إلى أيونات رصاص ذائبة دون تكوّن أي راسب صلب',
-            'ينحل حمض الكبريتيك تماماً إلى أكسجين وثالث أكسيد الكبريت مع ارتفاع الكثافة فوق $1.50\\,\\text{g/cm}^3$'
-          ],
-          correctAnswer: 'Both electrodes convert into solid lead(II) sulfate ($\\text{PbSO}_4$) and sulfuric acid density drops below $1.28\\,\\text{g/cm}^3$',
-          correctIndex: 0,
-          hintEn: 'Overall discharge: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$. Water generation dilutes the acid.',
-          hintAr: 'التفاعل الكلي للتفريغ: تكوّن كبريتات الرصاص الثنائية على كلا القطبين وإنتاج الماء الذي يخفف المحلول الحامضي.',
-          stepByStepSolutionEn: [
-            '1. Anode oxidation: $\\text{Pb}\\text{(s)} + \\text{SO}_4^{2-} \\to \\text{PbSO}_4\\text{(s)} + 2e^-$.',
-            '2. Cathode reduction: $\\text{PbO}_2\\text{(s)} + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4\\text{(s)} + 2\\text{H}_2\\text{O}$.',
-            '3. Overall discharge: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$.',
-            '4. Fully charged density is $1.28\\text{ to }1.30\\,\\text{g/cm}^3$. As sulfuric acid is consumed and water is produced during discharge, density drops below $1.20\\,\\text{g/cm}^3$, signaling required recharging.'
-          ],
-          stepByStepSolutionAr: [
-            '١. تفاعل الأكسدة عند الأنود: $\\text{Pb}\\text{(s)} + \\text{SO}_4^{2-} \\to \\text{PbSO}_4\\text{(s)} + 2e^-$.',
-            '٢. تفاعل الاختزال عند الكاثود: $\\text{PbO}_2\\text{(s)} + 4\\text{H}^+ + \\text{SO}_4^{2-} + 2e^- \\to \\text{PbSO}_4\\text{(s)} + 2\\text{H}_2\\text{O}$.',
-            '٣. المعادلة الكلية للتفريغ: $\\text{Pb} + \\text{PbO}_2 + 2\\text{H}_2\\text{SO}_4 \\to 2\\text{PbSO}_4 + 2\\text{H}_2\\text{O}$.',
-            '٤. تكون كثافة الحمض في البطارية كاملة الشحن بين $1.28$ و $1.30\\,\\text{g/cm}^3$. وباستهلاك الحمض وتكوّن الماء تنخفض الكثافة إلى أقل من $1.20\\,\\text{g/cm}^3$ كدلالة على ضرورة إعادة الشحن.'
-          ],
-          teacherTipEn: 'A hydrometer is used in automotive service to measure battery specific gravity directly.',
-          teacherTipAr: 'يُستخدم الهيدروميتر (مقياس الكثافة النوعية) في ورش صيانة السيارات لفحص حالة شحن المركم بدقة وسرعة.'
-        }
-      ],
-      exerciseProblems: [
-        {
-          id: 'egbac_chem_ue_01',
-          titleEn: 'Arrhenius Activation Energy from Two Rate Constants',
-          titleAr: 'حساب طاقة التنشيط من ثابتي سرعة عند درجتي حرارة مختلفتين',
-          difficulty: 'medium',
-          questionEn: 'The rate constant of a reaction is $k_1 = 0.020\\text{ s}^{-1}$ at $300\\text{ K}$ and $k_2 = 0.080\\text{ s}^{-1}$ at $320\\text{ K}$. Calculate the activation energy $E_a$ in $\\text{kJ/mol}$ ($R = 8.314\\text{ J}/(\\text{mol}\\cdot\\text{K})$).',
-          questionAr: 'بلغ ثابت سرعة تفاعل $k_1 = 0.020\\text{ ث}^{-1}$ عند درجة $300\\text{ كلفن}$ وارتفع إلى $k_2 = 0.080\\text{ ث}^{-1}$ عند $320\\text{ كلفن}$. احسب طاقة التنشيط $E_a$ بوحدة $\\text{kJ/mol}$ (علماً بأن $R = 8.314\\text{ J}/(\\text{mol}\\cdot\\text{K})$).',
-          optionsEn: ['$55.3\\text{ kJ/mol}$', '$27.8\\text{ kJ/mol}$', '$110.6\\text{ kJ/mol}$', '$14.2\\text{ kJ/mol}$'],
-          optionsAr: ['$55.3\\text{ كيلوجول/مول}$', '$27.8\\text{ كيلوجول/مول}$', '$110.6\\text{ كيلوجول/مول}$', '$14.2\\text{ كيلوجول/مول}$'],
-          correctAnswer: '$55.3\\text{ kJ/mol}$',
-          correctIndex: 0,
-          hintEn: 'Use $\\ln\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$.',
-          hintAr: 'طبق صيغة أرهينيوس: $\\ln\\left(\\frac{k_2}{k_1}\\right) = \\frac{E_a}{R}\\left(\\frac{T_2 - T_1}{T_1 T_2}\\right)$.',
-          stepByStepSolutionEn: [
-            'Calculate $\\ln(k_2 / k_1) = \\ln(0.080 / 0.020) = \\ln(4) \\approx 1.3863$.',
-            'Temperature difference term: $\\frac{1}{T_1} - \\frac{1}{T_2} = \\frac{320 - 300}{300 \\times 320} = \\frac{20}{96000} = 2.0833 \\times 10^{-4}\\text{ K}^{-1}$.',
-            'Solve for $E_a$: $E_a = \\frac{R \\cdot \\ln(k_2/k_1)}{2.0833 \\times 10^{-4}} = \\frac{8.314 \\times 1.3863}{2.0833 \\times 10^{-4}} \\approx 55322\\text{ J/mol} = 55.3\\text{ kJ/mol}$.'
-          ],
-          stepByStepSolutionAr: [
-            'حساب النسبة: $\\ln(k_2 / k_1) = \\ln(4) \\approx 1.3863$.',
-            'فرق مقلوب درجتي الحرارة: $\\frac{1}{300} - \\frac{1}{320} = \\frac{20}{96000} = 2.0833 \\times 10^{-4}\\text{ كلفن}^{-1}$.',
-            'حساب طاقة التنشيط: $E_a = \\frac{8.314 \\times 1.3863}{2.0833 \\times 10^{-4}} \\approx 55322\\text{ جول/مول} = 55.3\\text{ كيلوجول/مول}$.'
-          ],
-          teacherTipEn: 'A general rule of thumb in general chemistry is that reaction rates double approximately every 10 K rise for Ea around 50 kJ/mol.',
-          teacherTipAr: 'قاعدة تقريبية شائعة: تتضاعف سرعة التفاعل تقريباً كلما ارتفعت الحرارة 10 درجات مئوية إذا كانت طاقة التنشيط في حدود 50 كيلوجول/مول.'
-        },
-        {
-          id: 'egbac_chem_ue_02',
-          titleEn: 'Exercise 2: Ethanol Catalytic Dehydration & Thermal Cleavage to Ethene',
-          titleAr: 'تمرين ٢: نزع الماء من الكحول الإيثيلي والانحلال الحراري لكبريتات الإيثيل الهيدروجينية',
-          difficulty: 'medium',
-          diagramType: 'chem_ethylene_preparation',
-          questionEn: 'In the laboratory synthesis of ethylene ($\\text{C}_2\\text{H}_4$) from ethanol and concentrated $\\text{H}_2\\text{SO}_4$, at what specific temperature does the intermediate ethyl hydrogen sulfate ($\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H}$) undergo thermal decomposition to liberate gaseous ethene?',
-          questionAr: 'أثناء تحضير غاز الإيثيلين ($\\text{C}_2\\text{H}_4$) معملياً بنزع الماء من الكحول الإيثيلي بواسطة حمض الكبريتيك المركز، عند أي درجة حرارة محددة يحدث الانحلال الحراري لمركب كبريتات الإيثيل الهيدروجينية الوسيط لتحرير غاز الإيثيلين؟',
-          optionsEn: [
-            'At $180^\\circ\\text{C}$',
-            'At $140^\\circ\\text{C}$ (yielding diethyl ether instead)',
-            'At $80^\\circ\\text{C}$ (formation of the intermediate ester)',
-            'At $100^\\circ\\text{C}$ (boiling of water)'
-          ],
-          optionsAr: [
-            'عند درجة حرارة $180^\\circ\\text{C}$',
-            'عند درجة حرارة $140^\\circ\\text{C}$ (حيث يتكون إيثر ثنائي الإيثيل)',
-            'عند درجة حرارة $80^\\circ\\text{C}$ (حيث يتكون المركب الوسيط)',
-            'عند درجة حرارة $100^\\circ\\text{C}$ (حيث يغلي الماء)'
-          ],
-          correctAnswer: 'At $180^\\circ\\text{C}$',
-          correctIndex: 0,
-          hintEn: 'Step 1 at $80^\\circ\\text{C}$: esterification to ethyl hydrogen sulfate. Step 2 at $180^\\circ\\text{C}$: thermal cleavage.',
-          hintAr: 'الخطوة الأولى عند $80^\\circ\\text{C}$ تكون كبريتات الإيثيل الهيدروجينية، ثم تنحل حرارياً عند $180^\\circ\\text{C}$.',
-          stepByStepSolutionEn: [
-            '1. At $80^\\circ\\text{C}$: $\\text{C}_2\\text{H}_5\\text{OH} + \\text{H}_2\\text{SO}_4 \\xrightarrow{80^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} + \\text{H}_2\\text{O}$.',
-            '2. At $180^\\circ\\text{C}$: $\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} \\xrightarrow{180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{SO}_4$.',
-            '3. Overall reaction: $\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. }\\text{H}_2\\text{SO}_4,\\,180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{O}$.'
-          ],
-          stepByStepSolutionAr: [
-            '١. عند $80^\\circ\\text{C}$: يتفاعل الكحول مع الحمض مكوناً كبريتات الإيثيل الهيدروجينية: $\\text{C}_2\\text{H}_5\\text{OH} + \\text{H}_2\\text{SO}_4 \\xrightarrow{80^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} + \\text{H}_2\\text{O}$.',
-            '٢. عند $180^\\circ\\text{C}$: يحدث انحلال حراري لكبريتات الإيثيل الهيدروجينية وينطلق الإيثيلين: $\\text{C}_2\\text{H}_5\\text{OSO}_3\\text{H} \\xrightarrow{180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{SO}_4$.',
-            '٣. المعادلة الكلية: $\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. }\\text{H}_2\\text{SO}_4,\\,180^\\circ\\text{C}} \\text{C}_2\\text{H}_4\\text{(g)} + \\text{H}_2\\text{O}$.'
-          ],
-          teacherTipEn: 'Notice that heating at $140^\\circ\\text{C}$ with excess ethanol yields diethyl ether instead: $2\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{140^\\circ\\text{C}} \\text{C}_2\\text{H}_5\\text{OC}_2\\text{H}_5 + \\text{H}_2\\text{O}$.',
-          teacherTipAr: 'لاحظ الفرق الهام: عند $140^\\circ\\text{C}$ مع وفرة من الكحول يتكون إيثر ثنائي الإيثيل بدلاً من الإيثيلين.'
-        },
-        {
-          id: 'egbac_chem_ue_03',
-          titleEn: 'Exercise 3: Ethyne Laboratory Preparation & Acidified Copper Sulfate Scrubber',
-          titleAr: 'تمرين ٣: تحضير غاز الإيثاين ودور محلول كبريتات النحاس المحمض في تنقية الغاز',
-          difficulty: 'hots',
-          diagramType: 'chem_acetylene_preparation',
-          questionEn: 'When preparing ethyne (acetylene, $\\text{C}_2\\text{H}_2$) in the laboratory by dropping water onto calcium carbide ($\\text{CaC}_2$), why is the evolving gas stream passed through a wash bottle containing copper(II) sulfate dissolved in dilute sulfuric acid before collection?',
-          questionAr: 'عند تحضير غاز الإيثاين (الأسيتيلين $\\text{C}_2\\text{H}_2$) معملياً بتنقيط الماء على كربيد الكالسيوم ($\\text{CaC}_2$)، لماذا يُمرر الغاز المتصاعد أولاً على قارورة غسيل تحتوي على كبريتات النحاس الثنائية في حمض كبريتيك مخفف قبل جمعه؟',
-          optionsEn: [
-            'To remove phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$) gases resulting from impurities in industrial calcium carbide',
-            'To dehydrate the acetylene gas and remove water vapor carried over from the dropping funnel',
-            'To catalyze the polymerization of acetylene into benzene before it enters the gas collection trough',
-            'To neutralize carbon dioxide and sulfur dioxide gases formed during carbide decomposition'
-          ],
-          optionsAr: [
-            'للتخلص من غازي الفوسفين ($\\text{PH}_3$) وكبريتيد الهيدروجين ($\\text{H}_2\\text{S}$) الناتجة عن الشوائب في كربيد الكالسيوم الصناعي',
-            'لتجفيف غاز الأسيتيلين والتخلص من بخار الماء المتصاعد من قمع التنقيط',
-            'لتحفيز بلمرة الأسيتيلين إلى بنزين عطري قبل وصوله إلى حوض جمع الغاز',
-            'لمعادلة غازي ثاني أكسيد الكربون وثاني أكسيد الكبريت الناتجة عن تفكك الكربيد'
-          ],
-          correctAnswer: 'To remove phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$) gases resulting from impurities in industrial calcium carbide',
-          correctIndex: 0,
-          hintEn: 'Technical calcium carbide contains traces of calcium phosphide and calcium sulfide which generate foul-smelling toxic gases $\\text{PH}_3$ and $\\text{H}_2\\text{S}$.',
-          hintAr: 'يحتوي كربيد الكالسيوم التجاري على شوائب فوسفيد وكبريتيد الكالسيوم التي تنتج غازي الفوسفين وكبريتيد الهيدروجين.',
-          stepByStepSolutionEn: [
-            '1. Reaction of calcium carbide with water: $\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{C}_2\\text{H}_2\\text{(g)} + \\text{Ca(OH)}_2$.',
-            '2. Impurities: Industrial calcium carbide contains traces of calcium phosphide ($\\text{Ca}_3\\text{P}_2$) and calcium sulfide ($\\text{CaS}$), which react with water to release phosphine ($\\text{PH}_3$) and hydrogen sulfide ($\\text{H}_2\\text{S}$).',
-            '3. Purification scrubber: Acidified $\\text{CuSO}_4$ absorbs $\\text{H}_2\\text{S}$ (forming insoluble black $\\text{CuS}$ precipitate) and oxidizes/absorbs $\\text{PH}_3$, yielding pure ethyne gas.'
-          ],
-          stepByStepSolutionAr: [
-            '١. معادلة تحضير الإيثاين: $\\text{CaC}_2 + 2\\text{H}_2\\text{O} \\to \\text{C}_2\\text{H}_2\\text{(g)} + \\text{Ca(OH)}_2$.',
-            '٢. الشوائب المصاحبة: يحتوي كربيد الكالسيوم التجاري على شوائب من فوسفيد الكالسيوم ($\\text{Ca}_3\\text{P}_2$) وكبريتيد الكالسيوم ($\\text{CaS}$)، والتي تتفاعل مع الماء منتجة غازي الفوسفين ($\\text{PH}_3$) وكبريتيد الهيدروجين ($\\text{H}_2\\text{S}$) السامين كريهي الرائحة.',
-            '٣. دور قارورة التنقية: محلول كبريتات النحاس في حمض الكبريتيك المخفف يمتص كبريتيد الهيدروجين مرسباً إياه على هيئة كبريتيد نحاس أسود ($\\text{CuS}\\downarrow$) ويتخلص من الفوسفين، فيخرج غاز الإيثاين نقياً.'
-          ],
-          teacherTipEn: 'Ethyne is collected over water due to its low solubility, just like ethene and methane.',
-          teacherTipAr: 'يُجمع الإيثاين أيضاً بإزاحة الماء لأسفل لضعف ذوبانه في الماء.'
-        }
-      ],
-      databank: egBacChemCh1Databank
+      solvedExamples: [],
+      exerciseProblems: []
     }
   ]
 };

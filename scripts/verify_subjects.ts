@@ -74,29 +74,37 @@ const bioStats = getSubjectStats(thanaweyaCurriculum, 'biology');
 assert(bioStats.totalChapters === 5, `Biology thanaweya chapters: ${bioStats.totalChapters} (expected 5)`);
 assert(bioStats.totalProblems === 1000, `Biology thanaweya problems: ${bioStats.totalProblems} (expected 1000)`);
 
+const physStats = getSubjectStats(thanaweyaCurriculum, 'physics');
+assert(physStats.totalChapters === 6, `Physics thanaweya chapters: ${physStats.totalChapters} (expected 6)`);
+assert(physStats.totalProblems > 0, `Physics thanaweya problems: ${physStats.totalProblems}`);
+
 const chemStats = getSubjectStats(thanaweyaCurriculum, 'chemistry');
-assert(chemStats.totalChapters > 0, `Chemistry thanaweya chapters: ${chemStats.totalChapters}`);
+assert(chemStats.totalChapters === 5, `Chemistry thanaweya chapters: ${chemStats.totalChapters} (expected 5)`);
 assert(chemStats.totalProblems > 0, `Chemistry thanaweya problems: ${chemStats.totalProblems}`);
 
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
-assert(allStats.totalChapters === 26, `Total thanaweya chapters: ${allStats.totalChapters}`);
+assert(allStats.totalChapters === 35, `Total thanaweya chapters: ${allStats.totalChapters} (expected 35)`);
 assert(allStats.totalProblems === 5168, `Total thanaweya problems: ${allStats.totalProblems}`);
+
+const egbacPhysStats = getSubjectStats(egBacCurriculum, 'physics');
+assert(egbacPhysStats.totalChapters === 5, `Physics egbac chapters: ${egbacPhysStats.totalChapters} (expected 5)`);
+assert(egbacPhysStats.totalProblems > 0, `Physics egbac problems: ${egbacPhysStats.totalProblems}`);
 
 const egbacBioStats = getSubjectStats(egBacCurriculum, 'biology');
 assert(egbacBioStats.totalChapters === 4, `Biology egbac chapters: ${egbacBioStats.totalChapters} (expected 4)`);
 assert(egbacBioStats.totalProblems === 800, `Biology egbac problems: ${egbacBioStats.totalProblems} (expected 800)`);
 
 const egbacChemStats = getSubjectStats(egBacCurriculum, 'chemistry');
-assert(egbacChemStats.totalChapters > 0, `Chemistry egbac chapters: ${egbacChemStats.totalChapters}`);
+assert(egbacChemStats.totalChapters === 5, `Chemistry egbac chapters: ${egbacChemStats.totalChapters} (expected 5)`);
 assert(egbacChemStats.totalProblems > 0, `Chemistry egbac problems: ${egbacChemStats.totalProblems}`);
 
 const egbacAllStats = getSubjectStats(egBacCurriculum, 'all');
-assert(egbacAllStats.totalChapters === 14, `Total egbac chapters: ${egbacAllStats.totalChapters}`);
+assert(egbacAllStats.totalChapters === 22, `Total egbac chapters: ${egbacAllStats.totalChapters} (expected 22)`);
 assert(egbacAllStats.totalProblems === 2767, `Total egbac problems: ${egbacAllStats.totalProblems}`);
 
 const totalPlatformChapters = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalPlatformProblems = allStats.totalProblems + egbacAllStats.totalProblems;
-assert(totalPlatformChapters === 40, `Total platform chapters across both curriculums: ${totalPlatformChapters}`);
+assert(totalPlatformChapters === 57, `Total platform chapters across both curriculums: ${totalPlatformChapters} (expected 57)`);
 assert(totalPlatformProblems === 7935, `Total platform problems across both curriculums: ${totalPlatformProblems}`);
 
 if (failed) {
