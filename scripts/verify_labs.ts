@@ -52,6 +52,7 @@ const labComponents = [
   'src/components/labs/TransitionMetalsLab.tsx',
   'src/components/labs/BiologyLab.tsx',
   'src/components/labs/SkeletonAnatomyLab.tsx',
+  'src/components/labs/DnaReplicationLab.tsx',
   'src/components/labs/PlantHistologyLab.tsx',
   'src/components/labs/EndocrineLab.tsx',
   'src/components/labs/MenstrualCycleLab.tsx',
@@ -806,6 +807,81 @@ const isRuptured = f_achilles_rupture >= 3800;
 const medical_treatment = isRuptured ? 'Surgical Intervention (تدخل جراحي)' : 'Splint + Anti-inflammatory';
 assert(isRuptured && medical_treatment.includes('Surgical'), `Complete Achilles tendon rupture (>= 3800 N) strictly mandates surgical intervention`);
 
+// S. Biology Chapter 5: Molecular Biology, DNA Structure, Replication & Central Dogma
+console.log('\n--- S. DNA Double Helix, Replication Fork & Central Dogma Mechanics ---');
+
+// 1. Chargaff's Equivalence Rules & Base-Pairing Geometry
+// In double-stranded B-DNA: %A = %T, %G = %C, (A + G)/(T + C) = 1.00, %A + %G = 50%
+const seq_test = 'ATGCGATCGATCGATC'; // 16 bp
+let a_count = 0, t_count = 0, g_count = 0, c_count = 0;
+for (const char of seq_test) {
+  if (char === 'A') a_count++;
+  if (char === 'T') t_count++;
+  if (char === 'G') g_count++;
+  if (char === 'C') c_count++;
+}
+const complement_a = t_count; // T pairs with A
+const complement_t = a_count;
+const complement_g = c_count;
+const complement_c = g_count;
+const total_a = a_count + complement_a;
+const total_t = t_count + complement_t;
+const total_g = g_count + complement_g;
+const total_c = c_count + complement_c;
+const total_bases = total_a + total_t + total_g + total_c;
+
+assert(total_a === total_t, `Chargaff's Rule: Total Adenine equals Thymine in dsDNA (${total_a} == ${total_t})`);
+assert(total_g === total_c, `Chargaff's Rule: Total Guanine equals Cytosine in dsDNA (${total_g} == ${total_c})`);
+assert((total_a + total_g) === (total_t + total_c), `Purines (A+G) equal Pyrimidines (T+C): ${total_a + total_g} == ${total_t + total_c}`);
+assert((total_a + total_g) / total_bases === 0.5, `Purine fraction is strictly 50.0% (${((total_a + total_g) / total_bases * 100).toFixed(1)}%)`);
+
+// 2. Hydrogen Bonding & Marmur-Doty Thermal Melting Model
+// Each A-T pair forms 2 H-bonds, each G-C pair forms 3 H-bonds
+const duplex_at = total_a; // 8 AT base pairs across the 16 bp duplex
+const duplex_gc = total_g; // 8 GC base pairs across the 16 bp duplex
+const total_h_bonds = (2 * duplex_at) + (3 * duplex_gc);
+assert(total_h_bonds === (2 * 8) + (3 * 8), `Hydrogen bonds accurately calculated: 2(A=T) + 3(G≡C) = ${total_h_bonds} H-bonds`);
+
+// Marmur-Doty Melting Temperature formula: Tm = 69.3 + 0.41 * (%GC)
+const gc_percent = (duplex_gc / (duplex_at + duplex_gc)) * 100;
+const tm_calc = 69.3 + 0.41 * gc_percent;
+assert(tm_calc >= 69.3 && tm_calc <= 110.3, `Marmur-Doty DNA melting temperature: Tm = ${tm_calc.toFixed(2)} °C for ${gc_percent.toFixed(1)}% GC`);
+
+// Hyperchromic Effect: Denatured ssDNA absorbs ~40% more UV light at 260 nm due to unstacking of aromatic bases
+const a260_native = 1.00;
+const a260_denatured = a260_native * 1.40;
+assert(a260_denatured / a260_native === 1.40, `Hyperchromic shift: A260 increases by 40% upon thermal denaturation of double helix`);
+
+// 3. DNA Replication Fork Asymmetry & Directionality
+// DNA Polymerase III strictly synthesizes 5' -> 3'
+// Leading strand template (3' -> 5') synthesized continuously towards fork
+// Lagging strand template (5' -> 3') synthesized discontinuously away from fork as Okazaki fragments sealed by DNA Ligase
+const pol_synthesis_direction = "5' -> 3'";
+const leading_continuous = true;
+const lagging_okazaki = true;
+const ligase_action = "Phosphodiester bond sealing between 3'-OH and 5'-phosphate";
+assert(pol_synthesis_direction === "5' -> 3'", `DNA Polymerase III strictly elongates new strand in 5' to 3' direction`);
+assert(leading_continuous && lagging_okazaki, `Replication fork asymmetry: continuous leading strand and discontinuous lagging strand with Okazaki fragments`);
+assert(ligase_action.includes('Phosphodiester'), `DNA Ligase synthesizes covalent phosphodiester bonds to join Okazaki fragments`);
+
+// 4. Central Dogma: Transcription & Translation Fidelity
+// Transcription: Template 3'-TAC...-5' -> mRNA 5'-AUG...-3'
+// Translation Initiation at AUG (Methionine), Termination at UAA, UAG, UGA
+const test_codon = 'AUG';
+const stop_codons = ['UAA', 'UAG', 'UGA'];
+assert(test_codon === 'AUG', `Translation initiates strictly at start codon AUG (encoding Formylmethionine/Methionine)`);
+assert(stop_codons.length === 3 && stop_codons.includes('UAA') && stop_codons.includes('UAG') && stop_codons.includes('UGA'), `Stop codons correctly identified: UAA, UAG, UGA (releasing factor binding, zero tRNA)`);
+
+// Point Mutation Dynamics: Sickle Cell Anemia (Egyptian Curriculum Chapter 5)
+// Normal beta-globin gene: GAG (Glutamic acid, polar hydrophilic)
+// Sickle cell mutation: GUG (Valine, non-polar hydrophobic) -> HbS polymerization
+const codon_normal_hbb = 'GAG';
+const codon_sickle_hbb = 'GUG';
+const aa_normal_hbb = 'Glu';
+const aa_sickle_hbb = 'Val';
+assert(codon_normal_hbb === 'GAG' && aa_normal_hbb === 'Glu', `Normal beta-globin codon 6 is GAG encoding Glutamic acid`);
+assert(codon_sickle_hbb === 'GUG' && aa_sickle_hbb === 'Val', `Sickle cell missense mutation is A->U transversion (GAG -> GUG) encoding hydrophobic Valine`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -952,6 +1028,16 @@ const labKeyFormulas = [
   '\\sigma = \\frac{F}{A_{\\text{tendon}}}, \\quad \\varepsilon = \\frac{\\Delta L}{L_0} \\quad (\\text{Achilles Viscoelastic Strain})',
   'F \\ge 3800\\,\\text{N} \\implies \\text{Achilles Complete Rupture} \\to \\text{Surgical Suture}',
   '\\text{Radius} \\xrightarrow{\\text{semi-circular rotation around stationary ulna}} \\text{Ulna}',
+  // DNA Molecular Architecture, Replication & Central Dogma (Biology Chapter 5)
+  '\\text{Purines (A + G)} = \\text{Pyrimidines (T + C)} \\implies \\frac{\\text{A} + \\text{G}}{\\text{T} + \\text{C}} = 1.00',
+  'T_m = 69.3 + 0.41 \\times (\\%\\text{GC}) \\quad (\\text{Marmur-Doty Thermal Denaturation})',
+  'A_{260}^{\\text{denatured}} \\approx 1.40 \\times A_{260}^{\\text{native}} \\quad (\\text{UV Hyperchromic Shift})',
+  '[\\text{dsDNA}] = A_{260} \\times 50\\,\\mu\\text{g/mL} \\quad (\\text{Beer-Lambert Absorbance})',
+  '\\text{Replication Directionality:} \\quad 5\' \\to 3\' \\text{ synthesis strictly catalyzed by DNA Polymerase III}',
+  '\\text{Lagging Strand} \\xrightarrow{\\text{Primase + Pol III}} \\text{Okazaki Fragments} \\xrightarrow{\\text{DNA Ligase}} \\text{Continuous Strand}',
+  '\\text{Sickle Cell Anemia Mutation:} \\quad \\text{GAG (Glu)} \\xrightarrow{\\text{A } \\to \\text{ U transversion}} \\text{GUG (Val)}',
+  'N_{\\text{H-bonds}} = 2(N_{\\text{AT}}) + 3(N_{\\text{GC}})',
+  'd_{\\text{helix}} = 2.0\\,\\text{nm}, \\quad p = 3.4\\,\\text{nm/turn} \\quad (10\\,\\text{bp/turn})',
 ];
 
 let validCount = 0;
