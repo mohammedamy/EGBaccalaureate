@@ -507,9 +507,64 @@ const iCharge = 1.2;
 const vCharging = vbSmall + iCharge * rSmall;
 assert(vCharging > vbSmall, `Charging battery terminal voltage V = VB + Ir = ${vCharging}V strictly exceeds EMF ${vbSmall}V`);
 
+// Section N: Chemical & Ionic Equilibrium Systems (Le Chatelier, Ostwald, Salt Hydrolysis, Ksp)
+console.log('Verifying Section N: Chemical & Ionic Equilibrium Systems...');
+
+// 1. Le Chatelier & Temperature effect on Kc (Van 't Hoff)
+// Exothermic reaction: 2NO2 <=> N2O4, deltaH = -57.2 kJ/mol
+// Raising temperature MUST decrease Kc
+const k298 = 1.0;
+const rGas = 8.314;
+const deltaH = -57200; // J/mol
+const t1 = 298.15;
+const t2 = 373.15; // 100°C
+const lnKRatio = (-deltaH / rGas) * (1 / t2 - 1 / t1);
+const k373 = k298 * Math.exp(lnKRatio);
+assert(k373 < k298, `Van 't Hoff: Exothermic reaction heating strictly decreases Kc (Kc(25°C)=${k298} vs Kc(100°C)=${k373.toFixed(4)})`);
+
+// 2. Ostwald's Dilution Law for Weak Electrolytes
+// alpha = sqrt(Ka / C)
+const kaAcetic = 1.8e-5;
+const cInit = 0.1;
+const alphaInit = Math.sqrt(kaAcetic / cInit);
+const cDiluted = 0.01;
+const alphaDiluted = Math.sqrt(kaAcetic / cDiluted);
+assert(alphaDiluted > alphaInit, `Ostwald Dilution Law: Dilution increases ionization degree alpha (${alphaInit.toFixed(4)} -> ${alphaDiluted.toFixed(4)})`);
+const h3oInit = Math.sqrt(kaAcetic * cInit);
+const phInit = -Math.log10(h3oInit);
+assert(phInit > 2.8 && phInit < 2.9, `Hydronium pH for 0.1M acetic acid = ${phInit.toFixed(2)} (expected ~2.87)`);
+
+// 3. Salt Hydrolysis pH
+// NH4Cl (Strong Acid + Weak Base) -> Acidic (pH < 7)
+// CH3COONa (Weak Acid + Strong Base) -> Basic (pH > 7)
+// NaCl (Strong Acid + Strong Base) -> Neutral (pH = 7)
+const kw = 1e-14;
+const kbNH3 = 1.8e-5;
+const cSalt = 0.1;
+const hHydrolysis = Math.sqrt((kw / kbNH3) * cSalt);
+const phNH4Cl = -Math.log10(hHydrolysis);
+assert(phNH4Cl < 7.0 && phNH4Cl > 5.0, `Ammonium chloride acidic hydrolysis pH = ${phNH4Cl.toFixed(2)} (< 7.0)`);
+
+// 4. Solubility Product Ksp & Common Ion Effect
+// AgCl: Ksp = [Ag+][Cl-] = 1.8e-10
+// In pure water: s0 = sqrt(Ksp) = 1.34e-5 M
+const kspAgCl = 1.8e-10;
+const sPure = Math.sqrt(kspAgCl);
+// In 0.1 M NaCl: s = Ksp / [Cl-] = 1.8e-10 / 0.1 = 1.8e-9 M
+const addedCl = 0.1;
+const sCommon = kspAgCl / addedCl;
+assert(sCommon < sPure, `Common Ion Effect: Added 0.1M Cl- suppresses AgCl solubility from ${sPure.toExponential(2)} to ${sCommon.toExponential(2)} M`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
+  // Chemical & Ionic Equilibrium Lab (Chemistry Chapter 3)
+  'K_c = \\frac{[C]^c [D]^d}{[A]^a [B]^b}',
+  '\\alpha = \\sqrt{\\frac{K_a}{C_a}} \\implies [\\text{H}_3\\text{O}^+] = \\sqrt{K_a \\cdot C_a} = \\alpha \\cdot C_a',
+  '\\text{pH} = -\\log[\\text{H}_3\\text{O}^+], \\quad \\text{pOH} = -\\log[\\text{OH}^-], \\quad \\text{pH} + \\text{pOH} = 14',
+  'K_w = [\\text{H}_3\\text{O}^+][\\text{OH}^-] = 10^{-14} \\quad (\\text{at } 25^\\circ\\text{C})',
+  'K_{\\text{sp}} = [\\text{Ag}^+][\\text{Cl}^-], \\quad K_{\\text{sp}} = [\\text{Pb}^{2+}][\\text{I}^-]^2 = 4s^3',
+  '\\ln\\left(\\frac{K_2}{K_1}\\right) = \\frac{-\\Delta H^\\circ}{R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)',
   // DC Circuits & Kirchhoff Lab (Physics Chapter 1)
   'V = V_B - I \\cdot r \\quad (\\text{Discharging / Closed Circuit})',
   'V = V_B + I \\cdot r \\quad (\\text{Charging Battery})',

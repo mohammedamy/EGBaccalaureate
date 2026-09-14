@@ -4,12 +4,11 @@ import type { Language } from '../../i18n/translations';
 import {
   FlaskConical,
   Flame,
-  Scale,
-  Info,
   Layers,
   BookOpen,
   ChevronDown,
 } from 'lucide-react';
+import { EquilibriumLab } from './EquilibriumLab';
 import { ElectrochemistryLab } from './ElectrochemistryLab';
 import { OrganicChemistryLab } from './OrganicChemistryLab';
 import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
@@ -196,53 +195,9 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
     }
   }, [initialTab]);
 
-  // Equilibrium State
-  const [reactionType, setReactionType] = useState<'no2' | 'haber' | 'iron_thiocyanate'>('no2');
-  const [temperatureKelvin, setTemperatureKelvin] = useState<number>(298); // 273K to 450K
-  const [pressureAtm, setPressureAtm] = useState<number>(1.0); // 0.5 to 5.0 atm
-  const [reactantAddition, setReactantAddition] = useState<number>(1.0); // multiplier
-
   // Transition Metals State
   const [selectedMetal, setSelectedMetal] = useState<TransitionElement>(TRANSITION_METALS[5]); // Iron
   const [furnaceTemp, setFurnaceTemp] = useState<number>(650); // °C
-
-
-  // Calculations for Equilibrium
-  // For 2NO2 (brown) <=> N2O4 (colorless) + Heat (exothermic)
-  // Higher temp -> shifts Left (more brown NO2)
-  // Higher pressure -> shifts Right (fewer moles: 2 -> 1, more colorless N2O4)
-  let shiftDirectionEn = 'At Dynamic Equilibrium';
-  let shiftDirectionAr = 'في حالة اتزان ديناميكي مستقر';
-  let vesselColorRgba = 'rgba(180, 83, 9, 0.4)'; // default amber/brown
-
-  if (reactionType === 'no2') {
-    // Brown intensity increases with T, decreases with P
-    const brownIndex = Math.min(1.0, Math.max(0.1, (temperatureKelvin - 250) / 180 / pressureAtm));
-    vesselColorRgba = `rgba(180, 83, 9, ${brownIndex.toFixed(2)})`;
-    if (temperatureKelvin > 310 || pressureAtm < 0.9) {
-      shiftDirectionEn = 'Shifts Left (Reverse: forming NO₂ brown)';
-      shiftDirectionAr = 'ينشط في الاتجاه العكسي (تكوين NO₂ بني محمر)';
-    } else if (temperatureKelvin < 285 || pressureAtm > 1.2) {
-      shiftDirectionEn = 'Shifts Right (Forward: forming N₂O₄ colorless)';
-      shiftDirectionAr = 'ينشط في الاتجاه الطردي (تكوين N₂O₄ عديم اللون)';
-    }
-  } else if (reactionType === 'haber') {
-    // N2 + 3H2 <=> 2NH3 + Heat
-    if (temperatureKelvin > 320 || pressureAtm < 0.9) {
-      shiftDirectionEn = 'Shifts Left (Decomposing NH₃)';
-      shiftDirectionAr = 'ينشط في الاتجاه العكسي (تفكك غاز النشادر)';
-    } else {
-      shiftDirectionEn = 'Shifts Right (Synthesizing NH₃)';
-      shiftDirectionAr = 'ينشط في الاتجاه الطردي (تكوين غاز النشادر)';
-    }
-    vesselColorRgba = 'rgba(56, 189, 248, 0.25)';
-  } else {
-    // Fe3+ + SCN- <=> [Fe(SCN)]2+ (blood red)
-    const redIntensity = Math.min(0.9, 0.2 * reactantAddition);
-    vesselColorRgba = `rgba(220, 38, 38, ${redIntensity.toFixed(2)})`;
-    shiftDirectionEn = reactantAddition > 1.2 ? 'Shifts Right (Deepening Blood Red)' : 'At Equilibrium';
-    shiftDirectionAr = reactantAddition > 1.2 ? 'ينشط طردياً نحو تكوين لون أحمر دموي داكن' : 'في حالة اتزان';
-  }
 
   // Magnetic Moment: mu = sqrt(n*(n+2)) BM
   const n = selectedMetal.unpairedElectrons;
@@ -373,223 +328,10 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
         </div>
       </div>
 
-      {/* TAB 1: EQUILIBRIUM & LE CHATELIER */}
+      {/* TAB 1: EQUILIBRIUM & LE CHATELIER VIRTUAL LAB */}
       {activeTab === 'equilibrium' && (
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: Interactive Reaction Vessel & Disturbance Controls */}
-          <div className="lg:col-span-8 space-y-4">
-            <div
-              className={`p-5 rounded-2xl border ${
-                isContrast
-                  ? 'bg-black border-emerald-400'
-                  : isLight
-                  ? 'bg-slate-50 border-slate-300'
-                  : 'bg-slate-900/80 border-slate-800'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <h4 className="text-xs font-black flex items-center gap-1.5 text-emerald-400">
-                    <Scale className="w-4 h-4" />
-                    <span>{isArabic ? 'وعاء التفاعل الديناميكي ومحاكاة تغير الألوان:' : 'Dynamic Reaction Vessel & Color Plane:'}</span>
-                  </h4>
-                </div>
-
-                <div className="flex items-center gap-1">
-                  {[
-                    { id: 'no2', label: '2NO₂ ⇌ N₂O₄' },
-                    { id: 'haber', label: 'N₂ + 3H₂ ⇌ 2NH₃' },
-                    { id: 'iron_thiocyanate', label: 'Fe³⁺ + SCN⁻' },
-                  ].map((rx) => (
-                    <button
-                      key={rx.id}
-                      onClick={() => setReactionType(rx.id as any)}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
-                        reactionType === rx.id
-                          ? 'bg-emerald-600 text-white shadow-sm'
-                          : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                      }`}
-                    >
-                      {rx.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Dynamic Vessel SVG */}
-              <div className="w-full bg-slate-950 rounded-xl p-3 border border-slate-800 shadow-inner flex items-center justify-center">
-                <svg viewBox="0 0 540 220" className="w-full max-w-[520px] h-48 sm:h-56">
-                  {/* Cylinder Vessel */}
-                  <rect
-                    x="160"
-                    y="25"
-                    width="220"
-                    height="170"
-                    rx="18"
-                    fill={vesselColorRgba}
-                    stroke="#10b981"
-                    strokeWidth="2.5"
-                    className="transition-colors duration-500"
-                  />
-
-                  {/* Piston Head */}
-                  <rect
-                    x="165"
-                    y={30 + (5.0 - pressureAtm) * 8}
-                    width="210"
-                    height="16"
-                    rx="4"
-                    fill="#475569"
-                    stroke="#94a3b8"
-                    strokeWidth="1.5"
-                  />
-                  <line
-                    x1="270"
-                    y1={30 + (5.0 - pressureAtm) * 8}
-                    x2="270"
-                    y2="15"
-                    stroke="#94a3b8"
-                    strokeWidth="4"
-                  />
-
-                  {/* Chemical Contents Text */}
-                  <text x="270" y="90" textAnchor="middle" fill="#f8fafc" fontSize="13" fontWeight="black">
-                    {reactionType === 'no2'
-                      ? '2NO₂ (Brown) ⇌ N₂O₄ (Colorless) + Heat'
-                      : reactionType === 'haber'
-                      ? 'N₂(g) + 3H₂(g) ⇌ 2NH₃(g) + 92 kJ'
-                      : 'Fe³⁺(Yellow) + SCN⁻ ⇌ [Fe(SCN)]²⁺ (Red)'}
-                  </text>
-
-                  {/* Status Overlay */}
-                  <text x="270" y="125" textAnchor="middle" fill="#facc15" fontSize="12" fontWeight="bold">
-                    {isArabic ? shiftDirectionAr : shiftDirectionEn}
-                  </text>
-
-                  <text x="270" y="155" textAnchor="middle" fill="#cbd5e1" fontSize="10">
-                    T = {temperatureKelvin} K ({temperatureKelvin - 273}°C) | P = {pressureAtm.toFixed(1)} atm
-                  </text>
-                </svg>
-              </div>
-
-              {/* Sliders Grid */}
-              <div className="mt-4 pt-3 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Temperature */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'درجة الحرارة T:' : 'Temperature (T):'}</span>
-                    <span className="font-mono font-black text-rose-400">{temperatureKelvin} K</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="273"
-                    max="450"
-                    value={temperatureKelvin}
-                    onChange={(e) => setTemperatureKelvin(parseInt(e.target.value))}
-                    className="w-full accent-rose-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {temperatureKelvin > 300
-                      ? isArabic
-                        ? 'تسخين: يزيح التفاعل الطارد عكسياً'
-                        : 'Heating: Shifts Exothermic reaction Left'
-                      : isArabic
-                      ? 'تبريد: يزيح التفاعل الطارد طردياً'
-                      : 'Cooling: Shifts Exothermic reaction Right'}
-                  </p>
-                </div>
-
-                {/* Pressure / Volume */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'الضغط P:' : 'Pressure (P):'}</span>
-                    <span className="font-mono font-black text-cyan-400">{pressureAtm.toFixed(1)} atm</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0.5"
-                    max="4.0"
-                    step="0.1"
-                    value={pressureAtm}
-                    onChange={(e) => setPressureAtm(parseFloat(e.target.value))}
-                    className="w-full accent-cyan-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {isArabic ? 'زيادة الضغط تزيح نحو عدد المولات الأقل' : 'High P shifts toward fewer gaseous moles'}
-                  </p>
-                </div>
-
-                {/* Reactant Concentration */}
-                <div>
-                  <div className="flex justify-between text-xs mb-1">
-                    <span className="font-bold text-slate-300">{isArabic ? 'إضافة متفاعلات:' : 'Reactant Dose:'}</span>
-                    <span className="font-mono font-black text-emerald-400">{reactantAddition.toFixed(1)}x</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0.5"
-                    max="2.5"
-                    step="0.1"
-                    value={reactantAddition}
-                    onChange={(e) => setReactantAddition(parseFloat(e.target.value))}
-                    className="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                  <p className="text-[10px] text-slate-400 mt-1">
-                    {isArabic ? 'إضافة متفاعل تزيح التفاعل طردياً لاستهلاكه' : 'Adding reactant drives reaction forward'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Le Chatelier Rules Card */}
-          <div className="lg:col-span-4 space-y-4">
-            <div
-              className={`p-4 rounded-2xl border ${
-                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
-              }`}
-            >
-              <h4 className="text-xs font-black text-emerald-400 mb-3 flex items-center gap-1.5">
-                <Info className="w-4 h-4" />
-                <span>{isArabic ? 'نص وقواعد قاعدة لوشاتيليه الوزارية:' : 'Le Chatelier Principles & Rules:'}</span>
-              </h4>
-
-              <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
-                {isArabic
-                  ? '«إذا حدث تغير في أحد العوامل المؤثرة على نظام في حالة اتزان (مثل التركيز أو الضغط أو درجة الحرارة)، فإن النظام ينشط في الاتجاه الذي يقلل أو يلغي تأثير هذا التغير».'
-                  : 'If a dynamic equilibrium is disturbed by changing the conditions (concentration, temperature, or pressure), the position of equilibrium moves to counteract the change.'}
-              </p>
-
-              <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
-                <div className="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <p className="font-bold text-rose-400">{isArabic ? 'أثر درجة الحرارة (T):' : 'Temperature Effect:'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    {isArabic
-                      ? 'العامل الوحيد الذي يغير قيمة ثابت الاتزان Kc! في التفاعل الطارد: رفع الحرارة يقلل Kc.'
-                      : 'The ONLY factor that changes Kc! In exothermic reactions, heating decreases Kc.'}
-                  </p>
-                </div>
-
-                <div className="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <p className="font-bold text-cyan-400">{isArabic ? 'أثر الضغط (P):' : 'Pressure Effect:'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    {isArabic
-                      ? 'يؤثر فقط إذا كان عدد مولات الغازات المتفاعلة يختلف عن الناتجة. لا يغير قيمة Kc.'
-                      : 'Affects systems with unequal gaseous moles. Does not alter the value of Kc.'}
-                  </p>
-                </div>
-
-                <div className="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <p className="font-bold text-amber-400">{isArabic ? 'العامل الحفاز (Catalyst):' : 'Catalyst Effect:'}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    {isArabic
-                      ? 'يزيد سرعة التفاعلين الطردي والعكسي بنفس المقدار، فيصل بالنظام للاتزان أسرع دون تغيير موضعه أو قيمة Kc.'
-                      : 'Accelerates both forward and reverse rates equally; reaches equilibrium faster without shifting position.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="mt-4">
+          <EquilibriumLab lang={lang} theme={theme} />
         </div>
       )}
 
