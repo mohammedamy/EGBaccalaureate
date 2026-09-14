@@ -145,8 +145,9 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 }`}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>
-                  {liveActiveDisplay} {t.visitorCounterLive}
+                <span className="inline-flex items-center gap-1" dir={isArabic ? 'rtl' : 'ltr'}>
+                  <bdi className="font-mono font-bold" dir="ltr">{liveActiveDisplay}</bdi>
+                  <span>{t.visitorCounterLive}</span>
                 </span>
               </span>
             </div>
@@ -163,7 +164,11 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {t.visitorCounterTotal}
           </span>
-          <div className="flex items-center justify-center gap-0.5 sm:gap-1 flex-nowrap">
+          {/* Numbers must strictly flow Left-to-Right in both English and Arabic */}
+          <div
+            className="flex items-center justify-center gap-0.5 sm:gap-1 flex-nowrap"
+            dir="ltr"
+          >
             {digitsFormatted.map((digit, idx) => {
               if (digit === ',' || digit === '،') {
                 return (
@@ -208,8 +213,10 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             }`}
           >
             <Activity className="w-3.5 h-3.5 text-teal-500 shrink-0" />
-            <span>
-              +{todayVisitsDisplay} {t.visitorCounterToday}
+            <span className="inline-flex items-center gap-1" dir={isArabic ? 'rtl' : 'ltr'}>
+              <span className="text-emerald-500 font-bold" dir="ltr">+</span>
+              <bdi className="font-mono font-bold" dir="ltr">{todayVisitsDisplay}</bdi>
+              <span>{t.visitorCounterToday}</span>
             </span>
           </div>
 
