@@ -12,12 +12,14 @@ import {
   Radio,
   Compass,
   Atom,
+  BookOpen,
 } from 'lucide-react';
 import { DynamoInductionLab } from './DynamoInductionLab';
 import { RLCResonanceLab } from './RLCResonanceLab';
 import { PhysicsFlashcards } from './PhysicsFlashcards';
 import { MagnetismLab } from './MagnetismLab';
 import { AtomicLaserLab } from './AtomicLaserLab';
+import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
 
 export type PhysicsTab = 'circuits' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
 
@@ -49,6 +51,7 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<PhysicsTab>(initialTab);
+  const [showConstants, setShowConstants] = useState<boolean>(false);
 
   useEffect(() => {
     if (initialTab) {
@@ -336,8 +339,33 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
             <span>🗂️</span>
             <span>{isArabic ? 'بطاقات الاستذكار' : 'Flashcards'}</span>
           </button>
+
+          <button
+            onClick={() => setShowConstants(!showConstants)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer border ${
+              showConstants
+                ? isContrast
+                  ? 'bg-amber-400 text-black border-amber-300 font-black'
+                  : 'bg-amber-500 text-slate-950 border-amber-400 font-black shadow-sm'
+                : isLight
+                ? 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100'
+                : 'bg-amber-950/40 text-amber-300 border-amber-800/60 hover:bg-amber-900/50'
+            }`}
+            title={isArabic ? 'عرض الثوابت الفيزيائية ومحول الوحدات' : 'View Physical Constants & Unit Converter'}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'الثوابت والتحويلات' : 'Constants & Units'}</span>
+          </button>
         </div>
       </div>
+
+      {/* Physical Constants & Unit Converter Drawer */}
+      <PhysicsConstantsDrawer
+        lang={lang}
+        theme={theme}
+        isOpen={showConstants}
+        onClose={() => setShowConstants(false)}
+      />
 
       {/* TAB 1: DC CIRCUITS & KIRCHHOFF */}
       {activeTab === 'circuits' && (

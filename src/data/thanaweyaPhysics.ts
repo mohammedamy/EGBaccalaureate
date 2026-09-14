@@ -1669,6 +1669,118 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           ],
           teacherTipEn: 'Notice that the smaller resistance carries the larger fraction of total current.',
           teacherTipAr: 'لاحظ أن المقاومة الأصغر يمر بها التيار الأكبر بنسبة عكسية مع قيم المقاومات.'
+        },
+        {
+          id: 'th_phys_se_03',
+          titleEn: 'MoE Example 3: Galvanometer Multiplier for DC Voltmeter Conversion',
+          titleAr: 'مثال الوزارة ٣: حساب مضاعف الجهد لتحويل الجلفانومتر إلى فولتميتر',
+          difficulty: 'medium',
+          diagramType: 'phys_galvanometer_multiplier',
+          questionEn: 'A moving-coil galvanometer has a coil resistance of $R_g = 50\\,\\Omega$ and gives full-scale deflection with a current of $I_g = 10\\text{ mA}$. What series multiplier resistance $R_m$ is required to convert it into a voltmeter capable of measuring up to $V = 10\\text{ V}$?',
+          questionAr: 'جلفانومتر ذو ملف متحرك مقاومة ملفه $R_g = 50\\,\\Omega$ وينحرف مؤشره إلى نهاية التدريج عند مرور تيار $I_g = 10\\text{ mA}$. احسب قيمة مقاومة مضاعف الجهد $R_m$ اللازم توصيلها على التوالي معه ليقيس فرق جهد أقصاه $V = 10\\text{ V}$.',
+          optionsEn: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
+          optionsAr: ['$R_m = 950\\,\\Omega$', '$R_m = 1000\\,\\Omega$', '$R_m = 900\\,\\Omega$', '$R_m = 450\\,\\Omega$'],
+          correctAnswer: '$R_m = 950\\,\\Omega$',
+          correctIndex: 0,
+          hintEn: 'Use multiplier formula: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
+          hintAr: 'طبق قانون مضاعف الجهد: $R_m = \\frac{V - V_g}{I_g} = \\frac{V - I_g R_g}{I_g}$.',
+          stepByStepSolutionEn: [
+            'Maximum galvanometer voltage: $V_g = I_g R_g = 0.010\\text{ A} \\times 50\\,\\Omega = 0.5\\text{ V}$.',
+            'Voltage drop across multiplier resistor: $V_m = V - V_g = 10\\text{ V} - 0.5\\text{ V} = 9.5\\text{ V}$.',
+            'Multiplier resistance: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
+          ],
+          stepByStepSolutionAr: [
+            'أقصى فرق جهد يتحمله الجلفانومتر: $V_g = I_g R_g = 0.010 \\times 50 = 0.5\\text{ V}$.',
+            'فرق الجهد المطلوب امتصاصه بمضاعف الجهد: $V_m = V - V_g = 10 - 0.5 = 9.5\\text{ V}$.',
+            'قيمة مضاعف الجهد: $R_m = \\frac{V_m}{I_g} = \\frac{9.5}{0.010} = 950\\,\\Omega$.'
+          ],
+          teacherTipEn: 'Connecting Rm in series increases the total voltmeter resistance ($R_v = R_g + R_m = 1000\\,\\Omega$), minimizing current drawn from the tested circuit.',
+          teacherTipAr: 'توصيل مضاعف الجهد على التوالي يزيد المقاومة الكلية للفولتميتر، فلا يسحب تياراً مؤثراً من الدائرة المراد قياس جهدها.'
+        },
+        {
+          id: 'th_phys_se_04',
+          titleEn: 'MoE Example 4: Step-Up Transformer & Transmission Line Efficiency',
+          titleAr: 'مثال الوزارة ٤: المحول الرافع للجهد وتقليل الفاقد في خطوط النقل',
+          difficulty: 'medium',
+          diagramType: 'phys_transformer',
+          questionEn: 'An electric generating station produces $P = 200\\text{ kW}$ at a voltage of $V_p = 1000\\text{ V}$. A step-up transformer with turns ratio $N_s / N_p = 10$ and $100\\%$ efficiency steps up the voltage before transmission through lines of total resistance $R_{\\text{line}} = 5\\,\\Omega$. Calculate the power lost as heat in the transmission lines.',
+          questionAr: 'محطة لتوليد الطاقة الكهربية تنتج قدرة $200\\text{ kW}$ بجهد $1000\\text{ V}$. استُخدم محول رافع للجهد كفاءته $100\\%$ بنسبة لفات $N_s / N_p = 10$ لرفع الجهد قبل نقله عبر خطوط نقل مقاومتها $5\\,\\Omega$. احسب القدرة الكهربية المفقودة على شكل حرارة في أسلاك النقل.',
+          optionsEn: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
+          optionsAr: ['$2\\text{ kW}$', '$20\\text{ kW}$', '$4\\text{ kW}$', '$0.5\\text{ kW}$'],
+          correctAnswer: '$2\\text{ kW}$',
+          correctIndex: 0,
+          hintEn: 'Find stepped-up secondary voltage $V_s = V_p \\times (N_s/N_p)$, then transmission line current $I_s = P / V_s$, then $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
+          hintAr: 'احسب جهد الثانوي $V_s = V_p \\times (N_s/N_p)$ ثم تيار خط النقل $I_s = P / V_s$، وأخيراً القدرة المفقودة $P_{\\text{loss}} = I_s^2 R_{\\text{line}}$.',
+          stepByStepSolutionEn: [
+            'Secondary voltage: $V_s = V_p \\left(\\frac{N_s}{N_p}\\right) = 1000 \\times 10 = 10,000\\text{ V}$.',
+            'Transmission line current: $I_s = \\frac{P}{V_s} = \\frac{200,000\\text{ W}}{10,000\\text{ V}} = 20\\text{ A}$.',
+            'Power lost as Joule heating in lines: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ W} = 2\\text{ kW}$.',
+            '(Notice without the step-up transformer, transmission current would be $200\\text{ A}$, leading to catastrophic power loss of $200\\text{ kW}$!).'
+          ],
+          stepByStepSolutionAr: [
+            'الجهد الثانوي بعد الرفع: $V_s = V_p \\times 10 = 10,000\\text{ فولت}$.',
+            'شدة تيار خط النقل: $I_s = \\frac{P}{V_s} = \\frac{200,000}{10,000} = 20\\text{ أمبير}$.',
+            'القدرة المفقودة في أسلاك النقل: $P_{\\text{loss}} = I_s^2 R_{\\text{line}} = (20)^2 \\times 5 = 400 \\times 5 = 2000\\text{ وات} = 2\\text{ كيلووات}$.',
+            '(للمقارنة: بدون المحول كان التيار سيكون $200\\text{ أمبير}$ مما يفقد كامل طاقة المحطة $200\\text{ كيلووات}$ في الأسلاك!).'
+          ],
+          teacherTipEn: 'Step-up transformers are essential at generating power plants because stepping up voltage by 10 decreases power loss by a factor of 100 ($P_{\\text{loss}} \\propto 1/V^2$).',
+          teacherTipAr: 'المحولات الرافعة لا غنى عنها عند محطات التوليد لأن مضاعفة الجهد 10 أمثال تخفض الفاقد الحراري بمقدار 100 ضعف.'
+        },
+        {
+          id: 'th_phys_se_05',
+          titleEn: 'MoE Example 5: Series RLC Circuit Resonant Frequency & Impedance',
+          titleAr: 'مثال الوزارة ٥: تردد الرنين والمعاوقة لدائرة تيار متردد RLC',
+          difficulty: 'medium',
+          diagramType: 'phys_rlc_resonance_phasor',
+          questionEn: 'An AC series circuit contains a resistor $R = 25\\,\\Omega$, an inductor of inductance $L = \\frac{1}{\\pi}\\text{ H}$, and a capacitor of capacitance $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. Find the resonant frequency $f_0$ of the circuit and its impedance $Z$ at resonance.',
+          questionAr: 'دائرة تيار متردد متوالية تتكون من مقاومة أومية $R = 25\\,\\Omega$ وملف حث معامل حثه الذاتي $L = \\frac{1}{\\pi}\\text{ H}$ ومكثف سعته $C = \\frac{25}{\\pi}\\,\\mu\\text{F}$. احسب تردد الرنين $f_0$ للدائرة ومعاوقتها $Z$ عند حالة الرنين.',
+          optionsEn: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
+          optionsAr: ['$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 50\\text{ Hz},\\, Z = 50\\,\\Omega$', '$f_0 = 200\\text{ Hz},\\, Z = 25\\,\\Omega$', '$f_0 = 100\\text{ Hz},\\, Z = 0\\,\\Omega$'],
+          correctAnswer: '$f_0 = 100\\text{ Hz},\\, Z = 25\\,\\Omega$',
+          correctIndex: 0,
+          hintEn: 'Use resonance formula: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. At resonance, $X_L = X_C$, so $Z = R$.',
+          hintAr: 'طبق قانون تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}}$. وعند الرنين $X_L = X_C$ فتكون المعاوقة $Z = R$.',
+          stepByStepSolutionEn: [
+            'Product $LC = \\left(\\frac{1}{\\pi}\\right) \\times \\left(\\frac{25 \\times 10^{-6}}{\\pi}\\right) = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
+            'Square root: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
+            'Resonant frequency: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ Hz}$.',
+            'At resonance, inductive and capacitive reactances cancel exactly ($X_L = X_C$), so total impedance is minimum: $Z = R = 25\\,\\Omega$.'
+          ],
+          stepByStepSolutionAr: [
+            'حاصل ضرب $LC = \\frac{1}{\\pi} \\times \\frac{25 \\times 10^{-6}}{\\pi} = \\frac{25 \\times 10^{-6}}{\\pi^2}$.',
+            'الجذر التربيعي: $\\sqrt{LC} = \\frac{5 \\times 10^{-3}}{\\pi}$.',
+            'تردد الرنين: $f_0 = \\frac{1}{2\\pi \\sqrt{LC}} = \\frac{1}{2\\pi \\times \\frac{5 \\times 10^{-3}}{\\pi}} = \\frac{1}{10 \\times 10^{-3}} = 100\\text{ هرتز}$.',
+            'عند الرنين تتساوى المفاعلة الحثية مع السعوية ($X_L = X_C$)، وتصل المعاوقة لأقل قيمة ممكنة وتساوي المقاومة الأومية: $Z = R = 25\\,\\Omega$.'
+          ],
+          teacherTipEn: 'At resonance, current is in phase with voltage (phase angle phi = 0), and power factor is unity (cos phi = 1).',
+          teacherTipAr: 'في حالة الرنين يتفق الجهد الكلي مع التيار في الطور (زاوية الطور صفر) ومعامل القدرة يساوي الواحد الصحيح.'
+        },
+        {
+          id: 'th_phys_se_06',
+          titleEn: 'MoE Example 6: Photoelectric Work Function & Stopping Voltage',
+          titleAr: 'مثال الوزارة ٦: طاقة الحركة العظمى للإلكترونات وجهد الإيقاف',
+          difficulty: 'medium',
+          diagramType: 'phys_photoelectric_circuit',
+          questionEn: 'Monochromatic light of frequency $\\nu = 8.0 \\times 10^{14}\\text{ Hz}$ falls on a metallic surface whose critical threshold frequency is $\\nu_c = 5.0 \\times 10^{14}\\text{ Hz}$. Given $h = 6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$ and $e = 1.602 \\times 10^{-19}\\text{ C}$, calculate the maximum kinetic energy $KE_{\\max}$ of the emitted photoelectrons and the required stopping voltage $V_{\\text{stop}}$.',
+          questionAr: 'سقط ضوء أحادي اللون تردده $\\nu = 8.0 \\times 10^{14}\\text{ Hz}$ على سطح فلز تردده الحرج $\\nu_c = 5.0 \\times 10^{14}\\text{ Hz}$. بمعلومية ثابت بلانك $h = 6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$ وشحنة الإلكترون $e = 1.602 \\times 10^{-19}\\text{ C}$، احسب أقصى طاقة حركة للإلكترونات المنبعثة $KE_{\\max}$ وفرق جهد الإيقاف $V_{\\text{stop}}$.',
+          optionsEn: ['$KE_{\\max} = 1.24\\text{ eV},\\, V_{\\text{stop}} = 1.24\\text{ V}$', '$KE_{\\max} = 3.31\\text{ eV},\\, V_{\\text{stop}} = 3.31\\text{ V}$', '$KE_{\\max} = 0.62\\text{ eV},\\, V_{\\text{stop}} = 0.62\\text{ V}$', '$KE_{\\max} = 2.48\\text{ eV},\\, V_{\\text{stop}} = 2.48\\text{ V}$'],
+          optionsAr: ['$KE_{\\max} = 1.24\\text{ eV},\\, V_{\\text{stop}} = 1.24\\text{ V}$', '$KE_{\\max} = 3.31\\text{ eV},\\, V_{\\text{stop}} = 3.31\\text{ V}$', '$KE_{\\max} = 0.62\\text{ eV},\\, V_{\\text{stop}} = 0.62\\text{ V}$', '$KE_{\\max} = 2.48\\text{ eV},\\, V_{\\text{stop}} = 2.48\\text{ V}$'],
+          correctAnswer: '$KE_{\\max} = 1.24\\text{ eV},\\, V_{\\text{stop}} = 1.24\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Einstein equation: $KE_{\\max} = h(\\nu - \\nu_c)$. Convert Joules to electron-volts to get stopping voltage directly.',
+          hintAr: 'معادلة أينشتاين: $KE_{\\max} = h(\\nu - \\nu_c)$. حول الناتج من جول لإلكترون فولت ليكون هو نفسه قيمة جهد الإيقاف بالفولت.',
+          stepByStepSolutionEn: [
+            'Maximum kinetic energy in Joules: $KE_{\\max} = h(\\nu - \\nu_c) = (6.626 \\times 10^{-34}) \\times (8.0 \\times 10^{14} - 5.0 \\times 10^{14}) = (6.626 \\times 10^{-34}) \\times (3.0 \\times 10^{14}) = 1.988 \\times 10^{-19}\\text{ J}$.',
+            'Convert to electron-volts: $KE_{\\max} = \\frac{1.988 \\times 10^{-19}}{1.602 \\times 10^{-19}} \\approx 1.241\\text{ eV}$.',
+            'Stopping potential: Since $KE_{\\max} = e V_{\\text{stop}}$, $V_{\\text{stop}} = 1.24\\text{ V}$.'
+          ],
+          stepByStepSolutionAr: [
+            'طاقة الحركة العظمى بالجول: $KE_{\\max} = h(\\nu - \\nu_c) = (6.626 \\times 10^{-34}) \\times (3.0 \\times 10^{14}) = 1.988 \\times 10^{-19}\\text{ جول}$.',
+            'التحويل لإلكترون فولت: $KE_{\\max} = \\frac{1.988 \\times 10^{-19}}{1.602 \\times 10^{-19}} = 1.24\\text{ إلكترون فولت}$.',
+            'جهد الإيقاف: بما أن $KE_{\\max} = e V_{\\text{stop}}$، إذن $V_{\\text{stop}} = 1.24\\text{ فولت}$.'
+          ],
+          teacherTipEn: 'Stopping potential is numerically identical to KE_max expressed in electron-volts.',
+          teacherTipAr: 'جهد الإيقاف بوحدة الفولت يساوي عددياً دائماً قيمة أقصى طاقة حركة معبراً عنها بوحدة الإلكترون فولت.'
         }
       ],
       exerciseProblems: [
@@ -1723,6 +1835,115 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
           ],
           teacherTipEn: 'Kirchhoff\'s junction rule is an explicit expression of the law of conservation of electric charge.',
           teacherTipAr: 'قانون كيرشوف الأول يمثل التطبيق الفيزيائي المباشر لمبدأ بقاء الشحنة الكهربية.'
+        },
+        {
+          id: 'th_phys_ex_03',
+          titleEn: 'Exercise 3: Magnetic Force on Inclined Conductor',
+          titleAr: 'تمرين ٣: القوة المغناطيسية المؤثرة على سلك مائل',
+          difficulty: 'medium',
+          questionEn: 'A straight wire of length $L = 0.5\\text{ m}$ carries a current of $I = 4\\text{ A}$ placed in a uniform magnetic field of flux density $B = 0.2\\text{ T}$. If the wire makes an angle of $30^\\circ$ with the magnetic field lines, calculate the magnetic force acting on the wire.',
+          questionAr: 'سلك مستقيم طوله $0.5\\text{ m}$ يمر به تيار شدته $4\\text{ A}$ موضوع في مجال مغناطيسي منتظم كثافة فيضه $0.2\\text{ T}$. إذا كان السلك يصنع زاوية $30^\\circ$ مع اتجاه خطوط المجال، فاحسب مقدار القوة المغناطيسية المؤثرة عليه.',
+          optionsEn: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
+          optionsAr: ['$0.20\\text{ N}$', '$0.40\\text{ N}$', '$0.35\\text{ N}$', '$0.10\\text{ N}$'],
+          correctAnswer: '$0.20\\text{ N}$',
+          correctIndex: 0,
+          hintEn: 'Apply $F = BIL\\sin\\theta$, with $\\theta = 30^\\circ$ (so $\\sin 30^\\circ = 0.5$).',
+          hintAr: 'طبق القانون $F = BIL\\sin\\theta$ مع التعويض عن $\\theta = 30^\\circ$ (حيث $\\sin 30^\\circ = 0.5$).',
+          stepByStepSolutionEn: [
+            'Magnetic force formula: $F = B I L \\sin\\theta$.',
+            'Substitute values: $F = (0.2\\text{ T}) \\times (4\\text{ A}) \\times (0.5\\text{ m}) \\times \\sin 30^\\circ$.',
+            'Calculate: $F = 0.40 \\times 0.5 = 0.20\\text{ N}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون القوة المغناطيسية: $F = BIL\\sin\\theta$.',
+            'التعويض بالمعطيات: $F = 0.2 \\times 4 \\times 0.5 \\times \\sin 30^\\circ$.',
+            'الناتج: $F = 0.40 \\times 0.5 = 0.20\\text{ نيوتن}$.'
+          ],
+          teacherTipEn: 'Remember that when theta is 30 degrees, the force is exactly half of the maximum possible force (BIL).',
+          teacherTipAr: 'تذكر دائماً أنه عند زاوية 30 درجة مع المجال تكون القوة نصف قيمتها العظمى مباشرة.'
+        },
+        {
+          id: 'th_phys_ex_04',
+          titleEn: 'Exercise 4: AC Dynamo Effective and Instantaneous EMF',
+          titleAr: 'تمرين ٤: القيمة الفعالة واللحظية للقوة الدافعة لدينامو',
+          difficulty: 'hots',
+          diagramType: 'phys_dynamo_generator',
+          questionEn: 'If the effective electromotive force produced by an alternating current dynamo is $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$, what is the instantaneous EMF when the plane of the coil is inclined at $30^\\circ$ to the magnetic field lines?',
+          questionAr: 'إذا كانت القيمة الفعالة للقوة الدافعة الكهربية المتولدة من دينامو تيار متردد هي $\\text{EMF}_{\\text{eff}} = 200\\text{ V}$، فما هي القوة الدافعة اللحظية عندما يكون مستوى الملف مائلاً بزاوية $30^\\circ$ على خطوط الفيض؟',
+          optionsEn: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
+          optionsAr: ['$244.9\\text{ V}$', '$141.4\\text{ V}$', '$282.8\\text{ V}$', '$100.0\\text{ V}$'],
+          correctAnswer: '$244.9\\text{ V}$',
+          correctIndex: 0,
+          hintEn: 'Maximum EMF is $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. The angle between normal and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+          hintAr: 'القيمة العظمى $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2}$. الزاوية مع العمودي على الملف هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+          stepByStepSolutionEn: [
+            'Maximum EMF: $\\text{EMF}_{\\max} = \\text{EMF}_{\\text{eff}} \\times \\sqrt{2} = 200 \\times 1.4142 \\approx 282.84\\text{ V}$.',
+            'Coil inclination angle to field lines is $30^\\circ$, so angle between the normal to the coil and field is $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+            'Instantaneous EMF: $\\text{EMF}_{\\text{inst}} = \\text{EMF}_{\\max} \\sin 60^\\circ = 282.84 \\times \\frac{\\sqrt{3}}{2} \\approx 244.95\\text{ V}$.'
+          ],
+          stepByStepSolutionAr: [
+            'القيمة العظمى للقوة الدافعة: $\\text{EMF}_{\\max} = 200\\sqrt{2} \\approx 282.84\\text{ فولت}$.',
+            'زاوية الملف مع المجال $30^\\circ$ إذن الزاوية مع العمودي هي $\\theta = 90^\\circ - 30^\\circ = 60^\\circ$.',
+            'القيمة اللحظية: $\\text{EMF}_{\\text{inst}} = 282.84 \\times \\sin 60^\\circ = 282.84 \\times 0.866 \\approx 244.9\\text{ فولت}$.'
+          ],
+          teacherTipEn: 'Always be alert: the angle in the dynamo EMF formula is between the NORMAL to the coil and the field lines, not the plane of the coil.',
+          teacherTipAr: 'انتبه بشدة: الزاوية في قانون الدينامو هي الزاوية بين العمودي على مستوى الملف وخطوط المجال وليست مع مستوى الملف نفسه.'
+        },
+        {
+          id: 'th_phys_ex_05',
+          titleEn: 'Exercise 5: Hydrogen Balmer Series First Spectral Line',
+          titleAr: 'تمرين ٥: الطول الموجي لخط بالمر الأول (H-alpha) في طيف الهيدروجين',
+          difficulty: 'medium',
+          diagramType: 'phys_bohr_atom_series',
+          questionEn: 'In the hydrogen atom spectrum, the first line of the Balmer series ($H_\\alpha$) results from an electron transition from level $n = 3$ ($E_3 = -1.51\\text{ eV}$) to level $n = 2$ ($E_2 = -3.40\\text{ eV}$). What is the wavelength of this visible spectral line?',
+          questionAr: 'في طيف ذرة الهيدروجين، ينتج الخط الأول لمتسلسلة بالمر ($H_\\alpha$) عن انتقال إلكترون من المستوى الثالث ($E_3 = -1.51\\text{ eV}$) إلى المستوى الثاني ($E_2 = -3.40\\text{ eV}$). احسب الطول الموجي لهذا الخط الطيفي المرئي.',
+          optionsEn: ['$656.3\\text{ nm}$ (red)', '$486.1\\text{ nm}$ (cyan)', '$121.6\\text{ nm}$ (ultraviolet)', '$434.0\\text{ nm}$ (blue)'],
+          optionsAr: ['$656.3\\text{ nm}$ (أحمر)', '$486.1\\text{ nm}$ (أزرق مخضر)', '$121.6\\text{ nm}$ (فوق بنفسجي)', '$434.0\\text{ nm}$ (نيلي)'],
+          correctAnswer: '$656.3\\text{ nm}$ (red)',
+          correctIndex: 0,
+          hintEn: 'Calculate energy difference $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$, then $\\lambda = \\frac{hc}{\\Delta E}$.',
+          hintAr: 'احسب فرق الطاقة $\\Delta E = E_3 - E_2 = 1.89\\text{ eV}$ ثم طبق $\\lambda = \\frac{hc}{\\Delta E}$.',
+          stepByStepSolutionEn: [
+            'Transition energy: $\\Delta E = E_3 - E_2 = -1.51\\text{ eV} - (-3.40\\text{ eV}) = 1.89\\text{ eV}$.',
+            'Convert to Joules: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19}\\text{ J} = 3.028 \\times 10^{-19}\\text{ J}$.',
+            'Wavelength: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{(6.626 \\times 10^{-34})(3.0 \\times 10^8)}{3.028 \\times 10^{-19}} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 6.565 \\times 10^{-7}\\text{ m} = 656.5\\text{ nm}$ (visible red $H_\\alpha$).'
+          ],
+          stepByStepSolutionAr: [
+            'فرق الطاقة: $\\Delta E = -1.51 - (-3.40) = 1.89\\text{ إلكترون فولت}$.',
+            'التحويل إلى جول: $\\Delta E = 1.89 \\times 1.602 \\times 10^{-19} = 3.028 \\times 10^{-19}\\text{ جول}$.',
+            'الطول الموجي: $\\lambda = \\frac{hc}{\\Delta E} = \\frac{1.988 \\times 10^{-25}}{3.028 \\times 10^{-19}} \\approx 656.3\\text{ نانومتر}$ (ضوء أحمر مرئي $H_\\alpha$).'
+          ],
+          teacherTipEn: 'The H-alpha line at 656.3 nm is the prominent red glow seen in hydrogen discharge tubes and emission nebulae.',
+          teacherTipAr: 'خط H-alpha بطول موجي 656.3 نانومتر يمنح أنبوبة تفريغ الهيدروجين وسديم الفضاء وهجها الأحمر المميز.'
+        },
+        {
+          id: 'th_phys_ex_06',
+          titleEn: 'Exercise 6: Coolidge Tube Bremsstrahlung Wavelength Cutoff',
+          titleAr: 'تمرين ٦: حساب أدنى طول موجي مستمر لأشعة إكس في أنبوبة كوليدج',
+          difficulty: 'medium',
+          diagramType: 'phys_coolidge_xray_tube',
+          questionEn: 'A Coolidge X-ray tube operates at an accelerating potential of $V = 40\\text{ kV}$. What is the minimum cutoff wavelength of the continuous X-ray spectrum emitted?',
+          questionAr: 'تعمل أنبوبة كوليدج للأشعة السينية عند فرق جهد معجل قدره $V = 40\\text{ kV}$. ما هو أدنى طول موجي مستمر لأشعة إكس المنبعثة؟',
+          optionsEn: ['$0.031\\text{ nm}$', '$0.310\\text{ nm}$', '$0.015\\text{ nm}$', '$3.100\\text{ nm}$'],
+          optionsAr: ['$0.031\\text{ nm}$', '$0.310\\text{ nm}$', '$0.015\\text{ nm}$', '$3.100\\text{ nm}$'],
+          correctAnswer: '$0.031\\text{ nm}$',
+          correctIndex: 0,
+          hintEn: 'Apply Duane-Hunt law: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+          hintAr: 'طبق قانون ديوان-هنت للطيف المستمر: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+          stepByStepSolutionEn: [
+            'Duane-Hunt cutoff relation: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+            'Numerator $hc = 1.988 \\times 10^{-25}\\text{ J}\\cdot\\text{m}$.',
+            'Denominator $eV = (1.602 \\times 10^{-19}\\text{ C})(40,000\\text{ V}) = 6.408 \\times 10^{-15}\\text{ J}$.',
+            'Wavelength: $\\lambda_{\\min} = \\frac{1.988 \\times 10^{-25}}{6.408 \\times 10^{-15}} \\approx 3.102 \\times 10^{-11}\\text{ m} = 0.031\\text{ nm}$.'
+          ],
+          stepByStepSolutionAr: [
+            'قانون ديوان-هنت لأقصر طول موجي: $\\lambda_{\\min} = \\frac{hc}{eV}$.',
+            'حاصل ضرب $hc = 1.988 \\times 10^{-25}\\text{ جول}\\cdot\\text{متر}$.',
+            'طاقة الإلكترون المعجل: $eV = 1.602 \\times 10^{-19} \\times 40,000 = 6.408 \\times 10^{-15}\\text{ جول}$.',
+            'القسمة: $\\lambda_{\\min} = \\frac{1.988 \\times 10^{-25}}{6.408 \\times 10^{-15}} \\approx 0.031\\text{ نانومتر}$.'
+          ],
+          teacherTipEn: 'Notice that increasing the accelerating voltage shifts lambda_min toward shorter wavelengths and higher penetration powers.',
+          teacherTipAr: 'زيادة فرق الجهد المعجل في أنبوبة كوليدج تزيح أدنى طول موجي نحو أطوال أقصر وترددات أعلى ذات قدرة نفاذ أكبر.'
         }
       ],
       databank: physCh1Databank
