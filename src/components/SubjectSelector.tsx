@@ -101,8 +101,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         onClick={() => setIsOpen((prev) => !prev)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className={`flex items-center gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border ${
-          compact ? 'px-2.5 py-1.5' : 'px-3.5 py-2'
+        className={`w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border ${
+          compact ? 'px-2.5 py-1.5' : 'px-3 sm:px-3.5 py-2'
         } ${
           isContrast
             ? 'bg-black border-2 border-yellow-400 text-yellow-300 hover:bg-zinc-950'
@@ -112,13 +112,13 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         }`}
       >
         {activeSubject ? (
-          <>
+          <div className="flex items-center gap-2 truncate">
             <span className="text-sm shrink-0 leading-none">{activeSubject.emoji}</span>
             <span className="truncate font-extrabold">
               {isArabic ? activeSubject.titleAr : activeSubject.titleEn}
             </span>
             <span
-              className={`hidden sm:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
+              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
                 isContrast
                   ? 'bg-yellow-400 text-black font-black'
                   : isLight
@@ -131,15 +131,15 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
                 return `${formatCount(stats.totalChapters)} ${isArabic ? 'فصل' : 'Ch'}`;
               })()}
             </span>
-          </>
+          </div>
         ) : (
-          <>
+          <div className="flex items-center gap-2 truncate">
             <Layers className={`w-4 h-4 shrink-0 ${isContrast ? 'text-yellow-400' : 'text-indigo-400'}`} />
             <span className="truncate font-extrabold">
               {isArabic ? 'جميع المواد' : 'All Subjects'}
             </span>
             <span
-              className={`hidden sm:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
+              className={`hidden md:inline-flex text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-md ${
                 isContrast
                   ? 'bg-cyan-400 text-black font-black'
                   : isLight
@@ -149,7 +149,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
             >
               {formatCount(SUBJECTS.length)} {isArabic ? 'مواد' : 'Subjects'}
             </span>
-          </>
+          </div>
         )}
 
         <ChevronDown
