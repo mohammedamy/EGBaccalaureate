@@ -46,6 +46,7 @@ for (const asset of bioAssets) {
 console.log('\n--- 2. Laboratory Components & Hub ---');
 const labComponents = [
   'src/components/labs/MathLab.tsx',
+  'src/components/labs/MechanicsLab.tsx',
   'src/components/labs/PhysicsLab.tsx',
   'src/components/labs/ChemistryLab.tsx',
   'src/components/labs/TransitionMetalsLab.tsx',
@@ -608,6 +609,76 @@ assert(getBlastProduct(280) === 'Fe3O4', 'Blast furnace upper stack (230-300°C)
 assert(getBlastProduct(550) === 'FeO', 'Blast furnace middle stack (400-700°C) reduces to FeO');
 assert(getBlastProduct(900) === 'Fe', 'Blast furnace lower hearth (>700°C) reduces to molten Fe');
 
+// P. Mathematics & Statics: Friction, General Equilibrium, Moments & Negative Mass
+console.log('\n--- P. Statics & Classical Mechanics Simulations (Egyptian Curriculum) ---');
+
+// 1. Friction: Limiting Equilibrium condition when theta = lambda
+const mu_wood = 0.57735; // tan(30°) = 1 / sqrt(3)
+const lambda_wood_rad = Math.atan(mu_wood);
+const lambda_wood_deg = (lambda_wood_rad * 180) / Math.PI;
+assert(Math.abs(lambda_wood_deg - 30.0) < 0.05, `Angle of friction for μs = 0.577 is exactly λ = ${lambda_wood_deg.toFixed(1)}° (30.0°)`);
+
+// Body on inclined plane at θ = 30° under weight W = 100 N alone:
+const theta_incl_rad = (30 * Math.PI) / 180;
+const w_down_plane = 100 * Math.sin(theta_incl_rad); // 50 N
+const normal_contact_r = 100 * Math.cos(theta_incl_rad); // 86.60 N
+const limiting_friction_fs = mu_wood * normal_contact_r; // 50 N
+assert(Math.abs(w_down_plane - limiting_friction_fs) < 1e-4, `At θ = λ = 30°, component down plane (50 N) equals limiting friction Fs (50 N) -> Verge of Motion`);
+
+// Total Resultant Reaction: R' = R * sec(lambda)
+const r_prime_calc = Math.sqrt(normal_contact_r * normal_contact_r + limiting_friction_fs * limiting_friction_fs);
+assert(Math.abs(r_prime_calc - 100.0) < 1e-4, `Total contact reaction R' = ${r_prime_calc.toFixed(1)} N (strictly balances weight W = 100 N)`);
+
+// Least pulling force P_min to move body on rough plane: P_min = W * sin(θ + λ) at α = λ
+const p_min_horiz = 100 * Math.sin(lambda_wood_rad); // for θ = 0
+assert(Math.abs(p_min_horiz - 50.0) < 1e-4, `Least force to initiate motion on horizontal plane P_min = W sin(λ) = 50 N (at α = 30°)`);
+
+// 2. General Equilibrium: Uniform Ladder on Rough Ground and Smooth Wall
+const L_ladder = 6.0; // m
+const W_ladder = 200; // N
+const W_climber = 600; // N
+const theta_ladder_deg = 45;
+const theta_ladder_rad = (theta_ladder_deg * Math.PI) / 180;
+const mu_ground = 0.5;
+
+// If climber is at top (x = L = 6m):
+// RA = W_ladder + W_climber = 800 N
+const RA_ladder = W_ladder + W_climber;
+// Fs_ground = mu_ground * RA = 0.5 * 800 = 400 N
+const Fs_ground = mu_ground * RA_ladder;
+// Sum MA = 0 => RB * L * sin(45°) = W_ladder * (L/2) * cos(45°) + W_climber * L * cos(45°)
+// RB = (W_ladder / 2 + W_climber) * cot(45°) = (100 + 600) * 1.0 = 700 N
+const RB_ladder = (W_ladder / 2 + W_climber) * (1 / Math.tan(theta_ladder_rad));
+assert(RB_ladder > Fs_ground, `Climber at top requires friction RB = ${RB_ladder} N > Fs (${Fs_ground} N) -> Ladder slips!`);
+
+// Critical climbing position x_crit before slipping (RB = Fs_ground):
+// (W_ladder / 2 + W_climber * x_crit / L) * cot(45°) = Fs_ground = 400
+// 100 + 600 * (x_crit / L) = 400 => x_crit / L = 300 / 600 = 0.5 => x_crit = 3.0 m
+const x_crit_fraction = (Fs_ground * Math.tan(theta_ladder_rad) - W_ladder / 2) / W_climber;
+const x_crit_meters = x_crit_fraction * L_ladder;
+assert(Math.abs(x_crit_meters - 3.0) < 1e-4, `Critical safe climbing threshold: x_crit = ${x_crit_meters.toFixed(2)} m (halfway up the ladder)`);
+
+// 3. Beam Support Reactions by Varignon Theorem of Moments
+const L_beam = 10.0;
+const x_supp_A = 1.0;
+const x_supp_B = 9.0;
+const span_AB = x_supp_B - x_supp_A; // 8.0 m
+const P_load = 400; // N at x = 3.0 m
+// Moments about A: RB * 8 = 400 * (3 - 1) = 800 => RB = 100 N
+const RB_beam = (P_load * (3.0 - x_supp_A)) / span_AB;
+const RA_beam = P_load - RB_beam;
+assert(Math.abs(RB_beam - 100.0) < 1e-6, `Beam reaction at B: RB = ${RB_beam} N (expected 100 N)`);
+assert(Math.abs(RA_beam - 300.0) < 1e-6, `Beam reaction at A: RA = ${RA_beam} N (expected 300 N)`);
+
+// 4. Center of Gravity: Negative Mass Method for Disc with Tangent Hole
+const R_disc = 6.0; // cm
+const r_hole = 3.0; // cm (tangent to disc perimeter at x = +6 cm, center at x = +3 cm)
+// Disc Area = pi * R^2 = 36 pi; Hole Area = pi * r^2 = 9 pi (negative mass)
+// M_net = 36 pi - 9 pi = 27 pi
+// X_G = [36 pi * (0) - 9 pi * (3)] / [27 pi] = -27 pi / 27 pi = -1.0 cm = -R / 6
+const shift_negative_mass = (-r_hole * r_hole * (R_disc - r_hole)) / (R_disc * R_disc - r_hole * r_hole);
+assert(Math.abs(shift_negative_mass - (-R_disc / 6)) < 1e-6, `Centroid shift with tangent cutout is strictly -R/6 = -${(R_disc / 6).toFixed(2)} cm`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -722,11 +793,19 @@ const labKeyFormulas = [
   '\\text{Insulin} \\xrightarrow{\\text{Glycogenesis}} \\text{Blood Glucose} \\downarrow',
   '\\text{PTH} \\xrightarrow{\\text{Bone Resorption}} \\text{Serum } \\text{Ca}^{2+} \\uparrow',
   '\\text{Calcitonin} \\xrightarrow{\\text{Bone Deposition}} \\text{Serum } \\text{Ca}^{2+} \\downarrow',
-  // Math Lab
+  // Math & Statics Mechanics Lab
   '\\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}',
   '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1',
   'F_s \\le \\mu_s R',
   '\\det(A) = ad - bc',
+  'F_s = \\mu_s R, \\quad \\tan\\lambda = \\mu_s',
+  'R\' = \\sqrt{R^2 + F_s^2} = R\\sqrt{1 + \\mu_s^2} = R\\sec\\lambda',
+  '\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0',
+  '\\vec{M}_O = \\vec{r} \\times \\vec{F}',
+  'x_{\\text{crit}} = L\\left(\\mu_s\\tan\\theta \\frac{W + W_c}{W_c} - \\frac{W}{2W_c}\\right)',
+  'X_G = \\frac{M_0 X_0 - \\sum m_i x_i}{M_0 - \\sum m_i}, \\quad Y_G = \\frac{M_0 Y_0 - \\sum m_i y_i}{M_0 - \\sum m_i}',
+  'P_{\\min} = W\\sin(\\theta + \\lambda)',
+  '\\Delta X_G = -\\frac{R}{6}',
 ];
 
 let validCount = 0;

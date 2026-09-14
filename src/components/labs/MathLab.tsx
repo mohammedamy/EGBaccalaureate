@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { InteractiveCalculusTangent } from '../InteractiveCalculusTangent';
 import { Interactive3DGeometry } from '../Interactive3DGeometry';
-import { InteractiveStaticsFriction } from '../InteractiveStaticsFriction';
+import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
 
 interface Props {
@@ -94,7 +94,7 @@ export const MathLab: React.FC<Props> = ({ lang, theme = 'dark', onOpenDesmos })
               📦 {isArabic ? 'الهندسة الفراغية 3D والمتجهات' : '3D Vectors & Planes'}
             </option>
             <option value="mechanics" className="bg-slate-900 text-white">
-              ⚙️ {isArabic ? 'الميكانيكا والاحتكاك على مستوى مائل' : 'Mechanics & Friction'}
+              ⚙️ {isArabic ? 'الاستاتيكا والميكانيكا الكلاسيكية (المستوى التفاعلي)' : 'Statics & Classical Mechanics (Tier-1 Lab)'}
             </option>
             <option value="matrix" className="bg-slate-900 text-white">
               🔢 {isArabic ? 'جبر المصفوفات ومحدد كرامر' : 'Matrix Algebra Solver'}
@@ -149,7 +149,7 @@ export const MathLab: React.FC<Props> = ({ lang, theme = 'dark', onOpenDesmos })
       <div className="mt-6">
         {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} />}
         {activeTab === 'geometry3d' && <Interactive3DGeometry lang={lang} theme={theme} />}
-        {activeTab === 'mechanics' && <InteractiveStaticsFriction lang={lang} theme={theme} />}
+        {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}
         {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} />}
       </div>
     </div>
