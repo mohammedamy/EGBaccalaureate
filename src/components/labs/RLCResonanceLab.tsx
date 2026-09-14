@@ -1,712 +1,634 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
-import { toHindiDigits } from '../../utils/arabicNumerals';
 import {
-  Zap,
-  Sliders,
-  CheckCircle2,
-  Sparkles,
-  TrendingUp,
-  Compass,
-  Radio,
-} from 'lucide-react';
-import { MathRenderer } from '../MathRenderer';
+  VirtualLabShell,
+  CanvasSimulationViewport,
+  useVirtualLab,
+  type LabDefinition,
+  type LabTelemetryMetric,
+  type LabViewportState,
+} from '../../core/labs';
+import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
+import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
+import { Radio } from 'lucide-react';
+import { toHindiDigits } from '../../utils/arabicNumerals';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
 }
 
+interface RLCParams {
+  resistanceR: number;
+  inductanceMh: number;
+  capacitanceUf: number;
+  vSourceRms: number;
+  frequencyF: number;
+}
+
+interface RLCState {
+  phaseTime: number;
+}
+
+const RLC_LAB_DEFINITION: LabDefinition<RLCParams, RLCState> = {
+  id: 'rlc-resonance-lab',
+  subject: 'physics',
+  chapterRef: 'Chapter 4: Alternating Current Circuits',
+  titleEn: 'RLC Alternating Current Circuits & Resonance Lab',
+  titleAr: 'دوائر التيار المتردد والرنين الكهرومغناطيسي (RLC)',
+  subtitleEn: 'Impedance Z, Phasor Vectors, and Resonant Frequency',
+  subtitleAr: 'المعاوقة الكلية Z، المتجهات الطورية، وتردد الرنين',
+  objectives: [
+    {
+      id: 'rlc-impedance',
+      textEn: 'Analyze total impedance Z = √(R² + (X_L - X_C)²) and its dependence on frequency.',
+      textAr: 'تحليل المعاوقة الكلية Z = √(R² + (X_L - X_C)²) واعتمادها على تردد المصدر.',
+      bloomLevel: 'analyze',
+    },
+    {
+      id: 'resonance-condition',
+      textEn: 'Determine the resonance condition where inductive reactance equals capacitive reactance (X_L = X_C).',
+      textAr: 'تحديد حالة الرنين عندما تتساوى المفاعلة الحثية مع المفاعلة السعوية (X_L = X_C).',
+      bloomLevel: 'understand',
+    },
+    {
+      id: 'resonant-freq-calc',
+      textEn: 'Verify the resonant frequency formula f₀ = 1 / (2π√(LC)) and compute maximum current I_max = V / R.',
+      textAr: 'التحقق من قانون تردد الرنين f₀ = 1 / (2π√(LC)) وحساب أقصى شدة تيار I_max = V / R.',
+      bloomLevel: 'apply',
+    },
+    {
+      id: 'phase-angle',
+      textEn: 'Examine the phase angle φ between total voltage and current across inductive, capacitive, and resonant regimes.',
+      textAr: 'دراسة زاوية الطور φ بين الجهد الكلي والتيار في الحالات الحثية والسعوية وحالة الرنين.',
+      bloomLevel: 'evaluate',
+    },
+  ],
+  safetyWarnings: [
+    {
+      id: 'resonance-voltage-magnification',
+      titleEn: 'Resonant Voltage Magnification Hazard',
+      titleAr: 'خطر تضخيم الجهد عند الرنين',
+      messageEn: 'In high-Q circuits at resonance, individual voltages across L and C (V_L = V_C = Q·V) can dangerously exceed the source voltage.',
+      messageAr: 'في دوائر الرنين ذات معامل الجودة العالي، قد تتجاوز فروق الجهد على الملف والمكثف (V_L = V_C = Q·V) جهد المصدر بأضعاف مضاعفة.',
+      severity: 'warning',
+    },
+  ],
+  keyFormulas: [
+    {
+      id: 'f0-formula',
+      labelEn: 'Resonant Frequency',
+      labelAr: 'تردد الرنين',
+      tex: 'f_0 = \\frac{1}{2\\pi\\sqrt{LC}}',
+      descriptionEn: 'Frequency at which X_L = X_C and circuit impedance is minimized to Z = R.',
+      descriptionAr: 'التردد الذي تتساوى عنده X_L مع X_C وتصل المعاوقة لأقل قيمة ممكنة (Z = R).',
+    },
+    {
+      id: 'z-formula',
+      labelEn: 'Total Circuit Impedance',
+      labelAr: 'المعاوقة الكلية للدائرة',
+      tex: 'Z = \\sqrt{R^2 + (X_L - X_C)^2}',
+      descriptionEn: 'Vector sum of pure ohmic resistance R and net reactance (X_L - X_C).',
+      descriptionAr: 'المحصلة الاتجاهية للمقاومة الأومية R والمفاعلة الكلية (X_L - X_C).',
+    },
+    {
+      id: 'tan-phi',
+      labelEn: 'Phase Angle Tangent',
+      labelAr: 'ظل زاوية الطور',
+      tex: '\\tan\\phi = \\frac{X_L - X_C}{R}',
+      descriptionEn: 'Phase difference: φ = 0 at resonance; φ > 0 when inductive; φ < 0 when capacitive.',
+      descriptionAr: 'فرق الطور: φ = 0 عند الرنين؛ موجبة للحثية؛ سالبة للسعوية.',
+    },
+    {
+      id: 'q-factor',
+      labelEn: 'Quality Factor (Q)',
+      labelAr: 'معامل الجودة للدائرة',
+      tex: 'Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{2\\pi f_0 L}{R}',
+      descriptionEn: 'Measures resonance sharpness and voltage amplification factor.',
+      descriptionAr: 'يقيس حدة منحنى الرنين ونسبة تضخيم الجهد على طرفي الملف والمكثف.',
+    },
+  ],
+  defaultParams: {
+    resistanceR: 50,
+    inductanceMh: 100,
+    capacitanceUf: 20,
+    vSourceRms: 100,
+    frequencyF: 112.5,
+  },
+  paramSchema: {
+    resistanceR: {
+      key: 'resistanceR',
+      labelEn: 'Resistance (R)',
+      labelAr: 'المقاومة الأومية (R)',
+      symbolTex: 'R',
+      unit: 'Ω',
+      type: 'number',
+      min: 5,
+      max: 200,
+      step: 5,
+      defaultValue: 50,
+      precision: 1,
+    },
+    inductanceMh: {
+      key: 'inductanceMh',
+      labelEn: 'Inductance (L)',
+      labelAr: 'معامل الحث الذاتي (L)',
+      symbolTex: 'L',
+      unit: 'mH',
+      type: 'number',
+      min: 10,
+      max: 500,
+      step: 10,
+      defaultValue: 100,
+      precision: 0,
+    },
+    capacitanceUf: {
+      key: 'capacitanceUf',
+      labelEn: 'Capacitance (C)',
+      labelAr: 'سعة المكثف (C)',
+      symbolTex: 'C',
+      unit: 'μF',
+      type: 'number',
+      min: 1,
+      max: 100,
+      step: 1,
+      defaultValue: 20,
+      precision: 0,
+    },
+    vSourceRms: {
+      key: 'vSourceRms',
+      labelEn: 'Source Voltage (RMS)',
+      labelAr: 'جهد المصدر الفعال (V)',
+      symbolTex: 'V_{\\text{rms}}',
+      unit: 'V',
+      type: 'number',
+      min: 10,
+      max: 250,
+      step: 5,
+      defaultValue: 100,
+      precision: 0,
+    },
+    frequencyF: {
+      key: 'frequencyF',
+      labelEn: 'Source Frequency (f)',
+      labelAr: 'تردد المصدر (f)',
+      symbolTex: 'f',
+      unit: 'Hz',
+      type: 'number',
+      min: 20,
+      max: 300,
+      step: 1,
+      defaultValue: 112.5,
+      precision: 1,
+    },
+  },
+  presets: [
+    {
+      id: 'exact-resonance',
+      nameEn: 'Exact Resonance Benchmark',
+      nameAr: 'حالة الرنين التام (X_L = X_C)',
+      badge: 'f = f₀',
+      descriptionEn: 'Tuned exactly to f₀ ≈ 112.5 Hz: minimum impedance Z = R and maximum current I = 2.0A.',
+      descriptionAr: 'معاير عند f₀ ≈ 112.5 هرتز: أدنى معاوقة Z = R وأقصى شدة تيار I = 2.0 أمبير.',
+      params: { resistanceR: 50, inductanceMh: 100, capacitanceUf: 20, vSourceRms: 100, frequencyF: 112.5 },
+    },
+    {
+      id: 'inductive-regime',
+      nameEn: 'Inductive Dominant Regime',
+      nameAr: 'الخواص الحثية (f > f₀)',
+      badge: 'φ > 0',
+      descriptionEn: 'High frequency (200 Hz) where inductive reactance dominates (X_L > X_C, voltage leads current).',
+      descriptionAr: 'تردد مرتفع (200 هرتز) تسود فيه المفاعلة الحثية والجهد يسبق التيار.',
+      params: { resistanceR: 50, inductanceMh: 100, capacitanceUf: 20, vSourceRms: 100, frequencyF: 200 },
+    },
+    {
+      id: 'capacitive-regime',
+      nameEn: 'Capacitive Dominant Regime',
+      nameAr: 'الخواص السعوية (f < f₀)',
+      badge: 'φ < 0',
+      descriptionEn: 'Low frequency (50 Hz) where capacitive reactance dominates (X_C > X_L, current leads voltage).',
+      descriptionAr: 'تردد منخفض (50 هرتز) تسود فيه المفاعلة السعوية والتيار يسبق الجهد.',
+      params: { resistanceR: 50, inductanceMh: 100, capacitanceUf: 20, vSourceRms: 100, frequencyF: 50 },
+    },
+    {
+      id: 'high-q-filter',
+      nameEn: 'High-Q Sharp Selectivity Tank',
+      nameAr: 'دائرة رنين عالية الجودة (Q مرتفع)',
+      badge: 'Q ≈ 7.07',
+      descriptionEn: 'Low resistance (10 Ω) yields a very sharp resonant peak and high selectivity for tuning receivers.',
+      descriptionAr: 'مقاومة صغيرة (10 أوم) تعطي قمة رنين شديدة الحدة وحساسية اختيارية عالية لأجهزة الاستقبال.',
+      params: { resistanceR: 10, inductanceMh: 100, capacitanceUf: 20, vSourceRms: 100, frequencyF: 112.5 },
+    },
+  ],
+  poePrompts: [
+    {
+      id: 'poe-resonance-phase',
+      titleEn: 'Phase Difference Between Total Voltage and Current at Resonance',
+      titleAr: 'فرق الطور بين الجهد الكلي والتيار عند الرنين',
+      scenarioEn: 'An alternating current series RLC circuit is operating at resonance where inductive reactance equals capacitive reactance (X_L = X_C).',
+      scenarioAr: 'دائرة تيار متردد RLC في حالة رنين تام حيث تساوت المفاعلة الحثية مع السعوية (X_L = X_C).',
+      questionEn: 'What is the phase angle φ between the source electromotive force and the total circuit current?',
+      questionAr: 'ما هي زاوية الطور φ بين الجهد الكلي للمصدر والتيار الكلي للدائرة؟',
+      optionsEn: [
+        '0° (Total voltage and current are in phase, tan φ = 0)',
+        '90° (Total voltage leads current by a quarter cycle)',
+        '-90° (Total current leads voltage by a quarter cycle)',
+        '180° (Total voltage and current are in complete phase opposition)',
+      ],
+      optionsAr: [
+        '0° (يتفق الجهد الكلي والتيار في الطور تماماً، tan φ = 0)',
+        '90° (يتقدم الجهد الكلي على التيار بربع دورة)',
+        '-90° (يتقدم التيار الكلي على الجهد بربع دورة)',
+        '180° (يتعارض الجهد والتيار في الطور تماماً)',
+      ],
+      correctOptionIndex: 0,
+      scientificExplanationEn: 'Since tan φ = (X_L - X_C)/R, when X_L = X_C, the net reactance vanishes and tan φ = 0, so φ = 0°. The circuit exhibits pure resistive properties with voltage and current oscillating in phase.',
+      scientificExplanationAr: 'بما أن tan φ = (X_L - X_C)/R، فعندما تتساوى المفاعلتان ينعدم فرق المفاعلة ويصبح tan φ = 0 أي أن زاوية الطور φ = 0°، وتتصرف الدائرة كمقاومة أومية عديمة الحث ويتفق الجهد والتيار في الطور.',
+    },
+  ],
+  notebookConfig: {
+    xLabelEn: 'Source Frequency (f)',
+    xLabelAr: 'تردد المصدر (f)',
+    xUnit: 'Hz',
+    yLabelEn: 'Circuit Current (I_rms)',
+    yLabelAr: 'شدة التيار الفعال (I_rms)',
+    yUnit: 'A',
+    recommendedPointsCount: 7,
+  },
+  supportedInstruments: ['multimeter', 'oscilloscope', 'stopwatch', 'scratchpad'],
+};
+
 export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
-  const isLight = theme === 'light';
-  const isContrast = theme === 'high-contrast';
 
-  // RLC Component Parameters
-  const [resistanceR, setResistanceR] = useState<number>(50); // Ohms
-  const [inductanceMh, setInductanceMh] = useState<number>(100); // mH
-  const [capacitanceUf, setCapacitanceUf] = useState<number>(20); // uF
-  const [vSourceRms, setVSourceRms] = useState<number>(100); // Volts RMS
-  const [frequencyF, setFrequencyF] = useState<number>(112.5); // Hz
+  const lab = useVirtualLab<RLCParams, RLCState>({
+    definition: RLC_LAB_DEFINITION,
+    onStep: (dt, _params, state) => {
+      state.phaseTime = (state.phaseTime || 0) + dt;
+    },
+  });
 
-  // Unit conversions
-  const L = inductanceMh * 1e-3; // Henries
-  const C = capacitanceUf * 1e-6; // Farads
+  const { resistanceR, inductanceMh, capacitanceUf, vSourceRms, frequencyF } = lab.params;
 
-  // Natural resonant frequency: f0 = 1 / (2 * pi * sqrt(L * C))
+  // Physics Calculations
+  const L = inductanceMh * 1e-3;
+  const C = capacitanceUf * 1e-6;
   const resonantFreqF0 = 1 / (2 * Math.PI * Math.sqrt(L * C));
-
-  // Angular frequency omega = 2 * pi * f
   const omega = 2 * Math.PI * frequencyF;
 
-  // Reactances
-  const xL = omega * L; // Inductive Reactance (Ohms)
-  const xC = 1 / (omega * C); // Capacitive Reactance (Ohms)
-
-  // Total Impedance: Z = sqrt(R^2 + (xL - xC)^2)
+  const xL = omega * L;
+  const xC = 1 / (omega * C);
   const netReactance = xL - xC;
   const impedanceZ = Math.sqrt(resistanceR * resistanceR + netReactance * netReactance);
 
-  // Current amplitude: I = V / Z
   const currentRms = vSourceRms / impedanceZ;
-
-  // Maximum current at resonance: I_max = V / R
   const currentAtResonance = vSourceRms / resistanceR;
 
-  // Phase angle: phi = arctan((xL - xC) / R) in degrees
   const phaseAngleRad = Math.atan2(netReactance, resistanceR);
   const phaseAngleDeg = (phaseAngleRad * 180) / Math.PI;
 
-  // Component RMS Voltages
   const vR = currentRms * resistanceR;
   const vL = currentRms * xL;
   const vC = currentRms * xC;
-
-  // Quality Factor: Q = (1 / R) * sqrt(L / C) = (2 * pi * f0 * L) / R
   const qualityFactor = (1 / resistanceR) * Math.sqrt(L / C);
 
-  // Bandwidth: Delta_f = R / (2 * pi * L)
-  const bandwidthDeltaF = resistanceR / (2 * Math.PI * L);
-
-  // Circuit state classification
   const isResonant = Math.abs(xL - xC) < 1.0;
   const isInductive = xL - xC >= 1.0;
 
-  // Format numbers
-  const formatNum = (val: number, decimals = 1) => {
-    const formatted = val.toFixed(decimals);
-    return isArabic ? toHindiDigits(formatted) : formatted;
+  // Snap to Resonant Frequency
+  const handleSnapToResonance = () => {
+    lab.updateParam('frequencyF', parseFloat(resonantFreqF0.toFixed(1)));
   };
 
-  // Helper to snap frequency to resonant frequency
-  const snapToResonance = () => {
-    setFrequencyF(parseFloat(resonantFreqF0.toFixed(1)));
+  // Multimeter live reading
+  const multimeterReading: DMMReading = {
+    voltageDC: 0.0,
+    voltageAC: parseFloat(vSourceRms.toFixed(1)),
+    currentDC: 0.0,
+    resistance: parseFloat(impedanceZ.toFixed(1)),
+    continuityBeep: isResonant,
+  };
+
+  // Oscilloscope live signals
+  const oscilloscopeCh1: WaveformSignal = {
+    amplitude: Math.min(10, parseFloat((vSourceRms / 20).toFixed(2))),
+    frequency: frequencyF,
+    phaseDeg: 0,
+    type: 'sine',
+  };
+
+  const oscilloscopeCh2: WaveformSignal = {
+    amplitude: Math.min(10, parseFloat((currentRms * 2.5).toFixed(2))),
+    frequency: frequencyF,
+    phaseDeg: parseFloat((-phaseAngleDeg).toFixed(1)), // Current phase relative to voltage
+    type: 'sine',
+  };
+
+  // Telemetry Cards
+  const telemetry: LabTelemetryMetric[] = [
+    {
+      id: 'resonant-f0',
+      labelEn: 'Resonant Frequency',
+      labelAr: 'تردد الرنين الطبيعي',
+      symbolTex: 'f_0',
+      value: resonantFreqF0,
+      unit: 'Hz',
+      min: 20,
+      max: 300,
+      status: isResonant ? 'optimal' : 'normal',
+      precision: 1,
+    },
+    {
+      id: 'impedance-z',
+      labelEn: 'Total Impedance',
+      labelAr: 'المعاوقة الكلية',
+      symbolTex: 'Z',
+      value: impedanceZ,
+      unit: 'Ω',
+      min: resistanceR,
+      max: 500,
+      status: isResonant ? 'optimal' : 'normal',
+      precision: 1,
+    },
+    {
+      id: 'current-rms',
+      labelEn: 'Circuit Current',
+      labelAr: 'شدة التيار الفعال',
+      symbolTex: 'I_{\\text{rms}}',
+      value: currentRms,
+      unit: 'A',
+      min: 0,
+      max: currentAtResonance * 1.2,
+      status: isResonant ? 'optimal' : 'normal',
+      precision: 2,
+    },
+    {
+      id: 'phase-angle',
+      labelEn: 'Phase Angle',
+      labelAr: 'زاوية الطور (φ)',
+      symbolTex: '\\phi',
+      value: phaseAngleDeg,
+      unit: '°',
+      min: -90,
+      max: 90,
+      status: isResonant ? 'optimal' : isInductive ? 'warning' : 'normal',
+      precision: 1,
+    },
+    {
+      id: 'quality-factor',
+      labelEn: 'Quality Factor',
+      labelAr: 'معامل الجودة (Q)',
+      symbolTex: 'Q',
+      value: qualityFactor,
+      min: 0.5,
+      max: 20,
+      status: qualityFactor > 5 ? 'optimal' : 'normal',
+      precision: 2,
+    },
+  ];
+
+  // High-Performance 2D Canvas: Split Phasor Diagram (Left) & Resonance Response Curve (Right)
+  const handleRenderCanvas = (
+    ctx: CanvasRenderingContext2D,
+    w: number,
+    h: number,
+    vp: LabViewportState
+  ) => {
+    ctx.fillStyle = '#020617';
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.translate(vp.panX, vp.panY);
+    ctx.scale(vp.zoom, vp.zoom);
+
+    const splitX = w * 0.46;
+
+    // Divider
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.5)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(splitX, 15);
+    ctx.lineTo(splitX, h - 15);
+    ctx.stroke();
+
+    // ----------------------------------------------------
+    // LEFT: Dynamic Phasor Diagram
+    // ----------------------------------------------------
+    const phasorCx = splitX / 2;
+    const phasorCy = h / 2;
+    const scale = Math.min(phasorCx, phasorCy) * 0.75;
+
+    // Phasor Axes
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(phasorCx - scale - 15, phasorCy);
+    ctx.lineTo(phasorCx + scale + 15, phasorCy);
+    ctx.moveTo(phasorCx, phasorCy - scale - 15);
+    ctx.lineTo(phasorCx, phasorCy + scale + 15);
+    ctx.stroke();
+
+    // Max component for normalization
+    const maxV = Math.max(vR, vL, vC, vSourceRms, 1);
+    const normVR = (vR / maxV) * scale;
+    const normVL = (vL / maxV) * scale;
+    const normVC = (vC / maxV) * scale;
+
+    // 1. Vector V_R (Horizontal / In Phase with Current)
+    drawVector(ctx, phasorCx, phasorCy, phasorCx + normVR, phasorCy, '#22c55e', 3, 'V_R');
+
+    // 2. Vector V_L (Upwards +90 deg)
+    drawVector(ctx, phasorCx, phasorCy, phasorCx, phasorCy - normVL, '#ef4444', 3, 'V_L');
+
+    // 3. Vector V_C (Downwards -90 deg)
+    drawVector(ctx, phasorCx, phasorCy, phasorCx, phasorCy + normVC, '#3b82f6', 3, 'V_C');
+
+    // 4. Net Vector V_total (at angle phi)
+    const totalNorm = (vSourceRms / maxV) * scale;
+    const endTotalX = phasorCx + totalNorm * Math.cos(phaseAngleRad);
+    const endTotalY = phasorCy - totalNorm * Math.sin(phaseAngleRad);
+    drawVector(ctx, phasorCx, phasorCy, endTotalX, endTotalY, '#f59e0b', 3.5, 'V_total');
+
+    // Phase Angle Arc
+    ctx.strokeStyle = '#f59e0b';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(phasorCx, phasorCy, 28, 0, -phaseAngleRad, phaseAngleRad > 0);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '11px sans-serif';
+    ctx.fillText(`φ = ${phaseAngleDeg.toFixed(1)}°`, phasorCx + 34, phasorCy - 8);
+
+    // Left Title
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      isArabic ? 'المتجهات الطورية للجهد (Phasor Diagram)' : 'Voltage Phasor Diagram',
+      phasorCx,
+      28
+    );
+
+    // ----------------------------------------------------
+    // RIGHT: Frequency Response Curve (I_rms vs Frequency)
+    // ----------------------------------------------------
+    const plotX = splitX + 35;
+    const plotY = 40;
+    const plotW = w - plotX - 25;
+    const plotH = h - 80;
+
+    // Axes
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(plotX, plotY);
+    ctx.lineTo(plotX, plotY + plotH);
+    ctx.lineTo(plotX + plotW, plotY + plotH);
+    ctx.stroke();
+
+    // Axis Labels
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(`${currentAtResonance.toFixed(1)}A`, plotX - 6, plotY + 12);
+    ctx.fillText('0A', plotX - 6, plotY + plotH);
+
+    ctx.textAlign = 'center';
+    ctx.fillText('20Hz', plotX, plotY + plotH + 16);
+    ctx.fillText(`${resonantFreqF0.toFixed(0)}Hz (f₀)`, plotX + (plotW * (resonantFreqF0 - 20)) / 280, plotY + plotH + 16);
+    ctx.fillText('300Hz', plotX + plotW, plotY + plotH + 16);
+
+    // Draw Response Curve: I(f) = V / sqrt(R^2 + (2πfL - 1/(2πfC))^2)
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+
+    const maxIPlot = currentAtResonance * 1.15;
+    for (let px = 0; px <= plotW; px += 2) {
+      const freq = 20 + (px / plotW) * 280;
+      const wFreq = 2 * Math.PI * freq;
+      const curXL = wFreq * L;
+      const curXC = 1 / (wFreq * C);
+      const curZ = Math.sqrt(resistanceR * resistanceR + (curXL - curXC) * (curXL - curXC));
+      const curI = vSourceRms / curZ;
+      const py = plotY + plotH - (curI / maxIPlot) * plotH;
+
+      if (px === 0) ctx.moveTo(plotX + px, py);
+      else ctx.lineTo(plotX + px, py);
+    }
+    ctx.stroke();
+
+    // Resonant Frequency Dashed Vertical Line
+    const resPx = plotX + (plotW * (resonantFreqF0 - 20)) / 280;
+    if (resPx >= plotX && resPx <= plotX + plotW) {
+      ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(resPx, plotY);
+      ctx.lineTo(resPx, plotY + plotH);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // Current Operating Point Ball
+    const curPx = plotX + (plotW * (frequencyF - 20)) / 280;
+    const curPy = plotY + plotH - (currentRms / maxIPlot) * plotH;
+    if (curPx >= plotX && curPx <= plotX + plotW) {
+      ctx.fillStyle = isResonant ? '#eab308' : '#38bdf8';
+      ctx.beginPath();
+      ctx.arc(curPx, curPy, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // Right Title
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      isArabic ? 'منحنى الرنين: شدة التيار مقابل التردد I(f)' : 'Resonance Response Curve: Current vs Frequency I(f)',
+      plotX + plotW / 2,
+      28
+    );
+
+    ctx.restore();
+  };
+
+  // Helper to draw vector with arrowhead
+  const drawVector = (
+    ctx: CanvasRenderingContext2D,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    color: string,
+    width: number,
+    label: string
+  ) => {
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.lineWidth = width;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
+    // Arrowhead
+    const angle = Math.atan2(y2 - y1, x2 - x1);
+    const arrowLen = 10;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - arrowLen * Math.cos(angle - Math.PI / 6), y2 - arrowLen * Math.sin(angle - Math.PI / 6));
+    ctx.lineTo(x2 - arrowLen * Math.cos(angle + Math.PI / 6), y2 - arrowLen * Math.sin(angle + Math.PI / 6));
+    ctx.closePath();
+    ctx.fill();
+
+    // Label
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillText(label, x2 + 10 * Math.cos(angle), y2 + 10 * Math.sin(angle));
   };
 
   return (
-    <div className="space-y-6">
-      {/* Subheader */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gradient-to-r from-sky-500/10 via-cyan-500/5 to-transparent p-4 rounded-xl border border-sky-500/20">
-        <div>
-          <div className="flex items-center gap-2">
-            <h3 className="text-base sm:text-lg font-black text-sky-400">
-              {isArabic
-                ? 'دوائر التيار المتردد والرنين الكهرومغناطيسي (RLC)'
-                : 'RLC Alternating Current Circuits & Resonance Lab'}
-            </h3>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-sky-500/20 border border-sky-500/40 text-sky-300 font-bold uppercase">
-              Impedance & Phasors
+    <VirtualLabShell<RLCParams, RLCState>
+      definition={RLC_LAB_DEFINITION}
+      lang={lang}
+      theme={theme}
+      lab={lab}
+      telemetry={telemetry}
+      multimeterReading={multimeterReading}
+      oscilloscopeCh1={oscilloscopeCh1}
+      oscilloscopeCh2={oscilloscopeCh2}
+      currentXValue={frequencyF}
+      currentYValue={parseFloat(currentRms.toFixed(2))}
+      renderCustomControls={() => (
+        <div className="space-y-2" dir={isArabic ? 'rtl' : 'ltr'}>
+          <button
+            type="button"
+            onClick={handleSnapToResonance}
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-400 hover:to-cyan-500 text-slate-950 font-black text-xs shadow-md transition-all cursor-pointer"
+          >
+            <Radio className="w-4 h-4 animate-pulse" />
+            <span>{isArabic ? 'المعايرة اللحظية على تردد الرنين f₀' : 'Snap to Resonant Frequency f₀'}</span>
+            <span className="font-mono bg-slate-950/20 px-2 py-0.5 rounded text-[11px]">
+              {isArabic ? toHindiDigits(resonantFreqF0.toFixed(1)) : resonantFreqF0.toFixed(1)} Hz
             </span>
-          </div>
-          <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-            {isArabic
-              ? 'دراسة المعاوقة الكلية، المفاعلة الحثية والسعوية، متجه الجهد، ومنحنى الرنين مع حساب أقصى شدة تيار'
-              : 'Analyze series RLC impedance Z, reactive vectors XL and XC, phasor diagrams, and resonance curve response'}
-          </p>
+          </button>
         </div>
-
-        {/* Snap to Resonance Action Button */}
-        <button
-          onClick={snapToResonance}
-          className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-400 hover:to-cyan-500 text-slate-950 font-black text-xs shadow-md transition-all cursor-pointer shrink-0"
-        >
-          <Radio className="w-4 h-4 animate-pulse" />
-          <span>{isArabic ? 'ضبط تردد الرنين f₀' : 'Snap to Resonant f₀'}</span>
-          <span className="font-mono bg-slate-950/20 px-1.5 py-0.5 rounded text-[11px]">
-            {formatNum(resonantFreqF0, 1)} Hz
-          </span>
-        </button>
-      </div>
-
-      {/* State Status Banner */}
-      <div
-        className={`p-3 rounded-xl border flex items-center justify-between gap-4 text-xs font-bold transition-all ${
-          isResonant
-            ? 'bg-emerald-950/60 border-emerald-500/50 text-emerald-300'
-            : isInductive
-            ? 'bg-amber-950/60 border-amber-500/50 text-amber-300'
-            : 'bg-purple-950/60 border-purple-500/50 text-purple-300'
-        }`}
-      >
-        <div className="flex items-center gap-2">
-          <Zap className="w-4 h-4 shrink-0" />
-          <span>
-            {isArabic
-              ? isResonant
-                ? '⚡ حالة رنين تام (X_L = X_C): المعاوقة أقل ما يمكن (Z = R)، شدة التيار قيمة عظمى، فرق الجهد متفق في الطور مع التيار (θ = 0°).'
-                : isInductive
-                ? '📈 دائرة حثية (X_L > X_C): الجهد الكلي يسبق التيار بزاوية طور موجبة (+θ).'
-                : '📉 دائرة سعوية (X_C > X_L): التيار يسبق الجهد الكلي بزاوية طور سالبة (-θ).'
-              : isResonant
-              ? '⚡ Resonance State (X_L = X_C): Minimum impedance Z = R, maximum current I_max, voltage in phase with current (θ = 0°).'
-              : isInductive
-              ? '📈 Inductive Circuit (X_L > X_C): Total voltage leads current by positive phase angle (+θ).'
-              : '📉 Capacitive Circuit (X_C > X_L): Current leads total voltage by negative phase angle (-θ).'}
-          </span>
-        </div>
-        <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/60 shrink-0">
-          φ = {formatNum(phaseAngleDeg, 1)}°
-        </span>
-      </div>
-
-      {/* Main Two Visualizer Columns: Phasor Diagram + Resonance Curve */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column: Interactive Phasor Diagram (SVG) */}
-        <div
-          className={`lg:col-span-6 rounded-xl border p-4 sm:p-5 flex flex-col justify-between ${
-            isContrast
-              ? 'bg-black border-sky-400'
-              : isLight
-              ? 'bg-slate-50 border-slate-200'
-              : 'bg-slate-900/70 border-slate-800'
-          }`}
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-700/40">
-            <span className="text-xs font-black uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
-              <Compass className="w-3.5 h-3.5" />
-              {isArabic ? 'مخطط متجهات الجهد في دائرة RLC' : 'Phasor Voltage Diagram'}
-            </span>
-            <span className="text-[11px] font-mono text-slate-400">
-              V_net = {formatNum(vSourceRms, 1)} V
-            </span>
-          </div>
-
-          {/* Phasor SVG Canvas */}
-          <div className="relative w-full h-[250px] sm:h-[280px] my-2 select-none overflow-hidden rounded-lg bg-slate-950/70 border border-slate-800/80 flex items-center justify-center">
-            <svg viewBox="0 0 320 260" className="w-full h-full">
-              <defs>
-                <marker id="arrow-sky" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
-                </marker>
-                <marker id="arrow-amber" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24" />
-                </marker>
-                <marker id="arrow-purple" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#c084fc" />
-                </marker>
-                <marker id="arrow-emerald" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
-                </marker>
-              </defs>
-
-              {/* Grid Lines */}
-              <line x1="40" y1="130" x2="280" y2="130" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
-              <line x1="120" y1="20" x2="120" y2="240" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
-
-              {/* Origin (120, 130) */}
-              {(() => {
-                const ox = 120;
-                const oy = 130;
-                // Scale voltage vectors so max fits in ~90px
-                const maxV = Math.max(vR, vL, vC, vSourceRms, 1);
-                const scale = 80 / maxV;
-
-                const vrLen = vR * scale;
-                const vlLen = vL * scale;
-                const vcLen = vC * scale;
-                const netReactLen = (vL - vC) * scale;
-
-                return (
-                  <g>
-                    {/* VR Vector (Horizontal Right along +X) */}
-                    <line
-                      x1={ox}
-                      y1={oy}
-                      x2={ox + vrLen}
-                      y2={oy}
-                      stroke="#38bdf8"
-                      strokeWidth="3"
-                      markerEnd="url(#arrow-sky)"
-                    />
-                    <text x={ox + vrLen + 8} y={oy + 4} fill="#38bdf8" fontSize="11" fontWeight="bold">
-                      V_R ({formatNum(vR, 0)}V)
-                    </text>
-
-                    {/* VL Vector (Vertical Up along +Y) */}
-                    <line
-                      x1={ox}
-                      y1={oy}
-                      x2={ox}
-                      y2={oy - vlLen}
-                      stroke="#fbbf24"
-                      strokeWidth="2.5"
-                      markerEnd="url(#arrow-amber)"
-                    />
-                    <text x={ox - 10} y={oy - vlLen - 6} fill="#fbbf24" fontSize="11" fontWeight="bold" textAnchor="end">
-                      V_L ({formatNum(vL, 0)}V)
-                    </text>
-
-                    {/* VC Vector (Vertical Down along -Y) */}
-                    <line
-                      x1={ox}
-                      y1={oy}
-                      x2={ox}
-                      y2={oy + vcLen}
-                      stroke="#c084fc"
-                      strokeWidth="2.5"
-                      markerEnd="url(#arrow-purple)"
-                    />
-                    <text x={ox - 10} y={oy + vcLen + 14} fill="#c084fc" fontSize="11" fontWeight="bold" textAnchor="end">
-                      V_C ({formatNum(vC, 0)}V)
-                    </text>
-
-                    {/* Resultant Net Reactance Line (V_L - V_C) */}
-                    <line
-                      x1={ox + vrLen}
-                      y1={oy}
-                      x2={ox + vrLen}
-                      y2={oy - netReactLen}
-                      stroke="#64748b"
-                      strokeWidth="1.5"
-                      strokeDasharray="3 3"
-                    />
-
-                    {/* Resultant Total Voltage Phasor V_net */}
-                    <line
-                      x1={ox}
-                      y1={oy}
-                      x2={ox + vrLen}
-                      y2={oy - netReactLen}
-                      stroke="#10b981"
-                      strokeWidth="3.5"
-                      markerEnd="url(#arrow-emerald)"
-                    />
-                    <text
-                      x={ox + vrLen + 10}
-                      y={oy - netReactLen}
-                      fill="#10b981"
-                      fontSize="12"
-                      fontWeight="black"
-                    >
-                      V_total ({formatNum(vSourceRms, 0)}V)
-                    </text>
-
-                    {/* Phase Angle Arc */}
-                    <path
-                      d={`M ${ox + 28} ${oy} A 28 28 0 0 ${phaseAngleDeg > 0 ? 0 : 1} ${
-                        ox + 28 * Math.cos(phaseAngleRad)
-                      } ${oy - 28 * Math.sin(phaseAngleRad)}`}
-                      fill="none"
-                      stroke="#facc15"
-                      strokeWidth="1.5"
-                    />
-                    <text x={ox + 35} y={oy - (phaseAngleDeg > 0 ? 10 : -14)} fill="#facc15" fontSize="10" fontWeight="bold">
-                      φ = {formatNum(phaseAngleDeg, 0)}°
-                    </text>
-                  </g>
-                );
-              })()}
-            </svg>
-          </div>
-
-          <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
-            <span className="text-sky-400 font-bold">V_R = I·R</span>
-            <span className="text-amber-400 font-bold">V_L = I·X_L</span>
-            <span className="text-purple-400 font-bold">V_C = I·X_C</span>
-            <span className="text-emerald-400 font-bold">V = √(V_R² + (V_L - V_C)²)</span>
-          </div>
-        </div>
-
-        {/* Right Column: Resonance Curve I vs f (SVG) */}
-        <div
-          className={`lg:col-span-6 rounded-xl border p-4 sm:p-5 flex flex-col justify-between ${
-            isContrast
-              ? 'bg-black border-emerald-400'
-              : isLight
-              ? 'bg-slate-50 border-slate-200'
-              : 'bg-slate-900/70 border-slate-800'
-          }`}
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-700/40">
-            <span className="text-xs font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-              <TrendingUp className="w-3.5 h-3.5" />
-              {isArabic ? 'منحنى الرنين وتغير شدة التيار مع التردد' : 'Resonance Response Curve I(f)'}
-            </span>
-            <span className="text-[11px] font-mono text-emerald-300 font-bold">
-              I_max = {formatNum(currentAtResonance, 2)} A
-            </span>
-          </div>
-
-          {/* Resonance Curve SVG */}
-          <div className="relative w-full h-[250px] sm:h-[280px] my-2 select-none overflow-hidden rounded-lg bg-slate-950/70 border border-slate-800/80 flex items-center justify-center">
-            <svg viewBox="0 0 340 240" className="w-full h-full">
-              {/* Axes */}
-              <line x1="40" y1="200" x2="320" y2="200" stroke="#475569" strokeWidth="1.5" />
-              <line x1="40" y1="20" x2="40" y2="200" stroke="#475569" strokeWidth="1.5" />
-
-              {/* Axis Labels */}
-              <text x="320" y="215" fill="#94a3b8" fontSize="10" textAnchor="end">
-                {isArabic ? 'التردد f (Hz)' : 'Frequency f (Hz)'}
-              </text>
-              <text x="45" y="30" fill="#94a3b8" fontSize="10">
-                {isArabic ? 'التيار I (A)' : 'Current I (A)'}
-              </text>
-
-              {/* Peak Resonance Line */}
-              {(() => {
-                // Plot frequency from 10Hz to 3 * f0
-                const fMin = 10;
-                const fMax = Math.max(300, resonantFreqF0 * 2.5);
-
-                const getX = (f: number) => 40 + ((f - fMin) / (fMax - fMin)) * 260;
-                const getY = (iVal: number) => 200 - (iVal / currentAtResonance) * 160;
-
-                // Build curve path
-                let pathPoints = '';
-                const steps = 60;
-                for (let i = 0; i <= steps; i++) {
-                  const fCur = fMin + (i / steps) * (fMax - fMin);
-                  const wCur = 2 * Math.PI * fCur;
-                  const xlCur = wCur * L;
-                  const xcCur = 1 / (wCur * C);
-                  const zCur = Math.sqrt(resistanceR * resistanceR + Math.pow(xlCur - xcCur, 2));
-                  const iCur = vSourceRms / zCur;
-                  const x = getX(fCur);
-                  const y = getY(iCur);
-                  pathPoints += (i === 0 ? 'M ' : 'L ') + `${x.toFixed(1)} ${y.toFixed(1)} `;
-                }
-
-                const resX = getX(resonantFreqF0);
-                const curX = getX(Math.min(fMax, Math.max(fMin, frequencyF)));
-                const curY = getY(currentRms);
-
-                return (
-                  <g>
-                    {/* Resonant Vertical Guideline */}
-                    <line
-                      x1={resX}
-                      y1="40"
-                      x2={resX}
-                      y2="200"
-                      stroke="rgba(16, 185, 129, 0.4)"
-                      strokeWidth="1.5"
-                      strokeDasharray="3 3"
-                    />
-                    <text x={resX} y="215" fill="#10b981" fontSize="10" textAnchor="middle" fontWeight="bold">
-                      f₀ ({formatNum(resonantFreqF0, 0)}Hz)
-                    </text>
-
-                    {/* Resonance Curve Path */}
-                    <path
-                      d={pathPoints}
-                      fill="none"
-                      stroke="#10b981"
-                      strokeWidth="3"
-                    />
-
-                    {/* Operating Point */}
-                    <line
-                      x1={curX}
-                      y1={curY}
-                      x2={curX}
-                      y2="200"
-                      stroke="rgba(251, 191, 36, 0.6)"
-                      strokeWidth="1"
-                      strokeDasharray="2 2"
-                    />
-                    <circle cx={curX} cy={curY} r="6" fill="#fbbf24" stroke="#ffffff" strokeWidth="2" />
-
-                    {/* Operating Point Readout */}
-                    <text x={Math.min(270, curX + 10)} y={Math.max(45, curY - 10)} fill="#fbbf24" fontSize="11" fontWeight="black">
-                      I = {formatNum(currentRms, 2)} A
-                    </text>
-                  </g>
-                );
-              })()}
-            </svg>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300 px-1">
-            <div className="flex items-center gap-1">
-              <MathRenderer math="f_0 = \frac{1}{2\pi\sqrt{LC}}" inline lang={lang} />
-            </div>
-            <div className="flex items-center gap-1">
-              <MathRenderer math="Z_{\min} = R" inline lang={lang} />
-              <span className="text-slate-400 font-mono text-[11px]">({formatNum(resistanceR, 0)} Ω)</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <MathRenderer math="I_{\max} = \frac{V}{R}" inline lang={lang} />
-              <span className="text-slate-400 font-mono text-[11px]">({formatNum(currentAtResonance, 2)} A)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Numerical Metrics Deck */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'المعاوقة' : 'Impedance'}</span>
-            <MathRenderer math="(Z)" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-sky-400 font-mono block my-0.5">
-            {formatNum(impedanceZ, 1)} Ω
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= \sqrt{R^2 + (X_L - X_C)^2}" inline lang={lang} />
-          </span>
-        </div>
-
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'المفاعلة الحثية' : 'Inductive'}</span>
-            <MathRenderer math="(X_L)" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-amber-400 font-mono block my-0.5">
-            {formatNum(xL, 1)} Ω
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= 2\pi f L" inline lang={lang} />
-          </span>
-        </div>
-
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'المفاعلة السعوية' : 'Capacitive'}</span>
-            <MathRenderer math="(X_C)" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-purple-400 font-mono block my-0.5">
-            {formatNum(xC, 1)} Ω
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= \frac{1}{2\pi f C}" inline lang={lang} />
-          </span>
-        </div>
-
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'شدة التيار' : 'Current'}</span>
-            <MathRenderer math="(I_{\text{rms}})" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-emerald-400 font-mono block my-0.5">
-            {formatNum(currentRms, 2)} A
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= \frac{V}{Z}" inline lang={lang} />
-          </span>
-        </div>
-
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'معامل الجودة' : 'Quality'}</span>
-            <MathRenderer math="(Q)" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-pink-400 font-mono block my-0.5">
-            {formatNum(qualityFactor, 2)}
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= \frac{1}{R}\sqrt{\frac{L}{C}}" inline lang={lang} />
-          </span>
-        </div>
-
-        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <span>{isArabic ? 'عرض النطاق' : 'Bandwidth'}</span>
-            <MathRenderer math="(\Delta f)" inline lang={lang} />
-          </span>
-          <span className="text-base sm:text-lg font-black text-cyan-400 font-mono block my-0.5">
-            {formatNum(bandwidthDeltaF, 1)} Hz
-          </span>
-          <span className="text-[10px] text-slate-500 block">
-            <MathRenderer math="= \frac{R}{2\pi L}" inline lang={lang} />
-          </span>
-        </div>
-      </div>
-
-      {/* Sliders Control Deck */}
-      <div
-        className={`rounded-xl border p-4 sm:p-5 ${
-          isContrast
-            ? 'bg-black border-sky-400'
-            : isLight
-            ? 'bg-slate-50 border-slate-200'
-            : 'bg-slate-900/80 border-slate-800'
-        }`}
-      >
-        <h4 className="text-xs font-black uppercase tracking-wider text-sky-400 mb-4 flex items-center gap-1.5">
-          <Sliders className="w-3.5 h-3.5" />
-          {isArabic ? 'لوحة التحكم في عناصر الدائرة والتردد' : 'RLC Circuit Controls & Frequency Deck'}
-        </h4>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
-          {/* Frequency f */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'تردد المصدر (f)' : 'Frequency (f)'}
-              </span>
-              <span className="font-mono font-bold text-emerald-400">{formatNum(frequencyF, 1)} Hz</span>
-            </div>
-            <input
-              type="range"
-              min="20"
-              max="500"
-              step="1"
-              value={frequencyF}
-              onChange={(e) => setFrequencyF(parseFloat(e.target.value))}
-              className="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>20 Hz</span>
-              <span>Resonant f₀</span>
-              <span>500 Hz</span>
-            </div>
-          </div>
-
-          {/* Resistance R */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'المقاومة (R)' : 'Resistance (R)'}
-              </span>
-              <span className="font-mono font-bold text-sky-400">{formatNum(resistanceR, 0)} Ω</span>
-            </div>
-            <input
-              type="range"
-              min="10"
-              max="200"
-              step="5"
-              value={resistanceR}
-              onChange={(e) => setResistanceR(parseInt(e.target.value))}
-              className="w-full accent-sky-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>10 Ω</span>
-              <span>200 Ω</span>
-            </div>
-          </div>
-
-          {/* Inductance L */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'معامل الحث (L)' : 'Inductance (L)'}
-              </span>
-              <span className="font-mono font-bold text-amber-400">{formatNum(inductanceMh, 0)} mH</span>
-            </div>
-            <input
-              type="range"
-              min="10"
-              max="300"
-              step="5"
-              value={inductanceMh}
-              onChange={(e) => setInductanceMh(parseInt(e.target.value))}
-              className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>10 mH</span>
-              <span>300 mH</span>
-            </div>
-          </div>
-
-          {/* Capacitance C */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'سعة المكثف (C)' : 'Capacitance (C)'}
-              </span>
-              <span className="font-mono font-bold text-purple-400">{formatNum(capacitanceUf, 0)} µF</span>
-            </div>
-            <input
-              type="range"
-              min="5"
-              max="100"
-              step="1"
-              value={capacitanceUf}
-              onChange={(e) => setCapacitanceUf(parseInt(e.target.value))}
-              className="w-full accent-purple-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>5 µF</span>
-              <span>100 µF</span>
-            </div>
-          </div>
-
-          {/* Source Voltage V_rms */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'جهد المصدر (V)' : 'Voltage (V_rms)'}
-              </span>
-              <span className="font-mono font-bold text-pink-400">{formatNum(vSourceRms, 0)} V</span>
-            </div>
-            <input
-              type="range"
-              min="20"
-              max="240"
-              step="10"
-              value={vSourceRms}
-              onChange={(e) => setVSourceRms(parseInt(e.target.value))}
-              className="w-full accent-pink-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>20 V</span>
-              <span>240 V</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Ministry Exam Questions & Insights */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'شروط حالة الرنين في دائرة RLC' : 'Resonance Conditions'}
-            </h5>
-          </div>
-          <div className="text-[11px] leading-relaxed text-slate-400">
-            <MathRenderer
-              text={
-                isArabic
-                  ? 'تتساوى المفاعلة الحثية مع السعوية ($X_L = X_C$)، وتلغي كل منهما تأثير الأخرى لأن زاوية الطور بينهما 180°. تصبح المعاوقة أقل ما يمكن ($Z = R$) والتيار أكبر ما يمكن ($I = \\frac{V}{R}$).'
-                  : '$X_L = X_C$ cancel each other out due to 180° phase opposition. Impedance is minimized to $Z = R$ and current is maximized to $I = \\frac{V}{R}$ with zero phase angle.'
-              }
-              lang={lang}
-            />
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <Radio className="w-4 h-4 text-sky-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'تطبيقات الرنين: دوائر التوليف (الاستقبال)' : 'Tuning & Receiver Circuits'}
-            </h5>
-          </div>
-          <div className="text-[11px] leading-relaxed text-slate-400">
-            <MathRenderer
-              text={
-                isArabic
-                  ? 'في أجهزة الراديو والاستقبال اللاسلكي، نغير سعة المكثف المتغير $C$ حتى يتساوى تردد الدائرة $f_0$ مع تردد المحطة الإذاعية المراد التقاطها، فيمر تيار المحطة فقط بأقصى شدة.'
-                  : 'In radio receivers, variable capacitance $C$ is adjusted until the resonant frequency $f_0$ matches the incoming broadcast frequency, allowing only that station signal to pass at peak amplitude.'
-              }
-              lang={lang}
-            />
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 text-pink-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'معامل الجودة وحدّة الرنين' : 'Quality Factor & Selectivity'}
-            </h5>
-          </div>
-          <div className="text-[11px] leading-relaxed text-slate-400">
-            <MathRenderer
-              text={
-                isArabic
-                  ? 'معامل الجودة $Q$ يعبر عن قدرة الدائرة على الانتقاء والتوليف الحاد. كلما قلت المقاومة $R$، زاد معامل الجودة وأصبح منحنى الرنين أكثر حدة وارتفاعاً وضاق عرض النطاق $\\Delta f$.'
-                  : 'Quality factor $Q$ represents tuning sharpness. Smaller resistance $R$ leads to higher $Q$, sharper peak resonance, and narrower bandwidth $\\Delta f$ for crisp station separation.'
-              }
-              lang={lang}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    >
+      <CanvasSimulationViewport
+        id="rlc-viewport"
+        lang={lang}
+        aspectRatio="aspect-[16/9]"
+        minHeight={420}
+        onRender={handleRenderCanvas}
+      />
+    </VirtualLabShell>
   );
 };

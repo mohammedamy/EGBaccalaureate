@@ -1,773 +1,659 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
-import { toHindiDigits } from '../../utils/arabicNumerals';
 import {
-  RotateCcw,
-  Play,
-  Pause,
-  Zap,
-  Activity,
-  Sparkles,
-  CheckCircle2,
-  Gauge,
-  Sliders,
-} from 'lucide-react';
-import { MathRenderer } from '../MathRenderer';
+  VirtualLabShell,
+  CanvasSimulationViewport,
+  useVirtualLab,
+  type LabDefinition,
+  type LabTelemetryMetric,
+  type LabViewportState,
+} from '../../core/labs';
+import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
+import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
 }
 
+interface DynamoParams {
+  turnsN: number;
+  fieldB: number;
+  areaA: number;
+  frequencyF: number;
+  loadResistance: number;
+}
+
+interface DynamoState {
+  angleDeg: number;
+}
+
+const DYNAMO_LAB_DEFINITION: LabDefinition<DynamoParams, DynamoState> = {
+  id: 'dynamo-induction-lab',
+  subject: 'physics',
+  chapterRef: 'Chapter 3: Electromagnetic Induction',
+  titleEn: 'AC/DC Electric Dynamo & Electromagnetic Induction',
+  titleAr: 'مولد التيار المتردد والدينامو (الحث الكهرومغناطيسي)',
+  subtitleEn: 'Faraday Law, Peak vs RMS EMF, and Split-Ring Commutation',
+  subtitleAr: 'قانون فاراداي، القوة الدافعة العظمى والفعالة، والتقويم الموجي',
+  objectives: [
+    {
+      id: 'faraday-law',
+      textEn: 'Verify Faraday law of induction for a rectangular coil rotating in a uniform magnetic field.',
+      textAr: 'تحقيق قانون فاراداي للحث الكهرومغناطيسي لملف مستطيل يدور في مجال مغناطيسي منتظم.',
+      bloomLevel: 'understand',
+    },
+    {
+      id: 'rms-vs-peak',
+      textEn: 'Analyze the mathematical relationship between peak EMF and effective RMS value (E_eff = E_max / √2).',
+      textAr: 'تحليل العلاقة الرياضية بين القوة الدافعة العظمى والقيمة الفعالة (E_eff = E_max / √2).',
+      bloomLevel: 'analyze',
+    },
+    {
+      id: 'slip-vs-commutator',
+      textEn: 'Compare AC slip rings (sinusoidal output) with a split-ring commutator (unidirectional pulsating DC).',
+      textAr: 'المقارنة بين حلقتي الانزلاق (تيار متردد جيبي) والعاكس المعدني المشقوق (تيار موحد الاتجاه).',
+      bloomLevel: 'apply',
+    },
+    {
+      id: 'flux-phase',
+      textEn: 'Observe the 90° phase difference between magnetic flux Φ_m(t) and induced electromotive force E(t).',
+      textAr: 'ملاحظة فرق الطور البالغ 90 درجة بين الفيض المغناطيسي والقوة الدافعة المستحثة.',
+      bloomLevel: 'evaluate',
+    },
+  ],
+  safetyWarnings: [
+    {
+      id: 'high-voltage',
+      titleEn: 'High Induced Voltage Hazard',
+      titleAr: 'خطر الجهد العالي المستحث',
+      messageEn: 'High rotational frequencies with large numbers of turns can generate voltages exceeding 1000V.',
+      messageAr: 'الترددات الدورانية العالية مع عدد لفات كبير قد تولد فروق جهد تتجاوز 1000 فولت.',
+      severity: 'warning',
+    },
+  ],
+  keyFormulas: [
+    {
+      id: 'emf-instant',
+      labelEn: 'Instantaneous Induced EMF',
+      labelAr: 'القوة الدافعة اللحظية المستحثة',
+      tex: '\\mathcal{E}(t) = -N \\frac{\\Delta\\Phi_m}{\\Delta t} = N B A \\omega \\sin(\\omega t)',
+      descriptionEn: 'Faraday-Lenz equation for a rotating coil with angle θ = ωt relative to the normal.',
+      descriptionAr: 'معادلة فاراداي ولينز لملف يدور بزاوية θ = ωt مع العمودي على المجال.',
+    },
+    {
+      id: 'emf-max',
+      labelEn: 'Peak Electromotive Force',
+      labelAr: 'القوة الدافعة الكهربية العظمى',
+      tex: '\\mathcal{E}_{\\max} = 2\\pi f N B A = N B A \\omega',
+      descriptionEn: 'Occurs when the coil plane is parallel to magnetic field lines (θ = 90°).',
+      descriptionAr: 'تحدث عندما يكون مستوى الملف موازياً لخطوط المجال المغناطيسي.',
+    },
+    {
+      id: 'emf-eff',
+      labelEn: 'Effective (RMS) EMF',
+      labelAr: 'القيمة الفعالة للقوة الدافعة',
+      tex: '\\mathcal{E}_{\\text{eff}} = \\frac{\\mathcal{E}_{\\max}}{\\sqrt{2}} \\approx 0.7071 \\, \\mathcal{E}_{\\max}',
+      descriptionEn: 'DC equivalent heating value over a complete sinusoidal cycle.',
+      descriptionAr: 'القيمة المكافئة للتيار المستمر في توليد الأثر الحراري.',
+    },
+    {
+      id: 'mag-flux',
+      labelEn: 'Magnetic Flux',
+      labelAr: 'الفيض المغناطيسي عبر الملف',
+      tex: '\\Phi_m(t) = B A \\cos(\\omega t)',
+      descriptionEn: 'Maximum when coil is perpendicular to field (θ = 0°), zero when parallel.',
+      descriptionAr: 'قيمة عظمى عندما يكون الملف عمودياً على المجال، وينعدم عندما يوازيه.',
+    },
+  ],
+  defaultParams: {
+    turnsN: 200,
+    fieldB: 0.5,
+    areaA: 0.04,
+    frequencyF: 50,
+    loadResistance: 10,
+  },
+  paramSchema: {
+    turnsN: {
+      key: 'turnsN',
+      labelEn: 'Coil Turns (N)',
+      labelAr: 'عدد لفات الملف (N)',
+      symbolTex: 'N',
+      type: 'number',
+      min: 50,
+      max: 1000,
+      step: 10,
+      defaultValue: 200,
+      precision: 0,
+    },
+    fieldB: {
+      key: 'fieldB',
+      labelEn: 'Magnetic Field (B)',
+      labelAr: 'كثافة الفيض المغناطيسي (B)',
+      symbolTex: 'B',
+      unit: 'T',
+      type: 'number',
+      min: 0.1,
+      max: 2.0,
+      step: 0.05,
+      defaultValue: 0.5,
+      precision: 2,
+    },
+    areaA: {
+      key: 'areaA',
+      labelEn: 'Coil Cross-Section Area (A)',
+      labelAr: 'مساحة مقطع الملف (A)',
+      symbolTex: 'A',
+      unit: 'm²',
+      type: 'number',
+      min: 0.01,
+      max: 0.1,
+      step: 0.005,
+      defaultValue: 0.04,
+      precision: 3,
+    },
+    frequencyF: {
+      key: 'frequencyF',
+      labelEn: 'Rotation Frequency (f)',
+      labelAr: 'تردد الدوران (f)',
+      symbolTex: 'f',
+      unit: 'Hz',
+      type: 'number',
+      min: 10,
+      max: 120,
+      step: 1,
+      defaultValue: 50,
+      precision: 0,
+    },
+    loadResistance: {
+      key: 'loadResistance',
+      labelEn: 'Load Resistance (R)',
+      labelAr: 'مقاومة الحمل (R)',
+      symbolTex: 'R_L',
+      unit: 'Ω',
+      type: 'number',
+      min: 2,
+      max: 100,
+      step: 1,
+      defaultValue: 10,
+      precision: 1,
+    },
+  },
+  presets: [
+    {
+      id: 'eg-standard-50hz',
+      nameEn: 'Egyptian Standard 50Hz Grid',
+      nameAr: 'شبكة الكهرباء المصرية (50 هرتز)',
+      badge: 'Official MoE',
+      descriptionEn: 'Standard alternating current parameters: 50 Hz frequency, 200 turns, 0.5 Tesla field.',
+      descriptionAr: 'المعايير القياسية للتيار المتردد: 50 هرتز، 200 لفة، 0.5 تسلا.',
+      params: { turnsN: 200, fieldB: 0.5, areaA: 0.04, frequencyF: 50, loadResistance: 10 },
+    },
+    {
+      id: 'high-flux-industrial',
+      nameEn: 'High-Flux Industrial Generator',
+      nameAr: 'مولد صناعي فائق الفيض',
+      badge: 'High Power',
+      descriptionEn: 'High-yield generator with 500 turns and 1.2 Tesla magnetic flux density.',
+      descriptionAr: 'مولد فائق القدرة بـ 500 لفة وكثافة فيض 1.2 تسلا.',
+      params: { turnsN: 500, fieldB: 1.2, areaA: 0.05, frequencyF: 60, loadResistance: 20 },
+    },
+    {
+      id: 'educational-slow',
+      nameEn: 'Slow Observation Benchmark',
+      nameAr: 'نمط الفحص البطيء للظاهرة',
+      badge: '15 Hz',
+      descriptionEn: 'Low rotational frequency to visually track coil angle and Fleming vector directions.',
+      descriptionAr: 'تردد دوراني منخفض لتتبع زاوية الملف ومتجهات فليمنج لليد اليمنى بصرياً.',
+      params: { turnsN: 100, fieldB: 0.3, areaA: 0.03, frequencyF: 15, loadResistance: 5 },
+    },
+  ],
+  poePrompts: [
+    {
+      id: 'poe-freq-doubling',
+      titleEn: 'Effect of Doubling Frequency on Peak Induced EMF',
+      titleAr: 'أثر مضاعفة تردد الدوران على القوة الدافعة العظمى',
+      scenarioEn: 'The dynamo coil is rotating at 50 Hz producing a peak EMF of ~1256 V. The rotational speed is now doubled to 100 Hz while keeping turns and magnetic field constant.',
+      scenarioAr: 'يدور ملف الدينامو بتردد 50 هرتز مولداً قوة دافعة عظمى قدرها 1256 فولت. تمت مضاعفة سرعة الدوران إلى 100 هرتز مع ثبات عدد اللفات والمجال.',
+      questionEn: 'What will happen to the maximum electromotive force (E_max) and the period of one cycle (T)?',
+      questionAr: 'ماذا يحدث للقوة الدافعة الكهربية العظمى (E_max) ولزمن الدورة الكاملة (T)؟',
+      optionsEn: [
+        'E_max doubles and period T halves (E_max ∝ f, T = 1/f)',
+        'E_max quadruples and period T remains unchanged',
+        'E_max remains unchanged and period T doubles',
+        'E_max halves and period T halves',
+      ],
+      optionsAr: [
+        'تتضاعف E_max وينخفض الزمن الدوري T إلى النصف (E_max ∝ f ، T = 1/f)',
+        'تتضاعف E_max أربع مرات ويبقى الزمن الدوري ثابتاً',
+        'تبقى E_max ثابتة ويتضاعف الزمن الدوري',
+        'تنخفض E_max إلى النصف وينخفض الزمن الدوري إلى النصف',
+      ],
+      correctOptionIndex: 0,
+      scientificExplanationEn: 'According to Faraday law, E_max = N B A (2πf). Therefore, E_max is directly proportional to frequency f (doubling f doubles E_max). Since period T = 1/f, doubling f halves the cycle duration.',
+      scientificExplanationAr: 'طبقاً لقانون فاراداي: E_max = 2π f N B A، تتناسب القوة الدافعة العظمى طردياً مع التردد f، ومضاعفته تضاعف الجهد اللحظي والأقصى، والزمن الدوري T = 1/f يقل للنصف.',
+    },
+  ],
+  notebookConfig: {
+    xLabelEn: 'Rotation Frequency (f)',
+    xLabelAr: 'تردد دوران الملف (f)',
+    xUnit: 'Hz',
+    yLabelEn: 'Peak Induced EMF (E_max)',
+    yLabelAr: 'القوة الدافعة العظمى (E_max)',
+    yUnit: 'V',
+    recommendedPointsCount: 5,
+  },
+  supportedInstruments: ['multimeter', 'oscilloscope', 'stopwatch', 'scratchpad'],
+};
+
 export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
-  const isLight = theme === 'light';
-  const isContrast = theme === 'high-contrast';
+  const [dynamoMode, setDynamoMode] = useState<'ac' | 'dc'>('ac');
 
-  // Dynamo physical parameters
-  const [turnsN, setTurnsN] = useState<number>(200); // Turns
-  const [fieldB, setFieldB] = useState<number>(0.5); // Tesla
-  const [areaA, setAreaA] = useState<number>(0.04); // m^2 (e.g. 20cm x 20cm)
-  const [frequencyF, setFrequencyF] = useState<number>(50); // Hz (Egyptian standard grid)
-  const [dynamoMode, setDynamoMode] = useState<'ac' | 'dc'>('ac'); // AC slip rings vs DC commutator
-  const loadResistance = 10; // Ohms
+  // Physical angle ref (advances smoothly in requestAnimationFrame)
+  const angleDegRef = useRef<number>(0);
 
-  // Animation & angle state
-  const [angleDeg, setAngleDeg] = useState<number>(0); // 0 to 360 degrees
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
-  const [speedMultiplier, setSpeedMultiplier] = useState<number>(1.0);
-  const animFrameRef = useRef<number | null>(null);
-  const lastTimeRef = useRef<number | null>(null);
+  const lab = useVirtualLab<DynamoParams, DynamoState>({
+    definition: DYNAMO_LAB_DEFINITION,
+    onStep: (dt, params) => {
+      // Advance coil angle proportional to frequency
+      // Visual scaling: 36 deg/sec per Hz
+      const degPerSec = params.frequencyF * 36;
+      angleDegRef.current = (angleDegRef.current + degPerSec * dt) % 360;
+    },
+  });
 
-  // Angular velocity omega = 2 * pi * f (rad/s)
+  const { turnsN, fieldB, areaA, frequencyF, loadResistance } = lab.params;
+
+  // Physics Calculations
   const omega = 2 * Math.PI * frequencyF;
-
-  // Maximum / Peak EMF: E_max = N * B * A * omega
   const emfMax = turnsN * fieldB * areaA * omega;
-
-  // Effective RMS EMF: E_eff = E_max / sqrt(2) = 0.7071 * E_max
   const emfEff = emfMax / Math.SQRT2;
+  const currentMax = emfMax / loadResistance;
+  const currentEff = emfEff / loadResistance;
 
-  // Average EMF over 1/4 cycle from normal: E_avg = (2 / pi) * E_max = 4 * N * B * A * f
-  const emfAvgQuarter = (2 / Math.PI) * emfMax;
-
-  // Angle in radians for calculations (angle with field normal)
-  const angleRad = (angleDeg * Math.PI) / 180;
-
-  // Instantaneous EMF:
-  // When theta = 0 (coil perpendicular to B, normal parallel to B), EMF = 0
-  // When theta = 90 deg (coil parallel to B), EMF = E_max
+  const currentAngleDeg = angleDegRef.current;
+  const angleRad = (currentAngleDeg * Math.PI) / 180;
   const rawSin = Math.sin(angleRad);
-  const instantaneousEMF = dynamoMode === 'ac' ? emfMax * rawSin : emfMax * Math.abs(rawSin);
-
-  // Instantaneous current
-  const instantaneousCurrent = instantaneousEMF / loadResistance;
-
-  // Magnetic flux through coil: Phi = B * A * cos(theta)
+  const instEMF = dynamoMode === 'ac' ? emfMax * rawSin : emfMax * Math.abs(rawSin);
   const magneticFlux = fieldB * areaA * Math.cos(angleRad);
 
-  // Animation loop
-  useEffect(() => {
-    if (!isPlaying) {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-      lastTimeRef.current = null;
-      return;
-    }
-
-    const animate = (time: number) => {
-      if (lastTimeRef.current !== null) {
-        const deltaSec = (time - lastTimeRef.current) / 1000;
-        // Visual rotation speed: scaled for human eye tracking
-        const visualDegPerSec = (frequencyF * 36) * speedMultiplier;
-        setAngleDeg((prev) => (prev + visualDegPerSec * deltaSec) % 360);
-      }
-      lastTimeRef.current = time;
-      animFrameRef.current = requestAnimationFrame(animate);
-    };
-
-    animFrameRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
-  }, [isPlaying, frequencyF, speedMultiplier]);
-
-  // Format helpers
-  const formatNum = (val: number, decimals = 2) => {
-    const formatted = val.toFixed(decimals);
-    return isArabic ? toHindiDigits(formatted) : formatted;
+  // Live Multimeter Readings
+  const multimeterReading: DMMReading = {
+    voltageDC: dynamoMode === 'dc' ? parseFloat(((2 / Math.PI) * emfMax).toFixed(2)) : 0.0,
+    voltageAC: parseFloat(emfEff.toFixed(2)),
+    currentDC: dynamoMode === 'dc' ? parseFloat(((2 / Math.PI) * currentMax).toFixed(3)) : 0.0,
+    resistance: loadResistance,
+    continuityBeep: false,
   };
 
-  // 3D projection calculations for the rotating coil in SVG
-  const cx = 200;
-  const cy = 150;
-  const coilW = 110;
-  const coilH = 80;
-  // Rotation around vertical Y-axis: width scales with cos(angleRad)
-  const cosA = Math.cos(angleRad);
-  const sinA = Math.sin(angleRad);
-  const isFacingFront = cosA >= 0;
+  // Live Oscilloscope Signals
+  const oscilloscopeCh1: WaveformSignal = {
+    amplitude: Math.min(10, parseFloat((emfMax / 100).toFixed(2))), // scaled for scope screen
+    frequency: frequencyF,
+    phaseDeg: 0,
+    type: dynamoMode === 'ac' ? 'sine' : 'square',
+  };
+
+  const oscilloscopeCh2: WaveformSignal = {
+    amplitude: Math.min(10, parseFloat(((magneticFlux * 100) / 2).toFixed(2))),
+    frequency: frequencyF,
+    phaseDeg: 90, // Magnetic flux leads EMF by 90 degrees
+    type: 'sine',
+  };
+
+  // Real-Time Telemetry
+  const telemetry: LabTelemetryMetric[] = [
+    {
+      id: 'emf-max',
+      labelEn: 'Peak Induced EMF',
+      labelAr: 'القوة الدافعة العظمى',
+      symbolTex: '\\mathcal{E}_{\\max}',
+      value: emfMax,
+      unit: 'V',
+      min: 0,
+      max: 5000,
+      status: emfMax > 2000 ? 'warning' : 'optimal',
+      precision: 1,
+    },
+    {
+      id: 'emf-eff',
+      labelEn: 'Effective (RMS) EMF',
+      labelAr: 'القيمة الفعالة للجهد',
+      symbolTex: '\\mathcal{E}_{\\text{eff}}',
+      value: emfEff,
+      unit: 'V',
+      min: 0,
+      max: 3500,
+      status: 'optimal',
+      precision: 1,
+    },
+    {
+      id: 'current-eff',
+      labelEn: 'Effective Current',
+      labelAr: 'شدة التيار الفعال',
+      symbolTex: 'I_{\\text{eff}}',
+      value: currentEff,
+      unit: 'A',
+      min: 0,
+      max: 200,
+      status: 'normal',
+      precision: 2,
+    },
+    {
+      id: 'emf-instant',
+      labelEn: 'Instantaneous EMF',
+      labelAr: 'الجهد اللحظي المستحث',
+      symbolTex: '\\mathcal{E}(t)',
+      value: instEMF,
+      unit: 'V',
+      min: -emfMax,
+      max: emfMax,
+      status: 'normal',
+      precision: 1,
+    },
+    {
+      id: 'magnetic-flux',
+      labelEn: 'Instantaneous Flux',
+      labelAr: 'الفيض المغناطيسي اللحظي',
+      symbolTex: '\\Phi_m',
+      value: magneticFlux * 1000,
+      unit: 'mWb',
+      min: -fieldB * areaA * 1000,
+      max: fieldB * areaA * 1000,
+      status: 'normal',
+      precision: 2,
+    },
+  ];
+
+  // High-Performance 2D Canvas Rendering Routine
+  const handleRenderCanvas = (
+    ctx: CanvasRenderingContext2D,
+    w: number,
+    h: number,
+    vp: LabViewportState
+  ) => {
+    // Dark background
+    ctx.fillStyle = '#020617';
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.save();
+    ctx.translate(w / 2 + vp.panX, h / 2 + vp.panY);
+    ctx.scale(vp.zoom, vp.zoom);
+
+    // 1. Draw Magnetic Poles (North Red, South Blue)
+    const poleW = 90;
+    const poleH = 140;
+    const poleGap = 260;
+
+    // North Pole (Left)
+    const nX = -poleGap / 2 - poleW;
+    const nGrad = ctx.createLinearGradient(nX, 0, nX + poleW, 0);
+    nGrad.addColorStop(0, '#991b1b');
+    nGrad.addColorStop(1, '#ef4444');
+    ctx.fillStyle = nGrad;
+    ctx.fillRect(nX, -poleH / 2, poleW, poleH);
+    ctx.strokeStyle = '#f87171';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(nX, -poleH / 2, poleW, poleH);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 28px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('N', nX + poleW / 2, 0);
+
+    // South Pole (Right)
+    const sX = poleGap / 2;
+    const sGrad = ctx.createLinearGradient(sX, 0, sX + poleW, 0);
+    sGrad.addColorStop(0, '#3b82f6');
+    sGrad.addColorStop(1, '#1e3a8a');
+    ctx.fillStyle = sGrad;
+    ctx.fillRect(sX, -poleH / 2, poleW, poleH);
+    ctx.strokeStyle = '#60a5fa';
+    ctx.strokeRect(sX, -poleH / 2, poleW, poleH);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('S', sX + poleW / 2, 0);
+
+    // 2. Magnetic Field Lines (Left to Right, N to S)
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.lineWidth = 1.5;
+    const numLines = 7;
+    for (let i = 0; i < numLines; i++) {
+      const lineY = -poleH / 2 + (poleH / (numLines - 1)) * i;
+      ctx.beginPath();
+      ctx.moveTo(-poleGap / 2, lineY);
+      ctx.lineTo(poleGap / 2, lineY);
+      ctx.stroke();
+
+      // Field direction arrow
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+      ctx.beginPath();
+      ctx.moveTo(10, lineY);
+      ctx.lineTo(0, lineY - 4);
+      ctx.lineTo(0, lineY + 4);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // 3. Central Rotating Armature Coil (Isometric 3D Projection)
+    const curAngleRad = (angleDegRef.current * Math.PI) / 180;
+    const cosAngle = Math.cos(curAngleRad);
+    const sinAngle = Math.sin(curAngleRad);
+
+    const coilHalfW = 75;
+    const coilHalfH = 50;
+
+    // Projected horizontal width based on angle
+    const projW = coilHalfW * cosAngle;
+
+    ctx.save();
+    // Coil wire
+    ctx.strokeStyle = '#fbbf24'; // Copper gold
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(-projW, -coilHalfH);
+    ctx.lineTo(projW, -coilHalfH);
+    ctx.lineTo(projW, coilHalfH);
+    ctx.lineTo(-projW, coilHalfH);
+    ctx.closePath();
+    ctx.stroke();
+
+    // Coil fill sheen
+    ctx.fillStyle = cosAngle >= 0 ? 'rgba(251, 191, 36, 0.1)' : 'rgba(217, 119, 6, 0.15)';
+    ctx.fill();
+
+    // Axis of rotation (dashed line)
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(0, -coilHalfH - 35);
+    ctx.lineTo(0, coilHalfH + 60);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 4. Current Direction Arrows on Coil Sides (Fleming Right-Hand Rule)
+    if (Math.abs(sinAngle) > 0.15) {
+      const currentDir = sinAngle >= 0 ? 1 : -1;
+      ctx.fillStyle = '#22c55e';
+      // Side 1 arrow
+      const s1Y = -coilHalfH / 2;
+      ctx.beginPath();
+      ctx.moveTo(-projW, s1Y + 8 * currentDir);
+      ctx.lineTo(-projW - 5, s1Y);
+      ctx.lineTo(-projW + 5, s1Y);
+      ctx.closePath();
+      ctx.fill();
+
+      // Side 2 arrow (opposite direction)
+      const s2Y = coilHalfH / 2;
+      ctx.beginPath();
+      ctx.moveTo(projW, s2Y - 8 * currentDir);
+      ctx.lineTo(projW - 5, s2Y);
+      ctx.lineTo(projW + 5, s2Y);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // 5. Commutator / Slip Rings (Bottom of Axis)
+    const shaftBottomY = coilHalfH + 20;
+    if (dynamoMode === 'ac') {
+      // Dual Slip Rings (AC)
+      ctx.fillStyle = '#cbd5e1';
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 2;
+      // Ring 1
+      ctx.beginPath();
+      ctx.ellipse(-10, shaftBottomY, 8, 4, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      // Ring 2
+      ctx.beginPath();
+      ctx.ellipse(10, shaftBottomY + 12, 8, 4, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Carbon Brushes
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(-22, shaftBottomY - 3, 8, 6);
+      ctx.fillRect(14, shaftBottomY + 9, 8, 6);
+    } else {
+      // Split-Ring Commutator (DC)
+      ctx.fillStyle = '#f59e0b';
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(0, shaftBottomY, 12, 6, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Split line
+      ctx.strokeStyle = '#020617';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, shaftBottomY - 6);
+      ctx.lineTo(0, shaftBottomY + 6);
+      ctx.stroke();
+
+      // Carbon Brushes on opposite sides
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(-18, shaftBottomY - 3, 6, 6);
+      ctx.fillRect(12, shaftBottomY - 3, 6, 6);
+    }
+
+    ctx.restore();
+
+    // 6. Mini Waveform Strip at the Bottom
+    const waveH = 70;
+    const waveY = h - waveH - 12;
+    const waveW = w - 24;
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.8)';
+    ctx.lineWidth = 1;
+    ctx.fillRect(12, waveY, waveW, waveH);
+    ctx.strokeRect(12, waveY, waveW, waveH);
+
+    // Center zero line
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.beginPath();
+    ctx.moveTo(12, waveY + waveH / 2);
+    ctx.lineTo(12 + waveW, waveY + waveH / 2);
+    ctx.stroke();
+
+    // Waveform curve
+    ctx.strokeStyle = dynamoMode === 'ac' ? '#38bdf8' : '#fbbf24';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let px = 0; px < waveW; px++) {
+      const waveAngle = curAngleRad - ((waveW - px) / 40);
+      let sVal = Math.sin(waveAngle);
+      if (dynamoMode === 'dc') {
+        sVal = Math.abs(sVal);
+      }
+      const py = waveY + waveH / 2 - sVal * (waveH * 0.4);
+      if (px === 0) ctx.moveTo(12 + px, py);
+      else ctx.lineTo(12 + px, py);
+    }
+    ctx.stroke();
+
+    // Live tracker dot on wave
+    let curS = Math.sin(curAngleRad);
+    if (dynamoMode === 'dc') curS = Math.abs(curS);
+    const dotY = waveY + waveH / 2 - curS * (waveH * 0.4);
+    ctx.fillStyle = '#ef4444';
+    ctx.beginPath();
+    ctx.arc(12 + waveW, dotY, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Waveform Legend
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(
+      dynamoMode === 'ac'
+        ? (isArabic ? 'إشارة الجهد المتردد AC (جيبي)' : 'AC Sinusoidal Voltage Output')
+        : (isArabic ? 'إشارة الجهد المقوم DC (موحد الاتجاه)' : 'Pulsating DC Voltage Output'),
+      20,
+      waveY + 16
+    );
+
+    ctx.restore();
+  };
 
   return (
-    <div className="space-y-6">
-      {/* Subheader */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-transparent p-4 rounded-xl border border-amber-500/20">
-        <div>
-          <div className="flex items-center gap-2">
-            <h3 className="text-base sm:text-lg font-black text-amber-400">
-              {isArabic
-                ? 'مولد التيار المتردد والدينامو (الحث الكهرومغناطيسي)'
-                : 'AC/DC Electric Dynamo & Electromagnetic Induction'}
-            </h3>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold uppercase">
-              Faraday & Lenz
-            </span>
-          </div>
-          <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-            {isArabic
-              ? 'دراسة توليد القوة الدافعة الكهربية المستحثة بتدوير ملف في مجال مغناطيسي منتظم ومقارنة حلقات الانزلاق مع العاكس المعدني'
-              : 'Investigate induced sinusoidal EMF in rotating armatures, peak vs RMS values, and slip rings vs split-ring commutator'}
-          </p>
-        </div>
-
-        {/* Dynamo Mode Switch */}
-        <div className="flex items-center p-1 rounded-xl bg-slate-900/90 border border-slate-700/80 shrink-0">
-          <button
-            onClick={() => setDynamoMode('ac')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              dynamoMode === 'ac'
-                ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-black shadow-md'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            {isArabic ? 'تيار متردد AC (حلقتان)' : 'AC Dynamo (Slip Rings)'}
-          </button>
-          <button
-            onClick={() => setDynamoMode('dc')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-              dynamoMode === 'dc'
-                ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-black shadow-md'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            {isArabic ? 'تيار موحد الاتجاه DC (نصفا أسطوانة)' : 'DC Dynamo (Split Commutator)'}
-          </button>
-        </div>
-      </div>
-
-      {/* Main Grid: Visual Simulation & Oscilloscope */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column: Physical Dynamo Hardware Visualizer (SVG) */}
-        <div
-          className={`lg:col-span-7 rounded-xl border p-4 sm:p-5 flex flex-col justify-between ${
-            isContrast
-              ? 'bg-black border-amber-400'
-              : isLight
-              ? 'bg-slate-50 border-slate-200'
-              : 'bg-slate-900/70 border-slate-800'
-          }`}
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-700/40">
-            <span className="text-xs font-black uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5" />
-              {isArabic ? 'المولد الكهرومغناطيسي والمجال' : 'Armature In Magnetic Field'}
-            </span>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold text-slate-300">
-                θ = {formatNum(angleDeg, 0)}°
-              </span>
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="p-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors cursor-pointer"
-                title={isPlaying ? 'Pause' : 'Play'}
-              >
-                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-              </button>
-              <button
-                onClick={() => setAngleDeg(0)}
-                className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
-                title="Reset to 0°"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* SVG Visualizer */}
-          <div className="relative w-full h-[270px] sm:h-[300px] flex items-center justify-center my-2 select-none overflow-hidden rounded-lg bg-slate-950/60 border border-slate-800/80">
-            <svg viewBox="0 0 400 300" className="w-full h-full">
-              <defs>
-                {/* North Magnet Gradient */}
-                <linearGradient id="northPoleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#ef4444" />
-                  <stop offset="100%" stopColor="#b91c1c" />
-                </linearGradient>
-                {/* South Magnet Gradient */}
-                <linearGradient id="southPoleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1d4ed8" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
-                {/* Glow Filter */}
-                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
-
-              {/* Magnetic Poles */}
-              {/* North Pole (Red, Left) */}
-              <path
-                d="M 20 60 L 70 80 L 70 220 L 20 240 Z"
-                fill="url(#northPoleGrad)"
-                stroke="#f87171"
-                strokeWidth="1.5"
-              />
-              <text x="45" y="155" fill="#ffffff" fontWeight="bold" fontSize="18" textAnchor="middle">
-                N
-              </text>
-
-              {/* South Pole (Blue, Right) */}
-              <path
-                d="M 330 80 L 380 60 L 380 240 L 330 220 Z"
-                fill="url(#southPoleGrad)"
-                stroke="#60a5fa"
-                strokeWidth="1.5"
-              />
-              <text x="355" y="155" fill="#ffffff" fontWeight="bold" fontSize="18" textAnchor="middle">
-                S
-              </text>
-
-              {/* Magnetic Field Lines (B vectors traversing left to right) */}
-              {[100, 125, 150, 175, 200].map((yLine, idx) => (
-                <g key={`b-line-${idx}`} opacity="0.35">
-                  <line
-                    x1="75"
-                    y1={yLine}
-                    x2="325"
-                    y2={yLine}
-                    stroke="#38bdf8"
-                    strokeWidth="1"
-                    strokeDasharray="4 4"
-                  />
-                  <polygon
-                    points={`200,${yLine - 3} 206,${yLine} 200,${yLine + 3}`}
-                    fill="#38bdf8"
-                  />
-                </g>
-              ))}
-
-              {/* Central Shaft (Axle) */}
-              <line
-                x1={cx}
-                y1="35"
-                x2={cx}
-                y2="265"
-                stroke="#64748b"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-
-              {/* Rotating Rectangular Armature Coil */}
-              {/* Perspective Projection: Width shrinks by |cos(theta)|, slant angle based on sin(theta) */}
-              <g transform={`translate(${cx}, ${cy})`}>
-                {/* Normal vector vector arrow */}
-                <line
-                  x1="0"
-                  y1="0"
-                  x2={-sinA * 55}
-                  y2={cosA * 20}
-                  stroke="#fbbf24"
-                  strokeWidth="2"
-                  strokeDasharray="2 2"
-                />
-                <circle
-                  cx={-sinA * 55}
-                  cy={cosA * 20}
-                  r="3"
-                  fill="#fbbf24"
-                />
-
-                {/* Coil Outline */}
-                <polygon
-                  points={`
-                    ${-cosA * (coilW / 2)},${-coilH / 2 + sinA * 10}
-                    ${cosA * (coilW / 2)},${-coilH / 2 - sinA * 10}
-                    ${cosA * (coilW / 2)},${coilH / 2 - sinA * 10}
-                    ${-cosA * (coilW / 2)},${coilH / 2 + sinA * 10}
-                  `}
-                  fill={isFacingFront ? 'rgba(251, 191, 36, 0.25)' : 'rgba(245, 158, 11, 0.15)'}
-                  stroke="#f59e0b"
-                  strokeWidth="3.5"
-                  filter={Math.abs(instantaneousEMF) > emfMax * 0.7 ? 'url(#glow)' : undefined}
-                />
-
-                {/* Coil Face Normal Marker */}
-                <text
-                  x={-sinA * 65}
-                  y={cosA * 25}
-                  fill="#fbbf24"
-                  fontSize="10"
-                  fontWeight="bold"
-                  textAnchor="middle"
-                >
-                  n̂
-                </text>
-              </g>
-
-              {/* Slip Rings vs Commutator Lower Assembly */}
-              <g transform="translate(200, 240)">
-                {dynamoMode === 'ac' ? (
-                  // Two Continuous Bronze Slip Rings
-                  <g>
-                    <ellipse cx="-12" cy="0" rx="8" ry="4" fill="#d97706" stroke="#fbbf24" strokeWidth="1" />
-                    <ellipse cx="12" cy="0" rx="8" ry="4" fill="#b45309" stroke="#f59e0b" strokeWidth="1" />
-                    {/* Carbon Brushes */}
-                    <rect x="-24" y="-3" width="6" height="6" fill="#475569" stroke="#94a3b8" />
-                    <rect x="18" y="-3" width="6" height="6" fill="#475569" stroke="#94a3b8" />
-                  </g>
-                ) : (
-                  // Split-ring Commutator (Two Half Cylinders with insulating gap)
-                  <g>
-                    <path
-                      d="M -14 -4 A 14 6 0 0 1 14 -4"
-                      fill="none"
-                      stroke="#fbbf24"
-                      strokeWidth="3"
-                      strokeDasharray="16 3"
-                    />
-                    <path
-                      d="M -14 4 A 14 6 0 0 0 14 4"
-                      fill="none"
-                      stroke="#d97706"
-                      strokeWidth="3"
-                      strokeDasharray="16 3"
-                    />
-                    {/* Carbon Brushes */}
-                    <rect x="-20" y="-3" width="5" height="6" fill="#475569" stroke="#94a3b8" />
-                    <rect x="15" y="-3" width="5" height="6" fill="#475569" stroke="#94a3b8" />
-                  </g>
-                )}
-
-                {/* External Circuit Wire & Load Bulb */}
-                <path
-                  d="M -22 3 L -50 3 L -50 40 L -15 40 M 15 40 L 50 40 L 50 3 L 20 3"
-                  fill="none"
-                  stroke="#94a3b8"
-                  strokeWidth="2"
-                />
-
-                {/* Output Indicator Bulb */}
-                <g transform="translate(0, 40)">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="9"
-                    fill={
-                      Math.abs(instantaneousEMF) > 5
-                        ? `rgba(253, 224, 71, ${Math.min(1.0, Math.abs(instantaneousEMF) / emfMax)})`
-                        : '#334155'
-                    }
-                    stroke="#facc15"
-                    strokeWidth="1.5"
-                    filter={Math.abs(instantaneousEMF) > emfMax * 0.4 ? 'url(#glow)' : undefined}
-                  />
-                  <line x1="-4" y1="-4" x2="4" y2="4" stroke="#eab308" strokeWidth="1" />
-                  <line x1="-4" y1="4" x2="4" y2="-4" stroke="#eab308" strokeWidth="1" />
-                </g>
-              </g>
-
-              {/* Status Banner inside SVG */}
-              <text x="200" y="25" fill="#94a3b8" fontSize="11" textAnchor="middle" fontWeight="bold">
-                {isArabic
-                  ? Math.abs(cosA) < 0.1
-                    ? '⚡ أقصى ق.د.ك مستحثة (مستوى الملف موازٍ للمجال، معدل قطع الفيض قيمة عظمى)'
-                    : Math.abs(sinA) < 0.1
-                    ? '🛑 ق.د.ك مستحثة = صفر (مستوى الملف عمودي على المجال، الفيض قيمة عظمى)'
-                    : '🔄 توليد مستمر للتيار الكهرومغناطيسي'
-                  : Math.abs(cosA) < 0.1
-                  ? '⚡ Maximum EMF (Coil parallel to B, dΦ/dt is maximum)'
-                  : Math.abs(sinA) < 0.1
-                  ? '🛑 Zero EMF (Coil normal parallel to B, Φ is maximum)'
-                  : '🔄 Active Electromagnetic Generation'}
-              </text>
-            </svg>
-          </div>
-
-          {/* Interactive Scrubbing Controls */}
-          <div className="space-y-2 mt-2 pt-2 border-t border-slate-800">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-slate-300 flex items-center gap-1">
-                <Sliders className="w-3.5 h-3.5 text-amber-400" />
-                {isArabic ? 'زاوية الدوران اليدوية (θ)' : 'Manual Angle Control (θ)'}
-              </span>
-              <span className="font-mono text-amber-400 font-bold">{formatNum(angleDeg, 0)}°</span>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="360"
-              step="1"
-              value={angleDeg}
-              onChange={(e) => {
-                setIsPlaying(false);
-                setAngleDeg(parseFloat(e.target.value));
-              }}
-              className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-            />
-            <div className="flex items-center justify-between text-[11px] text-slate-400">
-              <span>0° (Normal)</span>
-              <span>90° (Max EMF)</span>
-              <span>180° (Zero)</span>
-              <span>270° (-Max)</span>
-              <span>360°</span>
-            </div>
+    <VirtualLabShell<DynamoParams, DynamoState>
+      definition={DYNAMO_LAB_DEFINITION}
+      lang={lang}
+      theme={theme}
+      lab={lab}
+      telemetry={telemetry}
+      multimeterReading={multimeterReading}
+      oscilloscopeCh1={oscilloscopeCh1}
+      oscilloscopeCh2={oscilloscopeCh2}
+      currentXValue={frequencyF}
+      currentYValue={parseFloat(emfMax.toFixed(1))}
+      renderCustomControls={() => (
+        <div className="space-y-2" dir={isArabic ? 'rtl' : 'ltr'}>
+          <label className="text-xs font-bold text-slate-400">
+            {isArabic ? 'نظام تجميع التيار الخارج:' : 'Output Commutation System:'}
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => setDynamoMode('ac')}
+              className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
+                dynamoMode === 'ac'
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
+                  : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:bg-slate-800'
+              }`}
+            >
+              {isArabic ? 'حلقتان منزلقاتان (AC)' : 'Slip Rings (AC)'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setDynamoMode('dc')}
+              className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
+                dynamoMode === 'dc'
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
+                  : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:bg-slate-800'
+              }`}
+            >
+              {isArabic ? 'أسطوانة مشقوقة (DC)' : 'Split Commutator (DC)'}
+            </button>
           </div>
         </div>
-
-        {/* Right Column: Oscilloscope Waveform & Quantitative Readouts */}
-        <div className="lg:col-span-5 space-y-4">
-          {/* Digital Oscilloscope Screen */}
-          <div
-            className={`rounded-xl border p-4 ${
-              isContrast
-                ? 'bg-black border-emerald-400'
-                : 'bg-slate-950 border-emerald-500/30 shadow-lg'
-            }`}
-          >
-            <div className="flex items-center justify-between pb-2 mb-2 border-b border-emerald-500/20">
-              <span className="text-xs font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                <Gauge className="w-3.5 h-3.5" />
-                {isArabic ? 'شاشة راسم الذبذبات (أوسيلوسكوب)' : 'Oscilloscope Voltage Waveform'}
-              </span>
-              <span className="text-[10px] font-mono font-bold text-emerald-300 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/40">
-                {dynamoMode === 'ac' ? 'AC SINE WAVE' : 'RECTIFIED PULSATING DC'}
-              </span>
-            </div>
-
-            {/* Canvas-Like SVG Waveform */}
-            <div className="relative w-full h-[150px] bg-slate-950 rounded-lg border border-emerald-500/20 p-1 overflow-hidden">
-              <svg viewBox="0 0 360 140" className="w-full h-full">
-                {/* Oscilloscope Grid */}
-                <defs>
-                  <pattern id="grid" width="36" height="28" patternUnits="userSpaceOnUse">
-                    <path d="M 36 0 L 0 0 0 28" fill="none" stroke="rgba(16, 185, 129, 0.12)" strokeWidth="1" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-
-                {/* Center Zero Voltage Axis */}
-                <line x1="0" y1="70" x2="360" y2="70" stroke="rgba(16, 185, 129, 0.4)" strokeWidth="1" strokeDasharray="3 3" />
-
-                {/* Peak Limits */}
-                <line x1="0" y1="20" x2="360" y2="20" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="0.8" strokeDasharray="2 2" />
-                <line x1="0" y1="120" x2="360" y2="120" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="0.8" strokeDasharray="2 2" />
-
-                {/* Mathematical Wave Path: 2 full cycles (0 to 720 deg mapped to 0-360 px) */}
-                {(() => {
-                  let pathD = '';
-                  for (let x = 0; x <= 360; x += 2) {
-                    const thetaCycle = (x / 180) * Math.PI; // 2 cycles in 360px
-                    let val = Math.sin(thetaCycle);
-                    if (dynamoMode === 'dc') {
-                      val = Math.abs(val);
-                    }
-                    // Y axis: 70 is zero, 20 is +E_max, 120 is -E_max (amplitude = 50)
-                    const y = 70 - val * 50;
-                    pathD += (x === 0 ? 'M ' : 'L ') + `${x} ${y.toFixed(1)} `;
-                  }
-                  return (
-                    <path
-                      d={pathD}
-                      fill="none"
-                      stroke="#10b981"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                    />
-                  );
-                })()}
-
-                {/* Current Angle Tracking Dot */}
-                {(() => {
-                  // Map angleDeg (0-360) to x position (0-180 for first cycle)
-                  const xDot = (angleDeg / 360) * 180;
-                  const rad = (angleDeg * Math.PI) / 180;
-                  let val = Math.sin(rad);
-                  if (dynamoMode === 'dc') val = Math.abs(val);
-                  const yDot = 70 - val * 50;
-                  return (
-                    <g>
-                      {/* Vertical tracker bar */}
-                      <line
-                        x1={xDot}
-                        y1="0"
-                        x2={xDot}
-                        y2="140"
-                        stroke="rgba(251, 191, 36, 0.6)"
-                        strokeWidth="1.2"
-                      />
-                      {/* Bright glowing dot */}
-                      <circle cx={xDot} cy={yDot} r="5" fill="#fbbf24" stroke="#ffffff" strokeWidth="1.5" />
-                    </g>
-                  );
-                })()}
-              </svg>
-
-              {/* Instantaneous Readout Badge */}
-              <div className="absolute bottom-2 left-2 px-2 py-1 rounded bg-slate-900/90 border border-emerald-500/40 text-[11px] font-mono text-emerald-300">
-                E(t) = {formatNum(instantaneousEMF, 1)} V | I(t) = {formatNum(instantaneousCurrent, 2)} A
-              </div>
-            </div>
-          </div>
-
-          {/* Real-time Scientific Metrics */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                <span>{isArabic ? 'القيمة العظمى' : 'Peak Voltage'}</span>
-                <MathRenderer math="E_{\max}" inline lang={lang} />
-              </span>
-              <span className="text-base sm:text-lg font-black text-amber-400 font-mono block my-0.5">
-                {formatNum(emfMax, 1)} V
-              </span>
-              <span className="text-[10px] text-slate-500 block">
-                <MathRenderer math="= N B A \omega" inline lang={lang} />
-              </span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                <span>{isArabic ? 'القيمة الفعالة' : 'RMS Effective'}</span>
-                <MathRenderer math="E_{\text{eff}}" inline lang={lang} />
-              </span>
-              <span className="text-base sm:text-lg font-black text-sky-400 font-mono block my-0.5">
-                {formatNum(emfEff, 1)} V
-              </span>
-              <span className="text-[10px] text-slate-500 block">
-                <MathRenderer math="= \frac{E_{\max}}{\sqrt{2}} \approx 0.707 E_{\max}" inline lang={lang} />
-              </span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                <span>{isArabic ? 'الفيض اللحظي' : 'Instant Flux'}</span>
-                <MathRenderer math="\Phi_m" inline lang={lang} />
-              </span>
-              <span className="text-base sm:text-lg font-black text-purple-400 font-mono block my-0.5">
-                {formatNum(magneticFlux * 1000, 2)} mWb
-              </span>
-              <span className="text-[10px] text-slate-500 block">
-                <MathRenderer math="= B A \cos\theta" inline lang={lang} />
-              </span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                <span>{isArabic ? 'متوسط ربع دورة' : 'Avg Quarter'}</span>
-                <MathRenderer math="E_{\text{avg}}" inline lang={lang} />
-              </span>
-              <span className="text-base sm:text-lg font-black text-emerald-400 font-mono block my-0.5">
-                {formatNum(emfAvgQuarter, 1)} V
-              </span>
-              <span className="text-[10px] text-slate-500 block">
-                <MathRenderer math="= \frac{2}{\pi} E_{\max}" inline lang={lang} />
-              </span>
-            </div>
-          </div>
-
-          {/* Speed & Multiplier Selection */}
-          <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs">
-            <span className="text-slate-400 font-medium">
-              {isArabic ? 'سرعة المحاكاة البصرية:' : 'Visual Speed:'}
-            </span>
-            <div className="flex items-center gap-1">
-              {[0.25, 0.5, 1.0, 2.0].map((mult) => (
-                <button
-                  key={mult}
-                  onClick={() => setSpeedMultiplier(mult)}
-                  className={`px-2 py-0.5 rounded text-[11px] font-bold transition-all cursor-pointer ${
-                    speedMultiplier === mult
-                      ? 'bg-amber-500 text-slate-950 font-black'
-                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                  }`}
-                >
-                  {mult}x
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Sliders & Parameter Control Deck */}
-      <div
-        className={`rounded-xl border p-4 sm:p-5 ${
-          isContrast
-            ? 'bg-black border-amber-400'
-            : isLight
-            ? 'bg-slate-50 border-slate-200'
-            : 'bg-slate-900/80 border-slate-800'
-        }`}
-      >
-        <h4 className="text-xs font-black uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-1.5">
-          <Sliders className="w-3.5 h-3.5" />
-          {isArabic ? 'لوحة التحكم في متغيرات المولد الدينامو' : 'Dynamo Physical Parameters Deck'}
-        </h4>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* Number of Turns (N) */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'عدد لفات الملف (N)' : 'Number of Turns (N)'}
-              </span>
-              <span className="font-mono font-bold text-amber-400">{formatNum(turnsN, 0)} turns</span>
-            </div>
-            <input
-              type="range"
-              min="50"
-              max="500"
-              step="10"
-              value={turnsN}
-              onChange={(e) => setTurnsN(parseInt(e.target.value))}
-              className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>50</span>
-              <span>500</span>
-            </div>
-          </div>
-
-          {/* Magnetic Field Density (B) */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'كثافة الفيض المغناطيسي (B)' : 'Magnetic Flux Density (B)'}
-              </span>
-              <span className="font-mono font-bold text-sky-400">{formatNum(fieldB, 2)} T</span>
-            </div>
-            <input
-              type="range"
-              min="0.1"
-              max="2.0"
-              step="0.05"
-              value={fieldB}
-              onChange={(e) => setFieldB(parseFloat(e.target.value))}
-              className="w-full accent-sky-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>0.1 T</span>
-              <span>2.0 T</span>
-            </div>
-          </div>
-
-          {/* Coil Area (A) */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'مساحة مقطع الملف (A)' : 'Coil Area (A)'}
-              </span>
-              <span className="font-mono font-bold text-emerald-400">
-                {formatNum(areaA * 10000, 0)} cm² ({formatNum(areaA, 3)} m²)
-              </span>
-            </div>
-            <input
-              type="range"
-              min="0.01"
-              max="0.20"
-              step="0.005"
-              value={areaA}
-              onChange={(e) => setAreaA(parseFloat(e.target.value))}
-              className="w-full accent-emerald-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>100 cm²</span>
-              <span>2000 cm²</span>
-            </div>
-          </div>
-
-          {/* Frequency (f) */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs">
-              <span className="font-bold text-slate-300">
-                {isArabic ? 'تردد الدوران (f)' : 'Rotation Frequency (f)'}
-              </span>
-              <span className="font-mono font-bold text-purple-400">{formatNum(frequencyF, 0)} Hz</span>
-            </div>
-            <input
-              type="range"
-              min="10"
-              max="100"
-              step="5"
-              value={frequencyF}
-              onChange={(e) => setFrequencyF(parseInt(e.target.value))}
-              className="w-full accent-purple-500 cursor-pointer h-1.5 bg-slate-800 rounded"
-            />
-            <div className="flex justify-between text-[10px] text-slate-500">
-              <span>10 Hz</span>
-              <span>50 Hz (Standard)</span>
-              <span>100 Hz</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Ministry Curriculum Examination Callouts */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <h5 className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-              <span>{isArabic ? 'الوضع العمودي (الوضع الصفري)' : 'Normal / Zero Position'}</span>
-              <MathRenderer math="(\theta = 0^\circ)" inline lang={lang} />
-            </h5>
-          </div>
-          <div className="text-[11px] leading-relaxed text-slate-400">
-            <MathRenderer
-              text={
-                isArabic
-                  ? 'مستوى الملف عمودي على خطوط الفيض (العمودي موازٍ للمجال). الفيض المغناطيسي $\\Phi_m$ نهاية عظمى، ولكن معدل قطع خطوط الفيض ($\\Delta\\Phi / \\Delta t$) وق.د.ك المستحثة = صفر.'
-                  : 'Coil plane is perpendicular to $B$ (normal is parallel to $B$). Magnetic flux $\\Phi_m$ is maximum, but rate of change $\\Delta\\Phi/\\Delta t$ and induced EMF = 0.'
-              }
-              lang={lang}
-            />
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <Zap className="w-4 h-4 text-amber-400" />
-            <h5 className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-              <span>{isArabic ? 'الوضع الموازي (القيمة العظمى)' : 'Parallel / Peak Position'}</span>
-              <MathRenderer math="(\theta = 90^\circ)" inline lang={lang} />
-            </h5>
-          </div>
-          <div className="text-[11px] leading-relaxed text-slate-400">
-            <MathRenderer
-              text={
-                isArabic
-                  ? 'مستوى الملف موازٍ لخطوط الفيض (العمودي عمودي على المجال). الفيض المغناطيسي المار بالملف = صفر، ولكن معدل قطع خطوط الفيض وق.د.ك المستحثة نهاية عظمى ($E_{\\max}$).'
-                  : 'Coil plane is parallel to field lines. Magnetic flux traversing coil = 0, but rate of flux cutting $\\Delta\\Phi/\\Delta t$ and induced EMF reach peak value ($E_{\\max}$).'
-              }
-              lang={lang}
-            />
-          </div>
-        </div>
-
-        <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 text-sky-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'وظيفة المقوم المعدني (العاكس)' : 'Split Commutator Function'}
-            </h5>
-          </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'استبدال حلقتي الانزلاق بأسطوانة معدنية مشقوقة لنصفين معزولين يتبادلان التلامس مع الفرشاتين كل نصف دورة عند مرور الملف بالوضع العمودي، فيتوحد اتجاه التيار في الدائرة الخارجية.'
-              : 'Replacing the two slip rings with a split-ring commutator swaps brush contacts every half cycle at zero EMF, rectifying current into unidirectional pulsating DC.'}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+    >
+      <CanvasSimulationViewport
+        id="dynamo-viewport"
+        lang={lang}
+        aspectRatio="aspect-[16/10]"
+        minHeight={420}
+        onRender={handleRenderCanvas}
+      />
+    </VirtualLabShell>
   );
 };
