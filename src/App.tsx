@@ -4,7 +4,7 @@ import type { Language, UserRole } from './i18n/translations';
 import { translations } from './i18n/translations';
 import { thanaweyaCurriculum } from './data/thanaweyaData';
 import { egBacCurriculum } from './data/egBacData';
-import { getBranchesForSubject, getSubjectForBranch } from './data/subjects';
+import { SUBJECTS, getBranchesForSubject, getSubjectForBranch } from './data/subjects';
 import { Navbar } from './components/Navbar';
 import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
@@ -37,12 +37,45 @@ export const App: React.FC = () => {
     }
     return 'normal';
   });
+  const parseRouteState = () => {
+    try {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      let subject = params.get('subject') || '';
+      let tab = params.get('tab') || '';
+
+      if (hash === 'physics' || hash === 'phys') subject = 'physics';
+      else if (hash === 'chemistry' || hash === 'chem') subject = 'chemistry';
+      else if (hash === 'biology' || hash === 'bio') subject = 'biology';
+      else if (hash === 'math' || hash === 'mathematics') subject = 'mathematics';
+      else if (hash === 'all') subject = 'all';
+      else if (hash === 'labs' || hash === 'interactive') tab = 'interactive';
+      else if (hash === 'physics-lab') { subject = 'physics'; tab = 'interactive'; }
+      else if (hash === 'chemistry-lab') { subject = 'chemistry'; tab = 'interactive'; }
+      else if (hash === 'biology-lab') { subject = 'biology'; tab = 'interactive'; }
+      else if (hash === 'math-lab') { subject = 'mathematics'; tab = 'interactive'; }
+      else if (hash === 'theory') tab = 'theory';
+      else if (hash === 'tests' || hash === 'exams' || hash === 'testgenerator') tab = 'testGenerator';
+
+      if (!subject) {
+        const saved = localStorage.getItem('egbac_selected_subject');
+        if (saved && (saved === 'all' || SUBJECTS.some((s) => s.id === saved))) {
+          subject = saved;
+        } else {
+          subject = 'all';
+        }
+      }
+
+      return { subject, tab: tab || 'overview' };
+    } catch {
+      return { subject: 'all', tab: 'overview' };
+    }
+  };
+
+  const initialRoute = parseRouteState();
   const [curriculum, setCurriculum] = useState<CurriculumType>('thanaweya');
-  const [selectedSubject, setSelectedSubject] = useState<string>(() => {
-    const saved = localStorage.getItem('egbac_selected_subject');
-    return saved || 'all';
-  });
-  const [activeTab, setActiveTab] = useState<string>('overview');
+  const [selectedSubject, setSelectedSubject] = useState<string>(initialRoute.subject);
+  const [activeTab, setActiveTab] = useState<string>(initialRoute.tab);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isFormulaHandbookOpen, setIsFormulaHandbookOpen] = useState<boolean>(false);
   const [isDesmosOpen, setIsDesmosOpen] = useState<boolean>(false);
@@ -61,7 +94,7 @@ export const App: React.FC = () => {
 
   // Selected Branch & Lesson state (default to Chapter 1 Lesson 1 or first branch of selected subject)
   const [selectedBranch, setSelectedBranch] = useState<Branch>(() => {
-    const initialSub = localStorage.getItem('egbac_selected_subject') || 'all';
+    const initialSub = initialRoute.subject;
     if (initialSub !== 'all') {
       const branches = getBranchesForSubject(activeCurriculumData, initialSub);
       if (branches.length > 0) return branches[0];
@@ -69,7 +102,7 @@ export const App: React.FC = () => {
     return activeCurriculumData.branches[0];
   });
   const [selectedLesson, setSelectedLesson] = useState<Lesson>(() => {
-    const initialSub = localStorage.getItem('egbac_selected_subject') || 'all';
+    const initialSub = initialRoute.subject;
     if (initialSub !== 'all') {
       const branches = getBranchesForSubject(activeCurriculumData, initialSub);
       if (branches.length > 0 && branches[0].chapters[0]?.lessons[0]) {
@@ -91,7 +124,39 @@ export const App: React.FC = () => {
         }
       }
     }
+    try {
+      if (subjectId !== 'all') {
+        window.history.replaceState(null, '', `#${subjectId}`);
+      } else {
+        window.history.replaceState(null, '', '#');
+      }
+    } catch {}
   };
+
+  // Sync with hashchange events for browser back/forward or direct bookmark links
+  useEffect(() => {
+    const handleHashChange = () => {
+      const route = parseRouteState();
+      if (route.subject && route.subject !== selectedSubject) {
+        setSelectedSubject(route.subject);
+        localStorage.setItem('egbac_selected_subject', route.subject);
+        if (route.subject !== 'all') {
+          const branches = getBranchesForSubject(activeCurriculumData, route.subject);
+          if (branches.length > 0) {
+            setSelectedBranch(branches[0]);
+            if (branches[0].chapters.length > 0 && branches[0].chapters[0].lessons.length > 0) {
+              setSelectedLesson(branches[0].chapters[0].lessons[0]);
+            }
+          }
+        }
+      }
+      if (route.tab && route.tab !== activeTab) {
+        setActiveTab(route.tab);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [activeCurriculumData, selectedSubject, activeTab]);
 
   // Sync html dir attribute (RTL / LTR)
   useEffect(() => {

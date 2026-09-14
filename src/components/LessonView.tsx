@@ -19,6 +19,7 @@ import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download } from 'lucide-react';
 import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
+import { SUBJECTS } from '../data/subjects';
 import clipsatLogo from '../assets/clipsat-logo.png';
 
 interface Props {
@@ -468,8 +469,45 @@ export const LessonView: React.FC<Props> = ({
         <div className={`p-3 sm:p-4 rounded-2xl border space-y-3 no-print shadow-sm transition-all ${
           isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
         }`}>
+          {/* Quick Subject Track Jump Pills */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
+            <span className="text-[11px] font-bold text-slate-400 shrink-0">
+              {lang === 'ar' ? 'المادة:' : 'Subject:'}
+            </span>
+            {SUBJECTS.map((s) => {
+              const subBranch = curriculum.branches.find((b) => s.branchIds[curriculum.id]?.includes(b.id as any));
+              const isCurrentSubject = subBranch && s.branchIds[curriculum.id]?.includes(branch.id as any);
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    if (subBranch && !isCurrentSubject) {
+                      onSelectLesson(subBranch, subBranch.chapters[0].lessons[0], activeSubTab);
+                    }
+                  }}
+                  className={`px-2.5 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer active:scale-95 flex items-center gap-1 border ${
+                    isCurrentSubject
+                      ? s.id === 'physics'
+                        ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 border-cyan-500 font-extrabold'
+                        : s.id === 'chemistry'
+                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 border-emerald-500 font-extrabold'
+                        : s.id === 'biology'
+                        ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30 border-rose-500 font-extrabold'
+                        : 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500 font-extrabold'
+                      : isLight
+                      ? 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                      : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <span>{s.emoji}</span>
+                  <span>{lang === 'ar' ? s.titleAr : s.titleEn}</span>
+                </button>
+              );
+            })}
+          </div>
+
           {/* Branch Selector Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-1.5 border-t border-slate-200/50 dark:border-slate-800/80">
             <div className="flex items-center gap-2 shrink-0">
               <Layers className="w-4 h-4 text-indigo-500" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -483,6 +521,10 @@ export const LessonView: React.FC<Props> = ({
             >
               {curriculum.branches.map((b) => {
                 const isSelectedBranch = b.id === branch.id;
+                const isPhys = b.id === 'thanaweya_physics' || b.id === 'egbac_physics';
+                const isChem = b.id === 'thanaweya_chemistry' || b.id === 'egbac_chemistry';
+                const isBio = b.id === 'thanaweya_biology' || b.id === 'egbac_biology';
+
                 return (
                   <button
                     key={b.id}
@@ -491,15 +533,34 @@ export const LessonView: React.FC<Props> = ({
                         onSelectLesson(b, b.chapters[0].lessons[0], activeSubTab);
                       }
                     }}
-                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all active:scale-95 ${
+                    className={`px-3 py-1 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all active:scale-95 flex items-center gap-1 border ${
                       isSelectedBranch
-                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                        ? isPhys
+                          ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 border-cyan-400'
+                          : isChem
+                          ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 border-emerald-400'
+                          : isBio
+                          ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30 border-rose-400'
+                          : 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 border-indigo-400'
+                        : isPhys
+                        ? isLight
+                          ? 'bg-cyan-50 text-cyan-800 border-cyan-300 hover:bg-cyan-100'
+                          : 'bg-cyan-950/40 text-cyan-300 border-cyan-800/60 hover:bg-cyan-900/60 hover:text-white'
+                        : isChem
+                        ? isLight
+                          ? 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100'
+                          : 'bg-emerald-950/40 text-emerald-300 border-emerald-800/60 hover:bg-emerald-900/60 hover:text-white'
+                        : isBio
+                        ? isLight
+                          ? 'bg-rose-50 text-rose-800 border-rose-300 hover:bg-rose-100'
+                          : 'bg-rose-950/40 text-rose-300 border-rose-800/60 hover:bg-rose-900/60 hover:text-white'
                         : isLight
-                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
-                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                        ? 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border-slate-200'
+                        : 'bg-slate-950 text-slate-400 hover:text-white border-slate-800'
                     }`}
                   >
-                    {lang === 'ar' ? b.titleAr : b.titleEn}
+                    <span>{isPhys ? '⚡' : isChem ? '🧪' : isBio ? '🧬' : '📐'}</span>
+                    <span>{lang === 'ar' ? b.titleAr : b.titleEn}</span>
                   </button>
                 );
               })}
