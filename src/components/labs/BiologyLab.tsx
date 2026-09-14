@@ -4,8 +4,6 @@ import type { Language } from '../../i18n/translations';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import {
   Dna,
-  Activity,
-  ZoomIn,
   Sparkles,
   Info,
   CheckCircle2,
@@ -13,7 +11,6 @@ import {
 } from 'lucide-react';
 
 // High-resolution scientific photos
-import skeletonImg from '../../assets/biology/human_skeleton_anatomy.jpg';
 import sarcomereImg from '../../assets/biology/sarcomere_ultrastructure.jpg';
 import dnaImg from '../../assets/biology/dna_double_helix.jpg';
 
@@ -26,6 +23,7 @@ import { BiologyFlashcards } from './BiologyFlashcards';
 import { VirtualMicroscope } from '../../core/instruments/VirtualMicroscope';
 import { SarcomereZoomLab } from './SarcomereZoomLab';
 import { PlantHistologyLab } from './PlantHistologyLab';
+import { SkeletonAnatomyLab } from './SkeletonAnatomyLab';
 
 export type BioTab =
   | 'skeleton'
@@ -46,117 +44,7 @@ interface Props {
   initialTab?: BioTab;
 }
 
-interface BoneRegion {
-  id: string;
-  nameEn: string;
-  nameAr: string;
-  categoryEn: 'Axial Skeleton' | 'Appendicular Skeleton';
-  categoryAr: 'الهيكل المحوري' | 'الهيكل الطرفي';
-  count: number;
-  subBonesEn: string;
-  subBonesAr: string;
-  jointTypesEn: string;
-  jointTypesAr: string;
-  descriptionEn: string;
-  descriptionAr: string;
-  examTipsEn: string;
-  examTipsAr: string;
-  highlightY: number; // percentage from top
-  highlightX: number; // percentage from left
-}
 
-const BONE_REGIONS: BoneRegion[] = [
-  {
-    id: 'skull',
-    nameEn: 'Skull & Facial Bones',
-    nameAr: 'الجمجمة وعظام الوجه',
-    categoryEn: 'Axial Skeleton',
-    categoryAr: 'الهيكل المحوري',
-    count: 29,
-    subBonesEn: 'Cranium (8 flat bones with serrated edges), Facial bones (14), Auditory ossicles (6), Hyoid bone (1)',
-    subBonesAr: 'الجزء المخي (٨ عظام مسننة الأطراف متصلة بتشابك ليفي)، الوجهي (١٤)، عظيمات السمع (٦)، العظم اللامي (١)',
-    jointTypesEn: 'Fibrous joints (immovable, become ossified with age)',
-    jointTypesAr: 'مفاصل ليفية (عديمة الحركة، تتحول لأنسجة عظمية مع تقدم العمر)',
-    descriptionEn: 'Protects the brain and primary sensory organs. The large foramen magnum at the base connects the brain to the spinal cord.',
-    descriptionAr: 'تحمي المخ وأعضاء الحس الرئيسية. يوجد في قاع الجزء المخي الثقب الأعظم الذي يتصل عبره المخ بالنخاع الشوكي.',
-    examTipsEn: 'Exam focus: Foramen magnum location; immobility of fibrous suture joints; brain box protection.',
-    examTipsAr: 'سؤال وزاري متكرر: موقع ووظيفة الثقب الأعظم، ونوع المفاصل بين عظام الجزء المخي (مفاصل ليفية عديمة الحركة).',
-    highlightY: 8,
-    highlightX: 28,
-  },
-  {
-    id: 'vertebrae',
-    nameEn: 'Vertebral Column (Spine)',
-    nameAr: 'العمود الفقري',
-    categoryEn: 'Axial Skeleton',
-    categoryAr: 'الهيكل المحوري',
-    count: 33,
-    subBonesEn: '7 Cervical (articulated), 12 Thoracic (articulated), 5 Lumbar (largest articulated), 5 Sacral (fused as 1 bone), 4 Coccygeal (fused as 1 bone) = 26 individual bones total',
-    subBonesAr: '٧ عنقية (متمفصلة)، ١٢ ظهرية (متمفصلة)، ٥ قطنية (أكبر الفقرات حجماً متمفصلة)، ٥ عجزية (ملتحمة كعظمة واحدة)، ٤ عصعصية (ملتحمة كعظمة واحدة) = ٢٦ عظمة منفصلة',
-    jointTypesEn: 'Cartilaginous joints (limited movement) with fibrocartilaginous intervertebral discs',
-    jointTypesAr: 'مفاصل غضروفية (محدودة الحركة جداً) تفصل بينها أقراص غضروفية تمتص الصدمات',
-    descriptionEn: 'Main central axis of the human body. Protects the spinal cord inside the neural canal and supports head and upper torso weight.',
-    descriptionAr: 'الدعامة الرئيسية للجسم، يحمي الحبل الشوكي داخله في القناة العصبية ويدعم ثقل الرأس والنصف العلوي.',
-    examTipsEn: 'Lumbar vertebrae (#20-#24) bear the maximum physical load. Sacral & coccygeal are fused.',
-    examTipsAr: 'الفقرات القطنية (رقم ٢٠ إلى ٢٤) هي الأكبر حجماً وتحمل أكبر ضغط جسدي. الفقرة المنصفة للعنقية هي رقم ٤، والمنصفة للعمود الفقري كله هي رقم ١٧.',
-    highlightY: 30,
-    highlightX: 28,
-  },
-  {
-    id: 'ribcage',
-    nameEn: 'Thoracic Cage & Sternum',
-    nameAr: 'القفص الصدري وعظمة القص',
-    categoryEn: 'Axial Skeleton',
-    categoryAr: 'الهيكل المحوري',
-    count: 25,
-    subBonesEn: '12 pairs of ribs (24 ribs total) + 1 Sternum (breastbone). Pairs 1-7 True ribs, pairs 8-10 False ribs, pairs 11-12 Floating ribs',
-    subBonesAr: '١٢ زوجاً من الضلوع (٢٤ ضلعاً) + عظمة القص (عظمة مفلطحة مدببة من أسفل جزءها السفلي غضروفي). أزواج ١-٧ حقيقية، ٨-١٠ كاذبة، ١١-١٢ عائمة',
-    jointTypesEn: 'Cartilaginous joints to sternum via costal cartilage; Synovial gliding to thoracic vertebrae',
-    jointTypesAr: 'مفاصل غضروفية تتصل بالقص عبر الغضاريف الضلعية؛ ومفاصل زلالية محدودة مع الفقرات الظهرية',
-    descriptionEn: 'Conical cage protecting heart and lungs. Ribs move forward and laterally during inhalation to expand thoracic volume.',
-    descriptionAr: 'علبة مخروطية تحمي القلب والرئتين. تتحرك الضلوع للأمام والجانبين أثناء الشهيق لزيادة حجم التجويف الصدري.',
-    examTipsEn: 'Floating ribs (pairs 11 & 12) connect posteriorly to thoracic vertebrae 11 & 12 (vertebrae #18 & #19 of spine) and do not attach to sternum.',
-    examTipsAr: 'الضلوع العائمة (الزوجان ١١ و١٢) تتصل فقط بالفقرتين الظهرتين ١١ و١٢ (الفقرتين رقم ١٨ و١٩ من العمود الفقري) ولا تتصل بالقص إطلاقاً.',
-    highlightY: 25,
-    highlightX: 28,
-  },
-  {
-    id: 'pectoral_arms',
-    nameEn: 'Pectoral Girdle & Upper Limbs',
-    nameAr: 'الحزام الصدري والطرفان العلويان',
-    categoryEn: 'Appendicular Skeleton',
-    categoryAr: 'الهيكل الطرفي',
-    count: 64,
-    subBonesEn: 'Pectoral Girdle (2 Clavicles, 2 Scapulae with Glenoid cavity) = 4; Upper Limbs = 2x(1 Humerus, 1 Radius, 1 Ulna, 8 Carpals, 5 Metacarpals, 14 Phalanges) = 60',
-    subBonesAr: 'الحزام الصدري (٢ ترقوة، ٢ لوح كتف به التجويف الأروح) = ٤؛ الطرفان العلويان = ٢× (عضد، كعبرة تدور حول الزند الثابت، زند، ٨ رسغ يد، ٥ أمشاط، ١٤ سلامية) = ٦٠',
-    jointTypesEn: 'Shoulder: Ball-and-socket synovial (freely movable); Elbow: Hinge synovial; Wrist: Condyloid synovial',
-    jointTypesAr: 'الكتف: زلالي واسع الحركة (حق/كرة)؛ الكوع: زلالي محدود الحركة؛ الرسغ: زلالي ثنائي المحور',
-    descriptionEn: 'The Glenoid cavity on the lateral corner of the scapula receives the head of the humerus forming the freely movable shoulder joint.',
-    descriptionAr: 'يستقر رأس عظمة العضد في التجويف الأروح لعظمة لوح الكتف مكوناً مفصل الكتف واسع الحركة.',
-    examTipsEn: 'The radius rotates around the fixed ulna in a semi-circular motion. Hand wrist has 8 carpal bones in two rows.',
-    examTipsAr: 'الكعبرة تتحرك حركة نصف دائرية حول الزند الثابت. رسغ اليد يتكون من ٨ عظام في صفين، يتصل طرفها العلوي بالكعبرة فقط.',
-    highlightY: 34,
-    highlightX: 18,
-  },
-  {
-    id: 'pelvic_legs',
-    nameEn: 'Pelvic Girdle & Lower Limbs',
-    nameAr: 'الحزام الحوضي والطرفان السفليان',
-    categoryEn: 'Appendicular Skeleton',
-    categoryAr: 'الهيكل الطرفي',
-    count: 62,
-    subBonesEn: 'Pelvic Girdle (2 fused hip bones: Ilium, Ischium, Pubis meeting at Pubic Symphysis and Acetabulum) = 2; Lower Limbs = 2x(1 Femur, 1 Patella, 1 Tibia, 1 Fibula, 7 Tarsals, 5 Metatarsals, 14 Phalanges) = 60',
-    subBonesAr: 'الحزام الحوضي (نصفان متماثلان يلتحمان في الارتفاق العاني: حرقفة ظهرية، ورك، عانة، به التجويف الحقي) = ٢؛ الطرفان السفليان = ٢× (فخذ، رضفة، قصبة داخلية، شظية خارجية، ٧ رسغ قدم، ٥ أمشاط، ١٤ سلامية) = ٦٠',
-    jointTypesEn: 'Hip: Ball-and-socket synovial (deep, stable); Knee: Hinge synovial with cruciate ligaments; Ankle: Hinge synovial',
-    jointTypesAr: 'الفخذ: زلالي واسع الحركة أكثر عمقاً وثباتاً من الكتف؛ الركبة: زلالي محدود الحركة تدعمه ٤ أربطة صليبية؛ الكاحل: زلالي',
-    descriptionEn: 'The deep Acetabular cavity accommodates the head of the femur. The heel bone (calcaneus) is the largest tarsal, connected to calf muscle via Achilles tendon.',
-    descriptionAr: 'يستقر رأس عظمة الفخذ في التجويف الحقي العميق. عظمة الكعب هي كبرى عظام رسغ القدم (العرقوب) وتتصل بعضلة الساق عبر وتر أخيل.',
-    examTipsEn: 'Knee joint cruciate ligaments: Anterior cruciate, Posterior cruciate, Medial collateral, Lateral collateral. Achilles tendon rupture occurs by sudden strenuous effort.',
-    examTipsAr: 'أربطة مفصل الركبة: رباط صليبي أمامي، رباط صليبي خلفي، رباط وسطي (يربط الفخذ بالقصبة)، ورباط جانبي (يربط الفخذ بالشظية). تمزق وتر أخيل يعالج بتدخل جراحي إذا كان كاملاً.',
-    highlightY: 65,
-    highlightX: 25,
-  },
-];
 
 // Complete Standard Genetic Code Table (All 64 Codons)
 const GENETIC_CODE: Record<string, { aa: string; nameEn: string; nameAr: string }> = {
@@ -246,8 +134,7 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
     }
   }, [initialTab]);
 
-  // Skeleton state
-  const [selectedBone, setSelectedBone] = useState<BoneRegion>(BONE_REGIONS[0]);
+
 
 
   // DNA sequence builder state
@@ -395,200 +282,10 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
         </div>
       </div>
 
-      {/* TAB 1: SKELETON ATLAS */}
+      {/* TAB 1: HUMAN SKELETON ANATOMY & BONE STUDIO */}
       {activeTab === 'skeleton' && (
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: High-Res Interactive Image with Region Pins */}
-          <div className="lg:col-span-6 flex flex-col items-center">
-            <div
-              className={`relative w-full rounded-2xl overflow-hidden border shadow-xl flex items-center justify-center p-2 group ${
-                isContrast
-                  ? 'bg-black border-rose-400'
-                  : isLight
-                  ? 'bg-slate-900 border-slate-300'
-                  : 'bg-black/90 border-slate-800'
-              }`}
-            >
-              <img
-                src={skeletonImg}
-                alt="Human Skeleton Anatomy"
-                className="w-full max-h-[580px] object-contain rounded-xl select-none"
-              />
-
-              {/* Interactive Region Pins Overlay */}
-              {BONE_REGIONS.map((region) => {
-                const isSelected = selectedBone.id === region.id;
-                return (
-                  <button
-                    key={region.id}
-                    onClick={() => setSelectedBone(region)}
-                    style={{
-                      top: `${region.highlightY}%`,
-                      left: `${region.highlightX}%`,
-                    }}
-                    title={isArabic ? region.nameAr : region.nameEn}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-black cursor-pointer shadow-xl transition-all duration-200 z-10 ${
-                      isSelected
-                        ? 'bg-rose-500 text-white ring-4 ring-rose-400/50 scale-110 shadow-rose-500/50'
-                        : 'bg-slate-900/90 text-slate-100 hover:bg-rose-600 hover:text-white border border-rose-400/40 backdrop-blur-xs'
-                    }`}
-                  >
-                    <span className="w-2 h-2 rounded-full bg-rose-300 animate-ping" />
-                    <span>{isArabic ? region.nameAr : region.nameEn}</span>
-                  </button>
-                );
-              })}
-
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 text-[10px] text-white">
-                <span className="flex items-center gap-1 font-semibold">
-                  <ZoomIn className="w-3.5 h-3.5 text-rose-400" />
-                  {isArabic ? 'اضغط على النقاط التفاعلية لفحص العظام' : 'Click on interactive hotspot pins to inspect'}
-                </span>
-                <span className="font-mono text-slate-300">
-                  {isArabic ? `${toHindiDigits(206)} عظمة في البالغين` : '206 Bones in Adult'}
-                </span>
-              </div>
-            </div>
-
-            {/* Region Selector Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-3 w-full">
-              {BONE_REGIONS.map((region) => {
-                const isSelected = selectedBone.id === region.id;
-                return (
-                  <button
-                    key={region.id}
-                    onClick={() => setSelectedBone(region)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                      isSelected
-                        ? isContrast
-                          ? 'bg-rose-400 text-black border-rose-300 font-black'
-                          : 'bg-rose-600 text-white border-rose-500 font-black shadow-sm'
-                        : isContrast
-                        ? 'bg-black border-rose-400/60 text-white'
-                        : isLight
-                        ? 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
-                        : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
-                    }`}
-                  >
-                    {isArabic ? region.nameAr : region.nameEn} ({isArabic ? toHindiDigits(region.count) : region.count})
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Right Column: Detailed Anatomical Breakdown & Ministerial Focus */}
-          <div className="lg:col-span-6 space-y-4">
-            <div
-              className={`p-5 rounded-2xl border ${
-                isContrast
-                  ? 'bg-black border-rose-400'
-                  : isLight
-                  ? 'bg-rose-50/40 border-rose-200'
-                  : 'bg-rose-950/20 border-rose-900/40'
-              }`}
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span
-                  className={`text-xs font-black px-2.5 py-1 rounded-lg border uppercase ${
-                    isContrast
-                      ? 'bg-rose-400 text-black border-rose-300'
-                      : isLight
-                      ? 'bg-rose-100 text-rose-800 border-rose-300'
-                      : 'bg-rose-950/80 text-rose-300 border-rose-800'
-                  }`}
-                >
-                  {isArabic ? selectedBone.categoryAr : selectedBone.categoryEn}
-                </span>
-                <span className="text-xs font-mono font-bold text-rose-500">
-                  {isArabic ? `${toHindiDigits(selectedBone.count)} عظمة معتمدة` : `${selectedBone.count} Accredited Bones`}
-                </span>
-              </div>
-
-              <h3 className="text-xl font-black mt-2">
-                {isArabic ? selectedBone.nameAr : selectedBone.nameEn}
-              </h3>
-              <p className={`text-xs mt-1.5 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                {isArabic ? selectedBone.descriptionAr : selectedBone.descriptionEn}
-              </p>
-
-              {/* Sub-Bones Breakdown */}
-              <div className="mt-4 pt-3 border-t border-rose-200 dark:border-rose-900/50 space-y-2">
-                <h4 className="text-xs font-black flex items-center gap-1.5 text-rose-500">
-                  <Info className="w-3.5 h-3.5" />
-                  {isArabic ? 'التقسيم التشريحي التفصيلي:' : 'Detailed Anatomical Components:'}
-                </h4>
-                <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? selectedBone.subBonesAr : selectedBone.subBonesEn}
-                </p>
-              </div>
-
-              {/* Joint Types */}
-              <div className="mt-3 pt-3 border-t border-rose-200 dark:border-rose-900/50 space-y-1.5">
-                <h4 className="text-xs font-black flex items-center gap-1.5 text-indigo-400">
-                  <Activity className="w-3.5 h-3.5" />
-                  {isArabic ? 'أنواع المفاصل المتصلة:' : 'Articulating Joint Types:'}
-                </h4>
-                <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? selectedBone.jointTypesAr : selectedBone.jointTypesEn}
-                </p>
-              </div>
-
-              {/* Ministerial Exam Tips */}
-              <div
-                className={`mt-4 p-3.5 rounded-xl border ${
-                  isContrast
-                    ? 'bg-black border-yellow-400 text-yellow-300'
-                    : isLight
-                    ? 'bg-amber-50 border-amber-200 text-amber-950'
-                    : 'bg-amber-950/30 border-amber-800/50 text-amber-200'
-                }`}
-              >
-                <div className="flex items-center gap-1.5 text-xs font-black mb-1">
-                  <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span>{isArabic ? 'ملاحظة ونقاط امتحانية هامة (الثانوية العامة والبكالوريا):' : 'Key Ministerial Exam Target Questions:'}</span>
-                </div>
-                <p className="text-xs leading-relaxed">
-                  {isArabic ? selectedBone.examTipsAr : selectedBone.examTipsEn}
-                </p>
-              </div>
-            </div>
-
-            {/* Quick Summary Cards */}
-            <div className="grid grid-cols-2 gap-3">
-              <div
-                className={`p-3.5 rounded-xl border ${
-                  isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
-                }`}
-              >
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                  {isArabic ? 'الهيكل المحوري' : 'Axial Skeleton'}
-                </p>
-                <p className="text-lg font-black text-rose-400 mt-0.5">
-                  {isArabic ? `${toHindiDigits(80)} عظمة` : '80 Bones'}
-                </p>
-                <p className="text-[10px] text-slate-400 mt-1">
-                  {isArabic ? 'الجمجمة (٢٩) + العمود الفقري (٢٦) + القفص الصدري (٢٥)' : 'Skull (29) + Spine (26) + Ribcage (25)'}
-                </p>
-              </div>
-
-              <div
-                className={`p-3.5 rounded-xl border ${
-                  isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
-                }`}
-              >
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                  {isArabic ? 'الهيكل الطرفي' : 'Appendicular Skeleton'}
-                </p>
-                <p className="text-lg font-black text-indigo-400 mt-0.5">
-                  {isArabic ? `${toHindiDigits(126)} عظمة` : '126 Bones'}
-                </p>
-                <p className="text-[10px] text-slate-400 mt-1">
-                  {isArabic ? 'الحزام الصدري والطرفان (٦٤) + الحزام الحوضي والطرفان (٦٢)' : 'Pectoral & Arms (64) + Pelvic & Legs (62)'}
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="mt-6">
+          <SkeletonAnatomyLab lang={lang} theme={theme} />
         </div>
       )}
 

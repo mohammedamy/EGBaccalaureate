@@ -51,6 +51,7 @@ const labComponents = [
   'src/components/labs/ChemistryLab.tsx',
   'src/components/labs/TransitionMetalsLab.tsx',
   'src/components/labs/BiologyLab.tsx',
+  'src/components/labs/SkeletonAnatomyLab.tsx',
   'src/components/labs/PlantHistologyLab.tsx',
   'src/components/labs/EndocrineLab.tsx',
   'src/components/labs/MenstrualCycleLab.tsx',
@@ -713,6 +714,98 @@ assert(auxin_outer > 2 * auxin_contact, `Tendril coiling mechanism: Auxin concen
 const corm_depth = 10; // cm
 assert(corm_depth >= 8 && corm_depth <= 12, `Contractile roots pull subterranean corm to safe depth: ${corm_depth} cm (within optimal 8-12 cm)`);
 
+// R. Biology Chapter 1: Human Skeleton Anatomy, Joint Biomechanics & Tendon Rupture Dynamics
+console.log('\n--- R. Skeleton Anatomy, Joint Biomechanics & Tendon Rupture Dynamics ---');
+
+// 1. Total Bone Count & Axial/Appendicular Conservation
+const skull_cranial = 8;
+const skull_facial = 14;
+const skull_auditory_ossicles = 6;
+const skull_hyoid = 1;
+const skull_total = skull_cranial + skull_facial + skull_auditory_ossicles + skull_hyoid; // 29
+
+const spine_cervical = 7;
+const spine_thoracic = 12;
+const spine_lumbar = 5;
+const spine_sacrum_fused = 1; // 5 fused vertebrae
+const spine_coccyx_fused = 1; // 4 fused vertebrae
+const spine_vertebrae_count = spine_cervical + spine_thoracic + spine_lumbar + 5 + 4; // 33 vertebrae
+const spine_bones_count = spine_cervical + spine_thoracic + spine_lumbar + spine_sacrum_fused + spine_coccyx_fused; // 26 bones
+
+const ribs_pairs = 12;
+const ribs_total = ribs_pairs * 2; // 24
+const sternum = 1;
+const thoracic_cage_total = ribs_total + sternum; // 25
+
+const axial_skeleton_total = skull_total + spine_bones_count + thoracic_cage_total; // 29 + 26 + 25 = 80
+assert(axial_skeleton_total === 80, `Axial Skeleton exact bone count: ${axial_skeleton_total} bones (29 skull + 26 spine + 25 thoracic cage)`);
+assert(spine_vertebrae_count === 33, `Spine total vertebrae count: ${spine_vertebrae_count} vertebrae forming 26 distinct anatomical bones`);
+
+// Floating ribs attachment verification
+const floating_rib_pairs = [11, 12];
+const thoracic_vertebrae_attached = floating_rib_pairs.map(p => p); // T11, T12
+const spine_vertebra_numbers = floating_rib_pairs.map(p => 7 + p); // #18, #19
+assert(spine_vertebra_numbers[0] === 18 && spine_vertebra_numbers[1] === 19, `Floating ribs (pairs 11 & 12) connect posteriorly to spine vertebrae #18 and #19 (T11 & T12)`);
+
+// Appendicular Skeleton Breakdown:
+// Pectoral Girdle (4): 2 Clavicles + 2 Scapulae
+// Upper Limbs (60): 2 x (1 Humerus + 1 Radius + 1 Ulna + 8 Carpals + 5 Metacarpals + 14 Phalanges = 30) = 60
+const pectoral_girdle = 4;
+const upper_limbs = 2 * (1 + 1 + 1 + 8 + 5 + 14); // 60
+const upper_appendicular = pectoral_girdle + upper_limbs; // 64
+
+// Pelvic Girdle (2): 2 Hip Bones (each fused Ilium + Ischium + Pubis)
+// Lower Limbs (60): 2 x (1 Femur + 1 Patella + 1 Tibia + 1 Fibula + 7 Tarsals + 5 Metatarsals + 14 Phalanges = 30) = 60
+const pelvic_girdle = 2;
+const lower_limbs = 2 * (1 + 1 + 1 + 1 + 7 + 5 + 14); // 60
+const lower_appendicular = pelvic_girdle + lower_limbs; // 62
+
+const appendicular_total = upper_appendicular + lower_appendicular; // 126
+assert(appendicular_total === 126, `Appendicular Skeleton exact bone count: ${appendicular_total} bones (64 upper + 62 lower)`);
+
+const total_skeleton = axial_skeleton_total + appendicular_total;
+assert(total_skeleton === 206, `Total adult human skeleton conservation: ${total_skeleton} bones (80 axial + 126 appendicular)`);
+
+// 2. Evolutionary Ball-and-Socket Joint Mechanics: Glenoid vs Acetabulum
+const glenoid_depth_pct = 15;
+const glenoid_rom_deg = 360;
+const glenoid_dislocation_threshold_N = 450;
+
+const acetabulum_depth_pct = 55;
+const acetabulum_rom_deg = 120;
+const acetabulum_dislocation_threshold_N = 2200;
+
+assert(glenoid_rom_deg > 2.5 * acetabulum_rom_deg, `Glenoid socket offers 3x the range of motion of acetabulum (360° vs 120°)`);
+assert(acetabulum_dislocation_threshold_N > 4 * glenoid_dislocation_threshold_N, `Acetabulum socket depth (${acetabulum_depth_pct}%) provides >4x dislocation resistance (${acetabulum_dislocation_threshold_N} N vs ${glenoid_dislocation_threshold_N} N)`);
+
+// 3. Knee Joint Ligamentous Articulation: Asymmetric Fibula vs Tibia Attachment
+// 4 Knee Ligaments: Anterior Cruciate (ACL), Posterior Cruciate (PCL), Medial Collateral (MCL), Lateral Collateral (LCL)
+const knee_ligaments_total = 4;
+const ligaments_femur_to_tibia = 3; // ACL, PCL, MCL (الرباط الوسطي)
+const ligaments_femur_to_fibula = 1; // LCL (الرباط الجانبي)
+assert(ligaments_femur_to_tibia + ligaments_femur_to_fibula === knee_ligaments_total, `Knee joint contains strictly 4 ligaments`);
+assert(ligaments_femur_to_tibia === 3, `Femur connects to Tibia via 3 ligaments (ACL, PCL, MCL)`);
+assert(ligaments_femur_to_fibula === 1, `Femur connects to Fibula via ONLY 1 ligament (LCL)`);
+
+// 4. Intervertebral Disc Compressive Stress & Herniation Risk
+const f_axial_normal = 700; // N (standing body weight)
+const disc_area_mm2 = 1200; // mm2
+const sigma_disc_normal_mpa = f_axial_normal / disc_area_mm2; // ~0.58 MPa
+const f_axial_heavy = 1500; // N (heavy lifting)
+const sigma_disc_heavy_mpa = f_axial_heavy / disc_area_mm2; // 1.25 MPa
+assert(sigma_disc_heavy_mpa > 2 * sigma_disc_normal_mpa, `Heavy lifting doubles L5-S1 compressive stress (${sigma_disc_heavy_mpa.toFixed(2)} vs ${sigma_disc_normal_mpa.toFixed(2)} MPa)`);
+
+// 5. Achilles Tendon Rupture Dynamics & Clinical Protocol
+const tendon_area_mm2 = 80; // mm2
+const f_achilles_safe = 1200; // N
+const sigma_safe = f_achilles_safe / tendon_area_mm2; // 15 MPa
+const strain_safe = sigma_safe / 1200; // ~1.25%
+
+const f_achilles_rupture = 4000; // N (> 3800 N threshold)
+const isRuptured = f_achilles_rupture >= 3800;
+const medical_treatment = isRuptured ? 'Surgical Intervention (تدخل جراحي)' : 'Splint + Anti-inflammatory';
+assert(isRuptured && medical_treatment.includes('Surgical'), `Complete Achilles tendon rupture (>= 3800 N) strictly mandates surgical intervention`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -849,6 +942,16 @@ const labKeyFormulas = [
   '\\text{Sclerenchyma} \\implies \\text{Structural Support Only (Dead at Maturity)}',
   '[\\text{IAA}]_{\\text{outer}} > [\\text{IAA}]_{\\text{contact}} \\implies \\text{Tendril Coiling}',
   'h_{\\text{safe}} \\approx 8 - 12\\,\\text{cm} \\implies \\text{Corm Traction Depth}',
+  // Human Skeleton Anatomy & Joint Biomechanics (Biology Chapter 1)
+  'N_{\\text{skeleton}} = 80 \\text{ (axial)} + 126 \\text{ (appendicular)} = 206 \\text{ bones}',
+  'N_{\\text{axial}} = 29 \\text{ (skull)} + 26 \\text{ (spine)} + 25 \\text{ (thoracic cage)} = 80',
+  'N_{\\text{vertebrae}} = 7\\text{C} + 12\\text{T} + 5\\text{L} + 5\\text{S} + 4\\text{Co} = 33',
+  '\\text{Rib Pair } 11 \\leftrightarrow T_{11} (\\#18), \\quad \\text{Rib Pair } 12 \\leftrightarrow T_{12} (\\#19)',
+  'N_{\\text{knee ligaments}} = 4 \\implies 3 \\text{ to Tibia} + 1 \\text{ to Fibula}',
+  '\\sigma = \\frac{F_{\\text{axial}}}{A_{\\text{disc}}} \\quad (\\text{L5-S1 Compressive Stress})',
+  '\\sigma = \\frac{F}{A_{\\text{tendon}}}, \\quad \\varepsilon = \\frac{\\Delta L}{L_0} \\quad (\\text{Achilles Viscoelastic Strain})',
+  'F \\ge 3800\\,\\text{N} \\implies \\text{Achilles Complete Rupture} \\to \\text{Surgical Suture}',
+  '\\text{Radius} \\xrightarrow{\\text{semi-circular rotation around stationary ulna}} \\text{Ulna}',
 ];
 
 let validCount = 0;

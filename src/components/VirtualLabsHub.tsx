@@ -350,7 +350,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                   }`}
                 >
                   {[
-                    { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Human Skeleton (206 Bones)', labelAr: 'الهيكل العظمي (206)' },
+                    { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Skeleton Anatomy & Bone Studio (206)', labelAr: 'الهيكل العظمي والمفاصل (206)' },
                     { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere Contraction', labelAr: 'انقباض الساركومير' },
                     { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio & Replication', labelAr: 'استوديو DNA' },
                     { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Histology & Support Studio', labelAr: 'أنسجة ودعامة وحركة النبات' },
