@@ -406,6 +406,26 @@ assert(
   Math.abs(equilibriumYieldPercent - 66.67) < 0.1,
   `Fischer esterification theoretical equilibrium conversion without dehydrating agent: ${equilibriumYieldPercent.toFixed(1)}% (approx 66.7%)`
 );
+// I. Biology: Molecular Genetics, Chargaff's Rules & Thermal Denaturation (Chapter 5 & 6)
+const seqA = 26;
+const seqT = 26;
+const seqG = 24;
+const seqC = 24;
+const totalBases = seqA + seqT + seqG + seqC; // 100
+const pctGC = ((seqG + seqC) / totalBases) * 100; // 48%
+const chargaffRatio = (seqA + seqG) / (seqT + seqC);
+assert(Math.abs(chargaffRatio - 1.0) < 1e-6, `Chargaff's Rule Purine/Pyrimidine balance: (A+G)/(T+C) = ${chargaffRatio.toFixed(2)}`);
+assert(seqA === seqT && seqG === seqC, `Watson-Crick base pairing equality: A=T (${seqA}==${seqT}), G=C (${seqG}==${seqC})`);
+
+const Tm_calculated = 69.3 + 0.41 * pctGC;
+assert(Math.abs(Tm_calculated - 88.98) < 0.05, `DNA Duplex Melting Temperature Tm: ${Tm_calculated.toFixed(2)}°C at 48% GC`);
+
+const dnaA260 = 0.50; // AU
+const dnaA280 = 0.278; // AU
+const purityRatio = dnaA260 / dnaA280;
+const dnaConcentration = dnaA260 * 50; // ng/uL
+assert(Math.abs(purityRatio - 1.80) < 0.02, `NanoDrop UV Purity Ratio A260/A280 = ${purityRatio.toFixed(2)} (pure dsDNA benchmark ~1.80)`);
+assert(Math.abs(dnaConcentration - 25.0) < 1e-6, `dsDNA Concentration from Beer-Lambert: ${dnaConcentration} ng/uL`);
 
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
@@ -471,6 +491,14 @@ const labKeyFormulas = [
   '5\' \\to 3\'',
   '\\text{Ca}^{2+}',
   '\\%A + \\%G = \\%T + \\%C = 50\\%',
+  'T_m = 69.3 + 0.41 \\times (\\%GC)',
+  '\\frac{A + G}{T + C} = 1.00',
+  '\\text{A} = \\text{T}, \\quad \\text{G} \\equiv \\text{C}',
+  '\\text{AUG} \\to \\text{Met}',
+  '\\text{GAG} \\to \\text{GUG} \\implies \\text{Glu} \\to \\text{Val}',
+  '\\text{UAA}, \\; \\text{UAG}, \\; \\text{UGA}',
+  '[\\text{dsDNA}] = A_{260} \\times 50\\,\\mu\\text{g/mL}',
+  '\\frac{A_{260}}{A_{280}} = 1.80',
   // Math Lab
   '\\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}',
   '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1',
