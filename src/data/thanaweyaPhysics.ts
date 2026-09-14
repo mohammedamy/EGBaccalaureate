@@ -526,6 +526,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 "titleEn": "Ohmmeter Quarter-Scale Deflection & External Resistor",
                 "titleAr": "انحراف مؤشر الأوميتر إلى ربع التدريج والمقاومة المجهولة",
                 "difficulty": "medium",
+                "diagramType": "phys_galvanometer_multiplier",
                 "questionEn": "An ohmmeter has total internal resistance $R_{\\text{in}} = 3000\\,\\Omega$. When an external resistor $R_x$ is connected between its terminals, its pointer deflects to $\\frac{1}{4}$ of its full-scale current ($I = \\frac{1}{4} I_g$). What is the value of $R_x$?",
                 "questionAr": "أوميتر مقاومته الداخلية الكلية $R_{\\text{in}} = 3000\\,\\Omega$. عند توصيل مقاومة مجهولة $R_x$ بين طرفيه، انحرف مؤشره إلى ربع تدريج التيار ($I = \\frac{1}{4} I_g$). احسب قيمة المقاومة المجهولة $R_x$.",
                 "optionsEn": [
@@ -564,7 +565,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             ]
           },
           "interactiveWidget": {
-            "type": "physics_circuits",
+            "type": "physics_magnetism",
             "titleEn": "Magnetic Field & Galvanometer Converter Simulator",
             "titleAr": "محاكي المجال المغناطيسي وتحويلات الجلفانومتر",
             "descriptionEn": "Interactive simulation calculating magnetic flux density vectors and galvanometer shunt/multiplier resistances.",
@@ -786,6 +787,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 "titleEn": "Non-Ideal Step-Down Transformer Primary Current",
                 "titleAr": "كفاءة المحول الخافض للجهد وحساب تيار الملف الابتدائي",
                 "difficulty": "medium",
+                "diagramType": "phys_transformer",
                 "questionEn": "An electric step-down transformer has an efficiency of $\\eta = 80\\%$. It operates on an alternating source of primary voltage $V_p = 220\\text{ V}$ to deliver power to a lamp rated at $11\\text{ V}$ and $44\\text{ W}$. What is the current flowing in the primary coil?",
                 "questionAr": "محول كهربي خافض للجهد كفاءته $80\\%$. يعمل على مصدر متردد جهده الابتدائي $V_p = 220\\text{ فولت}$ لتشغيل مصباح كهربي قدرته $44\\text{ وات}$ ويعمل على جهد $11\\text{ فولت}$. احسب شدة التيار المار في الملف الابتدائي.",
                 "optionsEn": [
@@ -1490,6 +1492,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 "titleEn": "Coolidge Tube Minimum X-Ray Wavelength Calculation",
                 "titleAr": "حساب أقصر طول موجي للأشعة السينية في أنبوبة كوليدج",
                 "difficulty": "medium",
+                "diagramType": "phys_coolidge_xray_tube",
                 "questionEn": "A Coolidge tube operates at an accelerating potential difference of 50,000 V (50 kV). What is the minimum wavelength of the continuous X-ray spectrum produced?",
                 "questionAr": "تعمل أنبوبة كوليدج لتوليد الأشعة السينية بفرق جهد قدره ٥٠,٠٠٠ فولت (٥٠ كيلو فولت). احسب أقصر طول موجي للطيف المستمر للأشعة السينية الناتجة.",
                 "optionsEn": [
@@ -1528,6 +1531,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 "titleEn": "Hydrogen Spectrum Balmer Series Transition Wavelength",
                 "titleAr": "حساب الطول الموجي لخط طيفي في متسلسلة بالمار للهيدروجين",
                 "difficulty": "medium",
+                "diagramType": "phys_bohr_atom_series",
                 "questionEn": "In a hydrogen atom, an excited electron drops from energy level $n = 4$ ($E_4 = -0.85\\text{ eV}$) to level $n = 2$ ($E_2 = -3.40\\text{ eV}$). What is the wavelength of the emitted spectral line? ($h = 6.626 \\times 10^{-34}\\text{ J}\\cdot\\text{s}$, $c = 3.0 \\times 10^8\\text{ m/s}$, $1\\text{ eV} = 1.602 \\times 10^{-19}\\text{ J}$)",
                 "questionAr": "في ذرة هيدروجين مثارة، هبط إلكترون من مستوى الطاقة الرابع ($E_4 = -0.85\\text{ إلكترون فولت}$) إلى المستوى الثاني ($E_2 = -3.40\\text{ إلكترون فولت}$). احسب الطول الموجي للفوتون المنبعث من هذا الانتقال.",
                 "optionsEn": [
@@ -1566,6 +1570,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
                 "titleEn": "Transistor Common Emitter Amplification & Current Gain",
                 "titleAr": "معامل تكبير التيار وثابت التوزيع للترانزستور في دائرة الباعث المشترك",
                 "difficulty": "hots",
+                "diagramType": "phys_pn_junction_transistor",
                 "questionEn": "In an npn bipolar junction transistor connected in common-emitter configuration, the base current is $I_b = 50\\,\\mu\\text{A}$ and the collector current is $I_c = 4.95\\text{ mA}$. What are the current gain factor $\\beta_e$ and the current transfer ratio $\\alpha_e$?",
                 "questionAr": "في ترانزستور npn متصل بطريقة الباعث المشترك، كانت شدة تيار القاعدة $I_b = 50\\,\\mu\\text{A}$ وشدة تيار المجمع $I_c = 4.95\\text{ mA}$. احسب كلاً من معامل تكبير التيار $\\beta_e$ وثابت التوزيع $\\alpha_e$.",
                 "optionsEn": [
@@ -1602,7 +1607,7 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             ]
           },
           "interactiveWidget": {
-            "type": "physics_flashcards",
+            "type": "physics_atomic_lasers",
             "titleEn": "Hydrogen Spectrum & Laser Resonator Simulator",
             "titleAr": "محاكي أطياف الهيدروجين والتجويف الرنيني لليزر",
             "descriptionEn": "Interactive Bohr level transition energy calculator and He-Ne laser optical pumping simulation.",

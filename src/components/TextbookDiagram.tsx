@@ -1139,6 +1139,373 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </text>
           </svg>
         )}
+
+        {/* 16. Physics: Laminated Transformer (Step-Up / Step-Down) */}
+        {type === 'phys_transformer' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrFlux" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-emerald-400" />
+              </marker>
+            </defs>
+
+            {/* Rectangular Soft Iron Core with Laminations */}
+            <rect x="110" y="40" width="300" height="200" rx="16" className="fill-slate-800 stroke-slate-500" strokeWidth="3" />
+            <rect x="180" y="90" width="160" height="100" rx="8" className="fill-slate-950 stroke-slate-600" strokeWidth="2" />
+
+            {/* Core Lamination Lines */}
+            {[130, 145, 160, 360, 375, 390].map((x, i) => (
+              <line key={i} x1={x} y1="40" x2={x} y2="240" stroke="#475569" strokeWidth="1" strokeDasharray="3,3" />
+            ))}
+
+            {/* Magnetic Flux Path (Dashed Loop inside Core) */}
+            <rect x="145" y="65" width="230" height="150" rx="12" fill="none" stroke="#10b981" strokeWidth="2" strokeDasharray="6,4" />
+            <path d="M 260 65 L 280 65" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#arrFlux)" />
+            <path d="M 260 215 L 240 215" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#arrFlux)" />
+            <text x="260" y="58" textAnchor="middle" className="text-[10px] font-black fill-emerald-300">
+              {isAr ? 'فيض مغناطيسي متبادل Φ_m' : 'Mutual Flux Φ_m'}
+            </text>
+
+            {/* Primary Coil (Left Leg, Blue/Cyan, N_p) */}
+            {[80, 105, 130, 155, 180, 205].map((y, i) => (
+              <path key={i} d={`M 90 ${y} C 110 ${y-10}, 110 ${y+15}, 130 ${y+10}`} fill="none" stroke="#38bdf8" strokeWidth="4.5" strokeLinecap="round" />
+            ))}
+            <text x="75" y="70" textAnchor="middle" className="text-[11px] font-black fill-sky-300">N_p</text>
+            <text x="75" y="85" textAnchor="middle" className="text-[9px] font-bold fill-sky-400">Primary</text>
+            {/* Primary AC Input */}
+            <path d="M 90 80 L 40 80 L 40 130" fill="none" stroke="#38bdf8" strokeWidth="2" />
+            <path d="M 90 205 L 40 205 L 40 170" fill="none" stroke="#38bdf8" strokeWidth="2" />
+            <circle cx="40" cy="150" r="16" className="fill-slate-900 stroke-sky-400" strokeWidth="2" />
+            <path d="M 32 150 Q 36 142 40 150 T 48 150" fill="none" stroke="#38bdf8" strokeWidth="2" />
+            <text x="40" y="178" textAnchor="middle" className="text-[9px] font-black fill-sky-300">V_p, I_p</text>
+
+            {/* Secondary Coil (Right Leg, Amber/Orange, N_s) */}
+            {[90, 120, 150, 180].map((y, i) => (
+              <path key={i} d={`M 390 ${y} C 410 ${y-10}, 410 ${y+15}, 430 ${y+10}`} fill="none" stroke="#f59e0b" strokeWidth="4.5" strokeLinecap="round" />
+            ))}
+            <text x="445" y="75" textAnchor="middle" className="text-[11px] font-black fill-amber-300">N_s</text>
+            <text x="445" y="90" textAnchor="middle" className="text-[9px] font-bold fill-amber-400">Secondary</text>
+            {/* Secondary Output Load */}
+            <path d="M 430 90 L 480 90 L 480 130" fill="none" stroke="#f59e0b" strokeWidth="2" />
+            <path d="M 430 180 L 480 180 L 480 170" fill="none" stroke="#f59e0b" strokeWidth="2" />
+            <rect x="468" y="130" width="24" height="40" rx="3" className="fill-slate-900 stroke-amber-400" strokeWidth="2" />
+            <text x="480" y="154" textAnchor="middle" className="text-[9px] font-black fill-amber-300">R_L</text>
+            <text x="480" y="195" textAnchor="middle" className="text-[9px] font-black fill-amber-300">V_s, I_s</text>
+
+            {/* Core Description Label */}
+            <text x="260" y="260" textAnchor="middle" className="text-[10px] font-bold fill-slate-400">
+              {isAr ? 'قلب من الحديد المطاوع السيليكوني مقسم لشرائح معزولة للحد من التيارات الدوامية' : 'Laminated Silicon Steel Core (Suppresses Eddy Currents)'}
+            </text>
+          </svg>
+        )}
+
+        {/* 17. Physics: Moving Coil Galvanometer, Ammeter Shunt & Voltmeter Multiplier */}
+        {type === 'phys_galvanometer_multiplier' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            {/* Left: Voltmeter Conversion (Galvanometer + Series Multiplier Rm) */}
+            <g transform="translate(10, 20)">
+              <rect x="0" y="0" width="235" height="230" rx="12" className="fill-slate-900/80 stroke-indigo-500/40" strokeWidth="2" />
+              <text x="117" y="24" textAnchor="middle" className="text-[11px] font-black fill-indigo-300">
+                {isAr ? 'الفولتميتر: مضاعف جهد R_m على التوالي' : 'Voltmeter: Series Multiplier R_m'}
+              </text>
+
+              {/* Circuit Line */}
+              <line x1="20" y1="90" x2="60" y2="90" stroke="#818cf8" strokeWidth="3" />
+              {/* Galvanometer Circle */}
+              <circle cx="85" cy="90" r="24" className="fill-slate-800 stroke-cyan-400" strokeWidth="2.5" />
+              <text x="85" y="94" textAnchor="middle" className="text-[13px] font-black fill-cyan-300">G</text>
+              <text x="85" y="125" textAnchor="middle" className="text-[10px] font-bold fill-cyan-400">R_g (I_g)</text>
+
+              {/* Series Multiplier Resistor Rm */}
+              <line x1="109" y1="90" x2="135" y2="90" stroke="#818cf8" strokeWidth="3" />
+              <rect x="135" y="78" width="60" height="24" rx="4" className="fill-indigo-950 stroke-indigo-400" strokeWidth="2.5" />
+              <text x="165" y="94" textAnchor="middle" className="text-[10px] font-black fill-indigo-200">R_m</text>
+              <line x1="195" y1="90" x2="215" y2="90" stroke="#818cf8" strokeWidth="3" />
+
+              {/* Total Voltage Range Bracket */}
+              <path d="M 20 150 L 20 165 L 215 165 L 215 150" fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
+              <text x="117" y="185" textAnchor="middle" className="text-[11px] font-black fill-emerald-300">
+                V = I_g(R_g + R_m)
+              </text>
+              <text x="117" y="208" textAnchor="middle" className="text-[9px] font-bold fill-slate-400">
+                {isAr ? 'R_m كبيرة جداً لزيادة مدى قياس فرق الجهد' : 'Large R_m expands voltage range'}
+              </text>
+            </g>
+
+            {/* Right: Ammeter Conversion (Galvanometer + Parallel Shunt Rs) */}
+            <g transform="translate(265, 20)">
+              <rect x="0" y="0" width="235" height="230" rx="12" className="fill-slate-900/80 stroke-amber-500/40" strokeWidth="2" />
+              <text x="117" y="24" textAnchor="middle" className="text-[11px] font-black fill-amber-300">
+                {isAr ? 'الأميتر: مجزئ تيار R_s على التوازي' : 'Ammeter: Parallel Shunt R_s'}
+              </text>
+
+              {/* Total Current I entering */}
+              <line x1="15" y1="90" x2="45" y2="90" stroke="#f59e0b" strokeWidth="3" />
+              <text x="25" y="80" className="text-[11px] font-black fill-amber-400">I</text>
+
+              {/* Node Split */}
+              <circle cx="45" cy="90" r="4" className="fill-amber-400" />
+              <path d="M 45 90 L 45 60 L 75 60" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+              <path d="M 45 90 L 45 125 L 85 125" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+
+              {/* Galvanometer on top branch */}
+              <circle cx="105" cy="60" r="20" className="fill-slate-800 stroke-cyan-400" strokeWidth="2.5" />
+              <text x="105" y="64" textAnchor="middle" className="text-[12px] font-black fill-cyan-300">G</text>
+              <text x="105" y="38" textAnchor="middle" className="text-[9px] font-bold fill-cyan-400">I_g, R_g</text>
+              <path d="M 125 60 L 165 60 L 165 90" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+
+              {/* Shunt Resistor on bottom branch */}
+              <rect x="85" y="115" width="55" height="20" rx="3" className="fill-amber-950 stroke-amber-400" strokeWidth="2.5" />
+              <text x="112" y="129" textAnchor="middle" className="text-[10px] font-black fill-amber-200">R_s</text>
+              <text x="112" y="152" textAnchor="middle" className="text-[9px] font-bold fill-amber-400">I - I_g</text>
+              <path d="M 140 125 L 165 125 L 165 90" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+
+              {/* Joined Node and Output */}
+              <circle cx="165" cy="90" r="4" className="fill-amber-400" />
+              <line x1="165" y1="90" x2="215" y2="90" stroke="#f59e0b" strokeWidth="3" />
+              <text x="195" y="80" className="text-[11px] font-black fill-amber-400">I</text>
+
+              {/* Shunt Formula Callout */}
+              <text x="117" y="185" textAnchor="middle" className="text-[11px] font-black fill-emerald-300">
+                R_s = (I_g · R_g) / (I - I_g)
+              </text>
+              <text x="117" y="208" textAnchor="middle" className="text-[9px] font-bold fill-slate-400">
+                {isAr ? 'R_s صغيرة جداً لتقليل مقاومة الجهاز الكلية' : 'Small R_s minimizes meter resistance'}
+              </text>
+            </g>
+          </svg>
+        )}
+
+        {/* 18. Physics: Hydrogen Bohr Energy Level Transitions & Spectral Series */}
+        {type === 'phys_bohr_atom_series' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrBohrLym" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-purple-400" />
+              </marker>
+              <marker id="arrBohrBal" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-sky-400" />
+              </marker>
+              <marker id="arrBohrPas" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-rose-400" />
+              </marker>
+            </defs>
+
+            {/* Energy Levels Horizontal Lines */}
+            {/* n=infinity */}
+            <line x1="80" y1="40" x2="480" y2="40" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4,4" />
+            <text x="70" y="44" textAnchor="end" className="text-[10px] font-bold fill-slate-400">n=∞</text>
+            <text x="490" y="44" className="text-[10px] font-bold fill-slate-400">0 eV</text>
+
+            {/* n=5 */}
+            <line x1="80" y1="65" x2="480" y2="65" stroke="#64748b" strokeWidth="1.5" />
+            <text x="70" y="69" textAnchor="end" className="text-[10px] font-bold fill-slate-400">n=5</text>
+            <text x="490" y="69" className="text-[10px] font-bold fill-slate-400">-0.54 eV</text>
+
+            {/* n=4 */}
+            <line x1="80" y1="88" x2="480" y2="88" stroke="#64748b" strokeWidth="1.5" />
+            <text x="70" y="92" textAnchor="end" className="text-[10px] font-bold fill-slate-400">n=4</text>
+            <text x="490" y="92" className="text-[10px] font-bold fill-slate-400">-0.85 eV</text>
+
+            {/* n=3 */}
+            <line x1="80" y1="120" x2="480" y2="120" stroke="#94a3b8" strokeWidth="2" />
+            <text x="70" y="124" textAnchor="end" className="text-[11px] font-black fill-slate-300">n=3</text>
+            <text x="490" y="124" className="text-[10px] font-bold fill-slate-300">-1.51 eV</text>
+
+            {/* n=2 */}
+            <line x1="80" y1="165" x2="480" y2="165" stroke="#cbd5e1" strokeWidth="2.5" />
+            <text x="70" y="169" textAnchor="end" className="text-[11px] font-black fill-slate-200">n=2</text>
+            <text x="490" y="169" className="text-[10px] font-bold fill-slate-200">-3.40 eV</text>
+
+            {/* n=1 Ground State */}
+            <line x1="80" y1="230" x2="480" y2="230" stroke="#f8fafc" strokeWidth="3" />
+            <text x="70" y="234" textAnchor="end" className="text-[12px] font-black fill-emerald-300">n=1</text>
+            <text x="490" y="234" className="text-[11px] font-black fill-emerald-300">-13.6 eV</text>
+
+            {/* Lyman Series Transitions (UV, downwards to n=1) */}
+            <line x1="140" y1="165" x2="140" y2="225" stroke="#a855f7" strokeWidth="2.5" markerEnd="url(#arrBohrLym)" />
+            <line x1="160" y1="120" x2="160" y2="225" stroke="#a855f7" strokeWidth="2.5" markerEnd="url(#arrBohrLym)" />
+            <line x1="180" y1="88" x2="180" y2="225" stroke="#a855f7" strokeWidth="2.5" markerEnd="url(#arrBohrLym)" />
+            <text x="160" y="250" textAnchor="middle" className="text-[10px] font-black fill-purple-300">
+              {isAr ? 'مجموعة ليمان (UV)' : 'Lyman (UV)'}
+            </text>
+
+            {/* Balmer Series Transitions (Visible, downwards to n=2) */}
+            <line x1="260" y1="120" x2="260" y2="160" stroke="#ef4444" strokeWidth="3" markerEnd="url(#arrBohrBal)" />
+            <text x="260" y="145" textAnchor="end" className="text-[8px] font-bold fill-red-400">Hα 656nm </text>
+            <line x1="290" y1="88" x2="290" y2="160" stroke="#06b6d4" strokeWidth="3" markerEnd="url(#arrBohrBal)" />
+            <text x="290" y="125" textAnchor="end" className="text-[8px] font-bold fill-cyan-300">Hβ 486nm </text>
+            <line x1="320" y1="65" x2="320" y2="160" stroke="#3b82f6" strokeWidth="3" markerEnd="url(#arrBohrBal)" />
+            <text x="320" y="105" textAnchor="end" className="text-[8px] font-bold fill-blue-400">Hγ 434nm </text>
+            <text x="290" y="185" textAnchor="middle" className="text-[10px] font-black fill-sky-300">
+              {isAr ? 'مجموعة بالمر (ضوء منظور)' : 'Balmer (Visible)'}
+            </text>
+
+            {/* Paschen Series Transitions (Infrared, downwards to n=3) */}
+            <line x1="410" y1="88" x2="410" y2="115" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrBohrPas)" />
+            <line x1="430" y1="65" x2="430" y2="115" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrBohrPas)" />
+            <text x="420" y="140" textAnchor="middle" className="text-[10px] font-black fill-rose-300">
+              {isAr ? 'باشن (IR)' : 'Paschen (IR)'}
+            </text>
+
+            <text x="280" y="270" textAnchor="middle" className="text-[10px] font-bold fill-slate-300">
+              ΔE = E₂ - E₁ = h·ν = hc/λ
+            </text>
+          </svg>
+        )}
+
+        {/* 19. Physics: Coolidge Tube for Continuous & Characteristic X-Rays */}
+        {type === 'phys_coolidge_xray_tube' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrXray" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" className="fill-cyan-300" />
+              </marker>
+            </defs>
+
+            {/* Evacuated Heavy Glass Envelope */}
+            <rect x="80" y="50" width="360" height="130" rx="35" className="fill-slate-900/90 stroke-slate-500" strokeWidth="2.5" />
+            <text x="260" y="40" textAnchor="middle" className="text-[10px] font-extrabold fill-slate-400">
+              {isAr ? 'أنبوبة كولدج الزجاجية المفرغة من الهواء لتوليد الأشعة السينية' : 'Evacuated Coolidge X-Ray Tube'}
+            </text>
+
+            {/* Cathode: Heated Tungsten Filament & Focusing Cup */}
+            <g transform="translate(100, 85)">
+              {/* Focusing Cup */}
+              <path d="M 30 0 C 10 10, 10 50, 30 60" fill="none" stroke="#94a3b8" strokeWidth="4" />
+              {/* Filament */}
+              <path d="M 15 20 Q 25 30 15 40" fill="none" stroke="#f59e0b" strokeWidth="3" />
+              <text x="-5" y="34" className="text-[9px] font-black fill-amber-300">Filament (-)</text>
+              <line x1="0" y1="25" x2="15" y2="25" stroke="#f59e0b" strokeWidth="2" />
+              <line x1="0" y1="35" x2="15" y2="35" stroke="#f59e0b" strokeWidth="2" />
+            </g>
+
+            {/* Fast Accelerated Electron Beam e- */}
+            {[105, 115, 125].map((y, i) => (
+              <line key={i} x1="140" y1={y} x2="330" y2={y} stroke="#fbbf24" strokeWidth="2" strokeDasharray="4,3" />
+            ))}
+            <text x="220" y="105" textAnchor="middle" className="text-[10px] font-bold fill-amber-300">
+              e⁻ (E = eV)
+            </text>
+
+            {/* Anode: Massive Copper Rod with 45-deg Beveled Tungsten Target */}
+            <polygon points="340,90 370,60 410,60 410,170 370,170 340,140" className="fill-amber-700/80 stroke-amber-500" strokeWidth="2" />
+            {/* Embedded Tungsten Target at 45 deg */}
+            <line x1="340" y1="95" x2="365" y2="135" stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" />
+            <text x="365" y="85" className="text-[9px] font-black fill-slate-100">
+              {isAr ? 'هدف التنجستين' : 'Tungsten'}
+            </text>
+
+            {/* External Copper Cooling Radiator Fins */}
+            {[415, 425, 435, 445].map((x, i) => (
+              <line key={i} x1={x} y1="40" x2={x} y2="190" stroke="#d97706" strokeWidth="4" strokeLinecap="round" />
+            ))}
+            <text x="430" y="210" textAnchor="middle" className="text-[8px] font-bold fill-amber-400">
+              {isAr ? 'ريش التبريد النحاسية' : 'Cooling Fins'}
+            </text>
+
+            {/* High Accelerating Voltage Symbol */}
+            <path d="M 120 180 L 120 230 L 390 230 L 390 170" fill="none" stroke="#64748b" strokeWidth="2" />
+            <rect x="220" y="218" width="80" height="24" rx="4" className="fill-slate-800 stroke-cyan-400" strokeWidth="2" />
+            <text x="260" y="234" textAnchor="middle" className="text-[10px] font-black fill-cyan-300">
+              V (10 - 100 kV)
+            </text>
+
+            {/* Emitted X-Ray Beam (Exiting Downwards) */}
+            <path d="M 355 125 L 310 210" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrXray)" />
+            <path d="M 355 125 L 340 210" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrXray)" />
+            <path d="M 355 125 L 370 210" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrXray)" />
+            <text x="375" y="235" textAnchor="middle" className="text-[11px] font-black fill-sky-300">
+              {isAr ? 'أشعة سينية X-Rays' : 'X-Rays (λ_min = hc/eV)'}
+            </text>
+          </svg>
+        )}
+
+        {/* 20. Physics: Semiconductor P-N Junction & BJT Transistor Amplifier */}
+        {type === 'phys_pn_junction_transistor' && (
+          <svg viewBox="0 0 520 280" className="w-full max-w-[500px] h-auto overflow-visible select-none">
+            {/* Left: P-N Junction Barrier in Forward Bias */}
+            <g transform="translate(10, 20)">
+              <rect x="0" y="0" width="235" height="230" rx="12" className="fill-slate-900/80 stroke-cyan-500/40" strokeWidth="2" />
+              <text x="117" y="24" textAnchor="middle" className="text-[11px] font-black fill-cyan-300">
+                {isAr ? 'الوصلة الثنائية (الدايود) في التوصيل الأمامي' : 'P-N Junction Diode (Forward Bias)'}
+              </text>
+
+              {/* P-region */}
+              <rect x="25" y="50" width="90" height="80" className="fill-rose-950/70 stroke-rose-400" strokeWidth="2" />
+              <text x="70" y="70" textAnchor="middle" className="text-[14px] font-black fill-rose-300">P</text>
+              <text x="70" y="90" textAnchor="middle" className="text-[9px] font-bold fill-rose-200">
+                {isAr ? 'فجوات موجبة (+)' : 'Holes (+)'}
+              </text>
+
+              {/* N-region */}
+              <rect x="115" y="50" width="90" height="80" className="fill-sky-950/70 stroke-sky-400" strokeWidth="2" />
+              <text x="160" y="70" textAnchor="middle" className="text-[14px] font-black fill-sky-300">N</text>
+              <text x="160" y="90" textAnchor="middle" className="text-[9px] font-bold fill-sky-200">
+                {isAr ? 'إلكترونات حرة (-)' : 'Electrons (-)'}
+              </text>
+
+              {/* Thin Depletion Layer */}
+              <rect x="105" y="50" width="20" height="80" className="fill-amber-500/30 stroke-amber-400" strokeWidth="1.5" strokeDasharray="2,2" />
+              <text x="115" y="145" textAnchor="middle" className="text-[9px] font-black fill-amber-300">
+                {isAr ? 'منطقة النضوب (V₀ ≈ 0.7V)' : 'Depletion (V₀ ≈ 0.7V)'}
+              </text>
+
+              {/* Forward Bias Battery */}
+              <path d="M 25 90 L 10 90 L 10 180 L 115 180" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+              <path d="M 205 90 L 220 90 L 220 180 L 135 180" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+              <line x1="115" y1="172" x2="115" y2="188" stroke="#f43f5e" strokeWidth="3" />
+              <line x1="125" y1="167" x2="125" y2="193" stroke="#38bdf8" strokeWidth="4" />
+              <text x="110" y="205" textAnchor="middle" className="text-[9px] font-bold fill-rose-400">(+) P</text>
+              <text x="135" y="205" textAnchor="middle" className="text-[9px] font-bold fill-sky-400">N (-)</text>
+              <text x="117" y="222" textAnchor="middle" className="text-[9px] font-bold fill-emerald-300">
+                {isAr ? 'يقل اتساع حاجز الجهد ويمر تيار قوي' : 'Depletion narrows; current conducts'}
+              </text>
+            </g>
+
+            {/* Right: NPN BJT Common-Emitter Amplifier */}
+            <g transform="translate(265, 20)">
+              <rect x="0" y="0" width="235" height="230" rx="12" className="fill-slate-900/80 stroke-emerald-500/40" strokeWidth="2" />
+              <text x="117" y="24" textAnchor="middle" className="text-[11px] font-black fill-emerald-300">
+                {isAr ? 'الترانزستور كمكبر (باعث مشترك)' : 'NPN Transistor Amplifier (CE)'}
+              </text>
+
+              {/* Transistor Circle */}
+              <circle cx="110" cy="100" r="32" className="fill-slate-800 stroke-slate-400" strokeWidth="2" />
+              {/* Base Bar */}
+              <line x1="95" y1="80" x2="95" y2="120" stroke="#f8fafc" strokeWidth="4" strokeLinecap="round" />
+              {/* Base Lead */}
+              <line x1="50" y1="100" x2="95" y2="100" stroke="#818cf8" strokeWidth="2.5" />
+              <text x="65" y="92" className="text-[9px] font-black fill-indigo-300">I_b</text>
+
+              {/* Collector Lead */}
+              <line x1="95" y1="88" x2="125" y2="70" stroke="#f43f5e" strokeWidth="2.5" />
+              <line x1="125" y1="70" x2="125" y2="45" stroke="#f43f5e" strokeWidth="2.5" />
+              <text x="135" y="60" className="text-[9px] font-black fill-rose-300">I_c (C)</text>
+
+              {/* Emitter Lead with Arrow */}
+              <line x1="95" y1="112" x2="125" y2="130" stroke="#10b981" strokeWidth="2.5" />
+              <line x1="125" y1="130" x2="125" y2="160" stroke="#10b981" strokeWidth="2.5" />
+              {/* Outward arrow on emitter (npn) */}
+              <polygon points="118,122 125,130 114,129" className="fill-emerald-400" />
+              <text x="135" y="150" className="text-[9px] font-black fill-emerald-300">I_e (E)</text>
+
+              {/* Collector Resistor Rc & Output */}
+              <rect x="117" y="30" width="16" height="20" rx="2" className="fill-rose-950 stroke-rose-400" strokeWidth="2" />
+              <text x="145" y="44" className="text-[9px] font-black fill-rose-200">R_c</text>
+              <line x1="125" y1="30" x2="125" y2="15" stroke="#f43f5e" strokeWidth="2" />
+              <text x="125" y="10" textAnchor="middle" className="text-[9px] font-bold fill-rose-400">+V_cc</text>
+
+              {/* Gain Relationships */}
+              <text x="117" y="185" textAnchor="middle" className="text-[11px] font-black fill-cyan-300">
+                β = I_c / I_b, \quad I_e = I_b + I_c
+              </text>
+              <text x="117" y="208" textAnchor="middle" className="text-[10px] font-black fill-amber-300">
+                V_ce = V_cc - I_c · R_c
+              </text>
+            </g>
+          </svg>
+        )}
       </div>
 
       {/* DEDICATED LATEX MATH LEGEND & FORMULA CALLOUTS (Rendered with 100% genuine KaTeX) */}
@@ -1485,6 +1852,76 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </span>
             <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
               <MathRenderer math={isAr ? "\\nu \\ge \\nu_c \\implies \\text{انبعاث فوري لحظي } (< 10^{-9}\\text{ s})" : "\\nu \\ge \\nu_c \\implies \\text{Instantaneous emission } (< 10^{-9}\\text{ s})"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_transformer' && (
+          <>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\eta = \\frac{V_s I_s}{V_p I_p} \\times 100\\%" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\text{محول رافع للجهد: } N_s > N_p \\implies I_s < I_p" : "\\text{Step-up: } N_s > N_p \\implies I_s < I_p"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_galvanometer_multiplier' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="R_s = \\frac{I_g R_g}{I - I_g} \\quad (\\text{مجزئ التيار للأميتر})" lang={lang} />
+            </span>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="R_m = \\frac{V - I_g R_g}{I_g} \\quad (\\text{مضاعف الجهد للفولتميتر})" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "R_s \\text{ توازي صغرى جداً}, \\quad R_m \\text{ توالي كبرى جداً}" : "R_s \\text{ small parallel}, \\quad R_m \\text{ large series}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_bohr_atom_series' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="E_n = -\\frac{13.6}{n^2}\\,\\text{eV}" lang={lang} />
+            </span>
+            <span className="bg-purple-950/60 border border-purple-500/40 text-purple-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\frac{1}{\\lambda} = R_H \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)" lang={lang} />
+            </span>
+            <span className="bg-sky-950/60 border border-sky-500/40 text-sky-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\text{ليمان (UV)}: n_1=1, \\quad \\text{بالمر (منظور)}: n_1=2" : "\\text{Lyman (UV)}: n_1=1, \\quad \\text{Balmer (Vis)}: n_1=2"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_coolidge_xray_tube' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\lambda_{\\min} = \\frac{h c}{e V} \\quad (\\text{طيف كبح مستمر})" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\Delta E = h\\nu = \\frac{hc}{\\lambda} \\quad (\\text{طيف خطي مميز للهدف})" lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\\lambda_{\\min} \\text{ تتوقف فقط على فرق الجهد المعجل } V" : "\\lambda_{\\min} \\text{ depends solely on accelerating } V"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'phys_pn_junction_transistor' && (
+          <>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\\beta = \\frac{I_c}{I_b} = \\frac{\\alpha}{1 - \\alpha}" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="I_e = I_b + I_c" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="V_{ce} = V_{cc} - I_c R_c \\quad (\\text{عاكس NOT gate})" lang={lang} />
             </span>
           </>
         )}

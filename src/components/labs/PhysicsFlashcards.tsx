@@ -312,6 +312,72 @@ const PHYSICS_FLASHCARDS: PhysicsFlashcard[] = [
     backAr: '• بوابة AND (التوافق Y = A · B): الخرج = 1 فقط إذا كانت جميع المدخلات 1. هنا Y = 1 · 0 = 0.\n• بوابة OR (الاختيار Y = A + B): الخرج = 1 إذا كان أي مدخل 1. هنا Y = 1 + 0 = 1.\n• بوابة NOT (العاكس): تعكس الحالة المنطقية (تحول 1 إلى 0 والعكس).',
     latex: 'Y_{\\text{AND}} = A \\cdot B, \\quad Y_{\\text{OR}} = A + B, \\quad Y_{\\text{NOT}} = \\bar{A}',
   },
+  {
+    id: 'pfc_25',
+    topic: 'induction',
+    titleEn: 'Electric Transformer Efficiency & Eddy Currents',
+    titleAr: 'كفاءة المحول الكهربي والحد من التيارات الدوامية',
+    frontEn: 'Why is the soft iron core of an electric transformer divided into thin insulated laminations, and what is the relationship between voltages and currents in an ideal transformer?',
+    frontAr: 'لماذا يقسم القلب الحديدي للمحول الكهربي إلى شرائح معزولة، وما العلاقة بين فروق الجهد وشدة التيارات في المحول المثالي؟',
+    backEn: '• Core Lamination: Dividing the silicon soft iron core into thin sheets insulated with varnish dramatically increases electrical resistance to eddy currents, minimizing thermal energy dissipation.\n• Ideal Transformer Equations: Power is conserved (V_p · I_p = V_s · I_s), so voltage transformation is directly proportional to turns ratio and inversely proportional to current ratio.',
+    backAr: '• تقسيم القلب لشرائح: تقسيم الحديد المطاوع السيليكوني لشرائح رقيقة معزولة بورنيش يزيد المقاومة الكهربية في اتجاه مسارات التيارات الدوامية فيحد من تحول الطاقة الكهربية إلى طاقة حرارية.\n• معادلات المحول المثالي: حفظ القدرة (V_p · I_p = V_s · I_s)، فيكون المحول الرافع للجهد خافضاً للتيار والعكس.',
+    latex: '\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}, \\quad \\eta = \\frac{V_s I_s}{V_p I_p} \\times 100\\%',
+  },
+  {
+    id: 'pfc_26',
+    topic: 'magnetism',
+    titleEn: 'Moving Coil Galvanometer Conversions: Shunt vs Multiplier',
+    titleAr: 'تحويلات الجلفانومتر ذي الملف المتحرك: مجزئ التيار ومضاعف الجهد',
+    frontEn: 'How do you modify a sensitive moving-coil galvanometer (Rg, Ig) to measure large currents (Ammeter) vs. large voltages (Voltmeter)?',
+    frontAr: 'كيف تعدل جلفانوميتر حساس (Rg, Ig) ليقيس تيارات كهربية كبيرة (أميتر) أو فروق جهد كبيرة (فولتميتر)؟',
+    backEn: '• Ammeter Conversion: Connect a very small resistance in parallel (Shunt Resistor R_s) to divert the bulk of the total current (I - I_g) away from the coil.\n• Voltmeter Conversion: Connect a very large resistance in series (Multiplier Resistor R_m) to bear the excess voltage drop (V - V_g) and prevent excessive current through the circuit.',
+    backAr: '• التحويل لأميتر: توصيل مقاومة صغيرة جداً على التوازي (مجزئ التيار R_s) ليمر بها معظم التيار الكلي وتقل المقاومة الكلية للجهاز.\n• التحويل لفولتميتر: توصيل مقاومة كبيرة جداً على التوالي (مضاعف الجهد R_m) ليتحمل الجهاز فرق جهد كبير دون أن يسحب تياراً مؤثراً من الدائرة.',
+    latex: 'R_s = \\frac{I_g R_g}{I - I_g}, \\quad R_m = \\frac{V - I_g R_g}{I_g}',
+  },
+  {
+    id: 'pfc_27',
+    topic: 'modern',
+    titleEn: 'Coolidge Tube X-Ray Production & Continuous Spectrum',
+    titleAr: 'أنبوبة كولدج وطيف الأشعة السينية المستمر',
+    frontEn: 'How does the continuous spectrum of X-rays (Bremsstrahlung) originate in a Coolidge tube, and what single factor determines its minimum wavelength?',
+    frontAr: 'كيف ينشأ الطيف المستمر للأشعة السينية (أشعة الفرملة) في أنبوبة كولدج، وما العامل الوحيد الذي يحدد أقصر طول موجي له؟',
+    backEn: '• Continuous Spectrum (Bremsstrahlung): Fast accelerated electrons collide with or decelerate near target heavy nuclei (Coulomb repulsion/attraction), converting their kinetic energy into electromagnetic radiation in varying proportions.\n• Duane-Hunt Law: The minimum wavelength λ_min corresponds to an electron giving up 100% of its kinetic energy (eV) in a single impact. It depends SOLELY on the accelerating potential difference V and is completely independent of the target material!',
+    backAr: '• الطيف المستمر (أشعة الكبح أو الفرملة): ينتج عن تباطؤ الإلكترونات السريعة المعجلة عند اقترابها من ذرات الهدف بسبب التنافر الكهربي، فتفقد طاقتها تدريجياً على دفعات.\n• قانون ديوان-هنت: أقصر طول موجي λ_min ينتج عندما يفقد الإلكترون طاقته كاملة في تصادم واحد، ويتوقف فقط على فرق الجهد المعجل V ولا يتوقف إطلاقاً على مادة الهدف.',
+    latex: '\\lambda_{\\min} = \\frac{h c}{e V}',
+  },
+  {
+    id: 'pfc_28',
+    topic: 'modern',
+    titleEn: 'Characteristic X-Ray Spectrum & Moseley Law',
+    titleAr: 'الطيف الخطي المميز للأشعة السينية وقانون موزلي',
+    frontEn: 'How is the characteristic (line) X-ray spectrum produced, and what determines its wavelengths?',
+    frontAr: 'كيف يتولد الطيف الخطي المميز للأشعة السينية، وما الذي يحدد أطواله الموجية؟',
+    backEn: '• Generation Mechanism: A high-energy incident electron knocks out an inner-shell electron (K or L shell) of the target atom. An electron from an outer shell drops into the vacancy, emitting a photon with energy equal to the discrete energy difference between the two shells.\n• Determining Factor: Wavelengths depend ONLY on the atomic number Z of the target element (Moseley\'s Law: sqrt(ν) ∝ Z). Accelerating voltage only determines whether electrons have enough energy to trigger the ejection.',
+    backAr: '• آلية التوليد: يصطدم إلكترون معجل بإلكترون من المستويات القريبة من النواة (المستوى K أو L) فيطرده خارج الذرة، ويهبط إلكترون من مستوى أعلى ليحل محله مطلقاً فوتوناً طاقته ΔE = E_outer - E_inner.\n• العامل المحدد: يتوقف على نوع مادة الهدف فقط (العدد الذري Z لعنصر الهدف وفق قانون موزلي)، ولا يتغير بتغير فرق الجهد طالما كان كافياً لإثارة الهدف.',
+    latex: '\\Delta E = h\\nu = \\frac{hc}{\\lambda}, \\quad \\sqrt{\\nu} = a(Z - b)',
+  },
+  {
+    id: 'pfc_29',
+    topic: 'modern',
+    titleEn: 'Semiconductors: Doping & Law of Mass Action',
+    titleAr: 'أشباه الموصلات: التطعيم وقانون فعل الكتلة',
+    frontEn: 'What is the Law of Mass Action in semiconductors, and how do free electron and hole concentrations behave in n-type vs. p-type crystals?',
+    frontAr: 'ما هو قانون فعل الكتلة في أشباه الموصلات، وكيف تتغير تركيزات الإلكترونات الحرة والفجوات في البلورات من النوع n والنوع p؟',
+    backEn: '• Law of Mass Action: At thermal equilibrium at constant temperature, the product of free electron concentration (n) and hole concentration (p) is constant and equals the square of the intrinsic carrier concentration (n_i^2).\n• n-type (Pentavalent Donor Nd): n ≈ Nd+ >> p, where p = n_i^2 / Nd+.\n• p-type (Trivalent Acceptor Na): p ≈ Na- >> n, where n = n_i^2 / Na-.',
+    backAr: '• قانون فعل الكتلة: عند ثبوت درجة الحرارة في حالة الاتزان الديناميكي الحراري، يكون حاصل ضرب تركيز الإلكترونات الحرة (n) في تركيز الفجوات (p) مقداراً ثابتاً يساوي مربع تركيز حاملات الشحنة في البلورة النقية (n_i^2).\n• بلورة النوع n: الإلكترونات أغلبية n ≈ Nd+ والفجوات أقلية p = n_i^2 / Nd+.\n• بلورة النوع p: الفجوات أغلبية p ≈ Na- والإلكترونات أقلية n = n_i^2 / Na-.',
+    latex: 'n \\cdot p = n_i^2',
+  },
+  {
+    id: 'pfc_30',
+    topic: 'modern',
+    titleEn: 'Transistor Common-Emitter Current Gain & Voltage Inversion',
+    titleAr: 'معامل تكبير التيار للترانزستور والجهد العاكس',
+    frontEn: 'What are the formulas for current distribution and current gain in a BJT transistor, and how does it act as an electronic inverter (NOT Gate)?',
+    frontAr: 'ما هي قوانين توزيع التيارات ومعامل التكبير في الترانزستور، وكيف يعمل كمفتاح عاكس (بوابة NOT)؟',
+    backEn: '• Currents: Total emitter current divides into base and collector: I_e = I_b + I_c. Current gain β = I_c / I_b = α / (1 - α).\n• Inverter (NOT Gate): Collector output voltage is V_ce = V_cc - I_c · R_c. When base input is HIGH (1), large I_b turns transistor ON, driving large I_c R_c drop, so output V_ce drops to near-zero LOW (0). When input is LOW (0), I_c = 0 and output V_ce = V_cc HIGH (1).',
+    backAr: '• التيارات: تيار الباعث ينقسم لقاعدة ومجمع: I_e = I_b + I_c، ومعامل التكبير β = I_c / I_b = α / (1 - α).\n• مفتاح عاكس: جهد الخرج V_ce = V_cc - I_c · R_c. عند إدخال جهد مرتفع (1) يمر تيار كبير في القاعدة والمجمع فيزداد هبوط الجهد I_c R_c ويكون الخرج صغيراً (0). وعندما يكون الدخل صغيراً (0) ينعدم التيار ويكون الخرج مرتفعاً (1).',
+    latex: 'I_e = I_b + I_c, \\quad \\beta = \\frac{I_c}{I_b} = \\frac{\\alpha}{1 - \\alpha}, \\quad V_{ce} = V_{cc} - I_c R_c',
+  },
 ];
 
 export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => {
@@ -322,6 +388,7 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
   const [selectedTopic, setSelectedTopic] = useState<string>('all');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
+  const [formulaMode, setFormulaMode] = useState<boolean>(false);
   const [masteredCards, setMasteredCards] = useState<Record<string, boolean>>({});
   const [shuffledCards, setShuffledCards] = useState<PhysicsFlashcard[]>(PHYSICS_FLASHCARDS);
 
@@ -379,7 +446,7 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
   };
 
   const topicOptions = [
-    { id: 'all', labelEn: 'All Topics (24 Cards)', labelAr: 'جميع فصول الفيزياء (٢٤ بطاقة)' },
+    { id: 'all', labelEn: 'All Topics (30 Cards)', labelAr: 'جميع فصول الفيزياء (٣٠ بطاقة)' },
     { id: 'circuits', labelEn: '1. DC Circuits & Kirchhoff', labelAr: '١. دوائر التيار وقانونا كيرشوف' },
     { id: 'magnetism', labelEn: '2. Magnetism & Instruments', labelAr: '٢. التأثير المغناطيسي وأجهزة القياس' },
     { id: 'induction', labelEn: '3. Induction & AC Dynamo', labelAr: '٣. الحث الكهرومغناطيسي والدينامو' },
@@ -422,6 +489,18 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
           </div>
 
           <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setFormulaMode(!formulaMode)}
+              title={isAr ? 'تحدي استرجاع القوانين الفيزيائية' : 'Formula Challenge Mode'}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                formulaMode
+                  ? 'bg-amber-500 text-slate-950 font-black shadow-md shadow-amber-500/30'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+              }`}
+            >
+              <span>⚡</span>
+              <span>{isAr ? 'تحدي القوانين' : 'Formula Mode'}</span>
+            </button>
             <button
               onClick={handleShuffle}
               title={isAr ? 'خلط البطاقات عشوائياً' : 'Shuffle Deck'}
@@ -486,13 +565,19 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             {/* Content Area */}
             <div className="my-6 flex-1 flex flex-col justify-center">
               {!isFlipped ? (
-                // Front: Question Prompt
+                // Front: Question Prompt or Formula Challenge
                 <div className="space-y-4 text-center sm:text-left rtl:sm:text-right">
                   <span className="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 block">
-                    {isAr ? 'سؤال الاستدعاء النشط:' : 'Active Recall Prompt:'}
+                    {formulaMode
+                      ? (isAr ? '⚡ تحدي استرجاع القانون الرياضي:' : '⚡ Formula Recall Challenge:')
+                      : (isAr ? 'سؤال الاستدعاء النشط:' : 'Active Recall Prompt:')}
                   </span>
                   <h3 className="text-base sm:text-lg lg:text-xl font-black leading-relaxed text-slate-100">
-                    {isAr ? activeCard.frontAr : activeCard.frontEn}
+                    {formulaMode
+                      ? (isAr
+                          ? `ما هي المعادلة الرياضية الأساسية لـ: "${activeCard.titleAr}"؟`
+                          : `What is the foundational mathematical formula for: "${activeCard.titleEn}"?`)
+                      : (isAr ? activeCard.frontAr : activeCard.frontEn)}
                   </h3>
                   <p className="text-xs text-slate-500 flex items-center justify-center sm:justify-start gap-1 pt-4">
                     <Eye className="w-3.5 h-3.5" />

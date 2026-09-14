@@ -10,12 +10,16 @@ import {
   Sparkles,
   Info,
   Radio,
+  Compass,
+  Atom,
 } from 'lucide-react';
 import { DynamoInductionLab } from './DynamoInductionLab';
 import { RLCResonanceLab } from './RLCResonanceLab';
 import { PhysicsFlashcards } from './PhysicsFlashcards';
+import { MagnetismLab } from './MagnetismLab';
+import { AtomicLaserLab } from './AtomicLaserLab';
 
-export type PhysicsTab = 'circuits' | 'photoelectric' | 'dynamo' | 'resonance' | 'flashcards';
+export type PhysicsTab = 'circuits' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
 
 interface Props {
   lang: Language;
@@ -238,9 +242,9 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
           </button>
 
           <button
-            onClick={() => setActiveTab('photoelectric')}
+            onClick={() => setActiveTab('magnetism')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
-              activeTab === 'photoelectric'
+              activeTab === 'magnetism'
                 ? isContrast
                   ? 'bg-cyan-400 text-black font-black'
                   : 'bg-cyan-600 text-white font-extrabold shadow-sm'
@@ -249,8 +253,8 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            <Sun className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}</span>
+            <Compass className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}</span>
           </button>
 
           <button
@@ -283,6 +287,38 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
           >
             <Radio className="w-3.5 h-3.5" />
             <span>{isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('photoelectric')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'photoelectric'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Sun className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('atomic_lasers')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'atomic_lasers'
+                ? isContrast
+                  ? 'bg-cyan-400 text-black font-black'
+                  : 'bg-cyan-600 text-white font-extrabold shadow-sm'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-900'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Atom className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}</span>
           </button>
 
           <button
@@ -943,6 +979,13 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
         </div>
       )}
 
+      {/* TAB 2: MAGNETISM & LORENTZ FORCE */}
+      {activeTab === 'magnetism' && (
+        <div className="mt-6">
+          <MagnetismLab lang={lang} theme={theme} />
+        </div>
+      )}
+
       {/* TAB 3: AC DYNAMO & INDUCTION */}
       {activeTab === 'dynamo' && (
         <div className="mt-6">
@@ -957,7 +1000,14 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
         </div>
       )}
 
-      {/* TAB 5: ACTIVE RECALL FLASHCARDS */}
+      {/* TAB 5: BOHR SPECTRA & LASERS */}
+      {activeTab === 'atomic_lasers' && (
+        <div className="mt-6">
+          <AtomicLaserLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB 6: ACTIVE RECALL FLASHCARDS */}
       {activeTab === 'flashcards' && (
         <div className="mt-6">
           <PhysicsFlashcards lang={lang} theme={theme} />

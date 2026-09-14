@@ -131,24 +131,32 @@ export const LessonView: React.FC<Props> = ({
       const wType = lesson.interactiveWidget?.type;
       if (wType === 'physics_circuits') {
         initialTab = 'circuits';
-      } else if (wType === 'physics_photoelectric') {
-        initialTab = 'photoelectric';
+      } else if (wType === 'physics_magnetism') {
+        initialTab = 'magnetism';
       } else if (wType === 'physics_dynamo') {
         initialTab = 'dynamo';
       } else if (wType === 'physics_resonance') {
         initialTab = 'resonance';
+      } else if (wType === 'physics_photoelectric') {
+        initialTab = 'photoelectric';
+      } else if (wType === 'physics_atomic_lasers') {
+        initialTab = 'atomic_lasers';
       } else if (wType === 'physics_flashcards') {
         initialTab = 'flashcards';
       } else {
-        if (lesson.id === 'th_phys_l1' || lesson.id === 'th_phys_l2' || lesson.id === 'egbac_phys_l3') {
+        if (lesson.id === 'th_phys_l1') {
           initialTab = 'circuits';
+        } else if (lesson.id === 'th_phys_l2' || lesson.id === 'egbac_phys_l3') {
+          initialTab = 'magnetism';
         } else if (lesson.id === 'th_phys_l3') {
           initialTab = 'dynamo';
         } else if (lesson.id === 'th_phys_l4' || lesson.id === 'egbac_phys_l4') {
           initialTab = 'resonance';
         } else if (lesson.id === 'th_phys_l5' || lesson.id === 'egbac_phys_l1') {
           initialTab = 'photoelectric';
-        } else if (lesson.id === 'th_phys_l6' || lesson.id === 'egbac_phys_l2' || lesson.id === 'egbac_phys_l5') {
+        } else if (lesson.id === 'th_phys_l6' || lesson.id === 'egbac_phys_l2') {
+          initialTab = 'atomic_lasers';
+        } else if (lesson.id === 'egbac_phys_l5') {
           initialTab = 'flashcards';
         }
       }

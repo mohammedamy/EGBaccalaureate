@@ -250,9 +250,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </span>
               {[
                 { id: 'circuits' as PhysicsTab, emoji: '⚡', labelEn: 'DC Circuits', labelAr: 'دوائر أوم وكيرشوف' },
-                { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric', labelAr: 'الظاهرة الكهروضوئية' },
+                { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Force', labelAr: 'المغناطيسية ولورنتز' },
                 { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo', labelAr: 'الدينامو والحث' },
                 { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance', labelAr: 'دوائر الرنين RLC' },
+                { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric', labelAr: 'الظاهرة الكهروضوئية' },
+                { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr & Lasers', labelAr: 'طيف بور والليزر' },
                 { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Flashcards', labelAr: 'بطاقات الاستذكار' },
               ].map((tab) => {
                 const isCurrent = activePhysTab === tab.id;

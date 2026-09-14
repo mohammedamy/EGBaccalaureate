@@ -355,5 +355,60 @@ export const desmosPresets: DesmosPreset[] = [
       '(0, V_B)',
       '(\\frac{V_B}{r}, 0)'
     ]
+  },
+  {
+    id: 'phys_magnetic_force_angle',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Magnetic Force vs. Angle: F = B·I·L·sin(θ)',
+    titleAr: 'القوة المغناطيسية المؤثرة على سلك بدلالة زاوية الميل',
+    descEn: 'Lorentz magnetic force on current-carrying wire as angle theta varies from 0 to 180 degrees, illustrating perpendicular maximum.',
+    descAr: 'القوة المغناطيسية F بدلالة الزاوية سيتا من صفر إلى ١٨٠ درجة وتوضيح القيمة العظمى عند التعامد وانعدامها عند التوازي.',
+    latex: 'F(\\theta) = B \\cdot I \\cdot L \\cdot \\sin(\\theta)',
+    expressions: [
+      'B = 0.8',
+      'I = 5',
+      'L = 0.5',
+      'F(x) = B \\cdot I \\cdot L \\cdot \\sin(x) \\left\\{0 \\le x \\le \\pi\\right\\}',
+      '(\\frac{\\pi}{2}, B \\cdot I \\cdot L)',
+      '(0, 0)',
+      '(\\pi, 0)'
+    ]
+  },
+  {
+    id: 'phys_bohr_spectral_series',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'Hydrogen Bohr Spectral Transitions: Rydberg Formula',
+    titleAr: 'أطوال موجات طيف ذرة الهيدروجين: صيغة ريدبرج',
+    descEn: 'Wavelength lambda as a function of upper principal quantum number n for Lyman (n1=1) and Balmer (n1=2) series.',
+    descAr: 'حساب الطول الموجي للفوتون المنبعث بدلالة رقم مستوى الطاقة n لمجموعتي ليمان وبالمر.',
+    latex: '\\lambda(n) = \\frac{1}{R_H \\left(\\frac{1}{n_1^2} - \\frac{1}{n^2}\\right)}',
+    expressions: [
+      'R_H = 1.097 \\times 10^7',
+      'n_1 = 2',
+      '\\lambda(x) = \\frac{10^9}{R_H \\cdot (\\frac{1}{n_1^2} - \\frac{1}{x^2})} \\left\\{x \\ge n_1 + 0.1\\right\\}',
+      '(3, 656)',
+      '(4, 486)',
+      '(5, 434)'
+    ]
+  },
+  {
+    id: 'phys_transistor_loadline',
+    category: 'scientific',
+    mode: '2d',
+    titleEn: 'BJT Transistor DC Load Line & Q-Point',
+    titleAr: 'خط الحمل المستمر للترانزستور ونقطة التشغيل',
+    descEn: 'Common-emitter output DC load line IC(VCE) connecting cutoff (VCC, 0) and saturation (0, VCC/RC) with active Q-point.',
+    descAr: 'خط الحمل الاستاتيكي للترانزستور في دائرة الباعث المشترك وتحديد منطقة القطع والتشبع ونقطة التشغيل Q.',
+    latex: 'I_C = \\frac{V_{CC} - V_{CE}}{R_C}',
+    expressions: [
+      'V_{CC} = 15',
+      'R_C = 3',
+      'I_C(x) = \\frac{V_{CC} - x}{R_C} \\left\\{0 \\le x \\le V_{CC}\\right\\}',
+      '(0, \\frac{V_{CC}}{R_C})',
+      '(V_{CC}, 0)',
+      '(7.5, 2.5)'
+    ]
   }
 ];

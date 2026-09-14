@@ -97,7 +97,12 @@ export type DiagramType =
   | 'phys_solenoid_magnetic_field'
   | 'phys_dynamo_generator'
   | 'phys_rlc_resonance_phasor'
-  | 'phys_photoelectric_circuit';
+  | 'phys_photoelectric_circuit'
+  | 'phys_transformer'
+  | 'phys_galvanometer_multiplier'
+  | 'phys_bohr_atom_series'
+  | 'phys_coolidge_xray_tube'
+  | 'phys_pn_junction_transistor';
 
 export interface SolvedProblem {
   id: string;
@@ -173,7 +178,9 @@ export type InteractiveWidgetType =
   | 'physics_photoelectric'
   | 'physics_dynamo'
   | 'physics_resonance'
-  | 'physics_flashcards';
+  | 'physics_flashcards'
+  | 'physics_magnetism'
+  | 'physics_atomic_lasers';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

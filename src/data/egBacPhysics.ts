@@ -454,6 +454,7 @@ export const egBacPhysicsBranch: Branch = {
                 "titleEn": "Shortest Wavelength of Balmer Series (Series Limit)",
                 "titleAr": "أقصر طول موجي في متسلسلة بالمر (حد المتسلسلة)",
                 "difficulty": "medium",
+                "diagramType": "phys_bohr_atom_series",
                 "questionEn": "What is the shortest wavelength (series limit) emitted in the Balmer series of hydrogen ($n_1 = 2$), given that $R_H = 1.097 \\times 10^7\\,\\text{m}^{-1}$?",
                 "questionAr": "ما هو أقصر طول موجي (حد المتسلسلة) المنبعث في متسلسلة بالمر لذرة الهيدروجين ($n_1 = 2$)، علماً بأن $R_H = 1.097 \\times 10^7\\,\\text{m}^{-1}$؟",
                 "optionsEn": [
@@ -490,6 +491,7 @@ export const egBacPhysicsBranch: Branch = {
                 "titleEn": "Accelerating Voltage in Coolidge X-Ray Tube",
                 "titleAr": "حساب جهد التعجيل في أنبوبة كولدج للأشعة السينية",
                 "difficulty": "medium",
+                "diagramType": "phys_coolidge_xray_tube",
                 "questionEn": "If the minimum wavelength of continuous X-rays emitted from a Coolidge tube is $0.031\\,\\text{nm}$, what is the operating potential difference across the tube?",
                 "questionAr": "إذا كان أقصر طول موجي للأشعة السينية المستمرة المنبعثة من أنبوبة كولدج هو $0.031\\,\\text{nm}$، فما هو فرق الجهد المعجل بين القطبين؟",
                 "optionsEn": [
@@ -562,7 +564,7 @@ export const egBacPhysicsBranch: Branch = {
             ]
           },
           "interactiveWidget": {
-            "type": "physics_flashcards",
+            "type": "physics_atomic_lasers",
             "titleEn": "Hydrogen Orbit & X-Ray Spectrum Simulator",
             "titleAr": "محاكي مدارات الهيدروجين وطيف الأشعة السينية",
             "descriptionEn": "Interactive atomic visualizer calculating Bohr transitions and continuous vs characteristic X-ray emission lines.",
@@ -817,7 +819,7 @@ export const egBacPhysicsBranch: Branch = {
             ]
           },
           "interactiveWidget": {
-            "type": "physics_circuits",
+            "type": "physics_atomic_lasers",
             "titleEn": "Laser Pumping & Resonator Mode Simulator",
             "titleAr": "محاكي ضخ الليزر وأنماط التجويف الرنيني",
             "descriptionEn": "Interactive simulator visualizing population inversion, He-Ne energy transfer, and resonant cavity standing waves.",
@@ -1000,6 +1002,7 @@ export const egBacPhysicsBranch: Branch = {
                 "titleEn": "Current Gain & Output Voltage in Common-Emitter BJT",
                 "titleAr": "معامل تكبير التيار وجهد الخرج في ترانزستور الباعث المشترك",
                 "difficulty": "medium",
+                "diagramType": "phys_pn_junction_transistor",
                 "questionEn": "In a common-emitter amplifier circuit, the collector load resistor is $R_c = 4.0\\,\\text{k}\\Omega$ and the supply voltage is $V_{cc} = 12.0\\,\\text{V}$. If $\\beta = 100$ and base current is $I_b = 20\\,\\mu\\text{A}$, what is the output voltage $V_{ce}$?",
                 "questionAr": "في دائرة مكبر باعث مشترك، مقاومة المجمع $R_c = 4.0\\,\\text{k}\\Omega$ وبطارية التغذية $V_{cc} = 12.0\\,\\text{V}$. إذا كان معامل التكبير $\\beta = 100$ وتيار القاعدة $I_b = 20\\,\\mu\\text{A}$، فما هو فرق جهد الخرج $V_{ce}$ بين المجمع والباعث؟",
                 "optionsEn": [
