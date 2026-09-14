@@ -170,11 +170,11 @@ If an action can be performed in $m$ different ways and a second independent act
                 ],
                 differentiationEn: {
                   struggling: 'Provide a flow-chart decision tree: "Does Order Matter? -> Yes (P) / No (C)" and quick calculator shortcut sheet (nPr and nCr keys).',
-                  advanced: 'Challenge students to prove the algebraic sum identity: sum_{r=0}^{n} C(n,r) = 2^n using counting argument.'
+                  advanced: 'Challenge students to prove the algebraic sum identity: $\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$ using counting argument.'
                 },
                 differentiationAr: {
                   struggling: 'تزويد الطلاب بمخطط تدفق ذهني: "هل الترتيب مهم؟ -> نعم (تباديل) / لا (توافيق)" مع ورقة إرشادات استخدام الآلة الحاسبة (زر nPr وزر nCr).',
-                  advanced: 'تحدي الطلاب المتميزين لإثبات مجموع التوافيق sum_{r=0}^{n} C(n,r) = 2^n باستخدام تفسير مبدأ العد.'
+                  advanced: 'تحدي الطلاب المتميزين لإثبات متطابقة مجموع التوافيق $\\sum_{r=0}^{n} \\binom{n}{r} = 2^n$ باستخدام تفسير مبدأ العد.'
                 },
                 formativeAssessmentEn: 'Solve on board: If C(n, 8) = C(n, 6), find the value of n and then calculate P(n, 2).',
                 formativeAssessmentAr: 'حل على السبورة: إذا كان ق(ن، ٨) = ق(ن، ٦)، فاحسب قيمة ن، ثم أوجد ل(ن، ٢).',

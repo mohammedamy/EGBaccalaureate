@@ -288,10 +288,21 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   const renderMathAndText = (str: string): React.ReactNode => {
     // 1. Pre-repair: fix common malformed delimiters in strings
     // e.g. orphaned \beta$ -> $\beta$
-    const repairedStr = str.replace(
+    let repairedStr = str.replace(
       /(^|[^\$])(\\[a-zA-Z]+(?:\^\{[^{}]*\}|_[^{}]*\}|\^[0-9a-zA-Z]+|_[0-9a-zA-Z]+)?)\$/g,
       (_m, p1, p2) => `${p1}$${p2}$`
     );
+
+    // Auto-repair un-backslashed or un-delimited mathematical expressions (e.g. sum_{r=0}^{n} C(n,r) = 2^n)
+    repairedStr = repairedStr
+      .replace(/(^|[^\$\\])\b(sum|prod|int|lim)(_(?:\{[^}]*\}|[0-9a-zA-Z]))/g, (_m, p1, p2, p3) => `${p1}\\${p2}${p3}`)
+      .replace(
+        /(^|[^\$])(\\(?:sum|prod|int|lim)(?:_\{[^}]*\}|_[0-9a-zA-Z])?(?:\^\{[^}]*\}|\^[0-9a-zA-Z])?(?:\s+[a-zA-Z0-9_\^(){}\\+*\-\/,]+)*(?:\s*[=><]\s*[a-zA-Z0-9_\^(){}\\+*\-\/,]+)?)(?=$|[\s,;]+(?:using|where|and|or|if|with|in|when)\b|[\s,;]+[\u0600-\u06FF]|\)|$)/g,
+        (match, prefix, mathExpr) => {
+          if (!mathExpr || mathExpr.trim().length < 3) return match;
+          return `${prefix}$${mathExpr.trim()}$`;
+        }
+      );
 
     // 2. Split by all standard math delimiters: $$...$$, $...$, \[...\], \(...\)
     const parts = repairedStr.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
