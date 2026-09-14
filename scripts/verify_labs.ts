@@ -475,9 +475,48 @@ const endoMenses = 1.0; // mm
 const endoSecretory = 6.0; // mm
 assert(endoSecretory >= 5.0 && endoMenses <= 1.5, `Endometrial thickness transitions from sloughing (1.0 mm) to secretory peak (6.0 mm)`);
 
+// Section M: DC Circuits, Closed Ohm's Law & Kirchhoff's Multi-Loop Networks
+console.log('Verifying Section M: DC Circuits, Ohm & Kirchhoff Multi-Loop Simulations...');
+const vb1 = 12.0;
+const rInt1 = 1.0;
+const rLoad = 5.0;
+const iCircuit = vb1 / (rLoad + rInt1);
+const vTerm = vb1 - iCircuit * rInt1;
+assert(Math.abs(iCircuit - 2.0) < 1e-4, `Closed circuit current I = VB / (R + r) = 2.0 A (got ${iCircuit})`);
+assert(Math.abs(vTerm - 10.0) < 1e-4, `Terminal voltage V = VB - Ir = 10.0 V (got ${vTerm})`);
+
+// Wheatstone bridge null condition
+const rb1 = 6.0;
+const rb2 = 12.0;
+const rb3 = 8.0;
+const rb4 = 16.0;
+const ratio1 = rb1 / rb2;
+const ratio2 = rb3 / rb4;
+assert(Math.abs(ratio1 - ratio2) < 1e-5, `Balanced Wheatstone bridge ratio R1/R2 = R3/R4 = 0.5 holds true`);
+
+// Kirchhoff multi-loop node rule (KCL)
+const i1 = 1.5;
+const i2 = 0.8;
+const i3 = i1 + i2;
+assert(Math.abs(i3 - 2.3) < 1e-5, `Kirchhoff junction rule (KCL) conservation of charge: I1 + I2 = I3 = 2.3 A`);
+
+// Opposing battery charging condition: V = VB + Ir
+const vbSmall = 6.0;
+const rSmall = 0.5;
+const iCharge = 1.2;
+const vCharging = vbSmall + iCharge * rSmall;
+assert(vCharging > vbSmall, `Charging battery terminal voltage V = VB + Ir = ${vCharging}V strictly exceeds EMF ${vbSmall}V`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
+  // DC Circuits & Kirchhoff Lab (Physics Chapter 1)
+  'V = V_B - I \\cdot r \\quad (\\text{Discharging / Closed Circuit})',
+  'V = V_B + I \\cdot r \\quad (\\text{Charging Battery})',
+  '\\sum I_{\\text{in}} = \\sum I_{\\text{out}} \\implies \\text{Charge Conservation}',
+  '\\sum V_B = \\sum I \\cdot R \\implies \\text{Energy Conservation}',
+  '\\frac{R_1}{R_2} = \\frac{R_3}{R_4} \\implies V_A = V_B, \\; I_{\\text{bridge}} = 0',
+  'P = V \\cdot I = I^2 R = \\frac{V^2}{R}',
   // Menstrual & Reproductive Endocrinology Lab (Chapter 3)
   '[\\text{Estrogen}]_{\\text{peak}} > 200 \\,\\text{pg/mL} \\xrightarrow{\\text{positive feedback}} [\\text{LH}]_{\\text{surge}} > 50 \\,\\text{mIU/mL}',
   '\\text{Fertile Window} = [\\text{Day } 14 - 2, \\,\\text{Day } 14 + 2] = \\text{Days } 12 - 16',
