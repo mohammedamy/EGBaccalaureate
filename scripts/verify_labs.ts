@@ -48,6 +48,7 @@ const labComponents = [
   'src/components/labs/MathLab.tsx',
   'src/components/labs/PhysicsLab.tsx',
   'src/components/labs/ChemistryLab.tsx',
+  'src/components/labs/TransitionMetalsLab.tsx',
   'src/components/labs/BiologyLab.tsx',
   'src/components/labs/EndocrineLab.tsx',
   'src/components/labs/MenstrualCycleLab.tsx',
@@ -555,9 +556,71 @@ const addedCl = 0.1;
 const sCommon = kspAgCl / addedCl;
 assert(sCommon < sPure, `Common Ion Effect: Added 0.1M Cl- suppresses AgCl solubility from ${sPure.toExponential(2)} to ${sCommon.toExponential(2)} M`);
 
+// O. Chemistry Chapter 1: First Transition Series, Gouy Magnetic Balance & Metallurgy
+console.log('\n--- O. Transition Elements, Gouy Magnetic Moment & Metallurgy ---');
+
+// 1. Spin-Only Magnetic Moments
+
+// Chromium atom: n=6 (4s¹ 3d⁵)
+const muCrAtom = calcMagneticMoment(6);
+assert(Math.abs(muCrAtom - 6.928) < 1e-2, `Chromium atom magnetic moment (n=6): μ = ${muCrAtom.toFixed(2)} BM (expected 6.93 BM)`);
+
+// Fe³⁺ ion: n=5 (3d⁵)
+const muFe3 = calcMagneticMoment(5);
+assert(Math.abs(muFe3 - 5.916) < 1e-2, `Fe³⁺ magnetic moment (n=5): μ = ${muFe3.toFixed(2)} BM (expected 5.92 BM)`);
+
+// Fe²⁺ ion: n=4 (3d⁶)
+const muFe2 = calcMagneticMoment(4);
+assert(Math.abs(muFe2 - 4.899) < 1e-2, `Fe²⁺ magnetic moment (n=4): μ = ${muFe2.toFixed(2)} BM (expected 4.90 BM)`);
+
+// Cr³⁺ ion: n=3 (3d³)
+const muCr3 = calcMagneticMoment(3);
+assert(Math.abs(muCr3 - 3.873) < 1e-2, `Cr³⁺ magnetic moment (n=3): μ = ${muCr3.toFixed(2)} BM (expected 3.87 BM)`);
+
+// Ni²⁺ ion: n=2 (3d⁸)
+const muNi2 = calcMagneticMoment(2);
+assert(Math.abs(muNi2 - 2.828) < 1e-2, `Ni²⁺ magnetic moment (n=2): μ = ${muNi2.toFixed(2)} BM (expected 2.83 BM)`);
+
+// Cu²⁺ ion: n=1 (3d⁹)
+const muCu2 = calcMagneticMoment(1);
+assert(Math.abs(muCu2 - 1.732) < 1e-2, `Cu²⁺ magnetic moment (n=1): μ = ${muCu2.toFixed(2)} BM (expected 1.73 BM)`);
+
+// Zn²⁺ ion and Sc³⁺ ion: n=0 (3d⁰ or 3d¹⁰) -> Diamagnetic
+const muZn2 = calcMagneticMoment(0);
+const muSc3 = calcMagneticMoment(0);
+assert(muZn2 === 0 && muSc3 === 0, `Zn²⁺ and Sc³⁺ diamagnetic moments: μ = 0 BM (n=0)`);
+
+// 2. Gouy Balance Apparent Mass Deflection
+// Paramagnetic pulls into field -> Delta m > 0; Diamagnetic repelled -> Delta m <= 0
+const bField = 1.5; // Tesla
+const deltaM_Fe3 = (5 * 7 * 1250 / 85) * bField * bField; // mg > 0
+const deltaM_Zn2 = -0.8 * bField * bField; // mg < 0
+assert(deltaM_Fe3 > 0, `Gouy Balance Paramagnetic Attraction: Fe³⁺ gains apparent mass Δm = +${deltaM_Fe3.toFixed(2)} mg`);
+assert(deltaM_Zn2 < 0, `Gouy Balance Diamagnetic Repulsion: Zn²⁺ apparent mass deflection Δm = ${deltaM_Zn2.toFixed(2)} mg`);
+
+// 3. Blast Furnace Selective Thermal Reduction
+function getBlastProduct(tCelsius: number): string {
+  if (tCelsius < 400) return 'Fe3O4';
+  if (tCelsius <= 700) return 'FeO';
+  return 'Fe';
+}
+assert(getBlastProduct(280) === 'Fe3O4', 'Blast furnace upper stack (230-300°C) reduces Fe2O3 to Fe3O4');
+assert(getBlastProduct(550) === 'FeO', 'Blast furnace middle stack (400-700°C) reduces to FeO');
+assert(getBlastProduct(900) === 'Fe', 'Blast furnace lower hearth (>700°C) reduces to molten Fe');
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
+  // First Transition Series & Iron Metallurgy (Chemistry Chapter 1)
+  '3\\text{Fe}_2\\text{O}_3 + \\text{CO} \\xrightarrow{230-300^\\circ\\text{C}} 2\\text{Fe}_3\\text{O}_4 + \\text{CO}_2',
+  '\\text{Fe}_3\\text{O}_4 + \\text{CO} \\xrightarrow{400-700^\\circ\\text{C}} 3\\text{FeO} + \\text{CO}_2',
+  '\\text{FeO} + \\text{CO} \\xrightarrow{>700^\\circ\\text{C}} \\text{Fe} + \\text{CO}_2',
+  '\\text{CaO} + \\text{SiO}_2 \\to \\text{CaSiO}_3 \\quad (\\text{Molten Slag})',
+  '2\\text{Fe}_2\\text{O}_3 + 3\\text{CO} + 3\\text{H}_2 \\to 4\\text{Fe} + 3\\text{CO}_2 + 3\\text{H}_2\\text{O}',
+  '2\\text{CH}_4 + \\text{CO}_2 + \\text{H}_2\\text{O} \\to 3\\text{CO} + 5\\text{H}_2',
+  '\\text{Cr} \\implies [\\text{Ar}]\\, 4s^1 3d^5 \\implies n=6, \\; \\mu = \\sqrt{48} \\approx 6.93\\,\\text{BM}',
+  '\\text{Cu} \\implies [\\text{Ar}]\\, 4s^1 3d^{10}, \\quad \\text{Cu}^{2+} \\implies [\\text{Ar}]\\, 3d^9',
+  '\\Delta m = \\frac{\\chi \\cdot B \\cdot \\frac{dB}{dz}}{g}',
   // Chemical & Ionic Equilibrium Lab (Chemistry Chapter 3)
   'K_c = \\frac{[C]^c [D]^d}{[A]^a [B]^b}',
   '\\alpha = \\sqrt{\\frac{K_a}{C_a}} \\implies [\\text{H}_3\\text{O}^+] = \\sqrt{K_a \\cdot C_a} = \\alpha \\cdot C_a',
