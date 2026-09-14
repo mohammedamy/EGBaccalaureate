@@ -11,6 +11,7 @@ import {
   Compass,
   Radio,
 } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -416,10 +417,18 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             </svg>
           </div>
 
-          <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
-            <span className="text-emerald-400 font-bold">f₀ = 1 / (2π√LC)</span>
-            <span className="text-sky-400 font-bold">Z_min = R ({formatNum(resistanceR, 0)} Ω)</span>
-            <span className="text-amber-400 font-bold">I_max = V / R ({formatNum(currentAtResonance, 2)} A)</span>
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300 px-1">
+            <div className="flex items-center gap-1">
+              <MathRenderer math="f_0 = \frac{1}{2\pi\sqrt{LC}}" inline lang={lang} />
+            </div>
+            <div className="flex items-center gap-1">
+              <MathRenderer math="Z_{\min} = R" inline lang={lang} />
+              <span className="text-slate-400 font-mono text-[11px]">({formatNum(resistanceR, 0)} Ω)</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <MathRenderer math="I_{\max} = \frac{V}{R}" inline lang={lang} />
+              <span className="text-slate-400 font-mono text-[11px]">({formatNum(currentAtResonance, 2)} A)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -427,74 +436,80 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       {/* Numerical Metrics Deck */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'المعاوقة الكلية (Z)' : 'Impedance (Z)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'المعاوقة' : 'Impedance'}</span>
+            <MathRenderer math="(Z)" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-sky-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-sky-400 font-mono block my-0.5">
             {formatNum(impedanceZ, 1)} Ω
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = √(R² + (X_L - X_C)²)
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= \sqrt{R^2 + (X_L - X_C)^2}" inline lang={lang} />
           </span>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'المفاعلة الحثية (X_L)' : 'Inductive (X_L)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'المفاعلة الحثية' : 'Inductive'}</span>
+            <MathRenderer math="(X_L)" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-amber-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-amber-400 font-mono block my-0.5">
             {formatNum(xL, 1)} Ω
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = 2πfL
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= 2\pi f L" inline lang={lang} />
           </span>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'المفاعلة السعوية (X_C)' : 'Capacitive (X_C)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'المفاعلة السعوية' : 'Capacitive'}</span>
+            <MathRenderer math="(X_C)" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-purple-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-purple-400 font-mono block my-0.5">
             {formatNum(xC, 1)} Ω
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = 1 / (2πfC)
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= \frac{1}{2\pi f C}" inline lang={lang} />
           </span>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'شدة التيار (I_rms)' : 'Current (I_rms)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'شدة التيار' : 'Current'}</span>
+            <MathRenderer math="(I_{\text{rms}})" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-emerald-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-emerald-400 font-mono block my-0.5">
             {formatNum(currentRms, 2)} A
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = V / Z
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= \frac{V}{Z}" inline lang={lang} />
           </span>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'معامل الجودة (Q)' : 'Quality Factor (Q)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'معامل الجودة' : 'Quality'}</span>
+            <MathRenderer math="(Q)" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-pink-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-pink-400 font-mono block my-0.5">
             {formatNum(qualityFactor, 2)}
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = (1/R)·√(L/C)
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= \frac{1}{R}\sqrt{\frac{L}{C}}" inline lang={lang} />
           </span>
         </div>
 
         <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-[11px] text-slate-400 block font-medium">
-            {isArabic ? 'عرض النطاق (Δf)' : 'Bandwidth (Δf)'}
+          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+            <span>{isArabic ? 'عرض النطاق' : 'Bandwidth'}</span>
+            <MathRenderer math="(\Delta f)" inline lang={lang} />
           </span>
-          <span className="text-base sm:text-lg font-black text-cyan-400 font-mono">
+          <span className="text-base sm:text-lg font-black text-cyan-400 font-mono block my-0.5">
             {formatNum(bandwidthDeltaF, 1)} Hz
           </span>
-          <span className="text-[10px] text-slate-500 block font-mono">
-            = R / (2πL)
+          <span className="text-[10px] text-slate-500 block">
+            <MathRenderer math="= \frac{R}{2\pi L}" inline lang={lang} />
           </span>
         </div>
       </div>
@@ -642,11 +657,16 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {isArabic ? 'شروط حالة الرنين في دائرة RLC' : 'Resonance Conditions'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'تتساوى المفاعلة الحثية مع السعوية (X_L = X_C)، وتلغي كل منهما تأثير الأخرى لأن زاوية الطور بينهما 180°. تصبح المعاوقة أقل ما يمكن (Z = R) والتيار أكبر ما يمكن (I = V/R).'
-              : 'X_L = X_C cancel each other out due to 180° phase opposition. Impedance is minimized to Z = R and current is maximized to I = V/R with zero phase angle.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'تتساوى المفاعلة الحثية مع السعوية ($X_L = X_C$)، وتلغي كل منهما تأثير الأخرى لأن زاوية الطور بينهما 180°. تصبح المعاوقة أقل ما يمكن ($Z = R$) والتيار أكبر ما يمكن ($I = \\frac{V}{R}$).'
+                  : '$X_L = X_C$ cancel each other out due to 180° phase opposition. Impedance is minimized to $Z = R$ and current is maximized to $I = \\frac{V}{R}$ with zero phase angle.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -656,11 +676,16 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {isArabic ? 'تطبيقات الرنين: دوائر التوليف (الاستقبال)' : 'Tuning & Receiver Circuits'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'في أجهزة الراديو والاستقبال اللاسلكي، نغير سعة المكثف المتغير C حتى يتساوى تردد الدائرة f₀ مع تردد المحطة الإذاعية المراد التقاطها، فيمر تيار المحطة فقط بأقصى شدة.'
-              : 'In radio receivers, variable capacitance C is adjusted until the resonant frequency f0 matches the incoming broadcast frequency, allowing only that station signal to pass at peak amplitude.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'في أجهزة الراديو والاستقبال اللاسلكي، نغير سعة المكثف المتغير $C$ حتى يتساوى تردد الدائرة $f_0$ مع تردد المحطة الإذاعية المراد التقاطها، فيمر تيار المحطة فقط بأقصى شدة.'
+                  : 'In radio receivers, variable capacitance $C$ is adjusted until the resonant frequency $f_0$ matches the incoming broadcast frequency, allowing only that station signal to pass at peak amplitude.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -670,11 +695,16 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {isArabic ? 'معامل الجودة وحدّة الرنين' : 'Quality Factor & Selectivity'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'معامل الجودة Q يعبر عن قدرة الدائرة على الانتقاء والتوليف الحاد. كلما قلت المقاومة R، زاد معامل الجودة وأصبح منحنى الرنين أكثر حدة وارتفاعاً وضاق عرض النطاق Δf.'
-              : 'Quality factor Q represents tuning sharpness. Smaller resistance R leads to higher Q, sharper peak resonance, and narrower bandwidth Δf for crisp station separation.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'معامل الجودة $Q$ يعبر عن قدرة الدائرة على الانتقاء والتوليف الحاد. كلما قلت المقاومة $R$، زاد معامل الجودة وأصبح منحنى الرنين أكثر حدة وارتفاعاً وضاق عرض النطاق $\\Delta f$.'
+                  : 'Quality factor $Q$ represents tuning sharpness. Smaller resistance $R$ leads to higher $Q$, sharper peak resonance, and narrower bandwidth $\\Delta f$ for crisp station separation.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
       </div>
     </div>

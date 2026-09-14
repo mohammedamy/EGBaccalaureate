@@ -11,6 +11,7 @@ import {
   Sparkles,
   Flame,
 } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -24,6 +25,8 @@ interface Electrode {
   symbol: string;
   ionEn: string;
   ionAr: string;
+  metalLatex?: string;
+  ionLatex?: string;
   e0Reduction: number; // Standard Reduction Potential (V)
   valence: number; // n electrons transferred
   solutionColor: string; // CSS color representation
@@ -38,6 +41,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Mg',
     ionEn: 'Mg²⁺',
     ionAr: '²⁺Mg',
+    metalLatex: '\\text{Mg}',
+    ionLatex: '\\text{Mg}^{2+}',
     e0Reduction: -2.37,
     valence: 2,
     solutionColor: 'rgba(241, 245, 249, 0.25)',
@@ -50,6 +55,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Al',
     ionEn: 'Al³⁺',
     ionAr: '³⁺Al',
+    metalLatex: '\\text{Al}',
+    ionLatex: '\\text{Al}^{3+}',
     e0Reduction: -1.66,
     valence: 3,
     solutionColor: 'rgba(241, 245, 249, 0.2)',
@@ -62,6 +69,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Zn',
     ionEn: 'Zn²⁺',
     ionAr: '²⁺Zn',
+    metalLatex: '\\text{Zn}',
+    ionLatex: '\\text{Zn}^{2+}',
     e0Reduction: -0.76,
     valence: 2,
     solutionColor: 'rgba(248, 250, 252, 0.2)',
@@ -74,6 +83,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Fe',
     ionEn: 'Fe²⁺',
     ionAr: '²⁺Fe',
+    metalLatex: '\\text{Fe}',
+    ionLatex: '\\text{Fe}^{2+}',
     e0Reduction: -0.44,
     valence: 2,
     solutionColor: 'rgba(74, 222, 128, 0.25)', // pale green
@@ -86,6 +97,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Ni',
     ionEn: 'Ni²⁺',
     ionAr: '²⁺Ni',
+    metalLatex: '\\text{Ni}',
+    ionLatex: '\\text{Ni}^{2+}',
     e0Reduction: -0.25,
     valence: 2,
     solutionColor: 'rgba(34, 197, 94, 0.3)', // green
@@ -98,6 +111,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Pb',
     ionEn: 'Pb²⁺',
     ionAr: '²⁺Pb',
+    metalLatex: '\\text{Pb}',
+    ionLatex: '\\text{Pb}^{2+}',
     e0Reduction: -0.13,
     valence: 2,
     solutionColor: 'rgba(226, 232, 240, 0.2)',
@@ -110,6 +125,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Pt/H₂',
     ionEn: '2H⁺',
     ionAr: '⁺2H',
+    metalLatex: '\\text{H}_2',
+    ionLatex: '2\\text{H}^+',
     e0Reduction: 0.00,
     valence: 2,
     solutionColor: 'rgba(241, 245, 249, 0.15)',
@@ -122,6 +139,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Cu',
     ionEn: 'Cu²⁺',
     ionAr: '²⁺Cu',
+    metalLatex: '\\text{Cu}',
+    ionLatex: '\\text{Cu}^{2+}',
     e0Reduction: +0.34,
     valence: 2,
     solutionColor: 'rgba(56, 189, 248, 0.45)', // bright blue CuSO4
@@ -134,6 +153,8 @@ const ELECTRODES: Electrode[] = [
     symbol: 'Ag',
     ionEn: 'Ag⁺',
     ionAr: '⁺Ag',
+    metalLatex: '\\text{Ag}',
+    ionLatex: '\\text{Ag}^+',
     e0Reduction: +0.80,
     valence: 1,
     solutionColor: 'rgba(248, 250, 252, 0.2)',
@@ -542,27 +563,34 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
               <span className="text-3xl sm:text-4xl font-black text-emerald-400 font-mono tracking-tight">
                 {formatNum(eCell, 3)} V
               </span>
-              <p className="text-xs text-slate-400 mt-1 font-mono">
-                E°_cell = {formatNum(e0Cell, 2)} V
-              </p>
+              <div className="text-xs text-slate-300 mt-1 flex items-center justify-center gap-1.5">
+                <MathRenderer math="E^\circ_{\text{cell}} =" inline lang={lang} />
+                <span className="font-mono font-bold text-amber-400">{formatNum(e0Cell, 2)} V</span>
+              </div>
             </div>
 
             {/* Nernst Formula Breakdown */}
             <div className="mt-3 p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-xs space-y-1.5">
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <span className="text-slate-400">{isArabic ? 'جهد الاختزال للمهبط:' : 'Cathode E°:'}</span>
                 <span className="font-mono text-sky-400 font-bold">{formatNum(cathode.e0Reduction, 2)} V</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <span className="text-slate-400">{isArabic ? 'جهد الاختزال للمصعد:' : 'Anode E°:'}</span>
                 <span className="font-mono text-rose-400 font-bold">{formatNum(anode.e0Reduction, 2)} V</span>
               </div>
-              <div className="flex justify-between pt-1 border-t border-slate-800">
-                <span className="text-slate-400">{isArabic ? 'تصحيح نيرنست (-RT/nF ln Q):' : 'Nernst Term:'}</span>
+              <div className="flex justify-between items-center pt-1 border-t border-slate-800">
+                <span className="text-slate-400 flex items-center gap-1">
+                  <span>{isArabic ? 'تصحيح نيرنست:' : 'Nernst Term:'}</span>
+                  <MathRenderer math="-\frac{RT}{nF}\ln Q" inline lang={lang} />
+                </span>
                 <span className="font-mono text-amber-400 font-bold">-{formatNum(nernstCorrection, 4)} V</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">{isArabic ? 'تغير طاقة جيبس (ΔG):' : 'Gibbs Energy (ΔG):'}</span>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-400 flex items-center gap-1">
+                  <span>{isArabic ? 'تغير طاقة جيبس:' : 'Gibbs Energy:'}</span>
+                  <MathRenderer math="(\Delta G)" inline lang={lang} />
+                </span>
                 <span className="font-mono text-emerald-400 font-bold">{formatNum(deltaG_kJ, 1)} kJ/mol</span>
               </div>
             </div>
@@ -578,18 +606,26 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
               <span className="text-[10px] font-bold text-rose-400 block">
                 {isArabic ? 'أكسدة عند المصعد (Anode Oxidation):' : 'Anode Oxidation:'}
               </span>
-              <p className="font-mono text-slate-200">
-                {anode.symbol} ⟶ {anode.ionEn} + {anode.valence}e⁻
-              </p>
+              <div className="text-slate-200">
+                <MathRenderer
+                  math={`${anode.metalLatex || anode.symbol} \\longrightarrow ${anode.ionLatex || anode.ionEn} + ${anode.valence}e^-`}
+                  inline
+                  lang={lang}
+                />
+              </div>
             </div>
 
             <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800 text-xs space-y-1">
               <span className="text-[10px] font-bold text-sky-400 block">
                 {isArabic ? 'اختزال عند المهبط (Cathode Reduction):' : 'Cathode Reduction:'}
               </span>
-              <p className="font-mono text-slate-200">
-                {cathode.ionEn} + {cathode.valence}e⁻ ⟶ {cathode.symbol}
-              </p>
+              <div className="text-slate-200">
+                <MathRenderer
+                  math={`${cathode.ionLatex || cathode.ionEn} + ${cathode.valence}e^- \\longrightarrow ${cathode.metalLatex || cathode.symbol}`}
+                  inline
+                  lang={lang}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -730,11 +766,16 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
               {isArabic ? 'وظيفة القنطرة الملحية وأهميتها' : 'Salt Bridge Critical Functions'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'تصل بين محلولي نصفي الخلية بطريقة غير مباشرة، وتعادل الشحنات الموجبة الزائدة عند المصعد والشحنات السالبة عند المهبط، وتغلق الدائرة الكهربية. إزالتها توقف التيار فوراً.'
-              : 'Indirectly connects half-cell electrolytes, neutralizes charge build-up (NO3- to anode, K+ to cathode), and completes circuit. Removing it halts current instantly.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'تصل بين محلولي نصفي الخلية بطريقة غير مباشرة، وتعادل الشحنات الموجبة الزائدة عند المصعد والشحنات السالبة عند المهبط، وتغلق الدائرة الكهربية. إزالتها توقف التيار فوراً.'
+                  : 'Indirectly connects half-cell electrolytes, neutralizes charge build-up ($\\text{NO}_3^-$ to anode, $\\text{K}^+$ to cathode), and completes circuit. Removing it halts current instantly.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -744,11 +785,16 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
               {isArabic ? 'قطب الهيدروجين القياسي (SHE)' : 'Standard Hydrogen Electrode'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'صفيحة بلاتين مغطاة بأسود البلاتين يمر عليها غاز H₂ بضغط 1 atm ومغمورة في حمض قوي تركيزه 1 M عند 25°C. اصطُلح على أن جهده القياسي = 0.00 V ويستخدم لقياس جهود باقي العناصر.'
-              : 'Platinum black foil bubbled with H2 gas at 1 atm in 1 M acid at 25°C. By convention, its standard potential is 0.00 V, serving as the universal reference electrode.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'صفيحة بلاتين مغطاة بأسود البلاتين يمر عليها غاز $\\text{H}_2$ بضغط $1\\text{ atm}$ ومغمورة في حمض قوي تركيزه $1\\text{ M}$ عند $25^\\circ\\text{C}$. اصطُلح على أن جهده القياسي = $0.00\\text{ V}$ ويستخدم لقياس جهود باقي العناصر.'
+                  : 'Platinum black foil bubbled with $\\text{H}_2$ gas at $1\\text{ atm}$ in $1\\text{ M}$ acid at $25^\\circ\\text{C}$. By convention, its standard potential is $0.00\\text{ V}$, serving as the universal reference electrode.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -758,11 +804,16 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
               {isArabic ? 'أثر التركيز وفق معادلة نيرنست' : 'Concentration Shifts (Nernst)'}
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'زيادة تركيز أيونات المصعد تقلل ق.د.ك للخلية لأنها تدفع التفاعل في الاتجاه العكسي، بينما زيادة تركيز أيونات المهبط تزيد ق.د.ك. يتوقف التيار عندما يصبح E_cell = 0.'
-              : 'Increasing anode ion concentration lowers cell EMF toward equilibrium (Le Chatelier shift), while increasing cathode ions boosts EMF. When E_cell reaches 0, the battery is dead.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'زيادة تركيز أيونات المصعد تقلل ق.د.ك للخلية لأنها تدفع التفاعل في الاتجاه العكسي، بينما زيادة تركيز أيونات المهبط تزيد ق.د.ك. يتوقف التيار عندما يصبح $E_{\\text{cell}} = 0$.'
+                  : 'Increasing anode ion concentration lowers cell EMF toward equilibrium (Le Chatelier shift), while increasing cathode ions boosts EMF. When $E_{\\text{cell}}$ reaches 0, the battery is dead.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
       </div>
     </div>

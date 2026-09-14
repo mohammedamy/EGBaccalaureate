@@ -189,7 +189,7 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
                   : 'text-slate-400 hover:text-white'
             }`}
           >
-            f(x) = x³ - 3x
+            <MathRenderer math="f(x) = x^3 - 3x" inline lang={lang} />
           </button>
           <button
             onClick={() => setFuncType('quadratic')}
@@ -201,7 +201,7 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
                   : 'text-slate-400 hover:text-white'
             }`}
           >
-            f(x) = 0.5x²
+            <MathRenderer math="f(x) = 0.5x^2" inline lang={lang} />
           </button>
           <button
             onClick={() => setFuncType('sine')}
@@ -213,7 +213,7 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
                   : 'text-slate-400 hover:text-white'
             }`}
           >
-            f(x) = 2 sin(x)
+            <MathRenderer math="f(x) = 2\sin(x)" inline lang={lang} />
           </button>
         </div>
       </div>
@@ -244,21 +244,27 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
             isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
           }`}>
             <div>
-              <label className={`text-xs font-semibold flex justify-between ${
+              <label className={`text-xs font-semibold flex items-center justify-between ${
                 isLight ? 'text-indigo-800 font-bold' : 'text-indigo-300'
               }`}>
-                <span>{lang === 'ar' ? 'موقع نقطة التماس x₀:' : 'Tangent Point x₀:'}</span>
-                <span>{pointX.toFixed(2)}</span>
+                <span className="flex items-center gap-1">
+                  <span>{lang === 'ar' ? 'موقع نقطة التماس' : 'Tangent Point'}</span>
+                  <MathRenderer math="x_0" inline lang={lang} />:
+                </span>
+                <span className="font-mono">{pointX.toFixed(2)}</span>
               </label>
               <input type="range" min="-2.5" max="2.5" step="0.1" value={pointX} onChange={(e) => setPointX(Number(e.target.value))} className="w-full accent-indigo-600" />
             </div>
 
             <div>
-              <label className={`text-xs font-semibold flex justify-between ${
+              <label className={`text-xs font-semibold flex items-center justify-between ${
                 isLight ? 'text-amber-800 font-bold' : 'text-amber-300'
               }`}>
-                <span>{lang === 'ar' ? 'خطوة المقدار h (تئول للصفر):' : 'Step Increment h (h -> 0):'}</span>
-                <span>{stepH.toFixed(2)}</span>
+                <span className="flex items-center gap-1">
+                  <span>{lang === 'ar' ? 'خطوة المقدار' : 'Step Increment'}</span>
+                  <MathRenderer math="h \to 0" inline lang={lang} />:
+                </span>
+                <span className="font-mono">{stepH.toFixed(2)}</span>
               </label>
               <input type="range" min="0.05" max="3" step="0.05" value={stepH} onChange={(e) => setStepH(Number(e.target.value))} className="w-full accent-amber-500" />
             </div>
@@ -269,8 +275,8 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
             isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
           }`}>
             <h4 className={`font-bold uppercase tracking-wider ${
-              isLight ? 'text-emerald-800 font-bold' : 'text-emerald-400'
-            }`}>
+            isLight ? 'text-emerald-800 font-bold' : 'text-emerald-400'
+          }`}>
               {lang === 'ar' ? 'مقارنة ميل القاطع والمشتقة الفعلية' : 'Secant vs Tangent Slope Comparison'}
             </h4>
 
@@ -292,12 +298,11 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({ lang, theme = 'dar
               <MathRenderer math={`f'(${pointX.toFixed(1)}) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} = ${exactDerivative.toFixed(4)}`} />
             </div>
 
-            <div className={`p-2 rounded text-[11px] font-bold ${
+            <div className={`p-2 rounded text-[11px] font-bold flex items-center justify-between ${
               isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-slate-900 text-amber-300 border border-slate-800'
             }`}>
-              {lang === 'ar'
-                ? `فرق الخطأ = |${(secantSlope - exactDerivative).toFixed(4)}|`
-                : `Slope Error Difference = |${(secantSlope - exactDerivative).toFixed(4)}|`}
+              <span>{lang === 'ar' ? 'فرق الخطأ المطلق:' : 'Absolute Slope Error:'}</span>
+              <MathRenderer math={`|m_{\\text{secant}} - f'(${pointX.toFixed(1)})| = ${Math.abs(secantSlope - exactDerivative).toFixed(4)}`} inline lang={lang} />
             </div>
           </div>
         </div>

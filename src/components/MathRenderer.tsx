@@ -6,6 +6,7 @@ interface MathRendererProps {
   math?: string;
   text?: string;
   block?: boolean;
+  inline?: boolean;
   className?: string;
   lang?: 'en' | 'ar';
 }
@@ -135,6 +136,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   math,
   text: textProp,
   block = false,
+  inline = false,
   className = '',
   lang = 'en',
 }) => {
@@ -180,8 +182,14 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   };
 
   // SCENARIO 1: The entire input is a Pure Math Expression (e.g. formula, equation, coordinate, pure TeX)
-  if (isPureMathExpression(rawContent, block)) {
-    const isDisplayMode = block || rawContent.startsWith('$$') || rawContent.startsWith('\\[');
+  const isExplicitMath = Boolean(math) && !rawContent.includes('\n\n') && !/^#{1,6}\s/m.test(rawContent) && !/^[\*\-•]\s/m.test(rawContent);
+  const arabicSentenceMatch = rawContent.match(/[\u0621-\u064A\u0671-\u06D3]{3,}/g);
+  const hasMultipleArabicWords = arabicSentenceMatch && arabicSentenceMatch.length > 2;
+
+  const effectiveBlock = inline ? false : block;
+
+  if ((isExplicitMath && !hasMultipleArabicWords) || isPureMathExpression(rawContent, effectiveBlock)) {
+    const isDisplayMode = !inline && (block || rawContent.startsWith('$$') || rawContent.startsWith('\\['));
     const html = renderKaTeX(rawContent, isDisplayMode);
 
     if (isDisplayMode) {
@@ -239,7 +247,8 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
       const isInlineMath =
         (part.startsWith('$') && part.endsWith('$') && part.length >= 2) ||
-        (part.startsWith('\\(') && part.endsWith('\\)') && part.length >= 4);
+        (part.startsWith('\\(') && part.endsWith('\\)') && part.length >= 4) ||
+        (/^\s*\\[a-zA-Z]+/.test(part) && !/[\u0621-\u064A\u0671-\u06D3]/.test(part));
 
       if (isInlineMath) {
         const html = renderKaTeX(part, false);

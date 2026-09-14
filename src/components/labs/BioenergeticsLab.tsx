@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import { Zap, Sun, BatteryCharging, AlertCircle, Sparkles, Flame } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -541,18 +542,22 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme }) => {
             </div>
 
             {/* Photosynthesis Net Equation Card */}
-            <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex items-center justify-between">
+            <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <div>
-                <span className="text-xs text-slate-400 block font-semibold">
+                <span className="text-xs text-slate-400 block font-semibold mb-1">
                   {lang === 'ar' ? 'معادلة البناء الضوئي الكاملة:' : 'Complete Photosynthetic Equation:'}
                 </span>
-                <span className="font-mono text-emerald-400 text-xs sm:text-sm">
-                  6 CO₂ + 6 H₂O + Light Energy ⟶ C₆H₁₂O₆ + 6 O₂
-                </span>
+                <div className="text-emerald-400 text-xs sm:text-sm">
+                  <MathRenderer
+                    math="6\text{CO}_2 + 6\text{H}_2\text{O} + \text{Light Energy} \longrightarrow \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2"
+                    inline
+                    lang={lang}
+                  />
+                </div>
               </div>
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold shrink-0">
                 <Sun className="w-4 h-4" />
-                <span>ΔG° = +2870 kJ/mol</span>
+                <MathRenderer math="\Delta G^\circ = +2870\text{ kJ/mol}" inline lang={lang} />
               </div>
             </div>
           </div>

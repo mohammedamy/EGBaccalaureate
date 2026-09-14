@@ -10,6 +10,7 @@ import {
   Calculator,
   Sparkles,
 } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -20,6 +21,7 @@ interface Props {
 
 interface ChemConstant {
   symbol: string;
+  mathSymbol?: string;
   nameEn: string;
   nameAr: string;
   value: string;
@@ -30,82 +32,90 @@ interface ChemConstant {
 const CHEMICAL_CONSTANTS: ChemConstant[] = [
   {
     symbol: 'R',
+    mathSymbol: 'R',
     nameEn: 'Universal Gas Constant',
     nameAr: 'الثابت العام للغازات',
     value: '8.314 J/(mol·K) / 0.0821 L·atm/(mol·K)',
     unit: 'J/(mol·K)',
-    formula: 'P · V = n · R · T',
+    formula: 'P \\cdot V = n \\cdot R \\cdot T',
   },
   {
     symbol: 'F',
+    mathSymbol: 'F',
     nameEn: "Faraday's Constant",
     nameAr: 'ثابت فاراداي',
     value: '96,500',
     unit: 'C / mol e⁻ (Coulombs)',
-    formula: 'Q = n · F = I · t',
+    formula: 'Q = n \\cdot F = I \\cdot t',
   },
   {
     symbol: 'N_A',
+    mathSymbol: 'N_A',
     nameEn: "Avogadro's Number",
     nameAr: 'عدد أفوجادرو',
     value: '6.022 × 10²³',
     unit: 'particles / mol',
-    formula: 'N = n · N_A',
+    formula: 'N = n \\cdot N_A',
   },
   {
     symbol: 'V_m',
+    mathSymbol: 'V_m',
     nameEn: 'Molar Gas Volume at STP',
     nameAr: 'حجم المول من الغاز عند م.ض.د (STP)',
     value: '22.4',
     unit: 'L / mol',
-    formula: 'V = n · 22.4 L',
+    formula: 'V = n \\times 22.4\\text{ L}',
   },
   {
     symbol: 'K_w',
+    mathSymbol: 'K_w',
     nameEn: 'Water Auto-Ionization Constant',
     nameAr: 'ثابت الحاصل الأيوني للماء (25°C)',
     value: '1.0 × 10⁻¹⁴',
     unit: 'mol² / L²',
-    formula: 'K_w = [H₃O⁺][OH⁻] = 10⁻¹⁴',
+    formula: 'K_w = [\\text{H}_3\\text{O}^+][\\text{OH}^-] = 10^{-14}',
   },
   {
     symbol: 'E°(SHE)',
+    mathSymbol: 'E^\\circ(\\text{SHE})',
     nameEn: 'Standard Hydrogen Electrode EMF',
     nameAr: 'جهد قطب الهيدروجين القياسي',
     value: '0.00',
     unit: 'V (Volts)',
-    formula: 'E°(2H⁺ + 2e⁻ ⇌ H₂) = 0.00 V',
+    formula: 'E^\\circ(2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2) = 0.00\\text{ V}',
   },
   {
     symbol: 'E°(Daniell)',
+    mathSymbol: 'E^\\circ_{\\text{cell}}',
     nameEn: 'Daniell Standard Cell EMF',
     nameAr: 'القوة الدافعة القياسية لخلية دانيال',
     value: '+1.10',
     unit: 'V (Volts)',
-    formula: 'E° = E°_red(Cu) - E°_red(Zn)',
+    formula: 'E^\\circ_{\\text{cell}} = E^\\circ_{\\text{red}}(\\text{Cu}) - E^\\circ_{\\text{red}}(\\text{Zn}) = 1.10\\text{ V}',
   },
   {
     symbol: 'ρ(Pb battery)',
+    mathSymbol: '\\rho_{\\text{acid}}',
     nameEn: 'Charged Lead Battery Acid Density',
     nameAr: 'كثافة حمض المركم المشحون تماماً',
     value: '1.28 - 1.30',
     unit: 'g / cm³',
-    formula: 'Hydrometer reading < 1.20 → Recharge',
+    formula: '\\rho_{\\text{acid}} \\in [1.28, 1.30]\\text{ g/cm}^3',
   },
 ];
 
 const REDUCTION_SERIES = [
-  { element: 'Li', ion: 'Li⁺ + e⁻ ⇌ Li', eRed: -3.04, descAr: 'أنشط الفلزات (أقوى عامل مختزل)' },
-  { element: 'K', ion: 'K⁺ + e⁻ ⇌ K', eRed: -2.93, descAr: 'فلز شديد النشاط' },
-  { element: 'Ca', ion: 'Ca²⁺ + 2e⁻ ⇌ Ca', eRed: -2.87, descAr: 'لهب أحمر طوبي' },
-  { element: 'Na', ion: 'Na⁺ + e⁻ ⇌ Na', eRed: -2.71, descAr: 'أقوى العوامل المختزلة' },
-  { element: 'Al', ion: 'Al³⁺ + 3e⁻ ⇌ Al', eRed: -1.66, descAr: 'راسب أبيض متردد يذوب في NaOH' },
-  { element: 'Zn', ion: 'Zn²⁺ + 2e⁻ ⇌ Zn', eRed: -0.76, descAr: 'مصعد خلية دانيال والغطاء الأنودي' },
-  { element: 'Fe', ion: 'Fe²⁺ + 2e⁻ ⇌ Fe', eRed: -0.44, descAr: 'فلز مغناطيسي وصناعي رئيسي' },
-  { element: 'H₂', ion: '2H⁺ + 2e⁻ ⇌ H₂', eRed: 0.00, descAr: 'قطب المقارنة القياسي (SHE)' },
-  { element: 'Cu', ion: 'Cu²⁺ + 2e⁻ ⇌ Cu', eRed: +0.34, descAr: 'مهبط خلية دانيال' },
-  { element: 'Ag', ion: 'Ag⁺ + e⁻ ⇌ Ag', eRed: +0.80, descAr: 'كاشف التحليل الوصفي' },
-  { element: 'F₂', ion: 'F₂ + 2e⁻ ⇌ 2F⁻', eRed: +2.87, descAr: 'أقوى العوامل المؤكسدة في السلسلة' },
+  { element: 'Li', ion: '\\text{Li}^+ + e^- \\rightleftharpoons \\text{Li}', eRed: -3.04, descAr: 'أنشط الفلزات (أقوى عامل مختزل)' },
+  { element: 'K', ion: '\\text{K}^+ + e^- \\rightleftharpoons \\text{K}', eRed: -2.93, descAr: 'فلز شديد النشاط' },
+  { element: 'Ca', ion: '\\text{Ca}^{2+} + 2e^- \\rightleftharpoons \\text{Ca}', eRed: -2.87, descAr: 'لهب أحمر طوبي' },
+  { element: 'Na', ion: '\\text{Na}^+ + e^- \\rightleftharpoons \\text{Na}', eRed: -2.71, descAr: 'أقوى العوامل المختزلة' },
+  { element: 'Al', ion: '\\text{Al}^{3+} + 3e^- \\rightleftharpoons \\text{Al}', eRed: -1.66, descAr: 'راسب أبيض متردد يذوب في NaOH' },
+  { element: 'Zn', ion: '\\text{Zn}^{2+} + 2e^- \\rightleftharpoons \\text{Zn}', eRed: -0.76, descAr: 'مصعد خلية دانيال والغطاء الأنودي' },
+  { element: 'Fe', ion: '\\text{Fe}^{2+} + 2e^- \\rightleftharpoons \\text{Fe}', eRed: -0.44, descAr: 'فلز مغناطيسي وصناعي رئيسي' },
+  { element: 'H₂', ion: '2\\text{H}^+ + 2e^- \\rightleftharpoons \\text{H}_2', eRed: 0.00, descAr: 'قطب المقارنة القياسي (SHE)' },
+  { element: 'Cu', ion: '\\text{Cu}^{2+} + 2e^- \\rightleftharpoons \\text{Cu}', eRed: +0.34, descAr: 'مهبط خلية دانيال' },
+  { element: 'Ag', ion: '\\text{Ag}^+ + e^- \\rightleftharpoons \\text{Ag}', eRed: +0.80, descAr: 'كاشف التحليل الوصفي' },
+  { element: 'F₂', ion: '\\text{F}_2 + 2e^- \\rightleftharpoons 2\\text{F}^-', eRed: +2.87, descAr: 'أقوى العوامل المؤكسدة في السلسلة' },
 ];
 
 export const ChemistryConstantsDrawer: React.FC<Props> = ({
@@ -242,8 +252,8 @@ export const ChemistryConstantsDrawer: React.FC<Props> = ({
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-emerald-400 font-bold text-xs bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/60">
-                          {c.symbol}
+                        <span className="font-mono text-emerald-400 font-bold text-xs bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/60 flex items-center justify-center">
+                          <MathRenderer math={c.mathSymbol || c.symbol} inline lang={lang} />
                         </span>
                         <span className="text-xs font-bold">
                           {isArabic ? c.nameAr : c.nameEn}
@@ -272,8 +282,8 @@ export const ChemistryConstantsDrawer: React.FC<Props> = ({
                     </button>
                   </div>
 
-                  <div className="mt-1.5 pt-1 border-t border-slate-700/50 text-[10px] text-slate-400 font-mono">
-                    <span className="text-cyan-300">{c.formula}</span>
+                  <div className="mt-1.5 pt-1 border-t border-slate-700/50 text-xs text-slate-300">
+                    <MathRenderer math={c.formula} inline lang={lang} />
                   </div>
                 </div>
               );
@@ -300,7 +310,9 @@ export const ChemistryConstantsDrawer: React.FC<Props> = ({
                   {REDUCTION_SERIES.map((row) => (
                     <tr key={row.element} className="hover:bg-slate-900/60">
                       <td className="py-1 font-bold text-amber-300">{row.element}</td>
-                      <td className="py-1 text-slate-300">{row.ion}</td>
+                      <td className="py-1 text-slate-300">
+                        <MathRenderer math={row.ion} inline lang={lang} />
+                      </td>
                       <td className={`py-1 font-bold ${row.eRed < 0 ? 'text-cyan-400' : 'text-emerald-400'}`}>
                         {row.eRed > 0 ? `+${row.eRed.toFixed(2)}` : row.eRed.toFixed(2)} V
                       </td>
@@ -330,7 +342,9 @@ export const ChemistryConstantsDrawer: React.FC<Props> = ({
           >
             <div className="flex items-center justify-between text-xs font-bold mb-2">
               <span>{isArabic ? 'حسابات الأس الهيدروجيني pH' : 'pH & pOH Calculator'}</span>
-              <span className="text-[10px] text-cyan-400 font-mono">pH + pOH = 14</span>
+              <div className="text-[11px] text-cyan-400">
+                <MathRenderer math="\text{pH} + \text{pOH} = 14" inline lang={lang} />
+              </div>
             </div>
 
             <div>

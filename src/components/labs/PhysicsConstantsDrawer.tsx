@@ -11,6 +11,7 @@ import {
   Calculator,
   Sparkles,
 } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -21,6 +22,7 @@ interface Props {
 
 interface PhysicalConstant {
   symbol: string;
+  mathSymbol?: string;
   nameEn: string;
   nameAr: string;
   value: string;
@@ -32,92 +34,102 @@ interface PhysicalConstant {
 const PHYSICAL_CONSTANTS: PhysicalConstant[] = [
   {
     symbol: 'c',
+    mathSymbol: 'c',
     nameEn: 'Speed of Light in Vacuum',
     nameAr: 'سرعة الضوء في الفراغ',
     value: '3.00 × 10⁸',
     unit: 'm/s',
-    formula: 'c = ν · λ',
+    formula: 'c = \\nu \\cdot \\lambda',
     numericVal: 3.0e8,
   },
   {
     symbol: 'h',
+    mathSymbol: 'h',
     nameEn: "Planck's Constant",
     nameAr: 'ثابت بلانك',
     value: '6.626 × 10⁻³⁴',
     unit: 'J · s (4.136 × 10⁻¹⁵ eV·s)',
-    formula: 'E = h · ν = hc / λ',
+    formula: 'E = h\\nu = \\frac{hc}{\\lambda}',
     numericVal: 6.626e-34,
   },
   {
     symbol: 'e',
+    mathSymbol: 'e',
     nameEn: 'Elementary Charge',
     nameAr: 'شحنة الإلكترون الأولية',
     value: '1.602 × 10⁻¹⁹',
     unit: 'C',
-    formula: 'q = n · e',
+    formula: 'q = n \\cdot e',
     numericVal: 1.602e-19,
   },
   {
     symbol: 'm_e',
+    mathSymbol: 'm_e',
     nameEn: 'Electron Rest Mass',
     nameAr: 'كتلة سكون الإلكترون',
     value: '9.109 × 10⁻³¹',
     unit: 'kg',
-    formula: 'λ = h / (m_e · v)',
+    formula: '\\lambda = \\frac{h}{m_e v}',
     numericVal: 9.109e-31,
   },
   {
     symbol: 'm_p',
+    mathSymbol: 'm_p',
     nameEn: 'Proton Rest Mass',
     nameAr: 'كتلة البروتون',
     value: '1.673 × 10⁻²⁷',
     unit: 'kg (1.007276 u)',
-    formula: 'E = m · c²',
+    formula: 'E = m c^2',
     numericVal: 1.673e-27,
   },
   {
     symbol: 'μ₀',
+    mathSymbol: '\\mu_0',
     nameEn: 'Permeability of Free Space',
     nameAr: 'معامل النفاذية المغناطيسية للفراغ',
     value: '4π × 10⁻⁷ ≈ 1.257 × 10⁻⁶',
     unit: 'T · m / A (H / m)',
-    formula: 'B = (μ₀ · I) / (2π · d)',
+    formula: 'B = \\frac{\\mu_0 I}{2\\pi d}',
     numericVal: 1.256637e-6,
   },
   {
     symbol: 'ε₀',
+    mathSymbol: '\\varepsilon_0',
     nameEn: 'Permittivity of Free Space',
     nameAr: 'سماحية الفراغ الكهربية',
     value: '8.854 × 10⁻¹²',
     unit: 'F / m (C² / N·m²)',
-    formula: 'C = ε₀ · A / d',
+    formula: 'C = \\frac{\\varepsilon_0 A}{d}',
     numericVal: 8.854e-12,
   },
   {
     symbol: 'R_H',
+    mathSymbol: 'R_H',
     nameEn: 'Rydberg Constant',
     nameAr: 'ثابت ريدبرج',
     value: '1.09737 × 10⁷',
     unit: 'm⁻¹',
-    formula: '1/λ = R_H (1/n₁² - 1/n₂²)',
+    formula: '\\frac{1}{\\lambda} = R_H \\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)',
     numericVal: 1.09737e7,
   },
   {
     symbol: 'k_B',
+    mathSymbol: 'k_B',
     nameEn: 'Boltzmann Constant',
     nameAr: 'ثابت بولتزمان',
     value: '1.381 × 10⁻²³',
     unit: 'J / K',
-    formula: 'E_avg = (3/2) k_B · T',
+    formula: 'E_{\\text{avg}} = \\frac{3}{2} k_B T',
     numericVal: 1.381e-23,
   },
   {
     symbol: '1 u',
+    mathSymbol: '1\\text{ u}',
     nameEn: 'Atomic Mass Unit',
     nameAr: 'وحدة الكتل الذرية',
     value: '1.6605 × 10⁻²⁷ kg',
     unit: '931.5 MeV / c²',
-    formula: 'ΔE (MeV) = Δm (u) × 931.5',
+    formula: '\\Delta E = \\Delta m \\times 931.5\\text{ MeV}',
     numericVal: 931.5,
   },
 ];
@@ -292,8 +304,8 @@ export const PhysicsConstantsDrawer: React.FC<Props> = ({
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-cyan-400 font-bold text-sm bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/60">
-                          {c.symbol}
+                        <span className="font-mono text-cyan-400 font-bold text-sm bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60 flex items-center justify-center">
+                          <MathRenderer math={c.mathSymbol || c.symbol} inline lang={lang} />
                         </span>
                         <span className="text-xs font-bold">
                           {isArabic ? c.nameAr : c.nameEn}
@@ -322,8 +334,8 @@ export const PhysicsConstantsDrawer: React.FC<Props> = ({
                     </button>
                   </div>
 
-                  <div className="mt-2 pt-1.5 border-t border-slate-700/50 flex items-center justify-between text-[11px] text-slate-400">
-                    <span className="font-mono text-cyan-300/90">{c.formula}</span>
+                  <div className="mt-2 pt-1.5 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-300">
+                    <MathRenderer math={c.formula} inline lang={lang} />
                   </div>
                 </div>
               );

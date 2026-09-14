@@ -13,6 +13,7 @@ import {
   Gauge,
   Sliders,
 } from 'lucide-react';
+import { MathRenderer } from '../MathRenderer';
 
 interface Props {
   lang: Language;
@@ -522,50 +523,54 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
           {/* Real-time Scientific Metrics */}
           <div className="grid grid-cols-2 gap-3">
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 block">
-                {isArabic ? 'القيمة العظمى (E_max)' : 'Peak Voltage (E_max)'}
+              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+                <span>{isArabic ? 'القيمة العظمى' : 'Peak Voltage'}</span>
+                <MathRenderer math="E_{\max}" inline lang={lang} />
               </span>
-              <span className="text-base sm:text-lg font-black text-amber-400 font-mono">
+              <span className="text-base sm:text-lg font-black text-amber-400 font-mono block my-0.5">
                 {formatNum(emfMax, 1)} V
               </span>
-              <span className="text-[10px] text-slate-500 block mt-0.5 font-mono">
-                = N·B·A·ω
+              <span className="text-[10px] text-slate-500 block">
+                <MathRenderer math="= N B A \omega" inline lang={lang} />
               </span>
             </div>
 
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 block">
-                {isArabic ? 'القيمة الفعالة (E_eff)' : 'RMS Effective (E_eff)'}
+              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+                <span>{isArabic ? 'القيمة الفعالة' : 'RMS Effective'}</span>
+                <MathRenderer math="E_{\text{eff}}" inline lang={lang} />
               </span>
-              <span className="text-base sm:text-lg font-black text-sky-400 font-mono">
+              <span className="text-base sm:text-lg font-black text-sky-400 font-mono block my-0.5">
                 {formatNum(emfEff, 1)} V
               </span>
-              <span className="text-[10px] text-slate-500 block mt-0.5 font-mono">
-                = 0.7071 × E_max
+              <span className="text-[10px] text-slate-500 block">
+                <MathRenderer math="= \frac{E_{\max}}{\sqrt{2}} \approx 0.707 E_{\max}" inline lang={lang} />
               </span>
             </div>
 
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 block">
-                {isArabic ? 'الفيض اللحظي (Φ)' : 'Instant Flux (Φ_m)'}
+              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+                <span>{isArabic ? 'الفيض اللحظي' : 'Instant Flux'}</span>
+                <MathRenderer math="\Phi_m" inline lang={lang} />
               </span>
-              <span className="text-base sm:text-lg font-black text-purple-400 font-mono">
+              <span className="text-base sm:text-lg font-black text-purple-400 font-mono block my-0.5">
                 {formatNum(magneticFlux * 1000, 2)} mWb
               </span>
-              <span className="text-[10px] text-slate-500 block mt-0.5 font-mono">
-                = B·A·cos(θ)
+              <span className="text-[10px] text-slate-500 block">
+                <MathRenderer math="= B A \cos\theta" inline lang={lang} />
               </span>
             </div>
 
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
-              <span className="text-[11px] font-medium text-slate-400 block">
-                {isArabic ? 'متوسط ربع دورة (E_avg)' : 'Average Quarter (E_avg)'}
+              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+                <span>{isArabic ? 'متوسط ربع دورة' : 'Avg Quarter'}</span>
+                <MathRenderer math="E_{\text{avg}}" inline lang={lang} />
               </span>
-              <span className="text-base sm:text-lg font-black text-emerald-400 font-mono">
+              <span className="text-base sm:text-lg font-black text-emerald-400 font-mono block my-0.5">
                 {formatNum(emfAvgQuarter, 1)} V
               </span>
-              <span className="text-[10px] text-slate-500 block mt-0.5 font-mono">
-                = (2/π) × E_max
+              <span className="text-[10px] text-slate-500 block">
+                <MathRenderer math="= \frac{2}{\pi} E_{\max}" inline lang={lang} />
               </span>
             </div>
           </div>
@@ -712,29 +717,41 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
           <div className="flex items-center gap-2 mb-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'الوضع العمودي (الوضع الصفري)' : 'Normal / Zero Position (θ = 0°)'}
+            <h5 className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+              <span>{isArabic ? 'الوضع العمودي (الوضع الصفري)' : 'Normal / Zero Position'}</span>
+              <MathRenderer math="(\theta = 0^\circ)" inline lang={lang} />
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'مستوى الملف عمودي على خطوط الفيض (العمودي موازٍ للمجال). الفيض المغناطيسي Φ_m نهاية عظمى، ولكن معدل قطع خطوط الفيض (ΔΦ/Δt) وق.د.ك المستحثة = صفر.'
-              : 'Coil plane is perpendicular to B (normal is parallel to B). Magnetic flux Φ is maximum, but rate of change dΦ/dt and induced EMF = 0.'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'مستوى الملف عمودي على خطوط الفيض (العمودي موازٍ للمجال). الفيض المغناطيسي $\\Phi_m$ نهاية عظمى، ولكن معدل قطع خطوط الفيض ($\\Delta\\Phi / \\Delta t$) وق.د.ك المستحثة = صفر.'
+                  : 'Coil plane is perpendicular to $B$ (normal is parallel to $B$). Magnetic flux $\\Phi_m$ is maximum, but rate of change $\\Delta\\Phi/\\Delta t$ and induced EMF = 0.'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
           <div className="flex items-center gap-2 mb-2">
             <Zap className="w-4 h-4 text-amber-400" />
-            <h5 className="text-xs font-bold text-slate-200">
-              {isArabic ? 'الوضع الموازي (القيمة العظمى)' : 'Parallel / Peak Position (θ = 90°)'}
+            <h5 className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+              <span>{isArabic ? 'الوضع الموازي (القيمة العظمى)' : 'Parallel / Peak Position'}</span>
+              <MathRenderer math="(\theta = 90^\circ)" inline lang={lang} />
             </h5>
           </div>
-          <p className="text-[11px] leading-relaxed text-slate-400">
-            {isArabic
-              ? 'مستوى الملف موازٍ لخطوط الفيض (العمودي عمودي على المجال). الفيض المغناطيسي المار بالملف = صفر، ولكن معدل قطع خطوط الفيض وق.د.ك المستحثة نهاية عظمى (E_max).'
-              : 'Coil plane is parallel to field lines. Magnetic flux traversing coil = 0, but rate of flux cutting dΦ/dt and induced EMF reach peak value (E_max).'}
-          </p>
+          <div className="text-[11px] leading-relaxed text-slate-400">
+            <MathRenderer
+              text={
+                isArabic
+                  ? 'مستوى الملف موازٍ لخطوط الفيض (العمودي عمودي على المجال). الفيض المغناطيسي المار بالملف = صفر، ولكن معدل قطع خطوط الفيض وق.د.ك المستحثة نهاية عظمى ($E_{\\max}$).'
+                  : 'Coil plane is parallel to field lines. Magnetic flux traversing coil = 0, but rate of flux cutting $\\Delta\\Phi/\\Delta t$ and induced EMF reach peak value ($E_{\\max}$).'
+              }
+              lang={lang}
+            />
+          </div>
         </div>
 
         <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">

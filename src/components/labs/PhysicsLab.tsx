@@ -20,6 +20,7 @@ import { PhysicsFlashcards } from './PhysicsFlashcards';
 import { MagnetismLab } from './MagnetismLab';
 import { AtomicLaserLab } from './AtomicLaserLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
+import { MathRenderer } from '../MathRenderer';
 
 export type PhysicsTab = 'circuits' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
 
@@ -712,16 +713,27 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
               </div>
 
               {/* Ministerial Exam Law Card */}
-              <div className="mt-4 p-3 rounded-xl bg-cyan-950/30 border border-cyan-800/40 text-xs space-y-1 text-cyan-200">
+              <div className="mt-4 p-3 rounded-xl bg-cyan-950/30 border border-cyan-800/40 text-xs space-y-2 text-cyan-200">
                 <p className="font-black flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   <span>{isArabic ? 'قوانين الامتحان الوزاري:' : 'Core Ministerial Formulas:'}</span>
                 </p>
-                <div className="font-mono text-[11px] space-y-1 text-slate-300">
-                  <p>I = VB / (Req + r)</p>
-                  <p>V = VB - I·r (علاقة تناقصية بميل = -r)</p>
-                  <p>∑ I_in = ∑ I_out (قانون كيرشوف الأول - حفظ الشحنة)</p>
-                  <p>∑ VB = ∑ I·R (قانون كيرشوف الثاني - حفظ الطاقة)</p>
+                <div className="space-y-1.5 text-slate-300 text-xs">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <MathRenderer math="I = \frac{V_B}{R_{\text{eq}} + r}" inline lang={lang} />
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <MathRenderer math="V = V_B - I \cdot r" inline lang={lang} />
+                    <span className="text-[11px] text-slate-400">({isArabic ? 'علاقة تناقصية بميل = -r' : 'Decreasing relation, slope = -r'})</span>
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <MathRenderer math="\sum I_{\text{in}} = \sum I_{\text{out}}" inline lang={lang} />
+                    <span className="text-[11px] text-slate-400">({isArabic ? 'قانون كيرشوف الأول - حفظ الشحنة' : "Kirchhoff 1st - Charge Conservation"})</span>
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <MathRenderer math="\sum V_B = \sum I \cdot R" inline lang={lang} />
+                    <span className="text-[11px] text-slate-400">({isArabic ? 'قانون كيرشوف الثاني - حفظ الطاقة' : "Kirchhoff 2nd - Energy Conservation"})</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -939,10 +951,14 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
                 isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
               }`}
             >
-              <h4 className="text-xs font-black text-cyan-400 mb-3 flex items-center gap-1.5">
+              <h4 className="text-xs font-black text-cyan-400 mb-2 flex items-center gap-1.5">
                 <Info className="w-4 h-4" />
                 <span>{isArabic ? 'معادلة آينشتاين الكهروضوئية:' : 'Einstein Photoelectric Equation:'}</span>
               </h4>
+
+              <div className="mb-3 p-2 rounded-xl bg-slate-950/70 border border-slate-800 text-center overflow-x-auto">
+                <MathRenderer math="E = h\nu = W_0 + \text{KE}_{\max} = W_0 + e V_s" lang={lang} block={true} />
+              </div>
 
               <div className="space-y-2.5 text-xs">
                 <div className="flex items-center justify-between p-2 rounded-xl bg-slate-950/60 border border-slate-800">
@@ -996,11 +1012,16 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
                   <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   <span>{isArabic ? 'فروق الفيزياء الكلاسيكية والحديثة:' : 'Classical vs Quantum Differences:'}</span>
                 </p>
-                <p className="text-[11px] leading-relaxed text-slate-300">
-                  {isArabic
-                    ? 'وفق الفيزياء الكلاسيكية: انبعاث الإلكترون يعتمد على شدة الضوء وليس تردده! بينما وفق فيزياء الكم: انبعاث الإلكترون يعتمد كلياً على التردد (E ≥ Φ)، وزيادة الشدة تزيد عدد الإلكترونات المنبعثة فقط دون زيادة طاقتها الحركية.'
-                    : 'Classical physics incorrectly predicted emission depends on intensity. Quantum physics proves emission requires frequency ν ≥ ν₀, while intensity only affects photoelectron count.'}
-                </p>
+                <div className="text-[11px] leading-relaxed text-slate-300">
+                  <MathRenderer
+                    text={
+                      isArabic
+                        ? 'وفق الفيزياء الكلاسيكية: انبعاث الإلكترون يعتمد على شدة الضوء وليس تردده! بينما وفق فيزياء الكم: انبعاث الإلكترون يعتمد كلياً على التردد ($E \\ge \\Phi$ أو $\\nu \\ge \\nu_0$)، وزيادة الشدة تزيد عدد الإلكترونات المنبعثة فقط دون زيادة طاقتها الحركية.'
+                        : 'Classical physics incorrectly predicted emission depends on intensity. Quantum physics proves emission requires frequency $\\nu \\ge \\nu_0$ ($E \\ge \\Phi$), while intensity only affects photoelectron count.'
+                    }
+                    lang={lang}
+                  />
+                </div>
               </div>
             </div>
           </div>
