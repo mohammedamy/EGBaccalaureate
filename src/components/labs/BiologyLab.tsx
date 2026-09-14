@@ -5,7 +5,6 @@ import { toHindiDigits } from '../../utils/arabicNumerals';
 import {
   Dna,
   Activity,
-  Leaf,
   ZoomIn,
   Sparkles,
   Info,
@@ -17,7 +16,6 @@ import {
 import skeletonImg from '../../assets/biology/human_skeleton_anatomy.jpg';
 import sarcomereImg from '../../assets/biology/sarcomere_ultrastructure.jpg';
 import dnaImg from '../../assets/biology/dna_double_helix.jpg';
-import plantImg from '../../assets/biology/plant_stem_histology.jpg';
 
 import { EndocrineLab } from './EndocrineLab';
 import { MenstrualCycleLab } from './MenstrualCycleLab';
@@ -27,6 +25,7 @@ import { BioenergeticsLab } from './BioenergeticsLab';
 import { BiologyFlashcards } from './BiologyFlashcards';
 import { VirtualMicroscope } from '../../core/instruments/VirtualMicroscope';
 import { SarcomereZoomLab } from './SarcomereZoomLab';
+import { PlantHistologyLab } from './PlantHistologyLab';
 
 export type BioTab =
   | 'skeleton'
@@ -253,9 +252,6 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
 
   // DNA sequence builder state
   const [dnaInput, setDnaInput] = useState<string>('ATGGCTTTCTAA');
-
-  // Plant support state
-  const [waterPotential, setWaterPotential] = useState<number>(85); // 0 (wilting) to 100 (full turgor)
 
   // DNA Complement & Translation calculation
   const cleanDna = dnaInput.toUpperCase().replace(/[^ATGC]/g, '');
@@ -881,125 +877,10 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
         </div>
       )}
 
-      {/* TAB 4: PLANT HISTOLOGY & SUPPORT */}
+      {/* TAB 4: PLANT HISTOLOGY, SUPPORT & MOVEMENTS STUDIO */}
       {activeTab === 'plant' && (
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: High-Res Histology Image */}
-          <div className="lg:col-span-6 flex flex-col items-center">
-            <div
-              className={`relative w-full rounded-2xl overflow-hidden border shadow-xl flex items-center justify-center p-2 group ${
-                isContrast
-                  ? 'bg-black border-rose-400'
-                  : isLight
-                  ? 'bg-slate-900 border-slate-300'
-                  : 'bg-black/90 border-slate-800'
-              }`}
-            >
-              <img
-                src={plantImg}
-                alt="Plant Stem Histology"
-                className="w-full max-h-[520px] object-cover rounded-xl select-none"
-              />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-[10px] text-white">
-                <span className="font-semibold text-emerald-400">
-                  {isArabic ? 'قطاع عرضي في ساق نبات ذي فلقتين (صباغة السافرانين والأخضر السريع)' : 'Dicot Stem Cross Section (Safranin & Fast Green Staining)'}
-                </span>
-                <span className="font-mono text-slate-300">Optical 400x</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Physiological vs Structural Support Simulator */}
-          <div className="lg:col-span-6 space-y-4">
-            <div
-              className={`p-5 rounded-2xl border ${
-                isContrast
-                  ? 'bg-black border-emerald-400'
-                  : isLight
-                  ? 'bg-emerald-50/50 border-emerald-200'
-                  : 'bg-emerald-950/20 border-emerald-900/40'
-              }`}
-            >
-              <h3 className="text-lg font-black flex items-center gap-2 text-emerald-500">
-                <Leaf className="w-5 h-5" />
-                <span>{isArabic ? 'الدعامة الفسيولوجية والدعامة التركيبية في النبات' : 'Plant Support: Physiological vs Structural'}</span>
-              </h3>
-
-              {/* Water Potential Slider */}
-              <div className="mt-4 p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-slate-300">
-                    {isArabic ? 'الجهد المائي والضغط الأسموزي (الامتلاء):' : 'Water Potential & Turgor Pressure:'}
-                  </span>
-                  <span className="font-mono font-black text-emerald-400">
-                    {waterPotential > 60
-                      ? isArabic
-                        ? 'امتلاء كامل (خلية منتفخة)'
-                        : 'High Turgor (Turgid)'
-                      : isArabic
-                      ? 'انكماش وذبول (بلزمة)'
-                      : 'Flaccid (Plasmolyzed)'}
-                  </span>
-                </div>
-
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={waterPotential}
-                  onChange={(e) => setWaterPotential(parseInt(e.target.value))}
-                  className="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-                />
-
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  {waterPotential > 60
-                    ? isArabic
-                      ? 'يدخل الماء بالخاصية الأسموزية إلى الفجوة العصارية، فيزداد حجم العصير الخلوي ويضغط على البروتوبلازم الذي يضغط بدوره على الجدار الخلوي فيتوتر ويكتسب النبات دعامته الفسيولوجية المؤقتة.'
-                      : 'Water enters the vacuole by osmosis, expanding cell sap and pressing the protoplast against the elastic cell wall, causing turgidity (temporary physiological support).'
-                    : isArabic
-                    ? 'عند نقص الماء يفقد العصير الخلوي ماءه بالخاصية الأسموزية فينكمش البروتوبلازم ويزول توتر الجدار فيحدث الذبول وارتخاء السيقان العشبية.'
-                    : 'Water loss causes vacuolar shrinkage and loss of cell wall tension, triggering wilting and flaccidity.'}
-                </p>
-              </div>
-
-              {/* Structural Support Matrix */}
-              <div className="mt-4 pt-3 border-t border-slate-800 space-y-2.5 text-xs">
-                <h4 className="font-black text-slate-200">
-                  {isArabic ? 'مواد الدعامة التركيبية الدائمة في جدران الخلايا:' : 'Permanent Structural Support Deposition:'}
-                </h4>
-
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                    <p className="font-bold text-emerald-400">{isArabic ? 'السليلوز (Cellulose)' : 'Cellulose'}</p>
-                    <p className="text-slate-400 text-[10px] mt-0.5">
-                      {isArabic ? 'يكسب الجدار مرونة وصلابة، يترسب في الخلايا الكولنشيمية' : 'Tensile strength, present in collenchyma'}
-                    </p>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                    <p className="font-bold text-rose-400">{isArabic ? 'اللجنين (Lignin)' : 'Lignin'}</p>
-                    <p className="text-slate-400 text-[10px] mt-0.5">
-                      {isArabic ? 'صلابة وقوة غير منفذ للماء، يترسب في أوعية الخشب والخلايا الإسكلرنشيمية' : 'Hardness and impermeability in xylem and sclerenchyma'}
-                    </p>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                    <p className="font-bold text-amber-400">{isArabic ? 'الكيوتين (Cutin)' : 'Cutin'}</p>
-                    <p className="text-slate-400 text-[10px] mt-0.5">
-                      {isArabic ? 'مادة شمعية غير منفذة للماء على بشرة أوراق النبات للحد من النتح' : 'Waxy waterproof coating on leaf epidermis'}
-                    </p>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                    <p className="font-bold text-cyan-400">{isArabic ? 'السيوبرين (Suberin)' : 'Suberin'}</p>
-                    <p className="text-slate-400 text-[10px] mt-0.5">
-                      {isArabic ? 'مادة غير منفذة للماء تترسب في جدران الخلايا الفلينية' : 'Impermeable barrier in cork layers'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="mt-6">
+          <PlantHistologyLab lang={lang} theme={theme} />
         </div>
       )}
 

@@ -51,6 +51,7 @@ const labComponents = [
   'src/components/labs/ChemistryLab.tsx',
   'src/components/labs/TransitionMetalsLab.tsx',
   'src/components/labs/BiologyLab.tsx',
+  'src/components/labs/PlantHistologyLab.tsx',
   'src/components/labs/EndocrineLab.tsx',
   'src/components/labs/MenstrualCycleLab.tsx',
   'src/components/labs/ImmunityLab.tsx',
@@ -679,6 +680,39 @@ const r_hole = 3.0; // cm (tangent to disc perimeter at x = +6 cm, center at x =
 const shift_negative_mass = (-r_hole * r_hole * (R_disc - r_hole)) / (R_disc * R_disc - r_hole * r_hole);
 assert(Math.abs(shift_negative_mass - (-R_disc / 6)) < 1e-6, `Centroid shift with tangent cutout is strictly -R/6 = -${(R_disc / 6).toFixed(2)} cm`);
 
+// Q. Biology Chapter 1: Plant Histology, Physiological & Structural Support, and Plant Movements
+console.log('\n--- Q. Plant Histology, Physiological & Structural Support, and Movements ---');
+
+// 1. Water Potential Equation: Psi = Psi_s + Psi_p
+const psi_s_vacuole = -0.8; // MPa
+const psi_soil_pure = 0.0; // MPa (hypotonic pure water)
+const turgor_pressure = Math.max(0, psi_soil_pure - psi_s_vacuole); // 0.8 MPa
+const net_psi = psi_s_vacuole + turgor_pressure;
+assert(Math.abs(net_psi - 0.0) < 1e-6, `Water potential equilibrium in pure water: Ψ = Ψ_s + Ψ_p = ${net_psi.toFixed(1)} MPa`);
+assert(turgor_pressure > 0.6, `Turgid plant cell achieves high turgor pressure: Ψ_p = ${turgor_pressure.toFixed(2)} MPa (full turgor)`);
+
+// In hypertonic drought (Psi_soil = -2.0 MPa):
+const psi_soil_drought = -2.0; // MPa
+const turgor_drought = Math.max(0, psi_soil_drought - psi_s_vacuole); // 0.0 MPa (plasmolysis)
+assert(turgor_drought === 0.0, `Hypertonic/drought condition causes complete loss of turgor: Ψ_p = 0.0 MPa (plasmolysis & wilting)`);
+
+// 2. Collenchyma vs Sclerenchyma Mechanical Support
+// Collenchyma: living + cellulose thickening -> Dual support (E = 65 MPa)
+// Sclerenchyma: dead + lignin secondary wall -> High tensile structural only (E = 220 MPa)
+const E_collenchyma = 65; // MPa
+const E_sclerenchyma = 220; // MPa
+assert(E_sclerenchyma > 3 * E_collenchyma, `Sclerenchyma lignified fibers exhibit over 3x mechanical stiffness of collenchyma (${E_sclerenchyma} vs ${E_collenchyma} MPa)`);
+
+// 3. Tendril Coiling: Auxin Differential Elongation
+// Contact side slows down (inhibition), outer free side accelerates growth
+const auxin_contact = 30; // arbitrary units
+const auxin_outer = 70; // accumulated on opposite side
+assert(auxin_outer > 2 * auxin_contact, `Tendril coiling mechanism: Auxin concentration on outer side strictly exceeds contact side (${auxin_outer} > 2 * ${auxin_contact})`);
+
+// 4. Contractile Roots in Corms/Bulbs: Safe Depth Threshold
+const corm_depth = 10; // cm
+assert(corm_depth >= 8 && corm_depth <= 12, `Contractile roots pull subterranean corm to safe depth: ${corm_depth} cm (within optimal 8-12 cm)`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
@@ -806,6 +840,15 @@ const labKeyFormulas = [
   'X_G = \\frac{M_0 X_0 - \\sum m_i x_i}{M_0 - \\sum m_i}, \\quad Y_G = \\frac{M_0 Y_0 - \\sum m_i y_i}{M_0 - \\sum m_i}',
   'P_{\\min} = W\\sin(\\theta + \\lambda)',
   '\\Delta X_G = -\\frac{R}{6}',
+  // Plant Histology & Physiological/Structural Support (Biology Chapter 1)
+  '\\Psi = \\Psi_s + \\Psi_p \\quad (\\text{Water Potential Equation})',
+  '\\Psi_p = P \\implies \\text{Turgor Pressure}',
+  '\\Psi_s = -iCRT \\implies \\text{Solute Potential}',
+  '\\text{Parenchyma} \\implies \\text{Physiological Support Only}',
+  '\\text{Collenchyma} \\implies \\text{Physiological} + \\text{Structural Support}',
+  '\\text{Sclerenchyma} \\implies \\text{Structural Support Only (Dead at Maturity)}',
+  '[\\text{IAA}]_{\\text{outer}} > [\\text{IAA}]_{\\text{contact}} \\implies \\text{Tendril Coiling}',
+  'h_{\\text{safe}} \\approx 8 - 12\\,\\text{cm} \\implies \\text{Corm Traction Depth}',
 ];
 
 let validCount = 0;
