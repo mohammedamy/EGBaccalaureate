@@ -456,9 +456,32 @@ const hyperThyroxine = 24.5; // ug/dL
 const suppressedTSH = 0.05; // mIU/L
 assert(hyperThyroxine > baselineThyroxine && suppressedTSH < baselineTSH, `Thyroid negative feedback loop: Thyroxine elevation suppresses pituitary TSH secretion`);
 
+// L. Biology: Menstrual & Ovarian Cycle Phasic Hormonal Dynamics (Chapter 3)
+const day14LH = 62.0; // mIU/mL
+const day14OvulationPeak = 50.0;
+assert(day14LH >= day14OvulationPeak, `Ovulatory LH surge triggers Graafian follicle rupture on Day 14 (found: ${day14LH} mIU/mL >= 50)`);
+
+const day13Estrogen = 330; // pg/mL
+assert(day13Estrogen > 200, `Pre-ovulatory Estrogen peaks before ovulation to trigger positive feedback on LH surge (found: ${day13Estrogen} pg/mL)`);
+
+const day21Progesterone = 20.0; // ng/mL
+assert(day21Progesterone > 15.0, `Luteal Progesterone reaches secretory peak to maintain endometrial vascularity (found: ${day21Progesterone} ng/mL)`);
+
+const pillFSH = 2.4;
+const pillLH = 3.1;
+assert(pillFSH < 5.0 && pillLH < 5.0, `Combined contraceptive pill suppresses pituitary gonadotropins to prevent ovulation (FSH: ${pillFSH}, LH: ${pillLH})`);
+
+const endoMenses = 1.0; // mm
+const endoSecretory = 6.0; // mm
+assert(endoSecretory >= 5.0 && endoMenses <= 1.5, `Endometrial thickness transitions from sloughing (1.0 mm) to secretory peak (6.0 mm)`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
+  // Menstrual & Reproductive Endocrinology Lab (Chapter 3)
+  '[\\text{Estrogen}]_{\\text{peak}} > 200 \\,\\text{pg/mL} \\xrightarrow{\\text{positive feedback}} [\\text{LH}]_{\\text{surge}} > 50 \\,\\text{mIU/mL}',
+  '\\text{Fertile Window} = [\\text{Day } 14 - 2, \\,\\text{Day } 14 + 2] = \\text{Days } 12 - 16',
+  '5.0 \\le \\text{Thickness}_{\\text{endometrium}} \\le 6.5 \\,\\text{mm} \\quad (\\text{Days } 15 - 24)',
   // Physics Lab
   'I = \\frac{V_B}{R_{\\text{eq}} + r}',
   'V = V_B - Ir',
