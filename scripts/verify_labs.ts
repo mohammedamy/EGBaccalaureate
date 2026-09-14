@@ -59,6 +59,7 @@ const labComponents = [
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/PhotoelectricLab.tsx',
   'src/components/labs/AtomicLaserLab.tsx',
+  'src/components/labs/OpticsBenchLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
   'src/components/labs/TitrationLab.tsx',
   'src/components/labs/OrganicChemistryLab.tsx',
@@ -154,6 +155,45 @@ const laser_dE_eV = E_Ne_3s - E_Ne_2p;
 const laser_lambda_nm = 1239.84193 / laser_dE_eV;
 assert(resonant_gap <= 0.05 + 1e-5, `He-Ne Resonant Energy Gap: ${resonant_gap.toFixed(2)} eV (<= 0.05 eV, thermal resonance)`);
 assert(Math.abs(laser_lambda_nm - 632.6) < 0.5, `He-Ne Laser Output Wavelength: ${laser_lambda_nm.toFixed(1)} nm (expected 632.8 nm red)`);
+
+// D4. Physics: Geometrical & Wave Optics (Snell's Law, TIR, Thin Lens, Young's Double Slit)
+// 1. Snell's Law & Total Internal Reflection (Crown glass to air)
+const n_glass = 1.52;
+const n_air = 1.00;
+const theta_c_deg = Math.asin(n_air / n_glass) * (180 / Math.PI);
+assert(Math.abs(theta_c_deg - 41.14) < 0.1, `Crown Glass Critical Angle: θ_c = ${theta_c_deg.toFixed(2)}° (expected ~41.14°)`);
+
+// Test refraction below critical angle: θ1 = 30°
+const theta1_rad = (30 * Math.PI) / 180;
+const sin_theta2 = (n_glass * Math.sin(theta1_rad)) / n_air;
+const theta2_deg = Math.asin(sin_theta2) * (180 / Math.PI);
+assert(Math.abs(theta2_deg - 49.46) < 0.1, `Refraction angle from glass to air at 30°: θ2 = ${theta2_deg.toFixed(2)}° (expected ~49.46°)`);
+
+// Test TIR above critical angle: θ1 = 45° > θ_c
+const sin_tir = (n_glass * Math.sin((45 * Math.PI) / 180)) / n_air;
+assert(sin_tir > 1.0, `Total Internal Reflection occurs at 45° > θ_c (sin θ2 = ${sin_tir.toFixed(3)} > 1.0)`);
+
+// 2. Thin Convex Lens Equation: 1/f = 1/do + 1/di
+const f_lens = 15.0; // cm
+const do_lens = 30.0; // cm (placed at 2F)
+const di_lens = (f_lens * do_lens) / (do_lens - f_lens);
+const mag_lens = -di_lens / do_lens;
+assert(Math.abs(di_lens - 30.0) < 1e-6, `Thin Lens Image Distance at 2F: di = ${di_lens.toFixed(1)} cm (expected 30.0 cm)`);
+assert(Math.abs(mag_lens - (-1.0)) < 1e-6, `Thin Lens Magnification at 2F: M = ${mag_lens.toFixed(1)} (real, inverted, unit magnification)`);
+
+// Virtual image for do < f (magnifying glass)
+const do_mag = 10.0; // cm (< 15 cm)
+const di_mag = (f_lens * do_mag) / (do_mag - f_lens);
+const mag_virtual = -di_mag / do_mag;
+assert(di_mag < 0 && Math.abs(di_mag - (-30.0)) < 1e-6, `Magnifying glass virtual image: di = ${di_mag.toFixed(1)} cm (expected -30.0 cm)`);
+assert(mag_virtual > 0 && Math.abs(mag_virtual - 3.0) < 1e-6, `Magnifying glass magnification: M = +${mag_virtual.toFixed(1)} (erect, magnified 3x)`);
+
+// 3. Young's Double Slit Interference: Δy = (λ * D) / d
+const lambda_young_m = 632.8e-9; // 632.8 nm He-Ne laser
+const D_screen_m = 1.5; // 1.5 m screen distance
+const d_slit_m = 0.25e-3; // 0.25 mm slit spacing
+const delta_y_mm = ((lambda_young_m * D_screen_m) / d_slit_m) * 1000;
+assert(Math.abs(delta_y_mm - 3.80) < 0.05, `Young's double slit fringe width: Δy = ${delta_y_mm.toFixed(2)} mm (expected ~3.80 mm)`);
 
 // E. Chemistry: 3d Transition Series & Magnetic Moments
 // Magnetic moment formula: mu = sqrt(n * (n + 2)) BM
@@ -283,6 +323,14 @@ const labKeyFormulas = [
   '\\bar{\\nu} = \\frac{1}{\\lambda} = R_H\\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right)',
   'N_2 > N_1',
   'L = m\\,\\frac{\\lambda}{2}',
+  // Optics Lab
+  'n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2',
+  '\\sin\\theta_c = \\frac{n_2}{n_1}',
+  '\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}',
+  'M = -\\frac{d_i}{d_o} = \\frac{h_i}{h_o}',
+  '\\Delta y = \\frac{\\lambda D}{d}',
+  'I(\\theta) = I_0 \\cos^2\\left(\\frac{\\pi d \\sin\\theta}{\\lambda}\\right)',
+  'n(\\lambda) = A + \\frac{B}{\\lambda^2}',
   // Chemistry Lab
   '2\\text{NO}_2\\text{(g)} \\rightleftharpoons \\text{N}_2\\text{O}_4\\text{(g)}',
   '\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3',

@@ -721,7 +721,7 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
       {/* TAB: OPTICS & RAY TRACING */}
       {activeTab === 'optics' && (
         <div className="mt-6">
-          <OpticsBenchLab lang={lang} />
+          <OpticsBenchLab lang={lang} theme={theme} />
         </div>
       )}
 
