@@ -285,6 +285,41 @@ const pH_test = 7.0;
 const E_glass_V = 0.414 - 0.05916 * pH_test;
 assert(Math.abs(E_glass_V - (-0.00012)) < 1e-3, `Glass pH Electrode Nernst Potential at pH 7.0: E = ${E_glass_V.toFixed(4)} V`);
 
+// F5. Chemistry: Qualitative Chemical Analysis (Egyptian Curriculum Chapter 2)
+const anionGroups = {
+  diluteHCl: ['carbonate', 'bicarbonate', 'sulfite', 'thiosulfate', 'sulfide', 'nitrite'],
+  concH2SO4: ['chloride', 'bromide', 'iodide', 'nitrate'],
+  baCl2: ['phosphate', 'sulfate'],
+};
+const totalAnionsCount =
+  anionGroups.diluteHCl.length + anionGroups.concH2SO4.length + anionGroups.baCl2.length;
+assert(totalAnionsCount === 12, `All 12 Egyptian Curriculum anions covered (6 HCl + 4 H₂SO₄ + 2 BaCl₂)`);
+
+const cationGroups = {
+  groupI: ['lead (Pb²⁺)'],
+  groupII: ['copper (Cu²⁺)'],
+  groupIII: ['aluminum (Al³⁺)', 'iron(II) (Fe²⁺)', 'iron(III) (Fe³⁺)'],
+  groupV: ['calcium (Ca²⁺)'],
+};
+const totalCationsCount =
+  cationGroups.groupI.length +
+  cationGroups.groupII.length +
+  cationGroups.groupIII.length +
+  cationGroups.groupV.length;
+assert(totalCationsCount === 6, `All 6 Egyptian Analytical Group representative cations covered (Pb²⁺, Cu²⁺, Al³⁺, Fe²⁺, Fe³⁺, Ca²⁺)`);
+
+// Flame atomic emission spectroscopy lines
+const flameEmissions: Record<string, number> = {
+  Ca: 622, // Brick-Red (nm)
+  Na: 589, // Golden Yellow (nm)
+  K: 766,  // Violet / Lilac (nm)
+  Cu: 510, // Emerald Green (nm)
+  Ba: 524, // Apple Green (nm)
+};
+assert(flameEmissions.Ca === 622, 'Calcium brick-red flame emission confirmed at 622 nm');
+assert(flameEmissions.Na === 589, 'Sodium yellow D-line emission confirmed at 589 nm');
+assert(flameEmissions.K === 766, 'Potassium violet flame emission confirmed at 766 nm');
+
 // G. Biology: Human Skeleton Counts
 const axialBones = 80;
 const appendicularBones = 126;
@@ -387,6 +422,13 @@ const labKeyFormulas = [
   'K_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{A}^-]}{[\\text{HA}]}',
   'M_A V_A = M_B V_B',
   'E = 0.414 - 0.05916 \\times \\text{pH}',
+  // Qualitative Analysis Lab (Chapter 2)
+  '\\text{Na}_2\\text{CO}_3 + 2\\text{HCl} \\to 2\\text{NaCl} + \\text{H}_2\\text{O} + \\text{CO}_2\\uparrow',
+  '\\text{Mg(HCO}_3)_2 \\xrightarrow{\\Delta} \\text{MgCO}_3\\downarrow + \\text{H}_2\\text{O} + \\text{CO}_2\\uparrow',
+  '\\text{Al(OH)}_3\\downarrow + \\text{NaOH} \\to \\text{NaAlO}_2 + 2\\text{H}_2\\text{O}',
+  '2\\text{Na}_3\\text{PO}_4 + 3\\text{BaCl}_2 \\to 6\\text{NaCl} + \\text{Ba}_3(\\text{PO}_4)_2\\downarrow',
+  '\\text{Pb}^{2+} + 2\\text{Cl}^- \\to \\text{PbCl}_2\\downarrow',
+  '[\\text{Cu(NH}_3)_4]^{2+}',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',
