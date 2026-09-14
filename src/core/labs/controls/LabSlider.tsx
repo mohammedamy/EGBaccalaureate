@@ -143,14 +143,14 @@ export const LabSlider: React.FC<LabSliderProps> = ({
               onBlur={handleInputBlur}
               onKeyDown={handleInputKeyDown}
               disabled={disabled}
-              className={`w-16 px-1.5 py-0.5 text-right font-mono text-xs font-bold rounded border focus:outline-none transition-all ${
+              className={`w-20 px-2 py-0.5 text-right font-mono text-xs font-bold rounded-lg border focus:outline-none transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
                 isLight
-                  ? 'bg-white border-slate-300 text-slate-900 focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/30 shadow-xs'
-                  : 'bg-slate-950/80 border-slate-700 text-cyan-300 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/40'
+                  ? 'bg-white border-slate-300 text-slate-900 focus:border-cyan-600 focus:ring-2 focus:ring-cyan-500/25 shadow-xs'
+                  : 'bg-slate-950/90 border-slate-700 text-cyan-300 hover:border-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30'
               }`}
             />
             {unit && (
-              <span className={`text-[10px] font-sans ml-1 mr-1 shrink-0 ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}`}>
+              <span className={`text-[10px] font-sans ml-1 mr-1 shrink-0 ${isLight ? 'text-slate-500 font-semibold' : 'text-slate-400'}`}>
                 {unit}
               </span>
             )}
@@ -165,29 +165,29 @@ export const LabSlider: React.FC<LabSliderProps> = ({
               className={`p-1 rounded transition-colors ${
                 isLight
                   ? 'text-slate-400 hover:text-cyan-700 hover:bg-slate-200'
-                  : 'text-slate-500 hover:text-cyan-300 hover:bg-slate-800'
+                  : 'text-slate-400 hover:text-cyan-300 hover:bg-slate-800'
               }`}
             >
-              <RotateCcw className="w-3 h-3" />
+              <RotateCcw className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
       </div>
 
       {/* Slider track with fine-calibration buttons */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2.5">
         <button
           type="button"
           onClick={stepDown}
           disabled={disabled || value <= min}
           aria-label="Decrease"
-          className={`p-1 rounded transition-colors disabled:opacity-30 ${
+          className={`p-1.5 rounded-lg transition-all active:scale-95 disabled:opacity-30 disabled:pointer-events-none ${
             isLight
-              ? 'bg-slate-200 hover:bg-slate-300 text-slate-700 disabled:hover:bg-slate-200'
-              : 'bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:hover:bg-slate-800'
+              ? 'bg-slate-100 hover:bg-slate-200 hover:text-cyan-800 text-slate-700 border border-slate-200 shadow-xs'
+              : 'bg-slate-800/90 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700/70 shadow-xs'
           }`}
         >
-          <Minus className="w-3 h-3" />
+          <Minus className="w-3.5 h-3.5" />
         </button>
 
         <div className="relative flex-1 flex items-center">
@@ -200,10 +200,10 @@ export const LabSlider: React.FC<LabSliderProps> = ({
             value={value}
             onChange={handleSliderChange}
             disabled={disabled}
-            className={`w-full h-1.5 rounded-lg appearance-none cursor-pointer focus:outline-none touch-none ${
+            className={`w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none touch-none transition-all ${
               isLight
-                ? 'bg-slate-200 accent-cyan-600 focus:ring-2 focus:ring-cyan-500/30'
-                : 'bg-slate-800 accent-cyan-400 focus:ring-2 focus:ring-cyan-400/30'
+                ? 'bg-slate-200 accent-cyan-600 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-600 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white'
+                : 'bg-slate-700/80 accent-cyan-400 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-slate-900 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:shadow-cyan-500/40 [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-400 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-slate-900'
             }`}
           />
         </div>
@@ -213,19 +213,19 @@ export const LabSlider: React.FC<LabSliderProps> = ({
           onClick={stepUp}
           disabled={disabled || value >= max}
           aria-label="Increase"
-          className={`p-1 rounded transition-colors disabled:opacity-30 ${
+          className={`p-1.5 rounded-lg transition-all active:scale-95 disabled:opacity-30 disabled:pointer-events-none ${
             isLight
-              ? 'bg-slate-200 hover:bg-slate-300 text-slate-700 disabled:hover:bg-slate-200'
-              : 'bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:hover:bg-slate-800'
+              ? 'bg-slate-100 hover:bg-slate-200 hover:text-cyan-800 text-slate-700 border border-slate-200 shadow-xs'
+              : 'bg-slate-800/90 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700/70 shadow-xs'
           }`}
         >
-          <Plus className="w-3 h-3" />
+          <Plus className="w-3.5 h-3.5" />
         </button>
       </div>
 
       {/* Range Min/Max Footers */}
-      <div className={`flex justify-between items-center text-[10px] mt-1 px-1 font-mono ${
-        isLight ? 'text-slate-500 font-medium' : 'text-slate-500'
+      <div className={`flex justify-between items-center text-[10px] mt-1.5 px-1 font-mono font-medium ${
+        isLight ? 'text-slate-600' : 'text-slate-400'
       }`}>
         <span>{displayMin}</span>
         <span>{displayMax}</span>

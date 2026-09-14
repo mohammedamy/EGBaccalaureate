@@ -998,19 +998,18 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       width: number,
       height: number,
       viewport: LabViewportState,
-      dpr: number
+      _dpr: number
     ) => {
       ctx.save();
-      ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
 
-      // Dark background grid
+      // Background grid
       ctx.fillStyle = isLight ? '#f8fafc' : '#030712';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.strokeStyle = isLight ? '#e2e8f0' : '#1e293b';
+      ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.6)' : 'rgba(30, 41, 59, 0.6)';
       ctx.lineWidth = 1;
-      const gridSize = 24 * viewport.zoom;
+      const gridSize = 28 * viewport.zoom;
       for (let x = 0; x < width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -1030,144 +1029,174 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       if (params.module === 'le_chatelier') {
         // Render Le Chatelier Gas Reactor Flask or Syringe
         ctx.save();
-        ctx.translate(centerX, centerY);
+        ctx.translate(centerX + viewport.panX, centerY - 20 + viewport.panY);
+        ctx.scale(viewport.zoom, viewport.zoom);
 
         // Vessel glow
-        const glowGrad = ctx.createRadialGradient(0, 0, 10, 0, 0, 160);
+        const glowGrad = ctx.createRadialGradient(0, 10, 10, 0, 10, 150);
         glowGrad.addColorStop(0, simState.vesselColorRgba);
         glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = glowGrad;
-        ctx.fillRect(-180, -180, 360, 360);
+        ctx.fillRect(-170, -170, 340, 340);
 
         // Spherical Glass Flask / Reactor Body
         ctx.beginPath();
-        ctx.arc(0, 20, 110, 0, Math.PI * 2);
+        ctx.arc(0, 10, 95, 0, Math.PI * 2);
         ctx.fillStyle = simState.vesselColorRgba;
         ctx.fill();
-        ctx.strokeStyle = isLight ? '#94a3b8' : '#38bdf8';
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
         ctx.lineWidth = 3;
         ctx.stroke();
 
         // Flask neck
-        ctx.fillStyle = isLight ? '#e2e8f0' : '#0f172a';
-        ctx.fillRect(-22, -120, 44, 50);
-        ctx.strokeRect(-22, -120, 44, 50);
+        ctx.fillStyle = isLight ? '#f1f5f9' : '#0f172a';
+        ctx.fillRect(-20, -115, 40, 40);
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 2.5;
+        ctx.strokeRect(-20, -115, 40, 40);
 
-        // Rubber stopper & Pressure Gauge
-        ctx.fillStyle = '#475569';
-        ctx.fillRect(-26, -135, 52, 16);
+        // Rubber stopper
+        ctx.fillStyle = isLight ? '#64748b' : '#475569';
+        ctx.fillRect(-24, -130, 48, 16);
+
+        // Pressure Gauge stem and dial
+        ctx.strokeStyle = isLight ? '#475569' : '#64748b';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, -130);
+        ctx.lineTo(0, -140);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(0, -154, 14, 0, Math.PI * 2);
+        ctx.fillStyle = isLight ? '#ffffff' : '#0f172a';
+        ctx.fill();
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        const needleAngle = -Math.PI * 0.75 + (params.pressureAtm / 5.0) * Math.PI * 1.5;
+        ctx.beginPath();
+        ctx.moveTo(0, -154);
+        ctx.lineTo(Math.cos(needleAngle) * 9, -154 + Math.sin(needleAngle) * 9);
+        ctx.strokeStyle = '#ef4444';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
 
         // Animated Gas Molecules
-        const numParticles = Math.round(15 * params.pressureAtm);
+        const numParticles = Math.round(16 * Math.sqrt(params.pressureAtm));
         for (let i = 0; i < numParticles; i++) {
           const angle = (i * (360 / numParticles) + animTick * 1.5) * (Math.PI / 180);
-          const rad = 25 + ((i * 19 + animTick * 2) % 75);
+          const rad = 20 + ((i * 17 + animTick * 2) % 65);
           const px = Math.cos(angle) * rad;
-          const py = 20 + Math.sin(angle) * rad;
+          const py = 10 + Math.sin(angle) * rad;
 
           // NO2 (reddish brown pair) vs N2O4 (larger colorless dimer)
           if (i % 2 === 0) {
             ctx.beginPath();
             ctx.arc(px, py, 6, 0, Math.PI * 2);
-            ctx.fillStyle = '#b45309';
+            ctx.fillStyle = isLight ? '#b45309' : '#d97706';
             ctx.fill();
-            ctx.strokeStyle = '#fef08a';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = isLight ? '#78350f' : '#fef08a';
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           } else {
             ctx.beginPath();
             ctx.arc(px, py, 9, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.85)' : 'rgba(255, 255, 255, 0.75)';
             ctx.fill();
-            ctx.strokeStyle = '#38bdf8';
+            ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
             ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }
 
-        // Pressure & Temperature Readout Tag
-        ctx.fillStyle = 'rgba(2, 6, 23, 0.85)';
-        ctx.fillRect(-130, 145, 260, 42);
-        ctx.strokeStyle = '#38bdf8';
-        ctx.lineWidth = 1;
-        ctx.strokeRect(-130, 145, 260, 42);
+        // Pressure & Temperature Readout Tag Card
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.92)';
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(-135, 115, 270, 45, 10);
+        ctx.fill();
+        ctx.stroke();
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
         ctx.font = 'bold 12px monospace';
         ctx.textAlign = 'center';
         ctx.fillText(
           `P = ${params.pressureAtm.toFixed(1)} atm | T = ${params.temperatureC} °C (${params.temperatureC + 273} K)`,
           0,
-          163
+          133
         );
-        ctx.fillStyle = '#4ade80';
+        ctx.fillStyle = isLight ? '#15803d' : '#4ade80';
         ctx.font = 'bold 11px sans-serif';
         ctx.fillText(
           isArabic ? simState.shiftDirectionAr : simState.shiftDirectionEn,
           0,
-          179
+          150
         );
 
         ctx.restore();
       } else if (params.module === 'ostwald_ionic') {
         // Render Conductivity Electrolysis Apparatus & Light Bulb
         ctx.save();
-        ctx.translate(centerX, centerY - 20);
+        ctx.translate(centerX + viewport.panX, centerY - 15 + viewport.panY);
+        ctx.scale(viewport.zoom, viewport.zoom);
         const dilutedC = Math.max(0.0001, (params.concentrationM * 100) / params.solutionVolumeMl);
 
         // Glass Beaker
-        ctx.fillStyle = isLight ? 'rgba(226, 232, 240, 0.4)' : 'rgba(30, 41, 59, 0.4)';
-        ctx.fillRect(-90, -20, 180, 150);
-        ctx.strokeStyle = '#64748b';
+        ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.6)' : 'rgba(30, 41, 59, 0.4)';
+        ctx.fillRect(-85, -15, 170, 140);
+        ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
         ctx.lineWidth = 3;
-        ctx.strokeRect(-90, -20, 180, 150);
+        ctx.strokeRect(-85, -15, 170, 140);
 
         // Electrolyte Solution Level
-        const solHeight = 40 + (params.solutionVolumeMl / 500) * 80;
+        const solHeight = 35 + (params.solutionVolumeMl / 500) * 75;
         ctx.fillStyle =
           params.electrolyte === 'hcl'
-            ? 'rgba(56, 189, 248, 0.35)'
-            : 'rgba(251, 191, 36, 0.35)';
-        ctx.fillRect(-87, 130 - solHeight, 174, solHeight);
+            ? isLight ? 'rgba(2, 132, 199, 0.25)' : 'rgba(56, 189, 248, 0.35)'
+            : isLight ? 'rgba(217, 119, 6, 0.25)' : 'rgba(251, 191, 36, 0.35)';
+        ctx.fillRect(-82, 122 - solHeight, 164, solHeight);
 
         // Electrodes (Carbon/Platinum rods)
-        ctx.fillStyle = '#334155';
-        ctx.fillRect(-50, -60, 14, 150);
-        ctx.fillRect(36, -60, 14, 150);
-        ctx.strokeStyle = '#94a3b8';
-        ctx.strokeRect(-50, -60, 14, 150);
-        ctx.strokeRect(36, -60, 14, 150);
+        ctx.fillStyle = isLight ? '#475569' : '#334155';
+        ctx.fillRect(-45, -55, 14, 140);
+        ctx.fillRect(31, -55, 14, 140);
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#64748b';
+        ctx.strokeRect(-45, -55, 14, 140);
+        ctx.strokeRect(31, -55, 14, 140);
 
         // Wires to Battery and Bulb
         ctx.beginPath();
-        ctx.moveTo(-43, -60);
-        ctx.lineTo(-43, -110);
-        ctx.lineTo(-20, -110);
-        ctx.moveTo(43, -60);
-        ctx.lineTo(43, -110);
-        ctx.lineTo(20, -110);
-        ctx.strokeStyle = '#f59e0b';
+        ctx.moveTo(-38, -55);
+        ctx.lineTo(-38, -95);
+        ctx.lineTo(-18, -95);
+        ctx.moveTo(38, -55);
+        ctx.lineTo(38, -95);
+        ctx.lineTo(18, -95);
+        ctx.strokeStyle = isLight ? '#d97706' : '#f59e0b';
         ctx.lineWidth = 2.5;
         ctx.stroke();
 
         // Light Bulb socket
-        ctx.fillStyle = '#64748b';
-        ctx.fillRect(-15, -118, 30, 16);
+        ctx.fillStyle = isLight ? '#94a3b8' : '#64748b';
+        ctx.fillRect(-14, -102, 28, 14);
 
         // Glowing Glass Bulb
-        const bulbGlowRadius = 25 + simState.bulbGlow * 35;
-        const bulbGrad = ctx.createRadialGradient(0, -145, 4, 0, -145, bulbGlowRadius);
+        const bulbGlowRadius = 22 + simState.bulbGlow * 30;
+        const bulbGrad = ctx.createRadialGradient(0, -125, 4, 0, -125, bulbGlowRadius);
         bulbGrad.addColorStop(
           0,
           `rgba(250, 204, 21, ${Math.min(1.0, 0.4 + simState.bulbGlow * 0.6)})`
         );
         bulbGrad.addColorStop(1, 'rgba(250, 204, 21, 0)');
         ctx.fillStyle = bulbGrad;
-        ctx.fillRect(-bulbGlowRadius, -145 - bulbGlowRadius, bulbGlowRadius * 2, bulbGlowRadius * 2);
+        ctx.fillRect(-bulbGlowRadius, -125 - bulbGlowRadius, bulbGlowRadius * 2, bulbGlowRadius * 2);
 
         ctx.beginPath();
-        ctx.arc(0, -145, 18, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(254, 240, 138, ${Math.max(0.3, simState.bulbGlow)})`;
+        ctx.arc(0, -125, 16, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(254, 240, 138, ${Math.max(0.35, simState.bulbGlow)})`;
         ctx.fill();
         ctx.strokeStyle = '#eab308';
         ctx.lineWidth = 2;
@@ -1175,28 +1204,31 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
         // Filament
         ctx.beginPath();
-        ctx.moveTo(-6, -137);
-        ctx.lineTo(0, -149);
-        ctx.lineTo(6, -137);
+        ctx.moveTo(-5, -118);
+        ctx.lineTo(0, -129);
+        ctx.lineTo(5, -118);
         ctx.strokeStyle = simState.bulbGlow > 0.2 ? '#f59e0b' : '#78716c';
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
         // Solution Status Caption
-        ctx.fillStyle = 'rgba(2, 6, 23, 0.9)';
-        ctx.fillRect(-130, 155, 260, 44);
-        ctx.strokeStyle = '#38bdf8';
-        ctx.strokeRect(-130, 155, 260, 44);
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.92)';
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(-135, 135, 270, 45, 10);
+        ctx.fill();
+        ctx.stroke();
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
         ctx.font = 'bold 12px monospace';
         ctx.textAlign = 'center';
         ctx.fillText(
           `C = ${dilutedC.toFixed(4)} M | α = ${(simState.alphaFraction * 100).toFixed(2)} %`,
           0,
-          173
+          153
         );
-        ctx.fillStyle = '#facc15';
+        ctx.fillStyle = isLight ? '#b45309' : '#facc15';
         ctx.font = 'bold 11px sans-serif';
         ctx.fillText(
           `Bulb Glow: ${(simState.bulbGlow * 100).toFixed(0)}% | pH = ${simState.pH.toFixed(2)}`,
@@ -1208,99 +1240,104 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       } else if (params.module === 'salt_hydrolysis') {
         // Render Salt Hydrolysis Colorimetric Beaker
         ctx.save();
-        ctx.translate(centerX, centerY);
+        ctx.translate(centerX + viewport.panX, centerY - 15 + viewport.panY);
+        ctx.scale(viewport.zoom, viewport.zoom);
 
         // Beaker
         ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.7)' : 'rgba(15, 23, 42, 0.7)';
-        ctx.fillRect(-90, -70, 180, 150);
-        ctx.strokeStyle = '#94a3b8';
+        ctx.fillRect(-85, -60, 170, 140);
+        ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
         ctx.lineWidth = 3;
-        ctx.strokeRect(-90, -70, 180, 150);
+        ctx.strokeRect(-85, -60, 170, 140);
 
         // Indicator Colored Salt Solution
         ctx.fillStyle = simState.saltSolutionColor;
-        ctx.fillRect(-87, -10, 174, 88);
+        ctx.fillRect(-82, -5, 164, 82);
 
         // Color glow
-        const glowGrad = ctx.createRadialGradient(0, 30, 10, 0, 30, 90);
+        const glowGrad = ctx.createRadialGradient(0, 35, 10, 0, 35, 80);
         glowGrad.addColorStop(0, simState.saltSolutionColor);
         glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = glowGrad;
-        ctx.fillRect(-120, -30, 240, 140);
+        ctx.fillRect(-110, -25, 220, 130);
 
         // Submerged Magnetic Stirrer pill
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
-        ctx.roundRect(-16, 68, 32, 8, 4);
+        ctx.roundRect(-16, 66, 32, 8, 4);
         ctx.fill();
-        ctx.strokeStyle = '#94a3b8';
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#64748b';
         ctx.stroke();
 
         // pH Tag Card
-        ctx.fillStyle = 'rgba(2, 6, 23, 0.9)';
-        ctx.fillRect(-120, 100, 240, 48);
-        ctx.strokeStyle = '#38bdf8';
-        ctx.strokeRect(-120, 100, 240, 48);
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.92)';
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(-125, 95, 250, 48, 10);
+        ctx.fill();
+        ctx.stroke();
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
         ctx.font = 'bold 13px monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(`Salt pH = ${simState.saltSolutionPH.toFixed(2)}`, 0, 120);
+        ctx.fillText(`Salt pH = ${simState.saltSolutionPH.toFixed(2)}`, 0, 115);
 
         ctx.fillStyle =
           simState.saltSolutionPH === 7.0
-            ? '#4ade80'
+            ? isLight ? '#15803d' : '#4ade80'
             : simState.saltSolutionPH < 7.0
-            ? '#f43f5e'
-            : '#38bdf8';
+            ? isLight ? '#be123c' : '#f43f5e'
+            : isLight ? '#0369a1' : '#38bdf8';
         ctx.font = 'bold 11px sans-serif';
         ctx.fillText(
           isArabic ? simState.saltNatureAr : simState.saltNatureEn,
           0,
-          138
+          133
         );
 
         ctx.restore();
       } else {
         // Render Solubility Product Ksp Test Tube & Precipitate
         ctx.save();
-        ctx.translate(centerX, centerY);
+        ctx.translate(centerX + viewport.panX, centerY - 15 + viewport.panY);
+        ctx.scale(viewport.zoom, viewport.zoom);
 
         // Test Tube
         ctx.beginPath();
-        ctx.moveTo(-45, -120);
-        ctx.lineTo(-45, 60);
-        ctx.arc(0, 60, 45, Math.PI, 0, true);
-        ctx.lineTo(45, -120);
+        ctx.moveTo(-40, -110);
+        ctx.lineTo(-40, 50);
+        ctx.arc(0, 50, 40, Math.PI, 0, true);
+        ctx.lineTo(40, -110);
         ctx.closePath();
         ctx.fillStyle = isLight ? 'rgba(226, 232, 240, 0.5)' : 'rgba(30, 41, 59, 0.5)';
         ctx.fill();
-        ctx.strokeStyle = '#94a3b8';
+        ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
         ctx.lineWidth = 3;
         ctx.stroke();
 
         // Clear Saturated Supernatant Solution
         ctx.beginPath();
-        ctx.moveTo(-42, -50);
-        ctx.lineTo(-42, 60);
-        ctx.arc(0, 60, 42, Math.PI, 0, true);
-        ctx.lineTo(42, -50);
+        ctx.moveTo(-37, -45);
+        ctx.lineTo(-37, 50);
+        ctx.arc(0, 50, 37, Math.PI, 0, true);
+        ctx.lineTo(37, -45);
         ctx.closePath();
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.2)';
+        ctx.fillStyle = isLight ? 'rgba(2, 132, 199, 0.15)' : 'rgba(56, 189, 248, 0.2)';
         ctx.fill();
 
         // Insoluble Precipitate sediment at bottom
         if (simState.isPrecipitating) {
           ctx.beginPath();
-          ctx.arc(0, 60, 42, Math.PI * 0.8, Math.PI * 0.2, true);
+          ctx.arc(0, 50, 37, Math.PI * 0.8, Math.PI * 0.2, true);
           ctx.closePath();
           ctx.fillStyle = simState.precipitateColor;
           ctx.fill();
 
           // Suspended drifting crystalline specks
           for (let p = 0; p < 12; p++) {
-            const specX = -25 + ((p * 17 + animTick) % 50);
-            const specY = 0 + ((p * 23 + animTick * 2) % 65);
+            const specX = -20 + ((p * 17 + animTick) % 40);
+            const specY = 0 + ((p * 23 + animTick * 2) % 55);
             ctx.beginPath();
             ctx.arc(specX, specY, 2.5, 0, Math.PI * 2);
             ctx.fillStyle = simState.precipitateColor;
@@ -1309,28 +1346,33 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         }
 
         // Telemetry Tag Card
-        ctx.fillStyle = 'rgba(2, 6, 23, 0.9)';
-        ctx.fillRect(-130, 125, 260, 46);
-        ctx.strokeStyle = '#38bdf8';
-        ctx.strokeRect(-130, 125, 260, 46);
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.92)';
+        ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(-135, 110, 270, 46, 10);
+        ctx.fill();
+        ctx.stroke();
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
         ctx.font = 'bold 11px monospace';
         ctx.textAlign = 'center';
         ctx.fillText(
           `Ksp = ${simState.ksp.toExponential(1)} | s = ${simState.molarSolubilityS.toExponential(2)} M`,
           0,
-          143
+          128
         );
 
-        ctx.fillStyle = simState.isPrecipitating ? '#eab308' : '#4ade80';
+        ctx.fillStyle = simState.isPrecipitating
+          ? isLight ? '#b45309' : '#eab308'
+          : isLight ? '#15803d' : '#4ade80';
         ctx.font = 'bold 11px sans-serif';
         ctx.fillText(
           isArabic
             ? `الراسب: ${simState.precipitateMassMg} مجم (أيون مشترك = ${params.addedCommonIonM}M)`
             : `Precipitate: ${simState.precipitateMassMg} mg (Common Ion = ${params.addedCommonIonM}M)`,
           0,
-          161
+          146
         );
 
         ctx.restore();
@@ -1403,28 +1445,74 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
             </div>
           </div>
 
-          {/* DMM Mode Quick Switcher */}
-          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
-            {(['pH', 'pOH', 'H_conc', 'alpha'] as const).map((mode) => (
-              <button
-                key={mode}
-                onClick={() => setDmmMode(mode)}
-                className={`px-2.5 py-0.5 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
-                  dmmMode === mode
-                    ? 'bg-cyan-600 text-white font-black'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {mode === 'pH'
-                  ? 'pH'
-                  : mode === 'pOH'
-                  ? 'pOH'
-                  : mode === 'H_conc'
-                  ? '[H₃O⁺]'
-                  : 'α (%)'}
-              </button>
-            ))}
-          </div>
+          {/* Quick Context Pill / DMM Quick Switcher */}
+          {params.module === 'le_chatelier' ? (
+            <div
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold ${
+                isLight ? 'bg-slate-100 border-slate-300 text-slate-700' : 'bg-slate-950 border-slate-800 text-slate-300'
+              }`}
+            >
+              <span className="font-mono text-cyan-500 font-black">
+                K<sub>c</sub> = {simState.currentKc < 0.01 ? simState.currentKc.toExponential(2) : simState.currentKc.toFixed(2)}
+              </span>
+              <span className="text-slate-400">|</span>
+              <span className={`px-2 py-0.5 rounded-md font-bold text-[10px] ${
+                simState.shiftDirectionEn === 'Dynamic Equilibrium'
+                  ? isLight ? 'bg-emerald-100 text-emerald-800' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/60'
+                  : isLight ? 'bg-amber-100 text-amber-900' : 'bg-amber-950/60 text-amber-300 border border-amber-800/60'
+              }`}>
+                {isArabic ? simState.shiftDirectionAr : simState.shiftDirectionEn}
+              </span>
+            </div>
+          ) : params.module === 'solubility_product' ? (
+            <div
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold ${
+                isLight ? 'bg-slate-100 border-slate-300 text-slate-700' : 'bg-slate-950 border-slate-800 text-slate-300'
+              }`}
+            >
+              <span className="font-mono text-cyan-500 font-black">
+                K<sub>sp</sub> = {simState.ksp.toExponential(1)}
+              </span>
+              <span className="text-slate-400">|</span>
+              <span className={`px-2 py-0.5 rounded-md font-bold text-[10px] ${
+                simState.isPrecipitating
+                  ? isLight ? 'bg-amber-100 text-amber-900' : 'bg-amber-950/60 text-amber-300 border border-amber-800/60'
+                  : isLight ? 'bg-emerald-100 text-emerald-800' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/60'
+              }`}>
+                {simState.isPrecipitating
+                  ? (isArabic ? 'يتكون راسب' : 'Precipitating')
+                  : (isArabic ? 'محلول غير مشبع / مشبع' : 'Saturated Solution')}
+              </span>
+            </div>
+          ) : (
+            <div
+              className={`flex items-center gap-1 p-1 rounded-xl border ${
+                isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-950 border-slate-800'
+              }`}
+            >
+              {(['pH', 'pOH', 'H_conc', 'alpha'] as const).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => setDmmMode(mode)}
+                  className={`px-2.5 py-0.5 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
+                    dmmMode === mode
+                      ? 'bg-cyan-600 text-white font-black shadow-xs'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {mode === 'pH'
+                    ? 'pH'
+                    : mode === 'pOH'
+                    ? 'pOH'
+                    : mode === 'H_conc'
+                    ? '[H₃O⁺]'
+                    : 'α (%)'}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Live Simulation Viewport */}
@@ -1454,13 +1542,17 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           {params.module === 'le_chatelier' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
+                <label className={`block text-xs font-bold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? 'نظام التفاعل:' : 'Reaction System:'}
                 </label>
                 <select
                   value={params.gasSystem}
                   onChange={(e) => updateParam('gasSystem', e.target.value as GasReactionSystem)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 font-bold"
+                  className={`w-full rounded-xl px-2.5 py-1.5 text-xs font-bold border transition-colors ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-cyan-600'
+                      : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-cyan-400'
+                  }`}
                 >
                   <option value="no2_dimer">2NO₂ (Brown) ⇌ N₂O₄ (Colorless)</option>
                   <option value="haber_ammonia">N₂ + 3H₂ ⇌ 2NH₃ (Haber-Bosch)</option>
@@ -1471,8 +1563,8 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">{isArabic ? 'درجة الحرارة T:' : 'Temperature:'}</span>
-                  <span className="font-mono font-black text-amber-400">{params.temperatureC} °C</span>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{isArabic ? 'درجة الحرارة T:' : 'Temperature:'}</span>
+                  <span className="font-mono font-black text-amber-500">{params.temperatureC} °C</span>
                 </div>
                 <input
                   type="range"
@@ -1481,14 +1573,14 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="5"
                   value={params.temperatureC}
                   onChange={(e) => updateParam('temperatureC', parseInt(e.target.value))}
-                  className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">{isArabic ? 'الضغط الكلي P:' : 'Total Pressure:'}</span>
-                  <span className="font-mono font-black text-cyan-400">{params.pressureAtm.toFixed(1)} atm</span>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{isArabic ? 'الضغط الكلي P:' : 'Total Pressure:'}</span>
+                  <span className="font-mono font-black text-cyan-500">{params.pressureAtm.toFixed(1)} atm</span>
                 </div>
                 <input
                   type="range"
@@ -1497,17 +1589,19 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.1"
                   value={params.pressureAtm}
                   onChange={(e) => updateParam('pressureAtm', parseFloat(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
               <div className="flex flex-col justify-end">
                 <button
                   onClick={() => updateParam('hasCatalyst', !params.hasCatalyst)}
-                  className={`w-full py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer border ${
+                  className={`w-full py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer border shadow-xs ${
                     params.hasCatalyst
                       ? 'bg-emerald-600 border-emerald-500 text-white shadow-md'
-                      : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
+                      : isLight
+                      ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-700'
+                      : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-300'
                   }`}
                 >
                   {params.hasCatalyst
@@ -1522,13 +1616,17 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           {params.module === 'ostwald_ionic' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
+                <label className={`block text-xs font-bold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? 'الإلكتروليت:' : 'Electrolyte:'}
                 </label>
                 <select
                   value={params.electrolyte}
                   onChange={(e) => updateParam('electrolyte', e.target.value as ElectrolyteType)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 font-bold"
+                  className={`w-full rounded-xl px-2.5 py-1.5 text-xs font-bold border transition-colors ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-cyan-600'
+                      : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-cyan-400'
+                  }`}
                 >
                   <option value="acetic_acid">CH₃COOH (Acetic Acid, Ka=1.8e-5)</option>
                   <option value="formic_acid">HCOOH (Formic Acid, Ka=1.8e-4)</option>
@@ -1541,8 +1639,8 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">{isArabic ? 'التركيز C:' : 'Concentration C:'}</span>
-                  <span className="font-mono font-black text-purple-400">{params.concentrationM.toFixed(3)} M</span>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{isArabic ? 'التركيز C:' : 'Concentration C:'}</span>
+                  <span className="font-mono font-black text-purple-500">{params.concentrationM.toFixed(3)} M</span>
                 </div>
                 <input
                   type="range"
@@ -1551,14 +1649,14 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.005"
                   value={params.concentrationM}
                   onChange={(e) => updateParam('concentrationM', parseFloat(e.target.value))}
-                  className="w-full accent-purple-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-purple-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">{isArabic ? 'حجم الماء (التخفيف):' : 'Dilution Volume:'}</span>
-                  <span className="font-mono font-black text-cyan-400">{params.solutionVolumeMl} mL</span>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{isArabic ? 'حجم الماء (التخفيف):' : 'Dilution Volume:'}</span>
+                  <span className="font-mono font-black text-cyan-500">{params.solutionVolumeMl} mL</span>
                 </div>
                 <input
                   type="range"
@@ -1567,7 +1665,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="25"
                   value={params.solutionVolumeMl}
                   onChange={(e) => updateParam('solutionVolumeMl', parseInt(e.target.value))}
-                  className="w-full accent-cyan-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>
@@ -1577,13 +1675,17 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           {params.module === 'salt_hydrolysis' && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
+                <label className={`block text-xs font-bold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? 'مركب الملح:' : 'Salt Solution:'}
                 </label>
                 <select
                   value={params.salt}
                   onChange={(e) => updateParam('salt', e.target.value as SaltType)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 font-bold"
+                  className={`w-full rounded-xl px-2.5 py-1.5 text-xs font-bold border transition-colors ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-cyan-600'
+                      : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-cyan-400'
+                  }`}
                 >
                   <option value="nh4cl">NH₄Cl (Ammonium Chloride - Acidic)</option>
                   <option value="ch3coona">CH₃COONa (Sodium Acetate - Basic)</option>
@@ -1594,13 +1696,17 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
+                <label className={`block text-xs font-bold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? 'الدليل الكيميائي المضاف:' : 'Chemical Indicator:'}
                 </label>
                 <select
                   value={params.indicatorId}
                   onChange={(e) => updateParam('indicatorId', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 font-bold"
+                  className={`w-full rounded-xl px-2.5 py-1.5 text-xs font-bold border transition-colors ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-cyan-600'
+                      : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-cyan-400'
+                  }`}
                 >
                   {Object.entries(COMMON_INDICATORS).map(([key, ind]) => (
                     <option key={key} value={key}>
@@ -1612,8 +1718,8 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">{isArabic ? 'تركيز الملح:' : 'Salt Molarity:'}</span>
-                  <span className="font-mono font-black text-rose-400">{params.saltConcentrationM.toFixed(2)} M</span>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>{isArabic ? 'تركيز الملح:' : 'Salt Molarity:'}</span>
+                  <span className="font-mono font-black text-rose-500">{params.saltConcentrationM.toFixed(2)} M</span>
                 </div>
                 <input
                   type="range"
@@ -1622,7 +1728,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.02"
                   value={params.saltConcentrationM}
                   onChange={(e) => updateParam('saltConcentrationM', parseFloat(e.target.value))}
-                  className="w-full accent-rose-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-rose-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>
@@ -1632,13 +1738,17 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           {params.module === 'solubility_product' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
+                <label className={`block text-xs font-bold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? 'الملح شحيح الذوبان:' : 'Sparingly Soluble Salt:'}
                 </label>
                 <select
                   value={params.sparinglySalt}
                   onChange={(e) => updateParam('sparinglySalt', e.target.value as SparinglySolubleSalt)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-1.5 text-xs text-slate-200 font-bold"
+                  className={`w-full rounded-xl px-2.5 py-1.5 text-xs font-bold border transition-colors ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-cyan-600'
+                      : 'bg-slate-950 border-slate-800 text-slate-200 focus:border-cyan-400'
+                  }`}
                 >
                   <option value="agcl">AgCl (Silver Chloride - White ppt)</option>
                   <option value="pbi2">PbI₂ (Lead Iodide - Yellow Canary ppt)</option>
@@ -1649,10 +1759,10 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
               <div>
                 <div className="flex justify-between text-xs mb-1">
-                  <span className="font-bold text-slate-300">
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                     {isArabic ? 'إضافة أيون مشترك (NaCl / KI):' : 'Add Common Ion [Cl⁻ / I⁻]:'}
                   </span>
-                  <span className="font-mono font-black text-amber-400">
+                  <span className="font-mono font-black text-amber-500">
                     {params.addedCommonIonM.toFixed(2)} M
                   </span>
                 </div>
@@ -1663,7 +1773,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.02"
                   value={params.addedCommonIonM}
                   onChange={(e) => updateParam('addedCommonIonM', parseFloat(e.target.value))}
-                  className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>

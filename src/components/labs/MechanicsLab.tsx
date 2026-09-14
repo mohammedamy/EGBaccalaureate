@@ -1196,10 +1196,9 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       width: number,
       height: number,
       _viewport: LabViewportState,
-      dpr: number
+      _dpr: number
     ) => {
       ctx.save();
-      ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
 
       // Grid background

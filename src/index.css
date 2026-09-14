@@ -851,18 +851,87 @@ html.high-contrast select:focus {
   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4) !important;
 }
 
-/* TEXTBOOK DIAGRAMS IN HIGH CONTRAST */
-html.high-contrast .textbook-diagram-card {
-  background-color: #000000 !important;
-  border: 2px solid #38bdf8 !important;
+/* ==========================================================================
+   INTERACTIVE LABS: Custom High-Contrast Range Sliders
+   ========================================================================== */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-html.high-contrast .textbook-diagram-card svg text {
-  fill: #ffffff !important;
+/* WebKit (Chrome, Edge, Safari) Thumb */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #0f172a;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 8px rgba(34, 211, 238, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #38bdf8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 12px rgba(56, 189, 248, 0.6);
+}
 
+/* Firefox Thumb */
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #22d3ee;
+  border: 2px solid #0f172a;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 8px rgba(34, 211, 238, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
 
+input[type='range']::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  background: #38bdf8;
+}
+
+/* Light Mode Slider Thumbs */
+html.light input[type='range']::-webkit-slider-thumb {
+  background: #0284c7;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 6px rgba(2, 132, 199, 0.3);
+}
+
+html.light input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #0369a1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 10px rgba(3, 105, 161, 0.5);
+}
+
+html.light input[type='range']::-moz-range-thumb {
+  background: #0284c7;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+html.light input[type='range']::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  background: #0369a1;
+}
+
+/* High Contrast Slider Thumbs */
+html.high-contrast input[type='range']::-webkit-slider-thumb {
+  background: #facc15;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 2px #facc15;
+}
+
+html.high-contrast input[type='range']::-moz-range-thumb {
+  background: #facc15;
+  border: 2px solid #000000;
+  box-shadow: 0 0 0 2px #facc15;
+}
 /* ==========================================================================
    PRINT STYLES: ClipSAT for Egypt Official Worksheets, Exams & Lesson Plans
    ========================================================================== */
