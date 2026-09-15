@@ -10,7 +10,7 @@ import {
   FileSpreadsheet,
   ChevronDown,
 } from 'lucide-react';
-import { MathLab } from './labs/MathLab';
+import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
@@ -46,6 +46,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   };
 
   const [activeLab, setActiveLab] = useState<LabId>(getInitialLab);
+  const [activeMathTab, setActiveMathTab] = useState<MathTab>('calculus');
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
@@ -241,7 +242,52 @@ export const VirtualLabsHub: React.FC<Props> = ({
 
       {/* Render Active Laboratory Component */}
       <div className="animate-in fade-in duration-200">
-        {activeLab === 'math' && <MathLab lang={lang} theme={theme} onOpenDesmos={onOpenDesmos} />}
+        {activeLab === 'math' && (
+          <div className="space-y-4">
+            {/* Quick-Access Math Sub-Laboratory Dropdown */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
+                <Calculator className="w-4 h-4 text-indigo-400" />
+                <span>{isArabic ? 'المعمل المتخصص:' : 'Specialized Sub-Lab:'}</span>
+              </span>
+              <div className="relative min-w-[240px] sm:min-w-[280px]">
+                <select
+                  value={activeMathTab}
+                  onChange={(e) => setActiveMathTab(e.target.value as MathTab)}
+                  className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                    isContrast
+                      ? 'bg-black text-white border-yellow-400'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-900 border-slate-700 text-slate-200'
+                  }`}
+                >
+                  {[
+                    { id: 'calculus' as MathTab, emoji: '🧭', labelEn: 'Calculus & Dynamic Tangents', labelAr: 'التفاضل والمماسات الديناميكية' },
+                    { id: 'geometry3d' as MathTab, emoji: '📦', labelEn: '3D Vectors & Planes', labelAr: 'الهندسة الفراغية 3D والمتجهات' },
+                    { id: 'mechanics' as MathTab, emoji: '⚙️', labelEn: 'Statics & Classical Mechanics (Tier-1)', labelAr: 'الاستاتيكا والميكانيكا الكلاسيكية' },
+                    { id: 'matrix' as MathTab, emoji: '🔢', labelEn: 'Matrix Algebra Solver', labelAr: 'جبر المصفوفات ومحدد كرامر' },
+                  ].map((tab) => (
+                    <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
+                      {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                  <ChevronDown className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+
+            <MathLab
+              lang={lang}
+              theme={theme}
+              onOpenDesmos={onOpenDesmos}
+              initialTab={activeMathTab}
+              onTabChange={setActiveMathTab}
+            />
+          </div>
+        )}
         {activeLab === 'physics' && (
           <div className="space-y-4">
             {/* Quick-Access Physics Sub-Laboratory Dropdown */}

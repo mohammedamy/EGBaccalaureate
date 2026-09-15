@@ -16,16 +16,35 @@ interface Props {
   lang: Language;
   theme?: ThemeMode;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
+  initialTab?: MathTab;
+  onTabChange?: (tab: MathTab) => void;
 }
 
-type MathTab = 'calculus' | 'geometry3d' | 'mechanics' | 'matrix';
+export type MathTab = 'calculus' | 'geometry3d' | 'mechanics' | 'matrix';
 
-export const MathLab: React.FC<Props> = ({ lang, theme = 'dark', onOpenDesmos }) => {
+export const MathLab: React.FC<Props> = ({
+  lang,
+  theme = 'dark',
+  onOpenDesmos,
+  initialTab = 'calculus',
+  onTabChange,
+}) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [activeTab, setActiveTab] = useState<MathTab>('calculus');
+  const [activeTab, setActiveTab] = useState<MathTab>(initialTab);
+
+  React.useEffect(() => {
+    if (initialTab && initialTab !== activeTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
+
+  const handleTabChange = (newTab: MathTab) => {
+    setActiveTab(newTab);
+    onTabChange?.(newTab);
+  };
 
   return (
     <div
@@ -78,7 +97,7 @@ export const MathLab: React.FC<Props> = ({ lang, theme = 'dark', onOpenDesmos })
         <div className="relative min-w-[240px] sm:min-w-[280px]">
           <select
             value={activeTab}
-            onChange={(e) => setActiveTab(e.target.value as MathTab)}
+            onChange={(e) => handleTabChange(e.target.value as MathTab)}
             className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
               isContrast
                 ? 'bg-black text-white border-indigo-400'
