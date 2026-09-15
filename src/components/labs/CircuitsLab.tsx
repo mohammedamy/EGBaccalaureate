@@ -1508,6 +1508,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           <CanvasSimulationViewport
             id="circuits-canvas-viewport"
             lang={lang ?? 'ar'}
+            theme={theme}
             minHeight={460}
             animated={true}
             onRender={handleRenderCanvas}

@@ -201,6 +201,8 @@ interface PhotonWavePacket {
 
 export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   const simStateRef = useRef<{
     electrons: ElectronParticle[];
@@ -635,20 +637,34 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.translate(offsetX, offsetY);
     ctx.scale(scale, scale);
 
-    // Dark sleek scientific chamber background
+    // Chamber background
     const bgGrad = ctx.createLinearGradient(0, 0, baseW, baseH);
-    bgGrad.addColorStop(0, '#020617');
-    bgGrad.addColorStop(1, '#090d16');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#f8fafc');
+      bgGrad.addColorStop(1, '#f1f5f9');
+    } else {
+      bgGrad.addColorStop(0, '#020617');
+      bgGrad.addColorStop(1, '#090d16');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, baseW, baseH);
 
     // 1. Vacuum Quartz Bulb Chamber (Realistic Glass Envelope)
     ctx.save();
-    // Subtle internal vacuum radial gradient
+    // Internal vacuum radial gradient
     const bulbGrad = ctx.createRadialGradient(290, 130, 25, 290, 130, 195);
-    bulbGrad.addColorStop(0, 'rgba(15, 23, 42, 0.45)');
-    bulbGrad.addColorStop(0.85, 'rgba(8, 14, 30, 0.85)');
-    bulbGrad.addColorStop(1, 'rgba(2, 6, 23, 0.95)');
+    if (isLight) {
+      bulbGrad.addColorStop(0, 'rgba(241, 245, 249, 0.7)');
+      bulbGrad.addColorStop(0.85, 'rgba(226, 232, 240, 0.85)');
+      bulbGrad.addColorStop(1, 'rgba(203, 213, 225, 0.95)');
+    } else {
+      bulbGrad.addColorStop(0, 'rgba(15, 23, 42, 0.45)');
+      bulbGrad.addColorStop(0.85, 'rgba(8, 14, 30, 0.85)');
+      bulbGrad.addColorStop(1, 'rgba(2, 6, 23, 0.95)');
+    }
     ctx.fillStyle = bulbGrad;
     ctx.beginPath();
     ctx.ellipse(290, 130, 190, 85, 0, 0, Math.PI * 2);
@@ -656,7 +672,7 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Quartz outer wall glow
     ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+    ctx.strokeStyle = isLight ? 'rgba(2, 132, 199, 0.45)' : 'rgba(56, 189, 248, 0.45)';
     ctx.stroke();
 
     // Specular glass reflection arcs (gloss highlights)
@@ -996,6 +1012,7 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       <CanvasSimulationViewport
         id="photoelectric-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         animated={true}

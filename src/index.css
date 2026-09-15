@@ -224,15 +224,11 @@ html.light .katex .rule {
 
 /* Base Light Mode KaTeX White Text Preservation */
 html.light .text-white .katex,
-html.light .text-white .katex *,
-html.light [class*="text-white"] .katex,
-html.light [class*="text-white"] .katex * {
+html.light .text-white .katex * {
   color: #ffffff !important;
 }
 html.light .text-white .katex .frac-line,
-html.light .text-white .katex .rule,
-html.light [class*="text-white"] .katex .frac-line,
-html.light [class*="text-white"] .katex .rule {
+html.light .text-white .katex .rule {
   border-color: #ffffff !important;
 }
 
@@ -269,10 +265,6 @@ html.light .text-white .math-rendered-container,
 html.light .text-white .math-rendered-container *,
 html.light .text-white .katex,
 html.light .text-white .katex *,
-html.light [class*="text-white"] .math-rendered-container,
-html.light [class*="text-white"] .math-rendered-container *,
-html.light [class*="text-white"] .katex,
-html.light [class*="text-white"] .katex *,
 html.light .bg-indigo-600 .math-rendered-container,
 html.light .bg-indigo-600 .math-rendered-container *,
 html.light .bg-indigo-600 .katex,
@@ -302,8 +294,6 @@ html.light .bg-rose-600 .katex * {
 
 html.light .text-white .katex .frac-line,
 html.light .text-white .katex .rule,
-html.light [class*="text-white"] .katex .frac-line,
-html.light [class*="text-white"] .katex .rule,
 html.light .bg-indigo-600 .katex .frac-line,
 html.light .bg-indigo-600 .katex .rule,
 html.light .bg-blue-600 .katex .frac-line,
@@ -589,8 +579,6 @@ html.light .text-white .katex,
 html.light .text-white .katex *,
 html.light .text-white .katex-display,
 html.light .text-white .katex-math,
-html.light [class*="text-white"] .katex,
-html.light [class*="text-white"] .katex *,
 html.light .bg-indigo-600 .katex,
 html.light .bg-indigo-600 .katex *,
 html.light .bg-indigo-700 .katex,
@@ -607,9 +595,7 @@ html.light .bg-rose-600 .katex * {
 }
 
 html.light .text-white .katex .frac-line,
-html.light .text-white .katex .rule,
-html.light [class*="text-white"] .katex .frac-line,
-html.light [class*="text-white"] .katex .rule {
+html.light .text-white .katex .rule {
   border-color: #ffffff !important;
 }
 

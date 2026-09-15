@@ -1316,10 +1316,13 @@ export const MenstrualCycleLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
     >
       <div className="space-y-4">
         {/* Main Canvas Viewport */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
+        <div className={`relative rounded-2xl overflow-hidden border ${
+          isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-800 bg-slate-950'
+        }`}>
           <CanvasSimulationViewport
             id="menstrual-canvas-viewport"
             lang={lang ?? 'ar'}
+            theme={theme}
             minHeight={460}
             onRender={handleRenderCanvas}
           >

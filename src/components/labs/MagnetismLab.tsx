@@ -1963,6 +1963,7 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       <CanvasSimulationViewport
         id="magnetism-bench-viewport"
         lang={lang ?? 'ar'}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         animated={true}

@@ -10,10 +10,12 @@ import {
   Move,
 } from 'lucide-react';
 import type { LabViewportState } from './types';
+import type { ThemeMode } from '../../types/curriculum';
 
 interface CanvasSimulationViewportProps {
   id: string;
   lang: 'en' | 'ar';
+  theme?: ThemeMode;
   aspectRatio?: string; // e.g. 'aspect-video' or custom style
   minHeight?: number;
   showGridDefault?: boolean;
@@ -40,6 +42,7 @@ interface CanvasSimulationViewportProps {
 export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> = ({
   id,
   lang,
+  theme = 'dark',
   aspectRatio = 'aspect-[16/9]',
   minHeight = 360,
   showGridDefault = false,
@@ -57,6 +60,8 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const isAr = lang === 'ar';
+  const isLight = theme === 'light' || (typeof document !== 'undefined' && document.documentElement.classList.contains('light'));
+  const isContrast = theme === 'high-contrast' || (typeof document !== 'undefined' && document.documentElement.classList.contains('high-contrast'));
 
   const [viewport, setViewport] = useState<LabViewportState>({
     zoom: 1.0,
@@ -182,7 +187,11 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
     vp: LabViewportState
   ) => {
     ctx.save();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.12)';
+    ctx.strokeStyle = isContrast
+      ? 'rgba(0, 255, 255, 0.3)'
+      : isLight
+      ? 'rgba(2, 132, 199, 0.18)'
+      : 'rgba(56, 189, 248, 0.12)';
     ctx.lineWidth = 1;
 
     const baseSpacing = 40 * vp.zoom;
@@ -203,7 +212,11 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
     // Center crosshair
     const cx = w / 2 + vp.panX;
     const cy = h / 2 + vp.panY;
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.4)';
+    ctx.strokeStyle = isContrast
+      ? 'rgba(255, 255, 0, 0.6)'
+      : isLight
+      ? 'rgba(225, 29, 72, 0.45)'
+      : 'rgba(239, 68, 68, 0.4)';
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -326,7 +339,13 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
   return (
     <div
       ref={containerRef}
-      className={`relative w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl ${aspectRatio} ${className}`}
+      className={`relative w-full overflow-hidden rounded-2xl border shadow-2xl transition-colors ${
+        isContrast
+          ? 'border-2 border-cyan-400 bg-black'
+          : isLight
+          ? 'border-slate-200 bg-slate-50'
+          : 'border-slate-800 bg-slate-950'
+      } ${aspectRatio} ${className}`}
       style={{ minHeight: `${minHeight}px` }}
       dir={isAr ? 'rtl' : 'ltr'}
     >
@@ -345,18 +364,30 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
       />
 
       {/* Viewport Action Controls Toolbar (Bottom Right overlay) */}
-      <div className="absolute bottom-3 right-3 flex items-center gap-1.5 p-1 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/80 shadow-lg text-slate-300 z-20">
+      <div className={`absolute bottom-3 right-3 flex items-center gap-1.5 p-1 rounded-xl backdrop-blur-md border shadow-lg z-20 ${
+        isContrast
+          ? 'bg-black border-cyan-400 text-white'
+          : isLight
+          ? 'bg-white/95 border-slate-300 text-slate-700 shadow-slate-200/60'
+          : 'bg-slate-900/80 border-slate-700/80 text-slate-300'
+      }`}>
         <button
           type="button"
           onClick={zoomIn}
           disabled={viewport.zoom >= 3.0}
-          className="p-1.5 rounded-lg hover:bg-slate-800 hover:text-cyan-300 disabled:opacity-40 transition-colors"
+          className={`p-1.5 rounded-lg transition-colors ${
+            isLight
+              ? 'hover:bg-slate-100 hover:text-cyan-700 disabled:opacity-40'
+              : 'hover:bg-slate-800 hover:text-cyan-300 disabled:opacity-40'
+          }`}
           title={isAr ? 'تكبير' : 'Zoom In'}
         >
           <ZoomIn className="w-4 h-4" />
         </button>
 
-        <span className="text-[10px] font-mono font-bold px-1 text-cyan-400 select-none">
+        <span className={`text-[10px] font-mono font-bold px-1 select-none ${
+          isLight ? 'text-cyan-700' : 'text-cyan-400'
+        }`}>
           {Math.round(viewport.zoom * 100)}%
         </span>
 
@@ -364,7 +395,11 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
           type="button"
           onClick={zoomOut}
           disabled={viewport.zoom <= 0.5}
-          className="p-1.5 rounded-lg hover:bg-slate-800 hover:text-cyan-300 disabled:opacity-40 transition-colors"
+          className={`p-1.5 rounded-lg transition-colors ${
+            isLight
+              ? 'hover:bg-slate-100 hover:text-cyan-700 disabled:opacity-40'
+              : 'hover:bg-slate-800 hover:text-cyan-300 disabled:opacity-40'
+          }`}
           title={isAr ? 'تصغير' : 'Zoom Out'}
         >
           <ZoomOut className="w-4 h-4" />
@@ -374,21 +409,29 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
           <button
             type="button"
             onClick={resetViewport}
-            className="p-1.5 rounded-lg hover:bg-slate-800 hover:text-cyan-300 transition-colors"
+            className={`p-1.5 rounded-lg transition-colors ${
+              isLight
+                ? 'hover:bg-slate-100 hover:text-cyan-700'
+                : 'hover:bg-slate-800 hover:text-cyan-300'
+            }`}
             title={isAr ? 'إعادة ضبط المنظور' : 'Reset Viewport'}
           >
             <RotateCcw className="w-4 h-4" />
           </button>
         )}
 
-        <div className="w-[1px] h-4 bg-slate-700 mx-0.5" />
+        <div className={`w-[1px] h-4 mx-0.5 ${isLight ? 'bg-slate-300' : 'bg-slate-700'}`} />
 
         <button
           type="button"
           onClick={toggleGrid}
           className={`p-1.5 rounded-lg transition-colors ${
             viewport.gridVisible
-              ? 'bg-cyan-500/20 text-cyan-300'
+              ? isLight
+                ? 'bg-cyan-100 text-cyan-800 font-bold'
+                : 'bg-cyan-500/20 text-cyan-300'
+              : isLight
+              ? 'hover:bg-slate-100 text-slate-600 hover:text-slate-900'
               : 'hover:bg-slate-800 hover:text-slate-200'
           }`}
           title={isAr ? 'شبكة المحاور' : 'Metric Grid Overlay'}
@@ -399,7 +442,11 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
         <button
           type="button"
           onClick={captureSnapshot}
-          className="p-1.5 rounded-lg hover:bg-slate-800 hover:text-cyan-300 transition-colors"
+          className={`p-1.5 rounded-lg transition-colors ${
+            isLight
+              ? 'hover:bg-slate-100 hover:text-cyan-700'
+              : 'hover:bg-slate-800 hover:text-cyan-300'
+          }`}
           title={isAr ? 'التقاط صورة تجربة' : 'Snapshot PNG'}
         >
           <Camera className="w-4 h-4" />
@@ -408,7 +455,11 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
         <button
           type="button"
           onClick={toggleFullscreen}
-          className="p-1.5 rounded-lg hover:bg-slate-800 hover:text-cyan-300 transition-colors"
+          className={`p-1.5 rounded-lg transition-colors ${
+            isLight
+              ? 'hover:bg-slate-100 hover:text-cyan-700'
+              : 'hover:bg-slate-800 hover:text-cyan-300'
+          }`}
           title={isAr ? 'ملء الشاشة' : 'Fullscreen'}
         >
           {viewport.fullscreen ? (
@@ -421,8 +472,14 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
 
       {/* Pan hint banner (fades out after zoom) */}
       {viewport.zoom > 1.0 && (
-        <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/70 border border-slate-800 text-[11px] text-slate-400 backdrop-blur-sm pointer-events-none z-10 select-none">
-          <Move className="w-3 h-3 text-cyan-400" />
+        <div className={`absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg border text-[11px] backdrop-blur-sm pointer-events-none z-10 select-none ${
+          isContrast
+            ? 'bg-black border-cyan-400 text-cyan-300'
+            : isLight
+            ? 'bg-white/90 border-slate-300 text-slate-700 shadow-xs'
+            : 'bg-slate-900/70 border-slate-800 text-slate-400'
+        }`}>
+          <Move className={`w-3 h-3 ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`} />
           <span>{isAr ? 'اضغط Alt + سحب للتحريك' : 'Alt + Drag to Pan'}</span>
         </div>
       )}

@@ -1130,6 +1130,7 @@ const QUALITATIVE_LAB_DEF: LabDefinition<QualitativeParams, QualitativeSimState>
 export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   const lab = useVirtualLab<QualitativeParams, QualitativeSimState>({
     definition: QUALITATIVE_LAB_DEF,
@@ -1944,10 +1945,13 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
     >
       <div className="flex flex-col gap-4">
         {/* Dynamic Canvas Simulation Viewport */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-lg bg-slate-950">
+        <div className={`relative rounded-2xl overflow-hidden border shadow-lg ${
+          isContrast ? 'border-amber-400 bg-black' : isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-700/60 bg-slate-950'
+        }`}>
           <CanvasSimulationViewport
             id="qualitative-workbench-viewport"
             lang={lang ?? 'ar'}
+            theme={theme}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
             animated={true}

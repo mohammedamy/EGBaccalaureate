@@ -317,6 +317,8 @@ const BIOENERGETICS_LAB_DEFINITION: LabDefinition<BioenergeticsParams, Bioenerge
 
 export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const [activeSubTab, setActiveSubTab] = useState<'simulation' | 'stages' | 'comparative'>('simulation');
   const [selectedRespStage, setSelectedRespStage] = useState<number>(4);
 
@@ -516,8 +518,16 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Background Cytosol gradient
     const bgGrad = ctx.createRadialGradient(cx, cy, 50, cx, cy, Math.max(w, h));
-    bgGrad.addColorStop(0, '#0f172a');
-    bgGrad.addColorStop(1, '#020617');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#f8fafc');
+      bgGrad.addColorStop(1, '#f1f5f9');
+    } else {
+      bgGrad.addColorStop(0, '#0f172a');
+      bgGrad.addColorStop(1, '#020617');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
 
@@ -728,8 +738,16 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Background Leaf Cell
     const bgGrad = ctx.createRadialGradient(cx, cy, 60, cx, cy, Math.max(w, h));
-    bgGrad.addColorStop(0, '#064e3b');
-    bgGrad.addColorStop(1, '#022c22');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#ecfdf5');
+      bgGrad.addColorStop(1, '#f0fdf4');
+    } else {
+      bgGrad.addColorStop(0, '#064e3b');
+      bgGrad.addColorStop(1, '#022c22');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
 
@@ -1037,6 +1055,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           <CanvasSimulationViewport
             id="bioenergetics-viewport"
             lang={lang}
+            theme={theme}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
             animated={true}

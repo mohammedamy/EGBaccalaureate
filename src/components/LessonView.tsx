@@ -272,7 +272,7 @@ export const LessonView: React.FC<Props> = ({
       <div
         key={prob.id}
         className={`rounded-xl p-4 sm:p-5 space-y-4 shadow-sm border printable-problem print-avoid-break transition-all ${
-          isLight ? 'bg-slate-50/70 border-slate-200' : 'bg-slate-950 border-slate-800'
+          isLight ? 'bg-white border-slate-200/90 shadow-xs' : 'bg-slate-950 border-slate-800'
         }`}
       >
         <div className="flex items-center justify-between flex-wrap gap-2">
@@ -307,7 +307,7 @@ export const LessonView: React.FC<Props> = ({
           </span>
         </div>
 
-        <div className={`text-sm font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+        <div className={`text-sm font-semibold leading-relaxed ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
           <MathRenderer math={lang === 'ar' ? prob.questionAr : prob.questionEn} lang={lang} />
         </div>
 
@@ -325,7 +325,7 @@ export const LessonView: React.FC<Props> = ({
               const shouldReveal = isSolOpen && isCorrect;
 
               let cardStyle = isLight
-                ? 'border-slate-200 bg-white text-slate-800 shadow-xs hover:border-indigo-400 hover:bg-slate-50'
+                ? 'border-slate-300/80 bg-white text-slate-900 shadow-xs hover:border-indigo-500 hover:bg-indigo-50/30'
                 : 'border-slate-800 bg-slate-900/60 text-slate-200 hover:border-indigo-500/50 hover:bg-slate-900';
 
               if (isSelectedCorrect) {
@@ -356,6 +356,8 @@ export const LessonView: React.FC<Props> = ({
                           ? 'bg-emerald-600 text-white'
                           : isSelectedWrong
                           ? 'bg-rose-600 text-white'
+                          : isLight
+                          ? 'bg-indigo-50 text-indigo-900 border border-indigo-200'
                           : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
                       }`}
                     >
@@ -1092,20 +1094,26 @@ export const LessonView: React.FC<Props> = ({
                   value={databankDifficulty}
                   onChange={(e) => setDatabankDifficulty(e.target.value as 'easy' | 'medium' | 'hots')}
                   className={`appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
-                    databankDifficulty === 'easy'
+                    isLight
+                      ? databankDifficulty === 'easy'
+                        ? 'bg-emerald-50 text-emerald-900 border-emerald-300 shadow-xs'
+                        : databankDifficulty === 'medium'
+                        ? 'bg-indigo-50 text-indigo-900 border-indigo-300 shadow-xs'
+                        : 'bg-amber-50 text-amber-900 border-amber-300 shadow-xs'
+                      : databankDifficulty === 'easy'
                       ? 'bg-emerald-950/80 text-emerald-200 border-emerald-600 shadow-xs'
                       : databankDifficulty === 'medium'
                       ? 'bg-indigo-950/80 text-indigo-200 border-indigo-600 shadow-xs'
                       : 'bg-amber-950/80 text-amber-200 border-amber-600 shadow-xs'
                   }`}
                 >
-                  <option value="easy" className="bg-slate-900 text-white">
+                  <option value="easy" className={isLight ? "bg-white text-slate-900" : "bg-slate-900 text-white"}>
                     {lang === 'ar' ? '🟢 مستوى سهل تأسيسي (٥٠)' : '🟢 Level: Easy (50)'}
                   </option>
-                  <option value="medium" className="bg-slate-900 text-white">
+                  <option value="medium" className={isLight ? "bg-white text-slate-900" : "bg-slate-900 text-white"}>
                     {lang === 'ar' ? '🔵 مستوى متوسط وزاري (٥٠)' : '🔵 Level: Medium (50)'}
                   </option>
-                  <option value="hots" className="bg-slate-900 text-white">
+                  <option value="hots" className={isLight ? "bg-white text-slate-900" : "bg-slate-900 text-white"}>
                     {lang === 'ar' ? '🟠 مهارات تفكير عليا (٥٠)' : '🟠 Level: HOTS (50)'}
                   </option>
                 </select>

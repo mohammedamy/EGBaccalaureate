@@ -915,15 +915,23 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.clearRect(0, 0, width, height);
     const t = (time ?? performance.now()) * 0.001;
 
-    // Dark sleek gradient background
+    // Adaptive gradient background
     const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-    bgGrad.addColorStop(0, '#020617');
-    bgGrad.addColorStop(1, '#0f172a');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#f8fafc');
+      bgGrad.addColorStop(1, '#f1f5f9');
+    } else {
+      bgGrad.addColorStop(0, '#020617');
+      bgGrad.addColorStop(1, '#0f172a');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
     // Subtle coordinate grid
-    ctx.strokeStyle = '#1e293b33';
+    ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.4)' : '#1e293b33';
     ctx.lineWidth = 1;
     for (let x = 0; x < width; x += 40) {
       ctx.beginPath();
@@ -1475,6 +1483,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="bna-duplex-viewport"
             minHeight={380}
             lang={lang}
+            theme={theme}
             animated={true}
             onRender={renderCanvas}
           />
@@ -1627,6 +1636,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="replication-fork-viewport"
             minHeight={380}
             lang={lang}
+            theme={theme}
             animated={true}
             onRender={renderCanvas}
           />
@@ -1724,6 +1734,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="central-dogma-viewport"
             minHeight={360}
             lang={lang}
+            theme={theme}
             animated={true}
             onRender={renderCanvas}
           />

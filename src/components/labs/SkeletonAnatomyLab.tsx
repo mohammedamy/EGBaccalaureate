@@ -1701,12 +1701,15 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
         {/* Render Viewport or Macroscopic Atlas */}
         {params.subTab !== 'skeleton_atlas' ? (
           <div className="space-y-4">
-            <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-xl bg-slate-950">
+            <div className={`rounded-2xl border overflow-hidden shadow-xl ${
+              isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-800 bg-slate-950'
+            }`}>
               <CanvasSimulationViewport
                 id="skeleton-anatomy-viewport"
                 onRender={handleRenderViewport}
                 minHeight={520}
                 lang={lang}
+                theme={theme}
               />
             </div>
 

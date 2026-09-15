@@ -127,6 +127,8 @@ interface PhotonPacket {
 
 export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   const simRef = useRef<{
     photons: PhotonPacket[];
@@ -787,13 +789,21 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Deep laboratory background
     const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-    bgGrad.addColorStop(0, '#020617');
-    bgGrad.addColorStop(1, '#090d16');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#f8fafc');
+      bgGrad.addColorStop(1, '#f1f5f9');
+    } else {
+      bgGrad.addColorStop(0, '#020617');
+      bgGrad.addColorStop(1, '#090d16');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
     // Faint scientific alignment grid
-    ctx.strokeStyle = 'rgba(30, 41, 59, 0.4)';
+    ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.6)' : 'rgba(30, 41, 59, 0.4)';
     ctx.lineWidth = 1;
     const gridStep = 40;
     for (let x = 0; x < width; x += gridStep) {
@@ -1712,6 +1722,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       <CanvasSimulationViewport
         id="atomic-laser-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         animated={true}

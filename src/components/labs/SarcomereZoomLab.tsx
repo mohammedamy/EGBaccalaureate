@@ -1511,6 +1511,9 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       _dpr: number,
       time = 0
     ) => {
+      ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#020617';
+      ctx.fillRect(0, 0, width, height);
+
       switch (zoomLevel) {
         case 1:
           renderArmMacro(ctx, width, height, armAngle, contractionPercent, bicepsRadius, time);
@@ -1612,6 +1615,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           <CanvasSimulationViewport
             id={`sarcomere-scale-${zoomLevel}`}
             lang={lang}
+            theme={theme}
             aspectRatio="aspect-[16/10]"
             minHeight={380}
             animated={true}

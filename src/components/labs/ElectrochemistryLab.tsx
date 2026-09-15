@@ -382,6 +382,8 @@ const ELECTROCHEM_LAB_DEFINITION: LabDefinition<ElectroChemParams, ElectroChemSt
 
 export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   // Selected half-cells (default: classic Daniell Cell Zn - Cu)
   const [leftElectrode, setLeftElectrode] = useState<Electrode>(ELECTRODES[2]); // Zn
@@ -516,7 +518,7 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
     _frame: number = 0
   ) => {
     const t = (time ? time : performance.now()) * 0.001;
-    ctx.fillStyle = '#020617';
+    ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#020617';
     ctx.fillRect(0, 0, w, h);
 
     ctx.save();
@@ -784,7 +786,11 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
                     const found = ELECTRODES.find((el) => el.id === e.target.value);
                     if (found) setLeftElectrode(found);
                   }}
-                  className="w-full px-2 py-1.5 text-xs rounded-lg bg-slate-950 border border-slate-700 text-slate-200 focus:outline-none focus:border-cyan-400"
+                  className={`w-full px-2 py-1.5 text-xs rounded-lg border focus:outline-none focus:border-cyan-400 ${
+                    isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-950 border-slate-700 text-slate-200'
+                  }`}
                 >
                   {ELECTRODES.map((el) => (
                     <option key={el.id} value={el.id}>
@@ -805,7 +811,11 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
                     const found = ELECTRODES.find((el) => el.id === e.target.value);
                     if (found) setRightElectrode(found);
                   }}
-                  className="w-full px-2 py-1.5 text-xs rounded-lg bg-slate-950 border border-slate-700 text-slate-200 focus:outline-none focus:border-cyan-400"
+                  className={`w-full px-2 py-1.5 text-xs rounded-lg border focus:outline-none focus:border-cyan-400 ${
+                    isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-800'
+                      : 'bg-slate-950 border-slate-700 text-slate-200'
+                  }`}
                 >
                   {ELECTRODES.map((el) => (
                     <option key={el.id} value={el.id}>
@@ -818,11 +828,19 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
           </div>
 
           {/* Cell Notation Banner */}
-          <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
-            <span className="text-[10px] font-bold text-slate-400 block mb-1">
+          <div className={`p-2.5 rounded-xl border text-center ${
+            isLight
+              ? 'bg-slate-50 border-slate-200'
+              : 'bg-slate-950/80 border-slate-800'
+          }`}>
+            <span className={`text-[10px] font-bold block mb-1 ${
+              isLight ? 'text-slate-600' : 'text-slate-400'
+            }`}>
               {isArabic ? 'الاصطلاح التخطيطي للخلية (Cell Notation):' : 'Official Cell Notation:'}
             </span>
-            <div className="text-xs font-mono text-emerald-400">
+            <div className={`text-xs font-mono font-bold ${
+              isLight ? 'text-emerald-700' : 'text-emerald-400'
+            }`}>
               <MathRenderer
                 math={`${anode.metalLatex} \\mid ${anode.ionLatex}\\,(${anodeConc.toFixed(2)}\\text{M}) \\parallel ${cathode.ionLatex}\\,(${cathodeConc.toFixed(2)}\\text{M}) \\mid ${cathode.metalLatex}`}
                 inline
@@ -835,6 +853,7 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
       <CanvasSimulationViewport
         id="electrochem-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         animated={true}

@@ -2427,10 +2427,13 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         </div>
 
         {/* Live Simulation Viewport */}
-        <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-xl bg-slate-950">
+        <div className={`rounded-2xl border overflow-hidden shadow-xl ${
+          isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-800 bg-slate-950'
+        }`}>
           <CanvasSimulationViewport
             id="transition-canvas-viewport"
             lang={lang}
+            theme={theme}
             minHeight={390}
             animated={true}
             onRender={handleRenderViewport}

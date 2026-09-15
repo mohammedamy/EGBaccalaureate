@@ -361,6 +361,8 @@ const TITRATION_LAB_DEFINITION: LabDefinition<TitrationParams, TitrationState> =
 
 export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const stirrerAngleRef = useRef<number>(0);
   const dropPhaseRef = useRef<number>(0);
 
@@ -483,8 +485,16 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Background Benchtop Tone
     const benchGrad = ctx.createLinearGradient(0, 0, 0, h);
-    benchGrad.addColorStop(0, '#090d16');
-    benchGrad.addColorStop(1, '#020617');
+    if (isContrast) {
+      benchGrad.addColorStop(0, '#000000');
+      benchGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      benchGrad.addColorStop(0, '#f8fafc');
+      benchGrad.addColorStop(1, '#f1f5f9');
+    } else {
+      benchGrad.addColorStop(0, '#090d16');
+      benchGrad.addColorStop(1, '#020617');
+    }
     ctx.fillStyle = benchGrad;
     ctx.fillRect(0, 0, w, h);
 
@@ -753,9 +763,9 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const originY = 30 + plotH;
 
     // Background Grid Box
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+    ctx.fillStyle = isContrast ? '#000000' : isLight ? '#ffffff' : 'rgba(15, 23, 42, 0.92)';
     ctx.fillRect(originX, 30, plotW, plotH);
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = isLight ? '#cbd5e1' : '#1e293b';
     ctx.lineWidth = 1;
     ctx.strokeRect(originX, 30, plotW, plotH);
 
@@ -974,6 +984,7 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       <CanvasSimulationViewport
         id="titration-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={440}
         animated={true}

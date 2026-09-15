@@ -1547,10 +1547,13 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
         {/* Dynamic Simulation Viewport / Histology Atlas Display */}
         {params.subTab !== 'stem_histology' ? (
           <div className="space-y-4">
-            <div className="rounded-2xl border border-slate-800 overflow-hidden shadow-xl bg-slate-950">
+            <div className={`rounded-2xl border overflow-hidden shadow-xl ${
+              isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-800 bg-slate-950'
+            }`}>
               <CanvasSimulationViewport
                 id="plant-histology-viewport"
                 lang={lang}
+                theme={theme}
                 minHeight={420}
                 onRender={handleRenderViewport}
               />

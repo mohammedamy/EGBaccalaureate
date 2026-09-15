@@ -264,6 +264,8 @@ const RLC_LAB_DEFINITION: LabDefinition<RLCParams, RLCState> = {
 
 export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   const lab = useVirtualLab<RLCParams, RLCState>({
     definition: RLC_LAB_DEFINITION,
@@ -401,23 +403,22 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     time?: number
   ) => {
     const t = (time ?? performance.now()) * 0.001;
-
-    ctx.fillStyle = '#020617';
+    ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#020617';
     ctx.fillRect(0, 0, w, h);
 
     ctx.save();
     ctx.translate(vp.panX, vp.panY);
     ctx.scale(vp.zoom, vp.zoom);
 
-    // Subtle brushed lab bench background
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.6)';
+    // Brushed lab bench background
+    ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.85)' : 'rgba(15, 23, 42, 0.6)';
     ctx.fillRect(10, 10, w - 20, 185);
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+    ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.8)' : 'rgba(51, 65, 85, 0.4)';
     ctx.lineWidth = 1;
     ctx.strokeRect(10, 10, w - 20, 185);
 
     // Grid markings on bench
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+    ctx.strokeStyle = isLight ? 'rgba(148, 163, 184, 0.15)' : 'rgba(255, 255, 255, 0.02)';
     for (let gx = 30; gx < w - 20; gx += 40) {
       ctx.beginPath();
       ctx.moveTo(gx, 10);
@@ -992,6 +993,7 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       <CanvasSimulationViewport
         id="rlc-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/9]"
         minHeight={420}
         animated={true}

@@ -252,6 +252,8 @@ const DYNAMO_LAB_DEFINITION: LabDefinition<DynamoParams, DynamoState> = {
 
 export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const [dynamoMode, setDynamoMode] = useState<'ac' | 'dc'>('ac');
 
   // Physical angle ref (advances smoothly in requestAnimationFrame)
@@ -381,8 +383,8 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     _frame: number = 0
   ) => {
     const t = (time ? time : performance.now()) * 0.001;
-    // Dark background
-    ctx.fillStyle = '#020617';
+    // Theme-adaptive background
+    ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#020617';
     ctx.fillRect(0, 0, w, h);
 
     ctx.save();
@@ -640,7 +642,9 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
               onClick={() => setDynamoMode('ac')}
               className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
                 dynamoMode === 'ac'
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
+                  ? 'bg-amber-500/20 text-amber-500 dark:text-amber-300 border-amber-500/50 shadow-sm'
+                  : isLight
+                  ? 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200'
                   : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:bg-slate-800'
               }`}
             >
@@ -651,7 +655,9 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
               onClick={() => setDynamoMode('dc')}
               className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
                 dynamoMode === 'dc'
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
+                  ? 'bg-amber-500/20 text-amber-500 dark:text-amber-300 border-amber-500/50 shadow-sm'
+                  : isLight
+                  ? 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200'
                   : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:bg-slate-800'
               }`}
             >
@@ -664,6 +670,7 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
       <CanvasSimulationViewport
         id="dynamo-viewport"
         lang={lang}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         onRender={handleRenderCanvas}

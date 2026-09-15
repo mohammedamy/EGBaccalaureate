@@ -1671,10 +1671,13 @@ export const EndocrineLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
     >
       <div className="flex flex-col gap-4">
         {/* Dynamic Canvas Simulation Viewport */}
-        <div className="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-lg bg-slate-950">
+        <div className={`relative rounded-2xl overflow-hidden border shadow-lg ${
+          isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-700/60 bg-slate-950'
+        }`}>
           <CanvasSimulationViewport
             id="endocrine-workbench-viewport"
             lang={lang ?? 'ar'}
+            theme={theme}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
             onRender={renderSimulation}

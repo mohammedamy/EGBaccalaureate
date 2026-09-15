@@ -175,6 +175,8 @@ const OPTICS_POE_PROMPTS: POEPrompt[] = [
 
 export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) => {
   const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const animFrameRef = useRef<number>(0);
 
   // Define Standardized Virtual Lab Contract
@@ -746,10 +748,18 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
     const t = (time ? time : performance.now()) * 0.001;
     animFrameRef.current = frame || (animFrameRef.current + 1);
 
-    // Background: Dark Optical Bench with subtle ambient vignette
+    // Background: Optical Bench with subtle ambient vignette
     const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, Math.max(width, height) * 0.75);
-    bgGrad.addColorStop(0, '#0a0f1d');
-    bgGrad.addColorStop(1, '#020409');
+    if (isContrast) {
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(1, '#000000');
+    } else if (isLight) {
+      bgGrad.addColorStop(0, '#f8fafc');
+      bgGrad.addColorStop(1, '#e2e8f0');
+    } else {
+      bgGrad.addColorStop(0, '#0a0f1d');
+      bgGrad.addColorStop(1, '#020409');
+    }
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
@@ -760,8 +770,13 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
       // Medium 1 (Top: e.g. Air n1)
       const topGrad = ctx.createLinearGradient(0, 0, 0, cy);
-      topGrad.addColorStop(0, 'rgba(10, 20, 42, 0.95)');
-      topGrad.addColorStop(1, 'rgba(15, 29, 61, 0.7)');
+      if (isLight) {
+        topGrad.addColorStop(0, 'rgba(241, 245, 249, 0.95)');
+        topGrad.addColorStop(1, 'rgba(226, 232, 240, 0.8)');
+      } else {
+        topGrad.addColorStop(0, 'rgba(10, 20, 42, 0.95)');
+        topGrad.addColorStop(1, 'rgba(15, 29, 61, 0.7)');
+      }
       ctx.fillStyle = topGrad;
       ctx.fillRect(0, 0, width, cy);
 
@@ -1349,13 +1364,18 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       <CanvasSimulationViewport
         id="optics-bench-viewport"
         lang={lang ?? 'ar'}
+        theme={theme}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
         animated={true}
         onRender={renderSimulation}
       >
         {/* Real-Time Live Status Watermark */}
-        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-xl border border-white/10 text-[11px] font-mono font-bold text-cyan-300 flex items-center gap-1.5 pointer-events-none select-none">
+        <div className={`absolute top-3 right-3 backdrop-blur-md px-3 py-1 rounded-xl border text-[11px] font-mono font-bold flex items-center gap-1.5 pointer-events-none select-none ${
+          isLight
+            ? 'bg-white/80 border-slate-300 text-cyan-800 shadow-xs'
+            : 'bg-black/60 border-white/10 text-cyan-300'
+        }`}>
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
           <span>
             {params.opticsMode === 'double_slit'
