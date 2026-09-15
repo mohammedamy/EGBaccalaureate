@@ -155,6 +155,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
       { value: 'cellular', labelEn: 'Cell-Mediated (T Cells & Cytotoxins)', labelAr: 'المناعة الخلوية (بالخلايا التائية)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'humoral_cellular',
   },
   cascadeStep: {
     key: 'cascadeStep',
@@ -167,6 +168,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     step: 1,
     unit: '',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'humoral_cellular',
   },
   antibodyAction: {
     key: 'antibodyAction',
@@ -182,6 +184,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
       { value: 'antitoxin', labelEn: '5. Antitoxin Inactivation (إبطال السموم)', labelAr: '٥. إبطال مفعول السموم والمتممات' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'antibody_actions',
   },
   complementsActive: {
     key: 'complementsActive',
@@ -190,6 +193,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     labelAr: 'نشاط نظام المتممات بالدم',
     defaultValue: true,
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'antibody_actions' && (p.antibodyAction === 'lysis' || p.antibodyAction === 'antitoxin'),
   },
   kineticsCondition: {
     key: 'kineticsCondition',
@@ -204,6 +208,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
       { value: 'vaccine_booster', labelEn: 'Pre-Immunized Host (Memory Challenge)', labelAr: 'عائل ملقح مسبقاً (استجابة ذاكرة فورية)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'kinetics_memory',
   },
   timeDay: {
     key: 'timeDay',
@@ -216,6 +221,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     step: 1,
     unit: ' days',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'kinetics_memory',
   },
   pathogenDose: {
     key: 'pathogenDose',
@@ -228,6 +234,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     step: 10,
     unit: ' AU',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'kinetics_memory',
   },
   selectedPartId: {
     key: 'selectedPartId',
@@ -242,6 +249,7 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
       { value: 'hinge', labelEn: 'Flexible Hinge Region', labelAr: 'منطقة المفصلة المرنة' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'antibody_anatomy',
   },
 };
 

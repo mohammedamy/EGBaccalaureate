@@ -92,6 +92,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
     step: 1,
     unit: ' day',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'cycle',
   },
   scenario: {
     key: 'scenario',
@@ -106,6 +107,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
       { value: 'ovariectomy', labelEn: 'Bilateral Ovariectomy / Menopause', labelAr: 'استئصال المبيضين / سن اليأس (انقطاع الطمث)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'cycle',
   },
   subTab: {
     key: 'subTab',
@@ -132,6 +134,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
       { value: 'fertilization_cleavage', labelEn: 'Fertilization & Cleavage (الإخصاب والتفلج)', labelAr: 'الإخصاب وتكوين التوتية والانغماس في الرحم' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'gametogenesis',
   },
   atlasRegion: {
     key: 'atlasRegion',
@@ -146,6 +149,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
       { value: 'uterus_wall', labelEn: 'Uterine Wall & Endometrium', labelAr: 'جدار الرحم والبطانة الدموية' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'atlas',
   },
   coitusDay: {
     key: 'coitusDay',
@@ -158,6 +162,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
     step: 1,
     unit: ' day',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'cycle',
   },
   showFertileWindow: {
     key: 'showFertileWindow',
@@ -166,6 +171,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
     labelAr: 'إبراز نافذة الخصوبة (١٢-١٦)',
     defaultValue: true,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'cycle',
   },
   showSpiralArteries: {
     key: 'showSpiralArteries',
@@ -174,6 +180,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
     labelAr: 'إظهار الشرايين الحلزونية للرحم',
     defaultValue: true,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'cycle',
   },
   zoomLevel: {
     key: 'zoomLevel',
@@ -185,6 +192,7 @@ export const MENSTRUAL_PARAM_SCHEMA: LabParameterSchema<MenstrualParams> = {
     max: 2.5,
     step: 0.1,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'atlas',
   },
 };
 

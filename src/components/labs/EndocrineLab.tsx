@@ -236,6 +236,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
       { value: 'osmo_bp', labelEn: 'Osmoregulation & BP: ADH & Aldosterone', labelAr: 'الضغط والماء: ADH والألدوستيرون' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'feedback_axes',
   },
   selectedDisorder: {
     key: 'selectedDisorder',
@@ -253,6 +254,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
       { value: 'adrenal_emergency', labelEn: 'Adrenal Medullary Surge (Fight or Flight)', labelAr: 'طوارئ الأدرينالين والكر والفر' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'clinical_pathology',
   },
   selectedGlandId: {
     key: 'selectedGlandId',
@@ -268,6 +270,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
       { value: 'pancreas', labelEn: 'Pancreas (Islets of Langerhans)', labelAr: 'البنكرياس (جزر لانجرهانز)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'anatomy_explorer',
   },
   hormonePerturbation: {
     key: 'hormonePerturbation',
@@ -280,6 +283,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
     step: 10,
     unit: '%',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'feedback_axes',
   },
   glucoseIntake: {
     key: 'glucoseIntake',
@@ -292,6 +296,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
     step: 5,
     unit: ' g',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'feedback_axes' && p.selectedAxis === 'glucose_homeostasis',
   },
   calciumIntake: {
     key: 'calciumIntake',
@@ -304,6 +309,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
     step: 5,
     unit: ' mg',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'feedback_axes' && p.selectedAxis === 'calcium_homeostasis',
   },
   stressLevel: {
     key: 'stressLevel',
@@ -316,6 +322,7 @@ const ENDOCRINE_PARAM_SCHEMA: LabParameterSchema<EndocrineParams> = {
     step: 10,
     unit: '%',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'feedback_axes' && p.selectedAxis === 'osmo_bp',
   },
 };
 

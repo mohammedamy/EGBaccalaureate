@@ -327,6 +327,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
       { value: 'CGCGGCCGGCCGGCGC', labelEn: 'High GC-Rich Duplex (93% GC - High Tm)', labelAr: 'تتابع عالي الـ GC (٩٣٪ - انصهار حراري مرتفع)' },
       { value: 'ATATATATATATATAT', labelEn: 'High AT-Rich Duplex (100% AT - Low Tm)', labelAr: 'تتابع عالي الـ AT (١٠٠٪ - انصهار سريع)' },
     ],
+    visibleIf: (p) => p.investigationModule !== 'dna_atlas',
   },
   temperatureC: {
     key: 'temperatureC',
@@ -339,6 +340,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
     step: 1,
     unit: '°C',
     category: 'secondary',
+    visibleIf: (p) => p.investigationModule === 'helix_structure',
   },
   replicationProgress: {
     key: 'replicationProgress',
@@ -351,6 +353,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
     step: 1,
     unit: '%',
     category: 'secondary',
+    visibleIf: (p) => p.investigationModule === 'replication_fork',
   },
   forkEnzymesActive: {
     key: 'forkEnzymesActive',
@@ -359,6 +362,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
     labelAr: 'تنشيط البلمرة الإنزيمية الحية',
     defaultValue: true,
     category: 'secondary',
+    visibleIf: (p) => p.investigationModule === 'replication_fork',
   },
   selectedEnzyme: {
     key: 'selectedEnzyme',
@@ -374,6 +378,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
       { value: 'ligase', labelEn: 'DNA Ligase (Joining Okazaki Fragments)', labelAr: 'إنزيم الربط (وصل قطع أوكازاكي والتلفيات)' },
       { value: 'repair', labelEn: 'DNA Repair System (20 Repair Enzymes)', labelAr: 'منظومة إصلاح عيوب DNA (٢٠ إنزيم ربط)' },
     ],
+    visibleIf: (p) => p.investigationModule === 'replication_fork',
   },
   mutationPreset: {
     key: 'mutationPreset',
@@ -389,6 +394,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
       { value: 'nonsense', labelEn: 'Nonsense Mutation (UAC -> UAA: Premature Stop)', labelAr: 'طفرة غير معبرة (كودون وقف مبكر يقطع الببتيد)' },
       { value: 'frameshift', labelEn: 'Frameshift Deletion (-1 nt: Shift All Codons)', labelAr: 'طفرة إزاحة حذف قاعدة (تغير إطار القراءة بالكامل)' },
     ],
+    visibleIf: (p) => p.investigationModule === 'transcription_translation',
   },
   dmmMode: {
     key: 'dmmMode',
@@ -403,6 +409,7 @@ export const DNA_PARAM_SCHEMA: LabParameterSchema<DnaLabParams> = {
       { value: 'melting_tm', labelEn: 'Thermal Melting Temperature (Tm) [°C]', labelAr: 'درجة حرارة الانصهار الحراري (Tm) [°م]' },
       { value: 'bond_count', labelEn: 'Total Hydrogen Bonds & Purine/Pyrimidine %', labelAr: 'إجمالي الروابط الهيدروجينية ونسبة البيورينات' },
     ],
+    visibleIf: (p) => p.investigationModule !== 'dna_atlas',
   },
 };
 

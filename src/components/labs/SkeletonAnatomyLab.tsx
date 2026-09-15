@@ -489,6 +489,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
     step: 50,
     unit: ' N',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'axial_skeleton',
   },
   respirationState: {
     key: 'respirationState',
@@ -502,6 +503,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
       { value: 'exhalation', labelEn: 'Exhalation (Downward & Inward)', labelAr: 'زفير (حركة الضلوع للداخل ولأسفل)' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'axial_skeleton',
   },
   highlightVertebraType: {
     key: 'highlightVertebraType',
@@ -516,6 +518,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
       { value: 'sacral_coccygeal', labelEn: 'Sacral & Coccygeal (9 fused vertebrae = 2 bones)', labelAr: 'العجزية والعصعصية (٩ فقرات ملتحمة كعظمتين)' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'axial_skeleton',
   },
   cavityType: {
     key: 'cavityType',
@@ -528,6 +531,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
       { value: 'acetabulum', labelEn: 'Acetabulum Cavity (Hip - Deep Weight-Bearing)', labelAr: 'التجويف الحقي (الحوض - عميق عالي الثبات والاستقرار)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'appendicular_skeleton',
   },
   forearmRotationDeg: {
     key: 'forearmRotationDeg',
@@ -540,6 +544,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
     step: 5,
     unit: '°',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'appendicular_skeleton',
   },
   kneeFlexionDeg: {
     key: 'kneeFlexionDeg',
@@ -552,6 +557,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
     step: 5,
     unit: '°',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'joints_biomechanics',
   },
   gastrocForceN: {
     key: 'gastrocForceN',
@@ -564,6 +570,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
     step: 100,
     unit: ' N',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'joints_biomechanics',
   },
   highlightLigament: {
     key: 'highlightLigament',
@@ -579,6 +586,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
       { value: 'lcl', labelEn: 'Lateral Collateral (LCL - Fibula)', labelAr: 'الرباط الجانبي (فخذ-شظية)' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'joints_biomechanics',
   },
   selectedAtlasPin: {
     key: 'selectedAtlasPin',
@@ -588,6 +596,7 @@ const SKELETON_PARAM_SCHEMA: LabParameterSchema<SkeletonLabParams> = {
     defaultValue: 'skull',
     options: SKELETON_HOTSPOTS.map((h) => ({ value: h.id, labelEn: h.nameEn, labelAr: h.nameAr })),
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'skeleton_atlas',
   },
 };
 

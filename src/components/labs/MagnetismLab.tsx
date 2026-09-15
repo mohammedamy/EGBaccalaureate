@@ -142,6 +142,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     labelAr: 'شكل الموصل',
     type: 'select',
     defaultValue: 'straight_wire',
+    visibleIf: (p) => p.magnetismMode === 'field_sources',
   },
   wireCurrent: {
     key: 'wireCurrent',
@@ -153,6 +154,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 1,
     unit: 'A',
     defaultValue: 10,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'straight_wire',
   },
   wireDistanceCm: {
     key: 'wireDistanceCm',
@@ -164,6 +166,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'cm',
     defaultValue: 5,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'straight_wire',
   },
   wireCurrentDir: {
     key: 'wireCurrentDir',
@@ -171,6 +174,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     labelAr: 'اتجاه متجه التيار',
     type: 'select',
     defaultValue: 'out',
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'straight_wire',
   },
   wire1Current: {
     key: 'wire1Current',
@@ -182,6 +186,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 1,
     unit: 'A',
     defaultValue: 10,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'dual_wires',
   },
   wire2Current: {
     key: 'wire2Current',
@@ -193,6 +198,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 1,
     unit: 'A',
     defaultValue: 20,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'dual_wires',
   },
   wiresSeparationCm: {
     key: 'wiresSeparationCm',
@@ -204,6 +210,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 1,
     unit: 'cm',
     defaultValue: 15,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'dual_wires',
   },
   dualWiresCurrentDirs: {
     key: 'dualWiresCurrentDirs',
@@ -211,6 +218,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     labelAr: 'اتجاها التيارين في السلكين',
     type: 'select',
     defaultValue: 'same',
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'dual_wires',
   },
   loopCurrent: {
     key: 'loopCurrent',
@@ -222,6 +230,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'A',
     defaultValue: 5,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'circular_loop',
   },
   loopTurns: {
     key: 'loopTurns',
@@ -233,6 +242,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 1,
     unit: 'turns',
     defaultValue: 10,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'circular_loop',
   },
   loopRadiusCm: {
     key: 'loopRadiusCm',
@@ -244,6 +254,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'cm',
     defaultValue: 8,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'circular_loop',
   },
   solenoidCurrent: {
     key: 'solenoidCurrent',
@@ -255,6 +266,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'A',
     defaultValue: 4,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'solenoid',
   },
   solenoidTurns: {
     key: 'solenoidTurns',
@@ -266,6 +278,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 25,
     unit: 'turns',
     defaultValue: 200,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'solenoid',
   },
   solenoidLengthM: {
     key: 'solenoidLengthM',
@@ -277,6 +290,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.05,
     unit: 'm',
     defaultValue: 0.2,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'solenoid',
   },
   hasIronCore: {
     key: 'hasIronCore',
@@ -284,6 +298,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     labelAr: 'قلب حديد مطاوع',
     type: 'boolean',
     defaultValue: true,
+    visibleIf: (p) => p.magnetismMode === 'field_sources' && p.conductorType === 'solenoid',
   },
   bFieldTesla: {
     key: 'bFieldTesla',
@@ -295,6 +310,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.1,
     unit: 'T',
     defaultValue: 0.8,
+    visibleIf: (p) => p.magnetismMode === 'lorentz_force',
   },
   forceCurrent: {
     key: 'forceCurrent',
@@ -306,6 +322,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'A',
     defaultValue: 5,
+    visibleIf: (p) => p.magnetismMode === 'lorentz_force',
   },
   forceWireLengthM: {
     key: 'forceWireLengthM',
@@ -317,6 +334,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.1,
     unit: 'm',
     defaultValue: 0.4,
+    visibleIf: (p) => p.magnetismMode === 'lorentz_force',
   },
   forceAngleDeg: {
     key: 'forceAngleDeg',
@@ -328,6 +346,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 5,
     unit: '°',
     defaultValue: 90,
+    visibleIf: (p) => p.magnetismMode === 'lorentz_force',
   },
   galvBFieldTesla: {
     key: 'galvBFieldTesla',
@@ -339,6 +358,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.1,
     unit: 'T',
     defaultValue: 0.8,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   galvCurrentMa: {
     key: 'galvCurrentMa',
@@ -350,6 +370,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.1,
     unit: 'mA',
     defaultValue: 2.5,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   galvTurns: {
     key: 'galvTurns',
@@ -360,6 +381,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     max: 500,
     step: 25,
     defaultValue: 200,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   galvCoilWidthCm: {
     key: 'galvCoilWidthCm',
@@ -371,6 +393,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'cm',
     defaultValue: 3.0,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   galvCoilLengthCm: {
     key: 'galvCoilLengthCm',
@@ -382,6 +405,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 0.5,
     unit: 'cm',
     defaultValue: 5.0,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   springConstantU: {
     key: 'springConstantU',
@@ -393,6 +417,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 5,
     unit: 'µN·m/rad',
     defaultValue: 30,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   isRadialField: {
     key: 'isRadialField',
@@ -400,6 +425,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     labelAr: 'مجال مغناطيسي نصف قطري',
     type: 'boolean',
     defaultValue: true,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer',
   },
   galvAngleDeg: {
     key: 'galvAngleDeg',
@@ -411,6 +437,7 @@ const MAGNETISM_PARAM_SCHEMA: LabParameterSchema<MagnetismParams> = {
     step: 5,
     unit: '°',
     defaultValue: 90,
+    visibleIf: (p) => p.magnetismMode === 'galvanometer' && !p.isRadialField,
   },
 };
 

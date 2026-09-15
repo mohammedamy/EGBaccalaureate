@@ -843,6 +843,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       labelAr: `${a.formula} - ${a.nameAr}`,
     })),
     category: 'primary',
+    visibleIf: (p) => p.labMode === 'anions',
   },
   cationId: {
     key: 'cationId',
@@ -856,6 +857,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       labelAr: `${c.formula} - ${c.nameAr}`,
     })),
     category: 'primary',
+    visibleIf: (p) => p.labMode === 'cations',
   },
   flameCationId: {
     key: 'flameCationId',
@@ -869,6 +871,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       labelAr: `${f.symbol} - ${f.elementAr}`,
     })),
     category: 'primary',
+    visibleIf: (p) => p.labMode === 'flame_spectrometry',
   },
   testType: {
     key: 'testType',
@@ -881,6 +884,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       { value: 'confirmatory', labelEn: 'Confirmatory Test (التجربة التأكيدية)', labelAr: 'التجربة التأكيدية' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.labMode !== 'flame_spectrometry',
   },
   reagentVolume: {
     key: 'reagentVolume',
@@ -894,6 +898,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       { value: 'excess', labelEn: 'Excess Reagent (بوفرة من الكاشف)', labelAr: 'بوفرة من الكاشف' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.labMode !== 'flame_spectrometry',
   },
   isHeating: {
     key: 'isHeating',
@@ -917,6 +922,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
       { value: 'ammonia_rod', labelEn: 'Ammonia Glass Rod (ساق نشادر)', labelAr: 'ساق زجاجية مبللة بمحلول النشادر' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.labMode === 'anions',
   },
   stirringSpeed: {
     key: 'stirringSpeed',
@@ -929,6 +935,7 @@ const QUALITATIVE_PARAM_SCHEMA: LabParameterSchema<QualitativeParams> = {
     step: 10,
     defaultValue: 50,
     category: 'secondary',
+    visibleIf: (p) => p.labMode !== 'flame_spectrometry',
   },
 };
 

@@ -321,6 +321,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
       { value: 'hypertonic', labelEn: 'Hypertonic (Saline Brine / Drought)', labelAr: 'مرتفع التركيز (محلول ملحي / جفاف)' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'osmotic_physiology',
   },
   soilWaterPotential: {
     key: 'soilWaterPotential',
@@ -333,6 +334,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     step: 0.1,
     unit: ' MPa',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'osmotic_physiology',
   },
   cellSapSolutePotential: {
     key: 'cellSapSolutePotential',
@@ -345,6 +347,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     step: 0.1,
     unit: ' MPa',
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'osmotic_physiology',
   },
   activeTissue: {
     key: 'activeTissue',
@@ -359,6 +362,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
       { value: 'epidermis', labelEn: 'Epidermis + Cuticle (بشرة الورقة)', labelAr: 'بشرة الورقة + الكيوتين' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'structural_support',
   },
   appliedForce: {
     key: 'appliedForce',
@@ -371,6 +375,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     step: 10,
     unit: ' N',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'structural_support',
   },
   highlightMolecule: {
     key: 'highlightMolecule',
@@ -385,6 +390,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
       { value: 'suberin', labelEn: 'Suberin (السيوبرين - Cork Barrier)', labelAr: 'السيوبرين (حاجز في الفلين)' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'structural_support',
   },
   movementType: {
     key: 'movementType',
@@ -398,6 +404,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
       { value: 'mimosa_touch', labelEn: 'Touch & Nyctinasty (اللمس والنوم)', labelAr: 'اللمس والنوم (نبات المستحية)' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'plant_movements',
   },
   tendrilSupportPresent: {
     key: 'tendrilSupportPresent',
@@ -406,6 +413,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     labelAr: 'وجود دعامة صلبة يلتف حولها المحلاق',
     defaultValue: true,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'plant_movements' && p.movementType === 'tendril',
   },
   tendrilCoilingProgress: {
     key: 'tendrilCoilingProgress',
@@ -418,6 +426,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     step: 5,
     unit: '%',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'plant_movements' && p.movementType === 'tendril',
   },
   contractileRootDepth: {
     key: 'contractileRootDepth',
@@ -430,6 +439,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     step: 1,
     unit: ' cm',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'plant_movements' && p.movementType === 'contractile_roots',
   },
   touchStimulusActive: {
     key: 'touchStimulusActive',
@@ -438,6 +448,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     labelAr: 'تطبيق مؤثر اللمس الميكانيكي',
     defaultValue: false,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'plant_movements' && p.movementType === 'mimosa_touch',
   },
   selectedHistologyPin: {
     key: 'selectedHistologyPin',
@@ -447,6 +458,7 @@ const PLANT_PARAM_SCHEMA: LabParameterSchema<PlantHistologyParams> = {
     defaultValue: 'collenchyma',
     options: HISTOLOGY_LAYERS.map((l) => ({ value: l.id, labelEn: l.nameEn, labelAr: l.nameAr })),
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'stem_histology',
   },
 };
 

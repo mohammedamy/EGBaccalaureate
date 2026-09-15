@@ -214,6 +214,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       value: p.id,
     })),
     category: 'primary',
+    visibleIf: (p) => p.subTab !== 'classical_genetics',
   },
   customSequence: {
     key: 'customSequence',
@@ -227,6 +228,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Phage: TACAAACGTTTCCGAAAGCACTAA', labelAr: 'فيروس الفاج: TACAAACGTTTCCGAAAGCACTAA', value: 'TACAAACGTTTCCGAAAGCACTAA' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab !== 'classical_genetics',
   },
   mutationType: {
     key: 'mutationType',
@@ -242,6 +244,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Frameshift Mutation (+1 Insertion)', labelAr: 'طفرة إزاحة إطار القراءة (إضافة نيوكليوتيدة)', value: 'frameshift' },
     ],
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'transcription_translation',
   },
   temperature: {
     key: 'temperature',
@@ -254,6 +257,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
     step: 1,
     unit: '°C',
     category: 'environmental',
+    visibleIf: (p) => p.subTab === 'dna_structure',
   },
   isReplicating: {
     key: 'isReplicating',
@@ -262,6 +266,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
     type: 'boolean',
     defaultValue: false,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'dna_structure',
   },
   crossType: {
     key: 'crossType',
@@ -275,6 +280,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Lethal Genes (Yy × Yy -> 2:1)', labelAr: 'الجينات المميتة (Yy × Yy -> ٢:١)', value: 'lethal_genes' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'classical_genetics',
   },
   motherBlood: {
     key: 'motherBlood',
@@ -289,6 +295,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Type O', labelAr: 'فصيلة O', value: 'O' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'classical_genetics',
   },
   motherRh: {
     key: 'motherRh',
@@ -301,6 +308,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Rh Negative (-)', labelAr: 'سالب (-) Rh', value: '-' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'classical_genetics',
   },
   fatherBlood: {
     key: 'fatherBlood',
@@ -315,6 +323,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Type O', labelAr: 'فصيلة O', value: 'O' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'classical_genetics',
   },
   fatherRh: {
     key: 'fatherRh',
@@ -327,6 +336,7 @@ const GENETICS_PARAM_SCHEMA: LabParameterSchema<GeneticsParams> = {
       { labelEn: 'Rh Negative (-)', labelAr: 'سالب (-) Rh', value: '-' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'classical_genetics',
   },
 };
 

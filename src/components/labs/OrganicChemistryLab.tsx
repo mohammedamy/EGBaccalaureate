@@ -591,6 +591,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
       value: p.id,
     })),
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'roadmap',
   },
   activeStep: {
     key: 'activeStep',
@@ -602,6 +603,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     max: 3,
     step: 1,
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'roadmap',
   },
   alkeneType: {
     key: 'alkeneType',
@@ -615,6 +617,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
       { labelEn: 'But-1-ene (CH₃-CH₂-CH=CH₂)', labelAr: 'بيوت-١-ين (CH₃-CH₂-CH=CH₂)', value: 'but1ene' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   reagent: {
     key: 'reagent',
@@ -628,6 +631,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
       { labelEn: 'Water Hydration (H⁺-OH⁻ / H₂SO₄)', labelAr: 'هيدرة حفزية بالماء (H⁺-OH⁻)', value: 'H2O' },
     ],
     category: 'primary',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   carbocationEnergyView: {
     key: 'carbocationEnergyView',
@@ -636,6 +640,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     type: 'boolean',
     defaultValue: false,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   reactionProgress: {
     key: 'reactionProgress',
@@ -648,6 +653,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     step: 5,
     unit: '%',
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   temperature: {
     key: 'temperature',
@@ -660,6 +666,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     step: 10,
     unit: '°C',
     category: 'environmental',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   catalystActive: {
     key: 'catalystActive',
@@ -668,6 +675,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     type: 'boolean',
     defaultValue: true,
     category: 'secondary',
+    visibleIf: (p) => p.subTab === 'markovnikov',
   },
   currentQuizIndex: {
     key: 'currentQuizIndex',
@@ -679,6 +687,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     max: 7,
     step: 1,
     category: 'advanced',
+    visibleIf: (p) => p.subTab === 'nomenclature',
   },
   selectedOption: {
     key: 'selectedOption',
@@ -687,6 +696,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     type: 'number',
     defaultValue: null as any,
     category: 'advanced',
+    visibleIf: (p) => p.subTab === 'nomenclature',
   },
   showExplanation: {
     key: 'showExplanation',
@@ -695,6 +705,7 @@ const ORGANIC_PARAM_SCHEMA: LabParameterSchema<OrganicParams> = {
     type: 'boolean',
     defaultValue: false,
     category: 'advanced',
+    visibleIf: (p) => p.subTab === 'nomenclature',
   },
 };
 
