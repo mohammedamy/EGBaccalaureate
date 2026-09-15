@@ -252,6 +252,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 0.01,
         defaultValue: 1.0,
         precision: 2,
+        visibleIf: (p) => p.opticsMode === 'refraction',
       },
       n2: {
         key: 'n2',
@@ -264,6 +265,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 0.01,
         defaultValue: 1.52,
         precision: 2,
+        visibleIf: (p) => p.opticsMode === 'refraction',
       },
       incidentAngleDeg: {
         key: 'incidentAngleDeg',
@@ -277,6 +279,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 1,
         defaultValue: 45,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'refraction',
       },
       refractionWavelengthNm: {
         key: 'refractionWavelengthNm',
@@ -290,6 +293,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 5,
         defaultValue: 550,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'refraction',
       },
       focalLengthCm: {
         key: 'focalLengthCm',
@@ -303,6 +307,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 1,
         defaultValue: 15,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'thin_lens',
       },
       objectDistanceCm: {
         key: 'objectDistanceCm',
@@ -316,6 +321,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 1,
         defaultValue: 30,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'thin_lens',
       },
       objectHeightCm: {
         key: 'objectHeightCm',
@@ -329,6 +335,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 1,
         defaultValue: 10,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'thin_lens',
       },
       wavelengthNm: {
         key: 'wavelengthNm',
@@ -342,6 +349,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 1,
         defaultValue: 632.8,
         precision: 1,
+        visibleIf: (p) => p.opticsMode === 'double_slit',
       },
       slitSeparationUm: {
         key: 'slitSeparationUm',
@@ -355,6 +363,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 10,
         defaultValue: 250,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'double_slit',
       },
       screenDistanceM: {
         key: 'screenDistanceM',
@@ -368,6 +377,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 0.1,
         defaultValue: 1.5,
         precision: 1,
+        visibleIf: (p) => p.opticsMode === 'double_slit',
       },
       slitWidthUm: {
         key: 'slitWidthUm',
@@ -381,6 +391,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         step: 5,
         defaultValue: 25,
         precision: 0,
+        visibleIf: (p) => p.opticsMode === 'double_slit',
       },
     },
     presets: [

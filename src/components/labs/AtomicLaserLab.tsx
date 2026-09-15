@@ -216,6 +216,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Final Lower Level (n₁)',
         labelAr: 'المستوى النهائي الأدنى (n₁)',
         category: 'primary',
+        visibleIf: (p) => p.systemMode === 'bohr',
       },
       n2: {
         key: 'n2',
@@ -231,6 +232,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Initial Excited Level (n₂)',
         labelAr: 'المستوى الابتدائي المثار (n₂)',
         category: 'primary',
+        visibleIf: (p) => p.systemMode === 'bohr',
       },
       viewMode: {
         key: 'viewMode',
@@ -243,6 +245,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Atomic View Style',
         labelAr: 'نمط العرض الذري',
         category: 'secondary',
+        visibleIf: (p) => p.systemMode === 'bohr',
       },
       pumpPower: {
         key: 'pumpPower',
@@ -255,6 +258,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Electric Discharge Power',
         labelAr: 'شدة التفريغ الكهربي (الضخ)',
         category: 'primary',
+        visibleIf: (p) => p.systemMode === 'laser',
       },
       highVoltageDC: {
         key: 'highVoltageDC',
@@ -263,6 +267,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'HV Power Supply (1.5 kV)',
         labelAr: 'مصدر الجهد العالي المستمر (1.5 kV)',
         category: 'primary',
+        visibleIf: (p) => p.systemMode === 'laser',
       },
       cavityAlignment: {
         key: 'cavityAlignment',
@@ -275,6 +280,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Mirror Angular Tilt (θ)',
         labelAr: 'حيود توازي المرآتين (θ)',
         category: 'secondary',
+        visibleIf: (p) => p.systemMode === 'laser',
       },
     },
     presets: [

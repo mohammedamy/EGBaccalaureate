@@ -158,6 +158,7 @@ const BIOENERGETICS_LAB_DEFINITION: LabDefinition<BioenergeticsParams, Bioenerge
       step: 1,
       defaultValue: 1,
       category: 'primary',
+      visibleIf: (p) => p.simulationMode === 0,
     },
     oxygenLevel: {
       key: 'oxygenLevel',
@@ -171,6 +172,7 @@ const BIOENERGETICS_LAB_DEFINITION: LabDefinition<BioenergeticsParams, Bioenerge
       step: 5,
       defaultValue: 100,
       category: 'primary',
+      visibleIf: (p) => p.simulationMode === 0,
     },
     lightIntensity: {
       key: 'lightIntensity',
@@ -184,6 +186,7 @@ const BIOENERGETICS_LAB_DEFINITION: LabDefinition<BioenergeticsParams, Bioenerge
       step: 5,
       defaultValue: 80,
       category: 'secondary',
+      visibleIf: (p) => p.simulationMode === 1,
     },
     co2Ppm: {
       key: 'co2Ppm',
@@ -197,6 +200,7 @@ const BIOENERGETICS_LAB_DEFINITION: LabDefinition<BioenergeticsParams, Bioenerge
       step: 25,
       defaultValue: 500,
       category: 'secondary',
+      visibleIf: (p) => p.simulationMode === 1,
     },
     temperatureC: {
       key: 'temperatureC',
