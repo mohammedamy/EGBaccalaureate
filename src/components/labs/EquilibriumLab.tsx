@@ -174,6 +174,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 150,
     step: 5,
     unit: '°C',
+    visibleIf: (p: EquilibriumParams) => p.module === 'le_chatelier',
   },
   pressureAtm: {
     key: 'pressureAtm',
@@ -185,6 +186,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 5.0,
     step: 0.1,
     unit: 'atm',
+    visibleIf: (p: EquilibriumParams) => p.module === 'le_chatelier',
   },
   reactantMoles: {
     key: 'reactantMoles',
@@ -195,6 +197,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     min: 0.5,
     max: 3.0,
     step: 0.1,
+    visibleIf: (p: EquilibriumParams) => p.module === 'le_chatelier',
   },
   productMoles: {
     key: 'productMoles',
@@ -205,6 +208,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     min: 0.0,
     max: 3.0,
     step: 0.1,
+    visibleIf: (p: EquilibriumParams) => p.module === 'le_chatelier',
   },
   hasCatalyst: {
     key: 'hasCatalyst',
@@ -212,6 +216,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     labelEn: 'Presence of Catalyst (Fe/V₂O₅)',
     labelAr: 'وجود عامل حفاز (حديد/خامس أكسيد الفاناديوم)',
     defaultValue: false,
+    visibleIf: (p: EquilibriumParams) => p.module === 'le_chatelier',
   },
   electrolyte: {
     key: 'electrolyte',
@@ -219,6 +224,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     labelEn: 'Electrolyte Solution',
     labelAr: 'محلول الإلكتروليت',
     defaultValue: 'acetic_acid',
+    visibleIf: (p: EquilibriumParams) => p.module === 'ostwald_ionic',
     options: [
       { value: 'acetic_acid', labelEn: 'Acetic Acid CH₃COOH (Weak Acid, Ka = 1.8×10⁻⁵)', labelAr: 'حمض الخليك CH₃COOH (حمض ضعيف)' },
       { value: 'formic_acid', labelEn: 'Formic Acid HCOOH (Weak Acid, Ka = 1.8×10⁻⁴)', labelAr: 'حمض الفورميك HCOOH (حمض ضعيف)' },
@@ -238,6 +244,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 1.0,
     step: 0.01,
     unit: 'M',
+    visibleIf: (p: EquilibriumParams) => p.module === 'ostwald_ionic',
   },
   solutionVolumeMl: {
     key: 'solutionVolumeMl',
@@ -249,6 +256,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 500,
     step: 25,
     unit: 'mL',
+    visibleIf: (p: EquilibriumParams) => p.module === 'ostwald_ionic',
   },
   salt: {
     key: 'salt',
@@ -256,6 +264,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     labelEn: 'Salt Compound',
     labelAr: 'مركب الملح',
     defaultValue: 'nh4cl',
+    visibleIf: (p: EquilibriumParams) => p.module === 'salt_hydrolysis',
     options: [
       { value: 'nh4cl', labelEn: 'NH₄Cl (Ammonium Chloride - Strong Acid + Weak Base)', labelAr: 'NH₄Cl (كلوريد الأمونيوم - حمض قوي + قاعدة ضعيفة)' },
       { value: 'ch3coona', labelEn: 'CH₃COONa (Sodium Acetate - Weak Acid + Strong Base)', labelAr: 'CH₃COONa (أسيتات الصوديوم - حمض ضعيف + قاعدة قوية)' },
@@ -270,6 +279,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     labelEn: 'Acid-Base Indicator',
     labelAr: 'الدليل الكيميائي',
     defaultValue: 'litmus',
+    visibleIf: (p: EquilibriumParams) => p.module === 'salt_hydrolysis',
     options: [
       { value: 'litmus', labelEn: 'Litmus (عباد الشمس)', labelAr: 'عباد الشمس' },
       { value: 'methyl_orange', labelEn: 'Methyl Orange (الميثيل البرتقالي)', labelAr: 'الميثيل البرتقالي' },
@@ -287,6 +297,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 1.0,
     step: 0.05,
     unit: 'M',
+    visibleIf: (p: EquilibriumParams) => p.module === 'salt_hydrolysis',
   },
   sparinglySalt: {
     key: 'sparinglySalt',
@@ -294,6 +305,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     labelEn: 'Sparingly Soluble Salt',
     labelAr: 'الملح شحيح الذوبان في الماء',
     defaultValue: 'agcl',
+    visibleIf: (p: EquilibriumParams) => p.module === 'solubility_product',
     options: [
       { value: 'agcl', labelEn: 'AgCl (Silver Chloride, Ksp = 1.8×10⁻¹⁰) [White ppt]', labelAr: 'AgCl (كلوريد الفضة - راسب أبيض)' },
       { value: 'pbi2', labelEn: 'PbI₂ (Lead Iodide, Ksp = 7.1×10⁻⁹) [Canary Yellow ppt]', labelAr: 'PbI₂ (يوديد الرصاص - راسب أصفر كناري)' },
@@ -311,6 +323,7 @@ export const EQUILIBRIUM_PARAM_SCHEMA: LabParameterSchema<EquilibriumParams> = {
     max: 0.5,
     step: 0.02,
     unit: 'M',
+    visibleIf: (p: EquilibriumParams) => p.module === 'solubility_product',
   },
 };
 
@@ -1573,7 +1586,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="5"
                   value={params.temperatureC}
                   onChange={(e) => updateParam('temperatureC', parseInt(e.target.value))}
-                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-amber-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
@@ -1589,7 +1602,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.1"
                   value={params.pressureAtm}
                   onChange={(e) => updateParam('pressureAtm', parseFloat(e.target.value))}
-                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
@@ -1649,7 +1662,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.005"
                   value={params.concentrationM}
                   onChange={(e) => updateParam('concentrationM', parseFloat(e.target.value))}
-                  className={`w-full accent-purple-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-purple-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-purple-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
 
@@ -1665,7 +1678,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="25"
                   value={params.solutionVolumeMl}
                   onChange={(e) => updateParam('solutionVolumeMl', parseInt(e.target.value))}
-                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-cyan-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>
@@ -1728,7 +1741,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.02"
                   value={params.saltConcentrationM}
                   onChange={(e) => updateParam('saltConcentrationM', parseFloat(e.target.value))}
-                  className={`w-full accent-rose-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-rose-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-rose-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>
@@ -1773,7 +1786,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
                   step="0.02"
                   value={params.addedCommonIonM}
                   onChange={(e) => updateParam('addedCommonIonM', parseFloat(e.target.value))}
-                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
+                  className={`w-full accent-amber-500 cursor-pointer h-2 rounded-lg transition-all [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-amber-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
                 />
               </div>
             </div>

@@ -42,7 +42,7 @@ export interface LabFormula {
   descriptionAr?: string;
 }
 
-export interface LabParameterConfig<T = number> {
+export interface LabParameterConfig<T = number, TParams = any> {
   key: string;
   labelEn: string;
   labelAr: string;
@@ -58,10 +58,11 @@ export interface LabParameterConfig<T = number> {
   precision?: number;
   descriptionEn?: string;
   descriptionAr?: string;
+  visibleIf?: (params: TParams) => boolean;
 }
 
 export type LabParameterSchema<TParams = Record<string, any>> = {
-  [K in keyof TParams]: LabParameterConfig<TParams[K]>;
+  [K in keyof TParams]: LabParameterConfig<TParams[K], TParams>;
 };
 
 export interface LabPreset<TParams = Record<string, any>> {

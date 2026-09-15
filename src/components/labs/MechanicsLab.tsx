@@ -186,6 +186,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Plane Geometry',
     labelAr: 'شكل المستوى',
     defaultValue: 'inclined',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane',
     options: [
       { value: 'horizontal', labelEn: 'Horizontal Rough Plane', labelAr: 'مستوى أفقي خشن' },
       { value: 'inclined', labelEn: 'Inclined Rough Plane', labelAr: 'مستوى مائل خشن' },
@@ -201,6 +202,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 75,
     step: 1,
     unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane' && p.planeType === 'inclined',
   },
   bodyWeightN: {
     key: 'bodyWeightN',
@@ -212,6 +214,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 200,
     step: 5,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane',
   },
   pullForceP: {
     key: 'pullForceP',
@@ -223,6 +226,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 250,
     step: 1,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane',
   },
   pullAngleAlphaDeg: {
     key: 'pullAngleAlphaDeg',
@@ -234,6 +238,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 60,
     step: 1,
     unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane',
   },
   surfaceMaterial: {
     key: 'surfaceMaterial',
@@ -241,6 +246,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Surface Interface Material',
     labelAr: 'مادة سطحي التماس',
     defaultValue: 'wood_wood',
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane',
     options: [
       { value: 'wood_wood', labelEn: 'Wood on Wood (μs = 0.45)', labelAr: 'خشب على خشب (μs = 0.45)' },
       { value: 'rubber_concrete', labelEn: 'Rubber on Concrete (μs = 0.85)', labelAr: 'مطاط على خرسانة (μs = 0.85)' },
@@ -258,6 +264,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     min: 0.05,
     max: 1.2,
     step: 0.01,
+    visibleIf: (p: MechanicsParams) => p.module === 'friction_plane' && p.surfaceMaterial === 'custom',
   },
   ladderLengthM: {
     key: 'ladderLengthM',
@@ -269,6 +276,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 10.0,
     step: 0.5,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   ladderWeightN: {
     key: 'ladderWeightN',
@@ -280,6 +288,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 400,
     step: 10,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   ladderAngleDeg: {
     key: 'ladderAngleDeg',
@@ -291,6 +300,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 80,
     step: 1,
     unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   climberWeightN: {
     key: 'climberWeightN',
@@ -302,6 +312,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 1000,
     step: 25,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   climberPosFraction: {
     key: 'climberPosFraction',
@@ -312,6 +323,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     min: 0.0,
     max: 1.0,
     step: 0.05,
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   groundMuS: {
     key: 'groundMuS',
@@ -322,6 +334,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     min: 0.1,
     max: 0.9,
     step: 0.02,
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'ladder',
   },
   equilibriumApparatus: {
     key: 'equilibriumApparatus',
@@ -329,6 +342,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Equilibrium System',
     labelAr: 'نظام الاتزان',
     defaultValue: 'ladder',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium',
     options: [
       { value: 'ladder', labelEn: 'Leaning Ladder (Smooth Wall, Rough Ground)', labelAr: 'سلم مستند على حائط رأسي أملس وأرض خشنة' },
       { value: 'hinged_rod', labelEn: 'Hinged Rod with Cable Tension', labelAr: 'قضيب متصل بمفصل ومثبت بحبل شد' },
@@ -344,6 +358,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 75,
     step: 1,
     unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'general_equilibrium' && p.equilibriumApparatus === 'hinged_rod',
   },
   beamLengthM: {
     key: 'beamLengthM',
@@ -355,6 +370,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 14.0,
     step: 1.0,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   beamWeightN: {
     key: 'beamWeightN',
@@ -366,6 +382,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 300,
     step: 10,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   supportAX: {
     key: 'supportAX',
@@ -377,6 +394,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 4.0,
     step: 0.5,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   supportBX: {
     key: 'supportBX',
@@ -388,6 +406,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 14.0,
     step: 0.5,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   pointLoad1N: {
     key: 'pointLoad1N',
@@ -399,6 +418,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 400,
     step: 10,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   pointLoad1X: {
     key: 'pointLoad1X',
@@ -410,6 +430,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 14,
     step: 0.5,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   pointLoad2N: {
     key: 'pointLoad2N',
@@ -421,6 +442,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 400,
     step: 10,
     unit: 'N',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   pointLoad2X: {
     key: 'pointLoad2X',
@@ -432,6 +454,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 14,
     step: 0.5,
     unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   distributedLoadWm: {
     key: 'distributedLoadWm',
@@ -443,6 +466,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 50,
     step: 5,
     unit: 'N/m',
+    visibleIf: (p: MechanicsParams) => p.module === 'moments_beam',
   },
   baseShape: {
     key: 'baseShape',
@@ -450,6 +474,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Base Lamina Geometry',
     labelAr: 'شكل الصفيحة الرقيقة',
     defaultValue: 'disc',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
     options: [
       { value: 'disc', labelEn: 'Circular Disc (قرص دائري)', labelAr: 'قرص دائري منتظم' },
       { value: 'rectangle', labelEn: 'Rectangular Plate (صفيحة مستطيلة)', labelAr: 'صفيحة مستطيلة' },
@@ -466,6 +491,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 24,
     step: 1,
     unit: 'cm',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   baseHeightCm: {
     key: 'baseHeightCm',
@@ -477,6 +503,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 20,
     step: 1,
     unit: 'cm',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   cutoutShape: {
     key: 'cutoutShape',
@@ -484,6 +511,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Cutout Hole (Negative Mass)',
     labelAr: 'الجزء المقتطع (الكتلة السالبة)',
     defaultValue: 'circle',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
     options: [
       { value: 'none', labelEn: 'No Cutout (Solid Body)', labelAr: 'جسم مصمت بدون اقتطاع' },
       { value: 'circle', labelEn: 'Circular Hole (ثقب دائري)', labelAr: 'ثقب دائري' },
@@ -500,6 +528,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 8,
     step: 0.5,
     unit: 'cm',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   cutoutPosXCm: {
     key: 'cutoutPosXCm',
@@ -511,6 +540,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 8,
     step: 0.5,
     unit: 'cm',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   cutoutPosYCm: {
     key: 'cutoutPosYCm',
@@ -522,6 +552,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     max: 6,
     step: 0.5,
     unit: 'cm',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   isPlumbLineSuspended: {
     key: 'isPlumbLineSuspended',
@@ -529,6 +560,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Show Plumb Line Suspension',
     labelAr: 'تعليق حر بخيط الشاقول',
     defaultValue: false,
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
   },
   suspensionCorner: {
     key: 'suspensionCorner',
@@ -536,6 +568,7 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
     labelEn: 'Suspension Point',
     labelAr: 'نقطة التعليق',
     defaultValue: 'top_left',
+    visibleIf: (p: MechanicsParams) => p.module === 'center_of_gravity',
     options: [
       { value: 'top_left', labelEn: 'Top-Left Point', labelAr: 'النقطة العلوية اليسرى' },
       { value: 'top_right', labelEn: 'Top-Right Point', labelAr: 'النقطة العلوية اليمنى' },

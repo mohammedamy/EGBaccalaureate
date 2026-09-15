@@ -127,6 +127,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 0.5,
     unit: ' V',
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module !== 'resistor_networks',
   },
   rInternal1: {
     key: 'rInternal1',
@@ -139,6 +140,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 0.2,
     unit: ' Ω',
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module !== 'resistor_networks',
   },
   vb2: {
     key: 'vb2',
@@ -151,6 +153,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 0.5,
     unit: ' V',
     category: 'secondary',
+    visibleIf: (p: CircuitsParams) => p.module === 'kirchhoff',
   },
   rInternal2: {
     key: 'rInternal2',
@@ -163,6 +166,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 0.2,
     unit: ' Ω',
     category: 'secondary',
+    visibleIf: (p: CircuitsParams) => p.module === 'kirchhoff',
   },
   battery2Polarity: {
     key: 'battery2Polarity',
@@ -170,6 +174,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     labelEn: 'Battery 2 Polarity',
     labelAr: 'قطبية المصدر ٢',
     defaultValue: 'opposing',
+    visibleIf: (p: CircuitsParams) => p.module === 'kirchhoff',
     options: [
       { value: 'opposing', labelEn: 'Opposing / Back-to-Back (Charging State)', labelAr: 'توصيل متعاكس (تفريغ وشحن)' },
       { value: 'same', labelEn: 'Assisting / Same Direction (Dual Discharge)', labelAr: 'توصيل في نفس الاتجاه (تفريغ معاً)' },
@@ -187,6 +192,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 1.0,
     unit: ' Ω',
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module === 'resistor_networks' || p.module === 'kirchhoff',
   },
   r2: {
     key: 'r2',
@@ -199,6 +205,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 1.0,
     unit: ' Ω',
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module === 'resistor_networks' || p.module === 'kirchhoff',
   },
   r3: {
     key: 'r3',
@@ -211,6 +218,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 1.0,
     unit: ' Ω',
     category: 'secondary',
+    visibleIf: (p: CircuitsParams) => p.module === 'resistor_networks' || p.module === 'kirchhoff',
   },
   r4: {
     key: 'r4',
@@ -223,6 +231,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 1.0,
     unit: ' Ω',
     category: 'secondary',
+    visibleIf: (p: CircuitsParams) => p.module === 'resistor_networks',
   },
   rBridge: {
     key: 'rBridge',
@@ -235,6 +244,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 1.0,
     unit: ' Ω',
     category: 'secondary',
+    visibleIf: (p: CircuitsParams) => p.module === 'resistor_networks' && p.networkType === 'wheatstone_bridge',
   },
   rheostatR: {
     key: 'rheostatR',
@@ -247,6 +257,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     step: 0.5,
     unit: ' Ω',
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module === 'closed_ohm' || p.module === 'power_energy',
   },
   isSwitchClosed: {
     key: 'isSwitchClosed',
@@ -255,6 +266,7 @@ export const CIRCUITS_PARAM_SCHEMA: LabParameterSchema<CircuitsParams> = {
     labelAr: 'مفتاح الدائرة (K)',
     defaultValue: true,
     category: 'primary',
+    visibleIf: (p: CircuitsParams) => p.module !== 'resistor_networks',
   },
 };
 

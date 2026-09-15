@@ -461,6 +461,9 @@ export const VirtualLabShell = <
             <div className="space-y-3">
               {Object.keys(definition.paramSchema).map((key) => {
                 const schema = definition.paramSchema[key];
+                if (schema.visibleIf && !schema.visibleIf(lab.params)) {
+                  return null;
+                }
                 const val = lab.params[key];
 
                 if (schema.type === 'number') {

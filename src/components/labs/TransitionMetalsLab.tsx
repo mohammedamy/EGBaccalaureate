@@ -953,6 +953,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     labelEn: '3d Element Selection',
     labelAr: 'عنصر السلسلة الانتقالية الأولى',
     defaultValue: 'Fe',
+    visibleIf: (p: TransitionParams) => p.module !== 'iron_metallurgy',
     options: [
       { value: 'Sc', labelEn: 'Scandium (Sc, Z=21)', labelAr: 'السكانديوم (Sc)' },
       { value: 'Ti', labelEn: 'Titanium (Ti, Z=22)', labelAr: 'التيتانيوم (Ti)' },
@@ -975,6 +976,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     min: 0,
     max: 7,
     step: 1,
+    visibleIf: (p: TransitionParams) => p.module !== 'iron_metallurgy',
   },
   electromagnetFieldT: {
     key: 'electromagnetFieldT',
@@ -986,6 +988,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     max: 2.0,
     step: 0.1,
     unit: 'T',
+    visibleIf: (p: TransitionParams) => p.module === 'gouy_balance',
   },
   sampleInitialMassG: {
     key: 'sampleInitialMassG',
@@ -997,6 +1000,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     max: 10.0,
     step: 0.5,
     unit: 'g',
+    visibleIf: (p: TransitionParams) => p.module === 'gouy_balance',
   },
   spectroWavelengthNm: {
     key: 'spectroWavelengthNm',
@@ -1008,6 +1012,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     max: 750,
     step: 5,
     unit: 'nm',
+    visibleIf: (p: TransitionParams) => p.module === 'color_spectroscopy',
   },
   furnaceType: {
     key: 'furnaceType',
@@ -1015,6 +1020,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     labelEn: 'Furnace Type',
     labelAr: 'نوع الفرن الصناعي',
     defaultValue: 'blast_furnace',
+    visibleIf: (p: TransitionParams) => p.module === 'iron_metallurgy',
     options: [
       { value: 'blast_furnace', labelEn: 'Blast Furnace (CO)', labelAr: 'الفرن العالي' },
       { value: 'midrex', labelEn: 'Midrex Furnace (Water Gas)', labelAr: 'فرن مدركس' },
@@ -1030,6 +1036,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     max: 1200,
     step: 25,
     unit: '°C',
+    visibleIf: (p: TransitionParams) => p.module === 'iron_metallurgy',
   },
   selectedAlloy: {
     key: 'selectedAlloy',
@@ -1037,6 +1044,7 @@ export const TRANSITION_PARAM_SCHEMA: LabParameterSchema<TransitionParams> = {
     labelEn: 'Alloy Classification',
     labelAr: 'تصنيف السبيكة',
     defaultValue: 'interstitial',
+    visibleIf: (p: TransitionParams) => p.module === 'iron_metallurgy',
     options: [
       { value: 'interstitial', labelEn: 'Interstitial (Carbon Steel)', labelAr: 'سبيكة بينية' },
       { value: 'substitutional', labelEn: 'Substitutional (Stainless Steel)', labelAr: 'سبيكة استبدالية' },
