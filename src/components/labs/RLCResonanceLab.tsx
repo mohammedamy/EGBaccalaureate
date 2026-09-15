@@ -8,6 +8,9 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawMetallicCylinder,
+  drawAnalogMeterGauge,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -388,13 +391,17 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     },
   ];
 
-  // High-Performance 2D Canvas: Split Phasor Diagram (Left) & Resonance Response Curve (Right)
+  // High-Performance Realistic 2D/3D Canvas: Physical Bench (Top) + Phasors & Resonance Curve (Bottom)
   const handleRenderCanvas = (
     ctx: CanvasRenderingContext2D,
     w: number,
     h: number,
-    vp: LabViewportState
+    vp: LabViewportState,
+    _dpr: number,
+    time?: number
   ) => {
+    const t = (time ?? performance.now()) * 0.001;
+
     ctx.fillStyle = '#020617';
     ctx.fillRect(0, 0, w, h);
 
@@ -402,25 +409,364 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.translate(vp.panX, vp.panY);
     ctx.scale(vp.zoom, vp.zoom);
 
-    const splitX = w * 0.46;
+    // Subtle brushed lab bench background
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.6)';
+    ctx.fillRect(10, 10, w - 20, 185);
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.4)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(10, 10, w - 20, 185);
 
-    // Divider
+    // Grid markings on bench
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+    for (let gx = 30; gx < w - 20; gx += 40) {
+      ctx.beginPath();
+      ctx.moveTo(gx, 10);
+      ctx.lineTo(gx, 195);
+      ctx.stroke();
+    }
+
+    // =========================================================================
+    // SECTION 1: REALISTIC PHYSICAL RLC BENCH (TOP)
+    // =========================================================================
+    const benchW = Math.min(w - 60, 920);
+    const benchX = (w - benchW) / 2;
+    const lx = benchX + 70;
+    const rx = benchX + benchW - 50;
+    const ty = 52;
+    const by = 158;
+
+    // --- Heavy Laboratory Copper Connecting Wire Loop ---
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    // Top wire rail
+    ctx.moveTo(lx, ty);
+    ctx.lineTo(rx, ty);
+    // Right wire rail
+    ctx.lineTo(rx, by);
+    // Bottom wire rail
+    ctx.lineTo(lx, by);
+    // Left wire rail
+    ctx.lineTo(lx, ty);
+    ctx.stroke();
+
+    // Inner wire highlight for metallic reflection
+    ctx.strokeStyle = '#fef08a';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(lx, ty);
+    ctx.lineTo(rx, ty);
+    ctx.lineTo(rx, by);
+    ctx.lineTo(lx, by);
+    ctx.lineTo(lx, ty);
+    ctx.stroke();
+
+    // --- 1. AC Variable Frequency Signal Generator ---
+    const acX = lx;
+    const acY = (ty + by) / 2;
+    // Main instrument chassis
+    drawMetallicCylinder(ctx, acX - 48, acY - 44, 48, 88, 'steel', 'vertical');
+
+    // Bevel frame
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(acX - 48, acY - 44, 48, 88);
+
+    // Digital readout panel
+    ctx.fillStyle = '#090d16';
+    ctx.fillRect(acX - 44, acY - 38, 40, 36);
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(acX - 44, acY - 38, 40, 36);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 8px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${vSourceRms.toFixed(0)}V~`, acX - 24, acY - 26);
+    ctx.fillText(`${frequencyF.toFixed(1)}Hz`, acX - 24, acY - 14);
+    ctx.fillText('AC GEN', acX - 24, acY - 4);
+
+    // Power Indicator LED
+    drawGlowingParticle(ctx, acX - 40, acY + 8, 3, isResonant ? '#eab308' : '#22c55e', 8);
+
+    // Waveform indicator icon
+    ctx.strokeStyle = isResonant ? '#eab308' : '#38bdf8';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(acX - 24, acY + 22, 10, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    const waveW = 12;
+    for (let wx = -waveW / 2; wx <= waveW / 2; wx += 2) {
+      const wy = Math.sin((wx / waveW) * Math.PI * 2) * 4;
+      if (wx === -waveW / 2) ctx.moveTo(acX - 24 + wx, acY + 22 + wy);
+      else ctx.lineTo(acX - 24 + wx, acY + 22 + wy);
+    }
+    ctx.stroke();
+
+    // Brass output binding posts
+    drawMetallicCylinder(ctx, lx - 6, ty - 6, 12, 12, 'brass');
+    drawMetallicCylinder(ctx, lx - 6, by - 6, 12, 12, 'brass');
+
+    // --- 2. Ceramic Resistor (R) ---
+    const resX = lx + (rx - lx) * 0.22;
+    const resY = ty;
+
+    // Resistor axial lead terminals
+    drawMetallicCylinder(ctx, resX - 44, resY - 2, 88, 4, 'copper', 'horizontal');
+
+    // Ceramic body
+    const resGrad = ctx.createLinearGradient(resX - 26, resY - 11, resX - 26, resY + 11);
+    resGrad.addColorStop(0, '#fef3c7');
+    resGrad.addColorStop(0.3, '#fde68a');
+    resGrad.addColorStop(0.7, '#d97706');
+    resGrad.addColorStop(1, '#78350f');
+    ctx.fillStyle = resGrad;
+    ctx.beginPath();
+    ctx.roundRect(resX - 26, resY - 11, 52, 22, 6);
+    ctx.fill();
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Color bands (4-band standard resistor code)
+    const bandXPositions = [resX - 16, resX - 8, resX, resX + 14];
+    const bandColors = ['#dc2626', '#16a34a', '#2563eb', '#fbbf24'];
+    bandColors.forEach((color, i) => {
+      ctx.fillStyle = color;
+      ctx.fillRect(bandXPositions[i] - 2, resY - 11, 4, 22);
+    });
+
+    // Resistor Label
+    ctx.fillStyle = '#fde68a';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`R = ${resistanceR} Ω`, resX, resY - 16);
+    ctx.font = '9px monospace';
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(`V_R = ${vR.toFixed(1)}V`, resX, resY + 24);
+
+    // --- 3. Inductor Coil (L) with Soft Iron Core ---
+    const indX = lx + (rx - lx) * 0.52;
+    const indY = ty;
+
+    // Soft Iron Laminated Core
+    drawMetallicCylinder(ctx, indX - 48, indY - 6, 96, 12, 'steel', 'horizontal');
+
+    // Helical Copper Windings (3D coils)
+    const coils = 10;
+    const coilSpan = 84;
+    const startCoilX = indX - coilSpan / 2;
+    for (let c = 0; c < coils; c++) {
+      const cxPos = startCoilX + (c / (coils - 1)) * coilSpan;
+      drawMetallicCylinder(ctx, cxPos - 3.5, indY - 15, 7, 30, 'copper', 'vertical');
+    }
+
+    // Dynamic pulsating magnetic flux envelope around inductor
+    const visOmega = Math.min(8, Math.max(1.5, frequencyF / 25));
+    const instCurrentFactor = Math.cos(visOmega * t - phaseAngleRad);
+    const bAlpha = Math.min(0.7, Math.abs(instCurrentFactor) * 0.6 + 0.1);
+
+    ctx.strokeStyle = `rgba(56, 189, 248, ${bAlpha})`;
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.ellipse(indX, indY, 56, 22, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(indX, indY, 68, 30, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Inductor Label
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`L = ${inductanceMh} mH`, indX, indY - 18);
+    ctx.font = '9px monospace';
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(`X_L = ${xL.toFixed(1)}Ω | V_L = ${vL.toFixed(1)}V`, indX, indY + 24);
+
+    // --- 4. Parallel-Plate Capacitor (C) ---
+    const capX = lx + (rx - lx) * 0.82;
+    const capY = ty;
+
+    // Connecting leads
+    drawMetallicCylinder(ctx, capX - 35, capY - 2, 70, 4, 'copper', 'horizontal');
+
+    // Capacitor Plates (left & right)
+    drawMetallicCylinder(ctx, capX - 12, capY - 18, 6, 36, 'steel', 'vertical');
+    drawMetallicCylinder(ctx, capX + 6, capY - 18, 6, 36, 'steel', 'vertical');
+
+    // Dielectric spacer field lines
+    ctx.strokeStyle = 'rgba(147, 197, 253, 0.7)';
+    ctx.lineWidth = 1;
+    for (let dy = -12; dy <= 12; dy += 6) {
+      ctx.beginPath();
+      ctx.moveTo(capX - 6, capY + dy);
+      ctx.lineTo(capX + 6, capY + dy);
+      ctx.stroke();
+    }
+
+    // Dynamic charge accumulation signs (+ / -)
+    ctx.font = 'bold 8px monospace';
+    ctx.fillStyle = instCurrentFactor > 0 ? '#ef4444' : '#3b82f6';
+    ctx.fillText(instCurrentFactor > 0 ? '+' : '-', capX - 16, capY - 8);
+    ctx.fillStyle = instCurrentFactor > 0 ? '#3b82f6' : '#ef4444';
+    ctx.fillText(instCurrentFactor > 0 ? '-' : '+', capX + 16, capY - 8);
+
+    // Capacitor Label
+    ctx.fillStyle = '#60a5fa';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`C = ${capacitanceUf} µF`, capX, capY - 18);
+    ctx.font = '9px monospace';
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(`X_C = ${xC.toFixed(1)}Ω | V_C = ${vC.toFixed(1)}V`, capX, capY + 24);
+
+    // --- 5. Analog AC Meters on Bottom Return Rail ---
+    // AC Voltmeter Gauge (V_rms)
+    const voltMeterX = rx - (rx - lx) * 0.65;
+    const voltMeterY = by;
+    drawAnalogMeterGauge(
+      ctx,
+      voltMeterX,
+      voltMeterY,
+      34,
+      vSourceRms,
+      0,
+      250,
+      'V',
+      'AC Voltmeter'
+    );
+
+    // AC Ammeter Gauge (I_rms)
+    const ammeterX = rx - (rx - lx) * 0.32;
+    const ammeterY = by;
+    const maxScaleI = Math.max(4, Math.ceil(currentAtResonance * 1.25));
+    drawAnalogMeterGauge(
+      ctx,
+      ammeterX,
+      ammeterY,
+      34,
+      currentRms,
+      0,
+      maxScaleI,
+      'A',
+      'AC Ammeter'
+    );
+
+    // --- 6. Continuous 60 FPS Electron Current Flow ---
+    // Electrons oscillate back and forth around circuit perimeter
+    const loopLenTop = rx - lx;
+    const loopLenRight = by - ty;
+    const loopLenBottom = rx - lx;
+    const loopLenLeft = by - ty;
+    const loopPerimeter = loopLenTop + loopLenRight + loopLenBottom + loopLenLeft;
+
+    const electronCount = 36;
+    const electronDisplacement = Math.sin(visOmega * t - phaseAngleRad) * 45 * Math.min(2.5, currentRms / 0.5);
+
+    for (let i = 0; i < electronCount; i++) {
+      let d = ((i / electronCount) * loopPerimeter + electronDisplacement) % loopPerimeter;
+      if (d < 0) d += loopPerimeter;
+
+      let ex = lx;
+      let ey = ty;
+
+      if (d < loopLenTop) {
+        // Along top wire (lx -> rx)
+        ex = lx + d;
+        ey = ty;
+      } else if (d < loopLenTop + loopLenRight) {
+        // Down right wire (ty -> by)
+        ex = rx;
+        ey = ty + (d - loopLenTop);
+      } else if (d < loopLenTop + loopLenRight + loopLenBottom) {
+        // Left along bottom wire (rx -> lx)
+        ex = rx - (d - (loopLenTop + loopLenRight));
+        ey = by;
+      } else {
+        // Up left wire (by -> ty)
+        ex = lx;
+        ey = by - (d - (loopLenTop + loopLenRight + loopLenBottom));
+      }
+
+      // Avoid drawing over solid components
+      const inResistor = Math.abs(ex - resX) < 22 && Math.abs(ey - resY) < 10;
+      const inInductor = Math.abs(ex - indX) < 40 && Math.abs(ey - indY) < 10;
+      const inCapacitor = Math.abs(ex - capX) < 10 && Math.abs(ey - capY) < 16;
+      const inVoltmeter = Math.abs(ex - voltMeterX) < 32 && Math.abs(ey - voltMeterY) < 32;
+      const inAmmeter = Math.abs(ex - ammeterX) < 32 && Math.abs(ey - ammeterY) < 32;
+
+      if (!inResistor && !inInductor && !inCapacitor && !inVoltmeter && !inAmmeter) {
+        drawGlowingParticle(
+          ctx,
+          ex,
+          ey,
+          2.5,
+          isResonant ? '#fbbf24' : '#38bdf8',
+          isResonant ? 8 : 4
+        );
+      }
+    }
+
+    // =========================================================================
+    // SECTION 2: DIVIDER & CIRCUIT REGIME STATUS
+    // =========================================================================
+    const splitY = 200;
+    ctx.strokeStyle = isResonant ? '#eab308' : 'rgba(51, 65, 85, 0.7)';
+    ctx.lineWidth = isResonant ? 2 : 1;
+    ctx.beginPath();
+    ctx.moveTo(15, splitY);
+    ctx.lineTo(w - 15, splitY);
+    ctx.stroke();
+
+    // Regime pill in center of divider
+    const regimeText = isResonant
+      ? (isArabic ? '⚡ حالة الرنين: X_L = X_C | المعاوقة Z = R (أقل قيمة) | التيار I_max (أقصى قيمة)' : '⚡ Resonance State: X_L = X_C | Minimum Impedance Z = R | Maximum Current I_max')
+      : isInductive
+      ? (isArabic ? `خواص حثية (X_L > X_C): الجهد يسبق التيار بزاوية φ = +${phaseAngleDeg.toFixed(1)}°` : `Inductive Regime (X_L > X_C): Voltage leads Current by φ = +${phaseAngleDeg.toFixed(1)}°`)
+      : (isArabic ? `خواص سعوية (X_C > X_L): التيار يسبق الجهد بزاوية φ = ${phaseAngleDeg.toFixed(1)}°` : `Capacitive Regime (X_C > X_L): Current leads Voltage by φ = ${phaseAngleDeg.toFixed(1)}°`);
+
+    ctx.fillStyle = isResonant ? 'rgba(234, 179, 8, 0.15)' : 'rgba(15, 23, 42, 0.9)';
+    ctx.strokeStyle = isResonant ? '#eab308' : '#475569';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(w / 2 - 200, splitY - 11, 400, 22, 11);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = isResonant ? '#fbbf24' : '#cbd5e1';
+    ctx.font = 'bold 10px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(regimeText, w / 2, splitY + 3);
+
+    // =========================================================================
+    // SECTION 3: LOWER SPLIT - PHASOR DIAGRAM (LEFT) & FREQUENCY CURVE (RIGHT)
+    // =========================================================================
+    const lowerH = h - splitY - 15;
+    const splitX = w * 0.44;
+
+    // Vertical Divider between lower graphs
     ctx.strokeStyle = 'rgba(51, 65, 85, 0.5)';
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(splitX, 15);
-    ctx.lineTo(splitX, h - 15);
+    ctx.moveTo(splitX, splitY + 12);
+    ctx.lineTo(splitX, h - 10);
     ctx.stroke();
 
-    // ----------------------------------------------------
+    // -------------------------------------------------------------------------
     // LEFT: Dynamic Phasor Diagram
-    // ----------------------------------------------------
+    // -------------------------------------------------------------------------
     const phasorCx = splitX / 2;
-    const phasorCy = h / 2;
-    const scale = Math.min(phasorCx, phasorCy) * 0.75;
+    const phasorCy = splitY + lowerH / 2;
+    const scale = Math.min(phasorCx, lowerH / 2) * 0.72;
 
     // Phasor Axes
-    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.25)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(phasorCx - scale - 15, phasorCy);
@@ -450,34 +796,38 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const endTotalY = phasorCy - totalNorm * Math.sin(phaseAngleRad);
     drawVector(ctx, phasorCx, phasorCy, endTotalX, endTotalY, '#f59e0b', 3.5, 'V_total');
 
+    // Phasor Vector Tip Glow
+    drawGlowingParticle(ctx, endTotalX, endTotalY, 3.5, '#f59e0b', 8);
+
     // Phase Angle Arc
     ctx.strokeStyle = '#f59e0b';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.arc(phasorCx, phasorCy, 28, 0, -phaseAngleRad, phaseAngleRad > 0);
+    ctx.arc(phasorCx, phasorCy, 26, 0, -phaseAngleRad, phaseAngleRad > 0);
     ctx.stroke();
 
     ctx.fillStyle = '#fbbf24';
-    ctx.font = '11px sans-serif';
-    ctx.fillText(`φ = ${phaseAngleDeg.toFixed(1)}°`, phasorCx + 34, phasorCy - 8);
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(`φ = ${phaseAngleDeg.toFixed(1)}°`, phasorCx + 30, phasorCy - 6);
 
     // Left Title
     ctx.fillStyle = '#94a3b8';
-    ctx.font = 'bold 12px sans-serif';
+    ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
-      isArabic ? 'المتجهات الطورية للجهد (Phasor Diagram)' : 'Voltage Phasor Diagram',
+      isArabic ? 'المتجهات الطورية للجهد (Phasor Diagram)' : 'Voltage Phasor Vectors',
       phasorCx,
-      28
+      splitY + 24
     );
 
-    // ----------------------------------------------------
-    // RIGHT: Frequency Response Curve (I_rms vs Frequency)
-    // ----------------------------------------------------
-    const plotX = splitX + 35;
-    const plotY = 40;
+    // -------------------------------------------------------------------------
+    // RIGHT: Frequency Response Resonance Curve (I_rms vs Frequency)
+    // -------------------------------------------------------------------------
+    const plotX = splitX + 40;
+    const plotY = splitY + 28;
     const plotW = w - plotX - 25;
-    const plotH = h - 80;
+    const plotH = lowerH - 52;
 
     // Axes
     ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
@@ -492,20 +842,37 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px monospace';
     ctx.textAlign = 'right';
-    ctx.fillText(`${currentAtResonance.toFixed(1)}A`, plotX - 6, plotY + 12);
+    ctx.fillText(`${currentAtResonance.toFixed(1)}A`, plotX - 6, plotY + 10);
     ctx.fillText('0A', plotX - 6, plotY + plotH);
 
     ctx.textAlign = 'center';
-    ctx.fillText('20Hz', plotX, plotY + plotH + 16);
-    ctx.fillText(`${resonantFreqF0.toFixed(0)}Hz (f₀)`, plotX + (plotW * (resonantFreqF0 - 20)) / 280, plotY + plotH + 16);
-    ctx.fillText('300Hz', plotX + plotW, plotY + plotH + 16);
+    ctx.fillText('20Hz', plotX, plotY + plotH + 15);
+    const resPx = plotX + (plotW * (resonantFreqF0 - 20)) / 280;
+    ctx.fillText(`${resonantFreqF0.toFixed(0)}Hz (f₀)`, resPx, plotY + plotH + 15);
+    ctx.fillText('300Hz', plotX + plotW, plotY + plotH + 15);
 
-    // Draw Response Curve: I(f) = V / sqrt(R^2 + (2πfL - 1/(2πfC))^2)
+    // Half-power Bandwidth Line (I_max / sqrt(2))
+    const halfPowerI = currentAtResonance / Math.SQRT2;
+    const maxIPlot = currentAtResonance * 1.15;
+    const halfPowerPy = plotY + plotH - (halfPowerI / maxIPlot) * plotH;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([2, 2]);
+    ctx.beginPath();
+    ctx.moveTo(plotX, halfPowerPy);
+    ctx.lineTo(plotX + plotW, halfPowerPy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '8px monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText('0.707 I_max', plotX + plotW, halfPowerPy - 4);
+
+    // Draw Response Curve: I(f)
     ctx.strokeStyle = '#38bdf8';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
 
-    const maxIPlot = currentAtResonance * 1.15;
     for (let px = 0; px <= plotW; px += 2) {
       const freq = 20 + (px / plotW) * 280;
       const wFreq = 2 * Math.PI * freq;
@@ -521,10 +888,9 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.stroke();
 
     // Resonant Frequency Dashed Vertical Line
-    const resPx = plotX + (plotW * (resonantFreqF0 - 20)) / 280;
     if (resPx >= plotX && resPx <= plotX + plotW) {
-      ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(234, 179, 8, 0.5)';
+      ctx.lineWidth = 1.5;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(resPx, plotY);
@@ -533,27 +899,28 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.setLineDash([]);
     }
 
-    // Current Operating Point Ball
+    // Current Operating Point Particle
     const curPx = plotX + (plotW * (frequencyF - 20)) / 280;
     const curPy = plotY + plotH - (currentRms / maxIPlot) * plotH;
     if (curPx >= plotX && curPx <= plotX + plotW) {
-      ctx.fillStyle = isResonant ? '#eab308' : '#38bdf8';
-      ctx.beginPath();
-      ctx.arc(curPx, curPy, 6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
-      ctx.stroke();
+      drawGlowingParticle(
+        ctx,
+        curPx,
+        curPy,
+        isResonant ? 6.5 : 5,
+        isResonant ? '#eab308' : '#38bdf8',
+        isResonant ? 14 : 8
+      );
     }
 
     // Right Title
     ctx.fillStyle = '#94a3b8';
-    ctx.font = 'bold 12px sans-serif';
+    ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
-      isArabic ? 'منحنى الرنين: شدة التيار مقابل التردد I(f)' : 'Resonance Response Curve: Current vs Frequency I(f)',
+      isArabic ? 'منحنى الرنين الكهربي: شدة التيار I(f)' : 'Frequency Resonance Response Curve I(f)',
       plotX + plotW / 2,
-      28
+      splitY + 24
     );
 
     ctx.restore();
@@ -627,6 +994,7 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         lang={lang}
         aspectRatio="aspect-[16/9]"
         minHeight={420}
+        animated={true}
         onRender={handleRenderCanvas}
       />
     </VirtualLabShell>

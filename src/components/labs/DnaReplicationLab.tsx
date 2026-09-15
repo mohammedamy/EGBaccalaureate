@@ -15,7 +15,9 @@ import {
   VirtualLabShell,
   CanvasSimulationViewport,
   useVirtualLab,
+  drawGlowingParticle,
   type LabDefinition,
+  type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
 } from '../../core/labs';
@@ -905,9 +907,13 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
   const renderCanvas = (
     ctx: CanvasRenderingContext2D,
     width: number,
-    height: number
+    height: number,
+    _viewport?: LabViewportState,
+    _dpr?: number,
+    time?: number
   ) => {
     ctx.clearRect(0, 0, width, height);
+    const t = (time ?? performance.now()) * 0.001;
 
     // Dark sleek gradient background
     const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
@@ -933,18 +939,18 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     }
 
     if (params.investigationModule === 'helix_structure') {
-      renderBnaDuplexCanvas(ctx, width, height);
+      renderBnaDuplexCanvas(ctx, width, height, t);
     } else if (params.investigationModule === 'replication_fork') {
-      renderReplicationForkCanvas(ctx, width, height);
+      renderReplicationForkCanvas(ctx, width, height, t);
     } else if (params.investigationModule === 'transcription_translation') {
-      renderTranscriptionTranslationCanvas(ctx, width, height);
+      renderTranscriptionTranslationCanvas(ctx, width, height, t);
     } else {
-      renderDnaAtlasCanvas(ctx, width, height);
+      renderDnaAtlasCanvas(ctx, width, height, t);
     }
   };
 
-  // 1. B-DNA Duplex Canvas Renderer
-  const renderBnaDuplexCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  // 1. B-DNA Duplex Canvas Renderer with continuous 60 FPS 3D rotation
+  const renderBnaDuplexCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const centerY = height / 2;
     const numBases = activeDnaSeq.length;
     const stepX = Math.min(60, (width - 120) / Math.max(1, numBases - 1));
@@ -975,10 +981,16 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.fillText("3' [OH]", startX - 45, centerY + amplitude + separation + 16);
     ctx.fillText("5' [P]", startX + (numBases - 1) * stepX + 15, centerY - amplitude + separation + 16);
 
-    // Draw Base Pair Rungs & Hydrogen Bonds
+    const getBaseColor = (base: string) => {
+      return base === 'A' ? '#e11d48' : base === 'T' ? '#d97706' : base === 'G' ? '#0284c7' : '#059669';
+    };
+
+    // Draw Base Pair Rungs & Hydrogen Bonds with 3D depth
     for (let i = 0; i < numBases; i++) {
       const x = startX + i * stepX;
-      const phase = (i / 10) * Math.PI * 2; // 10 bp per full turn
+      // 60 FPS continuous helical rotation
+      const phase = (i / 10) * Math.PI * 2 + t * 1.5;
+      const z = Math.sin(phase);
       const y1 = centerY - Math.cos(phase) * amplitude - separation;
       const y2 = centerY + Math.cos(phase) * amplitude + separation;
 
@@ -995,35 +1007,50 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
         ctx.lineTo(x, y2);
         ctx.stroke();
         ctx.setLineDash([]);
+
+        // Subtle glowing center H-bond particle
+        drawGlowingParticle(ctx, x, (y1 + y2) / 2, 2.8, '#fde047', 0.5);
       }
 
-      // Top Base Node
+      // Top Base Node (Spherical 3D Shading)
       const isAT = baseTop === 'A' || baseTop === 'T';
+      const nodeR1 = 13 + z * 2.2;
+      const topGrad = ctx.createRadialGradient(x - nodeR1 * 0.35, y1 - nodeR1 * 0.35, nodeR1 * 0.1, x, y1, nodeR1);
+      topGrad.addColorStop(0, '#ffffff');
+      topGrad.addColorStop(0.3, getBaseColor(baseTop));
+      topGrad.addColorStop(1, '#0f172a');
+
       ctx.beginPath();
-      ctx.arc(x, y1, 14, 0, Math.PI * 2);
-      ctx.fillStyle = baseTop === 'A' ? '#e11d48' : baseTop === 'T' ? '#d97706' : baseTop === 'G' ? '#0284c7' : '#059669';
+      ctx.arc(x, y1, nodeR1, 0, Math.PI * 2);
+      ctx.fillStyle = topGrad;
       ctx.fill();
-      ctx.strokeStyle = '#ffffffaa';
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'black 11px sans-serif';
+      ctx.font = '900 11px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(baseTop, x, y1);
 
-      // Bottom Base Node
+      // Bottom Base Node (Spherical 3D Shading)
+      const nodeR2 = 13 - z * 2.2;
+      const botGrad = ctx.createRadialGradient(x - nodeR2 * 0.35, y2 - nodeR2 * 0.35, nodeR2 * 0.1, x, y2, nodeR2);
+      botGrad.addColorStop(0, '#ffffff');
+      botGrad.addColorStop(0.3, getBaseColor(baseBot));
+      botGrad.addColorStop(1, '#0f172a');
+
       ctx.beginPath();
-      ctx.arc(x, y2, 14, 0, Math.PI * 2);
-      ctx.fillStyle = baseBot === 'A' ? '#e11d48' : baseBot === 'T' ? '#d97706' : baseBot === 'G' ? '#0284c7' : '#059669';
+      ctx.arc(x, y2, nodeR2, 0, Math.PI * 2);
+      ctx.fillStyle = botGrad;
       ctx.fill();
-      ctx.strokeStyle = '#ffffffaa';
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'black 11px sans-serif';
+      ctx.font = '900 11px sans-serif';
       ctx.fillText(baseBot, x, y2);
 
       // Hydrogen Bond count annotation in center
@@ -1034,14 +1061,26 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
       }
     }
 
-    // Sugar-Phosphate Continuous Backbone Strands
+    // Sugar-Phosphate Continuous Backbone Strands with 3D glow ribbon
     // Top Strand Ribbon (5' to 3')
     ctx.beginPath();
-    ctx.strokeStyle = '#f43f5e';
-    ctx.lineWidth = 4;
+    ctx.strokeStyle = 'rgba(244, 63, 94, 0.4)';
+    ctx.lineWidth = 7;
     for (let i = 0; i < numBases; i++) {
       const x = startX + i * stepX;
-      const phase = (i / 10) * Math.PI * 2;
+      const phase = (i / 10) * Math.PI * 2 + t * 1.5;
+      const y = centerY - Math.cos(phase) * amplitude - separation;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#f43f5e';
+    ctx.lineWidth = 3.5;
+    for (let i = 0; i < numBases; i++) {
+      const x = startX + i * stepX;
+      const phase = (i / 10) * Math.PI * 2 + t * 1.5;
       const y = centerY - Math.cos(phase) * amplitude - separation;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
@@ -1050,11 +1089,23 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
 
     // Bottom Strand Ribbon (3' to 5')
     ctx.beginPath();
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 4;
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 7;
     for (let i = 0; i < numBases; i++) {
       const x = startX + i * stepX;
-      const phase = (i / 10) * Math.PI * 2;
+      const phase = (i / 10) * Math.PI * 2 + t * 1.5;
+      const y = centerY + Math.cos(phase) * amplitude + separation;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 3.5;
+    for (let i = 0; i < numBases; i++) {
+      const x = startX + i * stepX;
+      const phase = (i / 10) * Math.PI * 2 + t * 1.5;
       const y = centerY + Math.cos(phase) * amplitude + separation;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
@@ -1083,8 +1134,8 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     }
   };
 
-  // 2. Replication Fork Canvas Renderer
-  const renderReplicationForkCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  // 2. Replication Fork Canvas Renderer with 60 FPS enzyme animations
+  const renderReplicationForkCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const forkApexX = width * 0.45;
     const centerY = height / 2;
 
@@ -1142,21 +1193,44 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.bezierCurveTo(forkApexX + 80, centerY + 25, forkApexX + 120, centerY + 90, width - 40, centerY + 110);
     ctx.stroke();
 
-    // 4. Helicase Hexameric Ring at Apex
+    // 4. Helicase Hexameric Ring at Apex with 60 FPS Subunit Rotation
+    ctx.save();
+    ctx.translate(forkApexX, centerY);
+    ctx.rotate(t * 3);
+    for (let lobe = 0; lobe < 6; lobe++) {
+      const lAngle = (lobe * Math.PI * 2) / 6;
+      const lx = Math.cos(lAngle) * 14;
+      const ly = Math.sin(lAngle) * 14;
+      ctx.beginPath();
+      ctx.arc(lx, ly, 9, 0, Math.PI * 2);
+      ctx.fillStyle = '#059669';
+      ctx.fill();
+      ctx.strokeStyle = '#34d399';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // Center hub of helicase
     ctx.beginPath();
-    ctx.arc(forkApexX, centerY, 24, 0, Math.PI * 2);
+    ctx.arc(forkApexX, centerY, 12, 0, Math.PI * 2);
     ctx.fillStyle = '#10b981';
     ctx.fill();
-    ctx.strokeStyle = '#34d399';
-    ctx.lineWidth = 3;
-    ctx.stroke();
 
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 9px sans-serif';
+    ctx.font = 'bold 8px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('HELICASE', forkApexX, centerY - 5);
-    ctx.fillText(isArabic ? 'إنزيم اللولب' : 'Unzipping', forkApexX, centerY + 7);
+    ctx.fillText('HELICASE', forkApexX, centerY - 4);
+    ctx.fillText(isArabic ? 'إنزيم اللولب' : 'Unzipping', forkApexX, centerY + 6);
+
+    // Cleavage energy sparks at the apex
+    for (let s = 0; s < 4; s++) {
+      const sFrac = ((t * 2 + s * 0.25) % 1);
+      const sx = forkApexX + sFrac * 25;
+      const sy = centerY + Math.sin(s * 3 + t * 8) * 14;
+      drawGlowingParticle(ctx, sx, sy, 2.5, '#34d399', 0.8 * (1 - sFrac));
+    }
 
     // 5. Leading Daughter Strand (Continuous 5'->3' synthesis towards fork)
     const leadingProgress = (params.replicationProgress / 100) * (width - forkApexX - 80);
@@ -1169,9 +1243,12 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.lineTo(leadingEndX, centerY - 50);
     ctx.stroke();
 
-    // Leading DNA Polymerase Molecule
+    // Leading DNA Polymerase Molecule with catalytic breathing
+    const polPulse = 18 + Math.sin(t * 8) * 2;
+    drawGlowingParticle(ctx, leadingEndX, centerY - 50, polPulse * 1.3, 'rgba(245, 158, 11, 0.35)', 0.7);
+
     ctx.beginPath();
-    ctx.arc(leadingEndX, centerY - 50, 18, 0, Math.PI * 2);
+    ctx.arc(leadingEndX, centerY - 50, polPulse, 0, Math.PI * 2);
     ctx.fillStyle = '#f59e0b';
     ctx.fill();
     ctx.strokeStyle = '#fbbf24';
@@ -1180,6 +1257,14 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.fillStyle = '#000000';
     ctx.font = 'bold 8px sans-serif';
     ctx.fillText('POL III', leadingEndX, centerY - 50);
+
+    // Incoming dNTP precursors floating in at 60 FPS
+    for (let d = 0; d < 3; d++) {
+      const dFrac = ((t * 1.5 + d * 0.33) % 1);
+      const dx = leadingEndX + 35 - dFrac * 25;
+      const dy = centerY - 65 + Math.sin(d * 4 + t * 5) * 8;
+      drawGlowingParticle(ctx, dx, dy, 3, '#38bdf8', 0.8);
+    }
 
     // 6. Lagging Daughter Strand (Okazaki Fragments synthesized away from fork)
     // Fragment 1
@@ -1198,9 +1283,12 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.lineTo(forkApexX + 260, centerY + 98);
     ctx.stroke();
 
-    // DNA Ligase sealing the nick between fragments
+    // DNA Ligase sealing the nick between fragments with ATP glow
     const ligaseX = forkApexX + 160;
     const ligaseY = centerY + 73;
+    const ligaseGlow = 14 + Math.sin(t * 6) * 3;
+    drawGlowingParticle(ctx, ligaseX, ligaseY, ligaseGlow * 1.4, 'rgba(139, 92, 246, 0.45)', 0.7);
+
     ctx.beginPath();
     ctx.arc(ligaseX, ligaseY, 14, 0, Math.PI * 2);
     ctx.fillStyle = '#8b5cf6'; // purple ligase
@@ -1223,8 +1311,8 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.fillText(isArabic ? 'قطع أوكازاكي ← (بناء متقطع في اتجاه 5\' إلى 3\')' : '← Lagging Strand (Okazaki Fragments 5\'->3\')', width - 20, centerY + 70);
   };
 
-  // 3. Transcription & Translation Canvas Renderer
-  const renderTranscriptionTranslationCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  // 3. Transcription & Translation Canvas Renderer with continuous 60 FPS animation
+  const renderTranscriptionTranslationCanvas = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const centerY = height / 2;
 
     // Header
@@ -1276,13 +1364,14 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
       }
     });
 
-    // Ribosome Complex positioned over active codon
+    // Ribosome Complex positioned over active codon with subtle 60 FPS mechanical pulsation
     const activeCodonIdx = Math.min(1, codonList.length - 1);
     const riboX = startCodonX + activeCodonIdx * codonStepX;
+    const riboBreathing = Math.sin(t * 3.5) * 1.5;
 
     // Small Ribosomal Subunit (Bottom)
     ctx.beginPath();
-    ctx.ellipse(riboX, mrnaY + 38, 70, 26, 0, 0, Math.PI * 2);
+    ctx.ellipse(riboX, mrnaY + 38 + riboBreathing, 70, 26, 0, 0, Math.PI * 2);
     ctx.fillStyle = '#0f766e';
     ctx.fill();
     ctx.strokeStyle = '#2dd4bf';
@@ -1290,11 +1379,11 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.stroke();
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 9px sans-serif';
-    ctx.fillText(isArabic ? 'تحت وحدة الريبوسوم الصغيرة' : 'Small 40S Subunit', riboX, mrnaY + 40);
+    ctx.fillText(isArabic ? 'تحت وحدة الريبوسوم الصغيرة' : 'Small 40S Subunit', riboX, mrnaY + 40 + riboBreathing);
 
     // Large Ribosomal Subunit (Top) with P-site and A-site
     ctx.beginPath();
-    ctx.ellipse(riboX, mrnaY - 55, 95, 45, 0, 0, Math.PI * 2);
+    ctx.ellipse(riboX, mrnaY - 55 - riboBreathing, 95, 45, 0, 0, Math.PI * 2);
     ctx.fillStyle = '#0369a1';
     ctx.fill();
     ctx.strokeStyle = '#38bdf8';
@@ -1319,13 +1408,14 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.font = 'black 10px sans-serif';
     ctx.fillText('A-Site', riboX + 25, mrnaY - 60);
 
-    // Emerging Polypeptide Chain
+    // Emerging Polypeptide Chain with 60 FPS undulation
     let chainY = mrnaY - 105;
     translatedPeptides.forEach((pep, i) => {
       const py = chainY - i * 22;
+      const px = riboX - 25 + Math.sin(t * 3 + i * 0.8) * 4;
       if (py > 45) {
         ctx.beginPath();
-        ctx.arc(riboX - 25, py, 9, 0, Math.PI * 2);
+        ctx.arc(px, py, 9, 0, Math.PI * 2);
         ctx.fillStyle = pep.aa === 'Met' ? '#10b981' : pep.aa === 'STOP' ? '#ef4444' : '#6366f1';
         ctx.fill();
         ctx.strokeStyle = '#ffffff';
@@ -1334,11 +1424,12 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
 
         ctx.fillStyle = '#ffffff';
         ctx.font = 'bold 7px sans-serif';
-        ctx.fillText(pep.aa, riboX - 25, py);
+        ctx.fillText(pep.aa, px, py);
       }
     });
 
     // Peptidyl Transferase enzyme catalytic center
+    drawGlowingParticle(ctx, riboX, mrnaY - 26, 8, 'rgba(245, 158, 11, 0.7)', 0.6);
     ctx.fillStyle = '#f59e0b';
     ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
@@ -1350,7 +1441,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
   };
 
   // 4. DNA Photographic Atlas Canvas Overlay
-  const renderDnaAtlasCanvas = (ctx: CanvasRenderingContext2D, _width: number, _height: number) => {
+  const renderDnaAtlasCanvas = (ctx: CanvasRenderingContext2D, _width: number, _height: number, _t: number) => {
     ctx.fillStyle = '#94a3b8';
     ctx.font = 'bold 12px monospace';
     ctx.textAlign = 'left';
@@ -1384,6 +1475,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="bna-duplex-viewport"
             minHeight={380}
             lang={lang}
+            animated={true}
             onRender={renderCanvas}
           />
 
@@ -1535,6 +1627,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="replication-fork-viewport"
             minHeight={380}
             lang={lang}
+            animated={true}
             onRender={renderCanvas}
           />
 
@@ -1631,6 +1724,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             id="central-dogma-viewport"
             minHeight={360}
             lang={lang}
+            animated={true}
             onRender={renderCanvas}
           />
 

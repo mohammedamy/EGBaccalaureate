@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import { toHindiDigits } from '../../utils/arabicNumerals';
+import { CanvasSimulationViewport } from '../../core/labs/CanvasSimulationViewport';
+import { drawGlowingParticle } from '../../core/labs/RealisticLabGraphics';
 import {
   Activity,
   Play,
@@ -10,6 +12,7 @@ import {
   Info,
   AlertTriangle,
   Zap,
+  CheckCircle2,
 } from 'lucide-react';
 
 interface Props {
@@ -24,7 +27,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  // Scale level: 1: Organism (Arm), 2: Tissue (Fascicle), 3: Cellular (Sarcomere), 4: Molecular (Cross-Bridge)
+  // 4 Scale Levels: 1: Organism (Arm), 2: Tissue (Fascicle), 3: Cellular (Sarcomere), 4: Molecular (Cross-Bridge)
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(3);
 
   // Mechanical and Biochemical State
@@ -39,46 +42,1509 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const aBandLength = 1.5; // Constant length in um
   const hZoneLength = Math.max(0, parseFloat((sarcomereLength - 1.8).toFixed(2)));
   const iBandTotal = Math.max(0, parseFloat((sarcomereLength - aBandLength).toFixed(2)));
-  const contractionPercent = Math.round(((2.8 - sarcomereLength) / (2.8 - 1.8)) * 100);
+  const contractionPercent = Math.min(100, Math.max(0, Math.round(((2.8 - sarcomereLength) / (2.8 - 1.8)) * 100)));
 
-  // Arm flexion angle (180 deg = extended, 75 deg = flexed)
+  // Arm flexion angle (175 deg = extended, 75 deg = flexed)
   const armAngle = 175 - contractionPercent * 0.95;
   // Biceps belly thickness (r_belly increases as length shortens)
-  const bicepsRadius = 24 + contractionPercent * 0.18;
+  const bicepsRadius = 24 + contractionPercent * 0.22;
 
   // Rigor mortis trigger
   const isRigorMortis = atpLevel < 15 && caLevel > 30 && sarcomereLength < 2.3;
 
-  // Twitch Animation Cycle
+  // Smooth Twitch Animation using requestAnimationFrame (replaces 80ms setInterval)
+  const twitchRafRef = useRef<number | null>(null);
+  const twitchStartRef = useRef<number | null>(null);
+
   const handleAnimateTwitch = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    let t = 0;
-    const interval = setInterval(() => {
-      t++;
-      if (t <= 12) {
-        // Contraction phase
-        setSarcomereLength((prev) => Math.max(1.85, parseFloat((prev - 0.08).toFixed(2))));
-        setCaLevel((prev) => Math.min(100, prev + 3));
-      } else if (t <= 24) {
-        // Relaxation phase (if ATP available)
+    twitchStartRef.current = performance.now();
+
+    const initialLength = sarcomereLength;
+    const initialCa = caLevel;
+    const twitchDuration = 1400; // 1.4s complete twitch cycle
+
+    const stepTwitch = (now: number) => {
+      if (!twitchStartRef.current) return;
+      const elapsed = now - twitchStartRef.current;
+      const progress = Math.min(1, elapsed / twitchDuration);
+
+      if (progress < 0.35) {
+        // Contraction phase: 0 -> 0.35 (approx 490ms)
+        const pCont = progress / 0.35;
+        // Ease in-out cubic
+        const ease = pCont < 0.5 ? 4 * pCont * pCont * pCont : 1 - Math.pow(-2 * pCont + 2, 3) / 2;
+        const targetLen = 1.85;
+        setSarcomereLength(parseFloat((initialLength + (targetLen - initialLength) * ease).toFixed(3)));
+        setCaLevel(Math.min(100, Math.round(initialCa + (100 - initialCa) * ease)));
+      } else if (progress < 1) {
+        // Relaxation phase: 0.35 -> 1.0 (approx 910ms)
+        const pRel = (progress - 0.35) / 0.65;
+        const easeRel = Math.sin((pRel * Math.PI) / 2);
+
         if (atpLevel >= 20) {
-          setSarcomereLength((prev) => Math.min(2.75, parseFloat((prev + 0.08).toFixed(2))));
-          setCaLevel((prev) => Math.max(10, prev - 4));
+          const restingLen = 2.65;
+          setSarcomereLength(parseFloat((1.85 + (restingLen - 1.85) * easeRel).toFixed(3)));
+          setCaLevel(Math.max(15, Math.round(100 - (100 - 15) * easeRel)));
+        } else {
+          // Rigor mortis locks in shortened state!
+          setSarcomereLength(1.88);
         }
-      } else {
-        clearInterval(interval);
-        setIsAnimating(false);
       }
-    }, 80);
+
+      if (progress < 1) {
+        twitchRafRef.current = requestAnimationFrame(stepTwitch);
+      } else {
+        setIsAnimating(false);
+        twitchRafRef.current = null;
+        twitchStartRef.current = null;
+      }
+    };
+
+    twitchRafRef.current = requestAnimationFrame(stepTwitch);
   };
 
+  useEffect(() => {
+    return () => {
+      if (twitchRafRef.current) {
+        cancelAnimationFrame(twitchRafRef.current);
+      }
+    };
+  }, []);
+
   const handleReset = () => {
+    if (twitchRafRef.current) {
+      cancelAnimationFrame(twitchRafRef.current);
+      twitchRafRef.current = null;
+    }
+    setIsAnimating(false);
     setSarcomereLength(2.6);
     setAtpLevel(100);
     setCaLevel(75);
     setMolecularStep(2);
   };
+
+  // Preset scenarios
+  const applyPreset = (preset: 'resting' | 'partial' | 'max' | 'rigor') => {
+    if (twitchRafRef.current) {
+      cancelAnimationFrame(twitchRafRef.current);
+      twitchRafRef.current = null;
+    }
+    setIsAnimating(false);
+    switch (preset) {
+      case 'resting':
+        setSarcomereLength(2.8);
+        setAtpLevel(100);
+        setCaLevel(20);
+        setMolecularStep(1);
+        break;
+      case 'partial':
+        setSarcomereLength(2.3);
+        setAtpLevel(100);
+        setCaLevel(70);
+        setMolecularStep(3);
+        break;
+      case 'max':
+        setSarcomereLength(1.82);
+        setAtpLevel(100);
+        setCaLevel(100);
+        setMolecularStep(3);
+        break;
+      case 'rigor':
+        setSarcomereLength(2.0);
+        setAtpLevel(5);
+        setCaLevel(85);
+        setMolecularStep(3);
+        break;
+    }
+  };
+
+  // =========================================================================
+  // Canvas Rendering Functions for Each Zoom Level (Continuous 60 FPS)
+  // =========================================================================
+
+  // --- Zoom 1: Macro Biomechanics (Arm & Biceps Flexion) ---
+  const renderArmMacro = useCallback(
+    (
+      ctx: CanvasRenderingContext2D,
+      w: number,
+      h: number,
+      angle: number,
+      cPercent: number,
+      bR: number,
+      _t: number
+    ) => {
+      // Background subtle grid
+      ctx.save();
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, w, h);
+
+      // Radial laboratory backlight vignette
+      const bgGlow = ctx.createRadialGradient(w * 0.45, h * 0.45, 10, w * 0.45, h * 0.45, Math.max(w, h) * 0.7);
+      bgGlow.addColorStop(0, 'rgba(30, 41, 59, 0.4)');
+      bgGlow.addColorStop(0.7, 'rgba(15, 23, 42, 0.9)');
+      bgGlow.addColorStop(1, '#020617');
+      ctx.fillStyle = bgGlow;
+      ctx.fillRect(0, 0, w, h);
+
+      // Coordinates setup: Shoulder anchor at (w*0.28, h*0.28), Elbow at (w*0.48, h*0.62)
+      const shoulderX = w * 0.26;
+      const shoulderY = h * 0.26;
+      const elbowX = w * 0.46;
+      const elbowY = h * 0.58;
+
+      const rad = (angle * Math.PI) / 180;
+      const forearmLen = Math.min(w, h) * 0.44;
+      const handX = elbowX + forearmLen * Math.sin(rad);
+      const handY = elbowY + forearmLen * Math.cos(rad);
+
+      // Insertion point on radius (~20% down the forearm)
+      const insertRatio = 0.22;
+      const insertX = elbowX + forearmLen * insertRatio * Math.sin(rad);
+      const insertY = elbowY + forearmLen * insertRatio * Math.cos(rad);
+
+      // 1. Scapula & Clavicle Shoulder Base
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+      ctx.shadowBlur = 10;
+
+      // Scapula plate outline
+      const scapulaGrad = ctx.createLinearGradient(shoulderX - 45, shoulderY - 30, shoulderX + 20, shoulderY + 40);
+      scapulaGrad.addColorStop(0, '#cbd5e1');
+      scapulaGrad.addColorStop(0.5, '#94a3b8');
+      scapulaGrad.addColorStop(1, '#475569');
+      ctx.fillStyle = scapulaGrad;
+      ctx.beginPath();
+      ctx.moveTo(shoulderX - 50, shoulderY - 35);
+      ctx.quadraticCurveTo(shoulderX + 15, shoulderY - 45, shoulderX + 25, shoulderY - 10);
+      ctx.lineTo(shoulderX + 5, shoulderY + 45);
+      ctx.quadraticCurveTo(shoulderX - 40, shoulderY + 50, shoulderX - 50, shoulderY - 35);
+      ctx.fill();
+
+      // Glenoid Cavity socket
+      ctx.fillStyle = '#334155';
+      ctx.beginPath();
+      ctx.arc(shoulderX, shoulderY, 18, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.restore();
+
+      // 2. Antagonistic Triceps Brachii (Posterior side of Humerus)
+      ctx.save();
+      const tricepsGrad = ctx.createLinearGradient(shoulderX - 15, shoulderY + 20, elbowX - 25, elbowY - 20);
+      tricepsGrad.addColorStop(0, '#475569');
+      tricepsGrad.addColorStop(0.5, '#64748b');
+      tricepsGrad.addColorStop(1, '#334155');
+      ctx.fillStyle = tricepsGrad;
+      ctx.beginPath();
+      ctx.moveTo(shoulderX - 10, shoulderY + 15);
+      ctx.quadraticCurveTo(shoulderX - 35, (shoulderY + elbowY) * 0.5, elbowX - 12, elbowY - 5);
+      ctx.lineTo(elbowX + 4, elbowY + 8);
+      ctx.quadraticCurveTo(shoulderX, (shoulderY + elbowY) * 0.5 - 10, shoulderX - 10, shoulderY + 15);
+      ctx.fill();
+      ctx.restore();
+
+      // 3. Humerus Bone Shaft (Cylindrical 3D shading)
+      ctx.save();
+      const humerusGrad = ctx.createLinearGradient(shoulderX - 15, shoulderY, shoulderX + 25, shoulderY);
+      humerusGrad.addColorStop(0, '#64748b');
+      humerusGrad.addColorStop(0.3, '#f1f5f9');
+      humerusGrad.addColorStop(0.7, '#e2e8f0');
+      humerusGrad.addColorStop(1, '#475569');
+
+      ctx.strokeStyle = humerusGrad;
+      ctx.lineWidth = 20;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(shoulderX, shoulderY);
+      ctx.lineTo(elbowX, elbowY);
+      ctx.stroke();
+
+      // Bone highlights and condyle bevel
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(shoulderX + 2, shoulderY + 8);
+      ctx.lineTo(elbowX + 2, elbowY - 8);
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. Elbow Hinge Joint with Articular Cartilage
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+      ctx.shadowBlur = 8;
+      const elbowGrad = ctx.createRadialGradient(elbowX - 3, elbowY - 3, 2, elbowX, elbowY, 18);
+      elbowGrad.addColorStop(0, '#f8fafc');
+      elbowGrad.addColorStop(0.5, '#94a3b8');
+      elbowGrad.addColorStop(1, '#334155');
+      ctx.fillStyle = elbowGrad;
+      ctx.beginPath();
+      ctx.arc(elbowX, elbowY, 16, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Translucent articular cartilage ring
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+      ctx.restore();
+
+      // 5. Forearm Bones (Radius & Ulna) and Hand
+      ctx.save();
+      const forearmGrad = ctx.createLinearGradient(elbowX, elbowY, handX, handY);
+      forearmGrad.addColorStop(0, '#cbd5e1');
+      forearmGrad.addColorStop(0.5, '#f8fafc');
+      forearmGrad.addColorStop(1, '#94a3b8');
+
+      // Ulna (Posterior/Medial)
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 12;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(elbowX - 4, elbowY + 4);
+      ctx.lineTo(handX - 4, handY + 4);
+      ctx.stroke();
+
+      // Radius (Anterior/Lateral)
+      ctx.strokeStyle = forearmGrad;
+      ctx.lineWidth = 14;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(elbowX, elbowY);
+      ctx.lineTo(handX, handY);
+      ctx.stroke();
+
+      // Hand and Wrist (holding calibration brass weight)
+      const handGrad = ctx.createRadialGradient(handX, handY, 2, handX, handY, 14);
+      handGrad.addColorStop(0, '#f8fafc');
+      handGrad.addColorStop(0.7, '#cbd5e1');
+      handGrad.addColorStop(1, '#64748b');
+      ctx.fillStyle = handGrad;
+      ctx.beginPath();
+      ctx.arc(handX, handY, 13, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Calibration Load Weight (Brass Cylinder)
+      const loadY = handY + 28;
+      const loadGrad = ctx.createLinearGradient(handX - 16, loadY, handX + 16, loadY);
+      loadGrad.addColorStop(0, '#b45309');
+      loadGrad.addColorStop(0.4, '#fde047');
+      loadGrad.addColorStop(0.7, '#f59e0b');
+      loadGrad.addColorStop(1, '#78350f');
+      ctx.fillStyle = loadGrad;
+      ctx.beginPath();
+      ctx.roundRect(handX - 16, loadY - 14, 32, 28, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // String hanging load
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(handX, handY);
+      ctx.lineTo(handX, loadY - 14);
+      ctx.stroke();
+
+      // Weight text
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 9px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('1.0 kg', handX, loadY + 4);
+      ctx.restore();
+
+      // 6. Biceps Brachii Muscle Belly & Glistening Tendons
+      ctx.save();
+      // Tendon Origin (Supraglenoid Tubercle & Coracoid to Biceps)
+      const tendonGrad = ctx.createLinearGradient(shoulderX, shoulderY, shoulderX + 28, shoulderY + 36);
+      tendonGrad.addColorStop(0, '#ffffff');
+      tendonGrad.addColorStop(0.5, '#e2e8f0');
+      tendonGrad.addColorStop(1, '#94a3b8');
+
+      ctx.strokeStyle = tendonGrad;
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(shoulderX + 6, shoulderY + 6);
+      ctx.lineTo(shoulderX + 32, shoulderY + 38);
+      ctx.stroke();
+
+      // Insertion Tendon to Radial Tuberosity
+      ctx.beginPath();
+      ctx.moveTo(insertX, insertY);
+      ctx.lineTo(insertX - 16, insertY - 18);
+      ctx.stroke();
+
+      // Biceps Belly Midpoint and Bulging Geometry
+      const bellyStartX = shoulderX + 32;
+      const bellyStartY = shoulderY + 38;
+      const bellyEndX = insertX - 16;
+      const bellyEndY = insertY - 18;
+
+      const midBellyX = (bellyStartX + bellyEndX) / 2;
+      const midBellyY = (bellyStartY + bellyEndY) / 2;
+
+      // Normal vector perpendicular to muscle axis
+      const dx = bellyEndX - bellyStartX;
+      const dy = bellyEndY - bellyStartY;
+      const muscleLen = Math.sqrt(dx * dx + dy * dy);
+      const nx = -dy / (muscleLen || 1);
+      const ny = dx / (muscleLen || 1);
+
+      // Bulge offset based on bR
+      const bulgeFactor = bR * 1.3;
+      const ctrl1X = midBellyX + nx * bulgeFactor;
+      const ctrl1Y = midBellyY + ny * bulgeFactor;
+      const ctrl2X = midBellyX - nx * (bulgeFactor * 0.55);
+      const ctrl2Y = midBellyY - ny * (bulgeFactor * 0.55);
+
+      // 3D Muscle Belly Shading Gradient
+      const muscleGrad = ctx.createRadialGradient(ctrl1X, ctrl1Y, 5, midBellyX, midBellyY, bulgeFactor * 2.2);
+      muscleGrad.addColorStop(0, '#fb7185'); // peak highlight
+      muscleGrad.addColorStop(0.3, '#f43f5e');
+      muscleGrad.addColorStop(0.65, '#be123c');
+      muscleGrad.addColorStop(1, '#881337'); // deep edge shadow
+
+      ctx.fillStyle = muscleGrad;
+      ctx.beginPath();
+      ctx.moveTo(bellyStartX, bellyStartY);
+      ctx.quadraticCurveTo(ctrl1X, ctrl1Y, bellyEndX, bellyEndY);
+      ctx.quadraticCurveTo(ctrl2X, ctrl2Y, bellyStartX, bellyStartY);
+      ctx.closePath();
+      ctx.fill();
+
+      // Muscle perimeter highlight & depth stroke
+      ctx.strokeStyle = '#fda4af';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Striated Muscle Fiber Lines (Running along the belly)
+      ctx.save();
+      ctx.clip(); // clip to muscle contour
+      for (let fi = -2; fi <= 2; fi++) {
+        const fOffset = fi * (bulgeFactor * 0.28);
+        ctx.strokeStyle = fi === 0 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(244, 63, 94, 0.45)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(bellyStartX, bellyStartY);
+        ctx.quadraticCurveTo(midBellyX + nx * (bulgeFactor * 0.7 + fOffset), midBellyY + ny * (bulgeFactor * 0.7 + fOffset), bellyEndX, bellyEndY);
+        ctx.stroke();
+      }
+
+      // Specular Fascia Sheen along the crest
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.lineWidth = 3;
+      ctx.filter = 'blur(2px)';
+      ctx.beginPath();
+      ctx.moveTo(bellyStartX + dx * 0.25 + nx * (bulgeFactor * 0.6), bellyStartY + dy * 0.25 + ny * (bulgeFactor * 0.6));
+      ctx.quadraticCurveTo(
+        midBellyX + nx * (bulgeFactor * 0.75),
+        midBellyY + ny * (bulgeFactor * 0.75),
+        bellyStartX + dx * 0.75 + nx * (bulgeFactor * 0.5),
+        bellyStartY + dy * 0.75 + ny * (bulgeFactor * 0.5)
+      );
+      ctx.stroke();
+      ctx.restore();
+      ctx.restore();
+
+      // 7. Biomechanics Overlay: Joint Angle Arc & Vectors
+      ctx.save();
+      // Elbow angle arc
+      const arcRadius = 38;
+      const startAngle = Math.PI / 2; // vertical down
+      const currentRad = (angle * Math.PI) / 180;
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2.5;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.arc(elbowX, elbowY, arcRadius, startAngle, startAngle - (Math.PI - currentRad), true);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Angle degrees pill
+      const labelAngle = startAngle - (Math.PI - currentRad) / 2;
+      const labelX = elbowX + (arcRadius + 22) * Math.cos(labelAngle);
+      const labelY = elbowY + (arcRadius + 22) * Math.sin(labelAngle);
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(labelX - 22, labelY - 11, 44, 22, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 11px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`${Math.round(angle)}°`, labelX, labelY);
+
+      // Force Vector: Biceps Tension Vector F_biceps (Emerald Arrow)
+      const forceMag = Math.min(65, 30 + cPercent * 0.35);
+      const fNormX = (shoulderX + 15 - insertX) / (Math.sqrt(Math.pow(shoulderX + 15 - insertX, 2) + Math.pow(shoulderY + 15 - insertY, 2)) || 1);
+      const fNormY = (shoulderY + 15 - insertY) / (Math.sqrt(Math.pow(shoulderX + 15 - insertX, 2) + Math.pow(shoulderY + 15 - insertY, 2)) || 1);
+
+      ctx.strokeStyle = '#10b981';
+      ctx.fillStyle = '#10b981';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(insertX, insertY);
+      ctx.lineTo(insertX + fNormX * forceMag, insertY + fNormY * forceMag);
+      ctx.stroke();
+
+      // Arrowhead
+      const arrowSize = 6;
+      ctx.beginPath();
+      ctx.moveTo(insertX + fNormX * forceMag, insertY + fNormY * forceMag);
+      ctx.lineTo(
+        insertX + fNormX * (forceMag - arrowSize) - fNormY * arrowSize,
+        insertY + fNormY * (forceMag - arrowSize) + fNormX * arrowSize
+      );
+      ctx.lineTo(
+        insertX + fNormX * (forceMag - arrowSize) + fNormY * arrowSize,
+        insertY + fNormY * (forceMag - arrowSize) - fNormX * arrowSize
+      );
+      ctx.closePath();
+      ctx.fill();
+
+      // Gravitational Load Vector W (Amber Arrow at Hand)
+      ctx.strokeStyle = '#f59e0b';
+      ctx.fillStyle = '#f59e0b';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(handX, handY);
+      ctx.lineTo(handX, handY + 45);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(handX, handY + 45);
+      ctx.lineTo(handX - 5, handY + 37);
+      ctx.lineTo(handX + 5, handY + 37);
+      ctx.closePath();
+      ctx.fill();
+
+      // Labels on canvas
+      ctx.font = 'bold 11px sans-serif';
+      ctx.fillStyle = '#fda4af';
+      ctx.textAlign = 'left';
+      ctx.fillText(isArabic ? 'العضلة ذات الرأسين (Biceps)' : 'Biceps Brachii', midBellyX + nx * (bulgeFactor + 14), midBellyY + ny * (bulgeFactor + 14));
+
+      ctx.fillStyle = '#10b981';
+      ctx.fillText('F_biceps', insertX + fNormX * forceMag + 8, insertY + fNormY * forceMag);
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillText('W = mg (9.8 N)', handX + 8, handY + 42);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '10px sans-serif';
+      ctx.fillText(isArabic ? 'عظمة العضد (Humerus)' : 'Humerus', shoulderX + (elbowX - shoulderX) * 0.45 - 20, shoulderY + (elbowY - shoulderY) * 0.45 - 15);
+      ctx.restore();
+    },
+    [isArabic]
+  );
+
+  // --- Zoom 2: Muscle Fascicle (Tissue Architecture) ---
+  const renderFascicleTissue = useCallback(
+    (
+      ctx: CanvasRenderingContext2D,
+      w: number,
+      h: number,
+      sLen: number,
+      _t: number
+    ) => {
+      ctx.save();
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, w, h);
+
+      // Background ambient lighting
+      const radGlow = ctx.createRadialGradient(w * 0.5, h * 0.5, 20, w * 0.5, h * 0.5, w * 0.7);
+      radGlow.addColorStop(0, 'rgba(30, 27, 75, 0.4)');
+      radGlow.addColorStop(0.7, 'rgba(15, 23, 42, 0.9)');
+      radGlow.addColorStop(1, '#020617');
+      ctx.fillStyle = radGlow;
+      ctx.fillRect(0, 0, w, h);
+
+      // 1. Whole Muscle Belly Cutaway (Left Side)
+      const bellyCenterX = w * 0.25;
+      const bellyCenterY = h * 0.5;
+      const bellyRx = Math.min(w, h) * 0.22;
+      const bellyRy = Math.min(w, h) * 0.32;
+
+      // Outer Epimysium Collagen Sheath
+      ctx.save();
+      ctx.shadowColor = 'rgba(225, 29, 72, 0.35)';
+      ctx.shadowBlur = 18;
+
+      const epimysiumGrad = ctx.createRadialGradient(bellyCenterX - 20, bellyCenterY - 30, 10, bellyCenterX, bellyCenterY, bellyRy);
+      epimysiumGrad.addColorStop(0, '#be123c');
+      epimysiumGrad.addColorStop(0.7, '#881337');
+      epimysiumGrad.addColorStop(1, '#4c0519');
+      ctx.fillStyle = epimysiumGrad;
+      ctx.beginPath();
+      ctx.ellipse(bellyCenterX, bellyCenterY, bellyRx, bellyRy, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#fb7185';
+      ctx.lineWidth = 3.5;
+      ctx.stroke();
+      ctx.restore();
+
+      // Fascicle Bundles inside Muscle Belly (Honeycomb packing)
+      const fascicles = [
+        { cx: bellyCenterX - bellyRx * 0.4, cy: bellyCenterY - bellyRy * 0.45, r: bellyRx * 0.32 },
+        { cx: bellyCenterX + bellyRx * 0.35, cy: bellyCenterY - bellyRy * 0.42, r: bellyRx * 0.3 },
+        { cx: bellyCenterX - bellyRx * 0.38, cy: bellyCenterY + bellyRy * 0.4, r: bellyRx * 0.33 },
+        { cx: bellyCenterX + bellyRx * 0.36, cy: bellyCenterY + bellyRy * 0.38, r: bellyRx * 0.31 },
+        { cx: bellyCenterX, cy: bellyCenterY, r: bellyRx * 0.36 }, // Active center fascicle
+      ];
+
+      fascicles.forEach((fas, idx) => {
+        ctx.save();
+        const fGrad = ctx.createRadialGradient(fas.cx - 5, fas.cy - 5, 2, fas.cx, fas.cy, fas.r);
+        if (idx === 4) {
+          // Highlighted active fascicle that telescopes
+          fGrad.addColorStop(0, '#f43f5e');
+          fGrad.addColorStop(0.7, '#e11d48');
+          fGrad.addColorStop(1, '#9f1239');
+        } else {
+          fGrad.addColorStop(0, '#e11d48');
+          fGrad.addColorStop(0.7, '#9f1239');
+          fGrad.addColorStop(1, '#4c0519');
+        }
+        ctx.fillStyle = fGrad;
+        ctx.beginPath();
+        ctx.arc(fas.cx, fas.cy, fas.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = idx === 4 ? '#fda4af' : '#fb7185';
+        ctx.lineWidth = idx === 4 ? 2.5 : 1.5;
+        ctx.stroke();
+
+        // Individual muscle fibers inside each small fascicle
+        for (let a = 0; a < 6; a++) {
+          const fa = (a * Math.PI) / 3;
+          const fx = fas.cx + Math.cos(fa) * (fas.r * 0.55);
+          const fy = fas.cy + Math.sin(fa) * (fas.r * 0.55);
+          ctx.fillStyle = '#fda4af';
+          ctx.beginPath();
+          ctx.arc(fx, fy, fas.r * 0.16, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      });
+
+      // Interstitial micro-capillaries
+      ctx.strokeStyle = '#ef4444'; // arteriole
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(bellyCenterX - 10, bellyCenterY - bellyRy * 0.8);
+      ctx.quadraticCurveTo(bellyCenterX, bellyCenterY - 20, bellyCenterX - 15, bellyCenterY + 40);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#38bdf8'; // venule
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(bellyCenterX + 12, bellyCenterY - bellyRy * 0.75);
+      ctx.quadraticCurveTo(bellyCenterX + 18, bellyCenterY - 10, bellyCenterX + 8, bellyCenterY + 45);
+      ctx.stroke();
+
+      // 2. Telescoping Projection Frustum (Leading to Zoomed Fascicle)
+      const centerFas = fascicles[4];
+      const targetFasX = w * 0.58;
+      const targetFasY = h * 0.5;
+      const targetFasR = Math.min(w, h) * 0.22;
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.12)';
+      ctx.strokeStyle = 'rgba(251, 113, 133, 0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+
+      ctx.beginPath();
+      ctx.moveTo(centerFas.cx, centerFas.cy - centerFas.r);
+      ctx.lineTo(targetFasX - targetFasR, targetFasY - targetFasR);
+      ctx.lineTo(targetFasX - targetFasR, targetFasY + targetFasR);
+      ctx.lineTo(centerFas.cx, centerFas.cy + centerFas.r);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+
+      // 3. Zoomed Fascicle Cylinder (Center/Right)
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+      ctx.shadowBlur = 14;
+
+      const zFasGrad = ctx.createRadialGradient(targetFasX - 15, targetFasY - 20, 10, targetFasX, targetFasY, targetFasR);
+      zFasGrad.addColorStop(0, '#f43f5e');
+      zFasGrad.addColorStop(0.6, '#be123c');
+      zFasGrad.addColorStop(1, '#881337');
+
+      ctx.fillStyle = zFasGrad;
+      ctx.beginPath();
+      ctx.arc(targetFasX, targetFasY, targetFasR, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Perimysium sheath
+      ctx.strokeStyle = '#fda4af';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Individual Muscle Fibers (Cells) packed inside Zoomed Fascicle
+      const fibers = [
+        { cx: targetFasX - targetFasR * 0.5, cy: targetFasY - targetFasR * 0.45, r: targetFasR * 0.26 },
+        { cx: targetFasX + targetFasR * 0.1, cy: targetFasY - targetFasR * 0.55, r: targetFasR * 0.28 },
+        { cx: targetFasX - targetFasR * 0.55, cy: targetFasY + targetFasR * 0.25, r: targetFasR * 0.27 },
+        { cx: targetFasX - targetFasR * 0.05, cy: targetFasY + targetFasR * 0.48, r: targetFasR * 0.26 },
+        { cx: targetFasX + targetFasR * 0.48, cy: targetFasY - targetFasR * 0.15, r: targetFasR * 0.29 }, // Active fiber
+        { cx: targetFasX + targetFasR * 0.38, cy: targetFasY + targetFasR * 0.45, r: targetFasR * 0.27 },
+        { cx: targetFasX - targetFasR * 0.05, cy: targetFasY - targetFasR * 0.05, r: targetFasR * 0.29 },
+      ];
+
+      fibers.forEach((fib, fidx) => {
+        const isExtracted = fidx === 4;
+        const fibGrad = ctx.createRadialGradient(fib.cx - 3, fib.cy - 3, 2, fib.cx, fib.cy, fib.r);
+        fibGrad.addColorStop(0, isExtracted ? '#fb923c' : '#f43f5e');
+        fibGrad.addColorStop(0.7, isExtracted ? '#ea580c' : '#e11d48');
+        fibGrad.addColorStop(1, isExtracted ? '#9a3412' : '#9f1239');
+
+        ctx.fillStyle = fibGrad;
+        ctx.beginPath();
+        ctx.arc(fib.cx, fib.cy, fib.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = isExtracted ? '#fde047' : '#fecdd3';
+        ctx.lineWidth = isExtracted ? 2 : 1;
+        ctx.stroke();
+
+        // Multinucleated peripheral nuclei (blue oval dots on the sarcolemma perimeter)
+        for (let ni = 0; ni < 3; ni++) {
+          const na = (ni * Math.PI * 2) / 3 + 0.4;
+          const nx = fib.cx + Math.cos(na) * (fib.r * 0.85);
+          const ny = fib.cy + Math.sin(na) * (fib.r * 0.85);
+          ctx.fillStyle = '#60a5fa';
+          ctx.beginPath();
+          ctx.ellipse(nx, ny, 3.5, 2, na, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+      ctx.restore();
+
+      // 4. Extracted Myofibril Rod with Dynamic Banding Striations (Right Side)
+      const activeFib = fibers[4];
+      const myoStartX = activeFib.cx + activeFib.r * 0.7;
+      const myoStartY = activeFib.cy;
+      const myoEndX = w * 0.94;
+      const myoHeight = 26;
+
+      ctx.save();
+      // Telescoping cone from fiber to myofibril
+      ctx.fillStyle = 'rgba(251, 191, 36, 0.15)';
+      ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(myoStartX, myoStartY - activeFib.r * 0.5);
+      ctx.lineTo(w * 0.78, myoStartY - myoHeight / 2);
+      ctx.lineTo(w * 0.78, myoStartY + myoHeight / 2);
+      ctx.lineTo(myoStartX, myoStartY + activeFib.r * 0.5);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Myofibril 3D Cylinder Background
+      const myoRodX = w * 0.78;
+      const myoRodW = myoEndX - myoRodX;
+      const myoGrad = ctx.createLinearGradient(myoRodX, myoStartY - myoHeight / 2, myoRodX, myoStartY + myoHeight / 2);
+      myoGrad.addColorStop(0, '#475569');
+      myoGrad.addColorStop(0.3, '#f1f5f9');
+      myoGrad.addColorStop(0.7, '#cbd5e1');
+      myoGrad.addColorStop(1, '#334155');
+
+      ctx.fillStyle = myoGrad;
+      ctx.beginPath();
+      ctx.roundRect(myoRodX, myoStartY - myoHeight / 2, myoRodW, myoHeight, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Alternating Striation Bands (A-band dark, I-band light, Z-line)
+      // Sarcomere wavelength scales dynamically with sLen (e.g. 28px at 2.8um, 18px at 1.8um)
+      const bandPitch = (sLen / 2.8) * 32;
+      ctx.save();
+      ctx.clip(); // clip within myofibril cylinder
+      for (let bx = myoRodX; bx < myoEndX; bx += bandPitch) {
+        // Dark A-band (anisotropic)
+        ctx.fillStyle = 'rgba(124, 58, 237, 0.55)';
+        ctx.fillRect(bx, myoStartY - myoHeight / 2, bandPitch * 0.55, myoHeight);
+
+        // Light I-band (isotropic)
+        ctx.fillStyle = 'rgba(251, 146, 60, 0.35)';
+        ctx.fillRect(bx + bandPitch * 0.55, myoStartY - myoHeight / 2, bandPitch * 0.45, myoHeight);
+
+        // Z-Disc (Dark thin transverse line in center of I-band)
+        ctx.strokeStyle = '#10b981';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(bx + bandPitch * 0.77, myoStartY - myoHeight / 2);
+        ctx.lineTo(bx + bandPitch * 0.77, myoStartY + myoHeight / 2);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // Golden bracket marking one repeating sarcomere on the myofibril
+      const bracketX = myoRodX + 10;
+      ctx.strokeStyle = '#fbbf24';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(bracketX, myoStartY - myoHeight / 2 - 8);
+      ctx.lineTo(bracketX, myoStartY - myoHeight / 2 - 14);
+      ctx.lineTo(bracketX + bandPitch, myoStartY - myoHeight / 2 - 14);
+      ctx.lineTo(bracketX + bandPitch, myoStartY - myoHeight / 2 - 8);
+      ctx.stroke();
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 9px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(`${sLen.toFixed(2)} µm`, bracketX + bandPitch / 2, myoStartY - myoHeight / 2 - 18);
+      ctx.restore();
+
+      // Labels on canvas
+      ctx.save();
+      ctx.font = 'bold 11px sans-serif';
+      ctx.fillStyle = '#fda4af';
+      ctx.textAlign = 'center';
+      ctx.fillText(isArabic ? 'غشاء العضلة الخارجي (Epimysium)' : 'Epimysium (Outer Sheath)', bellyCenterX, bellyCenterY - bellyRy - 12);
+
+      ctx.fillStyle = '#fecdd3';
+      ctx.fillText(isArabic ? 'حزمة عضلية (Fascicle)' : 'Muscle Fascicle (Perimysium)', targetFasX, targetFasY - targetFasR - 12);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.textAlign = 'left';
+      ctx.fillText(isArabic ? 'لييفة عضلية (Myofibril)' : 'Myofibril (Striated)', myoRodX, myoStartY + myoHeight / 2 + 18);
+      ctx.restore();
+    },
+    [isArabic]
+  );
+
+  // --- Zoom 3: Sarcomere Ultrastructure (Cellular Level) ---
+  const renderSarcomereCellular = useCallback(
+    (
+      ctx: CanvasRenderingContext2D,
+      w: number,
+      h: number,
+      sLen: number,
+      aLen: number,
+      hLen: number,
+      _iLen: number,
+      _t: number
+    ) => {
+      ctx.save();
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, w, h);
+
+      // Background Sarcoplasm Gradient
+      const sarcoplasmGrad = ctx.createRadialGradient(w * 0.5, h * 0.5, 20, w * 0.5, h * 0.5, w * 0.7);
+      sarcoplasmGrad.addColorStop(0, 'rgba(15, 23, 42, 0.95)');
+      sarcoplasmGrad.addColorStop(0.8, '#0b0f19');
+      sarcoplasmGrad.addColorStop(1, '#020617');
+      ctx.fillStyle = sarcoplasmGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Physical scale geometry: Center of viewport
+      const cx = w * 0.5;
+      const cy = h * 0.48;
+      // Conversion scale: pixels per micrometer
+      const pxPerUm = Math.min(w * 0.28, 165);
+
+      const halfSarcomerePx = (sLen * pxPerUm) / 2;
+      const zLeftX = cx - halfSarcomerePx;
+      const zRightX = cx + halfSarcomerePx;
+      const aHalfPx = (aLen * pxPerUm) / 2;
+      const hHalfPx = (hLen * pxPerUm) / 2;
+
+      const stageTop = cy - 85;
+      const stageHeight = 170;
+
+      // 1. Optical Density Band Overlays (A-Band, H-Zone, I-Bands)
+      ctx.save();
+      // A-Band (Anisotropic, Constant 1.5 um)
+      const aGrad = ctx.createLinearGradient(cx - aHalfPx, 0, cx + aHalfPx, 0);
+      aGrad.addColorStop(0, 'rgba(139, 92, 246, 0.12)');
+      aGrad.addColorStop(0.5, 'rgba(168, 85, 247, 0.22)');
+      aGrad.addColorStop(1, 'rgba(139, 92, 246, 0.12)');
+      ctx.fillStyle = aGrad;
+      ctx.fillRect(cx - aHalfPx, stageTop, aHalfPx * 2, stageHeight);
+
+      ctx.strokeStyle = 'rgba(168, 85, 247, 0.5)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.strokeRect(cx - aHalfPx, stageTop, aHalfPx * 2, stageHeight);
+      ctx.setLineDash([]);
+
+      // H-Zone (Pseudo-H, Disappears at full contraction)
+      if (hHalfPx > 2) {
+        const hGrad = ctx.createLinearGradient(cx - hHalfPx, 0, cx + hHalfPx, 0);
+        hGrad.addColorStop(0, 'rgba(251, 191, 36, 0.15)');
+        hGrad.addColorStop(0.5, 'rgba(245, 158, 11, 0.28)');
+        hGrad.addColorStop(1, 'rgba(251, 191, 36, 0.15)');
+        ctx.fillStyle = hGrad;
+        ctx.fillRect(cx - hHalfPx, stageTop + 15, hHalfPx * 2, stageHeight - 30);
+
+        ctx.strokeStyle = 'rgba(245, 158, 11, 0.6)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(cx - hHalfPx, stageTop + 15, hHalfPx * 2, stageHeight - 30);
+      }
+      ctx.restore();
+
+      // 2. Central M-Line (Myomesin protein bridge)
+      ctx.save();
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.8;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(cx, stageTop - 5);
+      ctx.lineTo(cx, stageTop + stageHeight + 5);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // M-Line nodes
+      ctx.fillStyle = '#cbd5e1';
+      for (let my = -2; my <= 2; my++) {
+        ctx.beginPath();
+        ctx.arc(cx, cy + my * 32, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // 3. Thick Myosin Filaments & Articulated S1 Cross-Bridges
+      const myosinYLevels = [cy - 36, cy, cy + 36];
+      const thickBarHeight = 10;
+
+      myosinYLevels.forEach((my) => {
+        ctx.save();
+        // Thick backbone (Cylindrical brushed metallic purple)
+        const thickGrad = ctx.createLinearGradient(cx - aHalfPx, my - thickBarHeight / 2, cx - aHalfPx, my + thickBarHeight / 2);
+        thickGrad.addColorStop(0, '#581c87');
+        thickGrad.addColorStop(0.3, '#c084fc');
+        thickGrad.addColorStop(0.7, '#9333ea');
+        thickGrad.addColorStop(1, '#3b0764');
+
+        ctx.fillStyle = thickGrad;
+        ctx.beginPath();
+        ctx.roundRect(cx - aHalfPx, my - thickBarHeight / 2, aHalfPx * 2, thickBarHeight, 5);
+        ctx.fill();
+
+        ctx.strokeStyle = '#d8b4fe';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Titin Giant Coiled Molecular Springs (Connecting thick filament tips to Z-lines)
+        // Left Titin
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        const titinLeftW = (cx - aHalfPx) - zLeftX;
+        const coils = 6;
+        ctx.moveTo(zLeftX, my);
+        for (let ci = 0; ci < coils; ci++) {
+          const tX1 = zLeftX + (titinLeftW / coils) * (ci + 0.25);
+          const tX2 = zLeftX + (titinLeftW / coils) * (ci + 0.75);
+          const tX3 = zLeftX + (titinLeftW / coils) * (ci + 1.0);
+          ctx.quadraticCurveTo(tX1, my - 6, (tX1 + tX2) / 2, my);
+          ctx.quadraticCurveTo(tX2, my + 6, tX3, my);
+        }
+        ctx.stroke();
+
+        // Right Titin
+        ctx.beginPath();
+        const titinRightW = zRightX - (cx + aHalfPx);
+        ctx.moveTo(cx + aHalfPx, my);
+        for (let ci = 0; ci < coils; ci++) {
+          const tX1 = cx + aHalfPx + (titinRightW / coils) * (ci + 0.25);
+          const tX2 = cx + aHalfPx + (titinRightW / coils) * (ci + 0.75);
+          const tX3 = cx + aHalfPx + (titinRightW / coils) * (ci + 1.0);
+          ctx.quadraticCurveTo(tX1, my - 6, (tX1 + tX2) / 2, my);
+          ctx.quadraticCurveTo(tX2, my + 6, tX3, my);
+        }
+        ctx.stroke();
+
+        // Protruding S1 Cross-Bridge Heads along thick filament
+        // Bare zone around center is ~18% of aHalfPx
+        const bareZone = aHalfPx * 0.2;
+        const headSpacings = [0.32, 0.52, 0.72, 0.9];
+
+        headSpacings.forEach((ratio) => {
+          // Left side heads (pulling right toward M-line)
+          const hLeftX = cx - (bareZone + (aHalfPx - bareZone) * ratio);
+          // Right side heads (pulling left toward M-line)
+          const hRightX = cx + (bareZone + (aHalfPx - bareZone) * ratio);
+
+          // Head tilt angle based on contraction state
+          const tiltLeft = sLen < 2.2 ? 0.35 : 0; // tilt toward M-line (right)
+          const tiltRight = sLen < 2.2 ? -0.35 : 0; // tilt toward M-line (left)
+
+          // Upper and Lower heads for left side
+          [my - 10, my + 10].forEach((hy, hidx) => {
+            ctx.save();
+            ctx.translate(hLeftX, hy);
+            ctx.rotate(tiltLeft);
+
+            // S2 neck
+            ctx.strokeStyle = '#ec4899';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(0, hidx === 0 ? 5 : -5);
+            ctx.lineTo(0, 0);
+            ctx.stroke();
+
+            // S1 Pear-shaped globular head
+            const headGrad = ctx.createRadialGradient(-1, -1, 1, 0, 0, 4.5);
+            headGrad.addColorStop(0, '#fbcfe8');
+            headGrad.addColorStop(0.5, '#f43f5e');
+            headGrad.addColorStop(1, '#9f1239');
+            ctx.fillStyle = headGrad;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 4.5, 3.2, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+            ctx.restore();
+          });
+
+          // Upper and Lower heads for right side
+          [my - 10, my + 10].forEach((hy, hidx) => {
+            ctx.save();
+            ctx.translate(hRightX, hy);
+            ctx.rotate(tiltRight);
+
+            ctx.strokeStyle = '#ec4899';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(0, hidx === 0 ? 5 : -5);
+            ctx.lineTo(0, 0);
+            ctx.stroke();
+
+            const headGrad = ctx.createRadialGradient(-1, -1, 1, 0, 0, 4.5);
+            headGrad.addColorStop(0, '#fbcfe8');
+            headGrad.addColorStop(0.5, '#f43f5e');
+            headGrad.addColorStop(1, '#9f1239');
+            ctx.fillStyle = headGrad;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 4.5, 3.2, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+            ctx.restore();
+          });
+        });
+        ctx.restore();
+      });
+
+      // 4. Thin Actin Filaments attached to Z-Discs (Interleaved)
+      const actinYLevels = [cy - 54, cy - 18, cy + 18, cy + 54];
+      const actinLengthPx = 1.0 * pxPerUm; // 1.0 um fixed physical filament length
+
+      actinYLevels.forEach((ay) => {
+        ctx.save();
+        // Left actin filament extending rightward from zLeftX
+        const leftActinEndX = zLeftX + actinLengthPx;
+        // Right actin filament extending leftward from zRightX
+        const rightActinEndX = zRightX - actinLengthPx;
+
+        // Double-helical bead chain rendering
+        const drawActinBeads = (startX: number, endX: number) => {
+          const beadCount = Math.floor(Math.abs(endX - startX) / 7.5);
+          const dir = endX > startX ? 1 : -1;
+          for (let bi = 0; bi < beadCount; bi++) {
+            const bx = startX + dir * bi * 7.5;
+            const helixY = ay + Math.sin(bi * 0.75) * 2.2;
+
+            // G-actin spherical bead
+            const beadGrad = ctx.createRadialGradient(bx - 1, helixY - 1, 0.5, bx, helixY, 3.8);
+            beadGrad.addColorStop(0, '#fed7aa');
+            beadGrad.addColorStop(0.4, '#fb923c');
+            beadGrad.addColorStop(1, '#c2410c');
+            ctx.fillStyle = beadGrad;
+            ctx.beginPath();
+            ctx.arc(bx, helixY, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Periodic Troponin complexes (every 7 beads)
+            if (bi % 7 === 3) {
+              ctx.fillStyle = '#38bdf8';
+              ctx.beginPath();
+              ctx.arc(bx, helixY - 3.5, 2.5, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        };
+
+        drawActinBeads(zLeftX, leftActinEndX);
+        drawActinBeads(zRightX, rightActinEndX);
+
+        // Tropomyosin regulatory strand weaving along the actin filament
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(zLeftX, ay);
+        ctx.lineTo(leftActinEndX, ay);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(zRightX, ay);
+        ctx.lineTo(rightActinEndX, ay);
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      // 5. 3D Zigzag Z-Discs (alpha-Actinin Protein Lattice)
+      const drawZDisc = (zx: number) => {
+        ctx.save();
+        ctx.shadowColor = 'rgba(16, 185, 129, 0.4)';
+        ctx.shadowBlur = 10;
+
+        ctx.strokeStyle = '#10b981';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        ctx.beginPath();
+        const zZigZagCount = 14;
+        const zStep = stageHeight / zZigZagCount;
+        ctx.moveTo(zx, stageTop);
+        for (let zi = 1; zi <= zZigZagCount; zi++) {
+          const zxOffset = (zi % 2 === 1 ? -6 : 6);
+          ctx.lineTo(zx + zxOffset, stageTop + zi * zStep);
+        }
+        ctx.stroke();
+
+        // 3D Alpha-actinin cross-link lattice nodes
+        for (let zi = 0; zi <= zZigZagCount; zi += 2) {
+          ctx.fillStyle = '#6ee7b7';
+          ctx.beginPath();
+          ctx.arc(zx + (zi % 2 === 1 ? -6 : 6), stageTop + zi * zStep, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      };
+
+      drawZDisc(zLeftX);
+      drawZDisc(zRightX);
+
+      // 6. Laser Dimension Calipers and Microscopic Scale Readouts
+      ctx.save();
+      const caliperY = stageTop - 25;
+
+      // Master Sarcomere Caliper
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 1.8;
+      ctx.beginPath();
+      ctx.moveTo(zLeftX, caliperY);
+      ctx.lineTo(zRightX, caliperY);
+      ctx.stroke();
+
+      // Tick marks at Z-discs
+      ctx.beginPath();
+      ctx.moveTo(zLeftX, caliperY - 6);
+      ctx.lineTo(zLeftX, caliperY + 6);
+      ctx.moveTo(zRightX, caliperY - 6);
+      ctx.lineTo(zRightX, caliperY + 6);
+      ctx.stroke();
+
+      // Caliper center badge
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(cx - 48, caliperY - 12, 96, 24, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#fb7185';
+      ctx.font = 'bold 11px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`L = ${sLen.toFixed(2)} µm`, cx, caliperY);
+
+      // Lower Calipers: A-Band, H-Zone, I-Band
+      const lowerCaliperY = stageTop + stageHeight + 25;
+
+      // A-Band Caliper (Center)
+      ctx.strokeStyle = '#c084fc';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(cx - aHalfPx, lowerCaliperY);
+      ctx.lineTo(cx + aHalfPx, lowerCaliperY);
+      ctx.moveTo(cx - aHalfPx, lowerCaliperY - 5);
+      ctx.lineTo(cx - aHalfPx, lowerCaliperY + 5);
+      ctx.moveTo(cx + aHalfPx, lowerCaliperY - 5);
+      ctx.lineTo(cx + aHalfPx, lowerCaliperY + 5);
+      ctx.stroke();
+
+      ctx.fillStyle = '#c084fc';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.fillText(isArabic ? 'المنطقة A (١.٥ µm ثابتة)' : 'A-Band (1.50 µm)', cx, lowerCaliperY + 16);
+
+      // H-Zone Caliper (if visible)
+      if (hHalfPx > 10) {
+        ctx.strokeStyle = '#facc15';
+        ctx.beginPath();
+        ctx.moveTo(cx - hHalfPx, lowerCaliperY - 18);
+        ctx.lineTo(cx + hHalfPx, lowerCaliperY - 18);
+        ctx.moveTo(cx - hHalfPx, lowerCaliperY - 22);
+        ctx.lineTo(cx - hHalfPx, lowerCaliperY - 14);
+        ctx.moveTo(cx + hHalfPx, lowerCaliperY - 22);
+        ctx.lineTo(cx + hHalfPx, lowerCaliperY - 14);
+        ctx.stroke();
+
+        ctx.fillStyle = '#facc15';
+        ctx.font = '9px sans-serif';
+        ctx.fillText(`H = ${hLen.toFixed(2)} µm`, cx, lowerCaliperY - 26);
+      } else {
+        ctx.fillStyle = '#eab308';
+        ctx.font = 'bold 10px sans-serif';
+        ctx.fillText(isArabic ? 'المنطقة H تختفي تماماً عند الانقباض التام' : 'H-Zone Vanished (Overlap)', cx, lowerCaliperY - 18);
+      }
+
+      // Z-Disc Labels
+      ctx.fillStyle = '#34d399';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isArabic ? 'خط Z' : 'Z-Line', zLeftX, stageTop + stageHeight + 18);
+      ctx.fillText(isArabic ? 'خط Z' : 'Z-Line', zRightX, stageTop + stageHeight + 18);
+
+      // M-Line Label
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText(isArabic ? 'خط M' : 'M-Line', cx, stageTop - 12);
+      ctx.restore();
+    },
+    [isArabic]
+  );
+
+  // --- Zoom 4: Nanoscale Molecular Huxley Cross-Bridge Cycle ---
+  const renderHuxleyMolecular = useCallback(
+    (
+      ctx: CanvasRenderingContext2D,
+      w: number,
+      h: number,
+      step: number,
+      ca: number,
+      atp: number,
+      rigor: boolean,
+      t: number
+    ) => {
+      ctx.save();
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, w, h);
+
+      // Sarcoplasmic Fluid Gradient with Thermal Shimmer
+      const sarcFluid = ctx.createRadialGradient(w * 0.5, h * 0.5, 30, w * 0.5, h * 0.5, w * 0.7);
+      sarcFluid.addColorStop(0, 'rgba(15, 23, 42, 0.9)');
+      sarcFluid.addColorStop(0.7, 'rgba(10, 15, 30, 0.98)');
+      sarcFluid.addColorStop(1, '#020617');
+      ctx.fillStyle = sarcFluid;
+      ctx.fillRect(0, 0, w, h);
+
+      // Diffusing Calcium Ions (Ca2+) with glowing halos
+      const caCount = Math.floor(ca * 0.18);
+      for (let ci = 0; ci < caCount; ci++) {
+        // Deterministic pseudo-random diffusion
+        const cx = (Math.sin(ci * 137.5 + t * 0.001) * 0.5 + 0.5) * w;
+        const cy = (Math.cos(ci * 93.3 + t * 0.0012) * 0.5 + 0.5) * (h * 0.75) + h * 0.1;
+        drawGlowingParticle(ctx, cx, cy, 3.5, '#38bdf8', 10);
+      }
+
+      // Diffusing ATP Molecules with amber glow
+      const atpCount = Math.floor(atp * 0.12);
+      for (let ai = 0; ai < atpCount; ai++) {
+        const ax = (Math.sin(ai * 211.1 + t * 0.0009) * 0.5 + 0.5) * w;
+        const ay = (Math.cos(ai * 173.7 + t * 0.0011) * 0.5 + 0.5) * (h * 0.5) + h * 0.35;
+        drawGlowingParticle(ctx, ax, ay, 4.2, '#fde047', 12);
+      }
+
+      // 1. Actin Thin Filament Strand (Top)
+      const actinY = h * 0.28;
+      const beadRadius = 14;
+      const beadCount = 18;
+      const beadSpacing = w / (beadCount + 1);
+
+      ctx.save();
+      // Tropomyosin ribbon winding along actin
+      const isTropomyosinShifted = ca >= 40;
+      const tropoYOffset = isTropomyosinShifted ? -16 : 0; // Shifts away when Ca2+ is bound!
+
+      ctx.strokeStyle = isTropomyosinShifted ? '#10b981' : '#f59e0b';
+      ctx.lineWidth = 4.5;
+      ctx.shadowColor = isTropomyosinShifted ? 'rgba(16, 185, 129, 0.6)' : 'rgba(245, 158, 11, 0.5)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.moveTo(0, actinY + tropoYOffset);
+      for (let bx = 0; bx <= w; bx += 40) {
+        ctx.quadraticCurveTo(bx + 20, actinY + tropoYOffset + Math.sin(bx * 0.1 + t * 0.002) * 8, bx + 40, actinY + tropoYOffset);
+      }
+      ctx.stroke();
+      ctx.restore();
+
+      // G-Actin Double-Helical Globular Beads
+      ctx.save();
+      for (let bi = 1; bi <= beadCount; bi++) {
+        const bx = bi * beadSpacing;
+        const by = actinY + Math.sin(bi * 0.9) * 5;
+
+        // Myosin binding active site on center actin bead
+        const isBindingSite = bi === 9;
+
+        const actinGrad = ctx.createRadialGradient(bx - 3, by - 3, 2, bx, by, beadRadius);
+        if (isBindingSite && isTropomyosinShifted) {
+          actinGrad.addColorStop(0, '#fef08a'); // Unmasked active site!
+          actinGrad.addColorStop(0.5, '#fb923c');
+          actinGrad.addColorStop(1, '#c2410c');
+        } else {
+          actinGrad.addColorStop(0, '#fed7aa');
+          actinGrad.addColorStop(0.5, '#fb923c');
+          actinGrad.addColorStop(1, '#9a3412');
+        }
+
+        ctx.fillStyle = actinGrad;
+        ctx.beginPath();
+        ctx.arc(bx, by, beadRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = isBindingSite && isTropomyosinShifted ? '#facc15' : '#ea580c';
+        ctx.lineWidth = isBindingSite && isTropomyosinShifted ? 2.5 : 1;
+        ctx.stroke();
+
+        // Troponin complex on bead 9 with bound Ca2+
+        if (bi === 9) {
+          const tropoGrad = ctx.createRadialGradient(bx, by - beadRadius - 6, 2, bx, by - beadRadius - 6, 9);
+          tropoGrad.addColorStop(0, isTropomyosinShifted ? '#38bdf8' : '#64748b');
+          tropoGrad.addColorStop(1, isTropomyosinShifted ? '#0284c7' : '#334155');
+          ctx.fillStyle = tropoGrad;
+          ctx.beginPath();
+          ctx.arc(bx, by - beadRadius - 6, 8, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#e0f2fe';
+          ctx.font = 'bold 8px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(isTropomyosinShifted ? 'TnC+Ca²⁺' : 'TnC', bx, by - beadRadius - 6);
+        }
+      }
+      ctx.restore();
+
+      // 2. Thick Filament Backbone (Bottom)
+      const thickY = h * 0.85;
+      const thickH = 28;
+
+      ctx.save();
+      const thickBackGrad = ctx.createLinearGradient(0, thickY - thickH / 2, 0, thickY + thickH / 2);
+      thickBackGrad.addColorStop(0, '#581c87');
+      thickBackGrad.addColorStop(0.3, '#c084fc');
+      thickBackGrad.addColorStop(0.7, '#9333ea');
+      thickBackGrad.addColorStop(1, '#3b0764');
+
+      ctx.fillStyle = thickBackGrad;
+      ctx.fillRect(0, thickY - thickH / 2, w, thickH);
+      ctx.strokeStyle = '#d8b4fe';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(0, thickY - thickH / 2, w, thickH);
+
+      ctx.fillStyle = '#f3e8ff';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(isArabic ? 'خيط الميوسين السميك (Thick Filament)' : 'Thick Myosin Filament (HMM Tail)', 25, thickY + 4);
+      ctx.restore();
+
+      // 3. Articulated Myosin S1 Head & S2 Neck
+      const anchorX = w * 0.52;
+      const anchorY = thickY - thickH / 2;
+
+      // Kinematics based on molecularStep:
+      // Step 1: Cocked at 90 deg (detached, waiting)
+      // Step 2: Attached at 90 deg (cross-bridge formed)
+      // Step 3: Power stroke (pivots ~45 deg to the left, pulling actin ~10nm)
+      // Step 4: Detached by ATP (hydrolysis re-cocking)
+      let headX = anchorX;
+      let headY = actinY + beadRadius + 18;
+      let leverAngle = 0; // 0 = vertical (90 deg), -38 deg = power stroke
+
+      if (step === 1) {
+        // Cocked & detached
+        headX = anchorX;
+        headY = actinY + beadRadius + 32;
+        leverAngle = 0;
+      } else if (step === 2) {
+        // Attached at 90 deg
+        headX = anchorX - 5;
+        headY = actinY + beadRadius + 12;
+        leverAngle = -6;
+      } else if (step === 3) {
+        // Power stroke 45 deg tilt pulling left
+        headX = anchorX - 48;
+        headY = actinY + beadRadius + 12;
+        leverAngle = -42;
+      } else if (step === 4) {
+        // ATP binds -> Detached
+        headX = anchorX - 18;
+        headY = actinY + beadRadius + 42;
+        leverAngle = -15;
+      }
+
+      ctx.save();
+      // S2 Neck Hinge Line
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(anchorX, anchorY);
+      ctx.lineTo(headX, headY + 16);
+      ctx.stroke();
+
+      // S1 Head with Nucleotide Pocket
+      ctx.save();
+      ctx.translate(headX, headY);
+      ctx.rotate((leverAngle * Math.PI) / 180);
+
+      // Rigor mortis electrical stress glow
+      if (rigor) {
+        ctx.shadowColor = '#ef4444';
+        ctx.shadowBlur = 24;
+      } else if (step === 3) {
+        ctx.shadowColor = '#f59e0b';
+        ctx.shadowBlur = 18;
+      }
+
+      // Globular S1 Head
+      const headGrad = ctx.createRadialGradient(-4, -4, 2, 0, 0, 24);
+      headGrad.addColorStop(0, rigor ? '#f87171' : '#fda4af');
+      headGrad.addColorStop(0.5, rigor ? '#dc2626' : '#f43f5e');
+      headGrad.addColorStop(1, rigor ? '#7f1d1d' : '#881337');
+
+      ctx.fillStyle = headGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 24, 16, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = rigor ? '#fca5a5' : '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Catalytic Nucleotide Binding Pocket
+      const pocketGrad = ctx.createRadialGradient(8, 2, 1, 8, 2, 8);
+      pocketGrad.addColorStop(0, '#fef08a');
+      pocketGrad.addColorStop(1, '#ca8a04');
+      ctx.fillStyle = pocketGrad;
+      ctx.beginPath();
+      ctx.arc(8, 2, 7, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Power stroke force arrow when step === 3
+      if (step === 3) {
+        ctx.strokeStyle = '#10b981';
+        ctx.fillStyle = '#10b981';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(headX + 25, actinY);
+        ctx.lineTo(headX - 35, actinY);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(headX - 35, actinY);
+        ctx.lineTo(headX - 25, actinY - 6);
+        ctx.lineTo(headX - 25, actinY + 6);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.font = 'bold 11px sans-serif';
+        ctx.fillText(isArabic ? 'سحب خيط الأكتين ١٠ نانومتر ⟵' : 'Power Stroke (~10 nm) ⟵', headX - 45, actinY - 14);
+      }
+
+      // Nucleotide Status Tag
+      let nucleotideLabel = 'ADP + Pi';
+      let tagBg = '#0284c7';
+      if (step === 3) {
+        nucleotideLabel = isArabic ? 'انطلاق Pi (حركة الشد) + انفصال ADP' : 'Pi Released -> ADP Detaches';
+        tagBg = '#d97706';
+      } else if (step === 4) {
+        nucleotideLabel = isArabic ? 'ارتباط ATP ⟶ انفصال الرابطة' : 'ATP Binds ⟶ Instant Detach';
+        tagBg = '#16a34a';
+      } else if (rigor) {
+        nucleotideLabel = isArabic ? 'غياب ATP (تصلب عضلي مستمر)' : 'No ATP (LOCKED IN RIGOR)';
+        tagBg = '#b91c1c';
+      }
+
+      ctx.fillStyle = tagBg;
+      ctx.beginPath();
+      ctx.roundRect(headX + 30, headY - 12, nucleotideLabel.length * 7 + 16, 24, 6);
+      ctx.fill();
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(nucleotideLabel, headX + 30 + (nucleotideLabel.length * 7 + 16) / 2, headY + 4);
+      ctx.restore();
+    },
+    [isArabic]
+  );
+
+  // Main Render Router for CanvasSimulationViewport
+  const handleViewportRender = useCallback(
+    (
+      ctx: CanvasRenderingContext2D,
+      width: number,
+      height: number,
+      _vp: unknown,
+      _dpr: number,
+      time = 0
+    ) => {
+      switch (zoomLevel) {
+        case 1:
+          renderArmMacro(ctx, width, height, armAngle, contractionPercent, bicepsRadius, time);
+          break;
+        case 2:
+          renderFascicleTissue(ctx, width, height, sarcomereLength, time);
+          break;
+        case 3:
+          renderSarcomereCellular(ctx, width, height, sarcomereLength, aBandLength, hZoneLength, iBandTotal, time);
+          break;
+        case 4:
+          renderHuxleyMolecular(ctx, width, height, molecularStep, caLevel, atpLevel, isRigorMortis, time);
+          break;
+      }
+    },
+    [
+      zoomLevel,
+      renderArmMacro,
+      armAngle,
+      contractionPercent,
+      bicepsRadius,
+      renderFascicleTissue,
+      sarcomereLength,
+      renderSarcomereCellular,
+      aBandLength,
+      hZoneLength,
+      iBandTotal,
+      renderHuxleyMolecular,
+      molecularStep,
+      caLevel,
+      atpLevel,
+      isRigorMortis,
+    ]
+  );
 
   return (
     <div
@@ -95,7 +1561,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         <div>
           <div className="flex items-center gap-2">
             <div className="p-2 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/20">
-              <Activity className="w-5 h-5" />
+              <Activity className="w-5 h-5 animate-pulse" />
             </div>
             <h3 className="text-lg font-black tracking-tight">
               {isArabic
@@ -105,14 +1571,14 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           </div>
           <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {isArabic
-              ? 'تدرج مجهري تفاعلي: الذراع (العضو) ⟵ الحزمة العضلية (النسيج) ⟵ الساركومير (الخلية) ⟵ خيوط الأكتين والميوسين وATP (الجزيء)'
-              : 'Interactive 4-level zoom: Arm (Organism) ⟶ Muscle Fascicle (Tissue) ⟶ Sarcomere (Cellular) ⟶ Actin/Myosin Cross-Bridges (Molecular)'}
+              ? 'تدرج مجهري تفاعلي ٦٠ إطار/ثانية: الذراع (العضو) ⟵ الحزمة العضلية (النسيج) ⟵ الساركومير (الخلية) ⟵ خيوط الأكتين والميوسين وATP (الجزيء)'
+              : 'Interactive 60 FPS 4-level zoom: Arm (Organism) ⟶ Muscle Fascicle (Tissue) ⟶ Sarcomere (Cellular) ⟶ Actin/Myosin Cross-Bridges (Molecular)'}
           </p>
         </div>
 
         {/* 4-Scale Zoom Selector Buttons */}
         <div
-          className={`flex items-center p-1 rounded-xl border ${
+          className={`flex items-center p-1 rounded-xl border flex-wrap gap-1 ${
             isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'
           }`}
         >
@@ -140,83 +1606,24 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       </div>
 
       {/* Main Interactive Stage for Selected Zoom Level */}
-      <div className="mt-5">
-        {/* SCALE 1: ORGANISM / MACRO LEVEL (ARM & BICEPS FLEXION) */}
-        {zoomLevel === 1 && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center min-h-[360px]">
-              <svg viewBox="0 0 500 320" className="w-full max-h-[340px]">
-                <defs>
-                  <linearGradient id="armBoneGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#e2e8f0" />
-                    <stop offset="100%" stopColor="#94a3b8" />
-                  </linearGradient>
-                  <linearGradient id="bicepsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#e11d48" />
-                    <stop offset="50%" stopColor="#f43f5e" />
-                    <stop offset="100%" stopColor="#be123c" />
-                  </linearGradient>
-                </defs>
+      <div className="mt-5 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Continuous 60 FPS Canvas Simulation Viewport */}
+        <div className="lg:col-span-8 flex flex-col justify-between">
+          <CanvasSimulationViewport
+            id={`sarcomere-scale-${zoomLevel}`}
+            lang={lang}
+            aspectRatio="aspect-[16/10]"
+            minHeight={380}
+            animated={true}
+            onRender={handleViewportRender}
+          />
+        </div>
 
-                {/* Shoulder joint & Scapula anchor */}
-                <circle cx="120" cy="70" r="16" fill="#64748b" />
-                <text x="120" y="45" fill="#94a3b8" fontSize="10" fontWeight="bold" textAnchor="middle">
-                  {isArabic ? 'مفصل الكتف (لوح الكتف)' : 'Shoulder / Scapula'}
-                </text>
-
-                {/* Humerus Upper Arm Bone */}
-                <line x1="120" y1="70" x2="220" y2="180" stroke="url(#armBoneGrad)" strokeWidth="18" strokeLinecap="round" />
-                <text x="155" y="125" fill="#cbd5e1" fontSize="10" fontWeight="bold">
-                  {isArabic ? 'عظمة العضد' : 'Humerus'}
-                </text>
-
-                {/* Elbow Hinge Joint */}
-                <circle cx="220" cy="180" r="14" fill="#475569" />
-
-                {/* Forearm (Radius/Ulna) rotating around elbow based on armAngle */}
-                {(() => {
-                  const rad = (armAngle * Math.PI) / 180;
-                  const forearmLen = 170;
-                  const handX = 220 + forearmLen * Math.sin(rad);
-                  const handY = 180 + forearmLen * Math.cos(rad);
-
-                  // Biceps muscle belly curve anchored between shoulder (120,70) and radius insertion (~250, 190)
-                  const insertX = 220 + 35 * Math.sin(rad);
-                  const insertY = 180 + 35 * Math.cos(rad);
-
-                  return (
-                    <g>
-                      {/* Forearm Bone */}
-                      <line x1="220" y1="180" x2={handX} y2={handY} stroke="url(#armBoneGrad)" strokeWidth="15" strokeLinecap="round" />
-                      {/* Hand */}
-                      <circle cx={handX} cy={handY} r="12" fill="#cbd5e1" />
-                      <text x={handX + 15} y={handY + 5} fill="#cbd5e1" fontSize="10" fontWeight="bold">
-                        {isArabic ? 'الكوع والساعد' : 'Forearm / Radius'}
-                      </text>
-
-                      {/* Biceps Tendon to Scapula */}
-                      <line x1="120" y1="70" x2="150" y2="95" stroke="#f1f5f9" strokeWidth="6" strokeLinecap="round" />
-                      {/* Biceps Tendon to Radius */}
-                      <line x1={insertX} y1={insertY} x2={insertX - 15} y2={insertY - 20} stroke="#f1f5f9" strokeWidth="6" strokeLinecap="round" />
-
-                      {/* Biceps Muscle Belly (bulges dynamically) */}
-                      <path
-                        d={`M 150 95 Q ${165 - bicepsRadius * 0.7} ${130 + bicepsRadius * 0.2} ${insertX - 15} ${insertY - 20} Q ${165 + bicepsRadius * 0.7} ${130 - bicepsRadius * 0.2} 150 95`}
-                        fill="url(#bicepsGrad)"
-                        stroke="#fb7185"
-                        strokeWidth="2"
-                      />
-                      <text x="110" y="145" fill="#fda4af" fontSize="11" fontWeight="bold">
-                        {isArabic ? 'العضلة ذات الرأسين (Biceps)' : 'Biceps Brachii'}
-                      </text>
-                    </g>
-                  );
-                })()}
-              </svg>
-            </div>
-
-            {/* Macro Status & Biomechanics */}
-            <div className="lg:col-span-4 space-y-4">
+        {/* Scale-Specific Educational HUD & Readouts */}
+        <div className="lg:col-span-4 space-y-4">
+          {/* Zoom 1 HUD: Biomechanics Readout */}
+          {zoomLevel === 1 && (
+            <div className="space-y-4">
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
                 <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
                   {isArabic ? 'الميكانيكا الحيوية للذراع:' : 'Biomechanics Readout:'}
@@ -250,73 +1657,11 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 </span>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* SCALE 2: TISSUE LEVEL (MUSCLE FASCICLE & SARCOLEMMA) */}
-        {zoomLevel === 2 && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center min-h-[360px]">
-              <svg viewBox="0 0 500 300" className="w-full max-h-[320px]">
-                <defs>
-                  <linearGradient id="fascicleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#e11d48" />
-                    <stop offset="100%" stopColor="#881337" />
-                  </linearGradient>
-                </defs>
-
-                {/* Muscle Belly Cutaway */}
-                <ellipse cx="140" cy="150" rx="95" ry="110" fill="#4c0519" stroke="#f43f5e" strokeWidth="3" />
-                <text x="140" y="30" fill="#fda4af" fontSize="11" fontWeight="bold" textAnchor="middle">
-                  {isArabic ? 'غشاء العضلة الخارجي (Epimysium)' : 'Epimysium (Outer Sheath)'}
-                </text>
-
-                {/* Fascicle Bundles inside Muscle Belly */}
-                {[
-                  { cx: 100, cy: 110, r: 28 },
-                  { cx: 170, cy: 105, r: 26 },
-                  { cx: 105, cy: 180, r: 30 },
-                  { cx: 175, cy: 175, r: 32 },
-                ].map((fas, idx) => (
-                  <circle
-                    key={idx}
-                    cx={fas.cx}
-                    cy={fas.cy}
-                    r={fas.r}
-                    fill="url(#fascicleGrad)"
-                    stroke="#fb7185"
-                    strokeWidth="2"
-                  />
-                ))}
-
-                {/* Zoomed Out Single Fascicle Extending to the Right */}
-                <path d="M 175 143 L 340 100 L 340 200 L 175 207 Z" fill="rgba(225, 29, 72, 0.25)" stroke="#f43f5e" strokeDasharray="4 4" />
-
-                {/* Zoomed Fascicle Cylinder */}
-                <ellipse cx="340" cy="150" rx="45" ry="55" fill="#9f1239" stroke="#fda4af" strokeWidth="2.5" />
-                <text x="340" y="80" fill="#fecdd3" fontSize="11" fontWeight="bold" textAnchor="middle">
-                  {isArabic ? 'حزمة عضلية (Fascicle)' : 'Muscle Fascicle'}
-                </text>
-
-                {/* Individual Muscle Fibers within Fascicle */}
-                {[
-                  { cx: 325, cy: 130, r: 12 },
-                  { cx: 355, cy: 135, r: 12 },
-                  { cx: 330, cy: 165, r: 13 },
-                  { cx: 360, cy: 168, r: 12 },
-                ].map((fib, fidx) => (
-                  <circle key={fidx} cx={fib.cx} cy={fib.cy} r={fib.r} fill="#e11d48" stroke="#fff" strokeWidth="1" />
-                ))}
-
-                {/* Single Myofibril extraction extending further */}
-                <line x1="360" y1="168" x2="440" y2="168" stroke="#fbbf24" strokeWidth="4" strokeLinecap="round" />
-                <text x="445" y="172" fill="#fbbf24" fontSize="10" fontWeight="bold">
-                  {isArabic ? 'لييفة (Myofibril)' : 'Myofibril'}
-                </text>
-              </svg>
-            </div>
-
-            <div className="lg:col-span-4 space-y-4">
+          {/* Zoom 2 HUD: Hierarchical Tissue Anatomy */}
+          {zoomLevel === 2 && (
+            <div className="space-y-4">
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
                 <span className="font-bold text-rose-400 block uppercase tracking-wider">
                   {isArabic ? 'التسلسل الهيكلي للنسيج العضلي:' : 'Hierarchical Anatomy:'}
@@ -330,171 +1675,21 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                   {isArabic ? '١ ليفة عضلية = ١٠٠٠ إلى ٢٠٠٠ لييفة' : '1 Muscle Fiber = 1,000–2,000 Myofibrils'}
                 </div>
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* SCALE 3: CELLULAR LEVEL (MYOFIBRIL & SARCOMERE SLIDING FILAMENT) */}
-        {zoomLevel === 3 && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-black flex items-center gap-2 text-rose-400">
-                  <Activity className="w-4 h-4" />
-                  <span>{isArabic ? 'المحاكاة الدقيقة لانزلاق خيوط الساركومير:' : 'Sarcomere Ultrastructure Plane:'}</span>
-                </h4>
-                <div className="flex items-center gap-2 text-xs font-mono">
-                  <span className="text-slate-400">{isArabic ? 'طول الساركومير:' : 'Length:'}</span>
-                  <span className="font-extrabold text-rose-400">
-                    {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} ميكرون` : `${sarcomereLength.toFixed(2)} µm`}
-                  </span>
-                </div>
-              </div>
-
-              {/* SVG Sarcomere Diagram */}
-              <div className="w-full bg-slate-950 rounded-xl p-3 border border-slate-800 shadow-inner overflow-x-auto">
-                <svg viewBox="0 0 600 240" className="w-full min-w-[500px] h-48 sm:h-56">
-                  <defs>
-                    <linearGradient id="myosinGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#8b5cf6" />
-                      <stop offset="50%" stopColor="#a855f7" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
-                    </linearGradient>
-                    <linearGradient id="actinGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#f97316" />
-                      <stop offset="50%" stopColor="#fb923c" />
-                    </linearGradient>
-                  </defs>
-
-                  {(() => {
-                    const scale = 140; // px per um
-                    const center = 300;
-                    const halfLen = (sarcomereLength * scale) / 2;
-                    const zLeft = center - halfLen;
-                    const zRight = center + halfLen;
-                    const aHalf = (aBandLength * scale) / 2;
-                    const hHalf = (hZoneLength * scale) / 2;
-
-                    return (
-                      <g>
-                        {/* A-Band (Constant Length) */}
-                        <rect
-                          x={center - aHalf}
-                          y="15"
-                          width={aHalf * 2}
-                          height="190"
-                          fill="#a855f7"
-                          fillOpacity="0.12"
-                          stroke="#a855f7"
-                          strokeDasharray="4 4"
-                          strokeWidth="1"
-                        />
-                        <text x={center} y="28" textAnchor="middle" fill="#c084fc" fontSize="11" fontWeight="bold">
-                          {isArabic ? 'المنطقة الداكنة A (ثابتة الطول: ١.٥ µm)' : 'A-Band (Constant: 1.5 µm)'}
-                        </text>
-
-                        {/* H-Zone (Variable) */}
-                        {hHalf > 4 && (
-                          <g>
-                            <rect
-                              x={center - hHalf}
-                              y="35"
-                              width={hHalf * 2}
-                              height="150"
-                              fill="#fbbf24"
-                              fillOpacity="0.15"
-                              stroke="#f59e0b"
-                              strokeWidth="1"
-                            />
-                            <text x={center} y="115" textAnchor="middle" fill="#facc15" fontSize="10" fontWeight="bold">
-                              {isArabic
-                                ? `المنطقة شبه المضيئة H (${toHindiDigits(hZoneLength.toFixed(2))}µm)`
-                                : `H-Zone (${hZoneLength.toFixed(2)} µm)`}
-                            </text>
-                          </g>
-                        )}
-
-                        {/* Left Z-Line */}
-                        <path
-                          d={`M ${zLeft} 20 L ${zLeft - 6} 40 L ${zLeft + 6} 60 L ${zLeft - 6} 80 L ${zLeft + 6} 100 L ${zLeft - 6} 120 L ${zLeft + 6} 140 L ${zLeft - 6} 160 L ${zLeft + 6} 180 L ${zLeft} 200`}
-                          fill="none"
-                          stroke="#10b981"
-                          strokeWidth="4"
-                          strokeLinecap="round"
-                        />
-                        <text x={zLeft} y="225" textAnchor="middle" fill="#34d399" fontSize="11" fontWeight="bold">
-                          {isArabic ? 'خط Z' : 'Z-Line'}
-                        </text>
-
-                        {/* Right Z-Line */}
-                        <path
-                          d={`M ${zRight} 20 L ${zRight - 6} 40 L ${zRight + 6} 60 L ${zRight - 6} 80 L ${zRight + 6} 100 L ${zRight - 6} 120 L ${zRight + 6} 140 L ${zRight - 6} 160 L ${zRight + 6} 180 L ${zRight} 200`}
-                          fill="none"
-                          stroke="#10b981"
-                          strokeWidth="4"
-                          strokeLinecap="round"
-                        />
-                        <text x={zRight} y="225" textAnchor="middle" fill="#34d399" fontSize="11" fontWeight="bold">
-                          {isArabic ? 'خط Z' : 'Z-Line'}
-                        </text>
-
-                        {/* Central M-Line */}
-                        <line x1={center} y1="20" x2={center} y2="200" stroke="#e2e8f0" strokeDasharray="3 3" strokeWidth="1.5" />
-                        <text x={center} y="225" textAnchor="middle" fill="#94a3b8" fontSize="10">
-                          {isArabic ? 'خط M' : 'M-Line'}
-                        </text>
-
-                        {/* Thick Myosin Filaments */}
-                        {[60, 100, 140].map((y) => (
-                          <g key={`myo-${y}`}>
-                            <rect x={center - aHalf} y={y - 5} width={aHalf * 2} height="10" rx="4" fill="url(#myosinGrad2)" />
-                            {/* Cross-Bridges */}
-                            {[-60, -35, -15, 15, 35, 60].map((dx) => (
-                              <g key={`head-${dx}`}>
-                                <circle cx={center + dx} cy={y - 8} r="3.5" fill="#ec4899" />
-                                <line x1={center + dx} y1={y - 5} x2={center + dx} y2={y - 8} stroke="#ec4899" strokeWidth="2" />
-                                <circle cx={center + dx} cy={y + 8} r="3.5" fill="#ec4899" />
-                                <line x1={center + dx} y1={y + 5} x2={center + dx} y2={y + 8} stroke="#ec4899" strokeWidth="2" />
-                              </g>
-                            ))}
-                          </g>
-                        ))}
-
-                        {/* Thin Actin Filaments attached to Z-lines */}
-                        {[45, 75, 125, 155].map((y) => {
-                          const actinLength = 1.0 * scale;
-                          return (
-                            <g key={`act-${y}`}>
-                              <line
-                                x1={zLeft}
-                                y1={y}
-                                x2={zLeft + actinLength}
-                                y2={y}
-                                stroke="url(#actinGrad2)"
-                                strokeWidth="5"
-                                strokeLinecap="round"
-                              />
-                              <line
-                                x1={zRight}
-                                y1={y}
-                                x2={zRight - actinLength}
-                                y2={y}
-                                stroke="url(#actinGrad2)"
-                                strokeWidth="5"
-                                strokeLinecap="round"
-                              />
-                            </g>
-                          );
-                        })}
-                      </g>
-                    );
-                  })()}
-                </svg>
+              <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-xs text-purple-200">
+                <Info className="w-4 h-4 text-purple-400 inline mr-1" />
+                <span>
+                  {isArabic
+                    ? 'الأغشية الضامة: غشاء العضلة (Epimysium) ⟵ غشاء الحزمة (Perimysium) ⟵ غشاء الليفة (Endomysium / Sarcolemma).'
+                    : 'Connective Sheaths: Epimysium (outer muscle) ⟶ Perimysium (fascicle) ⟶ Endomysium/Sarcolemma (muscle fiber cell).'}
+                </span>
               </div>
             </div>
+          )}
 
-            {/* Quantitative Zone Status Table */}
-            <div className="lg:col-span-4 space-y-4">
+          {/* Zoom 3 HUD: Quantitative Band Status Table */}
+          {zoomLevel === 3 && (
+            <div className="space-y-4">
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
                 <h4 className="font-black text-rose-400 flex items-center gap-1.5 mb-2">
                   <Info className="w-4 h-4" />
@@ -502,151 +1697,42 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 </h4>
                 <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
                   <span className="text-slate-300">{isArabic ? 'المسافة بين خطي Z:' : 'Z-Discs Distance:'}</span>
-                  <span className="font-mono font-bold text-emerald-400">{sarcomereLength.toFixed(2)} µm</span>
+                  <span className="font-mono font-bold text-emerald-400">
+                    {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} µm` : `${sarcomereLength.toFixed(2)} µm`}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
                   <span className="text-slate-300">{isArabic ? 'المنطقة H (شبه المضيئة):' : 'H-Zone Width:'}</span>
                   <span className="font-mono font-bold text-amber-400">
-                    {hZoneLength === 0 ? (isArabic ? '٠ µm (تنعدم)' : '0 µm (Vanish)') : `${hZoneLength.toFixed(2)} µm`}
+                    {hZoneLength === 0
+                      ? isArabic ? '٠ µm (تنعدم تماماً)' : '0 µm (Vanished)'
+                      : `${sarcomereLength <= 1.85 ? '0.00' : hZoneLength.toFixed(2)} µm`}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
                   <span className="text-slate-300">{isArabic ? 'المنطقة A (الداكنة):' : 'A-Band Length:'}</span>
-                  <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm (ثابتة)</span>
+                  <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm ({isArabic ? 'ثابتة' : 'Constant'})</span>
                 </div>
                 <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
                   <span className="text-slate-300">{isArabic ? 'المنطقة I (المضيئة):' : 'I-Band Length:'}</span>
-                  <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm (تقل)</span>
+                  <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm ({isArabic ? 'تقل' : 'Shortens'})</span>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* SCALE 4: NANOSCALE / MOLECULAR LEVEL (ACTIN, MYOSIN, Ca2+, ATP HUXLEY CYCLE) */}
-        {zoomLevel === 4 && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-black text-rose-400 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-amber-400" />
-                  {isArabic ? 'دورة الروابط المستعرضة الجزيئية (Huxley Cross-Bridge Cycle):' : 'Molecular Cross-Bridge Cycle:'}
-                </span>
-                <span className="text-xs font-mono text-cyan-400">
-                  {isArabic ? `المرحلة ${molecularStep} من ٤` : `Step ${molecularStep} of 4`}
+              <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 inline mr-1" />
+                <span>
+                  {isArabic
+                    ? 'نظرية الخيوط المنزلقة (هكسلي): تنزلق خيوط الأكتين باتجاه خط M بمساعدة الروابط المستعرضة للميوسين، فيقل طول القطعة العضلية وتختفي المنطقة H ويبقى طول المنطقة A ثابتاً.'
+                    : "Huxley's Sliding Filament: Actin filaments slide toward the M-line pulled by myosin cross-bridges. The sarcomere shortens, H-zone vanishes, while A-band length remains constant."}
                 </span>
               </div>
-
-              {/* Molecular Interactive Canvas */}
-              <div className="w-full bg-slate-900/90 rounded-xl p-4 border border-slate-800 flex items-center justify-center min-h-[220px]">
-                <svg viewBox="0 0 450 180" className="w-full max-h-[200px]">
-                  {/* Actin Thin Filament Strand (Top) */}
-                  <g>
-                    {/* Tropomyosin ribbon */}
-                    <path
-                      d="M 20 40 Q 120 48 220 40 Q 320 48 420 40"
-                      fill="none"
-                      stroke={caLevel > 40 ? '#10b981' : '#f59e0b'}
-                      strokeWidth="3"
-                    />
-                    {/* Actin globule pearls */}
-                    {[40, 75, 110, 145, 180, 215, 250, 285, 320, 355, 390].map((ax, idx) => (
-                      <circle key={idx} cx={ax} cy="38" r="8" fill="#fb923c" stroke="#ea580c" strokeWidth="1" />
-                    ))}
-                    {/* Troponin Complex with Ca2+ */}
-                    <circle cx="215" cy="28" r="7" fill={caLevel > 40 ? '#38bdf8' : '#64748b'} />
-                    <text x="215" y="16" fill="#7dd3fc" fontSize="9" fontWeight="bold" textAnchor="middle">
-                      {caLevel > 40 ? 'Ca²⁺ bound' : 'Troponin'}
-                    </text>
-                  </g>
-
-                  {/* Myosin Thick Filament & Head (Bottom) */}
-                  <g>
-                    {/* Myosin Backbone */}
-                    <rect x="20" y="145" width="400" height="18" rx="6" fill="#8b5cf6" />
-                    <text x="50" y="158" fill="#e9d5ff" fontSize="10" fontWeight="bold">
-                      {isArabic ? 'خيط الميوسين السميك' : 'Thick Myosin Filament'}
-                    </text>
-
-                    {/* Dynamic Myosin Head Neck & Globe */}
-                    {(() => {
-                      // Angle depending on molecular step
-                      let headX = 220;
-                      let headY = 85;
-                      let angle = 0; // 0 is vertical/cocked, 45 is power stroke
-
-                      if (molecularStep === 3) {
-                        // Power stroke tilt
-                        headX = 195;
-                        headY = 55;
-                        angle = -35;
-                      } else if (molecularStep === 2) {
-                        // Attached 90 deg
-                        headX = 220;
-                        headY = 50;
-                      } else if (molecularStep === 4) {
-                        // Detached
-                        headX = 220;
-                        headY = 90;
-                      }
-
-                      return (
-                        <g>
-                          {/* Arm from thick filament */}
-                          <line x1="220" y1="145" x2={headX} y2={headY + 15} stroke="#ec4899" strokeWidth="4" />
-                          {/* S1 Globular Head */}
-                          <ellipse
-                            cx={headX}
-                            cy={headY}
-                            rx="14"
-                            ry="10"
-                            transform={`rotate(${angle} ${headX} ${headY})`}
-                            fill="#f43f5e"
-                            stroke="#fff"
-                            strokeWidth="1.5"
-                          />
-                          {/* Bound Nucleotide (ATP / ADP+Pi) */}
-                          <text x={headX + 18} y={headY + 4} fill="#fde047" fontSize="10" fontWeight="bold">
-                            {molecularStep === 2
-                              ? 'ADP + Pi'
-                              : molecularStep === 3
-                              ? 'Power Stroke (Pi released)'
-                              : molecularStep === 4
-                              ? 'ATP binds ⟶ Detach'
-                              : 'Resting (ADP+Pi)'}
-                          </text>
-                        </g>
-                      );
-                    })()}
-                  </g>
-                </svg>
-              </div>
-
-              {/* Step Navigation Buttons */}
-              <div className="grid grid-cols-4 gap-2 mt-3">
-                {[
-                  { id: 1, labelEn: '1. Ca²⁺ Binds', labelAr: '١. ارتباط الكالسيوم' },
-                  { id: 2, labelEn: '2. Cross-Bridge', labelAr: '٢. تكوين الرابطة' },
-                  { id: 3, labelEn: '3. Power Stroke', labelAr: '٣. حركة الشد' },
-                  { id: 4, labelEn: '4. ATP Detachment', labelAr: '٤. انفصال بـ ATP' },
-                ].map((st) => (
-                  <button
-                    key={st.id}
-                    onClick={() => setMolecularStep(st.id)}
-                    className={`p-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
-                      molecularStep === st.id
-                        ? 'bg-rose-600 text-white shadow'
-                        : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    {isArabic ? st.labelAr : st.labelEn}
-                  </button>
-                ))}
-              </div>
             </div>
+          )}
 
-            {/* Molecular Biochemistry Panel */}
-            <div className="lg:col-span-4 space-y-4">
+          {/* Zoom 4 HUD: Huxley Cross-Bridge Molecular Controls */}
+          {zoomLevel === 4 && (
+            <div className="space-y-4">
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
                 <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
                   {isArabic ? 'المتحكمات الكيميائية الحيوية:' : 'Biochemical Sliders:'}
@@ -700,53 +1786,109 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                     </div>
                   </div>
                 )}
+
+                {/* Step Navigation Buttons */}
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+                  {[
+                    { id: 1, labelEn: '1. Ca²⁺ Binds', labelAr: '١. ارتباط الكالسيوم' },
+                    { id: 2, labelEn: '2. Cross-Bridge', labelAr: '٢. تكوين الرابطة' },
+                    { id: 3, labelEn: '3. Power Stroke', labelAr: '٣. حركة الشد' },
+                    { id: 4, labelEn: '4. ATP Detachment', labelAr: '٤. انفصال بـ ATP' },
+                  ].map((st) => (
+                    <button
+                      key={st.id}
+                      onClick={() => setMolecularStep(st.id)}
+                      className={`p-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
+                        molecularStep === st.id
+                          ? 'bg-rose-600 text-white shadow'
+                          : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
+                      }`}
+                    >
+                      {isArabic ? st.labelAr : st.labelEn}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
 
-        {/* Global Mechanical Sliders & Action Bar (Available across all zoom scales) */}
-        <div className="mt-5 p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
-          <div className="flex items-center justify-between gap-4">
-            <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-rose-400" />
-              <span>{isArabic ? 'التحكم العام في انقباض الساركومير:' : 'Master Sarcomere Contraction Slider:'}</span>
-            </label>
-            <span className="text-xs font-mono font-black text-rose-400">
-              {sarcomereLength <= 1.9
-                ? isArabic ? 'انقباض تام (تختفي H)' : 'Full Contraction (H disappears)'
-                : sarcomereLength >= 2.7
-                ? isArabic ? 'انبساط كامل (أقصى اتساع لـ H)' : 'Full Relaxation (Max H)'
-                : isArabic ? 'انقباض جزئي' : 'Partial Contraction'}
-            </span>
-          </div>
+      {/* Global Mechanical Sliders & Action Bar (Available across all zoom scales) */}
+      <div className="mt-5 p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+        <div className="flex items-center justify-between gap-4">
+          <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5 text-rose-400" />
+            <span>{isArabic ? 'التحكم العام في انقباض الساركومير:' : 'Master Sarcomere Contraction Slider:'}</span>
+          </label>
+          <span className="text-xs font-mono font-black text-rose-400">
+            {sarcomereLength <= 1.88
+              ? isArabic ? 'انقباض تام (تختفي H)' : 'Full Contraction (H disappears)'
+              : sarcomereLength >= 2.7
+              ? isArabic ? 'انبساط كامل (أقصى اتساع لـ H)' : 'Full Relaxation (Max H)'
+              : isArabic ? 'انقباض جزئي' : 'Partial Contraction'}
+          </span>
+        </div>
 
-          <input
-            type="range"
-            min="1.8"
-            max="2.8"
-            step="0.05"
-            value={sarcomereLength}
-            onChange={(e) => setSarcomereLength(parseFloat(e.target.value))}
-            className="w-full accent-rose-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-          />
+        <input
+          type="range"
+          min="1.8"
+          max="2.8"
+          step="0.02"
+          value={sarcomereLength}
+          onChange={(e) => setSarcomereLength(parseFloat(e.target.value))}
+          className="w-full accent-rose-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+        />
 
-          <div className="flex items-center justify-between flex-wrap gap-3 pt-1">
+        {/* Action Controls & Presets */}
+        <div className="flex items-center justify-between flex-wrap gap-3 pt-1">
+          <div className="flex items-center gap-2">
             <button
               onClick={handleAnimateTwitch}
               disabled={isAnimating}
-              className="px-3.5 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-1.5 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+              className="px-4 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-1.5 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
             >
               <Play className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'تشغيل هزة عضلية كاملة (Twitch Cycle)' : 'Animate Muscle Twitch'}</span>
+              <span>{isArabic ? 'تشغيل هزة عضلية كاملة (Twitch Cycle)' : 'Animate Muscle Twitch (60 FPS)'}</span>
             </button>
 
             <button
               onClick={handleReset}
-              className="px-3 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
+              className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'إعادة ضبط الحالة' : 'Reset to Resting'}</span>
+              <span>{isArabic ? 'إعادة ضبط' : 'Reset'}</span>
+            </button>
+          </div>
+
+          {/* Quick Presets */}
+          <div className="flex items-center gap-1.5">
+            <span className="text-[11px] text-slate-400 font-semibold mr-1">
+              {isArabic ? 'حالات جاهزة:' : 'Presets:'}
+            </span>
+            <button
+              onClick={() => applyPreset('resting')}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+            >
+              {isArabic ? 'انبساط' : 'Resting'}
+            </button>
+            <button
+              onClick={() => applyPreset('partial')}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+            >
+              {isArabic ? 'جزئي' : 'Partial'}
+            </button>
+            <button
+              onClick={() => applyPreset('max')}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-rose-300 transition-all cursor-pointer"
+            >
+              {isArabic ? 'انقباض تام' : 'Full'}
+            </button>
+            <button
+              onClick={() => applyPreset('rigor')}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 border border-rose-800/60 transition-all cursor-pointer"
+            >
+              {isArabic ? 'شد عضلي' : 'Rigor'}
             </button>
           </div>
         </div>

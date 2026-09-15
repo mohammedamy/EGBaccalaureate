@@ -8,6 +8,9 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawVolumetricBeam,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -770,8 +773,15 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
-    _viewport: LabViewportState
+    _viewport: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    _frame: number = 0
   ) => {
+    const t = (time ? time : performance.now()) * 0.001;
+    simRef.current.orbitAngle = (simRef.current.orbitAngle + 0.035) % (Math.PI * 2);
+    simRef.current.laserPhase = (simRef.current.laserPhase + 0.18) % (Math.PI * 2);
+
     ctx.save();
     ctx.clearRect(0, 0, width, height);
 
@@ -800,9 +810,9 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     }
 
     if (isBohr) {
-      renderBohrScene(ctx, width, height);
+      renderBohrScene(ctx, width, height, t);
     } else {
-      renderLaserScene(ctx, width, height);
+      renderLaserScene(ctx, width, height, t);
     }
 
     ctx.restore();
@@ -811,7 +821,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   /**
    * Renders Bohr Atomic Transitions (Ladder or Concentric Orbits) + Spectrometer Bar
    */
-  const renderBohrScene = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  const renderBohrScene = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const sim = simRef.current;
 
     if (viewMode === 'ladder') {
@@ -907,17 +917,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.restore();
 
       // Pulsing initial electron at upper level
-      const pulseR = 5 + Math.sin(Date.now() * 0.008) * 1.5;
-      ctx.fillStyle = seriesInfo.colorHex;
-      ctx.beginPath();
-      ctx.arc(transX, yUpper, pulseR, 0, Math.PI * 2);
-      ctx.fill();
+      const pulseR = 5 + Math.sin(t * 5) * 1.5;
+      drawGlowingParticle(ctx, transX, yUpper, pulseR, seriesInfo.colorHex, 14);
 
       // Final electron rest at lower level
-      ctx.fillStyle = '#38bdf8';
-      ctx.beginPath();
-      ctx.arc(transX, yLower, 4.5, 0, Math.PI * 2);
-      ctx.fill();
+      drawGlowingParticle(ctx, transX, yLower, 4.5, '#38bdf8', 10);
 
       // Emitted photon sinusoidal wave packet traveling toward spectrometer
       const waveStartX = transX + 15;
@@ -930,11 +934,21 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.beginPath();
       for (let i = 0; i < 70; i++) {
         const wx = waveStartX + i;
-        const wy = waveY + Math.sin(i * 0.25 - Date.now() * 0.01) * 8;
+        const wy = waveY + Math.sin(i * 0.25 - t * 15) * 8;
         if (i === 0) ctx.moveTo(wx, wy);
         else ctx.lineTo(wx, wy);
       }
       ctx.stroke();
+
+      // Glowing photon packet head particle
+      drawGlowingParticle(
+        ctx,
+        waveStartX + 68,
+        waveY + Math.sin(68 * 0.25 - t * 15) * 8,
+        4,
+        seriesInfo.colorHex,
+        12
+      );
 
       // Photon packet label
       ctx.fillStyle = seriesInfo.colorHex;
@@ -1014,14 +1028,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       const elX = centerX + Math.cos(sim.orbitAngle) * rUpper;
       const elY = centerY + Math.sin(sim.orbitAngle) * rUpper;
 
-      ctx.save();
-      ctx.shadowColor = seriesInfo.colorHex;
-      ctx.shadowBlur = 14;
-      ctx.fillStyle = seriesInfo.colorHex;
-      ctx.beginPath();
-      ctx.arc(elX, elY, 6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+      drawGlowingParticle(ctx, elX, elY, 6, seriesInfo.colorHex, 16);
 
       // Quantum jump spiral trajectory to lower orbit (n1)
       const rLower = maxRadius * (0.2 + 0.8 * ((effectiveN1 - 1) / 5));
@@ -1147,7 +1154,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   /**
    * Renders He-Ne Gas Laser Cavity with Plasma Glow, Standing Waves & Stimulated Beams
    */
-  const renderLaserScene = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+  const renderLaserScene = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const sim = simRef.current;
     const centerY = height / 2 - 25;
 
@@ -1157,19 +1164,31 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const tubeHeight = 85;
     const tubeTop = centerY - tubeHeight / 2;
 
-    // 1. Quartz Discharge Tube Body
+    // 1. Quartz Discharge Tube Body with realistic 3D glass caustics
     const tubeGrad = ctx.createLinearGradient(0, tubeTop, 0, tubeTop + tubeHeight);
-    tubeGrad.addColorStop(0, 'rgba(30, 41, 59, 0.8)');
+    tubeGrad.addColorStop(0, 'rgba(51, 65, 85, 0.45)');
+    tubeGrad.addColorStop(0.15, 'rgba(148, 163, 184, 0.2)');
     tubeGrad.addColorStop(0.5, 'rgba(15, 23, 42, 0.95)');
-    tubeGrad.addColorStop(1, 'rgba(30, 41, 59, 0.8)');
+    tubeGrad.addColorStop(0.85, 'rgba(15, 23, 42, 0.7)');
+    tubeGrad.addColorStop(1, 'rgba(51, 65, 85, 0.5)');
 
     ctx.fillStyle = tubeGrad;
-    ctx.strokeStyle = '#64748b';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.roundRect(tubeLeft, tubeTop, tubeWidth, tubeHeight, 10);
     ctx.fill();
     ctx.stroke();
+
+    // Specular glass reflection arc
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(tubeLeft + 12, tubeTop + 6);
+    ctx.lineTo(tubeRight - 12, tubeTop + 6);
+    ctx.stroke();
+    ctx.restore();
 
     // Gas label
     ctx.fillStyle = '#94a3b8';
@@ -1224,7 +1243,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // 3. Plasma Discharge Inside Tube
     if (highVoltageDC && pumpPower > 0) {
-      const plasmaAlpha = (pumpPower / 100) * 0.55;
+      const plasmaAlpha = (pumpPower / 100) * 0.65;
       const plasmaGrad = ctx.createRadialGradient(
         tubeLeft + tubeWidth / 2,
         centerY,
@@ -1234,7 +1253,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         tubeWidth / 2
       );
       plasmaGrad.addColorStop(0, `rgba(244, 63, 94, ${plasmaAlpha})`);
-      plasmaGrad.addColorStop(0.7, `rgba(239, 68, 68, ${plasmaAlpha * 0.6})`);
+      plasmaGrad.addColorStop(0.5, `rgba(239, 68, 68, ${plasmaAlpha * 0.7})`);
       plasmaGrad.addColorStop(1, 'rgba(239, 68, 68, 0)');
 
       ctx.fillStyle = plasmaGrad;
@@ -1244,36 +1263,32 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     }
 
     // 4. Optical Cavity Mirrors
-    // Left Mirror R1: Total Reflector 99.9%
+    // Left Mirror R1: Total Reflector 99.9% (Steel metallic cylinder)
     const r1X = tubeLeft - 14;
+    drawMetallicCylinder(ctx, r1X, centerY - 55, 14, 110, 'steel', 'vertical');
+
+    // Mirror face dielectric reflection
     ctx.save();
-    ctx.fillStyle = '#94a3b8';
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.roundRect(r1X, centerY - 55, 14, 110, 4);
-    ctx.fill();
-    ctx.stroke();
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.fillRect(r1X + 11, centerY - 50, 2, 100);
+    ctx.restore();
 
     ctx.fillStyle = '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('R₁ = 99.9%', r1X + 7, centerY + 70);
     ctx.fillText(isArabic ? 'عاكسة تماماً' : 'Total Reflector', r1X + 7, centerY + 82);
-    ctx.restore();
 
     // Right Mirror R2: Output Coupler 98% (tilted slightly if misaligned)
     const r2X = tubeRight;
     ctx.save();
     ctx.translate(r2X + 7, centerY);
     ctx.rotate(cavityAlignment * 0.03); // visualize tilt
-    ctx.fillStyle = '#94a3b8';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.roundRect(-7, -55, 14, 110, 4);
-    ctx.fill();
-    ctx.stroke();
+    drawMetallicCylinder(ctx, -7, -55, 14, 110, 'brass', 'vertical');
+
+    // Partial reflection sheen
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+    ctx.fillRect(-6, -50, 2, 100);
 
     ctx.fillStyle = '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
@@ -1298,13 +1313,13 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.stroke();
 
       // Longitudinal standing wave envelope
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       const waveCount = 28;
       for (let k = 0; k <= waveCount; k++) {
         const wx = tubeLeft + (k / waveCount) * tubeWidth;
-        const wy = centerY + Math.sin((k / waveCount) * Math.PI * 14 + sim.laserPhase) * 12;
+        const wy = centerY + Math.sin((k / waveCount) * Math.PI * 14 + t * 20) * 12;
         if (k === 0) ctx.moveTo(wx, wy);
         else ctx.lineTo(wx, wy);
       }
@@ -1313,37 +1328,13 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
       // Output Collimated Coherent Beam (Exiting right through R2)
       const beamRight = width - 20;
-      const beamGrad = ctx.createLinearGradient(tubeRight + 14, centerY, beamRight, centerY);
-      beamGrad.addColorStop(0, 'rgba(239, 68, 68, 0.95)');
-      beamGrad.addColorStop(1, 'rgba(239, 68, 68, 0.85)');
-
-      ctx.save();
-      ctx.shadowColor = '#ef4444';
-      ctx.shadowBlur = 20;
-      ctx.fillStyle = beamGrad;
-      ctx.fillRect(tubeRight + 14, centerY - 5, beamRight - (tubeRight + 14), 10);
-
-      // Core white laser beam center
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(tubeRight + 14, centerY - 1.5, beamRight - (tubeRight + 14), 3);
-      ctx.restore();
+      drawVolumetricBeam(ctx, tubeRight + 14, centerY, beamRight, centerY, '#ef4444', 3.5, 20);
 
       // Target Optical Detector Screen on far right
-      ctx.fillStyle = '#0f172a';
-      ctx.strokeStyle = '#ef4444';
-      ctx.lineWidth = 2;
-      ctx.fillRect(beamRight - 8, centerY - 35, 12, 70);
-      ctx.strokeRect(beamRight - 8, centerY - 35, 12, 70);
+      drawMetallicCylinder(ctx, beamRight - 8, centerY - 35, 12, 70, 'steel', 'vertical');
 
       // Gaussian Spot on Screen
-      ctx.save();
-      ctx.shadowColor = '#ef4444';
-      ctx.shadowBlur = 25;
-      ctx.fillStyle = '#ffffff';
-      ctx.beginPath();
-      ctx.arc(beamRight - 2, centerY, 5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+      drawGlowingParticle(ctx, beamRight - 2, centerY, 5, '#ffffff', 22);
 
       // Beam Wavelength & Power Banner
       ctx.fillStyle = '#ef4444';
@@ -1356,17 +1347,10 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       );
     }
 
-    // 6. Photons Streaming Back and Forth
+    // 6. Photons Streaming Back and Forth with glowing flare
     for (const p of sim.photons) {
       if (p.mode !== 'laser') continue;
-      ctx.save();
-      ctx.fillStyle = '#ffffff';
-      ctx.shadowColor = p.colorHex;
-      ctx.shadowBlur = 8;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+      drawGlowingParticle(ctx, p.x, p.y, 3.5, p.colorHex || '#ef4444', 10);
     }
 
     // 7. He-Ne 4-Level Step Pipeline Card at Bottom
@@ -1730,6 +1714,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         lang={lang}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
+        animated={true}
         onRender={handleRenderCanvas}
       />
     </VirtualLabShell>

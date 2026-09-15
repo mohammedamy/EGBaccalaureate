@@ -8,6 +8,10 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawVolumetricBeam,
+  drawMetallicCylinder,
+  drawProceduralFlame,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -729,33 +733,62 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
     }
   }, [params, state, isArabic]);
 
-  // High-DPI Canvas Rendering Engine (60–120 FPS)
+  // High-DPI Canvas Rendering Engine (Continuous 60 FPS Realistic Rendering)
   const renderSimulation = (
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
-    _vState: LabViewportState
+    _vState: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    frame: number = 0
   ) => {
-    animFrameRef.current += 1;
+    const t = (time ? time : performance.now()) * 0.001;
+    animFrameRef.current = frame || (animFrameRef.current + 1);
 
-    // Background: Dark Optical Bench
-    ctx.fillStyle = '#050811';
+    // Background: Dark Optical Bench with subtle ambient vignette
+    const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, Math.max(width, height) * 0.75);
+    bgGrad.addColorStop(0, '#0a0f1d');
+    bgGrad.addColorStop(1, '#020409');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
     if (params.opticsMode === 'refraction') {
-      // --- MODE A: Snell's Law & Refraction / TIR ---
+      // --- MODE A: Snell's Law & Refraction / TIR (Realistic Optical Block) ---
       const cy = height / 2;
       const cx = width / 2;
 
-      // Medium 1 (Top)
-      ctx.fillStyle = '#0a1329';
+      // Medium 1 (Top: e.g. Air n1)
+      const topGrad = ctx.createLinearGradient(0, 0, 0, cy);
+      topGrad.addColorStop(0, 'rgba(10, 20, 42, 0.95)');
+      topGrad.addColorStop(1, 'rgba(15, 29, 61, 0.7)');
+      ctx.fillStyle = topGrad;
       ctx.fillRect(0, 0, width, cy);
 
-      // Medium 2 (Bottom)
-      ctx.fillStyle = '#0f274a';
-      ctx.fillRect(0, cy, width, height - cy);
+      // Medium 2 (Bottom: Realistic Borosilicate Glass Slab n2)
+      const slabTop = cy;
+      const slabH = height - cy - 25;
+      const glassGrad = ctx.createLinearGradient(0, slabTop, 0, slabTop + slabH);
+      glassGrad.addColorStop(0, 'rgba(14, 116, 144, 0.35)');
+      glassGrad.addColorStop(0.5, 'rgba(15, 23, 42, 0.75)');
+      glassGrad.addColorStop(1, 'rgba(6, 182, 212, 0.25)');
+      ctx.fillStyle = glassGrad;
+      ctx.fillRect(40, slabTop, width - 80, slabH);
 
-      // Interface boundary
+      // Glass bevel borders & polished edges
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(40, slabTop, width - 80, slabH);
+
+      // Glass internal caustic reflection highlight line
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(45, slabTop + 2);
+      ctx.lineTo(width - 45, slabTop + 2);
+      ctx.stroke();
+
+      // Optical Bench Interface Boundary Line
       ctx.strokeStyle = '#38bdf8';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -763,13 +796,13 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       ctx.lineTo(width, cy);
       ctx.stroke();
 
-      // Normal line (dashed)
-      ctx.strokeStyle = '#64748b';
+      // Normal Line (dashed with precision glow)
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.5)';
       ctx.lineWidth = 1.5;
-      ctx.setLineDash([6, 5]);
+      ctx.setLineDash([5, 5]);
       ctx.beginPath();
-      ctx.moveTo(cx, 25);
-      ctx.lineTo(cx, height - 25);
+      ctx.moveTo(cx, 30);
+      ctx.lineTo(cx, height - 35);
       ctx.stroke();
       ctx.setLineDash([]);
 
@@ -777,114 +810,156 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       const beamColor = wavelengthToRGB(params.refractionWavelengthNm);
       const rayLen = Math.min(width, height) * 0.44;
 
-      // Incident ray (from top-left towards center)
+      // Incident ray geometry
       const incStartX = cx - rayLen * Math.sin(incRad);
       const incStartY = cy - rayLen * Math.cos(incRad);
 
-      ctx.strokeStyle = beamColor;
+      // Collimated Laser Housing Emitter at (incStartX, incStartY)
+      ctx.save();
+      ctx.translate(incStartX, incStartY);
+      const emitterAngle = Math.atan2(cy - incStartY, cx - incStartX);
+      ctx.rotate(emitterAngle);
+      drawMetallicCylinder(ctx, -28, -8, 28, 16, 'steel');
+      // Laser aperture ring & glow
+      ctx.fillStyle = beamColor;
       ctx.shadowColor = beamColor;
       ctx.shadowBlur = 12;
-      ctx.lineWidth = 3;
       ctx.beginPath();
-      ctx.moveTo(incStartX, incStartY);
-      ctx.lineTo(cx, cy);
-      ctx.stroke();
-
-      // Arrow on incident ray
-      const midIncX = (incStartX + cx) / 2;
-      const midIncY = (incStartY + cy) / 2;
-      ctx.fillStyle = beamColor;
-      ctx.beginPath();
-      ctx.arc(midIncX, midIncY, 4, 0, Math.PI * 2);
+      ctx.ellipse(0, 0, 3, 7, 0, 0, Math.PI * 2);
       ctx.fill();
+      ctx.restore();
+
+      // Volumetric Incident Laser Beam
+      drawVolumetricBeam(ctx, incStartX, incStartY, cx, cy, beamColor, 3.5, 14);
+
+      // 60 FPS Traveling Photon Wavepackets along incident beam
+      const numPackets = 4;
+      for (let i = 0; i < numPackets; i++) {
+        const prog = ((t * 1.5 + i / numPackets) % 1);
+        const px = incStartX + (cx - incStartX) * prog;
+        const py = incStartY + (cy - incStartY) * prog;
+        drawGlowingParticle(ctx, px, py, 2.8, beamColor, 10);
+      }
+
+      // Incident Spot at Interface
+      ctx.save();
+      ctx.shadowColor = beamColor;
+      ctx.shadowBlur = 16;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
 
       // Reflected ray (Law of Reflection: angle = incidentAngle)
       const refEndX = cx + rayLen * Math.sin(incRad);
       const refEndY = cy - rayLen * Math.cos(incRad);
-      ctx.strokeStyle = state.isTIR ? beamColor : 'rgba(255, 255, 255, 0.45)';
-      ctx.lineWidth = state.isTIR ? 3.5 : 1.5;
-      ctx.beginPath();
-      ctx.moveTo(cx, cy);
-      ctx.lineTo(refEndX, refEndY);
-      ctx.stroke();
+      const refBeamWidth = state.isTIR ? 3.5 : 1.8;
+      const refGlow = state.isTIR ? 16 : 8;
+      drawVolumetricBeam(ctx, cx, cy, refEndX, refEndY, beamColor, refBeamWidth, refGlow);
+
+      if (state.isTIR) {
+        for (let i = 0; i < numPackets; i++) {
+          const prog = ((t * 1.5 + i / numPackets) % 1);
+          const px = cx + (refEndX - cx) * prog;
+          const py = cy + (refEndY - cy) * prog;
+          drawGlowingParticle(ctx, px, py, 2.8, beamColor, 10);
+        }
+      }
 
       // Refracted ray (if not TIR)
       if (!state.isTIR) {
         const refrRad = (state.refractedAngleDeg * Math.PI) / 180;
-        const refrEndX = cx + rayLen * Math.sin(refrRad);
-        const refrEndY = cy + rayLen * Math.cos(refrRad);
+        const refrLen = Math.min(rayLen, slabH / Math.cos(refrRad));
+        const refrEndX = cx + refrLen * Math.sin(refrRad);
+        const refrEndY = cy + refrLen * Math.cos(refrRad);
 
-        ctx.strokeStyle = beamColor;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(refrEndX, refrEndY);
-        ctx.stroke();
+        drawVolumetricBeam(ctx, cx, cy, refrEndX, refrEndY, beamColor, 3.2, 12);
 
-        // Arrow on refracted ray
-        const midRefrX = (cx + refrEndX) / 2;
-        const midRefrY = (cy + refrEndY) / 2;
-        ctx.fillStyle = beamColor;
-        ctx.beginPath();
-        ctx.arc(midRefrX, midRefrY, 4, 0, Math.PI * 2);
-        ctx.fill();
+        // Wave packets moving at slower speed inside denser medium (v = c / n2)
+        const nRel = params.n2 / params.n1;
+        for (let i = 0; i < numPackets; i++) {
+          const prog = ((t * (1.5 / nRel) + i / numPackets) % 1);
+          const px = cx + (refrEndX - cx) * prog;
+          const py = cy + (refrEndY - cy) * prog;
+          drawGlowingParticle(ctx, px, py, 2.5, beamColor, 8);
+        }
       }
 
-      ctx.shadowBlur = 0;
-
       // Labels on media
-      ctx.fillStyle = '#cbd5e1';
+      ctx.fillStyle = '#e2e8f0';
       ctx.font = 'bold 12px Inter, sans-serif';
       ctx.fillText(
-        isArabic ? `الوسط 1 (n₁ = ${params.n1.toFixed(2)})` : `Medium 1 (n₁ = ${params.n1.toFixed(2)})`,
-        25,
+        isArabic ? `الوسط ١ (n₁ = ${params.n1.toFixed(2)})` : `Medium 1: Incident (n₁ = ${params.n1.toFixed(2)})`,
+        45,
         35
       );
       ctx.fillText(
         isArabic
-          ? `الوسط 2 (n₂ = ${params.n2.toFixed(2)})`
-          : `Medium 2 (n₂ = ${params.n2.toFixed(2)})`,
-        25,
+          ? `الوسط ٢ (قالب الزجاج n₂ = ${params.n2.toFixed(2)})`
+          : `Medium 2: Optical Glass (n₂ = ${params.n2.toFixed(2)})`,
+        45,
         cy + 35
       );
 
-      // Angle arc indicators
+      // Angle arc indicators with glowing readout
       ctx.strokeStyle = '#facc15';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.arc(cx, cy, 35, -Math.PI / 2 - incRad, -Math.PI / 2);
+      ctx.arc(cx, cy, 38, -Math.PI / 2 - incRad, -Math.PI / 2);
       ctx.stroke();
 
       ctx.fillStyle = '#facc15';
-      ctx.font = '11px monospace';
-      ctx.fillText(`θ₁=${params.incidentAngleDeg}°`, cx - 65, cy - 40);
+      ctx.font = 'bold 11px monospace';
+      ctx.fillText(`θ₁ = ${params.incidentAngleDeg}°`, cx - 75, cy - 42);
 
       if (!state.isTIR) {
         const refrRad = (state.refractedAngleDeg * Math.PI) / 180;
         ctx.strokeStyle = '#38bdf8';
         ctx.beginPath();
-        ctx.arc(cx, cy, 35, Math.PI / 2 - refrRad, Math.PI / 2);
+        ctx.arc(cx, cy, 38, Math.PI / 2 - refrRad, Math.PI / 2);
         ctx.stroke();
         ctx.fillStyle = '#38bdf8';
-        ctx.fillText(`θ₂=${state.refractedAngleDeg.toFixed(1)}°`, cx + 25, cy + 50);
+        ctx.fillText(`θ₂ = ${state.refractedAngleDeg.toFixed(1)}°`, cx + 25, cy + 52);
       } else {
         ctx.fillStyle = '#ef4444';
-        ctx.font = 'black 14px Inter, sans-serif';
+        ctx.font = 'bold 13px Inter, sans-serif';
         ctx.fillText(
           isArabic
             ? '⚡ انعكاس كلي تام (TIR: θ₁ > θc)'
             : '⚡ TOTAL INTERNAL REFLECTION (TIR: θ₁ > θc)',
-          cx + 20,
+          cx + 25,
           cy - 30
         );
       }
     } else if (params.opticsMode === 'thin_lens') {
-      // --- MODE B: Thin Lens Optical Bench ---
-      const cy = height / 2;
+      // --- MODE B: Thin Lens Optical Bench with Realistic Glass Lens & Flame ---
+      const cy = height / 2 - 20;
       const cx = width / 2;
+      const railY = height - 55;
 
-      // Principal axis
-      ctx.strokeStyle = '#475569';
+      // 1. Heavy Metallic Optical Bench Rail
+      drawMetallicCylinder(ctx, 25, railY, width - 50, 22, 'steel');
+
+      // Rail Metric Scale Marks & Numbers
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1;
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '8px monospace';
+      ctx.textAlign = 'center';
+      for (let markX = 35; markX < width - 35; markX += 20) {
+        ctx.beginPath();
+        ctx.moveTo(markX, railY);
+        ctx.lineTo(markX, railY + 6);
+        ctx.stroke();
+        if ((markX - 35) % 80 === 0) {
+          const cmVal = Math.round((markX - cx) / (Math.min(width, 900) / 120));
+          ctx.fillText(`${cmVal}cm`, markX, railY + 16);
+        }
+      }
+
+      // Principal axis line
+      ctx.strokeStyle = 'rgba(100, 116, 139, 0.6)';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(25, cy);
@@ -892,54 +967,55 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       ctx.stroke();
 
       // Optical Center C
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = '#38bdf8';
       ctx.beginPath();
-      ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+      ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
       ctx.fill();
-      ctx.font = '11px Inter, sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = 'bold 11px Inter, sans-serif';
       ctx.fillText('C', cx - 4, cy + 18);
 
-      // Lens vertical body
+      // 2. Realistic 3D Glass Lens Mount & Glass Body
       const isConvex = params.focalLengthCm > 0;
-      ctx.strokeStyle = '#38bdf8';
-      ctx.lineWidth = 3.5;
-      ctx.beginPath();
-      ctx.moveTo(cx, 40);
-      ctx.lineTo(cx, height - 40);
-      ctx.stroke();
+      const lensH = height - 150;
+      const lensTop = cy - lensH / 2;
 
-      // Lens arrowheads (Outward arrows for convex, inverted inward for concave)
-      ctx.fillStyle = '#38bdf8';
+      // Metallic mounting post to rail
+      drawMetallicCylinder(ctx, cx - 4, cy + lensH / 2, 8, railY - (cy + lensH / 2), 'steel');
+
+      // Realistic 3D Glass Lens Profile
+      ctx.save();
+      const lensHalfW = isConvex ? 18 : 8;
+      ctx.beginPath();
       if (isConvex) {
-        // Top arrowhead pointing up
-        ctx.beginPath();
-        ctx.moveTo(cx, 28);
-        ctx.lineTo(cx - 9, 44);
-        ctx.lineTo(cx + 9, 44);
-        ctx.closePath();
-        ctx.fill();
-        // Bottom arrowhead pointing down
-        ctx.beginPath();
-        ctx.moveTo(cx, height - 28);
-        ctx.lineTo(cx - 9, height - 44);
-        ctx.lineTo(cx + 9, height - 44);
-        ctx.closePath();
-        ctx.fill();
+        // Biconvex Lens (curved outward)
+        ctx.moveTo(cx, lensTop);
+        ctx.quadraticCurveTo(cx + lensHalfW, cy, cx, lensTop + lensH);
+        ctx.quadraticCurveTo(cx - lensHalfW, cy, cx, lensTop);
       } else {
-        // Concave inward arrows
-        ctx.beginPath();
-        ctx.moveTo(cx - 9, 28);
-        ctx.lineTo(cx, 44);
-        ctx.lineTo(cx + 9, 28);
-        ctx.closePath();
-        ctx.fill();
-        ctx.beginPath();
-        ctx.moveTo(cx - 9, height - 28);
-        ctx.lineTo(cx, height - 44);
-        ctx.lineTo(cx + 9, height - 28);
-        ctx.closePath();
-        ctx.fill();
+        // Biconcave Lens (curved inward)
+        ctx.moveTo(cx - 12, lensTop);
+        ctx.lineTo(cx + 12, lensTop);
+        ctx.quadraticCurveTo(cx + 3, cy, cx + 12, lensTop + lensH);
+        ctx.lineTo(cx - 12, lensTop + lensH);
+        ctx.quadraticCurveTo(cx - 3, cy, cx - 12, lensTop);
       }
+      ctx.closePath();
+
+      // Translucent cyan glass gradient with specular reflection highlight
+      const glassGrad = ctx.createLinearGradient(cx - 15, cy, cx + 15, cy);
+      glassGrad.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
+      glassGrad.addColorStop(0.4, 'rgba(255, 255, 255, 0.45)');
+      glassGrad.addColorStop(1, 'rgba(56, 189, 248, 0.35)');
+      ctx.fillStyle = glassGrad;
+      ctx.fill();
+
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.4)';
+      ctx.shadowBlur = 10;
+      ctx.stroke();
+      ctx.restore();
 
       // Scaling: pixels per centimeter
       const pxPerCm = Math.min(width, 900) / 120;
@@ -951,7 +1027,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.beginPath();
         ctx.arc(x, cy, 3.5, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = '#cbd5e1';
         ctx.font = 'bold 10px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(label, x, cy + 16);
@@ -962,28 +1038,44 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       drawPoint(cx - 2 * fPx, '2F₁');
       drawPoint(cx + 2 * fPx, '2F₂');
 
-      // Object Luminous Arrow (Green)
+      // 3. Luminous Laboratory Candle (Object) on Bench Slider
       const objXPx = cx - params.objectDistanceCm * pxPerCm;
       const objHPx = params.objectHeightCm * pxPerCm;
       const objYPx = cy - objHPx;
 
-      ctx.strokeStyle = '#22c55e';
-      ctx.lineWidth = 3.5;
+      // Candle slider mount on rail
+      drawMetallicCylinder(ctx, objXPx - 14, railY - 12, 28, 12, 'steel');
+      // Candle white wax body
+      const candleBaseY = cy;
+      const waxH = Math.max(15, objHPx * 0.4);
+      const waxW = 10;
+      const waxGrad = ctx.createLinearGradient(objXPx - waxW / 2, 0, objXPx + waxW / 2, 0);
+      waxGrad.addColorStop(0, '#e2e8f0');
+      waxGrad.addColorStop(0.5, '#ffffff');
+      waxGrad.addColorStop(1, '#cbd5e1');
+      ctx.fillStyle = waxGrad;
+      ctx.fillRect(objXPx - waxW / 2, candleBaseY - waxH, waxW, waxH);
+      // Wick
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(objXPx, candleBaseY - waxH);
+      ctx.lineTo(objXPx, candleBaseY - waxH - 4);
+      ctx.stroke();
+
+      // Procedural Flickering Laboratory Candle Flame
+      const flameH = Math.max(18, objHPx * 0.6);
+      drawProceduralFlame(ctx, objXPx, candleBaseY - waxH - 4, flameH, t, 'yellow');
+
+      // Arrow indicator for quantitative height measurement
+      ctx.strokeStyle = 'rgba(34, 197, 94, 0.7)';
+      ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(objXPx, cy);
       ctx.lineTo(objXPx, objYPx);
       ctx.stroke();
 
-      // Object Arrowhead
-      ctx.fillStyle = '#22c55e';
-      ctx.beginPath();
-      ctx.moveTo(objXPx, objYPx - 5);
-      ctx.lineTo(objXPx - 5, objYPx + 6);
-      ctx.lineTo(objXPx + 5, objYPx + 6);
-      ctx.closePath();
-      ctx.fill();
-
-      // Image Luminous Arrow
+      // 4. Image Formation & Ray Tracing
       const di = state.imageDistanceCm;
       const hi = params.objectHeightCm * state.magnification;
 
@@ -993,31 +1085,21 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         const imgYPx = cy - imgHPx;
         const isReal = di > 0;
 
-        // 1. Parallel Ray (Object tip -> Lens -> F2)
-        ctx.strokeStyle = 'rgba(250, 204, 21, 0.85)';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(objXPx, objYPx);
-        ctx.lineTo(cx, objYPx);
+        // Parallel Ray (Object Flame Tip -> Lens -> F2)
+        drawVolumetricBeam(ctx, objXPx, objYPx, cx, objYPx, '#facc15', 1.8, 8);
         if (isConvex) {
-          ctx.lineTo(imgXPx, imgYPx);
+          drawVolumetricBeam(ctx, cx, objYPx, imgXPx, imgYPx, '#facc15', 1.8, 8);
         } else {
-          // Diverging ray
-          ctx.lineTo(width - 25, cy + (objYPx - cy) * 0.5);
+          drawVolumetricBeam(ctx, cx, objYPx, width - 25, cy + (objYPx - cy) * 0.5, '#facc15', 1.8, 8);
         }
-        ctx.stroke();
 
-        // 2. Central Ray (Object tip -> Optical Center C -> Image)
-        ctx.strokeStyle = 'rgba(249, 115, 22, 0.85)';
-        ctx.beginPath();
-        ctx.moveTo(objXPx, objYPx);
-        ctx.lineTo(cx, cy);
-        ctx.lineTo(imgXPx, imgYPx);
-        ctx.stroke();
+        // Central Ray (Object Flame Tip -> Optical Center C -> Image)
+        drawVolumetricBeam(ctx, objXPx, objYPx, cx, cy, '#f97316', 1.8, 8);
+        drawVolumetricBeam(ctx, cx, cy, imgXPx, imgYPx, '#f97316', 1.8, 8);
 
         // Virtual extensions if virtual image (dashed lines)
         if (!isReal) {
-          ctx.strokeStyle = 'rgba(168, 85, 247, 0.6)';
+          ctx.strokeStyle = 'rgba(168, 85, 247, 0.7)';
           ctx.setLineDash([4, 4]);
           ctx.beginPath();
           ctx.moveTo(cx, objYPx);
@@ -1026,65 +1108,111 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           ctx.setLineDash([]);
         }
 
-        // Draw Image Arrow (Magenta if real, Violet if virtual)
+        // Real Image Projection Screen on Bench Rail
+        if (isReal) {
+          drawMetallicCylinder(ctx, imgXPx - 12, railY - 12, 24, 12, 'steel');
+          // Frosted screen board
+          ctx.fillStyle = 'rgba(241, 245, 249, 0.9)';
+          ctx.strokeStyle = '#94a3b8';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(imgXPx - 2, cy - Math.abs(imgHPx) - 15, 4, Math.abs(imgHPx) + 25, 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // Inverted formed candle flame projected on screen
+          ctx.save();
+          ctx.translate(imgXPx, cy);
+          ctx.scale(1, -1);
+          drawProceduralFlame(ctx, 0, 0, Math.abs(imgHPx) * 0.7, t + 1.5, 'yellow');
+          ctx.restore();
+        } else {
+          // Virtual shimmering phantom flame
+          ctx.save();
+          ctx.globalAlpha = 0.65;
+          drawProceduralFlame(ctx, imgXPx, cy, Math.abs(imgHPx) * 0.7, t + 2.0, 'yellow');
+          ctx.restore();
+        }
+
+        // Image measurement arrow
         ctx.strokeStyle = isReal ? '#ec4899' : '#a855f7';
-        ctx.lineWidth = 3.5;
+        ctx.lineWidth = 2.5;
         ctx.beginPath();
         ctx.moveTo(imgXPx, cy);
         ctx.lineTo(imgXPx, imgYPx);
         ctx.stroke();
-
-        // Image Arrowhead
-        ctx.fillStyle = isReal ? '#ec4899' : '#a855f7';
-        const arrowDir = imgHPx < 0 ? 1 : -1;
-        ctx.beginPath();
-        ctx.moveTo(imgXPx, imgYPx - arrowDir * 5);
-        ctx.lineTo(imgXPx - 5, imgYPx + arrowDir * 6);
-        ctx.lineTo(imgXPx + 5, imgYPx + arrowDir * 6);
-        ctx.closePath();
-        ctx.fill();
       }
 
       ctx.textAlign = 'left';
     } else {
-      // --- MODE C: Young's Double-Slit Interference ---
+      // --- MODE C: Young's Double-Slit Wave Interference (Continuous 60 FPS) ---
       const cy = height / 2;
-      const slitX = 130;
-      const screenX = width - 110;
+      const slitX = 145;
+      const screenX = width - 120;
       const laserColor = wavelengthToRGB(params.wavelengthNm);
 
-      // Slit plate barrier
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(slitX - 5, 25, 10, height - 50);
+      // 1. Photorealistic He-Ne Coherent Laser Tube on Left
+      const laserLeft = 15;
+      const laserWidth = slitX - 45;
+      const laserH = 34;
+      const laserTop = cy - laserH / 2;
+
+      // Laser housing
+      drawMetallicCylinder(ctx, laserLeft, laserTop, laserWidth, laserH, 'steel');
+      // Internal gas discharge bore glow
+      ctx.fillStyle = laserColor;
+      ctx.shadowColor = laserColor;
+      ctx.shadowBlur = 14;
+      ctx.fillRect(laserLeft + 8, cy - 2, laserWidth - 12, 4);
+
+      // Collimator lens aperture
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(laserLeft + laserWidth - 4, cy - 6, 4, 12);
+      ctx.shadowBlur = 0;
+
+      // 2. Slit Plate Barrier
+      drawMetallicCylinder(ctx, slitX - 6, 25, 12, height - 50, 'steel');
 
       const dPixels = Math.min(45, (params.slitSeparationUm / 500) * 45);
       const slit1Y = cy - dPixels / 2;
       const slit2Y = cy + dPixels / 2;
 
       // Aperture cutouts
-      ctx.clearRect(slitX - 6, slit1Y - 2.5, 12, 5);
-      ctx.clearRect(slitX - 6, slit2Y - 2.5, 12, 5);
+      ctx.clearRect(slitX - 7, slit1Y - 2.5, 14, 5);
+      ctx.clearRect(slitX - 7, slit2Y - 2.5, 14, 5);
 
-      // Coherent Laser Source & Planar Wavefronts
-      ctx.strokeStyle = laserColor;
+      // Slit illuminated edges
+      ctx.fillStyle = laserColor;
       ctx.shadowColor = laserColor;
-      ctx.shadowBlur = 10;
-      ctx.lineWidth = 2;
+      ctx.shadowBlur = 8;
+      ctx.fillRect(slitX - 2, slit1Y - 2, 4, 4);
+      ctx.fillRect(slitX - 2, slit2Y - 2, 4, 4);
+      ctx.shadowBlur = 0;
 
-      // Planar waves moving left to right
-      const wavePhase = (animFrameRef.current * 0.8) % 18;
-      for (let x = 25 + wavePhase; x < slitX; x += 18) {
+      // 3. Continuous 60 FPS Planar Wavefronts (Laser to Slits)
+      ctx.strokeStyle = laserColor;
+      ctx.lineWidth = 2;
+      const wavePhase = (t * 50) % 18;
+      for (let x = laserLeft + laserWidth + wavePhase; x < slitX; x += 18) {
+        ctx.save();
+        ctx.shadowColor = laserColor;
+        ctx.shadowBlur = 6;
         ctx.beginPath();
-        ctx.moveTo(x, cy - 65);
-        ctx.lineTo(x, cy + 65);
+        ctx.moveTo(x, cy - 50);
+        ctx.lineTo(x, cy + 50);
         ctx.stroke();
+        ctx.restore();
       }
 
-      // Circular Interference Wave Ripples from Slit 1 and Slit 2
-      ctx.lineWidth = 1.2;
+      // 4. Circular Wave Interference Ripples from Slit 1 and Slit 2
+      ctx.lineWidth = 1.3;
       const maxRadius = screenX - slitX;
-      for (let r = wavePhase; r < maxRadius; r += 20) {
-        if (r < 10) continue;
+      for (let r = wavePhase; r < maxRadius; r += 18) {
+        if (r < 8) continue;
+        const waveAlpha = Math.max(0.08, 1 - r / maxRadius);
+        ctx.strokeStyle = laserColor;
+        ctx.globalAlpha = waveAlpha;
+
         ctx.beginPath();
         ctx.arc(slitX, slit1Y, r, -Math.PI / 3.2, Math.PI / 3.2);
         ctx.stroke();
@@ -1093,13 +1221,14 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.arc(slitX, slit2Y, r, -Math.PI / 3.2, Math.PI / 3.2);
         ctx.stroke();
       }
+      ctx.globalAlpha = 1.0;
 
-      // Observation Screen (Right Wall)
-      ctx.fillStyle = '#090d16';
-      ctx.fillRect(screenX, 25, 80, height - 50);
-      ctx.strokeStyle = '#475569';
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(screenX, 25, 80, height - 50);
+      // 5. Observation Screen (Phosphor Screen on Right)
+      ctx.fillStyle = '#060a12';
+      ctx.fillRect(screenX, 25, 85, height - 50);
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(screenX, 25, 85, height - 50);
 
       // High-resolution Interference Fringes on Screen Wall
       const pxPerMm = 38; // Screen magnification scale
@@ -1116,13 +1245,12 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
         ctx.fillStyle = laserColor;
         ctx.globalAlpha = intensity;
-        ctx.fillRect(screenX + 2, py, 76, 1);
+        ctx.fillRect(screenX + 2, py, 81, 1);
       }
       ctx.globalAlpha = 1.0;
-      ctx.shadowBlur = 0;
 
-      // Central Fringe Marker & Line
-      ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+      // Central Fringe Guide Line
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
       ctx.moveTo(slitX, cy);
@@ -1130,10 +1258,11 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Photodiode Probe Cursor on Screen
+      // Photodiode Optical Sensor Cursor on Screen
+      drawMetallicCylinder(ctx, screenX + 35, cy - 8, 16, 16, 'steel');
       ctx.fillStyle = '#38bdf8';
       ctx.beginPath();
-      ctx.arc(screenX + 40, cy, 5, 0, Math.PI * 2);
+      ctx.arc(screenX + 43, cy, 4, 0, Math.PI * 2);
       ctx.fill();
     }
   };
@@ -1222,6 +1351,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         lang={lang ?? 'ar'}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
+        animated={true}
         onRender={renderSimulation}
       >
         {/* Real-Time Live Status Watermark */}

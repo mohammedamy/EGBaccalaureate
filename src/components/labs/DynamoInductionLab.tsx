@@ -8,6 +8,9 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawMetallicCylinder,
+  drawAnalogMeterGauge,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -372,74 +375,97 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     ctx: CanvasRenderingContext2D,
     w: number,
     h: number,
-    vp: LabViewportState
+    vp: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    _frame: number = 0
   ) => {
+    const t = (time ? time : performance.now()) * 0.001;
     // Dark background
     ctx.fillStyle = '#020617';
     ctx.fillRect(0, 0, w, h);
 
     ctx.save();
-    ctx.translate(w / 2 + vp.panX, h / 2 + vp.panY);
+    ctx.translate(w / 2 + vp.panX, h / 2 - 20 + vp.panY);
     ctx.scale(vp.zoom, vp.zoom);
 
-    // 1. Draw Magnetic Poles (North Red, South Blue)
+    // 1. Draw Magnetic Poles (Concave Pole Shoes: North Red, South Blue)
     const poleW = 90;
-    const poleH = 140;
+    const poleH = 150;
     const poleGap = 260;
 
-    // North Pole (Left)
+    // North Pole (Left) with concave pole shoe
     const nX = -poleGap / 2 - poleW;
     const nGrad = ctx.createLinearGradient(nX, 0, nX + poleW, 0);
-    nGrad.addColorStop(0, '#991b1b');
+    nGrad.addColorStop(0, '#7f1d1d');
+    nGrad.addColorStop(0.7, '#dc2626');
     nGrad.addColorStop(1, '#ef4444');
     ctx.fillStyle = nGrad;
-    ctx.fillRect(nX, -poleH / 2, poleW, poleH);
+    ctx.beginPath();
+    ctx.moveTo(nX, -poleH / 2);
+    ctx.lineTo(nX + poleW, -poleH / 2);
+    // Concave arc facing coil
+    ctx.arcTo(nX + poleW - 14, 0, nX + poleW, poleH / 2, poleH * 0.6);
+    ctx.lineTo(nX + poleW, poleH / 2);
+    ctx.lineTo(nX, poleH / 2);
+    ctx.closePath();
+    ctx.fill();
     ctx.strokeStyle = '#f87171';
     ctx.lineWidth = 2;
-    ctx.strokeRect(nX, -poleH / 2, poleW, poleH);
+    ctx.stroke();
 
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 28px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('N', nX + poleW / 2, 0);
+    ctx.fillText('N', nX + poleW / 2 - 8, 0);
 
-    // South Pole (Right)
+    // South Pole (Right) with concave pole shoe
     const sX = poleGap / 2;
     const sGrad = ctx.createLinearGradient(sX, 0, sX + poleW, 0);
-    sGrad.addColorStop(0, '#3b82f6');
+    sGrad.addColorStop(0, '#2563eb');
+    sGrad.addColorStop(0.3, '#1d4ed8');
     sGrad.addColorStop(1, '#1e3a8a');
     ctx.fillStyle = sGrad;
-    ctx.fillRect(sX, -poleH / 2, poleW, poleH);
+    ctx.beginPath();
+    ctx.moveTo(sX + poleW, -poleH / 2);
+    ctx.lineTo(sX, -poleH / 2);
+    // Concave arc facing coil
+    ctx.arcTo(sX + 14, 0, sX, poleH / 2, poleH * 0.6);
+    ctx.lineTo(sX, poleH / 2);
+    ctx.lineTo(sX + poleW, poleH / 2);
+    ctx.closePath();
+    ctx.fill();
     ctx.strokeStyle = '#60a5fa';
-    ctx.strokeRect(sX, -poleH / 2, poleW, poleH);
+    ctx.lineWidth = 2;
+    ctx.stroke();
 
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('S', sX + poleW / 2, 0);
+    ctx.fillText('S', sX + poleW / 2 + 8, 0);
 
-    // 2. Magnetic Field Lines (Left to Right, N to S)
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+    // 2. Magnetic Field Lines (Left to Right, N to S with flux glow)
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
     ctx.lineWidth = 1.5;
     const numLines = 7;
     for (let i = 0; i < numLines; i++) {
-      const lineY = -poleH / 2 + (poleH / (numLines - 1)) * i;
+      const lineY = -poleH / 2 + 15 + ((poleH - 30) / (numLines - 1)) * i;
       ctx.beginPath();
-      ctx.moveTo(-poleGap / 2, lineY);
-      ctx.lineTo(poleGap / 2, lineY);
+      ctx.moveTo(-poleGap / 2 + 5, lineY);
+      ctx.lineTo(poleGap / 2 - 5, lineY);
       ctx.stroke();
 
       // Field direction arrow
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.55)';
       ctx.beginPath();
-      ctx.moveTo(10, lineY);
+      ctx.moveTo(12, lineY);
       ctx.lineTo(0, lineY - 4);
       ctx.lineTo(0, lineY + 4);
       ctx.closePath();
       ctx.fill();
     }
 
-    // 3. Central Rotating Armature Coil (Isometric 3D Projection)
-    const curAngleRad = (angleDegRef.current * Math.PI) / 180;
+    // 3. Central Rotating Armature Coil (Continuous 60 FPS rotation)
+    const curAngleRad = (t * frequencyF * 2 * Math.PI) % (Math.PI * 2);
     const cosAngle = Math.cos(curAngleRad);
     const sinAngle = Math.sin(curAngleRad);
 
@@ -449,9 +475,12 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     // Projected horizontal width based on angle
     const projW = coilHalfW * cosAngle;
 
+    // Soft iron cylindrical core inside coil
+    drawMetallicCylinder(ctx, -14, -coilHalfH + 6, 28, coilHalfH * 2 - 12, 'steel', 'vertical');
+
     ctx.save();
-    // Coil wire
-    ctx.strokeStyle = '#fbbf24'; // Copper gold
+    // Coil wire with 3D copper sheen
+    ctx.strokeStyle = '#f59e0b';
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(-projW, -coilHalfH);
@@ -462,7 +491,7 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     ctx.stroke();
 
     // Coil fill sheen
-    ctx.fillStyle = cosAngle >= 0 ? 'rgba(251, 191, 36, 0.1)' : 'rgba(217, 119, 6, 0.15)';
+    ctx.fillStyle = cosAngle >= 0 ? 'rgba(251, 191, 36, 0.15)' : 'rgba(217, 119, 6, 0.2)';
     ctx.fill();
 
     // Axis of rotation (dashed line)
@@ -477,76 +506,64 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
 
     // 4. Current Direction Arrows on Coil Sides (Fleming Right-Hand Rule)
     if (Math.abs(sinAngle) > 0.15) {
-      const currentDir = sinAngle >= 0 ? 1 : -1;
-      ctx.fillStyle = '#22c55e';
-      // Side 1 arrow
       const s1Y = -coilHalfH / 2;
-      ctx.beginPath();
-      ctx.moveTo(-projW, s1Y + 8 * currentDir);
-      ctx.lineTo(-projW - 5, s1Y);
-      ctx.lineTo(-projW + 5, s1Y);
-      ctx.closePath();
-      ctx.fill();
+      drawGlowingParticle(ctx, -projW, s1Y, 3.5, '#22c55e', 8);
 
-      // Side 2 arrow (opposite direction)
       const s2Y = coilHalfH / 2;
-      ctx.beginPath();
-      ctx.moveTo(projW, s2Y - 8 * currentDir);
-      ctx.lineTo(projW - 5, s2Y);
-      ctx.lineTo(projW + 5, s2Y);
-      ctx.closePath();
-      ctx.fill();
+      drawGlowingParticle(ctx, projW, s2Y, 3.5, '#22c55e', 8);
     }
 
     // 5. Commutator / Slip Rings (Bottom of Axis)
-    const shaftBottomY = coilHalfH + 20;
+    const shaftBottomY = coilHalfH + 18;
     if (dynamoMode === 'ac') {
-      // Dual Slip Rings (AC)
-      ctx.fillStyle = '#cbd5e1';
-      ctx.strokeStyle = '#94a3b8';
-      ctx.lineWidth = 2;
-      // Ring 1
-      ctx.beginPath();
-      ctx.ellipse(-10, shaftBottomY, 8, 4, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-      // Ring 2
-      ctx.beginPath();
-      ctx.ellipse(10, shaftBottomY + 12, 8, 4, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
+      // Dual Slip Rings (AC Brass Cylinders)
+      drawMetallicCylinder(ctx, -14, shaftBottomY, 14, 8, 'brass', 'horizontal');
+      drawMetallicCylinder(ctx, 0, shaftBottomY + 14, 14, 8, 'brass', 'horizontal');
 
-      // Carbon Brushes
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(-22, shaftBottomY - 3, 8, 6);
-      ctx.fillRect(14, shaftBottomY + 9, 8, 6);
+      // Carbon Brushes (Graphite blocks)
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 1;
+      ctx.fillRect(-24, shaftBottomY - 2, 9, 10);
+      ctx.strokeRect(-24, shaftBottomY - 2, 9, 10);
+      ctx.fillRect(15, shaftBottomY + 12, 9, 10);
+      ctx.strokeRect(15, shaftBottomY + 12, 9, 10);
     } else {
-      // Split-Ring Commutator (DC)
-      ctx.fillStyle = '#f59e0b';
-      ctx.strokeStyle = '#d97706';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.ellipse(0, shaftBottomY, 12, 6, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
+      // Split-Ring Commutator (DC Brass)
+      drawMetallicCylinder(ctx, -12, shaftBottomY, 24, 12, 'brass', 'horizontal');
 
-      // Split line
-      ctx.strokeStyle = '#020617';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, shaftBottomY - 6);
-      ctx.lineTo(0, shaftBottomY + 6);
-      ctx.stroke();
+      // Commutator insulation split gap
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(-1.5, shaftBottomY - 1, 3, 14);
 
       // Carbon Brushes on opposite sides
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(-18, shaftBottomY - 3, 6, 6);
-      ctx.fillRect(12, shaftBottomY - 3, 6, 6);
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 1;
+      ctx.fillRect(-22, shaftBottomY, 9, 10);
+      ctx.strokeRect(-22, shaftBottomY, 9, 10);
+      ctx.fillRect(13, shaftBottomY, 9, 10);
+      ctx.strokeRect(13, shaftBottomY, 9, 10);
     }
 
     ctx.restore();
 
-    // 6. Mini Waveform Strip at the Bottom
+    // 6. Analog Center-Zero Galvanometer Gauge (Top-Right of viewport)
+    const instEmf = sinAngle * emfMax;
+    const meterVal = dynamoMode === 'ac' ? instEmf : Math.abs(instEmf);
+    drawAnalogMeterGauge(
+      ctx,
+      w - 65,
+      60,
+      36,
+      meterVal,
+      dynamoMode === 'ac' ? -emfMax : 0,
+      emfMax,
+      'V',
+      'GALV'
+    );
+
+    // 7. Mini Waveform Strip at the Bottom
     const waveH = 70;
     const waveY = h - waveH - 12;
     const waveW = w - 24;
@@ -583,10 +600,7 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     let curS = Math.sin(curAngleRad);
     if (dynamoMode === 'dc') curS = Math.abs(curS);
     const dotY = waveY + waveH / 2 - curS * (waveH * 0.4);
-    ctx.fillStyle = '#ef4444';
-    ctx.beginPath();
-    ctx.arc(12 + waveW, dotY, 4, 0, Math.PI * 2);
-    ctx.fill();
+    drawGlowingParticle(ctx, 12 + waveW, dotY, 4.5, '#ef4444', 12);
 
     // Waveform Legend
     ctx.fillStyle = '#94a3b8';

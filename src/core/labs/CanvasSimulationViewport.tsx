@@ -17,12 +17,15 @@ interface CanvasSimulationViewportProps {
   aspectRatio?: string; // e.g. 'aspect-video' or custom style
   minHeight?: number;
   showGridDefault?: boolean;
+  animated?: boolean; // Continuous 60fps animation loop
   onRender: (
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
     viewport: LabViewportState,
-    dpr: number
+    dpr: number,
+    time?: number,
+    frame?: number
   ) => void;
   onMouseDown?: (e: React.MouseEvent<HTMLCanvasElement>, viewport: LabViewportState) => void;
   onMouseMove?: (e: React.MouseEvent<HTMLCanvasElement>, viewport: LabViewportState) => void;
@@ -40,6 +43,7 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
   aspectRatio = 'aspect-[16/9]',
   minHeight = 360,
   showGridDefault = false,
+  animated = false,
   onRender,
   onMouseDown,
   onMouseMove,
@@ -106,27 +110,69 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
     return () => ro.disconnect();
   }, [handleResize]);
 
-  // Render loop triggered when dependencies change or animation runs
+  const onRenderRef = useRef(onRender);
+  useEffect(() => {
+    onRenderRef.current = onRender;
+  }, [onRender]);
+
+  // Render loop triggered when dependencies change or continuous 60fps animation runs
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
-    ctx.save();
-    ctx.resetTransform?.();
-    ctx.scale(dpr, dpr);
+    let animId: number | null = null;
+    let frameCount = 0;
+    let isMounted = true;
 
-    // Call parent render callback
-    onRender(ctx, dimensions.width, dimensions.height, viewport, dpr);
+    const renderFrame = (now: number) => {
+      if (!isMounted) return;
 
-    // Draw Metric Coordinate Grid Overlay if enabled
-    if (viewport.gridVisible) {
-      drawCoordinateGrid(ctx, dimensions.width, dimensions.height, viewport);
+      if (!document.hidden) {
+        ctx.save();
+        ctx.resetTransform?.();
+        ctx.scale(dpr, dpr);
+
+        // Call parent render callback with timestamp and frame
+        onRenderRef.current(ctx, dimensions.width, dimensions.height, viewport, dpr, now, frameCount);
+
+        // Draw Metric Coordinate Grid Overlay if enabled
+        if (viewport.gridVisible) {
+          drawCoordinateGrid(ctx, dimensions.width, dimensions.height, viewport);
+        }
+
+        ctx.restore();
+        frameCount++;
+      }
+
+      if (animated && isMounted) {
+        animId = requestAnimationFrame(renderFrame);
+      }
+    };
+
+    if (animated) {
+      animId = requestAnimationFrame(renderFrame);
+    } else {
+      renderFrame(performance.now());
     }
 
-    ctx.restore();
-  }, [dimensions, viewport, dpr, onRender]);
+    const handleVisibilityChange = () => {
+      if (!document.hidden && animated && isMounted && animId === null) {
+        animId = requestAnimationFrame(renderFrame);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      isMounted = false;
+      if (animId !== null) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [dimensions, viewport, dpr, animated, onRender]);
 
   // Grid drawing routine
   const drawCoordinateGrid = (

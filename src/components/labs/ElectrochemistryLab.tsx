@@ -8,6 +8,9 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawMetallicCylinder,
+  drawAnalogMeterGauge,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import { MathRenderer } from '../MathRenderer';
@@ -495,13 +498,24 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
     },
   ];
 
+  const getMetalType = (id: string): 'copper' | 'brass' | 'steel' | 'zinc' | 'gold' => {
+    if (id === 'cu') return 'copper';
+    if (id === 'zn') return 'zinc';
+    if (id === 'au') return 'gold';
+    return 'steel';
+  };
+
   // High-Performance Canvas2D Viewport: Dual Beakers + Salt Bridge + Wire Loop
   const handleRenderCanvas = (
     ctx: CanvasRenderingContext2D,
     w: number,
     h: number,
-    vp: LabViewportState
+    vp: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    _frame: number = 0
   ) => {
+    const t = (time ? time : performance.now()) * 0.001;
     ctx.fillStyle = '#020617';
     ctx.fillRect(0, 0, w, h);
 
@@ -517,7 +531,7 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
     const rightBx = beakerGap / 2;
     const beakerY = -30;
 
-    // 1. Draw Left Beaker
+    // 1. Draw Left Beaker with Glass Graduations & Meniscus
     drawBeaker(
       ctx,
       leftBx,
@@ -529,14 +543,18 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
       leftElectrode.nameEn
     );
 
-    // Left Electrode Plate
-    ctx.fillStyle = leftElectrode.metalColor;
-    ctx.fillRect(leftBx + beakerW / 2 - 12, beakerY - 30, 24, beakerH + 10);
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(leftBx + beakerW / 2 - 12, beakerY - 30, 24, beakerH + 10);
+    // Left Electrode Plate (Realistic Metallic Finish)
+    drawMetallicCylinder(
+      ctx,
+      leftBx + beakerW / 2 - 12,
+      beakerY - 30,
+      24,
+      beakerH + 10,
+      getMetalType(leftElectrode.id),
+      'vertical'
+    );
 
-    // 2. Draw Right Beaker
+    // 2. Draw Right Beaker with Glass Graduations & Meniscus
     drawBeaker(
       ctx,
       rightBx,
@@ -548,32 +566,52 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
       rightElectrode.nameEn
     );
 
-    // Right Electrode Plate
-    ctx.fillStyle = rightElectrode.metalColor;
-    ctx.fillRect(rightBx + beakerW / 2 - 12, beakerY - 30, 24, beakerH + 10);
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(rightBx + beakerW / 2 - 12, beakerY - 30, 24, beakerH + 10);
+    // Right Electrode Plate (Realistic Metallic Finish)
+    drawMetallicCylinder(
+      ctx,
+      rightBx + beakerW / 2 - 12,
+      beakerY - 30,
+      24,
+      beakerH + 10,
+      getMetalType(rightElectrode.id),
+      'vertical'
+    );
 
-    // 3. Salt Bridge (Inverted U-Tube)
+    // 3. Salt Bridge (Inverted 3D Glass U-Tube with Agar Gel & Migrating Ions)
     const sbW = 28;
     const sbYTop = beakerY - 15;
     const sbYBottom = beakerY + 60;
     const sbLeftX = leftBx + beakerW - 20;
     const sbRightX = rightBx + 20;
 
+    // Outer Glass Sheen
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-    ctx.fillStyle = 'rgba(251, 191, 36, 0.2)'; // agar jelly
-    ctx.lineWidth = sbW;
+    ctx.lineWidth = sbW + 4;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-
     ctx.beginPath();
     ctx.moveTo(sbLeftX, sbYBottom);
     ctx.lineTo(sbLeftX, sbYTop);
     ctx.lineTo(sbRightX, sbYTop);
     ctx.lineTo(sbRightX, sbYBottom);
     ctx.stroke();
+
+    // Internal Agar-KNO3 Jelly Core
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.55)';
+    ctx.lineWidth = sbW;
+    ctx.stroke();
+
+    // Salt Bridge Drifting Ions (K+ drifts to cathode, NO3- drifts to anode)
+    if (eCell > 0.05) {
+      const numBridgeIons = 6;
+      for (let bi = 0; bi < numBridgeIons; bi++) {
+        const prog = ((t * 0.4 + bi / numBridgeIons) % 1);
+        const curX = isLeftAnode
+          ? sbLeftX + prog * (sbRightX - sbLeftX)
+          : sbRightX - prog * (sbRightX - sbLeftX);
+        drawGlowingParticle(ctx, curX, sbYTop, 2.5, '#fde047', 6);
+      }
+    }
 
     // Salt Bridge Label
     ctx.fillStyle = '#fde047';
@@ -586,7 +624,7 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
     const leftWireX = leftBx + beakerW / 2;
     const rightWireX = rightBx + beakerW / 2;
 
-    ctx.strokeStyle = '#e2e8f0';
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(leftWireX, beakerY - 30);
@@ -595,41 +633,29 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
     ctx.lineTo(rightWireX, beakerY - 30);
     ctx.stroke();
 
-    // Voltmeter in middle of wire
+    // Copper connector clamps at top of electrodes
+    drawMetallicCylinder(ctx, leftWireX - 6, beakerY - 34, 12, 8, 'brass', 'horizontal');
+    drawMetallicCylinder(ctx, rightWireX - 6, beakerY - 34, 12, 8, 'brass', 'horizontal');
+
+    // Voltmeter in middle of wire: Authentic Analog Meter Gauge
     const vmX = (leftWireX + rightWireX) / 2;
     const vmY = wireY;
-    ctx.fillStyle = '#0f172a';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.arc(vmX, vmY, 24, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.stroke();
+    drawAnalogMeterGauge(ctx, vmX, vmY, 34, eCell, 0, 3.0, 'V', 'EMF');
 
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 12px monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(`${eCell.toFixed(2)}V`, vmX, vmY + 4);
-
-    // 5. Animated Electron Flow Dots along wire
+    // 5. Animated Electron Flow Dots along wire (Continuous 60 FPS)
     if (eCell > 0.05) {
       const electronDir = isLeftAnode ? 1 : -1; // Anode to Cathode
-      ctx.fillStyle = '#fbbf24'; // yellow electron dots
-
       const totalWireLength = Math.abs(rightWireX - leftWireX);
-      const numDots = 8;
+      const numDots = 10;
       for (let d = 0; d < numDots; d++) {
-        const offsetProg = ((animOffsetRef.current + (d / numDots) * 40) % 40) / 40;
+        const offsetProg = ((t * 35 + (d / numDots) * 40) % 40) / 40;
         let dotX: number;
         if (electronDir === 1) {
           dotX = leftWireX + offsetProg * totalWireLength;
         } else {
           dotX = rightWireX - offsetProg * totalWireLength;
         }
-
-        ctx.beginPath();
-        ctx.arc(dotX, wireY, 3, 0, Math.PI * 2);
-        ctx.fill();
+        drawGlowingParticle(ctx, dotX, wireY, 3.5, '#fbbf24', 8);
       }
     }
 
@@ -670,26 +696,54 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
   ) => {
     // Glass Beaker Fill (Liquid)
     const liquidH = h * 0.75;
-    ctx.fillStyle = solutionColor;
-    ctx.fillRect(x + 4, y + (h - liquidH), w - 8, liquidH);
+    const solTopY = y + (h - liquidH);
 
-    // Liquid surface meniscus line
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-    ctx.lineWidth = 2;
+    // Liquid fill
+    ctx.fillStyle = solutionColor;
+    ctx.fillRect(x + 4, solTopY, w - 8, liquidH);
+
+    // Liquid surface meniscus ellipse
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.lineWidth = 1.8;
     ctx.beginPath();
-    ctx.moveTo(x + 4, y + (h - liquidH));
-    ctx.lineTo(x + w - 4, y + (h - liquidH));
+    ctx.ellipse(x + w / 2, solTopY, (w - 8) / 2, 3.5, 0, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Glass walls
+    // 3D Glass beaker walls & caustics
+    const glassGrad = ctx.createLinearGradient(x, 0, x + w, 0);
+    glassGrad.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
+    glassGrad.addColorStop(0.1, 'rgba(15, 23, 42, 0.2)');
+    glassGrad.addColorStop(0.9, 'rgba(15, 23, 42, 0.2)');
+    glassGrad.addColorStop(1, 'rgba(255, 255, 255, 0.35)');
+
+    ctx.fillStyle = glassGrad;
+    ctx.fillRect(x, y, w, h);
+
+    // Glass rim top lip
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
     ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.ellipse(x + w / 2, y, w / 2 + 2, 3, 0, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Glass outer border
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x, y + h);
     ctx.lineTo(x + w, y + h);
     ctx.lineTo(x + w, y);
     ctx.stroke();
+
+    // Metric Graduations (50, 100, 150 mL marks)
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 1;
+    for (let g = 1; g <= 3; g++) {
+      const gy = y + h - g * 32;
+      ctx.beginPath();
+      ctx.moveTo(x + 4, gy);
+      ctx.lineTo(x + 16, gy);
+      ctx.stroke();
+    }
 
     // Beaker labels
     ctx.fillStyle = '#cbd5e1';
@@ -783,6 +837,7 @@ export const ElectrochemistryLab: React.FC<Props> = ({ lang, theme = 'dark' }) =
         lang={lang}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
+        animated={true}
         onRender={handleRenderCanvas}
       />
     </VirtualLabShell>

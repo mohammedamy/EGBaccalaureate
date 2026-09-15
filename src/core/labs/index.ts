@@ -12,4 +12,5 @@ export * from './controls/LabTelemetryCard';
 export * from './controls/LabPresetPicker';
 export * from './controls/LabFormulaBar';
 export * from './controls/LabStopwatch';
+export * from './RealisticLabGraphics';
 export * from '../instruments/InstrumentRack';

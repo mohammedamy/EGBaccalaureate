@@ -8,6 +8,8 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import {
@@ -454,8 +456,12 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
-    viewport: LabViewportState
+    viewport: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    _frame: number = 0
   ) => {
+    const t = (time ? time : performance.now()) * 0.001;
     ctx.clearRect(0, 0, width, height);
 
     ctx.save();
@@ -465,31 +471,37 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // Split Viewport: Left = Apparatus (42%), Right = Live Titration Curve (58%)
     const splitX = width * 0.42;
 
-    renderApparatus(ctx, splitX, height);
+    renderApparatus(ctx, splitX, height, t);
     renderTitrationCurve(ctx, splitX, width, height);
 
     ctx.restore();
   };
 
   // 1. APPARATUS (Buret, Droplet, Magnetic Stirrer, Conical Flask, pH Electrode)
-  const renderApparatus = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+  const renderApparatus = (ctx: CanvasRenderingContext2D, w: number, h: number, t: number) => {
     const cx = w / 2;
 
     // Background Benchtop Tone
-    ctx.fillStyle = '#090d16';
+    const benchGrad = ctx.createLinearGradient(0, 0, 0, h);
+    benchGrad.addColorStop(0, '#090d16');
+    benchGrad.addColorStop(1, '#020617');
+    ctx.fillStyle = benchGrad;
     ctx.fillRect(0, 0, w, h);
 
-    // Apparatus Stand Pole
-    ctx.fillStyle = '#475569';
-    ctx.fillRect(cx - 95, 30, 8, h - 60);
+    // Subtle table edge / shadow
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.8)';
+    ctx.fillRect(0, h - 22, w, 22);
 
-    // Stand Base
-    ctx.fillStyle = '#334155';
-    ctx.fillRect(cx - 130, h - 35, 180, 14);
+    // Apparatus Stand Pole (Metallic Steel Cylinder)
+    drawMetallicCylinder(ctx, cx - 95, 25, 8, h - 55, 'steel', 'vertical');
 
-    // Clamp arm holding buret
-    ctx.fillStyle = '#64748b';
-    ctx.fillRect(cx - 90, 85, 90, 7);
+    // Heavy Cast Iron Stand Base with Chamfer
+    drawMetallicCylinder(ctx, cx - 130, h - 35, 180, 14, 'steel', 'horizontal');
+
+    // Metallic Brass Clamp Boss-head & Arm holding buret
+    drawMetallicCylinder(ctx, cx - 92, 85, 88, 7, 'brass', 'horizontal');
+    ctx.fillStyle = '#b45309';
+    ctx.fillRect(cx - 98, 82, 14, 13); // Boss-head bracket
 
     // GRADUATED BURET
     const buretW = 20;
@@ -497,13 +509,27 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const buretX = cx - buretW / 2;
     const buretY = 35;
 
-    // Glass tube body
-    ctx.fillStyle = 'rgba(30, 41, 59, 0.5)';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
+    // 3D Borosilicate Glass Buret Body
+    const buretGrad = ctx.createLinearGradient(buretX, 0, buretX + buretW, 0);
+    buretGrad.addColorStop(0, 'rgba(255, 255, 255, 0.35)');
+    buretGrad.addColorStop(0.2, 'rgba(56, 189, 248, 0.08)');
+    buretGrad.addColorStop(0.8, 'rgba(15, 23, 42, 0.35)');
+    buretGrad.addColorStop(1, 'rgba(255, 255, 255, 0.45)');
+
+    ctx.fillStyle = buretGrad;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.6)';
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.roundRect(buretX, buretY, buretW, buretH, [3, 3, 0, 0]);
     ctx.fill();
+    ctx.stroke();
+
+    // Specular highlight stripe along the left glass tube
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(buretX + 3, buretY + 4);
+    ctx.lineTo(buretX + 3, buretY + buretH - 2);
     ctx.stroke();
 
     // Liquid in Buret (meniscus drops as titrantAddedMl increases)
@@ -512,42 +538,54 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const liquidHeight = buretH * liquidFraction;
 
     if (liquidHeight > 0) {
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.45)';
+      const liqGrad = ctx.createLinearGradient(buretX + 2, 0, buretX + buretW - 2, 0);
+      liqGrad.addColorStop(0, 'rgba(56, 189, 248, 0.55)');
+      liqGrad.addColorStop(0.5, 'rgba(14, 165, 233, 0.35)');
+      liqGrad.addColorStop(1, 'rgba(2, 132, 199, 0.65)');
+      ctx.fillStyle = liqGrad;
       ctx.fillRect(buretX + 2, liquidTopY, buretW - 4, liquidHeight);
 
-      // Curved Meniscus line
+      // Curved Meniscus line with refraction glow
       ctx.strokeStyle = '#38bdf8';
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 1.6;
       ctx.beginPath();
       ctx.ellipse(buretX + buretW / 2, liquidTopY, buretW / 2 - 2, 3, 0, 0, Math.PI);
       ctx.stroke();
     }
 
-    // Metric Graduations on Buret
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 1;
-    for (let ml = 0; ml <= 50; ml += 10) {
+    // Precision Metric Graduations on Buret
+    for (let ml = 0; ml <= 50; ml += 2) {
       const gy = buretY + (ml / 50) * buretH;
+      const isMajor = ml % 10 === 0;
+      const isMid = ml % 5 === 0 && !isMajor;
+      const tickLen = isMajor ? 7 : isMid ? 4.5 : 2.5;
+
+      ctx.strokeStyle = isMajor ? '#cbd5e1' : '#64748b';
+      ctx.lineWidth = isMajor ? 1 : 0.75;
       ctx.beginPath();
-      ctx.moveTo(buretX + buretW - 8, gy);
-      ctx.lineTo(buretX + buretW, gy);
+      ctx.moveTo(buretX + buretW - tickLen, gy);
+      ctx.lineTo(buretX + buretW - 1, gy);
       ctx.stroke();
 
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '8px monospace';
-      ctx.textAlign = 'right';
-      ctx.fillText(ml.toString(), buretX - 3, gy + 3);
+      if (isMajor) {
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '8px monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText(ml.toString(), buretX - 3, gy + 3);
+      }
     }
 
     // Stopcock Valve & Dispenser Tip
     const stopcockY = buretY + buretH;
-    ctx.fillStyle = '#64748b';
+    // Valve housing
+    drawMetallicCylinder(ctx, cx - 12, stopcockY + 5, 24, 6, 'brass', 'horizontal');
+    ctx.fillStyle = '#475569';
     ctx.beginPath();
     ctx.arc(cx, stopcockY + 8, 6, 0, Math.PI * 2);
     ctx.fill();
 
     // Nozzle Tip
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.8)';
     ctx.beginPath();
     ctx.moveTo(cx - 3, stopcockY + 12);
     ctx.lineTo(cx + 3, stopcockY + 12);
@@ -556,13 +594,18 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.closePath();
     ctx.fill();
 
-    // Falling Titrant Droplet
+    // Falling Titrant Droplet with tear-drop physics
     if (params.titrantAddedMl > 0) {
-      const dropY = stopcockY + 28 + dropPhaseRef.current * 42;
+      const dropPhase = (t * 2.5) % 1;
+      const dropY = stopcockY + 28 + dropPhase * 42;
+      ctx.save();
       ctx.fillStyle = '#38bdf8';
+      ctx.shadowColor = '#38bdf8';
+      ctx.shadowBlur = 6;
       ctx.beginPath();
       ctx.arc(cx, dropY, 2.5, 0, Math.PI * 2);
       ctx.fill();
+      ctx.restore();
     }
 
     // ERLENMEYER CONICAL FLASK
@@ -571,7 +614,17 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const baseW = 105;
     const flaskH = 110;
 
-    // Flask Glass Body
+    // Magnetic Stirrer Hotplate Base under flask
+    drawMetallicCylinder(ctx, cx - 65, flaskY + flaskH + 2, 130, 16, 'steel', 'horizontal');
+    // Stirrer control dial
+    ctx.fillStyle = '#1e293b';
+    ctx.beginPath();
+    ctx.arc(cx - 35, flaskY + flaskH + 10, 5, 0, Math.PI * 2);
+    ctx.fill();
+    // Power LED indicator
+    drawGlowingParticle(ctx, cx + 45, flaskY + flaskH + 10, 3, params.stirrerSpeed > 0 ? '#10b981' : '#64748b', 8);
+
+    // Flask Glass Body (Borosilicate Glass)
     ctx.save();
     ctx.beginPath();
     ctx.moveTo(cx - neckW / 2, flaskY);
@@ -581,10 +634,17 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.lineTo(cx - baseW / 2, flaskY + flaskH);
     ctx.lineTo(cx - neckW / 2, flaskY + 25);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.7)';
+
+    const flaskGlassGrad = ctx.createLinearGradient(cx - baseW / 2, 0, cx + baseW / 2, 0);
+    flaskGlassGrad.addColorStop(0, 'rgba(255, 255, 255, 0.18)');
+    flaskGlassGrad.addColorStop(0.1, 'rgba(15, 23, 42, 0.7)');
+    flaskGlassGrad.addColorStop(0.85, 'rgba(15, 23, 42, 0.65)');
+    flaskGlassGrad.addColorStop(1, 'rgba(255, 255, 255, 0.22)');
+
+    ctx.fillStyle = flaskGlassGrad;
     ctx.fill();
-    ctx.strokeStyle = '#10b981';
-    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.7)';
+    ctx.lineWidth = 2;
     ctx.stroke();
 
     // Solution Fill in Conical Flask
@@ -593,6 +653,7 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const solTopY = flaskY + flaskH * (1 - solFillFrac);
     const solTopWidth = neckW + (baseW - neckW) * solFillFrac;
 
+    // Fluid polygon
     ctx.beginPath();
     ctx.moveTo(cx - solTopWidth / 2, solTopY);
     ctx.lineTo(cx + solTopWidth / 2, solTopY);
@@ -602,17 +663,35 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = indicatorColor;
     ctx.fill();
 
-    // Liquid surface vortex ripple
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    // Liquid surface vortex ripple with dynamic stirring dip
+    const vortexDip = (params.stirrerSpeed / 100) * 4 * Math.sin(t * 15);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.ellipse(cx, solTopY, solTopWidth / 2 - 4, 3.5, 0, 0, Math.PI * 2);
+    ctx.ellipse(cx, solTopY + vortexDip, solTopWidth / 2 - 4, 3.5, 0, 0, Math.PI * 2);
     ctx.stroke();
 
+    // Transient drop impact ripple / indicator bloom when dropping
+    if (params.titrantAddedMl > 0) {
+      const rippleR = 4 + Math.abs(Math.sin(t * 8)) * 8;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(cx, solTopY, rippleR, rippleR * 0.35, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
     // White Teflon Magnetic Stir Bar rotating at bottom
+    const stirrerAngle = (t * (params.stirrerSpeed / 100) * 25) % (Math.PI * 2);
     ctx.save();
     ctx.translate(cx, flaskY + flaskH - 12);
-    ctx.rotate(stirrerAngleRef.current);
+    ctx.rotate(stirrerAngle);
+    // Subtle shadow beneath stir bar
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.beginPath();
+    ctx.ellipse(2, 2, 10, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // Stir bar body
     ctx.fillStyle = '#ffffff';
     ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1;
@@ -620,12 +699,26 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.roundRect(-10, -3.5, 20, 7, 3);
     ctx.fill();
     ctx.stroke();
+    // Center pivot ring
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.beginPath();
+    ctx.arc(0, 0, 2.5, 0, Math.PI * 2);
+    ctx.stroke();
     ctx.restore();
 
     // SUBMERGED GLASS pH ELECTRODE PROBE
     const probeX = cx + 24;
-    ctx.strokeStyle = '#1e3a8a';
-    ctx.lineWidth = 3;
+    // Outer glass stem
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.6)';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(probeX, flaskY - 15);
+    ctx.lineTo(probeX, flaskY + flaskH - 24);
+    ctx.stroke();
+
+    // Inner Ag/AgCl reference wire
+    ctx.strokeStyle = '#93c5fd';
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(probeX, flaskY - 15);
     ctx.lineTo(probeX, flaskY + flaskH - 24);
@@ -634,7 +727,13 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // Electrode Bulb
     ctx.fillStyle = '#60a5fa';
     ctx.beginPath();
-    ctx.arc(probeX, flaskY + flaskH - 24, 4.5, 0, Math.PI * 2);
+    ctx.arc(probeX, flaskY + flaskH - 24, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Bulb glass specular reflection
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.beginPath();
+    ctx.arc(probeX - 1.5, flaskY + flaskH - 26, 1.5, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.restore();
@@ -643,7 +742,7 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = '#f8fafc';
     ctx.font = 'bold 11px system-ui, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(`${indicatorInfo.name} (${isArabic ? indicatorInfo.nameAr : ''})`, cx, h - 14);
+    ctx.fillText(`${indicatorInfo.name} (${isArabic ? indicatorInfo.nameAr : ''})`, cx, h - 8);
   };
 
   // 2. LIVE TITRATION SIGMOIDAL CURVE & INDICATOR TRANSITION BAND
@@ -748,19 +847,13 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const currX = originX + (params.titrantAddedMl / 50) * plotW;
     const currY = originY - (currentPh / 14) * plotH;
 
-    // Cursor Pulse Glow
-    ctx.fillStyle = 'rgba(56, 189, 248, 0.3)';
-    ctx.beginPath();
-    ctx.arc(currX, currY, 12, 0, Math.PI * 2);
-    ctx.fill();
+    drawGlowingParticle(ctx, currX, currY, 5.5, '#38bdf8', 16);
 
-    ctx.fillStyle = '#38bdf8';
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 2;
+    // Inner bright core
+    ctx.fillStyle = '#ffffff';
     ctx.beginPath();
-    ctx.arc(currX, currY, 5.5, 0, Math.PI * 2);
+    ctx.arc(currX, currY, 2.5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.stroke();
 
     // Cursor Label Tag
     ctx.fillStyle = '#f8fafc';
@@ -883,6 +976,7 @@ export const TitrationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         lang={lang}
         aspectRatio="aspect-[16/10]"
         minHeight={440}
+        animated={true}
         onRender={handleRenderCanvas}
       />
     </VirtualLabShell>

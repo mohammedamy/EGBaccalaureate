@@ -10,6 +10,9 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
+  drawProceduralFlame,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -1359,9 +1362,20 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
   }, [state.turbidityNTU, isArabic]);
 
   // Canvas Viewport Renderer
+  // High-Performance Realistic Canvas Viewport Renderer
   const renderSimulation = useCallback(
-    (ctx: CanvasRenderingContext2D, width: number, height: number, _vState: LabViewportState) => {
+    (
+      ctx: CanvasRenderingContext2D,
+      width: number,
+      height: number,
+      _vState: LabViewportState,
+      _dpr?: number,
+      time?: number
+    ) => {
       ctx.clearRect(0, 0, width, height);
+
+      const t = (time ? time : performance.now()) * 0.001;
+      flameTimeRef.current = t;
 
       // Draw Bench Surface
       const benchY = height * 0.78;
@@ -1371,7 +1385,7 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
       ctx.fillStyle = benchGrad;
       ctx.fillRect(0, benchY, width, height - benchY);
 
-      // Bench top border
+      // Bench top border with metallic bevel
       ctx.strokeStyle = isLight ? '#e2e8f0' : '#334155';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -1379,101 +1393,71 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
       ctx.lineTo(width, benchY);
       ctx.stroke();
 
-      flameTimeRef.current += 0.05;
-
       if (params.labMode === 'flame_spectrometry') {
-        // --- BUNSEN BURNER FLAME TEST VIEW ---
+        // --- REALISTIC BUNSEN BURNER FLAME TEST VIEW ---
         const burnerX = width * 0.5;
         const burnerBaseY = benchY;
 
-        // Burner Base
-        ctx.fillStyle = '#475569';
-        ctx.beginPath();
-        ctx.roundRect(burnerX - 50, burnerBaseY - 15, 100, 15, 4);
-        ctx.fill();
+        // Heavy Cast-Iron Burner Base (Chamfered Cylinder)
+        drawMetallicCylinder(ctx, burnerX - 52, burnerBaseY - 18, 104, 18, 'steel', 'horizontal');
 
-        // Burner Barrel
-        ctx.fillStyle = '#64748b';
-        ctx.fillRect(burnerX - 12, burnerBaseY - 110, 24, 95);
+        // Chrome-plated Burner Barrel
+        drawMetallicCylinder(ctx, burnerX - 12, burnerBaseY - 110, 24, 92, 'steel', 'vertical');
 
-        // Air collar
-        ctx.fillStyle = '#94a3b8';
-        ctx.fillRect(burnerX - 14, burnerBaseY - 60, 28, 16);
+        // Knurled Brass Air Collar
+        drawMetallicCylinder(ctx, burnerX - 15, burnerBaseY - 62, 30, 16, 'brass', 'horizontal');
 
-        // Gas tube
-        ctx.strokeStyle = '#334155';
-        ctx.lineWidth = 8;
+        // Flexible Neoprene Gas Supply Hose
+        ctx.strokeStyle = '#1e293b';
+        ctx.lineWidth = 9;
+        ctx.lineCap = 'round';
         ctx.beginPath();
         ctx.moveTo(burnerX - 35, burnerBaseY - 8);
-        ctx.quadraticCurveTo(burnerX - 80, burnerBaseY + 20, burnerX - 120, burnerBaseY + 10);
+        ctx.quadraticCurveTo(burnerX - 80, burnerBaseY + 22, burnerX - 130, burnerBaseY + 12);
         ctx.stroke();
 
         const flameBaseY = burnerBaseY - 110;
         const activeFlame = FLAME_SPECIES.find((f) => f.id === params.flameCationId) || FLAME_SPECIES[0];
 
-        // Outer Glow Bloom
-        const flicker = Math.sin(flameTimeRef.current * 8) * 4;
-        const flameHeight = 110 + flicker;
-        const glowGrad = ctx.createRadialGradient(
+        // Multi-layered Realistic Procedural Flame with Characteristic Atomic Emission Color
+        drawProceduralFlame(
+          ctx,
           burnerX,
-          flameBaseY - flameHeight * 0.5,
-          10,
-          burnerX,
-          flameBaseY - flameHeight * 0.5,
-          115
+          flameBaseY,
+          115,
+          t,
+          activeFlame.flameColorHex,
+          1.25
         );
-        glowGrad.addColorStop(0, `${activeFlame.flameColorHex}99`);
-        glowGrad.addColorStop(0.6, `${activeFlame.flameColorHex}33`);
-        glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = glowGrad;
-        ctx.beginPath();
-        ctx.arc(burnerX, flameBaseY - flameHeight * 0.5, 115, 0, Math.PI * 2);
-        ctx.fill();
 
-        // Inner Cone (Cyan/Blue non-luminous core)
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.85)';
-        ctx.beginPath();
-        ctx.moveTo(burnerX - 10, flameBaseY);
-        ctx.quadraticCurveTo(burnerX - 10, flameBaseY - 45, burnerX, flameBaseY - 55);
-        ctx.quadraticCurveTo(burnerX + 10, flameBaseY - 45, burnerX + 10, flameBaseY);
-        ctx.closePath();
-        ctx.fill();
-
-        // Outer Mantle Flame (Atomic Emission Color)
-        ctx.fillStyle = activeFlame.flameColorHex;
-        ctx.globalAlpha = 0.85;
-        ctx.beginPath();
-        ctx.moveTo(burnerX - 18, flameBaseY);
-        ctx.quadraticCurveTo(burnerX - 25, flameBaseY - flameHeight * 0.6, burnerX, flameBaseY - flameHeight);
-        ctx.quadraticCurveTo(burnerX + 25, flameBaseY - flameHeight * 0.6, burnerX + 18, flameBaseY);
-        ctx.closePath();
-        ctx.fill();
-        ctx.globalAlpha = 1.0;
-
-        // Platinum Wire Loop introducing salt
+        // Platinum Wire Loop introducing analyte salt
         const ptWireTipX = burnerX;
         const ptWireTipY = flameBaseY - 45;
 
-        ctx.strokeStyle = '#e2e8f0';
-        ctx.lineWidth = 3;
+        // Nickel-Chromium Wand Handle & Shaft
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.moveTo(burnerX + 110, flameBaseY - 15);
-        ctx.lineTo(ptWireTipX + 12, ptWireTipY);
+        ctx.moveTo(burnerX + 130, flameBaseY - 10);
+        ctx.lineTo(burnerX + 45, flameBaseY - 35);
+        ctx.stroke();
+
+        // Platinum Wire Loop Tip
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(burnerX + 45, flameBaseY - 35);
+        ctx.lineTo(ptWireTipX + 10, ptWireTipY);
         ctx.stroke();
 
         ctx.strokeStyle = '#f8fafc';
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(ptWireTipX, ptWireTipY, 8, 0, Math.PI * 2);
+        ctx.arc(ptWireTipX, ptWireTipY, 7, 0, Math.PI * 2);
         ctx.stroke();
 
-        ctx.fillStyle = activeFlame.flameColorHex;
-        ctx.shadowColor = activeFlame.flameColorHex;
-        ctx.shadowBlur = 15;
-        ctx.beginPath();
-        ctx.arc(ptWireTipX, ptWireTipY, 5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.shadowBlur = 0;
+        // Incandescent Salt Bead in the Flame (Glowing Emission Core)
+        drawGlowingParticle(ctx, ptWireTipX, ptWireTipY, 5.5, activeFlame.flameColorHex, 18);
 
         // Label for spectral line
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
@@ -1482,10 +1466,10 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
         ctx.fillText(
           `${activeFlame.elementEn} - ${activeFlame.colorNameEn} (λ = ${activeFlame.peakWavelengthNm} nm)`,
           burnerX,
-          flameBaseY - flameHeight - 24
+          flameBaseY - 135
         );
       } else {
-        // --- BOROSILICATE TEST TUBE IN RACK ---
+        // --- 3D BOROSILICATE TEST TUBE IN RACK ---
         const tubeCenterX = width * 0.5;
         const tubeTopY = height * 0.16;
         const tubeWidth = 64;
@@ -1493,29 +1477,28 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
         const tubeBottomY = tubeTopY + tubeHeight;
         const roundRadius = tubeWidth / 2;
 
-        // Wooden Rack Pillar Support
-        ctx.fillStyle = isLight ? '#e2e8f0' : '#334155';
-        ctx.fillRect(tubeCenterX - 85, benchY - 180, 18, 180);
-        ctx.fillRect(tubeCenterX + 67, benchY - 180, 18, 180);
-        ctx.fillRect(tubeCenterX - 110, benchY - 120, 220, 14);
-        ctx.fillRect(tubeCenterX - 110, benchY - 30, 220, 16);
+        // Wooden Rack with Beveled Mahogany Texture
+        const woodColor = isLight ? '#b45309' : '#451a03';
+        ctx.fillStyle = woodColor;
+        ctx.fillRect(tubeCenterX - 88, benchY - 180, 18, 180);
+        ctx.fillRect(tubeCenterX + 70, benchY - 180, 18, 180);
+        ctx.fillRect(tubeCenterX - 115, benchY - 120, 230, 14);
+        ctx.fillRect(tubeCenterX - 115, benchY - 30, 230, 16);
+
+        // Rack bevel highlights
+        ctx.strokeStyle = '#d97706';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(tubeCenterX - 115, benchY - 120, 230, 14);
+        ctx.strokeRect(tubeCenterX - 115, benchY - 30, 230, 16);
 
         // Bunsen Burner under tube if heating enabled
         if (params.isHeating) {
           const burnerY = tubeBottomY + 12;
-          ctx.fillStyle = '#64748b';
-          ctx.fillRect(tubeCenterX - 10, burnerY + 40, 20, 50);
-          ctx.beginPath();
-          ctx.roundRect(tubeCenterX - 35, burnerY + 80, 70, 14, 3);
-          ctx.fill();
+          drawMetallicCylinder(ctx, tubeCenterX - 10, burnerY + 40, 20, 50, 'steel', 'vertical');
+          drawMetallicCylinder(ctx, tubeCenterX - 35, burnerY + 80, 70, 14, 'steel', 'horizontal');
 
-          ctx.fillStyle = 'rgba(249, 115, 22, 0.9)';
-          ctx.beginPath();
-          ctx.moveTo(tubeCenterX - 12, burnerY + 40);
-          ctx.quadraticCurveTo(tubeCenterX - 16, burnerY + 15, tubeCenterX, burnerY);
-          ctx.quadraticCurveTo(tubeCenterX + 16, burnerY + 15, tubeCenterX + 12, burnerY + 40);
-          ctx.closePath();
-          ctx.fill();
+          // Procedural Heating Flame
+          drawProceduralFlame(ctx, tubeCenterX, burnerY + 40, 52, t, '#f97316', 0.9);
         }
 
         let liquidColor = 'rgba(224, 242, 254, 0.35)';
@@ -1967,6 +1950,7 @@ export const QualitativeAnalysisLab: React.FC<Props> = ({ lang = 'ar', theme = '
             lang={lang ?? 'ar'}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
+            animated={true}
             onRender={renderSimulation}
           >
             {/* Real-time Status Overlay Badge */}

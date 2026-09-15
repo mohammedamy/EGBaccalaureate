@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
@@ -10,6 +10,8 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -807,15 +809,6 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
   // DMM Instrument Reading State
   const [dmmMode, setDmmMode] = useState<'pH' | 'pOH' | 'H_conc' | 'OH_conc' | 'alpha'>('pH');
 
-  // Animation pulse tick
-  const [animTick, setAnimTick] = useState<number>(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setAnimTick((prev) => (prev + 1) % 360);
-    }, 50);
-    return () => clearInterval(timer);
-  }, []);
-
   // Telemetry metrics
   const metrics: LabTelemetryMetric[] = useMemo(() => {
     if (params.module === 'le_chatelier') {
@@ -1011,8 +1004,11 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       width: number,
       height: number,
       viewport: LabViewportState,
-      _dpr: number
+      _dpr: number = 1,
+      time: number = 0,
+      _frame: number = 0
     ) => {
+      const t = (time ? time : performance.now()) * 0.001;
       ctx.save();
       ctx.clearRect(0, 0, width, height);
 
@@ -1052,11 +1048,21 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.fillStyle = glowGrad;
         ctx.fillRect(-170, -170, 340, 340);
 
-        // Spherical Glass Flask / Reactor Body
+        // Spherical Glass Flask / Reactor Body with 3D Borosilicate Sheen
         ctx.beginPath();
         ctx.arc(0, 10, 95, 0, Math.PI * 2);
         ctx.fillStyle = simState.vesselColorRgba;
         ctx.fill();
+
+        // Glass reflection arc
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(0, 10, 88, -Math.PI * 0.7, -Math.PI * 0.2);
+        ctx.stroke();
+        ctx.restore();
+
         ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
         ctx.lineWidth = 3;
         ctx.stroke();
@@ -1073,15 +1079,10 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.fillRect(-24, -130, 48, 16);
 
         // Pressure Gauge stem and dial
-        ctx.strokeStyle = isLight ? '#475569' : '#64748b';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(0, -130);
-        ctx.lineTo(0, -140);
-        ctx.stroke();
+        drawMetallicCylinder(ctx, -3, -142, 6, 12, 'brass', 'vertical');
 
         ctx.beginPath();
-        ctx.arc(0, -154, 14, 0, Math.PI * 2);
+        ctx.arc(0, -154, 15, 0, Math.PI * 2);
         ctx.fillStyle = isLight ? '#ffffff' : '#0f172a';
         ctx.fill();
         ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
@@ -1091,36 +1092,39 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         const needleAngle = -Math.PI * 0.75 + (params.pressureAtm / 5.0) * Math.PI * 1.5;
         ctx.beginPath();
         ctx.moveTo(0, -154);
-        ctx.lineTo(Math.cos(needleAngle) * 9, -154 + Math.sin(needleAngle) * 9);
+        ctx.lineTo(Math.cos(needleAngle) * 10, -154 + Math.sin(needleAngle) * 10);
         ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Animated Gas Molecules
+        // Center hub of dial
+        ctx.fillStyle = '#64748b';
+        ctx.beginPath();
+        ctx.arc(0, -154, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Animated Gas Molecules (Continuous physics motion)
         const numParticles = Math.round(16 * Math.sqrt(params.pressureAtm));
+        const speedMult = 1 + params.temperatureC / 80;
         for (let i = 0; i < numParticles; i++) {
-          const angle = (i * (360 / numParticles) + animTick * 1.5) * (Math.PI / 180);
-          const rad = 20 + ((i * 17 + animTick * 2) % 65);
+          const angle = (i * (360 / numParticles) + t * 40 * speedMult) * (Math.PI / 180);
+          const rad = 20 + ((i * 17 + t * 55 * speedMult) % 65);
           const px = Math.cos(angle) * rad;
           const py = 10 + Math.sin(angle) * rad;
 
           // NO2 (reddish brown pair) vs N2O4 (larger colorless dimer)
           if (i % 2 === 0) {
+            drawGlowingParticle(ctx, px, py, 6, '#d97706', 8);
+            ctx.fillStyle = '#78350f';
             ctx.beginPath();
-            ctx.arc(px, py, 6, 0, Math.PI * 2);
-            ctx.fillStyle = isLight ? '#b45309' : '#d97706';
+            ctx.arc(px, py, 3, 0, Math.PI * 2);
             ctx.fill();
-            ctx.strokeStyle = isLight ? '#78350f' : '#fef08a';
-            ctx.lineWidth = 1.2;
-            ctx.stroke();
           } else {
+            drawGlowingParticle(ctx, px, py, 9, '#38bdf8', 10);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
             ctx.beginPath();
-            ctx.arc(px, py, 9, 0, Math.PI * 2);
-            ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.85)' : 'rgba(255, 255, 255, 0.75)';
+            ctx.arc(px, py, 5, 0, Math.PI * 2);
             ctx.fill();
-            ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
           }
         }
 
@@ -1166,19 +1170,35 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
         // Electrolyte Solution Level
         const solHeight = 35 + (params.solutionVolumeMl / 500) * 75;
+        const solTopY = 122 - solHeight;
         ctx.fillStyle =
           params.electrolyte === 'hcl'
             ? isLight ? 'rgba(2, 132, 199, 0.25)' : 'rgba(56, 189, 248, 0.35)'
             : isLight ? 'rgba(217, 119, 6, 0.25)' : 'rgba(251, 191, 36, 0.35)';
-        ctx.fillRect(-82, 122 - solHeight, 164, solHeight);
+        ctx.fillRect(-82, solTopY, 164, solHeight);
 
-        // Electrodes (Carbon/Platinum rods)
-        ctx.fillStyle = isLight ? '#475569' : '#334155';
-        ctx.fillRect(-45, -55, 14, 140);
-        ctx.fillRect(31, -55, 14, 140);
-        ctx.strokeStyle = isLight ? '#94a3b8' : '#64748b';
-        ctx.strokeRect(-45, -55, 14, 140);
-        ctx.strokeRect(31, -55, 14, 140);
+        // Solution Meniscus
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.ellipse(0, solTopY, 82, 3, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Metallic Electrodes (Graphite/Platinum rods)
+        drawMetallicCylinder(ctx, -45, -55, 14, 140, 'steel', 'vertical');
+        drawMetallicCylinder(ctx, 31, -55, 14, 140, 'steel', 'vertical');
+
+        // Drifting Ions in Electric Field (Continuous 60 FPS)
+        const numIons = Math.min(24, Math.round(simState.alphaFraction * 80) + 4);
+        for (let k = 0; k < numIons; k++) {
+          const ionY = solTopY + 8 + ((k * 13 + t * 25) % (solHeight - 16));
+          const isCat = k % 2 === 0;
+          // Cations drift left toward cathode, anions drift right toward anode
+          const ionX = isCat
+            ? 25 - ((k * 9 + t * 20) % 65)
+            : -25 + ((k * 9 + t * 20) % 65);
+          drawGlowingParticle(ctx, ionX, ionY, 3.5, isCat ? '#38bdf8' : '#f59e0b', 8);
+        }
 
         // Wires to Battery and Bulb
         ctx.beginPath();
@@ -1192,9 +1212,8 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.lineWidth = 2.5;
         ctx.stroke();
 
-        // Light Bulb socket
-        ctx.fillStyle = isLight ? '#94a3b8' : '#64748b';
-        ctx.fillRect(-14, -102, 28, 14);
+        // Light Bulb socket (Brass cylinder)
+        drawMetallicCylinder(ctx, -14, -102, 28, 14, 'brass', 'horizontal');
 
         // Glowing Glass Bulb
         const bulbGlowRadius = 22 + simState.bulbGlow * 30;
@@ -1207,21 +1226,16 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.fillStyle = bulbGrad;
         ctx.fillRect(-bulbGlowRadius, -125 - bulbGlowRadius, bulbGlowRadius * 2, bulbGlowRadius * 2);
 
-        ctx.beginPath();
-        ctx.arc(0, -125, 16, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(254, 240, 138, ${Math.max(0.35, simState.bulbGlow)})`;
-        ctx.fill();
-        ctx.strokeStyle = '#eab308';
-        ctx.lineWidth = 2;
-        ctx.stroke();
+        // Glass sphere
+        drawGlowingParticle(ctx, 0, -125, 16, '#facc15', Math.round(12 + simState.bulbGlow * 30));
 
         // Filament
         ctx.beginPath();
         ctx.moveTo(-5, -118);
         ctx.lineTo(0, -129);
         ctx.lineTo(5, -118);
-        ctx.strokeStyle = simState.bulbGlow > 0.2 ? '#f59e0b' : '#78716c';
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = simState.bulbGlow > 0.2 ? '#ffffff' : '#78716c';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
         // Solution Status Caption
@@ -1274,13 +1288,25 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.fillStyle = glowGrad;
         ctx.fillRect(-110, -25, 220, 130);
 
-        // Submerged Magnetic Stirrer pill
-        ctx.fillStyle = '#ffffff';
+        // Meniscus
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
-        ctx.roundRect(-16, 66, 32, 8, 4);
-        ctx.fill();
-        ctx.strokeStyle = isLight ? '#94a3b8' : '#64748b';
+        ctx.ellipse(0, -5, 82, 3, 0, 0, Math.PI * 2);
         ctx.stroke();
+
+        // Submerged Rotating Magnetic Stirrer pill (Continuous 60 FPS)
+        ctx.save();
+        ctx.translate(0, 70);
+        ctx.rotate(t * 12);
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#64748b';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(-16, -4, 32, 8, 4);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
 
         // pH Tag Card
         ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.92)';
@@ -1339,6 +1365,13 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
         ctx.fillStyle = isLight ? 'rgba(2, 132, 199, 0.15)' : 'rgba(56, 189, 248, 0.2)';
         ctx.fill();
 
+        // Meniscus
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.ellipse(0, -45, 37, 3, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
         // Insoluble Precipitate sediment at bottom
         if (simState.isPrecipitating) {
           ctx.beginPath();
@@ -1347,14 +1380,11 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
           ctx.fillStyle = simState.precipitateColor;
           ctx.fill();
 
-          // Suspended drifting crystalline specks
-          for (let p = 0; p < 12; p++) {
-            const specX = -20 + ((p * 17 + animTick) % 40);
-            const specY = 0 + ((p * 23 + animTick * 2) % 55);
-            ctx.beginPath();
-            ctx.arc(specX, specY, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = simState.precipitateColor;
-            ctx.fill();
+          // Suspended drifting crystalline specks (Continuous 60 FPS)
+          for (let p = 0; p < 14; p++) {
+            const specX = -20 + ((p * 17 + t * 18) % 40);
+            const specY = 0 + ((p * 23 + t * 24) % 55);
+            drawGlowingParticle(ctx, specX, specY, 2.5, simState.precipitateColor, 6);
           }
         }
 
@@ -1393,7 +1423,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
 
       ctx.restore();
     },
-    [params, simState, animTick, isLight, isArabic]
+    [params, simState, isLight, isArabic]
   );
 
   return (
@@ -1534,6 +1564,7 @@ export const EquilibriumLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
             id="equilibrium-canvas-viewport"
             lang={lang}
             minHeight={380}
+            animated={true}
             onRender={handleRenderViewport}
           />
         </div>

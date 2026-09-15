@@ -8,6 +8,10 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawVolumetricBeam,
+  drawMetallicCylinder,
+  drawAnalogMeterGauge,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 
@@ -638,71 +642,53 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, baseW, baseH);
 
-    // 1. Vacuum Quartz Bulb Chamber
+    // 1. Vacuum Quartz Bulb Chamber (Realistic Glass Envelope)
     ctx.save();
+    // Subtle internal vacuum radial gradient
+    const bulbGrad = ctx.createRadialGradient(290, 130, 25, 290, 130, 195);
+    bulbGrad.addColorStop(0, 'rgba(15, 23, 42, 0.45)');
+    bulbGrad.addColorStop(0.85, 'rgba(8, 14, 30, 0.85)');
+    bulbGrad.addColorStop(1, 'rgba(2, 6, 23, 0.95)');
+    ctx.fillStyle = bulbGrad;
     ctx.beginPath();
     ctx.ellipse(290, 130, 190, 85, 0, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.7)';
     ctx.fill();
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = '#38bdf8';
+
+    // Quartz outer wall glow
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
     ctx.stroke();
 
+    // Specular glass reflection arcs (gloss highlights)
     ctx.beginPath();
     ctx.arc(290, 130, 185, Math.PI * 1.05, Math.PI * 1.35);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.lineWidth = 3.5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(290, 130, 185, Math.PI * 0.1, Math.PI * 0.35);
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.2)';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+    ctx.lineWidth = 2.5;
     ctx.stroke();
     ctx.restore();
 
-    // 2. Incident Light Illuminator
-    ctx.save();
-    ctx.fillStyle = '#1e293b';
-    ctx.strokeStyle = '#475569';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(10, 20);
-    ctx.lineTo(80, 70);
-    ctx.lineTo(60, 95);
-    ctx.lineTo(-10, 45);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
+    // 2. Incident Light Illuminator with Metallic Housing
+    drawMetallicCylinder(ctx, 5, 25, 65, 38, 'steel', 'horizontal');
+    // Emitter bezel ring
+    ctx.fillStyle = '#64748b';
+    ctx.fillRect(68, 22, 10, 44);
 
     if (params.intensity > 0) {
-      const beamGrad = ctx.createLinearGradient(70, 82, 160, 130);
-      beamGrad.addColorStop(0, lightColor.rgba);
-      beamGrad.addColorStop(1, lightColor.rgba.replace('0.85', '0.15'));
-
-      ctx.beginPath();
-      ctx.moveTo(80, 70);
-      ctx.lineTo(155, 75);
-      ctx.lineTo(165, 185);
-      ctx.lineTo(60, 95);
-      ctx.closePath();
-      ctx.fillStyle = beamGrad;
-      ctx.fill();
+      drawVolumetricBeam(ctx, 75, 44, 160, 130, lightColor.hex, 8, 20);
 
       const s = simStateRef.current;
-      ctx.fillStyle = lightColor.hex;
-      ctx.shadowColor = lightColor.hex;
-      ctx.shadowBlur = 8;
       for (const p of s.photons) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
-        ctx.fill();
+        drawGlowingParticle(ctx, p.x, p.y, 3, lightColor.hex, 8);
       }
-      ctx.shadowBlur = 0;
     }
-    ctx.restore();
 
-    // 3. Cathode Plate
+    // 3. Cathode Plate (Curved Metal Plate with Specular Highlight)
     const cathodeX = 160;
     ctx.save();
     ctx.beginPath();
@@ -712,15 +698,17 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.lineCap = 'round';
     ctx.stroke();
 
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    // Specular brushed highlight along the curved plate
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
     ctx.stroke();
 
+    // Electrode tungsten lead
     ctx.beginPath();
     ctx.moveTo(cathodeX - 35, 130);
     ctx.lineTo(cathodeX - 60, 130);
     ctx.lineTo(cathodeX - 60, 260);
-    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 3;
     ctx.stroke();
 
@@ -740,28 +728,23 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // 4. Anode Collector Plate
     const anodeX = 420;
     ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(anodeX, 75);
-    ctx.lineTo(anodeX, 185);
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineCap = 'round';
-    ctx.stroke();
+    drawMetallicCylinder(ctx, anodeX - 5, 75, 10, 110, 'steel', 'vertical');
 
     const sparkA = simStateRef.current.sparkAnodeAlpha;
     if (sparkA > 0) {
       ctx.shadowColor = '#38bdf8';
-      ctx.shadowBlur = 16;
+      ctx.shadowBlur = 18;
       ctx.fillStyle = `rgba(56, 189, 248, ${sparkA})`;
-      ctx.fillRect(anodeX - 3, 75, 6, 110);
+      ctx.fillRect(anodeX - 5, 75, 10, 110);
       ctx.shadowBlur = 0;
     }
 
+    // Lead wire
     ctx.beginPath();
     ctx.moveTo(anodeX, 130);
     ctx.lineTo(anodeX + 30, 130);
     ctx.lineTo(anodeX + 30, 260);
-    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 3;
     ctx.stroke();
 
@@ -775,7 +758,7 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     if (Math.abs(params.biasVoltage) > 0.05) {
       ctx.save();
       const isRetarding = params.biasVoltage < 0;
-      const arrowColor = isRetarding ? 'rgba(244, 63, 94, 0.4)' : 'rgba(16, 185, 129, 0.4)';
+      const arrowColor = isRetarding ? 'rgba(244, 63, 94, 0.45)' : 'rgba(16, 185, 129, 0.45)';
       ctx.strokeStyle = arrowColor;
       ctx.fillStyle = arrowColor;
       ctx.lineWidth = 1.5;
@@ -794,73 +777,60 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.restore();
     }
 
-    // 6. Flying Photoelectrons
+    // 6. Flying Photoelectrons with Glowing Cyan Trails
     const s = simStateRef.current;
     ctx.save();
     for (const e of s.electrons) {
-      ctx.beginPath();
-      ctx.arc(e.x, e.y, 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#38bdf8';
-      ctx.shadowColor = '#67e8f9';
-      ctx.shadowBlur = 6;
-      ctx.fill();
+      drawGlowingParticle(ctx, e.x, e.y, 3.5, '#38bdf8', 10);
 
+      // Trailing ion tail
       ctx.beginPath();
       ctx.moveTo(e.x, e.y);
-      ctx.lineTo(e.x - e.vx * 0.02, e.y - e.vy * 0.02);
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
-      ctx.lineWidth = 1.5;
+      ctx.lineTo(e.x - e.vx * 0.03, e.y - e.vy * 0.03);
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)';
+      ctx.lineWidth = 2;
       ctx.stroke();
     }
-    ctx.shadowBlur = 0;
     ctx.restore();
 
-    // 7. External Circuit & Precision Microammeter
+    // 7. External Circuit & Precision Analog Gauges
     ctx.save();
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = '#64748b';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(cathodeX - 60, 260);
-    ctx.lineTo(210, 260);
-    ctx.moveTo(270, 260);
+    ctx.lineTo(200, 260);
+    ctx.moveTo(280, 260);
     ctx.lineTo(330, 260);
-    ctx.moveTo(390, 260);
+    ctx.moveTo(410, 260);
     ctx.lineTo(anodeX + 30, 260);
     ctx.stroke();
 
-    ctx.fillStyle = '#020617';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(205, 238, 70, 44, 6);
-    ctx.fill();
-    ctx.stroke();
+    // Realistic Analog Precision Microammeter Gauge (Curved Scale & Needle)
+    drawAnalogMeterGauge(
+      ctx,
+      240,
+      260,
+      36,
+      measuredCurrentUA,
+      0,
+      150,
+      isArabic ? 'التيار µA' : 'AMMETER',
+      'µA'
+    );
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = 'bold 8px system-ui, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('µA AMMETER', 240, 252);
-
-    ctx.fillStyle = measuredCurrentUA > 0 ? '#38bdf8' : '#64748b';
-    ctx.font = 'bold 12px monospace';
-    ctx.fillText(`${measuredCurrentUA.toFixed(1)} µA`, 240, 271);
-
-    ctx.fillStyle = '#020617';
-    ctx.strokeStyle = params.biasVoltage < 0 ? '#f43f5e' : '#10b981';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(325, 238, 70, 44, 6);
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = 'bold 8px system-ui, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText(isArabic ? 'مصدر الجهد V' : 'BIAS VOLTS', 360, 252);
-
-    ctx.fillStyle = params.biasVoltage < 0 ? '#f43f5e' : '#10b981';
-    ctx.font = 'bold 12px monospace';
-    ctx.fillText(`${params.biasVoltage >= 0 ? '+' : ''}${params.biasVoltage.toFixed(2)} V`, 360, 271);
+    // Realistic Analog Precision Voltmeter Gauge (Curved Scale & Needle)
+    drawAnalogMeterGauge(
+      ctx,
+      370,
+      260,
+      36,
+      params.biasVoltage,
+      -5,
+      5,
+      isArabic ? 'جهد V' : 'BIAS',
+      'V'
+    );
     ctx.restore();
 
     // 8. On-Canvas HUD Banner
@@ -1028,6 +998,7 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         lang={lang}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
+        animated={true}
         onRender={handleRenderCanvas}
       />
     </VirtualLabShell>

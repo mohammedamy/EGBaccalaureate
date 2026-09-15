@@ -5,6 +5,9 @@ import {
   VirtualLabShell,
   CanvasSimulationViewport,
   useVirtualLab,
+  drawRealisticGlassVessel,
+  drawVolumetricBeam,
+  drawGlowingParticle,
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
@@ -1138,16 +1141,21 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
   // -------------------------------------------------------------
   // CANVAS 2D RENDERING ENGINE (60 - 120 FPS HIGH DPI)
   // -------------------------------------------------------------
+  // -------------------------------------------------------------
+  // CANVAS 2D RENDERING ENGINE (60 - 120 FPS HIGH DPI)
+  // -------------------------------------------------------------
   const renderSimulation = useCallback(
     (
       ctx: CanvasRenderingContext2D,
       width: number,
       height: number,
       _viewport: LabViewportState,
-      _dpr: number
+      _dpr: number,
+      time?: number
     ) => {
       // Clear viewport
       ctx.clearRect(0, 0, width, height);
+      const t = (time ?? performance.now()) * 0.001;
 
       // Gradient background
       const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
@@ -1213,14 +1221,14 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
 
         // Reactant -> Reagents/Catalyst -> Product representation
         const reactantBoxX = cardX + 30;
-        const reactantBoxY = cardY + 70;
+        const reactantBoxY = cardY + 65;
         const reactantBoxW = (cardW - 140) / 2;
         const reactantBoxH = cardH - 120;
 
         const productBoxX = cardX + cardW - reactantBoxW - 30;
         const productBoxY = reactantBoxY;
 
-        // Reactant Box
+        // Reactant Glassware & Container
         ctx.fillStyle = isLight ? '#f1f5f9' : '#1e293b';
         ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
         ctx.beginPath();
@@ -1228,7 +1236,27 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.fill();
         ctx.stroke();
 
-        // Product Box
+        // 3D Glass Reaction Vessel (Precursor)
+        const flaskW = 54;
+        const flaskH = 74;
+        const flaskX = reactantBoxX + 16;
+        const flaskY = reactantBoxY + reactantBoxH - flaskH - 12;
+        drawRealisticGlassVessel(ctx, flaskX, flaskY, flaskW, flaskH, {
+          liquidColor: 'rgba(56, 189, 248, 0.35)',
+          liquidLevelPercent: 62 + Math.sin(t * 3) * 3,
+          showMeniscus: true,
+          wallThickness: 2.5,
+        });
+
+        // Boiling micro-bubbles in reactant flask
+        for (let b = 0; b < 4; b++) {
+          const bFrac = ((t * 1.5 + b * 0.25) % 1);
+          const bx = flaskX + 14 + (b * 9) % (flaskW - 28);
+          const by = flaskY + flaskH - 10 - bFrac * (flaskH * 0.45);
+          drawGlowingParticle(ctx, bx, by, 1.8, 'rgba(255, 255, 255, 0.75)', 0.4);
+        }
+
+        // Product Glassware & Container
         ctx.fillStyle = isLight ? '#ecfdf5' : 'rgba(6, 78, 59, 0.25)';
         ctx.strokeStyle = '#10b981';
         ctx.beginPath();
@@ -1236,14 +1264,24 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.fill();
         ctx.stroke();
 
+        // 3D Glass Product Flask
+        const pFlaskX = productBoxX + reactantBoxW - flaskW - 16;
+        const pFlaskY = productBoxY + reactantBoxH - flaskH - 12;
+        drawRealisticGlassVessel(ctx, pFlaskX, pFlaskY, flaskW, flaskH, {
+          liquidColor: 'rgba(16, 185, 129, 0.4)',
+          liquidLevelPercent: 65 + Math.cos(t * 2.5) * 2,
+          showMeniscus: true,
+          wallThickness: 2.5,
+        });
+
         // Draw Reactant Label
         ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
         ctx.font = 'bold 11px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(
           isArabic ? 'المادة البادئة / المتفاعلات' : 'Reactant Precursor',
-          reactantBoxX + reactantBoxW / 2,
-          reactantBoxY + 30
+          reactantBoxX + reactantBoxW / 2 + 18,
+          reactantBoxY + 24
         );
 
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
@@ -1251,40 +1289,43 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         const startFormula = activeStepData.stepNumber === 1
           ? (activePathway.id === 'carbide_to_tnt' ? 'CaC₂' : activePathway.id === 'methane_to_ester' ? 'CH₄' : 'C₂H₅OH')
           : activePathway.steps[activeStepData.stepNumber - 2].productFormula;
-        ctx.fillText(startFormula, reactantBoxX + reactantBoxW / 2, reactantBoxY + 75);
+        ctx.fillText(startFormula, reactantBoxX + reactantBoxW / 2 + 18, reactantBoxY + 52);
 
         // Draw Product Label
         ctx.fillStyle = '#10b981';
         ctx.font = 'bold 11px Inter, sans-serif';
         ctx.fillText(
           isArabic ? 'المركب الناتج في هذه المرحلة' : 'Stage Resulting Product',
-          productBoxX + reactantBoxW / 2,
-          productBoxY + 30
+          productBoxX + reactantBoxW / 2 - 18,
+          productBoxY + 24
         );
 
         ctx.fillStyle = '#38bdf8';
         ctx.font = '900 20px "JetBrains Mono", monospace';
-        ctx.fillText(activeStepData.productFormula, productBoxX + reactantBoxW / 2, productBoxY + 75);
+        ctx.fillText(activeStepData.productFormula, productBoxX + reactantBoxW / 2 - 18, productBoxY + 52);
 
         ctx.fillStyle = isLight ? '#334155' : '#cbd5e1';
         ctx.font = 'bold 12px Inter, sans-serif';
         ctx.fillText(
           isArabic ? activeStepData.productNameAr : activeStepData.productNameEn,
-          productBoxX + reactantBoxW / 2,
-          productBoxY + 110
+          productBoxX + reactantBoxW / 2 - 18,
+          productBoxY + 76
         );
 
         // Central Reaction Arrow & Catalyst/Conditions
-        const arrowStartX = reactantBoxX + reactantBoxW + 15;
-        const arrowEndX = productBoxX - 15;
+        const arrowStartX = reactantBoxX + reactantBoxW + 12;
+        const arrowEndX = productBoxX - 12;
         const arrowY = reactantBoxY + reactantBoxH / 2;
 
-        ctx.strokeStyle = '#10b981';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(arrowStartX, arrowY);
-        ctx.lineTo(arrowEndX, arrowY);
-        ctx.stroke();
+        drawVolumetricBeam(ctx, arrowStartX, arrowY, arrowEndX - arrowStartX, 10, '#10b981', 0.8);
+
+        // Streaming reacting molecules (60 FPS particles)
+        for (let i = 0; i < 6; i++) {
+          const pFrac = ((t * 1.8 + i * 0.166) % 1);
+          const px = arrowStartX + pFrac * (arrowEndX - arrowStartX);
+          const py = arrowY + Math.sin(i * 2 + t * 4) * 3;
+          drawGlowingParticle(ctx, px, py, 2.8, '#34d399', 0.7);
+        }
 
         // Arrowhead
         ctx.fillStyle = '#10b981';
@@ -1402,6 +1443,22 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           );
           ctx.stroke();
 
+          // Continuous 60 FPS traveling operating state packet along Major Pathway
+          const curveProg = (t * 0.4) % 1;
+          const curX = (marginL + 20) + curveProg * (marginR - 40 - marginL);
+          // Approximate curve height for cursor
+          let curY = rY;
+          if (curveProg < 0.35) {
+            const f = curveProg / 0.35;
+            curY = rY - Math.sin(f * Math.PI * 0.5) * (rY - majorPeakY);
+          } else if (curveProg < 0.6) {
+            curY = majorValleyY;
+          } else {
+            const f = (curveProg - 0.6) / 0.4;
+            curY = majorValleyY + f * (majorProductY - majorValleyY);
+          }
+          drawGlowingParticle(ctx, curX, curY, 6, '#34d399', 0.9);
+
           // Minor Pathway (Anti-Markovnikov, 1° carbocation): Much higher barrier
           const minorPeakY = marginT + 15; // Higher Ea
           const minorValleyY = minorPeakY + 30;
@@ -1434,6 +1491,10 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           );
           ctx.stroke();
           ctx.setLineDash([]); // Reset line dash
+
+          // Pulsing Transition State Beacons (‡)
+          drawGlowingParticle(ctx, marginL + 190, majorPeakY, 7, '#10b981', 0.8 + 0.2 * Math.sin(t * 6));
+          drawGlowingParticle(ctx, marginL + 190, minorPeakY, 6, '#f43f5e', 0.6 + 0.2 * Math.cos(t * 6));
 
           // Annotations on curve
           ctx.fillStyle = '#10b981';
@@ -1483,25 +1544,94 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             centerY - 100
           );
 
-          // Alkene formula box
-          ctx.fillStyle = '#1e293b';
+          // 3D Alkene Molecular Box
+          ctx.fillStyle = isLight ? '#f8fafc' : '#1e293b';
           ctx.strokeStyle = '#38bdf8';
           ctx.lineWidth = 2;
           ctx.beginPath();
-          ctx.roundRect(centerX - 180, centerY - 50, 360, 100, 16);
+          ctx.roundRect(centerX - 190, centerY - 60, 380, 120, 16);
           ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = '#f59e0b';
-          ctx.font = '900 22px "JetBrains Mono", monospace';
-          const alkeneDisplay = params.alkeneType === 'propene'
-            ? 'CH₃ - CH = CH₂'
-            : params.alkeneType === 'methylpropene'
-            ? '(CH₃)₂C = CH₂'
-            : 'CH₃ - CH₂ - CH = CH₂';
-          ctx.fillText(alkeneDisplay, centerX, centerY + 8);
+          // 3D Shaded Molecular Atoms
+          const drawAtomSphere = (x: number, y: number, r: number, baseColor: string) => {
+            const radGrad = ctx.createRadialGradient(x - r * 0.35, y - r * 0.35, r * 0.1, x, y, r);
+            radGrad.addColorStop(0, '#ffffff');
+            radGrad.addColorStop(0.3, baseColor);
+            radGrad.addColorStop(1, '#0f172a');
+            ctx.fillStyle = radGrad;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fill();
+          };
 
-          // Arrow indicating H+ attaching to CH2
+          // Carbon-1 and Carbon-2 positions
+          const c1X = centerX - 40;
+          const c2X = centerX + 40;
+          const bondY = centerY - 10;
+
+          // Double bond cylinders
+          ctx.strokeStyle = '#94a3b8';
+          ctx.lineWidth = 5;
+          ctx.beginPath();
+          ctx.moveTo(c1X + 16, bondY - 5);
+          ctx.lineTo(c2X - 16, bondY - 5);
+          ctx.moveTo(c1X + 16, bondY + 5);
+          ctx.lineTo(c2X - 16, bondY + 5);
+          ctx.stroke();
+
+          // Pulsing π-electron cloud between C=C
+          const piGlow = 0.3 + 0.2 * Math.sin(t * 6);
+          ctx.fillStyle = `rgba(56, 189, 248, ${piGlow})`;
+          ctx.beginPath();
+          ctx.ellipse((c1X + c2X) / 2, bondY, 28, 16, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Shaded Carbon spheres
+          drawAtomSphere(c1X, bondY, 18, '#475569');
+          drawAtomSphere(c2X, bondY, 18, '#475569');
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 12px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('C', c1X, bondY + 4);
+          ctx.fillText('C', c2X, bondY + 4);
+
+          // Electrophile H+ approaching terminal C2
+          const hX = c2X + 15 + Math.sin(t * 2) * 5;
+          const hY = bondY - 45;
+          drawAtomSphere(hX, hY, 12, '#38bdf8');
+
+          ctx.fillStyle = '#0f172a';
+          ctx.font = 'bold 10px sans-serif';
+          ctx.fillText('H⁺', hX, hY + 3.5);
+
+          // Curved Electron Attack Arrow (π bond -> H+)
+          ctx.strokeStyle = '#10b981';
+          ctx.lineWidth = 2.5;
+          ctx.setLineDash([4, 3]);
+          ctx.lineDashOffset = -t * 20;
+          ctx.beginPath();
+          ctx.moveTo((c1X + c2X) / 2, bondY - 14);
+          ctx.quadraticCurveTo(c2X, bondY - 35, hX - 6, hY + 6);
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Nucleophile X- waiting to attack the carbocation on C1
+          const nucX = c1X - 35;
+          const nucY = bondY + 35;
+          drawAtomSphere(nucX, nucY, 14, '#ef4444');
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 10px sans-serif';
+          ctx.fillText(params.reagent === 'HBr' ? 'Br⁻' : params.reagent === 'HCl' ? 'Cl⁻' : 'OH⁻', nucX, nucY + 3.5);
+
+          // Carbocation charge beacon on C1
+          drawGlowingParticle(ctx, c1X, bondY - 24, 10, 'rgba(234, 179, 8, 0.9)', 0.8);
+          ctx.fillStyle = '#eab308';
+          ctx.font = '900 13px sans-serif';
+          ctx.fillText('⊕', c1X, bondY - 20);
+
+          // Text descriptions below
           ctx.fillStyle = '#10b981';
           ctx.font = 'bold 12px Inter, sans-serif';
           ctx.fillText(
@@ -1534,7 +1664,7 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
 
         // Structure highlight box
         const boxW = Math.min(width - 60, 620);
-        const boxH = 140;
+        const boxH = 150;
         ctx.fillStyle = isLight ? '#f8fafc' : '#0f172a';
         ctx.strokeStyle = '#38bdf8';
         ctx.lineWidth = 2;
@@ -1543,7 +1673,7 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.fill();
         ctx.stroke();
 
-        // Category pill
+        // Category pill with glowing border
         ctx.fillStyle = 'rgba(56, 189, 248, 0.2)';
         ctx.strokeStyle = '#38bdf8';
         ctx.lineWidth = 1;
@@ -1557,10 +1687,25 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.textAlign = 'center';
         ctx.fillText(currentQ.category, centerX, centerY - boxH / 2 + 3);
 
-        // Chemical formula
+        // Chemical formula with glowing highlight
         ctx.fillStyle = '#f59e0b';
         ctx.font = '900 22px "JetBrains Mono", monospace';
         ctx.fillText(currentQ.structure, centerX, centerY + 8);
+
+        // Animated carbon chain numbering indicators below formula
+        const numMarkers = 4;
+        const startMarkerX = centerX - 75;
+        for (let m = 0; m < numMarkers; m++) {
+          const mx = startMarkerX + m * 50;
+          const my = centerY + 32;
+          const isActive = (Math.floor(t * 2) % numMarkers) === m;
+          ctx.fillStyle = isActive ? '#10b981' : '#64748b';
+          ctx.font = 'bold 10px monospace';
+          ctx.fillText(`C${m + 1}`, mx, my);
+          if (isActive) {
+            drawGlowingParticle(ctx, mx, my - 4, 8, 'rgba(16, 185, 129, 0.6)', 0.5);
+          }
+        }
 
         // Longest chain guidance hint
         ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
@@ -1570,7 +1715,7 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             ? 'تحديد أطول سلسلة كربونية متصلة وترقيمها من الطرف الأقرب للمجموعة الوظيفية'
             : 'Find longest continuous chain; number from the end nearest functional group',
           centerX,
-          centerY + 45
+          centerY + 55
         );
       }
     },
@@ -1814,6 +1959,7 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             lang={lang ?? 'ar'}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
+            animated={true}
             onRender={renderSimulation}
           >
             {/* Real-time Status Overlay Badge */}

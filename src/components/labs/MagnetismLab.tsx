@@ -10,6 +10,8 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -929,12 +931,26 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
     setIsDraggingProbe(false);
   }, []);
 
-  // High-DPI 60-120 FPS Rendering Loop
+  // High-DPI 60-120 FPS Realistic Physics & 3D Objects Rendering Loop
   const renderSimulation = useCallback(
-    (ctx: CanvasRenderingContext2D, width: number, height: number, _vState: LabViewportState) => {
+    (
+      ctx: CanvasRenderingContext2D,
+      width: number,
+      height: number,
+      _vState: LabViewportState,
+      _dpr?: number,
+      time?: number
+    ) => {
       ctx.clearRect(0, 0, width, height);
 
-      // Background Grid
+      const t = (time ? time : performance.now()) * 0.001;
+      animPhaseRef.current = t * 1.5;
+
+      // Realistic laboratory bench surface
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, width, height);
+
+      // Background Engineering Grid
       ctx.strokeStyle = theme === 'high-contrast' ? '#222' : isLight ? 'rgba(0, 0, 0, 0.06)' : 'rgba(255, 255, 255, 0.04)';
       ctx.lineWidth = 1;
       const gridSize = 35;
@@ -953,8 +969,6 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
       const cx = width / 2;
       const cy = height / 2;
-      animPhaseRef.current += 0.03;
-      const phase = animPhaseRef.current;
 
       // =========================================================================
       // MODE 1: FIELD SOURCES (WIRE, DUAL WIRES, CIRCULAR LOOP, SOLENOID)
@@ -962,9 +976,9 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       if (params.magnetismMode === 'field_sources') {
         if (params.conductorType === 'straight_wire') {
           // Concentric circular magnetic flux lines
-          const rings = [45, 80, 120, 165, 215];
+          const rings = [45, 80, 125, 175, 230];
           rings.forEach((r, idx) => {
-            ctx.strokeStyle = idx === 1 ? '#38bdf8' : 'rgba(56, 189, 248, 0.45)';
+            ctx.strokeStyle = idx === 1 ? '#38bdf8' : 'rgba(56, 189, 248, 0.4)';
             ctx.lineWidth = idx === 1 ? 2.5 : 1.5;
             ctx.setLineDash(idx === 1 ? [] : [6, 6]);
             ctx.beginPath();
@@ -972,44 +986,49 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
             ctx.stroke();
             ctx.setLineDash([]);
 
-            // Directional arrow on circle
-            const angle = (phase * (params.wireCurrentDir === 'out' ? 1 : -1) + idx * 1.3) % (Math.PI * 2);
+            // Orbiting flux particles at continuous 60 FPS
+            const orbitSpeed = (30 / r) * (params.wireCurrent / 10);
+            const angle = (t * orbitSpeed * (params.wireCurrentDir === 'out' ? 1 : -1) + idx * 1.4) % (Math.PI * 2);
             const ax = cx + r * Math.cos(angle);
             const ay = cy + r * Math.sin(angle);
-            const tangent = angle + (params.wireCurrentDir === 'out' ? Math.PI / 2 : -Math.PI / 2);
 
-            ctx.fillStyle = '#38bdf8';
-            ctx.beginPath();
-            ctx.moveTo(ax, ay);
-            ctx.lineTo(ax - 10 * Math.cos(tangent - 0.4), ay - 10 * Math.sin(tangent - 0.4));
-            ctx.lineTo(ax - 10 * Math.cos(tangent + 0.4), ay - 10 * Math.sin(tangent + 0.4));
-            ctx.closePath();
-            ctx.fill();
+            drawGlowingParticle(ctx, ax, ay, 2.5, '#38bdf8', 6);
           });
 
-          // Wire Cross Section in center
-          ctx.fillStyle = '#1e293b';
+          // 3D Cylindrical Copper Conductor (Cross-Section)
+          drawMetallicCylinder(ctx, cx - 22, cy - 22, 44, 44, 'copper');
+
+          // Conductor outer insulation jacket
           ctx.strokeStyle = '#f59e0b';
-          ctx.lineWidth = 4;
+          ctx.lineWidth = 2.5;
           ctx.beginPath();
           ctx.arc(cx, cy, 22, 0, Math.PI * 2);
-          ctx.fill();
           ctx.stroke();
 
           // Current vector symbol
           if (params.wireCurrentDir === 'out') {
-            ctx.fillStyle = '#f59e0b';
+            drawGlowingParticle(ctx, cx, cy, 5.5, '#fbbf24', 10);
+            ctx.fillStyle = '#ffffff';
             ctx.beginPath();
-            ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+            ctx.arc(cx, cy, 2.5, 0, Math.PI * 2);
             ctx.fill();
           } else {
-            ctx.strokeStyle = '#f59e0b';
-            ctx.lineWidth = 3.5;
+            ctx.strokeStyle = '#020617';
+            ctx.lineWidth = 4;
             ctx.beginPath();
-            ctx.moveTo(cx - 10, cy - 10);
-            ctx.lineTo(cx + 10, cy + 10);
-            ctx.moveTo(cx + 10, cy - 10);
-            ctx.lineTo(cx - 10, cy + 10);
+            ctx.moveTo(cx - 9, cy - 9);
+            ctx.lineTo(cx + 9, cy + 9);
+            ctx.moveTo(cx + 9, cy - 9);
+            ctx.lineTo(cx - 9, cy + 9);
+            ctx.stroke();
+
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(cx - 8, cy - 8);
+            ctx.lineTo(cx + 8, cy + 8);
+            ctx.moveTo(cx + 8, cy - 8);
+            ctx.lineTo(cx - 8, cy + 8);
             ctx.stroke();
           }
 
@@ -1026,15 +1045,53 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.font = 'bold 12px monospace';
           ctx.fillText(`d = ${params.wireDistanceCm} cm`, cx + dPixels / 2 - 25, cy - 10);
 
+          // Realistic 3D Magnetic Compass on the flux line at distance d
+          const compX = cx + dPixels;
+          const compY = cy;
+          // Compass brass bezel
+          drawMetallicCylinder(ctx, compX - 18, compY - 18, 36, 36, 'brass');
+          ctx.fillStyle = '#0f172a';
+          ctx.beginPath();
+          ctx.arc(compX, compY, 15, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Compass Needle: North (Red) pointing tangentially (upwards if out, downwards if in)
+          const needleDir = params.wireCurrentDir === 'out' ? -1 : 1;
+          // North needle tip
+          ctx.fillStyle = '#ef4444';
+          ctx.beginPath();
+          ctx.moveTo(compX, compY);
+          ctx.lineTo(compX - 3, compY);
+          ctx.lineTo(compX, compY + needleDir * 13);
+          ctx.lineTo(compX + 3, compY);
+          ctx.closePath();
+          ctx.fill();
+
+          // South needle tip
+          ctx.fillStyle = '#94a3b8';
+          ctx.beginPath();
+          ctx.moveTo(compX, compY);
+          ctx.lineTo(compX - 3, compY);
+          ctx.lineTo(compX, compY - needleDir * 13);
+          ctx.lineTo(compX + 3, compY);
+          ctx.closePath();
+          ctx.fill();
+
+          // Pivot pin
+          ctx.fillStyle = '#fbbf24';
+          ctx.beginPath();
+          ctx.arc(compX, compY, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
           // Indicator label
           ctx.fillStyle = '#f59e0b';
           ctx.font = 'bold 13px sans-serif';
           ctx.fillText(
             params.wireCurrentDir === 'out'
-              ? (isArabic ? 'تيار عمودي لخارج الصفحة ⊙' : 'Current Vector: Out of Page ⊙')
-              : (isArabic ? 'تيار عمودي لداخل الصفحة ⊗' : 'Current Vector: Into Page ⊗'),
-            cx - 95,
-            cy + 42
+              ? (isArabic ? 'تيار عمودي لخارج الصفحة ⊙ (المجال عكس عقارب الساعة)' : 'Current: Out of Page ⊙ (Counter-Clockwise B-Field)')
+              : (isArabic ? 'تيار عمودي لداخل الصفحة ⊗ (المجال مع عقارب الساعة)' : 'Current: Into Page ⊗ (Clockwise B-Field)'),
+            cx - 110,
+            cy + 52
           );
         } else if (params.conductorType === 'dual_wires') {
           // Two parallel wires separated by D
@@ -1042,32 +1099,26 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           const w1X = cx - dHalfPix;
           const w2X = cx + dHalfPix;
 
-          // Wire 1
-          ctx.fillStyle = '#1e293b';
+          // Wire 1 (3D Copper)
+          drawMetallicCylinder(ctx, w1X - 20, cy - 20, 40, 40, 'copper');
           ctx.strokeStyle = '#38bdf8';
-          ctx.lineWidth = 3.5;
+          ctx.lineWidth = 2.5;
           ctx.beginPath();
           ctx.arc(w1X, cy, 20, 0, Math.PI * 2);
-          ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = '#38bdf8';
-          ctx.beginPath();
-          ctx.arc(w1X, cy, 5, 0, Math.PI * 2);
-          ctx.fill();
+          drawGlowingParticle(ctx, w1X, cy, 5, '#38bdf8', 8);
 
-          // Wire 2
+          // Wire 2 (3D Copper)
+          drawMetallicCylinder(ctx, w2X - 20, cy - 20, 40, 40, 'copper');
           ctx.strokeStyle = '#fbbf24';
+          ctx.lineWidth = 2.5;
           ctx.beginPath();
           ctx.arc(w2X, cy, 20, 0, Math.PI * 2);
-          ctx.fill();
           ctx.stroke();
 
           if (params.dualWiresCurrentDirs === 'same') {
-            ctx.fillStyle = '#fbbf24';
-            ctx.beginPath();
-            ctx.arc(w2X, cy, 5, 0, Math.PI * 2);
-            ctx.fill();
+            drawGlowingParticle(ctx, w2X, cy, 5, '#fbbf24', 8);
           } else {
             ctx.strokeStyle = '#fbbf24';
             ctx.lineWidth = 3;
@@ -1093,20 +1144,32 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           // Neutral point beacon
           if (state.neutralPointDistCm !== null) {
             const neutralX = w1X + (state.neutralPointDistCm / params.wiresSeparationCm) * (dHalfPix * 2);
-            ctx.fillStyle = 'rgba(239, 68, 68, 0.25)';
-            ctx.beginPath();
-            ctx.arc(neutralX, cy, 14 + Math.sin(phase * 4) * 3, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.fillStyle = '#ef4444';
-            ctx.beginPath();
-            ctx.arc(neutralX, cy, 6, 0, Math.PI * 2);
-            ctx.fill();
+            drawGlowingParticle(ctx, neutralX, cy, 6, '#ef4444', 12);
 
             ctx.fillStyle = '#f87171';
             ctx.font = 'bold 12px sans-serif';
             ctx.fillText(isArabic ? 'نقطة التعادل (B = 0)' : 'Neutral Point (B = 0)', neutralX - 55, cy - 25);
           }
+
+          // Mutual Force vectors between wires
+          const isAttraction = params.dualWiresCurrentDirs === 'same';
+          const forceMagPix = Math.min(45, state.mutualForcePerLengthN * 1e5 * 15 + 15);
+          const f1Dir = isAttraction ? 1 : -1;
+          const f2Dir = isAttraction ? -1 : 1;
+
+          // Wire 1 Force Arrow
+          ctx.strokeStyle = '#10b981';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(w1X, cy);
+          ctx.lineTo(w1X + f1Dir * forceMagPix, cy);
+          ctx.stroke();
+
+          // Wire 2 Force Arrow
+          ctx.beginPath();
+          ctx.moveTo(w2X, cy);
+          ctx.lineTo(w2X + f2Dir * forceMagPix, cy);
+          ctx.stroke();
 
           // Labels
           ctx.fillStyle = '#38bdf8';
@@ -1114,16 +1177,43 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.fillText(`I₁ = ${params.wire1Current} A`, w1X - 30, cy - 35);
           ctx.fillStyle = '#fbbf24';
           ctx.fillText(`I₂ = ${params.wire2Current} A`, w2X - 30, cy - 35);
+
+          ctx.fillStyle = '#10b981';
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillText(
+            isAttraction
+              ? (isArabic ? 'قوة تجاذب متبادلة (F/L)' : 'Mutual Attraction (F/L)')
+              : (isArabic ? 'قوة تنافر متبادلة (F/L)' : 'Mutual Repulsion (F/L)'),
+            cx - 55,
+            cy - 60
+          );
         } else if (params.conductorType === 'circular_loop') {
-          // Circular coil top/isometric perspective
+          // Circular coil isometric perspective (3D Copper Torus)
           const rPixels = params.loopRadiusCm * 9;
-          ctx.strokeStyle = '#f59e0b';
-          ctx.lineWidth = 6;
+
+          // 3D Shaded Copper Torus Ring
+          ctx.strokeStyle = '#b45309';
+          ctx.lineWidth = 10;
           ctx.beginPath();
           ctx.ellipse(cx, cy, rPixels, rPixels * 0.45, 0, 0, Math.PI * 2);
           ctx.stroke();
 
-          // Magnetic flux lines through center
+          ctx.strokeStyle = '#fde68a';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.ellipse(cx, cy, rPixels, rPixels * 0.45, 0, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Circulating electrons at 60 FPS
+          const elecCount = 12;
+          for (let e = 0; e < elecCount; e++) {
+            const eAngle = (t * 2.5 + (e / elecCount) * Math.PI * 2) % (Math.PI * 2);
+            const ex = cx + rPixels * Math.cos(eAngle);
+            const ey = cy + (rPixels * 0.45) * Math.sin(eAngle);
+            drawGlowingParticle(ctx, ex, ey, 2.5, '#38bdf8', 6);
+          }
+
+          // Magnetic flux lines threading through center
           ctx.strokeStyle = '#38bdf8';
           ctx.lineWidth = 2.5;
           ctx.setLineDash([6, 4]);
@@ -1132,6 +1222,10 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.lineTo(cx, cy + 140);
           ctx.stroke();
           ctx.setLineDash([]);
+
+          // Continuous moving flux particles along axis
+          const fY = cy - 140 + ((t * 120) % 280);
+          drawGlowingParticle(ctx, cx, fY, 3, '#38bdf8', 8);
 
           // Arrow pointing North (upward)
           ctx.fillStyle = '#38bdf8';
@@ -1144,74 +1238,84 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
           ctx.fillStyle = '#38bdf8';
           ctx.font = 'bold 13px sans-serif';
-          ctx.fillText('N (North)', cx + 15, cy - 130);
-          ctx.fillText('S (South)', cx + 15, cy + 130);
+          ctx.fillText('N (North Pole)', cx + 15, cy - 130);
+          ctx.fillText('S (South Pole)', cx + 15, cy + 130);
 
           ctx.fillStyle = '#f59e0b';
           ctx.font = 'bold 12px sans-serif';
           ctx.fillText(`N = ${params.loopTurns} turns, r = ${params.loopRadiusCm} cm`, cx - 80, cy + rPixels * 0.45 + 30);
         } else {
-          // Solenoid
+          // Solenoid (3D Iron Core & Helical Copper Turns)
           const sLenPix = params.solenoidLengthM * 450;
           const sLeft = cx - sLenPix / 2;
           const sRight = cx + sLenPix / 2;
           const sHeight = 85;
 
-          // Core cylinder
-          ctx.fillStyle = params.hasIronCore ? '#334155' : 'rgba(15, 23, 42, 0.6)';
-          ctx.strokeStyle = params.hasIronCore ? '#64748b' : '#334155';
-          ctx.lineWidth = 2;
-          ctx.fillRect(sLeft, cy - sHeight / 2, sLenPix, sHeight);
-          ctx.strokeRect(sLeft, cy - sHeight / 2, sLenPix, sHeight);
+          // 3D Soft Iron Core / Air Core
+          drawMetallicCylinder(
+            ctx,
+            sLeft,
+            cy - sHeight / 2,
+            sLenPix,
+            sHeight,
+            params.hasIronCore ? 'steel' : 'zinc',
+            'horizontal'
+          );
 
           if (params.hasIronCore) {
-            ctx.fillStyle = '#94a3b8';
+            ctx.fillStyle = '#e2e8f0';
             ctx.font = 'bold 11px sans-serif';
-            ctx.fillText(isArabic ? 'قلب من الحديد المطاوع (µ = 1500 µ₀)' : 'Soft Iron Core (µ = 1500 µ₀)', cx - 85, cy + 4);
+            ctx.textAlign = 'center';
+            ctx.fillText(isArabic ? 'قلب من الحديد المطاوع (µ = 1500 µ₀)' : 'Soft Iron Core (µ = 1500 µ₀)', cx, cy + 4);
           }
 
-          // Helical coil turns
+          // 3D Helical Copper Coil Turns
           const turnsCount = Math.min(18, Math.max(8, Math.floor(params.solenoidTurns / 25)));
           const turnStep = sLenPix / turnsCount;
-          ctx.strokeStyle = '#f59e0b';
-          ctx.lineWidth = 5;
-          ctx.lineCap = 'round';
+
           for (let i = 0; i < turnsCount; i++) {
             const tx = sLeft + i * turnStep;
-            ctx.beginPath();
-            ctx.moveTo(tx, cy - sHeight / 2 - 8);
-            ctx.bezierCurveTo(tx + turnStep * 0.5, cy - sHeight / 2 - 20, tx + turnStep * 0.5, cy + sHeight / 2 + 20, tx + turnStep, cy + sHeight / 2 + 8);
-            ctx.stroke();
+            drawMetallicCylinder(ctx, tx - 3.5, cy - sHeight / 2 - 8, 7, sHeight + 16, 'copper', 'vertical');
+
+            // Flowing electron on winding
+            const eOffset = ((t * 40 + i * 20) % (sHeight + 16)) - (sHeight + 16) / 2;
+            drawGlowingParticle(ctx, tx, cy + eOffset, 2, '#38bdf8', 5);
           }
 
-          // Axial internal field arrows
-          ctx.strokeStyle = '#38bdf8';
-          ctx.lineWidth = 2.5;
-          ctx.setLineDash([6, 5]);
+          // External returning dipolar magnetic flux loops
+          ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([4, 4]);
+          // Top loop
           ctx.beginPath();
-          ctx.moveTo(sLeft - 60, cy);
-          ctx.lineTo(sRight + 60, cy);
+          ctx.moveTo(sRight, cy);
+          ctx.bezierCurveTo(sRight + 60, cy - 120, sLeft - 60, cy - 120, sLeft, cy);
+          ctx.stroke();
+          // Bottom loop
+          ctx.beginPath();
+          ctx.moveTo(sRight, cy);
+          ctx.bezierCurveTo(sRight + 60, cy + 120, sLeft - 60, cy + 120, sLeft, cy);
           ctx.stroke();
           ctx.setLineDash([]);
 
-          // Arrowhead
-          ctx.fillStyle = '#38bdf8';
-          ctx.beginPath();
-          ctx.moveTo(sRight + 65, cy);
-          ctx.lineTo(sRight + 50, cy - 8);
-          ctx.lineTo(sRight + 50, cy + 8);
-          ctx.closePath();
-          ctx.fill();
+          // Flowing flux particle along top loop
+          const loopProg = (t * 0.4) % 1;
+          const fxTop = sRight * (1 - loopProg) + sLeft * loopProg;
+          const fyTop = cy - 110 * Math.sin(loopProg * Math.PI);
+          drawGlowingParticle(ctx, fxTop, fyTop, 3, '#38bdf8', 8);
 
-          // Magnetic Poles
+          // 3D Magnetic Pole Shoes (South Blue Left, North Red Right)
+          drawMetallicCylinder(ctx, sLeft - 32, cy - sHeight / 2, 28, sHeight, 'steel', 'vertical');
           ctx.fillStyle = '#3b82f6';
-          ctx.fillRect(sLeft - 30, cy - sHeight / 2, 25, sHeight);
-          ctx.fillStyle = '#ef4444';
-          ctx.fillRect(sRight + 5, cy - sHeight / 2, 25, sHeight);
-
+          ctx.fillRect(sLeft - 32, cy - sHeight / 2, 28, sHeight);
           ctx.fillStyle = '#ffffff';
-          ctx.font = 'bold 16px sans-serif';
-          ctx.fillText('S', sLeft - 22, cy + 6);
+          ctx.font = 'bold 18px sans-serif';
+          ctx.fillText('S', sLeft - 24, cy + 6);
+
+          drawMetallicCylinder(ctx, sRight + 4, cy - sHeight / 2, 28, sHeight, 'steel', 'vertical');
+          ctx.fillStyle = '#ef4444';
+          ctx.fillRect(sRight + 4, cy - sHeight / 2, 28, sHeight);
+          ctx.fillStyle = '#ffffff';
           ctx.fillText('N', sRight + 12, cy + 6);
         }
       }
@@ -1231,6 +1335,10 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.lineTo(cx + 200, cy + ly);
           ctx.stroke();
 
+          // Flowing B-field particles
+          const bParticleX = cx - 200 + ((t * 180 + ly * 2) % 400);
+          drawGlowingParticle(ctx, bParticleX, cy + ly, 2, '#38bdf8', 5);
+
           ctx.fillStyle = '#38bdf8';
           ctx.beginPath();
           ctx.moveTo(cx + 205, cy + ly);
@@ -1244,7 +1352,7 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.font = 'bold 15px sans-serif';
         ctx.fillText('B (Magnetic Field)', cx + 215, cy - 115);
 
-        // Angled Conductor Wire with pivot at center
+        // Angled Conductor Wire with pivot at center (3D Copper Rod)
         const wireLengthPix = params.forceWireLengthM * 180;
         const rad = (params.forceAngleDeg * Math.PI) / 180;
         const wx1 = cx - wireLengthPix * Math.cos(rad);
@@ -1255,21 +1363,33 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         // Wire physical deflection offset
         const deflectionY = -Math.sin(rad) * (state.lorentzForceN * 18);
 
-        ctx.strokeStyle = '#f59e0b';
-        ctx.lineWidth = 9;
+        // Conductor copper rod
+        ctx.strokeStyle = '#b45309';
+        ctx.lineWidth = 11;
         ctx.lineCap = 'round';
         ctx.beginPath();
         ctx.moveTo(wx1, wy1 + deflectionY);
         ctx.lineTo(wx2, wy2 + deflectionY);
         ctx.stroke();
 
-        // Current direction dot
-        ctx.fillStyle = '#fbbf24';
+        ctx.strokeStyle = '#fde68a';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(wx1, wy1 + deflectionY);
+        ctx.lineTo(wx2, wy2 + deflectionY);
+        ctx.stroke();
+
+        // Streaming electrons along rod at 60 FPS
+        const rodElecCount = 8;
+        for (let re = 0; re < rodElecCount; re++) {
+          const rProg = (t * 1.8 + re / rodElecCount) % 1;
+          const rex = wx1 * (1 - rProg) + wx2 * rProg;
+          const rey = (wy1 + deflectionY) * (1 - rProg) + (wy2 + deflectionY) * rProg;
+          drawGlowingParticle(ctx, rex, rey, 2.5, '#fbbf24', 6);
+        }
+
         const midX = cx;
         const midY = cy + deflectionY;
-        ctx.beginPath();
-        ctx.arc(midX, midY, 6, 0, Math.PI * 2);
-        ctx.fill();
 
         // Lorentz Force Vector pointing upward
         if (state.lorentzForceN > 0.05) {
@@ -1281,11 +1401,14 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.lineTo(midX, midY - forcePix);
           ctx.stroke();
 
+          // Glowing force arrow tip
+          drawGlowingParticle(ctx, midX, midY - forcePix, 4, '#10b981', 12);
+
           ctx.fillStyle = '#10b981';
           ctx.beginPath();
-          ctx.moveTo(midX, midY - forcePix - 5);
-          ctx.lineTo(midX - 8, midY - forcePix + 10);
-          ctx.lineTo(midX + 8, midY - forcePix + 10);
+          ctx.moveTo(midX, midY - forcePix - 6);
+          ctx.lineTo(midX - 8, midY - forcePix + 8);
+          ctx.lineTo(midX + 8, midY - forcePix + 8);
           ctx.closePath();
           ctx.fill();
 
@@ -1323,11 +1446,11 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         const radiusPoles = 135;
         const radiusCore = 65;
 
-        // 1. Concave Magnetic Pole Pieces
+        // 1. 3D Concave Magnetic Pole Pieces
         // North Pole (Left - Red)
-        ctx.fillStyle = 'rgba(239, 68, 68, 0.2)';
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.25)';
         ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 3.5;
         ctx.beginPath();
         ctx.arc(cx - 30, cy, radiusPoles, -Math.PI / 3, Math.PI / 3, false);
         ctx.lineTo(cx - 240, cy + 115);
@@ -1337,13 +1460,13 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.stroke();
 
         ctx.fillStyle = '#ef4444';
-        ctx.font = 'black 22px sans-serif';
+        ctx.font = 'black 24px sans-serif';
         ctx.fillText('N', cx - 200, cy + 8);
 
         // South Pole (Right - Blue)
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.25)';
         ctx.strokeStyle = '#3b82f6';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 3.5;
         ctx.beginPath();
         ctx.arc(cx + 30, cy, radiusPoles, (2 * Math.PI) / 3, (4 * Math.PI) / 3, false);
         ctx.lineTo(cx + 240, cy - 115);
@@ -1353,24 +1476,22 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.stroke();
 
         ctx.fillStyle = '#3b82f6';
-        ctx.font = 'black 22px sans-serif';
+        ctx.font = 'black 24px sans-serif';
         ctx.fillText('S', cx + 180, cy + 8);
 
-        // 2. Central Soft Iron Cylinder
-        ctx.fillStyle = '#334155';
-        ctx.strokeStyle = '#64748b';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(cx, cy, radiusCore, 0, Math.PI * 2);
-        ctx.fill();
+        // 2. Central 3D Soft Iron Cylinder
+        drawMetallicCylinder(ctx, cx - radiusCore, cy - radiusCore, radiusCore * 2, radiusCore * 2, 'steel');
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = '#f8fafc';
         ctx.font = 'bold 11px sans-serif';
-        ctx.fillText(isArabic ? 'قلب حديدي' : 'Iron Core', cx - 24, cy + 4);
+        ctx.textAlign = 'center';
+        ctx.fillText(isArabic ? 'قلب حديدي أسطواني' : 'Cylindrical Soft Iron Core', cx, cy + 4);
 
         // 3. Radial Magnetic Flux Lines in the Annular Gap
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)';
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.65)';
         ctx.lineWidth = 2;
         ctx.setLineDash([4, 4]);
         const radialAngles = [-45, -30, -15, 0, 15, 30, 45];
@@ -1399,25 +1520,41 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         });
         ctx.setLineDash([]);
 
-        // 4. Rotating Coil Frame
+        // 4. Rotating Coil Frame with Copper Turns
         const defRad = (pointerAngleRef.current * Math.PI) / 180;
         ctx.save();
         ctx.translate(cx, cy);
         ctx.rotate(defRad);
 
-        // Copper Coil cross bar
+        // Copper Coil frame with 3D metallic shading
+        drawMetallicCylinder(ctx, -radiusCore - 14, -4, (radiusCore + 14) * 2, 8, 'copper', 'horizontal');
+
+        // Spiral Hairspring indicator at coil axis
         ctx.strokeStyle = '#f59e0b';
-        ctx.lineWidth = 7;
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
-        ctx.moveTo(-radiusCore - 12, 0);
-        ctx.lineTo(radiusCore + 12, 0);
+        for (let a = 0; a < Math.PI * 4; a += 0.2) {
+          const sr = 3 + a * 2.2;
+          const sx = sr * Math.cos(a);
+          const sy = sr * Math.sin(a);
+          if (a === 0) ctx.moveTo(sx, sy);
+          else ctx.lineTo(sx, sy);
+        }
         ctx.stroke();
 
         ctx.restore();
 
-        // 5. Curved Zero-Centered Scale at the top
+        // 5. Curved Zero-Centered Scale with Anti-Parallax Mirror Strip
         const scaleRadius = 200;
         const scaleCenterY = cy + 40;
+
+        // Anti-parallax mirror arc
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.35)';
+        ctx.lineWidth = 8;
+        ctx.beginPath();
+        ctx.arc(cx, scaleCenterY, scaleRadius - 10, -Math.PI * 0.72, -Math.PI * 0.28);
+        ctx.stroke();
+
         ctx.strokeStyle = '#e2e8f0';
         ctx.lineWidth = 2.5;
         ctx.beginPath();
@@ -1446,7 +1583,7 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           }
         }
 
-        // 6. Aluminum Pointer from Center to Scale
+        // 6. Aluminum Pointer with Jewel Bearing Pivot
         const pointerAngle = -Math.PI / 2 + (pointerAngleRef.current * Math.PI) / 180 * 0.8;
         ctx.strokeStyle = '#ef4444';
         ctx.lineWidth = 3;
@@ -1456,14 +1593,10 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.stroke();
 
         // Pointer Pivot Cap
-        ctx.fillStyle = '#f87171';
-        ctx.beginPath();
-        ctx.arc(cx, scaleCenterY, 8, 0, Math.PI * 2);
-        ctx.fill();
+        drawGlowingParticle(ctx, cx, scaleCenterY, 6, '#ef4444', 8);
 
         ctx.fillStyle = '#ef4444';
         ctx.font = 'bold 12px monospace';
-        ctx.fillText(`θ = ${state.galvDeflectionDeg.toFixed(1)}°`, cx + 30, scaleCenterY - 140);
       }
 
       // =========================================================================
@@ -1832,6 +1965,7 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         lang={lang ?? 'ar'}
         aspectRatio="aspect-[16/10]"
         minHeight={420}
+        animated={true}
         onRender={renderSimulation}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}

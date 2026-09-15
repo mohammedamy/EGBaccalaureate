@@ -10,6 +10,8 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
+  drawMetallicCylinder,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -1221,7 +1223,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
   }, [params.module, frictionCalculations, equilibriumCalculations]);
 
   // -------------------------------------------------------------
-  // CANVAS VIEWPORT RENDERING
+  // HIGH-PRECISION REALISTIC 3D MECHANICS VIEWPORT RENDERING
   // -------------------------------------------------------------
   const handleRenderViewport = useCallback(
     (
@@ -1229,8 +1231,11 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       width: number,
       height: number,
       _viewport: LabViewportState,
-      _dpr: number
+      _dpr: number,
+      time?: number
     ) => {
+      const t = (time ?? performance.now()) * 0.001;
+
       ctx.save();
       ctx.clearRect(0, 0, width, height);
 
@@ -1254,7 +1259,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.stroke();
       }
 
-      // Helper for drawing sharp arrows
+      // Helper for drawing sharp arrows with glowing tip
       const drawArrow = (
         fromX: number,
         fromY: number,
@@ -1281,6 +1286,8 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.closePath();
         ctx.fill();
 
+        drawGlowingParticle(ctx, toX, toY, 2.5, color, 6);
+
         if (label) {
           ctx.font = 'bold 11px monospace';
           ctx.fillStyle = color;
@@ -1302,17 +1309,26 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         const topX = pivotX + planeLength * Math.cos(theta);
         const topY = pivotY - planeLength * Math.sin(theta);
 
-        // Ground base
-        ctx.strokeStyle = isLight ? '#94a3b8' : '#334155';
-        ctx.setLineDash([4, 4]);
-        ctx.beginPath();
-        ctx.moveTo(pivotX, pivotY);
-        ctx.lineTo(pivotX + planeLength, pivotY);
-        ctx.stroke();
-        ctx.setLineDash([]);
+        // Heavy Cast-Steel Ground Bed with metric markings
+        ctx.fillStyle = isLight ? '#cbd5e1' : '#1e293b';
+        ctx.fillRect(pivotX - 20, pivotY, planeLength + 40, 18);
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#475569';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(pivotX - 20, pivotY, planeLength + 40, 18);
 
-        // Inclined wedge fill
-        ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.8)' : 'rgba(15, 23, 42, 0.6)';
+        // Ground scale ticks
+        for (let gx = pivotX; gx <= pivotX + planeLength; gx += 30) {
+          ctx.beginPath();
+          ctx.moveTo(gx, pivotY);
+          ctx.lineTo(gx, pivotY + 5);
+          ctx.stroke();
+        }
+
+        // Heavy Incline Plane Wedge
+        const wedgeGrad = ctx.createLinearGradient(pivotX, topY, topX, pivotY);
+        wedgeGrad.addColorStop(0, isLight ? 'rgba(226, 232, 240, 0.9)' : 'rgba(30, 41, 59, 0.85)');
+        wedgeGrad.addColorStop(1, isLight ? 'rgba(203, 213, 225, 0.6)' : 'rgba(15, 23, 42, 0.7)');
+        ctx.fillStyle = wedgeGrad;
         ctx.beginPath();
         ctx.moveTo(pivotX, pivotY);
         ctx.lineTo(topX, topY);
@@ -1320,13 +1336,45 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.closePath();
         ctx.fill();
 
-        // Inclined surface board
-        ctx.strokeStyle = isLight ? '#475569' : '#64748b';
-        ctx.lineWidth = 4;
+        // 3D Metallic Pivot Hinge at base
+        drawMetallicCylinder(ctx, pivotX - 8, pivotY - 8, 16, 16, 'brass');
+
+        // Upper End Low-Friction Pulley (3D Ball-Bearing Wheel)
+        drawMetallicCylinder(ctx, topX - 8, topY - 18, 22, 22, 'steel');
+        // Pulley axle pin
+        drawMetallicCylinder(ctx, topX + 1, topY - 9, 4, 4, 'brass');
+
+        // Rotating pulley spokes if accelerating
+        if (frictionCalculations.motionState === 'accelerating') {
+          const spokeAngle = t * 6;
+          ctx.strokeStyle = '#94a3b8';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(topX + 3 - 8 * Math.cos(spokeAngle), topY - 7 - 8 * Math.sin(spokeAngle));
+          ctx.lineTo(topX + 3 + 8 * Math.cos(spokeAngle), topY - 7 + 8 * Math.sin(spokeAngle));
+          ctx.stroke();
+        }
+
+        // Inclined Board Surface with Aluminum Edge Guide
+        ctx.strokeStyle = isLight ? '#475569' : '#94a3b8';
+        ctx.lineWidth = 5;
         ctx.beginPath();
         ctx.moveTo(pivotX, pivotY);
         ctx.lineTo(topX, topY);
         ctx.stroke();
+
+        // Metric ticks along incline
+        for (let i = 0; i <= 20; i++) {
+          const frac = i / 20;
+          const ix = pivotX + frac * (topX - pivotX);
+          const iy = pivotY + frac * (topY - pivotY);
+          const nx = Math.sin(theta) * 6;
+          const ny = Math.cos(theta) * 6;
+          ctx.beginPath();
+          ctx.moveTo(ix, iy);
+          ctx.lineTo(ix + nx, iy + ny);
+          ctx.stroke();
+        }
 
         // Angle theta arc
         if (frictionCalculations.thetaDeg > 0) {
@@ -1340,28 +1388,51 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           ctx.fillText(`θ = ${frictionCalculations.thetaDeg}°`, pivotX + 52, pivotY - 12);
         }
 
-        // Body on the plane
-        const boxDist = planeLength * 0.52;
+        // Body on the plane (Calculated with smooth continuous 60 FPS motion if accelerating)
+        let slideOffset = 0;
+        if (frictionCalculations.motionState === 'accelerating') {
+          slideOffset = ((t * frictionCalculations.acceleration * 25) % 90) - 45;
+          if (frictionCalculations.tendUpward) slideOffset = -slideOffset;
+        }
+
+        const boxDist = Math.max(planeLength * 0.2, Math.min(planeLength * 0.8, planeLength * 0.52 + slideOffset));
         const boxCenterX = pivotX + boxDist * Math.cos(theta);
         const boxCenterY = pivotY - boxDist * Math.sin(theta);
-        const boxW = 70;
-        const boxH = 50;
+        const boxW = 72;
+        const boxH = 48;
 
         ctx.save();
         ctx.translate(boxCenterX, boxCenterY);
         ctx.rotate(-theta);
 
-        // Motion state styling
-        let boxFill = '#059669'; // static green
-        if (frictionCalculations.motionState === 'verge_of_motion') boxFill = '#d97706'; // amber
-        if (frictionCalculations.motionState === 'accelerating') boxFill = '#dc2626'; // red
-        if (frictionCalculations.motionState === 'lifted') boxFill = '#6366f1'; // indigo
+        // 3D Shaded Block Body based on Material
+        if (params.surfaceMaterial === 'steel_steel') {
+          drawMetallicCylinder(ctx, -boxW / 2, -boxH, boxW, boxH, 'steel', 'horizontal');
+        } else if (params.surfaceMaterial === 'wood_wood') {
+          const woodGrad = ctx.createLinearGradient(-boxW / 2, -boxH, boxW / 2, 0);
+          woodGrad.addColorStop(0, '#92400e');
+          woodGrad.addColorStop(0.5, '#b45309');
+          woodGrad.addColorStop(1, '#78350f');
+          ctx.fillStyle = woodGrad;
+          ctx.fillRect(-boxW / 2, -boxH, boxW, boxH);
+          ctx.strokeStyle = '#d97706';
+          ctx.lineWidth = 2;
+          ctx.strokeRect(-boxW / 2, -boxH, boxW, boxH);
+        } else {
+          // Rubber / Custom
+          const rGrad = ctx.createLinearGradient(-boxW / 2, -boxH, boxW / 2, 0);
+          rGrad.addColorStop(0, '#1e293b');
+          rGrad.addColorStop(0.7, '#334155');
+          rGrad.addColorStop(1, '#0f172a');
+          ctx.fillStyle = rGrad;
+          ctx.fillRect(-boxW / 2, -boxH, boxW, boxH);
+          ctx.strokeStyle = '#64748b';
+          ctx.lineWidth = 2;
+          ctx.strokeRect(-boxW / 2, -boxH, boxW, boxH);
+        }
 
-        ctx.fillStyle = boxFill;
-        ctx.fillRect(-boxW / 2, -boxH, boxW, boxH);
-        ctx.strokeStyle = isLight ? '#0f172a' : '#ffffff';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(-boxW / 2, -boxH, boxW, boxH);
+        // Brass eyelet bolt on top right of box
+        drawMetallicCylinder(ctx, boxW / 2 - 4, -boxH / 2 - 4, 8, 8, 'brass');
 
         // Body mass label
         ctx.fillStyle = '#ffffff';
@@ -1370,9 +1441,31 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         ctx.fillText(`${frictionCalculations.W} N`, 0, -boxH / 2 + 4);
         ctx.restore();
 
+        // Connecting Braided Cable to Pulley & Hanging Weight
+        const eyeX = boxCenterX + (boxW / 2) * Math.cos(theta);
+        const eyeY = boxCenterY - (boxW / 2) * Math.sin(theta) - (boxH / 2) * Math.cos(theta);
+        const pulleyRimX = topX + 3;
+        const pulleyRimY = topY - 7;
+
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(eyeX, eyeY);
+        ctx.lineTo(pulleyRimX, pulleyRimY);
+        // Vertical hanging cable over pulley
+        const hangY = Math.min(height - 40, topY + 80);
+        ctx.lineTo(pulleyRimX + 11, hangY);
+        ctx.stroke();
+
+        // 3D Hanging Brass Weight on Cable
+        drawMetallicCylinder(ctx, pulleyRimX + 4, hangY, 14, 20, 'brass', 'vertical');
+
         // FORCES VECTORS (Drawn in unrotated world coordinates)
         const cX = boxCenterX;
         const cY = boxCenterY - (boxH / 2) * Math.cos(theta);
+
+        // Center particle
+        drawGlowingParticle(ctx, cX, cY, 4, '#38bdf8', 6);
 
         // Weight W (strictly downward)
         const scaleF = 0.9;
@@ -1458,59 +1551,63 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         const topB_X = wallX;
         const topB_Y = groundY - ladderLengthPx * Math.sin(theta);
 
-        // Ground line
-        ctx.strokeStyle = isLight ? '#334155' : '#64748b';
+        // Ground Bed with cross-hatch texture
+        ctx.fillStyle = isLight ? '#e2e8f0' : '#1e293b';
+        ctx.fillRect(30, groundY, width - 60, 24);
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#475569';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(30, groundY, width - 60, 24);
+
+        // Smooth vertical wall with brick texture
+        const wallGrad = ctx.createLinearGradient(wallX, 0, wallX + 50, 0);
+        wallGrad.addColorStop(0, '#0284c7');
+        wallGrad.addColorStop(1, '#0369a1');
+        ctx.fillStyle = wallGrad;
+        ctx.fillRect(wallX, 50, 40, groundY - 50);
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(wallX, 50, 40, groundY - 50);
+
+        // 3D Ladder Rails (Dual extruded channels)
+        const railOffset = 8;
+        const normAngle = theta + Math.PI / 2;
+        const ox = Math.cos(normAngle) * railOffset;
+        const oy = Math.sin(normAngle) * railOffset;
+
+        // Rail 1
+        ctx.strokeStyle = '#d97706';
         ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.moveTo(30, groundY);
-        ctx.lineTo(width - 30, groundY);
+        ctx.moveTo(baseA_X - ox, baseA_Y - oy);
+        ctx.lineTo(topB_X - ox, topB_Y - oy);
         ctx.stroke();
 
-        // Smooth vertical wall
-        ctx.strokeStyle = '#0284c7';
-        ctx.lineWidth = 5;
+        // Rail 2
         ctx.beginPath();
-        ctx.moveTo(wallX, groundY);
-        ctx.lineTo(wallX, 50);
+        ctx.moveTo(baseA_X + ox, baseA_Y + oy);
+        ctx.lineTo(topB_X + ox, topB_Y + oy);
         ctx.stroke();
 
-        // Ladder rungs & rails
-        ctx.strokeStyle = '#d97706';
-        ctx.lineWidth = 6;
-        ctx.beginPath();
-        ctx.moveTo(baseA_X, baseA_Y);
-        ctx.lineTo(topB_X, topB_Y);
-        ctx.stroke();
-
-        // Draw ladder rungs
-        ctx.strokeStyle = isLight ? '#b45309' : '#f59e0b';
-        ctx.lineWidth = 2;
-        const rungs = 10;
+        // 3D Cylindrical Extruded Rungs
+        const rungs = 12;
         for (let i = 1; i < rungs; i++) {
           const frac = i / rungs;
           const rx = baseA_X + frac * (topB_X - baseA_X);
           const ry = baseA_Y + frac * (topB_Y - baseA_Y);
-          ctx.beginPath();
-          ctx.arc(rx, ry, 3, 0, 2 * Math.PI);
-          ctx.fillStyle = '#f59e0b';
-          ctx.fill();
+          drawMetallicCylinder(ctx, rx - ox, ry - oy, railOffset * 2, 4, 'brass', 'horizontal');
         }
+
+        // Rubber non-slip feet at base A
+        drawMetallicCylinder(ctx, baseA_X - 10, baseA_Y - 4, 20, 8, 'steel', 'horizontal');
 
         // Climber position along ladder
         const climberX = baseA_X + equilibriumCalculations.xFraction * (topB_X - baseA_X);
         const climberY = baseA_Y + equilibriumCalculations.xFraction * (topB_Y - baseA_Y);
 
-        // Climber figure (circle head + body)
+        // Climber figure (helmet, torso, limbs)
+        drawMetallicCylinder(ctx, climberX - 6, climberY - 32, 12, 12, 'brass');
         ctx.fillStyle = '#ef4444';
-        ctx.beginPath();
-        ctx.arc(climberX, climberY - 20, 8, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(climberX, climberY - 12);
-        ctx.lineTo(climberX, climberY);
-        ctx.stroke();
+        ctx.fillRect(climberX - 8, climberY - 20, 16, 20);
 
         // Climber Weight Vector
         drawArrow(climberX, climberY, climberX, climberY + 60, '#ef4444', `Wc = ${equilibriumCalculations.Wc}N`);
@@ -1518,6 +1615,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         // Ladder Center of Gravity & Weight Vector
         const ladderMidX = (baseA_X + topB_X) / 2;
         const ladderMidY = (baseA_Y + topB_Y) / 2;
+        drawGlowingParticle(ctx, ladderMidX, ladderMidY, 4, '#f59e0b', 8);
         drawArrow(ladderMidX, ladderMidY, ladderMidX, ladderMidY + 45, '#f59e0b', `W = ${equilibriumCalculations.W}N`);
 
         // Wall normal reaction RB (pure horizontal leftward)
@@ -1569,31 +1667,36 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         const beamPx = width - 140;
         const scaleM = beamPx / momentsCalculations.L;
 
-        // Beam body
-        ctx.fillStyle = isLight ? '#cbd5e1' : '#334155';
-        ctx.fillRect(leftMargin, beamY - 10, beamPx, 20);
+        // 3D Heavy Structural Steel I-Beam
+        drawMetallicCylinder(ctx, leftMargin, beamY - 12, beamPx, 24, 'steel', 'horizontal');
         ctx.strokeStyle = isLight ? '#475569' : '#94a3b8';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(leftMargin, beamY - 10, beamPx, 20);
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(leftMargin, beamY - 12, beamPx, 24);
 
-        // Supports A and B (triangles)
+        // Supports A and B (triangular rocker supports)
         const drawSupport = (xPosM: number, label: string, reactionN: number) => {
           const sX = leftMargin + xPosM * scaleM;
+
+          // Steel triangular pedestal
           ctx.fillStyle = '#0284c7';
           ctx.beginPath();
-          ctx.moveTo(sX, beamY + 10);
-          ctx.lineTo(sX - 12, beamY + 32);
-          ctx.lineTo(sX + 12, beamY + 32);
+          ctx.moveTo(sX, beamY + 12);
+          ctx.lineTo(sX - 14, beamY + 34);
+          ctx.lineTo(sX + 14, beamY + 34);
           ctx.closePath();
           ctx.fill();
 
-          ctx.font = 'bold 11px sans-serif';
-          ctx.fillStyle = '#0284c7';
-          ctx.textAlign = 'center';
-          ctx.fillText(`${label} (${reactionN.toFixed(1)} N)`, sX, beamY + 48);
+          // Roller base pins
+          drawMetallicCylinder(ctx, sX - 10, beamY + 34, 6, 6, 'brass');
+          drawMetallicCylinder(ctx, sX + 4, beamY + 34, 6, 6, 'brass');
 
-          // Upward reaction arrow
-          drawArrow(sX, beamY + 32, sX, beamY - 20, '#10b981', '');
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillStyle = '#38bdf8';
+          ctx.textAlign = 'center';
+          ctx.fillText(`${label} (${reactionN.toFixed(1)} N)`, sX, beamY + 54);
+
+          // Upward reaction arrow with glowing tip
+          drawArrow(sX, beamY + 34, sX, beamY - 24, '#10b981', '');
         };
 
         drawSupport(momentsCalculations.xA, isArabic ? 'ركيزة أ' : 'Support A', momentsCalculations.RA);
@@ -1980,6 +2083,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
             id="mechanics-canvas-viewport"
             lang={lang}
             minHeight={420}
+            animated={true}
             onRender={handleRenderViewport}
           />
         </div>

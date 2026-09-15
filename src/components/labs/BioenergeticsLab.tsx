@@ -8,6 +8,9 @@ import {
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
+  drawVolumetricBeam,
+  drawGlowingParticle,
+  drawMetallicCylinder,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import {
@@ -484,8 +487,12 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx: CanvasRenderingContext2D,
     width: number,
     height: number,
-    viewport: LabViewportState
+    viewport: LabViewportState,
+    _dpr: number = 1,
+    time: number = 0,
+    _frame: number = 0
   ) => {
+    const t = (time ? time : performance.now()) * 0.001;
     ctx.clearRect(0, 0, width, height);
 
     // Coordinate space transformations
@@ -494,16 +501,16 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.scale(viewport.zoom, viewport.zoom);
 
     if (isRespiration) {
-      renderMitochondriaScene(ctx, width, height);
+      renderMitochondriaScene(ctx, width, height, t);
     } else {
-      renderChloroplastScene(ctx, width, height);
+      renderChloroplastScene(ctx, width, height, t);
     }
 
     ctx.restore();
   };
 
   // 1. MITOCHONDRIA & CELLULAR RESPIRATION SCENE
-  const renderMitochondriaScene = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+  const renderMitochondriaScene = (ctx: CanvasRenderingContext2D, w: number, h: number, t: number) => {
     const cx = w / 2;
     const cy = h / 2 - 10;
 
@@ -540,7 +547,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const mitoW = Math.min(w * 0.76, 560);
     const mitoH = Math.min(h * 0.65, 290);
 
-    // Outer Membrane
+    // Outer Membrane with 3D Bioluminescent Glow
     ctx.save();
     ctx.beginPath();
     ctx.ellipse(cx, cy, mitoW / 2, mitoH / 2, 0, 0, Math.PI * 2);
@@ -548,8 +555,8 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fill();
     ctx.strokeStyle = '#f97316';
     ctx.lineWidth = 3.5;
-    ctx.shadowColor = 'rgba(249, 115, 22, 0.4)';
-    ctx.shadowBlur = 15;
+    ctx.shadowColor = 'rgba(249, 115, 22, 0.45)';
+    ctx.shadowBlur = 18;
     ctx.stroke();
     ctx.restore();
 
@@ -604,7 +611,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.stroke();
 
     // Rotating arrow on Krebs wheel
-    const kAngle = calvinAngleRef.current;
+    const kAngle = t * (isAerobic ? 3 : 0.5);
     ctx.rotate(kAngle);
     ctx.fillStyle = isAerobic ? '#38bdf8' : '#94a3b8';
     ctx.beginPath();
@@ -641,13 +648,10 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.font = 'bold 9px monospace';
       ctx.fillText(name, bx + 8, by + 16);
 
-      // Proton pumping animation (H+ balls floating into intermembrane space)
+      // Proton pumping animation (H+ glowing balls floating into intermembrane space)
       if (isAerobic && i !== 1) {
-        const pY = by - 12 - ((particleOffsetRef.current + i * 35) % 30);
-        ctx.fillStyle = '#facc15';
-        ctx.beginPath();
-        ctx.arc(bx + 8, pY, 3, 0, Math.PI * 2);
-        ctx.fill();
+        const pY = by - 12 - ((t * 40 + i * 25) % 30);
+        drawGlowingParticle(ctx, bx + 8, pY, 3.5, '#facc15', 8);
         ctx.fillStyle = '#eab308';
         ctx.font = 'bold 8px system-ui';
         ctx.fillText('H⁺', bx + 17, pY + 2);
@@ -658,34 +662,22 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const atpX = etcX + 35;
     const atpY = etcY;
 
-    // Stator channel
-    ctx.fillStyle = isAerobic ? '#e11d48' : '#475569';
-    ctx.strokeStyle = '#fda4af';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(atpX - 12, atpY - 14, 24, 16, 5); // F0 base
-    ctx.fill();
-    ctx.stroke();
+    // Stator channel (F0 base)
+    drawMetallicCylinder(ctx, atpX - 12, atpY - 14, 24, 16, 'steel', 'horizontal');
 
     // Central rotor stalk
-    ctx.fillStyle = '#f43f5e';
-    ctx.fillRect(atpX - 4, atpY + 2, 8, 18);
+    drawMetallicCylinder(ctx, atpX - 4, atpY + 2, 8, 18, 'brass', 'vertical');
 
-    // Catalytic F1 head (rotates with turbineAngle)
+    // Catalytic F1 head (rotates with continuous 60 FPS turbineAngle)
+    const turbineAngle = (t * (isAerobic ? 12 : 1)) % (Math.PI * 2);
     ctx.save();
     ctx.translate(atpX, atpY + 28);
-    ctx.rotate(turbineAngleRef.current);
+    ctx.rotate(turbineAngle);
 
     // 3-lobed F1 head
     for (let lobe = 0; lobe < 3; lobe++) {
       ctx.rotate((Math.PI * 2) / 3);
-      ctx.fillStyle = isAerobic ? '#fb7185' : '#64748b';
-      ctx.strokeStyle = '#fff';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(10, 0, 7, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
+      drawGlowingParticle(ctx, 10, 0, 7, isAerobic ? '#fb7185' : '#64748b', 6);
     }
     ctx.restore();
 
@@ -696,10 +688,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.textAlign = 'left';
       ctx.fillText(`+${totalAtp} ATP`, atpX + 22, atpY + 34);
 
-      ctx.fillStyle = 'rgba(251, 191, 36, 0.8)';
-      ctx.beginPath();
-      ctx.arc(atpX + 18, atpY + 24, 3, 0, Math.PI * 2);
-      ctx.fill();
+      drawGlowingParticle(ctx, atpX + 18, atpY + 24, 4 + Math.sin(t * 12) * 1.5, '#fbbf24', 12);
     }
 
     // Hypoxia overlay if anaerobic
@@ -733,7 +722,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   };
 
   // 2. CHLOROPLAST & PHOTOSYNTHESIS SCENE
-  const renderChloroplastScene = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+  const renderChloroplastScene = (ctx: CanvasRenderingContext2D, w: number, h: number, t: number) => {
     const cx = w / 2;
     const cy = h / 2 - 10;
 
@@ -744,7 +733,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, w, h);
 
-    // Sunlight Source / Ray Beams
+    // Sunlight Source / Volumetric Ray Beams
     const lightPercent = params.lightIntensity;
     if (lightPercent > 5) {
       ctx.save();
@@ -756,15 +745,11 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.arc(80, 50, 180, 0, Math.PI * 2);
       ctx.fill();
 
-      // Photon light rays projecting down to chloroplast
-      ctx.strokeStyle = `rgba(254, 240, 138, ${0.25 * (lightPercent / 100)})`;
-      ctx.lineWidth = 3;
-      ctx.setLineDash([8, 6]);
-      for (let r = 0; r < 5; r++) {
-        ctx.beginPath();
-        ctx.moveTo(80 + r * 20, 50);
-        ctx.lineTo(cx - 160 + r * 60, cy - 60);
-        ctx.stroke();
+      // Volumetric photon light rays projecting down to chloroplast
+      for (let r = 0; r < 4; r++) {
+        const startX = 70 + r * 25;
+        const targetX = cx - 180 + r * 70;
+        drawVolumetricBeam(ctx, startX, 50, targetX, cy - 50, '#fef08a', 2, 14);
       }
       ctx.restore();
     }
@@ -838,24 +823,18 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.lineTo(granaPositions[2].x - 20, granaPositions[2].y - 12);
     ctx.stroke();
 
-    // Photolysis O2 Bubbles rising out from Thylakoids
+    // Photolysis O2 Bubbles rising out from Thylakoids (Continuous 60 FPS)
     if (photosyntheticRate > 5) {
       for (let b = 0; b < 6; b++) {
         const bx = granaPositions[0].x - 10 + b * 32;
-        const bPhase = (particleOffsetRef.current * 1.2 + b * 45) % 110;
+        const bPhase = ((t * 35 + b * 45) % 110);
         const by = cy + 20 - bPhase;
 
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.45)';
-        ctx.strokeStyle = '#38bdf8';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(bx, by, 4 + (b % 3), 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        drawGlowingParticle(ctx, bx, by, 4 + (b % 3), 'rgba(56, 189, 248, 0.7)', 6);
 
         ctx.fillStyle = '#bae6fd';
         ctx.font = 'bold 8px system-ui';
-        ctx.fillText('O₂', bx + 6, by + 3);
+        ctx.fillText('O₂', bx + 7, by + 3);
       }
     }
 
@@ -873,11 +852,8 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.stroke();
 
     // Rotating RuBisCO enzyme indicator
-    ctx.rotate(calvinAngleRef.current);
-    ctx.fillStyle = '#fbbf24';
-    ctx.beginPath();
-    ctx.arc(42, 0, 6, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.rotate(t * 3.5);
+    drawGlowingParticle(ctx, 42, 0, 6, '#fbbf24', 10);
     ctx.restore();
 
     // Calvin Center Text
@@ -1063,6 +1039,7 @@ export const BioenergeticsLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             lang={lang}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
+            animated={true}
             onRender={handleRenderCanvas}
           />
         </VirtualLabShell>

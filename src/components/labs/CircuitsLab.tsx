@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
@@ -10,6 +10,9 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
+  drawMetallicCylinder,
+  drawAnalogMeterGauge,
+  drawGlowingParticle,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -809,8 +812,6 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [electronOffset, setElectronOffset] = useState<number>(0);
-
   const lab = useVirtualLab<CircuitsParams, CircuitsSimState>({
     definition: CIRCUITS_LAB_DEF,
   });
@@ -820,15 +821,6 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
   const simState = useMemo<CircuitsSimState>(() => {
     return computeCircuitsSimState(params);
   }, [params]);
-
-  // Live animated electron flow ticker
-  useEffect(() => {
-    if (!params.isSwitchClosed || simState.iTotal <= 0) return;
-    const interval = setInterval(() => {
-      setElectronOffset((prev) => (prev + 2) % 120);
-    }, 40);
-    return () => clearInterval(interval);
-  }, [params.isSwitchClosed, simState.iTotal]);
 
   // Telemetry Metrics
   const telemetry = useMemo<LabTelemetryMetric[]>(
@@ -939,15 +931,20 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
   );
 
   // Canvas Drawing Routine
+  // Canvas Drawing Routine with Continuous 60 FPS Animation & Realistic Apparatus
   const handleRenderCanvas = useCallback(
     (
       ctx: CanvasRenderingContext2D,
       width: number,
       height: number,
       _viewport: LabViewportState,
-      _dpr: number
+      _dpr: number = 1,
+      time: number = 0,
+      _frame: number = 0
     ) => {
-      ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#090d16';
+      const t = (time ? time : performance.now()) * 0.001;
+
+      ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#070b14';
       ctx.fillRect(0, 0, width, height);
 
       const mod = params.module;
@@ -977,28 +974,29 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ? 'القدرة الكهربية وإضاءة المصابيح (P = V²/R = I²R)'
           : 'Electric Power Dissipation & Lamp Brightness (P = V²/R = I²R)';
       }
-      ctx.fillText(moduleHeader, centerX, 28);
+      ctx.fillText(moduleHeader, centerX, 26);
 
-      // Draw Circuit Frame
-      const boxW = Math.min(width - 120, 560);
-      const boxH = Math.min(height - 120, 300);
+      // Draw Heavy Copper Circuit Frame
+      const boxW = Math.min(width - 140, 560);
+      const boxH = Math.min(height - 130, 280);
       const startX = centerX - boxW / 2;
       const startY = centerY - boxH / 2 + 15;
 
-      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#0284c7' : '#38bdf8') : '#64748b';
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#0284c7' : '#38bdf8') : '#475569';
+      ctx.lineWidth = 3.5;
       ctx.beginPath();
       ctx.roundRect(startX, startY, boxW, boxH, [16]);
       ctx.stroke();
 
-      // Electron Drift Animation Dots
+      // Continuous 60 FPS Golden Electron Drift Animation
       if (params.isSwitchClosed && simState.iTotal > 0) {
         const perimeter = 2 * (boxW + boxH);
-        const numElectrons = 20;
+        const numElectrons = 22;
+        const driftSpeed = Math.min(240, Math.max(30, simState.iTotal * 80));
+        const currentOffset = (t * driftSpeed) % perimeter;
 
-        ctx.fillStyle = isLight ? '#d97706' : '#facc15';
         for (let i = 0; i < numElectrons; i++) {
-          const d = (i * (perimeter / numElectrons) + electronOffset * (simState.iTotal * 4)) % perimeter;
+          const d = (i * (perimeter / numElectrons) + currentOffset) % perimeter;
           let ex = startX;
           let ey = startY;
 
@@ -1016,172 +1014,199 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             ey = startY + boxH - (d - (2 * boxW + boxH));
           }
 
-          ctx.beginPath();
-          ctx.arc(ex, ey, 3.5, 0, Math.PI * 2);
-          ctx.fill();
+          drawGlowingParticle(ctx, ex, ey, 3.5, '#facc15', 8);
         }
       }
 
-      // 1. Draw Left Battery (VB1, r1)
+      // 1. Draw Left Battery (VB1, r1) - 3D Heavy Cell with Terminal Posts
       const batX = startX;
       const batY = startY + boxH / 2;
 
-      ctx.fillStyle = isLight ? '#f8fafc' : '#090d16';
-      ctx.fillRect(batX - 25, batY - 45, 50, 90);
+      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
+      ctx.fillRect(batX - 32, batY - 55, 64, 110);
 
-      // Long positive plate
-      ctx.strokeStyle = '#ef4444';
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(batX - 18, batY - 18);
-      ctx.lineTo(batX + 18, batY - 18);
-      ctx.stroke();
+      // Battery 3D Metallic Body
+      drawMetallicCylinder(ctx, batX - 16, batY - 38, 32, 76, 'steel', 'vertical');
 
+      // Positive Red Terminal Cap
       ctx.fillStyle = '#ef4444';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.fillText('+', batX - 24, batY - 15);
-
-      // Short negative plate
-      ctx.strokeStyle = '#3b82f6';
-      ctx.lineWidth = 6;
       ctx.beginPath();
-      ctx.moveTo(batX - 10, batY - 2);
-      ctx.lineTo(batX + 10, batY - 2);
-      ctx.stroke();
-
-      ctx.fillStyle = '#3b82f6';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.fillText('-', batX - 24, batY);
-
-      // Internal resistance box
-      ctx.fillStyle = isLight ? '#ffffff' : '#1e293b';
-      ctx.strokeStyle = '#64748b';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.roundRect(batX - 12, batY + 12, 24, 22, [4]);
+      ctx.roundRect(batX - 8, batY - 46, 16, 8, [3]);
       ctx.fill();
-      ctx.stroke();
-
-      ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
-      ctx.font = 'bold 9px font-mono';
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 9px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(`r=${params.rInternal1}Ω`, batX, batY + 26);
+      ctx.fillText('+', batX, batY - 39);
+
+      // Negative Terminal Base
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(batX - 12, batY + 38, 24, 6);
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('-', batX, batY + 44);
 
       // Battery label
-      ctx.fillStyle = isLight ? '#b91c1c' : '#ef4444';
-      ctx.font = 'bold 11px font-mono';
-      ctx.fillText(`VB1=${params.vb1}V`, batX, batY - 30);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 10px monospace';
+      ctx.fillText(`${params.vb1}V`, batX, batY - 4);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '8px monospace';
+      ctx.fillText(`r=${params.rInternal1}Ω`, batX, batY + 12);
 
-      // Voltmeter across battery terminals
-      ctx.strokeStyle = isLight ? '#7e22ce' : '#a855f7';
+      // Voltmeter across battery terminals - Realistic Analog Meter Gauge
+      ctx.strokeStyle = '#a855f7';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
-      ctx.moveTo(batX - 15, batY - 20);
-      ctx.lineTo(batX - 50, batY - 20);
-      ctx.lineTo(batX - 50, batY + 35);
-      ctx.lineTo(batX - 15, batY + 35);
+      ctx.moveTo(batX - 16, batY - 42);
+      ctx.lineTo(batX - 60, batY - 42);
+      ctx.lineTo(batX - 60, batY - 12);
+      ctx.moveTo(batX - 16, batY + 38);
+      ctx.lineTo(batX - 60, batY + 38);
+      ctx.lineTo(batX - 60, batY + 48);
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = isLight ? '#7e22ce' : '#a855f7';
-      ctx.beginPath();
-      ctx.arc(batX - 50, batY + 8, 16, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 11px sans-serif';
-      ctx.fillText('V', batX - 50, batY + 12);
+      drawAnalogMeterGauge(
+        ctx,
+        batX - 60,
+        batY + 18,
+        28,
+        simState.vTerminal1,
+        0,
+        Math.max(12, params.vb1 * 1.2),
+        'V₁',
+        'V'
+      );
 
-      ctx.fillStyle = isLight ? '#6b21a8' : '#c084fc';
-      ctx.font = 'bold 10px font-mono';
-      ctx.fillText(`${simState.vTerminal1}V`, batX - 50, batY + 38);
-
-      // 2. Draw Top Resistors / Components
+      // 2. Draw Top Component: Resistor or Incandescent Lamp
       const topCenterX = startX + boxW / 2;
       const topY = startY;
 
-      ctx.fillStyle = isLight ? '#f8fafc' : '#090d16';
-      ctx.fillRect(topCenterX - 60, topY - 20, 120, 40);
+      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
+      ctx.fillRect(topCenterX - 65, topY - 35, 130, 70);
 
-      // Resistor Zigzag
-      ctx.strokeStyle = isLight ? '#d97706' : '#f59e0b';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(topCenterX - 45, topY);
-      ctx.lineTo(topCenterX - 30, topY - 12);
-      ctx.lineTo(topCenterX - 15, topY + 12);
-      ctx.lineTo(topCenterX, topY - 12);
-      ctx.lineTo(topCenterX + 15, topY + 12);
-      ctx.lineTo(topCenterX + 30, topY - 12);
-      ctx.lineTo(topCenterX + 45, topY);
-      ctx.stroke();
+      if (mod === 'power_energy') {
+        // --- Realistic Incandescent Glass Bulb with Glowing Tungsten Filament ---
+        const bulbR = 22;
+        const lampP = simState.pLoad;
+        const glowFrac = Math.min(1.0, lampP / 40);
 
-      ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
-      ctx.font = 'bold 11px font-mono';
-      ctx.fillText(
-        mod === 'closed_ohm' ? `Rv = ${params.rheostatR} Ω` : `R1 = ${params.r1} Ω`,
-        topCenterX,
-        topY - 18
-      );
+        // Metallic screw base
+        drawMetallicCylinder(ctx, topCenterX - 7, topY + 4, 14, 12, 'brass', 'vertical');
 
-      // 3. Draw Right Switch (K) or Load
+        // Glass Bulb Envelope
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(topCenterX, topY - 12, bulbR, 0, Math.PI * 2);
+        const glassFill = ctx.createRadialGradient(topCenterX, topY - 12, 4, topCenterX, topY - 12, bulbR);
+        glassFill.addColorStop(0, `rgba(254, 240, 138, ${0.15 + glowFrac * 0.75})`);
+        glassFill.addColorStop(1, 'rgba(255, 255, 255, 0.15)');
+        ctx.fillStyle = glassFill;
+        ctx.fill();
+
+        // Bulb glass specular reflection arc
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.arc(topCenterX, topY - 12, bulbR - 2, -Math.PI * 0.75, -Math.PI * 0.25);
+        ctx.stroke();
+
+        // Hot glowing tungsten filament
+        if (params.isSwitchClosed && simState.iTotal > 0) {
+          ctx.shadowColor = '#f59e0b';
+          ctx.shadowBlur = 12 + glowFrac * 24;
+          ctx.strokeStyle = glowFrac > 0.6 ? '#ffffff' : '#fbbf24';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(topCenterX - 8, topY - 6);
+          ctx.lineTo(topCenterX - 4, topY - 18);
+          ctx.lineTo(topCenterX + 4, topY - 18);
+          ctx.lineTo(topCenterX + 8, topY - 6);
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`Lamp (${lampP.toFixed(1)}W)`, topCenterX, topY - 38);
+      } else {
+        // --- 3D Ceramic Resistor Cylinder with Precision Tolerance Bands ---
+        drawMetallicCylinder(ctx, topCenterX - 45, topY - 9, 90, 18, 'steel', 'horizontal');
+
+        // Resistor color bands
+        const bandColors = ['#ef4444', '#f59e0b', '#3b82f6', '#d97706'];
+        bandColors.forEach((bColor, bIdx) => {
+          ctx.fillStyle = bColor;
+          ctx.fillRect(topCenterX - 28 + bIdx * 16, topY - 9, 6, 18);
+        });
+
+        ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
+        ctx.font = 'bold 11px font-mono';
+        ctx.textAlign = 'center';
+        ctx.fillText(
+          mod === 'closed_ohm' ? `Rv = ${params.rheostatR} Ω` : `R1 = ${params.r1} Ω`,
+          topCenterX,
+          topY - 18
+        );
+      }
+
+      // 3. Draw Right Knife Switch (K)
       const rightX = startX + boxW;
       const rightY = startY + boxH / 2;
 
-      ctx.fillStyle = isLight ? '#f8fafc' : '#090d16';
+      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
       ctx.fillRect(rightX - 30, rightY - 30, 60, 60);
 
-      // Switch contacts
-      ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
+      // Brass terminal studs
+      ctx.fillStyle = '#ca8a04';
       ctx.beginPath();
-      ctx.arc(rightX, rightY - 16, 4, 0, Math.PI * 2);
-      ctx.arc(rightX, rightY + 16, 4, 0, Math.PI * 2);
+      ctx.arc(rightX, rightY - 16, 5, 0, Math.PI * 2);
+      ctx.arc(rightX, rightY + 16, 5, 0, Math.PI * 2);
       ctx.fill();
 
       // Switch blade
-      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#059669' : '#10b981') : (isLight ? '#dc2626' : '#ef4444');
-      ctx.lineWidth = 3.5;
+      ctx.strokeStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
+      ctx.lineWidth = 4;
+      ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(rightX, rightY + 16);
       if (params.isSwitchClosed) {
         ctx.lineTo(rightX, rightY - 16);
       } else {
-        ctx.lineTo(rightX + 16, rightY - 10);
+        ctx.lineTo(rightX + 18, rightY - 8);
       }
       ctx.stroke();
 
-      ctx.fillStyle = params.isSwitchClosed ? (isLight ? '#047857' : '#10b981') : (isLight ? '#b91c1c' : '#ef4444');
+      ctx.fillStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
       ctx.font = 'bold 10px sans-serif';
+      ctx.textAlign = 'center';
       ctx.fillText(
         params.isSwitchClosed ? (isArabic ? 'مفتاح K مغلق' : 'K Closed') : (isArabic ? 'مفتاح K مفتوح' : 'K Open'),
         rightX,
         rightY + 36
       );
 
-      // 4. Ammeter on Bottom Wire
+      // 4. Realistic Analog Precision Ammeter on Bottom Wire
       const botCenterX = startX + boxW / 2;
       const botY = startY + boxH;
 
-      ctx.fillStyle = isLight ? '#f8fafc' : '#090d16';
-      ctx.fillRect(botCenterX - 30, botY - 25, 60, 50);
+      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
+      ctx.fillRect(botCenterX - 45, botY - 35, 90, 70);
 
-      ctx.fillStyle = isLight ? '#0369a1' : '#0284c7';
-      ctx.beginPath();
-      ctx.arc(botCenterX, botY, 18, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
-      ctx.lineWidth = 2;
-      ctx.stroke();
+      drawAnalogMeterGauge(
+        ctx,
+        botCenterX,
+        botY,
+        32,
+        simState.iTotal,
+        0,
+        Math.max(3, Math.ceil(simState.iTotal * 1.4)),
+        'I_tot',
+        'A'
+      );
 
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.fillText('A', botCenterX, botY + 4);
-
-      ctx.fillStyle = isLight ? '#0369a1' : '#38bdf8';
-      ctx.font = 'bold 11px font-mono';
-      ctx.fillText(`${simState.iTotal} A`, botCenterX, botY + 32);
-
-      // 5. Central Live Metrics Banner in Canvas Center
+      // 5. Central Live Metrics Telemetry Card
       ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.85)';
       ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
       ctx.lineWidth = 1.5;
@@ -1192,9 +1217,10 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
       ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
       ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center';
       ctx.fillText(isArabic ? 'حالة الدائرة الحالية:' : 'Active Circuit Telemetry:', centerX, centerY - 25);
 
-      ctx.fillStyle = isLight ? '#047857' : '#10b981';
+      ctx.fillStyle = '#10b981';
       ctx.font = 'bold 12px font-mono';
       ctx.fillText(
         isArabic
@@ -1204,7 +1230,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         centerY - 5
       );
 
-      ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
+      ctx.fillStyle = '#38bdf8';
       ctx.font = 'bold 12px font-mono';
       ctx.fillText(
         isArabic
@@ -1214,7 +1240,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         centerY + 15
       );
 
-      ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
+      ctx.fillStyle = '#f59e0b';
       ctx.font = 'bold 11px font-mono';
       ctx.fillText(
         isArabic
@@ -1224,7 +1250,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         centerY + 33
       );
     },
-    [isArabic, isContrast, isLight, params, simState, electronOffset]
+    [isArabic, isContrast, isLight, params, simState]
   );
 
   return (
@@ -1483,6 +1509,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             id="circuits-canvas-viewport"
             lang={lang ?? 'ar'}
             minHeight={460}
+            animated={true}
             onRender={handleRenderCanvas}
           >
             <div className={`absolute top-3 right-3 px-3 py-1.5 rounded-xl backdrop-blur-md border text-xs font-bold flex items-center gap-2 ${

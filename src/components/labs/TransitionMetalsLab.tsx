@@ -1,10 +1,15 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
   VirtualLabShell,
   CanvasSimulationViewport,
   useVirtualLab,
+  drawMetallicCylinder,
+  drawVolumetricBeam,
+  drawRealisticGlassVessel,
+  drawProceduralFlame,
+  drawGlowingParticle,
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
@@ -1301,18 +1306,6 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
   const isContrast = theme === 'high-contrast';
 
   const [dmmMode, setDmmMode] = useState<'apparent_mass' | 'mass_delta' | 'magnetic_moment' | 'susceptibility'>('apparent_mass');
-  const [animTick, setAnimTick] = useState(0);
-
-  // Active animation loop for particle and balance dynamics
-  useEffect(() => {
-    let frameId: number;
-    const loop = () => {
-      setAnimTick((prev) => (prev + 1) % 10000);
-      frameId = requestAnimationFrame(loop);
-    };
-    frameId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(frameId);
-  }, []);
 
   const lab = useVirtualLab<TransitionParams, Record<string, any>>({
     definition: TRANSITION_LAB_DEF,
@@ -1585,9 +1578,11 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
       width: number,
       height: number,
       _viewport: LabViewportState,
-      _dpr: number
+      _dpr: number,
+      time?: number
     ) => {
       ctx.clearRect(0, 0, width, height);
+      const t = (time ?? performance.now()) * 0.001;
 
       // Background Gradient
       const grad = ctx.createLinearGradient(0, 0, 0, height);
@@ -1685,6 +1680,11 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           ctx.fill();
         };
 
+        if (computedOccupancy.box4s.up && !computedOccupancy.box4s.down) {
+          const glowA = 0.3 + 0.2 * Math.sin(t * 5);
+          drawGlowingParticle(ctx, box4sX + 25, boxY + 25, 22, `rgba(56, 189, 248, ${glowA})`, 0.6);
+        }
+
         if (computedOccupancy.box4s.up) {
           drawArrow(box4sX + 16, boxY + 38, boxY + 12, '#38bdf8');
         }
@@ -1713,6 +1713,11 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           ctx.fillText(orbitalNames[i], bx + boxSize / 2, boxY + boxSize + 20);
 
           const boxData = computedOccupancy.boxes3d[i];
+          if (boxData.up && !boxData.down) {
+            const glowA = 0.35 + 0.2 * Math.sin(t * 5 + i * 0.8);
+            drawGlowingParticle(ctx, bx + 25, boxY + 25, 22, `rgba(74, 222, 128, ${glowA})`, 0.6);
+          }
+
           if (boxData.up) {
             drawArrow(bx + 16, boxY + 38, boxY + 12, '#4ade80');
           }
@@ -1797,23 +1802,44 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         const fulcrumY = 90;
         const beamLen = Math.min(220, width * 0.35);
 
-        // Beam deflection angle proportional to mass delta
-        // Max deflection ± 0.12 radians
-        const angle = Math.max(-0.12, Math.min(0.12, (massDeltaMg / 60) * 0.08));
+        // Beam deflection angle proportional to mass delta with realistic micro-inertia settling
+        const targetAngle = Math.max(-0.12, Math.min(0.12, (massDeltaMg / 60) * 0.08));
+        const angle = targetAngle + 0.0015 * Math.sin(t * 3.2);
+
+        // Fulcrum Stand: 3D steel base and vertical pillar
+        drawMetallicCylinder(ctx, fulcrumX - 42, fulcrumY + 45, 84, 16, 'steel', 'horizontal');
+        drawMetallicCylinder(ctx, fulcrumX - 8, fulcrumY, 16, 45, 'steel', 'vertical');
+
+        // Agate knife-edge pivot bearing
+        drawMetallicCylinder(ctx, fulcrumX - 9, fulcrumY - 9, 18, 18, 'brass', 'horizontal');
+
+        // Scale arc behind pointer needle
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(fulcrumX, fulcrumY, 65, Math.PI * 0.4, Math.PI * 0.6);
+        ctx.stroke();
+
+        // Degree tick marks on scale arc
+        for (let a = -0.15; a <= 0.15; a += 0.05) {
+          const sx1 = fulcrumX + 60 * Math.sin(a);
+          const sy1 = fulcrumY + 60 * Math.cos(a);
+          const sx2 = fulcrumX + 68 * Math.sin(a);
+          const sy2 = fulcrumY + 68 * Math.cos(a);
+          ctx.beginPath();
+          ctx.moveTo(sx1, sy1);
+          ctx.lineTo(sx2, sy2);
+          ctx.stroke();
+        }
 
         ctx.save();
         ctx.translate(fulcrumX, fulcrumY);
         ctx.rotate(angle);
 
-        // Balance Beam
-        ctx.strokeStyle = isLight ? '#475569' : '#94a3b8';
-        ctx.lineWidth = 5;
-        ctx.beginPath();
-        ctx.moveTo(-beamLen, 0);
-        ctx.lineTo(beamLen, 0);
-        ctx.stroke();
+        // 3D Polished Balance Beam
+        drawMetallicCylinder(ctx, -beamLen, -3, beamLen * 2, 6, 'steel', 'horizontal');
 
-        // Pointer Needle
+        // Pointer Needle with red enamel and jewel center
         ctx.strokeStyle = '#ef4444';
         ctx.lineWidth = 2.5;
         ctx.beginPath();
@@ -1829,23 +1855,7 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
 
         ctx.restore();
 
-        // Fulcrum Stand
-        ctx.fillStyle = '#64748b';
-        ctx.beginPath();
-        ctx.moveTo(fulcrumX, fulcrumY);
-        ctx.lineTo(fulcrumX - 14, fulcrumY + 50);
-        ctx.lineTo(fulcrumX + 14, fulcrumY + 50);
-        ctx.closePath();
-        ctx.fill();
-
-        // Scale behind pointer needle
-        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.arc(fulcrumX, fulcrumY, 65, Math.PI * 0.4, Math.PI * 0.6);
-        ctx.stroke();
-
-        // Left Pan (Counterweights)
+        // Left Pan (Tare weights)
         const leftArmX = fulcrumX - beamLen * Math.cos(angle);
         const leftArmY = fulcrumY - beamLen * Math.sin(angle);
 
@@ -1853,20 +1863,15 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(leftArmX, leftArmY);
-        ctx.lineTo(leftArmX, leftArmY + 90);
+        ctx.lineTo(leftArmX, leftArmY + 86);
         ctx.stroke();
 
         // Pan plate
-        ctx.fillStyle = isLight ? '#94a3b8' : '#475569';
-        ctx.beginPath();
-        ctx.roundRect(leftArmX - 25, leftArmY + 90, 50, 6, 3);
-        ctx.fill();
+        drawMetallicCylinder(ctx, leftArmX - 25, leftArmY + 86, 50, 6, 'steel', 'horizontal');
 
-        // Tare weights on pan
-        ctx.fillStyle = '#eab308';
-        ctx.beginPath();
-        ctx.roundRect(leftArmX - 12, leftArmY + 76, 24, 14, 2);
-        ctx.fill();
+        // Stacked 3D Brass Tare Weights
+        drawMetallicCylinder(ctx, leftArmX - 16, leftArmY + 76, 32, 10, 'brass', 'horizontal');
+        drawMetallicCylinder(ctx, leftArmX - 10, leftArmY + 66, 20, 10, 'brass', 'horizontal');
 
         // Right Arm (Suspension wire to sample tube in magnet gap)
         const rightArmX = fulcrumX + beamLen * Math.cos(angle);
@@ -1879,52 +1884,43 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.lineTo(rightArmX, rightArmY + 110);
         ctx.stroke();
 
-        // Glass sample cylinder tube
-        const tubeX = rightArmX - 10;
+        // 3D Glass sample tube
+        const tubeX = rightArmX - 12;
         const tubeY = rightArmY + 110;
-        const tubeW = 20;
-        const tubeH = 75;
+        const tubeW = 24;
+        const tubeH = 80;
 
-        // Sample substance filling inside tube
-        ctx.fillStyle = currentIon.colorHex;
-        ctx.beginPath();
-        ctx.roundRect(tubeX + 2, tubeY + 15, tubeW - 4, tubeH - 17, 4);
-        ctx.fill();
-
-        // Glass outline
-        ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(tubeX, tubeY, tubeW, tubeH);
+        drawRealisticGlassVessel(ctx, tubeX, tubeY, tubeW, tubeH, {
+          liquidColor: currentIon.colorHex,
+          liquidLevelPercent: 72,
+          wallThickness: 2.5,
+          showMeniscus: true,
+        });
 
         // Electromagnet Pole Pieces (N & S)
-        const magW = 60;
-        const magH = 50;
-        const magGap = 35;
+        const magW = 56;
+        const magH = 48;
+        const magGap = 34;
         const magCenterY = tubeY + 45;
 
-        // North Pole (Left)
-        ctx.fillStyle = '#dc2626';
-        ctx.beginPath();
-        ctx.roundRect(rightArmX - magGap - magW, magCenterY - magH / 2, magW, magH, 6);
-        ctx.fill();
+        // Copper coil windings on yoke
+        drawMetallicCylinder(ctx, rightArmX - magGap - magW - 32, magCenterY - 20, 32, 40, 'copper', 'horizontal');
+        drawMetallicCylinder(ctx, rightArmX + magGap + magW, magCenterY - 20, 32, 40, 'copper', 'horizontal');
+
+        // Steel Pole Pieces
+        drawMetallicCylinder(ctx, rightArmX - magGap - magW, magCenterY - magH / 2, magW, magH, 'steel', 'horizontal');
+        drawMetallicCylinder(ctx, rightArmX + magGap, magCenterY - magH / 2, magW, magH, 'steel', 'horizontal');
+
+        // Pole Labels
         ctx.fillStyle = '#ffffff';
         ctx.font = 'bold 16px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('N', rightArmX - magGap - magW / 2, magCenterY + 6);
-
-        // South Pole (Right)
-        ctx.fillStyle = '#2563eb';
-        ctx.beginPath();
-        ctx.roundRect(rightArmX + magGap, magCenterY - magH / 2, magW, magH, 6);
-        ctx.fill();
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 16px sans-serif';
-        ctx.textAlign = 'center';
         ctx.fillText('S', rightArmX + magGap + magW / 2, magCenterY + 6);
 
-        // Magnetic flux lines if B > 0
+        // Magnetic flux lines and flowing flux particles if B > 0
         if (params.electromagnetFieldT > 0.05) {
-          ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
+          ctx.strokeStyle = 'rgba(234, 179, 8, 0.45)';
           ctx.lineWidth = 1.5;
           ctx.setLineDash([4, 4]);
           for (let dy = -16; dy <= 16; dy += 8) {
@@ -1934,6 +1930,42 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             ctx.stroke();
           }
           ctx.setLineDash([]);
+
+          // Flowing magnetic flux particles (N -> S)
+          for (let i = 0; i < 14; i++) {
+            const pFrac = ((t * 1.6 + i * 0.071) % 1);
+            const px = (rightArmX - magGap) + pFrac * (magGap * 2);
+            const py = magCenterY + Math.sin(i * 1.9) * 16;
+            drawGlowingParticle(ctx, px, py, 2.8, 'rgba(250, 204, 21, 0.85)', 0.6);
+          }
+
+          // Dynamic magnetic force vector
+          if (massDeltaMg !== 0) {
+            const isDown = massDeltaMg > 0;
+            const arrowY1 = tubeY + tubeH + 6;
+            const arrowY2 = arrowY1 + (isDown ? 24 : -24);
+            ctx.strokeStyle = isDown ? '#10b981' : '#38bdf8';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(rightArmX, arrowY1);
+            ctx.lineTo(rightArmX, arrowY2);
+            ctx.stroke();
+
+            // Arrowhead
+            ctx.fillStyle = isDown ? '#10b981' : '#38bdf8';
+            ctx.beginPath();
+            const aDir = isDown ? 1 : -1;
+            ctx.moveTo(rightArmX, arrowY2);
+            ctx.lineTo(rightArmX - 5, arrowY2 - aDir * 7);
+            ctx.lineTo(rightArmX + 5, arrowY2 - aDir * 7);
+            ctx.closePath();
+            ctx.fill();
+
+            // Label
+            ctx.font = 'bold 9px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(isDown ? 'F_mag ↓' : 'F_mag ↑', rightArmX + 22, arrowY1 + (isDown ? 16 : -12));
+          }
         }
 
         // Live Readout Dashboard
@@ -1978,78 +2010,80 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           28
         );
 
-        // Light Source (Lamp)
-        const lampX = 60;
+        // Light Source (Lamp Housing)
+        const lampX = 64;
         const lampY = cy - 30;
 
-        ctx.fillStyle = '#f59e0b';
-        ctx.beginPath();
-        ctx.arc(lampX, lampY, 20, 0, Math.PI * 2);
-        ctx.fill();
+        drawMetallicCylinder(ctx, lampX - 22, lampY - 26, 38, 52, 'steel', 'vertical');
+        drawGlowingParticle(ctx, lampX + 4, lampY, 14, '#fbbf24', 1.0);
 
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = isLight ? '#0f172a' : '#ffffff';
         ctx.font = 'bold 10px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('White Light', lampX, lampY + 34);
+        ctx.fillText('White Light', lampX, lampY + 36);
 
-        // Incident Polychromatic Beam
+        // Cuvette dimensions
         const cuvetteX = cx - 70;
         const cuvetteY = cy - 70;
         const cuvetteW = 55;
         const cuvetteH = 90;
 
-        const beamGrad = ctx.createLinearGradient(lampX + 20, lampY, cuvetteX, lampY);
-        beamGrad.addColorStop(0, '#ffffff');
-        beamGrad.addColorStop(0.2, '#f43f5e');
-        beamGrad.addColorStop(0.4, '#eab308');
-        beamGrad.addColorStop(0.6, '#22c55e');
-        beamGrad.addColorStop(0.8, '#3b82f6');
-        beamGrad.addColorStop(1, '#a855f7');
+        // Incident Polychromatic Volumetric Beam
+        const beamStartX = lampX + 16;
+        const beamLen = cuvetteX - beamStartX;
+        drawVolumetricBeam(ctx, beamStartX, lampY, beamLen, 18, '#ffffff', 0.85);
 
-        ctx.strokeStyle = beamGrad;
-        ctx.lineWidth = 14;
-        ctx.beginPath();
-        ctx.moveTo(lampX + 20, lampY);
-        ctx.lineTo(cuvetteX, lampY);
-        ctx.stroke();
+        // Superimpose spectral dispersion overlay
+        const specGrad = ctx.createLinearGradient(beamStartX, lampY, cuvetteX, lampY);
+        specGrad.addColorStop(0, 'rgba(255, 255, 255, 0.7)');
+        specGrad.addColorStop(0.2, 'rgba(239, 68, 68, 0.5)');
+        specGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.5)');
+        specGrad.addColorStop(0.6, 'rgba(34, 197, 94, 0.5)');
+        specGrad.addColorStop(0.8, 'rgba(59, 130, 246, 0.5)');
+        specGrad.addColorStop(1, 'rgba(168, 85, 247, 0.6)');
+        ctx.fillStyle = specGrad;
+        ctx.fillRect(beamStartX, lampY - 8, beamLen, 16);
 
-        // Optical Cuvette
-        ctx.fillStyle = currentIon.isColorless ? 'rgba(241, 245, 249, 0.4)' : currentIon.colorHex;
-        ctx.beginPath();
-        ctx.roundRect(cuvetteX, cuvetteY, cuvetteW, cuvetteH, 6);
-        ctx.fill();
+        // Streaming incident photons
+        for (let i = 0; i < 8; i++) {
+          const pFrac = ((t * 2.2 + i * 0.125) % 1);
+          const px = beamStartX + pFrac * beamLen;
+          drawGlowingParticle(ctx, px, lampY + Math.sin(i * 2) * 4, 3, 'rgba(255, 255, 255, 0.9)', 0.5);
+        }
 
-        ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
+        // 3D Optical Quartz Cuvette
+        drawRealisticGlassVessel(ctx, cuvetteX, cuvetteY, cuvetteW, cuvetteH, {
+          liquidColor: currentIon.isColorless ? 'rgba(241, 245, 249, 0.25)' : currentIon.colorHex,
+          liquidLevelPercent: 88,
+          wallThickness: 3.5,
+          showMeniscus: true,
+        });
 
         ctx.fillStyle = isLight ? '#0f172a' : '#ffffff';
         ctx.font = 'bold 11px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(currentIon.nameEn, cuvetteX + cuvetteW / 2, cuvetteY + cuvetteH + 18);
 
-        // Transmitted Ray (Complementary Observed Color)
+        // Transmitted Complementary Beam
         const detectorX = cx + 80;
-        ctx.strokeStyle = currentIon.isColorless ? 'rgba(255,255,255,0.85)' : currentIon.transmittedHex;
-        ctx.lineWidth = 14;
-        ctx.beginPath();
-        ctx.moveTo(cuvetteX + cuvetteW, lampY);
-        ctx.lineTo(detectorX, lampY);
-        ctx.stroke();
+        const transColor = currentIon.isColorless ? 'rgba(255,255,255,0.85)' : currentIon.transmittedHex;
+        const transLen = detectorX - (cuvetteX + cuvetteW);
+        drawVolumetricBeam(ctx, cuvetteX + cuvetteW, lampY, transLen, 18, transColor, 0.85);
 
-        // Eye / Detector
-        ctx.fillStyle = '#334155';
-        ctx.beginPath();
-        ctx.roundRect(detectorX, lampY - 25, 45, 50, 8);
-        ctx.fill();
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+        // Streaming transmitted photons
+        for (let i = 0; i < 6; i++) {
+          const pFrac = ((t * 2.2 + i * 0.166) % 1);
+          const px = (cuvetteX + cuvetteW) + pFrac * transLen;
+          drawGlowingParticle(ctx, px, lampY + Math.cos(i * 2) * 4, 3, transColor, 0.7);
+        }
+
+        // 3D Photodiode Sensor Head
+        drawMetallicCylinder(ctx, detectorX, lampY - 26, 46, 52, 'steel', 'vertical');
 
         ctx.fillStyle = '#38bdf8';
         ctx.font = 'bold 10px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Sensor', detectorX + 22, lampY + 36);
+        ctx.fillText('Sensor', detectorX + 23, lampY + 36);
 
         // Complementary Color Wheel (Right Side)
         const wheelCX = Math.min(width - 95, cx + 185);
@@ -2078,17 +2112,13 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           ctx.stroke();
         }
 
-        // Center hub of wheel
-        ctx.fillStyle = isLight ? '#f8fafc' : '#0f172a';
-        ctx.beginPath();
-        ctx.arc(wheelCX, wheelCY, 18, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
+        // Center brass hub of wheel
+        drawMetallicCylinder(ctx, wheelCX - 18, wheelCY - 18, 36, 36, 'brass', 'horizontal');
 
-        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+        ctx.fillStyle = '#0f172a';
         ctx.font = 'bold 8px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Complementary', wheelCX, wheelCY - 2);
+        ctx.fillText('Color', wheelCX, wheelCY - 2);
         ctx.fillText('Wheel', wheelCX, wheelCY + 8);
 
         // Information banner
@@ -2172,6 +2202,9 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.lineWidth = 4;
         ctx.stroke();
 
+        // Structural steel belly reinforcing band
+        drawMetallicCylinder(ctx, cx - furnaceBellyW / 2 - 4, bellyY - 5, furnaceBellyW + 8, 10, 'steel', 'horizontal');
+
         // Molten Iron & Slag at Bottom
         const hearthH = 30;
         const moltenIronH = 16;
@@ -2197,26 +2230,26 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
         ctx.fillText(isArabic ? 'حديد منصهر Fe' : 'Molten Iron Fe', cx, furnaceBottomY - 4);
 
         // Animated heat rising particles
-        const t = animTick;
-        for (let i = 0; i < 18; i++) {
-          const px = cx - 35 + ((i * 37 + t * 2) % 70);
-          const py = furnaceBottomY - 35 - ((i * 23 + t * 3) % (furnaceBottomY - furnaceTopY - 40));
-          ctx.fillStyle = i % 2 === 0 ? 'rgba(253, 224, 71, 0.8)' : 'rgba(239, 68, 68, 0.8)';
-          ctx.beginPath();
-          ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-          ctx.fill();
+        for (let i = 0; i < 20; i++) {
+          const px = cx - 35 + ((i * 37 + t * 60) % 70);
+          const py = furnaceBottomY - 35 - ((i * 23 + t * 75) % (furnaceBottomY - furnaceTopY - 40));
+          const pColor = i % 2 === 0 ? 'rgba(253, 224, 71, 0.85)' : 'rgba(239, 68, 68, 0.85)';
+          drawGlowingParticle(ctx, px, py, 3, pColor, 0.5);
         }
 
         // Tuyeres (Hot Air / Gas Inlets)
         const tuyereY = furnaceBottomY - 40;
-        ctx.fillStyle = '#0284c7';
-        ctx.fillRect(cx - furnaceBottomW / 2 - 25, tuyereY - 6, 25, 12);
-        ctx.fillRect(cx + furnaceBottomW / 2, tuyereY - 6, 25, 12);
+        drawMetallicCylinder(ctx, cx - furnaceBottomW / 2 - 26, tuyereY - 6, 26, 12, 'steel', 'horizontal');
+        drawMetallicCylinder(ctx, cx + furnaceBottomW / 2, tuyereY - 6, 26, 12, 'steel', 'horizontal');
+
+        // Procedural Combustion Flames at Tuyeres
+        drawProceduralFlame(ctx, cx - furnaceBottomW / 2 + 10, tuyereY + 4, 32, t, 'yellow', 0.65);
+        drawProceduralFlame(ctx, cx + furnaceBottomW / 2 - 10, tuyereY + 4, 32, t + 1.5, 'yellow', 0.65);
 
         ctx.fillStyle = '#38bdf8';
         ctx.font = 'bold 8px sans-serif';
-        ctx.fillText(isArabic ? 'هواء ساخن' : 'Hot Air', cx - furnaceBottomW / 2 - 12, tuyereY - 9);
-        ctx.fillText(isArabic ? 'هواء ساخن' : 'Hot Air', cx + furnaceBottomW / 2 + 12, tuyereY - 9);
+        ctx.fillText(isArabic ? 'هواء ساخن' : 'Hot Air', cx - furnaceBottomW / 2 - 13, tuyereY - 9);
+        ctx.fillText(isArabic ? 'هواء ساخن' : 'Hot Air', cx + furnaceBottomW / 2 + 13, tuyereY - 9);
 
         // Reduction Stage Banner
         ctx.fillStyle = isLight ? 'rgba(255,255,255,0.92)' : 'rgba(15,23,42,0.92)';
@@ -2260,7 +2293,6 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
       massDeltaMg,
       metallurgyStatus,
       spectroData,
-      animTick,
       isLight,
       isArabic,
     ]
@@ -2400,6 +2432,7 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             id="transition-canvas-viewport"
             lang={lang}
             minHeight={390}
+            animated={true}
             onRender={handleRenderViewport}
           />
         </div>
