@@ -39,6 +39,7 @@ import {
   ChevronDown,
   ChevronUp,
   BookMarked,
+  TrendingUp,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -466,7 +467,7 @@ export const TestGenerator: React.FC<Props> = ({
     let currentScore = 0;
     activeQuestions.forEach((q, idx) => {
       if (userAnswers[idx] === q.correctIndex) {
-        currentScore += 1;
+        currentScore += q.points ?? 1;
       }
     });
     setScore(currentScore);
@@ -1152,7 +1153,7 @@ export const TestGenerator: React.FC<Props> = ({
               }`}
             >
               <FileSpreadsheet className="w-3.5 h-3.5" />
-              <span>{lang === 'ar' ? 'بابل شيت رسمي (OMR)' : 'OMR Bubble Sheet'}</span>
+              <span>{lang === 'ar' ? 'التابلت وبابل شيت (OMR)' : 'Tablet & OMR'}</span>
             </button>
             <button
               onClick={() => setExamMode('mistakes')}
@@ -2715,6 +2716,98 @@ export const TestGenerator: React.FC<Props> = ({
                       </div>
                     )}
 
+                    {/* Bloom's Cognitive Taxonomy Profile */}
+                    {stats.officialExamScore?.bloomDiagnostics && (
+                      <div className="mt-5 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                          <div className="flex items-center gap-2">
+                            <TrendingUp className="w-5 h-5 text-indigo-400" />
+                            <h5 className="text-sm font-bold text-slate-100">
+                              {lang === 'ar'
+                                ? 'التقرير التشخيصي لمستويات بلوم المعرفية (Bloom’s Cognitive Taxonomy)'
+                                : 'Bloom’s Cognitive Taxonomy Diagnostic Profile'}
+                            </h5>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs">
+                            <span className="text-slate-400">{lang === 'ar' ? 'مؤشر النضج المعرفي:' : 'Cognitive Maturity Index:'}</span>
+                            <span className="font-mono font-black text-indigo-300 text-sm">
+                              {lang === 'ar'
+                                ? toHindiDigits(stats.officialExamScore.bloomDiagnostics.overallCognitiveIndex)
+                                : stats.officialExamScore.bloomDiagnostics.overallCognitiveIndex}%
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* 4-Domain Progress Bars */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                          {(['remembering', 'understanding', 'application', 'analysis'] as const).map((lvl) => {
+                            const score = stats.officialExamScore!.bloomDiagnostics.levels[lvl];
+                            const meta = score.info;
+                            return (
+                              <div
+                                key={lvl}
+                                className={`p-3 rounded-xl border ${meta.borderColor} ${meta.badgeBg} flex flex-col justify-between`}
+                              >
+                                <div>
+                                  <div className="flex items-center justify-between text-xs font-bold mb-1">
+                                    <span className={meta.color}>{lang === 'ar' ? meta.shortLabelAr : meta.shortLabelEn}</span>
+                                    <span className="font-mono font-black text-slate-200">
+                                      {lang === 'ar' ? toHindiDigits(score.accuracyPct) : score.accuracyPct}%
+                                    </span>
+                                  </div>
+                                  <div className="w-full bg-slate-900/60 rounded-full h-2 overflow-hidden border border-slate-800">
+                                    <div
+                                      className={`h-full transition-all duration-700 ${
+                                        score.accuracyPct >= 80
+                                          ? 'bg-emerald-500'
+                                          : score.accuracyPct >= 60
+                                          ? 'bg-indigo-500'
+                                          : 'bg-amber-500'
+                                      }`}
+                                      style={{ width: `${score.accuracyPct}%` }}
+                                    />
+                                  </div>
+                                </div>
+                                <div className="mt-2 text-[10px] text-slate-400 flex items-center justify-between font-mono">
+                                  <span>
+                                    {lang === 'ar'
+                                      ? `${toHindiDigits(score.earnedMarks)} / ${toHindiDigits(score.totalMarks)} درجة`
+                                      : `${score.earnedMarks} / ${score.totalMarks} pts`}
+                                  </span>
+                                  <span>
+                                    {lang === 'ar'
+                                      ? `المعيار: ${toHindiDigits(score.targetPct)}%`
+                                      : `Target: ${score.targetPct}%`}
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Tailored Diagnostic Advice */}
+                        <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-2">
+                          <div className="flex items-center gap-2 font-bold text-amber-400">
+                            <Sparkles className="w-4 h-4" />
+                            <span>{lang === 'ar' ? 'التحليل الاستراتيجي وخطة التميز:' : 'Strategic Remediation & Action Plan:'}</span>
+                          </div>
+                          <p className="leading-relaxed">
+                            {lang === 'ar'
+                              ? stats.officialExamScore.bloomDiagnostics.diagnosticSummaryAr
+                              : stats.officialExamScore.bloomDiagnostics.diagnosticSummaryEn}
+                          </p>
+                          <ul className="list-disc list-inside space-y-1 text-slate-400 text-[11px] pt-1 border-t border-slate-800">
+                            {(lang === 'ar'
+                              ? stats.officialExamScore.bloomDiagnostics.actionPlanAr
+                              : stats.officialExamScore.bloomDiagnostics.actionPlanEn
+                            ).map((step, sIdx) => (
+                              <li key={sIdx}>{step}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Newly Earned Academic Badges Banner */}
                     {newlyEarnedBadges.length > 0 && (
                       <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 border-2 border-amber-500/50 shadow-2xl shadow-amber-900/20 relative overflow-hidden">
@@ -3156,6 +3249,7 @@ export const TestGenerator: React.FC<Props> = ({
         <div className="space-y-6">
           <BubbleSheetSimulator
             totalQuestions={activeQuestions.length > 0 ? activeQuestions.length : questionCount}
+            questions={activeQuestions}
             answerKey={activeQuestions.map((q, idx) => ({
               questionIndex: idx + 1,
               correctOption: (['A', 'B', 'C', 'D'][q.correctIndex] || 'A') as 'A' | 'B' | 'C' | 'D',
@@ -3164,6 +3258,10 @@ export const TestGenerator: React.FC<Props> = ({
             }))}
             timeLimitMinutes={durationPreset === 'auto' ? Math.max(20, questionCount * 2) : durationPreset}
             lang={lang}
+            studentName={customTeacherName || (lang === 'ar' ? 'طالب الثانوية العامة' : 'Thanaweya Student')}
+            seatingNumber={lang === 'ar' ? '١٠٤٨٥٩٢' : '1048592'}
+            onOpenScratchpad={() => setIsScratchpadOpen(true)}
+            onOpenDesmos={() => onOpenDesmos?.('scientific')}
             onExamSubmitted={(scr, _total, answers) => {
               setScore(scr);
               setIsSubmitted(true);

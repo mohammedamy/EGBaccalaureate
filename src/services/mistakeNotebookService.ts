@@ -21,6 +21,7 @@ export interface GeneratedQuestion {
   points?: number;
   sectionTagAr?: string;
   sectionTagEn?: string;
+  bloomLevel?: 'remembering' | 'understanding' | 'application' | 'analysis';
 }
 
 export interface MistakeRecord {

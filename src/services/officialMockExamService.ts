@@ -1,6 +1,11 @@
 import type { Curriculum, Branch, SolvedProblem, DifficultyLevel } from '../types/curriculum';
 import { getBranchesForSubject } from '../data/subjects';
 import type { GeneratedQuestion } from './mistakeNotebookService';
+import {
+  computeBloomDiagnostics,
+  classifyBloomLevel,
+  type BloomDiagnosticsReport,
+} from './bloomTaxonomyService';
 
 export interface OfficialMockConfig {
   subjectId: string;
@@ -301,6 +306,7 @@ export function generateOfficialMockQuestions(
           points: pointsVal,
           sectionTagAr: tagAr,
           sectionTagEn: tagEn,
+          bloomLevel: pointsVal === 2 ? 'analysis' : classifyBloomLevel(picked),
         });
       }
     }
@@ -317,6 +323,7 @@ export function generateOfficialMockQuestions(
           points: pointsVal,
           sectionTagAr: tagAr,
           sectionTagEn: tagEn,
+          bloomLevel: pointsVal === 2 ? 'analysis' : classifyBloomLevel(rem),
         });
       }
     }
@@ -359,6 +366,7 @@ export interface OfficialScoreReport {
   gradeLabelAr: string;
   gradeLabelEn: string;
   gradeColor: string;
+  bloomDiagnostics: BloomDiagnosticsReport;
 }
 
 /**
@@ -416,6 +424,8 @@ export function computeOfficialExamScore(
     gradeColor = 'text-indigo-400 bg-indigo-950/50 border-indigo-500/50';
   }
 
+  const bloomDiagnostics = computeBloomDiagnostics(questions, userAnswers);
+
   return {
     totalMarks,
     earnedMarks,
@@ -429,5 +439,6 @@ export function computeOfficialExamScore(
     gradeLabelAr,
     gradeLabelEn,
     gradeColor,
+    bloomDiagnostics,
   };
 }

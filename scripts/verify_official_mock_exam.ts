@@ -13,6 +13,11 @@ import {
   generateOfficialMockQuestions,
   computeOfficialExamScore,
 } from '../src/services/officialMockExamService';
+import {
+  classifyBloomLevel,
+  computeBloomDiagnostics,
+  BLOOM_LEVELS_METADATA,
+} from '../src/services/bloomTaxonomyService';
 import { thanaweyaCurriculum } from '../src/data/thanaweyaData';
 import { egBacCurriculum } from '../src/data/curriculum';
 import type { GeneratedQuestion } from '../src/services/mistakeNotebookService';
@@ -237,6 +242,50 @@ assert(calcReport.section1EarnedMarks === 8, `Calculus Section 1 earned marks ==
 assert(calcReport.section2EarnedMarks === 18, `Calculus Section 2 earned marks === 18`);
 assert(calcReport.markPercentage === 87, `Calculus mark percentage === 87% (got ${calcReport.markPercentage}%)`);
 assert(calcReport.gradeLabelAr.includes('كفاءة ممتازة'), `Distinction tier assigned at 87%`);
+
+// 5. Bloom's Taxonomy Cognitive Diagnostics Tests
+console.log('\n--- 5. Testing Bloom\'s Taxonomy Classification & Cognitive Diagnostics ---');
+
+// Check all questions in Physics mock have bloomLevel assigned
+const physicsWithBloom = physicsQs.filter((q) => q.bloomLevel !== undefined);
+assert(physicsWithBloom.length === 46, `All 46 Physics questions have bloomLevel assigned`);
+const physicsSec2Analysis = physicsQs.filter((q) => q.points === 2 && q.bloomLevel === 'analysis');
+assert(physicsSec2Analysis.length === 14, `All 14 Section 2 questions (2 pts) are classified as 'analysis'`);
+
+// Check perfectReport bloom diagnostics
+assert(perfectReport.bloomDiagnostics !== undefined, `perfectReport has bloomDiagnostics`);
+assert(perfectReport.bloomDiagnostics.overallCognitiveIndex === 100, `perfectReport cognitive index is 100%`);
+assert(perfectReport.bloomDiagnostics.levels.analysis.accuracyPct === 100, `perfectReport analysis level is 100%`);
+assert(perfectReport.bloomDiagnostics.levels.application.accuracyPct === 100, `perfectReport application level is 100%`);
+
+// Check sec1OnlyReport bloom diagnostics
+assert(sec1OnlyReport.bloomDiagnostics !== undefined, `sec1OnlyReport has bloomDiagnostics`);
+assert(sec1OnlyReport.bloomDiagnostics.levels.analysis.accuracyPct < 50, `sec1OnlyReport analysis accuracy is low (< 50%) due to missing Section 2`);
+
+// Test explicit zero analysis accuracy when all analysis questions are missed
+const mockAnswersNoAnalysis: Record<number, number> = {};
+physicsQs.forEach((q, idx) => {
+  if (q.bloomLevel === 'analysis') {
+    mockAnswersNoAnalysis[idx] = (q.correctIndex + 1) % 4; // wrong
+  } else {
+    mockAnswersNoAnalysis[idx] = q.correctIndex;
+  }
+});
+const noAnalysisReport = computeOfficialExamScore(physicsQs, mockAnswersNoAnalysis);
+assert(noAnalysisReport.bloomDiagnostics.levels.analysis.accuracyPct === 0, `noAnalysisReport analysis accuracy is exactly 0%`);
+assert(noAnalysisReport.bloomDiagnostics.primaryGrowthArea.level === 'analysis', `noAnalysisReport identifies analysis as primary growth area`);
+assert(noAnalysisReport.bloomDiagnostics.actionPlanAr.length > 0, `noAnalysisReport generates Arabic action plan`);
+assert(noAnalysisReport.bloomDiagnostics.actionPlanEn.length > 0, `noAnalysisReport generates English action plan`);
+
+// Check BLOOM_LEVELS_METADATA
+let targetSum = 0;
+(['remembering', 'understanding', 'application', 'analysis'] as const).forEach((lvl) => {
+  const meta = BLOOM_LEVELS_METADATA[lvl];
+  assert(meta.labelAr.length > 0, `Bloom level '${lvl}' has valid Arabic label`);
+  assert(meta.labelEn.length > 0, `Bloom level '${lvl}' has valid English label`);
+  targetSum += meta.targetPercentage;
+});
+assert(targetSum === 100, `Bloom target percentages sum to exactly 100% (got ${targetSum}%)`);
 
 console.log(`\n🎉 Verification Complete: ${passed} passed, ${failed} failed.`);
 
