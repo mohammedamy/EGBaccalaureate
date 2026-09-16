@@ -106,28 +106,28 @@ export const LabSlider: React.FC<LabSliderProps> = ({
 
   return (
     <div
-      className={`p-3 rounded-xl border transition-all ${
+      className={`p-3.5 rounded-xl border transition-all ${
         disabled
           ? isLight
             ? 'opacity-50 pointer-events-none bg-slate-100 border-slate-200'
             : 'opacity-50 pointer-events-none bg-slate-900/30 border-slate-800'
           : isLight
           ? 'bg-slate-50/90 hover:bg-slate-100/80 border-slate-200 shadow-xs'
-          : 'bg-slate-900/70 hover:bg-slate-900/90 border-slate-800/90 shadow-sm'
+          : 'bg-slate-900/80 hover:bg-slate-900/95 border-slate-800/90 shadow-sm'
       }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* Top row: Label, Symbol, and Current Value Badge */}
-      <div className="flex items-center justify-between gap-2 mb-2">
-        <div className="flex items-center gap-1.5 min-w-0">
+      <div className="flex items-center justify-between gap-2 mb-2.5">
+        <div className="flex items-center gap-2 min-w-0">
           {symbolTex && (
-            <span className={`font-mono text-sm inline-flex items-center ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`}>
+            <span className={`font-mono text-sm sm:text-base inline-flex items-center ${isLight ? 'text-cyan-700 font-bold' : 'text-cyan-400 font-bold'}`}>
               <MathRenderer math={symbolTex} inline />
             </span>
           )}
           <label
             htmlFor={id}
-            className={`text-xs font-semibold truncate select-none cursor-pointer ${isLight ? 'text-slate-800' : 'text-slate-300'}`}
+            className={`text-xs sm:text-sm font-bold truncate select-none cursor-pointer ${isLight ? 'text-slate-800' : 'text-slate-200'}`}
           >
             {isAr ? labelAr : labelEn}
           </label>
@@ -146,14 +146,14 @@ export const LabSlider: React.FC<LabSliderProps> = ({
               onBlur={handleInputBlur}
               onKeyDown={handleInputKeyDown}
               disabled={disabled}
-              className={`w-20 px-2 py-0.5 text-right font-mono text-xs font-bold rounded-lg border focus:outline-none transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
+              className={`w-24 px-2.5 py-1 text-right font-mono text-xs sm:text-sm font-bold rounded-lg border focus:outline-hidden transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
                 isLight
                   ? 'bg-white border-slate-300 text-slate-900 focus:border-cyan-600 focus:ring-2 focus:ring-cyan-500/25 shadow-xs'
-                  : 'bg-slate-950/90 border-slate-700 text-cyan-300 hover:border-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30'
+                  : 'bg-slate-950/95 border-slate-700 text-cyan-300 hover:border-slate-600 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/30'
               }`}
             />
             {unit && (
-              <span className={`text-[10px] font-sans ml-1 mr-1 shrink-0 ${isLight ? 'text-slate-500 font-semibold' : 'text-slate-400'}`}>
+              <span className={`text-xs font-semibold font-sans ml-1.5 mr-1.5 shrink-0 ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                 {unit}
               </span>
             )}
@@ -165,32 +165,32 @@ export const LabSlider: React.FC<LabSliderProps> = ({
               type="button"
               onClick={onReset}
               title={isAr ? 'إعادة تعيين' : 'Reset to default'}
-              className={`p-1 rounded transition-colors ${
+              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                 isLight
                   ? 'text-slate-400 hover:text-cyan-700 hover:bg-slate-200'
                   : 'text-slate-400 hover:text-cyan-300 hover:bg-slate-800'
               }`}
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-4 h-4" />
             </button>
           )}
         </div>
       </div>
 
       {/* Slider track with fine-calibration buttons */}
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={stepDown}
           disabled={disabled || value <= min}
           aria-label="Decrease"
-          className={`p-1.5 rounded-lg transition-all active:scale-95 disabled:opacity-30 disabled:pointer-events-none ${
+          className={`p-2 rounded-lg transition-all active:scale-95 cursor-pointer disabled:opacity-30 disabled:pointer-events-none ${
             isLight
               ? 'bg-slate-100 hover:bg-slate-200 hover:text-cyan-800 text-slate-700 border border-slate-200 shadow-xs'
-              : 'bg-slate-800/90 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700/70 shadow-xs'
+              : 'bg-slate-800 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700 shadow-xs'
           }`}
         >
-          <Minus className="w-3.5 h-3.5" />
+          <Minus className="w-4 h-4" />
         </button>
 
         <div className="relative flex-1 flex items-center">
@@ -203,10 +203,10 @@ export const LabSlider: React.FC<LabSliderProps> = ({
             value={value}
             onChange={handleSliderChange}
             disabled={disabled}
-            className={`w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none touch-none transition-all ${
+            className={`w-full h-2.5 rounded-lg appearance-none cursor-pointer focus:outline-hidden touch-none transition-all ${
               isLight
-                ? 'bg-slate-200 accent-cyan-600 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-600 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white'
-                : 'bg-slate-700/80 accent-cyan-400 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-slate-900 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:shadow-cyan-500/40 [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-400 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-slate-900'
+                ? 'bg-slate-200 accent-cyan-600 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-600 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white'
+                : 'bg-slate-700/80 accent-cyan-400 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-400 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-slate-900 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:shadow-cyan-500/40 [&::-webkit-slider-thumb]:hover:scale-110 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-400 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-slate-900'
             }`}
           />
         </div>
@@ -216,18 +216,18 @@ export const LabSlider: React.FC<LabSliderProps> = ({
           onClick={stepUp}
           disabled={disabled || value >= max}
           aria-label="Increase"
-          className={`p-1.5 rounded-lg transition-all active:scale-95 disabled:opacity-30 disabled:pointer-events-none ${
+          className={`p-2 rounded-lg transition-all active:scale-95 cursor-pointer disabled:opacity-30 disabled:pointer-events-none ${
             isLight
               ? 'bg-slate-100 hover:bg-slate-200 hover:text-cyan-800 text-slate-700 border border-slate-200 shadow-xs'
-              : 'bg-slate-800/90 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700/70 shadow-xs'
+              : 'bg-slate-800 hover:bg-slate-700 hover:text-cyan-300 text-slate-200 border border-slate-700 shadow-xs'
           }`}
         >
-          <Plus className="w-3.5 h-3.5" />
+          <Plus className="w-4 h-4" />
         </button>
       </div>
 
       {/* Range Min/Max Footers */}
-      <div className={`flex justify-between items-center text-[10px] mt-1.5 px-1 font-mono font-medium ${
+      <div className={`flex justify-between items-center text-xs mt-2 px-1 font-mono font-semibold ${
         isLight ? 'text-slate-600' : 'text-slate-400'
       }`}>
         <span>{displayMin}</span>

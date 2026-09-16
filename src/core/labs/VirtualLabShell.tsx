@@ -20,7 +20,9 @@ import {
   VolumeX,
   Maximize2,
   Minimize2,
+  ChevronDown,
 } from 'lucide-react';
+import { MathRenderer } from '../../components/MathRenderer';
 import { LabSlider } from './controls/LabSlider';
 import { LabTelemetryCard } from './controls/LabTelemetryCard';
 import { LabPresetPicker } from './controls/LabPresetPicker';
@@ -370,12 +372,189 @@ export const VirtualLabShell = <
   };
 
   // =========================================================================
+  // PARAMETER FIELD RENDERER (Sliders, Switchers & Toggles)
+  // =========================================================================
+  const renderParamField = (key: string, schema: any) => {
+    if (!schema) return null;
+    if (schema.visibleIf && !schema.visibleIf(lab.params)) {
+      return null;
+    }
+    const val = lab.params[key];
+
+    if (schema.type === 'number') {
+      return (
+        <LabSlider
+          key={key}
+          id={`param-${key}`}
+          labelEn={schema.labelEn}
+          labelAr={schema.labelAr}
+          symbolTex={schema.symbolTex}
+          value={typeof val === 'number' ? val : schema.defaultValue ?? 0}
+          min={schema.min ?? 0}
+          max={schema.max ?? 100}
+          step={schema.step ?? 1}
+          unit={schema.unit}
+          precision={schema.precision ?? 2}
+          defaultValue={schema.defaultValue}
+          lang={lang}
+          theme={theme}
+          disabled={Boolean(schema.disabled)}
+          onChange={(newVal) => lab.updateParam(key as keyof TParams, newVal as any)}
+          onReset={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
+        />
+      );
+    }
+
+    if (schema.type === 'select' && schema.options && schema.options.length > 0) {
+      return (
+        <div
+          key={key}
+          className={`p-3.5 rounded-xl border transition-all ${
+            schema.disabled
+              ? isLight
+                ? 'opacity-50 pointer-events-none bg-slate-100 border-slate-200'
+                : 'opacity-50 pointer-events-none bg-slate-900/30 border-slate-800'
+              : isLight
+              ? 'bg-slate-50/90 border-slate-200 shadow-xs'
+              : 'bg-slate-900/80 border-slate-800/90 shadow-sm'
+          }`}
+          dir={isAr ? 'rtl' : 'ltr'}
+        >
+          <div className="flex items-center justify-between gap-2 mb-2.5">
+            <div className="flex items-center gap-2 min-w-0">
+              {schema.symbolTex && (
+                <span className={`font-mono text-sm sm:text-base inline-flex items-center ${isLight ? 'text-cyan-700 font-bold' : 'text-cyan-400 font-bold'}`}>
+                  <MathRenderer math={schema.symbolTex} inline />
+                </span>
+              )}
+              <label className={`text-xs sm:text-sm font-bold truncate ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                {isAr ? schema.labelAr : schema.labelEn}
+              </label>
+            </div>
+            {schema.defaultValue !== undefined && val !== schema.defaultValue && (
+              <button
+                type="button"
+                onClick={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
+                title={isAr ? 'استعادة الافتراضي' : 'Reset to default'}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          {schema.options.length <= 4 ? (
+            <div className="grid grid-cols-2 gap-2">
+              {schema.options.map((opt: any) => {
+                const isOptActive = val === opt.value;
+                return (
+                  <button
+                    key={String(opt.value)}
+                    type="button"
+                    onClick={() => lab.updateParam(key as keyof TParams, opt.value as any)}
+                    className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center justify-center text-center leading-snug ${
+                      isOptActive
+                        ? isLight
+                          ? 'bg-cyan-50 text-cyan-950 border-cyan-500 shadow-xs'
+                          : 'bg-cyan-500/20 text-cyan-200 border-cyan-500/60 shadow-sm shadow-cyan-500/20'
+                        : isLight
+                        ? 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200'
+                        : 'bg-slate-850 hover:bg-slate-800 text-slate-300 border-slate-700/80 hover:border-slate-600'
+                    }`}
+                  >
+                    {isAr ? opt.labelAr : opt.labelEn}
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="relative">
+              <select
+                value={String(val)}
+                onChange={(e) => {
+                  const found = schema.options?.find((o: any) => String(o.value) === e.target.value);
+                  lab.updateParam(key as keyof TParams, (found ? found.value : e.target.value) as any);
+                }}
+                className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
+                  isLight
+                    ? 'bg-white border-slate-300 text-slate-800'
+                    : 'bg-slate-850 border-slate-700 text-slate-200'
+                }`}
+              >
+                {schema.options.map((opt: any) => (
+                  <option key={String(opt.value)} value={String(opt.value)} className="bg-slate-900 text-white">
+                    {isAr ? opt.labelAr : opt.labelEn}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown className="w-4 h-4" />
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (schema.type === 'boolean') {
+      const boolVal = Boolean(val);
+      return (
+        <div
+          key={key}
+          className={`p-3.5 rounded-xl border transition-all flex items-center justify-between gap-3 ${
+            schema.disabled
+              ? isLight
+                ? 'opacity-50 pointer-events-none bg-slate-100 border-slate-200'
+                : 'opacity-50 pointer-events-none bg-slate-900/30 border-slate-800'
+              : isLight
+              ? 'bg-slate-50/90 border-slate-200 shadow-xs'
+              : 'bg-slate-900/80 border-slate-800/90 shadow-sm'
+          }`}
+          dir={isAr ? 'rtl' : 'ltr'}
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            {schema.symbolTex && (
+              <span className={`font-mono text-sm sm:text-base inline-flex items-center ${isLight ? 'text-cyan-700 font-bold' : 'text-cyan-400 font-bold'}`}>
+                <MathRenderer math={schema.symbolTex} inline />
+              </span>
+            )}
+            <label
+              onClick={() => lab.updateParam(key as keyof TParams, (!boolVal) as any)}
+              className={`text-xs sm:text-sm font-bold truncate cursor-pointer ${isLight ? 'text-slate-800' : 'text-slate-200'}`}
+            >
+              {isAr ? schema.labelAr : schema.labelEn}
+            </label>
+          </div>
+
+          <button
+            type="button"
+            role="switch"
+            aria-checked={boolVal}
+            onClick={() => lab.updateParam(key as keyof TParams, (!boolVal) as any)}
+            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
+              boolVal ? (isLight ? 'bg-cyan-600' : 'bg-cyan-500') : (isLight ? 'bg-slate-300' : 'bg-slate-700')
+            }`}
+          >
+            <span
+              className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out ${
+                boolVal ? (isAr ? '-translate-x-5' : 'translate-x-5') : 'translate-x-0'
+              }`}
+            />
+          </button>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  // =========================================================================
   // FULL-SCREEN WORKSTATION MODE (All items in one screen, zero window scroll)
   // =========================================================================
   if (isFullscreen) {
     return (
       <div
-        className={`fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col p-2 sm:p-3 transition-colors ${
+        className={`fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col p-2.5 sm:p-3 transition-colors ${
           isContrast
             ? 'bg-black text-white'
             : isLight
@@ -386,42 +565,42 @@ export const VirtualLabShell = <
       >
         {/* 1. Standardized Workstation Top Bar */}
         <div
-          className={`h-12 sm:h-13 shrink-0 px-3 py-1.5 rounded-2xl border ${st.border} bg-gradient-to-r ${st.gradient} flex items-center justify-between gap-2 shadow-sm backdrop-blur-md z-10`}
+          className={`min-h-[54px] sm:min-h-[58px] shrink-0 px-3.5 py-2 rounded-2xl border ${st.border} bg-gradient-to-r ${st.gradient} flex items-center justify-between gap-3 shadow-md backdrop-blur-md z-10`}
         >
           {/* Left: Identity */}
-          <div className="flex items-center gap-2 min-w-0">
-            <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border shrink-0 ${st.badge}`}>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className={`px-2.5 py-1 rounded-full text-xs font-black uppercase tracking-wider border shrink-0 ${st.badge}`}>
               {definition.subject}
             </span>
             {definition.chapterRef && (
-              <span className={`hidden md:inline px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border shrink-0 ${
+              <span className={`hidden md:inline px-2.5 py-1 rounded-full text-xs font-mono font-bold border shrink-0 ${
                 isLight ? 'bg-white text-slate-700 border-slate-200' : 'bg-slate-800 text-slate-300 border-slate-700'
               }`}>
                 {definition.chapterRef}
               </span>
             )}
-            <h2 className={`text-xs sm:text-sm md:text-base font-black tracking-tight truncate ${isLight ? 'text-slate-900' : 'text-white'}`} title={isAr ? definition.titleAr : definition.titleEn}>
+            <h2 className={`text-sm sm:text-base md:text-lg font-black tracking-tight truncate ${isLight ? 'text-slate-900' : 'text-white'}`} title={isAr ? definition.titleAr : definition.titleEn}>
               {isAr ? definition.titleAr : definition.titleEn}
             </h2>
             {definition.safetyWarnings && definition.safetyWarnings.length > 0 && (
               <button
                 type="button"
                 onClick={() => setShowSafetyModal(true)}
-                className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 hover:bg-amber-500/30 transition-all shrink-0 cursor-pointer"
+                className="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 hover:bg-amber-500/30 transition-all shrink-0 cursor-pointer"
               >
-                <AlertTriangle className="w-3 h-3 text-amber-400" />
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
                 <span className="hidden sm:inline">{isAr ? 'السلامة' : 'Safety'}</span>
               </button>
             )}
           </div>
 
           {/* Center: Playback Controls */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Play / Pause */}
             <button
               type="button"
               onClick={lab.togglePlay}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-sm cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all shadow-sm cursor-pointer ${
                 lab.clock.isPlaying
                   ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                   : 'bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-cyan-500/20'
@@ -429,12 +608,12 @@ export const VirtualLabShell = <
             >
               {lab.clock.isPlaying ? (
                 <>
-                  <Pause className="w-3.5 h-3.5 fill-current" />
+                  <Pause className="w-4 h-4 fill-current" />
                   <span className="hidden sm:inline">{isAr ? 'إيقاف' : 'Pause'}</span>
                 </>
               ) : (
                 <>
-                  <Play className="w-3.5 h-3.5 fill-current" />
+                  <Play className="w-4 h-4 fill-current" />
                   <span className="hidden sm:inline">{isAr ? 'تشغيل' : 'Run'}</span>
                 </>
               )}
@@ -445,14 +624,14 @@ export const VirtualLabShell = <
               type="button"
               onClick={() => lab.stepOnce(0.016)}
               disabled={lab.clock.isPlaying}
-              className={`p-1.5 rounded-xl disabled:opacity-30 border transition-all cursor-pointer ${
+              className={`p-2 rounded-xl disabled:opacity-30 border transition-all cursor-pointer ${
                 isLight
                   ? 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                   : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
               }`}
               title={isAr ? 'خطوة زمنية واحدة (dt)' : 'Step Forward (dt)'}
             >
-              <FastForward className="w-3.5 h-3.5" />
+              <FastForward className="w-4 h-4" />
             </button>
 
             {/* Reset */}
@@ -460,19 +639,19 @@ export const VirtualLabShell = <
               type="button"
               onClick={handleReset}
               disabled={!lab.isDirty}
-              className={`px-2.5 py-1.5 rounded-xl disabled:opacity-40 border text-xs font-bold flex items-center gap-1 transition-all cursor-pointer ${
+              className={`px-3 py-2 rounded-xl disabled:opacity-40 border text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                 isLight
                   ? 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                   : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
               }`}
               title={isAr ? 'إعادة تعيين المعطيات للوضع الافتراضي' : 'Reset all parameters to default'}
             >
-              <RotateCcw className="w-3 h-3" />
+              <RotateCcw className="w-3.5 h-3.5" />
               <span className="hidden md:inline">{isAr ? 'إعادة' : 'Reset'}</span>
             </button>
 
             {/* Speed Multipliers */}
-            <div className={`hidden lg:flex items-center gap-0.5 p-0.5 rounded-xl border text-[11px] font-mono ${
+            <div className={`hidden lg:flex items-center gap-1 p-1 rounded-xl border text-xs font-mono font-bold ${
               isLight ? 'bg-white/80 border-slate-200' : 'bg-slate-950/80 border-slate-800'
             }`}>
               {[0.25, 0.5, 1.0, 2.0].map((spd) => (
@@ -480,7 +659,7 @@ export const VirtualLabShell = <
                   key={spd}
                   type="button"
                   onClick={() => lab.setSpeedMultiplier(spd)}
-                  className={`px-1.5 py-0.5 rounded-lg transition-all cursor-pointer ${
+                  className={`px-2 py-1 rounded-lg transition-all cursor-pointer ${
                     lab.clock.speedMultiplier === spd
                       ? 'bg-cyan-500 text-slate-950 font-black shadow-xs'
                       : isLight
@@ -494,7 +673,7 @@ export const VirtualLabShell = <
             </div>
 
             {/* Clock & FPS */}
-            <div className={`flex items-center gap-1.5 text-[11px] font-mono px-2 py-1 rounded-xl border ${
+            <div className={`flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-xl border ${
               isLight
                 ? 'bg-white/80 border-slate-200 text-slate-600'
                 : 'bg-slate-950/60 border-slate-800/80 text-slate-400'
@@ -506,18 +685,18 @@ export const VirtualLabShell = <
           </div>
 
           {/* Right: Goals, POE, Notebook, Audio & Fullscreen Toggle */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={() => setShowObjectivesModal(true)}
-              className={`px-2.5 py-1.5 rounded-xl text-xs font-bold border flex items-center gap-1 shadow-sm transition-all cursor-pointer ${
+              className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold border flex items-center gap-1.5 shadow-sm transition-all cursor-pointer ${
                 isLight
                   ? 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                   : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-700'
               }`}
               title={isAr ? 'أهداف التعلم' : 'Learning Goals'}
             >
-              <Award className="w-3.5 h-3.5 text-amber-500" />
+              <Award className="w-4 h-4 text-amber-500" />
               <span className="hidden xl:inline">{isAr ? 'أهداف التعلم' : 'Goals'}</span>
             </button>
 
@@ -525,7 +704,7 @@ export const VirtualLabShell = <
               <button
                 type="button"
                 onClick={lab.poeState.toggleDrawer}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 border transition-all cursor-pointer ${
+                className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 border transition-all cursor-pointer ${
                   lab.poeState.isDrawerOpen
                     ? 'bg-indigo-600 text-white border-indigo-400 shadow-sm'
                     : isLight
@@ -534,7 +713,7 @@ export const VirtualLabShell = <
                 }`}
                 title={isAr ? 'منهجية الفرضيات (POE)' : 'Hypothesis (POE)'}
               >
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="w-4 h-4" />
                 <span className="hidden xl:inline">POE</span>
                 {!lab.poeState.isUnlocked && (
                   <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
@@ -545,7 +724,7 @@ export const VirtualLabShell = <
             <button
               type="button"
               onClick={lab.notebookState.toggle}
-              className={`px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 border transition-all cursor-pointer ${
+              className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 border transition-all cursor-pointer ${
                 lab.notebookState.isOpen
                   ? 'bg-emerald-600 text-white border-emerald-400 shadow-sm'
                   : isLight
@@ -554,11 +733,11 @@ export const VirtualLabShell = <
               }`}
               title={isAr ? 'دفتر المعمل والبيانات' : 'Lab Notebook'}
             >
-              <FileSpreadsheet className="w-3.5 h-3.5" />
+              <FileSpreadsheet className="w-4 h-4" />
               <span className="hidden xl:inline">{isAr ? 'الدفتر' : 'Notebook'}</span>
               {lab.notebookState.points.length > 0 && (
-                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
-                  isLight ? 'bg-emerald-200 text-emerald-800 font-bold' : 'bg-emerald-400/30 text-white'
+                <span className={`px-2 py-0.5 rounded-full text-xs font-mono font-bold ${
+                  isLight ? 'bg-emerald-200 text-emerald-800' : 'bg-emerald-400/30 text-white'
                 }`}>
                   {lab.notebookState.points.length}
                 </span>
@@ -568,7 +747,7 @@ export const VirtualLabShell = <
             <button
               type="button"
               onClick={() => setSoundEnabled(!soundEnabled)}
-              className={`p-1.5 rounded-xl border text-xs transition-all cursor-pointer ${
+              className={`p-2 rounded-xl border text-xs sm:text-sm transition-all cursor-pointer ${
                 soundEnabled
                   ? isLight
                     ? 'bg-cyan-50 text-cyan-800 border-cyan-200'
@@ -579,30 +758,30 @@ export const VirtualLabShell = <
               }`}
               title={soundEnabled ? 'Mute audio' : 'Enable audio'}
             >
-              {soundEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
+              {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
             </button>
 
             {/* Fullscreen Minimize Toggle */}
             <button
               type="button"
               onClick={toggleFullscreen}
-              className={`px-2.5 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer ${
                 isLight
                   ? 'bg-cyan-50 hover:bg-cyan-100 text-cyan-900 border-cyan-300'
                   : 'bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/50 shadow-xs'
               }`}
               title={isAr ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
             >
-              <Minimize2 className="w-3.5 h-3.5 text-cyan-400" />
+              <Minimize2 className="w-4 h-4 text-cyan-400" />
               <span className="hidden sm:inline">{isAr ? 'تصغير' : 'Exit'}</span>
             </button>
           </div>
         </div>
 
         {/* 2. Main Workstation Body: Left Stage (Viewport & Instruments) + Right Console (Controls & Telemetry) */}
-        <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 mt-2 overflow-hidden">
+        <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3.5 mt-2.5 overflow-hidden">
           {/* Left Stage */}
-          <div className="lg:col-span-8 h-full min-h-0 flex flex-col gap-2 overflow-hidden">
+          <div className="lg:col-span-8 h-full min-h-0 flex flex-col gap-2.5 overflow-hidden">
             {definition.keyFormulas && definition.keyFormulas.length > 0 && (
               <div className="shrink-0">
                 <LabFormulaBar formulas={definition.keyFormulas} lang={lang} />
@@ -616,7 +795,7 @@ export const VirtualLabShell = <
 
             {/* Docked Instrument Rack */}
             {definition.supportedInstruments && definition.supportedInstruments.length > 0 && (
-              <div className="shrink-0 max-h-48 overflow-y-auto">
+              <div className="shrink-0 max-h-52 overflow-y-auto">
                 <InstrumentRack
                   lang={lang}
                   supportedInstruments={definition.supportedInstruments}
@@ -639,10 +818,10 @@ export const VirtualLabShell = <
           </div>
 
           {/* Right Console */}
-          <div className="lg:col-span-4 h-full min-h-0 flex flex-col gap-2 overflow-hidden">
+          <div className="lg:col-span-4 h-full min-h-0 flex flex-col gap-2.5 overflow-hidden">
             {/* Presets */}
             {definition.presets && definition.presets.length > 0 && (
-              <div className={`p-2.5 rounded-2xl border shadow-sm shrink-0 ${
+              <div className={`p-3 sm:p-3.5 rounded-2xl border shadow-sm shrink-0 ${
                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
               }`}>
                 <LabPresetPicker
@@ -656,25 +835,25 @@ export const VirtualLabShell = <
             )}
 
             {/* Tunable Parameters Card */}
-            <div className={`flex-1 min-h-0 flex flex-col p-3 rounded-2xl border shadow-sm overflow-hidden ${
+            <div className={`flex-1 min-h-0 flex flex-col p-3.5 rounded-2xl border shadow-sm overflow-hidden ${
               isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
             }`}>
-              <div className={`shrink-0 flex items-center justify-between pb-2 border-b ${
+              <div className={`shrink-0 flex items-center justify-between pb-2.5 border-b ${
                 isLight ? 'border-slate-200' : 'border-slate-800'
               }`}>
                 <div className="flex items-center gap-2">
-                  <Sliders className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
-                  <h3 className={`text-xs font-black uppercase tracking-wider ${
+                  <Sliders className={`w-4 h-4 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
+                  <h3 className={`text-xs sm:text-sm font-black uppercase tracking-wider ${
                     isLight ? 'text-slate-700' : 'text-slate-300'
                   }`}>
-                    {isAr ? 'معايير التجربة والمدخلات' : 'Experimental Parameters'}
+                    {isAr ? 'معايير التجربة والمدخلات' : 'Experimental Parameters & Switchers'}
                   </h3>
                 </div>
                 {lab.isDirty && (
                   <button
                     type="button"
                     onClick={handleReset}
-                    className={`text-[11px] font-bold cursor-pointer ${
+                    className={`text-xs sm:text-sm font-bold cursor-pointer ${
                       isLight ? 'text-cyan-700 hover:text-cyan-800' : 'text-cyan-400 hover:text-cyan-300'
                     }`}
                   >
@@ -683,45 +862,15 @@ export const VirtualLabShell = <
                 )}
               </div>
 
-              {/* Scrollable Parameter Sliders List */}
-              <div className="flex-1 min-h-0 overflow-y-auto pr-1 space-y-2.5 mt-2">
-                {Object.keys(definition.paramSchema).map((key) => {
-                  const schema = definition.paramSchema[key];
-                  if (schema.visibleIf && !schema.visibleIf(lab.params)) {
-                    return null;
-                  }
-                  const val = lab.params[key];
-
-                  if (schema.type === 'number') {
-                    return (
-                      <LabSlider
-                        key={key}
-                        id={`param-${key}`}
-                        labelEn={schema.labelEn}
-                        labelAr={schema.labelAr}
-                        symbolTex={schema.symbolTex}
-                        value={val}
-                        min={schema.min ?? 0}
-                        max={schema.max ?? 100}
-                        step={schema.step ?? 1}
-                        unit={schema.unit}
-                        precision={schema.precision ?? 2}
-                        defaultValue={schema.defaultValue}
-                        lang={lang}
-                        theme={theme}
-                        disabled={Boolean((schema as any).disabled)}
-                        onChange={(newVal) => lab.updateParam(key as keyof TParams, newVal as any)}
-                        onReset={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
-                      />
-                    );
-                  }
-
-                  return null;
-                })}
+              {/* Scrollable Parameter Sliders and Switchers List */}
+              <div className="flex-1 min-h-0 overflow-y-auto pr-1.5 space-y-3 mt-3">
+                {Object.keys(definition.paramSchema).map((key) =>
+                  renderParamField(key, definition.paramSchema[key])
+                )}
 
                 {/* Custom controls slot (e.g. glassware, lenses, reagents) */}
                 {renderCustomControls && (
-                  <div className={`pt-2 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+                  <div className={`pt-3 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
                     {renderCustomControls()}
                   </div>
                 )}
@@ -730,21 +879,21 @@ export const VirtualLabShell = <
 
             {/* Real-Time Live Telemetry Card Grid */}
             {telemetry && telemetry.length > 0 && (
-              <div className={`shrink-0 p-2.5 rounded-2xl border shadow-sm ${
+              <div className={`shrink-0 p-3 sm:p-3.5 rounded-2xl border shadow-sm ${
                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
               }`}>
-                <div className={`flex items-center gap-2 pb-1.5 border-b mb-2 ${
+                <div className={`flex items-center gap-2 pb-2 border-b mb-2.5 ${
                   isLight ? 'border-slate-200' : 'border-slate-800'
                 }`}>
-                  <Activity className={`w-3.5 h-3.5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
-                  <h3 className={`text-[11px] font-black uppercase tracking-wider ${
+                  <Activity className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
+                  <h3 className={`text-xs sm:text-sm font-black uppercase tracking-wider ${
                     isLight ? 'text-slate-700' : 'text-slate-300'
                   }`}>
                     {isAr ? 'القياسات الفيزيائية اللحظية' : 'Real-Time Telemetry'}
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 max-h-40 overflow-y-auto pr-1">
+                <div className="grid grid-cols-2 gap-2.5 max-h-48 overflow-y-auto pr-1">
                   {telemetry.map((metric) => (
                     <LabTelemetryCard
                       key={metric.id}
@@ -1103,41 +1252,11 @@ export const VirtualLabShell = <
               )}
             </div>
 
-            {/* Parameter Sliders */}
+            {/* Parameter Sliders & Switchers */}
             <div className="space-y-3">
-              {Object.keys(definition.paramSchema).map((key) => {
-                const schema = definition.paramSchema[key];
-                if (schema.visibleIf && !schema.visibleIf(lab.params)) {
-                  return null;
-                }
-                const val = lab.params[key];
-
-                if (schema.type === 'number') {
-                  return (
-                    <LabSlider
-                      key={key}
-                      id={`param-${key}`}
-                      labelEn={schema.labelEn}
-                      labelAr={schema.labelAr}
-                      symbolTex={schema.symbolTex}
-                      value={val}
-                      min={schema.min ?? 0}
-                      max={schema.max ?? 100}
-                      step={schema.step ?? 1}
-                      unit={schema.unit}
-                      precision={schema.precision ?? 2}
-                      defaultValue={schema.defaultValue}
-                      lang={lang}
-                      theme={theme}
-                      disabled={Boolean((schema as any).disabled)}
-                      onChange={(newVal) => lab.updateParam(key as keyof TParams, newVal as any)}
-                      onReset={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
-                    />
-                  );
-                }
-
-                return null;
-              })}
+              {Object.keys(definition.paramSchema).map((key) =>
+                renderParamField(key, definition.paramSchema[key])
+              )}
             </div>
 
             {/* Custom controls slot (e.g. glassware, lenses, reagents) */}

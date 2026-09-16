@@ -1699,15 +1699,15 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
       {/* Zoom 4 HUD: Huxley Cross-Bridge Molecular Controls */}
       {zoomLevel === 4 && (
         <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-            <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
+          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3.5">
+            <span className="text-xs sm:text-sm font-black text-rose-400 block uppercase tracking-wider">
               {isArabic ? 'المتحكمات الكيميائية الحيوية:' : 'Biochemical Sliders:'}
             </span>
 
             {/* Ca2+ Slider */}
-            <div className="space-y-1">
-              <div className="flex justify-between text-xs">
-                <span className="text-slate-400">{isArabic ? 'تركيز أيونات الكالسيوم (Ca²⁺):' : 'Calcium (Ca²⁺) Level:'}</span>
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-xs sm:text-sm font-bold">
+                <span className="text-slate-300">{isArabic ? 'تركيز أيونات الكالسيوم (Ca²⁺):' : 'Calcium (Ca²⁺) Level:'}</span>
                 <span className="font-mono text-cyan-400 font-bold">{caLevel}%</span>
               </div>
               <input
@@ -1716,17 +1716,17 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
                 max="100"
                 value={caLevel}
                 onChange={(e) => setCaLevel(parseInt(e.target.value))}
-                className="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                className="w-full accent-cyan-400 cursor-pointer h-2.5 bg-slate-800 rounded-lg"
               />
-              <p className="text-[11px] text-slate-500">
+              <p className="text-xs text-slate-400 font-medium">
                 {isArabic ? 'يكشف مواقع الارتباط على خيوط الأكتين' : 'Uncovers myosin-binding sites on actin'}
               </p>
             </div>
 
             {/* ATP Level Slider */}
-            <div className="space-y-1 pt-1">
-              <div className="flex justify-between text-xs">
-                <span className="text-slate-400">{isArabic ? 'مستوى جزيئات الطاقة (ATP):' : 'ATP Energy Level:'}</span>
+            <div className="space-y-1.5 pt-1">
+              <div className="flex justify-between text-xs sm:text-sm font-bold">
+                <span className="text-slate-300">{isArabic ? 'مستوى جزيئات الطاقة (ATP):' : 'ATP Energy Level:'}</span>
                 <span className="font-mono text-amber-400 font-bold">{atpLevel}%</span>
               </div>
               <input
@@ -1735,22 +1735,22 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
                 max="100"
                 value={atpLevel}
                 onChange={(e) => setAtpLevel(parseInt(e.target.value))}
-                className="w-full accent-amber-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+                className="w-full accent-amber-400 cursor-pointer h-2.5 bg-slate-800 rounded-lg"
               />
-              <p className="text-[11px] text-slate-500">
+              <p className="text-xs text-slate-400 font-medium">
                 {isArabic ? 'ضروري لحركة الروابط وانفصالها عن الأكتين' : 'Needed for power stroke & cross-bridge detachment'}
               </p>
             </div>
 
             {/* Rigor Mortis Warning Alert */}
             {isRigorMortis && (
-              <div className="p-3 rounded-xl bg-rose-950/80 border border-rose-600/80 text-rose-200 text-xs flex items-start gap-2 animate-pulse">
-                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+              <div className="p-3.5 rounded-xl bg-rose-950/80 border border-rose-600/80 text-rose-200 text-xs sm:text-sm flex items-start gap-2.5 animate-pulse">
+                <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold block">
                     {isArabic ? 'حالة شد عضلي مؤلم / تيبس (Rigor Mortis)!' : 'Rigor Mortis / Severe Muscle Cramp!'}
                   </span>
-                  <p className="text-[11px] text-rose-300/90 mt-0.5">
+                  <p className="text-xs text-rose-300/90 mt-0.5">
                     {isArabic
                       ? 'تناقص ATP مع بقاء الكالسيوم يمنع انفصال الروابط المستعرضة عن الأكتين، فتظل العضلة في حالة انقباض مستمر.'
                       : 'Depletion of ATP with elevated calcium prevents cross-bridges from detaching from actin, locking muscle in continuous spasm.'}
@@ -1770,7 +1770,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
                 <button
                   key={st.id}
                   onClick={() => setMolecularStep(st.id)}
-                  className={`p-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
+                  className={`p-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-center ${
                     molecularStep === st.id
                       ? 'bg-rose-600 text-white shadow'
                       : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
@@ -1787,13 +1787,13 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
   );
 
   const renderActionBar = () => (
-    <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+    <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
       <div className="flex items-center justify-between gap-4">
-        <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-          <Zap className="w-3.5 h-3.5 text-rose-400" />
+        <label className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+          <Zap className="w-4 h-4 text-rose-400" />
           <span>{isArabic ? 'التحكم العام في انقباض الساركومير:' : 'Master Sarcomere Contraction Slider:'}</span>
         </label>
-        <span className="text-xs font-mono font-black text-rose-400">
+        <span className="text-xs sm:text-sm font-mono font-black text-rose-400">
           {sarcomereLength <= 1.88
             ? isArabic ? 'انقباض تام (تختفي H)' : 'Full Contraction (H disappears)'
             : sarcomereLength >= 2.7
@@ -1809,56 +1809,56 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
         step="0.02"
         value={sarcomereLength}
         onChange={(e) => setSarcomereLength(parseFloat(e.target.value))}
-        className="w-full accent-rose-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+        className="w-full accent-rose-500 cursor-pointer h-2.5 bg-slate-800 rounded-lg"
       />
 
       {/* Action Controls & Presets */}
-      <div className="flex items-center justify-between flex-wrap gap-2 pt-0.5">
+      <div className="flex items-center justify-between flex-wrap gap-2.5 pt-0.5">
         <div className="flex items-center gap-2">
           <button
             onClick={handleAnimateTwitch}
             disabled={isAnimating}
-            className="px-3.5 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-1.5 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+            className="px-4 py-2 rounded-xl text-xs sm:text-sm font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-2 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
           >
-            <Play className="w-3.5 h-3.5" />
+            <Play className="w-4 h-4 fill-current" />
             <span>{isArabic ? 'تشغيل هزة عضلية كاملة (Twitch Cycle)' : 'Animate Muscle Twitch (60 FPS)'}</span>
           </button>
 
           <button
             onClick={handleReset}
-            className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
+            className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-4 h-4" />
             <span>{isArabic ? 'إعادة ضبط' : 'Reset'}</span>
           </button>
         </div>
 
         {/* Quick Presets */}
-        <div className="flex items-center gap-1.5">
-          <span className="text-[11px] text-slate-400 font-semibold mr-1">
+        <div className="flex items-center gap-2">
+          <span className="text-xs sm:text-sm text-slate-400 font-bold mr-1">
             {isArabic ? 'حالات جاهزة:' : 'Presets:'}
           </span>
           <button
             onClick={() => applyPreset('resting')}
-            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
           >
             {isArabic ? 'انبساط' : 'Resting'}
           </button>
           <button
             onClick={() => applyPreset('partial')}
-            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
           >
             {isArabic ? 'جزئي' : 'Partial'}
           </button>
           <button
             onClick={() => applyPreset('max')}
-            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-rose-300 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-slate-800/80 hover:bg-slate-700 text-rose-300 transition-all cursor-pointer"
           >
             {isArabic ? 'انقباض تام' : 'Full'}
           </button>
           <button
             onClick={() => applyPreset('rigor')}
-            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 border border-rose-800/60 transition-all cursor-pointer"
+            className="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 border border-rose-800/60 transition-all cursor-pointer"
           >
             {isArabic ? 'شد عضلي' : 'Rigor'}
           </button>
@@ -1881,12 +1881,12 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
         dir={isArabic ? 'rtl' : 'ltr'}
       >
         {/* Top Header Bar */}
-        <div className="h-12 shrink-0 px-3 py-1.5 rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-pink-500/5 to-transparent flex items-center justify-between gap-2 backdrop-blur-md">
-          <div className="flex items-center gap-2 min-w-0">
-            <div className="p-1.5 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white shadow-xs shrink-0">
+        <div className="min-h-[54px] sm:min-h-[58px] shrink-0 px-3.5 py-2 rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-pink-500/5 to-transparent flex items-center justify-between gap-3 backdrop-blur-md z-10">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="p-2 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/20 shrink-0">
               <Activity className="w-4 h-4 animate-pulse" />
             </div>
-            <h3 className="text-xs sm:text-sm font-black tracking-tight truncate">
+            <h3 className="text-sm sm:text-base font-black tracking-tight truncate">
               {isArabic
                 ? 'محاكي انقباض العضلات الهيكلية متعدد المقاييس'
                 : 'Multi-Scale Skeletal Muscle Contraction Simulator'}
@@ -1895,7 +1895,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
 
           {/* 4-Scale Zoom Selector Buttons */}
           <div
-            className={`flex items-center p-0.5 rounded-xl border flex-wrap gap-1 ${
+            className={`flex items-center p-1 rounded-xl border flex-wrap gap-1 ${
               isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'
             }`}
           >
@@ -1908,7 +1908,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
               <button
                 key={sc.level}
                 onClick={() => setZoomLevel(sc.level)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
                   zoomLevel === sc.level
                     ? 'bg-rose-600 text-white shadow-xs'
                     : isLight
@@ -1925,10 +1925,10 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="px-2.5 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/50"
+            className="px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/50 shadow-xs"
             title={isArabic ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
           >
-            <Minimize2 className="w-3.5 h-3.5 text-rose-400" />
+            <Minimize2 className="w-4 h-4 text-rose-400" />
             <span className="hidden sm:inline">{isArabic ? 'تصغير' : 'Exit'}</span>
           </button>
         </div>

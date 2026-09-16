@@ -280,15 +280,15 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
   const renderControlConsole = () => (
     <div className="space-y-3">
       {/* Specimen Slide Selector */}
-      <div className="p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-1.5">
-        <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-          <Layers className="w-3.5 h-3.5 text-emerald-400" />
+      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2">
+        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2">
+          <Layers className="w-4 h-4 text-emerald-400" />
           {isAr ? 'شريحة العينة المجهرية:' : 'Specimen Glass Slide:'}
         </span>
         <select
           value={specimen}
           onChange={e => setSpecimen(e.target.value as SpecimenType)}
-          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 cursor-pointer"
+          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-200 font-semibold focus:outline-none focus:border-emerald-500 cursor-pointer"
         >
           <option value="onion_epidermis">{isAr ? 'خلايا بشرة البصل (Onion Epidermis)' : 'Onion Epidermis Cells'}</option>
           <option value="human_blood">{isAr ? 'مسحة دم بشري (Human Blood Smear)' : 'Human Blood Smear (RBC & WBC)'}</option>
@@ -298,12 +298,12 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
       </div>
 
       {/* Slide Staining Control */}
-      <div className="p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-1.5">
-        <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2">
+        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-indigo-400" />
           {isAr ? 'محلول الصبغة الهستولوجية:' : 'Slide Stain Agent:'}
         </span>
-        <div className="grid grid-cols-2 gap-1.5">
+        <div className="grid grid-cols-2 gap-2">
           {[
             { id: 'unstained', en: 'Unstained', ar: 'بدون صبغ' },
             { id: 'methylene_blue', en: 'Methylene Blue', ar: 'أزرق الميثيلين' },
@@ -313,10 +313,10 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             <button
               key={st.id}
               onClick={() => setStain(st.id as StainType)}
-              className={`px-2 py-1 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm border transition-all cursor-pointer font-bold ${
                 stain === st.id
-                  ? 'bg-indigo-600/30 border-indigo-500 text-indigo-200 font-bold'
-                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800'
+                  ? 'bg-indigo-600/30 border-indigo-500 text-indigo-200 shadow-xs'
+                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
               }`}
             >
               {isAr ? st.ar : st.en}
@@ -326,9 +326,9 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
       </div>
 
       {/* Focus Adjustment Knobs */}
-      <div className="p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2.5 text-xs">
+      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-3 text-xs sm:text-sm">
         <div>
-          <div className="flex justify-between text-slate-400 mb-1">
+          <div className="flex justify-between font-bold text-slate-300 mb-1.5">
             <span>{isAr ? 'الضابط التقريبي (Coarse Focus):' : 'Coarse Focus:'}</span>
             <span className="font-mono text-cyan-300 font-bold">{coarseFocus}</span>
           </div>
@@ -338,12 +338,12 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             max="100"
             value={coarseFocus}
             onChange={e => setCoarseFocus(parseInt(e.target.value))}
-            className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
           />
         </div>
 
         <div>
-          <div className="flex justify-between text-slate-400 mb-1">
+          <div className="flex justify-between font-bold text-slate-300 mb-1.5">
             <span>{isAr ? 'الضابط الدقيق (Fine Focus):' : 'Fine Focus:'}</span>
             <span className="font-mono text-emerald-300 font-bold">{fineFocus}</span>
           </div>
@@ -353,16 +353,16 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             max="100"
             value={fineFocus}
             onChange={e => setFineFocus(parseInt(e.target.value))}
-            className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+            className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
           />
         </div>
       </div>
 
       {/* Substage Illumination & Condenser */}
-      <div className="p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2 text-xs">
-        <div className="flex items-center justify-between">
-          <span className="text-slate-400 flex items-center gap-1.5">
-            <Sun className="w-3.5 h-3.5 text-amber-400" />
+      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2.5 text-xs sm:text-sm">
+        <div className="flex items-center justify-between font-bold">
+          <span className="text-slate-300 flex items-center gap-1.5">
+            <Sun className="w-4 h-4 text-amber-400" />
             {isAr ? 'شدة الإضاءة:' : 'LED Illumination:'}
           </span>
           <span className="font-mono text-amber-400 font-bold">{lightIntensity}%</span>
@@ -373,11 +373,11 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
           max="100"
           value={lightIntensity}
           onChange={e => setLightIntensity(parseInt(e.target.value))}
-          className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+          className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
         />
 
-        <div className="flex items-center justify-between pt-1">
-          <span className="text-slate-400">
+        <div className="flex items-center justify-between font-bold pt-1">
+          <span className="text-slate-300">
             {isAr ? 'فتحة المكثف (Aperture):' : 'Iris Aperture:'}
           </span>
           <span className="font-mono text-cyan-400 font-bold">{aperture}%</span>
@@ -388,23 +388,23 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
           max="100"
           value={aperture}
           onChange={e => setAperture(parseInt(e.target.value))}
-          className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+          className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
         />
 
-        <div className="flex items-center justify-between pt-1">
-          <span className="text-slate-400">
+        <div className="flex items-center justify-between font-bold pt-1">
+          <span className="text-slate-300">
             {isAr ? 'حركة المنضدة X/Y:' : 'Stage Translation:'}
           </span>
           <span className="font-mono text-slate-300">({stageX}, {stageY})</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <input
             type="range"
             min="-40"
             max="40"
             value={stageX}
             onChange={e => setStageX(parseInt(e.target.value))}
-            className="w-1/2 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+            className="w-1/2 h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
             title="Stage X"
           />
           <input
@@ -413,7 +413,7 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             max="40"
             value={stageY}
             onChange={e => setStageY(parseInt(e.target.value))}
-            className="w-1/2 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+            className="w-1/2 h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
             title="Stage Y"
           />
         </div>
@@ -426,26 +426,26 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
     return (
       <div className="fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col p-2 sm:p-3 bg-slate-950 text-slate-100 font-sans select-none" dir={isAr ? 'rtl' : 'ltr'}>
         {/* Top Header Bar */}
-        <div className="h-12 shrink-0 px-3 py-1.5 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-transparent flex items-center justify-between gap-2 backdrop-blur-md">
+        <div className="min-h-[54px] sm:min-h-[58px] shrink-0 px-3.5 py-2 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-transparent flex items-center justify-between gap-3 backdrop-blur-md z-10">
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="p-1.5 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30 shrink-0">
+            <div className="p-2 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30 shrink-0">
               <Eye className="w-4 h-4" />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold text-slate-100 flex items-center gap-2 truncate">
+            <h4 className="text-sm sm:text-base font-black text-slate-100 flex items-center gap-2 truncate">
               <span>{isAr ? 'المجهر الضوئي المركب الافتراضي' : 'Virtual Compound Optical Microscope'}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 shrink-0">
+              <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 shrink-0">
                 {totalMagnification}× Mag
               </span>
             </h4>
           </div>
 
           {/* Objective Lens Turret Selector */}
-          <div className="flex items-center gap-1 bg-slate-950/90 p-0.5 rounded-xl border border-slate-800">
+          <div className="flex items-center gap-1.5 bg-slate-950/90 p-1 rounded-xl border border-slate-800">
             {(['4x', '10x', '40x', '100x'] as const).map((obj) => (
               <button
                 key={obj}
                 onClick={() => setLens(obj)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                   lens === obj
                     ? obj === '4x' ? 'bg-rose-600 text-white shadow-xs'
                     : obj === '10x' ? 'bg-amber-500 text-slate-950 shadow-xs'
@@ -454,7 +454,7 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                <ZoomIn className="w-3 h-3" />
+                <ZoomIn className="w-3.5 h-3.5" />
                 {obj}
               </button>
             ))}
@@ -464,10 +464,10 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="px-2.5 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border-emerald-500/50"
+            className="px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border-emerald-500/50 shadow-xs"
             title={isAr ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
           >
-            <Minimize2 className="w-3.5 h-3.5 text-emerald-400" />
+            <Minimize2 className="w-4 h-4 text-emerald-400" />
             <span className="hidden sm:inline">{isAr ? 'تصغير' : 'Exit'}</span>
           </button>
         </div>

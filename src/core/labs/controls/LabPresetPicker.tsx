@@ -24,15 +24,15 @@ export const LabPresetPicker = <TParams extends Record<string, any>>({
   if (!presets || presets.length === 0) return null;
 
   return (
-    <div className="space-y-1.5" dir={isAr ? 'rtl' : 'ltr'}>
-      <div className={`flex items-center gap-1.5 text-xs font-bold ${
-        isLight ? 'text-slate-600' : 'text-slate-400'
+    <div className="space-y-2" dir={isAr ? 'rtl' : 'ltr'}>
+      <div className={`flex items-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider ${
+        isLight ? 'text-slate-700' : 'text-slate-300'
       }`}>
-        <Bookmark className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
+        <Bookmark className={`w-4 h-4 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
         <span>{isAr ? 'السيناريوهات الجاهزة والتجارب المعيارية:' : 'Standard Presets & Benchmarks:'}</span>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {presets.map((preset) => {
           const isActive = activePresetId === preset.id;
           return (
@@ -40,34 +40,34 @@ export const LabPresetPicker = <TParams extends Record<string, any>>({
               key={preset.id}
               type="button"
               onClick={() => onSelectPreset(preset)}
-              className={`w-full text-left rtl:text-right px-3 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-between gap-2 border cursor-pointer ${
+              className={`w-full text-left rtl:text-right px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-between gap-2 border cursor-pointer ${
                 isActive
                   ? isLight
-                    ? 'bg-cyan-50 text-cyan-950 border-cyan-500 font-bold shadow-xs'
-                    : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/50 shadow-sm shadow-cyan-500/20'
+                    ? 'bg-cyan-50 text-cyan-950 border-cyan-500 shadow-xs'
+                    : 'bg-cyan-500/20 text-cyan-200 border-cyan-500/60 shadow-sm shadow-cyan-500/20'
                   : isLight
                   ? 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 shadow-xs'
-                  : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border-slate-800 hover:border-slate-700'
+                  : 'bg-slate-850 hover:bg-slate-800 text-slate-300 border-slate-700/80 hover:border-slate-600'
               }`}
               title={isAr ? preset.descriptionAr : preset.descriptionEn}
             >
               <div className="flex items-center gap-2 min-w-0 flex-1">
                 {preset.badge && (
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-mono shrink-0 ${
+                  <span className={`text-xs px-2 py-0.5 rounded-md font-mono font-bold shrink-0 ${
                     isActive
                       ? isLight
-                        ? 'bg-cyan-200 text-cyan-950 font-bold'
-                        : 'bg-cyan-400/30 text-cyan-100 font-bold'
+                        ? 'bg-cyan-200 text-cyan-950'
+                        : 'bg-cyan-400/30 text-cyan-100'
                       : isLight
                       ? 'bg-slate-100 text-slate-700'
-                      : 'bg-cyan-400/20 text-cyan-200'
+                      : 'bg-slate-800 text-cyan-300 border border-slate-700'
                   }`}>
                     {preset.badge}
                   </span>
                 )}
-                <span className="leading-snug break-words">{isAr ? preset.nameAr : preset.nameEn}</span>
+                <span className="leading-snug truncate">{isAr ? preset.nameAr : preset.nameEn}</span>
               </div>
-              {isActive && <Sparkles className={`w-3.5 h-3.5 shrink-0 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />}
+              {isActive && <Sparkles className={`w-4 h-4 shrink-0 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />}
             </button>
           );
         })}

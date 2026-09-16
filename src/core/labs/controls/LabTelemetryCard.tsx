@@ -83,43 +83,43 @@ export const LabTelemetryCard: React.FC<LabTelemetryCardProps> = ({
 
   return (
     <div
-      className={`p-3 rounded-xl border ${currentStyle.border} ${currentStyle.bg} backdrop-blur-sm transition-all shadow-xs flex flex-col justify-between`}
+      className={`p-3 sm:p-3.5 rounded-xl border ${currentStyle.border} ${currentStyle.bg} backdrop-blur-sm transition-all shadow-xs flex flex-col justify-between`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
-      <div className="flex items-center justify-between gap-1 mb-1.5">
-        <div className="flex items-center gap-1.5 min-w-0">
+      <div className="flex items-center justify-between gap-1.5 mb-1.5">
+        <div className="flex items-center gap-2 min-w-0">
           {symbolTex && (
-            <span className={`text-xs font-mono inline-flex items-center ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+            <span className={`text-sm font-mono inline-flex items-center ${isLight ? 'text-slate-800 font-bold' : 'text-slate-200 font-bold'}`}>
               <MathRenderer math={symbolTex} inline />
             </span>
           )}
-          <span className={`text-xs font-medium truncate ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'}`}>
+          <span className={`text-xs sm:text-sm font-bold truncate ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
             {isAr ? labelAr : labelEn}
           </span>
         </div>
 
         {status !== 'normal' && (
           <span
-            className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider ${currentStyle.badge}`}
+            className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-md font-bold uppercase tracking-wider ${currentStyle.badge}`}
           >
             {status}
           </span>
         )}
       </div>
 
-      <div className="flex items-baseline gap-1.5 my-0.5">
+      <div className="flex items-baseline gap-2 my-0.5">
         <span className={`text-xl sm:text-2xl font-black font-mono tracking-tight ${currentStyle.text}`}>
           {formattedValue}
         </span>
         {unit && (
-          <span className={`text-xs font-semibold font-sans ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+          <span className={`text-xs sm:text-sm font-bold font-sans ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {unit}
           </span>
         )}
       </div>
 
       {percent !== null && (
-        <div className={`mt-2 w-full h-1 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+        <div className={`mt-2.5 w-full h-1.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
           <div
             className={`h-full ${currentStyle.gauge} transition-all duration-300 rounded-full`}
             style={{ width: `${percent}%` }}
