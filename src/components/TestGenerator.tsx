@@ -58,6 +58,12 @@ import {
   evaluateBadges,
   type AchievementBadge,
 } from '../services/achievementBadgeService';
+import {
+  getOfficialMockConfig,
+  generateOfficialMockQuestions,
+  computeOfficialExamScore,
+  type OfficialScoreReport,
+} from '../services/officialMockExamService';
 import { MistakeNotebookView } from './MistakeNotebookView';
 
 export type BlueprintMode =
@@ -65,7 +71,8 @@ export type BlueprintMode =
   | 'ministry_standard'
   | 'hots_challenge'
   | 'foundational'
-  | 'diagnostic_benchmark';
+  | 'diagnostic_benchmark'
+  | 'official_thanawya_mock';
 
 interface Props {
   lang: Language;
@@ -170,6 +177,16 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [initialQuestionCount]);
 
+  // Sync official thanawya mock exam config (question count & duration)
+  useEffect(() => {
+    if (blueprintMode === 'official_thanawya_mock') {
+      const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
+      setQuestionCount(cfg.totalQuestions);
+      setDurationPreset(cfg.durationMinutes);
+      setIsTimed(true);
+    }
+  }, [blueprintMode, selectedSubject, selectedBranch]);
+
   // Printable Exam Paper & Solution Sheet Customization
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
   const [showExplanationsOnPrint, setShowExplanationsOnPrint] = useState<boolean>(false);
@@ -213,6 +230,10 @@ export const TestGenerator: React.FC<Props> = ({
   // Real-time calculation of available questions matching user filters and blueprint
   const availablePoolCount = useMemo(() => {
     if (blueprintMode === 'diagnostic_benchmark') return 20;
+    if (blueprintMode === 'official_thanawya_mock') {
+      const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
+      return cfg.totalQuestions;
+    }
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     let count = 0;
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
@@ -271,6 +292,14 @@ export const TestGenerator: React.FC<Props> = ({
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     if (blueprintMode === 'diagnostic_benchmark') {
       return generateDiagnosticBenchmarkQuestions(activeData, shuffle);
+    }
+    if (blueprintMode === 'official_thanawya_mock') {
+      return generateOfficialMockQuestions(
+        activeData,
+        selectedSubject,
+        selectedBranch,
+        shuffle
+      );
     }
     const pool: GeneratedQuestion[] = [];
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
@@ -979,7 +1008,17 @@ export const TestGenerator: React.FC<Props> = ({
     const total = activeQuestions.length;
     const answeredCount = Object.keys(userAnswers).length;
     const answeredPct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
-    const scorePct = total > 0 ? Math.round((score / total) * 100) : 0;
+
+    const hasPoints = activeQuestions.some((q) => q.points !== undefined);
+    const officialExamScore: OfficialScoreReport | null = hasPoints
+      ? computeOfficialExamScore(activeQuestions, userAnswers)
+      : null;
+
+    const scorePct = officialExamScore
+      ? officialExamScore.markPercentage
+      : total > 0
+      ? Math.round((score / total) * 100)
+      : 0;
 
     // Difficulty breakdown
     const byDiff: Record<string, { total: number; correct: number }> = {
@@ -1013,22 +1052,24 @@ export const TestGenerator: React.FC<Props> = ({
     });
 
     // Rating grade
-    let gradeLabelEn = 'Needs Review';
-    let gradeLabelAr = 'بحاجة لمزيد من التدريب والمراجعة';
-    let gradeColor = 'text-amber-400 bg-amber-950/40 border-amber-500/40';
+    let gradeLabelEn = officialExamScore?.gradeLabelEn || 'Needs Review';
+    let gradeLabelAr = officialExamScore?.gradeLabelAr || 'بحاجة لمزيد من التدريب والمراجعة';
+    let gradeColor = officialExamScore?.gradeColor || 'text-amber-400 bg-amber-950/40 border-amber-500/40';
 
-    if (scorePct >= 90) {
-      gradeLabelEn = 'Honors / Outstanding (ممتاز)';
-      gradeLabelAr = 'مرتبة الشرف والامتياز الوزاري 🏆';
-      gradeColor = 'text-emerald-400 bg-emerald-950/40 border-emerald-500/40';
-    } else if (scorePct >= 75) {
-      gradeLabelEn = 'Very Good (جيد جداً)';
-      gradeLabelAr = 'كفاءة ممتازة وتفوق ملحوظ 🌟';
-      gradeColor = 'text-cyan-400 bg-cyan-950/40 border-cyan-500/40';
-    } else if (scorePct >= 60) {
-      gradeLabelEn = 'Good (جيد)';
-      gradeLabelAr = 'اجتياز معيار الوزارة بنجاح 👍';
-      gradeColor = 'text-indigo-400 bg-indigo-950/40 border-indigo-500/40';
+    if (!officialExamScore) {
+      if (scorePct >= 90) {
+        gradeLabelEn = 'Honors / Outstanding (ممتاز)';
+        gradeLabelAr = 'مرتبة الشرف والامتياز الوزاري 🏆';
+        gradeColor = 'text-emerald-400 bg-emerald-950/40 border-emerald-500/40';
+      } else if (scorePct >= 75) {
+        gradeLabelEn = 'Very Good (جيد جداً)';
+        gradeLabelAr = 'كفاءة ممتازة وتفوق ملحوظ 🌟';
+        gradeColor = 'text-cyan-400 bg-cyan-950/40 border-cyan-500/40';
+      } else if (scorePct >= 60) {
+        gradeLabelEn = 'Good (جيد)';
+        gradeLabelAr = 'اجتياز معيار الوزارة بنجاح 👍';
+        gradeColor = 'text-indigo-400 bg-indigo-950/40 border-indigo-500/40';
+      }
     }
 
     return {
@@ -1041,6 +1082,7 @@ export const TestGenerator: React.FC<Props> = ({
       gradeLabelEn,
       gradeLabelAr,
       gradeColor,
+      officialExamScore,
     };
   }, [activeQuestions, userAnswers, score]);
 
@@ -1453,6 +1495,33 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
         )}
 
+        {/* Official Thanawya Mock Info Banner */}
+        {blueprintMode === 'official_thanawya_mock' && (
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 border-2 border-amber-500/50 text-amber-200 text-xs flex items-start gap-3 shadow-lg">
+            <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <div className="font-extrabold text-white text-sm flex items-center gap-2">
+                <span>
+                  {lang === 'ar'
+                    ? '🏛️ امتحانات المحاكاة الوزارية الرسمية لشهادة الثانوية العامة المصرية'
+                    : '🏛️ Official Ministerial Thanawya Amma Mock Examination'}
+                </span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">
+                  {lang === 'ar' ? 'مواصفات المركز القومي للامتحانات' : 'Official MoE Spec'}
+                </span>
+              </div>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                {(() => {
+                  const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
+                  return lang === 'ar'
+                    ? `${cfg.titleAr}: ${cfg.descAr} تتوزع الأسئلة بدقة بين القسم الأول (أسئلة الدرجة الواحدة: ${toHindiDigits(cfg.section1Count)} سؤالاً) والقسم الثاني (أسئلة التفكير العليا بدرجتين: ${toHindiDigits(cfg.section2Count)} سؤالاً).`
+                    : `${cfg.titleEn}: ${cfg.descEn} Apportioned between Section 1 (${cfg.section1Count} items @ 1 mark) and Section 2 (${cfg.section2Count} items @ 2 marks).`;
+                })()}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3.5">
           <div>
@@ -1563,11 +1632,21 @@ export const TestGenerator: React.FC<Props> = ({
                   setSelectedChapter('all');
                   setQuestionCount(20);
                   setDurationPreset(30);
+                } else if (val === 'official_thanawya_mock') {
+                  const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
+                  setQuestionCount(cfg.totalQuestions);
+                  setDurationPreset(cfg.durationMinutes);
+                  setIsTimed(true);
                 }
               }}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'تحديد حر للمستوى' : 'Custom Level Selection'}</option>
+              <option value="official_thanawya_mock">
+                {lang === 'ar'
+                  ? '🏛️ محاكاة امتحان الوزارة الرسمي (نموذج 2021-2025: ٤٦/٢٠ سؤالاً - ٦٠/٣٠ درجة)'
+                  : '🏛️ Official Thanawya Amma Mock (2021-2025: 46/20 Qs - 60/30 Marks)'}
+              </option>
               <option value="diagnostic_benchmark">
                 {lang === 'ar'
                   ? '🎯 اختبار تشخيص شامل ومعايرة الرادار (٢٠ سؤالاً متوازناً)'
@@ -1599,6 +1678,10 @@ export const TestGenerator: React.FC<Props> = ({
                 <option value="all">
                   {blueprintMode === 'diagnostic_benchmark'
                     ? (lang === 'ar' ? 'متوازن للرادار (٥ سهل، ١٠ متوسط، ٥ عليا)' : 'Radar Balanced (5 Easy, 10 Med, 5 HOTS)')
+                    : blueprintMode === 'official_thanawya_mock'
+                    ? (lang === 'ar'
+                        ? `توزيع وزاري رسمي (${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).section1Count)} درجة + ${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).section2Count)} درجتين)`
+                        : `Official MoE Split (${getOfficialMockConfig(selectedSubject, selectedBranch).section1Count} @ 1pt + ${getOfficialMockConfig(selectedSubject, selectedBranch).section2Count} @ 2pt)`)
                     : blueprintMode === 'ministry_standard'
                     ? (lang === 'ar' ? 'مواصفة الوزارة (30/40/30)' : 'Ministry Spec (30/40/30)')
                     : blueprintMode === 'hots_challenge'
@@ -1621,13 +1704,19 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.numQuestions}</label>
             <select
               value={questionCount}
-              disabled={blueprintMode === 'diagnostic_benchmark'}
+              disabled={blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock'}
               onChange={(e) => setQuestionCount(Number(e.target.value))}
               className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 ${
-                blueprintMode === 'diagnostic_benchmark' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+                blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
               }`}
             >
-              {blueprintMode === 'diagnostic_benchmark' ? (
+              {blueprintMode === 'official_thanawya_mock' ? (
+                <option value={getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions}>
+                  {lang === 'ar'
+                    ? `${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions)} سؤالاً (${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalMarks)} درجة وزاري)`
+                    : `${getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions} Qs (${getOfficialMockConfig(selectedSubject, selectedBranch).totalMarks} Marks Official)`}
+                </option>
+              ) : blueprintMode === 'diagnostic_benchmark' ? (
                 <option value={20}>{lang === 'ar' ? '٢٠ سؤالاً (معياري للرادار)' : '20 Questions (Radar Standard)'}</option>
               ) : (
                 <>
@@ -1954,13 +2043,13 @@ export const TestGenerator: React.FC<Props> = ({
               <div className="text-right text-xs space-y-1">
                 <p className="font-bold text-emerald-400">
                   {lang === 'ar'
-                    ? `الدرجة الكلية: ${toHindiDigits(activeQuestions.length * 2)} درجة`
-                    : `Total Marks: ${activeQuestions.length * 2}`}
+                    ? `الدرجة الكلية: ${toHindiDigits(activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0))} درجة`
+                    : `Total Marks: ${activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0)}`}
                 </p>
                 <p className="font-bold text-cyan-400">
                   {lang === 'ar'
-                    ? `الزمن: ${toHindiDigits(Math.round((activeQuestions.length * 2) / 60) || 1)} ساعة`
-                    : `Time Allowed: 2 Hours`}
+                    ? `الزمن: ${toHindiDigits(durationPreset === 180 ? 3 : durationPreset === 120 ? 2 : Math.round((activeQuestions.length * 2) / 60) || 1)} ساعة`
+                    : `Time Allowed: ${durationPreset === 180 ? 3 : durationPreset === 120 ? 2 : Math.round((activeQuestions.length * 2) / 60) || 1} Hours`}
                 </p>
                 <p className="font-semibold text-slate-400 text-[11px]">
                   {lang === 'ar'
@@ -1994,6 +2083,13 @@ export const TestGenerator: React.FC<Props> = ({
                     {lang === 'ar' ? `السؤال رقم (${toHindiDigits(idx + 1)})` : `Question (${idx + 1})`}
                   </span>
                   <div className="flex items-center gap-2">
+                    {q.points !== undefined && (
+                      <span className="text-[10px] px-2 py-0.5 rounded border font-bold text-amber-300 border-amber-500/40 bg-amber-950/30">
+                        {q.points === 2
+                          ? (lang === 'ar' ? 'درجتان (تفكير عليا)' : '2 Marks (HOTS)')
+                          : (lang === 'ar' ? 'درجة واحدة' : '1 Mark')}
+                      </span>
+                    )}
                     <span className="text-[10px] px-2 py-0.5 rounded border font-bold text-slate-400 dark:text-slate-400 border-slate-300 dark:border-slate-800">
                       {q.difficulty === 'hots'
                         ? (lang === 'ar' ? 'مهارات تفكير عليا' : 'HOTS')
@@ -2059,7 +2155,9 @@ export const TestGenerator: React.FC<Props> = ({
                       {lang === 'ar' ? `إجمالي الأسئلة: ${toHindiDigits(activeQuestions.length)}` : `Total Questions: ${activeQuestions.length}`}
                     </span>
                     <span className="font-bold text-cyan-400 block">
-                      {lang === 'ar' ? `الدرجة العظمى: ${toHindiDigits(activeQuestions.length * 2)}` : `Max Marks: ${activeQuestions.length * 2}`}
+                      {lang === 'ar'
+                        ? `الدرجة العظمى: ${toHindiDigits(activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0))}`
+                        : `Max Marks: ${activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0)}`}
                     </span>
                   </div>
                 </div>
@@ -2078,7 +2176,9 @@ export const TestGenerator: React.FC<Props> = ({
                     <span>{lang === 'ar' ? 'جدول مفتاح الإجابات السريع (Quick Scoring Grid)' : 'Quick Scoring Matrix'}</span>
                   </h4>
                   <span className="text-[11px] text-slate-400">
-                    {lang === 'ar' ? 'درجتان لكل سؤال' : '2 Marks per Question'}
+                    {activeQuestions.some(q => q.points !== undefined)
+                      ? (lang === 'ar' ? 'توزيع درجات الامتحان الرسمي (درجة ودرجتان)' : 'Official Exam Weighting (1 & 2 Marks)')
+                      : (lang === 'ar' ? 'درجتان لكل سؤال' : '2 Marks per Question')}
                   </span>
                 </div>
 
@@ -2088,6 +2188,7 @@ export const TestGenerator: React.FC<Props> = ({
                       <tr className="bg-slate-800 text-slate-200 border-b border-slate-700">
                         <th className="p-2 border border-slate-700 w-12 font-black">{lang === 'ar' ? 'رقم' : 'Q#'}</th>
                         <th className="p-2 border border-slate-700 w-16 font-black">{lang === 'ar' ? 'الرمز' : 'Key'}</th>
+                        <th className="p-2 border border-slate-700 w-16 font-black">{lang === 'ar' ? 'الدرجة' : 'Mark'}</th>
                         <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الإجابة النموذجية المعتمدة' : 'Correct Answer Option'}</th>
                         <th className="p-2 border border-slate-700 w-24 font-black">{lang === 'ar' ? 'المستوى' : 'Level'}</th>
                         <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الفصل / الوحدة' : 'Chapter / Branch'}</th>
@@ -2113,6 +2214,11 @@ export const TestGenerator: React.FC<Props> = ({
                             </td>
                             <td className="p-2 border border-slate-800 font-black text-emerald-400 text-sm">
                               ({correctLetter})
+                            </td>
+                            <td className="p-2 border border-slate-800 font-black text-amber-400 text-xs">
+                              {q.points !== undefined
+                                ? (lang === 'ar' ? `${toHindiDigits(q.points)} د` : `${q.points} pt`)
+                                : (lang === 'ar' ? '٢ د' : '2 pt')}
                             </td>
                             <td className="p-2 border border-slate-800 text-left rtl:text-right font-medium text-slate-200">
                               <MathRenderer math={correctText} lang={lang} />
@@ -2410,6 +2516,9 @@ export const TestGenerator: React.FC<Props> = ({
                       const isCorrect = isSubmitted && userAnswers[idx] === q.correctIndex;
                       const isWrong = isSubmitted && isAnswered && userAnswers[idx] !== q.correctIndex;
 
+                      const isFirstQ = idx === 0;
+                      const isSection2Start = idx > 0 && q.points === 2 && activeQuestions[idx - 1].points !== 2;
+
                       let btnStyle = 'border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200 hover:border-slate-700';
 
                       if (isSubmitted) {
@@ -2425,17 +2534,29 @@ export const TestGenerator: React.FC<Props> = ({
                       }
 
                       return (
-                        <button
-                          key={idx}
-                          onClick={() => scrollToQuestion(idx)}
-                          className={`w-7 h-7 rounded-lg text-xs flex items-center justify-center border transition-all shrink-0 cursor-pointer relative ${btnStyle}`}
-                          title={`Question ${idx + 1}`}
-                        >
-                          <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
-                          {isFlagged && !isSubmitted && (
-                            <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-400 ring-2 ring-slate-900" />
+                        <React.Fragment key={idx}>
+                          {isFirstQ && q.points !== undefined && (
+                            <span className="text-[10px] font-black px-2 py-1 rounded bg-slate-800/90 text-emerald-400 border border-emerald-500/30 whitespace-nowrap shrink-0">
+                              {lang === 'ar' ? 'القسم ١ (١ د)' : 'Sec 1 (1 pt)'}
+                            </span>
                           )}
-                        </button>
+                          {isSection2Start && (
+                            <span className="text-[10px] font-black px-2 py-1 mx-1 rounded bg-amber-950/80 text-amber-300 border border-amber-500/40 whitespace-nowrap shrink-0 flex items-center gap-1 shadow-sm">
+                              <Award className="w-3 h-3" />
+                              {lang === 'ar' ? 'القسم ٢ (درجتان)' : 'Sec 2 (2 pts)'}
+                            </span>
+                          )}
+                          <button
+                            onClick={() => scrollToQuestion(idx)}
+                            className={`w-7 h-7 rounded-lg text-xs flex items-center justify-center border transition-all shrink-0 cursor-pointer relative ${btnStyle}`}
+                            title={`Question ${idx + 1}`}
+                          >
+                            <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
+                            {isFlagged && !isSubmitted && (
+                              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-amber-400 ring-2 ring-slate-900" />
+                            )}
+                          </button>
+                        </React.Fragment>
                       );
                     })}
                   </div>
@@ -2496,9 +2617,15 @@ export const TestGenerator: React.FC<Props> = ({
                             <span>{lang === 'ar' ? stats.gradeLabelAr : stats.gradeLabelEn}</span>
                           </div>
                           <h4 className="text-xl font-black text-slate-100">
-                            {lang === 'ar'
-                              ? `أحرزت ${toHindiDigits(score)} من أصل ${toHindiDigits(stats.total)} درجة`
-                              : `Scored ${score} out of ${stats.total} points`}
+                            {stats.officialExamScore ? (
+                              lang === 'ar'
+                                ? `أحرزت ${toHindiDigits(stats.officialExamScore.earnedMarks)} من أصل ${toHindiDigits(stats.officialExamScore.totalMarks)} درجة (${toHindiDigits(stats.officialExamScore.correctCount)} من ${toHindiDigits(stats.total)} أسئلة صحيحة)`
+                                : `Scored ${stats.officialExamScore.earnedMarks} out of ${stats.officialExamScore.totalMarks} marks (${stats.officialExamScore.correctCount} / ${stats.total} correct questions)`
+                            ) : (
+                              lang === 'ar'
+                                ? `أحرزت ${toHindiDigits(score)} من أصل ${toHindiDigits(stats.total)} درجة`
+                                : `Scored ${score} out of ${stats.total} points`
+                            )}
                           </h4>
                           <p className="text-xs text-slate-400">
                             {lang === 'ar'
@@ -2530,6 +2657,63 @@ export const TestGenerator: React.FC<Props> = ({
                         </button>
                       </div>
                     </div>
+
+                    {/* Official Ministerial Section Breakdown if official exam */}
+                    {stats.officialExamScore && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-5 pt-5 border-t border-slate-800/80">
+                        <div className="bg-slate-950/70 p-3.5 rounded-xl border border-emerald-500/30">
+                          <div className="flex justify-between items-center text-xs font-bold mb-1.5">
+                            <span className="text-emerald-400 flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                              {lang === 'ar' ? 'القسم الأول (أسئلة الدرجة الواحدة):' : 'Section 1 (1-Mark Questions):'}
+                            </span>
+                            <span className="text-slate-200 font-mono font-black">
+                              {lang === 'ar'
+                                ? `${toHindiDigits(stats.officialExamScore.section1EarnedMarks)} / ${toHindiDigits(stats.officialExamScore.section1TotalMarks)} درجة`
+                                : `${stats.officialExamScore.section1EarnedMarks} / ${stats.officialExamScore.section1TotalMarks} marks`}
+                            </span>
+                          </div>
+                          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div
+                              className="bg-emerald-500 h-full rounded-full transition-all duration-700"
+                              style={{
+                                width: `${
+                                  stats.officialExamScore.section1TotalMarks > 0
+                                    ? (stats.officialExamScore.section1EarnedMarks / stats.officialExamScore.section1TotalMarks) * 100
+                                    : 0
+                                }%`,
+                              }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-950/70 p-3.5 rounded-xl border border-amber-500/30">
+                          <div className="flex justify-between items-center text-xs font-bold mb-1.5">
+                            <span className="text-amber-400 flex items-center gap-1.5">
+                              <Award className="w-3.5 h-3.5" />
+                              {lang === 'ar' ? 'القسم الثاني (أسئلة الدرجتين - تفكير عليا):' : 'Section 2 (2-Mark Questions - HOTS):'}
+                            </span>
+                            <span className="text-slate-200 font-mono font-black">
+                              {lang === 'ar'
+                                ? `${toHindiDigits(stats.officialExamScore.section2EarnedMarks)} / ${toHindiDigits(stats.officialExamScore.section2TotalMarks)} درجة`
+                                : `${stats.officialExamScore.section2EarnedMarks} / ${stats.officialExamScore.section2TotalMarks} marks`}
+                            </span>
+                          </div>
+                          <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                            <div
+                              className="bg-amber-500 h-full rounded-full transition-all duration-700"
+                              style={{
+                                width: `${
+                                  stats.officialExamScore.section2TotalMarks > 0
+                                    ? (stats.officialExamScore.section2EarnedMarks / stats.officialExamScore.section2TotalMarks) * 100
+                                    : 0
+                                }%`,
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Newly Earned Academic Badges Banner */}
                     {newlyEarnedBadges.length > 0 && (
@@ -2812,6 +2996,25 @@ export const TestGenerator: React.FC<Props> = ({
                           <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${diffBadge.style}`}>
                             {lang === 'ar' ? diffBadge.ar : diffBadge.en}
                           </span>
+                          {q.points !== undefined && (
+                            <span
+                              className={`text-[11px] font-black px-2.5 py-0.5 rounded-full border flex items-center gap-1 ${
+                                q.points === 2
+                                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm shadow-amber-500/10'
+                                  : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                              }`}
+                            >
+                              <Award className="w-3 h-3" />
+                              {q.points === 2
+                                ? (lang === 'ar' ? 'درجتان (تفكير عليا)' : '2 Marks (HOTS)')
+                                : (lang === 'ar' ? 'درجة واحدة' : '1 Mark')}
+                            </span>
+                          )}
+                          {q.sectionTagAr && (
+                            <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700 hidden sm:inline">
+                              {lang === 'ar' ? q.sectionTagAr : q.sectionTagEn}
+                            </span>
+                          )}
                           <span className="text-xs text-slate-400 font-semibold hidden sm:inline">
                             {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
                           </span>
@@ -2837,7 +3040,7 @@ export const TestGenerator: React.FC<Props> = ({
                             <div className="flex items-center gap-1.5 text-xs font-bold">
                               {isCorrect ? (
                                 <span className="text-emerald-400 flex items-center gap-1 bg-emerald-950/50 px-2.5 py-1 rounded-lg border border-emerald-500/30">
-                                  <CheckCircle2 className="w-4 h-4" /> {lang === 'ar' ? 'إجابة صحيحة (+1)' : 'Correct (+1)'}
+                                  <CheckCircle2 className="w-4 h-4" /> {lang === 'ar' ? `إجابة صحيحة (+${toHindiDigits(q.points ?? 1)})` : `Correct (+${q.points ?? 1})`}
                                 </span>
                               ) : (
                                 <span className="text-amber-400 flex items-center gap-1 bg-amber-950/50 px-2.5 py-1 rounded-lg border border-amber-500/30">
@@ -2957,6 +3160,7 @@ export const TestGenerator: React.FC<Props> = ({
               questionIndex: idx + 1,
               correctOption: (['A', 'B', 'C', 'D'][q.correctIndex] || 'A') as 'A' | 'B' | 'C' | 'D',
               subject: q.chapterTitleEn,
+              points: q.points,
             }))}
             timeLimitMinutes={durationPreset === 'auto' ? Math.max(20, questionCount * 2) : durationPreset}
             lang={lang}

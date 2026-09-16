@@ -5,6 +5,7 @@ export interface ExamAnswerKey {
   questionIndex: number; // 1-based index
   correctOption: 'A' | 'B' | 'C' | 'D';
   subject?: string;
+  points?: number;
 }
 
 interface BubbleSheetSimulatorProps {
@@ -35,6 +36,8 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
     wrongCount: number;
     omittedCount: number;
     percentage: number;
+    earnedPoints?: number;
+    totalPoints?: number;
   } | null>(null);
 
   // Countdown timer
@@ -74,33 +77,53 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
     let correct = 0;
     let wrong = 0;
     let omitted = 0;
+    let earnedPoints = 0;
+    let totalPoints = 0;
+    let hasExplicitPoints = false;
 
     // Build map from answerKey
-    const keyMap: Record<number, 'A' | 'B' | 'C' | 'D'> = {};
+    const keyMap: Record<number, { correctOption: 'A' | 'B' | 'C' | 'D'; points?: number }> = {};
     answerKey.forEach(k => {
-      keyMap[k.questionIndex] = k.correctOption;
+      keyMap[k.questionIndex] = { correctOption: k.correctOption, points: k.points };
+      if (typeof k.points === 'number') {
+        hasExplicitPoints = true;
+      }
     });
 
     for (let i = 1; i <= totalQuestions; i++) {
       const studentAns = selectedAnswers[i];
-      const correctAns = keyMap[i] || 'A'; // fallback if no key provided
+      const entry = keyMap[i];
+      const correctAns = entry?.correctOption || 'A';
+      const qPts = entry?.points ?? 1;
+      totalPoints += qPts;
 
       if (!studentAns) {
         omitted++;
       } else if (studentAns === correctAns) {
         correct++;
+        earnedPoints += qPts;
       } else {
         wrong++;
       }
     }
 
-    const percentage = parseFloat(((correct / totalQuestions) * 100).toFixed(1));
-    const report = { correctCount: correct, wrongCount: wrong, omittedCount: omitted, percentage };
+    const percentage = hasExplicitPoints && totalPoints > 0
+      ? parseFloat(((earnedPoints / totalPoints) * 100).toFixed(1))
+      : parseFloat(((correct / totalQuestions) * 100).toFixed(1));
+
+    const report = {
+      correctCount: correct,
+      wrongCount: wrong,
+      omittedCount: omitted,
+      percentage,
+      earnedPoints: hasExplicitPoints ? earnedPoints : undefined,
+      totalPoints: hasExplicitPoints ? totalPoints : undefined,
+    };
     setScoreReport(report);
     setIsSubmitted(true);
 
     if (onExamSubmitted) {
-      onExamSubmitted(correct, totalQuestions, selectedAnswers);
+      onExamSubmitted(hasExplicitPoints ? earnedPoints : correct, hasExplicitPoints ? totalPoints : totalQuestions, selectedAnswers);
     }
   };
 
@@ -120,10 +143,12 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
     D: isAr ? 'د' : 'D'
   };
 
-  // Build answer map for grading view
+  // Build answer and points map for grading view
   const answerMap: Record<number, 'A' | 'B' | 'C' | 'D'> = {};
+  const pointsMap: Record<number, number> = {};
   answerKey.forEach(k => {
     answerMap[k.questionIndex] = k.correctOption;
+    if (k.points) pointsMap[k.questionIndex] = k.points;
   });
 
   return (
@@ -216,7 +241,11 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
             <div className="flex items-baseline gap-2 bg-slate-900 px-5 py-2.5 rounded-2xl border border-emerald-500/30 font-mono">
               <span className="text-3xl font-black text-emerald-300">{scoreReport.percentage}%</span>
-              <span className="text-xs text-slate-400">({scoreReport.correctCount}/{totalQuestions})</span>
+              <span className="text-xs text-slate-400">
+                {scoreReport.totalPoints !== undefined
+                  ? `(${scoreReport.earnedPoints}/${scoreReport.totalPoints} ${isAr ? 'درجة' : 'pts'})`
+                  : `(${scoreReport.correctCount}/${totalQuestions})`}
+              </span>
             </div>
           </div>
         </div>
@@ -250,6 +279,7 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                   const isWrong = isSubmitted && selected && selected !== correctOpt;
                   const isCorrect = isSubmitted && selected === correctOpt;
                   const isOmitted = isSubmitted && !selected;
+                  const pts = pointsMap[qNum];
 
                   return (
                     <div
@@ -258,11 +288,18 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                         isCorrect ? 'bg-emerald-50' : isWrong ? 'bg-rose-50' : isOmitted ? 'bg-amber-50/50' : 'hover:bg-slate-50'
                       }`}
                     >
-                      <span className={`text-xs font-mono font-bold w-6 ${
-                        isCorrect ? 'text-emerald-700' : isWrong ? 'text-rose-700' : 'text-slate-600'
-                      }`}>
-                        {qNum.toString().padStart(2, '0')}
-                      </span>
+                      <div className="flex items-center gap-1">
+                        <span className={`text-xs font-mono font-bold w-5 ${
+                          isCorrect ? 'text-emerald-700' : isWrong ? 'text-rose-700' : 'text-slate-600'
+                        }`}>
+                          {qNum.toString().padStart(2, '0')}
+                        </span>
+                        {pts === 2 && (
+                          <span className="text-[9px] px-1 py-0.2 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">
+                            2{isAr ? 'د' : 'p'}
+                          </span>
+                        )}
+                      </div>
 
                       <div className="flex items-center gap-2">
                         {(['A', 'B', 'C', 'D'] as const).map((opt) => {

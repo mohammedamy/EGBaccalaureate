@@ -18,6 +18,9 @@ export interface GeneratedQuestion {
   chapterTitleAr: string;
   branchTitleEn: string;
   branchTitleAr: string;
+  points?: number;
+  sectionTagAr?: string;
+  sectionTagEn?: string;
 }
 
 export interface MistakeRecord {
