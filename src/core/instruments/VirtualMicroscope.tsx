@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Eye, ZoomIn, Sun, Layers, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
+import { useFullscreenLabTypography } from '../labs/useFullscreenLabTypography';
 
 export type ObjectiveLens = '4x' | '10x' | '40x' | '100x';
 export type SpecimenType = 'onion_epidermis' | 'human_blood' | 'mitosis_root' | 'bacteria_smear';
@@ -19,25 +20,15 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
 
   const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
 
-  useEffect(() => {
-    if (isFullscreen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-          setIsFullscreen(false);
-          if (document.fullscreenElement) {
-            document.exitFullscreen?.().catch(() => {});
-          }
-        }
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = originalOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
+  const handleExitFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
     }
-  }, [isFullscreen]);
+  }, []);
+
+  // Automatically adjusts typography on entering full screen and restores user font setting on exit
+  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
 
   const toggleFullscreen = useCallback(() => {
     setIsFullscreen((prev) => {
@@ -278,17 +269,17 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
   }, [lens, coarseFocus, fineFocus, stageX, stageY, lightIntensity, aperture, specimen, stain, totalMagnification, blurPx]);
 
   const renderControlConsole = () => (
-    <div className="space-y-3">
+    <div className="space-y-2.5">
       {/* Specimen Slide Selector */}
-      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2">
-        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2">
-          <Layers className="w-4 h-4 text-emerald-400" />
+      <div className="p-2.5 sm:p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-1.5">
+        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+          <Layers className="w-3.5 h-3.5 text-emerald-400" />
           {isAr ? 'شريحة العينة المجهرية:' : 'Specimen Glass Slide:'}
         </span>
         <select
           value={specimen}
           onChange={e => setSpecimen(e.target.value as SpecimenType)}
-          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-200 font-semibold focus:outline-none focus:border-emerald-500 cursor-pointer"
+          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 font-semibold focus:outline-none focus:border-emerald-500 cursor-pointer"
         >
           <option value="onion_epidermis">{isAr ? 'خلايا بشرة البصل (Onion Epidermis)' : 'Onion Epidermis Cells'}</option>
           <option value="human_blood">{isAr ? 'مسحة دم بشري (Human Blood Smear)' : 'Human Blood Smear (RBC & WBC)'}</option>
@@ -298,12 +289,12 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
       </div>
 
       {/* Slide Staining Control */}
-      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2">
-        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-indigo-400" />
+      <div className="p-2.5 sm:p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-1.5">
+        <span className="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
           {isAr ? 'محلول الصبغة الهستولوجية:' : 'Slide Stain Agent:'}
         </span>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-1.5">
           {[
             { id: 'unstained', en: 'Unstained', ar: 'بدون صبغ' },
             { id: 'methylene_blue', en: 'Methylene Blue', ar: 'أزرق الميثيلين' },
@@ -313,7 +304,7 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             <button
               key={st.id}
               onClick={() => setStain(st.id as StainType)}
-              className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm border transition-all cursor-pointer font-bold ${
+              className={`px-2.5 py-1 rounded-xl text-xs border transition-all cursor-pointer font-bold ${
                 stain === st.id
                   ? 'bg-indigo-600/30 border-indigo-500 text-indigo-200 shadow-xs'
                   : 'bg-slate-900 border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
@@ -325,97 +316,107 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
         </div>
       </div>
 
-      {/* Focus Adjustment Knobs */}
-      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-3 text-xs sm:text-sm">
-        <div>
-          <div className="flex justify-between font-bold text-slate-300 mb-1.5">
-            <span>{isAr ? 'الضابط التقريبي (Coarse Focus):' : 'Coarse Focus:'}</span>
-            <span className="font-mono text-cyan-300 font-bold">{coarseFocus}</span>
+      {/* Focus Adjustment Knobs (2-Column Grid) */}
+      <div className="p-2.5 sm:p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2 text-xs">
+        <div className="grid grid-cols-2 gap-2.5">
+          <div>
+            <div className="flex justify-between font-bold text-slate-300 mb-1">
+              <span>{isAr ? 'التقريبي (Coarse):' : 'Coarse Focus:'}</span>
+              <span className="font-mono text-cyan-300 font-bold">{coarseFocus}</span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={coarseFocus}
+              onChange={e => setCoarseFocus(parseInt(e.target.value))}
+              className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            />
           </div>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={coarseFocus}
-            onChange={e => setCoarseFocus(parseInt(e.target.value))}
-            className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-          />
-        </div>
 
-        <div>
-          <div className="flex justify-between font-bold text-slate-300 mb-1.5">
-            <span>{isAr ? 'الضابط الدقيق (Fine Focus):' : 'Fine Focus:'}</span>
-            <span className="font-mono text-emerald-300 font-bold">{fineFocus}</span>
+          <div>
+            <div className="flex justify-between font-bold text-slate-300 mb-1">
+              <span>{isAr ? 'الدقيق (Fine):' : 'Fine Focus:'}</span>
+              <span className="font-mono text-emerald-300 font-bold">{fineFocus}</span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={fineFocus}
+              onChange={e => setFineFocus(parseInt(e.target.value))}
+              className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+            />
           </div>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={fineFocus}
-            onChange={e => setFineFocus(parseInt(e.target.value))}
-            className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-          />
         </div>
       </div>
 
-      {/* Substage Illumination & Condenser */}
-      <div className="p-3.5 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2.5 text-xs sm:text-sm">
-        <div className="flex items-center justify-between font-bold">
-          <span className="text-slate-300 flex items-center gap-1.5">
-            <Sun className="w-4 h-4 text-amber-400" />
-            {isAr ? 'شدة الإضاءة:' : 'LED Illumination:'}
-          </span>
-          <span className="font-mono text-amber-400 font-bold">{lightIntensity}%</span>
-        </div>
-        <input
-          type="range"
-          min="10"
-          max="100"
-          value={lightIntensity}
-          onChange={e => setLightIntensity(parseInt(e.target.value))}
-          className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-        />
+      {/* Substage Illumination, Condenser & Stage (2-Column Grid) */}
+      <div className="p-2.5 sm:p-3 bg-slate-950/70 border border-slate-800 rounded-2xl space-y-2 text-xs">
+        <div className="grid grid-cols-2 gap-2.5">
+          <div>
+            <div className="flex items-center justify-between font-bold mb-1">
+              <span className="text-slate-300 flex items-center gap-1">
+                <Sun className="w-3.5 h-3.5 text-amber-400" />
+                {isAr ? 'الإضاءة:' : 'LED:'}
+              </span>
+              <span className="font-mono text-amber-400 font-bold">{lightIntensity}%</span>
+            </div>
+            <input
+              type="range"
+              min="10"
+              max="100"
+              value={lightIntensity}
+              onChange={e => setLightIntensity(parseInt(e.target.value))}
+              className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+            />
+          </div>
 
-        <div className="flex items-center justify-between font-bold pt-1">
-          <span className="text-slate-300">
-            {isAr ? 'فتحة المكثف (Aperture):' : 'Iris Aperture:'}
-          </span>
-          <span className="font-mono text-cyan-400 font-bold">{aperture}%</span>
+          <div>
+            <div className="flex items-center justify-between font-bold mb-1">
+              <span className="text-slate-300">
+                {isAr ? 'المكثف:' : 'Iris:'}
+              </span>
+              <span className="font-mono text-cyan-400 font-bold">{aperture}%</span>
+            </div>
+            <input
+              type="range"
+              min="20"
+              max="100"
+              value={aperture}
+              onChange={e => setAperture(parseInt(e.target.value))}
+              className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+            />
+          </div>
         </div>
-        <input
-          type="range"
-          min="20"
-          max="100"
-          value={aperture}
-          onChange={e => setAperture(parseInt(e.target.value))}
-          className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-        />
 
-        <div className="flex items-center justify-between font-bold pt-1">
-          <span className="text-slate-300">
-            {isAr ? 'حركة المنضدة X/Y:' : 'Stage Translation:'}
-          </span>
-          <span className="font-mono text-slate-300">({stageX}, {stageY})</span>
-        </div>
-        <div className="flex items-center gap-2.5">
-          <input
-            type="range"
-            min="-40"
-            max="40"
-            value={stageX}
-            onChange={e => setStageX(parseInt(e.target.value))}
-            className="w-1/2 h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            title="Stage X"
-          />
-          <input
-            type="range"
-            min="-40"
-            max="40"
-            value={stageY}
-            onChange={e => setStageY(parseInt(e.target.value))}
-            className="w-1/2 h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            title="Stage Y"
-          />
+        <div>
+          <div className="flex items-center justify-between font-bold mb-1">
+            <span className="text-slate-300">
+              {isAr ? 'حركة المنضدة X/Y:' : 'Stage Translation:'}
+            </span>
+            <span className="font-mono text-slate-300">({stageX}, {stageY})</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <input
+              type="range"
+              min="-40"
+              max="40"
+              value={stageX}
+              onChange={e => setStageX(parseInt(e.target.value))}
+              className="w-1/2 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+              title="Stage X"
+            />
+            <input
+              type="range"
+              min="-40"
+              max="40"
+              value={stageY}
+              onChange={e => setStageY(parseInt(e.target.value))}
+              className="w-1/2 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+              title="Stage Y"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -484,8 +485,8 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
             )}
           </div>
 
-          {/* Right Controls */}
-          <div className="lg:col-span-4 h-full min-h-0 overflow-y-auto pr-1">
+          {/* Right Controls - Zero scroll in fullscreen */}
+          <div className="lg:col-span-4 h-full min-h-0 overflow-hidden pr-1 flex flex-col justify-start">
             {renderControlConsole()}
           </div>
         </div>

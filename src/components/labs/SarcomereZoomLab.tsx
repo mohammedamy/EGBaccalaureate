@@ -4,6 +4,7 @@ import type { Language } from '../../i18n/translations';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import { CanvasSimulationViewport } from '../../core/labs/CanvasSimulationViewport';
 import { drawGlowingParticle } from '../../core/labs/RealisticLabGraphics';
+import { useFullscreenLabTypography } from '../../core/labs/useFullscreenLabTypography';
 import {
   Activity,
   Play,
@@ -32,26 +33,15 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
 
   const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
 
-  // Fullscreen keyboard listener (Esc to exit) and body scroll lock
-  useEffect(() => {
-    if (isFullscreen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-          setIsFullscreen(false);
-          if (document.fullscreenElement) {
-            document.exitFullscreen?.().catch(() => {});
-          }
-        }
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = originalOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
+  const handleExitFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
     }
-  }, [isFullscreen]);
+  }, []);
+
+  // Automatically adjusts typography on entering full screen and restores user font setting on exit
+  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
 
   const toggleFullscreen = useCallback(() => {
     setIsFullscreen((prev) => {
@@ -1655,37 +1645,39 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
 
       {/* Zoom 3 HUD: Quantitative Band Status Table */}
       {zoomLevel === 3 && (
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
-            <h4 className="font-black text-rose-400 flex items-center gap-1.5 mb-2">
+        <div className="space-y-3">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs">
+            <h4 className="font-black text-rose-400 flex items-center gap-1.5 mb-1">
               <Info className="w-4 h-4" />
               <span>{isArabic ? 'جدول القياسات الدقيقة للمناطق:' : 'Quantitative Band Status:'}</span>
             </h4>
-            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-              <span className="text-slate-300">{isArabic ? 'المسافة بين خطي Z:' : 'Z-Discs Distance:'}</span>
-              <span className="font-mono font-bold text-emerald-400">
-                {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} µm` : `${sarcomereLength.toFixed(2)} µm`}
-              </span>
-            </div>
-            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-              <span className="text-slate-300">{isArabic ? 'المنطقة H (شبه المضيئة):' : 'H-Zone Width:'}</span>
-              <span className="font-mono font-bold text-amber-400">
-                {hZoneLength === 0
-                  ? isArabic ? '٠ µm (تنعدم تماماً)' : '0 µm (Vanished)'
-                  : `${sarcomereLength <= 1.85 ? '0.00' : hZoneLength.toFixed(2)} µm`}
-              </span>
-            </div>
-            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-              <span className="text-slate-300">{isArabic ? 'المنطقة A (الداكنة):' : 'A-Band Length:'}</span>
-              <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm ({isArabic ? 'ثابتة' : 'Constant'})</span>
-            </div>
-            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-              <span className="text-slate-300">{isArabic ? 'المنطقة I (المضيئة):' : 'I-Band Length:'}</span>
-              <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm ({isArabic ? 'تقل' : 'Shortens'})</span>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
+                <span className="text-slate-300">{isArabic ? 'المسافة Z-Z:' : 'Z-Discs:'}</span>
+                <span className="font-mono font-bold text-emerald-400">
+                  {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} µm` : `${sarcomereLength.toFixed(2)} µm`}
+                </span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
+                <span className="text-slate-300">{isArabic ? 'المنطقة H:' : 'H-Zone:'}</span>
+                <span className="font-mono font-bold text-amber-400">
+                  {hZoneLength === 0
+                    ? isArabic ? '٠ µm' : '0 µm'
+                    : `${sarcomereLength <= 1.85 ? '0.00' : hZoneLength.toFixed(2)} µm`}
+                </span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
+                <span className="text-slate-300">{isArabic ? 'المنطقة A (ثابتة):' : 'A-Band (const):'}</span>
+                <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm</span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
+                <span className="text-slate-300">{isArabic ? 'المنطقة I (تقل):' : 'I-Band (shortens):'}</span>
+                <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm</span>
+              </div>
             </div>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
+          <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 inline mr-1" />
             <span>
               {isArabic
@@ -1698,81 +1690,71 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
 
       {/* Zoom 4 HUD: Huxley Cross-Bridge Molecular Controls */}
       {zoomLevel === 4 && (
-        <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3.5">
+        <div className="space-y-3">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
             <span className="text-xs sm:text-sm font-black text-rose-400 block uppercase tracking-wider">
               {isArabic ? 'المتحكمات الكيميائية الحيوية:' : 'Biochemical Sliders:'}
             </span>
 
-            {/* Ca2+ Slider */}
-            <div className="space-y-1.5">
-              <div className="flex justify-between text-xs sm:text-sm font-bold">
-                <span className="text-slate-300">{isArabic ? 'تركيز أيونات الكالسيوم (Ca²⁺):' : 'Calcium (Ca²⁺) Level:'}</span>
-                <span className="font-mono text-cyan-400 font-bold">{caLevel}%</span>
+            {/* Sliders in a 2-column grid so both Ca2+ and ATP are visible without scroll */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {/* Ca2+ Slider */}
+              <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800 space-y-1">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-slate-300">{isArabic ? 'تركيز Ca²⁺:' : 'Ca²⁺ Level:'}</span>
+                  <span className="font-mono text-cyan-400 font-bold">{caLevel}%</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={caLevel}
+                  onChange={(e) => setCaLevel(parseInt(e.target.value))}
+                  className="w-full accent-cyan-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                />
               </div>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={caLevel}
-                onChange={(e) => setCaLevel(parseInt(e.target.value))}
-                className="w-full accent-cyan-400 cursor-pointer h-2.5 bg-slate-800 rounded-lg"
-              />
-              <p className="text-xs text-slate-400 font-medium">
-                {isArabic ? 'يكشف مواقع الارتباط على خيوط الأكتين' : 'Uncovers myosin-binding sites on actin'}
-              </p>
-            </div>
 
-            {/* ATP Level Slider */}
-            <div className="space-y-1.5 pt-1">
-              <div className="flex justify-between text-xs sm:text-sm font-bold">
-                <span className="text-slate-300">{isArabic ? 'مستوى جزيئات الطاقة (ATP):' : 'ATP Energy Level:'}</span>
-                <span className="font-mono text-amber-400 font-bold">{atpLevel}%</span>
+              {/* ATP Level Slider */}
+              <div className="p-2 rounded-lg bg-slate-950/70 border border-slate-800 space-y-1">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-slate-300">{isArabic ? 'طاقة ATP:' : 'ATP Level:'}</span>
+                  <span className="font-mono text-amber-400 font-bold">{atpLevel}%</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={atpLevel}
+                  onChange={(e) => setAtpLevel(parseInt(e.target.value))}
+                  className="w-full accent-amber-400 cursor-pointer h-2 bg-slate-800 rounded-lg"
+                />
               </div>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={atpLevel}
-                onChange={(e) => setAtpLevel(parseInt(e.target.value))}
-                className="w-full accent-amber-400 cursor-pointer h-2.5 bg-slate-800 rounded-lg"
-              />
-              <p className="text-xs text-slate-400 font-medium">
-                {isArabic ? 'ضروري لحركة الروابط وانفصالها عن الأكتين' : 'Needed for power stroke & cross-bridge detachment'}
-              </p>
             </div>
 
             {/* Rigor Mortis Warning Alert */}
             {isRigorMortis && (
-              <div className="p-3.5 rounded-xl bg-rose-950/80 border border-rose-600/80 text-rose-200 text-xs sm:text-sm flex items-start gap-2.5 animate-pulse">
-                <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold block">
-                    {isArabic ? 'حالة شد عضلي مؤلم / تيبس (Rigor Mortis)!' : 'Rigor Mortis / Severe Muscle Cramp!'}
-                  </span>
-                  <p className="text-xs text-rose-300/90 mt-0.5">
-                    {isArabic
-                      ? 'تناقص ATP مع بقاء الكالسيوم يمنع انفصال الروابط المستعرضة عن الأكتين، فتظل العضلة في حالة انقباض مستمر.'
-                      : 'Depletion of ATP with elevated calcium prevents cross-bridges from detaching from actin, locking muscle in continuous spasm.'}
-                  </p>
-                </div>
+              <div className="p-2.5 rounded-lg bg-rose-950/80 border border-rose-600/80 text-rose-200 text-xs flex items-center gap-2 animate-pulse">
+                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+                <span className="font-bold">
+                  {isArabic ? 'شد عضلي مؤلم / تيبس (Rigor Mortis)!' : 'Rigor Mortis / Severe Cramp!'}
+                </span>
               </div>
             )}
 
-            {/* Step Navigation Buttons */}
-            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+            {/* Step Navigation Buttons: 4 in a row */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-1.5 border-t border-slate-800">
               {[
-                { id: 1, labelEn: '1. Ca²⁺ Binds', labelAr: '١. ارتباط الكالسيوم' },
-                { id: 2, labelEn: '2. Cross-Bridge', labelAr: '٢. تكوين الرابطة' },
-                { id: 3, labelEn: '3. Power Stroke', labelAr: '٣. حركة الشد' },
-                { id: 4, labelEn: '4. ATP Detachment', labelAr: '٤. انفصال بـ ATP' },
+                { id: 1, labelEn: '1. Ca²⁺', labelAr: '١. Ca²⁺' },
+                { id: 2, labelEn: '2. Cross', labelAr: '٢. الرابطة' },
+                { id: 3, labelEn: '3. Stroke', labelAr: '٣. الشد' },
+                { id: 4, labelEn: '4. ATP Detach', labelAr: '٤. ATP' },
               ].map((st) => (
                 <button
                   key={st.id}
                   onClick={() => setMolecularStep(st.id)}
-                  className={`p-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-center ${
+                  className={`p-2 rounded-lg text-xs font-bold transition-all cursor-pointer text-center ${
                     molecularStep === st.id
-                      ? 'bg-rose-600 text-white shadow'
+                      ? 'bg-rose-600 text-white shadow-xs'
                       : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -1948,7 +1930,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
           </div>
 
           {/* Scale HUD Readouts */}
-          <div className="lg:col-span-4 h-full min-h-0 overflow-y-auto pr-1">
+          <div className="lg:col-span-4 h-full min-h-0 overflow-hidden pr-1 flex flex-col justify-start">
             {renderScaleHud()}
           </div>
         </div>

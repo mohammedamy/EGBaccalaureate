@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type {
   LabDefinition,
@@ -27,6 +27,7 @@ import { LabSlider } from './controls/LabSlider';
 import { LabTelemetryCard } from './controls/LabTelemetryCard';
 import { LabPresetPicker } from './controls/LabPresetPicker';
 import { LabFormulaBar } from './controls/LabFormulaBar';
+import { useFullscreenLabTypography } from './useFullscreenLabTypography';
 import { POEController } from '../pedagogy/POEController';
 import { LabNotebook } from '../pedagogy/LabNotebook';
 import { InstrumentRack } from '../instruments/InstrumentRack';
@@ -86,26 +87,15 @@ export const VirtualLabShell = <
   const [showSafetyModal, setShowSafetyModal] = useState<boolean>(false);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
 
-  // Fullscreen keyboard listener (Esc to exit) and body scroll lock
-  useEffect(() => {
-    if (isFullscreen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-          setIsFullscreen(false);
-          if (document.fullscreenElement) {
-            document.exitFullscreen?.().catch(() => {});
-          }
-        }
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = originalOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
+  const handleExitFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
     }
-  }, [isFullscreen]);
+  }, []);
+
+  // Automatically adjusts typography on entering full screen and restores user font setting on exit
+  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
 
   const toggleFullscreen = useCallback(() => {
     setIsFullscreen((prev) => {
@@ -779,9 +769,9 @@ export const VirtualLabShell = <
         </div>
 
         {/* 2. Main Workstation Body: Left Stage (Viewport & Instruments) + Right Console (Controls & Telemetry) */}
-        <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3.5 mt-2.5 overflow-hidden">
+        <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3 mt-2 overflow-hidden">
           {/* Left Stage */}
-          <div className="lg:col-span-8 h-full min-h-0 flex flex-col gap-2.5 overflow-hidden">
+          <div className="lg:col-span-7 xl:col-span-8 h-full min-h-0 flex flex-col gap-2 overflow-hidden">
             {definition.keyFormulas && definition.keyFormulas.length > 0 && (
               <div className="shrink-0">
                 <LabFormulaBar formulas={definition.keyFormulas} lang={lang} />
@@ -789,12 +779,12 @@ export const VirtualLabShell = <
             )}
 
             {/* Viewport Slot: fills remaining height without forcing scroll */}
-            <div className="flex-1 min-h-0 w-full h-full relative overflow-y-auto flex flex-col rounded-2xl [&>*]:flex-1 [&>*]:!min-h-0 [&>*]:h-full [&>*]:w-full [&>*]:!aspect-auto">
+            <div className="flex-1 min-h-0 w-full h-full relative overflow-hidden flex flex-col rounded-2xl [&>*]:flex-1 [&>*]:!min-h-0 [&>*]:h-full [&>*]:w-full [&>*]:!aspect-auto">
               {children}
             </div>
 
             {/* Docked Instrument Rack */}
-            {definition.supportedInstruments && definition.supportedInstruments.length > 0 && (
+            {definition.supportedInstruments && lab.instruments.activeInstruments.size > 0 && (
               <div className="shrink-0 max-h-52 overflow-y-auto">
                 <InstrumentRack
                   lang={lang}
@@ -817,11 +807,11 @@ export const VirtualLabShell = <
             )}
           </div>
 
-          {/* Right Console */}
-          <div className="lg:col-span-4 h-full min-h-0 flex flex-col gap-2.5 overflow-hidden">
-            {/* Presets */}
+          {/* Right Console: Engineered for ZERO scrolling and ZERO overlapping */}
+          <div className="lg:col-span-5 xl:col-span-4 h-full min-h-0 flex flex-col justify-between gap-2 overflow-hidden">
+            {/* Presets Strip */}
             {definition.presets && definition.presets.length > 0 && (
-              <div className={`p-3 sm:p-3.5 rounded-2xl border shadow-sm shrink-0 ${
+              <div className={`p-2.5 rounded-xl border shadow-xs shrink-0 ${
                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
               }`}>
                 <LabPresetPicker
@@ -834,14 +824,14 @@ export const VirtualLabShell = <
               </div>
             )}
 
-            {/* Tunable Parameters Card */}
-            <div className={`flex-1 min-h-0 flex flex-col p-3.5 rounded-2xl border shadow-sm overflow-hidden ${
+            {/* Tunable Parameters Card - 2-Column Grid so all options fit with no scrolling */}
+            <div className={`flex-1 min-h-0 flex flex-col p-3 rounded-xl border shadow-xs overflow-hidden ${
               isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
             }`}>
-              <div className={`shrink-0 flex items-center justify-between pb-2.5 border-b ${
+              <div className={`shrink-0 flex items-center justify-between pb-2 border-b ${
                 isLight ? 'border-slate-200' : 'border-slate-800'
               }`}>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <Sliders className={`w-4 h-4 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
                   <h3 className={`text-xs sm:text-sm font-black uppercase tracking-wider ${
                     isLight ? 'text-slate-700' : 'text-slate-300'
@@ -853,7 +843,7 @@ export const VirtualLabShell = <
                   <button
                     type="button"
                     onClick={handleReset}
-                    className={`text-xs sm:text-sm font-bold cursor-pointer ${
+                    className={`text-xs font-bold cursor-pointer ${
                       isLight ? 'text-cyan-700 hover:text-cyan-800' : 'text-cyan-400 hover:text-cyan-300'
                     }`}
                   >
@@ -862,15 +852,17 @@ export const VirtualLabShell = <
                 )}
               </div>
 
-              {/* Scrollable Parameter Sliders and Switchers List */}
-              <div className="flex-1 min-h-0 overflow-y-auto pr-1.5 space-y-3 mt-3">
-                {Object.keys(definition.paramSchema).map((key) =>
-                  renderParamField(key, definition.paramSchema[key])
-                )}
+              {/* All Parameter Sliders and Switchers in an adaptive 2-column grid */}
+              <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+                <div className={`grid ${Object.keys(definition.paramSchema).length > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'} gap-2 pt-2`}>
+                  {Object.keys(definition.paramSchema).map((key) =>
+                    renderParamField(key, definition.paramSchema[key])
+                  )}
+                </div>
 
                 {/* Custom controls slot (e.g. glassware, lenses, reagents) */}
                 {renderCustomControls && (
-                  <div className={`pt-3 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+                  <div className={`pt-2.5 mt-2.5 border-t ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
                     {renderCustomControls()}
                   </div>
                 )}
@@ -879,10 +871,10 @@ export const VirtualLabShell = <
 
             {/* Real-Time Live Telemetry Card Grid */}
             {telemetry && telemetry.length > 0 && (
-              <div className={`shrink-0 p-3 sm:p-3.5 rounded-2xl border shadow-sm ${
+              <div className={`shrink-0 p-2.5 rounded-xl border shadow-xs ${
                 isLight ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/80 border-slate-800'
               }`}>
-                <div className={`flex items-center gap-2 pb-2 border-b mb-2.5 ${
+                <div className={`flex items-center gap-1.5 pb-1.5 border-b mb-2 ${
                   isLight ? 'border-slate-200' : 'border-slate-800'
                 }`}>
                   <Activity className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
@@ -893,7 +885,7 @@ export const VirtualLabShell = <
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2.5 max-h-48 overflow-y-auto pr-1">
+                <div className={`grid ${telemetry.length >= 4 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2 sm:grid-cols-3'} gap-2 max-h-40 overflow-y-auto pr-1`}>
                   {telemetry.map((metric) => (
                     <LabTelemetryCard
                       key={metric.id}

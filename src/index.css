@@ -58,6 +58,22 @@
   html[data-font-size="large"] header .text-\[11px\] { font-size: 13.2px !important; }
   html[data-font-size="large"] header .text-xs { font-size: 13.8px !important; }
 
+  /* Full-Screen Virtual Laboratory Auto-Adjusted Typography Scale:
+     Automatically calibrates font-size and micro-typography so all sliders,
+     switchers, options, presets, and telemetry fit simultaneously on a single
+     screen with ZERO scrolling and ZERO overlapping. */
+  html[data-fullscreen-lab="true"] {
+    font-size: clamp(12.5px, 0.95vw, 14.5px) !important;
+  }
+
+  html[data-fullscreen-lab="true"] .text-\[9px\] { font-size: 10.5px !important; }
+  html[data-fullscreen-lab="true"] .text-\[10px\] { font-size: 11.5px !important; }
+  html[data-fullscreen-lab="true"] .text-\[11px\] { font-size: 12px !important; }
+  html[data-fullscreen-lab="true"] .text-xs { font-size: 12px !important; }
+  html[data-fullscreen-lab="true"] .text-sm { font-size: 13.5px !important; }
+  html[data-fullscreen-lab="true"] .text-base { font-size: 14.5px !important; }
+  html[data-fullscreen-lab="true"] .text-lg { font-size: 16px !important; }
+
   [dir="rtl"] {
     font-family: var(--font-ar);
   }

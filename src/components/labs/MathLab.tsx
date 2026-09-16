@@ -14,6 +14,7 @@ import { Interactive3DGeometry } from '../Interactive3DGeometry';
 import { InteractiveComplexArgand } from '../InteractiveComplexArgand';
 import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
+import { useFullscreenLabTypography } from '../../core/labs/useFullscreenLabTypography';
 
 interface Props {
   lang: Language;
@@ -41,25 +42,14 @@ export const MathLab: React.FC<Props> = ({
   const [activeTab, setActiveTab] = useState<MathTab>(initialTab);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
 
-  useEffect(() => {
-    if (isFullscreen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-          setIsFullscreen(false);
-          if (document.fullscreenElement) {
-            document.exitFullscreen?.().catch(() => {});
-          }
-        }
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = originalOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
+  const handleExitFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
     }
-  }, [isFullscreen]);
+  }, []);
+
+  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
 
   const toggleFullscreen = useCallback(() => {
     setIsFullscreen((prev) => {
@@ -71,7 +61,7 @@ export const MathLab: React.FC<Props> = ({
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (initialTab && initialTab !== activeTab) {
       setActiveTab(initialTab);
     }
