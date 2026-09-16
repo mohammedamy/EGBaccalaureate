@@ -610,7 +610,7 @@ export const VirtualLabShell = <
             )}
 
             {/* Viewport Slot: fills remaining height without forcing scroll */}
-            <div className="flex-1 min-h-0 w-full h-full relative overflow-hidden flex flex-col rounded-2xl [&>*]:flex-1 [&>*]:!min-h-0 [&>*]:h-full [&>*]:w-full [&>*]:!aspect-auto">
+            <div className="flex-1 min-h-0 w-full h-full relative overflow-y-auto flex flex-col rounded-2xl [&>*]:flex-1 [&>*]:!min-h-0 [&>*]:h-full [&>*]:w-full [&>*]:!aspect-auto">
               {children}
             </div>
 
