@@ -5,6 +5,8 @@ import {
   VirtualLabShell,
   CanvasSimulationViewport,
   useVirtualLab,
+  drawVolumetricBeam,
+  drawGlowingParticle,
   type LabDefinition,
   type LabTelemetryMetric,
   type LabViewportState,
@@ -18,6 +20,7 @@ import {
   ShieldCheck,
   ChevronDown,
   Sparkles,
+  Zap,
 } from 'lucide-react';
 import antibodyImg from '../../assets/biology/antibody_igg_structure.jpg';
 
@@ -26,11 +29,19 @@ interface Props {
   theme?: ThemeMode;
 }
 
-export type ImmunitySubTab = 'humoral_cellular' | 'antibody_actions' | 'kinetics_memory' | 'antibody_anatomy';
+export type ImmunitySubTab =
+  | 'humoral_cellular'
+  | 'phagocytosis_studio'
+  | 'antibody_actions'
+  | 'kinetics_memory'
+  | 'antibody_anatomy';
+
 export type ImmunePathway = 'humoral' | 'cellular';
 export type AntibodyActionType = 'neutralization' | 'agglutination' | 'precipitation' | 'lysis' | 'antitoxin';
 export type KineticsCondition = 'standard_dual' | 'primary_only' | 'immunodeficiency' | 'vaccine_booster';
 export type AntibodyPartId = 'variable' | 'constant' | 'disulfide' | 'hinge';
+
+export type CellularStudioMode = 'macrophage_phagocytosis' | 'tc_perforin_lysis';
 
 export interface ImmunityParams {
   subTab: ImmunitySubTab;
@@ -42,6 +53,11 @@ export interface ImmunityParams {
   timeDay: number; // 0 to 30 days
   pathogenDose: number; // 10 to 100 AU
   selectedPartId: AntibodyPartId;
+  // Phagocytosis & Cellular Studio
+  phagocytosisStage: number; // 0 to 5
+  cellularStudioMode: CellularStudioMode;
+  perforinPoreCount: number; // 1 to 10
+  phagocytosisAutoPlay: boolean;
 }
 
 export interface ImmunitySimState {
@@ -55,7 +71,109 @@ export interface ImmunitySimState {
   elisaOD450: number; // Optical Density at 450 nm (0.00 to 3.00)
   lysisRatePct: number; // 0 to 100%
   neutralizationPct: number; // 0 to 100%
+  // Phagocytosis Studio Metrics
+  phagosomeHydrolysisPct: number;
+  mhcPresentationDensity: number;
+  perforinPoreDensity: number;
+  lymphotoxinApoptosisPct: number;
+  interleukinConcentrationPg: number;
 }
+
+// -------------------------------------------------------------
+// DATA STRUCTURES: PHAGOCYTOSIS STAGES & CURRICULUM EVENTS
+// -------------------------------------------------------------
+export interface PhagocytosisStageInfo {
+  stage: number;
+  nameEn: string;
+  nameAr: string;
+  descEn: string;
+  descAr: string;
+  cellularEventEn: string;
+  cellularEventAr: string;
+  molecularActorsEn: string;
+  molecularActorsAr: string;
+}
+
+export const PHAGOCYTOSIS_STAGES: PhagocytosisStageInfo[] = [
+  {
+    stage: 0,
+    nameEn: '1. Chemotaxis & Microbe Capture',
+    nameAr: '١. الانجذاب الكيميائي والتقاط الميكروب',
+    descEn:
+      'Macrophage detects chemical attractants (chemokines/bacterial formyl peptides) and extends pseudopodia toward the flagellated bacterium.',
+    descAr:
+      'تستشعر الخلية البلعمية الكبيرة المواد الكيميائية الجاذبة (الكيموكينات) وتمد أقدامها الكاذبة (Pseudopodia) للإحاطة بالبكتيريا.',
+    cellularEventEn: 'Receptor-mediated adhesion of bacterial surface antigens to macrophage pattern-recognition receptors.',
+    cellularEventAr: 'التصاق الأنتيجينات الغشائية للبكتيريا بمستقبلات سطح الخلية البلعمية.',
+    molecularActorsEn: 'Chemokines, Microbial Antigens, Macrophage Receptors',
+    molecularActorsAr: 'الكيموكينات، أنتيجينات البكتيريا، مستقبلات الغشاء البلعمي',
+  },
+  {
+    stage: 1,
+    nameEn: '2. Ingestion & Phagosome Formation',
+    nameAr: '٢. الابتلاع وتكوين الحويصلة البلعمية (الفاجوسوم)',
+    descEn:
+      'Pseudopodia encircle and engulf the bacterium, pinching off the cell membrane to create an intracellular phagosome vesicle.',
+    descAr:
+      'تلتحم الأقدام الكاذبة حول الميكروب وتبتلعه داخل فجوة غشائية داخلية تسمى الفاجوسوم (Phagosome).',
+    cellularEventEn: 'Invagination of plasma membrane enclosing intact bacterium within an endocytic vacuole.',
+    cellularEventAr: 'انغماد الغشاء الخلوي وإحاطة البكتيريا الحية داخل حويصلة بلعمية معزولة.',
+    molecularActorsEn: 'Actin-Myosin Cytoskeleton, Phagosome Membrane',
+    molecularActorsAr: 'هيكل الخلية (الأكتين والميوسين)، غشاء الحويصلة البلعمية',
+  },
+  {
+    stage: 2,
+    nameEn: '3. Lysosome Fusion & Enzymatic Hydrolysis',
+    nameAr: '٣. اندماج الليسوسومات وتفكيك الأنتيجين بإنزيمات التحلل',
+    descEn:
+      'Intracellular lysosomes fuse with the phagosome (Phagolysosome). Lysozymes and acid hydrolases chop bacterial proteins into small peptide antigens.',
+    descAr:
+      'تندمج الليسوسومات الحاوية على إنزيمات محللة (Lysosomal Enzymes) مع الفاجوسوم لتكوين الفاجوليسوسوم، ويتم تفتيت بروتينات الميكروب إلى ببتيدات صغيرة.',
+    cellularEventEn: 'Enzymatic lysis destroys bacterial viability and produces immunogenic peptide fragments.',
+    cellularEventAr: 'التحلل الإنزيمي يقضي على البكتيريا ويفتت بروتيناتها إلى شظايا أنتيجين صغيرة.',
+    molecularActorsEn: 'Lysozymes, Acid Hydrolases, Proteases, Phagolysosome',
+    molecularActorsAr: 'إنزيمات الليسوسومات المحللة، الفاجوليسوسوم، شظايا الأنتيجين',
+  },
+  {
+    stage: 3,
+    nameEn: '4. MHC-II Complexation & Vesicular Migration',
+    nameAr: '٤. الارتباط ببروتين التوافق النسيجي MHC-II',
+    descEn:
+      'Digested peptide fragments bind with high affinity to Major Histocompatibility Complex Class II (MHC-II) molecules inside transport vesicles.',
+    descAr:
+      'ترتبط شظايا الأنتيجين المفككة ببروتين التوافق النسيجي (MHC-II) المتكون داخل الخلية لتكوين معقد [الأنتيجين / MHC-II].',
+    cellularEventEn: 'Assembly of the [MHC-II + Antigenic Peptide] immunogenic presentation complex.',
+    cellularEventAr: 'تجميع مركب [الأنتيجين + بروتين التوافق النسيجي MHC] داخل الحويصلات الناقلة.',
+    molecularActorsEn: 'Major Histocompatibility Complex II (MHC-II), Exocytic Vesicles',
+    molecularActorsAr: 'بروتين التوافق النسيجي (MHC)، حويصلات الإفراز الخلوي',
+  },
+  {
+    stage: 4,
+    nameEn: '5. Surface Antigen Presentation & CD4+ TH Docking',
+    nameAr: '٥. عرض الأنتيجين على الغشاء الخارجي وتعرف خلايا TH المساعدة',
+    descEn:
+      'Transport vesicle fuses with the macrophage plasma membrane, displaying the [MHC-II / Antigen] complex externally. Helper T cell (CD4+) docks specifically.',
+    descAr:
+      'تندمج الحويصلة مع الغشاء البلازمي لتبرز معقد [MHC-II / أنتيجين] على السطح الخارجي للبلعمية، فتتعرف عليه الخلية التائية المساعدة بواسطة مستقبل CD4.',
+    cellularEventEn: 'Specific immunological synapse formed between TCR/CD4 on Helper T cell and [MHC-II + Antigen] on Macrophage.',
+    cellularEventAr: 'تكوين تشابك مناعي نوعي بين مستقبل TCR و CD4 للخلية التائية المساعدة ومعقد [MHC + أنتيجين].',
+    molecularActorsEn: 'Macrophage MHC-II, Antigen Peptide, CD4 Coreceptor, TCR',
+    molecularActorsAr: 'بروتين MHC البلعمي، شظية الأنتيجين، مستقبل CD4، مستقبل TCR التائي',
+  },
+  {
+    stage: 5,
+    nameEn: '6. Interleukin Signal Cascade & Clonal Expansion',
+    nameAr: '٦. إفراز الإنترلوكينات والتكاثر بالانقسام (التمايز المناعي)',
+    descEn:
+      'Activated TH secretes Interleukins, stimulating sensitized B cells to proliferate and differentiate into antibody-secreting Plasma cells and long-lived Memory cells.',
+    descAr:
+      'تفرز خلايا TH المنشطة مواد كيميائية تسمى الإنترلوكينات (Interleukins) تنشط الخلايا البائية للانقسام والتمايز إلى خلايا بائية بلازمية وخلايا ذاكرة.',
+    cellularEventEn: 'Cytokine-driven clonal expansion: Plasma B cells secrete thousands of specific antibodies/second; Memory B cells persist for decades.',
+    cellularEventAr: 'انقسام وتمايز الخلايا البائية: خلايا بلازمية تنتج آلاف الأجسام المضادة وخلايا ذاكرة تبقى لعشرات السنين.',
+    molecularActorsEn: 'Interleukins (IL-1, IL-2), Plasma B Cells, Memory B Cells, Antibodies',
+    molecularActorsAr: 'الإنترلوكينات، الخلايا البائية البلازمية، خلايا الذاكرة، الأجسام المضادة',
+  },
+];
 
 export interface AntibodyPart {
   id: AntibodyPartId;
@@ -74,46 +192,58 @@ export const ANTIBODY_PARTS: AntibodyPart[] = [
     id: 'variable',
     nameEn: 'Variable Region (V_H & V_L) - Antigen Binding Sites',
     nameAr: 'المنطقة المتغيرة (موقعا الارتباط بالمولد المضاد)',
-    descEn: 'Located at the N-terminal tips of both Fab arms. Consists of hypervariable amino acid sequences forming a 3D structural cleft uniquely complementary to a specific antigenic epitope (like a key to a lock).',
-    descAr: 'توجد في طرفي ذراعي الجسم المضاد (المنطقة Fab)، وتتكون من تتابعات مميزة من الأحماض الأمينية تشكل موقع ارتباط ثلاثي الأبعاد يتطابق تماماً مع مولد الضد (الأنتيجين) كالقفل والمفتاح.',
+    descEn:
+      'Located at the N-terminal tips of both Fab arms. Consists of hypervariable amino acid sequences forming a 3D structural cleft uniquely complementary to a specific antigenic epitope (like a key to a lock).',
+    descAr:
+      'توجد في طرفي ذراعي الجسم المضاد (المنطقة Fab)، وتتكون من تتابعات مميزة من الأحماض الأمينية تشكل موقع ارتباط ثلاثي الأبعاد يتطابق تماماً مع مولد الضد (الأنتيجين) كالقفل والمفتاح.',
     formulaEn: '2 identical antigen-binding sites per monomeric IgG molecule.',
     formulaAr: 'يحتوي كل جزيء جسم مضاد IgG مفرد على موقعي ارتباط متطابقين للأنتيجين.',
-    examTipEn: 'The specificity of each antibody is determined by the shape, sequence, and conformational folding of the amino acids in its variable regions.',
-    examTipAr: 'يرجع التخصص الدقيق لكل جسم مضاد لتشكل الأحماض الأمينية وترتيبها الفراغي في الجزء المتغير، مما يجعله خاصاً بنوع واحد من الأنتيجينات.'
+    examTipEn:
+      'The specificity of each antibody is determined by the shape, sequence, and conformational folding of the amino acids in its variable regions.',
+    examTipAr:
+      'يرجع التخصص الدقيق لكل جسم مضاد لتشكل الأحماض الأمينية وترتيبها الفراغي في الجزء المتغير، مما يجعله خاصاً بنوع واحد من الأنتيجينات.',
   },
   {
     id: 'constant',
     nameEn: 'Constant Region (C_H & C_L)',
     nameAr: 'المنطقة الثابتة (سلسلتان ثقيلتان وخفيفتان)',
-    descEn: 'Consists of invariable amino acid sequences identical within a class of antibodies (IgG, IgM, IgA, IgE, IgD). Forms the structural stalk and activates the complement cascade.',
-    descAr: 'تتكون من تتابعات ثابتة من الأحماض الأمينية لا تختلف في جزيئات الصنف الواحد (IgG أو IgM أو IgA)، وتشارك في تنشيط النظام المتمم وتثبيته.',
+    descEn:
+      'Consists of invariable amino acid sequences identical within a class of antibodies (IgG, IgM, IgA, IgE, IgD). Forms the structural stalk and activates the complement cascade.',
+    descAr:
+      'تتكون من تتابعات ثابتة من الأحماض الأمينية لا تختلف في جزيئات الصنف الواحد (IgG أو IgM أو IgA)، وتشارك في تنشيط النظام المتمم وتثبيته.',
     formulaEn: 'Fc region is composed of the paired constant domains of the heavy chains.',
     formulaAr: 'تتكون المنطقة المتبلورة (Fc) من النطاقات الثابتة للسلسلتين الثقيلتين.',
     examTipEn: 'All antibodies of the IgG class share the same constant region framework regardless of the antigen they target.',
-    examTipAr: 'تتماثل المنطقة الثابتة في جميع الأجسام المضادة من نفس الفئة (مثل IgG) بصرف النظر عن نوع الأنتيجين المستهدف.'
+    examTipAr: 'تتماثل المنطقة الثابتة في جميع الأجسام المضادة من نفس الفئة (مثل IgG) بصرف النظر عن نوع الأنتيجين المستهدف.',
   },
   {
     id: 'disulfide',
     nameEn: 'Disulfide Bridges (S-S Bonds)',
     nameAr: 'الروابط الكبريتيدية الثنائية (S-S)',
-    descEn: 'Covalent sulfur-to-sulfur bonds linking the two heavy chains together in the hinge region (2 interchain bonds) and linking each light chain to its adjacent heavy chain (1 interchain bond each) = 4 primary interchain bonds.',
-    descAr: 'روابط تساهمية كبريتيدية ثنائية تربط السلسلتين الثقيلتين ببعضهما عند منطقة المفصلة (رابطتان)، وتربط كل سلسلة خفيفة بالسلسلة الثقيلة المجاورة (رابطة لكل جانب) = ٤ روابط بينية رئيسية.',
+    descEn:
+      'Covalent sulfur-to-sulfur bonds linking the two heavy chains together in the hinge region (2 interchain bonds) and linking each light chain to its adjacent heavy chain (1 interchain bond each) = 4 primary interchain bonds.',
+    descAr:
+      'روابط تساهمية كبريتيدية ثنائية تربط السلسلتين الثقيلتين ببعضهما عند منطقة المفصلة (رابطتان)، وتربط كل سلسلة خفيفة بالسلسلة الثقيلة المجاورة (رابطة لكل جانب) = ٤ روابط بينية رئيسية.',
     formulaEn: '4 primary interchain disulfide bridges maintain the quaternary Y-structure.',
     formulaAr: '٤ روابط كبريتيدية ثنائية رئيسية تربط السلاسل الأربع معاً لتحافظ على شكل الحرف Y.',
-    examTipEn: 'Exam question: Disulfide bonds are covalent bonds formed between cysteine amino acid residues containing sulfhydryl (-SH) groups.',
-    examTipAr: 'سؤال وزاري متكرر: الروابط الكبريتيدية هي روابط تساهمية قوية تربط السلاسل البروتينية للأجسام المضادة وتتكون بين أحماض السيستين.'
+    examTipEn:
+      'Exam question: Disulfide bonds are covalent bonds formed between cysteine amino acid residues containing sulfhydryl (-SH) groups.',
+    examTipAr:
+      'سؤال وزاري متكرر: الروابط الكبريتيدية هي روابط تساهمية قوية تربط السلاسل البروتينية للأجسام المضادة وتتكون بين أحماض السيستين.',
   },
   {
     id: 'hinge',
     nameEn: 'Flexible Hinge Region',
     nameAr: 'منطقة المفصلة المرنة',
-    descEn: 'Proline-rich flexible segment allowing the two Fab arms to articulate and open or close like scissors, enabling simultaneous binding to two distant antigens on a bacterial surface.',
-    descAr: 'منطقة مرنة غنية بالبرولين تسمح لذراعي الجسم المضاد بالانفراج والاقتراب كالمقص للارتباط بمولدين متفرقين على سطح الميكروب في آن واحد.',
+    descEn:
+      'Proline-rich flexible segment allowing the two Fab arms to articulate and open or close like scissors, enabling simultaneous binding to two distant antigens on a bacterial surface.',
+    descAr:
+      'منطقة مرنة غنية بالبرولين تسمح لذراعي الجسم المضاد بالانفراج والاقتراب كالمقص للارتباط بمولدين متفرقين على سطح الميكروب في آن واحد.',
     formulaEn: 'Allows flexibility of angle between 0° and 180° for epitope capture.',
     formulaAr: 'تتيح حرية الحركة للذراعين بزاوية متغيرة للارتباط بأكثر من أنتيجين.',
     examTipEn: 'Enzymes like papain cleave at the hinge region to yield 2 Fab fragments and 1 Fc fragment.',
-    examTipAr: 'منطقة المفصلة تمنح الجسم المضاد مرونة ميكانيكية فائقة في التقاط الأنتيجينات متعددة المسافات.'
-  }
+    examTipAr: 'منطقة المفصلة تمنح الجسم المضاد مرونة ميكانيكية فائقة في التقاط الأنتيجينات متعددة المسافات.',
+  },
 ];
 
 export const INITIAL_IMMUNITY_PARAMS: ImmunityParams = {
@@ -126,6 +256,10 @@ export const INITIAL_IMMUNITY_PARAMS: ImmunityParams = {
   timeDay: 14,
   pathogenDose: 50,
   selectedPartId: 'variable',
+  phagocytosisStage: 4,
+  cellularStudioMode: 'macrophage_phagocytosis',
+  perforinPoreCount: 6,
+  phagocytosisAutoPlay: false,
 };
 
 // Parameter schema
@@ -138,9 +272,10 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     defaultValue: 'humoral_cellular',
     options: [
       { value: 'humoral_cellular', labelEn: '1. Humoral & Cellular Cascades', labelAr: '١. شلالات المناعة الخلطية والخلوية' },
-      { value: 'antibody_actions', labelEn: '2. 5 Antibody Action Mechanisms', labelAr: '٢. طرق عمل الأجسام المضادة الخمسة' },
-      { value: 'kinetics_memory', labelEn: '3. Primary vs Secondary Kinetics', labelAr: '٣. منحنيات الاستجابة الأولية والثانوية' },
-      { value: 'antibody_anatomy', labelEn: '4. High-Res IgG Molecular Atlas', labelAr: '٤. أطلس جزيء الأجسام المضادة (IgG)' },
+      { value: 'phagocytosis_studio', labelEn: '2. Macrophage Phagocytosis & Perforin Studio', labelAr: '٢. استوديو البلعمة وعرض MHC-II وثقوب البيرفورين' },
+      { value: 'antibody_actions', labelEn: '3. 5 Antibody Action Mechanisms', labelAr: '٣. طرق عمل الأجسام المضادة الخمسة' },
+      { value: 'kinetics_memory', labelEn: '4. Primary vs Secondary Kinetics', labelAr: '٤. منحنيات الاستجابة الأولية والثانوية' },
+      { value: 'antibody_anatomy', labelEn: '5. High-Res IgG Molecular Atlas', labelAr: '٥. أطلس جزيء الأجسام المضادة (IgG)' },
     ],
     category: 'primary',
   },
@@ -170,6 +305,52 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     category: 'primary',
     visibleIf: (p) => p.subTab === 'humoral_cellular',
   },
+  cellularStudioMode: {
+    key: 'cellularStudioMode',
+    type: 'select',
+    labelEn: 'Cellular Studio Mode',
+    labelAr: 'نمط الاستوديو الخلوي',
+    defaultValue: 'macrophage_phagocytosis',
+    options: [
+      { value: 'macrophage_phagocytosis', labelEn: 'Macrophage Phagocytosis & MHC-II', labelAr: 'بلعمة الميكروب وعرض MHC-II' },
+      { value: 'tc_perforin_lysis', labelEn: 'CD8+ TC Perforin & Apoptosis', labelAr: 'ثقوب البيرفورين والموت المبرمج (TC)' },
+    ],
+    category: 'primary',
+    visibleIf: (p) => p.subTab === 'phagocytosis_studio',
+  },
+  phagocytosisStage: {
+    key: 'phagocytosisStage',
+    type: 'number',
+    labelEn: 'Phagocytosis Progression Step',
+    labelAr: 'مرحلة عملية البلعمة',
+    defaultValue: 4,
+    min: 0,
+    max: 5,
+    step: 1,
+    category: 'primary',
+    visibleIf: (p) => p.subTab === 'phagocytosis_studio',
+  },
+  perforinPoreCount: {
+    key: 'perforinPoreCount',
+    type: 'number',
+    labelEn: 'Perforin Transmembrane Pores',
+    labelAr: 'عدد ثقوب البيرفورين الغشائية',
+    defaultValue: 6,
+    min: 1,
+    max: 10,
+    step: 1,
+    category: 'secondary',
+    visibleIf: (p) => p.subTab === 'phagocytosis_studio' && p.cellularStudioMode === 'tc_perforin_lysis',
+  },
+  phagocytosisAutoPlay: {
+    key: 'phagocytosisAutoPlay',
+    type: 'boolean',
+    labelEn: 'Auto-Play Simulation Animation',
+    labelAr: 'تشغيل الحركة التلقائية',
+    defaultValue: false,
+    category: 'secondary',
+    visibleIf: (p) => p.subTab === 'phagocytosis_studio',
+  },
   antibodyAction: {
     key: 'antibodyAction',
     type: 'select',
@@ -193,7 +374,8 @@ const IMMUNITY_PARAM_SCHEMA: LabParameterSchema<ImmunityParams> = {
     labelAr: 'نشاط نظام المتممات بالدم',
     defaultValue: true,
     category: 'primary',
-    visibleIf: (p) => p.subTab === 'antibody_actions' && (p.antibodyAction === 'lysis' || p.antibodyAction === 'antitoxin'),
+    visibleIf:
+      (p) => p.subTab === 'antibody_actions' && (p.antibodyAction === 'lysis' || p.antibodyAction === 'antitoxin'),
   },
   kineticsCondition: {
     key: 'kineticsCondition',
@@ -272,17 +454,44 @@ const IMMUNITY_PRESETS: LabPreset<ImmunityParams>[] = [
       timeDay: 14,
       pathogenDose: 50,
       selectedPartId: 'variable',
+      phagocytosisStage: 4,
+      cellularStudioMode: 'macrophage_phagocytosis',
+      perforinPoreCount: 6,
+      phagocytosisAutoPlay: false,
     },
   },
   {
-    id: 'cellular_cytotoxic_killing',
-    nameEn: 'Cell-Mediated Cytotoxic Killing (TC & Perforin)',
-    nameAr: 'المناعة الخلوية والقضاء بالخلايا التائية السامة (TC)',
-    descriptionEn: 'TH cytokine secretion, CD8+ TC recruitment, perforin pore formation, and lymphotoxin apoptotic gene trigger.',
-    descriptionAr: 'إفراز السيتوكينات، استدعاء خلايا TC، ثقب الغشاء بالبيرفورين، وتحفيز الجينات المميتة بالسموم الليمفاوية.',
-    badge: 'Cellular',
+    id: 'macrophage_phagocytosis_mhc',
+    nameEn: 'Macrophage Phagocytosis & MHC-II Presentation',
+    nameAr: 'بلعمة الميكروب وعرض الأنتيجين على MHC-II',
+    descriptionEn: 'Detailed microscopic steps of bacterial engulfment, lysosomal lysozyme digestion, and MHC-II surface display.',
+    descriptionAr: 'المراحل المجهرية الدقيقة لالتهام البكتيريا وتفكيكها بإنزيمات الليسوسومات وعرضها على بروتين MHC-II.',
+    badge: 'Phagocytosis',
     params: {
-      subTab: 'humoral_cellular',
+      subTab: 'phagocytosis_studio',
+      pathway: 'humoral',
+      cascadeStep: 4,
+      antibodyAction: 'neutralization',
+      complementsActive: true,
+      kineticsCondition: 'standard_dual',
+      timeDay: 14,
+      pathogenDose: 50,
+      selectedPartId: 'variable',
+      phagocytosisStage: 4,
+      cellularStudioMode: 'macrophage_phagocytosis',
+      perforinPoreCount: 6,
+      phagocytosisAutoPlay: false,
+    },
+  },
+  {
+    id: 'perforin_lymphotoxin_apoptosis',
+    nameEn: 'Cytotoxic T-Cell (CD8+) Perforin & Apoptosis',
+    nameAr: 'الخلايا التائية السامة وثقوب البيرفورين والموت المبرمج',
+    descriptionEn: 'CD8+ TC cell dock, perforin pore formation on target membrane, and lymphotoxin apoptotic gene activation.',
+    descriptionAr: 'التصاق خلية TC بالخلية المصابة وإفراز البيرفورين لثقب الغشاء والسموم الليمفاوية لتفتيت النواة.',
+    badge: 'Cytotoxic',
+    params: {
+      subTab: 'phagocytosis_studio',
       pathway: 'cellular',
       cascadeStep: 4,
       antibodyAction: 'lysis',
@@ -291,6 +500,10 @@ const IMMUNITY_PRESETS: LabPreset<ImmunityParams>[] = [
       timeDay: 10,
       pathogenDose: 70,
       selectedPartId: 'variable',
+      phagocytosisStage: 4,
+      cellularStudioMode: 'tc_perforin_lysis',
+      perforinPoreCount: 8,
+      phagocytosisAutoPlay: false,
     },
   },
   {
@@ -310,6 +523,10 @@ const IMMUNITY_PRESETS: LabPreset<ImmunityParams>[] = [
       timeDay: 14,
       pathogenDose: 50,
       selectedPartId: 'constant',
+      phagocytosisStage: 4,
+      cellularStudioMode: 'macrophage_phagocytosis',
+      perforinPoreCount: 6,
+      phagocytosisAutoPlay: false,
     },
   },
   {
@@ -329,25 +546,10 @@ const IMMUNITY_PRESETS: LabPreset<ImmunityParams>[] = [
       timeDay: 24,
       pathogenDose: 50,
       selectedPartId: 'variable',
-    },
-  },
-  {
-    id: 'hiv_cd4_collapse',
-    nameEn: 'HIV Infection: CD4+ TH Collapse',
-    nameAr: 'عدوى فيروس نقص المناعة البشري: انهيار خلايا TH',
-    descriptionEn: 'Severe depletion of CD4+ helper T cells causing catastrophic shutdown of both humoral and cellular immunity.',
-    descriptionAr: 'تدمير خلايا TH المساعدة مما يؤدي إلى الشلل التام للمناعتين الخلطية والخلوية معاً.',
-    badge: 'Immunodeficiency',
-    params: {
-      subTab: 'kinetics_memory',
-      pathway: 'cellular',
-      cascadeStep: 3,
-      antibodyAction: 'neutralization',
-      complementsActive: false,
-      kineticsCondition: 'immunodeficiency',
-      timeDay: 15,
-      pathogenDose: 90,
-      selectedPartId: 'variable',
+      phagocytosisStage: 4,
+      cellularStudioMode: 'macrophage_phagocytosis',
+      perforinPoreCount: 6,
+      phagocytosisAutoPlay: false,
     },
   },
 ];
@@ -355,76 +557,90 @@ const IMMUNITY_PRESETS: LabPreset<ImmunityParams>[] = [
 // POE Prompts
 const IMMUNITY_POE_PROMPTS: POEPrompt[] = [
   {
+    id: 'poe_mhc_class_ii',
+    titleEn: 'Challenge: The Role of Major Histocompatibility Complex (MHC-II)',
+    titleAr: 'تحدي: دور بروتين التوافق النسيجي MHC-II في المناعة النوعية',
+    scenarioEn:
+      'A mutant macrophage can engulf and enzymatically digest bacteria normally using lysosomes, but carries a deletion mutation in the MHC gene preventing MHC-II synthesis.',
+    scenarioAr:
+      'خلية بلعمية طافرة تستطيع التهام البكتيريا وهضمها بإنزيمات الليسوسومات طبيعياً، لكن بها طفرة جينية تمنع تكوين بروتين التوافق النسيجي (MHC-II).',
+    questionEn:
+      'Why does this macrophage completely fail to activate Helper T cells (TH)?',
+    questionAr:
+      'لماذا تفشل هذه الخلية البلعمية تماماً في تنشيط الخلايا التائية المساعدة (TH)؟',
+    optionsEn: [
+      'Helper T cells (CD4+) can only recognize antigen fragments when complexed with MHC-II molecules on the antigen-presenting cell surface; they cannot recognize free antigens.',
+      'The macrophage ceases to produce ATP and dies immediately.',
+      'Lysosomal enzymes destroy the Helper T cell directly upon contact.',
+      'Helper T cells only recognize unfragmented intact bacteria floating in plasma.',
+    ],
+    optionsAr: [
+      'لأن الخلايا التائية المساعدة (CD4+) لا يمكنها التعرف على الأنتيجين إلا بعد معالجته وارتباطه ببروتين التوافق النسيجي MHC-II على غشاء الخلية البلعمية.',
+      'لأن الخلية البلعمية تفقد قدرتها على إنتاج الطاقة وتموت فوراً.',
+      'لأن إنزيمات الليسوسومات تهاجم الخلايا التائية المساعدة وتدمرها.',
+      'لأن الخلايا التائية المساعدة لا تتعرف إلا على البكتيريا السليمة غير المهضومة.',
+    ],
+    correctOptionIndex: 0,
+    scientificExplanationEn:
+      'T-cell receptors (TCR) along with the CD4 coreceptor on Helper T lymphocytes strictly recognize antigen fragments displayed in the cleft of MHC-II molecules on Antigen Presenting Cells (APCs like macrophages and B cells). Without MHC-II, antigen presentation cannot occur, rendering the adaptive immune branch dormant.',
+    scientificExplanationAr:
+      'تعتمد الخلايا التائية المساعدة (TH) في التعرف على الأنتيجينات على مستقبلاتها (TCR) بمساعدة مستقبل CD4، والتي لا ترتبط بالأنتيجين الحر أبداً، بل تشترط وجوده مرتبطاً ببروتين التوافق النسيجي (MHC) على سطح الخلية البلعمية العارضة، وبدون MHC يفشل خط الدفاع الثالث في التنشيط كلياً.',
+  },
+  {
     id: 'poe_complement_inactivation',
     titleEn: 'Challenge 1: Heat Inactivation of Blood Complements',
     titleAr: 'تحدي ١: التعطيل الحراري للمتممات في مصل الدم',
-    scenarioEn: 'A clinical serum sample containing specific antibodies against encapsulated bacteria is heated to 56°C for 30 minutes in a water bath.',
-    scenarioAr: 'تم تسخين عينة مصل دم تحتوي على أجسام مضادة نوعية ضد بكتيريا إلى درجة ٥٦°م لمدة ٣٠ دقيقة في حمام مائي.',
+    scenarioEn:
+      'A clinical serum sample containing specific antibodies against encapsulated bacteria is heated to 56°C for 30 minutes in a water bath.',
+    scenarioAr:
+      'تم تسخين عينة مصل دم تحتوي على أجسام مضادة نوعية ضد بكتيريا إلى درجة ٥٦°م لمدة ٣٠ دقيقة في حمام مائي.',
     questionEn: 'Which antibody mechanism is completely abolished while others remain intact?',
     questionAr: 'ما هي الآلية التي تتوقف تماماً، وما الآليات التي تظل سليمة؟',
     optionsEn: [
       'Lysis via Complements is abolished because complement proteins are heat-labile, while Neutralization and Agglutination persist.',
       'Agglutination is abolished, while complement lysis increases because antibodies denature.',
       'All 5 antibody mechanisms are completely destroyed at 56°C.',
-      'Antitoxin inactivation is abolished, while complement lysis continues normally without proteins.'
+      'Antitoxin inactivation is abolished, while complement lysis continues normally without proteins.',
     ],
     optionsAr: [
       'تتوقف آلية التحلل وإبطال السموم لاعتمادها على المتممات (بروتينات حساسة للحرارة)، بينما يظل التعادل والتلازم سليماً.',
       'يتوقف التلازم ويزداد التحلل بالمتممات لأن الأجسام المضادة تتفكك بالحرارة.',
       'تتدمر جميع آليات الأجسام المضادة الخمسة تماماً عند ٥٦°م.',
-      'يتوقف إبطال السموم بينما يستمر تحلل البكتيريا دون الحاجة لأي بروتينات متممة.'
+      'يتوقف إبطال السموم بينما يستمر تحلل البكتيريا دون الحاجة لأي بروتينات متممة.',
     ],
     correctOptionIndex: 0,
-    scientificExplanationEn: 'Complements are heat-labile enzymatic plasma proteins inactivated at 56°C. Lysis and antitoxin neutralization require active complements to digest bacterial walls and toxins, whereas direct antigen cross-linking (agglutination, neutralization, precipitation) depends solely on stable antibody Fab arms.',
-    scientificExplanationAr: 'المتممات هي بروتينات بلازمية نوعية حساسة للحرارة وتتعطل عند ٥٦°م. آليتا التحلل وإبطال السموم تعتمدان كلياً على نشاط المتممات لتحليل الجدار والسم، بينما يعتمد التعادل والتلازم والترسيب على مواقع الارتباط الثابتة في ذراعي الجسم المضاد.',
+    scientificExplanationEn:
+      'Complements are heat-labile enzymatic plasma proteins inactivated at 56°C. Lysis and antitoxin neutralization require active complements to digest bacterial walls and toxins, whereas direct antigen cross-linking (agglutination, neutralization, precipitation) depends solely on stable antibody Fab arms.',
+    scientificExplanationAr:
+      'المتممات هي بروتينات بلازمية نوعية حساسة للحرارة وتتعطل عند ٥٦°م. آليتا التحلل وإبطال السموم تعتمدان كلياً على نشاط المتممات لتحليل الجدار والسم، بينما يعتمد التعادل والتلازم والترسيب على مواقع الارتباط الثابتة في ذراعي الجسم المضاد.',
   },
   {
     id: 'poe_suppressor_t_failure',
     titleEn: 'Challenge 2: Pathology of Suppressor T Cell (TS) Malfunction',
     titleAr: 'تحدي ٢: ماذا يحدث عند فشل الخلايا التائية المثبطة (TS)؟',
-    scenarioEn: 'Following successful bacterial eradication in a human host, a genetic defect prevents Suppressor T cells (TS / CD8+) from secreting Lymphokines.',
-    scenarioAr: 'بعد القضاء التام على الميكروب في الجسم، أدى خلل وراثي إلى منع الخلايا التائية الكابحة (TS) من إفراز الليمفوكينات.',
+    scenarioEn:
+      'Following successful bacterial eradication in a human host, a genetic defect prevents Suppressor T cells (TS / CD8+) from secreting Lymphokines.',
+    scenarioAr:
+      'بعد القضاء التام على الميكروب في الجسم، أدى خلل وراثي إلى منع الخلايا التائية الكابحة (TS) من إفراز الليمفوكينات.',
     questionEn: 'What is the immediate pathological consequence for the host?',
     questionAr: 'ما هي النتيجة المرضية المباشرة المترتبة على ذلك في الجسم؟',
     optionsEn: [
       'Plasma B cells and Cytotoxic T cells continue unregulated activity, attacking host tissues and causing fatal autoimmune hyper-inflammation.',
       'The immune response stops instantly because Helper T cells take over the suppression role.',
       'Pathogens immediately reinfect the host due to a lack of memory cells.',
-      'Antibody titer drops to absolute zero within 2 minutes.'
+      'Antibody titer drops to absolute zero within 2 minutes.',
     ],
     optionsAr: [
       'تستمر الخلايا البلازمية والتائية السامة في العمل المفرط دون كبح، مما يسبب مهاجمة أنسجة الجسم وحدوث التهابات وأمراض مناعة ذاتية خطيرة.',
       'تتوقف الاستجابة فوراً لأن خلايا TH تتولى وظيفة التثبيط تلقائياً.',
       'يعود الميكروب للانتشار فوراً بسبب غياب خلايا الذاكرة.',
-      'يهبط تركيز الأجسام المضادة إلى الصفر المطلق خلال دقيقتين.'
+      'يهبط تركيز الأجسام المضادة إلى الصفر المطلق خلال دقيقتين.',
     ],
     correctOptionIndex: 0,
-    scientificExplanationEn: 'Suppressor T cells (TS, CD8+) act as the physiological "brakes" of the immune system by secreting Lymphokines, which induce apoptosis in effector plasma cells and cytotoxic T cells, leaving only memory cells. Without TS suppression, chronic autoimmune inflammation and tissue damage ensue.',
-    scientificExplanationAr: 'الخلايا التائية المثبطة (TS) هي صمام الأمان الذي يوقف المعركة المناعية بإفراز الليمفوكينات، التي توقف إنتاج الأجسام المضادة وتسبب موت الكثير من خلايا T و B المنشطة مع الإبقاء على خلايا الذاكرة فقط، وبدونها يهاجم الجهاز المناعي أنسجة الجسم السليمة.',
-  },
-  {
-    id: 'poe_hiv_depletion',
-    titleEn: 'Challenge 3: Immunopathogenesis of HIV Infection',
-    titleAr: 'تحدي ٣: الآلية المرضية لفيروس نقص المناعة البشري (HIV)',
-    scenarioEn: 'Human Immunodeficiency Virus (HIV) specifically infects cells displaying CD4 surface glycoproteins via viral gp120 binding.',
-    scenarioAr: 'يهاجم فيروس نقص المناعة البشري (الإيدز) الخلايا التي تحمل المستقبل الغشائي CD4 على وجه التحديد.',
-    questionEn: 'Why does this cause simultaneous collapse of both humoral and cell-mediated immunity?',
-    questionAr: 'لماذا يؤدي ذلك إلى الشلل التام للمناعتين الخلطية والخلوية معاً في آن واحد؟',
-    optionsEn: [
-      'HIV targets CD4 surface receptors, destroying Helper T cells (TH) which are the master conductors required to activate both B cells (via interleukins) and TC cells (via cytokines).',
-      'HIV only destroys red blood cells, causing severe anemia that blocks circulation of antibodies.',
-      'HIV converts plasma B cells into suppressor T cells, stopping all defenses.',
-      'HIV produces antibodies that bind to human skin, blocking the first line of defense.'
-    ],
-    optionsAr: [
-      'يهاجم الفيروس مستقبلات CD4 فيدمر خلايا TH المساعدة، وهي حجر الزاوية والمنشط الرئيسي للخلايا البائية (بالإنترلوكينات) والخلايا التائية السامة (بالسيتوكينات).',
-      'يهاجم الفيروس كرات الدم الحمراء فقط فيسبب فقر دم يعيق سريان الأجسام المضادة.',
-      'يحول الفيروس الخلايا البائية إلى خلايا مثبطة مما يوقف المناعة.',
-      'ينتج الفيروس أجساماً مضادة تلتصق بالجلد فتعطل خط الدفاع الأول.'
-    ],
-    correctOptionIndex: 0,
-    scientificExplanationEn: 'Helper T cells (CD4+) are the master switch of acquired immunity. Their interleukins stimulate humoral B cell clonal expansion, and their cytokines stimulate cell-mediated cytotoxic T cell and macrophage recruitment. Depleting CD4+ cells disables the entire adaptive immune branch.',
-    scientificExplanationAr: 'خلايا TH المساعدة هي المايسترو المشترك لخط الدفاع الثالث؛ فبدون الإنترلوكينات التي تفرزها تفشل الخلايا البائية في التمايز لخلايا بلازمية، وبدون السيتوكينات تفشل الخلايا التائية السامة وNK والبلعمية في التنشيط، مما يسبب الانهيار التام للمناعة المكتسبة بشقيها.',
+    scientificExplanationEn:
+      'Suppressor T cells (TS, CD8+) act as the physiological "brakes" of the immune system by secreting Lymphokines, which induce apoptosis in effector plasma cells and cytotoxic T cells, leaving only memory cells. Without TS suppression, chronic autoimmune inflammation and tissue damage ensue.',
+    scientificExplanationAr:
+      'الخلايا التائية المثبطة (TS) هي صمام الأمان الذي يوقف المعركة المناعية بإفراز الليمفوكينات، التي توقف إنتاج الأجسام المضادة وتسبب موت الكثير من خلايا T و B المنشطة مع الإبقاء على خلايا الذاكرة فقط، وبدونها يهاجم الجهاز المناعي أنسجة الجسم السليمة.',
   },
 ];
 
@@ -437,19 +653,20 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
     kineticsCondition,
     timeDay,
     pathogenDose,
+    phagocytosisStage = 4,
+    perforinPoreCount = 6,
   } = params;
 
   // Kinetics evaluation over time (Days 0 to 30)
   let abTiter = 0;
   let pathLoad = 0;
-  let helperT = 850; // cells / uL normal baseline
+  let helperT = 850;
   let cytotoxicT = 450;
   let plasmaCells = 0;
   let memoryCells = 50;
   let suppressorT = 100;
 
   if (kineticsCondition === 'immunodeficiency') {
-    // HIV infection state: CD4+ collapses
     helperT = Math.max(20, 150 - timeDay * 4);
     cytotoxicT = Math.max(50, 200 - timeDay * 3);
     plasmaCells = 10;
@@ -458,7 +675,6 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
     abTiter = Math.max(5, 30 - timeDay);
     pathLoad = Math.min(1000, pathogenDose * (1 + timeDay * 0.35));
   } else if (kineticsCondition === 'vaccine_booster') {
-    // Pre-immunized host: memory cells react within 24h
     memoryCells = 500;
     plasmaCells = Math.min(1200, Math.floor(pathogenDose * 12 * Math.exp(-timeDay / 8)));
     abTiter = Math.min(9500, Math.floor(pathogenDose * 90 * (1 - Math.exp(-timeDay / 2)) * Math.exp(-timeDay / 20)));
@@ -466,7 +682,6 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
     helperT = 900;
     cytotoxicT = 520;
   } else if (kineticsCondition === 'primary_only') {
-    // Single primary inoculation at Day 0
     if (timeDay < 4) {
       abTiter = Math.floor(pathogenDose * 0.1 * timeDay);
       pathLoad = Math.floor(pathogenDose * (1 + timeDay * 0.4));
@@ -485,7 +700,7 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
       suppressorT = 350;
     }
   } else {
-    // Standard dual: Primary at Day 0, Booster / Secondary challenge at Day 21
+    // Standard dual
     if (timeDay < 4) {
       abTiter = Math.floor(pathogenDose * 0.1 * timeDay);
       pathLoad = Math.floor(pathogenDose * (1 + timeDay * 0.4));
@@ -532,8 +747,14 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
     neutralizationPct = 85.0;
   }
 
-  // ELISA OD450 calculation via Beer-Lambert
   const elisaOD450 = parseFloat((0.05 + Math.min(2.85, (abTiter / 3000) * 2.5)).toFixed(3));
+
+  // Phagocytosis Studio Derived Metrics
+  const phagosomeHydrolysis = Math.min(100, Math.max(0, (phagocytosisStage - 1) * 25));
+  const mhcDensity = phagocytosisStage >= 3 ? Math.min(100, (phagocytosisStage - 2) * 33) : 5;
+  const interleukinPg = phagocytosisStage >= 5 ? 380 : phagocytosisStage === 4 ? 140 : 20;
+  const perforinDensity = (perforinPoreCount / 10) * 100;
+  const lymphotoxinApopt = Math.min(99, perforinPoreCount * 9 + 25);
 
   return {
     antibodyTiter: abTiter,
@@ -546,6 +767,11 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
     elisaOD450,
     lysisRatePct,
     neutralizationPct,
+    phagosomeHydrolysisPct: phagosomeHydrolysis,
+    mhcPresentationDensity: mhcDensity,
+    perforinPoreDensity: perforinDensity,
+    lymphotoxinApoptosisPct: lymphotoxinApopt,
+    interleukinConcentrationPg: interleukinPg,
   };
 }
 
@@ -553,17 +779,27 @@ export function computeImmunitySimState(params: ImmunityParams): ImmunitySimStat
 export const IMMUNITY_LAB_DEF: LabDefinition<ImmunityParams, ImmunitySimState> = {
   id: 'immunity_kinetics_lab',
   subject: 'biology',
-  chapterRef: 'Chapter 4',
-  titleEn: 'Immunology, Dual Cascades & Antigen-Antibody Kinetics Lab',
-  titleAr: 'مختبر المناعة والشلالات المناعية وحركية الأجسام المضادة',
-  subtitleEn: 'Comprehensive simulation of Humoral/Cellular cascades, 5 antibody mechanisms, and primary/secondary kinetics',
-  subtitleAr: 'محاكاة شاملة للمناعة الخلطية والخلوية وطرق عمل الأجسام المضادة ومنحنيات الذاكرة المناعية',
+  chapterRef: 'Chapter 4: Immunity in Living Organisms (المناعة في الكائنات الحية)',
+  titleEn: 'Immunology, Dual Cascades & Cellular Phagocytosis Studio',
+  titleAr: 'مختبر المناعة والشلالات المناعية واستوديو البلعمة الخلوية',
+  subtitleEn:
+    'Comprehensive simulation of Humoral/Cellular cascades, Macrophage Phagocytosis & MHC-II, CD8+ Perforin Lysis, and 5 Antibody Mechanisms',
+  subtitleAr:
+    'محاكاة شاملة للمناعة الخلطية والخلوية، بلعمة الميكروبات وعرض بروتين MHC-II، ثقوب البيرفورين القاتلة، وطرق عمل الأجسام المضادة',
+  taglineEn: 'Tier-1 High-Fidelity Immunology & Cytodynamics Studio',
+  taglineAr: 'المختبر المناعي التفاعلي المتقدم وفق منهج الثانوية العامة',
   objectives: [
     {
       id: 'obj-humoral',
       textEn: 'Understand macrophage antigen presentation on MHC-II and CD4+ TH stimulation of B cells to secrete specific antibodies.',
       textAr: 'استيعاب عرض الأنتيجين على بروتين التوافق النسيجي MHC-II وتنشيط الخلايا البائية بالإنترلوكينات لإنتاج الأجسام المضادة.',
       bloomLevel: 'understand',
+    },
+    {
+      id: 'obj-phagocytosis',
+      textEn: 'Analyze sequential phagocytic stages: pseudopodia engulfment, lysosome fusion, enzymatic digestion, and MHC-II surface presentation.',
+      textAr: 'تحليل مراحل البلعمة المتتابعة: مد الأقدام الكاذبة، اندماج الليسوسومات، التحلل الإنزيمي، وعرض الأنتيجين على MHC-II.',
+      bloomLevel: 'analyze',
     },
     {
       id: 'obj-cellular',
@@ -594,6 +830,22 @@ export const IMMUNITY_LAB_DEF: LabDefinition<ImmunityParams, ImmunitySimState> =
       descriptionAr: 'ارتباط الأجسام المضادة ينشط البروتينات المتممة لتكوين ثقوب غشائية تسبب تدفق الماء وانفجار الميكروب.',
     },
     {
+      id: 'eq-mhc-presentation',
+      labelEn: 'Antigen Processing & MHC-II Presentation',
+      labelAr: 'معالجة الأنتيجين وعرضه على MHC-II',
+      tex: '\\text{Antigen} + \\text{Lysozymes} \\to \\text{Peptides} \\xrightarrow{\\text{MHC-II}} \\text{Surface [MHC-II / Ag] Complex}',
+      descriptionEn: 'Lysosomal lysozymes digest engulfed microbes; fragments complex with MHC-II for presentation to CD4+ TH.',
+      descriptionAr: 'إنزيمات الليسوسومات تفتت الميكروب، وترتبط الشظايا ببروتين MHC-II لتبرز على الغشاء للخلية التائية المساعدة.',
+    },
+    {
+      id: 'eq-perforin-pore',
+      labelEn: 'Cytotoxic T-Cell Perforin Pore Formation',
+      labelAr: 'ثقب الغشاء الخلوي بواسطة بروتين البيرفورين',
+      tex: '\\text{Perforin} + \\text{Target Bilayer} \\xrightarrow{\\text{Ca}^{2+}} \\text{Cylindrical Pores} \\implies \\text{Osmotic Lysis}',
+      descriptionEn: 'CD8+ TC secretes perforin monomers that polymerize in target cell membrane forming pore channels.',
+      descriptionAr: 'تفرز خلايا TC بروتين البيرفورين الذي يتبلمر في غشاء الخلية المصابة مشكلاً ثقوباً أسطوانية تؤدي إلى تحللها مائياً.',
+    },
+    {
       id: 'eq-elisa',
       labelEn: 'ELISA Microplate Optical Density (Beer-Lambert)',
       labelAr: 'قراءة قياس الامتصاص الضوئي للإليزا',
@@ -615,12 +867,12 @@ export const IMMUNITY_LAB_DEF: LabDefinition<ImmunityParams, ImmunitySimState> =
   presets: IMMUNITY_PRESETS,
   poePrompts: IMMUNITY_POE_PROMPTS,
   notebookConfig: {
-    xLabelEn: 'Timeline (Days)',
-    xLabelAr: 'الزمن (أيام)',
-    xUnit: 'days',
-    yLabelEn: 'Antibody Titer / Pathogen Load',
-    yLabelAr: 'عيار الأجسام المضادة / الحمل الميكروبي',
-    yUnit: 'AU',
+    xLabelEn: 'Timeline / Stage',
+    xLabelAr: 'الزمن / المرحلة',
+    xUnit: 'days/step',
+    yLabelEn: 'Antibody Titer / Phagocytosis Activity',
+    yLabelAr: 'عيار الأجسام المضادة / نشاط البلعمة',
+    yUnit: 'AU / %',
   },
 };
 
@@ -645,8 +897,96 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
     return ANTIBODY_PARTS.find((p) => p.id === params.selectedPartId) || ANTIBODY_PARTS[0];
   }, [params.selectedPartId]);
 
+  const currentPhagStage = useMemo(() => {
+    const s = Math.min(5, Math.max(0, params.phagocytosisStage ?? 4));
+    return PHAGOCYTOSIS_STAGES[s] || PHAGOCYTOSIS_STAGES[4];
+  }, [params.phagocytosisStage]);
+
   // Telemetry Metrics
   const telemetry = useMemo<LabTelemetryMetric[]>(() => {
+    if (params.subTab === 'phagocytosis_studio') {
+      if (params.cellularStudioMode === 'macrophage_phagocytosis') {
+        return [
+          {
+            id: 'hydrolysis_rate',
+            labelEn: 'Lysosome Digestion',
+            labelAr: 'تفكيك الليسوسومات',
+            value: simState.phagosomeHydrolysisPct,
+            unit: '%',
+            precision: 0,
+            status: simState.phagosomeHydrolysisPct > 50 ? 'optimal' : 'normal',
+          },
+          {
+            id: 'mhc_density',
+            labelEn: 'MHC-II Display',
+            labelAr: 'عرض معقد MHC-II',
+            value: simState.mhcPresentationDensity,
+            unit: '%',
+            precision: 0,
+            status: simState.mhcPresentationDensity > 60 ? 'optimal' : 'normal',
+          },
+          {
+            id: 'interleukin_conc',
+            labelEn: 'Interleukin Secretion',
+            labelAr: 'إفراز الإنترلوكينات',
+            value: simState.interleukinConcentrationPg,
+            unit: ' pg/mL',
+            precision: 0,
+            status: simState.interleukinConcentrationPg > 100 ? 'optimal' : 'normal',
+          },
+          {
+            id: 'cd4_th_status',
+            labelEn: 'CD4+ TH Count',
+            labelAr: 'تعداد خلايا TH',
+            value: simState.helperTCount,
+            unit: ' /µL',
+            precision: 0,
+            status: 'optimal',
+          },
+        ];
+      }
+
+      // Cytotoxic TC mode
+      return [
+        {
+          id: 'perforin_pores',
+          labelEn: 'Perforin Pores Formed',
+          labelAr: 'ثقوب البيرفورين',
+          value: params.perforinPoreCount,
+          unit: ' pores',
+          precision: 0,
+          status: params.perforinPoreCount > 5 ? 'optimal' : 'normal',
+        },
+        {
+          id: 'osmotic_lysis',
+          labelEn: 'Osmotic Lysis Influx',
+          labelAr: 'كفاءة التدفق والتحلل',
+          value: simState.perforinPoreDensity,
+          unit: '%',
+          precision: 0,
+          status: simState.perforinPoreDensity > 50 ? 'optimal' : 'normal',
+        },
+        {
+          id: 'lymphotoxin_apoptosis',
+          labelEn: 'Nuclear Apoptosis',
+          labelAr: 'الموت المبرمج بالسموم',
+          value: simState.lymphotoxinApoptosisPct,
+          unit: '%',
+          precision: 0,
+          status: simState.lymphotoxinApoptosisPct > 70 ? 'optimal' : 'warning',
+        },
+        {
+          id: 'cd8_tc_count',
+          labelEn: 'CD8+ TC Count',
+          labelAr: 'تعداد خلايا TC',
+          value: simState.cytotoxicTCount,
+          unit: ' /µL',
+          precision: 0,
+          status: 'optimal',
+        },
+      ];
+    }
+
     return [
       {
         id: 'ab_titer',
@@ -694,45 +1034,57 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         status: params.complementsActive ? 'optimal' : 'alert',
       },
     ];
-  }, [simState, params.complementsActive]);
+  }, [simState, params.subTab, params.cellularStudioMode, params.perforinPoreCount, params.complementsActive]);
 
   // Digital Multimeter / Cytometer Telemetry
-  const multimeterReading: DMMReading = useMemo(() => ({
-    mode: 'DCV',
-    value: simState.antibodyTiter,
-    displayString: `${simState.antibodyTiter} AU`,
-    secondaryString: `CD4+ TH: ${simState.helperTCount} | CD8+ TC: ${simState.cytotoxicTCount} | Plasma B: ${simState.plasmaCellCount} | Memory: ${simState.memoryCellCount}`,
-    unit: 'AU',
-    voltageDC: simState.helperTCount,
-    voltageAC: simState.cytotoxicTCount,
-    currentDC: simState.plasmaCellCount,
-    resistance: simState.memoryCellCount,
-    continuityBeep: params.complementsActive,
-    isOverload: simState.pathogenLoad > 500,
-  }), [simState, params.complementsActive]);
+  const multimeterReading: DMMReading = useMemo(
+    () => ({
+      mode: 'DCV',
+      value: params.subTab === 'phagocytosis_studio' ? simState.interleukinConcentrationPg : simState.antibodyTiter,
+      displayString:
+        params.subTab === 'phagocytosis_studio'
+          ? `${simState.interleukinConcentrationPg} pg/mL (IL)`
+          : `${simState.antibodyTiter} AU`,
+      secondaryString: `CD4+ TH: ${simState.helperTCount} | CD8+ TC: ${simState.cytotoxicTCount} | Plasma B: ${simState.plasmaCellCount} | Memory: ${simState.memoryCellCount}`,
+      unit: params.subTab === 'phagocytosis_studio' ? 'pg/mL' : 'AU',
+      voltageDC: simState.helperTCount,
+      voltageAC: simState.cytotoxicTCount,
+      currentDC: simState.plasmaCellCount,
+      resistance: simState.memoryCellCount,
+      continuityBeep: params.complementsActive,
+      isOverload: simState.pathogenLoad > 500,
+    }),
+    [simState, params.subTab, params.complementsActive]
+  );
 
   // Dual-Trace Oscilloscope
-  const oscilloscopeCh1: WaveformSignal = useMemo(() => ({
-    id: 'trace_ab_kinetics',
-    label: isArabic ? 'عيار الأجسام المضادة (Ab Titer)' : 'Serum Antibody Titer',
-    color: '#38bdf8',
-    amplitude: Math.min(10, Math.max(0.5, (simState.antibodyTiter / 8000) * 10)),
-    frequency: 1.0,
-    phase: 0,
-    phaseDeg: 0,
-    type: 'sine',
-  }), [simState.antibodyTiter, isArabic]);
+  const oscilloscopeCh1: WaveformSignal = useMemo(
+    () => ({
+      id: 'trace_ab_kinetics',
+      label: isArabic ? 'عيار الأجسام المضادة (Ab Titer)' : 'Serum Antibody Titer',
+      color: '#38bdf8',
+      amplitude: Math.min(10, Math.max(0.5, (simState.antibodyTiter / 8000) * 10)),
+      frequency: 1.0,
+      phase: 0,
+      phaseDeg: 0,
+      type: 'sine',
+    }),
+    [simState.antibodyTiter, isArabic]
+  );
 
-  const oscilloscopeCh2: WaveformSignal = useMemo(() => ({
-    id: 'trace_pathogen_clearance',
-    label: isArabic ? 'الحمل الميكروبي (Pathogen Load)' : 'Pathogen Antigen Curve',
-    color: '#f43f5e',
-    amplitude: Math.min(10, Math.max(0.2, (simState.pathogenLoad / 500) * 10)),
-    frequency: 1.5,
-    phase: Math.PI / 2,
-    phaseDeg: 90,
-    type: 'triangle',
-  }), [simState.pathogenLoad, isArabic]);
+  const oscilloscopeCh2: WaveformSignal = useMemo(
+    () => ({
+      id: 'trace_pathogen_clearance',
+      label: isArabic ? 'الحمل الميكروبي (Pathogen Load)' : 'Pathogen Antigen Curve',
+      color: '#f43f5e',
+      amplitude: Math.min(10, Math.max(0.2, (simState.pathogenLoad / 500) * 10)),
+      frequency: 1.5,
+      phase: Math.PI / 2,
+      phaseDeg: 90,
+      type: 'triangle',
+    }),
+    [simState.pathogenLoad, isArabic]
+  );
 
   // Canvas Renderer
   const renderSimulation = useCallback(
@@ -741,9 +1093,11 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       width: number,
       height: number,
       _viewport: LabViewportState,
-      _dpr: number
+      _dpr: number,
+      time?: number
     ) => {
       ctx.clearRect(0, 0, width, height);
+      const t = (time ?? performance.now()) * 0.001;
 
       // Background gradient
       const bgGrad = ctx.createLinearGradient(0, 0, width, height);
@@ -774,15 +1128,328 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.stroke();
       }
 
-      const { subTab, pathway, cascadeStep, antibodyAction, complementsActive, timeDay } = params;
+      const { subTab, pathway, cascadeStep, antibodyAction, complementsActive, timeDay, phagocytosisStage, cellularStudioMode, perforinPoreCount } = params;
 
-      if (subTab === 'humoral_cellular') {
-        // Mode A: Dual Cascades
+      // ---------------------------------------------------------
+      // MODULE 2: PHAGOCYTOSIS & PERFORIN STUDIO
+      // ---------------------------------------------------------
+      if (subTab === 'phagocytosis_studio') {
+        const stage = Math.min(5, Math.max(0, phagocytosisStage ?? 4));
+
+        if (cellularStudioMode === 'macrophage_phagocytosis') {
+          // Macrophage Phagocytosis & MHC-II Presentation
+          const macCenterX = width < 768 ? width / 2 : width * 0.4;
+          const macCenterY = height / 2 + 10;
+          const baseR = 95;
+
+          // Animated undulating pseudopodia contour
+          ctx.save();
+          ctx.beginPath();
+          const vertexCount = 48;
+          for (let i = 0; i <= vertexCount; i++) {
+            const angle = (i / vertexCount) * Math.PI * 2;
+            let rMod = baseR + Math.sin(angle * 4 + t * 2.5) * 12 + Math.cos(angle * 6 - t * 1.8) * 8;
+
+            // Extra pseudopod extension reaching towards bacterium (angle around 0 rad / right side)
+            if (stage === 0 || stage === 1) {
+              const reach = Math.exp(-Math.pow(angle, 2) / 0.5) * (stage === 0 ? 35 : 45);
+              rMod += reach;
+            }
+
+            const vx = macCenterX + Math.cos(angle) * rMod;
+            const vy = macCenterY + Math.sin(angle) * rMod;
+            if (i === 0) ctx.moveTo(vx, vy);
+            else ctx.lineTo(vx, vy);
+          }
+          ctx.closePath();
+
+          // Macrophage cytoplasm styling
+          const macGrad = ctx.createRadialGradient(macCenterX, macCenterY, 20, macCenterX, macCenterY, baseR + 25);
+          macGrad.addColorStop(0, isLight ? 'rgba(147, 197, 253, 0.4)' : 'rgba(30, 58, 138, 0.5)');
+          macGrad.addColorStop(1, isLight ? 'rgba(59, 130, 246, 0.2)' : 'rgba(29, 78, 216, 0.25)');
+          ctx.fillStyle = macGrad;
+          ctx.fill();
+
+          ctx.strokeStyle = '#38bdf8';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+          ctx.restore();
+
+          // Macrophage Indented Kidney Nucleus
+          ctx.fillStyle = isLight ? '#1d4ed8' : '#1e40af';
+          ctx.beginPath();
+          ctx.ellipse(macCenterX - 25, macCenterY + 15, 34, 24, -Math.PI / 6, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 10px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(isArabic ? 'نواة كلوية' : 'Nucleus', macCenterX - 25, macCenterY + 18);
+
+          // Multiple Lysosomes in cytoplasm
+          const lysosomePositions = [
+            { x: macCenterX - 45, y: macCenterY - 35 },
+            { x: macCenterX + 10, y: macCenterY - 50 },
+            { x: macCenterX - 15, y: macCenterY + 55 },
+            { x: macCenterX + 35, y: macCenterY + 40 },
+          ];
+
+          lysosomePositions.forEach((pos, idx) => {
+            const orbitOffset = Math.sin(t * 3 + idx) * 3;
+            drawGlowingParticle(ctx, pos.x, pos.y + orbitOffset, 8, '#f59e0b', 6);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 8px sans-serif';
+            ctx.fillText('Lys', pos.x, pos.y + orbitOffset + 3);
+          });
+
+          // Stage 0 & 1: Extracellular or Ingested Bacterium
+          if (stage === 0) {
+            // Free bacterium outside
+            const bacX = macCenterX + baseR + 55;
+            const bacY = macCenterY;
+            ctx.fillStyle = '#22c55e';
+            ctx.strokeStyle = '#15803d';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(bacX - 22, bacY - 12, 44, 24, 10);
+            ctx.fill();
+            ctx.stroke();
+
+            // Flagella
+            ctx.strokeStyle = '#86efac';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(bacX + 22, bacY);
+            ctx.quadraticCurveTo(bacX + 38, bacY - 10, bacX + 50, bacY);
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.fillText(isArabic ? 'ميكروب غازٍ' : 'Bacterium', bacX, bacY + 3);
+          } else if (stage === 1) {
+            // Engulfed into internal phagosome
+            const phagX = macCenterX + 45;
+            const phagY = macCenterY - 10;
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.2)';
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(phagX, phagY, 26, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = '#22c55e';
+            ctx.beginPath();
+            ctx.roundRect(phagX - 16, phagY - 8, 32, 16, 8);
+            ctx.fill();
+          } else if (stage === 2) {
+            // Lysosome fusion & enzymatic digestion
+            const phagX = macCenterX + 40;
+            const phagY = macCenterY - 10;
+            ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.arc(phagX, phagY, 30, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Digested red peptide dots
+            for (let p = 0; p < 7; p++) {
+              const px = phagX + Math.sin(p * 1.3 + t * 4) * 14;
+              const py = phagY + Math.cos(p * 1.7 + t * 4) * 14;
+              drawGlowingParticle(ctx, px, py, 3.5, '#ef4444', 6);
+            }
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 9px monospace';
+            ctx.fillText('HYDROLYSIS', phagX, phagY + 4);
+          } else if (stage >= 3) {
+            // MHC-II loaded complexes on membrane surface
+            const mhcCount = 3;
+            for (let m = 0; m < mhcCount; m++) {
+              const mAngle = -Math.PI / 4 + (m * Math.PI) / 4;
+              const mx = macCenterX + Math.cos(mAngle) * baseR;
+              const my = macCenterY + Math.sin(mAngle) * baseR;
+
+              // Dual-prong MHC-II stalk
+              ctx.strokeStyle = '#eab308';
+              ctx.lineWidth = 3.5;
+              ctx.beginPath();
+              ctx.moveTo(mx, my);
+              ctx.lineTo(mx + Math.cos(mAngle) * 18, my + Math.sin(mAngle) * 18);
+              ctx.stroke();
+
+              // Antigen peptide in cleft
+              const tipX = mx + Math.cos(mAngle) * 22;
+              const tipY = my + Math.sin(mAngle) * 22;
+              drawGlowingParticle(ctx, tipX, tipY, 4, '#ef4444', 8);
+            }
+
+            // Stage 4 & 5: CD4+ Helper T-cell docked
+            if (stage >= 4) {
+              const thX = macCenterX + baseR + 85;
+              const thY = macCenterY - 15;
+              const thR = 55;
+
+              ctx.fillStyle = isLight ? 'rgba(16, 185, 129, 0.3)' : 'rgba(5, 150, 105, 0.4)';
+              ctx.strokeStyle = '#10b981';
+              ctx.lineWidth = 3;
+              ctx.beginPath();
+              ctx.arc(thX, thY, thR, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.stroke();
+
+              // CD4 Coreceptor probe
+              ctx.strokeStyle = '#059669';
+              ctx.lineWidth = 4;
+              ctx.beginPath();
+              ctx.moveTo(thX - thR, thY);
+              ctx.lineTo(macCenterX + baseR + 25, macCenterY);
+              ctx.stroke();
+
+              // Signal transduction burst at synapse
+              drawGlowingParticle(ctx, macCenterX + baseR + 25, macCenterY, 9, '#34d399', 12);
+
+              ctx.fillStyle = '#ffffff';
+              ctx.font = 'bold 11px sans-serif';
+              ctx.fillText(isArabic ? 'تائية مساعدة (TH)' : 'Helper T (TH)', thX, thY + 4);
+
+              // Stage 5: Interleukin clouds released
+              if (stage === 5) {
+                for (let il = 0; il < 6; il++) {
+                  const ilProg = (t * 1.5 + il * 0.16) % 1;
+                  const ilx = thX + 25 + ilProg * 80;
+                  const ily = thY - 30 + Math.sin(il * 2 + t * 4) * 16;
+                  drawGlowingParticle(ctx, ilx, ily, 3.5, '#38bdf8', 6);
+                }
+
+                ctx.fillStyle = '#38bdf8';
+                ctx.font = 'bold 10px monospace';
+                ctx.fillText('INTERLEUKINS (IL-1, IL-2)', thX + 65, thY - 45);
+              }
+            }
+          }
+
+          // Educational Banner at top of canvas
+          ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+          ctx.font = 'bold 13px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(
+            isArabic ? currentPhagStage.nameAr : currentPhagStage.nameEn,
+            width / 2,
+            30
+          );
+        } else {
+          // Cellular Studio Mode B: TC Perforin Pores & Lymphotoxin Apoptosis
+          const tcX = width < 768 ? width * 0.28 : width * 0.32;
+          const tcY = height / 2;
+          const tcR = 65;
+
+          const targetX = width < 768 ? width * 0.72 : width * 0.68;
+          const targetY = height / 2;
+          const targetR = 75;
+
+          // 1. Cytotoxic T Cell (TC - CD8+)
+          ctx.fillStyle = isLight ? 'rgba(239, 68, 68, 0.25)' : 'rgba(185, 28, 28, 0.4)';
+          ctx.strokeStyle = '#ef4444';
+          ctx.lineWidth = 3.5;
+          ctx.beginPath();
+          ctx.arc(tcX, tcY, tcR, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 12px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(isArabic ? 'خلية تائية سامة (TC)' : 'Cytotoxic T (TC - CD8+)', tcX, tcY - 8);
+
+          // CD8 Receptor probe
+          ctx.fillStyle = '#b91c1c';
+          ctx.fillRect(tcX + tcR - 4, tcY - 8, 14, 16);
+
+          // 2. Target Infected / Cancerous Cell
+          ctx.save();
+          ctx.fillStyle = isLight ? 'rgba(100, 116, 139, 0.3)' : 'rgba(51, 65, 85, 0.5)';
+          ctx.strokeStyle = '#f43f5e';
+          ctx.lineWidth = 3;
+          ctx.setLineDash([4, 4]);
+          ctx.beginPath();
+          ctx.arc(targetX, targetY, targetR, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+
+          // Target Cell Nucleus with Apoptotic Condensation
+          ctx.fillStyle = '#475569';
+          ctx.beginPath();
+          ctx.arc(targetX, targetY, targetR * 0.4, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = '#f87171';
+          ctx.font = 'bold 11px sans-serif';
+          ctx.fillText(
+            isArabic ? 'خلية مصابة (موت مبرمج)' : 'Infected Cell (Apoptosis)',
+            targetX,
+            targetY + 4
+          );
+
+          // Perforin Pores along target cell contact membrane
+          const poreCount = Math.min(10, Math.max(1, perforinPoreCount ?? 6));
+          const synapseAngleStart = Math.PI - 0.65;
+          const synapseAngleEnd = Math.PI + 0.65;
+
+          for (let p = 0; p < poreCount; p++) {
+            const frac = p / Math.max(1, poreCount - 1);
+            const pAngle = synapseAngleStart + frac * (synapseAngleEnd - synapseAngleStart);
+            const px = targetX + Math.cos(pAngle) * targetR;
+            const py = targetY + Math.sin(pAngle) * targetR;
+
+            // Perforin pore channel (open ring)
+            ctx.fillStyle = '#e11d48';
+            ctx.beginPath();
+            ctx.arc(px, py, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Rushing water influx
+            const waveX = px + Math.cos(pAngle + Math.PI) * 12;
+            const waveY = py + Math.sin(pAngle + Math.PI) * 12;
+            drawGlowingParticle(ctx, waveX, waveY, 2.5, '#38bdf8', 4);
+          }
+
+          // Perforin Stream from TC to Target
+          drawVolumetricBeam(ctx, tcX + tcR + 5, tcY, targetX - targetR - 5, tcY, '#ef4444', 2, 8, t * 3);
+
+          // Lymphotoxin particles diffusing into nucleus
+          for (let ly = 0; ly < 4; ly++) {
+            const lyFrac = (t * 1.2 + ly * 0.25) % 1;
+            const lx = targetX - targetR * 0.7 + lyFrac * (targetR * 0.7);
+            const lyPos = targetY + Math.sin(ly * 2 + t * 4) * 8;
+            drawGlowingParticle(ctx, lx, lyPos, 3, '#a855f7', 6);
+          }
+
+          // Titles and badges
+          ctx.fillStyle = '#ef4444';
+          ctx.font = 'bold 13px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(
+            isArabic
+              ? `🗡️ إفراز البيرفورين (${poreCount} ثقوب) وتدفق الماء + السموم الليمفاوية المحفزة لتفتيت النواة`
+              : `🗡️ Perforin (${poreCount} Pores) Osmotic Influx + Lymphotoxin Apoptotic Gene Trigger`,
+            width / 2,
+            30
+          );
+        }
+      }
+
+      // ---------------------------------------------------------
+      // MODULE 1: DUAL CASCADES (HUMORAL & CELLULAR)
+      // ---------------------------------------------------------
+      else if (subTab === 'humoral_cellular') {
         const centerX = width / 2;
         const centerY = height / 2;
 
-        // Title
-        ctx.font = 'bold 16px sans-serif';
+        ctx.font = 'bold 15px sans-serif';
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.textAlign = 'center';
         ctx.fillText(
@@ -797,13 +1464,12 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           32
         );
 
-        // Stage Actors
-        // 1. Macrophage (Left)
+        // Actors
         const macX = width * 0.2;
         const macY = centerY;
         const macRadius = Math.min(width, height) * 0.11;
 
-        // Macrophage body with pseudopodia
+        // Macrophage body
         ctx.beginPath();
         ctx.fillStyle = isLight ? 'rgba(59, 130, 246, 0.2)' : 'rgba(37, 99, 235, 0.35)';
         ctx.strokeStyle = '#3b82f6';
@@ -812,16 +1478,14 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fill();
         ctx.stroke();
 
-        // Macrophage Nucleus
         ctx.beginPath();
         ctx.fillStyle = '#1d4ed8';
         ctx.arc(macX - 10, macY + 5, macRadius * 0.4, 0, Math.PI * 2);
         ctx.fill();
 
-        // MHC-II Presentation Complex on membrane
+        // MHC-II Presentation Complex
         ctx.fillStyle = '#eab308';
         ctx.fillRect(macX + macRadius - 6, macY - 14, 16, 28);
-        // Antigen fragment in cleft
         ctx.fillStyle = '#ef4444';
         ctx.beginPath();
         ctx.arc(macX + macRadius + 14, macY, 6, 0, Math.PI * 2);
@@ -831,7 +1495,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fillStyle = isLight ? '#1e293b' : '#93c5fd';
         ctx.fillText(isArabic ? 'بلعمية كبيرة (Macrophage)' : 'Macrophage (MHC-II)', macX, macY + macRadius + 22);
 
-        // 2. Helper T Cell (Center)
+        // Helper T Cell
         const thX = width * 0.5;
         const thY = centerY - 30;
         const thRadius = macRadius * 0.75;
@@ -844,7 +1508,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fill();
         ctx.stroke();
 
-        // CD4 Receptor
         ctx.fillStyle = '#059669';
         ctx.fillRect(thX - thRadius - 12, thY - 6, 14, 12);
 
@@ -852,7 +1515,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fillStyle = isLight ? '#065f46' : '#6ee7b7';
         ctx.fillText(isArabic ? 'خلية تائية مساعدة (TH - CD4)' : 'Helper T (TH - CD4+)', thX, thY + thRadius + 20);
 
-        // Connector Arrow & Molecules from Macrophage to TH
         ctx.strokeStyle = '#eab308';
         ctx.lineWidth = 2;
         ctx.setLineDash([4, 4]);
@@ -862,13 +1524,12 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.stroke();
         ctx.setLineDash([]);
 
-        // Signaling chemical badge
         ctx.font = '10px sans-serif';
         ctx.fillStyle = '#eab308';
         ctx.fillText(isArabic ? 'ارتباط الأنتيجين بـ CD4' : 'MHC-II / CD4 Docking', (macX + thX) / 2 + 10, centerY - 25);
 
         if (pathway === 'humoral') {
-          // Humoral Branch: Interleukins to B Cells & Plasma Cells
+          // Humoral
           ctx.fillStyle = '#38bdf8';
           for (let i = 0; i < 5; i++) {
             ctx.beginPath();
@@ -878,7 +1539,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.font = '11px sans-serif';
           ctx.fillText(isArabic ? 'إنترلوكينات (Interleukins)' : 'Interleukins', thX + 75, thY - 14);
 
-          // 3. Plasma B Cell (Right Top)
           const plX = width * 0.8;
           const plY = centerY - 50;
           const plRadius = thRadius * 1.1;
@@ -895,7 +1555,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = isLight ? '#581c87' : '#d8b4fe';
           ctx.fillText(isArabic ? 'خلية بائية بلازمية (Plasma B)' : 'Plasma B Cell', plX, plY + plRadius + 18);
 
-          // Secreted Y-shaped antibodies flying out
           ctx.strokeStyle = '#38bdf8';
           ctx.lineWidth = 2.5;
           for (let j = 0; j < 3; j++) {
@@ -912,7 +1571,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             }
           }
 
-          // 4. Memory B Cell (Right Bottom)
           const memX = width * 0.8;
           const memY = centerY + 85;
           const memRadius = thRadius * 0.7;
@@ -929,7 +1587,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = isLight ? '#831843' : '#f472b6';
           ctx.fillText(isArabic ? 'خلية بائية ذاكرة (20-30 سنة)' : 'Memory B (20-30 yr)', memX, memY + memRadius + 16);
         } else {
-          // Cellular Branch: Cytokines to Cytotoxic T Cells (TC)
+          // Cellular
           ctx.fillStyle = '#f59e0b';
           for (let i = 0; i < 5; i++) {
             ctx.beginPath();
@@ -939,7 +1597,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.font = '11px sans-serif';
           ctx.fillText(isArabic ? 'سيتوكينات (Cytokines)' : 'Cytokines', thX + 75, thY - 14);
 
-          // 3. Cytotoxic T Cell (TC - CD8)
           const tcX = width * 0.78;
           const tcY = centerY - 45;
           const tcRadius = thRadius;
@@ -956,12 +1613,10 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = isLight ? '#7f1d1d' : '#fca5a5';
           ctx.fillText(isArabic ? 'خلية تائية سامة (TC - CD8)' : 'Cytotoxic T (TC - CD8)', tcX, tcY + tcRadius + 18);
 
-          // Perforin & Lymphotoxin secretion
           ctx.fillStyle = '#ef4444';
           ctx.font = '10px sans-serif';
           ctx.fillText(isArabic ? 'بيرفورين (ثقوب) + سموم ليمفاوية' : 'Perforin (Pores) + Lymphotoxins', tcX, tcY - tcRadius - 10);
 
-          // Target Infected / Cancer Cell under attack
           const tgtX = width * 0.88;
           const tgtY = centerY + 70;
           const tgtRadius = tcRadius * 0.9;
@@ -981,7 +1636,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillText(isArabic ? 'خلية مصابة/سرطانية (موت مبرمج)' : 'Infected Cell (Apoptosis)', tgtX, tgtY + tgtRadius + 16);
         }
 
-        // 5. Suppressor T Cell (TS) Homeostasis Banner at Bottom
         if (cascadeStep >= 5) {
           ctx.fillStyle = isLight ? 'rgba(147, 51, 234, 0.1)' : 'rgba(147, 51, 234, 0.25)';
           ctx.fillRect(width * 0.1, height - 60, width * 0.8, 42);
@@ -999,12 +1653,16 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             height - 35
           );
         }
-      } else if (subTab === 'antibody_actions') {
-        // Mode B: 5 Antibody Mechanisms
+      }
+
+      // ---------------------------------------------------------
+      // MODULE 3: ANTIBODY ACTIONS
+      // ---------------------------------------------------------
+      else if (subTab === 'antibody_actions') {
         const centerX = width / 2;
         const centerY = height / 2;
 
-        ctx.font = 'bold 16px sans-serif';
+        ctx.font = 'bold 15px sans-serif';
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.textAlign = 'center';
 
@@ -1027,18 +1685,15 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fillText(isArabic ? actionTitlesAr[antibodyAction] : actionTitlesEn[antibodyAction], centerX, 35);
 
         if (antibodyAction === 'neutralization') {
-          // Central spherical virus coated with antibodies
           const vX = centerX - 60;
           const vY = centerY;
           const vRadius = 45;
 
-          // Viral capsid
           ctx.beginPath();
           ctx.fillStyle = '#ef4444';
           ctx.arc(vX, vY, vRadius, 0, Math.PI * 2);
           ctx.fill();
 
-          // Viral spikes
           for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
             const sx = vX + Math.cos(a) * (vRadius + 14);
             const sy = vY + Math.sin(a) * (vRadius + 14);
@@ -1049,7 +1704,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             ctx.lineTo(sx, sy);
             ctx.stroke();
 
-            // Surrounding Y-antibody neutralizing the spike
             ctx.strokeStyle = '#38bdf8';
             ctx.lineWidth = 2.5;
             ctx.beginPath();
@@ -1058,7 +1712,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             ctx.stroke();
           }
 
-          // Protected Host Cell on right
           const hX = centerX + 120;
           const hY = centerY;
           ctx.fillStyle = isLight ? 'rgba(16, 185, 129, 0.15)' : 'rgba(5, 150, 105, 0.25)';
@@ -1073,7 +1726,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = '#10b981';
           ctx.fillText(isArabic ? 'خلية العائل سليمة (محمية من الاختراق)' : 'Protected Host Cell (Entry Blocked)', hX, hY);
         } else if (antibodyAction === 'agglutination') {
-          // Pentameric IgM in center with 5 arms holding bacteria
           const mX = centerX;
           const mY = centerY;
 
@@ -1084,19 +1736,16 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             const armEndX = mX + Math.cos(angle) * 75;
             const armEndY = mY + Math.sin(angle) * 75;
 
-            // J-chain center
             ctx.beginPath();
             ctx.arc(mX, mY, 14, 0, Math.PI * 2);
             ctx.fillStyle = '#0284c7';
             ctx.fill();
 
-            // Radial arm
             ctx.beginPath();
             ctx.moveTo(mX, mY);
             ctx.lineTo(armEndX, armEndY);
             ctx.stroke();
 
-            // Bacteria caught at arm tip
             ctx.fillStyle = '#84cc16';
             ctx.beginPath();
             ctx.roundRect(armEndX - 16, armEndY - 10, 32, 20, 8);
@@ -1110,7 +1759,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = '#0284c7';
           ctx.fillText(isArabic ? 'جسم مضاد خماسي (IgM - 10 مواقع ارتباط)' : 'Pentameric IgM (10 Antigen Binding Sites)', mX, mY + 115);
         } else if (antibodyAction === 'precipitation') {
-          // Soluble antigens crosslinked into precipitate
           const px = centerX;
           const py = centerY;
 
@@ -1118,13 +1766,11 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = isLight ? '#475569' : '#cbd5e1';
           ctx.fillText(isArabic ? 'تكوين شبكة بوليمرية غير ذائبة (Precipitate Lattice)' : 'Insoluble Cross-Linked Antigen-Antibody Lattice', px, py - 85);
 
-          // Grid of connected dots
           for (let r = -2; r <= 2; r++) {
             for (let c = -3; c <= 3; c++) {
               const dx = px + c * 40;
               const dy = py + r * 30;
 
-              // Antibody crosslinks
               ctx.strokeStyle = '#38bdf8';
               ctx.lineWidth = 2;
               if (c < 3) {
@@ -1140,7 +1786,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                 ctx.stroke();
               }
 
-              // Insoluble antigen bead
               ctx.fillStyle = '#f59e0b';
               ctx.beginPath();
               ctx.arc(dx, dy, 5, 0, Math.PI * 2);
@@ -1148,18 +1793,15 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             }
           }
 
-          // Macrophage incoming at bottom
           ctx.fillStyle = '#3b82f6';
           ctx.font = 'bold 12px sans-serif';
           ctx.fillText(isArabic ? '⬇ التهام فوري بواسطة الخلايا البلعمية الكبيرة' : '⬇ Rapid Engulfment by Phagocytic Macrophages', px, py + 105);
         } else if (antibodyAction === 'lysis') {
-          // Bacterium with complement pores (MAC)
           const bX = centerX;
           const bY = centerY;
           const bWidth = 140;
           const bHeight = 70;
 
-          // Bacterial body
           ctx.fillStyle = complementsActive ? 'rgba(239, 68, 68, 0.4)' : 'rgba(34, 197, 94, 0.4)';
           ctx.strokeStyle = complementsActive ? '#ef4444' : '#22c55e';
           ctx.lineWidth = 3;
@@ -1168,7 +1810,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fill();
           ctx.stroke();
 
-          // Antibodies attached
           ctx.strokeStyle = '#38bdf8';
           ctx.lineWidth = 3;
           ctx.beginPath();
@@ -1178,7 +1819,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.lineTo(bX + 40, bY - bHeight / 2);
           ctx.stroke();
 
-          // Complement MAC Pores
           if (complementsActive) {
             ctx.fillStyle = '#e11d48';
             ctx.beginPath();
@@ -1186,7 +1826,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             ctx.arc(bX + 25, bY, 10, 0, Math.PI * 2);
             ctx.fill();
 
-            // Water rushing in arrow
             ctx.fillStyle = '#38bdf8';
             ctx.font = 'bold 12px sans-serif';
             ctx.fillText('H2O Inflow (انفجار غشائي)', bX, bY + 5);
@@ -1204,7 +1843,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           const tX = centerX;
           const tY = centerY;
 
-          // Exotoxin molecule
           ctx.fillStyle = '#dc2626';
           ctx.beginPath();
           ctx.arc(tX, tY, 25, 0, Math.PI * 2);
@@ -1213,7 +1851,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillStyle = '#ffffff';
           ctx.fillText(isArabic ? 'سم' : 'Toxin', tX, tY + 4);
 
-          // Surrounding Antitoxin Antibodies
           ctx.strokeStyle = '#38bdf8';
           ctx.lineWidth = 3;
           for (let k = 0; k < 4; k++) {
@@ -1240,13 +1877,17 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             tY + 80
           );
         }
-      } else if (subTab === 'kinetics_memory') {
-        // Mode C: Primary vs Secondary Immune Kinetics
+      }
+
+      // ---------------------------------------------------------
+      // MODULE 4: PRIMARY VS SECONDARY KINETICS
+      // ---------------------------------------------------------
+      else if (subTab === 'kinetics_memory') {
         const padding = 60;
         const plotW = width - padding * 2;
         const plotH = height - padding * 2 - 20;
 
-        ctx.font = 'bold 16px sans-serif';
+        ctx.font = 'bold 15px sans-serif';
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.textAlign = 'center';
         ctx.fillText(
@@ -1257,7 +1898,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           30
         );
 
-        // Axes
         ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -1266,7 +1906,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.lineTo(padding + plotW, padding + 20 + plotH);
         ctx.stroke();
 
-        // X-Axis labels (Days 0 to 30)
         ctx.font = '10px sans-serif';
         ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
         for (let d = 0; d <= 30; d += 5) {
@@ -1274,8 +1913,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fillText(`Day ${d}`, gx, padding + 35 + plotH);
         }
 
-        // Curves
-        // Primary curve (Day 0 to 18)
         ctx.strokeStyle = '#38bdf8';
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -1288,7 +1925,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             val = (plotH * 0.05) * Math.exp(-(d - 15) / 3);
           }
           if (d >= 21) {
-            // Secondary huge spike
             val = Math.sin(((d - 21) / 9) * Math.PI) * (plotH * 0.85);
           }
           const gy = padding + 20 + plotH - val;
@@ -1297,7 +1933,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         }
         ctx.stroke();
 
-        // Timeline Scrub Line
         const curX = padding + (timeDay / 30) * plotW;
         ctx.strokeStyle = '#f59e0b';
         ctx.lineWidth = 2;
@@ -1312,16 +1947,19 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.font = 'bold 11px sans-serif';
         ctx.fillText(`Day ${timeDay}`, curX, padding + 15);
 
-        // Inoculation badges
         ctx.fillStyle = '#ef4444';
         ctx.fillText(isArabic ? '💉 حقن أولي (يوم ٠)' : '💉 1st Exposure (Day 0)', padding + 40, padding + 40);
         ctx.fillText(isArabic ? '💉 حقن ثانوي (يوم ٢١)' : '💉 2nd Exposure (Day 21)', padding + (21 / 30) * plotW, padding + 40);
-      } else {
-        // Mode D: High-Resolution IgG Molecular Architecture Diagram
+      }
+
+      // ---------------------------------------------------------
+      // MODULE 5: ANTIBODY ANATOMY (IgG)
+      // ---------------------------------------------------------
+      else {
         const centerX = width / 2;
         const centerY = height / 2;
 
-        ctx.font = 'bold 16px sans-serif';
+        ctx.font = 'bold 15px sans-serif';
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.textAlign = 'center';
         ctx.fillText(
@@ -1332,7 +1970,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           32
         );
 
-        // Drawing accurate Y-shaped antibody
         const stemX = centerX;
         const stemTopY = centerY - 10;
         const stemBottomY = centerY + 100;
@@ -1340,46 +1977,41 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         const rightArmX = centerX + 90;
         const armTopY = centerY - 90;
 
-        // 1. Heavy Chains (Dark Blue)
+        // Heavy Chains
         ctx.strokeStyle = '#1d4ed8';
         ctx.lineWidth = 10;
         ctx.lineCap = 'round';
 
-        // Left Heavy Chain
         ctx.beginPath();
         ctx.moveTo(stemX - 6, stemBottomY);
         ctx.lineTo(stemX - 6, stemTopY);
         ctx.lineTo(leftArmX + 15, armTopY + 15);
         ctx.stroke();
 
-        // Right Heavy Chain
         ctx.beginPath();
         ctx.moveTo(stemX + 6, stemBottomY);
         ctx.lineTo(stemX + 6, stemTopY);
         ctx.lineTo(rightArmX - 15, armTopY + 15);
         ctx.stroke();
 
-        // 2. Light Chains (Cyan)
+        // Light Chains
         ctx.strokeStyle = '#06b6d4';
         ctx.lineWidth = 8;
 
-        // Left Light Chain
         ctx.beginPath();
         ctx.moveTo(stemX - 18, stemTopY);
         ctx.lineTo(leftArmX, armTopY);
         ctx.stroke();
 
-        // Right Light Chain
         ctx.beginPath();
         ctx.moveTo(stemX + 18, stemTopY);
         ctx.lineTo(rightArmX, armTopY);
         ctx.stroke();
 
-        // 3. 4 Disulfide Bridges (Golden Connectors S-S)
+        // 4 Disulfide Bridges
         ctx.strokeStyle = '#eab308';
         ctx.lineWidth = 3;
 
-        // Two inter-heavy bridges at hinge
         ctx.beginPath();
         ctx.moveTo(stemX - 6, stemTopY + 15);
         ctx.lineTo(stemX + 6, stemTopY + 15);
@@ -1387,7 +2019,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.lineTo(stemX + 6, stemTopY + 28);
         ctx.stroke();
 
-        // Two heavy-light bridges
         ctx.beginPath();
         ctx.moveTo(stemX - 12, stemTopY - 10);
         ctx.lineTo(stemX - 22, stemTopY - 5);
@@ -1395,7 +2026,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.lineTo(stemX + 22, stemTopY - 5);
         ctx.stroke();
 
-        // 4. Variable binding sites at tips
+        // Antigen binding tips
         ctx.fillStyle = '#ef4444';
         ctx.beginPath();
         ctx.arc(leftArmX + 7, armTopY + 7, 10, 0, Math.PI * 2);
@@ -1407,7 +2038,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fillText(isArabic ? 'موقع الارتباط ١' : 'Antigen Site 1', leftArmX - 20, armTopY - 10);
         ctx.fillText(isArabic ? 'موقع الارتباط ٢' : 'Antigen Site 2', rightArmX + 20, armTopY - 10);
 
-        // Highlight selected part
         const partNames: Record<AntibodyPartId, string> = {
           variable: isArabic ? '⭐ النطاق المتغير (V_H / V_L)' : '⭐ Variable Domain (V_H / V_L)',
           constant: isArabic ? '⭐ النطاق الثابت (C_H / C_L - Fc)' : '⭐ Constant Domain (C_H / C_L - Fc)',
@@ -1433,7 +2063,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       multimeterReading={multimeterReading}
       oscilloscopeCh1={oscilloscopeCh1}
       oscilloscopeCh2={oscilloscopeCh2}
-      currentXValue={params.timeDay}
+      currentXValue={params.subTab === 'phagocytosis_studio' ? params.phagocytosisStage : params.timeDay}
       currentYValue={simState.antibodyTiter}
       onResetSimulation={resetParams}
       renderCustomControls={() => (
@@ -1453,14 +2083,17 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                 <option value="humoral_cellular">
                   {isArabic ? '١. شلالات المناعة الخلطية والخلوية' : '1. Humoral & Cellular Cascades'}
                 </option>
+                <option value="phagocytosis_studio">
+                  {isArabic ? '٢. استوديو البلعمة وعرض MHC-II وثقوب البيرفورين' : '2. Phagocytosis, MHC-II & Perforin Studio'}
+                </option>
                 <option value="antibody_actions">
-                  {isArabic ? '٢. طرق عمل الأجسام المضادة الخمسة' : '2. 5 Antibody Action Mechanisms'}
+                  {isArabic ? '٣. طرق عمل الأجسام المضادة الخمسة' : '3. 5 Antibody Action Mechanisms'}
                 </option>
                 <option value="kinetics_memory">
-                  {isArabic ? '٣. منحنيات الاستجابة الأولية والثانوية' : '3. Primary vs Secondary Kinetics'}
+                  {isArabic ? '٤. منحنيات الاستجابة الأولية والثانوية' : '4. Primary vs Secondary Kinetics'}
                 </option>
                 <option value="antibody_anatomy">
-                  {isArabic ? '٤. أطلس جزيء الأجسام المضادة (IgG)' : '4. High-Res IgG Molecular Atlas'}
+                  {isArabic ? '٥. أطلس جزيء الأجسام المضادة (IgG)' : '5. High-Res IgG Molecular Atlas'}
                 </option>
               </select>
               <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -1468,6 +2101,90 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           </div>
 
           {/* Sub-Tab Specific Controls */}
+          {params.subTab === 'phagocytosis_studio' && (
+            <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+              <div>
+                <label className="text-xs font-bold text-slate-400 block mb-1.5">
+                  {isArabic ? 'نمط الاستوديو الخلوي:' : 'Cellular Studio Mode:'}
+                </label>
+                <div className="relative">
+                  <select
+                    aria-label={isArabic ? 'نمط الاستوديو الخلوي' : 'Cellular Studio Mode'}
+                    value={params.cellularStudioMode}
+                    onChange={(e) => updateParam('cellularStudioMode', e.target.value as CellularStudioMode)}
+                    className="w-full appearance-none p-2.5 pr-8 pl-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-slate-100 focus:outline-none focus:border-blue-500 cursor-pointer"
+                  >
+                    <option value="macrophage_phagocytosis">
+                      {isArabic ? 'بلعمة الميكروب وعرض بروتين MHC-II وتنشيط TH' : 'Macrophage Phagocytosis & MHC-II Presentation'}
+                    </option>
+                    <option value="tc_perforin_lysis">
+                      {isArabic ? 'الخلايا التائية السامة (CD8+) وثقوب البيرفورين والموت المبرمج' : 'Cytotoxic T-Cell (CD8+) Perforin & Apoptosis'}
+                    </option>
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
+              </div>
+
+              {params.cellularStudioMode === 'macrophage_phagocytosis' && (
+                <div>
+                  <div className="flex items-center justify-between text-xs font-bold mb-1">
+                    <span className="text-slate-400">{isArabic ? 'مرحلة البلعمة:' : 'Phagocytosis Stage:'}</span>
+                    <span className="font-mono text-cyan-400">
+                      {params.phagocytosisStage + 1} / {PHAGOCYTOSIS_STAGES.length}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 mb-2">
+                    <button
+                      type="button"
+                      disabled={params.phagocytosisStage === 0}
+                      onClick={() => updateParam('phagocytosisStage', Math.max(0, params.phagocytosisStage - 1))}
+                      className="p-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-slate-300 disabled:opacity-30 cursor-pointer hover:bg-slate-800"
+                    >
+                      {isArabic ? 'السابق ➔' : 'Previous'}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={params.phagocytosisStage >= 5}
+                      onClick={() => updateParam('phagocytosisStage', Math.min(5, params.phagocytosisStage + 1))}
+                      className="p-2 rounded-xl text-xs font-bold bg-blue-600 text-white disabled:opacity-30 cursor-pointer hover:bg-blue-500"
+                    >
+                      {isArabic ? '➔ التالي' : 'Next'}
+                    </button>
+                  </div>
+                  <input
+                    aria-label={isArabic ? 'مرحلة البلعمة' : 'Phagocytosis Stage'}
+                    type="range"
+                    min="0"
+                    max="5"
+                    step="1"
+                    value={params.phagocytosisStage}
+                    onChange={(e) => updateParam('phagocytosisStage', parseInt(e.target.value, 10))}
+                    className="w-full accent-cyan-500 cursor-pointer"
+                  />
+                </div>
+              )}
+
+              {params.cellularStudioMode === 'tc_perforin_lysis' && (
+                <div>
+                  <div className="flex items-center justify-between text-xs font-bold mb-1">
+                    <span className="text-slate-400">{isArabic ? 'عدد ثقوب البيرفورين الغشائية:' : 'Perforin Transmembrane Pores:'}</span>
+                    <span className="font-mono text-rose-400">{params.perforinPoreCount} pores</span>
+                  </div>
+                  <input
+                    aria-label={isArabic ? 'عدد ثقوب البيرفورين' : 'Perforin Pores'}
+                    type="range"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value={params.perforinPoreCount}
+                    onChange={(e) => updateParam('perforinPoreCount', parseInt(e.target.value, 10))}
+                    className="w-full accent-rose-500 cursor-pointer"
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
           {params.subTab === 'humoral_cellular' && (
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
               <div>
@@ -1494,9 +2211,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">
-                    {isArabic ? 'مرحلة تقدم الشلال:' : 'Cascade Step:'}
-                  </span>
+                  <span className="text-slate-400">{isArabic ? 'مرحلة تقدم الشلال:' : 'Cascade Step:'}</span>
                   <span className="font-mono text-blue-400">
                     {params.cascadeStep === 0 && (isArabic ? 'البلعمة' : 'Phagocytosis')}
                     {params.cascadeStep === 1 && (isArabic ? 'عرض MHC-II' : 'MHC Presentation')}
@@ -1600,10 +2315,10 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">
-                    {isArabic ? 'تتبع مسار الأيام:' : 'Time Tracker:'}
+                  <span className="text-slate-400">{isArabic ? 'تتبع مسار الأيام:' : 'Time Tracker:'}</span>
+                  <span className="font-mono text-amber-400">
+                    {params.timeDay} {isArabic ? 'يوم' : 'days'}
                   </span>
-                  <span className="font-mono text-amber-400">{params.timeDay} {isArabic ? 'يوم' : 'days'}</span>
                 </div>
                 <input
                   aria-label={isArabic ? 'تتبع الأيام' : 'Day Tracker'}
@@ -1619,9 +2334,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
               <div>
                 <div className="flex items-center justify-between text-xs font-bold mb-1">
-                  <span className="text-slate-400">
-                    {isArabic ? 'جرعة الأنتيجين المحقونة:' : 'Pathogen Dose:'}
-                  </span>
+                  <span className="text-slate-400">{isArabic ? 'جرعة الأنتيجين المحقونة:' : 'Pathogen Dose:'}</span>
                   <span className="font-mono text-rose-400">{params.pathogenDose} AU</span>
                 </div>
                 <input
@@ -1661,11 +2374,8 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                 </div>
               </div>
 
-              {/* Anatomical Details Card */}
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
-                <p className="text-slate-300 leading-relaxed">
-                  {isArabic ? currentPart.descAr : currentPart.descEn}
-                </p>
+                <p className="text-slate-300 leading-relaxed">{isArabic ? currentPart.descAr : currentPart.descEn}</p>
                 <div className="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 p-2 rounded-lg border border-emerald-800/40">
                   {isArabic ? currentPart.formulaAr : currentPart.formulaEn}
                 </div>
@@ -1675,7 +2385,6 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
                 </div>
               </div>
 
-              {/* High Res Micrograph */}
               <div className="rounded-xl overflow-hidden border border-slate-800">
                 <div className="bg-slate-900 px-3 py-1.5 flex items-center justify-between text-[10px] text-slate-400">
                   <span className="flex items-center gap-1.5 text-blue-400 font-bold">
@@ -1697,22 +2406,33 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
     >
       <div className="flex flex-col gap-4">
         {/* Dynamic Canvas Simulation Viewport */}
-        <div className={`relative rounded-2xl overflow-hidden border shadow-lg ${
-          isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-700/60 bg-slate-950'
-        }`}>
+        <div
+          className={`relative rounded-2xl overflow-hidden border shadow-lg ${
+            isLight ? 'border-slate-200 bg-slate-50' : 'border-slate-700/60 bg-slate-950'
+          }`}
+        >
           <CanvasSimulationViewport
             id="immunity-workbench-viewport"
             lang={lang ?? 'ar'}
             theme={theme}
             aspectRatio="aspect-[16/10]"
             minHeight={420}
+            animated={true}
             onRender={renderSimulation}
           >
             {/* Real-time Status Overlay Badge */}
             <div className="absolute top-3 left-3 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-xs font-mono font-bold text-blue-400 flex items-center gap-2 pointer-events-none select-none">
               <ShieldCheck className="w-4 h-4 text-blue-400" />
               <span>
-                {params.subTab === 'humoral_cellular'
+                {params.subTab === 'phagocytosis_studio'
+                  ? params.cellularStudioMode === 'macrophage_phagocytosis'
+                    ? isArabic
+                      ? `البلعمة: ${currentPhagStage.nameAr}`
+                      : `Phagocytosis: ${currentPhagStage.nameEn}`
+                    : isArabic
+                    ? `الخلايا التائية السامة: ${params.perforinPoreCount} ثقوب بيرفورين`
+                    : `Cytotoxic T: ${params.perforinPoreCount} Perforin Pores`
+                  : params.subTab === 'humoral_cellular'
                   ? isArabic
                     ? params.pathway === 'humoral'
                       ? 'شلال المناعة الخلطية (الخلايا البائية)'
@@ -1735,6 +2455,121 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             </div>
           </CanvasSimulationViewport>
         </div>
+
+        {/* PHAGOCYTOSIS STUDIO EDUCATIONAL DEEP-DIVE CARD */}
+        {params.subTab === 'phagocytosis_studio' && (
+          <div
+            className={`p-5 rounded-2xl border ${
+              isLight ? 'bg-white border-slate-300 shadow-md' : 'bg-slate-900/90 border-slate-800'
+            }`}
+          >
+            <div className="flex items-center justify-between pb-3 border-b border-slate-700/60 mb-4">
+              <h4 className="text-sm font-black text-cyan-400 flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                <span>
+                  {params.cellularStudioMode === 'macrophage_phagocytosis'
+                    ? isArabic
+                      ? `آلية معالجة الأنتيجين وعرضه (المرحلة ${params.phagocytosisStage + 1} من ٦): ${currentPhagStage.nameAr}`
+                      : `Antigen Processing & Presentation (Stage ${params.phagocytosisStage + 1} of 6): ${currentPhagStage.nameEn}`
+                    : isArabic
+                    ? 'آلية القضاء بالخلايا التائية السامة (CD8+): البيرفورين والسموم الليمفاوية'
+                    : 'Cytotoxic T-Cell Killing Mechanism: Perforin Pores & Lymphotoxin Apoptosis'}
+                </span>
+              </h4>
+              <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                {params.cellularStudioMode === 'macrophage_phagocytosis' ? 'MHC-II / CD4' : 'CD8 / Perforin'}
+              </span>
+            </div>
+
+            {params.cellularStudioMode === 'macrophage_phagocytosis' ? (
+              <div className="space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'الحدث الخلوي الفعلي:' : 'Cellular Event:'}
+                    </span>
+                    <div className="text-xs font-bold text-emerald-300">
+                      {isArabic ? currentPhagStage.cellularEventAr : currentPhagStage.cellularEventEn}
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'الجزيئات والإنزيمات المشاركة:' : 'Molecular Actors:'}
+                    </span>
+                    <div className="text-xs font-bold text-cyan-300">
+                      {isArabic ? currentPhagStage.molecularActorsAr : currentPhagStage.molecularActorsEn}
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'معدل التفكيك وعرض MHC:' : 'Hydrolysis & MHC Display:'}
+                    </span>
+                    <div className="text-xs font-mono font-black text-amber-300">
+                      {isArabic
+                        ? `التحلل: ${simState.phagosomeHydrolysisPct}٪ | كثافة MHC: ${simState.mhcPresentationDensity}٪`
+                        : `Hydrolysis: ${simState.phagosomeHydrolysisPct}% | MHC Density: ${simState.mhcPresentationDensity}%`}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-blue-950/40 border border-blue-500/40 text-xs text-slate-200 leading-relaxed">
+                  <span className="font-bold text-blue-300 block mb-1">
+                    {isArabic ? '💡 الشرح المنهجي للثانوية العامة المصرية:' : '💡 Ministry Curriculum Context:'}
+                  </span>
+                  {isArabic ? currentPhagStage.descAr : currentPhagStage.descEn}
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'دور بروتين البيرفورين (صانع الثقوب):' : 'Perforin Function:'}
+                    </span>
+                    <div className="text-xs font-bold text-rose-300">
+                      {isArabic
+                        ? 'يثقب غشاء الخلية المصابة لتسهيل تدفق السوائل والموت المائي'
+                        : 'Punctures target cell membrane, forming pore channels for osmotic lysis'}
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'دور السموم الليمفاوية:' : 'Lymphotoxins Function:'}
+                    </span>
+                    <div className="text-xs font-bold text-purple-300">
+                      {isArabic
+                        ? 'تنشط جينات معينة في نواة الخلية المصابة فتفتت حمضها النووي وتميتها مبرمجاً'
+                        : 'Activates specific latent endonuclease genes in target nucleus triggering apoptosis'}
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <span className="text-[10px] font-bold text-slate-400 block">
+                      {isArabic ? 'كفاءة القضاء الخلوي:' : 'Cytotoxic Efficacy:'}
+                    </span>
+                    <div className="text-xs font-mono font-black text-amber-300">
+                      {isArabic
+                        ? `كفاءة التحلل: ${simState.perforinPoreDensity}٪ | الموت المبرمج: ${simState.lymphotoxinApoptosisPct}٪`
+                        : `Lysis: ${simState.perforinPoreDensity}% | Apoptosis: ${simState.lymphotoxinApoptosisPct}%`}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-rose-950/40 border border-rose-500/40 text-xs text-slate-200 leading-relaxed">
+                  <span className="font-bold text-rose-300 block mb-1">
+                    {isArabic ? '💡 الفرق بين البيرفورين والسموم الليمفاوية في الامتحان الوزاري:' : '💡 Exam Distinction: Perforin vs Lymphotoxins:'}
+                  </span>
+                  {isArabic
+                    ? 'بروتين البيرفورين يعمل على الغشاء البلازمي الخارجي للخلية المصابة ويثقبه، بينما السموم الليمفاوية تنفذ إلى داخل نواة الخلية المصابة لتنشط الجينات المميتة التي تفتت الحمض النووي (DNA).'
+                    : 'Perforin acts strictly on the external plasma membrane creating transmembrane pores, whereas Lymphotoxins penetrate into the cell nucleus activating apoptotic genes that fragment DNA.'}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* SUMMARY CARD FOR ACTIVE MODULE */}
         <div

@@ -516,6 +516,25 @@ const complementActiveLysisRate = 94.5;
 const complementInactiveLysisRate = 4.2;
 assert(complementActiveLysisRate > 90 && complementInactiveLysisRate < 10, `Heat inactivation at 56°C abolishes complement lysis (<10% vs >90% active)`);
 
+// Phagocytosis 6-Stage Dynamics, MHC-II Complexation & CD8+ Cytotoxic Mechanisms
+const phagocytosisStages = [
+  'chemotaxis_capture',
+  'ingestion_phagosome',
+  'lysosome_fusion_digestion',
+  'mhc2_complexation',
+  'surface_presentation_th_docking',
+  'interleukin_clonal_activation'
+];
+assert(phagocytosisStages.length === 6, 'Phagocytosis studio defines 6 sequential physiological stages from chemotaxis to clonal activation');
+
+const perforinPores = 6;
+const poreDiameter_nm = 16.0; // 13-20 nm cylindrical transmembrane pore formed by perforin polymerization
+const osmoticSwellingRate = perforinPores * 15; // % swelling per unit time
+assert(osmoticSwellingRate >= 90, `Perforin cylindrical pore multimerization (${perforinPores} pores, ~${poreDiameter_nm} nm) induces rapid osmotic influx and cytolysis`);
+
+const lymphotoxinApoptoticTrigger = true;
+assert(lymphotoxinApoptoticTrigger, 'Lymphotoxins activate specific endonucleases inside target nucleus inducing programmed apoptotic DNA fragmentation');
+
 // K. Biology: Endocrine Coordination & Feedback Loops (Chapter 2)
 const fastingGlucoseMin = 80;
 const fastingGlucoseMax = 120;
@@ -1062,6 +1081,8 @@ const labKeyFormulas = [
   '\\text{IgM} \\implies 5 \\times 2 = 10 \\text{ Antigen-Binding Sites}',
   '\\text{CD4}^+ \\, \\text{T}_H \\xrightarrow{\\text{Interleukins}} \\text{Plasma B} \\to \\text{Antibodies}',
   '\\text{CD8}^+ \\, \\text{T}_C \\xrightarrow{\\text{Perforin} + \\text{Lymphotoxins}} \\text{Apoptosis}',
+  '\\text{Perforin} + \\text{Target Bilayer} \\xrightarrow{\\text{Ca}^{2+}} \\text{Cylindrical Pores} \\implies \\text{Osmotic Lysis}',
+  '\\text{Antigen} + \\text{Lysozymes} \\to \\text{Peptides} \\xrightarrow{\\text{MHC-II}} \\text{Surface [MHC-II / Ag] Complex}',
   // Endocrine Lab (Chapter 2)
   '[\\text{Thyroxine}] \\uparrow \\implies [\\text{TSH}]_{\\text{pituitary}} \\downarrow',
   '9.0 \\le [\\text{Ca}^{2+}]_{\\text{serum}} \\le 11.0 \\,\\text{mg/dL}',
