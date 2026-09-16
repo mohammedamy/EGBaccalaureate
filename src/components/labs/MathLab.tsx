@@ -14,6 +14,8 @@ import { Interactive3DGeometry } from '../Interactive3DGeometry';
 import { InteractiveComplexArgand } from '../InteractiveComplexArgand';
 import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
+import { InteractivePascalTriangle } from '../InteractivePascalTriangle';
+import { InteractiveNormalDistribution } from '../InteractiveNormalDistribution';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
@@ -25,7 +27,7 @@ interface Props {
   defaultFullscreen?: boolean;
 }
 
-export type MathTab = 'calculus' | 'geometry3d' | 'complex' | 'mechanics' | 'matrix';
+export type MathTab = 'calculus' | 'geometry3d' | 'complex' | 'mechanics' | 'matrix' | 'pascal' | 'probability';
 
 export const MathLab: React.FC<Props> = ({
   lang,
@@ -100,6 +102,12 @@ export const MathLab: React.FC<Props> = ({
                 <option value="matrix" className="bg-slate-900 text-white">
                   🔢 {isArabic ? 'جبر المصفوفات' : 'Matrix Algebra'}
                 </option>
+                <option value="pascal" className="bg-slate-900 text-white">
+                  🔺 {isArabic ? 'مثلث باسكال وذات الحدين' : 'Pascal & Binomial'}
+                </option>
+                <option value="probability" className="bg-slate-900 text-white">
+                  📊 {isArabic ? 'التوزيع الطبيعي وبايز' : 'Normal Distribution & Bayes'}
+                </option>
               </select>
               <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                 <ChevronDown className="w-4 h-4" />
@@ -146,6 +154,8 @@ export const MathLab: React.FC<Props> = ({
           {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}
           {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'pascal' && <InteractivePascalTriangle lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'probability' && <InteractiveNormalDistribution lang={lang} theme={theme} isFullscreen={true} />}
         </div>
       </div>
     );
@@ -228,6 +238,12 @@ export const MathLab: React.FC<Props> = ({
               <option value="matrix" className="bg-slate-900 text-white">
                 🔢 {isArabic ? 'جبر المصفوفات ومحدد كرامر' : 'Matrix Algebra Solver'}
               </option>
+              <option value="pascal" className="bg-slate-900 text-white">
+                🔺 {isArabic ? 'مثلث باسكال ومفكوك ذات الحدين' : 'Pascal Triangle & Binomial'}
+              </option>
+              <option value="probability" className="bg-slate-900 text-white">
+                📊 {isArabic ? 'منحنى التوزيع الطبيعي ومبرهنة بايز' : 'Normal Distribution & Bayes'}
+              </option>
             </select>
             <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
               <ChevronDown className="w-4 h-4" />
@@ -292,6 +308,8 @@ export const MathLab: React.FC<Props> = ({
         {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} />}
         {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}
         {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} />}
+        {activeTab === 'pascal' && <InteractivePascalTriangle lang={lang} theme={theme} />}
+        {activeTab === 'probability' && <InteractiveNormalDistribution lang={lang} theme={theme} />}
       </div>
     </div>
   );

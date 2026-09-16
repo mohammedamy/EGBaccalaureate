@@ -300,6 +300,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'complex' as MathTab, emoji: '📍', labelEn: 'Complex Numbers & Argand Plane (De Moivre)', labelAr: 'الأعداد المركبة ومستوى أرجاند وديموافر' },
                     { id: 'mechanics' as MathTab, emoji: '⚙️', labelEn: 'Statics & Classical Mechanics (Tier-1)', labelAr: 'الاستاتيكا والميكانيكا الكلاسيكية' },
                     { id: 'matrix' as MathTab, emoji: '🔢', labelEn: 'Matrix Algebra Solver', labelAr: 'جبر المصفوفات ومحدد كرامر' },
+                    { id: 'pascal' as MathTab, emoji: '🔺', labelEn: 'Pascal Triangle & Binomial Combinatorics', labelAr: 'مثلث باسكال ومفكوك ذات الحدين' },
+                    { id: 'probability' as MathTab, emoji: '📊', labelEn: 'Normal Distribution & Bayesian Tree', labelAr: 'التوزيع الطبيعي وشجرة بايز' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
                       {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
