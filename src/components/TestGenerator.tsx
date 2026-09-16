@@ -31,6 +31,13 @@ import {
   FlaskConical,
   Edit3,
   X,
+  SlidersHorizontal,
+  Copy,
+  Columns,
+  FileText,
+  CheckCheck,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -116,11 +123,63 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [initialSubject]);
 
-  // Real-time calculation of available questions matching user filters
+  // Blueprint and HOTS distribution settings
+  const [blueprintMode, setBlueprintMode] = useState<'all' | 'ministry_standard' | 'hots_challenge' | 'foundational'>('all');
+
+  // Printable Exam Paper & Solution Sheet Customization
+  const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
+  const [showExplanationsOnPrint, setShowExplanationsOnPrint] = useState<boolean>(false);
+  const [printLayout, setPrintLayout] = useState<'standard' | 'compact'>('standard');
+  const [isCustomizerOpen, setIsCustomizerOpen] = useState<boolean>(false);
+  const [isCopiedNotification, setIsCopiedNotification] = useState<boolean>(false);
+
+  // Personalized Exam Metadata with persistent defaults
+  const [customSchoolName, setCustomSchoolName] = useState<string>(() => {
+    return localStorage.getItem('eg_exam_school_name') || '';
+  });
+  const [customTeacherName, setCustomTeacherName] = useState<string>(() => {
+    return localStorage.getItem('eg_exam_teacher_name') || '';
+  });
+  const [customExamTitle, setCustomExamTitle] = useState<string>(() => {
+    return localStorage.getItem('eg_exam_title') || '';
+  });
+  const [customAcademicYear, setCustomAcademicYear] = useState<string>(() => {
+    return localStorage.getItem('eg_exam_year') || '2025 - 2026';
+  });
+  const [customGradeSection, setCustomGradeSection] = useState<string>(() => {
+    return localStorage.getItem('eg_exam_grade_sec') || '';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('eg_exam_school_name', customSchoolName);
+  }, [customSchoolName]);
+  useEffect(() => {
+    localStorage.setItem('eg_exam_teacher_name', customTeacherName);
+  }, [customTeacherName]);
+  useEffect(() => {
+    localStorage.setItem('eg_exam_title', customExamTitle);
+  }, [customExamTitle]);
+  useEffect(() => {
+    localStorage.setItem('eg_exam_year', customAcademicYear);
+  }, [customAcademicYear]);
+  useEffect(() => {
+    localStorage.setItem('eg_exam_grade_sec', customGradeSection);
+  }, [customGradeSection]);
+
+  // Real-time calculation of available questions matching user filters and blueprint
   const availablePoolCount = useMemo(() => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     let count = 0;
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
+
+    const isMatch = (d: DifficultyLevel) => {
+      if (blueprintMode === 'hots_challenge') return d === 'hots';
+      if (blueprintMode === 'foundational') return d === 'easy' || d === 'medium';
+      if (blueprintMode === 'ministry_standard') return true;
+      if (difficulty === 'all') return true;
+      if (difficulty === 'medium' || difficulty === 'exam_standard') return d === 'medium' || d === 'exam_standard';
+      return d === difficulty;
+    };
 
     candidateBranches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
@@ -129,20 +188,20 @@ export const TestGenerator: React.FC<Props> = ({
         if (selectedChapter !== 'all' && ch.id !== selectedChapter) return;
 
         if (ch.databank) {
-          if (difficulty === 'all' || difficulty === 'easy') count += ch.databank.easy.length;
-          if (difficulty === 'all' || difficulty === 'medium' || difficulty === 'exam_standard') count += ch.databank.medium.length;
-          if (difficulty === 'all' || difficulty === 'hots') count += ch.databank.hots.length;
+          if (isMatch('easy')) count += ch.databank.easy.length;
+          if (isMatch('medium')) count += ch.databank.medium.length;
+          if (isMatch('hots')) count += ch.databank.hots.length;
         }
         if (ch.solvedExamples) {
-          count += ch.solvedExamples.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+          count += ch.solvedExamples.filter((p) => isMatch(p.difficulty || 'medium')).length;
         }
         if (ch.exerciseProblems) {
-          count += ch.exerciseProblems.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+          count += ch.exerciseProblems.filter((p) => isMatch(p.difficulty || 'medium')).length;
         }
         if (ch.lessons) {
           ch.lessons.forEach((l) => {
             if (l.worksheet?.problems) {
-              count += l.worksheet.problems.filter((p) => difficulty === 'all' || p.difficulty === difficulty).length;
+              count += l.worksheet.problems.filter((p) => isMatch(p.difficulty || 'medium')).length;
             }
           });
         }
@@ -150,13 +209,32 @@ export const TestGenerator: React.FC<Props> = ({
     });
 
     return count;
-  }, [currentCurriculum, selectedSubject, selectedBranch, selectedChapter, difficulty]);
+  }, [currentCurriculum, selectedSubject, selectedBranch, selectedChapter, difficulty, blueprintMode]);
 
-  // Generate question pool from active curriculum
+  // Helper to shuffle an array
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  };
+
+  // Generate question pool from active curriculum respecting blueprint and difficulty
   const generateQuestions = (): GeneratedQuestion[] => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     const pool: GeneratedQuestion[] = [];
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
+
+    const isMatch = (d: DifficultyLevel) => {
+      if (blueprintMode === 'hots_challenge') return d === 'hots';
+      if (blueprintMode === 'foundational') return d === 'easy' || d === 'medium';
+      if (blueprintMode === 'ministry_standard') return true;
+      if (difficulty === 'all') return true;
+      if (difficulty === 'medium' || difficulty === 'exam_standard') return d === 'medium' || d === 'exam_standard';
+      return d === difficulty;
+    };
 
     candidateBranches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
@@ -168,13 +246,13 @@ export const TestGenerator: React.FC<Props> = ({
 
         // 1. Chapter Databank (Easy, Medium, HOTS)
         if (ch.databank) {
-          if (difficulty === 'all' || difficulty === 'easy') {
+          if (isMatch('easy')) {
             ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
           }
-          if (difficulty === 'all' || difficulty === 'medium' || difficulty === 'exam_standard') {
+          if (isMatch('medium')) {
             ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
           }
-          if (difficulty === 'all' || difficulty === 'hots') {
+          if (isMatch('hots')) {
             ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
           }
         }
@@ -182,8 +260,9 @@ export const TestGenerator: React.FC<Props> = ({
         // 2. Official Textbook Solved Examples
         if (ch.solvedExamples) {
           ch.solvedExamples.forEach((p) => {
-            if (difficulty === 'all' || p.difficulty === difficulty) {
-              candidateProblems.push({ prob: p, source: 'textbook_solved', diff: p.difficulty || 'medium' });
+            const d = p.difficulty || 'medium';
+            if (isMatch(d)) {
+              candidateProblems.push({ prob: p, source: 'textbook_solved', diff: d });
             }
           });
         }
@@ -191,8 +270,9 @@ export const TestGenerator: React.FC<Props> = ({
         // 3. Official Textbook Unit Exercises
         if (ch.exerciseProblems) {
           ch.exerciseProblems.forEach((p) => {
-            if (difficulty === 'all' || p.difficulty === difficulty) {
-              candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: p.difficulty || 'medium' });
+            const d = p.difficulty || 'medium';
+            if (isMatch(d)) {
+              candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: d });
             }
           });
         }
@@ -200,8 +280,9 @@ export const TestGenerator: React.FC<Props> = ({
         // 4. Lesson Worksheets
         ch.lessons?.forEach((l) => {
           l.worksheet?.problems?.forEach((prob) => {
-            if (difficulty === 'all' || prob.difficulty === difficulty) {
-              candidateProblems.push({ prob, source: 'worksheet', diff: prob.difficulty || 'medium' });
+            const d = prob.difficulty || 'medium';
+            if (isMatch(d)) {
+              candidateProblems.push({ prob, source: 'worksheet', diff: d });
             }
           });
         });
@@ -238,13 +319,38 @@ export const TestGenerator: React.FC<Props> = ({
       });
     });
 
-    // Fisher-Yates shuffle
-    const shuffled = [...pool];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    // If blueprint is ministry_standard: select 30% easy, 40% medium, 30% hots
+    if (blueprintMode === 'ministry_standard') {
+      const easyPool = pool.filter((q) => q.difficulty === 'easy');
+      const medPool = pool.filter((q) => q.difficulty === 'medium' || q.difficulty === 'exam_standard');
+      const hotsPool = pool.filter((q) => q.difficulty === 'hots');
+
+      const targetHots = Math.round(questionCount * 0.3);
+      const targetEasy = Math.round(questionCount * 0.3);
+      const targetMed = Math.max(1, questionCount - targetHots - targetEasy);
+
+      const shuffledEasy = shuffle(easyPool);
+      const shuffledMed = shuffle(medPool);
+      const shuffledHots = shuffle(hotsPool);
+
+      const selected: GeneratedQuestion[] = [
+        ...shuffledEasy.slice(0, targetEasy),
+        ...shuffledMed.slice(0, targetMed),
+        ...shuffledHots.slice(0, targetHots),
+      ];
+
+      // If any bucket fell short, top-up from the remaining pool
+      if (selected.length < questionCount) {
+        const selectedIds = new Set(selected.map((s) => s.id));
+        const remainder = shuffle(pool.filter((q) => !selectedIds.has(q.id)));
+        selected.push(...remainder.slice(0, questionCount - selected.length));
+      }
+
+      return shuffle(selected).slice(0, Math.min(questionCount, selected.length));
     }
 
+    // Default Fisher-Yates shuffle
+    const shuffled = shuffle(pool);
     return shuffled.slice(0, Math.min(questionCount, shuffled.length));
   };
 
@@ -376,13 +482,52 @@ export const TestGenerator: React.FC<Props> = ({
     return res;
   };
 
-  const shuffle = <T,>(arr: T[]): T[] => {
-    const copy = [...arr];
-    for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[j]] = [copy[j], copy[i]];
+  // Copy current exam to clipboard as formatted Markdown
+  const handleCopyExamMarkdown = () => {
+    const title = customExamTitle || (lang === 'ar' ? 'امتحان شهادة إتمام الثانوية العامة' : 'General Secondary Examination');
+    const school = customSchoolName || (lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني' : 'Ministry of Education & Technical Education');
+    let text = `# ${title}\n`;
+    text += `**${school}**\n`;
+    if (customTeacherName) text += `**${customTeacherName}** | `;
+    text += `**${customAcademicYear}** | **${customGradeSection || (lang === 'ar' ? 'الصف الثالث الثانوي' : 'Grade 12')}**\n\n`;
+    text += `**${lang === 'ar' ? 'الدرجة الكلية:' : 'Total Marks:'} ${activeQuestions.length * 2}** | `;
+    text += `**${lang === 'ar' ? 'عدد الأسئلة:' : 'Number of Questions:'} ${activeQuestions.length}**\n\n`;
+    text += `---\n\n`;
+
+    activeQuestions.forEach((q, idx) => {
+      const qNum = idx + 1;
+      const qText = lang === 'ar' ? q.questionAr : q.questionEn;
+      const opts = lang === 'ar' ? q.optionsAr : q.optionsEn;
+      const labels = lang === 'ar' ? ['(أ)', '(ب)', '(ج)', '(د)'] : ['(A)', '(B)', '(C)', '(D)'];
+
+      text += `### ${lang === 'ar' ? `السؤال (${qNum})` : `Question (${qNum})`} [${lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}]\n`;
+      text += `${qText}\n\n`;
+      opts.forEach((opt, optIdx) => {
+        text += `- ${labels[optIdx]} ${opt}\n`;
+      });
+      text += `\n`;
+    });
+
+    if (showAnswerKeyOnPrint) {
+      text += `\n---\n## ${lang === 'ar' ? 'ملحق نموذج الإجابة الرسمي والحلول النموذجية' : 'Official Model Answer Key & Solution Appendix'}\n\n`;
+      activeQuestions.forEach((q, idx) => {
+        const labels = lang === 'ar' ? ['أ', 'ب', 'ج', 'د'] : ['A', 'B', 'C', 'D'];
+        const correctLabel = labels[q.correctIndex] || 'A';
+        const correctText = lang === 'ar' ? q.optionsAr[q.correctIndex] : q.optionsEn[q.correctIndex];
+        text += `${idx + 1}. **(${correctLabel})**: ${correctText}\n`;
+        if (showExplanationsOnPrint) {
+          const steps = lang === 'ar' ? q.explanationAr : q.explanationEn;
+          steps.forEach((s) => {
+            text += `   - ${s}\n`;
+          });
+        }
+      });
     }
-    return copy;
+
+    navigator.clipboard.writeText(text).then(() => {
+      setIsCopiedNotification(true);
+      setTimeout(() => setIsCopiedNotification(false), 3000);
+    });
   };
 
   const launchExamSession = (questions: GeneratedQuestion[], durationMinutes: number) => {
@@ -397,12 +542,16 @@ export const TestGenerator: React.FC<Props> = ({
     setTimeRemaining(totalSec);
     setIsTimerPaused(false);
     setTimeTakenSeconds(0);
-    setIsExamStarted(true);
+    if (examMode === 'online') {
+      setIsExamStarted(true);
+    }
   };
 
   // Launch official 3-Hour Ministerial Exam Simulation (40 Questions / 180 Minutes across all branches)
   const handleStartMinisterialSimulation = () => {
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch('all');
     setSelectedChapter('all');
     setDifficulty('all');
@@ -434,7 +583,9 @@ export const TestGenerator: React.FC<Props> = ({
 
     if (!bioBranch) return;
 
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch(targetBranchId);
     setSelectedChapter('all');
     setDifficulty('all');
@@ -494,7 +645,9 @@ export const TestGenerator: React.FC<Props> = ({
 
     if (!physBranch) return;
 
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch(targetBranchId);
     setSelectedChapter('all');
     setDifficulty('all');
@@ -556,7 +709,9 @@ export const TestGenerator: React.FC<Props> = ({
 
     if (!chemBranch) return;
 
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch(targetBranchId);
     setSelectedChapter('all');
     setDifficulty('all');
@@ -599,7 +754,9 @@ export const TestGenerator: React.FC<Props> = ({
     const isThanaweya = currentCurriculum === 'thanaweya';
     const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
 
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch('all');
     setSelectedChapter('all');
     setDifficulty('all');
@@ -658,7 +815,9 @@ export const TestGenerator: React.FC<Props> = ({
     const isThanaweya = currentCurriculum === 'thanaweya';
     const activeData = isThanaweya ? thanaweyaCurriculum : egBacCurriculum;
 
-    setExamMode('online');
+    if (examMode !== 'printable' && examMode !== 'bubble_sheet') {
+      setExamMode('online');
+    }
     setSelectedBranch('all');
     setSelectedChapter('all');
     setDifficulty('all');
@@ -1167,7 +1326,7 @@ export const TestGenerator: React.FC<Props> = ({
         </div>
 
         {/* Filters Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3.5">
           <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">
               {lang === 'ar' ? 'المادة الدراسية' : 'Subject Track'}
@@ -1235,17 +1394,54 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
 
           <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1.5">
+              {lang === 'ar' ? 'مخطط الصعوبة المعياري' : 'Difficulty Blueprint'}
+            </label>
+            <select
+              value={blueprintMode}
+              onChange={(e) => setBlueprintMode(e.target.value as any)}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+            >
+              <option value="all">{lang === 'ar' ? 'تحديد حر للمستوى' : 'Custom Level Selection'}</option>
+              <option value="ministry_standard">
+                {lang === 'ar' ? 'مواصفة الوزارة (30% سهل، 40% متوسط، 30% تفكير عليا)' : 'Ministry Spec (30% Easy, 40% Med, 30% HOTS)'}
+              </option>
+              <option value="hots_challenge">
+                {lang === 'ar' ? 'امتحان الأوائل (100% مهارات تفكير عليا HOTS)' : 'HOTS Challenge (100% High Order Thinking)'}
+              </option>
+              <option value="foundational">
+                {lang === 'ar' ? 'مراجعة وتأسيس (تأسيسي ومعياري فقط)' : 'Foundational Revision (Easy & Med only)'}
+              </option>
+            </select>
+          </div>
+
+          <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectDifficulty}</label>
             <select
               value={difficulty}
+              disabled={blueprintMode !== 'all'}
               onChange={(e) => setDifficulty(e.target.value as any)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+              className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 ${
+                blueprintMode !== 'all' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+              }`}
             >
-              <option value="all">{lang === 'ar' ? 'جميع المستويات' : 'All Levels'}</option>
-              <option value="easy">{lang === 'ar' ? 'سهل (تأسيسي وتطبيق مباشر)' : 'Easy (Foundational)'}</option>
-              <option value="medium">{lang === 'ar' ? 'متوسط (معياري)' : 'Medium (Standard MoE)'}</option>
-              <option value="exam_standard">{lang === 'ar' ? 'مستوى امتحان الوزارة' : 'MoE Standard Exam'}</option>
-              <option value="hots">{lang === 'ar' ? 'مهارات تفكير عليا (HOTS)' : 'High Order Thinking (HOTS)'}</option>
+              {blueprintMode !== 'all' ? (
+                <option value="all">
+                  {blueprintMode === 'ministry_standard'
+                    ? (lang === 'ar' ? 'مواصفة الوزارة (30/40/30)' : 'Ministry Spec (30/40/30)')
+                    : blueprintMode === 'hots_challenge'
+                    ? (lang === 'ar' ? '100% مهارات تفكير عليا' : '100% HOTS Questions')
+                    : (lang === 'ar' ? 'سهل ومتوسط فقط' : 'Foundational Only')}
+                </option>
+              ) : (
+                <>
+                  <option value="all">{lang === 'ar' ? 'جميع المستويات' : 'All Levels'}</option>
+                  <option value="easy">{lang === 'ar' ? 'سهل (تأسيسي وتطبيق مباشر)' : 'Easy (Foundational)'}</option>
+                  <option value="medium">{lang === 'ar' ? 'متوسط (معياري)' : 'Medium (Standard MoE)'}</option>
+                  <option value="exam_standard">{lang === 'ar' ? 'مستوى امتحان الوزارة' : 'MoE Standard Exam'}</option>
+                  <option value="hots">{lang === 'ar' ? 'مهارات تفكير عليا (HOTS)' : 'High Order Thinking (HOTS)'}</option>
+                </>
+              )}
             </select>
           </div>
 
@@ -1318,17 +1514,233 @@ export const TestGenerator: React.FC<Props> = ({
       {/* Printable Exam Paper View */}
       {examMode === 'printable' && (
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl space-y-6 print-exam-sheet">
-          <div className="flex justify-end no-print">
-            <button
-              onClick={handlePrint}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-5 rounded-xl text-xs flex items-center gap-2 shadow-lg cursor-pointer"
-            >
-              <Printer className="w-4 h-4" />
-              <span>{t.printWorksheet}</span>
-            </button>
+          {/* Printable Mode Controls & Teacher Toolbar (Hidden during actual print) */}
+          <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-4 space-y-4 no-print shadow-xl">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-2.5">
+                <Printer className="w-5 h-5 text-emerald-400" />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-100">
+                    {lang === 'ar' ? 'أدوات الطباعة وإعداد ورقة الامتحان' : 'Printable Worksheet & Exam Controls'}
+                  </h4>
+                  <p className="text-[11px] text-slate-400">
+                    {lang === 'ar'
+                      ? 'تخصيص الكليشة الرسمية، نموذج الإجابة، الشرح التفصيلي، والتنسيق الموفر للورق'
+                      : 'Customize official header, answer key sheet, model solutions, and paper-saving layouts'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Copy Exam to Markdown */}
+                <button
+                  type="button"
+                  onClick={handleCopyExamMarkdown}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border ${
+                    isCopiedNotification
+                      ? 'bg-emerald-950 border-emerald-500 text-emerald-300'
+                      : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
+                  }`}
+                  title={lang === 'ar' ? 'نسخ نص الامتحان بالكامل إلى الحافظة' : 'Copy entire exam text to clipboard'}
+                >
+                  {isCopiedNotification ? (
+                    <>
+                      <CheckCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{lang === 'ar' ? 'تم النسخ بنجاح!' : 'Copied to Clipboard!'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5 text-indigo-400" />
+                      <span>{lang === 'ar' ? 'نسخ الامتحان (Markdown)' : 'Copy Exam (Text)'}</span>
+                    </>
+                  )}
+                </button>
+
+                {/* Toggle Paper Customizer */}
+                <button
+                  type="button"
+                  onClick={() => setIsCustomizerOpen((prev) => !prev)}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border ${
+                    isCustomizerOpen
+                      ? 'bg-indigo-950 border-indigo-500 text-indigo-300'
+                      : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
+                  }`}
+                >
+                  <SlidersHorizontal className="w-3.5 h-3.5 text-indigo-400" />
+                  <span>{lang === 'ar' ? 'تخصيص الكليشة والاسم' : 'Customize Header'}</span>
+                  {isCustomizerOpen ? <ChevronUp className="w-3 h-3 ml-1" /> : <ChevronDown className="w-3 h-3 ml-1" />}
+                </button>
+
+                {/* Primary Print Button */}
+                <button
+                  onClick={handlePrint}
+                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-black py-2 px-5 rounded-xl text-xs flex items-center gap-2 shadow-lg shadow-emerald-600/30 cursor-pointer hover:scale-105 transition-all"
+                >
+                  <Printer className="w-4 h-4" />
+                  <span>{t.printWorksheet}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Option Toggles Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-semibold">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+                {/* Toggle Answer Key */}
+                <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300 hover:text-white transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={showAnswerKeyOnPrint}
+                    onChange={(e) => setShowAnswerKeyOnPrint(e.target.checked)}
+                    className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                  />
+                  <span>{lang === 'ar' ? 'تضمين ملحق نموذج الإجابة الرسمي في الطباعة' : 'Include Model Answer Key Sheet on Print'}</span>
+                </label>
+
+                {/* Toggle Step-by-Step Solutions */}
+                {showAnswerKeyOnPrint && (
+                  <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300 hover:text-white transition-colors">
+                    <input
+                      type="checkbox"
+                      checked={showExplanationsOnPrint}
+                      onChange={(e) => setShowExplanationsOnPrint(e.target.checked)}
+                      className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                    />
+                    <span>{lang === 'ar' ? 'تضمين خطوات الحل والشرح التفصيلي' : 'Include Step-by-Step Solutions on Print'}</span>
+                  </label>
+                )}
+              </div>
+
+              {/* Layout Switcher: Standard vs Compact 2-Col */}
+              <div className="flex items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                <span className="text-[11px] text-slate-400 px-1.5">{lang === 'ar' ? 'تنسيق الطباعة:' : 'Layout:'}</span>
+                <button
+                  type="button"
+                  onClick={() => setPrintLayout('standard')}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    printLayout === 'standard'
+                      ? 'bg-indigo-600 text-white shadow'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {lang === 'ar' ? 'قياسي (عمود واحد)' : 'Standard (1-Col)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPrintLayout('compact')}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                    printLayout === 'compact'
+                      ? 'bg-indigo-600 text-white shadow'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <Columns className="w-3 h-3" />
+                  <span>{lang === 'ar' ? 'موفر للورق (عمودان)' : 'Paper Saver (2-Col)'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Collapsible Teacher / Academy Customizer Drawer */}
+            {isCustomizerOpen && (
+              <div className="bg-slate-900/90 border border-indigo-500/30 rounded-xl p-4 sm:p-5 mt-3 space-y-4 animate-fadeIn">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-indigo-300">
+                    <FileText className="w-4 h-4 text-indigo-400" />
+                    <span>{lang === 'ar' ? 'تخصيص بيانات ترويسة ورقة الامتحان (كليشة المعلم والسنتر)' : 'Customize Exam Paper Header & Teacher Branding'}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomSchoolName('');
+                      setCustomTeacherName('');
+                      setCustomExamTitle('');
+                      setCustomAcademicYear('2025 - 2026');
+                      setCustomGradeSection('');
+                    }}
+                    className="text-[11px] text-amber-400 hover:text-amber-300 font-semibold cursor-pointer underline"
+                  >
+                    {lang === 'ar' ? 'استعادة الافتراضيات الرسمية' : 'Reset to Official Defaults'}
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">
+                      {lang === 'ar' ? 'اسم المدرسة / السنتر / الأكاديمية' : 'School / Academy / Center Name'}
+                    </label>
+                    <input
+                      type="text"
+                      value={customSchoolName}
+                      onChange={(e) => setCustomSchoolName(e.target.value)}
+                      placeholder={lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم' : 'Ministry of Education & Technical Education'}
+                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">
+                      {lang === 'ar' ? 'اسم المعلم / واضع الامتحان' : 'Teacher / Instructor Name'}
+                    </label>
+                    <input
+                      type="text"
+                      value={customTeacherName}
+                      onChange={(e) => setCustomTeacherName(e.target.value)}
+                      placeholder={lang === 'ar' ? 'إعداد: الأستاذ / ...' : 'Prepared by: Teacher ...'}
+                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">
+                      {lang === 'ar' ? 'عنوان الامتحان الرئيسي' : 'Main Exam Title'}
+                    </label>
+                    <input
+                      type="text"
+                      value={customExamTitle}
+                      onChange={(e) => setCustomExamTitle(e.target.value)}
+                      placeholder={lang === 'ar' ? 'امتحان شهادة إتمام الدراسة الثانوية العامة' : 'Official Mock Examination'}
+                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">
+                      {lang === 'ar' ? 'العام الدراسي' : 'Academic Year'}
+                    </label>
+                    <input
+                      type="text"
+                      value={customAcademicYear}
+                      onChange={(e) => setCustomAcademicYear(e.target.value)}
+                      placeholder="2025 - 2026"
+                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">
+                      {lang === 'ar' ? 'الصف والشعبة' : 'Grade & Track'}
+                    </label>
+                    <input
+                      type="text"
+                      value={customGradeSection}
+                      onChange={(e) => setCustomGradeSection(e.target.value)}
+                      placeholder={lang === 'ar' ? 'الصف الثالث الثانوي (علمي علوم / علمي رياضة)' : 'Grade 12 (Thanaweya Amma)'}
+                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                    />
+                  </div>
+
+                  <div className="flex items-end">
+                    <p className="text-[11px] text-slate-400 leading-tight">
+                      {lang === 'ar'
+                        ? 'يتم حفظ هذه البيانات تلقائياً في متصفحك وستظهر في ترويسة ورقة الأسئلة وملحق الإجابة المطبوعة.'
+                        : 'Custom branding is auto-saved locally and will appear on both printed question sheets and answer appendices.'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Official Egyptian MoE & ClipSAT Header */}
+          {/* Official Egyptian MoE & ClipSAT Header on Printable Paper */}
           <div className="border-4 border-double border-slate-700 p-4 sm:p-6 rounded-xl space-y-4 bg-slate-950/40 text-center print-exam-header print-avoid-break">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold border-b border-slate-700 pb-4 text-center md:text-left">
               <div className="flex items-center gap-3 text-left">
@@ -1341,9 +1753,19 @@ export const TestGenerator: React.FC<Props> = ({
 
               <div className="text-center">
                 <h2 className="text-base sm:text-lg font-black text-amber-400">
-                  جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني
+                  {customSchoolName || (lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني' : 'Arab Republic of Egypt - Ministry of Education')}
                 </h2>
-                <p className="text-xs sm:text-sm font-bold text-slate-200 mt-1">{t.officialExamHeader}</p>
+                <p className="text-xs sm:text-sm font-bold text-slate-200 mt-1">
+                  {customExamTitle || t.officialExamHeader}
+                </p>
+                {customTeacherName && (
+                  <p className="text-xs font-bold text-indigo-300 mt-0.5">
+                    {customTeacherName}
+                  </p>
+                )}
+                <p className="text-[11px] text-slate-300 mt-0.5">
+                  {customAcademicYear} {customGradeSection ? `• ${customGradeSection}` : ''}
+                </p>
               </div>
 
               <div className="text-right text-xs space-y-1">
@@ -1356,6 +1778,11 @@ export const TestGenerator: React.FC<Props> = ({
                   {lang === 'ar'
                     ? `الزمن: ${toHindiDigits(Math.round((activeQuestions.length * 2) / 60) || 1)} ساعة`
                     : `Time Allowed: 2 Hours`}
+                </p>
+                <p className="font-semibold text-slate-400 text-[11px]">
+                  {lang === 'ar'
+                    ? `عدد الأسئلة: ${toHindiDigits(activeQuestions.length)} سؤالاً`
+                    : `Questions: ${activeQuestions.length}`}
                 </p>
               </div>
             </div>
@@ -1372,8 +1799,8 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* Questions list */}
-          <div className="space-y-8 pt-4">
+          {/* Questions list respecting standard or compact 2-col layout */}
+          <div className={`pt-4 ${printLayout === 'compact' ? 'space-y-4 print-compact-grid' : 'space-y-8'}`}>
             {activeQuestions.map((q, idx) => (
               <div
                 key={q.id}
@@ -1383,12 +1810,21 @@ export const TestGenerator: React.FC<Props> = ({
                   <span className="bg-indigo-100 dark:bg-indigo-900/60 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800">
                     {lang === 'ar' ? `السؤال رقم (${toHindiDigits(idx + 1)})` : `Question (${idx + 1})`}
                   </span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
-                    {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] px-2 py-0.5 rounded border font-bold text-slate-400 dark:text-slate-400 border-slate-300 dark:border-slate-800">
+                      {q.difficulty === 'hots'
+                        ? (lang === 'ar' ? 'مهارات تفكير عليا' : 'HOTS')
+                        : q.difficulty === 'easy'
+                        ? (lang === 'ar' ? 'تأسيسي' : 'Easy')
+                        : (lang === 'ar' ? 'معياري' : 'Standard')}
+                    </span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
+                      {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                <div className="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-relaxed">
                   <MathRenderer math={lang === 'ar' ? q.questionAr : q.questionEn} lang={lang} />
                 </div>
 
@@ -1412,6 +1848,181 @@ export const TestGenerator: React.FC<Props> = ({
               </div>
             ))}
           </div>
+
+          {/* Printable Model Answer Key & Solution Appendix Sheet */}
+          {showAnswerKeyOnPrint && (
+            <div className="mt-12 pt-8 border-t-4 border-double border-slate-700 print-page-break-before space-y-6 print-avoid-break">
+              {/* Appendix Header */}
+              <div className="border-4 border-double border-slate-700 p-4 sm:p-5 rounded-xl bg-slate-950/40 text-center print-exam-header print-avoid-break">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-slate-700 pb-3">
+                  <div className="text-left rtl:text-right">
+                    <p className="text-xs font-black text-indigo-400">
+                      {customSchoolName || (lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني' : 'Arab Republic of Egypt - Ministry of Education')}
+                    </p>
+                    <p className="text-[11px] text-slate-300">
+                      {customAcademicYear} {customGradeSection ? `• ${customGradeSection}` : ''}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-black text-amber-400">
+                      {lang === 'ar' ? 'نموذج الإجابة الرسمي والحلول المعتمدة' : 'Official Model Answer Key & Solution Appendix'}
+                    </h3>
+                    <p className="text-xs font-bold text-slate-200 mt-0.5">
+                      {customExamTitle || t.officialExamHeader}
+                    </p>
+                  </div>
+                  <div className="text-right rtl:text-left text-xs space-y-0.5">
+                    <span className="font-bold text-emerald-400 block">
+                      {lang === 'ar' ? `إجمالي الأسئلة: ${toHindiDigits(activeQuestions.length)}` : `Total Questions: ${activeQuestions.length}`}
+                    </span>
+                    <span className="font-bold text-cyan-400 block">
+                      {lang === 'ar' ? `الدرجة العظمى: ${toHindiDigits(activeQuestions.length * 2)}` : `Max Marks: ${activeQuestions.length * 2}`}
+                    </span>
+                  </div>
+                </div>
+                {customTeacherName && (
+                  <p className="text-xs font-bold text-slate-300 pt-1 text-center">
+                    {lang === 'ar' ? `إعداد وتدقيق: ${customTeacherName}` : `Prepared & Reviewed by: ${customTeacherName}`}
+                  </p>
+                )}
+              </div>
+
+              {/* Quick Answer Key Matrix Table */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between no-print">
+                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>{lang === 'ar' ? 'جدول مفتاح الإجابات السريع (Quick Scoring Grid)' : 'Quick Scoring Matrix'}</span>
+                  </h4>
+                  <span className="text-[11px] text-slate-400">
+                    {lang === 'ar' ? 'درجتان لكل سؤال' : '2 Marks per Question'}
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-slate-700 text-xs text-center print-answer-key-table">
+                    <thead>
+                      <tr className="bg-slate-800 text-slate-200 border-b border-slate-700">
+                        <th className="p-2 border border-slate-700 w-12 font-black">{lang === 'ar' ? 'رقم' : 'Q#'}</th>
+                        <th className="p-2 border border-slate-700 w-16 font-black">{lang === 'ar' ? 'الرمز' : 'Key'}</th>
+                        <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الإجابة النموذجية المعتمدة' : 'Correct Answer Option'}</th>
+                        <th className="p-2 border border-slate-700 w-24 font-black">{lang === 'ar' ? 'المستوى' : 'Level'}</th>
+                        <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الفصل / الوحدة' : 'Chapter / Branch'}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {activeQuestions.map((q, idx) => {
+                        const correctLetter = lang === 'ar' ? ['أ', 'ب', 'ج', 'د'][q.correctIndex] : String.fromCharCode(65 + q.correctIndex);
+                        const correctText = lang === 'ar' ? q.optionsAr[q.correctIndex] : q.optionsEn[q.correctIndex];
+                        const diffLabel = q.difficulty === 'hots'
+                          ? (lang === 'ar' ? 'تفكير عليا' : 'HOTS')
+                          : q.difficulty === 'easy'
+                          ? (lang === 'ar' ? 'تأسيسي' : 'Easy')
+                          : (lang === 'ar' ? 'معياري' : 'Medium');
+
+                        return (
+                          <tr
+                            key={q.id}
+                            className={`border-b border-slate-800 ${idx % 2 === 0 ? 'bg-slate-900/40' : 'bg-slate-950/40'}`}
+                          >
+                            <td className="p-2 border border-slate-800 font-bold text-slate-300">
+                              {lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}
+                            </td>
+                            <td className="p-2 border border-slate-800 font-black text-emerald-400 text-sm">
+                              ({correctLetter})
+                            </td>
+                            <td className="p-2 border border-slate-800 text-left rtl:text-right font-medium text-slate-200">
+                              <MathRenderer math={correctText} lang={lang} />
+                            </td>
+                            <td className="p-2 border border-slate-800 text-[11px] font-semibold text-slate-400">
+                              <span
+                                className={`px-2 py-0.5 rounded border inline-block ${
+                                  q.difficulty === 'hots'
+                                    ? 'border-amber-500/40 text-amber-300 bg-amber-950/20'
+                                    : q.difficulty === 'easy'
+                                    ? 'border-emerald-500/40 text-emerald-300 bg-emerald-950/20'
+                                    : 'border-slate-700 text-slate-300 bg-slate-900/40'
+                                }`}
+                              >
+                                {diffLabel}
+                              </span>
+                            </td>
+                            <td className="p-2 border border-slate-800 text-left rtl:text-right text-[11px] text-slate-400">
+                              {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Detailed Step-by-Step Explanations Section */}
+              {showExplanationsOnPrint && (
+                <div className="space-y-6 pt-6 print-page-break-before">
+                  <div className="border-b border-slate-700 pb-2">
+                    <h4 className="text-sm font-black text-amber-400 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <span>{lang === 'ar' ? 'الشرح النموذجي وخطوات الحل المفصلة' : 'Step-by-Step Solutions & Mathematical Explanations'}</span>
+                    </h4>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      {lang === 'ar' ? 'خطوات الاستنتاج الرياضي والعلمي وفقاً لمعايير التصحيح الوزاري' : 'Full ministerial marking guide and conceptual derivations'}
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    {activeQuestions.map((q, idx) => {
+                      const correctLetter = lang === 'ar' ? ['أ', 'ب', 'ج', 'د'][q.correctIndex] : String.fromCharCode(65 + q.correctIndex);
+                      const correctText = lang === 'ar' ? q.optionsAr[q.correctIndex] : q.optionsEn[q.correctIndex];
+                      const steps = lang === 'ar' ? q.explanationAr : q.explanationEn;
+
+                      return (
+                        <div
+                          key={q.id}
+                          className="border border-slate-300 dark:border-slate-800 rounded-xl p-4 bg-white dark:bg-slate-950/60 space-y-3 printable-problem print-avoid-break"
+                        >
+                          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2">
+                            <span className="font-black text-indigo-400 text-xs">
+                              {lang === 'ar' ? `إجابة السؤال رقم (${toHindiDigits(idx + 1)})` : `Solution to Question (${idx + 1})`}
+                            </span>
+                            <span className="bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded text-xs font-bold">
+                              {lang === 'ar' ? `الاختيار الصحيح: (${correctLetter})` : `Correct Choice: (${correctLetter})`}
+                            </span>
+                          </div>
+
+                          <div className="text-xs font-semibold text-slate-200">
+                            <MathRenderer math={lang === 'ar' ? q.questionAr : q.questionEn} lang={lang} />
+                          </div>
+
+                          <div className="bg-emerald-950/20 border-r-2 rtl:border-r-2 rtl:border-l-0 border-emerald-500 p-2 text-xs font-bold text-emerald-300">
+                            <span>{lang === 'ar' ? 'الإجابة المعتمدة:' : 'Selected Answer:'} </span>
+                            <MathRenderer math={correctText} lang={lang} />
+                          </div>
+
+                          {steps && steps.length > 0 && (
+                            <div className="space-y-1.5 pt-1 text-xs text-slate-300">
+                              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                                {lang === 'ar' ? 'خطوات الحل والتعليل:' : 'Derivation Steps:'}
+                              </span>
+                              {steps.map((step, sIdx) => (
+                                <div
+                                  key={sIdx}
+                                  className="pl-3 rtl:pr-3 rtl:pl-0 border-l-2 rtl:border-r-2 rtl:border-l-0 border-indigo-500/40 py-0.5"
+                                >
+                                  <MathRenderer math={step} lang={lang} />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 

@@ -1426,4 +1426,41 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
   }
+
+  /* Force clean page break before answer keys or appendix sections */
+  .print-page-break-before {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  /* Compact 2-column questions print layout for paper conservation */
+  .print-compact-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10pt !important;
+  }
+
+  .print-compact-grid .printable-question {
+    margin-bottom: 8pt !important;
+    padding: 8pt 10pt !important;
+  }
+
+  .print-compact-grid .print-options-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 4pt !important;
+  }
+
+  /* Printable Answer Key Matrix styling */
+  .print-answer-key-table th {
+    background-color: #e2e8f0 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    padding: 5pt 8pt !important;
+  }
+
+  .print-answer-key-table td {
+    text-align: center !important;
+    padding: 4pt 6pt !important;
+    font-weight: 600 !important;
+  }
 }
