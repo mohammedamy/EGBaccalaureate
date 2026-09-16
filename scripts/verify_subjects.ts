@@ -76,15 +76,15 @@ assert(bioStats.totalProblems === 1000, `Biology thanaweya problems: ${bioStats.
 
 const physStats = getSubjectStats(thanaweyaCurriculum, 'physics');
 assert(physStats.totalChapters === 6, `Physics thanaweya chapters: ${physStats.totalChapters} (expected 6)`);
-assert(physStats.totalProblems > 0, `Physics thanaweya problems: ${physStats.totalProblems}`);
+assert(physStats.totalProblems === 1200, `Physics thanaweya problems: ${physStats.totalProblems} (expected 1200)`);
 
 const chemStats = getSubjectStats(thanaweyaCurriculum, 'chemistry');
 assert(chemStats.totalChapters === 5, `Chemistry thanaweya chapters: ${chemStats.totalChapters} (expected 5)`);
-assert(chemStats.totalProblems > 0, `Chemistry thanaweya problems: ${chemStats.totalProblems}`);
+assert(chemStats.totalProblems === 1000, `Chemistry thanaweya problems: ${chemStats.totalProblems} (expected 1000)`);
 
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
 assert(allStats.totalChapters === 35, `Total thanaweya chapters: ${allStats.totalChapters} (expected 35)`);
-assert(allStats.totalProblems === 6743, `Total thanaweya problems: ${allStats.totalProblems} (expected 6743)`);
+assert(allStats.totalProblems === 7000, `Total thanaweya problems: ${allStats.totalProblems} (expected 7000)`);
 
 const egbacPhysStats = getSubjectStats(egBacCurriculum, 'physics');
 assert(egbacPhysStats.totalChapters === 5, `Physics egbac chapters: ${egbacPhysStats.totalChapters} (expected 5)`);
@@ -105,7 +105,7 @@ assert(egbacAllStats.totalProblems === 4400, `Total egbac problems: ${egbacAllSt
 const totalPlatformChapters = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalPlatformProblems = allStats.totalProblems + egbacAllStats.totalProblems;
 assert(totalPlatformChapters === 57, `Total platform chapters across both curriculums: ${totalPlatformChapters} (expected 57)`);
-assert(totalPlatformProblems === 11143, `Total platform problems across both curriculums: ${totalPlatformProblems} (expected 11143)`);
+assert(totalPlatformProblems === 11400, `Total platform problems across both curriculums: ${totalPlatformProblems} (expected 11400)`);
 
 if (failed) {
   console.error('\n❌ Verification failed with errors.');
