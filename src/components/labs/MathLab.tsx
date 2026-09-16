@@ -107,7 +107,7 @@ export const MathLab: React.FC<Props> = ({
             }`}
           >
             <option value="calculus" className="bg-slate-900 text-white">
-              🧭 {isArabic ? 'التفاضل والمماسات الديناميكية' : 'Calculus & Tangents'}
+              🧭 {isArabic ? 'حساب التفاضل والتكامل (المماس، التقعر، ومجموع ريمان)' : 'Calculus & Real Analysis (Tangents, Extrema & Riemann)'}
             </option>
             <option value="geometry3d" className="bg-slate-900 text-white">
               📦 {isArabic ? 'الهندسة الفراغية 3D (المتجهات، الكرة، والمستويات)' : '3D Solid Geometry (Vectors, Sphere & Planes)'}
