@@ -22,6 +22,8 @@ import {
   Info,
   Layers,
   Compass,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import skeletonImg from '../../assets/biology/human_skeleton_anatomy.jpg';
 
@@ -106,8 +108,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Ministerial Exam Target: Foramen magnum location and function; immobility of fibrous suture joints; brain protective box.',
     examTipsAr:
       'سؤال وزاري متكرر: موقع ووظيفة الثقب الأعظم (في قاع الجزء المخي)، ونوع المفاصل بين عظام الجزء المخي (مفاصل ليفية عديمة الحركة).',
-    pinX: 28,
-    pinY: 8,
+    pinX: 23.5,
+    pinY: 7.5,
   },
   {
     id: 'cervical',
@@ -130,8 +132,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Vertebra #4 is the exact median vertebra of the cervical region.',
     examTipsAr:
       'الفقرة المنصفة للفقرات العنقية هي الفقرة رقم ٤ في العمود الفقري.',
-    pinX: 28,
-    pinY: 15,
+    pinX: 23.5,
+    pinY: 14.5,
   },
   {
     id: 'thoracic_spine',
@@ -154,8 +156,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Spine Median Vertebra is #17 (the 10th thoracic vertebra). Floating ribs attach to thoracic vertebrae 11 & 12 (vertebrae #18 & #19 of spine).',
     examTipsAr:
       'الفقرة المنصفة للعمود الفقري بأكمله هي الفقرة رقم ١٧ (العاشرة ظهرية). الضلوع العائمة تتصل بالفقرتين الظهرتين ١١ و١٢ (الفقرتين رقم ١٨ و١٩ من العمود الفقري).',
-    pinX: 28,
-    pinY: 23,
+    pinX: 72.5,
+    pinY: 28,
   },
   {
     id: 'ribcage',
@@ -178,7 +180,7 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Sternum has a cartilaginous inferior tip. Floating ribs (pairs 11 & 12) never reach the sternum.',
     examTipsAr:
       'عظمة القص عظمة مفلطحة ومدببة من أسفل جزءها السفلي غضروفي. الضلوع العائمة لا تتصل بالقص إطلاقاً.',
-    pinX: 35,
+    pinX: 23.5,
     pinY: 24,
   },
   {
@@ -202,8 +204,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Lumbar vertebrae bear maximum physical stress. Vertebra #24 is the last articulated vertebra before the sacrum.',
     examTipsAr:
       'الفقرات القطنية هي الأكثر تحملاً لضغط وزن الجسم. الفقرة رقم ٢٤ هي آخر فقرة متمفصلة في العمود الفقري.',
-    pinX: 28,
-    pinY: 34,
+    pinX: 23.5,
+    pinY: 35.5,
   },
   {
     id: 'sacrum_coccyx',
@@ -226,8 +228,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Count distinction: Vertebral column has 33 vertebrae, but represents 26 individual bones in adults due to sacral & coccygeal fusion.',
     examTipsAr:
       'ملاحظة امتحانية حاسمة: عدد فقرات العمود الفقري ٣٣ فقرة، لكن عدد عظام العمود الفقري ٢٦ عظمة بسبب التحام العجز والعصعص.',
-    pinX: 28,
-    pinY: 42,
+    pinX: 72.5,
+    pinY: 46,
   },
   {
     id: 'pectoral_girdle',
@@ -250,8 +252,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'The Glenoid cavity is located on the lateral angle of the scapula and accommodates the head of the humerus.',
     examTipsAr:
       'التجويف الأروح يوجد في الطرف الخارجي لعظمة لوح الكتف ويستقر فيه رأس عظمة العضد مكوناً مفصل الكتف.',
-    pinX: 18,
-    pinY: 21,
+    pinX: 14.5,
+    pinY: 19,
   },
   {
     id: 'humerus_elbow',
@@ -274,7 +276,7 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Elbow joint is a hinge synovial joint (moves in one plane only), formed by humerus, ulna, and radius.',
     examTipsAr:
       'مفصل الكوع مفصل زلالي محدود الحركة يشارك في تكوينه العضد والزند والكعبرة.',
-    pinX: 14,
+    pinX: 10.5,
     pinY: 28,
   },
   {
@@ -298,7 +300,7 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Ulna is stationary; Radius rotates around it. The distal end of the radius articulates with the carpals, while ulna does NOT directly touch carpals.',
     examTipsAr:
       'سؤال وزاري شهير: الكعبرة تتحرك حركة نصف دائرية حول الزند الثابت. رسغ اليد يتصل بالطرف السفلي للكعبرة فقط ولا يتصل بالزند مباشرة.',
-    pinX: 12,
+    pinX: 8.5,
     pinY: 37,
   },
   {
@@ -322,8 +324,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Hand wrist consists of 8 carpal bones arranged in two rows. Thumb has only 2 phalanges while fingers have 3.',
     examTipsAr:
       'رسغ اليد يتكون من ٨ عظام في صفين. الإبهام يحتوي على سلاميتين فقط، بينما باقي الأصابع تحتوي على ٣ سلاميات.',
-    pinX: 10,
-    pinY: 45,
+    pinX: 7.5,
+    pinY: 46,
   },
   {
     id: 'pelvis',
@@ -346,8 +348,8 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Acetabulum is much deeper than Glenoid cavity. Pubic symphysis is a cartilaginous joint that relaxes during parturition.',
     examTipsAr:
       'التجويف الحقي أكثر عمقاً وثباتاً من التجويف الأروح. الارتفاق العاني مفصل غضروفي يربط نصفي الحزام الحوضي باطنياً.',
-    pinX: 25,
-    pinY: 47,
+    pinX: 23.5,
+    pinY: 43.5,
   },
   {
     id: 'femur_knee',
@@ -370,7 +372,7 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Crucial exam calculation: 3 ligaments bind Femur to Tibia (ACL, PCL, MCL). Only 1 ligament binds Femur to Fibula (LCL)!',
     examTipsAr:
       'سؤال وزاري متكرر جداً: عدد الأربطة التي تربط الفخذ بالقصبة = ٣ (صليبي أمامي + صليبي خلفي + وسطي). عدد الأربطة التي تربط الفخذ بالشظية = ١ فقط (جانبي).',
-    pinX: 23,
+    pinX: 20,
     pinY: 60,
   },
   {
@@ -394,7 +396,7 @@ export const SKELETON_HOTSPOTS: SkeletonPinInfo[] = [
       'Tarsals have 7 bones (unlike carpals which have 8). Achilles tendon rupture causes sudden walking inability and requires urgent surgical intervention if complete.',
     examTipsAr:
       'رسغ القدم يتكون من ٧ عظام (بينما رسغ اليد ٨ عظام). تمزق وتر أخيل الكامل يعالج بالتدخل الجراحي العاجل.',
-    pinX: 23,
+    pinX: 21,
     pinY: 82,
   },
 ];
@@ -757,10 +759,26 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
 
   const [dmmMode, setDmmMode] = useState<'axial_stress' | 'joint_rom' | 'achilles_strain' | 'bone_count'>('axial_stress');
   const [selectedAtlasPinId, setSelectedAtlasPinId] = useState<string>('skull');
+  const [hoveredAtlasPinId, setHoveredAtlasPinId] = useState<string | null>(null);
+  const [atlasFilter, setAtlasFilter] = useState<'all' | 'axial' | 'appendicular'>('all');
 
   const selectedAtlasPin = useMemo(() => {
     return SKELETON_HOTSPOTS.find((p) => p.id === selectedAtlasPinId) || SKELETON_HOTSPOTS[0];
   }, [selectedAtlasPinId]);
+
+  const currentPinIndex = useMemo(() => {
+    return SKELETON_HOTSPOTS.findIndex((p) => p.id === selectedAtlasPin.id);
+  }, [selectedAtlasPin.id]);
+
+  const handleNextPin = useCallback(() => {
+    const nextIdx = (currentPinIndex + 1) % SKELETON_HOTSPOTS.length;
+    setSelectedAtlasPinId(SKELETON_HOTSPOTS[nextIdx].id);
+  }, [currentPinIndex]);
+
+  const handlePrevPin = useCallback(() => {
+    const prevIdx = (currentPinIndex - 1 + SKELETON_HOTSPOTS.length) % SKELETON_HOTSPOTS.length;
+    setSelectedAtlasPinId(SKELETON_HOTSPOTS[prevIdx].id);
+  }, [currentPinIndex]);
 
   const lab = useVirtualLab<SkeletonLabParams, Record<string, any>>({
     definition: SKELETON_LAB_DEFINITION,
@@ -1859,81 +1877,187 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
         ) : (
           /* MODULE 4: HIGH-RESOLUTION MACROSCOPIC PHOTOGRAPHIC ATLAS */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-2">
-            {/* Left Column: Image with Interactive Hotspot Pins */}
-            <div className="lg:col-span-6 flex flex-col items-center">
+            {/* Left Column: Image with Interactive Numbered Pins & Directory */}
+            <div className="lg:col-span-6 flex flex-col items-center gap-3">
               <div
-                className={`relative w-full rounded-2xl overflow-hidden border shadow-xl flex items-center justify-center p-2 group ${
+                className={`relative w-full rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center p-2 group ${
                   isContrast
                     ? 'bg-black border-rose-400'
                     : isLight
-                    ? 'bg-slate-900 border-slate-300'
-                    : 'bg-black/90 border-slate-800'
+                    ? 'bg-slate-950 border-slate-300'
+                    : 'bg-black/95 border-slate-800'
                 }`}
               >
+                {/* Anatomical Orientation Tags */}
+                <div className="absolute top-3 left-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
+                  {isArabic ? 'المنظر الأمامي (Anterior)' : 'Anterior (Frontal) View'}
+                </div>
+                <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
+                  {isArabic ? 'المنظر الخلفي (Posterior)' : 'Posterior (Dorsal) View'}
+                </div>
+
                 <img
                   src={skeletonImg}
                   alt="Human Skeleton Macroscopic Anatomy"
                   className="w-full max-h-[640px] object-contain rounded-xl select-none"
                 />
 
-                {/* 12 Interactive Hotspot Pins */}
-                {SKELETON_HOTSPOTS.map((pin) => {
+                {/* Sleek Numbered Circular Target Pins */}
+                {SKELETON_HOTSPOTS.map((pin, idx) => {
                   const isSelected = selectedAtlasPin.id === pin.id;
+                  const isHovered = hoveredAtlasPinId === pin.id;
+                  const isAxial = pin.categoryEn === 'Axial Skeleton';
+
+                  // If category filter is active, fade out non-matching pins
+                  const matchesFilter =
+                    atlasFilter === 'all' ||
+                    (atlasFilter === 'axial' && isAxial) ||
+                    (atlasFilter === 'appendicular' && !isAxial);
+
+                  if (!matchesFilter) return null;
+
                   return (
-                    <button
+                    <div
                       key={pin.id}
-                      onClick={() => setSelectedAtlasPinId(pin.id)}
                       style={{
                         top: `${pin.pinY}%`,
                         left: `${pin.pinX}%`,
                       }}
-                      title={isArabic ? pin.nameAr : pin.nameEn}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-black cursor-pointer shadow-xl transition-all duration-200 z-10 ${
-                        isSelected
-                          ? 'bg-rose-500 text-white ring-4 ring-rose-400/50 scale-110 shadow-rose-500/50'
-                          : 'bg-slate-900/90 text-slate-100 hover:bg-rose-600 hover:text-white border border-rose-400/40 backdrop-blur-xs'
-                      }`}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group/pin"
                     >
-                      <span className="w-2 h-2 rounded-full bg-rose-300 animate-ping" />
-                      <span>{isArabic ? pin.nameAr : pin.nameEn}</span>
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedAtlasPinId(pin.id)}
+                        onMouseEnter={() => setHoveredAtlasPinId(pin.id)}
+                        onMouseLeave={() => setHoveredAtlasPinId(null)}
+                        aria-label={isArabic ? pin.nameAr : pin.nameEn}
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono font-black text-xs cursor-pointer transition-all duration-200 select-none ${
+                          isSelected
+                            ? 'bg-rose-500 text-white ring-4 ring-rose-400/80 scale-125 shadow-[0_0_20px_rgba(244,63,94,0.9)] z-30'
+                            : isAxial
+                            ? 'bg-slate-950/90 text-rose-300 border-2 border-rose-500/70 hover:border-rose-400 hover:bg-rose-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                            : 'bg-slate-950/90 text-cyan-300 border-2 border-cyan-500/70 hover:border-cyan-400 hover:bg-cyan-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                        }`}
+                      >
+                        {isSelected && (
+                          <span className="absolute -inset-1.5 rounded-full bg-rose-400/40 animate-ping pointer-events-none" />
+                        )}
+                        <span>{idx + 1}</span>
+                      </button>
+
+                      {/* Floating Tooltip Label (Appears ONLY on active or hovered pin) */}
+                      {(isSelected || isHovered) && (
+                        <div
+                          className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-40 whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-black shadow-2xl backdrop-blur-md pointer-events-none transition-all flex items-center gap-1.5 ${
+                            isSelected
+                              ? 'bg-rose-600 text-white border border-rose-300 shadow-rose-950/60'
+                              : 'bg-slate-950/95 text-slate-100 border border-slate-700 shadow-black'
+                          }`}
+                        >
+                          <span>{isArabic ? pin.nameAr : pin.nameEn}</span>
+                          <span className="text-[9px] opacity-80 font-mono">
+                            ({isArabic ? toHindiDigits(pin.count) : pin.count})
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 text-[10px] text-white">
-                  <span className="flex items-center gap-1 font-semibold">
+                {/* Bottom OSD Bar */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-[10px] text-white select-none">
+                  <span className="flex items-center gap-1.5 font-semibold text-slate-300">
                     <ZoomIn className="w-3.5 h-3.5 text-rose-400" />
                     {isArabic
-                      ? 'اضغط على النقاط التفاعلية لفحص العظام'
-                      : 'Click on interactive hotspot pins to inspect'}
+                      ? 'اضغط على النقاط المرقمة (١-١٣) لفحص العظام'
+                      : 'Click numbered pins (1-13) to inspect bones'}
                   </span>
-                  <span className="font-mono text-slate-300">
+                  <span className="font-mono text-rose-300 font-bold bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/50">
                     {isArabic ? `${toHindiDigits(206)} عظمة في البالغين` : '206 Bones in Adult'}
                   </span>
                 </div>
               </div>
 
-              {/* Pin Selection Pills */}
-              <div className="flex flex-wrap items-center justify-center gap-1.5 mt-3 w-full">
-                {SKELETON_HOTSPOTS.map((pin) => {
+              {/* Anatomical Category Filter Bar */}
+              <div className="w-full bg-slate-950/80 p-1.5 rounded-xl border border-slate-800 flex items-center gap-1.5 text-xs font-bold">
+                <button
+                  type="button"
+                  onClick={() => setAtlasFilter('all')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasFilter === 'all'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'جميع العظام (٢٠٦)' : 'All Bones (206)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAtlasFilter('axial')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasFilter === 'axial'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-rose-400 hover:text-rose-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'الهيكل المحوري (٨٠)' : 'Axial (80)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAtlasFilter('appendicular')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasFilter === 'appendicular'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'text-indigo-400 hover:text-indigo-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'الهيكل الطرفي (١٢٦)' : 'Appendicular (126)'}
+                </button>
+              </div>
+
+              {/* Clean Structured Directory of Regions */}
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1">
+                {SKELETON_HOTSPOTS.filter((pin) => {
+                  if (atlasFilter === 'axial') return pin.categoryEn === 'Axial Skeleton';
+                  if (atlasFilter === 'appendicular') return pin.categoryEn === 'Appendicular Skeleton';
+                  return true;
+                }).map((pin) => {
                   const isSelected = selectedAtlasPin.id === pin.id;
+                  const originalIndex = SKELETON_HOTSPOTS.findIndex((p) => p.id === pin.id);
+                  const isAxial = pin.categoryEn === 'Axial Skeleton';
+
                   return (
                     <button
                       key={pin.id}
+                      type="button"
                       onClick={() => setSelectedAtlasPinId(pin.id)}
-                      className={`px-2.5 py-1 rounded-xl text-[11px] font-bold transition-all cursor-pointer border ${
+                      className={`flex items-center justify-between p-2 rounded-xl text-xs transition-all cursor-pointer border text-left rtl:text-right ${
                         isSelected
-                          ? isContrast
-                            ? 'bg-rose-400 text-black border-rose-300 font-black'
-                            : 'bg-rose-600 text-white border-rose-500 font-black shadow-sm'
-                          : isContrast
-                          ? 'bg-black border-rose-400/60 text-white'
+                          ? 'bg-rose-500/20 border-rose-500 text-rose-200 ring-1 ring-rose-500/50 shadow-sm'
                           : isLight
-                          ? 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
-                          : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
+                          ? 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                          : 'bg-slate-900/70 border-slate-800/80 text-slate-300 hover:bg-slate-850 hover:border-slate-700'
                       }`}
                     >
-                      {isArabic ? pin.nameAr : pin.nameEn} ({isArabic ? toHindiDigits(pin.count) : pin.count})
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span
+                          className={`w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] font-black shrink-0 ${
+                            isSelected
+                              ? 'bg-rose-500 text-white'
+                              : isAxial
+                              ? 'bg-rose-950 text-rose-400 border border-rose-800'
+                              : 'bg-cyan-950 text-cyan-400 border border-cyan-800'
+                          }`}
+                        >
+                          {originalIndex + 1}
+                        </span>
+                        <span className="font-semibold truncate">
+                          {isArabic ? pin.nameAr : pin.nameEn}
+                        </span>
+                      </div>
+                      <span className="font-mono text-[10px] text-slate-400 shrink-0 ml-1.5 rtl:mr-1.5">
+                        {isArabic ? toHindiDigits(pin.count) : pin.count}
+                      </span>
                     </button>
                   );
                 })}
@@ -1951,6 +2075,7 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
                     : 'bg-rose-950/20 border-rose-900/40'
                 }`}
               >
+                {/* Header with Navigation Controls */}
                 <div className="flex items-center justify-between gap-2">
                   <span
                     className={`text-xs font-black px-2.5 py-1 rounded-lg border uppercase ${
@@ -1963,23 +2088,48 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
                   >
                     {isArabic ? selectedAtlasPin.categoryAr : selectedAtlasPin.categoryEn}
                   </span>
-                  <span className="text-xs font-mono font-bold text-rose-500">
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handlePrevPin}
+                      title={isArabic ? 'العظمة السابقة' : 'Previous Region'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                    <span className="text-xs font-mono font-bold text-rose-400 px-2 py-0.5 rounded bg-rose-950/60 border border-rose-900/50">
+                      #{currentPinIndex + 1} / {SKELETON_HOTSPOTS.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleNextPin}
+                      title={isArabic ? 'العظمة التالية' : 'Next Region'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-baseline justify-between mt-3">
+                  <h3 className="text-xl font-black">
+                    {isArabic ? selectedAtlasPin.nameAr : selectedAtlasPin.nameEn}
+                  </h3>
+                  <span className="text-xs font-mono font-bold text-rose-400 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-900/40">
                     {isArabic
                       ? `${toHindiDigits(selectedAtlasPin.count)} عظمة معتمدة`
                       : `${selectedAtlasPin.count} Accredited Bones`}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-black mt-2">
-                  {isArabic ? selectedAtlasPin.nameAr : selectedAtlasPin.nameEn}
-                </h3>
-                <p className={`text-xs mt-1.5 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                <p className={`text-xs mt-2 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? selectedAtlasPin.descriptionAr : selectedAtlasPin.descriptionEn}
                 </p>
 
                 {/* Sub-Bones Breakdown */}
                 <div className="mt-4 pt-3 border-t border-rose-200 dark:border-rose-900/50 space-y-2">
-                  <h4 className="text-xs font-black flex items-center gap-1.5 text-rose-500">
+                  <h4 className="text-xs font-black flex items-center gap-1.5 text-rose-400">
                     <Info className="w-3.5 h-3.5" />
                     {isArabic ? 'التقسيم والتركيب التشريحي التفصيلي:' : 'Detailed Anatomical Components:'}
                   </h4>
