@@ -224,21 +224,21 @@ export const LessonView: React.FC<Props> = ({
         case '3d_vectors':
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
         case 'pascal_binomial':
-          return <InteractivePascalTriangle lang={lang} theme={theme} />;
+          return <InteractivePascalTriangle lang={lang} theme={theme} isFullscreen={true} />;
         case 'calculus_tangent':
           return <InteractiveCalculusTangent lang={lang} theme={theme} isFullscreen={true} />;
         case 'statics_friction':
-          return <InteractiveStaticsFriction lang={lang} theme={theme} />;
+          return <InteractiveStaticsFriction lang={lang} theme={theme} isFullscreen={true} />;
         case 'complex_argand':
           return <InteractiveComplexArgand lang={lang} theme={theme} isFullscreen={true} />;
         case 'normal_distribution':
-          return <InteractiveNormalDistribution lang={lang} theme={theme} />;
+          return <InteractiveNormalDistribution lang={lang} theme={theme} isFullscreen={true} />;
         case 'dynamics_motion':
-          return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
+          return <InteractiveDynamicsMotion lang={lang} theme={theme} isFullscreen={true} />;
         case 'matrix_solver':
           return <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />;
         case 'work_energy':
-          return <InteractiveWorkEnergyLab lang={lang} theme={theme} />;
+          return <InteractiveWorkEnergyLab lang={lang} theme={theme} isFullscreen={true} />;
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
       }

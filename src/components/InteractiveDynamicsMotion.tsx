@@ -13,9 +13,10 @@ import {
 interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
 
@@ -131,9 +132,11 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
   };
 
   return (
-    <div className="space-y-6">
+    <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2 overflow-hidden p-2" : "space-y-6"}>
       {/* Mode Switcher */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+      <div className={`flex flex-wrap items-center justify-between gap-2.5 ${
+        isFullscreen ? 'pb-2 shrink-0 border-b border-slate-800/80' : 'border-b border-slate-800 pb-3'
+      }`}>
         <div className="flex items-center gap-2">
           <Zap className="w-5 h-5 text-amber-400" />
           <h4 className="text-sm font-bold text-slate-200">
@@ -171,16 +174,20 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
 
       {/* MODE 1: PULLEY & CONNECTED BODIES */}
       {activeTab === 'pulley_system' && (
-        <div className="space-y-6">
+        <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2 overflow-hidden" : "space-y-6"}>
           {/* Main Simulation View Card */}
           <div
-            className={`rounded-2xl p-5 border relative overflow-hidden ${
+            className={`rounded-2xl border relative overflow-hidden ${
+              isFullscreen ? 'flex-1 min-h-0 p-3 flex flex-col justify-between' : 'p-5'
+            } ${
               isLight ? 'bg-slate-50 border-slate-200 shadow-sm' : 'bg-slate-950/80 border-slate-800 shadow-xl'
             }`}
           >
             {/* Real-time Dynamic Readouts */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-b border-slate-800/80 pb-4 mb-4">
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 space-y-0.5">
+            <div className={`grid grid-cols-2 sm:grid-cols-4 ${
+              isFullscreen ? 'gap-2 pb-2 mb-2' : 'gap-3 pb-4 mb-4'
+            } border-b border-slate-800/80 shrink-0`}>
+              <div className="bg-slate-900/80 p-2.5 sm:p-3 rounded-xl border border-slate-800 space-y-0.5">
                 <span className="text-[10px] text-slate-400 font-semibold block">
                   {isArabic ? 'العجلة المشتركة (a):' : 'System Accel (a):'}
                 </span>
@@ -222,8 +229,8 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
             </div>
 
             {/* SVG Visual Canvas */}
-            <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 680 300" className="w-full h-auto select-none">
+            <div className={`w-full ${isFullscreen ? 'flex-1 min-h-0 flex items-center justify-center overflow-hidden my-auto' : 'overflow-x-auto'}`}>
+              <svg viewBox="0 0 680 300" className={`w-full select-none ${isFullscreen ? 'max-w-lg max-h-[185px] h-auto' : 'h-auto'}`}>
                 <defs>
                   <linearGradient id="rampGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#1e293b" />
@@ -331,7 +338,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
             </div>
 
             {/* Playback Controls & Status */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800/80">
+            <div className={`flex flex-wrap items-center justify-between gap-2.5 ${isFullscreen ? 'pt-2' : 'pt-4'} border-t border-slate-800/80 shrink-0`}>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsSimRunning((prev) => !prev)}
@@ -363,7 +370,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
           </div>
 
           {/* Interactive Parameter Sliders */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-950/70 p-5 rounded-2xl border border-slate-800">
+          <div className={`grid grid-cols-2 sm:grid-cols-4 ${isFullscreen ? 'gap-2.5 p-3 shrink-0' : 'gap-4 p-5'} bg-slate-950/70 rounded-2xl border border-slate-800`}>
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-semibold">
                 <span className="text-indigo-400">{isArabic ? 'كتلة الجسم على المستوى (m₁):' : 'Ramp Mass (m₁):'}</span>
@@ -445,15 +452,19 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
 
       {/* MODE 2: HARMONIC OSCILLATION & ENERGY CONSERVATION */}
       {activeTab === 'harmonic_energy' && (
-        <div className="space-y-6">
+        <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2 overflow-hidden" : "space-y-6"}>
           <div
-            className={`rounded-2xl p-5 border relative overflow-hidden ${
+            className={`rounded-2xl border relative overflow-hidden ${
+              isFullscreen ? 'flex-1 min-h-0 p-3 flex flex-col justify-between' : 'p-5'
+            } ${
               isLight ? 'bg-slate-50 border-slate-200 shadow-sm' : 'bg-slate-950/80 border-slate-800 shadow-xl'
             }`}
           >
             {/* Live Energy Readouts */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 border-b border-slate-800/80 pb-4 mb-4">
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 space-y-1">
+            <div className={`grid grid-cols-1 sm:grid-cols-3 ${
+              isFullscreen ? 'gap-2 pb-2 mb-2' : 'gap-3 pb-4 mb-4'
+            } border-b border-slate-800/80 shrink-0`}>
+              <div className="bg-slate-900/80 p-2.5 sm:p-3 rounded-xl border border-slate-800 space-y-1">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-emerald-400">{isArabic ? 'طاقة الحركة (T):' : 'Kinetic Energy (T):'}</span>
                   <span className="font-mono text-slate-200">{kineticEnergy.toFixed(1)} J</span>
@@ -466,7 +477,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
                 </div>
               </div>
 
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 space-y-1">
+              <div className="bg-slate-900/80 p-2.5 sm:p-3 rounded-xl border border-slate-800 space-y-1">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-amber-400">{isArabic ? 'طاقة الوضع (V):' : 'Potential Energy (V):'}</span>
                   <span className="font-mono text-slate-200">{potentialEnergy.toFixed(1)} J</span>
@@ -479,7 +490,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
                 </div>
               </div>
 
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 space-y-1">
+              <div className="bg-slate-900/80 p-2.5 sm:p-3 rounded-xl border border-slate-800 space-y-1">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-indigo-400">{isArabic ? 'الطاقة الكلية المحفوظة (E):' : 'Total Energy (E):'}</span>
                   <span className="font-mono text-indigo-300 font-bold">{totalEnergy.toFixed(1)} J</span>
@@ -491,8 +502,8 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
             </div>
 
             {/* SVG Visual Canvas */}
-            <div className="w-full overflow-x-auto">
-              <svg viewBox="0 0 680 200" className="w-full h-auto select-none">
+            <div className={`w-full ${isFullscreen ? 'flex-1 min-h-0 flex items-center justify-center overflow-hidden my-auto' : 'overflow-x-auto'}`}>
+              <svg viewBox="0 0 680 200" className={`w-full select-none ${isFullscreen ? 'max-w-lg max-h-[145px] h-auto' : 'h-auto'}`}>
                 {/* Wall & Ground */}
                 <line x1="60" y1="20" x2="60" y2="160" stroke="#475569" strokeWidth="4" />
                 <line x1="50" y1="160" x2="630" y2="160" stroke="#334155" strokeWidth="2" strokeDasharray="6 4" />
@@ -560,7 +571,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
             </div>
 
             {/* Animation Toggle */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-800/80">
+            <div className={`flex items-center justify-between ${isFullscreen ? 'pt-2' : 'pt-4'} border-t border-slate-800/80 shrink-0`}>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsOscRunning((prev) => !prev)}
@@ -589,7 +600,7 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
           </div>
 
           {/* Sliders */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-950/70 p-5 rounded-2xl border border-slate-800">
+          <div className={`grid grid-cols-1 sm:grid-cols-3 ${isFullscreen ? 'gap-2.5 p-3 shrink-0' : 'gap-4 p-5'} bg-slate-950/70 rounded-2xl border border-slate-800`}>
             <div className="space-y-1.5">
               <div className="flex justify-between text-xs font-semibold">
                 <span className="text-indigo-400">{isArabic ? 'الكتلة (m):' : 'Mass (m):'}</span>

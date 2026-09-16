@@ -5,9 +5,10 @@ import type { Language } from '../i18n/translations';
 interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isLight = theme === 'light';
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [weightW, setWeightW] = useState<number>(40);
@@ -131,20 +132,26 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
   }, [inclineTheta, weightW, pullP, muS, thetaRad, isSliding, isVergeOfMotion, isUpwardTendency, isLight]);
 
   return (
-    <div className={`border rounded-2xl p-4 sm:p-6 shadow-xl space-y-6 transition-colors ${
+    <div className={`${
+      isFullscreen
+        ? 'flex-1 min-h-0 flex flex-col gap-2.5 overflow-hidden p-2.5'
+        : 'border rounded-2xl p-4 sm:p-6 shadow-xl space-y-6 transition-colors'
+    } ${
       isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
     }`}>
-      <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 ${
+      <div className={`flex flex-col md:flex-row md:items-center justify-between gap-3 border-b ${
+        isFullscreen ? 'pb-2 shrink-0' : 'pb-4'
+      } ${
         isLight ? 'border-slate-200' : 'border-slate-800'
       }`}>
         <div>
-          <h3 className={`text-lg font-bold flex items-center gap-2 ${
+          <h3 className={`text-base sm:text-lg font-bold flex items-center gap-2 ${
             isLight ? 'text-slate-900' : 'text-slate-100'
           }`}>
             <span>⚖️</span>
             <span>{lang === 'ar' ? 'محاكي اتزان الجسم والاحتكاك على مستوى مائل' : 'Statics Rough Inclined Plane Simulator'}</span>
           </h3>
-          <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+          <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {lang === 'ar'
               ? 'اختبر الاتزان، زاوية الاحتكاك ل، وحالة وشك الحركة أو الانزلاق لحظياً'
               : 'Test static equilibrium, friction angle lambda, and verge of motion vs sliding states'}
@@ -152,9 +159,9 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
         </div>
 
         {/* State Badge */}
-        <div className="flex items-center gap-2 self-start md:self-auto">
+        <div className="flex items-center gap-2 self-start md:self-auto shrink-0">
           <span
-            className={`px-3 py-1.5 rounded-full text-xs font-bold ${
+            className={`px-3 py-1 rounded-full text-xs font-bold ${
               isSliding
                 ? 'bg-red-500/20 text-red-700 dark:text-orange-300 border border-red-500/50 animate-bounce'
                 : isVergeOfMotion
@@ -177,20 +184,24 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className={`grid grid-cols-1 lg:grid-cols-12 ${
+        isFullscreen ? 'gap-3 flex-1 min-h-0 overflow-hidden' : 'gap-6 items-start'
+      }`}>
         {/* Canvas */}
-        <div className={`lg:col-span-7 p-3.5 sm:p-4 rounded-xl border flex flex-col items-center ${
+        <div className={`lg:col-span-7 rounded-xl border flex flex-col items-center justify-between ${
+          isFullscreen ? 'h-full min-h-0 p-2.5 overflow-hidden' : 'p-3.5 sm:p-4'
+        } ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <canvas
             ref={canvasRef}
             width={480}
             height={320}
-            className={`w-full max-w-[480px] aspect-[480/320] h-auto rounded-lg border ${
+            className={`w-full max-w-[460px] aspect-[480/320] h-auto rounded-lg border object-contain my-auto ${
               isLight ? 'border-slate-300' : 'border-slate-800/80'
             }`}
           />
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-3 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-2 text-xs shrink-0">
             <span className={`font-bold ${isLight ? 'text-sky-800' : 'text-cyan-400'}`}>Normal Reaction R</span>
             <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>Friction f_s</span>
             <span className={`font-bold ${isLight ? 'text-purple-800' : 'text-purple-400'}`}>Pull Force P</span>
@@ -199,9 +210,13 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
         </div>
 
         {/* Sliders & Math Calculations */}
-        <div className="lg:col-span-5 space-y-4">
-          <div className={`p-4 rounded-xl border space-y-3 ${
-            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 p-4 rounded-xl border border-slate-800'
+        <div className={`lg:col-span-5 ${
+          isFullscreen ? 'h-full min-h-0 overflow-y-auto space-y-2.5 pr-1' : 'space-y-4'
+        }`}>
+          <div className={`rounded-xl border ${
+            isFullscreen ? 'p-3 space-y-2' : 'p-4 space-y-3'
+          } ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
           }`}>
             <div>
               <label className={`text-xs font-semibold flex justify-between ${
@@ -247,8 +262,10 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
           </div>
 
           {/* Real-time Equations Card */}
-          <div className={`p-4 rounded-xl border space-y-2 text-xs ${
-            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 p-4 rounded-xl border border-slate-800'
+          <div className={`rounded-xl border ${
+            isFullscreen ? 'p-3 space-y-1.5 text-xs' : 'p-4 space-y-2 text-xs'
+          } ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
           }`}>
             <h4 className={`font-bold uppercase tracking-wider ${
               isLight ? 'text-amber-800 font-bold' : 'text-amber-400'

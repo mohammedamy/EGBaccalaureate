@@ -6,9 +6,10 @@ import { toHindiDigits } from '../utils/arabicNumerals';
 interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isLight = theme === 'light';
   const isHighContrast = theme === 'high-contrast';
 
@@ -130,7 +131,11 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
   const polygonDiagonals = nCr(permN, 2) - permN;
 
   return (
-    <div className={`border rounded-2xl p-4 sm:p-6 space-y-6 ${
+    <div className={`${
+      isFullscreen
+        ? 'flex-1 min-h-0 flex flex-col gap-2 overflow-hidden p-2.5'
+        : 'border rounded-2xl p-4 sm:p-6 space-y-6'
+    } ${
       isHighContrast
         ? 'bg-black border-2 border-cyan-400 text-white'
         : isLight
@@ -138,11 +143,13 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
         : 'bg-slate-900/90 border-slate-800 shadow-2xl text-slate-100'
     }`}>
       {/* Header & Mode Switcher */}
-      <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${
+      <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b ${
+        isFullscreen ? 'pb-2 shrink-0' : 'pb-4'
+      } ${
         isHighContrast ? 'border-cyan-500/40' : isLight ? 'border-slate-200' : 'border-slate-800'
       }`}>
         <div>
-          <h3 className={`text-lg font-bold flex items-center gap-2 ${
+          <h3 className={`text-base sm:text-lg font-bold flex items-center gap-2 ${
             isHighContrast ? 'text-yellow-400' : isLight ? 'text-slate-900' : 'text-slate-100'
           }`}>
             <span>✨</span>
@@ -152,7 +159,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
                 : "Algebra & Binomial Theorem Interactive Lab"}
             </span>
           </h3>
-          <p className={`text-xs mt-1 ${
+          <p className={`text-xs mt-0.5 ${
             isHighContrast ? 'text-slate-200' : isLight ? 'text-slate-600' : 'text-slate-400'
           }`}>
             {lang === 'ar'
@@ -162,7 +169,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className={`flex items-center gap-2 p-1.5 rounded-xl border self-start sm:self-auto ${
+        <div className={`flex items-center gap-2 p-1.5 rounded-xl border self-start sm:self-auto shrink-0 ${
           isHighContrast
             ? 'bg-black border-cyan-400'
             : isLight
@@ -171,7 +178,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
         }`}>
           <button
             onClick={() => setActiveMode('pascal')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeMode === 'pascal'
                 ? isHighContrast
                   ? 'bg-cyan-400 text-black font-black shadow-xs'
@@ -183,7 +190,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
           </button>
           <button
             onClick={() => setActiveMode('perm_comb')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeMode === 'perm_comb'
                 ? isHighContrast
                   ? 'bg-cyan-400 text-black font-black shadow-xs'
@@ -200,9 +207,11 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
           MODE 1: PASCAL TRIANGLE & BINOMIAL EXPANSION
           ============================================================ */}
       {activeMode === 'pascal' && (
-        <div className="space-y-6">
+        <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2 overflow-hidden" : "space-y-6"}>
           {/* Controls */}
-          <div className={`flex flex-wrap items-center justify-between gap-4 p-3 rounded-xl border ${
+          <div className={`flex flex-wrap items-center justify-between gap-3 ${
+            isFullscreen ? 'p-2 shrink-0' : 'p-3'
+          } rounded-xl border ${
             isHighContrast
               ? 'bg-black border-cyan-400'
               : isLight
@@ -273,7 +282,11 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
           </div>
 
           {/* Interactive Pascal Triangle Pyramid */}
-          <div className={`p-4 sm:p-6 rounded-xl border overflow-x-auto ${
+          <div className={`rounded-xl border ${
+            isFullscreen
+              ? 'flex-1 min-h-0 p-3 overflow-y-auto flex flex-col justify-between'
+              : 'p-4 sm:p-6 overflow-x-auto'
+          } ${
             isHighContrast
               ? 'bg-black border-cyan-500/40'
               : isLight
@@ -343,7 +356,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
           </div>
 
           {/* Binomial Expansion Generator */}
-          <div className={`p-4 sm:p-5 rounded-xl border space-y-3 ${
+          <div className={`${isFullscreen ? 'p-2.5 shrink-0 space-y-1.5' : 'p-4 sm:p-5 space-y-3'} rounded-xl border ${
             isHighContrast
               ? 'bg-black border-2 border-cyan-400 text-white'
               : isLight
@@ -367,7 +380,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
               </div>
             </div>
 
-            <div className={`text-xs overflow-x-auto p-3.5 rounded-lg border shadow-inner ${
+            <div className={`text-xs overflow-x-auto ${isFullscreen ? 'p-2' : 'p-3.5'} rounded-lg border shadow-inner ${
               isHighContrast
                 ? 'bg-black border-cyan-500/60'
                 : isLight
@@ -377,7 +390,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
               <MathRenderer block math={getBinomialExpansionLatex(coeffA, coeffB, exponentN)} lang={lang} />
             </div>
 
-            <div className={`text-xs flex flex-wrap items-center justify-between gap-3 pt-2.5 border-t ${
+            <div className={`text-xs flex flex-wrap items-center justify-between gap-3 ${isFullscreen ? 'pt-1.5' : 'pt-2.5'} border-t ${
               isHighContrast
                 ? 'border-cyan-500/40 text-slate-100'
                 : isLight
@@ -408,9 +421,9 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
           MODE 2: PERMUTATIONS VS COMBINATIONS LAB
           ============================================================ */}
       {activeMode === 'perm_comb' && (
-        <div className="space-y-6">
+        <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2 overflow-hidden" : "space-y-6"}>
           {/* Sliders and Numerical Controls */}
-          <div className={`p-4 rounded-xl border space-y-4 ${
+          <div className={`${isFullscreen ? 'p-2.5 shrink-0 space-y-2' : 'p-4 space-y-4'} rounded-xl border ${
             isHighContrast
               ? 'bg-black border-cyan-400'
               : isLight
@@ -418,7 +431,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
               : 'bg-slate-950 border-slate-800'
           }`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <div className="flex items-center justify-between text-xs font-bold">
                   <span className={isLight ? 'text-slate-800' : 'text-slate-200'}>
                     {lang === 'ar' ? 'العلم الكلي (n):' : 'Total Objects (n):'} {permN}
@@ -435,7 +448,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
                 />
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <div className="flex items-center justify-between text-xs font-bold">
                   <span className={isLight ? 'text-slate-800' : 'text-slate-200'}>
                     {lang === 'ar' ? 'دليل الاختيار (r):' : 'Sample Size (r):'} {safePermR}
@@ -453,6 +466,9 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
               </div>
             </div>
           </div>
+
+          {/* Scrollable Content in Fullscreen */}
+          <div className={isFullscreen ? "flex-1 min-h-0 overflow-y-auto space-y-3 pr-1" : "space-y-6"}>
 
           {/* The Golden Bridge: Permutations vs Combinations Comparison */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -627,6 +643,7 @@ export const InteractivePascalTriangle: React.FC<Props> = ({ lang, theme = 'dark
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       )}

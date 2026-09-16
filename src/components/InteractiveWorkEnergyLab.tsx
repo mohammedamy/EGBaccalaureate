@@ -3,9 +3,10 @@ import React, { useState, useMemo } from 'react';
 interface Props {
   lang: 'en' | 'ar';
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isLight = theme === 'light';
   const isAr = lang === 'ar';
 
@@ -62,11 +63,11 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
   }, [angleDeg, mass, muK, pullingForce, distance]);
 
   return (
-    <div className="space-y-6">
+    <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2.5 overflow-hidden p-2.5" : "space-y-6"}>
       {/* Parameter Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 ${isFullscreen ? 'gap-2 shrink-0' : 'gap-3'}`}>
         {/* Incline Angle */}
-        <div className={`p-3 rounded-xl border space-y-1.5 ${
+        <div className={`rounded-xl border ${isFullscreen ? 'p-2 space-y-1' : 'p-3 space-y-1.5'} ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex justify-between text-xs font-bold">
@@ -84,7 +85,7 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
 
         {/* Mass */}
-        <div className={`p-3 rounded-xl border space-y-1.5 ${
+        <div className={`rounded-xl border ${isFullscreen ? 'p-2 space-y-1' : 'p-3 space-y-1.5'} ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex justify-between text-xs font-bold">
@@ -102,7 +103,7 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
 
         {/* Pulling Force */}
-        <div className={`p-3 rounded-xl border space-y-1.5 ${
+        <div className={`rounded-xl border ${isFullscreen ? 'p-2 space-y-1' : 'p-3 space-y-1.5'} ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex justify-between text-xs font-bold">
@@ -120,7 +121,7 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
 
         {/* Friction Coefficient */}
-        <div className={`p-3 rounded-xl border space-y-1.5 ${
+        <div className={`rounded-xl border ${isFullscreen ? 'p-2 space-y-1' : 'p-3 space-y-1.5'} ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex justify-between text-xs font-bold">
@@ -139,7 +140,7 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
 
         {/* Displacement Distance */}
-        <div className={`p-3 rounded-xl border space-y-1.5 ${
+        <div className={`rounded-xl border ${isFullscreen ? 'p-2 space-y-1' : 'p-3 space-y-1.5'} ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex justify-between text-xs font-bold">
@@ -157,9 +158,11 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className={`grid grid-cols-1 lg:grid-cols-2 ${isFullscreen ? 'gap-3 flex-1 min-h-0 overflow-hidden' : 'gap-6'}`}>
         {/* Visual Free Body Diagram & Animation Canvas */}
-        <div className={`p-4 rounded-xl border flex flex-col justify-between ${
+        <div className={`rounded-xl border flex flex-col justify-between ${
+          isFullscreen ? 'h-full min-h-0 p-3 overflow-hidden' : 'p-4'
+        } ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex items-center justify-between border-b pb-2 mb-2">
@@ -176,8 +179,8 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
           </div>
 
           {/* SVG Incline Diagram */}
-          <div className="flex items-center justify-center p-4">
-            <svg viewBox="0 0 320 200" className="w-full max-w-xs h-44 select-none">
+          <div className={`flex items-center justify-center ${isFullscreen ? 'p-2 my-auto' : 'p-4'}`}>
+            <svg viewBox="0 0 320 200" className={`w-full max-w-xs ${isFullscreen ? 'h-36' : 'h-44'} select-none`}>
               {/* Ground line */}
               <line x1="20" y1="170" x2="300" y2="170" stroke="#475569" strokeWidth="2" strokeDasharray="4 4" />
 
@@ -220,7 +223,9 @@ export const InteractiveWorkEnergyLab: React.FC<Props> = ({ lang, theme = 'dark'
         </div>
 
         {/* Work & Energy Bar Graphs & Derivations */}
-        <div className={`p-4 rounded-xl border space-y-4 ${
+        <div className={`rounded-xl border ${
+          isFullscreen ? 'h-full min-h-0 p-3 overflow-y-auto space-y-2.5 pr-1' : 'p-4 space-y-4'
+        } ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
         }`}>
           <div className="flex items-center justify-between border-b pb-2">
