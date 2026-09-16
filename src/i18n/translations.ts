@@ -40,6 +40,7 @@ export interface Translations {
   testGeneratorTab: string;
   databankTab: string;
   equivalencyTab: string;
+  analyticsTab: string;
 
   // Actions
   printWorksheet: string;
@@ -197,6 +198,7 @@ export const translations: Record<Language, Translations> = {
     testGeneratorTab: 'Exam & Practice Generator',
     databankTab: 'Chapter Databank',
     equivalencyTab: 'Track Comparison & Bridge',
+    analyticsTab: 'Mastery & Analytics Radar',
 
     printWorksheet: 'Print Worksheet / Save PDF',
     downloadPdf: 'Download Teacher Guide',
@@ -347,6 +349,7 @@ export const translations: Record<Language, Translations> = {
     testGeneratorTab: 'منشئ الاختبارات والتمارين',
     databankTab: 'بنك أسئلة الفصل',
     equivalencyTab: 'مقارنة المسارات والجسور',
+    analyticsTab: 'رادار الإتقان والتحليلات',
 
     printWorksheet: 'طباعة ورقة العمل / حفظ PDF',
     downloadPdf: 'تحميل دليل المعلم',

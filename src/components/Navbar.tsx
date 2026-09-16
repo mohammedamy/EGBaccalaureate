@@ -112,11 +112,12 @@ export const Navbar: React.FC<Props> = ({
     { id: 'theory', label: t.theoryTab, icon: '📖', descAr: 'الشرح والملخصات والقوانين', descEn: 'Theory, notes & formulas' },
     { id: 'solvedExamples', label: t.solvedExamplesTab, icon: '💡', descAr: 'المسائل المحلولة نموذجياً', descEn: 'Step-by-step solved models' },
     { id: 'exerciseProblems', label: t.exerciseProblemsTab, icon: '📚', descAr: 'تمارين وتطبيقات تدريبية', descEn: 'Exercise practice sets' },
-    { id: 'databank', label: t.databankTab, icon: '🗄️', descAr: 'بنك ١٠,٩١٠ مسألة مصنفة', descEn: '10,910 Classified question bank' },
+    { id: 'databank', label: t.databankTab, icon: '🗄️', descAr: 'بنك ١١,٤٠٠ مسألة مصنفة', descEn: '11,400 Classified question bank' },
     { id: 'worksheet', label: t.worksheetTab, icon: '✏️', descAr: 'أوراق عمل قابلة للطباعة', descEn: 'Printable student worksheets' },
     { id: 'interactive', label: t.interactiveTab, icon: '🔬', descAr: 'مختبرات محاكاة 2D/3D', descEn: 'Interactive simulations & labs' },
     { id: 'lessonPlan', label: t.lessonPlanTab, icon: '📋', descAr: 'دليل المعلم والتحضير الصفي', descEn: 'Teacher lesson plans & guides' },
     { id: 'testGenerator', label: t.testGeneratorTab, icon: '📝', descAr: 'توليد امتحانات إلكترونية وPDF', descEn: 'Custom mock exam generator' },
+    { id: 'analytics', label: t.analyticsTab, icon: '📊', descAr: 'رادار تشخيص الجاهزية ونقاط القوة والضعف', descEn: 'Student readiness radar & chapter proficiency' },
   ];
 
   const activeTabObj = navTabs.find((tab) => tab.id === activeTab) || navTabs[0];

@@ -50,6 +50,7 @@ import {
   getMistakeRecords,
   recordQuizMistakes,
 } from '../services/mistakeNotebookService';
+import { recordQuizAttempt } from '../services/studentAnalyticsService';
 import { MistakeNotebookView } from './MistakeNotebookView';
 
 interface Props {
@@ -401,6 +402,9 @@ export const TestGenerator: React.FC<Props> = ({
     const mistakeResult = recordQuizMistakes(activeQuestions, userAnswers, currentCurriculum);
     refreshMistakeRecords();
     setLastLoggedMistakesCount(mistakeResult.added + mistakeResult.updated);
+
+    // Record quiz attempt to Student Analytics Dashboard
+    recordQuizAttempt(activeQuestions, userAnswers, totalTimeSeconds - timeRemaining);
 
     if (currentScore === activeQuestions.length && activeQuestions.length > 0) {
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
@@ -2780,6 +2784,7 @@ export const TestGenerator: React.FC<Props> = ({
                 });
                 setUserAnswers(numericAnswers);
                 const mistakeResult = recordQuizMistakes(activeQuestions, numericAnswers, currentCurriculum);
+                recordQuizAttempt(activeQuestions, numericAnswers, 0);
                 refreshMistakeRecords();
                 setLastLoggedMistakesCount(mistakeResult.added + mistakeResult.updated);
               }

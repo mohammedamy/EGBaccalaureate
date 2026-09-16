@@ -20,6 +20,7 @@ import { Search, ShieldCheck, Command, Mail, X } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
 import { VirtualLabsHub } from './components/VirtualLabsHub';
+import { StudentAnalyticsDashboard } from './components/StudentAnalyticsDashboard';
 import { MathScratchpad } from './core/math/MathScratchpad';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 
@@ -576,6 +577,19 @@ export const App: React.FC = () => {
               setIsDesmosOpen(true);
             }}
             initialSubject={selectedSubject}
+          />
+        )}
+
+        {activeTab === 'analytics' && (
+          <StudentAnalyticsDashboard
+            lang={lang}
+            theme={theme}
+            curriculum={curriculum}
+            onNavigateTab={setActiveTab}
+            onStartTargetedQuiz={(subjectId) => {
+              setSelectedSubject(subjectId);
+              setActiveTab('testGenerator');
+            }}
           />
         )}
       </main>
