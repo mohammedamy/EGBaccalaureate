@@ -22,9 +22,12 @@ import {
   Award,
   Check,
   Download,
+  Printer,
   AlertCircle,
   BookOpen,
 } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -237,6 +240,7 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   ]);
   const [studentCalculatedMa, setStudentCalculatedMa] = useState<string>('');
   const [reportExported, setReportExported] = useState<boolean>(false);
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
 
   const currentSystem = useMemo(() => {
     return SYSTEMS.find((s) => s.id === selectedSystemId) || SYSTEMS[0];
@@ -523,6 +527,44 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
     URL.revokeObjectURL(url);
     setReportExported(true);
     setTimeout(() => setReportExported(false), 3000);
+  };
+
+  // Open Official MoE A4 Lab Report Generator Modal
+  const handleOpenOfficialReportModal = () => {
+    playTactileClick();
+    const draft = loadLabReportDraft('chem-exp-2');
+    if (trials.some((t) => t.logged)) {
+      draft.dataTableRows = trials
+        .filter((t) => t.logged)
+        .map((t) => ({
+          trial: `${t.id}`,
+          v_acid: `${GUIDED_UNKNOWN_ACID.pipetteVolumeMl.toFixed(1)}`,
+          v_base_init: `${t.initialMl.toFixed(2)}`,
+          v_base_final: `${t.finalMl.toFixed(2)}`,
+          v_base_used: `${t.titreMl.toFixed(2)}`,
+          m_acid: `${((GUIDED_UNKNOWN_ACID.standardBaseMolarity * t.titreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4)}`,
+        }));
+      draft.conclusionAr = `تم تعيين تركيز حمض الهيدروكلوريك المجهول عملياً بمتوسط حجم مستهلك ${averageTitreMl.toFixed(2)} mL وتركيز ${((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4)} M بنسبة خطأ معملي ${(
+        (Math.abs(((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl) - GUIDED_UNKNOWN_ACID.trueMolarity) /
+          GUIDED_UNKNOWN_ACID.trueMolarity) *
+        100
+      ).toFixed(2)}%.`;
+      draft.conclusionEn = `Successfully determined unknown HCl concentration empirically with average titre ${averageTitreMl.toFixed(2)} mL yielding molarity ${((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4)} M with ${(
+        (Math.abs(((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl) - GUIDED_UNKNOWN_ACID.trueMolarity) /
+          GUIDED_UNKNOWN_ACID.trueMolarity) *
+        100
+      ).toFixed(2)}% experimental discrepancy.`;
+    }
+    draft.rubricCriteria = draft.rubricCriteria.map((c, i) => {
+      if (i === 0) return { ...c, earnedMarks: 2 };
+      if (i === 1) return { ...c, earnedMarks: rubricScore.apparatusMarks };
+      if (i === 2) return { ...c, earnedMarks: rubricScore.empiricalMarks };
+      if (i === 3) return { ...c, earnedMarks: Math.min(3, rubricScore.calculationMarks + (rubricScore.executionMarks >= 2 ? 1 : 0)) };
+      if (i === 4) return { ...c, earnedMarks: rubricScore.errorMarks };
+      return c;
+    });
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
   };
 
   return (
@@ -853,14 +895,25 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                       : 'MoE Practical Exam Protocol: Determination of Unknown HCl Molarity'}
                   </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={handleExportReport}
-                  className="px-3 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  {reportExported ? <Check className="w-3.5 h-3.5" /> : <Download className="w-3.5 h-3.5" />}
-                  <span>{reportExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير التقرير الوزاري' : 'Export Lab Report')}</span>
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={handleOpenOfficialReportModal}
+                    className="px-2.5 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    title={isAr ? 'طباعة ومعاينة التقرير الرسمي A4' : 'Preview & Print Official MoE A4 Report'}
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span>{isAr ? 'تقرير المعمل A4' : 'Official A4 Report'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleExportReport}
+                    className="px-2.5 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    {reportExported ? <Check className="w-3.5 h-3.5" /> : <Download className="w-3.5 h-3.5" />}
+                    <span>{reportExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير MD' : 'Export MD')}</span>
+                  </button>
+                </div>
               </div>
 
               {/* Protocol Steps Checklist */}
@@ -1281,6 +1334,15 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
           </p>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="chem-exp-2"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

@@ -26,7 +26,12 @@ import {
   HelpCircle,
   RotateCcw,
   Sparkles,
+  Printer,
+  Download,
+  Check,
 } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -328,9 +333,105 @@ export const InteractiveGeneticsStudio: React.FC<Props> = ({
     }
   };
 
+  const [reportExported, setReportExported] = useState<boolean>(false);
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
   const handleResetDeductions = () => {
     playTactileClick();
     setDeductions({});
+  };
+
+  // Export Practical Exam Report (Markdown)
+  const handleExportPedigreeReport = () => {
+    playSuccessFanfare();
+    const totalCount = currentPedigree.individuals.length;
+    const reportText = `# Egyptian Ministry of Education (MoE) - Practical Biology Genetics Worksheet
+## 3-Generation Clinical Pedigree Lineage Analysis & Genotype Deductions
+**Date**: ${new Date().toLocaleDateString()}
+**Curriculum**: Thanawya Amma / Secondary Biology (Principles of Heredity & Human Genetics)
+**Case Study**: ${currentPedigree.nameEn} (${currentPedigree.nameAr})
+**Inheritance Pattern**: ${currentPedigree.inheritanceEn}
+
+---
+### 1. Clinical Diagnostic Background
+- **Trait Under Investigation**: ${currentPedigree.nameEn}
+- **Inheritance Pattern**: ${currentPedigree.inheritanceEn}
+- **Clinical Phenotype Profile**: ${currentPedigree.descriptionEn}
+
+---
+### 2. Family Lineage & Empirical Genotype Deductions Table
+| Member Code | Family Role & Generation | Phenotype | Correct Genotype | Student Deduction Status |
+|---|---|---|---|---|
+${currentPedigree.individuals
+  .map((ind) => {
+    const isSolved = deductions[ind.id]?.status === 'correct';
+    return `| ${ind.label} | ${ind.nameEn} (Gen ${ind.generation}) | ${ind.phenotypeEn} | \`${ind.trueGenotype}\` | ${isSolved ? '✅ Correctly Solved' : 'Pending'} |`;
+  })
+  .join('\n')}
+
+- **Total Solved Deductions**: ${solvedCount} / ${totalCount} individuals
+- **Deduction Accuracy**: ${((solvedCount / totalCount) * 100).toFixed(0)}%
+
+---
+### 3. Ministerial Practical Evaluation (12 Marks)
+1. Pedigree Tree Setup & International Notation: **2/2**
+2. Identification of Generational Segregation: **3/3**
+3. Empirical Genotype Deduction across 3 Generations: **${Math.min(3, Math.ceil((solvedCount / totalCount) * 3))}/3**
+4. Mendelian & Sex-Linked Genetic Risk Ratios: **2/2**
+5. Genetic Counseling Analysis & Recurrence Bounds: **2/2**
+- **TOTAL SCORE**: **${2 + 3 + Math.min(3, Math.ceil((solvedCount / totalCount) * 3)) + 2 + 2}/12 Marks**
+`;
+
+    const blob = new Blob([reportText], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `MoE_Genetics_Pedigree_Report_${currentPedigree.id}_${Date.now()}.md`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setReportExported(true);
+    setTimeout(() => setReportExported(false), 3000);
+  };
+
+  // Open Official MoE A4 Lab Report Generator Modal
+  const handleOpenOfficialReportModal = () => {
+    playTactileClick();
+    const draft = loadLabReportDraft('bio-exp-3');
+    draft.titleAr = `الوراثة البشرية: تحليل سجل النسب لـ (${currentPedigree.nameAr})`;
+    draft.titleEn = `Human Genetics: 3-Generation Pedigree Lineage Analysis for (${currentPedigree.nameEn})`;
+    draft.hypothesisAr = `تتبع انتقال صفة (${currentPedigree.nameAr}) عبر ثلاثة أجيال يثبت نمط التوارث: ${currentPedigree.inheritanceAr}.`;
+    draft.hypothesisEn = `Tracing the transmission of (${currentPedigree.nameEn}) across 3 generations empirically validates the inheritance pattern: ${currentPedigree.inheritanceEn}.`;
+
+    draft.dataTableRows = currentPedigree.individuals.map((ind) => {
+      const isSolved = deductions[ind.id]?.status === 'correct';
+      return {
+        member: `${isAr ? ind.nameAr : ind.nameEn} (${ind.label})`,
+        generation: isAr ? `الجيل ${toHindiDigits(ind.generation)}` : `Gen ${ind.generation}`,
+        phenotype: isAr ? ind.phenotypeAr : ind.phenotypeEn,
+        genotype: isSolved ? ind.trueGenotype : `${ind.trueGenotype} (${isAr ? 'مستنتج' : 'deduced'})`,
+        rationale: isAr ? ind.hintAr : ind.hintEn,
+      };
+    });
+
+    const totalCount = currentPedigree.individuals.length;
+    const earnedDeductions = Math.min(3, Math.ceil((solvedCount / totalCount) * 3));
+
+    draft.conclusionAr = `أثبت تحليل سجل النسب لـ (${currentPedigree.nameAr}) أن الصفة تخضع لنمط (${currentPedigree.inheritanceAr})، وتم استنتاج الطرز الجينية للأفراد بنجاح (${toHindiDigits(solvedCount)}/${toHindiDigits(totalCount)}).`;
+    draft.conclusionEn = `Pedigree analysis for (${currentPedigree.nameEn}) confirmed inheritance pattern (${currentPedigree.inheritanceEn}), resolving (${solvedCount}/${totalCount}) familial genotypes.`;
+
+    draft.rubricCriteria = draft.rubricCriteria.map((c, i) => {
+      if (i === 0) return { ...c, earnedMarks: 2 };
+      if (i === 1) return { ...c, earnedMarks: 2 };
+      if (i === 2) return { ...c, earnedMarks: earnedDeductions };
+      if (i === 3) return { ...c, earnedMarks: 3 };
+      if (i === 4) return { ...c, earnedMarks: 2 };
+      return c;
+    });
+
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
   };
 
   // Cell highlight state
@@ -1649,9 +1750,25 @@ export const InteractiveGeneticsStudio: React.FC<Props> = ({
                       {isAr ? currentPedigree.nameAr : currentPedigree.nameEn}
                     </span>
                   </div>
-                  <span className="text-[11px] text-slate-400 hidden sm:inline">
-                    {isAr ? 'انقر فوق أي فرد لتحديد تركيبه الجيني' : 'Click any individual to deduce their genotype'}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handleOpenOfficialReportModal}
+                      className="px-2.5 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                      title={isAr ? 'طباعة ومعاينة التقرير الرسمي A4' : 'Preview & Print Official MoE A4 Report'}
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      <span>{isAr ? 'تقرير المعمل A4' : 'Official A4 Report'}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleExportPedigreeReport}
+                      className="px-2.5 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    >
+                      {reportExported ? <Check className="w-3.5 h-3.5" /> : <Download className="w-3.5 h-3.5" />}
+                      <span>{reportExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير MD' : 'Export MD')}</span>
+                    </button>
+                  </div>
                 </div>
 
                 {/* SVG 3-Generation Pedigree Tree */}
@@ -2100,6 +2217,15 @@ export const InteractiveGeneticsStudio: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="bio-exp-3"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

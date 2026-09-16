@@ -23,8 +23,11 @@ import {
   Award,
   Check,
   Download,
+  Printer,
   BookOpen,
 } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -108,6 +111,7 @@ export const InteractivePhotoelectricStudio: React.FC<Props> = ({
   // Guided Mode state
   const [planckTrials, setPlanckTrials] = useState<PlanckTrial[]>(DEFAULT_PLANCK_TRIALS);
   const [reportExported, setReportExported] = useState<boolean>(false);
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -326,6 +330,40 @@ $$h_{\\text{exp}} = e \\cdot m = 1.602 \\times 10^{-19} \\times (${planckCalcula
     URL.revokeObjectURL(url);
     setReportExported(true);
     setTimeout(() => setReportExported(false), 3000);
+  };
+
+  // Open Official MoE A4 Lab Report Generator Modal
+  const handleOpenOfficialReportModal = () => {
+    playTactileClick();
+    const draft = loadLabReportDraft('phys-exp-2');
+    if (planckTrials.some((t) => t.loggedV0 !== null)) {
+      draft.dataTableRows = planckTrials
+        .filter((t) => t.loggedV0 !== null)
+        .map((t, idx) => {
+          const freq1014 = (3e17 / (t.wavelengthNm * 1e-9) / 1e14).toFixed(2);
+          return {
+            trial: `${idx + 1}`,
+            wavelength: `${t.wavelengthNm}`,
+            frequency: `${freq1014}`,
+            stopping_v: `${t.loggedV0!.toFixed(2)}`,
+            ke_max: `${t.loggedV0!.toFixed(2)}`,
+          };
+        });
+      if (planckCalculations.hasData) {
+        draft.conclusionAr = `تم تعيين ثابت بلانك عملياً بنجاح وقيمته ${planckCalculations.hExpJs.toExponential(3)} جول·ثانية بنسبة خطأ ${planckCalculations.percentError.toFixed(1)}% عبر دراسة جهد الإيقاف لأربعة أطوال موجية طيفية لمهبط ${currentMetal.nameAr} (دالة الشغل ${currentMetal.workFunctionEv.toFixed(2)} eV).`;
+        draft.conclusionEn = `Successfully deduced Planck constant h = ${planckCalculations.hExpJs.toExponential(3)} J·s (${planckCalculations.percentError.toFixed(1)}% error) from the stopping potentials across 4 spectral lines for ${currentMetal.nameEn} cathode (Φ = ${currentMetal.workFunctionEv.toFixed(2)} eV).`;
+      }
+    }
+    draft.rubricCriteria = draft.rubricCriteria.map((c, i) => {
+      if (i === 0) return { ...c, earnedMarks: 2 };
+      if (i === 1) return { ...c, earnedMarks: rubricScore.apparatusMarks };
+      if (i === 2) return { ...c, earnedMarks: rubricScore.dataMarks };
+      if (i === 3) return { ...c, earnedMarks: Math.min(3, rubricScore.calculationMarks + (rubricScore.precisionMarks >= 2 ? 1 : 0)) };
+      if (i === 4) return { ...c, earnedMarks: rubricScore.errorMarks };
+      return c;
+    });
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
   };
 
   // Animated Electron Particles simulation inside phototube canvas
@@ -616,14 +654,25 @@ $$h_{\\text{exp}} = e \\cdot m = 1.602 \\times 10^{-19} \\times (${planckCalcula
                       : 'MoE Practical Protocol: Determination of Planck Constant (h)'}
                   </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={handleExportReport}
-                  className="px-3 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  {reportExported ? <Check className="w-3.5 h-3.5" /> : <Download className="w-3.5 h-3.5" />}
-                  <span>{reportExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير التقرير' : 'Export Report')}</span>
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={handleOpenOfficialReportModal}
+                    className="px-2.5 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    title={isAr ? 'طباعة ومعاينة التقرير الرسمي A4' : 'Preview & Print Official MoE A4 Report'}
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span>{isAr ? 'تقرير المعمل A4' : 'Official A4 Report'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleExportReport}
+                    className="px-2.5 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    {reportExported ? <Check className="w-3.5 h-3.5" /> : <Download className="w-3.5 h-3.5" />}
+                    <span>{reportExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير MD' : 'Export MD')}</span>
+                  </button>
+                </div>
               </div>
 
               {/* Protocol Steps Checklist */}
@@ -1008,6 +1057,15 @@ $$h_{\\text{exp}} = e \\cdot m = 1.602 \\times 10^{-19} \\times (${planckCalcula
           </p>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="phys-exp-2"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

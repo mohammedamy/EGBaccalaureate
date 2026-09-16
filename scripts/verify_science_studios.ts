@@ -397,6 +397,30 @@ assert(audioContent.includes('export function setAudioMuted'), 'scienceAudio exp
 assert(audioContent.includes('export function toggleAudioMuted'), 'scienceAudio exports toggleAudioMuted');
 
 // -------------------------------------------------------------
+// 8. Official MoE A4 Lab Report Generator Integration
+// -------------------------------------------------------------
+console.log('\n--- 8. Official MoE A4 Lab Report Generator Integration Across Studios ---');
+
+const titrationContent = fs.readFileSync(titrationStudioPath, 'utf-8');
+assert(titrationContent.includes('LabReportGeneratorModal'), 'InteractiveTitrationStudio imports LabReportGeneratorModal');
+assert(titrationContent.includes('initialExperimentId="chem-exp-2"'), 'InteractiveTitrationStudio wires chem-exp-2 to LabReportGeneratorModal');
+assert(titrationContent.includes('handleOpenOfficialReportModal'), 'InteractiveTitrationStudio implements handleOpenOfficialReportModal');
+assert(titrationContent.includes('saveLabReportDraft'), 'InteractiveTitrationStudio syncs trials to localStorage draft');
+
+const photoelectricContent = fs.readFileSync(photoelectricStudioPath, 'utf-8');
+assert(photoelectricContent.includes('LabReportGeneratorModal'), 'InteractivePhotoelectricStudio imports LabReportGeneratorModal');
+assert(photoelectricContent.includes('initialExperimentId="phys-exp-2"'), 'InteractivePhotoelectricStudio wires phys-exp-2 to LabReportGeneratorModal');
+assert(photoelectricContent.includes('handleOpenOfficialReportModal'), 'InteractivePhotoelectricStudio implements handleOpenOfficialReportModal');
+assert(photoelectricContent.includes('saveLabReportDraft'), 'InteractivePhotoelectricStudio syncs slope to localStorage draft');
+
+const geneticsContent = fs.readFileSync(geneticsStudioPath, 'utf-8');
+assert(geneticsContent.includes('LabReportGeneratorModal'), 'InteractiveGeneticsStudio imports LabReportGeneratorModal');
+assert(geneticsContent.includes('initialExperimentId="bio-exp-3"'), 'InteractiveGeneticsStudio wires bio-exp-3 to LabReportGeneratorModal');
+assert(geneticsContent.includes('handleOpenOfficialReportModal'), 'InteractiveGeneticsStudio implements handleOpenOfficialReportModal');
+assert(geneticsContent.includes('handleExportPedigreeReport'), 'InteractiveGeneticsStudio implements handleExportPedigreeReport');
+assert(geneticsContent.includes('saveLabReportDraft'), 'InteractiveGeneticsStudio syncs pedigree deductions to localStorage draft');
+
+// -------------------------------------------------------------
 // Final Verdict
 // -------------------------------------------------------------
 console.log('\n-------------------------------------------------------------');

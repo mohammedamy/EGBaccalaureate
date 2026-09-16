@@ -59,16 +59,20 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
   const [copiedToast, setCopiedToast] = useState<boolean>(false);
   const [savedToast, setSavedToast] = useState<boolean>(false);
 
-  // Sync when initialExperimentId changes or selectedExpId changes
+  // Sync when initialExperimentId changes or selectedExpId changes or modal opens
+  useEffect(() => {
+    if (isOpen) {
+      const targetId = initialExperimentId || selectedExpId;
+      if (initialExperimentId && initialExperimentId !== selectedExpId) {
+        setSelectedExpId(initialExperimentId);
+      }
+      setReport(loadLabReportDraft(targetId));
+    }
+  }, [isOpen, initialExperimentId]);
+
   useEffect(() => {
     setReport(loadLabReportDraft(selectedExpId));
   }, [selectedExpId]);
-
-  useEffect(() => {
-    if (initialExperimentId && initialExperimentId !== selectedExpId) {
-      setSelectedExpId(initialExperimentId);
-    }
-  }, [initialExperimentId]);
 
   if (!isOpen) return null;
 

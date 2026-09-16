@@ -779,6 +779,67 @@ export const EXPERIMENT_CONFIGS: Record<string, ExperimentTemplateConfig> = {
     sampleErrorAnalysisAr: 'التقريب العشري لدوال الجيب وجيب التمام للزوايا غير الخاصة.',
     sampleErrorAnalysisEn: 'Floating-point rounding when converting non-standard radians to trigonometric decimals.',
   },
+
+  // 14. Biology Genetics & Pedigree Analysis
+  'bio-exp-3': {
+    id: 'bio-exp-3',
+    discipline: 'biology',
+    titleEn: 'Human Medical Genetics: 3-Generation Pedigree Lineage Analysis & Genotype Deductions',
+    titleAr: 'الوراثة البشرية والطبية: تحليل سجل النسب لثلاثة أجيال واستنتاج الطرز الجينية وتتبع الأمراض',
+    gradeEn: 'Grade 12 / Secondary Biology - Principles of Heredity & Human Genetics',
+    gradeAr: 'الصف الثالث الثانوي - علم الوراثة والبيولوجيا الجزيئية: وراثة الصفات في الإنسان وسجل النسب',
+    hypothesisEn: 'Pedigree analysis traces familial trait transmission through 3 generations to distinguish Autosomal Recessive, Autosomal Dominant, X-Linked Recessive, and Codominant ABO blood group inheritance.',
+    hypothesisAr: 'تحليل شجرة العائلة وسجل النسب عبر ثلاثة أجيال يمكننا من التمييز الدقيق بين الصفات الجسدية المتنحية، والصفات السائدة، والصفات المرتبطة بالجنس، وانعدام السيادة لفصائل الدم.',
+    apparatusEn: [
+      'Standard Clinical Pedigree Notation Chart (Squares for Males, Circles for Females, Half-shaded Carriers, Solid Affected)',
+      '3-Generation Genealogical Lineage Grid (Generations I, II, III)',
+      'Interactive Genotype Deduction Logic Engine',
+      'Punnett Square Cross Validator & Gamete Fusion Matrix',
+      'Egyptian Ministry of Education Genetics Diagnostic Guide',
+    ],
+    apparatusAr: [
+      'مخطط سجل النسب الطبي القياسي (مربعات للذكور، دوائر للإناث، تظليل نصفي للحاملين، تظليل كامل للمصابين)',
+      'شبكة تتبع شجرة النسب لثلاثة أجيال متتالية (الجيل الأول، الثاني، الثالث)',
+      'محرك استنتاج الطرز الجينية التفاعلي',
+      'مصفوفة مربع بانيت لتأكيد التزاوج وانعزال الأمشاج',
+      'دليل وزارة التربية والتعليم للتشخيص والتحليل الوراثي',
+    ],
+    stepsEn: [
+      'Identify the proband individual (arrow P) in Generation III presenting the clinical phenotype.',
+      'Construct Generation I (grandparents) and Generation II (parents, aunts, uncles) marital and descent lines.',
+      'Identify carrier individuals (heterozygotes): unaffected parents who produce affected offspring must be carriers.',
+      'Test for sex-linkage: verify whether trait passes predominantly to males without direct father-to-son transmission.',
+      'Deduce mystery genotypes (? cards) with mathematical certainty and calculate recurrence risk for future progeny.',
+    ],
+    stepsAr: [
+      'تحديد الفرد قيد الفحص (السهم P) في الجيل الثالث وتدوين حالته المظهرية والسريرية.',
+      'رسم خطوط التزاوج والنسب للجيل الأول (الأجداد) والجيل الثاني (الآباء والأعمام والعمات).',
+      'تحديد الأفراد الحاملين للمرض (هجين): الأبوان السليمان اللذان ينجبان طفلاً مصاباً كلاهما حامل حتماً للمرض.',
+      'اختبار الارتباط بالجنس: التحقق من تركز الإصابة في الذكور وعدم انتقال الصفة مباشرة من الأب المصاب إلى ابنه الذكر.',
+      'استنتاج الطرز الجينية المجهولة (بطاقات ؟) بدقة وحساب نسبة الخطر وتكرار الصفة في الأبناء القادمين.',
+    ],
+    formula: 'P(\\text{affected}) = P(\\text{sperm}) \\times P(\\text{ovum}), \\quad \\text{Autosomal Carrier Cross } (Aa \\times Aa) \\implies 1 AA : 2 Aa : 1 aa',
+    expectedConclusionEn: 'Pedigree tracing rigorously proves the genetic inheritance model, eliminates diagnostic uncertainty, and provides accurate recurrence risk calculations for genetic counseling.',
+    expectedConclusionAr: 'يبرهن سجل النسب نمط التوارث الجيني بدقة قاطعة، ويحسم الشكوك التشخيصية ويوفر الحسابات الدقيقة للاستشارات الوراثية قبل الزواج.',
+    columns: [
+      { key: 'member', labelAr: 'فرد العائلة', labelEn: 'Family Member' },
+      { key: 'generation', labelAr: 'الجيل', labelEn: 'Generation' },
+      { key: 'phenotype', labelAr: 'الحالة المظهرية', labelEn: 'Phenotype' },
+      { key: 'genotype', labelAr: 'الطراز الجيني', labelEn: 'Genotype' },
+      { key: 'rationale', labelAr: 'التعليل والاستنتاج', labelEn: 'Deduction Rationale' },
+    ],
+    sampleRows: [
+      { member: 'الجد (I-1)', generation: 'الجيل الأول I', phenotype: 'سليم ظاهرياً (Normal)', genotype: 'Aa (حامل)', rationale: 'أنجب ابنة مصابة (II-2)؛ يجب أن يورثها أليلاً متنحياً (a).' },
+      { member: 'الجدة (I-2)', generation: 'الجيل الأول I', phenotype: 'سليمة ظاهرياً (Normal)', genotype: 'Aa (حاملة)', rationale: 'أنجبت ابنة مصابة (II-2)؛ تشارك في توريث الأليل المتنحي (a).' },
+      { member: 'الأب (II-1)', generation: 'الجيل الثاني II', phenotype: 'سليم ظاهرياً (Normal)', genotype: 'Aa (حامل)', rationale: 'تزاوج مع حاملة وأنجبا طفلاً مصاباً بالمهق في الجيل الثالث.' },
+      { member: 'الأم (II-2)', generation: 'الجيل الثاني II', phenotype: 'مصابة بالمهق (Affected)', genotype: 'aa (متنحي نقي)', rationale: 'ظهور صفة المهق ناتج عن وجود نسختين متنحيتين من الأبوين.' },
+      { member: 'الابن قيد الفحص (III-1)', generation: 'الجيل الثالث III', phenotype: 'سليم ظاهرياً (Normal)', genotype: 'Aa (حامل مؤكد)', rationale: 'أخذ بالضرورة أليلاً متنحياً (a) من والدته المصابة وأليلاً سائداً (A) من والده.' },
+    ],
+    sampleObservationsAr: 'تخطي الصفة المتنحية للجيل الثاني في بعض الأفرع وظهورها في الجيل الثالث عند تزاوج الأقارب الحاملين للأليل، مما يؤكد نمط التوارث الجسدي المتنحي.',
+    sampleObservationsEn: 'The recessive phenotype skipped generations and reappeared in Generation III following consanguineous union between carriers, validating autosomal recessive transmission.',
+    sampleErrorAnalysisAr: 'عدم اكتمال السجلات الطبية للأجيال السابقة أو تشابه المظاهر الناتجة عن طفرات جديدة (De novo).',
+    sampleErrorAnalysisEn: 'Incomplete ancestral medical history or phenocopy/de novo mutations complicating lineage deduction.',
+  },
 };
 
 /**
