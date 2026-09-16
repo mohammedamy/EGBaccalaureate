@@ -13,6 +13,7 @@ import { EndocrineLab } from './EndocrineLab';
 import { MenstrualCycleLab } from './MenstrualCycleLab';
 import { ImmunityLab } from './ImmunityLab';
 import { GeneticsLab } from './GeneticsLab';
+import { InteractiveGeneticsStudio } from '../InteractiveGeneticsStudio';
 import { BioenergeticsLab } from './BioenergeticsLab';
 import { BiologyFlashcards } from './BiologyFlashcards';
 import { VirtualMicroscope } from '../../core/instruments/VirtualMicroscope';
@@ -46,6 +47,7 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<BioTab>(initialTab || 'skeleton');
+  const [geneticsView, setGeneticsView] = useState<'studio' | 'apparatus'>('studio');
 
   React.useEffect(() => {
     if (initialTab) {
@@ -238,8 +240,41 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
 
       {/* TAB 8: PUNNETT SQUARES & ABO BLOOD GROUPS */}
       {activeTab === 'genetics' && (
-        <div className="mt-6">
-          <GeneticsLab lang={lang} theme={theme} />
+        <div className="mt-6 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
+            <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <span>🧬</span>
+              <span>{isArabic ? 'بيئة الوراثة والمندلية وفصائل الدم:' : 'Genetics & Mendelian Heredity Environment:'}</span>
+            </span>
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+              <button
+                onClick={() => setGeneticsView('studio')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  geneticsView === 'studio' ? 'bg-rose-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'استوديو مربعات بانيت المندلية' : 'Mendelian Punnett Studio'}
+              </button>
+              <button
+                onClick={() => setGeneticsView('apparatus')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  geneticsView === 'apparatus' ? 'bg-rose-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'مختبر البيولوجيا الجزيئية وكريسبر' : 'CRISPR & Molecular Lab'}
+              </button>
+            </div>
+          </div>
+
+          {geneticsView === 'studio' ? (
+            <InteractiveGeneticsStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          ) : (
+            <GeneticsLab lang={lang} theme={theme} />
+          )}
         </div>
       )}
 

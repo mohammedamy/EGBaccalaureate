@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import { PhotoelectricLab } from './PhotoelectricLab';
+import { InteractivePhotoelectricStudio } from '../InteractivePhotoelectricStudio';
 import {
   Zap,
   BookOpen,
@@ -32,6 +33,7 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<PhysicsTab>(initialTab);
+  const [photoelectricView, setPhotoelectricView] = useState<'studio' | 'apparatus'>('studio');
   const [showConstants, setShowConstants] = useState<boolean>(false);
 
   useEffect(() => {
@@ -171,8 +173,41 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
 
       {/* TAB 2: PHOTOELECTRIC EFFECT */}
       {activeTab === 'photoelectric' && (
-        <div className="mt-6">
-          <PhotoelectricLab lang={lang} theme={theme} />
+        <div className="mt-6 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
+            <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <span>☀️</span>
+              <span>{isArabic ? 'بيئة الظاهرة الكهروضوئية ومعادلة أينشتاين:' : 'Photoelectric Effect & Einstein Equations:'}</span>
+            </span>
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+              <button
+                onClick={() => setPhotoelectricView('studio')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  photoelectricView === 'studio' ? 'bg-cyan-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'استوديو جهد الإيقاف وأينشتاين' : 'Einstein Stopping Potential Studio'}
+              </button>
+              <button
+                onClick={() => setPhotoelectricView('apparatus')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  photoelectricView === 'apparatus' ? 'bg-cyan-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'محاكي الخلية الكهروضوئية' : 'Photocell Apparatus Lab'}
+              </button>
+            </div>
+          </div>
+
+          {photoelectricView === 'studio' ? (
+            <InteractivePhotoelectricStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          ) : (
+            <PhotoelectricLab lang={lang} theme={theme} />
+          )}
         </div>
       )}
 

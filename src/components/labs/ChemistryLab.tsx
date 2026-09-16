@@ -12,6 +12,7 @@ import { ElectrochemistryLab } from './ElectrochemistryLab';
 import { OrganicChemistryLab } from './OrganicChemistryLab';
 import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
 import { TitrationLab } from './TitrationLab';
+import { InteractiveTitrationStudio } from '../InteractiveTitrationStudio';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
 
@@ -36,6 +37,7 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<ChemTab>(initialTab || 'equilibrium');
+  const [titrationView, setTitrationView] = useState<'studio' | 'apparatus'>('studio');
   const [isConstantsOpen, setIsConstantsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -166,8 +168,41 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
 
       {/* TAB 3: TITRATION & PH */}
       {activeTab === 'titration' && (
-        <div className="mt-6">
-          <TitrationLab lang={lang} theme={theme} />
+        <div className="mt-6 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
+            <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <span>💧</span>
+              <span>{isArabic ? 'بيئة معايرة الأحماض والقواعد ومخططات pH:' : 'Acid-Base Titration & pH Environment:'}</span>
+            </span>
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+              <button
+                onClick={() => setTitrationView('studio')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  titrationView === 'studio' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'استوديو منحنيات pH التفاعلي' : 'Interactive pH Curve Studio'}
+              </button>
+              <button
+                onClick={() => setTitrationView('apparatus')}
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                  titrationView === 'apparatus' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isArabic ? 'محاكي السحاحة والمختبر' : 'Burette Apparatus Lab'}
+              </button>
+            </div>
+          </div>
+
+          {titrationView === 'studio' ? (
+            <InteractiveTitrationStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          ) : (
+            <TitrationLab lang={lang} theme={theme} />
+          )}
         </div>
       )}
 

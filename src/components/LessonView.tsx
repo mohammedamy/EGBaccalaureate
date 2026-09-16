@@ -13,6 +13,9 @@ import { InteractiveNormalDistribution } from './InteractiveNormalDistribution';
 import { InteractiveDynamicsMotion } from './InteractiveDynamicsMotion';
 import { InteractiveMatrixLab } from './InteractiveMatrixLab';
 import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
+import { InteractiveTitrationStudio } from './InteractiveTitrationStudio';
+import { InteractivePhotoelectricStudio } from './InteractivePhotoelectricStudio';
+import { InteractiveGeneticsStudio } from './InteractiveGeneticsStudio';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
@@ -130,9 +133,19 @@ export const LessonView: React.FC<Props> = ({
   const is3D = branch.id === 'algebra_solid' || branch.id === 'egbac_vectors_geometry' || lesson.interactiveWidget.type === '3d_vectors';
 
   const renderInteractiveWidget = () => {
+    const wType = lesson.interactiveWidget?.type;
+    if (wType === 'titration_curve') {
+      return <InteractiveTitrationStudio lang={lang} theme={theme} isFullscreen={false} />;
+    }
+    if (wType === 'photoelectric_stopping') {
+      return <InteractivePhotoelectricStudio lang={lang} theme={theme} isFullscreen={false} />;
+    }
+    if (wType === 'genetics_punnett') {
+      return <InteractiveGeneticsStudio lang={lang} theme={theme} isFullscreen={false} />;
+    }
+
     if (branch.id === 'thanaweya_physics' || branch.id === 'egbac_physics') {
       let initialTab: PhysicsTab = 'circuits';
-      const wType = lesson.interactiveWidget?.type;
       if (wType === 'physics_circuits') {
         initialTab = 'circuits';
       } else if (wType === 'physics_magnetism') {
@@ -171,7 +184,6 @@ export const LessonView: React.FC<Props> = ({
     }
     if (branch.id === 'thanaweya_biology' || branch.id === 'egbac_biology') {
       let initialTab: BioTab = 'skeleton';
-      const wType = lesson.interactiveWidget?.type;
       if (wType === 'biology_endocrine' || currentChapter?.id === 'th_bio_ch2') {
         initialTab = 'endocrine';
       } else if (wType === 'biology_menstrual' || currentChapter?.id === 'th_bio_ch3') {
@@ -214,6 +226,12 @@ export const LessonView: React.FC<Props> = ({
           return <InteractiveMatrixLab lang={lang} theme={theme} />;
         case 'work_energy':
           return <InteractiveWorkEnergyLab lang={lang} theme={theme} />;
+        case 'titration_curve':
+          return <InteractiveTitrationStudio lang={lang} theme={theme} />;
+        case 'photoelectric_stopping':
+          return <InteractivePhotoelectricStudio lang={lang} theme={theme} />;
+        case 'genetics_punnett':
+          return <InteractiveGeneticsStudio lang={lang} theme={theme} />;
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -239,6 +257,12 @@ export const LessonView: React.FC<Props> = ({
           return <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />;
         case 'work_energy':
           return <InteractiveWorkEnergyLab lang={lang} theme={theme} isFullscreen={true} />;
+        case 'titration_curve':
+          return <InteractiveTitrationStudio lang={lang} theme={theme} isFullscreen={true} />;
+        case 'photoelectric_stopping':
+          return <InteractivePhotoelectricStudio lang={lang} theme={theme} isFullscreen={true} />;
+        case 'genetics_punnett':
+          return <InteractiveGeneticsStudio lang={lang} theme={theme} isFullscreen={true} />;
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
       }
@@ -259,7 +283,7 @@ export const LessonView: React.FC<Props> = ({
                     {lang === 'ar' ? lesson.titleAr : lesson.titleEn}
                   </h2>
                   <span className="hidden sm:inline text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800/60 uppercase shrink-0">
-                    Full-Screen Math Studio
+                    Full-Screen Workstation Studio
                   </span>
                 </div>
               </div>

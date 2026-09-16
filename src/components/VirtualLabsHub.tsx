@@ -349,7 +349,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Lorentz Force', labelAr: 'المغناطيسية ولورنتز' },
                     { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo & Induction', labelAr: 'الدينامو والحث' },
                     { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance Circuit', labelAr: 'دوائر الرنين RLC' },
-                    { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric Effect', labelAr: 'الظاهرة الكهروضوئية' },
+                    { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric Stopping Potential Studio (Einstein)', labelAr: 'استوديو الظاهرة الكهروضوئية وجهد الإيقاف (أينشتاين)' },
                     { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr Spectra & Lasers', labelAr: 'طيف بور والليزر' },
                     { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Physics Flashcards', labelAr: 'بطاقات الاستذكار' },
                   ].map((tab) => (
@@ -391,7 +391,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'equilibrium' as ChemTab, emoji: '⚖️', labelEn: 'Equilibrium & Le Chatelier', labelAr: 'الاتزان ولوشاتيليه' },
                     { id: 'transition' as ChemTab, emoji: '🔥', labelEn: 'Transition Elements & Iron', labelAr: 'العناصر الانتقالية والحديد' },
                     { id: 'qualitative' as ChemTab, emoji: '🧪', labelEn: 'Qualitative Analysis', labelAr: 'التحليل الوصفي والكواشف' },
-                    { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'pH & Acid-Base Titration', labelAr: 'المعايرة و pH' },
+                    { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'Acid-Base Titration & pH Curve Studio', labelAr: 'استوديو معايرة الأحماض والقواعد ومنحنيات الـ pH' },
                     { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry & Cells', labelAr: 'الكيمياء الكهربية والخلايا' },
                     { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Synthetic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
                     { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
@@ -439,7 +439,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine Coordination', labelAr: 'التنسيق الهرموني' },
                     { id: 'menstrual' as BioTab, emoji: '🌸', labelEn: 'Menstrual Cycle & Hormones', labelAr: 'دورة الطمث' },
                     { id: 'immunity' as BioTab, emoji: '🛡️', labelEn: 'Immunology & Antibodies', labelAr: 'المناعة والأجسام المضادة' },
-                    { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Genetics & CRISPR Studio', labelAr: 'الوراثة وكريسبر' },
+                    { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Mendelian Genetics & Punnett Cross Studio (2×2 & 4×4)', labelAr: 'استوديو الوراثة المندلية ومربعات بانيت (2×2 و 4×4)' },
                     { id: 'bioenergetics' as BioTab, emoji: '⚡', labelEn: 'Cellular Bioenergetics', labelAr: 'التنفس الخلوي' },
                     { id: 'flashcards' as BioTab, emoji: '🗂️', labelEn: 'Biology Flashcards', labelAr: 'بطاقات الاستذكار' },
                   ].map((tab) => (
