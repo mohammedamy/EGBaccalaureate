@@ -63,9 +63,14 @@ export const LabSlider: React.FC<LabSliderProps> = ({
     setInputValue(e.target.value);
   };
 
+  const parseNumberVal = (str: string): number => {
+    const ascii = str.replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d).toString());
+    return parseFloat(ascii);
+  };
+
   const handleInputBlur = () => {
     setIsFocused(false);
-    let val = parseFloat(inputValue);
+    let val = parseNumberVal(inputValue);
     if (isNaN(val)) {
       val = defaultValue ?? min;
     } else {
@@ -133,10 +138,8 @@ export const LabSlider: React.FC<LabSliderProps> = ({
           <div className="relative inline-flex items-center">
             <input
               id={`num-${id}`}
-              type="number"
-              min={min}
-              max={max}
-              step={step}
+              type="text"
+              inputMode="decimal"
               value={isFocused ? inputValue : displayVal}
               onChange={handleInputChange}
               onFocus={() => setIsFocused(true)}

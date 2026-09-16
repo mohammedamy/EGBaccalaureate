@@ -40,10 +40,8 @@ export function useVirtualLab<TParams extends Record<string, any>, TState extend
     (definition.initialState ? { ...definition.initialState } : {}) as TState
   );
 
-  // Pedagogical State (POE)
-  const [poeUnlocked, setPoeUnlocked] = useState<boolean>(
-    !definition.poePrompts || definition.poePrompts.length === 0
-  );
+  // Pedagogical State (POE) - unlocked by default so all experimental parameters are interactive and responsive in sandbox mode
+  const [poeUnlocked, setPoeUnlocked] = useState<boolean>(true);
   const [activePOEIndex, setActivePOEIndex] = useState<number>(0);
   const [isPOEDrawerOpen, setIsPOEDrawerOpen] = useState<boolean>(false);
 
@@ -252,7 +250,7 @@ export function useVirtualLab<TParams extends Record<string, any>, TState extend
       nextPrompt: () => {
         if (definition.poePrompts && activePOEIndex < definition.poePrompts.length - 1) {
           setActivePOEIndex((prev) => prev + 1);
-          setPoeUnlocked(false);
+          setPoeUnlocked(true);
         }
       },
     },

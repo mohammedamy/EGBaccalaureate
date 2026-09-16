@@ -483,7 +483,7 @@ export const VirtualLabShell = <
                       defaultValue={schema.defaultValue}
                       lang={lang}
                       theme={theme}
-                      disabled={!lab.poeState.isUnlocked}
+                      disabled={Boolean((schema as any).disabled)}
                       onChange={(newVal) => lab.updateParam(key as keyof TParams, newVal as any)}
                       onReset={() => lab.updateParam(key as keyof TParams, schema.defaultValue as any)}
                     />
