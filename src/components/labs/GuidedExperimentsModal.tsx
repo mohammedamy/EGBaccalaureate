@@ -19,6 +19,7 @@ interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   activeLab: 'math' | 'physics' | 'chemistry' | 'biology';
+  onOpenReportGenerator?: (expId: string) => void;
 }
 
 interface GuidedExperiment {
@@ -744,6 +745,7 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
   lang,
   theme = 'dark',
   activeLab,
+  onOpenReportGenerator,
 }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
@@ -814,6 +816,15 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
           </div>
 
           <div className="flex items-center gap-2">
+            {onOpenReportGenerator && (
+              <button
+                onClick={() => onOpenReportGenerator(activeExp.id)}
+                className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md shadow-emerald-600/20 cursor-pointer"
+              >
+                <FileSpreadsheet className="w-4 h-4 text-emerald-200" />
+                <span>{isArabic ? 'استمارة التقرير المعملي A4' : 'A4 Lab Report'}</span>
+              </button>
+            )}
             <button
               onClick={handlePrintReport}
               className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
@@ -892,6 +903,16 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
             <h3 className="text-lg sm:text-xl font-black text-white">
               {isArabic ? activeExp.titleAr : activeExp.titleEn}
             </h3>
+
+            {onOpenReportGenerator && (
+              <button
+                onClick={() => onOpenReportGenerator(activeExp.id)}
+                className="mt-3 w-full py-2 px-3 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/40 text-xs font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <FileSpreadsheet className="w-4 h-4 text-cyan-300" />
+                <span>{isArabic ? 'فتح وتدوين التقرير العملي الكامل لهذه التجربة (A4 + جدول القراءات)' : 'Open & Edit Full Practical Lab Report (A4 + Data Table)'}</span>
+              </button>
+            )}
           </div>
 
           {/* Hypothesis & Scientific Formula */}

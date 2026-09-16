@@ -9,12 +9,15 @@ import {
   FlaskRound as Flask,
   FileSpreadsheet,
   ChevronDown,
+  Printer,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import type { LabDiscipline } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -51,6 +54,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+  const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
 
   // Sync if selectedSubject prop changes
   useEffect(() => {
@@ -158,6 +163,25 @@ export const VirtualLabsHub: React.FC<Props> = ({
           </div>
 
           <div className="flex items-center gap-3 shrink-0 flex-wrap">
+            <button
+              onClick={() => {
+                const defaultExp =
+                  activeLab === 'physics'
+                    ? 'phys-exp-1'
+                    : activeLab === 'chemistry'
+                    ? 'chem-exp-1'
+                    : activeLab === 'biology'
+                    ? 'bio-exp-1'
+                    : 'math-exp-5';
+                setReportExpId(defaultExp);
+                setIsReportModalOpen(true);
+              }}
+              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-emerald-400/30"
+            >
+              <Printer className="w-4 h-4 text-emerald-200" />
+              <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+            </button>
+
             <button
               onClick={() => setIsGuidedModalOpen(true)}
               className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-500 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-indigo-400/30"
@@ -440,6 +464,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         activeLab={activeLab}
+        onOpenReportGenerator={(expId) => {
+          setIsGuidedModalOpen(false);
+          setReportExpId(expId);
+          setIsReportModalOpen(true);
+        }}
+      />
+
+      {/* Laboratory Practical Report Generator Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        lang={lang}
+        theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+        initialExperimentId={reportExpId}
+        initialDiscipline={activeLab as LabDiscipline}
       />
     </div>
   );
