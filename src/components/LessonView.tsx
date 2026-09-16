@@ -17,7 +17,8 @@ import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { TextbookDiagram } from './TextbookDiagram';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
 import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
 import { SUBJECTS } from '../data/subjects';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -58,6 +59,7 @@ export const LessonView: React.FC<Props> = ({
   const [filterBookmarkedOnly, setFilterBookmarkedOnly] = useState<boolean>(false);
   const [labActivity, setLabActivity] = useState<'simulator' | 'desmos' | 'discovery'>('simulator');
   const [discoveryChecks, setDiscoveryChecks] = useState<Record<string, boolean>>({});
+  const { isFullscreen: isMathFullscreen, toggleFullscreen: toggleMathFullscreen, exitFullscreen: exitMathFullscreen } = useNativeLabFullscreen();
 
   // Student Interactive Practice & Bookmarking State (saved in localStorage)
   const [userAnswers, setUserAnswers] = useState<Record<string, number>>(() => {
@@ -217,44 +219,134 @@ export const LessonView: React.FC<Props> = ({
       }
     })();
 
-    return (
-      <div className="space-y-4">
-        {onOpenDesmos && (
-          <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-xl border transition-all ${
-            theme === 'high-contrast'
-              ? 'bg-black border-cyan-400 text-white'
-              : isLight
-              ? 'bg-gradient-to-r from-indigo-50 to-cyan-50 border-indigo-200 text-slate-800'
-              : 'bg-gradient-to-r from-slate-900/90 to-cyan-950/40 border-slate-800 text-slate-200'
-          }`}>
-            <div className="flex items-center gap-2.5">
-              <div className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400">
+    const renderFullscreenWidget = () => {
+      switch (lesson.interactiveWidget?.type) {
+        case '3d_vectors':
+          return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
+        case 'pascal_binomial':
+          return <InteractivePascalTriangle lang={lang} theme={theme} />;
+        case 'calculus_tangent':
+          return <InteractiveCalculusTangent lang={lang} theme={theme} isFullscreen={true} />;
+        case 'statics_friction':
+          return <InteractiveStaticsFriction lang={lang} theme={theme} />;
+        case 'complex_argand':
+          return <InteractiveComplexArgand lang={lang} theme={theme} isFullscreen={true} />;
+        case 'normal_distribution':
+          return <InteractiveNormalDistribution lang={lang} theme={theme} />;
+        case 'dynamics_motion':
+          return <InteractiveDynamicsMotion lang={lang} theme={theme} />;
+        case 'matrix_solver':
+          return <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />;
+        case 'work_energy':
+          return <InteractiveWorkEnergyLab lang={lang} theme={theme} />;
+        default:
+          return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
+      }
+    };
+
+    if (isMathFullscreen) {
+      return (
+        <div className="fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col p-2 sm:p-3 bg-slate-950 text-slate-100 font-sans">
+          {/* Workstation Top Bar */}
+          <div className="min-h-[50px] sm:min-h-[54px] flex items-center justify-between gap-3 px-3.5 py-2 bg-slate-900/95 border border-slate-800 rounded-2xl shrink-0 backdrop-blur-md shadow-lg z-10">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-md shrink-0">
                 <Calculator className="w-4 h-4" />
               </div>
-              <p className="text-xs font-semibold leading-snug">
-                {lang === 'ar'
-                  ? is3D
-                    ? 'استكشف معادلات المستويات والكرات ثلاثية الأبعاد بمرونة كاملة عبر ديسموس 3D'
-                    : 'جرّب رسم المنحنيات ومماسات الدوال والمحاكاة البيانية المتقدمة عبر حاسبة ديسموس'
-                  : is3D
-                  ? 'Explore 3D planes, vectors, and quadric surfaces with full camera rotation in Desmos 3D'
-                  : 'Plot custom curves, tangents, and dynamic calculus functions with Desmos'}
-              </p>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-sm sm:text-base font-black tracking-tight text-white truncate">
+                    {lang === 'ar' ? lesson.titleAr : lesson.titleEn}
+                  </h2>
+                  <span className="hidden sm:inline text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800/60 uppercase shrink-0">
+                    Full-Screen Math Studio
+                  </span>
+                </div>
+              </div>
             </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              {onOpenDesmos && (
+                <button
+                  type="button"
+                  onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
+                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600/80 hover:bg-cyan-600 text-white transition-all cursor-pointer shadow-xs"
+                >
+                  <Calculator className="w-3.5 h-3.5" />
+                  <span>{lang === 'ar' ? (is3D ? 'Desmos 3D' : 'Desmos 2D') : (is3D ? 'Desmos 3D' : 'Desmos 2D')}</span>
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={exitMathFullscreen}
+                title={lang === 'ar' ? 'تصغير (Esc)' : 'Exit Fullscreen (Esc)'}
+                aria-label={lang === 'ar' ? 'تصغير الشاشة' : 'Exit Fullscreen'}
+                className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-bold shadow-xs"
+              >
+                <Minimize2 className="w-4 h-4 text-indigo-400" />
+                <span>{lang === 'ar' ? 'تصغير' : 'Exit'}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Fullscreen Math Studio Viewport */}
+          <div className="flex-1 min-h-0 overflow-hidden mt-2 flex flex-col">
+            {renderFullscreenWidget()}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="space-y-4">
+        <div className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-xl border transition-all ${
+          theme === 'high-contrast'
+            ? 'bg-black border-indigo-400 text-white'
+            : isLight
+            ? 'bg-gradient-to-r from-indigo-50 to-cyan-50 border-indigo-200 text-slate-800'
+            : 'bg-gradient-to-r from-slate-900/90 to-indigo-950/40 border-slate-800 text-slate-200'
+        }`}>
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-400">
+              <Calculator className="w-4 h-4" />
+            </div>
+            <p className="text-xs font-semibold leading-snug">
+              {lang === 'ar'
+                ? is3D
+                  ? 'استكشف بيئة الرياضيات التفاعلية في شاشة كاملة أو عبر حاسبة ديسموس 3D'
+                  : 'استكشف المحاكاة الرياضية في بيئة عمل كاملة الشاشة بدون تمرير'
+                : is3D
+                ? 'Explore interactive mathematics in full-screen workstation or Desmos 3D'
+                : 'Experience interactive mathematics in a full-screen zero-scroll workstation'}
+            </p>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
-              onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition-all cursor-pointer shrink-0 ${
-                theme === 'high-contrast'
-                  ? 'bg-yellow-400 text-black font-black'
-                  : 'bg-cyan-600 hover:bg-cyan-500 text-white'
-              }`}
+              onClick={toggleMathFullscreen}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold text-xs bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs transition-all cursor-pointer"
+              title={lang === 'ar' ? 'شاشة كاملة' : 'Fullscreen'}
             >
-              <Calculator className="w-3.5 h-3.5" />
-              <span>{lang === 'ar' ? (is3D ? 'فتح في ديسموس 3D' : 'فتح في ديسموس 2D') : (is3D ? 'Open in Desmos 3D' : 'Open in Desmos 2D')}</span>
+              <Maximize2 className="w-3.5 h-3.5" />
+              <span>{lang === 'ar' ? 'ملء الشاشة' : 'Fullscreen'}</span>
             </button>
+
+            {onOpenDesmos && (
+              <button
+                type="button"
+                onClick={() => onOpenDesmos(is3D ? '3d' : '2d')}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition-all cursor-pointer shrink-0 ${
+                  theme === 'high-contrast'
+                    ? 'bg-yellow-400 text-black font-black'
+                    : 'bg-cyan-600 hover:bg-cyan-500 text-white'
+                }`}
+              >
+                <Calculator className="w-3.5 h-3.5" />
+                <span>{lang === 'ar' ? (is3D ? 'فتح في ديسموس 3D' : 'فتح في ديسموس 2D') : (is3D ? 'Open in Desmos 3D' : 'Open in Desmos 2D')}</span>
+              </button>
+            )}
           </div>
-        )}
+        </div>
         {widgetComponent}
       </div>
     );

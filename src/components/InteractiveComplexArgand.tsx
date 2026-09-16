@@ -6,9 +6,10 @@ import { toHindiDigits } from '../utils/arabicNumerals';
 interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isLight = theme === 'light';
   const isHighContrast = theme === 'high-contrast';
 
@@ -70,17 +71,27 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
   const toSvgY = (valY: number) => svgSize / 2 - valY * scale;
 
   return (
-    <div className="space-y-6">
+    <div
+      className={
+        isFullscreen
+          ? 'h-full min-h-0 flex flex-col gap-2 overflow-hidden'
+          : 'space-y-6'
+      }
+    >
       {/* Sub-mode Navigation */}
-      <div className="flex items-center gap-2 border-b pb-3 no-print">
+      <div className={
+        isFullscreen
+          ? "flex items-center gap-2 p-1.5 rounded-xl border bg-slate-900/80 border-slate-800 shrink-0 no-print"
+          : "flex items-center gap-2 border-b pb-3 no-print"
+      }>
         <button
           onClick={() => setActiveTab('argand')}
-          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+          className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
             activeTab === 'argand'
-              ? 'bg-indigo-600 text-white shadow-md'
+              ? 'bg-indigo-600 text-white shadow-xs'
               : isLight
               ? 'bg-slate-100 text-slate-700 hover:text-slate-950'
-              : 'bg-slate-900 text-slate-400 hover:text-white'
+              : 'bg-slate-800 text-slate-400 hover:text-white'
           }`}
         >
           📍 {lang === 'ar' ? 'شكل أرجاند والصورة المثلثية والأسية' : 'Argand Plane, Polar & Euler Forms'}
@@ -88,12 +99,12 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
 
         <button
           onClick={() => setActiveTab('demoivre')}
-          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+          className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
             activeTab === 'demoivre'
-              ? 'bg-indigo-600 text-white shadow-md'
+              ? 'bg-indigo-600 text-white shadow-xs'
               : isLight
               ? 'bg-slate-100 text-slate-700 hover:text-slate-950'
-              : 'bg-slate-900 text-slate-400 hover:text-white'
+              : 'bg-slate-800 text-slate-400 hover:text-white'
           }`}
         >
           🌀 {lang === 'ar' ? 'نظرية ديموافر والجذور النونية وأوميجا' : 'De Moivre, n-th Roots & Omega (ω)'}
@@ -102,15 +113,23 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
 
       {/* MODE 1: ARGAND PLANE & POLAR FORMS */}
       {activeTab === 'argand' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* SVG Canvas (5 cols) */}
-          <div className={`lg:col-span-6 p-4 rounded-2xl border flex flex-col items-center justify-center ${
-            isHighContrast
-              ? 'bg-black border-2 border-cyan-400'
-              : isLight
-              ? 'bg-white border-slate-200 shadow-md'
-              : 'bg-slate-950 border-slate-800 shadow-xl'
-          }`}>
+        <div className={
+          isFullscreen
+            ? "grid grid-cols-1 lg:grid-cols-12 gap-2.5 flex-1 min-h-0 overflow-hidden"
+            : "grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+        }>
+          {/* SVG Canvas (6 cols) */}
+          <div className={
+            isFullscreen
+              ? "lg:col-span-6 p-2 rounded-xl border flex flex-col items-center justify-center h-full min-h-0 bg-slate-950/80 border-slate-800 overflow-hidden"
+              : `lg:col-span-6 p-4 rounded-2xl border flex flex-col items-center justify-center ${
+                  isHighContrast
+                    ? 'bg-black border-2 border-cyan-400'
+                    : isLight
+                    ? 'bg-white border-slate-200 shadow-md'
+                    : 'bg-slate-950 border-slate-800 shadow-xl'
+                }`
+          }>
             <svg
               width="100%"
               height="320"
@@ -229,9 +248,13 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
           </div>
 
           {/* Controls & Math Readouts (6 cols) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className={
+            isFullscreen
+              ? "lg:col-span-6 flex flex-col gap-2.5 h-full min-h-0 overflow-y-auto pr-1"
+              : "lg:col-span-6 space-y-4"
+          }>
             {/* Real and Imaginary Sliders */}
-            <div className={`p-4 rounded-xl border space-y-3 ${
+            <div className={`p-3.5 rounded-xl border space-y-2.5 shrink-0 ${
               isLight ? 'bg-white border-slate-200' : 'bg-slate-950 border-slate-800'
             }`}>
               <div className="space-y-1">
@@ -338,13 +361,15 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
 
       {/* MODE 2: DE MOIVRE & ROOTS OF UNITY */}
       {activeTab === 'demoivre' && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col overflow-hidden" : "space-y-6"}>
+          <div className={`grid grid-cols-1 lg:grid-cols-12 ${
+            isFullscreen ? 'gap-3 flex-1 min-h-0 overflow-hidden' : 'gap-6 items-start'
+          }`}>
             {/* SVG Polygon of Roots (6 cols) */}
-            <div className={`lg:col-span-6 p-4 rounded-2xl border flex flex-col items-center justify-center ${
+            <div className={`lg:col-span-6 ${isFullscreen ? 'p-3 h-full min-h-0 justify-between' : 'p-4'} rounded-2xl border flex flex-col items-center justify-center ${
               isLight ? 'bg-white border-slate-200 shadow-md' : 'bg-slate-950 border-slate-800 shadow-xl'
             }`}>
-              <div className="flex items-center justify-between w-full mb-2">
+              <div className="flex items-center justify-between w-full mb-1">
                 <span className="text-xs font-bold text-indigo-400">
                   {lang === 'ar' ? `الجذور النونية (عددها ${toHindiDigits(rootN)})` : `${rootN}-th Roots Polygon`}
                 </span>
@@ -355,9 +380,9 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
 
               <svg
                 width="100%"
-                height="280"
+                height={isFullscreen ? "210" : "280"}
                 viewBox={`0 0 ${svgSize} ${svgSize}`}
-                className="overflow-visible select-none max-w-[300px]"
+                className="overflow-visible select-none max-w-[280px] my-auto"
               >
                 {/* Axes */}
                 <line x1={0} y1={svgSize / 2} x2={svgSize} y2={svgSize / 2} stroke="#334155" strokeWidth="1" />
@@ -413,7 +438,7 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
                 })}
               </svg>
 
-              <p className="text-[11px] text-slate-400 text-center mt-2 leading-relaxed">
+              <p className="text-[11px] text-slate-400 text-center mt-1 leading-relaxed">
                 {lang === 'ar'
                   ? `الجذور النونية تقع جميعها على دائرة نصف قطرها r^{1/${rootN}} وتشكل رؤوس مضلع منتظم عدد أضلاعه ${rootN}.`
                   : `All ${rootN}-th roots lie on circle of radius r^(1/${rootN}) forming the vertices of a regular ${rootN}-gon.`}
@@ -421,8 +446,8 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
             </div>
 
             {/* De Moivre Slider Controls & Formula (6 cols) */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className={`p-4 rounded-xl border space-y-3 ${
+            <div className={`lg:col-span-6 ${isFullscreen ? 'h-full min-h-0 overflow-y-auto space-y-2.5 pr-1' : 'space-y-4'}`}>
+              <div className={`${isFullscreen ? 'p-3' : 'p-4'} rounded-xl border space-y-2.5 ${
                 isLight ? 'bg-white border-slate-200' : 'bg-slate-950 border-slate-800'
               }`}>
                 <div className="flex justify-between text-xs font-bold">
@@ -438,7 +463,7 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
                   className="w-full accent-indigo-600"
                 />
 
-                <div className="text-xs text-slate-300 space-y-2 pt-2 border-t">
+                <div className="text-xs text-slate-300 space-y-1.5 pt-2 border-t">
                   <span className="text-[10px] font-bold uppercase text-slate-400 block">{lang === 'ar' ? 'صيغة نظرية ديموافر للجذور' : 'De Moivre Root Theorem'}</span>
                   <MathRenderer math={`z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right) \\right]`} lang={lang} />
                   <p className="text-[10px] text-slate-400">
@@ -448,7 +473,7 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
               </div>
 
               {/* Cube Roots of Unity Omega Card */}
-              <div className={`p-4 rounded-xl border space-y-3 ${
+              <div className={`${isFullscreen ? 'p-3' : 'p-4'} rounded-xl border space-y-2.5 ${
                 isLight ? 'bg-white border-amber-200 shadow-sm' : 'bg-slate-950 border-amber-900/60 shadow-md'
               }`}>
                 <div className="flex items-center justify-between border-b pb-2">

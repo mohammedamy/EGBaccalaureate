@@ -140,12 +140,12 @@ export const MathLab: React.FC<Props> = ({
         </div>
 
         {/* Fullscreen Content viewport */}
-        <div className="flex-1 min-h-0 overflow-y-auto mt-2 pr-1">
-          {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} />}
-          {activeTab === 'geometry3d' && <Interactive3DGeometry lang={lang} theme={theme} />}
-          {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} />}
+        <div className="flex-1 min-h-0 overflow-hidden mt-2 flex flex-col">
+          {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'geometry3d' && <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}
-          {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} />}
+          {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />}
         </div>
       </div>
     );

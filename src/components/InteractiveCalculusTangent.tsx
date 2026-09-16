@@ -14,6 +14,7 @@ interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   initialModule?: CalculusModule;
+  isFullscreen?: boolean;
 }
 
 export type CalculusModule = 'tangent_normal' | 'curve_analysis' | 'integration_riemann';
@@ -136,12 +137,25 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
   lang,
   theme = 'dark',
   initialModule = 'tangent_normal',
+  isFullscreen = false,
 }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [redrawTrigger, setRedrawTrigger] = useState<number>(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(() => {
+      setRedrawTrigger((prev) => prev + 1);
+    });
+    ro.observe(canvas);
+    return () => ro.disconnect();
+  }, []);
+
   const [activeModule, setActiveModule] = useState<CalculusModule>(initialModule);
   const [funcKey, setFuncKey] = useState<FunctionKey>('cubic');
 
@@ -588,6 +602,8 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
     dx,
     isLight,
     isContrast,
+    redrawTrigger,
+    isFullscreen,
   ]);
 
   // --------------------------------------------------------------------------
@@ -708,133 +724,210 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
 
   return (
     <div
-      className={`border rounded-2xl p-4 sm:p-6 shadow-xl space-y-6 transition-colors ${
-        isContrast
-          ? 'bg-black border-2 border-indigo-400 text-white'
-          : isLight
-          ? 'bg-white border-slate-200 text-slate-900'
-          : 'bg-slate-900/90 border-slate-800 text-slate-100'
-      }`}
+      className={
+        isFullscreen
+          ? 'h-full min-h-0 flex flex-col gap-2 overflow-hidden'
+          : `border rounded-2xl p-4 sm:p-6 shadow-xl space-y-6 transition-colors ${
+              isContrast
+                ? 'bg-black border-2 border-indigo-400 text-white'
+                : isLight
+                ? 'bg-white border-slate-200 text-slate-900'
+                : 'bg-slate-900/90 border-slate-800 text-slate-100'
+            }`
+      }
     >
-      {/* Studio Header & Module Switcher */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b pb-4 border-slate-200 dark:border-slate-800">
-        <div>
-          <div className="flex items-center gap-2">
-            <h3 className="text-lg font-black flex items-center gap-2 tracking-tight">
-              <span className="text-indigo-400">📈</span>
-              <span>
-                {isArabic
-                  ? 'مختبر التفاضل والتكامل والتحليل الحقيقي التفاعلي'
-                  : 'Interactive Calculus & Real Analysis Studio'}
-              </span>
-            </h3>
-            <span
-              className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full border uppercase tracking-wider ${
-                isContrast
-                  ? 'bg-indigo-400 text-black border-indigo-300'
-                  : isLight
-                  ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                  : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
-              }`}
-            >
-              Differential & Integral
-            </span>
-          </div>
-          <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-            {isArabic
-              ? 'مماسات المنحنيات والعمودي، سلوك المشتقات ونقاط الانقلاب، ومساحات ريمان وحجوم الأجسام الدورانية'
-              : 'Dynamic tangents, normals, critical inflection points, Riemann sums, and solids of revolution'}
-          </p>
-        </div>
-
-        {/* Module Switcher Buttons */}
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          <button
-            onClick={() => setActiveModule('tangent_normal')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-              activeModule === 'tangent_normal'
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-100'
-                : 'text-slate-400 hover:bg-slate-800'
-            }`}
-          >
-            <TrendingUp className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'المماس والعمودي والقاطع' : 'Tangents & Normals'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveModule('curve_analysis')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-              activeModule === 'curve_analysis'
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-100'
-                : 'text-slate-400 hover:bg-slate-800'
-            }`}
-          >
-            <Activity className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'النقط الحرجة والتقعر' : 'Extrema & Concavity'}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveModule('integration_riemann')}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-              activeModule === 'integration_riemann'
-                ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-100'
-                : 'text-slate-400 hover:bg-slate-800'
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>{isArabic ? 'التكامل ومجموع ريمان' : 'Integrals & Riemann'}</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Function Selector Carousel */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-xl border bg-slate-900/40 border-slate-800">
-        <span className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-          {isArabic ? 'اختر الدالة الرياضية f(x):' : 'Select Test Function f(x):'}
-        </span>
-        <div className="flex flex-wrap items-center gap-1.5">
-          {(Object.keys(FUNCTIONS_REGISTRY) as FunctionKey[]).map((key) => {
-            const def = FUNCTIONS_REGISTRY[key];
-            const isSelected = funcKey === key;
-            return (
-              <button
-                key={key}
-                onClick={() => setFuncKey(key)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  isSelected
-                    ? 'bg-indigo-600 text-white shadow-sm'
+      {/* Studio Header & Module Switcher (Embedded Mode) */}
+      {!isFullscreen && (
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b pb-4 border-slate-200 dark:border-slate-800">
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-black flex items-center gap-2 tracking-tight">
+                <span className="text-indigo-400">📈</span>
+                <span>
+                  {isArabic
+                    ? 'مختبر التفاضل والتكامل والتحليل الحقيقي التفاعلي'
+                    : 'Interactive Calculus & Real Analysis Studio'}
+                </span>
+              </h3>
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full border uppercase tracking-wider ${
+                  isContrast
+                    ? 'bg-indigo-400 text-black border-indigo-300'
                     : isLight
-                    ? 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
-                    : 'bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                    : 'bg-indigo-950/60 text-indigo-300 border-indigo-800/60'
                 }`}
               >
-                <span>{isArabic ? def.labelAr : def.labelEn}</span>
-              </button>
-            );
-          })}
+                Differential & Integral
+              </span>
+            </div>
+            <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+              {isArabic
+                ? 'مماسات المنحنيات والعمودي، سلوك المشتقات ونقاط الانقلاب، ومساحات ريمان وحجوم الأجسام الدورانية'
+                : 'Dynamic tangents, normals, critical inflection points, Riemann sums, and solids of revolution'}
+            </p>
+          </div>
+
+          {/* Module Switcher Buttons */}
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <button
+              onClick={() => setActiveModule('tangent_normal')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'tangent_normal'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-100'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <TrendingUp className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'المماس والعمودي والقاطع' : 'Tangents & Normals'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveModule('curve_analysis')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'curve_analysis'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-100'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Activity className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'النقط الحرجة والتقعر' : 'Extrema & Concavity'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveModule('integration_riemann')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'integration_riemann'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-100'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'التكامل ومجموع ريمان' : 'Integrals & Riemann'}</span>
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* Function Selector / Compact Fullscreen Toolbar */}
+      {isFullscreen ? (
+        <div className="flex flex-wrap items-center justify-between gap-2 p-2 rounded-xl border bg-slate-900/80 border-slate-800 shrink-0">
+          {/* Module Switcher Buttons */}
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setActiveModule('tangent_normal')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                activeModule === 'tangent_normal'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <TrendingUp className="w-3 h-3" />
+              <span>{isArabic ? 'المماس والعمودي' : 'Tangents'}</span>
+            </button>
+            <button
+              onClick={() => setActiveModule('curve_analysis')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                activeModule === 'curve_analysis'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Activity className="w-3 h-3" />
+              <span>{isArabic ? 'التقعر والنقط الحرجة' : 'Extrema'}</span>
+            </button>
+            <button
+              onClick={() => setActiveModule('integration_riemann')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                activeModule === 'integration_riemann'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Layers className="w-3 h-3" />
+              <span>{isArabic ? 'مجموع ريمان' : 'Riemann'}</span>
+            </button>
+          </div>
+
+          {/* Function Selector Buttons */}
+          <div className="flex flex-wrap items-center gap-1">
+            <span className="text-[11px] font-bold text-slate-400 mr-1 rtl:ml-1 rtl:mr-0">f(x):</span>
+            {(Object.keys(FUNCTIONS_REGISTRY) as FunctionKey[]).map((key) => {
+              const def = FUNCTIONS_REGISTRY[key];
+              const isSelected = funcKey === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setFuncKey(key)}
+                  className={`px-2 py-0.5 rounded-md text-[11px] font-bold transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                  }`}
+                >
+                  <span>{isArabic ? def.labelAr : def.labelEn}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-xl border bg-slate-900/40 border-slate-800">
+          <span className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+            {isArabic ? 'اختر الدالة الرياضية f(x):' : 'Select Test Function f(x):'}
+          </span>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {(Object.keys(FUNCTIONS_REGISTRY) as FunctionKey[]).map((key) => {
+              const def = FUNCTIONS_REGISTRY[key];
+              const isSelected = funcKey === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setFuncKey(key)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-indigo-600 text-white shadow-sm'
+                      : isLight
+                      ? 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
+                      : 'bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700'
+                  }`}
+                >
+                  <span>{isArabic ? def.labelAr : def.labelEn}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Main Grid: Interactive Canvas + Controls & Real-time Math HUD */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className={
+        isFullscreen
+          ? "grid grid-cols-1 lg:grid-cols-12 gap-2.5 flex-1 min-h-0 overflow-hidden"
+          : "grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+      }>
         {/* Left: Interactive Canvas Viewport */}
         <div
-          className={`lg:col-span-7 p-3.5 sm:p-4 rounded-2xl border shadow-xl flex flex-col items-center transition-colors relative overflow-hidden ${
-            isContrast
-              ? 'bg-black border-2 border-indigo-400'
-              : isLight
-              ? 'bg-white border-slate-200'
-              : 'bg-slate-900/90 border-slate-800'
-          }`}
+          className={
+            isFullscreen
+              ? "lg:col-span-7 xl:col-span-8 p-2.5 rounded-xl border flex flex-col h-full min-h-0 bg-slate-900/90 border-slate-800 overflow-hidden"
+              : `lg:col-span-7 p-3.5 sm:p-4 rounded-2xl border shadow-xl flex flex-col items-center transition-colors relative overflow-hidden ${
+                  isContrast
+                    ? 'bg-black border-2 border-indigo-400'
+                    : isLight
+                    ? 'bg-white border-slate-200'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`
+          }
         >
           {/* Canvas Viewport Header Info */}
-          <div className="w-full flex items-center justify-between mb-2 text-xs px-1">
+          <div className="w-full flex items-center justify-between mb-1.5 text-xs px-1 shrink-0">
             <span className="font-mono font-bold text-indigo-400">
               <MathRenderer math={curFunc.latex} inline lang={lang} />
             </span>
@@ -844,16 +937,22 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
           </div>
 
           {/* HTML5 Canvas */}
-          <canvas
-            ref={canvasRef}
-            onPointerDown={handleCanvasPointerDown}
-            onPointerMove={handleCanvasPointerMove}
-            onPointerUp={handleCanvasPointerUp}
-            className="w-full h-[320px] sm:h-[380px] lg:h-[420px] rounded-xl border border-slate-800/80 cursor-crosshair touch-none"
-          />
+          <div className={isFullscreen ? "flex-1 min-h-0 w-full relative rounded-xl border border-slate-800/80 overflow-hidden" : "w-full"}>
+            <canvas
+              ref={canvasRef}
+              onPointerDown={handleCanvasPointerDown}
+              onPointerMove={handleCanvasPointerMove}
+              onPointerUp={handleCanvasPointerUp}
+              className={
+                isFullscreen
+                  ? "w-full h-full cursor-crosshair touch-none"
+                  : "w-full h-[320px] sm:h-[380px] lg:h-[420px] rounded-xl border border-slate-800/80 cursor-crosshair touch-none"
+              }
+            />
+          </div>
 
           {/* Canvas Dynamic Color Legend */}
-          <div className="w-full mt-3 flex flex-wrap items-center justify-between gap-2 text-xs p-2 rounded-lg border bg-slate-950/40 border-slate-800/80">
+          <div className="w-full mt-2 flex flex-wrap items-center justify-between gap-2 text-xs p-2 rounded-lg border bg-slate-950/40 border-slate-800/80 shrink-0">
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-bold text-sky-400 flex items-center gap-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
@@ -924,16 +1023,30 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
         </div>
 
         {/* Right: Controls & Real-time Math Output Card */}
-        <div className="lg:col-span-5 space-y-5">
+        <div className={
+          isFullscreen
+            ? "lg:col-span-5 xl:col-span-4 flex flex-col gap-2.5 h-full min-h-0 overflow-y-auto pr-1"
+            : "lg:col-span-5 space-y-5"
+        }>
           {/* Controls Card */}
           <div
-            className={`p-4 sm:p-5 rounded-2xl border shadow-lg space-y-4 transition-colors ${
-              isContrast
-                ? 'bg-black border-2 border-indigo-400 text-white'
-                : isLight
-                ? 'bg-white border-slate-200'
-                : 'bg-slate-900/90 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? `p-3 rounded-xl border shadow-xs space-y-2.5 transition-colors shrink-0 ${
+                    isContrast
+                      ? 'bg-black border-2 border-indigo-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+                : `p-4 sm:p-5 rounded-2xl border shadow-lg space-y-4 transition-colors ${
+                    isContrast
+                      ? 'bg-black border-2 border-indigo-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+            }
           >
             <h4
               className={`text-sm font-bold uppercase tracking-wider flex items-center justify-between ${
@@ -1093,13 +1206,23 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
           {/* Real-Time Mathematical Calculations Card */}
           {/* ================================================================ */}
           <div
-            className={`p-4 sm:p-5 rounded-2xl border shadow-lg space-y-3 transition-colors ${
-              isContrast
-                ? 'bg-black border-2 border-emerald-400 text-white'
-                : isLight
-                ? 'bg-white border-slate-200'
-                : 'bg-slate-900/90 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? `p-3 rounded-xl border shadow-xs space-y-2 transition-colors shrink-0 ${
+                    isContrast
+                      ? 'bg-black border-2 border-emerald-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+                : `p-4 sm:p-5 rounded-2xl border shadow-lg space-y-3 transition-colors ${
+                    isContrast
+                      ? 'bg-black border-2 border-emerald-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+            }
           >
             <h4
               className={`text-xs font-bold uppercase tracking-wider flex items-center justify-between ${

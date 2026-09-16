@@ -5,9 +5,10 @@ import { RotateCcw, CheckCircle2, AlertTriangle } from 'lucide-react';
 interface Props {
   lang: 'en' | 'ar';
   theme?: 'dark' | 'light' | 'high-contrast';
+  isFullscreen?: boolean;
 }
 
-export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark', isFullscreen = false }) => {
   const isLight = theme === 'light';
   const isAr = lang === 'ar';
 
@@ -110,53 +111,55 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
   };
 
   return (
-    <div className="space-y-6">
+    <div className={isFullscreen ? "flex-1 min-h-0 flex flex-col gap-2.5 overflow-hidden" : "space-y-6"}>
       {/* Presets Bar */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className={`flex flex-wrap items-center ${isFullscreen ? 'gap-1.5 shrink-0 px-0.5' : 'gap-2'}`}>
         <span className="text-xs font-bold text-slate-400">
           {isAr ? 'نماذج جاهزة:' : 'Presets:'}
         </span>
         <button
           type="button"
           onClick={() => applyPreset('standard')}
-          className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition-all cursor-pointer"
+          className={`${isFullscreen ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs'} font-semibold rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-500/30 transition-all cursor-pointer`}
         >
           {isAr ? 'نظام قياسي فريد' : 'Standard Invertible'}
         </button>
         <button
           type="button"
           onClick={() => applyPreset('singular')}
-          className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 hover:bg-rose-500/30 transition-all cursor-pointer"
+          className={`${isFullscreen ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs'} font-semibold rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 hover:bg-rose-500/30 transition-all cursor-pointer`}
         >
           {isAr ? 'مصفوفة منفردة (محدد=٠)' : 'Singular (Det = 0)'}
         </button>
         <button
           type="button"
           onClick={() => applyPreset('identity')}
-          className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all cursor-pointer"
+          className={`${isFullscreen ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs'} font-semibold rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all cursor-pointer`}
         >
           {isAr ? 'مصفوفة الوحدة I' : 'Identity Matrix'}
         </button>
         <button
           type="button"
           onClick={() => applyPreset('diagonal')}
-          className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-all cursor-pointer"
+          className={`${isFullscreen ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs'} font-semibold rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-all cursor-pointer`}
         >
           {isAr ? 'مصفوفة قطرية' : 'Diagonal Matrix'}
         </button>
         <button
           type="button"
           onClick={() => applyPreset('standard')}
-          className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all cursor-pointer"
+          className={`flex items-center gap-1 ${isFullscreen ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs'} font-semibold rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-all cursor-pointer`}
         >
           <RotateCcw className="w-3 h-3" />
           <span>{isAr ? 'إعادة ضبط' : 'Reset'}</span>
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className={`grid grid-cols-1 lg:grid-cols-2 ${isFullscreen ? 'gap-3 flex-1 min-h-0 overflow-hidden' : 'gap-6'}`}>
         {/* Matrix & Vector Inputs */}
-        <div className={`p-4 rounded-xl border space-y-4 ${
+        <div className={`rounded-xl border ${
+          isFullscreen ? 'h-full min-h-0 overflow-y-auto p-3 space-y-3' : 'p-4 space-y-4'
+        } ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/70 border-slate-800'
         }`}>
           <div className="flex items-center justify-between border-b pb-2">
@@ -166,7 +169,7 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
             <span className="text-[11px] font-mono text-slate-400">A · x = b</span>
           </div>
 
-          <div className="flex items-center justify-center gap-3 overflow-x-auto py-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto py-1">
             {/* 3x3 Matrix Grid */}
             <div className="flex items-center">
               <span className="text-3xl text-indigo-400 select-none">[</span>
@@ -179,7 +182,7 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
                       step="any"
                       value={val}
                       onChange={(e) => handleCellChange(rIdx, cIdx, e.target.value)}
-                      className="w-14 sm:w-16 h-10 text-center font-mono font-bold text-sm bg-slate-900 border border-slate-700/80 rounded-lg text-white focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 outline-none"
+                      className={`${isFullscreen ? 'w-12 sm:w-14 h-9' : 'w-14 sm:w-16 h-10'} text-center font-mono font-bold text-sm bg-slate-900 border border-slate-700/80 rounded-lg text-white focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 outline-none`}
                     />
                   ))
                 )}
@@ -191,9 +194,9 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
             <div className="flex items-center">
               <span className="text-3xl text-slate-500 select-none">[</span>
               <div className="flex flex-col gap-1.5 p-1 text-center font-mono font-bold text-xs text-amber-300">
-                <div className="h-10 flex items-center justify-center px-2">x</div>
-                <div className="h-10 flex items-center justify-center px-2">y</div>
-                <div className="h-10 flex items-center justify-center px-2">z</div>
+                <div className={`${isFullscreen ? 'h-9' : 'h-10'} flex items-center justify-center px-1.5`}>x</div>
+                <div className={`${isFullscreen ? 'h-9' : 'h-10'} flex items-center justify-center px-1.5`}>y</div>
+                <div className={`${isFullscreen ? 'h-9' : 'h-10'} flex items-center justify-center px-1.5`}>z</div>
               </div>
               <span className="text-3xl text-slate-500 select-none">]</span>
             </div>
@@ -211,7 +214,7 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
                     step="any"
                     value={val}
                     onChange={(e) => handleVectorBChange(bIdx, e.target.value)}
-                    className="w-14 sm:w-16 h-10 text-center font-mono font-bold text-sm bg-slate-900 border border-slate-700/80 rounded-lg text-emerald-300 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 outline-none"
+                    className={`${isFullscreen ? 'w-12 sm:w-14 h-9' : 'w-14 sm:w-16 h-10'} text-center font-mono font-bold text-sm bg-slate-900 border border-slate-700/80 rounded-lg text-emerald-300 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 outline-none`}
                   />
                 ))}
               </div>
@@ -220,7 +223,7 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
           </div>
 
           {/* Linear Equations Display */}
-          <div className="p-3 rounded-lg bg-slate-900/50 border border-slate-800 font-mono text-xs space-y-1 text-slate-300">
+          <div className="p-2.5 rounded-lg bg-slate-900/50 border border-slate-800 font-mono text-xs space-y-1 text-slate-300">
             <div className="text-[11px] text-slate-400 font-sans font-semibold mb-1">
               {isAr ? 'التمثيل الجبري للمعادلات:' : 'Algebraic Equations Form:'}
             </div>
@@ -233,7 +236,9 @@ export const InteractiveMatrixLab: React.FC<Props> = ({ lang, theme = 'dark' }) 
         </div>
 
         {/* Computations, Determinant, Inverse & Cramer Solver */}
-        <div className={`p-4 rounded-xl border space-y-4 ${
+        <div className={`rounded-xl border ${
+          isFullscreen ? 'h-full min-h-0 overflow-y-auto p-3 space-y-2.5' : 'p-4 space-y-4'
+        } ${
           isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/70 border-slate-800'
         }`}>
           <div className="flex items-center justify-between border-b pb-2">

@@ -15,6 +15,7 @@ interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   initialModule?: 'vectors' | 'sphere' | 'lines_planes';
+  isFullscreen?: boolean;
 }
 
 export type GeometryModule = 'vectors' | 'sphere' | 'lines_planes';
@@ -26,6 +27,7 @@ export const Interactive3DGeometry: React.FC<Props> = ({
   lang,
   theme = 'dark',
   initialModule = 'vectors',
+  isFullscreen = false,
 }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
@@ -340,6 +342,14 @@ export const Interactive3DGeometry: React.FC<Props> = ({
     };
     window.addEventListener('resize', handleResize);
 
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && mountRef.current) {
+      ro = new ResizeObserver(() => {
+        handleResize();
+      });
+      ro.observe(mountRef.current);
+    }
+
     return () => {
       cancelAnimationFrame(animationFrameId);
       domElem.removeEventListener('mousedown', onMouseDown);
@@ -350,6 +360,7 @@ export const Interactive3DGeometry: React.FC<Props> = ({
       window.removeEventListener('touchend', onTouchEnd);
       domElem.removeEventListener('wheel', onWheel);
       window.removeEventListener('resize', handleResize);
+      if (ro) ro.disconnect();
       if (rendererRef.current && rendererRef.current.domElement) {
         rendererRef.current.domElement.remove();
       }
@@ -786,138 +797,240 @@ export const Interactive3DGeometry: React.FC<Props> = ({
   };
 
   return (
-    <div className="space-y-5">
-      {/* Module Tabs Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl border bg-slate-900/40 border-slate-800">
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-          <button
-            onClick={() => setActiveModule('vectors')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
-              activeModule === 'vectors'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-200'
-                : 'text-slate-400 hover:bg-slate-800/60'
-            }`}
-          >
-            <Compass className="w-4 h-4" />
-            <span>{isArabic ? 'المتجهات والضرب القياسي والاتجاهي' : '3D Vectors & Products'}</span>
-          </button>
+    <div
+      className={
+        isFullscreen
+          ? 'h-full min-h-0 flex flex-col gap-2 overflow-hidden'
+          : 'space-y-5'
+      }
+    >
+      {/* Module Tabs Header (Embedded Mode) */}
+      {!isFullscreen ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl border bg-slate-900/40 border-slate-800">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <button
+              onClick={() => setActiveModule('vectors')}
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                activeModule === 'vectors'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-200'
+                  : 'text-slate-400 hover:bg-slate-800/60'
+              }`}
+            >
+              <Compass className="w-4 h-4" />
+              <span>{isArabic ? 'المتجهات والضرب القياسي والاتجاهي' : '3D Vectors & Products'}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveModule('sphere')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
-              activeModule === 'sphere'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-200'
-                : 'text-slate-400 hover:bg-slate-800/60'
-            }`}
-          >
-            <Box className="w-4 h-4" />
-            <span>{isArabic ? 'معادلة الكرة في الفراغ' : 'Sphere in 3D Space'}</span>
-          </button>
+            <button
+              onClick={() => setActiveModule('sphere')}
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                activeModule === 'sphere'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-200'
+                  : 'text-slate-400 hover:bg-slate-800/60'
+              }`}
+            >
+              <Box className="w-4 h-4" />
+              <span>{isArabic ? 'معادلة الكرة في الفراغ' : 'Sphere in 3D Space'}</span>
+            </button>
 
-          <button
-            onClick={() => setActiveModule('lines_planes')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
-              activeModule === 'lines_planes'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : isLight
-                ? 'text-slate-600 hover:bg-slate-200'
-                : 'text-slate-400 hover:bg-slate-800/60'
-            }`}
-          >
-            <Layers className="w-4 h-4" />
-            <span>{isArabic ? 'المستقيم والمستوى والتقاطعات' : 'Lines & Spatial Planes'}</span>
-          </button>
+            <button
+              onClick={() => setActiveModule('lines_planes')}
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                activeModule === 'lines_planes'
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  : isLight
+                  ? 'text-slate-600 hover:bg-slate-200'
+                  : 'text-slate-400 hover:bg-slate-800/60'
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>{isArabic ? 'المستقيم والمستوى والتقاطعات' : 'Lines & Spatial Planes'}</span>
+            </button>
+          </div>
+
+          {/* Info Tag */}
+          <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border ${
+            isLight ? 'bg-slate-100 text-slate-700 border-slate-300' : 'bg-slate-950/60 text-slate-400 border-slate-800'
+          }`}>
+            {isArabic ? 'محرك الفراغية التفاعلي ثلاثي الأبعاد' : '3D Solid Geometry Engine'}
+          </span>
         </div>
+      ) : (
+        /* Compact Fullscreen Toolbar */
+        <div className="flex flex-wrap items-center justify-between gap-2 p-2 rounded-xl border bg-slate-900/80 border-slate-800 shrink-0">
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setActiveModule('vectors')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'vectors'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'المتجهات 3D' : 'Vectors'}</span>
+            </button>
+            <button
+              onClick={() => setActiveModule('sphere')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'sphere'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Box className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'معادلة الكرة' : 'Sphere'}</span>
+            </button>
+            <button
+              onClick={() => setActiveModule('lines_planes')}
+              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                activeModule === 'lines_planes'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-400 hover:bg-slate-800'
+              }`}
+            >
+              <Layers className="w-3.5 h-3.5" />
+              <span>{isArabic ? 'المستقيم والمستوى' : 'Lines & Planes'}</span>
+            </button>
+          </div>
 
-        {/* Info Tag */}
-        <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border ${
-          isLight ? 'bg-slate-100 text-slate-700 border-slate-300' : 'bg-slate-950/60 text-slate-400 border-slate-800'
-        }`}>
-          {isArabic ? 'محرك الفراغية التفاعلي ثلاثي الأبعاد' : '3D Solid Geometry Engine'}
-        </span>
-      </div>
+          <div className="flex items-center gap-1 text-xs">
+            <span className="text-[11px] font-bold text-slate-400 mr-1 rtl:ml-1 rtl:mr-0">
+              {isArabic ? 'الرؤية:' : 'View:'}
+            </span>
+            <button
+              onClick={() => setCameraView('iso')}
+              className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer"
+            >
+              3D Iso
+            </button>
+            <button
+              onClick={() => setCameraView('top')}
+              className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer"
+            >
+              Top
+            </button>
+            <button
+              onClick={() => setCameraView('front')}
+              className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer"
+            >
+              Front
+            </button>
+            <button
+              onClick={() => setCameraView('side')}
+              className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 cursor-pointer"
+            >
+              Side
+            </button>
+            <button
+              onClick={() => setCameraView('iso')}
+              title={isArabic ? 'إعادة ضبط الكاميرا' : 'Reset Camera'}
+              className="p-1 rounded-md bg-indigo-600/20 text-indigo-400 hover:bg-indigo-600/30 transition-all cursor-pointer"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Main Grid: 3D Canvas + Control / Math Panels */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className={
+        isFullscreen
+          ? "grid grid-cols-1 lg:grid-cols-12 gap-2.5 flex-1 min-h-0 overflow-hidden"
+          : "grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+      }>
         {/* Left: 3D Canvas Viewport */}
         <div
-          className={`lg:col-span-7 p-3.5 sm:p-4 rounded-2xl border shadow-xl relative overflow-hidden transition-colors ${
-            isContrast
-              ? 'bg-black border-2 border-indigo-400'
-              : isLight
-              ? 'bg-white border-slate-200'
-              : 'bg-slate-900/90 border-slate-800'
-          }`}
+          className={
+            isFullscreen
+              ? "lg:col-span-7 xl:col-span-8 p-2.5 rounded-xl border flex flex-col h-full min-h-0 bg-slate-900/90 border-slate-800 overflow-hidden"
+              : `lg:col-span-7 p-3.5 sm:p-4 rounded-2xl border shadow-xl relative overflow-hidden transition-colors ${
+                  isContrast
+                    ? 'bg-black border-2 border-indigo-400'
+                    : isLight
+                    ? 'bg-white border-slate-200'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`
+          }
         >
-          {/* Viewport Top Bar: Camera Presets & Reset */}
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
-            <div className="flex items-center gap-1.5 text-xs">
-              <span className={`text-[11px] font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
-                {isArabic ? 'زاوية الرؤية:' : 'View:'}
-              </span>
-              <button
-                onClick={() => setCameraView('iso')}
-                className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
-                  isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-              >
-                3D Iso
-              </button>
-              <button
-                onClick={() => setCameraView('top')}
-                className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
-                  isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-              >
-                Top (XY)
-              </button>
-              <button
-                onClick={() => setCameraView('front')}
-                className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
-                  isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-              >
-                Front (XZ)
-              </button>
-              <button
-                onClick={() => setCameraView('side')}
-                className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
-                  isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
-                }`}
-              >
-                Side (YZ)
-              </button>
-              <button
-                onClick={() => setCameraView('iso')}
-                title={isArabic ? 'إعادة ضبط الكاميرا' : 'Reset Camera'}
-                className="p-1 rounded-md bg-indigo-600/20 text-indigo-400 hover:bg-indigo-600/30 transition-all cursor-pointer"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-            </div>
+          {/* Viewport Top Bar (if not isFullscreen) */}
+          {!isFullscreen && (
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
+              <div className="flex items-center gap-1.5 text-xs">
+                <span className={`text-[11px] font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                  {isArabic ? 'زاوية الرؤية:' : 'View:'}
+                </span>
+                <button
+                  onClick={() => setCameraView('iso')}
+                  className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
+                    isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  3D Iso
+                </button>
+                <button
+                  onClick={() => setCameraView('top')}
+                  className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
+                    isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  Top (XY)
+                </button>
+                <button
+                  onClick={() => setCameraView('front')}
+                  className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
+                    isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  Front (XZ)
+                </button>
+                <button
+                  onClick={() => setCameraView('side')}
+                  className={`px-2 py-1 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
+                    isLight ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                  }`}
+                >
+                  Side (YZ)
+                </button>
+                <button
+                  onClick={() => setCameraView('iso')}
+                  title={isArabic ? 'إعادة ضبط الكاميرا' : 'Reset Camera'}
+                  className="p-1 rounded-md bg-indigo-600/20 text-indigo-400 hover:bg-indigo-600/30 transition-all cursor-pointer"
+                >
+                  <RotateCcw className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
-            <span className={`text-[11px] font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-              {isArabic ? '💡 اسحب للتدوير، العجلة للتكبير' : '💡 Drag to rotate, scroll to zoom'}
-            </span>
-          </div>
+              <span className={`text-[11px] font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? '💡 اسحب للتدوير، العجلة للتكبير' : '💡 Drag to rotate, scroll to zoom'}
+              </span>
+            </div>
+          )}
 
           {/* WebGL Canvas Mount */}
           <div
             ref={mountRef}
-            className={`w-full h-[320px] sm:h-[400px] lg:h-[480px] rounded-xl cursor-grab active:cursor-grabbing touch-none border ${
-              isContrast ? 'bg-black border-slate-800' : isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/80 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? "w-full flex-1 min-h-0 rounded-xl cursor-grab active:cursor-grabbing touch-none border bg-slate-950/80 border-slate-800 relative overflow-hidden"
+                : `w-full h-[320px] sm:h-[400px] lg:h-[480px] rounded-xl cursor-grab active:cursor-grabbing touch-none border ${
+                    isContrast ? 'bg-black border-slate-800' : isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/80 border-slate-800'
+                  }`
+            }
           />
 
           {/* Coordinate Axes Legend */}
           <div
-            className={`mt-3 flex flex-wrap items-center justify-between gap-3 text-xs p-2.5 sm:p-3 rounded-lg border ${
-              isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950/60 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? "mt-2 flex flex-wrap items-center justify-between gap-2 text-xs p-2 rounded-lg border bg-slate-950/60 border-slate-800 shrink-0"
+                : `mt-3 flex flex-wrap items-center justify-between gap-3 text-xs p-2.5 sm:p-3 rounded-lg border ${
+                    isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950/60 border-slate-800'
+                  }`
+            }
           >
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-bold text-red-500 flex items-center gap-1">
@@ -959,16 +1072,30 @@ export const Interactive3DGeometry: React.FC<Props> = ({
         </div>
 
         {/* Right: Controls & Calculations */}
-        <div className="lg:col-span-5 space-y-5">
+        <div className={
+          isFullscreen
+            ? "lg:col-span-5 xl:col-span-4 flex flex-col gap-2.5 h-full min-h-0 overflow-y-auto pr-1"
+            : "lg:col-span-5 space-y-5"
+        }>
           {/* Controls Card */}
           <div
-            className={`p-4 sm:p-5 rounded-2xl border shadow-lg space-y-4 transition-colors ${
-              isContrast
-                ? 'bg-black border-2 border-indigo-400 text-white'
-                : isLight
-                ? 'bg-white border-slate-200'
-                : 'bg-slate-900/90 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? `p-3 rounded-xl border shadow-xs space-y-2.5 transition-colors shrink-0 ${
+                    isContrast
+                      ? 'bg-black border-2 border-indigo-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+                : `p-4 sm:p-5 rounded-2xl border shadow-lg space-y-4 transition-colors ${
+                    isContrast
+                      ? 'bg-black border-2 border-indigo-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+            }
           >
             <h4
               className={`text-sm font-bold uppercase tracking-wider flex items-center justify-between ${
@@ -1274,13 +1401,23 @@ export const Interactive3DGeometry: React.FC<Props> = ({
           {/* Real-Time Mathematical Calculations Card */}
           {/* ================================================================ */}
           <div
-            className={`p-4 sm:p-5 rounded-2xl border shadow-lg space-y-3 transition-colors ${
-              isContrast
-                ? 'bg-black border-2 border-emerald-400 text-white'
-                : isLight
-                ? 'bg-white border-slate-200'
-                : 'bg-slate-900/90 border-slate-800'
-            }`}
+            className={
+              isFullscreen
+                ? `p-3 rounded-xl border shadow-xs space-y-2 transition-colors shrink-0 ${
+                    isContrast
+                      ? 'bg-black border-2 border-emerald-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+                : `p-4 sm:p-5 rounded-2xl border shadow-lg space-y-3 transition-colors ${
+                    isContrast
+                      ? 'bg-black border-2 border-emerald-400 text-white'
+                      : isLight
+                      ? 'bg-white border-slate-200'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`
+            }
           >
             <h4
               className={`text-xs font-bold uppercase tracking-wider flex items-center justify-between ${
