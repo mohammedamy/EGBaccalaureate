@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import type { CurriculumType, DifficultyLevel, DiagramType, SolvedProblem, Chapter } from '../types/curriculum';
+import type { CurriculumType, DifficultyLevel, SolvedProblem, Chapter } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { thanaweyaCurriculum } from '../data/thanaweyaData';
@@ -38,11 +38,19 @@ import {
   CheckCheck,
   ChevronDown,
   ChevronUp,
+  BookMarked,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
 import { BubbleSheetSimulator } from '../core/exam/BubbleSheetSimulator';
 import { MathScratchpad } from '../core/math/MathScratchpad';
+import {
+  type GeneratedQuestion,
+  type MistakeRecord,
+  getMistakeRecords,
+  recordQuizMistakes,
+} from '../services/mistakeNotebookService';
+import { MistakeNotebookView } from './MistakeNotebookView';
 
 interface Props {
   lang: Language;
@@ -50,24 +58,6 @@ interface Props {
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
   initialSubject?: string;
-}
-
-interface GeneratedQuestion {
-  id: string;
-  questionEn: string;
-  questionAr: string;
-  difficulty: DifficultyLevel;
-  diagramType?: DiagramType;
-  optionsEn: string[];
-  optionsAr: string[];
-  correctIndex: number;
-  explanationEn: string[];
-  explanationAr: string[];
-  chapterId: string;
-  chapterTitleEn: string;
-  chapterTitleAr: string;
-  branchTitleEn: string;
-  branchTitleAr: string;
 }
 
 export const TestGenerator: React.FC<Props> = ({
@@ -85,8 +75,20 @@ export const TestGenerator: React.FC<Props> = ({
   const [selectedChapter, setSelectedChapter] = useState<string>('all');
   const [difficulty, setDifficulty] = useState<DifficultyLevel | 'all'>('all');
   const [questionCount, setQuestionCount] = useState<number>(10);
-  const [examMode, setExamMode] = useState<'online' | 'printable' | 'bubble_sheet'>('online');
+  const [examMode, setExamMode] = useState<'online' | 'printable' | 'bubble_sheet' | 'mistakes'>('online');
   const [isScratchpadOpen, setIsScratchpadOpen] = useState<boolean>(false);
+
+  // Mistake Notebook state
+  const [mistakeRecords, setMistakeRecords] = useState<MistakeRecord[]>(() => getMistakeRecords());
+  const [lastLoggedMistakesCount, setLastLoggedMistakesCount] = useState<number>(0);
+
+  const refreshMistakeRecords = () => {
+    setMistakeRecords(getMistakeRecords());
+  };
+
+  const activeMistakesCount = useMemo(() => {
+    return mistakeRecords.filter((r) => !r.mastered).length;
+  }, [mistakeRecords]);
 
   // Timed exam settings
   const [isTimed, setIsTimed] = useState<boolean>(true);
@@ -395,8 +397,32 @@ export const TestGenerator: React.FC<Props> = ({
     setIsSubmitted(true);
     setTimeTakenSeconds(totalTimeSeconds - timeRemaining);
 
+    // Auto-record mistakes to Mistake Notebook
+    const mistakeResult = recordQuizMistakes(activeQuestions, userAnswers, currentCurriculum);
+    refreshMistakeRecords();
+    setLastLoggedMistakesCount(mistakeResult.added + mistakeResult.updated);
+
     if (currentScore === activeQuestions.length && activeQuestions.length > 0) {
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+    }
+  };
+
+  // Launch targeted remediation quiz or printable worksheet from Mistake Notebook
+  const handleStartRemediation = (remediationQuestions: GeneratedQuestion[], mode: 'online' | 'printable') => {
+    setActiveQuestions(remediationQuestions);
+    setUserAnswers({});
+    setFlaggedQuestions({});
+    setIsSubmitted(false);
+    setScore(0);
+    setExamMode(mode);
+
+    if (mode === 'online') {
+      const totalSec = Math.max(remediationQuestions.length * 120, 300);
+      setTotalTimeSeconds(totalSec);
+      setTimeRemaining(totalSec);
+      setIsTimerPaused(false);
+      setTimeTakenSeconds(0);
+      setIsExamStarted(true);
     }
   };
 
@@ -1029,10 +1055,36 @@ export const TestGenerator: React.FC<Props> = ({
               <FileSpreadsheet className="w-3.5 h-3.5" />
               <span>{lang === 'ar' ? 'بابل شيت رسمي (OMR)' : 'OMR Bubble Sheet'}</span>
             </button>
+            <button
+              onClick={() => setExamMode('mistakes')}
+              className={`flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                examMode === 'mistakes'
+                  ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <BookMarked className="w-3.5 h-3.5" />
+              <span>{lang === 'ar' ? 'كشكول الأخطاء' : 'Mistakes Notebook'}</span>
+              {activeMistakesCount > 0 && (
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-rose-950 text-rose-300 border border-rose-400/60">
+                  {lang === 'ar' ? toHindiDigits(activeMistakesCount) : activeMistakesCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Ministerial Simulation Quick Launch Banner */}
+        {/* If in mistakes mode, render Mistake Notebook view */}
+        {examMode === 'mistakes' ? (
+          <MistakeNotebookView
+            lang={lang}
+            records={mistakeRecords}
+            onRefreshRecords={refreshMistakeRecords}
+            onStartRemediation={handleStartRemediation}
+          />
+        ) : (
+          <>
+            {/* Ministerial Simulation Quick Launch Banner */}
         {selectedSubject === 'physics' ? (
           <div className="bg-gradient-to-r from-sky-950/50 via-slate-900 to-indigo-950/50 border border-cyan-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-cyan-950/30">
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
@@ -1509,6 +1561,8 @@ export const TestGenerator: React.FC<Props> = ({
             </button>
           </div>
         </div>
+          </>
+        )}
       </div>
 
       {/* Printable Exam Paper View */}
@@ -2348,6 +2402,53 @@ export const TestGenerator: React.FC<Props> = ({
                       </div>
                     </div>
 
+                    {/* Mistake Notebook Banner if mistakes were made */}
+                    {(stats.total - score > 0 || lastLoggedMistakesCount > 0) && (
+                      <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rose-950/70 via-slate-900 to-indigo-950/70 border border-rose-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl shadow-rose-950/20">
+                        <div className="flex items-center gap-3.5">
+                          <div className="w-11 h-11 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-300 shrink-0 shadow-inner">
+                            <BookMarked className="w-5 h-5" />
+                          </div>
+                          <div className="space-y-1">
+                            <h5 className="text-sm font-bold text-slate-100 flex items-center gap-2">
+                              <span>{lang === 'ar' ? 'تم توثيق الأسئلة الخاطئة في "كشكول الأخطاء" 📓' : 'Mistakes Logged to Notebook 📓'}</span>
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                {lang === 'ar' ? `${toHindiDigits(stats.total - score)} أخطاء` : `${stats.total - score} missed`}
+                              </span>
+                            </h5>
+                            <p className="text-xs text-slate-300 leading-relaxed">
+                              {lang === 'ar'
+                                ? 'يمكنك فحص خطوات الحل وتصحيح المفهوم العلمي، أو بدء اختبار علاجي فوري لتدارك المفاهيم.'
+                                : 'Review step-by-step model solutions or launch an immediate remediation test.'}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2.5 shrink-0">
+                          <button
+                            onClick={() => setExamMode('mistakes')}
+                            className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all"
+                          >
+                            <BookMarked className="w-3.5 h-3.5 text-rose-400" />
+                            <span>{lang === 'ar' ? 'فتح كشكول الأخطاء' : 'Open Notebook'}</span>
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              const missedQuestions = activeQuestions.filter((q, idx) => userAnswers[idx] !== q.correctIndex);
+                              if (missedQuestions.length > 0) {
+                                handleStartRemediation(missedQuestions, 'online');
+                              }
+                            }}
+                            className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-950/40 flex items-center gap-1.5 cursor-pointer transition-all"
+                          >
+                            <Play className="w-3.5 h-3.5 fill-white" />
+                            <span>{lang === 'ar' ? 'بدء اختبار علاجي فوري' : 'Instant Remediation'}</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Breakdown by Difficulty */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 pt-6 border-t border-slate-800">
                       <div className="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 space-y-1">
@@ -2665,9 +2766,23 @@ export const TestGenerator: React.FC<Props> = ({
             }))}
             timeLimitMinutes={durationPreset === 'auto' ? Math.max(20, questionCount * 2) : durationPreset}
             lang={lang}
-            onExamSubmitted={(scr) => {
+            onExamSubmitted={(scr, _total, answers) => {
               setScore(scr);
               setIsSubmitted(true);
+              const letterToIdx: Record<string, number> = { A: 0, B: 1, C: 2, D: 3 };
+              const numericAnswers: Record<number, number> = {};
+              if (answers) {
+                Object.entries(answers).forEach(([qNum, ltr]) => {
+                  const qIdx = Number(qNum) - 1;
+                  if (ltr && letterToIdx[ltr] !== undefined) {
+                    numericAnswers[qIdx] = letterToIdx[ltr];
+                  }
+                });
+                setUserAnswers(numericAnswers);
+                const mistakeResult = recordQuizMistakes(activeQuestions, numericAnswers, currentCurriculum);
+                refreshMistakeRecords();
+                setLastLoggedMistakesCount(mistakeResult.added + mistakeResult.updated);
+              }
             }}
           />
         </div>
