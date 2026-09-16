@@ -54,6 +54,10 @@ import {
   recordQuizAttempt,
   generateDiagnosticBenchmarkQuestions,
 } from '../services/studentAnalyticsService';
+import {
+  evaluateBadges,
+  type AchievementBadge,
+} from '../services/achievementBadgeService';
 import { MistakeNotebookView } from './MistakeNotebookView';
 
 export type BlueprintMode =
@@ -124,6 +128,9 @@ export const TestGenerator: React.FC<Props> = ({
 
   // Post-exam review filter
   const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'flagged'>('all');
+
+  // Gamification & Badges celebration state
+  const [newlyEarnedBadges, setNewlyEarnedBadges] = useState<AchievementBadge[]>([]);
 
   // Reset branch and chapter when curriculum changes
   useEffect(() => {
@@ -407,6 +414,7 @@ export const TestGenerator: React.FC<Props> = ({
     setFlaggedQuestions({});
     setIsSubmitted(false);
     setReviewFilter('all');
+    setNewlyEarnedBadges([]);
 
     // Calculate time
     let allocatedMinutes = 20;
@@ -444,7 +452,12 @@ export const TestGenerator: React.FC<Props> = ({
     // Record quiz attempt to Student Analytics Dashboard
     recordQuizAttempt(activeQuestions, userAnswers, totalTimeSeconds - timeRemaining);
 
-    if (currentScore === activeQuestions.length && activeQuestions.length > 0) {
+    // Evaluate Gamification & Academic Achievement Badges
+    const badgeEval = evaluateBadges();
+    if (badgeEval.newlyUnlocked.length > 0) {
+      setNewlyEarnedBadges(badgeEval.newlyUnlocked);
+      confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
+    } else if (currentScore === activeQuestions.length && activeQuestions.length > 0) {
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
     }
   };
@@ -457,6 +470,7 @@ export const TestGenerator: React.FC<Props> = ({
     setIsSubmitted(false);
     setScore(0);
     setExamMode(mode);
+    setNewlyEarnedBadges([]);
 
     if (mode === 'online') {
       const totalSec = Math.max(remediationQuestions.length * 120, 300);
@@ -477,6 +491,7 @@ export const TestGenerator: React.FC<Props> = ({
     setTimeRemaining(totalTimeSeconds);
     setIsTimerPaused(false);
     setTimeTakenSeconds(0);
+    setNewlyEarnedBadges([]);
   };
 
   // Timer countdown hook
@@ -2516,6 +2531,71 @@ export const TestGenerator: React.FC<Props> = ({
                       </div>
                     </div>
 
+                    {/* Newly Earned Academic Badges Banner */}
+                    {newlyEarnedBadges.length > 0 && (
+                      <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 border-2 border-amber-500/50 shadow-2xl shadow-amber-900/20 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+                        <div className="relative z-10 space-y-4">
+                          <div className="flex items-center justify-between gap-4 flex-wrap">
+                            <div className="flex items-center gap-3.5">
+                              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/30 shrink-0">
+                                <Award className="w-6 h-6" />
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                    {lang === 'ar' ? 'إنجاز جديد' : 'New Milestone'}
+                                  </span>
+                                  <span className="text-xs text-slate-400 font-semibold">
+                                    {lang === 'ar'
+                                      ? `تم فتح ${toHindiDigits(newlyEarnedBadges.length)} شارة تميز جديدة!`
+                                      : `${newlyEarnedBadges.length} new achievement badge${newlyEarnedBadges.length > 1 ? 's' : ''} unlocked!`}
+                                  </span>
+                                </div>
+                                <h4 className="text-base sm:text-lg font-black text-amber-200 mt-0.5">
+                                  {lang === 'ar' ? '🎉 مبارك! ارتقيت في سُلّم التفوق الأكاديمي' : '🎉 Congratulations! You leveled up!'}
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {newlyEarnedBadges.map((badge) => {
+                              const tierTheme =
+                                badge.tier === 'diamond'
+                                  ? 'border-cyan-400/60 bg-cyan-950/40 text-cyan-200'
+                                  : badge.tier === 'gold'
+                                  ? 'border-amber-500/60 bg-amber-950/40 text-amber-200'
+                                  : badge.tier === 'silver'
+                                  ? 'border-slate-400/60 bg-slate-900/60 text-slate-200'
+                                  : 'border-orange-500/60 bg-orange-950/40 text-orange-200';
+                              return (
+                                <div
+                                  key={badge.id}
+                                  className={`p-3.5 rounded-xl border flex items-center gap-3.5 backdrop-blur-sm shadow-md ${tierTheme}`}
+                                >
+                                  <div className="text-3xl shrink-0 p-1.5 rounded-xl bg-slate-950/50 border border-white/10">
+                                    {badge.icon}
+                                  </div>
+                                  <div className="min-w-0 flex-1">
+                                    <div className="flex items-center gap-1.5">
+                                      <span className="font-bold text-sm text-slate-100 truncate">
+                                        {lang === 'ar' ? badge.titleAr : badge.titleEn}
+                                      </span>
+                                    </div>
+                                    <p className="text-xs text-slate-300/80 line-clamp-2 mt-0.5 leading-relaxed">
+                                      {lang === 'ar' ? badge.descAr : badge.descEn}
+                                    </p>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Mistake Notebook Banner if mistakes were made */}
                     {(stats.total - score > 0 || lastLoggedMistakesCount > 0) && (
                       <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rose-950/70 via-slate-900 to-indigo-950/70 border border-rose-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl shadow-rose-950/20">
@@ -2895,6 +2975,11 @@ export const TestGenerator: React.FC<Props> = ({
                 setUserAnswers(numericAnswers);
                 const mistakeResult = recordQuizMistakes(activeQuestions, numericAnswers, currentCurriculum);
                 recordQuizAttempt(activeQuestions, numericAnswers, 0);
+                const badgeEval = evaluateBadges();
+                if (badgeEval.newlyUnlocked.length > 0) {
+                  setNewlyEarnedBadges(badgeEval.newlyUnlocked);
+                  confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
+                }
                 refreshMistakeRecords();
                 setLastLoggedMistakesCount(mistakeResult.added + mistakeResult.updated);
               }

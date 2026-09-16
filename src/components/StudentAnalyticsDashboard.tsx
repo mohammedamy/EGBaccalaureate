@@ -11,6 +11,10 @@ import {
   type StudentAnalyticsState,
 } from '../services/studentAnalyticsService';
 import {
+  evaluateBadges,
+  resetBadgeHistory,
+} from '../services/achievementBadgeService';
+import {
   BrainCircuit,
   Sparkles,
   CheckCircle2,
@@ -23,6 +27,9 @@ import {
   BarChart3,
   Target,
   Play,
+  Award,
+  Trophy,
+  Lock,
 } from 'lucide-react';
 
 interface Props {
@@ -48,6 +55,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   );
 
   const [selectedSubjectFilter, setSelectedSubjectFilter] = useState<string>('all');
+  const [badgeFilter, setBadgeFilter] = useState<string>('all');
 
   const refreshAnalytics = () => {
     setAnalyticsState(getStudentAnalytics());
@@ -56,6 +64,14 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   const readinessScore = useMemo(() => getReadinessScore(analyticsState), [analyticsState]);
   const radarPoints = useMemo(() => getMasteryRadarData(analyticsState), [analyticsState]);
   const weakestChapters = useMemo(() => getWeakestChapters(analyticsState, 3), [analyticsState]);
+
+  // Evaluate Achievement Badges
+  const badgeResult = useMemo(() => evaluateBadges(analyticsState), [analyticsState]);
+
+  const filteredBadges = useMemo(() => {
+    if (badgeFilter === 'all') return badgeResult.badges;
+    return badgeResult.badges.filter((b) => b.category === badgeFilter);
+  }, [badgeResult, badgeFilter]);
 
   // Overall accuracy
   const overallAccuracy = useMemo(() => {
@@ -74,11 +90,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
     if (
       window.confirm(
         isAr
-          ? 'هل أنت متأكد من رغبتك في إعادة تعيين كافة إحصائيات الأداء واختبارات الجاهزية؟'
-          : 'Are you sure you want to reset all analytics and practice history?'
+          ? 'هل أنت متأكد من رغبتك في إعادة تعيين كافة إحصائيات الأداء واختبارات الجاهزية وسجل الشارات؟'
+          : 'Are you sure you want to reset all analytics, practice history, and badge unlocks?'
       )
     ) {
       resetStudentAnalytics();
+      resetBadgeHistory();
       refreshAnalytics();
     }
   };
@@ -643,6 +660,172 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </div>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* Achievement Badges Showcase ("شارات الإنجاز والتميز الأكاديمي") */}
+      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div className="space-y-1">
+            <h3 className="text-lg font-black text-slate-100 flex items-center gap-2">
+              <Award className="w-5 h-5 text-amber-400" />
+              <span>{isAr ? 'شارات الإنجاز والتفوق الأكاديمي 🏆' : 'Academic Achievement Badges 🏆'}</span>
+            </h3>
+            <p className="text-xs text-slate-400">
+              {isAr
+                ? 'منظومة الأوسمة التحفيزية لمكافأة الإتقان في مهارات التفكير العليا، تدارك الأخطاء، وسرعة ودقة الحل'
+                : 'Motivational badges recognizing mastery in HOTS questions, mistake recovery, accuracy, and speed'}
+            </p>
+          </div>
+
+          {/* Badges Progress Pill */}
+          <div className="flex items-center gap-3 bg-slate-950/80 px-4 py-2 rounded-2xl border border-slate-800">
+            <Trophy className="w-5 h-5 text-amber-400 shrink-0" />
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs font-bold text-slate-200 gap-4">
+                <span>{isAr ? 'الشارات المكتملة' : 'Unlocked Badges'}</span>
+                <span className="text-amber-400">
+                  {isAr
+                    ? `${toHindiDigits(badgeResult.unlockedCount)} / ${toHindiDigits(badgeResult.totalCount)}`
+                    : `${badgeResult.unlockedCount} / ${badgeResult.totalCount}`}
+                </span>
+              </div>
+              <div className="w-32 sm:w-40 bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                <div
+                  className="bg-gradient-to-r from-amber-500 to-yellow-400 h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: `${Math.round((badgeResult.unlockedCount / badgeResult.totalCount) * 100)}%`,
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+          {[
+            { id: 'all', ar: 'جميع الشارات (١٢)', en: 'All Badges (12)' },
+            { id: 'hots', ar: '🧠 التفكير العليا HOTS', en: '🧠 HOTS Mastery' },
+            { id: 'accuracy', ar: '🎯 الدقة والسرعة', en: '🎯 Accuracy & Speed' },
+            { id: 'remediation', ar: '🛡️ تدارك الأخطاء', en: '🛡️ Mistake Recovery' },
+            { id: 'readiness', ar: '🌟 الجاهزية والرادار', en: '🌟 Readiness & Radar' },
+            { id: 'milestone', ar: '📚 المحطات التدريبية', en: '📚 Practice Milestones' },
+          ].map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setBadgeFilter(cat.id)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                badgeFilter === cat.id
+                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
+              }`}
+            >
+              {isAr ? cat.ar : cat.en}
+            </button>
+          ))}
+        </div>
+
+        {/* Badges Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {filteredBadges.map((b) => {
+            const isUnlocked = b.unlocked;
+
+            // Tier styling
+            let borderClass = 'border-slate-800 bg-slate-950/50 text-slate-300';
+            let tierTagAr = 'برونزية';
+            let tierTagEn = 'Bronze';
+            let tierColor = 'text-orange-400 bg-orange-950/60 border-orange-800/60';
+
+            if (b.tier === 'diamond') {
+              borderClass = isUnlocked
+                ? 'border-cyan-400/50 bg-gradient-to-br from-cyan-950/50 via-slate-950 to-purple-950/50 text-cyan-200 shadow-lg shadow-cyan-950/40'
+                : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
+              tierTagAr = 'ماسية 💎';
+              tierTagEn = 'Diamond 💎';
+              tierColor = 'text-cyan-300 bg-cyan-950/80 border-cyan-800/80';
+            } else if (b.tier === 'gold') {
+              borderClass = isUnlocked
+                ? 'border-amber-500/50 bg-gradient-to-br from-amber-950/40 via-slate-950 to-yellow-950/40 text-amber-200 shadow-lg shadow-amber-950/40'
+                : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
+              tierTagAr = 'ذهبية 🥇';
+              tierTagEn = 'Gold 🥇';
+              tierColor = 'text-amber-300 bg-amber-950/80 border-amber-800/80';
+            } else if (b.tier === 'silver') {
+              borderClass = isUnlocked
+                ? 'border-slate-400/50 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-slate-200 shadow-md'
+                : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
+              tierTagAr = 'فضية 🥈';
+              tierTagEn = 'Silver 🥈';
+              tierColor = 'text-slate-300 bg-slate-800/80 border-slate-700';
+            } else {
+              borderClass = isUnlocked
+                ? 'border-orange-600/50 bg-gradient-to-br from-orange-950/30 via-slate-950 to-slate-950 text-orange-200 shadow-md'
+                : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
+              tierTagAr = 'برونزية 🥉';
+              tierTagEn = 'Bronze 🥉';
+              tierColor = 'text-orange-300 bg-orange-950/80 border-orange-800';
+            }
+
+            return (
+              <div
+                key={b.id}
+                className={`p-4 rounded-2xl border transition-all space-y-3 flex flex-col justify-between ${borderClass}`}
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-2xl p-2 rounded-xl bg-slate-900/80 border border-slate-800 shadow-inner">
+                      {b.icon}
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <span className={`px-2 py-0.5 rounded-md text-[10px] font-black border ${tierColor}`}>
+                        {isAr ? tierTagAr : tierTagEn}
+                      </span>
+                      {isUnlocked ? (
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" />
+                          <span>{isAr ? 'مكتملة' : 'Earned'}</span>
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-900 text-slate-400 border border-slate-800 flex items-center gap-1">
+                          <Lock className="w-2.5 h-2.5" />
+                          <span>{isAr ? 'مقفلة' : 'Locked'}</span>
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-100">{isAr ? b.titleAr : b.titleEn}</h4>
+                    <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5 line-clamp-2">
+                      {isAr ? b.descAr : b.descEn}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-1 pt-1 border-t border-slate-800/60">
+                  <div className="flex justify-between text-[10px] font-semibold text-slate-400">
+                    <span>{isUnlocked ? (isAr ? 'مستوى الإتقان' : 'Mastery') : (isAr ? 'التقدم نحو الشارة' : 'Progress')}</span>
+                    <span className={isUnlocked ? 'text-emerald-400 font-bold' : 'text-slate-300'}>
+                      {isAr
+                        ? `${toHindiDigits(b.currentProgress)} / ${toHindiDigits(b.target)} (${toHindiDigits(b.progressPct)}%)`
+                        : `${b.currentProgress} / ${b.target} (${b.progressPct}%)`}
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden border border-slate-800">
+                    <div
+                      className={`h-full rounded-full transition-all duration-700 ${
+                        isUnlocked
+                          ? 'bg-gradient-to-r from-emerald-500 to-teal-400'
+                          : 'bg-gradient-to-r from-amber-500 to-indigo-500'
+                      }`}
+                      style={{ width: `${b.progressPct}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
