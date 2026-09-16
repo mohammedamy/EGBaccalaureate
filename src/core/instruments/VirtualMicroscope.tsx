@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Eye, ZoomIn, Sun, Layers, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
-import { useFullscreenLabTypography } from '../labs/useFullscreenLabTypography';
+import { useNativeLabFullscreen } from '../labs/useNativeLabFullscreen';
 
 export type ObjectiveLens = '4x' | '10x' | '40x' | '100x';
 export type SpecimenType = 'onion_epidermis' | 'human_blood' | 'mitosis_root' | 'bacteria_smear';
@@ -13,32 +13,14 @@ interface VirtualMicroscopeProps {
 
 export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
   lang = 'en',
-  defaultFullscreen = true,
+  defaultFullscreen = false,
 }) => {
   const isAr = lang === 'ar';
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
-
-  const handleExitFullscreen = useCallback(() => {
-    setIsFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
-    }
-  }, []);
-
-  // Automatically adjusts typography on entering full screen and restores user font setting on exit
-  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
-
-  const toggleFullscreen = useCallback(() => {
-    setIsFullscreen((prev) => {
-      const next = !prev;
-      if (!next && document.fullscreenElement) {
-        document.exitFullscreen?.().catch(() => {});
-      }
-      return next;
-    });
-  }, []);
+  const { isFullscreen, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen,
+  });
 
   // Microscope Controls
   const [lens, setLens] = useState<ObjectiveLens>('10x');
@@ -464,7 +446,7 @@ export const VirtualMicroscope: React.FC<VirtualMicroscopeProps> = ({
           {/* Fullscreen Exit Button */}
           <button
             type="button"
-            onClick={toggleFullscreen}
+            onClick={exitFullscreen}
             className="px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border-emerald-500/50 shadow-xs"
             title={isAr ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
           >

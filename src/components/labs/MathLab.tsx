@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
@@ -14,7 +14,7 @@ import { Interactive3DGeometry } from '../Interactive3DGeometry';
 import { InteractiveComplexArgand } from '../InteractiveComplexArgand';
 import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
-import { useFullscreenLabTypography } from '../../core/labs/useFullscreenLabTypography';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
@@ -33,33 +33,16 @@ export const MathLab: React.FC<Props> = ({
   onOpenDesmos,
   initialTab = 'calculus',
   onTabChange,
-  defaultFullscreen = true,
+  defaultFullscreen = false,
 }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<MathTab>(initialTab);
-  const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
-
-  const handleExitFullscreen = useCallback(() => {
-    setIsFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
-    }
-  }, []);
-
-  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
-
-  const toggleFullscreen = useCallback(() => {
-    setIsFullscreen((prev) => {
-      const next = !prev;
-      if (!next && document.fullscreenElement) {
-        document.exitFullscreen?.().catch(() => {});
-      }
-      return next;
-    });
-  }, []);
+  const { isFullscreen, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen,
+  });
 
   useEffect(() => {
     if (initialTab && initialTab !== activeTab) {
@@ -145,7 +128,7 @@ export const MathLab: React.FC<Props> = ({
 
             {/* Minimize button */}
             <button
-              onClick={toggleFullscreen}
+              onClick={exitFullscreen}
               title={isArabic ? 'تصغير (Esc)' : 'Exit Fullscreen (Esc)'}
               aria-label={isArabic ? 'تصغير الشاشة' : 'Exit Fullscreen'}
               className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"

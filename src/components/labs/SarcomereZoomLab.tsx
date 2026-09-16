@@ -4,7 +4,7 @@ import type { Language } from '../../i18n/translations';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import { CanvasSimulationViewport } from '../../core/labs/CanvasSimulationViewport';
 import { drawGlowingParticle } from '../../core/labs/RealisticLabGraphics';
-import { useFullscreenLabTypography } from '../../core/labs/useFullscreenLabTypography';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import {
   Activity,
   Play,
@@ -26,32 +26,14 @@ interface Props {
 
 export type ZoomLevel = 1 | 2 | 3 | 4;
 
-export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaultFullscreen = true }) => {
+export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaultFullscreen = false }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
-
-  const handleExitFullscreen = useCallback(() => {
-    setIsFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
-    }
-  }, []);
-
-  // Automatically adjusts typography on entering full screen and restores user font setting on exit
-  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
-
-  const toggleFullscreen = useCallback(() => {
-    setIsFullscreen((prev) => {
-      const next = !prev;
-      if (!next && document.fullscreenElement) {
-        document.exitFullscreen?.().catch(() => {});
-      }
-      return next;
-    });
-  }, []);
+  const { isFullscreen, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen,
+  });
 
   // 4 Scale Levels: 1: Organism (Arm), 2: Tissue (Fascicle), 3: Cellular (Sarcomere), 4: Molecular (Cross-Bridge)
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(3);
@@ -1906,7 +1888,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
           {/* Fullscreen Exit Button */}
           <button
             type="button"
-            onClick={toggleFullscreen}
+            onClick={exitFullscreen}
             className="px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/50 shadow-xs"
             title={isArabic ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
           >

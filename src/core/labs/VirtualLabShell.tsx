@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type {
   LabDefinition,
@@ -27,7 +27,7 @@ import { LabSlider } from './controls/LabSlider';
 import { LabTelemetryCard } from './controls/LabTelemetryCard';
 import { LabPresetPicker } from './controls/LabPresetPicker';
 import { LabFormulaBar } from './controls/LabFormulaBar';
-import { useFullscreenLabTypography } from './useFullscreenLabTypography';
+import { useNativeLabFullscreen } from './useNativeLabFullscreen';
 import { POEController } from '../pedagogy/POEController';
 import { LabNotebook } from '../pedagogy/LabNotebook';
 import { InstrumentRack } from '../instruments/InstrumentRack';
@@ -36,21 +36,19 @@ import type { WaveformSignal } from '../instruments/DualTraceOscilloscope';
 import type { useVirtualLab } from './useVirtualLab';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 
-interface VirtualLabShellProps<
+export interface VirtualLabShellProps<
   TParams extends Record<string, any> = Record<string, any>,
   TState extends Record<string, any> = Record<string, any>
 > {
   definition: LabDefinition<TParams, TState>;
-  lang: 'en' | 'ar';
+  lang?: 'en' | 'ar';
   theme?: ThemeMode;
   lab: ReturnType<typeof useVirtualLab<TParams, TState>>;
-  telemetry?: LabTelemetryMetric[];
-  // Viewport slot
   children: React.ReactNode;
-  // Custom slots
-  renderCustomControls?: () => React.ReactNode;
-  // Live feeds for instruments & notebook
   multimeterReading?: DMMReading;
+  oscilloscopeSignal?: WaveformSignal;
+  telemetry?: LabTelemetryMetric[];
+  renderCustomControls?: () => React.ReactNode;
   oscilloscopeCh1?: WaveformSignal;
   oscilloscopeCh2?: WaveformSignal;
   currentXValue?: number;
@@ -64,7 +62,7 @@ export const VirtualLabShell = <
   TState extends Record<string, any>
 >({
   definition,
-  lang,
+  lang = 'en',
   theme = 'dark',
   lab,
   telemetry = [],
@@ -76,36 +74,18 @@ export const VirtualLabShell = <
   currentXValue,
   currentYValue,
   onResetSimulation,
-  defaultFullscreen = true,
+  defaultFullscreen = false,
 }: VirtualLabShellProps<TParams, TState>): React.ReactElement => {
   const isAr = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
+  const { isFullscreen, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen,
+  });
   const [showObjectivesModal, setShowObjectivesModal] = useState<boolean>(false);
   const [showSafetyModal, setShowSafetyModal] = useState<boolean>(false);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
-
-  const handleExitFullscreen = useCallback(() => {
-    setIsFullscreen(false);
-    if (document.fullscreenElement) {
-      document.exitFullscreen?.().catch(() => {});
-    }
-  }, []);
-
-  // Automatically adjusts typography on entering full screen and restores user font setting on exit
-  useFullscreenLabTypography(isFullscreen, handleExitFullscreen);
-
-  const toggleFullscreen = useCallback(() => {
-    setIsFullscreen((prev) => {
-      const next = !prev;
-      if (!next && document.fullscreenElement) {
-        document.exitFullscreen?.().catch(() => {});
-      }
-      return next;
-    });
-  }, []);
 
   // Subject gradient styling
   const subjectThemes = {
@@ -754,7 +734,7 @@ export const VirtualLabShell = <
             {/* Fullscreen Minimize Toggle */}
             <button
               type="button"
-              onClick={toggleFullscreen}
+              onClick={exitFullscreen}
               className={`px-3 py-2 rounded-xl border text-xs sm:text-sm font-black flex items-center gap-1.5 transition-all cursor-pointer ${
                 isLight
                   ? 'bg-cyan-50 hover:bg-cyan-100 text-cyan-900 border-cyan-300'

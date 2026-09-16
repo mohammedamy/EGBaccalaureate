@@ -14,3 +14,5 @@ export * from './controls/LabFormulaBar';
 export * from './controls/LabStopwatch';
 export * from './RealisticLabGraphics';
 export * from '../instruments/InstrumentRack';
+export * from './useNativeLabFullscreen';
+export * from './useFullscreenLabTypography';
