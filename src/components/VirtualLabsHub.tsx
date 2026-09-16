@@ -65,16 +65,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
       id: 'math' as LabId,
       titleEn: 'Math Lab',
       titleAr: 'مختبر الرياضيات',
-      subtitleEn: 'Calculus, 3D Vectors & 2D Dynamics Sandbox',
-      subtitleAr: 'التفاضل، الفراغية، والاستاتيكا وديناميكا التصادم والمقذوفات',
+      subtitleEn: 'Calculus, 3D Vectors, Complex Argand & Dynamics',
+      subtitleAr: 'التفاضل، الفراغية، الأعداد المركبة وأرجاند، والميكانيكا',
       icon: Calculator,
       color: 'indigo',
-      badge: '⚙️ Statics & Dynamics',
+      badge: '⚙️ Statics & Complex',
       gradient: 'from-blue-600 via-indigo-600 to-violet-600',
       activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
       tagline: isArabic
-        ? 'احتكاك المستويات، اتزان السلم، التصادم في بعدين وحركة المقذوفات'
-        : 'Inclined friction, ladder equilibrium, 2D collisions & projectile ballistics',
+        ? 'مستوى أرجاند وديموافر، احتكاك المستويات، الفراغية 3D، وديناميكا المقذوفات'
+        : 'Argand plane & De Moivre, inclined friction, 3D geometry & projectile ballistics',
     },
     {
       id: 'physics' as LabId,
@@ -273,6 +273,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                   {[
                     { id: 'calculus' as MathTab, emoji: '🧭', labelEn: 'Calculus & Dynamic Tangents', labelAr: 'التفاضل والمماسات الديناميكية' },
                     { id: 'geometry3d' as MathTab, emoji: '📦', labelEn: '3D Vectors & Planes', labelAr: 'الهندسة الفراغية 3D والمتجهات' },
+                    { id: 'complex' as MathTab, emoji: '📍', labelEn: 'Complex Numbers & Argand Plane (De Moivre)', labelAr: 'الأعداد المركبة ومستوى أرجاند وديموافر' },
                     { id: 'mechanics' as MathTab, emoji: '⚙️', labelEn: 'Statics & Classical Mechanics (Tier-1)', labelAr: 'الاستاتيكا والميكانيكا الكلاسيكية' },
                     { id: 'matrix' as MathTab, emoji: '🔢', labelEn: 'Matrix Algebra Solver', labelAr: 'جبر المصفوفات ومحدد كرامر' },
                   ].map((tab) => (

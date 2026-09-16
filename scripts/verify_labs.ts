@@ -73,6 +73,8 @@ const labComponents = [
   'src/components/labs/QualitativeAnalysisLab.tsx',
   'src/components/labs/ChemistryFlashcards.tsx',
   'src/components/labs/ChemistryConstantsDrawer.tsx',
+  'src/components/labs/GuidedExperimentsModal.tsx',
+  'src/components/InteractiveComplexArgand.tsx',
   'src/components/VirtualLabsHub.tsx',
 ];
 
@@ -1082,9 +1084,59 @@ const aa_sickle_hbb = 'Val';
 assert(codon_normal_hbb === 'GAG' && aa_normal_hbb === 'Glu', `Normal beta-globin codon 6 is GAG encoding Glutamic acid`);
 assert(codon_sickle_hbb === 'GUG' && aa_sickle_hbb === 'Val', `Sickle cell missense mutation is A->U transversion (GAG -> GUG) encoding hydrophobic Valine`);
 
+// 3.8 Pure Mathematics: Complex Numbers, Argand Plane & De Moivre Roots (Algebra Chapter 2)
+console.log('\n--- Complex Numbers & De Moivre Theorem Mathematical Model ---');
+// 1. Modulus and Principal Argument
+const testX = 3;
+const testY = 3;
+const r_calc = Math.sqrt(testX * testX + testY * testY);
+const theta_calc = Math.atan2(testY, testX);
+assert(Math.abs(r_calc - 3 * Math.SQRT2) < 1e-6, `Complex Modulus r = √(3² + 3²) = 3√2 ≈ ${r_calc.toFixed(3)}`);
+assert(Math.abs(theta_calc - Math.PI / 4) < 1e-6, `Complex Principal Argument θ = π/4 = 45° (${((theta_calc * 180) / Math.PI).toFixed(1)}°)`);
+
+// 2. Polar reconstruction
+const reconX = r_calc * Math.cos(theta_calc);
+const reconY = r_calc * Math.sin(theta_calc);
+assert(Math.abs(reconX - testX) < 1e-6 && Math.abs(reconY - testY) < 1e-6, `Polar to Cartesian conversion exact: (${reconX}, ${reconY}) = (${testX}, ${testY})`);
+
+// 3. Conjugate and Additive Inverse
+const conjX = testX;
+const conjY = -testY;
+const conjTheta = Math.atan2(conjY, conjX);
+assert(Math.abs(conjTheta - -Math.PI / 4) < 1e-6, `Conjugate z̄ argument is -θ = -45°`);
+
+const invX = -testX;
+const invY = -testY;
+const invTheta = Math.atan2(invY, invX);
+assert(Math.abs(invTheta - (-3 * Math.PI) / 4) < 1e-6, `Additive inverse -z argument is -135°`);
+
+// 4. De Moivre n-th Roots of Unity (Cubic roots: n = 3)
+const n_roots = 3;
+const r_root = Math.pow(r_calc, 1 / n_roots);
+const roots_k = [0, 1, 2].map((k) => {
+  const phi = (theta_calc + 2 * Math.PI * k) / n_roots;
+  return { x: r_root * Math.cos(phi), y: r_root * Math.sin(phi), phi };
+});
+assert(roots_k.length === 3, `De Moivre generated exactly 3 cubic roots`);
+const sumRootX = roots_k.reduce((acc, root) => acc + root.x, 0);
+const sumRootY = roots_k.reduce((acc, root) => acc + root.y, 0);
+assert(Math.abs(sumRootX) < 1e-6 && Math.abs(sumRootY) < 1e-6, `Sum of n-th roots equals 0 (Zero-sum cyclic conservation: Σ z_k = 0)`);
+
+// 5. Omega identities (Cubic roots of 1)
+const omega_1 = { re: -0.5, im: Math.sqrt(3) / 2 };
+const omega_2 = { re: -0.5, im: -Math.sqrt(3) / 2 };
+const sum_omega = 1 + omega_1.re + omega_2.re;
+const sum_omega_im = omega_1.im + omega_2.im;
+assert(Math.abs(sum_omega) < 1e-6 && Math.abs(sum_omega_im) < 1e-6, `Cubic roots of unity identity 1 + ω + ω² = 0`);
+
 // 4. Verify KaTeX Formulas in Labs
 console.log('\n--- 4. KaTeX Mathematical & Scientific Formula Typesetting ---');
 const labKeyFormulas = [
+  // Complex Numbers & De Moivre Theorem (Algebra Chapter 2)
+  'z = x + iy = r(\\cos\\theta + i\\sin\\theta) = r e^{i\\theta}',
+  'z^{1/n} = \\sqrt[n]{r}\\left(\\cos\\frac{\\theta + 2k\\pi}{n} + i\\sin\\frac{\\theta + 2k\\pi}{n}\\right)',
+  '1 + \\omega + \\omega^2 = 0, \\quad \\omega^3 = 1',
+  '\\bar{z} = x - iy = r e^{-i\\theta}, \\quad |z| = |\\bar{z}| = \\sqrt{x^2 + y^2}',
   // First Transition Series & Iron Metallurgy (Chemistry Chapter 1)
   '3\\text{Fe}_2\\text{O}_3 + \\text{CO} \\xrightarrow{230-300^\\circ\\text{C}} 2\\text{Fe}_3\\text{O}_4 + \\text{CO}_2',
   '\\text{Fe}_3\\text{O}_4 + \\text{CO} \\xrightarrow{400-700^\\circ\\text{C}} 3\\text{FeO} + \\text{CO}_2',

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { InteractiveCalculusTangent } from '../InteractiveCalculusTangent';
 import { Interactive3DGeometry } from '../Interactive3DGeometry';
+import { InteractiveComplexArgand } from '../InteractiveComplexArgand';
 import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
 
@@ -20,7 +21,7 @@ interface Props {
   onTabChange?: (tab: MathTab) => void;
 }
 
-export type MathTab = 'calculus' | 'geometry3d' | 'mechanics' | 'matrix';
+export type MathTab = 'calculus' | 'geometry3d' | 'complex' | 'mechanics' | 'matrix';
 
 export const MathLab: React.FC<Props> = ({
   lang,
@@ -112,6 +113,9 @@ export const MathLab: React.FC<Props> = ({
             <option value="geometry3d" className="bg-slate-900 text-white">
               📦 {isArabic ? 'الهندسة الفراغية 3D (المتجهات، الكرة، والمستويات)' : '3D Solid Geometry (Vectors, Sphere & Planes)'}
             </option>
+            <option value="complex" className="bg-slate-900 text-white">
+              📍 {isArabic ? 'الأعداد المركبة ومستوى أرجاند (ديموافر وجذور أوميجا)' : 'Complex Numbers & Argand Plane (De Moivre & Roots)'}
+            </option>
             <option value="mechanics" className="bg-slate-900 text-white">
               ⚙️ {isArabic ? 'الاستاتيكا والميكانيكا الكلاسيكية (المستوى التفاعلي)' : 'Statics & Classical Mechanics (Tier-1 Lab)'}
             </option>
@@ -168,6 +172,7 @@ export const MathLab: React.FC<Props> = ({
       <div className="mt-6">
         {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} />}
         {activeTab === 'geometry3d' && <Interactive3DGeometry lang={lang} theme={theme} />}
+        {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} />}
         {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}
         {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} />}
       </div>
