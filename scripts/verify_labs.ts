@@ -443,6 +443,44 @@ assert(
   Math.abs(equilibriumYieldPercent - 66.67) < 0.1,
   `Fischer esterification theoretical equilibrium conversion without dehydrating agent: ${equilibriumYieldPercent.toFixed(1)}% (approx 66.7%)`
 );
+
+// Verify Le Chatelier shift with dehydrating conc. H2SO4
+const esterYieldWithDehydratingAgent = 96.0;
+assert(
+  esterYieldWithDehydratingAgent > equilibriumYieldPercent,
+  `Dehydrating agent (conc. H2SO4) pushes equilibrium forward by Le Chatelier principle (${esterYieldWithDehydratingAgent}% > ${equilibriumYieldPercent.toFixed(1)}%)`
+);
+
+// Verify Saponification irreversible conversion
+const saponificationYield = 99.5;
+assert(
+  saponificationYield > esterYieldWithDehydratingAgent,
+  `Alkaline ester hydrolysis (saponification) with NaOH is irreversible (${saponificationYield}% conversion)`
+);
+
+// Verify Benzene Directing Group Regioselectivity rules
+const tolueneNitrationOrtho = 58;
+const tolueneNitrationPara = 38;
+const tolueneNitrationMeta = 4;
+assert(
+  tolueneNitrationOrtho + tolueneNitrationPara === 96 && tolueneNitrationOrtho + tolueneNitrationPara > tolueneNitrationMeta,
+  `Toluene methyl group (+I activator) directs incoming electrophile to ortho/para positions (ortho: ${tolueneNitrationOrtho}%, para: ${tolueneNitrationPara}%, meta: ${tolueneNitrationMeta}%)`
+);
+
+const nitrobenzeneNitrationMeta = 93;
+const nitrobenzeneNitrationOrtho = 6;
+const nitrobenzeneNitrationPara = 1;
+assert(
+  nitrobenzeneNitrationMeta > 90 && nitrobenzeneNitrationMeta > (nitrobenzeneNitrationOrtho + nitrobenzeneNitrationPara),
+  `Nitrobenzene nitro group (-M deactivator) directs incoming electrophile predominantly to meta position (${nitrobenzeneNitrationMeta}%)`
+);
+
+const chlorobenzeneHalogenOrthoPara = 39 + 60; // 99%
+assert(
+  chlorobenzeneHalogenOrthoPara > 95,
+  `Chlorobenzene deactivates by -I induction yet directs to ortho/para via lone-pair resonance (+M) (${chlorobenzeneHalogenOrthoPara}%)`
+);
+
 // I. Biology: Molecular Genetics, Chargaff's Rules & Thermal Denaturation (Chapter 5 & 6)
 const seqA = 26;
 const seqT = 26;
@@ -1000,6 +1038,9 @@ const labKeyFormulas = [
   '\\text{C}_6\\text{H}_5\\text{OH} + \\text{Zn} \\xrightarrow{\\Delta} \\text{C}_6\\text{H}_6 + \\text{ZnO}',
   '\\text{C}_2\\text{H}_5\\text{OH} \\xrightarrow{\\text{conc. H}_2\\text{SO}_4 / 180^\\circ\\text{C}} \\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O}',
   '\\text{CH}_2=\\text{CH}_2 + \\text{H}_2\\text{O} + [\\text{O}] \\xrightarrow{\\text{alkaline KMnO}_4} \\text{CH}_2(\\text{OH})-\\text{CH}_2(\\text{OH})',
+  '\\text{C}_6\\text{H}_5\\text{CH}_3 + \\text{HNO}_3 \\xrightarrow{\\text{conc. H}_2\\text{SO}_4} o,p\\text{-}\\text{C}_6\\text{H}_4(\\text{CH}_3)(\\text{NO}_2) + \\text{H}_2\\text{O}',
+  '\\text{C}_6\\text{H}_5\\text{NO}_2 + \\text{HNO}_3 \\xrightarrow{\\text{conc. H}_2\\text{SO}_4 / \\Delta} m\\text{-}\\text{C}_6\\text{H}_4(\\text{NO}_2)_2 + \\text{H}_2\\text{O}',
+  '\\text{CH}_3\\text{COOC}_2\\text{H}_5 + \\text{NaOH} \\xrightarrow{\\Delta} \\text{CH}_3\\text{COONa} + \\text{C}_2\\text{H}_5\\text{OH}',
   // Biology Lab
   '2.8\\,\\mu\\text{m} \\to 1.8\\,\\mu\\text{m}',
   '\\text{ATP} \\to \\text{ADP} + P_i',
