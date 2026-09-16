@@ -12,11 +12,12 @@ import { RLCResonanceLab } from './RLCResonanceLab';
 import { PhysicsFlashcards } from './PhysicsFlashcards';
 import { MagnetismLab } from './MagnetismLab';
 import { AtomicLaserLab } from './AtomicLaserLab';
+import { SemiconductorElectronicsLab } from './SemiconductorElectronicsLab';
 import { OpticsBenchLab } from './OpticsBenchLab';
 import { CircuitsLab } from './CircuitsLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
 
-export type PhysicsTab = 'circuits' | 'optics' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'flashcards';
+export type PhysicsTab = 'circuits' | 'optics' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'electronics' | 'flashcards';
 
 interface Props {
   lang: Language;
@@ -122,6 +123,9 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
               <option value="atomic_lasers" className="bg-slate-900 text-white">
                 ⚛️ {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
               </option>
+              <option value="electronics" className="bg-slate-900 text-white">
+                🔌 {isArabic ? 'أشباه الموصلات والترانزستور وأشعة إكس' : 'Semiconductors & Coolidge X-Rays'}
+              </option>
               <option value="flashcards" className="bg-slate-900 text-white">
                 🗂️ {isArabic ? 'بطاقات الاستذكار' : 'Physics Flashcards'}
               </option>
@@ -205,6 +209,13 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
       {activeTab === 'atomic_lasers' && (
         <div className="mt-6">
           <AtomicLaserLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: SEMICONDUCTORS, TRANSISTORS & COOLIDGE X-RAYS */}
+      {activeTab === 'electronics' && (
+        <div className="mt-6">
+          <SemiconductorElectronicsLab lang={lang} theme={theme} />
         </div>
       )}
 

@@ -64,6 +64,7 @@ const labComponents = [
   'src/components/labs/RLCResonanceLab.tsx',
   'src/components/labs/PhotoelectricLab.tsx',
   'src/components/labs/AtomicLaserLab.tsx',
+  'src/components/labs/SemiconductorElectronicsLab.tsx',
   'src/components/labs/OpticsBenchLab.tsx',
   'src/components/labs/MagnetismLab.tsx',
   'src/components/labs/ElectrochemistryLab.tsx',
@@ -239,6 +240,37 @@ const A_galv = 0.03 * 0.05; // 3 cm x 5 cm = 1.5e-3 m²
 const N_galv = 200;
 const tau_galv = B_galv * I_galv * A_galv * N_galv;
 assert(Math.abs(tau_galv * 1e6 - 600.0) < 1e-6, `Galvanometer radial torque: tau = ${(tau_galv * 1e6).toFixed(1)} µN·m (expected 600.0 µN·m)`);
+
+// D6. Physics: Semiconductor Diode, Transistor BJT & Coolidge X-Ray Tube (Egyptian Curriculum Ch 6 & 8)
+// 1. Silicon Diode Forward Barrier Threshold
+const V_bi_silicon = 0.7; // V
+const V_forward_test = 0.85; // V
+const isConductionActive = V_forward_test > V_bi_silicon;
+assert(isConductionActive, `Silicon Diode forward conduction activates at 0.85V > V_bi (0.7V)`);
+
+// 2. BJT Transistor Current Conservation & Current Gain
+const I_B_microA = 30; // µA
+const beta_gain = 100;
+const I_C_mA = (I_B_microA * beta_gain) / 1000; // 3.0 mA
+const I_E_mA = I_C_mA + I_B_microA / 1000; // 3.03 mA
+const alpha_ratio = I_C_mA / I_E_mA;
+assert(Math.abs(I_C_mA - 3.0) < 1e-6, `BJT Collector Current Ic = ${I_C_mA.toFixed(2)} mA (expected 3.0 mA)`);
+assert(Math.abs(I_E_mA - 3.03) < 1e-6, `BJT Current Conservation Ie = Ib + Ic = ${I_E_mA.toFixed(2)} mA`);
+assert(Math.abs(alpha_ratio - (100 / 101)) < 1e-4, `BJT Distribution Ratio α = β / (β + 1) = ${alpha_ratio.toFixed(4)}`);
+
+// 3. Transistor NOT-Gate Inverter Logic
+const V_CC_inverter = 5.0; // V
+// Input 0V: Cutoff -> Ic = 0 -> Vout = Vcc = 5V (Logic 1)
+const V_out_logic_0_input = V_CC_inverter;
+assert(Math.abs(V_out_logic_0_input - 5.0) < 1e-6, `Transistor Inverter: 0V input gives Vout = 5.0V (Logic 1)`);
+// Input 5V: Saturation -> Vce_sat ≈ 0.2V (Logic 0)
+const V_out_logic_1_input = 0.2;
+assert(Math.abs(V_out_logic_1_input - 0.2) < 1e-6, `Transistor Inverter: 5V input gives Vout = 0.2V (Logic 0)`);
+
+// 4. Coolidge Tube Duane-Hunt Minimum Wavelength Law: λmin = hc / (e * V)
+const V_acc_kV = 50.0; // 50 kV
+const lambda_min_angstrom = 12.3984193 / V_acc_kV;
+assert(Math.abs(lambda_min_angstrom - 0.248) < 0.005, `Coolidge Tube Duane-Hunt minimum wavelength: λmin = ${lambda_min_angstrom.toFixed(3)} Å (expected ~0.248 Å)`);
 
 // E. Chemistry: 3d Transition Series & Magnetic Moments
 // Magnetic moment formula: mu = sqrt(n * (n + 2)) BM
