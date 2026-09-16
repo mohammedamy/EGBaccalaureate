@@ -49,7 +49,7 @@ export const MicrometerCaliper: React.FC<MicrometerCaliperProps> = ({
   const correctedReading = parseFloat((currentValueMm - zeroErrorMm).toFixed(2));
 
   return (
-    <div className="bg-slate-900 border-2 border-slate-800 rounded-3xl p-5 shadow-2xl text-slate-100 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+    <div className="w-full bg-slate-900/95 border-2 border-slate-800/80 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-3">
