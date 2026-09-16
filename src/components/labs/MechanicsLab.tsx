@@ -34,7 +34,9 @@ export type MechanicsModule =
   | 'friction_plane'
   | 'general_equilibrium'
   | 'moments_beam'
-  | 'center_of_gravity';
+  | 'center_of_gravity'
+  | 'collisions_momentum'
+  | 'projectile_motion';
 
 export type SurfaceMaterialPreset =
   | 'wood_wood'
@@ -45,6 +47,9 @@ export type SurfaceMaterialPreset =
 
 export type BaseLaminaShape = 'rectangle' | 'triangle' | 'disc';
 export type CutoutHoleShape = 'none' | 'circle' | 'square';
+
+export type CollisionType = 'direct_1d' | 'oblique_2d';
+export type DragModel = 'vacuum' | 'air_drag';
 
 export interface MechanicsParams {
   module: MechanicsModule;
@@ -85,6 +90,25 @@ export interface MechanicsParams {
   cutoutPosYCm: number;
   isPlumbLineSuspended: boolean;
   suspensionCorner: 'top_left' | 'top_right' | 'bottom_left';
+  // Module 5: 2D Collisions & Momentum
+  collisionType: CollisionType;
+  mass1Kg: number; // 0.5 to 10.0 kg
+  mass2Kg: number; // 0.5 to 10.0 kg
+  velocity1Ms: number; // 1.0 to 20.0 m/s
+  angle1Deg: number; // -45 to 45 deg
+  velocity2Ms: number; // -10.0 to 10.0 m/s
+  angle2Deg: number; // 135 to 225 deg
+  restitutionE: number; // 0.0 to 1.0
+  impactOffsetB: number; // 0.0 to 0.8 m
+  collisionTimeline: number; // -1.0 to 1.0 s
+  // Module 6: Projectile Motion & Ballistics
+  launchVelocityMs: number; // 10 to 80 m/s
+  launchAngleDeg: number; // 5 to 85 deg
+  launchHeightM: number; // 0 to 50 m
+  projectileMassKg: number; // 0.2 to 10.0 kg
+  dragModel: DragModel;
+  dragCoeffCd: number; // 0.1 to 1.0
+  projectileTimeline: number; // 0 to 100%
 }
 
 export const MATERIAL_PRESETS: Record<
@@ -166,6 +190,25 @@ export const DEFAULT_MECHANICS_PARAMS: MechanicsParams = {
   cutoutPosYCm: 0,
   isPlumbLineSuspended: false,
   suspensionCorner: 'top_left',
+  // Collisions & Momentum
+  collisionType: 'direct_1d',
+  mass1Kg: 2.0,
+  mass2Kg: 3.0,
+  velocity1Ms: 8.0,
+  angle1Deg: 0,
+  velocity2Ms: -2.0,
+  angle2Deg: 180,
+  restitutionE: 0.8,
+  impactOffsetB: 0.2,
+  collisionTimeline: 0.0,
+  // Projectile Motion & Ballistics
+  launchVelocityMs: 35.0,
+  launchAngleDeg: 45,
+  launchHeightM: 10.0,
+  projectileMassKg: 2.0,
+  dragModel: 'vacuum',
+  dragCoeffCd: 0.47,
+  projectileTimeline: 50,
 };
 
 export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
@@ -180,6 +223,8 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
       { value: 'general_equilibrium', labelEn: '2. General Equilibrium & Ladder (الاتزان العام والسلم)', labelAr: '٢. الاتزان العام واتزان السلم المستند' },
       { value: 'moments_beam', labelEn: '3. Moments & Beam Supports (العزوم وردود الأفعال)', labelAr: '٣. العزوم ونظرية فارينون وردود أفعال الركائز' },
       { value: 'center_of_gravity', labelEn: '4. Center of Gravity & Holes (مركز الثقل والكتلة السالبة)', labelAr: '٤. مركز الثقل وطريقة الكتلة السالبة' },
+      { value: 'collisions_momentum', labelEn: '5. 2D Collisions & Momentum (التصادم في بعدين وكمية الحركة)', labelAr: '٥. التصادم في بعدين وحفظ كمية الحركة' },
+      { value: 'projectile_motion', labelEn: '6. Projectile Motion & Ballistics (حركة المقذوفات ومقاومة الهواء)', labelAr: '٦. حركة المقذوفات في مجال الجاذبية' },
     ],
   },
   planeType: {
@@ -577,6 +622,210 @@ export const MECHANICS_PARAM_SCHEMA: LabParameterSchema<MechanicsParams> = {
       { value: 'bottom_left', labelEn: 'Bottom-Left Origin', labelAr: 'نقطة الأصل السفلية' },
     ],
   },
+  // Module 5: 2D Collisions & Momentum
+  collisionType: {
+    key: 'collisionType',
+    type: 'select',
+    labelEn: 'Collision Geometry',
+    labelAr: 'هندسة التصادم',
+    defaultValue: 'direct_1d',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+    options: [
+      { value: 'direct_1d', labelEn: '1D Direct Head-On Collision (تصادم مباشر في بعد واحد)', labelAr: 'تصادم مباشر على خط المراكز' },
+      { value: 'oblique_2d', labelEn: '2D Oblique Collision (تصادم غير مباشر في بعدين)', labelAr: 'تصادم غير مباشر مائل في بعدين' },
+    ],
+  },
+  mass1Kg: {
+    key: 'mass1Kg',
+    type: 'number',
+    labelEn: 'Body 1 Mass (m₁)',
+    labelAr: 'كتلة الجسم الأول (ك₁)',
+    defaultValue: 2.0,
+    min: 0.5,
+    max: 10.0,
+    step: 0.5,
+    unit: 'kg',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  mass2Kg: {
+    key: 'mass2Kg',
+    type: 'number',
+    labelEn: 'Body 2 Mass (m₂)',
+    labelAr: 'كتلة الجسم الثاني (ك₂)',
+    defaultValue: 3.0,
+    min: 0.5,
+    max: 10.0,
+    step: 0.5,
+    unit: 'kg',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  velocity1Ms: {
+    key: 'velocity1Ms',
+    type: 'number',
+    labelEn: 'Body 1 Velocity (v₁)',
+    labelAr: 'سرعة الجسم الأول (ع₁)',
+    defaultValue: 8.0,
+    min: 1.0,
+    max: 20.0,
+    step: 0.5,
+    unit: 'm/s',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  angle1Deg: {
+    key: 'angle1Deg',
+    type: 'number',
+    labelEn: 'Body 1 Heading Angle (α₁)',
+    labelAr: 'زاوية انطلاق الجسم الأول',
+    defaultValue: 0,
+    min: -45,
+    max: 45,
+    step: 5,
+    unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum' && p.collisionType === 'oblique_2d',
+  },
+  velocity2Ms: {
+    key: 'velocity2Ms',
+    type: 'number',
+    labelEn: 'Body 2 Velocity (v₂)',
+    labelAr: 'سرعة الجسم الثاني (ع₂)',
+    defaultValue: -2.0,
+    min: -10.0,
+    max: 10.0,
+    step: 0.5,
+    unit: 'm/s',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  angle2Deg: {
+    key: 'angle2Deg',
+    type: 'number',
+    labelEn: 'Body 2 Heading Angle (α₂)',
+    labelAr: 'زاوية انطلاق الجسم الثاني',
+    defaultValue: 180,
+    min: 135,
+    max: 225,
+    step: 5,
+    unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum' && p.collisionType === 'oblique_2d',
+  },
+  restitutionE: {
+    key: 'restitutionE',
+    type: 'number',
+    labelEn: 'Coefficient of Restitution (e)',
+    labelAr: 'معامل الارتداد (e)',
+    defaultValue: 0.8,
+    min: 0.0,
+    max: 1.0,
+    step: 0.05,
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  impactOffsetB: {
+    key: 'impactOffsetB',
+    type: 'number',
+    labelEn: 'Impact Offset Parameter (b)',
+    labelAr: 'مسافة الانحراف عن المركز (b)',
+    defaultValue: 0.2,
+    min: 0.0,
+    max: 0.8,
+    step: 0.05,
+    unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum' && p.collisionType === 'oblique_2d',
+  },
+  collisionTimeline: {
+    key: 'collisionTimeline',
+    type: 'number',
+    labelEn: 'Collision Timeline Scrubber (t)',
+    labelAr: 'مخطط زمن التصادم (ث)',
+    defaultValue: 0.0,
+    min: -1.0,
+    max: 1.0,
+    step: 0.05,
+    unit: 's',
+    visibleIf: (p: MechanicsParams) => p.module === 'collisions_momentum',
+  },
+  // Module 6: Projectile Motion & Ballistics
+  launchVelocityMs: {
+    key: 'launchVelocityMs',
+    type: 'number',
+    labelEn: 'Muzzle Velocity (v₀)',
+    labelAr: 'سرعة الإطلاق الابتدائية (ع₀)',
+    defaultValue: 35.0,
+    min: 10.0,
+    max: 80.0,
+    step: 1.0,
+    unit: 'm/s',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+  },
+  launchAngleDeg: {
+    key: 'launchAngleDeg',
+    type: 'number',
+    labelEn: 'Launch Angle (θ)',
+    labelAr: 'زاوية قذف المقذوف (θ)',
+    defaultValue: 45,
+    min: 5,
+    max: 85,
+    step: 1,
+    unit: '°',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+  },
+  launchHeightM: {
+    key: 'launchHeightM',
+    type: 'number',
+    labelEn: 'Initial Launch Height (h₀)',
+    labelAr: 'ارتفاع منصة الإطلاق (ع₀)',
+    defaultValue: 10.0,
+    min: 0.0,
+    max: 50.0,
+    step: 1.0,
+    unit: 'm',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+  },
+  projectileMassKg: {
+    key: 'projectileMassKg',
+    type: 'number',
+    labelEn: 'Projectile Mass (m)',
+    labelAr: 'كتلة المقذوف (ك)',
+    defaultValue: 2.0,
+    min: 0.2,
+    max: 10.0,
+    step: 0.2,
+    unit: 'kg',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+  },
+  dragModel: {
+    key: 'dragModel',
+    type: 'select',
+    labelEn: 'Atmospheric Drag Model',
+    labelAr: 'نموذج مقاومة الهواء',
+    defaultValue: 'vacuum',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+    options: [
+      { value: 'vacuum', labelEn: 'Ideal Vacuum (انعدام مقاومة الهواء)', labelAr: 'في الفراغ التام (مسار قطع مكافئ نقي)' },
+      { value: 'air_drag', labelEn: 'Aerodynamic Drag (مع مقاومة الهواء)', labelAr: 'مقاومة هواء تربيعية (مسار بالستي حقيقي)' },
+    ],
+  },
+  dragCoeffCd: {
+    key: 'dragCoeffCd',
+    type: 'number',
+    labelEn: 'Drag Coefficient (Cd)',
+    labelAr: 'معامل الإعاقة الهوائية (Cd)',
+    defaultValue: 0.47,
+    min: 0.1,
+    max: 1.0,
+    step: 0.05,
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion' && p.dragModel === 'air_drag',
+  },
+  projectileTimeline: {
+    key: 'projectileTimeline',
+    type: 'number',
+    labelEn: 'Flight Trajectory Scrubber',
+    labelAr: 'مؤشر مسار الرحلة بالزمن',
+    defaultValue: 50,
+    min: 0,
+    max: 100,
+    step: 1,
+    unit: '%',
+    visibleIf: (p: MechanicsParams) => p.module === 'projectile_motion',
+  },
 };
 
 export const MECHANICS_PRESETS: LabPreset<MechanicsParams>[] = [
@@ -648,6 +897,123 @@ export const MECHANICS_PRESETS: LabPreset<MechanicsParams>[] = [
       cutoutRadiusCm: 4,
       cutoutPosXCm: 4,
       cutoutPosYCm: 0,
+    },
+  },
+  {
+    id: 'elastic_cradle_velocity_exchange',
+    nameEn: "Newton's Cradle Velocity Exchange (m₁ = m₂, e = 1.0)",
+    nameAr: 'تبادل السرعات في بندول نيوتن المرن (ك₁ = ك₂ ، e = ١.٠)',
+    descriptionEn: 'Head-on perfectly elastic collision between two equal masses where the moving body comes to complete rest while the stationary target carries away all momentum and kinetic energy.',
+    descriptionAr: 'تصادم مرن تماماً في بعد واحد بين كتلتين متساويتين؛ يتوقف الجسم المتحرك تماماً وينطلق الجسم الساكن بنفس السرعة حاملاً كامل طاقة الحركة.',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'collisions_momentum',
+      collisionType: 'direct_1d',
+      mass1Kg: 2.0,
+      mass2Kg: 2.0,
+      velocity1Ms: 8.0,
+      angle1Deg: 0,
+      velocity2Ms: 0.0,
+      angle2Deg: 180,
+      restitutionE: 1.0,
+      impactOffsetB: 0.0,
+      collisionTimeline: 0.0,
+    },
+  },
+  {
+    id: 'plastic_coalescence_collision',
+    nameEn: 'Perfect Plastic Coalescence (e = 0, Max KE Dissipation)',
+    nameAr: 'التحام تام وتصادم غير مرن بالمرة (e = ٠ ، أقصى فقد في طاقة الحركة)',
+    descriptionEn: 'Demonstrate maximum loss in mechanical energy where two colliding bodies lock together moving as a single united mass: V = (m₁v₁ + m₂v₂) / (m₁ + m₂).',
+    descriptionAr: 'التحام الجسمين معاً ليتحركا كجسم واحد بسرعة مشتركة ع = (ك₁ع₁ + ك₂ع₂) / (ك₁ + ك₂) مع فقدان أقصى طاقة حركة ممكنة.',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'collisions_momentum',
+      collisionType: 'direct_1d',
+      mass1Kg: 2.0,
+      mass2Kg: 3.0,
+      velocity1Ms: 10.0,
+      angle1Deg: 0,
+      velocity2Ms: 0.0,
+      angle2Deg: 180,
+      restitutionE: 0.0,
+      impactOffsetB: 0.0,
+      collisionTimeline: 0.0,
+    },
+  },
+  {
+    id: 'oblique_2d_billiards_orthogonal',
+    nameEn: '2D Oblique Billiards Collision (Orthogonal Scatter Angle)',
+    nameAr: 'تصادم بلياردو مائل في بعدين (زاوية التشتت المتعامدة ٩٠°)',
+    descriptionEn: 'An oblique elastic collision of equal masses where Body 1 grazes Body 2 with offset b, scattering both bodies at an exact 90° angle.',
+    descriptionAr: 'تصادم غير مباشر في بعدين لكتلتين متساويتين بانحراف جانبي b؛ تتشتت الكرتان بعد التصادم بزاوية متعامدة قائمة تماماً (٩٠°).',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'collisions_momentum',
+      collisionType: 'oblique_2d',
+      mass1Kg: 1.5,
+      mass2Kg: 1.5,
+      velocity1Ms: 9.0,
+      angle1Deg: 0,
+      velocity2Ms: 0.0,
+      angle2Deg: 180,
+      restitutionE: 1.0,
+      impactOffsetB: 0.25,
+      collisionTimeline: 0.0,
+    },
+  },
+  {
+    id: 'projectile_optimal_45deg_vacuum',
+    nameEn: 'Optimal 45° Trajectory for Maximum Range in Vacuum',
+    nameAr: 'أقصى مدى أفقي بزاوية ٤٥° في الفراغ التام',
+    descriptionEn: 'The celebrated Thanawiya Amma dynamics theorem: maximum ballistic horizontal range occurs at launch angle θ = 45° where sin(2θ) = 1.',
+    descriptionAr: 'المبرهنة الديناميكية الكلاسيكية: أقصى مدى أفقي لقذيفة من مستوى الأرض في الفراغ يتحقق عندما تكون زاوية القذف ٤٥° حيث جا(٢θ) = ١.',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'projectile_motion',
+      launchVelocityMs: 40.0,
+      launchAngleDeg: 45,
+      launchHeightM: 0.0,
+      projectileMassKg: 2.0,
+      dragModel: 'vacuum',
+      dragCoeffCd: 0.47,
+      projectileTimeline: 50,
+    },
+  },
+  {
+    id: 'projectile_complementary_angles_30_60',
+    nameEn: 'Complementary Angles Invariant Range (30° vs 60°)',
+    nameAr: 'تساوي المدى الأفقي للزوايا المتتامة (٣٠° و ٦٠°)',
+    descriptionEn: 'Demonstrate that complementary angles (θ and 90° - θ) yield identical horizontal ranges R = (v₀² sin 2θ) / g in vacuum, though the higher angle reaches greater apex height and flight time.',
+    descriptionAr: 'إثبات أن الزوايا المتتامة (٣٠° و ٦٠°) تعطي نفس المدى الأفقي تماماً، مع وصول الزاوية الأكبر ٦٠° إلى أقصى ارتفاع وزمن تحليق أكبر.',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'projectile_motion',
+      launchVelocityMs: 35.0,
+      launchAngleDeg: 30,
+      launchHeightM: 0.0,
+      projectileMassKg: 1.5,
+      dragModel: 'vacuum',
+      dragCoeffCd: 0.47,
+      projectileTimeline: 50,
+    },
+  },
+  {
+    id: 'projectile_air_drag_steep_descent',
+    nameEn: 'Atmospheric Quadratic Drag vs Ideal Vacuum Parabola',
+    nameAr: 'المسار البالستي الحقيقي بمقاومة الهواء مقابل الفراغ',
+    descriptionEn: 'Compare the ideal symmetrical parabola against the realistic aerodynamic drag curve which exhibits a compressed range, lowered apex, and steep terminal plunge.',
+    descriptionAr: 'مقارنة مسار القطع المكافئ المتماثل في الفراغ بالمسار البالستي الواقعي تحت مقاومة الهواء ذات الانحدار الشديد والمدى المنخفض.',
+    params: {
+      ...DEFAULT_MECHANICS_PARAMS,
+      module: 'projectile_motion',
+      launchVelocityMs: 45.0,
+      launchAngleDeg: 50,
+      launchHeightM: 15.0,
+      projectileMassKg: 1.0,
+      dragModel: 'air_drag',
+      dragCoeffCd: 0.55,
+      projectileTimeline: 50,
     },
   },
 ];
@@ -737,17 +1103,73 @@ export const MECHANICS_POE_PROMPTS: POEPrompt[] = [
     scientificExplanationAr:
       'باعتبار مركز القرص الأصلي نقطة الأصل (٠، ٠): كتلة القرص الأصلي ك٠ ∝ ط نق²، ومركزها (٠، ٠). كتلة الجزء المقتطع ك_ثقب ∝ ط (نق/٢)² = ١/٤ ك٠، ومركزها عند س = نق/٢. بتطبيق طريقة الكتلة السالبة: س_م = [ك٠(٠) - (١/٤ ك٠)(نق/٢)] / [ك٠ - ١/٤ ك٠] = [-(١/٨) ك٠ نق] / [(٣/٤) ك٠] = -نق/٦. إذن ينتقل مركز الثقل مسافة مقدارها (نق / ٦) في الاتجاه المضاد لموضع الثقب تماماً.',
   },
+  {
+    id: 'poe_collision_ke_loss',
+    titleEn: 'Challenge 4: Kinetic Energy Dissipation in Inelastic Collisions',
+    titleAr: 'تحدي ٤: فقدان طاقة الحركة في التصادم غير المرن وحفظ كمية الحركة',
+    scenarioEn: 'Two clay spheres of masses m₁ and m₂ move toward each other on a frictionless horizontal table. Upon colliding, they stick together and move as a single combined body (e = 0).',
+    scenarioAr: 'كرتان من الطين كتلتاهما ك₁ و ك₂ تتحركان على مستوى أفقي أملس في اتجاهين متضادين. عند التصادم، التحمتا معاً وتحركتا ككتلة واحدة (e = ٠).',
+    questionEn:
+      'Which physical quantity is strictly conserved during this perfectly plastic collision?',
+    questionAr:
+      'أي الكميات الفيزيائية تظل محفوظة بدقة تامة دون أي نقص أثناء هذا التصادم غير المرن بالمرة؟',
+    optionsEn: [
+      'Total linear momentum is strictly conserved, while total kinetic energy decreases by ΔKE = 1/2 [m₁m₂/(m₁+m₂)](v₁ - v₂)² due to irreversible thermal and plastic deformation.',
+      'Both total linear momentum and total kinetic energy are conserved.',
+      'Neither momentum nor kinetic energy is conserved.',
+      'Kinetic energy is conserved, but momentum is lost due to sticky friction.',
+    ],
+    optionsAr: [
+      'كمية الحركة الخطية الكلية متجهة ومحفوظة تماماً، بينما تقل طاقة الحركة الكلية بمقدار ΔKE = ١/٢ [ك₁ك₂/(ك₁+ك₂)](ع₁ - ع₂)² بسبب التحول إلى حرارة وتشوه لدن.',
+      'كلا من كمية الحركة وطاقة الحركة محفوظتان بالكامل دون نقص.',
+      'لا كمية الحركة ولا طاقة الحركة محفوظة.',
+      'طاقة الحركة محفوظة ولكن كمية الحركة تفنى بالاحتكاك والالتصاق.',
+    ],
+    correctOptionIndex: 0,
+    scientificExplanationEn:
+      "By Newton's third law, the internal collision forces form action-reaction pairs (F₁₂ = -F₂₁), meaning the net external impulse on the two-body system is zero; thus, total linear momentum is unconditionally conserved in every collision. However, when restitution e < 1, mechanical work is performed in permanently deforming the bodies and dissipating energy into microscopic atomic vibrations (heat and sound). At e = 0 (plastic coalescence), this energy loss reaches its theoretical maximum: ΔKE = 1/2 [m₁m₂/(m₁+m₂)](1 - e²)(v₁ - v₂)².",
+    scientificExplanationAr:
+      'وفقاً للقانون الثالث لنيوتن، فإن قوى التأثير المتبادلة بين الجسمين أثناء التصادم هي قوى داخلية متساوية في المقدار ومتضادة في الاتجاه (ق_١٢ = -ق_٢١)، وبالتالي فإن محصلة الدفع الخارجي على النظام ككل منعدمة؛ مما يضمن حفظ كمية الحركة الخطية دائماً في كافة التصادمات. أما طاقة الحركة، فعندما يكون معامل الارتداد e < ١، يُبذل شغل ميكانيكي داخلي يؤدي إلى تشوه لدن دائم وتشتت الطاقة في صورة حرارة وصوت، ويبلغ هذا الفقد ذروته عند e = ٠ (الالتحام التام): ΔKE = ١/٢ [ك₁ك₂/(ك₁+ك₂)](١ - e²)(ع₁ - ع₂)²',
+  },
+  {
+    id: 'poe_projectile_launch_angle_cliff',
+    titleEn: 'Challenge 5: Optimal Launch Angle from an Elevated Cliff (h₀ > 0)',
+    titleAr: 'تحدي ٥: زاوية القذف المثلى لتحقيق أقصى مدى من ارتفاع (ع₀ > ٠)',
+    scenarioEn: 'A projectile is launched with fixed initial muzzle velocity v₀ from the edge of an elevated cliff of height h₀ above ground level.',
+    scenarioAr: 'أُطلق مقذوف بسرعة ابتدائية ثابتة ع₀ من حافة جرف صخري يرتفع مسافة ع₀ عن سطح الأرض.',
+    questionEn:
+      'To achieve the maximum horizontal range from the base of the cliff, how does the optimal launch angle θ_opt compare to 45°?',
+    questionAr:
+      'لتحقيق أقصى مدى أفقي ممكن على الأرض، كيف تقارن زاوية الإطلاق المثلى θ_opt بزاوية ٤٥°؟',
+    optionsEn: [
+      'θ_opt is strictly less than 45° (θ_opt = arcsin(1 / √(2 + 2gh₀/v₀²)) < 45°) because the extra descent distance gives gravity more time to act, so dedicating more initial velocity to the horizontal direction increases total range.',
+      'θ_opt remains exactly 45° regardless of launch height.',
+      'θ_opt is strictly greater than 45° to give the projectile more air time.',
+      'θ_opt must be 90° for maximum drop.',
+    ],
+    optionsAr: [
+      'تكون زاوية الإطلاق المثلى أقل من ٤٥° قطعاً؛ لأن الارتفاع الابتدائي ع₀ يمنح المقذوف وقتاً إضافياً للسقوط الحر بفعل الجاذبية، فيكون توجيه جزء أكبر من السرعة الابتدائية أفقياً أكثر فاعلية في زيادة المدى الكلي.',
+      'تظل الزاوية المثلى ٤٥° بالضبط بغض النظر عن ارتفاع المنصة.',
+      'تكون الزاوية المثلى أكبر من ٤٥° لمنح المقذوف زمناً أطول في الهواء.',
+      'يجب أن تكون الزاوية ٩٠° لزيادة مسافة السقوط الرأسي.',
+    ],
+    correctOptionIndex: 0,
+    scientificExplanationEn:
+      'When launching from ground level (h₀ = 0), range is R = (v₀²/g) sin(2θ), which maximizes at θ = 45°. However, with elevation h₀ > 0, the flight time is extended by the vertical drop under gravity. Differentiating the range function R(θ) = v₀ cosθ · [v₀ sinθ + √(v₀² sin²θ + 2gh₀)] / g with respect to θ and setting dR/dθ = 0 yields cos(2θ) = gh₀ / (v₀² + gh₀) > 0, which proves θ_opt < 45°. As h₀ increases, θ_opt decreases progressively toward 0°.',
+    scientificExplanationAr:
+      'عند الإطلاق من سطح الأرض (ع₀ = ٠)، يكون المدى ف = (ع₀²/د) جا(٢θ)، وتتحقق قيمته العظمى عند θ = ٤٥°. أما عند القذف من ارتفاع ع₀ > ٠، فإن السقوط الرأسي الإضافي يزيد من زمن التحليق الكلي. وبإجراء تفاضل دالة المدى بالنسبة للزاوية ومساواتها بالصفر نجد أن جتا(٢θ) = د ع₀ / (ع₀² + د ع₀) > ٠، مما يثبت رياضياً أن الزاوية المثلى θ_opt أقل حتماً من ٤٥°. وكلما زاد الارتفاع، مالت الزاوية المثلى أكثر نحو الأفق.',
+  },
 ];
 
 export const MECHANICS_LAB_DEFINITION: LabDefinition<MechanicsParams, any> = {
   id: 'mechanics_statics_lab',
   subject: 'mathematics',
-  titleEn: 'Statics & Classical Mechanics Virtual Laboratory',
-  titleAr: 'مختبر الاستاتيكا والميكانيكا الكلاسيكية التفاعلي',
-  subtitleEn: 'Friction, General Equilibrium & Negative Mass',
-  subtitleAr: 'الاحتكاك على المستويات، الاتزان العام، ومركز الثقل',
-  taglineEn: 'High-precision vector resolution, ladder stability and centroid solvers',
-  taglineAr: 'تحليل القوى المتجهة، اتزان السلم، وإزاحة مركز الثقل بالكتلة السالبة',
+  titleEn: 'Statics & Dynamics Classical Mechanics Virtual Laboratory',
+  titleAr: 'مختبر الاستاتيكا والديناميكا والميكانيكا الكلاسيكية التفاعلي',
+  subtitleEn: 'Friction, Equilibrium, Collisions, Momentum & Projectiles',
+  subtitleAr: 'الاحتكاك، الاتزان العام، التصادم وحفظ كمية الحركة، والمقذوفات',
+  taglineEn: 'Vector resolution, ladder stability, 2D momentum conservation & ballistics',
+  taglineAr: 'تحليل القوى المتجهة، اتزان السلم، حفظ كمية الحركة في بعدين، والمقذوفات',
   objectives: [
     {
       id: 'obj_friction_planes',
@@ -772,6 +1194,18 @@ export const MECHANICS_LAB_DEFINITION: LabDefinition<MechanicsParams, any> = {
       textEn: 'Calculate centroid coordinates using the negative mass method for laminas with cutouts and verify plumb-line suspension.',
       textAr: 'حساب إحداثيات مركز الثقل باستخدام طريقة الكتلة السالبة للصفائح ذات الثقوب والتحقق بخيط الشاقول.',
       bloomLevel: 'apply',
+    },
+    {
+      id: 'obj_collisions_momentum',
+      textEn: 'Verify the law of conservation of linear momentum in 1D and 2D collisions and calculate kinetic energy dissipation as a function of restitution e.',
+      textAr: 'التحقق من قانون حفظ كمية الحركة في بعدين وحساب الفقد في طاقة الحركة كدالة في معامل الارتداد e.',
+      bloomLevel: 'analyze',
+    },
+    {
+      id: 'obj_projectile_ballistics',
+      textEn: 'Analyze 2D projectile parametric kinematics, complementary angle symmetries, and aerodynamic quadratic drag effects on trajectory geometry.',
+      textAr: 'تحليل حركة المقذوفات في بعدين، وتماثل الزوايا المتتامة، وتأثير مقاومة الهواء التربيعية على المسار البالستي.',
+      bloomLevel: 'evaluate',
     },
   ],
   keyFormulas: [
@@ -806,6 +1240,38 @@ export const MECHANICS_LAB_DEFINITION: LabDefinition<MechanicsParams, any> = {
       tex: 'X_G = \\frac{M_0 X_0 - \\sum m_i x_i}{M_0 - \\sum m_i}, \\quad Y_G = \\frac{M_0 Y_0 - \\sum m_i y_i}{M_0 - \\sum m_i}',
       descriptionEn: 'Calculation of centroid for laminas with cutouts treating removed portions as negative mass.',
       descriptionAr: 'حساب إحداثيات مركز الثقل بعد اقتطاع أجزاء باعتبار الأجزاء المزالة كتلاً سالبة.',
+    },
+    {
+      id: 'formula_momentum_conservation',
+      labelEn: 'Conservation of Linear Momentum & Restitution',
+      labelAr: 'قانون حفظ كمية الحركة ومعامل الارتداد',
+      tex: 'm_1 \\vec{v}_1 + m_2 \\vec{v}_2 = m_1 \\vec{v}\'_1 + m_2 \\vec{v}\'_2, \\quad e = \\frac{v\'_{2n} - v\'_{1n}}{v_{1n} - v_{2n}}',
+      descriptionEn: 'Total linear momentum is conserved before and after collision; coefficient of restitution e governs elasticity.',
+      descriptionAr: 'كمية الحركة الكلية محفوظة قبل وبعد التصادم؛ ويحدد معامل الارتداد e درجة مرونة التصادم.',
+    },
+    {
+      id: 'formula_impulse_momentum',
+      labelEn: 'Impulse-Momentum Theorem',
+      labelAr: 'مبدأ الدفع وكمية الحركة',
+      tex: '\\vec{I} = \\int \\vec{F}\\,dt = \\Delta\\vec{p} = m(\\vec{v}\' - \\vec{v})',
+      descriptionEn: 'The impulse of a force acting over time equals the net change in linear momentum.',
+      descriptionAr: 'دفع القوة خلال فترة زمنية يساوي التغير الناتج في كمية حركة الجسم.',
+    },
+    {
+      id: 'formula_projectile_trajectories',
+      labelEn: 'Projectile Motion & Ballistic Range',
+      labelAr: 'معادلات حركة المقذوفات والمدى الأفقي',
+      tex: 'x(t) = v_0\\cos\\theta\\,t, \\quad y(t) = h_0 + v_0\\sin\\theta\\,t - \\frac{1}{2}gt^2, \\quad R = \\frac{v_0^2\\sin(2\\theta)}{g}',
+      descriptionEn: 'Parametric equations of projectile motion in a gravitational field under vacuum or atmospheric drag.',
+      descriptionAr: 'المعادلات البارامترية لحركة المقذوف في مجال الجاذبية الأرضية في الفراغ أو مع مقاومة الهواء.',
+    },
+    {
+      id: 'formula_mechanical_energy_projectile',
+      labelEn: 'Conservation of Mechanical Energy',
+      labelAr: 'قانون حفظ الطاقة الميكانيكية للمقذوف',
+      tex: 'E_{\\text{mech}} = \\frac{1}{2}m v(t)^2 + m g y(t) = \\text{constant (in vacuum)}',
+      descriptionEn: 'Continuous exchange between kinetic energy and gravitational potential energy along trajectory.',
+      descriptionAr: 'التبادل المستمر بين طاقة الحركة وطاقة الوضع التثاقلية على طول مسار المقذوف.',
     },
   ],
   defaultParams: DEFAULT_MECHANICS_PARAMS,
@@ -1119,6 +1585,255 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
     };
   }, [params]);
 
+  // MODULE 5: 2D Collisions & Momentum Solver
+  const collisionsCalculations = useMemo(() => {
+    const m1 = params.mass1Kg;
+    const m2 = params.mass2Kg;
+    const e = params.restitutionE;
+    const is2D = params.collisionType === 'oblique_2d';
+    const b = is2D ? params.impactOffsetB : 0;
+
+    // Body radii based on mass
+    const r1 = 0.35 * Math.cbrt(m1);
+    const r2 = 0.35 * Math.cbrt(m2);
+    const R_contact = r1 + r2;
+
+    // Impact normal angle
+    const effectiveB = Math.min(b, 0.92 * R_contact);
+    const normalAngleRad = is2D && R_contact > 0 ? Math.asin(effectiveB / R_contact) : 0;
+    const cosN = Math.cos(normalAngleRad);
+    const sinN = Math.sin(normalAngleRad);
+
+    // Initial velocities
+    const v1 = params.velocity1Ms;
+    const a1Rad = (params.angle1Deg * Math.PI) / 180;
+    const v1x = v1 * Math.cos(a1Rad);
+    const v1y = v1 * Math.sin(a1Rad);
+
+    const v2 = params.velocity2Ms;
+    const a2Rad = (params.angle2Deg * Math.PI) / 180;
+    const v2x = v2 * Math.cos(a2Rad);
+    const v2y = v2 * Math.sin(a2Rad);
+
+    // Resolve into normal (n) and tangential (t)
+    const v1n = v1x * cosN + v1y * sinN;
+    const v1t = -v1x * sinN + v1y * cosN;
+
+    const v2n = v2x * cosN + v2y * sinN;
+    const v2t = -v2x * sinN + v2y * cosN;
+
+    // Post-impact normal components using restitution e & momentum conservation
+    const v1n_prime = ((m1 - e * m2) * v1n + m2 * (1 + e) * v2n) / (m1 + m2);
+    const v2n_prime = (m1 * (1 + e) * v1n + (m2 - e * m1) * v2n) / (m1 + m2);
+
+    // Tangential components unchanged (frictionless contact)
+    const v1t_prime = v1t;
+    const v2t_prime = v2t;
+
+    // Convert back to Cartesian
+    const v1x_prime = v1n_prime * cosN - v1t_prime * sinN;
+    const v1y_prime = v1n_prime * sinN + v1t_prime * cosN;
+
+    const v2x_prime = v2n_prime * cosN - v2t_prime * sinN;
+    const v2y_prime = v2n_prime * sinN + v2t_prime * cosN;
+
+    const v1_prime = Math.hypot(v1x_prime, v1y_prime);
+    const v2_prime = Math.hypot(v2x_prime, v2y_prime);
+
+    // Impulse magnitude transferred along normal axis
+    const J = (m1 * m2 * (1 + e) * Math.abs(v1n - v2n)) / (m1 + m2);
+
+    // Momentum calculations
+    const P1_init = { x: m1 * v1x, y: m1 * v1y, mag: m1 * Math.hypot(v1x, v1y) };
+    const P2_init = { x: m2 * v2x, y: m2 * v2y, mag: m2 * Math.hypot(v2x, v2y) };
+    const P_total_init_x = P1_init.x + P2_init.x;
+    const P_total_init_y = P1_init.y + P2_init.y;
+    const P_total_init_mag = Math.hypot(P_total_init_x, P_total_init_y);
+
+    const P1_final = { x: m1 * v1x_prime, y: m1 * v1y_prime, mag: m1 * v1_prime };
+    const P2_final = { x: m2 * v2x_prime, y: m2 * v2y_prime, mag: m2 * v2_prime };
+    const P_total_final_x = P1_final.x + P2_final.x;
+    const P_total_final_y = P1_final.y + P2_final.y;
+    const P_total_final_mag = Math.hypot(P_total_final_x, P_total_final_y);
+
+    // Kinetic Energy
+    const KE1_init = 0.5 * m1 * (v1x * v1x + v1y * v1y);
+    const KE2_init = 0.5 * m2 * (v2x * v2x + v2y * v2y);
+    const KE_total_init = KE1_init + KE2_init;
+
+    const KE1_final = 0.5 * m1 * (v1x_prime * v1x_prime + v1y_prime * v1y_prime);
+    const KE2_final = 0.5 * m2 * (v2x_prime * v2x_prime + v2y_prime * v2y_prime);
+    const KE_total_final = KE1_final + KE2_final;
+
+    const deltaKE_lost = Math.max(0, KE_total_init - KE_total_final);
+    const energyLossPercent = KE_total_init > 0 ? (deltaKE_lost / KE_total_init) * 100 : 0;
+
+    // Timeline positions at t in [-1.0, 1.0] s
+    const t = params.collisionTimeline;
+    let pos1 = { x: 0, y: 0 };
+    let pos2 = { x: 0, y: 0 };
+
+    if (t <= 0) {
+      pos1 = { x: t * v1x, y: t * v1y };
+      pos2 = { x: effectiveB * sinN + t * v2x, y: -effectiveB * cosN + t * v2y };
+    } else {
+      pos1 = { x: t * v1x_prime, y: t * v1y_prime };
+      pos2 = { x: effectiveB * sinN + t * v2x_prime, y: -effectiveB * cosN + t * v2y_prime };
+    }
+
+    return {
+      m1,
+      m2,
+      e,
+      is2D,
+      b: effectiveB,
+      r1,
+      r2,
+      R_contact,
+      normalAngleRad,
+      v1x,
+      v1y,
+      v2x,
+      v2y,
+      v1n,
+      v1t,
+      v2n,
+      v2t,
+      v1n_prime,
+      v2n_prime,
+      v1x_prime,
+      v1y_prime,
+      v2x_prime,
+      v2y_prime,
+      v1_prime,
+      v2_prime,
+      J,
+      P1_init,
+      P2_init,
+      P_total_init_mag,
+      P1_final,
+      P2_final,
+      P_total_final_mag,
+      KE_total_init,
+      KE_total_final,
+      deltaKE_lost,
+      energyLossPercent,
+      t,
+      pos1,
+      pos2,
+    };
+  }, [params]);
+
+  // MODULE 6: Projectile Motion & Ballistics Solver
+  const projectileCalculations = useMemo(() => {
+    const v0 = params.launchVelocityMs;
+    const thetaDeg = params.launchAngleDeg;
+    const thetaRad = (thetaDeg * Math.PI) / 180;
+    const h0 = params.launchHeightM;
+    const m = params.projectileMassKg;
+    const g = 9.806;
+    const isDrag = params.dragModel === 'air_drag';
+    const Cd = params.dragCoeffCd;
+    const rho = 1.225; // kg/m^3
+    const radius = 0.08 * Math.cbrt(m);
+    const area = Math.PI * radius * radius;
+    const kDrag = 0.5 * rho * Cd * area;
+
+    const v0x = v0 * Math.cos(thetaRad);
+    const v0y = v0 * Math.sin(thetaRad);
+
+    // Analytic vacuum benchmarks
+    const t_apex_ideal = v0y / g;
+    const H_max_ideal = h0 + (v0y * v0y) / (2 * g);
+    const T_flight_ideal = (v0y + Math.sqrt(v0y * v0y + 2 * g * h0)) / g;
+    const Range_ideal = v0x * T_flight_ideal;
+    const v_impact_ideal = Math.sqrt(v0 * v0 + 2 * g * h0);
+
+    // Numerical integration for flight path
+    const dt = 0.02;
+    const points: Array<{ x: number; y: number; vx: number; vy: number; t: number }> = [];
+    let curX = 0;
+    let curY = h0;
+    let curVx = v0x;
+    let curVy = v0y;
+    let curT = 0;
+
+    points.push({ x: curX, y: curY, vx: curVx, vy: curVy, t: curT });
+    let maxH = curY;
+    let tAtApex = 0;
+
+    while (curY >= 0 && curT < 40.0) {
+      const speed = Math.hypot(curVx, curVy);
+      const dragFx = isDrag ? -kDrag * speed * curVx : 0;
+      const dragFy = isDrag ? -kDrag * speed * curVy : 0;
+
+      const ax = dragFx / m;
+      const ay = -g + dragFy / m;
+
+      curX += curVx * dt + 0.5 * ax * dt * dt;
+      curY += curVy * dt + 0.5 * ay * dt * dt;
+      curVx += ax * dt;
+      curVy += ay * dt;
+      curT += dt;
+
+      if (curY > maxH) {
+        maxH = curY;
+        tAtApex = curT;
+      }
+
+      if (curY >= 0) {
+        points.push({ x: curX, y: curY, vx: curVx, vy: curVy, t: curT });
+      }
+    }
+
+    const actualFlightTime = curT;
+    const actualRange = curX;
+    const actualMaxH = maxH;
+    const impactSpeed = Math.hypot(curVx, curVy);
+
+    // Scrubber position
+    const scrubFrac = Math.min(1.0, Math.max(0.0, params.projectileTimeline / 100));
+    const targetT = scrubFrac * actualFlightTime;
+    const idx = Math.min(points.length - 1, Math.max(0, Math.floor((targetT / actualFlightTime) * (points.length - 1))));
+    const curPt = points[idx] || points[0];
+
+    const currentSpeed = Math.hypot(curPt.vx, curPt.vy);
+    const currentKE = 0.5 * m * currentSpeed * currentSpeed;
+    const currentPE = m * g * Math.max(0, curPt.y);
+    const currentTotalE = currentKE + currentPE;
+    const initialTotalE = 0.5 * m * v0 * v0 + m * g * h0;
+
+    return {
+      v0,
+      thetaDeg,
+      thetaRad,
+      h0,
+      m,
+      isDrag,
+      Cd,
+      v0x,
+      v0y,
+      t_apex_ideal,
+      H_max_ideal,
+      T_flight_ideal,
+      Range_ideal,
+      v_impact_ideal,
+      actualFlightTime,
+      actualRange,
+      actualMaxH,
+      tAtApex,
+      impactSpeed,
+      points,
+      scrubFrac,
+      curPt,
+      currentSpeed,
+      currentKE,
+      currentPE,
+      currentTotalE,
+      initialTotalE,
+    };
+  }, [params]);
+
   // -------------------------------------------------------------
   // DMM INSTRUMENT READING
   // -------------------------------------------------------------
@@ -1128,33 +1843,74 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
     let displayString = '';
     let secondaryString = '';
 
-    switch (dmmMode) {
-      case 'normal_reaction':
-        val = frictionCalculations.R;
-        displayString = `${val.toFixed(1)} N`;
-        secondaryString = frictionCalculations.isLiftingOff ? 'LIFT-OFF HAZARD' : 'NORMAL REACTION';
-        break;
-      case 'friction_force':
-        val = frictionCalculations.actualFriction;
-        displayString = `${val.toFixed(1)} N`;
-        secondaryString = `LIMITING Fs = ${frictionCalculations.Fs.toFixed(1)} N`;
-        break;
-      case 'resultant_reaction':
-        val = frictionCalculations.R_prime;
-        displayString = `${val.toFixed(1)} N`;
-        secondaryString = `FRICTION ANGLE λ = ${frictionCalculations.lambdaDeg.toFixed(1)}°`;
-        break;
-      case 'support_reactions':
-        if (params.module === 'general_equilibrium') {
-          val = equilibriumCalculations.RA;
-          displayString = `RA=${val.toFixed(1)} N`;
-          secondaryString = `WALL RB = ${equilibriumCalculations.RB.toFixed(1)} N`;
-        } else {
-          val = momentsCalculations.RA;
-          displayString = `RA=${val.toFixed(1)} N`;
-          secondaryString = `RB = ${momentsCalculations.RB.toFixed(1)} N`;
-        }
-        break;
+    if (params.module === 'collisions_momentum') {
+      if (dmmMode === 'normal_reaction' || dmmMode === 'friction_force') {
+        val = collisionsCalculations.P_total_init_mag;
+        unit = 'kg·m/s';
+        displayString = `${val.toFixed(2)} kg·m/s`;
+        secondaryString = `P_FINAL = ${collisionsCalculations.P_total_final_mag.toFixed(2)} (ΔP = 0)`;
+      } else if (dmmMode === 'resultant_reaction') {
+        val = collisionsCalculations.J;
+        unit = 'N·s';
+        displayString = `${val.toFixed(2)} N·s`;
+        secondaryString = `IMPULSE J (e = ${collisionsCalculations.e.toFixed(2)})`;
+      } else {
+        val = collisionsCalculations.deltaKE_lost;
+        unit = 'J';
+        displayString = `${val.toFixed(1)} J`;
+        secondaryString = `KE LOSS = ${collisionsCalculations.energyLossPercent.toFixed(1)}%`;
+      }
+    } else if (params.module === 'projectile_motion') {
+      if (dmmMode === 'normal_reaction') {
+        val = projectileCalculations.actualRange;
+        unit = 'm';
+        displayString = `${val.toFixed(1)} m`;
+        secondaryString = `RANGE (IDEAL = ${projectileCalculations.Range_ideal.toFixed(1)} m)`;
+      } else if (dmmMode === 'friction_force') {
+        val = projectileCalculations.actualMaxH;
+        unit = 'm';
+        displayString = `${val.toFixed(1)} m`;
+        secondaryString = `MAX HEIGHT H_max (APEX = ${projectileCalculations.H_max_ideal.toFixed(1)} m)`;
+      } else if (dmmMode === 'resultant_reaction') {
+        val = projectileCalculations.currentSpeed;
+        unit = 'm/s';
+        displayString = `${val.toFixed(1)} m/s`;
+        secondaryString = `CURRENT SPEED (V0 = ${projectileCalculations.v0} m/s)`;
+      } else {
+        val = projectileCalculations.currentTotalE;
+        unit = 'J';
+        displayString = `${val.toFixed(1)} J`;
+        secondaryString = `KE = ${projectileCalculations.currentKE.toFixed(1)} J, PE = ${projectileCalculations.currentPE.toFixed(1)} J`;
+      }
+    } else {
+      switch (dmmMode) {
+        case 'normal_reaction':
+          val = frictionCalculations.R;
+          displayString = `${val.toFixed(1)} N`;
+          secondaryString = frictionCalculations.isLiftingOff ? 'LIFT-OFF HAZARD' : 'NORMAL REACTION';
+          break;
+        case 'friction_force':
+          val = frictionCalculations.actualFriction;
+          displayString = `${val.toFixed(1)} N`;
+          secondaryString = `LIMITING Fs = ${frictionCalculations.Fs.toFixed(1)} N`;
+          break;
+        case 'resultant_reaction':
+          val = frictionCalculations.R_prime;
+          displayString = `${val.toFixed(1)} N`;
+          secondaryString = `FRICTION ANGLE λ = ${frictionCalculations.lambdaDeg.toFixed(1)}°`;
+          break;
+        case 'support_reactions':
+          if (params.module === 'general_equilibrium') {
+            val = equilibriumCalculations.RA;
+            displayString = `RA=${val.toFixed(1)} N`;
+            secondaryString = `WALL RB = ${equilibriumCalculations.RB.toFixed(1)} N`;
+          } else {
+            val = momentsCalculations.RA;
+            displayString = `RA=${val.toFixed(1)} N`;
+            secondaryString = `RB = ${momentsCalculations.RB.toFixed(1)} N`;
+          }
+          break;
+      }
     }
 
     return {
@@ -1170,7 +1926,15 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       continuityBeep: false,
       isOverload: false,
     };
-  }, [dmmMode, frictionCalculations, equilibriumCalculations, momentsCalculations, params.module]);
+  }, [
+    dmmMode,
+    frictionCalculations,
+    equilibriumCalculations,
+    momentsCalculations,
+    collisionsCalculations,
+    projectileCalculations,
+    params.module,
+  ]);
 
   // -------------------------------------------------------------
   // DUAL-TRACE OSCILLOSCOPE SIGNALS
@@ -1216,11 +1980,57 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         },
       ];
     }
+    if (params.module === 'collisions_momentum') {
+      const pTotal = collisionsCalculations.P_total_init_mag;
+      const keTotal = collisionsCalculations.KE_total_init;
+      return [
+        {
+          amplitude: pTotal * 5,
+          frequency: 1.0,
+          phaseDeg: 0,
+          type: 'sine',
+          dcOffset: pTotal * 5,
+        },
+        {
+          amplitude: keTotal * 2,
+          frequency: 1.0,
+          phaseDeg: 90,
+          type: 'sine',
+          dcOffset: keTotal * 2,
+        },
+      ];
+    }
+    if (params.module === 'projectile_motion') {
+      const alt = projectileCalculations.curPt.y;
+      const spd = projectileCalculations.currentSpeed;
+      return [
+        {
+          amplitude: alt * 4,
+          frequency: 0.5,
+          phaseDeg: 0,
+          type: 'triangle',
+          dcOffset: alt * 4,
+        },
+        {
+          amplitude: spd * 3,
+          frequency: 0.5,
+          phaseDeg: 180,
+          type: 'sine',
+          dcOffset: spd * 3,
+        },
+      ];
+    }
     return [
       { amplitude: 50, frequency: 1, phaseDeg: 0, type: 'sine', dcOffset: 50 },
       { amplitude: 30, frequency: 1, phaseDeg: 90, type: 'triangle', dcOffset: 30 },
     ];
-  }, [params.module, frictionCalculations, equilibriumCalculations]);
+  }, [
+    params.module,
+    frictionCalculations,
+    equilibriumCalculations,
+    collisionsCalculations,
+    projectileCalculations,
+  ]);
 
   // -------------------------------------------------------------
   // HIGH-PRECISION REALISTIC 3D MECHANICS VIEWPORT RENDERING
@@ -1839,6 +2649,376 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         );
       }
 
+      // -------------------------------------------------------
+      // 5. 2D COLLISIONS & MOMENTUM WORKBENCH RENDERER
+      // -------------------------------------------------------
+      else if (params.module === 'collisions_momentum') {
+        const cX = width / 2;
+        const cY = height / 2 + 20;
+        const meterScale = 75; // pixels per meter
+
+        ctx.save();
+
+        // Impact coordinate axes
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(cX - 240, cY);
+        ctx.lineTo(cX + 240, cY);
+        ctx.moveTo(cX, cY - 140);
+        ctx.lineTo(cX, cY + 140);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Line of Impact (Normal axis n) & Tangent plane (t)
+        const normAngle = collisionsCalculations.normalAngleRad;
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(cX - 220 * Math.cos(normAngle), cY - 220 * Math.sin(normAngle));
+        ctx.lineTo(cX + 220 * Math.cos(normAngle), cY + 220 * Math.sin(normAngle));
+        ctx.stroke();
+
+        ctx.strokeStyle = '#a855f7';
+        ctx.beginPath();
+        ctx.moveTo(cX + 160 * Math.sin(normAngle), cY - 160 * Math.cos(normAngle));
+        ctx.lineTo(cX - 160 * Math.sin(normAngle), cY + 160 * Math.cos(normAngle));
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Axis labels
+        ctx.font = 'bold 11px sans-serif';
+        ctx.fillStyle = '#06b6d4';
+        ctx.fillText(isArabic ? 'خط المراكز والاصطدام (n)' : 'Line of Impact (n)', cX + 130 * Math.cos(normAngle), cY + 130 * Math.sin(normAngle) - 8);
+        ctx.fillStyle = '#a855f7';
+        ctx.fillText(isArabic ? 'المستوى المماسي المشترك (t)' : 'Common Tangent (t)', cX - 110 * Math.sin(normAngle) + 8, cY + 110 * Math.cos(normAngle));
+
+        // Animated Ball 1 Coordinates
+        const b1X = cX + collisionsCalculations.pos1.x * meterScale;
+        const b1Y = cY - collisionsCalculations.pos1.y * meterScale;
+        const r1Px = Math.max(16, Math.min(32, 14 + 4 * Math.cbrt(collisionsCalculations.m1)));
+
+        // Animated Ball 2 Coordinates
+        const b2X = cX + collisionsCalculations.pos2.x * meterScale;
+        const b2Y = cY - collisionsCalculations.pos2.y * meterScale;
+        const r2Px = Math.max(16, Math.min(32, 14 + 4 * Math.cbrt(collisionsCalculations.m2)));
+
+        // Trajectory Trails
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([2, 4]);
+        ctx.beginPath();
+        ctx.moveTo(cX - 160, cY);
+        ctx.lineTo(b1X, b1Y);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#fbbf24';
+        ctx.beginPath();
+        ctx.moveTo(cX + 160, cY + (collisionsCalculations.is2D ? collisionsCalculations.b * meterScale : 0));
+        ctx.lineTo(b2X, b2Y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Moment of collision blast effect when timeline near 0
+        const isImpactMoment = Math.abs(collisionsCalculations.t) < 0.12;
+        if (isImpactMoment) {
+          const blastRadius = 28 + Math.sin(t * 15) * 6;
+          ctx.strokeStyle = '#f59e0b';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.arc(cX, cY, blastRadius, 0, 2 * Math.PI);
+          ctx.stroke();
+
+          drawGlowingParticle(ctx, cX, cY, 8, '#fef08a', 15);
+
+          const J_len = Math.min(65, 20 + collisionsCalculations.J * 2.5);
+          drawArrow(cX, cY, cX - J_len * Math.cos(normAngle), cY - J_len * Math.sin(normAngle), '#ef4444', `-J = -${collisionsCalculations.J.toFixed(1)} N·s`);
+          drawArrow(cX, cY, cX + J_len * Math.cos(normAngle), cY + J_len * Math.sin(normAngle), '#22c55e', `+J = +${collisionsCalculations.J.toFixed(1)} N·s`);
+        }
+
+        // Draw Sphere 1 (Cyan 3D sphere)
+        const grad1 = ctx.createRadialGradient(b1X - r1Px * 0.35, b1Y - r1Px * 0.35, r1Px * 0.1, b1X, b1Y, r1Px);
+        grad1.addColorStop(0, '#bae6fd');
+        grad1.addColorStop(0.4, '#0284c7');
+        grad1.addColorStop(1, '#0c4a6e');
+        ctx.fillStyle = grad1;
+        ctx.beginPath();
+        ctx.arc(b1X, b1Y, r1Px, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`m₁=${collisionsCalculations.m1}kg`, b1X, b1Y + 3);
+
+        // Draw Sphere 2 (Amber 3D sphere)
+        const grad2 = ctx.createRadialGradient(b2X - r2Px * 0.35, b2Y - r2Px * 0.35, r2Px * 0.1, b2X, b2Y, r2Px);
+        grad2.addColorStop(0, '#fef08a');
+        grad2.addColorStop(0.4, '#d97706');
+        grad2.addColorStop(1, '#78350f');
+        ctx.fillStyle = grad2;
+        ctx.beginPath();
+        ctx.arc(b2X, b2Y, r2Px, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 10px monospace';
+        ctx.fillText(`m₂=${collisionsCalculations.m2}kg`, b2X, b2Y + 3);
+
+        // Current velocity arrows on both bodies
+        const isPostImpact = collisionsCalculations.t > 0;
+        const curV1x = isPostImpact ? collisionsCalculations.v1x_prime : collisionsCalculations.v1x;
+        const curV1y = isPostImpact ? collisionsCalculations.v1y_prime : collisionsCalculations.v1y;
+        const curV2x = isPostImpact ? collisionsCalculations.v2x_prime : collisionsCalculations.v2x;
+        const curV2y = isPostImpact ? collisionsCalculations.v2y_prime : collisionsCalculations.v2y;
+
+        const vScale = 4.5;
+        if (Math.hypot(curV1x, curV1y) > 0.1) {
+          drawArrow(b1X, b1Y, b1X + curV1x * vScale, b1Y - curV1y * vScale, '#38bdf8', `v₁'=${Math.hypot(curV1x, curV1y).toFixed(1)}m/s`);
+        }
+        if (Math.hypot(curV2x, curV2y) > 0.1) {
+          drawArrow(b2X, b2Y, b2X + curV2x * vScale, b2Y - curV2y * vScale, '#fbbf24', `v₂'=${Math.hypot(curV2x, curV2y).toFixed(1)}m/s`);
+        }
+
+        ctx.restore();
+
+        // Upper HUD Overlay
+        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(
+          isArabic
+            ? `قانون حفظ كمية الحركة: ΣP_قبل = ΣP_بعد = ${collisionsCalculations.P_total_init_mag.toFixed(2)} كجم·م/ث (حفظ تام)`
+            : `Momentum Conservation: ΣP_init = ΣP_final = ${collisionsCalculations.P_total_init_mag.toFixed(2)} kg·m/s (ΔP = 0)`,
+          30,
+          35
+        );
+
+        ctx.font = '11px monospace';
+        ctx.fillStyle = collisionsCalculations.e === 1.0 ? '#10b981' : collisionsCalculations.e === 0 ? '#ef4444' : '#f59e0b';
+        ctx.fillText(
+          isArabic
+            ? `معامل الارتداد e = ${collisionsCalculations.e.toFixed(2)} | طاقة الحركة المفقودة: ${collisionsCalculations.deltaKE_lost.toFixed(1)} جول (${collisionsCalculations.energyLossPercent.toFixed(1)}%)`
+            : `Restitution e = ${collisionsCalculations.e.toFixed(2)} | Dissipated Kinetic Energy: ${collisionsCalculations.deltaKE_lost.toFixed(1)} J (${collisionsCalculations.energyLossPercent.toFixed(1)}%)`,
+          30,
+          55
+        );
+      }
+
+      // -------------------------------------------------------
+      // 6. PROJECTILE MOTION & BALLISTICS RENDERER
+      // -------------------------------------------------------
+      else if (params.module === 'projectile_motion') {
+        const groundY = height - 60;
+        const originX = 55;
+        const availableW = width - 110;
+        const availableH = height - 125;
+
+        // Scaling factors
+        const maxRange = Math.max(50, projectileCalculations.actualRange * 1.15, projectileCalculations.Range_ideal * 1.15);
+        const maxApex = Math.max(25, projectileCalculations.actualMaxH * 1.25, projectileCalculations.H_max_ideal * 1.25);
+        const scaleX = availableW / maxRange;
+        const scaleY = availableH / maxApex;
+
+        ctx.save();
+
+        // Sky backdrop / gradient
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, groundY);
+        skyGrad.addColorStop(0, isLight ? '#bae6fd' : '#030712');
+        skyGrad.addColorStop(1, isLight ? '#f0f9ff' : '#0f172a');
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, width, groundY);
+
+        // Ground surface & soil
+        const groundGrad = ctx.createLinearGradient(0, groundY, 0, height);
+        groundGrad.addColorStop(0, '#15803d');
+        groundGrad.addColorStop(0.15, '#166534');
+        groundGrad.addColorStop(1, '#78350f');
+        ctx.fillStyle = groundGrad;
+        ctx.fillRect(0, groundY, width, height - groundY);
+
+        ctx.strokeStyle = '#22c55e';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, groundY);
+        ctx.lineTo(width, groundY);
+        ctx.stroke();
+
+        // Ground distance ruler ticks
+        ctx.font = '10px monospace';
+        ctx.fillStyle = isLight ? '#334155' : '#94a3b8';
+        ctx.textAlign = 'center';
+        const stepDist = maxRange > 120 ? 40 : 20;
+        for (let d = 0; d <= maxRange; d += stepDist) {
+          const tickX = originX + d * scaleX;
+          if (tickX < width - 20) {
+            ctx.strokeStyle = isLight ? '#94a3b8' : '#475569';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(tickX, groundY);
+            ctx.lineTo(tickX, groundY + 6);
+            ctx.stroke();
+            ctx.fillText(`${d}m`, tickX, groundY + 18);
+          }
+        }
+
+        // Elevated Cliff / Launch Platform
+        const platH = projectileCalculations.h0;
+        const platTopY = groundY - platH * scaleY;
+        if (platH > 0) {
+          ctx.fillStyle = isLight ? '#cbd5e1' : '#1e293b';
+          ctx.fillRect(originX - 35, platTopY, 35, groundY - platTopY);
+          ctx.strokeStyle = '#64748b';
+          ctx.lineWidth = 2;
+          ctx.strokeRect(originX - 35, platTopY, 35, groundY - platTopY);
+
+          ctx.fillStyle = '#f59e0b';
+          ctx.font = 'bold 11px monospace';
+          ctx.textAlign = 'right';
+          ctx.fillText(`h₀ = ${platH}m`, originX - 40, (platTopY + groundY) / 2);
+        }
+
+        // Cannon Launcher Barrel
+        const theta = projectileCalculations.thetaRad;
+        const barrelLen = 28;
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 6;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(originX, platTopY);
+        ctx.lineTo(originX + barrelLen * Math.cos(theta), platTopY - barrelLen * Math.sin(theta));
+        ctx.stroke();
+
+        // Protractor angle arc
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(originX, platTopY, 18, 0, -theta, true);
+        ctx.stroke();
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(`θ=${projectileCalculations.thetaDeg}°`, originX + 22, platTopY - 8);
+
+        // 1. Draw Ideal Vacuum Parabola Trajectory (Cyan)
+        ctx.strokeStyle = '#0284c7';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        const idealSteps = 100;
+        for (let i = 0; i <= idealSteps; i++) {
+          const tStep = (i / idealSteps) * projectileCalculations.T_flight_ideal;
+          const px = originX + projectileCalculations.v0x * tStep * scaleX;
+          const py = groundY - (projectileCalculations.h0 + projectileCalculations.v0y * tStep - 0.5 * 9.806 * tStep * tStep) * scaleY;
+          if (i === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+
+        // Apex crosshair for vacuum
+        const apexX = originX + projectileCalculations.v0x * projectileCalculations.t_apex_ideal * scaleX;
+        const apexY = groundY - projectileCalculations.H_max_ideal * scaleY;
+        ctx.strokeStyle = '#f59e0b';
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(apexX, groundY);
+        ctx.lineTo(apexX, apexY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        drawGlowingParticle(ctx, apexX, apexY, 4, '#f59e0b', 8);
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`Apex: ${projectileCalculations.H_max_ideal.toFixed(1)}m`, apexX, apexY - 8);
+
+        // Landing Flag at Range
+        const landX = originX + projectileCalculations.Range_ideal * scaleX;
+        ctx.strokeStyle = '#ef4444';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(landX, groundY);
+        ctx.lineTo(landX, groundY - 24);
+        ctx.lineTo(landX + 14, groundY - 18);
+        ctx.lineTo(landX, groundY - 12);
+        ctx.stroke();
+        ctx.fillStyle = '#ef4444';
+        ctx.fill();
+        ctx.fillText(`R = ${projectileCalculations.Range_ideal.toFixed(1)}m`, landX, groundY - 28);
+
+        // 2. Draw Aerodynamic Drag Trajectory (Orange dashed) if active
+        if (projectileCalculations.isDrag) {
+          ctx.strokeStyle = '#f97316';
+          ctx.lineWidth = 2.5;
+          ctx.setLineDash([4, 4]);
+          ctx.beginPath();
+          projectileCalculations.points.forEach((pt, i) => {
+            const dx = originX + pt.x * scaleX;
+            const dy = groundY - pt.y * scaleY;
+            if (i === 0) ctx.moveTo(dx, dy);
+            else ctx.lineTo(dx, dy);
+          });
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+
+        // 3. Current Projectile Ball Position
+        const curPt = projectileCalculations.curPt;
+        const ballX = originX + curPt.x * scaleX;
+        const ballY = groundY - curPt.y * scaleY;
+
+        drawGlowingParticle(ctx, ballX, ballY, 7, '#38bdf8', 12);
+        const ballGrad = ctx.createRadialGradient(ballX - 2, ballY - 2, 1, ballX, ballY, 7);
+        ballGrad.addColorStop(0, '#ffffff');
+        ballGrad.addColorStop(0.5, '#0284c7');
+        ballGrad.addColorStop(1, '#0369a1');
+        ctx.fillStyle = ballGrad;
+        ctx.beginPath();
+        ctx.arc(ballX, ballY, 7, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Velocity vector on projectile
+        const vScale = 1.0;
+        drawArrow(ballX, ballY, ballX + curPt.vx * vScale, ballY - curPt.vy * vScale, '#10b981', `|v|=${projectileCalculations.currentSpeed.toFixed(1)}m/s`);
+
+        ctx.restore();
+
+        // Header info
+        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(
+          isArabic
+            ? `المسار البالستي للمقذوف: المدى R = ${projectileCalculations.actualRange.toFixed(1)} م | أقصى ارتفاع = ${projectileCalculations.actualMaxH.toFixed(1)} م | زمن التحليق = ${projectileCalculations.actualFlightTime.toFixed(2)} ث`
+            : `Ballistic Flight: Range = ${projectileCalculations.actualRange.toFixed(1)} m | Apex H_max = ${projectileCalculations.actualMaxH.toFixed(1)} m | Flight Time = ${projectileCalculations.actualFlightTime.toFixed(2)} s`,
+          30,
+          35
+        );
+
+        // Energy Bar HUD (Top Right)
+        const hudX = width - 260;
+        const hudY = 25;
+        ctx.fillStyle = isLight ? 'rgba(255,255,255,0.85)' : 'rgba(15,23,42,0.85)';
+        ctx.fillRect(hudX, hudY, 230, 60);
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.strokeRect(hudX, hudY, 230, 60);
+
+        ctx.font = '10px monospace';
+        ctx.fillStyle = '#10b981';
+        ctx.fillText(`KE = ${projectileCalculations.currentKE.toFixed(0)} J`, hudX + 10, hudY + 18);
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillText(`PE = ${projectileCalculations.currentPE.toFixed(0)} J`, hudX + 10, hudY + 34);
+        ctx.fillStyle = '#f59e0b';
+        ctx.fillText(`E_mech = ${projectileCalculations.currentTotalE.toFixed(0)} J`, hudX + 10, hudY + 50);
+      }
+
       ctx.restore();
     },
     [
@@ -1849,6 +3029,8 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       equilibriumCalculations,
       momentsCalculations,
       centroidCalculations,
+      collisionsCalculations,
+      projectileCalculations,
     ]
   );
 
@@ -1963,6 +3145,77 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         },
       ];
     }
+    if (params.module === 'collisions_momentum') {
+      return [
+        {
+          id: 'm_momentum_conservation',
+          labelEn: 'Linear Momentum Conservation (ΔP)',
+          labelAr: 'حفظ كمية الحركة الخطية (ΔP)',
+          value: `${(collisionsCalculations.P_total_final_mag - collisionsCalculations.P_total_init_mag).toFixed(2)}`,
+          unit: 'kg·m/s',
+          status: 'optimal',
+        },
+        {
+          id: 'm_total_p',
+          labelEn: 'Total Momentum |P|',
+          labelAr: 'كمية الحركة الكلية |P|',
+          value: collisionsCalculations.P_total_init_mag.toFixed(2),
+          unit: 'kg·m/s',
+          status: 'normal',
+        },
+        {
+          id: 'm_restitution_coeff',
+          labelEn: 'Restitution Elasticity (e)',
+          labelAr: 'معامل الارتداد (e)',
+          value: collisionsCalculations.e.toFixed(2),
+          status: collisionsCalculations.e === 1.0 ? 'optimal' : collisionsCalculations.e === 0 ? 'warning' : 'normal',
+        },
+        {
+          id: 'm_ke_loss_percent',
+          labelEn: 'Kinetic Energy Dissipation',
+          labelAr: 'نسبة الفقد في طاقة الحركة',
+          value: `${collisionsCalculations.energyLossPercent.toFixed(1)}%`,
+          unit: '%',
+          status: collisionsCalculations.energyLossPercent === 0 ? 'optimal' : 'alert',
+        },
+      ];
+    }
+    if (params.module === 'projectile_motion') {
+      return [
+        {
+          id: 'm_projectile_range',
+          labelEn: 'Ballistic Range (R)',
+          labelAr: 'المدى الأفقي الكلي (R)',
+          value: projectileCalculations.actualRange.toFixed(1),
+          unit: 'm',
+          status: 'optimal',
+        },
+        {
+          id: 'm_projectile_apex',
+          labelEn: 'Apex Max Height (H_max)',
+          labelAr: 'أقصى ارتفاع للمقذوف (ذروة)',
+          value: projectileCalculations.actualMaxH.toFixed(1),
+          unit: 'm',
+          status: 'normal',
+        },
+        {
+          id: 'm_flight_time',
+          labelEn: 'Time of Flight (T)',
+          labelAr: 'زمن التحليق الكلي (T)',
+          value: projectileCalculations.actualFlightTime.toFixed(2),
+          unit: 's',
+          status: 'normal',
+        },
+        {
+          id: 'm_current_speed',
+          labelEn: 'Instantaneous Velocity |v(t)|',
+          labelAr: 'السرعة اللحظية الحالية |v(t)|',
+          value: projectileCalculations.currentSpeed.toFixed(1),
+          unit: 'm/s',
+          status: 'normal',
+        },
+      ];
+    }
     return [
       {
         id: 'm_centroid_x',
@@ -1989,7 +3242,16 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         status: 'normal',
       },
     ];
-  }, [params.module, isArabic, frictionCalculations, equilibriumCalculations, momentsCalculations, centroidCalculations]);
+  }, [
+    params.module,
+    isArabic,
+    frictionCalculations,
+    equilibriumCalculations,
+    momentsCalculations,
+    centroidCalculations,
+    collisionsCalculations,
+    projectileCalculations,
+  ]);
 
   return (
     <VirtualLabShell
@@ -2001,8 +3263,20 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
       multimeterReading={dmmReading}
       oscilloscopeCh1={oscilloscopeSignals[0]}
       oscilloscopeCh2={oscilloscopeSignals[1]}
-      currentXValue={frictionCalculations.thetaDeg}
-      currentYValue={frictionCalculations.actualFriction}
+      currentXValue={
+        params.module === 'collisions_momentum'
+          ? collisionsCalculations.t
+          : params.module === 'projectile_motion'
+          ? projectileCalculations.curPt.x
+          : frictionCalculations.thetaDeg
+      }
+      currentYValue={
+        params.module === 'collisions_momentum'
+          ? collisionsCalculations.deltaKE_lost
+          : params.module === 'projectile_motion'
+          ? projectileCalculations.curPt.y
+          : frictionCalculations.actualFriction
+      }
       onResetSimulation={resetParams}
     >
       <div className="space-y-6">
@@ -2046,6 +3320,12 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 <option value="center_of_gravity">
                   🎯 {isArabic ? '٤. مركز الثقل وطريقة الكتلة السالبة' : '4. Center of Gravity & Negative Mass Method'}
                 </option>
+                <option value="collisions_momentum">
+                  💥 {isArabic ? '٥. التصادم في بعدين وحفظ كمية الحركة' : '5. 2D Collisions & Momentum Conservation'}
+                </option>
+                <option value="projectile_motion">
+                  🚀 {isArabic ? '٦. حركة المقذوفات ومقاومة الهواء' : '6. Projectile Motion & Ballistics'}
+                </option>
               </select>
               <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                 <ChevronDown className="w-3.5 h-3.5" />
@@ -2065,7 +3345,23 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                {mode === 'normal_reaction'
+                {params.module === 'collisions_momentum'
+                  ? mode === 'normal_reaction'
+                    ? isArabic ? 'كمية الحركة P' : 'Momentum P'
+                    : mode === 'friction_force'
+                    ? isArabic ? 'الارتداد e' : 'Restitution e'
+                    : mode === 'resultant_reaction'
+                    ? isArabic ? 'الدفع J' : 'Impulse J'
+                    : isArabic ? 'الفقد ΔKE' : 'KE Loss'
+                  : params.module === 'projectile_motion'
+                  ? mode === 'normal_reaction'
+                    ? isArabic ? 'المدى R' : 'Range R'
+                    : mode === 'friction_force'
+                    ? isArabic ? 'الذروة H_max' : 'Apex H'
+                    : mode === 'resultant_reaction'
+                    ? isArabic ? 'السرعة |v|' : 'Speed |v|'
+                    : isArabic ? 'الطاقة E' : 'Energy E'
+                  : mode === 'normal_reaction'
                   ? isArabic ? 'رد الفعل R' : 'Normal R'
                   : mode === 'friction_force'
                   ? isArabic ? 'الاحتكاك Fr' : 'Friction Fr'
@@ -2096,7 +3392,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           <div className="p-4 rounded-xl border bg-slate-950/60 border-slate-800">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
               <Activity className="w-4 h-4 text-emerald-400" />
-              <span>{isArabic ? 'قوانين الاتزان والتماس:' : 'Equilibrium Governing Laws:'}</span>
+              <span>{isArabic ? 'قوانين الحركة والاتزان:' : 'Governing Physical Laws:'}</span>
             </div>
             <p className="font-mono text-xs font-bold text-emerald-300 mt-1">
               {params.module === 'friction_plane'
@@ -2105,6 +3401,10 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 ? `ΣFx = 0, ΣFy = 0, ΣMA = 0 (RA = ${equilibriumCalculations.RA} N)`
                 : params.module === 'moments_beam'
                 ? `ΣMA = 0 ⇒ RB = ${momentsCalculations.RB.toFixed(1)} N`
+                : params.module === 'collisions_momentum'
+                ? `ΣP_i = ΣP_f = ${collisionsCalculations.P_total_init_mag.toFixed(2)} kg·m/s (e = ${collisionsCalculations.e.toFixed(2)})`
+                : params.module === 'projectile_motion'
+                ? `H_max = ${projectileCalculations.actualMaxH.toFixed(1)} m | R = ${projectileCalculations.actualRange.toFixed(1)} m`
                 : `XG = ${centroidCalculations.X_G.toFixed(2)} cm, YG = ${centroidCalculations.Y_G.toFixed(2)} cm`}
             </p>
           </div>
@@ -2112,7 +3412,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           <div className="p-4 rounded-xl border bg-slate-950/60 border-slate-800">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
               <ArrowUpRight className="w-4 h-4 text-indigo-400" />
-              <span>{isArabic ? 'رد الفعل المحصل R\':' : "Resultant Reaction R':"}</span>
+              <span>{isArabic ? 'المحصلة والطاقة والدفع:' : 'Dynamic & Energy Metrics:'}</span>
             </div>
             <p className="font-mono text-xs font-bold text-indigo-300 mt-1">
               {params.module === 'friction_plane'
@@ -2121,6 +3421,10 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 ? `Ground Total = ${Math.sqrt(equilibriumCalculations.RA ** 2 + equilibriumCalculations.frictionDemanded ** 2).toFixed(1)} N`
                 : params.module === 'moments_beam'
                 ? `RA = ${momentsCalculations.RA.toFixed(1)} N, RB = ${momentsCalculations.RB.toFixed(1)} N`
+                : params.module === 'collisions_momentum'
+                ? `J = ${collisionsCalculations.J.toFixed(1)} N·s | ΔKE = ${collisionsCalculations.deltaKE_lost.toFixed(1)} J (${collisionsCalculations.energyLossPercent.toFixed(1)}%)`
+                : params.module === 'projectile_motion'
+                ? `|v(t)| = ${projectileCalculations.currentSpeed.toFixed(1)} m/s | E_mech = ${projectileCalculations.currentTotalE.toFixed(0)} J`
                 : `Shift Distance = ${centroidCalculations.shiftDist.toFixed(2)} cm`}
             </p>
           </div>
@@ -2143,6 +3447,14 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
                 ? isArabic
                   ? 'إذا أصبح أحد ردود الأفعال سالباً، فهذا يعني انقلاب القضيب وانفصاله عن الركيزة.'
                   : 'A negative reaction indicates the beam separates from support and tips over.'
+                : params.module === 'collisions_momentum'
+                ? isArabic
+                  ? 'كمية الحركة كمية متجهة ومحفوظة دائماً في كافة أنواع التصادم، بينما طاقة الحركة تُحفظ فقط في التصادم المرن التام (e = ١) وتفقد أقصى قيمة لها عند الالتحام التام (e = ٠).'
+                  : 'Linear momentum is strictly conserved in all collisions, while kinetic energy is conserved only when e = 1.0 and has maximum dissipation during plastic coalescence (e = 0).'
+                : params.module === 'projectile_motion'
+                ? isArabic
+                  ? 'في الفراغ، يتحقق أقصى مدى أفقي عند زاوية ٤٥°، وتتساوى المديات عند الزوايا المتتامة (مثل ٣٠° و ٦٠°)، بينما تُقصر مقاومة الهواء المدى وتجعل زاوية السقوط أكثر انحداراً.'
+                  : 'In vacuum, maximum range occurs at 45° with identical ranges for complementary angles (30° & 60°), while quadratic air drag shortens range and steepens descent.'
                 : isArabic
                 ? 'عند اقتطاع دائرة ممسة بمحيط قرص (نق/٢)، ينزاح مركز الثقل بمقدار نق/٦ بعيداً عن الثقب.'
                 : 'Tangent circular cutout of radius R/2 shifts the centroid by exactly R/6.'}

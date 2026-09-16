@@ -771,6 +771,117 @@ const r_hole = 3.0; // cm (tangent to disc perimeter at x = +6 cm, center at x =
 const shift_negative_mass = (-r_hole * r_hole * (R_disc - r_hole)) / (R_disc * R_disc - r_hole * r_hole);
 assert(Math.abs(shift_negative_mass - (-R_disc / 6)) < 1e-6, `Centroid shift with tangent cutout is strictly -R/6 = -${(R_disc / 6).toFixed(2)} cm`);
 
+// 5. 2D Collisions, Restitution & Linear Momentum Conservation
+// Case A: 1D Head-on Elastic Collision (Newton's Cradle, e = 1.0, m1 = m2 = 2 kg)
+const m1_cradle = 2.0;
+const m2_cradle = 2.0;
+const v1_cradle = 5.0;
+const v2_cradle = 0.0;
+const e_elastic = 1.0;
+
+const v1_prime_cradle = ((m1_cradle - e_elastic * m2_cradle) * v1_cradle + m2_cradle * (1 + e_elastic) * v2_cradle) / (m1_cradle + m2_cradle);
+const v2_prime_cradle = (m1_cradle * (1 + e_elastic) * v1_cradle + (m2_cradle - e_elastic * m1_cradle) * v2_cradle) / (m1_cradle + m2_cradle);
+
+assert(Math.abs(v1_prime_cradle - 0.0) < 1e-6, `Newton's cradle velocity exchange: Ball 1 stops completely (v1' = ${v1_prime_cradle.toFixed(2)} m/s)`);
+assert(Math.abs(v2_prime_cradle - 5.0) < 1e-6, `Newton's cradle velocity exchange: Ball 2 acquires initial velocity of ball 1 (v2' = ${v2_prime_cradle.toFixed(2)} m/s)`);
+
+const P_init_cradle = m1_cradle * v1_cradle + m2_cradle * v2_cradle;
+const P_final_cradle = m1_cradle * v1_prime_cradle + m2_cradle * v2_prime_cradle;
+assert(Math.abs(P_init_cradle - P_final_cradle) < 1e-6, `Linear momentum strictly conserved: P_init = P_final = ${P_init_cradle.toFixed(2)} kg·m/s (ΔP = 0)`);
+
+const KE_init_cradle = 0.5 * m1_cradle * v1_cradle * v1_cradle + 0.5 * m2_cradle * v2_cradle * v2_cradle;
+const KE_final_cradle = 0.5 * m1_cradle * v1_prime_cradle * v1_prime_cradle + 0.5 * m2_cradle * v2_prime_cradle * v2_prime_cradle;
+assert(Math.abs(KE_init_cradle - KE_final_cradle) < 1e-6, `Elastic collision conserves kinetic energy: KE_init = KE_final = ${KE_init_cradle.toFixed(2)} J (ΔKE = 0)`);
+
+// Case B: Perfectly Inelastic Coalescence (e = 0.0, m1 = 3 kg, m2 = 1 kg, v1 = 4 m/s, v2 = 0)
+const m1_plastic = 3.0;
+const m2_plastic = 1.0;
+const v1_plastic = 4.0;
+const v2_plastic = 0.0;
+const e_plastic = 0.0;
+
+const v_common = (m1_plastic * v1_plastic + m2_plastic * v2_plastic) / (m1_plastic + m2_plastic);
+const v1_prime_plastic = ((m1_plastic - e_plastic * m2_plastic) * v1_plastic + m2_plastic * (1 + e_plastic) * v2_plastic) / (m1_plastic + m2_plastic);
+const v2_prime_plastic = (m1_plastic * (1 + e_plastic) * v1_plastic + (m2_plastic - e_plastic * m1_plastic) * v2_plastic) / (m1_plastic + m2_plastic);
+
+assert(Math.abs(v1_prime_plastic - v_common) < 1e-6 && Math.abs(v2_prime_plastic - v_common) < 1e-6, `Plastic coalescence (e=0): Both bodies fuse to common velocity V = ${v_common.toFixed(2)} m/s`);
+
+const KE_init_plastic = 0.5 * m1_plastic * v1_plastic * v1_plastic;
+const KE_final_plastic = 0.5 * (m1_plastic + m2_plastic) * v_common * v_common;
+const delta_KE_plastic = KE_init_plastic - KE_final_plastic;
+assert(Math.abs(delta_KE_plastic - 6.0) < 1e-6, `Inelastic collision dissipates kinetic energy: ΔKE_lost = ${delta_KE_plastic.toFixed(2)} J (25.0% thermal/deformation loss)`);
+
+// Case C: Newton's Restitution Law Verification
+const e_arbitrary = 0.65;
+const v1_arb = 6.0;
+const v2_arb = 1.0;
+const v1_prime_arb = ((3 - e_arbitrary * 2) * v1_arb + 2 * (1 + e_arbitrary) * v2_arb) / (3 + 2);
+const v2_prime_arb = (3 * (1 + e_arbitrary) * v1_arb + (2 - e_arbitrary * 3) * v2_arb) / (3 + 2);
+const relative_separation_speed = v2_prime_arb - v1_prime_arb;
+const relative_approach_speed = v1_arb - v2_arb;
+const e_calculated = relative_separation_speed / relative_approach_speed;
+assert(Math.abs(e_calculated - e_arbitrary) < 1e-6, `Newton's Restitution Formula: (v2' - v1') / (v1 - v2) = ${e_calculated.toFixed(2)} = e`);
+
+// Case D: Impulse-Momentum Theorem: J = m * Δv
+const J_ball1 = m1_plastic * (v1_plastic - v1_prime_plastic);
+const J_ball2 = m2_plastic * (v2_prime_plastic - v2_plastic);
+assert(Math.abs(J_ball1 - J_ball2) < 1e-6 && Math.abs(J_ball1 - 3.0) < 1e-6, `Impulse on body 1 equals impulse on body 2: J = ${J_ball1.toFixed(1)} N·s (Newton's 3rd Law in Momentum Form)`);
+
+// 6. 2D Projectile Motion, Ballistics & Aerodynamic Quadratic Drag
+const g_grav = 9.806;
+const v0_proj = 20.0;
+const h0_proj = 0.0;
+
+const calcIdealRange = (theta_deg: number) => {
+  const rad = (theta_deg * Math.PI) / 180;
+  return (v0_proj * v0_proj * Math.sin(2 * rad)) / g_grav;
+};
+
+// A. 45° Optimal Launch Angle Theorem
+const R_45 = calcIdealRange(45);
+const R_44 = calcIdealRange(44);
+const R_46 = calcIdealRange(46);
+assert(R_45 > R_44 && R_45 > R_46, `45° launch angle maximizes horizontal ballistic range in vacuum: R(45°) = ${R_45.toFixed(2)} m > R(44°) & R(46°)`);
+
+// B. Complementary Angles Symmetry Theorem: R(θ) == R(90° - θ)
+const R_30 = calcIdealRange(30);
+const R_60 = calcIdealRange(60);
+assert(Math.abs(R_30 - R_60) < 1e-6, `Complementary angle symmetry: R(30°) = ${R_30.toFixed(2)} m strictly equals R(60°) = ${R_60.toFixed(2)} m`);
+
+// Max height comparison: H(60°) > H(30°)
+const H_30 = (Math.pow(v0_proj * Math.sin(30 * Math.PI / 180), 2)) / (2 * g_grav);
+const H_60 = (Math.pow(v0_proj * Math.sin(60 * Math.PI / 180), 2)) / (2 * g_grav);
+assert(H_60 > 2.9 * H_30, `Higher complementary angle achieves greater apex: H(60°) = ${H_60.toFixed(2)} m vs H(30°) = ${H_30.toFixed(2)} m`);
+
+// C. Mechanical Energy Conservation in Vacuum
+const vx_apex = v0_proj * Math.cos(45 * Math.PI / 180);
+const y_apex = (Math.pow(v0_proj * Math.sin(45 * Math.PI / 180), 2)) / (2 * g_grav);
+const E_init_proj = 0.5 * 1.0 * v0_proj * v0_proj;
+const E_apex_proj = 0.5 * 1.0 * vx_apex * vx_apex + 1.0 * g_grav * y_apex;
+assert(Math.abs(E_init_proj - E_apex_proj) < 1e-5, `Mechanical energy strictly conserved throughout vacuum flight: E_init = E_apex = ${E_init_proj.toFixed(2)} J`);
+
+// D. Aerodynamic Drag Trajectory Compression
+const rho_air = 1.225;
+const Cd_sphere = 0.47;
+const r_proj = 0.08;
+const A_proj = Math.PI * r_proj * r_proj;
+const k_drag = 0.5 * rho_air * Cd_sphere * A_proj;
+const dt_sim = 0.01;
+
+let x_drag = 0, y_drag = 0, vx_drag = v0_proj * Math.cos(45 * Math.PI / 180), vy_drag = v0_proj * Math.sin(45 * Math.PI / 180);
+while (y_drag >= 0) {
+  const spd = Math.hypot(vx_drag, vy_drag);
+  const ax = (-k_drag * spd * vx_drag) / 1.0;
+  const ay = -g_grav + (-k_drag * spd * vy_drag) / 1.0;
+  x_drag += vx_drag * dt_sim + 0.5 * ax * dt_sim * dt_sim;
+  y_drag += vy_drag * dt_sim + 0.5 * ay * dt_sim * dt_sim;
+  vx_drag += ax * dt_sim;
+  vy_drag += ay * dt_sim;
+}
+assert(x_drag < R_45 * 0.95, `Aerodynamic drag significantly compresses range: R_drag = ${x_drag.toFixed(2)} m < R_vacuum = ${R_45.toFixed(2)} m`);
+
+
+
 // Q. Biology Chapter 1: Plant Histology, Physiological & Structural Support, and Plant Movements
 console.log('\n--- Q. Plant Histology, Physiological & Structural Support, and Movements ---');
 
@@ -1103,6 +1214,12 @@ const labKeyFormulas = [
   'X_G = \\frac{M_0 X_0 - \\sum m_i x_i}{M_0 - \\sum m_i}, \\quad Y_G = \\frac{M_0 Y_0 - \\sum m_i y_i}{M_0 - \\sum m_i}',
   'P_{\\min} = W\\sin(\\theta + \\lambda)',
   '\\Delta X_G = -\\frac{R}{6}',
+  // Momentum & 2D Collisions (Mechanics Module 5)
+  'm_1 \\vec{v}_1 + m_2 \\vec{v}_2 = m_1 \\vec{v}\'_1 + m_2 \\vec{v}\'_2, \\quad e = \\frac{v\'_{2n} - v\'_{1n}}{v_{1n} - v_{2n}}',
+  '\\vec{I} = \\int \\vec{F}\\,dt = \\Delta\\vec{p} = m(\\vec{v}\' - \\vec{v})',
+  // Projectile Motion & Ballistics (Mechanics Module 6)
+  'x(t) = v_0\\cos\\theta\\,t, \\quad y(t) = h_0 + v_0\\sin\\theta\\,t - \\frac{1}{2}gt^2, \\quad R = \\frac{v_0^2\\sin(2\\theta)}{g}',
+  'E_{\\text{mech}} = \\frac{1}{2}m v(t)^2 + m g y(t) = \\text{constant (in vacuum)}',
   // Plant Histology & Physiological/Structural Support (Biology Chapter 1)
   '\\Psi = \\Psi_s + \\Psi_p \\quad (\\text{Water Potential Equation})',
   '\\Psi_p = P \\implies \\text{Turgor Pressure}',
