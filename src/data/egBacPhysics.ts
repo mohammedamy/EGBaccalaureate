@@ -316,11 +316,11 @@ export const egBacPhysicsBranch: Branch = {
             ]
           },
           interactiveWidget: {
-            type: 'physics_photoelectric',
-            titleEn: 'Photoelectric Quantum Simulator',
-            titleAr: 'محاكي الظاهرة الكهروضوئية الكمية',
-            descriptionEn: 'Interactive photocell experiment testing threshold frequencies, stopping potentials, and photon intensity effects.',
-            descriptionAr: 'تجربة افتراضية للخلية الكهروضوئية لقياس التردد الحرج وجهد الإيقاف وطاقة فوتونات الضوء.'
+            type: 'photoelectric_stopping',
+            titleEn: 'Photoelectric Effect & Stopping Potential Studio',
+            titleAr: 'استوديو الظاهرة الكهروضوئية وجهد الإيقاف لأينشتاين',
+            descriptionEn: 'Monochromatic wavelength slider (200-750 nm), 6 cathode work functions, vacuum phototube animation, and Einstein linear plot.',
+            descriptionAr: 'شريط أطوال موجية أحادية اللون، 6 معادن مهبطية بدوال شغل مختلفة، أنبوبة مفرغة تفاعلية، ورسم أينشتاين البياني الخطي.'
           }
         },
       ],

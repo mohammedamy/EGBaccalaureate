@@ -1412,11 +1412,11 @@ $$I = \\frac{V_B}{R_{eq} + r}$$
             ]
           },
           "interactiveWidget": {
-            "type": "physics_photoelectric",
-            "titleEn": "Photoelectric Effect & Stopping Voltage Simulator",
-            "titleAr": "محاكي التأثير الكهروضوئي وجهد الإيقاف",
-            "descriptionEn": "Interactive photocell simulation testing work functions, photon energy wavelengths, and stopping potentials.",
-            "descriptionAr": "محاكاة تفاعلية للخلية الكهروضوئية لاختبار دالة الشغل وتأثير تردد وشدة الضوء وحساب جهد الإيقاف."
+            "type": "photoelectric_stopping",
+            "titleEn": "Photoelectric Effect & Stopping Potential Studio",
+            "titleAr": "استوديو الظاهرة الكهروضوئية وجهد الإيقاف لأينشتاين",
+            "descriptionEn": "Monochromatic wavelength slider (200-750 nm), 6 cathode work functions, vacuum phototube animation, and Einstein linear plot.",
+            "descriptionAr": "شريط أطوال موجية أحادية اللون، 6 معادن مهبطية بدوال شغل مختلفة، أنبوبة مفرغة تفاعلية، ورسم أينشتاين البياني الخطي."
           }
         },
       ],

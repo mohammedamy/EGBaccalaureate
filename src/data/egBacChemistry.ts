@@ -764,11 +764,11 @@ When a system at dynamic equilibrium is subjected to an external stress (change 
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
-            "titleEn": "Buffer Capacity & Henderson-Hasselbalch Simulator",
-            "titleAr": "محاكي السعة المنظمة ومعادلة هندرسون-هاسلبالخ",
-            "descriptionEn": "Interactive chemistry visualizer testing buffer titration curves, conjugate ratio changes, and complex ion equilibria.",
-            "descriptionAr": "محاكاة تفاعلية لمنحنيات معايرة المحاليل المنظمة وتغيرات نسبة الحمض والقاعدة المقترنة وثوابت تكوين المعقدات."
+            "type": "titration_curve",
+            "titleEn": "Buffer Capacity & Acid-Base Titration Curve Studio",
+            "titleAr": "استوديو السعة المنظمة ومنحنيات معايرة الأحماض والقواعد",
+            "descriptionEn": "Interactive visualizer testing Henderson-Hasselbalch buffer regions (pH = pKa), indicator spectra, and digital pH inflection points.",
+            "descriptionAr": "محاكاة تفاعلية لحسابات المنطقة المنظمة ومعادلة هندرسون-هاسلبالخ، أطياف الأدلة، ونقاط التكافؤ عبر مسبار pH الرقمي."
           }
         },
       ],

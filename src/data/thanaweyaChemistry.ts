@@ -476,11 +476,11 @@ export const thanaweyaChemistryBranch: Branch = {
             ]
           },
           "interactiveWidget": {
-            "type": "statics_friction",
-            "titleEn": "Interactive Chemical Analysis & Titration Lab",
-            "titleAr": "مختبر التحليل الكيميائي والمعايرة التفاعلي",
-            "descriptionEn": "Simulates anion precipitation tests and dynamic acid-base buret titration curves.",
-            "descriptionAr": "محاكاة تفاعلية لتفاعلات الترسيب وكشف الشقوق الحامضية ومنحنيات المعايرة الحجمية بالسحاحة."
+            "type": "titration_curve",
+            "titleEn": "Interactive Chemical Analysis & Titration Curve Studio",
+            "titleAr": "استوديو منحنيات المعايرة والتحليل الكيميائي التفاعلي",
+            "descriptionEn": "Live SVG titration curve, Henderson-Hasselbalch buffer zone (pH = pKa), indicator color spectrum, and digital pH probe.",
+            "descriptionAr": "منحنى معايرة تفاعلي حي، حسابات المنطقة المنظمة (pH = pKa)، أطياف ألوان الأدلة والكواشف، ومسبار pH رقمي."
           }
         },
       ],
