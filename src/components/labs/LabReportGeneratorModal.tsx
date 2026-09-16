@@ -10,6 +10,7 @@ import {
   exportReportToMarkdown,
   computeTotalRubricMarks,
   getLabReportTemplate,
+  formatPlainMathTitle,
   EXPERIMENT_CONFIGS,
 } from '../../services/labReportService';
 import {
@@ -309,7 +310,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     : '📐 رياضيات';
                 return (
                   <option key={exp.id} value={exp.id} className="bg-slate-900 text-white">
-                    [{badge}] {isArabic ? exp.titleAr : exp.titleEn}
+                    [{badge}] {formatPlainMathTitle(isArabic ? exp.titleAr : exp.titleEn)}
                   </option>
                 );
               })}
@@ -669,7 +670,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     استمارة تقرير التجربة المعملية العملية الرسمية
                   </h1>
                   <h2 className="text-sm font-bold text-slate-700 mt-1">
-                    {report.titleAr} ({report.titleEn})
+                    <MathRenderer text={`${report.titleAr} (${report.titleEn})`} inline={true} lang={lang} />
                   </h2>
                 </div>
 
@@ -697,7 +698,9 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 <div className="space-y-3 mb-4 text-xs">
                   <div className="p-2.5 border border-slate-800 rounded-lg">
                     <h3 className="font-black text-slate-900 mb-1">١. الفرضية والهدف العلمي:</h3>
-                    <p className="leading-relaxed text-slate-800">{report.hypothesisAr}</p>
+                    <div className="leading-relaxed text-slate-800">
+                      <MathRenderer text={report.hypothesisAr} inline={true} lang={lang} />
+                    </div>
                   </div>
 
                   <div className="p-2.5 border border-slate-800 rounded-lg">
@@ -715,7 +718,9 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     {report.apparatusAr.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
-                        <span>{item}</span>
+                        <span className="flex-1">
+                          <MathRenderer text={item} inline={true} lang={lang} />
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -729,7 +734,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       <tr className="bg-slate-200 border-b border-slate-900">
                         {report.dataTableColumns.map((col) => (
                           <th key={col.key} className="p-2 border border-slate-900 text-center font-black">
-                            {col.labelAr} {col.unit ? `(${col.unit})` : ''}
+                            <MathRenderer text={`${col.labelAr} ${col.unit ? `(${col.unit})` : ''}`} inline={true} lang={lang} />
                           </th>
                         ))}
                       </tr>
@@ -752,18 +757,24 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-xs">
                   <div className="p-2.5 border border-slate-800 rounded-lg">
                     <h3 className="font-black text-slate-900 mb-1">٥. الملاحظات والتحليل النوعي:</h3>
-                    <p className="leading-relaxed text-slate-800">{report.observationsAr}</p>
+                    <div className="leading-relaxed text-slate-800">
+                      <MathRenderer text={report.observationsAr} inline={true} lang={lang} />
+                    </div>
                   </div>
                   <div className="p-2.5 border border-slate-800 rounded-lg">
                     <h3 className="font-black text-slate-900 mb-1">٦. الاستنتاج العلمي المعتمد:</h3>
-                    <p className="leading-relaxed text-slate-800">{report.conclusionAr}</p>
+                    <div className="leading-relaxed text-slate-800">
+                      <MathRenderer text={report.conclusionAr} inline={true} lang={lang} />
+                    </div>
                   </div>
                 </div>
 
                 {/* Section 7: Error Sources */}
                 <div className="p-2.5 border border-slate-800 rounded-lg mb-4 text-xs">
                   <h3 className="font-black text-slate-900 mb-1">٧. مناقشة مصادر الخطأ والاحتياطات المعملية:</h3>
-                  <p className="leading-relaxed text-slate-800">{report.errorAnalysisAr}</p>
+                  <div className="leading-relaxed text-slate-800">
+                    <MathRenderer text={report.errorAnalysisAr} inline={true} lang={lang} />
+                  </div>
                 </div>
 
                 {/* Section 8: Official Evaluation Rubric Matrix */}

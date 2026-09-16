@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Language } from '../../i18n/translations';
 import { MathRenderer } from '../MathRenderer';
+import { formatPlainMathTitle } from '../../services/labReportService';
 import {
   X,
   FileSpreadsheet,
@@ -558,7 +559,7 @@ const EXPERIMENTS: GuidedExperiment[] = [
     id: 'math-exp-1',
     lab: 'math',
     titleEn: 'Investigating the Derivative as the Limit of Secant Slopes',
-    titleAr: 'استقصاء المشتقة الأولى كنهاية لميل القاطع عند اقتراب النقطتين ($h \\to 0$)',
+    titleAr: 'استقصاء المشتقة الأولى كنهاية لميل القاطع عند اقتراب النقطتين $(h \\to 0)$',
     gradeEn: 'Grade 12 Pure Math - Calculus',
     gradeAr: 'الصف الثالث الثانوي - الرياضيات البحتة (التفاضل والتكامل ومعدل التغير)',
     hypothesisEn: 'As the increment $h$ approaches $0$, the secant slope converges precisely to the tangent derivative $f\'(x_0)$.',
@@ -873,7 +874,7 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
                     : '🧬 Biology';
                 return (
                   <option key={exp.id} value={exp.id} className="bg-slate-900 text-white">
-                    [{labBadge}] {isArabic ? exp.titleAr : exp.titleEn}
+                    [{labBadge}] {formatPlainMathTitle(isArabic ? exp.titleAr : exp.titleEn)}
                   </option>
                 );
               })}
@@ -896,12 +897,12 @@ export const GuidedExperimentsModal: React.FC<Props> = ({
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-2">
               <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                {isArabic ? activeExp.gradeAr : activeExp.gradeEn}
+                <MathRenderer text={isArabic ? activeExp.gradeAr : activeExp.gradeEn} inline={true} lang={lang} />
               </span>
               <span className="text-xs text-slate-400 font-mono">ID: {activeExp.id}</span>
             </div>
             <h3 className="text-lg sm:text-xl font-black text-white">
-              {isArabic ? activeExp.titleAr : activeExp.titleEn}
+              <MathRenderer text={isArabic ? activeExp.titleAr : activeExp.titleEn} inline={true} lang={lang} />
             </h3>
 
             {onOpenReportGenerator && (

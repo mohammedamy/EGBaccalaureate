@@ -413,6 +413,24 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
     });
   };
 
+  // If explicitly requested inline mode, render inline spans without block wrappers or <p> tags
+  if (inline) {
+    const inlineLines = rawContent.split(/\r?\n/).filter((l) => l.trim().length > 0);
+    return (
+      <span
+        className={`math-rendered-inline ${className}`}
+        style={{ display: 'inline' }}
+      >
+        {inlineLines.map((line, lIdx) => (
+          <React.Fragment key={`inline_line_${lIdx}`}>
+            {lIdx > 0 && ' '}
+            {renderInlineSegment(line.trim())}
+          </React.Fragment>
+        ))}
+      </span>
+    );
+  }
+
   // Parse lines for markdown structures
   const lines = rawContent.split(/\r?\n/);
   const elements: React.ReactNode[] = [];

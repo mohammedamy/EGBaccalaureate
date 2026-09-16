@@ -25,6 +25,24 @@ export interface ProcedureStepItem {
   completed: boolean;
 }
 
+/**
+ * Sanitizes math formulas into clean Unicode plain text for UI components
+ * that do not support HTML rendering (such as native <select> <option> tags).
+ */
+export function formatPlainMathTitle(title: string): string {
+  if (!title) return '';
+  return title
+    .replace(/\$\((h\s*\\to\s*0)\)\$/g, '($1)')
+    .replace(/\$h\s*\\to\s*0\$/g, 'h → 0')
+    .replace(/\\to/g, '→')
+    .replace(/\\approx/g, '≈')
+    .replace(/\\le/g, '≤')
+    .replace(/\\ge/g, '≥')
+    .replace(/\\times/g, '×')
+    .replace(/\$([^$]+)\$/g, '$1')
+    .trim();
+}
+
 export interface LabReportData {
   id: string;
   experimentId: string;
