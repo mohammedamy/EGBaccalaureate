@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   Dna,
   Sparkles,
@@ -10,6 +10,8 @@ import {
   Cpu,
   Scissors,
   Flame,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import {
   VirtualLabShell,
@@ -637,6 +639,22 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
 
   // Active sub-tab state inside DnaLab
   const [activeAtlasPin, setActiveAtlasPin] = useState<AtlasHotspot>(DNA_HOTSPOTS[0]);
+  const [hoveredAtlasPinId, setHoveredAtlasPinId] = useState<string | null>(null);
+  const [dnaFilter, setDnaFilter] = useState<'all' | 'structure' | 'replication' | 'expression'>('all');
+
+  const currentPinIndex = useMemo(() => {
+    return DNA_HOTSPOTS.findIndex((p) => p.id === activeAtlasPin.id);
+  }, [activeAtlasPin.id]);
+
+  const handleNextPin = useCallback(() => {
+    const nextIdx = (currentPinIndex + 1) % DNA_HOTSPOTS.length;
+    setActiveAtlasPin(DNA_HOTSPOTS[nextIdx]);
+  }, [currentPinIndex]);
+
+  const handlePrevPin = useCallback(() => {
+    const prevIdx = (currentPinIndex - 1 + DNA_HOTSPOTS.length) % DNA_HOTSPOTS.length;
+    setActiveAtlasPin(DNA_HOTSPOTS[prevIdx]);
+  }, [currentPinIndex]);
 
   const lab = useVirtualLab<DnaLabParams, Record<string, any>>({
     definition: DNA_LAB_DEFINITION,
@@ -1898,72 +1916,228 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
       {/* MODULE 4: HIGH-RESOLUTION DNA PHOTOGRAPHIC ATLAS */}
       {params.investigationModule === 'dna_atlas' && (
         <div className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Left Column: High-Res Interactive Visual Atlas */}
-            <div className="lg:col-span-6 space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-2">
+            {/* Left Column: High-Res Interactive Visual Atlas & Directory */}
+            <div className="lg:col-span-6 flex flex-col items-center gap-3">
               <div
-                className={`relative rounded-2xl overflow-hidden border shadow-xl ${
-                  isContrast ? 'border-rose-400' : 'border-slate-800'
+                className={`relative w-full rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center p-2 group ${
+                  isContrast ? 'border-rose-400 bg-black' : 'border-slate-800 bg-black/95'
                 }`}
               >
+                {/* Visual Label Tag */}
+                <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-cyan-300 pointer-events-none select-none flex items-center gap-1.5">
+                  <Dna className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>{isArabic ? 'اللولب المزدوج (3D Micro)' : 'Double Helix (3D Micro)'}</span>
+                </div>
+
                 <img
                   src={dnaImg}
                   alt="High-Resolution DNA Double Helix 3D Microscopy"
-                  className="w-full h-80 sm:h-96 object-cover"
+                  className="w-full max-h-[520px] object-cover rounded-xl select-none"
                 />
 
-                {/* Interactive Hotspot Pins */}
-                {DNA_HOTSPOTS.map((pin) => {
+                {/* Sleek Numbered Circular Target Pins */}
+                {DNA_HOTSPOTS.map((pin, idx) => {
                   const isSelected = activeAtlasPin.id === pin.id;
+                  const isHovered = hoveredAtlasPinId === pin.id;
+
+                  const isStructure = [
+                    'antiparallel_ends',
+                    'sugar_phosphate_backbone',
+                    'base_pairing_hbonds',
+                    'major_minor_grooves',
+                  ].includes(pin.id);
+
+                  const isReplication = [
+                    'replication_fork_helicase',
+                    'polymerase_directionality',
+                    'ligase_phosphodiester',
+                  ].includes(pin.id);
+
+                  // Filter check
+                  const matchesFilter =
+                    dnaFilter === 'all' ||
+                    (dnaFilter === 'structure' && isStructure) ||
+                    (dnaFilter === 'replication' && isReplication) ||
+                    (dnaFilter === 'expression' && !isStructure && !isReplication);
+
+                  if (!matchesFilter) return null;
+
                   return (
-                    <button
+                    <div
                       key={pin.id}
-                      onClick={() => setActiveAtlasPin(pin)}
                       style={{ top: `${pin.yPct}%`, left: `${pin.xPct}%` }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center font-bold text-[10px] transition-all cursor-pointer shadow-lg ${
-                        isSelected
-                          ? 'bg-rose-500 text-white ring-4 ring-rose-400/50 scale-125 z-20 animate-bounce'
-                          : 'bg-black/75 text-rose-300 border border-rose-400/60 hover:scale-110 z-10'
-                      }`}
-                      title={isArabic ? pin.nameAr : pin.nameEn}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group/pin"
                     >
-                      <Sparkles className="w-3 h-3" />
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => setActiveAtlasPin(pin)}
+                        onMouseEnter={() => setHoveredAtlasPinId(pin.id)}
+                        onMouseLeave={() => setHoveredAtlasPinId(null)}
+                        aria-label={isArabic ? pin.nameAr : pin.nameEn}
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono font-black text-xs cursor-pointer transition-all duration-200 select-none ${
+                          isSelected
+                            ? 'bg-rose-500 text-white ring-4 ring-rose-400/80 scale-125 shadow-[0_0_20px_rgba(244,63,94,0.9)] z-30'
+                            : isStructure
+                            ? 'bg-slate-950/90 text-rose-300 border-2 border-rose-500/70 hover:border-rose-400 hover:bg-rose-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                            : isReplication
+                            ? 'bg-slate-950/90 text-emerald-300 border-2 border-emerald-500/70 hover:border-emerald-400 hover:bg-emerald-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                            : 'bg-slate-950/90 text-cyan-300 border-2 border-cyan-500/70 hover:border-cyan-400 hover:bg-cyan-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                        }`}
+                      >
+                        {isSelected && (
+                          <span className="absolute -inset-1.5 rounded-full bg-rose-400/40 animate-ping pointer-events-none" />
+                        )}
+                        <span>{idx + 1}</span>
+                      </button>
+
+                      {/* Floating Tooltip Label (Appears ONLY on active or hovered pin) */}
+                      {(isSelected || isHovered) && (
+                        <div
+                          className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-40 whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-black shadow-2xl backdrop-blur-md pointer-events-none transition-all flex items-center gap-1.5 ${
+                            isSelected
+                              ? 'bg-rose-600 text-white border border-rose-300 shadow-rose-950/60'
+                              : 'bg-slate-950/95 text-slate-100 border border-slate-700 shadow-black'
+                          }`}
+                        >
+                          <span>{isArabic ? pin.nameAr : pin.nameEn}</span>
+                          <span className="text-[9px] opacity-80 font-mono">
+                            (#{idx + 1})
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 text-[10px] text-white">
-                  <span className="flex items-center gap-1 font-semibold">
+                {/* Bottom OSD Bar */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-[10px] text-white select-none">
+                  <span className="flex items-center gap-1.5 font-semibold text-slate-300">
                     <ZoomIn className="w-3.5 h-3.5 text-rose-400" />
-                    {isArabic ? 'اضغط على النقاط التفاعلية لفحص التراكيب' : 'Click on interactive hotspot pins to inspect'}
+                    {isArabic
+                      ? 'اضغط على النقاط المرقمة (١-١٠) لفحص التراكيب الجزيئية'
+                      : 'Click numbered pins (1-10) to inspect molecular components'}
                   </span>
-                  <span className="font-mono text-cyan-300">
+                  <span className="font-mono text-cyan-300 font-bold bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">
                     {isArabic ? `${toHindiDigits(10)} محطات جزيئية` : '10 Molecular Hotspots'}
                   </span>
                 </div>
               </div>
 
-              {/* Hotspot Selector Pills */}
-              <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2">
-                {DNA_HOTSPOTS.map((pin) => {
+              {/* Functional Category Filter Bar */}
+              <div className="w-full bg-slate-950/80 p-1.5 rounded-xl border border-slate-800 flex items-center gap-1 text-xs font-bold">
+                <button
+                  type="button"
+                  onClick={() => setDnaFilter('all')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer text-[11px] ${
+                    dnaFilter === 'all'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'الكل (١٠)' : 'All (10)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDnaFilter('structure')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer text-[11px] ${
+                    dnaFilter === 'structure'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-rose-400 hover:text-rose-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'هندسة اللولب (٤)' : 'Helix (4)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDnaFilter('replication')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer text-[11px] ${
+                    dnaFilter === 'replication'
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'text-emerald-400 hover:text-emerald-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'التضاعف (٣)' : 'Replication (3)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDnaFilter('expression')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer text-[11px] ${
+                    dnaFilter === 'expression'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : 'text-cyan-400 hover:text-cyan-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? 'النسخ والترجمة (٣)' : 'Expression (3)'}
+                </button>
+              </div>
+
+              {/* Clean Structured Directory of Regions */}
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1">
+                {DNA_HOTSPOTS.filter((pin) => {
+                  const isStructure = [
+                    'antiparallel_ends',
+                    'sugar_phosphate_backbone',
+                    'base_pairing_hbonds',
+                    'major_minor_grooves',
+                  ].includes(pin.id);
+
+                  const isReplication = [
+                    'replication_fork_helicase',
+                    'polymerase_directionality',
+                    'ligase_phosphodiester',
+                  ].includes(pin.id);
+
+                  if (dnaFilter === 'structure') return isStructure;
+                  if (dnaFilter === 'replication') return isReplication;
+                  if (dnaFilter === 'expression') return !isStructure && !isReplication;
+                  return true;
+                }).map((pin) => {
                   const isSelected = activeAtlasPin.id === pin.id;
+                  const originalIndex = DNA_HOTSPOTS.findIndex((p) => p.id === pin.id);
+                  const isStructure = [
+                    'antiparallel_ends',
+                    'sugar_phosphate_backbone',
+                    'base_pairing_hbonds',
+                    'major_minor_grooves',
+                  ].includes(pin.id);
+                  const isReplication = [
+                    'replication_fork_helicase',
+                    'polymerase_directionality',
+                    'ligase_phosphodiester',
+                  ].includes(pin.id);
+
                   return (
                     <button
                       key={pin.id}
+                      type="button"
                       onClick={() => setActiveAtlasPin(pin)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer border ${
+                      className={`flex items-center justify-between p-2 rounded-xl text-xs transition-all cursor-pointer border text-left rtl:text-right ${
                         isSelected
-                          ? isContrast
-                            ? 'bg-rose-400 text-black border-rose-300 font-black'
-                            : 'bg-rose-600 text-white border-rose-500 font-black shadow-sm'
-                          : isContrast
-                          ? 'bg-black border-rose-400/60 text-white'
+                          ? 'bg-rose-500/20 border-rose-500 text-rose-200 ring-1 ring-rose-500/50 shadow-sm'
                           : isLight
-                          ? 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
-                          : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
+                          ? 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                          : 'bg-slate-900/70 border-slate-800/80 text-slate-300 hover:bg-slate-850 hover:border-slate-700'
                       }`}
                     >
-                      {isArabic ? pin.nameAr : pin.nameEn}
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span
+                          className={`w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] font-black shrink-0 ${
+                            isSelected
+                              ? 'bg-rose-500 text-white'
+                              : isStructure
+                              ? 'bg-rose-950 text-rose-400 border border-rose-800'
+                              : isReplication
+                              ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                              : 'bg-cyan-950 text-cyan-400 border border-cyan-800'
+                          }`}
+                        >
+                          {originalIndex + 1}
+                        </span>
+                        <span className="font-semibold truncate">
+                          {isArabic ? pin.nameAr : pin.nameEn}
+                        </span>
+                      </div>
                     </button>
                   );
                 })}
@@ -1981,6 +2155,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
                     : 'bg-rose-950/20 border-rose-900/40'
                 }`}
               >
+                {/* Header with Navigation Controls */}
                 <div className="flex items-center justify-between gap-2">
                   <span
                     className={`text-xs font-black px-2.5 py-1 rounded-lg border uppercase ${
@@ -1993,21 +2168,46 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
                   >
                     {isArabic ? activeAtlasPin.categoryAr : activeAtlasPin.categoryEn}
                   </span>
-                  <span className="text-xs font-mono font-bold text-cyan-400">
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handlePrevPin}
+                      title={isArabic ? 'المحطة السابقة' : 'Previous Station'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                    <span className="text-xs font-mono font-bold text-rose-400 px-2 py-0.5 rounded bg-rose-950/60 border border-rose-900/50">
+                      #{currentPinIndex + 1} / {DNA_HOTSPOTS.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleNextPin}
+                      title={isArabic ? 'المحطة التالية' : 'Next Station'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-baseline justify-between mt-3">
+                  <h3 className="text-xl font-black">
+                    {isArabic ? activeAtlasPin.nameAr : activeAtlasPin.nameEn}
+                  </h3>
+                  <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/40">
                     B-DNA Architecture
                   </span>
                 </div>
 
-                <h3 className="text-xl font-black mt-2">
-                  {isArabic ? activeAtlasPin.nameAr : activeAtlasPin.nameEn}
-                </h3>
-                <p className={`text-xs mt-1.5 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                <p className={`text-xs mt-2 leading-relaxed ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                   {isArabic ? activeAtlasPin.descriptionAr : activeAtlasPin.descriptionEn}
                 </p>
 
                 {/* Detailed Curriculum Section */}
                 <div className="mt-4 pt-3 border-t border-rose-200 dark:border-rose-900/50 space-y-2">
-                  <h4 className="text-xs font-black flex items-center gap-1.5 text-rose-500">
+                  <h4 className="text-xs font-black flex items-center gap-1.5 text-rose-400">
                     <Info className="w-4 h-4" />
                     {isArabic ? 'التحليل البيولوجي والمنهجي المعتمد:' : 'Curriculum Biological Details:'}
                   </h4>
