@@ -8,7 +8,7 @@ import { SUBJECTS, getBranchesForSubject, getSubjectForBranch } from './data/sub
 import { Navbar } from './components/Navbar';
 import { CurriculumOverview } from './components/CurriculumOverview';
 import { LessonView } from './components/LessonView';
-import { TestGenerator } from './components/TestGenerator';
+import { TestGenerator, type BlueprintMode } from './components/TestGenerator';
 import { SearchModal } from './components/SearchModal';
 import { CurriculumEquivalency } from './components/CurriculumEquivalency';
 import { FormulaHandbook } from './components/FormulaHandbook';
@@ -90,6 +90,7 @@ export const App: React.FC = () => {
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
   const [desmosPresetId, setDesmosPresetId] = useState<string | undefined>(undefined);
+  const [testBlueprint, setTestBlueprint] = useState<BlueprintMode | undefined>(undefined);
 
   const handleOpenOfficialBooks = (bookId?: string) => {
     setTargetOfficialBookId(bookId);
@@ -577,6 +578,7 @@ export const App: React.FC = () => {
               setIsDesmosOpen(true);
             }}
             initialSubject={selectedSubject}
+            initialBlueprint={testBlueprint}
           />
         )}
 
@@ -588,6 +590,12 @@ export const App: React.FC = () => {
             onNavigateTab={setActiveTab}
             onStartTargetedQuiz={(subjectId) => {
               setSelectedSubject(subjectId);
+              setTestBlueprint('all');
+              setActiveTab('testGenerator');
+            }}
+            onStartDiagnosticExam={() => {
+              setSelectedSubject('all');
+              setTestBlueprint('diagnostic_benchmark');
               setActiveTab('testGenerator');
             }}
           />

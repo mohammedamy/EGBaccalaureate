@@ -31,6 +31,7 @@ interface Props {
   curriculum?: CurriculumType;
   onNavigateTab: (tab: string) => void;
   onStartTargetedQuiz?: (subjectId: string, chapterId?: string) => void;
+  onStartDiagnosticExam?: () => void;
 }
 
 export const StudentAnalyticsDashboard: React.FC<Props> = ({
@@ -38,6 +39,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   curriculum: _curriculum,
   onNavigateTab,
   onStartTargetedQuiz,
+  onStartDiagnosticExam,
 }) => {
   const isAr = lang === 'ar';
 
@@ -219,6 +221,20 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </div>
 
               <button
+                onClick={() => {
+                  if (onStartDiagnosticExam) {
+                    onStartDiagnosticExam();
+                  } else {
+                    onNavigateTab('testGenerator');
+                  }
+                }}
+                className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white border border-cyan-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+              >
+                <Target className="w-3.5 h-3.5 text-cyan-200" />
+                <span>{isAr ? 'اختبار تشخيص شامل (٢٠)' : 'Diagnostic Exam (20 Qs)'}</span>
+              </button>
+
+              <button
                 onClick={handlePrint}
                 className="no-print px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
               >
@@ -324,6 +340,63 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* First-Time Diagnostic Calibration Hero Card (When 0 Attempted) */}
+      {analyticsState.totalAttempted === 0 && (
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-indigo-950/70 border-2 border-cyan-500/40 p-6 sm:p-8 shadow-2xl space-y-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-start max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-extrabold">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>{isAr ? 'معايرة رادار الإتقان لأول مرة' : 'First-Time Mastery Radar Calibration'}</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                {isAr
+                  ? 'خض اختبار تحديد المستوى والتشخيص الشامل (٢٠ سؤالاً) 🎯'
+                  : 'Take the 20-Q Comprehensive Diagnostic Benchmark Exam 🎯'}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {isAr
+                  ? 'لم تقم بعد بأداء اختبارات تدريبية. تم تصميم هذا الاختبار المتوازن خصيصاً لتفعيل رادار الإتقان الخماسي وحساب مؤشر جاهزيتك بدقة، بواقع ٤ أسئلة لكل فرع من فروع الثانوية العامة موزعة بالتساوي على مستويات بلوم المعرفية (تأسيسي، قياسي، تفكير عليا).'
+                  : 'You have not taken any practice quizzes yet. This balanced diagnostic exam was specifically engineered to calibrate all 5 radar vertices and compute your genuine readiness index with 4 questions per domain across Bloom cognitive tiers.'}
+              </p>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
+                <span className="px-2.5 py-1 rounded-lg bg-blue-950/80 border border-blue-800 text-blue-300 text-[11px] font-bold">
+                  📐 {isAr ? 'الرياضيات البحتة (٤)' : 'Pure Math (4)'}
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-indigo-950/80 border border-indigo-800 text-indigo-300 text-[11px] font-bold">
+                  ⚙️ {isAr ? 'الرياضيات التطبيقية (٤)' : 'Applied Math (4)'}
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-[11px] font-bold">
+                  ⚡ {isAr ? 'الفيزياء (٤)' : 'Physics (4)'}
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-[11px] font-bold">
+                  🧪 {isAr ? 'الكيمياء (٤)' : 'Chemistry (4)'}
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 text-[11px] font-bold">
+                  🧬 {isAr ? 'الأحياء (٤)' : 'Biology (4)'}
+                </span>
+              </div>
+            </div>
+
+            <div className="shrink-0">
+              <button
+                onClick={() => {
+                  if (onStartDiagnosticExam) {
+                    onStartDiagnosticExam();
+                  } else {
+                    onNavigateTab('testGenerator');
+                  }
+                }}
+                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-extrabold text-sm shadow-xl hover:shadow-cyan-500/25 transition-all flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <Target className="w-5 h-5" />
+                <span>{isAr ? 'بدء اختبار التشخيص الشامل (٣٠ دقيقة) 🚀' : 'Start Diagnostic Exam (30 Min) 🚀'}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Grid Layout: Mastery Radar Pentagon + Cognitive Level Tiers */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

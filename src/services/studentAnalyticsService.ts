@@ -1,3 +1,4 @@
+import type { Curriculum, DifficultyLevel, SolvedProblem } from '../types/curriculum';
 import type { GeneratedQuestion } from './mistakeNotebookService';
 
 export const STUDENT_ANALYTICS_STORAGE_KEY = 'egbac_student_analytics_v1';
@@ -288,4 +289,134 @@ export function getWeakestChapters(
  */
 export function resetStudentAnalytics(): void {
   saveStudentAnalytics({ ...DEFAULT_ANALYTICS_STATE });
+}
+
+/**
+ * Generates a 20-question multi-branch calibration exam:
+ * Exactly 4 questions per branch (Pure Math, Applied Math, Physics, Chemistry, Biology).
+ * Exactly 1 Easy, 2 Medium, 1 HOTS per branch (Total: 5 Easy, 10 Medium, 5 HOTS).
+ */
+export function generateDiagnosticBenchmarkQuestions(
+  curriculum: Curriculum,
+  customShuffle?: <T>(arr: T[]) => T[]
+): GeneratedQuestion[] {
+  const shuffle =
+    customShuffle ||
+    (<T>(arr: T[]): T[] => {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    });
+
+  type BranchCategory = 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology';
+  const categories: BranchCategory[] = ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology'];
+
+  const pools: Record<
+    BranchCategory,
+    {
+      easy: GeneratedQuestion[];
+      medium: GeneratedQuestion[];
+      hots: GeneratedQuestion[];
+    }
+  > = {
+    pure_math: { easy: [], medium: [], hots: [] },
+    applied_math: { easy: [], medium: [], hots: [] },
+    physics: { easy: [], medium: [], hots: [] },
+    chemistry: { easy: [], medium: [], hots: [] },
+    biology: { easy: [], medium: [], hots: [] },
+  };
+
+  for (const branch of curriculum.branches) {
+    for (const ch of branch.chapters) {
+      const cat = classifySubjectCategory(branch.titleAr, branch.titleEn, ch.titleAr);
+
+      const addCandidate = (prob: SolvedProblem, source: string, diff: DifficultyLevel) => {
+        if (
+          !prob.optionsEn ||
+          prob.optionsEn.length !== 4 ||
+          !prob.optionsAr ||
+          prob.optionsAr.length !== 4 ||
+          prob.correctIndex === undefined
+        ) {
+          return;
+        }
+
+        const normalizedDiff = (diff === 'hots' ? 'hots' : diff === 'easy' ? 'easy' : 'medium') as
+          | 'easy'
+          | 'medium'
+          | 'hots';
+
+        const q: GeneratedQuestion = {
+          id: `${prob.id}_${source}`,
+          questionEn: prob.questionEn,
+          questionAr: prob.questionAr,
+          difficulty: normalizedDiff,
+          optionsEn: prob.optionsEn,
+          optionsAr: prob.optionsAr,
+          correctIndex: prob.correctIndex,
+          explanationEn: prob.stepByStepSolutionEn,
+          explanationAr: prob.stepByStepSolutionAr,
+          chapterId: ch.id,
+          chapterTitleEn: ch.titleEn,
+          chapterTitleAr: ch.titleAr,
+          branchTitleEn: branch.titleEn,
+          branchTitleAr: branch.titleAr,
+          diagramType: prob.diagramType,
+        };
+
+        pools[cat][normalizedDiff].push(q);
+      };
+
+      if (ch.databank) {
+        ch.databank.easy?.forEach((p) => addCandidate(p, 'databank_easy', 'easy'));
+        ch.databank.medium?.forEach((p) => addCandidate(p, 'databank_medium', 'medium'));
+        ch.databank.hots?.forEach((p) => addCandidate(p, 'databank_hots', 'hots'));
+      }
+      if (ch.solvedExamples) {
+        ch.solvedExamples.forEach((p) => addCandidate(p, 'textbook_solved', p.difficulty || 'medium'));
+      }
+      if (ch.exerciseProblems) {
+        ch.exerciseProblems.forEach((p) => addCandidate(p, 'textbook_exercise', p.difficulty || 'medium'));
+      }
+      ch.lessons?.forEach((l) => {
+        l.worksheet?.problems?.forEach((prob) => {
+          addCandidate(prob, 'worksheet', prob.difficulty || 'medium');
+        });
+      });
+    }
+  }
+
+  const selectedQuestions: GeneratedQuestion[] = [];
+
+  for (const cat of categories) {
+    const easyShuffled = shuffle(pools[cat].easy);
+    const medShuffled = shuffle(pools[cat].medium);
+    const hotsShuffled = shuffle(pools[cat].hots);
+
+    const chosenEasy = easyShuffled.slice(0, 1);
+    const chosenMed = medShuffled.slice(0, 2);
+    const chosenHots = hotsShuffled.slice(0, 1);
+
+    const branchSelected = [...chosenEasy, ...chosenMed, ...chosenHots];
+
+    // Fallback if any tier fell short
+    if (branchSelected.length < 4) {
+      const allCategoryQs = shuffle([...easyShuffled, ...medShuffled, ...hotsShuffled]);
+      const chosenIds = new Set(branchSelected.map((q) => q.id));
+      for (const q of allCategoryQs) {
+        if (!chosenIds.has(q.id)) {
+          branchSelected.push(q);
+          chosenIds.add(q.id);
+          if (branchSelected.length === 4) break;
+        }
+      }
+    }
+
+    selectedQuestions.push(...branchSelected);
+  }
+
+  return shuffle(selectedQuestions);
 }

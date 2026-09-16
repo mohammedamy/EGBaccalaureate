@@ -50,8 +50,18 @@ import {
   getMistakeRecords,
   recordQuizMistakes,
 } from '../services/mistakeNotebookService';
-import { recordQuizAttempt } from '../services/studentAnalyticsService';
+import {
+  recordQuizAttempt,
+  generateDiagnosticBenchmarkQuestions,
+} from '../services/studentAnalyticsService';
 import { MistakeNotebookView } from './MistakeNotebookView';
+
+export type BlueprintMode =
+  | 'all'
+  | 'ministry_standard'
+  | 'hots_challenge'
+  | 'foundational'
+  | 'diagnostic_benchmark';
 
 interface Props {
   lang: Language;
@@ -59,6 +69,8 @@ interface Props {
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
   initialSubject?: string;
+  initialBlueprint?: BlueprintMode;
+  initialQuestionCount?: number;
 }
 
 export const TestGenerator: React.FC<Props> = ({
@@ -67,6 +79,8 @@ export const TestGenerator: React.FC<Props> = ({
   onOpenFormulaHandbook,
   onOpenDesmos,
   initialSubject = 'all',
+  initialBlueprint,
+  initialQuestionCount,
 }) => {
   const t = translations[lang];
 
@@ -127,7 +141,27 @@ export const TestGenerator: React.FC<Props> = ({
   }, [initialSubject]);
 
   // Blueprint and HOTS distribution settings
-  const [blueprintMode, setBlueprintMode] = useState<'all' | 'ministry_standard' | 'hots_challenge' | 'foundational'>('all');
+  const [blueprintMode, setBlueprintMode] = useState<BlueprintMode>(initialBlueprint || 'all');
+
+  // Sync initialBlueprint and initialQuestionCount when prop updates
+  useEffect(() => {
+    if (initialBlueprint) {
+      setBlueprintMode(initialBlueprint);
+      if (initialBlueprint === 'diagnostic_benchmark') {
+        setSelectedSubject('all');
+        setSelectedBranch('all');
+        setSelectedChapter('all');
+        setQuestionCount(20);
+        setDurationPreset(30);
+      }
+    }
+  }, [initialBlueprint]);
+
+  useEffect(() => {
+    if (initialQuestionCount && initialQuestionCount > 0) {
+      setQuestionCount(initialQuestionCount);
+    }
+  }, [initialQuestionCount]);
 
   // Printable Exam Paper & Solution Sheet Customization
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
@@ -171,6 +205,7 @@ export const TestGenerator: React.FC<Props> = ({
 
   // Real-time calculation of available questions matching user filters and blueprint
   const availablePoolCount = useMemo(() => {
+    if (blueprintMode === 'diagnostic_benchmark') return 20;
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     let count = 0;
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
@@ -227,6 +262,9 @@ export const TestGenerator: React.FC<Props> = ({
   // Generate question pool from active curriculum respecting blueprint and difficulty
   const generateQuestions = (): GeneratedQuestion[] => {
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+    if (blueprintMode === 'diagnostic_benchmark') {
+      return generateDiagnosticBenchmarkQuestions(activeData, shuffle);
+    }
     const pool: GeneratedQuestion[] = [];
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
 
@@ -1381,6 +1419,25 @@ export const TestGenerator: React.FC<Props> = ({
           )}
         </div>
 
+        {/* Diagnostic Benchmark Info Banner */}
+        {blueprintMode === 'diagnostic_benchmark' && (
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-950/60 via-indigo-950/60 to-purple-950/60 border border-cyan-500/40 text-cyan-200 text-xs flex items-start gap-3 shadow-lg">
+            <Sparkles className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <div className="font-extrabold text-white text-sm">
+                {lang === 'ar'
+                  ? '🎯 نمط اختبار تحديد المستوى والتشخيص الشامل (معايرة رادار الإتقان)'
+                  : '🎯 Comprehensive Diagnostic Benchmark Mode (Mastery Radar Calibration)'}
+              </div>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                {lang === 'ar'
+                  ? 'تم قفل وضبط المعايير تلقائياً: ٢٠ سؤالاً موزعة بالتساوي (٤ أسئلة لكل فرع من فروع الرياضيات البحتة والتطبيقية والفيزياء والكيمياء والأحياء) بمستويات بلوم المعرفية (٥ سهل، ١٠ متوسط، ٥ عليا) لتوليد تقييم دقيق فوري لمعايرة الرادار ومؤشر الجاهزية.'
+                  : 'Automatically calibrated: 20 balanced questions (strictly 4 questions per branch across Pure Math, Applied Math, Physics, Chemistry, Biology) structured across Bloom cognitive tiers (5 Easy, 10 Medium, 5 HOTS) to establish a benchmark for your Mastery Radar and Readiness Index.'}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3.5">
           <div>
@@ -1389,19 +1446,28 @@ export const TestGenerator: React.FC<Props> = ({
             </label>
             <select
               value={selectedSubject}
+              disabled={blueprintMode === 'diagnostic_benchmark'}
               onChange={(e) => {
                 setSelectedSubject(e.target.value);
                 setSelectedBranch('all');
                 setSelectedChapter('all');
               }}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
+              className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer ${
+                blueprintMode === 'diagnostic_benchmark' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+              }`}
             >
-              <option value="all">{lang === 'ar' ? 'جميع المواد (شامل)' : 'All Subjects (Complete)'}</option>
-              {SUBJECTS.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.emoji} {lang === 'ar' ? s.titleAr : s.titleEn}
-                </option>
-              ))}
+              {blueprintMode === 'diagnostic_benchmark' ? (
+                <option value="all">{lang === 'ar' ? 'جميع الفروع الخمسة (شامل)' : 'All 5 Branches (Comprehensive)'}</option>
+              ) : (
+                <>
+                  <option value="all">{lang === 'ar' ? 'جميع المواد (شامل)' : 'All Subjects (Complete)'}</option>
+                  {SUBJECTS.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.emoji} {lang === 'ar' ? s.titleAr : s.titleEn}
+                    </option>
+                  ))}
+                </>
+              )}
             </select>
           </div>
 
@@ -1409,21 +1475,30 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectBranch}</label>
             <select
               value={selectedBranch}
+              disabled={blueprintMode === 'diagnostic_benchmark'}
               onChange={(e) => {
                 setSelectedBranch(e.target.value);
                 setSelectedChapter('all');
               }}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
+              className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer ${
+                blueprintMode === 'diagnostic_benchmark' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+              }`}
             >
-              <option value="all">{lang === 'ar' ? 'جميع الفروع المتاحة' : 'All Branches'}</option>
-              {getBranchesForSubject(
-                currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
-                selectedSubject
-              ).map((b) => (
-                <option key={b.id} value={b.id}>
-                  {lang === 'ar' ? b.titleAr : b.titleEn}
-                </option>
-              ))}
+              {blueprintMode === 'diagnostic_benchmark' ? (
+                <option value="all">{lang === 'ar' ? '٤ أسئلة لكل فرع' : '4 Qs Per Branch'}</option>
+              ) : (
+                <>
+                  <option value="all">{lang === 'ar' ? 'جميع الفروع المتاحة' : 'All Branches'}</option>
+                  {getBranchesForSubject(
+                    currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
+                    selectedSubject
+                  ).map((b) => (
+                    <option key={b.id} value={b.id}>
+                      {lang === 'ar' ? b.titleAr : b.titleEn}
+                    </option>
+                  ))}
+                </>
+              )}
             </select>
           </div>
 
@@ -1431,21 +1506,30 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.selectChapter}</label>
             <select
               value={selectedChapter}
+              disabled={blueprintMode === 'diagnostic_benchmark'}
               onChange={(e) => setSelectedChapter(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
+              className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer ${
+                blueprintMode === 'diagnostic_benchmark' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+              }`}
             >
-              <option value="all">{lang === 'ar' ? 'جميع فصول الفرع' : 'All Chapters'}</option>
-              {getBranchesForSubject(
-                currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
-                selectedSubject
-              )
-                .filter((b) => selectedBranch === 'all' || b.id === selectedBranch)
-                .flatMap((b) => b.chapters)
-                .map((ch) => (
-                  <option key={ch.id} value={ch.id}>
-                    {lang === 'ar' ? ch.titleAr : ch.titleEn}
-                  </option>
-                ))}
+              {blueprintMode === 'diagnostic_benchmark' ? (
+                <option value="all">{lang === 'ar' ? 'تغطية شاملة لكافة الفصول' : 'Comprehensive All Chapters'}</option>
+              ) : (
+                <>
+                  <option value="all">{lang === 'ar' ? 'جميع فصول الفرع' : 'All Chapters'}</option>
+                  {getBranchesForSubject(
+                    currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum,
+                    selectedSubject
+                  )
+                    .filter((b) => selectedBranch === 'all' || b.id === selectedBranch)
+                    .flatMap((b) => b.chapters)
+                    .map((ch) => (
+                      <option key={ch.id} value={ch.id}>
+                        {lang === 'ar' ? ch.titleAr : ch.titleEn}
+                      </option>
+                    ))}
+                </>
+              )}
             </select>
           </div>
 
@@ -1455,10 +1539,25 @@ export const TestGenerator: React.FC<Props> = ({
             </label>
             <select
               value={blueprintMode}
-              onChange={(e) => setBlueprintMode(e.target.value as any)}
+              onChange={(e) => {
+                const val = e.target.value as BlueprintMode;
+                setBlueprintMode(val);
+                if (val === 'diagnostic_benchmark') {
+                  setSelectedSubject('all');
+                  setSelectedBranch('all');
+                  setSelectedChapter('all');
+                  setQuestionCount(20);
+                  setDurationPreset(30);
+                }
+              }}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'تحديد حر للمستوى' : 'Custom Level Selection'}</option>
+              <option value="diagnostic_benchmark">
+                {lang === 'ar'
+                  ? '🎯 اختبار تشخيص شامل ومعايرة الرادار (٢٠ سؤالاً متوازناً)'
+                  : '🎯 Comprehensive Diagnostic Benchmark (20 Balanced Radar Qs)'}
+              </option>
               <option value="ministry_standard">
                 {lang === 'ar' ? 'مواصفة الوزارة (30% سهل، 40% متوسط، 30% تفكير عليا)' : 'Ministry Spec (30% Easy, 40% Med, 30% HOTS)'}
               </option>
@@ -1483,7 +1582,9 @@ export const TestGenerator: React.FC<Props> = ({
             >
               {blueprintMode !== 'all' ? (
                 <option value="all">
-                  {blueprintMode === 'ministry_standard'
+                  {blueprintMode === 'diagnostic_benchmark'
+                    ? (lang === 'ar' ? 'متوازن للرادار (٥ سهل، ١٠ متوسط، ٥ عليا)' : 'Radar Balanced (5 Easy, 10 Med, 5 HOTS)')
+                    : blueprintMode === 'ministry_standard'
                     ? (lang === 'ar' ? 'مواصفة الوزارة (30/40/30)' : 'Ministry Spec (30/40/30)')
                     : blueprintMode === 'hots_challenge'
                     ? (lang === 'ar' ? '100% مهارات تفكير عليا' : '100% HOTS Questions')
@@ -1505,16 +1606,25 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.numQuestions}</label>
             <select
               value={questionCount}
+              disabled={blueprintMode === 'diagnostic_benchmark'}
               onChange={(e) => setQuestionCount(Number(e.target.value))}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
+              className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 ${
+                blueprintMode === 'diagnostic_benchmark' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+              }`}
             >
-              <option value={5}>{lang === 'ar' ? `5 أسئلة (اختبار سريع)` : `5 Questions (Quick Quiz)`}</option>
-              <option value={10}>{lang === 'ar' ? `10 أسئلة (تمرين نموذجي)` : `10 Questions (Standard)`}</option>
-              <option value={15}>{lang === 'ar' ? `15 سؤالاً (نصف امتحان)` : `15 Questions (Mid-term)`}</option>
-              <option value={20}>{lang === 'ar' ? `20 سؤالاً (امتحان كامل)` : `20 Questions (Full Exam)`}</option>
-              <option value={30}>{lang === 'ar' ? `30 سؤالاً (شامل مكثف)` : `30 Questions (Intensive)`}</option>
-              <option value={40}>{lang === 'ar' ? `40 سؤالاً (امتحان الوزارة النهائي الرسمي)` : `40 Questions (Official Ministerial Exam)`}</option>
-              <option value={50}>{lang === 'ar' ? `50 سؤالاً (شامل موسع)` : `50 Questions (Comprehensive Mock)`}</option>
+              {blueprintMode === 'diagnostic_benchmark' ? (
+                <option value={20}>{lang === 'ar' ? '٢٠ سؤالاً (معياري للرادار)' : '20 Questions (Radar Standard)'}</option>
+              ) : (
+                <>
+                  <option value={5}>{lang === 'ar' ? `5 أسئلة (اختبار سريع)` : `5 Questions (Quick Quiz)`}</option>
+                  <option value={10}>{lang === 'ar' ? `10 أسئلة (تمرين نموذجي)` : `10 Questions (Standard)`}</option>
+                  <option value={15}>{lang === 'ar' ? `15 سؤالاً (نصف امتحان)` : `15 Questions (Mid-term)`}</option>
+                  <option value={20}>{lang === 'ar' ? `20 سؤالاً (امتحان كامل)` : `20 Questions (Full Exam)`}</option>
+                  <option value={30}>{lang === 'ar' ? `30 سؤالاً (شامل مكثف)` : `30 Questions (Intensive)`}</option>
+                  <option value={40}>{lang === 'ar' ? `40 سؤالاً (امتحان الوزارة النهائي الرسمي)` : `40 Questions (Official Ministerial Exam)`}</option>
+                  <option value={50}>{lang === 'ar' ? `50 سؤالاً (شامل موسع)` : `50 Questions (Comprehensive Mock)`}</option>
+                </>
+              )}
             </select>
           </div>
 
