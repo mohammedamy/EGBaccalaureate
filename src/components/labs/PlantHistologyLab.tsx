@@ -16,9 +16,13 @@ import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
 import type { POEPrompt } from '../../core/pedagogy/POEController';
 import {
+  ChevronLeft,
+  ChevronRight,
   Compass,
   Microscope,
   Sparkles,
+  ZoomIn,
+  ZoomOut,
 } from 'lucide-react';
 import plantImg from '../../assets/biology/plant_stem_histology.jpg';
 
@@ -691,6 +695,8 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
 
   const [dmmMode, setDmmMode] = useState<'turgor_pressure' | 'osmotic_potential' | 'mechanical_rigidity' | 'transpiration_rate'>('turgor_pressure');
   const [activePinId, setActivePinId] = useState<string>('collenchyma');
+  const [hoveredPinId, setHoveredPinId] = useState<string | null>(null);
+  const [histologyFilter, setHistologyFilter] = useState<'all' | 'cortex' | 'stele'>('all');
   const [zoomLevel, setZoomLevel] = useState<number>(1.0);
 
   const lab = useVirtualLab<PlantHistologyParams, Record<string, any>>({
@@ -759,6 +765,25 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
   const activePin = useMemo(() => {
     return HISTOLOGY_LAYERS.find((l) => l.id === activePinId) || HISTOLOGY_LAYERS[2];
   }, [activePinId]);
+
+  const currentPinIndex = useMemo(() => {
+    const idx = HISTOLOGY_LAYERS.findIndex((l) => l.id === activePinId);
+    return idx >= 0 ? idx : 0;
+  }, [activePinId]);
+
+  const handleNextPin = useCallback(() => {
+    const nextIdx = (currentPinIndex + 1) % HISTOLOGY_LAYERS.length;
+    const nextPin = HISTOLOGY_LAYERS[nextIdx];
+    setActivePinId(nextPin.id);
+    updateParam('selectedHistologyPin', nextPin.id);
+  }, [currentPinIndex, updateParam]);
+
+  const handlePrevPin = useCallback(() => {
+    const prevIdx = (currentPinIndex - 1 + HISTOLOGY_LAYERS.length) % HISTOLOGY_LAYERS.length;
+    const prevPin = HISTOLOGY_LAYERS[prevIdx];
+    setActivePinId(prevPin.id);
+    updateParam('selectedHistologyPin', prevPin.id);
+  }, [currentPinIndex, updateParam]);
 
   // Telemetry metrics
   const telemetryMetrics = useMemo((): LabTelemetryMetric[] => {
@@ -1757,32 +1782,62 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
                 />
 
                 {/* 10 Interactive Histological Layer Pins */}
-                {HISTOLOGY_LAYERS.map((layer) => {
+                {HISTOLOGY_LAYERS.map((layer, idx) => {
                   const isSelected = activePinId === layer.id;
+                  const isHovered = hoveredPinId === layer.id;
+                  const isCortex = ['cuticle', 'epidermis', 'collenchyma', 'parenchyma', 'starch_sheath'].includes(layer.id);
+                  const matchesFilter =
+                    histologyFilter === 'all' ||
+                    (histologyFilter === 'cortex' && isCortex) ||
+                    (histologyFilter === 'stele' && !isCortex);
+
                   return (
-                    <button
+                    <div
                       key={layer.id}
-                      onClick={() => {
-                        setActivePinId(layer.id);
-                        updateParam('selectedHistologyPin', layer.id);
-                      }}
                       style={{ left: `${layer.pinX}%`, top: `${layer.pinY}%` }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-200 z-20 group/pin ${
-                        isSelected ? 'scale-125 z-30' : 'hover:scale-110 opacity-80 hover:opacity-100'
-                      }`}
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-200 z-20 ${
+                        isSelected ? 'z-30' : ''
+                      } ${!matchesFilter ? 'opacity-25 hover:opacity-100 scale-90' : ''}`}
                     >
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center border-2 shadow-lg ${
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActivePinId(layer.id);
+                          updateParam('selectedHistologyPin', layer.id);
+                        }}
+                        onMouseEnter={() => setHoveredPinId(layer.id)}
+                        onMouseLeave={() => setHoveredPinId(null)}
+                        aria-label={isArabic ? layer.nameAr : layer.nameEn}
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono font-black text-xs cursor-pointer transition-all duration-200 select-none ${
                           isSelected
-                            ? 'bg-rose-500 border-white text-white animate-pulse'
-                            : 'bg-slate-900/90 border-rose-400 text-rose-300'
+                            ? 'bg-rose-500 text-white ring-4 ring-rose-400/80 scale-125 shadow-[0_0_20px_rgba(244,63,94,0.9)] z-30'
+                            : isCortex
+                            ? 'bg-slate-950/90 text-emerald-300 border-2 border-emerald-500/70 hover:border-emerald-400 hover:bg-emerald-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                            : 'bg-slate-950/90 text-cyan-300 border-2 border-cyan-500/70 hover:border-cyan-400 hover:bg-cyan-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
                         }`}
                       >
-                        <span className="text-[10px] font-black">
-                          {isArabic ? toHindiDigits(HISTOLOGY_LAYERS.indexOf(layer) + 1) : HISTOLOGY_LAYERS.indexOf(layer) + 1}
-                        </span>
-                      </div>
-                    </button>
+                        {isSelected && (
+                          <span className="absolute -inset-1.5 rounded-full bg-rose-400/40 animate-ping pointer-events-none" />
+                        )}
+                        <span>{isArabic ? toHindiDigits(idx + 1) : idx + 1}</span>
+                      </button>
+
+                      {/* Floating Tooltip Label (Appears ONLY on active or hovered pin) */}
+                      {(isSelected || isHovered) && (
+                        <div
+                          className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-40 whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-black shadow-2xl backdrop-blur-md pointer-events-none transition-all flex items-center gap-1.5 ${
+                            isSelected
+                              ? 'bg-rose-600 text-white border border-rose-300 shadow-rose-950/60'
+                              : 'bg-slate-950/95 text-slate-100 border border-slate-700 shadow-black'
+                          }`}
+                        >
+                          <span>{isArabic ? layer.nameAr : layer.nameEn}</span>
+                          <span className="text-[9px] opacity-80 font-mono">
+                            ({isArabic ? layer.categoryAr : layer.categoryEn})
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
 
@@ -1792,29 +1847,122 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
                     <Microscope className="w-3.5 h-3.5" />
                     <span>{isArabic ? 'قطاع عرضي في ساق نبات ذي فلقتين (صباغة السافرانين والأخضر السريع)' : 'Dicot Stem Cross Section (Safranin & Fast Green 400x)'}</span>
                   </span>
-                  <div className="flex items-center gap-1 text-slate-300">
+                  <div className="flex items-center gap-1.5 text-slate-300">
                     <button
+                      type="button"
                       onClick={() => setZoomLevel((z) => Math.max(1.0, z - 0.15))}
-                      className="px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono cursor-pointer"
+                      className="p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white cursor-pointer transition-all border border-slate-700"
+                      title="Zoom Out"
                     >
-                      -
+                      <ZoomOut className="w-3.5 h-3.5" />
                     </button>
-                    <span className="font-mono text-[10px] px-1.5">{zoomLevel.toFixed(1)}x</span>
+                    <span className="font-mono text-[10px] px-1 font-bold text-emerald-300">{zoomLevel.toFixed(1)}x</span>
                     <button
+                      type="button"
                       onClick={() => setZoomLevel((z) => Math.min(1.8, z + 0.15))}
-                      className="px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono cursor-pointer"
+                      className="p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white cursor-pointer transition-all border border-slate-700"
+                      title="Zoom In"
                     >
-                      +
+                      <ZoomIn className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
+              </div>
+
+              {/* Histological Category Filter Bar */}
+              <div className="w-full bg-slate-950/80 p-1.5 rounded-xl border border-slate-800 flex items-center gap-1.5 text-xs font-bold mt-4">
+                <button
+                  type="button"
+                  onClick={() => setHistologyFilter('all')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    histologyFilter === 'all'
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? `جميع الطبقات (${toHindiDigits(10)})` : 'All Layers (10)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHistologyFilter('cortex')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    histologyFilter === 'cortex'
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'text-emerald-400 hover:text-emerald-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? `القشرة والبشرة (${toHindiDigits(5)})` : 'Cortex & Dermis (5)'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHistologyFilter('stele')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    histologyFilter === 'stele'
+                      ? 'bg-cyan-600 text-white shadow-md'
+                      : 'text-cyan-400 hover:text-cyan-200 hover:bg-slate-900'
+                  }`}
+                >
+                  {isArabic ? `الأسطوانة الوعائية (${toHindiDigits(5)})` : 'Vascular Stele (5)'}
+                </button>
+              </div>
+
+              {/* Clean Structured Directory of Histological Layers */}
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1 mt-3">
+                {HISTOLOGY_LAYERS.filter((layer) => {
+                  const isCortex = ['cuticle', 'epidermis', 'collenchyma', 'parenchyma', 'starch_sheath'].includes(layer.id);
+                  if (histologyFilter === 'cortex') return isCortex;
+                  if (histologyFilter === 'stele') return !isCortex;
+                  return true;
+                }).map((layer) => {
+                  const isSelected = activePin.id === layer.id;
+                  const originalIndex = HISTOLOGY_LAYERS.findIndex((l) => l.id === layer.id);
+                  const isCortex = ['cuticle', 'epidermis', 'collenchyma', 'parenchyma', 'starch_sheath'].includes(layer.id);
+
+                  return (
+                    <button
+                      key={layer.id}
+                      type="button"
+                      onClick={() => {
+                        setActivePinId(layer.id);
+                        updateParam('selectedHistologyPin', layer.id);
+                      }}
+                      className={`flex items-center justify-between p-2 rounded-xl text-xs transition-all cursor-pointer border text-left rtl:text-right ${
+                        isSelected
+                          ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200 ring-1 ring-emerald-500/50 shadow-sm'
+                          : isLight
+                          ? 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                          : 'bg-slate-900/70 border-slate-800/80 text-slate-300 hover:bg-slate-850 hover:border-slate-700'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span
+                          className={`w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] font-black shrink-0 ${
+                            isSelected
+                              ? 'bg-rose-500 text-white'
+                              : isCortex
+                              ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                              : 'bg-cyan-950 text-cyan-400 border border-cyan-800'
+                          }`}
+                        >
+                          {isArabic ? toHindiDigits(originalIndex + 1) : originalIndex + 1}
+                        </span>
+                        <span className="font-semibold truncate">
+                          {isArabic ? layer.nameAr : layer.nameEn}
+                        </span>
+                      </div>
+                      <span className="font-mono text-[9px] text-slate-400 shrink-0 ml-1.5 rtl:mr-1.5 px-1.5 py-0.5 rounded bg-slate-950/60 border border-slate-800">
+                        {isArabic ? layer.categoryAr : layer.categoryEn}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Right: Selected Layer Anatomical Breakdown Card */}
             <div className="lg:col-span-5 space-y-4">
               <div
-                className={`p-5 rounded-2xl border shadow-md space-y-3 ${
+                className={`p-5 rounded-2xl border shadow-md space-y-3.5 ${
                   isContrast
                     ? 'bg-black border-yellow-400 text-white'
                     : isLight
@@ -1822,69 +1970,69 @@ export const PlantHistologyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark'
                     : 'bg-slate-900/90 border-slate-800 text-slate-200'
                 }`}
               >
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                    {isArabic ? activePin.categoryAr : activePin.categoryEn}
-                  </span>
-                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-                    {isArabic ? activePin.supportTypeAr : activePin.supportTypeEn}
-                  </span>
+                {/* Header with Category and Station Browsing Navigation */}
+                <div className="flex items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 uppercase tracking-wider border border-slate-700">
+                      {isArabic ? activePin.categoryAr : activePin.categoryEn}
+                    </span>
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                      {isArabic ? activePin.supportTypeAr : activePin.supportTypeEn}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handlePrevPin}
+                      title={isArabic ? 'الطبقة السابقة' : 'Previous Layer'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                    <span className="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-900/50">
+                      #{isArabic ? toHindiDigits(currentPinIndex + 1) : currentPinIndex + 1} / {isArabic ? toHindiDigits(HISTOLOGY_LAYERS.length) : HISTOLOGY_LAYERS.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleNextPin}
+                      title={isArabic ? 'الطبقة التالية' : 'Next Layer'}
+                      className="p-1.5 rounded-lg border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white cursor-pointer transition-all"
+                    >
+                      <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                    </button>
+                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-black text-rose-400">
+                  <h3 className="text-xl font-black text-rose-400">
                     {isArabic ? activePin.nameAr : activePin.nameEn}
                   </h3>
-                  <p className="text-xs mt-1 leading-relaxed text-slate-300">
+                  <p className="text-xs mt-1.5 leading-relaxed text-slate-300">
                     {isArabic ? activePin.descriptionAr : activePin.descriptionEn}
                   </p>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1 text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs">
                   <div className="flex items-center justify-between text-slate-300">
                     <span className="font-bold">{isArabic ? 'المادة المترسبة / الجدار:' : 'Thickening Substance:'}</span>
                     <span className="text-amber-400 font-semibold">{isArabic ? activePin.depositedSubstanceAr : activePin.depositedSubstanceEn}</span>
                   </div>
-                  <div className="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800/60">
+                  <div className="flex items-center justify-between text-slate-300 pt-2 border-t border-slate-800/60">
                     <span className="font-bold">{isArabic ? 'الحالة الحيوية للخلايا:' : 'Vital Cell Status:'}</span>
                     <span className="text-emerald-400 font-semibold">{isArabic ? activePin.cellStatusAr : activePin.cellStatusEn}</span>
                   </div>
                 </div>
 
                 {/* Ministerial Exam Tip Box */}
-                <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs space-y-1">
+                <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs space-y-1.5">
                   <div className="flex items-center gap-1.5 font-black text-amber-400">
-                    <Sparkles className="w-3.5 h-3.5" />
+                    <Sparkles className="w-4 h-4" />
                     <span>{isArabic ? 'سؤال وزاري متكرر (ثانوية عامة وبكالوريا):' : 'Key Ministerial Exam Target Question:'}</span>
                   </div>
                   <p className="leading-relaxed text-[11px] text-amber-100/90">
                     {isArabic ? activePin.examTipsAr : activePin.examTipsEn}
                   </p>
-                </div>
-
-                {/* Pin Selector Mini-Grid */}
-                <div className="pt-2">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    {isArabic ? 'اختر طبقة نسيجية للفحص:' : 'Select Layer to Inspect:'}
-                  </p>
-                  <div className="grid grid-cols-2 gap-1.5 max-h-40 overflow-y-auto pr-1">
-                    {HISTOLOGY_LAYERS.map((layer, idx) => (
-                      <button
-                        key={layer.id}
-                        onClick={() => {
-                          setActivePinId(layer.id);
-                          updateParam('selectedHistologyPin', layer.id);
-                        }}
-                        className={`p-1.5 rounded-lg text-left rtl:text-right text-[11px] font-bold transition-all cursor-pointer truncate border ${
-                          activePinId === layer.id
-                            ? 'bg-rose-600 text-white border-rose-500'
-                            : 'bg-slate-950/50 border-slate-800 text-slate-400 hover:text-slate-200'
-                        }`}
-                      >
-                        {isArabic ? `${toHindiDigits(idx + 1)}. ${layer.nameAr}` : `${idx + 1}. ${layer.nameEn}`}
-                      </button>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
