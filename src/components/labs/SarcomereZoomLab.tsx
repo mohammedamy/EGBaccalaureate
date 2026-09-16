@@ -13,19 +13,55 @@ import {
   AlertTriangle,
   Zap,
   CheckCircle2,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
+  defaultFullscreen?: boolean;
 }
 
 export type ZoomLevel = 1 | 2 | 3 | 4;
 
-export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
+export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaultFullscreen = true }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
+
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(defaultFullscreen);
+
+  // Fullscreen keyboard listener (Esc to exit) and body scroll lock
+  useEffect(() => {
+    if (isFullscreen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setIsFullscreen(false);
+          if (document.fullscreenElement) {
+            document.exitFullscreen?.().catch(() => {});
+          }
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isFullscreen]);
+
+  const toggleFullscreen = useCallback(() => {
+    setIsFullscreen((prev) => {
+      const next = !prev;
+      if (!next && document.fullscreenElement) {
+        document.exitFullscreen?.().catch(() => {});
+      }
+      return next;
+    });
+  }, []);
 
   // 4 Scale Levels: 1: Organism (Arm), 2: Tissue (Fascicle), 3: Cellular (Sarcomere), 4: Molecular (Cross-Bridge)
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(3);
@@ -1549,6 +1585,383 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ]
   );
 
+  const renderScaleHud = () => (
+    <div className="space-y-4">
+      {/* Zoom 1 HUD: Biomechanics Readout */}
+      {zoomLevel === 1 && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+            <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
+              {isArabic ? 'الميكانيكا الحيوية للذراع:' : 'Biomechanics Readout:'}
+            </span>
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-slate-400">{isArabic ? 'زاوية مفصل الكوع:' : 'Elbow Joint Angle:'}</span>
+              <span className="font-mono text-emerald-400 font-bold">{Math.round(armAngle)}°</span>
+            </div>
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-slate-400">{isArabic ? 'حالة العضلة ذات الرأسين:' : 'Biceps State:'}</span>
+              <span className="font-mono text-rose-400 font-bold">
+                {contractionPercent > 70
+                  ? isArabic ? 'انقباض قوي (انتفاخ البطن)' : 'Fully Contracted (Bulged)'
+                  : contractionPercent > 20
+                  ? isArabic ? 'انقباض جزئي' : 'Partial Flexion'
+                  : isArabic ? 'انبساط (طول راحة)' : 'Relaxed / Extended'}
+              </span>
+            </div>
+            <div className="flex justify-between items-center text-xs">
+              <span className="text-slate-400">{isArabic ? 'العضلة المقابلة (Triceps):' : 'Antagonistic Triceps:'}</span>
+              <span className="font-mono text-sky-400 font-semibold">{isArabic ? 'منبسطة' : 'Relaxed'}</span>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
+            <Sparkles className="w-4 h-4 text-amber-400 inline mr-1" />
+            <span>
+              {isArabic
+                ? 'قاعدة وزارية: تتصل العضلة الهيكلية بالعظام عبر الأوتار (نسيج ضام ليفي قوي غير مرن)، فتنقل قوة انقباض الساركوميرات إلى العظام مسببة الحركة عند المفاصل.'
+                : 'Ministerial Core Concept: Skeletal muscles attach to bones via inelastic tendons, translating microscopic sarcomere shortening into macroscopic skeletal joint movement.'}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Zoom 2 HUD: Hierarchical Tissue Anatomy */}
+      {zoomLevel === 2 && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
+            <span className="font-bold text-rose-400 block uppercase tracking-wider">
+              {isArabic ? 'التسلسل الهيكلي للنسيج العضلي:' : 'Hierarchical Anatomy:'}
+            </span>
+            <p className="text-slate-300 leading-relaxed">
+              {isArabic
+                ? 'تتكون العضلة من عدد كبير من الحزم العضلية (Fascicles) المحاطة بغشاء الحزمة (Perimysium). وتحتوي كل حزمة على مجموعة ألياف عضلية (خلايا أسطوانية عديدة الأنوية) يتراوح عددها بين ٥ إلى ١٠٠ ليفة.'
+                : 'The whole muscle consists of fascicles surrounded by perimysium. Each fascicle houses 5 to 100 multinucleated muscle fibers (cells), each packed with 1,000 to 2,000 myofibrils.'}
+            </p>
+            <div className="p-2 rounded bg-slate-950 border border-slate-800 font-mono text-emerald-400 text-[11px]">
+              {isArabic ? '١ ليفة عضلية = ١٠٠٠ إلى ٢٠٠٠ لييفة' : '1 Muscle Fiber = 1,000–2,000 Myofibrils'}
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-xs text-purple-200">
+            <Info className="w-4 h-4 text-purple-400 inline mr-1" />
+            <span>
+              {isArabic
+                ? 'الأغشية الضامة: غشاء العضلة (Epimysium) ⟵ غشاء الحزمة (Perimysium) ⟵ غشاء الليفة (Endomysium / Sarcolemma).'
+                : 'Connective Sheaths: Epimysium (outer muscle) ⟶ Perimysium (fascicle) ⟶ Endomysium/Sarcolemma (muscle fiber cell).'}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Zoom 3 HUD: Quantitative Band Status Table */}
+      {zoomLevel === 3 && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
+            <h4 className="font-black text-rose-400 flex items-center gap-1.5 mb-2">
+              <Info className="w-4 h-4" />
+              <span>{isArabic ? 'جدول القياسات الدقيقة للمناطق:' : 'Quantitative Band Status:'}</span>
+            </h4>
+            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+              <span className="text-slate-300">{isArabic ? 'المسافة بين خطي Z:' : 'Z-Discs Distance:'}</span>
+              <span className="font-mono font-bold text-emerald-400">
+                {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} µm` : `${sarcomereLength.toFixed(2)} µm`}
+              </span>
+            </div>
+            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+              <span className="text-slate-300">{isArabic ? 'المنطقة H (شبه المضيئة):' : 'H-Zone Width:'}</span>
+              <span className="font-mono font-bold text-amber-400">
+                {hZoneLength === 0
+                  ? isArabic ? '٠ µm (تنعدم تماماً)' : '0 µm (Vanished)'
+                  : `${sarcomereLength <= 1.85 ? '0.00' : hZoneLength.toFixed(2)} µm`}
+              </span>
+            </div>
+            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+              <span className="text-slate-300">{isArabic ? 'المنطقة A (الداكنة):' : 'A-Band Length:'}</span>
+              <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm ({isArabic ? 'ثابتة' : 'Constant'})</span>
+            </div>
+            <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+              <span className="text-slate-300">{isArabic ? 'المنطقة I (المضيئة):' : 'I-Band Length:'}</span>
+              <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm ({isArabic ? 'تقل' : 'Shortens'})</span>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 inline mr-1" />
+            <span>
+              {isArabic
+                ? 'نظرية الخيوط المنزلقة (هكسلي): تنزلق خيوط الأكتين باتجاه خط M بمساعدة الروابط المستعرضة للميوسين، فيقل طول القطعة العضلية وتختفي المنطقة H ويبقى طول المنطقة A ثابتاً.'
+                : "Huxley's Sliding Filament: Actin filaments slide toward the M-line pulled by myosin cross-bridges. The sarcomere shortens, H-zone vanishes, while A-band length remains constant."}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Zoom 4 HUD: Huxley Cross-Bridge Molecular Controls */}
+      {zoomLevel === 4 && (
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+            <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
+              {isArabic ? 'المتحكمات الكيميائية الحيوية:' : 'Biochemical Sliders:'}
+            </span>
+
+            {/* Ca2+ Slider */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-slate-400">{isArabic ? 'تركيز أيونات الكالسيوم (Ca²⁺):' : 'Calcium (Ca²⁺) Level:'}</span>
+                <span className="font-mono text-cyan-400 font-bold">{caLevel}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={caLevel}
+                onChange={(e) => setCaLevel(parseInt(e.target.value))}
+                className="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+              />
+              <p className="text-[11px] text-slate-500">
+                {isArabic ? 'يكشف مواقع الارتباط على خيوط الأكتين' : 'Uncovers myosin-binding sites on actin'}
+              </p>
+            </div>
+
+            {/* ATP Level Slider */}
+            <div className="space-y-1 pt-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-slate-400">{isArabic ? 'مستوى جزيئات الطاقة (ATP):' : 'ATP Energy Level:'}</span>
+                <span className="font-mono text-amber-400 font-bold">{atpLevel}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={atpLevel}
+                onChange={(e) => setAtpLevel(parseInt(e.target.value))}
+                className="w-full accent-amber-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
+              />
+              <p className="text-[11px] text-slate-500">
+                {isArabic ? 'ضروري لحركة الروابط وانفصالها عن الأكتين' : 'Needed for power stroke & cross-bridge detachment'}
+              </p>
+            </div>
+
+            {/* Rigor Mortis Warning Alert */}
+            {isRigorMortis && (
+              <div className="p-3 rounded-xl bg-rose-950/80 border border-rose-600/80 text-rose-200 text-xs flex items-start gap-2 animate-pulse">
+                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold block">
+                    {isArabic ? 'حالة شد عضلي مؤلم / تيبس (Rigor Mortis)!' : 'Rigor Mortis / Severe Muscle Cramp!'}
+                  </span>
+                  <p className="text-[11px] text-rose-300/90 mt-0.5">
+                    {isArabic
+                      ? 'تناقص ATP مع بقاء الكالسيوم يمنع انفصال الروابط المستعرضة عن الأكتين، فتظل العضلة في حالة انقباض مستمر.'
+                      : 'Depletion of ATP with elevated calcium prevents cross-bridges from detaching from actin, locking muscle in continuous spasm.'}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Step Navigation Buttons */}
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+              {[
+                { id: 1, labelEn: '1. Ca²⁺ Binds', labelAr: '١. ارتباط الكالسيوم' },
+                { id: 2, labelEn: '2. Cross-Bridge', labelAr: '٢. تكوين الرابطة' },
+                { id: 3, labelEn: '3. Power Stroke', labelAr: '٣. حركة الشد' },
+                { id: 4, labelEn: '4. ATP Detachment', labelAr: '٤. انفصال بـ ATP' },
+              ].map((st) => (
+                <button
+                  key={st.id}
+                  onClick={() => setMolecularStep(st.id)}
+                  className={`p-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
+                    molecularStep === st.id
+                      ? 'bg-rose-600 text-white shadow'
+                      : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {isArabic ? st.labelAr : st.labelEn}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  const renderActionBar = () => (
+    <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+      <div className="flex items-center justify-between gap-4">
+        <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+          <Zap className="w-3.5 h-3.5 text-rose-400" />
+          <span>{isArabic ? 'التحكم العام في انقباض الساركومير:' : 'Master Sarcomere Contraction Slider:'}</span>
+        </label>
+        <span className="text-xs font-mono font-black text-rose-400">
+          {sarcomereLength <= 1.88
+            ? isArabic ? 'انقباض تام (تختفي H)' : 'Full Contraction (H disappears)'
+            : sarcomereLength >= 2.7
+            ? isArabic ? 'انبساط كامل (أقصى اتساع لـ H)' : 'Full Relaxation (Max H)'
+            : isArabic ? 'انقباض جزئي' : 'Partial Contraction'}
+        </span>
+      </div>
+
+      <input
+        type="range"
+        min="1.8"
+        max="2.8"
+        step="0.02"
+        value={sarcomereLength}
+        onChange={(e) => setSarcomereLength(parseFloat(e.target.value))}
+        className="w-full accent-rose-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+      />
+
+      {/* Action Controls & Presets */}
+      <div className="flex items-center justify-between flex-wrap gap-2 pt-0.5">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleAnimateTwitch}
+            disabled={isAnimating}
+            className="px-3.5 py-1.5 rounded-xl text-xs font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-1.5 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+          >
+            <Play className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'تشغيل هزة عضلية كاملة (Twitch Cycle)' : 'Animate Muscle Twitch (60 FPS)'}</span>
+          </button>
+
+          <button
+            onClick={handleReset}
+            className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'إعادة ضبط' : 'Reset'}</span>
+          </button>
+        </div>
+
+        {/* Quick Presets */}
+        <div className="flex items-center gap-1.5">
+          <span className="text-[11px] text-slate-400 font-semibold mr-1">
+            {isArabic ? 'حالات جاهزة:' : 'Presets:'}
+          </span>
+          <button
+            onClick={() => applyPreset('resting')}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+          >
+            {isArabic ? 'انبساط' : 'Resting'}
+          </button>
+          <button
+            onClick={() => applyPreset('partial')}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
+          >
+            {isArabic ? 'جزئي' : 'Partial'}
+          </button>
+          <button
+            onClick={() => applyPreset('max')}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-rose-300 transition-all cursor-pointer"
+          >
+            {isArabic ? 'انقباض تام' : 'Full'}
+          </button>
+          <button
+            onClick={() => applyPreset('rigor')}
+            className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 border border-rose-800/60 transition-all cursor-pointer"
+          >
+            {isArabic ? 'شد عضلي' : 'Rigor'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // FULL-SCREEN WORKSTATION MODE
+  if (isFullscreen) {
+    return (
+      <div
+        className={`fixed inset-0 z-50 w-screen h-screen overflow-hidden flex flex-col p-2 sm:p-3 transition-colors select-none ${
+          isContrast
+            ? 'bg-black text-white'
+            : isLight
+            ? 'bg-slate-100 text-slate-900'
+            : 'bg-slate-950 text-slate-100'
+        }`}
+        dir={isArabic ? 'rtl' : 'ltr'}
+      >
+        {/* Top Header Bar */}
+        <div className="h-12 shrink-0 px-3 py-1.5 rounded-2xl border border-rose-500/30 bg-gradient-to-r from-rose-500/10 via-pink-500/5 to-transparent flex items-center justify-between gap-2 backdrop-blur-md">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="p-1.5 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white shadow-xs shrink-0">
+              <Activity className="w-4 h-4 animate-pulse" />
+            </div>
+            <h3 className="text-xs sm:text-sm font-black tracking-tight truncate">
+              {isArabic
+                ? 'محاكي انقباض العضلات الهيكلية متعدد المقاييس'
+                : 'Multi-Scale Skeletal Muscle Contraction Simulator'}
+            </h3>
+          </div>
+
+          {/* 4-Scale Zoom Selector Buttons */}
+          <div
+            className={`flex items-center p-0.5 rounded-xl border flex-wrap gap-1 ${
+              isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'
+            }`}
+          >
+            {[
+              { level: 1 as ZoomLevel, labelEn: '1. Arm', labelAr: '١. الذراع' },
+              { level: 2 as ZoomLevel, labelEn: '2. Fascicle', labelAr: '٢. الحزمة' },
+              { level: 3 as ZoomLevel, labelEn: '3. Sarcomere', labelAr: '٣. الساركومير' },
+              { level: 4 as ZoomLevel, labelEn: '4. Actin/Myosin', labelAr: '٤. الروابط' },
+            ].map((sc) => (
+              <button
+                key={sc.level}
+                onClick={() => setZoomLevel(sc.level)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  zoomLevel === sc.level
+                    ? 'bg-rose-600 text-white shadow-xs'
+                    : isLight
+                    ? 'text-slate-700 hover:text-slate-900'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {isArabic ? sc.labelAr : sc.labelEn}
+              </button>
+            ))}
+          </div>
+
+          {/* Fullscreen Exit Button */}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="px-2.5 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/50"
+            title={isArabic ? 'تصغير الشاشة (Esc)' : 'Exit Fullscreen (Esc)'}
+          >
+            <Minimize2 className="w-3.5 h-3.5 text-rose-400" />
+            <span className="hidden sm:inline">{isArabic ? 'تصغير' : 'Exit'}</span>
+          </button>
+        </div>
+
+        {/* Main Split Stage */}
+        <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 my-2 overflow-hidden">
+          {/* Canvas Viewport */}
+          <div className="lg:col-span-8 h-full min-h-0 flex flex-col rounded-2xl overflow-hidden [&>*]:flex-1 [&>*]:!min-h-0 [&>*]:h-full [&>*]:w-full [&>*]:!aspect-auto">
+            <CanvasSimulationViewport
+              key={`sarcomere-scale-${zoomLevel}`}
+              id={`sarcomere-scale-${zoomLevel}`}
+              lang={lang}
+              theme={theme}
+              animated={true}
+              onRender={handleViewportRender}
+            />
+          </div>
+
+          {/* Scale HUD Readouts */}
+          <div className="lg:col-span-4 h-full min-h-0 overflow-y-auto pr-1">
+            {renderScaleHud()}
+          </div>
+        </div>
+
+        {/* Bottom Action Bar */}
+        <div className="shrink-0">
+          {renderActionBar()}
+        </div>
+      </div>
+    );
+  }
+
+  // EMBEDDED FALLBACK MODE
   return (
     <div
       className={`rounded-2xl border p-4 sm:p-6 transition-all ${
@@ -1579,32 +1992,45 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           </p>
         </div>
 
-        {/* 4-Scale Zoom Selector Buttons */}
-        <div
-          className={`flex items-center p-1 rounded-xl border flex-wrap gap-1 ${
-            isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'
-          }`}
-        >
-          {[
-            { level: 1 as ZoomLevel, labelEn: '1. Arm (Macro)', labelAr: '١. العضو (الذراع)' },
-            { level: 2 as ZoomLevel, labelEn: '2. Fascicle (Tissue)', labelAr: '٢. النسيج (الحزمة)' },
-            { level: 3 as ZoomLevel, labelEn: '3. Sarcomere (Cell)', labelAr: '٣. الخلية (الساركومير)' },
-            { level: 4 as ZoomLevel, labelEn: '4. Actin/Myosin (Nano)', labelAr: '٤. الجزيء (الروابط)' },
-          ].map((sc) => (
-            <button
-              key={sc.level}
-              onClick={() => setZoomLevel(sc.level)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                zoomLevel === sc.level
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : isLight
-                  ? 'text-slate-700 hover:text-slate-900'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              {isArabic ? sc.labelAr : sc.labelEn}
-            </button>
-          ))}
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* 4-Scale Zoom Selector Buttons */}
+          <div
+            className={`flex items-center p-1 rounded-xl border flex-wrap gap-1 ${
+              isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'
+            }`}
+          >
+            {[
+              { level: 1 as ZoomLevel, labelEn: '1. Arm (Macro)', labelAr: '١. العضو (الذراع)' },
+              { level: 2 as ZoomLevel, labelEn: '2. Fascicle (Tissue)', labelAr: '٢. النسيج (الحزمة)' },
+              { level: 3 as ZoomLevel, labelEn: '3. Sarcomere (Cell)', labelAr: '٣. الخلية (الساركومير)' },
+              { level: 4 as ZoomLevel, labelEn: '4. Actin/Myosin (Nano)', labelAr: '٤. الجزيء (الروابط)' },
+            ].map((sc) => (
+              <button
+                key={sc.level}
+                onClick={() => setZoomLevel(sc.level)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  zoomLevel === sc.level
+                    ? 'bg-rose-600 text-white shadow-sm'
+                    : isLight
+                    ? 'text-slate-700 hover:text-slate-900'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {isArabic ? sc.labelAr : sc.labelEn}
+              </button>
+            ))}
+          </div>
+
+          {/* Fullscreen Maximize Toggle */}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="px-3 py-1.5 rounded-xl text-xs font-black border flex items-center gap-1.5 shadow-sm transition-all cursor-pointer bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/40"
+            title={isArabic ? 'ملء الشاشة' : 'Fullscreen'}
+          >
+            <Maximize2 className="w-3.5 h-3.5 text-rose-400" />
+            <span>{isArabic ? 'ملء الشاشة' : 'Fullscreen'}</span>
+          </button>
         </div>
       </div>
 
@@ -1613,7 +2039,8 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         {/* Continuous 60 FPS Canvas Simulation Viewport */}
         <div className="lg:col-span-8 flex flex-col justify-between">
           <CanvasSimulationViewport
-            id={`sarcomere-scale-${zoomLevel}`}
+            key={`sarcomere-scale-embed-${zoomLevel}`}
+            id={`sarcomere-scale-embed-${zoomLevel}`}
             lang={lang}
             theme={theme}
             aspectRatio="aspect-[16/10]"
@@ -1625,277 +2052,13 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
         {/* Scale-Specific Educational HUD & Readouts */}
         <div className="lg:col-span-4 space-y-4">
-          {/* Zoom 1 HUD: Biomechanics Readout */}
-          {zoomLevel === 1 && (
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-                <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
-                  {isArabic ? 'الميكانيكا الحيوية للذراع:' : 'Biomechanics Readout:'}
-                </span>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-400">{isArabic ? 'زاوية مفصل الكوع:' : 'Elbow Joint Angle:'}</span>
-                  <span className="font-mono text-emerald-400 font-bold">{Math.round(armAngle)}°</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-400">{isArabic ? 'حالة العضلة ذات الرأسين:' : 'Biceps State:'}</span>
-                  <span className="font-mono text-rose-400 font-bold">
-                    {contractionPercent > 70
-                      ? isArabic ? 'انقباض قوي (انتفاخ البطن)' : 'Fully Contracted (Bulged)'
-                      : contractionPercent > 20
-                      ? isArabic ? 'انقباض جزئي' : 'Partial Flexion'
-                      : isArabic ? 'انبساط (طول راحة)' : 'Relaxed / Extended'}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-400">{isArabic ? 'العضلة المقابلة (Triceps):' : 'Antagonistic Triceps:'}</span>
-                  <span className="font-mono text-sky-400 font-semibold">{isArabic ? 'منبسطة' : 'Relaxed'}</span>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200">
-                <Sparkles className="w-4 h-4 text-amber-400 inline mr-1" />
-                <span>
-                  {isArabic
-                    ? 'قاعدة وزارية: تتصل العضلة الهيكلية بالعظام عبر الأوتار (نسيج ضام ليفي قوي غير مرن)، فتنقل قوة انقباض الساركوميرات إلى العظام مسببة الحركة عند المفاصل.'
-                    : 'Ministerial Core Concept: Skeletal muscles attach to bones via inelastic tendons, translating microscopic sarcomere shortening into macroscopic skeletal joint movement.'}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Zoom 2 HUD: Hierarchical Tissue Anatomy */}
-          {zoomLevel === 2 && (
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
-                <span className="font-bold text-rose-400 block uppercase tracking-wider">
-                  {isArabic ? 'التسلسل الهيكلي للنسيج العضلي:' : 'Hierarchical Anatomy:'}
-                </span>
-                <p className="text-slate-300 leading-relaxed">
-                  {isArabic
-                    ? 'تتكون العضلة من عدد كبير من الحزم العضلية (Fascicles) المحاطة بغشاء الحزمة (Perimysium). وتحتوي كل حزمة على مجموعة ألياف عضلية (خلايا أسطوانية عديدة الأنوية) يتراوح عددها بين ٥ إلى ١٠٠ ليفة.'
-                    : 'The whole muscle consists of fascicles surrounded by perimysium. Each fascicle houses 5 to 100 multinucleated muscle fibers (cells), each packed with 1,000 to 2,000 myofibrils.'}
-                </p>
-                <div className="p-2 rounded bg-slate-950 border border-slate-800 font-mono text-emerald-400 text-[11px]">
-                  {isArabic ? '١ ليفة عضلية = ١٠٠٠ إلى ٢٠٠٠ لييفة' : '1 Muscle Fiber = 1,000–2,000 Myofibrils'}
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 text-xs text-purple-200">
-                <Info className="w-4 h-4 text-purple-400 inline mr-1" />
-                <span>
-                  {isArabic
-                    ? 'الأغشية الضامة: غشاء العضلة (Epimysium) ⟵ غشاء الحزمة (Perimysium) ⟵ غشاء الليفة (Endomysium / Sarcolemma).'
-                    : 'Connective Sheaths: Epimysium (outer muscle) ⟶ Perimysium (fascicle) ⟶ Endomysium/Sarcolemma (muscle fiber cell).'}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Zoom 3 HUD: Quantitative Band Status Table */}
-          {zoomLevel === 3 && (
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5 text-xs">
-                <h4 className="font-black text-rose-400 flex items-center gap-1.5 mb-2">
-                  <Info className="w-4 h-4" />
-                  <span>{isArabic ? 'جدول القياسات الدقيقة للمناطق:' : 'Quantitative Band Status:'}</span>
-                </h4>
-                <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">{isArabic ? 'المسافة بين خطي Z:' : 'Z-Discs Distance:'}</span>
-                  <span className="font-mono font-bold text-emerald-400">
-                    {isArabic ? `${toHindiDigits(sarcomereLength.toFixed(2))} µm` : `${sarcomereLength.toFixed(2)} µm`}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">{isArabic ? 'المنطقة H (شبه المضيئة):' : 'H-Zone Width:'}</span>
-                  <span className="font-mono font-bold text-amber-400">
-                    {hZoneLength === 0
-                      ? isArabic ? '٠ µm (تنعدم تماماً)' : '0 µm (Vanished)'
-                      : `${sarcomereLength <= 1.85 ? '0.00' : hZoneLength.toFixed(2)} µm`}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">{isArabic ? 'المنطقة A (الداكنة):' : 'A-Band Length:'}</span>
-                  <span className="font-mono font-bold text-purple-400">{aBandLength.toFixed(2)} µm ({isArabic ? 'ثابتة' : 'Constant'})</span>
-                </div>
-                <div className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                  <span className="text-slate-300">{isArabic ? 'المنطقة I (المضيئة):' : 'I-Band Length:'}</span>
-                  <span className="font-mono font-bold text-orange-400">{iBandTotal.toFixed(2)} µm ({isArabic ? 'تقل' : 'Shortens'})</span>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-200">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 inline mr-1" />
-                <span>
-                  {isArabic
-                    ? 'نظرية الخيوط المنزلقة (هكسلي): تنزلق خيوط الأكتين باتجاه خط M بمساعدة الروابط المستعرضة للميوسين، فيقل طول القطعة العضلية وتختفي المنطقة H ويبقى طول المنطقة A ثابتاً.'
-                    : "Huxley's Sliding Filament: Actin filaments slide toward the M-line pulled by myosin cross-bridges. The sarcomere shortens, H-zone vanishes, while A-band length remains constant."}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Zoom 4 HUD: Huxley Cross-Bridge Molecular Controls */}
-          {zoomLevel === 4 && (
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-                <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
-                  {isArabic ? 'المتحكمات الكيميائية الحيوية:' : 'Biochemical Sliders:'}
-                </span>
-
-                {/* Ca2+ Slider */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">{isArabic ? 'تركيز أيونات الكالسيوم (Ca²⁺):' : 'Calcium (Ca²⁺) Level:'}</span>
-                    <span className="font-mono text-cyan-400 font-bold">{caLevel}%</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={caLevel}
-                    onChange={(e) => setCaLevel(parseInt(e.target.value))}
-                    className="w-full accent-cyan-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                </div>
-
-                {/* ATP Slider */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-400">{isArabic ? 'مستوى جزيئات ATP:' : 'Cellular ATP Level:'}</span>
-                    <span className="font-mono text-amber-400 font-bold">{atpLevel}%</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={atpLevel}
-                    onChange={(e) => setAtpLevel(parseInt(e.target.value))}
-                    className="w-full accent-amber-500 cursor-pointer h-1.5 bg-slate-800 rounded-lg"
-                  />
-                </div>
-
-                {/* Rigor Mortis Alert */}
-                {isRigorMortis && (
-                  <div className="p-3 rounded-xl bg-rose-950/40 border border-rose-500 text-rose-200 text-xs flex items-start gap-2 animate-pulse">
-                    <AlertTriangle className="w-4 h-4 shrink-0 text-rose-400 mt-0.5" />
-                    <div>
-                      <span className="font-bold">
-                        {isArabic ? 'حالة شد عضلي مؤلم (Rigor Mortis):' : 'Severe Muscle Spasm Triggered:'}
-                      </span>
-                      <p className="text-[10px] text-rose-300 mt-0.5">
-                        {isArabic
-                          ? 'نقص جزيئات ATP يمنع انفصال الروابط المستعرضة عن الأكتين، فتظل العضلة في حالة انقباض مستمر.'
-                          : 'Depleted ATP halts cross-bridge detachment, locking myosin heads onto actin filaments.'}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Step Navigation Buttons */}
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
-                  {[
-                    { id: 1, labelEn: '1. Ca²⁺ Binds', labelAr: '١. ارتباط الكالسيوم' },
-                    { id: 2, labelEn: '2. Cross-Bridge', labelAr: '٢. تكوين الرابطة' },
-                    { id: 3, labelEn: '3. Power Stroke', labelAr: '٣. حركة الشد' },
-                    { id: 4, labelEn: '4. ATP Detachment', labelAr: '٤. انفصال بـ ATP' },
-                  ].map((st) => (
-                    <button
-                      key={st.id}
-                      onClick={() => setMolecularStep(st.id)}
-                      className={`p-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
-                        molecularStep === st.id
-                          ? 'bg-rose-600 text-white shadow'
-                          : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
-                      }`}
-                    >
-                      {isArabic ? st.labelAr : st.labelEn}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+          {renderScaleHud()}
         </div>
       </div>
 
       {/* Global Mechanical Sliders & Action Bar (Available across all zoom scales) */}
-      <div className="mt-5 p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
-        <div className="flex items-center justify-between gap-4">
-          <label className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-rose-400" />
-            <span>{isArabic ? 'التحكم العام في انقباض الساركومير:' : 'Master Sarcomere Contraction Slider:'}</span>
-          </label>
-          <span className="text-xs font-mono font-black text-rose-400">
-            {sarcomereLength <= 1.88
-              ? isArabic ? 'انقباض تام (تختفي H)' : 'Full Contraction (H disappears)'
-              : sarcomereLength >= 2.7
-              ? isArabic ? 'انبساط كامل (أقصى اتساع لـ H)' : 'Full Relaxation (Max H)'
-              : isArabic ? 'انقباض جزئي' : 'Partial Contraction'}
-          </span>
-        </div>
-
-        <input
-          type="range"
-          min="1.8"
-          max="2.8"
-          step="0.02"
-          value={sarcomereLength}
-          onChange={(e) => setSarcomereLength(parseFloat(e.target.value))}
-          className="w-full accent-rose-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
-        />
-
-        {/* Action Controls & Presets */}
-        <div className="flex items-center justify-between flex-wrap gap-3 pt-1">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleAnimateTwitch}
-              disabled={isAnimating}
-              className="px-4 py-2 rounded-xl text-xs font-black bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center gap-1.5 shadow-md shadow-rose-600/30 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
-            >
-              <Play className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'تشغيل هزة عضلية كاملة (Twitch Cycle)' : 'Animate Muscle Twitch (60 FPS)'}</span>
-            </button>
-
-            <button
-              onClick={handleReset}
-              className="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700 flex items-center gap-1.5 transition-all cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'إعادة ضبط' : 'Reset'}</span>
-            </button>
-          </div>
-
-          {/* Quick Presets */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-[11px] text-slate-400 font-semibold mr-1">
-              {isArabic ? 'حالات جاهزة:' : 'Presets:'}
-            </span>
-            <button
-              onClick={() => applyPreset('resting')}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
-            >
-              {isArabic ? 'انبساط' : 'Resting'}
-            </button>
-            <button
-              onClick={() => applyPreset('partial')}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-300 transition-all cursor-pointer"
-            >
-              {isArabic ? 'جزئي' : 'Partial'}
-            </button>
-            <button
-              onClick={() => applyPreset('max')}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-800/80 hover:bg-slate-700 text-rose-300 transition-all cursor-pointer"
-            >
-              {isArabic ? 'انقباض تام' : 'Full'}
-            </button>
-            <button
-              onClick={() => applyPreset('rigor')}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 border border-rose-800/60 transition-all cursor-pointer"
-            >
-              {isArabic ? 'شد عضلي' : 'Rigor'}
-            </button>
-          </div>
-        </div>
+      <div className="mt-5">
+        {renderActionBar()}
       </div>
     </div>
   );

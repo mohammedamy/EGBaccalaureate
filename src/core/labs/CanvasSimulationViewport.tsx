@@ -91,7 +91,7 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
     if (!containerRef.current || !canvasRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const w = Math.max(rect.width, 100);
-    const h = Math.max(rect.height, minHeight);
+    const h = Math.max(rect.height > 0 ? rect.height : minHeight, 100);
 
     const curDpr = Math.min(window.devicePixelRatio || 1, 2);
     setDpr(curDpr);
@@ -346,7 +346,7 @@ export const CanvasSimulationViewport: React.FC<CanvasSimulationViewportProps> =
           ? 'border-slate-200 bg-slate-50'
           : 'border-slate-800 bg-slate-950'
       } ${aspectRatio} ${className}`}
-      style={{ minHeight: `${minHeight}px` }}
+      style={minHeight && !className.includes('min-h-0') && !className.includes('h-full') ? { minHeight: `${minHeight}px` } : undefined}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* HTML5 High-Performance Canvas */}
