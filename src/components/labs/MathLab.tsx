@@ -110,7 +110,7 @@ export const MathLab: React.FC<Props> = ({
               🧭 {isArabic ? 'التفاضل والمماسات الديناميكية' : 'Calculus & Tangents'}
             </option>
             <option value="geometry3d" className="bg-slate-900 text-white">
-              📦 {isArabic ? 'الهندسة الفراغية 3D والمتجهات' : '3D Vectors & Planes'}
+              📦 {isArabic ? 'الهندسة الفراغية 3D (المتجهات، الكرة، والمستويات)' : '3D Solid Geometry (Vectors, Sphere & Planes)'}
             </option>
             <option value="mechanics" className="bg-slate-900 text-white">
               ⚙️ {isArabic ? 'الاستاتيكا والميكانيكا الكلاسيكية (المستوى التفاعلي)' : 'Statics & Classical Mechanics (Tier-1 Lab)'}
