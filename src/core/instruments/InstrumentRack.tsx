@@ -223,7 +223,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
                 </div>
               </div>
               {!minimized.has('oscilloscope') && (
-                <div className="p-4 flex justify-center">
+                <div className="p-3 sm:p-4 w-full">
                   <DualTraceOscilloscope
                     channel1Signal={oscilloscopeCh1}
                     channel2Signal={oscilloscopeCh2}

@@ -226,7 +226,7 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
   }, [displayMode, timeDivMs, ch1VoltsDiv, ch2VoltsDiv, ch1OffsetDiv, ch2OffsetDiv, channel1Signal, channel2Signal, isRunning]);
 
   return (
-    <div className="bg-slate-900 border-2 border-slate-800 rounded-3xl p-5 shadow-2xl text-slate-100 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+    <div className="w-full bg-slate-900/95 border-2 border-slate-800/80 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Oscilloscope Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-3">
@@ -249,6 +249,7 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
         {/* Play/Pause & Mode Switcher */}
         <div className="flex items-center gap-2">
           <button
+            type="button"
             onClick={() => setIsRunning(!isRunning)}
             className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
               isRunning
@@ -264,6 +265,7 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
             {(['CH1', 'CH2', 'DUAL', 'XY'] as const).map((mode) => (
               <button
                 key={mode}
+                type="button"
                 onClick={() => setDisplayMode(mode)}
                 className={`px-2.5 py-1 rounded-lg transition-all ${
                   displayMode === mode
@@ -278,140 +280,191 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
         </div>
       </div>
 
-      {/* Screen & Live Measurements Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
-        {/* CRT Canvas Screen (Takes 3 columns on large screens) */}
-        <div className="lg:col-span-3 w-full h-80 rounded-2xl border-4 border-slate-950 overflow-hidden shadow-inner relative">
-          <canvas ref={canvasRef} className="w-full h-full block" />
+      {/* CRT Phosphor Screen (Full width on top) */}
+      <div className="w-full h-72 sm:h-80 md:h-96 mt-4 rounded-2xl border-4 border-slate-950 overflow-hidden shadow-2xl relative bg-[#03140e]">
+        <canvas ref={canvasRef} className="w-full h-full block" />
 
-          {/* On-screen readout overlay */}
-          <div className="absolute top-2 left-3 right-3 flex items-center justify-between text-[11px] font-mono pointer-events-none">
-            <div className="flex items-center gap-3">
-              <span className="text-amber-400 bg-black/60 px-2 py-0.5 rounded border border-amber-500/30">
-                CH1: {ch1VoltsDiv}V/DIV
+        {/* On-screen readout overlay */}
+        <div className="absolute top-2.5 left-3 right-3 flex items-center justify-between text-[11px] font-mono pointer-events-none select-none">
+          <div className="flex items-center gap-2">
+            <span className="text-amber-400 bg-black/75 px-2.5 py-0.5 rounded-lg border border-amber-500/30 backdrop-blur-sm shadow-sm">
+              CH1: {ch1VoltsDiv} V/DIV
+            </span>
+            {channel2Signal && (
+              <span className="text-sky-400 bg-black/75 px-2.5 py-0.5 rounded-lg border border-sky-500/30 backdrop-blur-sm shadow-sm">
+                CH2: {ch2VoltsDiv} V/DIV
               </span>
-              {channel2Signal && (
-                <span className="text-sky-400 bg-black/60 px-2 py-0.5 rounded border border-sky-500/30">
-                  CH2: {ch2VoltsDiv}V/DIV
-                </span>
-              )}
-            </div>
-            <span className="text-emerald-400 bg-black/60 px-2 py-0.5 rounded border border-emerald-500/30">
-              TIME: {timeDivMs} ms/DIV
+            )}
+          </div>
+          <span className="text-emerald-400 bg-black/75 px-2.5 py-0.5 rounded-lg border border-emerald-500/30 backdrop-blur-sm shadow-sm">
+            TIME: {timeDivMs} ms/DIV
+          </span>
+        </div>
+      </div>
+
+      {/* Control Console Deck (Spacious 3 columns below CRT screen) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mt-4">
+        {/* Channel 1 Controls */}
+        <div className="p-3.5 bg-slate-950/80 border border-amber-500/30 rounded-2xl space-y-2.5 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-800/80">
+            <span className="font-bold text-amber-400 flex items-center gap-1.5">
+              <Radio className="w-3.5 h-3.5" />
+              {isAr ? 'القناة 1 (أصفر)' : 'CH1 (Yellow)'}
+            </span>
+            <span className="text-[11px] font-mono text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+              f: {channel1Signal.frequency} Hz
             </span>
           </div>
-        </div>
 
-        {/* Control Knobs & Metrics Panel */}
-        <div className="space-y-3 flex flex-col justify-between">
-          {/* Channel 1 Controls */}
-          <div className="p-3 bg-slate-950/80 border border-amber-500/30 rounded-2xl space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-amber-400 flex items-center gap-1.5">
-                <Radio className="w-3.5 h-3.5" />
-                CH1 (Yellow)
-              </span>
-              <span className="text-[10px] font-mono text-slate-400">
-                f: {channel1Signal.frequency} Hz
-              </span>
-            </div>
-            <div className="text-[11px] text-slate-400 flex items-center justify-between">
-              <span>Volts/Div:</span>
+          <div className="space-y-2">
+            <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+              <span className="whitespace-nowrap">{isAr ? 'معايرة الجهد:' : 'Volts/Div:'}</span>
               <select
                 value={ch1VoltsDiv}
                 onChange={e => setCh1VoltsDiv(parseFloat(e.target.value))}
-                className="bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-amber-300 font-mono text-xs focus:outline-none"
+                className="bg-slate-900 border border-amber-500/40 rounded-lg px-2.5 py-1 text-amber-300 font-mono text-xs min-w-[5.5rem] focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer"
               >
                 {voltsDivOptions.map(v => (
-                  <option key={v} value={v}>{v} V</option>
+                  <option key={v} value={v}>{v} V/DIV</option>
                 ))}
               </select>
             </div>
-            <div className="text-[11px] text-slate-400 flex items-center justify-between">
-              <span>Y-Offset:</span>
-              <input
-                type="range"
-                min="-3"
-                max="3"
-                step="0.5"
-                value={ch1OffsetDiv}
-                onChange={e => setCh1OffsetDiv(parseFloat(e.target.value))}
-                className="w-24 h-1 bg-slate-800 rounded accent-amber-500"
-              />
-            </div>
-            <div className="text-[10px] font-mono text-slate-300 space-y-0.5 pt-1 border-t border-slate-800">
-              <div>Vpp: {(channel1Signal.amplitude * 2).toFixed(2)} V</div>
-              <div>Vrms: {(channel1Signal.amplitude * 0.707).toFixed(2)} V</div>
-            </div>
-          </div>
 
-          {/* Channel 2 Controls */}
-          {channel2Signal ? (
-            <div className="p-3 bg-slate-950/80 border border-sky-500/30 rounded-2xl space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-sky-400 flex items-center gap-1.5">
-                  <Radio className="w-3.5 h-3.5" />
-                  CH2 (Cyan)
-                </span>
-                <span className="text-[10px] font-mono text-slate-400">
-                  f: {channel2Signal.frequency} Hz
-                </span>
-              </div>
-              <div className="text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Volts/Div:</span>
-                <select
-                  value={ch2VoltsDiv}
-                  onChange={e => setCh2VoltsDiv(parseFloat(e.target.value))}
-                  className="bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-sky-300 font-mono text-xs focus:outline-none"
-                >
-                  {voltsDivOptions.map(v => (
-                    <option key={v} value={v}>{v} V</option>
-                  ))}
-                </select>
-              </div>
-              <div className="text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Y-Offset:</span>
+            <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+              <span className="whitespace-nowrap">{isAr ? 'إزاحة Y:' : 'Y-Offset:'}</span>
+              <div className="flex items-center gap-2 flex-1 justify-end" dir="ltr">
                 <input
                   type="range"
                   min="-3"
                   max="3"
                   step="0.5"
-                  value={ch2OffsetDiv}
-                  onChange={e => setCh2OffsetDiv(parseFloat(e.target.value))}
-                  className="w-24 h-1 bg-slate-800 rounded accent-sky-500"
+                  value={ch1OffsetDiv}
+                  onChange={e => setCh1OffsetDiv(parseFloat(e.target.value))}
+                  className="w-24 sm:w-28 h-1.5 bg-slate-800 rounded-lg accent-amber-500 cursor-pointer"
                 />
-              </div>
-              <div className="text-[10px] font-mono text-slate-300 space-y-0.5 pt-1 border-t border-slate-800">
-                <div>Phase Δφ: {Math.abs(channel1Signal.phaseDeg - channel2Signal.phaseDeg)}°</div>
-                <div>Vpp: {(channel2Signal.amplitude * 2).toFixed(2)} V</div>
+                <span className="font-mono text-[11px] text-amber-400 min-w-[48px] text-right">
+                  {ch1OffsetDiv >= 0 ? `+${ch1OffsetDiv.toFixed(1)}` : ch1OffsetDiv.toFixed(1)} div
+                </span>
               </div>
             </div>
-          ) : (
-            <div className="p-3 bg-slate-950/40 border border-slate-800 rounded-2xl text-center text-xs text-slate-500">
-              CH2 Inactive
-            </div>
-          )}
+          </div>
 
-          {/* Timebase Control */}
-          <div className="p-3 bg-slate-950/80 border border-emerald-500/30 rounded-2xl space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-emerald-400 flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5" />
-                {isAr ? 'قاعدة الزمن' : 'Timebase'}
+          <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px]">
+            <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800 text-center">
+              <div className="text-[9px] text-slate-400 uppercase tracking-wider">Vpp</div>
+              <div className="text-amber-300 font-bold">{(channel1Signal.amplitude * 2).toFixed(2)} V</div>
+            </div>
+            <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800 text-center">
+              <div className="text-[9px] text-slate-400 uppercase tracking-wider">Vrms</div>
+              <div className="text-amber-300 font-bold">{(channel1Signal.amplitude * 0.707).toFixed(2)} V</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Channel 2 Controls */}
+        {channel2Signal ? (
+          <div className="p-3.5 bg-slate-950/80 border border-sky-500/30 rounded-2xl space-y-2.5 flex flex-col justify-between">
+            <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-800/80">
+              <span className="font-bold text-sky-400 flex items-center gap-1.5">
+                <Radio className="w-3.5 h-3.5" />
+                {isAr ? 'القناة 2 (سماوي)' : 'CH2 (Cyan)'}
+              </span>
+              <span className="text-[11px] font-mono text-sky-300 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
+                f: {channel2Signal.frequency} Hz
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 flex items-center justify-between">
-              <span>Time/Div:</span>
+
+            <div className="space-y-2">
+              <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+                <span className="whitespace-nowrap">{isAr ? 'معايرة الجهد:' : 'Volts/Div:'}</span>
+                <select
+                  value={ch2VoltsDiv}
+                  onChange={e => setCh2VoltsDiv(parseFloat(e.target.value))}
+                  className="bg-slate-900 border border-sky-500/40 rounded-lg px-2.5 py-1 text-sky-300 font-mono text-xs min-w-[5.5rem] focus:outline-none focus:ring-1 focus:ring-sky-400 cursor-pointer"
+                >
+                  {voltsDivOptions.map(v => (
+                    <option key={v} value={v}>{v} V/DIV</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+                <span className="whitespace-nowrap">{isAr ? 'إزاحة Y:' : 'Y-Offset:'}</span>
+                <div className="flex items-center gap-2 flex-1 justify-end" dir="ltr">
+                  <input
+                    type="range"
+                    min="-3"
+                    max="3"
+                    step="0.5"
+                    value={ch2OffsetDiv}
+                    onChange={e => setCh2OffsetDiv(parseFloat(e.target.value))}
+                    className="w-24 sm:w-28 h-1.5 bg-slate-800 rounded-lg accent-sky-500 cursor-pointer"
+                  />
+                  <span className="font-mono text-[11px] text-sky-400 min-w-[48px] text-right">
+                    {ch2OffsetDiv >= 0 ? `+${ch2OffsetDiv.toFixed(1)}` : ch2OffsetDiv.toFixed(1)} div
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px]">
+              <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800 text-center">
+                <div className="text-[9px] text-slate-400 uppercase tracking-wider">Vpp</div>
+                <div className="text-sky-300 font-bold">{(channel2Signal.amplitude * 2).toFixed(2)} V</div>
+              </div>
+              <div className="bg-slate-900/80 p-1.5 rounded-lg border border-slate-800 text-center">
+                <div className="text-[9px] text-slate-400 uppercase tracking-wider">Phase Δφ</div>
+                <div className="text-sky-300 font-bold">{Math.abs(channel1Signal.phaseDeg - channel2Signal.phaseDeg)}°</div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="p-3.5 bg-slate-950/40 border border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center text-xs text-slate-500 min-h-[140px]">
+            <Radio className="w-6 h-6 mb-2 opacity-30" />
+            <span>{isAr ? 'القناة 2 غير مفعلة' : 'CH2 Inactive (Single Channel Input)'}</span>
+          </div>
+        )}
+
+        {/* Timebase Control */}
+        <div className="p-3.5 bg-slate-950/80 border border-emerald-500/30 rounded-2xl space-y-2.5 flex flex-col justify-between">
+          <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-800/80">
+            <span className="font-bold text-emerald-400 flex items-center gap-1.5">
+              <Sliders className="w-3.5 h-3.5" />
+              {isAr ? 'قاعدة الزمن' : 'Timebase (Horizontal)'}
+            </span>
+            <span className="text-[11px] font-mono text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              {timeDivMs} ms/DIV
+            </span>
+          </div>
+
+          <div className="space-y-2">
+            <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+              <span className="whitespace-nowrap">{isAr ? 'معايرة الزمن:' : 'Time/Div:'}</span>
               <select
                 value={timeDivMs}
                 onChange={e => setTimeDivMs(parseFloat(e.target.value))}
-                className="bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-300 font-mono text-xs focus:outline-none"
+                className="bg-slate-900 border border-emerald-500/40 rounded-lg px-2.5 py-1 text-emerald-300 font-mono text-xs min-w-[5.5rem] focus:outline-none focus:ring-1 focus:ring-emerald-400 cursor-pointer"
               >
                 {timeDivOptions.map(t => (
-                  <option key={t} value={t}>{t} ms</option>
+                  <option key={t} value={t}>{t} ms/DIV</option>
                 ))}
               </select>
             </div>
+
+            <div className="text-xs text-slate-300 flex items-center justify-between gap-2">
+              <span className="whitespace-nowrap">{isAr ? 'نمط العرض:' : 'Mode:'}</span>
+              <span className="font-mono text-xs font-bold text-emerald-300 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
+                {displayMode}
+              </span>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+            <span className="text-slate-400">{isAr ? 'الحالة:' : 'Trigger Status:'}</span>
+            <span className="flex items-center gap-1.5 font-mono text-xs font-semibold text-emerald-400">
+              <span className={`w-2 h-2 rounded-full ${isRunning ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
+              {isRunning ? 'AUTO (RUN)' : 'HOLD (STOP)'}
+            </span>
           </div>
         </div>
       </div>
