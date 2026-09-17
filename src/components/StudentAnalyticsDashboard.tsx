@@ -692,8 +692,8 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             </h3>
             <p className="text-xs text-slate-400">
               {isAr
-                ? 'امتحانات الدور الأول والدور الثاني والنماذج الاسترشادية التجريبية مطابقة تماماً للمواصفة الوزارية مع تصنيف الرتبة المئوية على مستوى الجمهورية'
-                : 'First & Second session papers and official experimental models with national percentile rankings and Republic Top 10 benchmarking.'}
+                ? 'امتحانات الدور الأول والدور الثاني والنماذج الاسترشادية التجريبية مطابقة تماماً للمواصفة الوزارية مع تصنيف الرتبة المئوية، ورقة بابل شيت (A4)، وشهادة تقدير وبيان درجات رسمي معتمد.'
+                : 'First & Second session papers and experimental models with national percentile rankings, printable A4 OMR bubble sheets, and official certified grade transcripts.'}
             </p>
           </div>
 
