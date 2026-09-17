@@ -8,6 +8,8 @@
  * 5. KaTeX mathematical formula balance and syntax validation.
  */
 
+import fs from 'fs';
+import path from 'path';
 import {
   getLabReportTemplate,
   computeTotalRubricMarks,
@@ -55,7 +57,31 @@ assert(partialScore.percentage === 92, `Percentage is 92% (got ${partialScore.pe
 // 2. Verify Configured Templates (Physics, Chemistry, Biology, Math)
 console.log('\n--- 2. Testing Experiment Templates & Data Schemas ---');
 const configuredExpIds = Object.keys(EXPERIMENT_CONFIGS);
-assert(configuredExpIds.length >= 10, `Has comprehensive template configs (${configuredExpIds.length} defined)`);
+assert(configuredExpIds.length === 25, `Has exactly 25 official curriculum experiment template configs (${configuredExpIds.length} defined)`);
+
+// Verify 100% sync with GuidedExperimentsModal
+const guidedModalPath = path.resolve(process.cwd(), 'src/components/labs/GuidedExperimentsModal.tsx');
+const guidedModalContent = fs.readFileSync(guidedModalPath, 'utf-8');
+const expIdMatches = Array.from(guidedModalContent.matchAll(/id:\s*'([a-z]+-exp-\d+)'/g)).map((m) => m[1]);
+assert(expIdMatches.length === 25, `GuidedExperimentsModal defines exactly 25 guided experiments (found ${expIdMatches.length})`);
+
+for (const modalExpId of expIdMatches) {
+  assert(
+    configuredExpIds.includes(modalExpId),
+    `[${modalExpId}] from GuidedExperimentsModal has matching official configuration in EXPERIMENT_CONFIGS`
+  );
+}
+
+// Check distribution across disciplines
+const disciplines = Object.values(EXPERIMENT_CONFIGS).map((e) => e.discipline);
+const physCount = disciplines.filter((d) => d === 'physics').length;
+const chemCount = disciplines.filter((d) => d === 'chemistry').length;
+const bioCount = disciplines.filter((d) => d === 'biology').length;
+const mathCount = disciplines.filter((d) => d === 'math').length;
+assert(physCount === 6, `Has 6 Physics experiments (got ${physCount})`);
+assert(chemCount === 5, `Has 5 Chemistry experiments (got ${chemCount})`);
+assert(bioCount === 9, `Has 9 Biology experiments (got ${bioCount})`);
+assert(mathCount === 5, `Has 5 Mathematics experiments (got ${mathCount})`);
 
 for (const expId of configuredExpIds) {
   const template = getLabReportTemplate(expId);

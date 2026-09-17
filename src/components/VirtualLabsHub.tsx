@@ -85,46 +85,46 @@ export const VirtualLabsHub: React.FC<Props> = ({
       id: 'physics' as LabId,
       titleEn: 'Physics Lab',
       titleAr: 'مختبر الفيزياء',
-      subtitleEn: 'Circuits, Semiconductors & Quantum Emission',
-      subtitleAr: 'دوائر كيرشوف، أشباه الموصلات، والظاهرة الكهروضوئية وأشعة إكس',
+      subtitleEn: '3D Quantum Atom, Circuits & Semiconductor Laser',
+      subtitleAr: 'استوديو الذرة الكمية 3D، دوائر كيرشوف وأشباه الموصلات والليزر',
       icon: Atom,
       color: 'cyan',
-      badge: '⚡ Semiconductors & X-Rays',
+      badge: '🔮 3D Atom & Laser',
       gradient: 'from-cyan-600 via-sky-600 to-blue-600',
       activeBg: 'bg-cyan-600 text-white shadow-cyan-600/30',
       tagline: isArabic
-        ? 'محاكي دوائر التيار، الوصلات الثنائية والترانزستور، وأنبوبة كولدج'
-        : 'DC circuits, p-n diodes & BJT transistors, Einstein photoelectrons & Coolidge X-rays',
+        ? 'استوديو تشتت رذرفورد وبور وليزر He-Ne ثلاثي الأبعاد، دوائر كيرشوف وأشباه الموصلات وأشعة إكس'
+        : '3D Rutherford & Bohr atom, He-Ne laser resonator, Kirchhoff circuits, p-n diodes & Coolidge X-rays',
     },
     {
       id: 'chemistry' as LabId,
       titleEn: 'Chemistry Lab',
       titleAr: 'مختبر الكيمياء',
-      subtitleEn: 'Organic Synthesis, Equilibrium & Metallurgy',
-      subtitleAr: 'تخليق المركبات العضوية، الاتزان، وتعدين الحديد والمعايرة',
+      subtitleEn: '3D VSEPR Molecules, Metallurgy Alloys & Equilibrium',
+      subtitleAr: 'هندسة الجزيئات الفراغية 3D، بلورات السبائك، والاتزان والتخليق العضوي',
       icon: FlaskConical,
       color: 'emerald',
-      badge: '🧪 Organic & Equilibrium',
+      badge: '🧬 3D VSEPR & Alloys',
       gradient: 'from-emerald-600 via-teal-600 to-green-600',
       activeBg: 'bg-emerald-600 text-white shadow-emerald-600/30',
       tagline: isArabic
-        ? 'توجيه حلقة البنزين، الأسترة، انزياح الاتزان وأفران الاختزال والـ pH'
-        : 'Benzene directing groups, esterification, dynamic equilibrium & metallurgy',
+        ? 'استوديو VSEPR ثلاثي الأبعاد والسبائك المعدنية، توجيه حلقة البنزين والأسترة والاتزان'
+        : '3D VSEPR molecular geometry, transition metal crystal alloys, benzene directing & esterification',
     },
     {
       id: 'biology' as LabId,
       titleEn: 'Biology Lab',
       titleAr: 'مختبر الأحياء',
-      subtitleEn: '206 Bones, Dynamic Immunity & Central Dogma',
-      subtitleAr: 'أطلس العظام، بلعمة المناعة وتثقيب البيرفورين، وترجمة DNA',
+      subtitleEn: '3D B-DNA Denaturation, tRNA, Chromatin & Skeletal Atlas',
+      subtitleAr: 'التهجين الحراري لـ DNA والكروماتين 3D، المناعة وأطلس العظام',
       icon: Dna,
       color: 'rose',
-      badge: '🧬 Immunity & Atlas',
+      badge: '🔮 3D DNA & Chromatin',
       gradient: 'from-rose-600 via-pink-600 to-purple-600',
       activeBg: 'bg-rose-600 text-white shadow-rose-600/30',
       tagline: isArabic
-        ? 'أطلس العظام، مراحل البلعمة وتثقيب الخلايا المصابة، ودعامة النبات والجينات'
-        : 'Skeletal atlas, macrophage phagocytosis & perforin pore lysis, plant support & DNA',
+        ? 'استوديو تفكك DNA عند 100°م والتحام tRNA وتكثيف الكروماتين 100,000x، وأطلس العظام والمناعة'
+        : '3D DNA 100°C denaturation & hybridization, tRNA codon recognition, 100,000x chromatin compaction & immunity',
     },
   ];
 

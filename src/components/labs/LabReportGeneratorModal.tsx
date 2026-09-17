@@ -40,7 +40,19 @@ interface Props {
   initialDiscipline?: LabDiscipline;
 }
 
-const ALL_EXPERIMENTS = Object.values(EXPERIMENT_CONFIGS);
+const DISCIPLINE_ORDER: Record<string, number> = {
+  physics: 1,
+  chemistry: 2,
+  biology: 3,
+  math: 4,
+};
+
+const ALL_EXPERIMENTS = Object.values(EXPERIMENT_CONFIGS).sort((a, b) => {
+  const discA = DISCIPLINE_ORDER[a.discipline] || 99;
+  const discB = DISCIPLINE_ORDER[b.discipline] || 99;
+  if (discA !== discB) return discA - discB;
+  return a.id.localeCompare(b.id, undefined, { numeric: true });
+});
 
 export const LabReportGeneratorModal: React.FC<Props> = ({
   isOpen,
