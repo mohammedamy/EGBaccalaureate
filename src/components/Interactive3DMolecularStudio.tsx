@@ -16,8 +16,11 @@ import {
   EyeOff,
   Volume2,
   VolumeX,
+  Printer,
 } from 'lucide-react';
 import { playPhotoelectricChirp, isAudioMuted, toggleAudioMuted } from '../utils/scienceAudio';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -296,6 +299,42 @@ export const Interactive3DMolecularStudio: React.FC<Props> = ({
   const [showDipoleVector, setShowDipoleVector] = useState<boolean>(true);
   const [isShearStressApplied, setIsShearStressApplied] = useState<boolean>(false);
   const [audioActive, setAudioActive] = useState<boolean>(!isAudioMuted());
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('chem-exp-5');
+    if (activeStudioMode === 'vsepr') {
+      const curMol = activeMolDef;
+      const liveRow = {
+        compound: isAr ? `${curMol.nameAr} (${curMol.formula})` : `${curMol.nameEn} (${curMol.formula})`,
+        vsepr_type: isAr ? `${curMol.geometryAr} (${curMol.hybridization})` : `${curMol.geometryEn} (${curMol.hybridization})`,
+        lone_pairs: `${curMol.lonePairs}`,
+        measured_angle: `${curMol.bondAngle.replace('°', '')}`,
+        mechanical_state: isAr ? curMol.polarityAr : curMol.polarityEn,
+      };
+      const existing = draft.dataTableRows.filter(
+        (r) => !r.compound.includes(curMol.formula)
+      );
+      draft.dataTableRows = [liveRow, ...existing];
+      draft.conclusionAr = `تم إثبات أن التنافر بين أزواج الإلكترونات الحرة يقلص زوايا الروابط، حيث سجل جزيء ${curMol.nameAr} زاوية ${curMol.bondAngle} بشكل هندسي ${curMol.geometryAr}.`;
+      draft.conclusionEn = `Empirically demonstrated that electron lone pair repulsion compresses bond angles, with ${curMol.nameEn} exhibiting ${curMol.bondAngle} bond angle in a ${curMol.geometryEn} geometry.`;
+    } else {
+      const curAlloy = activeAlloyDef;
+      const liveRow = {
+        compound: isAr ? curAlloy.nameAr : curAlloy.nameEn,
+        vsepr_type: isAr ? curAlloy.typeAr : curAlloy.typeEn,
+        lone_pairs: '-',
+        measured_angle: '-',
+        mechanical_state: isAr ? `صلادة: ${curAlloy.hardnessScore}/10` : `Hardness: ${curAlloy.hardnessScore}/10`,
+      };
+      draft.dataTableRows = [liveRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `أثبتت دراسة السبائك المجهرية أن إعاقة انزلاق الطبقات البلورية ترفع صلادة السبيكة إلى ${curAlloy.hardnessScore}/10 في ${curAlloy.nameAr} (${isAr ? curAlloy.slipResistanceAr : curAlloy.slipResistanceEn}).`;
+      draft.conclusionEn = `Microscopic metallurgical inspection verified that dislocation pinning increases hardness to ${curAlloy.hardnessScore}/10 for ${curAlloy.nameEn} (${curAlloy.slipResistanceEn}).`;
+    }
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
 
   // Three.js refs
   const mountRef = useRef<HTMLDivElement>(null);
@@ -1016,6 +1055,16 @@ export const Interactive3DMolecularStudio: React.FC<Props> = ({
           >
             {audioActive ? <Volume2 className="w-4 h-4 text-emerald-400" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
           </button>
+
+          <button
+            type="button"
+            onClick={handleOpenOfficialReportModal}
+            className="px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20"
+            title={isAr ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+          >
+            <Printer className="w-4 h-4 text-emerald-200" />
+            <span>{isAr ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+          </button>
         </div>
       </div>
 
@@ -1368,6 +1417,15 @@ export const Interactive3DMolecularStudio: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="chem-exp-5"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

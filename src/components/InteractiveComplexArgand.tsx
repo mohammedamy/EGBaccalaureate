@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { MathRenderer } from './MathRenderer';
 import type { Language } from '../i18n/translations';
 import { toHindiDigits } from '../utils/arabicNumerals';
+import { Printer } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -70,6 +73,29 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
   const toSvgX = (valX: number) => svgSize / 2 + valX * scale;
   const toSvgY = (valY: number) => svgSize / 2 - valY * scale;
 
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('math-exp-5');
+    const rootRows = roots.map((root) => {
+      const deg = Math.round((root.phi * 180) / Math.PI);
+      return {
+        k_index: `k = ${root.k}`,
+        root_arg: `${deg >= 0 ? deg : deg + 360}.0`,
+        rad_arg: `${root.phi.toFixed(3)} rad`,
+        root_real: `${root.x.toFixed(3)}`,
+        root_imag: `${root.y.toFixed(3)}`,
+      };
+    });
+
+    draft.dataTableRows = rootRows;
+    draft.conclusionAr = `تم التحقق عملياً من نظرية ديموافر للعدد المركب z = ${x} + ${y}i: المقياس r = ${r.toFixed(2)}، والسعة الأساسية θ = ${thetaDeg.toFixed(1)}°، وتتوزع الجذور النونية (n = ${rootN}) بتناظر دوري تام على دائرة نصف قطرها ${rN.toFixed(2)} بفارق زاوي ${Math.round(360 / rootN)}°.`;
+    draft.conclusionEn = `Empirically verified De Moivre's theorem for complex number z = ${x} + ${y}i: modulus r = ${r.toFixed(2)}, principal argument θ = ${thetaDeg.toFixed(1)}°, with ${rootN}-th roots symmetrically distributed on a circle of radius ${rN.toFixed(2)} at ${Math.round(360 / rootN)}° intervals.`;
+
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
+
   return (
     <div
       className={
@@ -108,6 +134,16 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
           }`}
         >
           🌀 {lang === 'ar' ? 'نظرية ديموافر والجذور النونية وأوميجا' : 'De Moivre, n-th Roots & Omega (ω)'}
+        </button>
+
+        <button
+          type="button"
+          onClick={handleOpenOfficialReportModal}
+          className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20 ltr:ml-auto rtl:mr-auto"
+          title={lang === 'ar' ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+        >
+          <Printer className="w-3.5 h-3.5 text-emerald-200" />
+          <span>{lang === 'ar' ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
         </button>
       </div>
 
@@ -521,6 +557,15 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
           </div>
         </div>
       )}
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="math-exp-5"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

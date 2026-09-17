@@ -8,7 +8,10 @@ import {
   Layers,
   Sparkles,
   RotateCcw,
+  Printer,
 } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -174,6 +177,36 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
   const [showRiemannRectangles, setShowRiemannRectangles] = useState<boolean>(true);
 
   const curFunc = FUNCTIONS_REGISTRY[funcKey];
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('math-exp-1');
+    const f0 = curFunc.f(pointX);
+    const fh = curFunc.f(pointX + stepH);
+    const secSlope = (fh - f0) / stepH;
+    const tanSlope = curFunc.df(pointX);
+
+    // Populate dynamic trial row based on live student experimentation
+    const liveRow = {
+      trial: isArabic ? `نقطة التماس (${pointX.toFixed(2)})` : `Tangent Pt (${pointX.toFixed(2)})`,
+      h_val: `${stepH.toFixed(3)}`,
+      secant_pt: `(${ (pointX + stepH).toFixed(2) }, ${ fh.toFixed(3) })`,
+      secant_slope: `${secSlope.toFixed(3)}`,
+      tangent_slope: `${tanSlope.toFixed(3)}`,
+    };
+
+    const existing = draft.dataTableRows.filter(
+      (r) => !r.trial.includes('Tangent Pt') && !r.trial.includes('نقطة التماس')
+    );
+    draft.dataTableRows = [liveRow, ...existing];
+
+    draft.conclusionAr = `تم التحقق عملياً من أن ميل القاطع (${secSlope.toFixed(3)}) عند اقتراب h (${stepH.toFixed(3)}) يؤول بدقة متناهية إلى ميل المماس النظري المشتقة الأولى f'(${pointX.toFixed(2)}) = ${tanSlope.toFixed(3)} بفارق تقارب |Δm| = ${Math.abs(secSlope - tanSlope).toFixed(4)}.`;
+    draft.conclusionEn = `Empirically verified that secant slope (${secSlope.toFixed(3)}) converges to theoretical derivative f'(${pointX.toFixed(2)}) = ${tanSlope.toFixed(3)} as h = ${stepH.toFixed(3)}, with convergence delta |Δm| = ${Math.abs(secSlope - tanSlope).toFixed(4)}.`;
+
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
 
   // --------------------------------------------------------------------------
   // Mathematical Calculations
@@ -811,6 +844,16 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
               <Layers className="w-3.5 h-3.5" />
               <span>{isArabic ? 'التكامل ومجموع ريمان' : 'Integrals & Riemann'}</span>
             </button>
+
+            <button
+              type="button"
+              onClick={handleOpenOfficialReportModal}
+              className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20"
+              title={isArabic ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+            >
+              <Printer className="w-3.5 h-3.5 text-emerald-200" />
+              <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+            </button>
           </div>
         </div>
       )}
@@ -1423,6 +1466,15 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="math-exp-1"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

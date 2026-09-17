@@ -9,7 +9,10 @@ import {
   Box,
   Layers,
   Sparkles,
+  Printer,
 } from 'lucide-react';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -55,6 +58,40 @@ export const Interactive3DGeometry: React.FC<Props> = ({
   const [showCrossProduct, setShowCrossProduct] = useState<boolean>(true);
   const [showParallelepiped, setShowParallelepiped] = useState<boolean>(false);
   const [showDirectionAngles, setShowDirectionAngles] = useState<boolean>(false);
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('math-exp-3');
+    const magU = Math.sqrt(ux * ux + uy * uy + uz * uz) || 1;
+    const cosAlpha = ux / magU;
+    const cosBeta = uy / magU;
+    const cosGamma = uz / magU;
+    const degAlpha = (Math.acos(Math.max(-1, Math.min(1, cosAlpha))) * 180) / Math.PI;
+    const degBeta = (Math.acos(Math.max(-1, Math.min(1, cosBeta))) * 180) / Math.PI;
+    const degGamma = (Math.acos(Math.max(-1, Math.min(1, cosGamma))) * 180) / Math.PI;
+    const sumSq = (cosAlpha ** 2 + cosBeta ** 2 + cosGamma ** 2).toFixed(3);
+
+    const liveRow = {
+      vector_id: isArabic ? `متجه المحاكاة u (${ux}, ${uy}, ${uz})` : `Active Vector u (${ux}, ${uy}, ${uz})`,
+      alpha_angle: `${degAlpha.toFixed(1)}`,
+      beta_angle: `${degBeta.toFixed(1)}`,
+      gamma_angle: `${degGamma.toFixed(1)}`,
+      sum_sq: `${(cosAlpha ** 2).toFixed(3)} + ${(cosBeta ** 2).toFixed(3)} + ${(cosGamma ** 2).toFixed(3)} = ${sumSq}`,
+      plane_eq: `${ux}x + ${uy}y + ${uz}z = ${ux * 1 + uy * 1 + uz * 1}`,
+    };
+
+    const existing = draft.dataTableRows.filter(
+      (r) => !r.vector_id.includes('Active Vector') && !r.vector_id.includes('متجه المحاكاة')
+    );
+    draft.dataTableRows = [liveRow, ...existing];
+
+    draft.conclusionAr = `تم التحقق عملياً من متطابقة جيوب تمام الاتجاه للمتجه u (${ux}, ${uy}, ${uz}): مجموع مربعات جيوب تمام الاتجاه = ${sumSq} = 1.000 بدقة تامة، والزوايا الاتجاهية هي α = ${degAlpha.toFixed(1)}°، β = ${degBeta.toFixed(1)}°، γ = ${degGamma.toFixed(1)}°.`;
+    draft.conclusionEn = `Empirically verified the direction cosines identity for vector u (${ux}, ${uy}, ${uz}): sum of squares = ${sumSq} = 1.000, with direction angles α = ${degAlpha.toFixed(1)}°, β = ${degBeta.toFixed(1)}°, γ = ${degGamma.toFixed(1)}°.`;
+
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
 
   // --------------------------------------------------------------------------
   // Module 2: Sphere State
@@ -848,6 +885,16 @@ export const Interactive3DGeometry: React.FC<Props> = ({
             >
               <Layers className="w-4 h-4" />
               <span>{isArabic ? 'المستقيم والمستوى والتقاطعات' : 'Lines & Spatial Planes'}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleOpenOfficialReportModal}
+              className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20"
+              title={isArabic ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+            >
+              <Printer className="w-3.5 h-3.5 text-emerald-200" />
+              <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
             </button>
           </div>
 
@@ -1644,6 +1691,15 @@ export const Interactive3DGeometry: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="math-exp-3"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

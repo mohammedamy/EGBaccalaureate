@@ -31,9 +31,10 @@ interface Props {
   lang: Language;
   theme?: ThemeMode;
   initialTab?: ChemTab;
+  onTabChange?: (tab: ChemTab) => void;
 }
 
-export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }) => {
+export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab, onTabChange }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -41,6 +42,11 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
   const [activeTab, setActiveTab] = useState<ChemTab>(initialTab || 'equilibrium');
   const [titrationView, setTitrationView] = useState<'studio' | 'apparatus'>('studio');
   const [isConstantsOpen, setIsConstantsOpen] = useState<boolean>(false);
+
+  const handleTabChange = (newTab: ChemTab) => {
+    setActiveTab(newTab);
+    onTabChange?.(newTab);
+  };
 
   useEffect(() => {
     if (initialTab) {
@@ -116,7 +122,7 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
           <div className="relative min-w-[240px] sm:min-w-[280px]">
             <select
               value={activeTab}
-              onChange={(e) => setActiveTab(e.target.value as ChemTab)}
+              onChange={(e) => handleTabChange(e.target.value as ChemTab)}
               className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
                 isContrast
                   ? 'bg-black text-white border-emerald-400'

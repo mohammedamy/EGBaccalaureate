@@ -35,10 +35,10 @@ interface Props {
   lang: Language;
   theme?: ThemeMode;
   initialTab?: PhysicsTab;
+  onTabChange?: (tab: PhysicsTab) => void;
 }
 
-
-export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab = 'circuits' }) => {
+export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab = 'circuits', onTabChange }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -46,6 +46,11 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
   const [activeTab, setActiveTab] = useState<PhysicsTab>(initialTab);
   const [photoelectricView, setPhotoelectricView] = useState<'studio' | 'apparatus'>('studio');
   const [showConstants, setShowConstants] = useState<boolean>(false);
+
+  const handleTabChange = (newTab: PhysicsTab) => {
+    setActiveTab(newTab);
+    onTabChange?.(newTab);
+  };
 
   useEffect(() => {
     if (initialTab) {
@@ -106,7 +111,7 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
           <div className="relative min-w-[240px] sm:min-w-[280px]">
             <select
               value={activeTab}
-              onChange={(e) => setActiveTab(e.target.value as PhysicsTab)}
+              onChange={(e) => handleTabChange(e.target.value as PhysicsTab)}
               className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
                 isContrast
                   ? 'bg-black text-white border-cyan-400'

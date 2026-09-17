@@ -65,6 +65,92 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'mathematics') setActiveLab('math');
   }, [selectedSubject]);
 
+  // Compute contextual experiment ID matching the current sub-lab tab
+  const getContextualReportExpId = (): string => {
+    if (activeLab === 'physics') {
+      switch (activePhysTab) {
+        case 'circuits':
+          return 'phys-exp-1';
+        case 'photoelectric':
+          return 'phys-exp-2';
+        case 'dynamo':
+        case 'magnetism':
+          return 'phys-exp-3';
+        case 'resonance':
+          return 'phys-exp-4';
+        case 'electronics':
+          return 'phys-exp-5';
+        case 'atom_3d':
+        case 'atomic_lasers':
+        case 'optics':
+          return 'phys-exp-6';
+        default:
+          return 'phys-exp-1';
+      }
+    }
+    if (activeLab === 'chemistry') {
+      switch (activeChemTab) {
+        case 'equilibrium':
+          return 'chem-exp-1';
+        case 'titration':
+          return 'chem-exp-2';
+        case 'qualitative':
+        case 'transition':
+          return 'chem-exp-3';
+        case 'electrochemistry':
+          return 'chem-exp-4';
+        case 'organic':
+        case 'molecular_3d':
+          return 'chem-exp-5';
+        default:
+          return 'chem-exp-1';
+      }
+    }
+    if (activeLab === 'biology') {
+      switch (activeBioTab) {
+        case 'sarcomere':
+        case 'skeleton':
+        case 'plant':
+          return 'bio-exp-1';
+        case 'dna':
+          return 'bio-exp-2';
+        case 'genetics':
+          return 'bio-exp-3';
+        case 'endocrine':
+          return 'bio-exp-4';
+        case 'menstrual':
+          return 'bio-exp-5';
+        case 'immunity':
+          return 'bio-exp-6';
+        case 'microscope':
+          return 'bio-exp-7';
+        case 'macromolecule_3d':
+          return 'bio-exp-8';
+        case 'bioenergetics':
+          return 'bio-exp-9';
+        default:
+          return 'bio-exp-1';
+      }
+    }
+    // activeLab === 'math'
+    switch (activeMathTab) {
+      case 'calculus':
+        return 'math-exp-1';
+      case 'mechanics':
+        return 'math-exp-2';
+      case 'geometry3d':
+        return 'math-exp-3';
+      case 'matrix':
+      case 'pascal':
+      case 'probability':
+        return 'math-exp-4';
+      case 'complex':
+        return 'math-exp-5';
+      default:
+        return 'math-exp-1';
+    }
+  };
+
   const LABS = [
     {
       id: 'math' as LabId,
@@ -165,15 +251,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
           <div className="flex items-center gap-3 shrink-0 flex-wrap">
             <button
               onClick={() => {
-                const defaultExp =
-                  activeLab === 'physics'
-                    ? 'phys-exp-1'
-                    : activeLab === 'chemistry'
-                    ? 'chem-exp-1'
-                    : activeLab === 'biology'
-                    ? 'bio-exp-1'
-                    : 'math-exp-5';
-                setReportExpId(defaultExp);
+                const contextualExp = getContextualReportExpId();
+                setReportExpId(contextualExp);
                 setIsReportModalOpen(true);
               }}
               className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-emerald-400/30"
@@ -366,7 +445,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} />
+            <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} onTabChange={setActivePhysTab} />
           </div>
         )}
         {activeLab === 'chemistry' && (
@@ -410,7 +489,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} />
+            <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} onTabChange={setActiveChemTab} />
           </div>
         )}
         {activeLab === 'biology' && (
@@ -458,7 +537,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} />
+            <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} onTabChange={setActiveBioTab} />
           </div>
         )}
       </div>

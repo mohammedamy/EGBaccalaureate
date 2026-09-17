@@ -41,9 +41,10 @@ interface Props {
   lang: Language;
   theme?: ThemeMode;
   initialTab?: BioTab;
+  onTabChange?: (tab: BioTab) => void;
 }
 
-export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }) => {
+export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab, onTabChange }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -51,11 +52,18 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
   const [activeTab, setActiveTab] = useState<BioTab>(initialTab || 'skeleton');
   const [geneticsView, setGeneticsView] = useState<'studio' | 'apparatus'>('studio');
 
+  const handleTabChange = (newTab: BioTab) => {
+    setActiveTab(newTab);
+    onTabChange?.(newTab);
+  };
+
   React.useEffect(() => {
     if (initialTab) {
       setActiveTab(initialTab);
     }
-  }, [initialTab]);  return (
+  }, [initialTab]);
+
+  return (
     <div
       className={`rounded-2xl border p-4 sm:p-6 transition-all ${
         isContrast
@@ -106,7 +114,7 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
         <div className="relative min-w-[240px] sm:min-w-[280px]">
           <select
             value={activeTab}
-            onChange={(e) => setActiveTab(e.target.value as BioTab)}
+            onChange={(e) => handleTabChange(e.target.value as BioTab)}
             className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-rose-500 ${
               isContrast
                 ? 'bg-black text-white border-rose-400'

@@ -15,8 +15,11 @@ import {
   ShieldCheck,
   Volume2,
   VolumeX,
+  Printer,
 } from 'lucide-react';
 import { playPhotoelectricChirp, isAudioMuted, toggleAudioMuted } from '../utils/scienceAudio';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -46,6 +49,55 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
 
   // Mode 3: Nucleosome Compaction State
   const [compactionLevel, setCompactionLevel] = useState<number>(2); // 1 = naked DNA, 2 = nucleosome 10x, 3 = solenoid 30nm, 4 = metaphase 100,000x
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('bio-exp-8');
+    if (activeStudioMode === 'dna_helix') {
+      const liveRow = {
+        stage: isAr ? `تجربة درجة الحرارة (${temperatureC}°C)` : `Thermal Denaturation (${temperatureC}°C)`,
+        temperature_or_scale: `${temperatureC}°C`,
+        structural_feature: temperatureC >= 85
+          ? (isAr ? 'شريطان مفردان متباعدان (تفكك حراري)' : 'Unzipped single strands (ssDNA)')
+          : (isAr ? 'لولب مزدوج متكامل سليم' : 'Intact B-DNA double helix'),
+        hydrogen_bonds: temperatureC >= 85
+          ? (isAr ? 'تكسر تام للروابط الهيدروجينية' : 'Complete H-bond denaturation')
+          : (isAr ? 'روابط هيدروجينية سليمة (A=T, G≡C)' : 'Intact Watson-Crick H-bonds'),
+        biological_significance: isAr
+          ? 'أساس تقنية تفاعل البلمرة المتسلسل PCR وتهجين DNA'
+          : 'Basis of PCR amplification and DNA hybridization assays',
+      };
+      draft.dataTableRows = [liveRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `تم التحقق عملياً من أن التسخين لدرجة ${temperatureC}°م يكسر الروابط الهيدروجينية الضعيفة بين شريطي DNA مسبباً تفكك اللولب المزدوج، مع إمكانية استعادة التحام القواعد المكملة عند التبريد.`;
+      draft.conclusionEn = `Empirically verified that thermal ramp to ${temperatureC}°C causes hydrogen bond cleavage and B-DNA denaturation, enabling sequence-specific re-annealing upon cooling.`;
+    } else if (activeStudioMode === 'trna_structure') {
+      const liveRow = {
+        stage: isAr ? `جزيء الناقل tRNA (كودون ${selectedCodon})` : `tRNA Translation (${selectedCodon})`,
+        temperature_or_scale: isAr ? 'شكل حرف L ثلاثي الأبعاد' : 'Folded 3D L-Shape',
+        structural_feature: isAr ? `مضاد كودون متكامل لكودون ${selectedCodon}` : `Specific anticodon matching ${selectedCodon}`,
+        hydrogen_bonds: isAr ? 'روابط هيدروجينية داخلية في الحلقات' : 'Intramolecular loop H-bonds',
+        biological_significance: isAr ? 'الترجمة الوراثية وتوصيل الحمض الأميني المناسب' : 'Accurate codon reading and aminoacyl transfer',
+      };
+      draft.dataTableRows = [liveRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `أثبتت المحاكاة الفراغية لجزيء tRNA مطابقة مضاد الكودون النوعي لكودون mRNA (${selectedCodon}) ونقل الحمض الأميني عبر موقع الارتباط CCA-3\'.`;
+      draft.conclusionEn = `3D macromolecular simulation proved accurate anticodon pairing for codon ${selectedCodon} and specific aminoacyl loading at CCA-3' terminal.`;
+    } else {
+      const compLabels = ['1× (شريط عارٍ)', '7× (ألياف نيوكليوسومات)', '40× (خيط حلزوني 30 نانومتر)', '100,000× (كروموسوم استوائي)'];
+      const liveRow = {
+        stage: isAr ? `تكثيف الكروماتين (مستوى ${compactionLevel})` : `Chromatin Compaction (Level ${compactionLevel})`,
+        temperature_or_scale: compLabels[compactionLevel - 1] || '100,000×',
+        structural_feature: isAr ? 'التفاف DNA حول 8 جزيئات هستونات قاعدية' : 'DNA supercoiling around basic histone octamers',
+        hydrogen_bonds: isAr ? 'تجاذب كهروستاتيكي أيوني (أرجينين وليسين + مع فوسفات -)' : 'Electrostatic histone-DNA charge neutralization',
+        biological_significance: isAr ? 'استيعاب مترين من DNA داخل نواة الخلية المجهرية' : 'Condensing 2-meter DNA into a 5-micron nucleus',
+      };
+      draft.dataTableRows = [liveRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `أثبتت المحاكاة أن ارتباط بروتينات الهستونات القاعدية (أرجينين وليسين) بمجموعات الفوسفات الحامضية يكثف شريط DNA حتى 100,000 مرة في الكروموسوم الاستوائي.`;
+      draft.conclusionEn = `Empirically validated that basic histone octamers (arginine & lysine) electrostatically neutralize acidic phosphates to compact 2m DNA by up to 100,000×.`;
+    }
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
 
   // Three.js Mount & Scene Refs
   const mountRef = useRef<HTMLDivElement>(null);
@@ -580,6 +632,16 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
           >
             {audioActive ? <Volume2 className="w-4 h-4 text-rose-400" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
           </button>
+
+          <button
+            type="button"
+            onClick={handleOpenOfficialReportModal}
+            className="px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20"
+            title={isAr ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+          >
+            <Printer className="w-4 h-4 text-emerald-200" />
+            <span>{isAr ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+          </button>
         </div>
       </div>
 
@@ -958,6 +1020,15 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="bio-exp-8"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };

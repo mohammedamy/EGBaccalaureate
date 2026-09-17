@@ -10,8 +10,11 @@ import {
   Pause,
   Volume2,
   VolumeX,
+  Printer,
 } from 'lucide-react';
 import { playPhotoelectricChirp, isAudioMuted, toggleAudioMuted } from '../utils/scienceAudio';
+import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
+import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
 
 interface Props {
   lang: Language;
@@ -39,6 +42,51 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
   const [activeMode, setActiveMode] = useState<AtomStudioMode>('rutherford');
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [audioEnabled, setAudioEnabled] = useState<boolean>(!isAudioMuted());
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const draft = loadLabReportDraft('phys-exp-6');
+    if (activeMode === 'bohr') {
+      const balmerRow = {
+        measurement: isAr ? 'خط انبعاث طيفي بالمر (تجريبي)' : 'Balmer Spectral Emission (Empirical)',
+        quantum_state: lastTransition ? `${lastTransition.ni} → ${lastTransition.nf}` : `n = ${currentLevel} → 2`,
+        observed_val: lastTransition ? `${lastTransition.wavelengthNm.toFixed(1)} nm` : '656.3 nm',
+        theoretical_val: '656.3 nm',
+        error_pct: '0.00%',
+      };
+      const existing = draft.dataTableRows.filter(
+        (r) => !r.measurement.includes('تجريبي') && !r.measurement.includes('Empirical')
+      );
+      draft.dataTableRows = [balmerRow, ...existing];
+      draft.conclusionAr = `تم إثبات تكميم مستويات الطاقة في ذرة الهيدروجين ورصد الانتقالات الإشعاعية لمتسلسلة بالمر بانبعاث فوتونات بطول موجي دقيق متوافق مع صيغة ريدبرج.`;
+      draft.conclusionEn = `Successfully validated discrete hydrogen energy level quantization and observed Balmer series photon transitions strictly adhering to Rydberg formulation.`;
+    } else if (activeMode === 'rutherford') {
+      const rutherfordRow = {
+        measurement: isAr ? `تشتت جسيمات ألفا (${alphaEnergyMev} MeV)` : `Alpha Scattering (${alphaEnergyMev} MeV)`,
+        quantum_state: isAr ? `ومضات نافذة: ${scintillationStats.straight}` : `Straight: ${scintillationStats.straight}`,
+        observed_val: isAr ? `مرتدة للخلف: ${scintillationStats.backscattered}` : `Backscattered: ${scintillationStats.backscattered}`,
+        theoretical_val: '1 in 8000',
+        error_pct: scintillationStats.total > 0 ? `${((scintillationStats.backscattered / (scintillationStats.total || 1)) * 100).toFixed(2)}%` : '0.01%',
+      };
+      draft.dataTableRows = [rutherfordRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `أكدت نتائج تشتت جسيمات ألفا بنسبة ارتداد زاوية خلفية (>90°) تركز كتلة الذرة وشحنتها الموجبة في نواة بالغة الصغر، داحضة نموذج طومسون.`;
+      draft.conclusionEn = `Empirical alpha particle backscattering (>90°) confirmed atomic mass and positive charge concentration in a dense nucleus, disproving Thomson model.`;
+    } else {
+      const laserRow = {
+        measurement: isAr ? 'ليزر الهيليوم-نيون (تفريغ كهربي)' : 'He-Ne Laser (Gas Discharge)',
+        quantum_state: 'Ne 20.66 eV (Metastable)',
+        observed_val: '632.8 nm (Red)',
+        theoretical_val: '632.8 nm',
+        error_pct: '0.00%',
+      };
+      draft.dataTableRows = [laserRow, ...draft.dataTableRows.slice(1)];
+      draft.conclusionAr = `أثبتت التجربة تحقيق شرط الانبعاث المستحث والتضخيم الضوئي وتكوين موجة موقوفة في تجويف ليزر He-Ne بإنتاج حزمة متماسكة أحادية الطول الموجي 632.8 nm.`;
+      draft.conclusionEn = `Empirically validated stimulated emission, population inversion, and standing wave optical resonance in He-Ne cavity producing coherent 632.8 nm laser beam.`;
+    }
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
 
   // Mount refs
   const mountRef = useRef<HTMLDivElement>(null);
@@ -718,6 +766,16 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
           >
             {isAr ? 'تفريغ ورنين الليزر 3D' : 'He-Ne Laser Cavity'}
           </button>
+
+          <button
+            type="button"
+            onClick={handleOpenOfficialReportModal}
+            className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20"
+            title={isAr ? 'معاينة وطباعة تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+          >
+            <Printer className="w-3.5 h-3.5 text-emerald-200" />
+            <span>{isAr ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+          </button>
         </div>
       </div>
 
@@ -1072,6 +1130,15 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
           </div>
         )}
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId="phys-exp-6"
+        lang={lang}
+        theme={theme}
+      />
     </div>
   );
 };
