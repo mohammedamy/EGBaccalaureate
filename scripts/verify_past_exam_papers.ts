@@ -35,28 +35,37 @@ console.log('🏛️ Starting Authentic Thanawya Amma Past Exam Papers Verificat
 
 // 1. Catalog & Metadata Integrity
 console.log('--- 1. Testing Past Exam Papers Catalog Metadata ---');
-assert(PAST_EXAM_PAPERS.length >= 25, `Catalog contains at least 25 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
+assert(PAST_EXAM_PAPERS.length === 42, `Catalog contains exactly 42 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
 
 // Test filtering by year
 const papers2024 = getPastExamPapers({ year: 2024 });
-assert(papers2024.length >= 7, `Found at least 7 papers for 2024 (got ${papers2024.length})`);
+assert(papers2024.length === 14, `Found exactly 14 papers for 2024 (got ${papers2024.length})`);
 
 // Test filtering by session
 const session1Papers = getPastExamPapers({ session: 'session1' });
-assert(session1Papers.length >= 15, `Found at least 15 First Session (دور أول) papers (got ${session1Papers.length})`);
+assert(session1Papers.length === 28, `Found exactly 28 First Session (دور أول) papers (got ${session1Papers.length})`);
 
 const session2Papers = getPastExamPapers({ session: 'session2' });
-assert(session2Papers.length >= 3, `Found Second Session (دور ثاني) papers (got ${session2Papers.length})`);
+assert(session2Papers.length === 7, `Found exactly 7 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
 
 const expPapers = getPastExamPapers({ session: 'experimental' });
-assert(expPapers.length >= 7, `Found 2025 MoE Experimental Model papers (got ${expPapers.length})`);
+assert(expPapers.length === 7, `Found exactly 7 2025 MoE Experimental Model papers (got ${expPapers.length})`);
 
-// Test subject filtering
+// Test subject filtering across all 7 disciplines
 const physicsPapers = getPastExamPapers({ subject: 'physics' });
-assert(physicsPapers.length >= 5, `Found at least 5 Physics papers across years (got ${physicsPapers.length})`);
+assert(physicsPapers.length === 6, `Found 6 Physics papers across years (got ${physicsPapers.length})`);
 
 const calculusPapers = getPastExamPapers({ subject: 'calculus' });
-assert(calculusPapers.length >= 5, `Found at least 5 Calculus papers across years (got ${calculusPapers.length})`);
+assert(calculusPapers.length === 6, `Found 6 Calculus papers across years (got ${calculusPapers.length})`);
+
+const algebraPapers = getPastExamPapers({ subject: 'algebra_solid' });
+assert(algebraPapers.length === 6, `Found 6 Algebra & Solid Geometry papers across years (got ${algebraPapers.length})`);
+
+const staticsPapers = getPastExamPapers({ subject: 'statics' });
+assert(staticsPapers.length === 6, `Found 6 Statics papers across years (got ${staticsPapers.length})`);
+
+const dynamicsPapers = getPastExamPapers({ subject: 'dynamics' });
+assert(dynamicsPapers.length === 6, `Found 6 Dynamics papers across years (got ${dynamicsPapers.length})`);
 
 // Validate every paper's schema
 PAST_EXAM_PAPERS.forEach((paper) => {

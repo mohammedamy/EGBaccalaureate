@@ -715,9 +715,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             { id: 'chemistry', titleAr: 'الكيمياء', titleEn: 'Chemistry', qCount: isAr ? '٤٦ س / ٦٠ د' : '46 Qs / 60 M', badge: '2021-2025' },
             { id: 'biology', titleAr: 'الأحياء', titleEn: 'Biology', qCount: isAr ? '٤٦ س / ٦٠ د' : '46 Qs / 60 M', badge: '2021-2025' },
             { id: 'calculus', titleAr: 'التفاضل والتكامل', titleEn: 'Calculus', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2021-2025' },
-            { id: 'algebra_solid', titleAr: 'الجبر والهندسة', titleEn: 'Algebra & Solid', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
-            { id: 'statics', titleAr: 'الاستاتيكا', titleEn: 'Statics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
-            { id: 'dynamics', titleAr: 'الديناميكا', titleEn: 'Dynamics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
+            { id: 'algebra_solid', titleAr: 'الجبر والهندسة', titleEn: 'Algebra & Solid', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2021-2025' },
+            { id: 'statics', titleAr: 'الاستاتيكا', titleEn: 'Statics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2021-2025' },
+            { id: 'dynamics', titleAr: 'الديناميكا', titleEn: 'Dynamics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2021-2025' },
           ].map((sub) => (
             <button
               key={sub.id}
