@@ -65,6 +65,16 @@ import {
   computeOfficialExamScore,
   type OfficialScoreReport,
 } from '../services/officialMockExamService';
+import {
+  getPastExamPapers,
+  getPastExamPaperById,
+  generatePastPaperQuestions,
+  computeCohortComparison,
+  type CohortComparisonReport,
+  type PastExamYear,
+  type PastExamSession,
+  type PastExamSubject,
+} from '../services/pastExamPapersService';
 import { MistakeNotebookView } from './MistakeNotebookView';
 
 export type BlueprintMode =
@@ -73,7 +83,8 @@ export type BlueprintMode =
   | 'hots_challenge'
   | 'foundational'
   | 'diagnostic_benchmark'
-  | 'official_thanawya_mock';
+  | 'official_thanawya_mock'
+  | 'official_past_papers';
 
 interface Props {
   lang: Language;
@@ -120,6 +131,12 @@ export const TestGenerator: React.FC<Props> = ({
   // Timed exam settings
   const [isTimed, setIsTimed] = useState<boolean>(true);
   const [durationPreset, setDurationPreset] = useState<number | 'auto'>('auto'); // minutes
+
+  // Past Exam Papers state
+  const [selectedPastPaperId, setSelectedPastPaperId] = useState<string>('th-phys-2024-s1');
+  const [pastPaperYearFilter, setPastPaperYearFilter] = useState<PastExamYear | 'all'>('all');
+  const [pastPaperSessionFilter, setPastPaperSessionFilter] = useState<PastExamSession | 'all'>('all');
+  const [pastPaperSubjectFilter, setPastPaperSubjectFilter] = useState<PastExamSubject | 'all'>('all');
 
   // Active exam session state
   const [isExamStarted, setIsExamStarted] = useState<boolean>(false);
@@ -178,15 +195,22 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [initialQuestionCount]);
 
-  // Sync official thanawya mock exam config (question count & duration)
+  // Sync official thanawya mock exam & past papers config (question count & duration)
   useEffect(() => {
     if (blueprintMode === 'official_thanawya_mock') {
       const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
       setQuestionCount(cfg.totalQuestions);
       setDurationPreset(cfg.durationMinutes);
       setIsTimed(true);
+    } else if (blueprintMode === 'official_past_papers') {
+      const paper = getPastExamPaperById(selectedPastPaperId);
+      if (paper) {
+        setQuestionCount(paper.totalQuestions);
+        setDurationPreset(paper.durationMinutes);
+        setIsTimed(true);
+      }
     }
-  }, [blueprintMode, selectedSubject, selectedBranch]);
+  }, [blueprintMode, selectedSubject, selectedBranch, selectedPastPaperId]);
 
   // Printable Exam Paper & Solution Sheet Customization
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
@@ -234,6 +258,10 @@ export const TestGenerator: React.FC<Props> = ({
     if (blueprintMode === 'official_thanawya_mock') {
       const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
       return cfg.totalQuestions;
+    }
+    if (blueprintMode === 'official_past_papers') {
+      const paper = getPastExamPaperById(selectedPastPaperId);
+      return paper ? paper.totalQuestions : 46;
     }
     const activeData = currentCurriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
     let count = 0;
@@ -301,6 +329,9 @@ export const TestGenerator: React.FC<Props> = ({
         selectedBranch,
         shuffle
       );
+    }
+    if (blueprintMode === 'official_past_papers') {
+      return generatePastPaperQuestions(selectedPastPaperId, activeData);
     }
     const pool: GeneratedQuestion[] = [];
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
@@ -1015,6 +1046,14 @@ export const TestGenerator: React.FC<Props> = ({
       ? computeOfficialExamScore(activeQuestions, userAnswers)
       : null;
 
+    const pastPaper = (blueprintMode === 'official_past_papers' || activeQuestions.some((q) => q.id.startsWith('th-')))
+      ? getPastExamPaperById(selectedPastPaperId)
+      : undefined;
+
+    const cohortReport: CohortComparisonReport | null = (pastPaper && officialExamScore)
+      ? computeCohortComparison(pastPaper, officialExamScore.earnedMarks)
+      : null;
+
     const scorePct = officialExamScore
       ? officialExamScore.markPercentage
       : total > 0
@@ -1084,8 +1123,10 @@ export const TestGenerator: React.FC<Props> = ({
       gradeLabelAr,
       gradeColor,
       officialExamScore,
+      pastPaper,
+      cohortReport,
     };
-  }, [activeQuestions, userAnswers, score]);
+  }, [activeQuestions, userAnswers, score, blueprintMode, selectedPastPaperId]);
 
   // Filtered review questions
   const displayedQuestions = useMemo(() => {
@@ -1523,6 +1564,174 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
         )}
 
+        {/* Official Thanawya Past Exam Papers Selector & Banner */}
+        {blueprintMode === 'official_past_papers' && (
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-indigo-950/80 border-2 border-cyan-500/50 text-cyan-200 text-xs space-y-4 shadow-xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shadow-lg shadow-cyan-500/30 shrink-0">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-black text-white text-sm sm:text-base flex items-center gap-2">
+                    <span>
+                      {lang === 'ar'
+                        ? '📜 بنك امتحانات شهادة إتمام الثانوية العامة الرسمية (٢٠٢١ - ٢٠٢٥)'
+                        : '📜 Authentic Thanawya Amma Past Exam Papers (2021 - 2025)'}
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">
+                      {lang === 'ar' ? 'أوراق وزارة التربية والتعليم الرسمية' : 'Authentic MoE Papers'}
+                    </span>
+                  </div>
+                  <p className="text-slate-300 text-xs mt-0.5">
+                    {lang === 'ar'
+                      ? 'امتحانات حقيقية معتمدة مطابقة للورقة الامتحانية ونظام البابل شيت، مع حساب الرتبة المئوية ومقارنة نتيجتك بمتوسط الدفعة الرسمية لعام الامتحان.'
+                      : 'Authentic ministerial papers replicating the official bubble-sheet layout with national percentile ranking and historical cohort benchmarks.'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Active Paper Quick Pill */}
+              {getPastExamPaperById(selectedPastPaperId) && (
+                <div className="text-right rtl:text-left bg-slate-950/90 px-3 py-2 rounded-xl border border-cyan-500/30 shrink-0 font-mono">
+                  <span className="text-xs font-black text-white block">
+                    {getPastExamPaperById(selectedPastPaperId)?.ministerialExamCode}
+                  </span>
+                  <span className="text-[10px] text-cyan-400 block">
+                    {getPastExamPaperById(selectedPastPaperId)?.totalQuestions} Qs • {getPastExamPaperById(selectedPastPaperId)?.totalMarks} Marks • {getPastExamPaperById(selectedPastPaperId)?.durationMinutes} min
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Filter Pills: Year, Session, Subject */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              {/* Year Filter */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-slate-400">{lang === 'ar' ? 'العام:' : 'Year:'}</span>
+                {(['all', 2024, 2023, 2022, 2021, 2025] as const).map((yr) => (
+                  <button
+                    key={yr}
+                    type="button"
+                    onClick={() => setPastPaperYearFilter(yr)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                      pastPaperYearFilter === yr
+                        ? 'bg-cyan-500 text-slate-950 border-cyan-400 font-black shadow-xs'
+                        : 'bg-slate-950/80 text-slate-300 border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    {yr === 'all' ? (lang === 'ar' ? 'الكل' : 'All') : yr === 2025 ? (lang === 'ar' ? '٢٠٢٥ (استرشادي)' : '2025 (Model)') : lang === 'ar' ? toHindiDigits(yr) : yr}
+                  </button>
+                ))}
+              </div>
+
+              {/* Session Filter */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-slate-400">{lang === 'ar' ? 'الدور:' : 'Session:'}</span>
+                {[
+                  { id: 'all', labelAr: 'الكل', labelEn: 'All' },
+                  { id: 'session1', labelAr: 'الدور الأول', labelEn: 'Session 1' },
+                  { id: 'session2', labelAr: 'الدور الثاني', labelEn: 'Session 2' },
+                  { id: 'experimental', labelAr: 'استرشادي', labelEn: 'Model' },
+                ].map((ses) => (
+                  <button
+                    key={ses.id}
+                    type="button"
+                    onClick={() => setPastPaperSessionFilter(ses.id as any)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                      pastPaperSessionFilter === ses.id
+                        ? 'bg-indigo-500 text-white border-indigo-400 font-black shadow-xs'
+                        : 'bg-slate-950/80 text-slate-300 border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    {lang === 'ar' ? ses.labelAr : ses.labelEn}
+                  </button>
+                ))}
+              </div>
+
+              {/* Subject Filter */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-slate-400">{lang === 'ar' ? 'المادة:' : 'Subject:'}</span>
+                {[
+                  { id: 'all', labelAr: 'الكل', labelEn: 'All' },
+                  { id: 'physics', labelAr: 'الفيزياء', labelEn: 'Physics' },
+                  { id: 'chemistry', labelAr: 'الكيمياء', labelEn: 'Chemistry' },
+                  { id: 'biology', labelAr: 'الأحياء', labelEn: 'Biology' },
+                  { id: 'calculus', labelAr: 'التفاضل', labelEn: 'Calculus' },
+                  { id: 'algebra_solid', labelAr: 'الجبر والفراغية', labelEn: 'Algebra' },
+                  { id: 'statics', labelAr: 'الاستاتيكا', labelEn: 'Statics' },
+                  { id: 'dynamics', labelAr: 'الديناميكا', labelEn: 'Dynamics' },
+                ].map((sub) => (
+                  <button
+                    key={sub.id}
+                    type="button"
+                    onClick={() => setPastPaperSubjectFilter(sub.id as any)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                      pastPaperSubjectFilter === sub.id
+                        ? 'bg-emerald-500 text-slate-950 border-emerald-400 font-black shadow-xs'
+                        : 'bg-slate-950/80 text-slate-300 border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    {lang === 'ar' ? sub.labelAr : sub.labelEn}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Past Papers Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-80 overflow-y-auto pr-1 no-scrollbar pt-1">
+              {getPastExamPapers({
+                year: pastPaperYearFilter === 'all' ? undefined : pastPaperYearFilter,
+                session: pastPaperSessionFilter === 'all' ? undefined : pastPaperSessionFilter,
+                subject: pastPaperSubjectFilter === 'all' ? undefined : pastPaperSubjectFilter,
+              }).map((paper) => {
+                const isSelected = selectedPastPaperId === paper.id;
+                return (
+                  <button
+                    key={paper.id}
+                    type="button"
+                    onClick={() => setSelectedPastPaperId(paper.id)}
+                    className={`p-3.5 rounded-xl border text-left rtl:text-right transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
+                      isSelected
+                        ? 'bg-cyan-950/80 border-2 border-cyan-400 text-white shadow-lg shadow-cyan-500/20'
+                        : 'bg-slate-950/70 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/80'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center gap-1.5">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase bg-slate-900 border border-slate-700 text-slate-200">
+                          {paper.year} • {paper.session === 'session1' ? (lang === 'ar' ? 'دور أول' : 'S1') : paper.session === 'session2' ? (lang === 'ar' ? 'دور ثانٍ' : 'S2') : (lang === 'ar' ? 'استرشادي' : 'Model')}
+                        </span>
+                        <span className="text-[10px] font-mono text-cyan-400 font-bold">
+                          {paper.formCodeAr}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-mono text-amber-400 font-bold">
+                        {paper.totalMarks} {lang === 'ar' ? 'درجة' : 'pts'}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-extrabold text-white line-clamp-1">
+                        {lang === 'ar' ? paper.titleAr : paper.titleEn}
+                      </h4>
+                      <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+                        {paper.ministerialExamCode} • {paper.totalQuestions} {lang === 'ar' ? 'سؤالاً' : 'Qs'} ({paper.durationMinutes} min)
+                      </p>
+                    </div>
+
+                    {/* Historical telemetry pill */}
+                    <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] text-slate-400">
+                      <span>📊 {lang === 'ar' ? `متوسط: ${toHindiDigits(paper.historicalStats.nationalAverage)}` : `Mean: ${paper.historicalStats.nationalAverage}`}</span>
+                      <span className="text-emerald-400">🏆 {lang === 'ar' ? `أوائل: ${toHindiDigits(paper.historicalStats.topTenThreshold)}` : `Top10: ${paper.historicalStats.topTenThreshold}`}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Filters Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3.5">
           <div>
@@ -1643,6 +1852,11 @@ export const TestGenerator: React.FC<Props> = ({
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'تحديد حر للمستوى' : 'Custom Level Selection'}</option>
+              <option value="official_past_papers">
+                {lang === 'ar'
+                  ? '📜 امتحانات الثانوية العامة الرسمية للسنوات السابقة (2021 - 2025 دور أول وثانٍ ونماذج)'
+                  : '📜 Official Thanawya Amma Past Exam Papers (2021 - 2025 Sessions & MoE Models)'}
+              </option>
               <option value="official_thanawya_mock">
                 {lang === 'ar'
                   ? '🏛️ محاكاة امتحان الوزارة الرسمي (نموذج 2021-2025: ٤٦/٢٠ سؤالاً - ٦٠/٣٠ درجة)'
@@ -1705,13 +1919,22 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.numQuestions}</label>
             <select
               value={questionCount}
-              disabled={blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock'}
+              disabled={blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers'}
               onChange={(e) => setQuestionCount(Number(e.target.value))}
               className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 ${
-                blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+                blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
               }`}
             >
-              {blueprintMode === 'official_thanawya_mock' ? (
+              {blueprintMode === 'official_past_papers' ? (
+                <option value={getPastExamPaperById(selectedPastPaperId)?.totalQuestions || 46}>
+                  {(() => {
+                    const paper = getPastExamPaperById(selectedPastPaperId);
+                    return lang === 'ar'
+                      ? `${toHindiDigits(paper?.totalQuestions || 46)} سؤالاً (${toHindiDigits(paper?.totalMarks || 60)} درجة رسمي)`
+                      : `${paper?.totalQuestions || 46} Qs (${paper?.totalMarks || 60} Marks Official)`;
+                  })()}
+                </option>
+              ) : blueprintMode === 'official_thanawya_mock' ? (
                 <option value={getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions}>
                   {lang === 'ar'
                     ? `${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions)} سؤالاً (${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalMarks)} درجة وزاري)`
@@ -2386,6 +2609,42 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           ) : (
             <div className="space-y-6">
+              {/* Authentic Ministerial Past Paper Header */}
+              {blueprintMode === 'official_past_papers' && getPastExamPaperById(selectedPastPaperId) && (
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 border-2 border-amber-500/40 text-white shadow-xl relative overflow-hidden">
+                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-black uppercase tracking-wider">
+                          {lang === 'ar' ? 'امتحان شهادة الثانوية العامة الرسمي' : 'Official Thanawya Amma Exam'}
+                        </span>
+                        <span className="text-xs font-mono text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60 font-bold">
+                          {getPastExamPaperById(selectedPastPaperId)?.ministerialExamCode}
+                        </span>
+                        <span className="text-xs font-bold text-amber-400">
+                          {lang === 'ar' ? getPastExamPaperById(selectedPastPaperId)?.formCodeAr : getPastExamPaperById(selectedPastPaperId)?.formCodeEn}
+                        </span>
+                      </div>
+                      <h2 className="text-base sm:text-lg font-black text-white">
+                        {lang === 'ar' ? getPastExamPaperById(selectedPastPaperId)?.titleAr : getPastExamPaperById(selectedPastPaperId)?.titleEn}
+                      </h2>
+                      <p className="text-xs text-slate-300">
+                        {lang === 'ar' ? getPastExamPaperById(selectedPastPaperId)?.subtitleAr : getPastExamPaperById(selectedPastPaperId)?.subtitleEn}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 shrink-0 text-xs font-mono font-bold">
+                      <div className="px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200">
+                        ⏱️ {getPastExamPaperById(selectedPastPaperId)?.durationMinutes} {lang === 'ar' ? 'دقيقة' : 'min'}
+                      </div>
+                      <div className="px-3 py-2 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300">
+                        🎯 {getPastExamPaperById(selectedPastPaperId)?.totalMarks} {lang === 'ar' ? 'درجة' : 'marks'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Sticky Exam Control & Palette Bar */}
               <div className="sticky top-[100px] sm:top-16 z-30 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-3 sm:p-4 shadow-xl space-y-2.5 sm:space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -2804,6 +3063,111 @@ export const TestGenerator: React.FC<Props> = ({
                               <li key={sIdx}>{step}</li>
                             ))}
                           </ul>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Historical Republic Cohort Benchmark Card */}
+                    {stats.cohortReport && stats.pastPaper && (
+                      <div className="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/70 border-2 border-cyan-500/50 shadow-2xl relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="relative z-10 space-y-4">
+                          {/* Header */}
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 flex items-center justify-center font-bold">
+                                <Award className="w-5 h-5 text-cyan-400" />
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <h4 className="text-sm font-black text-white tracking-wide">
+                                    {lang === 'ar'
+                                      ? `مقارنة الأداء بدفعة الثانوية العامة الرسمية لعام ${toHindiDigits(stats.pastPaper.year)}`
+                                      : `Historical Cohort Benchmark - ${stats.pastPaper.year} National Examination`}
+                                  </h4>
+                                  <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${stats.cohortReport.tierColor}`}>
+                                    {lang === 'ar' ? stats.cohortReport.tierBadgeAr : stats.cohortReport.tierBadgeEn}
+                                  </span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-0.5">
+                                  {lang === 'ar' ? stats.pastPaper.titleAr : stats.pastPaper.titleEn}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="text-right rtl:text-left font-mono">
+                              <span className="text-2xl font-black text-cyan-400">
+                                {lang === 'ar' ? toHindiDigits(stats.cohortReport.percentileRank) : stats.cohortReport.percentileRank}%
+                              </span>
+                              <span className="text-[11px] text-slate-400 block -mt-1 font-bold">
+                                {lang === 'ar' ? 'الرتبة المئوية بالجمهورية' : 'Republic Percentile Rank'}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Comparison Metrics Grid */}
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                            <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                              <span className="text-slate-400 block text-[11px]">
+                                {lang === 'ar' ? 'درجتك المحرزة' : 'Your Score'}
+                              </span>
+                              <span className="text-base font-black text-white mt-1 block">
+                                {lang === 'ar'
+                                  ? `${toHindiDigits(stats.cohortReport.earnedMarks)} / ${toHindiDigits(stats.cohortReport.totalMarks)}`
+                                  : `${stats.cohortReport.earnedMarks} / ${stats.cohortReport.totalMarks}`}
+                              </span>
+                            </div>
+
+                            <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                              <span className="text-slate-400 block text-[11px]">
+                                {lang === 'ar' ? 'متوسط الجمهورية الرسمي' : 'National Mean Score'}
+                              </span>
+                              <span className="text-base font-black text-amber-400 mt-1 block">
+                                {lang === 'ar'
+                                  ? `${toHindiDigits(stats.cohortReport.nationalAverage)} / ${toHindiDigits(stats.cohortReport.totalMarks)}`
+                                  : `${stats.cohortReport.nationalAverage} / ${stats.cohortReport.totalMarks}`}
+                              </span>
+                            </div>
+
+                            <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                              <span className="text-slate-400 block text-[11px]">
+                                {lang === 'ar' ? 'الفارق عن المتوسط' : 'Delta from Average'}
+                              </span>
+                              <span className={`text-base font-black mt-1 block ${stats.cohortReport.differenceFromAverage >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                {stats.cohortReport.differenceFromAverage >= 0 ? '+' : ''}
+                                {lang === 'ar' ? toHindiDigits(stats.cohortReport.differenceFromAverage) : stats.cohortReport.differenceFromAverage}
+                              </span>
+                            </div>
+
+                            <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                              <span className="text-slate-400 block text-[11px]">
+                                {lang === 'ar' ? 'نسبة النجاح العامة للدفعة' : 'Cohort Pass Rate'}
+                              </span>
+                              <span className="text-base font-black text-indigo-300 mt-1 block">
+                                {lang === 'ar' ? toHindiDigits(stats.pastPaper.historicalStats.passRatePercent) : stats.pastPaper.historicalStats.passRatePercent}%
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Cohort Bell-curve position visual progress bar */}
+                          <div className="space-y-1.5 pt-1">
+                            <div className="flex justify-between text-[11px] font-bold text-slate-400">
+                              <span>{lang === 'ar' ? 'أدنى الـ 10% (راسب)' : 'Bottom 10% (Fail)'}</span>
+                              <span className="text-amber-400">{lang === 'ar' ? `متوسط الدفعة (${toHindiDigits(stats.pastPaper.historicalStats.nationalAverage)})` : `National Mean (${stats.pastPaper.historicalStats.nationalAverage})`}</span>
+                              <span className="text-emerald-400">{lang === 'ar' ? `حد الأوائل (${toHindiDigits(stats.pastPaper.historicalStats.topTenThreshold)})` : `Republic Top 10 (${stats.pastPaper.historicalStats.topTenThreshold})`}</span>
+                            </div>
+                            <div className="h-3 rounded-full bg-slate-800 border border-slate-700/60 overflow-hidden relative">
+                              <div
+                                className="h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-emerald-400 transition-all duration-1000"
+                                style={{ width: `${Math.max(5, Math.min(100, stats.cohortReport.percentileRank))}%` }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Analytical Summary */}
+                          <div className="p-3 rounded-xl bg-slate-900/95 border border-cyan-500/30 text-xs text-slate-200 leading-relaxed">
+                            <p>{lang === 'ar' ? stats.cohortReport.summaryAr : stats.cohortReport.summaryEn}</p>
+                          </div>
                         </div>
                       </div>
                     )}
