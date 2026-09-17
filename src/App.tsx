@@ -26,6 +26,7 @@ import { CertificateVerificationModal } from './components/CertificateVerificati
 import { EnglishDictionaryModal } from './components/EnglishDictionaryModal';
 import { EnglishAudioLabModal } from './components/EnglishAudioLabModal';
 import { FrenchListeningStationModal } from './components/FrenchListeningStationModal';
+import { ArabicGrammarModal } from './components/ArabicGrammarModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 
 export const App: React.FC = () => {
@@ -137,6 +138,7 @@ export const App: React.FC = () => {
   const [isEnglishDictionaryOpen, setIsEnglishDictionaryOpen] = useState<boolean>(false);
   const [isEnglishAudioLabOpen, setIsEnglishAudioLabOpen] = useState<boolean>(false);
   const [isFrenchListeningOpen, setIsFrenchListeningOpen] = useState<boolean>(false);
+  const [isArabicGrammarOpen, setIsArabicGrammarOpen] = useState<boolean>(false);
   const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
@@ -361,6 +363,10 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsFrenchListeningOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'a' || e.key === 'A' || e.code === 'KeyA')) {
+        e.preventDefault();
+        setIsArabicGrammarOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -393,6 +399,13 @@ export const App: React.FC = () => {
     const handleOpenFrench = () => setIsFrenchListeningOpen(true);
     window.addEventListener('open-french-listening-lab', handleOpenFrench);
     return () => window.removeEventListener('open-french-listening-lab', handleOpenFrench);
+  }, []);
+
+  // Event listener for opening Arabic Grammar & Rhetoric Studio from anywhere in the app
+  useEffect(() => {
+    const handleOpenArabic = () => setIsArabicGrammarOpen(true);
+    window.addEventListener('open-arabic-grammar-lab', handleOpenArabic);
+    return () => window.removeEventListener('open-arabic-grammar-lab', handleOpenArabic);
   }, []);
 
   // Event listener for opening Certificate Verification Portal from anywhere in the app
@@ -497,6 +510,7 @@ export const App: React.FC = () => {
         onOpenEnglishDictionary={() => setIsEnglishDictionaryOpen(true)}
         onOpenEnglishAudioLab={() => setIsEnglishAudioLabOpen(true)}
         onOpenFrenchListening={() => setIsFrenchListeningOpen(true)}
+        onOpenArabicGrammar={() => setIsArabicGrammarOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -619,6 +633,14 @@ export const App: React.FC = () => {
         <FrenchListeningStationModal
           isOpen={isFrenchListeningOpen}
           onClose={() => setIsFrenchListeningOpen(false)}
+          lang={lang}
+          theme={theme}
+        />
+
+        {/* Global Arabic Grammar & Rhetoric Studio Modal */}
+        <ArabicGrammarModal
+          isOpen={isArabicGrammarOpen}
+          onClose={() => setIsArabicGrammarOpen(false)}
           lang={lang}
           theme={theme}
         />

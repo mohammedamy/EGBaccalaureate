@@ -31,6 +31,7 @@ interface Props {
   onOpenEnglishDictionary?: () => void;
   onOpenEnglishAudioLab?: () => void;
   onOpenFrenchListening?: () => void;
+  onOpenArabicGrammar?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -59,7 +60,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenEnglishDictionary,
   onOpenEnglishAudioLab,
   onOpenFrenchListening,
-  selectedSubject,
+  onOpenArabicGrammar,
+  selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
 }) => {
@@ -190,6 +192,18 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-sky-400',
       onClick: () => {
         onOpenFrenchListening();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenArabicGrammar && {
+      id: 'arabic_grammar',
+      label: isArabic ? 'معمل النحو والإعراب والبلاغة' : 'Arabic Grammar & Rhetoric Studio',
+      desc: isArabic ? 'استوديو تفاعلي للإعراب، ميزان المشتقات، وأسرار البلاغة وأفخاخ الثانوية العامة' : 'Interactive Arabic I\'rab token parser, derivatives & rhetorical figures lab',
+      shortcut: '⌥A',
+      icon: BookOpen,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenArabicGrammar();
         setIsToolsOpen(false);
       },
     },
@@ -722,6 +736,25 @@ export const Navbar: React.FC<Props> = ({
                   <Headphones className="w-3 h-3 text-sky-400 shrink-0" />
                   <span className="hidden xl:inline">{isArabic ? 'استماع فرنسي' : 'French Audio'}</span>
                   <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥F</kbd>
+                </button>
+              )}
+
+              {/* Arabic Grammar & Rhetoric Studio Trigger */}
+              {onOpenArabicGrammar && (
+                <button
+                  onClick={onOpenArabicGrammar}
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-amber-300 border-amber-400 hover:bg-amber-950/40'
+                      : isLight
+                      ? 'bg-amber-50 hover:bg-amber-100 text-amber-800 border-amber-300'
+                      : 'bg-amber-950/70 hover:bg-amber-900 text-amber-300 border-amber-700/60'
+                  }`}
+                  title={isArabic ? 'معمل النحو والإعراب والبلاغة (Alt+A / ⌥A)' : 'Arabic Grammar & Rhetoric Studio (Alt+A / ⌥A)'}
+                >
+                  <BookOpen className="w-3 h-3 text-amber-400 shrink-0" />
+                  <span className="hidden xl:inline">{isArabic ? 'معمل النحو' : 'Arabic Studio'}</span>
+                  <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥A</kbd>
                 </button>
               )}
 

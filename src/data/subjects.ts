@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -149,6 +149,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_french'],
       egbac: ['egbac_french'],
+    },
+  },
+  {
+    id: 'arabic',
+    titleEn: 'Arabic Language & Literature',
+    titleAr: 'اللغة العربية وآدابها',
+    shortTitleEn: 'Arabic',
+    shortTitleAr: 'عربي',
+    emoji: '📜',
+    iconName: 'BookOpen',
+    badgeColor: 'amber',
+    gradient: 'from-amber-600 via-orange-600 to-yellow-600',
+    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
+    darkBg: 'bg-amber-950/70 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'National Core Subject (80 Marks): Comprehensive Grammar & I\'rab, Classical & Modern Literature, Rhetoric & Metaphor, Critical Reading, and Orthography',
+    descriptionAr: 'المادة القومية الكبرى (80 درجة): النحو وقواعد الإعراب، الأدب وتاريخ المدارس الشعرية وفنون النثر، البلاغة وفنون البيان، القراءة المتحررة، وقواعد الإملاء',
+    branchIds: {
+      thanaweya: ['thanaweya_arabic'],
+      egbac: ['egbac_arabic'],
     },
   },
 ];

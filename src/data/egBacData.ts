@@ -8,13 +8,14 @@ import { egBacChemistryBranch } from './egBacChemistry';
 import { egBacBiologyBranch } from './egBacBiology';
 import { egBacEnglishBranch } from './egBacEnglish';
 import { egBacFrenchBranch } from './egBacFrench';
+import { egBacArabicBranch } from './egBacArabic';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
   nameEn: 'New Egyptian Baccalaureate (EG-Bac)',
   nameAr: 'نظام البكالوريا المصرية الجديد (EG-Bac)',
-  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track & Modern Languages — Mathematics, Physics, Chemistry, Biology, Advanced English, Advanced French',
-  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي الحديث واللغات بوزارة التربية والتعليم — فروع الرياضيات المتقدمة ومسارات العلوم STEM واللغة الإنجليزية والفرنسية المتقدمة',
+  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track & Modern Languages — Mathematics, Physics, Chemistry, Biology, Advanced English, Advanced French, Advanced Arabic',
+  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي الحديث واللغات بوزارة التربية والتعليم — فروع الرياضيات المتقدمة ومسارات العلوم STEM واللغات العربية والإنجليزية والفرنسية المتقدمة',
   moeOfficialBaselineEn: 'Egyptian Ministry of Education New Baccalaureate Educational Framework 2025/2026',
   moeOfficialBaselineAr: 'الإطار الوطني المطور لإعادة هيكلة الثانوية والبكالوريا المصرية - وزارة التربية والتعليم',
   branches: [
@@ -27,6 +28,7 @@ export const egBacCurriculum: Curriculum = {
     egBacBiologyBranch,
     egBacEnglishBranch,
     egBacFrenchBranch,
+    egBacArabicBranch,
   ],
 };
 

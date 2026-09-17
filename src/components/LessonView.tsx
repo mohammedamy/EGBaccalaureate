@@ -21,6 +21,7 @@ import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
+import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
@@ -254,6 +255,11 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={false}
             />
           );
+        case 'arabic_grammar_lab':
+        case 'arabic_rhetoric_lab':
+          return (
+            <ArabicGrammarStudio />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -305,6 +311,11 @@ export const LessonView: React.FC<Props> = ({
               theme={theme}
               isFullscreen={true}
             />
+          );
+        case 'arabic_grammar_lab':
+        case 'arabic_rhetoric_lab':
+          return (
+            <ArabicGrammarStudio />
           );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;

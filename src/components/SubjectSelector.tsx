@@ -88,8 +88,10 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
       case 'Languages':
       case 'BookA':
         return <Languages className={className} />;
-      default:
+      case 'BookOpen':
         return <BookOpen className={className} />;
+      default:
+        return <Layers className={className} />;
     }
   };
 

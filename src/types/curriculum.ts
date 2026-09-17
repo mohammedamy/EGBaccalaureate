@@ -12,6 +12,7 @@ export type BranchId =
   | 'thanaweya_biology'
   | 'thanaweya_english'
   | 'thanaweya_french'
+  | 'thanaweya_arabic'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -20,7 +21,8 @@ export type BranchId =
   | 'egbac_chemistry'
   | 'egbac_biology'
   | 'egbac_english'
-  | 'egbac_french';
+  | 'egbac_french'
+  | 'egbac_arabic';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -203,7 +205,9 @@ export type InteractiveWidgetType =
   | 'english_grammar_lab'
   | 'english_audio_lab'
   | 'french_audio_lab'
-  | 'french_grammar_lab';
+  | 'french_grammar_lab'
+  | 'arabic_grammar_lab'
+  | 'arabic_rhetoric_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

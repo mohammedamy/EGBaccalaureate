@@ -50,6 +50,7 @@ export default defineConfig({
             // Language Databanks
             { name: 'databank-thanaweya-english', test: /databanks\/thanaweya\/englishCh/, priority: 30 },
             { name: 'databank-thanaweya-french', test: /databanks\/thanaweya\/frenchCh/, priority: 30 },
+            { name: 'databank-thanaweya-arabic', test: /databanks\/thanaweya\/arabicCh/, priority: 30 },
 
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
@@ -71,7 +72,7 @@ export default defineConfig({
             { name: 'curriculum-egbac-science', test: /src\/data\/egBac(Physics|Chemistry)/, priority: 20 },
             { name: 'curriculum-thanaweya-math', test: /src\/data\/thanaweya(Statics|AlgebraSolid|Dynamics|Calculus)/, priority: 20 },
             { name: 'curriculum-egbac-math', test: /src\/data\/egBac(Vectors|Probability|Mechanics|Analysis)/, priority: 20 },
-            { name: 'curriculum-languages', test: /src\/data\/(thanaweya|egBac)(English|French)/, priority: 20 },
+            { name: 'curriculum-languages', test: /src\/data\/(thanaweya|egBac)(English|French|Arabic)/, priority: 20 },
 
             // Features
             { name: 'exam-workstation', test: /src\/components\/(TestGenerator|OfficialPerformanceCertificate|CertificateVerificationModal|BubbleSheetSimulator)/, priority: 20 },
