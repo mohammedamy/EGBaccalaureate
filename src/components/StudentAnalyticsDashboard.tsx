@@ -31,6 +31,7 @@ import {
   Trophy,
   Lock,
 } from 'lucide-react';
+import { EgyptFlag } from './EgyptFlag';
 
 interface Props {
   lang: Language;
@@ -258,6 +259,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   onClick={onStartPastPapers}
                   className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white border border-amber-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
                 >
+                  <EgyptFlag className="h-3 w-auto rounded-[2px]" />
                   <Award className="w-3.5 h-3.5 text-amber-200" />
                   <span>{isAr ? 'امتحانات الوزارة الرسمية (٢٠٢١ - ٢٠٢٥)' : 'Official Past Papers (2021-2025)'}</span>
                 </button>
@@ -681,6 +683,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
+              <EgyptFlag className="h-3.5 w-auto rounded-[2px]" />
               <Award className="w-4 h-4 text-amber-400" />
               <span>{isAr ? 'محاكاة امتحانات إتمام الثانوية العامة (٢٠٢١ - ٢٠٢٥)' : 'Official Thanawya Amma Past Papers (2021-2025)'}</span>
             </div>

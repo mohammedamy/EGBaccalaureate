@@ -76,6 +76,7 @@ import {
   type PastExamSubject,
 } from '../services/pastExamPapersService';
 import { MistakeNotebookView } from './MistakeNotebookView';
+import { EgyptFlag } from './EgyptFlag';
 
 export type BlueprintMode =
   | 'all'
@@ -1580,8 +1581,9 @@ export const TestGenerator: React.FC<Props> = ({
                         ? '📜 بنك امتحانات شهادة إتمام الثانوية العامة الرسمية (٢٠٢١ - ٢٠٢٥)'
                         : '📜 Authentic Thanawya Amma Past Exam Papers (2021 - 2025)'}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">
-                      {lang === 'ar' ? 'أوراق وزارة التربية والتعليم الرسمية' : 'Authentic MoE Papers'}
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold flex items-center gap-1.5">
+                      <EgyptFlag className="h-3 w-auto rounded-[2px]" />
+                      <span>{lang === 'ar' ? 'أوراق وزارة التربية والتعليم الرسمية' : 'Authentic MoE Papers'}</span>
                     </span>
                   </div>
                   <p className="text-slate-300 text-xs mt-0.5">
@@ -2565,11 +2567,17 @@ export const TestGenerator: React.FC<Props> = ({
               {/* Ministerial Top Header */}
               <div className="text-center border-b-2 border-black pb-3 space-y-1">
                 <div className="flex justify-between items-center text-[11px] font-black">
-                  <span>جمهورية مصر العربية</span>
+                  <div className="flex items-center gap-1.5">
+                    <EgyptFlag className="h-3.5 w-auto rounded-[2px]" />
+                    <span>جمهورية مصر العربية</span>
+                  </div>
                   <span className="text-sm font-black uppercase tracking-wider">
                     وزارة التربية والتعليم والتعليم الفني
                   </span>
-                  <span>Arab Republic of Egypt</span>
+                  <div className="flex items-center gap-1.5">
+                    <span>Arab Republic of Egypt</span>
+                    <EgyptFlag className="h-3.5 w-auto rounded-[2px]" />
+                  </div>
                 </div>
                 <h3 className="text-base sm:text-lg font-black tracking-tight">
                   امتحان شهادة إتمام الدراسة الثانوية العامة — ورقة إجابة الاختيار من متعدد (بابل شيت)
@@ -2809,6 +2817,7 @@ export const TestGenerator: React.FC<Props> = ({
                   <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2 flex-wrap">
+                        <EgyptFlag className="h-4 w-auto rounded-[2px] shadow-xs" />
                         <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-black uppercase tracking-wider">
                           {lang === 'ar' ? 'امتحان شهادة الثانوية العامة الرسمي' : 'Official Thanawya Amma Exam'}
                         </span>
