@@ -47,9 +47,10 @@ export interface MasteryRadarPoint {
 export function classifySubjectCategory(
   branchTitleAr: string = '',
   branchTitleEn: string = '',
-  chapterTitleAr: string = ''
+  chapterTitleAr: string = '',
+  subjectOrBranchId: string = ''
 ): 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology' {
-  const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr}`.toLowerCase();
+  const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr} ${subjectOrBranchId}`.toLowerCase();
 
   if (text.includes('فيزياء') || text.includes('physic') || text.includes('كهربية') || text.includes('كولدج')) {
     return 'physics';
@@ -60,7 +61,7 @@ export function classifySubjectCategory(
   if (text.includes('أحياء') || text.includes('bio') || text.includes('مناعة') || text.includes('dna') || text.includes('تنسيق')) {
     return 'biology';
   }
-  if (text.includes('استاتيكا') || text.includes('ديناميكا') || text.includes('static') || text.includes('dynamic') || text.includes('mechanic')) {
+  if (text.includes('استاتيكا') || text.includes('ديناميكا') || text.includes('static') || text.includes('dynamic') || text.includes('mechanic') || text.includes('applied_math')) {
     return 'applied_math';
   }
   // Default to pure math for algebra, calculus, geometry, analysis
@@ -153,7 +154,7 @@ export function recordQuizAttempt(
 
       // Update chapter record
       const chId = q.chapterId || 'general_chapter';
-      const category = classifySubjectCategory(q.branchTitleAr, q.branchTitleEn, q.chapterTitleAr);
+      const category = classifySubjectCategory(q.branchTitleAr, q.branchTitleEn, q.chapterTitleAr, chId);
 
       if (!state.chapters[chId]) {
         state.chapters[chId] = {

@@ -30,8 +30,16 @@ import {
   Award,
   Trophy,
   Lock,
+  ShieldCheck,
+  FileCheck,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
+import {
+  getRegisteredCertificates,
+  type OfficialCertificateRecord,
+} from '../services/certificateRegistryService';
+import { CertificateVerificationModal } from './CertificateVerificationModal';
+import { OfficialPerformanceCertificate } from './OfficialPerformanceCertificate';
 
 interface Props {
   lang: Language;
@@ -59,9 +67,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
   const [selectedSubjectFilter, setSelectedSubjectFilter] = useState<string>('all');
   const [badgeFilter, setBadgeFilter] = useState<string>('all');
+  const [registeredCertificates, setRegisteredCertificates] = useState<OfficialCertificateRecord[]>(
+    () => getRegisteredCertificates()
+  );
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState<boolean>(false);
+  const [verificationTargetSerial, setVerificationTargetSerial] = useState<string>('');
+  const [activeCertificateToView, setActiveCertificateToView] = useState<OfficialCertificateRecord | null>(null);
 
   const refreshAnalytics = () => {
     setAnalyticsState(getStudentAnalytics());
+    setRegisteredCertificates(getRegisteredCertificates());
   };
 
   const readinessScore = useMemo(() => getReadinessScore(analyticsState), [analyticsState]);
@@ -264,6 +279,14 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   <span>{isAr ? 'امتحانات الوزارة الرسمية (٢٠٢١ - ٢٠٢٥)' : 'Official Past Papers (2021-2025)'}</span>
                 </button>
               )}
+
+              <button
+                onClick={() => setIsVerificationModalOpen(true)}
+                className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white border border-emerald-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-200" />
+                <span>{isAr ? 'بوابة التحقق من الشهادات 🛡️' : 'Verify Credentials 🛡️'}</span>
+              </button>
 
               <button
                 onClick={handlePrint}
@@ -743,6 +766,130 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
         </div>
       </div>
 
+      {/* Official Accredited Certificates & Grade Transcripts Registry */}
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/20 border-2 border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>{isAr ? 'كنترول الثانوية العامة — الاعتماد الرسمي' : 'Central Examination Control Registry'}</span>
+            </div>
+            <h3 className="text-lg font-black text-slate-100 flex items-center gap-2 mt-2">
+              <Award className="w-5 h-5 text-amber-400" />
+              <span>{isAr ? 'سجل الشهادات وبيانات الدرجات الرسمية المعتمدة 📜' : 'Accredited Certificates & Grade Transcripts 📜'}</span>
+            </h3>
+            <p className="text-xs text-slate-400">
+              {isAr
+                ? 'شهادات معتمدة صادرة بختم شعار الجمهورية الإلكتروني والرقم المسلسل الموثق لكل امتحان وزاري أو نموذج محاكاة مكتمل.'
+                : 'Accredited certificates issued with digital Republic Seals and verifiable serials for all completed official exams.'}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={() => {
+                setVerificationTargetSerial('');
+                setIsVerificationModalOpen(true);
+              }}
+              className="px-4 py-2 rounded-2xl bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 hover:from-amber-500 hover:to-yellow-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+            >
+              <ShieldCheck className="w-4 h-4 text-slate-950" />
+              <span>{isAr ? 'فحص كود التحقق 🔍' : 'Verify Certificate 🔍'}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Certificate Cards Grid */}
+        {registeredCertificates.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
+            {registeredCertificates.map((cert) => (
+              <div
+                key={cert.certificateSerial}
+                className="bg-slate-950/90 border border-amber-500/30 hover:border-amber-500/60 rounded-2xl p-5 space-y-4 shadow-md transition-all hover:-translate-y-0.5"
+              >
+                {/* Header */}
+                <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
+                  <div className="space-y-0.5">
+                    <span className="text-[10px] font-mono text-amber-400/90 block">
+                      {cert.certificateSerial}
+                    </span>
+                    <h4 className="text-sm font-black text-white">
+                      {isAr ? cert.subjectNameAr : cert.subjectNameEn}
+                    </h4>
+                    <span className="text-[11px] text-slate-400 block">
+                      {cert.academicYear} — {isAr ? cert.sessionTitleAr : cert.sessionTitleEn}
+                    </span>
+                  </div>
+
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">
+                    {isAr ? 'معتمد 🛡️' : 'Accredited 🛡️'}
+                  </span>
+                </div>
+
+                {/* Performance Stats */}
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                    <span className="text-[10px] text-slate-500 block">{isAr ? 'الدرجة والنسبة:' : 'Score & Accuracy:'}</span>
+                    <span className="text-emerald-400 font-mono font-black text-sm">
+                      {cert.scoreReport ? `${cert.scoreReport.earnedMarks} / ${cert.scoreReport.totalMarks}` : `${cert.score} / ${cert.totalQuestions}`}{' '}
+                      <span className="text-xs">({cert.scorePct}%)</span>
+                    </span>
+                  </div>
+
+                  <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                    <span className="text-[10px] text-slate-500 block">{isAr ? 'الرتبة القومية:' : 'National Rank:'}</span>
+                    <span className="text-indigo-300 font-bold text-xs">
+                      {cert.cohortReport ? `أعلى ${cert.cohortReport.percentileRank}%` : `${cert.scorePct}%`}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Distinction Badge */}
+                <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold text-center">
+                  {isAr ? cert.distinctionTier.labelAr : cert.distinctionTier.labelEn}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 pt-1 border-t border-slate-800">
+                  <button
+                    onClick={() => setActiveCertificateToView(cert)}
+                    className="flex-1 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer"
+                  >
+                    <FileCheck className="w-3.5 h-3.5 text-slate-950" />
+                    <span>{isAr ? 'عرض وطباعة (A4)' : 'View & Print (A4)'}</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setVerificationTargetSerial(cert.certificateSerial);
+                      setIsVerificationModalOpen(true);
+                    }}
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
+                    title={isAr ? 'فحص كود التحقق الرسمي' : 'Inspect Accreditation Serial'}
+                  >
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8 bg-slate-950/60 border border-slate-800 rounded-2xl p-6 space-y-3">
+            <Award className="w-12 h-12 text-slate-600 mx-auto" />
+            <div className="text-sm font-bold text-slate-300">
+              {isAr ? 'لم تصدر لك أي شهادات معتمدة بعد' : 'No Official Certificates Earned Yet'}
+            </div>
+            <p className="text-xs text-slate-500 max-w-md mx-auto">
+              {isAr
+                ? 'أكمل أي امتحان وزاري رسمي (٢٠٢١ - ٢٠٢٥) أو امتحان محاكاة شامل للحصول على شهادة تفوق وبيان درجات رسمي معتمد برقم مسلسل موثق.'
+                : 'Complete any official past exam paper or mock exam to earn an accredited performance certificate & transcript.'}
+            </p>
+          </div>
+        )}
+      </div>
+
       {/* Achievement Badges Showcase ("شارات الإنجاز والتميز الأكاديمي") */}
       <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
@@ -1017,6 +1164,57 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
         )}
       </div>
+
+      {/* Official Certificate Full View & Print Modal */}
+      {activeCertificateToView && (
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md p-4 flex items-center justify-center">
+          <div className="relative w-full max-w-5xl my-auto">
+            <OfficialPerformanceCertificate
+              studentName={activeCertificateToView.studentName}
+              seatingNumber={activeCertificateToView.seatingNumber}
+              schoolName={activeCertificateToView.schoolName}
+              directorateName={activeCertificateToView.directorateName}
+              subjectId={activeCertificateToView.subjectId}
+              subjectNameAr={activeCertificateToView.subjectNameAr}
+              subjectNameEn={activeCertificateToView.subjectNameEn}
+              branchNameAr={activeCertificateToView.branchNameAr}
+              branchNameEn={activeCertificateToView.branchNameEn}
+              academicYear={activeCertificateToView.academicYear}
+              sessionTitleAr={activeCertificateToView.sessionTitleAr}
+              sessionTitleEn={activeCertificateToView.sessionTitleEn}
+              formCodeAr={activeCertificateToView.formCodeAr}
+              formCodeEn={activeCertificateToView.formCodeEn}
+              scoreReport={activeCertificateToView.scoreReport}
+              cohortReport={activeCertificateToView.cohortReport}
+              score={activeCertificateToView.score}
+              totalQuestions={activeCertificateToView.totalQuestions}
+              scorePct={activeCertificateToView.scorePct}
+              gradeLabelAr={activeCertificateToView.gradeLabelAr}
+              gradeLabelEn={activeCertificateToView.gradeLabelEn}
+              timeTakenSeconds={activeCertificateToView.timeTakenSeconds}
+              testDate={new Date(activeCertificateToView.testDateIso)}
+              onClose={() => setActiveCertificateToView(null)}
+              lang={lang}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Digital Accreditation Verification Modal */}
+      {isVerificationModalOpen && (
+        <CertificateVerificationModal
+          isOpen={isVerificationModalOpen}
+          initialSerial={verificationTargetSerial}
+          onClose={() => {
+            setIsVerificationModalOpen(false);
+            setVerificationTargetSerial('');
+          }}
+          lang={lang}
+          onViewCertificate={(cert) => {
+            setActiveCertificateToView(cert);
+          }}
+        />
+      )}
     </div>
   );
 };

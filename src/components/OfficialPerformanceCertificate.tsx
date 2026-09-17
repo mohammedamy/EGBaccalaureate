@@ -1,4 +1,4 @@
-import React, { useState, useId } from 'react';
+import React, { useState, useEffect, useId } from 'react';
 import {
   Award,
   Printer,
@@ -19,6 +19,13 @@ import { EgyptFlag } from './EgyptFlag';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import type { OfficialScoreReport } from '../services/officialMockExamService';
 import type { CohortComparisonReport } from '../services/pastExamPapersService';
+import {
+  saveOfficialCertificate,
+  generateCertificateVerificationHash,
+  getDistinctionTierFromPct,
+  type OfficialCertificateRecord,
+} from '../services/certificateRegistryService';
+import { CertificateVerificationModal } from './CertificateVerificationModal';
 
 export interface OfficialPerformanceCertificateProps {
   studentName?: string;
@@ -238,6 +245,7 @@ export const OfficialPerformanceCertificate: React.FC<OfficialPerformanceCertifi
   seatingNumber: initialSeatingNumber,
   schoolName: initialSchoolName,
   directorateName: initialDirectorateName,
+  subjectId = 'general',
   subjectNameAr,
   subjectNameEn,
   branchNameAr = 'الشعبة العلمية (علوم ورياضيات)',
@@ -252,6 +260,8 @@ export const OfficialPerformanceCertificate: React.FC<OfficialPerformanceCertifi
   score,
   totalQuestions,
   scorePct,
+  gradeLabelAr = 'اجتياز معتمد',
+  gradeLabelEn = 'Certified Pass',
   timeTakenSeconds,
   testDate = new Date(),
   onClose,
@@ -310,6 +320,73 @@ export const OfficialPerformanceCertificate: React.FC<OfficialPerformanceCertifi
     .toString(16)
     .toUpperCase()
     .slice(0, 6)}`;
+
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState<boolean>(false);
+
+  // Auto-register certificate in central digital accreditation registry
+  useEffect(() => {
+    const certRecord: OfficialCertificateRecord = {
+      certificateSerial,
+      verificationHash: generateCertificateVerificationHash(
+        certificateSerial,
+        seatingNumber,
+        scorePct,
+        testDate.getTime()
+      ),
+      studentName,
+      seatingNumber,
+      schoolName,
+      directorateName,
+      subjectId,
+      subjectNameAr,
+      subjectNameEn,
+      branchNameAr,
+      branchNameEn,
+      academicYear,
+      sessionTitleAr,
+      sessionTitleEn,
+      formCodeAr,
+      formCodeEn,
+      score,
+      totalQuestions,
+      scorePct,
+      timeTakenSeconds,
+      testDateIso: testDate.toISOString(),
+      gradeLabelAr,
+      gradeLabelEn,
+      distinctionTier: getDistinctionTierFromPct(scorePct),
+      scoreReport,
+      cohortReport,
+      isAccredited: true,
+      registeredAt: Date.now(),
+    };
+    saveOfficialCertificate(certRecord);
+  }, [
+    certificateSerial,
+    seatingNumber,
+    studentName,
+    schoolName,
+    directorateName,
+    subjectId,
+    subjectNameAr,
+    subjectNameEn,
+    branchNameAr,
+    branchNameEn,
+    academicYear,
+    sessionTitleAr,
+    sessionTitleEn,
+    formCodeAr,
+    formCodeEn,
+    score,
+    totalQuestions,
+    scorePct,
+    timeTakenSeconds,
+    testDate,
+    gradeLabelAr,
+    gradeLabelEn,
+    scoreReport,
+    cohortReport,
+  ]);
 
   // Formatted date
   const formattedDateAr = new Intl.DateTimeFormat('ar-EG', {
@@ -435,6 +512,15 @@ ${cohortReport ? `${lang === 'ar' ? 'الرتبة المئوية بالجمهو�
           >
             <Edit3 className="w-3.5 h-3.5 text-amber-400" />
             <span>{lang === 'ar' ? 'تعديل البيانات' : 'Edit Details'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsVerificationModalOpen(true)}
+            className="px-3.5 py-2 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 text-xs font-bold border border-emerald-500/40 flex items-center gap-1.5 cursor-pointer transition-all shadow-xs"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>{lang === 'ar' ? 'فحص الاعتماد الرقمي' : 'Verify Accreditation'}</span>
           </button>
 
           <button
@@ -603,7 +689,17 @@ ${cohortReport ? `${lang === 'ar' ? 'الرتبة المئوية بالجمهو�
               {/* Left Column: Official Administrative Identifiers & QR Code */}
               <div className="col-span-4 flex flex-col items-end rtl:items-start ltr:items-end text-[9px] sm:text-[10.5px] space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <VerificationQRCode code={certificateSerial} />
+                  <button
+                    type="button"
+                    onClick={() => setIsVerificationModalOpen(true)}
+                    className="flex flex-col items-center gap-1 group cursor-pointer"
+                    title={lang === 'ar' ? 'فحص الاعتماد الرقمي والختم الإلكتروني' : 'Verify Digital Accreditation & Seal'}
+                  >
+                    <VerificationQRCode code={certificateSerial} />
+                    <span className="text-[7.5px] font-bold text-emerald-800 bg-emerald-100/90 px-1.5 py-0.5 rounded-sm border border-emerald-300 group-hover:bg-emerald-200 transition-colors">
+                      {lang === 'ar' ? 'فحص الاعتماد 🛡️' : 'Verify 🛡️'}
+                    </span>
+                  </button>
                   <div className="space-y-0.5 text-right rtl:text-left ltr:text-right">
                     <div>
                       <span className="text-slate-500 font-semibold">{lang === 'ar' ? 'العام الدراسي: ' : 'Academic Year: '}</span>
@@ -964,6 +1060,16 @@ ${cohortReport ? `${lang === 'ar' ? 'الرتبة المئوية بالجمهو�
           </div>
         </div>
       </div>
+
+      {/* Digital Accreditation Verification Modal */}
+      {isVerificationModalOpen && (
+        <CertificateVerificationModal
+          isOpen={isVerificationModalOpen}
+          initialSerial={certificateSerial}
+          onClose={() => setIsVerificationModalOpen(false)}
+          lang={lang}
+        />
+      )}
     </div>
   );
 };

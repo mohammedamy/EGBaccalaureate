@@ -78,6 +78,11 @@ import {
 import { MistakeNotebookView } from './MistakeNotebookView';
 import { EgyptFlag } from './EgyptFlag';
 import { OfficialPerformanceCertificate } from './OfficialPerformanceCertificate';
+import {
+  saveOfficialCertificate,
+  generateCertificateVerificationHash,
+  getDistinctionTierFromPct,
+} from '../services/certificateRegistryService';
 
 export type BlueprintMode =
   | 'all'
@@ -1165,6 +1170,80 @@ export const TestGenerator: React.FC<Props> = ({
     }
     return activeQuestions.map((q, idx) => ({ q, idx }));
   }, [activeQuestions, userAnswers, flaggedQuestions, isSubmitted, reviewFilter]);
+
+  // Automatically register certificate into the central accreditation registry upon exam submission
+  useEffect(() => {
+    if (!isSubmitted) return;
+    if (blueprintMode !== 'official_past_papers' && blueprintMode !== 'official_thanawya_mock') return;
+    if (activeQuestions.length === 0) return;
+
+    const studentName = customTeacherName || localStorage.getItem('eg_exam_student_name') || (lang === 'ar' ? 'طالب الثانوية العامة' : 'Thanaweya Student');
+    const seatingNumber = localStorage.getItem('eg_exam_seat_number') || '1048592';
+    const schoolName = customSchoolName || localStorage.getItem('eg_exam_school_name') || (lang === 'ar' ? 'مدرسة المتفوقين الرسمية (STEM)' : 'Excellence Secondary School');
+    const directorateName = localStorage.getItem('eg_exam_directorate_name') || (lang === 'ar' ? 'مديرية التربية والتعليم بالقاهرة' : 'Cairo Educational Directorate');
+    const now = Date.now();
+    const testYear = new Date().getFullYear();
+    const certSerial = `EGY-MOE-TH-${testYear}-${Math.abs(
+      seatingNumber.split('').reduce((acc: number, char: string) => acc * 31 + char.charCodeAt(0), 7)
+    ).toString(16).toUpperCase().slice(0, 6)}`;
+
+    const subjectNameAr =
+      selectedSubject === 'physics' ? 'الفيزياء' :
+      selectedSubject === 'chemistry' ? 'الكيمياء' :
+      selectedSubject === 'biology' ? 'الأحياء' :
+      selectedSubject === 'calculus' ? 'الرياضيات البحتة (التفاضل والتكامل)' :
+      selectedSubject === 'algebra_solid' ? 'الرياضيات البحتة (الجبر والهندسة الفراغية)' :
+      selectedSubject === 'statics' ? 'الرياضيات التطبيقية (الاستاتيكا)' :
+      selectedSubject === 'dynamics' ? 'الرياضيات التطبيقية (الديناميكا)' : 'الرياضيات / العلوم';
+
+    const subjectNameEn =
+      selectedSubject === 'physics' ? 'Physics' :
+      selectedSubject === 'chemistry' ? 'Chemistry' :
+      selectedSubject === 'biology' ? 'Biology' :
+      selectedSubject === 'calculus' ? 'Pure Mathematics (Calculus)' :
+      selectedSubject === 'algebra_solid' ? 'Pure Mathematics (Algebra & Solid Geometry)' :
+      selectedSubject === 'statics' ? 'Applied Mathematics (Statics)' :
+      selectedSubject === 'dynamics' ? 'Applied Mathematics (Dynamics)' : 'Mathematics / Science';
+
+    const branchNameAr =
+      selectedSubject === 'biology' ? 'شعبة علمي علوم' :
+      ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'شعبة علمي رياضة' : 'الشعبة العلمية (علوم ورياضة)';
+
+    const branchNameEn =
+      selectedSubject === 'biology' ? 'Science Track (Biology)' :
+      ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'Mathematics Track' : 'Scientific Division';
+
+    saveOfficialCertificate({
+      certificateSerial: certSerial,
+      verificationHash: generateCertificateVerificationHash(certSerial, seatingNumber, stats.scorePct, now),
+      studentName,
+      seatingNumber,
+      schoolName,
+      directorateName,
+      subjectId: selectedSubject,
+      subjectNameAr,
+      subjectNameEn,
+      branchNameAr,
+      branchNameEn,
+      academicYear: customAcademicYear || (stats.pastPaper ? `${stats.pastPaper.year} / ${stats.pastPaper.year + 1}` : '2024 / 2025'),
+      sessionTitleAr: stats.pastPaper?.session === 'session2' ? 'الدور الثاني (أغسطس)' : stats.pastPaper?.session === 'experimental' ? 'النموذج الاسترشادي الرسمي' : 'الدور الأول (يونيو)',
+      sessionTitleEn: stats.pastPaper?.session === 'session2' ? 'Second Session (August)' : stats.pastPaper?.session === 'experimental' ? 'Official Model Exemplar' : 'First Session (June)',
+      formCodeAr: stats.pastPaper?.formCodeAr || 'نموذج (أ) - كود 101',
+      formCodeEn: stats.pastPaper?.formCodeEn || 'Form A - Code 101',
+      score,
+      totalQuestions: stats.total,
+      scorePct: stats.scorePct,
+      timeTakenSeconds,
+      testDateIso: new Date().toISOString(),
+      gradeLabelAr: stats.gradeLabelAr,
+      gradeLabelEn: stats.gradeLabelEn,
+      distinctionTier: getDistinctionTierFromPct(stats.scorePct),
+      scoreReport: stats.officialExamScore,
+      cohortReport: stats.cohortReport,
+      isAccredited: true,
+      registeredAt: now,
+    });
+  }, [isSubmitted, blueprintMode, activeQuestions.length, stats, score, timeTakenSeconds, selectedSubject, customTeacherName, customSchoolName, customAcademicYear, lang]);
 
   const timePctRemaining = totalTimeSeconds > 0 ? (timeRemaining / totalTimeSeconds) * 100 : 0;
   const isTimeCritical = timeRemaining <= 60 && isTimed;
