@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -27,6 +27,7 @@ interface Props {
   onOpenMathScratchpad?: () => void;
   onOpenTutorial?: () => void;
   onOpenPastPapers?: () => void;
+  onOpenCertificateVerification?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -51,6 +52,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenMathScratchpad,
   onOpenTutorial,
   onOpenPastPapers,
+  onOpenCertificateVerification,
   selectedSubject,
   onSubjectChange,
   curriculumData,
@@ -134,6 +136,18 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenPastPapers();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenCertificateVerification && {
+      id: 'certificate-verification',
+      label: isArabic ? 'بوابة التحقق الرقمي من الشهادات' : 'Official Certificate Verification Portal',
+      desc: isArabic ? 'فحص صحة واعتماد شهادات وبيانات درجات الثانوية العامة' : 'Verify authenticity of official performance certificates',
+      shortcut: '⌘⇧V',
+      icon: ShieldCheck,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenCertificateVerification();
         setIsToolsOpen(false);
       },
     },

@@ -22,6 +22,7 @@ import { EgyptFlag } from './components/EgyptFlag';
 import { VirtualLabsHub } from './components/VirtualLabsHub';
 import { StudentAnalyticsDashboard } from './components/StudentAnalyticsDashboard';
 import { MathScratchpad } from './core/math/MathScratchpad';
+import { CertificateVerificationModal } from './components/CertificateVerificationModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 
 export const App: React.FC = () => {
@@ -41,13 +42,41 @@ export const App: React.FC = () => {
     }
     return 'normal';
   });
-  const parseRouteState = (): { subject: string; tab: string; blueprint?: BlueprintMode } => {
+  const parseRouteState = (): {
+    subject: string;
+    tab: string;
+    blueprint?: BlueprintMode;
+    verificationSerial?: string;
+    openVerificationModal?: boolean;
+  } => {
     try {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const rawHash = window.location.hash.replace('#', '');
+      const hash = rawHash.toLowerCase();
       const params = new URLSearchParams(window.location.search);
       let subject = params.get('subject') || '';
       let tab = params.get('tab') || '';
       let blueprint: BlueprintMode | undefined = undefined;
+      let verificationSerial: string | undefined = undefined;
+      let openVerificationModal = false;
+
+      // Check query params for verification (e.g. ?verify=SERIAL)
+      const verifyQuery = params.get('verify') || params.get('certificate') || params.get('cert');
+      if (verifyQuery) {
+        openVerificationModal = true;
+        verificationSerial = verifyQuery;
+      }
+
+      // Check hash params for verification, e.g. #verify, #certificate-verification, #verify?serial=...
+      if (hash.startsWith('verify') || hash.startsWith('certificate-verification') || hash.startsWith('cert-verify')) {
+        openVerificationModal = true;
+        if (rawHash.includes('=')) {
+          const serialPart = rawHash.split('=')[1];
+          if (serialPart) verificationSerial = decodeURIComponent(serialPart);
+        } else if (rawHash.includes('serial=')) {
+          const match = rawHash.match(/serial=([^&]+)/);
+          if (match && match[1]) verificationSerial = decodeURIComponent(match[1]);
+        }
+      }
 
       const bpParam = params.get('blueprint');
       if (bpParam === 'official_past_papers' || bpParam === 'official_thanawya_mock' || bpParam === 'diagnostic_benchmark') {
@@ -80,7 +109,13 @@ export const App: React.FC = () => {
         }
       }
 
-      return { subject, tab: tab || 'overview', blueprint };
+      return {
+        subject,
+        tab: tab || 'overview',
+        blueprint,
+        verificationSerial,
+        openVerificationModal,
+      };
     } catch {
       return { subject: 'all', tab: 'overview' };
     }
@@ -101,6 +136,8 @@ export const App: React.FC = () => {
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
   const [desmosPresetId, setDesmosPresetId] = useState<string | undefined>(undefined);
   const [testBlueprint, setTestBlueprint] = useState<BlueprintMode | undefined>(initialRoute.blueprint);
+  const [isCertificateVerificationOpen, setIsCertificateVerificationOpen] = useState<boolean>(initialRoute.openVerificationModal || false);
+  const [verificationTargetSerial, setVerificationTargetSerial] = useState<string>(initialRoute.verificationSerial || '');
 
   const handleOpenOfficialBooks = (bookId?: string) => {
     setTargetOfficialBookId(bookId);
@@ -116,6 +153,17 @@ export const App: React.FC = () => {
     setActiveTab('testGenerator');
   };
 
+  const handleCloseCertificateVerification = () => {
+    setIsCertificateVerificationOpen(false);
+    setVerificationTargetSerial('');
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const h = window.location.hash.toLowerCase();
+      if (h.includes('verify') || h.includes('certificate')) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+  };
+
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
   // Listen for hash changes to support instant deep links
@@ -125,6 +173,12 @@ export const App: React.FC = () => {
       if (parsed.tab) setActiveTab(parsed.tab);
       if (parsed.subject && parsed.subject !== 'all') setSelectedSubject(parsed.subject);
       if (parsed.blueprint) setTestBlueprint(parsed.blueprint);
+      if (parsed.openVerificationModal) {
+        setIsCertificateVerificationOpen(true);
+        if (parsed.verificationSerial) {
+          setVerificationTargetSerial(parsed.verificationSerial);
+        }
+      }
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -285,6 +339,10 @@ export const App: React.FC = () => {
         e.preventDefault();
         handleOpenPastPapers();
       }
+      if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'v') {
+        e.preventDefault();
+        setIsCertificateVerificationOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -296,6 +354,19 @@ export const App: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Event listener for opening Certificate Verification Portal from anywhere in the app
+  useEffect(() => {
+    const handleOpenVerification = (e: Event) => {
+      const customEvent = e as CustomEvent<{ serial?: string }>;
+      if (customEvent.detail?.serial) {
+        setVerificationTargetSerial(customEvent.detail.serial);
+      }
+      setIsCertificateVerificationOpen(true);
+    };
+    window.addEventListener('open-certificate-verification', handleOpenVerification);
+    return () => window.removeEventListener('open-certificate-verification', handleOpenVerification);
   }, []);
 
   // Event listener for opening Site Navigation Tutorial from anywhere in the app
@@ -383,6 +454,7 @@ export const App: React.FC = () => {
         onOpenMathScratchpad={() => setIsMathScratchpadOpen(true)}
         onOpenTutorial={() => setIsTutorialOpen(true)}
         onOpenPastPapers={handleOpenPastPapers}
+        onOpenCertificateVerification={() => setIsCertificateVerificationOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -531,6 +603,18 @@ export const App: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Global Ministerial Certificate Verification Portal Modal */}
+        <CertificateVerificationModal
+          isOpen={isCertificateVerificationOpen}
+          onClose={handleCloseCertificateVerification}
+          initialSerial={verificationTargetSerial}
+          lang={lang}
+          onViewCertificate={(_cert) => {
+            handleCloseCertificateVerification();
+            setActiveTab('analytics');
+          }}
+        />
 
         {/* Tab View Router */}
         {activeTab === 'overview' && (

@@ -250,13 +250,44 @@ runTest('TestGenerator contains Certificate Auto-Registration on exam submission
   assert.ok(content.includes('OfficialPerformanceCertificate'), 'Must mount OfficialPerformanceCertificate');
 });
 
-runTest('OfficialPerformanceCertificate renders verification button and modal', () => {
+runTest('OfficialPerformanceCertificate renders verification button, direct URL metadata and modal', () => {
   const certPath = resolve(process.cwd(), 'src/components/OfficialPerformanceCertificate.tsx');
   const content = readFileSync(certPath, 'utf8');
 
   assert.ok(content.includes('CertificateVerificationModal'), 'Must mount CertificateVerificationModal');
   assert.ok(content.includes('فحص الاعتماد الرقمي'), 'Must contain Verify Accreditation toolbar button');
   assert.ok(content.includes('print-cert-only'), 'Must support single-page print-cert-only isolation');
+  assert.ok(content.includes('data-verification-url'), 'Must render data-verification-url on QR code element');
+  assert.ok(content.includes('directVerificationUrl'), 'Must compute direct verification deep link URL');
+  assert.ok(content.includes('رابط التحقق المباشر') || content.includes('Verification Link'), 'Must include direct link in copy summary');
+});
+
+// -----------------------------------------------------------------------------
+// Suite 7: Global Deep Linking, Route Parsing & Navbar Quick Tools
+// -----------------------------------------------------------------------------
+console.log('\n🌐 Suite 7: Global Deep Linking, Route Parsing & Navbar Quick Tools');
+
+runTest('Navbar contains Certificate Verification Portal item and ShieldCheck icon', () => {
+  const navbarPath = resolve(process.cwd(), 'src/components/Navbar.tsx');
+  const content = readFileSync(navbarPath, 'utf8');
+
+  assert.ok(content.includes('onOpenCertificateVerification'), 'Navbar must accept onOpenCertificateVerification prop');
+  assert.ok(content.includes('ShieldCheck'), 'Navbar must import and display ShieldCheck icon');
+  assert.ok(content.includes('بوابة التحقق الرقمي من الشهادات'), 'Navbar must feature Arabic portal title');
+  assert.ok(content.includes('⌘⇧V'), 'Navbar must show shortcut badge ⌘⇧V');
+});
+
+runTest('App.tsx mounts CertificateVerificationModal and supports ?verify= and #verify deep links', () => {
+  const appPath = resolve(process.cwd(), 'src/App.tsx');
+  const content = readFileSync(appPath, 'utf8');
+
+  assert.ok(content.includes('CertificateVerificationModal'), 'App.tsx must import and mount CertificateVerificationModal');
+  assert.ok(content.includes('open-certificate-verification'), 'App.tsx must listen to open-certificate-verification custom event');
+  assert.ok(content.includes('isCertificateVerificationOpen'), 'App.tsx must track isCertificateVerificationOpen state');
+  assert.ok(content.includes('verificationTargetSerial'), 'App.tsx must track verificationTargetSerial state');
+  assert.ok(content.includes("verifyQuery = params.get('verify')") || content.includes("params.get('verify')"), 'App.tsx must parse ?verify= query param');
+  assert.ok(content.includes("hash.startsWith('verify')") || content.includes("includes('verify')"), 'App.tsx must parse #verify hash');
+  assert.ok(content.includes('onOpenCertificateVerification'), 'App.tsx must pass onOpenCertificateVerification to Navbar');
 });
 
 // -----------------------------------------------------------------------------
@@ -269,3 +300,4 @@ console.log('----------------------------------------------------------------\n'
 if (passedTests !== totalTests) {
   process.exit(1);
 }
+

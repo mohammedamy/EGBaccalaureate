@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useId } from 'react';
+import React, { useState, useEffect, useId, useMemo } from 'react';
 import {
   Award,
   Printer,
@@ -187,11 +187,25 @@ const RepublicCircularSeal: React.FC<{ serial: string; lang: 'ar' | 'en' }> = ({
   );
 };
 
+interface VerificationQRCodeProps {
+  code: string;
+  verificationUrl?: string;
+  lang?: 'ar' | 'en';
+}
+
 /**
  * Authentic Verification QR Code representation with corner locator blocks
  */
-const VerificationQRCode: React.FC<{ code: string }> = ({ code }) => (
-  <div className="flex flex-col items-center justify-center p-1.5 bg-white border border-slate-700 rounded-lg shadow-xs">
+const VerificationQRCode: React.FC<VerificationQRCodeProps> = ({ code, verificationUrl, lang = 'ar' }) => (
+  <div
+    className="flex flex-col items-center justify-center p-1.5 bg-white border border-slate-700 rounded-lg shadow-xs transition-transform hover:scale-105"
+    data-verification-url={verificationUrl}
+    title={
+      verificationUrl
+        ? `${lang === 'ar' ? 'رابط الفحص الرقمي:' : 'Verification URL:'} ${verificationUrl}`
+        : `${lang === 'ar' ? 'كود التحقق الرقمي:' : 'Verification Code:'} ${code}`
+    }
+  >
     <svg viewBox="0 0 60 60" width="62" height="62" className="text-slate-900">
       {/* Top Left Locator */}
       <rect x="2" y="2" width="16" height="16" fill="currentColor" />
@@ -455,6 +469,16 @@ export const OfficialPerformanceCertificate: React.FC<OfficialPerformanceCertifi
     }, 2000);
   };
 
+  // Direct verification deep link URL
+  const directVerificationUrl = useMemo(() => {
+    if (typeof window !== 'undefined' && window.location) {
+      const origin = window.location.origin || '';
+      const pathname = window.location.pathname || '';
+      return `${origin}${pathname}?verify=${encodeURIComponent(certificateSerial)}`;
+    }
+    return `https://egbac.edu.eg/?verify=${encodeURIComponent(certificateSerial)}`;
+  }, [certificateSerial]);
+
   // Copy verification code and summary
   const handleCopyVerification = async () => {
     const summary = `${
@@ -466,7 +490,8 @@ ${lang === 'ar' ? 'الدرجة المحرزة:' : 'Earned Score:'} ${
     } (${scorePct}%) - ${distinctionTier.badge}
 ${cohortReport ? `${lang === 'ar' ? 'الرتبة المئوية بالجمهورية:' : 'Percentile:'} ${cohortReport.percentileRank}%\n` : ''}${
       lang === 'ar' ? 'رقم التحقق:' : 'Verification Serial:'
-    } ${certificateSerial}`;
+    } ${certificateSerial}
+${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'} ${directVerificationUrl}`;
 
     try {
       await navigator.clipboard.writeText(summary);
@@ -695,7 +720,7 @@ ${cohortReport ? `${lang === 'ar' ? 'الرتبة المئوية بالجمهو�
                     className="flex flex-col items-center gap-1 group cursor-pointer"
                     title={lang === 'ar' ? 'فحص الاعتماد الرقمي والختم الإلكتروني' : 'Verify Digital Accreditation & Seal'}
                   >
-                    <VerificationQRCode code={certificateSerial} />
+                    <VerificationQRCode code={certificateSerial} verificationUrl={directVerificationUrl} lang={lang} />
                     <span className="text-[7.5px] font-bold text-emerald-800 bg-emerald-100/90 px-1.5 py-0.5 rounded-sm border border-emerald-300 group-hover:bg-emerald-200 transition-colors">
                       {lang === 'ar' ? 'فحص الاعتماد 🛡️' : 'Verify 🛡️'}
                     </span>
