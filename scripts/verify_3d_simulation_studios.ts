@@ -1,4 +1,5 @@
 import { BALMER_LINES } from '../src/components/Interactive3DAtomStudio';
+import { EXPERIMENT_CONFIGS, getLabReportTemplate, computeTotalRubricMarks } from '../src/services/labReportService';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -334,6 +335,66 @@ assert(
   requiredRatio > 100000,
   'Compaction ratio > 100,000x required to fit 2m DNA into 2-3 micron nucleus'
 );
+
+// ----------------------------------------------------------------------------
+// TEST GROUP 6: 3D Simulation Guided Experiments & Official Lab Report Schemas
+// ----------------------------------------------------------------------------
+console.log('\n📝 Group 6: 3D Simulation Guided Experiments & Official Lab Report Schemas');
+
+// phys-exp-6 verification
+const phys6 = EXPERIMENT_CONFIGS['phys-exp-6'];
+assert(!!phys6, 'phys-exp-6 configuration is registered in EXPERIMENT_CONFIGS');
+assert(phys6.discipline === 'physics', 'phys-exp-6 discipline is physics');
+assert(phys6.columns.length === 5, 'phys-exp-6 has 5 data table columns');
+assert(phys6.sampleRows.length === 6, 'phys-exp-6 has 6 empirical observation rows');
+assert(
+  phys6.sampleRows.some((r) => r.observed_val.includes('656.1 nm')),
+  'phys-exp-6 logs H-alpha 656.1 nm empirical transition'
+);
+
+// chem-exp-5 verification
+const chem5 = EXPERIMENT_CONFIGS['chem-exp-5'];
+assert(!!chem5, 'chem-exp-5 configuration is registered in EXPERIMENT_CONFIGS');
+assert(chem5.discipline === 'chemistry', 'chem-exp-5 discipline is chemistry');
+assert(chem5.columns.length === 5, 'chem-exp-5 has 5 data table columns');
+assert(chem5.sampleRows.length === 7, 'chem-exp-5 has 7 empirical observation rows');
+assert(
+  chem5.sampleRows.some((r) => r.measured_angle === '104.5' && r.compound.includes('الماء')),
+  'chem-exp-5 logs Water bond angle compression to 104.5°'
+);
+assert(
+  chem5.sampleRows.some((r) => r.compound.includes('الصلب الكربوني البيني')),
+  'chem-exp-5 logs interstitial carbon steel slip-plane locking'
+);
+
+// bio-exp-8 verification
+const bio8 = EXPERIMENT_CONFIGS['bio-exp-8'];
+assert(!!bio8, 'bio-exp-8 configuration is registered in EXPERIMENT_CONFIGS');
+assert(bio8.discipline === 'biology', 'bio-exp-8 discipline is biology');
+assert(bio8.columns.length === 5, 'bio-exp-8 has 5 data table columns');
+assert(bio8.sampleRows.length === 6, 'bio-exp-8 has 6 empirical observation rows');
+assert(
+  bio8.sampleRows.some((r) => r.temperature_or_scale === '100°C' && r.stage.includes('Denaturation')),
+  'bio-exp-8 logs DNA thermal denaturation at 100°C'
+);
+assert(
+  bio8.sampleRows.some((r) => r.temperature_or_scale === '60°C' && r.stage.includes('Hybridization')),
+  'bio-exp-8 logs DNA hybridization / re-annealing at 60°C'
+);
+assert(
+  bio8.sampleRows.some((r) => r.temperature_or_scale.includes('100,000') && r.stage.includes('الكروموسوم الاستوائي')),
+  'bio-exp-8 logs 100,000x metaphase chromatin compaction'
+);
+
+// Rubric score integrity on the new 3D studio reports
+for (const expId of ['phys-exp-6', 'chem-exp-5', 'bio-exp-8']) {
+  const reportData = getLabReportTemplate(expId);
+  const rubricScore = computeTotalRubricMarks(reportData.rubricCriteria);
+  assert(
+    rubricScore.max === 12 && rubricScore.earned === 12,
+    `[${expId}] official examination rubric sums to 12/12 marks`
+  );
+}
 
 console.log('================================================================================');
 console.log(`🎉 Test Results: ${passedTests}/${totalTests} Passed (100%)`);

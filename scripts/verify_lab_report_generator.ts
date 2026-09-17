@@ -119,6 +119,17 @@ assert(mdEn.includes('Quantitative Observation Table'), 'English markdown includ
 assert(mdEn.includes('| Trial |'), 'English markdown table has trial headers');
 assert(mdEn.includes('Total Marks'), 'English markdown includes total rubric row');
 
+// Test 3D Studio reports export
+for (const studioExpId of ['phys-exp-6', 'chem-exp-5', 'bio-exp-8']) {
+  const rep = getLabReportTemplate(studioExpId);
+  const arMd = exportReportToMarkdown(rep, 'ar');
+  const enMd = exportReportToMarkdown(rep, 'en');
+  assert(arMd.length > 500, `[${studioExpId}] exports non-empty Arabic Markdown report (${arMd.length} chars)`);
+  assert(enMd.length > 500, `[${studioExpId}] exports non-empty English Markdown report (${enMd.length} chars)`);
+  assert(arMd.includes(rep.titleAr), `[${studioExpId}] Arabic markdown includes exact title`);
+  assert(enMd.includes(rep.titleEn), `[${studioExpId}] English markdown includes exact title`);
+}
+
 // 5. Testing KaTeX Delimiters in Governing Equations
 console.log('\n--- 5. Testing Governing Formula KaTeX Delimiters ---');
 for (const expId of configuredExpIds) {
