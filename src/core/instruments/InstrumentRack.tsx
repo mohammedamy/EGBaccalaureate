@@ -197,40 +197,15 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
             </div>
           )}
 
-          {/* Dual-Trace Oscilloscope */}
+          {/* Dual-Trace Oscilloscope - Spans Full Width as a Primary Workstation Instrument */}
           {activeInstruments.has('oscilloscope') && (
-            <div className="rounded-2xl border border-cyan-500/30 bg-slate-950/95 shadow-2xl overflow-hidden backdrop-blur-xl transition-all">
-              <div className="px-4 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-cyan-400 font-bold text-xs">
-                  <Activity className="w-4 h-4" />
-                  <span>{isAr ? 'راسم الإشارة ثنائي القناة (CRT Phosphor Graticule)' : 'Dual-Trace Phosphor Oscilloscope (CH1/CH2/XY)'}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => toggleMinimize('oscilloscope')}
-                    className="p-1 rounded text-slate-400 hover:text-slate-200"
-                  >
-                    {minimized.has('oscilloscope') ? <Maximize2 className="w-3.5 h-3.5" /> : <Minimize2 className="w-3.5 h-3.5" />}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => onCloseInstrument('oscilloscope')}
-                    className="p-1 rounded text-slate-400 hover:text-rose-400"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-              {!minimized.has('oscilloscope') && (
-                <div className="p-2 sm:p-3 w-full min-w-0 overflow-hidden">
-                  <DualTraceOscilloscope
-                    channel1Signal={oscilloscopeCh1}
-                    channel2Signal={oscilloscopeCh2}
-                    lang={lang}
-                  />
-                </div>
-              )}
+            <div className="col-span-full w-full">
+              <DualTraceOscilloscope
+                channel1Signal={oscilloscopeCh1}
+                channel2Signal={oscilloscopeCh2}
+                lang={lang}
+                onClose={() => onCloseInstrument('oscilloscope')}
+              />
             </div>
           )}
 
