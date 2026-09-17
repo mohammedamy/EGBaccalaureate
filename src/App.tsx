@@ -23,6 +23,9 @@ import { VirtualLabsHub } from './components/VirtualLabsHub';
 import { StudentAnalyticsDashboard } from './components/StudentAnalyticsDashboard';
 import { MathScratchpad } from './core/math/MathScratchpad';
 import { CertificateVerificationModal } from './components/CertificateVerificationModal';
+import { EnglishDictionaryModal } from './components/EnglishDictionaryModal';
+import { EnglishAudioLabModal } from './components/EnglishAudioLabModal';
+import { FrenchListeningStationModal } from './components/FrenchListeningStationModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 
 export const App: React.FC = () => {
@@ -131,6 +134,9 @@ export const App: React.FC = () => {
   const [isMathScratchpadOpen, setIsMathScratchpadOpen] = useState<boolean>(false);
   const [isOfficialBooksOpen, setIsOfficialBooksOpen] = useState<boolean>(false);
   const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
+  const [isEnglishDictionaryOpen, setIsEnglishDictionaryOpen] = useState<boolean>(false);
+  const [isEnglishAudioLabOpen, setIsEnglishAudioLabOpen] = useState<boolean>(false);
+  const [isFrenchListeningOpen, setIsFrenchListeningOpen] = useState<boolean>(false);
   const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
@@ -343,6 +349,18 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsCertificateVerificationOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'd' || e.key === 'D' || e.code === 'KeyD')) {
+        e.preventDefault();
+        setIsEnglishDictionaryOpen((prev) => !prev);
+      }
+      if (e.altKey && (e.key === 'p' || e.key === 'P' || e.code === 'KeyP')) {
+        e.preventDefault();
+        setIsEnglishAudioLabOpen((prev) => !prev);
+      }
+      if (e.altKey && (e.key === 'f' || e.key === 'F' || e.code === 'KeyF')) {
+        e.preventDefault();
+        setIsFrenchListeningOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -354,6 +372,27 @@ export const App: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Event listener for opening English Dictionary from anywhere in the app
+  useEffect(() => {
+    const handleOpenDict = () => setIsEnglishDictionaryOpen(true);
+    window.addEventListener('open-english-dictionary', handleOpenDict);
+    return () => window.removeEventListener('open-english-dictionary', handleOpenDict);
+  }, []);
+
+  // Event listener for opening English Audio & Phonetics Lab from anywhere in the app
+  useEffect(() => {
+    const handleOpenAudioLab = () => setIsEnglishAudioLabOpen(true);
+    window.addEventListener('open-english-audio-lab', handleOpenAudioLab);
+    return () => window.removeEventListener('open-english-audio-lab', handleOpenAudioLab);
+  }, []);
+
+  // Event listener for opening French Listening & Audio Station from anywhere in the app
+  useEffect(() => {
+    const handleOpenFrench = () => setIsFrenchListeningOpen(true);
+    window.addEventListener('open-french-listening-lab', handleOpenFrench);
+    return () => window.removeEventListener('open-french-listening-lab', handleOpenFrench);
   }, []);
 
   // Event listener for opening Certificate Verification Portal from anywhere in the app
@@ -455,6 +494,9 @@ export const App: React.FC = () => {
         onOpenTutorial={() => setIsTutorialOpen(true)}
         onOpenPastPapers={handleOpenPastPapers}
         onOpenCertificateVerification={() => setIsCertificateVerificationOpen(true)}
+        onOpenEnglishDictionary={() => setIsEnglishDictionaryOpen(true)}
+        onOpenEnglishAudioLab={() => setIsEnglishAudioLabOpen(true)}
+        onOpenFrenchListening={() => setIsFrenchListeningOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -555,6 +597,30 @@ export const App: React.FC = () => {
           lang={lang}
           theme={theme}
           initialBookId={targetOfficialBookId}
+        />
+
+        {/* Global English Academic Dictionary Modal */}
+        <EnglishDictionaryModal
+          isOpen={isEnglishDictionaryOpen}
+          onClose={() => setIsEnglishDictionaryOpen(false)}
+          lang={lang}
+          theme={theme}
+        />
+
+        {/* Global English Audio & Phonetics Lab Modal */}
+        <EnglishAudioLabModal
+          isOpen={isEnglishAudioLabOpen}
+          onClose={() => setIsEnglishAudioLabOpen(false)}
+          lang={lang}
+          theme={theme}
+        />
+
+        {/* Global French Listening & Audio Studio Modal */}
+        <FrenchListeningStationModal
+          isOpen={isFrenchListeningOpen}
+          onClose={() => setIsFrenchListeningOpen(false)}
+          lang={lang}
+          theme={theme}
         />
 
         {/* Interactive Site Navigation Tutorial Modal (PCs, Mobiles, Tablets, Smartboards) */}

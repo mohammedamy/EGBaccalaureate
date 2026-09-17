@@ -12,6 +12,7 @@ import {
   Atom,
   FlaskConical,
   Dna,
+  Languages,
   Layers,
   ChevronDown,
   Check,
@@ -84,6 +85,9 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <FlaskConical className={className} />;
       case 'Dna':
         return <Dna className={className} />;
+      case 'Languages':
+      case 'BookA':
+        return <Languages className={className} />;
       default:
         return <BookOpen className={className} />;
     }

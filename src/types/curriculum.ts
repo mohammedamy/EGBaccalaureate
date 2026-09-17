@@ -10,13 +10,17 @@ export type BranchId =
   | 'thanaweya_physics'
   | 'thanaweya_chemistry'
   | 'thanaweya_biology'
+  | 'thanaweya_english'
+  | 'thanaweya_french'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
   | 'egbac_probability'
   | 'egbac_physics'
   | 'egbac_chemistry'
-  | 'egbac_biology';
+  | 'egbac_biology'
+  | 'egbac_english'
+  | 'egbac_french';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -193,7 +197,13 @@ export type InteractiveWidgetType =
   | 'physics_resonance'
   | 'physics_flashcards'
   | 'physics_magnetism'
-  | 'physics_atomic_lasers';
+  | 'physics_atomic_lasers'
+  | 'english_dictionary'
+  | 'english_translation'
+  | 'english_grammar_lab'
+  | 'english_audio_lab'
+  | 'french_audio_lab'
+  | 'french_grammar_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

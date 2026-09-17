@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -107,6 +107,48 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_biology'],
       egbac: ['egbac_biology'],
+    },
+  },
+  {
+    id: 'english',
+    titleEn: 'English Language',
+    titleAr: 'اللغة الإنجليزية',
+    shortTitleEn: 'English',
+    shortTitleAr: 'إنجليزي',
+    emoji: '🇬🇧',
+    iconName: 'Languages',
+    badgeColor: 'violet',
+    gradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    lightBg: 'bg-violet-50 text-violet-900 border-violet-200',
+    darkBg: 'bg-violet-950/70 text-violet-200 border-violet-800/60',
+    borderColor: 'border-violet-500/50',
+    textColor: 'text-violet-400',
+    descriptionEn: 'First Foreign Language: Vocabulary, Grammar, Advanced Writing, Reading Comprehension & Translation Skills',
+    descriptionAr: 'اللغة الأجنبية الأولى: المفردات اللغوية، القواعد، مهارات الكتابة المتقدمة، الفهم والاستيعاب، وفنون الترجمة',
+    branchIds: {
+      thanaweya: ['thanaweya_english'],
+      egbac: ['egbac_english'],
+    },
+  },
+  {
+    id: 'french',
+    titleEn: 'French Language (Second Foreign Language)',
+    titleAr: 'اللغة الفرنسية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'French',
+    shortTitleAr: 'فرنساوي',
+    emoji: '🇫🇷',
+    iconName: 'Languages',
+    badgeColor: 'sky',
+    gradient: 'from-blue-600 via-sky-600 to-rose-600',
+    lightBg: 'bg-sky-50 text-sky-900 border-sky-200',
+    darkBg: 'bg-sky-950/70 text-sky-200 border-sky-800/60',
+    borderColor: 'border-sky-500/50',
+    textColor: 'text-sky-400',
+    descriptionEn: 'Second Foreign Language (Club @dos Plus 3): Sports, Food, Countryside & Travel Communicative Units, Grammar, Daily Life Situations & Listening',
+    descriptionAr: 'اللغة الأجنبية الثانية (Club @dos Plus 3): الرياضة، التغذية، الريف، السفر ووسائل المواصلات، القواعد اللغوية، المواقف الحياتية، وفهم النصوص الشفهية',
+    branchIds: {
+      thanaweya: ['thanaweya_french'],
+      egbac: ['egbac_french'],
     },
   },
 ];

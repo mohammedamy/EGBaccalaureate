@@ -19,6 +19,8 @@ import { InteractiveGeneticsStudio } from './InteractiveGeneticsStudio';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
+import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget';
+import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
@@ -232,6 +234,26 @@ export const LessonView: React.FC<Props> = ({
           return <InteractivePhotoelectricStudio lang={lang} theme={theme} />;
         case 'genetics_punnett':
           return <InteractiveGeneticsStudio lang={lang} theme={theme} />;
+        case 'english_dictionary':
+        case 'english_translation':
+        case 'english_grammar_lab':
+        case 'english_audio_lab':
+          return (
+            <EnglishLessonInteractiveWidget
+              type={lesson.interactiveWidget.type}
+              lang={lang}
+              theme={theme}
+            />
+          );
+        case 'french_audio_lab':
+        case 'french_grammar_lab':
+          return (
+            <FrenchAudioStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -263,6 +285,27 @@ export const LessonView: React.FC<Props> = ({
           return <InteractivePhotoelectricStudio lang={lang} theme={theme} isFullscreen={true} />;
         case 'genetics_punnett':
           return <InteractiveGeneticsStudio lang={lang} theme={theme} isFullscreen={true} />;
+        case 'english_dictionary':
+        case 'english_translation':
+        case 'english_grammar_lab':
+        case 'english_audio_lab':
+          return (
+            <EnglishLessonInteractiveWidget
+              type={lesson.interactiveWidget.type}
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'french_audio_lab':
+        case 'french_grammar_lab':
+          return (
+            <FrenchAudioStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;
       }

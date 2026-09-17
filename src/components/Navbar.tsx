@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -28,6 +28,9 @@ interface Props {
   onOpenTutorial?: () => void;
   onOpenPastPapers?: () => void;
   onOpenCertificateVerification?: () => void;
+  onOpenEnglishDictionary?: () => void;
+  onOpenEnglishAudioLab?: () => void;
+  onOpenFrenchListening?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -53,6 +56,9 @@ export const Navbar: React.FC<Props> = ({
   onOpenTutorial,
   onOpenPastPapers,
   onOpenCertificateVerification,
+  onOpenEnglishDictionary,
+  onOpenEnglishAudioLab,
+  onOpenFrenchListening,
   selectedSubject,
   onSubjectChange,
   curriculumData,
@@ -148,6 +154,42 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenCertificateVerification();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenEnglishDictionary && {
+      id: 'dictionary',
+      label: isArabic ? 'قاموس اللغة الإنجليزية الأكاديمي' : 'English Academic Dictionary',
+      desc: isArabic ? 'معجم شامل بمفردات ومصطلحات الثانوية والبكالوريا ونطق صوتي' : 'Comprehensive Secondary 3 vocabulary, collocations & IPA audio',
+      shortcut: '⌥D',
+      icon: Languages,
+      color: 'text-violet-400',
+      onClick: () => {
+        onOpenEnglishDictionary();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenEnglishAudioLab && {
+      id: 'audio_lab',
+      label: isArabic ? 'معمل الصوتيات والنطق الإنجليزي' : 'English Audio & Phonetics Lab',
+      desc: isArabic ? 'معمل تفاعلي للأصوات (44 IPA) ونبر المقاطع والاستماع والتقييم الصوتي' : 'Interactive 44-IPA soundboard, syllable stress & voice tester',
+      shortcut: '⌥P',
+      icon: Headphones,
+      color: 'text-indigo-400',
+      onClick: () => {
+        onOpenEnglishAudioLab();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenFrenchListening && {
+      id: 'french_listening',
+      label: isArabic ? 'معمل الاستماع والصوتيات الفرنسية' : 'French Audio & Listening Studio',
+      desc: isArabic ? 'استوديو تفاعلي للأصوات الأنفية وحروف الوصل وامتحانات الاستماع الوزارية' : 'Interactive Francophone pronunciation, nasal vowels & listening tracks',
+      shortcut: '⌥F',
+      icon: Headphones,
+      color: 'text-sky-400',
+      onClick: () => {
+        onOpenFrenchListening();
         setIsToolsOpen(false);
       },
     },
@@ -623,6 +665,63 @@ export const Navbar: React.FC<Props> = ({
                   <Calculator className="w-3 h-3 text-cyan-400 shrink-0" />
                   <span className="hidden xl:inline">{isArabic ? 'حاسبة ديسموس' : 'Desmos 2D/3D'}</span>
                   <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌘D</kbd>
+                </button>
+              )}
+
+              {/* English Academic Dictionary Trigger */}
+              {onOpenEnglishDictionary && (
+                <button
+                  onClick={onOpenEnglishDictionary}
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-violet-300 border-violet-400 hover:bg-violet-950/40'
+                      : isLight
+                      ? 'bg-violet-50 hover:bg-violet-100 text-violet-800 border-violet-300'
+                      : 'bg-violet-950/70 hover:bg-violet-900 text-violet-300 border-violet-700/60'
+                  }`}
+                  title={isArabic ? 'قاموس اللغة الإنجليزية الأكاديمي (Alt+D / ⌥D)' : 'English Academic Dictionary (Alt+D / ⌥D)'}
+                >
+                  <Languages className="w-3 h-3 text-violet-400 shrink-0" />
+                  <span className="hidden xl:inline">{isArabic ? 'القاموس' : 'Dictionary'}</span>
+                  <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥D</kbd>
+                </button>
+              )}
+
+              {/* English Audio & Phonetics Lab Trigger */}
+              {onOpenEnglishAudioLab && (
+                <button
+                  onClick={onOpenEnglishAudioLab}
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-indigo-300 border-indigo-400 hover:bg-indigo-950/40'
+                      : isLight
+                      ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border-indigo-300'
+                      : 'bg-indigo-950/70 hover:bg-indigo-900 text-indigo-300 border-indigo-700/60'
+                  }`}
+                  title={isArabic ? 'معمل الصوتيات والنطق (Alt+P / ⌥P)' : 'Audio & Phonetics Lab (Alt+P / ⌥P)'}
+                >
+                  <Headphones className="w-3 h-3 text-indigo-400 shrink-0" />
+                  <span className="hidden xl:inline">{isArabic ? 'الصوتيات' : 'Audio Lab'}</span>
+                  <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥P</kbd>
+                </button>
+              )}
+
+              {/* French Audio & Listening Studio Trigger */}
+              {onOpenFrenchListening && (
+                <button
+                  onClick={onOpenFrenchListening}
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-sky-300 border-sky-400 hover:bg-sky-950/40'
+                      : isLight
+                      ? 'bg-sky-50 hover:bg-sky-100 text-sky-800 border-sky-300'
+                      : 'bg-sky-950/70 hover:bg-sky-900 text-sky-300 border-sky-700/60'
+                  }`}
+                  title={isArabic ? 'معمل الصوتيات الفرنسية والاستماع (Alt+F / ⌥F)' : 'French Audio & Listening Studio (Alt+F / ⌥F)'}
+                >
+                  <Headphones className="w-3 h-3 text-sky-400 shrink-0" />
+                  <span className="hidden xl:inline">{isArabic ? 'استماع فرنسي' : 'French Audio'}</span>
+                  <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥F</kbd>
                 </button>
               )}
 
