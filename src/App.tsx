@@ -41,12 +41,18 @@ export const App: React.FC = () => {
     }
     return 'normal';
   });
-  const parseRouteState = () => {
+  const parseRouteState = (): { subject: string; tab: string; blueprint?: BlueprintMode } => {
     try {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const params = new URLSearchParams(window.location.search);
       let subject = params.get('subject') || '';
       let tab = params.get('tab') || '';
+      let blueprint: BlueprintMode | undefined = undefined;
+
+      const bpParam = params.get('blueprint');
+      if (bpParam === 'official_past_papers' || bpParam === 'official_thanawya_mock' || bpParam === 'diagnostic_benchmark') {
+        blueprint = bpParam as BlueprintMode;
+      }
 
       if (hash === 'physics' || hash === 'phys') subject = 'physics';
       else if (hash === 'chemistry' || hash === 'chem') subject = 'chemistry';
@@ -60,6 +66,10 @@ export const App: React.FC = () => {
       else if (hash === 'math-lab') { subject = 'mathematics'; tab = 'interactive'; }
       else if (hash === 'theory') tab = 'theory';
       else if (hash === 'tests' || hash === 'exams' || hash === 'testgenerator') tab = 'testGenerator';
+      else if (hash === 'past-papers' || hash === 'pastpapers' || hash === 'official-exams' || hash === 'past-exam-papers') {
+        tab = 'testGenerator';
+        blueprint = 'official_past_papers';
+      }
 
       if (!subject) {
         const saved = localStorage.getItem('egbac_selected_subject');
@@ -70,7 +80,7 @@ export const App: React.FC = () => {
         }
       }
 
-      return { subject, tab: tab || 'overview' };
+      return { subject, tab: tab || 'overview', blueprint };
     } catch {
       return { subject: 'all', tab: 'overview' };
     }
@@ -90,14 +100,31 @@ export const App: React.FC = () => {
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
   const [desmosPresetId, setDesmosPresetId] = useState<string | undefined>(undefined);
-  const [testBlueprint, setTestBlueprint] = useState<BlueprintMode | undefined>(undefined);
+  const [testBlueprint, setTestBlueprint] = useState<BlueprintMode | undefined>(initialRoute.blueprint);
 
   const handleOpenOfficialBooks = (bookId?: string) => {
     setTargetOfficialBookId(bookId);
     setIsOfficialBooksOpen(true);
   };
 
+  const handleOpenPastPapers = () => {
+    setTestBlueprint('official_past_papers');
+    setActiveTab('testGenerator');
+  };
+
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+
+  // Listen for hash changes to support instant deep links
+  useEffect(() => {
+    const handleHashChange = () => {
+      const parsed = parseRouteState();
+      if (parsed.tab) setActiveTab(parsed.tab);
+      if (parsed.subject && parsed.subject !== 'all') setSelectedSubject(parsed.subject);
+      if (parsed.blueprint) setTestBlueprint(parsed.blueprint);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Register Service Worker for PWA offline resilience
   useEffect(() => {
@@ -250,6 +277,10 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsOfficialBooksOpen((prev) => !prev);
       }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'o') {
+        e.preventDefault();
+        handleOpenPastPapers();
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -347,6 +378,7 @@ export const App: React.FC = () => {
         onOpenOfficialBooks={() => handleOpenOfficialBooks()}
         onOpenMathScratchpad={() => setIsMathScratchpadOpen(true)}
         onOpenTutorial={() => setIsTutorialOpen(true)}
+        onOpenPastPapers={handleOpenPastPapers}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -598,6 +630,7 @@ export const App: React.FC = () => {
               setTestBlueprint('diagnostic_benchmark');
               setActiveTab('testGenerator');
             }}
+            onStartPastPapers={handleOpenPastPapers}
           />
         )}
       </main>

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -26,6 +26,7 @@ interface Props {
   onOpenOfficialBooks?: () => void;
   onOpenMathScratchpad?: () => void;
   onOpenTutorial?: () => void;
+  onOpenPastPapers?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -49,6 +50,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenOfficialBooks,
   onOpenMathScratchpad,
   onOpenTutorial,
+  onOpenPastPapers,
   selectedSubject,
   onSubjectChange,
   curriculumData,
@@ -123,6 +125,18 @@ export const Navbar: React.FC<Props> = ({
   const activeTabObj = navTabs.find((tab) => tab.id === activeTab) || navTabs[0];
 
   const quickTools = [
+    onOpenPastPapers && {
+      id: 'past-papers',
+      label: isArabic ? 'امتحانات الوزارة الرسمية (٢٠٢١ - ٢٠٢٥)' : 'Official MoE Past Papers (2021-2025)',
+      desc: isArabic ? 'نماذج الامتحانات الأصلية مع رتبة الجمهورية والدرجة المعيارية' : 'Authentic ministerial papers & cohort percentiles',
+      shortcut: '⌘O',
+      icon: Award,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenPastPapers();
+        setIsToolsOpen(false);
+      },
+    },
     onOpenFormulaHandbook && {
       id: 'formulas',
       label: isArabic ? 'دستور القوانين والمعادلات' : 'Formula Sheet Handbook',

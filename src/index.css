@@ -1530,5 +1530,60 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
+
+  /* -------------------------------------------------------------------------
+     Official Egyptian Ministry A4 OMR Bubble Sheet Print Styling
+     ------------------------------------------------------------------------- */
+  .print-omr-bubble-sheet {
+    break-before: page !important;
+    page-break-before: always !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 3pt solid #000000 !important;
+    padding: 8pt !important;
+    margin-top: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .print-omr-bubble-sheet * {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  .print-omr-bubble {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 15pt !important;
+    height: 15pt !important;
+    border: 1.5pt solid #000000 !important;
+    border-radius: 9999px !important;
+    font-size: 8.5pt !important;
+    font-weight: 800 !important;
+    background: #ffffff !important;
+    line-height: 1 !important;
+  }
+
+  .print-omr-bubble-sm {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 11pt !important;
+    height: 11pt !important;
+    border: 1pt solid #000000 !important;
+    border-radius: 9999px !important;
+    font-size: 6.5pt !important;
+    font-weight: 700 !important;
+    background: #ffffff !important;
+    line-height: 1 !important;
+  }
+
+  .print-omr-calib-corner {
+    width: 18pt !important;
+    height: 18pt !important;
+    border-color: #000000 !important;
+    border-style: solid !important;
+  }
 }
 

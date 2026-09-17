@@ -16,6 +16,7 @@ import {
   FileSpreadsheet,
   HelpCircle,
   TrendingUp,
+  Printer,
 } from 'lucide-react';
 import { MathRenderer } from '../../components/MathRenderer';
 import { TextbookDiagram } from '../../components/TextbookDiagram';
@@ -466,6 +467,16 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               <Clock className="w-4 h-4" />
               <span>{formatTimer(timeLeftSeconds)}</span>
             </div>
+
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold border border-slate-300 shadow-xs cursor-pointer transition-all flex items-center gap-1.5"
+              title={isAr ? 'طباعة ورقة البابل شيت' : 'Print OMR Sheet'}
+            >
+              <Printer className="w-3.5 h-3.5 text-slate-700" />
+              <span className="hidden sm:inline">{isAr ? 'طباعة البابل شيت' : 'Print OMR'}</span>
+            </button>
 
             {!isSubmitted ? (
               <button

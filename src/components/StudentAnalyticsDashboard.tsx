@@ -39,6 +39,7 @@ interface Props {
   onNavigateTab: (tab: string) => void;
   onStartTargetedQuiz?: (subjectId: string, chapterId?: string) => void;
   onStartDiagnosticExam?: () => void;
+  onStartPastPapers?: () => void;
 }
 
 export const StudentAnalyticsDashboard: React.FC<Props> = ({
@@ -47,6 +48,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   onNavigateTab,
   onStartTargetedQuiz,
   onStartDiagnosticExam,
+  onStartPastPapers,
 }) => {
   const isAr = lang === 'ar';
 
@@ -250,6 +252,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 <Target className="w-3.5 h-3.5 text-cyan-200" />
                 <span>{isAr ? 'اختبار تشخيص شامل (٢٠)' : 'Diagnostic Exam (20 Qs)'}</span>
               </button>
+
+              {onStartPastPapers && (
+                <button
+                  onClick={onStartPastPapers}
+                  className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white border border-amber-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+                >
+                  <Award className="w-3.5 h-3.5 text-amber-200" />
+                  <span>{isAr ? 'امتحانات الوزارة الرسمية (٢٠٢١ - ٢٠٢٥)' : 'Official Past Papers (2021-2025)'}</span>
+                </button>
+              )}
 
               <button
                 onClick={handlePrint}
@@ -660,6 +672,71 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </div>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* Official Past Papers & Republic Cohort Benchmark Hub */}
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/30 border-2 border-amber-600/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
+              <Award className="w-4 h-4 text-amber-400" />
+              <span>{isAr ? 'محاكاة امتحانات إتمام الثانوية العامة (٢٠٢١ - ٢٠٢٥)' : 'Official Thanawya Amma Past Papers (2021-2025)'}</span>
+            </div>
+            <h3 className="text-lg font-black text-slate-100 mt-2">
+              {isAr ? 'بنك الاختبارات الرسمية ونماذج الإجابة الوزارية المعتمدة' : 'Authentic MoE Examination Papers & Ministerial Rubrics'}
+            </h3>
+            <p className="text-xs text-slate-400">
+              {isAr
+                ? 'امتحانات الدور الأول والدور الثاني والنماذج الاسترشادية التجريبية مطابقة تماماً للمواصفة الوزارية مع تصنيف الرتبة المئوية على مستوى الجمهورية'
+                : 'First & Second session papers and official experimental models with national percentile rankings and Republic Top 10 benchmarking.'}
+            </p>
+          </div>
+
+          {onStartPastPapers && (
+            <button
+              onClick={onStartPastPapers}
+              className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer hover:scale-105 shrink-0"
+            >
+              <Play className="w-4 h-4 fill-slate-950" />
+              <span>{isAr ? 'بدء محاكاة امتحان وزاري كامل' : 'Launch Full Past Exam'}</span>
+            </button>
+          )}
+        </div>
+
+        {/* Quick Launch Pills for Subject Past Papers */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 relative z-10">
+          {[
+            { id: 'physics', titleAr: 'الفيزياء', titleEn: 'Physics', qCount: isAr ? '٤٦ س / ٦٠ د' : '46 Qs / 60 M', badge: '2021-2025' },
+            { id: 'chemistry', titleAr: 'الكيمياء', titleEn: 'Chemistry', qCount: isAr ? '٤٦ س / ٦٠ د' : '46 Qs / 60 M', badge: '2021-2025' },
+            { id: 'biology', titleAr: 'الأحياء', titleEn: 'Biology', qCount: isAr ? '٤٦ س / ٦٠ د' : '46 Qs / 60 M', badge: '2021-2025' },
+            { id: 'calculus', titleAr: 'التفاضل والتكامل', titleEn: 'Calculus', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2021-2025' },
+            { id: 'algebra_solid', titleAr: 'الجبر والهندسة', titleEn: 'Algebra & Solid', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
+            { id: 'statics', titleAr: 'الاستاتيكا', titleEn: 'Statics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
+            { id: 'dynamics', titleAr: 'الديناميكا', titleEn: 'Dynamics', qCount: isAr ? '٢٠ س / ٣٠ د' : '20 Qs / 30 M', badge: '2024-2025' },
+          ].map((sub) => (
+            <button
+              key={sub.id}
+              onClick={() => {
+                if (onStartPastPapers) onStartPastPapers();
+                else onNavigateTab('testGenerator');
+              }}
+              className="p-3 rounded-2xl bg-slate-950/80 hover:bg-amber-950/40 border border-slate-800 hover:border-amber-500/50 text-start space-y-1.5 transition-all cursor-pointer group"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  {sub.badge}
+                </span>
+              </div>
+              <div className="text-xs font-black text-slate-200 group-hover:text-amber-300 transition-colors">
+                {isAr ? sub.titleAr : sub.titleEn}
+              </div>
+              <div className="text-[10px] text-slate-500 font-mono">
+                {sub.qCount}
+              </div>
+            </button>
+          ))}
         </div>
       </div>
 
