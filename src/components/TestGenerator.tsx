@@ -213,6 +213,22 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [blueprintMode, selectedSubject, selectedBranch, selectedPastPaperId]);
 
+  // Auto-align selectedPastPaperId when selectedSubject matches a past paper subject
+  useEffect(() => {
+    if (blueprintMode === 'official_past_papers') {
+      const currentPaper = getPastExamPaperById(selectedPastPaperId);
+      const subjectKey = selectedSubject as PastExamSubject;
+      if (currentPaper && currentPaper.subject !== subjectKey) {
+        const matching = getPastExamPapers({ subject: subjectKey, session: 'session1', year: 2024 })[0]
+          || getPastExamPapers({ subject: subjectKey })[0];
+        if (matching) {
+          setSelectedPastPaperId(matching.id);
+          setPastPaperSubjectFilter(subjectKey);
+        }
+      }
+    }
+  }, [blueprintMode, selectedSubject]);
+
   // Printable Exam Paper & Solution Sheet Customization
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
   const [showExplanationsOnPrint, setShowExplanationsOnPrint] = useState<boolean>(false);

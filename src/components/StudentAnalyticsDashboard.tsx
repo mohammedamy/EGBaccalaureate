@@ -40,7 +40,7 @@ interface Props {
   onNavigateTab: (tab: string) => void;
   onStartTargetedQuiz?: (subjectId: string, chapterId?: string) => void;
   onStartDiagnosticExam?: () => void;
-  onStartPastPapers?: () => void;
+  onStartPastPapers?: (subjectId?: string) => void;
 }
 
 export const StudentAnalyticsDashboard: React.FC<Props> = ({
@@ -256,7 +256,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
               {onStartPastPapers && (
                 <button
-                  onClick={onStartPastPapers}
+                  onClick={() => onStartPastPapers()}
                   className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white border border-amber-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
                 >
                   <EgyptFlag className="h-3 w-auto rounded-[2px]" />
@@ -699,7 +699,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
           {onStartPastPapers && (
             <button
-              onClick={onStartPastPapers}
+              onClick={() => onStartPastPapers()}
               className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 hover:from-amber-500 hover:to-yellow-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer hover:scale-105 shrink-0"
             >
               <Play className="w-4 h-4 fill-slate-950" />
@@ -722,7 +722,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             <button
               key={sub.id}
               onClick={() => {
-                if (onStartPastPapers) onStartPastPapers();
+                if (onStartPastPapers) onStartPastPapers(sub.id);
                 else onNavigateTab('testGenerator');
               }}
               className="p-3 rounded-2xl bg-slate-950/80 hover:bg-amber-950/40 border border-slate-800 hover:border-amber-500/50 text-start space-y-1.5 transition-all cursor-pointer group"

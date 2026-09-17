@@ -107,7 +107,11 @@ export const App: React.FC = () => {
     setIsOfficialBooksOpen(true);
   };
 
-  const handleOpenPastPapers = () => {
+  const handleOpenPastPapers = (subjectId?: string) => {
+    if (subjectId) {
+      setSelectedSubject(subjectId);
+      localStorage.setItem('egbac_selected_subject', subjectId);
+    }
     setTestBlueprint('official_past_papers');
     setActiveTab('testGenerator');
   };
