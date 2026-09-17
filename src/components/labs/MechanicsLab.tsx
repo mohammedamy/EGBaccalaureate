@@ -23,7 +23,10 @@ import {
   Compass,
   ArrowUpRight,
   Lightbulb,
+  Printer,
 } from 'lucide-react';
+import { loadLabReportDraft, saveLabReportDraft } from '../../services/labReportService';
+import { LabReportGeneratorModal } from './LabReportGeneratorModal';
 
 interface Props {
   lang?: Language;
@@ -3253,6 +3256,77 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
     projectileCalculations,
   ]);
 
+  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
+
+  const handleOpenOfficialReportModal = () => {
+    const isDynamics =
+      params.module === 'collisions_momentum' || params.module === 'projectile_motion';
+    const targetExpId = isDynamics ? 'math-exp-4' : 'math-exp-2';
+    const draft = loadLabReportDraft(targetExpId);
+
+    if (!isDynamics) {
+      const stateDesc =
+        frictionCalculations.motionState === 'verge_of_motion'
+          ? 'اتزان نهائي - وشك الحركة (Fs = μs R)'
+          : frictionCalculations.motionState === 'accelerating'
+          ? 'حركة وانزلاق لأسفل المستوى'
+          : frictionCalculations.motionState === 'lifted'
+          ? 'انفصال وانعدام التلامس'
+          : 'اتزان سكوني مستقر';
+
+      const liveRow: Record<string, string> = {
+        angle: frictionCalculations.thetaDeg.toFixed(1),
+        tan_theta: Math.tan((frictionCalculations.thetaDeg * Math.PI) / 180).toFixed(3),
+        normal_force: frictionCalculations.R.toFixed(2),
+        downward_force: frictionCalculations.W_par.toFixed(2),
+        state: stateDesc,
+      };
+
+      const existing = draft.dataTableRows.filter(
+        (r) => !r.angle?.includes(frictionCalculations.thetaDeg.toFixed(1))
+      );
+      draft.dataTableRows = [liveRow, ...existing];
+
+      draft.conclusionAr = `تم التحقق عملياً من شروط الاتزان السكوني: زاوية ميل المستوى θ = ${frictionCalculations.thetaDeg.toFixed(1)}°، معامل الاحتكاك μ_s = ${frictionCalculations.muS.toFixed(3)}، وزاوية الاحتكاك λ = ${frictionCalculations.lambdaDeg.toFixed(1)}°. ${frictionCalculations.motionState === 'verge_of_motion' ? 'الجسم على وشك الحركة عند θ = λ.' : ''}`;
+      draft.conclusionEn = `Empirically verified static equilibrium conditions: inclination θ = ${frictionCalculations.thetaDeg.toFixed(1)}°, μ_s = ${frictionCalculations.muS.toFixed(3)}, friction angle λ = ${frictionCalculations.lambdaDeg.toFixed(1)}°.`;
+    } else {
+      if (params.module === 'collisions_momentum') {
+        const liveRow: Record<string, string> = {
+          trial_type: params.collisionType === 'direct_1d' ? 'تصادم مرن أحادي البعد' : 'تصادم مائل ثنائي الأبعاد',
+          param: `e = ${params.restitutionE}`,
+          initial_p: collisionsCalculations.P_total_init_mag.toFixed(2),
+          final_p: collisionsCalculations.P_total_final_mag.toFixed(2),
+          delta_ke: collisionsCalculations.deltaKE_lost.toFixed(2),
+          result: `ΔP = ${(collisionsCalculations.P_total_final_mag - collisionsCalculations.P_total_init_mag).toFixed(3)} kg·m/s (محفوظة)`,
+        };
+        const existing = draft.dataTableRows.filter(
+          (r) => !r.param?.includes(`e = ${params.restitutionE}`)
+        );
+        draft.dataTableRows = [liveRow, ...existing];
+        draft.conclusionAr = `تم التحقق من حفظ كمية الحركة في التصادم (ΔP = 0): كمية الحركة الكلية = ${collisionsCalculations.P_total_init_mag.toFixed(2)} kg·m/s، وفقد طاقة الحركة = ${collisionsCalculations.deltaKE_lost.toFixed(2)} J عند e = ${params.restitutionE}.`;
+        draft.conclusionEn = `Empirically verified linear momentum conservation: total momentum = ${collisionsCalculations.P_total_init_mag.toFixed(2)} kg·m/s, KE loss = ${collisionsCalculations.deltaKE_lost.toFixed(2)} J at e = ${params.restitutionE}.`;
+      } else {
+        const liveRow: Record<string, string> = {
+          trial_type: params.dragModel === 'vacuum' ? 'مقذوف بالستي (فراغ)' : 'مقذوف مع مقاومة هواء',
+          param: `θ = ${params.launchAngleDeg}°, v0 = ${params.launchVelocityMs} m/s`,
+          initial_p: (params.projectileMassKg * params.launchVelocityMs).toFixed(2),
+          final_p: (params.projectileMassKg * projectileCalculations.impactSpeed).toFixed(2),
+          delta_ke: '0.00',
+          result: `المدى الأفقي R = ${projectileCalculations.actualRange.toFixed(2)} m`,
+        };
+        const existing = draft.dataTableRows.filter(
+          (r) => !r.param?.includes(`θ = ${params.launchAngleDeg}°`)
+        );
+        draft.dataTableRows = [liveRow, ...existing];
+        draft.conclusionAr = `تم التحقق من مسار المقذوف: زاوية الإطلاق θ = ${params.launchAngleDeg}°، سرعة الإطلاق v0 = ${params.launchVelocityMs} m/s، المدى الأفقي المحسوب = ${projectileCalculations.actualRange.toFixed(2)} m، أقصى ارتفاع H = ${projectileCalculations.actualMaxH.toFixed(2)} m.`;
+        draft.conclusionEn = `Empirically verified projectile trajectory: launch angle θ = ${params.launchAngleDeg}°, v0 = ${params.launchVelocityMs} m/s, range R = ${projectileCalculations.actualRange.toFixed(2)} m, max height H = ${projectileCalculations.actualMaxH.toFixed(2)} m.`;
+      }
+    }
+
+    saveLabReportDraft(draft);
+    setIsReportModalOpen(true);
+  };
+
   return (
     <VirtualLabShell
       definition={MECHANICS_LAB_DEFINITION}
@@ -3371,6 +3445,16 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
               </button>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={handleOpenOfficialReportModal}
+            className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20 shrink-0"
+            title={isArabic ? 'معاينة واستخراج تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
+          >
+            <Printer className="w-3.5 h-3.5 text-emerald-200" />
+            <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
+          </button>
         </div>
 
         {/* Live Simulation Viewport */}
@@ -3462,6 +3546,19 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           </div>
         </div>
       </div>
+
+      {/* Official MoE A4 Lab Report Modal */}
+      <LabReportGeneratorModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        initialExperimentId={
+          params.module === 'collisions_momentum' || params.module === 'projectile_motion'
+            ? 'math-exp-4'
+            : 'math-exp-2'
+        }
+        lang={lang ?? 'ar'}
+        theme={theme}
+      />
     </VirtualLabShell>
   );
 };
