@@ -437,6 +437,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Skeleton Anatomy & Bone Studio (206)', labelAr: 'الهيكل العظمي والمفاصل (206)' },
                     { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere Contraction', labelAr: 'انقباض الساركومير' },
                     { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio & Replication (Central Dogma)', labelAr: 'استوديو DNA وتضاعف الشفرة والترجمة' },
+                    { id: 'macromolecule_3d' as BioTab, emoji: '🔮', labelEn: '3D DNA Helix, tRNA & Nucleosome Studio', labelAr: 'استوديو DNA والنيوكليوسومات و tRNA ثلاثي الأبعاد' },
                     { id: 'plant' as BioTab, emoji: '🌿', labelEn: 'Plant Histology & Support Studio', labelAr: 'أنسجة ودعامة وحركة النبات' },
                     { id: 'microscope' as BioTab, emoji: '🔬', labelEn: 'Virtual Optical Microscope', labelAr: 'المجهر الضوئي' },
                     { id: 'endocrine' as BioTab, emoji: '💉', labelEn: 'Endocrine Coordination', labelAr: 'التنسيق الهرموني' },

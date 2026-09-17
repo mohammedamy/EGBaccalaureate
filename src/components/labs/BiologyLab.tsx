@@ -21,11 +21,13 @@ import { SarcomereZoomLab } from './SarcomereZoomLab';
 import { PlantHistologyLab } from './PlantHistologyLab';
 import { SkeletonAnatomyLab } from './SkeletonAnatomyLab';
 import { DnaReplicationLab } from './DnaReplicationLab';
+import { Interactive3DBioMacromoleculeStudio } from '../Interactive3DBioMacromoleculeStudio';
 
 export type BioTab =
   | 'skeleton'
   | 'sarcomere'
   | 'dna'
+  | 'macromolecule_3d'
   | 'plant'
   | 'microscope'
   | 'endocrine'
@@ -122,6 +124,9 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
             <option value="dna" className="bg-slate-900 text-white">
               🧬 {isArabic ? 'استوديو اللولب المزدوج وتضاعف DNA' : 'DNA Studio & Replication'}
             </option>
+            <option value="macromolecule_3d" className="bg-slate-900 text-white">
+              🔮 {isArabic ? 'استوديو DNA والنيوكليوسومات و tRNA ثلاثي الأبعاد' : '3D DNA & Nucleosome Studio'}
+            </option>
             <option value="plant" className="bg-slate-900 text-white">
               🌿 {isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology & Support'}
             </option>
@@ -200,6 +205,16 @@ export const BiologyLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab }
       {activeTab === 'dna' && (
         <div className="mt-6">
           <DnaReplicationLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D DNA DOUBLE HELIX, tRNA & NUCLEOSOME CHROMATIN STUDIO */}
+      {activeTab === 'macromolecule_3d' && (
+        <div className="mt-6">
+          <Interactive3DBioMacromoleculeStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+          />
         </div>
       )}
 

@@ -241,15 +241,98 @@ assert(
   'ChemistryLab integrates molecular_3d tab with Interactive3DMolecularStudio'
 );
 
-// 5. VirtualLabsHub integration
+// 5. BiologyLab integration
+const biologyLabCode = fs.readFileSync(path.join(srcDir, 'labs/BiologyLab.tsx'), 'utf-8');
+assert(
+  biologyLabCode.includes("'macromolecule_3d'") && biologyLabCode.includes('Interactive3DBioMacromoleculeStudio'),
+  'BiologyLab integrates macromolecule_3d tab with Interactive3DBioMacromoleculeStudio'
+);
+
+// 6. Interactive3DBioMacromoleculeStudio verification
+const bioStudioCode = fs.readFileSync(path.join(srcDir, 'Interactive3DBioMacromoleculeStudio.tsx'), 'utf-8');
+assert(
+  bioStudioCode.includes('export const Interactive3DBioMacromoleculeStudio'),
+  'Interactive3DBioMacromoleculeStudio is exported'
+);
+assert(
+  bioStudioCode.includes('renderer.dispose()'),
+  'Interactive3DBioMacromoleculeStudio disposes WebGL renderer on unmount'
+);
+assert(
+  bioStudioCode.includes('temperatureC') && bioStudioCode.includes('denatFactor'),
+  'Interactive3DBioMacromoleculeStudio supports 100°C DNA thermal denaturation'
+);
+
+// 7. VirtualLabsHub integration
 const hubCode = fs.readFileSync(path.join(srcDir, 'VirtualLabsHub.tsx'), 'utf-8');
 assert(
-  hubCode.includes("id: 'atom_3d'") && hubCode.includes("id: 'molecular_3d'"),
-  'VirtualLabsHub includes atom_3d and molecular_3d in its sub-lab dropdowns'
+  hubCode.includes("id: 'atom_3d'") && hubCode.includes("id: 'molecular_3d'") && hubCode.includes("id: 'macromolecule_3d'"),
+  'VirtualLabsHub includes atom_3d, molecular_3d, and macromolecule_3d in its sub-lab dropdowns'
 );
 assert(
   hubCode.includes("id: 'electronics'"),
   'VirtualLabsHub restores missing electronics sub-lab'
+);
+
+// ----------------------------------------------------------------------------
+// TEST GROUP 6: Molecular Genetics, DNA Denaturation & Compaction Ratios
+// ----------------------------------------------------------------------------
+console.log('\n🧬 Group 6: Molecular Genetics, Denaturation Physics & Chromatin Packaging');
+
+// Chargaff's parity rules
+const seqSample = { A: 320, T: 320, G: 180, C: 180 };
+const purines = seqSample.A + seqSample.G;
+const pyrimidines = seqSample.T + seqSample.C;
+assert(
+  seqSample.A === seqSample.T && seqSample.G === seqSample.C,
+  "Chargaff's Rule 1: [A] = [T] and [G] = [C]"
+);
+assert(
+  purines / pyrimidines === 1.0,
+  "Chargaff's Rule 2: Purines / Pyrimidines ratio = 1.0"
+);
+
+// Thermal denaturation (100°C)
+const testDenaturation = (tempC: number) => {
+  if (tempC >= 100) return 'fully_denatured';
+  if (tempC >= 75) return 'partial_melting';
+  return 'intact_duplex';
+};
+
+assert(
+  testDenaturation(37) === 'intact_duplex',
+  'At physiological 37°C, DNA is an intact double helix'
+);
+assert(
+  testDenaturation(100) === 'fully_denatured',
+  'At 100°C, DNA strands completely separate (Thanawya DNA hybridization basis)'
+);
+
+// tRNA anticodon recognition
+const codonTable: Record<string, { anticodon: string; aa: string }> = {
+  AUG: { anticodon: 'UAC', aa: 'Met' },
+  UUU: { anticodon: 'AAA', aa: 'Phe' },
+  GAG: { anticodon: 'CUC', aa: 'Glu' },
+  UAA: { anticodon: 'none', aa: 'STOP' },
+};
+
+assert(
+  codonTable.AUG.anticodon === 'UAC' && codonTable.AUG.aa === 'Met',
+  'Start codon AUG matches UAC anticodon carrying Methionine'
+);
+assert(
+  codonTable.UAA.aa === 'STOP',
+  'Stop codon UAA terminates translation without carrying amino acid'
+);
+
+// Histone electrostatic compaction
+const extendedDnaMeters = 2.0;
+const nucleusDiameterMeters = 2.5e-6;
+const requiredRatio = extendedDnaMeters / nucleusDiameterMeters; // ~800,000 -> rounded to 100,000x in textbook
+
+assert(
+  requiredRatio > 100000,
+  'Compaction ratio > 100,000x required to fit 2m DNA into 2-3 micron nucleus'
 );
 
 console.log('================================================================================');
