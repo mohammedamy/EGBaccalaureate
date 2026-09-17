@@ -15,6 +15,7 @@ import { TitrationLab } from './TitrationLab';
 import { InteractiveTitrationStudio } from '../InteractiveTitrationStudio';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
+import { Interactive3DMolecularStudio } from '../Interactive3DMolecularStudio';
 
 export type ChemTab =
   | 'equilibrium'
@@ -23,6 +24,7 @@ export type ChemTab =
   | 'titration'
   | 'electrochemistry'
   | 'organic'
+  | 'molecular_3d'
   | 'flashcards';
 
 interface Props {
@@ -141,6 +143,9 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
               <option value="organic" className="bg-slate-900 text-white">
                 ⚗️ {isArabic ? 'الكيمياء العضوية ومسارات التخليق' : 'Organic Synthetic Roadmaps'}
               </option>
+              <option value="molecular_3d" className="bg-slate-900 text-white">
+                🧬 {isArabic ? 'استوديو الأشكال الجزيئية والسبائك 3D' : '3D Molecular Geometry & Metallurgy Alloys'}
+              </option>
               <option value="flashcards" className="bg-slate-900 text-white">
                 🗂️ {isArabic ? 'كروت المراجعة والكواشف الذكية' : 'Review & Flashcards'}
               </option>
@@ -225,6 +230,16 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
       {activeTab === 'organic' && (
         <div className="mt-6">
           <OrganicChemistryLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D MOLECULAR GEOMETRY & METALLURGY ALLOYS STUDIO */}
+      {activeTab === 'molecular_3d' && (
+        <div className="mt-6">
+          <Interactive3DMolecularStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+          />
         </div>
       )}
 

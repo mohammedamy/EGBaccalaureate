@@ -351,6 +351,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'resonance' as PhysicsTab, emoji: '〰️', labelEn: 'RLC Resonance Circuit', labelAr: 'دوائر الرنين RLC' },
                     { id: 'photoelectric' as PhysicsTab, emoji: '☀️', labelEn: 'Photoelectric Stopping Potential Studio (Einstein)', labelAr: 'استوديو الظاهرة الكهروضوئية وجهد الإيقاف (أينشتاين)' },
                     { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr Spectra & Lasers', labelAr: 'طيف بور والليزر' },
+                    { id: 'atom_3d' as PhysicsTab, emoji: '🔮', labelEn: '3D Quantum Atom & Laser Studio', labelAr: 'استوديو الذرة الكمية والليزر 3D' },
+                    { id: 'electronics' as PhysicsTab, emoji: '🔌', labelEn: 'Semiconductors & Transistor Logic', labelAr: 'أشباه الموصلات والترانزستور' },
                     { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Physics Flashcards', labelAr: 'بطاقات الاستذكار' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
@@ -394,6 +396,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'Acid-Base Titration & pH Curve Studio', labelAr: 'استوديو معايرة الأحماض والقواعد ومنحنيات الـ pH' },
                     { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry & Cells', labelAr: 'الكيمياء الكهربية والخلايا' },
                     { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Synthetic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
+                    { id: 'molecular_3d' as ChemTab, emoji: '🧬', labelEn: '3D Molecular Geometry & Metallurgy Alloys Studio', labelAr: 'استوديو الأشكال الجزيئية وسبائك الفلزات 3D' },
                     { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">

@@ -17,8 +17,19 @@ import { SemiconductorElectronicsLab } from './SemiconductorElectronicsLab';
 import { OpticsBenchLab } from './OpticsBenchLab';
 import { CircuitsLab } from './CircuitsLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
+import { Interactive3DAtomStudio } from '../Interactive3DAtomStudio';
 
-export type PhysicsTab = 'circuits' | 'optics' | 'magnetism' | 'dynamo' | 'resonance' | 'photoelectric' | 'atomic_lasers' | 'electronics' | 'flashcards';
+export type PhysicsTab =
+  | 'circuits'
+  | 'optics'
+  | 'magnetism'
+  | 'dynamo'
+  | 'resonance'
+  | 'photoelectric'
+  | 'atomic_lasers'
+  | 'electronics'
+  | 'atom_3d'
+  | 'flashcards';
 
 interface Props {
   lang: Language;
@@ -124,6 +135,9 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
               </option>
               <option value="atomic_lasers" className="bg-slate-900 text-white">
                 ⚛️ {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
+              </option>
+              <option value="atom_3d" className="bg-slate-900 text-white">
+                🔮 {isArabic ? 'استوديو الذرة الكمية والليزر 3D' : '3D Quantum Atom Studio'}
               </option>
               <option value="electronics" className="bg-slate-900 text-white">
                 🔌 {isArabic ? 'أشباه الموصلات والترانزستور وأشعة إكس' : 'Semiconductors & Coolidge X-Rays'}
@@ -244,6 +258,16 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
       {activeTab === 'atomic_lasers' && (
         <div className="mt-6">
           <AtomicLaserLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D QUANTUM ATOM & LASER STUDIO */}
+      {activeTab === 'atom_3d' && (
+        <div className="mt-6">
+          <Interactive3DAtomStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+          />
         </div>
       )}
 
