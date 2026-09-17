@@ -77,6 +77,7 @@ import {
 } from '../services/pastExamPapersService';
 import { MistakeNotebookView } from './MistakeNotebookView';
 import { EgyptFlag } from './EgyptFlag';
+import { OfficialPerformanceCertificate } from './OfficialPerformanceCertificate';
 
 export type BlueprintMode =
   | 'all'
@@ -233,6 +234,7 @@ export const TestGenerator: React.FC<Props> = ({
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
   const [showExplanationsOnPrint, setShowExplanationsOnPrint] = useState<boolean>(false);
   const [showPrintableOmrSheet, setShowPrintableOmrSheet] = useState<boolean>(true);
+  const [showPrintableCertificate, setShowPrintableCertificate] = useState<boolean>(false);
   const [printLayout, setPrintLayout] = useState<'standard' | 'compact'>('standard');
   const [isCustomizerOpen, setIsCustomizerOpen] = useState<boolean>(false);
   const [isCopiedNotification, setIsCopiedNotification] = useState<boolean>(false);
@@ -3046,7 +3048,7 @@ export const TestGenerator: React.FC<Props> = ({
               {isSubmitted && (
                 <div className="space-y-6 animate-fadeIn">
                   {/* Top Result Banner */}
-                  <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+                  <div className="print-hide-on-cert bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
@@ -3120,6 +3122,18 @@ export const TestGenerator: React.FC<Props> = ({
 
                       {/* Right: Quick actions */}
                       <div className="flex flex-wrap items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setShowPrintableCertificate(!showPrintableCertificate)}
+                          className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-black text-xs flex items-center gap-2 cursor-pointer shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5"
+                        >
+                          <Award className="w-4 h-4 text-slate-950" />
+                          <span>
+                            {showPrintableCertificate
+                              ? (lang === 'ar' ? 'إخفاء الشهادة الرسمية' : 'Hide Certificate')
+                              : (lang === 'ar' ? 'شهادة التقدير والبيان الرسمي 📜' : 'Official Certificate & Transcript 📜')}
+                          </span>
+                        </button>
                         <button
                           onClick={handleRetakeExam}
                           className="px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-2 cursor-pointer transition-all"
@@ -3573,8 +3587,95 @@ export const TestGenerator: React.FC<Props> = ({
                     </div>
                   </div>
 
+                  {/* Official Performance Certificate & Grade Statement View */}
+                  {showPrintableCertificate && (
+                    <OfficialPerformanceCertificate
+                      studentName={customTeacherName || (lang === 'ar' ? 'طالب الثانوية العامة' : 'Thanaweya Student')}
+                      subjectId={selectedSubject}
+                      subjectNameAr={
+                        selectedSubject === 'physics'
+                          ? 'الفيزياء'
+                          : selectedSubject === 'chemistry'
+                          ? 'الكيمياء'
+                          : selectedSubject === 'biology'
+                          ? 'الأحياء'
+                          : selectedSubject === 'calculus'
+                          ? 'الرياضيات البحتة (التفاضل والتكامل)'
+                          : selectedSubject === 'algebra_solid'
+                          ? 'الرياضيات البحتة (الجبر والهندسة الفراغية)'
+                          : selectedSubject === 'statics'
+                          ? 'الرياضيات التطبيقية (الاستاتيكا)'
+                          : selectedSubject === 'dynamics'
+                          ? 'الرياضيات التطبيقية (الديناميكا)'
+                          : 'الرياضيات / العلوم'
+                      }
+                      subjectNameEn={
+                        selectedSubject === 'physics'
+                          ? 'Physics'
+                          : selectedSubject === 'chemistry'
+                          ? 'Chemistry'
+                          : selectedSubject === 'biology'
+                          ? 'Biology'
+                          : selectedSubject === 'calculus'
+                          ? 'Pure Mathematics (Calculus)'
+                          : selectedSubject === 'algebra_solid'
+                          ? 'Pure Mathematics (Algebra & Solid Geometry)'
+                          : selectedSubject === 'statics'
+                          ? 'Applied Mathematics (Statics)'
+                          : selectedSubject === 'dynamics'
+                          ? 'Applied Mathematics (Dynamics)'
+                          : 'Mathematics / Science'
+                      }
+                      branchNameAr={
+                        selectedSubject === 'biology'
+                          ? 'شعبة علمي علوم'
+                          : ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject)
+                          ? 'شعبة علمي رياضة'
+                          : 'الشعبة العلمية (علوم ورياضة)'
+                      }
+                      branchNameEn={
+                        selectedSubject === 'biology'
+                          ? 'Science Track (Biology)'
+                          : ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject)
+                          ? 'Mathematics Track'
+                          : 'Scientific Division'
+                      }
+                      academicYear={customAcademicYear || (stats.pastPaper ? `${stats.pastPaper.year} / ${stats.pastPaper.year + 1}` : '2024 / 2025')}
+                      sessionTitleAr={
+                        stats.pastPaper?.session === 'session1'
+                          ? 'الدور الأول (يونيو)'
+                          : stats.pastPaper?.session === 'session2'
+                          ? 'الدور الثاني (أغسطس)'
+                          : stats.pastPaper?.session === 'experimental'
+                          ? 'النموذج الاسترشادي الرسمي'
+                          : 'الدور الأول (يونيو)'
+                      }
+                      sessionTitleEn={
+                        stats.pastPaper?.session === 'session1'
+                          ? 'First Session (June)'
+                          : stats.pastPaper?.session === 'session2'
+                          ? 'Second Session (August)'
+                          : stats.pastPaper?.session === 'experimental'
+                          ? 'Official Model Exemplar'
+                          : 'First Session (June)'
+                      }
+                      formCodeAr={stats.pastPaper?.formCodeAr || 'نموذج (أ) - كود 101'}
+                      formCodeEn={stats.pastPaper?.formCodeEn || 'Form A - Code 101'}
+                      scoreReport={stats.officialExamScore}
+                      cohortReport={stats.cohortReport}
+                      score={score}
+                      totalQuestions={stats.total}
+                      scorePct={stats.scorePct}
+                      gradeLabelAr={stats.gradeLabelAr}
+                      gradeLabelEn={stats.gradeLabelEn}
+                      timeTakenSeconds={timeTakenSeconds}
+                      onClose={() => setShowPrintableCertificate(false)}
+                      lang={lang}
+                    />
+                  )}
+
                   {/* Review Filter Tabs */}
-                  <div className="flex items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                  <div className="print-hide-on-cert flex items-center justify-between gap-3 border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
                       <BarChart3 className="w-4 h-4 text-indigo-400" />
                       <span className="text-xs font-bold text-slate-300">
@@ -3617,7 +3718,7 @@ export const TestGenerator: React.FC<Props> = ({
               )}
 
               {/* Questions List */}
-              <div className="space-y-6">
+              <div className="print-hide-on-cert space-y-6">
                 {displayedQuestions.map(({ q, idx }) => {
                   const selectedOpt = userAnswers[idx];
                   const isCorrect = isSubmitted && selectedOpt === q.correctIndex;
