@@ -28,6 +28,13 @@ function extractMath(text: string): { math: string; display: boolean }[] {
 let totalFormulasTested = 0;
 let errorsFound = 0;
 
+// Suppress KaTeX standard font metrics warnings for non-Latin characters (e.g. Arabic script in math mode)
+const originalWarn = console.warn;
+console.warn = (...args: any[]) => {
+  if (typeof args[0] === 'string' && args[0].includes('No character metrics')) return;
+  originalWarn(...args);
+};
+
 console.log('Testing KaTeX rendering across all curricula, branches, chapters, and question databanks...');
 
 const curricula = [
