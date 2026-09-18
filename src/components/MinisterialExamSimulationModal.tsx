@@ -329,6 +329,10 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
       detectedSubjectId = 'history';
       detectedBranchAr = 'القسم الأدبي - مسار التاريخ القومي والجغرافيا';
       detectedBranchEn = 'Humanities & Literary Division';
+    } else if (lowerSubj.includes('geol') || lowerSubj.includes('جيولوج') || lowerSubj.includes('بيئ')) {
+      detectedSubjectId = 'geology';
+      detectedBranchAr = 'القسم العلمي - شعبة العلوم (علمي علوم)';
+      detectedBranchEn = 'Natural Sciences Division';
     } else if (lowerSubj.includes('geo') || lowerSubj.includes('جغراف')) {
       detectedSubjectId = 'geography';
       detectedBranchAr = 'القسم الأدبي - مسار الجغرافيا السياسية والعلوم الإنسانية';

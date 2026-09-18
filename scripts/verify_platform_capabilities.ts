@@ -23,6 +23,7 @@ const subjectsToTest = [
   { subject: 'physics', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'chemistry', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'biology', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
+  { subject: 'geology', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'mathematics', branch: 'pure_math', expectedQ: 20, expectedMarks: 30, expectedDuration: 120 },
   { subject: 'mathematics', branch: 'applied_math', expectedQ: 20, expectedMarks: 30, expectedDuration: 120 },
   { subject: 'history', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
@@ -199,6 +200,24 @@ assert.deepStrictEqual(
   ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'history', 'geography', 'arabic', 'languages']
 );
 console.log('  ✓ All 9 track mode verified: 9 dimensions');
+
+// Mode E: STEM 6 with Geology
+const radarStem6 = getMasteryRadarData(emptyState, 'stem6');
+assert.strictEqual(radarStem6.length, 6, 'stem6 radar must have exactly 6 dimensions');
+assert.deepStrictEqual(
+  radarStem6.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology']
+);
+console.log('  ✓ STEM 6 track mode verified: 6 dimensions');
+
+// Mode F: All 10 core subjects
+const radarAll10 = getMasteryRadarData(emptyState, 'all10');
+assert.strictEqual(radarAll10.length, 10, 'all10 radar must have exactly 10 dimensions');
+assert.deepStrictEqual(
+  radarAll10.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'arabic', 'languages']
+);
+console.log('  ✓ All 10 track mode verified: 10 dimensions');
 
 // Default when parameter omitted (backward compatibility)
 const radarDefault = getMasteryRadarData(emptyState);

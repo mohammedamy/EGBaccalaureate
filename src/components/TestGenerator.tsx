@@ -1251,6 +1251,7 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'physics' ? 'الفيزياء' :
       selectedSubject === 'chemistry' ? 'الكيمياء' :
       selectedSubject === 'biology' ? 'الأحياء' :
+      selectedSubject === 'geology' ? 'الجيولوجيا والعلوم البيئية' :
       selectedSubject === 'calculus' ? 'الرياضيات البحتة (التفاضل والتكامل)' :
       selectedSubject === 'algebra_solid' ? 'الرياضيات البحتة (الجبر والهندسة الفراغية)' :
       selectedSubject === 'statics' ? 'الرياضيات التطبيقية (الاستاتيكا)' :
@@ -1265,6 +1266,7 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'physics' ? 'Physics' :
       selectedSubject === 'chemistry' ? 'Chemistry' :
       selectedSubject === 'biology' ? 'Biology' :
+      selectedSubject === 'geology' ? 'Geology & Environmental Sciences' :
       selectedSubject === 'calculus' ? 'Pure Mathematics (Calculus)' :
       selectedSubject === 'algebra_solid' ? 'Pure Mathematics (Algebra & Solid Geometry)' :
       selectedSubject === 'statics' ? 'Applied Mathematics (Statics)' :
@@ -1278,13 +1280,13 @@ export const TestGenerator: React.FC<Props> = ({
     const branchNameAr =
       ['history', 'geography'].includes(selectedSubject) ? 'الشعبة الأدبية' :
       ['arabic', 'english', 'french'].includes(selectedSubject) ? 'المواد العامة المشتركة' :
-      selectedSubject === 'biology' ? 'شعبة علمي علوم' :
+      ['biology', 'geology'].includes(selectedSubject) ? 'شعبة علمي علوم' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'شعبة علمي رياضة' : 'الشعبة العلمية (علوم ورياضة)';
 
     const branchNameEn =
       ['history', 'geography'].includes(selectedSubject) ? 'Humanities Track' :
       ['arabic', 'english', 'french'].includes(selectedSubject) ? 'Core Languages Division' :
-      selectedSubject === 'biology' ? 'Science Track (Biology)' :
+      ['biology', 'geology'].includes(selectedSubject) ? 'Science Track (Bio & Geology)' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'Mathematics Track' : 'Scientific Division';
 
     saveOfficialCertificate({

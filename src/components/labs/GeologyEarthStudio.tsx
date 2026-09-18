@@ -1,0 +1,1285 @@
+import React, { useState } from 'react';
+import type { ThemeMode } from '../../types/curriculum';
+import type { Language } from '../../i18n/translations';
+import {
+  Mountain,
+  Gem,
+  Flame,
+  Activity,
+  Layers,
+  Compass,
+  RotateCcw,
+  Droplets,
+  Sun,
+  ShieldCheck,
+} from 'lucide-react';
+
+interface Props {
+  lang: Language;
+  theme?: ThemeMode;
+  isFullscreen?: boolean;
+  initialMode?: 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem';
+}
+
+type StudioMode = 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem';
+
+export const GeologyEarthStudio: React.FC<Props> = ({
+  lang,
+  theme = 'dark',
+  isFullscreen = false,
+  initialMode = 'crystals',
+}) => {
+  const isArabic = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
+
+  const [activeMode, setActiveMode] = useState<StudioMode>(initialMode);
+
+  // -------------------------------------------------------------
+  // Mode 1: 7 Crystal Systems & Mohs Hardness Scratch Tester
+  // -------------------------------------------------------------
+  const [selectedSystem, setSelectedSystem] = useState<string>('cubic');
+  const [selectedMineral, setSelectedMineral] = useState<number>(7); // Quartz (Mohs 7)
+  const [selectedScratchTool, setSelectedScratchTool] = useState<number>(5.5); // Glass Slide (5.5)
+
+  const crystalSystemsData: Record<
+    string,
+    {
+      nameEn: string;
+      nameAr: string;
+      axesEn: string;
+      axesAr: string;
+      anglesEn: string;
+      anglesAr: string;
+      symmetryEn: string;
+      symmetryAr: string;
+      examplesEn: string;
+      examplesAr: string;
+      wireframe: { w: number; h: number; skewX: number; skewY: number };
+    }
+  > = {
+    cubic: {
+      nameEn: 'Cubic / Isometric System',
+      nameAr: 'النظام المكعبي',
+      axesEn: 'a1 = a2 = a3 (Three equal axes)',
+      axesAr: 'أ١ = أ٢ = أ٣ (ثلاثة محاور متساوية تماماً)',
+      anglesEn: 'α = β = γ = 90° (Mutually perpendicular)',
+      anglesAr: 'ألفا = بيتا = جاما = ٩٠° (محاور متعامدة الزوايا)',
+      symmetryEn: 'Highest degree of crystallographic symmetry (9 planes of symmetry)',
+      symmetryAr: 'أعلى درجات التماثل البلوري (٩ مستويات تماثل)',
+      examplesEn: 'Halite (NaCl), Galena (PbS), Pyrite',
+      examplesAr: 'ملح الطعام الهاليت، الجالينا، البيريت',
+      wireframe: { w: 120, h: 120, skewX: 0, skewY: 0 }
+    },
+    tetragonal: {
+      nameEn: 'Tetragonal System',
+      nameAr: 'النظام الرباعي',
+      axesEn: 'a1 = a2 ≠ c (Two equal horizontal, unequal vertical c)',
+      axesAr: 'أ١ = أ٢ ≠ جـ (محوران أفقيان متساويان ومحور رأسي مختلف)',
+      anglesEn: 'α = β = γ = 90° (Mutually perpendicular)',
+      anglesAr: 'ألفا = بيتا = جاما = ٩٠° (محاور متعامدة الزوايا)',
+      symmetryEn: 'High symmetry with vertical four-fold axis of rotation',
+      symmetryAr: 'تماثل بلوري رباعي حول المحور الرأسي جـ',
+      examplesEn: 'Zircon, Chalcopyrite, Rutile',
+      examplesAr: 'الزيركون، الشالكوبيريت، الروتيل',
+      wireframe: { w: 100, h: 160, skewX: 0, skewY: 0 }
+    },
+    orthorhombic: {
+      nameEn: 'Orthorhombic System',
+      nameAr: 'النظام المعيني القائم',
+      axesEn: 'a ≠ b ≠ c (Three unequal axes)',
+      axesAr: 'أ ≠ ب ≠ جـ (ثلاثة محاور مختلفة الأطوال)',
+      anglesEn: 'α = β = γ = 90° (Mutually perpendicular)',
+      anglesAr: 'ألفا = بيتا = جاما = ٩٠° (محاور متعامدة الزوايا)',
+      symmetryEn: 'Moderate symmetry with three perpendicular two-fold axes',
+      symmetryAr: 'تماثل معيني قائم بمحاور متعامدة مختلفة الأطوال',
+      examplesEn: 'Barite, Sulfur, Olivine, Topaz',
+      examplesAr: 'الباريت، الكبريت، الأوليفين، التوباز',
+      wireframe: { w: 140, h: 100, skewX: 0, skewY: 0 }
+    },
+    monoclinic: {
+      nameEn: 'Monoclinic System',
+      nameAr: 'نظام أحادي الميل',
+      axesEn: 'a ≠ b ≠ c (Three unequal axes)',
+      axesAr: 'أ ≠ ب ≠ جـ (ثلاثة محاور مختلفة الأطوال)',
+      anglesEn: 'α = γ = 90° ≠ β (Two angles perpendicular, one oblique)',
+      anglesAr: 'ألفا = جاما = ٩٠° ≠ بيتا (محوران متعامدان والثالث مائل)',
+      symmetryEn: 'Single two-fold axis and one mirror plane. Most minerals belong to this system (>60%)',
+      symmetryAr: 'تنتمي إليه معظم وأغلبية المعادن المعروفة في صخور القشرة الأرضية (> ٦٠٪)',
+      examplesEn: 'Orthoclase Feldspar, Gypsum, Mica, Hornblende',
+      examplesAr: 'الفلسبار الأرثوكليز، الجبس، الميكا، الهورنبلند',
+      wireframe: { w: 120, h: 110, skewX: -15, skewY: 0 }
+    },
+    triclinic: {
+      nameEn: 'Triclinic System',
+      nameAr: 'نظام ثلاثي الميل',
+      axesEn: 'a ≠ b ≠ c (Three unequal axes)',
+      axesAr: 'أ ≠ ب ≠ جـ (ثلاثة محاور مختلفة الأطوال)',
+      anglesEn: 'α ≠ β ≠ γ ≠ 90° (All three angles oblique and unequal)',
+      anglesAr: 'ألفا ≠ بيتا ≠ جاما ≠ ٩٠° (جميع الزوايا غير متعامدة ومائلة)',
+      symmetryEn: 'Lowest crystallographic symmetry (no planes of symmetry, center of inversion only)',
+      symmetryAr: 'أقل الأنظمة تماثلاً بلورياً على الإطلاق لانعدام التعامد والتساوي',
+      examplesEn: 'Microcline Feldspar, Plagioclase, Albite',
+      examplesAr: 'الميكروكلين، الفلسبار البلاجيوكليزي، الألبيت',
+      wireframe: { w: 130, h: 110, skewX: -20, skewY: -10 }
+    },
+    hexagonal: {
+      nameEn: 'Hexagonal System (4-Axis)',
+      nameAr: 'النظام السداسي (رباعي المحاور)',
+      axesEn: 'a1 = a2 = a3 ≠ c (3 equal horizontal axes at 120°, 1 vertical perpendicular c)',
+      axesAr: 'أ١ = أ٢ = أ٣ ≠ جـ (٣ محاور أفقية متساوية تتقاطع بزوايا ١٢٠° ومحور رأسي متعامد)',
+      anglesEn: 'Horizontal angles = 120°, vertical angle with horizontals = 90°',
+      anglesAr: 'الزوايا الأفقية = ١٢٠°، والمحور الرأسي يصنع ٩٠° مع الأفقيات',
+      symmetryEn: 'Has a distinct horizontal plane of symmetry (مستوى تماثل أفقي)',
+      symmetryAr: 'يحتوي على مستوى تماثل أفقي يقسم البلورة لنصفين متطابقين تماماً',
+      examplesEn: 'Beryl, Apatite, Graphite',
+      examplesAr: 'الزمرد (البريل)، الأباتيت، الجرافيت',
+      wireframe: { w: 120, h: 150, skewX: 0, skewY: 0 }
+    },
+    trigonal: {
+      nameEn: 'Trigonal System (4-Axis)',
+      nameAr: 'النظام الثلاثي (رباعي المحاور)',
+      axesEn: 'a1 = a2 = a3 ≠ c (3 equal horizontal axes at 120°, 1 vertical perpendicular c)',
+      axesAr: 'أ١ = أ٢ = أ٣ ≠ جـ (٣ محاور أفقية متساوية تتقاطع بزوايا ١٢٠° ومحور رأسي متعامد)',
+      anglesEn: 'Horizontal angles = 120°, vertical angle with horizontals = 90°',
+      anglesAr: 'الزوايا الأفقية = ١٢٠°، والمحور الرأسي يصنع ٩٠° مع الأفقيات',
+      symmetryEn: 'LACKS a horizontal plane of symmetry (لا يحتوي على مستوى تماثل أفقي)',
+      symmetryAr: 'لا يحتوي على مستوى تماثل أفقي (الفارق الجوهري عن النظام السداسي)',
+      examplesEn: 'Quartz (SiO2), Calcite (CaCO3), Tourmaline',
+      examplesAr: 'الكوارتز (المرو)، الكالسيت (كربونات الكالسيوم)، التورمالين',
+      wireframe: { w: 110, h: 140, skewX: 0, skewY: 0 }
+    }
+  };
+
+  const mohsMinerals = [
+    { rank: 1, nameEn: 'Talc', nameAr: 'التلك', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Pearly / Greasy', lusterAr: 'لؤلؤي / دهني' },
+    { rank: 2, nameEn: 'Gypsum', nameAr: 'الجبس', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Silky / Pearly', lusterAr: 'حريري / لؤلؤي' },
+    { rank: 3, nameEn: 'Calcite', nameAr: 'الكالسيت', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Glassy (Vitreous)', lusterAr: 'زجاجي' },
+    { rank: 4, nameEn: 'Fluorite', nameAr: 'الفلوريت', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Glassy (Vitreous)', lusterAr: 'زجاجي' },
+    { rank: 5, nameEn: 'Apatite', nameAr: 'الأباتيت', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Glassy (Vitreous)', lusterAr: 'زجاجي' },
+    { rank: 6, nameEn: 'Orthoclase', nameAr: 'الأرثوكليز', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Pearly / Vitreous', lusterAr: 'لؤلؤي' },
+    { rank: 7, nameEn: 'Quartz', nameAr: 'الكوارتز (المرو)', streakEn: 'White (Constant)', streakAr: 'أبيض ثابت لا يتغير', lusterEn: 'Glassy (Vitreous)', lusterAr: 'زجاجي' },
+    { rank: 8, nameEn: 'Topaz', nameAr: 'التوباز', streakEn: 'White', streakAr: 'أبيض', lusterEn: 'Glassy (Vitreous)', lusterAr: 'زجاجي' },
+    { rank: 9, nameEn: 'Corundum', nameAr: 'الكوراندوم (الياقوت)', streakEn: 'Colorless', streakAr: 'عديم اللون', lusterEn: 'Adamantine to Vitreous', lusterAr: 'ماسي إلى زجاجي' },
+    { rank: 10, nameEn: 'Diamond', nameAr: 'الماس', streakEn: 'Colorless', streakAr: 'عديم اللون', lusterEn: 'Adamantine (Ultra-brilliant)', lusterAr: 'ماسي ناصع شديد التلألؤ' }
+  ];
+
+  const scratchTools = [
+    { hardness: 2.5, nameEn: 'Human Fingernail (2.5)', nameAr: 'ظفر الإنسان (٢٫٥)' },
+    { hardness: 3.5, nameEn: 'Copper Coin (3.5)', nameAr: 'عملة نحاسية (٣٫٥)' },
+    { hardness: 5.5, nameEn: 'Window Glass Slide (5.5)', nameAr: 'قطعة زجاج نافذة (٥٫٥)' },
+    { hardness: 6.5, nameEn: 'Streak Plate / Steel File (6.5)', nameAr: 'لوح المخدش الخزفي / مبرد صلب (٦٫٥)' }
+  ];
+
+  const currentMineralObj = mohsMinerals.find(m => m.rank === selectedMineral) || mohsMinerals[6];
+  const isMineralScratched = selectedScratchTool > currentMineralObj.rank;
+
+  // -------------------------------------------------------------
+  // Mode 2: Bowen's Reaction Series & Igneous Petrology Suite
+  // -------------------------------------------------------------
+  const [bowenTemp, setBowenTemp] = useState<number>(950); // Celsius (1200 to 750)
+  const [selectedRock, setSelectedRock] = useState<string>('granite');
+
+  const rockCatalog: Record<
+    string,
+    {
+      nameEn: string;
+      nameAr: string;
+      type: 'ultrabasic' | 'basic' | 'intermediate' | 'acidic';
+      origin: 'plutonic' | 'hypabyssal' | 'volcanic';
+      silica: string;
+      tempC: string;
+      textureEn: string;
+      textureAr: string;
+      colorEn: string;
+      colorAr: string;
+      mineralsEn: string;
+      mineralsAr: string;
+    }
+  > = {
+    peridotite: {
+      nameEn: 'Peridotite',
+      nameAr: 'بيريدوتيت',
+      type: 'ultrabasic',
+      origin: 'plutonic',
+      silica: '< 45% (Ultrabasic)',
+      tempC: '> 1100°C',
+      textureEn: 'Coarse-grained (Phaneritic)',
+      textureAr: 'خشن التبلور، بلورات كبيرة الحجم',
+      colorEn: 'Dark Greenish Black (High Fe, Mg)',
+      colorAr: 'شديد السواد مائل للخضرة (غني بالحديد والماغنسيوم)',
+      mineralsEn: 'Olivine (dominant) + Pyroxene',
+      mineralsAr: 'أوليفين (غالب) + بيروكسين'
+    },
+    basalt: {
+      nameEn: 'Basalt',
+      nameAr: 'بازلت',
+      type: 'basic',
+      origin: 'volcanic',
+      silica: '45% - 52% (Basic)',
+      tempC: '~ 1100°C',
+      textureEn: 'Fine-grained (Aphanitic) or Glassy',
+      textureAr: 'دقيق التبلور أو زجاجي التبريد السريع',
+      colorEn: 'Dark Black (Dominates ocean floors)',
+      colorAr: 'أسود داكن (الصخر السائد في قيعان المحيطات والسيما)',
+      mineralsEn: 'Pyroxene, Ca-Plagioclase, Olivine, Amphibole',
+      mineralsAr: 'بيروكسين، بلاجيوكليز كلسي، أوليفين، أمفيبول'
+    },
+    gabbro: {
+      nameEn: 'Gabbro',
+      nameAr: 'جابرو',
+      type: 'basic',
+      origin: 'plutonic',
+      silica: '45% - 52% (Basic)',
+      tempC: '~ 1100°C',
+      textureEn: 'Coarse-grained (Deep intrusive)',
+      textureAr: 'خشن التبلور (جوفي يبرد ببطء في باطن الأرض)',
+      colorEn: 'Dark Gray to Black',
+      colorAr: 'رمادي داكن إلى أسود',
+      mineralsEn: 'Pyroxene, Ca-Plagioclase, Olivine',
+      mineralsAr: 'بيروكسين، بلاجيوكليز كلسي، أوليفين'
+    },
+    andesite: {
+      nameEn: 'Andesite',
+      nameAr: 'أنديزيت',
+      type: 'intermediate',
+      origin: 'volcanic',
+      silica: '52% - 66% (Intermediate)',
+      tempC: '~ 900°C - 1000°C',
+      textureEn: 'Fine-grained / Porphyritic',
+      textureAr: 'دقيق التبلور أو بورفيري (نسبة لجبال الأنديز البركانية)',
+      colorEn: 'Intermediate Medium Gray',
+      colorAr: 'رمادي متوسط بين الفاتح والداكن',
+      mineralsEn: 'Plagioclase, Amphibole, Pyroxene, Biotite',
+      mineralsAr: 'بلاجيوكليز، أمفيبول، بيروكسين، بيوتيت'
+    },
+    granite: {
+      nameEn: 'Granite',
+      nameAr: 'جرانيت',
+      type: 'acidic',
+      origin: 'plutonic',
+      silica: '> 66% (Acidic)',
+      tempC: '~ 750°C - 800°C',
+      textureEn: 'Coarse-grained (Continental shield builder)',
+      textureAr: 'خشن التبلور، بلورات واضحة ترى بالعين المجردة',
+      colorEn: 'Light Pink to Reddish (Abundant K-Feldspar)',
+      colorAr: 'وردي فاتح (لوفرة فلسبار البوتاسيوم الأرثوكليز والكوارتز)',
+      mineralsEn: 'Quartz (~25%), K-Feldspar, Plagioclase, Muscovite/Biotite',
+      mineralsAr: 'كوارتز (٢٥٪)، فلسبار بوتاسي، ميكا، بلاجيوكليز صودي'
+    },
+    pumice: {
+      nameEn: 'Pumice',
+      nameAr: 'بيومس (حجر الخفاف)',
+      type: 'acidic',
+      origin: 'volcanic',
+      silica: '> 66% (Acidic)',
+      tempC: '~ 750°C',
+      textureEn: 'Vesicular (Trapped gas bubbles, floats on water)',
+      textureAr: 'فقاعي مليء بالثقوب الهوائية يطفو فوق سطح الماء',
+      colorEn: 'Light Gray to Pale Pink',
+      colorAr: 'رمادي فاتح شاحب وخفيف الوزن جداً',
+      mineralsEn: 'Glassy acidic volcanic magma froth',
+      mineralsAr: 'زجاج صخري بركاني حامضي فقاعي غازي'
+    },
+    obsidian: {
+      nameEn: 'Obsidian',
+      nameAr: 'أوبسيديان (الزجاج البركاني)',
+      type: 'acidic',
+      origin: 'volcanic',
+      silica: '> 66% (Acidic)',
+      tempC: '~ 750°C',
+      textureEn: 'Glassy non-crystalline (Instant quench)',
+      textureAr: 'عديم التبلور زجاجي أملس (تبريد فوري في الهواء)',
+      colorEn: 'Glossy Pitch Black with Conchoidal Fracture',
+      colorAr: 'أسود لامع براق بمكسر محاري حاد القواطع',
+      mineralsEn: 'Rapidly frozen silica-rich volcanic lava',
+      mineralsAr: 'حمم بركانية حامضية تجمدت لحظياً دون تبلور'
+    }
+  };
+
+  const currentRockObj = rockCatalog[selectedRock] || rockCatalog.granite;
+
+  // -------------------------------------------------------------
+  // Mode 3: Plate Tectonics & Airy's Isostasy Simulator
+  // -------------------------------------------------------------
+  const [riftTimeMillionYears, setRiftTimeMillionYears] = useState<number>(25); // 25 Ma since Red Sea initiation
+  const [mountainElevation, setMountainElevation] = useState<number>(2629); // Mount Catherine in Sinai (2,629m)
+
+  const redSeaWidthKm = (riftTimeMillionYears * 1_000_000 * 2.5) / 100_000; // 2.5 cm/yr converted to km
+  const mountainRootDepth = mountainElevation * 4;
+  const totalMountainCrust = mountainElevation * 5;
+
+  // -------------------------------------------------------------
+  // Mode 4: Stratigraphic Cross-Section & Geological History Solver
+  // -------------------------------------------------------------
+  const [foldCompression, setFoldCompression] = useState<number>(50); // 0 (flat) to 100 (intense folding)
+  const [faultThrow, setFaultThrow] = useState<number>(30); // displacement throw in px
+  const [hasBasaltDyke, setHasBasaltDyke] = useState<boolean>(true);
+  const [hasUpperUnconformity, setHasUpperUnconformity] = useState<boolean>(true);
+
+  // -------------------------------------------------------------
+  // Mode 5: Marine Hydrostatic Pressure & Ecosystem Energy Pyramid
+  // -------------------------------------------------------------
+  const [oceanDepthMeters, setOceanDepthMeters] = useState<number>(200); // 0 to 11000m
+  const [baseSolarEnergyKcal, setBaseSolarEnergyKcal] = useState<number>(100_000); // Level 1 Phytoplankton
+
+  const hydrostaticPressureAtm = (oceanDepthMeters / 10) + 1;
+  const lightPercent = oceanDepthMeters <= 200 ? Math.max(1, 100 - (oceanDepthMeters * 0.49)) : (oceanDepthMeters <= 500 ? Math.max(0.01, 2 - ((oceanDepthMeters - 200) * 0.0066)) : 0);
+  
+  const getMarineZone = (depth: number) => {
+    if (depth <= 200) return { en: 'Photic Continental Shelf Zone (المنطقة الشاطئية والرف القاري)', ar: 'منطقة المياه الضحلة والرف القاري المضيئة' };
+    if (depth <= 2000) return { en: 'Bathyal Continental Slope Zone (المنحدر القاري)', ar: 'منطقة حافة الأعماق والمنحدر القاري' };
+    return { en: 'Abyssal Deep Ocean Floor Zone (الأعماق السحيقة)', ar: 'منطقة الأعماق السحيقة شديدة البرودة والظلام' };
+  };
+
+  // Card theme classes
+  const containerBg = isLight
+    ? 'bg-stone-50 border-stone-200 text-stone-900'
+    : isContrast
+    ? 'bg-black border-yellow-400 text-yellow-300'
+    : 'bg-stone-950 border-stone-800 text-stone-100';
+
+  const cardBg = isLight
+    ? 'bg-white border-stone-200 shadow-sm'
+    : isContrast
+    ? 'bg-stone-950 border-yellow-400'
+    : 'bg-stone-900/70 border-stone-800';
+
+  return (
+    <div className={`flex flex-col w-full rounded-2xl border ${containerBg} p-4 md:p-6 transition-all duration-300 ${isFullscreen ? 'h-full' : ''}`} dir={isArabic ? 'rtl' : 'ltr'}>
+      {/* Studio Header */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b border-stone-800">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-gradient-to-tr from-amber-600 via-stone-700 to-emerald-700 text-white shadow-lg shadow-amber-900/20">
+            <Mountain className="w-7 h-7" />
+          </div>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
+              <span>{isArabic ? 'استوديو علوم الأرض والبيئة التفاعلي' : 'Earth Science & Environmental Studio'}</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                {isArabic ? 'الجيولوجيا الرسمية' : 'Official Geology & Eco'}
+              </span>
+            </h2>
+            <p className="text-xs md:text-sm text-stone-400">
+              {isArabic
+                ? 'محاكاة تفاعلية للأنظمة البلورية السبعة، متسلسلة بوين، تكتونية الصفائح، القطاعات الطبقية، وهرم الطاقة البيئية'
+                : 'Interactive simulator for 7 Crystal Systems, Bowen Reaction Series, Plate Tectonics, Stratigraphy, and Eco-Energy Pyramids'}
+            </p>
+          </div>
+        </div>
+
+        {/* Mode Selector Tabs */}
+        <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-stone-900 border border-stone-800">
+          <button
+            onClick={() => setActiveMode('crystals')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeMode === 'crystals'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Gem className="w-4 h-4" />
+            <span>{isArabic ? 'البلورات وموهس' : 'Crystals & Mohs'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('bowen')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeMode === 'bowen'
+                ? 'bg-orange-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Flame className="w-4 h-4" />
+            <span>{isArabic ? 'متسلسلة بوين' : 'Bowen & Rocks'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('tectonics')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeMode === 'tectonics'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Compass className="w-4 h-4" />
+            <span>{isArabic ? 'الصفائح والأخدود' : 'Tectonics & Rift'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('stratigraphy')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeMode === 'stratigraphy'
+                ? 'bg-stone-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Layers className="w-4 h-4" />
+            <span>{isArabic ? 'القطاعات والطبقات' : 'Stratigraphy'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('ecosystem')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeMode === 'ecosystem'
+                ? 'bg-cyan-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Droplets className="w-4 h-4" />
+            <span>{isArabic ? 'الضغط وهرم الطاقة' : 'Pressure & Energy'}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Studio Body */}
+      <div className="mt-6 flex-1 flex flex-col gap-6">
+        {/* ========================================================= */}
+        {/* MODE 1: 7 Crystal Systems & Mohs Scratch Tester           */}
+        {/* ========================================================= */}
+        {activeMode === 'crystals' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left Column: 7 Systems Selector & 3D Wireframe */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-amber-400">
+                    <Gem className="w-5 h-5" />
+                    {isArabic ? 'فاحص الأنظمة البلورية السبعة' : '7 Crystal Systems Inspector'}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/50">
+                    {isArabic ? 'الهندسة البلورية' : 'Crystallography'}
+                  </span>
+                </h3>
+
+                {/* System Selection Buttons */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
+                  {Object.entries(crystalSystemsData).map(([key, sys]) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedSystem(key)}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium border text-start transition-all ${
+                        selectedSystem === key
+                          ? 'bg-amber-600/30 border-amber-500 text-amber-200 shadow-sm'
+                          : 'border-stone-800 bg-stone-900/50 text-stone-400 hover:text-stone-200 hover:border-stone-700'
+                      }`}
+                    >
+                      {isArabic ? sys.nameAr : sys.nameEn.split(' ')[0]}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Crystal 3D SVG Projection & Structural Parameters */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-stone-950/60 p-4 rounded-xl border border-stone-800">
+                  {/* SVG Isometric Crystal Wireframe */}
+                  <div className="h-52 flex items-center justify-center relative overflow-hidden rounded-lg bg-gradient-to-b from-stone-900 to-stone-950 p-3">
+                    <svg viewBox="-100 -100 200 200" className="w-48 h-48 drop-shadow-md">
+                      {/* Crystal Axes Guidelines */}
+                      <line x1="0" y1="80" x2="0" y2="-80" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
+                      <line x1="-70" y1="40" x2="70" y2="-40" stroke="#10b981" strokeWidth="2" strokeDasharray="3 3" />
+                      <line x1="-80" y1="-20" x2="80" y2="20" stroke="#3b82f6" strokeWidth="2" strokeDasharray="3 3" />
+                      
+                      {/* Dynamic Crystal Facets based on selection */}
+                      {selectedSystem === 'cubic' && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          {/* Isometric Cube Facets */}
+                          <polygon points="0,-60 50,-30 0,0 -50,-30" />
+                          <polygon points="0,0 50,-30 50,30 0,60" />
+                          <polygon points="0,0 -50,-30 -50,30 0,60" />
+                        </g>
+                      )}
+                      {selectedSystem === 'tetragonal' && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          <polygon points="0,-80 40,-45 0,-10 -40,-45" />
+                          <polygon points="0,-10 40,-45 40,45 0,80" />
+                          <polygon points="0,-10 -40,-45 -40,45 0,80" />
+                        </g>
+                      )}
+                      {selectedSystem === 'orthorhombic' && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          <polygon points="0,-40 65,-20 0,0 -65,-20" />
+                          <polygon points="0,0 65,-20 65,30 0,50" />
+                          <polygon points="0,0 -65,-20 -65,30 0,50" />
+                        </g>
+                      )}
+                      {selectedSystem === 'monoclinic' && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          <polygon points="15,-55 55,-25 0,5 -40,-25" />
+                          <polygon points="0,5 55,-25 40,35 -15,65" />
+                          <polygon points="0,5 -40,-25 -55,35 -15,65" />
+                        </g>
+                      )}
+                      {selectedSystem === 'triclinic' && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          <polygon points="25,-50 60,-15 10,15 -35,-20" />
+                          <polygon points="10,15 60,-15 35,45 -15,75" />
+                          <polygon points="10,15 -35,-20 -60,40 -15,75" />
+                        </g>
+                      )}
+                      {(selectedSystem === 'hexagonal' || selectedSystem === 'trigonal') && (
+                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
+                          {/* 6-sided prism */}
+                          <polygon points="0,-75 35,-60 35,-25 0,-10 -35,-25 -35,-60" />
+                          <polygon points="0,-10 35,-25 35,50 0,65" />
+                          <polygon points="0,-10 -35,-25 -35,50 0,65" />
+                          <polygon points="35,-25 60,-40 60,35 35,50" fill="rgba(245, 158, 11, 0.08)" />
+                        </g>
+                      )}
+                    </svg>
+                    <span className="absolute bottom-2 end-2 text-[10px] text-stone-500 font-mono">
+                      {isArabic ? 'إسقاط فراغي بلوري' : 'Crystallographic 3D Projection'}
+                    </span>
+                  </div>
+
+                  {/* System Parameters Details */}
+                  <div className="flex flex-col gap-2 text-xs">
+                    <div>
+                      <span className="text-stone-400 font-medium">{isArabic ? 'المحاور البلورية:' : 'Crystallographic Axes:'}</span>
+                      <p className="font-semibold text-amber-300 font-mono">
+                        {isArabic ? crystalSystemsData[selectedSystem].axesAr : crystalSystemsData[selectedSystem].axesEn}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-stone-400 font-medium">{isArabic ? 'الزوايا بين المحاور:' : 'Interaxial Angles:'}</span>
+                      <p className="font-semibold text-emerald-300 font-mono">
+                        {isArabic ? crystalSystemsData[selectedSystem].anglesAr : crystalSystemsData[selectedSystem].anglesEn}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-stone-400 font-medium">{isArabic ? 'درجة التماثل البلوري:' : 'Symmetry Characteristics:'}</span>
+                      <p className="text-stone-300">
+                        {isArabic ? crystalSystemsData[selectedSystem].symmetryAr : crystalSystemsData[selectedSystem].symmetryEn}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-stone-400 font-medium">{isArabic ? 'أشهر الأمثلة في المنهج:' : 'Textbook Mineral Examples:'}</span>
+                      <p className="font-semibold text-sky-300">
+                        {isArabic ? crystalSystemsData[selectedSystem].examplesAr : crystalSystemsData[selectedSystem].examplesEn}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Mohs Hardness Scratch Tester */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-emerald-400">
+                    <Activity className="w-5 h-5" />
+                    {isArabic ? 'مختبر اختبار الخدش بمقياس موهس' : 'Mohs Scratch Testing Lab'}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                    {isArabic ? 'الصلادة النسبية' : 'Relative Hardness'}
+                  </span>
+                </h3>
+
+                {/* Select Mineral Dropdown */}
+                <div className="mb-4">
+                  <label className="block text-xs text-stone-400 mb-1 font-medium">
+                    {isArabic ? '١. اختر المعدن المراد اختباره:' : '1. Select Mineral to Test:'}
+                  </label>
+                  <select
+                    value={selectedMineral}
+                    onChange={(e) => setSelectedMineral(Number(e.target.value))}
+                    className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2.5 text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+                  >
+                    {mohsMinerals.map((m) => (
+                      <option key={m.rank} value={m.rank}>
+                        {m.rank}. {isArabic ? `${m.nameAr} (صلادة ${m.rank})` : `${m.nameEn} (Hardness ${m.rank})`}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Select Tool Dropdown */}
+                <div className="mb-5">
+                  <label className="block text-xs text-stone-400 mb-1 font-medium">
+                    {isArabic ? '٢. اختر أداة الخدش الشائعة:' : '2. Select Common Scratching Tool:'}
+                  </label>
+                  <select
+                    value={selectedScratchTool}
+                    onChange={(e) => setSelectedScratchTool(Number(e.target.value))}
+                    className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2.5 text-xs text-stone-200 focus:outline-none focus:border-emerald-500"
+                  >
+                    {scratchTools.map((t) => (
+                      <option key={t.hardness} value={t.hardness}>
+                        {isArabic ? t.nameAr : t.nameEn}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Scratch Test Outcome Panel */}
+                <div
+                  className={`p-4 rounded-xl border flex flex-col gap-3 transition-all ${
+                    isMineralScratched
+                      ? 'bg-red-950/20 border-red-800/60 text-red-200'
+                      : 'bg-emerald-950/20 border-emerald-800/60 text-emerald-200'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 font-bold text-sm">
+                    {isMineralScratched ? (
+                      <>
+                        <RotateCcw className="w-5 h-5 text-red-400" />
+                        <span>{isArabic ? 'النتيجة: تم خدش المعدن بنجاح!' : 'Result: Mineral is SCRATCHED!'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                        <span>{isArabic ? 'النتيجة: المعدن يقاوم الخدش ويثلم الأداة!' : 'Result: Mineral RESISTS Scratching!'}</span>
+                      </>
+                    )}
+                  </div>
+
+                  <p className="text-xs">
+                    {isArabic
+                      ? `صلادة الأداة (${selectedScratchTool}) ${
+                          isMineralScratched ? 'أكبر من' : 'أقل من'
+                        } صلادة معدن ${currentMineralObj.nameAr} (${currentMineralObj.rank}). طبقاً لقاعدة موهس: الأشد صلادة يخدش الأقل صلادة.`
+                      : `Tool hardness (${selectedScratchTool}) is ${
+                          isMineralScratched ? 'greater than' : 'less than or equal to'
+                        } ${currentMineralObj.nameEn} (Mohs ${currentMineralObj.rank}). Harder substances scratch softer ones.`}
+                  </p>
+
+                  <div className="pt-2 border-t border-stone-800/50 grid grid-cols-2 gap-2 text-xs text-stone-300">
+                    <div>
+                      <span className="text-stone-400 block">{isArabic ? 'لون المخدش التشخيصي:' : 'Diagnostic Streak:'}</span>
+                      <span className="font-semibold text-amber-300">{isArabic ? currentMineralObj.streakAr : currentMineralObj.streakEn}</span>
+                    </div>
+                    <div>
+                      <span className="text-stone-400 block">{isArabic ? 'نوع البريق:' : 'Luster Type:'}</span>
+                      <span className="font-semibold text-sky-300">{isArabic ? currentMineralObj.lusterAr : currentMineralObj.lusterEn}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* MODE 2: Bowen's Reaction Series & Igneous Rocks Suite     */}
+        {/* ========================================================= */}
+        {activeMode === 'bowen' && (
+          <div className="flex flex-col gap-6">
+            {/* Top Bowen Interactive Ladder */}
+            <div className={`p-5 rounded-xl border ${cardBg}`}>
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-base font-semibold flex items-center gap-2 text-orange-400">
+                    <Flame className="w-5 h-5" />
+                    <span>{isArabic ? 'متسلسلة تفاعلات بوين الحرارية لتبلور الصهارة' : "Bowen's Reaction Series Temperature Ladder"}</span>
+                  </h3>
+                  <p className="text-xs text-stone-400">
+                    {isArabic
+                      ? 'حرك مؤشر درجة الحرارة لاستكشاف المعادن المتبلورة في الفرعين المتصل وغير المتصل'
+                      : 'Slide the temperature control to inspect active crystallization across discontinuous & continuous branches'}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 bg-stone-900 border border-stone-800 px-3 py-1.5 rounded-lg">
+                  <span className="text-xs text-stone-400">{isArabic ? 'درجة الحرارة الحالية:' : 'Current Temp:'}</span>
+                  <span className="text-sm font-bold text-orange-400 font-mono">{bowenTemp}°C</span>
+                </div>
+              </div>
+
+              {/* Temperature Slider */}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-xs font-mono text-stone-400">1200°C ({isArabic ? 'بداية التبلور' : 'Early'})</span>
+                <input
+                  type="range"
+                  min="750"
+                  max="1200"
+                  step="25"
+                  value={bowenTemp}
+                  onChange={(e) => setBowenTemp(Number(e.target.value))}
+                  className="flex-1 accent-orange-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                />
+                <span className="text-xs font-mono text-stone-400">750°C ({isArabic ? 'نهاية التبلور' : 'Late'})</span>
+              </div>
+
+              {/* Two Branches Visualization Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Discontinuous Branch (Mafic) */}
+                <div className="p-4 rounded-xl bg-stone-950/60 border border-stone-800 flex flex-col gap-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center justify-between">
+                    <span>{isArabic ? 'الفرع غير المتصل (غني بالحديد والماغنسيوم)' : 'Discontinuous Branch (Fe-Mg Mafic)'}</span>
+                    <span className="text-[10px] font-normal text-stone-500">Olivine → Biotite</span>
+                  </h4>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      { nameEn: 'Olivine', nameAr: 'الأوليفين', temp: 1200, descEn: 'First mineral to crystallize (Ultrabasic)', descAr: 'أول المعادن تبلوراً من الصهارة على الإطلاق' },
+                      { nameEn: 'Pyroxene', nameAr: 'البيروكسين', temp: 1100, descEn: 'Forms in basic & ultrabasic melts', descAr: 'يتبلور في الصخور فوق القاعدية والقاعدية' },
+                      { nameEn: 'Amphibole', nameAr: 'الأمفيبول', temp: 950, descEn: 'Intermediate crystallization temperature', descAr: 'يتبلور في درجات حرارة متوسطة' },
+                      { nameEn: 'Biotite (Black Mica)', nameAr: 'البيوتيت (الميكا السوداء)', temp: 850, descEn: 'Last mafic mineral before late phase', descAr: 'آخر معادن الفرع غير المتصل تبلوراً' }
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className={`p-2.5 rounded-lg border flex items-center justify-between text-xs transition-all ${
+                          bowenTemp <= item.temp
+                            ? 'bg-amber-950/30 border-amber-600/60 text-amber-200'
+                            : 'bg-stone-900/40 border-stone-800 text-stone-500'
+                        }`}
+                      >
+                        <div>
+                          <span className="font-bold block">{isArabic ? item.nameAr : item.nameEn}</span>
+                          <span className="text-[11px] text-stone-400">{isArabic ? item.descAr : item.descEn}</span>
+                        </div>
+                        <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-stone-900 text-stone-300">
+                          ~{item.temp}°C
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Continuous Branch (Feldspar Plagioclase) */}
+                <div className="p-4 rounded-xl bg-stone-950/60 border border-stone-800 flex flex-col gap-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center justify-between">
+                    <span>{isArabic ? 'الفرع المتصل (الفلسبار البلاجيوكليزي)' : 'Continuous Branch (Plagioclase Feldspar)'}</span>
+                    <span className="text-[10px] font-normal text-stone-500">Ca-rich → Na-rich</span>
+                  </h4>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      { nameEn: 'Anorthite (Ca-rich Plagioclase)', nameAr: 'بلاجيوكليز كلسي غني بالكالسيوم', temp: 1200, descEn: 'Early crystallization at high temperatures', descAr: 'يبدأ غنياً بالكالسيوم بالكامل' },
+                      { nameEn: 'Ca-Na Plagioclase Solid Solution', nameAr: 'بلاجيوكليز كلسي صودي متدرج', temp: 1050, descEn: 'Continuous ionic substitution of Ca with Na', descAr: 'إحلال تدريجي للصوديوم محل الكالسيوم' },
+                      { nameEn: 'Albite (Na-rich Plagioclase)', nameAr: 'بلاجيوكليز صودي غني بالصوديوم', temp: 850, descEn: 'Dominates intermediate to acidic magmas', descAr: 'يتحول إلى غني بالصوديوم بالكامل' }
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className={`p-2.5 rounded-lg border flex items-center justify-between text-xs transition-all ${
+                          bowenTemp <= item.temp
+                            ? 'bg-sky-950/30 border-sky-600/60 text-sky-200'
+                            : 'bg-stone-900/40 border-stone-800 text-stone-500'
+                        }`}
+                      >
+                        <div>
+                          <span className="font-bold block">{isArabic ? item.nameAr : item.nameEn}</span>
+                          <span className="text-[11px] text-stone-400">{isArabic ? item.descAr : item.descEn}</span>
+                        </div>
+                        <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-stone-900 text-stone-300">
+                          ~{item.temp}°C
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Late Crystallization Stage Box */}
+                  <div className="mt-1 p-3 rounded-lg border border-pink-900/40 bg-pink-950/10 text-xs">
+                    <span className="text-pink-400 font-bold block mb-1">
+                      {isArabic ? 'المرحلة الأخيرة من التبلور (عند حوالي ٧٥٠°م):' : 'Final Magma Phase (~800°C - 750°C):'}
+                    </span>
+                    <p className="text-stone-300 text-[11px]">
+                      {isArabic
+                        ? 'الفلسبار البوتاسي (الأرثوكليز) ← الميكا البيضاء (المسكوفيت) ← الكوارتز (آخر المعادن تبلوراً بنسبة ٢٥٪ في الجرانيت).'
+                        : 'K-Feldspar (Orthoclase) → Muscovite (White Mica) → Quartz (Final mineral to crystallize, ~25% in Granite).'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Igneous Rock Catalog */}
+            <div className={`p-5 rounded-xl border ${cardBg}`}>
+              <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                <span className="flex items-center gap-2 text-stone-200">
+                  <Mountain className="w-5 h-5 text-amber-500" />
+                  {isArabic ? 'كتالوج ومطياف الصخور النارية' : 'Igneous Rocks Petrology Matrix'}
+                </span>
+                <span className="text-xs px-2 py-0.5 rounded bg-stone-800 text-stone-300">
+                  {isArabic ? 'نسبة السيليكا ومكان التبلور' : 'Silica % & Texture'}
+                </span>
+              </h3>
+
+              {/* Rock Selector Buttons */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {Object.entries(rockCatalog).map(([key, rk]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedRock(key)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                      selectedRock === key
+                        ? 'bg-amber-600 border-amber-500 text-white shadow'
+                        : 'bg-stone-900 border-stone-800 text-stone-400 hover:text-stone-200'
+                    }`}
+                  >
+                    {isArabic ? rk.nameAr : rk.nameEn}
+                  </button>
+                ))}
+              </div>
+
+              {/* Rock Specimen Card */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-stone-950/60 p-4 rounded-xl border border-stone-800 text-xs">
+                <div>
+                  <span className="text-stone-400 block">{isArabic ? 'التصنيف الكيميائي ومحتوى السيليكا:' : 'Chemical Classification & Silica:'}</span>
+                  <span className="font-bold text-amber-300 text-sm">{currentRockObj.silica}</span>
+                  <span className="text-stone-400 block mt-2">{isArabic ? 'حرارة التبلور:' : 'Crystallization Temp:'}</span>
+                  <span className="font-semibold text-orange-400">{currentRockObj.tempC}</span>
+                </div>
+                <div>
+                  <span className="text-stone-400 block">{isArabic ? 'النسيج ومكان التبلور:' : 'Texture & Origin:'}</span>
+                  <span className="font-semibold text-stone-200">{isArabic ? currentRockObj.textureAr : currentRockObj.textureEn}</span>
+                  <span className="text-stone-400 block mt-2">{isArabic ? 'اللون المميز:' : 'Diagnostic Color:'}</span>
+                  <span className="font-semibold text-stone-300">{isArabic ? currentRockObj.colorAr : currentRockObj.colorEn}</span>
+                </div>
+                <div>
+                  <span className="text-stone-400 block">{isArabic ? 'المعادن المكونة الرئيسية:' : 'Key Mineral Composition:'}</span>
+                  <span className="font-semibold text-emerald-300">{isArabic ? currentRockObj.mineralsAr : currentRockObj.mineralsEn}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* MODE 3: Plate Tectonics & Airy's Isostasy Simulator        */}
+        {/* ========================================================= */}
+        {activeMode === 'tectonics' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left: Red Sea Rift Expansion Simulator */}
+            <div className="lg:col-span-6 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-emerald-400">
+                    <Compass className="w-5 h-5" />
+                    {isArabic ? 'محاكي اتساع البحر الأحمر (حافة تباعدية بناءة)' : 'Red Sea Divergent Rift Simulator'}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                    2.5 cm/yr
+                  </span>
+                </h3>
+
+                <p className="text-xs text-stone-400 mb-4">
+                  {isArabic
+                    ? 'تباعد اللوح العربي عن اللوح الأفريقي بمعدل ٢٫٥ سم سنوياً يحول البحر الأحمر تدريجياً إلى محيط شاسع مستقبلاً.'
+                    : 'The Arabian plate diverges from the African plate at 2.5 cm/year, gradually widening the Red Sea into a future ocean.'}
+                </p>
+
+                {/* Rift Time Slider */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-stone-300 font-medium">{isArabic ? 'الزمن الجيولوجي المنقضي:' : 'Geological Elapsed Time:'}</span>
+                    <span className="font-bold text-amber-400 font-mono">{riftTimeMillionYears} {isArabic ? 'مليون سنة' : 'Million Years'}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="60"
+                    step="1"
+                    value={riftTimeMillionYears}
+                    onChange={(e) => setRiftTimeMillionYears(Number(e.target.value))}
+                    className="w-full accent-emerald-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+
+                {/* Calculated Rift Width Display */}
+                <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-stone-400 block">{isArabic ? 'الاتساع المحسوب للأخدود:' : 'Calculated Rift Width:'}</span>
+                    <span className="text-2xl font-black text-emerald-400 font-mono">{redSeaWidthKm.toFixed(1)} km</span>
+                  </div>
+                  <div className="text-end text-xs text-stone-400">
+                    <span>{isArabic ? 'معادلة الإزاحة:' : 'Displacement Formula:'}</span>
+                    <span className="block font-mono text-stone-300">ΔW = 2.5 cm/yr × Time</span>
+                  </div>
+                </div>
+
+                {/* SVG Visualizing Divergent Tectonic Rift */}
+                <div className="mt-4 h-40 bg-stone-950 rounded-xl border border-stone-800 p-2 relative overflow-hidden flex items-center justify-center">
+                  <svg viewBox="-150 -50 300 100" className="w-full h-full">
+                    {/* Left African Plate */}
+                    <rect x={-140 - (riftTimeMillionYears * 0.8)} y="-20" width="100" height="50" rx="4" fill="#3f3f46" stroke="#71717a" strokeWidth="1.5" />
+                    <text x={-90 - (riftTimeMillionYears * 0.8)} y="10" fill="#e4e4e7" fontSize="11" textAnchor="middle" fontWeight="bold">
+                      {isArabic ? 'اللوح الأفريقي' : 'African Plate'}
+                    </text>
+                    <line x1={-30 - (riftTimeMillionYears * 0.8)} y1="5" x2={-10 - (riftTimeMillionYears * 0.8)} y2="5" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#arrow)" />
+
+                    {/* Right Arabian Plate */}
+                    <rect x={40 + (riftTimeMillionYears * 0.8)} y="-20" width="100" height="50" rx="4" fill="#3f3f46" stroke="#71717a" strokeWidth="1.5" />
+                    <text x={90 + (riftTimeMillionYears * 0.8)} y="10" fill="#e4e4e7" fontSize="11" textAnchor="middle" fontWeight="bold">
+                      {isArabic ? 'اللوح العربي' : 'Arabian Plate'}
+                    </text>
+
+                    {/* Central Rift Basin & Rising Magma */}
+                    <rect x={-35} y="-15" width="70" height="40" fill="#0284c7" opacity="0.3" rx="2" />
+                    <polygon points="0,-15 15,25 -15,25" fill="#f97316" opacity="0.8" />
+                    <text x="0" y="38" fill="#38bdf8" fontSize="10" textAnchor="middle" fontWeight="bold">
+                      {isArabic ? 'مياه البحر الأحمر المتسع' : 'Red Sea Oceanic Basin'}
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Airy's Isostasy Mountain Root Calculator */}
+            <div className="lg:col-span-6 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-amber-400">
+                    <Mountain className="w-5 h-5" />
+                    {isArabic ? 'حاسبة التوازن الإيزوستاتيكي (للبروفيسور إيري)' : "Airy's Isostasy Root Depth Calculator"}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/50">
+                    Root = 4H
+                  </span>
+                </h3>
+
+                <p className="text-xs text-stone-400 mb-4">
+                  {isArabic
+                    ? 'سلاسل الجبال تمتلك جذوراً تغوص في صخور الوشاح عالية الكثافة لعمق يعادل ٤ أمثال ارتفاعها فوق مستوى سطح البحر.'
+                    : 'Mountain chains possess deep subterranean granite roots sinking into the dense mantle to a depth 4 times their elevation.'}
+                </p>
+
+                {/* Elevation Input Slider */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-stone-300 font-medium">{isArabic ? 'ارتفاع الجبل فوق سطح البحر (H):' : 'Mountain Elevation Above Sea Level (H):'}</span>
+                    <span className="font-bold text-amber-400 font-mono">{mountainElevation} m</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="500"
+                    max="9000"
+                    step="50"
+                    value={mountainElevation}
+                    onChange={(e) => setMountainElevation(Number(e.target.value))}
+                    className="w-full accent-amber-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+
+                {/* Quick Presets */}
+                <div className="flex flex-wrap gap-2 mb-4 text-xs">
+                  <button
+                    onClick={() => setMountainElevation(2629)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    {isArabic ? 'جبل كاترين بمصر (٢٦٢٩ م)' : 'Mount Catherine, Sinai (2,629m)'}
+                  </button>
+                  <button
+                    onClick={() => setMountainElevation(8848)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    {isArabic ? 'قمة إيفرست بالهيمالايا (٨٨٤٨ م)' : 'Mount Everest, Himalayas (8,848m)'}
+                  </button>
+                </div>
+
+                {/* Output Metrics */}
+                <div className="grid grid-cols-2 gap-3 p-4 rounded-xl bg-stone-950/70 border border-stone-800 text-xs">
+                  <div>
+                    <span className="text-stone-400 block">{isArabic ? 'عمق الجذر الغاطس في الوشاح (4H):' : 'Subterranean Root Depth (4H):'}</span>
+                    <span className="text-xl font-bold text-sky-400 font-mono">{mountainRootDepth.toLocaleString()} m</span>
+                    <span className="text-[10px] text-stone-500 block">{(mountainRootDepth / 1000).toFixed(2)} km</span>
+                  </div>
+                  <div>
+                    <span className="text-stone-400 block">{isArabic ? 'السمك الكلي للكتلة الجبلية (5H):' : 'Total Lithospheric Mass (5H):'}</span>
+                    <span className="text-xl font-bold text-amber-400 font-mono">{totalMountainCrust.toLocaleString()} m</span>
+                    <span className="text-[10px] text-stone-500 block">{(totalMountainCrust / 1000).toFixed(2)} km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* MODE 4: Stratigraphic Cross-Section & Geological History   */}
+        {/* ========================================================= */}
+        {activeMode === 'stratigraphy' && (
+          <div className="flex flex-col gap-6">
+            <div className={`p-5 rounded-xl border ${cardBg}`}>
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-base font-semibold flex items-center gap-2 text-stone-200">
+                    <Layers className="w-5 h-5 text-amber-500" />
+                    <span>{isArabic ? 'محاكي القطاعات الجيولوجية والتحليل الطبقي' : 'Stratigraphic Cross-Section & Tectonic History Simulator'}</span>
+                  </h3>
+                  <p className="text-xs text-stone-400">
+                    {isArabic
+                      ? 'تحكم في قوى الطي التكتونية، مقدار رمية الفالق، التداخلات النارية، واستنتج التسلسل الزمني للأحداث'
+                      : 'Simulate compressional folds, fault slip throw, igneous dykes, and deduce chronological history'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Tectonic Controls Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-stone-950 border border-stone-800 mb-6 text-xs">
+                <div>
+                  <label className="block text-stone-400 mb-1 font-medium">{isArabic ? 'شدة الطي والانثناء:' : 'Fold Compression:'}</label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={foldCompression}
+                    onChange={(e) => setFoldCompression(Number(e.target.value))}
+                    className="w-full accent-amber-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+                <div>
+                  <label className="block text-stone-400 mb-1 font-medium">{isArabic ? 'إزاحة الفالق (الرمية):' : 'Fault Throw (px):'}</label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="60"
+                    value={faultThrow}
+                    onChange={(e) => setFaultThrow(Number(e.target.value))}
+                    className="w-full accent-red-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+                <div className="flex items-center gap-2 pt-4">
+                  <input
+                    type="checkbox"
+                    id="chkDyke"
+                    checked={hasBasaltDyke}
+                    onChange={(e) => setHasBasaltDyke(e.target.checked)}
+                    className="accent-amber-500 w-4 h-4 rounded cursor-pointer"
+                  />
+                  <label htmlFor="chkDyke" className="text-stone-300 cursor-pointer">
+                    {isArabic ? 'تداخل عرق ناري قاطع' : 'Intrusive Basalt Dyke'}
+                  </label>
+                </div>
+                <div className="flex items-center gap-2 pt-4">
+                  <input
+                    type="checkbox"
+                    id="chkUnconf"
+                    checked={hasUpperUnconformity}
+                    onChange={(e) => setHasUpperUnconformity(e.target.checked)}
+                    className="accent-amber-500 w-4 h-4 rounded cursor-pointer"
+                  />
+                  <label htmlFor="chkUnconf" className="text-stone-300 cursor-pointer">
+                    {isArabic ? 'سطح عدم توافق زاوي' : 'Angular Unconformity'}
+                  </label>
+                </div>
+              </div>
+
+              {/* Cross-Section SVG Canvas */}
+              <div className="h-64 bg-stone-950 rounded-xl border border-stone-800 p-3 relative overflow-hidden flex items-center justify-center">
+                <svg viewBox="0 0 600 250" className="w-full h-full">
+                  {/* Bed 1: Deep Cambrian Sandstone */}
+                  <path
+                    d={`M 0,220 Q 150,${220 - foldCompression * 0.4} 300,220 T 600,220 L 600,250 L 0,250 Z`}
+                    fill="#b45309"
+                    opacity="0.8"
+                  />
+                  {/* Bed 2: Ordovician Limestone */}
+                  <path
+                    d={`M 0,180 Q 150,${180 - foldCompression * 0.4} 300,180 T 600,180 L 600,220 Q 450,220 300,220 T 0,220 Z`}
+                    fill="#3b82f6"
+                    opacity="0.7"
+                  />
+                  {/* Bed 3: Silurian Shale */}
+                  <path
+                    d={`M 0,140 Q 150,${140 - foldCompression * 0.4} 300,140 T 600,140 L 600,180 Q 450,180 300,180 T 0,180 Z`}
+                    fill="#059669"
+                    opacity="0.7"
+                  />
+
+                  {/* Fault Plane Line cutting through beds */}
+                  {faultThrow > 0 && (
+                    <line x1="240" y1="120" x2="360" y2="245" stroke="#ef4444" strokeWidth="3" strokeDasharray="4 2" />
+                  )}
+
+                  {/* Basalt Dyke Cutting */}
+                  {hasBasaltDyke && (
+                    <polygon points="120,250 135,250 170,120 155,120" fill="#18181b" stroke="#71717a" strokeWidth="1.5" />
+                  )}
+
+                  {/* Angular Unconformity Line */}
+                  {hasUpperUnconformity && (
+                    <>
+                      <line x1="0" y1="120" x2="600" y2="120" stroke="#f59e0b" strokeWidth="3" />
+                      {/* Conglomerate pebbles along unconformity */}
+                      {[30, 80, 140, 210, 290, 370, 440, 520].map((cx, i) => (
+                        <circle key={i} cx={cx} cy="115" r="4" fill="#d97706" />
+                      ))}
+                      {/* Horizontal Tertiary Sedimentary Bed above unconformity */}
+                      <rect x="0" y="70" width="600" height="48" fill="#a855f7" opacity="0.4" />
+                    </>
+                  )}
+
+                  {/* Annotations */}
+                  <text x="30" y="200" fill="#ffffff" fontSize="11" fontWeight="bold">
+                    {isArabic ? 'طية محدبة مائلة (ضغط تكتوني)' : 'Folded Lower Strata'}
+                  </text>
+                  {hasUpperUnconformity && (
+                    <text x="450" y="110" fill="#fbbf24" fontSize="10" fontWeight="bold">
+                      {isArabic ? 'سطح عدم توافق زاوي' : 'Angular Unconformity Surface'}
+                    </text>
+                  )}
+                  {hasBasaltDyke && (
+                    <text x="180" y="150" fill="#a1a1aa" fontSize="10">
+                      {isArabic ? 'عرق ناري بازلتي قاطع' : 'Basalt Dyke'}
+                    </text>
+                  )}
+                </svg>
+              </div>
+
+              {/* Deductions Chronometer */}
+              <div className="mt-4 p-4 rounded-xl bg-stone-950/70 border border-stone-800 text-xs">
+                <span className="font-bold text-amber-400 block mb-2">
+                  {isArabic ? 'الاستنتاج الجيولوجي للتتابع الزمني للأحداث (من الأقدم للأحدث):' : 'Geological Chronological Sequence of Events (Oldest to Youngest):'}
+                </span>
+                <ol className="list-decimal list-inside space-y-1 text-stone-300">
+                  <li>{isArabic ? 'ترسيب المجموعات الصخرية السفلية في وضع أفقي في أحواض الترسيب.' : 'Deposition of lower sedimentary beds in horizontal basin.'}</li>
+                  <li>{isArabic ? 'تعرض المنطقة لقوى ضغط تكتونية سببت انثناء الطبقات وتكوين الطية المحدبة.' : 'Tectonic lateral compression folding strata into an anticline.'}</li>
+                  {hasBasaltDyke && (
+                    <li>{isArabic ? 'اندفاع الصهارة النارية وتكوين العرق البازلتي القاطع للطبقات المطوية (القاطع أحدث من المقطوع).' : 'Intrusion of basaltic magma forming discordant dyke (Cross-cutting relationships).'}</li>
+                  )}
+                  {hasUpperUnconformity && (
+                    <>
+                      <li>{isArabic ? 'حدوث حركات أرضية رافعة وانحسار ماء البحر وتعرض الطبقات لتعرية طويلة شكلت سطح عدم التوافق الزاوي الموضح بالكونجلوميرات.' : 'Uplift and marine regression causing erosional hiatus and basal conglomerate deposition.'}</li>
+                      <li>{isArabic ? 'تقدم ماء البحر مجدداً وترسيب الطبقات الرسوبية العلوية الأفقية.' : 'Marine transgression depositing upper horizontal beds.'}</li>
+                    </>
+                  )}
+                </ol>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* MODE 5: Marine Hydrostatic Pressure & Ecosystem Energy    */}
+        {/* ========================================================= */}
+        {activeMode === 'ecosystem' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left: Hydrostatic Pressure Calculator */}
+            <div className="lg:col-span-6 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-cyan-400">
+                    <Droplets className="w-5 h-5" />
+                    {isArabic ? 'حاسبة الضغط الهيدروستاتيكي المائي' : 'Marine Hydrostatic Pressure Lab'}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
+                    P = D/10 + 1
+                  </span>
+                </h3>
+
+                {/* Depth Slider */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-stone-300 font-medium">{isArabic ? 'عمق المياه بالأمتار (D):' : 'Ocean Depth in Meters (D):'}</span>
+                    <span className="font-bold text-cyan-400 font-mono">{oceanDepthMeters} m</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="11000"
+                    step="50"
+                    value={oceanDepthMeters}
+                    onChange={(e) => setOceanDepthMeters(Number(e.target.value))}
+                    className="w-full accent-cyan-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+
+                {/* Quick Depth Presets */}
+                <div className="flex flex-wrap gap-2 mb-4 text-xs">
+                  <button
+                    onClick={() => setOceanDepthMeters(10)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    10m (2 atm)
+                  </button>
+                  <button
+                    onClick={() => setOceanDepthMeters(200)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    200m ({isArabic ? 'الرف القاري' : 'Shelf limit'})
+                  </button>
+                  <button
+                    onClick={() => setOceanDepthMeters(2000)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    2000m ({isArabic ? 'المنحدر القاري' : 'Slope limit'})
+                  </button>
+                  <button
+                    onClick={() => setOceanDepthMeters(11000)}
+                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                  >
+                    11000m ({isArabic ? 'خندق ماريانا' : 'Mariana Trench'})
+                  </button>
+                </div>
+
+                {/* Calculated Results */}
+                <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 grid grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <span className="text-stone-400 block">{isArabic ? 'الضغط الكلي الواقع على الكائن:' : 'Total Hydrostatic Pressure:'}</span>
+                    <span className="text-2xl font-black text-cyan-300 font-mono">{hydrostaticPressureAtm.toFixed(1)} atm</span>
+                    <span className="text-[10px] text-stone-500 block">
+                      {isArabic ? 'يشمل ١ ضغط جوي للغلاف السطحي' : 'Includes 1 atm surface pressure'}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-stone-400 block">{isArabic ? 'النطاق البحري المعتمد:' : 'Marine Depth Zone:'}</span>
+                    <span className="font-semibold text-stone-200">
+                      {isArabic ? getMarineZone(oceanDepthMeters).ar : getMarineZone(oceanDepthMeters).en}
+                    </span>
+                    <span className="text-[10px] text-stone-500 block mt-1">
+                      {isArabic ? `نفاذ الضوء: ${lightPercent.toFixed(1)}%` : `Light Transmission: ${lightPercent.toFixed(1)}%`}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Ecosystem Energy Pyramid Simulator */}
+            <div className="lg:col-span-6 flex flex-col gap-4">
+              <div className={`p-5 rounded-xl border ${cardBg}`}>
+                <h3 className="text-base font-semibold flex items-center justify-between mb-4">
+                  <span className="flex items-center gap-2 text-emerald-400">
+                    <Sun className="w-5 h-5" />
+                    {isArabic ? 'هرم الطاقة الغذائية وقاعدة العشر (١٠٪)' : 'Trophic Food Web Energy Pyramid'}
+                  </span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                    90% Dissipation
+                  </span>
+                </h3>
+
+                {/* Base Energy Input */}
+                <div className="mb-4">
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-stone-300 font-medium">{isArabic ? 'طاقة المنتجين الأساسية (سعر حراري):' : 'Base Primary Producer Energy (kcal):'}</span>
+                    <span className="font-bold text-amber-400 font-mono">{baseSolarEnergyKcal.toLocaleString()} kcal</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="10000"
+                    max="1000000"
+                    step="10000"
+                    value={baseSolarEnergyKcal}
+                    onChange={(e) => setBaseSolarEnergyKcal(Number(e.target.value))}
+                    className="w-full accent-emerald-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  />
+                </div>
+
+                {/* 4-Tier Energy Pyramid Levels */}
+                <div className="flex flex-col gap-2">
+                  {[
+                    { level: 4, nameEn: 'Top Predators (Sharks, Whales)', nameAr: 'المستهلك الثالث (الحيتان وأسماك القرش)', factor: 0.001, color: 'bg-red-950/30 border-red-800 text-red-200' },
+                    { level: 3, nameEn: 'Secondary Consumers (Predatory Fish)', nameAr: 'المستهلك الثاني (الأسماك الكبيرة المفترسة)', factor: 0.01, color: 'bg-orange-950/30 border-orange-800 text-orange-200' },
+                    { level: 2, nameEn: 'Primary Consumers (Zooplankton)', nameAr: 'المستهلك الأول (الهائمات الحيوانية)', factor: 0.1, color: 'bg-yellow-950/30 border-yellow-800 text-yellow-200' },
+                    { level: 1, nameEn: 'Primary Producers (Phytoplankton)', nameAr: 'المنتجون (الهائمات النباتية والطحالب)', factor: 1.0, color: 'bg-emerald-950/30 border-emerald-800 text-emerald-200' }
+                  ].map((tier) => {
+                    const energy = baseSolarEnergyKcal * tier.factor;
+                    return (
+                      <div key={tier.level} className={`p-2.5 rounded-lg border flex items-center justify-between text-xs ${tier.color}`}>
+                        <div>
+                          <span className="font-bold block">{isArabic ? tier.nameAr : tier.nameEn}</span>
+                          <span className="text-[10px] text-stone-400">
+                            {isArabic ? `المستوى الغذائي ${tier.level}` : `Trophic Level ${tier.level}`}
+                          </span>
+                        </div>
+                        <div className="text-end">
+                          <span className="font-mono font-bold text-sm block">{energy.toLocaleString()} kcal</span>
+                          <span className="text-[10px] opacity-75">
+                            {tier.factor === 1 ? '100% Base' : `${(tier.factor * 100).toFixed(1)}% Available`}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};

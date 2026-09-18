@@ -25,6 +25,7 @@ import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
+import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -294,6 +295,33 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'crystal_system_inspector':
+        case 'mohs_hardness_tester':
+        case 'bowen_reaction_series':
+        case 'plate_tectonics_simulator':
+        case 'isostasy_root_calculator':
+        case 'stratigraphic_cross_section':
+        case 'geological_dating_solver':
+        case 'marine_pressure_calculator':
+        case 'ecosystem_energy_pyramid':
+          return (
+            <GeologyEarthStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'bowen_reaction_series'
+                  ? 'bowen'
+                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' || lesson.interactiveWidget.type === 'isostasy_root_calculator'
+                  ? 'tectonics'
+                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' || lesson.interactiveWidget.type === 'geological_dating_solver'
+                  ? 'stratigraphy'
+                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' || lesson.interactiveWidget.type === 'ecosystem_energy_pyramid'
+                  ? 'ecosystem'
+                  : 'crystals'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -377,6 +405,33 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'economic_bloc_analyzer'
                   ? 'blocs'
                   : 'morphology'
+              }
+            />
+          );
+        case 'crystal_system_inspector':
+        case 'mohs_hardness_tester':
+        case 'bowen_reaction_series':
+        case 'plate_tectonics_simulator':
+        case 'isostasy_root_calculator':
+        case 'stratigraphic_cross_section':
+        case 'geological_dating_solver':
+        case 'marine_pressure_calculator':
+        case 'ecosystem_energy_pyramid':
+          return (
+            <GeologyEarthStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'bowen_reaction_series'
+                  ? 'bowen'
+                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' || lesson.interactiveWidget.type === 'isostasy_root_calculator'
+                  ? 'tectonics'
+                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' || lesson.interactiveWidget.type === 'geological_dating_solver'
+                  ? 'stratigraphy'
+                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' || lesson.interactiveWidget.type === 'ecosystem_energy_pyramid'
+                  ? 'ecosystem'
+                  : 'crystals'
               }
             />
           );

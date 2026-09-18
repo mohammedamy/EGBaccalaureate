@@ -43,7 +43,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
   const t = translations[lang];
 
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'>('all');
+  const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'>('all');
   const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
   const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
@@ -220,6 +220,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="physics">{isArabic ? '⚡ الفيزياء' : '⚡ Physics'} ({officialBooksList.filter(b => b.subjectId === 'physics').length})</option>
                 <option value="chemistry">{isArabic ? '🧪 الكيمياء' : '🧪 Chemistry'} ({officialBooksList.filter(b => b.subjectId === 'chemistry').length})</option>
                 <option value="biology">{isArabic ? '🧬 الأحياء' : '🧬 Biology'} ({officialBooksList.filter(b => b.subjectId === 'biology').length})</option>
+                <option value="geology">{isArabic ? '⛰️ الجيولوجيا' : '⛰️ Geology'} ({officialBooksList.filter(b => b.subjectId === 'geology').length})</option>
                 <option value="arabic">{isArabic ? '📜 اللغة العربية' : '📜 Arabic'} ({officialBooksList.filter(b => b.subjectId === 'arabic').length})</option>
                 <option value="english">{isArabic ? '🌍 اللغة الإنجليزية' : '🌍 English'} ({officialBooksList.filter(b => b.subjectId === 'english').length})</option>
                 <option value="french">{isArabic ? '🇫🇷 اللغة الفرنسية' : '🇫🇷 French'} ({officialBooksList.filter(b => b.subjectId === 'french').length})</option>

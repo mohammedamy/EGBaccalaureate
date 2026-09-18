@@ -74,6 +74,21 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
     };
   }
 
+  if (normSubject === 'geology' || normBranch.includes('geol') || normBranch.includes('جيولوج') || normBranch.includes('بيئ')) {
+    return {
+      subjectId: 'geology',
+      totalQuestions: 46,
+      totalMarks: 60,
+      durationMinutes: 180,
+      section1Count: 32,
+      section2Count: 14,
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة الجيولوجيا والعلوم البيئية',
+      titleEn: 'Official Thanawya Amma Examination - Geology & Environmental Sciences',
+      descAr: '٤٦ سؤالاً (٣٢ سؤالاً بدرجة واحدة + ١٤ سؤالاً بدرجتين) بإجمالي ٦٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '46 questions (32 items @ 1 mark + 14 items @ 2 marks) totaling 60 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
   // 2. Mathematics Branches (Calculus, Statics, Dynamics, Algebra & Geometry): 20 Questions, 30 Marks, 2 Hours per branch
   const isSpecificMathBranch =
     normBranch !== 'all' &&

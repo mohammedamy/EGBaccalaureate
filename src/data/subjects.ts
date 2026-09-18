@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -212,6 +212,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_geography'],
       egbac: ['egbac_geography'],
+    },
+  },
+  {
+    id: 'geology',
+    titleEn: 'Geology & Environmental Sciences',
+    titleAr: 'الجيولوجيا والعلوم البيئية',
+    shortTitleEn: 'Geology',
+    shortTitleAr: 'جيولوجيا',
+    emoji: '🪨',
+    iconName: 'Mountain',
+    badgeColor: 'amber',
+    gradient: 'from-amber-700 via-stone-700 to-emerald-800',
+    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
+    darkBg: 'bg-amber-950/70 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'National Scientific Core Subject: Earth Dynamics, Minerals & Crystallography, Bowen Rock Cycle, Continental Drift & Plate Tectonics, Geomorphology, and Environmental Ecosystems',
+    descriptionAr: 'المادة العلمية الكبرى لشعبة علمي علوم: مادة الأرض والتراكيب، المعادن ومقياس موهس، دورة الصخور والبراكين، تكتونية الصفائح والزلازل، الجيومورفولوجيا، والنظم الإيكولوجية واستنزاف الموارد',
+    branchIds: {
+      thanaweya: ['thanaweya_geology'],
+      egbac: ['egbac_geology'],
     },
   },
 ];

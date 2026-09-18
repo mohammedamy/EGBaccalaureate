@@ -13,6 +13,7 @@ import {
   Compass,
   Headphones,
   Globe,
+  Mountain,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -20,6 +21,7 @@ import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
+import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
@@ -35,7 +37,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'history' | 'geography' | 'languages';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -53,6 +55,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'physics') return 'physics';
     if (selectedSubject === 'chemistry') return 'chemistry';
     if (selectedSubject === 'biology') return 'biology';
+    if (selectedSubject === 'geology') return 'geology';
     if (selectedSubject === 'history') return 'history';
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
@@ -74,6 +77,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'physics') setActiveLab('physics');
     else if (selectedSubject === 'chemistry') setActiveLab('chemistry');
     else if (selectedSubject === 'biology') setActiveLab('biology');
+    else if (selectedSubject === 'geology') setActiveLab('geology');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -265,6 +269,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'استوديو الخرائط الجيوسياسية: المناطق المائية وفقاً لاتفاقية الأمم المتحدة UNCLOS، بؤر النزاعات، التكتلات الكبرى، ومحلل أشكال الدول'
         : 'Geopolitical Map Studio: UNCLOS maritime delimitation zones, hotspot dispute simulator, economic blocs & state morphology index',
+    },
+    {
+      id: 'geology' as LabId,
+      titleEn: 'Earth & Environmental Studio',
+      titleAr: 'استوديو علوم الأرض والبيئة',
+      subtitleEn: '7 Crystal Systems, Bowen Reaction Series, Red Sea Rift & Isostasy',
+      subtitleAr: 'الأنظمة البلورية السبعة، متسلسلة بوين، أخدود البحر الأحمر، والتوازن الإيزوستاتيكي',
+      icon: Mountain,
+      color: 'amber',
+      badge: '⛰️ Crystals & Tectonics',
+      gradient: 'from-amber-600 via-stone-700 to-emerald-700',
+      activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
+      tagline: isArabic
+        ? 'استوديو الجيولوجيا والبيئة: الأنظمة البلورية السبعة، مقياس موهس، متسلسلة تفاعلات بوين، تكتونية الألواح، والقطاعات الطبقية'
+        : 'Earth & Environmental Studio: 7 crystal systems, Mohs scratch tester, Bowen series, plate tectonics & stratigraphic cross-sections',
     },
     {
       id: 'languages' as LabId,
@@ -635,6 +654,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
           </div>
         )}
 
+        {/* Earth & Environmental Science Studio */}
+        {activeLab === 'geology' && (
+          <div className="space-y-4">
+            <GeologyEarthStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
         {/* Languages & Phonetics Studio */}
         {activeLab === 'languages' && (
           <div className="space-y-4">
@@ -703,7 +733,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -718,7 +748,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

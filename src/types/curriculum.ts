@@ -15,6 +15,7 @@ export type BranchId =
   | 'thanaweya_arabic'
   | 'thanaweya_history'
   | 'thanaweya_geography'
+  | 'thanaweya_geology'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -26,7 +27,8 @@ export type BranchId =
   | 'egbac_french'
   | 'egbac_arabic'
   | 'egbac_history'
-  | 'egbac_geography';
+  | 'egbac_geography'
+  | 'egbac_geology';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -215,7 +217,12 @@ export type InteractiveWidgetType =
   | 'geopolitical_map'
   | 'geopolitical_flashcards'
   | 'boundary_dispute_simulator'
-  | 'economic_bloc_analyzer';
+  | 'economic_bloc_analyzer'
+  | 'geology_crystal_systems'
+  | 'geology_rock_cycle'
+  | 'geology_plate_tectonics'
+  | 'geology_stratigraphy_cross_section'
+  | 'environmental_ecosystem_energy';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

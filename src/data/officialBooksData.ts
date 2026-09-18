@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1738,6 +1738,112 @@ export const officialBooksList: OfficialBook[] = [
     ],
   },
 
+  // 21. Thanaweya Science: Geology & Environmental Sciences
+  {
+    id: 'th-geology-g12',
+    curriculum: 'thanaweya',
+    category: 'geology',
+    subjectId: 'geology',
+    branchId: 'thanaweya_geology',
+    code: 'TH-GEOL-G12',
+    titleEn: 'Geology & Environmental Sciences',
+    titleAr: 'الجيولوجيا والعلوم البيئية',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate - Science Track)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة - شعبة علمي علوم)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 38,
+    fileSize: '3.8 MB',
+    compendiumTitleEn: 'Official Geology & Environmental Sciences Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم المعتمد في الجيولوجيا والعلوم البيئية',
+    filename: 'thanaweya-geology.pdf',
+    downloadUrl: '/books/thanaweya-geology.pdf',
+    fullTextbookPages: 208,
+    fullTextbookSize: '29.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/geology/',
+    coverGradient: 'from-amber-800 via-stone-800 to-emerald-950',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Earth Planet, Components & Geologic Structures', titleAr: 'الباب الأول: علم الجيولوجيا ومادة الأرض والتراكيب الجيولوجية', pageRange: 'pp. 1-36', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Ch 2: Minerals & Crystallography', titleAr: 'الباب الثاني: المعادن والبلورات والخواص الفيزيائية', pageRange: 'pp. 37-64', topicsCount: 12 },
+      { id: 'ch3', titleEn: 'Ch 3: Rocks, Bowen Reaction Series & Rock Cycle', titleAr: 'الباب الثالث: الصخور والبراكين ومتسلسلة تفاعلات بوين', pageRange: 'pp. 65-104', topicsCount: 18 },
+      { id: 'ch4', titleEn: 'Ch 4: Earth Movements, Continental Drift & Plate Tectonics', titleAr: 'الباب الرابع: الحركات الأرضية والانجراف القاري وتكتونية الصفائح', pageRange: 'pp. 105-144', topicsCount: 16 },
+      { id: 'ch5', titleEn: 'Ch 5: Dynamic Equilibrium, Weathering & Surface Geology', titleAr: 'الباب الخامس: التوازن في الحركة بين الماء والهواء واليابس', pageRange: 'pp. 145-180', topicsCount: 16 },
+      { id: 'ch6', titleEn: 'Ch 6: Ecological Concepts & Marine/Desert Ecosystems', titleAr: 'الباب السادس: مفاهيم بيئية والنظم الإيكولوجية البحرية والصحراوية', pageRange: 'pp. 181-208', topicsCount: 14 },
+      { id: 'ch7', titleEn: 'Ch 7: Natural Resource Depletion & Environmental Protection', titleAr: 'الباب السابع: استنزاف الموارد الطبيعية وحمايتها وتغير المناخ', pageRange: 'pp. 209-236', topicsCount: 14 },
+    ],
+    descriptionEn: 'The official Ministry textbook for Grade 12 Geology & Environmental Sciences, encompassing mineral crystallography, Bowen reaction series, plate tectonic boundaries, geologic cross-sections, and environmental ecology conservation.',
+    descriptionAr: 'كتاب الوزارة المعتمد للجيولوجيا والعلوم البيئية: يتناول تراكيب القشرة الأرضية، الأنظمة البلورية السبعة، متسلسلة بوين وتصنيف الصخور، نظرية الألواح التكتونية والانجراف القاري لفجنر، ومفاهيم الاستدامة والنظم البيئية الصحراوية والبحرية.',
+    highlightsEn: [
+      'Comprehensive crystal system analysis and physical mineral identification keys (Mohs hardness scale)',
+      'Bowen reaction series crystallization thermodynamics and igneous rock classification',
+      'Plate tectonics dynamics: convergent, divergent, and transform boundary geomorphology',
+      'Ecosystem trophic dynamics, renewable resource management, and environmental impact mitigation',
+    ],
+    highlightsAr: [
+      'الأنظمة البلورية السبعة ومقياس موهس للصلادة والخواص البصرية والتماسكية للمعادن',
+      'متسلسلة تفاعلات بوين ونسيج الصخور النارية ورسوبيات وأشكال الصخور المتحولة',
+      'شواهد الانجراف القاري وتكتونية الألواح وموجات الزلازل ورصد المركز السطحي',
+      'سلاسل الغذاء في النظامين البحري والصحراوي واستنزاف الموارد المتجددة وغير المتجددة',
+    ],
+  },
+
+  // 22. EG-Bac Advanced Earth Sciences & Environmental Dynamics
+  {
+    id: 'egbac-geology-g12',
+    curriculum: 'egbac',
+    category: 'geology',
+    subjectId: 'geology',
+    branchId: 'egbac_geology',
+    code: 'EGBAC-GEOL-G12',
+    titleEn: 'Advanced Earth Sciences & Environmental Geodynamics',
+    titleAr: 'علوم الأرض المتقدمة والديناميكا الجيوبيئية',
+    subtitleEn: 'New Egyptian Baccalaureate Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Natural Sciences & Earth Systems)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة العلوم الطبيعية)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 40,
+    fileSize: '4.1 MB',
+    compendiumTitleEn: 'EG-Bac Earth Systems, Crystallography & Geophysics Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في الجيوفيزياء والبلورات والأنظمة البيئية',
+    filename: 'egbac-geology.pdf',
+    downloadUrl: '/books/egbac-geology.pdf',
+    fullTextbookPages: 248,
+    fullTextbookSize: '34.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/geology/',
+    coverGradient: 'from-amber-950 via-stone-900 to-teal-950',
+    accentColor: '#f59e0b',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Lithospheric Structure, Seismic Tomography & Geologic Formations', titleAr: 'الفصل الأول: البنية الليثوسفيرية والتصوير السيزمي والتراكيب الجيولوجية', pageRange: 'pp. 1-40', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Ch 2: Mineral Crystallography, X-ray Diffraction & Geochemistry', titleAr: 'الفصل الثاني: البنى البلورية وحيود الأشعة السينية والجيوكيمياء', pageRange: 'pp. 41-72', topicsCount: 12 },
+      { id: 'ch3', titleEn: 'Ch 3: Magmatic Petrology, Isostasy & Metamorphic Facies', titleAr: 'الفصل الثالث: بترولوجيا الصهارة والتوازن الإيزوستاتي وسحنات التحول', pageRange: 'pp. 73-114', topicsCount: 18 },
+      { id: 'ch4', titleEn: 'Ch 4: Wilson Cycle, Plate Kinematics & Paleomagnetism', titleAr: 'الفصل الرابع: دورة ويلسون وحركية الألواح والمغناطيسية القديمة والسيزمولوجيا', pageRange: 'pp. 115-154', topicsCount: 16 },
+      { id: 'ch5', titleEn: 'Ch 5: Quantitative Geomorphology, Hydrologic Modeling & Weathering', titleAr: 'الفصل الخامس: الجيومورفولوجيا الكمية والنمذجة الهيدرولوجية والتجوية', pageRange: 'pp. 155-190', topicsCount: 16 },
+      { id: 'ch6', titleEn: 'Ch 6: Marine Geophysical Dynamics & Extreme Ecosystem Energetics', titleAr: 'الفصل السادس: الديناميكا الجيوفيزيائية البحرية وطاقة النظم البيئية القاسية', pageRange: 'pp. 191-220', topicsCount: 14 },
+      { id: 'ch7', titleEn: 'Ch 7: Earth Systems Modeling, Biogeochemical Cycles & Sustainability', titleAr: 'الفصل السابع: نمذجة نظم الأرض والدورات البيوجيوكيميائية والاستدامة', pageRange: 'pp. 221-248', topicsCount: 14 },
+    ],
+    descriptionEn: 'Advanced collegiate-level earth sciences focusing on quantitative seismic wave velocities, paleomagnetic polar reversals, crystallographic unit cells, and thermodynamic geochemical balances.',
+    descriptionAr: 'منهج البكالوريا المتقدم في علوم الأرض: يشمل القياس الكمي لسرعات الموجات الزلزالية، الشواهد الباليومغناطيسية، خلايا الوحدة البلورية، والدورات الجيوكيميائية المتقدمة وتطبيقات الجيولوجيا الاقتصادية في مصر.',
+    highlightsEn: [
+      'Mathematical seismic wave arrival time modeling for epicenter localization and Mohorovičić discontinuity mapping',
+      'X-ray crystallography Bragg law applications and Miller indices for mineral lattices',
+      'Geodynamic mantle convection simulation and Wilson cycle basin evolution',
+      'Global carbon cycle quantification, marine upwelling dynamics, and planetary boundaries',
+    ],
+    highlightsAr: [
+      'الحساب الكمي لزمن وصول الموجات الزلزالية ورسم خريطة انقطاع موهو ومناطق الظل',
+      'قانون براغ في حيود الأشعة السينية ومؤشرات ميلر للشبيكة البلورية للمعادن',
+      'محاكاة تيارات الحمل في الوشاح ودورة ويلسون لنشوء واندثار المحيطات',
+      'حساب ميزانية الكربون العالمية وديناميكا التيارات الصاعدة والمحميات الطبيعية المصرية',
+    ],
+  },
+
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -1765,6 +1871,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_history' && (b.branchId === 'egbac_history' || b.id === 'egbac-history-g12')) return true;
     if (branchId === 'thanaweya_geography' && (b.branchId === 'thanaweya_geography' || b.id === 'th-geography-g12')) return true;
     if (branchId === 'egbac_geography' && (b.branchId === 'egbac_geography' || b.id === 'egbac-geography-g12')) return true;
+    if (branchId === 'thanaweya_geology' && (b.branchId === 'thanaweya_geology' || b.id === 'th-geology-g12')) return true;
+    if (branchId === 'egbac_geology' && (b.branchId === 'egbac_geology' || b.id === 'egbac-geology-g12')) return true;
     return false;
   });
 }
@@ -1774,7 +1882,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

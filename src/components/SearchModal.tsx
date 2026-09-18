@@ -533,8 +533,8 @@ export const SearchModal: React.FC<Props> = ({
             type="text"
             placeholder={
               isArabic
-                ? 'ابحث في ٢٢,٢٠٠ مسألة وقانون وفصل... (مثال: كيرشوف، بيز، DNA، طابا، الكوميسا، معاهدة ١٩٣٦)'
-                : 'Search across 22,200 problems, theorems & lessons... (e.g. Kirchhoff, Bayes, DNA, Taba, COMESA)'
+                ? 'ابحث في ٢٥,٠٠٠ مسألة وقانون وفصل... (مثال: كيرشوف، بوين، موهس، طابا، بيز، DNA)'
+                : 'Search across 25,000 problems, theorems & lessons... (e.g. Kirchhoff, Bowen, Mohs, Taba, Bayes, DNA)'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -602,7 +602,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'الكل (١١١ فصلاً)' : 'All (111 Ch)'}
+                  {isArabic ? 'الكل (١٢٥ فصلاً)' : 'All (125 Ch)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('thanaweya')}
@@ -612,7 +612,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'ثانوية عامة (٦٢)' : 'Thanaweya (62)'}
+                  {isArabic ? 'ثانوية عامة (٦٩)' : 'Thanaweya (69)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('egbac')}
@@ -622,7 +622,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'بكالوريا STEM (٤٩)' : 'EG-Bac STEM (49)'}
+                  {isArabic ? 'بكالوريا STEM (٥٦)' : 'EG-Bac STEM (56)'}
                 </button>
               </div>
 
@@ -685,7 +685,7 @@ export const SearchModal: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200 bg-slate-800/40'
                 }`}
               >
-                {isArabic ? 'جميع المواد (٩)' : 'All 9 Subjects'}
+                {isArabic ? 'جميع المواد (١٠)' : 'All 10 Subjects'}
               </button>
 
               {SUBJECTS.map((sub) => {
@@ -1015,8 +1015,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             <span className="font-medium">
               {isArabic
-                ? 'فهرس فوري لـ ١١١ فصلاً و ٢٢,٢٠٠ مسألة عبر ٩ مواد أساسية'
-                : 'Live index of 111 chapters & 22,200 problems across 9 core subjects'}
+                ? 'فهرس فوري لـ ١٢٥ فصلاً و ٢٥,٠٠٠ مسألة عبر ١٠ مواد أساسية'
+                : 'Live index of 125 chapters & 25,000 problems across 10 core subjects'}
             </span>
           </div>
 
