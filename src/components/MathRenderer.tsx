@@ -84,7 +84,12 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     return false;
   }
 
-  // 2. If it contains math delimiters ($ or \( or \[)
+  // 2. LaTeX environments (\begin{cases}, \begin{vmatrix}, \begin{aligned}, etc.) are pure math
+  if (/\\begin\{(vmatrix|matrix|pmatrix|bmatrix|cases|aligned|split|gather|array)\}/.test(s)) {
+    return true;
+  }
+
+  // 3. If it contains math delimiters ($ or \( or \[)
   if (s.includes('$') || s.includes('\\(') || s.includes('\\[')) {
     // Only pure math if wrapped by EXACTLY one matching pair of delimiters from start to end
     if (s.startsWith('$$') && s.endsWith('$$') && s.length >= 4) {
@@ -109,21 +114,31 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     return false;
   }
 
-  // 3. If it contains Arabic letters (excluding numerals ٠-٩), it's Arabic prose
-  if (/[\u0621-\u064A\u0671-\u06D3]/.test(s)) {
+  // 4. If it contains Arabic letters OUTSIDE \text{...}, it's Arabic prose
+  const withoutText = s.replace(/\\text\{[^}]*\}/g, '');
+  if (/[\u0621-\u064A\u0671-\u06D3]/.test(withoutText)) {
     return false;
   }
 
-  // 4. Check for English prose words
+  // 5. Clean LaTeX markup (commands, subscripts, superscripts, text) to isolate standalone words
+  const cleaned = s
+    .replace(/\\text\{[^}]*\}/g, ' ')
+    .replace(/\\[a-zA-Z]+/g, ' ')
+    .replace(/_\{[^}]*\}/g, ' ')
+    .replace(/\^\{[^}]*\}/g, ' ')
+    .replace(/_[a-zA-Z0-9٠-٩]+/g, ' ')
+    .replace(/\^[a-zA-Z0-9٠-٩]+/g, ' ')
+    .replace(/[^a-zA-Z]/g, ' ');
+
+  const words = cleaned.split(/\s+/).filter(Boolean);
+
   const englishStopWords = new Set([
     'to', 'is', 'on', 'in', 'at', 'by', 'as', 'of', 'or', 'an', 'if', 'no', 'so', 'up', 'do',
     'and', 'the', 'for', 'but', 'not', 'with', 'from', 'into', 'than', 'then', 'when', 'that',
     'this', 'all', 'any', 'are', 'was', 'were', 'has', 'have', 'had', 'been', 'which', 'where',
     'who', 'whom', 'whose', 'what', 'why', 'how', 'each', 'every', 'both', 'either', 'neither',
     'only', 'same', 'such', 'more', 'most', 'other', 'some', 'between', 'through', 'during',
-    'before', 'after', 'above', 'below', 'under', 'again', 'further', 'once', 'here', 'there',
-    'constant', 'remains', 'increases', 'decreases', 'zero', 'none', 'cannot', 'determine',
-    'varies', 'divided', 'connected', 'parallel', 'series', 'circuit', 'current', 'voltage'
+    'before', 'after', 'above', 'below', 'under', 'again', 'further', 'once', 'here', 'there'
   ]);
 
   const mathFunctions = new Set([
@@ -131,33 +146,23 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     'det', 'deg', 'mod', 'var', 'cov', 'dim', 'ker', 'gcd', 'lcm', 'arcsin', 'arccos', 'arctan'
   ]);
 
-  // Check if \text{...} contains multi-word prose
-  const textMatches = s.match(/\\text\{([^}]*)\}/g) || [];
-  for (const tm of textMatches) {
-    const inside = tm.slice(6, -1).trim();
-    const words = inside.match(/[a-zA-Z]+/g) || [];
-    if (words.length >= 2) {
-      return false; // Multi-word text is prose
-    }
-  }
-
-  const cleaned = s
-    .replace(/\\text\{[^}]*\}/g, '')
-    .replace(/\\[a-zA-Z]+/g, '')
-    .replace(/[^a-zA-Z]/g, ' ');
-
-  const words = cleaned.split(/\s+/).filter(Boolean);
-  const proseWords = words.filter(w => {
-    const lower = w.toLowerCase();
-    return englishStopWords.has(lower) || (w.length >= 3 && !mathFunctions.has(lower));
-  });
-
-  if (proseWords.length >= 1) {
+  const stopWordCount = words.filter(w => englishStopWords.has(w.toLowerCase())).length;
+  const hasEquationOperators = /[=+\-*/^_{}()|\\\[\]<>]/.test(s) || /\\(le|ge|approx|neq|to|implies|iff|times|pm|cdot)/.test(s);
+  if (stopWordCount >= 2 && !hasEquationOperators) {
     return false;
   }
 
-  // 5. Mathematical equations, operations, coordinates, Greek letters, or numbers
-  if (/[=+\-*/^_{}()|\\[\]]/.test(s) || /^[\d٠-٩.]+$/.test(s) || /\\[a-zA-Z]+/.test(s)) {
+  const proseWords = words.filter(w => {
+    const lower = w.toLowerCase();
+    return englishStopWords.has(lower) || (w.length >= 4 && !mathFunctions.has(lower));
+  });
+
+  if (proseWords.length >= 2 && !hasEquationOperators) {
+    return false;
+  }
+
+  // 6. Mathematical equations, operations, coordinates, Greek letters, or numbers
+  if (hasEquationOperators || /^[\d٠-٩.]+$/.test(s) || /\\[a-zA-Z]+/.test(s)) {
     return true;
   }
 
@@ -342,14 +347,14 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
             // Check if this plain prose segment contains un-delimited LaTeX macros
             // e.g. \sqrt{...}, \frac{...}{...}, \alpha, \beta, \omega, ^\circ, etc.
-            const latexRegex = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)|(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+))*|\^\\circ)/g;
-            if (latexRegex.test(cp)) {
-              const subParts = cp.split(latexRegex);
+            const latexPattern = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)|(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+))*|\^\\circ)/;
+            if (latexPattern.test(cp)) {
+              const subParts = cp.split(new RegExp(latexPattern.source, 'g'));
               return (
                 <React.Fragment key={`latex_embed_${pIdx}_${cpIdx}`}>
                   {subParts.map((sp, spIdx) => {
                     if (!sp) return null;
-                    if (latexRegex.test(sp)) {
+                    if (spIdx % 2 === 1) {
                       const html = renderKaTeX(sp, false);
                       return (
                         <span

@@ -148,6 +148,9 @@ const regressionCases = [
   { name: 'Force unit', input: '10\\text{ N}' },
   { name: 'Photon energy', input: 'E = h \\nu' },
   { name: 'Prose only', input: 'Increases uniformly' },
+  { name: 'Arabic Grammar Active Participle', input: '\\text{اسم الفاعل العامل} + \\text{فاعل} + [\\text{مفعول به}]' },
+  { name: 'Arabic Grammar Passive Participle', input: '\\text{اسم المفعول العامل} + \\text{نائب فاعل}' },
+  { name: 'Arabic Rhetoric Metaphor', input: '\\text{تشبيه بليغ} - \\text{مشبه به} = \\text{استعارة مكنية}' },
 ];
 
 for (const rc of regressionCases) {
