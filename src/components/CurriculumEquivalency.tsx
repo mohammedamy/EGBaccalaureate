@@ -21,6 +21,13 @@ import {
   FlaskConical,
   Dna,
   ChevronDown,
+  Mountain,
+  Landmark,
+  Globe,
+  Brain,
+  Users,
+  Languages,
+  Scroll,
 } from 'lucide-react';
 
 
@@ -378,6 +385,406 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Unrivaled preparation for Medicine, Dental Surgery, Biomedical Engineering, Biotechnology, Genomics Research, and Pharmacology.',
       universityAdvantageAr: 'إعداد فائق التميز للالتحاق بكليات الطب البشري، طب الأسنان، الهندسة الطبية الحيوية، التكنولوجيا الحيوية، أبحاث الجينوم، وعلم الأدوية.',
     },
+    {
+      id: 'geology_bridge',
+      titleEn: 'Geology: Earth Systems & Environmental Sciences',
+      titleAr: 'الجيولوجيا: أنظمة الأرض والعلوم البيئية',
+      icon: <Mountain className="w-5 h-5 text-amber-500" />,
+      thanaweyaBranchId: 'thanaweya_geology',
+      egBacBranchId: 'egbac_geology',
+      thanaweyaTitleEn: 'Complete 7-Chapter Curriculum: Earth Structure, Minerals, Rocks, Dynamic Equilibrium & Ecosystems',
+      thanaweyaTitleAr: 'المنهج المتكامل (٧ فصول): تركيب الأرض، المعادن، دورة الصخور، التوازن الحركي والنظم البيئية',
+      thanaweyaTopicsEn: [
+        'Ch.1 Earth Structure & Geologic Time: Crust, mantle, core, relative dating & index fossils',
+        'Ch.2 Mineralogy & Crystal Systems: Cleavage, fracture, Mohs hardness & silicate crystal geometry',
+        'Ch.3 Petrology & Rock Cycle: Bowen reaction series, basaltic volcanism & regional metamorphism',
+        'Ch.4 Dynamic Equilibrium: Wegener continental drift, seafloor spreading & plate boundaries',
+        'Ch.5 Geomorphic Surface/Internal Forces: River stages, wind abrasion, karst topography & earthquakes',
+        'Ch.6 Ecological Concepts: Marine/desert biomes, food chains, ecological pyramid & balance',
+        'Ch.7 Environmental Conservation: Overgrazing, water scarcity, fossil depletion & renewable energy',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ تركيب الأرض والزمن الجيولوجي: القشرة والوشاح واللب، والتأريخ النسبي بالحفريات المرشدة',
+        'فصل ٢ علم المعادن والبلورات: الانفصام، المكسر، مقياس موهس للصلادة، والأنظمة البلورية السيليكاتية',
+        'فصل ٣ دورة الصخور: متسلسلة تفاعلات بوين، البركانية البازلتية، والتحول الإقليمي والحراري',
+        'فصل ٤ التوازن الحركي: الانجراف القاري لفاجنر، اتساع قاع المحيط، وحركات الصفائح التكتونية الثلاث',
+        'فصل ٥ العوامل السطحية والباطنية: مراحل النهر، التجوية والحت الريحي، الكارست والكهوف، والزلازل',
+        'فصل ٦ المفاهيم البيئية: النظام الإيكولوجي البحري والصحراوي، سلاسل الغذاء، وهرم الطاقة والاتزان',
+        'فصل ٧ استنزاف الموارد: الرعي الجائر، ندرة المياه، نفاد الوقود الأحفوري، وبدائل الطاقة المتجددة',
+      ],
+      egBacTitleEn: 'Advanced 7-Module Geophysics & Earth Systems Engineering Track',
+      egBacTitleAr: 'مسار الجيوفيزياء وهندسة أنظمة الأرض (٧ فصول متقدمة)',
+      egBacTopicsEn: [
+        'Module 1 Planetary Geophysics: Internal seismic tomography, geomagnetic dynamo & gravity anomalies',
+        'Module 2 Structural Crystallography: X-ray diffraction, unit-cell parameters & silicate network polymers',
+        'Module 3 Geodynamics & Volcanology: Magma rheology, subduction zone thermodynamics & petrogenesis',
+        'Module 4 Plate Tectonics: Euler poles, lithospheric flexure, mantle convection & Wilson supercontinent cycle',
+        'Module 5 Quantitative Hydrogeology & Geohazards: Darcy flow equations, aquifer modeling & seismic risk',
+        'Module 6 Biogeochemistry & Ecosystem Dynamics: Carbon-nitrogen-phosphorus fluxes & trophic efficiencies',
+        'Module 7 Climate Change Geosciences: Milankovitch cycles, paleoclimate proxies & carbon sequestration',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ الجيوفيزياء الكوكبية: التصوير الزلزالي الداخلي، الدينامو المغناطيسي الأرضي وشذوذ الجاذبية',
+        'وحدة ٢ علم البلورات التركيبية: حيود الأشعة السينية، أبعاد خلية الوحدة وبوليمرات شبكات السيليكات',
+        'وحدة ٣ الجيوديناميكا والبراكين: ريولوجيا الصهارة، الديناميكا الحرارية لنطق الاندساس وتولد الصخور',
+        'وحدة ٤ تكتونية الصفائح الكمية: أقطاب أويلر، انثناء الغلاف الصخري، وحمل الوشاح ودورة ويلسون للقارات',
+        'وحدة ٥ الهيدروجيولوجيا والمخاطر: معادلات دارسي للجريان، نمذجة الخزانات الجوفية ومصفوفات الخطر الزلزالي',
+        'وحدة ٦ الكيمياء البيوجيولوجية: تدفقات الكربون والنيتروجين والفوسفور وكفاءة المستويات الغذائية',
+        'وحدة ٧ علوم المناخ القديم: دورات ميلانكوفيتش، مؤشرات المناخ الرسوبية، وتقنيات احتجاز الكربون وتخزينه',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an encyclopedic field and stratigraphic foundation for earth materials, mineral identification, and environmental conservation. EG-Bac emphasizes geophysical equations, tectonic thermodynamics, hydrogeological Darcy modeling, and climate resilience.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً شاملاً في علم الطبقات والتعرف الحقلي على الصخور والمعادن وحماية البيئة، بينما تركز البكالوريا على النمذجة الجيوفيزيائية الحسابية وديناميكا الصفائح ومعادلات جريان المياه الجوفية والمخاطر الزلزالية.',
+      universityAdvantageEn: 'Direct entry into Petroleum Engineering, Mining, Geophysics, Environmental Engineering, and Hydrogeology.',
+      universityAdvantageAr: 'مسار مباشر ومميز لكليات هندسة البترول والتعدين، الجيوفيزياء، الهندسة البيئية، وعلوم الأرض والمياه.',
+    },
+    {
+      id: 'history_bridge',
+      titleEn: 'History: Modern Egyptian Historiography & Geopolitical Struggles',
+      titleAr: 'التاريخ: تاريخ مصر الحديث والمعاصر والتوازنات الجيوسياسية',
+      icon: <Landmark className="w-5 h-5 text-amber-600" />,
+      thanaweyaBranchId: 'thanaweya_history',
+      egBacBranchId: 'egbac_history',
+      thanaweyaTitleEn: 'Complete 8-Chapter Curriculum: From the French Expedition to Contemporary Egypt',
+      thanaweyaTitleAr: 'المنهج المتكامل (٨ فصول): من الحملة الفرنسية حتى العصر المعاصر',
+      thanaweyaTopicsEn: [
+        'Ch.1 French Expedition: Bonaparte invasion, Battle of Pyramids, Cairo revolts & cultural institute',
+        'Ch.2 Muhammad Ali: Building modern state, monopoly system, military expeditions & Treaty of London',
+        'Ch.3 British Occupation & Orabi Revolt: Foreign intervention, Alexandria bombardment & nationalist resistance',
+        'Ch.4 1919 Revolution & Interwar Politics: Saad Zaghloul, 1923 Constitution, and 1936 Anglo-Egyptian Treaty',
+        'Ch.5 Arab World Under French/British Mandate: Colonial division, independence movements & resistance',
+        'Ch.6 Arab-Israeli Conflicts: Balfour Declaration, 1948 Palestine War, 1956 Suez Tripartite Aggression',
+        'Ch.7 1967 War of Attrition & 1973 October War: Bar Lev line breach, Ramadan crossing & diplomatic settlement',
+        'Ch.8 Contemporary Egypt: 25 January 2011 revolution, constitutional roadmap & 30 June 2013 milestone',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ الحملة الفرنسية: دخول نابليون، معارك الأهرام، ثورتا القاهرة، والمجمع العلمي وفك حجر رشيد',
+        'فصل ٢ عصر محمد علي: بناء الدولة الحديثة، نظام الاحتكار، التوسع الإقليمي، ومعاهدة لندن ١٨٤٠',
+        'فصل ٣ الثورة العرابية والاحتلال: التدخل الأجنبي، ضرب الإسكندرية، كفاح مصطفى كامل ومحمد فريد',
+        'فصل ٤ ثورة ١٩١٩ والعهد شبه الليبرالي: سعد زغلول، تصريح ٢٨ فبراير، دستور ١٩٢٣، ومعاهدة ١٩٣٦',
+        'فصل ٥ التوسع الاستعماري في الوطن العربي: اتفاقية سايكس بيكو، الثورة العربية، وحركات التحرر الوطني',
+        'فصل ٦ الصراع العربي الإسرائيلي: وعد بلفور، حرب فلسطين ١٩٤٨، والعدوان الثلاثي على مصر ١٩٥٦',
+        'فصل ٧ نكسة ١٩٦٧ وحرب أكتوبر ١٩٧٣: حرب الاستنزاف، عبور خط بارليف، والمسار الدبلوماسي للسلام',
+        'فصل ٨ مصر المعاصرة: ثورة ٢٥ يناير ٢٠١١، التحولات الدستورية، ومكتسبات ثورة ٣٠ يونيو ٢٠١٣',
+      ],
+      egBacTitleEn: 'Advanced 8-Module Historiography, Diplomatic Treaties & Statecraft Track',
+      egBacTitleAr: 'المسار المتقدم (٨ فصول): النقد التاريخي، التحالفات الدبلوماسية، ونظريات بناء الدولة',
+      egBacTopicsEn: [
+        'Module 1 Historiographical Methodology: Primary archival appraisal, internal/external critique & bias detection',
+        'Module 2 Comparative State Modernization: Muhammad Ali state monopoly vs. Meiji Restoration & Ottoman Tanzimat',
+        'Module 3 Imperialism & Geoeconomics: Suez Canal concession, sovereign debt crises & colonial protectorate',
+        'Module 4 Constitutionalism & Mass Mobilization: 1919 revolutionary synergy, party politics & bilateral diplomacy',
+        'Module 5 Decolonization & Non-Alignment: 1952 Afro-Asian solidarity, Bandung conference & Suez nationalization',
+        'Module 6 Cold War Geopolitics in the Middle East: Superpower proxy tensions, armaments races & strategic deterrence',
+        'Module 7 Military Strategy & Electronic Warfare: Operation Badr air-defense umbrella, canal breach & negotiations',
+        'Module 8 Democratic Transitions & Institutional Resilience: Comparative revolutions & constitutional frameworks',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ مناهج النقد التاريخي: فحص الوثائق الأرشيفية، نقد المصادر الداخلي والخارجي، وتحري النزاهة العلمية',
+        'وحدة ٢ التحديث المؤسسي المقارن: نموذج احتكار محمد علي مقابل نهضة الميجي اليابانية والتنظيمات العثمانية',
+        'وحدة ٣ الاستعمار والجيواقتصاد: امتياز قناة السويس، أزمات الديون السيادية، وفرض نظام الحماية الاستعمارية',
+        'وحدة ٤ الدستورية والحراك الجماهيري: التلاحم الشعبي في ثورة ١٩١٩، التعددية الحزبية، والمفاوضات الدبلوماسية',
+        'وحدة ٥ تصفية الاستعمار وعدم الانحياز: ثورة ١٩٥٢، التضامن الأفروآسيوي، مؤتمر باندونغ، وتأميم القناة',
+        'وحدة ٦ الحرب الباردة في الشرق الأوسط: صراع القطبين بالوكالة، سباق التسلح، والاستراتيجيات الدفاعية',
+        'وحدة ٧ العلوم العسكرية وحرب أكتوبر: مظلة الدفاع الجوي في عملية بدر، تكتيكات العبور، ومفاوضات السلام',
+        'وحدة ٨ التحولات الديمقراطية والصلابة المؤسسية: دراسات الثورات المقارنة وأطر بناء الدساتير الحديثة',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an encyclopedic chronological narrative of Egypt’s sovereignty and nationalist triumphs. EG-Bac introduces historiographical method, archival analysis, diplomatic geopolitical synthesis, and institutional statecraft comparisons.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً شاملاً للتسلسل الزمني التاريخي ومسيرة النضال والسيادة الوطنية، بينما تعمق البكالوريا مناهج البحث التاريخي ونقد المصادر وتحليل التحالفات الدولية ونظريات بناء الدولة الحديثة.',
+      universityAdvantageEn: 'Elite preparation for Political Science, Diplomatic Service, International Law, Public Administration, and Journalism.',
+      universityAdvantageAr: 'تأهيل متميز لكليات الاقتصاد والعلوم السياسية، المعهد الدبلوماسي، القانون الدولي، والإعلام والاتصال السياسي.',
+    },
+    {
+      id: 'geography_bridge',
+      titleEn: 'Geography: Political Geography & Global Geopolitical Systems',
+      titleAr: 'الجغرافيا: الجغرافيا السياسية والنظم الجيوسياسية العالمية',
+      icon: <Globe className="w-5 h-5 text-teal-500" />,
+      thanaweyaBranchId: 'thanaweya_geography',
+      egBacBranchId: 'egbac_geography',
+      thanaweyaTitleEn: 'Complete 5-Chapter Curriculum: State Concept, Morphology, Boundaries, Alliances & New World Order',
+      thanaweyaTitleAr: 'المنهج المتكامل (٥ فصول): مفهوم الدولة، المورفولوجيا، الحدود، التكتلات والنظام العالمي',
+      thanaweyaTopicsEn: [
+        'Ch.1 State Definition & Morphology: Nation vs. state, geographic location, shape, area & topography',
+        'Ch.2 Demographic & Economic Power: Population structure, resources, agricultural/industrial self-sufficiency',
+        'Ch.3 Political Boundaries: Evolution, linear boundary functions, border disputes (Taba, Ceuta/Melilla, water)',
+        'Ch.4 Economic Blocs & Military Alliances: European Union, GCC, COMESA, NATO & Warsaw Pact',
+        'Ch.5 New World Order: Geopolitical characteristics, globalization impacts, international organizations & hegemony',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ مفهوم الدولة ومورفولوجيتها: الفرق بين الدولة والأمة، الموقع الجغرافي، المساحة والشكل والتضاريس',
+        'فصل ٢ المقومات الديموغرافية والاقتصادية: التركيب السكاني والعمري، الإنتاج الزراعي والصناعي، والقدرة العسكرية',
+        'فصل ٣ الحدود السياسية: مراحل تخطيط الحدود الخطية، وظائفها، ونزاعات الحدود (طابا، سبتة ومليلية، والمياه الدولية)',
+        'فصل ٤ التكتلات الاقتصادية والأحلاف العسكرية: الاتحاد الأوروبي، مجلس التعاون الخليجي، الكوميسا، والناتو',
+        'فصل ٥ النظام العالمي الجديد: خصائص النظام العالمي، قضايا العولمة، هيمنة الشركات، ودور المنظمات الدولية',
+      ],
+      egBacTitleEn: 'Advanced 5-Module Geopolitical Analytics, GIS Cartography & Strategic Chokepoints Track',
+      egBacTitleAr: 'المسار المتقدم (٥ فصول): التحليل الجيوسياسي، خرائط نظم المعلومات الجغرافية والممرات الاستراتيجية',
+      egBacTopicsEn: [
+        'Module 1 Geopolitical Spatial Theory: Mackinder Heartland, Spykman Rimland, Mahan Sea Power & Ratzel organic state',
+        'Module 2 GIS & Satellite Cartography: Vector/raster spatial analysis, remote sensing indices & digital elevation modeling',
+        'Module 3 Maritime Geopolitics & Chokepoints: UNCLOS territorial seas, EEZ rights, Suez Canal & Bab el-Mandeb security',
+        'Module 4 Geoeconomic Multilateralism: Regional trade agreements, supply chain resiliency & energy transit corridors',
+        'Module 5 Post-Cold War Global Dynamics: Multipolarity, cyber borders, resource security & asymmetric threats',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ النظريات الجيوسياسية المكانية: قلب الأرض لماكيندر، الإطار الساحلي لسبايكمان، القوة البحرية لماهان، وعضوية راتزل',
+        'وحدة ٢ نظم المعلومات الجغرافية (GIS): التحليل المكاني الخرائطي، مرئيات الاستشعار عن بعد، ونماذج الارتفاع الرقمي',
+        'وحدة ٣ جيوبوليتيك المضايق والبحار: اتفاقية الأمم المتحدة لأعالي البحار (UNCLOS)، المنطقة الاقتصادية، وأمن قناة السويس',
+        'وحدة ٤ الجيواقتصاد والتكتلات: سلاسل الإمداد العالمية، كفاءة التجارة البينية، وممرات عبور الطاقة الاستراتيجية',
+        'وحدة ٥ ديناميات النظام متعدد الأقطاب: التعددية القطبية، الحدود السيبرانية، أمن الموارد المائية، والتهديدات الهجينة',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an extensive ministerial geopolitical foundation covering state elements, borders, and regional blocs. EG-Bac pairs this with GIS cartography, maritime law (UNCLOS), spatial theory, and geoeconomic supply chain analysis.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إحاطة متكاملة بعناصر قوة الدولة وحدودها ومورفولوجيتها والتكتلات الإقليمية، بينما تضيف البكالوريا أدوات التحليل الجغرافي المكاني ونظم GIS، وقوانين البحار الدولية، والجيواقتصاد المعاصر.',
+      universityAdvantageEn: 'Elite foundation for Urban Planning, Strategic Studies, International Logistics, Geomatics, and Diplomacy.',
+      universityAdvantageAr: 'إعداد استراتيجي لكليات التخطيط العمراني، الدراسات الاستراتيجية، اللوجستيات الدولية، الجيوماتكس، والعلوم الدبلوماسية.',
+    },
+    {
+      id: 'philosophy_bridge',
+      titleEn: 'Philosophy: Applied Ethics, Bioethics & Formal Propositional Logic',
+      titleAr: 'الفلسفة: الأخلاقيات التطبيقية، البيوتيقا والمنطق الرمزي الصوري',
+      icon: <Brain className="w-5 h-5 text-purple-500" />,
+      thanaweyaBranchId: 'thanaweya_philosophy',
+      egBacBranchId: 'egbac_philosophy',
+      thanaweyaTitleEn: 'Complete 8-Chapter Curriculum: Environmental Ethics, Bioethics, Professional Values, Induction & AI Logic',
+      thanaweyaTitleAr: 'المنهج المتكامل (٨ فصول): أخلاق البيئة، البيوتيقا، أخلاقيات المهنة، فلسفة القيم، الاستقراء ومنطق الذكاء الاصطناعي',
+      thanaweyaTopicsEn: [
+        'Ch.1 Environmental Philosophy: Human-environment stages, Eastern Taoism, Singer/Regan animal rights & Jonas future ethics',
+        'Ch.2 Bioethics & Biomedical Dilemmas: Artificial reproduction, cloning, gene editing, brain death & clinical consent',
+        'Ch.3 Professional Ethics: Meaning of work, professional codes of conduct & philosophical contributions across history',
+        'Ch.4 Philosophy of Values: Axiology, truth, goodness, beauty, intellectual tolerance, freedom & moral responsibility',
+        'Ch.5 Induction & Scientific Method: Aristotle syllogism, Baconian positive/negative tables & Mill’s five inductive methods',
+        'Ch.6 Deductive Logic & Axiomatic Systems: Axioms, postulates, definitions, primitive terms & Aristotle laws of thought',
+        'Ch.7 Integrated Scientific Method: Hypothetico-deductive reasoning, Karl Popper falsifiability & Hempel explanatory model',
+        'Ch.8 Logic & Artificial Intelligence: Cybernetics, Boolean binary logic, knowledge representation, fuzzy logic & reasoning',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ فلسفة البيئة: مراحل علاقة الإنسان بالطبيعة، الطاوية الشرقية، حقوق الحيوان لسينجر وريجان، وأخلاق المسؤولية ليوناس',
+        'فصل ٢ البيوتيقا والأخلاق الطبية: الإنجاب الاصطناعي، الجينوم والاستنساخ، معايير الموت الدماغي، والموافقة المستنيرة',
+        'فصل ٣ أخلاقيات المهنة: قيمة العمل، مواقف الفلاسفة (أفلاطون، أرسطو، الفارابي، ابن خلدون، سميث، وهيجل)، والواجب المهني',
+        'فصل ٤ فلسفة القيم والتفلسف: طبيعة القيم، الحق والخير والجمال، التسامح الفكري، الاستقلال الذاتي، والحرية والمسؤولية',
+        'فصل ٥ الاستقراء والمنهج العلمي التجريبي: أوهام بيكون الأربعة، الملاحظة والتجربة، وطرق جون ستيوارت مل الاستقرائية الخمس',
+        'فصل ٦ النسق الاستنباطي الصوري: البديهيات والمسلمات والتعريفات، وقوانين الفكر الثلاثة (الذاتية، التناقض، الثالث المرفوع)',
+        'فصل ٧ المنهج العلمي المعاصر: المنهج الفرضي الاستنباطي، معيار القابلية للتفنيد لكارل بوبر، ونموذج كارل همبل التفسيري',
+        'فصل ٨ المنطق وتكنولوجيا الاتصال: السيبرنطيقا، المنطق البولياني الثنائي، تمثيل المعرفة، المنطق المرن، والذكاء الاصطناعي',
+      ],
+      egBacTitleEn: 'Advanced 8-Module Epistemology, Symbolic Logic & AI Computational Ethics Track',
+      egBacTitleAr: 'المسار المتقدم (٨ فصول): نظرية المعرفة، المنطق الرمزي الصوري، وأخلاقيات الذكاء الاصطناعي الحوسبية',
+      egBacTopicsEn: [
+        'Module 1 Ecological Epistemology: Deep ecology metaphysics, anthropocentrism critique & biocentric value systems',
+        'Module 2 Applied Bioethics & Genetics: Utilitarian vs. Deontological frameworks, CRISPR gene therapy & distributive justice',
+        'Module 3 Business Ethics & Corporate Governance: Stakeholder theory, algorithmic bias, workplace equity & whistleblowing',
+        'Module 4 Axiological Meta-Ethics: Moral realism vs. non-cognitivism, autonomy, intellectual virtue & democratic dialogue',
+        'Module 5 Inductive Probability & Philosophy of Science: Bayesian hypothesis confirmation, Duhem-Quine underdetermination & paradigms',
+        'Module 6 Symbolic Propositional & Predicate Logic: Formal proofs, truth tables, tautologies, quantified logic & consistency',
+        'Module 7 Scientific Realism & Methodology: Model building, computational simulations, falsification & explanatory unification',
+        'Module 8 Non-Classical Logics in AI: Many-valued fuzzy logic, non-monotonic default reasoning, ontologies & agent alignment',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ إبستيمولوجيا البيئة: ميتافيزيقا الإيكولوجيا العميقة، نقد التمركز البشري، ومنظومات القيمة الحيوية المتكافئة',
+        'وحدة ٢ البيوتيقا التحليلية: التوفيق بين النفعية والأخلاق الواجبية، المعضلات الجينية لكريسبر، والعدالة التوزيعية الصحية',
+        'وحدة ٣ أخلاقيات حوكمة الشركات: نظرية أصحاب المصلحة، التحيز الخوارزمي، العدالة الوظيفية، وأخلاقيات الإفصاح',
+        'وحدة ٤ الميتا-أخلاق والقيم: الواقعية الأخلاقية مقابل اللا-معرفية، الفضائل الفكرية، والاستقلالية في الحوار الديمقراطي',
+        'وحدة ٥ الاحتمال الاستقرائي وفلسفة العلم: التأييد البايزي للفروض، إشكالية دوهيم-كواين، وتغير النماذج الإرشادية لتوماس كون',
+        'وحدة ٦ المنطق الرمزي ومنطق المحمولات: البراهين الصورية، جداول الصدق، تحصيل الحاصل، والاتساق المنطقي للأنساق',
+        'وحدة ٧ الواقعية العلمية والنمذجة: بناء النماذج، المحاكاة الحاسوبية، معايير التكذيب البوبرية، وتوحيد التفسير العلمي',
+        'وحدة ٨ المنطق غير التقليدي في الذكاء الاصطناعي: المنطق المرن متعدد القيم، الاستدلال غير الرتيب، وأمان محاذاة النظم الذكية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an encyclopedic conceptual and historical foundation in applied ethics and classical-to-modern scientific reasoning. EG-Bac introduces symbolic mathematical notation, truth table algorithmic parsing, and computational logic applications in artificial intelligence.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إحاطة فكرية وتاريخية عميقة بالقضايا الأخلاقية ومناهج التفكير العلمي وتطبيقاتها، بينما تعمق البكالوريا الترميز الصوري الرمزي، وجداول الصدق الخوارزمية، والمنطق المرن وتطبيقات الذكاء الاصطناعي.',
+      universityAdvantageEn: 'Elite foundation for Law, Cognitive Science, Artificial Intelligence Ethics, Analytical Philosophy, and Public Policy.',
+      universityAdvantageAr: 'تأهيل رفيع لكليات الحقوق والقانون الدولي، علوم الإدراك، فلسفة وأخلاقيات الذكاء الاصطناعي، والسياسات العامة.',
+    },
+    {
+      id: 'psychology_bridge',
+      titleEn: 'Psychology: Behavioral Dynamics, Cognitive Science & Social Processes',
+      titleAr: 'علم النفس والاجتماع: الديناميات السلوكية، العلوم المعرفية والعمليات الاجتماعية',
+      icon: <Users className="w-5 h-5 text-pink-500" />,
+      thanaweyaBranchId: 'thanaweya_psychology',
+      egBacBranchId: 'egbac_psychology',
+      thanaweyaTitleEn: 'Complete 8-Chapter Curriculum: Learning Theories, Developmental Psychology, Personality & Social Dynamics',
+      thanaweyaTitleAr: 'المنهج المتكامل (٨ فصول): نظريات التعلم، ارتقاء الشخصية، التوافق، والعمليات والتغيرات الاجتماعية',
+      thanaweyaTopicsEn: [
+        'Ch.1 Theories of Learning: Multiple intelligences, Pavlov classical conditioning, Thorndike, Gestalt insight & Norman information processing',
+        'Ch.2 Developmental Psychology: Laws of growth, infancy, early/late childhood, and physical/emotional adolescent transition',
+        'Ch.3 Personality Dynamics & Attitudes: Psychoanalysis, behavioral & trait theories, cognitive/affective/behavioral components of attitudes & values',
+        'Ch.4 Psychological Adjustment & Conflicts: Frustration, Lewin conflict typology (approach/avoidance), anxiety & unconscious defense mechanisms',
+        'Ch.5 Social Interaction & Processes: Forms of interaction, social relations, cooperation, accommodation, competition & conflict',
+        'Ch.6 Culture, Volunteerism & Free Enterprise: Elements of culture, voluntary civic engagement, free entrepreneurship planning & execution',
+        'Ch.7 Contemporary Societal Issues: Scientific research integration in production, globalization challenges & cultural identity preservation',
+        'Ch.8 Social Extremism & Violence: Psychological/cognitive/behavioral levels of extremism, root drivers & comprehensive societal defense',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ نظريات التعلم والذكاءات: الذكاءات المتعددة لجاردنر، الاشتراط الكلاسيكي لبافلوف، ثورندايك، الاستبصار للجشتالت، ومعالجة المعلومات لنورمان',
+        'فصل ٢ النمو والارتقاء الإنساني: قوانين النمو، العوامل المؤثرة، الرضاعة والطفولة، والتغيرات الفسيولوجية والانفعالية للمراهقة',
+        'فصل ٣ الشخصية والاتجاهات والقيم: نظريات الشخصية، مكونات الاتجاه النفسي الثلاثة، أساليب تعديله، وتدرج المنظومة القيمية',
+        'فصل ٤ التوافق النفسي والصراعات: الإحباط والصراع وفق كورت ليفين (إقدام/إحجام)، القلق، والحيل الدفاعية اللاشعورية (الكبت، الإعلاء، التعويض)',
+        'فصل ٥ التفاعل والعمليات الاجتماعية: العلاقات الاجتماعية، والعمليات الأربع الكبرى (التعاون، التكيف، التنافس البناء، والصراع الهدام)',
+        'فصل ٦ الثقافة والعمل التطوعي والحر: خصائص الثقافة وعناصرها، ثقافة العمل التطوعي، ومتطلبات التخطيط والأداء في ريادة الأعمال الحرة',
+        'فصل ٧ قضايا مجتمعية معاصرة: دور البحث العلمي في التنمية وخدمة الإنتاج، آثار العولمة الإيجابية والسلبية، والحفاظ على الهوية',
+        'فصل ٨ التطرف والعنف والظواهر الهدامة: مستويات التطرف (المعرفي، الوجداني، السلوكي)، مسبباته النفسية والاجتماعية، واستراتيجيات المواجهة',
+      ],
+      egBacTitleEn: 'Advanced 8-Module Cognitive Neuroscience, Psychometrics & Complex Social Systems Track',
+      egBacTitleAr: 'المسار المتقدم (٨ فصول): علم الأعصاب المعرفي، القياس النفسي الإحصائي وديناميات النظم الاجتماعية المعقدة',
+      egBacTopicsEn: [
+        'Module 1 Cognitive Psychology & Learning: Neuroplasticity, memory consolidation models, spaced retrieval & metacognition',
+        'Module 2 Lifespan Developmental Dynamics: Genetic-epigenetic interactions, executive cognitive milestones & socio-emotional maturation',
+        'Module 3 Psychometrics & Trait Theory: Big Five personality inventory, factor analysis, Likert scale psychometric validation & implicit bias',
+        'Module 4 Clinical Neuropsychology & Stress: HPA-axis stress neurobiology, cognitive dissonance theory, coping mechanisms & emotional resilience',
+        'Module 5 Social Network Analysis & Collective Dynamics: Game theory cooperation models, group polarization, social cohesion & contagion',
+        'Module 6 Cultural Sociology & Innovation Ecosystems: Sociological institutionalism, social capital theory & entrepreneurship economics',
+        'Module 7 Sociology of Science & Globalization: Paradigm shifts, digital divide sociometrics, transnational cultural flows & modern media',
+        'Module 8 Radicalization Pathways & Social Defense: Structural strain theory, echo chamber algorithmic radicalization & prevention interventions',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ علم النفس المعرفي والتعلم: المرونة العصبية، نماذج توطيد الذاكرة، الاسترجاع المتباعد، وعمليات ما وراء المعرفة (Metacognition)',
+        'وحدة ٢ ديناميات الارتقاء عبر المدى العمري: التفاعل الجيني-فوق الجيني، معالم الوظائف التنفيذية المعرفية، والنضج الاجتماعي الانفعالي',
+        'وحدة ٣ القياس النفسي ونظرية السمات: نموذج العوامل الخمسة الكبرى (Big Five)، التحليل العاملي، الصدق الإحصائي لمقاييس ليكرت، والتحيز الضمني',
+        'وحدة ٤ علم النفس العصبي الإكلينيكي والإجهاد: بيولوجيا استجابة الإجهاد لمحور HPA، التنافر المعرفي، آليات التكيف الإيجابي والمرونة النفسية',
+        'وحدة ٥ تحليل الشبكات الاجتماعية والسلوك الجمعي: نماذج نظرية الألعاب في التعاون، الاستقطاب الجماعي، التماسك الاجتماعي، والعدوى السلوكية',
+        'وحدة ٦ سوسيولوجيا الثقافة ومنظومات الابتكار: المؤسسية الاجتماعية، نظرية رأس المال الاجتماعي، واقتصاديات ريادة الأعمال التمكينية',
+        'وحدة ٧ علم اجتماع المعرفة والعولمة: التحولات الإرشادية، قياسات الفجوة الرقمية، التدفقات الثقافية العابرة للحدود، والإعلام الرقمي',
+        'وحدة ٨ مسارات الاستقطاب الراديكالي والدفاع الاجتماعي: نظرية الضغط البنيوي، راديكالية غرف الصدى الخوارزمية، واستراتيجيات التدخل الوقائي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers an encyclopedic behavioral and social curriculum rich in pedagogical cases, values, and societal ethics. EG-Bac introduces cognitive neuroscience, psychometric factor analysis, game-theoretic cooperation models, and social network analysis.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً شاملاً وميدانياً للسلوك الإنساني والعمليات الاجتماعية والقيم المجتمعية، بينما تعزز البكالوريا الأسس العصبية المعرفية، والقياس النفسي الإحصائي، ونماذج نظرية الألعاب في التعاون، وتحليل الشبكات الاجتماعية.',
+      universityAdvantageEn: 'Elite pathway into Clinical Psychology, Behavioral Economics, Sociology, Human Resource Analytics, and Public Policy.',
+      universityAdvantageAr: 'مسار مباشر واستثنائي لكليات الآداب والعلوم السلوكية، علم النفس الإكلينيكي، الاقتصاد السلوكي، وتحليل الموارد البشرية والسياسات.',
+    },
+    {
+      id: 'arabic_bridge',
+      titleEn: 'Arabic: Syntax, Semantics, Rhetoric & Literary Criticism',
+      titleAr: 'اللغة العربية: النحو، الصرف، البلاغة والنقد الأدبي',
+      icon: <Scroll className="w-5 h-5 text-emerald-600" />,
+      thanaweyaBranchId: 'thanaweya_arabic',
+      egBacBranchId: 'egbac_arabic',
+      thanaweyaTitleEn: 'Complete 4-Unit Curriculum: Advanced Grammar (7 Units), Classical Rhetoric, Literature & Texts',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ وحدات): النحو التراكمي الشامل (٧ وحدات)، علوم البلاغة الثلاثة، وتاريخ الأدب والنصوص',
+      thanaweyaTopicsEn: [
+        'Grammar Unit 1-7: Derivatives, syntactic cases, verb moods, numbers, exceptions, styles (taajjub, madh, ikhtisas) & particles',
+        'Classical Rhetoric: Bayan (simile, metaphor, metonymy), Badee (antithesis, paronomasia, saj), and Maani (conciseness, emphasis)',
+        'Literary Schools: Neoclassical revival (Baroudi/Shawqi), Romanticism (Matran), Diwan, Apollo, Mahjar & Contemporary Realism',
+        'Textual Analysis: Classical and modern prose & poetry, critical vocabulary, artistic imagery & thematic motifs',
+      ],
+      thanaweyaTopicsAr: [
+        'النحو الشامل (٧ وحدات): المشتقات العاملة، إعراب الفعل وبناءه، التوابع والمجرورات، تمييز العدد، الاستثناء، والأساليب النحوية الخاصة',
+        'علوم البلاغة الثلاثة: علم البيان (التشبيه، الاستعارة، الكناية)، علم البديع (المحسنات اللفظية والمعنوية)، وعلم المعاني (الإيجاز، الإطناب، والأسلوب)',
+        'المدارس الأدبية: الإحياء والبعث وجيل التطوير، الاتجاه الوجداني ومطران، مدرسة الديوان، مدرسة أبوللو، شعراء المهجر، والمدرسة الواقعية الجديدة',
+        'تحليل النصوص المقررة: شعرية ونثرية، الفهم والتذوق البلاغي، دلالات المفردات وسياقها الفني، واستنتاج العاطفة والموسيقا الظاهرة والخفية',
+      ],
+      egBacTitleEn: 'Advanced 4-Module Arabic Linguistics, Functional Grammar & Structural Criticism Track',
+      egBacTitleAr: 'المسار المتقدم (٤ فصول): اللسانيات العربية، النحو الوظيفي، والتحليل النقدي البنيوي للنصوص',
+      egBacTopicsEn: [
+        'Module 1 Structural Linguistics: Arabic phonology, morpho-syntax, semantic field theory & root-and-pattern morphology',
+        'Module 2 Functional Grammar & Textual Cohesion: Discourse markers, thematic progression, grammatical agreement & sentence parsing',
+        'Module 3 Modern Stylistics & Semiotics: Pragmatic utterance meaning, metaphor cognitive conceptualization & semiotic text analysis',
+        'Module 4 Comparative Literary Criticism: Structuralism, intertextuality, thematic resonance & Arab world socio-cultural dialogue',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ اللسانيات البنيوية وفقه اللغة: الصوتيات العربية، التركيب الصرفي النحوي، نظرية الحقول الدلالية، ونظام الجذور والأوزان الاشتقاقية',
+        'وحدة ٢ النحو الوظيفي والتماسك النصي: أدوات الربط والانسجام، التدرج الموضوعي، التوافق النحوي، وإعراب الجمل ذات المحل والتي لا محل لها',
+        'وحدة ٣ الأسلوبية الحديثة والسيميائيات: دلالات التداوليات اللغوية، الاستعارة التصورية المعرفية، والتحليل السيميائي للمضامين النصية',
+        'وحدة ٤ النقد الأدبي المقارن: البنيوية الأدبية، التناص، ارتدادات الهوية الفكرية، والحوار الثقافي في الأدب العربي المقارن',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers an exhaustive classical foundation in rules of syntax (I’rab), rhetorical figures, and poetic schools. EG-Bac complements this with structural linguistics, semiotic textual parsing, and functional academic discourse.',
+      bridgeInsightAr:
+        'تتميز الثانوية العامة بالانضباط النحوي والإعرابي الدقيق واستيعاب مدارس الشعر وتاريخ الأدب، بينما تعزز البكالوريا اللسانيات التطبيقية، والتحليل الأسلوبي والسيميائي، والنقد الأدبي المقارن.',
+      universityAdvantageEn: 'Elite foundation for Arabic Literature, Comparative Philology, Media & Communications, Law, and Translation.',
+      universityAdvantageAr: 'تأهيل متقدم لأقسام اللغة العربية وآدابها، الدراسات اللغوية المقارنة، الإعلام، كليات الحقوق، والترجمة المعتمدة.',
+    },
+    {
+      id: 'english_bridge',
+      titleEn: 'English: Advanced Syntax, Critical Reading & Academic Writing',
+      titleAr: 'اللغة الإنجليزية: النحو المتقدم، القراءة النقدية والكتابة الأكاديمية',
+      icon: <Languages className="w-5 h-5 text-blue-500" />,
+      thanaweyaBranchId: 'thanaweya_english',
+      egBacBranchId: 'egbac_english',
+      thanaweyaTitleEn: 'Complete 6-Chapter Curriculum: CEFR B2 Grammar, Contextual Lexicon & Great Expectations Literary Analysis',
+      thanaweyaTitleAr: 'المنهج المتكامل (٦ فصول): قواعد B2 المعيارية، المفردات السياقية، وتحليل رواية الآمال العظيمة لتشارلز ديكنز',
+      thanaweyaTopicsEn: [
+        'Core Grammar: Verb tenses, passive constructions, relative clauses, conditionals (0-3 + mixed), reported speech & modal verbs',
+        'Lexical Mastery: Advanced collocations, idiomatic expressions, phrasal verbs & prefix/suffix word formation',
+        'Literature Study: Charles Dickens’ Great Expectations character arcs, themes (class, ambition, redemption) & historical context',
+        'Writing Competencies: Expository & argumentative essays, thesis statement drafting, transitional coherence & formal letters',
+      ],
+      thanaweyaTopicsAr: [
+        'قواعد اللغة المعتمدة: الأزمنة التامة والمستمرة، المبني للمجهول، ضمائر الوصل، الحالات الشرطية الأربع، الكلام المنقول، والأفعال الناقصة',
+        'المعجم اللغوي التخصصي: المتلازمات اللفظية، التعبيرات الاصطلاحية الشائعة، الأفعال الاصطلاحية المركبة، وتوليد المشتقات بالسوابق واللواحق',
+        'الدراسة الأدبية المقررة: رواية الآمال العظيمة (Great Expectations) لتشارلز ديكنز، تطور الشخصيات، والمحاور الأخلاقية والاجتماعية في العصر الفيكتوري',
+        'مهارات الكتابة والمقال: صياغة أطروحة المقال (Thesis Statement)، فقرات المقال الحجاجي والتفسيري، وأدوات الربط المنطقي والمراسلات الرسمية',
+      ],
+      egBacTitleEn: 'Advanced 6-Module CEFR C1 Academic Discourse, Rhetorical Stylistics & Literary Criticism Track',
+      egBacTitleAr: 'المسار المتقدم (٦ فصول): الخطاب الأكاديمي لمستوى C1، الأسلوبية البلاغية والنقد الأدبي العالمي',
+      egBacTopicsEn: [
+        'Module 1 Advanced Academic Syntax: Inversion with negative adverbials, cleft sentences, participle clauses & subjunctive mood',
+        'Module 2 Rhetorical Stylistics & Pragmatics: Presupposition, implicature, register variation & academic research terminology',
+        'Module 3 Comparative Literary Criticism: Post-colonial theory, narrative voice techniques, symbolism & psychological realism',
+        'Module 4 Research Synthesis & Scholarly Writing: Peer-reviewed literature synthesis, APA citing conventions & argumentative debate',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ التراكيب النحوية الأكاديمية: قلب ترتيب الجملة (Inversion)، الجمل المشطورة (Cleft Sentences)، عبارات اسم الفاعل، وصيغ التمني الافتراضية',
+        'وحدة ٢ الأسلوبية البلاغية والتداولية: المعنى الضمني والافتراض المسبق، تباين المستويات اللغوية الرسمية، والمصطلحات الأكاديمية البحثية',
+        'وحدة ٣ النقد الأدبي المقارن: نظريات ما بعد الاستعمار، تقنيات الرواة وتعدد الأصوات السردية، الرمزية، والواقعية النفسية في الأدب العالمي',
+        'وحدة ٤ الكتابة والبحث الأكاديمي: مهارات تلخيص ودمج الأدبيات البحثية، قواعد التوثيق المرجعي (APA)، وصياغة الأطروحات الحجاجية في المناظرات',
+      ],
+      bridgeInsightEn:
+        'Thanaweya guarantees 100% precision on ministerial exam grammar, vocabulary, and Victorian novel comprehension. EG-Bac raises the bar to international C1 research papers, rhetorical discourse, and academic debate.',
+      bridgeInsightAr:
+        'تضمن الثانوية العامة دقة مطلقة في قواعد ومفردات المنهج الوزاري واستيعاب الرواية الفيكتورية، بينما تقفز البكالوريا بكفاءة الطالب لمستوى C1 الأكاديمي الدولي في كتابة الأوراق البحثية والمناظرات النقدية.',
+      universityAdvantageEn: 'Universal English fluency for all international undergraduate degrees in Medicine, Engineering, AI, and Humanities.',
+      universityAdvantageAr: 'طلاقة لغوية وأكاديمية كاملة تلبي متطلبات القبول لكافة البرامج الجامعية الدولية وكليات الهندسة والطب والذكاء الاصطناعي.',
+    },
+    {
+      id: 'french_bridge',
+      titleEn: 'French: Second Foreign Language, Communication & Cultural Immersion',
+      titleAr: 'اللغة الفرنسية: اللغة الأجنبية الثانية، التواصل والانغماس الثقافي',
+      icon: <Languages className="w-5 h-5 text-rose-500" />,
+      thanaweyaBranchId: 'thanaweya_french',
+      egBacBranchId: 'egbac_french',
+      thanaweyaTitleEn: 'Complete 4-Chapter Curriculum: Sports, Nutrition, Countryside/Passé Composé & Transportation',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ فصول): نادي الرياضيين، الأغذية، الريف والماضي المركب، ووسائل المواصلات',
+      thanaweyaTopicsEn: [
+        'Ch.1 Club des sportifs: Expressing sports & musical instruments, verbs (faire, jouer), pronominal direct/indirect pronouns (COD/COI)',
+        'Ch.2 Club des gourmands: Food & beverage categories, partitive articles (du, de la, des), expressing quantities & adverbial pronoun EN',
+        'Ch.3 Club des explorateurs: Farm animals, countryside activities, negative forms (ne...rien, ne...jamais) & Passé Composé with avoir/être',
+        'Ch.4 Club des voyageurs: Means of transport & prepositions (en, à, par), asking/giving directions & adverbial pronoun Y',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ نادي الرياضيين: التعبير عن الرياضات والآلات الموسيقية، أفعال faire وjouer، والضمائر الشخصية المباشرة وغير المباشرة (COD/COI)',
+        'فصل ٢ نادي الأكيلة: أقسام السوبرماركت والمأكولات والمشروبات، أدوات التجزئة، التعبير عن الكميات المحددة وغير المحددة، والضمير الشخصي EN',
+        'فصل ٣ نادي المستكشفين: الحيوانات والمزرعة، أنشطة الريف، صيغ النفي المتعددة (rien, jamais, personne)، والماضي المركب (Passé Composé)',
+        'فصل ٤ نادي المسافرين: وسائل المواصلات وحروف جرها (en, à, par)، السؤال عن خط السير ووصفه، والضمير الشخصي للمكان Y',
+      ],
+      egBacTitleEn: 'Advanced 4-Module CEFR B1 Communicative Synthesis, Functional Fluency & Francophone Culture Track',
+      egBacTitleAr: 'المسار المتقدم (٤ فصول): الكفاءة التواصلية لمستوى B1، الطلاقة الوظيفية والعمق الثقافي الفرنكوفوني',
+      egBacTopicsEn: [
+        'Module 1 Functional Interaction: Nuanced opinions on sports culture, conditional mood polite requests (Conditionnel Présent) & reflexives',
+        'Module 2 Nutritional Gastronomy & Socio-Economics: Food culture, sustainable consumption, double pronouns & relative pronouns (qui, que, où, dont)',
+        'Module 3 Narrative Ecology: Rural ecosystems, historical narration balancing Passé Composé vs. Imparfait & complex temporal clauses',
+        'Module 4 International Mobility & Urbanism: Sustainable urban transit, Francophone geography, Subjunctive mood (Subjonctif) & argumentation',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ التفاعل الوظيفي: إبداء الآراء المعقدة حول الرياضة والصحة، صيغة الشرط للطلب المهذب (Conditionnel Présent)، والأفعال ذات الضميرين',
+        'وحدة ٢ فن الطهي وعلم التغذية: الثقافة الغذائية، الاستهلاك المستدام، ترتيب الضمائر الشخصية المزدوجة، والأسماء الموصولة (qui, que, où, dont)',
+        'وحدة ٣ السرد البيئي والريفي: التنوع الحيوي الريفي، الموازنة السردية بين الماضي المركب والماضي المستمر (Passé Composé vs Imparfait)',
+        'وحدة ٤ النقل المستدام والعوالم الفرنكوفونية: تخطيط المدن، التنوع الثقافي للدول الفرنكوفونية، صيغة الشك والإمكانية (Subjonctif)، وكتابة المقال',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an airtight grasp of ministerial grammar drills, situational dialogues, and vocabulary. EG-Bac expands into B1 conversational fluency, literary-historical verb tenses, and Francophone cultural analysis.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً كاملاً ودقيقاً لقواعد وتراكيب ومفردات الوحدات الوزارية الأربع، بينما ترتقي البكالوريا بمستوى التحدث الحر والكتابة السردية الموسعة والانغماس في الثقافة الفرنكوفونية.',
+      universityAdvantageEn: 'Gateway to French-medium undergraduate sections in Law, Commerce, Languages & Translation (Alsun), and European exchange.',
+      universityAdvantageAr: 'بوابة كبرى للالتحاق بالشعب الفرنسية في كليات الحقوق والتجارة، كليات الألسن واللغات، والمنح الجامعية الأوروبية.',
+    },
   ];
 
 
@@ -436,8 +843,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(27) : '27'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٩ ثانوية + ٨ بكالوريا)' : '(19 Thanaweya + 8 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(157) : '157'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٨٥ ثانوية + ٧٢ بكالوريا)' : '(85 Thanaweya + 72 Bac)'}</span>
             </div>
           </div>
 
@@ -448,7 +855,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(4725) : '4,725'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(31400) : '31,400'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -457,11 +864,11 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
             <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
-              {isArabic ? 'فروع الرياضيات' : 'Curriculum Branches'}
+              {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(8) : '8'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٤ لكل مسار تعليمي)' : '(4 per track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(12) : '12'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٥ فرعاً لكل مسار)' : 'Subjects (15 branches/track)'}</span>
             </div>
           </div>
 
@@ -469,11 +876,11 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
             <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
-              {isArabic ? 'الجاهزية لجامعات الهندسة والـ AI' : 'STEM University Readiness'}
+              {isArabic ? 'الجاهزية للجامعات والـ AI' : 'STEM & University Readiness'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-amber-200' : 'text-amber-400'}`}>98%</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مطابقة المعايير الدولية' : 'International ABET'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-amber-200' : 'text-amber-400'}`}>99%</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مطابقة المعايير الدولية' : 'International Accreditation'}</span>
             </div>
           </div>
         </div>
@@ -501,7 +908,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ٤ فروع • ١٩ فصلاً' : 'National Standard Track • 4 Branches • 19 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٢ مادة • ١٥ فرعاً • ٨٥ فصلاً' : 'National Standard Track • 12 Subjects • 15 Branches • 85 Chapters'}
                 </p>
               </div>
             </div>
@@ -520,26 +927,26 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'يتميز بالعمق الرياضي التحليلي والمهارة اليدوية الفائقة في فك التباديل والتوافيق، حساب النهايات الدقيقة، حل منظومات القوى الميكانيكية المعقدة، والتحليل الهندسي ثلاثي الأبعاد.'
-              : 'Renowned for rigorous analytical algebra, deep symbolic calculus manipulation, extensive classical mechanics equilibrium, and classical 3D coordinate geometry.'}
+              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية والاجتماعية المتكاملة.'
+              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, and rich Humanities & Social disciplines.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'الرياضيات البحتة: الجبر والهندسة الفراغية (٥ فصول)' : 'Pure Mathematics: Algebra & Solid Geometry (5 Ch)'}</span>
+              <span>{isArabic ? 'الرياضيات البحتة والتطبيقية: الجبر، التفاضل، الاستاتيكا، والديناميكا (١٩ فصلاً)' : 'Pure & Applied Mathematics: Algebra, Calculus, Statics, Dynamics (19 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'الرياضيات البحتة: التفاضل والتكامل (٤ فصول)' : 'Pure Mathematics: Calculus & Integration (4 Ch)'}</span>
+              <span>{isArabic ? 'العلوم الطبيعية: الفيزياء، الكيمياء، الأحياء، والجيولوجيا والبيئة (٢٣ فصلاً)' : 'Natural Sciences: Physics, Chemistry, Biology, Geology & Environment (23 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'الرياضيات التطبيقية: الاستاتيكا (٦ فصول)' : 'Applied Mathematics: Statics (6 Ch)'}</span>
+              <span>{isArabic ? 'العلوم الإنسانية: التاريخ، الجغرافيا السياسية، الفلسفة، وعلم النفس والاجتماع (٢٩ فصلاً)' : 'Humanities: History, Geopolitics, Philosophy, Psychology & Sociology (29 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'الرياضيات التطبيقية: الديناميكا (٤ فصول)' : 'Applied Mathematics: Dynamics (4 Ch)'}</span>
+              <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، واللغة الفرنسية (١٤ فصلاً)' : 'Languages: Arabic Language, English, and French (14 Ch)'}</span>
             </div>
           </div>
         </div>
@@ -561,10 +968,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               </div>
               <div>
                 <h3 className={`text-base font-bold ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-100'}`}>
-                  {isArabic ? 'البكالوريا المصرية الحديثة (EG-Bac STEM)' : 'New Egyptian Baccalaureate (STEM)'}
+                  {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ٤ فروع • ٨ فصول مكثفة' : 'International STEM Track • 4 Branches • 8 Intensive Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٢ مادة • ١٥ فرعاً • ٧٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 12 Subjects • 15 Branches • 72 Chapters'}
                 </p>
               </div>
             </div>
@@ -583,26 +990,26 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج المصفوفات الذاتية، متسلسلات تايلور، التحليل العددي، ميكانيكا الحقول الاتجاهية، والإحصاء الحيوي البايزي.'
-              : 'Engineered on international baccalaureate benchmarks. Synthesizes computational linear algebra, Taylor expansions, vector mechanics, and calculus-grounded continuous probability.'}
+              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والبيوتكنولوجيا الحديثة.'
+              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, and advanced biotechnology.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'التحليل الرياضي والتفاضل والتكامل المتقدم (فصلان)' : 'Mathematical Analysis & Advanced Calculus (2 Ch)'}</span>
+              <span>{isArabic ? 'الرياضيات والتحليل: التحليل الحقيقي، الجبر المتقطع، الميكانيكا، والاحتمالات (٨ فصول)' : 'Advanced Mathematics: Analysis, Discrete Algebra, Mechanics, Probability (8 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'الجبر المتقطع وهندسة المتجهات الفضائية (فصلان)' : 'Discrete Algebra & Spatial Vector Geometry (2 Ch)'}</span>
+              <span>{isArabic ? 'العلوم والتكنولوجيا: الفيزياء، الكيمياء، الأحياء، والجيوفيزياء وهندسة الأرض (٢١ فصلاً)' : 'Science & Tech: Physics, Chemistry, Molecular Biology, Geophysics (21 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'الميكانيكا التحليلية وكينتيكا الأجسام (فصلان)' : 'Analytical Mechanics & Body Kinetics (2 Ch)'}</span>
+              <span>{isArabic ? 'العلوم الإنسانية والاجتماعية: النقد التاريخي، التحليل الجيوسياسي، المنطق الرمزي، والعلوم المعرفية (٢٩ فصلاً)' : 'Humanities & Social Sciences: Historiography, Geopolitics, Symbolic Logic, Cognitive Psychology (29 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'الاحتمالات المتقدمة والإحصاء الحيوي للبيانات (فصلان)' : 'Applied Probability & Biostatistics (2 Ch)'}</span>
+              <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، واللغة الفرنسية (١٤ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency (14 Ch)'}</span>
             </div>
           </div>
         </div>

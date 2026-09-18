@@ -43,7 +43,21 @@ export const OfficialBooksModal: React.FC<Props> = ({
   const t = translations[lang];
 
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'>('all');
+  const [filterSubject, setFilterSubject] = useState<
+    | 'all'
+    | 'mathematics'
+    | 'physics'
+    | 'chemistry'
+    | 'biology'
+    | 'geology'
+    | 'arabic'
+    | 'english'
+    | 'french'
+    | 'history'
+    | 'geography'
+    | 'philosophy'
+    | 'psychology'
+  >('all');
   const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
   const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
@@ -226,6 +240,8 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="french">{isArabic ? '🇫🇷 اللغة الفرنسية' : '🇫🇷 French'} ({officialBooksList.filter(b => b.subjectId === 'french').length})</option>
                 <option value="history">{isArabic ? '🏛️ تاريخ مصر' : '🏛️ Egyptian History'} ({officialBooksList.filter(b => b.subjectId === 'history').length})</option>
                 <option value="geography">{isArabic ? '🌍 الجغرافيا السياسية' : '🌍 Political Geography'} ({officialBooksList.filter(b => b.subjectId === 'geography').length})</option>
+                <option value="philosophy">{isArabic ? '🧠 الفلسفة والمنطق' : '🧠 Philosophy & Logic'} ({officialBooksList.filter(b => b.subjectId === 'philosophy').length})</option>
+                <option value="psychology">{isArabic ? '👥 علم النفس والاجتماع' : '👥 Psychology & Sociology'} ({officialBooksList.filter(b => b.subjectId === 'psychology').length})</option>
               </select>
             </div>
 
