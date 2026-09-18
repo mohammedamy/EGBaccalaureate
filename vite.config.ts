@@ -48,9 +48,11 @@ export default defineConfig({
             { name: 'databank-egbac-phys-2', test: /databanks\/egbac\/egBacPhysCh[4-5]Databank/, priority: 30 },
 
             // Language Databanks
-            { name: 'databank-thanaweya-english', test: /databanks\/thanaweya\/englishCh/, priority: 30 },
+            { name: 'databank-thanaweya-english-1', test: /databanks\/thanaweya\/englishCh[1-3]Databank/, priority: 30 },
+            { name: 'databank-thanaweya-english-2', test: /databanks\/thanaweya\/englishCh[4-6]Databank/, priority: 30 },
             { name: 'databank-thanaweya-french', test: /databanks\/thanaweya\/frenchCh/, priority: 30 },
-            { name: 'databank-thanaweya-arabic', test: /databanks\/thanaweya\/arabicCh/, priority: 30 },
+            { name: 'databank-thanaweya-arabic-1', test: /databanks\/thanaweya\/arabicCh[1-2]Databank/, priority: 30 },
+            { name: 'databank-thanaweya-arabic-2', test: /databanks\/thanaweya\/arabicCh[3-4]Databank/, priority: 30 },
 
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
