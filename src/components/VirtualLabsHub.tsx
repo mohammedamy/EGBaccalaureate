@@ -24,12 +24,14 @@ import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { LogicStudio } from './labs/LogicStudio';
+import { PsychologyStudio } from './labs/PsychologyStudio';
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
+import { Users } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -39,7 +41,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -59,6 +61,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'biology') return 'biology';
     if (selectedSubject === 'geology') return 'geology';
     if (selectedSubject === 'philosophy') return 'philosophy';
+    if (selectedSubject === 'psychology') return 'psychology';
     if (selectedSubject === 'history') return 'history';
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
@@ -82,6 +85,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'biology') setActiveLab('biology');
     else if (selectedSubject === 'geology') setActiveLab('geology');
     else if (selectedSubject === 'philosophy') setActiveLab('philosophy');
+    else if (selectedSubject === 'psychology') setActiveLab('psychology');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -318,6 +322,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'استوديو المنطق التطبيقي والأخلاقيات: جداول الصدق، قياس أرسطو، طرق مل الخمس، المنطق المرن بالذكاء الاصطناعي، ومصفوفة البيوتيقا'
         : 'Applied Logic Studio: Propositional truth tables, Aristotelian syllogism, Mill inductive methods, fuzzy AI logic & bioethics matrix',
+    },
+    {
+      id: 'psychology' as LabId,
+      titleEn: 'Psychology & Social Dynamics Studio',
+      titleAr: 'استوديو علم النفس والاجتماع التفاعلي',
+      subtitleEn: 'Conditioning, Ebbinghaus Forgetting Curve, Lewin Conflicts & Social Dynamics',
+      subtitleAr: 'الاشتراط الكلاسيكي، منحنى إبنجهاوس للنسيان، صراعات ليفين، وديناميات التفاعل الجمعي',
+      icon: Users,
+      color: 'pink',
+      badge: '👥 Psych & Social Studio',
+      gradient: 'from-pink-600 via-rose-600 to-purple-700',
+      activeBg: 'bg-pink-600 text-white shadow-pink-600/30',
+      tagline: isArabic
+        ? 'استوديو علم النفس والاجتماع: محاكي نظريات التعلم، استبقاء الذاكرة، مصفوفة كيرت ليفين، والحيل الدفاعية وديناميات المجتمع'
+        : 'Psychology & Sociology Studio: Learning theory paradigms, memory retention, Kurt Lewin conflict matrix, defense mechanisms & collective dynamics',
     },
   ];
 
@@ -755,6 +774,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Psychology & Social Dynamics Studio */}
+        {activeLab === 'psychology' && (
+          <div className="space-y-4">
+            <PsychologyStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -763,7 +793,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -778,7 +808,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

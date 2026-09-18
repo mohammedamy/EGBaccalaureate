@@ -32,6 +32,7 @@ const subjectsToTest = [
   { subject: 'english', expectedQ: 37, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'french', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
   { subject: 'philosophy', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
+  { subject: 'psychology', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
 ];
 
 for (const item of subjectsToTest) {
@@ -175,14 +176,14 @@ assert.deepStrictEqual(
 );
 console.log('  ✓ STEM 5 track mode verified: 5 dimensions');
 
-// Mode B: Humanities (includes Philosophy)
+// Mode B: Humanities (includes Philosophy & Psychology)
 const radarHumanities = getMasteryRadarData(emptyState, 'humanities');
-assert.strictEqual(radarHumanities.length, 6, 'humanities radar must have exactly 6 dimensions');
+assert.strictEqual(radarHumanities.length, 7, 'humanities radar must have exactly 7 dimensions');
 assert.deepStrictEqual(
   radarHumanities.map((r) => r.dimensionKey),
-  ['philosophy', 'history', 'geography', 'arabic', 'languages', 'applied_math']
+  ['philosophy', 'psychology', 'history', 'geography', 'arabic', 'languages', 'applied_math']
 );
-console.log('  ✓ Humanities track mode verified: 6 dimensions');
+console.log('  ✓ Humanities track mode verified: 7 dimensions');
 
 // Mode C: All 8 core subjects (legacy)
 const radarAll8 = getMasteryRadarData(emptyState, 'all8');
@@ -228,6 +229,15 @@ assert.deepStrictEqual(
   ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'philosophy', 'arabic', 'languages']
 );
 console.log('  ✓ All 11 track mode verified: 11 dimensions');
+
+// Mode H: All 12 core subjects (with Psychology)
+const radarAll12 = getMasteryRadarData(emptyState, 'all12');
+assert.strictEqual(radarAll12.length, 12, 'all12 radar must have exactly 12 dimensions');
+assert.deepStrictEqual(
+  radarAll12.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'philosophy', 'psychology', 'arabic', 'languages']
+);
+console.log('  ✓ All 12 track mode verified: 12 dimensions');
 
 // Default when parameter omitted (backward compatibility)
 const radarDefault = getMasteryRadarData(emptyState);

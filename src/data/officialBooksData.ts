@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1955,6 +1955,122 @@ export const officialBooksList: OfficialBook[] = [
       'دوال الانتماء المرنة، مصفوفات درجات الصدق، ومحركات الاستدلال غير الرتيب في الذكاء الاصطناعي'
     ],
   },
+
+  // 19. Thanaweya Psychology & Sociology
+  {
+    id: 'th-psychology-g12',
+    curriculum: 'thanaweya',
+    category: 'psychology',
+    subjectId: 'psychology',
+    branchId: 'thanaweya_psychology',
+    code: 'MOE-PSYCH-G12-2025',
+    titleEn: 'Psychology & Sociology',
+    titleAr: 'علم النفس وعلم الاجتماع',
+    subtitleEn: 'Official Grade 12 Textbook - Humanities Division',
+    subtitleAr: 'الكتاب المدرسي المعتمد - الصف الثالث الثانوي - القسم الأدبي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'General Secondary Grade 12 (Humanities & Social Sciences)',
+    gradeAr: 'الصف الثالث الثانوي العام (القسم الأدبي والعلوم الإنسانية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 40,
+    fileSize: '3.6 MB',
+    compendiumTitleEn: 'Grade 12 Psychology & Sociology Ministry Compendium',
+    compendiumTitleAr: 'دليل المفاهيم والنظريات وقوانين علم النفس والاجتماع للثانوية العامة',
+    filename: 'th-psychology.pdf',
+    downloadUrl: '/books/th-psychology.pdf',
+    fullTextbookPages: 216,
+    fullTextbookSize: '25.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/psychology/',
+    coverGradient: 'from-pink-950 via-rose-950 to-slate-900',
+    accentColor: '#ec4899',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Multiple Intelligences & Comparative Learning Theories', titleAr: 'الفصل الأول: الذكاء الواحد والذكاءات المتعددة ونظريات التعلم', pageRange: 'pp. 1-28', topicsCount: 12 },
+      { id: 'ch2', titleEn: 'Ch 2: Human Development, Growth Determinants & Adolescence', titleAr: 'الفصل الثاني: النمو والارتقاء الإنساني ومرحلة المراهقة', pageRange: 'pp. 29-56', topicsCount: 14 },
+      { id: 'ch3', titleEn: 'Ch 3: Personality Structure, Attitudes & Enduring Values', titleAr: 'الفصل الثالث: الشخصية والاتجاهات النفسية والقيم', pageRange: 'pp. 57-82', topicsCount: 12 },
+      { id: 'ch4', titleEn: 'Ch 4: Adjustment, Conflict, Frustration & Coping Mechanisms', titleAr: 'الفصل الرابع: أساليب التوافق النفسي والصراع والإحباط والحيل الدفاعية', pageRange: 'pp. 83-108', topicsCount: 14 },
+      { id: 'ch5', titleEn: 'Ch 5: Sociological Theory, Social Interaction & Fundamental Processes', titleAr: 'الفصل الخامس: النظرية الاجتماعية والتفاعل والعمليات الاجتماعية', pageRange: 'pp. 109-136', topicsCount: 12 },
+      { id: 'ch6', titleEn: 'Ch 6: Culture, Voluntary Action & Entrepreneurship Culture', titleAr: 'الفصل السادس: الثقافة والعمل التطوعي وثقافة العمل الحر', pageRange: 'pp. 137-162', topicsCount: 12 },
+      { id: 'ch7', titleEn: 'Ch 7: Social Change, Globalization & Scientific Research', titleAr: 'الفصل السابع: التغير الاجتماعي والعولمة وتوظيف البحث العلمي', pageRange: 'pp. 163-188', topicsCount: 14 },
+      { id: 'ch8', titleEn: 'Ch 8: Contemporary Social Problems, Violence & Extremism', titleAr: 'الفصل الثامن: المشكلات الاجتماعية المعاصرة وظاهرة العنف والتطرف', pageRange: 'pp. 189-216', topicsCount: 14 },
+    ],
+    descriptionEn: 'The comprehensive official Egyptian Ministry of Education curriculum for Grade 12 Psychology and Sociology, covering Gardner multiple intelligences, conditioning paradigms, developmental lifespan stages, Lewin conflict typologies, defense mechanisms, and collective sociological processes.',
+    descriptionAr: 'المنهج المعتمد رسمياً بوزارة التربية والتعليم المصرية: يتناول نظرية جاردنر في الذكاءات المتعددة، نظريات التعلم الكبرى عند بافلوف وثورندايك وكوهلر ونورمان، قوانين النمو والارتقاء ومطالب المراهقة، محددات الشخصية عند ألبورت وفرويد وماسلو، صراعات ليفين والحيل اللاشعورية الثمانية، ووظائف النظرية الاجتماعية والعمليات الأربع، والثقافة والعمل الحر، ومواجهة التطرف الفكري.',
+    highlightsEn: [
+      'Howard Gardner Multiple Intelligences Theory and psychometric profiling',
+      'Four classical and cognitive learning paradigms: Pavlov, Thorndike, Gestalt, and Norman',
+      'Kurt Lewin conflict models: Approach-Approach, Avoidance-Avoidance, and Approach-Avoidance',
+      'Eight unconscious ego defense mechanisms: Repression, Sublimation, Compensation, Rationalization, Projection, Identification, Regression, Denial',
+      'Sociological interaction processes: Cooperation, Accommodation, Competition, and Conflict',
+      'Tripartite dimensions of extremism: Cognitive dogmatism, affective hostility, and behavioral violence'
+    ],
+    highlightsAr: [
+      'نظرية الذكاءات المتعددة لهوارد جاردنر وخصائص تنمية كل ذكاء والملفات النفسية',
+      'نظريات التعلم الأربع: الاشتراط الكلاسيكي، المحاولة والخطأ، الفهم والاستبصار، وتجهيز المعلومات',
+      'أنواع الصراع النفسي عند كيرت ليفين: إقدام-إقدام، إحجام-إحجام، وإقدام-إحجام، وقانون يركيز-دودسون للقلق',
+      'الحيل الدفاعية اللاشعورية الثمانية: الكبت، الإعلاء والتسامي، التعويض، التبرير، الإسقاط، التقمص، النكوص، والإنكار',
+      'العمليات الاجتماعية الأساسية: التعاون، التكيف، التنافس، والصراع الاجتماعي ومحدداتها',
+      'الأبعاد الثلاثة لظاهرة التطرف: المكون المعرفي والوجداني والسلوكي واستراتيجيات المواجهة'
+    ],
+  },
+
+  // 20. EG-Bac Psychology & Sociology
+  {
+    id: 'egbac-psychology-g12',
+    curriculum: 'egbac',
+    category: 'psychology',
+    subjectId: 'psychology',
+    branchId: 'egbac_psychology',
+    code: 'EGBAC-PSYCH-G12',
+    titleEn: 'Advanced Cognitive Psychology & Applied Sociological Dynamics',
+    titleAr: 'علم النفس المعرفي المتقدم وديناميات علم الاجتماع التطبيقي',
+    subtitleEn: 'New Egyptian Baccalaureate Educational Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Humanities & Behavioral Sciences)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة العلوم الإنسانية والسلوكية)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 42,
+    fileSize: '4.0 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Neuropsychology, Cognitive Modeling & Social Systems Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في علم النفس العصبي والنمذجة المعرفية والأنظمة الاجتماعية',
+    filename: 'egbac-psychology.pdf',
+    downloadUrl: '/books/egbac-psychology.pdf',
+    fullTextbookPages: 236,
+    fullTextbookSize: '28.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/psychology/',
+    coverGradient: 'from-rose-950 via-pink-900 to-indigo-950',
+    accentColor: '#f43f5e',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Cognitive Architectures, Multiple Intelligences & Comparative Learning Systems', titleAr: 'الفصل الأول: البنى المعرفية والذكاءات المتعددة وأنظمة التعلم المقارنة', pageRange: 'pp. 1-30', topicsCount: 14 },
+      { id: 'ch2', titleEn: 'Ch 2: Epigenetics, Neurodevelopment & Adolescent Cognitive Maturation', titleAr: 'الفصل الثاني: علم التخلق والتطور العصبي والنضج المعرفي في المراهقة', pageRange: 'pp. 31-60', topicsCount: 16 },
+      { id: 'ch3', titleEn: 'Ch 3: Dynamic Personality Systems, Psychometrics & Value Axiology', titleAr: 'الفصل الثالث: أنظمة الشخصية الدينامية والقياس النفسي وإكسيولوجيا القيم', pageRange: 'pp. 61-90', topicsCount: 14 },
+      { id: 'ch4', titleEn: 'Ch 4: Psychosocial Adjustment, Lewin Conflict Typology & Ego Defense Mechanisms', titleAr: 'الفصل الرابع: التوافق النفسي الاجتماعي ونماذج ليفين وميكانيزمات الدفاع', pageRange: 'pp. 91-118', topicsCount: 14 },
+      { id: 'ch5', titleEn: 'Ch 5: Sociological Theory, Structural Functionalism & Collective Interaction Dynamics', titleAr: 'الفصل الخامس: النظرية الاجتماعية والبنائية الوظيفية وديناميات التفاعل الجمعي', pageRange: 'pp. 119-148', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Ch 6: Cultural Morphologies, Civil Society Governance & Innovative Entrepreneurship', titleAr: 'الفصل السادس: مورفولوجيا الثقافة وحوكمة المجتمع المدني والريادة الابتكارية', pageRange: 'pp. 149-178', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Ch 7: Systemic Social Change, Globalization Economics & Academic Research Policy', titleAr: 'الفصل السابع: التغير الاجتماعي النسقي واقتصاديات العولمة وسياسات البحث الأكاديمي', pageRange: 'pp. 179-206', topicsCount: 14 },
+      { id: 'ch8', titleEn: 'Ch 8: Social Pathology, Counter-Extremism & Community Cohesion Strategy', titleAr: 'الفصل الثامن: الباثولوجيا الاجتماعية واستراتيجيات تفكيك التطرف والتماسك المجتمعي', pageRange: 'pp. 207-236', topicsCount: 16 },
+    ],
+    descriptionEn: 'Advanced collegiate-level psychology and sociology designed for EG-Bac, integrating neural network cognitive architectures, developmental epigenetics, psychometric personality validation, mathematical conflict resolution, and structural-functional sociological models.',
+    descriptionAr: 'منهج البكالوريا المصرية المتقدم: يربط بين علم النفس المعرفي والبيولوجيا العصبية وديناميات علم الاجتماع البنائي، متضمناً معايير التفكير الابتكاري، القياس السيكومتري، النمذجة الرياضية لصراعات اتخاذ القرار، التحليل الثقافي المقارن، واستراتيجيات التماسك الاجتماعي المعاصر.',
+    highlightsEn: [
+      'Neural network architectures and connectionist models of human learning and memory consolidation',
+      'Epigenetic modulation of neurodevelopmental pathways and adolescent prefrontal cortex executive functions',
+      'Advanced psychometric profiling: Big Five factor analysis and Cattell multi-dimensional traits',
+      'Mathematical modeling of Kurt Lewin field dynamics and decision equilibrium in approach-avoidance vector spaces',
+      'Structural-functionalist and critical conflict theories in macro-sociological institutional analysis',
+      'Multidisciplinary deradicalization interventions targeting cognitive, affective, and systemic societal drivers'
+    ],
+    highlightsAr: [
+      'الشبكات العصبية والنماذج الترابطية للتعلم البشري وتثبيت الذاكرة في القشرة المخية',
+      'التعديل الإبيجيني لمسارات التطور العصبي ووظائف القشرة الجبهية التنفيذية لدى المراهقين',
+      'القياس السيكومتري المتقدم: التحليل العاملي لعوامل الشخصية الخمسة الكبرى وسمات كاتل',
+      'النمذجة الرياضية لمجالات كيرت ليفين الدينامية ونقاط التوازن في فضاءات الإقدام والإحجام',
+      'النظريات البنائية الوظيفية ونظريات الصراع النقدي في التحليل المؤسسي الاجتماعي الكلي',
+      'استراتيجيات التحصين متعددة التخصصات لتفكيك التطرف عبر الأبعاد المعرفية والوجدانية والمجتمعية'
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -1986,6 +2102,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_geology' && (b.branchId === 'egbac_geology' || b.id === 'egbac-geology-g12')) return true;
     if (branchId === 'thanaweya_philosophy' && (b.branchId === 'thanaweya_philosophy' || b.id === 'th-philosophy-g12')) return true;
     if (branchId === 'egbac_philosophy' && (b.branchId === 'egbac_philosophy' || b.id === 'egbac-philosophy-g12')) return true;
+    if (branchId === 'thanaweya_psychology' && (b.branchId === 'thanaweya_psychology' || b.id === 'th-psychology-g12')) return true;
+    if (branchId === 'egbac_psychology' && (b.branchId === 'egbac_psychology' || b.id === 'egbac-psychology-g12')) return true;
     return false;
   });
 }
@@ -1995,7 +2113,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

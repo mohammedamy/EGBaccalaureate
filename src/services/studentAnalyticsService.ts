@@ -13,6 +13,7 @@ export type SubjectCategory =
   | 'history'
   | 'geography'
   | 'philosophy'
+  | 'psychology'
   | 'arabic'
   | 'languages';
 
@@ -45,7 +46,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -69,6 +70,9 @@ export function classifySubjectCategory(
 
   if (text.includes('فلسف') || text.includes('philosoph') || text.includes('منطق') || text.includes('logic') || text.includes('بيوتيق')) {
     return 'philosophy';
+  }
+  if (text.includes('نفس') || text.includes('psycholog') || text.includes('اجتماع') || text.includes('sociolog') || text.includes('بافلوف') || text.includes('ليفين') || text.includes('إبنجهاوس') || text.includes('psych')) {
+    return 'psychology';
   }
   if (text.includes('جيولوج') || text.includes('geolog') || text.includes('بلور') || text.includes('موهس') || text.includes('تكتوني') || text.includes('بيئة') || text.includes('environment')) {
     return 'geology';
@@ -290,6 +294,7 @@ export function getMasteryRadarData(
     color: string;
   }> = [
     { key: 'philosophy', ar: 'الفلسفة والمنطق', en: 'Philosophy & Logic', color: '#A855F7' },
+    { key: 'psychology', ar: 'علم النفس والاجتماع', en: 'Psychology & Sociology', color: '#EC4899' },
     { key: 'history', ar: 'تاريخ مصر', en: 'Egyptian History', color: '#F59E0B' },
     { key: 'geography', ar: 'الجغرافيا السياسية', en: 'Political Geography', color: '#14B8A6' },
     { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic Language', color: '#10B981' },
@@ -381,9 +386,31 @@ export function getMasteryRadarData(
     { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
   ];
 
+  const all12Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    { key: 'pure_math', ar: 'الرياضيات البحتة', en: 'Pure Math', color: '#6366F1' },
+    { key: 'applied_math', ar: 'الرياضيات التطبيقية', en: 'Applied Math', color: '#3B82F6' },
+    { key: 'physics', ar: 'الفيزياء', en: 'Physics', color: '#06B6D4' },
+    { key: 'chemistry', ar: 'الكيمياء', en: 'Chemistry', color: '#10B981' },
+    { key: 'biology', ar: 'الأحياء', en: 'Biology', color: '#F43F5E' },
+    { key: 'geology', ar: 'الجيولوجيا والبيئة', en: 'Geology & Environment', color: '#D97706' },
+    { key: 'history', ar: 'تاريخ مصر', en: 'History', color: '#F59E0B' },
+    { key: 'geography', ar: 'الجغرافيا السياسية', en: 'Geography', color: '#14B8A6' },
+    { key: 'philosophy', ar: 'الفلسفة والمنطق', en: 'Philosophy & Logic', color: '#A855F7' },
+    { key: 'psychology', ar: 'علم النفس والاجتماع', en: 'Psychology & Sociology', color: '#EC4899' },
+    { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic', color: '#059669' },
+    { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all12'
+      ? all12Dimensions
       : mode === 'all11'
       ? all11Dimensions
       : mode === 'all10'

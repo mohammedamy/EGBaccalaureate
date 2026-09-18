@@ -27,6 +27,7 @@ import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { LogicStudio } from './labs/LogicStudio';
+import { PsychologyStudio } from './labs/PsychologyStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -346,6 +347,29 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'psychology_learning_theories':
+        case 'psychology_memory_retention':
+        case 'psychology_conflict_matrix':
+        case 'sociology_social_processes':
+        case 'sociology_culture_extremism':
+          return (
+            <PsychologyStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'psychology_learning_theories'
+                  ? 'learning_theories'
+                  : lesson.interactiveWidget.type === 'psychology_memory_retention'
+                  ? 'memory_retention'
+                  : lesson.interactiveWidget.type === 'psychology_conflict_matrix'
+                  ? 'conflict_matrix'
+                  : lesson.interactiveWidget.type === 'sociology_social_processes'
+                  ? 'social_processes'
+                  : 'culture_extremism'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -479,6 +503,29 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'logic_fuzzy_ai'
                   ? 'fuzzy_ai'
                   : 'bioethics_matrix'
+              }
+            />
+          );
+        case 'psychology_learning_theories':
+        case 'psychology_memory_retention':
+        case 'psychology_conflict_matrix':
+        case 'sociology_social_processes':
+        case 'sociology_culture_extremism':
+          return (
+            <PsychologyStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'psychology_learning_theories'
+                  ? 'learning_theories'
+                  : lesson.interactiveWidget.type === 'psychology_memory_retention'
+                  ? 'memory_retention'
+                  : lesson.interactiveWidget.type === 'psychology_conflict_matrix'
+                  ? 'conflict_matrix'
+                  : lesson.interactiveWidget.type === 'sociology_social_processes'
+                  ? 'social_processes'
+                  : 'culture_extremism'
               }
             />
           );

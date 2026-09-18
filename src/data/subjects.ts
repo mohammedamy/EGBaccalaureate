@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -254,6 +254,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_philosophy'],
       egbac: ['egbac_philosophy'],
+    },
+  },
+  {
+    id: 'psychology',
+    titleEn: 'Psychology & Sociology',
+    titleAr: 'علم النفس وعلم الاجتماع',
+    shortTitleEn: 'Psych & Soc',
+    shortTitleAr: 'نفس واجتماع',
+    emoji: '👥',
+    iconName: 'Users',
+    badgeColor: 'pink',
+    gradient: 'from-pink-700 via-rose-700 to-purple-800',
+    lightBg: 'bg-pink-50 text-pink-900 border-pink-200',
+    darkBg: 'bg-pink-950/70 text-pink-200 border-pink-800/60',
+    borderColor: 'border-pink-500/50',
+    textColor: 'text-pink-400',
+    descriptionEn: 'National Core Subject: Multiple Intelligences, Learning Theories, Developmental Stages, Personality & Values, Frustration & Conflict, Sociological Theory, Culture & Volunteering, and Contemporary Social Issues',
+    descriptionAr: 'المادة القومية الكبرى للشعبة الأدبية: الذكاءات المتعددة ونظريات التعلم، مراحل النمو والارتقاء الإنساني، الشخصية والاتجاهات والقيم، الصراع والإحباط والحيل الدفاعية، النظرية والعمليات الاجتماعية، ثقافة العمل التطوعي والحر، والعولمة وقضايا التطرف',
+    branchIds: {
+      thanaweya: ['thanaweya_psychology'],
+      egbac: ['egbac_psychology'],
     },
   },
 ];

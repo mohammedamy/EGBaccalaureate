@@ -17,6 +17,7 @@ export type BranchId =
   | 'thanaweya_geography'
   | 'thanaweya_geology'
   | 'thanaweya_philosophy'
+  | 'thanaweya_psychology'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -30,7 +31,8 @@ export type BranchId =
   | 'egbac_history'
   | 'egbac_geography'
   | 'egbac_geology'
-  | 'egbac_philosophy';
+  | 'egbac_philosophy'
+  | 'egbac_psychology';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -229,7 +231,12 @@ export type InteractiveWidgetType =
   | 'logic_syllogism'
   | 'logic_induction_mills'
   | 'logic_fuzzy_ai'
-  | 'philosophy_bioethics_matrix';
+  | 'philosophy_bioethics_matrix'
+  | 'psychology_learning_theories'
+  | 'psychology_memory_retention'
+  | 'psychology_conflict_matrix'
+  | 'sociology_social_processes'
+  | 'sociology_culture_extremism';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

@@ -28,6 +28,7 @@ import {
   Globe,
   Mountain,
   Brain,
+  Users,
   ChevronDown,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -115,6 +116,8 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <Mountain className="w-5 h-5" />;
       case 'Brain':
         return <Brain className="w-5 h-5" />;
+      case 'Users':
+        return <Users className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }

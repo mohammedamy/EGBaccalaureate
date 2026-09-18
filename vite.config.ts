@@ -73,6 +73,13 @@ export default defineConfig({
             { name: 'curriculum-philosophy', test: /src\/data\/(thanaweya|egBac)Philosophy/, priority: 20 },
             { name: 'logic-studio', test: /LogicStudio/, priority: 30 },
 
+            // Psychology & Sociology Databanks & Curriculum
+            { name: 'databank-psychology-thanaweya', test: /databanks\/thanaweya\/psychCh/, priority: 30 },
+            { name: 'databank-psychology-egbac', test: /databanks\/egbac\/egBacPsychCh/, priority: 30 },
+            { name: 'textbook-psychology', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*psych/i, priority: 30 },
+            { name: 'curriculum-psychology', test: /src\/data\/(thanaweya|egBac)Psychology/, priority: 20 },
+            { name: 'psychology-studio', test: /PsychologyStudio/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

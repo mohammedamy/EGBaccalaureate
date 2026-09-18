@@ -341,6 +341,10 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
       detectedSubjectId = 'philosophy';
       detectedBranchAr = 'القسم الأدبي - مسار الفلسفة والمنطق التطبيقي';
       detectedBranchEn = 'Humanities & Applied Logic Division';
+    } else if (lowerSubj.includes('psych') || lowerSubj.includes('نفس') || lowerSubj.includes('اجتماع')) {
+      detectedSubjectId = 'psychology';
+      detectedBranchAr = 'القسم الأدبي - مسار علم النفس وعلم الاجتماع';
+      detectedBranchEn = 'Humanities & Behavioral Sciences Division';
     } else if (lowerSubj.includes('arab') || lowerSubj.includes('عرب')) {
       detectedSubjectId = 'arabic';
       detectedBranchAr = 'المواد العامة المشتركة لجميع الشعب';
