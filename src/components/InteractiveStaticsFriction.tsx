@@ -99,35 +99,66 @@ export const InteractiveStaticsFriction: React.FC<Props> = ({ lang, theme = 'dar
     // Label on box
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 11px sans-serif';
-    ctx.fillText(`W=${weightW}N`, -20, -25);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`W = ${weightW}N`, 0, -25);
 
     // Normal Reaction Arrow R (Upwards perp to plane)
     ctx.strokeStyle = isLight ? '#0284c7' : '#38bdf8';
+    ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(0, -25);
     ctx.lineTo(0, -85);
     ctx.stroke();
+    // Arrowhead & Label R
+    ctx.beginPath();
+    ctx.moveTo(-5, -80);
+    ctx.lineTo(0, -88);
+    ctx.lineTo(5, -80);
+    ctx.stroke();
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText('R', 0, -95);
 
     // Friction Force Arrow (Opposite to movement tendency)
     const fDir = isUpwardTendency ? 1 : -1;
     ctx.strokeStyle = isLight ? '#b45309' : '#facc15';
+    ctx.fillStyle = isLight ? '#b45309' : '#facc15';
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.moveTo(0, -25);
     ctx.lineTo(fDir * 50, -25);
     ctx.stroke();
+    // Arrowhead & Label Fs
+    ctx.beginPath();
+    ctx.moveTo(fDir * 44, -29);
+    ctx.lineTo(fDir * 52, -25);
+    ctx.lineTo(fDir * 44, -21);
+    ctx.stroke();
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText('F_s', fDir * 64, -25);
 
     // Pulling force P arrow
     if (pullP > 0) {
       ctx.strokeStyle = isLight ? '#7c3aed' : '#a855f7';
+      ctx.fillStyle = isLight ? '#7c3aed' : '#a855f7';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(0, -25);
       ctx.lineTo(-50, -25); // Pulling up plane
       ctx.stroke();
+      // Arrowhead & Label P
+      ctx.beginPath();
+      ctx.moveTo(-44, -29);
+      ctx.lineTo(-52, -25);
+      ctx.lineTo(-44, -21);
+      ctx.stroke();
+      ctx.font = 'bold 10px sans-serif';
+      ctx.fillText('P', -62, -25);
     }
 
+    ctx.textAlign = 'start';
+    ctx.textBaseline = 'alphabetic';
     ctx.restore();
   }, [inclineTheta, weightW, pullP, muS, thetaRad, isSliding, isVergeOfMotion, isUpwardTendency, isLight]);
 

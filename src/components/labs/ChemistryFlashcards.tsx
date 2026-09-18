@@ -537,18 +537,18 @@ export const ChemistryFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) =
           <div className="my-auto py-4">
             {!isFlipped ? (
               <div className="space-y-3">
-                <p className="text-base sm:text-lg font-bold leading-relaxed">
-                  {isArabic ? currentCard.frontAr : currentCard.frontEn}
-                </p>
+                <div className="text-base sm:text-lg font-bold leading-relaxed">
+                  <MathRenderer text={isArabic ? currentCard.frontAr : currentCard.frontEn} lang={lang} />
+                </div>
                 <div className="text-[11px] text-slate-400 italic">
                   {isArabic ? 'انقر على البطاقة لقلبها وإظهار التفسير والمعادلة...' : 'Click card to flip and reveal explanation...'}
                 </div>
               </div>
             ) : (
               <div className="space-y-4">
-                <p className="text-sm sm:text-base leading-relaxed text-slate-200">
-                  {isArabic ? currentCard.backAr : currentCard.backEn}
-                </p>
+                <div className="text-sm sm:text-base leading-relaxed text-slate-200">
+                  <MathRenderer text={isArabic ? currentCard.backAr : currentCard.backEn} lang={lang} />
+                </div>
 
                 {/* Equation Block */}
                 {currentCard.latex && (
@@ -577,12 +577,12 @@ export const ChemistryFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) =
                 )}
 
                 {/* Teacher Note */}
-                {currentCard.teacherNoteEn && (
+                {(currentCard.teacherNoteEn || currentCard.teacherNoteAr) && (
                   <div className="text-[11px] text-amber-300/90 bg-amber-950/30 p-2.5 rounded-lg border border-amber-800/40 flex items-start gap-1.5">
                     <span className="shrink-0 font-bold">💡</span>
-                    <span>
-                      {isArabic ? currentCard.teacherNoteAr : currentCard.teacherNoteEn}
-                    </span>
+                    <div className="flex-1">
+                      <MathRenderer text={isArabic ? currentCard.teacherNoteAr : currentCard.teacherNoteEn} lang={lang} />
+                    </div>
                   </div>
                 )}
               </div>

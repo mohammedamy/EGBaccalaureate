@@ -494,7 +494,7 @@ export const BiologyFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
               <div className="space-y-4 max-w-xl animate-in fade-in duration-200">
                 <span className="text-3xl sm:text-4xl inline-block mb-1">🧬</span>
                 <h3 className="text-xl sm:text-2xl font-black text-slate-100 leading-snug">
-                  {isAr ? currentCard.frontAr : currentCard.frontEn}
+                  <MathRenderer text={isAr ? currentCard.frontAr : currentCard.frontEn} lang={lang} />
                 </h3>
                 <p className="text-xs text-slate-400">
                   {isAr ? 'استحضر الإجابة ذهنياً ثم انقر للتحقق' : 'Recall the mechanism mentally, then tap card to reveal'}
@@ -503,9 +503,9 @@ export const BiologyFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
             ) : (
               <div className="space-y-4 max-w-2xl text-left rtl:text-right animate-in fade-in duration-200">
                 <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-                  <p className="text-sm sm:text-base font-bold text-slate-100 leading-relaxed whitespace-pre-line">
-                    {isAr ? currentCard.backAr : currentCard.backEn}
-                  </p>
+                  <div className="text-sm sm:text-base font-bold text-slate-100 leading-relaxed whitespace-pre-line">
+                    <MathRenderer text={isAr ? currentCard.backAr : currentCard.backEn} lang={lang} />
+                  </div>
                 </div>
 
                 {currentCard.latex && (

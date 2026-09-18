@@ -146,8 +146,11 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     'det', 'deg', 'mod', 'var', 'cov', 'dim', 'ker', 'gcd', 'lcm', 'arcsin', 'arccos', 'arctan'
   ]);
 
+  const hasEquationOperators =
+    /[=+\-*/^_{}()|\\\[\]<>]/.test(s) ||
+    /\\(le|ge|approx|neq|to|implies|iff|times|pm|cdot|rightleftharpoons|rightleftarrows|xrightleftharpoons|xrightarrow|leftrightarrow|Longleftrightarrow|longleftrightarrow|leftarrow|rightarrow|propto|equiv|sim|cong)/.test(s);
+
   const stopWordCount = words.filter(w => englishStopWords.has(w.toLowerCase())).length;
-  const hasEquationOperators = /[=+\-*/^_{}()|\\\[\]<>]/.test(s) || /\\(le|ge|approx|neq|to|implies|iff|times|pm|cdot)/.test(s);
   if (stopWordCount >= 2 && !hasEquationOperators) {
     return false;
   }
@@ -347,9 +350,15 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
             // Check if this plain prose segment contains un-delimited LaTeX macros
             // e.g. \sqrt{...}, \frac{...}{...}, \alpha, \beta, \omega, ^\circ, etc.
-            const latexPattern = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)|(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+))*|\^\\circ)/;
+            // Support nested braces for expressions like \frac{\sqrt{5}}{3} and \vec{\mathbf{F}}
+            const braceGroup = '(?:\\{(?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*\\})';
+            const bracketGroup = '(?:\\[[^\\]]*\\])';
+            const arg = `(?:${braceGroup}|${bracketGroup})`;
+            const latexPattern = new RegExp(
+              `(\\\\[a-zA-Z]+(?:${arg})*(?:(?:\\^${braceGroup}|\\^[a-zA-Z0-9٠-٩\\\\]+)|(?:_${braceGroup}|_[a-zA-Z0-9٠-٩]+))*|\\^\\\\circ)`
+            );
             if (latexPattern.test(cp)) {
-              const subParts = cp.split(new RegExp(latexPattern.source, 'g'));
+              const subParts = cp.split(latexPattern);
               return (
                 <React.Fragment key={`latex_embed_${pIdx}_${cpIdx}`}>
                   {subParts.map((sp, spIdx) => {

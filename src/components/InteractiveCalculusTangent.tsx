@@ -452,11 +452,16 @@ export const InteractiveCalculusTangent: React.FC<Props> = ({
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Boundary Labels
+      // Boundary Labels with collision avoidance and screen clamping
       ctx.fillStyle = '#f43f5e';
       ctx.font = 'bold 11px sans-serif';
-      ctx.fillText(`a = ${actualA.toFixed(1)}`, toCanvasX(actualA) - 16, originY + 24);
-      ctx.fillText(`b = ${actualB.toFixed(1)}`, toCanvasX(actualB) - 4, originY + 24);
+      const xA = toCanvasX(actualA);
+      const xB = toCanvasX(actualB);
+      const isClose = Math.abs(xB - xA) < 48;
+      const yA = Math.max(20, Math.min(height - 24, originY + 24));
+      const yB = isClose ? Math.max(34, Math.min(height - 10, yA + 15)) : yA;
+      ctx.fillText(`a = ${actualA.toFixed(1)}`, xA - 16, yA);
+      ctx.fillText(`b = ${actualB.toFixed(1)}`, xB - 4, yB);
     }
 
     // ========================================================================

@@ -313,16 +313,16 @@ export const InteractiveDynamicsMotion: React.FC<Props> = ({ lang, theme = 'dark
 
                       {/* Box 1 (on ramp) */}
                       <g transform={`translate(${b1X}, ${b1Y}) rotate(${-thetaDeg})`}>
-                        <rect x="-24" y="-30" width="48" height="30" rx="4" fill="#6366f1" stroke="#a5b4fc" strokeWidth="2" />
-                        <text x="0" y="-10" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">
+                        <rect x="-29" y="-32" width="58" height="32" rx="5" fill="#6366f1" stroke="#a5b4fc" strokeWidth="2" />
+                        <text x="0" y="-12" textAnchor="middle" fill="#ffffff" fontSize="10.5" fontWeight="bold">
                           m₁ = {isArabic ? toHindiDigits(m1) : m1}kg
                         </text>
                       </g>
 
                       {/* Box 2 (hanging) */}
                       <g transform={`translate(${b2X}, ${b2Y})`}>
-                        <rect x="-20" y="0" width="40" height="40" rx="4" fill="#10b981" stroke="#6ee7b7" strokeWidth="2" />
-                        <text x="0" y="24" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">
+                        <rect x="-26" y="0" width="52" height="42" rx="5" fill="#10b981" stroke="#6ee7b7" strokeWidth="2" />
+                        <text x="0" y="25" textAnchor="middle" fill="#ffffff" fontSize="10.5" fontWeight="bold">
                           m₂ = {isArabic ? toHindiDigits(m2) : m2}kg
                         </text>
                         {/* Gravity force arrow */}

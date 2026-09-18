@@ -5987,32 +5987,32 @@ export const bioCh4Databank: ChapterDatabank = {
         "titleEn": "Mixed Antibody Antigen-Binding Sites Calculation",
         "titleAr": "مسألة حسابية: إجمالي مواقع الارتباط في خليط من الأجسام المضادة",
         "difficulty": "hots",
-        "questionEn": "A laboratory solution contains $ molecules of monomeric IgG and $ molecules of pentameric IgM. What is the total number of antigen-binding sites in this solution?",
-        "questionAr": "محلول معملي يحتوي على $ جزيء من الجسم المضاد المفرد IgG و$ جزيء من الجسم المضاد الخماسي IgM. كم يبلغ إجمالي عدد مواقع الارتباط بالمستضد في هذا المحلول؟",
+        "questionEn": "A laboratory solution contains $500$ molecules of monomeric IgG and $200$ molecules of pentameric IgM. What is the total number of antigen-binding sites in this solution?",
+        "questionAr": "محلول معملي يحتوي على $500$ جزيء من الجسم المضاد المفرد IgG و$200$ جزيء من الجسم المضاد الخماسي IgM. كم يبلغ إجمالي عدد مواقع الارتباط بالمستضد في هذا المحلول؟",
         "optionsEn": [
-            "{,}400$ binding sites",
-            "{,}000$ binding sites ( \times 2 + 200 \times 10 = 1000 + 2000 = 3000$)",
-            "$ binding sites",
-            "{,}000$ binding sites"
+            "$1{,}400$ binding sites",
+            "$3{,}000$ binding sites ($500 \\times 2 + 200 \\times 10 = 1{,}000 + 2{,}000 = 3{,}000$)",
+            "$2{,}000$ binding sites",
+            "$4{,}000$ binding sites"
         ],
         "optionsAr": [
-            "{,}400$ موقع ارتباط",
-            "{,}000$ موقع ارتباط ( \times 2 + 200 \times 10 = 1000 + 2000 = 3000$ موقع)",
-            "$ موقع ارتباط",
-            "{,}000$ موقع ارتباط"
+            "$1{,}400$ موقع ارتباط",
+            "$3{,}000$ موقع ارتباط ($500 \\times 2 + 200 \\times 10 = 1{,}000 + 2{,}000 = 3{,}000$ موقع)",
+            "$2{,}000$ موقع ارتباط",
+            "$4{,}000$ موقع ارتباط"
         ],
-        "correctAnswer": "{,}000$ binding sites ( \times 2 + 200 \times 10 = 1000 + 2000 = 3000$)",
+        "correctAnswer": "$3{,}000$ binding sites ($500 \\times 2 + 200 \\times 10 = 1{,}000 + 2{,}000 = 3{,}000$)",
         "correctIndex": 1,
         "hintEn": "Apply high-order analytical reasoning to the experimental or clinical scenario of Mixed Antibody Antigen-Binding Sites Calculation.",
         "hintAr": "طبق مهارات التفكير العليا والتحليل المنطقي على الحالة التجريبية أو السريرية لـ مسألة حسابية: إجمالي مواقع الارتباط في خليط من الأجسام المضادة.",
         "stepByStepSolutionEn": [
             "Examine the experimental parameters or clinical data presented for Mixed Antibody Antigen-Binding Sites Calculation.",
-            "Deduce the underlying biological principle: {,}000$ binding sites ( \times 2 + 200 \times 10 = 1000 + 2000 = 3000$).",
+            "Deduce the underlying biological principle: $3{,}000$ binding sites ($500 \\times 2 + 200 \\times 10 = 1{,}000 + 2{,}000 = 3{,}000$).",
             "Synthesize molecular and systemic immune concepts according to top-tier Thanaweya exam standards."
         ],
         "stepByStepSolutionAr": [
             "فحص المعطيات التجريبية أو البيانات السريرية المعروضة لـ مسألة حسابية: إجمالي مواقع الارتباط في خليط من الأجسام المضادة.",
-            "استنتاج المبدأ البيولوجي الكامن: {,}000$ موقع ارتباط ( \times 2 + 200 \times 10 = 1000 + 2000 = 3000$ موقع).",
+            "استنتاج المبدأ البيولوجي الكامن: $3{,}000$ موقع ارتباط ($500 \\times 2 + 200 \\times 10 = 1{,}000 + 2{,}000 = 3{,}000$ موقع).",
             "الربط بين المفاهيم المناعية الجزيئية والجهازية وفق أعلى معايير أسئلة التفكير العليا للثانوية العامة."
         ],
         "teacherTipEn": "Pay close attention to experimental controls and quantitative parameters in Mixed Antibody Antigen-Binding Sites Calculation.",
@@ -6028,27 +6028,27 @@ export const bioCh4Databank: ChapterDatabank = {
         "optionsEn": [
             "10 variable domains",
             "40 variable domains",
-            "20 variable domains (\text{ monomers} \times 4\text{ variable domains per monomer} = 20$)",
+            "20 variable domains ($5\\text{ monomers} \\times 4\\text{ variable domains per monomer} = 20$)",
             "4 variable domains"
         ],
         "optionsAr": [
             "10 مجالات متغيرة فقط",
             "40 مجالاً متغيراً",
-            "20 مجالاً متغيراً (\text{ وحدات} \times 4\text{ مجالات متغيرة لكل وحدة} = 20$ مجالاً تشكل 10 مواقع ارتباط)",
+            "20 مجالاً متغيراً ($5\\text{ وحدات} \\times 4\\text{ مجالات متغيرة لكل وحدة} = 20$ مجالاً تشكل 10 مواقع ارتباط)",
             "4 مجالات متغيرة فقط"
         ],
-        "correctAnswer": "20 variable domains (\text{ monomers} \times 4\text{ variable domains per monomer} = 20$)",
+        "correctAnswer": "20 variable domains ($5\\text{ monomers} \\times 4\\text{ variable domains per monomer} = 20$)",
         "correctIndex": 2,
         "hintEn": "Apply high-order analytical reasoning to the experimental or clinical scenario of Polypeptide Domains Count in Pentameric IgM.",
         "hintAr": "طبق مهارات التفكير العليا والتحليل المنطقي على الحالة التجريبية أو السريرية لـ حساب عدد المجالات الببتيدية في الجسم المضاد الخماسي IgM.",
         "stepByStepSolutionEn": [
             "Examine the experimental parameters or clinical data presented for Polypeptide Domains Count in Pentameric IgM.",
-            "Deduce the underlying biological principle: 20 variable domains (\text{ monomers} \times 4\text{ variable domains per monomer} = 20$).",
+            "Deduce the underlying biological principle: 20 variable domains ($5\\text{ monomers} \\times 4\\text{ variable domains per monomer} = 20$).",
             "Synthesize molecular and systemic immune concepts according to top-tier Thanaweya exam standards."
         ],
         "stepByStepSolutionAr": [
             "فحص المعطيات التجريبية أو البيانات السريرية المعروضة لـ حساب عدد المجالات الببتيدية في الجسم المضاد الخماسي IgM.",
-            "استنتاج المبدأ البيولوجي الكامن: 20 مجالاً متغيراً (\text{ وحدات} \times 4\text{ مجالات متغيرة لكل وحدة} = 20$ مجالاً تشكل 10 مواقع ارتباط).",
+            "استنتاج المبدأ البيولوجي الكامن: 20 مجالاً متغيراً ($5\\text{ وحدات} \\times 4\\text{ مجالات متغيرة لكل وحدة} = 20$ مجالاً تشكل 10 مواقع ارتباط).",
             "الربط بين المفاهيم المناعية الجزيئية والجهازية وفق أعلى معايير أسئلة التفكير العليا للثانوية العامة."
         ],
         "teacherTipEn": "Pay close attention to experimental controls and quantitative parameters in Polypeptide Domains Count in Pentameric IgM.",

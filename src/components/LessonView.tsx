@@ -554,9 +554,9 @@ export const LessonView: React.FC<Props> = ({
                   onClick={() => handleSelectOption(prob.id, optIdx)}
                   className={`border p-3 rounded-xl flex items-center justify-between gap-2 text-xs transition-all text-left rtl:text-right cursor-pointer group hover:scale-[1.01] active:scale-[0.99] ${cardStyle}`}
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-start gap-2.5 min-w-0 flex-1">
                     <span
-                      className={`font-black px-2 py-0.5 rounded-md text-[11px] shrink-0 ${
+                      className={`font-black px-2 py-0.5 rounded-md text-[11px] shrink-0 mt-0.5 ${
                         isSelectedCorrect || shouldReveal
                           ? 'bg-emerald-600 text-white'
                           : isSelectedWrong
@@ -568,9 +568,9 @@ export const LessonView: React.FC<Props> = ({
                     >
                       {lang === 'ar' ? `(${['أ', 'ب', 'ج', 'د'][optIdx]})` : `(${String.fromCharCode(65 + optIdx)})`}
                     </span>
-                    <span className={`font-semibold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                    <div className={`flex-1 min-w-0 font-semibold leading-relaxed ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                       <MathRenderer math={opt} lang={lang} />
-                    </span>
+                    </div>
                   </div>
                   {isSelectedCorrect && (
                     <span className="text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 shrink-0 flex items-center gap-0.5">

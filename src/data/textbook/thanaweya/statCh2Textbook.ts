@@ -334,10 +334,10 @@ export const statCh2SolvedExamples: SolvedProblem[] = [
       "$1\\text{ unit}$"
     ],
     "optionsAr": [
-      "\\frac{3\\sqrt{5}}{7}\\text{ وحدة طول}",
-      "\\frac{7}{3\\sqrt{5}}\\text{ وحدة طول}",
-      "\\frac{45}{7}\\text{ وحدة طول}",
-      "1\\text{ وحدة طول}"
+      "$\\frac{3\\sqrt{5}}{7}\\text{ وحدة طول}$",
+      "$\\frac{7}{3\\sqrt{5}}\\text{ وحدة طول}$",
+      "$\\frac{45}{7}\\text{ وحدة طول}$",
+      "$1\\text{ وحدة طول}$"
     ],
     "correctAnswer": "$\\frac{3\\sqrt{5}}{7}\\text{ units}$",
     "correctIndex": 0,
@@ -753,10 +753,10 @@ export const statCh2Exercises: SolvedProblem[] = [
       "$\\sqrt{3}\\text{ units}$"
     ],
     "optionsAr": [
-      "\\sqrt{6}\\text{ وحدة عزم}",
-      "\\sqrt{14}\\text{ وحدة عزم}",
-      "3\\text{ وحدات عزم}",
-      "\\sqrt{3}\\text{ وحدة عزم}"
+      "$\\sqrt{6}\\text{ وحدة عزم}$",
+      "$\\sqrt{14}\\text{ وحدة عزم}$",
+      "$3\\text{ وحدات عزم}$",
+      "$\\sqrt{3}\\text{ وحدة عزم}$"
     ],
     "correctAnswer": "$\\sqrt{6}\\text{ units}$",
     "correctIndex": 0,

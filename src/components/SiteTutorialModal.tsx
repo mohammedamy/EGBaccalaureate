@@ -20,6 +20,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
+import { MathRenderer } from './MathRenderer';
 
 interface Props {
   isOpen: boolean;
@@ -696,8 +697,8 @@ export const SiteTutorialModal: React.FC<Props> = ({
                   </span>
                   <span className="text-[10px] text-slate-400">187,214 {isArabic ? 'معادلة' : 'Formulas'}</span>
                 </div>
-                <div className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-center font-mono text-xs text-emerald-400">
-                  {'E = h\\nu = \\frac{hc}{\\lambda} \\quad \\Longleftrightarrow \\quad eV_0 = \\text{KE}_{\\max}'}
+                <div className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-center text-xs text-emerald-400">
+                  <MathRenderer math="E = h\nu = \frac{hc}{\lambda} \quad \Longleftrightarrow \quad eV_0 = \text{KE}_{\max}" lang={lang} />
                 </div>
               </div>
             )}

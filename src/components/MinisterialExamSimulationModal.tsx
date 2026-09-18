@@ -386,7 +386,7 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
 
                     {/* Question Prompt */}
                     <div className="bg-slate-950/60 p-4 sm:p-5 rounded-2xl border border-slate-800 text-slate-100 text-sm sm:text-base leading-relaxed font-medium">
-                      <MathRenderer text={isAr ? currentQ.questionAr : currentQ.questionEn} />
+                      <MathRenderer text={isAr ? currentQ.questionAr : currentQ.questionEn} lang={isAr ? 'ar' : 'en'} />
                     </div>
 
                     {/* Options List */}
@@ -416,7 +416,7 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
                               {letter}
                             </span>
                             <div className="flex-1 text-xs sm:text-sm font-medium">
-                              <MathRenderer text={opt} />
+                              <MathRenderer text={opt} lang={isAr ? 'ar' : 'en'} />
                             </div>
                           </button>
                         );

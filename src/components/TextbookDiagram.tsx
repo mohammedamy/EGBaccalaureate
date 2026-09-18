@@ -1498,7 +1498,7 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
 
               {/* Gain Relationships */}
               <text x="117" y="185" textAnchor="middle" className="text-[11px] font-black fill-cyan-300">
-                β = I_c / I_b, \quad I_e = I_b + I_c
+                β = I_c / I_b   |   I_e = I_b + I_c
               </text>
               <text x="117" y="208" textAnchor="middle" className="text-[10px] font-black fill-amber-300">
                 V_ce = V_cc - I_c · R_c

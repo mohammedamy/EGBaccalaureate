@@ -227,8 +227,9 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
               />
               <circle cx={toSvgX(x)} cy={toSvgY(y)} r={5} fill="#4f46e5" stroke="#fff" strokeWidth="1.5" />
               <text
-                x={toSvgX(x) + 8}
-                y={toSvgY(y) - 6}
+                x={toSvgX(x) > svgSize - 55 ? toSvgX(x) - 8 : toSvgX(x) + 8}
+                y={toSvgY(y) < 20 ? toSvgY(y) + 14 : toSvgY(y) - 6}
+                textAnchor={toSvgX(x) > svgSize - 55 ? 'end' : 'start'}
                 fill="#818cf8"
                 fontSize="11"
                 fontWeight="extrabold"
@@ -461,24 +462,31 @@ export const InteractiveComplexArgand: React.FC<Props> = ({ lang, theme = 'dark'
                       <line x1={svgSize / 2} y1={svgSize / 2} x2={px} y2={py} stroke="#6366f1" strokeWidth="1" opacity={0.6} />
                       <circle cx={px} cy={py} r={5} fill="#4f46e5" stroke="#fff" strokeWidth="1.5" />
                       <text
-                        x={px + 8 * Math.cos(rt.phi)}
-                        y={py - 8 * Math.sin(rt.phi)}
+                        x={px + 10 * Math.cos(rt.phi)}
+                        y={py - 10 * Math.sin(rt.phi)}
                         fill="#818cf8"
                         fontSize="10"
                         fontWeight="bold"
+                        textAnchor={Math.cos(rt.phi) < -0.2 ? 'end' : Math.cos(rt.phi) > 0.2 ? 'start' : 'middle'}
+                        dominantBaseline="central"
                       >
-                        w_{idx}
+                        w<tspan dy="3" fontSize="8">{idx}</tspan>
                       </text>
                     </g>
                   );
                 })}
               </svg>
 
-              <p className="text-[11px] text-slate-400 text-center mt-1 leading-relaxed">
-                {lang === 'ar'
-                  ? `الجذور النونية تقع جميعها على دائرة نصف قطرها r^{1/${rootN}} وتشكل رؤوس مضلع منتظم عدد أضلاعه ${rootN}.`
-                  : `All ${rootN}-th roots lie on circle of radius r^(1/${rootN}) forming the vertices of a regular ${rootN}-gon.`}
-              </p>
+              <div className="text-[11px] text-slate-400 text-center mt-1 leading-relaxed">
+                <MathRenderer
+                  text={
+                    lang === 'ar'
+                      ? `الجذور النونية تقع جميعها على دائرة نصف قطرها $r^{1/${rootN}}$ وتشكل رؤوس مضلع منتظم عدد أضلاعه ${rootN}.`
+                      : `All ${rootN}-th roots lie on circle of radius $r^{1/${rootN}}$ forming the vertices of a regular ${rootN}-gon.`
+                  }
+                  lang={lang}
+                />
+              </div>
             </div>
 
             {/* De Moivre Slider Controls & Formula (6 cols) */}

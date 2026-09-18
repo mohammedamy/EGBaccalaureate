@@ -573,11 +573,13 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
                       : (isAr ? 'سؤال الاستدعاء النشط:' : 'Active Recall Prompt:')}
                   </span>
                   <h3 className="text-base sm:text-lg lg:text-xl font-black leading-relaxed text-slate-100">
-                    {formulaMode
-                      ? (isAr
-                          ? `ما هي المعادلة الرياضية الأساسية لـ: "${activeCard.titleAr}"؟`
-                          : `What is the foundational mathematical formula for: "${activeCard.titleEn}"?`)
-                      : (isAr ? activeCard.frontAr : activeCard.frontEn)}
+                    {formulaMode ? (
+                      isAr
+                        ? `ما هي المعادلة الرياضية الأساسية لـ: "${activeCard.titleAr}"؟`
+                        : `What is the foundational mathematical formula for: "${activeCard.titleEn}"?`
+                    ) : (
+                      <MathRenderer text={isAr ? activeCard.frontAr : activeCard.frontEn} lang={lang} />
+                    )}
                   </h3>
                   <p className="text-xs text-slate-500 flex items-center justify-center sm:justify-start gap-1 pt-4">
                     <Eye className="w-3.5 h-3.5" />
@@ -590,9 +592,9 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
                   <span className="text-[11px] font-extrabold uppercase tracking-widest text-cyan-400 block">
                     {isAr ? 'التحليل الفيزيائي المعتمد:' : 'Pedagogical Physical Model:'}
                   </span>
-                  <p className="text-xs sm:text-sm font-medium leading-relaxed whitespace-pre-line text-slate-200">
-                    {isAr ? activeCard.backAr : activeCard.backEn}
-                  </p>
+                  <div className="text-xs sm:text-sm font-medium leading-relaxed whitespace-pre-line text-slate-200">
+                    <MathRenderer text={isAr ? activeCard.backAr : activeCard.backEn} lang={lang} />
+                  </div>
                   {activeCard.latex && (
                     <div className="py-2 px-3 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-center text-cyan-300">
                       <MathRenderer math={activeCard.latex} lang={lang} />
@@ -603,7 +605,7 @@ export const PhysicsFlashcards: React.FC<Props> = ({ lang, theme = 'dark' }) => 
                       <span className="font-black text-amber-300 block mb-0.5">
                         {isAr ? '💡 ملحوظة واضعي الامتحان:' : '💡 Examiner Tip:'}
                       </span>
-                      {isAr ? activeCard.teacherNoteAr : activeCard.teacherNoteEn}
+                      <MathRenderer text={isAr ? activeCard.teacherNoteAr : activeCard.teacherNoteEn} lang={lang} />
                     </div>
                   )}
                 </div>

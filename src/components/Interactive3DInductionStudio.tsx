@@ -888,7 +888,7 @@ export const Interactive3DInductionStudio: React.FC<Props> = ({
             }`}
           >
             {/* 3D Orbit Helper HUD */}
-            <div className="absolute top-3 left-3 rtl:right-3 rtl:left-auto bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/60 text-[11px] text-slate-300 pointer-events-none flex items-center gap-2">
+            <div className="absolute bottom-3 left-3 rtl:right-3 rtl:left-auto bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/60 text-[11px] text-slate-300 pointer-events-none flex items-center gap-2 z-10 shadow-lg">
               <Compass className="w-3.5 h-3.5 text-amber-400 animate-spin" />
               <span>{isAr ? 'انقر واسحب لتدوير المشهد 3D' : 'Click & drag to orbit in 3D'}</span>
             </div>

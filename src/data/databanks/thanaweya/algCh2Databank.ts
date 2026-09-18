@@ -445,7 +445,7 @@ export const algCh2Databank: ChapterDatabank = {
     ],
     "correctAnswer": "\\frac{\\pi}{4}",
     "correctIndex": 0,
-    "hintEn": "Both x > 0 and y > 0, so z is in Quadrant I with tan(\\theta) = 1.",
+    "hintEn": "Both x > 0 and y > 0, so z is in Quadrant I with $\\tan(\\theta) = 1$.",
     "hintAr": "كلا من x > ٠ و y > ٠، إذن النقطة في الربع الأول وظل الزاوية = ١.",
     "stepByStepSolutionEn": [
       "Here $x = 1 > 0$ and $y = 1 > 0$, placing $z$ in Quadrant I.",
@@ -5149,7 +5149,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_26",
     "titleEn": "Derivation of cos(3theta) via De Moivre",
-    "titleAr": "استنتاج قانون cos(٣\\theta) بنظرية ديموافر",
+    "titleAr": "استنتاج قانون $\\cos(3\\theta)$ بنظرية ديموافر",
     "difficulty": "hots",
     "questionEn": "Using De Moivre's theorem, $\\cos(3\\theta)$ can be expressed as:",
     "questionAr": "باستخدام نظرية ديموافر، يمكن التعبير عن $\\cos(٣\\theta)$ بالصيغة:",
@@ -5191,7 +5191,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_27",
     "titleEn": "Derivation of sin(3theta) via De Moivre",
-    "titleAr": "استنتاج قانون sin(٣\\theta) بنظرية ديموافر",
+    "titleAr": "استنتاج قانون $\\sin(3\\theta)$ بنظرية ديموافر",
     "difficulty": "hots",
     "questionEn": "Using De Moivre's theorem, $\\sin(3\\theta)$ equals:",
     "questionAr": "باستخدام نظرية ديموافر، فإن $\\sin(٣\\theta)$ تساوي:",
@@ -5229,7 +5229,7 @@ export const algCh2Databank: ChapterDatabank = {
   {
     "id": "alg_ch2_db_hots_28",
     "titleEn": "Linear Combination of Roots (z + 1/z = 2cos(theta))",
-    "titleAr": "التركيبة الخطية z + ١/z = ٢cos(\\theta)",
+    "titleAr": "التركيبة الخطية $z + 1/z = 2\\cos(\\theta)$",
     "difficulty": "hots",
     "questionEn": "If $z = \\cos\\theta + i\\sin\\theta$, find $z^n + \\frac{1}{z^n}$.",
     "questionAr": "إذا كان $z = \\cos\\theta + ت\\sin\\theta$، فأوجد قيمة المقدار $z^n + \\frac{١}{z^n}$.",
@@ -5787,18 +5787,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "What curve in the Cartesian plane is represented by $|z - 4| + |z + 4| = 10$?",
     "questionAr": "ما هو المنحنى الممثل بالمعادلة $|z - ٤| + |z + ٤| = ١٠$ في المستوى الكارتيزي؟",
     "optionsEn": [
-      "An ellipse with equation \\frac{x^2}{25} + \\frac{y^2}{9} = 1",
-      "A hyperbola with equation \\frac{x^2}{25} - \\frac{y^2}{9} = 1",
+      "An ellipse with equation $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$",
+      "A hyperbola with equation $\\frac{x^2}{25} - \\frac{y^2}{9} = 1$",
       "A circle with radius 5",
       "A parabola opening to the right"
     ],
     "optionsAr": [
-      "قطع ناقص معادلته \\frac{x^٢}{٢٥} + \\frac{y^٢}{٩} = ١",
-      "قطع زائد معادلته \\frac{x^٢}{٢٥} - \\frac{y^٢}{٩} = ١",
+      "قطع ناقص معادلته $\\frac{x^٢}{٢٥} + \\frac{y^٢}{٩} = ١$",
+      "قطع زائد معادلته $\\frac{x^٢}{٢٥} - \\frac{y^٢}{٩} = ١$",
       "دائرة نصف قطرها ٥",
       "قطع مكافئ فتحته لليمين"
     ],
-    "correctAnswer": "An ellipse with equation \\frac{x^2}{25} + \\frac{y^2}{9} = 1",
+    "correctAnswer": "An ellipse with equation $\\frac{x^2}{25} + \\frac{y^2}{9} = 1$",
     "correctIndex": 0,
     "hintEn": "Sum of distances from $(\\pm 4, 0)$ is a constant $2a = 10 > 2c = 8$.",
     "hintAr": "مجموع البعدين عن البؤرتين $(\\pm ٤، ٠)$ مقدار ثابت $٢a = ١٠ > ٢c = ٨$.",
@@ -5825,18 +5825,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "What curve is represented by $||z - 3| - |z + 3|| = 4$?",
     "questionAr": "ما هو المنحنى الممثل بالمعادلة $||z - ٣| - |z + ٣|| = ٤$؟",
     "optionsEn": [
-      "A hyperbola with equation \\frac{x^2}{4} - \\frac{y^2}{5} = 1",
-      "An ellipse with equation \\frac{x^2}{9} + \\frac{y^2}{5} = 1",
+      "A hyperbola with equation $\\frac{x^2}{4} - \\frac{y^2}{5} = 1$",
+      "An ellipse with equation $\\frac{x^2}{9} + \\frac{y^2}{5} = 1$",
       "Two intersecting straight lines",
       "A parabola"
     ],
     "optionsAr": [
-      "قطع زائد معادلته \\frac{x^٢}{٤} - \\frac{y^٢}{٥} = ١",
-      "قطع ناقص معادلته \\frac{x^٢}{٩} + \\frac{y^٢}{٥} = ١",
+      "قطع زائد معادلته $\\frac{x^٢}{٤} - \\frac{y^٢}{٥} = ١$",
+      "قطع ناقص معادلته $\\frac{x^٢}{٩} + \\frac{y^٢}{٥} = ١$",
       "مستقيمان متقاطعان",
       "قطع مكافئ"
     ],
-    "correctAnswer": "A hyperbola with equation \\frac{x^2}{4} - \\frac{y^2}{5} = 1",
+    "correctAnswer": "A hyperbola with equation $\\frac{x^2}{4} - \\frac{y^2}{5} = 1$",
     "correctIndex": 0,
     "hintEn": "The difference of distances to $(\\pm 3, 0)$ is constant $2a = 4 < 2c = 6$.",
     "hintAr": "الفرق المطلق بين بعدي النقطة عن البؤرتين مقدار ثابت $٢a = ٤ < ٢c = ٦$.",
@@ -5863,18 +5863,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "Is there any positive integer $n$ such that $(1 + i)^n = (1 - i\\sqrt{3})^n$?",
     "questionAr": "هل يوجد أي عدد صحيح موجب $n$ يحقق $(١ + ت)^n = (١ - ت\\sqrt{٣})^n$؟",
     "optionsEn": [
-      "No, because their moduli (\\sqrt{2})^n and 2^n can never be equal for n > 0",
+      "No, because their moduli $(\\sqrt{2})^n$ and $2^n$ can never be equal for $n > 0$",
       "Yes, when n = 12",
       "Yes, when n = 24",
       "Yes, when n = 6"
     ],
     "optionsAr": [
-      "لا، لأن مقياسيهما (\\sqrt{٢})^n و ٢^n لا يمكن أن يتساويا لأي n > ٠",
+      "لا، لأن مقياسيهما $(\\sqrt{٢})^n$ و $٢^n$ لا يمكن أن يتساويا لأي $n > ٠$",
       "نعم، عندما n = ١٢",
       "نعم، عندما n = ٢٤",
       "نعم، عندما n = ٦"
     ],
-    "correctAnswer": "No, because their moduli (\\sqrt{2})^n and 2^n can never be equal for n > 0",
+    "correctAnswer": "No, because their moduli $(\\sqrt{2})^n$ and $2^n$ can never be equal for $n > 0$",
     "correctIndex": 0,
     "hintEn": "Compare the moduli: $|1+i| = \\sqrt{2}$, but $|1 - i\\sqrt{3}| = 2$.",
     "hintAr": "قارن المقياسين: $|١+ت| = \\sqrt{٢}$ بينما $|١-ت\\sqrt{٣}| = ٢$.",

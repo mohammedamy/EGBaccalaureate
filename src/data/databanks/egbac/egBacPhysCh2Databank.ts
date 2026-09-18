@@ -5579,32 +5579,32 @@ export const egBacPhysCh2Databank: ChapterDatabank = {
     "titleEn": "Rydberg Atom Radiative Lifetime Scaling",
     "titleAr": "تناسب العمر الزمني الإشعاعي لذرات ريدبيرغ ذات الإثارة الفائقة",
     "difficulty": "hots",
-    "questionEn": "In highly excited Rydberg hydrogenic atoms, the spontaneous radiative decay lifetime $\\tau_n$ of principal quantum level $ scales according to electric dipole selection rules with $ approximately as:",
-    "questionAr": "في ذرات الهيدروجين المثارة إلى مستويات ريدبيرغ الشاهقة، يتناسب العمر الزمني الإشعاعي التلقائي $\\tau_n$ للمستوى الرئيسي $ وفق قواعد الاختيار لثنائي القطب الكهربي مع $ تقريباً كـ:",
+    "questionEn": "In highly excited Rydberg hydrogenic atoms, the spontaneous radiative decay lifetime $\\tau_n$ of principal quantum level $n$ scales according to electric dipole selection rules with $n$ approximately as:",
+    "questionAr": "في ذرات الهيدروجين المثارة إلى مستويات ريدبيرغ الشاهقة، يتناسب العمر الزمني الإشعاعي التلقائي $\\tau_n$ للمستوى الرئيسي $n$ وفق قواعد الاختيار لثنائي القطب الكهربي مع $n$ تقريباً كـ:",
     "optionsEn": [
       "$\\tau_n \\propto \\frac{1}{n^2}$",
-      "$\\tau_n \\propto n^3$ (or ^{4.5}$ for maximum circular states)",
+      "$\\tau_n \\propto n^3$ (or $n^{4.5}$ for maximum circular states)",
       "$\\tau_n \\propto n^{-4}$",
-      "$\\tau_n$ is strictly independent of $"
+      "$\\tau_n$ is strictly independent of $n$"
     ],
     "optionsAr": [
       "$\\tau_n \\propto \\frac{1}{n^2}$",
-      "$\\tau_n \\propto n^3$ (أو ^{4.5}$ للحالات الدائرية ذات أقصى زخم زاوي)",
+      "$\\tau_n \\propto n^3$ (أو $n^{4.5}$ للحالات الدائرية ذات أقصى زخم زاوي)",
       "$\\tau_n \\propto n^{-4}$",
-      "$\\tau_n$ ثابت تماماً ومستقل عن $"
+      "$\\tau_n$ ثابت تماماً ومستقل عن $n$"
     ],
-    "correctAnswer": "$\\tau_n \\propto n^3$ (or ^{4.5}$ for maximum circular states)",
+    "correctAnswer": "$\\tau_n \\propto n^3$ (or $n^{4.5}$ for maximum circular states)",
     "correctIndex": 1,
-    "hintEn": "Recall the Einstein A coefficient: {n \\to n'} \\propto \\omega^3 |\\langle n|r|n'\\rangle|^2$. Spontaneous transition rates drop dramatically for high $.",
-    "hintAr": "تذكر معامل آينشتاين للانبعاث التلقائي:  \\propto \\omega^3 |\\langle r \\rangle|^2$. ينخفض معدل الهبوط التلقائي بشكل حاد عند قيم $ الكبيرة.",
+    "hintEn": "Recall the Einstein A coefficient: $A_{n \\to n'} \\propto \\omega^3 |\\langle n|r|n'\\rangle|^2$. Spontaneous transition rates drop dramatically for high $n$.",
+    "hintAr": "تذكر معامل آينشتاين للانبعاث التلقائي: $A \\propto \\omega^3 |\\langle r \\rangle|^2$. ينخفض معدل الهبوط التلقائي بشكل حاد عند قيم $n$ الكبيرة.",
     "stepByStepSolutionEn": [
-      "The transition rate is  \\sim \\omega^3 |r|^2$. Summing over accessible lower states yields the total spontaneous transition rate {\\text{total}} \\propto n^{-3}$, hence the radiative lifetime $\\tau_n = 1/A_{\\text{total}} \\propto n^3$."
+      "The transition rate is $A \\sim \\omega^3 |r|^2$. Summing over accessible lower states yields the total spontaneous transition rate $A_{\\text{total}} \\propto n^{-3}$, hence the radiative lifetime $\\tau_n = 1/A_{\\text{total}} \\propto n^3$."
     ],
     "stepByStepSolutionAr": [
-      "يتناسب معدل الانتقال الإجمالي التلقائي مع مقلوب العمر الزمني الإشعاعي، حيث ينتج عن جمع احتمالات الانتقال أن {\\text{total}} \\propto n^{-3}$، ومن ثم يكون العمر الزمني الإشعاعي $\\tau_n \\propto n^3$."
+      "يتناسب معدل الانتقال الإجمالي التلقائي مع مقلوب العمر الزمني الإشعاعي، حيث ينتج عن جمع احتمالات الانتقال أن $A_{\\text{total}} \\propto n^{-3}$، ومن ثم يكون العمر الزمني الإشعاعي $\\tau_n \\propto n^3$."
     ],
-    "teacherTipEn": "Rydberg atoms with  > 50$ are key platforms for quantum sensing and quantum information because their microsecond-to-millisecond lifetimes allow coherent quantum gate operations.",
-    "teacherTipAr": "تعد ذرات ريدبيرغ ذات  > 50$ ركيزة في الاستشعار والحوسبة الكمية لأن أعمارها الإشعاعية المديدة تتيح تنفيذ بوابات كمية مستقرة ترابطياً."
+    "teacherTipEn": "Rydberg atoms with $n > 50$ are key platforms for quantum sensing and quantum information because their microsecond-to-millisecond lifetimes allow coherent quantum gate operations.",
+    "teacherTipAr": "تعد ذرات ريدبيرغ ذات $n > 50$ ركيزة في الاستشعار والحوسبة الكمية لأن أعمارها الإشعاعية المديدة تتيح تنفيذ بوابات كمية مستقرة ترابطياً."
   }
 ]
 };

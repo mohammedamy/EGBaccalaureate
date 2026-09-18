@@ -5020,7 +5020,7 @@ export const calcCh4Databank: ChapterDatabank = {
       "٣. بالتعويض بالحدود: [-1/∞ - (-1/1)] = 0 + 1 = 1.",
       "٤. الحجم = ط وحدة مكعبة."
     ],
-    "teacherTipEn": "Gabriel's horn has finite volume (\\pi) but infinite surface area!",
+    "teacherTipEn": "Gabriel's horn has finite volume ($\\pi$) but infinite surface area!",
     "teacherTipAr": "مفارقة بوق غابرييل الشهيرة: حجمه منتهٍ ويساوي ط، بينما مساحة سطحه لا نهائية!"
   },
   {
