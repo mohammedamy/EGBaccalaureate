@@ -1,5 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Language } from '../../../i18n/translations';
+import {
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  Maximize2,
+  X,
+  MapPin,
+  Layers,
+  Compass,
+  Navigation,
+  Crosshair,
+  Shield,
+  Info,
+} from 'lucide-react';
+
+import egyptMap from '../../../assets/geography/egypt_satellite_map.jpg';
+import franceMap from '../../../assets/geography/france_satellite_map.jpg';
+import chileMap from '../../../assets/geography/chile_satellite_map.jpg';
+import turkeyMap from '../../../assets/geography/turkey_satellite_map.jpg';
+import congoMap from '../../../assets/geography/congo_satellite_map.jpg';
+import afghanistanMap from '../../../assets/geography/afghanistan_satellite_map.jpg';
+import lesothoMap from '../../../assets/geography/lesotho_satellite_map.jpg';
+import japanMap from '../../../assets/geography/japan_satellite_map.jpg';
 
 interface Props {
   countryKey: string;
@@ -7,950 +30,805 @@ interface Props {
   theme?: string;
 }
 
+interface MapPinData {
+  x: number;
+  y: number;
+  type: 'capital' | 'maritime' | 'strait' | 'feature';
+  labelAr: string;
+  labelEn: string;
+  detailAr: string;
+  detailEn: string;
+}
+
+interface CountryMapConfig {
+  image: string;
+  titleAr: string;
+  titleEn: string;
+  coords: string;
+  scaleKm: string;
+  shapeTypeAr: string;
+  shapeTypeEn: string;
+  compactScore: string;
+  area: string;
+  perimeter: string;
+  strategicNoteAr: string;
+  strategicNoteEn: string;
+  pins: MapPinData[];
+}
+
+const countryMapData: Record<string, CountryMapConfig> = {
+  egypt: {
+    image: egyptMap,
+    titleAr: 'مصر (جمهورية مصر العربية)',
+    titleEn: 'Egypt (Arab Republic of Egypt)',
+    coords: '27°00′ N, 30°00′ E',
+    scaleKm: '0 - 250 - 500 km',
+    shapeTypeAr: 'شكل مندمج منتظم مثالي ذو واجهتين بحريتين',
+    shapeTypeEn: 'Ideal Compact Morphology with Dual Maritime Fronts',
+    compactScore: '0.82 (كفاءة إدارية ودفاعية فائقة)',
+    area: '1,002,000 كم²',
+    perimeter: '4,960 كم',
+    strategicNoteAr:
+      'تساوي المسافة تقريباً من المركز إلى الأطراف يمنح الجيش المصري حرية مناورة فائقة ويسهل الإدارة الداخلية، مع قلة الاحتكاك الحدودي بالنسبة للمساحة.',
+    strategicNoteEn:
+      'Equal distance from core to peripheries maximizes troop maneuverability and civil administration while minimizing border tension relative to area.',
+    pins: [
+      {
+        x: 58,
+        y: 33,
+        type: 'capital',
+        labelAr: 'القاهرة (العاصمة والعمق السياسي)',
+        labelEn: 'Cairo (Historic Capital & Strategic Core)',
+        detailAr: 'عاصمة تاريخية تتمتع بالعمق الجغرافي عند رأس الدلتا وملتقى الوجهين القبلي والبحري.',
+        detailEn: 'Historic nucleus located at the apex of the Nile Delta with inward strategic depth.',
+      },
+      {
+        x: 46,
+        y: 20,
+        type: 'maritime',
+        labelAr: 'الإسكندرية (عروس المتوسط)',
+        labelEn: 'Alexandria (Mediterranean Port)',
+        detailAr: 'الميناء التجاري الأول وواجهة مصر البحرية الشمالية على حوض البحر المتوسط.',
+        detailEn: 'Primary commercial maritime port facing the Mediterranean trade basin.',
+      },
+      {
+        x: 66,
+        y: 29,
+        type: 'strait',
+        labelAr: 'قناة السويس (شريان الملاحة)',
+        labelEn: 'Suez Canal (Global Chokepoint)',
+        detailAr: 'الممر الملاحي الأهم عالمياً الذي يربط البحرين المتوسط والأحمر ويختصر 40% من المسافة البحرية.',
+        detailEn: 'Paramount international maritime bottleneck linking Europe and Asia.',
+      },
+      {
+        x: 74,
+        y: 36,
+        type: 'feature',
+        labelAr: 'شبه جزيرة سيناء',
+        labelEn: 'Sinai Peninsula',
+        detailAr: 'البوابة الاستراتيجية الشرقية لمصر ومحور الدفاع القومي الأول.',
+        detailEn: 'Egypt eastern strategic land bridge and historical defense gateway.',
+      },
+      {
+        x: 82,
+        y: 65,
+        type: 'maritime',
+        labelAr: 'البحر الأحمر',
+        labelEn: 'Red Sea Maritime Front',
+        detailAr: 'الواجهة البحرية الشرقية الممتدة وسلاسل جبال البحر الأحمر الدفاعية.',
+        detailEn: 'Eastern maritime frontier accompanied by protective coastal mountain ranges.',
+      },
+      {
+        x: 58,
+        y: 80,
+        type: 'feature',
+        labelAr: 'السد العالي وبحيرة ناصر',
+        labelEn: 'Aswan High Dam & Lake Nasser',
+        detailAr: 'صمام الأمان المائي وحصن الأمن القومي في الجنوب المصري.',
+        detailEn: 'Hydraulic fortress anchoring Egyptian national water security.',
+      },
+    ],
+  },
+  france: {
+    image: franceMap,
+    titleAr: 'فرنسا (النموذج السداسي المندمج)',
+    titleEn: 'France (Hexagonal Compact Model)',
+    coords: '46°36′ N, 02°20′ E',
+    scaleKm: '0 - 200 - 400 km',
+    shapeTypeAr: 'النموذج المثالي للشكل المندمج المنتظم (L\'Hexagone)',
+    shapeTypeEn: 'Classic Textbook Model of Compact Morphology',
+    compactScore: '0.86 (النموذج القياسي في الجغرافيا السياسية)',
+    area: '643,801 كم²',
+    perimeter: '4,075 كم',
+    strategicNoteAr:
+      'شكلها السداسي المتناسق يوفر سهولة الاتصال وسرعة انتشار القوات المسلحة نحو أي جبهة مع حدود طبيعية حصينة (الألب والبرانس والراين).',
+    strategicNoteEn:
+      'Hexagonal symmetry optimizes internal communication lines and defensive troop mobilization reinforced by natural mountain and river frontiers.',
+    pins: [
+      {
+        x: 52,
+        y: 30,
+        type: 'capital',
+        labelAr: 'باريس (نواة الدولة وعاصمتها التاريخية)',
+        labelEn: 'Paris (National Nucleus & Capital)',
+        detailAr: 'العاصمة التاريخية في حوض باريس الخصيب مع شبكة مواصلات نجمية تربط أنحاء الدولة.',
+        detailEn: 'Historic core in the Paris Basin with radial transport networks connecting all peripheries.',
+      },
+      {
+        x: 38,
+        y: 14,
+        type: 'maritime',
+        labelAr: 'بحر المانش (English Channel)',
+        labelEn: 'English Channel / La Manche',
+        detailAr: 'الحد المائي الشمالي الفاصل بين فرنسا وبريطانيا.',
+        detailEn: 'Northern maritime buffer separating France from the British Isles.',
+      },
+      {
+        x: 20,
+        y: 54,
+        type: 'maritime',
+        labelAr: 'خليج بسكاي (المحيط الأطلسي)',
+        labelEn: 'Bay of Biscay (Atlantic Coast)',
+        detailAr: 'الواجهة البحرية الغربية على المحيط الأطلسي المفتوح.',
+        detailEn: 'Western oceanic perimeter granting direct Atlantic shipping access.',
+      },
+      {
+        x: 82,
+        y: 65,
+        type: 'feature',
+        labelAr: 'جبال الألب (حدود طبيعية مع إيطاليا)',
+        labelEn: 'Alps Mountains (Border with Italy)',
+        detailAr: 'حاجز تضاريسي طبيعي حصين يعزز مناعة الدولة الدفاعية شرقاً.',
+        detailEn: 'Imposing natural mountain wall providing formidable eastern frontier security.',
+      },
+      {
+        x: 42,
+        y: 89,
+        type: 'feature',
+        labelAr: 'جبال البرانس (حدود طبيعية مع إسبانيا)',
+        labelEn: 'Pyrenees Range (Border with Spain)',
+        detailAr: 'سلسلة جبلية تمتد كحد طبيعي مانع يفصل بين فرنسا وشبه الجزيرة الأيبيرية.',
+        detailEn: 'Natural mountain barrier delimiting the frontier between France and Iberia.',
+      },
+    ],
+  },
+  chile: {
+    image: chileMap,
+    titleAr: 'تشيلي (الشكل الشريطي النحيل)',
+    titleEn: 'Chile (Elongated Ribbon Morphology)',
+    coords: '35°40′ S, 71°30′ W',
+    scaleKm: '0 - 500 - 1000 km',
+    shapeTypeAr: 'شكل شريطي طولي (طولها أكثر من 6 أضعاف متوسط عرضها)',
+    shapeTypeEn: 'North-South Elongated Linear Ribbon (>6x length to width)',
+    compactScore: '0.14 (احتكاك حدودي وصعوبة اتصال داخلي)',
+    area: '756,102 كم²',
+    perimeter: '6,339 كم',
+    strategicNoteAr:
+      'تنوع هائل في دوائر العرض ينتج عنه تنوع مناخي وزراعي فريد، ولكن يعيبه صعوبة الدفاع العسكري وطول خطوط الاتصال الداخلي.',
+    strategicNoteEn:
+      'Extensive latitudinal spread yields immense climatic and agricultural diversity, but poses extreme tactical vulnerability and logistic friction.',
+    pins: [
+      {
+        x: 48,
+        y: 50,
+        type: 'capital',
+        labelAr: 'سانتياغو (العاصمة في الوادي الأوسط)',
+        labelEn: 'Santiago (Capital in Central Valley)',
+        detailAr: 'تتركز العاصمة ومعظم السكان في الوادي الأوسط ذي مناخ البحر المتوسط الخصيب.',
+        detailEn: 'Capital located in the Mediterranean fertile basin holding the country demographic weight.',
+      },
+      {
+        x: 64,
+        y: 38,
+        type: 'feature',
+        labelAr: 'جبال الأنديز (السياج الشرقي)',
+        labelEn: 'Andes Cordillera Barrier',
+        detailAr: 'حاجز طبيعي هائل يحمي تشيلي شرقاً ويفصلها عن الأرجنتين وبوليفيا.',
+        detailEn: 'Towering eastern wall shielding Chile while complicating trans-continental transit.',
+      },
+      {
+        x: 52,
+        y: 20,
+        type: 'feature',
+        labelAr: 'صحراء أتاكاما (المناخ الجاف الشمالي)',
+        labelEn: 'Atacama Desert (Arid North)',
+        detailAr: 'أكثر مناطق العالم جفافاً، غنية باحتياطيات النحاس والليثيوم الاستراتيجية.',
+        detailEn: 'Hyper-arid northern territory rich in strategic global copper and lithium deposits.',
+      },
+      {
+        x: 46,
+        y: 84,
+        type: 'maritime',
+        labelAr: 'مضائق باتاغونيا والجزر الجنوبية',
+        labelEn: 'Patagonian Fjords & Subpolar Archipelago',
+        detailAr: 'تضاريس شديدة الوعورة ومناخ بارد مع جزر متناثرة عند رأس هورن.',
+        detailEn: 'Subpolar labyrinth of islands, glaciers, and fjords terminating at Cape Horn.',
+      },
+    ],
+  },
+  turkey: {
+    image: turkeyMap,
+    titleAr: 'تركيا (الشكل الشريطي العرضي)',
+    titleEn: 'Turkey (Latitudinal Elongated State)',
+    coords: '39°00′ N, 35°00′ E',
+    scaleKm: '0 - 300 - 600 km',
+    shapeTypeAr: 'شكل شريطي عرضي من الشرق إلى الغرب',
+    shapeTypeEn: 'East-West Latitudinally Stretched State',
+    compactScore: '0.38 (امتداد عرضي لا يوفر تنوعاً مناخياً كبيراً)',
+    area: '783,562 كم²',
+    perimeter: '2,816 كم',
+    strategicNoteAr:
+      'امتدادها العرضي عبر خطوط عرض متقاربة يحرمها من ميزة التنوع المناخي التي تتمتع بها تشيلي، لكن موقعها يتحكم في أهم مضائق العالم.',
+    strategicNoteEn:
+      'Latitudinal alignment limits climatic diversity compared to Chile, but its bridgehead location controls vital Eurasian choke points.',
+    pins: [
+      {
+        x: 46,
+        y: 44,
+        type: 'capital',
+        labelAr: 'أنقرة (عاصمة ذات عمق استراتيجي)',
+        labelEn: 'Ankara (Strategic Inland Capital)',
+        detailAr: 'نُقلت العاصمة من إسطنبول الساحلية إلى أنقرة الداخلية لتوفير الحماية العسكرية والعمق الدفاعي.',
+        detailEn: 'Capital relocated inland from Istanbul to achieve sovereign depth and defense insulation.',
+      },
+      {
+        x: 22,
+        y: 32,
+        type: 'strait',
+        labelAr: 'مضيقا البوسفور والدردنيل',
+        labelEn: 'Bosphorus & Dardanelles Straits',
+        detailAr: 'الممران المائيان الحاكمان للملاحة بين البحر الأسود والبحر المتوسط وفق معاهدة مونترو.',
+        detailEn: 'Crucial global chokepoints controlling Black Sea access under the Montreux Convention.',
+      },
+      {
+        x: 52,
+        y: 15,
+        type: 'maritime',
+        labelAr: 'البحر الأسود (الواجهة الشمالية)',
+        labelEn: 'Black Sea Northern Coastline',
+        detailAr: 'إطلالة بحرية واسعة تمكن تركيا من التواصل مع دول شرق أوروبا والقوقاز.',
+        detailEn: 'Extensive maritime frontage connecting Turkey with Eastern Europe and the Caucasus.',
+      },
+      {
+        x: 46,
+        y: 75,
+        type: 'maritime',
+        labelAr: 'البحر المتوسط وبحر إيجة',
+        labelEn: 'Mediterranean & Aegean Seas',
+        detailAr: 'الواجهة الجنوبية والغربية ومحور السياحة والملاحة البحرية الدولية.',
+        detailEn: 'Southern maritime axis vital for international shipping lanes and littoral tourism.',
+      },
+    ],
+  },
+  congo: {
+    image: congoMap,
+    titleAr: 'جمهورية الكونغو الديمقراطية (شكل ذو بروز)',
+    titleEn: 'DR Congo (Prorupted / Protruded State)',
+    coords: '04°02′ S, 21°45′ E',
+    scaleKm: '0 - 400 - 800 km',
+    shapeTypeAr: 'شكل مندمج ذو بروز مزدوج (بحري وبري)',
+    shapeTypeEn: 'Compact Morphology with Dual Salient Corridors',
+    compactScore: '0.44 (بروزات تضعف التماسك الحدودي)',
+    area: '2,344,858 كم²',
+    perimeter: '10,480 كم',
+    strategicNoteAr:
+      'بروز ممر غربي ضيق على المحيط الأطلسي (ميناء ماتادي ومواندا) يكسر عزلتها البحرية، وبروز كاتانغا الغني بالنحاس في الجنوب الشرقي.',
+    strategicNoteEn:
+      'A narrow western Atlantic corridor relieves landlocked isolation, while the Katanga copper salient juts into southern Africa.',
+    pins: [
+      {
+        x: 24,
+        y: 58,
+        type: 'capital',
+        labelAr: 'كينشاسا (العاصمة على نهر الكونغو)',
+        labelEn: 'Kinshasa (Capital on Congo River)',
+        detailAr: 'المركز الإداري والسكاني الأكبر على ضفاف نهر الكونغو مقابل مدينة برازافيل.',
+        detailEn: 'Vast urban core located along the lower Congo River opposite Brazzaville.',
+      },
+      {
+        x: 12,
+        y: 62,
+        type: 'strait',
+        labelAr: 'ممر الأطلسي الضيق (ميناء مواندا وماتادي)',
+        labelEn: 'Atlantic Ocean Salient Corridor',
+        detailAr: 'بروز بحري ضيق لا يتعدى 40 كم يمنح الدولة منفذاً استراتيجياً مباشراً على التجارة الدولية.',
+        detailEn: 'Vital narrow coastal corridor of ~40 km granting access to oceanic shipping lanes.',
+      },
+      {
+        x: 52,
+        y: 38,
+        type: 'feature',
+        labelAr: 'حوض نهر الكونغو المطير',
+        labelEn: 'Congo River Basin Jungle',
+        detailAr: 'ثاني أكبر حوض نهري استوائي في العالم غني بالأخشاب والموارد المائية الضخمة.',
+        detailEn: 'Worlds second-largest tropical river basin dense in timber and hydroelectric power.',
+      },
+      {
+        x: 78,
+        y: 84,
+        type: 'feature',
+        labelAr: 'بروز إقليم كاتانغا التعديني',
+        labelEn: 'Katanga Mineral Salient',
+        detailAr: 'بروز أرضي عميق في الجنوب غني باحتياطيات النحاس والكوبالت واليورانيوم الاستراتيجية.',
+        detailEn: 'Deep southern protrusion encompassing colossal copper, cobalt, and mineral wealth.',
+      },
+    ],
+  },
+  afghanistan: {
+    image: afghanistanMap,
+    titleAr: 'أفغانستان (شكل مندمج ذو بروز حبيس)',
+    titleEn: 'Afghanistan (Landlocked Prorupted State)',
+    coords: '33°56′ N, 67°42′ E',
+    scaleKm: '0 - 250 - 500 km',
+    shapeTypeAr: 'شكل مندمج ذو بروز شرقي جبلي (ممر واخان)',
+    shapeTypeEn: 'Landlocked Compact with Wakhan Corridor Salient',
+    compactScore: '0.48 (وعورة تضاريس وعزلة بحرية)',
+    area: '652,864 كم²',
+    perimeter: '5,987 كم',
+    strategicNoteAr:
+      'دولة حبيسة تتميز ببروز ممر واخان في أقصى الشرق الذي أنشئ في القرن الـ19 كمنطقة عازلة ليفصل بين الإمبراطورية الروسية والهند البريطانية ويلامس الصين.',
+    strategicNoteEn:
+      'Landlocked state with the Wakhan Corridor, created historically as a buffer strip touching China to separate Russian and British empires.',
+    pins: [
+      {
+        x: 62,
+        y: 46,
+        type: 'capital',
+        labelAr: 'كابول (العاصمة الجبلية الحصينة)',
+        labelEn: 'Kabul (Highland Capital Fortress)',
+        detailAr: 'العاصمة التاريخية الواقعة في ممر جبلي استراتيجي يربط شمال البلاد بجنوبها.',
+        detailEn: 'Historic strategic capital nestling in narrow mountain defiles connecting North and South.',
+      },
+      {
+        x: 84,
+        y: 24,
+        type: 'feature',
+        labelAr: 'ممر واخان الناتئ (ملامس للصين)',
+        labelEn: 'Wakhan Corridor (Bordering China)',
+        detailAr: 'البروز الجغرافي الأشهر الذي يفصل بين طاجيكستان وباكستان ويصل لأراضي الصين.',
+        detailEn: 'Signature territorial panhandle buffering Tajikistan and Pakistan while reaching China.',
+      },
+      {
+        x: 55,
+        y: 38,
+        type: 'feature',
+        labelAr: 'سلسلة جبال هندوكوش',
+        labelEn: 'Hindu Kush Mountain Wall',
+        detailAr: 'سلاسل جبلية شاهقة تمنح الدولة مناعة دفاعية شديدة وتعيق شبكات المواصلات الداخلية.',
+        detailEn: 'Formidable alpine cordillera affording rugged natural defense while dividing regions.',
+      },
+    ],
+  },
+  lesotho: {
+    image: lesothoMap,
+    titleAr: 'مملكة ليسوتو (الدولة الجيبية المحتواة)',
+    titleEn: 'Lesotho (Perforated Enclave State)',
+    coords: '29°36′ S, 28°14′ E',
+    scaleKm: '0 - 50 - 100 km',
+    shapeTypeAr: 'دولة محتواة / جيب داخلي محاط بالكامل بدولة جنوب أفريقيا',
+    shapeTypeEn: 'Perforated Enclave Completely Surrounded 360°',
+    compactScore: '0.74 (شكلها دائري ولكن سيادتها مقيدة)',
+    area: '30,355 كم²',
+    perimeter: '909 كم',
+    strategicNoteAr:
+      'تطويقها بالكامل داخل جنوب أفريقيا يجبرها على اتباع سياسة موالية لها، ويقيد حريتها في الاتصال بالعالم الخارجي دون المرور بأراضي جنوب أفريقيا.',
+    strategicNoteEn:
+      'Being encircled 360° within South Africa severely curtails sovereign foreign policy and necessitates friendly transit accords.',
+    pins: [
+      {
+        x: 34,
+        y: 45,
+        type: 'capital',
+        labelAr: 'ماسيرو (العاصمة الحدودية)',
+        labelEn: 'Maseru (Frontier Capital)',
+        detailAr: 'العاصمة الواقعة مباشرة على الحدود الشمالية الغربية المشتركة مع جنوب أفريقيا.',
+        detailEn: 'Capital situated directly adjacent to the northwestern frontier with South Africa.',
+      },
+      {
+        x: 50,
+        y: 15,
+        type: 'feature',
+        labelAr: 'دولة جنوب أفريقيا المطوقة 360°',
+        labelEn: 'South Africa (Enclosing State 360°)',
+        detailAr: 'الدولة المحيطة بالكامل بأراضي ليسوتو والتي تسيطر على جميع منافذ التجارة والعبور.',
+        detailEn: 'The encompassing state governing all overland transit, trade and airspace avenues.',
+      },
+      {
+        x: 68,
+        y: 55,
+        type: 'feature',
+        labelAr: 'جبال دراكنزبرج (مملكة السماء)',
+        labelEn: 'Drakensberg Highlands (Roof of Africa)',
+        detailAr: 'مرتفعات وعرة توفر مصادر مياه عذبة نقية يتم تصديرها لجنوب أفريقيا عبر مشروع مياه ليسوتو.',
+        detailEn: 'Rugged alpine highlands exporting fresh water to industrial South Africa.',
+      },
+    ],
+  },
+  japan: {
+    image: japanMap,
+    titleAr: 'اليابان (الدولة المجزأة البحرية - أرخبيل)',
+    titleEn: 'Japan (Fragmented Island Archipelago)',
+    coords: '36°12′ N, 138°15′ E',
+    scaleKm: '0 - 300 - 600 km',
+    shapeTypeAr: 'شكل مجزأ بحري (أرخبيل مكون من 4 جزر رئيسية)',
+    shapeTypeEn: 'Fragmented Maritime Archipelago of 4 Primary Islands',
+    compactScore: '0.22 (انفصال مائي وتشتت جغرافي)',
+    area: '377,975 كم²',
+    perimeter: '29,751 كم',
+    strategicNoteAr:
+      'تتكون من 4 جزر رئيسية (هونشو، هوكايدو، كيوشو، شيكوكو). ونقلت عاصمتها من كيوتو الداخلية إلى طوكيو الساحلية لتكون مركزاً تجارياً وحضارياً.',
+    strategicNoteEn:
+      'Spanning 4 main islands, Japan relocated its capital from inland Kyoto to coastal Tokyo on the Pacific to project global commercial hegemony.',
+    pins: [
+      {
+        x: 68,
+        y: 56,
+        type: 'capital',
+        labelAr: 'طوكيو (عاصمة ساحلية مستحدثة)',
+        labelEn: 'Tokyo (Modern Coastal Capital on Pacific)',
+        detailAr: 'عاصمة مستحدثة على ساحل المحيط الهادئ لدعم التجارة والانفتاح على العالم الخارجي.',
+        detailEn: 'Modern capital relocated to the Pacific shoreline to catalyze international maritime commerce.',
+      },
+      {
+        x: 58,
+        y: 50,
+        type: 'feature',
+        labelAr: 'جزيرة هونشو (كبرى الجزر ونواة الدولة)',
+        labelEn: 'Honshu (Main Island & Economic Engine)',
+        detailAr: 'تحتوي على غالبية السكان والمراكز الصناعية الكبرى (طوكيو، أوساكا، كيوتو).',
+        detailEn: 'Largest island hosting 80%+ of population, megalopolises, and industrial output.',
+      },
+      {
+        x: 76,
+        y: 22,
+        type: 'feature',
+        labelAr: 'جزيرة هوكايدو (الجزيرة الشمالية الباردة)',
+        labelEn: 'Hokkaido (Northern Subarctic Island)',
+        detailAr: 'الجزيرة الشمالية الغنية بالثروة الزراعية والغابات والمراعي الطبيعية.',
+        detailEn: 'Northern cold agrarian frontier endowed with forests and dairy plains.',
+      },
+      {
+        x: 30,
+        y: 72,
+        type: 'feature',
+        labelAr: 'جزيرة كيوشو (الجزيرة الجنوبية)',
+        labelEn: 'Kyushu (Southern Maritime Bastion)',
+        detailAr: 'بوابة اليابان التاريخية نحو القارة الآسيوية ومراكز صناعة التكنولوجيا الحديثة.',
+        detailEn: 'Historical maritime nexus facing the Asian mainland and high-tech manufacturing center.',
+      },
+      {
+        x: 46,
+        y: 65,
+        type: 'feature',
+        labelAr: 'جزيرة شيكوكو (الجزيرة الرابعة وبحر سيتو)',
+        labelEn: 'Shikoku Island & Seto Inland Sea',
+        detailAr: 'جزيرة هادئة ترتبط بهونشو عبر شبكة جسور عملاقة فوق بحر سيتو الداخلي.',
+        detailEn: 'Smallest of the four core islands linked to Honshu via colossal suspension bridges.',
+      },
+    ],
+  },
+};
+
 export const HighResMorphologyMap: React.FC<Props> = ({ countryKey, lang, theme = 'dark' }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
 
-  // Common styles
-  const graticuleStroke = isLight ? '#bae6fd' : '#1e293b';
-  const graticuleText = isLight ? '#64748b' : '#475569';
-  const landFill = isLight ? 'url(#landGradLight)' : 'url(#landGradDark)';
-  const landStroke = isLight ? '#0d9488' : '#14b8a6';
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const [showPins, setShowPins] = useState<boolean>(true);
+  const [showGrid, setShowGrid] = useState<boolean>(true);
+  const [activePinIndex, setActivePinIndex] = useState<number | null>(null);
+  const [isFullscreenModal, setIsFullscreenModal] = useState<boolean>(false);
+
+  const config = countryMapData[countryKey] || countryMapData['egypt'];
+
+  const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.35, 2.5));
+  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.35, 1));
+  const handleResetZoom = () => {
+    setZoomLevel(1);
+    setActivePinIndex(null);
+  };
+
+  const getPinColor = (type: MapPinData['type']) => {
+    switch (type) {
+      case 'capital':
+        return 'bg-amber-500 text-amber-950 border-amber-300 shadow-amber-500/50';
+      case 'maritime':
+        return 'bg-cyan-500 text-cyan-950 border-cyan-300 shadow-cyan-500/50';
+      case 'strait':
+        return 'bg-rose-500 text-rose-950 border-rose-300 shadow-rose-500/50';
+      case 'feature':
+        return 'bg-emerald-500 text-emerald-950 border-emerald-300 shadow-emerald-500/50';
+    }
+  };
+
+  const renderMapContent = (isModal: boolean = false) => (
+    <div
+      className={`relative w-full overflow-hidden rounded-2xl border ${
+        isLight ? 'border-slate-300 bg-slate-900' : 'border-slate-800 bg-slate-950'
+      } shadow-2xl transition-all duration-300 ${isModal ? 'h-[80vh]' : 'aspect-[16/10]'}`}
+    >
+      {/* Zoomable Image Container */}
+      <div
+        className="w-full h-full relative cursor-grab active:cursor-grabbing transition-transform duration-300 ease-out flex items-center justify-center"
+        style={{
+          transform: `scale(${zoomLevel})`,
+          transformOrigin: 'center center',
+        }}
+      >
+        <img
+          src={config.image}
+          alt={isArabic ? config.titleAr : config.titleEn}
+          className="w-full h-full object-cover select-none pointer-events-none filter saturate-[1.08] contrast-[1.06]"
+          loading="eager"
+        />
+
+        {/* Tactical Coordinates Graticule Overlay */}
+        {showGrid && (
+          <div className="absolute inset-0 pointer-events-none opacity-35">
+            <div className="w-full h-full grid grid-cols-6 grid-rows-4 border border-cyan-500/30">
+              {Array.from({ length: 24 }).map((_, i) => (
+                <div key={i} className="border-r border-b border-cyan-500/20 relative">
+                  <span className="absolute top-1 left-1 font-mono text-[8px] text-cyan-400/60 select-none">
+                    +
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Interactive Tactical Pins */}
+        {showPins &&
+          config.pins.map((pin, idx) => {
+            const isActive = activePinIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="absolute z-20 transition-transform duration-200"
+                style={{
+                  left: `${pin.x}%`,
+                  top: `${pin.y}%`,
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                {/* Ping Animation */}
+                <div
+                  className={`absolute -inset-2 rounded-full opacity-60 animate-ping pointer-events-none ${
+                    pin.type === 'capital'
+                      ? 'bg-amber-400'
+                      : pin.type === 'strait'
+                      ? 'bg-rose-400'
+                      : pin.type === 'maritime'
+                      ? 'bg-cyan-400'
+                      : 'bg-emerald-400'
+                  }`}
+                />
+
+                {/* Marker Button */}
+                <button
+                  type="button"
+                  onClick={() => setActivePinIndex(isActive ? null : idx)}
+                  className={`relative p-1.5 rounded-full border-2 shadow-lg flex items-center justify-center transition-all ${
+                    isActive ? 'scale-125 ring-2 ring-white' : 'hover:scale-110'
+                  } ${getPinColor(pin.type)}`}
+                  title={isArabic ? pin.labelAr : pin.labelEn}
+                >
+                  <MapPin className="w-3.5 h-3.5" />
+                </button>
+
+                {/* Interactive Tooltip Callout */}
+                {isActive && (
+                  <div
+                    className={`absolute z-30 bottom-full mb-3 w-64 p-3 rounded-xl border shadow-2xl backdrop-blur-xl text-left ${
+                      isArabic ? 'text-right' : 'text-left'
+                    } ${
+                      isLight
+                        ? 'bg-white/95 border-slate-300 text-slate-800'
+                        : 'bg-slate-950/95 border-slate-700 text-white'
+                    } animate-in fade-in zoom-in-95 duration-150`}
+                    style={{
+                      left: pin.x > 70 ? 'auto' : pin.x < 30 ? '0' : '50%',
+                      right: pin.x > 70 ? '0' : 'auto',
+                      transform: pin.x >= 30 && pin.x <= 70 ? 'translateX(-50%)' : 'none',
+                    }}
+                  >
+                    <div className="flex items-center justify-between gap-2 border-b border-slate-700/40 pb-1.5 mb-1.5">
+                      <span className="text-xs font-bold text-teal-400 flex items-center gap-1">
+                        <Crosshair className="w-3 h-3 text-teal-400" />
+                        {isArabic ? pin.labelAr : pin.labelEn}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActivePinIndex(null);
+                        }}
+                        className="text-slate-400 hover:text-white"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                    <p className="text-[11px] leading-relaxed text-slate-300">
+                      {isArabic ? pin.detailAr : pin.detailEn}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+      </div>
+
+      {/* Modern Top HUD Overlay */}
+      <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+        <div className="pointer-events-auto flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-800/80 text-white shadow-lg">
+          <Navigation className="w-3.5 h-3.5 text-teal-400 animate-spin" style={{ animationDuration: '12s' }} />
+          <div className="flex flex-col">
+            <span className="text-[11px] font-bold text-teal-300">
+              {isArabic ? config.titleAr : config.titleEn}
+            </span>
+            <span className="text-[9px] font-mono text-slate-400">{config.coords}</span>
+          </div>
+        </div>
+
+        {/* Map Interactive Controls */}
+        <div className="pointer-events-auto flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-md p-1 rounded-xl border border-slate-800/80 shadow-lg text-white">
+          <button
+            type="button"
+            onClick={handleZoomIn}
+            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
+            title={isArabic ? 'تكبير (+)' : 'Zoom In'}
+          >
+            <ZoomIn className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={handleZoomOut}
+            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
+            title={isArabic ? 'تصغير (-)' : 'Zoom Out'}
+          >
+            <ZoomOut className="w-4 h-4" />
+          </button>
+          {zoomLevel > 1 && (
+            <button
+              type="button"
+              onClick={handleResetZoom}
+              className="p-1.5 rounded-lg hover:bg-slate-800 text-amber-400 transition-colors"
+              title={isArabic ? 'إعادة ضبط' : 'Reset Zoom'}
+            >
+              <RotateCcw className="w-4 h-4" />
+            </button>
+          )}
+          <div className="w-px h-4 bg-slate-700 mx-0.5" />
+          <button
+            type="button"
+            onClick={() => setShowPins((prev) => !prev)}
+            className={`p-1.5 rounded-lg transition-colors ${
+              showPins ? 'bg-teal-500/20 text-teal-300' : 'text-slate-400 hover:bg-slate-800'
+            }`}
+            title={isArabic ? 'إظهار/إخفاء المؤشرات' : 'Toggle Markers'}
+          >
+            <MapPin className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowGrid((prev) => !prev)}
+            className={`p-1.5 rounded-lg transition-colors ${
+              showGrid ? 'bg-cyan-500/20 text-cyan-300' : 'text-slate-400 hover:bg-slate-800'
+            }`}
+            title={isArabic ? 'إظهار/إخفاء شبكة الإحداثيات' : 'Toggle Coordinate Grid'}
+          >
+            <Layers className="w-4 h-4" />
+          </button>
+          {!isModal && (
+            <button
+              type="button"
+              onClick={() => setIsFullscreenModal(true)}
+              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
+              title={isArabic ? 'معاينة سينمائية بملء الشاشة' : 'Fullscreen HD Lightbox'}
+            >
+              <Maximize2 className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Bottom Cartographic Scale & Telemetry HUD */}
+      <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between pointer-events-none z-10">
+        {/* Scale Bar */}
+        <div className="pointer-events-auto bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-800 text-[10px] text-slate-300 flex items-center gap-2">
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-1 border-b-2 border-l-2 border-r-2 border-amber-400 mb-0.5" />
+            <span className="font-mono text-[9px] text-amber-300">{config.scaleKm}</span>
+          </div>
+          <span className="text-slate-500 font-mono text-[9px] border-l border-slate-700 pl-2">
+            1:500,000 HD
+          </span>
+        </div>
+
+        {/* Compass Rose */}
+        <div className="pointer-events-auto bg-slate-950/85 backdrop-blur-md p-1.5 rounded-full border border-slate-800 flex items-center justify-center shadow-lg">
+          <Compass className="w-5 h-5 text-teal-400" />
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="w-full flex flex-col items-center justify-center select-none relative">
-      <svg
-        className="w-full max-w-2xl h-auto aspect-[16/11] rounded-2xl border border-slate-800 shadow-2xl drop-shadow-2xl overflow-hidden"
-        viewBox="0 0 600 420"
-      >
-        <defs>
-          {/* Gradients */}
-          <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor={isLight ? '#f0f9ff' : '#040b17'} />
-            <stop offset="50%" stopColor={isLight ? '#e0f2fe' : '#09152b'} />
-            <stop offset="100%" stopColor={isLight ? '#bae6fd' : '#061021'} />
-          </linearGradient>
-
-          <linearGradient id="landGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#115e59" stopOpacity="0.85" />
-            <stop offset="60%" stopColor="#0f766e" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#042f2e" stopOpacity="0.95" />
-          </linearGradient>
-
-          <linearGradient id="landGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ccfbf1" stopOpacity="0.95" />
-            <stop offset="60%" stopColor="#99f6e4" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#5eead4" stopOpacity="0.85" />
-          </linearGradient>
-
-          <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#d97706" stopOpacity="0.95" />
-          </linearGradient>
-
-          <linearGradient id="surroundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1e293b" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#0f172a" stopOpacity="0.7" />
-          </linearGradient>
-
-          {/* Filters */}
-          <filter id="landGlow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#14b8a6" floodOpacity="0.25" />
-          </filter>
-          <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#f59e0b" floodOpacity="0.8" />
-          </filter>
-        </defs>
-
-        {/* Ocean Background */}
-        <rect width="600" height="420" fill="url(#oceanGrad)" />
-
-        {/* Graticule Grid (Latitude & Longitude) */}
-        <g stroke={graticuleStroke} strokeWidth="0.75" strokeDasharray="3 3" opacity="0.6">
-          <line x1="50" y1="70" x2="550" y2="70" />
-          <line x1="50" y1="140" x2="550" y2="140" />
-          <line x1="50" y1="210" x2="550" y2="210" />
-          <line x1="50" y1="280" x2="550" y2="280" />
-          <line x1="50" y1="350" x2="550" y2="350" />
-
-          <line x1="100" y1="30" x2="100" y2="390" />
-          <line x1="200" y1="30" x2="200" y2="390" />
-          <line x1="300" y1="30" x2="300" y2="390" />
-          <line x1="400" y1="30" x2="400" y2="390" />
-          <line x1="500" y1="30" x2="500" y2="390" />
-        </g>
-
-        {/* Cartographic Neatline / Frame */}
-        <rect
-          x="12"
-          y="12"
-          width="576"
-          height="396"
-          fill="none"
-          stroke={isLight ? '#94a3b8' : '#334155'}
-          strokeWidth="1.5"
-          rx="12"
-        />
-        <rect
-          x="16"
-          y="16"
-          width="568"
-          height="388"
-          fill="none"
-          stroke={isLight ? '#cbd5e1' : '#1e293b'}
-          strokeWidth="0.75"
-          rx="10"
-        />
-
-        {/* ============================================================== */}
-        {/* 1. EGYPT (مصر) - Ideal Compact Shape with Dual Maritime Facades */}
-        {/* ============================================================== */}
-        {countryKey === 'egypt' && (
-          <g id="map-egypt">
-            {/* Graticule Labels */}
-            <text x="24" y="80" fill={graticuleText} fontSize="9" fontFamily="monospace">31°30' N</text>
-            <text x="24" y="220" fill={graticuleText} fontSize="9" fontFamily="monospace">27°00' N</text>
-            <text x="24" y="360" fill={graticuleText} fontSize="9" fontFamily="monospace">22°00' N</text>
-            <text x="130" y="405" fill={graticuleText} fontSize="9" fontFamily="monospace">25° E</text>
-            <text x="350" y="405" fill={graticuleText} fontSize="9" fontFamily="monospace">31° E</text>
-            <text x="495" y="405" fill={graticuleText} fontSize="9" fontFamily="monospace">37° E</text>
-
-            {/* Mediterranean & Red Sea Water Text */}
-            <text x="250" y="55" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle">
-              {isArabic ? 'البحر المتوسط (Mediterranean Sea)' : 'Mediterranean Sea'}
-            </text>
-            <text x="505" y="270" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.6" textAnchor="middle" transform="rotate(55 505 270)">
-              {isArabic ? 'البحر الأحمر (Red Sea)' : 'Red Sea'}
-            </text>
-            <text x="90" y="230" fill={graticuleText} fontSize="10" opacity="0.6" textAnchor="middle" transform="rotate(-90 90 230)">
-              {isArabic ? 'ليبيا (25° شرقاً)' : 'Libya (25° E)'}
-            </text>
-            <text x="310" y="390" fill={graticuleText} fontSize="10" opacity="0.6" textAnchor="middle">
-              {isArabic ? 'السودان (دائرة عرض 22° شمالاً)' : 'Sudan (22° N parallel)'}
-            </text>
-
-            {/* Authentic Egypt Sovereign Border Path */}
-            <path
-              d="M 150 75
-                 C 170 78, 195 82, 220 80
-                 C 250 82, 275 80, 295 76
-                 C 305 74, 312 70, 318 72
-                 C 335 73, 345 68, 355 68
-                 C 368 69, 375 73, 382 75
-                 C 400 76, 418 77, 430 78
-                 C 442 79, 452 79, 458 80
-                 L 454 142
-                 C 452 155, 449 168, 448 175
-                 C 445 190, 442 202, 438 208
-                 C 432 205, 426 195, 420 185
-                 C 412 170, 408 160, 405 155
-                 C 395 140, 388 132, 382 125
-                 C 385 132, 388 140, 390 145
-                 C 398 162, 405 172, 410 180
-                 C 425 202, 438 215, 445 225
-                 C 450 235, 451 240, 452 245
-                 C 458 260, 462 268, 465 275
-                 C 475 290, 480 298, 485 305
-                 C 495 320, 500 328, 505 335
-                 C 515 350, 525 358, 530 365
-                 L 150 365
-                 L 150 95
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* Hala'ib & Shalatin Triangle Highlight */}
-            <path
-              d="M 505 335 C 515 350, 525 358, 530 365 L 485 365 Z"
-              fill="url(#highlightGrad)"
-              opacity="0.4"
-              stroke="#f59e0b"
-              strokeWidth="1"
-              strokeDasharray="2 2"
-            />
-            <text x="515" y="380" fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="middle">
-              {isArabic ? 'مثلث حلايب' : 'Hala\'ib'}
-            </text>
-
-            {/* Nile River Course & Delta */}
-            <path
-              d="M 375 365
-                 C 373 345, 370 330, 372 315
-                 C 374 300, 382 285, 380 270
-                 C 378 255, 395 242, 392 230
-                 C 388 220, 368 200, 365 180
-                 C 362 160, 360 145, 358 128
-                 C 356 120, 355 115, 355 110"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            {/* Delta Branches: Rosetta & Damietta */}
-            <path
-              d="M 355 110 C 340 95, 325 85, 318 72"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="2"
-            />
-            <path
-              d="M 355 110 C 360 95, 362 82, 355 68"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="2"
-            />
-
-            {/* Suez Canal */}
-            <line
-              x1="382"
-              y1="75"
-              x2="382"
-              y2="125"
-              stroke="#f59e0b"
-              strokeWidth="2.5"
-              strokeDasharray="3 2"
-            />
-            <text x="395" y="100" fill="#fbbf24" fontSize="9" fontWeight="bold">
-              {isArabic ? 'قناة السويس' : 'Suez Canal'}
-            </text>
-
-            {/* Lake Nasser */}
-            <ellipse cx="373" cy="355" rx="6" ry="12" fill="#0284c7" opacity="0.8" />
-
-            {/* Strategic Pins: Capital Cairo, Alexandria, Port Said, Taba, Aswan */}
-            {/* Cairo */}
-            <g transform="translate(355, 110)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="10" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'القاهرة (العاصمة المركزية)' : 'Cairo (Capital)'}
-              </text>
-            </g>
-
-            {/* Alexandria */}
-            <g transform="translate(295, 76)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="-8" y="-7" fill="#e2e8f0" fontSize="8" fontWeight="bold">
-                {isArabic ? 'الإسكندرية' : 'Alexandria'}
-              </text>
-            </g>
-
-            {/* Taba */}
-            <g transform="translate(454, 142)">
-              <circle cx="0" cy="0" r="4" fill="#f59e0b" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#fef08a" fontSize="8" fontWeight="bold">
-                {isArabic ? 'طابا (العلامة 91)' : 'Taba (Pillar 91)'}
-              </text>
-            </g>
-
-            {/* Aswan */}
-            <g transform="translate(372, 315)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#cbd5e1" fontSize="8">
-                {isArabic ? 'أسوان' : 'Aswan'}
-              </text>
-            </g>
-
-            {/* Sharm El-Sheikh */}
-            <g transform="translate(438, 208)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#cbd5e1" fontSize="8">
-                {isArabic ? 'شرم الشيخ' : 'Sharm El-Sheikh'}
-              </text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 2. FRANCE (فرنسا) - Ideal Compact Hexagonal Model               */}
-        {/* ============================================================== */}
-        {countryKey === 'france' && (
-          <g id="map-france">
-            {/* Surrounding Seas */}
-            <text x="180" y="55" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7">
-              {isArabic ? 'بحر المانش (English Channel)' : 'English Channel'}
-            </text>
-            <text x="100" y="240" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.6">
-              {isArabic ? 'خليج بسكاي (Bay of Biscay)' : 'Bay of Biscay'}
-            </text>
-            <text x="410" y="365" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7">
-              {isArabic ? 'البحر المتوسط (Mediterranean)' : 'Mediterranean Sea'}
-            </text>
-
-            {/* France Authentic Hexagonal Sovereign Territory */}
-            <path
-              d="M 310 65
-                 C 275 75, 245 85, 215 95
-                 C 170 105, 145 115, 130 130
-                 C 140 150, 175 165, 195 175
-                 C 210 205, 215 235, 220 260
-                 C 215 285, 210 305, 200 320
-                 C 240 325, 280 330, 310 335
-                 C 325 315, 350 325, 365 330
-                 C 390 320, 410 310, 425 305
-                 C 420 285, 425 275, 430 270
-                 C 415 250, 410 240, 405 230
-                 C 400 215, 398 205, 395 200
-                 C 410 175, 418 155, 420 140
-                 C 395 125, 375 110, 360 95
-                 C 340 85, 325 72, 310 65
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* Corsica Island (Corse) */}
-            <path
-              d="M 465 330 C 470 340, 468 355, 465 365 C 460 360, 458 345, 460 335 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2"
-            />
-            <text x="480" y="350" fill="#94a3b8" fontSize="8" fontWeight="bold">
-              {isArabic ? 'كورسيكا' : 'Corsica'}
-            </text>
-
-            {/* Hexagon Geometric Guideline Overlay (Illustrating the theoretical hexagon) */}
-            <polygon
-              points="310,65 130,130 200,320 310,335 425,305 420,140"
-              fill="none"
-              stroke="#f59e0b"
-              strokeWidth="1.5"
-              strokeDasharray="4 4"
-              opacity="0.4"
-            />
-
-            {/* Rivers: Seine & Rhône */}
-            <path
-              d="M 360 140 C 330 135, 305 130, 275 120 C 255 110, 235 102, 220 98"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="1.5"
-            />
-            <path
-              d="M 405 230 C 375 245, 365 270, 365 330"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="1.5"
-            />
-
-            {/* Capital: Paris */}
-            <g transform="translate(295, 128)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="10" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'باريس (نواة الدولة وعاصمتها التاريخية)' : 'Paris (Historic Nucleus)'}
-              </text>
-            </g>
-
-            {/* Major Cities */}
-            <g transform="translate(370, 325)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#cbd5e1" fontSize="8">{isArabic ? 'مارسيليا' : 'Marseille'}</text>
-            </g>
-            <g transform="translate(145, 135)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="-8" y="-6" fill="#cbd5e1" fontSize="8">{isArabic ? 'برست' : 'Brest'}</text>
-            </g>
-            <g transform="translate(415, 145)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#cbd5e1" fontSize="8">{isArabic ? 'ستراسبورغ' : 'Strasbourg'}</text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 3. CHILE (تشيلي) - Elongated North-South Strip (> 4,300 km)     */}
-        {/* ============================================================== */}
-        {countryKey === 'chile' && (
-          <g id="map-chile">
-            {/* Pacific Ocean & Andes Mountains Text */}
-            <text x="140" y="210" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle" transform="rotate(-90 140 210)">
-              {isArabic ? 'المحيط الهادئ (Pacific Ocean)' : 'Pacific Ocean'}
-            </text>
-            <text x="350" y="160" fill="#94a3b8" fontSize="10" fontWeight="bold" opacity="0.6">
-              {isArabic ? 'جبال الأنديز (الحدود الطبيعية مع الأرجنتين)' : 'Andes Mountains (Border with Argentina)'}
-            </text>
-
-            {/* Surrounding Context: Argentina Landmass Outline */}
-            <path
-              d="M 285 50 L 420 50 L 420 370 L 320 380 L 295 350 L 285 240 Z"
-              fill="url(#surroundGrad)"
-              stroke="#334155"
-              strokeWidth="1"
-              strokeDasharray="3 3"
-            />
-            <text x="360" y="240" fill="#64748b" fontSize="14" fontWeight="bold">
-              {isArabic ? 'الأرجنتين' : 'Argentina'}
-            </text>
-
-            {/* Authentic Narrow Elongated Chile Ribbon */}
-            <path
-              d="M 255 45
-                 C 260 55, 262 75, 265 100
-                 C 268 135, 265 170, 262 205
-                 C 260 235, 255 265, 248 290
-                 C 242 310, 235 325, 225 340
-                 C 220 350, 215 365, 220 372
-                 C 230 375, 240 370, 248 360
-                 C 255 340, 260 320, 268 295
-                 C 275 265, 280 230, 282 195
-                 C 285 155, 286 115, 284 80
-                 C 283 60, 275 50, 255 45
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* Southern Patagonian Archipelago & Fjords */}
-            <path d="M 215 345 C 210 355, 212 362, 218 365 Z" fill={landFill} stroke={landStroke} strokeWidth="1.5" />
-            <path d="M 230 375 C 235 385, 242 388, 245 380 Z" fill={landFill} stroke={landStroke} strokeWidth="1.5" />
-
-            {/* 3 Distinct Climate Zones Brackets */}
-            {/* Zone 1: North Arid (Atacama) */}
-            <line x1="235" y1="50" x2="235" y2="135" stroke="#f59e0b" strokeWidth="2" />
-            <text x="225" y="95" fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="end">
-              {isArabic ? 'شمال جاف (صحراء أتاكاما)' : 'Arid North (Atacama Desert)'}
-            </text>
-
-            {/* Zone 2: Central Mediterranean (Valleys & Santiago) */}
-            <line x1="230" y1="145" x2="230" y2="245" stroke="#10b981" strokeWidth="2.5" />
-            <text x="220" y="195" fill="#10b981" fontSize="8" fontWeight="bold" textAnchor="end">
-              {isArabic ? 'وسط معتدل متوسطي (تركز سكاني)' : 'Central Mediterranean (Population Core)'}
-            </text>
-
-            {/* Zone 3: South Cold/Fjords (Patagonia) */}
-            <line x1="205" y1="255" x2="205" y2="365" stroke="#06b6d4" strokeWidth="2" />
-            <text x="195" y="310" fill="#06b6d4" fontSize="8" fontWeight="bold" textAnchor="end">
-              {isArabic ? 'جنوب قطبي بارد (خلجان وجزر)' : 'Subpolar South (Patagonian Fjords)'}
-            </text>
-
-            {/* Capital: Santiago */}
-            <g transform="translate(272, 195)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="12" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'سانتياغو (العاصمة)' : 'Santiago (Capital)'}
-              </text>
-            </g>
-
-            {/* Arica / Atacama Pin */}
-            <g transform="translate(262, 55)">
-              <circle cx="0" cy="0" r="3" fill="#f59e0b" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#fef08a" fontSize="8">{isArabic ? 'أريكا' : 'Arica'}</text>
-            </g>
-
-            {/* Punta Arenas / Strait of Magellan */}
-            <g transform="translate(235, 365)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="3" fill="#e2e8f0" fontSize="8">{isArabic ? 'مضيق ماجلان' : 'Strait of Magellan'}</text>
-            </g>
-
-            {/* Elongation Metric Banner */}
-            <g transform="translate(340, 310)">
-              <rect x="0" y="0" width="200" height="48" rx="8" fill="#0f172a" stroke="#334155" />
-              <text x="10" y="18" fill="#38bdf8" fontSize="9" fontWeight="bold">
-                {isArabic ? 'الشكل الشريطي / المستطيل الطولي:' : 'Elongated Ribbon Morphology:'}
-              </text>
-              <text x="10" y="34" fill="#94a3b8" fontSize="8">
-                {isArabic ? 'الطول (>4300 كم) : العرض (~175 كم) > 6 : 1' : 'Length (>4,300 km) : Width (~175 km) > 6 : 1'}
-              </text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 4. TURKEY (تركيا) - Transverse East-West Elongated Ribbon      */}
-        {/* ============================================================== */}
-        {countryKey === 'turkey' && (
-          <g id="map-turkey">
-            {/* Surrounding Seas */}
-            <text x="320" y="65" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle">
-              {isArabic ? 'البحر الأسود (Black Sea)' : 'Black Sea'}
-            </text>
-            <text x="75" y="200" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7" textAnchor="middle" transform="rotate(-90 75 200)">
-              {isArabic ? 'بحر إيجه (Aegean Sea)' : 'Aegean Sea'}
-            </text>
-            <text x="310" y="345" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle">
-              {isArabic ? 'البحر المتوسط (Mediterranean Sea)' : 'Mediterranean Sea'}
-            </text>
-
-            {/* European Thrace */}
-            <path
-              d="M 95 105 L 140 100 L 145 125 L 115 135 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2"
-            />
-            <text x="110" y="95" fill="#94a3b8" fontSize="7" fontWeight="bold">
-              {isArabic ? 'تراقيا' : 'Thrace'}
-            </text>
-
-            {/* Anatolian Main Landmass */}
-            <path
-              d="M 165 120
-                 C 210 108, 270 102, 330 95
-                 C 380 98, 430 105, 490 120
-                 C 515 140, 525 165, 520 190
-                 C 510 215, 495 230, 480 240
-                 C 440 242, 410 245, 380 260
-                 C 350 255, 300 258, 260 265
-                 C 220 260, 180 250, 150 235
-                 C 135 210, 130 185, 135 160
-                 C 145 140, 155 130, 165 120
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* The Vital Turkish Straits (Bosphorus & Dardanelles) */}
-            <g transform="translate(150, 122)">
-              <circle cx="0" cy="0" r="4" fill="#f59e0b" stroke="#ffffff" strokeWidth="1" />
-              <text x="-4" y="-7" fill="#fbbf24" fontSize="8" fontWeight="bold">
-                {isArabic ? 'مضيقا البوسفور والدردنيل' : 'Bosphorus & Dardanelles'}
-              </text>
-            </g>
-
-            {/* Capital: Ankara (Interior Capital Chosen for Strategic Depth) */}
-            <g transform="translate(290, 175)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="10" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'أنقرة (عاصمة ذات عمق جغرافي)' : 'Ankara (Strategic Depth Capital)'}
-              </text>
-            </g>
-
-            {/* Historical Former Capital: Istanbul */}
-            <g transform="translate(155, 115)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="2" fill="#e2e8f0" fontSize="8">{isArabic ? 'إسطنبول' : 'Istanbul'}</text>
-            </g>
-
-            {/* Izmir */}
-            <g transform="translate(135, 185)">
-              <circle cx="0" cy="0" r="3" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="2" fill="#cbd5e1" fontSize="8">{isArabic ? 'إزمير' : 'Izmir'}</text>
-            </g>
-
-            {/* Transverse Axis Banner */}
-            <g transform="translate(150, 290)">
-              <line x1="0" y1="0" x2="330" y2="0" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 2" />
-              <text x="165" y="16" fill="#f59e0b" fontSize="9" fontWeight="bold" textAnchor="middle">
-                {isArabic
-                  ? 'امتداد عرضي (شرق-غرب): لا يتيح تنوعاً مناخياً كبيراً لتشابه دوائر العرض'
-                  : 'Transverse East-West axis: Limited climatic diversity due to uniform latitude'}
-              </text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 5. DR CONGO (الكونغو الديمقراطية) - Compact with Protrusions   */}
-        {/* ============================================================== */}
-        {countryKey === 'congo' && (
-          <g id="map-congo">
-            <text x="40" y="190" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7">
-              {isArabic ? 'المحيط الأطلسي' : 'Atlantic Ocean'}
-            </text>
-
-            {/* Massive Congo River Basin Main Body */}
-            <path
-              d="M 220 90
-                 C 280 85, 340 95, 390 110
-                 C 420 135, 435 170, 430 210
-                 C 425 245, 415 270, 420 295
-                 C 430 320, 440 345, 435 370
-                 C 400 375, 375 365, 360 340
-                 C 350 315, 335 300, 310 295
-                 C 275 292, 240 290, 215 285
-                 C 185 280, 160 270, 140 260
-                 C 120 258, 95 262, 75 262
-                 L 75 248
-                 C 105 248, 130 245, 150 235
-                 C 165 210, 170 170, 180 140
-                 C 190 115, 205 100, 220 90
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* Protrusion 1 Highlight: Western Atlantic Corridor */}
-            <path
-              d="M 150 235 L 75 248 L 75 262 L 140 260 Z"
-              fill="url(#highlightGrad)"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-            <g transform="translate(60, 285)">
-              <text x="0" y="0" fill="#f59e0b" fontSize="8" fontWeight="bold">
-                {isArabic ? '⬅ البروز الغربي (منفذ الأطلسي)' : '⬅ Western Atlantic Protrusion'}
-              </text>
-            </g>
-
-            {/* Protrusion 2 Highlight: Katanga Salient */}
-            <path
-              d="M 420 295 C 430 320, 440 345, 435 370 C 400 375, 375 365, 360 340 Z"
-              fill="url(#highlightGrad)"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-            <g transform="translate(370, 395)">
-              <text x="0" y="0" fill="#f59e0b" fontSize="8" fontWeight="bold">
-                {isArabic ? 'بروز كاتانغا (حزام النحاس) ⬇' : 'Katanga Salient (Copperbelt) ⬇'}
-              </text>
-            </g>
-
-            {/* Congo River Path */}
-            <path
-              d="M 390 320 C 350 250, 360 170, 310 130 C 260 110, 210 150, 190 190 C 175 215, 140 240, 75 255"
-              fill="none"
-              stroke="#38bdf8"
-              strokeWidth="2.5"
-            />
-
-            {/* Capital: Kinshasa */}
-            <g transform="translate(160, 235)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="12" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'كينشاسا (العاصمة على نهر الكونغو)' : 'Kinshasa (Capital)'}
-              </text>
-            </g>
-
-            {/* Matadi Atlantic Port */}
-            <g transform="translate(75, 255)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="-4" y="-8" fill="#e2e8f0" fontSize="8" fontWeight="bold">{isArabic ? 'ماتادي' : 'Matadi'}</text>
-            </g>
-
-            {/* Lubumbashi (Katanga Center) */}
-            <g transform="translate(400, 350)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="-8" y="-6" fill="#cbd5e1" fontSize="8">{isArabic ? 'لوبومباشي' : 'Lubumbashi'}</text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 6. AFGHANISTAN (أفغانستان) - Protruded Shape (Wakhan Corridor)   */}
-        {/* ============================================================== */}
-        {countryKey === 'afghanistan' && (
-          <g id="map-afghanistan">
-            {/* Surrounding Landlocked Nations Text */}
-            <text x="240" y="65" fill={graticuleText} fontSize="10" fontWeight="bold">
-              {isArabic ? 'طاجيكستان وأوزبكستان وتركمانستان (شمالاً)' : 'Tajikistan / Uzbekistan / Turkmenistan (North)'}
-            </text>
-            <text x="60" y="220" fill={graticuleText} fontSize="10" fontWeight="bold" transform="rotate(-90 60 220)">
-              {isArabic ? 'إيران (غرباً)' : 'Iran (West)'}
-            </text>
-            <text x="320" y="360" fill={graticuleText} fontSize="10" fontWeight="bold">
-              {isArabic ? 'باكستان - خط ديورند (جنوباً وشرقاً)' : 'Pakistan - Durand Line (South & East)'}
-            </text>
-            <text x="500" y="80" fill="#f59e0b" fontSize="9" fontWeight="bold">
-              {isArabic ? 'الصين (شرقاً)' : 'China (East)'}
-            </text>
-
-            {/* Authentic Afghanistan Territory with Wakhan Corridor */}
-            <path
-              d="M 175 115
-                 C 230 110, 290 120, 345 130
-                 C 370 120, 420 95, 490 85
-                 L 495 95
-                 C 440 110, 395 135, 370 150
-                 C 365 190, 355 230, 340 260
-                 C 300 300, 260 335, 220 330
-                 C 175 325, 140 300, 120 265
-                 C 125 215, 135 175, 145 155
-                 C 155 135, 165 125, 175 115
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-
-            {/* Wakhan Corridor Protrusion Highlight */}
-            <path
-              d="M 345 130 C 370 120, 420 95, 490 85 L 495 95 C 440 110, 395 135, 370 150 Z"
-              fill="url(#highlightGrad)"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-            <g transform="translate(420, 60)">
-              <text x="0" y="0" fill="#f59e0b" fontSize="9" fontWeight="bold">
-                {isArabic ? 'بروز ممر واخان ↗' : 'Wakhan Corridor ↗'}
-              </text>
-              <text x="0" y="12" fill="#fbbf24" fontSize="7">
-                {isArabic ? '(يفصل روسيا/آسيا الوسطى عن الهند سابقاً)' : '(Historical Great Game Buffer to China)'}
-              </text>
-            </g>
-
-            {/* Capital: Kabul */}
-            <g transform="translate(325, 195)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="12" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'كابول (العاصمة)' : 'Kabul (Capital)'}
-              </text>
-            </g>
-
-            {/* Kandahar */}
-            <g transform="translate(230, 275)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="2" fill="#cbd5e1" fontSize="8">{isArabic ? 'قندهار' : 'Kandahar'}</text>
-            </g>
-
-            {/* Herat */}
-            <g transform="translate(160, 180)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="8" y="2" fill="#cbd5e1" fontSize="8">{isArabic ? 'هرات' : 'Herat'}</text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 7. LESOTHO (ليسوتو) - Perforated Enclave inside South Africa   */}
-        {/* ============================================================== */}
-        {countryKey === 'lesotho' && (
-          <g id="map-lesotho">
-            {/* Oceans */}
-            <text x="60" y="270" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7" transform="rotate(-90 60 270)">
-              {isArabic ? 'المحيط الأطلسي' : 'Atlantic Ocean'}
-            </text>
-            <text x="490" y="270" fill="#38bdf8" fontSize="10" fontWeight="bold" opacity="0.7">
-              {isArabic ? 'المحيط الهندي' : 'Indian Ocean'}
-            </text>
-
-            {/* South Africa Real Territory (The Perforating Host State) */}
-            <path
-              d="M 160 120
-                 C 240 105, 340 100, 420 115
-                 C 455 155, 470 210, 480 270
-                 C 440 320, 380 360, 310 375
-                 C 250 370, 190 340, 145 285
-                 C 125 230, 140 170, 160 120
-                 Z"
-              fill="url(#surroundGrad)"
-              stroke="#64748b"
-              strokeWidth="2"
-            />
-            <text x="240" y="160" fill="#94a3b8" fontSize="13" fontWeight="bold">
-              {isArabic ? 'جمهورية جنوب أفريقيا' : 'Republic of South Africa'}
-            </text>
-            <text x="210" y="340" fill="#64748b" fontSize="10">
-              {isArabic ? '(الدولة المُطوِّقة الحاضنة)' : '(Surrounding Host State)'}
-            </text>
-
-            {/* Cape Town / Cape of Good Hope */}
-            <g transform="translate(155, 305)">
-              <circle cx="0" cy="0" r="3" fill="#64748b" stroke="#cbd5e1" strokeWidth="1" />
-              <text x="-8" y="12" fill="#94a3b8" fontSize="7">{isArabic ? 'كيب تاون' : 'Cape Town'}</text>
-            </g>
-
-            {/* Sovereign Enclave: Kingdom of Lesotho */}
-            <path
-              d="M 370 215
-                 C 388 220, 400 232, 405 248
-                 C 402 265, 385 278, 365 272
-                 C 350 262, 348 245, 355 230
-                 C 360 220, 365 216, 370 215
-                 Z"
-              fill="url(#highlightGrad)"
-              stroke="#f59e0b"
-              strokeWidth="3"
-              filter="url(#landGlow)"
-            />
-
-            {/* Capital: Maseru */}
-            <g transform="translate(365, 238)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="4.5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="8" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="8" y="3" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'ماسيرو (عاصمة ليسوتو المحتواة)' : 'Maseru (Lesotho Capital)'}
-              </text>
-            </g>
-
-            {/* 360 Degree Enclosure Text & Educational Badge */}
-            <g transform="translate(240, 240)">
-              <text x="25" y="0" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="end">
-                {isArabic ? 'تطويق جغرافي كامل 360°' : '360° Total Encirclement'}
-              </text>
-            </g>
-
-            <g transform="translate(60, 40)">
-              <rect x="0" y="0" width="220" height="42" rx="8" fill="#0f172a" stroke="#334155" />
-              <text x="10" y="16" fill="#f59e0b" fontSize="9" fontWeight="bold">
-                {isArabic ? 'الدولة المحتواة (الجيبية):' : 'Perforated (Enclave) State:'}
-              </text>
-              <text x="10" y="30" fill="#94a3b8" fontSize="8">
-                {isArabic ? 'تتبع الدولة المطوقة لها في سياستها واقتصادها' : 'Must align with host state in diplomacy & transit'}
-              </text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* 8. JAPAN (اليابان) - Fragmented Insular Archipelago             */}
-        {/* ============================================================== */}
-        {countryKey === 'japan' && (
-          <g id="map-japan">
-            {/* Surrounding Seas */}
-            <text x="150" y="160" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle">
-              {isArabic ? 'بحر اليابان (Sea of Japan)' : 'Sea of Japan'}
-            </text>
-            <text x="470" y="270" fill="#38bdf8" fontSize="11" fontWeight="bold" opacity="0.7" textAnchor="middle">
-              {isArabic ? 'المحيط الهادئ (Pacific Ocean)' : 'Pacific Ocean'}
-            </text>
-
-            {/* The 4 Major Islands in Accurate Orientations */}
-            {/* 1. Hokkaido (Northern Island) */}
-            <path
-              d="M 390 50
-                 C 420 52, 450 65, 460 85
-                 C 455 105, 425 110, 400 115
-                 C 380 118, 365 100, 360 85
-                 C 365 65, 375 52, 390 50
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-            <text x="410" y="80" fill="#ffffff" fontSize="9" fontWeight="bold">
-              {isArabic ? 'هوكايدو (Hokkaido)' : 'Hokkaido'}
-            </text>
-
-            {/* 2. Honshu (Main Sweeping Island with Tokyo) */}
-            <path
-              d="M 370 125
-                 C 385 140, 395 170, 385 200
-                 C 375 220, 350 240, 320 255
-                 C 285 265, 245 270, 210 272
-                 C 195 265, 215 250, 245 240
-                 C 280 230, 315 210, 340 185
-                 C 355 160, 360 135, 370 125
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2.5"
-              filter="url(#landGlow)"
-            />
-            <text x="320" y="215" fill="#ffffff" fontSize="10" fontWeight="bold">
-              {isArabic ? 'هونشو (Honshu)' : 'Honshu'}
-            </text>
-
-            {/* 3. Shikoku (South of Honshu across Inland Sea) */}
-            <path
-              d="M 235 275
-                 C 255 272, 275 275, 275 288
-                 C 265 298, 245 298, 230 292
-                 C 225 285, 230 278, 235 275
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2"
-              filter="url(#landGlow)"
-            />
-            <text x="250" y="288" fill="#ffffff" fontSize="7" fontWeight="bold">
-              {isArabic ? 'شيكوكو' : 'Shikoku'}
-            </text>
-
-            {/* 4. Kyushu (Southwestern Island) */}
-            <path
-              d="M 185 275
-                 C 200 280, 205 300, 195 320
-                 C 180 335, 165 330, 160 315
-                 C 158 295, 170 280, 185 275
-                 Z"
-              fill={landFill}
-              stroke={landStroke}
-              strokeWidth="2"
-              filter="url(#landGlow)"
-            />
-            <text x="175" y="305" fill="#ffffff" fontSize="8" fontWeight="bold">
-              {isArabic ? 'كيوشو' : 'Kyushu'}
-            </text>
-
-            {/* Capital: Tokyo (Coastal Capital Chosen for Global Connectivity) */}
-            <g transform="translate(355, 230)" filter="url(#pinGlow)">
-              <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-              <circle cx="0" cy="0" r="9" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" className="animate-pulse" />
-              <text x="12" y="4" fill="#ffffff" fontSize="10" fontWeight="black">
-                {isArabic ? 'طوكيو (عاصمة مستحدثة على المحيط)' : 'Tokyo (Coastal Capital)'}
-              </text>
-            </g>
-
-            {/* Historical Former Capital: Kyoto */}
-            <g transform="translate(290, 245)">
-              <circle cx="0" cy="0" r="3.5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
-              <text x="-8" y="-7" fill="#cbd5e1" fontSize="8">{isArabic ? 'كيوتو (التاريخية)' : 'Kyoto (Historic)'}</text>
-            </g>
-
-            {/* Seto Inland Sea Annotation */}
-            <text x="240" y="260" fill="#38bdf8" fontSize="7" fontWeight="bold">
-              {isArabic ? 'بحر سيتو الداخلي' : 'Seto Inland Sea'}
-            </text>
-
-            {/* Morphology Info Box */}
-            <g transform="translate(60, 40)">
-              <rect x="0" y="0" width="230" height="42" rx="8" fill="#0f172a" stroke="#334155" />
-              <text x="10" y="16" fill="#14b8a6" fontSize="9" fontWeight="bold">
-                {isArabic ? 'الدولة المجزأة البحرية (الأرخبيل):' : 'Fragmented Maritime Archipelago:'}
-              </text>
-              <text x="10" y="30" fill="#94a3b8" fontSize="8">
-                {isArabic ? 'تتألف من 4 جزر رئيسية: هوكايدو، هونشو، شيكوكو، كيوشو' : 'Consists of 4 main islands: Hokkaido, Honshu, Shikoku, Kyushu'}
-              </text>
-            </g>
-          </g>
-        )}
-
-        {/* ============================================================== */}
-        {/* Universal Map Ornaments: Compass Rose, Scale Bar, Graticule Ref */}
-        {/* ============================================================== */}
-        {/* Compass Rose (وردة البوصلة) */}
-        <g transform="translate(545, 60)">
-          <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#334155" strokeWidth="1" opacity="0.9" />
-          {/* North Point */}
-          <polygon points="0,-18 4,-4 0,0 -4,-4" fill="#ef4444" />
-          {/* South Point */}
-          <polygon points="0,18 4,4 0,0 -4,4" fill="#64748b" />
-          {/* East Point */}
-          <polygon points="18,0 4,4 0,0 4,-4" fill="#64748b" />
-          {/* West Point */}
-          <polygon points="-18,0 -4,4 0,0 -4,-4" fill="#64748b" />
-          {/* Center */}
-          <circle cx="0" cy="0" r="2.5" fill="#f8fafc" />
-          <text x="0" y="-21" fill="#ef4444" fontSize="9" fontWeight="black" textAnchor="middle">N</text>
-          <text x="0" y="27" fill="#64748b" fontSize="7" textAnchor="middle">S</text>
-          <text x="24" y="2.5" fill="#64748b" fontSize="7" textAnchor="middle">E</text>
-          <text x="-24" y="2.5" fill="#64748b" fontSize="7" textAnchor="middle">W</text>
-        </g>
-
-        {/* Graphic Linear Scale Bar (مقياس الرسم الخطي) */}
-        <g transform="translate(35, 385)">
-          <rect x="0" y="0" width="120" height="4" fill="#0f172a" stroke="#475569" strokeWidth="0.5" />
-          <rect x="0" y="0" width="40" height="4" fill="#f8fafc" />
-          <rect x="40" y="0" width="40" height="4" fill="#14b8a6" />
-          <rect x="80" y="0" width="40" height="4" fill="#f8fafc" />
-          <text x="0" y="-3" fill={graticuleText} fontSize="7" fontFamily="monospace">0</text>
-          <text x="40" y="-3" fill={graticuleText} fontSize="7" fontFamily="monospace">150</text>
-          <text x="80" y="-3" fill={graticuleText} fontSize="7" fontFamily="monospace">300</text>
-          <text x="120" y="-3" fill={graticuleText} fontSize="7" fontFamily="monospace">
-            {countryKey === 'chile' ? '1000 km' : countryKey === 'egypt' ? '500 km' : '400 km'}
-          </text>
-        </g>
-      </svg>
+    <div className="w-full flex flex-col items-center select-none relative">
+      {renderMapContent(false)}
+
+      {/* High-Contrast Geodetic Telemetry Strip */}
+      <div className="w-full mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+        <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col">
+          <span className="text-[10px] text-slate-400 font-semibold flex items-center gap-1">
+            <Shield className="w-3 h-3 text-teal-400" />
+            {isArabic ? 'التصنيف المورفولوجي' : 'Morphological Class'}
+          </span>
+          <span className="font-bold text-teal-300 truncate mt-0.5">
+            {isArabic ? config.shapeTypeAr : config.shapeTypeEn}
+          </span>
+        </div>
+
+        <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col">
+          <span className="text-[10px] text-slate-400 font-semibold">
+            {isArabic ? 'معامل الاندماج (Polsby-Popper)' : 'Compactness Score'}
+          </span>
+          <span className="font-mono font-bold text-amber-400 mt-0.5">{config.compactScore}</span>
+        </div>
+
+        <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col">
+          <span className="text-[10px] text-slate-400 font-semibold">
+            {isArabic ? 'المساحة الكلية' : 'Total Area'}
+          </span>
+          <span className="font-mono font-bold text-slate-200 mt-0.5">{config.area}</span>
+        </div>
+
+        <div className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col">
+          <span className="text-[10px] text-slate-400 font-semibold">
+            {isArabic ? 'محيط الحدود' : 'Border Perimeter'}
+          </span>
+          <span className="font-mono font-bold text-slate-200 mt-0.5">{config.perimeter}</span>
+        </div>
+      </div>
+
+      {/* Strategic Ministry Curriculum Lesson Note */}
+      <div className="w-full mt-2.5 p-3 rounded-xl bg-gradient-to-r from-teal-950/30 via-slate-900/50 to-emerald-950/30 border border-teal-800/40 flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+        <Info className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+        <div>
+          <span className="font-bold text-teal-300 block mb-0.5">
+            {isArabic ? 'الأهمية الجيوسياسية وفق منهج الوزارة:' : 'Curriculum Geopolitical Core Analysis:'}
+          </span>
+          {isArabic ? config.strategicNoteAr : config.strategicNoteEn}
+        </div>
+      </div>
+
+      {/* Fullscreen Lightbox Modal */}
+      {isFullscreenModal && (
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200">
+          <div className="w-full max-w-6xl relative flex flex-col">
+            <div className="flex items-center justify-between mb-3 text-white">
+              <div className="flex items-center gap-2">
+                <Compass className="w-5 h-5 text-teal-400" />
+                <h3 className="font-bold text-lg text-teal-300">
+                  {isArabic ? config.titleAr : config.titleEn}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsFullscreenModal(false);
+                  handleResetZoom();
+                }}
+                className="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 transition-colors"
+                title={isArabic ? 'إغلاق' : 'Close'}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            {renderMapContent(true)}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
