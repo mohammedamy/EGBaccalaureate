@@ -67,17 +67,17 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     taglineEn: 'Thanaweya Amma (General Secondary) & New Egyptian Baccalaureate (EG-Bac)',
     taglineAr: 'الثانوية العامة المصرية المعتمدة والبكالوريا المصرية الحديثة (EG-Bac)',
     descriptionEn:
-      'Seamlessly switch between the traditional Egyptian General Secondary (Thanaweya Amma) and the advanced STEM Egyptian Baccalaureate curriculum. Filter across Mathematics, Physics, Chemistry, Biology, or view all subjects simultaneously.',
+      'Seamlessly switch between the traditional Egyptian General Secondary (Thanaweya Amma) and the advanced STEM Egyptian Baccalaureate curriculum. Filter across all 7 accredited subjects (Mathematics, Physics, Chemistry, Biology, English, French, and Arabic) or view all tracks simultaneously.',
     descriptionAr:
-      'تنقل بسلاسة بين منهج الثانوية العامة المصرية والمنهج المتقدم للبكالوريا المصرية (EG-Bac). يمكنك تصفية المحتوى حسب المواد: الرياضيات، الفيزياء، الكيمياء، والأحياء، أو استعراض جميع المواد بضغطة واحدة.',
+      'تنقل بسلاسة بين منهج الثانوية العامة المصرية والمنهج المتقدم للبكالوريا المصرية (EG-Bac). يمكنك تصفية المحتوى حسب المواد الـ ٧ المعتمدة: الرياضيات، الفيزياء، الكيمياء، الأحياء، الإنجليزية، الفرنسية، واللغة العربية وآدابها، أو استعراض جميع المواد بضغطة واحدة.',
     highlightsEn: [
       'Toggle tracks with 1-click at the top navigation bar',
-      'Unified subject filtering (Math, Physics, Chemistry, Biology)',
+      'Unified subject filtering across all 7 subjects (Math, Physics, Chemistry, Biology, English, French, Arabic)',
       'Direct curriculum equivalence & bridging comparison map',
     ],
     highlightsAr: [
       'التبديل الفوري بين المسارات من شريط التنقل العلوي',
-      'تصفية موحدة للمواد (رياضيات، فيزياء، كيمياء، أحياء)',
+      'تصفية موحدة للمواد الـ ٧ (رياضيات، فيزياء، كيمياء، أحياء، إنجليزي، فرنساوي، عربي)',
       'خريطة مقارنة ومطابقة شاملة بين مساري الثانوية والبكالوريا',
     ],
     accentColor: '#38bdf8',
@@ -97,9 +97,9 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     taglineEn: 'PhET & Labster standard across Physics, Chemistry, Biology & Math',
     taglineAr: 'معايير عالمية للمحاكاة بمستوى PhET و Labster في جميع المواد العلمية',
     descriptionEn:
-      'Experience 24+ sandboxed interactive laboratories: Dynamo 3D induction, RLC AC resonance, Photoelectric effect with ballistic electrons, Bohr atomic spectra & He-Ne laser cavity, Galvanic electrochemistry, Acid-Base titration with glass pH electrodes, and Rotary ATP Synthase bioenergetics.',
+      'Experience 25+ sandboxed interactive laboratories: 3D Dynamo induction, RLC AC resonance, Photoelectric effect with ballistic electrons, Bohr atomic spectra & He-Ne laser cavity, Galvanic electrochemistry, Acid-Base titration with glass pH electrodes, and Rotary ATP Synthase bioenergetics.',
     descriptionAr:
-      'اكتشف أكثر من ٢٤ مختبراً افتراضياً متكاملاً: دينامو الحث الكهرومغناطيسي ثلاثي الأبعاد، دوائر الرنين RLC، الظاهرة الكهروضوئية وحركة الإلكترونات، أطياف بور وليزر He-Ne، الخلايا الجلفانية، المعايرة مع قطب الزجاج للأس الهيدروجيني، ومضخة إنزيم تصنيع ATP الدوارة.',
+      'اكتشف أكثر من ٢٥ مختبراً افتراضياً متكاملاً: دينامو الحث الكهرومغناطيسي ثلاثي الأبعاد، دوائر الرنين RLC، الظاهرة الكهروضوئية وحركة الإلكترونات، أطياف بور وليزر He-Ne، الخلايا الجلفانية، المعايرة مع قطب الزجاج للأس الهيدروجيني، ومضخة إنزيم تصنيع ATP الدوارة.',
     highlightsEn: [
       'Calibrated Fluke 87V Digital Multimeter & Dual-Trace Oscilloscope',
       'Predict-Observe-Explain (POE) pedagogical hypothesis cycles',
@@ -122,14 +122,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 3,
     categoryEn: 'Smart Search & Indexing',
     categoryAr: 'البحث الشامل والاستكشاف الفوري',
-    titleEn: 'Instant Universal Search Across 10,910 Items',
-    titleAr: 'البحث الفوري الذكي في جميع المسائل والمفاهيم',
+    titleEn: 'Instant Universal Search Across 16,300 Questions',
+    titleAr: 'البحث الفوري الذكي في جميع الـ ١٦,٣٠٠ مسألة و ٨٥ فصلاً',
     taglineEn: 'Find any theorem, law, formula, or problem in milliseconds',
     taglineAr: 'ابحث عن أي قانون أو تعريف أو مسألة في أجزاء من الثانية',
     descriptionEn:
-      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 10,910 databank problems, 57 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
+      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 16,300 databank problems, 85 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
     descriptionAr:
-      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ١٠,٩١٠ مسألة، و٥٧ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
+      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ١٦,٣٠٠ مسألة، و٨٥ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
     highlightsEn: [
       'Keyboard shortcut: ⌘K / Ctrl+K accessible from all views',
       'Filters by track (Thanaweya / EG-Bac) and item category',
@@ -162,17 +162,17 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     descriptionAr:
       'يحتوي كل فصل على شرح تأصيلي للمفاهيم، وصياغات رياضية بترميز KaTeX، وأمثلة نموذجية محلولة، وتقييمات تكوينية، وخطط دروس للمعلمين، وأوراق عمل قابلة للطباعة تتضمن خطوات الحل بالتفصيل.',
     highlightsEn: [
-      '187,214+ KaTeX scientific expressions rendered natively',
+      '189,488+ KaTeX scientific expressions rendered natively',
       'Pedagogical tabs: Theory, Solved Examples, Worksheets, Teacher Tips',
       'Customizable print layout for clean offline paper tests and homework',
     ],
     highlightsAr: [
-      'أكثر من ١٨٧,٢١٤ تعبير رياضي وعلمي مكتوب بدقة فائقة',
+      'أكثر من ١٨٩,٤٨٨ تعبير رياضي وعلمي مكتوب بدقة فائقة',
       'تبويبات منظمة: الشرح، الأمثلة المحلولة، التمارين، وخطط التدريس',
       'تنسيق طباعة أنيق لأوراق العمل والاختبارات الورقية المنزلية',
     ],
     accentColor: '#10b981',
-    accentBg: 'rgba(16, 185, 129, 0.1)',
+    accentBg: 'rgba(168, 85, 247, 0.1)',
     accentBorder: 'rgba(16, 185, 129, 0.3)',
     actionType: 'overview',
     actionLabelEn: 'Explore Chapter Lessons',
@@ -183,14 +183,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 5,
     categoryEn: 'Examination Engine',
     categoryAr: 'بنك الأسئلة ومولد الامتحانات الذكي',
-    titleEn: '10,910 Problems & Automated Exam Simulator',
-    titleAr: 'بنك ١٠,٩١٠ مسألة ومولد الامتحانات المؤتمت',
+    titleEn: '16,300 Problems & Automated Exam Simulator',
+    titleAr: 'بنك ١٦,٣٠٠ مسألة ومولد الامتحانات المؤتمت',
     taglineEn: 'Customizable timed exams with instant grading & diagnostic feedback',
     taglineAr: 'امتحانات إلكترونية محددة بزمن مع تصحيح فوري وتحليل تفصيلي للإجابات',
     descriptionEn:
-      'Challenge yourself with the complete 10,910 problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced). Generate custom mock exams matching the official Ministry specification with automated grading.',
+      'Challenge yourself with the complete 16,300 problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
     descriptionAr:
-      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ١٠,٩١٠ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم). قم بإنشاء امتحانات تجريبية مطابقة تماماً للمواصفات الامتحانية الرسمية لوزارة التربية والتعليم.',
+      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ١٦,٣٠٠ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
     highlightsEn: [
       'Generate online timed quizzes or printable paper exam forms',
       'Targeted topic selection: select specific branches, chapters, or difficulty',
