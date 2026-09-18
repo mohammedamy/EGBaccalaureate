@@ -265,10 +265,10 @@ When a particle moves along a straight line with coordinate axis $x$ and origin 
                 questionEn: 'A particle moves in a straight line such that its velocity $v = 36t - 3t^2\\text{ m/s}$. Find the maximum speed of the particle and the total displacement when the particle momentarily reverses its motion.',
                 questionAr: 'يتحرك جسيم في خط مستقيم بحيث كانت سرعته $v = 36t - 3t^2$ م/ث. أوجد أقصى سرعة للجسيم، ومقدار الإزاحة عندما يسكن الجسيم لحظياً لعكس اتجاه حركته.',
                 optionsEn: [
-                  'v_{\\max} = 108\\text{ m/s}, \\quad s = 864\\text{ m}',
-                  'v_{\\max} = 108\\text{ m/s}, \\quad s = 432\\text{ m}',
-                  'v_{\\max} = 54\\text{ m/s}, \\quad s = 216\\text{ m}',
-                  'v_{\\max} = 144\\text{ m/s}, \\quad s = 864\\text{ m}'
+                  '$v_{\\max} = 108\\text{ m/s}, \\quad s = 864\\text{ m}$',
+                  '$v_{\\max} = 108\\text{ m/s}, \\quad s = 432\\text{ m}$',
+                  '$v_{\\max} = 54\\text{ m/s}, \\quad s = 216\\text{ m}$',
+                  '$v_{\\max} = 144\\text{ m/s}, \\quad s = 864\\text{ m}$'
                 ],
                 optionsAr: [
                   'ع_عظمى = ١٠٨ م/ث، ف = ٨٦٤ م',
@@ -276,7 +276,7 @@ When a particle moves along a straight line with coordinate axis $x$ and origin 
                   'ع_عظمى = ٥٤ م/ث، ف = ٢١٦ م',
                   'ع_عظمى = ١٤٤ م/ث، ف = ٨٦٤ م'
                 ],
-                correctAnswer: 'v_{\\max} = 108\\text{ m/s}, \\quad s = 864\\text{ m}',
+                correctAnswer: '$v_{\\max} = 108\\text{ m/s}, \\quad s = 864\\text{ m}$',
                 correctIndex: 0,
                 hintEn: 'Maximum speed occurs when a = dv/dt = 0. Momentary rest occurs when v = 0 (t > 0). Integrate v(t) to find displacement.',
                 hintAr: 'تحدث أقصى سرعة عندما جـ = 0. يسكن الجسيم لحظياً عندما ع = 0. كامل السرعة لإيجاد الإزاحة.',
@@ -481,9 +481,9 @@ $$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 
                 difficulty: 'exam_standard',
                 questionEn: 'A particle moves in a straight line with velocity $v(t) = 3t^2 - 12t\\text{ m/s}$. Find the total distance traveled by the particle in the time interval $t \\in [0, 5]$.',
                 questionAr: 'يتحرك جسيم في خط مستقيم بسرعة $v(t) = 3t^2 - 12t$ م/ث. احسب المسافة الكلية التي يقطعها الجسيم في الفترة الزمنية $t \\in [0, 5]$.',
-                optionsEn: ['32\\text{ meters}', '39\\text{ meters}', '65\\text{ meters}', '71\\text{ meters}'],
+                optionsEn: ['$32\\text{ meters}$', '$39\\text{ meters}$', '$65\\text{ meters}$', '$71\\text{ meters}$'],
                 optionsAr: ['٣٢ متراً', '٣٩ متراً', '٦٥ متراً', '٧١ متراً'],
-                correctAnswer: '65\\text{ meters}',
+                correctAnswer: '$65\\text{ meters}$',
                 correctIndex: 2,
                 hintEn: 'Find where v(t) = 0 inside [0, 5]. Then split the integral into intervals and take absolute values.',
                 hintAr: 'أوجد أصفار السرعة ع(ن) = 0 في الفترة [0, 5] ثم قسم التكامل واحسب القيمة المطلقة لكل فترة.',
@@ -1112,10 +1112,10 @@ When a person of mass $m$ stands on a scale inside an elevator:
                 questionEn: 'A body of mass $m$ is suspended from a spring balance fixed to the ceiling of an elevator. When the elevator accelerates UPWARDS with acceleration $a$, the balance reading is $35\\text{ kg-wt}$. When the elevator accelerates DOWNWARDS with the same acceleration $a$, the reading is $25\\text{ kg-wt}$. Find the true mass $m$ of the body and the acceleration $a$.',
                 questionAr: 'عُلق جسم كتلته $m$ في ميزان زنبركي مثبت في سقف مصعد. فعندما صعد المصعد بعجلة $a$ كانت قراءة الميزان $35$ ثقل كجم، وعندما هبط المصعد بنفس العجلة $a$ كانت القراءة $25$ ثقل كجم. احسب الكتلة الحقيقية $m$ ومقدار العجلة $a$.',
                 optionsEn: [
-                  'm = 30\\text{ kg}, \\quad a = 1.63\\text{ m/s}^2',
-                  'm = 30\\text{ kg}, \\quad a = 1.4\\text{ m/s}^2',
-                  'm = 35\\text{ kg}, \\quad a = 1.4\\text{ m/s}^2',
-                  'm = 28\\text{ kg}, \\quad a = 1.96\\text{ m/s}^2'
+                  '$m = 30\\text{ kg}, \\quad a = 1.63\\text{ m/s}^2$',
+                  '$m = 30\\text{ kg}, \\quad a = 1.4\\text{ m/s}^2$',
+                  '$m = 35\\text{ kg}, \\quad a = 1.4\\text{ m/s}^2$',
+                  '$m = 28\\text{ kg}, \\quad a = 1.96\\text{ m/s}^2$'
                 ],
                 optionsAr: [
                   'ك = ٣٠ كجم، جـ = ١٫٦٣ م/ث²',
@@ -1123,7 +1123,7 @@ When a person of mass $m$ stands on a scale inside an elevator:
                   'ك = ٣٥ كجم، جـ = ١٫٤ م/ث²',
                   'ك = ٢٨ كجم، جـ = ١٫٩٦ م/ث²'
                 ],
-                correctAnswer: 'm = 30\\text{ kg}, \\quad a = 1.63\\text{ m/s}^2',
+                correctAnswer: '$m = 30\\text{ kg}, \\quad a = 1.63\\text{ m/s}^2$',
                 correctIndex: 0,
                 hintEn: 'Upward: N1 = m(g + a). Downward: N2 = m(g - a). Add the two equations to eliminate a and solve for m.',
                 hintAr: 'في الصعود: ر١ = ك(د + جـ). وفي الهبوط: ر٢ = ك(د - جـ). اجمع المعادلتين لحذف العجلة وإيجاد الكتلة.',
@@ -1161,10 +1161,10 @@ When a person of mass $m$ stands on a scale inside an elevator:
                 questionEn: 'Two equal masses of $m_1 = 500\\text{ g}$ and $m_2 = 480\\text{ g}$ are attached to the ends of a light string passing over a smooth pulley. If the system is released from rest, find the acceleration $a$ and the vertical distance between the two masses after $1\\text{ second}$.',
                 questionAr: 'عُلقت كتلتان $m_1 = 500$ جم و $m_2 = 480$ جم في طرفي خيط خفيف يمر على بكرة ملساء. فإذا تحركت المجموعة من السكون، فاحسب العجلة $a$ والمسافة الرأسية بين الكتلتين بعد مرور ثانية واحدة.',
                 optionsEn: [
-                  'a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 20\\text{ cm}',
-                  'a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 10\\text{ cm}',
-                  'a = 10\\text{ cm/s}^2, \\quad \\text{Distance} = 10\\text{ cm}',
-                  'a = 40\\text{ cm/s}^2, \\quad \\text{Distance} = 40\\text{ cm}'
+                  '$a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 20\\text{ cm}$',
+                  '$a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 10\\text{ cm}$',
+                  '$a = 10\\text{ cm/s}^2, \\quad \\text{Distance} = 10\\text{ cm}$',
+                  '$a = 40\\text{ cm/s}^2, \\quad \\text{Distance} = 40\\text{ cm}$'
                 ],
                 optionsAr: [
                   'جـ = ٢٠ سم/ث²، المسافة الرأسية = ٢٠ سم',
@@ -1172,7 +1172,7 @@ When a person of mass $m$ stands on a scale inside an elevator:
                   'جـ = ١٠ سم/ث²، المسافة الرأسية = ١٠ سم',
                   'جـ = ٤٠ سم/ث²، المسافة الرأسية = ٤٠ سم'
                 ],
-                correctAnswer: 'a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 20\\text{ cm}',
+                correctAnswer: '$a = 20\\text{ cm/s}^2, \\quad \\text{Distance} = 20\\text{ cm}$',
                 correctIndex: 0,
                 hintEn: 'Acceleration a = (m1 - m2)/(m1 + m2) * g. Distance traveled by each mass is s = 1/2 a t^2. Vertical distance is 2s.',
                 hintAr: 'العجلة جـ = (ك١ - ك٢)/(ك١ + ك٢) × د. مسافة كل كتلة ف = ١/٢ جـ ن². والمسافة الرأسية بينهما ٢ف.',
@@ -1204,9 +1204,9 @@ When a person of mass $m$ stands on a scale inside an elevator:
                 difficulty: 'hots',
                 questionEn: 'Two masses of $3\\text{ kg}$ and $1\\text{ kg}$ are connected by a light string over a smooth pulley and released from rest. After $2\\text{ seconds}$, the string breaks. Find the maximum additional height reached by the $1\\text{ kg}$ mass above the position where the string broke.',
                 questionAr: 'عُلقت كتلتان $3$ كجم و $1$ كجم في طرفي خيط يمر على بكرة ملساء وبدأت الحركة من السكون. وبعد مرور ثانيتين انقطع الخيط. احسب أقصى مسافة إضافية يصعدها الجسم الذي كتلته $1$ كجم بعد لحظة انقطاع الخيط.',
-                optionsEn: ['4.9\\text{ meters}', '9.8\\text{ meters}', '14.7\\text{ meters}', '19.6\\text{ meters}'],
+                optionsEn: ['$4.9\\text{ meters}$', '$9.8\\text{ meters}$', '$14.7\\text{ meters}$', '$19.6\\text{ meters}$'],
                 optionsAr: ['٤٫٩ أمتار', '٩٫٨ أمتار', '١٤٫٧ متراً', '١٩٫٦ متراً'],
-                correctAnswer: '4.9\\text{ meters}',
+                correctAnswer: '$4.9\\text{ meters}$',
                 correctIndex: 0,
                 hintEn: 'Find acceleration a before cut, then velocity v at t = 2s. After cut, the 1 kg mass moves upwards under gravity (a = -g = -9.8) until v = 0.',
                 hintAr: 'احسب العجلة قبل القطع ثم السرعة عند ن = ٢ ث. بعد القطع يصعد الجسم بعجلة الجاذبية (جـ = -د = -٩٫٨) حتى يسكن لحظياً.',

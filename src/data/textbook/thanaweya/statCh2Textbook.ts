@@ -525,7 +525,7 @@ export const statCh2Exercises: SolvedProblem[] = [
       "100 نيوتن.متر",
       "-100 نيوتن.متر",
       "200 نيوتن.متر",
-      "100\\sqrt{3} نيوتن.متر"
+      "\$100\\sqrt{3}\\text{ نيوتن.متر}\$"
     ],
     "correctAnswer": "$100\\text{ N}\\cdot\\text{m}$",
     "correctIndex": 0,

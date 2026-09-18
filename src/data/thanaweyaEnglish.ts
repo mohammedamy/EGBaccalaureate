@@ -5,6 +5,12 @@ import { englishCh3Databank } from './databanks/thanaweya/englishCh3Databank';
 import { englishCh4Databank } from './databanks/thanaweya/englishCh4Databank';
 import { englishCh5Databank } from './databanks/thanaweya/englishCh5Databank';
 import { englishCh6Databank } from './databanks/thanaweya/englishCh6Databank';
+import { englishCh1SolvedExamples, englishCh1Exercises } from './textbook/thanaweya/englishCh1Textbook';
+import { englishCh2SolvedExamples, englishCh2Exercises } from './textbook/thanaweya/englishCh2Textbook';
+import { englishCh3SolvedExamples, englishCh3Exercises } from './textbook/thanaweya/englishCh3Textbook';
+import { englishCh4SolvedExamples, englishCh4Exercises } from './textbook/thanaweya/englishCh4Textbook';
+import { englishCh5SolvedExamples, englishCh5Exercises } from './textbook/thanaweya/englishCh5Textbook';
+import { englishCh6SolvedExamples, englishCh6Exercises } from './textbook/thanaweya/englishCh6Textbook';
 
 export const thanaweyaEnglishBranch: Branch = {
   id: 'thanaweya_english',
@@ -409,6 +415,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh1SolvedExamples,
+      exerciseProblems: englishCh1Exercises,
       databank: englishCh1Databank
     },
     {
@@ -785,6 +793,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh2SolvedExamples,
+      exerciseProblems: englishCh2Exercises,
       databank: englishCh2Databank
     },
     {
@@ -1168,6 +1178,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh3SolvedExamples,
+      exerciseProblems: englishCh3Exercises,
       databank: englishCh3Databank
     },
     {
@@ -1363,6 +1375,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh4SolvedExamples,
+      exerciseProblems: englishCh4Exercises,
       databank: englishCh4Databank
     },
     {
@@ -1560,6 +1574,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh5SolvedExamples,
+      exerciseProblems: englishCh5Exercises,
       databank: englishCh5Databank
     },
     {
@@ -1757,6 +1773,8 @@ export const thanaweyaEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: englishCh6SolvedExamples,
+      exerciseProblems: englishCh6Exercises,
       databank: englishCh6Databank
     }
   ]

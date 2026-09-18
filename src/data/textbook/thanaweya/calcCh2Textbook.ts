@@ -55,10 +55,10 @@ export const calcCh2SolvedExamples: SolvedProblem[] = [
       "$\\frac{1}{\\ln 5}$"
     ],
     "optionsAr": [
-      "لو_هـ 5",
-      "5",
-      "1",
-      "\\frac{1}{\\text{لو}_هـ 5}"
+      "$\\ln 5$",
+      "$5$",
+      "$1$",
+      "$\\frac{1}{\\ln 5}$"
     ],
     "correctAnswer": "$\\ln 5$",
     "correctIndex": 0,
@@ -479,10 +479,10 @@ export const calcCh2Exercises: SolvedProblem[] = [
       "$\\frac{1}{2} \\ln a$"
     ],
     "optionsAr": [
-      "2 لو_هـ a",
-      "لو_هـ a",
-      "a^2",
-      "\\frac{1}{2} \\text{لو}_هـ a"
+      "$2 \\ln a$",
+      "$\\ln a$",
+      "$a^2$",
+      "$\\frac{1}{2} \\ln a$"
     ],
     "correctAnswer": "$2 \\ln a$",
     "correctIndex": 0,

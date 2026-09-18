@@ -54,7 +54,7 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "10 نيوتن",
       "20 نيوتن",
       "15 نيوتن",
-      "10\\sqrt{3} نيوتن"
+      "\$10\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$10\\text{ N}$",
     "correctIndex": 0,
@@ -88,10 +88,10 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "$20\\sqrt{3}\\text{ N}$"
     ],
     "optionsAr": [
-      "\\frac{80\\sqrt{3}}{3} نيوتن",
-      "40\\sqrt{3} نيوتن",
+      "\$\\frac{80\\sqrt{3}}{3}\\text{ نيوتن}\$",
+      "\$40\\sqrt{3}\\text{ نيوتن}\$",
       "80 نيوتن",
-      "20\\sqrt{3} نيوتن"
+      "\$20\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$\\frac{80\\sqrt{3}}{3}\\text{ N}$",
     "correctIndex": 0,
@@ -124,10 +124,10 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "$\\frac{\\sqrt{3}}{2}$"
     ],
     "optionsAr": [
-      "\\frac{\\sqrt{3}}{3}",
-      "\\sqrt{3}",
+      "\$\\frac{\\sqrt{3}}{3}\$",
+      "\$\\sqrt{3}\$",
       "\\frac{1}{2}",
-      "\\frac{\\sqrt{3}}{2}"
+      "\$\\frac{\\sqrt{3}}{2}\$"
     ],
     "correctAnswer": "$\\frac{\\sqrt{3}}{3}$",
     "correctIndex": 0,
@@ -165,7 +165,7 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "0 نيوتن",
       "30 نيوتن",
       "15 نيوتن",
-      "30\\sqrt{3} نيوتن"
+      "\$30\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$0\\text{ N}$",
     "correctIndex": 0,
@@ -202,7 +202,7 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "60 نيوتن",
       "30 نيوتن",
       "45 نيوتن",
-      "30\\sqrt{3} نيوتن"
+      "\$30\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$60\\text{ N}$",
     "correctIndex": 0,
@@ -277,7 +277,7 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
     "optionsAr": [
       "50 نيوتن",
       "100 نيوتن",
-      "50\\sqrt{3} نيوتن",
+      "\$50\\sqrt{3}\\text{ نيوتن}\$",
       "25 نيوتن"
     ],
     "correctAnswer": "$50\\text{ N}$",
@@ -314,9 +314,9 @@ export const statCh1SolvedExamples: SolvedProblem[] = [
       "$\\frac{1}{3}$"
     ],
     "optionsAr": [
-      "\\frac{\\sqrt{3}}{6}",
-      "\\frac{\\sqrt{3}}{3}",
-      "\\frac{\\sqrt{3}}{2}",
+      "\$\\frac{\\sqrt{3}}{6}\$",
+      "\$\\frac{\\sqrt{3}}{3}\$",
+      "\$\\frac{\\sqrt{3}}{2}\$",
       "\\frac{1}{3}"
     ],
     "correctAnswer": "$\\frac{\\sqrt{3}}{6}$",
@@ -494,10 +494,10 @@ export const statCh1Exercises: SolvedProblem[] = [
       "$15\\sqrt{2}\\text{ N}$"
     ],
     "optionsAr": [
-      "20\\sqrt{2} نيوتن",
-      "30\\sqrt{2} نيوتن",
+      "\$20\\sqrt{2}\\text{ نيوتن}\$",
+      "\$30\\sqrt{2}\\text{ نيوتن}\$",
       "40 نيوتن",
-      "15\\sqrt{2} نيوتن"
+      "\$15\\sqrt{2}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$20\\sqrt{2}\\text{ N}$",
     "correctIndex": 0,
@@ -533,8 +533,8 @@ export const statCh1Exercises: SolvedProblem[] = [
     "optionsAr": [
       "1",
       "\\frac{1}{2}",
-      "\\sqrt{2}",
-      "\\frac{\\sqrt{2}}{2}"
+      "\$\\sqrt{2}\$",
+      "\$\\frac{\\sqrt{2}}{2}\$"
     ],
     "correctAnswer": "$1$",
     "correctIndex": 0,
@@ -566,7 +566,7 @@ export const statCh1Exercises: SolvedProblem[] = [
       "20 نيوتن",
       "10 نيوتن",
       "30 نيوتن",
-      "10\\sqrt{3} نيوتن"
+      "\$10\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$20\\text{ N}$",
     "correctIndex": 0,
@@ -601,7 +601,7 @@ export const statCh1Exercises: SolvedProblem[] = [
     "optionsAr": [
       "40 نيوتن",
       "80 نيوتن",
-      "40\\sqrt{3} نيوتن",
+      "\$40\\sqrt{3}\\text{ نيوتن}\$",
       "20 نيوتن"
     ],
     "correctAnswer": "$40\\text{ N}$",
@@ -667,9 +667,9 @@ export const statCh1Exercises: SolvedProblem[] = [
       "$60\\text{ N}$"
     ],
     "optionsAr": [
-      "30\\sqrt{3} نيوتن",
+      "\$30\\sqrt{3}\\text{ نيوتن}\$",
       "30 نيوتن",
-      "15\\sqrt{3} نيوتن",
+      "\$15\\sqrt{3}\\text{ نيوتن}\$",
       "60 نيوتن"
     ],
     "correctAnswer": "$30\\sqrt{3}\\text{ N}$",
@@ -745,7 +745,7 @@ export const statCh1Exercises: SolvedProblem[] = [
     "optionsAr": [
       "\\theta \\le \\lambda",
       "\\theta > \\lambda",
-      "\\theta = 90^\\circ",
+      "\$\\theta = 90^\\circ\$",
       "\\tan\\theta > \\mu_s"
     ],
     "correctAnswer": "$\\theta \\le \\lambda$",
@@ -775,8 +775,8 @@ export const statCh1Exercises: SolvedProblem[] = [
       "$\\frac{1}{2}$"
     ],
     "optionsAr": [
-      "\\frac{\\sqrt{3}}{3}",
-      "\\sqrt{3}",
+      "\$\\frac{\\sqrt{3}}{3}\$",
+      "\$\\sqrt{3}\$",
       "1",
       "\\frac{1}{2}"
     ],
@@ -813,8 +813,8 @@ export const statCh1Exercises: SolvedProblem[] = [
     "optionsAr": [
       "25 نيوتن",
       "20 نيوتن",
-      "15\\sqrt{3} نيوتن",
-      "10\\sqrt{3} نيوتن"
+      "\$15\\sqrt{3}\\text{ نيوتن}\$",
+      "\$10\\sqrt{3}\\text{ نيوتن}\$"
     ],
     "correctAnswer": "$25\\text{ N}$",
     "correctIndex": 0,

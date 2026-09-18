@@ -3,6 +3,10 @@ import { frenchCh1Databank } from './databanks/thanaweya/frenchCh1Databank';
 import { frenchCh2Databank } from './databanks/thanaweya/frenchCh2Databank';
 import { frenchCh3Databank } from './databanks/thanaweya/frenchCh3Databank';
 import { frenchCh4Databank } from './databanks/thanaweya/frenchCh4Databank';
+import { egBacFrCh1SolvedExamples, egBacFrCh1Exercises } from './textbook/egbac/egBacFrenchCh1Textbook';
+import { egBacFrCh2SolvedExamples, egBacFrCh2Exercises } from './textbook/egbac/egBacFrenchCh2Textbook';
+import { egBacFrCh3SolvedExamples, egBacFrCh3Exercises } from './textbook/egbac/egBacFrenchCh3Textbook';
+import { egBacFrCh4SolvedExamples, egBacFrCh4Exercises } from './textbook/egbac/egBacFrenchCh4Textbook';
 
 export const egBacFrenchBranch: Branch = {
   "id": "egbac_french",
@@ -459,6 +463,8 @@ export const egBacFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacFrCh1SolvedExamples,
+      "exerciseProblems": egBacFrCh1Exercises,
       "databank": frenchCh1Databank
     },
     {
@@ -902,6 +908,8 @@ export const egBacFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacFrCh2SolvedExamples,
+      "exerciseProblems": egBacFrCh2Exercises,
       "databank": frenchCh2Databank
     },
     {
@@ -1345,6 +1353,8 @@ export const egBacFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacFrCh3SolvedExamples,
+      "exerciseProblems": egBacFrCh3Exercises,
       "databank": frenchCh3Databank
     },
     {
@@ -1793,6 +1803,8 @@ export const egBacFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacFrCh4SolvedExamples,
+      "exerciseProblems": egBacFrCh4Exercises,
       "databank": frenchCh4Databank
     }
   ]

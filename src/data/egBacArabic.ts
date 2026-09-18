@@ -3,6 +3,10 @@ import { arabicCh1Databank } from './databanks/thanaweya/arabicCh1Databank';
 import { arabicCh2Databank } from './databanks/thanaweya/arabicCh2Databank';
 import { arabicCh3Databank } from './databanks/thanaweya/arabicCh3Databank';
 import { arabicCh4Databank } from './databanks/thanaweya/arabicCh4Databank';
+import { egBacArCh1SolvedExamples, egBacArCh1Exercises } from './textbook/egbac/egBacArabicCh1Textbook';
+import { egBacArCh2SolvedExamples, egBacArCh2Exercises } from './textbook/egbac/egBacArabicCh2Textbook';
+import { egBacArCh3SolvedExamples, egBacArCh3Exercises } from './textbook/egbac/egBacArabicCh3Textbook';
+import { egBacArCh4SolvedExamples, egBacArCh4Exercises } from './textbook/egbac/egBacArabicCh4Textbook';
 
 export const egBacArabicBranch: Branch = {
   "id": "egbac_arabic",
@@ -193,6 +197,8 @@ export const egBacArabicBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacArCh1SolvedExamples,
+      "exerciseProblems": egBacArCh1Exercises,
       "databank": arabicCh1Databank
     },
     {
@@ -370,6 +376,8 @@ export const egBacArabicBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacArCh2SolvedExamples,
+      "exerciseProblems": egBacArCh2Exercises,
       "databank": arabicCh2Databank
     },
     {
@@ -547,6 +555,8 @@ export const egBacArabicBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacArCh3SolvedExamples,
+      "exerciseProblems": egBacArCh3Exercises,
       "databank": arabicCh3Databank
     },
     {
@@ -724,6 +734,8 @@ export const egBacArabicBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": egBacArCh4SolvedExamples,
+      "exerciseProblems": egBacArCh4Exercises,
       "databank": arabicCh4Databank
     }
   ]

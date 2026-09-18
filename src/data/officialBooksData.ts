@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1224,6 +1224,309 @@ export const officialBooksList: OfficialBook[] = [
       'جدول الشفرة الوراثية الكوني (٦٤ كودوناً متضمناً كودونات البدء والوقف)',
     ],
   },
+  // 18. Thanaweya Arabic Language & Literature
+  {
+    id: 'th-arabic-g12',
+    curriculum: 'thanaweya',
+    category: 'arabic',
+    subjectId: 'arabic',
+    branchId: 'thanaweya_arabic',
+    code: 'TH-ARABIC-G12',
+    titleEn: 'Arabic Language & Literature Compendium',
+    titleAr: 'اللغة العربية وآدابها: دليل النحو والبلاغة والأدب',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 384,
+    fileSize: '24.8 MB',
+    compendiumTitleEn: 'Arabic Comprehensive Grammar & Rhetoric Compendium',
+    compendiumTitleAr: 'ملخص قواعد النحو وأسرار البلاغة الوزاري المعتمد',
+    filename: 'thanaweya-arabic.pdf',
+    downloadUrl: '/books/thanaweya-arabic.pdf',
+    fullTextbookPages: 420,
+    fullTextbookSize: '45.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-amber-600 via-orange-600 to-yellow-600',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'th-ar-c1', titleEn: 'Unit 1: Comprehensive Arabic Grammar & Syntactic Parsing', titleAr: 'الوحدة الأولى: النحو وقواعد الإعراب الشامل', pageRange: 'pp. 1–110', topicsCount: 7 },
+      { id: 'th-ar-c2', titleEn: 'Unit 2: Arabic Rhetoric & Aesthetic Literary Analysis', titleAr: 'الوحدة الثانية: البلاغة العربية وأسرار البيان والتذوق', pageRange: 'pp. 111–190', topicsCount: 5 },
+      { id: 'th-ar-c3', titleEn: 'Unit 3: Classical & Modern Arabic Literature & Texts', titleAr: 'الوحدة الثالثة: تاريخ الأدب وتطبيقات النصوص الأدبية', pageRange: 'pp. 191–310', topicsCount: 6 },
+      { id: 'th-ar-c4', titleEn: 'Unit 4: Reading Comprehension, Critical Thought & Composition', titleAr: 'الوحدة الرابعة: القراءة المتعددة والفكر النقدي والتعبير', pageRange: 'pp. 311–384', topicsCount: 4 },
+    ],
+    descriptionEn: 'Comprehensive official Ministry textbook for Secondary 3 Arabic Language, containing thorough grammatical parsing, morphological derivations, rhetorical devices, literature analysis, and reading comprehension.',
+    descriptionAr: 'كتاب الوزارة المعتمد لمنهج اللغة العربية لشهادة إتمام الثانوية العامة، يشمل النحو الشامل وقواعد الإعراب، البلاغة العربية، تاريخ الأدب وتطبيقات النصوص، ونماذج القراءة والتعبير.',
+    highlightsEn: [
+      'Complete ministerial 7 grammar units and parsing schemes',
+      'Bayan, Maani, and Badi rhetorical branches with aesthetic values',
+      'Schools of modern Arabic poetry from Revival to Apollo and Free Verse',
+      'High-yield functional and creative essay writing frameworks',
+    ],
+    highlightsAr: [
+      'الوحدات النحوية السبع المعتمدة وزارياً وجداول إعراب المشتقات والنواسخ',
+      'فنون البلاغة (البيان، المعاني، البديع) وأسرار الجمال البلاغي',
+      'مدارس الشعر العربي الحديث من الإحياء والبعث حتى الواقعية والشعر الحر',
+      'أصول التعبير الوظيفي والإبداعي ومعايير علامات الترقيم وصحة الرسم الإملائي',
+    ],
+  },
+
+  // 19. EG-Bac Arabic Language & Linguistics
+  {
+    id: 'egbac-arabic-g12',
+    curriculum: 'egbac',
+    category: 'arabic',
+    subjectId: 'arabic',
+    branchId: 'egbac_arabic',
+    code: 'EGBAC-ARABIC-G12',
+    titleEn: 'Advanced Arabic Linguistics & Rhetorical Analysis',
+    titleAr: 'اللغة العربية المتقدمة واللسانيات والتحليل البلاغي (EG-Bac)',
+    subtitleEn: 'Egyptian Baccalaureate International Track - Terminale',
+    subtitleAr: 'المسار المتقدم للبكالوريا المصرية - المستوى النهائي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Terminale / Year 12 (Egyptian Baccalaureate)',
+    gradeAr: 'المستوى النهائي (شهادة البكالوريا المصرية)',
+    publisherEn: 'Egyptian Baccalaureate Curriculum & Standards Authority',
+    publisherAr: 'هيئة المناهج والمعايير للبكالوريا المصرية',
+    pagesCount: 360,
+    fileSize: '22.4 MB',
+    compendiumTitleEn: 'Advanced Arabic Linguistics & Structural Stylistics Guide',
+    compendiumTitleAr: 'دليل اللسانيات والأسلوبية والتحليل النقدي للبكالوريا',
+    filename: 'egbac-arabic.pdf',
+    downloadUrl: '/books/egbac-arabic.pdf',
+    fullTextbookPages: 395,
+    fullTextbookSize: '41.6 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-amber-600 via-orange-600 to-yellow-600',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'egbac-ar-c1', titleEn: 'Unit 1: Applied Syntax, Dependency Grammar & Case Parsing', titleAr: 'الوحدة الأولى: النحو التطبيقي واللسانيات التركيبية وإعراب الجمل', pageRange: 'pp. 1–105', topicsCount: 7 },
+      { id: 'egbac-ar-c2', titleEn: 'Unit 2: Structural Stylistics & Cognitive Rhetoric', titleAr: 'الوحدة الثانية: الأسلوبية البنائية والبلاغة الإدراكية والتناص', pageRange: 'pp. 106–180', topicsCount: 5 },
+      { id: 'egbac-ar-c3', titleEn: 'Unit 3: Comparative Literary Criticism & Modernist Aesthetics', titleAr: 'الوحدة الثالثة: النقد الأدبي المقارن وجماليات الحداثة النصية', pageRange: 'pp. 181–290', topicsCount: 6 },
+      { id: 'egbac-ar-c4', titleEn: 'Unit 4: Discourse Analysis, Hermeneutics & Philosophical Essays', titleAr: 'الوحدة الرابعة: تحليل الخطاب والهرمنيوطيقا والمقال الفلسفي', pageRange: 'pp. 291–360', topicsCount: 4 },
+    ],
+    descriptionEn: 'Advanced linguistic and critical analysis textbook for the Egyptian Baccalaureate, synthesizing Arabic structural grammar, cognitive stylistics, comparative literary criticism, and philosophical discourse analysis.',
+    descriptionAr: 'كتاب التحليل اللغوي والنقدي المتقدم لطلاب البكالوريا المصرية، يدمج بين اللسانيات التركيبية، الأسلوبية الإدراكية، النقد المقارن، وتفكيك الخطاب المقالي.',
+    highlightsEn: [
+      'Deep structural syntax and sentence dependency parsing',
+      'Aesthetic cognitive rhetoric and intertextuality in classical & modern poetry',
+      'Comparative literary criticism frameworks and thematic deconstruction',
+      'Discourse hermeneutics and high-order argumentative composition',
+    ],
+    highlightsAr: [
+      'إعراب الجمل التي لها محل والتي لا محل لها من الإعراب واللسانيات التركيبية',
+      'البلاغة الإدراكية والأسلوبية البنائية والتناص في الشعر العربي المعاصر',
+      'أدوات النقد المقارن والمناهج النقدية الحديثة لتحليل النصوص الأدبية',
+      'تحليل الخطاب وصياغة المقال الفكري والحجاجي وفق المعايير الدولية للبكالوريا',
+    ],
+  },
+
+  // 20. Thanaweya English Language (Hello! Grade 12)
+  {
+    id: 'th-english-g12',
+    curriculum: 'thanaweya',
+    category: 'english',
+    subjectId: 'english',
+    branchId: 'thanaweya_english',
+    code: 'TH-ENG-HELLO-G12',
+    titleEn: 'English Language: Hello! Secondary 3',
+    titleAr: 'اللغة الإنجليزية: كتاب Hello! للصف الثالث الثانوي',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 320,
+    fileSize: '28.5 MB',
+    compendiumTitleEn: 'Hello! Grade 12 Grammar & Vocabulary Compendium',
+    compendiumTitleAr: 'ملخص قواعد ومفردات Hello! المعتمد للثانوية العامة',
+    filename: 'thanaweya-english.pdf',
+    downloadUrl: '/books/thanaweya-english.pdf',
+    fullTextbookPages: 360,
+    fullTextbookSize: '52.1 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    accentColor: '#7c3aed',
+    chapters: [
+      { id: 'th-eng-c1', titleEn: 'Chapter 1: Academic Vocabulary, Idioms & Collocations', titleAr: 'الفصل الأول: المفردات الأكاديمية والمتلازمات اللفظية', pageRange: 'pp. 1–55', topicsCount: 5 },
+      { id: 'th-eng-c2', titleEn: 'Chapter 2: Advanced Grammar & Syntactic Structures', titleAr: 'الفصل الثاني: القواعد النحوية المتقدمة والتراكيب البنائية', pageRange: 'pp. 56–115', topicsCount: 6 },
+      { id: 'th-eng-c3', titleEn: 'Chapter 3: Complex Syntax, Conditionals & Inversions', titleAr: 'الفصل الثالث: التراكيب المعقدة وصيغ الشرط والتقديم والتأخير', pageRange: 'pp. 116–175', topicsCount: 5 },
+      { id: 'th-eng-c4', titleEn: 'Chapter 4: Formal Academic Writing & Punctuation', titleAr: 'الفصل الرابع: مهارات الكتابة الأكاديمية وعلامات الترقيم', pageRange: 'pp. 176–225', topicsCount: 4 },
+      { id: 'th-eng-c5', titleEn: 'Chapter 5: Translation & Contrastive Linguistics', titleAr: 'الفصل الخامس: فنون الترجمة واللغويات التقابلية المقارنة', pageRange: 'pp. 226–275', topicsCount: 4 },
+      { id: 'th-eng-c6', titleEn: 'Chapter 6: Literature & Critical Analysis: Great Expectations', titleAr: 'الفصل السادس: الأدب والتحليل النقدي: رواية آمال عظيمة', pageRange: 'pp. 276–320', topicsCount: 5 },
+    ],
+    descriptionEn: 'Official Secondary 3 English Language textbook (Hello!), encompassing essential academic lexicon, complex grammatical tenses and causatives, essay writing conventions, contrastive English-Arabic translation, and Dickensian literary analysis.',
+    descriptionAr: 'كتاب اللغة الإنجليزية المعتمد (Hello!) للصف الثالث الثانوي، يغطي المفردات الأكاديمية، التراكيب النحوية المتقدمة، مهارات كتابة المقال، قواعد الترجمة التقابلية، ودراسة رواية آمال عظيمة لتشارلز ديكنز.',
+    highlightsEn: [
+      'Comprehensive 12-unit grammar mastery: passive voice, modals, and conditional inversions',
+      'High-frequency academic collocations, phrasal verbs, and confusing word pairs',
+      'Systematic essay writing conventions, transitional signals, and punctuation rules',
+      'Complete literary character arcs and moral bildungsroman analysis in Great Expectations',
+    ],
+    highlightsAr: [
+      'إتقان شامل لقواعد الوحدات الـ 12: المبني للمجهول، الأفعال الناقصة، وصيغ التقديم الشرطي',
+      'حصيلة غنية بالمتلازمات اللفظية، الأفعال الاصطلاحية، وفروق الكلمات المربكة',
+      'معايير كتابة المقال الأكاديمي، علامات الترقيم، والروابط المنطقية المعتمدة في الامتحانات',
+      'تحليل نقدي متعمق لرواية آمال عظيمة لتشارلز ديكنز ودوافع الشخصيات والقيم الأخلاقية',
+    ],
+  },
+
+  // 21. EG-Bac English Language & Critical Analysis
+  {
+    id: 'egbac-english-g12',
+    curriculum: 'egbac',
+    category: 'english',
+    subjectId: 'english',
+    branchId: 'egbac_english',
+    code: 'EGBAC-ENG-ADV-G12',
+    titleEn: 'Advanced Academic English & Critical Analysis',
+    titleAr: 'اللغة الإنجليزية المتقدمة والتحليل النقدي (EG-Bac)',
+    subtitleEn: 'Egyptian Baccalaureate International Track - Terminale',
+    subtitleAr: 'المسار المتقدم للبكالوريا المصرية - المستوى النهائي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Terminale / Year 12 (Egyptian Baccalaureate)',
+    gradeAr: 'المستوى النهائي (شهادة البكالوريا المصرية)',
+    publisherEn: 'Egyptian Baccalaureate Curriculum & Standards Authority',
+    publisherAr: 'هيئة المناهج والمعايير للبكالوريا المصرية',
+    pagesCount: 340,
+    fileSize: '26.4 MB',
+    compendiumTitleEn: 'Advanced Academic English & Discourse Analysis Compendium',
+    compendiumTitleAr: 'دليل الإنجليزية الأكاديمية وتحليل الخطاب الأدبي للبكالوريا',
+    filename: 'egbac-english.pdf',
+    downloadUrl: '/books/egbac-english.pdf',
+    fullTextbookPages: 380,
+    fullTextbookSize: '48.0 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    accentColor: '#7c3aed',
+    chapters: [
+      { id: 'egbac-eng-c1', titleEn: 'Chapter 1: Academic Vocabulary, Idioms & Collocations', titleAr: 'الفصل الأول: المفردات الأكاديمية والمتلازمات اللفظية', pageRange: 'pp. 1–60', topicsCount: 5 },
+      { id: 'egbac-eng-c2', titleEn: 'Chapter 2: Advanced Grammar & Syntactic Structures', titleAr: 'الفصل الثاني: القواعد النحوية المتقدمة والتراكيب البنائية', pageRange: 'pp. 61–120', topicsCount: 6 },
+      { id: 'egbac-eng-c3', titleEn: 'Chapter 3: Complex Syntax, Conditionals & Inversions', titleAr: 'الفصل الثالث: التراكيب المعقدة وصيغ الشرط والتقديم والتأخير', pageRange: 'pp. 121–180', topicsCount: 5 },
+      { id: 'egbac-eng-c4', titleEn: 'Chapter 4: Formal Academic Writing & Punctuation', titleAr: 'الفصل الرابع: مهارات الكتابة الأكاديمية وعلامات الترقيم', pageRange: 'pp. 181–235', topicsCount: 4 },
+      { id: 'egbac-eng-c5', titleEn: 'Chapter 5: Translation & Contrastive Linguistics', titleAr: 'الفصل الخامس: فنون الترجمة واللغويات التقابلية المقارنة', pageRange: 'pp. 236–285', topicsCount: 4 },
+      { id: 'egbac-eng-c6', titleEn: 'Chapter 6: Literature & Critical Analysis: Great Expectations', titleAr: 'الفصل السادس: الأدب والتحليل النقدي: رواية آمال عظيمة', pageRange: 'pp. 286–340', topicsCount: 5 },
+    ],
+    descriptionEn: 'Egyptian Baccalaureate curriculum for Advanced Academic English, cultivating high-register vocabulary, syntactic agility, rhetorical essay structuring, hermeneutic translation, and critical Victorian literary deconstruction.',
+    descriptionAr: 'منهج اللغة الإنجليزية المتقدمة للبكالوريا المصرية، يركز على التعبير الأكاديمي الرفيع، المرونة التركيبية النحوية، صياغة المقالات الحجاجية، والتحليل الأدبي المقارن لرواية آمال عظيمة.',
+    highlightsEn: [
+      'C1-C2 advanced lexical disambiguation and academic registers',
+      'Transformational grammar, fronting, and subjunctive mood precision',
+      'Argumentative synthesis, academic referencing, and logical flow',
+      'Victorian sociopolitical critique and psychoanalytic character analysis',
+    ],
+    highlightsAr: [
+      'مفردات أكاديمية متقدمة بمستوى C1-C2 وسياقات الاستخدام الرسمية',
+      'النحو التحويلي وصيغ التأكيد والتقديم وأسلوب الشرط الافتراضي',
+      'معايير كتابة المقال الجدلي والتوليفي واستخدام الشواهد المنطقية',
+      'تحليل سوسيولوجي ونفسي لشخصيات رواية آمال عظيمة في ضوء العصر الفيكتوري',
+    ],
+  },
+
+  // 22. Thanaweya French Language (Club @dos plus 3)
+  {
+    id: 'th-french-g12',
+    curriculum: 'thanaweya',
+    category: 'french',
+    subjectId: 'french',
+    branchId: 'thanaweya_french',
+    code: 'TH-FR-CLUB-G12',
+    titleEn: 'French Language: Club @dos plus 3',
+    titleAr: 'اللغة الفرنسية: منهج Club @dos plus 3 للصف الثالث الثانوي',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 220,
+    fileSize: '19.2 MB',
+    compendiumTitleEn: 'Club @dos plus 3 Grammar & Lexicon Compendium',
+    compendiumTitleAr: 'ملخص قواعد ومفردات ومواقف اللغة الفرنسية الرسمي',
+    filename: 'thanaweya-french.pdf',
+    downloadUrl: '/books/thanaweya-french.pdf',
+    fullTextbookPages: 250,
+    fullTextbookSize: '36.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-blue-600 via-sky-600 to-rose-600',
+    accentColor: '#0284c7',
+    chapters: [
+      { id: 'th-fr-c1', titleEn: 'Unité 1 : Le club des sportifs', titleAr: 'الوحدة الأولى: نادي الرياضيين', pageRange: 'pp. 1–55', topicsCount: 4 },
+      { id: 'th-fr-c2', titleEn: 'Unité 2 : Le club des gourmands', titleAr: 'الوحدة الثانية: نادي متذوقي الطعام والشراب', pageRange: 'pp. 56–110', topicsCount: 4 },
+      { id: 'th-fr-c3', titleEn: 'Unité 3 : Le club des explorateurs', titleAr: 'الوحدة الثالثة: نادي المستكشفين والريف والماضي', pageRange: 'pp. 111–165', topicsCount: 4 },
+      { id: 'th-fr-c4', titleEn: 'Unité 4 : Le club des voyageurs', titleAr: 'الوحدة الرابعة: نادي المسافرين والمواصلات والمدينة', pageRange: 'pp. 166–220', topicsCount: 4 },
+    ],
+    descriptionEn: 'Official Egyptian Ministry French textbook (Club @dos plus 3), providing complete coverage of sports, nutrition, countryside & past tense, and transport & urban life, with rigorous situation prompts and essay production.',
+    descriptionAr: 'كتاب اللغة الفرنسية المعتمد (Club @dos plus 3) للصف الثالث الثانوي، يغطي وحدات الرياضة، الأطعمة والمشروبات، الريف والماضي المركب، والمواصلات والمدينة، مع تدريبات المواقف والإنتاج الكتابي.',
+    highlightsEn: [
+      'Verbs of sports practice: faire de vs jouer à vs pratiquer with partitive rules',
+      'Food pyramid, supermarket sections, and quantitative pronoun "en"',
+      'Farm animals, countryside habitats, and Passé Composé with negation (rien, jamais, personne)',
+      'Urban transport prepositions (en, à, prendre) and indirect object pronouns (lui, leur, y)',
+    ],
+    highlightsAr: [
+      'أفعال الرياضة: faire مع أداة التجزئة، jouer مع حرف الجر à، وقواعد النفي الذهبية',
+      'هرم الأطعمة وأقسام السوبرماركت واستخدام ضمير الكميات الشخصي (en)',
+      'حيوانات المزرعة وحياة الريف وقواعد الماضي المركب والنفي التام (ne... jamais/rien/personne)',
+      'حروف جر وسائل المواصلات والضمائر الشخصية للمكان وغير المباشر (lui, leur, y)',
+    ],
+  },
+
+  // 23. EG-Bac French Language & Francophone Studies
+  {
+    id: 'egbac-french-g12',
+    curriculum: 'egbac',
+    category: 'french',
+    subjectId: 'french',
+    branchId: 'egbac_french',
+    code: 'EGBAC-FR-ADV-G12',
+    titleEn: 'Advanced French Language & Francophone Studies',
+    titleAr: 'اللغة الفرنسية المتقدمة والدراسات الفرانكفونية (EG-Bac)',
+    subtitleEn: 'Egyptian Baccalaureate International Track - Terminale',
+    subtitleAr: 'المسار المتقدم للبكالوريا المصرية - المستوى النهائي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Terminale / Year 12 (Egyptian Baccalaureate)',
+    gradeAr: 'المستوى النهائي (شهادة البكالوريا المصرية)',
+    publisherEn: 'Egyptian Baccalaureate Curriculum & Standards Authority',
+    publisherAr: 'هيئة المناهج والمعايير للبكالوريا المصرية',
+    pagesCount: 240,
+    fileSize: '20.5 MB',
+    compendiumTitleEn: 'Advanced Francophone Studies & Grammar Compendium',
+    compendiumTitleAr: 'دليل الدراسات الفرانكفونية وقواعد اللغة الفرنسية المتقدمة',
+    filename: 'egbac-french.pdf',
+    downloadUrl: '/books/egbac-french.pdf',
+    fullTextbookPages: 275,
+    fullTextbookSize: '39.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-blue-600 via-sky-600 to-rose-600',
+    accentColor: '#0284c7',
+    chapters: [
+      { id: 'egbac-fr-c1', titleEn: 'Unité 1 : Le club des sportifs (Francophone Track)', titleAr: 'الوحدة الأولى: نادي الرياضيين (المسار الفرانكفوني)', pageRange: 'pp. 1–60', topicsCount: 4 },
+      { id: 'egbac-fr-c2', titleEn: 'Unité 2 : Le club des gourmands (Gastronomie & Diététique)', titleAr: 'الوحدة الثانية: نادي متذوقي الطعام والشراب والأنظمة الغذائية', pageRange: 'pp. 61–120', topicsCount: 4 },
+      { id: 'egbac-fr-c3', titleEn: 'Unité 3 : Le club des explorateurs (Écologie & Histoire)', titleAr: 'الوحدة الثالثة: نادي المستكشفين والبيئة والتاريخ', pageRange: 'pp. 121–180', topicsCount: 4 },
+      { id: 'egbac-fr-c4', titleEn: 'Unité 4 : Le club des voyageurs (Mobilité Urbaine & Culture)', titleAr: 'الوحدة الرابعة: نادي المسافرين والحضارة الحضرية والتنقل', pageRange: 'pp. 181–240', topicsCount: 4 },
+    ],
+    descriptionEn: 'Egyptian Baccalaureate advanced French curriculum, deepening mastery of French grammar, nuanced pragmatic communication, cultural Francophone literary texts, and sophisticated argumentation.',
+    descriptionAr: 'منهج اللغة الفرنسية المتقدمة للبكالوريا المصرية، يطور الكفاءة اللغوية في التراكيب المركبة، التواصل الثقافي الفرانكفوني، وتحليل النصوص والرسائل المقالية.',
+    highlightsEn: [
+      'Advanced syntactic structures: subjunctive, relative pronouns (dont, où), and complex negation',
+      'Francophone cultural perspectives, gastronomy, and international sports events',
+      'Historical narration in past tenses (Imparfait vs Passé Composé) and literary registers',
+      'Sophisticated pragmatic dialogues, formal correspondence, and cultural essays',
+    ],
+    highlightsAr: [
+      'قواعد متقدمة: صيغة الشك (Subjonctif)، ضمائر الوصل المركبة (dont, où)، والنفي المتعدد',
+      'آفاق الثقافة الفرانكفونية، فن الطهي الفرنسي، والأحداث الرياضية العالمية',
+      'السرد التاريخي والتمييز الدقيق بين الماضي المستمر والماضي المركب في السياقات الأدبية',
+      'صياغة الرسائل الرسمية والمقالات الفكرية وفق المعايير الدولية للبكالوريا الفرانكفونية',
+    ],
+  },
 
 ];
 
@@ -1242,6 +1545,12 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_analysis' && (b.branchId === 'egbac_analysis' || b.branchId === 'egbac-analysis')) return true;
     if (branchId === 'egbac_mechanics' && (b.branchId === 'egbac_mechanics' || b.branchId === 'egbac-mechanics')) return true;
     if (branchId === 'egbac_probability' && (b.branchId === 'egbac_probability' || b.branchId === 'egbac-probability')) return true;
+    if (branchId === 'thanaweya_arabic' && (b.branchId === 'thanaweya_arabic' || b.id === 'th-arabic-g12')) return true;
+    if (branchId === 'egbac_arabic' && (b.branchId === 'egbac_arabic' || b.id === 'egbac-arabic-g12')) return true;
+    if (branchId === 'thanaweya_english' && (b.branchId === 'thanaweya_english' || b.id === 'th-english-g12')) return true;
+    if (branchId === 'egbac_english' && (b.branchId === 'egbac_english' || b.id === 'egbac-english-g12')) return true;
+    if (branchId === 'thanaweya_french' && (b.branchId === 'thanaweya_french' || b.id === 'th-french-g12')) return true;
+    if (branchId === 'egbac_french' && (b.branchId === 'egbac_french' || b.id === 'egbac-french-g12')) return true;
     return false;
   });
 }
@@ -1251,7 +1560,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

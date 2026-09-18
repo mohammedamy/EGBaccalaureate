@@ -493,18 +493,18 @@ $$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0
                 questionEn: 'Find the first derivative $\\frac{dy}{dx}$ of the function $y = \\ln(x^2 + 4x + 5)$.',
                 questionAr: 'أوجد المشتقة الأولى $\\frac{dy}{dx}$ للدالة $y = \\ln(x^2 + 4x + 5)$.',
                 optionsEn: [
-                  '\\frac{2x + 4}{x^2 + 4x + 5}',
-                  '\\frac{1}{x^2 + 4x + 5}',
-                  '\\frac{2x}{x^2 + 4x + 5}',
-                  '(2x + 4) \\ln(x^2 + 4x + 5)'
+                  '$\\frac{2x + 4}{x^2 + 4x + 5}$',
+                  '$\\frac{1}{x^2 + 4x + 5}$',
+                  '$\\frac{2x}{x^2 + 4x + 5}$',
+                  '$(2x + 4) \\ln(x^2 + 4x + 5)$'
                 ],
                 optionsAr: [
-                  '\\frac{2x + 4}{x^2 + 4x + 5}',
-                  '\\frac{1}{x^2 + 4x + 5}',
-                  '\\frac{2x}{x^2 + 4x + 5}',
-                  '(2x + 4) \\ln(x^2 + 4x + 5)'
+                  '$\\frac{2x + 4}{x^2 + 4x + 5}$',
+                  '$\\frac{1}{x^2 + 4x + 5}$',
+                  '$\\frac{2x}{x^2 + 4x + 5}$',
+                  '$(2x + 4) \\ln(x^2 + 4x + 5)$'
                 ],
-                correctAnswer: '\\frac{2x + 4}{x^2 + 4x + 5}',
+                correctAnswer: '$\\frac{2x + 4}{x^2 + 4x + 5}$',
                 correctIndex: 0,
                 hintEn: 'd/dx [ln(u)] = u\' / u. Differentiate the polynomial argument and divide by the argument itself.',
                 hintAr: 'مشتقة لو هـ (د(س)) = د\'(س) / د(س). اشتق المقدار وضعه في البسط مقسوماً على نفس المقدار في المقام.',
@@ -532,9 +532,9 @@ $$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0
                 difficulty: 'hots',
                 questionEn: 'Find the slope of the tangent line to the curve $y = (\\sin x)^x$ at the point where $x = \\frac{\\pi}{2}$.',
                 questionAr: 'أوجد ميل المماس للمنحنى $y = (\\sin x)^x$ عند النقطة التي عندها $x = \\frac{\\pi}{2}$.',
-                optionsEn: ['0', '1', '\\frac{\\pi}{2}', '\\ln\\left(\\frac{\\pi}{2}\\right)'],
-                optionsAr: ['٠', '١', '\\frac{\\pi}{2}', '\\ln\\left(\\frac{\\pi}{2}\\right)'],
-                correctAnswer: '0',
+                optionsEn: ['$0$', '$1$', '$\\frac{\\pi}{2}$', '$\\ln\\left(\\frac{\\pi}{2}\\right)$'],
+                optionsAr: ['٠', '١', '$\\frac{\\pi}{2}$', '$\\ln\\left(\\frac{\\pi}{2}\\right)$'],
+                correctAnswer: '$0$',
                 correctIndex: 0,
                 hintEn: 'Take ln of both sides: ln y = x ln(sin x). Differentiate implicitly and evaluate at x = pi/2.',
                 hintAr: 'خذ اللوغاريتم الطبيعي للطرفين: لو ص = س لو(جا س). اشتق ضمنياً وعوض عن س = باي/٢.',

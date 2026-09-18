@@ -5216,9 +5216,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$20\\text{ N}$"
     ],
     "optionsAr": [
-      "10\\sqrt{3} نيوتن",
-      "20\\sqrt{3} نيوتن",
-      "10\\sqrt{2} نيوتن",
+      "\$10\\sqrt{3}\\text{ نيوتن}\$",
+      "\$20\\sqrt{3}\\text{ نيوتن}\$",
+      "\$10\\sqrt{2}\\text{ نيوتن}\$",
       "20 نيوتن"
     ],
     "correctAnswer": "$10\\sqrt{3}\\text{ N}$",
@@ -5253,9 +5253,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$40\\text{ N}$"
     ],
     "optionsAr": [
-      "20\\sqrt{3} نيوتن",
-      "30\\sqrt{3} نيوتن",
-      "20\\sqrt{2} نيوتن",
+      "\$20\\sqrt{3}\\text{ نيوتن}\$",
+      "\$30\\sqrt{3}\\text{ نيوتن}\$",
+      "\$20\\sqrt{2}\\text{ نيوتن}\$",
       "40 نيوتن"
     ],
     "correctAnswer": "$20\\sqrt{3}\\text{ N}$",
@@ -5290,9 +5290,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$60\\text{ N}$"
     ],
     "optionsAr": [
-      "30\\sqrt{3} نيوتن",
-      "40\\sqrt{3} نيوتن",
-      "30\\sqrt{2} نيوتن",
+      "\$30\\sqrt{3}\\text{ نيوتن}\$",
+      "\$40\\sqrt{3}\\text{ نيوتن}\$",
+      "\$30\\sqrt{2}\\text{ نيوتن}\$",
       "60 نيوتن"
     ],
     "correctAnswer": "$30\\sqrt{3}\\text{ N}$",
@@ -5327,9 +5327,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$80\\text{ N}$"
     ],
     "optionsAr": [
-      "40\\sqrt{3} نيوتن",
-      "50\\sqrt{3} نيوتن",
-      "40\\sqrt{2} نيوتن",
+      "\$40\\sqrt{3}\\text{ نيوتن}\$",
+      "\$50\\sqrt{3}\\text{ نيوتن}\$",
+      "\$40\\sqrt{2}\\text{ نيوتن}\$",
       "80 نيوتن"
     ],
     "correctAnswer": "$40\\sqrt{3}\\text{ N}$",
@@ -5364,9 +5364,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$100\\text{ N}$"
     ],
     "optionsAr": [
-      "50\\sqrt{3} نيوتن",
-      "60\\sqrt{3} نيوتن",
-      "50\\sqrt{2} نيوتن",
+      "\$50\\sqrt{3}\\text{ نيوتن}\$",
+      "\$60\\sqrt{3}\\text{ نيوتن}\$",
+      "\$50\\sqrt{2}\\text{ نيوتن}\$",
       "100 نيوتن"
     ],
     "correctAnswer": "$50\\sqrt{3}\\text{ N}$",
@@ -5401,9 +5401,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$120\\text{ N}$"
     ],
     "optionsAr": [
-      "60\\sqrt{3} نيوتن",
-      "70\\sqrt{3} نيوتن",
-      "60\\sqrt{2} نيوتن",
+      "\$60\\sqrt{3}\\text{ نيوتن}\$",
+      "\$70\\sqrt{3}\\text{ نيوتن}\$",
+      "\$60\\sqrt{2}\\text{ نيوتن}\$",
       "120 نيوتن"
     ],
     "correctAnswer": "$60\\sqrt{3}\\text{ N}$",
@@ -5438,9 +5438,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$140\\text{ N}$"
     ],
     "optionsAr": [
-      "70\\sqrt{3} نيوتن",
-      "80\\sqrt{3} نيوتن",
-      "70\\sqrt{2} نيوتن",
+      "\$70\\sqrt{3}\\text{ نيوتن}\$",
+      "\$80\\sqrt{3}\\text{ نيوتن}\$",
+      "\$70\\sqrt{2}\\text{ نيوتن}\$",
       "140 نيوتن"
     ],
     "correctAnswer": "$70\\sqrt{3}\\text{ N}$",
@@ -5475,9 +5475,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$160\\text{ N}$"
     ],
     "optionsAr": [
-      "80\\sqrt{3} نيوتن",
-      "90\\sqrt{3} نيوتن",
-      "80\\sqrt{2} نيوتن",
+      "\$80\\sqrt{3}\\text{ نيوتن}\$",
+      "\$90\\sqrt{3}\\text{ نيوتن}\$",
+      "\$80\\sqrt{2}\\text{ نيوتن}\$",
       "160 نيوتن"
     ],
     "correctAnswer": "$80\\sqrt{3}\\text{ N}$",
@@ -5512,9 +5512,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$180\\text{ N}$"
     ],
     "optionsAr": [
-      "90\\sqrt{3} نيوتن",
-      "100\\sqrt{3} نيوتن",
-      "90\\sqrt{2} نيوتن",
+      "\$90\\sqrt{3}\\text{ نيوتن}\$",
+      "\$100\\sqrt{3}\\text{ نيوتن}\$",
+      "\$90\\sqrt{2}\\text{ نيوتن}\$",
       "180 نيوتن"
     ],
     "correctAnswer": "$90\\sqrt{3}\\text{ N}$",
@@ -5549,9 +5549,9 @@ export const dynCh2Databank: ChapterDatabank = {
       "$200\\text{ N}$"
     ],
     "optionsAr": [
-      "100\\sqrt{3} نيوتن",
-      "110\\sqrt{3} نيوتن",
-      "100\\sqrt{2} نيوتن",
+      "\$100\\sqrt{3}\\text{ نيوتن}\$",
+      "\$110\\sqrt{3}\\text{ نيوتن}\$",
+      "\$100\\sqrt{2}\\text{ نيوتن}\$",
       "200 نيوتن"
     ],
     "correctAnswer": "$100\\sqrt{3}\\text{ N}$",

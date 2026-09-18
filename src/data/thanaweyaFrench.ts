@@ -3,6 +3,10 @@ import { frenchCh1Databank } from './databanks/thanaweya/frenchCh1Databank';
 import { frenchCh2Databank } from './databanks/thanaweya/frenchCh2Databank';
 import { frenchCh3Databank } from './databanks/thanaweya/frenchCh3Databank';
 import { frenchCh4Databank } from './databanks/thanaweya/frenchCh4Databank';
+import { frenchCh1SolvedExamples, frenchCh1Exercises } from './textbook/thanaweya/frenchCh1Textbook';
+import { frenchCh2SolvedExamples, frenchCh2Exercises } from './textbook/thanaweya/frenchCh2Textbook';
+import { frenchCh3SolvedExamples, frenchCh3Exercises } from './textbook/thanaweya/frenchCh3Textbook';
+import { frenchCh4SolvedExamples, frenchCh4Exercises } from './textbook/thanaweya/frenchCh4Textbook';
 
 export const thanaweyaFrenchBranch: Branch = {
   "id": "thanaweya_french",
@@ -459,6 +463,8 @@ export const thanaweyaFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": frenchCh1SolvedExamples,
+      "exerciseProblems": frenchCh1Exercises,
       "databank": frenchCh1Databank
     },
     {
@@ -902,6 +908,8 @@ export const thanaweyaFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": frenchCh2SolvedExamples,
+      "exerciseProblems": frenchCh2Exercises,
       "databank": frenchCh2Databank
     },
     {
@@ -1345,6 +1353,8 @@ export const thanaweyaFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": frenchCh3SolvedExamples,
+      "exerciseProblems": frenchCh3Exercises,
       "databank": frenchCh3Databank
     },
     {
@@ -1793,6 +1803,8 @@ export const thanaweyaFrenchBranch: Branch = {
           }
         }
       ],
+      "solvedExamples": frenchCh4SolvedExamples,
+      "exerciseProblems": frenchCh4Exercises,
       "databank": frenchCh4Databank
     }
   ]

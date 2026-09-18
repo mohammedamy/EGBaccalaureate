@@ -2204,10 +2204,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = \\frac{(P_{\\text{SO}_2})^2 (P_{\\text{O}_2})}{(P_{\\text{SO}_3})^2} = \\frac{(0.2)^2(0.1)}{(0.4)^2} = \\frac{0.004}{0.16} = 0.025\\text{ atm}."
+      "Applying the partial pressure equilibrium expression: $K_p = \\frac{(P_{\\text{SO}_2})^2 (P_{\\text{O}_2})}{(P_{\\text{SO}_3})^2} = \\frac{(0.2)^2(0.1)}{(0.4)^2} = \\frac{0.004}{0.16} = 0.025\\text{ atm}$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = \\frac{(P_{\\text{SO}_2})^2 (P_{\\text{O}_2})}{(P_{\\text{SO}_3})^2} = \\frac{(0.2)^2(0.1)}{(0.4)^2} = \\frac{0.004}{0.16} = 0.025\\text{ atm}."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = \\frac{(P_{\\text{SO}_2})^2 (P_{\\text{O}_2})}{(P_{\\text{SO}_3})^2} = \\frac{(0.2)^2(0.1)}{(0.4)^2} = \\frac{0.004}{0.16} = 0.025\\text{ atm}$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -2236,10 +2236,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})(P_{\\text{H}_2})^3} = \\frac{(4.0)^2}{(2.0)(1.0)^3} = \\frac{16}{2} = 8.0\\text{ atm}^{-2}."
+      "Applying the partial pressure equilibrium expression: $K_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})(P_{\\text{H}_2})^3} = \\frac{(4.0)^2}{(2.0)(1.0)^3} = \\frac{16}{2} = 8.0\\text{ atm}^{-2}$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})(P_{\\text{H}_2})^3} = \\frac{(4.0)^2}{(2.0)(1.0)^3} = \\frac{16}{2} = 8.0\\text{ atm}^{-2}."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = \\frac{(P_{\\text{NH}_3})^2}{(P_{\\text{N}_2})(P_{\\text{H}_2})^3} = \\frac{(4.0)^2}{(2.0)(1.0)^3} = \\frac{16}{2} = 8.0\\text{ atm}^{-2}$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -2268,10 +2268,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = \\frac{(P_{\\text{PCl}_3})(P_{\\text{Cl}_2})}{(P_{\\text{PCl}_5})} = \\frac{(0.5)(0.5)}{1.0} = 0.25\\text{ atm}."
+      "Applying the partial pressure equilibrium expression: $K_p = \\frac{(P_{\\text{PCl}_3})(P_{\\text{Cl}_2})}{(P_{\\text{PCl}_5})} = \\frac{(0.5)(0.5)}{1.0} = 0.25\\text{ atm}$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = \\frac{(P_{\\text{PCl}_3})(P_{\\text{Cl}_2})}{(P_{\\text{PCl}_5})} = \\frac{(0.5)(0.5)}{1.0} = 0.25\\text{ atm}."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = \\frac{(P_{\\text{PCl}_3})(P_{\\text{Cl}_2})}{(P_{\\text{PCl}_5})} = \\frac{(0.5)(0.5)}{1.0} = 0.25\\text{ atm}$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -2300,10 +2300,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = \\frac{P_{\\text{N}_2\\text{O}_4}}{(P_{\\text{NO}_2})^2} = \\frac{1.5}{(0.5)^2} = \\frac{1.5}{0.25} = 6.0\\text{ atm}^{-1}."
+      "Applying the partial pressure equilibrium expression: $K_p = \\frac{P_{\\text{N}_2\\text{O}_4}}{(P_{\\text{NO}_2})^2} = \\frac{1.5}{(0.5)^2} = \\frac{1.5}{0.25} = 6.0\\text{ atm}^{-1}$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = \\frac{P_{\\text{N}_2\\text{O}_4}}{(P_{\\text{NO}_2})^2} = \\frac{1.5}{(0.5)^2} = \\frac{1.5}{0.25} = 6.0\\text{ atm}^{-1}."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = \\frac{P_{\\text{N}_2\\text{O}_4}}{(P_{\\text{NO}_2})^2} = \\frac{1.5}{(0.5)^2} = \\frac{1.5}{0.25} = 6.0\\text{ atm}^{-1}$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -2332,10 +2332,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = \\frac{(P_{\\text{H}_2\\text{O}})(P_{\\text{CO}})}{(P_{\\text{H}_2})(P_{\\text{CO}_2})} = \\frac{(0.6)(0.4)}{(0.2)(0.3)} = \\frac{0.24}{0.06} = 4.0."
+      "Applying the partial pressure equilibrium expression: $K_p = \\frac{(P_{\\text{H}_2\\text{O}})(P_{\\text{CO}})}{(P_{\\text{H}_2})(P_{\\text{CO}_2})} = \\frac{(0.6)(0.4)}{(0.2)(0.3)} = \\frac{0.24}{0.06} = 4.0$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = \\frac{(P_{\\text{H}_2\\text{O}})(P_{\\text{CO}})}{(P_{\\text{H}_2})(P_{\\text{CO}_2})} = \\frac{(0.6)(0.4)}{(0.2)(0.3)} = \\frac{0.24}{0.06} = 4.0."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = \\frac{(P_{\\text{H}_2\\text{O}})(P_{\\text{CO}})}{(P_{\\text{H}_2})(P_{\\text{CO}_2})} = \\frac{(0.6)(0.4)}{(0.2)(0.3)} = \\frac{0.24}{0.06} = 4.0$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -2364,10 +2364,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Substitute equilibrium partial pressures into the Kp expression.",
     "hintAr": "عوض بالضغوط الجزيئية للغازات في تعبير Kp وتذكر حذف المواد الصلبة.",
     "stepByStepSolutionEn": [
-      "Applying the partial pressure equilibrium expression: K_p = P_{\\text{CO}_2} = 0.22\\text{ atm}."
+      "Applying the partial pressure equilibrium expression: $K_p = P_{\\text{CO}_2} = 0.22\\text{ atm}$."
     ],
     "stepByStepSolutionAr": [
-      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: K_p = P_{\\text{CO}_2} = 0.22\\text{ atm}."
+      "بتطبيق قانون فعل الكتلة للضغوط الجزئية: $K_p = P_{\\text{CO}_2} = 0.22\\text{ atm}$."
     ],
     "teacherTipEn": "Remember that pure solids do not appear in Kp.",
     "teacherTipAr": "تذكر أن المواد الصلبة النقية لا تكتب في تعبير Kp."
@@ -3388,10 +3388,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of AgCl: K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}."
+      "Dissociation of AgCl: $K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3420,10 +3420,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of BaSO4: K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}."
+      "Dissociation of BaSO4: $K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = S^2 = (1.0 \\times 10^{-5})^2 = 1.0 \\times 10^{-10}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3452,10 +3452,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of AgBr: K_{sp} = S^2 = (7.0 \\times 10^{-7})^2 = 4.9 \\times 10^{-13}."
+      "Dissociation of AgBr: $K_{sp} = S^2 = (7.0 \\times 10^{-7})^2 = 4.9 \\times 10^{-13}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = S^2 = (7.0 \\times 10^{-7})^2 = 4.9 \\times 10^{-13}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = S^2 = (7.0 \\times 10^{-7})^2 = 4.9 \\times 10^{-13}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3484,10 +3484,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of AgI: K_{sp} = S^2 = (9.0 \\times 10^{-9})^2 = 8.1 \\times 10^{-17}."
+      "Dissociation of AgI: $K_{sp} = S^2 = (9.0 \\times 10^{-9})^2 = 8.1 \\times 10^{-17}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = S^2 = (9.0 \\times 10^{-9})^2 = 8.1 \\times 10^{-17}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = S^2 = (9.0 \\times 10^{-9})^2 = 8.1 \\times 10^{-17}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3516,10 +3516,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of CaCO3: K_{sp} = S^2 = (9.3 \\times 10^{-5})^2 = 8.7 \\times 10^{-9}."
+      "Dissociation of CaCO3: $K_{sp} = S^2 = (9.3 \\times 10^{-5})^2 = 8.7 \\times 10^{-9}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = S^2 = (9.3 \\times 10^{-5})^2 = 8.7 \\times 10^{-9}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = S^2 = (9.3 \\times 10^{-5})^2 = 8.7 \\times 10^{-9}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3548,10 +3548,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of CaF2: K_{sp} = [Ca^{2+}][F^-]^2 = (S)(2S)^2 = 4S^3 = 4(2.0 \\times 10^{-4})^3 = 3.2 \\times 10^{-11}."
+      "Dissociation of CaF2: $K_{sp} = [Ca^{2+}][F^-]^2 = (S)(2S)^2 = 4S^3 = 4(2.0 \\times 10^{-4})^3 = 3.2 \\times 10^{-11}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Ca^{2+}][F^-]^2 = (S)(2S)^2 = 4S^3 = 4(2.0 \\times 10^{-4})^3 = 3.2 \\times 10^{-11}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Ca^{2+}][F^-]^2 = (S)(2S)^2 = 4S^3 = 4(2.0 \\times 10^{-4})^3 = 3.2 \\times 10^{-11}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3580,10 +3580,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of PbCl2: K_{sp} = [Pb^{2+}][Cl^-]^2 = 4S^3 = 4(1.6 \\times 10^{-2})^3 \\approx 1.6 \\times 10^{-5}."
+      "Dissociation of PbCl2: $K_{sp} = [Pb^{2+}][Cl^-]^2 = 4S^3 = 4(1.6 \\times 10^{-2})^3 \\approx 1.6 \\times 10^{-5}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Pb^{2+}][Cl^-]^2 = 4S^3 = 4(1.6 \\times 10^{-2})^3 \\approx 1.6 \\times 10^{-5}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Pb^{2+}][Cl^-]^2 = 4S^3 = 4(1.6 \\times 10^{-2})^3 \\approx 1.6 \\times 10^{-5}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3612,10 +3612,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of Ag2CrO4: K_{sp} = [Ag^+]^2 [CrO_4^{2-}] = (2S)^2(S) = 4S^3 = 4(6.5 \\times 10^{-5})^3 \\approx 1.1 \\times 10^{-12}."
+      "Dissociation of Ag2CrO4: $K_{sp} = [Ag^+]^2 [CrO_4^{2-}] = (2S)^2(S) = 4S^3 = 4(6.5 \\times 10^{-5})^3 \\approx 1.1 \\times 10^{-12}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Ag^+]^2 [CrO_4^{2-}] = (2S)^2(S) = 4S^3 = 4(6.5 \\times 10^{-5})^3 \\approx 1.1 \\times 10^{-12}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Ag^+]^2 [CrO_4^{2-}] = (2S)^2(S) = 4S^3 = 4(6.5 \\times 10^{-5})^3 \\approx 1.1 \\times 10^{-12}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3644,10 +3644,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of Mg(OH)2: K_{sp} = [Mg^{2+}][OH^-]^2 = 4S^3 = 4(1.1 \\times 10^{-4})^3 \\approx 5.3 \\times 10^{-12}."
+      "Dissociation of Mg(OH)2: $K_{sp} = [Mg^{2+}][OH^-]^2 = 4S^3 = 4(1.1 \\times 10^{-4})^3 \\approx 5.3 \\times 10^{-12}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Mg^{2+}][OH^-]^2 = 4S^3 = 4(1.1 \\times 10^{-4})^3 \\approx 5.3 \\times 10^{-12}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Mg^{2+}][OH^-]^2 = 4S^3 = 4(1.1 \\times 10^{-4})^3 \\approx 5.3 \\times 10^{-12}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3676,10 +3676,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of PbI2: K_{sp} = 4S^3 = 4(1.3 \\times 10^{-3})^3 \\approx 8.8 \\times 10^{-9}."
+      "Dissociation of PbI2: $K_{sp} = 4S^3 = 4(1.3 \\times 10^{-3})^3 \\approx 8.8 \\times 10^{-9}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = 4S^3 = 4(1.3 \\times 10^{-3})^3 \\approx 8.8 \\times 10^{-9}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = 4S^3 = 4(1.3 \\times 10^{-3})^3 \\approx 8.8 \\times 10^{-9}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3708,10 +3708,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of Al(OH)3: K_{sp} = [Al^{3+}][OH^-]^3 = (S)(3S)^3 = 27S^4 = 27(1.0 \\times 10^{-8})^4 = 2.7 \\times 10^{-31}."
+      "Dissociation of Al(OH)3: $K_{sp} = [Al^{3+}][OH^-]^3 = (S)(3S)^3 = 27S^4 = 27(1.0 \\times 10^{-8})^4 = 2.7 \\times 10^{-31}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Al^{3+}][OH^-]^3 = (S)(3S)^3 = 27S^4 = 27(1.0 \\times 10^{-8})^4 = 2.7 \\times 10^{-31}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Al^{3+}][OH^-]^3 = (S)(3S)^3 = 27S^4 = 27(1.0 \\times 10^{-8})^4 = 2.7 \\times 10^{-31}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3740,10 +3740,10 @@ export const chemCh3Databank: ChapterDatabank = {
     "hintEn": "Write the dissociation equation. For 1:1, $K_{sp} = S^2$; for 1:2, $K_{sp} = 4S^3$; for 1:3, $K_{sp} = 27S^4$.",
     "hintAr": "اكتب معادلة التفكك: للأملاح 1:1 حاصل الإذابة $S^2$، وللأملاح 1:2 حاصل الإذابة $4S^3$، ولـ 1:3 حاصل الإذابة $27S^4$.",
     "stepByStepSolutionEn": [
-      "Dissociation of Fe(OH)3: K_{sp} = [Fe^{3+}][OH^-]^3 = 27S^4 = 27(1.0 \\times 10^{-10})^4 = 2.7 \\times 10^{-39}."
+      "Dissociation of Fe(OH)3: $K_{sp} = [Fe^{3+}][OH^-]^3 = 27S^4 = 27(1.0 \\times 10^{-10})^4 = 2.7 \\times 10^{-39}$."
     ],
     "stepByStepSolutionAr": [
-      "معادلة تفكك الملح وحساب حاصل الإذابة: K_{sp} = [Fe^{3+}][OH^-]^3 = 27S^4 = 27(1.0 \\times 10^{-10})^4 = 2.7 \\times 10^{-39}."
+      "معادلة تفكك الملح وحساب حاصل الإذابة: $K_{sp} = [Fe^{3+}][OH^-]^3 = 27S^4 = 27(1.0 \\times 10^{-10})^4 = 2.7 \\times 10^{-39}$."
     ],
     "teacherTipEn": "Don't forget to raise ion concentrations to their stoichiometric powers!",
     "teacherTipAr": "لا تنس رفع تركيز الأيونات للأسس ومضاعفة تركيز الأيون حسب معامله!"
@@ -3787,8 +3787,8 @@ export const chemCh3Databank: ChapterDatabank = {
     "titleEn": "Equilibrium Constant Algebra: Reaction #2",
     "titleAr": "حسابات جبر ثوابت الاتزان: تفاعل رقم 2",
     "difficulty": "hots",
-    "questionEn": "Given that the reaction $\\text{N}_2\\text{ (g)} + 3\\text{H}_2\\text{ (g)} \\rightleftharpoons 2\\text{NH}_3\\text{ (g)}$ has an equilibrium constant $K_c = 16.0$ at a certain temperature, what is the equilibrium constant $K_c'$ for the target reaction: \\frac{1}{2}$\\text{N}_2\\text{ (g)} + \\frac{3}{2}\\text{H}_2\\text{ (g)} \\rightleftharpoons \\text{NH}_3\\text{ (g)}$ at the same temperature?",
-    "questionAr": "إذا علمت أن التفاعل $\\text{N}_2\\text{ (g)} + 3\\text{H}_2\\text{ (g)} \\rightleftharpoons 2\\text{NH}_3\\text{ (g)}$ له ثابت اتزان $K_c = 16.0$ عند درجة حرارة معينة، فما قيمة ثابت الاتزان $K_c'$ للتفاعل الهدف: \\frac{1}{2}$\\text{N}_2\\text{ (g)} + \\frac{3}{2}\\text{H}_2\\text{ (g)} \\rightleftharpoons \\text{NH}_3\\text{ (g)}$ عند نفس درجة الحرارة؟",
+    "questionEn": "Given that the reaction $\\text{N}_2\\text{ (g)} + 3\\text{H}_2\\text{ (g)} \\rightleftharpoons 2\\text{NH}_3\\text{ (g)}$ has an equilibrium constant $K_c = 16.0$ at a certain temperature, what is the equilibrium constant $K_c'$ for the target reaction: $\\frac{1}{2}\\text{N}_2\\text{ (g)} + \\frac{3}{2}\\text{H}_2\\text{ (g)} \\rightleftharpoons \\text{NH}_3\\text{ (g)}$ at the same temperature?",
+    "questionAr": "إذا علمت أن التفاعل $\\text{N}_2\\text{ (g)} + 3\\text{H}_2\\text{ (g)} \\rightleftharpoons 2\\text{NH}_3\\text{ (g)}$ له ثابت اتزان $K_c = 16.0$ عند درجة حرارة معينة، فما قيمة ثابت الاتزان $K_c'$ للتفاعل الهدف: $\\frac{1}{2}\\text{N}_2\\text{ (g)} + \\frac{3}{2}\\text{H}_2\\text{ (g)} \\rightleftharpoons \\text{NH}_3\\text{ (g)}$ عند نفس درجة الحرارة؟",
     "optionsEn": [
       "$8$",
       "$4.0$",

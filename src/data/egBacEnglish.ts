@@ -5,6 +5,12 @@ import { englishCh3Databank } from './databanks/thanaweya/englishCh3Databank';
 import { englishCh4Databank } from './databanks/thanaweya/englishCh4Databank';
 import { englishCh5Databank } from './databanks/thanaweya/englishCh5Databank';
 import { englishCh6Databank } from './databanks/thanaweya/englishCh6Databank';
+import { egBacEngCh1SolvedExamples, egBacEngCh1Exercises } from './textbook/egbac/egBacEnglishCh1Textbook';
+import { egBacEngCh2SolvedExamples, egBacEngCh2Exercises } from './textbook/egbac/egBacEnglishCh2Textbook';
+import { egBacEngCh3SolvedExamples, egBacEngCh3Exercises } from './textbook/egbac/egBacEnglishCh3Textbook';
+import { egBacEngCh4SolvedExamples, egBacEngCh4Exercises } from './textbook/egbac/egBacEnglishCh4Textbook';
+import { egBacEngCh5SolvedExamples, egBacEngCh5Exercises } from './textbook/egbac/egBacEnglishCh5Textbook';
+import { egBacEngCh6SolvedExamples, egBacEngCh6Exercises } from './textbook/egbac/egBacEnglishCh6Textbook';
 
 export const egBacEnglishBranch: Branch = {
   id: 'egbac_english',
@@ -409,6 +415,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh1SolvedExamples,
+      exerciseProblems: egBacEngCh1Exercises,
       databank: englishCh1Databank
     },
     {
@@ -785,6 +793,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh2SolvedExamples,
+      exerciseProblems: egBacEngCh2Exercises,
       databank: englishCh2Databank
     },
     {
@@ -1168,6 +1178,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh3SolvedExamples,
+      exerciseProblems: egBacEngCh3Exercises,
       databank: englishCh3Databank
     },
     {
@@ -1363,6 +1375,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh4SolvedExamples,
+      exerciseProblems: egBacEngCh4Exercises,
       databank: englishCh4Databank
     },
     {
@@ -1560,6 +1574,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh5SolvedExamples,
+      exerciseProblems: egBacEngCh5Exercises,
       databank: englishCh5Databank
     },
     {
@@ -1757,6 +1773,8 @@ export const egBacEnglishBranch: Branch = {
             }
       ]
 },
+      solvedExamples: egBacEngCh6SolvedExamples,
+      exerciseProblems: egBacEngCh6Exercises,
       databank: englishCh6Databank
     }
   ]

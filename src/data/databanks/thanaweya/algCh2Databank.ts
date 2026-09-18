@@ -721,18 +721,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "Write $z = 1 + i$ in standard trigonometric (polar) form.",
     "questionAr": "اكتب العدد $z = ١ + ت$ بالصورة المثلثية (القطبية) القياسية.",
     "optionsEn": [
-      "\\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)",
-      "2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)",
-      "\\sqrt{2}\\left(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}\\right)",
-      "\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}"
+      "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$",
+      "$2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$",
+      "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}\\right)$",
+      "$\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}$"
     ],
     "optionsAr": [
-      "\\sqrt{٢}\\left(\\cos\\frac{\\pi}{٤} + ت\\sin\\frac{\\pi}{٤}\\right)",
-      "٢\\left(\\cos\\frac{\\pi}{٤} + ت\\sin\\frac{\\pi}{٤}\\right)",
-      "\\sqrt{٢}\\left(\\cos\\frac{\\pi}{٢} + ت\\sin\\frac{\\pi}{٢}\\right)",
-      "\\cos\\frac{\\pi}{٤} + ت\\sin\\frac{\\pi}{٤}"
+      "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$",
+      "$2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$",
+      "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}\\right)$",
+      "$\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}$"
     ],
-    "correctAnswer": "\\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)",
+    "correctAnswer": "$\\sqrt{2}\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$",
     "correctIndex": 0,
     "hintEn": "$r = \\sqrt{1^2 + 1^2} = \\sqrt{2}$ and $\\theta = \\pi/4$.",
     "hintAr": "$r = \\sqrt{١^٢ + ١^٢} = \\sqrt{٢}$ و $\\theta = \\pi/٤$.",
@@ -2041,18 +2041,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "Write $z = 2\\left(\\cos\\frac{\\pi}{3} - i\\sin\\frac{\\pi}{3}\\right)$ in standard trigonometric form.",
     "questionAr": "اكتب العدد $z = ٢\\left(\\cos\\frac{\\pi}{٣} - ت\\sin\\frac{\\pi}{٣}\\right)$ بالصورة المثلثية القياسية.",
     "optionsEn": [
-      "2\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)",
-      "2\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right)",
-      "2\\left(\\cos\\frac{4\\pi}{3} + i\\sin\\frac{4\\pi}{3}\\right)",
-      "-2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)"
+      "$2\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)$",
+      "$2\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right)$",
+      "$2\\left(\\cos\\frac{4\\pi}{3} + i\\sin\\frac{4\\pi}{3}\\right)$",
+      "$-2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)$"
     ],
     "optionsAr": [
-      "٢\\left(\\cos\\left(-\\frac{\\pi}{٣}\\right) + ت\\sin\\left(-\\frac{\\pi}{٣}\\right)\\right)",
-      "٢\\left(\\cos\\frac{٢\\pi}{٣} + ت\\sin\\frac{٢\\pi}{٣}\\right)",
-      "٢\\left(\\cos\\frac{٤\\pi}{٣} + ت\\sin\\frac{٤\\pi}{٣}\\right)",
-      "-٢\\left(\\cos\\frac{\\pi}{٣} + ت\\sin\\frac{\\pi}{٣}\\right)"
+      "$2\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)$",
+      "$2\\left(\\cos\\frac{2\\pi}{3} + i\\sin\\frac{2\\pi}{3}\\right)$",
+      "$2\\left(\\cos\\frac{4\\pi}{3} + i\\sin\\frac{4\\pi}{3}\\right)$",
+      "$-2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)$"
     ],
-    "correctAnswer": "2\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)",
+    "correctAnswer": "$2\\left(\\cos\\left(-\\frac{\\pi}{3}\\right) + i\\sin\\left(-\\frac{\\pi}{3}\\right)\\right)$",
     "correctIndex": 0,
     "hintEn": "Use $\\cos(-\\theta) = \\cos\\theta$ and $\\sin(-\\theta) = -\\sin\\theta$.",
     "hintAr": "استخدم المتطابقات: $\\cos(-\\theta) = \\cos\\theta$ و $\\sin(-\\theta) = -\\sin\\theta$.",
@@ -4269,18 +4269,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "The non-zero roots of $(z + 1)^6 = (z - 1)^6$ are given by:",
     "questionAr": "الجذور غير الصفرية للمعادلة $(z + ١)^٦ = (z - ١)^٦$ تُعطى بالصورة:",
     "optionsEn": [
-      "\\pm i\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2",
-      "\\pm i\\tan\\frac{k\\pi}{6}, \\quad k = 1, 2",
-      "\\pm\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2",
-      "\\pm i\\cos\\frac{k\\pi}{6}, \\quad k = 1, 2"
+      "$\\pm i\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm i\\tan\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm i\\cos\\frac{k\\pi}{6}, \\quad k = 1, 2$"
     ],
     "optionsAr": [
-      "\\pm ت\\cot\\frac{k\\pi}{٦}, \\quad k = ١, ٢",
-      "\\pm ت\\tan\\frac{k\\pi}{٦}, \\quad k = ١, ٢",
-      "\\pm\\cot\\frac{k\\pi}{٦}, \\quad k = ١, ٢",
-      "\\pm ت\\cos\\frac{k\\pi}{٦}, \\quad k = ١, ٢"
+      "$\\pm i\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm i\\tan\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2$",
+      "$\\pm i\\cos\\frac{k\\pi}{6}, \\quad k = 1, 2$"
     ],
-    "correctAnswer": "\\pm i\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2",
+    "correctAnswer": "$\\pm i\\cot\\frac{k\\pi}{6}, \\quad k = 1, 2$",
     "correctIndex": 0,
     "hintEn": "Let $\\frac{z+1}{z-1} = e^{i 2k\\pi/6}$ and solve for $z$.",
     "hintAr": "افرض $\\frac{z+١}{z-١} = e^{ت ٢k\\pi/٦}$ وحل بالنسبة لـ $z$.",
@@ -4553,18 +4553,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "If $z_1, z_2, z_3$ are the vertices of an equilateral triangle in the Argand plane with centroid at origin, which relation must hold?",
     "questionAr": "إذا كانت $z_١, z_٢, z_٣$ رؤوس مثلث متساوي الأضلاع في مستوى أرجاند مركزه نقطة الأصل، فأي العلاقات الآتية صحيحة؟",
     "optionsEn": [
-      "z_1 + z_2 + z_3 = 0 \\text{ and } z_1^2 + z_2^2 + z_3^2 = 0",
-      "z_1 z_2 z_3 = 1 \\text{ only}",
-      "z_1^2 + z_2^2 + z_3^2 = z_1 z_2 z_3",
-      "z_1 + z_2 + z_3 = 3"
+      "$z_1 + z_2 + z_3 = 0 \\text{ and } z_1^2 + z_2^2 + z_3^2 = 0$",
+      "$z_1 z_2 z_3 = 1 \\text{ only}$",
+      "$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 z_3$",
+      "$z_1 + z_2 + z_3 = 3$"
     ],
     "optionsAr": [
-      "z_١ + z_٢ + z_٣ = ٠ \\text{ و } z_١^٢ + z_٢^٢ + z_٣^٢ = ٠",
-      "z_١ z_٢ z_٣ = ١ \\text{ فقط}",
-      "z_١^٢ + z_٢^٢ + z_٣^٢ = z_١ z_٢ z_٣",
-      "z_١ + z_٢ + z_٣ = ٣"
+      "$z_1 + z_2 + z_3 = 0 \\text{ and } z_1^2 + z_2^2 + z_3^2 = 0$",
+      "$z_1 z_2 z_3 = 1 \\text{ only}$",
+      "$z_1^2 + z_2^2 + z_3^2 = z_1 z_2 z_3$",
+      "$z_1 + z_2 + z_3 = 3$"
     ],
-    "correctAnswer": "z_1 + z_2 + z_3 = 0 \\text{ and } z_1^2 + z_2^2 + z_3^2 = 0",
+    "correctAnswer": "$z_1 + z_2 + z_3 = 0 \\text{ and } z_1^2 + z_2^2 + z_3^2 = 0$",
     "correctIndex": 0,
     "hintEn": "Centroid at origin implies sum is 0. Square the sum: $(z_1 + z_2 + z_3)^2 = 0$.",
     "hintAr": "المركز عند نقطة الأصل يعني أن مجموعهم صفر، وبتربيع المجموع نجد العلاقة المطلوبة.",
@@ -5418,18 +5418,18 @@ export const algCh2Databank: ChapterDatabank = {
     "questionEn": "The roots of the equation $z^n = -1$ are given by:",
     "questionAr": "جذور المعادلة $z^n = -١$ تُعطى بالصورة القطبية:",
     "optionsEn": [
-      "\\cos\\frac{(2k+1)\\pi}{n} + i\\sin\\frac{(2k+1)\\pi}{n}, \\quad k = 0, 1, \\dots, n-1",
-      "\\cos\\frac{2k\\pi}{n} + i\\sin\\frac{2k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1",
-      "\\cos\\frac{k\\pi}{n} + i\\sin\\frac{k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1",
-      "(-1)^k\\left(\\cos\\frac{\\pi}{n} + i\\sin\\frac{\\pi}{n}\\right)"
+      "$\\cos\\frac{(2k+1)\\pi}{n} + i\\sin\\frac{(2k+1)\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$\\cos\\frac{2k\\pi}{n} + i\\sin\\frac{2k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$\\cos\\frac{k\\pi}{n} + i\\sin\\frac{k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$(-1)^k\\left(\\cos\\frac{\\pi}{n} + i\\sin\\frac{\\pi}{n}\\right)$"
     ],
     "optionsAr": [
-      "\\cos\\frac{(٢k+١)\\pi}{n} + ت\\sin\\frac{(٢k+١)\\pi}{n}, \\quad k = ٠, ١, \\dots, n-١",
-      "\\cos\\frac{٢k\\pi}{n} + ت\\sin\\frac{٢k\\pi}{n}, \\quad k = ٠, ١, \\dots, n-١",
-      "\\cos\\frac{k\\pi}{n} + ت\\sin\\frac{k\\pi}{n}, \\quad k = ٠, ١, \\dots, n-١",
-      "(-١)^k\\left(\\cos\\frac{\\pi}{n} + ت\\sin\\frac{\\pi}{n}\\right)"
+      "$\\cos\\frac{(2k+1)\\pi}{n} + i\\sin\\frac{(2k+1)\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$\\cos\\frac{2k\\pi}{n} + i\\sin\\frac{2k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$\\cos\\frac{k\\pi}{n} + i\\sin\\frac{k\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
+      "$(-1)^k\\left(\\cos\\frac{\\pi}{n} + i\\sin\\frac{\\pi}{n}\\right)$"
     ],
-    "correctAnswer": "\\cos\\frac{(2k+1)\\pi}{n} + i\\sin\\frac{(2k+1)\\pi}{n}, \\quad k = 0, 1, \\dots, n-1",
+    "correctAnswer": "$\\cos\\frac{(2k+1)\\pi}{n} + i\\sin\\frac{(2k+1)\\pi}{n}, \\quad k = 0, 1, \\dots, n-1$",
     "correctIndex": 0,
     "hintEn": "$-1 = \\cos\\pi + i\\sin\\pi$. Add $2k\\pi$ and divide by $n$.",
     "hintAr": "$-١ = \\cos\\pi + ت\\sin\\pi$. أضف دورات كاملة $٢k\\pi$ واقسم على $n$.",

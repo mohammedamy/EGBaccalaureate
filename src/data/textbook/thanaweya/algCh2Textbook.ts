@@ -15,10 +15,10 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "$4 [\\cos(-120^\\circ) + i\\sin(-120^\\circ)] = 4 e^{-i \\frac{2\\pi}{3}}$"
     ],
     "optionsAr": [
-      "٤ [جتا(-١٥٠^\\circ) + ت جا(-١٥٠^\\circ)] = ٤ هـ^{-ت \\frac{٥\\pi}{٦}}",
-      "٤ [جتا(١٥٠^\\circ) + ت جا(١٥٠^\\circ)] = ٤ هـ^{ت \\frac{٥\\pi}{٦}}",
-      "٢ [جتا(-١٥٠^\\circ) + ت جا(-١٥٠^\\circ)] = ٢ هـ^{-ت \\frac{٥\\pi}{٦}}",
-      "٤ [جتا(-١٢٠^\\circ) + ت جا(-١٢٠^\\circ)] = ٤ هـ^{-ت \\frac{٢\\pi}{٣}}"
+      "$4 [\\cos(-150^\\circ) + i\\sin(-150^\\circ)] = 4 e^{-i \\frac{5\\pi}{6}}$",
+      "$4 [\\cos(150^\\circ) + i\\sin(150^\\circ)] = 4 e^{i \\frac{5\\pi}{6}}$",
+      "$2 [\\cos(-150^\\circ) + i\\sin(-150^\\circ)] = 2 e^{-i \\frac{5\\pi}{6}}$",
+      "$4 [\\cos(-120^\\circ) + i\\sin(-120^\\circ)] = 4 e^{-i \\frac{2\\pi}{3}}$"
     ],
     "correctAnswer": "$4 [\\cos(-150^\\circ) + i\\sin(-150^\\circ)] = 4 e^{-i \\frac{5\\pi}{6}}$",
     "correctIndex": 0,
@@ -36,7 +36,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "Step 5: Euler Exponential Form: $z = 4 e^{-i \\frac{5\\pi}{6}}$."
     ],
     "stepByStepSolutionAr": [
-      "الخطوة ١: الإحداثيات الكارتيزية: س = -٢\\sqrt{٣}، ص = -٢.",
+      "الخطوة ١: الإحداثيات الكارتيزية: $س = -٢\\sqrt{٣}$، $ص = -٢$.",
       "الخطوة ٢: حساب المقياس ل (أو r):",
       "$$ل = \\sqrt{(-٢\\sqrt{٣})^٢ + (-٢)^٢} = \\sqrt{١٢ + ٤} = \\sqrt{١٦} = ٤$$",
       "الخطوة ٣: تحديد السعة الأساسية $\\theta$:",
@@ -44,7 +44,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "زاوية الإسناد $\\alpha = \\tan^{-1}|\\frac{-٢}{-٢\\sqrt{٣}}| = \\tan^{-1}(\\frac{١}{\\sqrt{٣}}) = ٣٠^\\circ = \\frac{\\pi}{٦}$.",
       "$$\\theta = -(١٨٠^\\circ - ٣٠^\\circ) = -١٥٠^\\circ = -\\frac{٥\\pi}{٦} \\text{ راديان}$$",
       "الخطوة ٤: الصورة المثلثية القياسية: ع = ٤ [جتا(-١٥٠^\\circ) + ت جا(-١٥٠^\\circ)].",
-      "الخطوة ٥: الصورة الأسية لأويلر: ع = ٤ هـ^{-ت \\frac{٥\\pi}{٦}}."
+      "الخطوة ٥: الصورة الأسية لأويلر: $ع = ٤ هـ^{-ت \\frac{٥\\pi}{٦}}$."
     ],
     "teacherTipEn": "Remind students that Egyptian MoE standards mandate theta in (-180, 180], so 210 degrees must be written as -150 degrees.",
     "teacherTipAr": "نبه الطلاب إلى أن كتاب الوزارة يعتمد السعة الأساسية في الفترة (-١٨٠^\\circ، ١٨٠^\\circ]، ولذا تُكتب ٢١٠^\\circ على صورة -١٥٠^\\circ."
@@ -71,7 +71,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "correctAnswer": "$6 [\\cos(-50^\\circ) + i\\sin(-50^\\circ)]$",
     "correctIndex": 0,
     "hintEn": "Here Real part is sin(40) > 0 and Imaginary part is -cos(40) < 0 (Quadrant IV). Use the co-function conversion: sin(alpha) - i cos(alpha) = cos(-90 + alpha) + i sin(-90 + alpha).",
-    "hintAr": "الجزء الحقيقي هو جا(٤٠) > ٠ والتخيلي هو -جتا(٤٠) < ٠ (الربع الرابع). استخدم زوايا الإسناد (٩٠): جا(\\theta) - ت جتا(\\theta) = جتا(-٩٠ + \\theta) + ت جا(-٩٠ + \\theta).",
+    "hintAr": "الجزء الحقيقي هو جا(٤٠) > ٠ والتخيلي هو -جتا(٤٠) < ٠ (الربع الرابع). استخدم زوايا الإسناد ($٩٠^\\circ$): $\\sin\\theta - i \\cos\\theta = \\cos(-90^\\circ + \\theta) + i \\sin(-90^\\circ + \\theta)$.",
     "stepByStepSolutionEn": [
       "Notice the terms are swapped and signed: $x = \\sin 40^\\circ > 0$, $y = -\\cos 40^\\circ < 0$.",
       "This places $z$ in the 4th quadrant.",
@@ -84,14 +84,14 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "stepByStepSolutionAr": [
       "لاحظ تبادل النسب والإشارات: س = جا ٤٠^\\circ > ٠، ص = -جتا ٤٠^\\circ < ٠.",
       "هذا يحدد أن العدد يقع في الربع الرابع.",
-      "للتحويل من جا إلى جتا في الربع الرابع نستخدم التحويل (-٩٠^\\circ + \\theta):",
+      "للتحويل من جا إلى جتا في الربع الرابع نستخدم التحويل $(-٩٠^\\circ + \\theta)$:",
       "$$جتا(-٩٠^\\circ + ٤٠^\\circ) = جتا(-٥٠^\\circ) = جا ٤٠^\\circ$$",
       "$$جا(-٩٠^\\circ + ٤٠^\\circ) = جا(-٥٠^\\circ) = -جتا ٤٠^\\circ$$",
       "إذن الصورة المثلثية القياسية هي:",
       "$$ع = ٦ [جتا(-٥٠^\\circ) + ت جا(-٥٠^\\circ)]$$"
     ],
     "teacherTipEn": "The 90-degree reference rules are frequent exam favorites: (90 - theta) for Quad I, (90 + theta) for Quad II, (-90 - theta) for Quad III, (-90 + theta) for Quad IV.",
-    "teacherTipAr": "قواعد زوايا الإسناد مع ٩٠^\\circ تتكرر بكثرة في امتحانات الثانوية العامة: الربع الأول (٩٠ - \\theta)، الربع الثاني (٩٠ + \\theta)، الربع الثالث (-٩٠ - \\theta)، الربع الرابع (-٩٠ + \\theta)."
+    "teacherTipAr": "قواعد زوايا الإسناد مع $٩٠^\\circ$ تتكرر بكثرة في امتحانات الثانوية العامة: الربع الأول $(٩٠^\\circ - \\theta)$، الربع الثاني $(٩٠^\\circ + \\theta)$، الربع الثالث $(-٩٠^\\circ - \\theta)$، الربع الرابع $(-٩٠^\\circ + \\theta)$."
   },
   {
     "id": "alg_ch2_ex3",
@@ -107,15 +107,15 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "$\\text{Arg}(z_1 z_2) = -120^\\circ, \\quad \\frac{z_1}{z_2} = 4 e^{i \\frac{\\pi}{6}}$"
     ],
     "optionsAr": [
-      "سعة (ع١ ع٢) = -١٦٠^\\circ، \\quad ع١ / ع٢ = ٤ هـ^{ت \\frac{\\pi}{٣}}",
-      "سعة (ع١ ع٢) = ٢٠٠^\\circ، \\quad ع١ / ع٢ = ٤ هـ^{ت \\frac{\\pi}{٣}}",
-      "سعة (ع١ ع٢) = -١٦٠^\\circ، \\quad ع١ / ع٢ = ١٦ هـ^{ت \\frac{\\pi}{٣}}",
-      "سعة (ع١ ع٢) = -١٢٠^\\circ، \\quad ع١ / ع٢ = ٤ هـ^{ت \\frac{\\pi}{٦}}"
+      "$\\text{Arg}(z_1 z_2) = -160^\\circ, \\quad \\frac{z_1}{z_2} = 4 e^{i \\frac{\\pi}{3}}$",
+      "$\\text{Arg}(z_1 z_2) = 200^\\circ, \\quad \\frac{z_1}{z_2} = 4 e^{i \\frac{\\pi}{3}}$",
+      "$\\text{Arg}(z_1 z_2) = -160^\\circ, \\quad \\frac{z_1}{z_2} = 16 e^{i \\frac{\\pi}{3}}$",
+      "$\\text{Arg}(z_1 z_2) = -120^\\circ, \\quad \\frac{z_1}{z_2} = 4 e^{i \\frac{\\pi}{6}}$"
     ],
     "correctAnswer": "$\\text{Arg}(z_1 z_2) = -160^\\circ, \\quad \\frac{z_1}{z_2} = 4 e^{i \\frac{\\pi}{3}}$",
     "correctIndex": 0,
     "hintEn": "Multiplication adds arguments: 130 + 70 = 200 degrees. Since 200 > 180, subtract 360 to get the principal argument: 200 - 360 = -160 degrees. Division subtracts arguments: 130 - 70 = 60 degrees = pi/3.",
-    "hintAr": "الضرب يجمع السعات: ١٣٠ + ٧٠ = ٢٠٠^\\circ. بما أن ٢٠٠ > ١٨٠، نطرح ٣٦٠ لنحصل على السعة الأساسية: ٢٠٠ - ٣٦٠ = -١٦٠^\\circ. القسمة تطرح السعات: ١٣٠ - ٧٠ = ٦٠^\\circ = \\pi/٣.",
+    "hintAr": "الضرب يجمع السعات: $١٣٠^\\circ + ٧٠^\\circ = ٢٠٠^\\circ$. بما أن $٢٠٠^\\circ > ١٨٠^\\circ$، نطرح ۳٦۰ لنحصل على السعة الأساسية: $٢٠٠^\\circ - ٣٦٠^\\circ = -١٦٠^\\circ$. القسمة تطرح السعات: $١٣٠^\\circ - ٧٠^\\circ = ٦٠^\\circ = \\frac{\\pi}{٣}$.",
     "stepByStepSolutionEn": [
       "1. For multiplication $z_1 z_2$:",
       "Arguments add: $\\theta_1 + \\theta_2 = 130^\\circ + 70^\\circ = 200^\\circ$.",
@@ -163,7 +163,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "correctAnswer": "ن = ٣، \\quad لا يوجد عدد صحيح م يجعله تخيلياً بحتاً",
     "correctIndex": 0,
     "hintEn": "The argument of 1 + i*sqrt(3) is 60 degrees. (1 + i*sqrt(3))^n has argument 60n. Pure real means 60n is a multiple of 180 (n = 3). Pure imaginary means 60m = 90 + 180k => 2m = 3 + 6k => even = odd, impossible!",
-    "hintAr": "سعة العدد ١ + ت\\sqrt{٣} هي ٦٠^\\circ. سعة الأس ن هي ٦٠ن. ليكون حقيقياً: ٦٠ن مضاعف لـ ١٨٠ (ن = ٣). ليكون تخيلياً: ٦٠م = ٩٠ + ١٨٠ك، أي ٢م = ٣ + ٦ك، وهو مستحيل لأن الطرف الأيمن زوجي والأيسر فردي!",
+    "hintAr": "سعة العدد $١ + ت\\sqrt{٣}$ هي $٦٠^\\circ$. سعة الأس ن هي $٦٠ن$. ليكون حقيقياً: $٦٠ن$ مضاعف لـ $١٨٠^\\circ$ ($ن = ٣$). ليكون تخيلياً: $٦٠م = ٩٠^\\circ + ١٨٠^\\circ ك$، أي $٢م = ٣ + ٦ك$، وهو مستحيل لأن الطرف الأيمن زوجي والأيسر فردي!",
     "stepByStepSolutionEn": [
       "Let $z = 1 + i\\sqrt{3}$.",
       "Modulus $r = \\sqrt{1 + 3} = 2$.",
@@ -180,8 +180,8 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "Therefore, there is NO integer $m$ for which $(1 + i\\sqrt{3})^m$ is purely imaginary!"
     ],
     "stepByStepSolutionAr": [
-      "نضع ع = ١ + ت\\sqrt{٣}.",
-      "المقياس ل = \\sqrt{١ + ٣} = ٢.",
+      "نضع $ع = ١ + ت\\sqrt{٣}$.",
+      "المقياس $ل = \\sqrt{١ + ٣} = ٢$.",
       "السعة $\\theta = \\tan^{-1}(\\sqrt{٣}) = ٦٠^\\circ$.",
       "بتطبيق نظرية ديموافر:",
       "$$ع^ن = ٢^ن [جتا(٦٠^\\circ ن) + ت جا(٦٠^\\circ ن)]$$",
@@ -219,7 +219,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "correctAnswer": "-2",
     "correctIndex": 0,
     "hintEn": "(1 + i)/sqrt(2) = e^(i pi/4) and (1 - i)/sqrt(2) = e^(-i pi/4). Raise both to power 100: e^(i 25 pi) + e^(-i 25 pi) = 2 cos(25 pi).",
-    "hintAr": "(١ + ت)/\\sqrt{٢} = هـ^{ت \\pi/٤}، (١ - ت)/\\sqrt{٢} = هـ^{-ت \\pi/٤}. بالرفع للأس ١٠٠: هـ^{ت ٢٥\\pi} + هـ^{-ت ٢٥\\pi} = ٢ جتا(٢٥\\pi).",
+    "hintAr": "$\\frac{١ + ت}{\\sqrt{٢}} = هـ^{ت \\pi/٤}$، $\\frac{١ - ت}{\\sqrt{٢}} = هـ^{-ت \\pi/٤}$. بالرفع للأس ١٠٠: $هـ^{ت ٢٥\\pi} + هـ^{-ت ٢٥\\pi} = ٢ \\cos(٢٥\\pi)$.",
     "stepByStepSolutionEn": [
       "Let $z_1 = \\frac{1 + i}{\\sqrt{2}} = \\cos 45^\\circ + i\\sin 45^\\circ = e^{i \\frac{\\pi}{4}}$.",
       "Its conjugate is $z_2 = \\frac{1 - i}{\\sqrt{2}} = \\cos(-45^\\circ) + i\\sin(-45^\\circ) = e^{-i \\frac{\\pi}{4}}$.",
@@ -232,14 +232,14 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "$$\\text{Value} = 2(-1) = -2$$"
     ],
     "stepByStepSolutionAr": [
-      "نضع ع١ = (١ + ت)/\\sqrt{٢} = جتا ٤٥^\\circ + ت جا ٤٥^\\circ = هـ^{ت \\pi/٤}.",
-      "مرافقه ع٢ = (١ - ت)/\\sqrt{٢} = جتا(-٤٥^\\circ) + ت جا(-٤٥^\\circ) = هـ^{-ت \\pi/٤}.",
+      "نضع $ع_١ = \\frac{١ + ت}{\\sqrt{٢}} = جتا(٤٥^\\circ) + ت جا(٤٥^\\circ) = هـ^{ت \\pi/٤}$.",
+      "مرافقه $ع_٢ = \\frac{١ - ت}{\\sqrt{٢}} = جتا(-٤٥^\\circ) + ت جا(-٤٥^\\circ) = هـ^{-ت \\pi/٤}$.",
       "بتطبيق نظرية ديموافر للأس ١٠٠:",
       "$$ع_١^{١٠٠} = هـ^{ت \\frac{١٠٠\\pi}{٤}} = هـ^{ت ٢٥\\pi} = جتا(٢٥\\pi) + ت جا(٢٥\\pi)$$",
       "$$ع_٢^{١٠٠} = هـ^{-ت ٢٥\\pi} = جتا(٢٥\\pi) - ت جا(٢٥\\pi)$$",
       "بجمع المقدارين:",
       "$$ع_١^{١٠٠} + ع_٢^{١٠٠} = ٢ جتا(٢٥\\pi)$$",
-      "وحيث إن ٢٥\\pi مضاعف فردي لـ \\pi، فإن جتا(٢٥\\pi) = جتا(\\pi) = -١.",
+      "وحيث إن $٢٥\\pi$ مضاعف فردي لـ $\\pi$، فإن $جتا(٢٥\\pi) = جتا(\\pi) = -١$.",
       "$$\\text{الناتج} = ٢(-١) = -٢$$"
     ],
     "teacherTipEn": "Notice that z^n + (z_bar)^n = 2 Re(z^n) = 2 r^n cos(n theta). This identity speeds up computation significantly.",
@@ -267,7 +267,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "correctAnswer": "$\\pm (2 + i)$",
     "correctIndex": 0,
     "hintEn": "Let (x + iy)^2 = 3 + 4i => x^2 - y^2 = 3 and 2xy = 4. Also modulus equation: x^2 + y^2 = sqrt(3^2 + 4^2) = 5.",
-    "hintAr": "نفرض أن (س + ت ص)^٢ = ٣ + ٤ت \\implies س^٢ - ص^٢ = ٣ و ٢س ص = ٤. ومعادلة المقياس: س^٢ + ص^٢ = \\sqrt{٣^٢ + ٤^٢} = ٥.",
+    "hintAr": "نفرض أن $(س + ت ص)^٢ = ٣ + ٤ت \\implies س^٢ - ص^٢ = ٣$ و $٢س ص = ٤$. ومعادلة المقياس: $س^٢ + ص^٢ = \\sqrt{٣^٢ + ٤^٢} = ٥$.",
     "stepByStepSolutionEn": [
       "Let $\\sqrt{3 + 4i} = x + i y$ where $x, y \\in \\mathbb{R}$.",
       "Squaring both sides:",
@@ -290,10 +290,10 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "بمساواة الجزأين الحقيقي والتخيلي:",
       "١) س^٢ - ص^٢ = ٣",
       "٢) ٢س ص = ٤ \\implies س ص = ٢ > ٠ (س وص لهما نفس الإشارة).",
-      "من تساوي المقياسين: س^٢ + ص^٢ = \\sqrt{٣^٢ + ٤^٢} = ٥ (معادلة ٣).",
+      "من تساوي المقياسين: $س^٢ + ص^٢ = \\sqrt{٣^٢ + ٤^٢} = ٥$ (معادلة ٣).",
       "بجمع (١) و(٣):",
       "$$٢ س^٢ = ٨ \\implies س^٢ = ٤ \\implies س = \\pm ٢$$",
-      "بالتعويض عن س^٢ = ٤ في (٣): ٤ + ص^٢ = ٥ \\implies ص^٢ = ١ \\implies ص = \\pm ١.",
+      "بالتعويض عن $س^٢ = ٤$ في (٣): $٤ + ص^٢ = ٥ \\implies ص^٢ = ١ \\implies ص = \\pm ١$.",
       "وحيث إن س ص = ٢ موجبة، فإن س وص متفقان في الإشارة:",
       "$$\\text{الجذران التربيعيان} = \\pm (٢ + ت)$$"
     ],
@@ -314,15 +314,15 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "$z_k = 2 [\\cos(\\frac{\\pi + 2k\\pi}{3}) + i\\sin(\\frac{\\pi + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$"
     ],
     "optionsAr": [
-      "ع_ك = ٢ [جتا(\\frac{\\pi/٢ + ٢ك\\pi}{٣}) + ت جا(\\frac{\\pi/٢ + ٢ك\\pi}{٣})]، \\quad ك \\in \\{٠، ١، ٢\\}",
-      "ع_ك = ٢ [جتا(\\frac{-\\pi/٢ + ٢ك\\pi}{٣}) + ت جا(\\frac{-\\pi/٢ + ٢ك\\pi}{٣})]، \\quad ك \\in \\{٠، ١، ٢\\}",
-      "ع_ك = ٨ [جتا(\\frac{\\pi/٢ + ٢ك\\pi}{٣}) + ت جا(\\frac{\\pi/٢ + ٢ك\\pi}{٣})]، \\quad ك \\in \\{٠، ١، ٢\\}",
-      "ع_ك = ٢ [جتا(\\frac{\\pi + ٢ك\\pi}{٣}) + ت جا(\\frac{\\pi + ٢ك\\pi}{٣})]، \\quad ك \\in \\{٠، ١، ٢\\}"
+      "$z_k = 2 [\\cos(\\frac{\\pi/2 + 2k\\pi}{3}) + i\\sin(\\frac{\\pi/2 + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$",
+      "$z_k = 2 [\\cos(\\frac{-\\pi/2 + 2k\\pi}{3}) + i\\sin(\\frac{-\\pi/2 + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$",
+      "$z_k = 8 [\\cos(\\frac{\\pi/2 + 2k\\pi}{3}) + i\\sin(\\frac{\\pi/2 + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$",
+      "$z_k = 2 [\\cos(\\frac{\\pi + 2k\\pi}{3}) + i\\sin(\\frac{\\pi + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$"
     ],
     "correctAnswer": "$z_k = 2 [\\cos(\\frac{\\pi/2 + 2k\\pi}{3}) + i\\sin(\\frac{\\pi/2 + 2k\\pi}{3})], \\quad k \\in \\{0, 1, 2\\}$",
     "correctIndex": 0,
     "hintEn": "z^3 = -8i. In trigonometric form: -8i = 8[cos(-pi/2) + i sin(-pi/2)] or 8[cos(3pi/2) + i sin(3pi/2)]. Wait, -8i has theta = -pi/2, wait! Moving to right: z^3 = -8i => theta = -pi/2. But if z^3 = 8i then theta = pi/2.",
-    "hintAr": "ع^٣ = -٨ت، أي مقياسه ٨ وسعته الأساسية -\\pi/٢ (أو ع^٣ = -(-٨ت) = ٨ت لو نقلنا ٨ت للطرف الآخر تصبح -٨ت وسعتها -٩٠^\\circ). مهلاً: ع^٣ + ٨ت = ٠ تعني ع^٣ = -٨ت.",
+    "hintAr": "$ع^٣ = -٨ت$، أي مقياسه $٨$ وسعته الأساسية $-\\frac{\\pi}{٢}$ (أو $ع^٣ = -(-٨ت) = ٨ت$ لو نقلنا $٨ت$ للطرف الآخر تصبح $-٨ت$ وسعتها $-٩٠^\\circ$). مهلاً: $ع^٣ + ٨ت = ٠$ تعني $ع^٣ = -٨ت$.",
     "stepByStepSolutionEn": [
       "Rearrange equation: $z^3 = -8i$.",
       "Express $-8i$ in trigonometric form:",
@@ -343,9 +343,9 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "بتطبيق نظرية ديموافر للجذور التكعيبية (ن = ٣):",
       "$$ع_ك = ٨^{١/٣} [جتا(\\frac{-\\pi/٢ + ٢ك\\pi}{٣}) + ت جا(\\frac{-\\pi/٢ + ٢ك\\pi}{٣})]$$",
       "حيث $٨^{١/٣} = ٢$ وبالتعويض عن ك = ٠، ١، ٢:",
-      "- ك = ٠: ع٠ = ٢ [جتا(-٣٠^\\circ) + ت جا(-٣٠^\\circ)] = \\sqrt{٣} - ت",
+      "- ك = ٠: $ع_٠ = ٢ [جتا(-٣٠^\\circ) + ت جا(-٣٠^\\circ)] = \\sqrt{٣} - ت$",
       "- ك = ١: ع١ = ٢ [جتا(٩٠^\\circ) + ت جا(٩٠^\\circ)] = ٢ت",
-      "- ك = ٢: ع٢ = ٢ [جتا(-١٥٠^\\circ) + ت جا(-١٥٠^\\circ)] = -\\sqrt{٣} - ت."
+      "- ك = ٢: $ع_٢ = ٢ [جتا(-١٥٠^\\circ) + ت جا(-١٥٠^\\circ)] = -\\sqrt{٣} - ت$."
     ],
     "teacherTipEn": "Notice that the roots form an equilateral triangle inscribed in a circle of radius 2 centered at the origin.",
     "teacherTipAr": "لاحظ أن الجذور الثلاثة تمثل رؤوس مثلث متساوي الأضلاع مرسوم داخل دائرة مركزها نقطة الأصل ونصف قطرها ٢."
@@ -471,7 +471,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
     "correctAnswer": "-27",
     "correctIndex": 0,
     "hintEn": "Recall that (omega - omega^2) = +- i sqrt(3). Therefore, (omega - omega^2)^2 = -3. Then cube it: (-3)^3 = -27.",
-    "hintAr": "تذكر أن (\\omega - \\omega^٢) = \\pm ت \\sqrt{٣}. وبالتالي (\\omega - \\omega^٢)^٢ = -٣. وبالتكعيب: (-٣)^٣ = -٢٧.",
+    "hintAr": "تذكر أن $(\\omega - \\omega^٢) = \\pm ت \\sqrt{٣}$. وبالتالي $(\\omega - \\omega^٢)^٢ = -٣$. وبالتكعيب: $(-٣)^٣ = -٢٧$.",
     "stepByStepSolutionEn": [
       "Recall the fundamental identity:",
       "$$\\omega - \\omega^2 = \\pm i\\sqrt{3}$$",
@@ -489,7 +489,7 @@ export const algCh2SolvedExamples: SolvedProblem[] = [
       "$$(\\omega - \\omega^٢)^٦ = [(\\omega - \\omega^٢)^٢]^٣ = (-٣)^٣ = -٢٧$$"
     ],
     "teacherTipEn": "Always remember: (omega - omega^2)^2 = -3. Odd powers of the square are negative, even powers are positive.",
-    "teacherTipAr": "احفظ دائماً أن (\\omega - \\omega^٢)^٢ = -٣. والأس الفردي لـ (-٣) يعطي سالباً والزوجي يعطي موجباً."
+    "teacherTipAr": "احفظ دائماً أن $(\\omega - \\omega^٢)^٢ = -٣$. والأس الفردي لـ $(-٣)$ يعطي سالباً والزوجي يعطي موجباً."
   }
 ];
 
@@ -516,7 +516,7 @@ export const algCh2Exercises: SolvedProblem[] = [
     "correctAnswer": "$\\frac{2\\pi}{3}$",
     "correctIndex": 0,
     "hintEn": "x = -sin(30) = -1/2 < 0, y = cos(30) = sqrt(3)/2 > 0 (Quadrant II). In Quad II with sine/cosine swapped: theta = 90 + 30 = 120 deg = 2pi/3.",
-    "hintAr": "س = -جا(٣٠) = -١/٢ < ٠، ص = جتا(٣٠) = \\sqrt{٣}/٢ > ٠ (الربع الثاني). مع تبادل النسب في الربع الثاني: سيتا = ٩٠ + ٣٠ = ١٢٠^\\circ = ٢\\pi/٣.",
+    "hintAr": "$س = -\\sin(٣٠^\\circ) = -\\frac{١}{٢} < ٠$، $ص = \\cos(٣٠^\\circ) = \\frac{\\sqrt{٣}}{٢} > ٠$ (الربع الثاني). مع تبادل النسب في الربع الثاني: السعة $= ٩٠^\\circ + ٣٠^\\circ = ١٢٠^\\circ = \\frac{٢\\pi}{٣}$.",
     "stepByStepSolutionEn": [
       "Step 1: Evaluate Cartesian components: $x = -\\sin 30^\\circ = -\\frac{1}{2} < 0$, $y = \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} > 0$.",
       "Step 2: Since $x < 0$ and $y > 0$, $z$ is in Quadrant II.",
@@ -526,15 +526,15 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$$\\theta = 120^\\circ = \\frac{2\\pi}{3} \\text{ rad}$$"
     ],
     "stepByStepSolutionAr": [
-      "الخطوة ١: الإحداثيات: س = -جا ٣٠^\\circ = -١/٢ < ٠، ص = جتا ٣٠^\\circ = \\sqrt{٣}/٢ > ٠.",
+      "الخطوة ١: الإحداثيات: $س = -\\sin(٣٠^\\circ) = -\\frac{١}{٢} < ٠$، $ص = \\cos(٣٠^\\circ) = \\frac{\\sqrt{٣}}{٢} > ٠$.",
       "الخطوة ٢: بما أن س < ٠ وص > ٠، فالعدد يقع في الربع الثاني.",
-      "الخطوة ٣: باستخدام زوايا التحويل في الربع الثاني (٩٠ + \\theta):",
+      "الخطوة ٣: باستخدام زوايا التحويل في الربع الثاني $(٩٠^\\circ + \\theta)$:",
       "$$-جا ٣٠^\\circ = جتا(٩٠^\\circ + ٣٠^\\circ) = جتا(١٢٠^\\circ)$$",
       "$$جتا ٣٠^\\circ = جا(٩٠^\\circ + ٣٠^\\circ) = جا(١٢٠^\\circ)$$",
       "$$\\theta = ١٢٠^\\circ = \\frac{٢\\pi}{٣} \\text{ راديان}$$"
     ],
     "teacherTipEn": "Transforming to Cartesian numbers (-1/2 + i sqrt(3)/2) can also quickly verify the angle without risk of angle confusion.",
-    "teacherTipAr": "يمكن للطالب حساب القيم العددية مباشرة (-١/٢ + ت \\sqrt{٣}/٢) للتأكد السريع من صحة السعة."
+    "teacherTipAr": "يمكن للطالب حساب القيم العددية مباشرة $(-\\frac{١}{٢} + ت \\frac{\\sqrt{٣}}{٢})$ للتأكد السريع من صحة السعة."
   },
   {
     "id": "alg_ch2_unit_q2",
@@ -550,15 +550,15 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$\\cos\\frac{\\theta}{2} \\left[\\cos\\frac{\\theta}{2} + i\\sin\\frac{\\theta}{2}\\right]$"
     ],
     "optionsAr": [
-      "٢ جتا(\\theta/٢) [جتا(\\theta/٢) + ت جا(\\theta/٢)]",
-      "٢ جا(\\theta/٢) [جتا(\\theta/٢) + ت جا(\\theta/٢)]",
-      "٢ جتا(\\theta/٢) [جتا\\theta + ت جا\\theta]",
-      "جتا(\\theta/٢) [جتا(\\theta/٢) + ت جا(\\theta/٢)]"
+      "$2\\cos\\frac{\\theta}{2} \\left[\\cos\\frac{\\theta}{2} + i\\sin\\frac{\\theta}{2}\\right]$",
+      "$2\\sin\\frac{\\theta}{2} \\left[\\cos\\frac{\\theta}{2} + i\\sin\\frac{\\theta}{2}\\right]$",
+      "$2\\cos\\frac{\\theta}{2} \\left[\\cos\\theta + i\\sin\\theta\\right]$",
+      "$\\cos\\frac{\\theta}{2} \\left[\\cos\\frac{\\theta}{2} + i\\sin\\frac{\\theta}{2}\\right]$"
     ],
     "correctAnswer": "$2\\cos\\frac{\\theta}{2} \\left[\\cos\\frac{\\theta}{2} + i\\sin\\frac{\\theta}{2}\\right]$",
     "correctIndex": 0,
     "hintEn": "Use the double angle identities: 1 + cos(theta) = 2 cos^2(theta/2) and sin(theta) = 2 sin(theta/2) cos(theta/2). Then factor out 2 cos(theta/2).",
-    "hintAr": "استخدم قوانين ضعف الزاوية: ١ + جتا\\theta = ٢ جتا^٢(\\theta/٢) و جا\\theta = ٢ جا(\\theta/٢) جتا(\\theta/٢). ثم خذ ٢ جتا(\\theta/٢) عاملاً مشتركاً.",
+    "hintAr": "استخدم قوانين ضعف الزاوية: $١ + جتا\\theta = ٢ جتا^٢(\\frac{\\theta}{٢})$ و $جا\\theta = ٢ جا(\\frac{\\theta}{٢}) جتا(\\frac{\\theta}{٢})$. ثم خذ $٢ جتا(\\frac{\\theta}{٢})$ عاملاً مشتركاً.",
     "stepByStepSolutionEn": [
       "Use trigonometry half-angle identities:",
       "$$1 + \\cos\\theta = 2\\cos^2\\left(\\frac{\\theta}{2}\\right)$$",
@@ -576,7 +576,7 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$$جا\\theta = ٢ جا(\\frac{\\theta}{٢}) جتا(\\frac{\\theta}{٢})$$",
       "بالتعويض في ع:",
       "$$ع = ٢ جتا^٢(\\frac{\\theta}{٢}) + ت \\cdot ٢ جا(\\frac{\\theta}{٢}) جتا(\\frac{\\theta}{٢})$$",
-      "بأخذ العامل المشترك ٢ جتا(\\theta/٢):",
+      "بأخذ العامل المشترك $٢ جتا(\\frac{\\theta}{٢})$:",
       "$$ع = ٢ جتا(\\frac{\\theta}{٢}) [جتا(\\frac{\\theta}{٢}) + ت جا(\\frac{\\theta}{٢})]$$",
       "وبما أن $-\\pi < \\theta < \\pi$ فإن $-\\pi/٢ < \\theta/٢ < \\pi/٢$ مما يضمن أن $٢ جتا(\\theta/٢) > ٠$ (مقياس موجب صالح!)."
     ],
@@ -655,7 +655,7 @@ export const algCh2Exercises: SolvedProblem[] = [
     "correctAnswer": "$6\\sqrt{3}$",
     "correctIndex": 0,
     "hintEn": "The radius of the circumcircle is R = 64^(1/6) = 2. The area of a regular n-gon is (n/2) R^2 sin(2pi/n). For n = 6: (6/2) * 4 * sin(60) = 3 * 4 * sqrt(3)/2 = 6 sqrt(3).",
-    "hintAr": "نصف قطر الدائرة المارة بالرؤوس هو نق = ٦٤^{١/٦} = ٢. مساحة المضلع المنتظم = (ن/٢) نق^٢ جا(٣٦٠/ن). لمسدس ن = ٦: (٦/٢) * ٤ * جا(٦٠) = ٣ * ٤ * \\sqrt{٣}/٢ = ٦\\sqrt{٣}.",
+    "hintAr": "نصف قطر الدائرة المارة بالرؤوس هو $نق = ٦٤^{١/٦} = ٢$. مساحة المضلع المنتظم $= (ن/٢) نق^٢ \\sin(٣٦٠^\\circ/ن)$. لمسدس ن = ٦: $(٦/٢) \\times ٤ \\times \\sin(٦٠^\\circ) = ٣ \\times ٤ \\times \\frac{\\sqrt{٣}}{٢} = ٦\\sqrt{٣}$.",
     "stepByStepSolutionEn": [
       "The equation is $z^6 = 64 = 64 [\\cos 0 + i\\sin 0]$.",
       "By De Moivre's roots theorem, the roots have modulus:",
@@ -739,7 +739,7 @@ export const algCh2Exercises: SolvedProblem[] = [
     "correctAnswer": "1",
     "correctIndex": 0,
     "hintEn": "omega^4 = omega and omega^8 = omega^2. So the product is (1 + omega)(1 + omega^2) * (1 + omega)(1 + omega^2).",
-    "hintAr": "\\omega^٤ = \\omega، و \\omega^٨ = \\omega^٢. فيتحول المقدار إلى: (١ + \\omega)(١ + \\omega^٢) \\times (١ + \\omega)(١ + \\omega^٢).",
+    "hintAr": "$\\omega^٤ = \\omega$، و $\\omega^٨ = \\omega^٢$. فيتحول المقدار إلى: $(١ + \\omega)(١ + \\omega^٢) \\times (١ + \\omega)(١ + \\omega^٢)$.",
     "stepByStepSolutionEn": [
       "Reduce powers of $\\omega$ modulo 3:",
       "$$\\omega^4 = \\omega^3 \\cdot \\omega = \\omega$$",
@@ -752,17 +752,17 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$$\\text{Value} = 1^2 = 1$$"
     ],
     "stepByStepSolutionAr": [
-      "تبسيط قوى \\omega بقسمة الأس على ٣:",
+      "تبسيط قوى $\\omega$ بقسمة الأس على ٣:",
       "$$\\omega^٤ = \\omega^٣ \\cdot \\omega = \\omega$$",
       "$$\\omega^٨ = \\omega^٦ \\cdot \\omega^٢ = \\omega^٢$$",
       "يصبح المقدار:",
       "$$(١ + \\omega)(١ + \\omega^٢)(١ + \\omega)(١ + \\omega^٢) = [(١ + \\omega)(١ + \\omega^٢)]^٢$$",
-      "وحيث إن ١ + \\omega = -\\omega^٢، و ١ + \\omega^٢ = -\\omega:",
+      "وحيث إن $١ + \\omega = -\\omega^٢$، و $١ + \\omega^٢ = -\\omega$:",
       "$$(١ + \\omega)(١ + \\omega^٢) = (-\\omega^٢)(-\\omega) = \\omega^٣ = ١$$",
       "إذن القيمة = ١^٢ = ١."
     ],
     "teacherTipEn": "Whenever powers of 2 appear in omega exponents, they periodically loop back to omega and omega^2.",
-    "teacherTipAr": "قوى ٢ المتتالية لأوميجا تدور دورياً دائماً بين \\omega و \\omega^٢."
+    "teacherTipAr": "قوى ٢ المتتالية لأوميجا تدور دورياً دائماً بين $\\omega$ و $\\omega^٢$."
   },
   {
     "id": "alg_ch2_unit_q7",
@@ -824,15 +824,15 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$\\cos 3\\theta = 2\\cos^3\\theta - \\cos\\theta$"
     ],
     "optionsAr": [
-      "جتا ٣\\theta = ٤ جتا^٣\\theta - ٣ جتا\\theta",
-      "جتا ٣\\theta = ٣ جتا\\theta - ٤ جتا^٣\\theta",
-      "جتا ٣\\theta = ٤ جتا^٣\\theta + ٣ جتا\\theta",
-      "جتا ٣\\theta = ٢ جتا^٣\\theta - جتا\\theta"
+      "$\\cos 3\\theta = 4\\cos^3\\theta - 3\\cos\\theta$",
+      "$\\cos 3\\theta = 3\\cos\\theta - 4\\cos^3\\theta$",
+      "$\\cos 3\\theta = 4\\cos^3\\theta + 3\\cos\\theta$",
+      "$\\cos 3\\theta = 2\\cos^3\\theta - \\cos\\theta$"
     ],
     "correctAnswer": "$\\cos 3\\theta = 4\\cos^3\\theta - 3\\cos\\theta$",
     "correctIndex": 0,
     "hintEn": "Expand (c + i s)^3 using binomial theorem: c^3 + 3c^2(is) + 3c(is)^2 + (is)^3 = (c^3 - 3cs^2) + i(3c^2s - s^3). Equate real part to cos(3theta) and use s^2 = 1 - c^2.",
-    "hintAr": "فك (جتا + ت جا)^٣ بنظرية ذات الحدين، وساوِ الجزء الحقيقي بـ جتا(٣\\theta)، ثم عوض عن جا^٢ = ١ - جتا^٢.",
+    "hintAr": "فك $(\\cos\\theta + i\\sin\\theta)^٣$ بنظرية ذات الحدين، وساوِ الجزء الحقيقي بـ $\\cos(٣\\theta)$، ثم عوض عن $\\sin^٢\\theta = ١ - \\cos^٢\\theta$.",
     "stepByStepSolutionEn": [
       "By De Moivre's theorem:",
       "$$(\\cos\\theta + i\\sin\\theta)^3 = \\cos 3\\theta + i\\sin 3\\theta$$",
@@ -1049,15 +1049,15 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$z_k = 2 e^{i \\left(\\frac{\\pi}{3} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$"
     ],
     "optionsAr": [
-      "ع_ك = ٢ هـ^{ت (-\\frac{\\pi}{٣} + \\frac{ك\\pi}{٢})}، \\quad ك \\in \\{٠، ١، ٢، ٣\\}",
-      "ع_ك = ٢ هـ^{ت (-\\frac{٥\\pi}{١٢} + \\frac{ك\\pi}{٢})}، \\quad ك \\in \\{٠، ١، ٢، ٣\\}",
-      "ع_ك = ٤ هـ^{ت (-\\frac{\\pi}{٣} + \\frac{ك\\pi}{٢})}، \\quad ك \\in \\{٠، ١، ٢، ٣\\}",
-      "ع_ك = ٢ هـ^{ت (\\frac{\\pi}{٣} + \\frac{ك\\pi}{٢})}، \\quad ك \\in \\{٠، ١، ٢، ٣\\}"
+      "$z_k = 2 e^{i \\left(-\\frac{\\pi}{3} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$",
+      "$z_k = 2 e^{i \\left(-\\frac{5\\pi}{12} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$",
+      "$z_k = 4 e^{i \\left(-\\frac{\\pi}{3} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$",
+      "$z_k = 2 e^{i \\left(\\frac{\\pi}{3} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$"
     ],
     "correctAnswer": "$z_k = 2 e^{i \\left(-\\frac{\\pi}{3} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$",
     "correctIndex": 0,
     "hintEn": "Modulus r = sqrt(64 + 192) = sqrt(256) = 16. In Quad III: theta = - (180 - 60) = -120 deg = -2pi/3. Then r^(1/4) = 16^(1/4) = 2. Angle = (-2pi/3 + 2k pi)/4 = -pi/6 + k pi/2. Wait, -120/4 = -30 deg = -pi/6!",
-    "hintAr": "المقياس = \\sqrt{٦٤ + ١٩٢} = ١٦. في الربع الثالث: سيتا = -(١٨٠ - ٦٠) = -١٢٠^\\circ = -٢\\pi/٣. إذن ر^{١/٤} = ١٦^{١/٤} = ٢. والزاوية = -١٢٠^\\circ / ٤ = -٣٠^\\circ = -\\pi/٦.",
+    "hintAr": "المقياس $= \\sqrt{٦٤ + ١٩٢} = ١٦$. في الربع الثالث: السعة $= -(١٨٠^\\circ - ٦٠^\\circ) = -١٢٠^\\circ = -\\frac{٢\\pi}{٣}$. إذن $ر^{١/٤} = ١٦^{١/٤} = ٢$. والزاوية $= -١٢٠^\\circ / ٤ = -٣٠^\\circ = -\\frac{\\pi}{٦}$.",
     "stepByStepSolutionEn": [
       "Modulus $r = \\sqrt{(-8)^2 + (-8\\sqrt{3})^2} = \\sqrt{64 + 192} = \\sqrt{256} = 16$.",
       "Since $x < 0$ and $y < 0$, $z$ is in Quadrant III.",
@@ -1070,9 +1070,9 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$$z_k = 2 e^{i \\left(-\\frac{\\pi}{6} + \\frac{k\\pi}{2}\\right)}, \\quad k \\in \\{0, 1, 2, 3\\}$$"
     ],
     "stepByStepSolutionAr": [
-      "المقياس ل = \\sqrt{(-٨)^٢ + (-٨\\sqrt{٣})^٢} = \\sqrt{٦٤ + ١٩٢} = \\sqrt{٢٥٦} = ١٦.",
+      "المقياس $ل = \\sqrt{(-٨)^٢ + (-٨\\sqrt{٣})^٢} = \\sqrt{٦٤ + ١٩٢} = \\sqrt{٢٥٦} = ١٦$.",
       "بما أن س < ٠ وص < ٠، فالعدد يقع في الربع الثالث.",
-      "زاوية الإسناد ألفا = ظا^{-١}(\\sqrt{٣}) = ٦٠^\\circ.",
+      "زاوية الإسناد $\\alpha = \\tan^{-١}(\\sqrt{٣}) = ٦٠^\\circ$.",
       "السعة الأساسية $\\theta = -(١٨٠^\\circ - ٦٠^\\circ) = -١٢٠^\\circ = -\\frac{٢\\pi}{٣}$ راديان.",
       "بتطبيق نظرية ديموافر للجذور الرابعة (ن = ٤):",
       "$$ل^{١/٤} = ١٦^{١/٤} = ٢$$",
@@ -1143,15 +1143,15 @@ export const algCh2Exercises: SolvedProblem[] = [
       "$|z| = 1 + a^2$"
     ],
     "optionsAr": [
-      "|ع| = ١",
-      "|ع| = أ",
-      "|ع| = \\sqrt{١ + أ^٢}",
-      "|ع| = ١ + أ^٢"
+      "$|z| = 1$",
+      "$|z| = a$",
+      "$|z| = \\sqrt{1 + a^2}$",
+      "$|z| = 1 + a^2$"
     ],
     "correctAnswer": "$|z| = 1$",
     "correctIndex": 0,
     "hintEn": "The numerator 1 + ai and denominator 1 - ai are complex conjugates. The modulus of any quotient of conjugates is |1 + ai| / |1 - ai| = 1.",
-    "hintAr": "البسط والمقام مترافقان: |١ + أ ت| = |١ - أ ت| = \\sqrt{١ + أ^٢}. مقياس خارج قسمتهما يساوي ١ دائماً.",
+    "hintAr": "البسط والمقام مترافقان: $|١ + أ ت| = |١ - أ ت| = \\sqrt{١ + أ^٢}$. مقياس خارج قسمتهما يساوي $١$ دائماً.",
     "stepByStepSolutionEn": [
       "1. Find modulus $|z|$:",
       "$$|z| = \\left|\\frac{1 + ai}{1 - ai}\\right| = \\frac{|1 + ai|}{|1 - ai|} = \\frac{\\sqrt{1 + a^2}}{\\sqrt{1 + (-a)^2}} = \\frac{\\sqrt{1 + a^2}}{\\sqrt{1 + a^2}} = 1$$",
@@ -1166,7 +1166,7 @@ export const algCh2Exercises: SolvedProblem[] = [
       "٢. تبسيط العدد بضرب البسط والمقام في مرافق المقام (١ + أ ت):",
       "$$ع = \\frac{(١ + أ ت)(١ + أ ت)}{(١ - أ ت)(١ + أ ت)} = \\frac{١ + ٢أ ت + أ^٢ ت^٢}{١ - أ^٢ ت^٢} = \\frac{(١ - أ^٢) + ٢أ ت}{١ + أ^٢}$$",
       "$$ع = \\frac{١ - أ^٢}{١ + أ^٢} + ت \\frac{٢أ}{١ + أ^٢}$$",
-      "إذن المقياس هو |ع| = ١، والجزء الحقيقي هو $\\frac{١ - أ^٢}{١ + أ^٢}$."
+      "إذن المقياس هو $|ع| = ١$، والجزء الحقيقي هو $\\frac{١ - أ^٢}{١ + أ^٢}$."
     ],
     "teacherTipEn": "Notice this yields the famous Weierstrass half-angle substitution t = tan(theta/2): cos(theta) = (1-t^2)/(1+t^2) and sin(theta) = 2t/(1+t^2)!",
     "teacherTipAr": "لاحظ أن هذا التعبير هو نفسه تعويض فايرشتراس الشهير لنصف الزاوية: جتا = (١ - ت^٢)/(١ + ت^٢) وجا = ٢ت/(١ + ت^٢)."

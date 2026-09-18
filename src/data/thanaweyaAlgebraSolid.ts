@@ -821,10 +821,10 @@ Let $z_1 = r_1 e^{i \\theta_1}$ and $z_2 = r_2 e^{i \\theta_2}$:
                     questionEn: 'Find the modulus $r$ and principal argument $\\theta$ of the complex number $z = -3 + 3i$.',
                     questionAr: 'أوجد المقياس $r$ والسعة الأساسية $\\theta$ للعدد المركب $z = -3 + 3i$.',
                     optionsEn: [
-                      'r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}',
-                      'r = 3\\sqrt{2}, \\quad \\theta = \\frac{\\pi}{4}',
-                      'r = 6, \\quad \\theta = \\frac{3\\pi}{4}',
-                      'r = 3\\sqrt{2}, \\quad \\theta = -\\frac{3\\pi}{4}'
+                      '$r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}$',
+                      '$r = 3\\sqrt{2}, \\quad \\theta = \\frac{\\pi}{4}$',
+                      '$r = 6, \\quad \\theta = \\frac{3\\pi}{4}$',
+                      '$r = 3\\sqrt{2}, \\quad \\theta = -\\frac{3\\pi}{4}$'
                     ],
                     optionsAr: [
                       'ر = ٣ جذر٢، هـ = ٣باي / ٤',
@@ -832,7 +832,7 @@ Let $z_1 = r_1 e^{i \\theta_1}$ and $z_2 = r_2 e^{i \\theta_2}$:
                       'ر = ٦، هـ = ٣باي / ٤',
                       'ر = ٣ جذر٢، هـ = -٣باي / ٤'
                     ],
-                    correctAnswer: 'r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}',
+                    correctAnswer: '$r = 3\\sqrt{2}, \\quad \\theta = \\frac{3\\pi}{4}$',
                     correctIndex: 0,
                     hintEn: 'r = sqrt((-3)^2 + 3^2). Since x < 0 and y > 0, point is in 2nd quadrant: theta = pi - pi/4 = 3pi/4.',
                     hintAr: 'المقياس ر = جذر(٩ + ٩) = ٣ جذر٢. وبما أن س سالب وص موجب فالعدد في الربع الثاني: هـ = ١٨٠ - ٤٥ = ١٣٥° = ٣باي/٤.',
@@ -2085,18 +2085,18 @@ $$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\ve
                     questionEn: 'Find the unit direction vector of the straight line: $$\\frac{2x - 4}{6} = \\frac{1 - y}{3} = \\frac{z + 5}{2}$$',
                     questionAr: 'أوجد متجه اتجاه الوحدة للخط المستقيم: $$\\frac{2x - 4}{6} = \\frac{1 - y}{3} = \\frac{z + 5}{2}$$',
                     optionsEn: [
-                      '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
-                      '\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)',
-                      '\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)',
+                      '$\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)$',
+                      '$\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)$',
+                      '$\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)$',
                       '(3, -3, 2)'
                     ],
                     optionsAr: [
-                      '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
-                      '\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)',
-                      '\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)',
+                      '$\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)$',
+                      '$\\left(\\frac{6}{7}, \\, \\frac{3}{7}, \\, \\frac{2}{7}\\right)$',
+                      '$\\left(\\frac{3}{\\sqrt{14}}, \\, \\frac{3}{\\sqrt{14}}, \\, \\frac{2}{\\sqrt{14}}\\right)$',
                       '(3, -3, 2)'
                     ],
-                    correctAnswer: '\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)',
+                    correctAnswer: '$\\left(\\frac{3}{\\sqrt{22}}, \\, -\\frac{3}{\\sqrt{22}}, \\, \\frac{2}{\\sqrt{22}}\\right)$',
                     correctIndex: 0,
                     hintEn: 'Make coefficients of x, y, z equal to +1: divide first fraction by 2, multiply second by -1/-1.',
                     hintAr: 'اجعل معاملات س، ص، ع تساوي +١: اقسم الكسر الأول على ٢، واضرب الكسر الثاني في -١/-١.',
@@ -2371,9 +2371,9 @@ $$\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\
                     difficulty: 'exam_standard',
                     questionEn: 'Find the length of the perpendicular $L$ drawn from point $P(2, -1, 3)$ to the plane $2x - 2y + z + 5 = 0$.',
                     questionAr: 'أوجد طول العمود $L$ المرسوم من النقطة $P(2, -1, 3)$ على المستوى $2x - 2y + z + 5 = 0$.',
-                    optionsEn: ['4.67\\text{ units}', '4\\text{ units}', '3\\text{ units}', '5\\text{ units}'],
+                    optionsEn: ['$4.67\\text{ units}$', '$4\\text{ units}$', '$3\\text{ units}$', '$5\\text{ units}$'],
                     optionsAr: ['٤٫٦٧ وحدة طول', '٤ وحدات طول', '٣ وحدات طول', '٥ وحدات طول'],
-                    correctAnswer: '4.67\\text{ units}',
+                    correctAnswer: '$4.67\\text{ units}$',
                     correctIndex: 0,
                     hintEn: 'L = |A x1 + B y1 + C z1 + D| / sqrt(A^2 + B^2 + C^2). Substitute (2, -1, 3) into 2x - 2y + z + 5.',
                     hintAr: 'ل = |أ س١ + ب ص١ + جـ ع١ + د| / جذر(أ² + ب² + جـ²). عوض بالنقطة (٢، -١، ٣) في معادلة المستوى.',
@@ -2448,9 +2448,9 @@ $$\\sin\\theta = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\
                     difficulty: 'hots',
                     questionEn: 'Find the distance $D$ between the two parallel planes $\\pi_1: 2x - y + 2z - 4 = 0$ and $\\pi_2: 4x - 2y + 4z + 10 = 0$.',
                     questionAr: 'احسب البعد العمودي $D$ بين المستويين المتوازيين $\\pi_1: 2x - y + 2z - 4 = 0$ و $\\pi_2: 4x - 2y + 4z + 10 = 0$.',
-                    optionsEn: ['3\\text{ units}', '2\\text{ units}', '1.5\\text{ units}', '4.5\\text{ units}'],
+                    optionsEn: ['$3\\text{ units}$', '$2\\text{ units}$', '$1.5\\text{ units}$', '$4.5\\text{ units}$'],
                     optionsAr: ['٣ وحدات طول', '٢ وحدة طول', '١٫٥ وحدة طول', '٤٫٥ وحدة طول'],
-                    correctAnswer: '3\\text{ units}',
+                    correctAnswer: '$3\\text{ units}$',
                     correctIndex: 0,
                     hintEn: 'First divide the second plane by 2 so both have identical coefficients (2, -1, 2). Then D = |D1 - D2| / sqrt(A^2 + B^2 + C^2).',
                     hintAr: 'اقسم معادلة المستوى الثاني على ٢ لتتطابق المعاملات (٢، -١، ٢) ثم احسب د = |د١ - د٢| / معيار ن.',

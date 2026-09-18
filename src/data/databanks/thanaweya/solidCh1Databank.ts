@@ -1945,10 +1945,10 @@ export const solidCh1Databank: ChapterDatabank = {
       "Center (4, -6, 2), Radius r = sqrt(49)"
     ],
     "optionsAr": [
-      "المركز (٢، -٣، ١)، نصف القطر r = \\sqrt{٢١}",
-      "المركز (-٢، ٣، -١)، نصف القطر r = \\sqrt{٢١}",
+      "المركز (٢، -٣، ١)، نصف القطر $r = \\sqrt{٢١}$",
+      "المركز (-٢، ٣، -١)، نصف القطر $r = \\sqrt{٢١}$",
       "المركز (٢، -٣، ١)، نصف القطر r = ٥",
-      "المركز (٤، -٦، ٢)، نصف القطر r = \\sqrt{٤٩}"
+      "المركز (٤، -٦، ٢)، نصف القطر $r = \\sqrt{٤٩}$"
     ],
     "correctAnswer": "Center (2, -3, 1), Radius r = sqrt(21)",
     "correctIndex": 0,
@@ -2469,18 +2469,18 @@ export const solidCh1Databank: ChapterDatabank = {
     "questionEn": "If a vector makes equal acute angles with all three positive coordinate axes, what is the measure of each angle?",
     "questionAr": "إذا صنع متجه زوايا حادة متساوية القياس مع الاتجاهات الموجبة لمحاور الإحداثيات، فما قياس كل زاوية؟",
     "optionsEn": [
-      "\\arccos(1/\\sqrt{3}) \\approx 54.7^\\circ",
+      "\$\\arccos(1/\\sqrt{3}) \\approx 54.7^\\circ\$",
       "45^\\circ",
       "60^\\circ",
       "30^\\circ"
     ],
     "optionsAr": [
-      "\\arccos(١/\\sqrt{٣}) \\approx ٥٤.٧^\\circ",
+      "\$\\arccos(١/\\sqrt{٣}) \\approx ٥٤.٧^\\circ\$",
       "٤٥^\\circ",
       "٦٠^\\circ",
       "٣٠^\\circ"
     ],
-    "correctAnswer": "\\arccos(1/\\sqrt{3}) \\approx 54.7^\\circ",
+    "correctAnswer": "\$\\arccos(1/\\sqrt{3}) \\approx 54.7^\\circ\$",
     "correctIndex": 0,
     "hintEn": "$\\cos^2\\theta + \\cos^2\\theta + \\cos^2\\theta = 1 \\implies 3\\cos^2\\theta = 1$.",
     "hintAr": "$٣\\cos^٢\\theta = ١ \\implies \\cos\\theta = \\frac{١}{\\sqrt{٣}}$.",
@@ -3171,13 +3171,13 @@ export const solidCh1Databank: ChapterDatabank = {
     "questionAr": "إذا كان $(\\vec{A} + \\vec{B})$ عمودياً على $(\\vec{A} - \\vec{B})$، فأي العلاقات الآتية صحيحة؟",
     "optionsEn": [
       "\\|\\vec{A}\\| = \\|\\vec{B}\\|",
-      "\\vec{A} \\perp \\vec{B}",
+      "\$\\vec{A} \\perp \\vec{B}\$",
       "\\vec{A} = \\vec{B}",
       "\\vec{A} \\cdot \\vec{B} = 1"
     ],
     "optionsAr": [
       "\\|\\vec{A}\\| = \\|\\vec{B}\\|",
-      "\\vec{A} \\perp \\vec{B}",
+      "\$\\vec{A} \\perp \\vec{B}\$",
       "\\vec{A} = \\vec{B}",
       "\\vec{A} \\cdot \\vec{B} = ١"
     ],

@@ -455,10 +455,10 @@ $$\\vec{M}_O(\\vec{R}) = \\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i)$$
                 questionEn: 'A force $\\vec{F} = 3\\hat{i} + 4\\hat{j}\\text{ N}$ acts at point $A(2, -1)$. Find the moment $\\vec{M}_B$ of the force about point $B(-1, 3)$, and find the length $L$ of the perpendicular from $B$ to the line of action of $\\vec{F}$.',
                 questionAr: 'أثرت قوة $\\vec{F} = 3\\hat{i} + 4\\hat{j}$ نيوتن في النقطة $A(2, -1)$. أوجد عزم القوة بالنسبة للنقطة $B(-1, 3)$، ثم احسب طول العمود $L$ الساقط من النقطة $B$ على خط عمل القوة.',
                 optionsEn: [
-                  '\\vec{M}_B = 24\\hat{k}, \\quad L = 4.8\\text{ units}',
-                  '\\vec{M}_B = -24\\hat{k}, \\quad L = 4.8\\text{ units}',
-                  '\\vec{M}_B = 18\\hat{k}, \\quad L = 3.6\\text{ units}',
-                  '\\vec{M}_B = 25\\hat{k}, \\quad L = 5.0\\text{ units}'
+                  '$\\vec{M}_B = 24\\hat{k}, \\quad L = 4.8\\text{ units}$',
+                  '$\\vec{M}_B = -24\\hat{k}, \\quad L = 4.8\\text{ units}$',
+                  '$\\vec{M}_B = 18\\hat{k}, \\quad L = 3.6\\text{ units}$',
+                  '$\\vec{M}_B = 25\\hat{k}, \\quad L = 5.0\\text{ units}$'
                 ],
                 optionsAr: [
                   'عزم_ب = ٢٤ ع، ل = ٤٫٨ وحدة طول',
@@ -466,7 +466,7 @@ $$\\vec{M}_O(\\vec{R}) = \\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i)$$
                   'عزم_ب = ١٨ ع، ل = ٣٫٦ وحدة طول',
                   'عزم_ب = ٢٥ ع، ل = ٥٫٠ وحدة طول'
                 ],
-                correctAnswer: '\\vec{M}_B = 24\\hat{k}, \\quad L = 4.8\\text{ units}',
+                correctAnswer: '$\\vec{M}_B = 24\\hat{k}, \\quad L = 4.8\\text{ units}$',
                 correctIndex: 0,
                 hintEn: 'Construct r = BA = A - B = (2 - (-1), -1 - 3) = (3, -4). Then M_B = r x F. Arm L = ||M_B|| / ||F||.',
                 hintAr: 'كون متجه الموضع ر = ب أ = أ - ب = (3، -4). ثم احسب عزم_ب = ر × ق. طول العمود ل = معيار(عزم_ب) / معيار(ق).',
@@ -541,10 +541,10 @@ $$\\vec{M}_O(\\vec{R}) = \\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i)$$
                 questionEn: 'A force $\\vec{F} = (F_x, F_y)$ acts in the plane of the coordinate axes. If the moment of $\\vec{F}$ about origin $O(0, 0)$ is $M_O = -14\\hat{k}$, its moment about point $A(1, 2)$ is $M_A = -2\\hat{k}$, and its moment about point $B(-1, 1)$ is $M_B = -13\\hat{k}$. Find the force vector $\\vec{F}$ and the equation of its line of action.',
                 questionAr: 'قوة $\\vec{F} = (F_x, F_y)$ تعمل في مستوى الإحداثيات. إذا كان عزم $\\vec{F}$ حول نقطة الأصل $O(0, 0)$ هو $M_O = -14\\hat{k}$، وعزمها حول $A(1, 2)$ هو $M_A = -2\\hat{k}$، وعزمها حول $B(-1, 1)$ هو $M_B = -13\\hat{k}$. أوجد متجه القوة $\\vec{F}$ ومعادلة خط عملها.',
                 optionsEn: [
-                  '\\vec{F} = (4, -5), \\quad 4y + 5x + 14 = 0',
-                  '\\vec{F} = (2, -3), \\quad 3x + 2y - 14 = 0',
-                  '\\vec{F} = (4, -5), \\quad 5x - 4y + 14 = 0',
-                  '\\vec{F} = (-4, 5), \\quad 5x + 4y - 14 = 0'
+                  '$\\vec{F} = (4, -5), \\quad 4y + 5x + 14 = 0$',
+                  '$\\vec{F} = (2, -3), \\quad 3x + 2y - 14 = 0$',
+                  '$\\vec{F} = (4, -5), \\quad 5x - 4y + 14 = 0$',
+                  '$\\vec{F} = (-4, 5), \\quad 5x + 4y - 14 = 0$'
                 ],
                 optionsAr: [
                   'ق = (٤، -٥)، معادلة خط العمل: ٤ ص + ٥ س + ١٤ = ٠',
@@ -552,7 +552,7 @@ $$\\vec{M}_O(\\vec{R}) = \\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i)$$
                   'ق = (٤، -٥)، معادلة خط العمل: ٥ س - ٤ ص + ١٤ = ٠',
                   'ق = (-٤، ٥)، معادلة خط العمل: ٥ س + ٤ ص - ١٤ = ٠'
                 ],
-                correctAnswer: '\\vec{F} = (4, -5), \\quad 5x - 4y + 14 = 0',
+                correctAnswer: '$\\vec{F} = (4, -5), \\quad 5x - 4y + 14 = 0$',
                 correctIndex: 2,
                 hintEn: 'Use M_A = M_O - OA x F and M_B = M_O - OB x F to set up linear equations in Fx and Fy.',
                 hintAr: 'استخدم العلاقة: عزم_أ = عزم_و - (و أ × ق) لتكوين معادلتين خطيتين في مركبتي القوة ق_س و ق_ص.',
@@ -754,10 +754,10 @@ $$M_L = \\vec{M}_O \\cdot \\hat{u}$$`,
                 questionEn: 'A force $\\vec{F} = 2\\hat{i} - \\hat{j} + 3\\hat{k}\\text{ N}$ acts at point $A(1, 2, -1)$. Find the moment vector $\\vec{M}_O$ of the force about origin $O$, and find the perpendicular distance $L$ from $O$ to the line of action of $\\vec{F}$.',
                 questionAr: 'أثرت القوة $\\vec{F} = 2\\hat{i} - \\hat{j} + 3\\hat{k}$ نيوتن في النقطة $A(1, 2, -1)$. احسب متجه عزم القوة $\\vec{M}_O$ حول نقطة الأصل $O$، ثم أوجد طول العمود $L$ الساقط من $O$ على خط عمل القوة.',
                 optionsEn: [
-                  '\\vec{M}_O = 5\\hat{i} - 5\\hat{j} - 5\\hat{k}, \\quad L = \\frac{5\\sqrt{3}}{\\sqrt{14}}',
-                  '\\vec{M}_O = 5\\hat{i} + 5\\hat{j} - 5\\hat{k}, \\quad L = 5',
-                  '\\vec{M}_O = 7\\hat{i} - 5\\hat{j} - 3\\hat{k}, \\quad L = \\frac{\\sqrt{83}}{\\sqrt{14}}',
-                  '\\vec{M}_O = 5\\hat{i} - 5\\hat{j} + 5\\hat{k}, \\quad L = \\sqrt{5}'
+                  '$\\vec{M}_O = 5\\hat{i} - 5\\hat{j} - 5\\hat{k}, \\quad L = \\frac{5\\sqrt{3}}{\\sqrt{14}}$',
+                  '$\\vec{M}_O = 5\\hat{i} + 5\\hat{j} - 5\\hat{k}, \\quad L = 5$',
+                  '$\\vec{M}_O = 7\\hat{i} - 5\\hat{j} - 3\\hat{k}, \\quad L = \\frac{\\sqrt{83}}{\\sqrt{14}}$',
+                  '$\\vec{M}_O = 5\\hat{i} - 5\\hat{j} + 5\\hat{k}, \\quad L = \\sqrt{5}$'
                 ],
                 optionsAr: [
                   'عزم_و = ٥ س - ٥ ص - ٥ ع، ل = (٥ جذر٣) / جذر١٤',
@@ -765,7 +765,7 @@ $$M_L = \\vec{M}_O \\cdot \\hat{u}$$`,
                   'عزم_و = ٧ س - ٥ ص - ٣ ع، ل = جذر٨٣ / جذر١٤',
                   'عزم_و = ٥ س - ٥ ص + ٥ ع، ل = جذر٥'
                 ],
-                correctAnswer: '\\vec{M}_O = 5\\hat{i} - 5\\hat{j} - 5\\hat{k}, \\quad L = \\frac{5\\sqrt{3}}{\\sqrt{14}}',
+                correctAnswer: '$\\vec{M}_O = 5\\hat{i} - 5\\hat{j} - 5\\hat{k}, \\quad L = \\frac{5\\sqrt{3}}{\\sqrt{14}}$',
                 correctIndex: 0,
                 hintEn: 'Compute determinant with rows [i, j, k], [1, 2, -1], [2, -1, 3]. Then L = ||M_O|| / ||F||.',
                 hintAr: 'احسب محدد الضرب الاتجاهي لعناصر الصفوف: متجهات الوحدة، نقطة التأثير، ومركبات القوة. ثم ل = معيار(العزم) / معيار(القوة).',
