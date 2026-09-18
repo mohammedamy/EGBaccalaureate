@@ -168,7 +168,7 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
     };
   }
 
-  if (normSubject === 'geography' || normBranch.includes('geo') || normBranch.includes('جغراف')) {
+  if (normSubject === 'geography' || (normBranch.includes('geo') && !normBranch.includes('geol')) || normBranch.includes('جغراف')) {
     return {
       subjectId: 'geography',
       totalQuestions: 46,
@@ -178,6 +178,21 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
       section2Count: 14, // 14 * 2 = 28 marks (Total: 60 marks)
       titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة الجغرافيا السياسية',
       titleEn: 'Official Thanawya Amma Examination - Political Geography',
+      descAr: '٤٦ سؤالاً (٣٢ سؤالاً بدرجة واحدة + ١٤ سؤالاً بدرجتين) بإجمالي ٦٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '46 questions (32 items @ 1 mark + 14 items @ 2 marks) totaling 60 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (normSubject === 'philosophy' || normBranch.includes('phil') || normBranch.includes('فلسف') || normBranch.includes('منطق')) {
+    return {
+      subjectId: 'philosophy',
+      totalQuestions: 46,
+      totalMarks: 60,
+      durationMinutes: 180,
+      section1Count: 32, // 32 * 1 = 32 marks
+      section2Count: 14, // 14 * 2 = 28 marks (Total: 60 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة الفلسفة والمنطق التطبيقي',
+      titleEn: 'Official Thanawya Amma Examination - Philosophy & Applied Logic',
       descAr: '٤٦ سؤالاً (٣٢ سؤالاً بدرجة واحدة + ١٤ سؤالاً بدرجتين) بإجمالي ٦٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
       descEn: '46 questions (32 items @ 1 mark + 14 items @ 2 marks) totaling 60 marks over 3 hours conforming to official ministerial specifications.',
     };

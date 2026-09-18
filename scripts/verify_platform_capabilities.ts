@@ -31,6 +31,7 @@ const subjectsToTest = [
   { subject: 'arabic', expectedQ: 55, expectedMarks: 80, expectedDuration: 180 },
   { subject: 'english', expectedQ: 37, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'french', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
+  { subject: 'philosophy', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
 ];
 
 for (const item of subjectsToTest) {
@@ -174,14 +175,14 @@ assert.deepStrictEqual(
 );
 console.log('  ✓ STEM 5 track mode verified: 5 dimensions');
 
-// Mode B: Humanities
+// Mode B: Humanities (includes Philosophy)
 const radarHumanities = getMasteryRadarData(emptyState, 'humanities');
-assert.strictEqual(radarHumanities.length, 5, 'humanities radar must have exactly 5 dimensions');
+assert.strictEqual(radarHumanities.length, 6, 'humanities radar must have exactly 6 dimensions');
 assert.deepStrictEqual(
   radarHumanities.map((r) => r.dimensionKey),
-  ['history', 'geography', 'arabic', 'languages', 'applied_math']
+  ['philosophy', 'history', 'geography', 'arabic', 'languages', 'applied_math']
 );
-console.log('  ✓ Humanities track mode verified: 5 dimensions');
+console.log('  ✓ Humanities track mode verified: 6 dimensions');
 
 // Mode C: All 8 core subjects (legacy)
 const radarAll8 = getMasteryRadarData(emptyState, 'all8');
@@ -218,6 +219,15 @@ assert.deepStrictEqual(
   ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'arabic', 'languages']
 );
 console.log('  ✓ All 10 track mode verified: 10 dimensions');
+
+// Mode G: All 11 core subjects (with Philosophy)
+const radarAll11 = getMasteryRadarData(emptyState, 'all11');
+assert.strictEqual(radarAll11.length, 11, 'all11 radar must have exactly 11 dimensions');
+assert.deepStrictEqual(
+  radarAll11.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'philosophy', 'arabic', 'languages']
+);
+console.log('  ✓ All 11 track mode verified: 11 dimensions');
 
 // Default when parameter omitted (backward compatibility)
 const radarDefault = getMasteryRadarData(emptyState);

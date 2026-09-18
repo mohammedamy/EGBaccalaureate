@@ -16,6 +16,7 @@ export type BranchId =
   | 'thanaweya_history'
   | 'thanaweya_geography'
   | 'thanaweya_geology'
+  | 'thanaweya_philosophy'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -28,7 +29,8 @@ export type BranchId =
   | 'egbac_arabic'
   | 'egbac_history'
   | 'egbac_geography'
-  | 'egbac_geology';
+  | 'egbac_geology'
+  | 'egbac_philosophy';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -222,7 +224,12 @@ export type InteractiveWidgetType =
   | 'geology_rock_cycle'
   | 'geology_plate_tectonics'
   | 'geology_stratigraphy_cross_section'
-  | 'environmental_ecosystem_energy';
+  | 'environmental_ecosystem_energy'
+  | 'logic_truth_table'
+  | 'logic_syllogism'
+  | 'logic_induction_mills'
+  | 'logic_fuzzy_ai'
+  | 'philosophy_bioethics_matrix';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

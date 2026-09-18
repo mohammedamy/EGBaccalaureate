@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1844,6 +1844,117 @@ export const officialBooksList: OfficialBook[] = [
     ],
   },
 
+  // 17. Thanaweya Philosophy & Applied Logic
+  {
+    id: 'th-philosophy-g12',
+    curriculum: 'thanaweya',
+    category: 'philosophy',
+    subjectId: 'philosophy',
+    branchId: 'thanaweya_philosophy',
+    code: 'MOE-PHIL-G12-2025',
+    titleEn: 'Philosophy & Applied Logic',
+    titleAr: 'الفلسفة والمنطق التطبيقي',
+    subtitleEn: 'Official Grade 12 Textbook - Humanities Division',
+    subtitleAr: 'الكتاب المدرسي المعتمد - الصف الثالث الثانوي - القسم الأدبي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'General Secondary Grade 12 (Humanities & Social Sciences)',
+    gradeAr: 'الصف الثالث الثانوي العام (القسم الأدبي والعلوم الإنسانية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 42,
+    fileSize: '3.8 MB',
+    compendiumTitleEn: 'Grade 12 Philosophy & Applied Logic Ministry Compendium',
+    compendiumTitleAr: 'دليل المفاهيم والنظريات وقوانين المنطق الرمزي للثانوية العامة',
+    filename: 'th-philosophy.pdf',
+    downloadUrl: '/books/th-philosophy.pdf',
+    fullTextbookPages: 220,
+    fullTextbookSize: '26.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/philosophy/',
+    coverGradient: 'from-purple-950 via-indigo-950 to-slate-900',
+    accentColor: '#9333ea',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Philosophy & Environmental Issues', titleAr: 'الفصل الأول: الفلسفة وقضايا البيئة', pageRange: 'pp. 1-28', topicsCount: 12 },
+      { id: 'ch2', titleEn: 'Ch 2: Philosophy & Bioethics (Medical Dilemmas)', titleAr: 'الفصل الثاني: الفلسفة وأخلاقيات البيولوجيا والطب (البيوتيقا)', pageRange: 'pp. 29-58', topicsCount: 14 },
+      { id: 'ch3', titleEn: 'Ch 3: Philosophy of Professional Ethics', titleAr: 'الفصل الثالث: الفلسفة وأخلاقيات المهنة', pageRange: 'pp. 59-86', topicsCount: 12 },
+      { id: 'ch4', titleEn: 'Ch 4: Values, Philosophizing & Human Freedom', titleAr: 'الفصل الرابع: التفلسف وعلاقته بالقيم والحرية الإنسانية', pageRange: 'pp. 87-112', topicsCount: 12 },
+      { id: 'ch5', titleEn: 'Ch 5: Inductive Inference in Natural Science', titleAr: 'الفصل الخامس: الاستدلال الاستقرائي وتطبيقه في العلوم الطبيعية', pageRange: 'pp. 113-140', topicsCount: 14 },
+      { id: 'ch6', titleEn: 'Ch 6: Deductive Logic & Symbolic Systems', titleAr: 'الفصل السادس: معنى الاستنباط وتطبيقه في النسق الرياضي والرمزي', pageRange: 'pp. 141-168', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Ch 7: The Contemporary Hypothetico-Deductive Method', titleAr: 'الفصل السابع: التكامل بين الاستنباط والاستقراء (المنهج الفرضي المعاصر)', pageRange: 'pp. 169-194', topicsCount: 12 },
+      { id: 'ch8', titleEn: 'Ch 8: Cybernetics, Logic & Artificial Intelligence', titleAr: 'الفصل الثامن: السبرنطيقا وتطور المنطق في تكنولوجيا الاتصال والذكاء الاصطناعي', pageRange: 'pp. 195-220', topicsCount: 14 },
+    ],
+    descriptionEn: 'The comprehensive official Egyptian Ministry of Education curriculum for Grade 12 Philosophy and Applied Logic, covering environmental ethics, bioethics, professional values, inductive scientific reasoning, formal truth tables, and AI reasoning.',
+    descriptionAr: 'المنهج المعتمد رسمياً بوزارة التربية والتعليم المصرية: يتناول القضايا البيئية عند سنجر وريجان ويوناس وليوبولد، معضلات البيوتيقا والجينوم والاستنساخ، أخلاقيات المهنة، فلسفة القيم، طرق مل الخمس في الاستقراء، المنطق الرمزي وجداول الصدق، ونماذج همبل وبوبر، ودور المنطق المرن في الذكاء الاصطناعي.',
+    highlightsEn: [
+      'Environmental ethics: Singer, Regan, Hans Jonas, Aldo Leopold, Arne Naess deep ecology',
+      'Bioethics: In-vitro fertilization, surrogate motherhood, genetic screening, cloning, informed consent elements',
+      'John Stuart Mill five inductive methods and Francis Bacon idols of the mind',
+      'Truth tables for negation, conjunction, disjunction, conditional and biconditional relations',
+      'Lotfi Zadeh fuzzy logic and non-monotonic AI reasoning systems'
+    ],
+    highlightsAr: [
+      'أخلاق البيئة: سنجر، ريجان، هانز يوناس وأخلاق المسؤولية، ألدو ليوبولد وأخلاق الأرض، والإيكولوجيا العميقة لأرني نايس',
+      'معضلات البيوتيقا: أطفال الأنابيب، استئجار الأرحام، الجينوم البشري، الاستنساخ، وعناصر الموافقة المستنيرة الخمسة',
+      'طرق جون ستيوارت مل الخمس وأوهام فرنسيس بيكون الأربعة في الاستقراء العلمي',
+      'قواعد الصدق الصورية لدوال السلب والوصل والانفصال والشرط والتشارط',
+      'المنطق المرن للطفي زادة والمنطق غير الرتيب وتطبيقات الذكاء الاصطناعي المعاصرة'
+    ],
+  },
+
+  // 18. EG-Bac Philosophy & Applied Logic
+  {
+    id: 'egbac-philosophy-g12',
+    curriculum: 'egbac',
+    category: 'philosophy',
+    subjectId: 'philosophy',
+    branchId: 'egbac_philosophy',
+    code: 'EGBAC-PHIL-G12',
+    titleEn: 'Advanced Philosophy, Applied Epistemology & Computational Logic',
+    titleAr: 'الفلسفة المتقدمة ونظرية المعرفة والمنطق الحوسبي',
+    subtitleEn: 'New Egyptian Baccalaureate Educational Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Humanities & Cognitive Sciences)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة العلوم الإنسانية والمعرفية)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 44,
+    fileSize: '4.2 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Ethics, Symbolic Logic & AI Cognition Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في الأخلاقيات التطبيقية والمنطق الرياضي وأنظمة الذكاء الاصطناعي',
+    filename: 'egbac-philosophy.pdf',
+    downloadUrl: '/books/egbac-philosophy.pdf',
+    fullTextbookPages: 240,
+    fullTextbookSize: '29.1 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/philosophy/',
+    coverGradient: 'from-violet-950 via-purple-900 to-indigo-950',
+    accentColor: '#a855f7',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Ecological Geophilosophy & Sustainable Biospheres', titleAr: 'الفصل الأول: الجيوفلسفة البيئية واستدامة الغلاف الحيوي', pageRange: 'pp. 1-30', topicsCount: 14 },
+      { id: 'ch2', titleEn: 'Ch 2: Biomedical Ethics, Neuroethics & Gene Editing (CRISPR)', titleAr: 'الفصل الثاني: الأخلاقيات البيوطبية، وأخلاقيات الأعصاب، والتعديل الجيني', pageRange: 'pp. 31-62', topicsCount: 16 },
+      { id: 'ch3', titleEn: 'Ch 3: Institutional Governance, AI Labor Economics & Professional Responsibility', titleAr: 'الفصل الثالث: حوكمة المؤسسات، واقتصاديات العمل الآلي، والمسؤولية المهنية', pageRange: 'pp. 63-92', topicsCount: 14 },
+      { id: 'ch4', titleEn: 'Ch 4: Axiological Epistemology, Radical Skepticism & Existential Agency', titleAr: 'الفصل الرابع: إبستمولوجيا القيم، والشك المنهجي، والحرية الوجودية', pageRange: 'pp. 93-120', topicsCount: 14 },
+      { id: 'ch5', titleEn: 'Ch 5: Bayesian Induction, Probabilistic Causality & Scientific Modeling', titleAr: 'الفصل الخامس: الاستقراء البايزي، والعلية الاحتمالية، والنمذجة العلمية', pageRange: 'pp. 121-150', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Ch 6: Formal Mathematical Axiomatics & Propositional Calculus', titleAr: 'الفصل السادس: النسق الأكسيوماتي الرياضي وحساب القضايا الصوري', pageRange: 'pp. 151-180', topicsCount: 16 },
+      { id: 'ch7', titleEn: 'Ch 7: Hypothetico-Deductive Synthesis & Popperian Falsificationism', titleAr: 'الفصل السابع: المنهج الفرضي الاستنباطي وتفنيد النظريات عند بوبر وهمبل', pageRange: 'pp. 181-210', topicsCount: 14 },
+      { id: 'ch8', titleEn: 'Ch 8: Cybernetics, Fuzzy Multi-Valued Systems & Non-Monotonic AI Cognition', titleAr: 'الفصل الثامن: السبرنطيقا، والأنظمة المرنة متعددة القيم، والاستدلال غير الرتيب بالذكاء الاصطناعي', pageRange: 'pp. 211-240', topicsCount: 16 },
+    ],
+    descriptionEn: 'Advanced collegiate-level philosophy and applied logic designed for EG-Bac, emphasizing computational formal logic, neuroethics, automated theorem proving, Popperian falsificationism, and multi-agent AI alignment.',
+    descriptionAr: 'منهج البكالوريا المصرية المتقدم: يدمج بين الفلسفة التحليلية والمنطق الحوسبي ونظرية المعرفة المعاصرة، متضمناً معايير الذكاء الاصطناعي الأخلاقي، منطق الرتبة الأولى وجداول الصدق الموسعة، ونماذج برنارد وهمبل وبوبر في فلسفة العلوم.',
+    highlightsEn: [
+      'Computational propositional calculus, Boolean algebra and logic gate synthesis',
+      'Neuroethical implications of brain-computer interfaces and genetic editing',
+      'Comparative epistemological analysis of induction: Bacon, Mill, and modern Bayesian models',
+      'Carl Hempel deductive-nomological covering law model and Karl Popper demarcation criteria',
+      'Fuzzy membership functions, truth degree matrices, and non-monotonic AI reasoning engines'
+    ],
+    highlightsAr: [
+      'حساب القضايا الصوري، الجبر البولياني وربطه ببوابات الدوائر المنطقية في الحواسيب',
+      'الأبعاد الأخلاقية والمعرفية لواجهات الدماغ والحاسوب وتقنيات كريسبر للتعديل الجيني',
+      'التحليل الإبستمولوجي المقارن للاستقراء: بيكون، مل، والأنظمة الاحتمالية الحديثة',
+      'نموذج كارل همبل في القوانين الشاملة ومعيار القابلية للتكذيب عند كارل بوبر',
+      'دوال الانتماء المرنة، مصفوفات درجات الصدق، ومحركات الاستدلال غير الرتيب في الذكاء الاصطناعي'
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -1873,6 +1984,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_geography' && (b.branchId === 'egbac_geography' || b.id === 'egbac-geography-g12')) return true;
     if (branchId === 'thanaweya_geology' && (b.branchId === 'thanaweya_geology' || b.id === 'th-geology-g12')) return true;
     if (branchId === 'egbac_geology' && (b.branchId === 'egbac_geology' || b.id === 'egbac-geology-g12')) return true;
+    if (branchId === 'thanaweya_philosophy' && (b.branchId === 'thanaweya_philosophy' || b.id === 'th-philosophy-g12')) return true;
+    if (branchId === 'egbac_philosophy' && (b.branchId === 'egbac_philosophy' || b.id === 'egbac-philosophy-g12')) return true;
     return false;
   });
 }
@@ -1882,7 +1995,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

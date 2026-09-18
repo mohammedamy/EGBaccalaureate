@@ -60,6 +60,19 @@ export default defineConfig({
             { name: 'curriculum-history', test: /src\/data\/(thanaweya|egBac)History/, priority: 20 },
             { name: 'history-studio', test: /HistoryTimelineStudio|historyTimelineLabData/, priority: 30 },
 
+            // Geography Databanks & Curriculum
+            { name: 'databank-geography', test: /databanks\/(thanaweya|egbac)\/.*geo/i, priority: 30 },
+            { name: 'textbook-geography', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*geo/i, priority: 30 },
+            { name: 'curriculum-geography', test: /src\/data\/(thanaweya|egBac)Geography/, priority: 20 },
+            { name: 'geography-studio', test: /GeoSpatialStudio|geographyMapLabData/, priority: 30 },
+
+            // Philosophy & Applied Logic Databanks & Curriculum
+            { name: 'databank-philosophy-thanaweya', test: /databanks\/thanaweya\/philCh/, priority: 30 },
+            { name: 'databank-philosophy-egbac', test: /databanks\/egbac\/egBacPhilCh/, priority: 30 },
+            { name: 'textbook-philosophy', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*phil/i, priority: 30 },
+            { name: 'curriculum-philosophy', test: /src\/data\/(thanaweya|egBac)Philosophy/, priority: 20 },
+            { name: 'logic-studio', test: /LogicStudio/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -233,6 +233,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_geology'],
       egbac: ['egbac_geology'],
+    },
+  },
+  {
+    id: 'philosophy',
+    titleEn: 'Philosophy & Applied Logic',
+    titleAr: 'الفلسفة والمنطق التطبيقي',
+    shortTitleEn: 'Philosophy & Logic',
+    shortTitleAr: 'فلسفة ومنطق',
+    emoji: '🧠',
+    iconName: 'Brain',
+    badgeColor: 'purple',
+    gradient: 'from-purple-800 via-indigo-800 to-violet-900',
+    lightBg: 'bg-purple-50 text-purple-900 border-purple-200',
+    darkBg: 'bg-purple-950/70 text-purple-200 border-purple-800/60',
+    borderColor: 'border-purple-500/50',
+    textColor: 'text-purple-400',
+    descriptionEn: 'National Core Subject: Environmental Ethics, Bioethics, Professional Ethics, Values & Philosophizing, Inductive & Deductive Logic, Axiomatic Systems, Scientific Method, and AI Cybernetics',
+    descriptionAr: 'المادة القومية الكبرى للشعبة الأدبية: فلسفة البيئة، الأخلاق البيوطبية (البيوتيقا)، أخلاقيات المهنة، التفلسف والقيم، الاستدلال الاستقرائي والمنهج العلمي، النسق الرياضي والمنطق الرمزي، والمنطق وتكنولوجيا الاتصال والذكاء الاصطناعي',
+    branchIds: {
+      thanaweya: ['thanaweya_philosophy'],
+      egbac: ['egbac_philosophy'],
     },
   },
 ];

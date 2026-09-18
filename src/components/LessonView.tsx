@@ -26,6 +26,7 @@ import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
+import { LogicStudio } from './labs/LogicStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -322,6 +323,29 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'logic_truth_table':
+        case 'logic_syllogism':
+        case 'logic_induction_mills':
+        case 'logic_fuzzy_ai':
+        case 'philosophy_bioethics_matrix':
+          return (
+            <LogicStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'logic_truth_table'
+                  ? 'truth_table'
+                  : lesson.interactiveWidget.type === 'logic_syllogism'
+                  ? 'syllogism'
+                  : lesson.interactiveWidget.type === 'logic_induction_mills'
+                  ? 'mills_methods'
+                  : lesson.interactiveWidget.type === 'logic_fuzzy_ai'
+                  ? 'fuzzy_ai'
+                  : 'bioethics_matrix'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -432,6 +456,29 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'marine_pressure_calculator' || lesson.interactiveWidget.type === 'ecosystem_energy_pyramid'
                   ? 'ecosystem'
                   : 'crystals'
+              }
+            />
+          );
+        case 'logic_truth_table':
+        case 'logic_syllogism':
+        case 'logic_induction_mills':
+        case 'logic_fuzzy_ai':
+        case 'philosophy_bioethics_matrix':
+          return (
+            <LogicStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'logic_truth_table'
+                  ? 'truth_table'
+                  : lesson.interactiveWidget.type === 'logic_syllogism'
+                  ? 'syllogism'
+                  : lesson.interactiveWidget.type === 'logic_induction_mills'
+                  ? 'mills_methods'
+                  : lesson.interactiveWidget.type === 'logic_fuzzy_ai'
+                  ? 'fuzzy_ai'
+                  : 'bioethics_matrix'
               }
             />
           );

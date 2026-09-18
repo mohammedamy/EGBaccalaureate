@@ -1,0 +1,3069 @@
+import type { Branch } from '../types/curriculum';
+import { philCh1Databank } from './databanks/thanaweya/philCh1Databank';
+import { philCh1SolvedExamples, philCh1Exercises } from './textbook/thanaweya/philCh1Textbook';
+import { philCh2Databank } from './databanks/thanaweya/philCh2Databank';
+import { philCh2SolvedExamples, philCh2Exercises } from './textbook/thanaweya/philCh2Textbook';
+import { philCh3Databank } from './databanks/thanaweya/philCh3Databank';
+import { philCh3SolvedExamples, philCh3Exercises } from './textbook/thanaweya/philCh3Textbook';
+import { philCh4Databank } from './databanks/thanaweya/philCh4Databank';
+import { philCh4SolvedExamples, philCh4Exercises } from './textbook/thanaweya/philCh4Textbook';
+import { philCh5Databank } from './databanks/thanaweya/philCh5Databank';
+import { philCh5SolvedExamples, philCh5Exercises } from './textbook/thanaweya/philCh5Textbook';
+import { philCh6Databank } from './databanks/thanaweya/philCh6Databank';
+import { philCh6SolvedExamples, philCh6Exercises } from './textbook/thanaweya/philCh6Textbook';
+import { philCh7Databank } from './databanks/thanaweya/philCh7Databank';
+import { philCh7SolvedExamples, philCh7Exercises } from './textbook/thanaweya/philCh7Textbook';
+import { philCh8Databank } from './databanks/thanaweya/philCh8Databank';
+import { philCh8SolvedExamples, philCh8Exercises } from './textbook/thanaweya/philCh8Textbook';
+
+export const thanaweyaPhilosophyBranch: Branch = {
+  id: "thanaweya_philosophy",
+  titleEn: "Philosophy & Applied Logic",
+  titleAr: "الفلسفة وقضايا العصر والمنطق التطبيقي",
+  categoryEn: "Humanities & Philosophical Studies",
+  categoryAr: "العلوم الإنسانية والدراسات الفلسفية",
+  iconName: "Brain",
+  colorGradient: "from-purple-800 via-indigo-800 to-violet-900",
+  chapters: [
+    {
+      id: "th_phil_ch1",
+      chapterNumber: 1,
+      titleEn: "Unit 1: Philosophy & Environmental Issues",
+      titleAr: "الوحدة الأولى: الفلسفة وقضايا البيئة",
+      descriptionEn: "Concept of environmental ethics, five historical stages, ancient Egyptian & Chinese Taoism, Arab contributions (Ibn Ridwan, Ibn Khaldun), modern ethicists (Singer, Leopold, Naess, Jonas, Callahan), and civic environmental approaches.",
+      descriptionAr: "مفهوم فلسفة البيئة، مراحل علاقة الإنسان بالطبيعة الخمس، الفكر البيئي في مصر والصين القديمة، إسهامات ابن رضوان وابن خلدون، فلاسفة الغرب المعاصرين (سينجر، ليوبولد، نايس، يوناس، كالاهان)، ومداخل حماية البيئة.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch1_l1",
+          titleEn: "Concept of Environment and Stages of Human-Nature Interaction",
+          titleAr: "مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+          summaryEn: "Linguistic and idiomatic definitions, and the 5 evolutionary stages: Deification, Interpretation, Exploitation, Oppression, and Respect.",
+          summaryAr: "المعنى اللغوي والاصطلاحي للبيئة، والمراحل الخمس لتطور علاقة الإنسان بالبيئة: التقديس، التفسير، الاستغلال، القهر، والاحترام والصون.",
+          theoryContentEn: "### 1. Conceptual Framework of Environment\n- **Linguistic Meaning:** Derived from the Arabic root 'Baw'a' (بوأ) meaning to settle or reside, as noted by Ibn Manzur in *Lisan Al-Arab*.\n- **Idiomatic Meaning:** First utilized by 3rd-century AH Arab scholars like Ibn Abd Rabbuh (*Al-Iqd Al-Farid*) to designate the physical, biological, climatic, and organic surroundings enclosing human life.\n\n### 2. The Five Historical Stages of Human-Nature Interaction\n1. **Deification & Reverence (التقديس والتأليه):** In primitive and ancient eras, humanity was awestruck by ferocious natural forces, worshiping the sun, the Nile, and sacred animals.\n2. **Interpretation & Utilization (التفسير والتوظيف):** Flourishing in ancient Greece with Aristotle's natural philosophy, which envisioned Earth as the center of the cosmos prepared by God for human flourishing.\n3. **Exploitation & Dominance (الاستغلال والسيطرة):** Emerging with the modern scientific revolution (Bacon and Descartes), prioritizing empirical conquest of nature while neglecting non-human rights.\n4. **Oppression & Tyranny (القهر والاستبداد):** Culminating in contemporary industrial technologies, reckless nuclear testing, and unregulated genetic mutations that endanger planetary biodiversity.\n5. **Respect & Preservation (الاحترام والصون):** The contemporary awakening where philosophers and scientists champion eco-legislation, international treaties, and rights for future generations.",
+          theoryContentAr: "### ١. الإطار المفاهيمي للبيئة\n- **المعنى اللغوي:** مشتق من مادة «بوأ» و«تبوأ» أي نزل وأقام واستقر، كما ذكر ابن منظور في *لسان العرب*.\n- **المعنى الاصطلاحي:** استخدمه علماء المسلمين في القرن الثالث الهجري كابن عبد ربه في *العقد الفريد* للإشارة إلى الوسط الطبيعي والمكاني والأحيائي والمناخي المحيط بالإنسان.\n\n### ٢. المراحل الخمس لتطور علاقة الإنسان بالبيئة\n١. **مرحلة التقديس والتأليه:** وجد الإنسان نفسه في بيئة موحشة عاجزاً عن السيطرة عليها، فلجأ إلى تأليه ظواهر الطبيعة وعبادتها (كتقديس البابليين والهنود لمظاهر الكون).\n٢. **مرحلة التفسير والتوظيف:** بدأت مع الحضارة اليونانية وفلسفة أرسطو الطبيعية التي فسرت الأرض كمركز للكون وهيأها الله لخدمة الإنسان ومصالحه.\n٣. **مرحلة الاستغلال والسيطرة:** ظهرت مع مطلع العصر الحديث ومناهج البحث العلمي، وركزت على تسخير الطبيعة لرفاهية الإنسان مع ندرة الحديث عن حقوق الكائنات الأخرى.\n٤. **مرحلة القهر والاستبداد:** ارتبطت بالعصر المعاصر وتقدم التكنولوجيا، حيث قهر الإنسان الطبيعة بالهندسة الوراثية والاستنساخ والأسلحة، مما هدد الحياة البرية والبشرية.\n٥. **مرحلة الاحترام والصون:** المرحلة الراهنة التي تنبه فيها الفلاسفة والعلماء لخطورة التدمير، فدعوا إلى سن التشريعات، وحماية حقوق الكائنات الحية، وضمان حقوق الأجيال القادمة.",
+          formulas: [
+            {
+              labelEn: "Ecosystem Equilibrium Balance",
+              labelAr: "معادلة التوازن البيئي المعاصر",
+              latex: "\\text{Bio-Balance} = \\text{Human Stewardship} - \\text{Technological Exploitation} \\ge 0"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH1-L1",
+            pageRange: "pp. 5-30"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Concept of Environment and Stages of Human-Nature Interaction",
+            titleAr: "خطة الدرس المعتمدة: مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-1-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_1_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Concept of Environment and Stages of Human-Nature Interaction",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_1_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Concept of Environment and Stages of Human-Nature Interaction",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_1_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Concept of Environment and Stages of Human-Nature Interaction",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Concept of Environment and Stages of Human-Nature Interaction",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "مفهوم البيئة ومراحل علاقة الإنسان بالبيئة الطبيعية",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch1_l2",
+          titleEn: "Eastern and Contemporary Western Environmental Philosophies",
+          titleAr: "الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+          summaryEn: "Ancient Egyptian papyri, Chinese Taoism, Ibn Ridwan, Ibn Khaldun, and the ethics of Singer, Leopold, Naess, Jonas, and Callahan.",
+          summaryAr: "مصر القديمة وكتاب الموتى، الطاوية الصينية ولاوتسو، ابن رضوان وابن خلدون، وفلسفات سينجر، ليوبولد، نايس، وهانز يوناس.",
+          theoryContentEn: "### 1. Eastern Environmental Thought\n- **Ancient Egypt:** Religious reverence for the environment exemplified in the *Book of the Dead* (Declaration of Innocence: \"I have not denied cows their pastures, I have not snared birds of the gods\") and worship of the River Nile through celebratory hymns.\n- **Ancient China (Taoism):** Founded by Laozi, Taoism is the earliest philosophy asserting the absolute unity and intrinsic equality of all natural beings, rejecting anthropocentric arrogance.\n\n### 2. Classical Arab Thinkers\n- **Ali Ibn Ridwan:** Egyptian physician who linked geographical location, weather variations, and Nile floods with diseases and bodily temperaments.\n- **Ibn Khaldun:** Sociological pioneer studying the geographical determinants of urbanization, diet, architecture, and psychological temperaments.\n\n### 3. Modern Western Environmental Philosophers\n- **Peter Singer & Tom Regan:** Utilitarian ethics demanding animal liberation based on the shared capacity to experience pain and suffering.\n- **Aldo Leopold:** Formulated the *Land Ethic*, widening moral concern to soils, waters, plants, and animals.\n- **Arne Naess:** Founded *Deep Ecology*, asserting the intrinsic worth of every living species independent of human utility.\n- **Hans Jonas & Daniel Callahan:** Established the *Ethics of Responsibility* to preserve the physical and moral dignity of future generations.",
+          theoryContentAr: "### ١. الفكر البيئي في الحضارات الشرقية القديمة\n- **مصر القديمة:** تقديس متبادل للطبيعة؛ كتاب الموتى وإعلان البراءة أمام الإله («لم أحرم الماشية من عشبهـا، لم أصنع فخاخاً لعصافير الآلهة، لم أطفئ ناراً متأججة»)، وتقديس نهر النيل وتراتيل عبادته.\n- **الصين القديمة (الطاوية):** أسسها لاوتسو؛ ترى أن «التاو» هو المبدأ الأول الذي تصدر عنه كل الأشياء، ونادت بالمساواة التامة بين الإنسان وسائر الكائنات ورفض التمايز المصطنع.\n\n### ٢. الفكر البيئي عند المفكرين العرب\n- **علي بن رضوان:** طبيب وفيلسوف مصري، درس في كتابه *دفع مضار الأبدان بأرض مصر* موقع مصر الجغرافي ومناخها وفصولها وأثر ذلك في الأمراض وطرق علاجها.\n- **ابن خلدون:** رائد علم العمران البشري، درس البيئات الصالحة للعمران البشري، وتأثير الهواء والمناخ في طبائع البشر وأخلاقهم (خفة ومرح أهل مصر، وتدبير سكان الأقاليم الباردة).\n\n### ٣. فلاسفة البيئة في العصر المعاصر\n- **بيتر سينجر وتوم ريجان:** الاستناد للمذهب النفعي لبنثام في الدفاع عن حقوق الحيوان ورفض إيذائه في المعامل؛ فالحيوان يشعر بالألم واللذة كالإنسان تماماً.\n- **ألدو ليوبولد (أخلاق الأرض):** توسيع حدود المجتمع الأخلاقي ليشمل التربة والمياه والنباتات والحيوانات؛ وتغيير دور الإنسان من سيد مستعمر إلى عضو ومواطن فيها.\n- **آرني نايس (الإيكولوجيا العميقة):** احترام القيمة الذاتية المتأصلة لجميع الكائنات الحية بصرف النظر عن نفعها أو فائدتها للإنسان.\n- **هانز يوناس ودانيال كالاهان (أخلاق المسؤولية):** التزام أخلاقي كوني يفرضه الوعي الإنساني لحماية حقوق الأجيال القادمة وتأمين الموارد المادية والطبيعية لكوكب الأرض.",
+          formulas: [
+            {
+              labelEn: "Hans Jonas Future Generations Duty",
+              labelAr: "معادلة هانز يوناس لحقوق الأجيال المستقبلية",
+              latex: "\\text{Duty}_{\\text{future}} = \\int_{t_0}^{\\infty} \\left( \\text{Preserve Ecosystem} \\times \\text{Dignified Living} \\right) dt"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH1-L2",
+            pageRange: "pp. 5-30"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Eastern and Contemporary Western Environmental Philosophies",
+            titleAr: "خطة الدرس المعتمدة: الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-1-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_1_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Eastern and Contemporary Western Environmental Philosophies",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_1_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Eastern and Contemporary Western Environmental Philosophies",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_1_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Eastern and Contemporary Western Environmental Philosophies",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Eastern and Contemporary Western Environmental Philosophies",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "الفكر البيئي في الشرق القديم ولدى الفلاسفة المعاصرين",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh1SolvedExamples,
+      exerciseProblems: philCh1Exercises,
+      databank: philCh1Databank
+    },
+    {
+      id: "th_phil_ch2",
+      chapterNumber: 2,
+      titleEn: "Unit 2: Philosophy & Bioethics (Medical Dilemmas)",
+      titleAr: "الوحدة الثانية: الفلسفة والأخلاق البيولوجية والطبية (البيوتيقا)",
+      descriptionEn: "Definition of Bioethics, philosophers' contributions, dilemmas of artificial reproduction, brain death, organ donation, human genome, cloning, 4 medical ethics principles, and informed consent.",
+      descriptionAr: "مفهوم البيوتيقا ودور الفلاسفة، قضايا الإنجاب الاصطناعي، موت الدماغ وزرع الأعضاء، الجينوم البشري والاستنساخ، معايير الأخلاق الطبية الحديثة، والموافقة المستنيرة.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch2_l1",
+          titleEn: "Bioethics Concept & Biomedical Moral Dilemmas",
+          titleAr: "مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+          summaryEn: "Van Potter, Jacqueline Russ, artificial insemination, surrogacy, brain death, vegetative states, and human cloning.",
+          summaryAr: "فان بوتر وجاكلين روس، التلقيح الاصطناعي، استئجار الأرحام، موت الدماغ، والغيبوبة، والاستنساخ البشري.",
+          theoryContentEn: "### 1. The Concept of Bioethics\n- **Van Potter (1970):** Defined bioethics as the *Science of Survival*, forging a bridge between biological sciences and human ethical values.\n- **Jacqueline Russ:** Defined it as a normative science examining human conduct within health sciences in light of moral principles.\n\n### 2. Controversies in Artificial Reproduction\n- **Artificial Insemination & Sperm Banks:** Threats to biological lineage, donor anonymity, and commercial sperm banking.\n- **Surrogate Motherhood:** Exploitation of impoverished surrogate mothers, degradation of maternity into business contracts, and custody abandonment of deformed infants.\n\n### 3. Life-and-Death Clinical Dilemmas\n- **Brain Death:** Distinguishing between cerebral neocortex death and whole brainstem death to determine termination of artificial life support.\n- **Vegetative State:** Persistent coma, loss of consciousness, and evaluating the intrinsic *Value of Life* versus euthanasia (mercy killing).\n- **Organ Transplantation:** Prohibiting illegal organ trafficking and protecting vulnerable impoverished donors from exploitation.",
+          theoryContentAr: "### ١. مفهوم البيوتيقا وتطورها\n- **فان بوتر (1970م):** صاغ مصطلح البيوتيقا كعلم للبقاء يربط بين معارف البيولوجيا والطب وبين الحكمة الأخلاقية الإنسانية.\n- **جاكلين روس:** عرفت البيوتيقا بأنها علم معياري يدرس السلوك البشري في علوم الحياة والطب على هدي المبادئ والقيم الأخلاقية.\n\n### ٢. قضايا الإنجاب الاصطناعي الشائكة\n- **التلقيح الاصطناعي وبنوك المني:** مشكلات اختلاط الأنساب، وكرامة المتبرعين، والمتاجرة بالنطاف والأجنة الفائضة.\n- **استئجار الأرحام:** امتهان وظيفة الأمومة الفطرية، والابتزاز المالي، والتنازع القضائي حول هوية الطفل وإهمال المشوهين.\n\n### ٣. قضايا زرع الأعضاء والموت الإكلينيكي\n- **موت الدماغ:** التمييز الصارم بين موت قشرة الدماغ وموت جذع الدماغ لتحديد لحظة الوفاة ورفع أجهزة التنفس الصناعي.\n- **الحالة النباتية وقيمة الحياة:** الغيبوبة المستديمة، والجدل الأخلاقي حول مشروعية الموت الرحيم (Euthanasia).\n- **زرع الأعضاء:** حظر الاتجار بالأعضاء البشرية واستغلال فقر المتبرعين وصيانة كرامة الجسد الإنساني.",
+          formulas: [
+            {
+              labelEn: "Bioethical Dilemma Resolution Condition",
+              labelAr: "شرط حل المعضلة البيوتيقية",
+              latex: "\\text{Ethical Action} = \\text{Beneficence} \\cap \\text{Autonomy} \\cap \\text{Non-Maleficence}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH2-L1",
+            pageRange: "pp. 30-55"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Bioethics Concept & Biomedical Moral Dilemmas",
+            titleAr: "خطة الدرس المعتمدة: مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-2-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_2_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Bioethics Concept & Biomedical Moral Dilemmas",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_2_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Bioethics Concept & Biomedical Moral Dilemmas",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_2_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Bioethics Concept & Biomedical Moral Dilemmas",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Bioethics Concept & Biomedical Moral Dilemmas",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "مفهوم البيوتيقا والقضايا الأخلاقية للطب الحديث",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch2_l2",
+          titleEn: "Genetics, Medical Ethics Principles & Informed Consent",
+          titleAr: "الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+          summaryEn: "Human Genome, cloning, 4 core medical ethics principles, 5 elements of informed consent, and genetic discrimination.",
+          summaryAr: "الجينوم والاستنساخ، معايير بوشامب وتشيلدرس الأربعة، عناصر الموافقة المستنيرة الخمسة، والتمييز الجيني.",
+          theoryContentEn: "### 1. Genomic Innovations and Ethical Risks\n- **The Human Genome:** Dr. Ahmed Zewail stressed that while DNA dictates biological predispositions, moral character and human willpower are molded by culture and environment.\n- **Human Cloning:** Condemned by Dr. Mustafa Mahmoud and religious authorities for destroying genetic variety, family lineage, and psychological uniqueness.\n\n### 2. The Four Principles of Modern Medical Ethics (Beauchamp & Childress)\n1. **Beneficence (المنفعة):** Acting in the best interest of the patient to alleviate suffering and promote well-being.\n2. **Non-Maleficence (عدم إلحاق الأذى):** Refraining from inflicting intentional or negligent injury.\n3. **Respect for Autonomy (احترام الاستقلالية):** Honoring the patient's sovereign right to determine their medical pathway without coercion.\n4. **Justice (المساواة والعدل):** Treating all patients impartially without socioeconomic or genetic prejudice.\n\n### 3. Elements of Informed Consent (الموافقة المستنيرة)\n1. **Disclosure (الإفصاح):** Clinician communicates diagnostic and prognostic realities clearly.\n2. **Understanding (الفهم):** Patient cognitively grasps clinical implications.\n3. **Competence (الأهلية):** Patient possesses mental and legal capacity to decide.\n4. **Voluntariness (الطواعية):** Decision is made freely without manipulation or duress.\n5. **Consent (الموافقة):** Patient formally authorizes the treatment plan.",
+          theoryContentAr: "### ١. الهندسة الوراثية وقضايا الجينوم والاستنساخ\n- **الجينوم البشري:** أكد د. أحمد زويل أن الجينوم لا يحدد مصير الفرد حتمياً، بل يمنح الاستعداد البيولوجي، وتصنع البيئة والإرادة والتربية الشخصية الأخلاقية.\n- **الاستنساخ البشري:** عارضه د. مصطفى محمود والأديان السماوية لكونه يقضي على حكمة التنوع الحيوي، ويهدم مؤسسة الأسرة والأمومة، ويحول الإنسان إلى نسخ بيولوجية باهتة.\n\n### ٢. معايير الأخلاق الطبية الحديثة (بوشامب وتشيلدرس)\n١. **المنفعة:** فعل الخير للمريض وتقديم الرعاية الصحية المثلى التي تحقق مصلحته العلاجية.\n٢. **عدم إلحاق الأذى:** الامتناع عن إلحاق أي ضرر جسدي أو نفسي بالمريض سواء عمداً أو إهمالاً.\n٣. **احترام الاستقلالية الفردية:** حق المريض الراشد الواعي في اختيار علاجه وإجراءاته الجراحية بكامل حريته.\n٤. **المساواة والعدل:** تقديم الرعاية الصحية لجميع المواطنين بإنصاف دون تمييز طبقي أو ديني أو جيني.\n\n### ٣. العناصر الخمسة للموافقة المستنيرة\n١. **الإفصاح:** إخبار المريض بكافة المعلومات والحقائق والمخاطر المتعلقة بالعلاج أو الجراحة.\n٢. **الفهم:** استيعاب المريض للمعلومات الطبية وإدراكه التام لتبعاتها.\n٣. **الأهلية:** قدرة المريض العقلية والإدراكية على اتخاذ القرار وفهم عواقبه.\n٤. **الطواعية:** اتخاذ القرار بمحض إرادة المريض الحرة دون إكراه أو إغراء أو تضليل.\n٥. **الموافقة:** قبول المريض الصريح والواعي بالخطة العلاجية المقترحة.",
+          formulas: [
+            {
+              labelEn: "Informed Consent Structural Equation",
+              labelAr: "معادلة بنية الموافقة المستنيرة",
+              latex: "\\text{Consent} = \\text{Disclosure} + \\text{Understanding} + \\text{Competence} + \\text{Voluntariness}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH2-L2",
+            pageRange: "pp. 30-55"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Genetics, Medical Ethics Principles & Informed Consent",
+            titleAr: "خطة الدرس المعتمدة: الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-2-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_2_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Genetics, Medical Ethics Principles & Informed Consent",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_2_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Genetics, Medical Ethics Principles & Informed Consent",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_2_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Genetics, Medical Ethics Principles & Informed Consent",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Genetics, Medical Ethics Principles & Informed Consent",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "الهندسة الوراثية ومعايير الأخلاق الطبية والموافقة المستنيرة",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh2SolvedExamples,
+      exerciseProblems: philCh2Exercises,
+      databank: philCh2Databank
+    },
+    {
+      id: "th_phil_ch3",
+      chapterNumber: 3,
+      titleEn: "Unit 3: Philosophy of Professional Ethics & Societal Values",
+      titleAr: "الوحدة الثالثة: فلسفة أخلاقيات المهنة وقيم العمل",
+      descriptionEn: "Concept of professional ethics, the three philosophical teams, importance of work in building civilizations, and philosophers on labor (Plato, Aristotle, Farabi, Ibn Khaldun, Adam Smith, Hegel).",
+      descriptionAr: "مفهوم أخلاق المهنة، الفرق الفلسفية الثلاث، دور العمل في نهضة الأمم، ورؤى الفلاسفة للعمل (أفلاطون، أرسطو، الفارابي، ابن خلدون، آدم سميث، هيجل).",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch3_l1",
+          titleEn: "Concept of Professional Ethics and the Three Philosophical Perspectives",
+          titleAr: "مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+          summaryEn: "Definition of professional ethics, teams 1, 2, 3, and benefits of ethical adherence (productivity, resource optimization, legal immunity).",
+          summaryAr: "مفهوم أخلاقيات المهنة، رؤى الفرق الفلسفية الثلاث، ومكتسبات الالتزام الأخلاقي (جودة الأداء، ترشيد الموارد، الحماية القانونية).",
+          theoryContentEn: "### 1. Concept of Professional Ethics\n- Professional ethics comprises a system of normative codes and standards governing vocational conduct, transcending mere personal conscience to enforce objective accountability.\n\n### 2. The Three Philosophical Teams on Professional Codes\n- **Team 1:** Views professional ethics as possessing both private and public character, demanding absolute adherence across all cultures while rejecting state or religious coercion (e.g. physician ethics are universally sacred).\n- **Team 2:** Asserts that professional codes are inextricably linked to local cultural mores (e.g. a teacher's duties mirror the community's traditional cultural standing).\n- **Team 3:** Argues for empirical investigation of prevailing cultural conditions and economic resources *prior* to codifying realistic vocational standards.\n\n### 3. Benefits of Professional Ethical Compliance\n- Enhanced job productivity and workplace trust.\n- Optimization of organizational tools, machines, and capital resources.\n- Cultivation of positive brand image and social legitimacy.\n- Avoidance of civil penalties, lawsuits, and statutory sanctions.",
+          theoryContentAr: "### ١. مفهوم أخلاقيات المهنة\n- نسق من القواعد والمعايير المهنية المعيارية التي تنظم السلوك الوظيفي ولا تستقيم المهنة بدونها، ولا ترجع للضمير الفردي وحده بل للالتزام الصارم بقواعد العمل.\n\n### ٢. الفرق الفلسفية الثلاث حول معايير أخلاق المهنة\n- **الفريق الأول:** يرى أن لأخلاق المهنة طابعاً خاصاً وعاماً معاً، ويرفض خضوعها لسلطة الدولة أو الدين، ويعتبرها ملزمة بذاتها عالمياً (كأخلاق الطبيب والمعلم).\n- **الفريق الثاني:** يؤكد على ضرورة ارتباط أخلاق المهنة بالطابع الثقافي السائد في المجتمع (كربط أخلاق المعلم بمكانته وثقافة بيئته).\n- **الفريق الثالث:** يشدد على فحص ودراسة الواقع الثقافي وإمكانات المجتمع الفعلية قبل وضع المعايير المهنية لتجنب القواعد التعجيزية النظرية.\n\n### ٣. فوائد ومكتسبات الالتزام بأخلاقيات المهنة\n- تحسين الأداء الوظيفي ورفع كفاءة الإنتاج.\n- الاستخدام الأمثل للموارد والمعدات وتجنب الهدر المادي.\n- تحسين الصورة الذهنية الإيجابية للمؤسسة لدى المجتمع والعملاء.\n- تجنب المساءلة القانونية والقضائية وحماية سمعة المنشأة.",
+          formulas: [
+            {
+              labelEn: "Professional Ethics Optimization Formula",
+              labelAr: "معادلة كفاءة الالتزام بأخلاق المهنة",
+              latex: "\\text{Efficiency} = \\frac{\\text{Performance Quality} \\times \\text{Trust}}{\\text{Resource Waste} + \\text{Legal Liability}}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH3-L1",
+            pageRange: "pp. 55-80"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Concept of Professional Ethics and the Three Philosophical Perspectives",
+            titleAr: "خطة الدرس المعتمدة: مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-3-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_3_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Concept of Professional Ethics and the Three Philosophical Perspectives",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_3_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Concept of Professional Ethics and the Three Philosophical Perspectives",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_3_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Concept of Professional Ethics and the Three Philosophical Perspectives",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Concept of Professional Ethics and the Three Philosophical Perspectives",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "مفهوم أخلاق المهنة والفرق الفلسفية الثلاث",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch3_l2",
+          titleEn: "Philosophers on Human Labor & Civilizational Progress",
+          titleAr: "العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+          summaryEn: "Plato, Aristotle, Al-Farabi, Ibn Khaldun, Adam Smith, and Hegel on labor, division of work, and human freedom.",
+          summaryAr: "أفلاطون وأرسطو، الفارابي وابن خلدون، آدم سميث وهيجل ورؤاهم لدور العمل وتقسيمه وحرية الإنسان.",
+          theoryContentEn: "### 1. Classical Ancient Perspectives (Plato & Aristotle)\n- **Plato:** Explained civil society via the division of labor to satisfy food, shelter, and clothing; yet harbored aristocratic bias, relegating manual crafts to slaves to preserve citizen leisure for contemplation.\n- **Aristotle:** Endorsed the natural slavery doctrine, asserting that nature creates some with raw physical strength for manual toil and others with intellect for governance.\n\n### 2. Islamic Perspectives (Al-Farabi & Ibn Khaldun)\n- **Al-Farabi:** Framed the *Virtuous City* upon collective cooperation, placing philosophers and prophets at the helm of hierarchical division of labor.\n- **Ibn Khaldun:** Established labor as the primary source of wealth and commodity value, analyzing the ethics of honest commerce and craft specialization.\n\n### 3. Modern European Philosophers (Adam Smith & Hegel)\n- **Adam Smith:** Formulated the *Invisible Hand* doctrine, demonstrating that unhindered competitive self-interest naturally maximizes public economic prosperity.\n- **Hegel:** Defined labor as the spiritual vehicle whereby humans transform raw nature into culture, liberating themselves from bodily dependency.",
+          theoryContentAr: "### ١. الفكر اليوناني القديم (أفلاطون وأرسطو)\n- **أفلاطون:** فسر نشأة المجتمع بتقسيم العمل لتلبية حاجات الغذاء والكساء، لكنه تبنى نظرة طبقية جعلت العمل اليدوي مخصصاً للعبيد لتفرغ المواطنين الأحرار للفلسفة والسياسة.\n- **أرسطو:** برر الرق كنظام طبيعي، معتبراً أن الطبيعة فرزت البشر صنفين: صنفاً للعمل العضلي الشاق وصنفاً حراً مفكراً لإدارة شؤون الدولة.\n\n### ٢. الفكر الإسلامي (الفارابي وابن خلدون)\n- **الفارابي:** بنى رؤيته على «المدينة الفاضلة» القائمة على التعاون والتكافل الاجتماعي، ورتب المجتمع هرمياً بقيادة النبي أو الفيلسوف الإمام.\n- **ابن خلدون:** أكد أن العمل هو الأصل في الكسب ومصدر قيمة كل سلعة، وقسم الصنائع إلى ضرورية وشريفة، ووضع ضوابط أخلاقية صارمة للتجارة العادلة.\n\n### ٣. الفكر الأوروبي الحديث (آدم سميث وهيجل)\n- **آدم سميث:** صاغ نظرية «اليد الخفية» في *ثروة الأمم*، مبيناً أن سعي الفرد لمصلحته الشخصية في سوق حرة يخدم تلقائياً مصلحة المجتمع ورخائه العام.\n- **هيجل:** اعتبر العمل جوهر العلاقات الإنسانية وأداة تحرير الروح من قيود الطبيعة؛ فالإنسان بالعمل يحول المادة الخام إلى ثقافة وحضارة.",
+          formulas: [
+            {
+              labelEn: "Adam Smith Invisible Hand Principle",
+              labelAr: "مبدأ اليد الخفية لآدم سميث",
+              latex: "\\text{Public Wealth} = \\sum_{i=1}^{n} \\left( \\text{Self-Interest}_i \\times \\text{Market Freedom} \\right)"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH3-L2",
+            pageRange: "pp. 55-80"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Philosophers on Human Labor & Civilizational Progress",
+            titleAr: "خطة الدرس المعتمدة: العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-3-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_3_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Philosophers on Human Labor & Civilizational Progress",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_3_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Philosophers on Human Labor & Civilizational Progress",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_3_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Philosophers on Human Labor & Civilizational Progress",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Philosophers on Human Labor & Civilizational Progress",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "العمل عند الفلاسفة ورواد الفكر الاقتصادي والاجتماعي",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh3SolvedExamples,
+      exerciseProblems: philCh3Exercises,
+      databank: philCh3Databank
+    },
+    {
+      id: "th_phil_ch4",
+      chapterNumber: 4,
+      titleEn: "Unit 4: Values, Philosophizing & Human Freedom",
+      titleAr: "الوحدة الرابعة: التفلسف وعلاقته بالقيم والحرية الإنسانية",
+      descriptionEn: "Meaning of philosophizing, axiology and 3 core values (Truth, Goodness, Beauty), subjective vs objective values, and contemporary enlightenment values (Intellectual independence, tolerance, freedom & responsibility).",
+      descriptionAr: "معنى التفلسف ومعوقاته، مبحث القيم وقيم الحق والخير والجمال، نسبية القيم وموضوعيتها، وقيم التنوير (الاستقلال الفكري، التسامح، والحرية والمسؤولية عند سارتر).",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch4_l1",
+          titleEn: "Concept of Philosophizing and Axiological Core Values",
+          titleAr: "معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+          summaryEn: "Philosophizing as critical thinking, obstacles, and the triad of Truth (Logic), Goodness (Ethics), and Beauty (Aesthetics).",
+          summaryAr: "التفلسف ونبذ التبعية، ومبحث القيم، وقيم الحق (المنطق)، الخير (الأخلاق)، والجمال (الإستطيقا).",
+          theoryContentEn: "### 1. The Nature of Philosophizing\n- Philosophizing is active, self-reflective critical examination of reality, refusing to accept dogmatic assertions without reasoned evidence.\n- **Obstacles:** Cognitive dogmatism, servile submission to authority, intellectual fear, and uncritical traditionalism.\n\n### 2. Axiology & The Triad of Foundational Values\n- **The Value of Truth (قيمة الحق):** Investigated by Formal Logic to prevent cognitive errors.\n- **The Value of Goodness (قيمة الخير):** Investigated by Ethics to determine moral virtues and moral duties.\n- **The Value of Beauty (قيمة الجمال / الإستطيقا):** Divided into Theoretical Aesthetics (contemplating harmonious proportions) and Practical Aesthetics (critique of fine arts).",
+          theoryContentAr: "### ١. معنى التفلسف ومعوقاته\n- التفلسف هو نظرة فاحصة نقدية متأملة تدفع العقل للتساؤل عن أصول الأشياء وحقائقها وعدم التسليم بالمسلمات الجاهزة.\n- **معوقات التفلسف:** التعصب الأعمى، الخضوع للسلطات الفكرية، الخوف من الرأي الآخر، والجمود الفكري.\n\n### ٢. مبحث القيم (الإكسيولوجيا) والقيم الكبرى الثلاث\n- **قيمة الحق:** يدرسها علم المنطق لوضع القواعد التي تعصم الذهن من الوقوع في الخطأ.\n- **قيمة الخير:** يدرسها علم الأخلاق والتهذيب السلوكي لبيان الفضائل وما ينبغي أن يكون عليه السلوك الإنساني.\n- **قيمة الجمال (الإستطيقا):** تدرس معايير التناسق والانسجام؛ وتنقسم إلى جمال نظري تذوقي وجمال عملي فني نقدي.",
+          formulas: [
+            {
+              labelEn: "Axiological Triad Core",
+              labelAr: "الثالوث الإكسيولوجي المعياري",
+              latex: "\\text{Axiology} = \\text{Truth (Logic)} \\oplus \\text{Goodness (Ethics)} \\oplus \\text{Beauty (Aesthetics)}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH4-L1",
+            pageRange: "pp. 80-105"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Concept of Philosophizing and Axiological Core Values",
+            titleAr: "خطة الدرس المعتمدة: معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-4-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_4_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Concept of Philosophizing and Axiological Core Values",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_4_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Concept of Philosophizing and Axiological Core Values",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_4_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Concept of Philosophizing and Axiological Core Values",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Concept of Philosophizing and Axiological Core Values",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "معنى التفلسف ومبحث القيم الأساسية (الحق والخير والجمال)",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch4_l2",
+          titleEn: "Subjective vs. Objective Values and Contemporary Democratic Ideals",
+          titleAr: "نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+          summaryEn: "Protagoras, Spinoza, Hobbes vs. Socrates, Plato, Scheler; intellectual independence, tolerance (Voltaire), and Sartre's freedom.",
+          summaryAr: "القيم النسبية مقابل المطلقة، الاستقلال الفكري، التسامح (فولتير)، والحرية المقترنة بالمسؤولية عند سارتر.",
+          theoryContentEn: "### 1. Subjective Relative Values vs. Objective Absolute Values\n- **Subjective / Relative:** Values are tools relative to human appetites and context:\n  - *Protagoras:* \"Man is the measure of all things.\"\n  - *Spinoza:* \"We desire things not because they are good; rather, they are good because we desire them.\"\n  - *Thomas Hobbes:* Good is whatever satisfies survival instinct.\n- **Objective / Absolute:** Values exist intrinsically and are discerned by pure reason:\n  - *Socrates & Plato:* The Form of the Good is absolute, universal, and immutable.\n  - *Max Scheler & G.E. Moore:* Values are discovered objective properties grasped by cognitive intuition.\n\n### 2. Ideals of Contemporary Enlightened Citizenship\n- **Intellectual Independence:** Liberation of thought from blind conformity, forming autonomous judgements based on evidence.\n- **Intellectual Tolerance:** Recognizing epistemic humility and the right of divergent viewpoints to exist (Voltaire's defense of free speech).\n- **Human Freedom & Responsibility:** Jean-Paul Sartre emphasized that existence precedes essence, making humans free yet completely responsible for their historical choices.",
+          theoryContentAr: "### ١. نسبية القيم وموضوعيتها\n- **القيم نسبية ذاتية متغيرة:**\n  - *بروتاغوراس:* «الإنسان مقياس كل شيء»، ما يراه الفرد خيراً فهو خير له وما يراه شراً فهو شر له.\n  - *سبينوزا:* نحن لا نرغب في الشيء لأنه خير، بل نراه خيراً لأننا نرغب فيه ونشتهيه.\n  - *توماس هوبز:* الخير هو ما يحقق شهوات الإنسان وغريزة بقائه والشر ما ينفر منه.\n- **القيم مطلقة موضوعية ثابتة:**\n  - *سقراط وأفلاطون:* الخير مثال واحد ثابت مطلق في عالم المثل يدركه العقل المجرد، والفضيلة علم والرذيلة جهل.\n  - *ماكس شيلر وجورج مور:* القيم حقائق قائمة بذاتها نكتشفها بالحدس العقلي ولا نخترعها برغباتنا.\n\n### ٢. قيم التنوير والمواطنة الديمقراطية\n- **الاستقلال الفكري:** تحرير العقل من التبعية والجمود والنقل الأعمى للآراء.\n- **التسامح الفكري:** قبول الاختلاف والإيمان بنسبية الحقيقة والتعايش السلمي (مقولة فولتير دفاعاً عن حرية التعبير).\n- **الحرية والمسؤولية:** أكد سارتر أن «الوجود يسبق الماهية»، فالإنسان حر يصنع مصيره ومسؤول مسؤولية كاملة عن أفعاله.",
+          formulas: [
+            {
+              labelEn: "Sartre Freedom-Responsibility Equivalence",
+              labelAr: "معادلة سارتر للتلازم بين الحرية والمسؤولية",
+              latex: "\\text{Human Agency} \\iff \\text{Freedom} \\equiv \\text{Total Responsibility}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH4-L2",
+            pageRange: "pp. 80-105"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Subjective vs. Objective Values and Contemporary Democratic Ideals",
+            titleAr: "خطة الدرس المعتمدة: نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-4-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_4_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Subjective vs. Objective Values and Contemporary Democratic Ideals",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_4_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Subjective vs. Objective Values and Contemporary Democratic Ideals",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_4_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Subjective vs. Objective Values and Contemporary Democratic Ideals",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "philosophy_bioethics_matrix",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Subjective vs. Objective Values and Contemporary Democratic Ideals",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "نسبية القيم وموضوعيتها وقيم المواطنة والحرية والمسؤولية",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh4SolvedExamples,
+      exerciseProblems: philCh4Exercises,
+      databank: philCh4Databank
+    },
+    {
+      id: "th_phil_ch5",
+      chapterNumber: 5,
+      titleEn: "Unit 5: Inductive Inference & Natural Sciences",
+      titleAr: "الوحدة الخامسة: الاستدلال الاستقرائي وتطبيقه في العلوم الطبيعية",
+      descriptionEn: "Logic definition, deduction vs induction, Aristotle's complete & incomplete induction, Bacon's 4 idols, classical scientific steps, Mill's 5 experimental proof methods, and Islamic pioneers (Ibn Hayyan & Ibn Al-Haytham).",
+      descriptionAr: "تعريف المنطق، الفرق بين الاستنباط والاستقراء، استقراء أرسطو، أوهام بيكون الأربعة، خطوات المنهج العلمي التقليدي، طرق مل الخمس، وإسهامات جابر بن حيان والحسن بن الهيثم.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch5_l1",
+          titleEn: "Deduction, Induction & Bacon's Critical Organon",
+          titleAr: "الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+          summaryEn: "Aristotle's induction, deductive validity vs inductive strength, and Bacon's 4 idols (Tribe, Cave, Market, Theatre).",
+          summaryAr: "الاستقراء التام والناقص عند أرسطو، الحجة الاستنباطية والاستقرائية، وأوهام بيكون الأربعة (الجنس، الكهف، السوق، المسرح).",
+          theoryContentEn: "### 1. Logic, Deduction & Induction\n- **Logic:** The formal science investigating the principles distinguishing valid deductive arguments from invalid ones, and strong inductive inferences from weak ones.\n- **Deduction:** Top-down reasoning where conclusion follows from premises with absolute necessity.\n- **Induction:** Bottom-up reasoning generalizing from observed sample instances to an open-ended general rule (probabilistic).\n\n### 2. Francis Bacon's Organon: The Four Idols\n1. **Idols of the Tribe (أوهام الجنس):** Innate mental errors shared universally by all humans (e.g. premature generalization and seeking confirmations).\n2. **Idols of the Cave (أوهام الكهف):** Individual biases resulting from personalized upbringing, habits, and private psychological dispositions.\n3. **Idols of the Market (أوهام السوق):** Linguistic confusions arising from imprecise verbal vocabulary and sloppy speech in public discourse.\n4. **Idols of the Theatre (أوهام المسرح):** Dogmatic deference to authoritative historical philosophers, accepting ancient theories like passive spectators.",
+          theoryContentAr: "### ١. تعريف المنطق والاستدلال\n- **المنطق:** علم الاستدلال الذي يضع المعايير الصورية للتمييز بين الحجج الصحيحة والباطلة، والاستدلالات القوية والضعيفة.\n- **الاستنباط:** استدلال لا تتجاوز نتيجته ما ورد في مقدماته وتلزم عنها لزوماً حتمياً صورياً (يقين مطلق).\n- **الاستقراء:** استدلال ينتقل من فحص حالات جزئية إلى حكم كلي عام (احتمالي ترجيحي).\n\n### ٢. الجانب السلبي عند بيكون (أوهام العقل الأربعة)\n١. **أوهام الجنس البشري:** أخطاء فطرية عامة متأصلة في طبيعة البشر كالتسرع في الحكم والتعميم.\n٢. **أوهام الكهف:** أخطاء خاصة بكل فرد تنبع من بيئته وتربيته الخاصة وثقافته وميوله الذاتية.\n٣. **أوهام السوق:** أكثر الأوهام إثارة للغموض والخلط وتنشأ عن الاستخدام الخاطئ للألفاظ واللغة المشتركة.\n٤. **أوهام المسرح:** أخطاء ناتجة عن الانبهار بآراء المشاهير والقدماء والتقليد الأعمى دون نقد.",
+          formulas: [
+            {
+              labelEn: "Inductive Generalization Probability",
+              labelAr: "احتمالية التعميم الاستقرائي",
+              latex: "P(\\text{Law} \\mid \\text{Evidence}) \\propto \\frac{\\text{Verified Cases}}{\\text{Sample Space}} < 1.0"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH5-L1",
+            pageRange: "pp. 105-130"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Deduction, Induction & Bacon's Critical Organon",
+            titleAr: "خطة الدرس المعتمدة: الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-5-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_5_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Deduction, Induction & Bacon's Critical Organon",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_5_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Deduction, Induction & Bacon's Critical Organon",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_5_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Deduction, Induction & Bacon's Critical Organon",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_induction_mills",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Deduction, Induction & Bacon's Critical Organon",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "الاستنباط والاستقراء والأورجانون الجديد عند بيكون",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch5_l2",
+          titleEn: "Mill's Five Inductive Proof Methods & Islamic Scientists",
+          titleAr: "طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+          summaryEn: "Agreement, Difference, Joint Method, Concomitant Variations, Residues, Jaber Ibn Hayyan, and Al-Hasan Ibn Al-Haytham.",
+          summaryAr: "طرق مل: الاتفاق، الاختلاف، الجمع، التلازم في التغير، البواقي، وإسهامات جابر بن حيان والحسن بن الهيثم.",
+          theoryContentEn: "### 1. John Stuart Mill's Five Methods of Causal Proof\n1. **Method of Agreement (طريقة الاتفاق):** Concurrence in presence: if multiple instances share only one common circumstance, that factor is the cause.\n2. **Method of Difference (طريقة الاختلاف):** Concurrence in absence: if an instance where the phenomenon occurs and one where it fails agree in all except one factor, that factor is the cause.\n3. **Joint Method (طريقة الجمع):** Combines Agreement and Difference to eliminate coincidence.\n4. **Method of Concomitant Variations (طريقة التلازم في التغير):** Quantitative correlation: proportional shift in factor A causes proportional shift in B.\n5. **Method of Residues (طريقة البواقي):** Subtracting accounted-for causes leaves the remaining cause paired with the remaining effect.\n\n### 2. Pioneer Islamic Empiricists\n- **Jaber Ibn Hayyan:** Championed rigorous chemical laboratory experimentation.\n- **Al-Hasan Ibn Al-Haytham:** Founded experimental optics using systematic empirical induction translated into quantitative mathematical proofs.",
+          theoryContentAr: "### ١. طرق جون ستيوارت مل الخمس لاختبار السببية\n١. **طريقة الاتفاق (التلازم في الحضور):** إذا اشتركت حالتان أو أكثر لظاهرة ما في ظرف واحد فقط، كان هذا الظرف المشترك هو العلة.\n٢. **طريقة الاختلاف (التلازم في الغياب):** إذا اتفقت حالتان في كل الظروف إلا ظرفاً واحداً غابت عنده الظاهرة، كان ذلك الظرف هو علتها.\n٣. **طريقة الجمع بين الاتفاق والاختلاف:** الجمع بين التلازم في الحضور والتلازم في الغياب للتوثق الصارم من العلية.\n٤. **طريقة التلازم في التغير:** أي تغير يطرأ على العلة بنسبة معينة يحدث تغيراً مقابلاً في المعلول بنفس النسبة (أساس القياس الكمي).\n٥. **طريقة البواقي:** إذا كانت عدة علل مسؤولة عن عدة معلولات، وعرفنا سبب جزء منها، فإن العلة الباقية علة للمعلول الباقي.\n\n### ٢. إسهامات علماء الحضارة الإسلامية في المنهج العلمي\n- **جابر بن حيان:** رائد التجارب الكيميائية؛ اعتبر التجربة المعملية الدقيقة شرطاً أساسياً لصفة العالم («من كان درباً كان عالماً حقاً»).\n- **الحسن بن الهيثم:** مؤسس علم البصريات والمؤسس الحقيقي للمنهج التجريبي الصارم؛ اعتمد على الاستقراء التحليلي والرياضيات.",
+          formulas: [
+            {
+              labelEn: "Mill's Concomitant Variations Proportion",
+              labelAr: "معادلة التلازم في التغير لـ مل",
+              latex: "\\Delta \\text{Cause} \\propto \\Delta \\text{Effect} \\implies \\frac{d(\\text{Effect})}{d(\\text{Cause})} = k"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH5-L2",
+            pageRange: "pp. 105-130"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Mill's Five Inductive Proof Methods & Islamic Scientists",
+            titleAr: "خطة الدرس المعتمدة: طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-5-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_5_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Mill's Five Inductive Proof Methods & Islamic Scientists",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_5_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Mill's Five Inductive Proof Methods & Islamic Scientists",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_5_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Mill's Five Inductive Proof Methods & Islamic Scientists",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_induction_mills",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Mill's Five Inductive Proof Methods & Islamic Scientists",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "طرق مل الخمس للتحقق من الفروض والعلماء المسلمون",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh5SolvedExamples,
+      exerciseProblems: philCh5Exercises,
+      databank: philCh5Databank
+    },
+    {
+      id: "th_phil_ch6",
+      chapterNumber: 6,
+      titleEn: "Unit 6: Deductive Logic & Mathematical Axiomatic Systems",
+      titleAr: "الوحدة السادسة: الاستنباط وتطبيقه في العلوم الصورية (النسق الرياضي والمنطق الرمزي)",
+      descriptionEn: "Deductive axiomatic system structure, undefined & defined terms, axioms vs postulates, 3 laws of thought (Identity, Non-contradiction, Excluded middle), and modern symbolic logic truth tables.",
+      descriptionAr: "بناء النسق الرياضي الاستنباطي، اللامعرفات والمعرفات، البديهيات والمسلمات، قوانين الفكر الأساسية، والمنطق الرمزي وجداول الصدق.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch6_l1",
+          titleEn: "The Deductive Axiomatic System & The Three Laws of Thought",
+          titleAr: "بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+          summaryEn: "Analytic nature of math, primitive undefined terms, definitions, axioms, postulates, and the 3 Aristotelian laws.",
+          summaryAr: "الرياضيات كبناء استنباطي تحليلي، اللامعرفات والمعرفات، البديهيات والمسلمات، وقوانين الفكر الثلاثة (الذاتية، عدم التناقض، الثالث المرفوع).",
+          theoryContentEn: "### 1. Structure of the Mathematical Deductive System\n- Mathematical systems are integrated deductive edifices where theorems necessarily follow from unproven initial premises:\n  - **Undefined Terms (اللامعرفات):** Primitive clear concepts left un-defined to avoid infinite regress (e.g. 'point', 'line').\n  - **Defined Terms (المعرفات):** Precise stipulative definitions crafted by the mathematician (e.g. 'surface has length and breadth only').\n  - **Axioms (البديهيات):** Self-evident primary cognitive truths so obvious that the mind accepts them without proof (e.g. 'The whole is greater than its part').\n  - **Postulates (المسلمات / المصادرات):** Hypotheses accepted without proof to serve as operational stepping-stones for proving theorems.\n\n### 2. The Three Aristotelian Laws of Thought\n1. **Law of Identity (قانون الذاتية / الهوية):** $A \text{ is } A$.\n2. **Law of Non-Contradiction (قانون عدم التناقض):** $A \text{ cannot be } B \text{ and not } B \text{ simultaneously}$.\n3. **Law of Excluded Middle (قانون الثالث المرفوع):** $A \text{ is either } B \text{ or not } B \text{ with no third possibility}$.",
+          theoryContentAr: "### ١. بنية النسق الرياضي الاستنباطي\n- بناء فكري مترابط يبدأ من مقدمات غير مبرهنة وينتهي بنتائج مبرهنة تلزم عنها لزوماً منطقياً صورياً:\n  - **اللامعرفات:** مفاهيم أولية واضحة بذاتها يتركها الرياضي بلا تعريف تجنباً للتسلسل اللانهائي (كالنقطة والخط).\n  - **المعرفات:** تعريفات اشتراطية دقيقة يضعها الرياضي لمفاهيمه (كالسطح ما له طول وعرض فقط).\n  - **البديهيات:** قضايا واضحة بذاتها يفرضها العقل على نفسه لفرط وضوحها ويعجز عن إثباتها (كالكل أكبر من الجزء).\n  - **المسلمات (المصادرات):** قضايا يسلم بها الباحث دون برهان ليتخذها أساساً للبرهان على النظريات اللاحقة.\n\n### ٢. قوانين الفكر الأساسية الثلاثة (أرسطو)\n١. **قانون الهوية (الذاتية):** الشيء هو ذاته ($A \text{ هي } A$).\n٢. **قانون عدم التناقض:** الشيء لا يمكن أن يوصف بصفة ونقيضها في نفس الوقت والظرف ($A$ لا يمكن أن تكون $B$ ولا $B$ معاً).\n٣. **قانون الثالث المرفوع (الوسط الممتنع):** الشيء إما أن يوصف بصفة أو بنقيضها ولا وسط بينهما ($A$ إما أن تكون $B$ أو لا $B$).",
+          formulas: [
+            {
+              labelEn: "Aristotelian Non-Contradiction Identity",
+              labelAr: "صياغة قانون عدم التناقض",
+              latex: "\\neg (P \\land \\neg P) \\iff \\top"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH6-L1",
+            pageRange: "pp. 130-155"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: The Deductive Axiomatic System & The Three Laws of Thought",
+            titleAr: "خطة الدرس المعتمدة: بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-6-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_6_1",
+            titleEn: "Ministry Assessment Worksheet: " + "The Deductive Axiomatic System & The Three Laws of Thought",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_6_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "The Deductive Axiomatic System & The Three Laws of Thought",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_6_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "The Deductive Axiomatic System & The Three Laws of Thought",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_truth_table",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "The Deductive Axiomatic System & The Three Laws of Thought",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "بنية النسق الرياضي الاستنباطي وقوانين الفكر الأساسية",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch6_l2",
+          titleEn: "Modern Symbolic Propositional Logic & Truth Tables",
+          titleAr: "المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+          summaryEn: "Negation, conjunction, disjunction, conditional implication, biconditional equivalence, and truth table computations.",
+          summaryAr: "قضايا السلب والوصل والفصل والشرط والتشارط وحساب قيم الصدق والكذب وجداول الصدق.",
+          theoryContentEn: "### 1. Propositional Connectives & Symbolic Truth Rules\n- **Negation (السلب):** $\\sim p$ (inverts truth value).\n- **Conjunction (الوصل / العطف):** $p \\land q$ (TRUE only when both $p$ and $q$ are True).\n- **Disjunction (الفصل):** $p \\lor q$ (FALSE only when both $p$ and $q$ are False).\n- **Conditional / Implication (الشرط / اللزوم):** $p \\rightarrow q$ (FALSE only when antecedent $p$ is True and consequent $q$ is False: $T \\rightarrow F = F$).\n- **Biconditional / Equivalence (التشارط):** $p \\leftrightarrow q$ (TRUE when $p$ and $q$ have identical truth values: $T \\leftrightarrow T = T$ and $F \\leftrightarrow F = T$).",
+          theoryContentAr: "### ١. الروابط المنطقية وقواعد جداول الصدق\n- **رابط السلب (النفي):** $\\sim p$ (يعكس قيمة الصدق، يصدق إذا كذبت القضية وتكذب إذا صدقت).\n- **رابط الوصل (العطف):** $p \\land q$ (يصدق في حالة واحدة: صدق الطرفين معاً).\n- **رابط الفصل الضعيف:** $p \\lor q$ (يكذب في حالة واحدة: كذب الطرفين معاً).\n- **رابط الشرط (اللزوم):** $p \\rightarrow q$ (يكذب في حالة واحدة: صدق المقدم وكذب التالي $T \\rightarrow F = F$).\n- **رابط التشارط (التكافؤ):** $p \\leftrightarrow q$ (يصدق في حالتين: اتفاق الطرفين صدقاً أو كذباً).",
+          formulas: [
+            {
+              labelEn: "Material Implication Truth Condition",
+              labelAr: "قاعدة صدق القضية الشرطية",
+              latex: "(p \\rightarrow q) \\equiv (\\neg p \\lor q)"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH6-L2",
+            pageRange: "pp. 130-155"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Modern Symbolic Propositional Logic & Truth Tables",
+            titleAr: "خطة الدرس المعتمدة: المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-6-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_6_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Modern Symbolic Propositional Logic & Truth Tables",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_6_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Modern Symbolic Propositional Logic & Truth Tables",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_6_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Modern Symbolic Propositional Logic & Truth Tables",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_truth_table",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Modern Symbolic Propositional Logic & Truth Tables",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "المنطق الرمزي الحديث وروابط القضايا وجداول الصدق",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh6SolvedExamples,
+      exerciseProblems: philCh6Exercises,
+      databank: philCh6Databank
+    },
+    {
+      id: "th_phil_ch7",
+      chapterNumber: 7,
+      titleEn: "Unit 7: The Contemporary Scientific Method",
+      titleAr: "الوحدة السابعة: المنهج العلمي المعاصر (التكامل بين الاستقراء والاستنباط)",
+      descriptionEn: "Classical vs contemporary method, characteristics of contemporary science (Objectivity, testability, revisionism, abstraction, quantification, falsification), Carl Hempel model, Whewell & Bernard, and Popper's falsificationism.",
+      descriptionAr: "مقارنة المنهج التقليدي والمعاصر، خصائص العلم المعاصر، نموذج كارل همبل، ويليام هويول وكلود برنارد، وقابلية التفنيد عند كارل بوبر.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch7_l1",
+          titleEn: "Classical vs. Contemporary Method and Scientific Attributes",
+          titleAr: "المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+          summaryEn: "Hypothesis priority, 2nd-degree hypotheses, objectivity, testability, measurability, and prediction.",
+          summaryAr: "أسبقية الفرض الصوري، فروض الدرجة الثانية، الموضوعية، القابلية للتعديل، والتجريد، والقياس.",
+          theoryContentEn: "### 1. Classical vs. Contemporary Method\n- **Classical Method:** Strictly inductive empirical cycle starting with direct observation; hypotheses are derived directly from observed data (1st degree).\n- **Contemporary Method:** Hypothetico-deductive synthesis; begins with a theoretical hypothesis derived from prior laws (2nd degree), deduces formal implications, then conducts empirical verification.\n\n### 2. Attributes of Contemporary Scientific Knowledge\n1. **Objectivity (الموضوعية):** Complete impartiality free from subjective desires or emotional bias.\n2. **Testability & Replicability (التحقق من الفروض):** Independent researchers can replicate verification under identical laboratory protocols.\n3. **Tentative & Self-Correcting (القابلية للتعديل):** Scientific truths are provisional models subject to revision.\n4. **Abstraction & Generalization (التجريد والتعميم):** Elevating individual occurrences into universal laws.\n5. **Quantification (القابلية للقياس):** Formulating theories in precise mathematical equations.",
+          theoryContentAr: "### ١. المقارنة بين المنهج التقليدي والمنهج المعاصر\n- **المنهج التقليدي:** استقرائي خالص يبدأ بالملاحظة، والفرض فيه من الدرجة الأولى مستمد مباشرة من الواقع، والتفسير حتمي سببي.\n- **المنهج المعاصر:** فرضي استنباطي مركب يبدأ بالفرض الصوري كخطوة أولى وهو فرض من الدرجة الثانية مستمد من قوانين سابقة، والتفسير احتمالي نسبي.\n\n### ٢. خصائص المعرفة العلمية في المنهج المعاصر\n١. **الموضوعية:** النزاهة التامة والتجرد من الأهواء والرغبات الذاتية.\n٢. **التحقق من صدق الفروض:** إمكانية اختبار النتائج وتكرارها معملياً من قِبل باحثين مستقلين.\n٣. **القابلية للتعديل والتغيير:** حقائق العلم غير نهائية وقابلة للمراجعة والتطوير المستمر.\n٤. **التجريد والتعميم:** تجاوز الحالات الفردية لصياغة قوانين كلية مجردة.\n٥. **القابلية للقياس:** استخدام لغة الأرقام والمعادلات الرياضية بدلاً من الألفاظ الكيفية.",
+          formulas: [
+            {
+              labelEn: "Hypothetico-Deductive Synthesis",
+              labelAr: "معادلة المنهج الفرضي الاستنباطي",
+              latex: "\\text{Hypothesis} \\xrightarrow{\\text{Deduce}} \\text{Implication} \\xrightarrow{\\text{Empirical Test}} \\text{Law or Refutation}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH7-L1",
+            pageRange: "pp. 155-180"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Classical vs. Contemporary Method and Scientific Attributes",
+            titleAr: "خطة الدرس المعتمدة: المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-7-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_7_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Classical vs. Contemporary Method and Scientific Attributes",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_7_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Classical vs. Contemporary Method and Scientific Attributes",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_7_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Classical vs. Contemporary Method and Scientific Attributes",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_syllogism",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Classical vs. Contemporary Method and Scientific Attributes",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "المقارنة بين المنهج التقليدي والمعاصر وخصائص العلم",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch7_l2",
+          titleEn: "Models of Explanation: Hempel, Whewell, Bernard & Popper",
+          titleAr: "نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+          summaryEn: "Carl Hempel's deductive-nomological model, Claude Bernard's hypothesis priority, and Karl Popper's falsification criterion.",
+          summaryAr: "نموذج كارل همبل في التفسير والعلية، أسبقية الفكرة عند برنارد، ومبدأ التفنيد والتكذيب عند كارل بوبر.",
+          theoryContentEn: "### 1. Carl Hempel's Deductive-Nomological Model\n- The paramount model of explanation in contemporary science, uniting induction with deduction.\n- An explanation requires initial empirical conditions ($C_1, C_2, ...$) subsumed under at least one universal empirical law ($L_1$) to deductively imply the explanandum event.\n\n### 2. Whewell and Claude Bernard\n- Demonstrated that the hypothesis is born from the creative scientific intellect prior to observation; empirical tests serve solely to verify deduced conclusions.\n\n### 3. Karl Popper's Falsificationism\n- Demarcation criterion: a statement is scientific if and only if it is open to potential observational falsification. Bold conjecture must risk refutation.",
+          theoryContentAr: "### ١. نموذج كارل همبل في التفسير العلمي\n- أهم النماذج في فلسفة العلم المعاصرة؛ يجمع بين الاستقراء والاستنباط.\n- يشترط التفسير وجود قانون علمي عام واحد صادق على الأقل تنضوي تحته شروط حدوث الواقعة لتفسيرها منطقياً والتنبؤ بها مستقبلاً.\n\n### ٢. ويليام هويول وكلود برنارد\n- طورا المنهج العلمي بحيث أصبحت الفكرة أو الفرض أسبق من التجربة والملاحظة، لتكون التجربة مجرد اختبار لصحة ما استنبطه العقل من الفرض.\n\n### ٣. كارل بوبر ومبدأ القابلية للتكذيب (Falsifiability)\n- معيار التمييز الحاسم بين العلم الحقيقي واللاعلم ليس هو التأييد والتحقق، بل هو القابلية للتفنيد والتكذيب بالملاحظة؛ فالقضية العلمية تخاطر بالبحث عما يدحضها.",
+          formulas: [
+            {
+              labelEn: "Popperian Falsification Criterion",
+              labelAr: "معيار التفنيد لـ بوبر",
+              latex: "\\text{Scientific}(T) \\iff \\exists E \\text{ such that } (T \\vdash \\neg E) \\land \\text{Observable}(E)"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH7-L2",
+            pageRange: "pp. 155-180"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Models of Explanation: Hempel, Whewell, Bernard & Popper",
+            titleAr: "خطة الدرس المعتمدة: نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-7-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_7_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Models of Explanation: Hempel, Whewell, Bernard & Popper",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_7_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Models of Explanation: Hempel, Whewell, Bernard & Popper",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_7_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Models of Explanation: Hempel, Whewell, Bernard & Popper",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_syllogism",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Models of Explanation: Hempel, Whewell, Bernard & Popper",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "نماذج التفسير العلمي: همبل، هويول، برنارد، وبوبر",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh7SolvedExamples,
+      exerciseProblems: philCh7Exercises,
+      databank: philCh7Databank
+    },
+    {
+      id: "th_phil_ch8",
+      chapterNumber: 8,
+      titleEn: "Unit 8: Logic, Communication Technology & Artificial Intelligence",
+      titleAr: "الوحدة الثامنة: المنطق وتكنولوجيا الاتصال والذكاء الاصطناعي",
+      descriptionEn: "Cybernetics by Norbert Wiener, pros and cons of ICT, digital citizenship, logic as language of AI, knowledge representation, monotonic vs non-monotonic logic, and Lotfi Zadeh's fuzzy logic.",
+      descriptionAr: "علم السبرنطيقا لنوربرت فينر، إيجابيات وسلبيات تكنولوجيا الاتصال، المواطنة الرقمية، المنطق ولغة الذكاء الاصطناعي، المنطق غير الرتيب، والمنطق المرن للطفي زادة.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_phil_ch8_l1",
+          titleEn: "Cybernetics, Societal Digital Impacts & Digital Citizenship",
+          titleAr: "علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+          summaryEn: "Norbert Wiener, automated feedback loops, social isolation, cyber-safety, and digital citizenship ethics.",
+          summaryAr: "نوربرت فينر، التغذية الراجعة، العزلة الاجتماعية، الجرائم الإلكترونية، ومبادئ المواطنة الرقمية.",
+          theoryContentEn: "### 1. Cybernetics (السبرنطيقا)\n- Coined by Norbert Wiener in 1948, Cybernetics is the cross-disciplinary study of automated regulation, feedback loops, and control in living organisms and mechanical systems.\n\n### 2. Social Impacts of Communication Technologies\n- **Benefits:** Instantaneous global knowledge dissemination, remote medicine, paperless administrative efficiency, and digital collaboration.\n- **Hazards:** Interpersonal alienation, sedentary addiction, cyber-harassment, intellectual property theft, and corporate surveillance.\n\n### 3. Digital Citizenship (المواطنة الرقمية)\n- Normative guidelines ensuring responsible technological engagement across three axes: Digital Safety, Digital Respect, and Digital Literacy.",
+          theoryContentAr: "### ١. علم السبرنطيقا (Cybernetics)\n- أسسه عالم الرياضيات الأمريكي نوربرت فينر عام 1948م، وهو علم التحكم والتوجيه ونقل المعلومات المعتمد على التغذية الراجعة في الكائنات الحية والآلات.\n\n### ٢. الآثار الاجتماعية لتكنولوجيا الاتصال\n- **الإيجابيات:** سهولة تداول المعرفة عالمياً، تيسير الخدمات الطبية والتعليمية عن بعد، وتحسين الإنتاجية وتوفير الوقت والجهد.\n- **السلبيات:** العزلة الاجتماعية والانفصال عن الواقع، إدمان الإنترنت، اختراق الخصوصية، والقرصنة والتنمر الإلكتروني.\n\n### ٣. المواطنة الرقمية\n- منظومة من القواعد والضوابط الأخلاقية للاستخدام الآمن والمسؤول للتقنيات الرقمية عبر ثلاثة محاور: الأمان الرقمي، الاحترام الرقمي، والمسؤولية الرقمية.",
+          formulas: [
+            {
+              labelEn: "Cybernetic Feedback Loop",
+              labelAr: "معادلة التغذية الراجعة السبرنطيقية",
+              latex: "\\text{System State}_{t+1} = f(\\text{Input}_t, \\text{Feedback}_t) \\longrightarrow \\text{Equilibrium}"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH8-L1",
+            pageRange: "pp. 180-205"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Cybernetics, Societal Digital Impacts & Digital Citizenship",
+            titleAr: "خطة الدرس المعتمدة: علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-8-1",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_8_1",
+            titleEn: "Ministry Assessment Worksheet: " + "Cybernetics, Societal Digital Impacts & Digital Citizenship",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_8_1_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Cybernetics, Societal Digital Impacts & Digital Citizenship",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_8_1_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Cybernetics, Societal Digital Impacts & Digital Citizenship",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_fuzzy_ai",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Cybernetics, Societal Digital Impacts & Digital Citizenship",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "علم السبرنطيقا وتأثيرات التكنولوجيا والمواطنة الرقمية",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+        {
+          id: "th_phil_ch8_l2",
+          titleEn: "Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+          titleAr: "المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+          summaryEn: "John McCarthy, logic programming (Prolog), monotonic vs non-monotonic reasoning, and Lotfi Zadeh's fuzzy logic.",
+          summaryAr: "جون مكارثي، لغة برولوج، المنطق الرتيب وغير الرتيب، والمنطق المرن متعدد القيم للطفي زادة.",
+          theoryContentEn: "### 1. Logic as the Cognitive Architecture of AI\n- Pioneers John McCarthy and Marvin Minsky identified symbolic logic as the ideal medium for knowledge representation and automated deduction.\n\n### 2. Monotonic vs. Non-Monotonic Logic\n- **Monotonic Logic:** Classical deductive system where adding new premises never overturns or retracts existing theorems.\n- **Non-Monotonic Logic:** Enables intelligent autonomous agents to draw provisional conclusions under incomplete real-time sensor data, dynamically revising beliefs when new evidence surfaces.\n\n### 3. Lotfi Zadeh's Fuzzy Logic\n- Formulated in 1965 to address the limitations of Aristotelian binary logic ($0$ or $1$, True or False) when processing nuanced real-world adjectives (e.g. 'warm', 'approaching', 'tall').\n- Provides continuous degrees of membership in $[0.0, 1.0]$, powering autonomous navigation, automated climate regulation, and computer vision systems.",
+          theoryContentAr: "### ١. المنطق كبنية تحتية للذكاء الاصطناعي\n- اعتبر رواد الذكاء الاصطناعي (مكارثي ومينسكي) المنطق الصوري الرمزي لغة التفكير الآلي لتمثيل المعرفة وحل المشكلات برمجياً (مثل لغة برولوج Prolog).\n\n### ٢. المنطق الرتيب والمنطق غير الرتيب\n- **المنطق الرتيب:** المنطق التقليدي الذي إذا أضفت فيه مقدمات جديدة إلى الحجة، لا تتغير نتيجتها ولا تبطل.\n- **المنطق غير الرتيب:** ابتكره علماء الذكاء الاصطناعي لتمكين الحاسوب من استخلاص نتائج افتراضية سريعة في ظل نقص المعلومات مع القدرة على تعديلها لحظياً فور ظهور بيانات جديدة.\n\n### ٣. المنطق المرن (Fuzzy Logic) للطفي زادة\n- ابتكره لطفي زادة عام 1965م لعلاج عجز المنطق الأرسطي ثنائي القيم (إما 1 أو 0) عن تمثيل الصفات اللغوية الغامضة والنسبية في الواقع (مثل: دافئ، قريب، طويل).\n- يمنح المنطق المرن درجات صدق مستمرة تتراوح بين 0 و 1، مما أتاح برمجة الأجهزة الذكية والسيارات ذاتية القيادة لمعالجة المواقف الواقعية المعقدة بكفاءة.",
+          formulas: [
+            {
+              labelEn: "Lotfi Zadeh Fuzzy Membership Function",
+              labelAr: "دالة الانتماء للمنطق المرن للطفي زادة",
+              latex: "\\mu_A(x) \\in [0.0, 1.0]"
+            }
+          ],
+          moeRef: {
+            bookTitleEn: "Philosophy & Applied Logic for General Secondary (Grade 12)",
+            bookTitleAr: "الفلسفة والمنطق للثانوية العامة - الصف الثالث الثانوي",
+            grade: "Grade 12",
+            term: "Full Year",
+            officialCode: "MOE-TH_PHIL-CH8-L2",
+            pageRange: "pp. 180-205"
+          },
+          lessonPlan: {
+            titleEn: "Official Lesson Plan: Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+            titleAr: "خطة الدرس المعتمدة: المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+            gradeLevel: "Grade 12 (Secondary 3)",
+            durationMinutes: 90,
+            moeCode: "PHIL-LP-8-2",
+            bloomsObjectivesEn: [
+              "Recall & Conceptual Understanding: Define fundamental normative philosophical terms.",
+              "Application & Analysis: Evaluate real-world bioethical and formal logic scenarios.",
+              "Synthesis & Evaluation: Critique contrasting schools of thought using logical criteria."
+            ],
+            bloomsObjectivesAr: [
+              "التذكر والفهم المفاهيمي: استيعاب المصطلحات الفلسفية والمعيارية والمنطقية الأساسية.",
+              "التطبيق والتحليل: فحص وتحليل المعضلات البيوطبية والأنظمة المنطقية المعاصرة.",
+              "التركيب والتقويم: نقد ومقارنة الرؤى الفلسفية المتعارضة باستخدام معايير التفكير الناقد."
+            ],
+            prerequisitesEn: ["Basic high school ethical principles and classical logic."],
+            prerequisitesAr: ["مبادئ الفلسفة والأخلاق العامة ومقدمة المنطق الصوري."],
+            keyVocabularyEn: [
+              { term: "Axiology", definition: "Philosophical study of value including Truth, Goodness, and Beauty." },
+              { term: "Bioethics", definition: "Normative study of human conduct in biomedical science." }
+            ],
+            keyVocabularyAr: [
+              { term: "الإكسيولوجيا", definition: "مبحث القيم الفلسفية الكبرى: الحق والخير والجمال." },
+              { term: "البيوتيقا", definition: "علم معياري يدرس السلوك البشري في إطار علوم الحياة والطب." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Engage & Warm-up",
+                phaseAr: "التمهيد وإثارة التفكير",
+                duration: "15 min",
+                activitiesEn: "Introduce realistic moral dilemma or symbolic puzzle to trigger discussion.",
+                activitiesAr: "طرح معضلة أخلاقية أو لغز رمزي لإثارة التساؤل الفلسفي والتحاور."
+              },
+              {
+                phaseEn: "Deep Conceptual Exploration",
+                phaseAr: "الشرح العميق والتحليل الفلسفي",
+                duration: "50 min",
+                activitiesEn: "Detailed exposition of theories, philosophers' arguments, and logical formulations.",
+                activitiesAr: "عرض تفصيلي لأدلة الفلاسفة، وتطبيقات المنطق الرمزي، وجداول الصدق."
+              },
+              {
+                phaseEn: "Assessment & Synthesis",
+                phaseAr: "التقويم الختامي وتأكيد الفهم",
+                duration: "25 min",
+                activitiesEn: "Student solve MCQs and exercises with step-by-step logic verification.",
+                activitiesAr: "حل تدريبات تطبيقية متنوعة وقياس مهارات التفكير العليا لدى الطلاب."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing subjective relativism with objective ethical nihilism.",
+              "Assuming deductive validity depends on real-world empirical fact."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين النسبية الذاتية للقيم وبين الإنكار التام لوجود الأخلاق.",
+              "الاعتقاد الخاطئ بأن صحة الحجة الاستنباطية تتوقف على مطابقتها للواقع الفعلي."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided truth table templates and simplified philosophical glossaries.",
+              advanced: "Analyze complex non-monotonic AI reasoning and multi-premise formal fallacies."
+            },
+            differentiationAr: {
+              struggling: "تقديم نماذج إرشادية لجداول الصدق وملخصات مفاهيمية ميسرة لمصطلحات الفلاسفة.",
+              advanced: "تحليل معمق لنماذج الذكاء الاصطناعي غير الرتيب ومغالطات الاستدلال المعقدة."
+            },
+            formativeAssessmentEn: "Classroom debate analyzing informed consent vs paternalism.",
+            formativeAssessmentAr: "مناظرة صفية تفاعلية لمناقشة الموافقة المستنيرة في مواجهة الوصاية الطبية.",
+            exitTicketQuestion: {
+              questionEn: "Why is an argument with false premises still capable of being deductively valid?",
+              questionAr: "لماذا يمكن أن تكون الحجة الاستنباطية صحيحة صورياً رغم كذب جميع مقدماتها في الواقع؟",
+              solutionEn: "Because validity depends solely on formal implication between premises and conclusion.",
+              solutionAr: "لأن صحة الحجة الاستنباطية مسألة صورية تتعلق بلزوم النتيجة عن المقدمات بغض النظر عن الواقع."
+            }
+          },
+          worksheet: {
+            id: "th_phil_phil_ws_8_2",
+            titleEn: "Ministry Assessment Worksheet: " + "Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+            titleAr: "ورقة عمل وزارية تقييمية: " + "المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+            descriptionEn: "Standardized ministerial worksheet covering critical thinking outcomes.",
+            descriptionAr: "ورقة تدريبية معتمدة وفق معايير المركز القومي للامتحانات ونواتج التعلم المستهدفة.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_phil_phil_ws_8_2_q1",
+                titleEn: "Diagnostic Application 1",
+                titleAr: "تطبيق تشخيصي 1",
+                difficulty: "medium",
+                questionEn: "Analyze the core premise and epistemological principle of: " + "Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+                questionAr: "حدد المنطلق الفلسفي أو القاعدة المنطقية الحاكمة لمفهوم: " + "المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+                correctAnswer: "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                optionsEn: [
+                  "MoE Standard Solution: Rigorous philosophical reasoning grounded in ethical principles or formal validity.",
+                  "Subjective conjecture devoid of systemic normative grounding",
+                  "Empirical generalization that disregards formal logical consistency",
+                  "Reductionist biological determinism without ethical responsibility"
+                ],
+                optionsAr: [
+                  "الحل المعتمد وزارياً: استدلال فلسفي رصين مؤسس على مبادئ معيارية أو صرامة لزومية استنباطية.",
+                  "تخمين ذاتي يفتقر إلى التأصيل الفلسفي النسقي",
+                  "تعميم تجريبي سطحي يتجاهل الاتساق المنطقي الصوري",
+                  "حتمية بيولوجية اختزالية تسقط المسؤولية الأخلاقية الواعية"
+                ],
+                correctIndex: 0,
+                hintEn: "Reflect on how normative frameworks and logical rules guarantee coherence.",
+                hintAr: "استحضر المعايير الأخلاقية واللزوم المنطقي الذي يحكم القضية.",
+                stepByStepSolutionEn: [
+                  "1. Identify the conceptual problem or argument structure.",
+                  "2. Compare against established philosophical theories (e.g. Jonas, Leopold, Potter) or logical rules.",
+                  "3. Deduce the verified ministerial standard outcome."
+                ],
+                stepByStepSolutionAr: [
+                  "١. تحديد المعضلة الأخلاقية أو البنية المنطقية للقضية.",
+                  "٢. الاحتكام إلى النظريات الفلسفية المعتمدة (كيونس وليوبولد وبوتر) أو قواعد اللزوم المنطقي.",
+                  "٣. استنتاج النتيجة التحليلية المتوافقة مع معايير الوزارة."
+                ]
+              },
+              {
+                id: "th_phil_phil_ws_8_2_q2",
+                titleEn: "Diagnostic Application 2",
+                titleAr: "تطبيق تشخيصي 2",
+                difficulty: "medium",
+                questionEn: "Evaluate the normative or logical validity in the context of: " + "Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+                questionAr: "قيّم الموقف الأخلاقي أو الصحة الصورية في سياق: " + "المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+                correctAnswer: "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                optionsEn: [
+                  "Deductive validity is strictly formal; sound ethics balances human agency with ecological/technological responsibility.",
+                  "Truth of premises always guarantees validity regardless of structure",
+                  "Technological advancement overrides all bioethical constraints",
+                  "Ethical values are completely arbitrary without social consensus"
+                ],
+                optionsAr: [
+                  "الصحة الاستنباطية صورية خالصة، والأخلاق الرشيدة توازن بين الفاعلية الإنسانية والمسؤولية البيئية والتكنولوجية.",
+                  "صدق المقدمات يضمن حتماً صحة الحجة بغض النظر عن لزوم النتيجة",
+                  "التقدم التكنولوجي يلغي كافة القيود والضوابط الأخلاقية الطبية",
+                  "القيم الأخلاقية اعتباطية بالكامل وتفتقر إلى أي إلزام موضوعي أو تعاقدي"
+                ],
+                correctIndex: 0,
+                hintEn: "Recall the distinction between empirical truth and formal validity or ethical duty.",
+                hintAr: "ميز بين الصدق الواقعي والصحة الصورية، أو بين المنفعة الضيقة والواجب الأخلاقي المستدام.",
+                stepByStepSolutionEn: [
+                  "1. Differentiate empirical facts from structural logical deduction.",
+                  "2. Synthesize ethical principles (responsibility, non-maleficence, autonomy).",
+                  "3. Conclude with the rigorously substantiated answer."
+                ],
+                stepByStepSolutionAr: [
+                  "١. التمييز الدقيق بين الوقائع التجريبية والبناء الاستنباطي الصوري.",
+                  "٢. استحضار مبادئ المسؤولية والاستقلالية الفردية وعدم إلحاق الأذى.",
+                  "٣. صياغة الاستنتاج الفلسفي المتسق مع نموذج الإجابة الوزاري."
+                ]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "logic_fuzzy_ai",
+            titleEn: "Interactive Philosophy & Logic Studio: " + "Logic in Artificial Intelligence: Non-Monotonic and Fuzzy Logic",
+            titleAr: "مختبر الفلسفة والمنطق التفاعلي: " + "المنطق والذكاء الاصطناعي: المنطق غير الرتيب والمنطق المرن",
+            descriptionEn: "Interactive simulation laboratory for truth tables, syllogistic deduction, Mill's induction, or bioethical dilemma modeling.",
+            descriptionAr: "مختبر رقمي تفاعلي لتحليل جداول الصدق، قياس أرسطو، طرق مل الاستقرائية، وحل معضلات البيوتيقا والمسؤولية الأخلاقية."
+          }
+        },
+      ],
+      solvedExamples: philCh8SolvedExamples,
+      exerciseProblems: philCh8Exercises,
+      databank: philCh8Databank
+    },
+  ]
+};

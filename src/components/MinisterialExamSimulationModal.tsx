@@ -337,6 +337,10 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
       detectedSubjectId = 'geography';
       detectedBranchAr = 'القسم الأدبي - مسار الجغرافيا السياسية والعلوم الإنسانية';
       detectedBranchEn = 'Humanities & Literary Division';
+    } else if (lowerSubj.includes('phil') || lowerSubj.includes('فلسف') || lowerSubj.includes('منطق')) {
+      detectedSubjectId = 'philosophy';
+      detectedBranchAr = 'القسم الأدبي - مسار الفلسفة والمنطق التطبيقي';
+      detectedBranchEn = 'Humanities & Applied Logic Division';
     } else if (lowerSubj.includes('arab') || lowerSubj.includes('عرب')) {
       detectedSubjectId = 'arabic';
       detectedBranchAr = 'المواد العامة المشتركة لجميع الشعب';

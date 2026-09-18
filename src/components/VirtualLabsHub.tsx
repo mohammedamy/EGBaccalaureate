@@ -14,6 +14,7 @@ import {
   Headphones,
   Globe,
   Mountain,
+  Brain,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -22,6 +23,7 @@ import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
+import { LogicStudio } from './labs/LogicStudio';
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
@@ -37,7 +39,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -56,6 +58,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'chemistry') return 'chemistry';
     if (selectedSubject === 'biology') return 'biology';
     if (selectedSubject === 'geology') return 'geology';
+    if (selectedSubject === 'philosophy') return 'philosophy';
     if (selectedSubject === 'history') return 'history';
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
@@ -78,6 +81,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'chemistry') setActiveLab('chemistry');
     else if (selectedSubject === 'biology') setActiveLab('biology');
     else if (selectedSubject === 'geology') setActiveLab('geology');
+    else if (selectedSubject === 'philosophy') setActiveLab('philosophy');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -299,6 +303,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'مختبر اللغات المتقدم: استماع وتدريب صوتي تفاعلي للإنجليزية والفرنسية، ومحلل الإعراب والبلاغة العربية'
         : 'Advanced Languages Lab: Interactive English & French listening audio stations and Arabic grammar & rhetoric analyzer',
+    },
+    {
+      id: 'philosophy' as LabId,
+      titleEn: 'Applied Logic & AI Studio',
+      titleAr: 'استوديو المنطق والذكاء الاصطناعي',
+      subtitleEn: 'Truth Tables, Syllogism Validator, Mill Inductive Methods, Fuzzy AI & Bioethics Matrix',
+      subtitleAr: 'جداول الصدق الرمزية، القياس الأرسطي، طرق مل الاستقرائية، المنطق المرن، ومصفوفة البيوتيقا',
+      icon: Brain,
+      color: 'purple',
+      badge: '🧠 Logic & AI Studio',
+      gradient: 'from-purple-600 via-violet-600 to-indigo-700',
+      activeBg: 'bg-purple-600 text-white shadow-purple-600/30',
+      tagline: isArabic
+        ? 'استوديو المنطق التطبيقي والأخلاقيات: جداول الصدق، قياس أرسطو، طرق مل الخمس، المنطق المرن بالذكاء الاصطناعي، ومصفوفة البيوتيقا'
+        : 'Applied Logic Studio: Propositional truth tables, Aristotelian syllogism, Mill inductive methods, fuzzy AI logic & bioethics matrix',
     },
   ];
 
@@ -725,6 +744,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             )}
           </div>
         )}
+
+        {/* Applied Logic & AI Studio */}
+        {activeLab === 'philosophy' && (
+          <div className="space-y-4">
+            <LogicStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -733,7 +763,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -748,7 +778,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );
